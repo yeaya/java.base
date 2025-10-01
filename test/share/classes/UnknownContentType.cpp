@@ -1,0 +1,66 @@
+#include <UnknownContentType.h>
+
+#include <java/io/File.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <java/net/URLConnection.h>
+#include <jcpp.h>
+
+using $File = ::java::io::File;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $URL = ::java::net::URL;
+using $URLConnection = ::java::net::URLConnection;
+
+$MethodInfo _UnknownContentType_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnknownContentType::*)()>(&UnknownContentType::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UnknownContentType::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _UnknownContentType_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"UnknownContentType",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_UnknownContentType_MethodInfo_
+};
+
+$Object* allocate$UnknownContentType($Class* clazz) {
+	return $of($alloc(UnknownContentType));
+}
+
+void UnknownContentType::init$() {
+}
+
+void UnknownContentType::main($StringArray* args) {
+	$var($File, tmp, $File::createTempFile("bug4975103"_s, nullptr));
+	$nc(tmp)->deleteOnExit();
+	$var($URL, url, tmp->toURL());
+	$var($URLConnection, conn, $nc(url)->openConnection());
+	$nc(conn)->connect();
+	$var($String, s1, conn->getContentType());
+	$var($String, s2, conn->getHeaderField("content-type"_s));
+	if (!$nc(s1)->equals(s2)) {
+		$throwNew($RuntimeException, "getContentType() differs from getHeaderField(\"content-type\")"_s);
+	}
+}
+
+UnknownContentType::UnknownContentType() {
+}
+
+$Class* UnknownContentType::load$($String* name, bool initialize) {
+	$loadClass(UnknownContentType, name, initialize, &_UnknownContentType_ClassInfo_, allocate$UnknownContentType);
+	return class$;
+}
+
+$Class* UnknownContentType::class$ = nullptr;

@@ -1,0 +1,53 @@
+#include <NonPublicProxyClass$PublicInterface.h>
+
+#include <NonPublicProxyClass.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $NonPublicProxyClass = ::NonPublicProxyClass;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _NonPublicProxyClass$PublicInterface_MethodInfo_[] = {
+	{"foo", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$InnerClassInfo _NonPublicProxyClass$PublicInterface_InnerClassesInfo_[] = {
+	{"NonPublicProxyClass$PublicInterface", "NonPublicProxyClass", "PublicInterface", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _NonPublicProxyClass$PublicInterface_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"NonPublicProxyClass$PublicInterface",
+	nullptr,
+	nullptr,
+	nullptr,
+	_NonPublicProxyClass$PublicInterface_MethodInfo_,
+	nullptr,
+	nullptr,
+	_NonPublicProxyClass$PublicInterface_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"NonPublicProxyClass"
+};
+
+$Object* allocate$NonPublicProxyClass$PublicInterface($Class* clazz) {
+	return $of($alloc(NonPublicProxyClass$PublicInterface));
+}
+
+$Class* NonPublicProxyClass$PublicInterface::load$($String* name, bool initialize) {
+	$loadClass(NonPublicProxyClass$PublicInterface, name, initialize, &_NonPublicProxyClass$PublicInterface_ClassInfo_, allocate$NonPublicProxyClass$PublicInterface);
+	return class$;
+}
+
+$Class* NonPublicProxyClass$PublicInterface::class$ = nullptr;

@@ -1,0 +1,73 @@
+#include <EmptyPath.h>
+
+#include <java/io/File.h>
+#include <java/io/FileInputStream.h>
+#include <java/io/FileNotFoundException.h>
+#include <java/io/IOException.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $File = ::java::io::File;
+using $FileInputStream = ::java::io::FileInputStream;
+using $FileNotFoundException = ::java::io::FileNotFoundException;
+using $IOException = ::java::io::IOException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+
+$MethodInfo _EmptyPath_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptyPath::*)()>(&EmptyPath::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EmptyPath::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _EmptyPath_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"EmptyPath",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_EmptyPath_MethodInfo_
+};
+
+$Object* allocate$EmptyPath($Class* clazz) {
+	return $of($alloc(EmptyPath));
+}
+
+void EmptyPath::init$() {
+}
+
+void EmptyPath::main($StringArray* args) {
+	$var($File, f, $new($File, ""_s));
+	f->mkdir();
+	try {
+		f->createNewFile();
+		$throwNew($RuntimeException, "Expected exception not thrown"_s);
+	} catch ($IOException&) {
+		$catch();
+	}
+	try {
+		$var($FileInputStream, fis, $new($FileInputStream, f));
+		fis->close();
+		$throwNew($RuntimeException, "Expected exception not thrown"_s);
+	} catch ($FileNotFoundException&) {
+		$catch();
+	}
+}
+
+EmptyPath::EmptyPath() {
+}
+
+$Class* EmptyPath::load$($String* name, bool initialize) {
+	$loadClass(EmptyPath, name, initialize, &_EmptyPath_ClassInfo_, allocate$EmptyPath);
+	return class$;
+}
+
+$Class* EmptyPath::class$ = nullptr;

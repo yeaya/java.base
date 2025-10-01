@@ -1,0 +1,90 @@
+#include <sun/reflect/annotation/TypeNotPresentExceptionProxy.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/TypeNotPresentException.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <sun/reflect/annotation/ExceptionProxy.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $TypeNotPresentException = ::java::lang::TypeNotPresentException;
+using $ExceptionProxy = ::sun::reflect::annotation::ExceptionProxy;
+
+namespace sun {
+	namespace reflect {
+		namespace annotation {
+
+$FieldInfo _TypeNotPresentExceptionProxy_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeNotPresentExceptionProxy, serialVersionUID)},
+	{"typeName", "Ljava/lang/String;", nullptr, $FINAL, $field(TypeNotPresentExceptionProxy, typeName$)},
+	{"cause", "Ljava/lang/Throwable;", nullptr, $FINAL, $field(TypeNotPresentExceptionProxy, cause)},
+	{}
+};
+
+$MethodInfo _TypeNotPresentExceptionProxy_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeNotPresentExceptionProxy::*)($String*,$Throwable*)>(&TypeNotPresentExceptionProxy::init$))},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _TypeNotPresentExceptionProxy_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"sun.reflect.annotation.TypeNotPresentExceptionProxy",
+	"sun.reflect.annotation.ExceptionProxy",
+	nullptr,
+	_TypeNotPresentExceptionProxy_FieldInfo_,
+	_TypeNotPresentExceptionProxy_MethodInfo_
+};
+
+$Object* allocate$TypeNotPresentExceptionProxy($Class* clazz) {
+	return $of($alloc(TypeNotPresentExceptionProxy));
+}
+
+void TypeNotPresentExceptionProxy::init$($String* typeName, $Throwable* cause) {
+	$ExceptionProxy::init$();
+	$set(this, typeName$, typeName);
+	$set(this, cause, cause);
+}
+
+$RuntimeException* TypeNotPresentExceptionProxy::generateException() {
+	return $new($TypeNotPresentException, this->typeName$, this->cause);
+}
+
+$String* TypeNotPresentExceptionProxy::typeName() {
+	return this->typeName$;
+}
+
+$Throwable* TypeNotPresentExceptionProxy::getCause() {
+	return this->cause;
+}
+
+$String* TypeNotPresentExceptionProxy::toString() {
+	return $str({this->typeName$, ".class /* Warning: type not present! */"_s});
+}
+
+TypeNotPresentExceptionProxy::TypeNotPresentExceptionProxy() {
+}
+
+$Class* TypeNotPresentExceptionProxy::load$($String* name, bool initialize) {
+	$loadClass(TypeNotPresentExceptionProxy, name, initialize, &_TypeNotPresentExceptionProxy_ClassInfo_, allocate$TypeNotPresentExceptionProxy);
+	return class$;
+}
+
+$Class* TypeNotPresentExceptionProxy::class$ = nullptr;
+
+		} // annotation
+	} // reflect
+} // sun

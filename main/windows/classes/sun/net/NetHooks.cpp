@@ -1,0 +1,61 @@
+#include <sun/net/NetHooks.h>
+
+#include <java/io/FileDescriptor.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/InetAddress.h>
+#include <jcpp.h>
+
+using $FileDescriptor = ::java::io::FileDescriptor;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $InetAddress = ::java::net::InetAddress;
+
+namespace sun {
+	namespace net {
+
+$MethodInfo _NetHooks_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetHooks::*)()>(&NetHooks::init$))},
+	{"beforeTcpBind", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($FileDescriptor*,$InetAddress*,int32_t)>(&NetHooks::beforeTcpBind)), "java.io.IOException"},
+	{"beforeTcpConnect", "(Ljava/io/FileDescriptor;Ljava/net/InetAddress;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($FileDescriptor*,$InetAddress*,int32_t)>(&NetHooks::beforeTcpConnect)), "java.io.IOException"},
+	{}
+};
+
+$ClassInfo _NetHooks_ClassInfo_ = {
+	$PUBLIC | $FINAL | $ACC_SUPER,
+	"sun.net.NetHooks",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_NetHooks_MethodInfo_
+};
+
+$Object* allocate$NetHooks($Class* clazz) {
+	return $of($alloc(NetHooks));
+}
+
+void NetHooks::init$() {
+}
+
+void NetHooks::beforeTcpBind($FileDescriptor* fdObj, $InetAddress* address, int32_t port) {
+}
+
+void NetHooks::beforeTcpConnect($FileDescriptor* fdObj, $InetAddress* address, int32_t port) {
+}
+
+NetHooks::NetHooks() {
+}
+
+$Class* NetHooks::load$($String* name, bool initialize) {
+	$loadClass(NetHooks, name, initialize, &_NetHooks_ClassInfo_, allocate$NetHooks);
+	return class$;
+}
+
+$Class* NetHooks::class$ = nullptr;
+
+	} // net
+} // sun

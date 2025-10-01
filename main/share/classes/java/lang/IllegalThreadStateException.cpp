@@ -1,0 +1,77 @@
+#include <java/lang/IllegalThreadStateException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalArgumentException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace lang {
+
+$FieldInfo _IllegalThreadStateException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalThreadStateException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _IllegalThreadStateException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalThreadStateException::*)()>(&IllegalThreadStateException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalThreadStateException::*)($String*)>(&IllegalThreadStateException::init$))},
+	{}
+};
+
+$ClassInfo _IllegalThreadStateException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.lang.IllegalThreadStateException",
+	"java.lang.IllegalArgumentException",
+	nullptr,
+	_IllegalThreadStateException_FieldInfo_,
+	_IllegalThreadStateException_MethodInfo_
+};
+
+$Object* allocate$IllegalThreadStateException($Class* clazz) {
+	return $of($alloc(IllegalThreadStateException));
+}
+
+void IllegalThreadStateException::init$() {
+	$IllegalArgumentException::init$();
+}
+
+void IllegalThreadStateException::init$($String* s) {
+	$IllegalArgumentException::init$(s);
+}
+
+IllegalThreadStateException::IllegalThreadStateException() {
+}
+
+IllegalThreadStateException::IllegalThreadStateException(const IllegalThreadStateException& e) {
+}
+
+IllegalThreadStateException IllegalThreadStateException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void IllegalThreadStateException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* IllegalThreadStateException::load$($String* name, bool initialize) {
+	$loadClass(IllegalThreadStateException, name, initialize, &_IllegalThreadStateException_ClassInfo_, allocate$IllegalThreadStateException);
+	return class$;
+}
+
+$Class* IllegalThreadStateException::class$ = nullptr;
+
+	} // lang
+} // java

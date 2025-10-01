@@ -1,0 +1,88 @@
+#include <java/security/DigestException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/GeneralSecurityException.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $GeneralSecurityException = ::java::security::GeneralSecurityException;
+
+namespace java {
+	namespace security {
+
+$FieldInfo _DigestException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigestException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _DigestException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)()>(&DigestException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)($String*)>(&DigestException::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)($String*,$Throwable*)>(&DigestException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DigestException::*)($Throwable*)>(&DigestException::init$))},
+	{}
+};
+
+$ClassInfo _DigestException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.security.DigestException",
+	"java.security.GeneralSecurityException",
+	nullptr,
+	_DigestException_FieldInfo_,
+	_DigestException_MethodInfo_
+};
+
+$Object* allocate$DigestException($Class* clazz) {
+	return $of($alloc(DigestException));
+}
+
+void DigestException::init$() {
+	$GeneralSecurityException::init$();
+}
+
+void DigestException::init$($String* msg) {
+	$GeneralSecurityException::init$(msg);
+}
+
+void DigestException::init$($String* message, $Throwable* cause) {
+	$GeneralSecurityException::init$(message, cause);
+}
+
+void DigestException::init$($Throwable* cause) {
+	$GeneralSecurityException::init$(cause);
+}
+
+DigestException::DigestException() {
+}
+
+DigestException::DigestException(const DigestException& e) {
+}
+
+DigestException DigestException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void DigestException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* DigestException::load$($String* name, bool initialize) {
+	$loadClass(DigestException, name, initialize, &_DigestException_ClassInfo_, allocate$DigestException);
+	return class$;
+}
+
+$Class* DigestException::class$ = nullptr;
+
+	} // security
+} // java

@@ -1,0 +1,63 @@
+#include <sun/util/resources/Bundles$CacheKeyReference.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <sun/util/resources/Bundles$CacheKey.h>
+#include <sun/util/resources/Bundles.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Bundles = ::sun::util::resources::Bundles;
+using $Bundles$CacheKey = ::sun::util::resources::Bundles$CacheKey;
+
+namespace sun {
+	namespace util {
+		namespace resources {
+
+$MethodInfo _Bundles$CacheKeyReference_MethodInfo_[] = {
+	{"getCacheKey", "()Lsun/util/resources/Bundles$CacheKey;", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$InnerClassInfo _Bundles$CacheKeyReference_InnerClassesInfo_[] = {
+	{"sun.util.resources.Bundles$CacheKeyReference", "sun.util.resources.Bundles", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _Bundles$CacheKeyReference_ClassInfo_ = {
+	$INTERFACE | $ABSTRACT,
+	"sun.util.resources.Bundles$CacheKeyReference",
+	nullptr,
+	nullptr,
+	nullptr,
+	_Bundles$CacheKeyReference_MethodInfo_,
+	nullptr,
+	nullptr,
+	_Bundles$CacheKeyReference_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.util.resources.Bundles"
+};
+
+$Object* allocate$Bundles$CacheKeyReference($Class* clazz) {
+	return $of($alloc(Bundles$CacheKeyReference));
+}
+
+$Class* Bundles$CacheKeyReference::load$($String* name, bool initialize) {
+	$loadClass(Bundles$CacheKeyReference, name, initialize, &_Bundles$CacheKeyReference_ClassInfo_, allocate$Bundles$CacheKeyReference);
+	return class$;
+}
+
+$Class* Bundles$CacheKeyReference::class$ = nullptr;
+
+		} // resources
+	} // util
+} // sun

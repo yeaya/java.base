@@ -1,0 +1,60 @@
+#include <GetAnnotatedReceiverType$Nested.h>
+
+#include <GetAnnotatedReceiverType.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $GetAnnotatedReceiverType = ::GetAnnotatedReceiverType;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _GetAnnotatedReceiverType$Nested_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAnnotatedReceiverType$Nested::*)()>(&GetAnnotatedReceiverType$Nested::init$))},
+	{}
+};
+
+$InnerClassInfo _GetAnnotatedReceiverType$Nested_InnerClassesInfo_[] = {
+	{"GetAnnotatedReceiverType$Nested", "GetAnnotatedReceiverType", "Nested", $PUBLIC | $STATIC},
+	{"GetAnnotatedReceiverType$Nested$NestedInner", "GetAnnotatedReceiverType$Nested", "NestedInner", $PUBLIC},
+	{}
+};
+
+$ClassInfo _GetAnnotatedReceiverType$Nested_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"GetAnnotatedReceiverType$Nested",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_GetAnnotatedReceiverType$Nested_MethodInfo_,
+	nullptr,
+	nullptr,
+	_GetAnnotatedReceiverType$Nested_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"GetAnnotatedReceiverType"
+};
+
+$Object* allocate$GetAnnotatedReceiverType$Nested($Class* clazz) {
+	return $of($alloc(GetAnnotatedReceiverType$Nested));
+}
+
+void GetAnnotatedReceiverType$Nested::init$() {
+}
+
+GetAnnotatedReceiverType$Nested::GetAnnotatedReceiverType$Nested() {
+}
+
+$Class* GetAnnotatedReceiverType$Nested::load$($String* name, bool initialize) {
+	$loadClass(GetAnnotatedReceiverType$Nested, name, initialize, &_GetAnnotatedReceiverType$Nested_ClassInfo_, allocate$GetAnnotatedReceiverType$Nested);
+	return class$;
+}
+
+$Class* GetAnnotatedReceiverType$Nested::class$ = nullptr;

@@ -1,0 +1,88 @@
+#include <java/security/KeyException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/GeneralSecurityException.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $GeneralSecurityException = ::java::security::GeneralSecurityException;
+
+namespace java {
+	namespace security {
+
+$FieldInfo _KeyException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _KeyException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)()>(&KeyException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)($String*)>(&KeyException::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)($String*,$Throwable*)>(&KeyException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyException::*)($Throwable*)>(&KeyException::init$))},
+	{}
+};
+
+$ClassInfo _KeyException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.security.KeyException",
+	"java.security.GeneralSecurityException",
+	nullptr,
+	_KeyException_FieldInfo_,
+	_KeyException_MethodInfo_
+};
+
+$Object* allocate$KeyException($Class* clazz) {
+	return $of($alloc(KeyException));
+}
+
+void KeyException::init$() {
+	$GeneralSecurityException::init$();
+}
+
+void KeyException::init$($String* msg) {
+	$GeneralSecurityException::init$(msg);
+}
+
+void KeyException::init$($String* message, $Throwable* cause) {
+	$GeneralSecurityException::init$(message, cause);
+}
+
+void KeyException::init$($Throwable* cause) {
+	$GeneralSecurityException::init$(cause);
+}
+
+KeyException::KeyException() {
+}
+
+KeyException::KeyException(const KeyException& e) {
+}
+
+KeyException KeyException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void KeyException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* KeyException::load$($String* name, bool initialize) {
+	$loadClass(KeyException, name, initialize, &_KeyException_ClassInfo_, allocate$KeyException);
+	return class$;
+}
+
+$Class* KeyException::class$ = nullptr;
+
+	} // security
+} // java

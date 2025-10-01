@@ -1,0 +1,114 @@
+#include <java/security/ProtectionDomain$JavaSecurityAccessImpl.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/AccessControlContext.h>
+#include <java/security/AccessController.h>
+#include <java/security/DomainCombiner.h>
+#include <java/security/PrivilegedAction.h>
+#include <java/security/ProtectionDomain$JavaSecurityAccessImpl$1.h>
+#include <java/security/ProtectionDomain.h>
+#include <jdk/internal/access/JavaSecurityAccess$ProtectionDomainCache.h>
+#include <jcpp.h>
+
+using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $AccessControlContext = ::java::security::AccessControlContext;
+using $AccessController = ::java::security::AccessController;
+using $DomainCombiner = ::java::security::DomainCombiner;
+using $PrivilegedAction = ::java::security::PrivilegedAction;
+using $ProtectionDomain = ::java::security::ProtectionDomain;
+using $ProtectionDomain$JavaSecurityAccessImpl$1 = ::java::security::ProtectionDomain$JavaSecurityAccessImpl$1;
+using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
+using $JavaSecurityAccess$ProtectionDomainCache = ::jdk::internal::access::JavaSecurityAccess$ProtectionDomainCache;
+
+namespace java {
+	namespace security {
+
+$MethodInfo _ProtectionDomain$JavaSecurityAccessImpl_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ProtectionDomain$JavaSecurityAccessImpl::*)()>(&ProtectionDomain$JavaSecurityAccessImpl::init$))},
+	{"doIntersectionPrivilege", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/security/PrivilegedAction<TT;>;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)TT;", $PUBLIC},
+	{"doIntersectionPrivilege", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/security/PrivilegedAction<TT;>;Ljava/security/AccessControlContext;)TT;", $PUBLIC},
+	{"getCombinedACC", "(Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AccessControlContext*(*)($AccessControlContext*,$AccessControlContext*)>(&ProtectionDomain$JavaSecurityAccessImpl::getCombinedACC))},
+	{"getProtectDomains", "(Ljava/security/AccessControlContext;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
+	{"getProtectionDomainCache", "()Ljdk/internal/access/JavaSecurityAccess$ProtectionDomainCache;", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _ProtectionDomain$JavaSecurityAccessImpl_InnerClassesInfo_[] = {
+	{"java.security.ProtectionDomain$JavaSecurityAccessImpl", "java.security.ProtectionDomain", "JavaSecurityAccessImpl", $PRIVATE | $STATIC},
+	{"java.security.ProtectionDomain$JavaSecurityAccessImpl$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _ProtectionDomain$JavaSecurityAccessImpl_ClassInfo_ = {
+	$ACC_SUPER,
+	"java.security.ProtectionDomain$JavaSecurityAccessImpl",
+	"java.lang.Object",
+	"jdk.internal.access.JavaSecurityAccess",
+	nullptr,
+	_ProtectionDomain$JavaSecurityAccessImpl_MethodInfo_,
+	nullptr,
+	nullptr,
+	_ProtectionDomain$JavaSecurityAccessImpl_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"java.security.ProtectionDomain"
+};
+
+$Object* allocate$ProtectionDomain$JavaSecurityAccessImpl($Class* clazz) {
+	return $of($alloc(ProtectionDomain$JavaSecurityAccessImpl));
+}
+
+void ProtectionDomain$JavaSecurityAccessImpl::init$() {
+}
+
+$Object* ProtectionDomain$JavaSecurityAccessImpl::doIntersectionPrivilege($PrivilegedAction* action, $AccessControlContext* stack, $AccessControlContext* context) {
+	$beforeCallerSensitive();
+	if (action == nullptr) {
+		$throwNew($NullPointerException);
+	}
+	return $of($AccessController::doPrivileged(action, $(getCombinedACC(context, stack))));
+}
+
+$Object* ProtectionDomain$JavaSecurityAccessImpl::doIntersectionPrivilege($PrivilegedAction* action, $AccessControlContext* context) {
+	return $of(doIntersectionPrivilege(action, $($AccessController::getContext()), context));
+}
+
+$ProtectionDomainArray* ProtectionDomain$JavaSecurityAccessImpl::getProtectDomains($AccessControlContext* context) {
+	return $nc(context)->getContext();
+}
+
+$AccessControlContext* ProtectionDomain$JavaSecurityAccessImpl::getCombinedACC($AccessControlContext* context, $AccessControlContext* stack) {
+	$init(ProtectionDomain$JavaSecurityAccessImpl);
+	$var($AccessControlContext, acc, $new($AccessControlContext, context, $($nc(stack)->getCombiner()), true));
+	return $$new($AccessControlContext, $($nc(stack)->getContext()), acc)->optimize();
+}
+
+$JavaSecurityAccess$ProtectionDomainCache* ProtectionDomain$JavaSecurityAccessImpl::getProtectionDomainCache() {
+	return $new($ProtectionDomain$JavaSecurityAccessImpl$1, this);
+}
+
+ProtectionDomain$JavaSecurityAccessImpl::ProtectionDomain$JavaSecurityAccessImpl() {
+}
+
+$Class* ProtectionDomain$JavaSecurityAccessImpl::load$($String* name, bool initialize) {
+	$loadClass(ProtectionDomain$JavaSecurityAccessImpl, name, initialize, &_ProtectionDomain$JavaSecurityAccessImpl_ClassInfo_, allocate$ProtectionDomain$JavaSecurityAccessImpl);
+	return class$;
+}
+
+$Class* ProtectionDomain$JavaSecurityAccessImpl::class$ = nullptr;
+
+	} // security
+} // java

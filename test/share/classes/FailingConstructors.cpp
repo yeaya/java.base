@@ -1,0 +1,266 @@
+#include <FailingConstructors.h>
+
+#include <java/io/File.h>
+#include <java/io/FileInputStream.h>
+#include <java/io/FileNotFoundException.h>
+#include <java/io/FileOutputStream.h>
+#include <java/io/IOException.h>
+#include <java/io/PrintStream.h>
+#include <java/io/PrintWriter.h>
+#include <java/io/UnsupportedEncodingException.h>
+#include <java/lang/Array.h>
+#include <java/lang/AssertionError.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/Integer.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Thread.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+#undef UNSUPPORTED_CHARSET
+#undef FILE_CONTENTS
+
+using $File = ::java::io::File;
+using $FileInputStream = ::java::io::FileInputStream;
+using $FileNotFoundException = ::java::io::FileNotFoundException;
+using $FileOutputStream = ::java::io::FileOutputStream;
+using $IOException = ::java::io::IOException;
+using $PrintStream = ::java::io::PrintStream;
+using $PrintWriter = ::java::io::PrintWriter;
+using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
+using $AssertionError = ::java::lang::AssertionError;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $Integer = ::java::lang::Integer;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+
+$FieldInfo _FailingConstructors_FieldInfo_[] = {
+	{"fileName", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FailingConstructors, fileName)},
+	{"UNSUPPORTED_CHARSET", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FailingConstructors, UNSUPPORTED_CHARSET)},
+	{"FILE_CONTENTS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(FailingConstructors, FILE_CONTENTS)},
+	{"passed", "I", nullptr, $STATIC | $VOLATILE, $staticField(FailingConstructors, passed)},
+	{"failed", "I", nullptr, $STATIC | $VOLATILE, $staticField(FailingConstructors, failed)},
+	{}
+};
+
+$MethodInfo _FailingConstructors_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FailingConstructors::*)()>(&FailingConstructors::init$))},
+	{"check", "(ZLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$File*)>(&FailingConstructors::check))},
+	{"fail", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FailingConstructors::fail))},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&FailingConstructors::fail))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FailingConstructors::main)), "java.lang.Throwable"},
+	{"pass", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FailingConstructors::pass))},
+	{"realMain", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*)>(&FailingConstructors::realMain)), "java.lang.Throwable"},
+	{"test", "(ZLjava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(bool,$File*)>(&FailingConstructors::test)), "java.lang.Throwable"},
+	{"unexpected", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $method(static_cast<void(*)($Throwable*)>(&FailingConstructors::unexpected))},
+	{"verifyContents", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($File*)>(&FailingConstructors::verifyContents))},
+	{}
+};
+
+$ClassInfo _FailingConstructors_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"FailingConstructors",
+	"java.lang.Object",
+	nullptr,
+	_FailingConstructors_FieldInfo_,
+	_FailingConstructors_MethodInfo_
+};
+
+$Object* allocate$FailingConstructors($Class* clazz) {
+	return $of($alloc(FailingConstructors));
+}
+
+$String* FailingConstructors::fileName = nullptr;
+$String* FailingConstructors::UNSUPPORTED_CHARSET = nullptr;
+$String* FailingConstructors::FILE_CONTENTS = nullptr;
+$volatile(int32_t) FailingConstructors::passed = 0;
+$volatile(int32_t) FailingConstructors::failed = 0;
+
+void FailingConstructors::init$() {
+}
+
+void FailingConstructors::realMain($StringArray* args) {
+	$init(FailingConstructors);
+	test(false, $$new($File, FailingConstructors::fileName));
+	$var($File, file, $File::createTempFile(FailingConstructors::fileName, nullptr));
+	$nc(file)->deleteOnExit();
+	$var($FileOutputStream, fos, $new($FileOutputStream, file));
+	fos->write($($nc(FailingConstructors::FILE_CONTENTS)->getBytes()));
+	fos->close();
+	test(true, file);
+	file->delete$();
+}
+
+void FailingConstructors::test(bool exists, $File* file) {
+	$init(FailingConstructors);
+	try {
+		$new($PrintWriter, file, FailingConstructors::UNSUPPORTED_CHARSET);
+		fail();
+	} catch ($FileNotFoundException&) {
+		$var($IOException, e, $catch());
+		pass();
+	} catch ($UnsupportedEncodingException&) {
+		$var($IOException, e, $catch());
+		pass();
+	}
+	check(exists, file);
+	try {
+		$new($PrintWriter, file, ($String*)nullptr);
+		fail();
+	} catch ($FileNotFoundException&) {
+		$var($Exception, e, $catch());
+		pass();
+	} catch ($NullPointerException&) {
+		$var($Exception, e, $catch());
+		pass();
+	}
+	check(exists, file);
+	try {
+		$new($PrintWriter, $($nc(file)->getName()), FailingConstructors::UNSUPPORTED_CHARSET);
+		fail();
+	} catch ($FileNotFoundException&) {
+		$var($IOException, e, $catch());
+		pass();
+	} catch ($UnsupportedEncodingException&) {
+		$var($IOException, e, $catch());
+		pass();
+	}
+	check(exists, file);
+	try {
+		$new($PrintWriter, $($nc(file)->getName()), ($String*)nullptr);
+		fail();
+	} catch ($FileNotFoundException&) {
+		$var($Exception, e, $catch());
+		pass();
+	} catch ($NullPointerException&) {
+		$var($Exception, e, $catch());
+		pass();
+	}
+	check(exists, file);
+}
+
+void FailingConstructors::check(bool exists, $File* file) {
+	$init(FailingConstructors);
+	if (exists) {
+		verifyContents(file);
+	} else if ($nc(file)->exists()) {
+		fail($$str({file, " should not have been created"_s}));
+	}
+}
+
+void FailingConstructors::verifyContents($File* file) {
+	$init(FailingConstructors);
+	try {
+		$var($FileInputStream, fis, $new($FileInputStream, file));
+		{
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			try {
+				try {
+					$var($bytes, contents, $nc(FailingConstructors::FILE_CONTENTS)->getBytes());
+					int32_t read = 0;
+					int32_t count = 0;
+					while ((read = fis->read()) != -1) {
+						if (read != contents->get(count++)) {
+							fail("file contents have been altered"_s);
+							return$1 = true;
+							goto $finally;
+						}
+					}
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					try {
+						fis->close();
+					} catch ($Throwable&) {
+						$var($Throwable, x2, $catch());
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} $finally: {
+				fis->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return;
+			}
+		}
+	} catch ($IOException&) {
+		$var($IOException, ioe, $catch());
+		unexpected(ioe);
+	}
+}
+
+void FailingConstructors::pass() {
+	$init(FailingConstructors);
+	++FailingConstructors::passed;
+}
+
+void FailingConstructors::fail() {
+	$init(FailingConstructors);
+	++FailingConstructors::failed;
+	$Thread::dumpStack();
+}
+
+void FailingConstructors::fail($String* message) {
+	$init(FailingConstructors);
+	$init($System);
+	$nc($System::out)->println(message);
+	fail();
+}
+
+void FailingConstructors::unexpected($Throwable* t) {
+	$init(FailingConstructors);
+	++FailingConstructors::failed;
+	$nc(t)->printStackTrace();
+}
+
+void FailingConstructors::main($StringArray* args) {
+	$init(FailingConstructors);
+	try {
+		realMain(args);
+	} catch ($Throwable&) {
+		$var($Throwable, t, $catch());
+		unexpected(t);
+	}
+	$init($System);
+	$nc($System::out)->printf("%nPassed = %d, failed = %d%n%n"_s, $$new($ObjectArray, {
+		$($of($Integer::valueOf(FailingConstructors::passed))),
+		$($of($Integer::valueOf(FailingConstructors::failed)))
+	}));
+	if (FailingConstructors::failed > 0) {
+		$throwNew($AssertionError, $of("Some tests failed"_s));
+	}
+}
+
+void clinit$FailingConstructors($Class* class$) {
+	$assignStatic(FailingConstructors::fileName, "FailingConstructorsTest"_s);
+	$assignStatic(FailingConstructors::UNSUPPORTED_CHARSET, "unknownCharset"_s);
+	$assignStatic(FailingConstructors::FILE_CONTENTS, "This is a small file!"_s);
+	FailingConstructors::passed = 0;
+	FailingConstructors::failed = 0;
+}
+
+FailingConstructors::FailingConstructors() {
+}
+
+$Class* FailingConstructors::load$($String* name, bool initialize) {
+	$loadClass(FailingConstructors, name, initialize, &_FailingConstructors_ClassInfo_, clinit$FailingConstructors, allocate$FailingConstructors);
+	return class$;
+}
+
+$Class* FailingConstructors::class$ = nullptr;

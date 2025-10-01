@@ -1,0 +1,58 @@
+#include <UniTest/scalarTypesAcceptDefaultClass.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace UniTest {
+$CompoundAttribute _scalarTypesAcceptDefaultClass_Annotations_[] = {
+	{"LUniTest/ScalarTypesWithDefault;", nullptr},
+	{}
+};
+
+
+$MethodInfo _scalarTypesAcceptDefaultClass_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(static_cast<void(scalarTypesAcceptDefaultClass::*)()>(&scalarTypesAcceptDefaultClass::init$))},
+	{}
+};
+
+$ClassInfo _scalarTypesAcceptDefaultClass_ClassInfo_ = {
+	$ACC_SUPER,
+	"UniTest.scalarTypesAcceptDefaultClass",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_scalarTypesAcceptDefaultClass_MethodInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	_scalarTypesAcceptDefaultClass_Annotations_
+};
+
+$Object* allocate$scalarTypesAcceptDefaultClass($Class* clazz) {
+	return $of($alloc(scalarTypesAcceptDefaultClass));
+}
+
+void scalarTypesAcceptDefaultClass::init$() {
+}
+
+scalarTypesAcceptDefaultClass::scalarTypesAcceptDefaultClass() {
+}
+
+$Class* scalarTypesAcceptDefaultClass::load$($String* name, bool initialize) {
+	$loadClass(scalarTypesAcceptDefaultClass, name, initialize, &_scalarTypesAcceptDefaultClass_ClassInfo_, allocate$scalarTypesAcceptDefaultClass);
+	return class$;
+}
+
+$Class* scalarTypesAcceptDefaultClass::class$ = nullptr;
+
+} // UniTest

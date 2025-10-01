@@ -1,0 +1,50 @@
+#include <jdk/internal/access/JavaNetHttpCookieAccess.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/HttpCookie.h>
+#include <java/util/List.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpCookie = ::java::net::HttpCookie;
+using $List = ::java::util::List;
+
+namespace jdk {
+	namespace internal {
+		namespace access {
+
+$MethodInfo _JavaNetHttpCookieAccess_MethodInfo_[] = {
+	{"header", "(Ljava/net/HttpCookie;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/net/HttpCookie;>;", $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _JavaNetHttpCookieAccess_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"jdk.internal.access.JavaNetHttpCookieAccess",
+	nullptr,
+	nullptr,
+	nullptr,
+	_JavaNetHttpCookieAccess_MethodInfo_
+};
+
+$Object* allocate$JavaNetHttpCookieAccess($Class* clazz) {
+	return $of($alloc(JavaNetHttpCookieAccess));
+}
+
+$Class* JavaNetHttpCookieAccess::load$($String* name, bool initialize) {
+	$loadClass(JavaNetHttpCookieAccess, name, initialize, &_JavaNetHttpCookieAccess_ClassInfo_, allocate$JavaNetHttpCookieAccess);
+	return class$;
+}
+
+$Class* JavaNetHttpCookieAccess::class$ = nullptr;
+
+		} // access
+	} // internal
+} // jdk

@@ -1,0 +1,25 @@
+#ifndef _java_util_IllegalFormatException_h_
+#define _java_util_IllegalFormatException_h_
+//$ class java.util.IllegalFormatException
+//$ extends java.lang.IllegalArgumentException
+
+#include <java/lang/IllegalArgumentException.h>
+
+namespace java {
+	namespace util {
+
+class $import IllegalFormatException : public ::java::lang::IllegalArgumentException {
+	$class(IllegalFormatException, $NO_CLASS_INIT, ::java::lang::IllegalArgumentException)
+public:
+	IllegalFormatException();
+	void init$();
+	static const int64_t serialVersionUID = (int64_t)18830826;
+	IllegalFormatException(const IllegalFormatException& e);
+	IllegalFormatException wrapper$();
+	virtual void throwWrapper$() override;
+};
+
+	} // util
+} // java
+
+#endif // _java_util_IllegalFormatException_h_

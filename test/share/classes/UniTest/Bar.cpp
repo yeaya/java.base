@@ -1,0 +1,53 @@
+#include <UniTest/Bar.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/NamedAttribute.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $NamedAttribute = ::java::lang::NamedAttribute;
+using $Annotation = ::java::lang::annotation::Annotation;
+
+namespace UniTest {
+
+$NamedAttribute Bar_Attribute_var$0[] = {
+	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+	{}
+};
+$CompoundAttribute _Bar_Annotations_[] = {
+	{"Ljava/lang/annotation/Retention;", Bar_Attribute_var$0},
+	{}
+};
+
+
+$ClassInfo _Bar_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+	"UniTest.Bar",
+	nullptr,
+	"java.lang.annotation.Annotation",
+	nullptr,
+	nullptr,
+	nullptr,
+	nullptr,
+	nullptr,
+	_Bar_Annotations_
+};
+
+$Object* allocate$Bar($Class* clazz) {
+	return $of($alloc(Bar));
+}
+
+$Class* Bar::load$($String* name, bool initialize) {
+	$loadClass(Bar, name, initialize, &_Bar_ClassInfo_, allocate$Bar);
+	return class$;
+}
+
+$Class* Bar::class$ = nullptr;
+
+} // UniTest

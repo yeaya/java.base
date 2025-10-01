@@ -1,0 +1,33 @@
+#ifndef _sun_security_ssl_PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_h_
+#define _sun_security_ssl_PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_h_
+//$ class sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence
+//$ extends sun.security.ssl.HandshakeAbsence
+
+#include <sun/security/ssl/HandshakeAbsence.h>
+
+namespace sun {
+	namespace security {
+		namespace ssl {
+			class ConnectionContext;
+			class SSLHandshake$HandshakeMessage;
+		}
+	}
+}
+
+namespace sun {
+	namespace security {
+		namespace ssl {
+
+class PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence : public ::sun::security::ssl::HandshakeAbsence {
+	$class(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, $NO_CLASS_INIT, ::sun::security::ssl::HandshakeAbsence)
+public:
+	PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence();
+	void init$();
+	virtual void absent(::sun::security::ssl::ConnectionContext* context, ::sun::security::ssl::SSLHandshake$HandshakeMessage* message) override;
+};
+
+		} // ssl
+	} // security
+} // sun
+
+#endif // _sun_security_ssl_PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_h_

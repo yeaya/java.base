@@ -1,0 +1,55 @@
+#include <java/security/cert/CertPathValidatorException$Reason.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/cert/CertPathValidatorException.h>
+#include <jcpp.h>
+
+using $Serializable = ::java::io::Serializable;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
+
+namespace java {
+	namespace security {
+		namespace cert {
+
+$InnerClassInfo _CertPathValidatorException$Reason_InnerClassesInfo_[] = {
+	{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _CertPathValidatorException$Reason_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"java.security.cert.CertPathValidatorException$Reason",
+	nullptr,
+	"java.io.Serializable",
+	nullptr,
+	nullptr,
+	nullptr,
+	nullptr,
+	_CertPathValidatorException$Reason_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"java.security.cert.CertPathValidatorException"
+};
+
+$Object* allocate$CertPathValidatorException$Reason($Class* clazz) {
+	return $of($alloc(CertPathValidatorException$Reason));
+}
+
+$Class* CertPathValidatorException$Reason::load$($String* name, bool initialize) {
+	$loadClass(CertPathValidatorException$Reason, name, initialize, &_CertPathValidatorException$Reason_ClassInfo_, allocate$CertPathValidatorException$Reason);
+	return class$;
+}
+
+$Class* CertPathValidatorException$Reason::class$ = nullptr;
+
+		} // cert
+	} // security
+} // java

@@ -1,0 +1,158 @@
+#include <java/security/cert/CertPath.h>
+
+#include <java/io/NotSerializableException.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/StringBuilder.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/GeneralSecurityException.h>
+#include <java/security/cert/CertPath$CertPathRep.h>
+#include <java/security/cert/Certificate.h>
+#include <java/security/cert/CertificateException.h>
+#include <java/util/Iterator.h>
+#include <java/util/List.h>
+#include <jcpp.h>
+
+using $NotSerializableException = ::java::io::NotSerializableException;
+using $Serializable = ::java::io::Serializable;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $GeneralSecurityException = ::java::security::GeneralSecurityException;
+using $CertPath$CertPathRep = ::java::security::cert::CertPath$CertPathRep;
+using $Certificate = ::java::security::cert::Certificate;
+using $CertificateException = ::java::security::cert::CertificateException;
+using $Iterator = ::java::util::Iterator;
+using $List = ::java::util::List;
+
+namespace java {
+	namespace security {
+		namespace cert {
+
+$FieldInfo _CertPath_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertPath, serialVersionUID)},
+	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CertPath, type)},
+	{}
+};
+
+$MethodInfo _CertPath_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(CertPath::*)($String*)>(&CertPath::init$))},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"getCertificates", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateEncodingException"},
+	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.cert.CertificateEncodingException"},
+	{"getEncodings", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{}
+};
+
+$InnerClassInfo _CertPath_InnerClassesInfo_[] = {
+	{"java.security.cert.CertPath$CertPathRep", "java.security.cert.CertPath", "CertPathRep", $PROTECTED | $STATIC},
+	{}
+};
+
+$ClassInfo _CertPath_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"java.security.cert.CertPath",
+	"java.lang.Object",
+	"java.io.Serializable",
+	_CertPath_FieldInfo_,
+	_CertPath_MethodInfo_,
+	nullptr,
+	nullptr,
+	_CertPath_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"java.security.cert.CertPath$CertPathRep"
+};
+
+$Object* allocate$CertPath($Class* clazz) {
+	return $of($alloc(CertPath));
+}
+
+void CertPath::init$($String* type) {
+	$set(this, type, type);
+}
+
+$String* CertPath::getType() {
+	return this->type;
+}
+
+bool CertPath::equals(Object$* other) {
+	if ($equals(this, other)) {
+		return true;
+	}
+	$var(CertPath, that, nullptr);
+	bool var$2 = $instanceOf(CertPath, other);
+	if (var$2) {
+		$assign(that, $cast(CertPath, other));
+		var$2 = true;
+	}
+	bool var$1 = var$2;
+	bool var$0 = var$1 && $nc($($nc(that)->getType()))->equals(this->type);
+	return var$0 && $nc($(this->getCertificates()))->equals($(that->getCertificates()));
+}
+
+int32_t CertPath::hashCode() {
+	int32_t hashCode = $nc(this->type)->hashCode();
+	hashCode = 31 * hashCode + $nc($(getCertificates()))->hashCode();
+	return hashCode;
+}
+
+$String* CertPath::toString() {
+	$var($StringBuilder, sb, $new($StringBuilder));
+	$var($Iterator, stringIterator, $nc($(getCertificates()))->iterator());
+	sb->append($$str({"\n"_s, this->type, " Cert Path: length = "_s, $$str($nc($(getCertificates()))->size()), ".\n"_s}));
+	sb->append("[\n"_s);
+	int32_t i = 1;
+	while ($nc(stringIterator)->hasNext()) {
+		sb->append($$str({"=========================================================Certificate "_s, $$str(i), " start.\n"_s}));
+		$var($Certificate, stringCert, $cast($Certificate, stringIterator->next()));
+		sb->append($($nc(stringCert)->toString()));
+		sb->append($$str({"\n=========================================================Certificate "_s, $$str(i), " end.\n\n\n"_s}));
+		++i;
+	}
+	sb->append("\n]"_s);
+	return sb->toString();
+}
+
+$Object* CertPath::writeReplace() {
+	try {
+		return $of($new($CertPath$CertPathRep, this->type, $(getEncoded())));
+	} catch ($CertificateException&) {
+		$var($CertificateException, ce, $catch());
+		$var($NotSerializableException, nse, $new($NotSerializableException, $$str({"java.security.cert.CertPath: "_s, this->type})));
+		nse->initCause(ce);
+		$throw(nse);
+	}
+	$shouldNotReachHere();
+}
+
+CertPath::CertPath() {
+}
+
+$Class* CertPath::load$($String* name, bool initialize) {
+	$loadClass(CertPath, name, initialize, &_CertPath_ClassInfo_, allocate$CertPath);
+	return class$;
+}
+
+$Class* CertPath::class$ = nullptr;
+
+		} // cert
+	} // security
+} // java

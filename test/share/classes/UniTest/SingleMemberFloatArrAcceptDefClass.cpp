@@ -1,0 +1,58 @@
+#include <UniTest/SingleMemberFloatArrAcceptDefClass.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace UniTest {
+$CompoundAttribute _SingleMemberFloatArrAcceptDefClass_Annotations_[] = {
+	{"LUniTest/SingleMemberFloatArrayDef;", nullptr},
+	{}
+};
+
+
+$MethodInfo _SingleMemberFloatArrAcceptDefClass_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SingleMemberFloatArrAcceptDefClass::*)()>(&SingleMemberFloatArrAcceptDefClass::init$))},
+	{}
+};
+
+$ClassInfo _SingleMemberFloatArrAcceptDefClass_ClassInfo_ = {
+	$ACC_SUPER,
+	"UniTest.SingleMemberFloatArrAcceptDefClass",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_SingleMemberFloatArrAcceptDefClass_MethodInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	_SingleMemberFloatArrAcceptDefClass_Annotations_
+};
+
+$Object* allocate$SingleMemberFloatArrAcceptDefClass($Class* clazz) {
+	return $of($alloc(SingleMemberFloatArrAcceptDefClass));
+}
+
+void SingleMemberFloatArrAcceptDefClass::init$() {
+}
+
+SingleMemberFloatArrAcceptDefClass::SingleMemberFloatArrAcceptDefClass() {
+}
+
+$Class* SingleMemberFloatArrAcceptDefClass::load$($String* name, bool initialize) {
+	$loadClass(SingleMemberFloatArrAcceptDefClass, name, initialize, &_SingleMemberFloatArrAcceptDefClass_ClassInfo_, allocate$SingleMemberFloatArrAcceptDefClass);
+	return class$;
+}
+
+$Class* SingleMemberFloatArrAcceptDefClass::class$ = nullptr;
+
+} // UniTest

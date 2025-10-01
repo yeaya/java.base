@@ -1,0 +1,72 @@
+#include <URLDecoderArgs.h>
+
+#include <java/io/UnsupportedEncodingException.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URLDecoder.h>
+#include <jcpp.h>
+
+using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $URLDecoder = ::java::net::URLDecoder;
+
+$MethodInfo _URLDecoderArgs_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URLDecoderArgs::*)()>(&URLDecoderArgs::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URLDecoderArgs::main))},
+	{}
+};
+
+$ClassInfo _URLDecoderArgs_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"URLDecoderArgs",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_URLDecoderArgs_MethodInfo_
+};
+
+$Object* allocate$URLDecoderArgs($Class* clazz) {
+	return $of($alloc(URLDecoderArgs));
+}
+
+void URLDecoderArgs::init$() {
+}
+
+void URLDecoderArgs::main($StringArray* args) {
+	try {
+		$var($String, s1, $URLDecoder::decode("Hello World"_s, ($String*)nullptr));
+	} catch ($UnsupportedEncodingException&) {
+		$var($UnsupportedEncodingException, e, $catch());
+		$throwNew($RuntimeException, "NPE should have been thrown"_s);
+	} catch ($NullPointerException&) {
+		$var($NullPointerException, e, $catch());
+		try {
+			$var($String, s2, $URLDecoder::decode("Hello World"_s, ""_s));
+		} catch ($UnsupportedEncodingException&) {
+			$var($UnsupportedEncodingException, ee, $catch());
+			return;
+		}
+		$throwNew($RuntimeException, "empty string was accepted as encoding name"_s);
+	}
+	$throwNew($RuntimeException, "null reference was accepted as encoding name"_s);
+}
+
+URLDecoderArgs::URLDecoderArgs() {
+}
+
+$Class* URLDecoderArgs::load$($String* name, bool initialize) {
+	$loadClass(URLDecoderArgs, name, initialize, &_URLDecoderArgs_ClassInfo_, allocate$URLDecoderArgs);
+	return class$;
+}
+
+$Class* URLDecoderArgs::class$ = nullptr;

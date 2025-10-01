@@ -1,0 +1,351 @@
+#include <java/lang/invoke/VarHandleDoubles$FieldStaticReadWrite.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/Double.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/invoke/MethodHandleStatics.h>
+#include <java/lang/invoke/VarForm.h>
+#include <java/lang/invoke/VarHandle.h>
+#include <java/lang/invoke/VarHandleDoubles$FieldStaticReadOnly.h>
+#include <java/lang/invoke/VarHandleDoubles.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jdk/internal/misc/Unsafe.h>
+#include <jcpp.h>
+
+#undef FORM
+#undef UNSAFE
+#undef TYPE
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $Double = ::java::lang::Double;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
+using $VarForm = ::java::lang::invoke::VarForm;
+using $VarHandle = ::java::lang::invoke::VarHandle;
+using $VarHandleDoubles = ::java::lang::invoke::VarHandleDoubles;
+using $VarHandleDoubles$FieldStaticReadOnly = ::java::lang::invoke::VarHandleDoubles$FieldStaticReadOnly;
+using $Unsafe = ::jdk::internal::misc::Unsafe;
+
+namespace java {
+	namespace lang {
+		namespace invoke {
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndExchange2[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeAcquire3[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeRelease4[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndSet5[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndAdd6[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndAddAcquire7[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndAddRelease8[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndSet9[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndSetAcquire10[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndSetRelease11[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_set12[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_setOpaque13[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_setRelease14[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_setVolatile15[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSet16[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetAcquire17[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetPlain18[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$CompoundAttribute _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetRelease19[] = {
+	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+	{}
+};
+
+$FieldInfo _VarHandleDoubles$FieldStaticReadWrite_FieldInfo_[] = {
+	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleDoubles$FieldStaticReadWrite, FORM)},
+	{}
+};
+
+$MethodInfo _VarHandleDoubles$FieldStaticReadWrite_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(static_cast<void(VarHandleDoubles$FieldStaticReadWrite::*)(Object$*,int64_t)>(&VarHandleDoubles$FieldStaticReadWrite::init$))},
+	{"<init>", "(Ljava/lang/Object;JZ)V", nullptr, $PRIVATE, $method(static_cast<void(VarHandleDoubles$FieldStaticReadWrite::*)(Object$*,int64_t,bool)>(&VarHandleDoubles$FieldStaticReadWrite::init$))},
+	{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;DD)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::compareAndExchange)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndExchange2},
+	{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;DD)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::compareAndExchangeAcquire)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeAcquire3},
+	{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;DD)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::compareAndExchangeRelease)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeRelease4},
+	{"compareAndSet", "(Ljava/lang/invoke/VarHandle;DD)Z", nullptr, $STATIC, $method(static_cast<bool(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::compareAndSet)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_compareAndSet5},
+	{"getAndAdd", "(Ljava/lang/invoke/VarHandle;D)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::getAndAdd)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndAdd6},
+	{"getAndAddAcquire", "(Ljava/lang/invoke/VarHandle;D)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::getAndAddAcquire)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndAddAcquire7},
+	{"getAndAddRelease", "(Ljava/lang/invoke/VarHandle;D)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::getAndAddRelease)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndAddRelease8},
+	{"getAndSet", "(Ljava/lang/invoke/VarHandle;D)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::getAndSet)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndSet9},
+	{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;D)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::getAndSetAcquire)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndSetAcquire10},
+	{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;D)D", nullptr, $STATIC, $method(static_cast<double(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::getAndSetRelease)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_getAndSetRelease11},
+	{"set", "(Ljava/lang/invoke/VarHandle;D)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::set)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_set12},
+	{"setOpaque", "(Ljava/lang/invoke/VarHandle;D)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::setOpaque)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_setOpaque13},
+	{"setRelease", "(Ljava/lang/invoke/VarHandle;D)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::setRelease)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_setRelease14},
+	{"setVolatile", "(Ljava/lang/invoke/VarHandle;D)V", nullptr, $STATIC, $method(static_cast<void(*)($VarHandle*,double)>(&VarHandleDoubles$FieldStaticReadWrite::setVolatile)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_setVolatile15},
+	{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;DD)Z", nullptr, $STATIC, $method(static_cast<bool(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSet)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSet16},
+	{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;DD)Z", nullptr, $STATIC, $method(static_cast<bool(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSetAcquire)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetAcquire17},
+	{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;DD)Z", nullptr, $STATIC, $method(static_cast<bool(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSetPlain)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetPlain18},
+	{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;DD)Z", nullptr, $STATIC, $method(static_cast<bool(*)($VarHandle*,double,double)>(&VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSetRelease)), nullptr, nullptr, _VarHandleDoubles$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetRelease19},
+	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleDoubles$FieldStaticReadWrite;", nullptr, $PUBLIC},
+	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleDoubles$FieldStaticReadWrite;", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _VarHandleDoubles$FieldStaticReadWrite_InnerClassesInfo_[] = {
+	{"java.lang.invoke.VarHandleDoubles$FieldStaticReadWrite", "java.lang.invoke.VarHandleDoubles", "FieldStaticReadWrite", $STATIC | $FINAL},
+	{"java.lang.invoke.VarHandleDoubles$FieldStaticReadOnly", "java.lang.invoke.VarHandleDoubles", "FieldStaticReadOnly", $STATIC},
+	{}
+};
+
+$ClassInfo _VarHandleDoubles$FieldStaticReadWrite_ClassInfo_ = {
+	$FINAL | $ACC_SUPER,
+	"java.lang.invoke.VarHandleDoubles$FieldStaticReadWrite",
+	"java.lang.invoke.VarHandleDoubles$FieldStaticReadOnly",
+	nullptr,
+	_VarHandleDoubles$FieldStaticReadWrite_FieldInfo_,
+	_VarHandleDoubles$FieldStaticReadWrite_MethodInfo_,
+	nullptr,
+	nullptr,
+	_VarHandleDoubles$FieldStaticReadWrite_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"java.lang.invoke.VarHandleDoubles"
+};
+
+$Object* allocate$VarHandleDoubles$FieldStaticReadWrite($Class* clazz) {
+	return $of($alloc(VarHandleDoubles$FieldStaticReadWrite));
+}
+
+$VarForm* VarHandleDoubles$FieldStaticReadWrite::FORM = nullptr;
+
+void VarHandleDoubles$FieldStaticReadWrite::init$(Object$* base, int64_t fieldOffset) {
+	VarHandleDoubles$FieldStaticReadWrite::init$(base, fieldOffset, false);
+}
+
+void VarHandleDoubles$FieldStaticReadWrite::init$(Object$* base, int64_t fieldOffset, bool exact) {
+	$VarHandleDoubles$FieldStaticReadOnly::init$(base, fieldOffset, VarHandleDoubles$FieldStaticReadWrite::FORM, exact);
+}
+
+VarHandleDoubles$FieldStaticReadWrite* VarHandleDoubles$FieldStaticReadWrite::withInvokeExactBehavior() {
+	return hasInvokeExactBehavior() ? this : $new(VarHandleDoubles$FieldStaticReadWrite, this->base, this->fieldOffset, true);
+}
+
+VarHandleDoubles$FieldStaticReadWrite* VarHandleDoubles$FieldStaticReadWrite::withInvokeBehavior() {
+	return !hasInvokeExactBehavior() ? this : $new(VarHandleDoubles$FieldStaticReadWrite, this->base, this->fieldOffset, false);
+}
+
+void VarHandleDoubles$FieldStaticReadWrite::set($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	$nc($MethodHandleStatics::UNSAFE)->putDouble($nc(handle)->base, handle->fieldOffset, value);
+}
+
+void VarHandleDoubles$FieldStaticReadWrite::setVolatile($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	$nc($MethodHandleStatics::UNSAFE)->putDoubleVolatile($nc(handle)->base, handle->fieldOffset, value);
+}
+
+void VarHandleDoubles$FieldStaticReadWrite::setOpaque($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	$nc($MethodHandleStatics::UNSAFE)->putDoubleOpaque($nc(handle)->base, handle->fieldOffset, value);
+}
+
+void VarHandleDoubles$FieldStaticReadWrite::setRelease($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	$nc($MethodHandleStatics::UNSAFE)->putDoubleRelease($nc(handle)->base, handle->fieldOffset, value);
+}
+
+bool VarHandleDoubles$FieldStaticReadWrite::compareAndSet($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetDouble($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::compareAndExchange($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeDouble($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::compareAndExchangeAcquire($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeDoubleAcquire($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::compareAndExchangeRelease($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeDoubleRelease($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+bool VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSetPlain($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetDoublePlain($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+bool VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSet($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetDouble($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+bool VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSetAcquire($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetDoubleAcquire($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+bool VarHandleDoubles$FieldStaticReadWrite::weakCompareAndSetRelease($VarHandle* ob, double expected, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetDoubleRelease($nc(handle)->base, handle->fieldOffset, expected, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::getAndSet($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndSetDouble($nc(handle)->base, handle->fieldOffset, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::getAndSetAcquire($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndSetDoubleAcquire($nc(handle)->base, handle->fieldOffset, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::getAndSetRelease($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndSetDoubleRelease($nc(handle)->base, handle->fieldOffset, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::getAndAdd($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndAddDouble($nc(handle)->base, handle->fieldOffset, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::getAndAddAcquire($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndAddDoubleAcquire($nc(handle)->base, handle->fieldOffset, value);
+}
+
+double VarHandleDoubles$FieldStaticReadWrite::getAndAddRelease($VarHandle* ob, double value) {
+	$init(VarHandleDoubles$FieldStaticReadWrite);
+	$var(VarHandleDoubles$FieldStaticReadWrite, handle, $cast(VarHandleDoubles$FieldStaticReadWrite, ob));
+	$init($MethodHandleStatics);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndAddDoubleRelease($nc(handle)->base, handle->fieldOffset, value);
+}
+
+void clinit$VarHandleDoubles$FieldStaticReadWrite($Class* class$) {
+	$init($Double);
+	$assignStatic(VarHandleDoubles$FieldStaticReadWrite::FORM, $new($VarForm, VarHandleDoubles$FieldStaticReadWrite::class$, nullptr, $Double::TYPE, $$new($ClassArray, 0)));
+}
+
+VarHandleDoubles$FieldStaticReadWrite::VarHandleDoubles$FieldStaticReadWrite() {
+}
+
+$Class* VarHandleDoubles$FieldStaticReadWrite::load$($String* name, bool initialize) {
+	$loadClass(VarHandleDoubles$FieldStaticReadWrite, name, initialize, &_VarHandleDoubles$FieldStaticReadWrite_ClassInfo_, clinit$VarHandleDoubles$FieldStaticReadWrite, allocate$VarHandleDoubles$FieldStaticReadWrite);
+	return class$;
+}
+
+$Class* VarHandleDoubles$FieldStaticReadWrite::class$ = nullptr;
+
+		} // invoke
+	} // lang
+} // java

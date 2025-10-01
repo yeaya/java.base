@@ -1,0 +1,164 @@
+#include <Equals.h>
+
+#include <java/io/PrintStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <java/net/URLConnection.h>
+#include <jcpp.h>
+
+#undef HTTP_URL1A
+#undef HTTP_URL1B
+#undef FILE_URL1A
+#undef FILE_URL1B
+
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $URL = ::java::net::URL;
+using $URLConnection = ::java::net::URLConnection;
+
+$FieldInfo _Equals_FieldInfo_[] = {
+	{"HTTP_URL1A", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Equals, HTTP_URL1A)},
+	{"HTTP_URL1B", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Equals, HTTP_URL1B)},
+	{"FILE_URL1A", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Equals, FILE_URL1A)},
+	{"FILE_URL1B", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Equals, FILE_URL1B)},
+	{}
+};
+
+$MethodInfo _Equals_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Equals::*)()>(&Equals::init$))},
+	{"anchors", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Equals::anchors)), "java.lang.Exception"},
+	{"compareJarURLS", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($String*,$String*,$String*,$String*,bool)>(&Equals::compareJarURLS)), "java.lang.Exception"},
+	{"jarURLs", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Equals::jarURLs)), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Equals::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _Equals_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"Equals",
+	"java.lang.Object",
+	nullptr,
+	_Equals_FieldInfo_,
+	_Equals_MethodInfo_
+};
+
+$Object* allocate$Equals($Class* clazz) {
+	return $of($alloc(Equals));
+}
+
+$String* Equals::HTTP_URL1A = nullptr;
+$String* Equals::HTTP_URL1B = nullptr;
+$String* Equals::FILE_URL1A = nullptr;
+$String* Equals::FILE_URL1B = nullptr;
+
+void Equals::init$() {
+}
+
+void Equals::main($StringArray* args) {
+	$init(Equals);
+	anchors();
+	jarURLs();
+}
+
+void Equals::anchors() {
+	$init(Equals);
+	$var($URL, url1, nullptr);
+	$var($URL, url2, nullptr);
+	$assign(url1, $new($URL, nullptr, "http://JavaSoft/Test#bar"_s));
+	$assign(url2, $new($URL, nullptr, "http://JavaSoft/Test"_s));
+	if (url1->equals(url2)) {
+		$throwNew($RuntimeException, "URL.equals fails with anchors"_s);
+	}
+	if (url2->equals(url1)) {
+		$throwNew($RuntimeException, "URL.equals fails with anchors"_s);
+	}
+	if (url1->equals(nullptr)) {
+		$throwNew($RuntimeException, "URL.equals fails given null"_s);
+	}
+}
+
+void Equals::jarURLs() {
+	$init(Equals);
+	int32_t failed = 0;
+	failed = compareJarURLS(Equals::HTTP_URL1A, Equals::HTTP_URL1A, "!/abc"_s, "!/abc"_s, true);
+	failed = compareJarURLS(Equals::HTTP_URL1A, Equals::HTTP_URL1B, "!/abc"_s, "!/abc"_s, true);
+	failed = compareJarURLS(Equals::HTTP_URL1B, Equals::HTTP_URL1A, "!/"_s, "!/"_s, true);
+	failed = compareJarURLS(Equals::HTTP_URL1A, Equals::HTTP_URL1B, "!/abc"_s, "!/"_s, false);
+	failed = compareJarURLS(Equals::HTTP_URL1A, Equals::HTTP_URL1B, "!/abc"_s, "!/xy"_s, false);
+	failed = compareJarURLS(Equals::FILE_URL1A, Equals::FILE_URL1A, "!/abc"_s, "!/abc"_s, true);
+	failed = compareJarURLS(Equals::FILE_URL1A, Equals::FILE_URL1B, "!/abc"_s, "!/abc"_s, true);
+	failed = compareJarURLS(Equals::FILE_URL1A, Equals::FILE_URL1B, "!/"_s, "!/"_s, true);
+	failed = compareJarURLS(Equals::FILE_URL1A, Equals::FILE_URL1B, "!/abc"_s, "!/"_s, false);
+	failed = compareJarURLS(Equals::FILE_URL1A, Equals::FILE_URL1B, "!/abc"_s, "!/xy"_s, false);
+	failed = ($$new($URL, "jar:file://xzy!/abc"_s))->equals($$new($URL, "file://xzy!/abc"_s)) ? 1 : 0;
+	if (failed > 0) {
+		$throwNew($RuntimeException, "Some jar URL tests failed. Check output"_s);
+	}
+}
+
+int32_t Equals::compareJarURLS($String* urlStr1, $String* urlStr2, $String* entry1, $String* entry2, bool expectEqual) {
+	$init(Equals);
+	int32_t failed = 0;
+	$var($URL, url1, $new($URL, urlStr1));
+	$var($URL, url2, $new($URL, urlStr2));
+	if (!url1->equals(url2)) {
+		$init($System);
+		$nc($System::out)->println("Urls are not equal, so the test cannot run."_s);
+		$nc($System::out)->println($$str({"url1: "_s, url1, ", url2:"_s, url2}));
+		return 1;
+	}
+	$var($URL, jarUrl1, $new($URL, $$str({"jar:"_s, urlStr1, entry1})));
+	$var($URL, jarUrl2, $new($URL, $$str({"jar:"_s, urlStr2, entry2})));
+	jarUrl2->openConnection();
+	bool equal = jarUrl1->equals(jarUrl2);
+	if (expectEqual && !equal) {
+		$init($System);
+		$nc($System::out)->println($$str({"URLs should be equal, but are not. "_s, jarUrl1, ", "_s, jarUrl2}));
+		++failed;
+	} else if (!expectEqual && equal) {
+		$init($System);
+		$nc($System::out)->println($$str({"URLs should NOT be equal, but are. "_s, jarUrl1, ", "_s, jarUrl2}));
+		++failed;
+	}
+	if (expectEqual) {
+		int32_t hash1 = jarUrl1->hashCode();
+		int32_t hash2 = jarUrl2->hashCode();
+		if (hash1 != hash2) {
+			$init($System);
+			$nc($System::out)->println($$str({"jarUrl1.hashCode = "_s, $$str(hash1)}));
+			$nc($System::out)->println($$str({"jarUrl2.hashCode = "_s, $$str(hash2)}));
+			$nc($System::out)->println($$str({"Equal urls should have same hashCode. "_s, jarUrl1, ", "_s, jarUrl2}));
+			++failed;
+		}
+	}
+	return failed;
+}
+
+Equals::Equals() {
+}
+
+void clinit$Equals($Class* class$) {
+	$assignStatic(Equals::HTTP_URL1A, "http://localhost/xyz"_s);
+	$assignStatic(Equals::HTTP_URL1B, "http://LOCALHOST/xyz"_s);
+	$assignStatic(Equals::FILE_URL1A, "file:///c:/foo/xyz"_s);
+	$assignStatic(Equals::FILE_URL1B, "file:/c:/foo/xyz"_s);
+}
+
+$Class* Equals::load$($String* name, bool initialize) {
+	$loadClass(Equals, name, initialize, &_Equals_ClassInfo_, clinit$Equals, allocate$Equals);
+	return class$;
+}
+
+$Class* Equals::class$ = nullptr;

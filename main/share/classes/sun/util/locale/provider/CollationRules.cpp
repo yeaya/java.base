@@ -1,0 +1,68 @@
+#include <sun/util/locale/provider/CollationRules.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+#undef DEFAULTRULES
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace sun {
+	namespace util {
+		namespace locale {
+			namespace provider {
+
+$FieldInfo _CollationRules_FieldInfo_[] = {
+	{"DEFAULTRULES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CollationRules, DEFAULTRULES)},
+	{}
+};
+
+$MethodInfo _CollationRules_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CollationRules::*)()>(&CollationRules::init$))},
+	{}
+};
+
+$ClassInfo _CollationRules_ClassInfo_ = {
+	$FINAL | $ACC_SUPER,
+	"sun.util.locale.provider.CollationRules",
+	"java.lang.Object",
+	nullptr,
+	_CollationRules_FieldInfo_,
+	_CollationRules_MethodInfo_
+};
+
+$Object* allocate$CollationRules($Class* clazz) {
+	return $of($alloc(CollationRules));
+}
+
+$String* CollationRules::DEFAULTRULES = nullptr;
+
+void CollationRules::init$() {
+}
+
+CollationRules::CollationRules() {
+}
+
+void clinit$CollationRules($Class* class$) {
+	$assignStatic(CollationRules::DEFAULTRULES, $cstr({'=', '\'', 0x200B, '\'', '=', 0x200C, '=', 0x200D, '=', 0x200E, '=', 0x200F, '=', '\0', ' ', '=', 0x1, ' ', '=', 0x2, ' ', '=', 0x3, ' ', '=', 0x4, '=', 0x5, ' ', '=', 0x6, ' ', '=', 0x7, ' ', '=', '\b', ' ', '=', '\'', '\t', '\'', '=', '\'', 0xB, '\'', ' ', '=', 0xE, '=', 0xF, ' ', '=', '\'', 0x10, '\'', ' ', '=', 0x11, ' ', '=', 0x12, ' ', '=', 0x13, '=', 0x14, ' ', '=', 0x15, ' ', '=', 0x16, ' ', '=', 0x17, ' ', '=', 0x18, '=', 0x19, ' ', '=', 0x1A, ' ', '=', 0x1B, ' ', '=', 0x1C, ' ', '=', 0x1D, '=', 0x1E, ' ', '=', 0x1F, ' ', '=', 0x7F, '=', 0x80, ' ', '=', 0x81, ' ', '=', 0x82, ' ', '=', 0x83, ' ', '=', 0x84, ' ', '=', 0x85, '=', 0x86, ' ', '=', 0x87, ' ', '=', 0x88, ' ', '=', 0x89, ' ', '=', 0x8A, ' ', '=', 0x8B, '=', 0x8C, ' ', '=', 0x8D, ' ', '=', 0x8E, ' ', '=', 0x8F, ' ', '=', 0x90, ' ', '=', 0x91, '=', 0x92, ' ', '=', 0x93, ' ', '=', 0x94, ' ', '=', 0x95, ' ', '=', 0x96, ' ', '=', 0x97, '=', 0x98, ' ', '=', 0x99, ' ', '=', 0x9A, ' ', '=', 0x9B, ' ', '=', 0x9C, ' ', '=', 0x9D, '=', 0x9E, ' ', '=', 0x9F, ';', '\'', ' ', '\'', ';', '\'', 0xA0, '\'', ';', '\'', 0x2000, '\'', ';', '\'', 0x2001, '\'', ';', '\'', 0x2002, '\'', ';', '\'', 0x2003, '\'', ';', '\'', 0x2004, '\'', ';', '\'', 0x2005, '\'', ';', '\'', 0x2006, '\'', ';', '\'', 0x2007, '\'', ';', '\'', 0x2008, '\'', ';', '\'', 0x2009, '\'', ';', '\'', 0x200A, '\'', ';', '\'', 0x3000, '\'', ';', '\'', 0xFEFF, '\'', ';', '\'', '\r', '\'', ' ', ';', '\'', '\t', '\'', ' ', ';', '\'', '\n', '\'', ';', '\'', '\f', '\'', ';', '\'', 0xB, '\'', ';', 0x301, ';', 0x300, ';', 0x306, ';', 0x302, ';', 0x30C, ';', 0x30A, ';', 0x30D, ';', 0x308, ';', 0x30B, ';', 0x303, ';', 0x307, ';', 0x304, ';', 0x337, ';', 0x327, ';', 0x328, ';', 0x323, ';', 0x332, ';', 0x305, ';', 0x309, ';', 0x30E, ';', 0x30F, ';', 0x310, ';', 0x311, ';', 0x312, ';', 0x313, ';', 0x314, ';', 0x315, ';', 0x316, ';', 0x317, ';', 0x318, ';', 0x319, ';', 0x31A, ';', 0x31B, ';', 0x31C, ';', 0x31D, ';', 0x31E, ';', 0x31F, ';', 0x320, ';', 0x321, ';', 0x322, ';', 0x324, ';', 0x325, ';', 0x326, ';', 0x329, ';', 0x32A, ';', 0x32B, ';', 0x32C, ';', 0x32D, ';', 0x32E, ';', 0x32F, ';', 0x330, ';', 0x331, ';', 0x333, ';', 0x334, ';', 0x335, ';', 0x336, ';', 0x338, ';', 0x339, ';', 0x33A, ';', 0x33B, ';', 0x33C, ';', 0x33D, ';', 0x33E, ';', 0x33F, ';', 0x342, ';', 0x344, ';', 0x345, ';', 0x360, ';', 0x361, ';', 0x483, ';', 0x484, ';', 0x485, ';', 0x486, ';', 0x20D0, ';', 0x20D1, ';', 0x20D2, ';', 0x20D3, ';', 0x20D4, ';', 0x20D5, ';', 0x20D6, ';', 0x20D7, ';', 0x20D8, ';', 0x20D9, ';', 0x20DA, ';', 0x20DB, ';', 0x20DC, ';', 0x20DD, ';', 0x20DE, ';', 0x20DF, ';', 0x20E0, ';', 0x20E1, ',', '\'', '-', '\'', ';', 0xAD, ';', 0x2010, ';', 0x2011, ';', 0x2012, ';', 0x2013, ';', 0x2014, ';', 0x2015, ';', 0x2212, '<', '\'', '_', '\'', '<', 0xAF, '<', '\'', ',', '\'', '<', '\'', ';', '\'', '<', '\'', ':', '\'', '<', '\'', '!', '\'', '<', 0xA1, '<', '\'', '?', '\'', '<', 0xBF, '<', '\'', '/', '\'', '<', '\'', '.', '\'', '<', 0xB4, '<', '\'', '`', '\'', '<', '\'', '^', '\'', '<', 0xA8, '<', '\'', '~', '\'', '<', 0xB7, '<', 0xB8, '<', '\'', '\'', '\'', '<', '\'', '\"', '\'', '<', 0xAB, '<', 0xBB, '<', '\'', '(', '\'', '<', '\'', ')', '\'', '<', '\'', '[', '\'', '<', '\'', ']', '\'', '<', '\'', '{', '\'', '<', '\'', '}', '\'', '<', 0xA7, '<', 0xB6, '<', 0xA9, '<', 0xAE, '<', '\'', '@', '\'', '<', 0xA4, '<', 0xE3F, '<', 0xA2, '<', 0x20A1, '<', 0x20A2, '<', '\'', '$', '\'', '<', 0x20AB, '<', 0x20AC, '<', 0x20A3, '<', 0x20A4, '<', 0x20A5, '<', 0x20A6, '<', 0x20A7, '<', 0xA3, '<', 0x20A8, '<', 0x20AA, '<', 0x20A9, '<', 0xA5, '<', '\'', '*', '\'', '<', '\'', '\\', '\'', '<', '\'', '&', '\'', '<', '\'', '#', '\'', '<', '\'', '%', '\'', '<', '\'', '+', '\'', '<', 0xB1, '<', 0xF7, '<', 0xD7, '<', '\'', '<', '\'', '<', '\'', '=', '\'', '<', '\'', '>', '\'', '<', 0xAC, '<', '\'', '|', '\'', '<', 0xA6, '<', 0xB0, '<', 0xB5, '<', '0', '<', '1', '<', '2', '<', '3', '<', '4', '<', '5', '<', '6', '<', '7', '<', '8', '<', '9', '<', 0xBC, '<', 0xBD, '<', 0xBE, '<', 'a', ',', 'A', '<', 'b', ',', 'B', '<', 'c', ',', 'C', '<', 'd', ',', 'D', '<', 0xF0, ',', 0xD0, '<', 'e', ',', 'E', '<', 'f', ',', 'F', '<', 'g', ',', 'G', '<', 'h', ',', 'H', '<', 'i', ',', 'I', '<', 'j', ',', 'J', '<', 'k', ',', 'K', '<', 'l', ',', 'L', '<', 'm', ',', 'M', '<', 'n', ',', 'N', '<', 'o', ',', 'O', '<', 'p', ',', 'P', '<', 'q', ',', 'Q', '<', 'r', ',', 'R', '<', 's', ',', ' ', 'S', ' ', '&', ' ', 'S', 'S', ',', 0xDF, '<', 't', ',', 'T', '&', ' ', 'T', 'H', ',', ' ', 0xDE, ' ', '&', 'T', 'H', ',', ' ', 0xFE, ' ', '<', 'u', ',', 'U', '<', 'v', ',', 'V', '<', 'w', ',', 'W', '<', 'x', ',', 'X', '<', 'y', ',', 'Y', '<', 'z', ',', 'Z', '&', 'A', 'E', ',', 0xC6, '&', 'A', 'E', ',', 0xE6, '&', 'O', 'E', ',', 0x152, '&', 'O', 'E', ',', 0x153}));
+}
+
+$Class* CollationRules::load$($String* name, bool initialize) {
+	$loadClass(CollationRules, name, initialize, &_CollationRules_ClassInfo_, clinit$CollationRules, allocate$CollationRules);
+	return class$;
+}
+
+$Class* CollationRules::class$ = nullptr;
+
+			} // provider
+		} // locale
+	} // util
+} // sun

@@ -1,0 +1,167 @@
+#include <sun/nio/fs/AbstractWatchService.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/nio/file/ClosedWatchServiceException.h>
+#include <java/nio/file/Path.h>
+#include <java/nio/file/WatchEvent$Kind.h>
+#include <java/nio/file/WatchEvent$Modifier.h>
+#include <java/nio/file/WatchKey.h>
+#include <java/util/concurrent/LinkedBlockingDeque.h>
+#include <java/util/concurrent/TimeUnit.h>
+#include <sun/nio/fs/AbstractWatchKey.h>
+#include <sun/nio/fs/AbstractWatchService$1.h>
+#include <jcpp.h>
+
+#undef CLOSE_KEY
+
+using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
+using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $ClosedWatchServiceException = ::java::nio::file::ClosedWatchServiceException;
+using $Path = ::java::nio::file::Path;
+using $WatchKey = ::java::nio::file::WatchKey;
+using $WatchService = ::java::nio::file::WatchService;
+using $LinkedBlockingDeque = ::java::util::concurrent::LinkedBlockingDeque;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
+using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;
+using $AbstractWatchService$1 = ::sun::nio::fs::AbstractWatchService$1;
+
+namespace sun {
+	namespace nio {
+		namespace fs {
+
+$FieldInfo _AbstractWatchService_FieldInfo_[] = {
+	{"pendingKeys", "Ljava/util/concurrent/LinkedBlockingDeque;", "Ljava/util/concurrent/LinkedBlockingDeque<Ljava/nio/file/WatchKey;>;", $PRIVATE | $FINAL, $field(AbstractWatchService, pendingKeys)},
+	{"CLOSE_KEY", "Ljava/nio/file/WatchKey;", nullptr, $PRIVATE | $FINAL, $field(AbstractWatchService, CLOSE_KEY)},
+	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AbstractWatchService, closed)},
+	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AbstractWatchService, closeLock$)},
+	{}
+};
+
+$MethodInfo _AbstractWatchService_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractWatchService::*)()>(&AbstractWatchService::init$))},
+	{"checkKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $PRIVATE, $method(static_cast<void(AbstractWatchService::*)($WatchKey*)>(&AbstractWatchService::checkKey))},
+	{"checkOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(AbstractWatchService::*)()>(&AbstractWatchService::checkOpen))},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"closeLock", "()Ljava/lang/Object;", nullptr, $FINAL, $method(static_cast<$Object*(AbstractWatchService::*)()>(&AbstractWatchService::closeLock))},
+	{"enqueueKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(static_cast<void(AbstractWatchService::*)($WatchKey*)>(&AbstractWatchService::enqueueKey))},
+	{"implClose", "()V", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $FINAL, $method(static_cast<bool(AbstractWatchService::*)()>(&AbstractWatchService::isOpen))},
+	{"poll", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL},
+	{"poll", "(JLjava/util/concurrent/TimeUnit;)Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, nullptr, "java.lang.InterruptedException"},
+	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $TRANSIENT | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"take", "()Ljava/nio/file/WatchKey;", nullptr, $PUBLIC | $FINAL, nullptr, "java.lang.InterruptedException"},
+	{}
+};
+
+$InnerClassInfo _AbstractWatchService_InnerClassesInfo_[] = {
+	{"sun.nio.fs.AbstractWatchService$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _AbstractWatchService_ClassInfo_ = {
+	$ACC_SUPER | $ABSTRACT,
+	"sun.nio.fs.AbstractWatchService",
+	"java.lang.Object",
+	"java.nio.file.WatchService",
+	_AbstractWatchService_FieldInfo_,
+	_AbstractWatchService_MethodInfo_,
+	nullptr,
+	nullptr,
+	_AbstractWatchService_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"sun.nio.fs.AbstractWatchService$1"
+};
+
+$Object* allocate$AbstractWatchService($Class* clazz) {
+	return $of($alloc(AbstractWatchService));
+}
+
+void AbstractWatchService::init$() {
+	$set(this, pendingKeys, $new($LinkedBlockingDeque));
+	$set(this, CLOSE_KEY, $new($AbstractWatchService$1, this, nullptr, nullptr));
+	$set(this, closeLock$, $new($Object));
+}
+
+void AbstractWatchService::enqueueKey($WatchKey* key) {
+	$nc(this->pendingKeys)->offer(key);
+}
+
+void AbstractWatchService::checkOpen() {
+	if (this->closed) {
+		$throwNew($ClosedWatchServiceException);
+	}
+}
+
+void AbstractWatchService::checkKey($WatchKey* key) {
+	if (key == this->CLOSE_KEY) {
+		enqueueKey(key);
+	}
+	checkOpen();
+}
+
+$WatchKey* AbstractWatchService::poll() {
+	checkOpen();
+	$var($WatchKey, key, $cast($WatchKey, $nc(this->pendingKeys)->poll()));
+	checkKey(key);
+	return key;
+}
+
+$WatchKey* AbstractWatchService::poll(int64_t timeout, $TimeUnit* unit) {
+	checkOpen();
+	$var($WatchKey, key, $cast($WatchKey, $nc(this->pendingKeys)->poll(timeout, unit)));
+	checkKey(key);
+	return key;
+}
+
+$WatchKey* AbstractWatchService::take() {
+	checkOpen();
+	$var($WatchKey, key, $cast($WatchKey, $nc(this->pendingKeys)->take()));
+	checkKey(key);
+	return key;
+}
+
+bool AbstractWatchService::isOpen() {
+	return !this->closed;
+}
+
+$Object* AbstractWatchService::closeLock() {
+	return $of(this->closeLock$);
+}
+
+void AbstractWatchService::close() {
+	$synchronized(this->closeLock$) {
+		if (this->closed) {
+			return;
+		}
+		this->closed = true;
+		implClose();
+		$nc(this->pendingKeys)->clear();
+		$nc(this->pendingKeys)->offer(this->CLOSE_KEY);
+	}
+}
+
+AbstractWatchService::AbstractWatchService() {
+}
+
+$Class* AbstractWatchService::load$($String* name, bool initialize) {
+	$loadClass(AbstractWatchService, name, initialize, &_AbstractWatchService_ClassInfo_, allocate$AbstractWatchService);
+	return class$;
+}
+
+$Class* AbstractWatchService::class$ = nullptr;
+
+		} // fs
+	} // nio
+} // sun

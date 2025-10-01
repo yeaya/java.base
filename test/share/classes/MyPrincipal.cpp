@@ -1,0 +1,90 @@
+#include <MyPrincipal.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $Principal = ::java::security::Principal;
+
+$FieldInfo _MyPrincipal_FieldInfo_[] = {
+	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MyPrincipal, name)},
+	{}
+};
+
+$MethodInfo _MyPrincipal_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MyPrincipal::*)($String*)>(&MyPrincipal::init$))},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _MyPrincipal_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"MyPrincipal",
+	"java.lang.Object",
+	"java.security.Principal",
+	_MyPrincipal_FieldInfo_,
+	_MyPrincipal_MethodInfo_
+};
+
+$Object* allocate$MyPrincipal($Class* clazz) {
+	return $of($alloc(MyPrincipal));
+}
+
+void MyPrincipal::init$($String* name) {
+	if (name == nullptr) {
+		$throwNew($NullPointerException, "illegal null input"_s);
+	}
+	$set(this, name, name);
+}
+
+$String* MyPrincipal::getName() {
+	return this->name;
+}
+
+$String* MyPrincipal::toString() {
+	return ($str({"MyPrincipal:  "_s, this->name}));
+}
+
+bool MyPrincipal::equals(Object$* o) {
+	if (o == nullptr) {
+		return false;
+	}
+	if ($equals(this, o)) {
+		return true;
+	}
+	if (!($instanceOf(MyPrincipal, o))) {
+		return false;
+	}
+	$var(MyPrincipal, that, $cast(MyPrincipal, o));
+	if ($nc($(this->getName()))->equals($($nc(that)->getName()))) {
+		return true;
+	}
+	return false;
+}
+
+int32_t MyPrincipal::hashCode() {
+	return $nc(this->name)->hashCode();
+}
+
+MyPrincipal::MyPrincipal() {
+}
+
+$Class* MyPrincipal::load$($String* name, bool initialize) {
+	$loadClass(MyPrincipal, name, initialize, &_MyPrincipal_ClassInfo_, allocate$MyPrincipal);
+	return class$;
+}
+
+$Class* MyPrincipal::class$ = nullptr;

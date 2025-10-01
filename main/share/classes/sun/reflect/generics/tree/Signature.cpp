@@ -1,0 +1,50 @@
+#include <sun/reflect/generics/tree/Signature.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <sun/reflect/generics/tree/FormalTypeParameter.h>
+#include <jcpp.h>
+
+using $FormalTypeParameterArray = $Array<::sun::reflect::generics::tree::FormalTypeParameter>;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Tree = ::sun::reflect::generics::tree::Tree;
+
+namespace sun {
+	namespace reflect {
+		namespace generics {
+			namespace tree {
+
+$MethodInfo _Signature_MethodInfo_[] = {
+	{"getFormalTypeParameters", "()[Lsun/reflect/generics/tree/FormalTypeParameter;", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _Signature_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.reflect.generics.tree.Signature",
+	nullptr,
+	"sun.reflect.generics.tree.Tree",
+	nullptr,
+	_Signature_MethodInfo_
+};
+
+$Object* allocate$Signature($Class* clazz) {
+	return $of($alloc(Signature));
+}
+
+$Class* Signature::load$($String* name, bool initialize) {
+	$loadClass(Signature, name, initialize, &_Signature_ClassInfo_, allocate$Signature);
+	return class$;
+}
+
+$Class* Signature::class$ = nullptr;
+
+			} // tree
+		} // generics
+	} // reflect
+} // sun

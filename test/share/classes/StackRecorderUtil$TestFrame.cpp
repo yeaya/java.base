@@ -1,0 +1,82 @@
+#include <StackRecorderUtil$TestFrame.h>
+
+#include <StackRecorderUtil.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $StackRecorderUtil = ::StackRecorderUtil;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$FieldInfo _StackRecorderUtil$TestFrame_FieldInfo_[] = {
+	{"declaringClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(StackRecorderUtil$TestFrame, declaringClass)},
+	{"methodName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(StackRecorderUtil$TestFrame, methodName)},
+	{"fileName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(StackRecorderUtil$TestFrame, fileName)},
+	{}
+};
+
+$MethodInfo _StackRecorderUtil$TestFrame_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StackRecorderUtil$TestFrame::*)($Class*,$String*,$String*)>(&StackRecorderUtil$TestFrame::init$))},
+	{"className", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _StackRecorderUtil$TestFrame_InnerClassesInfo_[] = {
+	{"StackRecorderUtil$TestFrame", "StackRecorderUtil", "TestFrame", $PUBLIC | $STATIC},
+	{}
+};
+
+$ClassInfo _StackRecorderUtil$TestFrame_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"StackRecorderUtil$TestFrame",
+	"java.lang.Object",
+	nullptr,
+	_StackRecorderUtil$TestFrame_FieldInfo_,
+	_StackRecorderUtil$TestFrame_MethodInfo_,
+	nullptr,
+	nullptr,
+	_StackRecorderUtil$TestFrame_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"StackRecorderUtil"
+};
+
+$Object* allocate$StackRecorderUtil$TestFrame($Class* clazz) {
+	return $of($alloc(StackRecorderUtil$TestFrame));
+}
+
+void StackRecorderUtil$TestFrame::init$($Class* declaringClass, $String* methodName, $String* fileName) {
+	$set(this, fileName, nullptr);
+	$set(this, declaringClass, declaringClass);
+	$set(this, methodName, methodName);
+	$set(this, fileName, fileName);
+}
+
+$String* StackRecorderUtil$TestFrame::className() {
+	return $nc(this->declaringClass)->getName();
+}
+
+$String* StackRecorderUtil$TestFrame::toString() {
+	return $str({"TestFrame: "_s, $(className()), "."_s, this->methodName, (this->fileName == nullptr ? ""_s : $$str({"("_s, this->fileName, ")"_s}))});
+}
+
+StackRecorderUtil$TestFrame::StackRecorderUtil$TestFrame() {
+}
+
+$Class* StackRecorderUtil$TestFrame::load$($String* name, bool initialize) {
+	$loadClass(StackRecorderUtil$TestFrame, name, initialize, &_StackRecorderUtil$TestFrame_ClassInfo_, allocate$StackRecorderUtil$TestFrame);
+	return class$;
+}
+
+$Class* StackRecorderUtil$TestFrame::class$ = nullptr;

@@ -1,0 +1,56 @@
+#include <ReadZeroBytes.h>
+
+#include <ThrowingInputStream.h>
+#include <java/io/BufferedInputStream.h>
+#include <java/io/InputStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ThrowingInputStream = ::ThrowingInputStream;
+using $BufferedInputStream = ::java::io::BufferedInputStream;
+using $InputStream = ::java::io::InputStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _ReadZeroBytes_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReadZeroBytes::*)()>(&ReadZeroBytes::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ReadZeroBytes::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _ReadZeroBytes_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"ReadZeroBytes",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_ReadZeroBytes_MethodInfo_
+};
+
+$Object* allocate$ReadZeroBytes($Class* clazz) {
+	return $of($alloc(ReadZeroBytes));
+}
+
+void ReadZeroBytes::init$() {
+}
+
+void ReadZeroBytes::main($StringArray* argv) {
+	$var($BufferedInputStream, in, $new($BufferedInputStream, $$new($ThrowingInputStream)));
+	in->read($$new($bytes, 0), 0, 0);
+}
+
+ReadZeroBytes::ReadZeroBytes() {
+}
+
+$Class* ReadZeroBytes::load$($String* name, bool initialize) {
+	$loadClass(ReadZeroBytes, name, initialize, &_ReadZeroBytes_ClassInfo_, allocate$ReadZeroBytes);
+	return class$;
+}
+
+$Class* ReadZeroBytes::class$ = nullptr;

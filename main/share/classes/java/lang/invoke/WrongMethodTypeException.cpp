@@ -1,0 +1,90 @@
+#include <java/lang/invoke/WrongMethodTypeException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+
+namespace java {
+	namespace lang {
+		namespace invoke {
+
+$FieldInfo _WrongMethodTypeException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WrongMethodTypeException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _WrongMethodTypeException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WrongMethodTypeException::*)()>(&WrongMethodTypeException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(WrongMethodTypeException::*)($String*)>(&WrongMethodTypeException::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(WrongMethodTypeException::*)($String*,$Throwable*)>(&WrongMethodTypeException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(WrongMethodTypeException::*)($Throwable*)>(&WrongMethodTypeException::init$))},
+	{}
+};
+
+$ClassInfo _WrongMethodTypeException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.lang.invoke.WrongMethodTypeException",
+	"java.lang.RuntimeException",
+	nullptr,
+	_WrongMethodTypeException_FieldInfo_,
+	_WrongMethodTypeException_MethodInfo_
+};
+
+$Object* allocate$WrongMethodTypeException($Class* clazz) {
+	return $of($alloc(WrongMethodTypeException));
+}
+
+void WrongMethodTypeException::init$() {
+	$RuntimeException::init$();
+}
+
+void WrongMethodTypeException::init$($String* s) {
+	$RuntimeException::init$(s);
+}
+
+void WrongMethodTypeException::init$($String* s, $Throwable* cause) {
+	$RuntimeException::init$(s, cause);
+}
+
+void WrongMethodTypeException::init$($Throwable* cause) {
+	$RuntimeException::init$(cause);
+}
+
+WrongMethodTypeException::WrongMethodTypeException() {
+}
+
+WrongMethodTypeException::WrongMethodTypeException(const WrongMethodTypeException& e) {
+}
+
+WrongMethodTypeException WrongMethodTypeException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void WrongMethodTypeException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* WrongMethodTypeException::load$($String* name, bool initialize) {
+	$loadClass(WrongMethodTypeException, name, initialize, &_WrongMethodTypeException_ClassInfo_, allocate$WrongMethodTypeException);
+	return class$;
+}
+
+$Class* WrongMethodTypeException::class$ = nullptr;
+
+		} // invoke
+	} // lang
+} // java

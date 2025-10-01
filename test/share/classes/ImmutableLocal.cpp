@@ -1,0 +1,87 @@
+#include <ImmutableLocal.h>
+
+#include <ImmutableLocal$1.h>
+#include <ImmutableLocal$ImmutableThreadLocal.h>
+#include <java/io/PrintStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/ThreadLocal.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ImmutableLocal$1 = ::ImmutableLocal$1;
+using $ImmutableLocal$ImmutableThreadLocal = ::ImmutableLocal$ImmutableThreadLocal;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $ThreadLocal = ::java::lang::ThreadLocal;
+
+$FieldInfo _ImmutableLocal_FieldInfo_[] = {
+	{"cache", "Ljava/lang/ThreadLocal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImmutableLocal, cache)},
+	{}
+};
+
+$MethodInfo _ImmutableLocal_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImmutableLocal::*)()>(&ImmutableLocal::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImmutableLocal::main))},
+	{}
+};
+
+$InnerClassInfo _ImmutableLocal_InnerClassesInfo_[] = {
+	{"ImmutableLocal$ImmutableThreadLocal", "ImmutableLocal", "ImmutableThreadLocal", $PUBLIC | $STATIC | $ABSTRACT},
+	{"ImmutableLocal$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _ImmutableLocal_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"ImmutableLocal",
+	"java.lang.Object",
+	nullptr,
+	_ImmutableLocal_FieldInfo_,
+	_ImmutableLocal_MethodInfo_,
+	nullptr,
+	nullptr,
+	_ImmutableLocal_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"ImmutableLocal$ImmutableThreadLocal,ImmutableLocal$1"
+};
+
+$Object* allocate$ImmutableLocal($Class* clazz) {
+	return $of($alloc(ImmutableLocal));
+}
+
+$ThreadLocal* ImmutableLocal::cache = nullptr;
+
+void ImmutableLocal::init$() {
+}
+
+void ImmutableLocal::main($StringArray* args) {
+	$init(ImmutableLocal);
+	$init($System);
+	$nc($System::out)->println($$str({"cache.get() = "_s, $($nc(ImmutableLocal::cache)->get())}));
+}
+
+void clinit$ImmutableLocal($Class* class$) {
+	$assignStatic(ImmutableLocal::cache, $new($ImmutableLocal$1));
+}
+
+ImmutableLocal::ImmutableLocal() {
+}
+
+$Class* ImmutableLocal::load$($String* name, bool initialize) {
+	$loadClass(ImmutableLocal, name, initialize, &_ImmutableLocal_ClassInfo_, clinit$ImmutableLocal, allocate$ImmutableLocal);
+	return class$;
+}
+
+$Class* ImmutableLocal::class$ = nullptr;

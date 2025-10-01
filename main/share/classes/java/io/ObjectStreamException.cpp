@@ -1,0 +1,77 @@
+#include <java/io/ObjectStreamException.h>
+
+#include <java/io/IOException.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $IOException = ::java::io::IOException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace io {
+
+$FieldInfo _ObjectStreamException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectStreamException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _ObjectStreamException_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(ObjectStreamException::*)($String*)>(&ObjectStreamException::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ObjectStreamException::*)()>(&ObjectStreamException::init$))},
+	{}
+};
+
+$ClassInfo _ObjectStreamException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"java.io.ObjectStreamException",
+	"java.io.IOException",
+	nullptr,
+	_ObjectStreamException_FieldInfo_,
+	_ObjectStreamException_MethodInfo_
+};
+
+$Object* allocate$ObjectStreamException($Class* clazz) {
+	return $of($alloc(ObjectStreamException));
+}
+
+void ObjectStreamException::init$($String* message) {
+	$IOException::init$(message);
+}
+
+void ObjectStreamException::init$() {
+	$IOException::init$();
+}
+
+ObjectStreamException::ObjectStreamException() {
+}
+
+ObjectStreamException::ObjectStreamException(const ObjectStreamException& e) {
+}
+
+ObjectStreamException ObjectStreamException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void ObjectStreamException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* ObjectStreamException::load$($String* name, bool initialize) {
+	$loadClass(ObjectStreamException, name, initialize, &_ObjectStreamException_ClassInfo_, allocate$ObjectStreamException);
+	return class$;
+}
+
+$Class* ObjectStreamException::class$ = nullptr;
+
+	} // io
+} // java

@@ -1,0 +1,86 @@
+#include <java/net/SocksConsts.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+#undef DEFAULT_PORT
+#undef BIND
+#undef CMD_NOT_SUPPORTED
+#undef UDP_ASSOC
+#undef IPV6
+#undef NET_UNREACHABLE
+#undef CONN_REFUSED
+#undef IPV4
+#undef HOST_UNREACHABLE
+#undef NO_AUTH
+#undef PROTO_VERS4
+#undef NOT_ALLOWED
+#undef CONNECT
+#undef REQUEST_OK
+#undef DOMAIN_NAME
+#undef GENERAL_FAILURE
+#undef GSSAPI
+#undef TTL_EXPIRED
+#undef USER_PASSW
+#undef NO_METHODS
+#undef PROTO_VERS
+#undef ADDR_TYPE_NOT_SUP
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+
+namespace java {
+	namespace net {
+
+$FieldInfo _SocksConsts_FieldInfo_[] = {
+	{"PROTO_VERS4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, PROTO_VERS4)},
+	{"PROTO_VERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, PROTO_VERS)},
+	{"DEFAULT_PORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, DEFAULT_PORT)},
+	{"NO_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, NO_AUTH)},
+	{"GSSAPI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, GSSAPI)},
+	{"USER_PASSW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, USER_PASSW)},
+	{"NO_METHODS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, NO_METHODS)},
+	{"CONNECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, CONNECT)},
+	{"BIND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, BIND)},
+	{"UDP_ASSOC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, UDP_ASSOC)},
+	{"IPV4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, IPV4)},
+	{"DOMAIN_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, DOMAIN_NAME)},
+	{"IPV6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, IPV6)},
+	{"REQUEST_OK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, REQUEST_OK)},
+	{"GENERAL_FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, GENERAL_FAILURE)},
+	{"NOT_ALLOWED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, NOT_ALLOWED)},
+	{"NET_UNREACHABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, NET_UNREACHABLE)},
+	{"HOST_UNREACHABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, HOST_UNREACHABLE)},
+	{"CONN_REFUSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, CONN_REFUSED)},
+	{"TTL_EXPIRED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, TTL_EXPIRED)},
+	{"CMD_NOT_SUPPORTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, CMD_NOT_SUPPORTED)},
+	{"ADDR_TYPE_NOT_SUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SocksConsts, ADDR_TYPE_NOT_SUP)},
+	{}
+};
+
+$ClassInfo _SocksConsts_ClassInfo_ = {
+	$INTERFACE | $ABSTRACT,
+	"java.net.SocksConsts",
+	nullptr,
+	nullptr,
+	_SocksConsts_FieldInfo_
+};
+
+$Object* allocate$SocksConsts($Class* clazz) {
+	return $of($alloc(SocksConsts));
+}
+
+$Class* SocksConsts::load$($String* name, bool initialize) {
+	$loadClass(SocksConsts, name, initialize, &_SocksConsts_ClassInfo_, allocate$SocksConsts);
+	return class$;
+}
+
+$Class* SocksConsts::class$ = nullptr;
+
+	} // net
+} // java

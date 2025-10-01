@@ -1,0 +1,136 @@
+#include <sun/nio/ch/CompletedFuture.h>
+
+#include <java/io/IOException.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/SecurityException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/concurrent/ExecutionException.h>
+#include <java/util/concurrent/TimeUnit.h>
+#include <jcpp.h>
+
+using $IOException = ::java::io::IOException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $SecurityException = ::java::lang::SecurityException;
+using $ExecutionException = ::java::util::concurrent::ExecutionException;
+using $Future = ::java::util::concurrent::Future;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
+
+namespace sun {
+	namespace nio {
+		namespace ch {
+
+$FieldInfo _CompletedFuture_FieldInfo_[] = {
+	{"result", "Ljava/lang/Object;", "TV;", $PRIVATE | $FINAL, $field(CompletedFuture, result)},
+	{"exc", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $FINAL, $field(CompletedFuture, exc)},
+	{}
+};
+
+$MethodInfo _CompletedFuture_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "(TV;Ljava/lang/Throwable;)V", $PRIVATE, $method(static_cast<void(CompletedFuture::*)(Object$*,$Throwable*)>(&CompletedFuture::init$))},
+	{"cancel", "(Z)Z", nullptr, $PUBLIC},
+	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, nullptr, "java.util.concurrent.ExecutionException"},
+	{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, nullptr, "java.util.concurrent.ExecutionException"},
+	{"isCancelled", "()Z", nullptr, $PUBLIC},
+	{"isDone", "()Z", nullptr, $PUBLIC},
+	{"withFailure", "(Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $method(static_cast<CompletedFuture*(*)($Throwable*)>(&CompletedFuture::withFailure))},
+	{"withResult", "(Ljava/lang/Object;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(TV;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $method(static_cast<CompletedFuture*(*)(Object$*)>(&CompletedFuture::withResult))},
+	{"withResult", "(Ljava/lang/Object;Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture;", "<V:Ljava/lang/Object;>(TV;Ljava/lang/Throwable;)Lsun/nio/ch/CompletedFuture<TV;>;", $STATIC, $method(static_cast<CompletedFuture*(*)(Object$*,$Throwable*)>(&CompletedFuture::withResult))},
+	{}
+};
+
+$ClassInfo _CompletedFuture_ClassInfo_ = {
+	$FINAL | $ACC_SUPER,
+	"sun.nio.ch.CompletedFuture",
+	"java.lang.Object",
+	"java.util.concurrent.Future",
+	_CompletedFuture_FieldInfo_,
+	_CompletedFuture_MethodInfo_,
+	"<V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Future<TV;>;"
+};
+
+$Object* allocate$CompletedFuture($Class* clazz) {
+	return $of($alloc(CompletedFuture));
+}
+
+void CompletedFuture::init$(Object$* result, $Throwable* exc) {
+	$set(this, result, result);
+	$set(this, exc, exc);
+}
+
+CompletedFuture* CompletedFuture::withResult(Object$* result) {
+	$init(CompletedFuture);
+	return $new(CompletedFuture, result, nullptr);
+}
+
+CompletedFuture* CompletedFuture::withFailure($Throwable* exc$renamed) {
+	$init(CompletedFuture);
+	$var($Throwable, exc, exc$renamed);
+	if (!($instanceOf($IOException, exc)) && !($instanceOf($SecurityException, exc))) {
+		$assign(exc, $new($IOException, exc));
+	}
+	return $new(CompletedFuture, nullptr, exc);
+}
+
+CompletedFuture* CompletedFuture::withResult(Object$* result, $Throwable* exc) {
+	$init(CompletedFuture);
+	if (exc == nullptr) {
+		return withResult(result);
+	} else {
+		return withFailure(exc);
+	}
+}
+
+$Object* CompletedFuture::get() {
+	if (this->exc != nullptr) {
+		$throwNew($ExecutionException, this->exc);
+	}
+	return $of(this->result);
+}
+
+$Object* CompletedFuture::get(int64_t timeout, $TimeUnit* unit) {
+	if (unit == nullptr) {
+		$throwNew($NullPointerException);
+	}
+	if (this->exc != nullptr) {
+		$throwNew($ExecutionException, this->exc);
+	}
+	return $of(this->result);
+}
+
+bool CompletedFuture::isCancelled() {
+	return false;
+}
+
+bool CompletedFuture::isDone() {
+	return true;
+}
+
+bool CompletedFuture::cancel(bool mayInterruptIfRunning) {
+	return false;
+}
+
+CompletedFuture::CompletedFuture() {
+}
+
+$Class* CompletedFuture::load$($String* name, bool initialize) {
+	$loadClass(CompletedFuture, name, initialize, &_CompletedFuture_ClassInfo_, allocate$CompletedFuture);
+	return class$;
+}
+
+$Class* CompletedFuture::class$ = nullptr;
+
+		} // ch
+	} // nio
+} // sun

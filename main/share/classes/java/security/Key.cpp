@@ -1,0 +1,60 @@
+#include <java/security/Key.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $Serializable = ::java::io::Serializable;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace security {
+
+$CompoundAttribute _Key_FieldAnnotations_serialVersionUID[] = {
+	{"Ljava/lang/Deprecated;", nullptr},
+	{}
+};
+
+$FieldInfo _Key_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(Key, serialVersionUID), _Key_FieldAnnotations_serialVersionUID},
+	{}
+};
+
+$MethodInfo _Key_MethodInfo_[] = {
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _Key_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"java.security.Key",
+	nullptr,
+	"java.io.Serializable",
+	_Key_FieldInfo_,
+	_Key_MethodInfo_
+};
+
+$Object* allocate$Key($Class* clazz) {
+	return $of($alloc(Key));
+}
+
+$Class* Key::load$($String* name, bool initialize) {
+	$loadClass(Key, name, initialize, &_Key_ClassInfo_, allocate$Key);
+	return class$;
+}
+
+$Class* Key::class$ = nullptr;
+
+	} // security
+} // java

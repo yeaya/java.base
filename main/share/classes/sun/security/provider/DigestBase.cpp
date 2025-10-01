@@ -1,0 +1,257 @@
+#include <sun/security/provider/DigestBase.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/ArrayIndexOutOfBoundsException.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/Math.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/DigestException.h>
+#include <java/security/GeneralSecurityException.h>
+#include <java/security/MessageDigestSpi.h>
+#include <java/security/ProviderException.h>
+#include <java/util/Arrays.h>
+#include <java/util/Objects.h>
+#include <jcpp.h>
+
+using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Cloneable = ::java::lang::Cloneable;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $Math = ::java::lang::Math;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $DigestException = ::java::security::DigestException;
+using $GeneralSecurityException = ::java::security::GeneralSecurityException;
+using $MessageDigestSpi = ::java::security::MessageDigestSpi;
+using $ProviderException = ::java::security::ProviderException;
+using $Arrays = ::java::util::Arrays;
+using $Objects = ::java::util::Objects;
+
+namespace sun {
+	namespace security {
+		namespace provider {
+
+$CompoundAttribute _DigestBase_MethodAnnotations_implCompressMultiBlock010[] = {
+	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+	{}
+};
+
+$FieldInfo _DigestBase_FieldInfo_[] = {
+	{"oneByte", "[B", nullptr, $PRIVATE, $field(DigestBase, oneByte)},
+	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DigestBase, algorithm)},
+	{"digestLength", "I", nullptr, $PRIVATE | $FINAL, $field(DigestBase, digestLength)},
+	{"blockSize", "I", nullptr, $PRIVATE | $FINAL, $field(DigestBase, blockSize)},
+	{"buffer", "[B", nullptr, 0, $field(DigestBase, buffer)},
+	{"bufOfs", "I", nullptr, $PRIVATE, $field(DigestBase, bufOfs)},
+	{"bytesProcessed", "J", nullptr, 0, $field(DigestBase, bytesProcessed)},
+	{"padding", "[B", nullptr, $STATIC | $FINAL, $staticField(DigestBase, padding)},
+	{}
+};
+
+$MethodInfo _DigestBase_MethodInfo_[] = {
+	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(DigestBase::*)($String*,int32_t,int32_t)>(&DigestBase::init$))},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
+	{"engineDigest", "()[B", nullptr, $PROTECTED | $FINAL},
+	{"engineDigest", "([BII)I", nullptr, $PROTECTED | $FINAL, nullptr, "java.security.DigestException"},
+	{"engineGetDigestLength", "()I", nullptr, $PROTECTED | $FINAL},
+	{"engineReset", "()V", nullptr, $PROTECTED | $FINAL},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $FINAL},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $FINAL},
+	{"implCompress", "([BI)V", nullptr, $ABSTRACT},
+	{"implCompressMultiBlock", "([BII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DigestBase::*)($bytes*,int32_t,int32_t)>(&DigestBase::implCompressMultiBlock))},
+	{"implCompressMultiBlock0", "([BII)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DigestBase::*)($bytes*,int32_t,int32_t)>(&DigestBase::implCompressMultiBlock0)), nullptr, nullptr, _DigestBase_MethodAnnotations_implCompressMultiBlock010},
+	{"implCompressMultiBlockCheck", "([BII)V", nullptr, $PRIVATE, $method(static_cast<void(DigestBase::*)($bytes*,int32_t,int32_t)>(&DigestBase::implCompressMultiBlockCheck))},
+	{"implDigest", "([BI)V", nullptr, $ABSTRACT},
+	{"implReset", "()V", nullptr, $ABSTRACT},
+	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _DigestBase_ClassInfo_ = {
+	$ACC_SUPER | $ABSTRACT,
+	"sun.security.provider.DigestBase",
+	"java.security.MessageDigestSpi",
+	"java.lang.Cloneable",
+	_DigestBase_FieldInfo_,
+	_DigestBase_MethodInfo_
+};
+
+$Object* allocate$DigestBase($Class* clazz) {
+	return $of($alloc(DigestBase));
+}
+
+int32_t DigestBase::hashCode() {
+	 return this->$MessageDigestSpi::hashCode();
+}
+
+bool DigestBase::equals(Object$* obj) {
+	 return this->$MessageDigestSpi::equals(obj);
+}
+
+$String* DigestBase::toString() {
+	 return this->$MessageDigestSpi::toString();
+}
+
+void DigestBase::finalize() {
+	this->$MessageDigestSpi::finalize();
+}
+
+$bytes* DigestBase::padding = nullptr;
+
+void DigestBase::init$($String* algorithm, int32_t digestLength, int32_t blockSize) {
+	$MessageDigestSpi::init$();
+	$set(this, algorithm, algorithm);
+	this->digestLength = digestLength;
+	this->blockSize = blockSize;
+	$set(this, buffer, $new($bytes, blockSize));
+}
+
+int32_t DigestBase::engineGetDigestLength() {
+	return this->digestLength;
+}
+
+void DigestBase::engineUpdate(int8_t b) {
+	if (this->oneByte == nullptr) {
+		$set(this, oneByte, $new($bytes, 1));
+	}
+	$nc(this->oneByte)->set(0, b);
+	engineUpdate(this->oneByte, 0, 1);
+}
+
+void DigestBase::engineUpdate($bytes* b, int32_t ofs, int32_t len) {
+	if (len == 0) {
+		return;
+	}
+	if ((ofs < 0) || (len < 0) || (ofs > $nc(b)->length - len)) {
+		$throwNew($ArrayIndexOutOfBoundsException);
+	}
+	if (this->bytesProcessed < 0) {
+		engineReset();
+	}
+	this->bytesProcessed += len;
+	if (this->bufOfs != 0) {
+		int32_t n = $Math::min(len, this->blockSize - this->bufOfs);
+		$System::arraycopy(b, ofs, this->buffer, this->bufOfs, n);
+		this->bufOfs += n;
+		ofs += n;
+		len -= n;
+		if (this->bufOfs >= this->blockSize) {
+			implCompress(this->buffer, 0);
+			this->bufOfs = 0;
+		}
+	}
+	if (len >= this->blockSize) {
+		int32_t limit = ofs + len;
+		ofs = implCompressMultiBlock(b, ofs, limit - this->blockSize);
+		len = limit - ofs;
+	}
+	if (len > 0) {
+		$System::arraycopy(b, ofs, this->buffer, 0, len);
+		this->bufOfs = len;
+	}
+}
+
+int32_t DigestBase::implCompressMultiBlock($bytes* b, int32_t ofs, int32_t limit) {
+	implCompressMultiBlockCheck(b, ofs, limit);
+	return implCompressMultiBlock0(b, ofs, limit);
+}
+
+int32_t DigestBase::implCompressMultiBlock0($bytes* b, int32_t ofs, int32_t limit) {
+	for (; ofs <= limit; ofs += this->blockSize) {
+		implCompress(b, ofs);
+	}
+	return ofs;
+}
+
+void DigestBase::implCompressMultiBlockCheck($bytes* b, int32_t ofs, int32_t limit) {
+	if (limit < 0) {
+		return;
+	}
+	$Objects::requireNonNull(b);
+	if (ofs < 0 || ofs >= b->length) {
+		$throwNew($ArrayIndexOutOfBoundsException, ofs);
+	}
+	int32_t endIndex = ($div(limit, this->blockSize)) * this->blockSize + this->blockSize - 1;
+	if (endIndex >= b->length) {
+		$throwNew($ArrayIndexOutOfBoundsException, endIndex);
+	}
+}
+
+void DigestBase::engineReset() {
+	if (this->bytesProcessed == 0) {
+		return;
+	}
+	implReset();
+	this->bufOfs = 0;
+	this->bytesProcessed = 0;
+	$Arrays::fill(this->buffer, (int8_t)0);
+}
+
+$bytes* DigestBase::engineDigest() {
+	$var($bytes, b, $new($bytes, this->digestLength));
+	try {
+		engineDigest(b, 0, b->length);
+	} catch ($DigestException&) {
+		$var($DigestException, e, $catch());
+		$throw($cast($ProviderException, $($$new($ProviderException, "Internal error"_s)->initCause(e))));
+	}
+	return b;
+}
+
+int32_t DigestBase::engineDigest($bytes* out, int32_t ofs, int32_t len) {
+	if (len < this->digestLength) {
+		$throwNew($DigestException, $$str({"Length must be at least "_s, $$str(this->digestLength), " for "_s, this->algorithm, "digests"_s}));
+	}
+	if ((ofs < 0) || (len < 0) || (ofs > $nc(out)->length - len)) {
+		$throwNew($DigestException, "Buffer too short to store digest"_s);
+	}
+	if (this->bytesProcessed < 0) {
+		engineReset();
+	}
+	implDigest(out, ofs);
+	this->bytesProcessed = -1;
+	return this->digestLength;
+}
+
+$Object* DigestBase::clone() {
+	$var(DigestBase, copy, $cast(DigestBase, $MessageDigestSpi::clone()));
+	$set($nc(copy), buffer, $cast($bytes, $nc(copy->buffer)->clone()));
+	$set(copy, oneByte, nullptr);
+	return $of(copy);
+}
+
+void clinit$DigestBase($Class* class$) {
+	{
+		$assignStatic(DigestBase::padding, $new($bytes, 136));
+		$nc(DigestBase::padding)->set(0, (int8_t)128);
+	}
+}
+
+DigestBase::DigestBase() {
+}
+
+$Class* DigestBase::load$($String* name, bool initialize) {
+	$loadClass(DigestBase, name, initialize, &_DigestBase_ClassInfo_, clinit$DigestBase, allocate$DigestBase);
+	return class$;
+}
+
+$Class* DigestBase::class$ = nullptr;
+
+		} // provider
+	} // security
+} // sun

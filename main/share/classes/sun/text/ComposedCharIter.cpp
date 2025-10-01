@@ -1,0 +1,93 @@
+#include <sun/text/ComposedCharIter.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jdk/internal/icu/impl/NormalizerImpl.h>
+#include <jcpp.h>
+
+#undef DONE
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NormalizerImpl = ::jdk::internal::icu::impl::NormalizerImpl;
+using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
+
+namespace sun {
+	namespace text {
+
+$FieldInfo _ComposedCharIter_FieldInfo_[] = {
+	{"DONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ComposedCharIter, DONE)},
+	{"chars", "[I", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, chars)},
+	{"decomps", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, decomps)},
+	{"decompNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(ComposedCharIter, decompNum)},
+	{"curChar", "I", nullptr, $PRIVATE, $field(ComposedCharIter, curChar)},
+	{}
+};
+
+$MethodInfo _ComposedCharIter_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ComposedCharIter::*)()>(&ComposedCharIter::init$))},
+	{"decomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ComposedCharIter::*)()>(&ComposedCharIter::decomposition))},
+	{"next", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(ComposedCharIter::*)()>(&ComposedCharIter::next))},
+	{}
+};
+
+$ClassInfo _ComposedCharIter_ClassInfo_ = {
+	$PUBLIC | $FINAL | $ACC_SUPER,
+	"sun.text.ComposedCharIter",
+	"java.lang.Object",
+	nullptr,
+	_ComposedCharIter_FieldInfo_,
+	_ComposedCharIter_MethodInfo_
+};
+
+$Object* allocate$ComposedCharIter($Class* clazz) {
+	return $of($alloc(ComposedCharIter));
+}
+
+$ints* ComposedCharIter::chars = nullptr;
+$StringArray* ComposedCharIter::decomps = nullptr;
+int32_t ComposedCharIter::decompNum = 0;
+
+void ComposedCharIter::init$() {
+	this->curChar = -1;
+}
+
+int32_t ComposedCharIter::next() {
+	if (this->curChar == ComposedCharIter::decompNum - 1) {
+		return ComposedCharIter::DONE;
+	}
+	return $nc(ComposedCharIter::chars)->get(++this->curChar);
+}
+
+$String* ComposedCharIter::decomposition() {
+	return $nc(ComposedCharIter::decomps)->get(this->curChar);
+}
+
+void clinit$ComposedCharIter($Class* class$) {
+	{
+		int32_t maxNum = 2100;
+		$assignStatic(ComposedCharIter::chars, $new($ints, maxNum));
+		$assignStatic(ComposedCharIter::decomps, $new($StringArray, maxNum));
+		ComposedCharIter::decompNum = $NormalizerImpl::getDecompose(ComposedCharIter::chars, ComposedCharIter::decomps);
+	}
+}
+
+ComposedCharIter::ComposedCharIter() {
+}
+
+$Class* ComposedCharIter::load$($String* name, bool initialize) {
+	$loadClass(ComposedCharIter, name, initialize, &_ComposedCharIter_ClassInfo_, clinit$ComposedCharIter, allocate$ComposedCharIter);
+	return class$;
+}
+
+$Class* ComposedCharIter::class$ = nullptr;
+
+	} // text
+} // sun

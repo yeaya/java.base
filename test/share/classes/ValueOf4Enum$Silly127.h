@@ -1,0 +1,147 @@
+#ifndef _ValueOf4Enum$Silly127_h_
+#define _ValueOf4Enum$Silly127_h_
+//$ class ValueOf4Enum$Silly127
+//$ extends java.lang.Enum
+
+#include <java/lang/Array.h>
+#include <java/lang/Enum.h>
+
+class $export ValueOf4Enum$Silly127 : public ::java::lang::Enum {
+	$class(ValueOf4Enum$Silly127, 0, ::java::lang::Enum)
+public:
+	ValueOf4Enum$Silly127();
+	static $Array<ValueOf4Enum$Silly127>* $values();
+	void init$($String* $enum$name, int32_t $enum$ordinal);
+	static ::ValueOf4Enum$Silly127* valueOf($String* name);
+	static $Array<ValueOf4Enum$Silly127>* values();
+	static ::ValueOf4Enum$Silly127* e0;
+	static ::ValueOf4Enum$Silly127* e1;
+	static ::ValueOf4Enum$Silly127* e2;
+	static ::ValueOf4Enum$Silly127* e3;
+	static ::ValueOf4Enum$Silly127* e4;
+	static ::ValueOf4Enum$Silly127* e5;
+	static ::ValueOf4Enum$Silly127* e6;
+	static ::ValueOf4Enum$Silly127* e7;
+	static ::ValueOf4Enum$Silly127* e8;
+	static ::ValueOf4Enum$Silly127* e9;
+	static ::ValueOf4Enum$Silly127* e10;
+	static ::ValueOf4Enum$Silly127* e11;
+	static ::ValueOf4Enum$Silly127* e12;
+	static ::ValueOf4Enum$Silly127* e13;
+	static ::ValueOf4Enum$Silly127* e14;
+	static ::ValueOf4Enum$Silly127* e15;
+	static ::ValueOf4Enum$Silly127* e16;
+	static ::ValueOf4Enum$Silly127* e17;
+	static ::ValueOf4Enum$Silly127* e18;
+	static ::ValueOf4Enum$Silly127* e19;
+	static ::ValueOf4Enum$Silly127* e20;
+	static ::ValueOf4Enum$Silly127* e21;
+	static ::ValueOf4Enum$Silly127* e22;
+	static ::ValueOf4Enum$Silly127* e23;
+	static ::ValueOf4Enum$Silly127* e24;
+	static ::ValueOf4Enum$Silly127* e25;
+	static ::ValueOf4Enum$Silly127* e26;
+	static ::ValueOf4Enum$Silly127* e27;
+	static ::ValueOf4Enum$Silly127* e28;
+	static ::ValueOf4Enum$Silly127* e29;
+	static ::ValueOf4Enum$Silly127* e30;
+	static ::ValueOf4Enum$Silly127* e31;
+	static ::ValueOf4Enum$Silly127* e32;
+	static ::ValueOf4Enum$Silly127* e33;
+	static ::ValueOf4Enum$Silly127* e34;
+	static ::ValueOf4Enum$Silly127* e35;
+	static ::ValueOf4Enum$Silly127* e36;
+	static ::ValueOf4Enum$Silly127* e37;
+	static ::ValueOf4Enum$Silly127* e38;
+	static ::ValueOf4Enum$Silly127* e39;
+	static ::ValueOf4Enum$Silly127* e40;
+	static ::ValueOf4Enum$Silly127* e41;
+	static ::ValueOf4Enum$Silly127* e42;
+	static ::ValueOf4Enum$Silly127* e43;
+	static ::ValueOf4Enum$Silly127* e44;
+	static ::ValueOf4Enum$Silly127* e45;
+	static ::ValueOf4Enum$Silly127* e46;
+	static ::ValueOf4Enum$Silly127* e47;
+	static ::ValueOf4Enum$Silly127* e48;
+	static ::ValueOf4Enum$Silly127* e49;
+	static ::ValueOf4Enum$Silly127* e50;
+	static ::ValueOf4Enum$Silly127* e51;
+	static ::ValueOf4Enum$Silly127* e52;
+	static ::ValueOf4Enum$Silly127* e53;
+	static ::ValueOf4Enum$Silly127* e54;
+	static ::ValueOf4Enum$Silly127* e55;
+	static ::ValueOf4Enum$Silly127* e56;
+	static ::ValueOf4Enum$Silly127* e57;
+	static ::ValueOf4Enum$Silly127* e58;
+	static ::ValueOf4Enum$Silly127* e59;
+	static ::ValueOf4Enum$Silly127* e60;
+	static ::ValueOf4Enum$Silly127* e61;
+	static ::ValueOf4Enum$Silly127* e62;
+	static ::ValueOf4Enum$Silly127* e63;
+	static ::ValueOf4Enum$Silly127* e64;
+	static ::ValueOf4Enum$Silly127* e65;
+	static ::ValueOf4Enum$Silly127* e66;
+	static ::ValueOf4Enum$Silly127* e67;
+	static ::ValueOf4Enum$Silly127* e68;
+	static ::ValueOf4Enum$Silly127* e69;
+	static ::ValueOf4Enum$Silly127* e70;
+	static ::ValueOf4Enum$Silly127* e71;
+	static ::ValueOf4Enum$Silly127* e72;
+	static ::ValueOf4Enum$Silly127* e73;
+	static ::ValueOf4Enum$Silly127* e74;
+	static ::ValueOf4Enum$Silly127* e75;
+	static ::ValueOf4Enum$Silly127* e76;
+	static ::ValueOf4Enum$Silly127* e77;
+	static ::ValueOf4Enum$Silly127* e78;
+	static ::ValueOf4Enum$Silly127* e79;
+	static ::ValueOf4Enum$Silly127* e80;
+	static ::ValueOf4Enum$Silly127* e81;
+	static ::ValueOf4Enum$Silly127* e82;
+	static ::ValueOf4Enum$Silly127* e83;
+	static ::ValueOf4Enum$Silly127* e84;
+	static ::ValueOf4Enum$Silly127* e85;
+	static ::ValueOf4Enum$Silly127* e86;
+	static ::ValueOf4Enum$Silly127* e87;
+	static ::ValueOf4Enum$Silly127* e88;
+	static ::ValueOf4Enum$Silly127* e89;
+	static ::ValueOf4Enum$Silly127* e90;
+	static ::ValueOf4Enum$Silly127* e91;
+	static ::ValueOf4Enum$Silly127* e92;
+	static ::ValueOf4Enum$Silly127* e93;
+	static ::ValueOf4Enum$Silly127* e94;
+	static ::ValueOf4Enum$Silly127* e95;
+	static ::ValueOf4Enum$Silly127* e96;
+	static ::ValueOf4Enum$Silly127* e97;
+	static ::ValueOf4Enum$Silly127* e98;
+	static ::ValueOf4Enum$Silly127* e99;
+	static ::ValueOf4Enum$Silly127* e100;
+	static ::ValueOf4Enum$Silly127* e101;
+	static ::ValueOf4Enum$Silly127* e102;
+	static ::ValueOf4Enum$Silly127* e103;
+	static ::ValueOf4Enum$Silly127* e104;
+	static ::ValueOf4Enum$Silly127* e105;
+	static ::ValueOf4Enum$Silly127* e106;
+	static ::ValueOf4Enum$Silly127* e107;
+	static ::ValueOf4Enum$Silly127* e108;
+	static ::ValueOf4Enum$Silly127* e109;
+	static ::ValueOf4Enum$Silly127* e110;
+	static ::ValueOf4Enum$Silly127* e111;
+	static ::ValueOf4Enum$Silly127* e112;
+	static ::ValueOf4Enum$Silly127* e113;
+	static ::ValueOf4Enum$Silly127* e114;
+	static ::ValueOf4Enum$Silly127* e115;
+	static ::ValueOf4Enum$Silly127* e116;
+	static ::ValueOf4Enum$Silly127* e117;
+	static ::ValueOf4Enum$Silly127* e118;
+	static ::ValueOf4Enum$Silly127* e119;
+	static ::ValueOf4Enum$Silly127* e120;
+	static ::ValueOf4Enum$Silly127* e121;
+	static ::ValueOf4Enum$Silly127* e122;
+	static ::ValueOf4Enum$Silly127* e123;
+	static ::ValueOf4Enum$Silly127* e124;
+	static ::ValueOf4Enum$Silly127* e125;
+	static ::ValueOf4Enum$Silly127* e126;
+	static $Array<ValueOf4Enum$Silly127>* $VALUES;
+};
+
+#endif // _ValueOf4Enum$Silly127_h_

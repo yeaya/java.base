@@ -1,0 +1,104 @@
+#include <sun/nio/fs/LinuxFileSystem$SupportedFileFileAttributeViewsHolder.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/AbstractSet.h>
+#include <java/util/Collection.h>
+#include <java/util/Collections.h>
+#include <java/util/HashSet.h>
+#include <java/util/List.h>
+#include <java/util/Set.h>
+#include <sun/nio/fs/LinuxFileSystem.h>
+#include <sun/nio/fs/UnixFileSystem.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $AbstractSet = ::java::util::AbstractSet;
+using $Collection = ::java::util::Collection;
+using $Collections = ::java::util::Collections;
+using $HashSet = ::java::util::HashSet;
+using $List = ::java::util::List;
+using $Set = ::java::util::Set;
+using $LinuxFileSystem = ::sun::nio::fs::LinuxFileSystem;
+using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
+
+namespace sun {
+	namespace nio {
+		namespace fs {
+
+$FieldInfo _LinuxFileSystem$SupportedFileFileAttributeViewsHolder_FieldInfo_[] = {
+	{"supportedFileAttributeViews", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(LinuxFileSystem$SupportedFileFileAttributeViewsHolder, supportedFileAttributeViews$)},
+	{}
+};
+
+$MethodInfo _LinuxFileSystem$SupportedFileFileAttributeViewsHolder_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LinuxFileSystem$SupportedFileFileAttributeViewsHolder::*)()>(&LinuxFileSystem$SupportedFileFileAttributeViewsHolder::init$))},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&LinuxFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews))},
+	{}
+};
+
+$InnerClassInfo _LinuxFileSystem$SupportedFileFileAttributeViewsHolder_InnerClassesInfo_[] = {
+	{"sun.nio.fs.LinuxFileSystem$SupportedFileFileAttributeViewsHolder", "sun.nio.fs.LinuxFileSystem", "SupportedFileFileAttributeViewsHolder", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _LinuxFileSystem$SupportedFileFileAttributeViewsHolder_ClassInfo_ = {
+	$ACC_SUPER,
+	"sun.nio.fs.LinuxFileSystem$SupportedFileFileAttributeViewsHolder",
+	"java.lang.Object",
+	nullptr,
+	_LinuxFileSystem$SupportedFileFileAttributeViewsHolder_FieldInfo_,
+	_LinuxFileSystem$SupportedFileFileAttributeViewsHolder_MethodInfo_,
+	nullptr,
+	nullptr,
+	_LinuxFileSystem$SupportedFileFileAttributeViewsHolder_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.nio.fs.LinuxFileSystem"
+};
+
+$Object* allocate$LinuxFileSystem$SupportedFileFileAttributeViewsHolder($Class* clazz) {
+	return $of($alloc(LinuxFileSystem$SupportedFileFileAttributeViewsHolder));
+}
+
+$Set* LinuxFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews$ = nullptr;
+
+void LinuxFileSystem$SupportedFileFileAttributeViewsHolder::init$() {
+}
+
+$Set* LinuxFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews() {
+	$init(LinuxFileSystem$SupportedFileFileAttributeViewsHolder);
+	$var($Set, result, $new($HashSet));
+	result->addAll($($UnixFileSystem::standardFileAttributeViews()));
+	result->add("dos"_s);
+	result->add("user"_s);
+	return $Collections::unmodifiableSet(result);
+}
+
+void clinit$LinuxFileSystem$SupportedFileFileAttributeViewsHolder($Class* class$) {
+	$assignStatic(LinuxFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews$, LinuxFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews());
+}
+
+LinuxFileSystem$SupportedFileFileAttributeViewsHolder::LinuxFileSystem$SupportedFileFileAttributeViewsHolder() {
+}
+
+$Class* LinuxFileSystem$SupportedFileFileAttributeViewsHolder::load$($String* name, bool initialize) {
+	$loadClass(LinuxFileSystem$SupportedFileFileAttributeViewsHolder, name, initialize, &_LinuxFileSystem$SupportedFileFileAttributeViewsHolder_ClassInfo_, clinit$LinuxFileSystem$SupportedFileFileAttributeViewsHolder, allocate$LinuxFileSystem$SupportedFileFileAttributeViewsHolder);
+	return class$;
+}
+
+$Class* LinuxFileSystem$SupportedFileFileAttributeViewsHolder::class$ = nullptr;
+
+		} // fs
+	} // nio
+} // sun

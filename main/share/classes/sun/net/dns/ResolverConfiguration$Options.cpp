@@ -1,0 +1,77 @@
+#include <sun/net/dns/ResolverConfiguration$Options.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <sun/net/dns/ResolverConfiguration.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $ResolverConfiguration = ::sun::net::dns::ResolverConfiguration;
+
+namespace sun {
+	namespace net {
+		namespace dns {
+
+$MethodInfo _ResolverConfiguration$Options_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolverConfiguration$Options::*)()>(&ResolverConfiguration$Options::init$))},
+	{"attempts", "()I", nullptr, $PUBLIC},
+	{"retrans", "()I", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _ResolverConfiguration$Options_InnerClassesInfo_[] = {
+	{"sun.net.dns.ResolverConfiguration$Options", "sun.net.dns.ResolverConfiguration", "Options", $PUBLIC | $STATIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _ResolverConfiguration$Options_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"sun.net.dns.ResolverConfiguration$Options",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_ResolverConfiguration$Options_MethodInfo_,
+	nullptr,
+	nullptr,
+	_ResolverConfiguration$Options_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.net.dns.ResolverConfiguration"
+};
+
+$Object* allocate$ResolverConfiguration$Options($Class* clazz) {
+	return $of($alloc(ResolverConfiguration$Options));
+}
+
+void ResolverConfiguration$Options::init$() {
+}
+
+int32_t ResolverConfiguration$Options::attempts() {
+	return -1;
+}
+
+int32_t ResolverConfiguration$Options::retrans() {
+	return -1;
+}
+
+ResolverConfiguration$Options::ResolverConfiguration$Options() {
+}
+
+$Class* ResolverConfiguration$Options::load$($String* name, bool initialize) {
+	$loadClass(ResolverConfiguration$Options, name, initialize, &_ResolverConfiguration$Options_ClassInfo_, allocate$ResolverConfiguration$Options);
+	return class$;
+}
+
+$Class* ResolverConfiguration$Options::class$ = nullptr;
+
+		} // dns
+	} // net
+} // sun

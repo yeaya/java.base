@@ -1,0 +1,77 @@
+#include <javax/crypto/AEADBadTagException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <javax/crypto/BadPaddingException.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $BadPaddingException = ::javax::crypto::BadPaddingException;
+
+namespace javax {
+	namespace crypto {
+
+$FieldInfo _AEADBadTagException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AEADBadTagException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _AEADBadTagException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AEADBadTagException::*)()>(&AEADBadTagException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AEADBadTagException::*)($String*)>(&AEADBadTagException::init$))},
+	{}
+};
+
+$ClassInfo _AEADBadTagException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.crypto.AEADBadTagException",
+	"javax.crypto.BadPaddingException",
+	nullptr,
+	_AEADBadTagException_FieldInfo_,
+	_AEADBadTagException_MethodInfo_
+};
+
+$Object* allocate$AEADBadTagException($Class* clazz) {
+	return $of($alloc(AEADBadTagException));
+}
+
+void AEADBadTagException::init$() {
+	$BadPaddingException::init$();
+}
+
+void AEADBadTagException::init$($String* msg) {
+	$BadPaddingException::init$(msg);
+}
+
+AEADBadTagException::AEADBadTagException() {
+}
+
+AEADBadTagException::AEADBadTagException(const AEADBadTagException& e) {
+}
+
+AEADBadTagException AEADBadTagException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void AEADBadTagException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* AEADBadTagException::load$($String* name, bool initialize) {
+	$loadClass(AEADBadTagException, name, initialize, &_AEADBadTagException_ClassInfo_, allocate$AEADBadTagException);
+	return class$;
+}
+
+$Class* AEADBadTagException::class$ = nullptr;
+
+	} // crypto
+} // javax

@@ -1,0 +1,81 @@
+#include <B6529759.h>
+
+#include <B6529759$a.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <java/net/URLStreamHandler.h>
+#include <jcpp.h>
+
+using $B6529759$a = ::B6529759$a;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $URL = ::java::net::URL;
+using $URLStreamHandler = ::java::net::URLStreamHandler;
+
+$MethodInfo _B6529759_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6529759::*)()>(&B6529759::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6529759::main))},
+	{}
+};
+
+$InnerClassInfo _B6529759_InnerClassesInfo_[] = {
+	{"B6529759$a", "B6529759", "a", $STATIC},
+	{}
+};
+
+$ClassInfo _B6529759_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"B6529759",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_B6529759_MethodInfo_,
+	nullptr,
+	nullptr,
+	_B6529759_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"B6529759$a"
+};
+
+$Object* allocate$B6529759($Class* clazz) {
+	return $of($alloc(B6529759));
+}
+
+void B6529759::init$() {
+}
+
+void B6529759::main($StringArray* args) {
+	try {
+		$new($URL, ($URL*)nullptr, "a:"_s, static_cast<$URLStreamHandler*>($$new($B6529759$a)));
+	} catch ($Exception&) {
+		$var($Exception, e, $catch());
+		if (e->getCause() == nullptr) {
+			e->printStackTrace();
+			$throwNew($RuntimeException, "Failed: Exception has no cause"_s);
+		}
+	}
+}
+
+B6529759::B6529759() {
+}
+
+$Class* B6529759::load$($String* name, bool initialize) {
+	$loadClass(B6529759, name, initialize, &_B6529759_ClassInfo_, allocate$B6529759);
+	return class$;
+}
+
+$Class* B6529759::class$ = nullptr;

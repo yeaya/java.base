@@ -1,0 +1,185 @@
+#include <indify/Indify$Loader.h>
+
+#include <indify/Indify$ClassFile.h>
+#include <indify/Indify$Logic.h>
+#include <indify/Indify.h>
+#include <java/io/File.h>
+#include <java/io/IOException.h>
+#include <java/io/PrintStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/ClassLoader.h>
+#include <java/lang/ClassNotFoundException.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $Indify = ::indify::Indify;
+using $Indify$ClassFile = ::indify::Indify$ClassFile;
+using $Indify$Logic = ::indify::Indify$Logic;
+using $File = ::java::io::File;
+using $IOException = ::java::io::IOException;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
+using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $RuntimeException = ::java::lang::RuntimeException;
+
+namespace indify {
+
+$FieldInfo _Indify$Loader_FieldInfo_[] = {
+	{"this$0", "Lindify/Indify;", nullptr, $FINAL | $SYNTHETIC, $field(Indify$Loader, this$0)},
+	{}
+};
+
+$MethodInfo _Indify$Loader_MethodInfo_[] = {
+	{"<init>", "(Lindify/Indify;)V", nullptr, 0, $method(static_cast<void(Indify$Loader::*)($Indify*)>(&Indify$Loader::init$))},
+	{"<init>", "(Lindify/Indify;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(Indify$Loader::*)($Indify*,$ClassLoader*)>(&Indify$Loader::init$))},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"findClassInPath", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(static_cast<$File*(Indify$Loader::*)($String*)>(&Indify$Loader::findClassInPath))},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PUBLIC, nullptr, "java.lang.ClassNotFoundException"},
+	{"transformAndLoadClass", "(Ljava/io/File;)Ljava/lang/Class;", "(Ljava/io/File;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(Indify$Loader::*)($File*)>(&Indify$Loader::transformAndLoadClass)), "java.lang.ClassNotFoundException,java.io.IOException"},
+	{}
+};
+
+$InnerClassInfo _Indify$Loader_InnerClassesInfo_[] = {
+	{"indify.Indify$Loader", "indify.Indify", "Loader", $PRIVATE},
+	{}
+};
+
+$ClassInfo _Indify$Loader_ClassInfo_ = {
+	$ACC_SUPER,
+	"indify.Indify$Loader",
+	"java.lang.ClassLoader",
+	nullptr,
+	_Indify$Loader_FieldInfo_,
+	_Indify$Loader_MethodInfo_,
+	nullptr,
+	nullptr,
+	_Indify$Loader_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"indify.Indify"
+};
+
+$Object* allocate$Indify$Loader($Class* clazz) {
+	return $of($alloc(Indify$Loader));
+}
+
+void Indify$Loader::init$($Indify* this$0) {
+	$beforeCallerSensitive();
+	$load($Indify);
+	Indify$Loader::init$(this$0, $($Indify::class$->getClassLoader()));
+}
+
+void Indify$Loader::init$($Indify* this$0, $ClassLoader* parent) {
+	$set(this, this$0, this$0);
+	$ClassLoader::init$(parent);
+}
+
+$Class* Indify$Loader::loadClass($String* name, bool resolve) {
+	$var($File, f, findClassInPath(name));
+	if (f != nullptr) {
+		try {
+			$Class* c = transformAndLoadClass(f);
+			if (c != nullptr) {
+				if (resolve) {
+					resolveClass(c);
+				}
+				return c;
+			}
+		} catch ($ClassNotFoundException&) {
+			$catch();
+		} catch ($IOException&) {
+			$catch();
+		} catch ($Exception&) {
+			$var($Exception, ex, $catch());
+			if ($instanceOf($RuntimeException, ex)) {
+				$throw($cast($RuntimeException, ex));
+			}
+			$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		}
+	}
+	return $ClassLoader::loadClass(name, resolve);
+}
+
+$File* Indify$Loader::findClassInPath($String* name) {
+	{
+		$var($StringArray, arr$, this->this$0->classpath);
+		int32_t len$ = $nc(arr$)->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($String, s, arr$->get(i$));
+			{
+				$var($File, f, this->this$0->classPathFile($$new($File, s), name));
+				bool var$0 = $nc(f)->exists();
+				if (var$0 && f->canRead()) {
+					return f;
+				}
+			}
+		}
+	}
+	return nullptr;
+}
+
+$Class* Indify$Loader::findClass($String* name) {
+	try {
+		$var($File, f, findClassInPath(name));
+		if (f != nullptr) {
+			$Class* c = transformAndLoadClass(f);
+			if (c != nullptr) {
+				return c;
+			}
+		}
+	} catch ($IOException&) {
+		$var($IOException, ex, $catch());
+		$throwNew($ClassNotFoundException, "IO error"_s, ex);
+	}
+	$throwNew($ClassNotFoundException);
+	$shouldNotReachHere();
+}
+
+$Class* Indify$Loader::transformAndLoadClass($File* f) {
+	if (this->this$0->verbose) {
+		$init($System);
+		$nc($System::err)->println($$str({"Loading class from "_s, f}));
+	}
+	$var($Indify$ClassFile, cf, $new($Indify$ClassFile, this->this$0, f));
+	$var($Indify$Logic, logic, $new($Indify$Logic, this->this$0, cf));
+	bool changed = logic->transform();
+	if (this->this$0->verbose && !changed) {
+		$init($System);
+		$nc($System::err)->println("(no change)"_s);
+	}
+	logic->reportPatternMethods(!this->this$0->verbose, this->this$0->keepgoing);
+	$var($bytes, bytes, cf->toByteArray());
+	return defineClass(nullptr, bytes, 0, $nc(bytes)->length);
+}
+
+Indify$Loader::Indify$Loader() {
+}
+
+$Class* Indify$Loader::load$($String* name, bool initialize) {
+	$loadClass(Indify$Loader, name, initialize, &_Indify$Loader_ClassInfo_, allocate$Indify$Loader);
+	return class$;
+}
+
+$Class* Indify$Loader::class$ = nullptr;
+
+} // indify

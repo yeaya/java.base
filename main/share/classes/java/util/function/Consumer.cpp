@@ -1,0 +1,135 @@
+#include <java/util/function/Consumer.h>
+
+#include <java/io/Serializable.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/Void.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/Objects.h>
+#include <jcpp.h>
+
+using $Serializable = ::java::io::Serializable;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Void = ::java::lang::Void;
+using $CallSite = ::java::lang::invoke::CallSite;
+using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
+using $MethodType = ::java::lang::invoke::MethodType;
+using $Objects = ::java::util::Objects;
+
+namespace java {
+	namespace util {
+		namespace function {
+
+class Consumer$$Lambda$lambda$andThen$0 : public Consumer {
+	$class(Consumer$$Lambda$lambda$andThen$0, $NO_CLASS_INIT, Consumer)
+public:
+	void init$(Consumer* inst, Consumer* after) {
+		$set(this, inst$, inst);
+		$set(this, after, after);
+	}
+	virtual void accept(Object$* t) override {
+		$nc(inst$)->lambda$andThen$0(after, t);
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<Consumer$$Lambda$lambda$andThen$0>());
+	}
+	Consumer* inst$ = nullptr;
+	Consumer* after = nullptr;
+	static $FieldInfo fieldInfos[3];
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$FieldInfo Consumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
+	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Consumer$$Lambda$lambda$andThen$0, inst$)},
+	{"after", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(Consumer$$Lambda$lambda$andThen$0, after)},
+	{}
+};
+$MethodInfo Consumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
+	{"<init>", "(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(Consumer$$Lambda$lambda$andThen$0::*)(Consumer*,Consumer*)>(&Consumer$$Lambda$lambda$andThen$0::init$))},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo Consumer$$Lambda$lambda$andThen$0::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"java.util.function.Consumer$$Lambda$lambda$andThen$0",
+	"java.lang.Object",
+	"java.util.function.Consumer",
+	fieldInfos,
+	methodInfos
+};
+$Class* Consumer$$Lambda$lambda$andThen$0::load$($String* name, bool initialize) {
+	$loadClass(Consumer$$Lambda$lambda$andThen$0, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* Consumer$$Lambda$lambda$andThen$0::class$ = nullptr;
+$CompoundAttribute _Consumer_Annotations_[] = {
+	{"Ljava/lang/FunctionalInterface;", nullptr},
+	{}
+};
+
+
+$MethodInfo _Consumer_MethodInfo_[] = {
+	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC | $ABSTRACT},
+	{"andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", "(Ljava/util/function/Consumer<-TT;>;)Ljava/util/function/Consumer<TT;>;", $PUBLIC},
+	{"lambda$andThen$0", "(Ljava/util/function/Consumer;Ljava/lang/Object;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Consumer::*)(Consumer*,Object$*)>(&Consumer::lambda$andThen$0))},
+	{}
+};
+
+$ClassInfo _Consumer_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"java.util.function.Consumer",
+	nullptr,
+	nullptr,
+	nullptr,
+	_Consumer_MethodInfo_,
+	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+	nullptr,
+	nullptr,
+	_Consumer_Annotations_
+};
+
+$Object* allocate$Consumer($Class* clazz) {
+	return $of($alloc(Consumer));
+}
+
+Consumer* Consumer::andThen(Consumer* after) {
+	$Objects::requireNonNull(after);
+	return static_cast<Consumer*>($new(Consumer$$Lambda$lambda$andThen$0, this, after));
+}
+
+void Consumer::lambda$andThen$0(Consumer* after, Object$* t) {
+	accept(t);
+	$nc(after)->accept(t);
+}
+
+$Class* Consumer::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(Consumer$$Lambda$lambda$andThen$0::classInfo$.name)) {
+			return Consumer$$Lambda$lambda$andThen$0::load$(name, initialize);
+		}
+	}
+	$loadClass(Consumer, name, initialize, &_Consumer_ClassInfo_, allocate$Consumer);
+	return class$;
+}
+
+$Class* Consumer::class$ = nullptr;
+
+		} // function
+	} // util
+} // java

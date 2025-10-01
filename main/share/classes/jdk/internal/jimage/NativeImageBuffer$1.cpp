@@ -1,0 +1,84 @@
+#include <jdk/internal/jimage/NativeImageBuffer$1.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/EnclosingMethodInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jdk/internal/jimage/NativeImageBuffer.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $PrivilegedAction = ::java::security::PrivilegedAction;
+using $NativeImageBuffer = ::jdk::internal::jimage::NativeImageBuffer;
+
+namespace jdk {
+	namespace internal {
+		namespace jimage {
+
+$MethodInfo _NativeImageBuffer$1_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NativeImageBuffer$1::*)()>(&NativeImageBuffer$1::init$))},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{}
+};
+
+$EnclosingMethodInfo _NativeImageBuffer$1_EnclosingMethodInfo_ = {
+	"jdk.internal.jimage.NativeImageBuffer",
+	nullptr,
+	nullptr
+};
+
+$InnerClassInfo _NativeImageBuffer$1_InnerClassesInfo_[] = {
+	{"jdk.internal.jimage.NativeImageBuffer$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _NativeImageBuffer$1_ClassInfo_ = {
+	$ACC_SUPER,
+	"jdk.internal.jimage.NativeImageBuffer$1",
+	"java.lang.Object",
+	"java.security.PrivilegedAction",
+	nullptr,
+	_NativeImageBuffer$1_MethodInfo_,
+	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+	&_NativeImageBuffer$1_EnclosingMethodInfo_,
+	_NativeImageBuffer$1_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"jdk.internal.jimage.NativeImageBuffer"
+};
+
+$Object* allocate$NativeImageBuffer$1($Class* clazz) {
+	return $of($alloc(NativeImageBuffer$1));
+}
+
+void NativeImageBuffer$1::init$() {
+}
+
+$Object* NativeImageBuffer$1::run() {
+	$beforeCallerSensitive();
+	$System::loadLibrary("jimage"_s);
+	return $of(nullptr);
+}
+
+NativeImageBuffer$1::NativeImageBuffer$1() {
+}
+
+$Class* NativeImageBuffer$1::load$($String* name, bool initialize) {
+	$loadClass(NativeImageBuffer$1, name, initialize, &_NativeImageBuffer$1_ClassInfo_, allocate$NativeImageBuffer$1);
+	return class$;
+}
+
+$Class* NativeImageBuffer$1::class$ = nullptr;
+
+		} // jimage
+	} // internal
+} // jdk

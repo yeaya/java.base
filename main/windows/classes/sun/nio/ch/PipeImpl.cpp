@@ -1,0 +1,201 @@
+#include <sun/nio/ch/PipeImpl.h>
+
+#include <java/io/IOException.h>
+#include <java/lang/Boolean.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/UnsupportedOperationException.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/InetAddress.h>
+#include <java/net/InetSocketAddress.h>
+#include <java/net/ProtocolFamily.h>
+#include <java/net/SocketAddress.h>
+#include <java/net/SocketOption.h>
+#include <java/net/StandardProtocolFamily.h>
+#include <java/net/StandardSocketOptions.h>
+#include <java/nio/channels/NetworkChannel.h>
+#include <java/nio/channels/Pipe$SinkChannel.h>
+#include <java/nio/channels/Pipe$SourceChannel.h>
+#include <java/nio/channels/Pipe.h>
+#include <java/nio/channels/ServerSocketChannel.h>
+#include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
+#include <java/nio/channels/spi/SelectorProvider.h>
+#include <java/security/AccessController.h>
+#include <java/security/PrivilegedActionException.h>
+#include <java/security/PrivilegedExceptionAction.h>
+#include <java/security/SecureRandom.h>
+#include <java/util/Random.h>
+#include <sun/nio/ch/PipeImpl$Initializer.h>
+#include <sun/nio/ch/SinkChannelImpl.h>
+#include <sun/nio/ch/SourceChannelImpl.h>
+#include <jcpp.h>
+
+#undef NUM_SECRET_BYTES
+#undef RANDOM_NUMBER_GENERATOR
+#undef TCP_NODELAY
+#undef UNIX
+
+using $IOException = ::java::io::IOException;
+using $Boolean = ::java::lang::Boolean;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $InetAddress = ::java::net::InetAddress;
+using $InetSocketAddress = ::java::net::InetSocketAddress;
+using $ProtocolFamily = ::java::net::ProtocolFamily;
+using $SocketAddress = ::java::net::SocketAddress;
+using $SocketOption = ::java::net::SocketOption;
+using $StandardProtocolFamily = ::java::net::StandardProtocolFamily;
+using $StandardSocketOptions = ::java::net::StandardSocketOptions;
+using $Pipe = ::java::nio::channels::Pipe;
+using $Pipe$SinkChannel = ::java::nio::channels::Pipe$SinkChannel;
+using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
+using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
+using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
+using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
+using $AccessController = ::java::security::AccessController;
+using $PrivilegedActionException = ::java::security::PrivilegedActionException;
+using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
+using $SecureRandom = ::java::security::SecureRandom;
+using $Random = ::java::util::Random;
+using $PipeImpl$Initializer = ::sun::nio::ch::PipeImpl$Initializer;
+using $SinkChannelImpl = ::sun::nio::ch::SinkChannelImpl;
+using $SourceChannelImpl = ::sun::nio::ch::SourceChannelImpl;
+
+namespace sun {
+	namespace nio {
+		namespace ch {
+
+$FieldInfo _PipeImpl_FieldInfo_[] = {
+	{"NUM_SECRET_BYTES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PipeImpl, NUM_SECRET_BYTES)},
+	{"RANDOM_NUMBER_GENERATOR", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PipeImpl, RANDOM_NUMBER_GENERATOR)},
+	{"source", "Lsun/nio/ch/SourceChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(PipeImpl, source$)},
+	{"sink", "Lsun/nio/ch/SinkChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(PipeImpl, sink$)},
+	{"noUnixDomainSockets", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(PipeImpl, noUnixDomainSockets)},
+	{}
+};
+
+$MethodInfo _PipeImpl_MethodInfo_[] = {
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(static_cast<void(PipeImpl::*)($SelectorProvider*)>(&PipeImpl::init$)), "java.io.IOException"},
+	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Z)V", nullptr, 0, $method(static_cast<void(PipeImpl::*)($SelectorProvider*,bool)>(&PipeImpl::init$)), "java.io.IOException"},
+	{"createListener", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ServerSocketChannel*(*)()>(&PipeImpl::createListener)), "java.io.IOException"},
+	{"sink", "()Lsun/nio/ch/SinkChannelImpl;", nullptr, $PUBLIC},
+	{"source", "()Lsun/nio/ch/SourceChannelImpl;", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _PipeImpl_InnerClassesInfo_[] = {
+	{"sun.nio.ch.PipeImpl$Initializer", "sun.nio.ch.PipeImpl", "Initializer", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _PipeImpl_ClassInfo_ = {
+	$ACC_SUPER,
+	"sun.nio.ch.PipeImpl",
+	"java.nio.channels.Pipe",
+	nullptr,
+	_PipeImpl_FieldInfo_,
+	_PipeImpl_MethodInfo_,
+	nullptr,
+	nullptr,
+	_PipeImpl_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"sun.nio.ch.PipeImpl$Initializer,sun.nio.ch.PipeImpl$Initializer$LoopbackConnector,sun.nio.ch.PipeImpl$Initializer$1"
+};
+
+$Object* allocate$PipeImpl($Class* clazz) {
+	return $of($alloc(PipeImpl));
+}
+
+$Random* PipeImpl::RANDOM_NUMBER_GENERATOR = nullptr;
+$volatile(bool) PipeImpl::noUnixDomainSockets = false;
+
+void PipeImpl::init$($SelectorProvider* sp) {
+	PipeImpl::init$(sp, true);
+}
+
+void PipeImpl::init$($SelectorProvider* sp, bool buffering) {
+	$beforeCallerSensitive();
+	$Pipe::init$();
+	$var($PipeImpl$Initializer, initializer, $new($PipeImpl$Initializer, sp));
+	try {
+		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>(initializer));
+		$var($SinkChannelImpl, sink, initializer->sink);
+		if ($nc(sink)->isNetSocket() && !buffering) {
+			$init($StandardSocketOptions);
+			sink->setOption($StandardSocketOptions::TCP_NODELAY, $($Boolean::valueOf(true)));
+		}
+	} catch ($PrivilegedActionException&) {
+		$var($PrivilegedActionException, pae, $catch());
+		$throw($cast($IOException, $(pae->getCause())));
+	}
+	$set(this, source$, initializer->source);
+	$set(this, sink$, initializer->sink);
+}
+
+$Pipe$SourceChannel* PipeImpl::source() {
+	return this->source$;
+}
+
+$Pipe$SinkChannel* PipeImpl::sink() {
+	return this->sink$;
+}
+
+$ServerSocketChannel* PipeImpl::createListener() {
+	$init(PipeImpl);
+	$var($ServerSocketChannel, listener, nullptr);
+	if (!PipeImpl::noUnixDomainSockets) {
+		try {
+			$init($StandardProtocolFamily);
+			$assign(listener, $ServerSocketChannel::open($StandardProtocolFamily::UNIX));
+			return $cast($ServerSocketChannel, $nc(listener)->bind(nullptr));
+		} catch ($UnsupportedOperationException&) {
+			$var($Exception, e, $catch());
+			PipeImpl::noUnixDomainSockets = true;
+			if (listener != nullptr) {
+				listener->close();
+			}
+		} catch ($IOException&) {
+			$var($Exception, e, $catch());
+			PipeImpl::noUnixDomainSockets = true;
+			if (listener != nullptr) {
+				listener->close();
+			}
+		}
+	}
+	$assign(listener, $ServerSocketChannel::open());
+	$var($InetAddress, lb, $InetAddress::getLoopbackAddress());
+	$nc(listener)->bind($$new($InetSocketAddress, lb, 0));
+	return listener;
+}
+
+void clinit$PipeImpl($Class* class$) {
+	$assignStatic(PipeImpl::RANDOM_NUMBER_GENERATOR, $new($SecureRandom));
+}
+
+PipeImpl::PipeImpl() {
+}
+
+$Class* PipeImpl::load$($String* name, bool initialize) {
+	$loadClass(PipeImpl, name, initialize, &_PipeImpl_ClassInfo_, clinit$PipeImpl, allocate$PipeImpl);
+	return class$;
+}
+
+$Class* PipeImpl::class$ = nullptr;
+
+		} // ch
+	} // nio
+} // sun

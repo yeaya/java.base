@@ -1,0 +1,56 @@
+#include <SetBufferSize.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Integer.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/DatagramSocket.h>
+#include <jcpp.h>
+
+#undef MAX_VALUE
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Integer = ::java::lang::Integer;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $DatagramSocket = ::java::net::DatagramSocket;
+
+$MethodInfo _SetBufferSize_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SetBufferSize::*)()>(&SetBufferSize::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SetBufferSize::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _SetBufferSize_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"SetBufferSize",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_SetBufferSize_MethodInfo_
+};
+
+$Object* allocate$SetBufferSize($Class* clazz) {
+	return $of($alloc(SetBufferSize));
+}
+
+void SetBufferSize::init$() {
+}
+
+void SetBufferSize::main($StringArray* args) {
+	$var($DatagramSocket, soc, $new($DatagramSocket));
+	soc->setReceiveBufferSize($Integer::MAX_VALUE);
+}
+
+SetBufferSize::SetBufferSize() {
+}
+
+$Class* SetBufferSize::load$($String* name, bool initialize) {
+	$loadClass(SetBufferSize, name, initialize, &_SetBufferSize_ClassInfo_, allocate$SetBufferSize);
+	return class$;
+}
+
+$Class* SetBufferSize::class$ = nullptr;

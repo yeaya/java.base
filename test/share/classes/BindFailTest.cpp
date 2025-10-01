@@ -1,0 +1,61 @@
+#include <BindFailTest.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/BindException.h>
+#include <java/net/DatagramSocket.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $BindException = ::java::net::BindException;
+using $DatagramSocket = ::java::net::DatagramSocket;
+
+$MethodInfo _BindFailTest_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BindFailTest::*)()>(&BindFailTest::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BindFailTest::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _BindFailTest_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"BindFailTest",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_BindFailTest_MethodInfo_
+};
+
+$Object* allocate$BindFailTest($Class* clazz) {
+	return $of($alloc(BindFailTest));
+}
+
+void BindFailTest::init$() {
+}
+
+void BindFailTest::main($StringArray* args) {
+	$var($DatagramSocket, s, $new($DatagramSocket));
+	int32_t port = s->getLocalPort();
+	for (int32_t i = 0; i < 32000; ++i) {
+		try {
+			$var($DatagramSocket, s2, $new($DatagramSocket, port));
+		} catch ($BindException&) {
+			$catch();
+		}
+	}
+}
+
+BindFailTest::BindFailTest() {
+}
+
+$Class* BindFailTest::load$($String* name, bool initialize) {
+	$loadClass(BindFailTest, name, initialize, &_BindFailTest_ClassInfo_, allocate$BindFailTest);
+	return class$;
+}
+
+$Class* BindFailTest::class$ = nullptr;

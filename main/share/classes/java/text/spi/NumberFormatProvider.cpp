@@ -1,0 +1,72 @@
+#include <java/text/spi/NumberFormatProvider.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/UnsupportedOperationException.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/text/NumberFormat$Style.h>
+#include <java/text/NumberFormat.h>
+#include <java/util/Locale.h>
+#include <java/util/spi/LocaleServiceProvider.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $NumberFormat = ::java::text::NumberFormat;
+using $NumberFormat$Style = ::java::text::NumberFormat$Style;
+using $Locale = ::java::util::Locale;
+using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
+
+namespace java {
+	namespace text {
+		namespace spi {
+
+$MethodInfo _NumberFormatProvider_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(NumberFormatProvider::*)()>(&NumberFormatProvider::init$))},
+	{"getCompactNumberInstance", "(Ljava/util/Locale;Ljava/text/NumberFormat$Style;)Ljava/text/NumberFormat;", nullptr, $PUBLIC},
+	{"getCurrencyInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getIntegerInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getNumberInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getPercentInstance", "(Ljava/util/Locale;)Ljava/text/NumberFormat;", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _NumberFormatProvider_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"java.text.spi.NumberFormatProvider",
+	"java.util.spi.LocaleServiceProvider",
+	nullptr,
+	nullptr,
+	_NumberFormatProvider_MethodInfo_
+};
+
+$Object* allocate$NumberFormatProvider($Class* clazz) {
+	return $of($alloc(NumberFormatProvider));
+}
+
+void NumberFormatProvider::init$() {
+	$LocaleServiceProvider::init$();
+}
+
+$NumberFormat* NumberFormatProvider::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* formatStyle) {
+	$throwNew($UnsupportedOperationException, $$str({"The "_s, $($of(this)->getClass()->getName()), " should override this method to return compact number format instance of "_s, locale, " locale and "_s, formatStyle, " style."_s}));
+	$shouldNotReachHere();
+}
+
+NumberFormatProvider::NumberFormatProvider() {
+}
+
+$Class* NumberFormatProvider::load$($String* name, bool initialize) {
+	$loadClass(NumberFormatProvider, name, initialize, &_NumberFormatProvider_ClassInfo_, allocate$NumberFormatProvider);
+	return class$;
+}
+
+$Class* NumberFormatProvider::class$ = nullptr;
+
+		} // spi
+	} // text
+} // java

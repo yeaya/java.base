@@ -1,0 +1,1741 @@
+#include <java.base.test.h>
+
+#include <AccessDenied.h>
+#include <ActionSpace.h>
+#include <AdaptServerSocket.h>
+#include <AdaptorCloseAndInterrupt.h>
+#include <AdaptorConcurrentIO.h>
+#include <AddURLTest.h>
+#include <AddressNotSet.h>
+#include <AllocateDirectInit.h>
+#include <AllowSecurityManager.h>
+#include <AnnotationToStringTest.h>
+#include <AnnotationTypeRuntimeAssumptionTest.h>
+#include <AnotherSelectFdsLimit.h>
+#include <Append.h>
+#include <AppendCharSequence.h>
+#include <AppendSB.h>
+#include <AppendStringBuffer.h>
+#include <AppendStringBuilder.h>
+#include <ArgWithSpaceAndFinalBackslash.h>
+#include <Args.h>
+#include <ArrayLength.h>
+#include <ArrayMethods.h>
+#include <AsyncCloseChannel.h>
+#include <AtomicAppend.h>
+#include <AtomicAttachTest.h>
+#include <Available.h>
+#include <B4148751.h>
+#include <B4414825.h>
+#include <B4849451.h>
+#include <B4923906.h>
+#include <B5087907.h>
+#include <B6246242.h>
+#include <B6296240.h>
+#include <B6411513.h>
+#include <B6425815.h>
+#include <B6427403.h>
+#include <B6463990.h>
+#include <B6469803.h>
+#include <B6499348.h>
+#include <B6529759.h>
+#include <B6563259.h>
+#include <B6737819.h>
+#include <B6827999.h>
+#include <B6896088.h>
+#include <B8035158.h>
+#include <B8035653.h>
+#include <BadClassFiles.h>
+#include <BadDottedIPAddress.h>
+#include <BadDriveLetter.h>
+#include <BadEnvp.h>
+#include <BadIPv6Addresses.h>
+#include <BadProperties.h>
+#include <BadProxySelector.h>
+#include <Bash.h>
+#include <Basic.h>
+#include <Basic1.h>
+#include <Basic2.h>
+#include <Basic4Appendable.h>
+#include <Basic4InheritableThreadLocal.h>
+#include <Basic4ThreadLocal.h>
+#include <Basic4Version.h>
+#include <Basic4ref.h>
+#include <BasicTest.h>
+#include <BasicUnit.h>
+#include <BigBacklog.h>
+#include <BigDecimalCompatibilityTest.h>
+#include <BigFork.h>
+#include <BigMark.h>
+#include <BigReadWrite.h>
+#include <Bind4SocketChannel.h>
+#include <BindFailTest.h>
+#include <BitLengthOverflow.h>
+#include <BlockDeviceSize.h>
+#include <BoundsCheck.h>
+#include <Boxing.h>
+#include <BufferForwarding.h>
+#include <BufferSize.h>
+#include <Bug4208135.h>
+#include <Bug4387255.h>
+#include <Bug4396385.h>
+#include <Bug4404588.h>
+#include <Bug4736959.h>
+#include <Bug4740757.h>
+#include <Bug4823811.h>
+#include <Bug4833877.h>
+#include <Bug4912404.h>
+#include <Bug4932583.h>
+#include <Bug4944439.h>
+#include <Bug4990596.h>
+#include <Bug5047314.h>
+#include <Bug6215962.h>
+#include <Bug6251817.h>
+#include <Bug6278616.h>
+#include <Bug6335238.h>
+#include <Bug6481179.h>
+#include <Bug6513074.h>
+#include <Bug6609740.h>
+#include <Bug6609750.h>
+#include <Bug6645292.h>
+#include <Bug6683975.h>
+#include <Bug6856817.h>
+#include <Bug6970930.h>
+#include <Bug7003643.h>
+#include <Bug7104012.h>
+#include <Bug7130335.h>
+#include <Bug7177315.h>
+#include <Bug7196316.h>
+#include <Bug7200119.h>
+#include <Bug8001209.h>
+#include <Bug8032446.h>
+#include <Bug8072099.h>
+#include <Bug8081794.h>
+#include <Bug8141243.h>
+#include <Bug8165466.h>
+#include <Bug8209047.h>
+#include <BuilderForwarding.h>
+#include <ByteSwap.h>
+#include <Capacity.h>
+#include <CaseConvertSameInstance.h>
+#include <CaseInsensitiveComparator.h>
+#include <Cause.h>
+#include <ChainedExceptions.h>
+#include <ChangingAddress.h>
+#include <ChangingInterests.h>
+#include <CharAt.h>
+#include <CharType.h>
+#include <CharacterName.h>
+#include <Chars.h>
+#include <CheckBoundaries.h>
+#include <CheckDiscard.h>
+#include <CheckError.h>
+#include <CheckLocking.h>
+#include <CheckPermission.h>
+#include <CheckProvider.h>
+#include <CheckTempDir.h>
+#include <Chew.h>
+#include <Child.h>
+#include <ClassForNameTest.h>
+#include <ClassRestrictions.h>
+#include <Cleanup.h>
+#include <ClearErrorStream.h>
+#include <ClearErrorWriter.h>
+#include <Close.h>
+#include <CloseAfterConnect.h>
+#include <CloseAndAvailableRC.h>
+#include <CloseDuringWrite.h>
+#include <CloseInvalidatesKeys.h>
+#include <CloseRace.h>
+#include <CloseRegisteredChannel.h>
+#include <CloseThenRegister.h>
+#include <CloseTimeoutChannel.h>
+#include <CloseWhenKeyIdle.h>
+#include <ClosedByInterrupt.h>
+#include <ClosedChannelTransfer.h>
+#include <ClosedStreams.h>
+#include <ClosedWriter.h>
+#include <Comment.h>
+#include <CompactStringsInitialCoder.h>
+#include <Compare.h>
+#include <CompareIC.h>
+#include <CompareTo.h>
+#include <Concurrent.h>
+#include <Connect.h>
+#include <Cons.h>
+#include <Constants.h>
+#include <Constructor.h>
+#include <Constructors.h>
+#include <ContentEquals.h>
+#include <CookieNegativeMaxAge.h>
+#include <Correctness.h>
+#include <CountUpdate.h>
+#include <CounterOverflow.h>
+#include <Create.h>
+#include <CreateFileTree.h>
+#include <CreateNewFile.h>
+#include <CreateUnresolved.h>
+#include <CurrencyCollate.h>
+#include <CustomSocketImplFactory.h>
+#include <CustomZoneNameTest.h>
+#include <Daemon.h>
+#include <DateFormatSymbolsCloneTest.h>
+#include <Decode.h>
+#include <DecodeNonEncoded.h>
+#include <Decoder.h>
+#include <DefaultAccessibility.h>
+#include <DefaultMethodModeling.h>
+#include <DefinesWriteObject.h>
+#include <DeleteInterference.h>
+#include <DeleteOnExit.h>
+#include <DeleteOnExitLong.h>
+#include <DeleteOnExitNPE.h>
+#include <Destroy.h>
+#include <DestroyTest.h>
+#include <DieBeforeComplete.h>
+#include <DirectBufferAllocTest.h>
+#include <DivisionOverflow.h>
+#include <DoubleValueOverflow.h>
+#include <DriveLetter.h>
+#include <DriveOnly.h>
+#include <DriveRelativePath.h>
+#include <DriveSlash.h>
+#include <DumpCharProperties.h>
+#include <DumpStackTest.h>
+#include <Duped.h>
+#include <Duped$Echo.h>
+#include <DynamicConstantDescTest.h>
+#include <EOF.h>
+#include <EOL.h>
+#include <EarlyTimeout.h>
+#include <EmptyBuffer.h>
+#include <EmptyPath.h>
+#include <EmptyRead.h>
+#include <EmptySet.h>
+#include <EnclosingConstructorWithSecurityManager.h>
+#include <Encode.h>
+#include <EncodeDecode.h>
+#include <EncodingConstructor.h>
+#include <Encodings.h>
+#include <Enormous.h>
+#include <EnqueueNullRef.h>
+#include <EnqueuePollRace.h>
+#include <EnsureCapacity.h>
+#include <EnumConstructorAnnotation.h>
+#include <EqualityTest.h>
+#include <Equals.h>
+#include <Equals2.h>
+#include <EqualsIgnoreCase.h>
+#include <ErrorInInvoke.h>
+#include <ExceedMaxDim.h>
+#include <ExceedMaxDim4Array.h>
+#include <ExceptionHidingLoader.h>
+#include <ExceptionTranslation.h>
+#include <Exceptions.h>
+#include <Exceptions4ReflectPermission.h>
+#include <Exceptions4String.h>
+#include <Exceptions4StringBuffer.h>
+#include <Exceptions4StringBuilder.h>
+#include <Exceptions4getDeclaredField.h>
+#include <Exceptions4getDeclaredMethod.h>
+#include <Exceptions4getField.h>
+#include <Exceptions4getMethod.h>
+#include <ExecEmptyString.h>
+#include <ExecWithLotsOfArgs.h>
+#include <ExecWithLotsOfArgs$EchoingHelper.h>
+#include <ExifContentGuesser.h>
+#include <ExitVM.h>
+#include <ExpandingMap.h>
+#include <ExpectedEncoding.h>
+#include <ExternalizableBlockData.h>
+#include <Extrema.h>
+#include <ExtremeShiftingTests.h>
+#include <Factory.h>
+#include <FailingConstructors.h>
+#include <FailingFlushAndClose.h>
+#include <FasterWriter.h>
+#include <FeelingLucky.h>
+#include <FileExtensionAndMap.h>
+#include <FileLengthTest.h>
+#include <FileLockConstructor.h>
+#include <FileMethods.h>
+#include <FilePermissionCollection.h>
+#include <FilePermissionTest.h>
+#include <Fill4BufferedInputStream.h>
+#include <Fill4BufferedReader.h>
+#include <FinInterrupt.h>
+#include <FinThreads.h>
+#include <FinalVirtualCallFromInterface.h>
+#include <Finalize.h>
+#include <FindResourceDoesNotThrowException.h>
+#include <FloatDoubleValueTests.h>
+#include <ForInnerClass.h>
+#include <ForStaticInnerClass.h>
+#include <Force.h>
+#include <ForceException.h>
+#include <ForceLoad.h>
+#include <FormatMicroBenchmark.h>
+#include <Formatted.h>
+#include <FoundType.h>
+#include <GenerifyStackTraces.h>
+#include <GetAbsolutePath.h>
+#include <GetAnnotatedInterfaces.h>
+#include <GetAnnotatedNestedSuperclass.h>
+#include <GetAnnotatedReceiverType.h>
+#include <GetAnnotatedSuperclass.h>
+#include <GetAnnotatedTypeTest.h>
+#include <GetBoolean.h>
+#include <GetCallerClassTest.h>
+#include <GetCanonicalPath.h>
+#include <GetChannel.h>
+#include <GetCharsSrcEndLarger.h>
+#include <GetClosedChannel.h>
+#include <GetContentType.h>
+#include <GetDefaultPort.h>
+#include <GetDefinedPackage.h>
+#include <GetFileNameMap.h>
+#include <GetInteger.h>
+#include <GetLocalAddress.h>
+#include <GetLong.h>
+#include <GetLoopbackAddress.h>
+#include <GetMacAddress.h>
+#include <GetParent.h>
+#include <GetResource.h>
+#include <GetURLsTest.h>
+#include <GetUnsafeTest.h>
+#include <GetXSpace.h>
+#include <GroupOfOne.h>
+#include <GrowAfterEOF.h>
+#include <HandlerLoop.h>
+#include <HandlersPkgPrefix.h>
+#include <HashCode.h>
+#include <HashCodeEquals.h>
+#include <HashSpread.h>
+#include <HelperSlowToDie.h>
+#include <HiddenFrames.h>
+#include <HoldsLock.h>
+#include <HugeCapacity.h>
+#include <HugeCapacity4StringBuffer.h>
+#include <ICCBasher.h>
+#include <IDNTest.h>
+#include <IPv4Formats.h>
+#include <IPv6AddressTypes.h>
+#include <IPv6Numeric.h>
+#include <ISO8601ZoneTest.h>
+#include <ITLConstructor.h>
+#include <ITLRemoveTest.h>
+#include <Identity.h>
+#include <IllegalArg.h>
+#include <ImmutableLocal.h>
+#include <ImplicitBind.h>
+#include <ImplicitStringConcat.h>
+#include <ImplicitStringConcatArgCount.h>
+#include <ImplicitStringConcatAssignLHS.h>
+#include <ImplicitStringConcatBoundaries.h>
+#include <ImplicitStringConcatMany.h>
+#include <ImplicitStringConcatManyLongs.h>
+#include <ImplicitStringConcatOrder.h>
+#include <ImplicitStringConcatShapes.h>
+#include <ImplicitStringConcatShapesTestGen.h>
+#include <Indent.h>
+#include <IndexOf.h>
+#include <IndexOfEmptyInEmpty.h>
+#include <IndexTest.h>
+#include <Inet6AddressSerTest.h>
+#include <Inet6AddressSerializationTest.h>
+#include <InheritHandle.h>
+#include <InheritIOEHandle.h>
+#include <InheritedInterfaceMethods.h>
+#include <InheritedMethodTest.h>
+#include <InheritedMethods.h>
+#include <InitArg.h>
+#include <InitialValue.h>
+#include <InnerClassToString.h>
+#include <InsertNullString.h>
+#include <IntValueExactTests.h>
+#include <IntegralValueTests.h>
+#include <InternalNameServiceTest.h>
+#include <InternalNameServiceWithHostsFileTest.h>
+#include <InternalNameServiceWithNoHostsFileTest.h>
+#include <InterruptDeadlock.h>
+#include <InterruptMapDeadlock.h>
+#include <InterruptibleDatagramSocket.h>
+#include <InvalidNameWithSlash.h>
+#include <IsAbsolute.h>
+#include <IsEmpty.h>
+#include <IsHidden.h>
+#include <IsHostReachableBug.h>
+#include <IsParallelCapable.h>
+#include <IsReachable.h>
+#include <IsReachableViaLoopbackTest.h>
+#include <KeySets.h>
+#include <LambdaClassFinal.h>
+#include <LambdaClassLoaderSerialization.h>
+#include <LambdaConstructorMethodHandleUnbox.h>
+#include <LambdaReturn.h>
+#include <LambdaSerialization.h>
+#include <LargeCopyWithMark.h>
+#include <LargeFileAvailable.h>
+#include <LastErrorString.h>
+#include <Latin1Digit.h>
+#include <LeadingSlash.h>
+#include <LegacyChainedExceptionSerialization.h>
+#include <LimitDirectMemory.h>
+#include <LingerOnClose.h>
+#include <ListNull.h>
+#include <ListRoots.h>
+#include <ListSpace.h>
+#include <LoadNullClass.h>
+#include <Loader.h>
+#include <LocalSocketAddress.h>
+#include <LocaleDependentURLTest.h>
+#include <LocalizedMessage.h>
+#include <Lock.h>
+#include <LockReadWriteStressTest.h>
+#include <LongTransferTest.h>
+#include <LongValueExactTests.h>
+#include <LookupTest.h>
+#include <LotsOfCancels.h>
+#include <LotsOfCancels4WatchService.h>
+#include <LotsOfCloses.h>
+#include <LotsOfUpdates.h>
+#include <LotsOfWrites.h>
+#include <MacPathTest.h>
+#include <MacVolumesTest.h>
+#include <MainThreadTest.h>
+#include <MakeBooleanComparable.h>
+#include <ManyFiles.h>
+#include <ManySourcesAndTargets.h>
+#include <MapAssertions.h>
+#include <MapOverEnd.h>
+#include <MapReadOnly.h>
+#include <MapTest.h>
+#include <MapWithSecurityManager.h>
+#include <MarkReset.h>
+#include <MarkedFillAtEOF.h>
+#include <MaxCapacity.h>
+#include <MaxPath.h>
+#include <MaxPathLength.h>
+#include <MemoryLeak.h>
+#include <MessageFormatsByArgumentIndex.h>
+#include <MetafactoryArgValidationTest.h>
+#include <MetafactoryArityTest.h>
+#include <MetafactoryDescriptorTest.h>
+#include <MetafactoryMethodNameTest.h>
+#include <MetafactoryParameterCastTest.h>
+#include <Mkdir.h>
+#include <ModInvTime.h>
+#include <ModPowPowersof2.h>
+#include <ModPowPowersof2$ModTester.h>
+#include <Mode.h>
+#include <MultiThreadStackWalk.h>
+#include <MultiThreadedSystemProxies.h>
+#include <MulticastTTL.h>
+#include <MultipleNumberScriptTest.h>
+#include <MultiplyTests.h>
+#include <NameLimits.h>
+#include <NameTooLong.h>
+#include <NativeMethod.h>
+#include <NativeOrder.h>
+#include <NegativeAvailable.h>
+#include <NegativeInitSize.h>
+#include <NetParamsTest.h>
+#include <NetworkChannelTests.h>
+#include <NetworkInterfaceEmptyGetInetAddressesTest.h>
+#include <NetworkPrefixLength.h>
+#include <NewChainedExceptions.h>
+#include <NewVSOld_th_TH.h>
+#include <NoAction.h>
+#include <NoName.h>
+#include <NonBlocking.h>
+#include <NonCharacterMapping.h>
+#include <NonInheritableContainee.h>
+#include <NonLinking.h>
+#include <NonOverridableHandlerFactory.h>
+#include <NonPublicProxyClass.h>
+#include <NonPublicStaticInitializer.h>
+#include <NotBound.h>
+#include <NulDevice.h>
+#include <NulFile.h>
+#include <NullArgs.h>
+#include <NullArguments.h>
+#include <NullClassLoader.h>
+#include <NullConstruct.h>
+#include <NullConstructor.h>
+#include <NullCreate.h>
+#include <NullHost.h>
+#include <NullInParamList.h>
+#include <NullQueue.h>
+#include <NullStackTrace.h>
+#include <NullTest.h>
+#include <NullThreadName.h>
+#include <NullURLTest.h>
+#include <Nulls.h>
+#include <NumberFormatRounding.h>
+#include <OOMEInReferenceHandler.h>
+#include <Offset.h>
+#include <OldenCompilingWithDefaults.h>
+#include <One.h>
+#include <OneExceptionOnly.h>
+#include <OpRead.h>
+#include <Open.h>
+#include <OpenConnection.h>
+#include <OpenDir.h>
+#include <OpenLeak.h>
+#include <OpenStream.h>
+#include <OpenSync.h>
+#include <OpsAfterClose.h>
+#include <OpsAfterClose4DataInputStream.h>
+#include <OpsAfterClose4FileInputStream.h>
+#include <OpsAfterClose4FileOutputStream.h>
+#include <OpsAfterClose4InputStream.h>
+#include <OpsAfterClose4PrintWriter.h>
+#include <OpsAfterClose4RandomAccessFile.h>
+#include <OrderUnitTest.h>
+#include <OutOfBand.h>
+#include <OutOfBand4Selector.h>
+#include <OverflowInRead.h>
+#include <OverflowInSkip.h>
+#include <OversynchronizedTest.h>
+#include <PParser.h>
+#include <PackageMain.h>
+#include <ParallelProbes.h>
+#include <ParameterAnnotations.h>
+#include <ParameterizedBoundIndex.h>
+#include <ParseAuthority.h>
+#include <ParseBoolean.h>
+#include <ParseDouble.h>
+#include <ParseURL.h>
+#include <PathOps.h>
+#include <Patterns.h>
+#include <PeekInputStreamTest.h>
+#include <PhantomReferentClearing.h>
+#include <Pin.h>
+#include <PipeChannel.h>
+#include <PipeInterrupt.h>
+#include <PipelineTest.h>
+#include <PortUnreachable.h>
+#include <Position.h>
+#include <Pread.h>
+#include <PrimitiveConversionTests.h>
+#include <PrivateInterfaceCall.h>
+#include <Probe.h>
+#include <Protocol.h>
+#include <ProxyClashTest.h>
+#include <PublicConstructor.h>
+#include <Pwrite.h>
+#include <QuoteTest.h>
+#include <Race.h>
+#include <RacyDeregister.h>
+#include <RacyHandler.h>
+#include <RacyRegister.h>
+#include <ReachabilityFenceTest.h>
+#include <Read.h>
+#include <ReadAfterReset.h>
+#include <ReadAhead.h>
+#include <ReadByte.h>
+#include <ReadCloseRaceNPE.h>
+#include <ReadFull.h>
+#include <ReadFully.h>
+#include <ReadIntoReadOnlyBuffer.h>
+#include <ReadLine.h>
+#include <ReadLinePushback.h>
+#include <ReadLineSync.h>
+#include <ReadOffset.h>
+#include <ReadParams.h>
+#include <ReadReadLine.h>
+#include <ReadToArray.h>
+#include <ReadToLimit.h>
+#include <ReadUTF.h>
+#include <ReadWritePrimitives.h>
+#include <ReaderBulkReadContract.h>
+#include <Ready.h>
+#include <Receive.h>
+#include <ReceiveISA.h>
+#include <RecursiveAnnotation.h>
+#include <RecursiveSystemLoader.h>
+#include <RedirectWithLongFilename.h>
+#include <ReferenceClone.h>
+#include <ReferenceEnqueue.h>
+#include <ReferenceRefersTo.h>
+#include <ReflectiveLookupTest.h>
+#include <Refused.h>
+#include <RegAfterPreClose.h>
+#include <Regex.h>
+#include <RegionMatches.h>
+#include <RelativeEncoding.h>
+#include <RelativePath.h>
+#include <RelativeURL.h>
+#include <RelativeURLTest.h>
+#include <Release.h>
+#include <ReleaseOnCloseDeadlock.h>
+#include <RememberAppend.h>
+#include <RenameDelete.h>
+#include <RepetitiveLambdaSerialization.h>
+#include <ReportSocketClosed.h>
+#include <RequestPropertyValues.h>
+#include <ResolveProxyClass.h>
+#include <Resources.h>
+#include <ResourcesStreamTest.h>
+#include <Responses.h>
+#include <Restart.h>
+#include <RestoreURL.h>
+#include <Reuse.h>
+#include <ReuseBuf.h>
+#include <SBBasher.h>
+#include <SJIS.h>
+#include <SPIProviderTest.h>
+#include <Sanity.h>
+#include <ScatteringRead.h>
+#include <Security.h>
+#include <SecurityExceptions.h>
+#include <SecurityManagerClinit.h>
+#include <SecurityTest.h>
+#include <SelectFdsLimit.h>
+#include <SelectNowWhenEmpty.h>
+#include <SelectPipe.h>
+#include <SelectTimeout.h>
+#include <SelectWhenRefused.h>
+#include <Send12k.h>
+#include <SendDatagramToBadAddress.h>
+#include <SendSize.h>
+#include <SendUrgentData.h>
+#include <Sender.h>
+#include <SerializationTests.h>
+#include <Serialize.h>
+#include <SetBufferSize.h>
+#include <SetLastModified.h>
+#include <SetMaxPriority.h>
+#include <SetOption.h>
+#include <SetReceiveBufferSize.h>
+#include <SetTTLAndGetTTL.h>
+#include <SetTTLTo0.h>
+#include <SetTimesNanos.h>
+#include <Shadow.h>
+#include <Sharing.h>
+#include <ShortWrite.h>
+#include <ShortWrite4Channels.h>
+#include <Shutdown.h>
+#include <ShutdownBoth.h>
+#include <SiblingIOEHandle.h>
+#include <SignatureTest.h>
+#include <SimpleProxy.h>
+#include <Size.h>
+#include <SkipBytes.h>
+#include <SkipTest.h>
+#include <SkipTest$GenerateData.h>
+#include <SoTimeout.h>
+#include <SocketGrowth.h>
+#include <SocketInheritance.h>
+#include <SocketPermissionCollection.h>
+#include <Space.h>
+#include <SpecTests.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall.h>
+#include <SpecialTempFile.h>
+#include <SpecifyHandler.h>
+#include <Split.h>
+#include <SquareRootTests.h>
+#include <StackOverflowTest.h>
+#include <StackStreamState.h>
+#include <StackTraceSerialization.h>
+#include <StarInheritance.h>
+#include <StartOOMTest.h>
+#include <StateTestService.h>
+#include <StaticFieldTest.h>
+#include <StaticFieldsOnInterface.h>
+#include <StaticInitializerTest.h>
+#include <StaticInterfaceMethodInWayOfDefault.h>
+#include <Stop.h>
+#include <Streams.h>
+#include <StressLoopback.h>
+#include <StressNativeSignal.h>
+#include <StringCharBufferSliceTest.h>
+#include <StringConcatFactoryInvariants.h>
+#include <StringConcatFactoryRepeatedConstants.h>
+#include <StringConstructorOverflow.h>
+#include <StringContentEqualsBug.h>
+#include <StringPlatformChars.h>
+#include <StringRepeat.h>
+#include <StringScope.h>
+#include <StripACC_SUPER.h>
+#include <SubClass.h>
+#include <SubNetworkInterfaceTest.h>
+#include <SubclassCastUOE.h>
+#include <Substring.h>
+#include <Supplementary4Character.h>
+#include <Supplementary4String.h>
+#include <Supplementary4StringBuffer.h>
+#include <Supplementary4StringBuilder.h>
+#include <SuppressedException.h>
+#include <SuppressedExceptions.h>
+#include <SurrogatePairs.h>
+#include <Suspend.h>
+#include <SwapMicroBenchmark.h>
+#include <SystemProxies.h>
+#include <T4992170.h>
+#include <T8032704.h>
+#include <T8032711.h>
+#include <TIFFContentGuesser.h>
+#include <TLRemoveTest.h>
+#include <TemporaryFiles.h>
+#include <TemporarySelector.h>
+#include <Test4URI.h>
+#include <Test4URL.h>
+#include <Test4nonJavaNames.h>
+#include <Test6987555.h>
+#include <Test6991596.h>
+#include <Test6998541.h>
+#include <Test7087570.h>
+#include <Test8009222.h>
+#include <Test8076596.h>
+#include <TestAfterClose.h>
+#include <TestAnnotatedElementDefaults.h>
+#include <TestC1/TestC1.h>
+#include <TestC2.h>
+#include <TestConstructorParameterAnnotations.h>
+#include <TestConstructorParameterTypeAnnotations.h>
+#include <TestDefaults.h>
+#include <TestFieldReflectValueOf.h>
+#include <TestGenericReturnTypeToString.h>
+#include <TestIPv6Addresses.h>
+#include <TestIncompleteAnnotationExceptionNPE.h>
+#include <TestLayer.h>
+#include <TestMain.h>
+#include <TestMethodReflectValueOf.h>
+#include <TestN1.h>
+#include <TestNegativeCodepoint.h>
+#include <TestObjectMethods.h>
+#include <TestObjectStreamClass.h>
+#include <TestPlainArrayNotGeneric.h>
+#include <TestPort.h>
+#include <TestPrivateMember.h>
+#include <TestRFC2732.h>
+#include <TestReceiverTypeOwner.h>
+#include <TestReceiverTypeOwnerType.h>
+#include <TestReceiverTypeParameterizedConstructor.h>
+#include <TestReceiverTypeParameterizedMethod.h>
+#include <TestSynchronization.h>
+#include <TestUndefinedDirectionality.h>
+#include <TestUndefinedIdentifierStartPart.h>
+#include <TestUndefinedIgnorable.h>
+#include <TestUndefinedMirrored.h>
+#include <TestUndefinedNumeric.h>
+#include <TestUndefinedTitleCase.h>
+#include <TestValueExact.h>
+#include <TestWhiteSpace.h>
+#include <ThereCanBeOnlyOne.h>
+#include <ThreadStop.h>
+#include <TieRoundingTest.h>
+#include <TimeToLive.h>
+#include <TimeZoneLastModified.h>
+#include <TinyBuffers.h>
+#include <ToLowerCase.h>
+#include <ToString.h>
+#include <ToStringCache.h>
+#include <ToURI.h>
+#include <ToURL.h>
+#include <ToUpperCase.h>
+#include <TrailingSlash.h>
+#include <TransferTo.h>
+#include <TransferToChannel.h>
+#include <TransferToNonWritable.h>
+#include <Transfers.h>
+#include <Transform.h>
+#include <Trim.h>
+#include <Trivial.h>
+#include <Truncate.h>
+#include <TruncateRAF.h>
+#include <TryLock.h>
+#include <TypeAnnotationReflection.h>
+#include <TypeCheckMicroBenchmark.h>
+#include <TypeParamAnnotation.h>
+#include <TypeTag.h>
+#include <TypeVariableBoundParameterIndex.h>
+#include <UNCTest.h>
+#include <URIToURLTest.h>
+#include <URLDecoderArgs.h>
+#include <URLEncodeDecode.h>
+#include <URLEncoderEncodeArgs.h>
+#include <URLParsing.h>
+#include <URLPermissionTest.h>
+#include <UTF16.h>
+#include <UTF8.h>
+#include <UnboundSocketTests.h>
+#include <Unbounded.h>
+#include <UniTest/UnitTest.h>
+#include <Unicode.h>
+#include <Unicode4File.h>
+#include <UnicodeConstructor.h>
+#include <UnicodeSpec.h>
+#include <UninitializedParent.h>
+#include <UnixSocketFile.h>
+#include <UnknownContentType.h>
+#include <Unresolved.h>
+#include <Unsigned.h>
+#include <UpdateInterference.h>
+#include <UppercaseScheme.h>
+#include <UriImportExport.h>
+#include <UseSTD3ASCIIRules.h>
+#include <UserDirChangedTest.h>
+#include <ValueOf4Enum.h>
+#include <ValueOf4Integer.h>
+#include <VerifyStackTrace.h>
+#include <VersionProps.h>
+#include <Versions.h>
+#include <WaitFor.h>
+#include <WaitTooLong.h>
+#include <WakeupAfterClose.h>
+#include <WakeupNow.h>
+#include <WakeupOverflow.h>
+#include <WalkFunction.h>
+#include <WalkWithSecurity.h>
+#include <WeekDateTest.h>
+#include <WhiteSpaceHostTest.h>
+#include <Wildcard.h>
+#include <WinCommand.h>
+#include <WinDeviceName.h>
+#include <WinDirRelative.h>
+#include <WinMaxPath.h>
+#include <WinSpecialFiles.h>
+#include <WithSecurityManager4AsynchronousServerSocketChannel.h>
+#include <WithSecurityManager4concat.h>
+#include <Write.h>
+#include <WriteBytes.h>
+#include <WriteBytesChars.h>
+#include <WriteLengths.h>
+#include <WriteParams.h>
+#include <WriteUTF.h>
+#include <WriterLoop.h>
+#include <ZeroMap.h>
+#include <Zombies.h>
+#include <bug4097450.h>
+#include <bug4099975.h>
+#include <bug6271375.h>
+#include <bug6317072.h>
+#include <bug6412896.h>
+#include <c/TestClient.h>
+#include <exceptionCauseTest.h>
+#include <getAnnotationTest.h>
+#include <getResponseCode4HttpURLConnection.h>
+#include <isSiteLocalAddress.h>
+#include <java/lang/Float2/Extrema.h>
+#include <java/lang/Float2/ParseFloat.h>
+#include <java/lang/Math2/AbsPositiveZero.h>
+#include <java/lang/Math2/AbsTests.h>
+#include <java/lang/Math2/DivModTests.h>
+#include <java/lang/Math2/ExactArithTests.h>
+#include <java/lang/Math2/MinMax.h>
+#include <p/App.h>
+#include <p/Main.h>
+#include <p2/test/Main.h>
+#include <p3/NoAccess.h>
+#include <p3/NoGetClassLoaderAccess.h>
+#include <pkg1/MethodTypeDescriptorAccessTest.h>
+#include <repeatingAnnotations/InheritedAssociatedAnnotations.h>
+#include <test/FindSpecial.h>
+#include <test/java/lang/invoke/CountedLoopIterationCountsTest.h>
+#include <test/java/lang/invoke/FindClassSecurityManager.h>
+#include <test/java/lang/invoke/LoopCombinatorLongSignatureTest.h>
+#include <test/java/lang/invoke/MethodTypeSecurityManager.h>
+#include <test/java/lang/invoke/ObjectMethodInInterfaceTest.h>
+#include <textToNumericFormat.h>
+#include <jcpp.h>
+#include <stdlib.h>
+
+int32_t processedCount = 0;
+int64_t beginMS = 0;
+void beginCase(const char* caseName) {
+	beginMS = $System::currentTimeMillis();
+	$var($StringBuilder, sb, $new($StringBuilder));
+	sb->append("case "_s)->append(processedCount)->append(" "_s)->append($$str(caseName));
+	$System::out->println(sb);
+}
+
+void endCase(const char* caseName) {
+	int64_t endMS = $System::currentTimeMillis();
+	$var($StringBuilder, sb, $new($StringBuilder));
+	sb->append(endMS - beginMS)->append("ms\n"_s);
+	$System::out->println(sb);
+	processedCount++;
+}
+
+#define run(caseName, args) \
+	beginCase(#caseName); \
+	caseName::main(args); \
+	endCase(#caseName);
+
+void runCases($StringArray* args) {
+	int64_t runCasesBeginMS = $System::currentTimeMillis();
+
+//	run(::AccessDenied, args);
+	run(::ActionSpace, args);
+	run(::AdaptServerSocket, args);
+	run(::AdaptorCloseAndInterrupt, args);
+	run(::AdaptorConcurrentIO, args);
+	run(::AddURLTest, args);
+	run(::AddressNotSet, args);
+	run(::AllocateDirectInit, args);
+//	run(::AllowSecurityManager, args);
+	run(::AnnotationToStringTest, args);
+//	run(::AnnotationTypeRuntimeAssumptionTest, args);
+	run(::AnotherSelectFdsLimit, args);
+	run(::Append, args);
+	run(::AppendCharSequence, args);
+	run(::AppendSB, args);
+	run(::AppendStringBuffer, args);
+	run(::AppendStringBuilder, args);
+//	run(::ArgWithSpaceAndFinalBackslash, args);
+	run(::Args, args);
+	run(::ArrayLength, args);
+	run(::ArrayMethods, args);
+	run(::AsyncCloseChannel, args);
+	run(::AtomicAppend, args);
+	run(::AtomicAttachTest, args);
+	run(::Available, args);
+	run(::B4148751, args);
+	run(::B4414825, args);
+	run(::B4849451, args);
+	run(::B4923906, args);
+	run(::B5087907, args);
+	run(::B6246242, args);
+	run(::B6296240, args);
+	run(::B6411513, args);
+	run(::B6425815, args);
+	run(::B6427403, args);
+	run(::B6463990, args);
+	run(::B6469803, args);
+	run(::B6499348, args);
+	run(::B6529759, args);
+	run(::B6563259, args);
+//	run(::B6737819, args);
+	run(::B6827999, args);
+	run(::B6896088, args);
+	run(::B8035158, args);
+	run(::B8035653, args);
+//	run(::BadClassFiles, args);
+	run(::BadDottedIPAddress, args);
+	run(::BadDriveLetter, args);
+	run(::BadEnvp, args);
+	run(::BadIPv6Addresses, args);
+	run(::BadProperties, args);
+//	run(::BadProxySelector, args);
+	run(::Bash, args);
+	run(::Basic, args);
+	run(::Basic1, args);
+	run(::Basic2, args);
+	run(::Basic4Appendable, args);
+	run(::Basic4InheritableThreadLocal, args);
+	run(::Basic4ThreadLocal, args);
+	run(::Basic4Version, args);
+//	run(::Basic4ref, args);
+	run(::BasicTest, args);
+	run(::BasicUnit, args);
+	run(::BigBacklog, args);
+	run(::BigDecimalCompatibilityTest, args);
+//	run(::BigFork, args);
+//	run(::BigMark, args);
+	run(::BigReadWrite, args);
+	run(::Bind4SocketChannel, args);
+	run(::BindFailTest, args);
+	run(::BitLengthOverflow, args);
+	run(::BlockDeviceSize, args);
+	run(::BoundsCheck, args);
+	run(::Boxing, args);
+	run(::BufferForwarding, args);
+	run(::BufferSize, args);
+	run(::Bug4208135, args);
+	run(::Bug4387255, args);
+	run(::Bug4396385, args);
+	run(::Bug4404588, args);
+	run(::Bug4736959, args);
+	run(::Bug4740757, args);
+//	run(::Bug4823811, args);
+	run(::Bug4833877, args);
+	run(::Bug4912404, args);
+	run(::Bug4932583, args);
+	run(::Bug4944439, args);
+	run(::Bug4990596, args);
+	run(::Bug5047314, args);
+	run(::Bug6215962, args);
+	run(::Bug6251817, args);
+	run(::Bug6278616, args);
+	run(::Bug6335238, args);
+	run(::Bug6481179, args);
+	run(::Bug6513074, args);
+	run(::Bug6609740, args);
+	run(::Bug6609750, args);
+	run(::Bug6645292, args);
+//	run(::Bug6683975, args);
+	run(::Bug6856817, args);
+	run(::Bug6970930, args);
+	run(::Bug7003643, args);
+	run(::Bug7104012, args);
+	run(::Bug7130335, args);
+	run(::Bug7177315, args);
+	run(::Bug7196316, args);
+	run(::Bug7200119, args);
+	run(::Bug8001209, args);
+	run(::Bug8032446, args);
+	run(::Bug8072099, args);
+	run(::Bug8081794, args);
+	run(::Bug8141243, args);
+	run(::Bug8165466, args);
+	run(::Bug8209047, args);
+	run(::BuilderForwarding, args);
+	run(::ByteSwap, args);
+	run(::Capacity, args);
+	run(::CaseConvertSameInstance, args);
+	run(::CaseInsensitiveComparator, args);
+	run(::Cause, args);
+//	run(::ChainedExceptions, args);
+	run(::ChangingAddress, args);
+	run(::ChangingInterests, args);
+	run(::CharAt, args);
+	run(::CharType, args);
+	run(::CharacterName, args);
+	run(::Chars, args);
+	run(::CheckBoundaries, args);
+	run(::CheckDiscard, args);
+	run(::CheckError, args);
+	run(::CheckLocking, args);
+	run(::CheckPermission, args);
+//	run(::CheckProvider, args);
+	run(::CheckTempDir, args);
+	run(::Chew, args);
+	run(::Child, args);
+	run(::ClassForNameTest, args);
+//	run(::ClassRestrictions, args);
+	run(::Cleanup, args);
+	run(::ClearErrorStream, args);
+	run(::ClearErrorWriter, args);
+	run(::Close, args);
+	run(::CloseAfterConnect, args);
+	run(::CloseAndAvailableRC, args);
+	run(::CloseDuringWrite, args);
+	run(::CloseInvalidatesKeys, args);
+	run(::CloseRace, args);
+	run(::CloseRegisteredChannel, args);
+	run(::CloseThenRegister, args);
+	run(::CloseTimeoutChannel, args);
+	run(::CloseWhenKeyIdle, args);
+	run(::ClosedByInterrupt, args);
+	run(::ClosedChannelTransfer, args);
+	run(::ClosedStreams, args);
+	run(::ClosedWriter, args);
+//	run(::Comment, args);
+	run(::CompactStringsInitialCoder, args);
+	run(::Compare, args);
+	run(::CompareIC, args);
+	run(::CompareTo, args);
+	run(::Concurrent, args);
+	run(::Connect, args);
+	run(::Cons, args);
+	run(::Constants, args);
+	run(::Constructor, args);
+	run(::Constructors, args);
+	run(::ContentEquals, args);
+	run(::CookieNegativeMaxAge, args);
+	run(::Correctness, args);
+	run(::CountUpdate, args);
+	run(::CounterOverflow, args);
+	run(::Create, args);
+	run(::CreateFileTree, args);
+//	run(::CreateNewFile, args);
+	run(::CreateUnresolved, args);
+	run(::CurrencyCollate, args);
+//	run(::CustomSocketImplFactory, args);
+//	run(::CustomZoneNameTest, args);
+	run(::Daemon, args);
+	run(::DateFormatSymbolsCloneTest, args);
+	run(::Decode, args);
+	run(::DecodeNonEncoded, args);
+	run(::Decoder, args);
+	run(::DefaultAccessibility, args);
+	run(::DefaultMethodModeling, args);
+	run(::DefinesWriteObject, args);
+	run(::DeleteInterference, args);
+//	run(::DeleteOnExit, args);
+	run(::DeleteOnExitLong, args);
+//	run(::DeleteOnExitNPE, args);
+	run(::Destroy, args);
+	run(::DestroyTest, args);
+	run(::DieBeforeComplete, args);
+	run(::DirectBufferAllocTest, args);
+	run(::DivisionOverflow, args);
+	run(::DoubleValueOverflow, args);
+	run(::DriveLetter, args);
+	run(::DriveOnly, args);
+	run(::DriveRelativePath, args);
+	run(::DriveSlash, args);
+//	run(::DumpCharProperties, args);
+//	run(::DumpStackTest, args);
+//	run(::Duped, args);
+//	run(::Duped$Echo, args);
+	run(::DynamicConstantDescTest, args);
+//	run(::EOF, args);
+	run(::EOL, args);
+//	run(::EarlyTimeout, args);
+	run(::EmptyBuffer, args);
+	run(::EmptyPath, args);
+	run(::EmptyRead, args);
+	run(::EmptySet, args);
+	run(::EnclosingConstructorWithSecurityManager, args);
+	run(::Encode, args);
+	run(::EncodeDecode, args);
+	run(::EncodingConstructor, args);
+	run(::Encodings, args);
+	run(::Enormous, args);
+	run(::EnqueueNullRef, args);
+	run(::EnqueuePollRace, args);
+	run(::EnsureCapacity, args);
+	run(::EnumConstructorAnnotation, args);
+	run(::EqualityTest, args);
+	run(::Equals, args);
+	run(::Equals2, args);
+	run(::EqualsIgnoreCase, args);
+	run(::ErrorInInvoke, args);
+	run(::ExceedMaxDim, args);
+	run(::ExceedMaxDim4Array, args);
+	run(::ExceptionHidingLoader, args);
+	run(::ExceptionTranslation, args);
+	run(::Exceptions, args);
+	run(::Exceptions4ReflectPermission, args);
+	run(::Exceptions4String, args);
+	run(::Exceptions4StringBuffer, args);
+	run(::Exceptions4StringBuilder, args);
+	run(::Exceptions4getDeclaredField, args);
+	run(::Exceptions4getDeclaredMethod, args);
+	run(::Exceptions4getField, args);
+	run(::Exceptions4getMethod, args);
+	run(::ExecEmptyString, args);
+//	run(::ExecWithLotsOfArgs, args);
+	run(::ExecWithLotsOfArgs$EchoingHelper, args);
+	run(::ExifContentGuesser, args);
+	run(::ExitVM, args);
+	run(::ExpandingMap, args);
+//	run(::ExpectedEncoding, args);
+//	run(::ExternalizableBlockData, args);
+	run(::Extrema, args);
+	run(::ExtremeShiftingTests, args);
+	run(::Factory, args);
+	run(::FailingConstructors, args);
+	run(::FailingFlushAndClose, args);
+	run(::FasterWriter, args);
+//	run(::FeelingLucky, args);
+//	run(::FileExtensionAndMap, args);
+	run(::FileLengthTest, args);
+	run(::FileLockConstructor, args);
+	run(::FileMethods, args);
+	run(::FilePermissionCollection, args);
+//	run(::FilePermissionTest, args);
+	run(::Fill4BufferedInputStream, args);
+	run(::Fill4BufferedReader, args);
+	run(::FinInterrupt, args);
+//	run(::FinThreads, args);
+	run(::FinalVirtualCallFromInterface, args);
+	run(::Finalize, args);
+	run(::FindResourceDoesNotThrowException, args);
+	run(::FloatDoubleValueTests, args);
+	run(::ForInnerClass, args);
+	run(::ForStaticInnerClass, args);
+	run(::Force, args);
+	run(::ForceException, args);
+	run(::ForceLoad, args);
+	run(::FormatMicroBenchmark, args);
+	run(::Formatted, args);
+	run(::FoundType, args);
+//	run(::GenerifyStackTraces, args);
+	run(::GetAbsolutePath, args);
+	run(::GetAnnotatedInterfaces, args);
+	run(::GetAnnotatedNestedSuperclass, args);
+	run(::GetAnnotatedReceiverType, args);
+	run(::GetAnnotatedSuperclass, args);
+	run(::GetAnnotatedTypeTest, args);
+	run(::GetBoolean, args);
+	run(::GetCallerClassTest, args);
+	run(::GetCanonicalPath, args);
+	run(::GetChannel, args);
+	run(::GetCharsSrcEndLarger, args);
+	run(::GetClosedChannel, args);
+	run(::GetContentType, args);
+	run(::GetDefaultPort, args);
+	run(::GetDefinedPackage, args);
+	run(::GetFileNameMap, args);
+	run(::GetInteger, args);
+	run(::GetLocalAddress, args);
+	run(::GetLong, args);
+	run(::GetLoopbackAddress, args);
+	run(::GetMacAddress, args);
+	run(::GetParent, args);
+	run(::GetResource, args);
+	run(::GetURLsTest, args);
+	run(::GetUnsafeTest, args);
+//	run(::GetXSpace, args);
+	run(::GroupOfOne, args);
+	run(::GrowAfterEOF, args);
+	run(::HandlerLoop, args);
+//	run(::HandlersPkgPrefix, args);
+	run(::HashCode, args);
+	run(::HashCodeEquals, args);
+	run(::HashSpread, args);
+	run(::HelperSlowToDie, args);
+	run(::HiddenFrames, args);
+	run(::HoldsLock, args);
+	{
+		$var($StringArray, args0, $new($StringArray, 1));
+		args0->set(0, "true"_s);
+		run(::HugeCapacity, args0);
+	}
+	run(::HugeCapacity4StringBuffer, args);
+	run(::ICCBasher, args);
+	run(::IDNTest, args);
+	run(::IPv4Formats, args);
+	run(::IPv6AddressTypes, args);
+	run(::IPv6Numeric, args);
+	run(::ISO8601ZoneTest, args);
+	run(::ITLConstructor, args);
+	run(::ITLRemoveTest, args);
+	run(::Identity, args);
+	run(::IllegalArg, args);
+	run(::ImmutableLocal, args);
+	run(::ImplicitBind, args);
+	run(::ImplicitStringConcat, args);
+	run(::ImplicitStringConcatArgCount, args);
+	run(::ImplicitStringConcatAssignLHS, args);
+	run(::ImplicitStringConcatBoundaries, args);
+	run(::ImplicitStringConcatMany, args);
+	run(::ImplicitStringConcatManyLongs, args);
+	run(::ImplicitStringConcatOrder, args);
+	run(::ImplicitStringConcatShapes, args);
+//	run(::ImplicitStringConcatShapesTestGen, args);
+	run(::Indent, args);
+	run(::IndexOf, args);
+	run(::IndexOfEmptyInEmpty, args);
+	run(::IndexTest, args);
+	run(::Inet6AddressSerTest, args);
+	run(::Inet6AddressSerializationTest, args);
+	run(::InheritHandle, args);
+//	run(::InheritIOEHandle, args);
+	run(::InheritedInterfaceMethods, args);
+	run(::InheritedMethodTest, args);
+	run(::InheritedMethods, args);
+	run(::InitArg, args);
+	run(::InitialValue, args);
+	run(::InnerClassToString, args);
+	run(::InsertNullString, args);
+	run(::IntValueExactTests, args);
+	run(::IntegralValueTests, args);
+//	run(::InternalNameServiceTest, args);
+//	run(::InternalNameServiceWithHostsFileTest, args);
+	run(::InternalNameServiceWithNoHostsFileTest, args);
+	run(::InterruptDeadlock, args);
+	run(::InterruptMapDeadlock, args);
+//	run(::InterruptibleDatagramSocket, args);
+	run(::InvalidNameWithSlash, args);
+	run(::IsAbsolute, args);
+	run(::IsEmpty, args);
+	run(::IsHidden, args);
+//	run(::IsHostReachableBug, args);
+	run(::IsParallelCapable, args);
+	run(::IsReachable, args);
+	run(::IsReachableViaLoopbackTest, args);
+	run(::KeySets, args);
+	run(::LambdaClassFinal, args);
+//	run(::LambdaClassLoaderSerialization, args);
+	run(::LambdaConstructorMethodHandleUnbox, args);
+	run(::LambdaReturn, args);
+	run(::LambdaSerialization, args);
+	run(::LargeCopyWithMark, args);
+	run(::LargeFileAvailable, args);
+//	run(::LastErrorString, args);
+	run(::Latin1Digit, args);
+	run(::LeadingSlash, args);
+	run(::LegacyChainedExceptionSerialization, args);
+//	run(::LimitDirectMemory, args);
+	run(::LingerOnClose, args);
+	run(::ListNull, args);
+	run(::ListRoots, args);
+	run(::ListSpace, args);
+	run(::LoadNullClass, args);
+//	run(::Loader, args);
+	run(::LocalSocketAddress, args);
+	run(::LocaleDependentURLTest, args);
+	run(::LocalizedMessage, args);
+//	run(::Lock, args);
+	run(::LockReadWriteStressTest, args);
+	run(::LongTransferTest, args);
+	run(::LongValueExactTests, args);
+//	run(::LookupTest, args);
+	run(::LotsOfCancels, args);
+	run(::LotsOfCancels4WatchService, args);
+//	run(::LotsOfCloses, args);
+	run(::LotsOfUpdates, args);
+	run(::LotsOfWrites, args);
+	run(::MacPathTest, args);
+	run(::MacVolumesTest, args);
+	run(::MainThreadTest, args);
+	run(::MakeBooleanComparable, args);
+	run(::ManyFiles, args);
+	run(::ManySourcesAndTargets, args);
+	run(::MapAssertions, args);
+	run(::MapOverEnd, args);
+	run(::MapReadOnly, args);
+	run(::MapTest, args);
+	run(::MapWithSecurityManager, args);
+	run(::MarkReset, args);
+	run(::MarkedFillAtEOF, args);
+	run(::MaxCapacity, args);
+	run(::MaxPath, args);
+	run(::MaxPathLength, args);
+//	run(::MemoryLeak, args);
+	run(::MessageFormatsByArgumentIndex, args);
+	run(::MetafactoryArgValidationTest, args);
+	run(::MetafactoryArityTest, args);
+	run(::MetafactoryDescriptorTest, args);
+	run(::MetafactoryMethodNameTest, args);
+	run(::MetafactoryParameterCastTest, args);
+//	run(::Mkdir, args);
+	run(::ModInvTime, args);
+//	run(::ModPowPowersof2, args);
+	run(::ModPowPowersof2$ModTester, args);
+	run(::Mode, args);
+//	run(::MultiThreadStackWalk, args);
+	run(::MultiThreadedSystemProxies, args);
+	run(::MulticastTTL, args);
+	run(::MultipleNumberScriptTest, args);
+	run(::MultiplyTests, args);
+	run(::NameLimits, args);
+	run(::NameTooLong, args);
+	run(::NativeMethod, args);
+	run(::NativeOrder, args);
+	run(::NegativeAvailable, args);
+	run(::NegativeInitSize, args);
+	run(::NetParamsTest, args);
+	run(::NetworkChannelTests, args);
+	run(::NetworkInterfaceEmptyGetInetAddressesTest, args);
+	run(::NetworkPrefixLength, args);
+	run(::NewChainedExceptions, args);
+//	run(::NewVSOld_th_TH, args);
+	run(::NoAction, args);
+	run(::NoName, args);
+	run(::NonBlocking, args);
+	run(::NonCharacterMapping, args);
+	run(::NonInheritableContainee, args);
+//	run(::NonLinking, args);
+//	run(::NonOverridableHandlerFactory, args);
+//	run(::NonPublicProxyClass, args);
+	run(::NonPublicStaticInitializer, args);
+	run(::NotBound, args);
+//	run(::NulDevice, args);
+	run(::NulFile, args);
+	run(::NullArgs, args);
+	run(::NullArguments, args);
+	run(::NullClassLoader, args);
+	run(::NullConstruct, args);
+	run(::NullConstructor, args);
+	run(::NullCreate, args);
+	run(::NullHost, args);
+	run(::NullInParamList, args);
+//	run(::NullQueue, args);
+	run(::NullStackTrace, args);
+	run(::NullTest, args);
+	run(::NullThreadName, args);
+	run(::NullURLTest, args);
+	run(::Nulls, args);
+	run(::NumberFormatRounding, args);
+	run(::OOMEInReferenceHandler, args);
+	run(::Offset, args);
+//	run(::OldenCompilingWithDefaults, args);
+	run(::One, args);
+	run(::OneExceptionOnly, args);
+	run(::OpRead, args);
+	run(::Open, args);
+	run(::OpenConnection, args);
+	run(::OpenDir, args);
+//	run(::OpenLeak, args);
+	run(::OpenStream, args);
+	run(::OpenSync, args);
+	run(::OpsAfterClose, args);
+	run(::OpsAfterClose4DataInputStream, args);
+	run(::OpsAfterClose4FileInputStream, args);
+	run(::OpsAfterClose4FileOutputStream, args);
+	run(::OpsAfterClose4InputStream, args);
+	run(::OpsAfterClose4PrintWriter, args);
+	run(::OpsAfterClose4RandomAccessFile, args);
+	run(::OrderUnitTest, args);
+	run(::OutOfBand, args);
+	run(::OutOfBand4Selector, args);
+	run(::OverflowInRead, args);
+	run(::OverflowInSkip, args);
+	run(::OversynchronizedTest, args);
+	run(::PParser, args);
+	run(::PackageMain, args);
+	run(::ParallelProbes, args);
+	run(::ParameterAnnotations, args);
+	run(::ParameterizedBoundIndex, args);
+	run(::ParseAuthority, args);
+	run(::ParseBoolean, args);
+	run(::ParseDouble, args);
+	run(::ParseURL, args);
+	run(::PathOps, args);
+	run(::Patterns, args);
+	run(::PeekInputStreamTest, args);
+	run(::PhantomReferentClearing, args);
+	run(::Pin, args);
+	run(::PipeChannel, args);
+	run(::PipeInterrupt, args);
+//	run(::PipelineTest, args);
+	run(::PortUnreachable, args);
+	run(::Position, args);
+	run(::Pread, args);
+	run(::PrimitiveConversionTests, args);
+//	run(::PrivateInterfaceCall, args);
+	run(::Probe, args);
+	run(::Protocol, args);
+	run(::ProxyClashTest, args);
+	run(::PublicConstructor, args);
+	run(::Pwrite, args);
+	run(::QuoteTest, args);
+	run(::Race, args);
+	run(::RacyDeregister, args);
+//	run(::RacyHandler, args);
+	run(::RacyRegister, args);
+	run(::ReachabilityFenceTest, args);
+	run(::Read, args);
+//	run(::ReadAfterReset, args);
+	run(::ReadAhead, args);
+	run(::ReadByte, args);
+	run(::ReadCloseRaceNPE, args);
+	run(::ReadFull, args);
+//	run(::ReadFully, args);
+	run(::ReadIntoReadOnlyBuffer, args);
+	run(::ReadLine, args);
+	run(::ReadLinePushback, args);
+	run(::ReadLineSync, args);
+	run(::ReadOffset, args);
+	run(::ReadParams, args);
+	run(::ReadReadLine, args);
+	run(::ReadToArray, args);
+	run(::ReadToLimit, args);
+	run(::ReadUTF, args);
+	run(::ReadWritePrimitives, args);
+	run(::ReaderBulkReadContract, args);
+	run(::Ready, args);
+	run(::Receive, args);
+	run(::ReceiveISA, args);
+	run(::RecursiveAnnotation, args);
+//	run(::RecursiveSystemLoader, args);
+	run(::RedirectWithLongFilename, args);
+	run(::ReferenceClone, args);
+	run(::ReferenceEnqueue, args);
+	run(::ReferenceRefersTo, args);
+	run(::ReflectiveLookupTest, args);
+	run(::Refused, args);
+	run(::RegAfterPreClose, args);
+	run(::Regex, args);
+	run(::RegionMatches, args);
+	run(::RelativeEncoding, args);
+	run(::RelativePath, args);
+	run(::RelativeURL, args);
+	run(::RelativeURLTest, args);
+	run(::Release, args);
+	run(::ReleaseOnCloseDeadlock, args);
+	run(::RememberAppend, args);
+	run(::RenameDelete, args);
+	run(::RepetitiveLambdaSerialization, args);
+	run(::ReportSocketClosed, args);
+	run(::RequestPropertyValues, args);
+	run(::ResolveProxyClass, args);
+	run(::Resources, args);
+	run(::ResourcesStreamTest, args);
+	run(::Responses, args);
+	run(::Restart, args);
+	run(::RestoreURL, args);
+	run(::Reuse, args);
+	run(::ReuseBuf, args);
+	run(::SBBasher, args);
+	run(::SJIS, args);
+//	run(::SPIProviderTest, args);
+	run(::Sanity, args);
+	run(::ScatteringRead, args);
+//	run(::Security, args);
+//	run(::SecurityExceptions, args);
+//	run(::SecurityManagerClinit, args);
+//	run(::SecurityTest, args);
+	run(::SelectFdsLimit, args);
+	run(::SelectNowWhenEmpty, args);
+	run(::SelectPipe, args);
+	run(::SelectTimeout, args);
+	run(::SelectWhenRefused, args);
+	run(::Send12k, args);
+	run(::SendDatagramToBadAddress, args);
+	run(::SendSize, args);
+	run(::SendUrgentData, args);
+	run(::Sender, args);
+	run(::SerializationTests, args);
+//	run(::Serialize, args);
+	run(::SetBufferSize, args);
+	run(::SetLastModified, args);
+	run(::SetMaxPriority, args);
+	run(::SetOption, args);
+	run(::SetReceiveBufferSize, args);
+	run(::SetTTLAndGetTTL, args);
+	run(::SetTTLTo0, args);
+//	run(::SetTimesNanos, args);
+	run(::Shadow, args);
+	run(::Sharing, args);
+	run(::ShortWrite, args);
+	run(::ShortWrite4Channels, args);
+	run(::Shutdown, args);
+	run(::ShutdownBoth, args);
+//	run(::SiblingIOEHandle, args);
+	run(::SignatureTest, args);
+//	run(::SimpleProxy, args);
+	run(::Size, args);
+	run(::SkipBytes, args);
+//	run(::SkipTest, args);
+//	run(::SkipTest$GenerateData, args);
+	run(::SoTimeout, args);
+	run(::SocketGrowth, args);
+//	run(::SocketInheritance, args);
+	run(::SocketPermissionCollection, args);
+	run(::Space, args);
+	run(::SpecTests, args);
+//	run(::SpecialInterfaceCall::SpecialInterfaceCall, args);
+//	run(::SpecialTempFile, args);
+//	run(::SpecifyHandler, args);
+	run(::Split, args);
+	run(::SquareRootTests, args);
+//	run(::StackOverflowTest, args);
+	run(::StackStreamState, args);
+	run(::StackTraceSerialization, args);
+	run(::StarInheritance, args);
+//	run(::StartOOMTest, args);
+	run(::StateTestService, args);
+	run(::StaticFieldTest, args);
+	run(::StaticFieldsOnInterface, args);
+	run(::StaticInitializerTest, args);
+//	run(::StaticInterfaceMethodInWayOfDefault, args);
+	run(::Stop, args);
+	run(::Streams, args);
+	run(::StressLoopback, args);
+//	run(::StressNativeSignal, args);
+	run(::StringCharBufferSliceTest, args);
+	run(::StringConcatFactoryInvariants, args);
+	run(::StringConcatFactoryRepeatedConstants, args);
+	run(::StringConstructorOverflow, args);
+	run(::StringContentEqualsBug, args);
+//	run(::StringPlatformChars, args);
+	run(::StringRepeat, args);
+	run(::StringScope, args);
+	run(::StripACC_SUPER, args);
+	run(::SubClass, args);
+	run(::SubNetworkInterfaceTest, args);
+	run(::SubclassCastUOE, args);
+	run(::Substring, args);
+	run(::Supplementary4Character, args);
+	run(::Supplementary4String, args);
+	run(::Supplementary4StringBuffer, args);
+	run(::Supplementary4StringBuilder, args);
+	run(::SuppressedException, args);
+	run(::SuppressedExceptions, args);
+	run(::SurrogatePairs, args);
+	run(::Suspend, args);
+	run(::SwapMicroBenchmark, args);
+	run(::SystemProxies, args);
+	run(::T4992170, args);
+	run(::T8032704, args);
+	run(::T8032711, args);
+	run(::TIFFContentGuesser, args);
+	run(::TLRemoveTest, args);
+	run(::TemporaryFiles, args);
+	run(::TemporarySelector, args);
+	run(::Test4URI, args);
+	run(::Test4URL, args);
+	run(::Test4nonJavaNames, args);
+	run(::Test6987555, args);
+	run(::Test6991596, args);
+	run(::Test6998541, args);
+	run(::Test7087570, args);
+	run(::Test8009222, args);
+	run(::Test8076596, args);
+	run(::TestAfterClose, args);
+	run(::TestAnnotatedElementDefaults, args);
+	run(::TestC1::TestC1, args);
+	run(::TestC2, args);
+	run(::TestConstructorParameterAnnotations, args);
+	run(::TestConstructorParameterTypeAnnotations, args);
+	run(::TestDefaults, args);
+	run(::TestFieldReflectValueOf, args);
+	run(::TestGenericReturnTypeToString, args);
+	run(::TestIPv6Addresses, args);
+	run(::TestIncompleteAnnotationExceptionNPE, args);
+//	run(::TestLayer, args);
+//	run(::TestMain, args);
+	run(::TestMethodReflectValueOf, args);
+	run(::TestN1, args);
+	run(::TestNegativeCodepoint, args);
+	run(::TestObjectMethods, args);
+	run(::TestObjectStreamClass, args);
+	run(::TestPlainArrayNotGeneric, args);
+	run(::TestPort, args);
+	run(::TestPrivateMember, args);
+	run(::TestRFC2732, args);
+	run(::TestReceiverTypeOwner, args);
+	run(::TestReceiverTypeOwnerType, args);
+	run(::TestReceiverTypeParameterizedConstructor, args);
+	run(::TestReceiverTypeParameterizedMethod, args);
+	run(::TestSynchronization, args);
+	run(::TestUndefinedDirectionality, args);
+	run(::TestUndefinedIdentifierStartPart, args);
+	run(::TestUndefinedIgnorable, args);
+	run(::TestUndefinedMirrored, args);
+	run(::TestUndefinedNumeric, args);
+	run(::TestUndefinedTitleCase, args);
+	run(::TestValueExact, args);
+	run(::TestWhiteSpace, args);
+	run(::ThereCanBeOnlyOne, args);
+	run(::ThreadStop, args);
+	run(::TieRoundingTest, args);
+	run(::TimeToLive, args);
+	run(::TimeZoneLastModified, args);
+	run(::TinyBuffers, args);
+	run(::ToLowerCase, args);
+	run(::ToString, args);
+	run(::ToStringCache, args);
+	run(::ToURI, args);
+	run(::ToURL, args);
+	run(::ToUpperCase, args);
+	run(::TrailingSlash, args);
+	run(::TransferTo, args);
+	run(::TransferToChannel, args);
+	run(::TransferToNonWritable, args);
+	run(::Transfers, args);
+	run(::Transform, args);
+	run(::Trim, args);
+	run(::Trivial, args);
+	run(::Truncate, args);
+	run(::TruncateRAF, args);
+	run(::TryLock, args);
+	run(::TypeAnnotationReflection, args);
+	run(::TypeCheckMicroBenchmark, args);
+	run(::TypeParamAnnotation, args);
+	run(::TypeTag, args);
+	run(::TypeVariableBoundParameterIndex, args);
+//	run(::UNCTest, args);
+	run(::URIToURLTest, args);
+	run(::URLDecoderArgs, args);
+	run(::URLEncodeDecode, args);
+	run(::URLEncoderEncodeArgs, args);
+//	run(::URLParsing, args);
+	run(::URLPermissionTest, args);
+	run(::UTF16, args);
+	run(::UTF8, args);
+	run(::UnboundSocketTests, args);
+	run(::Unbounded, args);
+	run(::UniTest::UnitTest, args);
+//	run(::Unicode, args);
+	run(::Unicode4File, args);
+	run(::UnicodeConstructor, args);
+	run(::UnicodeSpec, args);
+//	run(::UninitializedParent, args);
+	run(::UnixSocketFile, args);
+	run(::UnknownContentType, args);
+	run(::Unresolved, args);
+	run(::Unsigned, args);
+	run(::UpdateInterference, args);
+	run(::UppercaseScheme, args);
+	run(::UriImportExport, args);
+	run(::UseSTD3ASCIIRules, args);
+	run(::UserDirChangedTest, args);
+	run(::ValueOf4Enum, args);
+	run(::ValueOf4Integer, args);
+	run(::VerifyStackTrace, args);
+//	run(::VersionProps, args);
+//	run(::Versions, args);
+//	run(::WaitFor, args);
+//	run(::WaitTooLong, args);
+	run(::WakeupAfterClose, args);
+	run(::WakeupNow, args);
+	run(::WakeupOverflow, args);
+	run(::WalkFunction, args);
+//	run(::WalkWithSecurity, args);
+	run(::WeekDateTest, args);
+	run(::WhiteSpaceHostTest, args);
+	run(::Wildcard, args);
+	run(::WinCommand, args);
+	run(::WinDeviceName, args);
+	run(::WinDirRelative, args);
+	run(::WinMaxPath, args);
+	run(::WinSpecialFiles, args);
+//	run(::WithSecurityManager4AsynchronousServerSocketChannel, args);
+	run(::WithSecurityManager4concat, args);
+	run(::Write, args);
+	run(::WriteBytes, args);
+	run(::WriteBytesChars, args);
+	run(::WriteLengths, args);
+	run(::WriteParams, args);
+	run(::WriteUTF, args);
+	run(::WriterLoop, args);
+	run(::ZeroMap, args);
+	run(::Zombies, args);
+	run(::bug4097450, args);
+	run(::bug4099975, args);
+	run(::bug6271375, args);
+	run(::bug6317072, args);
+	run(::bug6412896, args);
+//	run(::c::TestClient, args);
+	run(::exceptionCauseTest, args);
+	run(::getAnnotationTest, args);
+	run(::getResponseCode4HttpURLConnection, args);
+	run(::isSiteLocalAddress, args);
+	run(::java::lang::Float2::Extrema, args);
+	run(::java::lang::Float2::ParseFloat, args);
+	run(::java::lang::Math2::AbsPositiveZero, args);
+	run(::java::lang::Math2::AbsTests, args);
+	run(::java::lang::Math2::DivModTests, args);
+	run(::java::lang::Math2::ExactArithTests, args);
+	run(::java::lang::Math2::MinMax, args);
+//	run(::p::App, args);
+//	run(::p::Main, args);
+//	run(::p2::test::Main, args);
+//	run(::p3::NoAccess, args);
+//	run(::p3::NoGetClassLoaderAccess, args);
+	run(::pkg1::MethodTypeDescriptorAccessTest, args);
+	run(::repeatingAnnotations::InheritedAssociatedAnnotations, args);
+	run(::test::FindSpecial, args);
+	run(::test::java::lang::invoke::CountedLoopIterationCountsTest, args);
+	run(::test::java::lang::invoke::FindClassSecurityManager, args);
+	run(::test::java::lang::invoke::LoopCombinatorLongSignatureTest, args);
+//	run(::test::java::lang::invoke::MethodTypeSecurityManager, args);
+	run(::test::java::lang::invoke::ObjectMethodInInterfaceTest, args);
+//	run(::textToNumericFormat, args);
+
+	int64_t runCaseEndMS = $System::currentTimeMillis();
+	$var($StringBuilder, sb, $new($StringBuilder));
+	sb->append("runCases "_s)->append(processedCount)->append(" "_s)->append(runCaseEndMS - runCasesBeginMS)->append("ms\n"_s);
+	$System::out->println(sb);
+	$System::out->flush();
+}
+
+int main(int argc, char** argv) {
+	::java$base$test::init();
+	{
+		$var($StringArray, args, $new($StringArray, argc - 1));
+		for (int32_t i = 1; i < argc; i++) {
+			$var($String, arg, $String::valueOf(argv[i]));
+			args->set(i - 1, arg);
+		}
+
+		try {
+			runCases(args);
+		} catch ($Throwable&) {
+			$var($Throwable, e, $catch());
+			e->printStackTrace();
+			$System::deinit();
+			return 1;
+		}
+	}
+	$System::deinit();
+	return 0;
+}

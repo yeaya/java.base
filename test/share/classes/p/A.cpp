@@ -1,0 +1,56 @@
+#include <p/A.h>
+
+#include <java/io/PrintStream.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace p {
+
+$MethodInfo _A_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(A::*)()>(&A::init$))},
+	{"hello", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&A::hello))},
+	{}
+};
+
+$ClassInfo _A_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"p.A",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_A_MethodInfo_
+};
+
+$Object* allocate$A($Class* clazz) {
+	return $of($alloc(A));
+}
+
+void A::init$() {
+}
+
+void A::hello() {
+	$init($System);
+	$nc($System::out)->println("A"_s);
+}
+
+A::A() {
+}
+
+$Class* A::load$($String* name, bool initialize) {
+	$loadClass(A, name, initialize, &_A_ClassInfo_, allocate$A);
+	return class$;
+}
+
+$Class* A::class$ = nullptr;
+
+} // p

@@ -1,0 +1,114 @@
+#include <TestAfterClose.h>
+
+#include <java/io/IOException.h>
+#include <java/io/PrintStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/InetAddress.h>
+#include <java/net/ServerSocket.h>
+#include <java/net/SocketAddress.h>
+#include <jcpp.h>
+
+using $IOException = ::java::io::IOException;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $InetAddress = ::java::net::InetAddress;
+using $ServerSocket = ::java::net::ServerSocket;
+using $SocketAddress = ::java::net::SocketAddress;
+
+$FieldInfo _TestAfterClose_FieldInfo_[] = {
+	{"failCount", "I", nullptr, $STATIC, $staticField(TestAfterClose, failCount)},
+	{}
+};
+
+$MethodInfo _TestAfterClose_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestAfterClose::*)()>(&TestAfterClose::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestAfterClose::main))},
+	{"test", "(Ljava/net/ServerSocket;)V", nullptr, $STATIC, $method(static_cast<void(*)($ServerSocket*)>(&TestAfterClose::test)), "java.io.IOException"},
+	{}
+};
+
+$ClassInfo _TestAfterClose_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"TestAfterClose",
+	"java.lang.Object",
+	nullptr,
+	_TestAfterClose_FieldInfo_,
+	_TestAfterClose_MethodInfo_
+};
+
+$Object* allocate$TestAfterClose($Class* clazz) {
+	return $of($alloc(TestAfterClose));
+}
+
+int32_t TestAfterClose::failCount = 0;
+
+void TestAfterClose::init$() {
+}
+
+void TestAfterClose::main($StringArray* args) {
+	try {
+		$var($ServerSocket, ss, $new($ServerSocket, 0, 0, nullptr));
+		test(ss);
+	} catch ($IOException&) {
+		$var($IOException, ioe, $catch());
+		ioe->printStackTrace();
+	}
+	$init(TestAfterClose);
+	if (TestAfterClose::failCount > 0) {
+		$throwNew($RuntimeException, $$str({"Failed: failcount = "_s, $$str(TestAfterClose::failCount)}));
+	}
+}
+
+void TestAfterClose::test($ServerSocket* ss) {
+	$var($InetAddress, ssInetAddress, $nc(ss)->getInetAddress());
+	int32_t ssLocalPort = ss->getLocalPort();
+	$var($SocketAddress, ssLocalSocketAddress, ss->getLocalSocketAddress());
+	ss->close();
+	if (ssLocalPort != ss->getLocalPort()) {
+		$init($System);
+		$nc($System::out)->println("ServerSocket.getLocalPort failed"_s);
+		$init(TestAfterClose);
+		++TestAfterClose::failCount;
+	}
+	if (!$nc($(ss->getInetAddress()))->equals(ssInetAddress)) {
+		$init($System);
+		$nc($System::out)->println("ServerSocket.getInetAddress failed"_s);
+		$init(TestAfterClose);
+		++TestAfterClose::failCount;
+	}
+	if (!$nc($of($(ss->getLocalSocketAddress())))->equals(ssLocalSocketAddress)) {
+		$init($System);
+		$nc($System::out)->println("ServerSocket.getLocalSocketAddress failed"_s);
+		$init(TestAfterClose);
+		++TestAfterClose::failCount;
+	}
+	if (!ss->isBound()) {
+		$init($System);
+		$nc($System::out)->println("ServerSocket.isBound failed"_s);
+		$init(TestAfterClose);
+		++TestAfterClose::failCount;
+	}
+}
+
+TestAfterClose::TestAfterClose() {
+}
+
+$Class* TestAfterClose::load$($String* name, bool initialize) {
+	$loadClass(TestAfterClose, name, initialize, &_TestAfterClose_ClassInfo_, allocate$TestAfterClose);
+	return class$;
+}
+
+$Class* TestAfterClose::class$ = nullptr;

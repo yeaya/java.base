@@ -1,0 +1,271 @@
+#include <LookupTest.h>
+
+#include <LookupTest$LookupTestPolicy.h>
+#include <LookupTest$Server.h>
+#include <java/io/BufferedWriter.h>
+#include <java/io/FileWriter.h>
+#include <java/io/IOException.h>
+#include <java/io/InputStream.h>
+#include <java/io/OutputStreamWriter.h>
+#include <java/io/PrintStream.h>
+#include <java/io/PrintWriter.h>
+#include <java/io/Writer.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/SecurityException.h>
+#include <java/lang/SecurityManager.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/InetAddress.h>
+#include <java/net/ProxySelector.h>
+#include <java/net/ServerSocket.h>
+#include <java/net/URL.h>
+#include <java/net/URLConnection.h>
+#include <java/security/Policy.h>
+#include <jcpp.h>
+
+#undef DEFAULT_POLICY
+#undef HOSTS_FILE_NAME
+
+using $LookupTest$LookupTestPolicy = ::LookupTest$LookupTestPolicy;
+using $LookupTest$Server = ::LookupTest$Server;
+using $BufferedWriter = ::java::io::BufferedWriter;
+using $FileWriter = ::java::io::FileWriter;
+using $IOException = ::java::io::IOException;
+using $InputStream = ::java::io::InputStream;
+using $OutputStreamWriter = ::java::io::OutputStreamWriter;
+using $PrintStream = ::java::io::PrintStream;
+using $PrintWriter = ::java::io::PrintWriter;
+using $Writer = ::java::io::Writer;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $SecurityException = ::java::lang::SecurityException;
+using $SecurityManager = ::java::lang::SecurityManager;
+using $InetAddress = ::java::net::InetAddress;
+using $ProxySelector = ::java::net::ProxySelector;
+using $ServerSocket = ::java::net::ServerSocket;
+using $URL = ::java::net::URL;
+using $URLConnection = ::java::net::URLConnection;
+using $Policy = ::java::security::Policy;
+
+$FieldInfo _LookupTest_FieldInfo_[] = {
+	{"DEFAULT_POLICY", "Ljava/security/Policy;", nullptr, $STATIC | $FINAL, $staticField(LookupTest, DEFAULT_POLICY)},
+	{"port", "I", nullptr, $STATIC, $staticField(LookupTest, port)},
+	{"serverSocket", "Ljava/net/ServerSocket;", nullptr, $STATIC | $VOLATILE, $staticField(LookupTest, serverSocket)},
+	{"HOSTS_FILE_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LookupTest, HOSTS_FILE_NAME)},
+	{}
+};
+
+$MethodInfo _LookupTest_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LookupTest::*)()>(&LookupTest::init$))},
+	{"addMappingToHostsFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*,bool)>(&LookupTest::addMappingToHostsFile)), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LookupTest::main)), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;ZZ)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,bool,bool)>(&LookupTest::test))},
+	{}
+};
+
+$InnerClassInfo _LookupTest_InnerClassesInfo_[] = {
+	{"LookupTest$LookupTestPolicy", "LookupTest", "LookupTestPolicy", $STATIC},
+	{"LookupTest$Server", "LookupTest", "Server", $STATIC},
+	{}
+};
+
+$ClassInfo _LookupTest_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"LookupTest",
+	"java.lang.Object",
+	nullptr,
+	_LookupTest_FieldInfo_,
+	_LookupTest_MethodInfo_,
+	nullptr,
+	nullptr,
+	_LookupTest_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"LookupTest$LookupTestPolicy,LookupTest$Server"
+};
+
+$Object* allocate$LookupTest($Class* clazz) {
+	return $of($alloc(LookupTest));
+}
+
+$Policy* LookupTest::DEFAULT_POLICY = nullptr;
+int32_t LookupTest::port = 0;
+$volatile($ServerSocket*) LookupTest::serverSocket = nullptr;
+$String* LookupTest::HOSTS_FILE_NAME = nullptr;
+
+void LookupTest::init$() {
+}
+
+void LookupTest::test($String* url, bool throwsSecException, bool throwsIOException) {
+	$init(LookupTest);
+	$ProxySelector::setDefault(nullptr);
+	$var($URL, u, nullptr);
+	$var($InputStream, is, nullptr);
+	{
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
+			try {
+				$assign(u, $new($URL, url));
+				$init($System);
+				$nc($System::err)->println($$str({"Connecting to "_s, u}));
+				$var($URLConnection, urlc, u->openConnection());
+				$assign(is, $nc(urlc)->getInputStream());
+			} catch ($SecurityException&) {
+				$var($SecurityException, e, $catch());
+				if (!throwsSecException) {
+					$throwNew($RuntimeException, "Unexpected SecurityException:"_s, e);
+				}
+				return$1 = true;
+				goto $finally;
+			} catch ($IOException&) {
+				$var($IOException, e, $catch());
+				if (!throwsIOException) {
+					$init($System);
+					$nc($System::err)->println($$str({"Unexpected IOException:"_s, $(e->getMessage())}));
+					$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				}
+				return$1 = true;
+				goto $finally;
+			}
+		} catch ($Throwable&) {
+			$assign(var$0, $catch());
+		} $finally: {
+			if (is != nullptr) {
+				try {
+					is->close();
+				} catch ($IOException&) {
+					$var($IOException, e, $catch());
+					$init($System);
+					$nc($System::err)->println($$str({"Unexpected IOException:"_s, $(e->getMessage())}));
+					$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				}
+			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
+		}
+	}
+	if (throwsSecException || throwsIOException) {
+		$init($System);
+		$nc($System::err)->printf("was expecting a %s\n"_s, $$new($ObjectArray, {throwsSecException ? $of("security exception"_s) : $of("IOException"_s)}));
+		$throwNew($RuntimeException, "was expecting an exception"_s);
+	}
+}
+
+void LookupTest::main($StringArray* args) {
+	$init(LookupTest);
+	$beforeCallerSensitive();
+	addMappingToHostsFile("allowedAndFound.com"_s, $($nc($($InetAddress::getLoopbackAddress()))->getHostAddress()), LookupTest::HOSTS_FILE_NAME, false);
+	addMappingToHostsFile("notAllowedButFound.com"_s, "99.99.99.99"_s, LookupTest::HOSTS_FILE_NAME, true);
+	$var($LookupTest$Server, server, $new($LookupTest$Server));
+	{
+		$var($Throwable, var$0, nullptr);
+		try {
+			$Policy::setPolicy($$new($LookupTest$LookupTestPolicy));
+			$System::setSecurityManager($$new($SecurityManager));
+			server->start();
+			test($$str({"http://allowedAndFound.com:"_s, $$str(LookupTest::port), "/foo"_s}), false, false);
+			test($$str({"http://notAllowedButFound.com:"_s, $$str(LookupTest::port), "/foo"_s}), true, false);
+			test($$str({"http://allowedButNotfound.com:"_s, $$str(LookupTest::port), "/foo"_s}), false, true);
+			test($$str({"http://notAllowedAndNotFound.com:"_s, $$str(LookupTest::port), "/foo"_s}), true, false);
+		} catch ($Throwable&) {
+			$assign(var$0, $catch());
+		} /*finally*/ {
+			server->terminate();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+	}
+}
+
+void LookupTest::addMappingToHostsFile($String* host, $String* addr, $String* hostsFileName, bool append) {
+	$init(LookupTest);
+	$var($String, mapping, $str({addr, " "_s, host}));
+	{
+		$var($FileWriter, fr, $new($FileWriter, hostsFileName, append));
+		{
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($PrintWriter, hfPWriter, $new($PrintWriter, static_cast<$Writer*>($$new($BufferedWriter, fr))));
+					{
+						$var($Throwable, var$1, nullptr);
+						try {
+							try {
+								hfPWriter->println(mapping);
+							} catch ($Throwable&) {
+								$var($Throwable, t$, $catch());
+								try {
+									hfPWriter->close();
+								} catch ($Throwable&) {
+									$var($Throwable, x2, $catch());
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable&) {
+							$assign(var$1, $catch());
+						} /*finally*/ {
+							hfPWriter->close();
+						}
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					}
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					try {
+						fr->close();
+					} catch ($Throwable&) {
+						$var($Throwable, x2, $catch());
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} /*finally*/ {
+				fr->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+		}
+	}
+}
+
+void clinit$LookupTest($Class* class$) {
+	$assignStatic(LookupTest::DEFAULT_POLICY, $Policy::getPolicy());
+	$assignStatic(LookupTest::HOSTS_FILE_NAME, $System::getProperty("jdk.net.hosts.file"_s));
+}
+
+LookupTest::LookupTest() {
+}
+
+$Class* LookupTest::load$($String* name, bool initialize) {
+	$loadClass(LookupTest, name, initialize, &_LookupTest_ClassInfo_, clinit$LookupTest, allocate$LookupTest);
+	return class$;
+}
+
+$Class* LookupTest::class$ = nullptr;

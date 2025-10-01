@@ -1,0 +1,61 @@
+#include <BasicUnit.h>
+
+#include <Int.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $Int = ::Int;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _BasicUnit_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BasicUnit::*)()>(&BasicUnit::init$))},
+	{"factory", "(Ljava/lang/Class;)LInt;", "<T::LInt;>(Ljava/lang/Class<TT;>;)TT;", $STATIC, $method(static_cast<$Int*(*)($Class*)>(&BasicUnit::factory)), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BasicUnit::main)), "java.lang.Throwable"},
+	{}
+};
+
+$ClassInfo _BasicUnit_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"BasicUnit",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_BasicUnit_MethodInfo_
+};
+
+$Object* allocate$BasicUnit($Class* clazz) {
+	return $of($alloc(BasicUnit));
+}
+
+void BasicUnit::init$() {
+}
+
+$Int* BasicUnit::factory($Class* c) {
+	$load(BasicUnit);
+	$beforeCallerSensitive();
+	return $cast($Int, $nc(c)->newInstance());
+}
+
+void BasicUnit::main($StringArray* args) {
+	$load(BasicUnit);
+	$beforeCallerSensitive();
+	$load($Int);
+	$nc($(factory($Class::forName("MyInt"_s)->asSubclass($Int::class$))))->main();
+}
+
+BasicUnit::BasicUnit() {
+}
+
+$Class* BasicUnit::load$($String* name, bool initialize) {
+	$loadClass(BasicUnit, name, initialize, &_BasicUnit_ClassInfo_, allocate$BasicUnit);
+	return class$;
+}
+
+$Class* BasicUnit::class$ = nullptr;

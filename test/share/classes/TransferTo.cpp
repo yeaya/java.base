@@ -1,0 +1,669 @@
+#include <TransferTo.h>
+
+#include <TransferTo$1.h>
+#include <TransferTo$2.h>
+#include <TransferTo$CloseLoggingInputStream.h>
+#include <TransferTo$CloseLoggingOutputStream.h>
+#include <TransferTo$Thrower.h>
+#include <TransferTo$ThrowingInputStream.h>
+#include <java/io/ByteArrayOutputStream.h>
+#include <java/io/FilterOutputStream.h>
+#include <java/io/IOException.h>
+#include <java/io/InputStream.h>
+#include <java/io/OutputStream.h>
+#include <java/io/Serializable.h>
+#include <java/lang/Array.h>
+#include <java/lang/AssertionError.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/Integer.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/Void.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/Arrays.h>
+#include <java/util/Random.h>
+#include <jcpp.h>
+
+using $TransferTo$1 = ::TransferTo$1;
+using $TransferTo$2 = ::TransferTo$2;
+using $TransferTo$CloseLoggingInputStream = ::TransferTo$CloseLoggingInputStream;
+using $TransferTo$CloseLoggingOutputStream = ::TransferTo$CloseLoggingOutputStream;
+using $TransferTo$Thrower = ::TransferTo$Thrower;
+using $TransferTo$ThrowingInputStream = ::TransferTo$ThrowingInputStream;
+using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
+using $FilterOutputStream = ::java::io::FilterOutputStream;
+using $IOException = ::java::io::IOException;
+using $InputStream = ::java::io::InputStream;
+using $OutputStream = ::java::io::OutputStream;
+using $Serializable = ::java::io::Serializable;
+using $AssertionError = ::java::lang::AssertionError;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Integer = ::java::lang::Integer;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $Void = ::java::lang::Void;
+using $CallSite = ::java::lang::invoke::CallSite;
+using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
+using $MethodType = ::java::lang::invoke::MethodType;
+using $Arrays = ::java::util::Arrays;
+using $Random = ::java::util::Random;
+
+class TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0 : public $TransferTo$Thrower {
+	$class(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, $NO_CLASS_INIT, $TransferTo$Thrower)
+public:
+	void init$($InputStream* in) {
+		$set(this, in, in);
+	}
+	virtual void run() override {
+		TransferTo::lambda$ifOutIsNullThenNpeIsThrown$0(in);
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0>());
+	}
+	$InputStream* in = nullptr;
+	static $FieldInfo fieldInfos[2];
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$FieldInfo TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::fieldInfos[2] = {
+	{"in", "Ljava/io/InputStream;", nullptr, $PUBLIC, $field(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)},
+	{}
+};
+$MethodInfo TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::methodInfos[3] = {
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::*)($InputStream*)>(&TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0",
+	"java.lang.Object",
+	"TransferTo$Thrower",
+	fieldInfos,
+	methodInfos
+};
+$Class* TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::load$($String* name, bool initialize) {
+	$loadClass(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::class$ = nullptr;
+
+$MethodInfo _TransferTo_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransferTo::*)()>(&TransferTo::init$))},
+	{"assertThrows", "(LTransferTo$Thrower;Ljava/lang/Class;Ljava/lang/String;)V", "<T:Ljava/lang/Throwable;>(LTransferTo$Thrower;Ljava/lang/Class<TT;>;Ljava/lang/String;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($TransferTo$Thrower*,$Class*,$String*)>(&TransferTo::assertThrows))},
+	{"assertThrowsNPE", "(LTransferTo$Thrower;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($TransferTo$Thrower*,$String*)>(&TransferTo::assertThrowsNPE))},
+	{"checkTransferredContents", "([B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*)>(&TransferTo::checkTransferredContents)), "java.io.IOException"},
+	{"contents", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::contents)), "java.io.IOException"},
+	{"createRandomBytes", "(II)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)(int32_t,int32_t)>(&TransferTo::createRandomBytes))},
+	{"ifExceptionInInputNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::ifExceptionInInputNeitherStreamIsClosed)), "java.io.IOException"},
+	{"ifExceptionInOutputNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::ifExceptionInOutputNeitherStreamIsClosed)), "java.io.IOException"},
+	{"ifOutIsNullThenNpeIsThrown", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::ifOutIsNullThenNpeIsThrown)), "java.io.IOException"},
+	{"input", "([B)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$InputStream*(*)($bytes*)>(&TransferTo::input))},
+	{"input", "(I[B)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$InputStream*(*)(int32_t,$bytes*)>(&TransferTo::input))},
+	{"lambda$ifOutIsNullThenNpeIsThrown$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($InputStream*)>(&TransferTo::lambda$ifOutIsNullThenNpeIsThrown$0)), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TransferTo::main)), "java.io.IOException"},
+	{"onReturnInputIsAtEnd", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::onReturnInputIsAtEnd)), "java.io.IOException"},
+	{"onReturnNeitherStreamIsClosed", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&TransferTo::onReturnNeitherStreamIsClosed)), "java.io.IOException"},
+	{"output", "()Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$OutputStream*(*)()>(&TransferTo::output))},
+	{"output", "(I)Ljava/io/OutputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$OutputStream*(*)(int32_t)>(&TransferTo::output))},
+	{"transferToThenCheckIfAnyClosed", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InputStream*,$OutputStream*)>(&TransferTo::transferToThenCheckIfAnyClosed)), "java.io.IOException"},
+	{}
+};
+
+$InnerClassInfo _TransferTo_InnerClassesInfo_[] = {
+	{"TransferTo$Thrower", "TransferTo", "Thrower", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{"TransferTo$CloseLoggingOutputStream", "TransferTo", "CloseLoggingOutputStream", $PRIVATE | $STATIC},
+	{"TransferTo$CloseLoggingInputStream", "TransferTo", "CloseLoggingInputStream", $PRIVATE | $STATIC},
+	{"TransferTo$ThrowingInputStream", "TransferTo", "ThrowingInputStream", $PRIVATE | $STATIC},
+	{"TransferTo$2", nullptr, nullptr, 0},
+	{"TransferTo$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _TransferTo_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"TransferTo",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_TransferTo_MethodInfo_,
+	nullptr,
+	nullptr,
+	_TransferTo_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"TransferTo$Thrower,TransferTo$CloseLoggingOutputStream,TransferTo$CloseLoggingInputStream,TransferTo$ThrowingInputStream,TransferTo$2,TransferTo$1"
+};
+
+$Object* allocate$TransferTo($Class* clazz) {
+	return $of($alloc(TransferTo));
+}
+
+void TransferTo::init$() {
+}
+
+void TransferTo::main($StringArray* args) {
+	ifOutIsNullThenNpeIsThrown();
+	ifExceptionInInputNeitherStreamIsClosed();
+	ifExceptionInOutputNeitherStreamIsClosed();
+	onReturnNeitherStreamIsClosed();
+	onReturnInputIsAtEnd();
+	contents();
+}
+
+void TransferTo::ifOutIsNullThenNpeIsThrown() {
+	{
+		$var($InputStream, in, input($$new($bytes, 0)));
+		{
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					if (in != nullptr) {
+						try {
+							in->close();
+						} catch ($Throwable&) {
+							$var($Throwable, x2, $catch());
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
+				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+		}
+	}
+	{
+		$var($InputStream, in, input($$new($bytes, {(int8_t)1})));
+		{
+			$var($Throwable, var$1, nullptr);
+			try {
+				try {
+					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					if (in != nullptr) {
+						try {
+							in->close();
+						} catch ($Throwable&) {
+							$var($Throwable, x2, $catch());
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$1, $catch());
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
+				}
+			}
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
+		}
+	}
+	{
+		$var($InputStream, in, input($$new($bytes, {
+			(int8_t)1,
+			(int8_t)2
+		})));
+		{
+			$var($Throwable, var$2, nullptr);
+			try {
+				try {
+					assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, in)), "out"_s);
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					if (in != nullptr) {
+						try {
+							in->close();
+						} catch ($Throwable&) {
+							$var($Throwable, x2, $catch());
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$2, $catch());
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
+				}
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+		}
+	}
+	$var($InputStream, in, nullptr);
+	{
+		$var($Throwable, var$3, nullptr);
+		try {
+			$var($InputStream, fin, $assign(in, $new($TransferTo$ThrowingInputStream)));
+			assertThrowsNPE(static_cast<$TransferTo$Thrower*>($$new(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0, fin)), "out"_s);
+		} catch ($Throwable&) {
+			$assign(var$3, $catch());
+		} /*finally*/ {
+			if (in != nullptr) {
+				try {
+					in->close();
+				} catch ($IOException&) {
+					$catch();
+				}
+			}
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
+		}
+	}
+}
+
+void TransferTo::ifExceptionInInputNeitherStreamIsClosed() {
+	$var($InputStream, var$0, input(0, $$new($bytes, {
+		(int8_t)1,
+		(int8_t)2,
+		(int8_t)3
+	})));
+	transferToThenCheckIfAnyClosed(var$0, $(output()));
+	$var($InputStream, var$1, input(1, $$new($bytes, {
+		(int8_t)1,
+		(int8_t)2,
+		(int8_t)3
+	})));
+	transferToThenCheckIfAnyClosed(var$1, $(output()));
+	$var($InputStream, var$2, input(2, $$new($bytes, {
+		(int8_t)1,
+		(int8_t)2,
+		(int8_t)3
+	})));
+	transferToThenCheckIfAnyClosed(var$2, $(output()));
+}
+
+void TransferTo::ifExceptionInOutputNeitherStreamIsClosed() {
+	$var($InputStream, var$0, input($$new($bytes, {
+		(int8_t)1,
+		(int8_t)2,
+		(int8_t)3
+	})));
+	transferToThenCheckIfAnyClosed(var$0, $(output(0)));
+	$var($InputStream, var$1, input($$new($bytes, {
+		(int8_t)1,
+		(int8_t)2,
+		(int8_t)3
+	})));
+	transferToThenCheckIfAnyClosed(var$1, $(output(1)));
+	$var($InputStream, var$2, input($$new($bytes, {
+		(int8_t)1,
+		(int8_t)2,
+		(int8_t)3
+	})));
+	transferToThenCheckIfAnyClosed(var$2, $(output(2)));
+}
+
+void TransferTo::transferToThenCheckIfAnyClosed($InputStream* input, $OutputStream* output) {
+	{
+		$var($TransferTo$CloseLoggingInputStream, in, $new($TransferTo$CloseLoggingInputStream, input));
+		{
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($TransferTo$CloseLoggingOutputStream, out, $new($TransferTo$CloseLoggingOutputStream, output));
+					{
+						$var($Throwable, var$1, nullptr);
+						try {
+							try {
+								bool thrown = false;
+								try {
+									in->transferTo(out);
+								} catch ($IOException&) {
+									$var($IOException, ignored, $catch());
+									thrown = true;
+								}
+								if (!thrown) {
+									$throwNew($AssertionError);
+								}
+								bool var$2 = in->wasClosed();
+								if (var$2 || out->wasClosed()) {
+									$throwNew($AssertionError);
+								}
+							} catch ($Throwable&) {
+								$var($Throwable, t$, $catch());
+								try {
+									out->close();
+								} catch ($Throwable&) {
+									$var($Throwable, x2, $catch());
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable&) {
+							$assign(var$1, $catch());
+						} /*finally*/ {
+							out->close();
+						}
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					}
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					try {
+						in->close();
+					} catch ($Throwable&) {
+						$var($Throwable, x2, $catch());
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} /*finally*/ {
+				in->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+		}
+	}
+}
+
+void TransferTo::onReturnNeitherStreamIsClosed() {
+	{
+		$var($TransferTo$CloseLoggingInputStream, in, $new($TransferTo$CloseLoggingInputStream, $(input($$new($bytes, {
+			(int8_t)1,
+			(int8_t)2,
+			(int8_t)3
+		})))));
+		{
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($TransferTo$CloseLoggingOutputStream, out, $new($TransferTo$CloseLoggingOutputStream, $(output())));
+					{
+						$var($Throwable, var$1, nullptr);
+						try {
+							try {
+								in->transferTo(out);
+								bool var$2 = in->wasClosed();
+								if (var$2 || out->wasClosed()) {
+									$throwNew($AssertionError);
+								}
+							} catch ($Throwable&) {
+								$var($Throwable, t$, $catch());
+								try {
+									out->close();
+								} catch ($Throwable&) {
+									$var($Throwable, x2, $catch());
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable&) {
+							$assign(var$1, $catch());
+						} /*finally*/ {
+							out->close();
+						}
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					}
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					try {
+						in->close();
+					} catch ($Throwable&) {
+						$var($Throwable, x2, $catch());
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} /*finally*/ {
+				in->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+		}
+	}
+}
+
+void TransferTo::onReturnInputIsAtEnd() {
+	{
+		$var($InputStream, in, input($$new($bytes, {
+			(int8_t)1,
+			(int8_t)2,
+			(int8_t)3
+		})));
+		{
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($OutputStream, out, output());
+					{
+						$var($Throwable, var$1, nullptr);
+						try {
+							try {
+								$nc(in)->transferTo(out);
+								if (in->read() != -1) {
+									$throwNew($AssertionError);
+								}
+							} catch ($Throwable&) {
+								$var($Throwable, t$, $catch());
+								if (out != nullptr) {
+									try {
+										out->close();
+									} catch ($Throwable&) {
+										$var($Throwable, x2, $catch());
+										t$->addSuppressed(x2);
+									}
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable&) {
+							$assign(var$1, $catch());
+						} /*finally*/ {
+							if (out != nullptr) {
+								out->close();
+							}
+						}
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					}
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					if (in != nullptr) {
+						try {
+							in->close();
+						} catch ($Throwable&) {
+							$var($Throwable, x2, $catch());
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
+				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+		}
+	}
+}
+
+void TransferTo::contents() {
+	checkTransferredContents($$new($bytes, 0));
+	checkTransferredContents($(createRandomBytes(1024, 4096)));
+	checkTransferredContents($(createRandomBytes(16384, 16384)));
+}
+
+void TransferTo::checkTransferredContents($bytes* bytes) {
+	{
+		$var($InputStream, in, input(bytes));
+		{
+			$var($Throwable, var$0, nullptr);
+			try {
+				try {
+					$var($ByteArrayOutputStream, out, $new($ByteArrayOutputStream));
+					{
+						$var($Throwable, var$1, nullptr);
+						try {
+							try {
+								$nc(in)->transferTo(out);
+								$var($bytes, outBytes, out->toByteArray());
+								if (!$Arrays::equals(bytes, outBytes)) {
+									$throwNew($AssertionError, $($of($String::format("bytes.length=%s, outBytes.length=%s"_s, $$new($ObjectArray, {
+										$($of($Integer::valueOf($nc(bytes)->length))),
+										$($of($Integer::valueOf($nc(outBytes)->length)))
+									})))));
+								}
+							} catch ($Throwable&) {
+								$var($Throwable, t$, $catch());
+								try {
+									out->close();
+								} catch ($Throwable&) {
+									$var($Throwable, x2, $catch());
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable&) {
+							$assign(var$1, $catch());
+						} /*finally*/ {
+							out->close();
+						}
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					}
+				} catch ($Throwable&) {
+					$var($Throwable, t$, $catch());
+					if (in != nullptr) {
+						try {
+							in->close();
+						} catch ($Throwable&) {
+							$var($Throwable, x2, $catch());
+							t$->addSuppressed(x2);
+						}
+					}
+					$throw(t$);
+				}
+			} catch ($Throwable&) {
+				$assign(var$0, $catch());
+			} /*finally*/ {
+				if (in != nullptr) {
+					in->close();
+				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+		}
+	}
+}
+
+$bytes* TransferTo::createRandomBytes(int32_t min, int32_t maxRandomAdditive) {
+	$var($Random, rnd, $new($Random));
+	$var($bytes, bytes, $new($bytes, min + rnd->nextInt(maxRandomAdditive)));
+	rnd->nextBytes(bytes);
+	return bytes;
+}
+
+$OutputStream* TransferTo::output() {
+	return output(-1);
+}
+
+$OutputStream* TransferTo::output(int32_t exceptionPosition) {
+	return $new($TransferTo$1, exceptionPosition);
+}
+
+$InputStream* TransferTo::input($bytes* bytes) {
+	return input(-1, bytes);
+}
+
+$InputStream* TransferTo::input(int32_t exceptionPosition, $bytes* bytes) {
+	return $new($TransferTo$2, exceptionPosition, bytes);
+}
+
+void TransferTo::assertThrowsNPE($TransferTo$Thrower* thrower, $String* message) {
+	$load($NullPointerException);
+	assertThrows(thrower, $NullPointerException::class$, message);
+}
+
+void TransferTo::assertThrows($TransferTo$Thrower* thrower, $Class* throwable, $String* message) {
+	$var($Throwable, thrown, nullptr);
+	try {
+		$nc(thrower)->run();
+		$assign(thrown, nullptr);
+	} catch ($Throwable&) {
+		$var($Throwable, caught, $catch());
+		$assign(thrown, caught);
+	}
+	if (!$nc(throwable)->isInstance(thrown)) {
+		$var($String, caught, thrown == nullptr ? "nothing"_s : $nc($of(thrown))->getClass()->getCanonicalName());
+		$throwNew($AssertionError, $($String::format("Expected to catch %s, but caught %s"_s, $$new($ObjectArray, {
+			$of(throwable),
+			$of(caught)
+		}))), thrown);
+	}
+	if (thrown != nullptr && !$nc(message)->equals($(thrown->getMessage()))) {
+		$throwNew($AssertionError, $($of($String::format("Expected exception message to be \'%s\', but it\'s \'%s\'"_s, $$new($ObjectArray, {
+			$of(message),
+			$($of(thrown->getMessage()))
+		})))));
+	}
+}
+
+void TransferTo::lambda$ifOutIsNullThenNpeIsThrown$0($InputStream* in) {
+	$nc(in)->transferTo(nullptr);
+}
+
+TransferTo::TransferTo() {
+}
+
+$Class* TransferTo::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::classInfo$.name)) {
+			return TransferTo$$Lambda$lambda$ifOutIsNullThenNpeIsThrown$0::load$(name, initialize);
+		}
+	}
+	$loadClass(TransferTo, name, initialize, &_TransferTo_ClassInfo_, allocate$TransferTo);
+	return class$;
+}
+
+$Class* TransferTo::class$ = nullptr;

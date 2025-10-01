@@ -1,0 +1,107 @@
+#include <java/util/stream/Sink$OfLong.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/Long.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/stream/Sink.h>
+#include <java/util/stream/Tripwire.h>
+#include <jcpp.h>
+
+#undef ENABLED
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Long = ::java::lang::Long;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $LongConsumer = ::java::util::function::LongConsumer;
+using $Sink = ::java::util::stream::Sink;
+using $Tripwire = ::java::util::stream::Tripwire;
+
+namespace java {
+	namespace util {
+		namespace stream {
+
+$MethodInfo _Sink$OfLong_MethodInfo_[] = {
+	{"accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljava/lang/Long;)V", nullptr, $PUBLIC},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{}
+};
+
+$InnerClassInfo _Sink$OfLong_InnerClassesInfo_[] = {
+	{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _Sink$OfLong_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"java.util.stream.Sink$OfLong",
+	nullptr,
+	"java.util.stream.Sink,java.util.function.LongConsumer",
+	nullptr,
+	_Sink$OfLong_MethodInfo_,
+	"Ljava/lang/Object;Ljava/util/stream/Sink<Ljava/lang/Long;>;Ljava/util/function/LongConsumer;",
+	nullptr,
+	_Sink$OfLong_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"java.util.stream.Sink"
+};
+
+$Object* allocate$Sink$OfLong($Class* clazz) {
+	return $of($alloc(Sink$OfLong));
+}
+
+int32_t Sink$OfLong::hashCode() {
+	 return this->$Sink::hashCode();
+}
+
+bool Sink$OfLong::equals(Object$* obj) {
+	 return this->$Sink::equals(obj);
+}
+
+$Object* Sink$OfLong::clone() {
+	 return this->$Sink::clone();
+}
+
+$String* Sink$OfLong::toString() {
+	 return this->$Sink::toString();
+}
+
+void Sink$OfLong::finalize() {
+	this->$Sink::finalize();
+}
+
+void Sink$OfLong::accept($Long* i) {
+	$init($Tripwire);
+	if ($Tripwire::ENABLED) {
+		$Tripwire::trip($of(this)->getClass(), "{0} calling Sink.OfLong.accept(Long)"_s);
+	}
+	accept($nc(i)->longValue());
+}
+
+void Sink$OfLong::accept(Object$* i) {
+	this->accept($cast($Long, i));
+}
+
+$Class* Sink$OfLong::load$($String* name, bool initialize) {
+	$loadClass(Sink$OfLong, name, initialize, &_Sink$OfLong_ClassInfo_, allocate$Sink$OfLong);
+	return class$;
+}
+
+$Class* Sink$OfLong::class$ = nullptr;
+
+		} // stream
+	} // util
+} // java

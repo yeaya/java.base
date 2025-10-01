@@ -1,0 +1,107 @@
+#include <TestType5.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NamedAttribute.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NamedAttribute = ::java::lang::NamedAttribute;
+
+$NamedAttribute TestType5_Attribute_var$0[] = {
+	{"value", 'Z', "false"},
+	{}
+};
+
+$CompoundAttribute _TestType5_MethodAnnotations_aFoo0[] = {
+	{"LExpectedIsDefault;", TestType5_Attribute_var$0},
+	{}
+};
+
+$NamedAttribute TestType5_Attribute_var$1[] = {
+	{"value", 'Z', "true"},
+	{}
+};
+
+$CompoundAttribute _TestType5_MethodAnnotations_pBar1[] = {
+	{"LExpectedIsDefault;", TestType5_Attribute_var$1},
+	{}
+};
+
+$NamedAttribute TestType5_Attribute_var$2[] = {
+	{"value", 'Z', "true"},
+	{}
+};
+
+$CompoundAttribute _TestType5_MethodAnnotations_sBar2[] = {
+	{"LExpectedIsDefault;", TestType5_Attribute_var$2},
+	{}
+};
+
+$NamedAttribute TestType5_Attribute_var$3[] = {
+	{"value", 'Z', "false"},
+	{}
+};
+
+$CompoundAttribute _TestType5_MethodAnnotations_sFoo3[] = {
+	{"LExpectedIsDefault;", TestType5_Attribute_var$3},
+	{}
+};
+
+$MethodInfo _TestType5_MethodInfo_[] = {
+	{"aFoo", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _TestType5_MethodAnnotations_aFoo0},
+	{"pBar", "()V", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType5_MethodAnnotations_pBar1},
+	{"sBar", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, nullptr, nullptr, _TestType5_MethodAnnotations_sBar2},
+	{"sFoo", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&TestType5::sFoo)), nullptr, nullptr, _TestType5_MethodAnnotations_sFoo3},
+	{}
+};
+
+$InnerClassInfo _TestType5_InnerClassesInfo_[] = {
+	{"TestType5$nestedTestType5", "TestType5", "nestedTestType5", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _TestType5_ClassInfo_ = {
+	$INTERFACE | $ABSTRACT,
+	"TestType5",
+	nullptr,
+	nullptr,
+	nullptr,
+	_TestType5_MethodInfo_,
+	nullptr,
+	nullptr,
+	_TestType5_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"TestType5$nestedTestType5"
+};
+
+$Object* allocate$TestType5($Class* clazz) {
+	return $of($alloc(TestType5));
+}
+
+void TestType5::sFoo() {
+}
+
+void TestType5::pBar() {
+}
+
+$String* TestType5::sBar() {
+	return ""_s;
+}
+
+$Class* TestType5::load$($String* name, bool initialize) {
+	$loadClass(TestType5, name, initialize, &_TestType5_ClassInfo_, allocate$TestType5);
+	return class$;
+}
+
+$Class* TestType5::class$ = nullptr;

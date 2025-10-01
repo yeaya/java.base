@@ -1,0 +1,50 @@
+#include <cl/TestClassLoader.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/ClassLoader.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace cl {
+
+$MethodInfo _TestClassLoader_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(TestClassLoader::*)($ClassLoader*)>(&TestClassLoader::init$))},
+	{}
+};
+
+$ClassInfo _TestClassLoader_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"cl.TestClassLoader",
+	"java.lang.ClassLoader",
+	nullptr,
+	nullptr,
+	_TestClassLoader_MethodInfo_
+};
+
+$Object* allocate$TestClassLoader($Class* clazz) {
+	return $of($alloc(TestClassLoader));
+}
+
+void TestClassLoader::init$($ClassLoader* parent) {
+	$ClassLoader::init$(parent);
+}
+
+TestClassLoader::TestClassLoader() {
+}
+
+$Class* TestClassLoader::load$($String* name, bool initialize) {
+	$loadClass(TestClassLoader, name, initialize, &_TestClassLoader_ClassInfo_, allocate$TestClassLoader);
+	return class$;
+}
+
+$Class* TestClassLoader::class$ = nullptr;
+
+} // cl

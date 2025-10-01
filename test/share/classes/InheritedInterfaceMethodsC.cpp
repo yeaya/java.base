@@ -1,0 +1,38 @@
+#include <InheritedInterfaceMethodsC.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $InheritedInterfaceMethodsB = ::InheritedInterfaceMethodsB;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _InheritedInterfaceMethodsC_MethodInfo_[] = {
+	{"c", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _InheritedInterfaceMethodsC_ClassInfo_ = {
+	$INTERFACE | $ABSTRACT,
+	"InheritedInterfaceMethodsC",
+	nullptr,
+	"InheritedInterfaceMethodsB",
+	nullptr,
+	_InheritedInterfaceMethodsC_MethodInfo_
+};
+
+$Object* allocate$InheritedInterfaceMethodsC($Class* clazz) {
+	return $of($alloc(InheritedInterfaceMethodsC));
+}
+
+$Class* InheritedInterfaceMethodsC::load$($String* name, bool initialize) {
+	$loadClass(InheritedInterfaceMethodsC, name, initialize, &_InheritedInterfaceMethodsC_ClassInfo_, allocate$InheritedInterfaceMethodsC);
+	return class$;
+}
+
+$Class* InheritedInterfaceMethodsC::class$ = nullptr;

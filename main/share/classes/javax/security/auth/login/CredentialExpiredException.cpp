@@ -1,0 +1,81 @@
+#include <javax/security/auth/login/CredentialExpiredException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <javax/security/auth/login/CredentialException.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $CredentialException = ::javax::security::auth::login::CredentialException;
+
+namespace javax {
+	namespace security {
+		namespace auth {
+			namespace login {
+
+$FieldInfo _CredentialExpiredException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialExpiredException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _CredentialExpiredException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CredentialExpiredException::*)()>(&CredentialExpiredException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CredentialExpiredException::*)($String*)>(&CredentialExpiredException::init$))},
+	{}
+};
+
+$ClassInfo _CredentialExpiredException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.security.auth.login.CredentialExpiredException",
+	"javax.security.auth.login.CredentialException",
+	nullptr,
+	_CredentialExpiredException_FieldInfo_,
+	_CredentialExpiredException_MethodInfo_
+};
+
+$Object* allocate$CredentialExpiredException($Class* clazz) {
+	return $of($alloc(CredentialExpiredException));
+}
+
+void CredentialExpiredException::init$() {
+	$CredentialException::init$();
+}
+
+void CredentialExpiredException::init$($String* msg) {
+	$CredentialException::init$(msg);
+}
+
+CredentialExpiredException::CredentialExpiredException() {
+}
+
+CredentialExpiredException::CredentialExpiredException(const CredentialExpiredException& e) {
+}
+
+CredentialExpiredException CredentialExpiredException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void CredentialExpiredException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* CredentialExpiredException::load$($String* name, bool initialize) {
+	$loadClass(CredentialExpiredException, name, initialize, &_CredentialExpiredException_ClassInfo_, allocate$CredentialExpiredException);
+	return class$;
+}
+
+$Class* CredentialExpiredException::class$ = nullptr;
+
+			} // login
+		} // auth
+	} // security
+} // javax

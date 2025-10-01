@@ -1,0 +1,55 @@
+#include <DieBeforeComplete$Task.h>
+
+#include <DieBeforeComplete.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/concurrent/Future.h>
+#include <jcpp.h>
+
+using $DieBeforeComplete = ::DieBeforeComplete;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Future = ::java::util::concurrent::Future;
+
+$MethodInfo _DieBeforeComplete$Task_MethodInfo_[] = {
+	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<TT;>;", $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$InnerClassInfo _DieBeforeComplete$Task_InnerClassesInfo_[] = {
+	{"DieBeforeComplete$Task", "DieBeforeComplete", "Task", $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _DieBeforeComplete$Task_ClassInfo_ = {
+	$INTERFACE | $ABSTRACT,
+	"DieBeforeComplete$Task",
+	nullptr,
+	nullptr,
+	nullptr,
+	_DieBeforeComplete$Task_MethodInfo_,
+	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+	nullptr,
+	_DieBeforeComplete$Task_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"DieBeforeComplete"
+};
+
+$Object* allocate$DieBeforeComplete$Task($Class* clazz) {
+	return $of($alloc(DieBeforeComplete$Task));
+}
+
+$Class* DieBeforeComplete$Task::load$($String* name, bool initialize) {
+	$loadClass(DieBeforeComplete$Task, name, initialize, &_DieBeforeComplete$Task_ClassInfo_, allocate$DieBeforeComplete$Task);
+	return class$;
+}
+
+$Class* DieBeforeComplete$Task::class$ = nullptr;

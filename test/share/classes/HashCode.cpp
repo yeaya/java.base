@@ -1,0 +1,52 @@
+#include <HashCode.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
+
+$MethodInfo _HashCode_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HashCode::*)()>(&HashCode::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HashCode::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _HashCode_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"HashCode",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_HashCode_MethodInfo_
+};
+
+$Object* allocate$HashCode($Class* clazz) {
+	return $of($alloc(HashCode));
+}
+
+void HashCode::init$() {
+}
+
+void HashCode::main($StringArray* args) {
+	$var($URL, url, $new($URL, "http"_s, nullptr, 80, "test"_s));
+	int32_t code = url->hashCode();
+}
+
+HashCode::HashCode() {
+}
+
+$Class* HashCode::load$($String* name, bool initialize) {
+	$loadClass(HashCode, name, initialize, &_HashCode_ClassInfo_, allocate$HashCode);
+	return class$;
+}
+
+$Class* HashCode::class$ = nullptr;

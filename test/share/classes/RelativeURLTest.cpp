@@ -1,0 +1,57 @@
+#include <RelativeURLTest.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $URL = ::java::net::URL;
+
+$MethodInfo _RelativeURLTest_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelativeURLTest::*)()>(&RelativeURLTest::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RelativeURLTest::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _RelativeURLTest_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"RelativeURLTest",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_RelativeURLTest_MethodInfo_
+};
+
+$Object* allocate$RelativeURLTest($Class* clazz) {
+	return $of($alloc(RelativeURLTest));
+}
+
+void RelativeURLTest::init$() {
+}
+
+void RelativeURLTest::main($StringArray* args) {
+	$var($URL, base, $new($URL, "file:./"_s));
+	$var($URL, url, $new($URL, base, "../images/dummy/../././foo.gif"_s));
+	if (!$nc($(url->toString()))->equals("file:../images/foo.gif"_s)) {
+		$throwNew($RuntimeException, $$str({"relative URL resolution failed expect: file:../images/foo.gif got: "_s, $(url->toString())}));
+	}
+}
+
+RelativeURLTest::RelativeURLTest() {
+}
+
+$Class* RelativeURLTest::load$($String* name, bool initialize) {
+	$loadClass(RelativeURLTest, name, initialize, &_RelativeURLTest_ClassInfo_, allocate$RelativeURLTest);
+	return class$;
+}
+
+$Class* RelativeURLTest::class$ = nullptr;

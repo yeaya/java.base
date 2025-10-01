@@ -1,0 +1,61 @@
+#include <InheritedMethodTest$C.h>
+
+#include <InheritedMethodTest.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $InheritedMethodTest = ::InheritedMethodTest;
+using $InheritedMethodTest$I = ::InheritedMethodTest$I;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _InheritedMethodTest$C_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InheritedMethodTest$C::*)()>(&InheritedMethodTest$C::init$))},
+	{}
+};
+
+$InnerClassInfo _InheritedMethodTest$C_InnerClassesInfo_[] = {
+	{"InheritedMethodTest$C", "InheritedMethodTest", "C", $PUBLIC | $STATIC | $ABSTRACT},
+	{"InheritedMethodTest$I", "InheritedMethodTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _InheritedMethodTest$C_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"InheritedMethodTest$C",
+	"java.lang.Object",
+	"InheritedMethodTest$I",
+	nullptr,
+	_InheritedMethodTest$C_MethodInfo_,
+	nullptr,
+	nullptr,
+	_InheritedMethodTest$C_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"InheritedMethodTest"
+};
+
+$Object* allocate$InheritedMethodTest$C($Class* clazz) {
+	return $of($alloc(InheritedMethodTest$C));
+}
+
+void InheritedMethodTest$C::init$() {
+}
+
+InheritedMethodTest$C::InheritedMethodTest$C() {
+}
+
+$Class* InheritedMethodTest$C::load$($String* name, bool initialize) {
+	$loadClass(InheritedMethodTest$C, name, initialize, &_InheritedMethodTest$C_ClassInfo_, allocate$InheritedMethodTest$C);
+	return class$;
+}
+
+$Class* InheritedMethodTest$C::class$ = nullptr;

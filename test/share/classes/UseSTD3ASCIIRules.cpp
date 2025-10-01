@@ -1,0 +1,106 @@
+#include <UseSTD3ASCIIRules.h>
+
+#include <java/io/PrintStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/IllegalArgumentException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/IDN.h>
+#include <jcpp.h>
+
+#undef USE_STD3_ASCII_RULES
+
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $IDN = ::java::net::IDN;
+
+$MethodInfo _UseSTD3ASCIIRules_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UseSTD3ASCIIRules::*)()>(&UseSTD3ASCIIRules::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&UseSTD3ASCIIRules::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _UseSTD3ASCIIRules_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"UseSTD3ASCIIRules",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_UseSTD3ASCIIRules_MethodInfo_
+};
+
+$Object* allocate$UseSTD3ASCIIRules($Class* clazz) {
+	return $of($alloc(UseSTD3ASCIIRules));
+}
+
+void UseSTD3ASCIIRules::init$() {
+}
+
+void UseSTD3ASCIIRules::main($StringArray* args) {
+	$var($StringArray, illegalNames, $new($StringArray, {
+		"www.example.com-"_s,
+		"-www.example.com"_s,
+		"-www.example.com-"_s,
+		"www.ex,mple.com"_s,
+		"www.ex{mple.com"_s,
+		u"www.ex\u007fmple.com"_s
+	}));
+	$var($StringArray, legalNames, $new($StringArray, {
+		"www.ex-ample.com"_s,
+		"www.ex-mple.com"_s,
+		"www.exzmple.com"_s,
+		u"www.ex\u3042mple.com"_s,
+		u"www.\u3042\u3044\u3046.com"_s,
+		u"www.\u793a\u4f8b.com"_s
+	}));
+	{
+		$var($StringArray, arr$, illegalNames);
+		int32_t len$ = arr$->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($String, name, arr$->get(i$));
+			{
+				try {
+					$init($System);
+					$nc($System::out)->println($$str({"Convering illegal IDN: "_s, name}));
+					$IDN::toASCII(name, $IDN::USE_STD3_ASCII_RULES);
+					$throwNew($Exception, $$str({"Expected to get IllegalArgumentException for "_s, name}));
+				} catch ($IllegalArgumentException&) {
+					$catch();
+				}
+			}
+		}
+	}
+	{
+		$var($StringArray, arr$, legalNames);
+		int32_t len$ = arr$->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($String, name, arr$->get(i$));
+			{
+				$init($System);
+				$nc($System::out)->println($$str({"Convering legal IDN: "_s, name}));
+				$nc($System::out)->println($$str({"\tThe ACE form is: "_s, $($IDN::toASCII(name, $IDN::USE_STD3_ASCII_RULES))}));
+			}
+		}
+	}
+}
+
+UseSTD3ASCIIRules::UseSTD3ASCIIRules() {
+}
+
+$Class* UseSTD3ASCIIRules::load$($String* name, bool initialize) {
+	$loadClass(UseSTD3ASCIIRules, name, initialize, &_UseSTD3ASCIIRules_ClassInfo_, allocate$UseSTD3ASCIIRules);
+	return class$;
+}
+
+$Class* UseSTD3ASCIIRules::class$ = nullptr;

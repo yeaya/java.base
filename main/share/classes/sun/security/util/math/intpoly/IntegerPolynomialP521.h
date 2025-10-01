@@ -1,0 +1,70 @@
+#ifndef _sun_security_util_math_intpoly_IntegerPolynomialP521_h_
+#define _sun_security_util_math_intpoly_IntegerPolynomialP521_h_
+//$ class sun.security.util.math.intpoly.IntegerPolynomialP521
+//$ extends sun.security.util.math.intpoly.IntegerPolynomial
+
+#include <java/lang/Array.h>
+#include <sun/security/util/math/intpoly/IntegerPolynomial.h>
+
+#pragma push_macro("NUM_LIMBS")
+#undef NUM_LIMBS
+#pragma push_macro("MODULUS")
+#undef MODULUS
+#pragma push_macro("CARRY_ADD")
+#undef CARRY_ADD
+#pragma push_macro("BITS_PER_LIMB")
+#undef BITS_PER_LIMB
+#pragma push_macro("LIMB_MASK")
+#undef LIMB_MASK
+#pragma push_macro("MAX_ADDS")
+#undef MAX_ADDS
+
+namespace java {
+	namespace math {
+		class BigInteger;
+	}
+}
+
+namespace sun {
+	namespace security {
+		namespace util {
+			namespace math {
+				namespace intpoly {
+
+class $export IntegerPolynomialP521 : public ::sun::security::util::math::intpoly::IntegerPolynomial {
+	$class(IntegerPolynomialP521, 0, ::sun::security::util::math::intpoly::IntegerPolynomial)
+public:
+	IntegerPolynomialP521();
+	using ::sun::security::util::math::intpoly::IntegerPolynomial::getElement;
+	void init$();
+	void carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19, int64_t c20, int64_t c21, int64_t c22, int64_t c23, int64_t c24, int64_t c25, int64_t c26, int64_t c27, int64_t c28, int64_t c29, int64_t c30, int64_t c31, int64_t c32, int64_t c33, int64_t c34, int64_t c35, int64_t c36);
+	void carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18);
+	virtual void carryReduce0($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18, int64_t c19, int64_t c20, int64_t c21, int64_t c22, int64_t c23, int64_t c24, int64_t c25, int64_t c26, int64_t c27, int64_t c28, int64_t c29, int64_t c30, int64_t c31, int64_t c32, int64_t c33, int64_t c34, int64_t c35, int64_t c36, int64_t c37);
+	static ::java::math::BigInteger* evaluateModulus();
+	virtual void finalCarryReduceLast($longs* limbs) override;
+	virtual void mult($longs* a, $longs* b, $longs* r) override;
+	virtual void reduce($longs* a) override;
+	virtual void reduceIn($longs* limbs, int64_t v, int32_t i) override;
+	virtual void square($longs* a, $longs* r) override;
+	static const int32_t BITS_PER_LIMB = 28;
+	static const int32_t NUM_LIMBS = 19;
+	static const int32_t MAX_ADDS = 2;
+	static ::java::math::BigInteger* MODULUS;
+	static const int64_t CARRY_ADD = 134217728; // 1 << 27
+	static const int32_t LIMB_MASK = 0x0FFFFFFF; // (int32_t)((uint64_t)(int64_t)(-1) >> (64 - BITS_PER_LIMB))
+};
+
+				} // intpoly
+			} // math
+		} // util
+	} // security
+} // sun
+
+#pragma pop_macro("NUM_LIMBS")
+#pragma pop_macro("MODULUS")
+#pragma pop_macro("CARRY_ADD")
+#pragma pop_macro("BITS_PER_LIMB")
+#pragma pop_macro("LIMB_MASK")
+#pragma pop_macro("MAX_ADDS")
+
+#endif // _sun_security_util_math_intpoly_IntegerPolynomialP521_h_

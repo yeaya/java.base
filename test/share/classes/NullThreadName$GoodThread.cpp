@@ -1,0 +1,74 @@
+#include <NullThreadName$GoodThread.h>
+
+#include <NullThreadName.h>
+#include <java/io/PrintStream.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/concurrent/CountDownLatch.h>
+#include <jcpp.h>
+
+using $NullThreadName = ::NullThreadName;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Runnable = ::java::lang::Runnable;
+using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
+
+$MethodInfo _NullThreadName$GoodThread_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NullThreadName$GoodThread::*)()>(&NullThreadName$GoodThread::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _NullThreadName$GoodThread_InnerClassesInfo_[] = {
+	{"NullThreadName$GoodThread", "NullThreadName", "GoodThread", $STATIC},
+	{}
+};
+
+$ClassInfo _NullThreadName$GoodThread_ClassInfo_ = {
+	$ACC_SUPER,
+	"NullThreadName$GoodThread",
+	"java.lang.Object",
+	"java.lang.Runnable",
+	nullptr,
+	_NullThreadName$GoodThread_MethodInfo_,
+	nullptr,
+	nullptr,
+	_NullThreadName$GoodThread_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"NullThreadName"
+};
+
+$Object* allocate$NullThreadName$GoodThread($Class* clazz) {
+	return $of($alloc(NullThreadName$GoodThread));
+}
+
+void NullThreadName$GoodThread::init$() {
+}
+
+void NullThreadName$GoodThread::run() {
+	$init($System);
+	$nc($System::out)->println("Good Thread started..."_s);
+	$nc($System::out)->println("Good Thread finishing"_s);
+	$init($NullThreadName);
+	$nc($NullThreadName::done)->countDown();
+}
+
+NullThreadName$GoodThread::NullThreadName$GoodThread() {
+}
+
+$Class* NullThreadName$GoodThread::load$($String* name, bool initialize) {
+	$loadClass(NullThreadName$GoodThread, name, initialize, &_NullThreadName$GoodThread_ClassInfo_, allocate$NullThreadName$GoodThread);
+	return class$;
+}
+
+$Class* NullThreadName$GoodThread::class$ = nullptr;

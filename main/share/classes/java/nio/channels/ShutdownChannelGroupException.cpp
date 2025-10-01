@@ -1,0 +1,74 @@
+#include <java/nio/channels/ShutdownChannelGroupException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalStateException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalStateException = ::java::lang::IllegalStateException;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace nio {
+		namespace channels {
+
+$FieldInfo _ShutdownChannelGroupException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ShutdownChannelGroupException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _ShutdownChannelGroupException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShutdownChannelGroupException::*)()>(&ShutdownChannelGroupException::init$))},
+	{}
+};
+
+$ClassInfo _ShutdownChannelGroupException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.nio.channels.ShutdownChannelGroupException",
+	"java.lang.IllegalStateException",
+	nullptr,
+	_ShutdownChannelGroupException_FieldInfo_,
+	_ShutdownChannelGroupException_MethodInfo_
+};
+
+$Object* allocate$ShutdownChannelGroupException($Class* clazz) {
+	return $of($alloc(ShutdownChannelGroupException));
+}
+
+void ShutdownChannelGroupException::init$() {
+	$IllegalStateException::init$();
+}
+
+ShutdownChannelGroupException::ShutdownChannelGroupException() {
+}
+
+ShutdownChannelGroupException::ShutdownChannelGroupException(const ShutdownChannelGroupException& e) {
+}
+
+ShutdownChannelGroupException ShutdownChannelGroupException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void ShutdownChannelGroupException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* ShutdownChannelGroupException::load$($String* name, bool initialize) {
+	$loadClass(ShutdownChannelGroupException, name, initialize, &_ShutdownChannelGroupException_ClassInfo_, allocate$ShutdownChannelGroupException);
+	return class$;
+}
+
+$Class* ShutdownChannelGroupException::class$ = nullptr;
+
+		} // channels
+	} // nio
+} // java

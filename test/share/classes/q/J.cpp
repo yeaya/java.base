@@ -1,0 +1,64 @@
+#include <q/J.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/nio/file/Path.h>
+#include <java/util/function/Function.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Path = ::java::nio::file::Path;
+using $Function = ::java::util::function::Function;
+
+namespace q {
+
+$FieldInfo _J_FieldInfo_[] = {
+	{"fileReader", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(J, fileReader)},
+	{}
+};
+
+$MethodInfo _J_MethodInfo_[] = {
+	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(J::*)($Function*)>(&J::init$))},
+	{"check", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _J_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"q.J",
+	"java.lang.Object",
+	nullptr,
+	_J_FieldInfo_,
+	_J_MethodInfo_
+};
+
+$Object* allocate$J($Class* clazz) {
+	return $of($alloc(J));
+}
+
+void J::init$($Function* fileReader) {
+	$set(this, fileReader, fileReader);
+}
+
+void J::check($Path* file) {
+	$nc(this->fileReader)->apply(file);
+}
+
+J::J() {
+}
+
+$Class* J::load$($String* name, bool initialize) {
+	$loadClass(J, name, initialize, &_J_ClassInfo_, allocate$J);
+	return class$;
+}
+
+$Class* J::class$ = nullptr;
+
+} // q

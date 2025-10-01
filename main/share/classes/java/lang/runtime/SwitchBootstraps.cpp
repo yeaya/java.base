@@ -1,0 +1,420 @@
+#include <java/lang/runtime/SwitchBootstraps.h>
+
+#include <java/io/Serializable.h>
+#include <java/lang/Array.h>
+#include <java/lang/Character.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/CompoundAttribute.h>
+#include <java/lang/Enum.h>
+#include <java/lang/Exception.h>
+#include <java/lang/ExceptionInInitializerError.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalArgumentException.h>
+#include <java/lang/Integer.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/Number.h>
+#include <java/lang/ReflectiveOperationException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/Void.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/ConstantBootstraps.h>
+#include <java/lang/invoke/ConstantCallSite.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/invoke/MethodHandles.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/invoke/TypeDescriptor$OfField.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/Objects.h>
+#include <java/util/function/Consumer.h>
+#include <java/util/function/Function.h>
+#include <java/util/stream/Stream.h>
+#include <jcpp.h>
+
+#undef LOOKUP
+#undef DO_ENUM_SWITCH
+#undef TYPE
+#undef DO_TYPE_SWITCH
+
+using $Serializable = ::java::io::Serializable;
+using $Character = ::java::lang::Character;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $Enum = ::java::lang::Enum;
+using $Exception = ::java::lang::Exception;
+using $ExceptionInInitializerError = ::java::lang::ExceptionInInitializerError;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $Integer = ::java::lang::Integer;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Number = ::java::lang::Number;
+using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
+using $Void = ::java::lang::Void;
+using $CallSite = ::java::lang::invoke::CallSite;
+using $ConstantBootstraps = ::java::lang::invoke::ConstantBootstraps;
+using $ConstantCallSite = ::java::lang::invoke::ConstantCallSite;
+using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $MethodHandles = ::java::lang::invoke::MethodHandles;
+using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
+using $MethodType = ::java::lang::invoke::MethodType;
+using $Objects = ::java::util::Objects;
+using $Consumer = ::java::util::function::Consumer;
+using $Function = ::java::util::function::Function;
+using $Stream = ::java::util::stream::Stream;
+
+namespace java {
+	namespace lang {
+		namespace runtime {
+
+class SwitchBootstraps$$Lambda$verifyLabel : public $Consumer {
+	$class(SwitchBootstraps$$Lambda$verifyLabel, $NO_CLASS_INIT, $Consumer)
+public:
+	void init$() {
+	}
+	virtual void accept(Object$* label) override {
+		SwitchBootstraps::verifyLabel(label);
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SwitchBootstraps$$Lambda$verifyLabel>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SwitchBootstraps$$Lambda$verifyLabel::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SwitchBootstraps$$Lambda$verifyLabel::*)()>(&SwitchBootstraps$$Lambda$verifyLabel::init$))},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SwitchBootstraps$$Lambda$verifyLabel::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"java.lang.runtime.SwitchBootstraps$$Lambda$verifyLabel",
+	"java.lang.Object",
+	"java.util.function.Consumer",
+	nullptr,
+	methodInfos
+};
+$Class* SwitchBootstraps$$Lambda$verifyLabel::load$($String* name, bool initialize) {
+	$loadClass(SwitchBootstraps$$Lambda$verifyLabel, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SwitchBootstraps$$Lambda$verifyLabel::class$ = nullptr;
+
+class SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1 : public $Function {
+	$class(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, $NO_CLASS_INIT, $Function)
+public:
+	void init$($MethodHandles$Lookup* lookup, $Class* enumClass) {
+		$set(this, lookup, lookup);
+		this->enumClass = enumClass;
+	}
+	virtual $Object* apply(Object$* l) override {
+		 return SwitchBootstraps::lambda$enumSwitch$0(lookup, enumClass, l);
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1>());
+	}
+	$MethodHandles$Lookup* lookup = nullptr;
+	$Class* enumClass = nullptr;
+	static $FieldInfo fieldInfos[3];
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$FieldInfo SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::fieldInfos[3] = {
+	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC, $field(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, lookup)},
+	{"enumClass", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, enumClass)},
+	{}
+};
+$MethodInfo SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::methodInfos[3] = {
+	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::*)($MethodHandles$Lookup*,$Class*)>(&SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::init$))},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"java.lang.runtime.SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1",
+	"java.lang.Object",
+	"java.util.function.Function",
+	fieldInfos,
+	methodInfos
+};
+$Class* SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::load$($String* name, bool initialize) {
+	$loadClass(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::class$ = nullptr;
+$CompoundAttribute _SwitchBootstraps_Annotations_[] = {
+	{}
+};
+
+
+$FieldInfo _SwitchBootstraps_FieldInfo_[] = {
+	{"LOOKUP", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchBootstraps, LOOKUP)},
+	{"DO_TYPE_SWITCH", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchBootstraps, DO_TYPE_SWITCH)},
+	{"DO_ENUM_SWITCH", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchBootstraps, DO_ENUM_SWITCH)},
+	{}
+};
+
+$MethodInfo _SwitchBootstraps_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SwitchBootstraps::*)()>(&SwitchBootstraps::init$))},
+	{"convertEnumConstants", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$Class*,Object$*)>(&SwitchBootstraps::convertEnumConstants))},
+	{"doEnumSwitch", "(Ljava/lang/Enum;I[Ljava/lang/Object;)I", "(Ljava/lang/Enum<*>;I[Ljava/lang/Object;)I", $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Enum*,int32_t,$ObjectArray*)>(&SwitchBootstraps::doEnumSwitch))},
+	{"doTypeSwitch", "(Ljava/lang/Object;I[Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(Object$*,int32_t,$ObjectArray*)>(&SwitchBootstraps::doTypeSwitch))},
+	{"enumSwitch", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&SwitchBootstraps::enumSwitch))},
+	{"lambda$enumSwitch$0", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($MethodHandles$Lookup*,$Class*,Object$*)>(&SwitchBootstraps::lambda$enumSwitch$0))},
+	{"typeSwitch", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$CallSite*(*)($MethodHandles$Lookup*,$String*,$MethodType*,$ObjectArray*)>(&SwitchBootstraps::typeSwitch))},
+	{"verifyLabel", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(Object$*)>(&SwitchBootstraps::verifyLabel))},
+	{}
+};
+
+$ClassInfo _SwitchBootstraps_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.lang.runtime.SwitchBootstraps",
+	"java.lang.Object",
+	nullptr,
+	_SwitchBootstraps_FieldInfo_,
+	_SwitchBootstraps_MethodInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	_SwitchBootstraps_Annotations_
+};
+
+$Object* allocate$SwitchBootstraps($Class* clazz) {
+	return $of($alloc(SwitchBootstraps));
+}
+
+$MethodHandles$Lookup* SwitchBootstraps::LOOKUP = nullptr;
+$MethodHandle* SwitchBootstraps::DO_TYPE_SWITCH = nullptr;
+$MethodHandle* SwitchBootstraps::DO_ENUM_SWITCH = nullptr;
+
+void SwitchBootstraps::init$() {
+}
+
+$CallSite* SwitchBootstraps::typeSwitch($MethodHandles$Lookup* lookup, $String* invocationName, $MethodType* invocationType, $ObjectArray* labels$renamed) {
+	$init(SwitchBootstraps);
+	$var($ObjectArray, labels, labels$renamed);
+	bool var$2 = $nc(invocationType)->parameterCount() != 2;
+	$init($Integer);
+	bool var$1 = var$2 || (!$nc($of($($cast($Class, $nc(invocationType)->returnType()))))->equals($Integer::TYPE));
+	bool var$0 = var$1 || $nc($($cast($Class, $nc(invocationType)->parameterType(0))))->isPrimitive();
+	if (var$0 || !$nc($of($($cast($Class, $nc(invocationType)->parameterType(1)))))->equals($Integer::TYPE)) {
+		$throwNew($IllegalArgumentException, $$str({"Illegal invocation type "_s, invocationType}));
+	}
+	$Objects::requireNonNull(labels);
+	$assign(labels, $cast($ObjectArray, labels->clone()));
+	$nc($($Stream::of(labels)))->forEach(static_cast<$Consumer*>($$new(SwitchBootstraps$$Lambda$verifyLabel)));
+	$var($MethodHandle, target, $MethodHandles::insertArguments(SwitchBootstraps::DO_TYPE_SWITCH, 2, $$new($ObjectArray, {$of(labels)})));
+	return $new($ConstantCallSite, target);
+}
+
+void SwitchBootstraps::verifyLabel(Object$* label) {
+	$init(SwitchBootstraps);
+	if (label == nullptr) {
+		$throwNew($IllegalArgumentException, "null label found"_s);
+	}
+	$Class* labelClass = $nc($of(label))->getClass();
+	$load($Class);
+	$load($String);
+	$load($Integer);
+	if (labelClass != $Class::class$ && labelClass != $String::class$ && labelClass != $Integer::class$) {
+		$throwNew($IllegalArgumentException, $$str({"label with illegal type found: "_s, $of(label)->getClass()}));
+	}
+}
+
+int32_t SwitchBootstraps::doTypeSwitch(Object$* target, int32_t startIndex, $ObjectArray* labels) {
+	$init(SwitchBootstraps);
+	if (target == nullptr) {
+		return -1;
+	}
+	$Class* targetClass = $nc($of(target))->getClass();
+	for (int32_t i = startIndex; i < $nc(labels)->length; ++i) {
+		$var($Object0, label, labels->get(i));
+		{
+			$Class* c = nullptr;
+			$var($Integer, constant, nullptr);
+			bool var$0 = $instanceOf($Class, label);
+			if (var$0) {
+				c = $cast($Class, label);
+				var$0 = true;
+			}
+			if (var$0) {
+				if ($nc(c)->isAssignableFrom(targetClass)) {
+					return i;
+				}
+			} else {
+				bool var$11 = $instanceOf($Integer, label);
+				if (var$11) {
+					$assign(constant, $cast($Integer, label));
+					var$11 = true;
+				}
+				if (var$11) {
+					{
+						$var($Number, input, nullptr);
+						$var($Character, input_1, nullptr);
+						bool var$13 = $instanceOf($Number, target);
+						if (var$13) {
+							$assign(input, $cast($Number, target));
+							var$13 = true;
+						}
+						bool var$12 = var$13;
+						if (var$12) {
+							int32_t var$14 = $nc(constant)->intValue();
+							var$12 = var$14 == $nc(input)->intValue();
+						}
+						if (var$12) {
+							return i;
+						} else {
+							bool var$19 = $instanceOf($Character, target);
+							if (var$19) {
+								$assign(input_1, $cast($Character, target));
+								var$19 = true;
+							}
+							bool var$18 = var$19;
+							if (var$18) {
+								int32_t var$20 = constant->intValue();
+								var$18 = var$20 == input_1->charValue();
+							}
+							if (var$18) {
+								return i;
+							}
+						}
+					}
+				} else if ($nc($of(label))->equals(target)) {
+					return i;
+				}
+			}
+		}
+	}
+	return $nc(labels)->length;
+}
+
+$CallSite* SwitchBootstraps::enumSwitch($MethodHandles$Lookup* lookup, $String* invocationName, $MethodType* invocationType, $ObjectArray* labels$renamed) {
+	$init(SwitchBootstraps);
+	$var($ObjectArray, labels, labels$renamed);
+	bool var$3 = $nc(invocationType)->parameterCount() != 2;
+	$init($Integer);
+	bool var$2 = var$3 || (!$nc($of($($cast($Class, $nc(invocationType)->returnType()))))->equals($Integer::TYPE));
+	bool var$1 = var$2 || $nc($($cast($Class, $nc(invocationType)->parameterType(0))))->isPrimitive();
+	bool var$0 = var$1 || !$nc($($cast($Class, $nc(invocationType)->parameterType(0))))->isEnum();
+	if (var$0 || !$nc($of($($cast($Class, $nc(invocationType)->parameterType(1)))))->equals($Integer::TYPE)) {
+		$throwNew($IllegalArgumentException, $$str({"Illegal invocation type "_s, invocationType}));
+	}
+	$Objects::requireNonNull(labels);
+	$assign(labels, $cast($ObjectArray, labels->clone()));
+	$Class* enumClass = $cast($Class, $nc(invocationType)->parameterType(0));
+	$assign(labels, $nc($($nc($($Stream::of(labels)))->map(static_cast<$Function*>($$new(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1, lookup, enumClass)))))->toArray());
+	$var($MethodHandle, target, $MethodHandles::insertArguments(SwitchBootstraps::DO_ENUM_SWITCH, 2, $$new($ObjectArray, {$of(labels)})));
+	$assign(target, $nc(target)->asType(invocationType));
+	return $new($ConstantCallSite, target);
+}
+
+$Object* SwitchBootstraps::convertEnumConstants($MethodHandles$Lookup* lookup, $Class* enumClassTemplate, Object$* label) {
+	$init(SwitchBootstraps);
+	if (label == nullptr) {
+		$throwNew($IllegalArgumentException, "null label found"_s);
+	}
+	$Class* labelClass = $nc($of(label))->getClass();
+	$load($Class);
+	if (labelClass == $Class::class$) {
+		if (!$equals(label, enumClassTemplate)) {
+			$throwNew($IllegalArgumentException, $$str({"the Class label: "_s, label, ", expected the provided enum class: "_s, enumClassTemplate}));
+		}
+		return $of(label);
+	} else {
+		$load($String);
+		if (labelClass == $String::class$) {
+			$Class* enumClass = enumClassTemplate;
+			try {
+				return $of($ConstantBootstraps::enumConstant(lookup, $cast($String, label), enumClass));
+			} catch ($IllegalArgumentException&) {
+				$var($IllegalArgumentException, ex, $catch());
+				return $of(nullptr);
+			}
+		} else {
+			$throwNew($IllegalArgumentException, $$str({"label with illegal type found: "_s, labelClass, ", expected label of type either String or Class"_s}));
+		}
+	}
+	$shouldNotReachHere();
+}
+
+int32_t SwitchBootstraps::doEnumSwitch($Enum* target, int32_t startIndex, $ObjectArray* labels) {
+	$init(SwitchBootstraps);
+	if (target == nullptr) {
+		return -1;
+	}
+	$Class* targetClass = $nc($of(target))->getClass();
+	for (int32_t i = startIndex; i < $nc(labels)->length; ++i) {
+		$var($Object0, label, labels->get(i));
+		{
+			$Class* c = nullptr;
+			bool var$0 = $instanceOf($Class, label);
+			if (var$0) {
+				c = $cast($Class, label);
+				var$0 = true;
+			}
+			if (var$0) {
+				if ($nc(c)->isAssignableFrom(targetClass)) {
+					return i;
+				}
+			} else if ($equals(label, target)) {
+				return i;
+			}
+		}
+	}
+	return $nc(labels)->length;
+}
+
+$Object* SwitchBootstraps::lambda$enumSwitch$0($MethodHandles$Lookup* lookup, $Class* enumClass, Object$* l) {
+	$init(SwitchBootstraps);
+	return $of(convertEnumConstants(lookup, enumClass, l));
+}
+
+void clinit$SwitchBootstraps($Class* class$) {
+	$beforeCallerSensitive();
+	$assignStatic(SwitchBootstraps::LOOKUP, $MethodHandles::lookup());
+	{
+		try {
+			$init($Integer);
+			$load($Object);
+				$load($ObjectArray);
+			$assignStatic(SwitchBootstraps::DO_TYPE_SWITCH, $nc(SwitchBootstraps::LOOKUP)->findStatic(SwitchBootstraps::class$, "doTypeSwitch"_s, $($MethodType::methodType($Integer::TYPE, $Object::class$, $$new($ClassArray, {
+				$Integer::TYPE,
+				$getClass($ObjectArray)
+			})))));
+			$load($Enum);
+			$assignStatic(SwitchBootstraps::DO_ENUM_SWITCH, $nc(SwitchBootstraps::LOOKUP)->findStatic(SwitchBootstraps::class$, "doEnumSwitch"_s, $($MethodType::methodType($Integer::TYPE, $Enum::class$, $$new($ClassArray, {
+				$Integer::TYPE,
+				$getClass($ObjectArray)
+			})))));
+		} catch ($ReflectiveOperationException&) {
+			$var($ReflectiveOperationException, e, $catch());
+			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+		}
+	}
+}
+
+SwitchBootstraps::SwitchBootstraps() {
+}
+
+$Class* SwitchBootstraps::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(SwitchBootstraps$$Lambda$verifyLabel::classInfo$.name)) {
+			return SwitchBootstraps$$Lambda$verifyLabel::load$(name, initialize);
+		}
+		if (name->equals(SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::classInfo$.name)) {
+			return SwitchBootstraps$$Lambda$lambda$enumSwitch$0$1::load$(name, initialize);
+		}
+	}
+	$loadClass(SwitchBootstraps, name, initialize, &_SwitchBootstraps_ClassInfo_, clinit$SwitchBootstraps, allocate$SwitchBootstraps);
+	return class$;
+}
+
+$Class* SwitchBootstraps::class$ = nullptr;
+
+		} // runtime
+	} // lang
+} // java

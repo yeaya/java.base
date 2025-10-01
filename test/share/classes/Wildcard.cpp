@@ -1,0 +1,59 @@
+#include <Wildcard.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/SocketPermission.h>
+#include <java/security/Permission.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $SocketPermission = ::java::net::SocketPermission;
+using $Permission = ::java::security::Permission;
+
+$MethodInfo _Wildcard_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Wildcard::*)()>(&Wildcard::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Wildcard::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _Wildcard_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"Wildcard",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_Wildcard_MethodInfo_
+};
+
+$Object* allocate$Wildcard($Class* clazz) {
+	return $of($alloc(Wildcard));
+}
+
+void Wildcard::init$() {
+}
+
+void Wildcard::main($StringArray* args) {
+	$var($SocketPermission, star_All, $new($SocketPermission, "*.blabla.bla"_s, "listen,accept,connect"_s));
+	$var($SocketPermission, www_All, $new($SocketPermission, "bla.blabla.bla"_s, "listen,accept,connect"_s));
+	if (!star_All->implies(www_All)) {
+		$throwNew($RuntimeException, $$str({"Failed: "_s, star_All, " does not imply "_s, www_All}));
+	}
+}
+
+Wildcard::Wildcard() {
+}
+
+$Class* Wildcard::load$($String* name, bool initialize) {
+	$loadClass(Wildcard, name, initialize, &_Wildcard_ClassInfo_, allocate$Wildcard);
+	return class$;
+}
+
+$Class* Wildcard::class$ = nullptr;

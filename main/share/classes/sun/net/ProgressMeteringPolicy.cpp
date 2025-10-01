@@ -1,0 +1,46 @@
+#include <sun/net/ProgressMeteringPolicy.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
+
+namespace sun {
+	namespace net {
+
+$MethodInfo _ProgressMeteringPolicy_MethodInfo_[] = {
+	{"getProgressUpdateThreshold", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"shouldMeterInput", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _ProgressMeteringPolicy_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.net.ProgressMeteringPolicy",
+	nullptr,
+	nullptr,
+	nullptr,
+	_ProgressMeteringPolicy_MethodInfo_
+};
+
+$Object* allocate$ProgressMeteringPolicy($Class* clazz) {
+	return $of($alloc(ProgressMeteringPolicy));
+}
+
+$Class* ProgressMeteringPolicy::load$($String* name, bool initialize) {
+	$loadClass(ProgressMeteringPolicy, name, initialize, &_ProgressMeteringPolicy_ClassInfo_, allocate$ProgressMeteringPolicy);
+	return class$;
+}
+
+$Class* ProgressMeteringPolicy::class$ = nullptr;
+
+	} // net
+} // sun

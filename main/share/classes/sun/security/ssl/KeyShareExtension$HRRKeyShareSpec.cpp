@@ -1,0 +1,127 @@
+#include <sun/security/ssl/KeyShareExtension$HRRKeyShareSpec.h>
+
+#include <java/io/IOException.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/String.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/nio/ByteBuffer.h>
+#include <java/text/MessageFormat.h>
+#include <java/util/Locale.h>
+#include <javax/net/ssl/SSLException.h>
+#include <javax/net/ssl/SSLProtocolException.h>
+#include <sun/security/ssl/Alert.h>
+#include <sun/security/ssl/HandshakeContext.h>
+#include <sun/security/ssl/KeyShareExtension.h>
+#include <sun/security/ssl/NamedGroup.h>
+#include <sun/security/ssl/Record.h>
+#include <sun/security/ssl/TransportContext.h>
+#include <jcpp.h>
+
+#undef ENGLISH
+#undef DECODE_ERROR
+
+using $IOException = ::java::io::IOException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $Buffer = ::java::nio::Buffer;
+using $ByteBuffer = ::java::nio::ByteBuffer;
+using $Format = ::java::text::Format;
+using $MessageFormat = ::java::text::MessageFormat;
+using $Locale = ::java::util::Locale;
+using $SSLException = ::javax::net::ssl::SSLException;
+using $SSLProtocolException = ::javax::net::ssl::SSLProtocolException;
+using $Alert = ::sun::security::ssl::Alert;
+using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
+using $KeyShareExtension = ::sun::security::ssl::KeyShareExtension;
+using $NamedGroup = ::sun::security::ssl::NamedGroup;
+using $Record = ::sun::security::ssl::Record;
+using $SSLExtension$SSLExtensionSpec = ::sun::security::ssl::SSLExtension$SSLExtensionSpec;
+using $TransportContext = ::sun::security::ssl::TransportContext;
+
+namespace sun {
+	namespace security {
+		namespace ssl {
+
+$FieldInfo _KeyShareExtension$HRRKeyShareSpec_FieldInfo_[] = {
+	{"selectedGroup", "I", nullptr, $FINAL, $field(KeyShareExtension$HRRKeyShareSpec, selectedGroup)},
+	{}
+};
+
+$MethodInfo _KeyShareExtension$HRRKeyShareSpec_MethodInfo_[] = {
+	{"<init>", "(Lsun/security/ssl/NamedGroup;)V", nullptr, 0, $method(static_cast<void(KeyShareExtension$HRRKeyShareSpec::*)($NamedGroup*)>(&KeyShareExtension$HRRKeyShareSpec::init$))},
+	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyShareExtension$HRRKeyShareSpec::*)($HandshakeContext*,$ByteBuffer*)>(&KeyShareExtension$HRRKeyShareSpec::init$)), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _KeyShareExtension$HRRKeyShareSpec_InnerClassesInfo_[] = {
+	{"sun.security.ssl.KeyShareExtension$HRRKeyShareSpec", "sun.security.ssl.KeyShareExtension", "HRRKeyShareSpec", $STATIC | $FINAL},
+	{"sun.security.ssl.SSLExtension$SSLExtensionSpec", "sun.security.ssl.SSLExtension", "SSLExtensionSpec", $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _KeyShareExtension$HRRKeyShareSpec_ClassInfo_ = {
+	$FINAL | $ACC_SUPER,
+	"sun.security.ssl.KeyShareExtension$HRRKeyShareSpec",
+	"java.lang.Object",
+	"sun.security.ssl.SSLExtension$SSLExtensionSpec",
+	_KeyShareExtension$HRRKeyShareSpec_FieldInfo_,
+	_KeyShareExtension$HRRKeyShareSpec_MethodInfo_,
+	nullptr,
+	nullptr,
+	_KeyShareExtension$HRRKeyShareSpec_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.security.ssl.KeyShareExtension"
+};
+
+$Object* allocate$KeyShareExtension$HRRKeyShareSpec($Class* clazz) {
+	return $of($alloc(KeyShareExtension$HRRKeyShareSpec));
+}
+
+void KeyShareExtension$HRRKeyShareSpec::init$($NamedGroup* serverGroup) {
+	this->selectedGroup = $nc(serverGroup)->id;
+}
+
+void KeyShareExtension$HRRKeyShareSpec::init$($HandshakeContext* handshakeContext, $ByteBuffer* buffer) {
+	if ($nc(buffer)->remaining() != 2) {
+		$init($Alert);
+		$throw($($nc($nc(handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid key_share extension: improper data (length="_s, $$str(buffer->remaining()), ")"_s}))))));
+	}
+	this->selectedGroup = $Record::getInt16(buffer);
+}
+
+$String* KeyShareExtension$HRRKeyShareSpec::toString() {
+	$init($Locale);
+	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"selected group\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
+	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($NamedGroup::nameOf(this->selectedGroup)))}));
+	return messageFormat->format(messageFields);
+}
+
+KeyShareExtension$HRRKeyShareSpec::KeyShareExtension$HRRKeyShareSpec() {
+}
+
+$Class* KeyShareExtension$HRRKeyShareSpec::load$($String* name, bool initialize) {
+	$loadClass(KeyShareExtension$HRRKeyShareSpec, name, initialize, &_KeyShareExtension$HRRKeyShareSpec_ClassInfo_, allocate$KeyShareExtension$HRRKeyShareSpec);
+	return class$;
+}
+
+$Class* KeyShareExtension$HRRKeyShareSpec::class$ = nullptr;
+
+		} // ssl
+	} // security
+} // sun

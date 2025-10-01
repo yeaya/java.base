@@ -1,0 +1,74 @@
+#include <java/nio/file/ClosedFileSystemException.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalStateException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalStateException = ::java::lang::IllegalStateException;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace nio {
+		namespace file {
+
+$FieldInfo _ClosedFileSystemException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ClosedFileSystemException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _ClosedFileSystemException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClosedFileSystemException::*)()>(&ClosedFileSystemException::init$))},
+	{}
+};
+
+$ClassInfo _ClosedFileSystemException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.nio.file.ClosedFileSystemException",
+	"java.lang.IllegalStateException",
+	nullptr,
+	_ClosedFileSystemException_FieldInfo_,
+	_ClosedFileSystemException_MethodInfo_
+};
+
+$Object* allocate$ClosedFileSystemException($Class* clazz) {
+	return $of($alloc(ClosedFileSystemException));
+}
+
+void ClosedFileSystemException::init$() {
+	$IllegalStateException::init$();
+}
+
+ClosedFileSystemException::ClosedFileSystemException() {
+}
+
+ClosedFileSystemException::ClosedFileSystemException(const ClosedFileSystemException& e) {
+}
+
+ClosedFileSystemException ClosedFileSystemException::wrapper$() {
+	$pendingException(this);
+	return *this;
+}
+
+void ClosedFileSystemException::throwWrapper$() {
+	$pendingException(this);
+	throw *this;
+}
+
+$Class* ClosedFileSystemException::load$($String* name, bool initialize) {
+	$loadClass(ClosedFileSystemException, name, initialize, &_ClosedFileSystemException_ClassInfo_, allocate$ClosedFileSystemException);
+	return class$;
+}
+
+$Class* ClosedFileSystemException::class$ = nullptr;
+
+		} // file
+	} // nio
+} // java

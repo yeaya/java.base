@@ -1,0 +1,166 @@
+#include <sun/security/ssl/HandshakeHash$T10HandshakeHash.h>
+
+#include <java/io/ByteArrayOutputStream.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Cloneable.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/GeneralSecurityException.h>
+#include <java/security/MessageDigest.h>
+#include <java/security/NoSuchAlgorithmException.h>
+#include <sun/security/ssl/CipherSuite.h>
+#include <sun/security/ssl/HandshakeHash$CloneableHash.h>
+#include <sun/security/ssl/HandshakeHash$NonCloneableHash.h>
+#include <sun/security/ssl/HandshakeHash$TranscriptHash.h>
+#include <sun/security/ssl/HandshakeHash.h>
+#include <jcpp.h>
+
+using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Cloneable = ::java::lang::Cloneable;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $GeneralSecurityException = ::java::security::GeneralSecurityException;
+using $MessageDigest = ::java::security::MessageDigest;
+using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
+using $CipherSuite = ::sun::security::ssl::CipherSuite;
+using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
+using $HandshakeHash$CloneableHash = ::sun::security::ssl::HandshakeHash$CloneableHash;
+using $HandshakeHash$NonCloneableHash = ::sun::security::ssl::HandshakeHash$NonCloneableHash;
+using $HandshakeHash$TranscriptHash = ::sun::security::ssl::HandshakeHash$TranscriptHash;
+
+namespace sun {
+	namespace security {
+		namespace ssl {
+
+$FieldInfo _HandshakeHash$T10HandshakeHash_FieldInfo_[] = {
+	{"md5", "Lsun/security/ssl/HandshakeHash$TranscriptHash;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$T10HandshakeHash, md5)},
+	{"sha", "Lsun/security/ssl/HandshakeHash$TranscriptHash;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$T10HandshakeHash, sha)},
+	{"baos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(HandshakeHash$T10HandshakeHash, baos)},
+	{}
+};
+
+$MethodInfo _HandshakeHash$T10HandshakeHash_MethodInfo_[] = {
+	{"<init>", "(Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(static_cast<void(HandshakeHash$T10HandshakeHash::*)($CipherSuite*)>(&HandshakeHash$T10HandshakeHash::init$))},
+	{"archived", "()[B", nullptr, $PUBLIC},
+	{"digest", "()[B", nullptr, $PUBLIC},
+	{"digest", "(Ljava/lang/String;)[B", nullptr, 0, $method(static_cast<$bytes*(HandshakeHash$T10HandshakeHash::*)($String*)>(&HandshakeHash$T10HandshakeHash::digest))},
+	{"update", "([BII)V", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _HandshakeHash$T10HandshakeHash_InnerClassesInfo_[] = {
+	{"sun.security.ssl.HandshakeHash$T10HandshakeHash", "sun.security.ssl.HandshakeHash", "T10HandshakeHash", $STATIC | $FINAL},
+	{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _HandshakeHash$T10HandshakeHash_ClassInfo_ = {
+	$FINAL | $ACC_SUPER,
+	"sun.security.ssl.HandshakeHash$T10HandshakeHash",
+	"java.lang.Object",
+	"sun.security.ssl.HandshakeHash$TranscriptHash",
+	_HandshakeHash$T10HandshakeHash_FieldInfo_,
+	_HandshakeHash$T10HandshakeHash_MethodInfo_,
+	nullptr,
+	nullptr,
+	_HandshakeHash$T10HandshakeHash_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.security.ssl.HandshakeHash"
+};
+
+$Object* allocate$HandshakeHash$T10HandshakeHash($Class* clazz) {
+	return $of($alloc(HandshakeHash$T10HandshakeHash));
+}
+
+void HandshakeHash$T10HandshakeHash::init$($CipherSuite* cipherSuite) {
+	$var($MessageDigest, mdMD5, nullptr);
+	$var($MessageDigest, mdSHA, nullptr);
+	try {
+		$assign(mdMD5, $MessageDigest::getInstance("MD5"_s));
+		$assign(mdSHA, $MessageDigest::getInstance("SHA"_s));
+	} catch ($NoSuchAlgorithmException&) {
+		$var($NoSuchAlgorithmException, nsae, $catch());
+		$throwNew($RuntimeException, "Hash algorithm MD5 or SHA is not available"_s, nsae);
+	}
+	bool hasArchived = false;
+	if ($instanceOf($Cloneable, mdMD5)) {
+		$set(this, md5, $new($HandshakeHash$CloneableHash, mdMD5));
+	} else {
+		hasArchived = true;
+		$set(this, md5, $new($HandshakeHash$NonCloneableHash, mdMD5));
+	}
+	if ($instanceOf($Cloneable, mdSHA)) {
+		$set(this, sha, $new($HandshakeHash$CloneableHash, mdSHA));
+	} else {
+		hasArchived = true;
+		$set(this, sha, $new($HandshakeHash$NonCloneableHash, mdSHA));
+	}
+	if (hasArchived) {
+		$set(this, baos, nullptr);
+	} else {
+		$set(this, baos, $new($ByteArrayOutputStream));
+	}
+}
+
+void HandshakeHash$T10HandshakeHash::update($bytes* input, int32_t offset, int32_t length) {
+	$nc(this->md5)->update(input, offset, length);
+	$nc(this->sha)->update(input, offset, length);
+	if (this->baos != nullptr) {
+		$nc(this->baos)->write(input, offset, length);
+	}
+}
+
+$bytes* HandshakeHash$T10HandshakeHash::digest() {
+	$var($bytes, digest, $new($bytes, 36));
+	$System::arraycopy($($nc(this->md5)->digest()), 0, digest, 0, 16);
+	$System::arraycopy($($nc(this->sha)->digest()), 0, digest, 16, 20);
+	return digest;
+}
+
+$bytes* HandshakeHash$T10HandshakeHash::digest($String* algorithm) {
+	if ("RSA"_s->equalsIgnoreCase(algorithm)) {
+		return digest();
+	} else {
+		return $nc(this->sha)->digest();
+	}
+}
+
+$bytes* HandshakeHash$T10HandshakeHash::archived() {
+	if (this->baos != nullptr) {
+		return $nc(this->baos)->toByteArray();
+	} else if ($instanceOf($HandshakeHash$NonCloneableHash, this->md5)) {
+		return $nc(this->md5)->archived();
+	} else {
+		return $nc(this->sha)->archived();
+	}
+}
+
+HandshakeHash$T10HandshakeHash::HandshakeHash$T10HandshakeHash() {
+}
+
+$Class* HandshakeHash$T10HandshakeHash::load$($String* name, bool initialize) {
+	$loadClass(HandshakeHash$T10HandshakeHash, name, initialize, &_HandshakeHash$T10HandshakeHash_ClassInfo_, allocate$HandshakeHash$T10HandshakeHash);
+	return class$;
+}
+
+$Class* HandshakeHash$T10HandshakeHash::class$ = nullptr;
+
+		} // ssl
+	} // security
+} // sun

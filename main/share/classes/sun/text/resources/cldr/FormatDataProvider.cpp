@@ -1,0 +1,39 @@
+#include <sun/text/resources/cldr/FormatDataProvider.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $ResourceBundleProvider = ::java::util::spi::ResourceBundleProvider;
+
+namespace sun {
+	namespace text {
+		namespace resources {
+			namespace cldr {
+
+$ClassInfo _FormatDataProvider_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.text.resources.cldr.FormatDataProvider",
+	nullptr,
+	"java.util.spi.ResourceBundleProvider"
+};
+
+$Object* allocate$FormatDataProvider($Class* clazz) {
+	return $of($alloc(FormatDataProvider));
+}
+
+$Class* FormatDataProvider::load$($String* name, bool initialize) {
+	$loadClass(FormatDataProvider, name, initialize, &_FormatDataProvider_ClassInfo_, allocate$FormatDataProvider);
+	return class$;
+}
+
+$Class* FormatDataProvider::class$ = nullptr;
+
+			} // cldr
+		} // resources
+	} // text
+} // sun

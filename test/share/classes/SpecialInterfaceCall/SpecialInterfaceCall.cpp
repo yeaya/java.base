@@ -1,0 +1,1258 @@
+#include <SpecialInterfaceCall/SpecialInterfaceCall.h>
+
+#include <SpecialInterfaceCall/SpecialInterfaceCall$C1.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$C2.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$C3.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$C4.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$D1.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$E.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$I1.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$I2.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$I3.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$I4.h>
+#include <SpecialInterfaceCall/SpecialInterfaceCall$Test.h>
+#include <java/io/PrintStream.h>
+#include <java/io/Serializable.h>
+#include <java/lang/Array.h>
+#include <java/lang/AssertionError.h>
+#include <java/lang/CharSequence.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Error.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalAccessError.h>
+#include <java/lang/IncompatibleClassChangeError.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/Void.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/invoke/MethodHandles.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+#undef TYPE
+
+using $SpecialInterfaceCall$C1 = ::SpecialInterfaceCall::SpecialInterfaceCall$C1;
+using $SpecialInterfaceCall$C2 = ::SpecialInterfaceCall::SpecialInterfaceCall$C2;
+using $SpecialInterfaceCall$C3 = ::SpecialInterfaceCall::SpecialInterfaceCall$C3;
+using $SpecialInterfaceCall$C4 = ::SpecialInterfaceCall::SpecialInterfaceCall$C4;
+using $SpecialInterfaceCall$D1 = ::SpecialInterfaceCall::SpecialInterfaceCall$D1;
+using $SpecialInterfaceCall$E = ::SpecialInterfaceCall::SpecialInterfaceCall$E;
+using $SpecialInterfaceCall$I1 = ::SpecialInterfaceCall::SpecialInterfaceCall$I1;
+using $SpecialInterfaceCall$I2 = ::SpecialInterfaceCall::SpecialInterfaceCall$I2;
+using $SpecialInterfaceCall$I3 = ::SpecialInterfaceCall::SpecialInterfaceCall$I3;
+using $SpecialInterfaceCall$I4 = ::SpecialInterfaceCall::SpecialInterfaceCall$I4;
+using $SpecialInterfaceCall$Test = ::SpecialInterfaceCall::SpecialInterfaceCall$Test;
+using $PrintStream = ::java::io::PrintStream;
+using $Serializable = ::java::io::Serializable;
+using $AssertionError = ::java::lang::AssertionError;
+using $CharSequence = ::java::lang::CharSequence;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Error = ::java::lang::Error;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalAccessError = ::java::lang::IllegalAccessError;
+using $IncompatibleClassChangeError = ::java::lang::IncompatibleClassChangeError;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Void = ::java::lang::Void;
+using $CallSite = ::java::lang::invoke::CallSite;
+using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $MethodHandles = ::java::lang::invoke::MethodHandles;
+using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
+using $MethodType = ::java::lang::invoke::MethodType;
+
+namespace SpecialInterfaceCall {
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$0();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$1();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$2();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$3();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$4();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$5();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$6();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$7();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$8();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$9();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runPositiveTests$10();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$11();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$12();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$13();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$14();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$15();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$16();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$17();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$18();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$19();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$20();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::class$ = nullptr;
+
+class SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21 : public $SpecialInterfaceCall$Test {
+	$class(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21, $NO_CLASS_INIT, $SpecialInterfaceCall$Test)
+public:
+	void init$() {
+	}
+	virtual void run() override {
+		SpecialInterfaceCall::lambda$runNegativeTests$21();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::*)()>(&SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::init$))},
+	{"run", "()V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"SpecialInterfaceCall.SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21",
+	"java.lang.Object",
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test",
+	nullptr,
+	methodInfos
+};
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::load$($String* name, bool initialize) {
+	$loadClass(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::class$ = nullptr;
+
+$FieldInfo _SpecialInterfaceCall_FieldInfo_[] = {
+	{"mh_I2_priv_m_from_I2", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(SpecialInterfaceCall, mh_I2_priv_m_from_I2)},
+	{"mh_I2_pub_m_from_I3", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(SpecialInterfaceCall, mh_I2_pub_m_from_I3)},
+	{"mh_I1_toString_from_I2", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(SpecialInterfaceCall, mh_I1_toString_from_I2)},
+	{"mh_I1_getClass_from_I2", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(SpecialInterfaceCall, mh_I1_getClass_from_I2)},
+	{}
+};
+
+$MethodInfo _SpecialInterfaceCall_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpecialInterfaceCall::*)()>(&SpecialInterfaceCall::init$))},
+	{"lambda$runNegativeTests$11", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$11)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$12", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$12)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$13", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$13)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$14", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$14)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$15", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$15)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$16", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$16)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$17", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$17)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$18", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$18)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$19", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$19)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$20", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$20)), "java.lang.Throwable"},
+	{"lambda$runNegativeTests$21", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runNegativeTests$21)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$0)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$1)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$10", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$10)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$2)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$3)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$4)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$5)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$6", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$6)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$7", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$7)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$8", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$8)), "java.lang.Throwable"},
+	{"lambda$runPositiveTests$9", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::lambda$runPositiveTests$9)), "java.lang.Throwable"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SpecialInterfaceCall::main)), "java.lang.Throwable"},
+	{"runNegativeTests", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::runNegativeTests))},
+	{"runPositiveTests", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::runPositiveTests))},
+	{"shouldNotThrow", "(LSpecialInterfaceCall/SpecialInterfaceCall$Test;)V", nullptr, $STATIC, $method(static_cast<void(*)($SpecialInterfaceCall$Test*)>(&SpecialInterfaceCall::shouldNotThrow))},
+	{"shouldThrow", "(Ljava/lang/Class;Ljava/lang/String;LSpecialInterfaceCall/SpecialInterfaceCall$Test;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;LSpecialInterfaceCall/SpecialInterfaceCall$Test;)V", $STATIC, $method(static_cast<void(*)($Class*,$String*,$SpecialInterfaceCall$Test*)>(&SpecialInterfaceCall::shouldThrow))},
+	{"shouldThrowIAE", "(LSpecialInterfaceCall/SpecialInterfaceCall$Test;)V", nullptr, $STATIC, $method(static_cast<void(*)($SpecialInterfaceCall$Test*)>(&SpecialInterfaceCall::shouldThrowIAE))},
+	{"shouldThrowICCE", "(LSpecialInterfaceCall/SpecialInterfaceCall$Test;)V", nullptr, $STATIC, $method(static_cast<void(*)($SpecialInterfaceCall$Test*)>(&SpecialInterfaceCall::shouldThrowICCE))},
+	{"unsafeCastI2", "(Ljava/lang/Object;)LSpecialInterfaceCall/SpecialInterfaceCall$I2;", nullptr, $STATIC, $method(static_cast<$SpecialInterfaceCall$I2*(*)(Object$*)>(&SpecialInterfaceCall::unsafeCastI2))},
+	{"unsafeCastI3", "(Ljava/lang/Object;)LSpecialInterfaceCall/SpecialInterfaceCall$I3;", nullptr, $STATIC, $method(static_cast<$SpecialInterfaceCall$I3*(*)(Object$*)>(&SpecialInterfaceCall::unsafeCastI3))},
+	{"unsafeCastI4", "(Ljava/lang/Object;)LSpecialInterfaceCall/SpecialInterfaceCall$I4;", nullptr, $STATIC, $method(static_cast<$SpecialInterfaceCall$I4*(*)(Object$*)>(&SpecialInterfaceCall::unsafeCastI4))},
+	{"warmup", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&SpecialInterfaceCall::warmup))},
+	{}
+};
+
+$InnerClassInfo _SpecialInterfaceCall_InnerClassesInfo_[] = {
+	{"SpecialInterfaceCall.SpecialInterfaceCall$Test", "SpecialInterfaceCall.SpecialInterfaceCall", "Test", $STATIC | $INTERFACE | $ABSTRACT},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$E", "SpecialInterfaceCall.SpecialInterfaceCall", "E", $STATIC},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$D1", "SpecialInterfaceCall.SpecialInterfaceCall", "D1", $STATIC},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$C4", "SpecialInterfaceCall.SpecialInterfaceCall", "C4", $STATIC},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$C3", "SpecialInterfaceCall.SpecialInterfaceCall", "C3", $STATIC},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$C2", "SpecialInterfaceCall.SpecialInterfaceCall", "C2", $STATIC},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$C1", "SpecialInterfaceCall.SpecialInterfaceCall", "C1", $STATIC},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$I4", "SpecialInterfaceCall.SpecialInterfaceCall", "I4", $STATIC | $INTERFACE | $ABSTRACT},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$I3", "SpecialInterfaceCall.SpecialInterfaceCall", "I3", $STATIC | $INTERFACE | $ABSTRACT},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$I2", "SpecialInterfaceCall.SpecialInterfaceCall", "I2", $STATIC | $INTERFACE | $ABSTRACT},
+	{"SpecialInterfaceCall.SpecialInterfaceCall$I1", "SpecialInterfaceCall.SpecialInterfaceCall", "I1", $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _SpecialInterfaceCall_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"SpecialInterfaceCall.SpecialInterfaceCall",
+	"java.lang.Object",
+	nullptr,
+	_SpecialInterfaceCall_FieldInfo_,
+	_SpecialInterfaceCall_MethodInfo_,
+	nullptr,
+	nullptr,
+	_SpecialInterfaceCall_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"SpecialInterfaceCall.SpecialInterfaceCall$Test,SpecialInterfaceCall.SpecialInterfaceCall$E,SpecialInterfaceCall.SpecialInterfaceCall$D1,SpecialInterfaceCall.SpecialInterfaceCall$C4,SpecialInterfaceCall.SpecialInterfaceCall$C3,SpecialInterfaceCall.SpecialInterfaceCall$C2,SpecialInterfaceCall.SpecialInterfaceCall$C1,SpecialInterfaceCall.SpecialInterfaceCall$I4,SpecialInterfaceCall.SpecialInterfaceCall$I3,SpecialInterfaceCall.SpecialInterfaceCall$I2,SpecialInterfaceCall.SpecialInterfaceCall$I1"
+};
+
+$Object* allocate$SpecialInterfaceCall($Class* clazz) {
+	return $of($alloc(SpecialInterfaceCall));
+}
+
+$MethodHandle* SpecialInterfaceCall::mh_I2_priv_m_from_I2 = nullptr;
+$MethodHandle* SpecialInterfaceCall::mh_I2_pub_m_from_I3 = nullptr;
+$MethodHandle* SpecialInterfaceCall::mh_I1_toString_from_I2 = nullptr;
+$MethodHandle* SpecialInterfaceCall::mh_I1_getClass_from_I2 = nullptr;
+
+void SpecialInterfaceCall::init$() {
+}
+
+void SpecialInterfaceCall::runPositiveTests() {
+	$init(SpecialInterfaceCall);
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9)));
+	shouldNotThrow(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10)));
+}
+
+void SpecialInterfaceCall::runNegativeTests() {
+	$init(SpecialInterfaceCall);
+	$init($System);
+	$nc($System::out)->println("IAE I2.invokeDirect D1"_s);
+	shouldThrowIAE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11)));
+	$nc($System::out)->println("IAE I2.invokeDirect E"_s);
+	shouldThrowIAE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12)));
+	$nc($System::out)->println("ICCE I2.invokeMH D1"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13)));
+	$nc($System::out)->println("ICCE I2.invokeMH E"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14)));
+	$nc($System::out)->println("ICCE I3.invokeMH D1"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15)));
+	$nc($System::out)->println("ICCE I3.invokeMH E"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16)));
+	$nc($System::out)->println("ICCE I3.invokeMH C2"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17)));
+	$nc($System::out)->println("ICCE I4.invokeDirect C1"_s);
+	shouldThrowIAE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18)));
+	$nc($System::out)->println("ICCE I4.invokeDirectFinal C1"_s);
+	shouldThrowIAE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19)));
+	$nc($System::out)->println("ICCE I2.invokeObjectMH C1"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20)));
+	$nc($System::out)->println("ICCE I2.invokeObjectFinalMH C1"_s);
+	shouldThrowICCE(static_cast<$SpecialInterfaceCall$Test*>($$new(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21)));
+}
+
+void SpecialInterfaceCall::warmup() {
+	$init(SpecialInterfaceCall);
+	for (int32_t i = 0; i < 20000; ++i) {
+		runPositiveTests();
+	}
+}
+
+void SpecialInterfaceCall::main($StringArray* args) {
+	$init(SpecialInterfaceCall);
+	$init($System);
+	$nc($System::out)->println("UNRESOLVED:"_s);
+	runNegativeTests();
+	runPositiveTests();
+	$nc($System::out)->println("RESOLVED:"_s);
+	runNegativeTests();
+	$nc($System::out)->println("WARMUP:"_s);
+	warmup();
+	$nc($System::out)->println("COMPILED:"_s);
+	runNegativeTests();
+	runPositiveTests();
+}
+
+void SpecialInterfaceCall::shouldThrowICCE($SpecialInterfaceCall$Test* t) {
+	$init(SpecialInterfaceCall);
+	$load($IncompatibleClassChangeError);
+	shouldThrow($IncompatibleClassChangeError::class$, "is not a subclass of caller class"_s, t);
+}
+
+void SpecialInterfaceCall::shouldThrowIAE($SpecialInterfaceCall$Test* t) {
+	$init(SpecialInterfaceCall);
+	$load($IllegalAccessError);
+	shouldThrow($IllegalAccessError::class$, "must be the current class or a subtype of interface"_s, t);
+}
+
+void SpecialInterfaceCall::shouldThrow($Class* expectedError, $String* reason, $SpecialInterfaceCall$Test* t) {
+	$init(SpecialInterfaceCall);
+	try {
+		$nc(t)->run();
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		if ($nc(expectedError)->isInstance(e)) {
+			if ($nc($(e->getMessage()))->contains(reason)) {
+				$init($System);
+				$nc($System::out)->println($$str({"Threw expected: "_s, e}));
+				return;
+			} else {
+				$throwNew($AssertionError, $$str({"Wrong exception reason: expected \'"_s, reason, "\', got \'"_s, $(e->getMessage()), "\'"_s}), e);
+			}
+		} else {
+			$var($String, msg, $String::format("Wrong exception thrown: expected=%s; thrown=%s"_s, $$new($ObjectArray, {
+				$($of(expectedError->getName())),
+				$($of($of(e)->getClass()->getName()))
+			})));
+			$throwNew($AssertionError, msg, e);
+		}
+	}
+	$throwNew($AssertionError, $of($$str({"No exception thrown: expected "_s, $($nc(expectedError)->getName())})));
+}
+
+void SpecialInterfaceCall::shouldNotThrow($SpecialInterfaceCall$Test* t) {
+	$init(SpecialInterfaceCall);
+	try {
+		$nc(t)->run();
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		$throwNew($AssertionError, "Exception was thrown: "_s, e);
+	}
+}
+
+$SpecialInterfaceCall$I2* SpecialInterfaceCall::unsafeCastI2(Object$* obj) {
+	$init(SpecialInterfaceCall);
+	try {
+		$load($Object);
+		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
+		$load($SpecialInterfaceCall$I2);
+		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I2::class$))));
+		return $cast($SpecialInterfaceCall$I2, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		$throwNew($Error, e);
+	}
+	$shouldNotReachHere();
+}
+
+$SpecialInterfaceCall$I3* SpecialInterfaceCall::unsafeCastI3(Object$* obj) {
+	$init(SpecialInterfaceCall);
+	try {
+		$load($Object);
+		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
+		$load($SpecialInterfaceCall$I3);
+		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I3::class$))));
+		return $cast($SpecialInterfaceCall$I3, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		$throwNew($Error, e);
+	}
+	$shouldNotReachHere();
+}
+
+$SpecialInterfaceCall$I4* SpecialInterfaceCall::unsafeCastI4(Object$* obj) {
+	$init(SpecialInterfaceCall);
+	try {
+		$load($Object);
+		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
+		$load($SpecialInterfaceCall$I4);
+		$assign(mh, $MethodHandles::explicitCastArguments(mh, $($nc($($nc(mh)->type()))->changeReturnType($SpecialInterfaceCall$I4::class$))));
+		return $cast($SpecialInterfaceCall$I4, $nc(mh)->invokeExact($$new($ObjectArray, {obj})));
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		$throwNew($Error, e);
+	}
+	$shouldNotReachHere();
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$21() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialObjectFinalMH($(unsafeCastI2($$new($SpecialInterfaceCall$C1))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$20() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialObjectMH($(unsafeCastI2($$new($SpecialInterfaceCall$C1))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$19() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I4::invokeDirectFinal($(unsafeCastI4($$new($SpecialInterfaceCall$C1))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$18() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I4::invokeDirect($(unsafeCastI4($$new($SpecialInterfaceCall$C1))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$17() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I3::invokeSpecialMH($(unsafeCastI3($$new($SpecialInterfaceCall$C2))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$16() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I3::invokeSpecialMH($(unsafeCastI3($$new($SpecialInterfaceCall$E))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$15() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I3::invokeSpecialMH($(unsafeCastI3($$new($SpecialInterfaceCall$D1))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$14() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialMH($(unsafeCastI2($$new($SpecialInterfaceCall$E))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$13() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialMH($(unsafeCastI2($$new($SpecialInterfaceCall$D1))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$12() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeDirect($(unsafeCastI2($$new($SpecialInterfaceCall$E))));
+}
+
+void SpecialInterfaceCall::lambda$runNegativeTests$11() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeDirect($(unsafeCastI2($$new($SpecialInterfaceCall$D1))));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$10() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I4::invokeDirectFinal($$new($SpecialInterfaceCall$C4));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$9() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I4::invokeDirect($$new($SpecialInterfaceCall$C4));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$8() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I3::invokeSpecialMH($$new($SpecialInterfaceCall$C3));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$7() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialObjectFinalMH($$new($SpecialInterfaceCall$C3));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$6() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialObjectFinalMH($$new($SpecialInterfaceCall$C2));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$5() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialObjectMH($$new($SpecialInterfaceCall$C3));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$4() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialObjectMH($$new($SpecialInterfaceCall$C2));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$3() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialMH($$new($SpecialInterfaceCall$C3));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$2() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeSpecialMH($$new($SpecialInterfaceCall$C2));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$1() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeDirect($$new($SpecialInterfaceCall$C3));
+}
+
+void SpecialInterfaceCall::lambda$runPositiveTests$0() {
+	$init(SpecialInterfaceCall);
+	$SpecialInterfaceCall$I2::invokeDirect($$new($SpecialInterfaceCall$C2));
+}
+
+void clinit$SpecialInterfaceCall($Class* class$) {
+	$beforeCallerSensitive();
+	{
+		try {
+			$init($Void);
+			$var($MethodType, mt, $MethodType::methodType($Void::TYPE));
+			$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
+			$load($SpecialInterfaceCall$I2);
+			$assignStatic(SpecialInterfaceCall::mh_I2_priv_m_from_I2, $nc(lookup)->findSpecial($SpecialInterfaceCall$I2::class$, "priv_m"_s, mt, $SpecialInterfaceCall$I2::class$));
+			$load($SpecialInterfaceCall$I3);
+			$assignStatic(SpecialInterfaceCall::mh_I2_pub_m_from_I3, lookup->findSpecial($SpecialInterfaceCall$I2::class$, "pub_m"_s, mt, $SpecialInterfaceCall$I3::class$));
+			$load($String);
+			$assign(mt, $MethodType::methodType($String::class$));
+			$load($SpecialInterfaceCall$I1);
+			$assignStatic(SpecialInterfaceCall::mh_I1_toString_from_I2, lookup->findSpecial($SpecialInterfaceCall$I1::class$, "toString"_s, mt, $SpecialInterfaceCall$I2::class$));
+			$load($Class);
+			$assign(mt, $MethodType::methodType($Class::class$));
+			$assignStatic(SpecialInterfaceCall::mh_I1_getClass_from_I2, lookup->findSpecial($SpecialInterfaceCall$I1::class$, "getClass"_s, mt, $SpecialInterfaceCall$I2::class$));
+		} catch ($Throwable&) {
+			$var($Throwable, e, $catch());
+			$throwNew($Error, e);
+		}
+	}
+}
+
+SpecialInterfaceCall::SpecialInterfaceCall() {
+}
+
+$Class* SpecialInterfaceCall::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$0::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$1$1::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$2$2::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$3$3::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$4$4::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$5$5::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$6$6::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$7$7::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$8$8::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$9$9::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runPositiveTests$10$10::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$11$11::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$12$12::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$13$13::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$14$14::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$15$15::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$16$16::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$17$17::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$18$18::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$19$19::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$20$20::load$(name, initialize);
+		}
+		if (name->equals(SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::classInfo$.name)) {
+			return SpecialInterfaceCall$$Lambda$lambda$runNegativeTests$21$21::load$(name, initialize);
+		}
+	}
+	$loadClass(SpecialInterfaceCall, name, initialize, &_SpecialInterfaceCall_ClassInfo_, clinit$SpecialInterfaceCall, allocate$SpecialInterfaceCall);
+	return class$;
+}
+
+$Class* SpecialInterfaceCall::class$ = nullptr;
+
+} // SpecialInterfaceCall

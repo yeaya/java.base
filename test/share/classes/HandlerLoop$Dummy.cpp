@@ -1,0 +1,59 @@
+#include <HandlerLoop$Dummy.h>
+
+#include <HandlerLoop.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $HandlerLoop = ::HandlerLoop;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _HandlerLoop$Dummy_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HandlerLoop$Dummy::*)()>(&HandlerLoop$Dummy::init$))},
+	{}
+};
+
+$InnerClassInfo _HandlerLoop$Dummy_InnerClassesInfo_[] = {
+	{"HandlerLoop$Dummy", "HandlerLoop", "Dummy", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _HandlerLoop$Dummy_ClassInfo_ = {
+	$ACC_SUPER,
+	"HandlerLoop$Dummy",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_HandlerLoop$Dummy_MethodInfo_,
+	nullptr,
+	nullptr,
+	_HandlerLoop$Dummy_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"HandlerLoop"
+};
+
+$Object* allocate$HandlerLoop$Dummy($Class* clazz) {
+	return $of($alloc(HandlerLoop$Dummy));
+}
+
+void HandlerLoop$Dummy::init$() {
+}
+
+HandlerLoop$Dummy::HandlerLoop$Dummy() {
+}
+
+$Class* HandlerLoop$Dummy::load$($String* name, bool initialize) {
+	$loadClass(HandlerLoop$Dummy, name, initialize, &_HandlerLoop$Dummy_ClassInfo_, allocate$HandlerLoop$Dummy);
+	return class$;
+}
+
+$Class* HandlerLoop$Dummy::class$ = nullptr;

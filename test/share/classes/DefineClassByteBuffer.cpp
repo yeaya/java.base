@@ -1,0 +1,90 @@
+#include <DefineClassByteBuffer.h>
+
+#include <DefineClassByteBuffer$DummyClassLoader.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/ClassLoader.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+#undef MAX_TYPE
+
+using $DefineClassByteBuffer$DummyClassLoader = ::DefineClassByteBuffer$DummyClassLoader;
+using $DefineClassByteBuffer$DummyClassLoaderArray = $Array<DefineClassByteBuffer$DummyClassLoader>;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+
+$MethodInfo _DefineClassByteBuffer_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefineClassByteBuffer::*)()>(&DefineClassByteBuffer::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&DefineClassByteBuffer::main)), "java.lang.Exception"},
+	{"test", "(Ljava/lang/ClassLoader;)V", nullptr, $STATIC, $method(static_cast<void(*)($ClassLoader*)>(&DefineClassByteBuffer::test)), "java.lang.Exception"},
+	{}
+};
+
+$InnerClassInfo _DefineClassByteBuffer_InnerClassesInfo_[] = {
+	{"DefineClassByteBuffer$DummyClassLoader", "DefineClassByteBuffer", "DummyClassLoader", $PUBLIC | $STATIC},
+	{}
+};
+
+$ClassInfo _DefineClassByteBuffer_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"DefineClassByteBuffer",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_DefineClassByteBuffer_MethodInfo_,
+	nullptr,
+	nullptr,
+	_DefineClassByteBuffer_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"DefineClassByteBuffer$DummyClassLoader"
+};
+
+$Object* allocate$DefineClassByteBuffer($Class* clazz) {
+	return $of($alloc(DefineClassByteBuffer));
+}
+
+void DefineClassByteBuffer::init$() {
+}
+
+void DefineClassByteBuffer::test($ClassLoader* cl) {
+	$load(DefineClassByteBuffer);
+	$beforeCallerSensitive();
+	$Class* c = $Class::forName("TestClass"_s, true, cl);
+	if (!"TestClass"_s->equals($($nc(c)->getName()))) {
+		$throwNew($RuntimeException, $$str({"Got wrong class: "_s, c}));
+	}
+	if ($nc(c)->getClassLoader() != cl) {
+		$throwNew($RuntimeException, $$str({"TestClass defined by wrong classloader: "_s, $(c->getClassLoader())}));
+	}
+}
+
+void DefineClassByteBuffer::main($StringArray* arg) {
+	$var($DefineClassByteBuffer$DummyClassLoaderArray, cls, $new($DefineClassByteBuffer$DummyClassLoaderArray, $DefineClassByteBuffer$DummyClassLoader::MAX_TYPE));
+	for (int32_t i = 0; i < cls->length; ++i) {
+		cls->set(i, $$new($DefineClassByteBuffer$DummyClassLoader, i));
+	}
+	for (int32_t i = 0; i < cls->length; ++i) {
+		test(cls->get(i));
+	}
+}
+
+DefineClassByteBuffer::DefineClassByteBuffer() {
+}
+
+$Class* DefineClassByteBuffer::load$($String* name, bool initialize) {
+	$loadClass(DefineClassByteBuffer, name, initialize, &_DefineClassByteBuffer_ClassInfo_, allocate$DefineClassByteBuffer);
+	return class$;
+}
+
+$Class* DefineClassByteBuffer::class$ = nullptr;

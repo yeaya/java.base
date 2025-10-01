@@ -1,0 +1,88 @@
+#include <SkipNegative.h>
+
+#include <java/io/File.h>
+#include <java/io/FileReader.h>
+#include <java/io/Reader.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/IllegalArgumentException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $File = ::java::io::File;
+using $FileReader = ::java::io::FileReader;
+using $InputStreamReader = ::java::io::InputStreamReader;
+using $Reader = ::java::io::Reader;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+$MethodInfo _SkipNegative_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SkipNegative::*)()>(&SkipNegative::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SkipNegative::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _SkipNegative_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"SkipNegative",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_SkipNegative_MethodInfo_
+};
+
+$Object* allocate$SkipNegative($Class* clazz) {
+	return $of($alloc(SkipNegative));
+}
+
+void SkipNegative::init$() {
+}
+
+void SkipNegative::main($StringArray* argv) {
+	$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s)), "SkipInput.txt"_s));
+	$var($FileReader, fr, $new($FileReader, f));
+	int64_t nchars = -1;
+	{
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
+			try {
+				int64_t actual = fr->skip(nchars);
+			} catch ($IllegalArgumentException&) {
+				$var($IllegalArgumentException, e, $catch());
+				return$1 = true;
+				goto $finally;
+			}
+		} catch ($Throwable&) {
+			$assign(var$0, $catch());
+		} $finally: {
+			fr->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
+		}
+	}
+	$throwNew($Exception, "Skip should not accept negative values"_s);
+}
+
+SkipNegative::SkipNegative() {
+}
+
+$Class* SkipNegative::load$($String* name, bool initialize) {
+	$loadClass(SkipNegative, name, initialize, &_SkipNegative_ClassInfo_, allocate$SkipNegative);
+	return class$;
+}
+
+$Class* SkipNegative::class$ = nullptr;

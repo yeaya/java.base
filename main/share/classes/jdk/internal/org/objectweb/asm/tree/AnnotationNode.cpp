@@ -1,0 +1,222 @@
+#include <jdk/internal/org/objectweb/asm/tree/AnnotationNode.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalStateException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/AbstractList.h>
+#include <java/util/ArrayList.h>
+#include <java/util/List.h>
+#include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
+#include <jdk/internal/org/objectweb/asm/Opcodes.h>
+#include <jdk/internal/org/objectweb/asm/tree/Util.h>
+#include <jcpp.h>
+
+#undef ASM8
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalStateException = ::java::lang::IllegalStateException;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $AbstractList = ::java::util::AbstractList;
+using $ArrayList = ::java::util::ArrayList;
+using $List = ::java::util::List;
+using $AnnotationVisitor = ::jdk::internal::org::objectweb::asm$::AnnotationVisitor;
+using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
+using $Util = ::jdk::internal::org::objectweb::asm$::tree::Util;
+
+namespace jdk {
+	namespace internal {
+		namespace org {
+			namespace objectweb {
+				namespace asm$ {
+					namespace tree {
+
+$FieldInfo _AnnotationNode_FieldInfo_[] = {
+	{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AnnotationNode, desc)},
+	{"values", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(AnnotationNode, values)},
+	{}
+};
+
+$MethodInfo _AnnotationNode_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationNode::*)($String*)>(&AnnotationNode::init$))},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationNode::*)(int32_t,$String*)>(&AnnotationNode::init$))},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Object;>;)V", 0, $method(static_cast<void(AnnotationNode::*)($List*)>(&AnnotationNode::init$))},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;)V", nullptr, $PUBLIC},
+	{"accept", "(Ljdk/internal/org/objectweb/asm/AnnotationVisitor;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $STATIC, $method(static_cast<void(*)($AnnotationVisitor*,$String*,Object$*)>(&AnnotationNode::accept))},
+	{"check", "(I)V", nullptr, $PUBLIC},
+	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC},
+	{"visitEnd", "()V", nullptr, $PUBLIC},
+	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _AnnotationNode_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"jdk.internal.org.objectweb.asm.tree.AnnotationNode",
+	"jdk.internal.org.objectweb.asm.AnnotationVisitor",
+	nullptr,
+	_AnnotationNode_FieldInfo_,
+	_AnnotationNode_MethodInfo_
+};
+
+$Object* allocate$AnnotationNode($Class* clazz) {
+	return $of($alloc(AnnotationNode));
+}
+
+void AnnotationNode::init$($String* descriptor) {
+	AnnotationNode::init$($Opcodes::ASM8, descriptor);
+	if ($of(this)->getClass() != AnnotationNode::class$) {
+		$throwNew($IllegalStateException);
+	}
+}
+
+void AnnotationNode::init$(int32_t api, $String* descriptor) {
+	$AnnotationVisitor::init$(api);
+	$set(this, desc, descriptor);
+}
+
+void AnnotationNode::init$($List* values) {
+	$AnnotationVisitor::init$($Opcodes::ASM8);
+	$set(this, values, values);
+}
+
+void AnnotationNode::visit($String* name, Object$* value) {
+	if (this->values == nullptr) {
+		$set(this, values, $new($ArrayList, this->desc != nullptr ? 2 : 1));
+	}
+	if (this->desc != nullptr) {
+		$nc(this->values)->add(name);
+	}
+	if ($instanceOf($bytes, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($bytes, value))));
+	} else if ($instanceOf($booleans, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($booleans, value))));
+	} else if ($instanceOf($shorts, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($shorts, value))));
+	} else if ($instanceOf($chars, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($chars, value))));
+	} else if ($instanceOf($ints, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($ints, value))));
+	} else if ($instanceOf($longs, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($longs, value))));
+	} else if ($instanceOf($floats, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($floats, value))));
+	} else if ($instanceOf($doubles, value)) {
+		$nc(this->values)->add($($Util::asArrayList($cast($doubles, value))));
+	} else {
+		$nc(this->values)->add(value);
+	}
+}
+
+void AnnotationNode::visitEnum($String* name, $String* descriptor, $String* value) {
+	if (this->values == nullptr) {
+		$set(this, values, $new($ArrayList, this->desc != nullptr ? 2 : 1));
+	}
+	if (this->desc != nullptr) {
+		$nc(this->values)->add(name);
+	}
+	$nc(this->values)->add($$new($StringArray, {
+		descriptor,
+		value
+	}));
+}
+
+$AnnotationVisitor* AnnotationNode::visitAnnotation($String* name, $String* descriptor) {
+	if (this->values == nullptr) {
+		$set(this, values, $new($ArrayList, this->desc != nullptr ? 2 : 1));
+	}
+	if (this->desc != nullptr) {
+		$nc(this->values)->add(name);
+	}
+	$var(AnnotationNode, annotation, $new(AnnotationNode, descriptor));
+	$nc(this->values)->add(annotation);
+	return annotation;
+}
+
+$AnnotationVisitor* AnnotationNode::visitArray($String* name) {
+	if (this->values == nullptr) {
+		$set(this, values, $new($ArrayList, this->desc != nullptr ? 2 : 1));
+	}
+	if (this->desc != nullptr) {
+		$nc(this->values)->add(name);
+	}
+	$var($List, array, $new($ArrayList));
+	$nc(this->values)->add(array);
+	return $new(AnnotationNode, array);
+}
+
+void AnnotationNode::visitEnd() {
+}
+
+void AnnotationNode::check(int32_t api) {
+}
+
+void AnnotationNode::accept($AnnotationVisitor* annotationVisitor) {
+	if (annotationVisitor != nullptr) {
+		if (this->values != nullptr) {
+			{
+				int32_t i = 0;
+				int32_t n = $nc(this->values)->size();
+				for (; i < n; i += 2) {
+					$var($String, name, $cast($String, $nc(this->values)->get(i)));
+					$var($Object, value, $nc(this->values)->get(i + 1));
+					accept(annotationVisitor, name, value);
+				}
+			}
+		}
+		annotationVisitor->visitEnd();
+	}
+}
+
+void AnnotationNode::accept($AnnotationVisitor* annotationVisitor, $String* name, Object$* value) {
+	$init(AnnotationNode);
+	if (annotationVisitor != nullptr) {
+		if ($instanceOf($StringArray, value)) {
+			$var($StringArray, typeValue, $cast($StringArray, value));
+			annotationVisitor->visitEnum(name, $nc(typeValue)->get(0), typeValue->get(1));
+		} else if ($instanceOf(AnnotationNode, value)) {
+			$var(AnnotationNode, annotationValue, $cast(AnnotationNode, value));
+			$nc(annotationValue)->accept($($nc(annotationVisitor)->visitAnnotation(name, annotationValue->desc)));
+		} else if ($instanceOf($List, value)) {
+			$var($AnnotationVisitor, arrayAnnotationVisitor, $nc(annotationVisitor)->visitArray(name));
+			if (arrayAnnotationVisitor != nullptr) {
+				$var($List, arrayValue, $cast($List, value));
+				{
+					int32_t i = 0;
+					int32_t n = $nc(arrayValue)->size();
+					for (; i < n; ++i) {
+						accept(arrayAnnotationVisitor, nullptr, $(arrayValue->get(i)));
+					}
+				}
+				arrayAnnotationVisitor->visitEnd();
+			}
+		} else {
+			$nc(annotationVisitor)->visit(name, value);
+		}
+	}
+}
+
+AnnotationNode::AnnotationNode() {
+}
+
+$Class* AnnotationNode::load$($String* name, bool initialize) {
+	$loadClass(AnnotationNode, name, initialize, &_AnnotationNode_ClassInfo_, allocate$AnnotationNode);
+	return class$;
+}
+
+$Class* AnnotationNode::class$ = nullptr;
+
+					} // tree
+				} // asm$
+			} // objectweb
+		} // org
+	} // internal
+} // jdk

@@ -1,0 +1,457 @@
+#include <java/util/concurrent/ScheduledThreadPoolExecutor.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/IllegalArgumentException.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/Integer.h>
+#include <java/lang/Long.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/Runnable.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/Collection.h>
+#include <java/util/List.h>
+#include <java/util/concurrent/BlockingQueue.h>
+#include <java/util/concurrent/Callable.h>
+#include <java/util/concurrent/Delayed.h>
+#include <java/util/concurrent/Executors.h>
+#include <java/util/concurrent/Future.h>
+#include <java/util/concurrent/RejectedExecutionHandler.h>
+#include <java/util/concurrent/RunnableFuture.h>
+#include <java/util/concurrent/RunnableScheduledFuture.h>
+#include <java/util/concurrent/ScheduledFuture.h>
+#include <java/util/concurrent/ScheduledThreadPoolExecutor$DelayedWorkQueue.h>
+#include <java/util/concurrent/ScheduledThreadPoolExecutor$ScheduledFutureTask.h>
+#include <java/util/concurrent/ThreadFactory.h>
+#include <java/util/concurrent/ThreadPoolExecutor.h>
+#include <java/util/concurrent/TimeUnit.h>
+#include <java/util/concurrent/atomic/AtomicLong.h>
+#include <jcpp.h>
+
+#undef MILLISECONDS
+#undef DEFAULT_KEEPALIVE_MILLIS
+#undef NANOSECONDS
+#undef MAX_VALUE
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Integer = ::java::lang::Integer;
+using $Long = ::java::lang::Long;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $Runnable = ::java::lang::Runnable;
+using $Collection = ::java::util::Collection;
+using $List = ::java::util::List;
+using $Queue = ::java::util::Queue;
+using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
+using $Callable = ::java::util::concurrent::Callable;
+using $Delayed = ::java::util::concurrent::Delayed;
+using $Executors = ::java::util::concurrent::Executors;
+using $Future = ::java::util::concurrent::Future;
+using $RejectedExecutionHandler = ::java::util::concurrent::RejectedExecutionHandler;
+using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
+using $RunnableScheduledFuture = ::java::util::concurrent::RunnableScheduledFuture;
+using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
+using $ScheduledFuture = ::java::util::concurrent::ScheduledFuture;
+using $ScheduledThreadPoolExecutor$DelayedWorkQueue = ::java::util::concurrent::ScheduledThreadPoolExecutor$DelayedWorkQueue;
+using $ScheduledThreadPoolExecutor$ScheduledFutureTask = ::java::util::concurrent::ScheduledThreadPoolExecutor$ScheduledFutureTask;
+using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
+using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
+using $TimeUnit = ::java::util::concurrent::TimeUnit;
+using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
+
+namespace java {
+	namespace util {
+		namespace concurrent {
+
+$FieldInfo _ScheduledThreadPoolExecutor_FieldInfo_[] = {
+	{"continueExistingPeriodicTasksAfterShutdown", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ScheduledThreadPoolExecutor, continueExistingPeriodicTasksAfterShutdown)},
+	{"executeExistingDelayedTasksAfterShutdown", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ScheduledThreadPoolExecutor, executeExistingDelayedTasksAfterShutdown)},
+	{"removeOnCancel", "Z", nullptr, $VOLATILE, $field(ScheduledThreadPoolExecutor, removeOnCancel)},
+	{"sequencer", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScheduledThreadPoolExecutor, sequencer)},
+	{"DEFAULT_KEEPALIVE_MILLIS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScheduledThreadPoolExecutor, DEFAULT_KEEPALIVE_MILLIS)},
+	{}
+};
+
+$MethodInfo _ScheduledThreadPoolExecutor_MethodInfo_[] = {
+	{"*awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC},
+	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ScheduledThreadPoolExecutor::*)(int32_t)>(&ScheduledThreadPoolExecutor::init$))},
+	{"<init>", "(ILjava/util/concurrent/ThreadFactory;)V", nullptr, $PUBLIC, $method(static_cast<void(ScheduledThreadPoolExecutor::*)(int32_t,$ThreadFactory*)>(&ScheduledThreadPoolExecutor::init$))},
+	{"<init>", "(ILjava/util/concurrent/RejectedExecutionHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(ScheduledThreadPoolExecutor::*)(int32_t,$RejectedExecutionHandler*)>(&ScheduledThreadPoolExecutor::init$))},
+	{"<init>", "(ILjava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(ScheduledThreadPoolExecutor::*)(int32_t,$ThreadFactory*,$RejectedExecutionHandler*)>(&ScheduledThreadPoolExecutor::init$))},
+	{"canRunInCurrentRunState", "(Ljava/util/concurrent/RunnableScheduledFuture;)Z", "(Ljava/util/concurrent/RunnableScheduledFuture<*>;)Z", 0},
+	{"decorateTask", "(Ljava/lang/Runnable;Ljava/util/concurrent/RunnableScheduledFuture;)Ljava/util/concurrent/RunnableScheduledFuture;", "<V:Ljava/lang/Object;>(Ljava/lang/Runnable;Ljava/util/concurrent/RunnableScheduledFuture<TV;>;)Ljava/util/concurrent/RunnableScheduledFuture<TV;>;", $PROTECTED},
+	{"decorateTask", "(Ljava/util/concurrent/Callable;Ljava/util/concurrent/RunnableScheduledFuture;)Ljava/util/concurrent/RunnableScheduledFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TV;>;Ljava/util/concurrent/RunnableScheduledFuture<TV;>;)Ljava/util/concurrent/RunnableScheduledFuture<TV;>;", $PROTECTED},
+	{"delayedExecute", "(Ljava/util/concurrent/RunnableScheduledFuture;)V", "(Ljava/util/concurrent/RunnableScheduledFuture<*>;)V", $PRIVATE, $method(static_cast<void(ScheduledThreadPoolExecutor::*)($RunnableScheduledFuture*)>(&ScheduledThreadPoolExecutor::delayedExecute))},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"getContinueExistingPeriodicTasksAfterShutdownPolicy", "()Z", nullptr, $PUBLIC},
+	{"getExecuteExistingDelayedTasksAfterShutdownPolicy", "()Z", nullptr, $PUBLIC},
+	{"getQueue", "()Ljava/util/concurrent/BlockingQueue;", "()Ljava/util/concurrent/BlockingQueue<Ljava/lang/Runnable;>;", $PUBLIC},
+	{"getRemoveOnCancelPolicy", "()Z", nullptr, $PUBLIC},
+	{"*invokeAll", "(Ljava/util/Collection;)Ljava/util/List;", nullptr, $PUBLIC},
+	{"*invokeAll", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", nullptr, $PUBLIC},
+	{"*invokeAny", "(Ljava/util/Collection;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"*invokeAny", "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"*isShutdown", "()Z", nullptr, $PUBLIC},
+	{"*isTerminated", "()Z", nullptr, $PUBLIC},
+	{"onShutdown", "()V", nullptr, 0},
+	{"overflowFree", "(J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(ScheduledThreadPoolExecutor::*)(int64_t)>(&ScheduledThreadPoolExecutor::overflowFree))},
+	{"reExecutePeriodic", "(Ljava/util/concurrent/RunnableScheduledFuture;)V", "(Ljava/util/concurrent/RunnableScheduledFuture<*>;)V", 0},
+	{"schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC},
+	{"schedule", "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "<V:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TV;>;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<TV;>;", $PUBLIC},
+	{"scheduleAtFixedRate", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC},
+	{"scheduleWithFixedDelay", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture<*>;", $PUBLIC},
+	{"setContinueExistingPeriodicTasksAfterShutdownPolicy", "(Z)V", nullptr, $PUBLIC},
+	{"setExecuteExistingDelayedTasksAfterShutdownPolicy", "(Z)V", nullptr, $PUBLIC},
+	{"setRemoveOnCancelPolicy", "(Z)V", nullptr, $PUBLIC},
+	{"shutdown", "()V", nullptr, $PUBLIC},
+	{"shutdownNow", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Runnable;>;", $PUBLIC},
+	{"submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future<*>;", $PUBLIC},
+	{"submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/lang/Runnable;TT;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC},
+	{"submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Ljava/util/concurrent/Future<TT;>;", $PUBLIC},
+	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"triggerTime", "(JLjava/util/concurrent/TimeUnit;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(ScheduledThreadPoolExecutor::*)(int64_t,$TimeUnit*)>(&ScheduledThreadPoolExecutor::triggerTime))},
+	{"triggerTime", "(J)J", nullptr, 0},
+	{}
+};
+
+$InnerClassInfo _ScheduledThreadPoolExecutor_InnerClassesInfo_[] = {
+	{"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue", "java.util.concurrent.ScheduledThreadPoolExecutor", "DelayedWorkQueue", $STATIC},
+	{"java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask", "java.util.concurrent.ScheduledThreadPoolExecutor", "ScheduledFutureTask", $PRIVATE},
+	{}
+};
+
+$ClassInfo _ScheduledThreadPoolExecutor_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.util.concurrent.ScheduledThreadPoolExecutor",
+	"java.util.concurrent.ThreadPoolExecutor",
+	"java.util.concurrent.ScheduledExecutorService",
+	_ScheduledThreadPoolExecutor_FieldInfo_,
+	_ScheduledThreadPoolExecutor_MethodInfo_,
+	nullptr,
+	nullptr,
+	_ScheduledThreadPoolExecutor_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue,java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue$Itr,java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask"
+};
+
+$Object* allocate$ScheduledThreadPoolExecutor($Class* clazz) {
+	return $of($alloc(ScheduledThreadPoolExecutor));
+}
+
+bool ScheduledThreadPoolExecutor::isShutdown() {
+	 return this->$ThreadPoolExecutor::isShutdown();
+}
+
+bool ScheduledThreadPoolExecutor::isTerminated() {
+	 return this->$ThreadPoolExecutor::isTerminated();
+}
+
+bool ScheduledThreadPoolExecutor::awaitTermination(int64_t timeout, $TimeUnit* unit) {
+	 return this->$ThreadPoolExecutor::awaitTermination(timeout, unit);
+}
+
+void ScheduledThreadPoolExecutor::finalize() {
+	this->$ThreadPoolExecutor::finalize();
+}
+
+$String* ScheduledThreadPoolExecutor::toString() {
+	 return this->$ThreadPoolExecutor::toString();
+}
+
+$Object* ScheduledThreadPoolExecutor::invokeAny($Collection* tasks) {
+	 return this->$ThreadPoolExecutor::invokeAny(tasks);
+}
+
+$Object* ScheduledThreadPoolExecutor::invokeAny($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
+	 return this->$ThreadPoolExecutor::invokeAny(tasks, timeout, unit);
+}
+
+$List* ScheduledThreadPoolExecutor::invokeAll($Collection* tasks) {
+	 return this->$ThreadPoolExecutor::invokeAll(tasks);
+}
+
+$List* ScheduledThreadPoolExecutor::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
+	 return this->$ThreadPoolExecutor::invokeAll(tasks, timeout, unit);
+}
+
+int32_t ScheduledThreadPoolExecutor::hashCode() {
+	 return this->$ThreadPoolExecutor::hashCode();
+}
+
+bool ScheduledThreadPoolExecutor::equals(Object$* obj) {
+	 return this->$ThreadPoolExecutor::equals(obj);
+}
+
+$Object* ScheduledThreadPoolExecutor::clone() {
+	 return this->$ThreadPoolExecutor::clone();
+}
+
+
+$AtomicLong* ScheduledThreadPoolExecutor::sequencer = nullptr;
+
+bool ScheduledThreadPoolExecutor::canRunInCurrentRunState($RunnableScheduledFuture* task) {
+	if (!isShutdown()) {
+		return true;
+	}
+	if (isStopped()) {
+		return false;
+	}
+	$init($TimeUnit);
+	return $nc(task)->isPeriodic() ? $cast(bool, this->continueExistingPeriodicTasksAfterShutdown) : (this->executeExistingDelayedTasksAfterShutdown || $nc(task)->getDelay($TimeUnit::NANOSECONDS) <= 0);
+}
+
+void ScheduledThreadPoolExecutor::delayedExecute($RunnableScheduledFuture* task) {
+	if (isShutdown()) {
+		reject(task);
+	} else {
+		$nc($($ThreadPoolExecutor::getQueue()))->add(task);
+		bool var$0 = !canRunInCurrentRunState(task);
+		if (var$0 && remove(task)) {
+			$nc(task)->cancel(false);
+		} else {
+			ensurePrestart();
+		}
+	}
+}
+
+void ScheduledThreadPoolExecutor::reExecutePeriodic($RunnableScheduledFuture* task) {
+	if (canRunInCurrentRunState(task)) {
+		$nc($($ThreadPoolExecutor::getQueue()))->add(task);
+		bool var$0 = canRunInCurrentRunState(task);
+		if (var$0 || !remove(task)) {
+			ensurePrestart();
+			return;
+		}
+	}
+	$nc(task)->cancel(false);
+}
+
+void ScheduledThreadPoolExecutor::onShutdown() {
+	$var($BlockingQueue, q, $ThreadPoolExecutor::getQueue());
+	bool keepDelayed = getExecuteExistingDelayedTasksAfterShutdownPolicy();
+	bool keepPeriodic = getContinueExistingPeriodicTasksAfterShutdownPolicy();
+	{
+		$var($ObjectArray, arr$, $nc(q)->toArray());
+		int32_t len$ = $nc(arr$)->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($Object0, e, arr$->get(i$));
+			{
+				if ($instanceOf($RunnableScheduledFuture, e)) {
+					$var($RunnableScheduledFuture, t, $cast($RunnableScheduledFuture, e));
+					$init($TimeUnit);
+					bool var$0 = ($nc(t)->isPeriodic() ? !keepPeriodic : (!keepDelayed && $nc(t)->getDelay($TimeUnit::NANOSECONDS) > 0));
+					if (var$0 || $nc(t)->isCancelled()) {
+						if (q->remove(t)) {
+							t->cancel(false);
+						}
+					}
+				}
+			}
+		}
+	}
+	tryTerminate();
+}
+
+$RunnableScheduledFuture* ScheduledThreadPoolExecutor::decorateTask($Runnable* runnable, $RunnableScheduledFuture* task) {
+	return task;
+}
+
+$RunnableScheduledFuture* ScheduledThreadPoolExecutor::decorateTask($Callable* callable, $RunnableScheduledFuture* task) {
+	return task;
+}
+
+void ScheduledThreadPoolExecutor::init$(int32_t corePoolSize) {
+	$init($TimeUnit);
+	$ThreadPoolExecutor::init$(corePoolSize, $Integer::MAX_VALUE, ScheduledThreadPoolExecutor::DEFAULT_KEEPALIVE_MILLIS, $TimeUnit::MILLISECONDS, $$new($ScheduledThreadPoolExecutor$DelayedWorkQueue));
+	this->executeExistingDelayedTasksAfterShutdown = true;
+}
+
+void ScheduledThreadPoolExecutor::init$(int32_t corePoolSize, $ThreadFactory* threadFactory) {
+	$init($TimeUnit);
+	$ThreadPoolExecutor::init$(corePoolSize, $Integer::MAX_VALUE, ScheduledThreadPoolExecutor::DEFAULT_KEEPALIVE_MILLIS, $TimeUnit::MILLISECONDS, static_cast<$BlockingQueue*>($$new($ScheduledThreadPoolExecutor$DelayedWorkQueue)), threadFactory);
+	this->executeExistingDelayedTasksAfterShutdown = true;
+}
+
+void ScheduledThreadPoolExecutor::init$(int32_t corePoolSize, $RejectedExecutionHandler* handler) {
+	$init($TimeUnit);
+	$ThreadPoolExecutor::init$(corePoolSize, $Integer::MAX_VALUE, ScheduledThreadPoolExecutor::DEFAULT_KEEPALIVE_MILLIS, $TimeUnit::MILLISECONDS, static_cast<$BlockingQueue*>($$new($ScheduledThreadPoolExecutor$DelayedWorkQueue)), handler);
+	this->executeExistingDelayedTasksAfterShutdown = true;
+}
+
+void ScheduledThreadPoolExecutor::init$(int32_t corePoolSize, $ThreadFactory* threadFactory, $RejectedExecutionHandler* handler) {
+	$init($TimeUnit);
+	$ThreadPoolExecutor::init$(corePoolSize, $Integer::MAX_VALUE, ScheduledThreadPoolExecutor::DEFAULT_KEEPALIVE_MILLIS, $TimeUnit::MILLISECONDS, $$new($ScheduledThreadPoolExecutor$DelayedWorkQueue), threadFactory, handler);
+	this->executeExistingDelayedTasksAfterShutdown = true;
+}
+
+int64_t ScheduledThreadPoolExecutor::triggerTime(int64_t delay, $TimeUnit* unit) {
+	return triggerTime($nc(unit)->toNanos((delay < 0) ? (int64_t)0 : delay));
+}
+
+int64_t ScheduledThreadPoolExecutor::triggerTime(int64_t delay) {
+	int64_t var$0 = $System::nanoTime();
+	return var$0 + ((delay < ($Long::MAX_VALUE >> 1)) ? delay : overflowFree(delay));
+}
+
+int64_t ScheduledThreadPoolExecutor::overflowFree(int64_t delay) {
+	$var($Delayed, head, $cast($Delayed, $nc($($ThreadPoolExecutor::getQueue()))->peek()));
+	if (head != nullptr) {
+		$init($TimeUnit);
+		int64_t headDelay = head->getDelay($TimeUnit::NANOSECONDS);
+		if (headDelay < 0 && (delay - headDelay < 0)) {
+			delay = $Long::MAX_VALUE + headDelay;
+		}
+	}
+	return delay;
+}
+
+$ScheduledFuture* ScheduledThreadPoolExecutor::schedule($Runnable* command, int64_t delay, $TimeUnit* unit) {
+	if (command == nullptr || unit == nullptr) {
+		$throwNew($NullPointerException);
+	}
+	$var($Runnable, var$0, command);
+	int64_t var$1 = triggerTime(delay, unit);
+	$var($RunnableScheduledFuture, t, decorateTask(command, static_cast<$RunnableScheduledFuture*>($$new($ScheduledThreadPoolExecutor$ScheduledFutureTask, this, var$0, nullptr, var$1, $nc(ScheduledThreadPoolExecutor::sequencer)->getAndIncrement()))));
+	delayedExecute(t);
+	return t;
+}
+
+$ScheduledFuture* ScheduledThreadPoolExecutor::schedule($Callable* callable, int64_t delay, $TimeUnit* unit) {
+	if (callable == nullptr || unit == nullptr) {
+		$throwNew($NullPointerException);
+	}
+	$var($Callable, var$0, callable);
+	int64_t var$1 = triggerTime(delay, unit);
+	$var($RunnableScheduledFuture, t, decorateTask(callable, static_cast<$RunnableScheduledFuture*>($$new($ScheduledThreadPoolExecutor$ScheduledFutureTask, this, var$0, var$1, $nc(ScheduledThreadPoolExecutor::sequencer)->getAndIncrement()))));
+	delayedExecute(t);
+	return t;
+}
+
+$ScheduledFuture* ScheduledThreadPoolExecutor::scheduleAtFixedRate($Runnable* command, int64_t initialDelay, int64_t period, $TimeUnit* unit) {
+	if (command == nullptr || unit == nullptr) {
+		$throwNew($NullPointerException);
+	}
+	if (period <= (int64_t)0) {
+		$throwNew($IllegalArgumentException);
+	}
+	$var($Runnable, var$0, command);
+	int64_t var$1 = triggerTime(initialDelay, unit);
+	int64_t var$2 = $nc(unit)->toNanos(period);
+	$var($ScheduledThreadPoolExecutor$ScheduledFutureTask, sft, $new($ScheduledThreadPoolExecutor$ScheduledFutureTask, this, var$0, nullptr, var$1, var$2, $nc(ScheduledThreadPoolExecutor::sequencer)->getAndIncrement()));
+	$var($RunnableScheduledFuture, t, decorateTask(command, static_cast<$RunnableScheduledFuture*>(sft)));
+	$set(sft, outerTask, t);
+	delayedExecute(t);
+	return t;
+}
+
+$ScheduledFuture* ScheduledThreadPoolExecutor::scheduleWithFixedDelay($Runnable* command, int64_t initialDelay, int64_t delay, $TimeUnit* unit) {
+	if (command == nullptr || unit == nullptr) {
+		$throwNew($NullPointerException);
+	}
+	if (delay <= (int64_t)0) {
+		$throwNew($IllegalArgumentException);
+	}
+	$var($Runnable, var$0, command);
+	int64_t var$1 = triggerTime(initialDelay, unit);
+	int64_t var$2 = -$nc(unit)->toNanos(delay);
+	$var($ScheduledThreadPoolExecutor$ScheduledFutureTask, sft, $new($ScheduledThreadPoolExecutor$ScheduledFutureTask, this, var$0, nullptr, var$1, var$2, $nc(ScheduledThreadPoolExecutor::sequencer)->getAndIncrement()));
+	$var($RunnableScheduledFuture, t, decorateTask(command, static_cast<$RunnableScheduledFuture*>(sft)));
+	$set(sft, outerTask, t);
+	delayedExecute(t);
+	return t;
+}
+
+void ScheduledThreadPoolExecutor::execute($Runnable* command) {
+	$init($TimeUnit);
+	schedule(command, (int64_t)0, $TimeUnit::NANOSECONDS);
+}
+
+$Future* ScheduledThreadPoolExecutor::submit($Runnable* task) {
+	$init($TimeUnit);
+	return schedule(task, (int64_t)0, $TimeUnit::NANOSECONDS);
+}
+
+$Future* ScheduledThreadPoolExecutor::submit($Runnable* task, Object$* result) {
+	$init($TimeUnit);
+	return schedule($($Executors::callable(task, result)), (int64_t)0, $TimeUnit::NANOSECONDS);
+}
+
+$Future* ScheduledThreadPoolExecutor::submit($Callable* task) {
+	$init($TimeUnit);
+	return schedule(task, (int64_t)0, $TimeUnit::NANOSECONDS);
+}
+
+void ScheduledThreadPoolExecutor::setContinueExistingPeriodicTasksAfterShutdownPolicy(bool value) {
+	this->continueExistingPeriodicTasksAfterShutdown = value;
+	if (!value && isShutdown()) {
+		onShutdown();
+	}
+}
+
+bool ScheduledThreadPoolExecutor::getContinueExistingPeriodicTasksAfterShutdownPolicy() {
+	return this->continueExistingPeriodicTasksAfterShutdown;
+}
+
+void ScheduledThreadPoolExecutor::setExecuteExistingDelayedTasksAfterShutdownPolicy(bool value) {
+	this->executeExistingDelayedTasksAfterShutdown = value;
+	if (!value && isShutdown()) {
+		onShutdown();
+	}
+}
+
+bool ScheduledThreadPoolExecutor::getExecuteExistingDelayedTasksAfterShutdownPolicy() {
+	return this->executeExistingDelayedTasksAfterShutdown;
+}
+
+void ScheduledThreadPoolExecutor::setRemoveOnCancelPolicy(bool value) {
+	this->removeOnCancel = value;
+}
+
+bool ScheduledThreadPoolExecutor::getRemoveOnCancelPolicy() {
+	return this->removeOnCancel;
+}
+
+void ScheduledThreadPoolExecutor::shutdown() {
+	$ThreadPoolExecutor::shutdown();
+}
+
+$List* ScheduledThreadPoolExecutor::shutdownNow() {
+	return $ThreadPoolExecutor::shutdownNow();
+}
+
+$BlockingQueue* ScheduledThreadPoolExecutor::getQueue() {
+	return $ThreadPoolExecutor::getQueue();
+}
+
+void clinit$ScheduledThreadPoolExecutor($Class* class$) {
+	$assignStatic(ScheduledThreadPoolExecutor::sequencer, $new($AtomicLong));
+}
+
+ScheduledThreadPoolExecutor::ScheduledThreadPoolExecutor() {
+}
+
+$Class* ScheduledThreadPoolExecutor::load$($String* name, bool initialize) {
+	$loadClass(ScheduledThreadPoolExecutor, name, initialize, &_ScheduledThreadPoolExecutor_ClassInfo_, clinit$ScheduledThreadPoolExecutor, allocate$ScheduledThreadPoolExecutor);
+	return class$;
+}
+
+$Class* ScheduledThreadPoolExecutor::class$ = nullptr;
+
+		} // concurrent
+	} // util
+} // java

@@ -1,0 +1,679 @@
+#include <sun/util/cldr/CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/util/AbstractMap.h>
+#include <java/util/HashMap.h>
+#include <java/util/Map.h>
+#include <sun/util/cldr/CLDRBaseLocaleDataMetaInfo.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $AbstractMap = ::java::util::AbstractMap;
+using $HashMap = ::java::util::HashMap;
+using $Map = ::java::util::Map;
+using $CLDRBaseLocaleDataMetaInfo = ::sun::util::cldr::CLDRBaseLocaleDataMetaInfo;
+
+namespace sun {
+	namespace util {
+		namespace cldr {
+
+$FieldInfo _CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_FieldInfo_[] = {
+	{"tzCanonicalIDMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder, tzCanonicalIDMap)},
+	{}
+};
+
+$MethodInfo _CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::*)()>(&CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::init$))},
+	{}
+};
+
+$InnerClassInfo _CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_InnerClassesInfo_[] = {
+	{"sun.util.cldr.CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder", "sun.util.cldr.CLDRBaseLocaleDataMetaInfo", "TZCanonicalIDMapHolder", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_ClassInfo_ = {
+	$ACC_SUPER,
+	"sun.util.cldr.CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder",
+	"java.lang.Object",
+	nullptr,
+	_CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_FieldInfo_,
+	_CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_MethodInfo_,
+	nullptr,
+	nullptr,
+	_CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.util.cldr.CLDRBaseLocaleDataMetaInfo"
+};
+
+$Object* allocate$CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder($Class* clazz) {
+	return $of($alloc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder));
+}
+
+$Map* CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap = nullptr;
+
+void CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::init$() {
+}
+
+void clinit$CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder($Class* class$) {
+	$assignStatic(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap, $new($HashMap, 600));
+	{
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fmksa"_s, "Pacific/Kosrae"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruyks"_s, "Asia/Yakutsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ltvno"_s, "Europe/Vilnius"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caydq"_s, "America/Dawson_Creek"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brsao"_s, "America/Sao_Paulo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Brazil/East"_s, "America/Sao_Paulo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pwror"_s, "Pacific/Palau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("chzrh"_s, "Europe/Zurich"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("svsal"_s, "America/El_Salvador"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("vistt"_s, "America/St_Thomas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Virgin"_s, "America/St_Thomas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruikt"_s, "Asia/Irkutsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gpmsb"_s, "America/Marigot"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aruaq"_s, "America/Argentina/San_Juan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sesto"_s, "Europe/Stockholm"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uymvd"_s, "America/Montevideo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxmty"_s, "America/Monterrey"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("esmad"_s, "Europe/Madrid"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("grath"_s, "Europe/Athens"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqcas"_s, "Antarctica/Casey"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bjptn"_s, "Africa/Porto-Novo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayda"_s, "America/Dawson"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pnpcn"_s, "Pacific/Pitcairn"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruovb"_s, "Asia/Novosibirsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxhmo"_s, "America/Hermosillo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sjlyr"_s, "Arctic/Longyearbyen"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Atlantic/Jan_Mayen"_s, "Arctic/Longyearbyen"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uztas"_s, "Asia/Tashkent"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqddu"_s, "Antarctica/DumontDUrville"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("camon"_s, "America/Moncton"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gmt"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/GMT+0"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/GMT-0"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/GMT0"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/Greenwich"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("GMT"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("GMT+0"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("GMT-0"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("GMT0"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Greenwich"_s, "Etc/GMT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usome"_s, "America/Nome"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uasip"_s, "Europe/Simferopol"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("vnsgn"_s, "Asia/Saigon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Ho_Chi_Minh"_s, "Asia/Saigon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nimga"_s, "America/Managua"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("joamm"_s, "Asia/Amman"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rwkgl"_s, "Africa/Kigali"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("etadd"_s, "Africa/Addis_Ababa"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kgfru"_s, "Asia/Bishkek"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("iddjj"_s, "Asia/Jayapura"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayek"_s, "America/Rankin_Inlet"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sbhir"_s, "Pacific/Guadalcanal"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mzmpm"_s, "Africa/Maputo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rugdx"_s, "Asia/Magadan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("canpg"_s, "America/Nipigon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brrbr"_s, "America/Rio_Branco"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Porto_Acre"_s, "America/Rio_Branco"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Brazil/Acre"_s, "America/Rio_Branco"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("est5edt"_s, "EST5EDT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cobog"_s, "America/Bogota"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aiaxa"_s, "America/Anguilla"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayev"_s, "America/Inuvik"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("hntgu"_s, "America/Tegucigalpa"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ptlis"_s, "Europe/Lisbon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Portugal"_s, "Europe/Lisbon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gugum"_s, "Pacific/Guam"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cynic"_s, "Asia/Nicosia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Europe/Nicosia"_s, "Asia/Nicosia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tglfw"_s, "Africa/Lome"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("auhba"_s, "Australia/Hobart"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/Tasmania"_s, "Australia/Hobart"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gldkshvn"_s, "America/Danmarkshavn"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sgsin"_s, "Asia/Singapore"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Singapore"_s, "Asia/Singapore"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usphx"_s, "America/Phoenix"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Arizona"_s, "America/Phoenix"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("szqmn"_s, "Africa/Mbabane"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mkskp"_s, "Europe/Skopje"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pgraw"_s, "Pacific/Bougainville"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rubax"_s, "Asia/Barnaul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pkkhi"_s, "Asia/Karachi"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("umjon"_s, "Pacific/Johnston"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ssjub"_s, "Africa/Juba"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("glthu"_s, "America/Thule"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("iodga"_s, "Indian/Chagos"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brfen"_s, "America/Noronha"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Brazil/DeNoronha"_s, "America/Noronha"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("glgoh"_s, "America/Godthab"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Nuuk"_s, "America/Godthab"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("jmkin"_s, "America/Jamaica"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Jamaica"_s, "America/Jamaica"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aumel"_s, "Australia/Melbourne"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/Victoria"_s, "Australia/Melbourne"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("auldh"_s, "Australia/Lord_Howe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/LHI"_s, "Australia/Lord_Howe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bqkra"_s, "America/Kralendijk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("somgq"_s, "Africa/Mogadishu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mrnkc"_s, "Africa/Nouakchott"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("capnt"_s, "America/Pangnirtung"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("auldc"_s, "Australia/Lindeman"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("azbak"_s, "Asia/Baku"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cnurc"_s, "Asia/Urumqi"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Kashgar"_s, "Asia/Urumqi"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("shshn"_s, "Atlantic/St_Helena"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gtgua"_s, "America/Guatemala"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nglos"_s, "Africa/Lagos"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rukra"_s, "Asia/Krasnoyarsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pfgmr"_s, "Pacific/Gambier"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("yeade"_s, "Asia/Aden"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caybx"_s, "America/Blanc-Sablon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cahal"_s, "America/Halifax"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Atlantic"_s, "America/Halifax"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caycb"_s, "America/Cambridge_Bay"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cfbgf"_s, "Africa/Bangui"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("thbkk"_s, "Asia/Bangkok"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lccas"_s, "America/St_Lucia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usanc"_s, "America/Anchorage"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Alaska"_s, "America/Anchorage"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rsbeg"_s, "Europe/Belgrade"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqdav"_s, "Antarctica/Davis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uslax"_s, "America/Los_Angeles"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Pacific"_s, "America/Los_Angeles"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Pacific-New"_s, "America/Los_Angeles"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxmzt"_s, "America/Mazatlan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Mexico/BajaSur"_s, "America/Mazatlan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tkfko"_s, "Pacific/Fakaofo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("unk"_s, "Etc/Unknown"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usboi"_s, "America/Boise"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tcgdt"_s, "America/Grand_Turk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gygeo"_s, "America/Guyana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("dzalg"_s, "Africa/Algiers"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usmoc"_s, "America/Kentucky/Monticello"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("altia"_s, "Europe/Tirane"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("jesth"_s, "Europe/Jersey"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nlams"_s, "Europe/Amsterdam"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mmrgn"_s, "Asia/Rangoon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Yangon"_s, "Asia/Rangoon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kygec"_s, "America/Cayman"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("djjib"_s, "Africa/Djibouti"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bbbgi"_s, "America/Barbados"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("zmlun"_s, "Africa/Lusaka"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("esceu"_s, "Africa/Ceuta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxchi"_s, "America/Chihuahua"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nzcht"_s, "Pacific/Chatham"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("NZ-CHAT"_s, "Pacific/Chatham"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tvfun"_s, "Pacific/Funafuti"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("slfna"_s, "Africa/Freetown"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usmnm"_s, "America/Menominee"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("inccu"_s, "Asia/Calcutta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Kolkata"_s, "Asia/Calcutta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("plwaw"_s, "Europe/Warsaw"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Poland"_s, "Europe/Warsaw"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqsyw"_s, "Antarctica/Syowa"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arbue"_s, "America/Buenos_Aires"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Argentina/Buenos_Aires"_s, "America/Buenos_Aires"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mykul"_s, "Asia/Kuala_Lumpur"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rusred"_s, "Asia/Srednekolymsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxtij"_s, "America/Tijuana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Ensenada"_s, "America/Tijuana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Mexico/BajaNorte"_s, "America/Tijuana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rukvx"_s, "Europe/Kirov"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("hrzag"_s, "Europe/Zagreb"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("itrom"_s, "Europe/Rome"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("papty"_s, "America/Panama"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gqssg"_s, "Africa/Malabo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cuhav"_s, "America/Havana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Cuba"_s, "America/Havana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mnuln"_s, "Asia/Ulaanbaatar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Ulan_Bator"_s, "Asia/Ulaanbaatar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brpvh"_s, "America/Porto_Velho"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gblon"_s, "Europe/London"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Europe/Belfast"_s, "Europe/London"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("GB"_s, "Europe/London"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("GB-Eire"_s, "Europe/London"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gwoxb"_s, "Africa/Bissau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kipho"_s, "Pacific/Enderbury"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ttpos"_s, "America/Port_of_Spain"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ommct"_s, "Asia/Muscat"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lrmlw"_s, "Africa/Monrovia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("imdgs"_s, "Europe/Isle_of_Man"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("npktm"_s, "Asia/Katmandu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Kathmandu"_s, "Asia/Katmandu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("robuh"_s, "Europe/Bucharest"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rukuf"_s, "Europe/Samara"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("muplu"_s, "Indian/Mauritius"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aubne"_s, "Australia/Brisbane"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/Queensland"_s, "Australia/Brisbane"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mqfdf"_s, "America/Martinique"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aueuc"_s, "Australia/Eucla"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mlbko"_s, "Africa/Bamako"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Africa/Timbuktu"_s, "Africa/Bamako"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("audrw"_s, "Australia/Darwin"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/North"_s, "Australia/Darwin"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("asppg"_s, "Pacific/Pago_Pago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Pacific/Samoa"_s, "Pacific/Pago_Pago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Samoa"_s, "Pacific/Pago_Pago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lkcmb"_s, "Asia/Colombo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lvrix"_s, "Europe/Riga"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lbbey"_s, "Asia/Beirut"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sdkrt"_s, "Africa/Khartoum"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aganu"_s, "America/Antigua"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("frpar"_s, "Europe/Paris"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cmdla"_s, "Africa/Douala"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kwkwi"_s, "Asia/Kuwait"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("jptyo"_s, "Asia/Tokyo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Japan"_s, "Asia/Tokyo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kitrw"_s, "Pacific/Tarawa"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayyn"_s, "America/Swift_Current"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sttms"_s, "Africa/Sao_Tome"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("metgd"_s, "Europe/Podgorica"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bddac"_s, "Asia/Dhaka"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Dacca"_s, "Asia/Dhaka"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cator"_s, "America/Toronto"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Eastern"_s, "America/Toronto"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cgbzv"_s, "Africa/Brazzaville"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tldil"_s, "Asia/Dili"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("jeruslm"_s, "Asia/Jerusalem"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Tel_Aviv"_s, "Asia/Jerusalem"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Israel"_s, "Asia/Jerusalem"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gsgrv"_s, "Atlantic/South_Georgia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usyak"_s, "America/Yakutat"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brbvb"_s, "America/Boa_Vista"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utc"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/UCT"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/Universal"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Etc/Zulu"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("UCT"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("UTC"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Universal"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Zulu"_s, "Etc/UTC"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cdfih"_s, "Africa/Kinshasa"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("veccs"_s, "America/Caracas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bmbda"_s, "Atlantic/Bermuda"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("dmdom"_s, "America/Dominica"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mtmla"_s, "Europe/Malta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("idjkt"_s, "Asia/Jakarta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gaza"_s, "Asia/Gaza"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mwblz"_s, "Africa/Blantyre"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("msmni"_s, "America/Montserrat"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pyasu"_s, "America/Asuncion"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("khpnh"_s, "Asia/Phnom_Penh"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aubhq"_s, "Australia/Broken_Hill"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/Yancowinna"_s, "Australia/Broken_Hill"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("artuc"_s, "America/Argentina/Tucuman"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayxy"_s, "America/Whitehorse"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Yukon"_s, "America/Whitehorse"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lytip"_s, "Africa/Tripoli"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Libya"_s, "Africa/Tripoli"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("basjj"_s, "Europe/Sarajevo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("knbas"_s, "America/St_Kitts"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("smsai"_s, "Europe/San_Marino"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cnsha"_s, "Asia/Shanghai"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Chongqing"_s, "Asia/Shanghai"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Chungking"_s, "Asia/Shanghai"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Harbin"_s, "Asia/Shanghai"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("PRC"_s, "Asia/Shanghai"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arctc"_s, "America/Catamarca"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Argentina/Catamarca"_s, "America/Catamarca"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Argentina/ComodRivadavia"_s, "America/Catamarca"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lavte"_s, "Asia/Vientiane"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fmpni"_s, "Pacific/Ponape"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Pacific/Pohnpei"_s, "Pacific/Ponape"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tzdar"_s, "Africa/Dar_es_Salaam"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruvog"_s, "Europe/Volgograd"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ghacc"_s, "Africa/Accra"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("deber"_s, "Europe/Berlin"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cyfmg"_s, "Asia/Famagusta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bfoua"_s, "Africa/Ouagadougou"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruuly"_s, "Europe/Ulyanovsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("prsju"_s, "America/Puerto_Rico"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("auper"_s, "Australia/Perth"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/West"_s, "Australia/Perth"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayzf"_s, "America/Yellowknife"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mnhvd"_s, "Asia/Hovd"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sydam"_s, "Asia/Damascus"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ecgye"_s, "America/Guayaquil"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("eetll"_s, "Europe/Tallinn"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("braux"_s, "America/Araguaina"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nrinu"_s, "Pacific/Nauru"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ugkla"_s, "Africa/Kampala"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("zajnb"_s, "Africa/Johannesburg"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cayzs"_s, "America/Coral_Harbour"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Atikokan"_s, "America/Coral_Harbour"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxmam"_s, "America/Matamoros"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("totbu"_s, "Pacific/Tongatapu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("htpap"_s, "America/Port-au-Prince"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uslui"_s, "America/Louisville"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Kentucky/Louisville"_s, "America/Louisville"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("dkcph"_s, "Europe/Copenhagen"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usden"_s, "America/Denver"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Shiprock"_s, "America/Denver"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Navajo"_s, "America/Denver"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Mountain"_s, "America/Denver"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cccck"_s, "Indian/Cocos"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("eheai"_s, "Africa/El_Aaiun"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("hkhkg"_s, "Asia/Hong_Kong"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Hongkong"_s, "Asia/Hong_Kong"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usdet"_s, "America/Detroit"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Michigan"_s, "America/Detroit"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ptpdl"_s, "Atlantic/Azores"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sndkr"_s, "Africa/Dakar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ustel"_s, "America/Indiana/Tell_City"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pfnhv"_s, "Pacific/Marquesas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pelim"_s, "America/Lima"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("silju"_s, "Europe/Ljubljana"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usind"_s, "America/Indianapolis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Fort_Wayne"_s, "America/Indianapolis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Indiana/Indianapolis"_s, "America/Indianapolis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/East-Indiana"_s, "America/Indianapolis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bzbze"_s, "America/Belize"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("eslpa"_s, "Atlantic/Canary"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brssa"_s, "America/Bahia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzksn"_s, "Asia/Qostanay"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aedxb"_s, "Asia/Dubai"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqrot"_s, "Antarctica/Rothera"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("vavat"_s, "Europe/Vatican"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arush"_s, "America/Argentina/Ushuaia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("afkbl"_s, "Asia/Kabul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arcor"_s, "America/Cordoba"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Argentina/Cordoba"_s, "America/Cordoba"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Rosario"_s, "America/Cordoba"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("vcsvd"_s, "America/St_Vincent"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usnyc"_s, "America/New_York"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Eastern"_s, "America/New_York"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fkpsy"_s, "Atlantic/Stanley"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usndnsl"_s, "America/North_Dakota/New_Salem"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uswlz"_s, "America/Indiana/Winamac"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gigib"_s, "Europe/Gibraltar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brstm"_s, "America/Santarem"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bymsq"_s, "Europe/Minsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqplm"_s, "Antarctica/Palmer"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uaiev"_s, "Europe/Kiev"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kmyva"_s, "Indian/Comoro"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rutof"_s, "Asia/Tomsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("egcai"_s, "Africa/Cairo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Egypt"_s, "Africa/Cairo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxoji"_s, "America/Ojinaga"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("dosdq"_s, "America/Santo_Domingo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("sxphi"_s, "America/Lower_Princes"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kicxi"_s, "Pacific/Kiritimati"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bolpb"_s, "America/La_Paz"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mvmle"_s, "Indian/Maldives"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxmex"_s, "America/Mexico_City"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Mexico/General"_s, "America/Mexico_City"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ushnl"_s, "Pacific/Honolulu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Hawaii"_s, "Pacific/Honolulu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("casjf"_s, "America/St_Johns"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Newfoundland"_s, "America/St_Johns"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nzakl"_s, "Pacific/Auckland"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Antarctica/South_Pole"_s, "Pacific/Auckland"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("NZ"_s, "Pacific/Auckland"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mst7mdt"_s, "MST7MDT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mncoq"_s, "Asia/Choibalsan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ptfnc"_s, "Atlantic/Madeira"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("auadl"_s, "Australia/Adelaide"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/South"_s, "Australia/Adelaide"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("armdz"_s, "America/Mendoza"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Argentina/Mendoza"_s, "America/Mendoza"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pmmqc"_s, "America/Miquelon"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruchita"_s, "Asia/Chita"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ytmam"_s, "Indian/Mayotte"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxmid"_s, "America/Merida"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caiql"_s, "America/Iqaluit"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxcun"_s, "America/Cancun"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ummdy"_s, "Pacific/Midway"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arrgl"_s, "America/Argentina/Rio_Gallegos"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw10"_s, "Etc/GMT+10"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("HST"_s, "Etc/GMT+10"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brern"_s, "America/Eirunepe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw11"_s, "Etc/GMT+11"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw12"_s, "Etc/GMT+12"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("wfmau"_s, "Pacific/Wallis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lsmsu"_s, "Africa/Maseru"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brmao"_s, "America/Manaus"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Brazil/West"_s, "America/Manaus"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cdfbm"_s, "Africa/Lubumbashi"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nawdh"_s, "Africa/Windhoek"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bebru"_s, "Europe/Brussels"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzaau"_s, "Asia/Aqtau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("twtpe"_s, "Asia/Taipei"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ROC"_s, "Asia/Taipei"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw05"_s, "Etc/GMT+5"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("EST"_s, "Etc/GMT+5"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw06"_s, "Etc/GMT+6"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fihel"_s, "Europe/Helsinki"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("iedub"_s, "Europe/Dublin"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Eire"_s, "Europe/Dublin"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw07"_s, "Etc/GMT+7"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("MST"_s, "Etc/GMT+7"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw08"_s, "Etc/GMT+8"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw09"_s, "Etc/GMT+9"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw01"_s, "Etc/GMT+1"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pgpom"_s, "Pacific/Port_Moresby"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw02"_s, "Etc/GMT+2"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw03"_s, "Etc/GMT+3"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utcw04"_s, "Etc/GMT+4"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bgsof"_s, "Europe/Sofia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usknx"_s, "America/Indiana/Knox"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Knox_IN"_s, "America/Indiana/Knox"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Indiana-Starke"_s, "America/Indiana/Knox"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bsnas"_s, "America/Nassau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("clipc"_s, "Pacific/Easter"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Chile/EasterIsland"_s, "Pacific/Easter"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("clscl"_s, "America/Santiago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Chile/Continental"_s, "America/Santiago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqmaw"_s, "Antarctica/Mawson"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("isrey"_s, "Atlantic/Reykjavik"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Iceland"_s, "Atlantic/Reykjavik"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cathu"_s, "America/Thunder_Bay"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fotho"_s, "Atlantic/Faeroe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Atlantic/Faroe"_s, "Atlantic/Faeroe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ncnou"_s, "Pacific/Noumea"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("idpnk"_s, "Asia/Pontianak"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nenim"_s, "Africa/Niamey"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cagoo"_s, "America/Goose_Bay"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uauzh"_s, "Europe/Uzhgorod"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mhkwa"_s, "Pacific/Kwajalein"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Kwajalein"_s, "Pacific/Kwajalein"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("livdz"_s, "Europe/Vaduz"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruuus"_s, "Asia/Sakhalin"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brmcz"_s, "America/Maceio"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("zwhre"_s, "Africa/Harare"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("careb"_s, "America/Resolute"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rukhndg"_s, "Asia/Khandyga"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("careg"_s, "America/Regina"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/East-Saskatchewan"_s, "America/Regina"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Saskatchewan"_s, "America/Regina"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rupkc"_s, "Asia/Kamchatka"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arsla"_s, "America/Argentina/Salta"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mykch"_s, "Asia/Kuching"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tjdyu"_s, "Asia/Dushanbe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cafne"_s, "America/Fort_Nelson"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fjsuv"_s, "Pacific/Fiji"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pfppt"_s, "Pacific/Tahiti"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bibjm"_s, "Africa/Bujumbura"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqmcm"_s, "Antarctica/McMurdo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usmtm"_s, "America/Metlakatla"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uzskd"_s, "Asia/Samarkand"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cacfq"_s, "America/Creston"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ecgps"_s, "Pacific/Galapagos"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruvvo"_s, "Asia/Vladivostok"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqtrl"_s, "Antarctica/Troll"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usjnu"_s, "America/Juneau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cawnp"_s, "America/Winnipeg"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Central"_s, "America/Winnipeg"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kpfnj"_s, "Asia/Pyongyang"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzkzo"_s, "Asia/Qyzylorda"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("wsapw"_s, "Pacific/Apia"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uswsq"_s, "America/Indiana/Petersburg"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gncky"_s, "Africa/Conakry"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usxul"_s, "America/North_Dakota/Beulah"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rukgd"_s, "Europe/Kaliningrad"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tfpfr"_s, "Indian/Kerguelen"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce10"_s, "Etc/GMT-10"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce11"_s, "Etc/GMT-11"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mpspn"_s, "Pacific/Saipan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce12"_s, "Etc/GMT-12"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce13"_s, "Etc/GMT-13"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arirj"_s, "America/Argentina/La_Rioja"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aumqi"_s, "Antarctica/Macquarie"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce14"_s, "Etc/GMT-14"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ckrar"_s, "Pacific/Rarotonga"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arjuj"_s, "America/Jujuy"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Argentina/Jujuy"_s, "America/Jujuy"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aqvos"_s, "Antarctica/Vostok"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("momfm"_s, "Asia/Macau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Macao"_s, "Asia/Macau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ussit"_s, "America/Sitka"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rudyr"_s, "Asia/Anadyr"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aolad"_s, "Africa/Luanda"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruasf"_s, "Europe/Astrakhan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("adalv"_s, "Europe/Andorra"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rurtw"_s, "Europe/Saratov"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caedm"_s, "America/Edmonton"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Mountain"_s, "America/Edmonton"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce07"_s, "Etc/GMT-7"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("aukns"_s, "Australia/Currie"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce08"_s, "Etc/GMT-8"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce09"_s, "Etc/GMT-9"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caffs"_s, "America/Rainy_River"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("awaua"_s, "America/Aruba"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce01"_s, "Etc/GMT-1"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce02"_s, "Etc/GMT-2"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce03"_s, "Etc/GMT-3"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce04"_s, "Etc/GMT-4"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce05"_s, "Etc/GMT-5"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("utce06"_s, "Etc/GMT-6"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gfcay"_s, "America/Cayenne"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("irthr"_s, "Asia/Tehran"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Iran"_s, "Asia/Tehran"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("qadoh"_s, "Asia/Qatar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usoea"_s, "America/Indiana/Vincennes"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruoms"_s, "Asia/Omsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uaozh"_s, "Europe/Zaporozhye"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("iqbgw"_s, "Asia/Baghdad"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fimhq"_s, "Europe/Mariehamn"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("caglb"_s, "America/Glace_Bay"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("czprg"_s, "Europe/Prague"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzguw"_s, "Asia/Atyrau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruunera"_s, "Asia/Ust-Nera"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("erasm"_s, "Africa/Asmera"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Africa/Asmara"_s, "Africa/Asmera"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("pst8pdt"_s, "PST8PDT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cvrai"_s, "Atlantic/Cape_Verde"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mgtnr"_s, "Indian/Antananarivo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("atvie"_s, "Europe/Vienna"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bnbwn"_s, "Asia/Brunei"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gpbbr"_s, "America/Guadeloupe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("srpbm"_s, "America/Paramaribo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("btthi"_s, "Asia/Thimphu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Thimbu"_s, "Asia/Thimphu"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ancur"_s, "America/Curacao"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("fmtkk"_s, "Pacific/Truk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Pacific/Chuuk"_s, "Pacific/Truk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Pacific/Yap"_s, "Pacific/Truk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("galbv"_s, "Africa/Libreville"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("crsjo"_s, "America/Costa_Rica"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cst6cdt"_s, "CST6CDT"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ausyd"_s, "Australia/Sydney"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/ACT"_s, "Australia/Sydney"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/Canberra"_s, "Australia/Sydney"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Australia/NSW"_s, "Australia/Sydney"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzura"_s, "Asia/Oral"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("krsel"_s, "Asia/Seoul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ROK"_s, "Asia/Seoul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nfnlk"_s, "Pacific/Norfolk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rumow"_s, "Europe/Moscow"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("W-SU"_s, "Europe/Moscow"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("skbts"_s, "Europe/Bratislava"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gpsbh"_s, "America/St_Barthelemy"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("scmaw"_s, "Indian/Mahe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tdndj"_s, "Africa/Ndjamena"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bhbah"_s, "Asia/Bahrain"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mcmon"_s, "Europe/Monaco"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("hebron"_s, "Asia/Hebron"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxpvr"_s, "America/Bahia_Banderas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gmbjl"_s, "Africa/Banjul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brbel"_s, "America/Belem"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzakx"_s, "Asia/Aqtobe"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brcgr"_s, "America/Campo_Grande"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cavan"_s, "America/Vancouver"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Canada/Pacific"_s, "America/Vancouver"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("vgtov"_s, "America/Tortola"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("clpuq"_s, "America/Punta_Arenas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usndcnt"_s, "America/North_Dakota/Center"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mxstis"_s, "America/Santa_Isabel"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("phmnl"_s, "Asia/Manila"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("idmak"_s, "Asia/Makassar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Ujung_Pandang"_s, "Asia/Makassar"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kenbo"_s, "Africa/Nairobi"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brcgb"_s, "America/Cuiaba"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("hubud"_s, "Europe/Budapest"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("amevn"_s, "Asia/Yerevan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gdgnd"_s, "America/Grenada"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("arluq"_s, "America/Argentina/San_Luis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ruyek"_s, "Asia/Yekaterinburg"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tmasb"_s, "Asia/Ashgabat"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Ashkhabad"_s, "Asia/Ashgabat"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usaeg"_s, "America/Indiana/Marengo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("tntun"_s, "Africa/Tunis"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("runoz"_s, "Asia/Novokuznetsk"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("lulux"_s, "Europe/Luxembourg"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mdkiv"_s, "Europe/Chisinau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Europe/Tiraspol"_s, "Europe/Chisinau"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("trist"_s, "Europe/Istanbul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Asia/Istanbul"_s, "Europe/Istanbul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("Turkey"_s, "Europe/Istanbul"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("nuiue"_s, "Pacific/Niue"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brrec"_s, "America/Recife"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("kzala"_s, "Asia/Almaty"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("globy"_s, "America/Scoresbysund"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("debsngn"_s, "Europe/Busingen"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("uschi"_s, "America/Chicago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Central"_s, "America/Chicago"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("vuvli"_s, "Pacific/Efate"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("brfor"_s, "America/Fortaleza"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("cxxch"_s, "Indian/Christmas"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("noosl"_s, "Europe/Oslo"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("ciabj"_s, "Africa/Abidjan"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("bwgbe"_s, "Africa/Gaborone"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("mhmaj"_s, "Pacific/Majuro"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("macas"_s, "Africa/Casablanca"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usadk"_s, "America/Adak"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("America/Atka"_s, "America/Adak"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("US/Aleutian"_s, "America/Adak"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("saruh"_s, "Asia/Riyadh"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("usinvev"_s, "America/Indiana/Vevay"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("gggci"_s, "Europe/Guernsey"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("rereu"_s, "Indian/Reunion"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("getbs"_s, "Asia/Tbilisi"_s);
+		$nc(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::tzCanonicalIDMap)->put("umawk"_s, "Pacific/Wake"_s);
+	}
+}
+
+CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder() {
+}
+
+$Class* CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::load$($String* name, bool initialize) {
+	$loadClass(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder, name, initialize, &_CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder_ClassInfo_, clinit$CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder, allocate$CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder);
+	return class$;
+}
+
+$Class* CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder::class$ = nullptr;
+
+		} // cldr
+	} // util
+} // sun

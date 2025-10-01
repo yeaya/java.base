@@ -1,0 +1,78 @@
+#include <java/lang/invoke/VolatileCallSite.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $CallSite = ::java::lang::invoke::CallSite;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $MethodType = ::java::lang::invoke::MethodType;
+
+namespace java {
+	namespace lang {
+		namespace invoke {
+
+$MethodInfo _VolatileCallSite_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(static_cast<void(VolatileCallSite::*)($MethodType*)>(&VolatileCallSite::init$))},
+	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(static_cast<void(VolatileCallSite::*)($MethodHandle*)>(&VolatileCallSite::init$))},
+	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
+	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL},
+	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _VolatileCallSite_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.lang.invoke.VolatileCallSite",
+	"java.lang.invoke.CallSite",
+	nullptr,
+	nullptr,
+	_VolatileCallSite_MethodInfo_
+};
+
+$Object* allocate$VolatileCallSite($Class* clazz) {
+	return $of($alloc(VolatileCallSite));
+}
+
+void VolatileCallSite::init$($MethodType* type) {
+	$CallSite::init$(type);
+}
+
+void VolatileCallSite::init$($MethodHandle* target) {
+	$CallSite::init$(target);
+}
+
+$MethodHandle* VolatileCallSite::getTarget() {
+	return getTargetVolatile();
+}
+
+void VolatileCallSite::setTarget($MethodHandle* newTarget) {
+	setTargetVolatile(newTarget);
+}
+
+$MethodHandle* VolatileCallSite::dynamicInvoker() {
+	return makeDynamicInvoker();
+}
+
+VolatileCallSite::VolatileCallSite() {
+}
+
+$Class* VolatileCallSite::load$($String* name, bool initialize) {
+	$loadClass(VolatileCallSite, name, initialize, &_VolatileCallSite_ClassInfo_, allocate$VolatileCallSite);
+	return class$;
+}
+
+$Class* VolatileCallSite::class$ = nullptr;
+
+		} // invoke
+	} // lang
+} // java

@@ -1,0 +1,194 @@
+#ifndef _sun_util_locale_provider_HostLocaleProviderAdapterImpl_h_
+#define _sun_util_locale_provider_HostLocaleProviderAdapterImpl_h_
+//$ class sun.util.locale.provider.HostLocaleProviderAdapterImpl
+//$ extends java.lang.Object
+
+#include <java/lang/Array.h>
+
+#pragma push_macro("NF_CURRENCY")
+#undef NF_CURRENCY
+#pragma push_macro("DN_LOCALE_LANGUAGE")
+#undef DN_LOCALE_LANGUAGE
+#pragma push_macro("NF_PERCENT")
+#undef NF_PERCENT
+#pragma push_macro("DN_CURRENCY_NAME")
+#undef DN_CURRENCY_NAME
+#pragma push_macro("DN_LOCALE_REGION")
+#undef DN_LOCALE_REGION
+#pragma push_macro("CAL_JAPAN")
+#undef CAL_JAPAN
+#pragma push_macro("CD_FIRSTDAYOFWEEK")
+#undef CD_FIRSTDAYOFWEEK
+#pragma push_macro("CAT_DISPLAY")
+#undef CAT_DISPLAY
+#pragma push_macro("NF_INTEGER")
+#undef NF_INTEGER
+#pragma push_macro("DN_LOCALE_SCRIPT")
+#undef DN_LOCALE_SCRIPT
+#pragma push_macro("DN_CURRENCY_SYMBOL")
+#undef DN_CURRENCY_SYMBOL
+#pragma push_macro("NF_NUMBER")
+#undef NF_NUMBER
+#pragma push_macro("NF_MAX")
+#undef NF_MAX
+#pragma push_macro("CAT_FORMAT")
+#undef CAT_FORMAT
+#pragma push_macro("DN_LOCALE_VARIANT")
+#undef DN_LOCALE_VARIANT
+#pragma push_macro("CD_FIRSTWEEKOFYEAR")
+#undef CD_FIRSTWEEKOFYEAR
+
+namespace java {
+	namespace text {
+		namespace spi {
+			class DateFormatProvider;
+			class DateFormatSymbolsProvider;
+			class DecimalFormatSymbolsProvider;
+			class NumberFormatProvider;
+		}
+	}
+}
+namespace java {
+	namespace util {
+		class Locale;
+		class Set;
+	}
+}
+namespace java {
+	namespace util {
+		namespace concurrent {
+			class ConcurrentMap;
+		}
+	}
+}
+namespace java {
+	namespace util {
+		namespace spi {
+			class CalendarDataProvider;
+			class CalendarNameProvider;
+			class CurrencyNameProvider;
+			class LocaleNameProvider;
+		}
+	}
+}
+namespace sun {
+	namespace text {
+		namespace spi {
+			class JavaTimeDateTimePatternProvider;
+		}
+	}
+}
+namespace sun {
+	namespace util {
+		namespace spi {
+			class CalendarProvider;
+		}
+	}
+}
+
+namespace sun {
+	namespace util {
+		namespace locale {
+			namespace provider {
+
+class $import HostLocaleProviderAdapterImpl : public ::java::lang::Object {
+	$class(HostLocaleProviderAdapterImpl, 0, ::java::lang::Object)
+public:
+	HostLocaleProviderAdapterImpl();
+	void init$();
+	static $String* convertDateTimePattern($String* winPattern);
+	static $StringArray* getAmPmStrings($String* langTag, $StringArray* ampm);
+	static ::java::util::spi::CalendarDataProvider* getCalendarDataProvider();
+	static int32_t getCalendarDataValue($String* langTag, int32_t type);
+	static $StringArray* getCalendarDisplayStrings($String* langTag, int32_t calid, int32_t field, int32_t style);
+	static int32_t getCalendarID($String* langTag);
+	static int32_t getCalendarIDFromLDMLType($String* ldmlType);
+	static ::java::util::Locale* getCalendarLocale(::java::util::Locale* locale);
+	static ::java::util::spi::CalendarNameProvider* getCalendarNameProvider();
+	static ::sun::util::spi::CalendarProvider* getCalendarProvider();
+	static ::java::util::spi::CurrencyNameProvider* getCurrencyNameProvider();
+	static $String* getCurrencySymbol($String* langTag, $String* currencySymbol);
+	static ::java::text::spi::DateFormatProvider* getDateFormatProvider();
+	static ::java::text::spi::DateFormatSymbolsProvider* getDateFormatSymbolsProvider();
+	static $String* getDateTimePattern(int32_t dateStyle, int32_t timeStyle, $String* langTag);
+	static ::java::text::spi::DecimalFormatSymbolsProvider* getDecimalFormatSymbolsProvider();
+	static char16_t getDecimalSeparator($String* langTag, char16_t decimalSeparator);
+	static $String* getDefaultLocale(int32_t cat);
+	static $String* getDisplayString($String* langTag, int32_t key, $String* value);
+	static $StringArray* getEras($String* langTag, $StringArray* eras);
+	static char16_t getGroupingSeparator($String* langTag, char16_t groupingSeparator);
+	static $String* getInfinity($String* langTag, $String* infinity);
+	static $String* getInternationalCurrencySymbol($String* langTag, $String* internationalCurrencySymbol);
+	static ::sun::text::spi::JavaTimeDateTimePatternProvider* getJavaTimeDateTimePatternProvider();
+	static ::java::util::spi::LocaleNameProvider* getLocaleNameProvider();
+	static char16_t getMinusSign($String* langTag, char16_t minusSign);
+	static char16_t getMonetaryDecimalSeparator($String* langTag, char16_t monetaryDecimalSeparator);
+	static $StringArray* getMonths($String* langTag, $StringArray* months);
+	static $String* getNaN($String* langTag, $String* nan);
+	static ::java::text::spi::NumberFormatProvider* getNumberFormatProvider();
+	static ::java::util::Locale* getNumberLocale(::java::util::Locale* src);
+	static $String* getNumberPattern(int32_t numberStyle, $String* langTag);
+	static char16_t getPerMill($String* langTag, char16_t perMill);
+	static char16_t getPercent($String* langTag, char16_t percent);
+	static $StringArray* getShortMonths($String* langTag, $StringArray* smonths);
+	static $StringArray* getShortWeekdays($String* langTag, $StringArray* swdays);
+	static $Array<::java::util::Locale>* getSupportedCalendarLocales();
+	static $Array<::java::util::Locale>* getSupportedNativeDigitLocales();
+	static $StringArray* getWeekdays($String* langTag, $StringArray* wdays);
+	static char16_t getZeroDigit($String* langTag, char16_t zeroDigit);
+	static bool initialize();
+	static bool isJapaneseCalendar();
+	static bool isNativeDigit($String* langTag);
+	static bool isSupportedCalendarLocale(::java::util::Locale* locale);
+	static bool isSupportedNativeDigitLocale(::java::util::Locale* locale);
+	static ::java::util::Locale* removeExtensions(::java::util::Locale* src);
+	static ::java::util::Locale* stripVariantAndExtensions(::java::util::Locale* locale);
+	static const int32_t CAT_DISPLAY = 0;
+	static const int32_t CAT_FORMAT = 1;
+	static const int32_t NF_NUMBER = 0;
+	static const int32_t NF_CURRENCY = 1;
+	static const int32_t NF_PERCENT = 2;
+	static const int32_t NF_INTEGER = 3;
+	static const int32_t NF_MAX = NF_INTEGER;
+	static const int32_t CD_FIRSTDAYOFWEEK = 0;
+	static const int32_t CD_FIRSTWEEKOFYEAR = 1;
+	static const int32_t DN_CURRENCY_NAME = 0;
+	static const int32_t DN_CURRENCY_SYMBOL = 1;
+	static const int32_t DN_LOCALE_LANGUAGE = 2;
+	static const int32_t DN_LOCALE_SCRIPT = 3;
+	static const int32_t DN_LOCALE_REGION = 4;
+	static const int32_t DN_LOCALE_VARIANT = 5;
+	static const int32_t CAL_JAPAN = 3;
+	static $StringArray* calIDToLDML;
+	static ::java::util::concurrent::ConcurrentMap* dateFormatCache;
+	static ::java::util::concurrent::ConcurrentMap* dateFormatSymbolsCache;
+	static ::java::util::concurrent::ConcurrentMap* numberFormatCache;
+	static ::java::util::concurrent::ConcurrentMap* decimalFormatSymbolsCache;
+	static ::java::util::Set* supportedLocaleSet;
+	static $String* nativeDisplayLanguage;
+	static $Array<::java::util::Locale>* supportedLocale;
+};
+
+			} // provider
+		} // locale
+	} // util
+} // sun
+
+#pragma pop_macro("NF_CURRENCY")
+#pragma pop_macro("DN_LOCALE_LANGUAGE")
+#pragma pop_macro("NF_PERCENT")
+#pragma pop_macro("DN_CURRENCY_NAME")
+#pragma pop_macro("DN_LOCALE_REGION")
+#pragma pop_macro("CAL_JAPAN")
+#pragma pop_macro("CD_FIRSTDAYOFWEEK")
+#pragma pop_macro("CAT_DISPLAY")
+#pragma pop_macro("NF_INTEGER")
+#pragma pop_macro("DN_LOCALE_SCRIPT")
+#pragma pop_macro("DN_CURRENCY_SYMBOL")
+#pragma pop_macro("NF_NUMBER")
+#pragma pop_macro("NF_MAX")
+#pragma pop_macro("CAT_FORMAT")
+#pragma pop_macro("DN_LOCALE_VARIANT")
+#pragma pop_macro("CD_FIRSTWEEKOFYEAR")
+
+#endif // _sun_util_locale_provider_HostLocaleProviderAdapterImpl_h_

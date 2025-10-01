@@ -1,0 +1,57 @@
+#include <GetDefaultPort.h>
+
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/net/URL.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
+
+$MethodInfo _GetDefaultPort_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetDefaultPort::*)()>(&GetDefaultPort::init$))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetDefaultPort::main)), "java.lang.Exception"},
+	{}
+};
+
+$ClassInfo _GetDefaultPort_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"GetDefaultPort",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_GetDefaultPort_MethodInfo_
+};
+
+$Object* allocate$GetDefaultPort($Class* clazz) {
+	return $of($alloc(GetDefaultPort));
+}
+
+void GetDefaultPort::init$() {
+}
+
+void GetDefaultPort::main($StringArray* args) {
+	int32_t p = 0;
+	$var($URL, url, $new($URL, "http://www.sun.com"_s));
+	if ((p = url->getDefaultPort()) != 80) {
+		$throwNew($Exception, $$str({"getDefaultPort returned wrong value: "_s, $$str(p)}));
+	}
+}
+
+GetDefaultPort::GetDefaultPort() {
+}
+
+$Class* GetDefaultPort::load$($String* name, bool initialize) {
+	$loadClass(GetDefaultPort, name, initialize, &_GetDefaultPort_ClassInfo_, allocate$GetDefaultPort);
+	return class$;
+}
+
+$Class* GetDefaultPort::class$ = nullptr;

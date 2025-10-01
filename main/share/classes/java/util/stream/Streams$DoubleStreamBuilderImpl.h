@@ -1,0 +1,95 @@
+#ifndef _java_util_stream_Streams$DoubleStreamBuilderImpl_h_
+#define _java_util_stream_Streams$DoubleStreamBuilderImpl_h_
+//$ class java.util.stream.Streams$DoubleStreamBuilderImpl
+//$ extends java.util.stream.Streams$AbstractStreamBuilderImpl
+//$ implements java.util.stream.DoubleStream$Builder,java.util.Spliterator$OfDouble
+
+#include <java/util/Spliterator$OfDouble.h>
+#include <java/util/stream/DoubleStream$Builder.h>
+#include <java/util/stream/Streams$AbstractStreamBuilderImpl.h>
+
+namespace java {
+	namespace util {
+		class Spliterator;
+	}
+}
+namespace java {
+	namespace util {
+		namespace function {
+			class DoubleConsumer;
+		}
+	}
+}
+namespace java {
+	namespace util {
+		namespace stream {
+			class DoubleStream;
+			class SpinedBuffer$OfDouble;
+		}
+	}
+}
+
+namespace java {
+	namespace util {
+		namespace stream {
+
+class Streams$DoubleStreamBuilderImpl : public ::java::util::stream::Streams$AbstractStreamBuilderImpl, public ::java::util::stream::DoubleStream$Builder {
+	$class(Streams$DoubleStreamBuilderImpl, $NO_CLASS_INIT, ::java::util::stream::Streams$AbstractStreamBuilderImpl, ::java::util::stream::DoubleStream$Builder, ::java::util::Spliterator$OfDouble)
+public:
+	Streams$DoubleStreamBuilderImpl();
+	virtual ::java::lang::Object0* toObject0$() const override {return (::java::lang::Object0*)(void*)this;}
+	virtual int32_t characteristics() override;
+	virtual $Object* clone() override;
+	virtual bool equals(Object$* obj) override;
+	virtual int64_t estimateSize() override;
+	virtual void finalize() override;
+	virtual void forEachRemaining(::java::util::function::Consumer* action) override;
+	virtual ::java::util::Comparator* getComparator() override;
+	virtual int64_t getExactSizeIfKnown() override;
+	virtual bool hasCharacteristics(int32_t characteristics) override;
+	virtual int32_t hashCode() override;
+	void init$();
+	void init$(double t);
+	virtual void accept(double t) override;
+	virtual ::java::util::stream::DoubleStream* build() override;
+	void forEachRemaining(::java::util::function::DoubleConsumer* action);
+	void forEachRemaining(Object$* action);
+	virtual $String* toString() override;
+	virtual bool tryAdvance(::java::util::function::Consumer* action) override;
+	bool tryAdvance(::java::util::function::DoubleConsumer* action);
+	bool tryAdvance(Object$* action);
+	virtual ::java::util::Spliterator* trySplit() override;
+	class MemberClass0$ : public ::java::util::Spliterator$OfDouble {
+	public:
+		virtual ::java::lang::Object0* toObject0$() const override;
+		virtual ::java::util::Spliterator$OfDouble* trySplit() override;
+		virtual bool tryAdvance(::java::util::function::DoubleConsumer* action) override;
+		virtual void forEachRemaining(::java::util::function::DoubleConsumer* action) override;
+		virtual bool tryAdvance(::java::util::function::Consumer* action) override;
+		virtual void forEachRemaining(::java::util::function::Consumer* action) override;
+		virtual void forEachRemaining(Object$* action) override;
+		virtual bool tryAdvance(Object$* action) override;
+		virtual int64_t estimateSize() override;
+		virtual int64_t getExactSizeIfKnown() override;
+		virtual int32_t characteristics() override;
+		virtual bool hasCharacteristics(int32_t characteristics) override;
+		virtual ::java::util::Comparator* getComparator() override;
+		virtual int32_t hashCode() override;
+		virtual bool equals(Object$* obj) override;
+		virtual $Object* clone() override;
+		virtual $String* toString() override;
+		virtual void finalize() override;
+	};
+	MemberClass0$ memberClass0$;
+	::java::util::Spliterator$OfDouble* as$(::java::util::Spliterator$OfDouble*) {
+		return &memberClass0$;
+	}
+	double first = 0.0;
+	::java::util::stream::SpinedBuffer$OfDouble* buffer = nullptr;
+};
+
+		} // stream
+	} // util
+} // java
+
+#endif // _java_util_stream_Streams$DoubleStreamBuilderImpl_h_

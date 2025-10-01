@@ -1,0 +1,383 @@
+#include <GetCallerClassTest.h>
+
+#include <GetCallerClassTest$1.h>
+#include <GetCallerClassTest$InnerClassCaller.h>
+#include <GetCallerClassTest$LambdaTest.h>
+#include <GetCallerClassTest$Nested$NestedClassCaller.h>
+#include <GetCallerClassTest$Nested.h>
+#include <GetCallerClassTest$ReflectionTest.h>
+#include <GetCallerClassTest$TopLevelCaller.h>
+#include <java/io/PrintStream.h>
+#include <java/io/Serializable.h>
+#include <java/lang/Array.h>
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/Enum.h>
+#include <java/lang/Exception.h>
+#include <java/lang/FieldInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/InterruptedException.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/NullPointerException.h>
+#include <java/lang/Runnable.h>
+#include <java/lang/RuntimeException.h>
+#include <java/lang/RuntimePermission.h>
+#include <java/lang/SecurityManager.h>
+#include <java/lang/StackWalker$Option.h>
+#include <java/lang/StackWalker.h>
+#include <java/lang/String.h>
+#include <java/lang/System.h>
+#include <java/lang/Thread.h>
+#include <java/lang/Throwable.h>
+#include <java/lang/UnsupportedOperationException.h>
+#include <java/lang/Void.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/invoke/MethodHandles.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/BasicPermission.h>
+#include <java/security/Permission.h>
+#include <java/security/PermissionCollection.h>
+#include <java/security/Permissions.h>
+#include <java/security/Policy.h>
+#include <java/util/AbstractSet.h>
+#include <java/util/Arrays.h>
+#include <java/util/EnumSet.h>
+#include <java/util/List.h>
+#include <java/util/Set.h>
+#include <java/util/function/Consumer.h>
+#include <java/util/stream/Stream.h>
+#include <jcpp.h>
+
+#undef SHOW_HIDDEN_FRAMES
+#undef DEFAULT_POLICY
+#undef RETAIN_CLASS_REFERENCE
+
+using $GetCallerClassTest$1 = ::GetCallerClassTest$1;
+using $GetCallerClassTest$InnerClassCaller = ::GetCallerClassTest$InnerClassCaller;
+using $GetCallerClassTest$LambdaTest = ::GetCallerClassTest$LambdaTest;
+using $GetCallerClassTest$Nested = ::GetCallerClassTest$Nested;
+using $GetCallerClassTest$Nested$NestedClassCaller = ::GetCallerClassTest$Nested$NestedClassCaller;
+using $GetCallerClassTest$ReflectionTest = ::GetCallerClassTest$ReflectionTest;
+using $GetCallerClassTest$TopLevelCaller = ::GetCallerClassTest$TopLevelCaller;
+using $ThreadArray = $Array<::java::lang::Thread>;
+using $PrintStream = ::java::io::PrintStream;
+using $Serializable = ::java::io::Serializable;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Enum = ::java::lang::Enum;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $InterruptedException = ::java::lang::InterruptedException;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NullPointerException = ::java::lang::NullPointerException;
+using $Runnable = ::java::lang::Runnable;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $RuntimePermission = ::java::lang::RuntimePermission;
+using $SecurityManager = ::java::lang::SecurityManager;
+using $StackWalker = ::java::lang::StackWalker;
+using $StackWalker$Option = ::java::lang::StackWalker$Option;
+using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $Void = ::java::lang::Void;
+using $CallSite = ::java::lang::invoke::CallSite;
+using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $MethodHandles = ::java::lang::invoke::MethodHandles;
+using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
+using $MethodType = ::java::lang::invoke::MethodType;
+using $Method = ::java::lang::reflect::Method;
+using $BasicPermission = ::java::security::BasicPermission;
+using $Permission = ::java::security::Permission;
+using $PermissionCollection = ::java::security::PermissionCollection;
+using $Permissions = ::java::security::Permissions;
+using $Policy = ::java::security::Policy;
+using $AbstractSet = ::java::util::AbstractSet;
+using $Arrays = ::java::util::Arrays;
+using $Collection = ::java::util::Collection;
+using $EnumSet = ::java::util::EnumSet;
+using $List = ::java::util::List;
+using $Set = ::java::util::Set;
+using $Consumer = ::java::util::function::Consumer;
+using $Stream = ::java::util::stream::Stream;
+
+class GetCallerClassTest$$Lambda$start : public $Consumer {
+	$class(GetCallerClassTest$$Lambda$start, $NO_CLASS_INIT, $Consumer)
+public:
+	void init$() {
+	}
+	virtual void accept(Object$* inst$) override {
+		$sure($Thread, inst$)->start();
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<GetCallerClassTest$$Lambda$start>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo GetCallerClassTest$$Lambda$start::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest$$Lambda$start::*)()>(&GetCallerClassTest$$Lambda$start::init$))},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo GetCallerClassTest$$Lambda$start::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"GetCallerClassTest$$Lambda$start",
+	"java.lang.Object",
+	"java.util.function.Consumer",
+	nullptr,
+	methodInfos
+};
+$Class* GetCallerClassTest$$Lambda$start::load$($String* name, bool initialize) {
+	$loadClass(GetCallerClassTest$$Lambda$start, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* GetCallerClassTest$$Lambda$start::class$ = nullptr;
+
+class GetCallerClassTest$$Lambda$lambda$test$0$1 : public $Consumer {
+	$class(GetCallerClassTest$$Lambda$lambda$test$0$1, $NO_CLASS_INIT, $Consumer)
+public:
+	void init$() {
+	}
+	virtual void accept(Object$* t) override {
+		GetCallerClassTest::lambda$test$0($cast($Thread, t));
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<GetCallerClassTest$$Lambda$lambda$test$0$1>());
+	}
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$MethodInfo GetCallerClassTest$$Lambda$lambda$test$0$1::methodInfos[3] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest$$Lambda$lambda$test$0$1::*)()>(&GetCallerClassTest$$Lambda$lambda$test$0$1::init$))},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{}
+};
+$ClassInfo GetCallerClassTest$$Lambda$lambda$test$0$1::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"GetCallerClassTest$$Lambda$lambda$test$0$1",
+	"java.lang.Object",
+	"java.util.function.Consumer",
+	nullptr,
+	methodInfos
+};
+$Class* GetCallerClassTest$$Lambda$lambda$test$0$1::load$($String* name, bool initialize) {
+	$loadClass(GetCallerClassTest$$Lambda$lambda$test$0$1, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* GetCallerClassTest$$Lambda$lambda$test$0$1::class$ = nullptr;
+
+$FieldInfo _GetCallerClassTest_FieldInfo_[] = {
+	{"DEFAULT_POLICY", "Ljava/security/Policy;", nullptr, $STATIC | $FINAL, $staticField(GetCallerClassTest, DEFAULT_POLICY)},
+	{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(GetCallerClassTest, walker)},
+	{"expectUOE", "Z", nullptr, $PRIVATE | $FINAL, $field(GetCallerClassTest, expectUOE)},
+	{}
+};
+
+$MethodInfo _GetCallerClassTest_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/StackWalker;Z)V", nullptr, $PUBLIC, $method(static_cast<void(GetCallerClassTest::*)($StackWalker*,bool)>(&GetCallerClassTest::init$))},
+	{"assertEquals", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Class*,$Class*)>(&GetCallerClassTest::assertEquals))},
+	{"causeIsUOE", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Throwable*)>(&GetCallerClassTest::causeIsUOE))},
+	{"lambda$test$0", "(Ljava/lang/Thread;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Thread*)>(&GetCallerClassTest::lambda$test$0))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&GetCallerClassTest::main)), "java.lang.Exception"},
+	{"methodHandleGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($StackWalker*,$Class*,bool)>(&GetCallerClassTest::methodHandleGetCallerClass))},
+	{"reflectiveGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($StackWalker*,$Class*,bool)>(&GetCallerClassTest::reflectiveGetCallerClass))},
+	{"staticGetCallerClass", "(Ljava/lang/StackWalker;Ljava/lang/Class;Z)V", "(Ljava/lang/StackWalker;Ljava/lang/Class<*>;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($StackWalker*,$Class*,bool)>(&GetCallerClassTest::staticGetCallerClass))},
+	{"test", "()V", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _GetCallerClassTest_InnerClassesInfo_[] = {
+	{"GetCallerClassTest$ReflectionTest", "GetCallerClassTest", "ReflectionTest", 0},
+	{"GetCallerClassTest$InnerClassCaller", "GetCallerClassTest", "InnerClassCaller", 0},
+	{"GetCallerClassTest$Nested", "GetCallerClassTest", "Nested", 0},
+	{"GetCallerClassTest$LambdaTest", "GetCallerClassTest", "LambdaTest", 0},
+	{"GetCallerClassTest$TopLevelCaller", "GetCallerClassTest", "TopLevelCaller", 0},
+	{"GetCallerClassTest$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _GetCallerClassTest_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"GetCallerClassTest",
+	"java.lang.Object",
+	nullptr,
+	_GetCallerClassTest_FieldInfo_,
+	_GetCallerClassTest_MethodInfo_,
+	nullptr,
+	nullptr,
+	_GetCallerClassTest_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"GetCallerClassTest$ReflectionTest,GetCallerClassTest$InnerClassCaller,GetCallerClassTest$InnerClassCaller$Inner,GetCallerClassTest$Nested,GetCallerClassTest$Nested$NestedClassCaller,GetCallerClassTest$LambdaTest,GetCallerClassTest$TopLevelCaller,GetCallerClassTest$1"
+};
+
+$Object* allocate$GetCallerClassTest($Class* clazz) {
+	return $of($alloc(GetCallerClassTest));
+}
+
+$Policy* GetCallerClassTest::DEFAULT_POLICY = nullptr;
+
+void GetCallerClassTest::init$($StackWalker* sw, bool expect) {
+	$set(this, walker, sw);
+	this->expectUOE = expect;
+}
+
+void GetCallerClassTest::main($StringArray* args) {
+	$init(GetCallerClassTest);
+	$beforeCallerSensitive();
+	if ($nc(args)->length > 0 && $nc(args->get(0))->equals("sm"_s)) {
+		$var($PermissionCollection, perms, $new($Permissions));
+		perms->add($$new($RuntimePermission, "getStackWalkerWithClassReference"_s));
+		$Policy::setPolicy($$new($GetCallerClassTest$1, perms));
+		$System::setSecurityManager($$new($SecurityManager));
+	}
+	$$new(GetCallerClassTest, $($StackWalker::getInstance()), true)->test();
+	$init($StackWalker$Option);
+	$$new(GetCallerClassTest, $($StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE)), false)->test();
+	$$new(GetCallerClassTest, $($StackWalker::getInstance($(static_cast<$Set*>($EnumSet::of(static_cast<$Enum*>($StackWalker$Option::RETAIN_CLASS_REFERENCE), static_cast<$Enum*>($StackWalker$Option::SHOW_HIDDEN_FRAMES)))))), false)->test();
+}
+
+void GetCallerClassTest::test() {
+	$$new($GetCallerClassTest$TopLevelCaller, this)->run();
+	$$new($GetCallerClassTest$LambdaTest, this)->run();
+	$nc($($$new($GetCallerClassTest$Nested, this)->createNestedCaller()))->run();
+	$$new($GetCallerClassTest$InnerClassCaller, this)->run();
+	$$new($GetCallerClassTest$ReflectionTest, this)->run();
+	$var($List, threads, $Arrays::asList($$new($ThreadArray, {
+		$$new($Thread, static_cast<$Runnable*>($$new($GetCallerClassTest$TopLevelCaller, this))),
+		$$new($Thread, static_cast<$Runnable*>($$new($GetCallerClassTest$LambdaTest, this))),
+		$$new($Thread, $(static_cast<$Runnable*>($$new($GetCallerClassTest$Nested, this)->createNestedCaller()))),
+		$$new($Thread, static_cast<$Runnable*>($$new($GetCallerClassTest$InnerClassCaller, this))),
+		$$new($Thread, static_cast<$Runnable*>($$new($GetCallerClassTest$ReflectionTest, this)))
+	})));
+	$nc($($nc(threads)->stream()))->forEach(static_cast<$Consumer*>($$new(GetCallerClassTest$$Lambda$start)));
+	$nc($(threads->stream()))->forEach(static_cast<$Consumer*>($$new(GetCallerClassTest$$Lambda$lambda$test$0$1)));
+}
+
+void GetCallerClassTest::staticGetCallerClass($StackWalker* stackWalker, $Class* expected, bool expectUOE) {
+	$init(GetCallerClassTest);
+	$beforeCallerSensitive();
+	try {
+		$Class* c = $nc(stackWalker)->getCallerClass();
+		assertEquals(c, expected);
+		if (expectUOE) {
+			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
+		}
+	} catch ($RuntimeException&) {
+		$var($RuntimeException, e, $catch());
+		if (expectUOE && causeIsUOE(e)) {
+			return;
+		}
+		$init($System);
+		$nc($System::err)->println("Unexpected exception:"_s);
+		$throw(e);
+	}
+}
+
+void GetCallerClassTest::reflectiveGetCallerClass($StackWalker* stackWalker, $Class* expected, bool expectUOE) {
+	$init(GetCallerClassTest);
+	$beforeCallerSensitive();
+	try {
+		$load($StackWalker);
+		$var($Method, m, $StackWalker::class$->getMethod("getCallerClass"_s, $$new($ClassArray, 0)));
+		$Class* c = $cast($Class, $nc(m)->invoke(stackWalker, $$new($ObjectArray, 0)));
+		assertEquals(c, expected);
+		if (expectUOE) {
+			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
+		}
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		if (expectUOE && causeIsUOE(e)) {
+			return;
+		}
+		$init($System);
+		$nc($System::err)->println("Unexpected exception:"_s);
+		$throwNew($RuntimeException, e);
+	}
+}
+
+void GetCallerClassTest::methodHandleGetCallerClass($StackWalker* stackWalker, $Class* expected, bool expectUOE) {
+	$init(GetCallerClassTest);
+	$beforeCallerSensitive();
+	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
+	try {
+		$load($StackWalker);
+		$load($Class);
+		$var($MethodHandle, mh, $nc(lookup)->findVirtual($StackWalker::class$, "getCallerClass"_s, $($MethodType::methodType($Class::class$))));
+		$Class* c = $cast($Class, $nc(mh)->invokeExact($$new($ObjectArray, {$of(stackWalker)})));
+		assertEquals(c, expected);
+		if (expectUOE) {
+			$throwNew($RuntimeException, "Didn\'t get expected exception"_s);
+		}
+	} catch ($Throwable&) {
+		$var($Throwable, e, $catch());
+		if (expectUOE && causeIsUOE(e)) {
+			return;
+		}
+		$init($System);
+		$nc($System::err)->println("Unexpected exception:"_s);
+		$throwNew($RuntimeException, e);
+	}
+}
+
+void GetCallerClassTest::assertEquals($Class* c, $Class* expected) {
+	$init(GetCallerClassTest);
+	$beforeCallerSensitive();
+	if (expected != c) {
+		if ($nc(c)->getNestHost() == $nc(expected)->getNestHost()) {
+			$init($System);
+			$var($String, var$0, $$str({"Got "_s, c, ", expected "_s, expected, ", nestHost "_s}));
+			$nc($System::out)->println($$concat(var$0, $(c->getNestHost())));
+			return;
+		}
+		$throwNew($RuntimeException, $$str({"Got "_s, c, ", but expected "_s, expected}));
+	}
+}
+
+bool GetCallerClassTest::causeIsUOE($Throwable* t$renamed) {
+	$init(GetCallerClassTest);
+	$var($Throwable, t, t$renamed);
+	while (t != nullptr) {
+		if ($instanceOf($UnsupportedOperationException, t)) {
+			return true;
+		}
+		$assign(t, t->getCause());
+	}
+	return false;
+}
+
+void GetCallerClassTest::lambda$test$0($Thread* t) {
+	$init(GetCallerClassTest);
+	try {
+		$nc(t)->join();
+	} catch ($InterruptedException&) {
+		$var($InterruptedException, e, $catch());
+		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+	}
+}
+
+void clinit$GetCallerClassTest($Class* class$) {
+	$assignStatic(GetCallerClassTest::DEFAULT_POLICY, $Policy::getPolicy());
+}
+
+GetCallerClassTest::GetCallerClassTest() {
+}
+
+$Class* GetCallerClassTest::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(GetCallerClassTest$$Lambda$start::classInfo$.name)) {
+			return GetCallerClassTest$$Lambda$start::load$(name, initialize);
+		}
+		if (name->equals(GetCallerClassTest$$Lambda$lambda$test$0$1::classInfo$.name)) {
+			return GetCallerClassTest$$Lambda$lambda$test$0$1::load$(name, initialize);
+		}
+	}
+	$loadClass(GetCallerClassTest, name, initialize, &_GetCallerClassTest_ClassInfo_, clinit$GetCallerClassTest, allocate$GetCallerClassTest);
+	return class$;
+}
+
+$Class* GetCallerClassTest::class$ = nullptr;

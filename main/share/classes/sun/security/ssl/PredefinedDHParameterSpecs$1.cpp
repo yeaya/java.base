@@ -1,0 +1,83 @@
+#include <sun/security/ssl/PredefinedDHParameterSpecs$1.h>
+
+#include <java/lang/Class.h>
+#include <java/lang/ClassInfo.h>
+#include <java/lang/EnclosingMethodInfo.h>
+#include <java/lang/InnerClassInfo.h>
+#include <java/lang/MethodInfo.h>
+#include <java/lang/String.h>
+#include <java/lang/reflect/Constructor.h>
+#include <java/lang/reflect/Method.h>
+#include <java/security/Security.h>
+#include <sun/security/ssl/PredefinedDHParameterSpecs.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $PrivilegedAction = ::java::security::PrivilegedAction;
+using $Security = ::java::security::Security;
+using $PredefinedDHParameterSpecs = ::sun::security::ssl::PredefinedDHParameterSpecs;
+
+namespace sun {
+	namespace security {
+		namespace ssl {
+
+$MethodInfo _PredefinedDHParameterSpecs$1_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PredefinedDHParameterSpecs$1::*)()>(&PredefinedDHParameterSpecs$1::init$))},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$EnclosingMethodInfo _PredefinedDHParameterSpecs$1_EnclosingMethodInfo_ = {
+	"sun.security.ssl.PredefinedDHParameterSpecs",
+	nullptr,
+	nullptr
+};
+
+$InnerClassInfo _PredefinedDHParameterSpecs$1_InnerClassesInfo_[] = {
+	{"sun.security.ssl.PredefinedDHParameterSpecs$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _PredefinedDHParameterSpecs$1_ClassInfo_ = {
+	$ACC_SUPER,
+	"sun.security.ssl.PredefinedDHParameterSpecs$1",
+	"java.lang.Object",
+	"java.security.PrivilegedAction",
+	nullptr,
+	_PredefinedDHParameterSpecs$1_MethodInfo_,
+	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+	&_PredefinedDHParameterSpecs$1_EnclosingMethodInfo_,
+	_PredefinedDHParameterSpecs$1_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.security.ssl.PredefinedDHParameterSpecs"
+};
+
+$Object* allocate$PredefinedDHParameterSpecs$1($Class* clazz) {
+	return $of($alloc(PredefinedDHParameterSpecs$1));
+}
+
+void PredefinedDHParameterSpecs$1::init$() {
+}
+
+$Object* PredefinedDHParameterSpecs$1::run() {
+	return $of($Security::getProperty("jdk.tls.server.defaultDHEParameters"_s));
+}
+
+PredefinedDHParameterSpecs$1::PredefinedDHParameterSpecs$1() {
+}
+
+$Class* PredefinedDHParameterSpecs$1::load$($String* name, bool initialize) {
+	$loadClass(PredefinedDHParameterSpecs$1, name, initialize, &_PredefinedDHParameterSpecs$1_ClassInfo_, allocate$PredefinedDHParameterSpecs$1);
+	return class$;
+}
+
+$Class* PredefinedDHParameterSpecs$1::class$ = nullptr;
+
+		} // ssl
+	} // security
+} // sun
