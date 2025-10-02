@@ -1,17 +1,17 @@
-#ifndef _URIToURLTest_h_
-#define _URIToURLTest_h_
-//$ class URIToURLTest
+#ifndef _URItoURLTest_h_
+#define _URItoURLTest_h_
+//$ class URItoURLTest
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
 
-class $export URIToURLTest : public ::java::lang::Object {
-	$class(URIToURLTest, $NO_CLASS_INIT, ::java::lang::Object)
+class $export URItoURLTest : public ::java::lang::Object {
+	$class(URItoURLTest, $NO_CLASS_INIT, ::java::lang::Object)
 public:
-	URIToURLTest();
+	URItoURLTest();
 	void init$();
-	static bool hasFtp();
+	static bool equalsComponents($String* method, $String* comp1, $String* comp2);
 	static void main($StringArray* args);
 };
 
-#endif // _URIToURLTest_h_
+#endif // _URItoURLTest_h_

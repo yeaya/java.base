@@ -752,7 +752,8 @@
 #include <TypeTag.h>
 #include <TypeVariableBoundParameterIndex.h>
 #include <UNCTest.h>
-#include <URIToURLTest.h>
+#include <URIToURLTest2.h>
+#include <URItoURLTest.h>
 #include <URLDecoderArgs.h>
 #include <URLEncodeDecode.h>
 #include <URLEncoderEncodeArgs.h>
@@ -1623,7 +1624,8 @@ void runCases($StringArray* args) {
 	run(::TypeTag, args);
 	run(::TypeVariableBoundParameterIndex, args);
 //	run(::UNCTest, args);
-	run(::URIToURLTest, args);
+	run(::URIToURLTest2, args);
+	run(::URItoURLTest, args);
 	run(::URLDecoderArgs, args);
 	run(::URLEncodeDecode, args);
 	run(::URLEncoderEncodeArgs, args);

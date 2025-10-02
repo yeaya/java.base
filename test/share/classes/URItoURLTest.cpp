@@ -1,11 +1,12 @@
-#include <URIToURLTest.h>
+#include <URItoURLTest.h>
 
 #include <java/io/PrintStream.h>
 #include <java/lang/Array.h>
 #include <java/lang/Class.h>
 #include <java/lang/ClassInfo.h>
+#include <java/lang/Exception.h>
+#include <java/lang/IllegalArgumentException.h>
 #include <java/lang/MethodInfo.h>
-#include <java/lang/RuntimeException.h>
 #include <java/lang/String.h>
 #include <java/lang/System.h>
 #include <java/lang/reflect/Constructor.h>
@@ -13,134 +14,210 @@
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
-#include <java/util/AbstractList.h>
-#include <java/util/ArrayList.h>
-#include <java/util/Iterator.h>
-#include <java/util/List.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $AbstractList = ::java::util::AbstractList;
-using $ArrayList = ::java::util::ArrayList;
-using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 
-$MethodInfo _URIToURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URIToURLTest::*)()>(&URIToURLTest::init$))},
-	{"hasFtp", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&URIToURLTest::hasFtp))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URIToURLTest::main)), "java.lang.Exception"},
+$MethodInfo _URItoURLTest_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URItoURLTest::*)()>(&URItoURLTest::init$))},
+	{"equalsComponents", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*,$String*,$String*)>(&URItoURLTest::equalsComponents))},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&URItoURLTest::main)), "java.lang.Exception"},
 	{}
 };
 
-$ClassInfo _URIToURLTest_ClassInfo_ = {
+$ClassInfo _URItoURLTest_ClassInfo_ = {
 	$PUBLIC | $ACC_SUPER,
-	"URIToURLTest",
+	"URItoURLTest",
 	"java.lang.Object",
 	nullptr,
 	nullptr,
-	_URIToURLTest_MethodInfo_
+	_URItoURLTest_MethodInfo_
 };
 
-$Object* allocate$URIToURLTest($Class* clazz) {
-	return $of($alloc(URIToURLTest));
+$Object* allocate$URItoURLTest($Class* clazz) {
+	return $of($alloc(URItoURLTest));
 }
 
-void URIToURLTest::init$() {
+void URItoURLTest::init$() {
 }
 
-void URIToURLTest::main($StringArray* args) {
-	$var($List, uris, $new($ArrayList));
-	uris->add("http://jag:cafebabe@java.sun.com:94/b/c/d?q#g"_s);
-	uris->add("http://[1080:0:0:0:8:800:200C:417A]/index.html"_s);
-	uris->add("http://a/b/c/d;p?q"_s);
-	uris->add("mailto:mduerst@ifi.unizh.ch"_s);
-	uris->add("http:comp.infosystems.www.servers.unix"_s);
-	if (hasFtp()) {
-		uris->add("ftp://ftp.is.co.za/rfc/rfc1808.txt"_s);
+void URItoURLTest::main($StringArray* args) {
+	$var($URL, classUrl, $new($URL, "jrt:/java.base/java/lang/Object.class"_s));
+	$var($StringArray, uris, $new($StringArray, {
+		"mailto:xyz@abc.de"_s,
+		"file:xyz#ab"_s,
+		"http:abc/xyz/pqr"_s,
+		"http:abc/xyz/pqr?id=x%0a&ca=true"_s,
+		"file:/C:/v700/dev/unitTesting/tests/apiUtil/uri"_s,
+		"http:///p"_s,
+		"file:/C:/v700/dev/unitTesting/tests/apiUtil/uri"_s,
+		"file:/C:/v700/dev%20src/unitTesting/tests/apiUtil/uri"_s,
+		"file:/C:/v700/dev%20src/./unitTesting/./tests/apiUtil/uri"_s,
+		"http://localhost:80/abc/./xyz/../pqr?id=x%0a&ca=true"_s,
+		"file:./test/./x"_s,
+		"file:./././%20#i=3"_s,
+		"file:?hmm"_s,
+		"file:.#hmm"_s,
+		$(classUrl->toExternalForm())
+	}));
+	$var($StringArray, malformedUrls, $new($StringArray, {
+		"test:/test"_s,
+		"fiel:test"_s
+	}));
+	$var($StringArray, illegalUris, $new($StringArray, {
+		"./test"_s,
+		"/test"_s
+	}));
+	bool isTestFailed = false;
+	bool isURLFailed = false;
+	{
+		$var($StringArray, arr$, uris);
+		int32_t len$ = arr$->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($String, uriString, arr$->get(i$));
+			{
+				$var($URI, uri, $URI::create(uriString));
+				$var($URL, url1, $new($URL, $($nc(uri)->toString())));
+				$var($URL, url2, $nc(uri)->toURL());
+				$init($System);
+				$nc($System::out)->println($$str({"Testing URI "_s, uri}));
+				if (!url1->equals(url2)) {
+					$nc($System::out)->println("equals() FAILED"_s);
+					isURLFailed = true;
+				}
+				int32_t var$0 = url1->hashCode();
+				if (var$0 != $nc(url2)->hashCode()) {
+					$nc($System::out)->println("hashCode() DIDN\'T MATCH"_s);
+					isURLFailed = true;
+				}
+				if (!url1->sameFile(url2)) {
+					$nc($System::out)->println("sameFile() FAILED"_s);
+					isURLFailed = true;
+				}
+				$var($String, var$1, "getPath()"_s);
+				$var($String, var$2, url1->getPath());
+				if (!equalsComponents(var$1, var$2, $($nc(url2)->getPath()))) {
+					isURLFailed = true;
+				}
+				$var($String, var$3, "getFile()"_s);
+				$var($String, var$4, url1->getFile());
+				if (!equalsComponents(var$3, var$4, $($nc(url2)->getFile()))) {
+					isURLFailed = true;
+				}
+				$var($String, var$5, "getHost()"_s);
+				$var($String, var$6, url1->getHost());
+				if (!equalsComponents(var$5, var$6, $($nc(url2)->getHost()))) {
+					isURLFailed = true;
+				}
+				$var($String, var$7, "getAuthority()"_s);
+				$var($String, var$8, url1->getAuthority());
+				if (!equalsComponents(var$7, var$8, $($nc(url2)->getAuthority()))) {
+					isURLFailed = true;
+				}
+				$var($String, var$9, "getRef()"_s);
+				$var($String, var$10, url1->getRef());
+				if (!equalsComponents(var$9, var$10, $($nc(url2)->getRef()))) {
+					isURLFailed = true;
+				}
+				$var($String, var$11, "getUserInfo()"_s);
+				$var($String, var$12, url1->getUserInfo());
+				if (!equalsComponents(var$11, var$12, $($nc(url2)->getUserInfo()))) {
+					isURLFailed = true;
+				}
+				$var($String, var$13, "toString()"_s);
+				$var($String, var$14, url1->toString());
+				if (!equalsComponents(var$13, var$14, $($nc(url2)->toString()))) {
+					isURLFailed = true;
+				}
+				if (isURLFailed) {
+					isTestFailed = true;
+				} else {
+					$nc($System::out)->println("PASSED .."_s);
+				}
+				$nc($System::out)->println();
+				isURLFailed = false;
+			}
+		}
 	}
 	{
-		$var($Iterator, i$, uris->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($String, uriStr, $cast($String, i$->next()));
+		$var($StringArray, arr$, malformedUrls);
+		int32_t len$ = arr$->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($String, malformedUrl, arr$->get(i$));
 			{
-				$var($URI, uri, $new($URI, uriStr));
-				$var($URL, url, uri->toURL());
-				$var($String, scheme, uri->getScheme());
-				bool schemeCheck = scheme == nullptr ? $nc(url)->getProtocol() == nullptr : $nc(scheme)->equals($(url->getProtocol()));
-				if (!schemeCheck) {
-					$throwNew($RuntimeException, $$str({"uri.scheme is "_s, scheme, " url.protocol is "_s, $(url->getProtocol())}));
+				$var($Exception, toURLEx, nullptr);
+				$var($Exception, newURLEx, nullptr);
+				try {
+					$$new($URI, malformedUrl)->toURL();
+				} catch ($Exception&) {
+					$var($Exception, e, $catch());
+					$assign(toURLEx, e);
 				}
-				if (uri->isOpaque()) {
-					$var($String, ssp, uri->getSchemeSpecificPart());
-					bool sspCheck = ssp == nullptr ? uri->getPath() == nullptr : $nc(ssp)->equals($(url->getPath()));
-					if (!sspCheck) {
-						$throwNew($RuntimeException, $$str({"uri.ssp is "_s, ssp, " url.path is "_s, $(url->getPath())}));
-					}
-				} else {
-					$var($String, authority, uri->getAuthority());
-					bool authorityCheck = authority == nullptr ? url->getAuthority() == nullptr : $nc(authority)->equals($(url->getAuthority()));
-					if (!authorityCheck) {
-						$throwNew($RuntimeException, $$str({"uri.authority is "_s, authority, " url\'s is "_s, $(url->getAuthority())}));
-					}
-					$var($String, host, uri->getHost());
-					bool hostCheck = host == nullptr ? url->getHost() == nullptr : $nc(host)->equals($(url->getHost()));
-					if (!hostCheck) {
-						$throwNew($RuntimeException, $$str({"uri.host is "_s, host, " url\'s is "_s, $(url->getHost())}));
-					}
-					if (host != nullptr) {
-						$var($String, userInfo, uri->getUserInfo());
-						bool userInfoCheck = userInfo == nullptr ? url->getUserInfo() == nullptr : $nc(userInfo)->equals($(url->getUserInfo()));
-						int32_t var$0 = uri->getPort();
-						if (var$0 != url->getPort()) {
-							$var($String, var$1, $$str({"uri.port is "_s, $$str(uri->getPort()), " url\'s is "_s}));
-							$throwNew($RuntimeException, $$concat(var$1, $$str(url->getPort())));
-						}
-					}
-					$var($String, path, uri->getPath());
-					bool pathCheck = path == nullptr ? url->getPath() == nullptr : $nc(path)->equals($(url->getPath()));
-					if (!pathCheck) {
-						$throwNew($RuntimeException, $$str({"uri.path is "_s, path, " url.path is "_s, $(url->getPath())}));
-					}
-					$var($String, query, uri->getQuery());
-					bool queryCheck = query == nullptr ? url->getQuery() == nullptr : $nc(query)->equals($(url->getQuery()));
-					if (!queryCheck) {
-						$throwNew($RuntimeException, $$str({"uri.query is "_s, query, " url.query is "_s, $(url->getQuery())}));
-					}
+				try {
+					$new($URL, $($$new($URI, malformedUrl)->toString()));
+				} catch ($Exception&) {
+					$var($Exception, e, $catch());
+					$assign(newURLEx, e);
 				}
-				$var($String, frag, uri->getFragment());
-				bool fragCheck = frag == nullptr ? url->getRef() == nullptr : $nc(frag)->equals($(url->getRef()));
-				if (!fragCheck) {
-					$throwNew($RuntimeException, $$str({"uri.frag is "_s, frag, " url.ref is "_s, $(url->getRef())}));
+				if (!($instanceOf($MalformedURLException, toURLEx)) || !($instanceOf($MalformedURLException, newURLEx)) || !$nc($($nc(toURLEx)->getMessage()))->equals($($nc(newURLEx)->getMessage()))) {
+					isTestFailed = true;
+					$init($System);
+					$nc($System::out)->println($$str({"Expected the same MalformedURLException: "_s, newURLEx, " vs "_s, toURLEx}));
 				}
 			}
 		}
 	}
+	{
+		$var($StringArray, arr$, illegalUris);
+		int32_t len$ = arr$->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($String, illegalUri, arr$->get(i$));
+			{
+				try {
+					$$new($URI, illegalUri)->toURL();
+				} catch ($IllegalArgumentException&) {
+					$catch();
+				}
+				try {
+					$new($URL, illegalUri);
+				} catch ($MalformedURLException&) {
+					$catch();
+				}
+			}
+		}
+	}
+	if (isTestFailed) {
+		$throwNew($Exception, "URI.toURL() test failed"_s);
+	}
 }
 
-bool URIToURLTest::hasFtp() {
-	try {
-		return $new($URL, "ftp://"_s) != nullptr;
-	} catch ($MalformedURLException&) {
-		$var($MalformedURLException, x, $catch());
+bool URItoURLTest::equalsComponents($String* method, $String* comp1, $String* comp2) {
+	if ((comp1 != nullptr) && (!comp1->equals(comp2))) {
 		$init($System);
-		$nc($System::out)->println("FTP not supported by this runtime."_s);
+		$nc($System::out)->println($$str({method, " DIDN\'T MATCH  ===>"_s}));
+		$nc($System::out)->println($$str({"    URL(URI.toString()) returns:"_s, comp1}));
+		$nc($System::out)->println($$str({"    URI.toURL() returns:"_s, comp2}));
 		return false;
 	}
-	$shouldNotReachHere();
+	return true;
 }
 
-URIToURLTest::URIToURLTest() {
+URItoURLTest::URItoURLTest() {
 }
 
-$Class* URIToURLTest::load$($String* name, bool initialize) {
-	$loadClass(URIToURLTest, name, initialize, &_URIToURLTest_ClassInfo_, allocate$URIToURLTest);
+$Class* URItoURLTest::load$($String* name, bool initialize) {
+	$loadClass(URItoURLTest, name, initialize, &_URItoURLTest_ClassInfo_, allocate$URItoURLTest);
 	return class$;
 }
 
-$Class* URIToURLTest::class$ = nullptr;
+$Class* URItoURLTest::class$ = nullptr;

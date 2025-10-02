@@ -1939,7 +1939,8 @@
 #include <TypeVariableBoundParameterIndex$Sample.h>
 #include <TypeVariableBoundParameterIndex$TypeAnnotation.h>
 #include <UNCTest.h>
-#include <URIToURLTest.h>
+#include <URIToURLTest2.h>
+#include <URItoURLTest.h>
 #include <URLDecoderArgs.h>
 #include <URLEncodeDecode.h>
 #include <URLEncoderEncodeArgs.h>
@@ -4368,7 +4369,8 @@
 	$classEntry("TypeVariableBoundParameterIndex$Sample", ::TypeVariableBoundParameterIndex$Sample),
 	$classEntry("TypeVariableBoundParameterIndex$TypeAnnotation", ::TypeVariableBoundParameterIndex$TypeAnnotation),
 	$classEntry("UNCTest", ::UNCTest),
-	$classEntry("URIToURLTest", ::URIToURLTest),
+	$classEntry("URIToURLTest2", ::URIToURLTest2),
+	$classEntry("URItoURLTest", ::URItoURLTest),
 	$classEntry("URLDecoderArgs", ::URLDecoderArgs),
 	$classEntry("URLEncodeDecode", ::URLEncodeDecode),
 	$classEntry("URLEncoderEncodeArgs", ::URLEncoderEncodeArgs),
