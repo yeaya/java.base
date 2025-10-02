@@ -57,17 +57,12 @@ else()
 		)
 	else()
 		if(JCPP_OS STREQUAL "macosx")
-			file(GLOB libffiVersions LIST_DIRECTORIES true "/opt/homebrew/Cellar/libffi/*")
-			message("${libffiVersions}")
-			list(LENGTH libffiVersions libffiVersionsLength)
-			if(libffiVersionsLength)
-				list(GET libffiVersions 0 LIBFFI_ROOT)
-				message("LIBFFI_ROOT: ${LIBFFI_ROOT}")
+			if(EXISTS "/opt/homebrew/opt/libffi")
 				include_directories(
-					"${LIBFFI_ROOT}/include"
+					"/opt/homebrew/opt/libffi/include"
 				)
 				set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
-					"${LIBFFI_ROOT}/lib/libffi.a" PARENT_SCOPE
+					"/opt/homebrew/opt/libffi/lib/libffi.a" PARENT_SCOPE
 				)
 			else()
 				message(FATAL_ERROR "Please set LIBFFI_INCLUDE_PATH and LIBFFI_LIB_PATH")
