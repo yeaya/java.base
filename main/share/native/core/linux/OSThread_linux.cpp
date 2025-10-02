@@ -18,9 +18,9 @@
  * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "threadMonitor.h"
-#include "osThread.h"
-#include "javaThread.h"
+#include "ThreadMonitor.h"
+#include "OSThread.h"
+#include "JavaThread.h"
 
 #include <signal.h>
 #include <pthread.h>
