@@ -1,4 +1,4 @@
-#include <P2/PackagedNestHost2.h>
+#include <p2/PackagedNestHost2.h>
 
 #include <java/lang/Class.h>
 #include <java/lang/ClassInfo.h>
@@ -13,7 +13,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-namespace P2 {
+namespace p2 {
 
 $MethodInfo _PackagedNestHost2_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PackagedNestHost2::*)()>(&PackagedNestHost2::init$))},
@@ -21,13 +21,13 @@ $MethodInfo _PackagedNestHost2_MethodInfo_[] = {
 };
 
 $InnerClassInfo _PackagedNestHost2_InnerClassesInfo_[] = {
-	{"P2.PackagedNestHost2$Member", "P2.PackagedNestHost2", "Member", $PUBLIC | $STATIC},
+	{"p2.PackagedNestHost2$Member", "p2.PackagedNestHost2", "Member", $PUBLIC | $STATIC},
 	{}
 };
 
 $ClassInfo _PackagedNestHost2_ClassInfo_ = {
 	$PUBLIC | $ACC_SUPER,
-	"P2.PackagedNestHost2",
+	"p2.PackagedNestHost2",
 	"java.lang.Object",
 	nullptr,
 	nullptr,
@@ -37,7 +37,7 @@ $ClassInfo _PackagedNestHost2_ClassInfo_ = {
 	_PackagedNestHost2_InnerClassesInfo_,
 	nullptr,
 	nullptr,
-	"P2.PackagedNestHost2$Member"
+	"p2.PackagedNestHost2$Member"
 };
 
 $Object* allocate$PackagedNestHost2($Class* clazz) {
@@ -57,4 +57,4 @@ $Class* PackagedNestHost2::load$($String* name, bool initialize) {
 
 $Class* PackagedNestHost2::class$ = nullptr;
 
-} // P2
+} // p2

@@ -169,5 +169,6 @@ endfunction(jcpp_enable_debug_info)
 
 add_subdirectory(main)
 if(BUILD_TEST)
+	enable_testing()
 	add_subdirectory(test)
 endif()

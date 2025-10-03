@@ -1267,10 +1267,6 @@
 #include <OverflowInRead.h>
 #include <OverflowInSkip.h>
 #include <OversynchronizedTest.h>
-#include <P1/PackagedNestHost.h>
-#include <P1/PackagedNestHost$Member.h>
-#include <P2/PackagedNestHost2.h>
-#include <P2/PackagedNestHost2$Member.h>
 #include <PParser.h>
 #include <PackageMain.h>
 #include <ParallelProbes.h>
@@ -2327,6 +2323,8 @@
 #include <p1/B.h>
 #include <p1/Initializer.h>
 #include <p1/Main.h>
+#include <p1/PackagedNestHost.h>
+#include <p1/PackagedNestHost$Member.h>
 #include <p1/Type.h>
 #include <p1/Type1.h>
 #include <p1/impl/Type.h>
@@ -2336,6 +2334,8 @@
 #include <p1/resources/Type.h>
 #include <p2/C.h>
 #include <p2/Main.h>
+#include <p2/PackagedNestHost2.h>
+#include <p2/PackagedNestHost2$Member.h>
 #include <p2/T.h>
 #include <p2/Type.h>
 #include <p2/Type2.h>
@@ -3697,10 +3697,6 @@
 	$classEntry("OverflowInRead", ::OverflowInRead),
 	$classEntry("OverflowInSkip", ::OverflowInSkip),
 	$classEntry("OversynchronizedTest", ::OversynchronizedTest),
-	$classEntry("P1.PackagedNestHost", ::P1::PackagedNestHost),
-	$classEntry("P1.PackagedNestHost$Member", ::P1::PackagedNestHost$Member),
-	$classEntry("P2.PackagedNestHost2", ::P2::PackagedNestHost2),
-	$classEntry("P2.PackagedNestHost2$Member", ::P2::PackagedNestHost2$Member),
 	$classEntry("PParser", ::PParser),
 	$classEntry("PackageMain", ::PackageMain),
 	$classEntry("ParallelProbes", ::ParallelProbes),
@@ -4757,6 +4753,8 @@
 	$classEntry("p1.B", ::p1::B),
 	$classEntry("p1.Initializer", ::p1::Initializer),
 	$classEntry("p1.Main", ::p1::Main),
+	$classEntry("p1.PackagedNestHost", ::p1::PackagedNestHost),
+	$classEntry("p1.PackagedNestHost$Member", ::p1::PackagedNestHost$Member),
 	$classEntry("p1.Type", ::p1::Type),
 	$classEntry("p1.Type1", ::p1::Type1),
 	$classEntry("p1.impl.Type", ::p1::impl::Type),
@@ -4766,6 +4764,8 @@
 	$classEntry("p1.resources.Type", ::p1::resources::Type),
 	$classEntry("p2.C", ::p2::C),
 	$classEntry("p2.Main", ::p2::Main),
+	$classEntry("p2.PackagedNestHost2", ::p2::PackagedNestHost2),
+	$classEntry("p2.PackagedNestHost2$Member", ::p2::PackagedNestHost2$Member),
 	$classEntry("p2.T", ::p2::T),
 	$classEntry("p2.Type", ::p2::Type),
 	$classEntry("p2.Type2", ::p2::Type2),
@@ -4867,8 +4867,6 @@
 
 const char* _java$base$test_packages_[] = {
 	"LambdaReceiver_anotherpkg",
-	"P1",
-	"P2",
 	"SpecialInterfaceCall",
 	"T8032697_anotherpkg",
 	"TestC1",

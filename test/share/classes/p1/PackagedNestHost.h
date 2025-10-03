@@ -1,11 +1,11 @@
-#ifndef _P1_PackagedNestHost_h_
-#define _P1_PackagedNestHost_h_
-//$ class P1.PackagedNestHost
+#ifndef _p1_PackagedNestHost_h_
+#define _p1_PackagedNestHost_h_
+//$ class p1.PackagedNestHost
 //$ extends java.lang.Object
 
 #include <java/lang/Object.h>
 
-namespace P1 {
+namespace p1 {
 
 class $export PackagedNestHost : public ::java::lang::Object {
 	$class(PackagedNestHost, $NO_CLASS_INIT, ::java::lang::Object)
@@ -14,6 +14,6 @@ public:
 	void init$();
 };
 
-} // P1
+} // p1
 
-#endif // _P1_PackagedNestHost_h_
+#endif // _p1_PackagedNestHost_h_
