@@ -1,6 +1,6 @@
-#ifndef _COM_foo_content_text_plain_h_
-#define _COM_foo_content_text_plain_h_
-//$ class COM.foo.content.text.plain
+#ifndef _com_foo_content_text_Plain2_h_
+#define _com_foo_content_text_Plain2_h_
+//$ class com.foo.content.text.Plain2
 //$ extends java.net.ContentHandler
 
 #include <java/net/ContentHandler.h>
@@ -11,15 +11,15 @@ namespace java {
 	}
 }
 
-namespace COM {
+namespace com {
 	namespace foo {
 		namespace content {
 			namespace text {
 
-class $export plain : public ::java::net::ContentHandler {
-	$class(plain, $NO_CLASS_INIT, ::java::net::ContentHandler)
+class $export Plain2 : public ::java::net::ContentHandler {
+	$class(Plain2, $NO_CLASS_INIT, ::java::net::ContentHandler)
 public:
-	plain();
+	Plain2();
 	using ::java::net::ContentHandler::getContent;
 	void init$();
 	virtual $Object* getContent(::java::net::URLConnection* uc) override;
@@ -28,6 +28,6 @@ public:
 			} // text
 		} // content
 	} // foo
-} // COM
+} // com
 
-#endif // _COM_foo_content_text_plain_h_
+#endif // _com_foo_content_text_Plain2_h_

@@ -1,4 +1,4 @@
-#include <COM/foo/content/text/plain.h>
+#include <com/foo/content/text/Plain2.h>
 
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -23,35 +23,35 @@ using $ContentHandler = ::java::net::ContentHandler;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 
-namespace COM {
+namespace com {
 	namespace foo {
 		namespace content {
 			namespace text {
 
-$MethodInfo _plain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(plain::*)()>(&plain::init$))},
+$MethodInfo _Plain2_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Plain2::*)()>(&Plain2::init$))},
 	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC},
 	{}
 };
 
-$ClassInfo _plain_ClassInfo_ = {
+$ClassInfo _Plain2_ClassInfo_ = {
 	$PUBLIC | $ACC_SUPER,
-	"COM.foo.content.text.plain",
+	"com.foo.content.text.Plain2",
 	"java.net.ContentHandler",
 	nullptr,
 	nullptr,
-	_plain_MethodInfo_
+	_Plain2_MethodInfo_
 };
 
-$Object* allocate$plain($Class* clazz) {
-	return $of($alloc(plain));
+$Object* allocate$Plain2($Class* clazz) {
+	return $of($alloc(Plain2));
 }
 
-void plain::init$() {
+void Plain2::init$() {
 	$ContentHandler::init$();
 }
 
-$Object* plain::getContent($URLConnection* uc) {
+$Object* Plain2::getContent($URLConnection* uc) {
 	try {
 		$var($InputStream, is, $nc(uc)->getInputStream());
 		$var($StringBuffer, sb, $new($StringBuffer));
@@ -59,7 +59,7 @@ $Object* plain::getContent($URLConnection* uc) {
 		sb->append($$str({"[Content of "_s, $(uc->getURL()), "]\n\n"_s}));
 		sb->append("[This opening message brought to you by your plain/text\n"_s);
 		sb->append("content handler. To remove this content handler, delete the\n"_s);
-		sb->append("COM.foo.content.text directory from your class path and\n"_s);
+		sb->append("com.foo.content.text directory from your class path and\n"_s);
 		sb->append("the java.content.handler.pkgs property from your HotJava\n"_s);
 		sb->append("properties file.]\n"_s);
 		sb->append("----------------------------------------------------------------\n\n"_s);
@@ -75,17 +75,17 @@ $Object* plain::getContent($URLConnection* uc) {
 	$shouldNotReachHere();
 }
 
-plain::plain() {
+Plain2::Plain2() {
 }
 
-$Class* plain::load$($String* name, bool initialize) {
-	$loadClass(plain, name, initialize, &_plain_ClassInfo_, allocate$plain);
+$Class* Plain2::load$($String* name, bool initialize) {
+	$loadClass(Plain2, name, initialize, &_Plain2_ClassInfo_, allocate$Plain2);
 	return class$;
 }
 
-$Class* plain::class$ = nullptr;
+$Class* Plain2::class$ = nullptr;
 
 			} // text
 		} // content
 	} // foo
-} // COM
+} // com

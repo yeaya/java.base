@@ -248,7 +248,6 @@
 #include <C3.h>
 #include <C4.h>
 #include <CB.h>
-#include <COM/foo/content/text/plain.h>
 #include <CachedUnknownHostName.h>
 #include <Capacity.h>
 #include <Case1B.h>
@@ -2235,6 +2234,7 @@
 #include <cl/TestClassLoader.h>
 #include <com/app/Utils.h>
 #include <com/app/Utils$1.h>
+#include <com/foo/content/text/Plain2.h>
 #include <comSA/SupBob.h>
 #include <comSB/SupAlice.h>
 #include <common/TestMe.h>
@@ -2678,7 +2678,6 @@
 	$classEntry("C3", ::C3),
 	$classEntry("C4", ::C4),
 	$classEntry("CB", ::CB),
-	$classEntry("COM.foo.content.text.plain", ::COM::foo::content::text::plain),
 	$classEntry("CachedUnknownHostName", ::CachedUnknownHostName),
 	$classEntry("Capacity", ::Capacity),
 	$classEntry("Case1B", ::Case1B),
@@ -4665,6 +4664,7 @@
 	$classEntry("cl.TestClassLoader", ::cl::TestClassLoader),
 	$classEntry("com.app.Utils", ::com::app::Utils),
 	$classEntry("com.app.Utils$1", ::com::app::Utils$1),
+	$classEntry("com.foo.content.text.Plain2", ::com::foo::content::text::Plain2),
 	$classEntry("comSA.SupBob", ::comSA::SupBob),
 	$classEntry("comSB.SupAlice", ::comSB::SupAlice),
 	$classEntry("common.TestMe", ::common::TestMe),
@@ -4866,7 +4866,6 @@
 };
 
 const char* _java$base$test_packages_[] = {
-	"COM.foo.content.text",
 	"LambdaReceiver_anotherpkg",
 	"P1",
 	"P2",
@@ -4882,6 +4881,7 @@ const char* _java$base$test_packages_[] = {
 	"c2",
 	"cl",
 	"com.app",
+	"com.foo.content.text",
 	"comSA",
 	"comSB",
 	"common",

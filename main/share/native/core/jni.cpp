@@ -42,6 +42,7 @@
 #include <java/nio/DirectByteBuffer.h>
 #include <sun/nio/ch/DirectBuffer.h>
 #include <jdk/internal/reflect/Reflection.h>
+#include <jdk/internal/misc/Unsafe.h>
 #include <java/lang/ObjectHead.h>
 #include <java.base.h>
 #include <jcpp.h>
@@ -56,6 +57,7 @@ using ::java::nio::Buffer;
 using ::java::nio::DirectByteBuffer;
 using ::sun::nio::ch::DirectBuffer;
 using jdk::internal::reflect::Reflection;
+using jdk::internal::misc::Unsafe;
 
 extern const struct JNIInvokeInterface_ jni_InvokeInterface;
 
@@ -166,14 +168,14 @@ JNI_END(nullptr)
 
 JNI_ENTRY(jclass, jni_GetSuperclass(JNIEnv* env, jclass sub))
 	Class* clazz = (Class*)sub;
-	Class* superClass = $nullcheck(clazz)->getSuperclass();
+	Class* superClass = $nc(clazz)->getSuperclass();
 	return (jclass)superClass;
 JNI_END(nullptr)
 
 JNI_ENTRY(jboolean, jni_IsAssignableFrom(JNIEnv* env, jclass sub, jclass super))
 	Class* subClass = (Class*)sub;
 	Class* superClass = (Class*)super;
-	return $nullcheck(superClass)->isAssignableFrom(subClass);
+	return $nc(superClass)->isAssignableFrom(subClass);
 JNI_END(JNI_FALSE)
 
 JNI_ENTRY(jint, jni_Throw(JNIEnv* env, jthrowable obj))
@@ -281,14 +283,14 @@ JNI_END(JNIInvalidRefType)
 
 JNI_ENTRY(jobject, jni_AllocObject(JNIEnv* env, jclass clazz))
 	Class* cls = (Class*)clazz;
-	Object* obj = $nullcheck(cls)->allocateInstance();
+	Object* obj = $nc(cls)->allocateInstance();
 	ObjectManager::newLocalRef(obj);
 	return (jobject)obj;
 JNI_END(nullptr)
 
 JNI_ENTRY(jobject, jni_NewObjectA(JNIEnv* env, jclass clazz, jmethodID methodID, const jvalue* args))
 	Class* cls = (Class*)clazz;
-	Object* inst = $nullcheck(cls)->allocateInstance();
+	Object* inst = $nc(cls)->allocateInstance();
 	ObjectManager::newLocalRef(inst);
 	$Constructor* constructor = ($Constructor*)methodID;
 	initInst(constructor, inst, args);
@@ -297,7 +299,7 @@ JNI_END(nullptr)
 
 JNI_ENTRY(jobject, jni_NewObjectV(JNIEnv* env, jclass clazz, jmethodID methodID, va_list args))
 	Class* cls = (Class*)clazz;
-	Object* inst = $nullcheck(cls)->allocateInstance();
+	Object* inst = $nc(cls)->allocateInstance();
 	ObjectManager::newLocalRef(inst);
 	$Constructor* constructor = ($Constructor*)methodID;
 	initInst(constructor, inst, args);
@@ -306,7 +308,7 @@ JNI_END(nullptr)
 
 JNI_ENTRY(jobject, jni_NewObject(JNIEnv* env, jclass clazz, jmethodID methodID, ...))
 	Class* cls = (Class*)clazz;
-	Object* inst = $nullcheck(cls)->allocateInstance();
+	Object* inst = $nc(cls)->allocateInstance();
 	ObjectManager::newLocalRef(inst);
 	$Constructor* constructor = ($Constructor*)methodID;
 	va_list args;
@@ -318,19 +320,19 @@ JNI_END(nullptr)
 
 JNI_ENTRY(jclass, jni_GetObjectClass(JNIEnv* env, jobject obj))
 	$var(Object, obj2, resolveRef(obj));
-	Class* clazz = $nullcheck(obj2)->getClass();
+	Class* clazz = $nc(obj2)->getClass();
 	return (jclass)clazz;
 JNI_END(nullptr)
 
 JNI_ENTRY(jboolean, jni_IsInstanceOf(JNIEnv* env, jobject obj, jclass clazz))
 	$var(Object, obj2, resolveRef(obj));
 	Class* cls = (Class*)clazz;
-	return $nullcheck(cls)->isInstance(obj2);
+	return $nc(cls)->isInstance(obj2);
 JNI_END(JNI_FALSE)
 
 JNI_ENTRY(jmethodID, jni_GetMethodID(JNIEnv* env, jclass clazz, const char* name, const char* sig))
 	Class* cls = (Class*)clazz;
-	$Method* method = $nullcheck(cls)->refMethod($$str(name), $$str(sig));
+	$Method* method = $nc(cls)->refMethod($$str(name), $$str(sig));
 	if (method != nullptr && method->isStatic()) {
 	// TODO
 	}
@@ -648,25 +650,25 @@ DEFINE_CALL_STATIC_METHODA(jdouble, Double, double, 0)
 // access field
 JNI_ENTRY(jfieldID, jni_GetFieldID(JNIEnv* env, jclass clazz, const char* name, const char* sig))
 	Class* cls = $fcast(Class, clazz);
-	$nullcheck(cls)->ensureClassInitialized();
+	$nc(cls)->ensureClassInitialized();
 	$Field* field = cls->refField($$str(name));
-	$nullcheck(field)->override$ = true; // TODO
+	$nc(field)->override$ = true; // TODO
 	return (jfieldID)field;
 JNI_END(nullptr)
 
 JNI_ENTRY(jobject, jni_GetObjectField(JNIEnv* env, jobject obj, jfieldID fieldID))
 	$var(Object, obj2, resolveRef(obj));
 	$Field* field = $fcast($Field, fieldID);
-	jobject ret = (jobject)$nullcheck(field)->get(obj2);
+	jobject ret = (jobject)Unsafe::theUnsafe->getObject($nc(obj2), $nc(field)->offsetof);
 	ObjectManager::newLocalRef(ret);
 	return ret;
 JNI_END(nullptr)
 
-#define DEFINE_GET_FIELD(Return,Fieldname,Result, DefaultReturnValue) \
+#define DEFINE_GET_FIELD(Return, Fieldname, Result, DefaultReturnValue) \
 JNI_ENTRY(Return, jni_Get##Result##Field(JNIEnv* env, jobject obj, jfieldID fieldID)) \
 	$var(Object, obj2, resolveRef(obj)); \
 	$Field* field = $fcast($Field, fieldID); \
-	Return ret = (Return)$nullcheck(field)->get##Result(obj2); \
+	Return ret = Unsafe::theUnsafe->get##Result($nc(obj2), $nc(field)->offsetof); \
 	return ret; \
 JNI_END(DefaultReturnValue)
 
@@ -682,14 +684,14 @@ DEFINE_GET_FIELD(jdouble, double, Double, 0)
 JNI_ENTRY(void, jni_SetObjectField(JNIEnv* env, jobject obj, jfieldID fieldID, jobject value))
 	$var(Object, obj2, resolveRef(obj));
 	$Field* field = $fcast($Field, fieldID);
-	$nullcheck(field)->set(obj2, value);
+	Unsafe::theUnsafe->putObject($nc(obj2), $nc(field)->offsetof, value);
 JNI_END_VOID
 
 #define DEFINE_SET_FIELD(Argument, Result, FieldType) \
 JNI_ENTRY(void, jni_Set##Result##Field(JNIEnv* env, jobject obj, jfieldID fieldID, Argument value)) \
 	$var(Object, obj2, resolveRef(obj)); \
 	$Field* field = $fcast($Field, fieldID); \
-	field->set##Result(obj2, (FieldType)value); \
+	Unsafe::theUnsafe->put##Result($nc(obj2), $nc(field)->offsetof, (FieldType)value); \
 JNI_END_VOID
 
 DEFINE_SET_FIELD(jboolean, Boolean, bool)
@@ -708,15 +710,15 @@ JNI_END(nullptr)
 // access static field
 JNI_ENTRY(jfieldID, jni_GetStaticFieldID(JNIEnv* env, jclass clazz, const char* name, const char* sig))
 	Class* cls = $fcast(Class, clazz);
-	$nullcheck(cls)->ensureClassInitialized();
+	$nc(cls)->ensureClassInitialized();
 	$Field* field = cls->refField($$str(name));
-	$nullcheck(field)->override$ = true; // TODO
+	$nc(field)->override$ = true; // TODO
 	return (jfieldID)field;
 JNI_END(nullptr)
 
 JNI_ENTRY(jobject, jni_GetStaticObjectField(JNIEnv* env, jclass clazz, jfieldID fieldID))
 	$Field* field = $fcast($Field, fieldID);
-	jobject ret = (jobject)field->get(nullptr);
+	jobject ret = (jobject)Unsafe::theUnsafe->getObject(nullptr, $nc(field)->offsetof);
 	// since static object, need not to newLocalRef
 	return ret;
 JNI_END(nullptr)
@@ -724,7 +726,7 @@ JNI_END(nullptr)
 #define DEFINE_GET_STATIC_FIELD(Return, Result, DefaultReturnValue) \
 JNI_ENTRY(Return, jni_GetStatic##Result##Field(JNIEnv* env, jclass clazz, jfieldID fieldID)) \
 	$Field* field = $fcast($Field, fieldID); \
-	Return ret = (Return)field->get##Result(nullptr); \
+	Return ret = (Return)Unsafe::theUnsafe->get##Result(nullptr, $nc(field)->offsetof); \
 	return ret; \
 JNI_END(DefaultReturnValue)
 
@@ -740,23 +742,23 @@ DEFINE_GET_STATIC_FIELD(jdouble, Double, 0)
 JNI_ENTRY(void, jni_SetStaticObjectField(JNIEnv* env, jclass clazz, jfieldID fieldID, jobject value))
 	$var(Object, obj2, resolveRef(value));
 	$Field* field = $fcast($Field, fieldID);
-	field->set(nullptr, obj2);
+	Unsafe::theUnsafe->putObject(nullptr, field->offsetof, obj2);
 JNI_END_VOID
 
-#define DEFINE_SET_STATIC_FIELD(Argument,Result) \
+#define DEFINE_SET_STATIC_FIELD(Argument, Result, FieldType) \
 JNI_ENTRY(void, jni_SetStatic##Result##Field(JNIEnv* env, jclass clazz, jfieldID fieldID, Argument value)) \
 	$Field* field = $fcast($Field, fieldID); \
-	field->set##Result(nullptr, value); \
+	Unsafe::theUnsafe->put##Result(nullptr, field->offsetof, (FieldType)value); \
 JNI_END_VOID
 
-DEFINE_SET_STATIC_FIELD(jboolean, Boolean)
-DEFINE_SET_STATIC_FIELD(jbyte, Byte)
-DEFINE_SET_STATIC_FIELD(jchar, Char)
-DEFINE_SET_STATIC_FIELD(jshort, Short)
-DEFINE_SET_STATIC_FIELD(jint, Int)
-DEFINE_SET_STATIC_FIELD(jlong, Long)
-DEFINE_SET_STATIC_FIELD(jfloat, Float)
-DEFINE_SET_STATIC_FIELD(jdouble, Double)
+DEFINE_SET_STATIC_FIELD(jboolean, Boolean, bool)
+DEFINE_SET_STATIC_FIELD(jbyte, Byte, int8_t)
+DEFINE_SET_STATIC_FIELD(jchar, Char, char16_t)
+DEFINE_SET_STATIC_FIELD(jshort, Short, int16_t)
+DEFINE_SET_STATIC_FIELD(jint, Int, int32_t)
+DEFINE_SET_STATIC_FIELD(jlong, Long, int64_t)
+DEFINE_SET_STATIC_FIELD(jfloat, Float, float)
+DEFINE_SET_STATIC_FIELD(jdouble, Double, double)
 
 // String
 JNI_ENTRY(jstring, jni_NewString(JNIEnv* env, const jchar* unicodeChars, jsize len))
@@ -1014,14 +1016,14 @@ JNI_END(0)
 JNI_ENTRY(jint, jni_MonitorEnter(JNIEnv* env, jobject jobj))
 	$var(Object, obj2, resolveRef(jobj));
 	Object0* obj0 = $toObject0(obj2);
-	$nullcheck(obj0)->lock();
+	$nc(obj0)->lock();
 	return JNI_OK;
 JNI_END(JNI_ERR)
 
 JNI_ENTRY(jint, jni_MonitorExit(JNIEnv* env, jobject jobj))
 	$var(Object, obj2, resolveRef(jobj));
 	Object0* obj0 = $toObject0(obj2);
-	$nullcheck(obj0)->unlock();
+	$nc(obj0)->unlock();
 	return JNI_OK;
 JNI_END(JNI_ERR)
 
@@ -1029,7 +1031,7 @@ JNI_END(JNI_ERR)
 JNI_ENTRY(void, jni_GetStringRegion(JNIEnv* env, jstring string, jsize start, jsize len, jchar* buf))
 	$var(Object, obj2, resolveRef(string));
 	String* s = (String*)(void*)obj2;
-	$nullcheck(s);
+	$nc(s);
 	if (start < 0 || len < 0 || start > s->length() - len) {
 		$throwNew(StringIndexOutOfBoundsException);
 	}
@@ -1042,7 +1044,7 @@ JNI_END_VOID
 JNI_ENTRY(void, jni_GetStringUTFRegion(JNIEnv* env, jstring string, jsize start, jsize len, char* buf))
 	$var(Object, obj2, resolveRef(string));
 	String* s = (String*)(void*)obj2;
-	$nullcheck(s);
+	$nc(s);
 	if (start < 0 || len < 0 || start > s->length() - len) {
 		$throwNew(StringIndexOutOfBoundsException);
 	}
@@ -1067,7 +1069,7 @@ JNI_END_VOID
 JNI_ENTRY(const jchar*, jni_GetStringCritical(JNIEnv* env, jstring string, jboolean* isCopy))
 	$var(Object, obj2, resolveRef(string));
 	String* s = (String*)(void*)obj2;
-	int32_t length = $nullcheck(s)->length();
+	int32_t length = $nc(s)->length();
 	jchar* ret = (jchar*)$allocRaw((length + 1) * sizeof(jchar));
 	for (int32_t i = 0; i < length; i++) {
 		ret[i] = s->charAt(i);
