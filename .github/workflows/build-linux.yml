@@ -24,4 +24,4 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ./java.base-test
+      run: ctest -C Release ${{github.workspace}} --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-linux.txt -VV
