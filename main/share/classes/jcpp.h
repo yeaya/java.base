@@ -377,64 +377,36 @@ inline To* $tryCast(const ::java::lang::Throwable* ex) {
 
 #define $(...) $ref(__VA_ARGS__)
 
-inline void* $allocRaw(int64_t size) {
-	return ::java::lang::ObjectManager::allocRaw(size);
+template<typename T = int8_t>
+inline T* $allocRaw(int64_t length = 1) {
+	return (T*)::java::lang::ObjectManager::allocRaw(sizeof(T[1]) * length);
 }
 
-template<typename T>
-inline T* $allocRaw(int64_t length) {
-	return (T*)::java::lang::ObjectManager::allocRaw(sizeof(T) * length);
-}
-
-template<typename T>
-inline T* $allocRaw() {
-	return (T*)::java::lang::ObjectManager::allocRaw(sizeof(T));
-}
-
-inline void* $allocRawOrNull(int64_t size) {
-	return ::java::lang::ObjectManager::allocRawOrNull(size);
-}
-
-template<typename T>
-inline T* $allocRawOrNull(int64_t length) {
-	return (T*)::java::lang::ObjectManager::allocRawOrNull(sizeof(T) * length);
-}
-
-template<typename T>
-inline T* $allocRawOrNull() {
-	return (T*)::java::lang::ObjectManager::allocRawOrNull(sizeof(T));
+template<typename T = int8_t>
+inline T* $allocRawOrNull(int64_t length = 1) {
+	return (T*)::java::lang::ObjectManager::allocRawOrNull(sizeof(T[1]) * length);
 }
 
 inline void $freeRaw(void* raw) {
 	::java::lang::ObjectManager::freeRaw(raw);
 }
 
-inline void* $allocRawStatic(int64_t size) {
-	return ::java::lang::ObjectManager::allocRawStatic(size);
+template<typename T = int8_t>
+inline T* $allocRawStatic(int64_t length = 1) {
+	return (T*)::java::lang::ObjectManager::allocRawStatic(sizeof(T[1]) * length);
 }
 
-template<typename T>
-inline T* $allocRawStatic(int64_t length) {
-	return (T*)::java::lang::ObjectManager::allocRawStatic(sizeof(T) * length);
+template<typename T = int8_t>
+inline T* $allocRawStaticOrNull(int64_t length = 1) {
+	return (T*)::java::lang::ObjectManager::allocRawStaticOrNull(sizeof(T[1]) * length);
 }
 
-template<typename T>
-inline T* $allocRawStatic() {
-	return (T*)::java::lang::ObjectManager::allocRawStatic(sizeof(T));
+inline int64_t $sizeOfRaw(const void* raw) {
+	return ::java::lang::ObjectManager::sizeOfRaw(raw);
 }
 
-inline void* $allocRawStaticOrNull(int64_t size) {
-	return ::java::lang::ObjectManager::allocRawStaticOrNull(size);
-}
-
-template<typename T>
-inline T* $allocRawStaticOrNull(int64_t length) {
-	return (T*)::java::lang::ObjectManager::allocRawStaticOrNull(sizeof(T) * length);
-}
-
-template<typename T>
-inline T* $allocRawStaticOrNull() {
-	return (T*)::java::lang::ObjectManager::allocRawStaticOrNull(sizeof(T));
+inline void $memsetRaw(void* raw, int value) {
+	::java::lang::ObjectManager::memsetRaw(raw, value);
 }
 
 template<typename T, $enable_if($is_base_of(::java::lang::Object, T) && !$is_base_of(::java::lang::BaseArray, T))>

@@ -116,7 +116,7 @@ public:
 	inline static int64_t calcBlockSize(int64_t payloadSize) {
 		return sizeof(MemoryBlock) + payloadSize;
 	}
-	inline static MemoryBlock* fromPayload(void* payload) {
+	inline static MemoryBlock* fromPayload(const void* payload) {
 		return (MemoryBlock*)((int8_t*)payload - sizeof(MemoryBlock));
 	}
 };

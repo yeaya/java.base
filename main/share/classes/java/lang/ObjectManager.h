@@ -268,6 +268,8 @@ public:
 	static void* allocRawStatic(int64_t size);
 	static void* allocRawStaticOrNull(int64_t size);
 	static void* allocRawStaticOrExit(int64_t size);
+	static int64_t sizeOfRaw(const void* raw);
+	static void memsetRaw(void* raw, int value);
 
 	static Array<int8_t>* newByteArray(int32_t length);
 	static Array<int16_t>* newShortArray(int32_t length);

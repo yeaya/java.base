@@ -20,8 +20,8 @@ jobs:
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8 --target install
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest -C Release ${{github.workspace}} --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-windows.txt -VV
+      run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-windows.txt -VV

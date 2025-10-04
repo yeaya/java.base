@@ -4315,6 +4315,7 @@ void Class::initObjectFieldOffset() {
 	}
 	if (objectFieldOffsetFlags == nullptr) {
 		objectFieldOffsetFlags = $allocRaw<int8_t>(this->size / sizeof(void*));
+		$memsetRaw(objectFieldOffsetFlags, 0);
 	}
 #endif
 }
@@ -4332,6 +4333,7 @@ void Class::recordObjectFieldOffset0(int32_t offset) {
 	if (objectFieldOffsetArray == nullptr) {
 		objectFieldOffsetArrayLength = size / sizeof(Object*) + 1;
 		objectFieldOffsetArray = $allocRawStatic<int32_t>(objectFieldOffsetArrayLength);
+		$memsetRaw(objectFieldOffsetArray, 0);
 	}
 	for (int32_t i = 0; i < objectFieldOffsetArrayLength; i++) {
 		if (objectFieldOffsetArray[i] == offset) {
@@ -4353,7 +4355,11 @@ void Class::recordObjectFieldOffset0(int32_t offset) {
 #endif
 }
 
-void Class::recordClassCastOffset(Class* clazz, int32_t offset) {
+bool Class::isInstance(Object0* obj) {
+	return instanceOf(this, obj);
+}
+
+void saveClassCastOffset(Class* clazz, int32_t offset, ClassCastOffset*& classCastOffsetArray, int32_t& classCastOffsetArrayLength) {
 	for (int32_t i = 0; i < classCastOffsetArrayLength; i++) {
 		if (classCastOffsetArray[i].clazz == clazz) {
 			return;
@@ -4361,6 +4367,7 @@ void Class::recordClassCastOffset(Class* clazz, int32_t offset) {
 	}
 	int32_t newLength = classCastOffsetArrayLength + 1;
 	ClassCastOffset* newArray = $allocRaw<ClassCastOffset>(newLength);
+	$memsetRaw(newArray, 0);
 	for (int32_t i = 0; i < classCastOffsetArrayLength; i++) {
 		Class* clazz2 = classCastOffsetArray[i].clazz;
 		int32_t offset2 = classCastOffsetArray[i].offset;
@@ -4381,40 +4388,40 @@ void Class::recordClassCastOffset(Class* clazz, int32_t offset) {
 	classCastOffsetArrayLength = newLength;
 }
 
-bool Class::isInstance(Object0* obj) {
-	return instanceOf(this, obj);
-}
-
 void Class::calcClassCastOffset() {
 	if (classCastOffsetArray == nullptr) {
+		if (this->isPrimitive()) {
+			return;
+		}
 		$synchronized(this) {
 			if (classCastOffsetArray == nullptr) {
-				if (this->isPrimitive()) {
-					return;
-				}
-				recordClassCastOffset(this, 0);
+				ClassCastOffset* classCastOffsetArray0 = nullptr;
+				int32_t classCastOffsetArrayLength0 = 0;
+				saveClassCastOffset(this, 0, classCastOffsetArray0, classCastOffsetArrayLength0);
 				int32_t offset = 0;
 				Class* superClass = this->getSuperclass();
 				if (superClass != nullptr) {
 					superClass->calcClassCastOffset();
 					for (int32_t i = 0; i < superClass->classCastOffsetArrayLength; i++) {
-						recordClassCastOffset(superClass->classCastOffsetArray[i].clazz, superClass->classCastOffsetArray[i].offset);
+						saveClassCastOffset(superClass->classCastOffsetArray[i].clazz, superClass->classCastOffsetArray[i].offset, classCastOffsetArray0, classCastOffsetArrayLength0);
 					}
 					if (superClass != Object::class$) {
 						offset = calcAlignedSize$(superClass->getSize());
 					}
 				} else if (this != Object::class$) {
-					recordClassCastOffset(Object::class$, 0);
+					saveClassCastOffset(Object::class$, 0, classCastOffsetArray0, classCastOffsetArrayLength0);
 				}
 				$var($ObjectArray, interfaces, this->getInterfaces(false));
 				for (int32_t i = 0; i < interfaces->length; i++) {
 					Class* ifc = $fcast(Class, interfaces->get(i));
 					ifc->calcClassCastOffset();
 					for (int32_t i = 0; i < ifc->classCastOffsetArrayLength; i++) {
-						recordClassCastOffset(ifc->classCastOffsetArray[i].clazz, ifc->classCastOffsetArray[i].offset + offset);
+						saveClassCastOffset(ifc->classCastOffsetArray[i].clazz, ifc->classCastOffsetArray[i].offset + offset, classCastOffsetArray0, classCastOffsetArrayLength0);
 					}
 					offset = calcAlignedSize$(offset + ifc->getSize());
 				}
+				classCastOffsetArray = classCastOffsetArray0;
+				classCastOffsetArrayLength = classCastOffsetArrayLength0;
 			}
 		}
 	}

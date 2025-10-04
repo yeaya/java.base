@@ -398,7 +398,6 @@ public:
 	void initObjectFieldOffset();
 	void recordObjectFieldOffset(int32_t offset);
 	void recordObjectFieldOffset0(int32_t offset);
-	void recordClassCastOffset(Class* clazz, int32_t offset);
 	void ensureConstantPoolInitialized();
 
 	Class* arrayType0();

@@ -5360,6 +5360,20 @@ void* ObjectManager::allocRawStaticOrExit(int64_t size) {
 	return raw;
 }
 
+int64_t ObjectManager::sizeOfRaw(const void* raw) {
+	if (raw != nullptr) {
+		MemoryBlock* block = MemoryBlock::fromPayload(raw);
+		return block->getPayloadSize();
+	}
+	return -1;
+}
+
+void ObjectManager::memsetRaw(void* raw, int value) {
+	$nc(raw);
+	int64_t size = sizeOfRaw(raw);
+	::memset(raw, value, size);
+}
+
 inline Object0* allocArrayBuffer(Class* arrayClazz, int32_t length, bool throwIfOOM) {
 	if (length < 0) {
 		$throwNew(NegativeArraySizeException);
