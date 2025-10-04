@@ -330,7 +330,7 @@ address OS::Unix::getPc(const ucontext_t* uc) {
 #ifdef AARCH64
 	return (address)uc->uc_mcontext->__ss.__pc;
 #else
-	return (address)uc->uc_mcontext->__ss.rip;
+	return (address)uc->uc_mcontext->__ss.__rip;
 #endif
 }
 
@@ -338,7 +338,7 @@ void OS::Unix::setPc(ucontext_t* uc, address pc) {
 #ifdef AARCH64
 	uc->uc_mcontext->__ss.__pc = (intptr_t)pc;
 #else
-	uc->uc_mcontext->__ss.rip = (intptr_t)pc;
+	uc->uc_mcontext->__ss.__rip = (intptr_t)pc;
 #endif
 }
 
@@ -349,23 +349,23 @@ void OS::Unix::saveStackObjectRegs(ucontext_t* uc, JavaThread* thread) {
 		thread->saveStackObject((void*)reg);
 	}
 #else
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r10);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r11);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r12);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r13);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r14);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r15);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r8);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.r9);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rax);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rbp);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rbx);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rcx);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rdi);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rdx);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rip);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rsi);
-	thread->saveStackObject((void*)uc->uc_mcontext->__ss.rsp);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r10);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r11);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r12);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r13);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r14);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r15);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r8);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__r9);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rax);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rbp);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rbx);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rcx);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rdi);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rdx);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rip);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rsi);
+	thread->saveStackObject((void*)uc->uc_mcontext->__ss.__rsp);
 #endif
 }
 
