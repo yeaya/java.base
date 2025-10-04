@@ -1943,12 +1943,12 @@ public:
 	//MemoryStore* scanContextPendingStore = nullptr;
 };
 
-GlobalController globalController;
+GlobalController* globalController = nullptr;
 
 int32_t gcHandlePendingCount = 0;
 int32_t gcHandlePendingMaxCount = 0;
 GcHandlePending* GcHandlePending::create() {
-	GcHandlePending* aghp = globalController.allocGcHandlePending();
+	GcHandlePending* aghp = globalController->allocGcHandlePending();
 	//if (aghp == nullptr) {
 	//	void* data = memoryManager.allocRawOrNull(sizeof(GcHandlePending));
 	//	if (data != nullptr) {
@@ -1972,7 +1972,7 @@ GcHandlePending* GcHandlePending::create() {
 
 void GcHandlePending::free(GcHandlePending* aghp) {
 	gcHandlePendingCount--;
-	globalController.freeGcHandlePending(aghp);
+	globalController->freeGcHandlePending(aghp);
 	//memoryManager.freeRaw(aghp);
 }
 
@@ -1985,7 +1985,7 @@ ScanContextPending* ScanContextPending::create() {
 		log_debug("scanContextPendingMaxCount:%" PRId32 "\n", scanContextPendingMaxCount)
 	}
 	//log_debug("create ScanContextPending\n");
-	ScanContextPending* scp = globalController.allocScanContextPending();
+	ScanContextPending* scp = globalController->allocScanContextPending();
 	if (scp != nullptr) {
 		return scp;
 	}
@@ -1996,7 +1996,7 @@ ScanContextPending* ScanContextPending::create() {
 
 void ScanContextPending::free(ScanContextPending* scp) {
 	//log_debug("free ScanContextPending\n");
-	//globalController.freeGcHandlePending(scp);
+	//globalController->freeGcHandlePending(scp);
 	scanContextPendingCount--;
 	memoryManager.freeRaw(scp);
 }
@@ -2512,7 +2512,7 @@ public:
 	}
 	inline void changeToGlobal(ObjectHead* oh) {
 #ifdef OBJECT_DEBUG
-		oh->markGobalLiveCode = globalController.liveCodeGlobal;
+		oh->markGobalLiveCode = globalController->liveCodeGlobal;
 		if (oh->isDebug() || !oh->isUsed()) {
 			debugObjectHead("ScanMarkGlobal.changeToGlobal", oh);
 		}
@@ -2582,7 +2582,7 @@ void LocalController::clearLocalObjects(T& objects) {
 	while (oh != nullptr) {
 		if (oh->isGlobal()) {
 			int64_t size = getMemorySize(oh);
-			globalController.addWaitToDispatch(oh, size);
+			globalController->addWaitToDispatch(oh, size);
 		} else {
 			freeLocalObject(GC_TYPE_NONE, oh);
 		}
@@ -2809,7 +2809,7 @@ inline void LocalController::freeLocalObject(GcType gcType, ObjectHead* oh) {
 		//oh->setDeleted();
 		//return;
 	//}
-	oh->freeLiveCodeGlobal = globalController.liveCodeGlobal;
+	oh->freeLiveCodeGlobal = globalController->liveCodeGlobal;
 	oh->freeLiveCodeLocal = this->liveCodeLocal;
 	oh->clearUsed();
 	//return;
@@ -2935,7 +2935,7 @@ inline ObjectHead* LocalController::allocLocalObject(Class* clazz, int64_t size)
 			oh = allocLocalObject0(size);
 			if (oh == nullptr) {
 				if (clazz == Finalizer::class$) {
-					oh = globalController.allocInternalFinalizer();
+					oh = globalController->allocInternalFinalizer();
 					if (oh == nullptr) {
 						log_error("out of memory error, allocInternalFinalizer\n");
 						exit(1);
@@ -2954,7 +2954,7 @@ inline ObjectHead* LocalController::allocLocalObject(Class* clazz, int64_t size)
 					}
 					if (oh == nullptr) {
 						if (clazz == OutOfMemoryError::class$ || clazz == InterruptedException::class$) {
-							oh = globalController.allocInternalThrowable();
+							oh = globalController->allocInternalThrowable();
 						}
 					}
 				}
@@ -3013,7 +3013,7 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 	//		oh->ttl = 1;
 	//	}
 	//}
-	oh->newLiveCodeGlobal = globalController.liveCodeGlobal;
+	oh->newLiveCodeGlobal = globalController->liveCodeGlobal;
 	oh->newLiveCodeLocal = this->liveCodeLocal;
 #endif
 
@@ -3031,7 +3031,7 @@ inline Object0* LocalController::allocInternal(Class* clazz, int64_t size, bool 
 	//if (gcType == GC_TYPE_ASYNC_LOCAL) {
 	//	oh->setLive(this->liveCodeLocal);
 	//} else if (gcType == GC_TYPE_FULL) {
-	//	oh->setLive(globalController.liveCodeGlobal);
+	//	oh->setLive(globalController->liveCodeGlobal);
 	//}
 
 	//oh = nullptr;
@@ -3058,35 +3058,35 @@ void GlobalControllerThread::run() {
 			fullGcTime += diff;
 			localGcTime += diff;
 			memoryOptTime += diff;
-			globalController.printStatTime += diff;
+			globalController->printStatTime += diff;
 		}
 
-		globalController.opt();
-		if (globalController.printStatTime >= MAX_PRINT_STAT_TIME_MS) {
-			globalController.printStat();
+		globalController->opt();
+		if (globalController->printStatTime >= MAX_PRINT_STAT_TIME_MS) {
+			globalController->printStat();
 		}
 
 		if (nextOptType != MemoryManager::OPT_NORMAL || memoryOptTime >= MAX_MEMORY_OPT_TIME_MS) {
-			globalController.gcHandlePendingAllocater->opt(1);
-			globalController.scanContextPendingAllocater->opt(1);
+			globalController->gcHandlePendingAllocater->opt(1);
+			globalController->scanContextPendingAllocater->opt(1);
 			MemoryManager::OPT_TYPE optType = nextOptType;
 			nextOptType = MemoryManager::OPT_NORMAL;
 			memoryManager.opt(optType);
 			memoryOptTime = 0;
 		}
 
-		if (fullGcTime >= MAX_FULL_GC_TIME_MS || globalController.pendingObjectCSGlobal.size > memoryManager.getMinMemorySize() / 5) {
-			//	globalController.printStat();
+		if (fullGcTime >= MAX_FULL_GC_TIME_MS || globalController->pendingObjectCSGlobal.size > memoryManager.getMinMemorySize() / 5) {
+			//	globalController->printStat();
 			fullGcTime = 0;
 			localGcTime = 0;
 			GcResult gcResult(GC_TYPE_FULL);
-			globalController.fullGc0(OBJECT_REF_TYPE_SOFT, &gcResult);
+			globalController->fullGc0(OBJECT_REF_TYPE_SOFT, &gcResult);
 			//fullGcTime = 0;
 			//localGcTime = 0;
 		} else if (localGcTime >= MAX_LOCAL_GC_TIME_MS) {
 			localGcTime = 0;
 			GcResult gcResult(GC_TYPE_ASYNC_LOCAL);
-			globalController.asyncLocalGc(OBJECT_REF_TYPE_WEAK, false, &gcResult);
+			globalController->asyncLocalGc(OBJECT_REF_TYPE_WEAK, false, &gcResult);
 			//if (gcResult.free.size < 10 * 1024 * 1024) {
 			//	localGcTime = 0;
 			//} else if (gcResult.free.size < 20 * 1024 * 1024) {
@@ -3133,7 +3133,7 @@ void GlobalController::asyncLocalGc(REF_TYPE scanRefLevel, bool force, GcResult*
 
 void globalFullGc() {
 	GcResult gcResult(GC_TYPE_FULL);
-	globalController.fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+	globalController->fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 }
 
 void GlobalController::fullGc0(REF_TYPE scanRefLevel, GcResult* gcResult) {
@@ -3338,9 +3338,8 @@ void ObjectManagerInternal::init0() {
 }
 
 void ObjectManagerInternal::init() {
-	globalController.init();
-	StackOverflowError::load$(nullptr, false);
-	OutOfMemoryError::load$(nullptr, false);
+	globalController = new (memoryManager.allocRawStaticOrExit(sizeof(GlobalController))) GlobalController();
+	globalController->init();
 }
 
 void* ObjectManager::langObjectToObject0Address = nullptr;
@@ -3364,7 +3363,7 @@ void ObjectManagerInternal::deinit() {
 	globalControllerThread->stop();
 	globalControllerThread = nullptr;
 
-	globalController.deinit();
+	globalController->deinit();
 	objectManagerInited = false;
 }
 
@@ -3449,7 +3448,7 @@ bool ObjectManager::compareAndSetReference(Object0* owner, Object** target, Obje
 bool ObjectManager::compareAndSetReference(Object** target, Object$* expected, Object$* value) {
 	$nc(target);
 	if (*target == nullptr) {
-		globalController.recordStaticPointer(target);
+		globalController->recordStaticPointer(target);
 	}
 	LocalController* lc = localController;
 	if (value != nullptr) {
@@ -3530,7 +3529,7 @@ Object* ObjectManager::compareAndExchangeReference(Object0* owner, Object** targ
 Object* ObjectManager::compareAndExchangeReference(Object** target, Object$* expected, Object$* value) {
 	$nc(target);
 	if (*target == nullptr) {
-		globalController.recordStaticPointer(target);
+		globalController->recordStaticPointer(target);
 	}
 	LocalController* lc = localController;
 	if (value != nullptr) {
@@ -3565,7 +3564,7 @@ Object* ObjectManager::compareAndExchangeReference(Object** target, Object$* exp
 
 Reference* ObjectManagerInternal::getAndClearReferencePendingList() {
 	if (objectManagerInited) {
-		return globalController.getAndClearReferencePendingList();
+		return globalController->getAndClearReferencePendingList();
 	} else {
 		return nullptr;
 	}
@@ -3573,7 +3572,7 @@ Reference* ObjectManagerInternal::getAndClearReferencePendingList() {
 
 bool ObjectManagerInternal::hasReferencePendingList() {
 	if (objectManagerInited) {
-		return globalController.hasReferencePendingList();
+		return globalController->hasReferencePendingList();
 	} else {
 		return false;
 	}
@@ -3581,7 +3580,7 @@ bool ObjectManagerInternal::hasReferencePendingList() {
 
 void ObjectManagerInternal::waitForReferencePendingList() {
 	if (objectManagerInited) {
-		globalController.waitForReferencePendingList();
+		globalController->waitForReferencePendingList();
 	} else {
 		Thread::sleep(1);
 	}
@@ -3595,6 +3594,7 @@ bool GlobalController::existsNonDaemonThread() {
 		while (it.has()) {
 			LocalController* controller = it.get();
 			it.next();
+			// printf("controller %s\n", controller->threadName);
 			// localController is main thread
 			if (controller != localController && !controller->daemon) {
 				ret = true;
@@ -3630,7 +3630,7 @@ inline void LocalController::handleAssign4Gc(T1 newRef, T2 delRef) {
 						newOH = nullptr;
 					}
 				} else if (type == GC_TYPE_FULL) {
-					if (newOH->isLive(globalController.liveCodeGlobal)) {
+					if (newOH->isLive(globalController->liveCodeGlobal)) {
 						newOH = nullptr;
 					}
 				}
@@ -3646,7 +3646,7 @@ inline void LocalController::handleAssign4Gc(T1 newRef, T2 delRef) {
 						delOH = nullptr;
 					}
 				} else if (type == GC_TYPE_FULL) {
-					if (delOH->isLive(globalController.liveCodeGlobal)) {
+					if (delOH->isLive(globalController->liveCodeGlobal)) {
 						delOH = nullptr;
 					}
 				}
@@ -3713,7 +3713,7 @@ void LocalController::savePending4Gc(T obj) {
 				//	return;
 				//}
 			//} else if (type == GC_TYPE_FULL) {
-			//	if (oh->isLive(globalController.liveCodeGlobal)) {
+			//	if (oh->isLive(globalController->liveCodeGlobal)) {
 			//		return;
 			//	}
 			}
@@ -3766,7 +3766,7 @@ void LocalController::relist4New(GcType gcType, GcResult* gcResult) {
 			if (oh->isGlobal()) {
 				int64_t size = getMemorySize(oh);
 				moveSize.add(size);
-				globalController.moveInFromLocal(gcType, oh, size);
+				globalController->moveInFromLocal(gcType, oh, size);
 			} else if (oh->isRef()) {
 				refListLocal.prepend(oh);
 			} else if (oh->isHasFinalize()) {
@@ -3791,7 +3791,7 @@ void LocalController::relist4New(GcType gcType, GcResult* gcResult) {
 				if (oh->isGlobal()) {
 					int64_t size = getMemorySize(oh);
 					moveSize.add(size);
-					globalController.moveInFromLocal(gcType, oh, size);
+					globalController->moveInFromLocal(gcType, oh, size);
 				} else if (oh->isRef()) {
 					refListLocal.prepend(oh);
 				} else if (oh->isHasFinalize()) {
@@ -3818,7 +3818,7 @@ void LocalController::moveGlobalObjects(GcType gcType, GcResult* gcResult) {
 				it.remove();
 				int64_t size = getMemorySize(oh);
 				moveSize.add(size);
-				globalController.moveInFromLocal(gcType, oh, size);
+				globalController->moveInFromLocal(gcType, oh, size);
 			} else {
 				it.next();
 			}
@@ -3832,7 +3832,7 @@ void LocalController::moveGlobalObjects(GcType gcType, GcResult* gcResult) {
 				it.remove();
 				int64_t size = getMemorySize(oh);
 				moveSize.add(size);
-				globalController.moveInFromLocal(gcType, oh, size);
+				globalController->moveInFromLocal(gcType, oh, size);
 			} else {
 				it.next();
 			}
@@ -3847,7 +3847,7 @@ void LocalController::moveGlobalObjects(GcType gcType, GcResult* gcResult) {
 					it.remove();
 					int64_t size = getMemorySize(oh);
 					moveSize.add(size);
-					globalController.moveInFromLocal(gcType, oh, size);
+					globalController->moveInFromLocal(gcType, oh, size);
 				} else {
 					it.next();
 				}
@@ -4354,11 +4354,8 @@ void LocalController::asyncLocalGc(REF_TYPE scanRefLevel, GcResult* gcResult) {
 }
 
 void LocalController::fullGc(REF_TYPE scanRefLevel) {
-	//int64_t startNs = System::nanoTime();
 	GcResult gcResult(GC_TYPE_FULL);
-	globalController.fullGc0(scanRefLevel, &gcResult);
-	//int64_t endNs = System::nanoTime();
-	//int64_t ns = endNs = startNs;
+	globalController->fullGc0(scanRefLevel, &gcResult);
 	statLocal.gc(gcResult.costNS, gcResult.stopNS, gcResult.realStopNS);
 }
 
@@ -4454,7 +4451,7 @@ void LocalController::processLocalObject(int8_t liveCode, GcType gcType, GcResul
 				it.remove();
 				int64_t size = getMemorySize(oh);
 				moveSize.add(size);
-				globalController.addWaitToDispatch(oh, size);
+				globalController->addWaitToDispatch(oh, size);
 				continue;
 			}
 			Reference* ref = (Reference*)fromOh(oh);
@@ -4509,7 +4506,7 @@ void LocalController::processLocalObject(int8_t liveCode, GcType gcType, GcResul
 				it.remove();
 				int64_t size = getMemorySize(oh);
 				moveSize.add(size);
-				globalController.addWaitToDispatch(oh, size);
+				globalController->addWaitToDispatch(oh, size);
 				continue;
 			} else if (!oh->isReach(liveCode)) {
 #ifdef OBJECT_DEBUG
@@ -4548,7 +4545,7 @@ void LocalController::processLocalObject(int8_t liveCode, GcType gcType, GcResul
 						it.remove();
 						int64_t size = getMemorySize(oh);
 						moveSize.add(size);
-						globalController.addWaitToDispatch(oh, size);
+						globalController->addWaitToDispatch(oh, size);
 						continue;
 					} else if (!oh->isReach(liveCode)) {
 						it.remove();
@@ -4587,7 +4584,7 @@ void LocalController::processLocalObject(int8_t liveCode, GcType gcType, GcResul
 			scanner.processPendingScan();
 			int64_t size = getMemorySize(oh);
 			moveSize.add(size);
-			globalController.moveInFromLocal(gcType, oh, size);
+			globalController->moveInFromLocal(gcType, oh, size);
 			oh = moveToGlobalPendingList.removeFirst();
 		}
 		if (gcType == GC_TYPE_FULL) {
@@ -4635,7 +4632,7 @@ void LocalController::processLocalObjectWithRefCount(int8_t liveCode, GcType gcT
 				int64_t size = getMemorySize(oh);
 				objectCSLocal.sub(size);
 				gcResult->moveToGlobal.add(size);
-				globalController.addWaitToDispatch(oh);
+				globalController->addWaitToDispatch(oh);
 				continue;
 			}
 			Reference* ref = (Reference*)fromOh(oh);
@@ -4698,7 +4695,7 @@ void LocalController::processLocalObjectWithRefCount(int8_t liveCode, GcType gcT
 				int64_t size = getMemorySize(oh);
 				objectCSLocal.sub(size);
 				gcResult->moveToGlobal.add(size);
-				globalController.addWaitToDispatch(oh);
+				globalController->addWaitToDispatch(oh);
 				continue;
 			} else if (oh->isRef()) {
 				it.remove();
@@ -4736,7 +4733,7 @@ void LocalController::processLocalObjectWithRefCount(int8_t liveCode, GcType gcT
 				int64_t size = getMemorySize(oh);
 				objectCSLocal.sub(size);
 				gcResult->moveToGlobal.add(size);
-				globalController.addWaitToDispatch(oh);
+				globalController->addWaitToDispatch(oh);
 				continue;
 			} else if (oh->isRef()) {
 				it.remove();
@@ -4786,7 +4783,7 @@ void LocalController::processLocalObjectWithRefCount(int8_t liveCode, GcType gcT
 			int64_t size = getMemorySize(oh);
 			objectCSLocal.sub(size);
 			gcResult->moveToGlobal.add(size);
-			globalController.addWaitToDispatch(oh);
+			globalController->addWaitToDispatch(oh);
 			oh = moveToGlobalPendingList.removeFirst();
 		}
 
@@ -5009,9 +5006,9 @@ void ObjectManagerInternal::gc() {
 	//localController->clearVarStackRemain();
 
 	GcResult gcResult(GC_TYPE_FULL);
-	globalController.fullGc0(OBJECT_REF_TYPE_SOFT, &gcResult);
+	globalController->fullGc0(OBJECT_REF_TYPE_SOFT, &gcResult);
 	//} else {
-	//	globalController.localGcFromManager(OBJECT_REF_TYPE_SOFT, true);
+	//	globalController->localGcFromManager(OBJECT_REF_TYPE_SOFT, true);
 	//}
 	// if (localController->gcCount++ % 2 == 0) {
 	//	localController->fullGc(OBJECT_REF_TYPE_SOFT);
@@ -5049,26 +5046,26 @@ ObjectStackType ObjectManagerInternal::getObjectStackType() {
 }
 
 ::java::lang::Class* ObjectManager::allocClassClass() {
-	return globalController.allocClassClass();
+	return globalController->allocClassClass();
 }
 
 Object* ObjectManager::allocStatic(Class* clazz, int64_t size) {
-	Object* obj = globalController.allocStatic(clazz, size, false, true);
+	Object* obj = globalController->allocStatic(clazz, size, false, true);
 	return obj;
 }
 
 Object* ObjectManager::allocStaticOrNull(Class* clazz, int64_t size) {
-	Object* obj = globalController.allocStatic(clazz, size, false, false);
+	Object* obj = globalController->allocStatic(clazz, size, false, false);
 	return obj;
 }
 
 Object* ObjectManager::allocConst(Class* clazz, int64_t size) {
-	Object* obj = globalController.allocStatic(clazz, size, true, true);
+	Object* obj = globalController->allocStatic(clazz, size, true, true);
 	return obj;
 }
 
 Object* ObjectManager::allocConstOrNull(Class* clazz, int64_t size) {
-	Object* obj = globalController.allocStatic(clazz, size, true, false);
+	Object* obj = globalController->allocStatic(clazz, size, true, false);
 	return obj;
 }
 
@@ -5168,7 +5165,7 @@ String* ObjectManagerInternal::allocConstString(int8_t* bytes, int64_t length, i
 	int64_t arrayBlockSize = MemoryBlock::calcBlockSize(arrayBlockPayloadSize);
 	int64_t totalSize = stringSize + arrayBlockSize;
 
-	int8_t* buffer = (int8_t*)globalController.allocStatic(String::class$, totalSize, true, true);
+	int8_t* buffer = (int8_t*)globalController->allocStatic(String::class$, totalSize, true, true);
 	String* s = new (buffer) String();
 	s->coder$ = coder;
 	MemoryBlock* arrayBlock = (MemoryBlock*)(buffer + stringSize);
@@ -5196,7 +5193,7 @@ Object* ObjectManager::allocStaticArray(Class* clazz, int32_t length) {
 		$throwNew(IllegalArgumentException);
 	}
 	int64_t size = calcArraySize(clazz, length);
-	Object0* obj0 = globalController.allocStatic(clazz, size, false, true);
+	Object0* obj0 = globalController->allocStatic(clazz, size, false, true);
 	return obj0;
 }
 
@@ -5209,7 +5206,7 @@ Object* ObjectManager::allocStaticArrayOrNull(Class* clazz, int32_t length) {
 		$throwNew(IllegalArgumentException);
 	}
 	int64_t size = calcArraySize(clazz, length);
-	Object0* obj0 = globalController.allocStatic(clazz, size, false, false);
+	Object0* obj0 = globalController->allocStatic(clazz, size, false, false);
 	return obj0;
 }
 
@@ -5222,7 +5219,7 @@ Object* ObjectManager::allocConstArray(Class* clazz, int32_t length) {
 		$throwNew(IllegalArgumentException);
 	}
 	int64_t size = calcArraySize(clazz, length);
-	Object0* obj0 = globalController.allocStatic(clazz, size, true, true);
+	Object0* obj0 = globalController->allocStatic(clazz, size, true, true);
 	return obj0;
 }
 
@@ -5235,7 +5232,7 @@ Object* ObjectManager::allocConstArrayOrNull(Class* clazz, int32_t length) {
 		$throwNew(IllegalArgumentException);
 	}
 	int64_t size = calcArraySize(clazz, length);
-	Object0* obj0 = globalController.allocStatic(clazz, size, true, false);
+	Object0* obj0 = globalController->allocStatic(clazz, size, true, false);
 	return obj0;
 }
 
@@ -5712,7 +5709,7 @@ void ObjectManagerInternal::setFinalRef(Object$* obj) {
 }
 
 $Array<Thread>* ObjectManagerInternal::getAllThreads() {
-	return globalController.getAllThreads();
+	return globalController->getAllThreads();
 }
 
 CoreObject* ObjectManagerInternal::getCurrentJavaThread() {
@@ -5748,7 +5745,7 @@ void* ObjectManagerInternal::registerMainThread(Thread* thread, CoreObject* java
 	localController->stackBase = stackBase;
 	localController->stackSize = stackSize;
 	//	onThreadStart(thread); // main thread
-	globalController.registerLocalController(localController);
+	globalController->registerLocalController(localController);
 	Machine::notifyThreadStart();
 	return localController;
 }
@@ -5756,11 +5753,11 @@ void* ObjectManagerInternal::registerMainThread(Thread* thread, CoreObject* java
 void ObjectManagerInternal::beforeThreadStart(Thread* thread) {
 	LocalController* lc = LocalController::create();
 	lc->init(thread);
-	globalController.registerLocalController(lc);
+	globalController->registerLocalController(lc);
 }
 
 void* ObjectManagerInternal::onThreadStart(Thread* thread, CoreObject* javaThread, void* stackBase, int64_t stackSize) {
-	localController = globalController.getLocalController(thread);
+	localController = globalController->getLocalController(thread);
 	if (localController == nullptr) {
 		// TODO
 		int i = 0;
@@ -5779,7 +5776,7 @@ void* ObjectManagerInternal::onThreadStart(Thread* thread, CoreObject* javaThrea
 }
 
 void ObjectManagerInternal::onThreadEnd() {
-	globalController.unregisterLocalController(localController);
+	globalController->unregisterLocalController(localController);
 	localController = nullptr;
 }
 
@@ -6154,7 +6151,7 @@ inline Object* assignStatic0(Var*& var, Value value) {
 	LocalController* lc = localController;
 	scanMarkGlobal0(value);
 	if (var == nullptr) {
-		globalController.recordStaticPointer((Object**)&var);
+		globalController->recordStaticPointer((Object**)&var);
 	}
 #ifdef ENABLE_OBJECT_REF_COUNT
 	if (value != nullptr) {
@@ -6467,6 +6464,7 @@ void GlobalController::deinit() {
 	}
 
 	printStat();
+
 	// wail all nondaemon thread end
 	while (existsNonDaemonThread()) {
 		{

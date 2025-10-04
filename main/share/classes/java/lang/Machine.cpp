@@ -34,6 +34,7 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/NullPointerException.h>
 #include <java/lang/OutOfMemoryError.h>
+#include <java/lang/StackOverflowError.h>
 #include <java/lang/ThreadDeath.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/IllegalArgumentException.h>
@@ -432,6 +433,8 @@ void Machine::init1() {
 	}
 	String::COMPACT_STRINGS = true;
 
+	ObjectManagerInternal::init();
+
 	Class::load$(nullptr, false);
 	Object::load$(nullptr, false);
 	String::load$(nullptr, false);
@@ -441,7 +444,7 @@ void Machine::init1() {
 	lockObject = $allocConst<Object0>();
 	Void::VOID$ = $allocConst<Void>();
 
-	ObjectManagerInternal::init();
+	StackOverflowError::load$(nullptr, false);
 
 	ConstStringManager::init();
 
