@@ -41,29 +41,22 @@ endif()
 
 #libffi
 if(LIBFFI_LIB_PATH AND LIBFFI_INCLUDE_PATH)
-	include_directories(
-		${LIBFFI_INCLUDE_PATH}
-	)
-	set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
-		${LIBFFI_LIB_PATH} PARENT_SCOPE
-	)
+	include_directories(${LIBFFI_INCLUDE_PATH})
+	set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS} 	${LIBFFI_LIB_PATH} PARENT_SCOPE)
 else()
 	# TODO libffi build with cmake for macosx
 	if(JCPP_OS STREQUAL "windows" OR JCPP_OS STREQUAL "linux")
 		add_subdirectory(libffi)
 		set(local_object_native ${local_object_native} $<TARGET_OBJECTS:libffi>)
-		include_directories(
-			${CMAKE_CURRENT_BINARY_DIR}/libffi/include
-		)
+		include_directories(${CMAKE_CURRENT_BINARY_DIR}/libffi/include)
 	else()
 		if(JCPP_OS STREQUAL "macosx")
 			if(EXISTS "/opt/homebrew/opt/libffi")
-				include_directories(
-					"/opt/homebrew/opt/libffi/include"
-				)
-				set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
-					"/opt/homebrew/opt/libffi/lib/libffi.a" PARENT_SCOPE
-				)
+				include_directories("/opt/homebrew/opt/libffi/include")
+				set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS} "/opt/homebrew/opt/libffi/lib/libffi.a" PARENT_SCOPE)
+			elseif(EXISTS "/usr/local/opt/libffi")
+				include_directories("/usr/local/opt/libffi/include")
+				set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS} "/usr/local/opt/libffi/lib/libffi.a" PARENT_SCOPE)
 			else()
 				message(FATAL_ERROR "Please set LIBFFI_INCLUDE_PATH and LIBFFI_LIB_PATH")
 			endif()
@@ -180,12 +173,12 @@ if(JCPP_CPU MATCHES "x86")
 	target_compile_definitions(native PUBLIC
 		-DAMD64
 #		-DINCLUDE_SUFFIX_CPU=_x86
-		)
+	)
 elseif(JCPP_CPU MATCHES "aarch64")
 	target_compile_definitions(native PUBLIC
 #		-DINCLUDE_SUFFIX_CPU=_aarch64
 		-DAARCH64
-		)
+	)
 endif()
 
 install(FILES

@@ -223,7 +223,10 @@ public:
 class MemoryStore : public MemoryAllocater {
 public:
 	static int32_t calcBlockSize(int32_t payloadSize) {
-		int32_t blockSize = (int32_t)std::max(sizeof(MemoryBlock) + payloadSize, sizeof(StoredMemoryBlock));
+		int32_t blockSize = (int32_t)sizeof(MemoryBlock) + payloadSize;
+		if (blockSize < sizeof(StoredMemoryBlock)) {
+			blockSize= sizeof(StoredMemoryBlock);
+		}
 		blockSize = calcAlignedSize(blockSize);
 		return blockSize;
 	}
@@ -234,8 +237,6 @@ public:
 		//log_info("MemoryStore memset buffer:%p size:%d\n", buffer, bufferSize);
 
 		//memset(buffer, 0, bufferSize);
-		//blockSize = (int32_t)std::max(sizeof(MemoryBlock) + payloadSize, sizeof(StoredMemoryBlock));
-		//blockSize = calcAlignedSize(blockSize);
 		blockSize = calcBlockSize(payloadSize);
 		freeCount = blockCount = bufferSize / blockSize;
 		this->blockedBufferSize = blockCount * blockSize;
@@ -302,7 +303,6 @@ public:
 	void* getPayloadBegin(void* addr) {
 		void* block = StoredMemoryBlock::fromPayload(addr);
 		if (block >= buffer && block < (int8_t*)buffer + blockedBufferSize) {
-			int32_t blockSize = (int32_t)std::max(sizeof(MemoryBlock) + payloadSize, sizeof(StoredMemoryBlock));
 			int64_t offset = (int8_t*)block - (int8_t*)buffer;
 			int64_t remain = offset % blockSize;
 			StoredMemoryBlock* block0 = (StoredMemoryBlock*)((int8_t*)block - remain);
