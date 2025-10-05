@@ -37,13 +37,13 @@ class IntPipeline$StatefulOp : public ::java::util::stream::IntPipeline {
 public:
 	IntPipeline$StatefulOp();
 	void init$(::java::util::stream::AbstractPipeline* upstream, ::java::util::stream::StreamShape* inputShape, int32_t opFlags);
-	virtual ::java::util::Iterator* iterator();
-	virtual ::java::util::Spliterator* lazySpliterator(::java::util::function::Supplier* supplier);
+	virtual ::java::util::Iterator* iterator() override;
+	virtual ::java::util::Spliterator* lazySpliterator(::java::util::function::Supplier* supplier) override;
 	virtual ::java::util::stream::Node* opEvaluateParallel(::java::util::stream::PipelineHelper* helper, ::java::util::Spliterator* spliterator, ::java::util::function::IntFunction* generator) override;
 	virtual bool opIsStateful() override;
 	virtual ::java::util::stream::BaseStream* parallel() override;
 	virtual ::java::util::stream::BaseStream* sequential() override;
-	virtual ::java::util::Spliterator* spliterator();
+	virtual ::java::util::Spliterator* spliterator() override;
 	virtual ::java::util::stream::BaseStream* unordered() override;
 	static bool $assertionsDisabled;
 };

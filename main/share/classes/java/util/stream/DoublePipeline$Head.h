@@ -40,13 +40,13 @@ public:
 	void init$(::java::util::Spliterator* source, int32_t sourceFlags, bool parallel);
 	virtual void forEach(::java::util::function::DoubleConsumer* consumer) override;
 	virtual void forEachOrdered(::java::util::function::DoubleConsumer* consumer) override;
-	virtual ::java::util::Iterator* iterator();
-	virtual ::java::util::Spliterator* lazySpliterator(::java::util::function::Supplier* supplier);
+	virtual ::java::util::Iterator* iterator() override;
+	virtual ::java::util::Spliterator* lazySpliterator(::java::util::function::Supplier* supplier) override;
 	virtual bool opIsStateful() override;
 	virtual ::java::util::stream::Sink* opWrapSink(int32_t flags, ::java::util::stream::Sink* sink) override;
 	virtual ::java::util::stream::BaseStream* parallel() override;
 	virtual ::java::util::stream::BaseStream* sequential() override;
-	virtual ::java::util::Spliterator* spliterator();
+	virtual ::java::util::Spliterator* spliterator() override;
 	virtual ::java::util::stream::BaseStream* unordered() override;
 };
 

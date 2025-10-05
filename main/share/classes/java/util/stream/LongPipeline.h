@@ -114,11 +114,11 @@ public:
 	::java::util::OptionalLong* min();
 	bool noneMatch(::java::util::function::LongPredicate* predicate);
 	virtual ::java::util::stream::BaseStream* onClose(::java::lang::Runnable* closeHandler) override;
-	virtual ::java::util::stream::BaseStream* parallel();
+	virtual ::java::util::stream::BaseStream* parallel() override;
 	::java::util::stream::LongStream* peek(::java::util::function::LongConsumer* action);
 	int64_t reduce(int64_t identity, ::java::util::function::LongBinaryOperator* op);
 	::java::util::OptionalLong* reduce(::java::util::function::LongBinaryOperator* op);
-	virtual ::java::util::stream::BaseStream* sequential();
+	virtual ::java::util::stream::BaseStream* sequential() override;
 	::java::util::stream::LongStream* skip(int64_t n);
 	::java::util::stream::LongStream* sorted();
 	virtual ::java::util::Spliterator* spliterator() override;

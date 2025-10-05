@@ -114,11 +114,11 @@ public:
 	::java::util::OptionalInt* min();
 	bool noneMatch(::java::util::function::IntPredicate* predicate);
 	virtual ::java::util::stream::BaseStream* onClose(::java::lang::Runnable* closeHandler) override;
-	virtual ::java::util::stream::BaseStream* parallel();
+	virtual ::java::util::stream::BaseStream* parallel() override;
 	::java::util::stream::IntStream* peek(::java::util::function::IntConsumer* action);
 	int32_t reduce(int32_t identity, ::java::util::function::IntBinaryOperator* op);
 	::java::util::OptionalInt* reduce(::java::util::function::IntBinaryOperator* op);
-	virtual ::java::util::stream::BaseStream* sequential();
+	virtual ::java::util::stream::BaseStream* sequential() override;
 	::java::util::stream::IntStream* skip(int64_t n);
 	::java::util::stream::IntStream* sorted();
 	virtual ::java::util::Spliterator* spliterator() override;

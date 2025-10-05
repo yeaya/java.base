@@ -33,7 +33,7 @@ public:
 	virtual ::java::lang::invoke::BoundMethodHandle* copyWithExtendI(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf, int32_t narg) override;
 	virtual ::java::lang::invoke::BoundMethodHandle* copyWithExtendJ(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf, int64_t narg) override;
 	virtual ::java::lang::invoke::BoundMethodHandle* copyWithExtendL(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf, Object$* narg) override;
-	virtual $Object* internalValues();
+	virtual $Object* internalValues() override;
 	static ::java::lang::invoke::BoundMethodHandle* make(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf, Object$* argL0);
 	virtual ::java::lang::invoke::BoundMethodHandle$SpeciesData* speciesData() override;
 	$Object* argL0 = nullptr;

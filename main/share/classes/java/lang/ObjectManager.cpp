@@ -55,6 +55,7 @@
 #include <java/lang/ObjectManagerStat.h>
 #include <java/lang/VirtualMachineError.h>
 #include <java/lang/StackOverflowError.h>
+#include <java/lang/Shutdown.h>
 #include <java/lang/Logger.h>
 #include <java/lang/SpinLock.h>
 #include <jcpp.h>
@@ -3360,11 +3361,15 @@ void ObjectManagerInternal::init3() {
 }
 
 void ObjectManagerInternal::deinit() {
-	globalControllerThread->stop();
-	globalControllerThread = nullptr;
+	log_debug("ObjectManagerInternal::deinit()");
+	if (globalControllerThread != nullptr) {
+		globalControllerThread->stop();
+		globalControllerThread = nullptr;
 
-	globalController->deinit();
-	objectManagerInited = false;
+		globalController->deinit();
+		objectManagerInited = false;
+		Shutdown::shutdown();
+	}
 }
 
 inline void updateArrayEnd(ObjectArray* array, int32_t end, bool isGlobal) {
@@ -3859,13 +3864,17 @@ void LocalController::moveGlobalObjects(GcType gcType, GcResult* gcResult) {
 }
 
 void ObjectManagerInternal::snapshotStackObjects(void* localController) {
-	LocalController* lc = (LocalController*)localController;
-	lc->snapshotStackObjects();
+	if (localController != nullptr) {
+		LocalController* lc = (LocalController*)localController;
+		lc->snapshotStackObjects();
+	}
 }
 
 void ObjectManagerInternal::saveStackObject(void* localController, void* addr) {
-	LocalController* lc = (LocalController*)localController;
-	lc->saveStackObject(addr);
+	if (localController != nullptr) {
+		LocalController* lc = (LocalController*)localController;
+		lc->saveStackObject(addr);
+	}
 }
 
 void LocalController::snapshotStackObjects() {

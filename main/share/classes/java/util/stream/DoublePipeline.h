@@ -115,11 +115,11 @@ public:
 	::java::util::OptionalDouble* min();
 	bool noneMatch(::java::util::function::DoublePredicate* predicate);
 	virtual ::java::util::stream::BaseStream* onClose(::java::lang::Runnable* closeHandler) override;
-	virtual ::java::util::stream::BaseStream* parallel();
+	virtual ::java::util::stream::BaseStream* parallel() override;
 	::java::util::stream::DoubleStream* peek(::java::util::function::DoubleConsumer* action);
 	double reduce(double identity, ::java::util::function::DoubleBinaryOperator* op);
 	::java::util::OptionalDouble* reduce(::java::util::function::DoubleBinaryOperator* op);
-	virtual ::java::util::stream::BaseStream* sequential();
+	virtual ::java::util::stream::BaseStream* sequential() override;
 	::java::util::stream::DoubleStream* skip(int64_t n);
 	::java::util::stream::DoubleStream* sorted();
 	virtual ::java::util::Spliterator* spliterator() override;

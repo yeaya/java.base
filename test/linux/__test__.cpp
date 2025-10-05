@@ -843,86 +843,152 @@
 #include <jcpp.h>
 #include <stdlib.h>
 
-$StringArray* context = nullptr;
-int32_t processedCount = 0;
+class TestCases {
+	public:
+		TestCases(int argc, char** argv) : argc(argc), argv(argv) {
+			processedCount = 0;
+			success = false;
+		}
 
-bool isListAction() {
-	for (int32_t i = 0; i < context->length; i++) {
-		$String* arg = $arrayGet<$String>(context, i);
-		if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
+		bool isListAction() {
+			for (int32_t i = 1; i < argc; i++) {
+				$String* arg = $cstr(argv[i]);
+				if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		bool isSelectedAll() {
+			bool exitsInclude = false;
+			for (int32_t i = 1; i < argc; i++) {
+				$String* arg = $cstr(argv[i]);
+				if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
+					continue;
+				} else if ("--include"_s->equals(arg)) {
+					return false;
+				} else if ("--exclude"_s->equals(arg)) {
+					return false;
+				} else {
+					return false;
+				}
+			}
 			return true;
 		}
-	}
-	return false;
-}
 
-bool isSelected(const char* caseName) {
-	bool exitsInclude = false;
-	for (int32_t i = 0; i < context->length; i++) {
-		$String* arg = $arrayGet<$String>(context, i);
-		if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
-			continue;
-		} else if ("--include"_s->equals(arg)) {
-			i++;
-			exitsInclude = true;
-			if (i < context->length) {
-				$String* include = $arrayGet<$String>(context, i);
-				$var($StringArray, includeArray, include->split(","_s));
-				for (int32_t j = 0; j < includeArray->length; j++) {
-					$String* includeItem = $arrayGet<$String>(includeArray, j);
-					if ($(includeItem->trim())->equals(caseName)) {
+		bool isSelectedOne() {
+			bool exitsInclude = false;
+			for (int32_t i = 1; i < argc; i++) {
+				$String* arg = $cstr(argv[i]);
+				if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
+					continue;
+				} else if ("--include"_s->equals(arg)) {
+					return false;
+				} else if ("--exclude"_s->equals(arg)) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		bool isSelected(const char* caseName) {
+			bool exitsInclude = false;
+			for (int32_t i = 1; i < argc; i++) {
+				$String* arg = $cstr(argv[i]);
+				if ("-l"_s->equals(arg) || "--list"_s->equals(arg)) {
+					continue;
+				} else if ("--include"_s->equals(arg)) {
+					i++;
+					exitsInclude = true;
+					if (i < argc) {
+						$String* include = $cstr(argv[i]);
+						$var($StringArray, includeArray, include->split(","_s));
+						for (int32_t j = 0; j < includeArray->length; j++) {
+							$String* includeItem = $arrayGet<$String>(includeArray, j);
+							if ($(includeItem->trim())->equals(caseName)) {
+								return true;
+							}
+						}
+					}
+				} else if ("--exclude"_s->equals(arg)) {
+					i++;
+					if (i < argc) {
+						$String* exclude = $cstr(argv[i]);
+						$var($StringArray, excludeArray, exclude->split(","_s));
+						for (int32_t j = 0; j < excludeArray->length; j++) {
+							$String* excludeItem = $arrayGet<$String>(excludeArray, j);
+							if ($(excludeItem->trim())->equals(caseName)) {
+								return false;
+							}
+						}
+					}
+				} else {
+					exitsInclude = true;
+					if (arg->equals(caseName)) {
 						return true;
 					}
 				}
 			}
-		} else if ("--exclude"_s->equals(arg)) {
-			i++;
-			if (i < context->length) {
-				$String* exclude = $arrayGet<$String>(context, i);
-				$var($StringArray, excludeArray, exclude->split(","_s));
-				for (int32_t j = 0; j < excludeArray->length; j++) {
-					$String* excludeItem = $arrayGet<$String>(excludeArray, j);
-					if ($(excludeItem->trim())->equals(caseName)) {
-						return false;
+			return !exitsInclude;
+		}
+
+		template<typename T>
+		void runCase(const char* caseName, bool excludeFromAll = false, $StringArray* args = nullptr) {
+			if (isSelected(caseName)) {
+				if (isListAction()) {
+					processedCount++;
+					if (excludeFromAll && isSelectedAll()) {
+						$System::out->println($$str({ "#case "_s, $$str(processedCount), " "_s, $$str(caseName) }));
+					} else {
+						$System::out->println($$str({ "case "_s, $$str(processedCount), " "_s, $$str(caseName) }));
+					}
+				} else {
+					if (excludeFromAll && isSelectedAll()) {
+						return;
+					}
+					processedCount++;
+					if (!isSelectedOne()) {
+						$System::out->println($$str({ "case "_s, $$str(processedCount), " "_s, $$str(caseName) }));
+					}
+					int64_t beginMs = $System::currentTimeMillis();
+					if (args != nullptr) {
+						T::main(args);
+					} else {
+						T::main($$new($StringArray, 0));
+					}
+					int64_t endMs = $System::currentTimeMillis();
+					$System::out->println($$str({ $$str(endMs - beginMs), "ms"_s }));
+					if (!isSelectedOne()) {
+						$System::out->println(""_s);
 					}
 				}
 			}
-		} else {
-			exitsInclude = true;
-			if (arg->equals(caseName)) {
-				return true;
-			}
 		}
-	}
-	return !exitsInclude;
-}
 
-template<typename T>
-void runCase(const char* caseName, $StringArray* args = nullptr) {
-	if (isSelected(caseName)) {
-		if (isListAction()) {
-			$System::out->println($$str({"case "_s, $$str(processedCount), " "_s, $$str(caseName)}));
-		} else {
-			$System::out->println($$str({"case "_s, $$str(processedCount), " "_s, $$str(caseName)}));
-			int64_t beginMs = $System::currentTimeMillis();
-			if (args != nullptr) {
-				T::main(args);
-			} else {
-				T::main($$new($StringArray, 0));
-			}
-			int64_t endMs = $System::currentTimeMillis();
-			$System::out->println($$str({$$str(endMs - beginMs), "ms"_s}));
+		template<typename T>
+		void runCase(const char* caseName, $StringArray* args) {
+			runCase<T>(caseName, false, args);
 		}
-		processedCount++;
-	}
-}
 
-#define run(caseName, caseClass, ...) runCase<caseClass>(caseName, ##__VA_ARGS__)
+		void runCases();
+		int32_t isSuccess() {
+			return success;
+		}
+	private:
+		int argc;
+		char** argv;
+		int32_t processedCount;
+		bool success;
+	};
 
-void runCases() {
+#define run(caseName, caseClass, ...) runCase<caseClass>(caseName, ##__VA_ARGS__);
+void TestCases::runCases() {
 	int64_t runCasesBeginMs = $System::currentTimeMillis();
 
-//	run("AccessDenied", ::AccessDenied);
+	run("AccessDenied", ::AccessDenied, true);
 	run("ActionSpace", ::ActionSpace);
 	run("AdaptServerSocket", ::AdaptServerSocket);
 	run("AdaptorCloseAndInterrupt", ::AdaptorCloseAndInterrupt);
@@ -930,23 +996,23 @@ void runCases() {
 	run("AddURLTest", ::AddURLTest);
 	run("AddressNotSet", ::AddressNotSet);
 	run("AllocateDirectInit", ::AllocateDirectInit);
-//	run("AllowSecurityManager", ::AllowSecurityManager);
+	run("AllowSecurityManager", ::AllowSecurityManager, true);
 	run("AnnotationToStringTest", ::AnnotationToStringTest);
-//	run("AnnotationTypeRuntimeAssumptionTest", ::AnnotationTypeRuntimeAssumptionTest);
+	run("AnnotationTypeRuntimeAssumptionTest", ::AnnotationTypeRuntimeAssumptionTest, true);
 	run("AnotherSelectFdsLimit", ::AnotherSelectFdsLimit);
 	run("Append", ::Append);
 	run("AppendCharSequence", ::AppendCharSequence);
 	run("AppendSB", ::AppendSB);
 	run("AppendStringBuffer", ::AppendStringBuffer);
 	run("AppendStringBuilder", ::AppendStringBuilder);
-//	run("ArgWithSpaceAndFinalBackslash", ::ArgWithSpaceAndFinalBackslash);
+	run("ArgWithSpaceAndFinalBackslash", ::ArgWithSpaceAndFinalBackslash, true);
 	run("Args", ::Args);
 	run("ArrayLength", ::ArrayLength);
 	run("ArrayMethods", ::ArrayMethods);
 	run("AsyncCloseChannel", ::AsyncCloseChannel);
 	run("AtomicAppend", ::AtomicAppend);
 	run("AtomicAttachTest", ::AtomicAttachTest);
-	run("Available", ::Available);
+	run("Available", ::Available, true);
 	run("B4148751", ::B4148751);
 	run("B4414825", ::B4414825);
 	run("B4849451", ::B4849451);
@@ -956,24 +1022,24 @@ void runCases() {
 	run("B6296240", ::B6296240);
 	run("B6411513", ::B6411513);
 	run("B6425815", ::B6425815);
-//	run("B6427403", ::B6427403);
+	run("B6427403", ::B6427403, true);
 	run("B6463990", ::B6463990);
 	run("B6469803", ::B6469803);
 	run("B6499348", ::B6499348);
 	run("B6529759", ::B6529759);
 	run("B6563259", ::B6563259);
-//	run("B6737819", ::B6737819);
+	run("B6737819", ::B6737819, true);
 	run("B6827999", ::B6827999);
 	run("B6896088", ::B6896088);
 	run("B8035158", ::B8035158);
 	run("B8035653", ::B8035653);
-//	run("BadClassFiles", ::BadClassFiles);
+	run("BadClassFiles", ::BadClassFiles, true);
 	run("BadDottedIPAddress", ::BadDottedIPAddress);
 	run("BadDriveLetter", ::BadDriveLetter);
 	run("BadEnvp", ::BadEnvp);
 	run("BadIPv6Addresses", ::BadIPv6Addresses);
 	run("BadProperties", ::BadProperties);
-//	run("BadProxySelector", ::BadProxySelector);
+	run("BadProxySelector", ::BadProxySelector, true);
 	run("Bash", ::Bash);
 	run("Basic", ::Basic);
 	run("Basic1", ::Basic1);
@@ -982,13 +1048,13 @@ void runCases() {
 	run("Basic4InheritableThreadLocal", ::Basic4InheritableThreadLocal);
 	run("Basic4ThreadLocal", ::Basic4ThreadLocal);
 	run("Basic4Version", ::Basic4Version);
-//	run("Basic4ref", ::Basic4ref);
+	run("Basic4ref", ::Basic4ref, true);
 	run("BasicTest", ::BasicTest);
 	run("BasicUnit", ::BasicUnit);
 	run("BigBacklog", ::BigBacklog);
 	run("BigDecimalCompatibilityTest", ::BigDecimalCompatibilityTest);
-//	run("BigFork", ::BigFork);
-//	run("BigMark", ::BigMark);
+	run("BigFork", ::BigFork, true);
+	run("BigMark", ::BigMark, true);
 	run("BigReadWrite", ::BigReadWrite);
 	run("Bind4SocketChannel", ::Bind4SocketChannel);
 	run("BindFailTest", ::BindFailTest);
@@ -1004,7 +1070,7 @@ void runCases() {
 	run("Bug4404588", ::Bug4404588);
 	run("Bug4736959", ::Bug4736959);
 	run("Bug4740757", ::Bug4740757);
-//	run("Bug4823811", ::Bug4823811);
+	run("Bug4823811", ::Bug4823811, true);
 	run("Bug4833877", ::Bug4833877);
 	run("Bug4912404", ::Bug4912404);
 	run("Bug4932583", ::Bug4932583);
@@ -1020,7 +1086,7 @@ void runCases() {
 	run("Bug6609740", ::Bug6609740);
 	run("Bug6609750", ::Bug6609750);
 	run("Bug6645292", ::Bug6645292);
-//	run("Bug6683975", ::Bug6683975);
+	run("Bug6683975", ::Bug6683975, true);
 	run("Bug6856817", ::Bug6856817);
 	run("Bug6970930", ::Bug6970930);
 	run("Bug7003643", ::Bug7003643);
@@ -1042,7 +1108,7 @@ void runCases() {
 	run("CaseConvertSameInstance", ::CaseConvertSameInstance);
 	run("CaseInsensitiveComparator", ::CaseInsensitiveComparator);
 	run("Cause", ::Cause);
-//	run("ChainedExceptions", ::ChainedExceptions);
+	run("ChainedExceptions", ::ChainedExceptions, true);
 	run("ChangingAddress", ::ChangingAddress);
 	run("ChangingInterests", ::ChangingInterests);
 	run("CharAt", ::CharAt);
@@ -1054,12 +1120,12 @@ void runCases() {
 	run("CheckError", ::CheckError);
 	run("CheckLocking", ::CheckLocking);
 	run("CheckPermission", ::CheckPermission);
-//	run("CheckProvider", ::CheckProvider);
+	run("CheckProvider", ::CheckProvider, true);
 	run("CheckTempDir", ::CheckTempDir);
 	run("Chew", ::Chew);
 	run("Child", ::Child);
 	run("ClassForNameTest", ::ClassForNameTest);
-//	run("ClassRestrictions", ::ClassRestrictions);
+	run("ClassRestrictions", ::ClassRestrictions, true);
 	run("Cleanup", ::Cleanup);
 	run("ClearErrorStream", ::ClearErrorStream);
 	run("ClearErrorWriter", ::ClearErrorWriter);
@@ -1077,7 +1143,7 @@ void runCases() {
 	run("ClosedChannelTransfer", ::ClosedChannelTransfer);
 	run("ClosedStreams", ::ClosedStreams);
 	run("ClosedWriter", ::ClosedWriter);
-//	run("Comment", ::Comment);
+	run("Comment", ::Comment, true);
 	run("CompactStringsInitialCoder", ::CompactStringsInitialCoder);
 	run("Compare", ::Compare);
 	run("CompareIC", ::CompareIC);
@@ -1095,11 +1161,11 @@ void runCases() {
 	run("CounterOverflow", ::CounterOverflow);
 	run("Create", ::Create);
 	run("CreateFileTree", ::CreateFileTree);
-//	run("CreateNewFile", ::CreateNewFile);
+	run("CreateNewFile", ::CreateNewFile, true);
 	run("CreateUnresolved", ::CreateUnresolved);
 	run("CurrencyCollate", ::CurrencyCollate);
-//	run("CustomSocketImplFactory", ::CustomSocketImplFactory);
-//	run("CustomZoneNameTest", ::CustomZoneNameTest);
+	run("CustomSocketImplFactory", ::CustomSocketImplFactory, true);
+	run("CustomZoneNameTest", ::CustomZoneNameTest, true);
 	run("Daemon", ::Daemon);
 	run("DateFormatSymbolsCloneTest", ::DateFormatSymbolsCloneTest);
 	run("Decode", ::Decode);
@@ -1108,10 +1174,10 @@ void runCases() {
 	run("DefaultAccessibility", ::DefaultAccessibility);
 	run("DefaultMethodModeling", ::DefaultMethodModeling);
 	run("DefinesWriteObject", ::DefinesWriteObject);
-//	run("DeleteInterference", ::DeleteInterference);
-//	run("DeleteOnExit", ::DeleteOnExit);
+	run("DeleteInterference", ::DeleteInterference, true);
+	run("DeleteOnExit", ::DeleteOnExit, true);
 	run("DeleteOnExitLong", ::DeleteOnExitLong);
-//	run("DeleteOnExitNPE", ::DeleteOnExitNPE);
+	run("DeleteOnExitNPE", ::DeleteOnExitNPE, true);
 	run("Destroy", ::Destroy);
 	run("DestroyTest", ::DestroyTest);
 	run("DieBeforeComplete", ::DieBeforeComplete);
@@ -1122,14 +1188,14 @@ void runCases() {
 	run("DriveOnly", ::DriveOnly);
 	run("DriveRelativePath", ::DriveRelativePath);
 	run("DriveSlash", ::DriveSlash);
-//	run("DumpCharProperties", ::DumpCharProperties);
-//	run("DumpStackTest", ::DumpStackTest);
-//	run("Duped", ::Duped);
-//	run("Duped$Echo", ::Duped$Echo);
+	run("DumpCharProperties", ::DumpCharProperties, true);
+	run("DumpStackTest", ::DumpStackTest, true);
+	run("Duped", ::Duped, true);
+	run("Duped$Echo", ::Duped$Echo, true);
 	run("DynamicConstantDescTest", ::DynamicConstantDescTest);
-//	run("EOF", ::EOF);
+	run("EOF", ::EOF, true);
 	run("EOL", ::EOL);
-//	run("EarlyTimeout", ::EarlyTimeout);
+	run("EarlyTimeout", ::EarlyTimeout, true);
 	run("EmptyBuffer", ::EmptyBuffer);
 	run("EmptyPath", ::EmptyPath);
 	run("EmptyRead", ::EmptyRead);
@@ -1163,30 +1229,30 @@ void runCases() {
 	run("Exceptions4getField", ::Exceptions4getField);
 	run("Exceptions4getMethod", ::Exceptions4getMethod);
 	run("ExecEmptyString", ::ExecEmptyString);
-//	run("ExecWithLotsOfArgs", ::ExecWithLotsOfArgs);
+	run("ExecWithLotsOfArgs", ::ExecWithLotsOfArgs, true);
 	run("ExecWithLotsOfArgs$EchoingHelper", ::ExecWithLotsOfArgs$EchoingHelper);
 	run("ExifContentGuesser", ::ExifContentGuesser);
 	run("ExitVM", ::ExitVM);
 	run("ExpandingMap", ::ExpandingMap);
-//	run("ExpectedEncoding", ::ExpectedEncoding);
-//	run("ExternalizableBlockData", ::ExternalizableBlockData);
+	run("ExpectedEncoding", ::ExpectedEncoding, true);
+	run("ExternalizableBlockData", ::ExternalizableBlockData, true);
 	run("Extrema", ::Extrema);
 	run("ExtremeShiftingTests", ::ExtremeShiftingTests);
 	run("Factory", ::Factory);
 	run("FailingConstructors", ::FailingConstructors);
 	run("FailingFlushAndClose", ::FailingFlushAndClose);
 	run("FasterWriter", ::FasterWriter);
-//	run("FeelingLucky", ::FeelingLucky);
-//	run("FileExtensionAndMap", ::FileExtensionAndMap);
+	run("FeelingLucky", ::FeelingLucky, true);
+	run("FileExtensionAndMap", ::FileExtensionAndMap, true);
 	run("FileLengthTest", ::FileLengthTest);
 	run("FileLockConstructor", ::FileLockConstructor);
 	run("FileMethods", ::FileMethods);
 	run("FilePermissionCollection", ::FilePermissionCollection);
-//	run("FilePermissionTest", ::FilePermissionTest);
+	run("FilePermissionTest", ::FilePermissionTest, true);
 	run("Fill4BufferedInputStream", ::Fill4BufferedInputStream);
 	run("Fill4BufferedReader", ::Fill4BufferedReader);
 	run("FinInterrupt", ::FinInterrupt);
-//	run("FinThreads", ::FinThreads);
+	run("FinThreads", ::FinThreads, true);
 	run("FinalVirtualCallFromInterface", ::FinalVirtualCallFromInterface);
 	run("Finalize", ::Finalize);
 	run("FindResourceDoesNotThrowException", ::FindResourceDoesNotThrowException);
@@ -1199,7 +1265,7 @@ void runCases() {
 	run("FormatMicroBenchmark", ::FormatMicroBenchmark);
 	run("Formatted", ::Formatted);
 	run("FoundType", ::FoundType);
-//	run("GenerifyStackTraces", ::GenerifyStackTraces);
+	run("GenerifyStackTraces", ::GenerifyStackTraces, true);
 	run("GetAbsolutePath", ::GetAbsolutePath);
 	run("GetAnnotatedInterfaces", ::GetAnnotatedInterfaces);
 	run("GetAnnotatedNestedSuperclass", ::GetAnnotatedNestedSuperclass);
@@ -1225,11 +1291,11 @@ void runCases() {
 	run("GetResource", ::GetResource);
 	run("GetURLsTest", ::GetURLsTest);
 	run("GetUnsafeTest", ::GetUnsafeTest);
-//	run("GetXSpace", ::GetXSpace);
+	run("GetXSpace", ::GetXSpace, true);
 	run("GroupOfOne", ::GroupOfOne);
 	run("GrowAfterEOF", ::GrowAfterEOF);
 	run("HandlerLoop", ::HandlerLoop);
-//	run("HandlersPkgPrefix", ::HandlersPkgPrefix);
+	run("HandlersPkgPrefix", ::HandlersPkgPrefix, true);
 	run("HashCode", ::HashCode);
 	run("HashCodeEquals", ::HashCodeEquals);
 	run("HashSpread", ::HashSpread);
@@ -1262,15 +1328,15 @@ void runCases() {
 	run("ImplicitStringConcatManyLongs", ::ImplicitStringConcatManyLongs);
 	run("ImplicitStringConcatOrder", ::ImplicitStringConcatOrder);
 	run("ImplicitStringConcatShapes", ::ImplicitStringConcatShapes);
-//	run("ImplicitStringConcatShapesTestGen", ::ImplicitStringConcatShapesTestGen);
+	run("ImplicitStringConcatShapesTestGen", ::ImplicitStringConcatShapesTestGen, true);
 	run("Indent", ::Indent);
 	run("IndexOf", ::IndexOf);
 	run("IndexOfEmptyInEmpty", ::IndexOfEmptyInEmpty);
 	run("IndexTest", ::IndexTest);
 	run("Inet6AddressSerTest", ::Inet6AddressSerTest);
 	run("Inet6AddressSerializationTest", ::Inet6AddressSerializationTest);
-//	run("InheritHandle", ::InheritHandle);
-//	run("InheritIOEHandle", ::InheritIOEHandle);
+	run("InheritHandle", ::InheritHandle, true);
+	run("InheritIOEHandle", ::InheritIOEHandle, true);
 	run("InheritedInterfaceMethods", ::InheritedInterfaceMethods);
 	run("InheritedMethodTest", ::InheritedMethodTest);
 	run("InheritedMethods", ::InheritedMethods);
@@ -1280,50 +1346,50 @@ void runCases() {
 	run("InsertNullString", ::InsertNullString);
 	run("IntValueExactTests", ::IntValueExactTests);
 	run("IntegralValueTests", ::IntegralValueTests);
-//	run("InternalNameServiceTest", ::InternalNameServiceTest);
-//	run("InternalNameServiceWithHostsFileTest", ::InternalNameServiceWithHostsFileTest);
+	run("InternalNameServiceTest", ::InternalNameServiceTest, true);
+	run("InternalNameServiceWithHostsFileTest", ::InternalNameServiceWithHostsFileTest, true);
 	run("InternalNameServiceWithNoHostsFileTest", ::InternalNameServiceWithNoHostsFileTest);
 	run("InterruptDeadlock", ::InterruptDeadlock);
 	run("InterruptMapDeadlock", ::InterruptMapDeadlock);
-//	run("InterruptibleDatagramSocket", ::InterruptibleDatagramSocket);
+	run("InterruptibleDatagramSocket", ::InterruptibleDatagramSocket, true);
 	run("InvalidNameWithSlash", ::InvalidNameWithSlash);
 	run("IsAbsolute", ::IsAbsolute);
 	run("IsEmpty", ::IsEmpty);
 	run("IsHidden", ::IsHidden);
-//	run("IsHostReachableBug", ::IsHostReachableBug);
+	run("IsHostReachableBug", ::IsHostReachableBug, true);
 	run("IsParallelCapable", ::IsParallelCapable);
 	run("IsReachable", ::IsReachable);
-//	run("IsReachableViaLoopbackTest", ::IsReachableViaLoopbackTest);
+	run("IsReachableViaLoopbackTest", ::IsReachableViaLoopbackTest, true);
 	run("KeySets", ::KeySets);
 	run("LambdaClassFinal", ::LambdaClassFinal);
-//	run("LambdaClassLoaderSerialization", ::LambdaClassLoaderSerialization);
+	run("LambdaClassLoaderSerialization", ::LambdaClassLoaderSerialization, true);
 	run("LambdaConstructorMethodHandleUnbox", ::LambdaConstructorMethodHandleUnbox);
 	run("LambdaReturn", ::LambdaReturn);
 	run("LambdaSerialization", ::LambdaSerialization);
 	run("LargeCopyWithMark", ::LargeCopyWithMark);
 	run("LargeFileAvailable", ::LargeFileAvailable);
-//	run("LastErrorString", ::LastErrorString);
+	run("LastErrorString", ::LastErrorString, true);
 	run("Latin1Digit", ::Latin1Digit);
 	run("LeadingSlash", ::LeadingSlash);
 	run("LegacyChainedExceptionSerialization", ::LegacyChainedExceptionSerialization);
-//	run("LimitDirectMemory", ::LimitDirectMemory);
-//	run("LingerOnClose", ::LingerOnClose);
+	run("LimitDirectMemory", ::LimitDirectMemory, true);
+	run("LingerOnClose", ::LingerOnClose, true);
 	run("ListNull", ::ListNull);
 	run("ListRoots", ::ListRoots);
 	run("ListSpace", ::ListSpace);
 	run("LoadNullClass", ::LoadNullClass);
-//	run("Loader", ::Loader);
+	run("Loader", ::Loader, true);
 	run("LocalSocketAddress", ::LocalSocketAddress);
 	run("LocaleDependentURLTest", ::LocaleDependentURLTest);
 	run("LocalizedMessage", ::LocalizedMessage);
-//	run("Lock", ::Lock);
+	run("Lock", ::Lock, true);
 	run("LockReadWriteStressTest", ::LockReadWriteStressTest);
 	run("LongTransferTest", ::LongTransferTest);
 	run("LongValueExactTests", ::LongValueExactTests);
-//	run("LookupTest", ::LookupTest);
+	run("LookupTest", ::LookupTest, true);
 	run("LotsOfCancels", ::LotsOfCancels);
 	run("LotsOfCancels4WatchService", ::LotsOfCancels4WatchService);
-//	run("LotsOfCloses", ::LotsOfCloses);
+	run("LotsOfCloses", ::LotsOfCloses, true);
 	run("LotsOfUpdates", ::LotsOfUpdates);
 	run("LotsOfWrites", ::LotsOfWrites);
 	run("MacPathTest", ::MacPathTest);
@@ -1342,19 +1408,19 @@ void runCases() {
 	run("MaxCapacity", ::MaxCapacity);
 	run("MaxPath", ::MaxPath);
 	run("MaxPathLength", ::MaxPathLength);
-//	run("MemoryLeak", ::MemoryLeak);
+	run("MemoryLeak", ::MemoryLeak, true);
 	run("MessageFormatsByArgumentIndex", ::MessageFormatsByArgumentIndex);
 	run("MetafactoryArgValidationTest", ::MetafactoryArgValidationTest);
 	run("MetafactoryArityTest", ::MetafactoryArityTest);
 	run("MetafactoryDescriptorTest", ::MetafactoryDescriptorTest);
 	run("MetafactoryMethodNameTest", ::MetafactoryMethodNameTest);
 	run("MetafactoryParameterCastTest", ::MetafactoryParameterCastTest);
-//	run("Mkdir", ::Mkdir);
+	run("Mkdir", ::Mkdir, true);
 	run("ModInvTime", ::ModInvTime);
-//	run("ModPowPowersof2", ::ModPowPowersof2);
+	run("ModPowPowersof2", ::ModPowPowersof2, true);
 	run("ModPowPowersof2$ModTester", ::ModPowPowersof2$ModTester);
 	run("Mode", ::Mode);
-//	run("MultiThreadStackWalk", ::MultiThreadStackWalk);
+	run("MultiThreadStackWalk", ::MultiThreadStackWalk, true);
 	run("MultiThreadedSystemProxies", ::MultiThreadedSystemProxies);
 	run("MulticastTTL", ::MulticastTTL);
 	run("MultipleNumberScriptTest", ::MultipleNumberScriptTest);
@@ -1370,18 +1436,18 @@ void runCases() {
 	run("NetworkInterfaceEmptyGetInetAddressesTest", ::NetworkInterfaceEmptyGetInetAddressesTest);
 	run("NetworkPrefixLength", ::NetworkPrefixLength);
 	run("NewChainedExceptions", ::NewChainedExceptions);
-//	run("NewVSOld_th_TH", ::NewVSOld_th_TH);
+	run("NewVSOld_th_TH", ::NewVSOld_th_TH, true);
 	run("NoAction", ::NoAction);
 	run("NoName", ::NoName);
 	run("NonBlocking", ::NonBlocking);
 	run("NonCharacterMapping", ::NonCharacterMapping);
 	run("NonInheritableContainee", ::NonInheritableContainee);
-//	run("NonLinking", ::NonLinking);
-//	run("NonOverridableHandlerFactory", ::NonOverridableHandlerFactory);
-//	run("NonPublicProxyClass", ::NonPublicProxyClass);
+	run("NonLinking", ::NonLinking, true);
+	run("NonOverridableHandlerFactory", ::NonOverridableHandlerFactory, true);
+	run("NonPublicProxyClass", ::NonPublicProxyClass, true);
 	run("NonPublicStaticInitializer", ::NonPublicStaticInitializer);
 	run("NotBound", ::NotBound);
-//	run("NulDevice", ::NulDevice);
+	run("NulDevice", ::NulDevice, true);
 	run("NulFile", ::NulFile);
 	run("NullArgs", ::NullArgs);
 	run("NullArguments", ::NullArguments);
@@ -1391,7 +1457,7 @@ void runCases() {
 	run("NullCreate", ::NullCreate);
 	run("NullHost", ::NullHost);
 	run("NullInParamList", ::NullInParamList);
-//	run("NullQueue", ::NullQueue);
+	run("NullQueue", ::NullQueue, true);
 	run("NullStackTrace", ::NullStackTrace);
 	run("NullTest", ::NullTest);
 	run("NullThreadName", ::NullThreadName);
@@ -1400,14 +1466,14 @@ void runCases() {
 	run("NumberFormatRounding", ::NumberFormatRounding);
 	run("OOMEInReferenceHandler", ::OOMEInReferenceHandler);
 	run("Offset", ::Offset);
-//	run("OldenCompilingWithDefaults", ::OldenCompilingWithDefaults);
+	run("OldenCompilingWithDefaults", ::OldenCompilingWithDefaults, true);
 	run("One", ::One);
 	run("OneExceptionOnly", ::OneExceptionOnly);
 	run("OpRead", ::OpRead);
 	run("Open", ::Open);
 	run("OpenConnection", ::OpenConnection);
 	run("OpenDir", ::OpenDir);
-//	run("OpenLeak", ::OpenLeak);
+	run("OpenLeak", ::OpenLeak, true);
 	run("OpenStream", ::OpenStream);
 	run("OpenSync", ::OpenSync);
 	run("OpsAfterClose", ::OpsAfterClose);
@@ -1418,8 +1484,8 @@ void runCases() {
 	run("OpsAfterClose4PrintWriter", ::OpsAfterClose4PrintWriter);
 	run("OpsAfterClose4RandomAccessFile", ::OpsAfterClose4RandomAccessFile);
 	run("OrderUnitTest", ::OrderUnitTest);
-//	run("OutOfBand", ::OutOfBand);
-//	run("OutOfBand4Selector", ::OutOfBand4Selector);
+	run("OutOfBand", ::OutOfBand, true);
+	run("OutOfBand4Selector", ::OutOfBand4Selector, true);
 	run("OverflowInRead", ::OverflowInRead);
 	run("OverflowInSkip", ::OverflowInSkip);
 	run("OversynchronizedTest", ::OversynchronizedTest);
@@ -1439,12 +1505,12 @@ void runCases() {
 	run("Pin", ::Pin);
 	run("PipeChannel", ::PipeChannel);
 	run("PipeInterrupt", ::PipeInterrupt);
-//	run("PipelineTest", ::PipelineTest);
+	run("PipelineTest", ::PipelineTest, true);
 	run("PortUnreachable", ::PortUnreachable);
 	run("Position", ::Position);
 	run("Pread", ::Pread);
 	run("PrimitiveConversionTests", ::PrimitiveConversionTests);
-//	run("PrivateInterfaceCall", ::PrivateInterfaceCall);
+	run("PrivateInterfaceCall", ::PrivateInterfaceCall, true);
 	run("Probe", ::Probe);
 	run("Protocol", ::Protocol);
 	run("ProxyClashTest", ::ProxyClashTest);
@@ -1453,16 +1519,16 @@ void runCases() {
 	run("QuoteTest", ::QuoteTest);
 	run("Race", ::Race);
 	run("RacyDeregister", ::RacyDeregister);
-//	run("RacyHandler", ::RacyHandler);
+	run("RacyHandler", ::RacyHandler, true);
 	run("RacyRegister", ::RacyRegister);
 	run("ReachabilityFenceTest", ::ReachabilityFenceTest);
 	run("Read", ::Read);
-//	run("ReadAfterReset", ::ReadAfterReset);
+	run("ReadAfterReset", ::ReadAfterReset, true);
 	run("ReadAhead", ::ReadAhead);
 	run("ReadByte", ::ReadByte);
 	run("ReadCloseRaceNPE", ::ReadCloseRaceNPE);
 	run("ReadFull", ::ReadFull);
-//	run("ReadFully", ::ReadFully);
+	run("ReadFully", ::ReadFully, true);
 	run("ReadIntoReadOnlyBuffer", ::ReadIntoReadOnlyBuffer);
 	run("ReadLine", ::ReadLine);
 	run("ReadLinePushback", ::ReadLinePushback);
@@ -1479,7 +1545,7 @@ void runCases() {
 	run("Receive", ::Receive);
 	run("ReceiveISA", ::ReceiveISA);
 	run("RecursiveAnnotation", ::RecursiveAnnotation);
-//	run("RecursiveSystemLoader", ::RecursiveSystemLoader);
+	run("RecursiveSystemLoader", ::RecursiveSystemLoader, true);
 	run("RedirectWithLongFilename", ::RedirectWithLongFilename);
 	run("ReferenceClone", ::ReferenceClone);
 	run("ReferenceEnqueue", ::ReferenceEnqueue);
@@ -1510,25 +1576,25 @@ void runCases() {
 	run("ReuseBuf", ::ReuseBuf);
 	run("SBBasher", ::SBBasher);
 	run("SJIS", ::SJIS);
-//	run("SPIProviderTest", ::SPIProviderTest);
+	run("SPIProviderTest", ::SPIProviderTest, true);
 	run("Sanity", ::Sanity);
 	run("ScatteringRead", ::ScatteringRead);
-//	run("Security", ::Security);
-//	run("SecurityExceptions", ::SecurityExceptions);
-//	run("SecurityManagerClinit", ::SecurityManagerClinit);
-//	run("SecurityTest", ::SecurityTest);
+	run("Security", ::Security, true);
+	run("SecurityExceptions", ::SecurityExceptions, true);
+	run("SecurityManagerClinit", ::SecurityManagerClinit, true);
+	run("SecurityTest", ::SecurityTest, true);
 	run("SelectFdsLimit", ::SelectFdsLimit);
 	run("SelectNowWhenEmpty", ::SelectNowWhenEmpty);
 	run("SelectPipe", ::SelectPipe);
 	run("SelectTimeout", ::SelectTimeout);
 	run("SelectWhenRefused", ::SelectWhenRefused);
 	run("Send12k", ::Send12k);
-//	run("SendDatagramToBadAddress", ::SendDatagramToBadAddress);
+	run("SendDatagramToBadAddress", ::SendDatagramToBadAddress, true);
 	run("SendSize", ::SendSize);
-//	run("SendUrgentData", ::SendUrgentData);
+	run("SendUrgentData", ::SendUrgentData, true);
 	run("Sender", ::Sender);
 	run("SerializationTests", ::SerializationTests);
-//	run("Serialize", ::Serialize);
+	run("Serialize", ::Serialize, true);
 	run("SetBufferSize", ::SetBufferSize);
 	run("SetLastModified", ::SetLastModified);
 	run("SetMaxPriority", ::SetMaxPriority);
@@ -1536,51 +1602,51 @@ void runCases() {
 	run("SetReceiveBufferSize", ::SetReceiveBufferSize);
 	run("SetTTLAndGetTTL", ::SetTTLAndGetTTL);
 	run("SetTTLTo0", ::SetTTLTo0);
-//	run("SetTimesNanos", ::SetTimesNanos);
+	run("SetTimesNanos", ::SetTimesNanos, true);
 	run("Shadow", ::Shadow);
 	run("Sharing", ::Sharing);
 	run("ShortWrite", ::ShortWrite);
 	run("ShortWrite4Channels", ::ShortWrite4Channels);
 	run("Shutdown", ::Shutdown);
 	run("ShutdownBoth", ::ShutdownBoth);
-//	run("SiblingIOEHandle", ::SiblingIOEHandle);
+	run("SiblingIOEHandle", ::SiblingIOEHandle, true);
 	run("SignatureTest", ::SignatureTest);
-//	run("SimpleProxy", ::SimpleProxy);
+	run("SimpleProxy", ::SimpleProxy, true);
 	run("Size", ::Size);
 	run("SkipBytes", ::SkipBytes);
-//	run("SkipTest", ::SkipTest);
-//	run("SkipTest$GenerateData", ::SkipTest$GenerateData);
+	run("SkipTest", ::SkipTest, true);
+	run("SkipTest$GenerateData", ::SkipTest$GenerateData, true);
 	run("SoTimeout", ::SoTimeout);
 	run("SocketGrowth", ::SocketGrowth);
-//	run("SocketInheritance", ::SocketInheritance);
+	run("SocketInheritance", ::SocketInheritance, true);
 	run("SocketPermissionCollection", ::SocketPermissionCollection);
 	run("Space", ::Space);
 	run("SpecTests", ::SpecTests);
-//	run("SpecialInterfaceCall.SpecialInterfaceCall", ::SpecialInterfaceCall::SpecialInterfaceCall);
-//	run("SpecialTempFile", ::SpecialTempFile);
-//	run("SpecifyHandler", ::SpecifyHandler);
+	run("SpecialInterfaceCall.SpecialInterfaceCall", ::SpecialInterfaceCall::SpecialInterfaceCall, true);
+	run("SpecialTempFile", ::SpecialTempFile, true);
+	run("SpecifyHandler", ::SpecifyHandler, true);
 	run("Split", ::Split);
 	run("SquareRootTests", ::SquareRootTests);
-//	run("StackOverflowTest", ::StackOverflowTest);
+	run("StackOverflowTest", ::StackOverflowTest, true);
 	run("StackStreamState", ::StackStreamState);
 	run("StackTraceSerialization", ::StackTraceSerialization);
 	run("StarInheritance", ::StarInheritance);
-//	run("StartOOMTest", ::StartOOMTest);
+	run("StartOOMTest", ::StartOOMTest, true);
 	run("StateTestService", ::StateTestService);
 	run("StaticFieldTest", ::StaticFieldTest);
 	run("StaticFieldsOnInterface", ::StaticFieldsOnInterface);
 	run("StaticInitializerTest", ::StaticInitializerTest);
-//	run("StaticInterfaceMethodInWayOfDefault", ::StaticInterfaceMethodInWayOfDefault);
+	run("StaticInterfaceMethodInWayOfDefault", ::StaticInterfaceMethodInWayOfDefault, true);
 	run("Stop", ::Stop);
 	run("Streams", ::Streams);
 	run("StressLoopback", ::StressLoopback);
-//	run("StressNativeSignal", ::StressNativeSignal);
+	run("StressNativeSignal", ::StressNativeSignal, true);
 	run("StringCharBufferSliceTest", ::StringCharBufferSliceTest);
 	run("StringConcatFactoryInvariants", ::StringConcatFactoryInvariants);
 	run("StringConcatFactoryRepeatedConstants", ::StringConcatFactoryRepeatedConstants);
 	run("StringConstructorOverflow", ::StringConstructorOverflow);
 	run("StringContentEqualsBug", ::StringContentEqualsBug);
-//	run("StringPlatformChars", ::StringPlatformChars);
+	run("StringPlatformChars", ::StringPlatformChars, true);
 	run("StringRepeat", ::StringRepeat);
 	run("StringScope", ::StringScope);
 	run("StripACC_SUPER", ::StripACC_SUPER);
@@ -1625,8 +1691,8 @@ void runCases() {
 	run("TestGenericReturnTypeToString", ::TestGenericReturnTypeToString);
 	run("TestIPv6Addresses", ::TestIPv6Addresses);
 	run("TestIncompleteAnnotationExceptionNPE", ::TestIncompleteAnnotationExceptionNPE);
-//	run("TestLayer", ::TestLayer);
-//	run("TestMain", ::TestMain);
+	run("TestLayer", ::TestLayer, true);
+	run("TestMain", ::TestMain, true);
 	run("TestMethodReflectValueOf", ::TestMethodReflectValueOf);
 	run("TestN1", ::TestN1);
 	run("TestNegativeCodepoint", ::TestNegativeCodepoint);
@@ -1649,10 +1715,10 @@ void runCases() {
 	run("TestUndefinedTitleCase", ::TestUndefinedTitleCase);
 	run("TestValueExact", ::TestValueExact);
 	run("TestWhiteSpace", ::TestWhiteSpace);
-//	run("ThereCanBeOnlyOne", ::ThereCanBeOnlyOne);
+	run("ThereCanBeOnlyOne", ::ThereCanBeOnlyOne, true);
 	run("ThreadStop", ::ThreadStop);
 	run("TieRoundingTest", ::TieRoundingTest);
-	run("TimeToLive", ::TimeToLive);
+	run("TimeToLive", ::TimeToLive, true);
 	run("TimeZoneLastModified", ::TimeZoneLastModified);
 	run("TinyBuffers", ::TinyBuffers);
 	run("ToLowerCase", ::ToLowerCase);
@@ -1677,24 +1743,24 @@ void runCases() {
 	run("TypeParamAnnotation", ::TypeParamAnnotation);
 	run("TypeTag", ::TypeTag);
 	run("TypeVariableBoundParameterIndex", ::TypeVariableBoundParameterIndex);
-//	run("UNCTest", ::UNCTest);
+	run("UNCTest", ::UNCTest, true);
 	run("URIToURLTest2", ::URIToURLTest2);
 	run("URItoURLTest", ::URItoURLTest);
 	run("URLDecoderArgs", ::URLDecoderArgs);
 	run("URLEncodeDecode", ::URLEncodeDecode);
 	run("URLEncoderEncodeArgs", ::URLEncoderEncodeArgs);
-//	run("URLParsing", ::URLParsing);
+	run("URLParsing", ::URLParsing, true);
 	run("URLPermissionTest", ::URLPermissionTest);
 	run("UTF16", ::UTF16);
 	run("UTF8", ::UTF8);
 	run("UnboundSocketTests", ::UnboundSocketTests);
 	run("Unbounded", ::Unbounded);
 	run("UniTest.UnitTest", ::UniTest::UnitTest);
-//	run("Unicode", ::Unicode);
+	run("Unicode", ::Unicode, true);
 	run("Unicode4File", ::Unicode4File);
 	run("UnicodeConstructor", ::UnicodeConstructor);
 	run("UnicodeSpec", ::UnicodeSpec);
-//	run("UninitializedParent", ::UninitializedParent);
+	run("UninitializedParent", ::UninitializedParent, true);
 	run("UnixSocketFile", ::UnixSocketFile);
 	run("UnknownContentType", ::UnknownContentType);
 	run("Unresolved", ::Unresolved);
@@ -1707,15 +1773,15 @@ void runCases() {
 	run("ValueOf4Enum", ::ValueOf4Enum);
 	run("ValueOf4Integer", ::ValueOf4Integer);
 	run("VerifyStackTrace", ::VerifyStackTrace);
-//	run("VersionProps", ::VersionProps);
-//	run("Versions", ::Versions);
-//	run("WaitFor", ::WaitFor);
-//	run("WaitTooLong", ::WaitTooLong);
+	run("VersionProps", ::VersionProps, true);
+	run("Versions", ::Versions, true);
+	run("WaitFor", ::WaitFor, true);
+	run("WaitTooLong", ::WaitTooLong, true);
 	run("WakeupAfterClose", ::WakeupAfterClose);
 	run("WakeupNow", ::WakeupNow);
 	run("WakeupOverflow", ::WakeupOverflow);
 	run("WalkFunction", ::WalkFunction);
-//	run("WalkWithSecurity", ::WalkWithSecurity);
+	run("WalkWithSecurity", ::WalkWithSecurity, true);
 	run("WeekDateTest", ::WeekDateTest);
 	run("WhiteSpaceHostTest", ::WhiteSpaceHostTest);
 	run("Wildcard", ::Wildcard);
@@ -1724,7 +1790,7 @@ void runCases() {
 	run("WinDirRelative", ::WinDirRelative);
 	run("WinMaxPath", ::WinMaxPath);
 	run("WinSpecialFiles", ::WinSpecialFiles);
-//	run("WithSecurityManager4AsynchronousServerSocketChannel", ::WithSecurityManager4AsynchronousServerSocketChannel);
+	run("WithSecurityManager4AsynchronousServerSocketChannel", ::WithSecurityManager4AsynchronousServerSocketChannel, true);
 	run("WithSecurityManager4concat", ::WithSecurityManager4concat);
 	run("Write", ::Write);
 	run("WriteBytes", ::WriteBytes);
@@ -1740,7 +1806,7 @@ void runCases() {
 	run("bug6271375", ::bug6271375);
 	run("bug6317072", ::bug6317072);
 	run("bug6412896", ::bug6412896);
-//	run("c.TestClient", ::c::TestClient);
+	run("c.TestClient", ::c::TestClient, true);
 	run("exceptionCauseTest", ::exceptionCauseTest);
 	run("getAnnotationTest", ::getAnnotationTest);
 	run("getResponseCode4HttpURLConnection", ::getResponseCode4HttpURLConnection);
@@ -1752,40 +1818,38 @@ void runCases() {
 	run("java.lang.Math2.DivModTests", ::java::lang::Math2::DivModTests);
 	run("java.lang.Math2.ExactArithTests", ::java::lang::Math2::ExactArithTests);
 	run("java.lang.Math2.MinMax", ::java::lang::Math2::MinMax);
-//	run("p.App", ::p::App);
-//	run("p.Main", ::p::Main);
-//	run("p2.test.Main", ::p2::test::Main);
-//	run("p3.NoAccess", ::p3::NoAccess);
-//	run("p3.NoGetClassLoaderAccess", ::p3::NoGetClassLoaderAccess);
+	run("p.App", ::p::App, true);
+	run("p.Main", ::p::Main, true);
+	run("p2.test.Main", ::p2::test::Main, true);
+	run("p3.NoAccess", ::p3::NoAccess, true);
+	run("p3.NoGetClassLoaderAccess", ::p3::NoGetClassLoaderAccess, true);
 	run("pkg1.MethodTypeDescriptorAccessTest", ::pkg1::MethodTypeDescriptorAccessTest);
 	run("repeatingAnnotations.InheritedAssociatedAnnotations", ::repeatingAnnotations::InheritedAssociatedAnnotations);
 	run("test.FindSpecial", ::test::FindSpecial);
 	run("test.java.lang.invoke.CountedLoopIterationCountsTest", ::test::java::lang::invoke::CountedLoopIterationCountsTest);
 	run("test.java.lang.invoke.FindClassSecurityManager", ::test::java::lang::invoke::FindClassSecurityManager);
 	run("test.java.lang.invoke.LoopCombinatorLongSignatureTest", ::test::java::lang::invoke::LoopCombinatorLongSignatureTest);
-//	run("test.java.lang.invoke.MethodTypeSecurityManager", ::test::java::lang::invoke::MethodTypeSecurityManager);
+	run("test.java.lang.invoke.MethodTypeSecurityManager", ::test::java::lang::invoke::MethodTypeSecurityManager, true);
 	run("test.java.lang.invoke.ObjectMethodInInterfaceTest", ::test::java::lang::invoke::ObjectMethodInInterfaceTest);
 	run("textToNumericFormat", ::textToNumericFormat);
 
 	int64_t runCaseEndMs = $System::currentTimeMillis();
-	$System::out->println($$str({"runCases "_s, $$str(processedCount), " "_s, $$str(runCaseEndMs - runCasesBeginMs), "ms"_s}));
+	if (isSelectedAll()) {
+		$System::out->println($$str({"runCases "_s, $$str(processedCount), " "_s, $$str(runCaseEndMs - runCasesBeginMs), "ms"_s}));
+	}
 	$System::out->flush();
+	success = true;
 }
 
 int main(int argc, char** argv) {
 	::java$base$test::init();
-	int ret = 0;
+	TestCases testcases(argc, argv);
 	try {
-		$assignStatic(context, $new($StringArray, argc - 1));
-		for (int32_t i = 1; i < argc; i++) {
-			context->set(i - 1, $str(argv[i]));
-		}
-		runCases();
+		testcases.runCases();
 	} catch ($Throwable&) {
 		$var($Throwable, e, $catch());
 		e->printStackTrace();
-		ret = 1;
 	}
 	$System::deinit();
-	return ret;
+	return testcases.isSuccess() ? 0 : 1;
 }

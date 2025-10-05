@@ -44,7 +44,7 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/lang/Shutdown.h>
+//#include <java/lang/Shutdown.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/SoftReference.h>
@@ -738,7 +738,6 @@ void Machine::init3() {
 }
 
 void Machine::deinit() {
-	Shutdown::shutdown();
 	ObjectManagerInternal::deinit();
 }
 
