@@ -8,6 +8,8 @@ on:
 
 env:
   BUILD_TYPE: Release
+  JCPP_LOG_LEVEL: debug
+  JCPP_LOG_CONSOLE: enable
 
 jobs:
   build:
