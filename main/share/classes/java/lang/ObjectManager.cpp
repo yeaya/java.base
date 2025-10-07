@@ -1488,6 +1488,7 @@ public:
 	}
 
 	bool existsNonDaemonThread();
+	void printThreads();
 
 	void fullGc0(REF_TYPE scanRefLevel, GcResult* gcResult);
 
@@ -3363,12 +3364,11 @@ void ObjectManagerInternal::init3() {
 void ObjectManagerInternal::deinit() {
 	log_debug("ObjectManagerInternal::deinit()");
 	if (globalControllerThread != nullptr) {
+		globalController->deinit();
+
 		globalControllerThread->stop();
 		globalControllerThread = nullptr;
-
-		globalController->deinit();
 		objectManagerInited = false;
-		Shutdown::shutdown();
 	}
 }
 
@@ -3608,6 +3608,23 @@ bool GlobalController::existsNonDaemonThread() {
 		}
 	}
 	return ret;
+}
+
+void GlobalController::printThreads() {
+	std::lock_guard lock(this->mutexGlobal);
+	LocalControllerAtomicListIterator it = LocalControllerAtomicListIterator(&localControllerList);
+	while (it.has()) {
+		LocalController* controller = it.get();
+		it.next();
+		if (controller == localController) {
+			log_debug("*");
+		}
+		if (controller->daemon) {
+			log_debug("daemon thread %s\n", controller->threadName);
+		} else {
+			log_debug("thread %s\n", controller->threadName);
+		}
+	}
 }
 
 bool isClassObj(Object* obj, Class* clazz) {
@@ -6475,15 +6492,22 @@ void GlobalController::deinit() {
 	printStat();
 
 	// wail all nondaemon thread end
+	int64_t lastPrintMs = System::currentTimeMillis();
 	while (existsNonDaemonThread()) {
+		if (System::currentTimeMillis() - lastPrintMs > 5000) {
+			printThreads();
+			lastPrintMs = System::currentTimeMillis();
+		}
 		{
 			std::unique_lock lock(this->mutexGlobal);
 			this->cvGlobal.wait_for(lock, std::chrono::nanoseconds(10));
 		}
 		//::java::lang::Thread::sleep(1);
-		opt();
-		fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
+		//opt();
+		//fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 	}
+
+	Shutdown::shutdown();
 
 	// for (int i = 0; i < 5; i++) {
 	// 	fullGc0(localController, OBJECT_REF_TYPE_FINAL);
