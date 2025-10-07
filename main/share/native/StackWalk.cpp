@@ -51,27 +51,22 @@
 #include <java/lang/CompoundAttribute.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/invoke/MethodHandle.h>
-#include <java/util/Optional.h>
-#include <jdk/internal/access/JavaLangInvokeAccess.h>
 
 #include <jcpp.h>
 #include <java/lang/SpinLock.h>
 
 #include "OS.h"
 
-#define TEST_NativeFrameStream
-
 using namespace ::java::lang;
 using namespace ::java::lang::invoke;
 using namespace ::java::lang::reflect;
-using ::java::util::Optional;
-using ::jdk::internal::access::JavaLangInvokeAccess;
 
 #ifdef assert
 #undef assert
 #endif
 #define assert(cond, msg)
 #define ShowHiddenFrames false
+#define TEST_NativeFrameStream
 
 class AddressFunctionNameNode {
 public:
@@ -615,7 +610,7 @@ bool isCallerSensitive(Method* method) {
 	}
 	$var(String, methodName, method->getName());
 	if (methodName->equals("invoke")) {
-		if (::java::lang::invoke::MethodHandle::class$->isAssignableFrom(method->getDeclaringClass())) {
+		if (MethodHandle::class$->isAssignableFrom(method->getDeclaringClass())) {
 			return true;
 		}
 	}
@@ -797,39 +792,39 @@ $Object* StackWalk::fetchFirstBatch(BaseFrameStream& stream,
 	int64_t mode, int32_t skipFrames, int32_t frameCount,
 	int32_t startIndex, $ObjectArray* frames) {
 
-		{
-			while (!stream.end()) {
-				Class* ik = stream.method()->getDeclaringClass();
-				if (ik != ::java::lang::StackWalker::class$ &&
-					ik != ::java::lang::StackStreamFactory$AbstractStackWalker::class$ && ik->getSuperclass() != ::java::lang::StackStreamFactory$AbstractStackWalker::class$) {
-					break;
-				}
-				stream.next();
+	{
+		while (!stream.end()) {
+			Class* ik = stream.method()->getDeclaringClass();
+			if (ik != ::java::lang::StackWalker::class$ &&
+				ik != ::java::lang::StackStreamFactory$AbstractStackWalker::class$ && ik->getSuperclass() != ::java::lang::StackStreamFactory$AbstractStackWalker::class$) {
+				break;
 			}
-
-			// from the stack frame at depth == skip_frames.
-			for (int n = 0; n < skipFrames && !stream.end(); stream.next(), n++) {
-			}
+			stream.next();
 		}
 
-		int endIndex = startIndex;
-		int numFrames = 0;
-		if (!stream.end()) {
-			numFrames = fillInFrames(mode, stream, frameCount, startIndex, frames, endIndex);
-			if (numFrames < 1) {
-				$throwNew(InternalError, "stack walk: decode failed"_s);
-			}
+		// from the stack frame at depth == skip_frames.
+		for (int n = 0; n < skipFrames && !stream.end(); stream.next(), n++) {
 		}
+	}
 
-		stream.setupMagic(frames);
-
-		$var($Object, result, walker->doStackWalk(stream.addressValue(), skipFrames, frameCount, startIndex, startIndex + numFrames));
-		bool ok = stream.cleanupMagic(frames);
-		if (!ok) {
-			$throwNew(InternalError, "doStackWalk: corrupted buffers on exit"_s);
+	int endIndex = startIndex;
+	int numFrames = 0;
+	if (!stream.end()) {
+		numFrames = fillInFrames(mode, stream, frameCount, startIndex, frames, endIndex);
+		if (numFrames < 1) {
+			$throwNew(InternalError, "stack walk: decode failed"_s);
 		}
+	}
 
-		return result;
+	stream.setupMagic(frames);
+
+	$var($Object, result, walker->doStackWalk(stream.addressValue(), skipFrames, frameCount, startIndex, startIndex + numFrames));
+	bool ok = stream.cleanupMagic(frames);
+	if (!ok) {
+		$throwNew(InternalError, "doStackWalk: corrupted buffers on exit"_s);
+	}
+
+	return result;
 }
 
 int32_t StackWalk::fetchNextBatch(Object$* stackStream, int64_t mode, int64_t magic, int32_t frameCount, int32_t startIndex, $ObjectArray* frames) {
@@ -921,14 +916,12 @@ $ClassArray* StackWalk::getClassContext() {
 	// [.] [ (skipped intermediate frames)                                 ]
 	// [n] [ caller                                                        ]
 
-	address stack[256];
-	int depth = OS::getBackTrace(stack, $lengthOf(stack), 1);
+	address stack[128];
+	int depth = OS::getBackTrace(stack, $lengthOf(stack), 1); // 1: skip StackWalk::getCallerClass
 	StackIterator stackIterator;
 	stackIterator.init(stack, depth);
-	// FixedDepthNativeCallStack<256> nativeClassStack;
-	// nativeClassStack.init(1); // 1: skip StackWalk::getCallerClass
-	char cppClassName[512];
-	char cppMethodName[512];
+	char cppClassName[256];
+	char cppMethodName[256];
 	char parameterTypes[512];
 	char buf[1024];
 	while (stackIterator.hasNext()) {

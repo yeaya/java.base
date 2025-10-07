@@ -33,7 +33,6 @@
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
-#include <java/lang/interpreter/parser.h>
 #include <java/lang/interpreter/ByteCodeInterpreter.h>
 #include <java/lang/RuntimeException.h>
 #include <java/io/ByteArrayInputStream.h>
@@ -66,6 +65,7 @@
 #include <string.h>
 
 #include <java/lang/interpreter/ByteCodeObject.h>
+#include <java/lang/Logger.h>
 
 #include "Platform.h"
 
@@ -232,7 +232,7 @@ int32_t ByteCodeClass::lastClassIndex = 0;
 
 Class* ByteCodeClass::class$ = nullptr;
 Class* ByteCodeClass::load$(String* name, bool initialize) {
-	int64_t mark = $getMark(ByteCodeClass);
+	int32_t mark = $getMark(ByteCodeClass);
 	// TODO merge real class mark, calc size
 	Class::loadClass(name, initialize, &class$, sizeof(ByteCodeClass), mark, &_ByteCodeClass_ClassInfo_, nullptr, nullptr, nullptr, nullptr, nullptr);
 	return class$;
@@ -1208,6 +1208,15 @@ void ByteCodeClassData::init$() {
 	$set(this, byteCodeMethods, $new<ArrayList>());
 }
 
+int32_t getCategory(String* type) {
+	if (type->equals("long") || type->equals("double")) {
+		return 2;
+	} else if (type->equals("void")) {
+		return 0;
+	}
+	return 1;
+}
+
 void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
 	$var(ByteArrayInputStream, bais, $new<ByteArrayInputStream>(b));
 	$var(DataInputStream, is, $new<DataInputStream>(bais));
@@ -1391,15 +1400,13 @@ void ByteCodeClassData::parse($bytes* b, ClassInfo* classInfo) {
 			}
 			parseMethodAttributes(is, methodInfo, bcMethod);
 
-			bcMethod->parameter_count = 0;
+			$var($StringArray, sa, Class::parseMethodDescriptor(descriptor));
+			bcMethod->parameter_count = sa->length - 1;
 			bcMethod->stack_slots_for_parameters = bcMethod->is_static() ? 0 : 1;
-
-			MethodDescriptorParts parts{ descriptor };
-			for (; !parts->is_return; ++parts) {
-				++bcMethod->parameter_count;
-				bcMethod->stack_slots_for_parameters += parts->category;
+			for (int32_t i = 0; i < bcMethod->parameter_count; i++) {
+				bcMethod->stack_slots_for_parameters += getCategory(sa->get(i));
 			}
-			bcMethod->return_category = parts->category;
+			bcMethod->return_category = getCategory(sa->get(bcMethod->parameter_count));
 
 			if (methodInfo != nullptr) {
 				methodInfo->name = this->makeCharPtrForClassInfo(methodName);
