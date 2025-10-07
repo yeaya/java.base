@@ -61,6 +61,11 @@ using namespace ::java::lang;
 using namespace ::java::lang::invoke;
 using namespace ::java::lang::reflect;
 
+#define MAX_STACK_DEPTH 128
+#define MAX_CLASS_NAME_LENGTH 512
+#define MAX_METHOD_NAME_LENGTH 512
+#define MAX_PARAMETER_TYPE_LENGTH 1024
+
 #ifdef assert
 #undef assert
 #endif
@@ -348,7 +353,7 @@ bool parameterTypeEquals(Class* ptype, const char* type2) {
 		}
 		//char buf[256];
 		//$ref(elementType->getName())->utf8(buf, sizeof(buf));
-		char buf2[300];
+		char buf2[MAX_CLASS_NAME_LENGTH + 30];
 		snprintf(buf2, sizeof(buf2), "java.lang.Array<%s,%d>", $ref(elementType->getName())->c_str(), dim);
 		return strcmp(type2, buf2) == 0;
 	}
@@ -364,7 +369,7 @@ bool parameterTypeEquals(Class* ptype, const char* type2) {
 
 #ifdef TEST_NativeFrameStream
 void testTEST_NativeFrameStreamParameter(const char* parameterTypes, int32_t& offset, Class* targetType) {
-	char typeBuf[128];
+	char typeBuf[MAX_CLASS_NAME_LENGTH];
 	int32_t offset2 = offset;
 	parseParameterType(parameterTypes, offset, typeBuf, sizeof(typeBuf));
 	if (!parameterTypeEquals(targetType, typeBuf)) {
@@ -464,7 +469,7 @@ Method* getMethodFromCppMethodFullNameAndParameters(const char* classNameChars, 
 }
 
 Method* getMethodFromCppMethodFullNameAndParameters(char* cppMethodFullNameAndParameters) {
-	char classNameChars[512];
+	char classNameChars[MAX_CLASS_NAME_LENGTH];
 	int32_t srcIndex = 0;
 	int32_t dstIndex = 0;
 	int32_t methodIndex = 0;
@@ -546,7 +551,7 @@ private:
 };
 
 class NativeFrameStream : public BaseFrameStream {
-	address stack[1015];
+	address stack[MAX_STACK_DEPTH];
 	StackIterator stackIterator;
 	::java::lang::StackWalker* walker = nullptr;
 	int64_t mode;
@@ -916,13 +921,13 @@ $ClassArray* StackWalk::getClassContext() {
 	// [.] [ (skipped intermediate frames)                                 ]
 	// [n] [ caller                                                        ]
 
-	address stack[128];
+	address stack[MAX_STACK_DEPTH];
 	int depth = OS::getBackTrace(stack, $lengthOf(stack), 1); // 1: skip StackWalk::getCallerClass
 	StackIterator stackIterator;
 	stackIterator.init(stack, depth);
-	char cppClassName[256];
-	char cppMethodName[256];
-	char parameterTypes[512];
+	char cppClassName[MAX_CLASS_NAME_LENGTH];
+	char cppMethodName[MAX_METHOD_NAME_LENGTH];
+	char parameterTypes[MAX_PARAMETER_TYPE_LENGTH];
 	char buf[1024];
 	while (stackIterator.hasNext()) {
 		address addr = stackIterator.next();
@@ -986,7 +991,7 @@ $ClassArray* StackWalk::getClassContext() {
 }
 
 void StackWalk::printStackTrace() {
-	address stack[256];
+	address stack[MAX_STACK_DEPTH];
 	int depth = OS::getBackTrace(stack, $lengthOf(stack), 1);
 	// printf("getBackTrace depth: %d\n", depth);
 	StackIterator stackIterator;
@@ -1013,11 +1018,9 @@ void StackWalk::printStackTrace() {
 	}
 }
 
-#define MAX_THROWABLE_STACK_DEPTH 128
-
 // thread_local bool fillInStackTraceing = false;
 void StackWalk::fillInStackTrace(Throwable* throwable) {
-	address stack[MAX_THROWABLE_STACK_DEPTH];
+	address stack[MAX_STACK_DEPTH];
 	if (throwable != nullptr) {
 		throwable->depth = OS::getBackTrace(stack, $lengthOf(stack), 2);
 		$set(throwable, stack$, ($longs*)ObjectManager::newArrayOrNull(Long::TYPE, throwable->depth));
@@ -1037,9 +1040,9 @@ void StackWalk::initStackTraceElements($Array<StackTraceElement>* elements, Thro
 	if (x->stack$ == nullptr) {
 		return;
 	}
-	char cppClassName[512];
-	char cppMethodName[512];
-	char parameterTypes[512];
+	char cppClassName[MAX_CLASS_NAME_LENGTH];
+	char cppMethodName[MAX_METHOD_NAME_LENGTH];
+	char parameterTypes[MAX_PARAMETER_TYPE_LENGTH];
 	int32_t elementsIndex = 0;
 	bool skipAfterMain = false;
 	int32_t depth = Math::min(x->depth, x->stack$->length);
