@@ -304,10 +304,24 @@ int32_t RandomAccessFile::read() {
 }
 
 int32_t RandomAccessFile::read0() {
+	$System::out->println("RandomAccessFile::read0 1"_s);
+	$System::out->println($$str((int64_t)_RandomAccessFile_MethodInfo_[_METHOD_INDEX_read0].nativeAddress));
+	$System::out->println($$str((int64_t)_RandomAccessFile_MethodInfo_[_METHOD_INDEX_read0].invokeAddress));
+	$System::out->println($$str(_RandomAccessFile_MethodInfo_[_METHOD_INDEX_read0].descriptor));
+	$System::out->println($$str(_RandomAccessFile_MethodInfo_[_METHOD_INDEX_read0].name));
+
 	int32_t $ret = 0;
 	$prepareNative(RandomAccessFile, read0, int32_t);
+
+	$System::out->println("RandomAccessFile::read0 2"_s);
+
 	$ret = $invokeNative(RandomAccessFile, read0);
+
+	$System::out->println("RandomAccessFile::read0 3"_s);
+
 	$finishNative();
+	$System::out->println("RandomAccessFile::read0 4"_s);
+
 	return $ret;
 }
 
