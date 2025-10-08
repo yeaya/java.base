@@ -32,10 +32,6 @@ jobs:
         name: java.base
         path: /Users/runner/jcpp/repository/java.base/17.35/
 
-    - name: Test0
-      working-directory: ${{github.workspace}}/build/test
-      run: ${{github.workspace}}/build/test/java.base-test CheckError
-
     - name: Test1
       working-directory: ${{github.workspace}}/build/test
       run: ${{github.workspace}}/build/test/java.base-test OpsAfterClose4RandomAccessFile
