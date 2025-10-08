@@ -1087,11 +1087,11 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 	ucontext_t* const uc = (ucontext_t*)ucVoid;
 	JavaThread* const currentThread = JavaThread::getCurrentThread();
 
-	// if (currentThread != nullptr) {
-	//	 log_info("JVM_HANDLE_XXX_SIGNAL name=%s, sig=%d\n", currentThread->getName(), sig);
-	// } else {
-	//	 log_info("JVM_HANDLE_XXX_SIGNAL sig=%d\n", sig);
-	// }
+	 if (currentThread != nullptr) {
+		 log_info("JVM_HANDLE_XXX_SIGNAL name=%s, sig=%d\n", currentThread->getName(), sig);
+	 } else {
+		 log_info("JVM_HANDLE_XXX_SIGNAL sig=%d\n", sig);
+	 }
 
 	// for gc
 	if (sig == SIGUSR2) {
@@ -1112,11 +1112,13 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 		if (info->si_code == SEGV_MAPERR || info->si_code == 128) {
 			log_debug("tid=%" PRId64 " sig=%d si_code=%d si_addr=%p\n", currentThreadId, sig, info->si_code, info->si_addr);
 
-			$throwNew(::java::lang::NullPointerException);
+			if (currentThread != nullptr) {
+				$throwNew(::java::lang::NullPointerException);
 
-			// address ucpc = OS::Unix::getPc(uc);
-			// OS::Unix::setPc(uc, (address)makrNPECode(ucpc));
-			return true;
+				// address ucpc = OS::Unix::getPc(uc);
+				// OS::Unix::setPc(uc, (address)makrNPECode(ucpc));
+				return true;
+			}
 		}
 		// throw OutOfMemoryError("");
 	}
