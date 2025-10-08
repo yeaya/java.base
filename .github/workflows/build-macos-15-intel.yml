@@ -40,6 +40,10 @@ jobs:
       working-directory: ${{github.workspace}}/build/test
       run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
 
+    - name: TestAll
+      working-directory: ${{github.workspace}}/build/test
+      run: ${{github.workspace}}/build/test/java.base-test
+
   build-debug:
     runs-on: macos-15-intel
 
@@ -60,10 +64,6 @@ jobs:
         name: java.base
         path: /Users/runner/jcpp/repository/java.base/17.35/
 
-    - name: Test0
-      working-directory: ${{github.workspace}}/build/test
-      run: ${{github.workspace}}/build/test/java.base-test CheckError
-
     - name: Test1
       working-directory: ${{github.workspace}}/build/test
       run: ${{github.workspace}}/build/test/java.base-test OpsAfterClose4RandomAccessFile
@@ -71,3 +71,7 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build/test
       run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
+
+    - name: TestAll
+      working-directory: ${{github.workspace}}/build/test
+      run: ${{github.workspace}}/build/test/java.base-test
