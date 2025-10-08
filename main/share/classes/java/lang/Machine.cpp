@@ -828,11 +828,12 @@ void* Machine::findLibraryEntry(void* handle, const char* name, bool force) {
 		while (lib != nullptr) {
 			if (lib->handle != handle) {
 				entry = Platform::findLibraryEntry(lib->handle, name);
-				char err[512];
-				Platform::getLastErrorDesc(err, sizeof(err));
 				if (entry != nullptr) {
 					return entry;
 				}
+				char err[512];
+				Platform::getLastErrorDesc(err, sizeof(err));
+				log_warning("findLibraryEntry fail, %s err:%s\n", name, err)
 			}
 			lib = lib->next;
 		}
