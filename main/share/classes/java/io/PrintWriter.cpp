@@ -240,8 +240,11 @@ void PrintWriter::close() {
 }
 
 bool PrintWriter::checkError() {
+	$System::out->println("PrintWriter::checkError 1"_s);
 	if (this->out != nullptr) {
+		$System::out->println("PrintWriter::checkError 2"_s);
 		flush();
+		$System::out->println("PrintWriter::checkError 3"_s);
 	}
 	{
 		$var(PrintWriter, pw, nullptr);
@@ -252,8 +255,10 @@ bool PrintWriter::checkError() {
 			var$0 = true;
 		}
 		if (var$0) {
+			$System::out->println("PrintWriter::checkError 4"_s);
 			return $nc(pw)->checkError();
 		} else if (this->psOut != nullptr) {
+			$System::out->println("PrintWriter::checkError 5"_s);
 			return $nc(this->psOut)->checkError();
 		}
 	}

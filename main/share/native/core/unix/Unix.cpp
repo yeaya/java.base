@@ -1110,7 +1110,7 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 	// handle null pointer access
 	if (sig == SIGSEGV) {
 		if (info->si_code == SEGV_MAPERR || info->si_code == 128) {
-			log_debug("tid=%" PRId64 ", sig=%d, si_addr=%p\n", currentThreadId, sig, info->si_addr);
+			log_debug("tid=%" PRId64 " sig=%d si_code=%d si_addr=%p\n", currentThreadId, sig, info->si_code, info->si_addr);
 
 			$throwNew(::java::lang::NullPointerException);
 
@@ -1120,7 +1120,7 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 		}
 		// throw OutOfMemoryError("");
 	}
-	log_debug("tid=%" PRId64 ", sig=%d, info->si_code=%d\n", currentThreadId, sig, info->si_code);
+	log_debug("tid=%" PRId64 ", sig=%d, si_code=%d\n", currentThreadId, sig, info->si_code);
 
 	if (!handled && (sig == SIGPIPE || sig == SIGXFSZ)) {
 		OS::Unix::handleChained(sig, info, uc);
