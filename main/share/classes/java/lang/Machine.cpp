@@ -386,6 +386,7 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 			methodInfo->nativeAddress = entry;
 		}
 	}
+	log_debug("Machine::loadNativeMethod 8 %p\n", entry);
 	return entry;
 }
 
