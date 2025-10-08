@@ -78,17 +78,17 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
     char stackBuf[BUF_SIZE];
     char *buf = NULL;
     FD fd;
-
+    printf("io_util readBytes 1\n");
     if (IS_NULL(bytes)) {
         JNU_ThrowNullPointerException(env, NULL);
         return -1;
     }
-
+    printf("io_util readBytes 2\n");
     if (outOfBounds(env, off, len, bytes)) {
         JNU_ThrowByName(env, "java/lang/IndexOutOfBoundsException", NULL);
         return -1;
     }
-
+    printf("io_util readBytes 3\n");
     if (len == 0) {
         return 0;
     } else if (len > BUF_SIZE) {
@@ -100,12 +100,14 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
     } else {
         buf = stackBuf;
     }
-
+    printf("io_util readBytes 4\n");
     fd = getFD(env, this, fid);
+    printf("io_util readBytes 5\n");
     if (fd == -1) {
         JNU_ThrowIOException(env, "Stream Closed");
         nread = -1;
     } else {
+        printf("io_util readBytes 6\n");
         nread = IO_Read(fd, buf, len);
         if (nread > 0) {
             (*env)->SetByteArrayRegion(env, bytes, off, nread, (jbyte *)buf);
@@ -115,7 +117,7 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
             nread = -1;
         }
     }
-
+    printf("io_util readBytes 7\n");
     if (buf != stackBuf) {
         free(buf);
     }

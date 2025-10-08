@@ -312,9 +312,12 @@ int32_t RandomAccessFile::read0() {
 }
 
 int32_t RandomAccessFile::readBytes($bytes* b, int32_t off, int32_t len) {
+	$System::out->println("RandomAccessFile::readBytes 1"_s);
 	int32_t $ret = 0;
 	$prepareNative(RandomAccessFile, readBytes, int32_t, $bytes* b, int32_t off, int32_t len);
+	$System::out->println("RandomAccessFile::readBytes 2"_s);
 	$ret = $invokeNative(RandomAccessFile, readBytes, b, off, len);
+	$System::out->println("RandomAccessFile::readBytes 3"_s);
 	$finishNative();
 	return $ret;
 }

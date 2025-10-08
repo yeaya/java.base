@@ -71,7 +71,9 @@ bool OpsAfterClose4RandomAccessFile$2::check($RandomAccessFile* r) {
 	try {
 		$var($bytes, buf, $new($bytes, 2));
 		int32_t len = 1;
+		$System::out->println("OpsAfterClose4RandomAccessFile$2::check 1"_s);
 		$nc(r)->read(buf, 0, len);
+		$System::out->println("OpsAfterClose4RandomAccessFile$2::check 2"_s);
 	} catch ($IOException&) {
 		$var($IOException, io, $catch());
 		$init($System);
