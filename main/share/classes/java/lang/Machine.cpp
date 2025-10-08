@@ -350,35 +350,42 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	$nullcheck(clazz);
 	$nullcheck(methodInfo);
 	$nullcheck(methodInfo->name);
-	log_debug("Machine::loadNativeMethod 1");
+	log_debug("Machine::loadNativeMethod 1\n");
+
+	if (methodInfo->nativeAddress != nullptr) {
+		return methodInfo->nativeAddress;
+	}
 
 	$var(StringBuilder, sb, $new<StringBuilder>(100));
 	sb->append("Java_"_s);
 	sb->append($ref(encodeJni($ref(clazz->getName()))));
-	log_debug("Machine::loadNativeMethod 2");
+	log_debug("Machine::loadNativeMethod 2\n");
 	sb->append("_"_s);
 	sb->append($ref(encodeJni($$str(methodInfo->name))));
-	log_debug("Machine::loadNativeMethod 3");
+	log_debug("Machine::loadNativeMethod 3\n");
 	$var(String, nativeMethodName, sb->toString());
 
 	void* entry = findLibraryEntry(defaultProcessHandle, nativeMethodName->c_str(), true);
-	$synchronized(clazz) {
-		methodInfo->nativeAddress = entry;
-	}
-	log_debug("Machine::loadNativeMethod 4");
+
+	log_debug("Machine::loadNativeMethod 4\n");
 	if (entry == nullptr && methodInfo->signature != nullptr) {
 		// check isOverloaded
 		sb->append("__"_s);
 		sb->append($ref(encodeJni($$str(methodInfo->signature))));
 		$assign(nativeMethodName, sb->toString());
-		log_debug("Machine::loadNativeMethod 5");
+		log_debug("Machine::loadNativeMethod 5\n");
 		entry = findLibraryEntry(defaultProcessHandle, nativeMethodName->c_str(), true);
 	}
-	log_debug("Machine::loadNativeMethod 6");
+	log_debug("Machine::loadNativeMethod 6\n");
 	if (entry == nullptr) {
 		$throwNew(NoSuchMethodError, nativeMethodName);
 	}
-	log_debug("Machine::loadNativeMethod 7");
+	log_debug("Machine::loadNativeMethod 7\n");
+	$synchronized(clazz) {
+		if (methodInfo->nativeAddress == nullptr) {
+			methodInfo->nativeAddress = entry;
+		}
+	}
 	return entry;
 }
 
