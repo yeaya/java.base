@@ -27,6 +27,11 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8 --target install
 
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base
+        path: /Users/runner/jcpp/repository/java.base/17.35/
+
     - name: Test
       working-directory: ${{github.workspace}}/build/test
       run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
