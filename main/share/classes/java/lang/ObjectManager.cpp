@@ -7017,6 +7017,7 @@ void Logger::log(LogLevel logLevel, char const* const format, ...) {
 	}
 	if (logConsole) {
 		printf("%s", buffer);
+		fflush(stdout);
 	}
 }
 
