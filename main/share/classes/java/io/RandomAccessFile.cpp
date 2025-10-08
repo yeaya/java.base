@@ -313,6 +313,11 @@ int32_t RandomAccessFile::read0() {
 
 int32_t RandomAccessFile::readBytes($bytes* b, int32_t off, int32_t len) {
 	$System::out->println("RandomAccessFile::readBytes 1"_s);
+	$System::out->println($$str((int64_t)_RandomAccessFile_MethodInfo_[_METHOD_INDEX_readBytes].nativeAddress));
+	$System::out->println($$str((int64_t)_RandomAccessFile_MethodInfo_[_METHOD_INDEX_readBytes].invokeAddress));
+	$System::out->println($$str(_RandomAccessFile_MethodInfo_[_METHOD_INDEX_readBytes].descriptor));
+	$System::out->println($$str(_RandomAccessFile_MethodInfo_[_METHOD_INDEX_readBytes].name));
+
 	int32_t $ret = 0;
 	$prepareNative(RandomAccessFile, readBytes, int32_t, $bytes* b, int32_t off, int32_t len);
 	$System::out->println("RandomAccessFile::readBytes 2"_s);

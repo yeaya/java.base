@@ -102,8 +102,7 @@ public:
 		annotations(annotations),
 		typeAnnotations(typeAnnotations),
 		paramAnnotations(paramAnnotations),
-		modifiers(modifiers),
-		nativeAddress(nullptr) {
+		modifiers(modifiers) {
 	}
 	int32_t modifiers;
 	int32_t slot;
@@ -116,7 +115,7 @@ public:
 	CompoundAttribute* annotations;
 	TypeAnnotation* typeAnnotations;
 	ParameterAnnotation* paramAnnotations;
-	void* nativeAddress;
+	void* nativeAddress = nullptr;
 
 	::java::lang::reflect::Executable* ref = nullptr; // Method or Constructor
 
