@@ -6708,7 +6708,7 @@ void ObjectManager::popLocalVar() {
 }
 */
 void ObjectManager::prepareNative() {
-	setPendingException(nullptr);
+	//setPendingException(nullptr);
 	localController->pushLocalFrame(16);
 }
 
