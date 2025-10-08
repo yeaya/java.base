@@ -762,13 +762,13 @@ void MemoryManager::opt0(OPT_TYPE type) {
 		MemoryStat storeTotal;
 		for (int i = 0; i < SLAB_COUNT; i++) {
 			if (type == OPT_FINAL_GC) {
-				storeStat[i].logOut("store", i);
+				//storeStat[i].logOut("store", i);
 			}
 			storeStatSum.add(&storeStat[i]);
 		}
 		for (int i = 0; i < SLAB_COUNT; i++) {
 			if (type == OPT_FINAL_GC) {
-				pendingStoreStat[i].logOut("pending store", i);
+				//pendingStoreStat[i].logOut("pending store", i);
 			}
 			pendingStoreStatSum.add(&pendingStoreStat[i]);
 		}

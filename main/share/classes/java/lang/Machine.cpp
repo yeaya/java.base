@@ -350,7 +350,7 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	$nullcheck(clazz);
 	$nullcheck(methodInfo);
 	$nullcheck(methodInfo->name);
-	log_debug("Machine::loadNativeMethod 1\n");
+	log_debug("Machine::loadNativeMethod 1 %s\n", methodInfo->name);
 
 	if (methodInfo->nativeAddress != nullptr) {
 		return methodInfo->nativeAddress;

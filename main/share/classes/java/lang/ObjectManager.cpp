@@ -6626,7 +6626,7 @@ void GlobalController::deinit() {
 	if (localController != nullptr) {
 		localController->freeAllocs();
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 1; i++) {
 		fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 		analayzeGlobalObject();
 		analayzeMemory();
