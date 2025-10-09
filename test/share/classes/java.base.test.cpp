@@ -2434,6 +2434,9 @@
 #include <util/MemberFactory$Kind$3.h>
 #include <x123.h>
 
+
+#undef EOF
+
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$base$test_classes_[] = {
 	$classEntry("A", ::A),
