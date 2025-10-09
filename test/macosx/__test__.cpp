@@ -843,6 +843,8 @@
 #include <jcpp.h>
 #include <stdlib.h>
 
+#undef EOF
+
 class TestCases {
 	public:
 		TestCases(int argc, char** argv) : argc(argc), argv(argv) {
