@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("EOF")
+#undef EOF
+
 class $export EOF : public ::java::lang::Object {
 	$class(EOF, $NO_CLASS_INIT, ::java::lang::Object)
 public:
@@ -12,5 +15,7 @@ public:
 	void init$();
 	static void main($StringArray* args);
 };
+
+#pragma pop_macro("EOF")
 
 #endif // _EOF_h_
