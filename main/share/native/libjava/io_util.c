@@ -39,16 +39,26 @@ jint
 readSingle(JNIEnv *env, jobject this, jfieldID fid) {
     jint nread;
     char ret;
+    printf("readSingle 1\n");
     FD fd = getFD(env, this, fid);
+    printf("readSingle 2\n");
+
     if (fd == -1) {
+        printf("readSingle 3\n");
         JNU_ThrowIOException(env, "Stream Closed");
+        printf("readSingle 4\n");
+
         return -1;
     }
+    printf("readSingle 5\n");
     nread = IO_Read(fd, &ret, 1);
     if (nread == 0) { /* EOF */
+        printf("readSingle 6\n");
         return -1;
     } else if (nread == -1) { /* error */
+        printf("readSingle 7\n");
         JNU_ThrowIOExceptionWithLastError(env, "Read error");
+        printf("readSingle 8\n");
     }
     return ret & 0xFF;
 }
