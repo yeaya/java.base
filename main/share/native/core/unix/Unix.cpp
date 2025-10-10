@@ -1114,7 +1114,7 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 			log_debug("tid=%" PRId64 " sig=%d si_code=%d si_addr=%p\n", currentThreadId, sig, info->si_code, info->si_addr);
 
 			if (currentThread != nullptr) {
-				$throwNew(::java::lang::NullPointerException);
+			//	$throwNew(::java::lang::NullPointerException);
 
 				// address ucpc = OS::Unix::getPc(uc);
 				// OS::Unix::setPc(uc, (address)makrNPECode(ucpc));
