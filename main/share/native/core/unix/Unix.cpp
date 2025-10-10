@@ -1077,7 +1077,7 @@ bool OS::snapshotStackObjects(void* jthread) {
 extern "C" JNIEXPORT
 int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 	// pid_t tid = gettid();
-
+	log_info("JVM_HANDLE_XXX_SIGNAL enter sig=%d\n", sig);
 	int64_t currentThreadId = OS::getCurrentThreadId();
 	// printf("tid=%d, sig=%d, info->si_code=%d\n", tid, sig, info->si_code);
 	// StackWalk::printStackTrace();
