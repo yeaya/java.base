@@ -317,7 +317,7 @@ int32_t RandomAccessFile::read0() {
 
 	$ret = $invokeNative(RandomAccessFile, read0);
 
-	$System::out->println("RandomAccessFile::read0 3"_s);
+	//$System::out->println("RandomAccessFile::read0 3"_s);
 
 	$finishNative();
 	$System::out->println("RandomAccessFile::read0 4"_s);
