@@ -1118,7 +1118,7 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 
 				// address ucpc = OS::Unix::getPc(uc);
 				// OS::Unix::setPc(uc, (address)makrNPECode(ucpc));
-				return true;
+			//	return true;
 			}
 		}
 		// throw OutOfMemoryError("");
