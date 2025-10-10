@@ -123,7 +123,7 @@ JNI_ENTRY(jclass, jni_FindClass(JNIEnv* env, const char* name))
 		$var(String, packageName, className->substring(0, index));
 		if (packageName->equals("java.lang")) {
 	log_debug("jni_FindClass 5 %s\n", name);
-			class = ClassLoader::findBootstrapClassOrNull(className);
+			clazz = ClassLoader::findBootstrapClassOrNull(className);
 		}
 	}
 	log_debug("jni_FindClass 6 %s\n", name);
