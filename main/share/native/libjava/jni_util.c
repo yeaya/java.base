@@ -44,7 +44,7 @@
 JNIEXPORT void JNICALL
 JNU_ThrowByName(JNIEnv *env, const char *name, const char *msg)
 {
-    printf("JNU_ThrowByName 1\n");
+    printf("JNU_ThrowByName 1 env:%p\n", env);
     jclass cls = (*env)->FindClass(env, name);
     printf("JNU_ThrowByName 2\n");
     if (cls != 0) /* Otherwise an exception has already been thrown */ {

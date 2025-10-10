@@ -105,6 +105,7 @@ JNI_ENTRY(jclass, jni_DefineClass(JNIEnv* env, const char* name, jobject loaderR
 JNI_END(nullptr)
 
 JNI_ENTRY(jclass, jni_FindClass(JNIEnv* env, const char* name))
+	log_debug("jni_FindClass %s\n", name);
 	$var(String, className, $str(name));
 	if (className->charAt(0) == '[') {
 		return (jclass)Machine::findClass(nullptr, className);
