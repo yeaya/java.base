@@ -10,10 +10,10 @@ env:
   BUILD_TYPE: Release
   JCPP_LOG_LEVEL: debug
   JCPP_LOG_CONSOLE: enable
-  CFLAGS: -isysroot $(xcrun -show-sdk-path) ${CFLAGS}
-  CXXFLAGS: -isysroot $(xcrun -show-sdk-path) ${CXXFLAGS}
-  LDFLAGS: -L$(xcrun -show-sdk-path)/usr/lib ${LDFLAGS}
-  SDKROOT: $(xcrun -show-sdk-path)
+  CFLAGS: "-isysroot $(xcrun -show-sdk-path) ${CFLAGS}"
+  CXXFLAGS: "-isysroot $(xcrun -show-sdk-path) ${CXXFLAGS}"
+  LDFLAGS: "-L$(xcrun -show-sdk-path)/usr/lib ${LDFLAGS}"
+  SDKROOT: "$(xcrun -show-sdk-path)"
 
 jobs:
   build:
