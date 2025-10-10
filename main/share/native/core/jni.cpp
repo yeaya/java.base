@@ -128,12 +128,16 @@ JNI_ENTRY(jclass, jni_FindClass(JNIEnv* env, const char* name))
 	}
 	log_debug("jni_FindClass 6 %s\n", name);
 	if (clazz == nullptr) {
+	log_debug("jni_FindClass 6a %s\n", name);
 		Class* caller = Reflection::getCallerClass();
 		if (caller != nullptr) {
+	log_debug("jni_FindClass 6b %s\n", name);
 			ClassLoader* loader = caller->getClassLoader();
 			if (loader == nullptr) {
+	log_debug("jni_FindClass 6c %s\n", name);
 				clazz = ClassLoader::findBootstrapClassOrNull(className);
 			} else {
+	log_debug("jni_FindClass 6d %s\n", name);
 				clazz = loader->loadClass(className, false);
 			}
 		} else {
