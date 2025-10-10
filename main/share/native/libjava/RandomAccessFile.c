@@ -34,6 +34,8 @@
 
 #include <fcntl.h>
 
+#define log_out(...) printf(__VA_ARGS__); fflush(stdout);
+
 /*
  * static method to store field ID's in initializers
  */
@@ -69,7 +71,7 @@ Java_java_io_RandomAccessFile_open0(JNIEnv *env,
 
 JNIEXPORT jint JNICALL
 Java_java_io_RandomAccessFile_read0(JNIEnv *env, jobject this) {
-    printf("Java_java_io_RandomAccessFile_read0 enter\n");
+    log_out("Java_java_io_RandomAccessFile_read0 enter\n");
     return readSingle(env, this, raf_fd);
 }
 

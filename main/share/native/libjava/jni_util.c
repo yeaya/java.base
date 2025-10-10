@@ -31,6 +31,8 @@
 #include "jni_util.h"
 #include "java_lang_String.h"
 
+#define log_out(...) printf(__VA_ARGS__); fflush(stdout);
+
 /* Due to a bug in the win32 C runtime library strings
  * such as "z:" need to be appended with a "." so we
  * must allocate at least 4 bytes to allow room for
@@ -44,13 +46,13 @@
 JNIEXPORT void JNICALL
 JNU_ThrowByName(JNIEnv *env, const char *name, const char *msg)
 {
-    printf("JNU_ThrowByName 1 env:%p\n", env);
+    log_out("JNU_ThrowByName 1 env:%p\n", env);
     jclass cls = (*env)->FindClass(env, name);
-    printf("JNU_ThrowByName 2\n");
+    log_out("JNU_ThrowByName 2\n");
     if (cls != 0) /* Otherwise an exception has already been thrown */ {
-        printf("JNU_ThrowByName 3\n");
+        log_out("JNU_ThrowByName 3\n");
         (*env)->ThrowNew(env, cls, msg);
-        printf("JNU_ThrowByName 4\n");
+        log_out("JNU_ThrowByName 4\n");
     }
 }
 
@@ -95,7 +97,7 @@ JNU_ThrowClassNotFoundException(JNIEnv *env, const char *msg)
 JNIEXPORT void JNICALL
 JNU_ThrowIOException(JNIEnv *env, const char *msg)
 {
-    printf("JNU_ThrowIOException\n");
+    log_out("JNU_ThrowIOException\n");
     JNU_ThrowByName(env, "java/io/IOException", msg);
 }
 

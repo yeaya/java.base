@@ -35,30 +35,32 @@
 
 /* IO helper functions */
 
+#define log_out(...) printf(__VA_ARGS__); fflush(stdout);
+
 jint
 readSingle(JNIEnv *env, jobject this, jfieldID fid) {
     jint nread;
     char ret;
-    printf("readSingle 1\n");
+    log_out("readSingle 1\n");
     FD fd = getFD(env, this, fid);
-    printf("readSingle 2\n");
+    log_out("readSingle 2\n");
 
     if (fd == -1) {
-        printf("readSingle 3\n");
+        log_out("readSingle 3\n");
         JNU_ThrowIOException(env, "Stream Closed");
-        printf("readSingle 4\n");
+        log_out("readSingle 4\n");
 
         return -1;
     }
-    printf("readSingle 5\n");
+    log_out("readSingle 5\n");
     nread = IO_Read(fd, &ret, 1);
     if (nread == 0) { /* EOF */
-        printf("readSingle 6\n");
+        log_out("readSingle 6\n");
         return -1;
     } else if (nread == -1) { /* error */
-        printf("readSingle 7\n");
+        log_out("readSingle 7\n");
         JNU_ThrowIOExceptionWithLastError(env, "Read error");
-        printf("readSingle 8\n");
+        log_out("readSingle 8\n");
     }
     return ret & 0xFF;
 }
@@ -88,17 +90,17 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
     char stackBuf[BUF_SIZE];
     char *buf = NULL;
     FD fd;
-    printf("io_util readBytes 1\n");
+    log_out("io_util readBytes 1\n");
     if (IS_NULL(bytes)) {
         JNU_ThrowNullPointerException(env, NULL);
         return -1;
     }
-    printf("io_util readBytes 2\n");
+    log_out("io_util readBytes 2\n");
     if (outOfBounds(env, off, len, bytes)) {
         JNU_ThrowByName(env, "java/lang/IndexOutOfBoundsException", NULL);
         return -1;
     }
-    printf("io_util readBytes 3\n");
+    log_out("io_util readBytes 3\n");
     if (len == 0) {
         return 0;
     } else if (len > BUF_SIZE) {
@@ -110,14 +112,14 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
     } else {
         buf = stackBuf;
     }
-    printf("io_util readBytes 4\n");
+    log_out("io_util readBytes 4\n");
     fd = getFD(env, this, fid);
-    printf("io_util readBytes 5\n");
+    log_out("io_util readBytes 5\n");
     if (fd == -1) {
         JNU_ThrowIOException(env, "Stream Closed");
         nread = -1;
     } else {
-        printf("io_util readBytes 6\n");
+        log_out("io_util readBytes 6\n");
         nread = IO_Read(fd, buf, len);
         if (nread > 0) {
             (*env)->SetByteArrayRegion(env, bytes, off, nread, (jbyte *)buf);
@@ -127,7 +129,7 @@ readBytes(JNIEnv *env, jobject this, jbyteArray bytes,
             nread = -1;
         }
     }
-    printf("io_util readBytes 7\n");
+    log_out("io_util readBytes 7\n");
     if (buf != stackBuf) {
         free(buf);
     }
