@@ -21,12 +21,11 @@ jobs:
     - name: install libffi
       run: brew install libffi
 
-    - name: Configure CMake
-      run: export CFLAGS="-isysroot $(xcrun -show-sdk-path) ${CFLAGS}"
-      run: export CXXFLAGS="-isysroot $(xcrun -show-sdk-path) ${CXXFLAGS}"
-      run: export LDFLAGS="-L$(xcrun -show-sdk-path)/usr/lib ${LDFLAGS}"
-      run: export SDKROOT=$(xcrun -show-sdk-path)      
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_C_COMPILER=$(brew --prefix llvm@18)/bin/clang -DCMAKE_CXX_COMPILER=$(brew --prefix llvm@18)/bin/clang
+    - run: export CFLAGS="-isysroot $(xcrun -show-sdk-path) ${CFLAGS}"
+    - run: export CXXFLAGS="-isysroot $(xcrun -show-sdk-path) ${CXXFLAGS}"
+    - run: export LDFLAGS="-L$(xcrun -show-sdk-path)/usr/lib ${LDFLAGS}"
+    - run: export SDKROOT=$(xcrun -show-sdk-path)      
+    - run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_C_COMPILER=$(brew --prefix llvm@18)/bin/clang -DCMAKE_CXX_COMPILER=$(brew --prefix llvm@18)/bin/clang
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8 --target install
