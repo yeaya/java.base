@@ -186,10 +186,15 @@ JNI_END(JNI_ERR)
 
 JNI_ENTRY(jint, jni_ThrowNew(JNIEnv* env, jclass clazz, const char* message))
 	Class* cls = (Class*)clazz;
+	log_debug("jni_ThrowNew 1\n");
 	if (Throwable::class$->isAssignableFrom(cls)) {
+		log_debug("jni_ThrowNew 2\n");
 		$var(Throwable, e, (Throwable*)cls->newInstance());
+		log_debug("jni_ThrowNew 3 %s\n", message);
 		$set(e, detailMessage, $str(message));
+		log_debug("jni_ThrowNew 4\n");
 		ObjectManager::setPendingException(e);
+		log_debug("jni_ThrowNew 5\n");
 		return JNI_OK;
 	}
 JNI_END(JNI_ERR)

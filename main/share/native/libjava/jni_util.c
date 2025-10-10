@@ -44,10 +44,14 @@
 JNIEXPORT void JNICALL
 JNU_ThrowByName(JNIEnv *env, const char *name, const char *msg)
 {
+    printf("JNU_ThrowByName 1\n");
     jclass cls = (*env)->FindClass(env, name);
-
-    if (cls != 0) /* Otherwise an exception has already been thrown */
+    printf("JNU_ThrowByName 2\n");
+    if (cls != 0) /* Otherwise an exception has already been thrown */ {
+        printf("JNU_ThrowByName 3\n");
         (*env)->ThrowNew(env, cls, msg);
+        printf("JNU_ThrowByName 4\n");
+    }
 }
 
 /* JNU_Throw common exceptions */
@@ -91,6 +95,7 @@ JNU_ThrowClassNotFoundException(JNIEnv *env, const char *msg)
 JNIEXPORT void JNICALL
 JNU_ThrowIOException(JNIEnv *env, const char *msg)
 {
+    printf("JNU_ThrowIOException\n");
     JNU_ThrowByName(env, "java/io/IOException", msg);
 }
 
