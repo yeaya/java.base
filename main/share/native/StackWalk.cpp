@@ -62,7 +62,7 @@ using namespace ::java::lang;
 using namespace ::java::lang::invoke;
 using namespace ::java::lang::reflect;
 
-#define MAX_STACK_DEPTH 128
+#define MAX_STACK_DEPTH 64
 #define MAX_CLASS_NAME_LENGTH 512
 #define MAX_METHOD_NAME_LENGTH 512
 #define MAX_PARAMETER_TYPE_LENGTH 1024
