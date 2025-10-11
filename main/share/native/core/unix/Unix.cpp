@@ -49,22 +49,27 @@ struct BacktraceItem {
 
 _Unwind_Reason_Code unwindTraceHandle(struct _Unwind_Context* uc, void* data) {
 	BacktraceItem* item = (BacktraceItem*)data;
-	if (item->toSkip > 0) {
-		item->toSkip--;
-		return _URC_NO_REASON;
-	} else {
-		if (item->frames > 0) {
-			address ip = (address)_Unwind_GetIP(uc);
-			if (ip != nullptr) {
-				item->stack[0] = ip;
-				item->stack++;
-				item->frames--;
-				item->count++;
-				return _URC_NO_REASON;
-			}
+	address ip = (address)_Unwind_GetIP(uc);
+	if (ip != nullptr) {
+		if (item->toSkip > 0) {
+			item->toSkip--;
+		} else if (item->frames > 0) {
+			item->stack[0] = ip;
+			item->stack++;
+			item->frames--;
+			item->count++;
+		} else {
+			return _URC_END_OF_STACK;
 		}
-		return _URC_NORMAL_STOP;
 	}
+	return _URC_NO_REASON;
+//	if (item->toSkip > 0) {
+//		item->toSkip--;
+//		return _URC_NO_REASON;
+//	} else {
+		
+//		return _URC_NORMAL_STOP;
+//	}
 }
 
 int OS::getBackTrace(address* stack, int frames, int toSkip) {
