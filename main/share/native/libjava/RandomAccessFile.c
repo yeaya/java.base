@@ -71,7 +71,7 @@ Java_java_io_RandomAccessFile_open0(JNIEnv *env,
 
 JNIEXPORT jint JNICALL
 Java_java_io_RandomAccessFile_read0(JNIEnv *env, jobject this) {
-    log_out("Java_java_io_RandomAccessFile_read0 enter\n");
+    //log_out("Java_java_io_RandomAccessFile_read0 enter\n");
     return readSingle(env, this, raf_fd);
 }
 

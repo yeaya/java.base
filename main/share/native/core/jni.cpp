@@ -105,51 +105,51 @@ JNI_ENTRY(jclass, jni_DefineClass(JNIEnv* env, const char* name, jobject loaderR
 JNI_END(nullptr)
 
 JNI_ENTRY(jclass, jni_FindClass(JNIEnv* env, const char* name))
-	log_debug("jni_FindClass %s\n", name);
+	//log_debug("jni_FindClass %s\n", name);
 	$var(String, className, $str(name));
 	if (className->charAt(0) == '[') {
 		return (jclass)Machine::findClass(nullptr, className);
 	}
-	log_debug("jni_FindClass 2 %s\n", name);
+	//log_debug("jni_FindClass 2 %s\n", name);
 	$assign(className, className->replace('/', '.'));
 	if (!Machine::isInited()) {
-	log_debug("jni_FindClass 3 %s\n", name);
+	//log_debug("jni_FindClass 3 %s\n", name);
 		return (jclass)Machine::findClass(nullptr, className);
 	}
-	log_debug("jni_FindClass 4 %s\n", name);
+	//log_debug("jni_FindClass 4 %s\n", name);
 	Class* clazz = nullptr;
 	int32_t index = className->lastIndexOf('.');
 	if (index != -1) {
 		$var(String, packageName, className->substring(0, index));
 		if (packageName->equals("java.lang")) {
-	log_debug("jni_FindClass 5 %s\n", name);
+	//log_debug("jni_FindClass 5 %s\n", name);
 			clazz = ClassLoader::findBootstrapClassOrNull(className);
 		}
 	}
-	log_debug("jni_FindClass 6 %s\n", name);
+	//log_debug("jni_FindClass 6 %s\n", name);
 	if (clazz == nullptr) {
-	log_debug("jni_FindClass 6a %s\n", name);
+	//log_debug("jni_FindClass 6a %s\n", name);
 		Class* caller = Reflection::getCallerClass();
 		if (caller != nullptr) {
-	log_debug("jni_FindClass 6b %s\n", name);
+	//log_debug("jni_FindClass 6b %s\n", name);
 			ClassLoader* loader = caller->getClassLoader();
 			if (loader == nullptr) {
-	log_debug("jni_FindClass 6c %s\n", name);
+	//log_debug("jni_FindClass 6c %s\n", name);
 				clazz = ClassLoader::findBootstrapClassOrNull(className);
 			} else {
-	log_debug("jni_FindClass 6d %s\n", name);
+	//log_debug("jni_FindClass 6d %s\n", name);
 				clazz = loader->loadClass(className, false);
 			}
 		} else {
-	log_debug("jni_FindClass 7 %s\n", name);
+	//log_debug("jni_FindClass 7 %s\n", name);
 			clazz = ClassLoader::getSystemClassLoader()->loadClass(className, false);
 		}
 	}
-	log_debug("jni_FindClass 8 %s\n", name);
+	//log_debug("jni_FindClass 8 %s\n", name);
 	if (clazz != nullptr) {
 		clazz->ensureClassInitialized();
 	}
-	log_debug("jni_FindClass 9 %s\n", name);
+	//log_debug("jni_FindClass 9 %s\n", name);
 	return (jclass)clazz;
 JNI_END(nullptr)
 

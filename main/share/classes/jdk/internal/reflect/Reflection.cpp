@@ -162,12 +162,12 @@ void Reflection::init$() {
 }
 
 $Class* Reflection::getCallerClass() {
-	log_debug("Reflection::getCallerClass 1\n");
+	//log_debug("Reflection::getCallerClass 1\n");
 	::java::lang::Class* callerClass = ::java::lang::CallerHelper::getCallerClass();
 	if (callerClass != nullptr) {
 		return callerClass;
 	}
-	log_debug("Reflection::getCallerClass 2\n");
+	//log_debug("Reflection::getCallerClass 2\n");
 	return StackWalk::getCallerClass();
 }
 
