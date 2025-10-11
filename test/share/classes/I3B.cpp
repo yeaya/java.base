@@ -7,6 +7,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef I3B
+
 using $ClassInfo = ::java::lang::ClassInfo;
 
 $ClassInfo _I3B_ClassInfo_ = {

@@ -22,7 +22,6 @@
 #include <jcpp.h>
 
 #undef ASM8
-#undef V1_5
 #undef FIELD
 
 using $ClassInfo = ::java::lang::ClassInfo;

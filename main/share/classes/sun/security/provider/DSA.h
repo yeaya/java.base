@@ -6,6 +6,8 @@
 #include <java/lang/Array.h>
 #include <java/security/SignatureSpi.h>
 
+#pragma push_macro("DSA")
+#undef DSA
 #pragma push_macro("BLINDING_CONSTANT")
 #undef BLINDING_CONSTANT
 #pragma push_macro("BLINDING_BITS")
@@ -96,6 +98,7 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("DSA")
 #pragma pop_macro("BLINDING_CONSTANT")
 #pragma pop_macro("BLINDING_BITS")
 

@@ -37,7 +37,6 @@
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <jcpp.h>
 
-#undef DAYS_0000_TO_1970
 #undef LAST_CACHED_YEAR
 #undef ZERO
 #undef EMPTY_LASTRULES

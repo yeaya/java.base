@@ -18,6 +18,8 @@
 #include <sun/nio/cs/StandardCharsets.h>
 #include <jcpp.h>
 
+#undef SJIS
+
 using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

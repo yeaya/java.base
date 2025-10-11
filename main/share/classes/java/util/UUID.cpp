@@ -29,6 +29,7 @@
 #include <jcpp.h>
 
 #undef NIBBLES
+#undef UUID
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;

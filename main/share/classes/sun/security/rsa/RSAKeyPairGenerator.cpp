@@ -36,14 +36,9 @@
 #include <sun/security/x509/X509Key.h>
 #include <jcpp.h>
 
-#undef SQRT_3072
-#undef SQRT_4096
 #undef ZERO
-#undef SQRT_2048
 #undef ONE
-#undef F0
 #undef TWO
-#undef F4
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

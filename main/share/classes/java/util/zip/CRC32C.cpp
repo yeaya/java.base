@@ -28,6 +28,7 @@
 #undef REVERSED_CRC32C_POLY
 #undef BYTES
 #undef BIG_ENDIAN
+#undef CRC32C
 #undef ARRAY_BYTE_INDEX_SCALE
 #undef SIZE
 #undef CRC32C_POLY

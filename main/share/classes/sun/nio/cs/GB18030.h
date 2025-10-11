@@ -6,13 +6,6 @@
 #include <java/lang/Array.h>
 #include <java/nio/charset/Charset.h>
 
-#pragma push_macro("GB18030_FOUR_BYTE")
-#undef GB18030_FOUR_BYTE
-#pragma push_macro("GB18030_DOUBLE_BYTE")
-#undef GB18030_DOUBLE_BYTE
-#pragma push_macro("GB18030_SINGLE_BYTE")
-#undef GB18030_SINGLE_BYTE
-
 namespace java {
 	namespace nio {
 		namespace charset {
@@ -75,9 +68,5 @@ public:
 		} // cs
 	} // nio
 } // sun
-
-#pragma pop_macro("GB18030_FOUR_BYTE")
-#pragma pop_macro("GB18030_DOUBLE_BYTE")
-#pragma pop_macro("GB18030_SINGLE_BYTE")
 
 #endif // _sun_nio_cs_GB18030_h_

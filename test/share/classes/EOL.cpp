@@ -15,6 +15,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef EOL
+
 using $BufferedReader = ::java::io::BufferedReader;
 using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;

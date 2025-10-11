@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("GCM")
+#undef GCM
+
 namespace java {
 	namespace nio {
 		class ByteBuffer;
@@ -30,5 +33,7 @@ public:
 		} // crypto
 	} // sun
 } // com
+
+#pragma pop_macro("GCM")
 
 #endif // _com_sun_crypto_provider_GCM_h_

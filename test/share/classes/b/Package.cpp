@@ -14,10 +14,6 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef _1
-#undef _2
-#undef _3
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;

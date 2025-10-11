@@ -40,7 +40,6 @@
 #undef LABEL_KEY_EXPANSION
 #undef LABEL_IV_BLOCK
 #undef LABEL_CLIENT_WRITE_KEY
-#undef B0
 #undef LABEL_SERVER_WRITE_KEY
 
 using $byteArray2 = $Array<int8_t, 2>;

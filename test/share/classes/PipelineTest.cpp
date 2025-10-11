@@ -54,6 +54,8 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
+#undef THROWS
+
 using $PipelineTest$Fun = ::PipelineTest$Fun;
 using $PipelineTest$FunArray = $Array<PipelineTest$Fun>;
 using $ProcessBuilderArray = $Array<::java::lang::ProcessBuilder>;

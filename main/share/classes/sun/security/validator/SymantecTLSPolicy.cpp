@@ -24,9 +24,7 @@
 #include <jcpp.h>
 
 #undef FINGERPRINTS
-#undef APRIL_16_2019
 #undef EXEMPT_SUBCAS
-#undef DECEMBER_31_2019
 #undef UTC
 #undef DECEMBER
 #undef T_UNTRUSTED_CERT

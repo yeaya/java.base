@@ -14,8 +14,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef ISO3166_3
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

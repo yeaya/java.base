@@ -14,6 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef UTF16
+
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;

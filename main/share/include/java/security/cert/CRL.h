@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("CRL")
+#undef CRL
+
 namespace java {
 	namespace security {
 		namespace cert {
@@ -31,5 +34,7 @@ public:
 		} // cert
 	} // security
 } // java
+
+#pragma pop_macro("CRL")
 
 #endif // _java_security_cert_CRL_h_

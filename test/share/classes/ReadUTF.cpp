@@ -23,7 +23,6 @@
 #include <jcpp.h>
 
 #undef MAX_CORRUPTIONS_PER_CYCLE
-#undef A_NUMBER_NEAR_65535
 #undef TEST_ITERATIONS
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

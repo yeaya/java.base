@@ -11,6 +11,8 @@
 #include <sun/security/provider/SHA3.h>
 #include <jcpp.h>
 
+#undef SHAKE256
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DigestBase = ::sun::security::provider::DigestBase;

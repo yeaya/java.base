@@ -5,6 +5,9 @@
 
 #include <SuperIwithDefault.h>
 
+#pragma push_macro("AB")
+#undef AB
+
 class AB : public ::SuperIwithDefault {
 	$class(AB, $NO_CLASS_INIT, ::SuperIwithDefault)
 public:
@@ -12,5 +15,7 @@ public:
 	void init$();
 	virtual void foo() override;
 };
+
+#pragma pop_macro("AB")
 
 #endif // _AB_h_

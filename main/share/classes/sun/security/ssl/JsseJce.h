@@ -17,8 +17,6 @@
 #undef SIGNATURE_SSLRSA
 #pragma push_macro("SIGNATURE_RAWECDSA")
 #undef SIGNATURE_RAWECDSA
-#pragma push_macro("CIPHER_CHACHA20_POLY1305")
-#undef CIPHER_CHACHA20_POLY1305
 #pragma push_macro("CIPHER_AES")
 #undef CIPHER_AES
 #pragma push_macro("SIGNATURE_RAWRSA")
@@ -88,7 +86,6 @@ public:
 #pragma pop_macro("CIPHER_RSA_PKCS1")
 #pragma pop_macro("SIGNATURE_SSLRSA")
 #pragma pop_macro("SIGNATURE_RAWECDSA")
-#pragma pop_macro("CIPHER_CHACHA20_POLY1305")
 #pragma pop_macro("CIPHER_AES")
 #pragma pop_macro("SIGNATURE_RAWRSA")
 #pragma pop_macro("ALLOW_ECC")

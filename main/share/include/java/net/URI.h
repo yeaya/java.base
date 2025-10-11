@@ -30,6 +30,8 @@
 #undef H_PCHAR
 #pragma push_macro("L_USERINFO")
 #undef L_USERINFO
+#pragma push_macro("URI")
+#undef URI
 #pragma push_macro("L_RESERVED")
 #undef L_RESERVED
 #pragma push_macro("L_UNRESERVED")
@@ -280,6 +282,7 @@ public:
 #pragma pop_macro("H_UNRESERVED")
 #pragma pop_macro("H_PCHAR")
 #pragma pop_macro("L_USERINFO")
+#pragma pop_macro("URI")
 #pragma pop_macro("L_RESERVED")
 #pragma pop_macro("L_UNRESERVED")
 #pragma pop_macro("L_PCHAR")

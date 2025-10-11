@@ -14,8 +14,6 @@
 #undef UPPER_DOSTIME_BOUND
 #pragma push_macro("DEFLATED")
 #undef DEFLATED
-#pragma push_macro("DOSTIME_BEFORE_1980")
-#undef DOSTIME_BEFORE_1980
 
 namespace java {
 	namespace nio {
@@ -100,6 +98,5 @@ public:
 #pragma pop_macro("STORED")
 #pragma pop_macro("UPPER_DOSTIME_BOUND")
 #pragma pop_macro("DEFLATED")
-#pragma pop_macro("DOSTIME_BEFORE_1980")
 
 #endif // _java_util_zip_ZipEntry_h_

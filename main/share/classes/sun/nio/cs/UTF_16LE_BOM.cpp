@@ -19,6 +19,8 @@
 #include <sun/nio/cs/UnicodeEncoder.h>
 #include <jcpp.h>
 
+#undef UTF_16LE_BOM
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

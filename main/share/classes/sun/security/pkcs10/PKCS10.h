@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("PKCS10")
+#undef PKCS10
+
 namespace java {
 	namespace io {
 		class PrintStream;
@@ -62,5 +65,7 @@ public:
 		} // pkcs10
 	} // security
 } // sun
+
+#pragma pop_macro("PKCS10")
 
 #endif // _sun_security_pkcs10_PKCS10_h_

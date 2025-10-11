@@ -29,7 +29,6 @@
 #include <jcpp.h>
 
 #undef READ
-#undef ISO8859_1
 #undef APPEND
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

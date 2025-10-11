@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("I")
+#undef I
+
 namespace p {
 	namespace one {
 
@@ -17,5 +20,7 @@ public:
 
 	} // one
 } // p
+
+#pragma pop_macro("I")
 
 #endif // _p_one_I_h_

@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("U")
+#undef U
+
 namespace q {
 
 class $export U : public ::java::lang::Object {
@@ -12,5 +15,7 @@ class $export U : public ::java::lang::Object {
 };
 
 } // q
+
+#pragma pop_macro("U")
 
 #endif // _q_U_h_

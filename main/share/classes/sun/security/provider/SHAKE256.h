@@ -6,6 +6,9 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/SHA3.h>
 
+#pragma push_macro("SHAKE256")
+#undef SHAKE256
+
 namespace sun {
 	namespace security {
 		namespace provider {
@@ -26,5 +29,7 @@ public:
 		} // provider
 	} // security
 } // sun
+
+#pragma pop_macro("SHAKE256")
 
 #endif // _sun_security_provider_SHAKE256_h_

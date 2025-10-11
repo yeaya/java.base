@@ -70,6 +70,7 @@
 #undef SPECIFY_HANDLER_PERMISSION
 #undef DIRECT
 #undef TYPE
+#undef URL
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $IOException = ::java::io::IOException;

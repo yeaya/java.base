@@ -31,12 +31,9 @@
 #undef ACC_PUBLIC
 #undef NUM_METHODS
 #undef TYPE
-#undef S0
 #undef NUM_COMMON_CPOOL_ENTRIES
-#undef S1
 #undef NUM_BASE_CPOOL_ENTRIES
 #undef NUM_SERIALIZATION_CPOOL_ENTRIES
-#undef S2
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

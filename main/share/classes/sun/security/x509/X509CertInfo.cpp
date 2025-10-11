@@ -62,10 +62,7 @@
 #undef ATTR_SUBJECT
 #undef SUBJECT_ID
 #undef ATTR_ISSUER_ID
-#undef V1
-#undef V2
 #undef VALIDITY
-#undef V3
 #undef ATTR_ALGORITHM
 #undef ATTR_EXTENSIONS
 #undef NAME

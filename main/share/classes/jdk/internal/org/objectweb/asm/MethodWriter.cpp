@@ -75,8 +75,6 @@
 #undef GETFIELD
 #undef NA
 #undef IFNULL
-#undef V1_6
-#undef V1_5
 #undef COMPUTE_MAX_STACK_AND_LOCAL
 #undef ITEM_UNINITIALIZED
 #undef SIPUSH

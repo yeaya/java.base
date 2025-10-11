@@ -8,6 +8,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef A1B
+
 using $SonSuperIwithDefault = ::SonSuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -48,7 +48,6 @@
 #include <sun/security/x509/SerialNumber.h>
 #include <jcpp.h>
 
-#undef YR_2050
 #undef FALSE
 #undef REASON
 

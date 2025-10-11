@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("Q")
+#undef Q
+
 namespace p {
 	namespace three {
 		namespace internal {
@@ -18,5 +21,7 @@ public:
 		} // internal
 	} // three
 } // p
+
+#pragma pop_macro("Q")
 
 #endif // _p_three_internal_Q_h_

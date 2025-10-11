@@ -14,13 +14,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef B2
 #undef C
 #undef D
 #undef E
 #undef F
 #undef G
-#undef B1
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

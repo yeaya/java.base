@@ -24,16 +24,6 @@
 #include <jcpp.h>
 
 #undef NAMED_GROUP_FFDHE
-#undef SECP256_R1
-#undef X25519
-#undef SECP521_R1
-#undef SECP384_R1
-#undef FFDHE_6144
-#undef X448
-#undef FFDHE_3072
-#undef FFDHE_4096
-#undef FFDHE_2048
-#undef FFDHE_8192
 
 using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;

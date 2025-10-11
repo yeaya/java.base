@@ -11,8 +11,6 @@
 #undef IDENT
 #pragma push_macro("NOT_BEFORE")
 #undef NOT_BEFORE
-#pragma push_macro("YR_2050")
-#undef YR_2050
 #pragma push_macro("NAME")
 #undef NAME
 
@@ -75,7 +73,6 @@ public:
 #pragma pop_macro("NOT_AFTER")
 #pragma pop_macro("IDENT")
 #pragma pop_macro("NOT_BEFORE")
-#pragma pop_macro("YR_2050")
 #pragma pop_macro("NAME")
 
 #endif // _sun_security_x509_CertificateValidity_h_

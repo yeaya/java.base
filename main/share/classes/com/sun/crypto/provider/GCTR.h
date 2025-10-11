@@ -10,6 +10,8 @@
 
 #pragma push_macro("MAX_LEN")
 #undef MAX_LEN
+#pragma push_macro("GCTR")
+#undef GCTR
 
 namespace com {
 	namespace sun {
@@ -60,5 +62,6 @@ public:
 } // com
 
 #pragma pop_macro("MAX_LEN")
+#pragma pop_macro("GCTR")
 
 #endif // _com_sun_crypto_provider_GCTR_h_

@@ -66,31 +66,26 @@
 #include <jcpp.h>
 
 #undef PROTOCOLS_TO_10
-#undef B_RC4_40
-#undef B_RC2_40
-#undef B_AES_128_GCM_IV
-#undef B_RC4_128
-#undef B_3DES
-#undef B_AES_128
-#undef PROTOCOLS_OF_11
-#undef PROTOCOLS_OF_12
-#undef PROTOCOLS_OF_13
-#undef B_AES_256_GCM_IV
-#undef B_NULL
 #undef B_AES_256
 #undef B_AES_256_GCM
 #undef B_IDEA
 #undef B_AES_128_GCM
 #undef NULL_CIPHER
+#undef B_AES_128_GCM_IV
 #undef PROTOCOLS_OF_NONE
+#undef B_3DES
+#undef B_AES_128
+#undef PROTOCOLS_OF_11
 #undef STREAM_CIPHER
+#undef PROTOCOLS_OF_12
+#undef PROTOCOLS_OF_13
 #undef BLOCK_CIPHER
-#undef PROTOCOLS_11_12
 #undef AEAD_CIPHER
+#undef B_AES_256_GCM_IV
+#undef B_NULL
 #undef B_DES
 #undef B_DES_40
 #undef PROTOCOLS_TO_13
-#undef B_CC20_P1305
 #undef PROTOCOLS_TO_12
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;

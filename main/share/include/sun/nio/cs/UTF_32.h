@@ -5,6 +5,9 @@
 
 #include <sun/nio/cs/Unicode.h>
 
+#pragma push_macro("UTF_32")
+#undef UTF_32
+
 namespace java {
 	namespace nio {
 		namespace charset {
@@ -33,5 +36,7 @@ public:
 		} // cs
 	} // nio
 } // sun
+
+#pragma pop_macro("UTF_32")
 
 #endif // _sun_nio_cs_UTF_32_h_

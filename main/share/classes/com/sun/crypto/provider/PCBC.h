@@ -6,6 +6,9 @@
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <java/lang/Array.h>
 
+#pragma push_macro("PCBC")
+#undef PCBC
+
 namespace com {
 	namespace sun {
 		namespace crypto {
@@ -41,5 +44,7 @@ public:
 		} // crypto
 	} // sun
 } // com
+
+#pragma pop_macro("PCBC")
 
 #endif // _com_sun_crypto_provider_PCBC_h_

@@ -35,7 +35,6 @@
 #undef LOWERCASE_DIGITS
 #undef DIGITS
 #undef EMPTY_BYTES
-#undef ISO_8859_1
 #undef MAX_VALUE
 #undef HEX_FORMAT
 

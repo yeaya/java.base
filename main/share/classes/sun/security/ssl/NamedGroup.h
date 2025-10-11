@@ -6,76 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SECT193_R2")
-#undef SECT193_R2
-#pragma push_macro("SECT193_R1")
-#undef SECT193_R1
 #pragma push_macro("ARBITRARY_PRIME")
 #undef ARBITRARY_PRIME
-#pragma push_macro("SECP224_R1")
-#undef SECP224_R1
-#pragma push_macro("SECP192_R1")
-#undef SECP192_R1
-#pragma push_macro("X448")
-#undef X448
-#pragma push_macro("SECP160_K1")
-#undef SECP160_K1
-#pragma push_macro("SECP256_K1")
-#undef SECP256_K1
-#pragma push_macro("SECT283_R1")
-#undef SECT283_R1
-#pragma push_macro("SECT163_K1")
-#undef SECT163_K1
-#pragma push_macro("SECT409_R1")
-#undef SECT409_R1
 #pragma push_macro("ARBITRARY_CHAR2")
 #undef ARBITRARY_CHAR2
-#pragma push_macro("FFDHE_6144")
-#undef FFDHE_6144
-#pragma push_macro("SECT571_R1")
-#undef SECT571_R1
-#pragma push_macro("SECT233_R1")
-#undef SECT233_R1
-#pragma push_macro("FFDHE_3072")
-#undef FFDHE_3072
-#pragma push_macro("SECT283_K1")
-#undef SECT283_K1
-#pragma push_macro("SECP192_K1")
-#undef SECP192_K1
-#pragma push_macro("X25519")
-#undef X25519
-#pragma push_macro("SECP160_R1")
-#undef SECP160_R1
-#pragma push_macro("SECT233_K1")
-#undef SECT233_K1
-#pragma push_macro("SECP160_R2")
-#undef SECP160_R2
-#pragma push_macro("SECP521_R1")
-#undef SECP521_R1
-#pragma push_macro("SECT239_K1")
-#undef SECT239_K1
-#pragma push_macro("FFDHE_2048")
-#undef FFDHE_2048
-#pragma push_macro("SECP256_R1")
-#undef SECP256_R1
-#pragma push_macro("SECT571_K1")
-#undef SECT571_K1
 #pragma push_macro("KEY_AGREEMENT_PRIMITIVE_SET")
 #undef KEY_AGREEMENT_PRIMITIVE_SET
-#pragma push_macro("SECP384_R1")
-#undef SECP384_R1
-#pragma push_macro("SECT163_R1")
-#undef SECT163_R1
-#pragma push_macro("FFDHE_4096")
-#undef FFDHE_4096
-#pragma push_macro("SECT409_K1")
-#undef SECT409_K1
-#pragma push_macro("SECT163_R2")
-#undef SECT163_R2
-#pragma push_macro("SECP224_K1")
-#undef SECP224_K1
-#pragma push_macro("FFDHE_8192")
-#undef FFDHE_8192
 
 namespace java {
 	namespace security {
@@ -195,40 +131,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SECT193_R2")
-#pragma pop_macro("SECT193_R1")
 #pragma pop_macro("ARBITRARY_PRIME")
-#pragma pop_macro("SECP224_R1")
-#pragma pop_macro("SECP192_R1")
-#pragma pop_macro("X448")
-#pragma pop_macro("SECP160_K1")
-#pragma pop_macro("SECP256_K1")
-#pragma pop_macro("SECT283_R1")
-#pragma pop_macro("SECT163_K1")
-#pragma pop_macro("SECT409_R1")
 #pragma pop_macro("ARBITRARY_CHAR2")
-#pragma pop_macro("FFDHE_6144")
-#pragma pop_macro("SECT571_R1")
-#pragma pop_macro("SECT233_R1")
-#pragma pop_macro("FFDHE_3072")
-#pragma pop_macro("SECT283_K1")
-#pragma pop_macro("SECP192_K1")
-#pragma pop_macro("X25519")
-#pragma pop_macro("SECP160_R1")
-#pragma pop_macro("SECT233_K1")
-#pragma pop_macro("SECP160_R2")
-#pragma pop_macro("SECP521_R1")
-#pragma pop_macro("SECT239_K1")
-#pragma pop_macro("FFDHE_2048")
-#pragma pop_macro("SECP256_R1")
-#pragma pop_macro("SECT571_K1")
 #pragma pop_macro("KEY_AGREEMENT_PRIMITIVE_SET")
-#pragma pop_macro("SECP384_R1")
-#pragma pop_macro("SECT163_R1")
-#pragma pop_macro("FFDHE_4096")
-#pragma pop_macro("SECT409_K1")
-#pragma pop_macro("SECT163_R2")
-#pragma pop_macro("SECP224_K1")
-#pragma pop_macro("FFDHE_8192")
 
 #endif // _sun_security_ssl_NamedGroup_h_

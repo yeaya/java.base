@@ -33,8 +33,6 @@
 #undef BAD_BOUND
 #undef X
 #undef Y
-#undef U1
-#undef U2
 #undef SILVER_RATIO_32
 #undef SILVER_RATIO_64
 

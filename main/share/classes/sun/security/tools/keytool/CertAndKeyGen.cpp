@@ -41,7 +41,6 @@
 #undef EXTENSIONS
 #undef VERSION
 #undef SUBJECT
-#undef V3
 #undef VALIDITY
 #undef KEY
 

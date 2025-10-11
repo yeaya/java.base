@@ -22,7 +22,6 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef Z2
 #undef Z
 
 using $Boxing = ::Boxing;

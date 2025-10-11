@@ -8,6 +8,9 @@
 #include <java/security/cert/CRL.h>
 #include <java/security/cert/X509Extension.h>
 
+#pragma push_macro("X509CRL")
+#undef X509CRL
+
 namespace java {
 	namespace math {
 		class BigInteger;
@@ -82,5 +85,7 @@ public:
 		} // cert
 	} // security
 } // java
+
+#pragma pop_macro("X509CRL")
 
 #endif // _java_security_cert_X509CRL_h_

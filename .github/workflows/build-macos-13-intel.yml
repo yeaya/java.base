@@ -1,4 +1,4 @@
-name: Build on macos-15-intel
+name: Build on macos-13
 
 on:
   push:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: macos-15-intel
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
       run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
 
   build-all:
-    runs-on: macos-15-intel
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
@@ -60,7 +60,7 @@ jobs:
       run: ${{github.workspace}}/build/test/java.base-test
 
   build-debug:
-    runs-on: macos-15-intel
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4

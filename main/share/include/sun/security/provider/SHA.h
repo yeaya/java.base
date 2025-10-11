@@ -8,6 +8,8 @@
 
 #pragma push_macro("W")
 #undef W
+#pragma push_macro("SHA")
+#undef SHA
 
 namespace sun {
 	namespace security {
@@ -39,5 +41,6 @@ public:
 } // sun
 
 #pragma pop_macro("W")
+#pragma pop_macro("SHA")
 
 #endif // _sun_security_provider_SHA_h_

@@ -7,8 +7,6 @@
 
 #pragma push_macro("INDEX_RSA512")
 #undef INDEX_RSA512
-#pragma push_macro("INDEX_RSA1024")
-#undef INDEX_RSA1024
 
 namespace java {
 	namespace security {
@@ -54,6 +52,5 @@ public:
 } // sun
 
 #pragma pop_macro("INDEX_RSA512")
-#pragma pop_macro("INDEX_RSA1024")
 
 #endif // _sun_security_ssl_EphemeralKeyManager_h_

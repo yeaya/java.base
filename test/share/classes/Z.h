@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("Z")
+#undef Z
+
 class $export Z : public ::java::lang::Object {
 	$class(Z, $NO_CLASS_INIT, ::java::lang::Object)
 public:
@@ -12,5 +15,7 @@ public:
 	void init$();
 	static void main($StringArray* argv);
 };
+
+#pragma pop_macro("Z")
 
 #endif // _Z_h_

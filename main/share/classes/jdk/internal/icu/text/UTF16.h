@@ -33,6 +33,8 @@
 #undef LEAD_SURROGATE_SHIFT_
 #pragma push_macro("CODEPOINT_MIN_VALUE")
 #undef CODEPOINT_MIN_VALUE
+#pragma push_macro("UTF16")
+#undef UTF16
 #pragma push_macro("SURROGATE_MIN_VALUE")
 #undef SURROGATE_MIN_VALUE
 #pragma push_macro("LEAD_SURROGATE_OFFSET_")
@@ -111,6 +113,7 @@ public:
 #pragma pop_macro("SURROGATE_BITMASK")
 #pragma pop_macro("LEAD_SURROGATE_SHIFT_")
 #pragma pop_macro("CODEPOINT_MIN_VALUE")
+#pragma pop_macro("UTF16")
 #pragma pop_macro("SURROGATE_MIN_VALUE")
 #pragma pop_macro("LEAD_SURROGATE_OFFSET_")
 #pragma pop_macro("LEAD_SURROGATE_MAX_VALUE")

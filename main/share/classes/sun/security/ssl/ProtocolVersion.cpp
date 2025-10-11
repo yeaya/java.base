@@ -33,10 +33,7 @@
 #undef PROTOCOLS_OF_12
 #undef PROTOCOLS_OF_13
 #undef PROTOCOLS_OF_30
-#undef PROTOCOLS_12_13
 #undef NONE
-#undef PROTOCOLS_10_12
-#undef PROTOCOLS_10_11
 #undef DEFAULT_SSL_ONLY
 #undef KEY_AGREEMENT
 #undef PROTOCOLS_EMPTY
@@ -45,7 +42,6 @@
 #undef SSL30
 #undef DTLS12
 #undef TLS11
-#undef PROTOCOLS_11_12
 #undef TLS10
 #undef DTLS10
 #undef PROTOCOLS_TO_13

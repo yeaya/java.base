@@ -21,6 +21,8 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
+#undef PKIX
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

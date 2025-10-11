@@ -6,24 +6,10 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/reflect/ClassFileConstants.h>
 
-#pragma push_macro("S3")
-#undef S3
-#pragma push_macro("S4")
-#undef S4
-#pragma push_macro("S5")
-#undef S5
-#pragma push_macro("S6")
-#undef S6
 #pragma push_macro("NUM_BOXING_CPOOL_ENTRIES")
 #undef NUM_BOXING_CPOOL_ENTRIES
-#pragma push_macro("S0")
-#undef S0
-#pragma push_macro("S1")
-#undef S1
 #pragma push_macro("NUM_COMMON_CPOOL_ENTRIES")
 #undef NUM_COMMON_CPOOL_ENTRIES
-#pragma push_macro("S2")
-#undef S2
 
 namespace jdk {
 	namespace internal {
@@ -132,14 +118,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("S3")
-#pragma pop_macro("S4")
-#pragma pop_macro("S5")
-#pragma pop_macro("S6")
 #pragma pop_macro("NUM_BOXING_CPOOL_ENTRIES")
-#pragma pop_macro("S0")
-#pragma pop_macro("S1")
 #pragma pop_macro("NUM_COMMON_CPOOL_ENTRIES")
-#pragma pop_macro("S2")
 
 #endif // _jdk_internal_reflect_AccessorGenerator_h_

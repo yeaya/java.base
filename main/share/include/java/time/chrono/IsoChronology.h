@@ -7,8 +7,6 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/AbstractChronology.h>
 
-#pragma push_macro("DAYS_0000_TO_1970")
-#undef DAYS_0000_TO_1970
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
 
@@ -112,7 +110,6 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("DAYS_0000_TO_1970")
 #pragma pop_macro("INSTANCE")
 
 #endif // _java_time_chrono_IsoChronology_h_

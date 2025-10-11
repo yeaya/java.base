@@ -6,6 +6,9 @@
 #include <java/lang/Array.h>
 #include <java/util/zip/Checksum.h>
 
+#pragma push_macro("CRC32")
+#undef CRC32
+
 namespace java {
 	namespace nio {
 		class ByteBuffer;
@@ -41,5 +44,7 @@ public:
 		} // zip
 	} // util
 } // java
+
+#pragma pop_macro("CRC32")
 
 #endif // _java_util_zip_CRC32_h_

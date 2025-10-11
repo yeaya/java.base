@@ -6,12 +6,8 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("B_RC4_40")
-#undef B_RC4_40
 #pragma push_macro("B_AES_256")
 #undef B_AES_256
-#pragma push_macro("B_RC2_40")
-#undef B_RC2_40
 #pragma push_macro("B_AES_256_GCM")
 #undef B_AES_256_GCM
 #pragma push_macro("B_IDEA")
@@ -20,12 +16,6 @@
 #undef B_AES_128_GCM
 #pragma push_macro("B_AES_128_GCM_IV")
 #undef B_AES_128_GCM_IV
-#pragma push_macro("B_RC4_128")
-#undef B_RC4_128
-#pragma push_macro("B_3DES")
-#undef B_3DES
-#pragma push_macro("B_AES_128")
-#undef B_AES_128
 #pragma push_macro("B_AES_256_GCM_IV")
 #undef B_AES_256_GCM_IV
 #pragma push_macro("B_NULL")
@@ -34,8 +24,10 @@
 #undef B_DES
 #pragma push_macro("B_DES_40")
 #undef B_DES_40
-#pragma push_macro("B_CC20_P1305")
-#undef B_CC20_P1305
+#pragma push_macro("B_3DES")
+#undef B_3DES
+#pragma push_macro("B_AES_128")
+#undef B_AES_128
 
 namespace java {
 	namespace nio {
@@ -143,20 +135,16 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("B_RC4_40")
 #pragma pop_macro("B_AES_256")
-#pragma pop_macro("B_RC2_40")
 #pragma pop_macro("B_AES_256_GCM")
 #pragma pop_macro("B_IDEA")
 #pragma pop_macro("B_AES_128_GCM")
 #pragma pop_macro("B_AES_128_GCM_IV")
-#pragma pop_macro("B_RC4_128")
-#pragma pop_macro("B_3DES")
-#pragma pop_macro("B_AES_128")
 #pragma pop_macro("B_AES_256_GCM_IV")
 #pragma pop_macro("B_NULL")
 #pragma pop_macro("B_DES")
 #pragma pop_macro("B_DES_40")
-#pragma pop_macro("B_CC20_P1305")
+#pragma pop_macro("B_3DES")
+#pragma pop_macro("B_AES_128")
 
 #endif // _sun_security_ssl_SSLCipher_h_

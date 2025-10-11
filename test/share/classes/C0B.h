@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("C0B")
+#undef C0B
+
 class C0B : public ::java::lang::Object {
 	$class(C0B, $NO_CLASS_INIT, ::java::lang::Object)
 public:
@@ -18,5 +21,7 @@ public:
 	::C0B* fc1t = nullptr;
 	::C0B* fc1 = nullptr;
 };
+
+#pragma pop_macro("C0B")
 
 #endif // _C0B_h_

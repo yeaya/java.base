@@ -29,14 +29,10 @@
 #undef TINY_10_POW
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef D2
 #undef SINGLE_SMALL_10_POW
 #undef POSITIVE_INFINITY
-#undef B2
-#undef D5
 #undef NEGATIVE_INFINITY
 #undef BIG_10_POW
-#undef B5
 #undef SIGNIF_BIT_MASK
 #undef SINGLE_MAX_SMALL_TEN
 

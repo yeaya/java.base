@@ -7,12 +7,8 @@
 
 #pragma push_macro("FINGERPRINTS")
 #undef FINGERPRINTS
-#pragma push_macro("APRIL_16_2019")
-#undef APRIL_16_2019
 #pragma push_macro("EXEMPT_SUBCAS")
 #undef EXEMPT_SUBCAS
-#pragma push_macro("DECEMBER_31_2019")
-#undef DECEMBER_31_2019
 
 namespace java {
 	namespace security {
@@ -56,8 +52,6 @@ public:
 } // sun
 
 #pragma pop_macro("FINGERPRINTS")
-#pragma pop_macro("APRIL_16_2019")
 #pragma pop_macro("EXEMPT_SUBCAS")
-#pragma pop_macro("DECEMBER_31_2019")
 
 #endif // _sun_security_validator_SymantecTLSPolicy_h_

@@ -22,7 +22,6 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef SECONDS_0000_TO_1970
 #undef MILLISECONDS
 #undef SECONDS_PER_MINUTE
 #undef SECONDS_PER_DAY
@@ -35,7 +34,6 @@
 #undef MAX_VALUE
 #undef MILLIS_PER_SECOND
 #undef MIN_VALUE
-#undef DAYS_PER_10000_YEARS
 #undef SECONDS_PER_HOUR
 #undef NANOS_PER_SECOND
 #undef MAX_SECOND
@@ -44,7 +42,6 @@
 #undef MIN_SECOND
 #undef MICROS_PER_SECOND
 #undef MINUTES_PER_HOUR
-#undef SECONDS_PER_10000_YEARS
 #undef NANOS_PER_MICRO
 
 using $AssertionError = ::java::lang::AssertionError;

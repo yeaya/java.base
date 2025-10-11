@@ -22,9 +22,6 @@
 #undef IDENT
 #undef TAG_CONTEXT
 #undef VERSION
-#undef V1
-#undef V2
-#undef V3
 #undef NAME
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

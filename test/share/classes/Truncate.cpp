@@ -34,7 +34,6 @@
 #include <jcpp.h>
 
 #undef READ
-#undef ISO_8859_1
 #undef APPEND
 #undef WRITE
 

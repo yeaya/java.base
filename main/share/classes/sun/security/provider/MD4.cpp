@@ -29,20 +29,12 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef FF
+#undef GG
+#undef HH
 #undef INT_ARRAY
+#undef MD4
 #undef PROVIDER_VER
-#undef S31
-#undef S11
-#undef S22
-#undef S33
-#undef S21
-#undef S32
-#undef S13
-#undef S24
-#undef S12
-#undef S23
-#undef S34
-#undef S14
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

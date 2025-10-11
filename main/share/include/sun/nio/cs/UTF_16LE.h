@@ -5,6 +5,9 @@
 
 #include <sun/nio/cs/Unicode.h>
 
+#pragma push_macro("UTF_16LE")
+#undef UTF_16LE
+
 namespace java {
 	namespace nio {
 		namespace charset {
@@ -33,5 +36,7 @@ public:
 		} // cs
 	} // nio
 } // sun
+
+#pragma pop_macro("UTF_16LE")
 
 #endif // _sun_nio_cs_UTF_16LE_h_

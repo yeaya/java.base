@@ -10,10 +10,6 @@
 
 #pragma push_macro("CANONICAL")
 #undef CANONICAL
-#pragma push_macro("RFC2253")
-#undef RFC2253
-#pragma push_macro("RFC1779")
-#undef RFC1779
 
 namespace java {
 	namespace io {
@@ -74,7 +70,5 @@ public:
 } // javax
 
 #pragma pop_macro("CANONICAL")
-#pragma pop_macro("RFC2253")
-#pragma pop_macro("RFC1779")
 
 #endif // _javax_security_auth_x500_X500Principal_h_

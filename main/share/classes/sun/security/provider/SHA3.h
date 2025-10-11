@@ -6,6 +6,8 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/DigestBase.h>
 
+#pragma push_macro("SHA3")
+#undef SHA3
 #pragma push_macro("NR")
 #undef NR
 #pragma push_macro("DM")
@@ -52,6 +54,7 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("SHA3")
 #pragma pop_macro("NR")
 #pragma pop_macro("DM")
 #pragma pop_macro("WIDTH")

@@ -45,7 +45,6 @@
 
 #undef SECONDS_PER_DAY
 #undef THURSDAY
-#undef LDT2037
 #undef ROOT
 #undef SUNDAY
 #undef TUESDAY
@@ -54,16 +53,13 @@
 #undef TRANSITION_NSHIFT
 #undef DST_MASK
 #undef UTC_TIME
-#undef DAYS_0000_TO_1970
 #undef WEDNESDAY
 #undef MONDAY
 #undef STANDARD_TIME
-#undef UTC2037
 #undef WALL_TIME
 #undef SATURDAY
 #undef CURRT
 #undef OFFSET_MASK
-#undef UTC1900
 #undef DAYS_PER_CYCLE
 #undef DST_NSHIFT
 #undef USE_OLDMAPPING

@@ -23,6 +23,8 @@
 
 #include "_java_util_zip_CRC32.h"
 
+#undef CRC32
+
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

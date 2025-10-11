@@ -112,7 +112,6 @@
 #undef SOCKS
 #undef FILE_STATUS
 #undef ERROR_MSG
-#undef RFC3659_DATETIME_FORMAT
 #undef US
 #undef FILE_UNAVAILABLE
 

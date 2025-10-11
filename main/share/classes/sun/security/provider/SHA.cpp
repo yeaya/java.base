@@ -17,6 +17,7 @@
 #include <jcpp.h>
 
 #undef W
+#undef SHA
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

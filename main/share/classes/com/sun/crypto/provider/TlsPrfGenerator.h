@@ -20,8 +20,6 @@
 #undef LABEL_IV_BLOCK
 #pragma push_macro("LABEL_CLIENT_WRITE_KEY")
 #undef LABEL_CLIENT_WRITE_KEY
-#pragma push_macro("B0")
-#undef B0
 #pragma push_macro("LABEL_SERVER_WRITE_KEY")
 #undef LABEL_SERVER_WRITE_KEY
 
@@ -103,7 +101,6 @@ public:
 #pragma pop_macro("LABEL_KEY_EXPANSION")
 #pragma pop_macro("LABEL_IV_BLOCK")
 #pragma pop_macro("LABEL_CLIENT_WRITE_KEY")
-#pragma pop_macro("B0")
 #pragma pop_macro("LABEL_SERVER_WRITE_KEY")
 
 #endif // _com_sun_crypto_provider_TlsPrfGenerator_h_

@@ -14,9 +14,6 @@
 #include <sun/security/ssl/XDHKeyExchange.h>
 #include <jcpp.h>
 
-#undef X25519
-#undef X448
-
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

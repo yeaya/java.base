@@ -23,6 +23,8 @@
 #include <javax/crypto/spec/SecretKeySpec.h>
 #include <jcpp.h>
 
+#undef HKDF
+
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

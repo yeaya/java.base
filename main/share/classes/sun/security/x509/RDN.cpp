@@ -31,7 +31,7 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef RFC2253
+#undef RDN
 
 using $DerEncoderArray = $Array<::sun::security::util::DerEncoder>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;

@@ -9,6 +9,8 @@
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
+#undef I
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;

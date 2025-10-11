@@ -24,10 +24,7 @@
 #include <sun/nio/cs/ISO_8859_1.h>
 #include <jcpp.h>
 
-#undef RFC4648_URLSAFE
-#undef RFC2045
 #undef INSTANCE
-#undef RFC4648
 
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

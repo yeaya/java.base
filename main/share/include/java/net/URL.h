@@ -8,6 +8,8 @@
 
 #pragma push_macro("BUILTIN_HANDLERS_PREFIX")
 #undef BUILTIN_HANDLERS_PREFIX
+#pragma push_macro("URL")
+#undef URL
 
 namespace java {
 	namespace io {
@@ -124,5 +126,6 @@ public:
 } // java
 
 #pragma pop_macro("BUILTIN_HANDLERS_PREFIX")
+#pragma pop_macro("URL")
 
 #endif // _java_net_URL_h_

@@ -29,7 +29,6 @@
 #undef STORED
 #undef UPPER_DOSTIME_BOUND
 #undef DEFLATED
-#undef DOSTIME_BEFORE_1980
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

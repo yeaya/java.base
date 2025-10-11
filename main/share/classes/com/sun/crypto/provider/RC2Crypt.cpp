@@ -13,11 +13,7 @@
 #include <java/security/InvalidKeyException.h>
 #include <jcpp.h>
 
-#undef R2
-#undef R3
 #undef PI_TABLE
-#undef R0
-#undef R1
 
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;

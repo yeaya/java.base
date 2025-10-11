@@ -36,7 +36,6 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef ISO_8859_1
 #undef UNIX
 
 using $Closeable = ::java::io::Closeable;

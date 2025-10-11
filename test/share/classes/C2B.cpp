@@ -11,6 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef C2B
+
 using $C0B = ::C0B;
 using $I1B = ::I1B;
 using $I2B = ::I2B;

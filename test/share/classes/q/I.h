@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("I")
+#undef I
+
 namespace java {
 	namespace nio {
 		namespace file {
@@ -24,5 +27,7 @@ public:
 };
 
 } // q
+
+#pragma pop_macro("I")
 
 #endif // _q_I_h_

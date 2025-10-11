@@ -11,8 +11,6 @@
 #undef ISO_LOCAL_DATE_TIME
 #pragma push_macro("PARSED_EXCESS_DAYS")
 #undef PARSED_EXCESS_DAYS
-#pragma push_macro("RFC_1123_DATE_TIME")
-#undef RFC_1123_DATE_TIME
 #pragma push_macro("ISO_INSTANT")
 #undef ISO_INSTANT
 #pragma push_macro("ISO_ZONED_DATE_TIME")
@@ -175,7 +173,6 @@ public:
 #pragma pop_macro("ISO_OFFSET_TIME")
 #pragma pop_macro("ISO_LOCAL_DATE_TIME")
 #pragma pop_macro("PARSED_EXCESS_DAYS")
-#pragma pop_macro("RFC_1123_DATE_TIME")
 #pragma pop_macro("ISO_INSTANT")
 #pragma pop_macro("ISO_ZONED_DATE_TIME")
 #pragma pop_macro("ISO_OFFSET_DATE_TIME")

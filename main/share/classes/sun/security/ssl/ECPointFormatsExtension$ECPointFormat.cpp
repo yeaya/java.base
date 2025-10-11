@@ -15,7 +15,6 @@
 
 #undef ANSIX962_COMPRESSED_PRIME
 #undef UNCOMPRESSED
-#undef FMT_ANSIX962_COMPRESSED_CHAR2
 
 using $ECPointFormatsExtension$ECPointFormatArray = $Array<::sun::security::ssl::ECPointFormatsExtension$ECPointFormat>;
 using $ClassInfo = ::java::lang::ClassInfo;

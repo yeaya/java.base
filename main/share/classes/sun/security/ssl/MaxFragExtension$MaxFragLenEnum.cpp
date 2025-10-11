@@ -13,11 +13,6 @@
 #include <sun/security/ssl/MaxFragExtension.h>
 #include <jcpp.h>
 
-#undef MFL_512
-#undef MFL_4096
-#undef MFL_1024
-#undef MFL_2048
-
 using $MaxFragExtension$MaxFragLenEnumArray = $Array<::sun::security::ssl::MaxFragExtension$MaxFragLenEnum>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

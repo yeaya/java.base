@@ -2434,6 +2434,38 @@
 #include <util/MemberFactory$Kind$3.h>
 #include <x123.h>
 
+#undef A
+#undef A1B
+#undef AB
+#undef B
+#undef B1B
+#undef BB
+#undef C
+#undef C0B
+#undef C2B
+#undef CB
+#undef D
+#undef D1B
+#undef DB
+#undef EOF
+#undef EOL
+#undef I
+#undef I1B
+#undef I2B
+#undef I3B
+#undef J
+#undef LSI
+#undef NP
+#undef Q
+#undef SAM
+#undef SJIS
+#undef T
+#undef U
+#undef UTF16
+#undef UTF8
+#undef X
+#undef Z
+
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$base$test_classes_[] = {
 	$classEntry("A", ::A),

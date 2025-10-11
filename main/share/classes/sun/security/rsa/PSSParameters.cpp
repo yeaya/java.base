@@ -26,19 +26,9 @@
 #include <jcpp.h>
 
 #undef SHA1
-#undef SHA256
-#undef SHA512_224
-#undef SHA3_384
-#undef SHA512_256
-#undef SHA384
 #undef TAG_CONTEXT
 #undef TRAILER_FIELD_BC
-#undef SHA3_512
-#undef SHA3_224
-#undef SHA3_256
-#undef SHA512
 #undef DEFAULT
-#undef SHA224
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

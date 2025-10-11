@@ -18,7 +18,6 @@
 #include <jcpp.h>
 
 #undef UTF_16LE
-#undef ISO_8859_1
 #undef PACKET_READ_ERROR
 
 using $NTLM = ::com::sun::security::ntlm::NTLM;

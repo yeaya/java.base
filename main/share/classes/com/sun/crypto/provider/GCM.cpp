@@ -9,6 +9,8 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
+#undef GCM
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;

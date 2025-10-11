@@ -61,7 +61,6 @@
 #undef PAD_PKCS1
 #undef PAD_BLOCKTYPE_2
 #undef MODE_ENCRYPT
-#undef B0
 #undef PAD_BLOCKTYPE_1
 #undef MODE_DECRYPT
 #undef PAD_OAEP_MGF1

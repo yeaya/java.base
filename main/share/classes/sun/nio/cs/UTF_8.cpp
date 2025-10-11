@@ -19,6 +19,7 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
+#undef UTF_8
 #undef INSTANCE
 
 using $ClassInfo = ::java::lang::ClassInfo;

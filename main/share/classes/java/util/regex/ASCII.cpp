@@ -14,6 +14,7 @@
 #undef WORD
 #undef ALPHA
 #undef UNDER
+#undef ASCII
 #undef ALNUM
 #undef DIGIT
 #undef SPACE

@@ -18,6 +18,7 @@
 #include <jcpp.h>
 
 #undef LITTLE
+#undef UTF_32LE_BOM
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

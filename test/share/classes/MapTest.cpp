@@ -42,7 +42,6 @@
 #undef CHARS_PER_LINE
 #undef BLOCK_SIZE
 #undef BLOCK_COUNT
-#undef ISO_8859_1
 #undef MAX_VALUE
 #undef READ_ONLY
 #undef READ_WRITE

@@ -10,6 +10,8 @@
 #include <java/security/cert/Certificate.h>
 #include <jcpp.h>
 
+#undef CRL
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

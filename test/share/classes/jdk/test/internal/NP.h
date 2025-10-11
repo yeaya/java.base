@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("NP")
+#undef NP
+
 namespace jdk {
 	namespace test {
 		namespace internal {
@@ -18,5 +21,7 @@ public:
 		} // internal
 	} // test
 } // jdk
+
+#pragma pop_macro("NP")
 
 #endif // _jdk_test_internal_NP_h_

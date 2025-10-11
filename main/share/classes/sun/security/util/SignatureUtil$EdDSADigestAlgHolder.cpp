@@ -20,7 +20,6 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef SHA_512
 #undef SHAKE256
 #undef SHAKE256_LEN
 

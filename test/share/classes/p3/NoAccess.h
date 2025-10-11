@@ -9,8 +9,6 @@
 #undef MODS_DIR1
 #pragma push_macro("MODS_DIR2")
 #undef MODS_DIR2
-#pragma push_macro("M3")
-#undef M3
 
 namespace java {
 	namespace lang {
@@ -49,6 +47,5 @@ public:
 
 #pragma pop_macro("MODS_DIR1")
 #pragma pop_macro("MODS_DIR2")
-#pragma pop_macro("M3")
 
 #endif // _p3_NoAccess_h_

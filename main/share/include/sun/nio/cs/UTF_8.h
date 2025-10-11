@@ -5,6 +5,8 @@
 
 #include <sun/nio/cs/Unicode.h>
 
+#pragma push_macro("UTF_8")
+#undef UTF_8
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
 
@@ -44,6 +46,7 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("UTF_8")
 #pragma pop_macro("INSTANCE")
 
 #endif // _sun_nio_cs_UTF_8_h_

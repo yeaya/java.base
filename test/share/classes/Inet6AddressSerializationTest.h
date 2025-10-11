@@ -7,20 +7,12 @@
 
 #pragma push_macro("NETWORK_IF_LO0")
 #undef NETWORK_IF_LO0
-#pragma push_macro("E1000G0HOSTNAME")
-#undef E1000G0HOSTNAME
-#pragma push_macro("NETWORK_IF_E1000G0")
-#undef NETWORK_IF_E1000G0
 #pragma push_macro("SCOPE_ID_ZERO")
 #undef SCOPE_ID_ZERO
-#pragma push_macro("E1000G0IPV6ADDRESS")
-#undef E1000G0IPV6ADDRESS
 #pragma push_macro("IN6ADDR_ANY_INIT")
 #undef IN6ADDR_ANY_INIT
 #pragma push_macro("SCOPE_ID_LO0")
 #undef SCOPE_ID_LO0
-#pragma push_macro("SCOPE_ID_E1000G0")
-#undef SCOPE_ID_E1000G0
 #pragma push_macro("LOOPBACK_SCOPE_ID")
 #undef LOOPBACK_SCOPE_ID
 #pragma push_macro("LOOPBACKIPV6ADDRESS")
@@ -91,13 +83,9 @@ public:
 };
 
 #pragma pop_macro("NETWORK_IF_LO0")
-#pragma pop_macro("E1000G0HOSTNAME")
-#pragma pop_macro("NETWORK_IF_E1000G0")
 #pragma pop_macro("SCOPE_ID_ZERO")
-#pragma pop_macro("E1000G0IPV6ADDRESS")
 #pragma pop_macro("IN6ADDR_ANY_INIT")
 #pragma pop_macro("SCOPE_ID_LO0")
-#pragma pop_macro("SCOPE_ID_E1000G0")
 #pragma pop_macro("LOOPBACK_SCOPE_ID")
 #pragma pop_macro("LOOPBACKIPV6ADDRESS")
 #pragma pop_macro("LOCALHOSTNAME")

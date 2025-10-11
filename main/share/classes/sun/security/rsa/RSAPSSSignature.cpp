@@ -49,20 +49,12 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-#undef SHA_512
-#undef SHA_256
-#undef SHA_224
-#undef DEBUG
-#undef SHA_1
-#undef MASK
-#undef SHA3_384
 #undef DIGEST_LENGTHS
 #undef TRAILER_FIELD_BC
-#undef SHA3_512
-#undef SHA3_224
-#undef SHA3_256
+#undef DEBUG
 #undef EIGHT_BYTES_OF_ZEROS
-#undef SHA_384
+#undef SHA_1
+#undef MASK
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -6,11 +6,6 @@
 #include <java/lang/Array.h>
 #include <java/security/PrivateKey.h>
 
-#pragma push_macro("V1")
-#undef V1
-#pragma push_macro("V2")
-#undef V2
-
 namespace java {
 	namespace io {
 		class InputStream;
@@ -58,8 +53,5 @@ public:
 		} // pkcs
 	} // security
 } // sun
-
-#pragma pop_macro("V1")
-#pragma pop_macro("V2")
 
 #endif // _sun_security_pkcs_PKCS8Key_h_

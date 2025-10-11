@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("NP")
+#undef NP
+
 namespace q {
 
 class NP : public ::java::lang::Object {
@@ -12,5 +15,7 @@ class NP : public ::java::lang::Object {
 };
 
 } // q
+
+#pragma pop_macro("NP")
 
 #endif // _q_NP_h_

@@ -5,13 +5,6 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("_1")
-#undef _1
-#pragma push_macro("_2")
-#undef _2
-#pragma push_macro("_3")
-#undef _3
-
 namespace java {
 	namespace lang {
 		class Void;
@@ -55,9 +48,5 @@ public:
 };
 
 } // a
-
-#pragma pop_macro("_1")
-#pragma pop_macro("_2")
-#pragma pop_macro("_3")
 
 #endif // _a_Package_h_

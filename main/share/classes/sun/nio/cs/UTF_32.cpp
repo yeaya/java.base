@@ -18,6 +18,7 @@
 #include <jcpp.h>
 
 #undef BIG
+#undef UTF_32
 #undef NONE
 
 using $ClassInfo = ::java::lang::ClassInfo;

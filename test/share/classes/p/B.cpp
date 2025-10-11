@@ -10,6 +10,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef B
+
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

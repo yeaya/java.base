@@ -19,6 +19,7 @@
 #include <sun/security/provider/DigestBase.h>
 #include <jcpp.h>
 
+#undef SHA3
 #undef NR
 #undef DM
 #undef WIDTH

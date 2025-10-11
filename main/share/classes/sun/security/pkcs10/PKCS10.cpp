@@ -42,6 +42,7 @@
 
 #undef ZERO
 #undef CRLF
+#undef PKCS10
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

@@ -23,11 +23,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef RFC4648_URLSAFE
 #undef MIMELINEMAX
 #undef CRLF
-#undef RFC2045
-#undef RFC4648
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;

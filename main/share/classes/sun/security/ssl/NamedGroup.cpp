@@ -48,48 +48,16 @@
 #include <sun/security/util/NamedCurve.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_ECDHE
-#undef SECT193_R2
-#undef SECT193_R1
-#undef ARBITRARY_PRIME
-#undef SECP224_R1
-#undef SECP192_R1
-#undef X448
-#undef SECP160_K1
-#undef SECP256_K1
-#undef NAMED_GROUP_ARBITRARY
-#undef SECT283_R1
-#undef SECT163_K1
 #undef NAMED_GROUP_FFDHE
-#undef SECT409_R1
-#undef ARBITRARY_CHAR2
-#undef FFDHE_6144
-#undef SECT571_R1
-#undef SECT233_R1
-#undef FFDHE_3072
-#undef SECT283_K1
-#undef SECP192_K1
-#undef X25519
-#undef SECP160_R1
+#undef NAMED_GROUP_ECDHE
 #undef KEY_AGREEMENT
-#undef SECT233_K1
-#undef SECP160_R2
-#undef SECP521_R1
-#undef SECT239_K1
-#undef NAMED_GROUP_XDH
-#undef FFDHE_2048
-#undef SECP256_R1
-#undef SECT571_K1
+#undef ARBITRARY_PRIME
+#undef ARBITRARY_CHAR2
 #undef KEY_AGREEMENT_PRIMITIVE_SET
-#undef SECP384_R1
-#undef SECT163_R1
-#undef FFDHE_4096
-#undef SECT409_K1
+#undef NAMED_GROUP_XDH
+#undef NAMED_GROUP_ARBITRARY
 #undef PROTOCOLS_TO_13
-#undef SECT163_R2
-#undef SECP224_K1
 #undef PROTOCOLS_TO_12
-#undef FFDHE_8192
 
 using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;

@@ -7,10 +7,14 @@
 
 #pragma push_macro("BLKSIZE")
 #undef BLKSIZE
+#pragma push_macro("W")
+#undef W
 #pragma push_macro("MIN_INPUTLEN")
 #undef MIN_INPUTLEN
 #pragma push_macro("SEMI_BLKSIZE")
 #undef SEMI_BLKSIZE
+#pragma push_macro("W_INV")
+#undef W_INV
 
 namespace com {
 	namespace sun {
@@ -46,7 +50,9 @@ public:
 } // com
 
 #pragma pop_macro("BLKSIZE")
+#pragma pop_macro("W")
 #pragma pop_macro("MIN_INPUTLEN")
 #pragma pop_macro("SEMI_BLKSIZE")
+#pragma pop_macro("W_INV")
 
 #endif // _com_sun_crypto_provider_KWUtil_h_

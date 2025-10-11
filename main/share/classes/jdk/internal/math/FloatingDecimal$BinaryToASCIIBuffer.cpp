@@ -27,18 +27,12 @@
 #undef SIGN_BIT_MASK
 #undef ZERO
 #undef EXP_BIT_MASK
-#undef S5
-#undef M2
-#undef M5
-#undef EXP_BIAS
-#undef MAX_VALUE
-#undef B2
-#undef B5
 #undef SMALL_5_POW
 #undef N_5_BITS
 #undef SIGNIF_BIT_MASK
+#undef EXP_BIAS
+#undef MAX_VALUE
 #undef LONG_5_POW
-#undef S2
 
 using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;

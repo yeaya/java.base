@@ -14,6 +14,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef A
+#undef B
+#undef C
 #undef DONE_DEPTH
 
 using $GenerifyStackTraces = ::GenerifyStackTraces;

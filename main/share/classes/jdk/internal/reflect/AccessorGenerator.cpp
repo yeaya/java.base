@@ -26,17 +26,10 @@
 #include <jdk/internal/reflect/ClassFileConstants.h>
 #include <jcpp.h>
 
-#undef S3
-#undef S4
-#undef S5
-#undef S6
 #undef NUM_BOXING_CPOOL_ENTRIES
 #undef ACC_PUBLIC
-#undef S0
 #undef TYPE
-#undef S1
 #undef NUM_COMMON_CPOOL_ENTRIES
-#undef S2
 
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;

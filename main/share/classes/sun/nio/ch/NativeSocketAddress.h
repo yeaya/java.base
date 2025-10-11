@@ -17,6 +17,8 @@
 #undef SIZEOF_FAMILY
 #pragma push_macro("AF_INET")
 #undef AF_INET
+#pragma push_macro("AFINET6")
+#undef AFINET6
 #pragma push_macro("AF_INET6")
 #undef AF_INET6
 #pragma push_macro("SIZEOF_SOCKETADDRESS")
@@ -37,6 +39,8 @@
 #undef UNSAFE
 #pragma push_macro("OFFSET_SIN6_ADDR")
 #undef OFFSET_SIN6_ADDR
+#pragma push_macro("AFINET")
+#undef AFINET
 
 namespace java {
 	namespace net {
@@ -129,6 +133,7 @@ public:
 #pragma pop_macro("OFFSET_SIN6_FLOWINFO")
 #pragma pop_macro("SIZEOF_FAMILY")
 #pragma pop_macro("AF_INET")
+#pragma pop_macro("AFINET6")
 #pragma pop_macro("AF_INET6")
 #pragma pop_macro("SIZEOF_SOCKETADDRESS")
 #pragma pop_macro("JNINA")
@@ -139,5 +144,6 @@ public:
 #pragma pop_macro("OFFSET_FAMILY")
 #pragma pop_macro("UNSAFE")
 #pragma pop_macro("OFFSET_SIN6_ADDR")
+#pragma pop_macro("AFINET")
 
 #endif // _sun_nio_ch_NativeSocketAddress_h_

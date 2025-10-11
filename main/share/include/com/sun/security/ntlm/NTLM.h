@@ -5,6 +5,8 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("NTLM")
+#undef NTLM
 #pragma push_macro("DEBUG")
 #undef DEBUG
 
@@ -69,6 +71,7 @@ public:
 	} // sun
 } // com
 
+#pragma pop_macro("NTLM")
 #pragma pop_macro("DEBUG")
 
 #endif // _com_sun_security_ntlm_NTLM_h_

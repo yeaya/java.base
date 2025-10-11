@@ -24,12 +24,33 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
 elseif(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 	set(JCPP_OS "macosx")
 else()
-	message(FATAL_ERROR "Unknown system name: ${CMAKE_SYSTEM_NAME}")
+	message(FATAL_ERROR "Unknown system name:${CMAKE_SYSTEM_NAME}")
 endif()
+message(STATUS "CMAKE_SYSTEM_NAME:${CMAKE_SYSTEM_NAME}")
+message(STATUS "JCPP_OS:${JCPP_OS}")
+
+if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+	set(JCPP_CPU "x86")
+	set(JCPP_ARCH "x86_64")
+elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
+	set(JCPP_CPU "x86")
+	set(JCPP_ARCH "amd64")
+elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+	set(JCPP_CPU "aarch64")
+	set(JCPP_ARCH "aarch64")
+elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
+	set(JCPP_CPU "aarch64")
+	set(JCPP_ARCH "aarch64")
+else()
+	message(FATAL_ERROR "Unknown processor:${CMAKE_SYSTEM_PROCESSOR}")
+endif()
+message(STATUS "CMAKE_SYSTEM_PROCESSOR:${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "JCPP_CPU:${JCPP_CPU}")
+message(STATUS "JCPP_ARCH:${JCPP_ARCH}")
 
 option(BUILD_SHARED_LIB "Build shared lib" ON)
 option(ENABLE_NC "Enable NC(nullcheck)" OFF)
-option(BUILD_TEST "Enable unit test" ON)
+option(BUILD_TEST "Build test" ON)
 
 if(BUILD_SHARED_LIB)
 	message(STATUS "build shared lib")
@@ -78,7 +99,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 message(STATUS "c++ Compiler is " "${CMAKE_CXX_COMPILER_ID}")
 
-if("${CMAKE_CXX_COMPILER_ID}" MATCHES "MSVC")
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Zi")
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
 	set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF /INCREMENTAL:NO")
@@ -89,7 +110,7 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "MSVC")
 	add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/execution-charset:utf-8>")
 endif()
 
-if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU" OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	add_definitions(-fwrapv)
 	add_definitions(-fno-optimize-sibling-calls)
 	add_definitions(-ftls-model=initial-exec)
@@ -98,8 +119,12 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU" OR "${CMAKE_CXX_COMPILER_ID}" MATCHE
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
 endif()
 
-if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	add_definitions(-Wno-implicit-function-declaration)
+endif()
+
+if(JCPP_OS STREQUAL "macosx" AND JCPP_CPU STREQUAL "x86")
+	add_definitions(-fno-stack-check)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX)
@@ -109,8 +134,8 @@ endif()
 
 function(jcpp_enable_bigobj target)
 	target_compile_options(${target}
-		PRIVATE 
-		$<$<CXX_COMPILER_ID:MSVC>:/bigobj> 
+		PRIVATE
+		$<$<CXX_COMPILER_ID:MSVC>:/bigobj>
 		$<$<AND:$<CXX_COMPILER_ID:GNU>,$<BOOL:${GNU_BIG_OBJ_FLAG_ENABLE}>>:-Wa,-mbig-obj>
 	)
 endfunction(jcpp_enable_bigobj)

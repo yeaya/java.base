@@ -11,8 +11,6 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef ISO3166_3
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

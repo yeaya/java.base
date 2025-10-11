@@ -9,6 +9,9 @@
 #include <java/lang/Cloneable.h>
 #include <java/lang/Comparable.h>
 
+#pragma push_macro("UTC")
+#undef UTC
+
 namespace java {
 	namespace io {
 		class ObjectInputStream;
@@ -103,5 +106,7 @@ public:
 
 	} // util
 } // java
+
+#pragma pop_macro("UTC")
 
 #endif // _java_util_Date_h_

@@ -9,6 +9,8 @@
 #undef DIRECT_HOLDER_CLASS_NAME
 #pragma push_macro("INVOKERS_HOLDER_CLASS_NAME")
 #undef INVOKERS_HOLDER_CLASS_NAME
+#pragma push_macro("CDS")
+#undef CDS
 #pragma push_macro("DELEGATING_HOLDER_CLASS_NAME")
 #undef DELEGATING_HOLDER_CLASS_NAME
 #pragma push_macro("BASIC_FORMS_HOLDER_CLASS_NAME")
@@ -78,6 +80,7 @@ public:
 
 #pragma pop_macro("DIRECT_HOLDER_CLASS_NAME")
 #pragma pop_macro("INVOKERS_HOLDER_CLASS_NAME")
+#pragma pop_macro("CDS")
 #pragma pop_macro("DELEGATING_HOLDER_CLASS_NAME")
 #pragma pop_macro("BASIC_FORMS_HOLDER_CLASS_NAME")
 

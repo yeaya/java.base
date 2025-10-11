@@ -48,12 +48,11 @@
 
 #undef PRESERVE_OLD_DC_ENCODING
 #undef EMAIL_ADDRESS_OID
-#undef RFC2253
 #undef UTF_8
 #undef NFKD
 #undef DOMAIN_COMPONENT_OID
+#undef AVA
 #undef DEFAULT
-#undef RFC1779
 #undef US
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

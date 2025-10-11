@@ -21,6 +21,8 @@
 #include <sun/nio/cs/StandardCharsets.h>
 #include <jcpp.h>
 
+#undef MS950_HKSCS_XP
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

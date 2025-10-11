@@ -56,49 +56,33 @@ void CheckError::init$() {
 }
 
 void CheckError::main($StringArray* args) {
-	$System::out->println("CheckError::main 1"_s);
 	bool passTest1 = false;
 	$var($File, file, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "junkie.out"_s));
 	$var($FileWriter, fw, $new($FileWriter, file));
 	$var($PrintWriter, ppw, $new($PrintWriter, static_cast<$Writer*>($$new($PrintWriter, static_cast<$Writer*>(fw)))));
-	$System::out->println("CheckError::main 2"_s);
 	fw->close();
-	$System::out->println("CheckError::main 3"_s);
 	ppw->println("Hello World!"_s);
-	$System::out->println("CheckError::main 4"_s);
 	file->deleteOnExit();
-	$System::out->println("CheckError::main 5"_s);
 	if (ppw->checkError()) {
 		$nc($System::out)->println("Correct: An error occured in the underlying writer"_s);
 		passTest1 = true;
 	}
-	$System::out->println("CheckError::main 6"_s);
 	ppw->close();
-	$System::out->println("CheckError::main 7"_s);
 	$var($FileOutputStream, fos, $new($FileOutputStream, file));
-	$System::out->println("CheckError::main 8"_s);
 	$var($PrintWriter, pps, $new($PrintWriter, static_cast<$OutputStream*>($$new($PrintStream, static_cast<$OutputStream*>(fos)))));
-	$System::out->println("CheckError::main 9"_s);
 	fos->close();
-	$System::out->println("CheckError::main 10"_s);
 	pps->println("Hello World!"_s);
-	$System::out->println("CheckError::main 11"_s);
 	if (pps->checkError()) {
 		$nc($System::out)->println("Correct: An error occured in the underlying Stream"_s);
 	} else if (!passTest1) {
-		$System::out->println("CheckError::main 12"_s);
 		$throwNew($Exception, "CheckError() returned an incorrect value when error occured in the underlying Stream and when error occured in the underlying writer"_s);
 	} else {
-		$System::out->println("CheckError::main 13"_s);
 		$throwNew($Exception, "CheckError() returned an incorrect value when the error has occured in the underlying Stream"_s);
 	}
 	if (!passTest1) {
-		$System::out->println("CheckError::main 14"_s);
 		$throwNew($Exception, "CheckError() returned an incorrect value when the error has occured in the underlying Writer"_s);
 	}
-	$System::out->println("CheckError::main 15"_s);
 	pps->close();
-	$System::out->println("CheckError::main 16"_s);
 }
 
 CheckError::CheckError() {

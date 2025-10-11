@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("A")
+#undef A
+
 namespace pkg {
 
 class $export A : public ::java::lang::Object {
@@ -18,5 +21,7 @@ public:
 };
 
 } // pkg
+
+#pragma pop_macro("A")
 
 #endif // _pkg_A_h_

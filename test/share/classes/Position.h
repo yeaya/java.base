@@ -5,9 +5,6 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ISO8859_1")
-#undef ISO8859_1
-
 namespace java {
 	namespace nio {
 		namespace charset {
@@ -38,7 +35,5 @@ public:
 	static ::java::nio::charset::Charset* ISO8859_1;
 	static ::java::util::Random* generator;
 };
-
-#pragma pop_macro("ISO8859_1")
 
 #endif // _Position_h_

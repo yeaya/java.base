@@ -48,7 +48,6 @@
 #undef BAD_VERSION
 #undef ENCRYPT_MODE
 #undef NTLM2
-#undef ISO_8859_1
 #undef DEBUG
 
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;

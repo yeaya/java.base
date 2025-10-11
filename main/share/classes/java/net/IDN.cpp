@@ -30,6 +30,7 @@
 
 #undef MAX_LABEL_LENGTH
 #undef IDN_PROFILE
+#undef IDN
 #undef ACE_PREFIX
 #undef ACE_PREFIX_LENGTH
 #undef ALLOW_UNASSIGNED

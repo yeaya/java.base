@@ -40,6 +40,7 @@
 #include <sun/security/util/DerValue.h>
 #include <jcpp.h>
 
+#undef DSA
 #undef BLINDING_CONSTANT
 #undef ONE
 #undef BLINDING_BITS

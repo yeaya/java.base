@@ -16,30 +16,19 @@
 
 #include <limits>
 
-#undef MAX_VALUE
-#undef OVT
-#undef BP
-#undef LG2
-#undef P1
-#undef P2
-#undef P3
-#undef P4
 #undef CP_L
-#undef L1
-#undef P5
-#undef L2
-#undef L3
-#undef L4
 #undef INV_LN2_L
 #undef CP_H
-#undef L5
-#undef L6
+#undef MAX_VALUE
 #undef INV_LN2
+#undef OVT
 #undef INV_LN2_H
 #undef CP
+#undef BP
 #undef LG2_H
 #undef LG2_L
 #undef DP_H
+#undef LG2
 #undef DP_L
 
 using $ClassInfo = ::java::lang::ClassInfo;

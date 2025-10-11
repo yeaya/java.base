@@ -71,28 +71,27 @@
 #include <jcpp.h>
 
 #undef DAY_OF_YEAR
+#undef CE
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
 #undef MAX
 #undef DAY_OF_MONTH
+#undef BCE
 #undef MIDNIGHT
+#undef INSTANCE
 #undef FEBRUARY
 #undef MAX_VALUE
 #undef PROLEPTIC_MONTH
-#undef DAYS_0000_TO_1970
-#undef LOCAL_DATE_TYPE
-#undef ALIGNED_WEEK_OF_MONTH
-#undef YEAR
-#undef EPOCH
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef CE
-#undef BCE
-#undef INSTANCE
 #undef MIN_VALUE
+#undef LOCAL_DATE_TYPE
 #undef MIN
 #undef MONTH_OF_YEAR
+#undef ALIGNED_WEEK_OF_MONTH
+#undef YEAR
 #undef EPOCH_DAY
 #undef ERA
+#undef EPOCH
 #undef ISO_LOCAL_DATE
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
 #undef ALIGNED_WEEK_OF_YEAR
 #undef DAYS_PER_CYCLE
 

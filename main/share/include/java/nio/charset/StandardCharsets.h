@@ -15,8 +15,6 @@
 #undef UTF_16BE
 #pragma push_macro("UTF_8")
 #undef UTF_8
-#pragma push_macro("ISO_8859_1")
-#undef ISO_8859_1
 
 namespace java {
 	namespace nio {
@@ -52,6 +50,5 @@ public:
 #pragma pop_macro("UTF_16LE")
 #pragma pop_macro("UTF_16BE")
 #pragma pop_macro("UTF_8")
-#pragma pop_macro("ISO_8859_1")
 
 #endif // _java_nio_charset_StandardCharsets_h_

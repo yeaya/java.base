@@ -25,19 +25,17 @@
 #include <java/time/temporal/TemporalField.h>
 #include <jcpp.h>
 
-#undef SECONDS_0000_TO_1970
-#undef UTC
-#undef DAY_OF_MONTH
-#undef SECOND_OF_MINUTE
-#undef NANO_OF_SECOND
 #undef MONTH_OF_YEAR
 #undef YEAR
+#undef UTC
 #undef HOUR_OF_DAY
+#undef DAY_OF_MONTH
 #undef OFFSET_SECONDS
 #undef ISO_LOCAL_DATE
 #undef MINUTE_OF_HOUR
+#undef SECOND_OF_MINUTE
 #undef INSTANT_SECONDS
-#undef SECONDS_PER_10000_YEARS
+#undef NANO_OF_SECOND
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;

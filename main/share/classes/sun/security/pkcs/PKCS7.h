@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("PKCS7")
+#undef PKCS7
+
 namespace java {
 	namespace io {
 		class InputStream;
@@ -130,5 +133,7 @@ public:
 		} // pkcs
 	} // security
 } // sun
+
+#pragma pop_macro("PKCS7")
 
 #endif // _sun_security_pkcs_PKCS7_h_

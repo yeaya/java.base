@@ -5,20 +5,12 @@
 
 #include <java/lang/Comparable.h>
 
-#pragma push_macro("SECONDS_0000_TO_1970")
-#undef SECONDS_0000_TO_1970
 #pragma push_macro("SECONDS_PER_MINUTE")
 #undef SECONDS_PER_MINUTE
-#pragma push_macro("SECONDS_PER_DAY")
-#undef SECONDS_PER_DAY
-#pragma push_macro("HOURS_PER_DAY")
-#undef HOURS_PER_DAY
-#pragma push_macro("MILLIS_PER_SECOND")
-#undef MILLIS_PER_SECOND
-#pragma push_macro("DAYS_PER_10000_YEARS")
-#undef DAYS_PER_10000_YEARS
 #pragma push_macro("SECONDS_PER_HOUR")
 #undef SECONDS_PER_HOUR
+#pragma push_macro("SECONDS_PER_DAY")
+#undef SECONDS_PER_DAY
 #pragma push_macro("NANOS_PER_SECOND")
 #undef NANOS_PER_SECOND
 #pragma push_macro("MAX_SECOND")
@@ -31,8 +23,10 @@
 #undef MICROS_PER_SECOND
 #pragma push_macro("MINUTES_PER_HOUR")
 #undef MINUTES_PER_HOUR
-#pragma push_macro("SECONDS_PER_10000_YEARS")
-#undef SECONDS_PER_10000_YEARS
+#pragma push_macro("HOURS_PER_DAY")
+#undef HOURS_PER_DAY
+#pragma push_macro("MILLIS_PER_SECOND")
+#undef MILLIS_PER_SECOND
 #pragma push_macro("NANOS_PER_MICRO")
 #undef NANOS_PER_MICRO
 
@@ -105,20 +99,17 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("SECONDS_0000_TO_1970")
 #pragma pop_macro("SECONDS_PER_MINUTE")
-#pragma pop_macro("SECONDS_PER_DAY")
-#pragma pop_macro("HOURS_PER_DAY")
-#pragma pop_macro("MILLIS_PER_SECOND")
-#pragma pop_macro("DAYS_PER_10000_YEARS")
 #pragma pop_macro("SECONDS_PER_HOUR")
+#pragma pop_macro("SECONDS_PER_DAY")
 #pragma pop_macro("NANOS_PER_SECOND")
 #pragma pop_macro("MAX_SECOND")
 #pragma pop_macro("NANOS_PER_MILLI")
 #pragma pop_macro("MIN_SECOND")
 #pragma pop_macro("MICROS_PER_SECOND")
 #pragma pop_macro("MINUTES_PER_HOUR")
-#pragma pop_macro("SECONDS_PER_10000_YEARS")
+#pragma pop_macro("HOURS_PER_DAY")
+#pragma pop_macro("MILLIS_PER_SECOND")
 #pragma pop_macro("NANOS_PER_MICRO")
 
 #endif // _java_nio_file_attribute_FileTime_h_

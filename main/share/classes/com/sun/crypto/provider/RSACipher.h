@@ -18,8 +18,6 @@
 #undef PAD_PKCS1
 #pragma push_macro("MODE_ENCRYPT")
 #undef MODE_ENCRYPT
-#pragma push_macro("B0")
-#undef B0
 #pragma push_macro("PAD_NONE")
 #undef PAD_NONE
 
@@ -116,7 +114,6 @@ public:
 #pragma pop_macro("PAD_OAEP_MGF1")
 #pragma pop_macro("PAD_PKCS1")
 #pragma pop_macro("MODE_ENCRYPT")
-#pragma pop_macro("B0")
 #pragma pop_macro("PAD_NONE")
 
 #endif // _com_sun_crypto_provider_RSACipher_h_

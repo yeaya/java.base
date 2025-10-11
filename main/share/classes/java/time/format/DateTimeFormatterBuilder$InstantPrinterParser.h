@@ -5,11 +5,6 @@
 
 #include <java/time/format/DateTimeFormatterBuilder$DateTimePrinterParser.h>
 
-#pragma push_macro("SECONDS_0000_TO_1970")
-#undef SECONDS_0000_TO_1970
-#pragma push_macro("SECONDS_PER_10000_YEARS")
-#undef SECONDS_PER_10000_YEARS
-
 namespace java {
 	namespace lang {
 		class CharSequence;
@@ -45,8 +40,5 @@ public:
 		} // format
 	} // time
 } // java
-
-#pragma pop_macro("SECONDS_0000_TO_1970")
-#pragma pop_macro("SECONDS_PER_10000_YEARS")
 
 #endif // _java_time_format_DateTimeFormatterBuilder$InstantPrinterParser_h_

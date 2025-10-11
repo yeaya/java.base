@@ -27,8 +27,6 @@
 #include <jcpp.h>
 
 #undef CANONICAL
-#undef RFC2253
-#undef RFC1779
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;

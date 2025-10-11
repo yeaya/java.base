@@ -11,9 +11,6 @@
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
 
-#undef F0
-#undef F4
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

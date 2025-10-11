@@ -79,7 +79,6 @@
 
 #undef NUMBER
 #undef ISSUER
-#undef YR_2050
 #undef KEY_ID
 
 using $X509CRLEntryArray = $Array<::java::security::cert::X509CRLEntry>;

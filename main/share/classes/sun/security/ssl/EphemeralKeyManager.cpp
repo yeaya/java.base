@@ -19,7 +19,6 @@
 #include <jcpp.h>
 
 #undef INDEX_RSA512
-#undef INDEX_RSA1024
 
 using $EphemeralKeyManager$EphemeralKeyPairArray = $Array<::sun::security::ssl::EphemeralKeyManager$EphemeralKeyPair>;
 using $ClassInfo = ::java::lang::ClassInfo;

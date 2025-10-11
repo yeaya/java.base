@@ -5,13 +5,6 @@
 
 #include <java/security/KeyPairGeneratorSpi.h>
 
-#pragma push_macro("SQRT_3072")
-#undef SQRT_3072
-#pragma push_macro("SQRT_4096")
-#undef SQRT_4096
-#pragma push_macro("SQRT_2048")
-#undef SQRT_2048
-
 namespace java {
 	namespace math {
 		class BigInteger;
@@ -67,9 +60,5 @@ public:
 		} // rsa
 	} // security
 } // sun
-
-#pragma pop_macro("SQRT_3072")
-#pragma pop_macro("SQRT_4096")
-#pragma pop_macro("SQRT_2048")
 
 #endif // _sun_security_rsa_RSAKeyPairGenerator_h_

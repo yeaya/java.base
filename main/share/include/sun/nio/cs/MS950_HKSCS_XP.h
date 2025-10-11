@@ -5,6 +5,9 @@
 
 #include <java/nio/charset/Charset.h>
 
+#pragma push_macro("MS950_HKSCS_XP")
+#undef MS950_HKSCS_XP
+
 namespace java {
 	namespace nio {
 		namespace charset {
@@ -31,5 +34,7 @@ public:
 		} // cs
 	} // nio
 } // sun
+
+#pragma pop_macro("MS950_HKSCS_XP")
 
 #endif // _sun_nio_cs_MS950_HKSCS_XP_h_

@@ -39,6 +39,7 @@
 #undef OFFSET_SIN6_FLOWINFO
 #undef SIZEOF_FAMILY
 #undef AF_INET
+#undef AFINET6
 #undef AF_INET6
 #undef SIZEOF_SOCKETADDRESS
 #undef JNINA
@@ -50,6 +51,7 @@
 #undef OFFSET_FAMILY
 #undef UNSAFE
 #undef OFFSET_SIN6_ADDR
+#undef AFINET
 
 using $NativeSocketAddressArray = $Array<::sun::nio::ch::NativeSocketAddress>;
 using $IOException = ::java::io::IOException;

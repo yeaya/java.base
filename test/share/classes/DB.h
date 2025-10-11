@@ -5,6 +5,9 @@
 
 #include <GrandchildSuperIwithDefault.h>
 
+#pragma push_macro("DB")
+#undef DB
+
 class DB : public ::GrandchildSuperIwithDefault {
 	$class(DB, $NO_CLASS_INIT, ::GrandchildSuperIwithDefault)
 public:
@@ -15,5 +18,7 @@ public:
 	virtual void quux() override;
 	virtual void wombat() override;
 };
+
+#pragma pop_macro("DB")
 
 #endif // _DB_h_

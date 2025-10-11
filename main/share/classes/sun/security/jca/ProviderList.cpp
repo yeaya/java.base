@@ -35,7 +35,6 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef P0
 #undef EMPTY_PROVIDER
 #undef PC0
 #undef EMPTY

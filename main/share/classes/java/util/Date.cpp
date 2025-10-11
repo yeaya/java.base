@@ -40,6 +40,7 @@
 
 #undef DEFAULT_GREGORIAN_CUTOVER
 #undef SUNDAY
+#undef UTC
 #undef MILLISECOND
 #undef MIN_VALUE
 #undef US

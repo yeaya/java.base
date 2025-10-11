@@ -11,6 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef D1B
+
 using $DaughterSuperIwithDefault = ::DaughterSuperIwithDefault;
 using $SonSuperIwithDefault = ::SonSuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;

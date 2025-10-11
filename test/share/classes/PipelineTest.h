@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("THROWS")
+#undef THROWS
+
 class PipelineTest$Fun;
 namespace java {
 	namespace io {
@@ -67,5 +70,7 @@ public:
 	static $volatile(int32_t) passed;
 	static $volatile(int32_t) failed;
 };
+
+#pragma pop_macro("THROWS")
 
 #endif // _PipelineTest_h_

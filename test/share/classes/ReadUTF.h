@@ -7,8 +7,6 @@
 
 #pragma push_macro("MAX_CORRUPTIONS_PER_CYCLE")
 #undef MAX_CORRUPTIONS_PER_CYCLE
-#pragma push_macro("A_NUMBER_NEAR_65535")
-#undef A_NUMBER_NEAR_65535
 #pragma push_macro("TEST_ITERATIONS")
 #undef TEST_ITERATIONS
 
@@ -32,7 +30,6 @@ public:
 };
 
 #pragma pop_macro("MAX_CORRUPTIONS_PER_CYCLE")
-#pragma pop_macro("A_NUMBER_NEAR_65535")
 #pragma pop_macro("TEST_ITERATIONS")
 
 #endif // _ReadUTF_h_

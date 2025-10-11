@@ -23,7 +23,6 @@
 #undef NOT_AFTER
 #undef IDENT
 #undef NOT_BEFORE
-#undef YR_2050
 #undef NAME
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;

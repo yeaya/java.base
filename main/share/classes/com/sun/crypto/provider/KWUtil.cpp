@@ -16,8 +16,10 @@
 
 #undef BLKSIZE
 #undef T
+#undef W
 #undef MIN_INPUTLEN
 #undef SEMI_BLKSIZE
+#undef W_INV
 
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $AssertionError = ::java::lang::AssertionError;

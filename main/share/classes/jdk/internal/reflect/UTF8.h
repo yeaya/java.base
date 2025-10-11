@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("UTF8")
+#undef UTF8
+
 namespace jdk {
 	namespace internal {
 		namespace reflect {
@@ -21,5 +24,7 @@ public:
 		} // reflect
 	} // internal
 } // jdk
+
+#pragma pop_macro("UTF8")
 
 #endif // _jdk_internal_reflect_UTF8_h_

@@ -6626,7 +6626,7 @@ void GlobalController::deinit() {
 	if (localController != nullptr) {
 		localController->freeAllocs();
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 1; i++) {
 		fullGc0(OBJECT_REF_TYPE_FINAL, &gcResult);
 		analayzeGlobalObject();
 		analayzeMemory();
@@ -6708,7 +6708,7 @@ void ObjectManager::popLocalVar() {
 }
 */
 void ObjectManager::prepareNative() {
-	setPendingException(nullptr);
+	//setPendingException(nullptr);
 	localController->pushLocalFrame(16);
 }
 
@@ -7017,6 +7017,7 @@ void Logger::log(LogLevel logLevel, char const* const format, ...) {
 	}
 	if (logConsole) {
 		printf("%s", buffer);
+		fflush(stdout);
 	}
 }
 

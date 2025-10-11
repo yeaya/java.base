@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("B")
+#undef B
+
 namespace p1 {
 	namespace internal {
 
@@ -17,5 +20,7 @@ public:
 
 	} // internal
 } // p1
+
+#pragma pop_macro("B")
 
 #endif // _p1_internal_B_h_

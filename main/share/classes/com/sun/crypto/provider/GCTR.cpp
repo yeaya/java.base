@@ -21,6 +21,7 @@
 
 #undef MAX_LEN
 #undef BIG_ENDIAN
+#undef GCTR
 
 using $CounterMode = ::com::sun::crypto::provider::CounterMode;
 using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;

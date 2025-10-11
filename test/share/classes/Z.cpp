@@ -11,6 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef Z
+
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

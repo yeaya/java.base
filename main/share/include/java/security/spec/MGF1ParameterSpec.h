@@ -5,28 +5,8 @@
 
 #include <java/security/spec/AlgorithmParameterSpec.h>
 
-#pragma push_macro("SHA256")
-#undef SHA256
-#pragma push_macro("SHA512_224")
-#undef SHA512_224
-#pragma push_macro("SHA3_384")
-#undef SHA3_384
-#pragma push_macro("SHA512_256")
-#undef SHA512_256
 #pragma push_macro("SHA1")
 #undef SHA1
-#pragma push_macro("SHA384")
-#undef SHA384
-#pragma push_macro("SHA3_512")
-#undef SHA3_512
-#pragma push_macro("SHA3_224")
-#undef SHA3_224
-#pragma push_macro("SHA3_256")
-#undef SHA3_256
-#pragma push_macro("SHA512")
-#undef SHA512
-#pragma push_macro("SHA224")
-#undef SHA224
 
 namespace java {
 	namespace security {
@@ -57,16 +37,6 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("SHA256")
-#pragma pop_macro("SHA512_224")
-#pragma pop_macro("SHA3_384")
-#pragma pop_macro("SHA512_256")
 #pragma pop_macro("SHA1")
-#pragma pop_macro("SHA384")
-#pragma pop_macro("SHA3_512")
-#pragma pop_macro("SHA3_224")
-#pragma pop_macro("SHA3_256")
-#pragma pop_macro("SHA512")
-#pragma pop_macro("SHA224")
 
 #endif // _java_security_spec_MGF1ParameterSpec_h_

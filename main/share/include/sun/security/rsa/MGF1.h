@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("MGF1")
+#undef MGF1
+
 namespace java {
 	namespace security {
 		class MessageDigest;
@@ -28,5 +31,7 @@ public:
 		} // rsa
 	} // security
 } // sun
+
+#pragma pop_macro("MGF1")
 
 #endif // _sun_security_rsa_MGF1_h_

@@ -5,15 +5,6 @@
 
 #include <java/security/spec/AlgorithmParameterSpec.h>
 
-#pragma push_macro("X25519")
-#undef X25519
-#pragma push_macro("ED448")
-#undef ED448
-#pragma push_macro("X448")
-#undef X448
-#pragma push_macro("ED25519")
-#undef ED25519
-
 namespace java {
 	namespace security {
 		namespace spec {
@@ -34,10 +25,5 @@ public:
 		} // spec
 	} // security
 } // java
-
-#pragma pop_macro("X25519")
-#pragma pop_macro("ED448")
-#pragma pop_macro("X448")
-#pragma pop_macro("ED25519")
 
 #endif // _java_security_spec_NamedParameterSpec_h_

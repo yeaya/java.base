@@ -10,8 +10,6 @@
 #undef PKCS8
 #pragma push_macro("RAW")
 #undef RAW
-#pragma push_macro("X509")
-#undef X509
 
 namespace java {
 	namespace security {
@@ -43,6 +41,5 @@ public:
 
 #pragma pop_macro("PKCS8")
 #pragma pop_macro("RAW")
-#pragma pop_macro("X509")
 
 #endif // _java_security_KeyRep_h_

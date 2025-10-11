@@ -6,6 +6,8 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/DigestBase.h>
 
+#pragma push_macro("SHA2")
+#undef SHA2
 #pragma push_macro("ITERATION")
 #undef ITERATION
 #pragma push_macro("W")
@@ -41,6 +43,7 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("SHA2")
 #pragma pop_macro("ITERATION")
 #pragma pop_macro("W")
 #pragma pop_macro("ROUND_CONSTS")

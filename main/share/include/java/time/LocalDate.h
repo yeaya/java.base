@@ -7,8 +7,6 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/ChronoLocalDate.h>
 
-#pragma push_macro("DAYS_0000_TO_1970")
-#undef DAYS_0000_TO_1970
 #pragma push_macro("MIN")
 #undef MIN
 #pragma push_macro("MAX")
@@ -192,7 +190,6 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("DAYS_0000_TO_1970")
 #pragma pop_macro("MIN")
 #pragma pop_macro("MAX")
 #pragma pop_macro("EPOCH")

@@ -185,7 +185,6 @@
 #undef DASTORE
 #undef GETFIELD
 #undef LOOP_CLAUSES
-#undef V1_8
 #undef SWAP
 #undef DUMP_CLASS_FILES_COUNTERS
 #undef T_BOOLEAN

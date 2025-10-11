@@ -17,10 +17,6 @@
 #include <sun/nio/cs/StandardCharsets.h>
 #include <jcpp.h>
 
-#undef GB18030_FOUR_BYTE
-#undef GB18030_DOUBLE_BYTE
-#undef GB18030_SINGLE_BYTE
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -81,7 +81,6 @@
 #undef USER_PASSW
 #undef SOCKS
 #undef NO_METHODS
-#undef ISO_8859_1
 #undef PROTO_VERS
 #undef ADDR_TYPE_NOT_SUP
 

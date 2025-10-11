@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("HKSCS")
+#undef HKSCS
+
 namespace sun {
 	namespace nio {
 		namespace cs {
@@ -19,5 +22,7 @@ public:
 		} // cs
 	} // nio
 } // sun
+
+#pragma pop_macro("HKSCS")
 
 #endif // _sun_nio_cs_HKSCS_h_

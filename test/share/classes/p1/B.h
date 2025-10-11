@@ -5,6 +5,8 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("B")
+#undef B
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
 
@@ -20,6 +22,7 @@ public:
 
 } // p1
 
+#pragma pop_macro("B")
 #pragma pop_macro("INSTANCE")
 
 #endif // _p1_B_h_

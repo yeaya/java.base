@@ -8,38 +8,14 @@
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("T4")
-#undef T4
-#pragma push_macro("T5")
-#undef T5
 #pragma push_macro("ROUNDS_12")
 #undef ROUNDS_12
-#pragma push_macro("T6")
-#undef T6
-#pragma push_macro("T7")
-#undef T7
-#pragma push_macro("ROUNDS_14")
-#undef ROUNDS_14
-#pragma push_macro("T8")
-#undef T8
-#pragma push_macro("K")
-#undef K
 #pragma push_macro("S")
 #undef S
-#pragma push_macro("U1")
-#undef U1
-#pragma push_macro("T1")
-#undef T1
-#pragma push_macro("U2")
-#undef U2
-#pragma push_macro("T2")
-#undef T2
-#pragma push_macro("U3")
-#undef U3
-#pragma push_macro("T3")
-#undef T3
-#pragma push_macro("U4")
-#undef U4
+#pragma push_macro("ROUNDS_14")
+#undef ROUNDS_14
+#pragma push_macro("K")
+#undef K
 
 namespace com {
 	namespace sun {
@@ -99,21 +75,9 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("T4")
-#pragma pop_macro("T5")
 #pragma pop_macro("ROUNDS_12")
-#pragma pop_macro("T6")
-#pragma pop_macro("T7")
-#pragma pop_macro("ROUNDS_14")
-#pragma pop_macro("T8")
-#pragma pop_macro("K")
 #pragma pop_macro("S")
-#pragma pop_macro("U1")
-#pragma pop_macro("T1")
-#pragma pop_macro("U2")
-#pragma pop_macro("T2")
-#pragma pop_macro("U3")
-#pragma pop_macro("T3")
-#pragma pop_macro("U4")
+#pragma pop_macro("ROUNDS_14")
+#pragma pop_macro("K")
 
 #endif // _com_sun_crypto_provider_AESCrypt_h_

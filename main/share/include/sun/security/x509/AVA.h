@@ -7,12 +7,10 @@
 
 #pragma push_macro("PRESERVE_OLD_DC_ENCODING")
 #undef PRESERVE_OLD_DC_ENCODING
-#pragma push_macro("RFC2253")
-#undef RFC2253
+#pragma push_macro("AVA")
+#undef AVA
 #pragma push_macro("DEFAULT")
 #undef DEFAULT
-#pragma push_macro("RFC1779")
-#undef RFC1779
 
 namespace java {
 	namespace io {
@@ -102,8 +100,7 @@ public:
 } // sun
 
 #pragma pop_macro("PRESERVE_OLD_DC_ENCODING")
-#pragma pop_macro("RFC2253")
+#pragma pop_macro("AVA")
 #pragma pop_macro("DEFAULT")
-#pragma pop_macro("RFC1779")
 
 #endif // _sun_security_x509_AVA_h_

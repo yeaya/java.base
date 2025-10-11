@@ -10,17 +10,7 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SHA256
-#undef SHA512_224
-#undef SHA3_384
-#undef SHA512_256
 #undef SHA1
-#undef SHA384
-#undef SHA3_512
-#undef SHA3_224
-#undef SHA3_256
-#undef SHA512
-#undef SHA224
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

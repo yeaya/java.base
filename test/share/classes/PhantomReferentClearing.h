@@ -5,20 +5,8 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("Q1")
-#undef Q1
 #pragma push_macro("ENQUEUE_TIMEOUT")
 #undef ENQUEUE_TIMEOUT
-#pragma push_macro("Q2")
-#undef Q2
-#pragma push_macro("P1")
-#undef P1
-#pragma push_macro("O1")
-#undef O1
-#pragma push_macro("P2")
-#undef P2
-#pragma push_macro("O2")
-#undef O2
 
 namespace java {
 	namespace lang {
@@ -49,12 +37,6 @@ public:
 	static ::java::lang::ref::PhantomReference* P2;
 };
 
-#pragma pop_macro("Q1")
 #pragma pop_macro("ENQUEUE_TIMEOUT")
-#pragma pop_macro("Q2")
-#pragma pop_macro("P1")
-#pragma pop_macro("O1")
-#pragma pop_macro("P2")
-#pragma pop_macro("O2")
 
 #endif // _PhantomReferentClearing_h_

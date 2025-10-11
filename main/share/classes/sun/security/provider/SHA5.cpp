@@ -21,8 +21,7 @@
 #undef ITERATION
 #undef W
 #undef ROUND_CONSTS
-#undef T1
-#undef T2
+#undef SHA5
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

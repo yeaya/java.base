@@ -8,6 +8,9 @@
 #include <I1B.h>
 #include <I2B.h>
 
+#pragma push_macro("C2B")
+#undef C2B
+
 namespace java {
 	namespace lang {
 		class Throwable;
@@ -39,5 +42,7 @@ public:
 	::C0B* fc1 = nullptr;
 	int32_t fi = 0;
 };
+
+#pragma pop_macro("C2B")
 
 #endif // _C2B_h_

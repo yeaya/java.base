@@ -14,12 +14,6 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef P1
-#undef P2
-#undef P3
-#undef P4
-#undef P5
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FdLibm = ::java::lang::FdLibm;

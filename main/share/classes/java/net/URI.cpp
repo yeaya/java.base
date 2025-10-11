@@ -54,6 +54,7 @@
 #undef H_UNRESERVED
 #undef H_PCHAR
 #undef L_USERINFO
+#undef URI
 #undef L_RESERVED
 #undef L_UNRESERVED
 #undef L_PCHAR

@@ -61,19 +61,10 @@
 #undef OPCODES
 #undef ACC_VARARGS
 #undef ASM8
-#undef V9
 #undef F_FULL
-#undef V1_3
 #undef ACC_RECORD
-#undef V1_2
-#undef V1_1
 #undef ACC_SYNTHETIC
 #undef ACC_STRICT
-#undef V1_8
-#undef V1_7
-#undef V1_6
-#undef V1_5
-#undef V1_4
 #undef END_ARRAY
 #undef ACC_PUBLIC
 #undef ACC_TRANSIENT
@@ -97,14 +88,8 @@
 #undef ACC_SYNCHRONIZED
 #undef F_SAME
 #undef END_PARAMETERS
-#undef V10
-#undef V12
 #undef ACC_NATIVE
-#undef V11
-#undef V14
-#undef V13
 #undef FRAME_TYPES
-#undef V15
 #undef ACC_ANNOTATION
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;

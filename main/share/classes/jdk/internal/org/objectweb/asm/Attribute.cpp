@@ -20,7 +20,6 @@
 #include <jcpp.h>
 
 #undef ACC_DEPRECATED
-#undef V1_5
 #undef SYNTHETIC
 #undef ACC_SYNTHETIC
 #undef SIGNATURE

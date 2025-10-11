@@ -37,12 +37,8 @@
 #include <sun/security/util/Length.h>
 #include <jcpp.h>
 
-#undef X25519
 #undef ZERO
-#undef ED448
 #undef ONE
-#undef X448
-#undef ED25519
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

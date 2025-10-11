@@ -28,8 +28,6 @@
 #undef UTRIE2_OMITTED_BMP_INDEX_1_LENGTH
 #pragma push_macro("UTRIE2_INDEX_2_BMP_LENGTH")
 #undef UTRIE2_INDEX_2_BMP_LENGTH
-#pragma push_macro("UTRIE2_UTF8_2B_INDEX_2_LENGTH")
-#undef UTRIE2_UTF8_2B_INDEX_2_LENGTH
 #pragma push_macro("UTRIE2_SHIFT_1")
 #undef UTRIE2_SHIFT_1
 #pragma push_macro("UTRIE2_SHIFT_2")
@@ -40,8 +38,6 @@
 #undef UTRIE2_DATA_GRANULARITY
 #pragma push_macro("UTRIE2_DATA_BLOCK_LENGTH")
 #undef UTRIE2_DATA_BLOCK_LENGTH
-#pragma push_macro("UTRIE2_UTF8_2B_INDEX_2_OFFSET")
-#undef UTRIE2_UTF8_2B_INDEX_2_OFFSET
 
 namespace java {
 	namespace nio {
@@ -133,12 +129,10 @@ public:
 #pragma pop_macro("UTRIE2_INDEX_SHIFT")
 #pragma pop_macro("UTRIE2_OMITTED_BMP_INDEX_1_LENGTH")
 #pragma pop_macro("UTRIE2_INDEX_2_BMP_LENGTH")
-#pragma pop_macro("UTRIE2_UTF8_2B_INDEX_2_LENGTH")
 #pragma pop_macro("UTRIE2_SHIFT_1")
 #pragma pop_macro("UTRIE2_SHIFT_2")
 #pragma pop_macro("UTRIE2_INDEX_2_MASK")
 #pragma pop_macro("UTRIE2_DATA_GRANULARITY")
 #pragma pop_macro("UTRIE2_DATA_BLOCK_LENGTH")
-#pragma pop_macro("UTRIE2_UTF8_2B_INDEX_2_OFFSET")
 
 #endif // _jdk_internal_icu_impl_Trie2_h_

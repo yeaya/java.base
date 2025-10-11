@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("HKDF")
+#undef HKDF
+
 namespace javax {
 	namespace crypto {
 		class Mac;
@@ -31,5 +34,7 @@ public:
 		} // ssl
 	} // security
 } // sun
+
+#pragma pop_macro("HKDF")
 
 #endif // _sun_security_ssl_HKDF_h_

@@ -6,6 +6,8 @@
 #include <java/lang/Array.h>
 #include <java/security/SecureRandomSpi.h>
 
+#pragma push_macro("DRBG")
+#undef DRBG
 #pragma push_macro("PROP_NAME")
 #undef PROP_NAME
 
@@ -58,6 +60,7 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("DRBG")
 #pragma pop_macro("PROP_NAME")
 
 #endif // _sun_security_provider_DRBG_h_

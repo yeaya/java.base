@@ -25,7 +25,6 @@
 #include <jcpp.h>
 
 #undef ASM8
-#undef V1_5
 #undef METHOD
 
 using $Boolean = ::java::lang::Boolean;

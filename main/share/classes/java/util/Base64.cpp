@@ -15,10 +15,6 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef RFC4648_URLSAFE
-#undef RFC2045
-#undef RFC4648
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

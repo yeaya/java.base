@@ -7,6 +7,10 @@
 
 #pragma push_macro("INFINITY")
 #undef INFINITY
+#pragma push_macro("__HI")
+#undef __HI
+#pragma push_macro("__LO")
+#undef __LO
 
 namespace java {
 	namespace lang {
@@ -27,5 +31,7 @@ public:
 } // java
 
 #pragma pop_macro("INFINITY")
+#pragma pop_macro("__HI")
+#pragma pop_macro("__LO")
 
 #endif // _java_lang_FdLibm_h_

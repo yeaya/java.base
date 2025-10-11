@@ -5,6 +5,9 @@
 
 #include <AB.h>
 
+#pragma push_macro("BB")
+#undef BB
+
 class BB : public ::AB {
 	$class(BB, $NO_CLASS_INIT, ::AB)
 public:
@@ -12,5 +15,7 @@ public:
 	void init$();
 	virtual void bar() override {}
 };
+
+#pragma pop_macro("BB")
 
 #endif // _BB_h_

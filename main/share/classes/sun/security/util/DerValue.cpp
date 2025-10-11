@@ -47,7 +47,6 @@
 #undef UTF_8
 #undef TAG_CONTEXT
 #undef TAG_PRIVATE
-#undef ISO_8859_1
 #undef MAX_VALUE
 #undef MIN_VALUE
 

@@ -6,15 +6,6 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("MFL_512")
-#undef MFL_512
-#pragma push_macro("MFL_4096")
-#undef MFL_4096
-#pragma push_macro("MFL_1024")
-#undef MFL_1024
-#pragma push_macro("MFL_2048")
-#undef MFL_2048
-
 namespace sun {
 	namespace security {
 		namespace ssl {
@@ -43,10 +34,5 @@ public:
 		} // ssl
 	} // security
 } // sun
-
-#pragma pop_macro("MFL_512")
-#pragma pop_macro("MFL_4096")
-#pragma pop_macro("MFL_1024")
-#pragma pop_macro("MFL_2048")
 
 #endif // _sun_security_ssl_MaxFragExtension$MaxFragLenEnum_h_

@@ -350,6 +350,11 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	$nullcheck(clazz);
 	$nullcheck(methodInfo);
 	$nullcheck(methodInfo->name);
+	//log_debug("Machine::loadNativeMethod 1 %s.%s\n", clazz->getName()->c_str(), methodInfo->name);
+
+	if (methodInfo->nativeAddress != nullptr) {
+		return methodInfo->nativeAddress;
+	}
 
 	$var(StringBuilder, sb, $new<StringBuilder>(100));
 	sb->append("Java_"_s);
@@ -360,9 +365,7 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	$var(String, nativeMethodName, sb->toString());
 
 	void* entry = findLibraryEntry(defaultProcessHandle, nativeMethodName->c_str(), true);
-	$synchronized(clazz) {
-		methodInfo->nativeAddress = entry;
-	}
+
 	if (entry == nullptr && methodInfo->signature != nullptr) {
 		// check isOverloaded
 		sb->append("__"_s);
@@ -372,6 +375,11 @@ void* Machine::loadNativeMethod(Class* clazz, MethodInfo* methodInfo) {
 	}
 	if (entry == nullptr) {
 		$throwNew(NoSuchMethodError, nativeMethodName);
+	}
+	$synchronized(clazz) {
+		if (methodInfo->nativeAddress == nullptr) {
+			methodInfo->nativeAddress = entry;
+		}
 	}
 	return entry;
 }
@@ -822,11 +830,12 @@ void* Machine::findLibraryEntry(void* handle, const char* name, bool force) {
 		while (lib != nullptr) {
 			if (lib->handle != handle) {
 				entry = Platform::findLibraryEntry(lib->handle, name);
-				char err[512];
-				Platform::getLastErrorDesc(err, sizeof(err));
 				if (entry != nullptr) {
 					return entry;
 				}
+				char err[512];
+				Platform::getLastErrorDesc(err, sizeof(err));
+				log_warning("findLibraryEntry fail, %s err:%s\n", name, err)
 			}
 			lib = lib->next;
 		}

@@ -16,6 +16,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef A
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

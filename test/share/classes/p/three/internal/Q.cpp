@@ -9,6 +9,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef Q
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;

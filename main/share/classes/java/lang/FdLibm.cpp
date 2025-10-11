@@ -14,6 +14,8 @@
 
 #undef INFINITY
 #undef POSITIVE_INFINITY
+#undef __HI
+#undef __LO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

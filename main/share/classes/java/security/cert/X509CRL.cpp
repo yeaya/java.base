@@ -33,6 +33,8 @@
 #include <sun/security/x509/X509CRLImpl.h>
 #include <jcpp.h>
 
+#undef X509CRL
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;

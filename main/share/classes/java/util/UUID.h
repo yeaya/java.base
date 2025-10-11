@@ -10,6 +10,8 @@
 
 #pragma push_macro("NIBBLES")
 #undef NIBBLES
+#pragma push_macro("UUID")
+#undef UUID
 
 namespace jdk {
 	namespace internal {
@@ -60,5 +62,6 @@ public:
 } // java
 
 #pragma pop_macro("NIBBLES")
+#pragma pop_macro("UUID")
 
 #endif // _java_util_UUID_h_

@@ -15,6 +15,7 @@
 #undef C
 #undef S
 #undef X
+#undef MD2
 #undef PADDING
 
 using $byteArray2 = $Array<int8_t, 2>;

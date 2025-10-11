@@ -5,13 +5,6 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("RFC4648_URLSAFE")
-#undef RFC4648_URLSAFE
-#pragma push_macro("RFC2045")
-#undef RFC2045
-#pragma push_macro("RFC4648")
-#undef RFC4648
-
 namespace java {
 	namespace io {
 		class InputStream;
@@ -50,9 +43,5 @@ public:
 
 	} // util
 } // java
-
-#pragma pop_macro("RFC4648_URLSAFE")
-#pragma pop_macro("RFC2045")
-#pragma pop_macro("RFC4648")
 
 #endif // _java_util_Base64$Decoder_h_

@@ -10,11 +10,6 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef X25519
-#undef ED448
-#undef X448
-#undef ED25519
-
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -16,6 +16,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef SJIS
+
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $OutputStream = ::java::io::OutputStream;

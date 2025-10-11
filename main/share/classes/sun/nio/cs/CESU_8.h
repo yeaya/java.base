@@ -5,6 +5,9 @@
 
 #include <sun/nio/cs/Unicode.h>
 
+#pragma push_macro("CESU_8")
+#undef CESU_8
+
 namespace java {
 	namespace nio {
 		class Buffer;
@@ -37,5 +40,7 @@ public:
 		} // cs
 	} // nio
 } // sun
+
+#pragma pop_macro("CESU_8")
 
 #endif // _sun_nio_cs_CESU_8_h_

@@ -38,6 +38,7 @@
 #include <jcpp.h>
 
 #undef RESEED_ONLY
+#undef DRBG
 #undef ROOT
 #undef PROP_NAME
 #undef NONE

@@ -29,7 +29,6 @@
 #undef PKCS8
 #undef RAW
 #undef PUBLIC
-#undef X509
 #undef SECRET
 #undef PRIVATE
 

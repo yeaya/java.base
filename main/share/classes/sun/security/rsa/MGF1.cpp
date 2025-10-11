@@ -14,6 +14,7 @@
 #include <java/security/MessageDigest.h>
 #include <jcpp.h>
 
+#undef MGF1
 #undef C
 
 using $ClassInfo = ::java::lang::ClassInfo;

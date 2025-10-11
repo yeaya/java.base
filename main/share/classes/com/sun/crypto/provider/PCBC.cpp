@@ -15,6 +15,8 @@
 #include <sun/security/util/ArrayUtil.h>
 #include <jcpp.h>
 
+#undef PCBC
+
 using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;

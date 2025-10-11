@@ -9,6 +9,7 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef B
 #undef INSTANCE
 
 using $ClassInfo = ::java::lang::ClassInfo;

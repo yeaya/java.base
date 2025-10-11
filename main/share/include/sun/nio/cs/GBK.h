@@ -7,6 +7,9 @@
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/HistoricallyNamedCharset.h>
 
+#pragma push_macro("GBK")
+#undef GBK
+
 namespace java {
 	namespace nio {
 		namespace charset {
@@ -40,5 +43,7 @@ public:
 		} // cs
 	} // nio
 } // sun
+
+#pragma pop_macro("GBK")
 
 #endif // _sun_nio_cs_GBK_h_

@@ -18,6 +18,8 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
+#undef CESU_8
+
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

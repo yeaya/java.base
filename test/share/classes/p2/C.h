@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("C")
+#undef C
+
 namespace p2 {
 
 class $export C : public ::java::lang::Object {
@@ -15,5 +18,7 @@ public:
 };
 
 } // p2
+
+#pragma pop_macro("C")
 
 #endif // _p2_C_h_

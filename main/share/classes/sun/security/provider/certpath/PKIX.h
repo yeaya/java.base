@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("PKIX")
+#undef PKIX
+
 namespace java {
 	namespace security {
 		class PublicKey;
@@ -56,5 +59,7 @@ public:
 		} // provider
 	} // security
 } // sun
+
+#pragma pop_macro("PKIX")
 
 #endif // _sun_security_provider_certpath_PKIX_h_

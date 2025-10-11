@@ -29,7 +29,6 @@
 
 #undef MODS_DIR1
 #undef MODS_DIR2
-#undef M3
 
 using $PathArray = $Array<::java::nio::file::Path>;
 using $FilePermission = ::java::io::FilePermission;

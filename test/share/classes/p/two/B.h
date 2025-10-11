@@ -5,6 +5,9 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("B")
+#undef B
+
 namespace p {
 	namespace two {
 
@@ -14,5 +17,7 @@ class B : public ::java::lang::Object {
 
 	} // two
 } // p
+
+#pragma pop_macro("B")
 
 #endif // _p_two_B_h_

@@ -17,33 +17,21 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
+#undef AA
 #undef BC
 #undef A
+#undef ROUNDS_12
 #undef B
+#undef ROUNDS_14
 #undef ROOT
 #undef G
 #undef K
 #undef ROUNDS
 #undef ROUND_KEY_COUNT
+#undef AES_KEYSIZES
 #undef AES_BLOCK_SIZE
 #undef S
 #undef KC
-#undef T1
-#undef T2
-#undef T3
-#undef T4
-#undef AA
-#undef T5
-#undef ROUNDS_12
-#undef T6
-#undef T7
-#undef ROUNDS_14
-#undef T8
-#undef AES_KEYSIZES
-#undef U1
-#undef U2
-#undef U3
-#undef U4
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $intArray2 = $Array<int32_t, 2>;

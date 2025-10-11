@@ -10,8 +10,6 @@
 #undef ANSIX962_COMPRESSED_PRIME
 #pragma push_macro("UNCOMPRESSED")
 #undef UNCOMPRESSED
-#pragma push_macro("FMT_ANSIX962_COMPRESSED_CHAR2")
-#undef FMT_ANSIX962_COMPRESSED_CHAR2
 
 namespace sun {
 	namespace security {
@@ -40,6 +38,5 @@ public:
 
 #pragma pop_macro("ANSIX962_COMPRESSED_PRIME")
 #pragma pop_macro("UNCOMPRESSED")
-#pragma pop_macro("FMT_ANSIX962_COMPRESSED_CHAR2")
 
 #endif // _sun_security_ssl_ECPointFormatsExtension$ECPointFormat_h_

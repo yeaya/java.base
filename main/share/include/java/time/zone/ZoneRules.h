@@ -6,8 +6,6 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("DAYS_0000_TO_1970")
-#undef DAYS_0000_TO_1970
 #pragma push_macro("LAST_CACHED_YEAR")
 #undef LAST_CACHED_YEAR
 #pragma push_macro("EMPTY_LASTRULES")
@@ -112,7 +110,6 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("DAYS_0000_TO_1970")
 #pragma pop_macro("LAST_CACHED_YEAR")
 #pragma pop_macro("EMPTY_LASTRULES")
 #pragma pop_macro("DAYS_PER_CYCLE")

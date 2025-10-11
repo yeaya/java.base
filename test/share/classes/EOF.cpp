@@ -14,6 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef EOF
+
 using $File = ::java::io::File;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;

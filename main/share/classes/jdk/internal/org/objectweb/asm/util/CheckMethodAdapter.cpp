@@ -85,12 +85,9 @@
 #undef OBJECT
 #undef NOP
 #undef T_LONG
-#undef V1_8
 #undef TOP
-#undef V1_7
 #undef INVALID_TYPE_REFERENCE
 #undef T_BOOLEAN
-#undef V1_5
 #undef THROWS
 #undef METHOD
 #undef METHOD_FORMAL_PARAMETER
@@ -126,7 +123,6 @@
 #undef INVALID_DESCRIPTOR
 #undef INVOKEINTERFACE
 #undef INVALID_LOCAL_VARIABLE_INDEX
-#undef V11
 #undef VISIT_INT_INSN
 #undef METHOD_REFERENCE_TYPE_ARGUMENT
 #undef H_INVOKESTATIC

@@ -5,11 +5,6 @@
 
 #include <java/security/spec/AlgorithmParameterSpec.h>
 
-#pragma push_macro("F0")
-#undef F0
-#pragma push_macro("F4")
-#undef F4
-
 namespace java {
 	namespace math {
 		class BigInteger;
@@ -39,8 +34,5 @@ public:
 		} // spec
 	} // security
 } // java
-
-#pragma pop_macro("F0")
-#pragma pop_macro("F4")
 
 #endif // _java_security_spec_RSAKeyGenParameterSpec_h_

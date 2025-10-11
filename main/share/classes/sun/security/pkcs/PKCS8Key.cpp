@@ -37,8 +37,6 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef V1
-#undef V2
 #undef PRIVATE
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

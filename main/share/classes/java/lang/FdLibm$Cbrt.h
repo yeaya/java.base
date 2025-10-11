@@ -5,8 +5,6 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("B2")
-#undef B2
 #pragma push_macro("C")
 #undef C
 #pragma push_macro("D")
@@ -17,8 +15,6 @@
 #undef F
 #pragma push_macro("G")
 #undef G
-#pragma push_macro("B1")
-#undef B1
 
 namespace java {
 	namespace lang {
@@ -41,12 +37,10 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("B2")
 #pragma pop_macro("C")
 #pragma pop_macro("D")
 #pragma pop_macro("E")
 #pragma pop_macro("F")
 #pragma pop_macro("G")
-#pragma pop_macro("B1")
 
 #endif // _java_lang_FdLibm$Cbrt_h_

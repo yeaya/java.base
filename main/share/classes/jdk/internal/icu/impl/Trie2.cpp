@@ -35,13 +35,11 @@
 #undef UTRIE2_INDEX_SHIFT
 #undef UTRIE2_OMITTED_BMP_INDEX_1_LENGTH
 #undef UTRIE2_INDEX_2_BMP_LENGTH
-#undef UTRIE2_UTF8_2B_INDEX_2_LENGTH
 #undef UTRIE2_SHIFT_1
 #undef UTRIE2_SHIFT_2
 #undef UTRIE2_INDEX_2_MASK
 #undef UTRIE2_DATA_GRANULARITY
 #undef UTRIE2_DATA_BLOCK_LENGTH
-#undef UTRIE2_UTF8_2B_INDEX_2_OFFSET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

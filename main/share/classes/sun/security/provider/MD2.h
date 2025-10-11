@@ -12,6 +12,8 @@
 #undef S
 #pragma push_macro("X")
 #undef X
+#pragma push_macro("MD2")
+#undef MD2
 #pragma push_macro("PADDING")
 #undef PADDING
 
@@ -43,6 +45,7 @@ public:
 #pragma pop_macro("C")
 #pragma pop_macro("S")
 #pragma pop_macro("X")
+#pragma pop_macro("MD2")
 #pragma pop_macro("PADDING")
 
 #endif // _sun_security_provider_MD2_h_

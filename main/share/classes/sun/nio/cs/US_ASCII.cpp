@@ -17,6 +17,7 @@
 #include <sun/nio/cs/US_ASCII$Encoder.h>
 #include <jcpp.h>
 
+#undef US_ASCII
 #undef INSTANCE
 
 using $ClassInfo = ::java::lang::ClassInfo;

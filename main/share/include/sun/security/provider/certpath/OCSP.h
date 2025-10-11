@@ -5,6 +5,8 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("OCSP")
+#undef OCSP
 #pragma push_macro("DEFAULT_CONNECT_TIMEOUT")
 #undef DEFAULT_CONNECT_TIMEOUT
 #pragma push_macro("CONNECT_TIMEOUT")
@@ -83,6 +85,7 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("OCSP")
 #pragma pop_macro("DEFAULT_CONNECT_TIMEOUT")
 #pragma pop_macro("CONNECT_TIMEOUT")
 

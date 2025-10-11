@@ -21,9 +21,7 @@
 
 #undef ACC_MANDATED
 #undef ASM8
-#undef V9
 #undef ACC_STATIC_PHASE
-#undef V10
 #undef ACC_SYNTHETIC
 #undef ACC_TRANSITIVE
 

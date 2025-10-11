@@ -18,13 +18,7 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef Q1
 #undef ENQUEUE_TIMEOUT
-#undef Q2
-#undef P1
-#undef O1
-#undef P2
-#undef O2
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

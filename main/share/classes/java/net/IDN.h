@@ -7,6 +7,8 @@
 
 #pragma push_macro("MAX_LABEL_LENGTH")
 #undef MAX_LABEL_LENGTH
+#pragma push_macro("IDN")
+#undef IDN
 #pragma push_macro("ACE_PREFIX")
 #undef ACE_PREFIX
 #pragma push_macro("ACE_PREFIX_LENGTH")
@@ -66,6 +68,7 @@ public:
 } // java
 
 #pragma pop_macro("MAX_LABEL_LENGTH")
+#pragma pop_macro("IDN")
 #pragma pop_macro("ACE_PREFIX")
 #pragma pop_macro("ACE_PREFIX_LENGTH")
 #pragma pop_macro("ALLOW_UNASSIGNED")

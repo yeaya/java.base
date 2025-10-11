@@ -11,6 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef CB
+
 using $BB = ::BB;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

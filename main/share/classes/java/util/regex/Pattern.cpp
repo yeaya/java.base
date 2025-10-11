@@ -115,12 +115,14 @@
 #include <sun/text/Normalizer.h>
 #include <jcpp.h>
 
+#undef ALL
 #undef ALL_FLAGS
 #undef INDEPENDENT
 #undef COMMENTS
 #undef NFC
 #undef MAX_VALUE
 #undef NFD
+#undef N
 #undef NONNULL
 #undef MIN_SUPPLEMENTARY_CODE_POINT
 #undef MAX_LOW_SURROGATE
@@ -128,6 +130,7 @@
 #undef CASE_INSENSITIVE
 #undef LAZY
 #undef MIN_HIGH_SURROGATE
+#undef UNIXDOT
 #undef NONE
 #undef BOTH
 #undef LITERAL
@@ -135,6 +138,7 @@
 #undef UNICODE_CHARACTER_CLASS
 #undef CANON_EQ
 #undef NON_SPACING_MARK
+#undef DOT
 #undef INSTANCE
 #undef MAX_REPS
 #undef UNIX_LINES

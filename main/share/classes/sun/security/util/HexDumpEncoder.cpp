@@ -21,8 +21,6 @@
 #include <java/nio/charset/StandardCharsets.h>
 #include <jcpp.h>
 
-#undef ISO_8859_1
-
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

@@ -7,6 +7,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef J
+
 using $ClassInfo = ::java::lang::ClassInfo;
 
 namespace p {

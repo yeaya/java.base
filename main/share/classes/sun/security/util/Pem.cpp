@@ -18,8 +18,6 @@
 #include <java/util/Base64.h>
 #include <jcpp.h>
 
-#undef ISO_8859_1
-
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

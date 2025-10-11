@@ -49,22 +49,20 @@ struct BacktraceItem {
 
 _Unwind_Reason_Code unwindTraceHandle(struct _Unwind_Context* uc, void* data) {
 	BacktraceItem* item = (BacktraceItem*)data;
-	if (item->toSkip > 0) {
-		item->toSkip--;
-		return _URC_NO_REASON;
-	} else {
-		if (item->frames > 0) {
-			address ip = (address)_Unwind_GetIP(uc);
-			if (ip != nullptr) {
-				item->stack[0] = ip;
-				item->stack++;
-				item->frames--;
-				item->count++;
-				return _URC_NO_REASON;
-			}
+	address ip = (address)_Unwind_GetIP(uc);
+	if (ip != nullptr) {
+		if (item->toSkip > 0) {
+			item->toSkip--;
+		} else if (item->frames > 0) {
+			item->stack[0] = ip;
+			item->stack++;
+			item->frames--;
+			item->count++;
+		} else {
+			return _URC_END_OF_STACK;
 		}
-		return _URC_NORMAL_STOP;
 	}
+	return _URC_NO_REASON;
 }
 
 int OS::getBackTrace(address* stack, int frames, int toSkip) {
@@ -1110,7 +1108,7 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 	// handle null pointer access
 	if (sig == SIGSEGV) {
 		if (info->si_code == SEGV_MAPERR || info->si_code == 128) {
-			log_debug("tid=%" PRId64 ", sig=%d, si_addr=%p\n", currentThreadId, sig, info->si_addr);
+			log_debug("tid=%" PRId64 " sig=%d si_code=%d si_addr=%p\n", currentThreadId, sig, info->si_code, info->si_addr);
 
 			$throwNew(::java::lang::NullPointerException);
 
@@ -1120,7 +1118,7 @@ int JVM_HANDLE_XXX_SIGNAL(int sig, siginfo_t* info, void* ucVoid) {
 		}
 		// throw OutOfMemoryError("");
 	}
-	log_debug("tid=%" PRId64 ", sig=%d, info->si_code=%d\n", currentThreadId, sig, info->si_code);
+	log_debug("tid=%" PRId64 ", sig=%d, si_code=%d\n", currentThreadId, sig, info->si_code);
 
 	if (!handled && (sig == SIGPIPE || sig == SIGXFSZ)) {
 		OS::Unix::handleChained(sig, info, uc);

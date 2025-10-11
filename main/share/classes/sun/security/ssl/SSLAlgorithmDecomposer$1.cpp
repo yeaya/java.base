@@ -16,18 +16,15 @@
 #include <jcpp.h>
 
 #undef K_ECDHE_ECDSA
-#undef B_RC4_40
 #undef K_NULL
 #undef K_RSA
 #undef B_AES_256
-#undef B_RC2_40
 #undef B_AES_256_GCM
 #undef B_AES_128_GCM
 #undef K_DH_DSS
 #undef K_DH_ANON
 #undef K_DHE_DSS
 #undef K_DH_RSA
-#undef B_RC4_128
 #undef B_3DES
 #undef B_AES_128
 #undef K_ECDHE_RSA

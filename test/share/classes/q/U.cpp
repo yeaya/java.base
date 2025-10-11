@@ -7,6 +7,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef U
+
 using $ClassInfo = ::java::lang::ClassInfo;
 
 namespace q {

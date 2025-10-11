@@ -5,9 +5,6 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ISO3166_3")
-#undef ISO3166_3
-
 namespace java {
 	namespace util {
 		class Set;
@@ -30,7 +27,5 @@ public:
 
 	} // util
 } // java
-
-#pragma pop_macro("ISO3166_3")
 
 #endif // _java_util_LocaleISOData_h_

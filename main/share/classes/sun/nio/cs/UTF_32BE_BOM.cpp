@@ -18,6 +18,7 @@
 #include <jcpp.h>
 
 #undef BIG
+#undef UTF_32BE_BOM
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

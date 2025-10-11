@@ -9,12 +9,6 @@
 #undef IDENT
 #pragma push_macro("VERSION")
 #undef VERSION
-#pragma push_macro("V1")
-#undef V1
-#pragma push_macro("V2")
-#undef V2
-#pragma push_macro("V3")
-#undef V3
 #pragma push_macro("NAME")
 #undef NAME
 
@@ -76,9 +70,6 @@ public:
 
 #pragma pop_macro("IDENT")
 #pragma pop_macro("VERSION")
-#pragma pop_macro("V1")
-#pragma pop_macro("V2")
-#pragma pop_macro("V3")
 #pragma pop_macro("NAME")
 
 #endif // _sun_security_x509_CertificateVersion_h_

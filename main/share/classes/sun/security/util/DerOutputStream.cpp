@@ -31,7 +31,6 @@
 #undef US_ASCII
 #undef UTF_16BE
 #undef UTF_8
-#undef ISO_8859_1
 #undef US
 
 using $DerEncoderArray = $Array<::sun::security::util::DerEncoder>;

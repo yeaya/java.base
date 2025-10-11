@@ -13,6 +13,8 @@
 #undef ALPHA
 #pragma push_macro("UNDER")
 #undef UNDER
+#pragma push_macro("ASCII")
+#undef ASCII
 #pragma push_macro("ALNUM")
 #undef ALNUM
 #pragma push_macro("DIGIT")
@@ -88,6 +90,7 @@ public:
 #pragma pop_macro("WORD")
 #pragma pop_macro("ALPHA")
 #pragma pop_macro("UNDER")
+#pragma pop_macro("ASCII")
 #pragma pop_macro("ALNUM")
 #pragma pop_macro("DIGIT")
 #pragma pop_macro("SPACE")

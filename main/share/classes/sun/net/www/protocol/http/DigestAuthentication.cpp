@@ -36,8 +36,6 @@
 #include <sun/nio/cs/ISO_8859_1.h>
 #include <jcpp.h>
 
-#undef A1
-#undef A2
 #undef SERVER_AUTHENTICATION
 #undef PROXY_AUTHENTICATION
 #undef INSTANCE

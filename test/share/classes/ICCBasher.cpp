@@ -21,10 +21,6 @@
 
 #undef CASE_INSENSITIVE_ORDER
 #undef CHAR_VALUE_LIMIT
-#undef L1
-#undef L2
-#undef L3
-#undef L4
 #undef TEST_SIZE
 #undef STRING_SIZE
 

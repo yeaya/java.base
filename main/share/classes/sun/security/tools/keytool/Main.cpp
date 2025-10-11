@@ -219,7 +219,6 @@
 #undef KEYPASSWD
 #undef NONE
 #undef POINTS
-#undef V3
 #undef NAME
 #undef PRINTCERTREQ
 #undef EXPORTCERT

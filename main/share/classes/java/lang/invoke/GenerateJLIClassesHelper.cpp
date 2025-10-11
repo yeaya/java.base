@@ -79,7 +79,6 @@
 #undef DIRECT_INVOKE_SPECIAL_IFC
 #undef LF_DELEGATE
 #undef GENERIC
-#undef V1_8
 #undef LF_GEN_LINKER
 #undef LF_REBIND
 #undef VOID

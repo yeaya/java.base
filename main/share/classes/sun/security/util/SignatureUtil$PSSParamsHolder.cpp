@@ -14,12 +14,9 @@
 #include <sun/security/util/SignatureUtil.h>
 #include <jcpp.h>
 
-#undef SHA256
 #undef PSS_512_SPEC
-#undef SHA384
 #undef TRAILER_FIELD_BC
 #undef PSS_256_SPEC
-#undef SHA512
 #undef PSS_384_SPEC
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -7,26 +7,18 @@
 
 #pragma push_macro("SECONDS_PER_DAY")
 #undef SECONDS_PER_DAY
-#pragma push_macro("LDT2037")
-#undef LDT2037
-#pragma push_macro("LASTYEAR")
-#undef LASTYEAR
-#pragma push_macro("TRANSITION_NSHIFT")
-#undef TRANSITION_NSHIFT
-#pragma push_macro("DST_MASK")
-#undef DST_MASK
-#pragma push_macro("DAYS_0000_TO_1970")
-#undef DAYS_0000_TO_1970
-#pragma push_macro("UTC2037")
-#undef UTC2037
 #pragma push_macro("CURRT")
 #undef CURRT
+#pragma push_macro("LASTYEAR")
+#undef LASTYEAR
 #pragma push_macro("OFFSET_MASK")
 #undef OFFSET_MASK
-#pragma push_macro("UTC1900")
-#undef UTC1900
+#pragma push_macro("TRANSITION_NSHIFT")
+#undef TRANSITION_NSHIFT
 #pragma push_macro("DAYS_PER_CYCLE")
 #undef DAYS_PER_CYCLE
+#pragma push_macro("DST_MASK")
+#undef DST_MASK
 #pragma push_macro("DST_NSHIFT")
 #undef DST_NSHIFT
 #pragma push_macro("USE_OLDMAPPING")
@@ -109,16 +101,12 @@ public:
 } // sun
 
 #pragma pop_macro("SECONDS_PER_DAY")
-#pragma pop_macro("LDT2037")
-#pragma pop_macro("LASTYEAR")
-#pragma pop_macro("TRANSITION_NSHIFT")
-#pragma pop_macro("DST_MASK")
-#pragma pop_macro("DAYS_0000_TO_1970")
-#pragma pop_macro("UTC2037")
 #pragma pop_macro("CURRT")
+#pragma pop_macro("LASTYEAR")
 #pragma pop_macro("OFFSET_MASK")
-#pragma pop_macro("UTC1900")
+#pragma pop_macro("TRANSITION_NSHIFT")
 #pragma pop_macro("DAYS_PER_CYCLE")
+#pragma pop_macro("DST_MASK")
 #pragma pop_macro("DST_NSHIFT")
 #pragma pop_macro("USE_OLDMAPPING")
 

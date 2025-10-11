@@ -22,7 +22,6 @@
 
 #undef ASM8
 #undef ACC_DEPRECATED
-#undef V1_5
 #undef ACC_SYNTHETIC
 #undef CONSTANT_VALUE
 

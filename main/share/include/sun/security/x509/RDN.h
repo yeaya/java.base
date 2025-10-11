@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("RDN")
+#undef RDN
+
 namespace java {
 	namespace util {
 		class List;
@@ -65,5 +68,7 @@ public:
 		} // x509
 	} // security
 } // sun
+
+#pragma pop_macro("RDN")
 
 #endif // _sun_security_x509_RDN_h_

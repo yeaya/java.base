@@ -10,6 +10,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef AB
+
 using $SuperIwithDefault = ::SuperIwithDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

@@ -8,8 +8,6 @@
 
 #pragma push_macro("ERROR_MSG")
 #undef ERROR_MSG
-#pragma push_macro("RFC3659_DATETIME_FORMAT")
-#undef RFC3659_DATETIME_FORMAT
 
 namespace java {
 	namespace io {
@@ -218,6 +216,5 @@ public:
 } // sun
 
 #pragma pop_macro("ERROR_MSG")
-#pragma pop_macro("RFC3659_DATETIME_FORMAT")
 
 #endif // _sun_net_ftp_impl_FtpClient_h_

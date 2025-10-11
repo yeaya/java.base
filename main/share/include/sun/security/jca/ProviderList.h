@@ -5,8 +5,6 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("P0")
-#undef P0
 #pragma push_macro("EMPTY_PROVIDER")
 #undef EMPTY_PROVIDER
 #pragma push_macro("PC0")
@@ -93,7 +91,6 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("P0")
 #pragma pop_macro("EMPTY_PROVIDER")
 #pragma pop_macro("PC0")
 #pragma pop_macro("EMPTY")

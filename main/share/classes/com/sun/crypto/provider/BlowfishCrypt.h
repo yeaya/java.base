@@ -8,6 +8,9 @@
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/lang/Array.h>
 
+#pragma push_macro("F")
+#undef F
+
 namespace com {
 	namespace sun {
 		namespace crypto {
@@ -46,5 +49,7 @@ public:
 		} // crypto
 	} // sun
 } // com
+
+#pragma pop_macro("F")
 
 #endif // _com_sun_crypto_provider_BlowfishCrypt_h_

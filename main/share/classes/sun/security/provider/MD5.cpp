@@ -18,23 +18,12 @@
 #include <sun/security/provider/DigestBase.h>
 #include <jcpp.h>
 
+#undef FF
+#undef GG
+#undef HH
+#undef II
 #undef INT_ARRAY
-#undef S31
-#undef S42
-#undef S41
-#undef S11
-#undef S22
-#undef S33
-#undef S44
-#undef S21
-#undef S32
-#undef S43
-#undef S13
-#undef S24
-#undef S12
-#undef S23
-#undef S34
-#undef S14
+#undef MD5
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

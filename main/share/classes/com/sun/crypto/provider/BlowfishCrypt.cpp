@@ -15,6 +15,7 @@
 #include <jcpp.h>
 
 #undef BLOWFISH_MAX_KEYSIZE
+#undef F
 #undef BLOWFISH_BLOCK_SIZE
 
 using $BlowfishConstants = ::com::sun::crypto::provider::BlowfishConstants;

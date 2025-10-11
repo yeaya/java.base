@@ -31,16 +31,10 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef SHA256
-#undef SHA512_224
-#undef SHA512_256
 #undef MGF1
 #undef SHA1
-#undef SHA384
 #undef OID_MGF1
 #undef TAG_CONTEXT
-#undef SHA512
-#undef SHA224
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

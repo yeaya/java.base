@@ -5,6 +5,9 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("SJIS")
+#undef SJIS
+
 namespace java {
 	namespace io {
 		class File;
@@ -20,5 +23,7 @@ public:
 	static void rm(::java::io::File* f);
 	static void touch(::java::io::File* f);
 };
+
+#pragma pop_macro("SJIS")
 
 #endif // _SJIS_h_

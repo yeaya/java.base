@@ -48,7 +48,6 @@
 #undef INSTANCE
 #undef FEBRUARY
 #undef PROLEPTIC_MONTH
-#undef DAYS_0000_TO_1970
 #undef LENIENT
 #undef MONTH_OF_YEAR
 #undef YEAR

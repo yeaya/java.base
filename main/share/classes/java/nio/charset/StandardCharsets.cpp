@@ -24,7 +24,6 @@
 #undef UTF_16BE
 #undef UTF_8
 #undef INSTANCE
-#undef ISO_8859_1
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

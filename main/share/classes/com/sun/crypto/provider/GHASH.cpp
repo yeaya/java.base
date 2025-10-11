@@ -25,11 +25,8 @@
 #undef AES_BLOCK_SIZE
 #undef MAX_LEN
 #undef BIG_ENDIAN
-#undef Z0
-#undef Z1
 #undef X
-#undef V0
-#undef V1
+#undef GHASH
 
 using $GCM = ::com::sun::crypto::provider::GCM;
 using $ClassInfo = ::java::lang::ClassInfo;

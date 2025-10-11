@@ -6,30 +6,14 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/DigestBase.h>
 
-#pragma push_macro("S31")
-#undef S31
-#pragma push_macro("S11")
-#undef S11
-#pragma push_macro("S22")
-#undef S22
-#pragma push_macro("S33")
-#undef S33
-#pragma push_macro("S21")
-#undef S21
-#pragma push_macro("S32")
-#undef S32
-#pragma push_macro("S13")
-#undef S13
-#pragma push_macro("S24")
-#undef S24
-#pragma push_macro("S12")
-#undef S12
-#pragma push_macro("S23")
-#undef S23
-#pragma push_macro("S34")
-#undef S34
-#pragma push_macro("S14")
-#undef S14
+#pragma push_macro("FF")
+#undef FF
+#pragma push_macro("GG")
+#undef GG
+#pragma push_macro("HH")
+#undef HH
+#pragma push_macro("MD4")
+#undef MD4
 
 namespace java {
 	namespace security {
@@ -77,17 +61,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("S31")
-#pragma pop_macro("S11")
-#pragma pop_macro("S22")
-#pragma pop_macro("S33")
-#pragma pop_macro("S21")
-#pragma pop_macro("S32")
-#pragma pop_macro("S13")
-#pragma pop_macro("S24")
-#pragma pop_macro("S12")
-#pragma pop_macro("S23")
-#pragma pop_macro("S34")
-#pragma pop_macro("S14")
+#pragma pop_macro("FF")
+#pragma pop_macro("GG")
+#pragma pop_macro("HH")
+#pragma pop_macro("MD4")
 
 #endif // _sun_security_provider_MD4_h_
