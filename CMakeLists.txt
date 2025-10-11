@@ -95,6 +95,7 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU" OR "${CMAKE_CXX_COMPILER_ID}" MATCHE
 	add_definitions(-ftls-model=initial-exec)
 	add_definitions(-fnon-call-exceptions)
 	add_definitions(-fomit-frame-pointer)
+	add_definitions(-fno-stack-check)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
 endif()
 
