@@ -36,6 +36,7 @@
 
 #include "StackWalk.h"
 #include <java/lang/Machine.h>
+#include <java/lang/Logger.h>
 
 #undef WILDCARD
 #undef ALL_MEMBERS
@@ -161,10 +162,12 @@ void Reflection::init$() {
 }
 
 $Class* Reflection::getCallerClass() {
+	log_debug("Reflection::getCallerClass 1");
 	::java::lang::Class* callerClass = ::java::lang::CallerHelper::getCallerClass();
 	if (callerClass != nullptr) {
 		return callerClass;
 	}
+	log_debug("Reflection::getCallerClass 2");
 	return StackWalk::getCallerClass();
 }
 

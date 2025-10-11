@@ -54,6 +54,7 @@
 
 #include <jcpp.h>
 #include <java/lang/SpinLock.h>
+#include <java/lang/Logger.h>
 
 #include "OS.h"
 
@@ -920,11 +921,13 @@ $ClassArray* StackWalk::getClassContext() {
 	// [1] [ @CallerSensitive API.method                                   ]
 	// [.] [ (skipped intermediate frames)                                 ]
 	// [n] [ caller                                                        ]
-
+	log_debug(" StackWalk::getCallerClass 1");
 	address stack[MAX_STACK_DEPTH];
 	int depth = OS::getBackTrace(stack, $lengthOf(stack), 1); // 1: skip StackWalk::getCallerClass
+	log_debug(" StackWalk::getCallerClass 2");
 	StackIterator stackIterator;
 	stackIterator.init(stack, depth);
+	log_debug(" StackWalk::getCallerClass 3");
 	char cppClassName[MAX_CLASS_NAME_LENGTH];
 	char cppMethodName[MAX_METHOD_NAME_LENGTH];
 	char parameterTypes[MAX_PARAMETER_TYPE_LENGTH];
