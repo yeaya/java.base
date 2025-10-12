@@ -16,29 +16,6 @@
 # 2 along with this work; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
 
-#message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
-#message(STATUS "CMAKE_HOST_SYSTEM_PROCESSOR: ${CMAKE_HOST_SYSTEM_PROCESSOR}")
-
-if(NOT CMAKE_SYSTEM_PROCESSOR)
-	set(CMAKE_SYSTEM_PROCESSOR "${CMAKE_HOST_SYSTEM_PROCESSOR}")
-endif()
-
-if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
-	set(JCPP_CPU "x86")
-	set(JCPP_ARCH "x86_64")
-elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
-	set(JCPP_CPU "x86")
-	set(JCPP_ARCH "amd64")
-elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
-	set(JCPP_CPU "aarch64")
-	set(JCPP_ARCH "aarch64")
-elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
-	set(JCPP_CPU "aarch64")
-	set(JCPP_ARCH "aarch64")
-else()
-	message(FATAL_ERROR "Unknown processor: ${CMAKE_SYSTEM_PROCESSOR}")
-endif()
-
 #libffi
 if(LIBFFI_LIB_PATH AND LIBFFI_INCLUDE_PATH)
 	include_directories(${LIBFFI_INCLUDE_PATH})

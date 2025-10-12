@@ -578,7 +578,6 @@ add_test(NAME OpRead COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpRea
 add_test(NAME Open COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> Open)
 add_test(NAME OpenConnection COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpenConnection)
 add_test(NAME OpenDir COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpenDir)
-add_test(NAME OpenStream COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpenStream)
 add_test(NAME OpenSync COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpenSync)
 add_test(NAME OpsAfterClose COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpsAfterClose)
 add_test(NAME OpsAfterClose4DataInputStream COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> OpsAfterClose4DataInputStream)

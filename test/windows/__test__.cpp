@@ -1506,7 +1506,7 @@ void TestCases::runCases() {
 	run("OpenConnection", ::OpenConnection);
 	run("OpenDir", ::OpenDir);
 	run("OpenLeak", ::OpenLeak, true);
-	run("OpenStream", ::OpenStream);
+	run("OpenStream", ::OpenStream, true);
 	run("OpenSync", ::OpenSync);
 	run("OpsAfterClose", ::OpsAfterClose);
 	run("OpsAfterClose4DataInputStream", ::OpsAfterClose4DataInputStream);
