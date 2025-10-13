@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/net/SocketAddress.h>
 
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
 #pragma push_macro("FIELDS_OFFSET")
 #undef FIELDS_OFFSET
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace java {
 	namespace io {
@@ -67,7 +67,7 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("UNSAFE")
 #pragma pop_macro("FIELDS_OFFSET")
+#pragma pop_macro("UNSAFE")
 
 #endif // _java_net_InetSocketAddress_h_

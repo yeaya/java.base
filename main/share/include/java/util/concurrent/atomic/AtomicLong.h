@@ -7,10 +7,10 @@
 
 #pragma push_macro("U")
 #undef U
-#pragma push_macro("VM_SUPPORTS_LONG_CAS")
-#undef VM_SUPPORTS_LONG_CAS
 #pragma push_macro("VALUE")
 #undef VALUE
+#pragma push_macro("VM_SUPPORTS_LONG_CAS")
+#undef VM_SUPPORTS_LONG_CAS
 
 namespace java {
 	namespace util {
@@ -87,7 +87,7 @@ public:
 } // java
 
 #pragma pop_macro("U")
-#pragma pop_macro("VM_SUPPORTS_LONG_CAS")
 #pragma pop_macro("VALUE")
+#pragma pop_macro("VM_SUPPORTS_LONG_CAS")
 
 #endif // _java_util_concurrent_atomic_AtomicLong_h_

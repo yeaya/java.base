@@ -17,10 +17,10 @@
 #include <sun/security/x509/GeneralNameInterface.h>
 #include <jcpp.h>
 
-#undef TAG_CONTEXT
-#undef TAG_ASSIGNER
-#undef NAME_EDI
 #undef NAME_DIFF_TYPE
+#undef NAME_EDI
+#undef TAG_ASSIGNER
+#undef TAG_CONTEXT
 #undef TAG_PARTYNAME
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
@@ -196,7 +196,7 @@ int32_t EDIPartyName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_EDI) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_EDI) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$throwNew($UnsupportedOperationException, "Narrowing, widening, and matching of names not supported for EDIPartyName"_s);

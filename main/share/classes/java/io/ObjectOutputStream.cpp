@@ -62,25 +62,25 @@
 #include <sun/security/action/GetBooleanAction.h>
 #include <jcpp.h>
 
-#undef TC_REFERENCE
-#undef STREAM_VERSION
-#undef TC_NULL
-#undef TC_CLASSDESC
-#undef TC_OBJECT
-#undef TC_ENUM
-#undef PROTOCOL_VERSION_2
-#undef TC_PROXYCLASSDESC
 #undef PROTOCOL_VERSION_1
+#undef PROTOCOL_VERSION_2
 #undef STREAM_MAGIC
-#undef TC_ARRAY
-#undef TC_EXCEPTION
+#undef STREAM_VERSION
 #undef SUBCLASS_IMPLEMENTATION_PERMISSION
-#undef TC_ENDBLOCKDATA
-#undef TC_LONGSTRING
 #undef SUBSTITUTION_PERMISSION
-#undef TC_STRING
-#undef TC_RESET
+#undef TC_ARRAY
 #undef TC_CLASS
+#undef TC_CLASSDESC
+#undef TC_ENDBLOCKDATA
+#undef TC_ENUM
+#undef TC_EXCEPTION
+#undef TC_LONGSTRING
+#undef TC_NULL
+#undef TC_OBJECT
+#undef TC_PROXYCLASSDESC
+#undef TC_REFERENCE
+#undef TC_RESET
+#undef TC_STRING
 #undef TYPE
 
 using $ObjectStreamClass$ClassDataSlotArray = $Array<::java::io::ObjectStreamClass$ClassDataSlot>;
@@ -634,17 +634,17 @@ void ObjectOutputStream::writeObject0(Object$* obj$renamed, bool unshared) {
 			}
 			if ($instanceOf($String, obj)) {
 				writeString($cast($String, obj), unshared);
-			} else if ($nc(cl)->isArray()) {
+			} else if (cl->isArray()) {
 				writeArray(obj, desc, unshared);
 			} else if ($instanceOf($Enum, obj)) {
 				writeEnum($cast($Enum, obj), desc, unshared);
 			} else if ($instanceOf($Serializable, obj)) {
 				writeOrdinaryObject(obj, desc, unshared);
 			} else if (ObjectOutputStream::extendedDebugInfo) {
-				$var($String, var$4, $$str({$($nc(cl)->getName()), "\n"_s}));
+				$var($String, var$4, $$str({$(cl->getName()), "\n"_s}));
 				$throwNew($NotSerializableException, $$concat(var$4, $($nc(this->debugInfoStack)->toString())));
 			} else {
-				$throwNew($NotSerializableException, $($nc(cl)->getName()));
+				$throwNew($NotSerializableException, $(cl->getName()));
 			}
 		} catch ($Throwable&) {
 			$assign(var$0, $catch());
@@ -682,7 +682,7 @@ void ObjectOutputStream::writeClassDesc($ObjectStreamClass* desc, bool unshared)
 		writeNull();
 	} else if (!unshared && (handle = $nc(this->handles)->lookup(desc)) != -1) {
 		writeHandle(handle);
-	} else if ($nc(desc)->isProxy()) {
+	} else if (desc->isProxy()) {
 		writeProxyDesc(desc, unshared);
 	} else {
 		writeNonProxyDesc(desc, unshared);
@@ -699,7 +699,7 @@ void ObjectOutputStream::writeProxyDesc($ObjectStreamClass* desc, bool unshared)
 	$nc(this->bout)->writeByte($ObjectStreamConstants::TC_PROXYCLASSDESC);
 	$nc(this->handles)->assign(unshared ? ($Object*)nullptr : $of(desc));
 	$Class* cl = $nc(desc)->forClass();
-	$var($ClassArray, ifaces, $nc(cl)->getInterfaces());
+	$var($ClassArray, ifaces, cl->getInterfaces());
 	$nc(this->bout)->writeInt(ifaces->length);
 	for (int32_t i = 0; i < ifaces->length; ++i) {
 		$nc(this->bout)->writeUTF($($nc(ifaces->get(i))->getName()));

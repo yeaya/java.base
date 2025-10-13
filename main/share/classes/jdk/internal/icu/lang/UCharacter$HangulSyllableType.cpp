@@ -10,12 +10,12 @@
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jcpp.h>
 
+#undef COUNT
+#undef LEADING_JAMO
+#undef LVT_SYLLABLE
+#undef LV_SYLLABLE
 #undef NOT_APPLICABLE
 #undef TRAILING_JAMO
-#undef LV_SYLLABLE
-#undef LEADING_JAMO
-#undef COUNT
-#undef LVT_SYLLABLE
 #undef VOWEL_JAMO
 
 using $ClassInfo = ::java::lang::ClassInfo;

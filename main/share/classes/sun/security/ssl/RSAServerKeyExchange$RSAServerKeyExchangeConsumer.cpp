@@ -39,8 +39,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef KEY_AGREEMENT
 #undef INSUFFICIENT_SECURITY
+#undef KEY_AGREEMENT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

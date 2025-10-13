@@ -13,9 +13,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_SUPPLEMENTARY_CODE_POINT
 #undef IGNORE
 #undef MAX_CODE_POINT
+#undef MIN_SUPPLEMENTARY_CODE_POINT
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;

@@ -19,8 +19,8 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef SHORT
 #undef LONG
+#undef SHORT
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $StringArray2 = $Array<::java::lang::String, 2>;

@@ -20,9 +20,9 @@
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
 #include <jcpp.h>
 
-#undef ASM8
 #undef ACC_DEPRECATED
 #undef ACC_SYNTHETIC
+#undef ASM8
 #undef CONSTANT_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;

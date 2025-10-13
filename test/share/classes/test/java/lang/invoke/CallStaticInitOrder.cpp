@@ -34,9 +34,9 @@
 #include <test/java/lang/invoke/CallStaticInitOrder$Init6.h>
 #include <jcpp.h>
 
+#undef LAST_LOSER
 #undef TICK
 #undef TYPE
-#undef LAST_LOSER
 
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;

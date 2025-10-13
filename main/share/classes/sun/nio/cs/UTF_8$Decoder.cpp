@@ -24,9 +24,9 @@
 #include <sun/nio/cs/UTF_8.h>
 #include <jcpp.h>
 
+#undef JLA
 #undef OVERFLOW
 #undef UNDERFLOW
-#undef JLA
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
@@ -246,7 +246,7 @@ $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst)
 			if (sl - sp < 2 || dp >= dl) {
 				return xflow(src, sp, sl, dst, dp, 2);
 			}
-			int32_t b2 = $nc(sa)->get(sp + 1);
+			int32_t b2 = sa->get(sp + 1);
 			if (isNotContinuation(b2)) {
 				return malformedForLength(src, sp, dst, dp, 1);
 			}
@@ -255,12 +255,12 @@ $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst)
 		} else if ((b1 >> 4) == -2) {
 			int32_t srcRemaining = sl - sp;
 			if (srcRemaining < 3 || dp >= dl) {
-				if (srcRemaining > 1 && isMalformed3_2(b1, $nc(sa)->get(sp + 1))) {
+				if (srcRemaining > 1 && isMalformed3_2(b1, sa->get(sp + 1))) {
 					return malformedForLength(src, sp, dst, dp, 1);
 				}
 				return xflow(src, sp, sl, dst, dp, 3);
 			}
-			int32_t b2 = $nc(sa)->get(sp + 1);
+			int32_t b2 = sa->get(sp + 1);
 			int32_t b3 = sa->get(sp + 2);
 			if (isMalformed3(b1, b2, b3)) {
 				return malformed(src, sp, dst, dp, 3);
@@ -275,15 +275,15 @@ $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst)
 			int32_t srcRemaining = sl - sp;
 			if (srcRemaining < 4 || dl - dp < 2) {
 				b1 &= (uint32_t)255;
-				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, (int32_t)($nc(sa)->get(sp + 1) & (uint32_t)255))) {
+				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, (int32_t)(sa->get(sp + 1) & (uint32_t)255))) {
 					return malformedForLength(src, sp, dst, dp, 1);
 				}
-				if (srcRemaining > 2 && isMalformed4_3($nc(sa)->get(sp + 2))) {
+				if (srcRemaining > 2 && isMalformed4_3(sa->get(sp + 2))) {
 					return malformedForLength(src, sp, dst, dp, 2);
 				}
 				return xflow(src, sp, sl, dst, dp, 4);
 			}
-			int32_t b2 = $nc(sa)->get(sp + 1);
+			int32_t b2 = sa->get(sp + 1);
 			int32_t b3 = sa->get(sp + 2);
 			int32_t b4 = sa->get(sp + 3);
 			int32_t uc = ((((b1 << 18) ^ (b2 << 12)) ^ (b3 << 6)) ^ (b4 ^ (((((int8_t)240 << 18) ^ ((int8_t)128 << 12)) ^ ((int8_t)128 << 6)) ^ ((int8_t)128 << 0))));
@@ -316,7 +316,7 @@ $CoderResult* UTF_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst
 			if (limit - mark < 2 || $nc(dst)->remaining() < 1) {
 				return xflow(src, mark, 2);
 			}
-			int32_t b2 = $nc(src)->get();
+			int32_t b2 = src->get();
 			if (isNotContinuation(b2)) {
 				return malformedForLength(src, mark, 1);
 			}
@@ -325,12 +325,12 @@ $CoderResult* UTF_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst
 		} else if ((b1 >> 4) == -2) {
 			int32_t srcRemaining = limit - mark;
 			if (srcRemaining < 3 || $nc(dst)->remaining() < 1) {
-				if (srcRemaining > 1 && isMalformed3_2(b1, $nc(src)->get())) {
+				if (srcRemaining > 1 && isMalformed3_2(b1, src->get())) {
 					return malformedForLength(src, mark, 1);
 				}
 				return xflow(src, mark, 3);
 			}
-			int32_t b2 = $nc(src)->get();
+			int32_t b2 = src->get();
 			int32_t b3 = src->get();
 			if (isMalformed3(b1, b2, b3)) {
 				return malformed(src, mark, 3);
@@ -345,15 +345,15 @@ $CoderResult* UTF_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst
 			int32_t srcRemaining = limit - mark;
 			if (srcRemaining < 4 || $nc(dst)->remaining() < 2) {
 				b1 &= (uint32_t)255;
-				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, (int32_t)($nc(src)->get() & (uint32_t)255))) {
+				if (b1 > 244 || srcRemaining > 1 && isMalformed4_2(b1, (int32_t)(src->get() & (uint32_t)255))) {
 					return malformedForLength(src, mark, 1);
 				}
-				if (srcRemaining > 2 && isMalformed4_3($nc(src)->get())) {
+				if (srcRemaining > 2 && isMalformed4_3(src->get())) {
 					return malformedForLength(src, mark, 2);
 				}
 				return xflow(src, mark, 4);
 			}
-			int32_t b2 = $nc(src)->get();
+			int32_t b2 = src->get();
 			int32_t b3 = src->get();
 			int32_t b4 = src->get();
 			int32_t uc = ((((b1 << 18) ^ (b2 << 12)) ^ (b3 << 6)) ^ (b4 ^ (((((int8_t)240 << 18) ^ ((int8_t)128 << 12)) ^ ((int8_t)128 << 6)) ^ ((int8_t)128 << 0))));

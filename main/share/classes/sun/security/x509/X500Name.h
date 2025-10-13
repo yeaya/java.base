@@ -8,20 +8,20 @@
 #include <java/security/Principal.h>
 #include <sun/security/x509/GeneralNameInterface.h>
 
-#pragma push_macro("GENERATIONQUALIFIER_OID")
-#undef GENERATIONQUALIFIER_OID
-#pragma push_macro("SURNAME_OID")
-#undef SURNAME_OID
-#pragma push_macro("GIVENNAME_OID")
-#undef GIVENNAME_OID
-#pragma push_macro("DOMAIN_COMPONENT_OID")
-#undef DOMAIN_COMPONENT_OID
-#pragma push_macro("SERIALNUMBER_OID")
-#undef SERIALNUMBER_OID
 #pragma push_macro("DNQUALIFIER_OID")
 #undef DNQUALIFIER_OID
+#pragma push_macro("DOMAIN_COMPONENT_OID")
+#undef DOMAIN_COMPONENT_OID
+#pragma push_macro("GENERATIONQUALIFIER_OID")
+#undef GENERATIONQUALIFIER_OID
+#pragma push_macro("GIVENNAME_OID")
+#undef GIVENNAME_OID
 #pragma push_macro("INITIALS_OID")
 #undef INITIALS_OID
+#pragma push_macro("SERIALNUMBER_OID")
+#undef SERIALNUMBER_OID
+#pragma push_macro("SURNAME_OID")
+#undef SURNAME_OID
 
 namespace java {
 	namespace lang {
@@ -167,12 +167,12 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("GENERATIONQUALIFIER_OID")
-#pragma pop_macro("SURNAME_OID")
-#pragma pop_macro("GIVENNAME_OID")
-#pragma pop_macro("DOMAIN_COMPONENT_OID")
-#pragma pop_macro("SERIALNUMBER_OID")
 #pragma pop_macro("DNQUALIFIER_OID")
+#pragma pop_macro("DOMAIN_COMPONENT_OID")
+#pragma pop_macro("GENERATIONQUALIFIER_OID")
+#pragma pop_macro("GIVENNAME_OID")
 #pragma pop_macro("INITIALS_OID")
+#pragma pop_macro("SERIALNUMBER_OID")
+#pragma pop_macro("SURNAME_OID")
 
 #endif // _sun_security_x509_X500Name_h_

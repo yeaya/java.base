@@ -38,21 +38,21 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MINUTES_PER_DAY
-#undef SECONDS_PER_MINUTE
-#undef SECONDS_PER_DAY
-#undef NANOS_PER_DAY
-#undef MILLIS_PER_DAY
-#undef DAYS
-#undef HOURS_PER_DAY
 #undef CHRONO_LOCAL_DATE_TIME_TYPE
-#undef NANOS_PER_HOUR
-#undef SECONDS_PER_HOUR
-#undef NANOS_PER_SECOND
-#undef NANOS_PER_MINUTE
+#undef DAYS
 #undef EPOCH_DAY
+#undef HOURS_PER_DAY
 #undef MICROS_PER_DAY
+#undef MILLIS_PER_DAY
+#undef MINUTES_PER_DAY
 #undef MINUTES_PER_HOUR
+#undef NANOS_PER_DAY
+#undef NANOS_PER_HOUR
+#undef NANOS_PER_MINUTE
+#undef NANOS_PER_SECOND
+#undef SECONDS_PER_DAY
+#undef SECONDS_PER_HOUR
+#undef SECONDS_PER_MINUTE
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInput = ::java::io::ObjectInput;

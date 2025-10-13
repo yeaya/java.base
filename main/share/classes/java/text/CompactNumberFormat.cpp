@@ -81,45 +81,45 @@
 
 #include <cmath>
 
-#undef DOUBLE_INTEGER_DIGITS
-#undef QUOTE
-#undef ZERO
-#undef PLURALRULES_PATTERN
-#undef ONE
-#undef RANGE_MULTIPLIER
-#undef DIGITS
-#undef NAMED_RELATION
-#undef DECIMAL_SEPARATOR
-#undef GROUPING_SEPARATOR
-#undef NEGATIVE_INFINITY
-#undef STATUS_INFINITE
-#undef EXPR
-#undef ZERO_DIGIT
-#undef SIGN
-#undef RELATION_PATTERN
-#undef SUFFIX
-#undef RELATION
-#undef SEPARATOR
-#undef MINUS_SIGN
-#undef STATUS_LENGTH
-#undef SPECIAL_PATTERN
-#undef PER_MILLE
-#undef DOUBLE_FRACTION_DIGITS
-#undef DIGIT
-#undef NAMED_VALUE_RANGE
-#undef POSITIVE_INFINITY
-#undef STATUS_POSITIVE
-#undef VALUE_RANGE
-#undef EXPR_PATTERN
+#undef CONDITION
 #undef COUNT_PATTERN
 #undef CURRENCY_SIGN
-#undef NAMED_EXPR
+#undef DECIMAL_SEPARATOR
+#undef DIGIT
+#undef DIGITS
+#undef DOUBLE_FRACTION_DIGITS
+#undef DOUBLE_INTEGER_DIGITS
+#undef EXPR
+#undef EXPR_PATTERN
+#undef GROUPING_SEPARATOR
 #undef HALF_EVEN
-#undef PREFIX
+#undef MINUS_SIGN
+#undef NAMED_EXPR
+#undef NAMED_RELATION
+#undef NAMED_VALUE_RANGE
+#undef NEGATIVE_INFINITY
+#undef ONE
 #undef PERCENT
+#undef PER_MILLE
+#undef PLURALRULES_PATTERN
 #undef PLURALS
-#undef CONDITION
+#undef POSITIVE_INFINITY
+#undef PREFIX
+#undef QUOTE
+#undef RANGE_MULTIPLIER
+#undef RELATION
+#undef RELATION_PATTERN
+#undef SEPARATOR
+#undef SIGN
+#undef SPECIAL_PATTERN
+#undef STATUS_INFINITE
+#undef STATUS_LENGTH
+#undef STATUS_POSITIVE
+#undef SUFFIX
+#undef VALUE_RANGE
 #undef VALUE_RANGE_PATTERN
+#undef ZERO
+#undef ZERO_DIGIT
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -1557,7 +1557,7 @@ $Number* CompactNumberFormat::parse($String* text, $ParsePosition* pos) {
 	$var($Number, multiplier, computeParseMultiplier(text, pos, gotPositive ? matchedPosPrefix : matchedNegPrefix, status, gotPositive, gotNegative, num));
 	if ($nc(multiplier)->longValue() == (int64_t)-1) {
 		return nullptr;
-	} else if ($nc(multiplier)->longValue() != (int64_t)1) {
+	} else if (multiplier->longValue() != (int64_t)1) {
 		$assign(cnfMultiplier, multiplier);
 	}
 	if (status->get(CompactNumberFormat::STATUS_INFINITE)) {
@@ -1594,7 +1594,7 @@ double CompactNumberFormat::parseNumberPart($String* text, int32_t position) {
 	if ($nc(text)->startsWith($($nc(this->symbols)->getInfinity()), position)) {
 		$init($Double);
 		return $Double::POSITIVE_INFINITY;
-	} else if (!$nc(text)->startsWith($($nc(this->symbols)->getNaN()), position)) {
+	} else if (!text->startsWith($($nc(this->symbols)->getNaN()), position)) {
 		$var($Matcher, m, $nc(CompactNumberFormat::DIGITS)->matcher(text));
 		if ($nc(m)->find(position)) {
 			$var($String, digits, m->group());
@@ -1620,7 +1620,7 @@ $Number* CompactNumberFormat::generateParseResult($Number* number, bool gotDoubl
 			gotDouble = ((doubleResult != (double)longResult) || (doubleResult == 0.0 && 1 / doubleResult < 0.0));
 			return gotDouble ? static_cast<$Number*>($Double::valueOf(doubleResult)) : static_cast<$Number*>($Long::valueOf(longResult));
 		}
-	} else if ($nc(cnfMultiplier)->longValue() != (int64_t)1) {
+	} else if (cnfMultiplier->longValue() != (int64_t)1) {
 		$var($Number, result, nullptr);
 		if (($instanceOf($Long, cnfMultiplier)) && !gotLongMin) {
 			int64_t longMultiplier = $nc(($cast($Long, cnfMultiplier)))->longValue();

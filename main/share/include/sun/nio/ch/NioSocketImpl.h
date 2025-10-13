@@ -8,20 +8,20 @@
 #include <java/net/SocketImpl.h>
 #include <sun/net/PlatformSocketImpl.h>
 
+#pragma push_macro("MAX_BUFFER_SIZE")
+#undef MAX_BUFFER_SIZE
 #pragma push_macro("ST_CLOSED")
 #undef ST_CLOSED
 #pragma push_macro("ST_CLOSING")
 #undef ST_CLOSING
-#pragma push_macro("ST_CONNECTING")
-#undef ST_CONNECTING
-#pragma push_macro("MAX_BUFFER_SIZE")
-#undef MAX_BUFFER_SIZE
-#pragma push_macro("ST_UNCONNECTED")
-#undef ST_UNCONNECTED
-#pragma push_macro("ST_NEW")
-#undef ST_NEW
 #pragma push_macro("ST_CONNECTED")
 #undef ST_CONNECTED
+#pragma push_macro("ST_CONNECTING")
+#undef ST_CONNECTING
+#pragma push_macro("ST_NEW")
+#undef ST_NEW
+#pragma push_macro("ST_UNCONNECTED")
+#undef ST_UNCONNECTED
 
 namespace java {
 	namespace io {
@@ -181,12 +181,12 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("MAX_BUFFER_SIZE")
 #pragma pop_macro("ST_CLOSED")
 #pragma pop_macro("ST_CLOSING")
-#pragma pop_macro("ST_CONNECTING")
-#pragma pop_macro("MAX_BUFFER_SIZE")
-#pragma pop_macro("ST_UNCONNECTED")
-#pragma pop_macro("ST_NEW")
 #pragma pop_macro("ST_CONNECTED")
+#pragma pop_macro("ST_CONNECTING")
+#pragma pop_macro("ST_NEW")
+#pragma pop_macro("ST_UNCONNECTED")
 
 #endif // _sun_nio_ch_NioSocketImpl_h_

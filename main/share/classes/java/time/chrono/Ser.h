@@ -5,24 +5,24 @@
 
 #include <java/io/Externalizable.h>
 
-#pragma push_macro("JAPANESE_DATE_TYPE")
-#undef JAPANESE_DATE_TYPE
+#pragma push_macro("CHRONO_LOCAL_DATE_TIME_TYPE")
+#undef CHRONO_LOCAL_DATE_TIME_TYPE
 #pragma push_macro("CHRONO_PERIOD_TYPE")
 #undef CHRONO_PERIOD_TYPE
 #pragma push_macro("CHRONO_TYPE")
 #undef CHRONO_TYPE
 #pragma push_macro("CHRONO_ZONE_DATE_TIME_TYPE")
 #undef CHRONO_ZONE_DATE_TIME_TYPE
-#pragma push_macro("JAPANESE_ERA_TYPE")
-#undef JAPANESE_ERA_TYPE
-#pragma push_macro("THAIBUDDHIST_DATE_TYPE")
-#undef THAIBUDDHIST_DATE_TYPE
-#pragma push_macro("MINGUO_DATE_TYPE")
-#undef MINGUO_DATE_TYPE
-#pragma push_macro("CHRONO_LOCAL_DATE_TIME_TYPE")
-#undef CHRONO_LOCAL_DATE_TIME_TYPE
 #pragma push_macro("HIJRAH_DATE_TYPE")
 #undef HIJRAH_DATE_TYPE
+#pragma push_macro("JAPANESE_DATE_TYPE")
+#undef JAPANESE_DATE_TYPE
+#pragma push_macro("JAPANESE_ERA_TYPE")
+#undef JAPANESE_ERA_TYPE
+#pragma push_macro("MINGUO_DATE_TYPE")
+#undef MINGUO_DATE_TYPE
+#pragma push_macro("THAIBUDDHIST_DATE_TYPE")
+#undef THAIBUDDHIST_DATE_TYPE
 
 namespace java {
 	namespace io {
@@ -66,14 +66,14 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("JAPANESE_DATE_TYPE")
+#pragma pop_macro("CHRONO_LOCAL_DATE_TIME_TYPE")
 #pragma pop_macro("CHRONO_PERIOD_TYPE")
 #pragma pop_macro("CHRONO_TYPE")
 #pragma pop_macro("CHRONO_ZONE_DATE_TIME_TYPE")
-#pragma pop_macro("JAPANESE_ERA_TYPE")
-#pragma pop_macro("THAIBUDDHIST_DATE_TYPE")
-#pragma pop_macro("MINGUO_DATE_TYPE")
-#pragma pop_macro("CHRONO_LOCAL_DATE_TIME_TYPE")
 #pragma pop_macro("HIJRAH_DATE_TYPE")
+#pragma pop_macro("JAPANESE_DATE_TYPE")
+#pragma pop_macro("JAPANESE_ERA_TYPE")
+#pragma pop_macro("MINGUO_DATE_TYPE")
+#pragma pop_macro("THAIBUDDHIST_DATE_TYPE")
 
 #endif // _java_time_chrono_Ser_h_

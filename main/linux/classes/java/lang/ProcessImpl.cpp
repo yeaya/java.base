@@ -71,10 +71,10 @@
 #include "core/unix/_java_lang_ProcessImpl.h"
 
 #undef INHERIT
-#undef NANOSECONDS
-#undef SUPPORTS_NORMAL_TERMINATION
 #undef INSTANCE
+#undef NANOSECONDS
 #undef PIPE
+#undef SUPPORTS_NORMAL_TERMINATION
 
 using $ProcessBuilder$RedirectArray = $Array<::java::lang::ProcessBuilder$Redirect>;
 using $byteArray2 = $Array<int8_t, 2>;
@@ -454,53 +454,47 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 				} else {
 					if (redirects->get(0) == $ProcessBuilder$Redirect::INHERIT) {
 						std_fds->set(0, 0);
-					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, $nc(redirects)->get(0))) {
-						$init(ProcessImpl);
-						$nc(std_fds)->set(0, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0))))->getFd())));
+					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(0))) {
+						std_fds->set(0, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0))))->getFd())));
 					} else {
 						$assign(f0, $new($FileInputStream, $($nc(redirects->get(0))->file())));
-						$init(ProcessImpl);
-						$nc(std_fds)->set(0, $nc(ProcessImpl::fdAccess)->get($(f0->getFD())));
+						std_fds->set(0, $nc(ProcessImpl::fdAccess)->get($(f0->getFD())));
 					}
 				}
-				if ($nc(redirects)->get(1) == $ProcessBuilder$Redirect::PIPE) {
+				if (redirects->get(1) == $ProcessBuilder$Redirect::PIPE) {
 					std_fds->set(1, -1);
 				} else {
 					if (redirects->get(1) == $ProcessBuilder$Redirect::INHERIT) {
 						std_fds->set(1, 1);
-					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, $nc(redirects)->get(1))) {
-						$init(ProcessImpl);
-						$nc(std_fds)->set(1, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(1))))->getFd())));
+					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(1))) {
+						std_fds->set(1, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(1))))->getFd())));
 						forceNullOutputStream = true;
 					} else {
-						$var($File, var$4, $nc(redirects->get(1))->file());
-						$assign(f1, $new($FileOutputStream, var$4, $nc(redirects->get(1))->append()));
-						$init(ProcessImpl);
-						$nc(std_fds)->set(1, $nc(ProcessImpl::fdAccess)->get($(f1->getFD())));
+						$var($File, var$3, $nc(redirects->get(1))->file());
+						$assign(f1, $new($FileOutputStream, var$3, $nc(redirects->get(1))->append()));
+						std_fds->set(1, $nc(ProcessImpl::fdAccess)->get($(f1->getFD())));
 					}
 				}
-				if ($nc(redirects)->get(2) == $ProcessBuilder$Redirect::PIPE) {
+				if (redirects->get(2) == $ProcessBuilder$Redirect::PIPE) {
 					std_fds->set(2, -1);
 				} else {
 					if (redirects->get(2) == $ProcessBuilder$Redirect::INHERIT) {
 						std_fds->set(2, 2);
-					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, $nc(redirects)->get(2))) {
-						$init(ProcessImpl);
-						$nc(std_fds)->set(2, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(2))))->getFd())));
+					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(2))) {
+						std_fds->set(2, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(2))))->getFd())));
 					} else {
-						$var($File, var$6, $nc(redirects->get(2))->file());
-						$assign(f2, $new($FileOutputStream, var$6, $nc(redirects->get(2))->append()));
-						$init(ProcessImpl);
-						$nc(std_fds)->set(2, $nc(ProcessImpl::fdAccess)->get($(f2->getFD())));
+						$var($File, var$4, $nc(redirects->get(2))->file());
+						$assign(f2, $new($FileOutputStream, var$4, $nc(redirects->get(2))->append()));
+						std_fds->set(2, $nc(ProcessImpl::fdAccess)->get($(f2->getFD())));
 					}
 				}
 			}
-			$var($bytes, var$7, toCString(cmdarray->get(0)));
-			$var($bytes, var$8, argBlock);
-			int32_t var$9 = args->length;
-			$var($bytes, var$10, envBlock);
-			int32_t var$11 = envc->get(0);
-			$var($Process, p, $new(ProcessImpl, var$7, var$8, var$9, var$10, var$11, $(toCString(dir)), std_fds, forceNullOutputStream, redirectErrorStream));
+			$var($bytes, var$5, toCString(cmdarray->get(0)));
+			$var($bytes, var$6, argBlock);
+			int32_t var$7 = args->length;
+			$var($bytes, var$8, envBlock);
+			int32_t var$9 = envc->get(0);
+			$var($Process, p, $new(ProcessImpl, var$5, var$6, var$7, var$8, var$9, $(toCString(dir)), std_fds, forceNullOutputStream, redirectErrorStream));
 			if (redirects != nullptr) {
 				if ($nc(std_fds)->get(0) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(0))) {
 					$nc(ProcessImpl::fdAccess)->set($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0))))->getFd()), std_fds->get(0));
@@ -519,34 +513,34 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 			$assign(var$0, $catch());
 		} $finally: {
 			{
-				$var($Throwable, var$12, nullptr);
+				$var($Throwable, var$10, nullptr);
 				try {
 					if (f0 != nullptr) {
 						f0->close();
 					}
 				} catch ($Throwable&) {
-					$assign(var$12, $catch());
+					$assign(var$10, $catch());
 				} /*finally*/ {
 					{
-						$var($Throwable, var$13, nullptr);
+						$var($Throwable, var$11, nullptr);
 						try {
 							if (f1 != nullptr) {
 								f1->close();
 							}
 						} catch ($Throwable&) {
-							$assign(var$13, $catch());
+							$assign(var$11, $catch());
 						} /*finally*/ {
 							if (f2 != nullptr) {
 								f2->close();
 							}
 						}
-						if (var$13 != nullptr) {
-							$throw(var$13);
+						if (var$11 != nullptr) {
+							$throw(var$11);
 						}
 					}
 				}
-				if (var$12 != nullptr) {
-					$throw(var$12);
+				if (var$10 != nullptr) {
+					$throw(var$10);
 				}
 			}
 		}

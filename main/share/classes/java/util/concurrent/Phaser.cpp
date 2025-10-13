@@ -31,22 +31,22 @@
 #include <java/util/concurrent/locks/LockSupport.h>
 #include <jcpp.h>
 
-#undef PHASE_SHIFT
 #undef COUNTS_MASK
+#undef EMPTY
 #undef MAX_PARTIES
-#undef UNARRIVED_MASK
-#undef TERMINATION_BIT
-#undef ONE_PARTY
-#undef STATE
 #undef MAX_PHASE
+#undef NCPU
+#undef ONE_ARRIVAL
 #undef ONE_DEREGISTER
-#undef SPINS_PER_ARRIVAL
+#undef ONE_PARTY
 #undef PARTIES_MASK
 #undef PARTIES_SHIFT
-#undef ONE_ARRIVAL
-#undef EMPTY
+#undef PHASE_SHIFT
+#undef SPINS_PER_ARRIVAL
+#undef STATE
+#undef TERMINATION_BIT
 #undef TYPE
-#undef NCPU
+#undef UNARRIVED_MASK
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -573,11 +573,11 @@ int32_t Phaser::internalAwaitAdvance(int32_t phase, $Phaser$QNode* node$renamed)
 			} else {
 				$Thread::onSpinWait();
 			}
-		} else if ($nc(node)->isReleasable()) {
+		} else if (node->isReleasable()) {
 			break;
 		} else if (!queued) {
 			$var($AtomicReference, head, ((int32_t)(phase & (uint32_t)1)) == 0 ? this->evenQ : this->oddQ);
-			$var($Phaser$QNode, q, $assignField($nc(node), next, $cast($Phaser$QNode, $nc(head)->get())));
+			$var($Phaser$QNode, q, $assignField(node, next, $cast($Phaser$QNode, $nc(head)->get())));
 			if ((q == nullptr || $nc(q)->phase == phase) && (int32_t)($usr(this->state, Phaser::PHASE_SHIFT)) == phase) {
 				queued = head->compareAndSet(q, node);
 			}
@@ -586,7 +586,7 @@ int32_t Phaser::internalAwaitAdvance(int32_t phase, $Phaser$QNode* node$renamed)
 				$ForkJoinPool::managedBlock(node);
 			} catch ($InterruptedException&) {
 				$var($InterruptedException, cantHappen, $catch());
-				$nc(node)->wasInterrupted = true;
+				node->wasInterrupted = true;
 			}
 		}
 	}

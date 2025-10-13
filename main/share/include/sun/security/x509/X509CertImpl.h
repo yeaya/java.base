@@ -12,34 +12,34 @@
 #include <sun/security/x509/CertificateX509Key.h>
 #include <sun/security/x509/X509CertInfo.h>
 
-#pragma push_macro("SUBJECT_DN")
-#undef SUBJECT_DN
 #pragma push_macro("ALG_ID")
 #undef ALG_ID
-#pragma push_macro("SIG_ALG")
-#undef SIG_ALG
 #pragma push_macro("DOT")
 #undef DOT
-#pragma push_macro("PUBLIC_KEY")
-#undef PUBLIC_KEY
 #pragma push_macro("INFO")
 #undef INFO
-#pragma push_macro("SIGNATURE")
-#undef SIGNATURE
+#pragma push_macro("ISSUER_DN")
+#undef ISSUER_DN
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("NUM_STANDARD_KEY_USAGE")
+#undef NUM_STANDARD_KEY_USAGE
+#pragma push_macro("PUBLIC_KEY")
+#undef PUBLIC_KEY
 #pragma push_macro("SERIAL_ID")
 #undef SERIAL_ID
 #pragma push_macro("SIG")
 #undef SIG
-#pragma push_macro("NUM_STANDARD_KEY_USAGE")
-#undef NUM_STANDARD_KEY_USAGE
+#pragma push_macro("SIGNATURE")
+#undef SIGNATURE
 #pragma push_macro("SIGNED_CERT")
 #undef SIGNED_CERT
+#pragma push_macro("SIG_ALG")
+#undef SIG_ALG
+#pragma push_macro("SUBJECT_DN")
+#undef SUBJECT_DN
 #pragma push_macro("VERSION")
 #undef VERSION
-#pragma push_macro("ISSUER_DN")
-#undef ISSUER_DN
 
 namespace java {
 	namespace io {
@@ -254,19 +254,19 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SUBJECT_DN")
 #pragma pop_macro("ALG_ID")
-#pragma pop_macro("SIG_ALG")
 #pragma pop_macro("DOT")
-#pragma pop_macro("PUBLIC_KEY")
 #pragma pop_macro("INFO")
-#pragma pop_macro("SIGNATURE")
+#pragma pop_macro("ISSUER_DN")
 #pragma pop_macro("NAME")
+#pragma pop_macro("NUM_STANDARD_KEY_USAGE")
+#pragma pop_macro("PUBLIC_KEY")
 #pragma pop_macro("SERIAL_ID")
 #pragma pop_macro("SIG")
-#pragma pop_macro("NUM_STANDARD_KEY_USAGE")
+#pragma pop_macro("SIGNATURE")
 #pragma pop_macro("SIGNED_CERT")
+#pragma pop_macro("SIG_ALG")
+#pragma pop_macro("SUBJECT_DN")
 #pragma pop_macro("VERSION")
-#pragma pop_macro("ISSUER_DN")
 
 #endif // _sun_security_x509_X509CertImpl_h_

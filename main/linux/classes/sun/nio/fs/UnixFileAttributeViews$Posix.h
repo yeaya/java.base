@@ -10,10 +10,10 @@
 
 #pragma push_macro("GROUP_NAME")
 #undef GROUP_NAME
-#pragma push_macro("PERMISSIONS_NAME")
-#undef PERMISSIONS_NAME
 #pragma push_macro("OWNER_NAME")
 #undef OWNER_NAME
+#pragma push_macro("PERMISSIONS_NAME")
+#undef PERMISSIONS_NAME
 
 namespace java {
 	namespace nio {
@@ -82,7 +82,7 @@ public:
 } // sun
 
 #pragma pop_macro("GROUP_NAME")
-#pragma pop_macro("PERMISSIONS_NAME")
 #pragma pop_macro("OWNER_NAME")
+#pragma pop_macro("PERMISSIONS_NAME")
 
 #endif // _sun_nio_fs_UnixFileAttributeViews$Posix_h_

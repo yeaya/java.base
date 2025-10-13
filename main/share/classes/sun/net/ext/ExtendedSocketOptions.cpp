@@ -22,8 +22,8 @@
 #include <sun/net/ext/ExtendedSocketOptions$NoExtendedSocketOptions.h>
 #include <jcpp.h>
 
-#undef SOCK_STREAM
 #undef SOCK_DGRAM
+#undef SOCK_STREAM
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;

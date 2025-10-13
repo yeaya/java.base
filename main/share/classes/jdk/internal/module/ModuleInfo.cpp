@@ -53,12 +53,12 @@
 #include <jdk/internal/module/ModuleTarget.h>
 #include <jcpp.h>
 
-#undef TRANSITIVE
 #undef JLMA
-#undef SYNTHETIC
 #undef MANDATED
-#undef STATIC
 #undef OPEN
+#undef STATIC
+#undef SYNTHETIC
+#undef TRANSITIVE
 
 using $DataInput = ::java::io::DataInput;
 using $DataInputStream = ::java::io::DataInputStream;

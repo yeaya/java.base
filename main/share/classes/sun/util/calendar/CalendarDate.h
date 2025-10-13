@@ -7,12 +7,12 @@
 #include <java/lang/Integer.h>
 #include <java/lang/Long.h>
 
-#pragma push_macro("TIME_UNDEFINED")
-#undef TIME_UNDEFINED
 #pragma push_macro("FIELD_UNDEFINED")
 #undef FIELD_UNDEFINED
 #pragma push_macro("MIN_VALUE")
 #undef MIN_VALUE
+#pragma push_macro("TIME_UNDEFINED")
+#undef TIME_UNDEFINED
 
 namespace java {
 	namespace util {
@@ -113,8 +113,8 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("TIME_UNDEFINED")
 #pragma pop_macro("FIELD_UNDEFINED")
 #pragma pop_macro("MIN_VALUE")
+#pragma pop_macro("TIME_UNDEFINED")
 
 #endif // _sun_util_calendar_CalendarDate_h_

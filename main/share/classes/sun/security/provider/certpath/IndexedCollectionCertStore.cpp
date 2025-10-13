@@ -333,8 +333,8 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 					if (entry == nullptr) {
 					} else if ($instanceOf($X509CRL, entry)) {
 						$var($X509CRL, crl, $cast($X509CRL, entry));
-						if ($nc(x509Selector)->match(crl)) {
-							$nc(matches)->add(crl);
+						if (x509Selector->match(crl)) {
+							matches->add(crl);
 						}
 					} else {
 						$var($List, list, $cast($List, entry));
@@ -343,8 +343,8 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 							for (; $nc(i$)->hasNext();) {
 								$var($X509CRL, crl, $cast($X509CRL, i$->next()));
 								{
-									if ($nc(x509Selector)->match(crl)) {
-										$nc(matches)->add(crl);
+									if (x509Selector->match(crl)) {
+										matches->add(crl);
 									}
 								}
 							}

@@ -8,10 +8,10 @@
 #include <java/nio/file/attribute/AclFileAttributeView.h>
 #include <sun/nio/fs/DynamicFileAttributeView.h>
 
-#pragma push_macro("OWNER_NAME")
-#undef OWNER_NAME
 #pragma push_macro("ACL_NAME")
 #undef ACL_NAME
+#pragma push_macro("OWNER_NAME")
+#undef OWNER_NAME
 
 namespace java {
 	namespace util {
@@ -45,7 +45,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("OWNER_NAME")
 #pragma pop_macro("ACL_NAME")
+#pragma pop_macro("OWNER_NAME")
 
 #endif // _sun_nio_fs_AbstractAclFileAttributeView_h_

@@ -31,9 +31,9 @@
 
 #undef IS_ORDERED
 #undef IS_SORTED
-#undef SIZED
-#undef REFERENCE
 #undef NOT_SORTED
+#undef REFERENCE
+#undef SIZED
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -106,34 +106,34 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef UNTREEIFY_THRESHOLD
-#undef TREEIFY_THRESHOLD
-#undef RESIZE_STAMP_SHIFT
-#undef MAX_VALUE
+#undef ABASE
+#undef ASHIFT
+#undef BASECOUNT
+#undef CELLSBUSY
+#undef CELLVALUE
+#undef DEFAULT_CAPACITY
 #undef DEFAULT_CONCURRENCY_LEVEL
 #undef HASH_BITS
-#undef SIZECTL
-#undef CELLVALUE
-#undef U
-#undef TRANSFERINDEX
 #undef LOAD_FACTOR
-#undef TYPE
-#undef DEFAULT_CAPACITY
-#undef NCPU
-#undef ASHIFT
-#undef ABASE
-#undef TRUE
-#undef RESERVED
-#undef TREEBIN
-#undef MIN_TRANSFER_STRIDE
-#undef MOVED
+#undef MAXIMUM_CAPACITY
 #undef MAX_ARRAY_SIZE
 #undef MAX_RESIZERS
-#undef RESIZE_STAMP_BITS
-#undef BASECOUNT
-#undef MAXIMUM_CAPACITY
+#undef MAX_VALUE
+#undef MIN_TRANSFER_STRIDE
 #undef MIN_TREEIFY_CAPACITY
-#undef CELLSBUSY
+#undef MOVED
+#undef NCPU
+#undef RESERVED
+#undef RESIZE_STAMP_BITS
+#undef RESIZE_STAMP_SHIFT
+#undef SIZECTL
+#undef TRANSFERINDEX
+#undef TREEBIN
+#undef TREEIFY_THRESHOLD
+#undef TRUE
+#undef TYPE
+#undef U
+#undef UNTREEIFY_THRESHOLD
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
@@ -602,7 +602,7 @@ $Object* ConcurrentHashMap::get(Object$* key) {
 				return $of(e->val);
 			}
 		} else if (eh < 0) {
-			return $of(($assign(p, $nc(e)->find(h, key))) != nullptr ? $cast($Object, $nc(p)->val) : ($Object*)nullptr);
+			return $of(($assign(p, e->find(h, key))) != nullptr ? $cast($Object, $nc(p)->val) : ($Object*)nullptr);
 		}
 		while (($assign(e, $nc(e)->next)) != nullptr) {
 			bool var$3 = e->hash == h;
@@ -668,15 +668,15 @@ $Object* ConcurrentHashMap::putVal(Object$* key, Object$* value, bool onlyIfAbse
 				if (casTabAt(tab, i, nullptr, $$new($ConcurrentHashMap$Node, hash, key, value))) {
 					break;
 				}
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				$assign(tab, helpTransfer(tab, f));
 			} else {
-				bool var$4 = onlyIfAbsent && fh == hash;
-				if (var$4) {
-					bool var$5 = $equals($assign(fk, f->key), key);
-					var$4 = (var$5 || (fk != nullptr && $nc($of(key))->equals(fk)));
+				bool var$2 = onlyIfAbsent && fh == hash;
+				if (var$2) {
+					bool var$3 = $equals($assign(fk, f->key), key);
+					var$2 = (var$3 || (fk != nullptr && $of(key)->equals(fk)));
 				}
-				if (var$4 && ($assign(fv, f->val)) != nullptr) {
+				if (var$2 && ($assign(fv, f->val)) != nullptr) {
 					return $of(fv);
 				} else {
 					$var($Object, oldVal, nullptr);
@@ -688,21 +688,21 @@ $Object* ConcurrentHashMap::putVal(Object$* key, Object$* value, bool onlyIfAbse
 									$var($ConcurrentHashMap$Node, e, f);
 									for (;; ++binCount) {
 										$var($Object, ek, nullptr);
-										bool var$6 = e->hash == hash;
-										if (var$6) {
-											bool var$7 = $equals($assign(ek, e->key), key);
-											var$6 = (var$7 || (ek != nullptr && $of(key)->equals(ek)));
+										bool var$4 = $nc(e)->hash == hash;
+										if (var$4) {
+											bool var$5 = $equals($assign(ek, e->key), key);
+											var$4 = (var$5 || (ek != nullptr && $of(key)->equals(ek)));
 										}
-										if (var$6) {
-											$assign(oldVal, e->val);
+										if (var$4) {
+											$assign(oldVal, $nc(e)->val);
 											if (!onlyIfAbsent) {
 												$set(e, val, value);
 											}
 											break;
 										}
 										$var($ConcurrentHashMap$Node, pred, e);
-										if (($assign(e, e->next)) == nullptr) {
-											$set(pred, next, $new($ConcurrentHashMap$Node, hash, key, value));
+										if (($assign(e, $nc(e)->next)) == nullptr) {
+											$set($nc(pred), next, $new($ConcurrentHashMap$Node, hash, key, value));
 											break;
 										}
 									}
@@ -755,7 +755,7 @@ $Object* ConcurrentHashMap::remove(Object$* key) {
 }
 
 $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* cv) {
-	int32_t hash = spread($nc($of(key))->hashCode());
+	int32_t hash = spread($of(key)->hashCode());
 	{
 		$var($ConcurrentHashMap$NodeArray, tab, this->table);
 		for (;;) {
@@ -766,7 +766,7 @@ $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* c
 			bool var$0 = tab == nullptr || (n = $nc(tab)->length) == 0;
 			if (var$0 || ($assign(f, tabAt(tab, i = (int32_t)((n - 1) & (uint32_t)hash)))) == nullptr) {
 				break;
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				$assign(tab, helpTransfer(tab, f));
 			} else {
 				$var($Object, oldVal, nullptr);
@@ -780,13 +780,13 @@ $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* c
 								$var($ConcurrentHashMap$Node, pred, nullptr);
 								for (;;) {
 									$var($Object, ek, nullptr);
-									bool var$1 = e->hash == hash;
+									bool var$1 = $nc(e)->hash == hash;
 									if (var$1) {
 										bool var$2 = $equals($assign(ek, e->key), key);
-										var$1 = (var$2 || (ek != nullptr && $nc($of(key))->equals(ek)));
+										var$1 = (var$2 || (ek != nullptr && $of(key)->equals(ek)));
 									}
 									if (var$1) {
-										$var($Object, ev, e->val);
+										$var($Object, ev, $nc(e)->val);
 										if (cv == nullptr || $equals(cv, ev) || (ev != nullptr && $nc($of(cv))->equals(ev))) {
 											$assign(oldVal, ev);
 											if (value != nullptr) {
@@ -800,7 +800,7 @@ $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* c
 										break;
 									}
 									$assign(pred, e);
-									if (($assign(e, e->next)) == nullptr) {
+									if (($assign(e, $nc(e)->next)) == nullptr) {
 										break;
 									}
 								}
@@ -817,7 +817,7 @@ $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* c
 									$assign(oldVal, pv);
 									if (value != nullptr) {
 										$set(p, val, value);
-									} else if ($nc(t)->removeTreeNode(p)) {
+									} else if (t->removeTreeNode(p)) {
 										setTabAt(tab, i, $(untreeify(t->first)));
 									}
 								}
@@ -851,7 +851,7 @@ void ConcurrentHashMap::clear() {
 		$var($ConcurrentHashMap$Node, f, tabAt(tab, i));
 		if (f == nullptr) {
 			++i;
-		} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+		} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 			$assign(tab, helpTransfer(tab, f));
 			i = 0;
 		} else {
@@ -1222,7 +1222,7 @@ $Object* ConcurrentHashMap::computeIfAbsent(Object$* key, $Function* mappingFunc
 	if (key == nullptr || mappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	int32_t h = spread($nc($of(key))->hashCode());
+	int32_t h = spread($of(key)->hashCode());
 	$var($Object, val, nullptr);
 	int32_t binCount = 0;
 	{
@@ -1262,15 +1262,15 @@ $Object* ConcurrentHashMap::computeIfAbsent(Object$* key, $Function* mappingFunc
 				if (binCount != 0) {
 					break;
 				}
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				$assign(tab, helpTransfer(tab, f));
 			} else {
-				bool var$6 = fh == h;
-				if (var$6) {
-					bool var$7 = $equals($assign(fk, f->key), key);
-					var$6 = (var$7 || (fk != nullptr && $nc($of(key))->equals(fk)));
+				bool var$3 = fh == h;
+				if (var$3) {
+					bool var$4 = $equals($assign(fk, f->key), key);
+					var$3 = (var$4 || (fk != nullptr && $of(key)->equals(fk)));
 				}
-				if (var$6 && ($assign(fv, f->val)) != nullptr) {
+				if (var$3 && ($assign(fv, f->val)) != nullptr) {
 					return $of(fv);
 				} else {
 					bool added = false;
@@ -1282,23 +1282,23 @@ $Object* ConcurrentHashMap::computeIfAbsent(Object$* key, $Function* mappingFunc
 									$var($ConcurrentHashMap$Node, e, f);
 									for (;; ++binCount) {
 										$var($Object, ek, nullptr);
-										bool var$8 = e->hash == h;
-										if (var$8) {
-											bool var$9 = $equals($assign(ek, e->key), key);
-											var$8 = (var$9 || (ek != nullptr && $of(key)->equals(ek)));
+										bool var$5 = $nc(e)->hash == h;
+										if (var$5) {
+											bool var$6 = $equals($assign(ek, e->key), key);
+											var$5 = (var$6 || (ek != nullptr && $of(key)->equals(ek)));
 										}
-										if (var$8) {
-											$assign(val, e->val);
+										if (var$5) {
+											$assign(val, $nc(e)->val);
 											break;
 										}
 										$var($ConcurrentHashMap$Node, pred, e);
-										if (($assign(e, e->next)) == nullptr) {
+										if (($assign(e, $nc(e)->next)) == nullptr) {
 											if (($assign(val, $nc(mappingFunction)->apply(key))) != nullptr) {
-												if (pred->next != nullptr) {
+												if ($nc(pred)->next != nullptr) {
 													$throwNew($IllegalStateException, "Recursive update"_s);
 												}
 												added = true;
-												$set(pred, next, $new($ConcurrentHashMap$Node, h, key, val));
+												$set($nc(pred), next, $new($ConcurrentHashMap$Node, h, key, val));
 											}
 											break;
 										}
@@ -1309,12 +1309,12 @@ $Object* ConcurrentHashMap::computeIfAbsent(Object$* key, $Function* mappingFunc
 								$var($ConcurrentHashMap$TreeBin, t, $cast($ConcurrentHashMap$TreeBin, f));
 								$var($ConcurrentHashMap$TreeNode, r, nullptr);
 								$var($ConcurrentHashMap$TreeNode, p, nullptr);
-								bool var$10 = ($assign(r, $nc(t)->root)) != nullptr;
-								if (var$10 && ($assign(p, $nc(r)->findTreeNode(h, key, nullptr))) != nullptr) {
+								bool var$7 = ($assign(r, $nc(t)->root)) != nullptr;
+								if (var$7 && ($assign(p, $nc(r)->findTreeNode(h, key, nullptr))) != nullptr) {
 									$assign(val, $nc(p)->val);
-								} else if (($assign(val, $nc(mappingFunction)->apply(key))) != nullptr) {
+								} else if (($assign(val, mappingFunction->apply(key))) != nullptr) {
 									added = true;
-									$nc(t)->putTreeVal(h, key, val);
+									t->putTreeVal(h, key, val);
 								}
 							} else if ($instanceOf($ConcurrentHashMap$ReservationNode, f)) {
 								$throwNew($IllegalStateException, "Recursive update"_s);
@@ -1344,7 +1344,7 @@ $Object* ConcurrentHashMap::computeIfPresent(Object$* key, $BiFunction* remappin
 	if (key == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	int32_t h = spread($nc($of(key))->hashCode());
+	int32_t h = spread($of(key)->hashCode());
 	$var($Object, val, nullptr);
 	int32_t delta = 0;
 	int32_t binCount = 0;
@@ -1359,7 +1359,7 @@ $Object* ConcurrentHashMap::computeIfPresent(Object$* key, $BiFunction* remappin
 				$assign(tab, initTable());
 			} else if (($assign(f, tabAt(tab, i = (int32_t)((n - 1) & (uint32_t)h)))) == nullptr) {
 				break;
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				$assign(tab, helpTransfer(tab, f));
 			} else {
 				$synchronized(f) {
@@ -1374,7 +1374,7 @@ $Object* ConcurrentHashMap::computeIfPresent(Object$* key, $BiFunction* remappin
 									bool var$0 = e->hash == h;
 									if (var$0) {
 										bool var$1 = $equals($assign(ek, e->key), key);
-										var$0 = (var$1 || (ek != nullptr && $nc($of(key))->equals(ek)));
+										var$0 = (var$1 || (ek != nullptr && $of(key)->equals(ek)));
 									}
 									if (var$0) {
 										$assign(val, $nc(remappingFunction)->apply(key, e->val));
@@ -1402,7 +1402,7 @@ $Object* ConcurrentHashMap::computeIfPresent(Object$* key, $BiFunction* remappin
 							$var($ConcurrentHashMap$TreeBin, t, $cast($ConcurrentHashMap$TreeBin, f));
 							$var($ConcurrentHashMap$TreeNode, r, nullptr);
 							$var($ConcurrentHashMap$TreeNode, p, nullptr);
-							bool var$2 = ($assign(r, $nc(t)->root)) != nullptr;
+							bool var$2 = ($assign(r, t->root)) != nullptr;
 							if (var$2 && ($assign(p, $nc(r)->findTreeNode(h, key, nullptr))) != nullptr) {
 								$assign(val, $nc(remappingFunction)->apply(key, $nc(p)->val));
 								if (val != nullptr) {
@@ -1435,7 +1435,7 @@ $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction
 	if (key == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	int32_t h = spread($nc($of(key))->hashCode());
+	int32_t h = spread($of(key)->hashCode());
 	$var($Object, val, nullptr);
 	int32_t delta = 0;
 	int32_t binCount = 0;
@@ -1475,7 +1475,7 @@ $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction
 				if (binCount != 0) {
 					break;
 				}
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				$assign(tab, helpTransfer(tab, f));
 			} else {
 				$synchronized(f) {
@@ -1490,7 +1490,7 @@ $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction
 									bool var$1 = e->hash == h;
 									if (var$1) {
 										bool var$2 = $equals($assign(ek, e->key), key);
-										var$1 = (var$2 || (ek != nullptr && $nc($of(key))->equals(ek)));
+										var$1 = (var$2 || (ek != nullptr && $of(key)->equals(ek)));
 									}
 									if (var$1) {
 										$assign(val, $nc(remappingFunction)->apply(key, e->val));
@@ -1526,7 +1526,7 @@ $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction
 							$var($ConcurrentHashMap$TreeBin, t, $cast($ConcurrentHashMap$TreeBin, f));
 							$var($ConcurrentHashMap$TreeNode, r, nullptr);
 							$var($ConcurrentHashMap$TreeNode, p, nullptr);
-							if (($assign(r, $nc(t)->root)) != nullptr) {
+							if (($assign(r, t->root)) != nullptr) {
 								$assign(p, $nc(r)->findTreeNode(h, key, nullptr));
 							} else {
 								$assign(p, nullptr);
@@ -1538,11 +1538,11 @@ $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction
 									$set(p, val, val);
 								} else {
 									delta = 1;
-									$nc(t)->putTreeVal(h, key, val);
+									t->putTreeVal(h, key, val);
 								}
 							} else if (p != nullptr) {
 								delta = -1;
-								if ($nc(t)->removeTreeNode(p)) {
+								if (t->removeTreeNode(p)) {
 									setTabAt(tab, i, $(untreeify(t->first)));
 								}
 							}
@@ -1570,7 +1570,7 @@ $Object* ConcurrentHashMap::merge(Object$* key, Object$* value, $BiFunction* rem
 	if (key == nullptr || value == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	int32_t h = spread($nc($of(key))->hashCode());
+	int32_t h = spread($of(key)->hashCode());
 	$var($Object, val, nullptr);
 	int32_t delta = 0;
 	int32_t binCount = 0;
@@ -1589,7 +1589,7 @@ $Object* ConcurrentHashMap::merge(Object$* key, Object$* value, $BiFunction* rem
 					$assign(val, value);
 					break;
 				}
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				$assign(tab, helpTransfer(tab, f));
 			} else {
 				$synchronized(f) {
@@ -1604,7 +1604,7 @@ $Object* ConcurrentHashMap::merge(Object$* key, Object$* value, $BiFunction* rem
 									bool var$0 = e->hash == h;
 									if (var$0) {
 										bool var$1 = $equals($assign(ek, e->key), key);
-										var$0 = (var$1 || (ek != nullptr && $nc($of(key))->equals(ek)));
+										var$0 = (var$1 || (ek != nullptr && $of(key)->equals(ek)));
 									}
 									if (var$0) {
 										$assign(val, $nc(remappingFunction)->apply(e->val, value));
@@ -1633,7 +1633,7 @@ $Object* ConcurrentHashMap::merge(Object$* key, Object$* value, $BiFunction* rem
 						} else if ($instanceOf($ConcurrentHashMap$TreeBin, f)) {
 							binCount = 2;
 							$var($ConcurrentHashMap$TreeBin, t, $cast($ConcurrentHashMap$TreeBin, f));
-							$var($ConcurrentHashMap$TreeNode, r, $nc(t)->root);
+							$var($ConcurrentHashMap$TreeNode, r, t->root);
 							$var($ConcurrentHashMap$TreeNode, p, (r == nullptr) ? ($ConcurrentHashMap$TreeNode*)nullptr : $nc(r)->findTreeNode(h, key, nullptr));
 							$assign(val, (p == nullptr) ? $of(value) : $nc(remappingFunction)->apply($nc(p)->val, value));
 							if (val != nullptr) {
@@ -1645,7 +1645,7 @@ $Object* ConcurrentHashMap::merge(Object$* key, Object$* value, $BiFunction* rem
 								}
 							} else if (p != nullptr) {
 								delta = -1;
-								if ($nc(t)->removeTreeNode(p)) {
+								if (t->removeTreeNode(p)) {
 									setTabAt(tab, i, $(untreeify(t->first)));
 								}
 							}
@@ -1730,7 +1730,7 @@ $ConcurrentHashMap$NodeArray* ConcurrentHashMap::initTable() {
 					$var($Throwable, var$1, nullptr);
 					try {
 						bool var$2 = ($assign(tab, this->table)) == nullptr;
-						if (var$2 || $nc(tab)->length == 0) {
+						if (var$2 || tab->length == 0) {
 							int32_t n = (sc > 0) ? sc : ConcurrentHashMap::DEFAULT_CAPACITY;
 							$var($ConcurrentHashMap$NodeArray, nt, $new($ConcurrentHashMap$NodeArray, n));
 							$set(this, table, ($assign(tab, nt)));
@@ -1931,7 +1931,7 @@ void ConcurrentHashMap::transfer($ConcurrentHashMap$NodeArray* tab, $ConcurrentH
 				}
 			} else if (($assign(f, tabAt(tab, i))) == nullptr) {
 				advance = casTabAt(tab, i, nullptr, fwd);
-			} else if ((fh = $nc(f)->hash) == ConcurrentHashMap::MOVED) {
+			} else if ((fh = f->hash) == ConcurrentHashMap::MOVED) {
 				advance = true;
 			} else {
 				$synchronized(f) {
@@ -1984,7 +1984,7 @@ void ConcurrentHashMap::transfer($ConcurrentHashMap$NodeArray* tab, $ConcurrentH
 							int32_t lc = 0;
 							int32_t hc = 0;
 							{
-								$var($ConcurrentHashMap$Node, e, $nc(t)->first);
+								$var($ConcurrentHashMap$Node, e, t->first);
 								for (; e != nullptr; $assign(e, $nc(e)->next)) {
 									int32_t h = e->hash;
 									$var($ConcurrentHashMap$TreeNode, p, $new($ConcurrentHashMap$TreeNode, h, e->key, e->val, nullptr, nullptr));
@@ -2093,10 +2093,10 @@ void ConcurrentHashMap::fullAddCount(int64_t x, bool wasUncontended) {
 			} else if (!wasUncontended) {
 				wasUncontended = true;
 			} else {
-				$var($Object, var$8, $of(c));
-				int64_t var$9 = ConcurrentHashMap::CELLVALUE;
-				int64_t var$10 = v = $nc(c)->value;
-				if ($nc(ConcurrentHashMap::U)->compareAndSetLong(var$8, var$9, var$10, v + x)) {
+				$var($Object, var$7, $of(c));
+				int64_t var$8 = ConcurrentHashMap::CELLVALUE;
+				int64_t var$9 = v = $nc(c)->value;
+				if ($nc(ConcurrentHashMap::U)->compareAndSetLong(var$7, var$8, var$9, v + x)) {
 					break;
 				} else if (this->counterCells != cs || n >= ConcurrentHashMap::NCPU) {
 					collide = false;
@@ -2104,18 +2104,18 @@ void ConcurrentHashMap::fullAddCount(int64_t x, bool wasUncontended) {
 					collide = true;
 				} else if (this->cellsBusy == 0 && $nc(ConcurrentHashMap::U)->compareAndSetInt(this, ConcurrentHashMap::CELLSBUSY, 0, 1)) {
 					{
-						$var($Throwable, var$11, nullptr);
+						$var($Throwable, var$10, nullptr);
 						try {
 							if (this->counterCells == cs) {
 								$set(this, counterCells, $fcast($ConcurrentHashMap$CounterCellArray, $Arrays::copyOf(cs, n << 1)));
 							}
 						} catch ($Throwable&) {
-							$assign(var$11, $catch());
+							$assign(var$10, $catch());
 						} /*finally*/ {
 							this->cellsBusy = 0;
 						}
-						if (var$11 != nullptr) {
-							$throw(var$11);
+						if (var$10 != nullptr) {
+							$throw(var$10);
 						}
 					}
 					collide = false;
@@ -2126,7 +2126,7 @@ void ConcurrentHashMap::fullAddCount(int64_t x, bool wasUncontended) {
 		} else if (this->cellsBusy == 0 && this->counterCells == cs && $nc(ConcurrentHashMap::U)->compareAndSetInt(this, ConcurrentHashMap::CELLSBUSY, 0, 1)) {
 			bool init = false;
 			{
-				$var($Throwable, var$12, nullptr);
+				$var($Throwable, var$11, nullptr);
 				try {
 					if (this->counterCells == cs) {
 						$var($ConcurrentHashMap$CounterCellArray, rs, $new($ConcurrentHashMap$CounterCellArray, 2));
@@ -2135,21 +2135,21 @@ void ConcurrentHashMap::fullAddCount(int64_t x, bool wasUncontended) {
 						init = true;
 					}
 				} catch ($Throwable&) {
-					$assign(var$12, $catch());
+					$assign(var$11, $catch());
 				} /*finally*/ {
 					this->cellsBusy = 0;
 				}
-				if (var$12 != nullptr) {
-					$throw(var$12);
+				if (var$11 != nullptr) {
+					$throw(var$11);
 				}
 			}
 			if (init) {
 				break;
 			}
 		} else {
-			int64_t var$15 = ConcurrentHashMap::BASECOUNT;
-			int64_t var$16 = v = this->baseCount;
-			if ($nc(ConcurrentHashMap::U)->compareAndSetLong(this, var$15, var$16, v + x)) {
+			int64_t var$14 = ConcurrentHashMap::BASECOUNT;
+			int64_t var$15 = v = this->baseCount;
+			if ($nc(ConcurrentHashMap::U)->compareAndSetLong(this, var$14, var$15, v + x)) {
 				break;
 			}
 		}

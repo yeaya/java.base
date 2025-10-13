@@ -5,30 +5,30 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DEFAULT_STRATEGY")
-#undef DEFAULT_STRATEGY
-#pragma push_macro("DEFAULT_COMPRESSION")
-#undef DEFAULT_COMPRESSION
-#pragma push_macro("SYNC_FLUSH")
-#undef SYNC_FLUSH
-#pragma push_macro("NO_COMPRESSION")
-#undef NO_COMPRESSION
 #pragma push_macro("BEST_COMPRESSION")
 #undef BEST_COMPRESSION
-#pragma push_macro("HUFFMAN_ONLY")
-#undef HUFFMAN_ONLY
-#pragma push_macro("NO_FLUSH")
-#undef NO_FLUSH
-#pragma push_macro("DEFLATED")
-#undef DEFLATED
 #pragma push_macro("BEST_SPEED")
 #undef BEST_SPEED
+#pragma push_macro("DEFAULT_COMPRESSION")
+#undef DEFAULT_COMPRESSION
+#pragma push_macro("DEFAULT_STRATEGY")
+#undef DEFAULT_STRATEGY
+#pragma push_macro("DEFLATED")
+#undef DEFLATED
 #pragma push_macro("FILTERED")
 #undef FILTERED
-#pragma push_macro("FULL_FLUSH")
-#undef FULL_FLUSH
 #pragma push_macro("FINISH")
 #undef FINISH
+#pragma push_macro("FULL_FLUSH")
+#undef FULL_FLUSH
+#pragma push_macro("HUFFMAN_ONLY")
+#undef HUFFMAN_ONLY
+#pragma push_macro("NO_COMPRESSION")
+#undef NO_COMPRESSION
+#pragma push_macro("NO_FLUSH")
+#undef NO_FLUSH
+#pragma push_macro("SYNC_FLUSH")
+#undef SYNC_FLUSH
 
 namespace java {
 	namespace nio {
@@ -119,17 +119,17 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("DEFAULT_STRATEGY")
-#pragma pop_macro("DEFAULT_COMPRESSION")
-#pragma pop_macro("SYNC_FLUSH")
-#pragma pop_macro("NO_COMPRESSION")
 #pragma pop_macro("BEST_COMPRESSION")
-#pragma pop_macro("HUFFMAN_ONLY")
-#pragma pop_macro("NO_FLUSH")
-#pragma pop_macro("DEFLATED")
 #pragma pop_macro("BEST_SPEED")
+#pragma pop_macro("DEFAULT_COMPRESSION")
+#pragma pop_macro("DEFAULT_STRATEGY")
+#pragma pop_macro("DEFLATED")
 #pragma pop_macro("FILTERED")
-#pragma pop_macro("FULL_FLUSH")
 #pragma pop_macro("FINISH")
+#pragma pop_macro("FULL_FLUSH")
+#pragma pop_macro("HUFFMAN_ONLY")
+#pragma pop_macro("NO_COMPRESSION")
+#pragma pop_macro("NO_FLUSH")
+#pragma pop_macro("SYNC_FLUSH")
 
 #endif // _java_util_zip_Deflater_h_

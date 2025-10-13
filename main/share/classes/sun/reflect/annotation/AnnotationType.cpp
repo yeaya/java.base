@@ -35,8 +35,8 @@
 #include <sun/reflect/annotation/AnnotationType$1.h>
 #include <jcpp.h>
 
-#undef RUNTIME
 #undef CLASS
+#undef RUNTIME
 #undef TYPE
 
 using $MethodArray = $Array<::java::lang::reflect::Method>;

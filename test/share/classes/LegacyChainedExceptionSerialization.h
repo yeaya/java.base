@@ -7,20 +7,20 @@
 
 #pragma push_macro("CNFE_OLD_VERSION")
 #undef CNFE_OLD_VERSION
-#pragma push_macro("ITE1_OLD_VERSION")
-#undef ITE1_OLD_VERSION
-#pragma push_macro("UTE1_OLD_VERSION")
-#undef UTE1_OLD_VERSION
-#pragma push_macro("PAE_OLD_VERSION")
-#undef PAE_OLD_VERSION
-#pragma push_macro("ITE2_OLD_VERSION")
-#undef ITE2_OLD_VERSION
-#pragma push_macro("UTE2_OLD_VERSION")
-#undef UTE2_OLD_VERSION
-#pragma push_macro("SERIALIZED_DATA")
-#undef SERIALIZED_DATA
 #pragma push_macro("EIIE_OLD_VERSION")
 #undef EIIE_OLD_VERSION
+#pragma push_macro("ITE1_OLD_VERSION")
+#undef ITE1_OLD_VERSION
+#pragma push_macro("ITE2_OLD_VERSION")
+#undef ITE2_OLD_VERSION
+#pragma push_macro("PAE_OLD_VERSION")
+#undef PAE_OLD_VERSION
+#pragma push_macro("SERIALIZED_DATA")
+#undef SERIALIZED_DATA
+#pragma push_macro("UTE1_OLD_VERSION")
+#undef UTE1_OLD_VERSION
+#pragma push_macro("UTE2_OLD_VERSION")
+#undef UTE2_OLD_VERSION
 
 namespace java {
 	namespace lang {
@@ -55,12 +55,12 @@ public:
 };
 
 #pragma pop_macro("CNFE_OLD_VERSION")
-#pragma pop_macro("ITE1_OLD_VERSION")
-#pragma pop_macro("UTE1_OLD_VERSION")
-#pragma pop_macro("PAE_OLD_VERSION")
-#pragma pop_macro("ITE2_OLD_VERSION")
-#pragma pop_macro("UTE2_OLD_VERSION")
-#pragma pop_macro("SERIALIZED_DATA")
 #pragma pop_macro("EIIE_OLD_VERSION")
+#pragma pop_macro("ITE1_OLD_VERSION")
+#pragma pop_macro("ITE2_OLD_VERSION")
+#pragma pop_macro("PAE_OLD_VERSION")
+#pragma pop_macro("SERIALIZED_DATA")
+#pragma pop_macro("UTE1_OLD_VERSION")
+#pragma pop_macro("UTE2_OLD_VERSION")
 
 #endif // _LegacyChainedExceptionSerialization_h_

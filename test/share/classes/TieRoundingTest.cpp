@@ -20,9 +20,9 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
+#undef HALF_DOWN
 #undef HALF_EVEN
 #undef HALF_UP
-#undef HALF_DOWN
 #undef US
 
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;

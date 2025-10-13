@@ -12,8 +12,8 @@
 #include <sun/security/util/SecurityProviderConstants.h>
 #include <jcpp.h>
 
-#undef PSS
 #undef DEF_RSASSA_PSS_KEY_SIZE
+#undef PSS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

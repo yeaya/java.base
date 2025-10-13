@@ -52,15 +52,15 @@
 #include <jdk/internal/org/objectweb/asm/tree/VarInsnNode.h>
 #include <jcpp.h>
 
+#undef ACC_ABSTRACT
+#undef ASM4
+#undef ASM5
 #undef ASM7
 #undef ASM8
-#undef ACC_ABSTRACT
-#undef SOURCE_DEPRECATED
-#undef ASM5
 #undef INVOKEINTERFACE
-#undef SOURCE_MASK
-#undef ASM4
 #undef METHOD
+#undef SOURCE_DEPRECATED
+#undef SOURCE_MASK
 
 using $ListArray = $Array<::java::util::List>;
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;

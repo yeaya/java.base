@@ -134,7 +134,6 @@ double FdLibm$Exp::compute(double x) {
 		}
 		x = hi - lo;
 	} else if (hx < 0x3E300000) {
-		$init(FdLibm$Exp);
 		if (FdLibm$Exp::huge + x > FdLibm$Exp::one) {
 			return FdLibm$Exp::one + x;
 		}

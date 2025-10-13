@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("LONG_5_POW")
+#undef LONG_5_POW
+#pragma push_macro("LONG_MASK")
+#undef LONG_MASK
 #pragma push_macro("MAX_FIVE_POW")
 #undef MAX_FIVE_POW
-#pragma push_macro("ZERO")
-#undef ZERO
+#pragma push_macro("POW_5_CACHE")
+#undef POW_5_CACHE
 #pragma push_macro("S")
 #undef S
 #pragma push_macro("SMALL_5_POW")
 #undef SMALL_5_POW
-#pragma push_macro("LONG_MASK")
-#undef LONG_MASK
-#pragma push_macro("POW_5_CACHE")
-#undef POW_5_CACHE
-#pragma push_macro("LONG_5_POW")
-#undef LONG_5_POW
+#pragma push_macro("ZERO")
+#undef ZERO
 
 namespace java {
 	namespace math {
@@ -86,12 +86,12 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("LONG_5_POW")
+#pragma pop_macro("LONG_MASK")
 #pragma pop_macro("MAX_FIVE_POW")
-#pragma pop_macro("ZERO")
+#pragma pop_macro("POW_5_CACHE")
 #pragma pop_macro("S")
 #pragma pop_macro("SMALL_5_POW")
-#pragma pop_macro("LONG_MASK")
-#pragma pop_macro("POW_5_CACHE")
-#pragma pop_macro("LONG_5_POW")
+#pragma pop_macro("ZERO")
 
 #endif // _jdk_internal_math_FDBigInteger_h_

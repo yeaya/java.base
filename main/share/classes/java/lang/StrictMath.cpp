@@ -24,9 +24,9 @@
 
 #undef DEGREES_TO_RADIANS
 #undef E
-#undef SIGNIF_BIT_MASK
 #undef PI
 #undef RADIANS_TO_DEGREES
+#undef SIGNIF_BIT_MASK
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

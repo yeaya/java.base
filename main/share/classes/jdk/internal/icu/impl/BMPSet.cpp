@@ -123,7 +123,7 @@ int32_t BMPSet::span($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition*
 				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) == 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c >= 0x0000DC00 || (i + 1) == limit || (c2 = $nc(s)->charAt(i + 1)) < 0x0000DC00 || c2 >= 0x0000E000) {
+			} else if (c < 0x0000D800 || c >= 0x0000DC00 || (i + 1) == limit || (c2 = s->charAt(i + 1)) < 0x0000DC00 || c2 >= 0x0000E000) {
 				int32_t lead = c >> 12;
 				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
 				if (twoBits <= 1) {
@@ -154,7 +154,7 @@ int32_t BMPSet::span($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition*
 				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) != 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c >= 0x0000DC00 || (i + 1) == limit || (c2 = $nc(s)->charAt(i + 1)) < 0x0000DC00 || c2 >= 0x0000E000) {
+			} else if (c < 0x0000D800 || c >= 0x0000DC00 || (i + 1) == limit || (c2 = s->charAt(i + 1)) < 0x0000DC00 || c2 >= 0x0000E000) {
 				int32_t lead = c >> 12;
 				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
 				if (twoBits <= 1) {
@@ -197,7 +197,7 @@ int32_t BMPSet::spanBack($CharSequence* s, int32_t limit, $UnicodeSet$SpanCondit
 				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) == 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c < 0x0000DC00 || 0 == limit || (c2 = $nc(s)->charAt(limit - 1)) < 0x0000D800 || c2 >= 0x0000DC00) {
+			} else if (c < 0x0000D800 || c < 0x0000DC00 || 0 == limit || (c2 = s->charAt(limit - 1)) < 0x0000D800 || c2 >= 0x0000DC00) {
 				int32_t lead = c >> 12;
 				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
 				if (twoBits <= 1) {
@@ -229,7 +229,7 @@ int32_t BMPSet::spanBack($CharSequence* s, int32_t limit, $UnicodeSet$SpanCondit
 				if (((int32_t)($nc(this->table7FF)->get((int32_t)(c & (uint32_t)63)) & (uint32_t)($sl(1, c >> 6)))) != 0) {
 					break;
 				}
-			} else if (c < 0x0000D800 || c < 0x0000DC00 || 0 == limit || (c2 = $nc(s)->charAt(limit - 1)) < 0x0000D800 || c2 >= 0x0000DC00) {
+			} else if (c < 0x0000D800 || c < 0x0000DC00 || 0 == limit || (c2 = s->charAt(limit - 1)) < 0x0000D800 || c2 >= 0x0000DC00) {
 				int32_t lead = c >> 12;
 				int32_t twoBits = (int32_t)(($sr($nc(this->bmpBlockBits)->get((int32_t)((c >> 6) & (uint32_t)63)), lead)) & (uint32_t)0x00010001);
 				if (twoBits <= 1) {

@@ -27,10 +27,10 @@
 #include <java/util/concurrent/locks/LockSupport.h>
 #include <jcpp.h>
 
-#undef SHEAD
-#undef REQUEST
 #undef DATA
 #undef FULFILLING
+#undef REQUEST
+#undef SHEAD
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -150,7 +150,7 @@ $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_
 							clean(s);
 							return $of(nullptr);
 						}
-					} else if (($assign(m, $nc(s)->match)) != nullptr) {
+					} else if (($assign(m, s->match)) != nullptr) {
 						break;
 					} else if (stat <= 0) {
 						if (stat < 0 && h == nullptr && this->head == s) {
@@ -158,7 +158,7 @@ $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_
 							$Thread::yield();
 						} else {
 							stat = 1;
-							$set($nc(s), waiter, w);
+							$set(s, waiter, w);
 						}
 					} else if (!timed) {
 						$LockSupport::setCurrentBlocker(this);
@@ -173,20 +173,20 @@ $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_
 					}
 				}
 				if (stat == 1) {
-					$nc(s)->forgetWaiter();
+					s->forgetWaiter();
 				}
-				$var($Object, result, (mode == SynchronousQueue$TransferStack::REQUEST) ? $nc(m)->item : $nc(s)->item);
+				$var($Object, result, (mode == SynchronousQueue$TransferStack::REQUEST) ? $nc(m)->item : s->item);
 				if (h != nullptr && h->next == s) {
 					casHead(h, s->next);
 				}
 				return $of(result);
 			}
-		} else if (!isFulfilling($nc(h)->mode)) {
-			if ($nc(h)->isCancelled()) {
+		} else if (!isFulfilling(h->mode)) {
+			if (h->isCancelled()) {
 				casHead(h, h->next);
 			} else if (casHead(h, $assign(s, snode(s, e, h, SynchronousQueue$TransferStack::FULFILLING | mode)))) {
 				for (;;) {
-					$var($SynchronousQueue$TransferStack$SNode, m, $nc(s)->next);
+					$var($SynchronousQueue$TransferStack$SNode, m, s->next);
 					if (m == nullptr) {
 						casHead(s, nullptr);
 						$assign(s, nullptr);
@@ -202,7 +202,7 @@ $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_
 				}
 			}
 		} else {
-			$var($SynchronousQueue$TransferStack$SNode, m, $nc(h)->next);
+			$var($SynchronousQueue$TransferStack$SNode, m, h->next);
 			if (m == nullptr) {
 				casHead(h, nullptr);
 			} else {
@@ -218,7 +218,7 @@ $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_
 }
 
 void SynchronousQueue$TransferStack::clean($SynchronousQueue$TransferStack$SNode* s) {
-	$set($nc(s), item, nullptr);
+	$set(s, item, nullptr);
 	s->forgetWaiter();
 	$var($SynchronousQueue$TransferStack$SNode, past, s->next);
 	if (past != nullptr && past->isCancelled()) {

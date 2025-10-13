@@ -5,14 +5,14 @@
 
 #include <java/util/regex/Pattern$Node.h>
 
-#pragma push_macro("LEFT")
-#undef LEFT
-#pragma push_macro("RIGHT")
-#undef RIGHT
-#pragma push_macro("NONE")
-#undef NONE
 #pragma push_macro("BOTH")
 #undef BOTH
+#pragma push_macro("LEFT")
+#undef LEFT
+#pragma push_macro("NONE")
+#undef NONE
+#pragma push_macro("RIGHT")
+#undef RIGHT
 
 namespace java {
 	namespace lang {
@@ -51,9 +51,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("LEFT")
-#pragma pop_macro("RIGHT")
-#pragma pop_macro("NONE")
 #pragma pop_macro("BOTH")
+#pragma pop_macro("LEFT")
+#pragma pop_macro("NONE")
+#pragma pop_macro("RIGHT")
 
 #endif // _java_util_regex_Pattern$Bound_h_

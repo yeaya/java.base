@@ -16,8 +16,8 @@
 #include <jdk/internal/org/objectweb/asm/SymbolTable.h>
 #include <jcpp.h>
 
-#undef MODULE
 #undef ASM8
+#undef MODULE
 #undef MODULE_MAIN_CLASS
 #undef MODULE_PACKAGES
 

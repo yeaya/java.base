@@ -9,12 +9,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef EOF
+#undef INTERRUPTED
+#undef THROWN
 #undef UNAVAILABLE
 #undef UNSUPPORTED
-#undef THROWN
-#undef EOF
 #undef UNSUPPORTED_CASE
-#undef INTERRUPTED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

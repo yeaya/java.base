@@ -41,24 +41,24 @@
 #include <jdk/internal/org/objectweb/asm/tree/TryCatchBlockNode.h>
 #include <jcpp.h>
 
-#undef RET
-#undef GOTO
-#undef ASM8
-#undef FRETURN
-#undef LOOKUPSWITCH
-#undef LRETURN
-#undef ARETURN
-#undef JSR
-#undef TABLESWITCH
-#undef ATHROW
-#undef IRETURN
-#undef RETURN
-#undef LOOKUPSWITCH_INSN
-#undef TABLESWITCH_INSN
-#undef LABEL
 #undef ACONST_NULL
+#undef ARETURN
+#undef ASM8
+#undef ATHROW
 #undef DRETURN
+#undef FRETURN
+#undef GOTO
+#undef IRETURN
+#undef JSR
 #undef JUMP_INSN
+#undef LABEL
+#undef LOOKUPSWITCH
+#undef LOOKUPSWITCH_INSN
+#undef LRETURN
+#undef RET
+#undef RETURN
+#undef TABLESWITCH
+#undef TABLESWITCH_INSN
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -265,7 +265,7 @@ void JSRInlinerAdapter::findReachableInsns(int32_t insnIndex, $BitSet* subroutin
 		if (var$0 && currentInsnNode->getOpcode() != $Opcodes::JSR) {
 			$var($JumpInsnNode, jumpInsnNode, $cast($JumpInsnNode, currentInsnNode));
 			findReachableInsns($nc(this->instructions)->indexOf(jumpInsnNode->label), subroutineInsns, visitedInsns);
-		} else if ($nc(currentInsnNode)->getType() == $AbstractInsnNode::TABLESWITCH_INSN) {
+		} else if (currentInsnNode->getType() == $AbstractInsnNode::TABLESWITCH_INSN) {
 			$var($TableSwitchInsnNode, tableSwitchInsnNode, $cast($TableSwitchInsnNode, currentInsnNode));
 			findReachableInsns($nc(this->instructions)->indexOf(tableSwitchInsnNode->dflt), subroutineInsns, visitedInsns);
 			{
@@ -277,7 +277,7 @@ void JSRInlinerAdapter::findReachableInsns(int32_t insnIndex, $BitSet* subroutin
 					}
 				}
 			}
-		} else if ($nc(currentInsnNode)->getType() == $AbstractInsnNode::LOOKUPSWITCH_INSN) {
+		} else if (currentInsnNode->getType() == $AbstractInsnNode::LOOKUPSWITCH_INSN) {
 			$var($LookupSwitchInsnNode, lookupSwitchInsnNode, $cast($LookupSwitchInsnNode, currentInsnNode));
 			findReachableInsns($nc(this->instructions)->indexOf(lookupSwitchInsnNode->dflt), subroutineInsns, visitedInsns);
 			{
@@ -350,8 +350,8 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 				$nc(newInstructions)->add(static_cast<$AbstractInsnNode*>(clonedLabelNode));
 				$assign(previousLabelNode, clonedLabelNode);
 			}
-		} else if ($nc(instantiation)->findOwner(i) == instantiation) {
-			if ($nc(insnNode)->getOpcode() == $Opcodes::RET) {
+		} else if (instantiation->findOwner(i) == instantiation) {
+			if (insnNode->getOpcode() == $Opcodes::RET) {
 				$var($LabelNode, retLabel, nullptr);
 				{
 					$var($JSRInlinerAdapter$Instantiation, retLabelOwner, instantiation);
@@ -365,7 +365,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 					$throwNew($IllegalArgumentException, $$str({"Instruction #"_s, $$str(i), " is a RET not owned by any subroutine"_s}));
 				}
 				$nc(newInstructions)->add(static_cast<$AbstractInsnNode*>($$new($JumpInsnNode, $Opcodes::GOTO, retLabel)));
-			} else if ($nc(insnNode)->getOpcode() == $Opcodes::JSR) {
+			} else if (insnNode->getOpcode() == $Opcodes::JSR) {
 				$var($LabelNode, jsrLabelNode, $nc(($cast($JumpInsnNode, insnNode)))->label);
 				$var($BitSet, subroutineInsns, $cast($BitSet, $nc(this->subroutinesInsns)->get(jsrLabelNode)));
 				$var($JSRInlinerAdapter$Instantiation, newInstantiation, $new($JSRInlinerAdapter$Instantiation, this, instantiation, subroutineInsns));
@@ -384,7 +384,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 		for (; $nc(i$)->hasNext();) {
 			$var($TryCatchBlockNode, tryCatchBlockNode, $cast($TryCatchBlockNode, i$->next()));
 			{
-				$var($LabelNode, start, $nc(instantiation)->getClonedLabel($nc(tryCatchBlockNode)->start));
+				$var($LabelNode, start, instantiation->getClonedLabel($nc(tryCatchBlockNode)->start));
 				$var($LabelNode, end, instantiation->getClonedLabel($nc(tryCatchBlockNode)->end));
 				if (start != end) {
 					$var($LabelNode, handler, instantiation->getClonedLabelForJumpInsn($nc(tryCatchBlockNode)->handler));
@@ -401,7 +401,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 		for (; $nc(i$)->hasNext();) {
 			$var($LocalVariableNode, localVariableNode, $cast($LocalVariableNode, i$->next()));
 			{
-				$var($LabelNode, start, $nc(instantiation)->getClonedLabel($nc(localVariableNode)->start));
+				$var($LabelNode, start, instantiation->getClonedLabel($nc(localVariableNode)->start));
 				$var($LabelNode, end, instantiation->getClonedLabel($nc(localVariableNode)->end));
 				if (start != end) {
 					$nc(newLocalVariables)->add($$new($LocalVariableNode, $nc(localVariableNode)->name, localVariableNode->desc, localVariableNode->signature, start, end, localVariableNode->index));

@@ -26,8 +26,8 @@
 #include <jcpp.h>
 
 #undef PRIME_CERTAINTY
-#undef TWO
 #undef PROPERTY_NAME
+#undef TWO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $CharSequence = ::java::lang::CharSequence;

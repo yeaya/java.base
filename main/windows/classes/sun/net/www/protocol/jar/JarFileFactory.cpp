@@ -252,9 +252,9 @@ $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
 					$var($SecurityException, se, $catch());
 					if (($instanceOf($FilePermission, perm)) && $nc($(perm->getActions()))->indexOf("read"_s) != -1) {
 						sm->checkRead($(perm->getName()));
-					} else if (($instanceOf($SocketPermission, perm)) && $nc($($nc(perm)->getActions()))->indexOf("connect"_s) != -1) {
+					} else if (($instanceOf($SocketPermission, perm)) && $nc($(perm->getActions()))->indexOf("connect"_s) != -1) {
 						$var($String, var$0, $nc(url)->getHost());
-						$nc(sm)->checkConnect(var$0, url->getPort());
+						sm->checkConnect(var$0, url->getPort());
 					} else {
 						$throw(se);
 					}

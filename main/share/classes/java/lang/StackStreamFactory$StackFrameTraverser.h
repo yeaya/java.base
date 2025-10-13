@@ -7,12 +7,12 @@
 #include <java/lang/StackStreamFactory$AbstractStackWalker.h>
 #include <java/util/Spliterator.h>
 
-#pragma push_macro("ORDERED")
-#undef ORDERED
 #pragma push_macro("CHARACTERISTICS")
 #undef CHARACTERISTICS
 #pragma push_macro("IMMUTABLE")
 #undef IMMUTABLE
+#pragma push_macro("ORDERED")
+#undef ORDERED
 
 namespace java {
 	namespace lang {
@@ -60,8 +60,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("ORDERED")
 #pragma pop_macro("CHARACTERISTICS")
 #pragma pop_macro("IMMUTABLE")
+#pragma pop_macro("ORDERED")
 
 #endif // _java_lang_StackStreamFactory$StackFrameTraverser_h_

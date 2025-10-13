@@ -58,12 +58,12 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
-#undef ILLEGAL_PARAMETER
+#undef CERTIFICATE_VERIFY
 #undef CHANGE_CIPHER_SPEC
-#undef INTERNAL_ERROR
 #undef FINISHED
+#undef ILLEGAL_PARAMETER
+#undef INTERNAL_ERROR
 #undef UNEXPECTED_MESSAGE
 
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

@@ -20,9 +20,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
 #undef SIZED
+#undef SUBSIZED
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

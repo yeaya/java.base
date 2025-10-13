@@ -37,13 +37,13 @@
 #include <java/util/stream/StreamSupport.h>
 #include <jcpp.h>
 
-#undef WORD_MASK
-#undef MAX_INITIAL_CAPACITY
-#undef BITS_PER_WORD
-#undef LITTLE_ENDIAN
 #undef ADDRESS_BITS_PER_WORD
-#undef MAX_VALUE
+#undef BITS_PER_WORD
 #undef BIT_INDEX_MASK
+#undef LITTLE_ENDIAN
+#undef MAX_INITIAL_CAPACITY
+#undef MAX_VALUE
+#undef WORD_MASK
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

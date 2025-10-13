@@ -14,8 +14,8 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <jcpp.h>
 
-#undef FALLBACK
 #undef CLDR
+#undef FALLBACK
 #undef HOST
 #undef JRE
 #undef SPI

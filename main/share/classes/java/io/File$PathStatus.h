@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("INVALID")
-#undef INVALID
 #pragma push_macro("CHECKED")
 #undef CHECKED
+#pragma push_macro("INVALID")
+#undef INVALID
 
 namespace java {
 	namespace io {
@@ -30,7 +30,7 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("INVALID")
 #pragma pop_macro("CHECKED")
+#pragma pop_macro("INVALID")
 
 #endif // _java_io_File$PathStatus_h_

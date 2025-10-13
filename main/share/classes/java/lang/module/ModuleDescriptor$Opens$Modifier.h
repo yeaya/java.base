@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SYNTHETIC")
-#undef SYNTHETIC
 #pragma push_macro("MANDATED")
 #undef MANDATED
+#pragma push_macro("SYNTHETIC")
+#undef SYNTHETIC
 
 namespace java {
 	namespace lang {
@@ -32,7 +32,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("SYNTHETIC")
 #pragma pop_macro("MANDATED")
+#pragma pop_macro("SYNTHETIC")
 
 #endif // _java_lang_module_ModuleDescriptor$Opens$Modifier_h_

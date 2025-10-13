@@ -8,12 +8,12 @@
 
 #pragma push_macro("ITERATION")
 #undef ITERATION
-#pragma push_macro("W")
-#undef W
 #pragma push_macro("ROUND_CONSTS")
 #undef ROUND_CONSTS
 #pragma push_macro("SHA5")
 #undef SHA5
+#pragma push_macro("W")
+#undef W
 
 namespace sun {
 	namespace security {
@@ -52,8 +52,8 @@ public:
 } // sun
 
 #pragma pop_macro("ITERATION")
-#pragma pop_macro("W")
 #pragma pop_macro("ROUND_CONSTS")
 #pragma pop_macro("SHA5")
+#pragma pop_macro("W")
 
 #endif // _sun_security_provider_SHA5_h_

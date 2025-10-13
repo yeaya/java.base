@@ -38,14 +38,14 @@
 #include <java/util/stream/WhileOps$4Op.h>
 #include <jcpp.h>
 
+#undef DOUBLE_VALUE
 #undef DROP_FLAGS
 #undef INT_VALUE
-#undef NOT_SIZED
-#undef TAKE_FLAGS
-#undef LONG_VALUE
-#undef REFERENCE
-#undef DOUBLE_VALUE
 #undef IS_SHORT_CIRCUIT
+#undef LONG_VALUE
+#undef NOT_SIZED
+#undef REFERENCE
+#undef TAKE_FLAGS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

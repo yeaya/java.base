@@ -63,11 +63,11 @@
 
 #undef INSTRUCTION_CONSTANTS
 #undef INSTRUCTION_FORMATS
-#undef INSTRUCTION_NAMES
 #undef INSTRUCTION_INFO
+#undef INSTRUCTION_NAMES
 #undef INSTRUCTION_POPS
-#undef WIDE_SIGNATURE
 #undef OBJ_SIGNATURE
+#undef WIDE_SIGNATURE
 
 using $FileArray = $Array<::java::io::File>;
 using $Indify$1 = ::indify::Indify$1;
@@ -788,7 +788,7 @@ void Indify::indify($String* a) {
 		bool var$2 = fn->endsWith(".jar"_s);
 		if (var$2 && f->isFile()) {
 			indifyJar(f, this->dest);
-		} else if ($nc(f)->isDirectory()) {
+		} else if (f->isDirectory()) {
 			indifyTree(f, this->dest);
 		} else if (!this->keepgoing) {
 			$throwNew($RuntimeException, $$str({"unrecognized file: "_s, a}));
@@ -845,7 +845,7 @@ void Indify::indifyTree($File* f, $File* dest) {
 		$nc($System::err)->println($$str({"reading directory: "_s, f}));
 	}
 	{
-		$var($FileArray, arr$, $nc(f)->listFiles(static_cast<$FilenameFilter*>($$new($Indify$1, this))));
+		$var($FileArray, arr$, f->listFiles(static_cast<$FilenameFilter*>($$new($Indify$1, this))));
 		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
@@ -853,7 +853,7 @@ void Indify::indifyTree($File* f, $File* dest) {
 			{
 				if ($nc($($nc(f2)->getName()))->endsWith(".class"_s)) {
 					indifyFile(f2, dest);
-				} else if ($nc(f2)->isDirectory()) {
+				} else if (f2->isDirectory()) {
 					indifyTree(f2, dest);
 				}
 			}
@@ -870,10 +870,10 @@ $DataInputStream* Indify::openInput($File* f) {
 }
 
 $DataOutputStream* Indify::openOutput($File* f) {
-	if (!this->overwrite && $nc(f)->exists()) {
+	if (!this->overwrite && f->exists()) {
 		$throwNew($IOException, $$str({"file already exists: "_s, f}));
 	}
-	ensureDirectory($($nc(f)->getParentFile()));
+	ensureDirectory($(f->getParentFile()));
 	return $new($DataOutputStream, $$new($BufferedOutputStream, $$new($FileOutputStream, f)));
 }
 
@@ -925,7 +925,7 @@ $Object* Indify::readInput($DataInputStream* in, $Class* dataClass) {
 			}
 		}
 	}
-	return $of($nc(dataClass)->cast(data));
+	return $of(dataClass->cast(data));
 }
 
 $Object* Indify::readInput($bytes* bytes, $Class* dataClass) {

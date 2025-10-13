@@ -35,9 +35,9 @@
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
 
-#undef WILDCARD_NAME
-#undef WILDCARD_CLASS
 #undef PARAMS
+#undef WILDCARD_CLASS
+#undef WILDCARD_NAME
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ClassCastException = ::java::lang::ClassCastException;

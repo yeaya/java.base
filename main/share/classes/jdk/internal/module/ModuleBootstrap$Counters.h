@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("PUBLISH_COUNTERS")
-#undef PUBLISH_COUNTERS
 #pragma push_macro("PRINT_COUNTERS")
 #undef PRINT_COUNTERS
+#pragma push_macro("PUBLISH_COUNTERS")
+#undef PUBLISH_COUNTERS
 
 namespace java {
 	namespace util {
@@ -39,7 +39,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("PUBLISH_COUNTERS")
 #pragma pop_macro("PRINT_COUNTERS")
+#pragma pop_macro("PUBLISH_COUNTERS")
 
 #endif // _jdk_internal_module_ModuleBootstrap$Counters_h_

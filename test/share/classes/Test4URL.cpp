@@ -25,14 +25,14 @@
 #include <java/net/URL.h>
 #include <jcpp.h>
 
-#undef PATH
-#undef REF
-#undef USERINFO
-#undef PORT
-#undef QUERY
-#undef PROTOCOL
 #undef HOST
 #undef PARSEFAIL
+#undef PATH
+#undef PORT
+#undef PROTOCOL
+#undef QUERY
+#undef REF
+#undef USERINFO
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

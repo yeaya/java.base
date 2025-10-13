@@ -102,7 +102,7 @@ int32_t PushbackInputStream::read($bytes* b, int32_t off, int32_t len) {
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException);
-	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
+	} else if (off < 0 || len < 0 || len > b->length - off) {
 		$throwNew($IndexOutOfBoundsException);
 	} else if (len == 0) {
 		return 0;
@@ -145,7 +145,7 @@ void PushbackInputStream::unread($bytes* b, int32_t off, int32_t len) {
 }
 
 void PushbackInputStream::unread($bytes* b) {
-	unread(b, 0, $nc(b)->length);
+	unread(b, 0, b->length);
 }
 
 int32_t PushbackInputStream::available() {

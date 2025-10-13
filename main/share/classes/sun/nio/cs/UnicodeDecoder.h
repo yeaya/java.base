@@ -7,14 +7,14 @@
 
 #pragma push_macro("BIG")
 #undef BIG
-#pragma push_macro("REVERSED_MARK")
-#undef REVERSED_MARK
-#pragma push_macro("LITTLE")
-#undef LITTLE
 #pragma push_macro("BYTE_ORDER_MARK")
 #undef BYTE_ORDER_MARK
+#pragma push_macro("LITTLE")
+#undef LITTLE
 #pragma push_macro("NONE")
 #undef NONE
+#pragma push_macro("REVERSED_MARK")
+#undef REVERSED_MARK
 
 namespace java {
 	namespace nio {
@@ -60,9 +60,9 @@ public:
 } // sun
 
 #pragma pop_macro("BIG")
-#pragma pop_macro("REVERSED_MARK")
-#pragma pop_macro("LITTLE")
 #pragma pop_macro("BYTE_ORDER_MARK")
+#pragma pop_macro("LITTLE")
 #pragma pop_macro("NONE")
+#pragma pop_macro("REVERSED_MARK")
 
 #endif // _sun_nio_cs_UnicodeDecoder_h_

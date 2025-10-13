@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/util/WeakHashMap.h>
 
-#pragma push_macro("INITIAL_ENTRIES")
-#undef INITIAL_ENTRIES
 #pragma push_macro("CACHE_LOAD_LIMIT")
 #undef CACHE_LOAD_LIMIT
+#pragma push_macro("INITIAL_ENTRIES")
+#undef INITIAL_ENTRIES
 #pragma push_macro("PROBE_LIMIT")
 #undef PROBE_LIMIT
 
@@ -61,8 +61,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("INITIAL_ENTRIES")
 #pragma pop_macro("CACHE_LOAD_LIMIT")
+#pragma pop_macro("INITIAL_ENTRIES")
 #pragma pop_macro("PROBE_LIMIT")
 
 #endif // _java_lang_ClassValue$ClassValueMap_h_

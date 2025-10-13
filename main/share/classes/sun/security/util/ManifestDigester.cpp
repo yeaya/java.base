@@ -27,10 +27,10 @@
 #include <sun/security/util/ManifestDigester$Section.h>
 #include <jcpp.h>
 
-#undef UNASSIGNED
-#undef UTF_8
 #undef MF_MAIN_ATTRS
 #undef MIN_VALUE
+#undef UNASSIGNED
+#undef UTF_8
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $Serializable = ::java::io::Serializable;

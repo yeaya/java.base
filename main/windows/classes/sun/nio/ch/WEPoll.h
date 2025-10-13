@@ -5,34 +5,34 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("SIZEOF_EPOLLEVENT")
-#undef SIZEOF_EPOLLEVENT
-#pragma push_macro("EPOLLERR")
-#undef EPOLLERR
-#pragma push_macro("EPOLL_CTL_DEL")
-#undef EPOLL_CTL_DEL
-#pragma push_macro("EPOLLPRI")
-#undef EPOLLPRI
-#pragma push_macro("EPOLLIN")
-#undef EPOLLIN
-#pragma push_macro("OFFSETOF_SOCK")
-#undef OFFSETOF_SOCK
-#pragma push_macro("EPOLL_CTL_MOD")
-#undef EPOLL_CTL_MOD
-#pragma push_macro("EPOLL_CTL_ADD")
-#undef EPOLL_CTL_ADD
 #pragma push_macro("ADDRESS_SIZE")
 #undef ADDRESS_SIZE
-#pragma push_macro("EPOLLOUT")
-#undef EPOLLOUT
-#pragma push_macro("OFFSETOF_EVENTS")
-#undef OFFSETOF_EVENTS
+#pragma push_macro("EPOLLERR")
+#undef EPOLLERR
 #pragma push_macro("EPOLLHUP")
 #undef EPOLLHUP
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
+#pragma push_macro("EPOLLIN")
+#undef EPOLLIN
 #pragma push_macro("EPOLLONESHOT")
 #undef EPOLLONESHOT
+#pragma push_macro("EPOLLOUT")
+#undef EPOLLOUT
+#pragma push_macro("EPOLLPRI")
+#undef EPOLLPRI
+#pragma push_macro("EPOLL_CTL_ADD")
+#undef EPOLL_CTL_ADD
+#pragma push_macro("EPOLL_CTL_DEL")
+#undef EPOLL_CTL_DEL
+#pragma push_macro("EPOLL_CTL_MOD")
+#undef EPOLL_CTL_MOD
+#pragma push_macro("OFFSETOF_EVENTS")
+#undef OFFSETOF_EVENTS
+#pragma push_macro("OFFSETOF_SOCK")
+#undef OFFSETOF_SOCK
+#pragma push_macro("SIZEOF_EPOLLEVENT")
+#undef SIZEOF_EPOLLEVENT
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace jdk {
 	namespace internal {
@@ -85,19 +85,19 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("SIZEOF_EPOLLEVENT")
-#pragma pop_macro("EPOLLERR")
-#pragma pop_macro("EPOLL_CTL_DEL")
-#pragma pop_macro("EPOLLPRI")
-#pragma pop_macro("EPOLLIN")
-#pragma pop_macro("OFFSETOF_SOCK")
-#pragma pop_macro("EPOLL_CTL_MOD")
-#pragma pop_macro("EPOLL_CTL_ADD")
 #pragma pop_macro("ADDRESS_SIZE")
-#pragma pop_macro("EPOLLOUT")
-#pragma pop_macro("OFFSETOF_EVENTS")
+#pragma pop_macro("EPOLLERR")
 #pragma pop_macro("EPOLLHUP")
-#pragma pop_macro("UNSAFE")
+#pragma pop_macro("EPOLLIN")
 #pragma pop_macro("EPOLLONESHOT")
+#pragma pop_macro("EPOLLOUT")
+#pragma pop_macro("EPOLLPRI")
+#pragma pop_macro("EPOLL_CTL_ADD")
+#pragma pop_macro("EPOLL_CTL_DEL")
+#pragma pop_macro("EPOLL_CTL_MOD")
+#pragma pop_macro("OFFSETOF_EVENTS")
+#pragma pop_macro("OFFSETOF_SOCK")
+#pragma pop_macro("SIZEOF_EPOLLEVENT")
+#pragma pop_macro("UNSAFE")
 
 #endif // _sun_nio_ch_WEPoll_h_

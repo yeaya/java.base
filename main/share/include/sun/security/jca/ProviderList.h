@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("EMPTY")
+#undef EMPTY
 #pragma push_macro("EMPTY_PROVIDER")
 #undef EMPTY_PROVIDER
 #pragma push_macro("PC0")
 #undef PC0
-#pragma push_macro("EMPTY")
-#undef EMPTY
 
 namespace java {
 	namespace security {
@@ -91,8 +91,8 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("EMPTY")
 #pragma pop_macro("EMPTY_PROVIDER")
 #pragma pop_macro("PC0")
-#pragma pop_macro("EMPTY")
 
 #endif // _sun_security_jca_ProviderList_h_

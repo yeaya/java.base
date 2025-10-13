@@ -42,10 +42,10 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef ARRAY_INDEX_SCALE
 #undef ARRAY_BASE_OFFSET
-#undef UNSAFE
+#undef ARRAY_INDEX_SCALE
 #undef SCOPED_MEMORY_ACCESS
+#undef UNSAFE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -41,9 +41,9 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef MINUTES
 #undef ENTRY_CREATE
 #undef ENTRY_DELETE
+#undef MINUTES
 
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;

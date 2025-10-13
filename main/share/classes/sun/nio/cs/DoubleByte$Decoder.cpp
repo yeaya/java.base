@@ -23,9 +23,9 @@
 #include <jcpp.h>
 
 #undef B2C_UNMAPPABLE
+#undef JLA
 #undef OVERFLOW
 #undef UNDERFLOW
-#undef JLA
 
 using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;

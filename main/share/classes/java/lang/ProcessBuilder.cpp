@@ -50,11 +50,11 @@
 #include <jdk/internal/event/ProcessStartEvent.h>
 #include <jcpp.h>
 
-#undef READ
-#undef INHERIT
-#undef PIPE
-#undef MIN_NAME_LENGTH
 #undef APPEND
+#undef INHERIT
+#undef MIN_NAME_LENGTH
+#undef PIPE
+#undef READ
 #undef WRITE
 
 using $ProcessBuilder$RedirectArray = $Array<::java::lang::ProcessBuilder$Redirect>;

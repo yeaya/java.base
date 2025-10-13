@@ -20,8 +20,8 @@
 #include <javax/crypto/IllegalBlockSizeException.h>
 #include <jcpp.h>
 
-#undef PAD_BLK
 #undef ICV2
+#undef PAD_BLK
 
 using $AESCrypt = ::com::sun::crypto::provider::AESCrypt;
 using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;

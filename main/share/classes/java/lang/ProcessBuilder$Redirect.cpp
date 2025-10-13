@@ -23,8 +23,8 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef INHERIT
 #undef DISCARD
+#undef INHERIT
 #undef NULL_FILE
 #undef PIPE
 

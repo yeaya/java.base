@@ -8,10 +8,10 @@
 #include <java/lang/Comparable.h>
 #include <java/time/temporal/TemporalAmount.h>
 
-#pragma push_macro("ZERO")
-#undef ZERO
 #pragma push_macro("BI_NANOS_PER_SECOND")
 #undef BI_NANOS_PER_SECOND
+#pragma push_macro("ZERO")
+#undef ZERO
 
 namespace java {
 	namespace io {
@@ -138,7 +138,7 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("ZERO")
 #pragma pop_macro("BI_NANOS_PER_SECOND")
+#pragma pop_macro("ZERO")
 
 #endif // _java_time_Duration_h_

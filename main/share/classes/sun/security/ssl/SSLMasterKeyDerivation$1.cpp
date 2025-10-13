@@ -14,11 +14,11 @@
 #include <sun/security/ssl/SSLMasterKeyDerivation.h>
 #include <jcpp.h>
 
-#undef SSL30
-#undef DTLS12
-#undef TLS11
-#undef TLS10
 #undef DTLS10
+#undef DTLS12
+#undef SSL30
+#undef TLS10
+#undef TLS11
 #undef TLS12
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;

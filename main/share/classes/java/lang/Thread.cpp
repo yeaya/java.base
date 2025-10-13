@@ -57,16 +57,16 @@
 #include "Platform.h"
 
 #undef EMPTY_STACK_TRACE
-#undef STOP_THREAD_PERMISSION
-#undef SUBCLASS_IMPLEMENTATION_PERMISSION
-#undef MIN_PRIORITY
-#undef NANOSECONDS
-#undef MAX_VALUE
-#undef MODIFY_THREADGROUP_PERMISSION
+#undef GET_STACK_TRACE_PERMISSION
 #undef MAX_PRIORITY
+#undef MAX_VALUE
+#undef MIN_PRIORITY
+#undef MODIFY_THREADGROUP_PERMISSION
+#undef NANOSECONDS
 #undef NORM_PRIORITY
 #undef REGISTRY
-#undef GET_STACK_TRACE_PERMISSION
+#undef STOP_THREAD_PERMISSION
+#undef SUBCLASS_IMPLEMENTATION_PERMISSION
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $ThreadArray = $Array<::java::lang::Thread>;

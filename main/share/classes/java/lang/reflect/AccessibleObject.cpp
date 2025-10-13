@@ -388,7 +388,7 @@ bool AccessibleObject::canAccess(Object$* obj) {
 	if ($instanceOf($Constructor, this)) {
 		targetClass = declaringClass;
 	} else {
-		targetClass = $Modifier::isStatic(modifiers) ? ($Class*)nullptr : $nc($of(obj))->getClass();
+		targetClass = $Modifier::isStatic(modifiers) ? ($Class*)nullptr : $of(obj)->getClass();
 	}
 	return verifyAccess(caller, declaringClass, targetClass, modifiers);
 }

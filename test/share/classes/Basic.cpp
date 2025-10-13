@@ -23,19 +23,19 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef MICROSECONDS
-#undef MAX
-#undef SECONDS
 #undef DAYS
-#undef NANOSECONDS
+#undef HOURS
+#undef MAX
+#undef MAX_SECOND
 #undef MAX_VALUE
+#undef MICROSECONDS
+#undef MILLISECONDS
+#undef MIN
+#undef MINUTES
 #undef MIN_VALUE
 #undef N
-#undef MIN
-#undef MAX_SECOND
-#undef HOURS
-#undef MINUTES
+#undef NANOSECONDS
+#undef SECONDS
 
 using $TimeUnitArray = $Array<::java::util::concurrent::TimeUnit>;
 using $PrintStream = ::java::io::PrintStream;
@@ -194,7 +194,7 @@ void Basic::main($StringArray* args) {
 				if ($nc(unit)->compareTo(static_cast<$Enum*>($TimeUnit::SECONDS)) < 0) {
 					eqTime(value, unit, instant);
 				} else {
-					if (!$nc(instant)->equals($Instant::MIN)) {
+					if (!instant->equals($Instant::MIN)) {
 						$throwNew($RuntimeException, "should overflow to MIN"_s);
 					}
 				}
@@ -204,7 +204,7 @@ void Basic::main($StringArray* args) {
 				if ($nc(unit)->compareTo(static_cast<$Enum*>($TimeUnit::SECONDS)) < 0) {
 					eqTime(value, unit, instant);
 				} else {
-					if (!$nc(instant)->equals($Instant::MAX)) {
+					if (!instant->equals($Instant::MAX)) {
 						$throwNew($RuntimeException, "should overflow to MAX"_s);
 					}
 				}

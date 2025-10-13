@@ -30,12 +30,12 @@
 #include <sun/security/internal/spec/TlsKeyMaterialSpec.h>
 #include <jcpp.h>
 
+#undef LABEL_CLIENT_WRITE_KEY
+#undef LABEL_IV_BLOCK
+#undef LABEL_KEY_EXPANSION
+#undef LABEL_SERVER_WRITE_KEY
 #undef MSG
 #undef SSL3_CONST
-#undef LABEL_KEY_EXPANSION
-#undef LABEL_IV_BLOCK
-#undef LABEL_CLIENT_WRITE_KEY
-#undef LABEL_SERVER_WRITE_KEY
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $TlsPrfGenerator = ::com::sun::crypto::provider::TlsPrfGenerator;

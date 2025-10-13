@@ -20,16 +20,16 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef GENERATIONQUALIFIER_OID
+#undef DEFAULT
+#undef DNQUALIFIER_OID
+#undef DOMAIN_COMPONENT_OID
 #undef EMAIL_ADDRESS_OID
 #undef ENGLISH
-#undef SURNAME_OID
+#undef GENERATIONQUALIFIER_OID
 #undef GIVENNAME_OID
-#undef DOMAIN_COMPONENT_OID
-#undef SERIALNUMBER_OID
-#undef DNQUALIFIER_OID
-#undef DEFAULT
 #undef INITIALS_OID
+#undef SERIALNUMBER_OID
+#undef SURNAME_OID
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

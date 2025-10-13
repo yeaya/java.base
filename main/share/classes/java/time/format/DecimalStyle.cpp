@@ -22,8 +22,8 @@
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <jcpp.h>
 
-#undef FORMAT
 #undef CACHE
+#undef FORMAT
 #undef STANDARD
 
 using $LocaleArray = $Array<::java::util::Locale>;

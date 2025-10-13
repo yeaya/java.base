@@ -7,10 +7,10 @@
 
 #pragma push_macro("STATUS_EXCEPTION")
 #undef STATUS_EXCEPTION
-#pragma push_macro("STATUS_UNKNOWN")
-#undef STATUS_UNKNOWN
 #pragma push_macro("STATUS_OK")
 #undef STATUS_OK
+#pragma push_macro("STATUS_UNKNOWN")
+#undef STATUS_UNKNOWN
 
 namespace java {
 	namespace io {
@@ -55,7 +55,7 @@ public:
 } // java
 
 #pragma pop_macro("STATUS_EXCEPTION")
-#pragma pop_macro("STATUS_UNKNOWN")
 #pragma pop_macro("STATUS_OK")
+#pragma pop_macro("STATUS_UNKNOWN")
 
 #endif // _java_io_ObjectInputStream$HandleTable_h_

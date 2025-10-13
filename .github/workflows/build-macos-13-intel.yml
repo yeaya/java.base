@@ -18,14 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: install libffi
+    - name: Install libffi
       run: brew install libffi
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8 --target install
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5 --target install
 
     - uses: actions/upload-artifact@v4
       with:
@@ -46,18 +46,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: install libffi
+    - name: Install libffi
       run: brew install libffi
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 8 --target install
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5 --target install
 
     - name: TestAll
       working-directory: ${{github.workspace}}/build/test
-      run: ${{github.workspace}}/build/test/java.base-test
+      run: ulimit -n 65535; ${{github.workspace}}/build/test/java.base-test
 
   build-debug:
     runs-on: macos-13
@@ -65,14 +65,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: install libffi
+    - name: Install libffi
       run: brew install libffi
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config Debug -j 8 --target install
+      run: cmake --build ${{github.workspace}}/build --config Debug -j 5 --target install
 
     - uses: actions/upload-artifact@v4
       with:

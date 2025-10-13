@@ -7,12 +7,12 @@
 
 #pragma push_macro("SEM_FAILCRITICALERRORS")
 #undef SEM_FAILCRITICALERRORS
+#pragma push_macro("SEM_NOALIGNMENTFAULTEXCEPT")
+#undef SEM_NOALIGNMENTFAULTEXCEPT
 #pragma push_macro("SEM_NOGPFAULTERRORBOX")
 #undef SEM_NOGPFAULTERRORBOX
 #pragma push_macro("SEM_NOOPENFILEERRORBOX")
 #undef SEM_NOOPENFILEERRORBOX
-#pragma push_macro("SEM_NOALIGNMENTFAULTEXCEPT")
-#undef SEM_NOALIGNMENTFAULTEXCEPT
 
 namespace sun {
 	namespace io {
@@ -34,8 +34,8 @@ public:
 } // sun
 
 #pragma pop_macro("SEM_FAILCRITICALERRORS")
+#pragma pop_macro("SEM_NOALIGNMENTFAULTEXCEPT")
 #pragma pop_macro("SEM_NOGPFAULTERRORBOX")
 #pragma pop_macro("SEM_NOOPENFILEERRORBOX")
-#pragma pop_macro("SEM_NOALIGNMENTFAULTEXCEPT")
 
 #endif // _sun_io_Win32ErrorMode_h_

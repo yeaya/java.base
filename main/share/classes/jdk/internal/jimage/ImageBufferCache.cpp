@@ -22,11 +22,11 @@
 #include <jdk/internal/jimage/ImageBufferCache$2.h>
 #include <jcpp.h>
 
+#undef CACHE
 #undef DECREASING_CAPACITY_NULLS_LAST
 #undef LARGE_BUFFER
-#undef MAX_VALUE
-#undef CACHE
 #undef MAX_CACHED_BUFFERS
+#undef MAX_VALUE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $ClassInfo = ::java::lang::ClassInfo;

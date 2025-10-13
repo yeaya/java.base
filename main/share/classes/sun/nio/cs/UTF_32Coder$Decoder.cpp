@@ -130,7 +130,7 @@ $CoderResult* UTF_32Coder$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst
 					} else {
 						this->currentBO = this->expectedBO;
 					}
-					$nc(src)->position(mark);
+					src->position(mark);
 				}
 			}
 			while (src->remaining() >= 4) {

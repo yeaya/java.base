@@ -7,20 +7,20 @@
 
 #pragma push_macro("DONE")
 #undef DONE
-#pragma push_macro("UNICODE_3_2")
-#undef UNICODE_3_2
+#pragma push_macro("NFC")
+#undef NFC
+#pragma push_macro("NFD")
+#undef NFD
 #pragma push_macro("NFKC")
 #undef NFKC
 #pragma push_macro("NFKD")
 #undef NFKD
-#pragma push_macro("UNICODE_3_2_0_ORIGINAL")
-#undef UNICODE_3_2_0_ORIGINAL
-#pragma push_macro("NFC")
-#undef NFC
 #pragma push_macro("NONE")
 #undef NONE
-#pragma push_macro("NFD")
-#undef NFD
+#pragma push_macro("UNICODE_3_2")
+#undef UNICODE_3_2
+#pragma push_macro("UNICODE_3_2_0_ORIGINAL")
+#undef UNICODE_3_2_0_ORIGINAL
 #pragma push_macro("UNICODE_LATEST")
 #undef UNICODE_LATEST
 
@@ -109,13 +109,13 @@ public:
 } // jdk
 
 #pragma pop_macro("DONE")
-#pragma pop_macro("UNICODE_3_2")
+#pragma pop_macro("NFC")
+#pragma pop_macro("NFD")
 #pragma pop_macro("NFKC")
 #pragma pop_macro("NFKD")
-#pragma pop_macro("UNICODE_3_2_0_ORIGINAL")
-#pragma pop_macro("NFC")
 #pragma pop_macro("NONE")
-#pragma pop_macro("NFD")
+#pragma pop_macro("UNICODE_3_2")
+#pragma pop_macro("UNICODE_3_2_0_ORIGINAL")
 #pragma pop_macro("UNICODE_LATEST")
 
 #endif // _jdk_internal_icu_text_NormalizerBase_h_

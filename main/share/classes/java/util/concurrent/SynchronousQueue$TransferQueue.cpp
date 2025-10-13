@@ -27,8 +27,8 @@
 #include <java/util/concurrent/locks/LockSupport.h>
 #include <jcpp.h>
 
-#undef QHEAD
 #undef QCLEANME
+#undef QHEAD
 #undef QTAIL
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -136,13 +136,13 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 		$var($SynchronousQueue$TransferQueue$QNode, m, nullptr);
 		$var($SynchronousQueue$TransferQueue$QNode, tn, nullptr);
 		if (t == nullptr || h == nullptr) {
-		} else if (h == t || $nc(t)->isData == isData) {
+		} else if (h == t || t->isData == isData) {
 			if (t != this->tail) {
-			} else if (($assign(tn, $nc(t)->next)) != nullptr) {
+			} else if (($assign(tn, t->next)) != nullptr) {
 				advanceTail(t, tn);
 			} else if (timed && nanos <= (int64_t)0) {
 				return $of(nullptr);
-			} else if ($nc(t)->casNext(nullptr, (s != nullptr) ? s : ($assign(s, $new($SynchronousQueue$TransferQueue$QNode, e, isData))))) {
+			} else if (t->casNext(nullptr, (s != nullptr) ? s : ($assign(s, $new($SynchronousQueue$TransferQueue$QNode, e, isData))))) {
 				advanceTail(t, s);
 				int64_t deadline = timed ? $System::nanoTime() + nanos : (int64_t)0;
 				$var($Thread, w, $Thread::currentThread());
@@ -155,16 +155,16 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 							clean(t, s);
 							return $of(nullptr);
 						}
-					} else if (!$equals($assign(item, $nc(s)->item), e)) {
+					} else if (!$equals($assign(item, s->item), e)) {
 						break;
 					} else if (stat <= 0) {
-						if ($nc(t)->next == s) {
+						if (t->next == s) {
 							if (stat < 0 && t->isFulfilled()) {
 								stat = 0;
 								$Thread::yield();
 							} else {
 								stat = 1;
-								$set($nc(s), waiter, w);
+								$set(s, waiter, w);
 							}
 						}
 					} else if (!timed) {
@@ -180,9 +180,9 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 					}
 				}
 				if (stat == 1) {
-					$nc(s)->forgetWaiter();
+					s->forgetWaiter();
 				}
-				if (!$nc(s)->isOffList()) {
+				if (!s->isOffList()) {
 					advanceHead(t, s);
 					if (item != nullptr) {
 						$set(s, item, s);
@@ -190,7 +190,7 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 				}
 				return $of((item != nullptr) ? item : $of(e));
 			}
-		} else if (($assign(m, $nc(h)->next)) != nullptr && t == this->tail && h == this->head) {
+		} else if (($assign(m, h->next)) != nullptr && t == this->tail && h == this->head) {
 			$var($Thread, waiter, nullptr);
 			$var($Object, x, $nc(m)->item);
 			bool fulfilled = ((isData == (x == nullptr)) && !$equals(x, m) && m->casItem(x, e));
@@ -218,7 +218,7 @@ void SynchronousQueue$TransferQueue::clean($SynchronousQueue$TransferQueue$QNode
 		if (t == h) {
 			return;
 		}
-		$var($SynchronousQueue$TransferQueue$QNode, tn, $nc(t)->next);
+		$var($SynchronousQueue$TransferQueue$QNode, tn, t->next);
 		if (t != this->tail) {
 			continue;
 		}

@@ -25,9 +25,9 @@
 #include <java/util/TimeZone.h>
 #include <jcpp.h>
 
-#undef UTC_LONG
 #undef TIME_STRING
 #undef US
+#undef UTC_LONG
 
 using $Bug6335238$DateFormatThread = ::Bug6335238$DateFormatThread;
 using $Bug6335238$DateParseThread = ::Bug6335238$DateParseThread;

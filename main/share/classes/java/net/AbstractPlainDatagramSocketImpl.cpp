@@ -42,18 +42,18 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef SO_BINDADDR
-#undef IP_MULTICAST_LOOP
-#undef SO_RCVBUF
-#undef IP_TOS
-#undef SO_TIMEOUT
-#undef IP_MULTICAST_IF2
-#undef SO_SNDBUF
 #undef IP_MULTICAST_IF
+#undef IP_MULTICAST_IF2
+#undef IP_MULTICAST_LOOP
+#undef IP_MULTICAST_TTL
+#undef IP_TOS
+#undef SO_BINDADDR
 #undef SO_BROADCAST
+#undef SO_RCVBUF
 #undef SO_REUSEADDR
 #undef SO_REUSEPORT
-#undef IP_MULTICAST_TTL
+#undef SO_SNDBUF
+#undef SO_TIMEOUT
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $AssertionError = ::java::lang::AssertionError;

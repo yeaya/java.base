@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/constant/Constable.h>
 
-#pragma push_macro("VFORM_OFFSET")
-#undef VFORM_OFFSET
 #pragma push_macro("AIOOBE_SUPPLIER")
 #undef AIOOBE_SUPPLIER
+#pragma push_macro("VFORM_OFFSET")
+#undef VFORM_OFFSET
 
 namespace java {
 	namespace lang {
@@ -124,7 +124,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("VFORM_OFFSET")
 #pragma pop_macro("AIOOBE_SUPPLIER")
+#pragma pop_macro("VFORM_OFFSET")
 
 #endif // _java_lang_invoke_VarHandle_h_

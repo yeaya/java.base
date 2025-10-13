@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("NO_BYTES")
+#undef NO_BYTES
+#pragma push_macro("PACKED_BYTE_MASK")
+#undef PACKED_BYTE_MASK
 #pragma push_macro("PACKED_BYTE_MAX_LENGTH")
 #undef PACKED_BYTE_MAX_LENGTH
 #pragma push_macro("PACKED_BYTE_SIZE")
 #undef PACKED_BYTE_SIZE
 #pragma push_macro("STRESS_TEST")
 #undef STRESS_TEST
-#pragma push_macro("NO_BYTES")
-#undef NO_BYTES
-#pragma push_macro("PACKED_BYTE_MASK")
-#undef PACKED_BYTE_MASK
 
 namespace java {
 	namespace lang {
@@ -70,10 +70,10 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("NO_BYTES")
+#pragma pop_macro("PACKED_BYTE_MASK")
 #pragma pop_macro("PACKED_BYTE_MAX_LENGTH")
 #pragma pop_macro("PACKED_BYTE_SIZE")
 #pragma pop_macro("STRESS_TEST")
-#pragma pop_macro("NO_BYTES")
-#pragma pop_macro("PACKED_BYTE_MASK")
 
 #endif // _java_lang_invoke_LambdaFormEditor$TransformKey_h_

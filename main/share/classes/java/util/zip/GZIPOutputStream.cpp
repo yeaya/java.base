@@ -16,10 +16,10 @@
 #include <jcpp.h>
 
 #undef DEFAULT_COMPRESSION
+#undef DEFLATED
 #undef GZIP_MAGIC
 #undef OS_UNKNOWN
 #undef TRAILER_SIZE
-#undef DEFLATED
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;

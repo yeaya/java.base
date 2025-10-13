@@ -173,7 +173,7 @@ void CountedCompleter::tryComplete() {
 				s->quietlyComplete();
 				return;
 			}
-		} else if ($nc(a)->weakCompareAndSetPendingCount(c, c - 1)) {
+		} else if (a->weakCompareAndSetPendingCount(c, c - 1)) {
 			return;
 		}
 	}
@@ -188,7 +188,7 @@ void CountedCompleter::propagateCompletion() {
 				s->quietlyComplete();
 				return;
 			}
-		} else if ($nc(a)->weakCompareAndSetPendingCount(c, c - 1)) {
+		} else if (a->weakCompareAndSetPendingCount(c, c - 1)) {
 			return;
 		}
 	}

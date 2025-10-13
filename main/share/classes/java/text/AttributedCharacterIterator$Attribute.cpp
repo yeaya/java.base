@@ -16,8 +16,8 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef LANGUAGE
 #undef INPUT_METHOD_SEGMENT
+#undef LANGUAGE
 #undef READING
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;

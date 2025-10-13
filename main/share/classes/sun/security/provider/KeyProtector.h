@@ -7,10 +7,10 @@
 
 #pragma push_macro("DIGEST_ALG")
 #undef DIGEST_ALG
-#pragma push_macro("SALT_LEN")
-#undef SALT_LEN
 #pragma push_macro("DIGEST_LEN")
 #undef DIGEST_LEN
+#pragma push_macro("SALT_LEN")
+#undef SALT_LEN
 
 namespace java {
 	namespace security {
@@ -49,7 +49,7 @@ public:
 } // sun
 
 #pragma pop_macro("DIGEST_ALG")
-#pragma pop_macro("SALT_LEN")
 #pragma pop_macro("DIGEST_LEN")
+#pragma pop_macro("SALT_LEN")
 
 #endif // _sun_security_provider_KeyProtector_h_

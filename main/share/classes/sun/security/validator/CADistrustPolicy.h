@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SYMANTEC_TLS")
-#undef SYMANTEC_TLS
 #pragma push_macro("POLICIES")
 #undef POLICIES
+#pragma push_macro("SYMANTEC_TLS")
+#undef SYMANTEC_TLS
 
 namespace java {
 	namespace security {
@@ -47,7 +47,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SYMANTEC_TLS")
 #pragma pop_macro("POLICIES")
+#pragma pop_macro("SYMANTEC_TLS")
 
 #endif // _sun_security_validator_CADistrustPolicy_h_

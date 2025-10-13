@@ -48,22 +48,22 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef BA_EXISTS
-#undef BA_HIDDEN
-#undef PREFIX_LENGTH_OFFSET
 #undef ACCESS_EXECUTE
-#undef MAX_VALUE
-#undef INVALID
-#undef PATH_OFFSET
-#undef CHECKED
-#undef SPACE_USABLE
-#undef BA_REGULAR
+#undef ACCESS_READ
 #undef ACCESS_WRITE
 #undef BA_DIRECTORY
-#undef UNSAFE
-#undef SPACE_TOTAL
-#undef ACCESS_READ
+#undef BA_EXISTS
+#undef BA_HIDDEN
+#undef BA_REGULAR
+#undef CHECKED
+#undef INVALID
+#undef MAX_VALUE
+#undef PATH_OFFSET
+#undef PREFIX_LENGTH_OFFSET
 #undef SPACE_FREE
+#undef SPACE_TOTAL
+#undef SPACE_USABLE
+#undef UNSAFE
 
 using $FileArray = $Array<::java::io::File>;
 using $DefaultFileSystem = ::java::io::DefaultFileSystem;

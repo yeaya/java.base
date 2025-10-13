@@ -7,10 +7,10 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("IDENT")
-#undef IDENT
 #pragma push_macro("DESCRIPTIONS")
 #undef DESCRIPTIONS
+#pragma push_macro("IDENT")
+#undef IDENT
 #pragma push_macro("NAME")
 #undef NAME
 
@@ -66,8 +66,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("IDENT")
 #pragma pop_macro("DESCRIPTIONS")
+#pragma pop_macro("IDENT")
 #pragma pop_macro("NAME")
 
 #endif // _sun_security_x509_AuthorityInfoAccessExtension_h_

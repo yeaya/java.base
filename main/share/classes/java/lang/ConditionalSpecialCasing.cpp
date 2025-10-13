@@ -20,15 +20,15 @@
 #include <sun/text/Normalizer.h>
 #include <jcpp.h>
 
-#undef MORE_ABOVE
-#undef LOWERCASE_LETTER
-#undef NOT_BEFORE_DOT
-#undef ERROR
-#undef TITLECASE_LETTER
-#undef AFTER_SOFT_DOTTED
-#undef FINAL_CASED
 #undef AFTER_I
+#undef AFTER_SOFT_DOTTED
 #undef COMBINING_CLASS_ABOVE
+#undef ERROR
+#undef FINAL_CASED
+#undef LOWERCASE_LETTER
+#undef MORE_ABOVE
+#undef NOT_BEFORE_DOT
+#undef TITLECASE_LETTER
 #undef UPPERCASE_LETTER
 
 using $ConditionalSpecialCasing$EntryArray = $Array<::java::lang::ConditionalSpecialCasing$Entry>;

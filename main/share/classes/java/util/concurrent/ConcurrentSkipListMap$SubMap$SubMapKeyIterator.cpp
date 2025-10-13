@@ -15,8 +15,8 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$SubMap.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef DISTINCT
+#undef ORDERED
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

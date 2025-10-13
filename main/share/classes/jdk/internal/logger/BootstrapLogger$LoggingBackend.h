@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("JUL_WITH_CONFIG")
-#undef JUL_WITH_CONFIG
 #pragma push_macro("CUSTOM")
 #undef CUSTOM
-#pragma push_macro("NONE")
-#undef NONE
 #pragma push_macro("JUL_DEFAULT")
 #undef JUL_DEFAULT
+#pragma push_macro("JUL_WITH_CONFIG")
+#undef JUL_WITH_CONFIG
+#pragma push_macro("NONE")
+#undef NONE
 
 namespace jdk {
 	namespace internal {
@@ -39,9 +39,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("JUL_WITH_CONFIG")
 #pragma pop_macro("CUSTOM")
-#pragma pop_macro("NONE")
 #pragma pop_macro("JUL_DEFAULT")
+#pragma pop_macro("JUL_WITH_CONFIG")
+#pragma pop_macro("NONE")
 
 #endif // _jdk_internal_logger_BootstrapLogger$LoggingBackend_h_

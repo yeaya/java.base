@@ -13,10 +13,10 @@
 #include <jdk/internal/logger/LoggerFinderLoader.h>
 #include <jcpp.h>
 
-#undef QUIET
-#undef ERROR
-#undef WARNING
 #undef DEBUG
+#undef ERROR
+#undef QUIET
+#undef WARNING
 
 using $LoggerFinderLoader$ErrorPolicyArray = $Array<::jdk::internal::logger::LoggerFinderLoader$ErrorPolicy>;
 using $ClassInfo = ::java::lang::ClassInfo;

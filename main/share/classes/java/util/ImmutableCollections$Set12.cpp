@@ -22,9 +22,9 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
+#undef EMPTY
 #undef IMM_SET
 #undef REVERSE
-#undef EMPTY
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

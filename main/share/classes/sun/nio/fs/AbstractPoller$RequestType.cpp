@@ -13,9 +13,9 @@
 #include <sun/nio/fs/AbstractPoller.h>
 #include <jcpp.h>
 
-#undef REGISTER
 #undef CANCEL
 #undef CLOSE
+#undef REGISTER
 
 using $AbstractPoller$RequestTypeArray = $Array<::sun::nio::fs::AbstractPoller$RequestType>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -11,12 +11,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NTLM
-#undef NEGOTIATE
-#undef DIGEST
-#undef UNKNOWN
-#undef KERBEROS
 #undef BASIC
+#undef DIGEST
+#undef KERBEROS
+#undef NEGOTIATE
+#undef NTLM
+#undef UNKNOWN
 
 using $AuthSchemeArray = $Array<::sun::net::www::protocol::http::AuthScheme>;
 using $ClassInfo = ::java::lang::ClassInfo;

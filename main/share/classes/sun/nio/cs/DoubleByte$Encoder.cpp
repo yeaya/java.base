@@ -421,7 +421,7 @@ void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2c
 				if (b2cSB_ca->get(b) == c) {
 					b2cSB_ca->set(b, (char16_t)0xFFFD);
 				}
-			} else if ($nc($nc(b2c_ca)->get(b >> 8))->get(((int32_t)(b & (uint32_t)255)) - b2Min) == c) {
+			} else if ($nc(b2c_ca->get(b >> 8))->get(((int32_t)(b & (uint32_t)255)) - b2Min) == c) {
 				$nc(b2c_ca->get(b >> 8))->set(((int32_t)(b & (uint32_t)255)) - b2Min, (char16_t)0xFFFD);
 			}
 		}

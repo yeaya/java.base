@@ -40,17 +40,17 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <jcpp.h>
 
-#undef NUMBERSTYLE
-#undef PERCENTSTYLE
+#undef COMPACTSTYLE
 #undef CURRENCYSTYLE
 #undef FORMAT
 #undef FRACTION_FIELD
-#undef SCIENTIFICSTYLE
-#undef COMPACTSTYLE
 #undef INSTANCE
 #undef INTEGERSTYLE
-#undef MAX_VALUE
 #undef INTEGER_FIELD
+#undef MAX_VALUE
+#undef NUMBERSTYLE
+#undef PERCENTSTYLE
+#undef SCIENTIFICSTYLE
 #undef SHORT
 
 using $LocaleArray = $Array<::java::util::Locale>;

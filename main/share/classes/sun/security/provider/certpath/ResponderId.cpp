@@ -22,8 +22,8 @@
 #include <jcpp.h>
 
 #undef BY_KEY
-#undef TAG_CONTEXT
 #undef BY_NAME
+#undef TAG_CONTEXT
 
 using $IOException = ::java::io::IOException;
 using $Byte = ::java::lang::Byte;

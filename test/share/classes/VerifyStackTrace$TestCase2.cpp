@@ -17,8 +17,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef SHOW_REFLECT_FRAMES
 #undef RETAIN_CLASS_REFERENCE
+#undef SHOW_REFLECT_FRAMES
 
 using $VerifyStackTrace = ::VerifyStackTrace;
 using $VerifyStackTrace$TestCase = ::VerifyStackTrace$TestCase;

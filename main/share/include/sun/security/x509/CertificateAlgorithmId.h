@@ -5,10 +5,10 @@
 
 #include <sun/security/x509/CertAttrSet.h>
 
-#pragma push_macro("IDENT")
-#undef IDENT
 #pragma push_macro("ALGORITHM")
 #undef ALGORITHM
+#pragma push_macro("IDENT")
+#undef IDENT
 #pragma push_macro("NAME")
 #undef NAME
 
@@ -66,8 +66,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("IDENT")
 #pragma pop_macro("ALGORITHM")
+#pragma pop_macro("IDENT")
 #pragma pop_macro("NAME")
 
 #endif // _sun_security_x509_CertificateAlgorithmId_h_

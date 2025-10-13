@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SALT32L")
-#undef SALT32L
-#pragma push_macro("EMPTY_MAP")
-#undef EMPTY_MAP
-#pragma push_macro("EMPTY_LIST_NULLS")
-#undef EMPTY_LIST_NULLS
-#pragma push_macro("EMPTY_LIST")
-#undef EMPTY_LIST
-#pragma push_macro("EMPTY_SET")
-#undef EMPTY_SET
-#pragma push_macro("REVERSE")
-#undef REVERSE
-#pragma push_macro("EXPAND_FACTOR")
-#undef EXPAND_FACTOR
 #pragma push_macro("EMPTY")
 #undef EMPTY
+#pragma push_macro("EMPTY_LIST")
+#undef EMPTY_LIST
+#pragma push_macro("EMPTY_LIST_NULLS")
+#undef EMPTY_LIST_NULLS
+#pragma push_macro("EMPTY_MAP")
+#undef EMPTY_MAP
+#pragma push_macro("EMPTY_SET")
+#undef EMPTY_SET
+#pragma push_macro("EXPAND_FACTOR")
+#undef EXPAND_FACTOR
+#pragma push_macro("REVERSE")
+#undef REVERSE
+#pragma push_macro("SALT32L")
+#undef SALT32L
 
 namespace java {
 	namespace lang {
@@ -65,13 +65,13 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SALT32L")
-#pragma pop_macro("EMPTY_MAP")
-#pragma pop_macro("EMPTY_LIST_NULLS")
-#pragma pop_macro("EMPTY_LIST")
-#pragma pop_macro("EMPTY_SET")
-#pragma pop_macro("REVERSE")
-#pragma pop_macro("EXPAND_FACTOR")
 #pragma pop_macro("EMPTY")
+#pragma pop_macro("EMPTY_LIST")
+#pragma pop_macro("EMPTY_LIST_NULLS")
+#pragma pop_macro("EMPTY_MAP")
+#pragma pop_macro("EMPTY_SET")
+#pragma pop_macro("EXPAND_FACTOR")
+#pragma pop_macro("REVERSE")
+#pragma pop_macro("SALT32L")
 
 #endif // _java_util_ImmutableCollections_h_

@@ -17,12 +17,12 @@
 #include <java/util/stream/StreamSpliterators.h>
 #include <jcpp.h>
 
-#undef NO_MORE
+#undef CHUNK_SIZE
 #undef MAYBE_MORE
-#undef SUBSIZED
+#undef NO_MORE
 #undef ORDERED
 #undef SIZED
-#undef CHUNK_SIZE
+#undef SUBSIZED
 #undef UNLIMITED
 
 using $AssertionError = ::java::lang::AssertionError;

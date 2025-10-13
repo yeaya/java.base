@@ -25,9 +25,9 @@
 #include <sun/security/ssl/SessionTicketExtension$T12SHSessionTicketProducer.h>
 #include <jcpp.h>
 
-#undef TIMEOUT_DEFAULT
 #undef KEYLEN
 #undef MAX_TICKET_LIFETIME
+#undef TIMEOUT_DEFAULT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

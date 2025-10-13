@@ -12,21 +12,21 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef FLOAT
-#undef SLOT_MASK
-#undef UNSIGNED
-#undef CHAR
-#undef KIND_SHIFT
-#undef INT
 #undef BOOLEAN
-#undef SHORT
+#undef CHAR
+#undef FLOAT
 #undef FLOATING
-#undef SIGNED
+#undef INT
+#undef KIND_SHIFT
 #undef NUM_MASK
-#undef SLOT_SHIFT
+#undef SHORT
+#undef SIGNED
 #undef SIZE_MASK
-#undef VOID
 #undef SIZE_SHIFT
+#undef SLOT_MASK
+#undef SLOT_SHIFT
+#undef UNSIGNED
+#undef VOID
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

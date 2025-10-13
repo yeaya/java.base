@@ -18,8 +18,8 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef TYPE
 #undef JLA
+#undef TYPE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

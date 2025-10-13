@@ -28,9 +28,9 @@
 #include <java/nio/file/StandardOpenOption.h>
 #include <jcpp.h>
 
-#undef TRUNCATE_EXISTING
-#undef READER_COUNT
 #undef CREATE
+#undef READER_COUNT
+#undef TRUNCATE_EXISTING
 #undef WRITE
 
 using $InterruptDeadlock$Reader = ::InterruptDeadlock$Reader;

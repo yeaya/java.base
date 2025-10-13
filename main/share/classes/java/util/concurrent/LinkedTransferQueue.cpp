@@ -50,19 +50,19 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef HEAD
 #undef ASYNC
-#undef MAX_VALUE
-#undef WAITER
-#undef SWEEP_THRESHOLD
+#undef HEAD
 #undef ITEM
 #undef MAX_HOPS
-#undef TIMED
-#undef NOW
-#undef TAIL
+#undef MAX_VALUE
 #undef NEXT
+#undef NOW
 #undef SPIN_FOR_TIMEOUT_THRESHOLD
+#undef SWEEP_THRESHOLD
 #undef SYNC
+#undef TAIL
+#undef TIMED
+#undef WAITER
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -422,7 +422,7 @@ void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $L
 		$var($LinkedTransferQueue$Node, q, nullptr);
 		if (($assign(q, $nc(p)->next)) == nullptr) {
 			break;
-		} else if (!$nc(q)->isMatched()) {
+		} else if (!q->isMatched()) {
 			$assign(p, q);
 			break;
 		} else {
@@ -507,8 +507,8 @@ $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTr
 	while ($equals($assign(item, s->item), e)) {
 		if (this->needSweep) {
 			sweep();
-		} else if ((timed && nanos <= (int64_t)0) || $nc(w)->isInterrupted()) {
-			if ($nc(s)->casItem(e, (e == nullptr) ? $of(s) : ($Object*)nullptr)) {
+		} else if ((timed && nanos <= (int64_t)0) || w->isInterrupted()) {
+			if (s->casItem(e, (e == nullptr) ? $of(s) : ($Object*)nullptr)) {
 				unsplice(pred, s);
 				return $of(e);
 			}
@@ -519,10 +519,10 @@ $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTr
 					$Thread::yield();
 				} else {
 					stat = 1;
-					$set($nc(s), waiter, w);
+					$set(s, waiter, w);
 				}
 			}
-		} else if (!$equals($assign(item, $nc(s)->item), e)) {
+		} else if (!$equals($assign(item, s->item), e)) {
 			break;
 		} else if (!timed) {
 			$LockSupport::setCurrentBlocker(this);
@@ -560,7 +560,7 @@ $LinkedTransferQueue$Node* LinkedTransferQueue::firstDataNode() {
 					$assign(first, p);
 					break;
 				}
-			} else if (!$nc(p)->isData) {
+			} else if (!p->isData) {
 				break;
 			}
 			$var($LinkedTransferQueue$Node, q, nullptr);
@@ -628,11 +628,11 @@ $String* LinkedTransferQueue::toString() {
 					if (item != nullptr) {
 						if (a == nullptr) {
 							$assign(a, $new($StringArray, 4));
-						} else if (size == $nc(a)->length) {
+						} else if (size == a->length) {
 							$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
 						}
 						$var($String, s, $of(item)->toString());
-						$nc(a)->set(size++, s);
+						a->set(size++, s);
 						charLength += $nc(s)->length();
 					}
 				} else if (item == nullptr) {
@@ -669,10 +669,10 @@ $ObjectArray* LinkedTransferQueue::toArrayInternal($ObjectArray* a) {
 					if (item != nullptr) {
 						if (x == nullptr) {
 							$assign(x, $new($ObjectArray, 4));
-						} else if (size == $nc(x)->length) {
+						} else if (size == x->length) {
 							$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 						}
-						$nc(x)->set(size++, item);
+						x->set(size++, item);
 					}
 				} else if (item == nullptr) {
 					break;
@@ -758,12 +758,12 @@ void LinkedTransferQueue::sweep() {
 		for (; p != nullptr && ($assign(s, p->next)) != nullptr;) {
 			if (!$nc(s)->isMatched()) {
 				$assign(p, s);
-			} else if (($assign(n, $nc(s)->next)) == nullptr) {
+			} else if (($assign(n, s->next)) == nullptr) {
 				break;
 			} else if (s == n) {
 				$assign(p, this->head);
 			} else {
-				$nc(p)->casNext(s, n);
+				p->casNext(s, n);
 			}
 		}
 	}
@@ -988,7 +988,7 @@ bool LinkedTransferQueue::remove(Object$* o) {
 						$assign(p, q);
 						continue;
 					}
-				} else if (!$nc(p)->isData) {
+				} else if (!p->isData) {
 					break;
 				}
 				{
@@ -1040,7 +1040,7 @@ bool LinkedTransferQueue::contains(Object$* o) {
 						$assign(p, q);
 						continue;
 					}
-				} else if (!$nc(p)->isData) {
+				} else if (!p->isData) {
 					break;
 				}
 				{
@@ -1148,7 +1148,7 @@ bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
 						}
 						pAlive = false;
 					}
-				} else if (!$nc(p)->isData && item == nullptr) {
+				} else if (!p->isData && item == nullptr) {
 					break;
 				}
 				if (pAlive || q == nullptr || --hops == 0) {
@@ -1191,7 +1191,7 @@ void LinkedTransferQueue::forEachFrom($Consumer* action, $LinkedTransferQueue$No
 					$assign(p, q);
 					continue;
 				}
-			} else if (!$nc(p)->isData) {
+			} else if (!p->isData) {
 				break;
 			}
 			{

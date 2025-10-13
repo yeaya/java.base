@@ -25,8 +25,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE_FAILURE
 #undef CLIENT_HELLO
+#undef HANDSHAKE_FAILURE
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/security/cert/CertPath.h>
 
+#pragma push_macro("COUNT_ENCODING")
+#undef COUNT_ENCODING
 #pragma push_macro("PKCS7_ENCODING")
 #undef PKCS7_ENCODING
 #pragma push_macro("PKIPATH_ENCODING")
 #undef PKIPATH_ENCODING
-#pragma push_macro("COUNT_ENCODING")
-#undef COUNT_ENCODING
 
 namespace java {
 	namespace io {
@@ -61,8 +61,8 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("COUNT_ENCODING")
 #pragma pop_macro("PKCS7_ENCODING")
 #pragma pop_macro("PKIPATH_ENCODING")
-#pragma pop_macro("COUNT_ENCODING")
 
 #endif // _sun_security_provider_certpath_X509CertPath_h_

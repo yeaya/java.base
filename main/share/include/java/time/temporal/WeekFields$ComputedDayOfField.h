@@ -5,14 +5,14 @@
 
 #include <java/time/temporal/TemporalField.h>
 
-#pragma push_macro("WEEK_OF_YEAR_RANGE")
-#undef WEEK_OF_YEAR_RANGE
-#pragma push_macro("WEEK_OF_WEEK_BASED_YEAR_RANGE")
-#undef WEEK_OF_WEEK_BASED_YEAR_RANGE
-#pragma push_macro("WEEK_OF_MONTH_RANGE")
-#undef WEEK_OF_MONTH_RANGE
 #pragma push_macro("DAY_OF_WEEK_RANGE")
 #undef DAY_OF_WEEK_RANGE
+#pragma push_macro("WEEK_OF_MONTH_RANGE")
+#undef WEEK_OF_MONTH_RANGE
+#pragma push_macro("WEEK_OF_WEEK_BASED_YEAR_RANGE")
+#undef WEEK_OF_WEEK_BASED_YEAR_RANGE
+#pragma push_macro("WEEK_OF_YEAR_RANGE")
+#undef WEEK_OF_YEAR_RANGE
 
 namespace java {
 	namespace time {
@@ -102,9 +102,9 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("WEEK_OF_YEAR_RANGE")
-#pragma pop_macro("WEEK_OF_WEEK_BASED_YEAR_RANGE")
-#pragma pop_macro("WEEK_OF_MONTH_RANGE")
 #pragma pop_macro("DAY_OF_WEEK_RANGE")
+#pragma pop_macro("WEEK_OF_MONTH_RANGE")
+#pragma pop_macro("WEEK_OF_WEEK_BASED_YEAR_RANGE")
+#pragma pop_macro("WEEK_OF_YEAR_RANGE")
 
 #endif // _java_time_temporal_WeekFields$ComputedDayOfField_h_

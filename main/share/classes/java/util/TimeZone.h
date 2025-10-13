@@ -8,24 +8,24 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 
-#pragma push_macro("ONE_HOUR")
-#undef ONE_HOUR
 #pragma push_macro("GMT_ID")
 #undef GMT_ID
-#pragma push_macro("NO_TIMEZONE")
-#undef NO_TIMEZONE
-#pragma push_macro("ID")
-#undef ID
 #pragma push_macro("GMT_ID_LENGTH")
 #undef GMT_ID_LENGTH
+#pragma push_macro("ID")
+#undef ID
+#pragma push_macro("LONG")
+#undef LONG
+#pragma push_macro("NO_TIMEZONE")
+#undef NO_TIMEZONE
 #pragma push_macro("ONE_DAY")
 #undef ONE_DAY
+#pragma push_macro("ONE_HOUR")
+#undef ONE_HOUR
 #pragma push_macro("ONE_MINUTE")
 #undef ONE_MINUTE
 #pragma push_macro("SHORT")
 #undef SHORT
-#pragma push_macro("LONG")
-#undef LONG
 
 namespace java {
 	namespace time {
@@ -102,14 +102,14 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("ONE_HOUR")
 #pragma pop_macro("GMT_ID")
-#pragma pop_macro("NO_TIMEZONE")
-#pragma pop_macro("ID")
 #pragma pop_macro("GMT_ID_LENGTH")
+#pragma pop_macro("ID")
+#pragma pop_macro("LONG")
+#pragma pop_macro("NO_TIMEZONE")
 #pragma pop_macro("ONE_DAY")
+#pragma pop_macro("ONE_HOUR")
 #pragma pop_macro("ONE_MINUTE")
 #pragma pop_macro("SHORT")
-#pragma pop_macro("LONG")
 
 #endif // _java_util_TimeZone_h_

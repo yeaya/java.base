@@ -21,12 +21,12 @@
 #include <sun/net/util/IPAddressUtil.h>
 #include <jcpp.h>
 
-#undef PORT_MAX
-#undef HTTPS_PORT
-#undef PORT_MIN
 #undef CASE_DIFF
+#undef HTTPS_PORT
 #undef HTTP_PORT
 #undef NO_PORT
+#undef PORT_MAX
+#undef PORT_MIN
 #undef US
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -156,11 +156,11 @@ void HostPortrange::init$($String* scheme, $String* str) {
 		}
 		if ($nc(hoststr)->lastIndexOf((int32_t)u'*') > 0) {
 			$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);
-		} else if ($nc(hoststr)->startsWith("*"_s)) {
+		} else if (hoststr->startsWith("*"_s)) {
 			this->wildcard$ = true;
 			if (hoststr->equals("*"_s)) {
 				$assign(hoststr, ""_s);
-			} else if ($nc(hoststr)->startsWith("*."_s)) {
+			} else if (hoststr->startsWith("*."_s)) {
 				$assign(hoststr, toLowerCase($(hoststr->substring(1))));
 			} else {
 				$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);

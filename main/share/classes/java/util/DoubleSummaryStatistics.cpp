@@ -23,8 +23,8 @@
 #include <java/util/stream/DoubleStream.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

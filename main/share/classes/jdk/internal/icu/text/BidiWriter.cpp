@@ -16,28 +16,28 @@
 #include <jdk/internal/icu/text/UTF16.h>
 #include <jcpp.h>
 
-#undef INSERT_LRM_FOR_NUMERIC
-#undef RLM_BEFORE
-#undef LRM_AFTER
-#undef RLM_AFTER
-#undef NON_SPACING_MARK
-#undef LRM_BEFORE
-#undef MASK_R_AL
-#undef REORDER_INVERSE_NUMBERS_AS_L
 #undef COMBINING_SPACING_MARK
-#undef REMOVE_BIDI_CONTROLS
-#undef L
-#undef KEEP_BASE_COMBINING
-#undef OPTION_INSERT_MARKS
-#undef OUTPUT_REVERSE
-#undef ENCLOSING_MARK
 #undef DO_MIRRORING
-#undef OPTION_REMOVE_CONTROLS
+#undef ENCLOSING_MARK
+#undef INSERT_LRM_FOR_NUMERIC
+#undef KEEP_BASE_COMBINING
+#undef L
+#undef LRM_AFTER
+#undef LRM_BEFORE
 #undef LRM_CHAR
-#undef REORDER_INVERSE_LIKE_DIRECT
-#undef RLM_CHAR
+#undef MASK_R_AL
+#undef NON_SPACING_MARK
+#undef OPTION_INSERT_MARKS
+#undef OPTION_REMOVE_CONTROLS
+#undef OUTPUT_REVERSE
+#undef REMOVE_BIDI_CONTROLS
 #undef REORDER_INVERSE_FOR_NUMBERS_SPECIAL
+#undef REORDER_INVERSE_LIKE_DIRECT
+#undef REORDER_INVERSE_NUMBERS_AS_L
 #undef REORDER_RUNS_ONLY
+#undef RLM_AFTER
+#undef RLM_BEFORE
+#undef RLM_CHAR
 
 using $BidiRunArray = $Array<::jdk::internal::icu::text::BidiRun>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -318,30 +318,30 @@ $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
 		}
 	} else if (((int32_t)(options & (uint32_t)(int32_t)$BidiBase::INSERT_LRM_FOR_NUMERIC)) == 0) {
 		for (run = runCount; --run >= 0;) {
-			$var($BidiRun, bidiRun, $nc(bidi)->getVisualRun(run));
+			$var($BidiRun, bidiRun, bidi->getVisualRun(run));
 			if ($nc(bidiRun)->isEvenRun()) {
-				$nc(dest)->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
+				dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
 			} else {
-				$nc(dest)->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options)));
+				dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options)));
 			}
 		}
 	} else {
-		$var($bytes, dirProps, $nc(bidi)->dirProps);
+		$var($bytes, dirProps, bidi->dirProps);
 		for (run = runCount; --run >= 0;) {
 			$var($BidiRun, bidiRun, bidi->getVisualRun(run));
 			if ($nc(bidiRun)->isEvenRun()) {
 				if ($nc(dirProps)->get(bidiRun->limit - 1) != $BidiBase::L) {
-					$nc(dest)->append(BidiWriter::LRM_CHAR);
+					dest->append(BidiWriter::LRM_CHAR);
 				}
-				$nc(dest)->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
+				dest->append($(doWriteReverse(text, bidiRun->start, bidiRun->limit, (int32_t)(options & (uint32_t)~$BidiBase::DO_MIRRORING))));
 				if ($nc(dirProps)->get(bidiRun->start) != $BidiBase::L) {
 					dest->append(BidiWriter::LRM_CHAR);
 				}
 			} else {
 				if (((int32_t)(BidiWriter::MASK_R_AL & (uint32_t)$BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->start)))) == 0) {
-					$nc(dest)->append(BidiWriter::RLM_CHAR);
+					dest->append(BidiWriter::RLM_CHAR);
 				}
-				$nc(dest)->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options)));
+				dest->append($(doWriteForward(text, bidiRun->start, bidiRun->limit, options)));
 				if (((int32_t)(BidiWriter::MASK_R_AL & (uint32_t)$BidiBase::DirPropFlag($nc(dirProps)->get(bidiRun->limit - 1)))) == 0) {
 					dest->append(BidiWriter::RLM_CHAR);
 				}

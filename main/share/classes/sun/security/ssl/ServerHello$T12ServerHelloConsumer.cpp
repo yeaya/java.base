@@ -45,14 +45,14 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef SERVER_HELLO_DONE
+#undef CHANGE_CIPHER_SPEC
+#undef FINISHED
+#undef INTERNAL_ERROR
+#undef NEW_SESSION_TICKET
 #undef PROTOCOL_VERSION
 #undef SERVER_HELLO
-#undef INTERNAL_ERROR
-#undef CHANGE_CIPHER_SPEC
+#undef SERVER_HELLO_DONE
 #undef SH_RENEGOTIATION_INFO
-#undef NEW_SESSION_TICKET
-#undef FINISHED
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

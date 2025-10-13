@@ -26,10 +26,10 @@
 #include <sun/security/util/DisabledAlgorithmConstraints.h>
 #include <jcpp.h>
 
+#undef ALGORITHM_CONSTRAINED
+#undef DAY_OF_MONTH
 #undef MONTH
 #undef YEAR
-#undef DAY_OF_MONTH
-#undef ALGORITHM_CONSTRAINED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -21,8 +21,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef VALUE
 #undef TYPE
+#undef VALUE
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

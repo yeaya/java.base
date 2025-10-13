@@ -5,16 +5,16 @@
 
 #include <java/text/Collator.h>
 
-#pragma push_macro("CONTRACTCHARINDEX")
-#undef CONTRACTCHARINDEX
-#pragma push_macro("UNMAPPED")
-#undef UNMAPPED
 #pragma push_macro("CHARINDEX")
 #undef CHARINDEX
-#pragma push_macro("EXPANDCHARINDEX")
-#undef EXPANDCHARINDEX
 #pragma push_macro("COLLATIONKEYOFFSET")
 #undef COLLATIONKEYOFFSET
+#pragma push_macro("CONTRACTCHARINDEX")
+#undef CONTRACTCHARINDEX
+#pragma push_macro("EXPANDCHARINDEX")
+#undef EXPANDCHARINDEX
+#pragma push_macro("UNMAPPED")
+#undef UNMAPPED
 
 namespace java {
 	namespace lang {
@@ -67,10 +67,10 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("CONTRACTCHARINDEX")
-#pragma pop_macro("UNMAPPED")
 #pragma pop_macro("CHARINDEX")
-#pragma pop_macro("EXPANDCHARINDEX")
 #pragma pop_macro("COLLATIONKEYOFFSET")
+#pragma pop_macro("CONTRACTCHARINDEX")
+#pragma pop_macro("EXPANDCHARINDEX")
+#pragma pop_macro("UNMAPPED")
 
 #endif // _java_text_RuleBasedCollator_h_

@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("JUJA")
-#undef JUJA
-#pragma push_macro("ZIP_ENDCHAIN")
-#undef ZIP_ENDCHAIN
 #pragma push_macro("BUF_SIZE")
 #undef BUF_SIZE
 #pragma push_macro("EMPTY_META_VERSIONS")
 #undef EMPTY_META_VERSIONS
+#pragma push_macro("JUJA")
+#undef JUJA
 #pragma push_macro("META_INF_LEN")
 #undef META_INF_LEN
+#pragma push_macro("ZIP_ENDCHAIN")
+#undef ZIP_ENDCHAIN
 
 namespace java {
 	namespace io {
@@ -102,10 +102,10 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("JUJA")
-#pragma pop_macro("ZIP_ENDCHAIN")
 #pragma pop_macro("BUF_SIZE")
 #pragma pop_macro("EMPTY_META_VERSIONS")
+#pragma pop_macro("JUJA")
 #pragma pop_macro("META_INF_LEN")
+#pragma pop_macro("ZIP_ENDCHAIN")
 
 #endif // _java_util_zip_ZipFile$Source_h_

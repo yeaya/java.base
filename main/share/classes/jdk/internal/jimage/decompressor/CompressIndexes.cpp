@@ -19,10 +19,10 @@
 #include <jcpp.h>
 
 #undef BYTES
-#undef HEADER_WIDTH
 #undef COMPRESSED_FLAG
-#undef SIZE
 #undef HEADER_SHIFT
+#undef HEADER_WIDTH
+#undef SIZE
 
 using $DataInputStream = ::java::io::DataInputStream;
 using $Byte = ::java::lang::Byte;

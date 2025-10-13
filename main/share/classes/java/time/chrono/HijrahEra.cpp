@@ -28,8 +28,8 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef ERA
 #undef AH
+#undef ERA
 #undef INSTANCE
 
 using $HijrahEraArray = $Array<::java::time::chrono::HijrahEra>;

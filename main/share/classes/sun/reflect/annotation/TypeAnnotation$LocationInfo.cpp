@@ -18,8 +18,8 @@
 #include <sun/reflect/annotation/TypeAnnotation.h>
 #include <jcpp.h>
 
-#undef EMPTY_TYPE_ANNOTATION_ARRAY
 #undef BASE_LOCATION
+#undef EMPTY_TYPE_ANNOTATION_ARRAY
 
 using $TypeAnnotation$LocationInfo$LocationArray = $Array<::sun::reflect::annotation::TypeAnnotation$LocationInfo$Location>;
 using $TypeAnnotationArray = $Array<::sun::reflect::annotation::TypeAnnotation>;

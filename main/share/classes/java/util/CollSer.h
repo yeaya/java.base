@@ -6,14 +6,14 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("IMM_MAP")
-#undef IMM_MAP
-#pragma push_macro("IMM_LIST_NULLS")
-#undef IMM_LIST_NULLS
-#pragma push_macro("IMM_SET")
-#undef IMM_SET
 #pragma push_macro("IMM_LIST")
 #undef IMM_LIST
+#pragma push_macro("IMM_LIST_NULLS")
+#undef IMM_LIST_NULLS
+#pragma push_macro("IMM_MAP")
+#undef IMM_MAP
+#pragma push_macro("IMM_SET")
+#undef IMM_SET
 
 namespace java {
 	namespace io {
@@ -45,9 +45,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("IMM_MAP")
-#pragma pop_macro("IMM_LIST_NULLS")
-#pragma pop_macro("IMM_SET")
 #pragma pop_macro("IMM_LIST")
+#pragma pop_macro("IMM_LIST_NULLS")
+#pragma pop_macro("IMM_MAP")
+#pragma pop_macro("IMM_SET")
 
 #endif // _java_util_CollSer_h_

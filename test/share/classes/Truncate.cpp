@@ -33,8 +33,8 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-#undef READ
 #undef APPEND
+#undef READ
 #undef WRITE
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
@@ -145,14 +145,14 @@ void Truncate::basicTest($File* blah) {
 							if (fc->size() != testSize) {
 								$throwNew($RuntimeException, "Attempt to expand file changed size"_s);
 							}
-						} else if ($nc(fc)->size() != newSize) {
+						} else if (fc->size() != newSize) {
 							$throwNew($RuntimeException, "Unexpected size after truncate"_s);
 						}
 						if (position > newSize) {
 							if (fc->position() != newSize) {
 								$throwNew($RuntimeException, "Position greater than size"_s);
 							}
-						} else if ($nc(fc)->position() != position) {
+						} else if (fc->position() != position) {
 							$throwNew($RuntimeException, "Truncate changed position"_s);
 						}
 					} catch ($Throwable&) {

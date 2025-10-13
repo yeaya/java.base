@@ -22,13 +22,13 @@
 #include <java/time/temporal/ValueRange.h>
 #include <jcpp.h>
 
-#undef WEDNESDAY
+#undef DAY_OF_QUARTER
+#undef QUARTER_DAYS
 #undef QUARTER_OF_YEAR
 #undef THURSDAY
-#undef QUARTER_DAYS
-#undef DAY_OF_QUARTER
-#undef WEEK_OF_WEEK_BASED_YEAR
+#undef WEDNESDAY
 #undef WEEK_BASED_YEAR
+#undef WEEK_OF_WEEK_BASED_YEAR
 
 using $IsoFields$FieldArray = $Array<::java::time::temporal::IsoFields$Field>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -236,7 +236,7 @@ int32_t IsoFields$Field::getWeekBasedYear($LocalDate* date) {
 			--year;
 		}
 	} else if (doy >= 363) {
-		int32_t dow = $nc($($nc(date)->getDayOfWeek()))->ordinal();
+		int32_t dow = $nc($(date->getDayOfWeek()))->ordinal();
 		doy = doy - 363 - (date->isLeapYear() ? 1 : 0);
 		if (doy - dow >= 0) {
 			++year;

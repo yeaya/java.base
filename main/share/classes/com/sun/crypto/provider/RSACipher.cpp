@@ -53,22 +53,22 @@
 #include <sun/security/util/KeyUtil.h>
 #include <jcpp.h>
 
-#undef MODE_SIGN
-#undef MODE_VERIFY
-#undef WRAP_MODE
-#undef SHA1
-#undef ENGLISH
-#undef PAD_PKCS1
-#undef PAD_BLOCKTYPE_2
-#undef MODE_ENCRYPT
-#undef PAD_BLOCKTYPE_1
-#undef MODE_DECRYPT
-#undef PAD_OAEP_MGF1
-#undef UNWRAP_MODE
-#undef ENCRYPT_MODE
 #undef DECRYPT_MODE
 #undef DEFAULT
+#undef ENCRYPT_MODE
+#undef ENGLISH
+#undef MODE_DECRYPT
+#undef MODE_ENCRYPT
+#undef MODE_SIGN
+#undef MODE_VERIFY
+#undef PAD_BLOCKTYPE_1
+#undef PAD_BLOCKTYPE_2
 #undef PAD_NONE
+#undef PAD_OAEP_MGF1
+#undef PAD_PKCS1
+#undef SHA1
+#undef UNWRAP_MODE
+#undef WRAP_MODE
 
 using $ConstructKeys = ::com::sun::crypto::provider::ConstructKeys;
 using $SunJCE = ::com::sun::crypto::provider::SunJCE;
@@ -201,7 +201,7 @@ void RSACipher::engineSetMode($String* mode) {
 void RSACipher::engineSetPadding($String* paddingName) {
 	if ($nc(paddingName)->equalsIgnoreCase(RSACipher::PAD_NONE)) {
 		$set(this, paddingType, RSACipher::PAD_NONE);
-	} else if ($nc(paddingName)->equalsIgnoreCase(RSACipher::PAD_PKCS1)) {
+	} else if (paddingName->equalsIgnoreCase(RSACipher::PAD_PKCS1)) {
 		$set(this, paddingType, RSACipher::PAD_PKCS1);
 	} else {
 		$init($Locale);

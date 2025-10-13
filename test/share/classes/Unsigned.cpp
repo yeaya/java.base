@@ -23,21 +23,21 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
+#undef MAX_RADIX
+#undef MAX_VALUE
+#undef MIN_RADIX
+#undef MIN_VALUE
+#undef NINETEEN
 #undef ONE
 #undef SIZE
-#undef MAX_VALUE
-#undef MIN_VALUE
+#undef TEN
 #undef TWO
-#undef MAX_RADIX
+#undef TWO_31
 #undef TWO_32
 #undef TWO_33
 #undef TWO_63
-#undef TWO_31
 #undef TWO_64
-#undef MIN_RADIX
-#undef NINETEEN
-#undef TEN
+#undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $PrintStream = ::java::io::PrintStream;

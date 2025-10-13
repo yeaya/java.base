@@ -30,10 +30,10 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef I_RANDOM
-#undef I_SIZE
 #undef I_NONE
 #undef I_PARAMS
+#undef I_RANDOM
+#undef I_SIZE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

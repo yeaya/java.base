@@ -14,8 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NPE
 #undef ILE
+#undef NPE
 
 using $FilePermission = ::java::io::FilePermission;
 using $PrintStream = ::java::io::PrintStream;
@@ -84,11 +84,11 @@ void SpecTests::main($StringArray* args) {
 			$var($Exception, e, $catch());
 			if (exps->get(i) == nullptr) {
 				$throw(e);
-			} else if (!($nc(($($nc($of(e))->getClass()->getName())))->equals($nc(exps)->get(i)))) {
-				$throwNew($Exception, $$str({"Expecting: "_s, $nc(exps)->get(i), " for name:"_s, $nc(names)->get(i), " actions:"_s, $nc(actions)->get(i)}));
+			} else if (!($nc(($($of(e)->getClass()->getName())))->equals(exps->get(i)))) {
+				$throwNew($Exception, $$str({"Expecting: "_s, exps->get(i), " for name:"_s, names->get(i), " actions:"_s, actions->get(i)}));
 			} else {
 				$init($System);
-				$nc($System::out)->println($$str({$nc(names)->get(i), ", ["_s, $nc(actions)->get(i), "] resulted in "_s, $nc(exps)->get(i), " as Expected"_s}));
+				$nc($System::out)->println($$str({names->get(i), ", ["_s, actions->get(i), "] resulted in "_s, exps->get(i), " as Expected"_s}));
 				continue;
 			}
 		}

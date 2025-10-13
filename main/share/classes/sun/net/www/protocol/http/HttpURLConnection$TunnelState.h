@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("TUNNELING")
-#undef TUNNELING
 #pragma push_macro("NONE")
 #undef NONE
 #pragma push_macro("SETUP")
 #undef SETUP
+#pragma push_macro("TUNNELING")
+#undef TUNNELING
 
 namespace sun {
 	namespace net {
@@ -39,8 +39,8 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("TUNNELING")
 #pragma pop_macro("NONE")
 #pragma pop_macro("SETUP")
+#pragma pop_macro("TUNNELING")
 
 #endif // _sun_net_www_protocol_http_HttpURLConnection$TunnelState_h_

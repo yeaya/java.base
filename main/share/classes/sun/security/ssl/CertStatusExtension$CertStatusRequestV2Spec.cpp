@@ -34,12 +34,12 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef OCSP_MULTI
+#undef DECODE_ERROR
+#undef DEFAULT
+#undef EMPTY_OCSP_MULTI
 #undef ENGLISH
 #undef OCSP
-#undef EMPTY_OCSP_MULTI
-#undef DEFAULT
-#undef DECODE_ERROR
+#undef OCSP_MULTI
 
 using $CertStatusExtension$CertStatusRequestArray = $Array<::sun::security::ssl::CertStatusExtension$CertStatusRequest>;
 using $IOException = ::java::io::IOException;

@@ -17,8 +17,8 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef VERSION
+#undef ZERO
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -149,44 +149,44 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef NO_PROXY
-#undef PROXY
-#undef ROOT
-#undef HTTP_PROXY_AUTH
-#undef DEFAULT_CONNECT_TIMEOUT
-#undef FINEST
 #undef BASIC
+#undef CHECK_SET_HOST
+#undef CHECK_SUBPATH
+#undef DEFAULT_CONNECT_TIMEOUT
+#undef DEFAULT_READ_TIMEOUT
+#undef DIGEST
+#undef EXCLUDE_HEADERS
+#undef EXCLUDE_HEADERS2
+#undef FINE
+#undef FINER
+#undef FINEST
+#undef HTTP
+#undef HTTP_CONNECT
+#undef HTTP_NOT_MODIFIED
+#undef HTTP_NO_CONTENT
+#undef HTTP_OK
+#undef HTTP_PROXY_AUTH
+#undef HTTP_UNAUTHORIZED
+#undef HTTP_USE_PROXY
+#undef KERBEROS
+#undef LF
+#undef NEGOTIATE
+#undef NONE
+#undef NO_PROXY
+#undef NTLM
+#undef PROXY
+#undef RETRY_MSG1
 #undef RETRY_MSG2
 #undef RETRY_MSG3
-#undef SET_COOKIE2
-#undef HTTP_NOT_MODIFIED
+#undef ROOT
 #undef SERVER
-#undef FINE
-#undef CHECK_SUBPATH
-#undef NONE
-#undef US
-#undef HTTP_CONNECT
-#undef RETRY_MSG1
-#undef HTTP_NO_CONTENT
-#undef NTLM
-#undef FINER
-#undef SET_COOKIE
-#undef NEGOTIATE
-#undef HTTP
-#undef DIGEST
-#undef HTTP_USE_PROXY
-#undef WARNING
-#undef KERBEROS
-#undef HTTP_OK
-#undef EXCLUDE_HEADERS
 #undef SETUP
+#undef SET_COOKIE
+#undef SET_COOKIE2
 #undef TUNNELING
-#undef CHECK_SET_HOST
-#undef EXCLUDE_HEADERS2
-#undef DEFAULT_READ_TIMEOUT
-#undef LF
-#undef HTTP_UNAUTHORIZED
 #undef UNKNOWN
+#undef US
+#undef WARNING
 
 using $PermissionArray = $Array<::java::security::Permission>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -691,7 +691,7 @@ bool HttpURLConnection::isRestrictedHeader($String* key$renamed, $String* value)
 			return false;
 		}
 		return true;
-	} else if ($nc(key)->startsWith("sec-"_s)) {
+	} else if (key->startsWith("sec-"_s)) {
 		return true;
 	}
 	return false;
@@ -1114,7 +1114,7 @@ bool HttpURLConnection::hostsEqual($URL* u1, $URL* u2) {
 		return h2 == nullptr;
 	} else if (h2 == nullptr) {
 		return false;
-	} else if ($nc(h1)->equalsIgnoreCase(h2)) {
+	} else if (h1->equalsIgnoreCase(h2)) {
 		return true;
 	}
 	$var($booleans, result, $new($booleans, {false}));
@@ -2230,18 +2230,14 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 		if ("basic"_s->equalsIgnoreCase(scheme)) {
 			authScheme = $AuthScheme::BASIC;
 		} else if ("digest"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::DIGEST;
 		} else if ("ntlm"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::NTLM;
 			this->doingNTLMp2ndStage = true;
 		} else if ("Kerberos"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::KERBEROS;
 			this->doingNTLMp2ndStage = true;
 		} else if ("Negotiate"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::NEGOTIATE;
 			this->doingNTLMp2ndStage = true;
 		}
@@ -2372,18 +2368,14 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 		if ("basic"_s->equalsIgnoreCase(scheme)) {
 			authScheme = $AuthScheme::BASIC;
 		} else if ("digest"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::DIGEST;
 		} else if ("ntlm"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::NTLM;
 			this->doingNTLM2ndStage = true;
 		} else if ("Kerberos"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::KERBEROS;
 			this->doingNTLM2ndStage = true;
 		} else if ("Negotiate"_s->equalsIgnoreCase(scheme)) {
-			$init($AuthScheme);
 			authScheme = $AuthScheme::NEGOTIATE;
 			this->doingNTLM2ndStage = true;
 		}

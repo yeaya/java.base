@@ -60,13 +60,13 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MIN
-#undef MAX
 #undef ISO_LOCAL_DATE_TIME
-#undef NANO_OF_SECOND
-#undef MAX_VALUE
-#undef MIN_VALUE
 #undef LOCAL_DATE_TIME_TYPE
+#undef MAX
+#undef MAX_VALUE
+#undef MIN
+#undef MIN_VALUE
+#undef NANO_OF_SECOND
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

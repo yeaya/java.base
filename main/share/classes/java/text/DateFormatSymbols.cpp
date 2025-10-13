@@ -33,31 +33,31 @@
 #include <sun/util/resources/LocaleData.h>
 #include <jcpp.h>
 
-#undef PATTERN_DAY_OF_WEEK
-#undef PATTERN_ERA
-#undef PATTERN_WEEK_OF_YEAR
 #undef FORMAT
-#undef PATTERN_HOUR_OF_DAY0
-#undef PATTERN_HOUR_OF_DAY1
-#undef PATTERN_ZONE_VALUE
-#undef PATTERN_DAY_OF_MONTH
-#undef PATTERN_MILLISECOND
-#undef PATTERN_DAY_OF_WEEK_IN_MONTH
-#undef PATTERN_SECOND
-#undef PATTERN_MONTH_STANDALONE
 #undef ID
 #undef PATTERN_AM_PM
-#undef PATTERN_HOUR0
+#undef PATTERN_DAY_OF_MONTH
+#undef PATTERN_DAY_OF_WEEK
+#undef PATTERN_DAY_OF_WEEK_IN_MONTH
 #undef PATTERN_DAY_OF_YEAR
+#undef PATTERN_ERA
+#undef PATTERN_HOUR0
 #undef PATTERN_HOUR1
-#undef PATTERN_WEEK_OF_MONTH
+#undef PATTERN_HOUR_OF_DAY0
+#undef PATTERN_HOUR_OF_DAY1
 #undef PATTERN_ISO_DAY_OF_WEEK
-#undef PATTERN_WEEK_YEAR
 #undef PATTERN_ISO_ZONE
-#undef PATTERN_ZONE_NAME
-#undef PATTERN_MONTH
+#undef PATTERN_MILLISECOND
 #undef PATTERN_MINUTE
+#undef PATTERN_MONTH
+#undef PATTERN_MONTH_STANDALONE
+#undef PATTERN_SECOND
+#undef PATTERN_WEEK_OF_MONTH
+#undef PATTERN_WEEK_OF_YEAR
+#undef PATTERN_WEEK_YEAR
 #undef PATTERN_YEAR
+#undef PATTERN_ZONE_NAME
+#undef PATTERN_ZONE_VALUE
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
@@ -444,12 +444,12 @@ void DateFormatSymbols::initializeData($Locale* locale) {
 		$set(dfs, locale, locale);
 		if ($nc(resource)->containsKey("Eras"_s)) {
 			$set(dfs, eras, resource->getStringArray("Eras"_s));
-		} else if ($nc(resource)->containsKey("long.Eras"_s)) {
-			$set($nc(dfs), eras, resource->getStringArray("long.Eras"_s));
-		} else if ($nc(resource)->containsKey("short.Eras"_s)) {
-			$set($nc(dfs), eras, resource->getStringArray("short.Eras"_s));
+		} else if (resource->containsKey("long.Eras"_s)) {
+			$set(dfs, eras, resource->getStringArray("long.Eras"_s));
+		} else if (resource->containsKey("short.Eras"_s)) {
+			$set(dfs, eras, resource->getStringArray("short.Eras"_s));
 		}
-		$set(dfs, months, $nc(resource)->getStringArray("MonthNames"_s));
+		$set(dfs, months, resource->getStringArray("MonthNames"_s));
 		$set(dfs, shortMonths, resource->getStringArray("MonthAbbreviations"_s));
 		$set(dfs, ampms, resource->getStringArray("AmPmMarkers"_s));
 		if ($nc(dfs->ampms)->length > 2) {

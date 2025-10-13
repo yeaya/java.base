@@ -5,26 +5,26 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("HANGUL_END")
-#undef HANGUL_END
-#pragma push_macro("JAMO_T_COUNT")
-#undef JAMO_T_COUNT
-#pragma push_macro("JAMO_T_BASE")
-#undef JAMO_T_BASE
-#pragma push_macro("JAMO_L_BASE")
-#undef JAMO_L_BASE
 #pragma push_macro("HANGUL_BASE")
 #undef HANGUL_BASE
-#pragma push_macro("JAMO_V_COUNT")
-#undef JAMO_V_COUNT
 #pragma push_macro("HANGUL_COUNT")
 #undef HANGUL_COUNT
+#pragma push_macro("HANGUL_END")
+#undef HANGUL_END
 #pragma push_macro("HANGUL_LIMIT")
 #undef HANGUL_LIMIT
+#pragma push_macro("JAMO_L_BASE")
+#undef JAMO_L_BASE
 #pragma push_macro("JAMO_L_COUNT")
 #undef JAMO_L_COUNT
+#pragma push_macro("JAMO_T_BASE")
+#undef JAMO_T_BASE
+#pragma push_macro("JAMO_T_COUNT")
+#undef JAMO_T_COUNT
 #pragma push_macro("JAMO_V_BASE")
 #undef JAMO_V_BASE
+#pragma push_macro("JAMO_V_COUNT")
+#undef JAMO_V_COUNT
 
 namespace java {
 	namespace lang {
@@ -62,15 +62,15 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("HANGUL_END")
-#pragma pop_macro("JAMO_T_COUNT")
-#pragma pop_macro("JAMO_T_BASE")
-#pragma pop_macro("JAMO_L_BASE")
 #pragma pop_macro("HANGUL_BASE")
-#pragma pop_macro("JAMO_V_COUNT")
 #pragma pop_macro("HANGUL_COUNT")
+#pragma pop_macro("HANGUL_END")
 #pragma pop_macro("HANGUL_LIMIT")
+#pragma pop_macro("JAMO_L_BASE")
 #pragma pop_macro("JAMO_L_COUNT")
+#pragma pop_macro("JAMO_T_BASE")
+#pragma pop_macro("JAMO_T_COUNT")
 #pragma pop_macro("JAMO_V_BASE")
+#pragma pop_macro("JAMO_V_COUNT")
 
 #endif // _jdk_internal_icu_impl_NormalizerImpl$Hangul_h_

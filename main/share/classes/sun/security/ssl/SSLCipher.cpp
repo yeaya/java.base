@@ -65,28 +65,28 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef PROTOCOLS_TO_10
-#undef B_AES_256
-#undef B_AES_256_GCM
-#undef B_IDEA
-#undef B_AES_128_GCM
-#undef NULL_CIPHER
-#undef B_AES_128_GCM_IV
-#undef PROTOCOLS_OF_NONE
+#undef AEAD_CIPHER
+#undef BLOCK_CIPHER
 #undef B_3DES
 #undef B_AES_128
-#undef PROTOCOLS_OF_11
-#undef STREAM_CIPHER
-#undef PROTOCOLS_OF_12
-#undef PROTOCOLS_OF_13
-#undef BLOCK_CIPHER
-#undef AEAD_CIPHER
+#undef B_AES_128_GCM
+#undef B_AES_128_GCM_IV
+#undef B_AES_256
+#undef B_AES_256_GCM
 #undef B_AES_256_GCM_IV
-#undef B_NULL
 #undef B_DES
 #undef B_DES_40
-#undef PROTOCOLS_TO_13
+#undef B_IDEA
+#undef B_NULL
+#undef NULL_CIPHER
+#undef PROTOCOLS_OF_11
+#undef PROTOCOLS_OF_12
+#undef PROTOCOLS_OF_13
+#undef PROTOCOLS_OF_NONE
+#undef PROTOCOLS_TO_10
 #undef PROTOCOLS_TO_12
+#undef PROTOCOLS_TO_13
+#undef STREAM_CIPHER
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;

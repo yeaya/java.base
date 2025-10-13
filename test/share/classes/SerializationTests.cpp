@@ -22,10 +22,10 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef ONE
 #undef MAX_VALUE
+#undef ONE
 #undef TEN
+#undef ZERO
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

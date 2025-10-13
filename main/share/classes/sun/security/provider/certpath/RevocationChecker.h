@@ -8,12 +8,12 @@
 
 #pragma push_macro("ALL_REASONS")
 #undef ALL_REASONS
-#pragma push_macro("MAX_CLOCK_SKEW")
-#undef MAX_CLOCK_SKEW
 #pragma push_macro("CRL_SIGN_USAGE")
 #undef CRL_SIGN_USAGE
 #pragma push_macro("DEFAULT_NONCE_BYTES")
 #undef DEFAULT_NONCE_BYTES
+#pragma push_macro("MAX_CLOCK_SKEW")
+#undef MAX_CLOCK_SKEW
 
 namespace java {
 	namespace net {
@@ -134,8 +134,8 @@ public:
 } // sun
 
 #pragma pop_macro("ALL_REASONS")
-#pragma pop_macro("MAX_CLOCK_SKEW")
 #pragma pop_macro("CRL_SIGN_USAGE")
 #pragma pop_macro("DEFAULT_NONCE_BYTES")
+#pragma pop_macro("MAX_CLOCK_SKEW")
 
 #endif // _sun_security_provider_certpath_RevocationChecker_h_

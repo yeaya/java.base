@@ -51,31 +51,31 @@
 #include <sun/security/x509/X509AttributeName.h>
 #include <jcpp.h>
 
-#undef DN_NAME
-#undef EXTENSIONS
-#undef ATTR_SUBJECT_ID
-#undef ATTR_SERIAL
-#undef ISSUER_ID
-#undef ATTR_KEY
-#undef SERIAL_NUMBER
-#undef ATTR_VERSION
-#undef ATTR_SUBJECT
-#undef SUBJECT_ID
-#undef ATTR_ISSUER_ID
-#undef VALIDITY
+#undef ALGORITHM_ID
 #undef ATTR_ALGORITHM
 #undef ATTR_EXTENSIONS
-#undef NAME
-#undef ISSUER
-#undef IDENT
+#undef ATTR_ISSUER
+#undef ATTR_ISSUER_ID
+#undef ATTR_KEY
+#undef ATTR_SERIAL
+#undef ATTR_SUBJECT
+#undef ATTR_SUBJECT_ID
 #undef ATTR_VALIDITY
+#undef ATTR_VERSION
+#undef DN_NAME
+#undef EXTENSIONS
+#undef IDENT
+#undef ISSUER
+#undef ISSUER_ID
+#undef KEY
+#undef NAME
+#undef SERIAL_NUMBER
+#undef SUBJECT
+#undef SUBJECT_ID
 #undef SUBJECT_NAME
 #undef TAG_CONTEXT
+#undef VALIDITY
 #undef VERSION
-#undef SUBJECT
-#undef ALGORITHM_ID
-#undef KEY
-#undef ATTR_ISSUER
 
 using $ExtensionArray = $Array<::sun::security::x509::Extension>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -341,13 +341,13 @@ bool X509CertInfo::equals(Object$* other) {
 bool X509CertInfo::equals(X509CertInfo* other) {
 	if (this == other) {
 		return (true);
-	} else if (this->rawCertInfo == nullptr || $nc(other)->rawCertInfo == nullptr) {
+	} else if (this->rawCertInfo == nullptr || other->rawCertInfo == nullptr) {
 		return (false);
-	} else if ($nc(this->rawCertInfo)->length != $nc($nc(other)->rawCertInfo)->length) {
+	} else if ($nc(this->rawCertInfo)->length != $nc(other->rawCertInfo)->length) {
 		return (false);
 	}
 	for (int32_t i = 0; i < $nc(this->rawCertInfo)->length; ++i) {
-		if ($nc(this->rawCertInfo)->get(i) != $nc($nc(other)->rawCertInfo)->get(i)) {
+		if ($nc(this->rawCertInfo)->get(i) != $nc(other->rawCertInfo)->get(i)) {
 			return (false);
 		}
 	}
@@ -765,7 +765,7 @@ case$19:
 $Object* X509CertInfo::getX500Name($String* name, bool getIssuer) {
 	if ($nc(name)->equalsIgnoreCase(X509CertInfo::DN_NAME)) {
 		return $of(getIssuer ? $of(this->issuer) : $of(this->subject));
-	} else if ($nc(name)->equalsIgnoreCase("x500principal"_s)) {
+	} else if (name->equalsIgnoreCase("x500principal"_s)) {
 		return $of(getIssuer ? $of($nc(this->issuer)->asX500Principal()) : $of($nc(this->subject)->asX500Principal()));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized."_s);
@@ -848,7 +848,7 @@ void X509CertInfo::verifyCert($X500Name* subject, $CertificateExtensions* extens
 		}
 		if (names == nullptr || $nc(names)->isEmpty()) {
 			$throwNew($CertificateParsingException, "X.509 Certificate is incomplete: subject field is empty, and SubjectAlternativeName extension is empty"_s);
-		} else if ($nc(subjectAltNameExt)->isCritical() == false) {
+		} else if (subjectAltNameExt->isCritical() == false) {
 			$throwNew($CertificateParsingException, "X.509 Certificate is incomplete: SubjectAlternativeName extension MUST be marked critical when subject field is empty"_s);
 		}
 	}

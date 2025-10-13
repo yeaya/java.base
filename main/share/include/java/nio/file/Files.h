@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DEFAULT_CREATE_OPTIONS")
-#undef DEFAULT_CREATE_OPTIONS
 #pragma push_macro("BUFFER_SIZE")
 #undef BUFFER_SIZE
+#pragma push_macro("DEFAULT_CREATE_OPTIONS")
+#undef DEFAULT_CREATE_OPTIONS
 #pragma push_macro("JLA")
 #undef JLA
 
@@ -213,8 +213,8 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("DEFAULT_CREATE_OPTIONS")
 #pragma pop_macro("BUFFER_SIZE")
+#pragma pop_macro("DEFAULT_CREATE_OPTIONS")
 #pragma pop_macro("JLA")
 
 #endif // _java_nio_file_Files_h_

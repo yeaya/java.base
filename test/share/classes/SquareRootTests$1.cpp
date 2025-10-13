@@ -14,13 +14,13 @@
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
+#undef CEILING
 #undef DOWN
 #undef FLOOR
-#undef CEILING
-#undef HALF_EVEN
-#undef UP
-#undef HALF_UP
 #undef HALF_DOWN
+#undef HALF_EVEN
+#undef HALF_UP
+#undef UP
 
 using $SquareRootTests = ::SquareRootTests;
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;

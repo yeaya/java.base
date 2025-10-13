@@ -50,15 +50,15 @@
 #include <sun/security/util/SignatureFileVerifier.h>
 #include <jcpp.h>
 
-#undef JUJA
-#undef ZIP_ENDCHAIN
-#undef ENGLISH
-#undef UTF8
 #undef BUF_SIZE
-#undef INSTANCE
 #undef EMPTY_META_VERSIONS
+#undef ENGLISH
+#undef INSTANCE
+#undef JUJA
 #undef META_INF_LEN
 #undef N
+#undef UTF8
+#undef ZIP_ENDCHAIN
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $File = ::java::io::File;
@@ -616,7 +616,7 @@ bool ZipFile$Source::isSignatureRelated(int32_t off, int32_t len) {
 		if ((b1 == u'e' && b2 == u'c') || (b1 == u's' && b2 == u'f')) {
 			signatureRelated = true;
 		}
-	} else if ($nc(name)->get(off + len - 4) == u'.') {
+	} else if (name->get(off + len - 4) == u'.') {
 		int32_t b1 = name->get(off + len - 3) | 32;
 		int32_t b2 = name->get(off + len - 2) | 32;
 		int32_t b3 = name->get(off + len - 1) | 32;

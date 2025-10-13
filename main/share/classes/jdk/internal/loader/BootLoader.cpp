@@ -43,11 +43,11 @@
 #include <jdk/internal/util/StaticProperty.h>
 #include <jcpp.h>
 
-#undef UNNAMED_MODULE
-#undef NATIVE_LIBS
-#undef JAVA_HOME
 #undef CLASS_LOADER_VALUE_MAP
+#undef JAVA_HOME
 #undef JLA
+#undef NATIVE_LIBS
+#undef UNNAMED_MODULE
 
 using $InputStream = ::java::io::InputStream;
 using $Serializable = ::java::io::Serializable;

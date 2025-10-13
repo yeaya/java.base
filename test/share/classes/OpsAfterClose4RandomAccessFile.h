@@ -6,30 +6,30 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CLOSE")
+#undef CLOSE
+#pragma push_macro("GET_CHANNEL")
+#undef GET_CHANNEL
+#pragma push_macro("GET_FD")
+#undef GET_FD
+#pragma push_macro("GET_FILE_PTR")
+#undef GET_FILE_PTR
+#pragma push_macro("GET_LENGTH")
+#undef GET_LENGTH
 #pragma push_macro("READ")
 #undef READ
+#pragma push_macro("READ_BUF")
+#undef READ_BUF
+#pragma push_macro("SEEK")
+#undef SEEK
 #pragma push_macro("SET_LENGTH")
 #undef SET_LENGTH
 #pragma push_macro("SKIP_BYTES")
 #undef SKIP_BYTES
-#pragma push_macro("READ_BUF")
-#undef READ_BUF
-#pragma push_macro("GET_FD")
-#undef GET_FD
-#pragma push_macro("GET_LENGTH")
-#undef GET_LENGTH
-#pragma push_macro("WRITE_BUF")
-#undef WRITE_BUF
-#pragma push_macro("CLOSE")
-#undef CLOSE
-#pragma push_macro("GET_FILE_PTR")
-#undef GET_FILE_PTR
-#pragma push_macro("GET_CHANNEL")
-#undef GET_CHANNEL
-#pragma push_macro("SEEK")
-#undef SEEK
 #pragma push_macro("WRITE")
 #undef WRITE
+#pragma push_macro("WRITE_BUF")
+#undef WRITE_BUF
 
 namespace java {
 	namespace io {
@@ -63,17 +63,17 @@ public:
 	static $Array<OpsAfterClose4RandomAccessFile>* $VALUES;
 };
 
+#pragma pop_macro("CLOSE")
+#pragma pop_macro("GET_CHANNEL")
+#pragma pop_macro("GET_FD")
+#pragma pop_macro("GET_FILE_PTR")
+#pragma pop_macro("GET_LENGTH")
 #pragma pop_macro("READ")
+#pragma pop_macro("READ_BUF")
+#pragma pop_macro("SEEK")
 #pragma pop_macro("SET_LENGTH")
 #pragma pop_macro("SKIP_BYTES")
-#pragma pop_macro("READ_BUF")
-#pragma pop_macro("GET_FD")
-#pragma pop_macro("GET_LENGTH")
-#pragma pop_macro("WRITE_BUF")
-#pragma pop_macro("CLOSE")
-#pragma pop_macro("GET_FILE_PTR")
-#pragma pop_macro("GET_CHANNEL")
-#pragma pop_macro("SEEK")
 #pragma pop_macro("WRITE")
+#pragma pop_macro("WRITE_BUF")
 
 #endif // _OpsAfterClose4RandomAccessFile_h_

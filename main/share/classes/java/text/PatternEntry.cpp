@@ -15,11 +15,11 @@
 #include <jcpp.h>
 
 #undef IDENTICAL
-#undef SECONDARY
 #undef PRIMARY
 #undef RESET
-#undef UNSET
+#undef SECONDARY
 #undef TERTIARY
+#undef UNSET
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

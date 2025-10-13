@@ -5,24 +5,24 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("OFFSETOF_EVENTS")
-#undef OFFSETOF_EVENTS
-#pragma push_macro("SIZEOF_EPOLLEVENT")
-#undef SIZEOF_EPOLLEVENT
-#pragma push_macro("EPOLL_CTL_DEL")
-#undef EPOLL_CTL_DEL
 #pragma push_macro("EPOLLIN")
 #undef EPOLLIN
-#pragma push_macro("EPOLL_CTL_MOD")
-#undef EPOLL_CTL_MOD
-#pragma push_macro("EPOLL_CTL_ADD")
-#undef EPOLL_CTL_ADD
 #pragma push_macro("EPOLLONESHOT")
 #undef EPOLLONESHOT
-#pragma push_macro("OFFSETOF_FD")
-#undef OFFSETOF_FD
 #pragma push_macro("EPOLLOUT")
 #undef EPOLLOUT
+#pragma push_macro("EPOLL_CTL_ADD")
+#undef EPOLL_CTL_ADD
+#pragma push_macro("EPOLL_CTL_DEL")
+#undef EPOLL_CTL_DEL
+#pragma push_macro("EPOLL_CTL_MOD")
+#undef EPOLL_CTL_MOD
+#pragma push_macro("OFFSETOF_EVENTS")
+#undef OFFSETOF_EVENTS
+#pragma push_macro("OFFSETOF_FD")
+#undef OFFSETOF_FD
+#pragma push_macro("SIZEOF_EPOLLEVENT")
+#undef SIZEOF_EPOLLEVENT
 
 namespace jdk {
 	namespace internal {
@@ -68,14 +68,14 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("OFFSETOF_EVENTS")
-#pragma pop_macro("SIZEOF_EPOLLEVENT")
-#pragma pop_macro("EPOLL_CTL_DEL")
 #pragma pop_macro("EPOLLIN")
-#pragma pop_macro("EPOLL_CTL_MOD")
-#pragma pop_macro("EPOLL_CTL_ADD")
 #pragma pop_macro("EPOLLONESHOT")
-#pragma pop_macro("OFFSETOF_FD")
 #pragma pop_macro("EPOLLOUT")
+#pragma pop_macro("EPOLL_CTL_ADD")
+#pragma pop_macro("EPOLL_CTL_DEL")
+#pragma pop_macro("EPOLL_CTL_MOD")
+#pragma pop_macro("OFFSETOF_EVENTS")
+#pragma pop_macro("OFFSETOF_FD")
+#pragma pop_macro("SIZEOF_EPOLLEVENT")
 
 #endif // _sun_nio_ch_EPoll_h_

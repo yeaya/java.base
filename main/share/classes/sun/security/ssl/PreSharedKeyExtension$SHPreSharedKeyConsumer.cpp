@@ -25,8 +25,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef ILLEGAL_PARAMETER
 #undef CH_PRE_SHARED_KEY
+#undef ILLEGAL_PARAMETER
 #undef UNEXPECTED_MESSAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -28,8 +28,8 @@
 #include <sun/nio/ch/WindowsAsynchronousFileChannelImpl.h>
 #include <jcpp.h>
 
-#undef UNAVAILABLE
 #undef EOF
+#undef UNAVAILABLE
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

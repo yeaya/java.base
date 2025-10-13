@@ -26,9 +26,9 @@
 #include <jcpp.h>
 
 #undef CANCELLED
-#undef VIRGIN
 #undef MAX_VALUE
 #undef SCHEDULED
+#undef VIRGIN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

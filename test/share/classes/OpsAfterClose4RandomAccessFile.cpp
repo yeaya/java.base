@@ -29,18 +29,18 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef CLOSE
+#undef GET_CHANNEL
+#undef GET_FD
+#undef GET_FILE_PTR
+#undef GET_LENGTH
 #undef READ
+#undef READ_BUF
+#undef SEEK
 #undef SET_LENGTH
 #undef SKIP_BYTES
-#undef READ_BUF
-#undef GET_FD
-#undef GET_LENGTH
-#undef WRITE_BUF
-#undef CLOSE
-#undef GET_FILE_PTR
-#undef GET_CHANNEL
-#undef SEEK
 #undef WRITE
+#undef WRITE_BUF
 
 using $OpsAfterClose4RandomAccessFile$1 = ::OpsAfterClose4RandomAccessFile$1;
 using $OpsAfterClose4RandomAccessFile$10 = ::OpsAfterClose4RandomAccessFile$10;

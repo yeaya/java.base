@@ -15,8 +15,8 @@
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
-#undef FLOOR
 #undef CEILING
+#undef FLOOR
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $BigDecimalArray2 = $Array<::java::math::BigDecimal, 2>;

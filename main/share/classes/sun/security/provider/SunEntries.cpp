@@ -33,11 +33,11 @@
 #include <sun/security/util/SecurityProviderConstants.h>
 #include <jcpp.h>
 
-#undef PROP_RNDSOURCE
-#undef URL_DEV_URANDOM
-#undef PROP_EGD
 #undef DEF_SECURE_RANDOM_ALGO
+#undef PROP_EGD
+#undef PROP_RNDSOURCE
 #undef URL_DEV_RANDOM
+#undef URL_DEV_URANDOM
 
 using $File = ::java::io::File;
 using $Boolean = ::java::lang::Boolean;

@@ -25,17 +25,17 @@
 #include <sun/security/ssl/JsseJce.h>
 #include <jcpp.h>
 
-#undef DSS_SIGN
-#undef DSS_FIXED_DH
 #undef CERT_TYPES
-#undef FORTEZZA_DMS
-#undef RSA_FIXED_DH
-#undef ECDSA_FIXED_ECDH
-#undef RSA_EPHEMERAL_DH
 #undef DSS_EPHEMERAL_DH
+#undef DSS_FIXED_DH
+#undef DSS_SIGN
+#undef ECDSA_FIXED_ECDH
+#undef ECDSA_SIGN
+#undef FORTEZZA_DMS
+#undef RSA_EPHEMERAL_DH
+#undef RSA_FIXED_DH
 #undef RSA_FIXED_ECDH
 #undef RSA_SIGN
-#undef ECDSA_SIGN
 
 using $CertificateRequest$ClientCertificateTypeArray = $Array<::sun::security::ssl::CertificateRequest$ClientCertificateType>;
 using $Serializable = ::java::io::Serializable;

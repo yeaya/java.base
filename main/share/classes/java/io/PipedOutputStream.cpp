@@ -69,11 +69,11 @@ void PipedOutputStream::connect($PipedInputStream* snk) {
 	$synchronized(this) {
 		if (snk == nullptr) {
 			$throwNew($NullPointerException);
-		} else if (this->sink != nullptr || $nc(snk)->connected) {
+		} else if (this->sink != nullptr || snk->connected) {
 			$throwNew($IOException, "Already connected"_s);
 		}
 		$set(this, sink, snk);
-		$nc(snk)->in = -1;
+		snk->in = -1;
 		snk->out = 0;
 		snk->connected = true;
 	}

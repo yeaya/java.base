@@ -13,10 +13,10 @@
 #include <sun/net/ProgressSource.h>
 #include <jcpp.h>
 
-#undef NEW
-#undef DELETE
-#undef UPDATE
 #undef CONNECTED
+#undef DELETE
+#undef NEW
+#undef UPDATE
 
 using $ProgressSource$StateArray = $Array<::sun::net::ProgressSource$State>;
 using $ClassInfo = ::java::lang::ClassInfo;

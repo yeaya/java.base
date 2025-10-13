@@ -17,10 +17,10 @@
 #include <jcpp.h>
 
 #undef CLASS_ONLY_NO_FALLBACK
-#undef NO_FALLBACK
-#undef FORMAT_PROPERTIES
-#undef FORMAT_DEFAULT
 #undef FORMAT_CLASS
+#undef FORMAT_DEFAULT
+#undef FORMAT_PROPERTIES
+#undef NO_FALLBACK
 #undef PROPERTIES_ONLY_NO_FALLBACK
 
 using $ClassInfo = ::java::lang::ClassInfo;

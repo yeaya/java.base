@@ -15,8 +15,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef UNASSIGNED
 #undef DIRECTIONALITY_UNDEFINED
+#undef UNASSIGNED
 
 using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;

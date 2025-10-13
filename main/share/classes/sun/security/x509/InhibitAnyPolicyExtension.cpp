@@ -24,11 +24,11 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
+#undef CE_CERT_POLICIES_ANY
 #undef IDENT
 #undef MAX_VALUE
-#undef CE_CERT_POLICIES_ANY
-#undef SKIP_CERTS
 #undef NAME
+#undef SKIP_CERTS
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

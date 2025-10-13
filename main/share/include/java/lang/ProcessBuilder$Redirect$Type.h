@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ")
-#undef READ
+#pragma push_macro("APPEND")
+#undef APPEND
 #pragma push_macro("INHERIT")
 #undef INHERIT
 #pragma push_macro("PIPE")
 #undef PIPE
-#pragma push_macro("APPEND")
-#undef APPEND
+#pragma push_macro("READ")
+#undef READ
 #pragma push_macro("WRITE")
 #undef WRITE
 
@@ -39,10 +39,10 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("READ")
+#pragma pop_macro("APPEND")
 #pragma pop_macro("INHERIT")
 #pragma pop_macro("PIPE")
-#pragma pop_macro("APPEND")
+#pragma pop_macro("READ")
 #pragma pop_macro("WRITE")
 
 #endif // _java_lang_ProcessBuilder$Redirect$Type_h_

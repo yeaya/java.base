@@ -32,8 +32,8 @@
 #include <sun/security/ssl/SSLRecord.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE
 #undef ALERT
+#undef HANDSHAKE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $PlaintextArray = $Array<::sun::security::ssl::Plaintext>;
@@ -300,17 +300,17 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 				if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
 					$nc(this->handshakeHash)->receive(handshakeFrag);
 				}
-				$nc(plaintexts)->add($$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, handshakeFrag));
+				plaintexts->add($$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, handshakeFrag));
 				break;
 			} else {
-				int32_t fragPos = $nc(handshakeFrag)->position();
+				int32_t fragPos = handshakeFrag->position();
 				int32_t fragLim = handshakeFrag->limit();
 				int32_t nextPos = fragPos + handshakeMessageLen;
 				handshakeFrag->limit(nextPos);
 				if ($nc(this->handshakeHash)->isHashable(handshakeType)) {
 					$nc(this->handshakeHash)->receive(handshakeFrag);
 				}
-				$nc(plaintexts)->add($$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, $(handshakeFrag->slice())));
+				plaintexts->add($$new($Plaintext, contentType, majorVersion, minorVersion, -1, -1, $(handshakeFrag->slice())));
 				handshakeFrag->position(nextPos);
 				handshakeFrag->limit(fragLim);
 			}

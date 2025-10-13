@@ -20,8 +20,8 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceAnnotationVisitor.h>
 #include <jcpp.h>
 
-#undef ASM8
 #undef ASM5
+#undef ASM8
 #undef INVOKEINTERFACE
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;

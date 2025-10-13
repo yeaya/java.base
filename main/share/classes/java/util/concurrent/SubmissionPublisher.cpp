@@ -38,9 +38,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef INITIAL_CAPACITY
-#undef BUFFER_CAPACITY_LIMIT
 #undef ASYNC_POOL
+#undef BUFFER_CAPACITY_LIMIT
+#undef INITIAL_CAPACITY
 #undef MAX_VALUE
 
 using $AutoCloseable = ::java::lang::AutoCloseable;
@@ -236,7 +236,7 @@ void SubmissionPublisher::subscribe($Flow$Subscriber* subscriber) {
 						if (($assign(ex, this->closedException)) != nullptr) {
 							subscription->onError(ex);
 						} else if (this->closed) {
-							$nc(subscription)->onComplete();
+							subscription->onComplete();
 						} else if (pred == nullptr) {
 							$set(this, clients, subscription);
 						} else {
@@ -252,8 +252,8 @@ void SubmissionPublisher::subscribe($Flow$Subscriber* subscriber) {
 						} else {
 							$set($nc(pred), next, next);
 						}
-					} else if ($nc($of(subscriber))->equals($nc(b)->subscriber)) {
-						$nc(b)->onError($$new($IllegalStateException, "Duplicate subscribe"_s));
+					} else if ($of(subscriber)->equals(b->subscriber)) {
+						b->onError($$new($IllegalStateException, "Duplicate subscribe"_s));
 						break;
 					} else {
 						$assign(pred, b);
@@ -601,7 +601,7 @@ bool SubmissionPublisher::isSubscribed($Flow$Subscriber* subscriber) {
 							} else {
 								$set($nc(pred), next, next);
 							}
-						} else if (subscribed = $nc($of(subscriber))->equals($nc(b)->subscriber)) {
+						} else if (subscribed = $of(subscriber)->equals(b->subscriber)) {
 							break;
 						} else {
 							$assign(pred, b);

@@ -18,8 +18,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_RADIX
 #undef MAX_RADIX
+#undef MIN_RADIX
 
 using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;

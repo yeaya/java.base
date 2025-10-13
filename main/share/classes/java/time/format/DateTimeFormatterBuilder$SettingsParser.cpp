@@ -18,10 +18,10 @@
 #include <java/time/format/DateTimePrintContext.h>
 #include <jcpp.h>
 
-#undef STRICT
+#undef INSENSITIVE
 #undef LENIENT
 #undef SENSITIVE
-#undef INSENSITIVE
+#undef STRICT
 
 using $DateTimeFormatterBuilder$SettingsParserArray = $Array<::java::time::format::DateTimeFormatterBuilder$SettingsParser>;
 using $CharSequence = ::java::lang::CharSequence;

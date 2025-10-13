@@ -16,24 +16,24 @@
 #include <jdk/internal/icu/text/UTF16.h>
 #include <jcpp.h>
 
-#undef SMALL_Z
-#undef ZERO
-#undef INITIAL_BIAS
-#undef SMALL_A
-#undef SKEW
-#undef UINT_MAGIC
-#undef DELIMITER
 #undef BASE
-#undef MAX_CP_COUNT
 #undef CAPITAL_A
-#undef INITIAL_N
-#undef NINE
-#undef ULONG_MAGIC
-#undef TMAX
-#undef TMIN
-#undef HYPHEN
 #undef CAPITAL_Z
 #undef DAMP
+#undef DELIMITER
+#undef HYPHEN
+#undef INITIAL_BIAS
+#undef INITIAL_N
+#undef MAX_CP_COUNT
+#undef NINE
+#undef SKEW
+#undef SMALL_A
+#undef SMALL_Z
+#undef TMAX
+#undef TMIN
+#undef UINT_MAGIC
+#undef ULONG_MAGIC
+#undef ZERO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -231,12 +231,12 @@ $StringBuffer* Punycode::encode($StringBuffer* src, $booleans* caseFlags) {
 						break;
 					}
 					if (destLength < destCapacity) {
-						$nc(dest)->set(destLength++, digitToBasic(t + $mod((q - t), (Punycode::BASE - t)), false));
+						dest->set(destLength++, digitToBasic(t + $mod((q - t), (Punycode::BASE - t)), false));
 					}
 					q = $div((q - t), (Punycode::BASE - t));
 				}
 				if (destLength < destCapacity) {
-					$nc(dest)->set(destLength++, digitToBasic(q, ($nc(cpBuffer)->get(j) < 0)));
+					dest->set(destLength++, digitToBasic(q, (cpBuffer->get(j) < 0)));
 				}
 				bias = adaptBias(delta, handledCPCount + 1, (handledCPCount == basicLength));
 				delta = 0;

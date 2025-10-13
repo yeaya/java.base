@@ -70,33 +70,33 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef POLLCONN
-#undef IP_TOS
-#undef OP_READ
-#undef SHUT_RD
-#undef INET6
-#undef SO_LINGER
-#undef SHUT_WR
-#undef UNNAMED
-#undef POLLHUP
-#undef UNAVAILABLE
-#undef POLLOUT
-#undef POLLNVAL
 #undef EOF
-#undef OP_WRITE
-#undef INTERRUPTED
-#undef ST_CLOSED
-#undef POLLIN
-#undef ST_UNCONNECTED
-#undef SO_REUSEADDR
-#undef UNSPEC
-#undef UNIX
-#undef OP_CONNECT
-#undef ST_CONNECTIONPENDING
-#undef ST_CLOSING
-#undef POLLERR
 #undef INET
+#undef INET6
+#undef INTERRUPTED
+#undef IP_TOS
+#undef OP_CONNECT
+#undef OP_READ
+#undef OP_WRITE
+#undef POLLCONN
+#undef POLLERR
+#undef POLLHUP
+#undef POLLIN
+#undef POLLNVAL
+#undef POLLOUT
+#undef SHUT_RD
+#undef SHUT_WR
+#undef SO_LINGER
+#undef SO_REUSEADDR
+#undef ST_CLOSED
+#undef ST_CLOSING
 #undef ST_CONNECTED
+#undef ST_CONNECTIONPENDING
+#undef ST_UNCONNECTED
+#undef UNAVAILABLE
+#undef UNIX
+#undef UNNAMED
+#undef UNSPEC
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $FileDescriptor = ::java::io::FileDescriptor;

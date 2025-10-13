@@ -50,11 +50,11 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef PARSER
-#undef MONTH_OF_YEAR
 #undef DAY_OF_MONTH
 #undef INSTANCE
 #undef MONTH_DAY_TYPE
+#undef MONTH_OF_YEAR
+#undef PARSER
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
@@ -312,8 +312,8 @@ $ValueRange* MonthDay::range($TemporalField* field) {
 		return field->range();
 	} else {
 		if ($equals(field, $ChronoField::DAY_OF_MONTH)) {
-			int64_t var$1 = (int64_t)$nc($(getMonth()))->minLength();
-			return $ValueRange::of(1, var$1, $nc($(getMonth()))->maxLength());
+			int64_t var$0 = (int64_t)$nc($(getMonth()))->minLength();
+			return $ValueRange::of(1, var$0, $nc($(getMonth()))->maxLength());
 		}
 	}
 	return $TemporalAccessor::range(field);

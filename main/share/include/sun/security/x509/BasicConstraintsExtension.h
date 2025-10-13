@@ -9,12 +9,12 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("PATH_LEN")
-#undef PATH_LEN
 #pragma push_macro("IS_CA")
 #undef IS_CA
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("PATH_LEN")
+#undef PATH_LEN
 
 namespace java {
 	namespace io {
@@ -70,8 +70,8 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("PATH_LEN")
 #pragma pop_macro("IS_CA")
 #pragma pop_macro("NAME")
+#pragma pop_macro("PATH_LEN")
 
 #endif // _sun_security_x509_BasicConstraintsExtension_h_

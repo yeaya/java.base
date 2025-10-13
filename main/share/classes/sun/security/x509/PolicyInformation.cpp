@@ -27,9 +27,9 @@
 #include <sun/security/x509/CertificatePolicyId.h>
 #include <jcpp.h>
 
-#undef QUALIFIERS
 #undef ID
 #undef NAME
+#undef QUALIFIERS
 
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
@@ -158,7 +158,7 @@ $Set* PolicyInformation::getPolicyQualifiers() {
 $Object* PolicyInformation::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PolicyInformation::ID)) {
 		return $of(this->policyIdentifier);
-	} else if ($nc(name)->equalsIgnoreCase(PolicyInformation::QUALIFIERS)) {
+	} else if (name->equalsIgnoreCase(PolicyInformation::QUALIFIERS)) {
 		return $of(this->policyQualifiers);
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by PolicyInformation."_s}));
@@ -172,7 +172,7 @@ void PolicyInformation::set($String* name, Object$* obj) {
 		} else {
 			$throwNew($IOException, "Attribute value must be instance of CertificatePolicyId."_s);
 		}
-	} else if ($nc(name)->equalsIgnoreCase(PolicyInformation::QUALIFIERS)) {
+	} else if (name->equalsIgnoreCase(PolicyInformation::QUALIFIERS)) {
 		if (this->policyIdentifier == nullptr) {
 			$throwNew($IOException, "Attribute must have a CertificatePolicyIdentifier value before PolicyQualifierInfo can be set."_s);
 		}
@@ -196,7 +196,7 @@ void PolicyInformation::set($String* name, Object$* obj) {
 void PolicyInformation::delete$($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PolicyInformation::QUALIFIERS)) {
 		$set(this, policyQualifiers, $Collections::emptySet());
-	} else if ($nc(name)->equalsIgnoreCase(PolicyInformation::ID)) {
+	} else if (name->equalsIgnoreCase(PolicyInformation::ID)) {
 		$throwNew($IOException, "Attribute ID may not be deleted from PolicyInformation."_s);
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by PolicyInformation."_s}));

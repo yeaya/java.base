@@ -28,10 +28,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE_FAILURE
-#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
-#undef NOMINAL
 #undef CH_RENEGOTIATION_INFO
+#undef HANDSHAKE_FAILURE
+#undef NOMINAL
+#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -113,11 +113,10 @@ $bytes* RenegoInfoExtension$CHRenegotiationInfoProducer::produce($ConnectionCont
 		$init($RenegoInfoExtension$RenegotiationInfoSpec);
 		$nc(chc->handshakeExtensions)->put($SSLExtension::CH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
 		return extData;
-	} else if ($nc($nc(chc)->conContext)->secureRenegotiation) {
+	} else if ($nc(chc->conContext)->secureRenegotiation) {
 		$var($bytes, extData, $new($bytes, $nc($nc(chc->conContext)->clientVerifyData)->length + 1));
 		$var($ByteBuffer, m, $ByteBuffer::wrap(extData));
 		$Record::putBytes8(m, $nc(chc->conContext)->clientVerifyData);
-		$init($SSLExtension);
 		$init($RenegoInfoExtension$RenegotiationInfoSpec);
 		$nc(chc->handshakeExtensions)->put($SSLExtension::CH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
 		return extData;

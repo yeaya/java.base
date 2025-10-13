@@ -40,18 +40,18 @@
 #include <sun/nio/ch/WEPoll.h>
 #include <jcpp.h>
 
-#undef POLLCONN
-#undef NUM_EPOLLEVENTS
-#undef POLLIN
 #undef EPOLLERR
-#undef POLLERR
-#undef EPOLLPRI
-#undef EPOLLIN
-#undef POLLHUP
 #undef EPOLLHUP
-#undef MAX_VALUE
-#undef POLLOUT
+#undef EPOLLIN
 #undef EPOLLOUT
+#undef EPOLLPRI
+#undef MAX_VALUE
+#undef NUM_EPOLLEVENTS
+#undef POLLCONN
+#undef POLLERR
+#undef POLLHUP
+#undef POLLIN
+#undef POLLOUT
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
@@ -285,7 +285,7 @@ void WEPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
 			$WEPoll::ctl(this->eph, 3, fd, 0);
 			ski->registeredEvents(0);
 		}
-	} else if (!WEPollSelectorImpl::$assertionsDisabled && !($nc(ski)->registeredEvents() == 0)) {
+	} else if (!WEPollSelectorImpl::$assertionsDisabled && !(ski->registeredEvents() == 0)) {
 		$throwNew($AssertionError);
 	}
 }

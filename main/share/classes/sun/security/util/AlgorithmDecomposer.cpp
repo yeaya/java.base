@@ -18,8 +18,8 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef PATTERN
 #undef CASE_INSENSITIVE
+#undef PATTERN
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

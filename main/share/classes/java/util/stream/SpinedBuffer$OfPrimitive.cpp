@@ -19,9 +19,9 @@
 #include <java/util/stream/SpinedBuffer.h>
 #include <jcpp.h>
 
+#undef BAD_SIZE
 #undef MAX_ARRAY_SIZE
 #undef MIN_SPINE_SIZE
-#undef BAD_SIZE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

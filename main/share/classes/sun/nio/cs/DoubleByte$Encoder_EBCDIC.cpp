@@ -23,12 +23,12 @@
 #include <jcpp.h>
 
 #undef DBCS
-#undef OVERFLOW
 #undef MAX_SINGLEBYTE
-#undef SI
+#undef OVERFLOW
 #undef SBCS
-#undef UNDERFLOW
+#undef SI
 #undef SO
+#undef UNDERFLOW
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

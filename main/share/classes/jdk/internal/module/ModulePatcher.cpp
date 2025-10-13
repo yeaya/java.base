@@ -890,7 +890,7 @@ $ModuleReference* ModulePatcher::patchIfNeeded($ModuleReference* mref) {
 						}
 					} else if ($Files::isDirectory(file, $$new($LinkOptionArray, 0))) {
 						$var($Path, top, file);
-						$nc($($nc($($nc($($nc($($Files::find(top, $Integer::MAX_VALUE, (static_cast<$BiPredicate*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5))), $$new($FileVisitOptionArray, 0))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6, this, isAutomatic)))))->map(static_cast<$Function*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7, top)))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$$Lambda$isPackageName$3)))))->forEach(static_cast<$Consumer*>($$new(ModulePatcher$$Lambda$add$4, static_cast<$Set*>($nc(packages)))));
+						$nc($($nc($($nc($($nc($($Files::find(top, $Integer::MAX_VALUE, (static_cast<$BiPredicate*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5))), $$new($FileVisitOptionArray, 0))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$4$6, this, isAutomatic)))))->map(static_cast<$Function*>($$new(ModulePatcher$$Lambda$lambda$patchIfNeeded$5$7, top)))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$$Lambda$isPackageName$3)))))->forEach(static_cast<$Consumer*>($$new(ModulePatcher$$Lambda$add$4, static_cast<$Set*>(packages))));
 					}
 				}
 			}

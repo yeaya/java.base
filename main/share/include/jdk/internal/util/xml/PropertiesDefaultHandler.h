@@ -6,26 +6,26 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/xml/sax/helpers/DefaultHandler.h>
 
-#pragma push_macro("ELEMENT_ENTRY")
-#undef ELEMENT_ENTRY
 #pragma push_macro("ALLOWED_COMMENT")
 #undef ALLOWED_COMMENT
-#pragma push_macro("PROPS_DTD_DECL")
-#undef PROPS_DTD_DECL
-#pragma push_macro("ELEMENT_ROOT")
-#undef ELEMENT_ROOT
-#pragma push_macro("PROPS_DTD")
-#undef PROPS_DTD
-#pragma push_macro("ELEMENT_COMMENT")
-#undef ELEMENT_COMMENT
-#pragma push_macro("PROPS_DTD_URI")
-#undef PROPS_DTD_URI
 #pragma push_macro("ALLOWED_ELEMENTS")
 #undef ALLOWED_ELEMENTS
 #pragma push_macro("ATTR_KEY")
 #undef ATTR_KEY
+#pragma push_macro("ELEMENT_COMMENT")
+#undef ELEMENT_COMMENT
+#pragma push_macro("ELEMENT_ENTRY")
+#undef ELEMENT_ENTRY
+#pragma push_macro("ELEMENT_ROOT")
+#undef ELEMENT_ROOT
 #pragma push_macro("EXTERNAL_XML_VERSION")
 #undef EXTERNAL_XML_VERSION
+#pragma push_macro("PROPS_DTD")
+#undef PROPS_DTD
+#pragma push_macro("PROPS_DTD_DECL")
+#undef PROPS_DTD_DECL
+#pragma push_macro("PROPS_DTD_URI")
+#undef PROPS_DTD_URI
 
 namespace java {
 	namespace io {
@@ -109,15 +109,15 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("ELEMENT_ENTRY")
 #pragma pop_macro("ALLOWED_COMMENT")
-#pragma pop_macro("PROPS_DTD_DECL")
-#pragma pop_macro("ELEMENT_ROOT")
-#pragma pop_macro("PROPS_DTD")
-#pragma pop_macro("ELEMENT_COMMENT")
-#pragma pop_macro("PROPS_DTD_URI")
 #pragma pop_macro("ALLOWED_ELEMENTS")
 #pragma pop_macro("ATTR_KEY")
+#pragma pop_macro("ELEMENT_COMMENT")
+#pragma pop_macro("ELEMENT_ENTRY")
+#pragma pop_macro("ELEMENT_ROOT")
 #pragma pop_macro("EXTERNAL_XML_VERSION")
+#pragma pop_macro("PROPS_DTD")
+#pragma pop_macro("PROPS_DTD_DECL")
+#pragma pop_macro("PROPS_DTD_URI")
 
 #endif // _jdk_internal_util_xml_PropertiesDefaultHandler_h_

@@ -18,14 +18,14 @@
 #include <jdk/internal/org/objectweb/asm/signature/SignatureVisitor.h>
 #include <jcpp.h>
 
-#undef EXTENDS
-#undef COMMA_SEPARATOR
-#undef SUPER
-#undef ASM8
 #undef ACC_INTERFACE
+#undef ASM8
+#undef BASE_TYPES
+#undef COMMA_SEPARATOR
+#undef EXTENDS
 #undef EXTENDS_SEPARATOR
 #undef IMPLEMENTS_SEPARATOR
-#undef BASE_TYPES
+#undef SUPER
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

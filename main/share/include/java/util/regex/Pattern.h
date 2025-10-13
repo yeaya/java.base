@@ -8,34 +8,34 @@
 
 #pragma push_macro("ALL")
 #undef ALL
-#pragma push_macro("LITERAL")
-#undef LITERAL
 #pragma push_macro("ALL_FLAGS")
 #undef ALL_FLAGS
-#pragma push_macro("UNICODE_CHARACTER_CLASS")
-#undef UNICODE_CHARACTER_CLASS
 #pragma push_macro("CANON_EQ")
 #undef CANON_EQ
-#pragma push_macro("DOT")
-#undef DOT
-#pragma push_macro("COMMENTS")
-#undef COMMENTS
-#pragma push_macro("MAX_REPS")
-#undef MAX_REPS
-#pragma push_macro("UNIX_LINES")
-#undef UNIX_LINES
-#pragma push_macro("N")
-#undef N
-#pragma push_macro("DOTALL")
-#undef DOTALL
-#pragma push_macro("UNICODE_CASE")
-#undef UNICODE_CASE
 #pragma push_macro("CASE_INSENSITIVE")
 #undef CASE_INSENSITIVE
-#pragma push_macro("UNIXDOT")
-#undef UNIXDOT
+#pragma push_macro("COMMENTS")
+#undef COMMENTS
+#pragma push_macro("DOT")
+#undef DOT
+#pragma push_macro("DOTALL")
+#undef DOTALL
+#pragma push_macro("LITERAL")
+#undef LITERAL
+#pragma push_macro("MAX_REPS")
+#undef MAX_REPS
 #pragma push_macro("MULTILINE")
 #undef MULTILINE
+#pragma push_macro("N")
+#undef N
+#pragma push_macro("UNICODE_CASE")
+#undef UNICODE_CASE
+#pragma push_macro("UNICODE_CHARACTER_CLASS")
+#undef UNICODE_CHARACTER_CLASS
+#pragma push_macro("UNIXDOT")
+#undef UNIXDOT
+#pragma push_macro("UNIX_LINES")
+#undef UNIX_LINES
 
 namespace java {
 	namespace io {
@@ -237,19 +237,19 @@ public:
 } // java
 
 #pragma pop_macro("ALL")
-#pragma pop_macro("LITERAL")
 #pragma pop_macro("ALL_FLAGS")
-#pragma pop_macro("UNICODE_CHARACTER_CLASS")
 #pragma pop_macro("CANON_EQ")
-#pragma pop_macro("DOT")
-#pragma pop_macro("COMMENTS")
-#pragma pop_macro("MAX_REPS")
-#pragma pop_macro("UNIX_LINES")
-#pragma pop_macro("N")
-#pragma pop_macro("DOTALL")
-#pragma pop_macro("UNICODE_CASE")
 #pragma pop_macro("CASE_INSENSITIVE")
-#pragma pop_macro("UNIXDOT")
+#pragma pop_macro("COMMENTS")
+#pragma pop_macro("DOT")
+#pragma pop_macro("DOTALL")
+#pragma pop_macro("LITERAL")
+#pragma pop_macro("MAX_REPS")
 #pragma pop_macro("MULTILINE")
+#pragma pop_macro("N")
+#pragma pop_macro("UNICODE_CASE")
+#pragma pop_macro("UNICODE_CHARACTER_CLASS")
+#pragma pop_macro("UNIXDOT")
+#pragma pop_macro("UNIX_LINES")
 
 #endif // _java_util_regex_Pattern_h_

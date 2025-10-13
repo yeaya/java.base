@@ -21,15 +21,15 @@
 #include <sun/nio/ch/Net.h>
 #include <jcpp.h>
 
-#undef IP_MULTICAST_LOOP
-#undef SO_RCVBUF
-#undef IP_TOS
-#undef SO_SNDBUF
 #undef IP_MULTICAST_IF
+#undef IP_MULTICAST_LOOP
+#undef IP_MULTICAST_TTL
+#undef IP_TOS
 #undef SO_BROADCAST
+#undef SO_RCVBUF
 #undef SO_REUSEADDR
 #undef SO_REUSEPORT
-#undef IP_MULTICAST_TTL
+#undef SO_SNDBUF
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

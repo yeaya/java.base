@@ -5,12 +5,12 @@
 
 #include <java/security/Principal.h>
 
-#pragma push_macro("WILDCARD_NAME")
-#undef WILDCARD_NAME
-#pragma push_macro("WILDCARD_CLASS")
-#undef WILDCARD_CLASS
 #pragma push_macro("REPLACE_NAME")
 #undef REPLACE_NAME
+#pragma push_macro("WILDCARD_CLASS")
+#undef WILDCARD_CLASS
+#pragma push_macro("WILDCARD_NAME")
+#undef WILDCARD_NAME
 
 namespace java {
 	namespace io {
@@ -51,8 +51,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("WILDCARD_NAME")
-#pragma pop_macro("WILDCARD_CLASS")
 #pragma pop_macro("REPLACE_NAME")
+#pragma pop_macro("WILDCARD_CLASS")
+#pragma pop_macro("WILDCARD_NAME")
 
 #endif // _sun_security_provider_PolicyParser$PrincipalEntry_h_

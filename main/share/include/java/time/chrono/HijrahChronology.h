@@ -8,22 +8,22 @@
 #include <java/lang/Array.h>
 #include <java/time/chrono/AbstractChronology.h>
 
-#pragma push_macro("RESOURCE_PREFIX")
-#undef RESOURCE_PREFIX
-#pragma push_macro("KEY_ISO_START")
-#undef KEY_ISO_START
+#pragma push_macro("CONF_PATH")
+#undef CONF_PATH
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
 #pragma push_macro("KEY_ID")
 #undef KEY_ID
+#pragma push_macro("KEY_ISO_START")
+#undef KEY_ISO_START
 #pragma push_macro("KEY_TYPE")
 #undef KEY_TYPE
 #pragma push_macro("KEY_VERSION")
 #undef KEY_VERSION
+#pragma push_macro("RESOURCE_PREFIX")
+#undef RESOURCE_PREFIX
 #pragma push_macro("RESOURCE_SUFFIX")
 #undef RESOURCE_SUFFIX
-#pragma push_macro("CONF_PATH")
-#undef CONF_PATH
 
 namespace java {
 	namespace io {
@@ -183,13 +183,13 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("RESOURCE_PREFIX")
-#pragma pop_macro("KEY_ISO_START")
+#pragma pop_macro("CONF_PATH")
 #pragma pop_macro("INSTANCE")
 #pragma pop_macro("KEY_ID")
+#pragma pop_macro("KEY_ISO_START")
 #pragma pop_macro("KEY_TYPE")
 #pragma pop_macro("KEY_VERSION")
+#pragma pop_macro("RESOURCE_PREFIX")
 #pragma pop_macro("RESOURCE_SUFFIX")
-#pragma pop_macro("CONF_PATH")
 
 #endif // _java_time_chrono_HijrahChronology_h_

@@ -22,14 +22,14 @@
 #include <jdk/internal/util/ArraysSupport.h>
 #include <jcpp.h>
 
-#undef LOG2_ARRAY_CHAR_INDEX_SCALE
-#undef LOG2_ARRAY_FLOAT_INDEX_SCALE
 #undef LOG2_ARRAY_BYTE_INDEX_SCALE
+#undef LOG2_ARRAY_CHAR_INDEX_SCALE
 #undef LOG2_ARRAY_DOUBLE_INDEX_SCALE
-#undef LOG2_ARRAY_SHORT_INDEX_SCALE
+#undef LOG2_ARRAY_FLOAT_INDEX_SCALE
 #undef LOG2_ARRAY_INT_INDEX_SCALE
-#undef SCOPED_MEMORY_ACCESS
 #undef LOG2_ARRAY_LONG_INDEX_SCALE
+#undef LOG2_ARRAY_SHORT_INDEX_SCALE
+#undef SCOPED_MEMORY_ACCESS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

@@ -24,8 +24,8 @@
 #include <jcpp.h>
 
 #undef ENGLISH
-#undef UTF_8
 #undef OFF
+#undef UTF_8
 
 using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;

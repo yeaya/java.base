@@ -5,52 +5,52 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("CHAR_TYPE")
-#undef CHAR_TYPE
-#pragma push_macro("FLOAT")
-#undef FLOAT
-#pragma push_macro("DOUBLE_TYPE")
-#undef DOUBLE_TYPE
 #pragma push_macro("ARRAY")
 #undef ARRAY
-#pragma push_macro("LONG_TYPE")
-#undef LONG_TYPE
+#pragma push_macro("BOOLEAN")
+#undef BOOLEAN
+#pragma push_macro("BOOLEAN_TYPE")
+#undef BOOLEAN_TYPE
+#pragma push_macro("BYTE")
+#undef BYTE
 #pragma push_macro("BYTE_TYPE")
 #undef BYTE_TYPE
 #pragma push_macro("CHAR")
 #undef CHAR
-#pragma push_macro("VOID_TYPE")
-#undef VOID_TYPE
+#pragma push_macro("CHAR_TYPE")
+#undef CHAR_TYPE
+#pragma push_macro("DOUBLE")
+#undef DOUBLE
+#pragma push_macro("DOUBLE_TYPE")
+#undef DOUBLE_TYPE
+#pragma push_macro("FLOAT")
+#undef FLOAT
+#pragma push_macro("FLOAT_TYPE")
+#undef FLOAT_TYPE
+#pragma push_macro("INT")
+#undef INT
+#pragma push_macro("INTERNAL")
+#undef INTERNAL
+#pragma push_macro("INT_TYPE")
+#undef INT_TYPE
+#pragma push_macro("LONG")
+#undef LONG
+#pragma push_macro("LONG_TYPE")
+#undef LONG_TYPE
+#pragma push_macro("METHOD")
+#undef METHOD
 #pragma push_macro("OBJECT")
 #undef OBJECT
 #pragma push_macro("PRIMITIVE_DESCRIPTORS")
 #undef PRIMITIVE_DESCRIPTORS
-#pragma push_macro("BOOLEAN_TYPE")
-#undef BOOLEAN_TYPE
-#pragma push_macro("FLOAT_TYPE")
-#undef FLOAT_TYPE
-#pragma push_macro("BOOLEAN")
-#undef BOOLEAN
-#pragma push_macro("INT")
-#undef INT
 #pragma push_macro("SHORT")
 #undef SHORT
-#pragma push_macro("BYTE")
-#undef BYTE
-#pragma push_macro("INTERNAL")
-#undef INTERNAL
-#pragma push_macro("METHOD")
-#undef METHOD
 #pragma push_macro("SHORT_TYPE")
 #undef SHORT_TYPE
-#pragma push_macro("DOUBLE")
-#undef DOUBLE
 #pragma push_macro("VOID")
 #undef VOID
-#pragma push_macro("LONG")
-#undef LONG
-#pragma push_macro("INT_TYPE")
-#undef INT_TYPE
+#pragma push_macro("VOID_TYPE")
+#undef VOID_TYPE
 
 namespace java {
 	namespace lang {
@@ -147,28 +147,28 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("CHAR_TYPE")
-#pragma pop_macro("FLOAT")
-#pragma pop_macro("DOUBLE_TYPE")
 #pragma pop_macro("ARRAY")
-#pragma pop_macro("LONG_TYPE")
+#pragma pop_macro("BOOLEAN")
+#pragma pop_macro("BOOLEAN_TYPE")
+#pragma pop_macro("BYTE")
 #pragma pop_macro("BYTE_TYPE")
 #pragma pop_macro("CHAR")
-#pragma pop_macro("VOID_TYPE")
+#pragma pop_macro("CHAR_TYPE")
+#pragma pop_macro("DOUBLE")
+#pragma pop_macro("DOUBLE_TYPE")
+#pragma pop_macro("FLOAT")
+#pragma pop_macro("FLOAT_TYPE")
+#pragma pop_macro("INT")
+#pragma pop_macro("INTERNAL")
+#pragma pop_macro("INT_TYPE")
+#pragma pop_macro("LONG")
+#pragma pop_macro("LONG_TYPE")
+#pragma pop_macro("METHOD")
 #pragma pop_macro("OBJECT")
 #pragma pop_macro("PRIMITIVE_DESCRIPTORS")
-#pragma pop_macro("BOOLEAN_TYPE")
-#pragma pop_macro("FLOAT_TYPE")
-#pragma pop_macro("BOOLEAN")
-#pragma pop_macro("INT")
 #pragma pop_macro("SHORT")
-#pragma pop_macro("BYTE")
-#pragma pop_macro("INTERNAL")
-#pragma pop_macro("METHOD")
 #pragma pop_macro("SHORT_TYPE")
-#pragma pop_macro("DOUBLE")
 #pragma pop_macro("VOID")
-#pragma pop_macro("LONG")
-#pragma pop_macro("INT_TYPE")
+#pragma pop_macro("VOID_TYPE")
 
 #endif // _jdk_internal_org_objectweb_asm$_Type_h_

@@ -198,7 +198,7 @@ void HostLocaleProviderAdapterImpl$10::convert($String* calendarType, char16_t l
 				} else {
 					count = 5;
 				}
-			} else if (!$nc(calendarType)->equals("iso8601"_s)) {
+			} else if (!calendarType->equals("iso8601"_s)) {
 				if (count >= 4) {
 					count = 4;
 				} else {

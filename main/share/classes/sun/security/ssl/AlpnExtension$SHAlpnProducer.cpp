@@ -128,7 +128,7 @@ $bytes* AlpnExtension$SHAlpnProducer::produce($ConnectionContext* context, $SSLH
 				$throw($($nc(shc->conContext)->fatal($Alert::NO_APPLICATION_PROTOCOL, "No matching application layer protocol values"_s)));
 			}
 		}
-	} else if ($nc($nc(shc)->sslConfig)->socketAPSelector != nullptr) {
+	} else if ($nc(shc->sslConfig)->socketAPSelector != nullptr) {
 		$var($SSLSocket, socket, $cast($SSLSocket, $nc(shc->conContext)->transport));
 		$set(shc, applicationProtocol, $cast($String, $nc($nc(shc->sslConfig)->socketAPSelector)->apply(socket, alps)));
 		bool var$2 = (shc->applicationProtocol == nullptr);

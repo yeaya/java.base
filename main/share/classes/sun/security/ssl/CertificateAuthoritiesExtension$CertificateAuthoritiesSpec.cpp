@@ -36,8 +36,8 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef ENGLISH
 #undef DECODE_ERROR
+#undef ENGLISH
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $X500PrincipalArray = $Array<::javax::security::auth::x500::X500Principal>;

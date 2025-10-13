@@ -18,9 +18,9 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+#undef HTTP
 #undef NO_PROXY
 #undef NO_PROXY_LIST
-#undef HTTP
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

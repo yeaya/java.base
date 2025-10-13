@@ -13,13 +13,13 @@
 #include <jdk/internal/jmod/JmodFile.h>
 #include <jcpp.h>
 
+#undef CLASSES
 #undef CONFIG
 #undef HEADER_FILES
-#undef MAN_PAGES
-#undef NATIVE_LIBS
 #undef LEGAL_NOTICES
-#undef CLASSES
+#undef MAN_PAGES
 #undef NATIVE_CMDS
+#undef NATIVE_LIBS
 
 using $JmodFile$SectionArray = $Array<::jdk::internal::jmod::JmodFile$Section>;
 using $ClassInfo = ::java::lang::ClassInfo;

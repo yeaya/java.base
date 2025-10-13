@@ -23,9 +23,9 @@
 #include <sun/nio/fs/UnixConstants.h>
 #include <jcpp.h>
 
-#undef O_NOFOLLOW
-#undef NOFOLLOW_LINKS
 #undef DIRECT
+#undef NOFOLLOW_LINKS
+#undef O_NOFOLLOW
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

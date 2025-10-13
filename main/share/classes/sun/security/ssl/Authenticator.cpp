@@ -132,9 +132,9 @@ Authenticator* Authenticator::valueOf($ProtocolVersion* protocolVersion) {
 		} else {
 			return $new($Authenticator$DTLS10Authenticator, protocolVersion);
 		}
-	} else if ($nc(protocolVersion)->useTLS13PlusSpec()) {
+	} else if (protocolVersion->useTLS13PlusSpec()) {
 		return $new($Authenticator$TLS13Authenticator, protocolVersion);
-	} else if ($nc(protocolVersion)->useTLS10PlusSpec()) {
+	} else if (protocolVersion->useTLS10PlusSpec()) {
 		return $new($Authenticator$TLS10Authenticator, protocolVersion);
 	} else {
 		return $new($Authenticator$SSL30Authenticator);
@@ -142,15 +142,15 @@ Authenticator* Authenticator::valueOf($ProtocolVersion* protocolVersion) {
 }
 
 Authenticator* Authenticator::valueOf($ProtocolVersion* protocolVersion, $CipherSuite$MacAlg* macAlg, $SecretKey* key) {
-	if ($nc(protocolVersion)->isDTLS) {
+	if (protocolVersion->isDTLS) {
 		if (protocolVersion->useTLS13PlusSpec()) {
 			$throwNew($RuntimeException, "No MacAlg used in DTLS 1.3"_s);
 		} else {
 			return static_cast<Authenticator*>(($new($Authenticator$DTLS10Mac, protocolVersion, macAlg, key)));
 		}
-	} else if ($nc(protocolVersion)->useTLS13PlusSpec()) {
+	} else if (protocolVersion->useTLS13PlusSpec()) {
 		$throwNew($RuntimeException, "No MacAlg used in TLS 1.3"_s);
-	} else if ($nc(protocolVersion)->useTLS10PlusSpec()) {
+	} else if (protocolVersion->useTLS10PlusSpec()) {
 		return static_cast<Authenticator*>(($new($Authenticator$TLS10Mac, protocolVersion, macAlg, key)));
 	} else {
 		return static_cast<Authenticator*>(($new($Authenticator$SSL30Mac, protocolVersion, macAlg, key)));

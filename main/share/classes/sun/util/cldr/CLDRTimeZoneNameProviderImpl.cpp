@@ -30,19 +30,19 @@
 #include <sun/util/locale/provider/TimeZoneNameUtility.h>
 #include <jcpp.h>
 
-#undef INDEX_GEN_LONG
-#undef TAIWAN
 #undef CHINA
 #undef CLDR
-#undef INDEX_DST_SHORT
-#undef INSTANCE
 #undef INDEX_DST_LONG
-#undef INDEX_STD_SHORT
-#undef INDEX_STD_LONG
+#undef INDEX_DST_SHORT
+#undef INDEX_GEN_LONG
 #undef INDEX_GEN_SHORT
-#undef NO_INHERITANCE_MARKER
+#undef INDEX_STD_LONG
+#undef INDEX_STD_SHORT
 #undef INDEX_TZID
+#undef INSTANCE
 #undef JRE
+#undef NO_INHERITANCE_MARKER
+#undef TAIWAN
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;

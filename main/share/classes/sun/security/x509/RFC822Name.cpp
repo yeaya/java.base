@@ -14,13 +14,13 @@
 #include <sun/security/x509/GeneralNameInterface.h>
 #include <jcpp.h>
 
+#undef ENGLISH
+#undef NAME_DIFF_TYPE
 #undef NAME_MATCH
 #undef NAME_NARROWS
-#undef ENGLISH
-#undef NAME_SAME_TYPE
-#undef NAME_DIFF_TYPE
-#undef NAME_WIDENS
 #undef NAME_RFC822
+#undef NAME_SAME_TYPE
+#undef NAME_WIDENS
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -85,7 +85,7 @@ void RFC822Name::parseName($String* name) {
 	$var($String, domain, $nc(name)->substring(name->indexOf((int32_t)u'@') + 1));
 	if (domain->isEmpty()) {
 		$throwNew($IOException, "RFC822Name may not end with @"_s);
-	} else if ($nc(domain)->startsWith("."_s)) {
+	} else if (domain->startsWith("."_s)) {
 		if (domain->length() == 1) {
 			$throwNew($IOException, "RFC822Name domain may not be just ."_s);
 		}
@@ -128,7 +128,7 @@ int32_t RFC822Name::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != ($GeneralNameInterface::NAME_RFC822)) {
+	} else if (inputName->getType() != ($GeneralNameInterface::NAME_RFC822)) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$init($Locale);
@@ -136,26 +136,26 @@ int32_t RFC822Name::constrains($GeneralNameInterface* inputName) {
 		$var($String, thisName, $nc(this->name)->toLowerCase($Locale::ENGLISH));
 		if (inName->equals(thisName)) {
 			constraintType = $GeneralNameInterface::NAME_MATCH;
-		} else if ($nc(thisName)->endsWith(inName)) {
-			if ($nc(inName)->indexOf((int32_t)u'@') != -1) {
+		} else if (thisName->endsWith(inName)) {
+			if (inName->indexOf((int32_t)u'@') != -1) {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
-			} else if ($nc(inName)->startsWith("."_s)) {
+			} else if (inName->startsWith("."_s)) {
 				constraintType = $GeneralNameInterface::NAME_WIDENS;
 			} else {
-				int32_t inNdx = $nc(thisName)->lastIndexOf(inName);
+				int32_t inNdx = thisName->lastIndexOf(inName);
 				if (thisName->charAt(inNdx - 1) == u'@') {
 					constraintType = $GeneralNameInterface::NAME_WIDENS;
 				} else {
 					constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 				}
 			}
-		} else if ($nc(inName)->endsWith(thisName)) {
-			if ($nc(thisName)->indexOf((int32_t)u'@') != -1) {
+		} else if (inName->endsWith(thisName)) {
+			if (thisName->indexOf((int32_t)u'@') != -1) {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
-			} else if ($nc(thisName)->startsWith("."_s)) {
+			} else if (thisName->startsWith("."_s)) {
 				constraintType = $GeneralNameInterface::NAME_NARROWS;
 			} else {
-				int32_t ndx = $nc(inName)->lastIndexOf(thisName);
+				int32_t ndx = inName->lastIndexOf(thisName);
 				if (inName->charAt(ndx - 1) == u'@') {
 					constraintType = $GeneralNameInterface::NAME_NARROWS;
 				} else {

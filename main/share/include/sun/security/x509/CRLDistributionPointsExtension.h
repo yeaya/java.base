@@ -9,10 +9,10 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("POINTS")
-#undef POINTS
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("POINTS")
+#undef POINTS
 
 namespace java {
 	namespace io {
@@ -78,7 +78,7 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("POINTS")
 #pragma pop_macro("NAME")
+#pragma pop_macro("POINTS")
 
 #endif // _sun_security_x509_CRLDistributionPointsExtension_h_

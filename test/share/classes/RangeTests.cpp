@@ -18,10 +18,10 @@
 #include <jcpp.h>
 
 #undef DECIMAL128
+#undef DECIMAL32
 #undef DECIMAL64
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef DECIMAL32
 #undef UNLIMITED
 
 using $PrintStream = ::java::io::PrintStream;

@@ -5,32 +5,32 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("PREVIEW_MINOR_VERSION")
-#undef PREVIEW_MINOR_VERSION
-#pragma push_macro("JVMTI_THREAD_STATE_ALIVE")
-#undef JVMTI_THREAD_STATE_ALIVE
 #pragma push_macro("JAVA_LANG_SYSTEM_INITED")
 #undef JAVA_LANG_SYSTEM_INITED
-#pragma push_macro("MODULE_SYSTEM_INITED")
-#undef MODULE_SYSTEM_INITED
-#pragma push_macro("JVMTI_THREAD_STATE_RUNNABLE")
-#undef JVMTI_THREAD_STATE_RUNNABLE
-#pragma push_macro("JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT")
-#undef JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT
-#pragma push_macro("SYSTEM_SHUTDOWN")
-#undef SYSTEM_SHUTDOWN
-#pragma push_macro("SYSTEM_BOOTED")
-#undef SYSTEM_BOOTED
-#pragma push_macro("VM")
-#undef VM
-#pragma push_macro("SYSTEM_LOADER_INITIALIZING")
-#undef SYSTEM_LOADER_INITIALIZING
+#pragma push_macro("JVMTI_THREAD_STATE_ALIVE")
+#undef JVMTI_THREAD_STATE_ALIVE
 #pragma push_macro("JVMTI_THREAD_STATE_BLOCKED_ON_MONITOR_ENTER")
 #undef JVMTI_THREAD_STATE_BLOCKED_ON_MONITOR_ENTER
+#pragma push_macro("JVMTI_THREAD_STATE_RUNNABLE")
+#undef JVMTI_THREAD_STATE_RUNNABLE
 #pragma push_macro("JVMTI_THREAD_STATE_TERMINATED")
 #undef JVMTI_THREAD_STATE_TERMINATED
 #pragma push_macro("JVMTI_THREAD_STATE_WAITING_INDEFINITELY")
 #undef JVMTI_THREAD_STATE_WAITING_INDEFINITELY
+#pragma push_macro("JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT")
+#undef JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT
+#pragma push_macro("MODULE_SYSTEM_INITED")
+#undef MODULE_SYSTEM_INITED
+#pragma push_macro("PREVIEW_MINOR_VERSION")
+#undef PREVIEW_MINOR_VERSION
+#pragma push_macro("SYSTEM_BOOTED")
+#undef SYSTEM_BOOTED
+#pragma push_macro("SYSTEM_LOADER_INITIALIZING")
+#undef SYSTEM_LOADER_INITIALIZING
+#pragma push_macro("SYSTEM_SHUTDOWN")
+#undef SYSTEM_SHUTDOWN
+#pragma push_macro("VM")
+#undef VM
 
 namespace java {
 	namespace lang {
@@ -112,18 +112,18 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("PREVIEW_MINOR_VERSION")
-#pragma pop_macro("JVMTI_THREAD_STATE_ALIVE")
 #pragma pop_macro("JAVA_LANG_SYSTEM_INITED")
-#pragma pop_macro("MODULE_SYSTEM_INITED")
-#pragma pop_macro("JVMTI_THREAD_STATE_RUNNABLE")
-#pragma pop_macro("JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT")
-#pragma pop_macro("SYSTEM_SHUTDOWN")
-#pragma pop_macro("SYSTEM_BOOTED")
-#pragma pop_macro("VM")
-#pragma pop_macro("SYSTEM_LOADER_INITIALIZING")
+#pragma pop_macro("JVMTI_THREAD_STATE_ALIVE")
 #pragma pop_macro("JVMTI_THREAD_STATE_BLOCKED_ON_MONITOR_ENTER")
+#pragma pop_macro("JVMTI_THREAD_STATE_RUNNABLE")
 #pragma pop_macro("JVMTI_THREAD_STATE_TERMINATED")
 #pragma pop_macro("JVMTI_THREAD_STATE_WAITING_INDEFINITELY")
+#pragma pop_macro("JVMTI_THREAD_STATE_WAITING_WITH_TIMEOUT")
+#pragma pop_macro("MODULE_SYSTEM_INITED")
+#pragma pop_macro("PREVIEW_MINOR_VERSION")
+#pragma pop_macro("SYSTEM_BOOTED")
+#pragma pop_macro("SYSTEM_LOADER_INITIALIZING")
+#pragma pop_macro("SYSTEM_SHUTDOWN")
+#pragma pop_macro("VM")
 
 #endif // _jdk_internal_misc_VM_h_

@@ -8,14 +8,14 @@
 
 #pragma push_macro("ABSOLUTE")
 #undef ABSOLUTE
-#pragma push_macro("RELATIVE")
-#undef RELATIVE
-#pragma push_macro("DRIVE_RELATIVE")
-#undef DRIVE_RELATIVE
-#pragma push_macro("UNC")
-#undef UNC
 #pragma push_macro("DIRECTORY_RELATIVE")
 #undef DIRECTORY_RELATIVE
+#pragma push_macro("DRIVE_RELATIVE")
+#undef DRIVE_RELATIVE
+#pragma push_macro("RELATIVE")
+#undef RELATIVE
+#pragma push_macro("UNC")
+#undef UNC
 
 namespace sun {
 	namespace nio {
@@ -42,9 +42,9 @@ public:
 } // sun
 
 #pragma pop_macro("ABSOLUTE")
-#pragma pop_macro("RELATIVE")
-#pragma pop_macro("DRIVE_RELATIVE")
-#pragma pop_macro("UNC")
 #pragma pop_macro("DIRECTORY_RELATIVE")
+#pragma pop_macro("DRIVE_RELATIVE")
+#pragma pop_macro("RELATIVE")
+#pragma pop_macro("UNC")
 
 #endif // _sun_nio_fs_WindowsPathType_h_

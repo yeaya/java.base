@@ -15,9 +15,9 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
+#undef EC
 #undef ECDH
 #undef KE
-#undef EC
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -18,9 +18,9 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef READ
-#undef EXEC
 #undef DELETE
+#undef EXEC
+#undef READ
 #undef WRITE
 
 using $CheckPermission = ::CheckPermission;

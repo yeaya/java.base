@@ -7,18 +7,18 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("NOT_AFTER")
-#undef NOT_AFTER
 #pragma push_macro("IDENT")
 #undef IDENT
+#pragma push_macro("NAME")
+#undef NAME
+#pragma push_macro("NOT_AFTER")
+#undef NOT_AFTER
 #pragma push_macro("NOT_BEFORE")
 #undef NOT_BEFORE
 #pragma push_macro("TAG_AFTER")
 #undef TAG_AFTER
 #pragma push_macro("TAG_BEFORE")
 #undef TAG_BEFORE
-#pragma push_macro("NAME")
-#undef NAME
 
 namespace java {
 	namespace io {
@@ -77,11 +77,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NOT_AFTER")
 #pragma pop_macro("IDENT")
+#pragma pop_macro("NAME")
+#pragma pop_macro("NOT_AFTER")
 #pragma pop_macro("NOT_BEFORE")
 #pragma pop_macro("TAG_AFTER")
 #pragma pop_macro("TAG_BEFORE")
-#pragma pop_macro("NAME")
 
 #endif // _sun_security_x509_PrivateKeyUsageExtension_h_

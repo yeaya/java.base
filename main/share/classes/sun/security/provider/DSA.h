@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/security/SignatureSpi.h>
 
-#pragma push_macro("DSA")
-#undef DSA
-#pragma push_macro("BLINDING_CONSTANT")
-#undef BLINDING_CONSTANT
 #pragma push_macro("BLINDING_BITS")
 #undef BLINDING_BITS
+#pragma push_macro("BLINDING_CONSTANT")
+#undef BLINDING_CONSTANT
+#pragma push_macro("DSA")
+#undef DSA
 
 namespace java {
 	namespace math {
@@ -98,8 +98,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DSA")
-#pragma pop_macro("BLINDING_CONSTANT")
 #pragma pop_macro("BLINDING_BITS")
+#pragma pop_macro("BLINDING_CONSTANT")
+#pragma pop_macro("DSA")
 
 #endif // _sun_security_provider_DSA_h_

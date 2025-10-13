@@ -12,12 +12,12 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 #include <jcpp.h>
 
-#undef NUM_LIMBS
-#undef MODULUS
-#undef CARRY_ADD
 #undef BITS_PER_LIMB
+#undef CARRY_ADD
 #undef LIMB_MASK
 #undef MAX_ADDS
+#undef MODULUS
+#undef NUM_LIMBS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

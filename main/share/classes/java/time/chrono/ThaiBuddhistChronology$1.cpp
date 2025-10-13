@@ -14,8 +14,8 @@
 #include <java/time/temporal/ChronoField.h>
 #include <jcpp.h>
 
-#undef YEAR
 #undef PROLEPTIC_MONTH
+#undef YEAR
 #undef YEAR_OF_ERA
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;

@@ -17,18 +17,18 @@
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
 
-#undef OLD_SIGNED_DATA_OID
-#undef PKCS7_OID
-#undef TIMESTAMP_TOKEN_INFO_OID
-#undef PKCS7
-#undef SIGNED_AND_ENVELOPED_DATA_OID
+#undef DATA_OID
 #undef DIGESTED_DATA_OID
 #undef ENCRYPTED_DATA_OID
-#undef OLD_DATA_OID
-#undef NETSCAPE_CERT_SEQUENCE_OID
-#undef SIGNED_DATA_OID
-#undef DATA_OID
 #undef ENVELOPED_DATA_OID
+#undef NETSCAPE_CERT_SEQUENCE_OID
+#undef OLD_DATA_OID
+#undef OLD_SIGNED_DATA_OID
+#undef PKCS7
+#undef PKCS7_OID
+#undef SIGNED_AND_ENVELOPED_DATA_OID
+#undef SIGNED_DATA_OID
+#undef TIMESTAMP_TOKEN_INFO_OID
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -134,7 +134,7 @@ void ContentInfo::init$($DerInputStream* derin, bool oldStyle) {
 	$set(this, contentType, disType->getOID());
 	if (oldStyle) {
 		$set(this, content, typeAndContent->get(1));
-	} else if ($nc(typeAndContent)->length > 1) {
+	} else if (typeAndContent->length > 1) {
 		$assign(taggedContent, typeAndContent->get(1));
 		$assign(disTaggedContent, $new($DerInputStream, $($nc(taggedContent)->toByteArray())));
 		$assign(contents, disTaggedContent->getSet(1, true));

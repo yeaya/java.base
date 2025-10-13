@@ -11,10 +11,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NO_PROPAGATE_INHERIT
-#undef FILE_INHERIT
 #undef DIRECTORY_INHERIT
+#undef FILE_INHERIT
 #undef INHERIT_ONLY
+#undef NO_PROPAGATE_INHERIT
 
 using $AclEntryFlagArray = $Array<::java::nio::file::attribute::AclEntryFlag>;
 using $ClassInfo = ::java::lang::ClassInfo;

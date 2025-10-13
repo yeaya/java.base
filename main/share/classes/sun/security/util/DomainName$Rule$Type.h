@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("OTHER")
-#undef OTHER
-#pragma push_macro("WILDCARD")
-#undef WILDCARD
 #pragma push_macro("EXCEPTION")
 #undef EXCEPTION
 #pragma push_macro("NORMAL")
 #undef NORMAL
+#pragma push_macro("OTHER")
+#undef OTHER
+#pragma push_macro("WILDCARD")
+#undef WILDCARD
 
 namespace sun {
 	namespace security {
@@ -38,9 +38,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("OTHER")
-#pragma pop_macro("WILDCARD")
 #pragma pop_macro("EXCEPTION")
 #pragma pop_macro("NORMAL")
+#pragma pop_macro("OTHER")
+#pragma pop_macro("WILDCARD")
 
 #endif // _sun_security_util_DomainName$Rule$Type_h_

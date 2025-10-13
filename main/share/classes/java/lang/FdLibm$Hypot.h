@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("TWO_PLUS_600")
-#undef TWO_PLUS_600
 #pragma push_macro("TWO_MINUS_600")
 #undef TWO_MINUS_600
+#pragma push_macro("TWO_PLUS_600")
+#undef TWO_PLUS_600
 
 namespace java {
 	namespace lang {
@@ -27,7 +27,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("TWO_PLUS_600")
 #pragma pop_macro("TWO_MINUS_600")
+#pragma pop_macro("TWO_PLUS_600")
 
 #endif // _java_lang_FdLibm$Hypot_h_

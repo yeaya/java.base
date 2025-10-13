@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("SPECIAL_EVERYONE")
+#undef SPECIAL_EVERYONE
 #pragma push_macro("SPECIAL_GROUP")
 #undef SPECIAL_GROUP
 #pragma push_macro("SPECIAL_OWNER")
 #undef SPECIAL_OWNER
-#pragma push_macro("SPECIAL_EVERYONE")
-#undef SPECIAL_EVERYONE
 
 namespace java {
 	namespace nio {
@@ -55,8 +55,8 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("SPECIAL_EVERYONE")
 #pragma pop_macro("SPECIAL_GROUP")
 #pragma pop_macro("SPECIAL_OWNER")
-#pragma pop_macro("SPECIAL_EVERYONE")
 
 #endif // _sun_nio_fs_UnixUserPrincipals_h_

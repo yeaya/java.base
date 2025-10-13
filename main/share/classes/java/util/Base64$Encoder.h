@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIMELINEMAX")
-#undef MIMELINEMAX
 #pragma push_macro("CRLF")
 #undef CRLF
+#pragma push_macro("MIMELINEMAX")
+#undef MIMELINEMAX
 
 namespace java {
 	namespace io {
@@ -54,7 +54,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MIMELINEMAX")
 #pragma pop_macro("CRLF")
+#pragma pop_macro("MIMELINEMAX")
 
 #endif // _java_util_Base64$Encoder_h_

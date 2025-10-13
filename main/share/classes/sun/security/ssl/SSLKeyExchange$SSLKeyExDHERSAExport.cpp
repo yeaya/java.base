@@ -15,9 +15,9 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
-#undef RSA
-#undef KE
 #undef DHE_EXPORT
+#undef KE
+#undef RSA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

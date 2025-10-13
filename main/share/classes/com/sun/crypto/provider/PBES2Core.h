@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <javax/crypto/CipherSpi.h>
 
-#pragma push_macro("DEFAULT_SALT_LENGTH")
-#undef DEFAULT_SALT_LENGTH
 #pragma push_macro("DEFAULT_COUNT")
 #undef DEFAULT_COUNT
+#pragma push_macro("DEFAULT_SALT_LENGTH")
+#undef DEFAULT_SALT_LENGTH
 
 namespace com {
 	namespace sun {
@@ -89,7 +89,7 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("DEFAULT_SALT_LENGTH")
 #pragma pop_macro("DEFAULT_COUNT")
+#pragma pop_macro("DEFAULT_SALT_LENGTH")
 
 #endif // _com_sun_crypto_provider_PBES2Core_h_

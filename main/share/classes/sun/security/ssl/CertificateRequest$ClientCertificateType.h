@@ -6,28 +6,28 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("DSS_SIGN")
-#undef DSS_SIGN
-#pragma push_macro("DSS_FIXED_DH")
-#undef DSS_FIXED_DH
 #pragma push_macro("CERT_TYPES")
 #undef CERT_TYPES
-#pragma push_macro("FORTEZZA_DMS")
-#undef FORTEZZA_DMS
-#pragma push_macro("RSA_FIXED_DH")
-#undef RSA_FIXED_DH
-#pragma push_macro("ECDSA_FIXED_ECDH")
-#undef ECDSA_FIXED_ECDH
-#pragma push_macro("RSA_EPHEMERAL_DH")
-#undef RSA_EPHEMERAL_DH
 #pragma push_macro("DSS_EPHEMERAL_DH")
 #undef DSS_EPHEMERAL_DH
+#pragma push_macro("DSS_FIXED_DH")
+#undef DSS_FIXED_DH
+#pragma push_macro("DSS_SIGN")
+#undef DSS_SIGN
+#pragma push_macro("ECDSA_FIXED_ECDH")
+#undef ECDSA_FIXED_ECDH
+#pragma push_macro("ECDSA_SIGN")
+#undef ECDSA_SIGN
+#pragma push_macro("FORTEZZA_DMS")
+#undef FORTEZZA_DMS
+#pragma push_macro("RSA_EPHEMERAL_DH")
+#undef RSA_EPHEMERAL_DH
+#pragma push_macro("RSA_FIXED_DH")
+#undef RSA_FIXED_DH
 #pragma push_macro("RSA_FIXED_ECDH")
 #undef RSA_FIXED_ECDH
 #pragma push_macro("RSA_SIGN")
 #undef RSA_SIGN
-#pragma push_macro("ECDSA_SIGN")
-#undef ECDSA_SIGN
 
 namespace java {
 	namespace util {
@@ -75,16 +75,16 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DSS_SIGN")
-#pragma pop_macro("DSS_FIXED_DH")
 #pragma pop_macro("CERT_TYPES")
-#pragma pop_macro("FORTEZZA_DMS")
-#pragma pop_macro("RSA_FIXED_DH")
-#pragma pop_macro("ECDSA_FIXED_ECDH")
-#pragma pop_macro("RSA_EPHEMERAL_DH")
 #pragma pop_macro("DSS_EPHEMERAL_DH")
+#pragma pop_macro("DSS_FIXED_DH")
+#pragma pop_macro("DSS_SIGN")
+#pragma pop_macro("ECDSA_FIXED_ECDH")
+#pragma pop_macro("ECDSA_SIGN")
+#pragma pop_macro("FORTEZZA_DMS")
+#pragma pop_macro("RSA_EPHEMERAL_DH")
+#pragma pop_macro("RSA_FIXED_DH")
 #pragma pop_macro("RSA_FIXED_ECDH")
 #pragma pop_macro("RSA_SIGN")
-#pragma pop_macro("ECDSA_SIGN")
 
 #endif // _sun_security_ssl_CertificateRequest$ClientCertificateType_h_

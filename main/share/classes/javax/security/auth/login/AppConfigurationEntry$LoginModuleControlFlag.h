@@ -7,10 +7,10 @@
 
 #pragma push_macro("OPTIONAL")
 #undef OPTIONAL
-#pragma push_macro("REQUISITE")
-#undef REQUISITE
 #pragma push_macro("REQUIRED")
 #undef REQUIRED
+#pragma push_macro("REQUISITE")
+#undef REQUISITE
 #pragma push_macro("SUFFICIENT")
 #undef SUFFICIENT
 
@@ -38,8 +38,8 @@ public:
 } // javax
 
 #pragma pop_macro("OPTIONAL")
-#pragma pop_macro("REQUISITE")
 #pragma pop_macro("REQUIRED")
+#pragma pop_macro("REQUISITE")
 #pragma pop_macro("SUFFICIENT")
 
 #endif // _javax_security_auth_login_AppConfigurationEntry$LoginModuleControlFlag_h_

@@ -5,30 +5,30 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("MEMORY_LIMIT_SET")
-#undef MEMORY_LIMIT_SET
-#pragma push_macro("MAX_SLEEPS")
-#undef MAX_SLEEPS
 #pragma push_macro("BUFFER_POOL")
 #undef BUFFER_POOL
-#pragma push_macro("JNI_COPY_TO_ARRAY_THRESHOLD")
-#undef JNI_COPY_TO_ARRAY_THRESHOLD
-#pragma push_macro("PAGE_SIZE")
-#undef PAGE_SIZE
-#pragma push_macro("MAX_MEMORY")
-#undef MAX_MEMORY
-#pragma push_macro("RESERVED_MEMORY")
-#undef RESERVED_MEMORY
 #pragma push_macro("COUNT")
 #undef COUNT
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
-#pragma push_macro("UNALIGNED")
-#undef UNALIGNED
-#pragma push_macro("TOTAL_CAPACITY")
-#undef TOTAL_CAPACITY
 #pragma push_macro("JNI_COPY_FROM_ARRAY_THRESHOLD")
 #undef JNI_COPY_FROM_ARRAY_THRESHOLD
+#pragma push_macro("JNI_COPY_TO_ARRAY_THRESHOLD")
+#undef JNI_COPY_TO_ARRAY_THRESHOLD
+#pragma push_macro("MAX_MEMORY")
+#undef MAX_MEMORY
+#pragma push_macro("MAX_SLEEPS")
+#undef MAX_SLEEPS
+#pragma push_macro("MEMORY_LIMIT_SET")
+#undef MEMORY_LIMIT_SET
+#pragma push_macro("PAGE_SIZE")
+#undef PAGE_SIZE
+#pragma push_macro("RESERVED_MEMORY")
+#undef RESERVED_MEMORY
+#pragma push_macro("TOTAL_CAPACITY")
+#undef TOTAL_CAPACITY
+#pragma push_macro("UNALIGNED")
+#undef UNALIGNED
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace java {
 	namespace util {
@@ -84,17 +84,17 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("MEMORY_LIMIT_SET")
-#pragma pop_macro("MAX_SLEEPS")
 #pragma pop_macro("BUFFER_POOL")
-#pragma pop_macro("JNI_COPY_TO_ARRAY_THRESHOLD")
-#pragma pop_macro("PAGE_SIZE")
-#pragma pop_macro("MAX_MEMORY")
-#pragma pop_macro("RESERVED_MEMORY")
 #pragma pop_macro("COUNT")
-#pragma pop_macro("UNSAFE")
-#pragma pop_macro("UNALIGNED")
-#pragma pop_macro("TOTAL_CAPACITY")
 #pragma pop_macro("JNI_COPY_FROM_ARRAY_THRESHOLD")
+#pragma pop_macro("JNI_COPY_TO_ARRAY_THRESHOLD")
+#pragma pop_macro("MAX_MEMORY")
+#pragma pop_macro("MAX_SLEEPS")
+#pragma pop_macro("MEMORY_LIMIT_SET")
+#pragma pop_macro("PAGE_SIZE")
+#pragma pop_macro("RESERVED_MEMORY")
+#pragma pop_macro("TOTAL_CAPACITY")
+#pragma pop_macro("UNALIGNED")
+#pragma pop_macro("UNSAFE")
 
 #endif // _java_nio_Bits_h_

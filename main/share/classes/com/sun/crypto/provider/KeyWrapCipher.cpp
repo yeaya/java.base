@@ -44,13 +44,13 @@
 #include <javax/crypto/spec/IvParameterSpec.h>
 #include <jcpp.h>
 
-#undef WRAP_MODE
-#undef ICV2
-#undef UNWRAP_MODE
-#undef ICV1
-#undef ENCRYPT_MODE
-#undef MAX_VALUE
 #undef DECRYPT_MODE
+#undef ENCRYPT_MODE
+#undef ICV1
+#undef ICV2
+#undef MAX_VALUE
+#undef UNWRAP_MODE
+#undef WRAP_MODE
 
 using $AESCrypt = ::com::sun::crypto::provider::AESCrypt;
 using $AESKeyWrap = ::com::sun::crypto::provider::AESKeyWrap;

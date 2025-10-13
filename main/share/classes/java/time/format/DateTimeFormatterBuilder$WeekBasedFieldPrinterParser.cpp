@@ -25,8 +25,8 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef EXCEEDS_PAD
 #undef BASE_DATE
+#undef EXCEEDS_PAD
 #undef NORMAL
 #undef NOT_NEGATIVE
 
@@ -175,10 +175,10 @@ $String* DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::toString() {
 		if (this->count == 1) {
 			sb->append("WeekBasedYear"_s);
 		} else if (this->count == 2) {
-			$nc(sb)->append("ReducedValue(WeekBasedYear,2,2,2000-01-01)"_s);
+			sb->append("ReducedValue(WeekBasedYear,2,2,2000-01-01)"_s);
 		} else {
 			$init($SignStyle);
-			$nc(sb)->append("WeekBasedYear,"_s)->append(this->count)->append(","_s)->append(19)->append(","_s)->append((this->count < 4) ? $of($SignStyle::NORMAL) : $of($SignStyle::EXCEEDS_PAD));
+			sb->append("WeekBasedYear,"_s)->append(this->count)->append(","_s)->append(19)->append(","_s)->append((this->count < 4) ? $of($SignStyle::NORMAL) : $of($SignStyle::EXCEEDS_PAD));
 		}
 	} else {
 		switch (this->chr) {

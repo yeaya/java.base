@@ -16,8 +16,8 @@
 #include <sun/security/provider/DigestBase.h>
 #include <jcpp.h>
 
-#undef W
 #undef SHA
+#undef W
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

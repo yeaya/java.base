@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("PRED_T")
-#undef PRED_T
-#pragma push_macro("INIT")
-#undef INIT
-#pragma push_macro("STEP")
-#undef STEP
 #pragma push_macro("ARG_LIMIT")
 #undef ARG_LIMIT
 #pragma push_macro("FINI")
 #undef FINI
+#pragma push_macro("INIT")
+#undef INIT
 #pragma push_macro("PRED_F")
 #undef PRED_F
+#pragma push_macro("PRED_T")
+#undef PRED_T
+#pragma push_macro("STEP")
+#undef STEP
 
 namespace java {
 	namespace lang {
@@ -51,11 +51,11 @@ public:
 	} // java
 } // test
 
-#pragma pop_macro("PRED_T")
-#pragma pop_macro("INIT")
-#pragma pop_macro("STEP")
 #pragma pop_macro("ARG_LIMIT")
 #pragma pop_macro("FINI")
+#pragma pop_macro("INIT")
 #pragma pop_macro("PRED_F")
+#pragma pop_macro("PRED_T")
+#pragma pop_macro("STEP")
 
 #endif // _test_java_lang_invoke_LoopCombinatorLongSignatureTest_h_

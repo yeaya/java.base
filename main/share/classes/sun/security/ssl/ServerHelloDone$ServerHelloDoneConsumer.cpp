@@ -26,10 +26,10 @@
 #include <sun/security/ssl/ServerHelloDone.h>
 #include <jcpp.h>
 
-#undef CLIENT_KEY_EXCHANGE
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
 #undef CERTIFICATE_STATUS
+#undef CERTIFICATE_VERIFY
+#undef CLIENT_KEY_EXCHANGE
 #undef FINISHED
 
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

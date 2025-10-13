@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/util/spi/ResourceBundleProvider.h>
 
-#pragma push_macro("RB_ACCESS")
-#undef RB_ACCESS
-#pragma push_macro("FORMAT_PROPERTIES")
-#undef FORMAT_PROPERTIES
 #pragma push_macro("FORMAT_CLASS")
 #undef FORMAT_CLASS
+#pragma push_macro("FORMAT_PROPERTIES")
+#undef FORMAT_PROPERTIES
+#pragma push_macro("RB_ACCESS")
+#undef RB_ACCESS
 
 namespace java {
 	namespace io {
@@ -65,8 +65,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("RB_ACCESS")
-#pragma pop_macro("FORMAT_PROPERTIES")
 #pragma pop_macro("FORMAT_CLASS")
+#pragma pop_macro("FORMAT_PROPERTIES")
+#pragma pop_macro("RB_ACCESS")
 
 #endif // _java_util_spi_AbstractResourceBundleProvider_h_

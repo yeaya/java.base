@@ -35,18 +35,18 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
-#undef DOS_XATTR_SYSTEM
-#undef DOS_XATTR_NAME
-#undef ENODATA
-#undef READONLY_NAME
 #undef ARCHIVE_NAME
-#undef SYSTEM_NAME
-#undef HIDDEN_NAME
-#undef DOS_XATTR_HIDDEN
-#undef DOS_XATTR_ARCHIVE
-#undef DOS_XATTR_NAME_AS_BYTES
 #undef ARRAY_BYTE_BASE_OFFSET
+#undef DOS_XATTR_ARCHIVE
+#undef DOS_XATTR_HIDDEN
+#undef DOS_XATTR_NAME
+#undef DOS_XATTR_NAME_AS_BYTES
 #undef DOS_XATTR_READONLY
+#undef DOS_XATTR_SYSTEM
+#undef ENODATA
+#undef HIDDEN_NAME
+#undef READONLY_NAME
+#undef SYSTEM_NAME
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

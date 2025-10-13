@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("OP_CONNECT")
-#undef OP_CONNECT
-#pragma push_macro("OP_ACCEPT")
-#undef OP_ACCEPT
 #pragma push_macro("ATTACHMENT")
 #undef ATTACHMENT
+#pragma push_macro("OP_ACCEPT")
+#undef OP_ACCEPT
+#pragma push_macro("OP_CONNECT")
+#undef OP_CONNECT
 #pragma push_macro("OP_READ")
 #undef OP_READ
 #pragma push_macro("OP_WRITE")
@@ -68,9 +68,9 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("OP_CONNECT")
-#pragma pop_macro("OP_ACCEPT")
 #pragma pop_macro("ATTACHMENT")
+#pragma pop_macro("OP_ACCEPT")
+#pragma pop_macro("OP_CONNECT")
 #pragma pop_macro("OP_READ")
 #pragma pop_macro("OP_WRITE")
 

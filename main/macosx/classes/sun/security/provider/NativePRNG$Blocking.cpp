@@ -16,8 +16,8 @@
 #include <sun/security/provider/NativePRNG.h>
 #include <jcpp.h>
 
-#undef INSTANCE
 #undef BLOCKING
+#undef INSTANCE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

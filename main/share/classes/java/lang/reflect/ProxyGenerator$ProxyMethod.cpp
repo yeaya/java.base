@@ -31,14 +31,14 @@
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jcpp.h>
 
-#undef NEW
-#undef ANEWARRAY
-#undef ICONST_0
 #undef AASTORE
 #undef ACONST_NULL
-#undef MAX_VALUE
+#undef ANEWARRAY
 #undef BIPUSH
+#undef ICONST_0
+#undef MAX_VALUE
 #undef MIN_VALUE
+#undef NEW
 #undef SIPUSH
 #undef TYPE
 

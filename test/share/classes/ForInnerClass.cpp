@@ -14,9 +14,9 @@
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
 
-#undef SYNCHRONIZED
-#undef PROTECTED
 #undef PRIVATE
+#undef PROTECTED
+#undef SYNCHRONIZED
 
 using $ForInnerClass$Inner = ::ForInnerClass$Inner;
 using $ForInnerClass$Protected = ::ForInnerClass$Protected;

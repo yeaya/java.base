@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("WARNING")
-#undef WARNING
 #pragma push_macro("FATAL")
 #undef FATAL
+#pragma push_macro("WARNING")
+#undef WARNING
 
 namespace sun {
 	namespace security {
@@ -36,7 +36,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("WARNING")
 #pragma pop_macro("FATAL")
+#pragma pop_macro("WARNING")
 
 #endif // _sun_security_ssl_Alert$Level_h_

@@ -269,10 +269,8 @@ void TestObjectMethods::testGetAnnotations($Class* clazz, bool annotationsExpect
 						++TestObjectMethods::errors;
 						$nc($System::err)->println($$str({"Expected annotations missing on "_s, annotType}));
 					}
-				} else if ($nc(annotations)->length > 0) {
-					$init(TestObjectMethods);
+				} else if (annotations->length > 0) {
 					++TestObjectMethods::errors;
-					$init($System);
 					$nc($System::err)->println($$str({"Unexpected annotations present on "_s, annotType}));
 				}
 			}

@@ -65,8 +65,8 @@
 #include <jdk/internal/module/ModuleTarget.h>
 #include <jcpp.h>
 
-#undef TRANSITIVE
 #undef STATIC
+#undef TRANSITIVE
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -917,7 +917,7 @@ void Resolver::init$($ModuleFinder* beforeFinder, $List* parents, $ModuleFinder*
 				if (value != nullptr) {
 					if (this->targetPlatform$ == nullptr) {
 						$set(this, targetPlatform$, value);
-					} else if (!$nc(value)->equals(this->targetPlatform$)) {
+					} else if (!value->equals(this->targetPlatform$)) {
 						$var($String, msg, $str({"Parents have conflicting constraints on target  platform: "_s, this->targetPlatform$, ", "_s, value}));
 						$throwNew($IllegalArgumentException, msg);
 					}
@@ -1141,7 +1141,7 @@ void Resolver::checkTargetPlatform($String* mn, $ModuleTarget* target) {
 	if (value != nullptr) {
 		if (this->targetPlatform$ == nullptr) {
 			$set(this, targetPlatform$, value);
-		} else if (!$nc(value)->equals(this->targetPlatform$)) {
+		} else if (!value->equals(this->targetPlatform$)) {
 			findFail("Module %s has constraints on target platform (%s) that conflict with other modules: %s"_s, $$new($ObjectArray, {
 				$of(mn),
 				$of(value),

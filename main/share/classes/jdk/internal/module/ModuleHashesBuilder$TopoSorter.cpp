@@ -176,7 +176,7 @@ void ModuleHashesBuilder$TopoSorter::visit(Object$* node, $Set* visited, $Deque*
 		$nc($(children(node)))->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0, this, visited, stack)));
 		stack->pop();
 		$nc(this->result)->addLast(node);
-	} else if ($nc(stack)->contains(node)) {
+	} else if (stack->contains(node)) {
 		$var($String, var$0, $$str({"Cycle detected: "_s, node, " -> "_s}));
 		$throwNew($IllegalArgumentException, $$concat(var$0, $(children(node))));
 	}

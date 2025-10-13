@@ -16,14 +16,14 @@
 
 #undef ALTERNATE
 #undef GROUP
-#undef LEFT_JUSTIFY
-#undef PARENTHESES
 #undef LEADING_SPACE
-#undef ZERO_PAD
-#undef UPPERCASE
+#undef LEFT_JUSTIFY
 #undef NONE
-#undef PREVIOUS
+#undef PARENTHESES
 #undef PLUS
+#undef PREVIOUS
+#undef UPPERCASE
+#undef ZERO_PAD
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

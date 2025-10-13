@@ -140,7 +140,7 @@ void PathOps::check(Object$* result, $String* expected) {
 		if (expected == nullptr) {
 			return;
 		}
-	} else if (expected != nullptr && $nc($($nc($of(result))->toString()))->equals($(expected->toString()))) {
+	} else if (expected != nullptr && $nc($($of(result)->toString()))->equals($(expected->toString()))) {
 		return;
 	}
 	fail();

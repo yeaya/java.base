@@ -5,10 +5,10 @@
 
 #include <java/io/Serializable.h>
 
-#pragma push_macro("LANGUAGE")
-#undef LANGUAGE
 #pragma push_macro("INPUT_METHOD_SEGMENT")
 #undef INPUT_METHOD_SEGMENT
+#pragma push_macro("LANGUAGE")
+#undef LANGUAGE
 #pragma push_macro("READING")
 #undef READING
 
@@ -42,8 +42,8 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("LANGUAGE")
 #pragma pop_macro("INPUT_METHOD_SEGMENT")
+#pragma pop_macro("LANGUAGE")
 #pragma pop_macro("READING")
 
 #endif // _java_text_AttributedCharacterIterator$Attribute_h_

@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("WRITE_BUF")
+#undef WRITE_BUF
+#pragma push_macro("WRITE_BUF_OFF")
+#undef WRITE_BUF_OFF
 #pragma push_macro("WRITE_INT")
 #undef WRITE_INT
 #pragma push_macro("WRITE_STR")
 #undef WRITE_STR
-#pragma push_macro("WRITE_BUF")
-#undef WRITE_BUF
 #pragma push_macro("WRITE_STR_OFF")
 #undef WRITE_STR_OFF
-#pragma push_macro("WRITE_BUF_OFF")
-#undef WRITE_BUF_OFF
 
 namespace java {
 	namespace io {
@@ -41,10 +41,10 @@ public:
 	static $Array<OpsAfterClose4PrintWriter>* $VALUES;
 };
 
+#pragma pop_macro("WRITE_BUF")
+#pragma pop_macro("WRITE_BUF_OFF")
 #pragma pop_macro("WRITE_INT")
 #pragma pop_macro("WRITE_STR")
-#pragma pop_macro("WRITE_BUF")
 #pragma pop_macro("WRITE_STR_OFF")
-#pragma pop_macro("WRITE_BUF_OFF")
 
 #endif // _OpsAfterClose4PrintWriter_h_

@@ -66,13 +66,13 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef JUJA
-#undef STORED
+#undef CENHDR
 #undef DEFLATED
 #undef INSTANCE
+#undef JUJA
 #undef OPEN_DELETE
 #undef OPEN_READ
-#undef CENHDR
+#undef STORED
 
 using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;

@@ -8,14 +8,14 @@
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("ROUNDS_12")
-#undef ROUNDS_12
-#pragma push_macro("S")
-#undef S
-#pragma push_macro("ROUNDS_14")
-#undef ROUNDS_14
 #pragma push_macro("K")
 #undef K
+#pragma push_macro("ROUNDS_12")
+#undef ROUNDS_12
+#pragma push_macro("ROUNDS_14")
+#undef ROUNDS_14
+#pragma push_macro("S")
+#undef S
 
 namespace com {
 	namespace sun {
@@ -75,9 +75,9 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("ROUNDS_12")
-#pragma pop_macro("S")
-#pragma pop_macro("ROUNDS_14")
 #pragma pop_macro("K")
+#pragma pop_macro("ROUNDS_12")
+#pragma pop_macro("ROUNDS_14")
+#pragma pop_macro("S")
 
 #endif // _com_sun_crypto_provider_AESCrypt_h_

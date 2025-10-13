@@ -109,7 +109,7 @@ bool JarVerifier$VerifierCodeSource::equals(Object$* obj) {
 				if ($nc(that)->vlocation != nullptr) {
 					return $nc(that->vlocation)->equals(this->vlocation);
 				} else if (this->vlocation != nullptr) {
-					return $nc(this->vlocation)->equals($nc(that)->vlocation);
+					return $nc(this->vlocation)->equals(that->vlocation);
 				} else {
 					return true;
 				}

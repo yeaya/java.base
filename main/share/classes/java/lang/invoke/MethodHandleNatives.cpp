@@ -62,12 +62,12 @@
 
 #include "_java_lang_invoke_MethodHandleNatives.h"
 
-#undef IMPL_LOOKUP
-#undef VAR_HANDLE_GUARDS
-#undef UNSAFE
-#undef TRACE_METHOD_LINKAGE
 #undef HR_MASK
+#undef IMPL_LOOKUP
 #undef JLA
+#undef TRACE_METHOD_LINKAGE
+#undef UNSAFE
+#undef VAR_HANDLE_GUARDS
 
 using $MemberNameArray = $Array<::java::lang::invoke::MemberName>;
 using $PrintStream = ::java::io::PrintStream;

@@ -41,20 +41,20 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef STRICT
 #undef CE
 #undef DAY_OF_MONTH
-#undef SECOND_OF_MINUTE
-#undef INSTANCE
-#undef FEBRUARY
-#undef PROLEPTIC_MONTH
-#undef LENIENT
-#undef MONTH_OF_YEAR
-#undef YEAR
-#undef HOUR_OF_DAY
 #undef ERA
+#undef FEBRUARY
+#undef HOUR_OF_DAY
+#undef INSTANCE
+#undef LENIENT
 #undef MINUTE_OF_HOUR
+#undef MONTH_OF_YEAR
+#undef PROLEPTIC_MONTH
+#undef SECOND_OF_MINUTE
 #undef SMART
+#undef STRICT
+#undef YEAR
 #undef YEAR_OF_ERA
 
 using $IsoEraArray = $Array<::java::time::chrono::IsoEra>;
@@ -367,12 +367,10 @@ $ChronoLocalDate* IsoChronology::resolveYearOfEra($Map* fieldValues, $ResolverSt
 			} else {
 				addFieldValue(fieldValues, $ChronoField::YEAR, (year == nullptr || $nc(year)->longValue() > 0 ? yoeLong->longValue() : $Math::subtractExact((int64_t)1, yoeLong->longValue())));
 			}
-		} else if ($nc(era)->longValue() == (int64_t)1) {
-			$init($ChronoField);
-			addFieldValue(fieldValues, $ChronoField::YEAR, $nc(yoeLong)->longValue());
-		} else if ($nc(era)->longValue() == (int64_t)0) {
-			$init($ChronoField);
-			addFieldValue(fieldValues, $ChronoField::YEAR, $Math::subtractExact((int64_t)1, $nc(yoeLong)->longValue()));
+		} else if (era->longValue() == (int64_t)1) {
+			addFieldValue(fieldValues, $ChronoField::YEAR, yoeLong->longValue());
+		} else if (era->longValue() == (int64_t)0) {
+			addFieldValue(fieldValues, $ChronoField::YEAR, $Math::subtractExact((int64_t)1, yoeLong->longValue()));
 		} else {
 			$throwNew($DateTimeException, $$str({"Invalid value for era: "_s, era}));
 		}

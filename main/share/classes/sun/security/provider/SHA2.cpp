@@ -18,10 +18,10 @@
 #include <sun/security/provider/DigestBase.h>
 #include <jcpp.h>
 
-#undef SHA2
 #undef ITERATION
-#undef W
 #undef ROUND_CONSTS
+#undef SHA2
+#undef W
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

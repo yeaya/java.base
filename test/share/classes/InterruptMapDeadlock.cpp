@@ -27,9 +27,9 @@
 #include <java/util/concurrent/Semaphore.h>
 #include <jcpp.h>
 
-#undef TRUNCATE_EXISTING
 #undef CREATE
 #undef MAPPER_COUNT
+#undef TRUNCATE_EXISTING
 #undef WRITE
 
 using $InterruptMapDeadlock$Interruptor = ::InterruptMapDeadlock$Interruptor;
@@ -140,8 +140,7 @@ void InterruptMapDeadlock::main($StringArray* args) {
 						if (e != nullptr) {
 							$nc($System::err)->println($$str({"Mapper thread failed with: "_s, e}));
 							failed = true;
-						} else if ($nc(m)->isAlive()) {
-							$init($System);
+						} else if (m->isAlive()) {
 							$nc($System::err)->println("Mapper thread did not terminate:"_s);
 							$var($Throwable, t, $new($Exception, "Stack trace"_s));
 							t->setStackTrace($(m->getStackTrace()));

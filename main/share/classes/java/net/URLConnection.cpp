@@ -50,9 +50,9 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef ALL_PERMISSION
 #undef INSTANCE
 #undef MAX_VALUE
-#undef ALL_PERMISSION
 #undef US
 
 using $InputStream = ::java::io::InputStream;
@@ -642,7 +642,7 @@ $String* URLConnection::typeToPackageName($String* contentType$renamed) {
 		if (c == u'/') {
 			nm->set(i, u'.');
 		} else if (!(u'A' <= c && c <= u'Z' || u'a' <= c && c <= u'z' || u'0' <= c && c <= u'9')) {
-			$nc(nm)->set(i, u'_');
+			nm->set(i, u'_');
 		}
 	}
 	return $new($String, nm);
@@ -833,8 +833,8 @@ bool URLConnection::checkfpx($InputStream* is) {
 	if (byteOrder == 254 && c->get(0) == 0 && c->get(2) == 97 && c->get(3) == 86 && c->get(4) == 84 && c->get(5) == 193 && c->get(6) == 206 && c->get(7) == 17 && c->get(8) == 133 && c->get(9) == 83 && c->get(10) == 0 && c->get(11) == 170 && c->get(12) == 0 && c->get(13) == 161 && c->get(14) == 249 && c->get(15) == 91) {
 		is->reset();
 		return true;
-	} else if ($nc(c)->get(3) == 0 && c->get(1) == 97 && c->get(0) == 86 && c->get(5) == 84 && c->get(4) == 193 && c->get(7) == 206 && c->get(6) == 17 && c->get(8) == 133 && c->get(9) == 83 && c->get(10) == 0 && c->get(11) == 170 && c->get(12) == 0 && c->get(13) == 161 && c->get(14) == 249 && c->get(15) == 91) {
-		$nc(is)->reset();
+	} else if (c->get(3) == 0 && c->get(1) == 97 && c->get(0) == 86 && c->get(5) == 84 && c->get(4) == 193 && c->get(7) == 206 && c->get(6) == 17 && c->get(8) == 133 && c->get(9) == 83 && c->get(10) == 0 && c->get(11) == 170 && c->get(12) == 0 && c->get(13) == 161 && c->get(14) == 249 && c->get(15) == 91) {
+		is->reset();
 		return true;
 	}
 	is->reset();

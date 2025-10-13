@@ -9,21 +9,21 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef IP_TOS
-#undef IP_MULTICAST_IF2
-#undef SO_TIMEOUT
 #undef IP_MULTICAST_IF
-#undef SO_SNDBUF
-#undef SO_REUSEADDR
-#undef TCP_NODELAY
-#undef SO_LINGER
-#undef SO_BINDADDR
+#undef IP_MULTICAST_IF2
 #undef IP_MULTICAST_LOOP
-#undef SO_RCVBUF
-#undef SO_KEEPALIVE
+#undef IP_TOS
+#undef SO_BINDADDR
 #undef SO_BROADCAST
+#undef SO_KEEPALIVE
+#undef SO_LINGER
 #undef SO_OOBINLINE
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
 #undef SO_REUSEPORT
+#undef SO_SNDBUF
+#undef SO_TIMEOUT
+#undef TCP_NODELAY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

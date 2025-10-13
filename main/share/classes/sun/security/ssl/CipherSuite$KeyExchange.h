@@ -6,40 +6,40 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("K_ECDHE_ECDSA")
-#undef K_ECDHE_ECDSA
-#pragma push_macro("K_NULL")
-#undef K_NULL
-#pragma push_macro("K_RSA")
-#undef K_RSA
-#pragma push_macro("K_DH_DSS")
-#undef K_DH_DSS
-#pragma push_macro("K_DH_ANON")
-#undef K_DH_ANON
-#pragma push_macro("K_DHE_DSS_EXPORT")
-#undef K_DHE_DSS_EXPORT
 #pragma push_macro("K_DHE_DSS")
 #undef K_DHE_DSS
-#pragma push_macro("K_DH_RSA")
-#undef K_DH_RSA
+#pragma push_macro("K_DHE_DSS_EXPORT")
+#undef K_DHE_DSS_EXPORT
+#pragma push_macro("K_DHE_RSA")
+#undef K_DHE_RSA
+#pragma push_macro("K_DHE_RSA_EXPORT")
+#undef K_DHE_RSA_EXPORT
+#pragma push_macro("K_DH_ANON")
+#undef K_DH_ANON
 #pragma push_macro("K_DH_ANON_EXPORT")
 #undef K_DH_ANON_EXPORT
+#pragma push_macro("K_DH_DSS")
+#undef K_DH_DSS
+#pragma push_macro("K_DH_RSA")
+#undef K_DH_RSA
+#pragma push_macro("K_ECDHE_ECDSA")
+#undef K_ECDHE_ECDSA
 #pragma push_macro("K_ECDHE_RSA")
 #undef K_ECDHE_RSA
 #pragma push_macro("K_ECDH_ANON")
 #undef K_ECDH_ANON
-#pragma push_macro("K_DHE_RSA")
-#undef K_DHE_RSA
-#pragma push_macro("K_SCSV")
-#undef K_SCSV
 #pragma push_macro("K_ECDH_ECDSA")
 #undef K_ECDH_ECDSA
-#pragma push_macro("K_RSA_EXPORT")
-#undef K_RSA_EXPORT
-#pragma push_macro("K_DHE_RSA_EXPORT")
-#undef K_DHE_RSA_EXPORT
 #pragma push_macro("K_ECDH_RSA")
 #undef K_ECDH_RSA
+#pragma push_macro("K_NULL")
+#undef K_NULL
+#pragma push_macro("K_RSA")
+#undef K_RSA
+#pragma push_macro("K_RSA_EXPORT")
+#undef K_RSA_EXPORT
+#pragma push_macro("K_SCSV")
+#undef K_SCSV
 
 namespace sun {
 	namespace security {
@@ -92,22 +92,22 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("K_ECDHE_ECDSA")
-#pragma pop_macro("K_NULL")
-#pragma pop_macro("K_RSA")
-#pragma pop_macro("K_DH_DSS")
-#pragma pop_macro("K_DH_ANON")
-#pragma pop_macro("K_DHE_DSS_EXPORT")
 #pragma pop_macro("K_DHE_DSS")
-#pragma pop_macro("K_DH_RSA")
+#pragma pop_macro("K_DHE_DSS_EXPORT")
+#pragma pop_macro("K_DHE_RSA")
+#pragma pop_macro("K_DHE_RSA_EXPORT")
+#pragma pop_macro("K_DH_ANON")
 #pragma pop_macro("K_DH_ANON_EXPORT")
+#pragma pop_macro("K_DH_DSS")
+#pragma pop_macro("K_DH_RSA")
+#pragma pop_macro("K_ECDHE_ECDSA")
 #pragma pop_macro("K_ECDHE_RSA")
 #pragma pop_macro("K_ECDH_ANON")
-#pragma pop_macro("K_DHE_RSA")
-#pragma pop_macro("K_SCSV")
 #pragma pop_macro("K_ECDH_ECDSA")
-#pragma pop_macro("K_RSA_EXPORT")
-#pragma pop_macro("K_DHE_RSA_EXPORT")
 #pragma pop_macro("K_ECDH_RSA")
+#pragma pop_macro("K_NULL")
+#pragma pop_macro("K_RSA")
+#pragma pop_macro("K_RSA_EXPORT")
+#pragma pop_macro("K_SCSV")
 
 #endif // _sun_security_ssl_CipherSuite$KeyExchange_h_

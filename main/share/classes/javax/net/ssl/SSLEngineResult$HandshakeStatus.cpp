@@ -13,12 +13,12 @@
 #include <javax/net/ssl/SSLEngineResult.h>
 #include <jcpp.h>
 
-#undef NEED_WRAP
+#undef FINISHED
+#undef NEED_TASK
 #undef NEED_UNWRAP
 #undef NEED_UNWRAP_AGAIN
+#undef NEED_WRAP
 #undef NOT_HANDSHAKING
-#undef NEED_TASK
-#undef FINISHED
 
 using $SSLEngineResult$HandshakeStatusArray = $Array<::javax::net::ssl::SSLEngineResult$HandshakeStatus>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -5,14 +5,14 @@
 
 #include <java/io/Serializable.h>
 
-#pragma push_macro("SUNDAY_START")
-#undef SUNDAY_START
-#pragma push_macro("ISO")
-#undef ISO
-#pragma push_macro("WEEK_BASED_YEARS")
-#undef WEEK_BASED_YEARS
 #pragma push_macro("CACHE")
 #undef CACHE
+#pragma push_macro("ISO")
+#undef ISO
+#pragma push_macro("SUNDAY_START")
+#undef SUNDAY_START
+#pragma push_macro("WEEK_BASED_YEARS")
+#undef WEEK_BASED_YEARS
 
 namespace java {
 	namespace io {
@@ -86,9 +86,9 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("SUNDAY_START")
-#pragma pop_macro("ISO")
-#pragma pop_macro("WEEK_BASED_YEARS")
 #pragma pop_macro("CACHE")
+#pragma pop_macro("ISO")
+#pragma pop_macro("SUNDAY_START")
+#pragma pop_macro("WEEK_BASED_YEARS")
 
 #endif // _java_time_temporal_WeekFields_h_

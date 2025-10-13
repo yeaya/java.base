@@ -67,10 +67,10 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef ENCRYPTED_DATA_OID
-#undef ENCRYPT_MODE
 #undef DATA_OID
 #undef DECRYPT_MODE
+#undef ENCRYPTED_DATA_OID
+#undef ENCRYPT_MODE
 #undef SALT_LEN
 
 using $KeychainStore$CertKeychainItemPairArray = $Array<::apple::security::KeychainStore$CertKeychainItemPair>;

@@ -13,8 +13,8 @@
 #include <sun/nio/ch/UnixAsynchronousSocketChannelImpl.h>
 #include <jcpp.h>
 
-#undef READ
 #undef CONNECT
+#undef READ
 #undef WRITE
 
 using $UnixAsynchronousSocketChannelImpl$OpTypeArray = $Array<::sun::nio::ch::UnixAsynchronousSocketChannelImpl$OpType>;

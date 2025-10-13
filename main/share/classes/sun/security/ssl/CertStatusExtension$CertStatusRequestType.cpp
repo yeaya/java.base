@@ -13,8 +13,8 @@
 #include <sun/security/ssl/CertStatusExtension.h>
 #include <jcpp.h>
 
-#undef OCSP_MULTI
 #undef OCSP
+#undef OCSP_MULTI
 
 using $CertStatusExtension$CertStatusRequestTypeArray = $Array<::sun::security::ssl::CertStatusExtension$CertStatusRequestType>;
 using $ClassInfo = ::java::lang::ClassInfo;

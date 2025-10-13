@@ -18,9 +18,9 @@
 #include <jcpp.h>
 
 #undef INDEX_STAGE_1_SHIFT_
+#undef INDEX_STAGE_2_SHIFT_
 #undef INDEX_STAGE_3_MASK_
 #undef LEAD_SURROGATE_MIN_VALUE
-#undef INDEX_STAGE_2_SHIFT_
 #undef SURROGATE_MASK_
 
 using $DataInputStream = ::java::io::DataInputStream;

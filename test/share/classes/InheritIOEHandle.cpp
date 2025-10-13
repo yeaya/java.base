@@ -30,11 +30,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SIGNAL
 #undef A
 #undef B
 #undef C
 #undef JAVA_EXE
+#undef SIGNAL
 
 using $InheritIOEHandle$1 = ::InheritIOEHandle$1;
 using $InheritIOEHandle$APP = ::InheritIOEHandle$APP;

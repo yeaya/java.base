@@ -22,10 +22,10 @@
 #include <sun/security/x509/OIDMap.h>
 #include <jcpp.h>
 
-#undef NAME_MATCH
 #undef NAME_ANY
-#undef TAG_CONTEXT
 #undef NAME_DIFF_TYPE
+#undef NAME_MATCH
+#undef TAG_CONTEXT
 #undef TAG_VALUE
 
 using $IOException = ::java::io::IOException;
@@ -214,7 +214,7 @@ int32_t OtherName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_ANY) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_ANY) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$throwNew($UnsupportedOperationException, "Narrowing, widening, and matching are not supported for OtherName."_s);

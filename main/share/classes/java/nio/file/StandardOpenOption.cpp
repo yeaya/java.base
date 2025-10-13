@@ -11,15 +11,15 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef READ
-#undef TRUNCATE_EXISTING
+#undef APPEND
 #undef CREATE
 #undef CREATE_NEW
-#undef SPARSE
 #undef DELETE_ON_CLOSE
 #undef DSYNC
+#undef READ
+#undef SPARSE
 #undef SYNC
-#undef APPEND
+#undef TRUNCATE_EXISTING
 #undef WRITE
 
 using $StandardOpenOptionArray = $Array<::java::nio::file::StandardOpenOption>;

@@ -16,8 +16,8 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef JLA
 #undef EMPTY_STRING_ARRAY
+#undef JLA
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

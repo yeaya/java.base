@@ -113,7 +113,7 @@ void RenegoInfoExtension$CHRenegotiationInfoAbsence::absent($ConnectionContext* 
 			$SSLLogger::warning("Warning: No renegotiation indication in ClientHello, allow legacy ClientHello"_s, $$new($ObjectArray, 0));
 		}
 		$nc(shc->conContext)->secureRenegotiation = false;
-	} else if ($nc($nc(shc)->conContext)->secureRenegotiation) {
+	} else if ($nc(shc->conContext)->secureRenegotiation) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Inconsistent secure renegotiation indication"_s)));
 	} else {

@@ -148,7 +148,7 @@ void SmtpClient::to($String* s) {
 			ignore = true;
 		} else if (c == u',') {
 			if (lastnonsp > st) {
-				toCanonical($($nc(s)->substring(st, lastnonsp)));
+				toCanonical($(s->substring(st, lastnonsp)));
 			}
 			st = pos + 1;
 			ignore = false;

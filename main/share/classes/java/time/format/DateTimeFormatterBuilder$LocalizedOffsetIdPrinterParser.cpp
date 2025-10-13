@@ -22,8 +22,8 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef OFFSET_SECONDS
 #undef FULL
+#undef OFFSET_SECONDS
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -43,9 +43,9 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef MAX_VALUE
 #undef DEFAULT_THREAD_POOL_INITIAL_SIZE
 #undef DEFAULT_THREAD_POOL_THREAD_FACTORY
+#undef MAX_VALUE
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

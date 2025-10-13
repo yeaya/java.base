@@ -43,9 +43,9 @@
 #include <jdk/internal/util/ArraysSupport.h>
 #include <jcpp.h>
 
-#undef EMPTY_ELEMENTDATA
 #undef DEFAULTCAPACITY_EMPTY_ELEMENTDATA
 #undef DEFAULT_CAPACITY
+#undef EMPTY_ELEMENTDATA
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

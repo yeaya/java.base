@@ -14,8 +14,8 @@
 #include <java/time/temporal/TemporalQuery.h>
 #include <jcpp.h>
 
-#undef ZONE_ID
 #undef OFFSET
+#undef ZONE_ID
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

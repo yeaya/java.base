@@ -43,10 +43,10 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef NULL
 #undef CANONICAL_MAP
 #undef DEFAULT_NAME
 #undef EMPTY_CONSTANTDESC
+#undef NULL
 
 using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $Serializable = ::java::io::Serializable;

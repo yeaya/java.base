@@ -14,10 +14,10 @@
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jcpp.h>
 
-#undef WILDCARD_BOUND
+#undef ARRAY_ELEMENT
 #undef INNER_TYPE
 #undef TYPE_ARGUMENT
-#undef ARRAY_ELEMENT
+#undef WILDCARD_BOUND
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -96,13 +96,13 @@ TypePath* TypePath::fromString($String* typePath) {
 		if (c == u'[') {
 			output->put11(TypePath::ARRAY_ELEMENT, 0);
 		} else if (c == u'.') {
-			$nc(output)->put11(TypePath::INNER_TYPE, 0);
+			output->put11(TypePath::INNER_TYPE, 0);
 		} else if (c == u'*') {
-			$nc(output)->put11(TypePath::WILDCARD_BOUND, 0);
+			output->put11(TypePath::WILDCARD_BOUND, 0);
 		} else if (c >= u'0' && c <= u'9') {
 			int32_t typeArg = c - u'0';
 			while (typePathIndex < typePathLength) {
-				c = $nc(typePath)->charAt(typePathIndex++);
+				c = typePath->charAt(typePathIndex++);
 				if (c >= u'0' && c <= u'9') {
 					typeArg = typeArg * 10 + c - u'0';
 				} else if (c == u';') {
@@ -111,7 +111,7 @@ TypePath* TypePath::fromString($String* typePath) {
 					$throwNew($IllegalArgumentException);
 				}
 			}
-			$nc(output)->put11(TypePath::TYPE_ARGUMENT, typeArg);
+			output->put11(TypePath::TYPE_ARGUMENT, typeArg);
 		} else {
 			$throwNew($IllegalArgumentException);
 		}

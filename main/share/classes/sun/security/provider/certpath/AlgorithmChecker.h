@@ -5,10 +5,10 @@
 
 #include <java/security/cert/PKIXCertPathChecker.h>
 
-#pragma push_macro("SIGNATURE_PRIMITIVE_SET")
-#undef SIGNATURE_PRIMITIVE_SET
 #pragma push_macro("KU_PRIMITIVE_SET")
 #undef KU_PRIMITIVE_SET
+#pragma push_macro("SIGNATURE_PRIMITIVE_SET")
+#undef SIGNATURE_PRIMITIVE_SET
 
 namespace java {
 	namespace security {
@@ -86,7 +86,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SIGNATURE_PRIMITIVE_SET")
 #pragma pop_macro("KU_PRIMITIVE_SET")
+#pragma pop_macro("SIGNATURE_PRIMITIVE_SET")
 
 #endif // _sun_security_provider_certpath_AlgorithmChecker_h_

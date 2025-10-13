@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("LENGTH")
-#undef LENGTH
 #pragma push_macro("BUF_LENGTH")
 #undef BUF_LENGTH
+#pragma push_macro("LENGTH")
+#undef LENGTH
 
 namespace java {
 	namespace lang {
@@ -44,7 +44,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("LENGTH")
 #pragma pop_macro("BUF_LENGTH")
+#pragma pop_macro("LENGTH")
 
 #endif // _sun_nio_ch_DatagramSocketAdaptor$DatagramPackets_h_

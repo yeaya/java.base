@@ -79,7 +79,7 @@ void BasicPermission::init($String* name) {
 		} else {
 			$set(this, path, name->substring(0, len - 1));
 		}
-	} else if ($nc(name)->equals("exitVM"_s)) {
+	} else if (name->equals("exitVM"_s)) {
 		this->wildcard = true;
 		$set(this, path, "exitVM."_s);
 		this->exitVM = true;
@@ -115,7 +115,7 @@ bool BasicPermission::implies($Permission* p) {
 			bool var$1 = (var$2 > $nc(this->path)->length());
 			return var$1 && $nc(that->path)->startsWith(this->path);
 		}
-	} else if ($nc(that)->wildcard) {
+	} else if (that->wildcard) {
 		return false;
 	} else {
 		return $nc(this->path)->equals(that->path);

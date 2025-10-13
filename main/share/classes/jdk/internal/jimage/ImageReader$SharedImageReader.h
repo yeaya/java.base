@@ -9,10 +9,10 @@
 
 #pragma push_macro("BYTES")
 #undef BYTES
-#pragma push_macro("SIZE_OF_OFFSET")
-#undef SIZE_OF_OFFSET
 #pragma push_macro("OPEN_FILES")
 #undef OPEN_FILES
+#pragma push_macro("SIZE_OF_OFFSET")
+#undef SIZE_OF_OFFSET
 
 namespace java {
 	namespace nio {
@@ -108,7 +108,7 @@ public:
 } // jdk
 
 #pragma pop_macro("BYTES")
-#pragma pop_macro("SIZE_OF_OFFSET")
 #pragma pop_macro("OPEN_FILES")
+#pragma pop_macro("SIZE_OF_OFFSET")
 
 #endif // _jdk_internal_jimage_ImageReader$SharedImageReader_h_

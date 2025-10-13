@@ -23,8 +23,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MIMELINEMAX
 #undef CRLF
+#undef MIMELINEMAX
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;

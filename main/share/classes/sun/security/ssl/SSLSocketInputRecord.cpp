@@ -35,8 +35,8 @@
 #include <sun/security/ssl/SSLRecord.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE
 #undef ALERT
+#undef HANDSHAKE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $PlaintextArray = $Array<::sun::security::ssl::Plaintext>;

@@ -21,9 +21,9 @@
 
 #undef LA
 #undef LONDON
-#undef ZONES
-#undef US
 #undef MOSCOW
+#undef US
+#undef ZONES
 
 using $TimeZoneArray = $Array<::java::util::TimeZone>;
 using $PrintStream = ::java::io::PrintStream;

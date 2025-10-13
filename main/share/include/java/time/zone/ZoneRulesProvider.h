@@ -7,10 +7,10 @@
 
 #pragma push_macro("PROVIDERS")
 #undef PROVIDERS
-#pragma push_macro("ZONE_IDS")
-#undef ZONE_IDS
 #pragma push_macro("ZONES")
 #undef ZONES
+#pragma push_macro("ZONE_IDS")
+#undef ZONE_IDS
 
 namespace java {
 	namespace time {
@@ -64,7 +64,7 @@ public:
 } // java
 
 #pragma pop_macro("PROVIDERS")
-#pragma pop_macro("ZONE_IDS")
 #pragma pop_macro("ZONES")
+#pragma pop_macro("ZONE_IDS")
 
 #endif // _java_time_zone_ZoneRulesProvider_h_

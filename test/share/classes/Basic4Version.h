@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("NPE")
-#undef NPE
-#pragma push_macro("TOO_BIG_STR")
-#undef TOO_BIG_STR
-#pragma push_macro("TOO_BIG")
-#undef TOO_BIG
 #pragma push_macro("IAE")
 #undef IAE
 #pragma push_macro("NFE")
 #undef NFE
+#pragma push_macro("NPE")
+#undef NPE
+#pragma push_macro("TOO_BIG")
+#undef TOO_BIG
+#pragma push_macro("TOO_BIG_STR")
+#undef TOO_BIG_STR
 
 namespace java {
 	namespace lang {
@@ -68,10 +68,10 @@ public:
 	static $Throwable* first;
 };
 
-#pragma pop_macro("NPE")
-#pragma pop_macro("TOO_BIG_STR")
-#pragma pop_macro("TOO_BIG")
 #pragma pop_macro("IAE")
 #pragma pop_macro("NFE")
+#pragma pop_macro("NPE")
+#pragma pop_macro("TOO_BIG")
+#pragma pop_macro("TOO_BIG_STR")
 
 #endif // _Basic4Version_h_

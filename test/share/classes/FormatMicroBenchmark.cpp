@@ -20,16 +20,16 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef FRACTIONAL_BENCH
-#undef INTEGER_BENCH
-#undef NB_RUNS
-#undef MAX_RANGE
-#undef TIE_BENCH
-#undef SMALL_INTEGRAL_BENCH
-#undef FAIR_SIMPLE_BENCH
-#undef FRACTIONAL_ALL_NINES_BENCH
 #undef ALL_NINES_BENCH
 #undef FAIR_BENCH
+#undef FAIR_SIMPLE_BENCH
+#undef FRACTIONAL_ALL_NINES_BENCH
+#undef FRACTIONAL_BENCH
+#undef INTEGER_BENCH
+#undef MAX_RANGE
+#undef NB_RUNS
+#undef SMALL_INTEGRAL_BENCH
+#undef TIE_BENCH
 #undef US
 
 using $FormatMicroBenchmark$BenchType = ::FormatMicroBenchmark$BenchType;
@@ -601,8 +601,7 @@ void FormatMicroBenchmark::main($StringArray* args) {
 				{
 					if ($nc(s)->equals("-doit"_s)) {
 						FormatMicroBenchmark::DoIt = true;
-					} else if ($nc(s)->equals("-verbose"_s)) {
-						$init(FormatMicroBenchmark);
+					} else if (s->equals("-verbose"_s)) {
 						FormatMicroBenchmark::Verbose = true;
 					}
 				}

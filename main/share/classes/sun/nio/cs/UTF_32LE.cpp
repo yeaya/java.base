@@ -17,8 +17,8 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef UTF_32LE
 #undef LITTLE
+#undef UTF_32LE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

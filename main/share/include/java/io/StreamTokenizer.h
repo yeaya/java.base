@@ -6,34 +6,34 @@
 #include <java/lang/Array.h>
 #include <java/lang/Integer.h>
 
-#pragma push_macro("TT_EOL")
-#undef TT_EOL
-#pragma push_macro("NEED_CHAR")
-#undef NEED_CHAR
-#pragma push_macro("CT_DIGIT")
-#undef CT_DIGIT
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("LINENO")
-#undef LINENO
-#pragma push_macro("TT_WORD")
-#undef TT_WORD
-#pragma push_macro("SKIP_LF")
-#undef SKIP_LF
-#pragma push_macro("CT_WHITESPACE")
-#undef CT_WHITESPACE
-#pragma push_macro("TT_NUMBER")
-#undef TT_NUMBER
-#pragma push_macro("CT_QUOTE")
-#undef CT_QUOTE
-#pragma push_macro("TT_NOTHING")
-#undef TT_NOTHING
 #pragma push_macro("CT_ALPHA")
 #undef CT_ALPHA
-#pragma push_macro("TT_EOF")
-#undef TT_EOF
 #pragma push_macro("CT_COMMENT")
 #undef CT_COMMENT
+#pragma push_macro("CT_DIGIT")
+#undef CT_DIGIT
+#pragma push_macro("CT_QUOTE")
+#undef CT_QUOTE
+#pragma push_macro("CT_WHITESPACE")
+#undef CT_WHITESPACE
+#pragma push_macro("LINENO")
+#undef LINENO
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
+#pragma push_macro("NEED_CHAR")
+#undef NEED_CHAR
+#pragma push_macro("SKIP_LF")
+#undef SKIP_LF
+#pragma push_macro("TT_EOF")
+#undef TT_EOF
+#pragma push_macro("TT_EOL")
+#undef TT_EOL
+#pragma push_macro("TT_NOTHING")
+#undef TT_NOTHING
+#pragma push_macro("TT_NUMBER")
+#undef TT_NUMBER
+#pragma push_macro("TT_WORD")
+#undef TT_WORD
 
 namespace java {
 	namespace io {
@@ -100,19 +100,19 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("TT_EOL")
-#pragma pop_macro("NEED_CHAR")
-#pragma pop_macro("CT_DIGIT")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("LINENO")
-#pragma pop_macro("TT_WORD")
-#pragma pop_macro("SKIP_LF")
-#pragma pop_macro("CT_WHITESPACE")
-#pragma pop_macro("TT_NUMBER")
-#pragma pop_macro("CT_QUOTE")
-#pragma pop_macro("TT_NOTHING")
 #pragma pop_macro("CT_ALPHA")
-#pragma pop_macro("TT_EOF")
 #pragma pop_macro("CT_COMMENT")
+#pragma pop_macro("CT_DIGIT")
+#pragma pop_macro("CT_QUOTE")
+#pragma pop_macro("CT_WHITESPACE")
+#pragma pop_macro("LINENO")
+#pragma pop_macro("MAX_VALUE")
+#pragma pop_macro("NEED_CHAR")
+#pragma pop_macro("SKIP_LF")
+#pragma pop_macro("TT_EOF")
+#pragma pop_macro("TT_EOL")
+#pragma pop_macro("TT_NOTHING")
+#pragma pop_macro("TT_NUMBER")
+#pragma pop_macro("TT_WORD")
 
 #endif // _java_io_StreamTokenizer_h_

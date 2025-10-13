@@ -24,12 +24,12 @@
 #include <java/util/zip/ZipException.h>
 #include <jcpp.h>
 
-#undef FTEXT
-#undef FEXTRA
-#undef GZIP_MAGIC
 #undef FCOMMENT
+#undef FEXTRA
 #undef FHCRC
 #undef FNAME
+#undef FTEXT
+#undef GZIP_MAGIC
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $EOFException = ::java::io::EOFException;

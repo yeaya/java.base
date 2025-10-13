@@ -11,8 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_NORMAL
 #undef MAX_VALUE
+#undef MIN_NORMAL
 #undef MIN_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;

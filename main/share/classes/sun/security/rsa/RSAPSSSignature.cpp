@@ -49,12 +49,12 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-#undef DIGEST_LENGTHS
-#undef TRAILER_FIELD_BC
 #undef DEBUG
+#undef DIGEST_LENGTHS
 #undef EIGHT_BYTES_OF_ZEROS
-#undef SHA_1
 #undef MASK
+#undef SHA_1
+#undef TRAILER_FIELD_BC
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -174,12 +174,12 @@ bool RSAPSSSignature::isDigestEqual($String* stdAlg, $String* givenAlg$renamed) 
 	}
 	if ($nc(givenAlg)->indexOf("-"_s) != -1) {
 		return $nc(stdAlg)->equalsIgnoreCase(givenAlg);
-	} else if ($nc(stdAlg)->equals("SHA-1"_s)) {
-		bool var$0 = $nc(givenAlg)->equalsIgnoreCase("SHA"_s);
-		return (var$0 || $nc(givenAlg)->equalsIgnoreCase("SHA1"_s));
+	} else if (stdAlg->equals("SHA-1"_s)) {
+		bool var$0 = givenAlg->equalsIgnoreCase("SHA"_s);
+		return (var$0 || givenAlg->equalsIgnoreCase("SHA1"_s));
 	} else {
 		$var($StringBuilder, sb, $new($StringBuilder, givenAlg));
-		if ($nc(givenAlg)->regionMatches(true, 0, "SHA"_s, 0, 3)) {
+		if (givenAlg->regionMatches(true, 0, "SHA"_s, 0, 3)) {
 			$assign(givenAlg, $nc(sb->insert(3, "-"_s))->toString());
 			return stdAlg->equalsIgnoreCase(givenAlg);
 		} else {

@@ -32,8 +32,8 @@
 #include <sun/nio/fs/WindowsPath.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef MAX_VALUE
+#undef ROOT
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;

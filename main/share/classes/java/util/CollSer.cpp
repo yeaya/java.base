@@ -28,10 +28,10 @@
 #include <jcpp.h>
 
 #undef EMPTY_MAP
-#undef IMM_MAP
-#undef IMM_LIST_NULLS
-#undef IMM_SET
 #undef IMM_LIST
+#undef IMM_LIST_NULLS
+#undef IMM_MAP
+#undef IMM_SET
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

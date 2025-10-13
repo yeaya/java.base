@@ -436,8 +436,8 @@ void ModulePathValidator::scan($Path* entry) {
 	bool var$0 = $nc(attrs)->isRegularFile();
 	if (var$0 && $nc(fn)->endsWith(".jar"_s)) {
 		$nc($(scanModule(entry)))->ifPresent(static_cast<$Consumer*>($$new(ModulePathValidator$$Lambda$process$3, this)));
-	} else if ($nc(attrs)->isDirectory()) {
-		$var($Path, mi, $nc(entry)->resolve(ModulePathValidator::MODULE_INFO));
+	} else if (attrs->isDirectory()) {
+		$var($Path, mi, entry->resolve(ModulePathValidator::MODULE_INFO));
 		if ($Files::exists(mi, $$new($LinkOptionArray, 0))) {
 			$nc($(scanModule(entry)))->ifPresent(static_cast<$Consumer*>($$new(ModulePathValidator$$Lambda$process$3, this)));
 		} else {
@@ -474,8 +474,8 @@ void ModulePathValidator::scanDirectory($Path* dir) {
 								bool var$1 = $nc(attrs)->isRegularFile();
 								if (var$1 && $nc(fn)->endsWith(".jar"_s)) {
 									$assign(mref, $cast($ModuleReference, $nc($(scanModule(entry)))->orElse(nullptr)));
-								} else if ($nc(attrs)->isDirectory()) {
-									$var($Path, mi, $nc(entry)->resolve(ModulePathValidator::MODULE_INFO));
+								} else if (attrs->isDirectory()) {
+									$var($Path, mi, entry->resolve(ModulePathValidator::MODULE_INFO));
 									if ($Files::exists(mi, $$new($LinkOptionArray, 0))) {
 										$assign(mref, $cast($ModuleReference, $nc($(scanModule(entry)))->orElse(nullptr)));
 									}

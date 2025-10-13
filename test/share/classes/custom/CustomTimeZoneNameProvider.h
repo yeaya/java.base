@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/util/spi/TimeZoneNameProvider.h>
 
-#pragma push_macro("ZONE_ID")
-#undef ZONE_ID
 #pragma push_macro("ID")
 #undef ID
+#pragma push_macro("ZONE_ID")
+#undef ZONE_ID
 
 namespace java {
 	namespace util {
@@ -33,7 +33,7 @@ public:
 
 } // custom
 
-#pragma pop_macro("ZONE_ID")
 #pragma pop_macro("ID")
+#pragma pop_macro("ZONE_ID")
 
 #endif // _custom_CustomTimeZoneNameProvider_h_

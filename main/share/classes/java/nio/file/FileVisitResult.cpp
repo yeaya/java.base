@@ -12,9 +12,9 @@
 #include <jcpp.h>
 
 #undef CONTINUE
-#undef TERMINATE
-#undef SKIP_SUBTREE
 #undef SKIP_SIBLINGS
+#undef SKIP_SUBTREE
+#undef TERMINATE
 
 using $FileVisitResultArray = $Array<::java::nio::file::FileVisitResult>;
 using $ClassInfo = ::java::lang::ClassInfo;

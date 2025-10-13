@@ -5,42 +5,42 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TRAIL_SURROGATE_MASK_")
-#undef TRAIL_SURROGATE_MASK_
-#pragma push_macro("LEAD_SURROGATE_BITMASK")
-#undef LEAD_SURROGATE_BITMASK
-#pragma push_macro("LEAD_SURROGATE_MIN_VALUE")
-#undef LEAD_SURROGATE_MIN_VALUE
-#pragma push_macro("LEAD_SURROGATE_BITS")
-#undef LEAD_SURROGATE_BITS
-#pragma push_macro("TRAIL_SURROGATE_MIN_VALUE")
-#undef TRAIL_SURROGATE_MIN_VALUE
-#pragma push_macro("SURROGATE_BITS")
-#undef SURROGATE_BITS
-#pragma push_macro("TRAIL_SURROGATE_BITMASK")
-#undef TRAIL_SURROGATE_BITMASK
 #pragma push_macro("CODEPOINT_MAX_VALUE")
 #undef CODEPOINT_MAX_VALUE
-#pragma push_macro("TRAIL_SURROGATE_BITS")
-#undef TRAIL_SURROGATE_BITS
-#pragma push_macro("TRAIL_SURROGATE_MAX_VALUE")
-#undef TRAIL_SURROGATE_MAX_VALUE
+#pragma push_macro("CODEPOINT_MIN_VALUE")
+#undef CODEPOINT_MIN_VALUE
+#pragma push_macro("LEAD_SURROGATE_BITMASK")
+#undef LEAD_SURROGATE_BITMASK
+#pragma push_macro("LEAD_SURROGATE_BITS")
+#undef LEAD_SURROGATE_BITS
+#pragma push_macro("LEAD_SURROGATE_MAX_VALUE")
+#undef LEAD_SURROGATE_MAX_VALUE
+#pragma push_macro("LEAD_SURROGATE_MIN_VALUE")
+#undef LEAD_SURROGATE_MIN_VALUE
+#pragma push_macro("LEAD_SURROGATE_OFFSET_")
+#undef LEAD_SURROGATE_OFFSET_
+#pragma push_macro("LEAD_SURROGATE_SHIFT_")
+#undef LEAD_SURROGATE_SHIFT_
 #pragma push_macro("SUPPLEMENTARY_MIN_VALUE")
 #undef SUPPLEMENTARY_MIN_VALUE
 #pragma push_macro("SURROGATE_BITMASK")
 #undef SURROGATE_BITMASK
-#pragma push_macro("LEAD_SURROGATE_SHIFT_")
-#undef LEAD_SURROGATE_SHIFT_
-#pragma push_macro("CODEPOINT_MIN_VALUE")
-#undef CODEPOINT_MIN_VALUE
-#pragma push_macro("UTF16")
-#undef UTF16
+#pragma push_macro("SURROGATE_BITS")
+#undef SURROGATE_BITS
 #pragma push_macro("SURROGATE_MIN_VALUE")
 #undef SURROGATE_MIN_VALUE
-#pragma push_macro("LEAD_SURROGATE_OFFSET_")
-#undef LEAD_SURROGATE_OFFSET_
-#pragma push_macro("LEAD_SURROGATE_MAX_VALUE")
-#undef LEAD_SURROGATE_MAX_VALUE
+#pragma push_macro("TRAIL_SURROGATE_BITMASK")
+#undef TRAIL_SURROGATE_BITMASK
+#pragma push_macro("TRAIL_SURROGATE_BITS")
+#undef TRAIL_SURROGATE_BITS
+#pragma push_macro("TRAIL_SURROGATE_MASK_")
+#undef TRAIL_SURROGATE_MASK_
+#pragma push_macro("TRAIL_SURROGATE_MAX_VALUE")
+#undef TRAIL_SURROGATE_MAX_VALUE
+#pragma push_macro("TRAIL_SURROGATE_MIN_VALUE")
+#undef TRAIL_SURROGATE_MIN_VALUE
+#pragma push_macro("UTF16")
+#undef UTF16
 
 namespace java {
 	namespace lang {
@@ -99,23 +99,23 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("TRAIL_SURROGATE_MASK_")
-#pragma pop_macro("LEAD_SURROGATE_BITMASK")
-#pragma pop_macro("LEAD_SURROGATE_MIN_VALUE")
-#pragma pop_macro("LEAD_SURROGATE_BITS")
-#pragma pop_macro("TRAIL_SURROGATE_MIN_VALUE")
-#pragma pop_macro("SURROGATE_BITS")
-#pragma pop_macro("TRAIL_SURROGATE_BITMASK")
 #pragma pop_macro("CODEPOINT_MAX_VALUE")
-#pragma pop_macro("TRAIL_SURROGATE_BITS")
-#pragma pop_macro("TRAIL_SURROGATE_MAX_VALUE")
+#pragma pop_macro("CODEPOINT_MIN_VALUE")
+#pragma pop_macro("LEAD_SURROGATE_BITMASK")
+#pragma pop_macro("LEAD_SURROGATE_BITS")
+#pragma pop_macro("LEAD_SURROGATE_MAX_VALUE")
+#pragma pop_macro("LEAD_SURROGATE_MIN_VALUE")
+#pragma pop_macro("LEAD_SURROGATE_OFFSET_")
+#pragma pop_macro("LEAD_SURROGATE_SHIFT_")
 #pragma pop_macro("SUPPLEMENTARY_MIN_VALUE")
 #pragma pop_macro("SURROGATE_BITMASK")
-#pragma pop_macro("LEAD_SURROGATE_SHIFT_")
-#pragma pop_macro("CODEPOINT_MIN_VALUE")
-#pragma pop_macro("UTF16")
+#pragma pop_macro("SURROGATE_BITS")
 #pragma pop_macro("SURROGATE_MIN_VALUE")
-#pragma pop_macro("LEAD_SURROGATE_OFFSET_")
-#pragma pop_macro("LEAD_SURROGATE_MAX_VALUE")
+#pragma pop_macro("TRAIL_SURROGATE_BITMASK")
+#pragma pop_macro("TRAIL_SURROGATE_BITS")
+#pragma pop_macro("TRAIL_SURROGATE_MASK_")
+#pragma pop_macro("TRAIL_SURROGATE_MAX_VALUE")
+#pragma pop_macro("TRAIL_SURROGATE_MIN_VALUE")
+#pragma pop_macro("UTF16")
 
 #endif // _jdk_internal_icu_text_UTF16_h_

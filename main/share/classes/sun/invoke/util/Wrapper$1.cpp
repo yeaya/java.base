@@ -13,16 +13,16 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef FLOAT
+#undef BOOLEAN
 #undef BYTE
 #undef CHAR
 #undef DOUBLE
-#undef VOID
-#undef OBJECT
-#undef BOOLEAN
+#undef FLOAT
 #undef INT
-#undef SHORT
 #undef LONG
+#undef OBJECT
+#undef SHORT
+#undef VOID
 
 using $WrapperArray = $Array<::sun::invoke::util::Wrapper>;
 using $ClassInfo = ::java::lang::ClassInfo;

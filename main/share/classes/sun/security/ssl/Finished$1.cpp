@@ -14,13 +14,13 @@
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <jcpp.h>
 
-#undef SSL30
-#undef DTLS12
-#undef TLS11
-#undef TLS10
 #undef DTLS10
-#undef TLS13
+#undef DTLS12
+#undef SSL30
+#undef TLS10
+#undef TLS11
 #undef TLS12
+#undef TLS13
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;

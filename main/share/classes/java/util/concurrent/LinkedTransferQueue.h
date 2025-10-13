@@ -9,28 +9,28 @@
 #include <java/util/AbstractQueue.h>
 #include <java/util/concurrent/TransferQueue.h>
 
-#pragma push_macro("SWEEP_THRESHOLD")
-#undef SWEEP_THRESHOLD
+#pragma push_macro("ASYNC")
+#undef ASYNC
 #pragma push_macro("HEAD")
 #undef HEAD
 #pragma push_macro("ITEM")
 #undef ITEM
 #pragma push_macro("MAX_HOPS")
 #undef MAX_HOPS
-#pragma push_macro("TIMED")
-#undef TIMED
-#pragma push_macro("NOW")
-#undef NOW
-#pragma push_macro("ASYNC")
-#undef ASYNC
-#pragma push_macro("TAIL")
-#undef TAIL
 #pragma push_macro("NEXT")
 #undef NEXT
+#pragma push_macro("NOW")
+#undef NOW
 #pragma push_macro("SPIN_FOR_TIMEOUT_THRESHOLD")
 #undef SPIN_FOR_TIMEOUT_THRESHOLD
+#pragma push_macro("SWEEP_THRESHOLD")
+#undef SWEEP_THRESHOLD
 #pragma push_macro("SYNC")
 #undef SYNC
+#pragma push_macro("TAIL")
+#undef TAIL
+#pragma push_macro("TIMED")
+#undef TIMED
 #pragma push_macro("WAITER")
 #undef WAITER
 
@@ -164,17 +164,17 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SWEEP_THRESHOLD")
+#pragma pop_macro("ASYNC")
 #pragma pop_macro("HEAD")
 #pragma pop_macro("ITEM")
 #pragma pop_macro("MAX_HOPS")
-#pragma pop_macro("TIMED")
-#pragma pop_macro("NOW")
-#pragma pop_macro("ASYNC")
-#pragma pop_macro("TAIL")
 #pragma pop_macro("NEXT")
+#pragma pop_macro("NOW")
 #pragma pop_macro("SPIN_FOR_TIMEOUT_THRESHOLD")
+#pragma pop_macro("SWEEP_THRESHOLD")
 #pragma pop_macro("SYNC")
+#pragma pop_macro("TAIL")
+#pragma pop_macro("TIMED")
 #pragma pop_macro("WAITER")
 
 #endif // _java_util_concurrent_LinkedTransferQueue_h_

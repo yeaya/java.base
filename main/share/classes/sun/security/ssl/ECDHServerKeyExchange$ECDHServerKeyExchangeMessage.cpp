@@ -63,16 +63,16 @@
 #include <sun/security/util/HexDumpEncoder.h>
 #include <jcpp.h>
 
+#undef CURVE_NAMED_CURVE
 #undef ENGLISH
 #undef HANDSHAKE_FAILURE
 #undef ILLEGAL_PARAMETER
-#undef CURVE_NAMED_CURVE
+#undef INSUFFICIENT_SECURITY
 #undef INTERNAL_ERROR
 #undef SERVER_KEY_EXCHANGE
-#undef INSUFFICIENT_SECURITY
 #undef SIGNATURE_ECDSA
-#undef UNEXPECTED_MESSAGE
 #undef SIGNATURE_EDDSA
+#undef UNEXPECTED_MESSAGE
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

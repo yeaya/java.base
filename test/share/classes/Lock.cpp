@@ -47,13 +47,13 @@
 #include <java/util/concurrent/TimeoutException.h>
 #include <jcpp.h>
 
+#undef CLOSE_CMD
+#undef LOCK_CMD
+#undef MILLISECONDS
 #undef OPEN_CMD
 #undef READ
-#undef MILLISECONDS
-#undef LOCK_CMD
-#undef TERMINATOR
 #undef SECONDS
-#undef CLOSE_CMD
+#undef TERMINATOR
 #undef UNLOCK_CMD
 #undef WRITE
 

@@ -8,10 +8,10 @@
 #include <java/lang/Comparable.h>
 #include <java/lang/constant/Constable.h>
 
-#pragma push_macro("TRUE")
-#undef TRUE
 #pragma push_macro("FALSE")
 #undef FALSE
+#pragma push_macro("TRUE")
+#undef TRUE
 #pragma push_macro("TYPE")
 #undef TYPE
 
@@ -60,8 +60,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("TRUE")
 #pragma pop_macro("FALSE")
+#pragma pop_macro("TRUE")
 #pragma pop_macro("TYPE")
 
 #endif // _java_lang_Boolean_h_

@@ -21,8 +21,8 @@
 #include <jcpp.h>
 
 #undef CH_SERVER_NAME
-#undef EE_SERVER_NAME
 #undef DEFAULT
+#undef EE_SERVER_NAME
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

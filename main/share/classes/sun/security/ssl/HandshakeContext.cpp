@@ -75,17 +75,17 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef KEY_AGREEMENT
+#undef DECODE_ERROR
+#undef FINISHED
+#undef HANDSHAKE
 #undef HELLO_REQUEST
 #undef INTERNAL_ERROR
+#undef KEY_AGREEMENT
 #undef KEY_UPDATE
-#undef HANDSHAKE
 #undef NAMED_GROUP_NONE
-#undef NONE
-#undef FINISHED
 #undef NEW_SESSION_TICKET
+#undef NONE
 #undef UNEXPECTED_MESSAGE
-#undef DECODE_ERROR
 
 using $X500PrincipalArray = $Array<::javax::security::auth::x500::X500Principal>;
 using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;

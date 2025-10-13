@@ -14,8 +14,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE
 #undef ALERT
+#undef HANDSHAKE
 
 using $ContentTypeArray = $Array<::sun::security::ssl::ContentType>;
 using $ClassInfo = ::java::lang::ClassInfo;

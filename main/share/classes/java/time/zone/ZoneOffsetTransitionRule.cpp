@@ -32,8 +32,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MIDNIGHT
 #undef INSTANCE
+#undef MIDNIGHT
 #undef ZOTRULE
 
 using $ZoneOffsetTransitionRule$TimeDefinitionArray = $Array<::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition>;
@@ -319,9 +319,9 @@ $String* ZoneOffsetTransitionRule::toString() {
 		if (this->dom == -1) {
 			buf->append($(this->dow->name()))->append(" on or before last day of "_s)->append($(this->month->name()));
 		} else if (this->dom < 0) {
-			$nc(buf)->append($(this->dow->name()))->append(" on or before last day minus "_s)->append(-this->dom - 1)->append(" of "_s)->append($(this->month->name()));
+			buf->append($(this->dow->name()))->append(" on or before last day minus "_s)->append(-this->dom - 1)->append(" of "_s)->append($(this->month->name()));
 		} else {
-			$nc(buf)->append($(this->dow->name()))->append(" on or after "_s)->append($(this->month->name()))->append(u' ')->append((int32_t)this->dom);
+			buf->append($(this->dow->name()))->append(" on or after "_s)->append($(this->month->name()))->append(u' ')->append((int32_t)this->dom);
 		}
 	} else {
 		buf->append($(this->month->name()))->append(u' ')->append((int32_t)this->dom);

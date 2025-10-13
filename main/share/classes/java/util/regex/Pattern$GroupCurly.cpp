@@ -17,8 +17,8 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef LAZY
 #undef GREEDY
+#undef LAZY
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

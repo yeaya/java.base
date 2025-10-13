@@ -53,9 +53,9 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef SHOW_HIDDEN_FRAMES
 #undef DEFAULT_POLICY
 #undef RETAIN_CLASS_REFERENCE
+#undef SHOW_HIDDEN_FRAMES
 
 using $GetCallerClassTest$1 = ::GetCallerClassTest$1;
 using $GetCallerClassTest$InnerClassCaller = ::GetCallerClassTest$InnerClassCaller;

@@ -14,10 +14,10 @@
 #include <java/util/ResourceBundle.h>
 #include <jcpp.h>
 
-#undef FORMAT_PROPERTIES
-#undef FORMAT_CLASS
-#undef PROPERTIES_ONLY
 #undef CLASS_ONLY
+#undef FORMAT_CLASS
+#undef FORMAT_PROPERTIES
+#undef PROPERTIES_ONLY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

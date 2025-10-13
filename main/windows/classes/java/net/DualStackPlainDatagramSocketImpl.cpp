@@ -35,15 +35,15 @@
 #include <sun/net/ext/ExtendedSocketOptions.h>
 #include <jcpp.h>
 
-#undef SO_BINDADDR
-#undef SO_RCVBUF
-#undef IP_TOS
-#undef SO_SNDBUF
-#undef SO_BROADCAST
-#undef TRUE
-#undef SO_REUSEADDR
 #undef FALSE
+#undef IP_TOS
+#undef SO_BINDADDR
+#undef SO_BROADCAST
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
 #undef SO_REUSEPORT
+#undef SO_SNDBUF
+#undef TRUE
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;

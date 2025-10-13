@@ -40,8 +40,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef ILLEGAL_PARAMETER
 #undef AEAD_CIPHER
+#undef ILLEGAL_PARAMETER
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

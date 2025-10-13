@@ -31,8 +31,8 @@
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
 
-#undef RUNTIME
 #undef EMPTY_ANNOTATION_ARRAY
+#undef RUNTIME
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;

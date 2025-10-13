@@ -24,9 +24,9 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef UNSAFE
-#undef TYPE
 #undef FIELDS_OFFSET
+#undef TYPE
+#undef UNSAFE
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

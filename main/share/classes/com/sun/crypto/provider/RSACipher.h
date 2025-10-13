@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <javax/crypto/CipherSpi.h>
 
+#pragma push_macro("MODE_DECRYPT")
+#undef MODE_DECRYPT
+#pragma push_macro("MODE_ENCRYPT")
+#undef MODE_ENCRYPT
 #pragma push_macro("MODE_SIGN")
 #undef MODE_SIGN
 #pragma push_macro("MODE_VERIFY")
 #undef MODE_VERIFY
-#pragma push_macro("MODE_DECRYPT")
-#undef MODE_DECRYPT
+#pragma push_macro("PAD_NONE")
+#undef PAD_NONE
 #pragma push_macro("PAD_OAEP_MGF1")
 #undef PAD_OAEP_MGF1
 #pragma push_macro("PAD_PKCS1")
 #undef PAD_PKCS1
-#pragma push_macro("MODE_ENCRYPT")
-#undef MODE_ENCRYPT
-#pragma push_macro("PAD_NONE")
-#undef PAD_NONE
 
 namespace java {
 	namespace security {
@@ -108,12 +108,12 @@ public:
 	} // sun
 } // com
 
+#pragma pop_macro("MODE_DECRYPT")
+#pragma pop_macro("MODE_ENCRYPT")
 #pragma pop_macro("MODE_SIGN")
 #pragma pop_macro("MODE_VERIFY")
-#pragma pop_macro("MODE_DECRYPT")
+#pragma pop_macro("PAD_NONE")
 #pragma pop_macro("PAD_OAEP_MGF1")
 #pragma pop_macro("PAD_PKCS1")
-#pragma pop_macro("MODE_ENCRYPT")
-#pragma pop_macro("PAD_NONE")
 
 #endif // _com_sun_crypto_provider_RSACipher_h_

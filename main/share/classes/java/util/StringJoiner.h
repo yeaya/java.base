@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("JLA")
-#undef JLA
 #pragma push_macro("EMPTY_STRING_ARRAY")
 #undef EMPTY_STRING_ARRAY
+#pragma push_macro("JLA")
+#undef JLA
 
 namespace java {
 	namespace lang {
@@ -53,7 +53,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("JLA")
 #pragma pop_macro("EMPTY_STRING_ARRAY")
+#pragma pop_macro("JLA")
 
 #endif // _java_util_StringJoiner_h_

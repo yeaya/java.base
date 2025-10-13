@@ -13,10 +13,10 @@
 #include <sun/util/PreHashedMap.h>
 #include <jcpp.h>
 
+#undef MASK
+#undef ROWS
 #undef SHIFT
 #undef SIZE
-#undef ROWS
-#undef MASK
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

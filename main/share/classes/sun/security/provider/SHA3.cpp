@@ -19,11 +19,11 @@
 #include <sun/security/provider/DigestBase.h>
 #include <jcpp.h>
 
-#undef SHA3
-#undef NR
 #undef DM
-#undef WIDTH
+#undef NR
 #undef RC_CONSTANTS
+#undef SHA3
+#undef WIDTH
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

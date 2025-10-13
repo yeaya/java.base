@@ -55,13 +55,13 @@
 #include <jcpp.h>
 
 #undef ABSOLUTE
-#undef MAX_LONG_PATH
-#undef RELATIVE
-#undef FILE_TREE
-#undef DRIVE_RELATIVE
-#undef MAX_PATH
-#undef UNC
 #undef DIRECTORY_RELATIVE
+#undef DRIVE_RELATIVE
+#undef FILE_TREE
+#undef MAX_LONG_PATH
+#undef MAX_PATH
+#undef RELATIVE
+#undef UNC
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
@@ -310,7 +310,7 @@ $String* WindowsPath::getAbsolutePath() {
 		$var($String, defaultDirectory, $nc($($cast($WindowsFileSystem, getFileSystem())))->defaultDirectory());
 		if (remaining->isEmpty()) {
 			return defaultDirectory;
-		} else if ($nc(defaultDirectory)->endsWith("\\"_s)) {
+		} else if (defaultDirectory->endsWith("\\"_s)) {
 			return $str({defaultDirectory, remaining});
 		} else {
 			return $str({defaultDirectory, "\\"_s, remaining});

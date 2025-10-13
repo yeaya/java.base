@@ -20,9 +20,9 @@
 #include <jcpp.h>
 
 #undef IDENT
+#undef NAME
 #undef TAG_CONTEXT
 #undef VERSION
-#undef NAME
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

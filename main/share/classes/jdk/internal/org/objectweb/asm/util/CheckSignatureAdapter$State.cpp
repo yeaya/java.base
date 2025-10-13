@@ -13,15 +13,15 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckSignatureAdapter.h>
 #include <jcpp.h>
 
-#undef RETURN
-#undef SUPER
-#undef SIMPLE_TYPE
 #undef BOUND
-#undef END
-#undef PARAM
-#undef EMPTY
-#undef FORMAL
 #undef CLASS_TYPE
+#undef EMPTY
+#undef END
+#undef FORMAL
+#undef PARAM
+#undef RETURN
+#undef SIMPLE_TYPE
+#undef SUPER
 
 using $CheckSignatureAdapter$StateArray = $Array<::jdk::internal::org::objectweb::asm$::util::CheckSignatureAdapter$State>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -18,8 +18,8 @@
 #include <javax/crypto/SealedObject.h>
 #include <jcpp.h>
 
-#undef UNDECIDED
 #undef REJECTED
+#undef UNDECIDED
 
 using $JceKeyStore = ::com::sun::crypto::provider::JceKeyStore;
 using $SealedObjectForKeyProtector = ::com::sun::crypto::provider::SealedObjectForKeyProtector;

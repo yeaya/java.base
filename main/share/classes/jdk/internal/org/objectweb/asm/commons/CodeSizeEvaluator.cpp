@@ -17,15 +17,15 @@
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jcpp.h>
 
-#undef RET
-#undef GOTO
-#undef ASM8
-#undef SOURCE_DEPRECATED
 #undef ASM5
+#undef ASM8
+#undef GOTO
 #undef INVOKEINTERFACE
-#undef SOURCE_MASK
 #undef JSR
+#undef RET
 #undef SIPUSH
+#undef SOURCE_DEPRECATED
+#undef SOURCE_MASK
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $ClassInfo = ::java::lang::ClassInfo;

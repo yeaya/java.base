@@ -6,42 +6,42 @@
 #include <java/lang/Array.h>
 #include <java/security/KeyStoreSpi.h>
 
-#pragma push_macro("LEGACY_PBE_ITERATION_COUNT")
-#undef LEGACY_PBE_ITERATION_COUNT
-#pragma push_macro("PKCS12_HEADER_MASKS")
-#undef PKCS12_HEADER_MASKS
+#pragma push_macro("CORE_ATTRIBUTES")
+#undef CORE_ATTRIBUTES
+#pragma push_macro("DEFAULT_CERT_PBE_ALGORITHM")
+#undef DEFAULT_CERT_PBE_ALGORITHM
+#pragma push_macro("DEFAULT_CERT_PBE_ITERATION_COUNT")
+#undef DEFAULT_CERT_PBE_ITERATION_COUNT
+#pragma push_macro("DEFAULT_KEY_PBE_ALGORITHM")
+#undef DEFAULT_KEY_PBE_ALGORITHM
+#pragma push_macro("DEFAULT_KEY_PBE_ITERATION_COUNT")
+#undef DEFAULT_KEY_PBE_ITERATION_COUNT
 #pragma push_macro("DEFAULT_MAC_ALGORITHM")
 #undef DEFAULT_MAC_ALGORITHM
 #pragma push_macro("DEFAULT_MAC_ITERATION_COUNT")
 #undef DEFAULT_MAC_ITERATION_COUNT
-#pragma push_macro("DEFAULT_KEY_PBE_ITERATION_COUNT")
-#undef DEFAULT_KEY_PBE_ITERATION_COUNT
-#pragma push_macro("DEFAULT_CERT_PBE_ITERATION_COUNT")
-#undef DEFAULT_CERT_PBE_ITERATION_COUNT
-#pragma push_macro("LEGACY_MAC_ALGORITHM")
-#undef LEGACY_MAC_ALGORITHM
-#pragma push_macro("MAX_ITERATION_COUNT")
-#undef MAX_ITERATION_COUNT
-#pragma push_macro("VERSION_3")
-#undef VERSION_3
-#pragma push_macro("DEFAULT_CERT_PBE_ALGORITHM")
-#undef DEFAULT_CERT_PBE_ALGORITHM
 #pragma push_macro("LEGACY_CERT_PBE_ALGORITHM")
 #undef LEGACY_CERT_PBE_ALGORITHM
-#pragma push_macro("USE_LEGACY_PROP")
-#undef USE_LEGACY_PROP
-#pragma push_macro("LEGACY_MAC_ITERATION_COUNT")
-#undef LEGACY_MAC_ITERATION_COUNT
-#pragma push_macro("CORE_ATTRIBUTES")
-#undef CORE_ATTRIBUTES
-#pragma push_macro("PKCS12_HEADER_PATTERNS")
-#undef PKCS12_HEADER_PATTERNS
-#pragma push_macro("DEFAULT_KEY_PBE_ALGORITHM")
-#undef DEFAULT_KEY_PBE_ALGORITHM
 #pragma push_macro("LEGACY_KEY_PBE_ALGORITHM")
 #undef LEGACY_KEY_PBE_ALGORITHM
+#pragma push_macro("LEGACY_MAC_ALGORITHM")
+#undef LEGACY_MAC_ALGORITHM
+#pragma push_macro("LEGACY_MAC_ITERATION_COUNT")
+#undef LEGACY_MAC_ITERATION_COUNT
+#pragma push_macro("LEGACY_PBE_ITERATION_COUNT")
+#undef LEGACY_PBE_ITERATION_COUNT
+#pragma push_macro("MAX_ITERATION_COUNT")
+#undef MAX_ITERATION_COUNT
+#pragma push_macro("PKCS12_HEADER_MASKS")
+#undef PKCS12_HEADER_MASKS
+#pragma push_macro("PKCS12_HEADER_PATTERNS")
+#undef PKCS12_HEADER_PATTERNS
 #pragma push_macro("SALT_LEN")
 #undef SALT_LEN
+#pragma push_macro("USE_LEGACY_PROP")
+#undef USE_LEGACY_PROP
+#pragma push_macro("VERSION_3")
+#undef VERSION_3
 
 namespace java {
 	namespace io {
@@ -229,23 +229,23 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("LEGACY_PBE_ITERATION_COUNT")
-#pragma pop_macro("PKCS12_HEADER_MASKS")
+#pragma pop_macro("CORE_ATTRIBUTES")
+#pragma pop_macro("DEFAULT_CERT_PBE_ALGORITHM")
+#pragma pop_macro("DEFAULT_CERT_PBE_ITERATION_COUNT")
+#pragma pop_macro("DEFAULT_KEY_PBE_ALGORITHM")
+#pragma pop_macro("DEFAULT_KEY_PBE_ITERATION_COUNT")
 #pragma pop_macro("DEFAULT_MAC_ALGORITHM")
 #pragma pop_macro("DEFAULT_MAC_ITERATION_COUNT")
-#pragma pop_macro("DEFAULT_KEY_PBE_ITERATION_COUNT")
-#pragma pop_macro("DEFAULT_CERT_PBE_ITERATION_COUNT")
-#pragma pop_macro("LEGACY_MAC_ALGORITHM")
-#pragma pop_macro("MAX_ITERATION_COUNT")
-#pragma pop_macro("VERSION_3")
-#pragma pop_macro("DEFAULT_CERT_PBE_ALGORITHM")
 #pragma pop_macro("LEGACY_CERT_PBE_ALGORITHM")
-#pragma pop_macro("USE_LEGACY_PROP")
-#pragma pop_macro("LEGACY_MAC_ITERATION_COUNT")
-#pragma pop_macro("CORE_ATTRIBUTES")
-#pragma pop_macro("PKCS12_HEADER_PATTERNS")
-#pragma pop_macro("DEFAULT_KEY_PBE_ALGORITHM")
 #pragma pop_macro("LEGACY_KEY_PBE_ALGORITHM")
+#pragma pop_macro("LEGACY_MAC_ALGORITHM")
+#pragma pop_macro("LEGACY_MAC_ITERATION_COUNT")
+#pragma pop_macro("LEGACY_PBE_ITERATION_COUNT")
+#pragma pop_macro("MAX_ITERATION_COUNT")
+#pragma pop_macro("PKCS12_HEADER_MASKS")
+#pragma pop_macro("PKCS12_HEADER_PATTERNS")
 #pragma pop_macro("SALT_LEN")
+#pragma pop_macro("USE_LEGACY_PROP")
+#pragma pop_macro("VERSION_3")
 
 #endif // _sun_security_pkcs12_PKCS12KeyStore_h_

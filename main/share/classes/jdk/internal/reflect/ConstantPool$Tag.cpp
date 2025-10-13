@@ -14,21 +14,21 @@
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
 
-#undef FLOAT
-#undef NAMEANDTYPE
 #undef CLASS
-#undef METHODHANDLE
+#undef DOUBLE
+#undef FIELDREF
+#undef FLOAT
+#undef INTEGER
+#undef INTERFACEMETHODREF
 #undef INVALID
 #undef INVOKEDYNAMIC
-#undef UTF8
-#undef STRING
-#undef METHODREF
-#undef INTERFACEMETHODREF
-#undef DOUBLE
-#undef METHODTYPE
-#undef INTEGER
 #undef LONG
-#undef FIELDREF
+#undef METHODHANDLE
+#undef METHODREF
+#undef METHODTYPE
+#undef NAMEANDTYPE
+#undef STRING
+#undef UTF8
 
 using $ConstantPool$TagArray = $Array<::jdk::internal::reflect::ConstantPool$Tag>;
 using $ClassInfo = ::java::lang::ClassInfo;

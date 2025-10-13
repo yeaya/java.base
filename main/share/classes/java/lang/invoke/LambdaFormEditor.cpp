@@ -45,37 +45,37 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef FILTER_ARG
-#undef I_TYPE
-#undef LOCAL_TYPES
-#undef F_TYPE
-#undef ARRAY_LOAD
-#undef FILTER_RETURN
-#undef FILTER_SELECT_ARGS
-#undef BIND_ARG
-#undef COLLECT_ARGS_TO_VOID
-#undef PERMUTE_ARGS
-#undef FOLD_SELECT_ARGS
-#undef MAX_CACHE_ARRAY_SIZE
 #undef ADD_ARG
-#undef DUP_ARG
-#undef COLLECT_ARGS_TO_ARRAY
-#undef REPEAT_FILTER_ARGS
-#undef FILTER_RETURN_TO_ZERO
-#undef TYPE
-#undef MIN_CACHE_ARRAY_SIZE
-#undef L_TYPE
-#undef V_TYPE
+#undef ARRAY_LOAD
+#undef BIND_ARG
 #undef COLLECT_ARGS
-#undef MAX_JVM_ARITY
-#undef SPREAD_ARGS
-#undef J_TYPE
-#undef SPECIALIZER
-#undef TYPE_LIMIT
-#undef FOLD_SELECT_ARGS_TO_VOID
-#undef FOLD_ARGS_TO_VOID
-#undef FOLD_ARGS
+#undef COLLECT_ARGS_TO_ARRAY
+#undef COLLECT_ARGS_TO_VOID
+#undef DUP_ARG
 #undef D_TYPE
+#undef FILTER_ARG
+#undef FILTER_RETURN
+#undef FILTER_RETURN_TO_ZERO
+#undef FILTER_SELECT_ARGS
+#undef FOLD_ARGS
+#undef FOLD_ARGS_TO_VOID
+#undef FOLD_SELECT_ARGS
+#undef FOLD_SELECT_ARGS_TO_VOID
+#undef F_TYPE
+#undef I_TYPE
+#undef J_TYPE
+#undef LOCAL_TYPES
+#undef L_TYPE
+#undef MAX_CACHE_ARRAY_SIZE
+#undef MAX_JVM_ARITY
+#undef MIN_CACHE_ARRAY_SIZE
+#undef PERMUTE_ARGS
+#undef REPEAT_FILTER_ARGS
+#undef SPECIALIZER
+#undef SPREAD_ARGS
+#undef TYPE
+#undef TYPE_LIMIT
+#undef V_TYPE
 
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
 using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
@@ -244,12 +244,12 @@ $LambdaForm* LambdaFormEditor::getInCache($LambdaFormEditor$TransformKey* key) {
 			} else {
 				$var($LambdaFormEditor$TransformArray, ta, $cast($LambdaFormEditor$TransformArray, c));
 				for (int32_t i = 0; i < $nc(ta)->length; ++i) {
-					$var($LambdaFormEditor$Transform, t, ta->get(i));
-					if (t == nullptr) {
+					$var($LambdaFormEditor$Transform, t_1, ta->get(i));
+					if (t_1 == nullptr) {
 						break;
 					}
-					if ($nc(t)->equals(key)) {
-						$assign(k, t);
+					if ($nc(t_1)->equals(key)) {
+						$assign(k, t_1);
 						break;
 					}
 				}
@@ -275,7 +275,7 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 			$var($LambdaForm, result, $cast($LambdaForm, $nc(k)->get()));
 			if (result != nullptr) {
 				return result;
-			} else if ($nc(m)->replace(transform, k, transform)) {
+			} else if (m->replace(transform, k, transform)) {
 				return form;
 			} else {
 				continue;
@@ -310,7 +310,7 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 						} else {
 							return result;
 						}
-					} else if ($nc(k)->get() == nullptr) {
+					} else if (k->get() == nullptr) {
 						$set($nc(this->lambdaForm), transformCache, transform);
 						return form;
 					}
@@ -337,7 +337,7 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 					} else {
 						return result;
 					}
-				} else if (stale < 0 && $nc(k)->get() == nullptr) {
+				} else if (stale < 0 && k->get() == nullptr) {
 					stale = i;
 				}
 			}
@@ -350,7 +350,7 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 				$var($ConcurrentHashMap, m, $new($ConcurrentHashMap, LambdaFormEditor::MAX_CACHE_ARRAY_SIZE * 2));
 				{
 					$var($LambdaFormEditor$TransformArray, arr$, ta);
-					int32_t len$ = $nc(arr$)->length;
+					int32_t len$ = arr$->length;
 					int32_t i$ = 0;
 					for (; i$ < len$; ++i$) {
 						$var($LambdaFormEditor$Transform, k, arr$->get(i$));
@@ -1094,7 +1094,7 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 		$var($LambdaForm$Name, n2, names2->get(skip + i));
 		if (n2 == nullptr) {
 			names2->set(skip + i, $assign(n2, $new($LambdaForm$Name, types->get(i))));
-		} else if (!LambdaFormEditor::$assertionsDisabled && !($nc(n2)->type$ == $nc(types)->get(i))) {
+		} else if (!LambdaFormEditor::$assertionsDisabled && !(n2->type$ == types->get(i))) {
 			$throwNew($AssertionError);
 		}
 		for (int32_t k = arity2; k < names2->length; ++k) {

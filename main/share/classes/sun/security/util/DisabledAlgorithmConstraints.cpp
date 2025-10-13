@@ -42,14 +42,14 @@
 #include <sun/security/util/NamedCurve.h>
 #include <jcpp.h>
 
-#undef PROPERTY_TLS_DISABLED_ALGS
-#undef PROPERTY_SECURITY_LEGACY_ALGS
+#undef ALGORITHM_CONSTRAINED
+#undef CONSTRAINTS
 #undef ENGLISH
 #undef PROPERTY_CERTPATH_DISABLED_ALGS
 #undef PROPERTY_DISABLED_EC_CURVES
 #undef PROPERTY_JAR_DISABLED_ALGS
-#undef CONSTRAINTS
-#undef ALGORITHM_CONSTRAINED
+#undef PROPERTY_SECURITY_LEGACY_ALGS
+#undef PROPERTY_TLS_DISABLED_ALGS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

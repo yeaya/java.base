@@ -48,8 +48,8 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef PREFIX
 #undef INSTANCE
+#undef PREFIX
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;

@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ")
-#undef READ
 #pragma push_macro("EXECUTE")
 #undef EXECUTE
+#pragma push_macro("READ")
+#undef READ
 #pragma push_macro("WRITE")
 #undef WRITE
 
@@ -35,8 +35,8 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("READ")
 #pragma pop_macro("EXECUTE")
+#pragma pop_macro("READ")
 #pragma pop_macro("WRITE")
 
 #endif // _java_nio_file_AccessMode_h_

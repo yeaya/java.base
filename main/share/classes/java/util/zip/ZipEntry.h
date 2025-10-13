@@ -8,12 +8,12 @@
 #include <java/lang/Cloneable.h>
 #include <java/util/zip/ZipConstants.h>
 
+#pragma push_macro("DEFLATED")
+#undef DEFLATED
 #pragma push_macro("STORED")
 #undef STORED
 #pragma push_macro("UPPER_DOSTIME_BOUND")
 #undef UPPER_DOSTIME_BOUND
-#pragma push_macro("DEFLATED")
-#undef DEFLATED
 
 namespace java {
 	namespace nio {
@@ -95,8 +95,8 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("DEFLATED")
 #pragma pop_macro("STORED")
 #pragma pop_macro("UPPER_DOSTIME_BOUND")
-#pragma pop_macro("DEFLATED")
 
 #endif // _java_util_zip_ZipEntry_h_

@@ -13,9 +13,9 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef UNASSIGNED
 #undef ENGLISH
 #undef MAX_CODE_POINT
+#undef UNASSIGNED
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

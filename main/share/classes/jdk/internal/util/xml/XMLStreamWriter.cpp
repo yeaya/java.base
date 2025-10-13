@@ -11,10 +11,10 @@
 #include <java/nio/charset/StandardCharsets.h>
 #include <jcpp.h>
 
-#undef DEFAULT_XML_VERSION
-#undef DEFAULT_ENCODING
-#undef UTF_8
 #undef DEFAULT_CHARSET
+#undef DEFAULT_ENCODING
+#undef DEFAULT_XML_VERSION
+#undef UTF_8
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

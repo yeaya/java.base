@@ -85,13 +85,13 @@
 using Machine = ::java::lang::Machine;
 using RuntimeModuleReader = ::java::lang::module::RuntimeModuleReader;
 
-#undef SEALED
-#undef SPECIFICATION_VERSION
-#undef SPECIFICATION_VENDOR
-#undef SPECIFICATION_TITLE
-#undef IMPLEMENTATION_VERSION
 #undef IMPLEMENTATION_TITLE
 #undef IMPLEMENTATION_VENDOR
+#undef IMPLEMENTATION_VERSION
+#undef SEALED
+#undef SPECIFICATION_TITLE
+#undef SPECIFICATION_VENDOR
+#undef SPECIFICATION_VERSION
 
 using $CodeSignerArray = $Array<::java::security::CodeSigner>;
 using $IOException = ::java::io::IOException;

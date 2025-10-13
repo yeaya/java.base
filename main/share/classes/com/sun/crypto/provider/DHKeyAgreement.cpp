@@ -36,11 +36,11 @@
 #include <sun/security/util/KeyUtil.h>
 #include <jcpp.h>
 
-#undef ZERO
+#undef AES_KEYSIZES
 #undef BLOWFISH_MAX_KEYSIZE
 #undef ONE
 #undef VALUE
-#undef AES_KEYSIZES
+#undef ZERO
 
 using $AESConstants = ::com::sun::crypto::provider::AESConstants;
 using $BlowfishConstants = ::com::sun::crypto::provider::BlowfishConstants;
@@ -231,9 +231,9 @@ int32_t DHKeyAgreement::engineGenerateSecret($bytes* sharedSecret, int32_t offse
 	$var($bytes, secret, $nc(z)->toByteArray());
 	if ($nc(secret)->length == expectedLen) {
 		$System::arraycopy(secret, 0, sharedSecret, offset, secret->length);
-	} else if ($nc(secret)->length < expectedLen) {
+	} else if (secret->length < expectedLen) {
 		$System::arraycopy(secret, 0, sharedSecret, offset + (expectedLen - secret->length), secret->length);
-	} else if (($nc(secret)->length == (expectedLen + 1)) && secret->get(0) == 0) {
+	} else if ((secret->length == (expectedLen + 1)) && secret->get(0) == 0) {
 		$System::arraycopy(secret, 1, sharedSecret, offset, expectedLen);
 	} else {
 		$throwNew($ProviderException, "Generated secret is out-of-range"_s);
@@ -256,14 +256,14 @@ $SecretKey* DHKeyAgreement::engineGenerateSecret($String* algorithm) {
 		bool var$1 = algorithm->equalsIgnoreCase("DESede"_s);
 		if (var$1 || algorithm->equalsIgnoreCase("TripleDES"_s)) {
 			return $new($DESedeKey, secret);
-		} else if ($nc(algorithm)->equalsIgnoreCase("Blowfish"_s)) {
+		} else if (algorithm->equalsIgnoreCase("Blowfish"_s)) {
 			int32_t keysize = $nc(secret)->length;
 			if (keysize >= $BlowfishConstants::BLOWFISH_MAX_KEYSIZE) {
 				keysize = $BlowfishConstants::BLOWFISH_MAX_KEYSIZE;
 			}
 			$var($SecretKeySpec, skey, $new($SecretKeySpec, secret, 0, keysize, "Blowfish"_s));
 			return skey;
-		} else if ($nc(algorithm)->equalsIgnoreCase("AES"_s)) {
+		} else if (algorithm->equalsIgnoreCase("AES"_s)) {
 			int32_t keysize = $nc(secret)->length;
 			$var($SecretKeySpec, skey, nullptr);
 			$init($AESConstants);
@@ -279,7 +279,7 @@ $SecretKey* DHKeyAgreement::engineGenerateSecret($String* algorithm) {
 				$throwNew($InvalidKeyException, "Key material is too short"_s);
 			}
 			return skey;
-		} else if ($nc(algorithm)->equals("TlsPremasterSecret"_s)) {
+		} else if (algorithm->equals("TlsPremasterSecret"_s)) {
 			return $new($SecretKeySpec, $($KeyUtil::trimZeroes(secret)), "TlsPremasterSecret"_s);
 		} else {
 			$throwNew($NoSuchAlgorithmException, $$str({"Unsupported secret key algorithm: "_s, algorithm}));

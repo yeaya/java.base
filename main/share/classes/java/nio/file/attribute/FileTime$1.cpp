@@ -14,13 +14,13 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
+#undef DAYS
 #undef HOURS
 #undef MICROSECONDS
-#undef SECONDS
-#undef DAYS
-#undef NANOSECONDS
+#undef MILLISECONDS
 #undef MINUTES
+#undef NANOSECONDS
+#undef SECONDS
 
 using $TimeUnitArray = $Array<::java::util::concurrent::TimeUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;

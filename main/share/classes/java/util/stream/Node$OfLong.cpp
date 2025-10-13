@@ -31,8 +31,8 @@
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
 
-#undef LONG_VALUE
 #undef ENABLED
+#undef LONG_VALUE
 
 using $LongArray = $Array<::java::lang::Long>;
 using $Serializable = ::java::io::Serializable;

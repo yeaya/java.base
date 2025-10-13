@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UTC_LONG")
-#undef UTC_LONG
 #pragma push_macro("TIME_STRING")
 #undef TIME_STRING
+#pragma push_macro("UTC_LONG")
+#undef UTC_LONG
 
 namespace java {
 	namespace text {
@@ -30,7 +30,7 @@ public:
 	static bool err;
 };
 
-#pragma pop_macro("UTC_LONG")
 #pragma pop_macro("TIME_STRING")
+#pragma pop_macro("UTC_LONG")
 
 #endif // _Bug6335238_h_

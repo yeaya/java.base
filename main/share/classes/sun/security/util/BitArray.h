@@ -7,10 +7,10 @@
 
 #pragma push_macro("BITS_PER_UNIT")
 #undef BITS_PER_UNIT
-#pragma push_macro("NYBBLE")
-#undef NYBBLE
 #pragma push_macro("BYTES_PER_LINE")
 #undef BYTES_PER_LINE
+#pragma push_macro("NYBBLE")
+#undef NYBBLE
 
 namespace sun {
 	namespace security {
@@ -48,7 +48,7 @@ public:
 } // sun
 
 #pragma pop_macro("BITS_PER_UNIT")
-#pragma pop_macro("NYBBLE")
 #pragma pop_macro("BYTES_PER_LINE")
+#pragma pop_macro("NYBBLE")
 
 #endif // _sun_security_util_BitArray_h_

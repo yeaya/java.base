@@ -31,20 +31,20 @@
 #include <java/time/ZonedDateTime.h>
 #include <jcpp.h>
 
-#undef PERIOD_TYPE
 #undef DURATION_TYPE
-#undef ZONE_REGION_TYPE
-#undef ZONE_OFFSET_TYPE
-#undef YEAR_MONTH_TYPE
-#undef LOCAL_DATE_TYPE
-#undef LOCAL_TIME_TYPE
-#undef OFFSET_DATE_TIME_TYPE
-#undef OFFSET_TIME_TYPE
-#undef ZONE_DATE_TIME_TYPE
-#undef YEAR_TYPE
 #undef INSTANT_TYPE
 #undef LOCAL_DATE_TIME_TYPE
+#undef LOCAL_DATE_TYPE
+#undef LOCAL_TIME_TYPE
 #undef MONTH_DAY_TYPE
+#undef OFFSET_DATE_TIME_TYPE
+#undef OFFSET_TIME_TYPE
+#undef PERIOD_TYPE
+#undef YEAR_MONTH_TYPE
+#undef YEAR_TYPE
+#undef ZONE_DATE_TIME_TYPE
+#undef ZONE_OFFSET_TYPE
+#undef ZONE_REGION_TYPE
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

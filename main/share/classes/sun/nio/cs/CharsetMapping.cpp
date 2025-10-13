@@ -25,16 +25,16 @@
 #include <sun/nio/cs/CharsetMapping$Entry.h>
 #include <jcpp.h>
 
-#undef MAP_SINGLEBYTE
 #undef MAP_COMPOSITE
 #undef MAP_DOUBLEBYTE1
 #undef MAP_DOUBLEBYTE2
-#undef MAP_SUPPLEMENT_C2B
 #undef MAP_INDEXC2B
-#undef UNMAPPABLE_ENCODING
-#undef UNMAPPABLE_DECODING
+#undef MAP_SINGLEBYTE
 #undef MAP_SUPPLEMENT
+#undef MAP_SUPPLEMENT_C2B
 #undef N
+#undef UNMAPPABLE_DECODING
+#undef UNMAPPABLE_ENCODING
 
 using $CharsetMapping$EntryArray = $Array<::sun::nio::cs::CharsetMapping$Entry>;
 using $IOException = ::java::io::IOException;

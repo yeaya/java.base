@@ -5,46 +5,46 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ARRAY_BOOLEAN_BASE_OFFSET")
-#undef ARRAY_BOOLEAN_BASE_OFFSET
-#pragma push_macro("ARRAY_CHAR_BASE_OFFSET")
-#undef ARRAY_CHAR_BASE_OFFSET
-#pragma push_macro("ARRAY_SHORT_BASE_OFFSET")
-#undef ARRAY_SHORT_BASE_OFFSET
-#pragma push_macro("ARRAY_INT_BASE_OFFSET")
-#undef ARRAY_INT_BASE_OFFSET
-#pragma push_macro("INVALID_FIELD_OFFSET")
-#undef INVALID_FIELD_OFFSET
-#pragma push_macro("ARRAY_OBJECT_INDEX_SCALE")
-#undef ARRAY_OBJECT_INDEX_SCALE
 #pragma push_macro("ADDRESS_SIZE")
 #undef ADDRESS_SIZE
-#pragma push_macro("ARRAY_LONG_INDEX_SCALE")
-#undef ARRAY_LONG_INDEX_SCALE
-#pragma push_macro("ARRAY_FLOAT_INDEX_SCALE")
-#undef ARRAY_FLOAT_INDEX_SCALE
+#pragma push_macro("ARRAY_BOOLEAN_BASE_OFFSET")
+#undef ARRAY_BOOLEAN_BASE_OFFSET
+#pragma push_macro("ARRAY_BOOLEAN_INDEX_SCALE")
+#undef ARRAY_BOOLEAN_INDEX_SCALE
+#pragma push_macro("ARRAY_BYTE_BASE_OFFSET")
+#undef ARRAY_BYTE_BASE_OFFSET
+#pragma push_macro("ARRAY_BYTE_INDEX_SCALE")
+#undef ARRAY_BYTE_INDEX_SCALE
+#pragma push_macro("ARRAY_CHAR_BASE_OFFSET")
+#undef ARRAY_CHAR_BASE_OFFSET
+#pragma push_macro("ARRAY_CHAR_INDEX_SCALE")
+#undef ARRAY_CHAR_INDEX_SCALE
+#pragma push_macro("ARRAY_DOUBLE_BASE_OFFSET")
+#undef ARRAY_DOUBLE_BASE_OFFSET
 #pragma push_macro("ARRAY_DOUBLE_INDEX_SCALE")
 #undef ARRAY_DOUBLE_INDEX_SCALE
 #pragma push_macro("ARRAY_FLOAT_BASE_OFFSET")
 #undef ARRAY_FLOAT_BASE_OFFSET
-#pragma push_macro("ARRAY_DOUBLE_BASE_OFFSET")
-#undef ARRAY_DOUBLE_BASE_OFFSET
-#pragma push_macro("ARRAY_BOOLEAN_INDEX_SCALE")
-#undef ARRAY_BOOLEAN_INDEX_SCALE
-#pragma push_macro("ARRAY_CHAR_INDEX_SCALE")
-#undef ARRAY_CHAR_INDEX_SCALE
+#pragma push_macro("ARRAY_FLOAT_INDEX_SCALE")
+#undef ARRAY_FLOAT_INDEX_SCALE
+#pragma push_macro("ARRAY_INT_BASE_OFFSET")
+#undef ARRAY_INT_BASE_OFFSET
 #pragma push_macro("ARRAY_INT_INDEX_SCALE")
 #undef ARRAY_INT_INDEX_SCALE
-#pragma push_macro("ARRAY_BYTE_INDEX_SCALE")
-#undef ARRAY_BYTE_INDEX_SCALE
 #pragma push_macro("ARRAY_LONG_BASE_OFFSET")
 #undef ARRAY_LONG_BASE_OFFSET
+#pragma push_macro("ARRAY_LONG_INDEX_SCALE")
+#undef ARRAY_LONG_INDEX_SCALE
 #pragma push_macro("ARRAY_OBJECT_BASE_OFFSET")
 #undef ARRAY_OBJECT_BASE_OFFSET
+#pragma push_macro("ARRAY_OBJECT_INDEX_SCALE")
+#undef ARRAY_OBJECT_INDEX_SCALE
+#pragma push_macro("ARRAY_SHORT_BASE_OFFSET")
+#undef ARRAY_SHORT_BASE_OFFSET
 #pragma push_macro("ARRAY_SHORT_INDEX_SCALE")
 #undef ARRAY_SHORT_INDEX_SCALE
-#pragma push_macro("ARRAY_BYTE_BASE_OFFSET")
-#undef ARRAY_BYTE_BASE_OFFSET
+#pragma push_macro("INVALID_FIELD_OFFSET")
+#undef INVALID_FIELD_OFFSET
 
 namespace java {
 	namespace lang {
@@ -515,25 +515,25 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("ARRAY_BOOLEAN_BASE_OFFSET")
-#pragma pop_macro("ARRAY_CHAR_BASE_OFFSET")
-#pragma pop_macro("ARRAY_SHORT_BASE_OFFSET")
-#pragma pop_macro("ARRAY_INT_BASE_OFFSET")
-#pragma pop_macro("INVALID_FIELD_OFFSET")
-#pragma pop_macro("ARRAY_OBJECT_INDEX_SCALE")
 #pragma pop_macro("ADDRESS_SIZE")
-#pragma pop_macro("ARRAY_LONG_INDEX_SCALE")
-#pragma pop_macro("ARRAY_FLOAT_INDEX_SCALE")
+#pragma pop_macro("ARRAY_BOOLEAN_BASE_OFFSET")
+#pragma pop_macro("ARRAY_BOOLEAN_INDEX_SCALE")
+#pragma pop_macro("ARRAY_BYTE_BASE_OFFSET")
+#pragma pop_macro("ARRAY_BYTE_INDEX_SCALE")
+#pragma pop_macro("ARRAY_CHAR_BASE_OFFSET")
+#pragma pop_macro("ARRAY_CHAR_INDEX_SCALE")
+#pragma pop_macro("ARRAY_DOUBLE_BASE_OFFSET")
 #pragma pop_macro("ARRAY_DOUBLE_INDEX_SCALE")
 #pragma pop_macro("ARRAY_FLOAT_BASE_OFFSET")
-#pragma pop_macro("ARRAY_DOUBLE_BASE_OFFSET")
-#pragma pop_macro("ARRAY_BOOLEAN_INDEX_SCALE")
-#pragma pop_macro("ARRAY_CHAR_INDEX_SCALE")
+#pragma pop_macro("ARRAY_FLOAT_INDEX_SCALE")
+#pragma pop_macro("ARRAY_INT_BASE_OFFSET")
 #pragma pop_macro("ARRAY_INT_INDEX_SCALE")
-#pragma pop_macro("ARRAY_BYTE_INDEX_SCALE")
 #pragma pop_macro("ARRAY_LONG_BASE_OFFSET")
+#pragma pop_macro("ARRAY_LONG_INDEX_SCALE")
 #pragma pop_macro("ARRAY_OBJECT_BASE_OFFSET")
+#pragma pop_macro("ARRAY_OBJECT_INDEX_SCALE")
+#pragma pop_macro("ARRAY_SHORT_BASE_OFFSET")
 #pragma pop_macro("ARRAY_SHORT_INDEX_SCALE")
-#pragma pop_macro("ARRAY_BYTE_BASE_OFFSET")
+#pragma pop_macro("INVALID_FIELD_OFFSET")
 
 #endif // _jdk_internal_misc_Unsafe_h_

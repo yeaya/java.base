@@ -6,16 +6,16 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("LAST_CACHED_YEAR")
-#undef LAST_CACHED_YEAR
-#pragma push_macro("EMPTY_LASTRULES")
-#undef EMPTY_LASTRULES
 #pragma push_macro("DAYS_PER_CYCLE")
 #undef DAYS_PER_CYCLE
-#pragma push_macro("EMPTY_LONG_ARRAY")
-#undef EMPTY_LONG_ARRAY
+#pragma push_macro("EMPTY_LASTRULES")
+#undef EMPTY_LASTRULES
 #pragma push_macro("EMPTY_LDT_ARRAY")
 #undef EMPTY_LDT_ARRAY
+#pragma push_macro("EMPTY_LONG_ARRAY")
+#undef EMPTY_LONG_ARRAY
+#pragma push_macro("LAST_CACHED_YEAR")
+#undef LAST_CACHED_YEAR
 
 namespace java {
 	namespace io {
@@ -110,10 +110,10 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("LAST_CACHED_YEAR")
-#pragma pop_macro("EMPTY_LASTRULES")
 #pragma pop_macro("DAYS_PER_CYCLE")
-#pragma pop_macro("EMPTY_LONG_ARRAY")
+#pragma pop_macro("EMPTY_LASTRULES")
 #pragma pop_macro("EMPTY_LDT_ARRAY")
+#pragma pop_macro("EMPTY_LONG_ARRAY")
+#pragma pop_macro("LAST_CACHED_YEAR")
 
 #endif // _java_time_zone_ZoneRules_h_

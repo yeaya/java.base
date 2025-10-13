@@ -39,9 +39,9 @@
 #include <jcpp.h>
 
 #undef IMPL_LOOKUP
-#undef THIS_CLASS
-#undef INVOKER_MT
 #undef INJECTED_INVOKER_TEMPLATE
+#undef INVOKER_MT
+#undef THIS_CLASS
 #undef TYPE
 
 using $AssertionError = ::java::lang::AssertionError;

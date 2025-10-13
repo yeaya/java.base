@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UPPERCASE_DIGITS")
-#undef UPPERCASE_DIGITS
-#pragma push_macro("LOWERCASE_DIGITS")
-#undef LOWERCASE_DIGITS
 #pragma push_macro("DIGITS")
 #undef DIGITS
 #pragma push_macro("EMPTY_BYTES")
 #undef EMPTY_BYTES
 #pragma push_macro("HEX_FORMAT")
 #undef HEX_FORMAT
+#pragma push_macro("LOWERCASE_DIGITS")
+#undef LOWERCASE_DIGITS
+#pragma push_macro("UPPERCASE_DIGITS")
+#undef UPPERCASE_DIGITS
 
 namespace java {
 	namespace lang {
@@ -97,10 +97,10 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("UPPERCASE_DIGITS")
-#pragma pop_macro("LOWERCASE_DIGITS")
 #pragma pop_macro("DIGITS")
 #pragma pop_macro("EMPTY_BYTES")
 #pragma pop_macro("HEX_FORMAT")
+#pragma pop_macro("LOWERCASE_DIGITS")
+#pragma pop_macro("UPPERCASE_DIGITS")
 
 #endif // _java_util_HexFormat_h_

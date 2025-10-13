@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("OVERFLOW")
-#undef OVERFLOW
 #pragma push_macro("ENTRY_CREATE")
 #undef ENTRY_CREATE
-#pragma push_macro("ENTRY_MODIFY")
-#undef ENTRY_MODIFY
 #pragma push_macro("ENTRY_DELETE")
 #undef ENTRY_DELETE
+#pragma push_macro("ENTRY_MODIFY")
+#undef ENTRY_MODIFY
+#pragma push_macro("OVERFLOW")
+#undef OVERFLOW
 
 namespace java {
 	namespace nio {
@@ -41,9 +41,9 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("OVERFLOW")
 #pragma pop_macro("ENTRY_CREATE")
-#pragma pop_macro("ENTRY_MODIFY")
 #pragma pop_macro("ENTRY_DELETE")
+#pragma pop_macro("ENTRY_MODIFY")
+#pragma pop_macro("OVERFLOW")
 
 #endif // _java_nio_file_StandardWatchEventKinds_h_

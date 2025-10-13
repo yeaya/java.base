@@ -8,24 +8,24 @@
 #include <java/util/concurrent/CompletionStage.h>
 #include <java/util/concurrent/Future.h>
 
-#pragma push_macro("NIL")
-#undef NIL
-#pragma push_macro("STACK")
-#undef STACK
-#pragma push_macro("USE_COMMON_POOL")
-#undef USE_COMMON_POOL
-#pragma push_macro("ASYNC_POOL")
-#undef ASYNC_POOL
 #pragma push_macro("ASYNC")
 #undef ASYNC
-#pragma push_macro("NEXT")
-#undef NEXT
+#pragma push_macro("ASYNC_POOL")
+#undef ASYNC_POOL
 #pragma push_macro("NESTED")
 #undef NESTED
-#pragma push_macro("SYNC")
-#undef SYNC
+#pragma push_macro("NEXT")
+#undef NEXT
+#pragma push_macro("NIL")
+#undef NIL
 #pragma push_macro("RESULT")
 #undef RESULT
+#pragma push_macro("STACK")
+#undef STACK
+#pragma push_macro("SYNC")
+#undef SYNC
+#pragma push_macro("USE_COMMON_POOL")
+#undef USE_COMMON_POOL
 
 namespace java {
 	namespace lang {
@@ -232,14 +232,14 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("NIL")
-#pragma pop_macro("STACK")
-#pragma pop_macro("USE_COMMON_POOL")
-#pragma pop_macro("ASYNC_POOL")
 #pragma pop_macro("ASYNC")
-#pragma pop_macro("NEXT")
+#pragma pop_macro("ASYNC_POOL")
 #pragma pop_macro("NESTED")
-#pragma pop_macro("SYNC")
+#pragma pop_macro("NEXT")
+#pragma pop_macro("NIL")
 #pragma pop_macro("RESULT")
+#pragma pop_macro("STACK")
+#pragma pop_macro("SYNC")
+#pragma pop_macro("USE_COMMON_POOL")
 
 #endif // _java_util_concurrent_CompletableFuture_h_

@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("TRIPWIRE_PROPERTY")
-#undef TRIPWIRE_PROPERTY
 #pragma push_macro("ENABLED")
 #undef ENABLED
+#pragma push_macro("TRIPWIRE_PROPERTY")
+#undef TRIPWIRE_PROPERTY
 
 namespace java {
 	namespace lang {
@@ -35,7 +35,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("TRIPWIRE_PROPERTY")
 #pragma pop_macro("ENABLED")
+#pragma pop_macro("TRIPWIRE_PROPERTY")
 
 #endif // _java_util_stream_Tripwire_h_

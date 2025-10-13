@@ -27,11 +27,11 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef REST_OF_STYLES
-#undef ROOT
 #undef CLDR
 #undef INSTANCE
 #undef JRE
+#undef REST_OF_STYLES
+#undef ROOT
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $EraArray = $Array<::sun::util::calendar::Era>;
@@ -169,7 +169,7 @@ $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int
 			}
 			if (value < 0) {
 				return nullptr;
-			} else if (value >= $nc(strings)->length) {
+			} else if (value >= strings->length) {
 				if (field == 0 && "japanese"_s->equals(calendarType)) {
 					$var($EraArray, jeras, $nc($($CalendarSystem::forName("japanese"_s)))->getEras());
 					if (value <= $nc(jeras)->length) {
@@ -411,7 +411,7 @@ $String* CalendarNameProviderImpl::getResourceKeyFor($LocaleProviderAdapter$Type
 						key->append("short."_s);
 					}
 				} else if (baseStyle == 2) {
-					$nc(key)->append("long."_s);
+					key->append("long."_s);
 				}
 			}
 			key->append("Eras"_s);

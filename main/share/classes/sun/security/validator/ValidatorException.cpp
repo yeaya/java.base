@@ -12,14 +12,14 @@
 #include <java/security/cert/X509Certificate.h>
 #include <jcpp.h>
 
-#undef T_NO_TRUST_ANCHOR
-#undef T_CERT_EXPIRED
 #undef T_ALGORITHM_DISABLED
-#undef T_EE_EXTENSIONS
 #undef T_CA_EXTENSIONS
+#undef T_CERT_EXPIRED
+#undef T_EE_EXTENSIONS
 #undef T_NAME_CHAINING
-#undef T_UNTRUSTED_CERT
+#undef T_NO_TRUST_ANCHOR
 #undef T_SIGNATURE_ERROR
+#undef T_UNTRUSTED_CERT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -94,17 +94,17 @@
 #include <string.h>
 
 #undef CASE_INSENSITIVE_ORDER
-#undef MAX_LOW_SURROGATE
-#undef LATIN1
-#undef MIN_HIGH_SURROGATE
-#undef REPL
-#undef UTF16
-#undef INSTANCE
-#undef IMMUTABLE
-#undef MAX_VALUE
 #undef COMPACT_STRINGS
-#undef REPLACE
+#undef IMMUTABLE
+#undef INSTANCE
+#undef LATIN1
+#undef MAX_LOW_SURROGATE
+#undef MAX_VALUE
+#undef MIN_HIGH_SURROGATE
 #undef MIN_VALUE
+#undef REPL
+#undef REPLACE
+#undef UTF16
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $CharSequenceArray = $Array<::java::lang::CharSequence>;
@@ -777,14 +777,14 @@ void String::init$($bytes* bytes$renamed, int32_t offset, int32_t length, $Chars
 					$var($CharsetDecoder, cd, charset->newDecoder());
 					{
 						$var($ArrayDecoder, ad, nullptr);
-						bool var$21 = $instanceOf($ArrayDecoder, cd);
-						if (var$21) {
+						bool var$0 = $instanceOf($ArrayDecoder, cd);
+						if (var$0) {
 							$assign(ad, $cast($ArrayDecoder, cd));
-							var$21 = true;
+							var$0 = true;
 						}
-						if (var$21) {
-							bool var$22 = $nc(ad)->isASCIICompatible();
-							if (var$22 && !$StringCoding::hasNegatives(bytes, offset, length)) {
+						if (var$0) {
+							bool var$1 = $nc(ad)->isASCIICompatible();
+							if (var$1 && !$StringCoding::hasNegatives(bytes, offset, length)) {
 								if (String::COMPACT_STRINGS) {
 									$set(this, value$, $Arrays::copyOfRange(bytes, offset, offset + length));
 									this->coder$ = String::LATIN1;
@@ -823,8 +823,8 @@ void String::init$($bytes* bytes$renamed, int32_t offset, int32_t length, $Chars
 					$init($CodingErrorAction);
 					$nc($($nc(cd)->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE);
 					$var($chars, ca, $new($chars, en));
-					bool var$23 = $of(charset)->getClass()->getClassLoader0() != nullptr;
-					if (var$23 && $System::getSecurityManager() != nullptr) {
+					bool var$2 = $of(charset)->getClass()->getClassLoader0() != nullptr;
+					if (var$2 && $System::getSecurityManager() != nullptr) {
 						$assign(bytes, $Arrays::copyOfRange(bytes, offset, offset + length));
 						offset = 0;
 					}
@@ -1285,7 +1285,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 			$StringUTF16::putChar(dst, dp++, (char16_t)b1);
 		} else if ((b1 >> 5) == -2 && ((int32_t)(b1 & (uint32_t)30)) != 0) {
 			if (sp < sl) {
-				int32_t b2 = $nc(src)->get(sp++);
+				int32_t b2 = src->get(sp++);
 				if (isNotContinuation(b2)) {
 					if (!doReplace) {
 						throwMalformed(sp - 1, 1);
@@ -1304,7 +1304,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 			break;
 		} else if ((b1 >> 4) == -2) {
 			if (sp + 1 < sl) {
-				int32_t b2 = $nc(src)->get(sp++);
+				int32_t b2 = src->get(sp++);
 				int32_t b3 = src->get(sp++);
 				if (isMalformed3(b1, b2, b3)) {
 					if (!doReplace) {
@@ -1326,7 +1326,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 				}
 				continue;
 			}
-			if (sp < sl && isMalformed3_2(b1, $nc(src)->get(sp))) {
+			if (sp < sl && isMalformed3_2(b1, src->get(sp))) {
 				if (!doReplace) {
 					throwMalformed(sp - 1, 2);
 				}
@@ -1340,7 +1340,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 			break;
 		} else if ((b1 >> 3) == -2) {
 			if (sp + 2 < sl) {
-				int32_t b2 = $nc(src)->get(sp++);
+				int32_t b2 = src->get(sp++);
 				int32_t b3 = src->get(sp++);
 				int32_t b4 = src->get(sp++);
 				int32_t uc = decode4(b1, b2, b3, b4);
@@ -1359,7 +1359,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 				continue;
 			}
 			b1 &= (uint32_t)255;
-			if (b1 > 244 || sp < sl && isMalformed4_2(b1, (int32_t)($nc(src)->get(sp) & (uint32_t)255))) {
+			if (b1 > 244 || sp < sl && isMalformed4_2(b1, (int32_t)(src->get(sp) & (uint32_t)255))) {
 				if (!doReplace) {
 					throwMalformed(sp - 1, 1);
 				}
@@ -1371,7 +1371,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 			}
 			++sp;
 			$StringUTF16::putChar(dst, dp++, String::REPL);
-			if (sp < sl && isMalformed4_3($nc(src)->get(sp))) {
+			if (sp < sl && isMalformed4_3(src->get(sp))) {
 				continue;
 			}
 			break;
@@ -1503,7 +1503,7 @@ $bytes* String::encodeUTF8_UTF16($bytes* val, bool doReplace) {
 		if (c < 128) {
 			dst->set(dp++, (int8_t)c);
 		} else if (c < 2048) {
-			$nc(dst)->set(dp++, (int8_t)(192 | (c >> 6)));
+			dst->set(dp++, (int8_t)(192 | (c >> 6)));
 			dst->set(dp++, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
 		} else if ($Character::isSurrogate(c)) {
 			int32_t uc = -1;
@@ -1514,19 +1514,19 @@ $bytes* String::encodeUTF8_UTF16($bytes* val, bool doReplace) {
 			}
 			if (uc < 0) {
 				if (doReplace) {
-					$nc(dst)->set(dp++, (int8_t)u'?');
+					dst->set(dp++, (int8_t)u'?');
 				} else {
 					throwUnmappable(sp - 1);
 				}
 			} else {
-				$nc(dst)->set(dp++, (int8_t)(240 | (uc >> 18)));
+				dst->set(dp++, (int8_t)(240 | (uc >> 18)));
 				dst->set(dp++, (int8_t)(128 | ((int32_t)((uc >> 12) & (uint32_t)63))));
 				dst->set(dp++, (int8_t)(128 | ((int32_t)((uc >> 6) & (uint32_t)63))));
 				dst->set(dp++, (int8_t)(128 | ((int32_t)(uc & (uint32_t)63))));
 				++sp;
 			}
 		} else {
-			$nc(dst)->set(dp++, (int8_t)(224 | (c >> 12)));
+			dst->set(dp++, (int8_t)(224 | (c >> 12)));
 			dst->set(dp++, (int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
 			dst->set(dp++, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
 		}
@@ -2232,9 +2232,9 @@ String* String::indent(int32_t n) {
 		$var(String, spaces, " "_s->repeat(n));
 		$assign(stream, stream->map(static_cast<$Function*>($$new(String$$Lambda$lambda$indent$0, spaces))));
 	} else if (n == $Integer::MIN_VALUE) {
-		$assign(stream, $nc(stream)->map(static_cast<$Function*>($$new(String$$Lambda$lambda$indent$1$1))));
+		$assign(stream, stream->map(static_cast<$Function*>($$new(String$$Lambda$lambda$indent$1$1))));
 	} else if (n < 0) {
-		$assign(stream, $nc(stream)->map(static_cast<$Function*>($$new(String$$Lambda$lambda$indent$2$2, n))));
+		$assign(stream, stream->map(static_cast<$Function*>($$new(String$$Lambda$lambda$indent$2$2, n))));
 	}
 	return $cast(String, stream->collect($($Collectors::joining("\n"_s, ""_s, "\n"_s))));
 }

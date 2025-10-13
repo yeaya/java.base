@@ -29,9 +29,9 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef NOT_APPLICABLE
 #undef APPLICATION_DATA
 #undef NONE
+#undef NOT_APPLICABLE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;

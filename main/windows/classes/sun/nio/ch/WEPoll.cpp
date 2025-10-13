@@ -12,20 +12,20 @@
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
 
-#undef SIZEOF_EPOLLEVENT
-#undef EPOLLERR
-#undef EPOLL_CTL_DEL
-#undef EPOLLPRI
-#undef EPOLLIN
-#undef OFFSETOF_SOCK
-#undef EPOLL_CTL_MOD
-#undef EPOLL_CTL_ADD
 #undef ADDRESS_SIZE
-#undef EPOLLOUT
-#undef OFFSETOF_EVENTS
+#undef EPOLLERR
 #undef EPOLLHUP
-#undef UNSAFE
+#undef EPOLLIN
 #undef EPOLLONESHOT
+#undef EPOLLOUT
+#undef EPOLLPRI
+#undef EPOLL_CTL_ADD
+#undef EPOLL_CTL_DEL
+#undef EPOLL_CTL_MOD
+#undef OFFSETOF_EVENTS
+#undef OFFSETOF_SOCK
+#undef SIZEOF_EPOLLEVENT
+#undef UNSAFE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

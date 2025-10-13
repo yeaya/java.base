@@ -19,9 +19,9 @@
 #include <sun/security/ssl/StatusResponseManager$StaplingParameters.h>
 #include <jcpp.h>
 
-#undef SH_STATUS_REQUEST
 #undef CH_STATUS_REQUEST
 #undef DEFAULT
+#undef SH_STATUS_REQUEST
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

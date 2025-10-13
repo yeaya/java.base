@@ -33,10 +33,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef DECODE_ERROR
 #undef KEY_UPDATE
 #undef NEW_SESSION_TICKET
 #undef UNEXPECTED_MESSAGE
-#undef DECODE_ERROR
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

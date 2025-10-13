@@ -27,8 +27,8 @@
 using ::java::lang::ObjectManagerInternal;
 
 #undef ENQUEUED
-#undef NULL
 #undef MAX_PRIORITY
+#undef NULL
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

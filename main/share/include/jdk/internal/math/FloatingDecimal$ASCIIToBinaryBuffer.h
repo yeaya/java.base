@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter.h>
 
-#pragma push_macro("SMALL_10_POW")
-#undef SMALL_10_POW
 #pragma push_macro("BIG_10_POW")
 #undef BIG_10_POW
 #pragma push_macro("MAX_SMALL_TEN")
 #undef MAX_SMALL_TEN
 #pragma push_macro("SINGLE_MAX_SMALL_TEN")
 #undef SINGLE_MAX_SMALL_TEN
-#pragma push_macro("TINY_10_POW")
-#undef TINY_10_POW
 #pragma push_macro("SINGLE_SMALL_10_POW")
 #undef SINGLE_SMALL_10_POW
+#pragma push_macro("SMALL_10_POW")
+#undef SMALL_10_POW
+#pragma push_macro("TINY_10_POW")
+#undef TINY_10_POW
 
 namespace jdk {
 	namespace internal {
@@ -47,11 +47,11 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SMALL_10_POW")
 #pragma pop_macro("BIG_10_POW")
 #pragma pop_macro("MAX_SMALL_TEN")
 #pragma pop_macro("SINGLE_MAX_SMALL_TEN")
-#pragma pop_macro("TINY_10_POW")
 #pragma pop_macro("SINGLE_SMALL_10_POW")
+#pragma pop_macro("SMALL_10_POW")
+#pragma pop_macro("TINY_10_POW")
 
 #endif // _jdk_internal_math_FloatingDecimal$ASCIIToBinaryBuffer_h_

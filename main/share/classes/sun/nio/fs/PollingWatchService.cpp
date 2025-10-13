@@ -50,13 +50,13 @@
 #include <sun/nio/fs/PollingWatchService$PollingWatchKey.h>
 #include <jcpp.h>
 
-#undef OVERFLOW
-#undef SENSITIVITY_MEDIUM
-#undef SENSITIVITY_HIGH
 #undef ENTRY_CREATE
-#undef ENTRY_MODIFY
-#undef SENSITIVITY_LOW
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef OVERFLOW
+#undef SENSITIVITY_HIGH
+#undef SENSITIVITY_LOW
+#undef SENSITIVITY_MEDIUM
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;

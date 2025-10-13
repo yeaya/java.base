@@ -70,23 +70,23 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef CLIENT_AUTH_REQUESTED
 #undef BUFFER_OVERFLOW
+#undef BUFFER_UNDERFLOW
+#undef CLIENT_AUTH_NONE
+#undef CLIENT_AUTH_REQUESTED
 #undef CLIENT_AUTH_REQUIRED
 #undef CLOSED
-#undef HANDSHAKE_FAILURE
-#undef NEED_UNWRAP
-#undef INTERNAL_ERROR
-#undef PLAINTEXT_NULL
-#undef NEED_TASK
 #undef FINISHED
-#undef CLIENT_AUTH_NONE
-#undef UNEXPECTED_MESSAGE
-#undef NEED_WRAP
-#undef BUFFER_UNDERFLOW
-#undef NEED_UNWRAP_AGAIN
 #undef HANDSHAKE
+#undef HANDSHAKE_FAILURE
+#undef INTERNAL_ERROR
+#undef NEED_TASK
+#undef NEED_UNWRAP
+#undef NEED_UNWRAP_AGAIN
+#undef NEED_WRAP
 #undef OK
+#undef PLAINTEXT_NULL
+#undef UNEXPECTED_MESSAGE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $IOException = ::java::io::IOException;

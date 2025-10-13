@@ -23,8 +23,8 @@
 #include <sun/security/ssl/ServerHandshakeContext.h>
 #include <jcpp.h>
 
-#undef NOMINAL
 #undef CH_EXTENDED_MASTER_SECRET
+#undef NOMINAL
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

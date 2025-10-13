@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("PAD_OAEP_MGF1")
-#undef PAD_OAEP_MGF1
-#pragma push_macro("PAD_BLOCKTYPE_2")
-#undef PAD_BLOCKTYPE_2
 #pragma push_macro("M")
 #undef M
 #pragma push_macro("PAD_BLOCKTYPE_1")
 #undef PAD_BLOCKTYPE_1
+#pragma push_macro("PAD_BLOCKTYPE_2")
+#undef PAD_BLOCKTYPE_2
 #pragma push_macro("PAD_NONE")
 #undef PAD_NONE
+#pragma push_macro("PAD_OAEP_MGF1")
+#undef PAD_OAEP_MGF1
 
 namespace java {
 	namespace security {
@@ -81,10 +81,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("PAD_OAEP_MGF1")
-#pragma pop_macro("PAD_BLOCKTYPE_2")
 #pragma pop_macro("M")
 #pragma pop_macro("PAD_BLOCKTYPE_1")
+#pragma pop_macro("PAD_BLOCKTYPE_2")
 #pragma pop_macro("PAD_NONE")
+#pragma pop_macro("PAD_OAEP_MGF1")
 
 #endif // _sun_security_rsa_RSAPadding_h_

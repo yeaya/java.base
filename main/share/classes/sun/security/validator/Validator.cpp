@@ -25,15 +25,15 @@
 #include <sun/security/validator/TrustStoreUtil.h>
 #include <jcpp.h>
 
-#undef TYPE_PKIX
-#undef VAR_CODE_SIGNING
-#undef VAR_TLS_SERVER
 #undef CHAIN0
+#undef TYPE_PKIX
 #undef TYPE_SIMPLE
+#undef VAR_CODE_SIGNING
 #undef VAR_GENERIC
+#undef VAR_JCE_SIGNING
 #undef VAR_PLUGIN_CODE_SIGNING
 #undef VAR_TLS_CLIENT
-#undef VAR_JCE_SIGNING
+#undef VAR_TLS_SERVER
 #undef VAR_TSA_SERVER
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;

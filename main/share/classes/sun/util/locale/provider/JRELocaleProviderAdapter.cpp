@@ -72,12 +72,12 @@
 #include <sun/util/spi/CalendarProvider.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef TH_TH_TH
 #undef FORMAT_DEFAULT
 #undef JA_JP_JP
 #undef JRE
 #undef NO_NO_NY
+#undef ROOT
+#undef TH_TH_TH
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $Serializable = ::java::io::Serializable;

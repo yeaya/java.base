@@ -23,10 +23,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef TRUE
 #undef TYPE
 
 using $Boolean = ::java::lang::Boolean;
@@ -112,7 +112,7 @@ void TestMethodReflectValueOf::testMethod($Class* primType, Object$* wrappedValu
 			if (!$equals(result, wrappedValue)) {
 				$throwNew($RuntimeException, $$str({"The value "_s, wrappedValue, " is not cached for the type "_s, primType}));
 			}
-		} else if (!$nc($of(result))->equals(wrappedValue)) {
+		} else if (!$of(result)->equals(wrappedValue)) {
 			$throwNew($RuntimeException, $$str({"The result value "_s, result, " is not equal to the expected value "_s, wrappedValue, " for the type "_s, primType}));
 		}
 	} catch ($NoSuchMethodException&) {

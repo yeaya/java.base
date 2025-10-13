@@ -10,8 +10,8 @@
 #include <jdk/internal/icu/text/BidiBase.h>
 #include <jcpp.h>
 
-#undef COUNT
 #undef CLOSE
+#undef COUNT
 #undef NONE
 #undef OPEN
 

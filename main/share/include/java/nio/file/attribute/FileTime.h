@@ -5,30 +5,30 @@
 
 #include <java/lang/Comparable.h>
 
-#pragma push_macro("SECONDS_PER_MINUTE")
-#undef SECONDS_PER_MINUTE
-#pragma push_macro("SECONDS_PER_HOUR")
-#undef SECONDS_PER_HOUR
-#pragma push_macro("SECONDS_PER_DAY")
-#undef SECONDS_PER_DAY
-#pragma push_macro("NANOS_PER_SECOND")
-#undef NANOS_PER_SECOND
-#pragma push_macro("MAX_SECOND")
-#undef MAX_SECOND
-#pragma push_macro("NANOS_PER_MILLI")
-#undef NANOS_PER_MILLI
-#pragma push_macro("MIN_SECOND")
-#undef MIN_SECOND
-#pragma push_macro("MICROS_PER_SECOND")
-#undef MICROS_PER_SECOND
-#pragma push_macro("MINUTES_PER_HOUR")
-#undef MINUTES_PER_HOUR
 #pragma push_macro("HOURS_PER_DAY")
 #undef HOURS_PER_DAY
+#pragma push_macro("MAX_SECOND")
+#undef MAX_SECOND
+#pragma push_macro("MICROS_PER_SECOND")
+#undef MICROS_PER_SECOND
 #pragma push_macro("MILLIS_PER_SECOND")
 #undef MILLIS_PER_SECOND
+#pragma push_macro("MINUTES_PER_HOUR")
+#undef MINUTES_PER_HOUR
+#pragma push_macro("MIN_SECOND")
+#undef MIN_SECOND
 #pragma push_macro("NANOS_PER_MICRO")
 #undef NANOS_PER_MICRO
+#pragma push_macro("NANOS_PER_MILLI")
+#undef NANOS_PER_MILLI
+#pragma push_macro("NANOS_PER_SECOND")
+#undef NANOS_PER_SECOND
+#pragma push_macro("SECONDS_PER_DAY")
+#undef SECONDS_PER_DAY
+#pragma push_macro("SECONDS_PER_HOUR")
+#undef SECONDS_PER_HOUR
+#pragma push_macro("SECONDS_PER_MINUTE")
+#undef SECONDS_PER_MINUTE
 
 namespace java {
 	namespace lang {
@@ -99,17 +99,17 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("SECONDS_PER_MINUTE")
-#pragma pop_macro("SECONDS_PER_HOUR")
-#pragma pop_macro("SECONDS_PER_DAY")
-#pragma pop_macro("NANOS_PER_SECOND")
-#pragma pop_macro("MAX_SECOND")
-#pragma pop_macro("NANOS_PER_MILLI")
-#pragma pop_macro("MIN_SECOND")
-#pragma pop_macro("MICROS_PER_SECOND")
-#pragma pop_macro("MINUTES_PER_HOUR")
 #pragma pop_macro("HOURS_PER_DAY")
+#pragma pop_macro("MAX_SECOND")
+#pragma pop_macro("MICROS_PER_SECOND")
 #pragma pop_macro("MILLIS_PER_SECOND")
+#pragma pop_macro("MINUTES_PER_HOUR")
+#pragma pop_macro("MIN_SECOND")
 #pragma pop_macro("NANOS_PER_MICRO")
+#pragma pop_macro("NANOS_PER_MILLI")
+#pragma pop_macro("NANOS_PER_SECOND")
+#pragma pop_macro("SECONDS_PER_DAY")
+#pragma pop_macro("SECONDS_PER_HOUR")
+#pragma pop_macro("SECONDS_PER_MINUTE")
 
 #endif // _java_nio_file_attribute_FileTime_h_

@@ -30,12 +30,12 @@
 #include <java/util/function/UnaryOperator.h>
 #include <jcpp.h>
 
-#undef YEARS
-#undef MONTHS
-#undef DAY_OF_YEAR
-#undef DAY_OF_MONTH
 #undef DAYS
+#undef DAY_OF_MONTH
 #undef DAY_OF_WEEK
+#undef DAY_OF_YEAR
+#undef MONTHS
+#undef YEARS
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

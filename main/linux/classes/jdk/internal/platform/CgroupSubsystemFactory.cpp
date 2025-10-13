@@ -54,13 +54,13 @@
 #include <jdk/internal/platform/cgroupv2/CgroupV2Subsystem.h>
 #include <jcpp.h>
 
-#undef CPU_CTRL
+#undef BLKIO_CTRL
 #undef CPUACCT_CTRL
 #undef CPUSET_CTRL
-#undef MEMORY_CTRL
-#undef BLKIO_CTRL
-#undef MOUNTINFO_PATTERN
+#undef CPU_CTRL
 #undef DEBUG
+#undef MEMORY_CTRL
+#undef MOUNTINFO_PATTERN
 
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
@@ -719,14 +719,13 @@ bool CgroupSubsystemFactory::amendCgroupInfos($String* mntInfoLine, $Map* infos,
 					}
 				}
 			}
-		} else if ($nc(fsType)->equals("cgroup2"_s)) {
+		} else if (fsType->equals("cgroup2"_s)) {
 			if (isCgroupsV2) {
 				{
 					$var($Iterator, i$, $nc($($nc(infos)->values()))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($CgroupInfo, info, $cast($CgroupInfo, i$->next()));
 						{
-							$init(CgroupSubsystemFactory);
 							if (!CgroupSubsystemFactory::$assertionsDisabled && !($nc(info)->getMountPoint() == nullptr)) {
 								$throwNew($AssertionError);
 							}

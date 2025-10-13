@@ -12,14 +12,14 @@
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <jcpp.h>
 
-#undef PROTOCOLS_OF_13
+#undef ALERT
+#undef APPLICATION_DATA
 #undef CHANGE_CIPHER_SPEC
 #undef HANDSHAKE
-#undef APPLICATION_DATA
-#undef ALERT
 #undef INVALID
-#undef PROTOCOLS_TO_13
+#undef PROTOCOLS_OF_13
 #undef PROTOCOLS_TO_12
+#undef PROTOCOLS_TO_13
 
 using $ContentTypeArray = $Array<::sun::security::ssl::ContentType>;
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;

@@ -132,7 +132,7 @@ PublicMethods$MethodList* PublicMethods$MethodList::merge(PublicMethods$MethodLi
 					} else {
 						$assign(prev, l);
 					}
-				} else if ($nc(dclass)->isInterface()) {
+				} else if (dclass->isInterface()) {
 					return head;
 				} else if (prev != nullptr) {
 					$set(prev, next, l->next);

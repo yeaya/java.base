@@ -9,16 +9,16 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("TAG_REQUIRE")
-#undef TAG_REQUIRE
-#pragma push_macro("TAG_INHIBIT")
-#undef TAG_INHIBIT
 #pragma push_macro("INHIBIT")
 #undef INHIBIT
 #pragma push_macro("NAME")
 #undef NAME
 #pragma push_macro("REQUIRE")
 #undef REQUIRE
+#pragma push_macro("TAG_INHIBIT")
+#undef TAG_INHIBIT
+#pragma push_macro("TAG_REQUIRE")
+#undef TAG_REQUIRE
 
 namespace java {
 	namespace io {
@@ -76,10 +76,10 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("TAG_REQUIRE")
-#pragma pop_macro("TAG_INHIBIT")
 #pragma pop_macro("INHIBIT")
 #pragma pop_macro("NAME")
 #pragma pop_macro("REQUIRE")
+#pragma pop_macro("TAG_INHIBIT")
+#pragma pop_macro("TAG_REQUIRE")
 
 #endif // _sun_security_x509_PolicyConstraintsExtension_h_

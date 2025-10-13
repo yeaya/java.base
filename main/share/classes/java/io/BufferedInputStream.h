@@ -6,12 +6,12 @@
 #include <java/io/FilterInputStream.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("U")
-#undef U
-#pragma push_macro("DEFAULT_BUFFER_SIZE")
-#undef DEFAULT_BUFFER_SIZE
 #pragma push_macro("BUF_OFFSET")
 #undef BUF_OFFSET
+#pragma push_macro("DEFAULT_BUFFER_SIZE")
+#undef DEFAULT_BUFFER_SIZE
+#pragma push_macro("U")
+#undef U
 
 namespace java {
 	namespace io {
@@ -61,8 +61,8 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("U")
-#pragma pop_macro("DEFAULT_BUFFER_SIZE")
 #pragma pop_macro("BUF_OFFSET")
+#pragma pop_macro("DEFAULT_BUFFER_SIZE")
+#pragma pop_macro("U")
 
 #endif // _java_io_BufferedInputStream_h_

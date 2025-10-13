@@ -30,10 +30,10 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef ENCRYPT_MODE
-#undef DEFAULT_STRENGTH
 #undef AES_LIMIT
+#undef DEFAULT_STRENGTH
+#undef ENCRYPT_MODE
+#undef ROOT
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $AssertionError = ::java::lang::AssertionError;

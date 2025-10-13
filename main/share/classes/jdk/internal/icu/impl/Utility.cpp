@@ -23,10 +23,10 @@
 #include <jdk/internal/icu/text/UTF16.h>
 #include <jcpp.h>
 
-#undef UNESCAPE_MAP
-#undef ENGLISH
 #undef DIGITS
+#undef ENGLISH
 #undef MIN_VALUE
+#undef UNESCAPE_MAP
 
 using $IOException = ::java::io::IOException;
 using $Appendable = ::java::lang::Appendable;

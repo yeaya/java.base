@@ -17,8 +17,8 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef UTF_16LE
 #undef PACKET_READ_ERROR
+#undef UTF_16LE
 
 using $NTLM = ::com::sun::security::ntlm::NTLM;
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;

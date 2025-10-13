@@ -14,10 +14,10 @@
 #include <sun/security/util/DomainName.h>
 #include <jcpp.h>
 
-#undef OTHER
-#undef WILDCARD
 #undef EXCEPTION
 #undef NORMAL
+#undef OTHER
+#undef WILDCARD
 
 using $DomainName$Rule$TypeArray = $Array<::sun::security::util::DomainName$Rule$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;

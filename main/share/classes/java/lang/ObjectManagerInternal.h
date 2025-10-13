@@ -76,6 +76,7 @@ public:
 	static void init2();
 	static void init3();
 	static void deinit();
+	static void beforeExit();
 
 	static int32_t availableProcessors();
 	static int64_t freeMemory();

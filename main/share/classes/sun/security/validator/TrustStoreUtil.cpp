@@ -72,7 +72,7 @@ $Set* TrustStoreUtil::getTrustedCerts($KeyStore* ks) {
 				} else if (ks->isKeyEntry(alias)) {
 					$var($CertificateArray, certs, ks->getCertificateChain(alias));
 					if ((certs != nullptr) && (certs->length > 0) && ($instanceOf($X509Certificate, certs->get(0)))) {
-						$nc(set)->add($cast($X509Certificate, certs->get(0)));
+						set->add($cast($X509Certificate, certs->get(0)));
 					}
 				}
 			}

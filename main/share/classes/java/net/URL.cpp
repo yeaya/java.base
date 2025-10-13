@@ -64,11 +64,11 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef BUILTIN_HANDLERS_PREFIX
+#undef DIRECT
 #undef NO_PROXY
 #undef ROOT
-#undef BUILTIN_HANDLERS_PREFIX
 #undef SPECIFY_HANDLER_PERMISSION
-#undef DIRECT
 #undef TYPE
 #undef URL
 
@@ -728,7 +728,7 @@ bool URL::isOverrideable($String* protocol) {
 		if (var$0 && ($Character::toLowerCase(protocol->charAt(2)) == u't')) {
 			return false;
 		}
-	} else if ($nc(protocol)->length() == 4) {
+	} else if (protocol->length() == 4) {
 		bool var$4 = ($Character::toLowerCase(protocol->charAt(0)) == u'f');
 		bool var$3 = var$4 && ($Character::toLowerCase(protocol->charAt(1)) == u'i');
 		bool var$2 = var$3 && ($Character::toLowerCase(protocol->charAt(2)) == u'l');

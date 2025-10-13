@@ -162,7 +162,7 @@ $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 				$var($BigInteger, var$1, $nc(params)->getP());
 				$var($BigInteger, var$2, params->getQ());
 				return $cast($KeySpec, keySpec->cast($$new($DSAPublicKeySpec, var$0, var$1, var$2, $(params->getG()))));
-			} else if ($nc(keySpec)->isAssignableFrom(x509KeySpec)) {
+			} else if (keySpec->isAssignableFrom(x509KeySpec)) {
 				return $cast($KeySpec, keySpec->cast($$new($X509EncodedKeySpec, $($nc(key)->getEncoded()))));
 			} else {
 				$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
@@ -177,7 +177,7 @@ $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 				$var($BigInteger, var$4, $nc(params)->getP());
 				$var($BigInteger, var$5, params->getQ());
 				return $cast($KeySpec, keySpec->cast($$new($DSAPrivateKeySpec, var$3, var$4, var$5, $(params->getG()))));
-			} else if ($nc(keySpec)->isAssignableFrom(pkcs8KeySpec)) {
+			} else if (keySpec->isAssignableFrom(pkcs8KeySpec)) {
 				$var($bytes, encoded, $nc(key)->getEncoded());
 				{
 					$var($Throwable, var$6, nullptr);

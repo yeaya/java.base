@@ -78,11 +78,11 @@ bool Pattern$GraphemeBound::match($Matcher* matcher, int32_t i, $CharSequence* s
 		if ($Character::isSurrogatePair(var$0, seq->charAt(i))) {
 			return false;
 		}
-		if ($Grapheme::nextBoundary(seq, $nc(matcher)->last, endIndex) > i) {
+		if ($Grapheme::nextBoundary(seq, matcher->last, endIndex) > i) {
 			return false;
 		}
 	} else {
-		$nc(matcher)->hitEnd$ = true;
+		matcher->hitEnd$ = true;
 		matcher->requireEnd$ = true;
 	}
 	return $nc(this->next)->match(matcher, i, seq);

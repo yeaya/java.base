@@ -18,9 +18,9 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ONE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef ONE
 
 using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
@@ -319,7 +319,7 @@ void ExactArithTests::checkResult($String* message, int64_t x, int64_t y, int64_
 	$var($BigInteger, resultBig, $BigInteger::valueOf(result));
 	if (!inLongRange(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected an arithmetic exception: "_s}));
-	} else if (!$nc(resultBig)->equals(expected)) {
+	} else if (!resultBig->equals(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected "_s, expected}));
 	}
 }

@@ -23,9 +23,9 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-#undef TRUNCATE_EXISTING
-#undef READ
 #undef CREATE
+#undef READ
+#undef TRUNCATE_EXISTING
 #undef WRITE
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

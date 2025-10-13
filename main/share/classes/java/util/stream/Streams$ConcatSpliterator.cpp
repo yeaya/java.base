@@ -16,11 +16,11 @@
 #include <java/util/stream/Streams.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef DISTINCT
-#undef SIZED
 #undef MAX_VALUE
+#undef SIZED
 #undef SORTED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

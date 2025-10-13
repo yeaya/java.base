@@ -21,8 +21,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef DEFAULT
 #undef DECODE_ERROR
+#undef DEFAULT
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

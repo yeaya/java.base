@@ -8,14 +8,14 @@
 
 #pragma push_macro("A")
 #undef A
+#pragma push_macro("A_DATA")
+#undef A_DATA
 #pragma push_macro("B")
 #undef B
 #pragma push_macro("X")
 #undef X
 #pragma push_macro("Y")
 #undef Y
-#pragma push_macro("A_DATA")
-#undef A_DATA
 
 namespace java {
 	namespace lang {
@@ -59,9 +59,9 @@ public:
 } // java
 
 #pragma pop_macro("A")
+#pragma pop_macro("A_DATA")
 #pragma pop_macro("B")
 #pragma pop_macro("X")
 #pragma pop_macro("Y")
-#pragma pop_macro("A_DATA")
 
 #endif // _java_lang_CharacterData01_h_

@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <sun/util/calendar/BaseCalendar.h>
 
+#pragma push_macro("BCE")
+#undef BCE
 #pragma push_macro("CE")
 #undef CE
 #pragma push_macro("JULIAN_EPOCH")
 #undef JULIAN_EPOCH
-#pragma push_macro("BCE")
-#undef BCE
 
 namespace java {
 	namespace util {
@@ -62,8 +62,8 @@ public:
 	} // util
 } // sun
 
+#pragma pop_macro("BCE")
 #pragma pop_macro("CE")
 #pragma pop_macro("JULIAN_EPOCH")
-#pragma pop_macro("BCE")
 
 #endif // _sun_util_calendar_JulianCalendar_h_

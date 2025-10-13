@@ -102,21 +102,21 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef NON_ALPHANUM
-#undef TRUE
-#undef INSTANCE
+#undef AUTOMATIC_MODULE_NAME
 #undef CLASSES
 #undef DASH_VERSION
-#undef MAX_VALUE
-#undef OPEN_READ
+#undef FALSE
+#undef INSTANCE
 #undef LEADING_DOTS
 #undef MAIN_CLASS
-#undef SERVICES_PREFIX
-#undef FALSE
-#undef TRAILING_DOTS
+#undef MAX_VALUE
 #undef MODULE_INFO
-#undef AUTOMATIC_MODULE_NAME
+#undef NON_ALPHANUM
+#undef OPEN_READ
 #undef REPEATING_DOTS
+#undef SERVICES_PREFIX
+#undef TRAILING_DOTS
+#undef TRUE
 
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
 using $FileVisitOptionArray = $Array<::java::nio::file::FileVisitOption>;

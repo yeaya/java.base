@@ -27,8 +27,8 @@
 #include <javax/crypto/IllegalBlockSizeException.h>
 #include <jcpp.h>
 
-#undef ENCRYPT_MODE
 #undef DECRYPT_MODE
+#undef ENCRYPT_MODE
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

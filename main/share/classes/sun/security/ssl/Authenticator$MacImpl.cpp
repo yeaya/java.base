@@ -20,8 +20,8 @@
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <jcpp.h>
 
-#undef TLS10
 #undef M_NULL
+#undef TLS10
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

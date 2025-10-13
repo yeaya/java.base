@@ -36,13 +36,13 @@
 #include <sun/security/x509/X509Key.h>
 #include <jcpp.h>
 
-#undef SERIAL_NUMBER
-#undef ISSUER
 #undef EXTENSIONS
-#undef VERSION
+#undef ISSUER
+#undef KEY
+#undef SERIAL_NUMBER
 #undef SUBJECT
 #undef VALIDITY
-#undef KEY
+#undef VERSION
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -5,50 +5,50 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("GRAPH")
-#undef GRAPH
-#pragma push_macro("PRINT")
-#undef PRINT
+#pragma push_macro("ALNUM")
+#undef ALNUM
+#pragma push_macro("ALPHABETIC")
+#undef ALPHABETIC
+#pragma push_macro("ASCII_DIGIT")
+#undef ASCII_DIGIT
 #pragma push_macro("ASCII_SPACE")
 #undef ASCII_SPACE
+#pragma push_macro("ASCII_WORD")
+#undef ASCII_WORD
+#pragma push_macro("ASSIGNED")
+#undef ASSIGNED
+#pragma push_macro("BLANK")
+#undef BLANK
+#pragma push_macro("CONTROL")
+#undef CONTROL
+#pragma push_macro("DIGIT")
+#undef DIGIT
+#pragma push_macro("GRAPH")
+#undef GRAPH
+#pragma push_macro("HEX_DIGIT")
+#undef HEX_DIGIT
+#pragma push_macro("IDEOGRAPHIC")
+#undef IDEOGRAPHIC
 #pragma push_macro("JOIN_CONTROL")
 #undef JOIN_CONTROL
 #pragma push_macro("LETTER")
 #undef LETTER
-#pragma push_macro("WORD")
-#undef WORD
+#pragma push_macro("LOWERCASE")
+#undef LOWERCASE
 #pragma push_macro("NONCHARACTER_CODE_POINT")
 #undef NONCHARACTER_CODE_POINT
-#pragma push_macro("IDEOGRAPHIC")
-#undef IDEOGRAPHIC
-#pragma push_macro("ALNUM")
-#undef ALNUM
-#pragma push_macro("DIGIT")
-#undef DIGIT
-#pragma push_macro("ALPHABETIC")
-#undef ALPHABETIC
+#pragma push_macro("PRINT")
+#undef PRINT
 #pragma push_macro("PUNCTUATION")
 #undef PUNCTUATION
-#pragma push_macro("BLANK")
-#undef BLANK
-#pragma push_macro("ASSIGNED")
-#undef ASSIGNED
-#pragma push_macro("ASCII_WORD")
-#undef ASCII_WORD
-#pragma push_macro("HEX_DIGIT")
-#undef HEX_DIGIT
+#pragma push_macro("TITLECASE")
+#undef TITLECASE
 #pragma push_macro("UPPERCASE")
 #undef UPPERCASE
 #pragma push_macro("WHITE_SPACE")
 #undef WHITE_SPACE
-#pragma push_macro("TITLECASE")
-#undef TITLECASE
-#pragma push_macro("ASCII_DIGIT")
-#undef ASCII_DIGIT
-#pragma push_macro("LOWERCASE")
-#undef LOWERCASE
-#pragma push_macro("CONTROL")
-#undef CONTROL
+#pragma push_macro("WORD")
+#undef WORD
 
 namespace java {
 	namespace lang {
@@ -133,27 +133,27 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("GRAPH")
-#pragma pop_macro("PRINT")
+#pragma pop_macro("ALNUM")
+#pragma pop_macro("ALPHABETIC")
+#pragma pop_macro("ASCII_DIGIT")
 #pragma pop_macro("ASCII_SPACE")
+#pragma pop_macro("ASCII_WORD")
+#pragma pop_macro("ASSIGNED")
+#pragma pop_macro("BLANK")
+#pragma pop_macro("CONTROL")
+#pragma pop_macro("DIGIT")
+#pragma pop_macro("GRAPH")
+#pragma pop_macro("HEX_DIGIT")
+#pragma pop_macro("IDEOGRAPHIC")
 #pragma pop_macro("JOIN_CONTROL")
 #pragma pop_macro("LETTER")
-#pragma pop_macro("WORD")
+#pragma pop_macro("LOWERCASE")
 #pragma pop_macro("NONCHARACTER_CODE_POINT")
-#pragma pop_macro("IDEOGRAPHIC")
-#pragma pop_macro("ALNUM")
-#pragma pop_macro("DIGIT")
-#pragma pop_macro("ALPHABETIC")
+#pragma pop_macro("PRINT")
 #pragma pop_macro("PUNCTUATION")
-#pragma pop_macro("BLANK")
-#pragma pop_macro("ASSIGNED")
-#pragma pop_macro("ASCII_WORD")
-#pragma pop_macro("HEX_DIGIT")
+#pragma pop_macro("TITLECASE")
 #pragma pop_macro("UPPERCASE")
 #pragma pop_macro("WHITE_SPACE")
-#pragma pop_macro("TITLECASE")
-#pragma pop_macro("ASCII_DIGIT")
-#pragma pop_macro("LOWERCASE")
-#pragma pop_macro("CONTROL")
+#pragma pop_macro("WORD")
 
 #endif // _java_util_regex_CharPredicates_h_

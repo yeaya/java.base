@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/nio/file/FileSystem.h>
 
-#pragma push_macro("REGEX_SYNTAX")
-#undef REGEX_SYNTAX
 #pragma push_macro("GLOB_SYNTAX")
 #undef GLOB_SYNTAX
+#pragma push_macro("REGEX_SYNTAX")
+#undef REGEX_SYNTAX
 
 namespace java {
 	namespace lang {
@@ -106,7 +106,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("REGEX_SYNTAX")
 #pragma pop_macro("GLOB_SYNTAX")
+#pragma pop_macro("REGEX_SYNTAX")
 
 #endif // _sun_nio_fs_UnixFileSystem_h_

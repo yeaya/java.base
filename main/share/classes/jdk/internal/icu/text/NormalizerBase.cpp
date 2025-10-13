@@ -35,13 +35,13 @@
 #include <jcpp.h>
 
 #undef DONE
-#undef UNICODE_3_2
+#undef NFC
+#undef NFD
 #undef NFKC
 #undef NFKD
-#undef UNICODE_3_2_0_ORIGINAL
-#undef NFC
 #undef NONE
-#undef NFD
+#undef UNICODE_3_2
+#undef UNICODE_3_2_0_ORIGINAL
 #undef UNICODE_LATEST
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;

@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("OCSP_MULTI")
-#undef OCSP_MULTI
 #pragma push_macro("OCSP")
 #undef OCSP
+#pragma push_macro("OCSP_MULTI")
+#undef OCSP_MULTI
 
 namespace sun {
 	namespace security {
@@ -36,7 +36,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("OCSP_MULTI")
 #pragma pop_macro("OCSP")
+#pragma pop_macro("OCSP_MULTI")
 
 #endif // _sun_security_ssl_CertStatusExtension$CertStatusRequestType_h_

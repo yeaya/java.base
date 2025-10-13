@@ -14,9 +14,9 @@
 #include <sun/security/provider/certpath/OCSP.h>
 #include <jcpp.h>
 
+#undef GOOD
 #undef REVOKED
 #undef UNKNOWN
-#undef GOOD
 
 using $OCSP$RevocationStatus$CertStatusArray = $Array<::sun::security::provider::certpath::OCSP$RevocationStatus$CertStatus>;
 using $ClassInfo = ::java::lang::ClassInfo;

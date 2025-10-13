@@ -12,14 +12,14 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef UCS4_MIN
-#undef MIN
-#undef UCS4_MAX
 #undef MAX
-#undef MAX_LOW
-#undef MIN_HIGH
 #undef MAX_HIGH
+#undef MAX_LOW
+#undef MIN
+#undef MIN_HIGH
 #undef MIN_LOW
+#undef UCS4_MAX
+#undef UCS4_MIN
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;

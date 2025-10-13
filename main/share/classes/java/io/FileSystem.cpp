@@ -12,16 +12,16 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef BA_REGULAR
-#undef BA_EXISTS
-#undef ACCESS_WRITE
-#undef BA_HIDDEN
-#undef BA_DIRECTORY
 #undef ACCESS_EXECUTE
-#undef SPACE_TOTAL
 #undef ACCESS_READ
-#undef SPACE_USABLE
+#undef ACCESS_WRITE
+#undef BA_DIRECTORY
+#undef BA_EXISTS
+#undef BA_HIDDEN
+#undef BA_REGULAR
 #undef SPACE_FREE
+#undef SPACE_TOTAL
+#undef SPACE_USABLE
 
 using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;

@@ -27,11 +27,11 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef NUMBERSTYLE
-#undef PERCENTSTYLE
 #undef ACCOUNTINGSTYLE
 #undef CURRENCYSTYLE
 #undef INTEGERSTYLE
+#undef NUMBERSTYLE
+#undef PERCENTSTYLE
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;

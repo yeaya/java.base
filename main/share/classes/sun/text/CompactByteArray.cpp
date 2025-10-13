@@ -18,11 +18,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef BLOCKCOUNT
+#undef BLOCKMASK
+#undef BLOCKSHIFT
 #undef INDEXCOUNT
 #undef INDEXSHIFT
-#undef BLOCKSHIFT
-#undef BLOCKMASK
-#undef BLOCKCOUNT
 #undef UNICODECOUNT
 
 using $ClassInfo = ::java::lang::ClassInfo;

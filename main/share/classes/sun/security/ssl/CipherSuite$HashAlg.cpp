@@ -13,9 +13,9 @@
 #include <sun/security/ssl/CipherSuite.h>
 #include <jcpp.h>
 
-#undef H_SHA384
 #undef H_NONE
 #undef H_SHA256
+#undef H_SHA384
 
 using $CipherSuite$HashAlgArray = $Array<::sun::security::ssl::CipherSuite$HashAlg>;
 using $ClassInfo = ::java::lang::ClassInfo;

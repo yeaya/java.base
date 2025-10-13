@@ -16,13 +16,13 @@
 #include <sun/security/provider/certpath/RevocationChecker.h>
 #include <jcpp.h>
 
-#undef SOFT_FAIL
 #undef NO_FALLBACK
 #undef ONLY_CRLS
-#undef ONLY_OCSP
 #undef ONLY_END_ENTITY
-#undef PREFER_OCSP
+#undef ONLY_OCSP
 #undef PREFER_CRLS
+#undef PREFER_OCSP
+#undef SOFT_FAIL
 
 using $PKIXRevocationChecker$OptionArray = $Array<::java::security::cert::PKIXRevocationChecker$Option>;
 using $RevocationChecker$ModeArray = $Array<::sun::security::provider::certpath::RevocationChecker$Mode>;

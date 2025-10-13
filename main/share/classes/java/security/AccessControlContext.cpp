@@ -174,7 +174,7 @@ void AccessControlContext::init$($ProtectionDomainArray* context) {
 	$set(this, combiner, nullptr);
 	if ($nc(context)->length == 0) {
 		$set(this, context, nullptr);
-	} else if ($nc(context)->length == 1) {
+	} else if (context->length == 1) {
 		if (context->get(0) != nullptr) {
 			$set(this, context, $cast($ProtectionDomainArray, context->clone()));
 		} else {

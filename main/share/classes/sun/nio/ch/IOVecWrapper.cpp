@@ -21,9 +21,9 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef SIZE_IOVEC
 #undef BASE_OFFSET
 #undef LEN_OFFSET
+#undef SIZE_IOVEC
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;

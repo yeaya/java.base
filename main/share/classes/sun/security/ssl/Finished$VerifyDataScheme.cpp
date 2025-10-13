@@ -24,8 +24,8 @@
 
 #undef SSL30
 #undef TLS10
-#undef TLS13
 #undef TLS12
+#undef TLS13
 
 using $Finished$VerifyDataSchemeArray = $Array<::sun::security::ssl::Finished$VerifyDataScheme>;
 using $ClassInfo = ::java::lang::ClassInfo;

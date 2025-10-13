@@ -23,11 +23,11 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <jcpp.h>
 
-#undef OVERRIDE_BUILDER
 #undef FIRST_DAY_OF_WEEK
-#undef ROOT
-#undef MINIMAL_DAYS_IN_FIRST_WEEK
 #undef INSTANCE
+#undef MINIMAL_DAYS_IN_FIRST_WEEK
+#undef OVERRIDE_BUILDER
+#undef ROOT
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -336,7 +336,7 @@ $String* CalendarDataUtility::normalizeCalendarType($String* requestID) {
 	bool var$0 = $nc(requestID)->equals("gregorian"_s);
 	if (var$0 || $nc(requestID)->equals("iso8601"_s)) {
 		$assign(type, "gregory"_s);
-	} else if ($nc(requestID)->startsWith("islamic"_s)) {
+	} else if (requestID->startsWith("islamic"_s)) {
 		$assign(type, "islamic"_s);
 	} else {
 		$assign(type, requestID);

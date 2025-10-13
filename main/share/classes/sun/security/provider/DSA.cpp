@@ -40,10 +40,10 @@
 #include <sun/security/util/DerValue.h>
 #include <jcpp.h>
 
-#undef DSA
-#undef BLINDING_CONSTANT
-#undef ONE
 #undef BLINDING_BITS
+#undef BLINDING_CONSTANT
+#undef DSA
+#undef ONE
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

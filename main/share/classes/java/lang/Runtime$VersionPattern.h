@@ -5,28 +5,28 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("BUILD")
+#undef BUILD
+#pragma push_macro("BUILD_GROUP")
+#undef BUILD_GROUP
+#pragma push_macro("OPT")
+#undef OPT
+#pragma push_macro("OPT_GROUP")
+#undef OPT_GROUP
+#pragma push_macro("PLUS_GROUP")
+#undef PLUS_GROUP
+#pragma push_macro("PRE")
+#undef PRE
+#pragma push_macro("PRE_GROUP")
+#undef PRE_GROUP
+#pragma push_macro("VNUM")
+#undef VNUM
+#pragma push_macro("VNUM_GROUP")
+#undef VNUM_GROUP
 #pragma push_macro("VSTR_FORMAT")
 #undef VSTR_FORMAT
 #pragma push_macro("VSTR_PATTERN")
 #undef VSTR_PATTERN
-#pragma push_macro("OPT_GROUP")
-#undef OPT_GROUP
-#pragma push_macro("PRE")
-#undef PRE
-#pragma push_macro("OPT")
-#undef OPT
-#pragma push_macro("PLUS_GROUP")
-#undef PLUS_GROUP
-#pragma push_macro("VNUM_GROUP")
-#undef VNUM_GROUP
-#pragma push_macro("BUILD_GROUP")
-#undef BUILD_GROUP
-#pragma push_macro("BUILD")
-#undef BUILD
-#pragma push_macro("VNUM")
-#undef VNUM
-#pragma push_macro("PRE_GROUP")
-#undef PRE_GROUP
 
 namespace java {
 	namespace util {
@@ -60,16 +60,16 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("BUILD")
+#pragma pop_macro("BUILD_GROUP")
+#pragma pop_macro("OPT")
+#pragma pop_macro("OPT_GROUP")
+#pragma pop_macro("PLUS_GROUP")
+#pragma pop_macro("PRE")
+#pragma pop_macro("PRE_GROUP")
+#pragma pop_macro("VNUM")
+#pragma pop_macro("VNUM_GROUP")
 #pragma pop_macro("VSTR_FORMAT")
 #pragma pop_macro("VSTR_PATTERN")
-#pragma pop_macro("OPT_GROUP")
-#pragma pop_macro("PRE")
-#pragma pop_macro("OPT")
-#pragma pop_macro("PLUS_GROUP")
-#pragma pop_macro("VNUM_GROUP")
-#pragma pop_macro("BUILD_GROUP")
-#pragma pop_macro("BUILD")
-#pragma pop_macro("VNUM")
-#pragma pop_macro("PRE_GROUP")
 
 #endif // _java_lang_Runtime$VersionPattern_h_

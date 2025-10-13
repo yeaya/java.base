@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NO_PROPAGATE_INHERIT")
-#undef NO_PROPAGATE_INHERIT
-#pragma push_macro("FILE_INHERIT")
-#undef FILE_INHERIT
 #pragma push_macro("DIRECTORY_INHERIT")
 #undef DIRECTORY_INHERIT
+#pragma push_macro("FILE_INHERIT")
+#undef FILE_INHERIT
 #pragma push_macro("INHERIT_ONLY")
 #undef INHERIT_ONLY
+#pragma push_macro("NO_PROPAGATE_INHERIT")
+#undef NO_PROPAGATE_INHERIT
 
 namespace java {
 	namespace nio {
@@ -40,9 +40,9 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("NO_PROPAGATE_INHERIT")
-#pragma pop_macro("FILE_INHERIT")
 #pragma pop_macro("DIRECTORY_INHERIT")
+#pragma pop_macro("FILE_INHERIT")
 #pragma pop_macro("INHERIT_ONLY")
+#pragma pop_macro("NO_PROPAGATE_INHERIT")
 
 #endif // _java_nio_file_attribute_AclEntryFlag_h_

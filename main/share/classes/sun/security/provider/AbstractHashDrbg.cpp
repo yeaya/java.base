@@ -18,8 +18,8 @@
 #include <sun/security/util/HexDumpEncoder.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef DEFAULT_STRENGTH
+#undef ROOT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

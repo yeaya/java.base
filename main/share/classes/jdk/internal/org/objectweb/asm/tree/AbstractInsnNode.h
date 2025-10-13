@@ -5,38 +5,38 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("INT_INSN")
-#undef INT_INSN
-#pragma push_macro("INSN")
-#undef INSN
-#pragma push_macro("LDC_INSN")
-#undef LDC_INSN
 #pragma push_macro("FIELD_INSN")
 #undef FIELD_INSN
 #pragma push_macro("FRAME")
 #undef FRAME
-#pragma push_macro("TYPE_INSN")
-#undef TYPE_INSN
-#pragma push_macro("METHOD_INSN")
-#undef METHOD_INSN
-#pragma push_macro("LOOKUPSWITCH_INSN")
-#undef LOOKUPSWITCH_INSN
-#pragma push_macro("INVOKE_DYNAMIC_INSN")
-#undef INVOKE_DYNAMIC_INSN
-#pragma push_macro("LINE")
-#undef LINE
-#pragma push_macro("TABLESWITCH_INSN")
-#undef TABLESWITCH_INSN
-#pragma push_macro("LABEL")
-#undef LABEL
 #pragma push_macro("IINC_INSN")
 #undef IINC_INSN
-#pragma push_macro("MULTIANEWARRAY_INSN")
-#undef MULTIANEWARRAY_INSN
-#pragma push_macro("VAR_INSN")
-#undef VAR_INSN
+#pragma push_macro("INSN")
+#undef INSN
+#pragma push_macro("INT_INSN")
+#undef INT_INSN
+#pragma push_macro("INVOKE_DYNAMIC_INSN")
+#undef INVOKE_DYNAMIC_INSN
 #pragma push_macro("JUMP_INSN")
 #undef JUMP_INSN
+#pragma push_macro("LABEL")
+#undef LABEL
+#pragma push_macro("LDC_INSN")
+#undef LDC_INSN
+#pragma push_macro("LINE")
+#undef LINE
+#pragma push_macro("LOOKUPSWITCH_INSN")
+#undef LOOKUPSWITCH_INSN
+#pragma push_macro("METHOD_INSN")
+#undef METHOD_INSN
+#pragma push_macro("MULTIANEWARRAY_INSN")
+#undef MULTIANEWARRAY_INSN
+#pragma push_macro("TABLESWITCH_INSN")
+#undef TABLESWITCH_INSN
+#pragma push_macro("TYPE_INSN")
+#undef TYPE_INSN
+#pragma push_macro("VAR_INSN")
+#undef VAR_INSN
 
 namespace java {
 	namespace util {
@@ -123,21 +123,21 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("INT_INSN")
-#pragma pop_macro("INSN")
-#pragma pop_macro("LDC_INSN")
 #pragma pop_macro("FIELD_INSN")
 #pragma pop_macro("FRAME")
-#pragma pop_macro("TYPE_INSN")
-#pragma pop_macro("METHOD_INSN")
-#pragma pop_macro("LOOKUPSWITCH_INSN")
-#pragma pop_macro("INVOKE_DYNAMIC_INSN")
-#pragma pop_macro("LINE")
-#pragma pop_macro("TABLESWITCH_INSN")
-#pragma pop_macro("LABEL")
 #pragma pop_macro("IINC_INSN")
-#pragma pop_macro("MULTIANEWARRAY_INSN")
-#pragma pop_macro("VAR_INSN")
+#pragma pop_macro("INSN")
+#pragma pop_macro("INT_INSN")
+#pragma pop_macro("INVOKE_DYNAMIC_INSN")
 #pragma pop_macro("JUMP_INSN")
+#pragma pop_macro("LABEL")
+#pragma pop_macro("LDC_INSN")
+#pragma pop_macro("LINE")
+#pragma pop_macro("LOOKUPSWITCH_INSN")
+#pragma pop_macro("METHOD_INSN")
+#pragma pop_macro("MULTIANEWARRAY_INSN")
+#pragma pop_macro("TABLESWITCH_INSN")
+#pragma pop_macro("TYPE_INSN")
+#pragma pop_macro("VAR_INSN")
 
 #endif // _jdk_internal_org_objectweb_asm$_tree_AbstractInsnNode_h_

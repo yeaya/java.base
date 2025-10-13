@@ -29,11 +29,11 @@
 #include <jcpp.h>
 
 #undef FLAG_BRIDGES
-#undef S
-#undef V
 #undef I
-#undef TYPE
 #undef O
+#undef S
+#undef TYPE
+#undef V
 
 using $LambdaReturn$I = ::LambdaReturn$I;
 using $PrintStream = ::java::io::PrintStream;

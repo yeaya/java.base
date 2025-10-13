@@ -33,115 +33,115 @@
 #include <jdk/internal/org/objectweb/asm/commons/TableSwitchGenerator.h>
 #include <jcpp.h>
 
-#undef POP2
-#undef ARRAYLENGTH
-#undef INTEGER_TYPE
-#undef IF_ICMPLT
-#undef MONITORENTER
-#undef USHR
-#undef PUTSTATIC
-#undef ALOAD
-#undef DUP2
-#undef BYTE
-#undef SUB
-#undef DCONST_0
-#undef ASM8
-#undef BIPUSH
-#undef POP
-#undef IRETURN
-#undef LCONST_0
-#undef IF_ICMPLE
-#undef SHORT_TYPE
-#undef XOR
-#undef FCONST_0
-#undef INVOKEVIRTUAL
-#undef INT_VALUE
-#undef DOUBLE_TYPE
-#undef ACC_STATIC
-#undef GOTO
-#undef CHAR
-#undef MAX_VALUE
-#undef FLOAT_TYPE
-#undef ISTORE
-#undef IF_ACMPEQ
-#undef CLASS_DESCRIPTOR
-#undef ACONST_NULL
-#undef DOUBLE
-#undef IF_ACMPNE
-#undef LONG
-#undef NUMBER_TYPE
-#undef INVOKESTATIC
-#undef LONG_TYPE
-#undef PUTFIELD
-#undef DIV
-#undef IXOR
-#undef NEG
-#undef CHAR_VALUE
-#undef ICONST_0
-#undef ICONST_1
-#undef INVOKEINTERFACE
-#undef LE
-#undef LCMP
-#undef REM
-#undef RET
-#undef ADD
-#undef NEW
-#undef INSTANCEOF
-#undef ARRAY
-#undef ILOAD
-#undef BYTE_TYPE
-#undef LT
-#undef VOID_TYPE
-#undef ATHROW
-#undef IFNONNULL
-#undef LONG_VALUE
-#undef SHL
-#undef SHR
-#undef CHARACTER_TYPE
-#undef IF_ICMPGT
-#undef MUL
-#undef EQ
-#undef OBJECT
-#undef FLOAT_VALUE
-#undef BOOLEAN
-#undef GETFIELD
-#undef SWAP
-#undef IFNULL
-#undef AND
-#undef NE
-#undef IALOAD
-#undef SIPUSH
-#undef GETSTATIC
-#undef VOID
-#undef INT_TYPE
-#undef FLOAT
 #undef ACC_ABSTRACT
+#undef ACC_STATIC
+#undef ACONST_NULL
+#undef ADD
+#undef ALOAD
+#undef AND
+#undef ARRAY
+#undef ARRAYLENGTH
+#undef ASM8
+#undef ATHROW
+#undef BIPUSH
+#undef BOOLEAN
+#undef BOOLEAN_TYPE
+#undef BOOLEAN_VALUE
+#undef BYTE
+#undef BYTE_TYPE
+#undef CHAR
+#undef CHARACTER_TYPE
+#undef CHAR_VALUE
 #undef CHECKCAST
+#undef CLASS_DESCRIPTOR
+#undef DCMPG
+#undef DCMPL
+#undef DCONST_0
+#undef DIV
+#undef DOUBLE
+#undef DOUBLE_TYPE
 #undef DOUBLE_VALUE
-#undef OBJECT_TYPE
-#undef INT
-#undef IF_ICMPGE
-#undef DUP2_X2
-#undef DUP2_X1
-#undef FCMPL
-#undef MONITOREXIT
-#undef FCMPG
-#undef GE
 #undef DUP
-#undef OR
-#undef IASTORE
+#undef DUP2
+#undef DUP2_X1
+#undef DUP2_X2
 #undef DUP_X1
 #undef DUP_X2
-#undef IF_ICMPEQ
-#undef BOOLEAN_TYPE
-#undef MIN_VALUE
-#undef INVOKESPECIAL
+#undef EQ
+#undef FCMPG
+#undef FCMPL
+#undef FCONST_0
+#undef FLOAT
+#undef FLOAT_TYPE
+#undef FLOAT_VALUE
+#undef GE
+#undef GETFIELD
+#undef GETSTATIC
+#undef GOTO
 #undef GT
-#undef BOOLEAN_VALUE
-#undef SHORT
-#undef DCMPL
-#undef DCMPG
+#undef IALOAD
+#undef IASTORE
+#undef ICONST_0
+#undef ICONST_1
+#undef IFNONNULL
+#undef IFNULL
+#undef IF_ACMPEQ
+#undef IF_ACMPNE
+#undef IF_ICMPEQ
+#undef IF_ICMPGE
+#undef IF_ICMPGT
+#undef IF_ICMPLE
+#undef IF_ICMPLT
 #undef IF_ICMPNE
+#undef ILOAD
+#undef INSTANCEOF
+#undef INT
+#undef INTEGER_TYPE
+#undef INT_TYPE
+#undef INT_VALUE
+#undef INVOKEINTERFACE
+#undef INVOKESPECIAL
+#undef INVOKESTATIC
+#undef INVOKEVIRTUAL
+#undef IRETURN
+#undef ISTORE
+#undef IXOR
+#undef LCMP
+#undef LCONST_0
+#undef LE
+#undef LONG
+#undef LONG_TYPE
+#undef LONG_VALUE
+#undef LT
+#undef MAX_VALUE
+#undef MIN_VALUE
+#undef MONITORENTER
+#undef MONITOREXIT
+#undef MUL
+#undef NE
+#undef NEG
+#undef NEW
+#undef NUMBER_TYPE
+#undef OBJECT
+#undef OBJECT_TYPE
+#undef OR
+#undef POP
+#undef POP2
+#undef PUTFIELD
+#undef PUTSTATIC
+#undef REM
+#undef RET
+#undef SHL
+#undef SHORT
+#undef SHORT_TYPE
+#undef SHR
+#undef SIPUSH
+#undef SUB
+#undef SWAP
+#undef USHR
+#undef VOID
+#undef VOID_TYPE
+#undef XOR
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
@@ -661,7 +661,7 @@ void GeneratorAdapter::swap($Type* prev, $Type* type) {
 			dupX2();
 			pop();
 		}
-	} else if ($nc(prev)->getSize() == 1) {
+	} else if (prev->getSize() == 1) {
 		dup2X1();
 		pop2();
 	} else {
@@ -1031,7 +1031,7 @@ void GeneratorAdapter::putField($Type* owner, $String* name, $Type* type) {
 }
 
 void GeneratorAdapter::invokeInsn(int32_t opcode, $Type* type, $Method* method, bool isInterface) {
-	$var($String, owner, $nc(type)->getSort() == $Type::ARRAY ? $nc(type)->getDescriptor() : type->getInternalName());
+	$var($String, owner, type->getSort() == $Type::ARRAY ? type->getDescriptor() : type->getInternalName());
 	int32_t var$0 = opcode;
 	$var($String, var$1, owner);
 	$var($String, var$2, $nc(method)->getName());
@@ -1059,7 +1059,7 @@ void GeneratorAdapter::invokeDynamic($String* name, $String* descriptor, $Handle
 }
 
 void GeneratorAdapter::typeInsn(int32_t opcode, $Type* type) {
-	$nc(this->mv)->visitTypeInsn(opcode, $($nc(type)->getInternalName()));
+	$nc(this->mv)->visitTypeInsn(opcode, $(type->getInternalName()));
 }
 
 void GeneratorAdapter::newInstance($Type* type) {
@@ -1087,7 +1087,7 @@ void GeneratorAdapter::throwException($Type* type, $String* message) {
 }
 
 void GeneratorAdapter::checkCast($Type* type) {
-	if (!$nc(type)->equals(GeneratorAdapter::OBJECT_TYPE)) {
+	if (!type->equals(GeneratorAdapter::OBJECT_TYPE)) {
 		typeInsn($Opcodes::CHECKCAST, type);
 	}
 }

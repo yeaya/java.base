@@ -54,13 +54,13 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask.h>
 #include <jcpp.h>
 
-#undef OFFSETOF_LEN
-#undef ST_PENDING
-#undef SIZEOF_WSABUFARRAY
 #undef MAX_WSABUF
-#undef ST_CONNECTED
-#undef SIZEOF_WSABUF
 #undef OFFSETOF_BUF
+#undef OFFSETOF_LEN
+#undef SIZEOF_WSABUF
+#undef SIZEOF_WSABUFARRAY
+#undef ST_CONNECTED
+#undef ST_PENDING
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $FileDescriptor = ::java::io::FileDescriptor;

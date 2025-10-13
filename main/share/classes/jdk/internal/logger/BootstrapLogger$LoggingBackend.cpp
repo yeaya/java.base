@@ -13,10 +13,10 @@
 #include <jdk/internal/logger/BootstrapLogger.h>
 #include <jcpp.h>
 
-#undef JUL_WITH_CONFIG
 #undef CUSTOM
-#undef NONE
 #undef JUL_DEFAULT
+#undef JUL_WITH_CONFIG
+#undef NONE
 
 using $BootstrapLogger$LoggingBackendArray = $Array<::jdk::internal::logger::BootstrapLogger$LoggingBackend>;
 using $ClassInfo = ::java::lang::ClassInfo;

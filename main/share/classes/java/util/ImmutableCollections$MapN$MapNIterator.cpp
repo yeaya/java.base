@@ -16,8 +16,8 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-#undef SALT32L
 #undef REVERSE
+#undef SALT32L
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

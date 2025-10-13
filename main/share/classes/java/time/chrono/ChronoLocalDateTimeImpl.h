@@ -7,30 +7,30 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/ChronoLocalDateTime.h>
 
-#pragma push_macro("NANOS_PER_HOUR")
-#undef NANOS_PER_HOUR
-#pragma push_macro("MINUTES_PER_DAY")
-#undef MINUTES_PER_DAY
-#pragma push_macro("SECONDS_PER_MINUTE")
-#undef SECONDS_PER_MINUTE
-#pragma push_macro("SECONDS_PER_HOUR")
-#undef SECONDS_PER_HOUR
-#pragma push_macro("SECONDS_PER_DAY")
-#undef SECONDS_PER_DAY
-#pragma push_macro("NANOS_PER_SECOND")
-#undef NANOS_PER_SECOND
-#pragma push_macro("NANOS_PER_MINUTE")
-#undef NANOS_PER_MINUTE
-#pragma push_macro("NANOS_PER_DAY")
-#undef NANOS_PER_DAY
+#pragma push_macro("HOURS_PER_DAY")
+#undef HOURS_PER_DAY
 #pragma push_macro("MICROS_PER_DAY")
 #undef MICROS_PER_DAY
 #pragma push_macro("MILLIS_PER_DAY")
 #undef MILLIS_PER_DAY
+#pragma push_macro("MINUTES_PER_DAY")
+#undef MINUTES_PER_DAY
 #pragma push_macro("MINUTES_PER_HOUR")
 #undef MINUTES_PER_HOUR
-#pragma push_macro("HOURS_PER_DAY")
-#undef HOURS_PER_DAY
+#pragma push_macro("NANOS_PER_DAY")
+#undef NANOS_PER_DAY
+#pragma push_macro("NANOS_PER_HOUR")
+#undef NANOS_PER_HOUR
+#pragma push_macro("NANOS_PER_MINUTE")
+#undef NANOS_PER_MINUTE
+#pragma push_macro("NANOS_PER_SECOND")
+#undef NANOS_PER_SECOND
+#pragma push_macro("SECONDS_PER_DAY")
+#undef SECONDS_PER_DAY
+#pragma push_macro("SECONDS_PER_HOUR")
+#undef SECONDS_PER_HOUR
+#pragma push_macro("SECONDS_PER_MINUTE")
+#undef SECONDS_PER_MINUTE
 
 namespace java {
 	namespace io {
@@ -128,17 +128,17 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("NANOS_PER_HOUR")
-#pragma pop_macro("MINUTES_PER_DAY")
-#pragma pop_macro("SECONDS_PER_MINUTE")
-#pragma pop_macro("SECONDS_PER_HOUR")
-#pragma pop_macro("SECONDS_PER_DAY")
-#pragma pop_macro("NANOS_PER_SECOND")
-#pragma pop_macro("NANOS_PER_MINUTE")
-#pragma pop_macro("NANOS_PER_DAY")
+#pragma pop_macro("HOURS_PER_DAY")
 #pragma pop_macro("MICROS_PER_DAY")
 #pragma pop_macro("MILLIS_PER_DAY")
+#pragma pop_macro("MINUTES_PER_DAY")
 #pragma pop_macro("MINUTES_PER_HOUR")
-#pragma pop_macro("HOURS_PER_DAY")
+#pragma pop_macro("NANOS_PER_DAY")
+#pragma pop_macro("NANOS_PER_HOUR")
+#pragma pop_macro("NANOS_PER_MINUTE")
+#pragma pop_macro("NANOS_PER_SECOND")
+#pragma pop_macro("SECONDS_PER_DAY")
+#pragma pop_macro("SECONDS_PER_HOUR")
+#pragma pop_macro("SECONDS_PER_MINUTE")
 
 #endif // _java_time_chrono_ChronoLocalDateTimeImpl_h_

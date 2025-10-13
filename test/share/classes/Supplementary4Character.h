@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("MAX_HIGH")
+#undef MAX_HIGH
+#pragma push_macro("MAX_LOW")
+#undef MAX_LOW
 #pragma push_macro("MAX_SUPPLEMENTARY")
 #undef MAX_SUPPLEMENTARY
 #pragma push_macro("MIN_CODE_POINT")
 #undef MIN_CODE_POINT
-#pragma push_macro("MAX_LOW")
-#undef MAX_LOW
 #pragma push_macro("MIN_HIGH")
 #undef MIN_HIGH
-#pragma push_macro("MAX_HIGH")
-#undef MAX_HIGH
 #pragma push_macro("MIN_LOW")
 #undef MIN_LOW
 #pragma push_macro("MIN_SUPPLEMENTARY")
@@ -72,11 +72,11 @@ public:
 	static const bool Before = false;
 };
 
+#pragma pop_macro("MAX_HIGH")
+#pragma pop_macro("MAX_LOW")
 #pragma pop_macro("MAX_SUPPLEMENTARY")
 #pragma pop_macro("MIN_CODE_POINT")
-#pragma pop_macro("MAX_LOW")
 #pragma pop_macro("MIN_HIGH")
-#pragma pop_macro("MAX_HIGH")
 #pragma pop_macro("MIN_LOW")
 #pragma pop_macro("MIN_SUPPLEMENTARY")
 

@@ -5,20 +5,20 @@
 
 #include <java/lang/Thread.h>
 
-#pragma push_macro("INHERITEDACCESSCONTROLCONTEXT")
-#undef INHERITEDACCESSCONTROLCONTEXT
 #pragma push_macro("ACC")
 #undef ACC
 #pragma push_macro("CONTEXTCLASSLOADER")
 #undef CONTEXTCLASSLOADER
-#pragma push_macro("THREAD_LOCALS")
-#undef THREAD_LOCALS
 #pragma push_macro("INHERITABLE_THREAD_LOCALS")
 #undef INHERITABLE_THREAD_LOCALS
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
+#pragma push_macro("INHERITEDACCESSCONTROLCONTEXT")
+#undef INHERITEDACCESSCONTROLCONTEXT
 #pragma push_macro("INNOCUOUSTHREADGROUP")
 #undef INNOCUOUSTHREADGROUP
+#pragma push_macro("THREAD_LOCALS")
+#undef THREAD_LOCALS
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace java {
 	namespace lang {
@@ -86,12 +86,12 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("INHERITEDACCESSCONTROLCONTEXT")
 #pragma pop_macro("ACC")
 #pragma pop_macro("CONTEXTCLASSLOADER")
-#pragma pop_macro("THREAD_LOCALS")
 #pragma pop_macro("INHERITABLE_THREAD_LOCALS")
-#pragma pop_macro("UNSAFE")
+#pragma pop_macro("INHERITEDACCESSCONTROLCONTEXT")
 #pragma pop_macro("INNOCUOUSTHREADGROUP")
+#pragma pop_macro("THREAD_LOCALS")
+#pragma pop_macro("UNSAFE")
 
 #endif // _jdk_internal_misc_InnocuousThread_h_

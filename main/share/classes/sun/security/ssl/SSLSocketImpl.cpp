@@ -71,18 +71,18 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef CLIENT_AUTH_REQUESTED
-#undef CLIENT_AUTH_REQUIRED
-#undef HANDSHAKE_FAILURE
-#undef SECONDS
-#undef CLOSE_NOTIFY
-#undef PLAINTEXT_NULL
-#undef INTERNAL_ERROR
-#undef HANDSHAKE
-#undef USER_CANCELED
 #undef APPLICATION_DATA
 #undef CLIENT_AUTH_NONE
+#undef CLIENT_AUTH_REQUESTED
+#undef CLIENT_AUTH_REQUIRED
+#undef CLOSE_NOTIFY
+#undef HANDSHAKE
+#undef HANDSHAKE_FAILURE
+#undef INTERNAL_ERROR
+#undef PLAINTEXT_NULL
+#undef SECONDS
 #undef UNEXPECTED_MESSAGE
+#undef USER_CANCELED
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $EOFException = ::java::io::EOFException;

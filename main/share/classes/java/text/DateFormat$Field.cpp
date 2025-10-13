@@ -20,27 +20,27 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef HOUR_OF_DAY0
-#undef DAY_OF_YEAR
-#undef MONTH
-#undef HOUR_OF_DAY1
-#undef DAY_OF_MONTH
-#undef HOUR
-#undef WEEK_OF_MONTH
 #undef AM_PM
-#undef DAY_OF_WEEK_IN_MONTH
-#undef TIME_ZONE
-#undef YEAR
-#undef WEEK_OF_YEAR
-#undef FIELD_COUNT
-#undef ERA
-#undef HOUR_OF_DAY
-#undef HOUR1
-#undef HOUR0
-#undef MINUTE
-#undef SECOND
-#undef MILLISECOND
+#undef DAY_OF_MONTH
 #undef DAY_OF_WEEK
+#undef DAY_OF_WEEK_IN_MONTH
+#undef DAY_OF_YEAR
+#undef ERA
+#undef FIELD_COUNT
+#undef HOUR
+#undef HOUR0
+#undef HOUR1
+#undef HOUR_OF_DAY
+#undef HOUR_OF_DAY0
+#undef HOUR_OF_DAY1
+#undef MILLISECOND
+#undef MINUTE
+#undef MONTH
+#undef SECOND
+#undef TIME_ZONE
+#undef WEEK_OF_MONTH
+#undef WEEK_OF_YEAR
+#undef YEAR
 
 using $DateFormat$FieldArray = $Array<::java::text::DateFormat$Field>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

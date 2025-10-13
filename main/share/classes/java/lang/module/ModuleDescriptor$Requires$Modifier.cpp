@@ -14,10 +14,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRANSITIVE
-#undef SYNTHETIC
 #undef MANDATED
 #undef STATIC
+#undef SYNTHETIC
+#undef TRANSITIVE
 
 using $ModuleDescriptor$Requires$ModifierArray = $Array<::java::lang::module::ModuleDescriptor$Requires$Modifier>;
 using $ClassInfo = ::java::lang::ClassInfo;

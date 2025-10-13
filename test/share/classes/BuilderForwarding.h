@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("A_STRING_VAL")
-#undef A_STRING_VAL
 #pragma push_macro("A_STRING_BUFFER_VAL")
 #undef A_STRING_BUFFER_VAL
 #pragma push_macro("A_STRING_BUILDER_VAL")
 #undef A_STRING_BUILDER_VAL
+#pragma push_macro("A_STRING_VAL")
+#undef A_STRING_VAL
 #pragma push_macro("NON_EMPTY_VAL")
 #undef NON_EMPTY_VAL
 
@@ -44,9 +44,9 @@ public:
 	static $String* NON_EMPTY_VAL;
 };
 
-#pragma pop_macro("A_STRING_VAL")
 #pragma pop_macro("A_STRING_BUFFER_VAL")
 #pragma pop_macro("A_STRING_BUILDER_VAL")
+#pragma pop_macro("A_STRING_VAL")
 #pragma pop_macro("NON_EMPTY_VAL")
 
 #endif // _BuilderForwarding_h_

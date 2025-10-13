@@ -52,12 +52,12 @@
 #include <jcpp.h>
 
 #undef CACHED_EXECUTORSERVICE
-#undef READ
 #undef EMPTY_RECORD
+#undef READ
+#undef READ_WRITE
 #undef REPLACE_EXISTING
 #undef TMPDIR
 #undef WRITE
-#undef READ_WRITE
 
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;

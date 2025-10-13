@@ -6,36 +6,36 @@
 #include <java/lang/Array.h>
 #include <sun/nio/fs/AbstractPoller.h>
 
-#pragma push_macro("IN_IGNORED")
-#undef IN_IGNORED
+#pragma push_macro("BUFFER_SIZE")
+#undef BUFFER_SIZE
 #pragma push_macro("IN_ATTRIB")
 #undef IN_ATTRIB
-#pragma push_macro("OFFSETOF_MASK")
-#undef OFFSETOF_MASK
-#pragma push_macro("SIZEOF_INOTIFY_EVENT")
-#undef SIZEOF_INOTIFY_EVENT
-#pragma push_macro("IN_DELETE")
-#undef IN_DELETE
-#pragma push_macro("OFFSETOF_NAME")
-#undef OFFSETOF_NAME
-#pragma push_macro("IN_UNMOUNT")
-#undef IN_UNMOUNT
-#pragma push_macro("OFFSETOF_LEN")
-#undef OFFSETOF_LEN
-#pragma push_macro("IN_MOVED_TO")
-#undef IN_MOVED_TO
 #pragma push_macro("IN_CREATE")
 #undef IN_CREATE
+#pragma push_macro("IN_DELETE")
+#undef IN_DELETE
+#pragma push_macro("IN_IGNORED")
+#undef IN_IGNORED
 #pragma push_macro("IN_MODIFY")
 #undef IN_MODIFY
 #pragma push_macro("IN_MOVED_FROM")
 #undef IN_MOVED_FROM
-#pragma push_macro("OFFSETOF_WD")
-#undef OFFSETOF_WD
-#pragma push_macro("BUFFER_SIZE")
-#undef BUFFER_SIZE
+#pragma push_macro("IN_MOVED_TO")
+#undef IN_MOVED_TO
 #pragma push_macro("IN_Q_OVERFLOW")
 #undef IN_Q_OVERFLOW
+#pragma push_macro("IN_UNMOUNT")
+#undef IN_UNMOUNT
+#pragma push_macro("OFFSETOF_LEN")
+#undef OFFSETOF_LEN
+#pragma push_macro("OFFSETOF_MASK")
+#undef OFFSETOF_MASK
+#pragma push_macro("OFFSETOF_NAME")
+#undef OFFSETOF_NAME
+#pragma push_macro("OFFSETOF_WD")
+#undef OFFSETOF_WD
+#pragma push_macro("SIZEOF_INOTIFY_EVENT")
+#undef SIZEOF_INOTIFY_EVENT
 
 namespace java {
 	namespace nio {
@@ -107,20 +107,20 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("IN_IGNORED")
+#pragma pop_macro("BUFFER_SIZE")
 #pragma pop_macro("IN_ATTRIB")
-#pragma pop_macro("OFFSETOF_MASK")
-#pragma pop_macro("SIZEOF_INOTIFY_EVENT")
-#pragma pop_macro("IN_DELETE")
-#pragma pop_macro("OFFSETOF_NAME")
-#pragma pop_macro("IN_UNMOUNT")
-#pragma pop_macro("OFFSETOF_LEN")
-#pragma pop_macro("IN_MOVED_TO")
 #pragma pop_macro("IN_CREATE")
+#pragma pop_macro("IN_DELETE")
+#pragma pop_macro("IN_IGNORED")
 #pragma pop_macro("IN_MODIFY")
 #pragma pop_macro("IN_MOVED_FROM")
-#pragma pop_macro("OFFSETOF_WD")
-#pragma pop_macro("BUFFER_SIZE")
+#pragma pop_macro("IN_MOVED_TO")
 #pragma pop_macro("IN_Q_OVERFLOW")
+#pragma pop_macro("IN_UNMOUNT")
+#pragma pop_macro("OFFSETOF_LEN")
+#pragma pop_macro("OFFSETOF_MASK")
+#pragma pop_macro("OFFSETOF_NAME")
+#pragma pop_macro("OFFSETOF_WD")
+#pragma pop_macro("SIZEOF_INOTIFY_EVENT")
 
 #endif // _sun_nio_fs_LinuxWatchService$Poller_h_

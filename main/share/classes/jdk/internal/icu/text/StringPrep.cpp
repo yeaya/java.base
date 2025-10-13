@@ -31,35 +31,35 @@
 #include <sun/text/Normalizer.h>
 #include <jcpp.h>
 
-#undef NORMALIZATION_ON
-#undef PROHIBITED
-#undef LEFT_TO_RIGHT
-#undef DELETE
+#undef ALLOW_UNASSIGNED
+#undef CHAR_DIRECTION_COUNT
 #undef CHECK_BIDI_ON
-#undef RIGHT_TO_LEFT_ARABIC
+#undef DATA_BUFFER_SIZE
+#undef DEFAULT
+#undef DELETE
+#undef DONE
+#undef FOUR_UCHARS_MAPPING_INDEX_START
+#undef INDEX_MAPPING_DATA_SIZE
+#undef INDEX_TOP
+#undef INDEX_TRIE_SIZE
+#undef LEFT_TO_RIGHT
+#undef MAP
 #undef MAX_INDEX_TOP_LENGTH
 #undef MAX_INDEX_VALUE
-#undef ONE_UCHAR_MAPPING_INDEX_START
-#undef INDEX_TOP
-#undef DATA_BUFFER_SIZE
-#undef TWO_UCHARS_MAPPING_INDEX_START
-#undef DONE
-#undef THREE_UCHARS_MAPPING_INDEX_START
+#undef NFKC
+#undef NORMALIZATION_ON
 #undef NORM_CORRECTNS_LAST_UNI_VERSION
-#undef TYPE_LIMIT
+#undef ONE_UCHAR_MAPPING_INDEX_START
 #undef OPTIONS
-#undef CHAR_DIRECTION_COUNT
-#undef INDEX_MAPPING_DATA_SIZE
+#undef PROHIBITED
+#undef RIGHT_TO_LEFT
+#undef RIGHT_TO_LEFT_ARABIC
+#undef THREE_UCHARS_MAPPING_INDEX_START
+#undef TWO_UCHARS_MAPPING_INDEX_START
+#undef TYPE_LIMIT
 #undef TYPE_THRESHOLD
 #undef UNASSIGNED
-#undef NFKC
 #undef UNICODE_3_2
-#undef INDEX_TRIE_SIZE
-#undef ALLOW_UNASSIGNED
-#undef FOUR_UCHARS_MAPPING_INDEX_START
-#undef RIGHT_TO_LEFT
-#undef MAP
-#undef DEFAULT
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
@@ -208,9 +208,9 @@ void StringPrep::getValues(char16_t trieWord, $StringPrep$Values* values) {
 	if (trieWord == 0) {
 		values->type = StringPrep::TYPE_LIMIT;
 	} else if (trieWord >= StringPrep::TYPE_THRESHOLD) {
-		$nc(values)->type = (trieWord - StringPrep::TYPE_THRESHOLD);
+		values->type = (trieWord - StringPrep::TYPE_THRESHOLD);
 	} else {
-		$nc(values)->type = StringPrep::MAP;
+		values->type = StringPrep::MAP;
 		if (((int32_t)(trieWord & (uint32_t)2)) > 0) {
 			values->isIndex = true;
 			values->value = trieWord >> 2;
@@ -239,7 +239,7 @@ $StringBuffer* StringPrep::map($UCharacterIterator* iter, int32_t options) {
 		if (val->type == StringPrep::UNASSIGNED && allowUnassigned == false) {
 			$var($String, var$0, $str({"An unassigned code point was found in the input "_s, $(iter->getText())}));
 			$throwNew($ParseException, var$0, iter->getIndex());
-		} else if ($nc(val)->type == StringPrep::MAP) {
+		} else if (val->type == StringPrep::MAP) {
 			int32_t index = 0;
 			int32_t length = 0;
 			if (val->isIndex) {
@@ -253,12 +253,12 @@ $StringBuffer* StringPrep::map($UCharacterIterator* iter, int32_t options) {
 				} else {
 					length = $nc(this->mappingData)->get(index++);
 				}
-				$nc(dest)->append(this->mappingData, index, length);
+				dest->append(this->mappingData, index, length);
 				continue;
 			} else {
 				ch -= val->value;
 			}
-		} else if ($nc(val)->type == StringPrep::DELETE) {
+		} else if (val->type == StringPrep::DELETE) {
 			continue;
 		}
 		$UTF16::append(dest, ch);

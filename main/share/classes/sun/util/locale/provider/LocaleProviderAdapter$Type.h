@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("FALLBACK")
-#undef FALLBACK
+#pragma push_macro("CLASSNAME")
+#undef CLASSNAME
 #pragma push_macro("CLDR")
 #undef CLDR
+#pragma push_macro("FALLBACK")
+#undef FALLBACK
 #pragma push_macro("HOST")
 #undef HOST
 #pragma push_macro("JRE")
 #undef JRE
-#pragma push_macro("CLASSNAME")
-#undef CLASSNAME
 #pragma push_macro("SPI")
 #undef SPI
-#pragma push_macro("UTIL_RESOURCES_PACKAGE")
-#undef UTIL_RESOURCES_PACKAGE
 #pragma push_macro("TEXT_RESOURCES_PACKAGE")
 #undef TEXT_RESOURCES_PACKAGE
+#pragma push_macro("UTIL_RESOURCES_PACKAGE")
+#undef UTIL_RESOURCES_PACKAGE
 
 namespace sun {
 	namespace util {
@@ -56,13 +56,13 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("FALLBACK")
+#pragma pop_macro("CLASSNAME")
 #pragma pop_macro("CLDR")
+#pragma pop_macro("FALLBACK")
 #pragma pop_macro("HOST")
 #pragma pop_macro("JRE")
-#pragma pop_macro("CLASSNAME")
 #pragma pop_macro("SPI")
-#pragma pop_macro("UTIL_RESOURCES_PACKAGE")
 #pragma pop_macro("TEXT_RESOURCES_PACKAGE")
+#pragma pop_macro("UTIL_RESOURCES_PACKAGE")
 
 #endif // _sun_util_locale_provider_LocaleProviderAdapter$Type_h_

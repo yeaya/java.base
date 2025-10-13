@@ -24,8 +24,8 @@
 #include <sun/nio/ch/SimpleAsynchronousFileChannelImpl.h>
 #include <jcpp.h>
 
-#undef LOCKED
 #undef INTERRUPTED
+#undef LOCKED
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;

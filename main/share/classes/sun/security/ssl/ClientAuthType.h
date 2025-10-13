@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CLIENT_AUTH_NONE")
+#undef CLIENT_AUTH_NONE
 #pragma push_macro("CLIENT_AUTH_REQUESTED")
 #undef CLIENT_AUTH_REQUESTED
 #pragma push_macro("CLIENT_AUTH_REQUIRED")
 #undef CLIENT_AUTH_REQUIRED
-#pragma push_macro("CLIENT_AUTH_NONE")
-#undef CLIENT_AUTH_NONE
 
 namespace sun {
 	namespace security {
@@ -35,8 +35,8 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("CLIENT_AUTH_NONE")
 #pragma pop_macro("CLIENT_AUTH_REQUESTED")
 #pragma pop_macro("CLIENT_AUTH_REQUIRED")
-#pragma pop_macro("CLIENT_AUTH_NONE")
 
 #endif // _sun_security_ssl_ClientAuthType_h_

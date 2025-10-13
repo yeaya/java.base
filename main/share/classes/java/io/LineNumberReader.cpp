@@ -14,10 +14,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef EOL
 #undef CHAR
-#undef NONE
 #undef EOF
+#undef EOL
+#undef NONE
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $Reader = ::java::io::Reader;

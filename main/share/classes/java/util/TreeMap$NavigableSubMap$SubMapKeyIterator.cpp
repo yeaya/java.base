@@ -18,9 +18,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef DISTINCT
 #undef MAX_VALUE
+#undef ORDERED
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

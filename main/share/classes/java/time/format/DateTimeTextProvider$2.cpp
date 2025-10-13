@@ -15,9 +15,9 @@
 #include <jcpp.h>
 
 #undef AMPM_OF_DAY
-#undef MONTH_OF_YEAR
-#undef ERA
 #undef DAY_OF_WEEK
+#undef ERA
+#undef MONTH_OF_YEAR
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ClassInfo = ::java::lang::ClassInfo;

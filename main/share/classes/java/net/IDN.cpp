@@ -28,12 +28,12 @@
 #include <jdk/internal/icu/text/UCharacterIterator.h>
 #include <jcpp.h>
 
-#undef MAX_LABEL_LENGTH
-#undef IDN_PROFILE
-#undef IDN
 #undef ACE_PREFIX
 #undef ACE_PREFIX_LENGTH
 #undef ALLOW_UNASSIGNED
+#undef IDN
+#undef IDN_PROFILE
+#undef MAX_LABEL_LENGTH
 #undef USE_STD3_ASCII_RULES
 
 using $IOException = ::java::io::IOException;

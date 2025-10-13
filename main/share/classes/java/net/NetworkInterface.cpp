@@ -37,9 +37,9 @@
 #include <jdk/internal/loader/BootLoader.h>
 #include <jcpp.h>
 
-#undef NONNULL
 #undef DISTINCT
 #undef IMMUTABLE
+#undef NONNULL
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $InterfaceAddressArray = $Array<::java::net::InterfaceAddress>;
@@ -292,7 +292,7 @@ NetworkInterface* NetworkInterface::getByInetAddress($InetAddress* addr) {
 		if (!($instanceOf($Inet4Address, addr))) {
 			$throwNew($IllegalArgumentException, $$str({"invalid family type: "_s, $$str($nc(addr->holder$)->family)}));
 		}
-	} else if ($nc($nc(addr)->holder$)->family == $InetAddress::IPv6) {
+	} else if ($nc(addr->holder$)->family == $InetAddress::IPv6) {
 		if (!($instanceOf($Inet6Address, addr))) {
 			$throwNew($IllegalArgumentException, $$str({"invalid family type: "_s, $$str($nc(addr->holder$)->family)}));
 		}
@@ -505,18 +505,18 @@ bool NetworkInterface::equals(Object$* obj) {
 		if (!$nc(this->name)->equals($nc(that)->name)) {
 			return false;
 		}
-	} else if ($nc(that)->name != nullptr) {
+	} else if (that->name != nullptr) {
 		return false;
 	}
 	if (this->addrs == nullptr) {
-		return $nc(that)->addrs == nullptr;
-	} else if ($nc(that)->addrs == nullptr) {
+		return that->addrs == nullptr;
+	} else if (that->addrs == nullptr) {
 		return false;
 	}
-	if ($nc(this->addrs)->length != $nc($nc(that)->addrs)->length) {
+	if ($nc(this->addrs)->length != $nc(that->addrs)->length) {
 		return false;
 	}
-	$var($InetAddressArray, thatAddrs, $nc(that)->addrs);
+	$var($InetAddressArray, thatAddrs, that->addrs);
 	int32_t count = $nc(thatAddrs)->length;
 	for (int32_t i = 0; i < count; ++i) {
 		bool found = false;

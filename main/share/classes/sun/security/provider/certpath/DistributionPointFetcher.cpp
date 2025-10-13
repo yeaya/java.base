@@ -82,21 +82,21 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef CRLCHECK
 #undef ALL_REASONS
-#undef INDIRECT_CRL
-#undef TRUE
-#undef ONLY_ATTRIBUTE_CERTS
-#undef SERIAL_NUMBER
-#undef ONLY_USER_CERTS
-#undef ONLY_CA_CERTS
-#undef VAR_PLUGIN_CODE_SIGNING
-#undef NAME_URI
-#undef REASONS
+#undef CRLCHECK
 #undef FALSE
-#undef POINTS
-#undef POINT
+#undef INDIRECT_CRL
 #undef NAME_DIRECTORY
+#undef NAME_URI
+#undef ONLY_ATTRIBUTE_CERTS
+#undef ONLY_CA_CERTS
+#undef ONLY_USER_CERTS
+#undef POINT
+#undef POINTS
+#undef REASONS
+#undef SERIAL_NUMBER
+#undef TRUE
+#undef VAR_PLUGIN_CODE_SIGNING
 
 using $RDNArray = $Array<::sun::security::x509::RDN>;
 using $IOException = ::java::io::IOException;
@@ -296,7 +296,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 			$var($GeneralNames, crlIssuers, point->getCRLIssuer());
 			if (crlIssuers == nullptr) {
 				$assign(fullName, getFullNames($cast($X500Name, $($nc(certImpl)->getIssuerDN())), relativeName));
-			} else if ($nc(crlIssuers)->size() != 1) {
+			} else if (crlIssuers->size() != 1) {
 				return $Collections::emptySet();
 			} else {
 				$assign(fullName, getFullNames($cast($X500Name, $($nc($(crlIssuers->get(0)))->getName())), relativeName));
@@ -316,11 +316,11 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 				if ($nc(name)->getType() == $GeneralNameInterface::NAME_DIRECTORY) {
 					$var($X500Name, x500Name, $cast($X500Name, name->getName()));
 					possibleCRLs->addAll($(getCRLs(x500Name, $($nc(certImpl)->getIssuerX500Principal()), certStores)));
-				} else if ($nc(name)->getType() == $GeneralNameInterface::NAME_URI) {
+				} else if (name->getType() == $GeneralNameInterface::NAME_URI) {
 					$var($URIName, uriName, $cast($URIName, name->getName()));
 					$var($X509CRL, crl, getCRL(uriName));
 					if (crl != nullptr) {
-						$nc(possibleCRLs)->add(crl);
+						possibleCRLs->add(crl);
 					}
 				}
 			} catch ($CertStoreException&) {
@@ -479,22 +479,21 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 		} else {
 			indirectCRL = true;
 		}
-	} else if ($nc(crlIssuer)->equals(certIssuer) == false) {
-		$init(DistributionPointFetcher);
+	} else if (crlIssuer->equals(certIssuer) == false) {
 		if (DistributionPointFetcher::debug != nullptr) {
 			$nc(DistributionPointFetcher::debug)->println($$str({"crl issuer does not equal cert issuer.\ncrl issuer: "_s, crlIssuer, "\ncert issuer: "_s, certIssuer}));
 		}
 		return false;
 	} else {
-		$var($KeyIdentifier, certAKID, $nc(certImpl)->getAuthKeyId());
-		$var($KeyIdentifier, crlAKID, $nc(crlImpl)->getAuthKeyId());
+		$var($KeyIdentifier, certAKID, certImpl->getAuthKeyId());
+		$var($KeyIdentifier, crlAKID, crlImpl->getAuthKeyId());
 		if (certAKID == nullptr || crlAKID == nullptr) {
 			if (issues(certImpl, crlImpl, provider)) {
 				$assign(prevKey, certImpl->getPublicKey());
 			}
-		} else if (!$nc(certAKID)->equals(crlAKID)) {
+		} else if (!certAKID->equals(crlAKID)) {
 			if (issues(certImpl, crlImpl, provider)) {
-				$assign(prevKey, $nc(certImpl)->getPublicKey());
+				$assign(prevKey, certImpl->getPublicKey());
 			} else {
 				indirectCRL = true;
 			}
@@ -652,7 +651,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 	}
 	if (indirectCRL) {
 		$var($X509CertSelector, certSel, $new($X509CertSelector));
-		certSel->setSubject($($nc(crlIssuer)->asX500Principal()));
+		certSel->setSubject($(crlIssuer->asX500Principal()));
 		$var($booleans, crlSign, $new($booleans, {
 			false,
 			false,

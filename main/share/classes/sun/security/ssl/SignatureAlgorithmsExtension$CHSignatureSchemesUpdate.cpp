@@ -32,13 +32,13 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef CH_SIGNATURE_ALGORITHMS
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
-#undef HANDSHAKE_FAILURE
+#undef CERTIFICATE_REQUEST
+#undef CERTIFICATE_VERIFY
+#undef CH_SIGNATURE_ALGORITHMS
 #undef CH_SIGNATURE_ALGORITHMS_CERT
 #undef CLIENT_AUTH_NONE
+#undef HANDSHAKE_FAILURE
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

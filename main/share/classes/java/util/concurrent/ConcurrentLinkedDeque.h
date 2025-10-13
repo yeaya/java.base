@@ -11,20 +11,20 @@
 
 #pragma push_macro("HEAD")
 #undef HEAD
+#pragma push_macro("HOPS")
+#undef HOPS
 #pragma push_macro("ITEM")
 #undef ITEM
-#pragma push_macro("PREV")
-#undef PREV
-#pragma push_macro("TAIL")
-#undef TAIL
 #pragma push_macro("NEXT")
 #undef NEXT
 #pragma push_macro("NEXT_TERMINATOR")
 #undef NEXT_TERMINATOR
-#pragma push_macro("HOPS")
-#undef HOPS
+#pragma push_macro("PREV")
+#undef PREV
 #pragma push_macro("PREV_TERMINATOR")
 #undef PREV_TERMINATOR
+#pragma push_macro("TAIL")
+#undef TAIL
 
 namespace java {
 	namespace io {
@@ -161,12 +161,12 @@ public:
 } // java
 
 #pragma pop_macro("HEAD")
+#pragma pop_macro("HOPS")
 #pragma pop_macro("ITEM")
-#pragma pop_macro("PREV")
-#pragma pop_macro("TAIL")
 #pragma pop_macro("NEXT")
 #pragma pop_macro("NEXT_TERMINATOR")
-#pragma pop_macro("HOPS")
+#pragma pop_macro("PREV")
 #pragma pop_macro("PREV_TERMINATOR")
+#pragma pop_macro("TAIL")
 
 #endif // _java_util_concurrent_ConcurrentLinkedDeque_h_

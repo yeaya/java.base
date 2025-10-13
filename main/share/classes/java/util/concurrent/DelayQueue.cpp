@@ -30,8 +30,8 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef NANOSECONDS
 #undef MAX_VALUE
+#undef NANOSECONDS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

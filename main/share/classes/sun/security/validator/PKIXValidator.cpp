@@ -65,12 +65,12 @@
 #include <sun/security/validator/ValidatorException.h>
 #include <jcpp.h>
 
-#undef T_NO_TRUST_ANCHOR
-#undef TYPE_PKIX
-#undef VAR_TLS_SERVER
 #undef ALLOW_NON_CA_ANCHOR
+#undef TYPE_PKIX
+#undef T_NO_TRUST_ANCHOR
 #undef VAR_PLUGIN_CODE_SIGNING
 #undef VAR_TLS_CLIENT
+#undef VAR_TLS_SERVER
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;

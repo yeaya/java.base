@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef REGULAR
 #undef ABSTRACT
 #undef DEFAULT
+#undef REGULAR
 #undef STATIC
 
 using $ModArray = $Array<::helper::Mod>;

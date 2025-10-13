@@ -6,28 +6,28 @@
 #include <java/lang/Array.h>
 #include <java/security/cert/CertSelector.h>
 
-#pragma push_macro("NAME_IP")
-#undef NAME_IP
+#pragma push_macro("ANY_EXTENDED_KEY_USAGE")
+#undef ANY_EXTENDED_KEY_USAGE
+#pragma push_macro("FALSE")
+#undef FALSE
 #pragma push_macro("NAME_ANY")
 #undef NAME_ANY
+#pragma push_macro("NAME_DIRECTORY")
+#undef NAME_DIRECTORY
+#pragma push_macro("NAME_DNS")
+#undef NAME_DNS
+#pragma push_macro("NAME_EDI")
+#undef NAME_EDI
+#pragma push_macro("NAME_IP")
+#undef NAME_IP
+#pragma push_macro("NAME_OID")
+#undef NAME_OID
+#pragma push_macro("NAME_RFC822")
+#undef NAME_RFC822
 #pragma push_macro("NAME_URI")
 #undef NAME_URI
 #pragma push_macro("NAME_X400")
 #undef NAME_X400
-#pragma push_macro("NAME_EDI")
-#undef NAME_EDI
-#pragma push_macro("NAME_OID")
-#undef NAME_OID
-#pragma push_macro("FALSE")
-#undef FALSE
-#pragma push_macro("NAME_DNS")
-#undef NAME_DNS
-#pragma push_macro("NAME_RFC822")
-#undef NAME_RFC822
-#pragma push_macro("NAME_DIRECTORY")
-#undef NAME_DIRECTORY
-#pragma push_macro("ANY_EXTENDED_KEY_USAGE")
-#undef ANY_EXTENDED_KEY_USAGE
 
 namespace java {
 	namespace lang {
@@ -216,16 +216,16 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("NAME_IP")
+#pragma pop_macro("ANY_EXTENDED_KEY_USAGE")
+#pragma pop_macro("FALSE")
 #pragma pop_macro("NAME_ANY")
+#pragma pop_macro("NAME_DIRECTORY")
+#pragma pop_macro("NAME_DNS")
+#pragma pop_macro("NAME_EDI")
+#pragma pop_macro("NAME_IP")
+#pragma pop_macro("NAME_OID")
+#pragma pop_macro("NAME_RFC822")
 #pragma pop_macro("NAME_URI")
 #pragma pop_macro("NAME_X400")
-#pragma pop_macro("NAME_EDI")
-#pragma pop_macro("NAME_OID")
-#pragma pop_macro("FALSE")
-#pragma pop_macro("NAME_DNS")
-#pragma pop_macro("NAME_RFC822")
-#pragma pop_macro("NAME_DIRECTORY")
-#pragma pop_macro("ANY_EXTENDED_KEY_USAGE")
 
 #endif // _java_security_cert_X509CertSelector_h_

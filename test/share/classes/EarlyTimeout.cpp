@@ -21,8 +21,8 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef THREADS_COUNT
 #undef NANOSECONDS
+#undef THREADS_COUNT
 #undef TIMEOUT
 
 using $EarlyTimeoutArray = $Array<EarlyTimeout>;

@@ -19,11 +19,11 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
+#undef CONCURRENT
+#undef MAX_BATCH
+#undef MAX_VALUE
 #undef NONNULL
 #undef ORDERED
-#undef MAX_VALUE
-#undef MAX_BATCH
-#undef CONCURRENT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

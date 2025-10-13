@@ -47,13 +47,13 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef UNTREEIFY_THRESHOLD
-#undef TREEIFY_THRESHOLD
-#undef DEFAULT_LOAD_FACTOR
-#undef MAX_VALUE
 #undef DEFAULT_INITIAL_CAPACITY
+#undef DEFAULT_LOAD_FACTOR
 #undef MAXIMUM_CAPACITY
+#undef MAX_VALUE
 #undef MIN_TREEIFY_CAPACITY
+#undef TREEIFY_THRESHOLD
+#undef UNTREEIFY_THRESHOLD
 
 using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $HashMap$NodeArray = $Array<::java::util::HashMap$Node>;
@@ -504,7 +504,7 @@ $HashMap$NodeArray* HashMap::resize() {
 					$var($HashMap$Node, hiTail, nullptr);
 					$var($HashMap$Node, next, nullptr);
 					do {
-						$assign(next, $nc(e)->next);
+						$assign(next, e->next);
 						if (((int32_t)(e->hash & (uint32_t)oldCap)) == 0) {
 							if (loTail == nullptr) {
 								$assign(loHead, e);
@@ -523,11 +523,11 @@ $HashMap$NodeArray* HashMap::resize() {
 					} while (($assign(e, next)) != nullptr);
 					if (loTail != nullptr) {
 						$set(loTail, next, nullptr);
-						$nc(newTab)->set(j, loHead);
+						newTab->set(j, loHead);
 					}
 					if (hiTail != nullptr) {
 						$set(hiTail, next, nullptr);
-						$nc(newTab)->set(j + oldCap, hiHead);
+						newTab->set(j + oldCap, hiHead);
 					}
 				}
 			}
@@ -542,7 +542,7 @@ void HashMap::treeifyBin($HashMap$NodeArray* tab, int32_t hash) {
 	$var($HashMap$Node, e, nullptr);
 	if (tab == nullptr || (n = $nc(tab)->length) < HashMap::MIN_TREEIFY_CAPACITY) {
 		resize();
-	} else if (($assign(e, $nc(tab)->get(index = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
+	} else if (($assign(e, tab->get(index = (int32_t)((n - 1) & (uint32_t)hash)))) != nullptr) {
 		$var($HashMap$TreeNode, hd, nullptr);
 		$var($HashMap$TreeNode, tl, nullptr);
 		do {
@@ -589,7 +589,7 @@ $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, b
 		}
 		if (var$2) {
 			$assign(node, p);
-		} else if (($assign(e, $nc(p)->next)) != nullptr) {
+		} else if (($assign(e, p->next)) != nullptr) {
 			if ($instanceOf($HashMap$TreeNode, p)) {
 				$assign(node, $nc(($cast($HashMap$TreeNode, p)))->getTreeNode(hash, key));
 			} else {
@@ -616,9 +616,9 @@ $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, b
 			if ($instanceOf($HashMap$TreeNode, node)) {
 				$nc(($cast($HashMap$TreeNode, node)))->removeTreeNode(this, tab, movable);
 			} else if (node == p) {
-				$nc(tab)->set(index, $nc(node)->next);
+				tab->set(index, $nc(node)->next);
 			} else {
-				$set($nc(p), next, $nc(node)->next);
+				$set(p, next, $nc(node)->next);
 			}
 			++this->modCount;
 			--this->size$;
@@ -1109,7 +1109,7 @@ void HashMap::readObject($ObjectInputStream* s) {
 		$var($HashMap$NodeArray, tab, $new($HashMap$NodeArray, cap));
 		$set(this, table, tab);
 		for (int32_t i = 0; i < mappings; ++i) {
-			$var($Object, key, $nc(s)->readObject());
+			$var($Object, key, s->readObject());
 			$var($Object, value, s->readObject());
 			putVal(hash(key), key, value, false, false);
 		}

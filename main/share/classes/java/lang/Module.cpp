@@ -89,17 +89,17 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef COMPUTE_MAXS
-#undef COMPUTE_FRAMES
 #undef ALL_UNNAMED_MODULE
-#undef EVERYONE_MODULE
-#undef ASM7
-#undef TRUE
-#undef EVERYONE_SET
-#undef GET_CLASSLOADER_PERMISSION
-#undef FALSE
-#undef MODULE_INFO
 #undef ALL_UNNAMED_MODULE_SET
+#undef ASM7
+#undef COMPUTE_FRAMES
+#undef COMPUTE_MAXS
+#undef EVERYONE_MODULE
+#undef EVERYONE_SET
+#undef FALSE
+#undef GET_CLASSLOADER_PERMISSION
+#undef MODULE_INFO
+#undef TRUE
 
 using $ClassLoaderArray = $Array<::java::lang::ClassLoader>;
 using $ModuleArray = $Array<::java::lang::Module>;

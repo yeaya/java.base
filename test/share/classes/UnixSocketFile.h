@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TEST_SUB_DIR")
-#undef TEST_SUB_DIR
 #pragma push_macro("CMD_BASE")
 #undef CMD_BASE
 #pragma push_macro("SOCKET_FILE_NAME")
 #undef SOCKET_FILE_NAME
+#pragma push_macro("TEST_SUB_DIR")
+#undef TEST_SUB_DIR
 
 class $export UnixSocketFile : public ::java::lang::Object {
 	$class(UnixSocketFile, 0, ::java::lang::Object)
@@ -23,8 +23,8 @@ public:
 	static $String* CMD_BASE;
 };
 
-#pragma pop_macro("TEST_SUB_DIR")
 #pragma pop_macro("CMD_BASE")
 #pragma pop_macro("SOCKET_FILE_NAME")
+#pragma pop_macro("TEST_SUB_DIR")
 
 #endif // _UnixSocketFile_h_

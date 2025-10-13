@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("LAST")
-#undef LAST
 #pragma push_macro("FIRST")
 #undef FIRST
+#pragma push_macro("LAST")
+#undef LAST
 
 class $export Supplementary4String : public ::java::lang::Object {
 	$class(Supplementary4String, 0, ::java::lang::Object)
@@ -50,7 +50,7 @@ public:
 	static const bool LAST = false;
 };
 
-#pragma pop_macro("LAST")
 #pragma pop_macro("FIRST")
+#pragma pop_macro("LAST")
 
 #endif // _Supplementary4String_h_

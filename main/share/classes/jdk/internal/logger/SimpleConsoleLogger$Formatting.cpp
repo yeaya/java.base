@@ -20,10 +20,10 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef SIMPLE_CONSOLE_LOGGER_FORMAT
+#undef DEFAULT_FORMAT
 #undef DEFAULT_FORMAT_PROP_KEY
 #undef JUL_FORMAT_PROP_KEY
-#undef DEFAULT_FORMAT
+#undef SIMPLE_CONSOLE_LOGGER_FORMAT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -110,19 +110,19 @@ bool SimpleConsoleLogger$Formatting::isFilteredFrame($StackWalker$StackFrame* st
 			return true;
 		}
 	} else if (c == u'j') {
-		if ($nc(cname)->startsWith("jdk.internal.logger.BootstrapLogger$LogEvent"_s)) {
+		if (cname->startsWith("jdk.internal.logger.BootstrapLogger$LogEvent"_s)) {
 			return false;
 		}
-		if ($nc(cname)->startsWith("jdk.internal.logger."_s)) {
+		if (cname->startsWith("jdk.internal.logger."_s)) {
 			return true;
 		}
-		if ($nc(cname)->startsWith("java.util.logging."_s)) {
+		if (cname->startsWith("java.util.logging."_s)) {
 			return true;
 		}
-		if ($nc(cname)->startsWith("java.lang.invoke.MethodHandle"_s)) {
+		if (cname->startsWith("java.lang.invoke.MethodHandle"_s)) {
 			return true;
 		}
-		if ($nc(cname)->startsWith("java.security.AccessController"_s)) {
+		if (cname->startsWith("java.security.AccessController"_s)) {
 			return true;
 		}
 	}

@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DEFAULT_CACHE_SIZE")
-#undef DEFAULT_CACHE_SIZE
 #pragma push_macro("DEFAULT_CACHE_LIFETIME")
 #undef DEFAULT_CACHE_LIFETIME
+#pragma push_macro("DEFAULT_CACHE_SIZE")
+#undef DEFAULT_CACHE_SIZE
 #pragma push_macro("DEFAULT_CORE_THREADS")
 #undef DEFAULT_CORE_THREADS
 
@@ -104,8 +104,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DEFAULT_CACHE_SIZE")
 #pragma pop_macro("DEFAULT_CACHE_LIFETIME")
+#pragma pop_macro("DEFAULT_CACHE_SIZE")
 #pragma pop_macro("DEFAULT_CORE_THREADS")
 
 #endif // _sun_security_ssl_StatusResponseManager_h_

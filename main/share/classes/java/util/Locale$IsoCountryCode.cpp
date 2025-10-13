@@ -27,9 +27,9 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef PART3
 #undef PART1_ALPHA2
 #undef PART1_ALPHA3
+#undef PART3
 
 using $Locale$IsoCountryCodeArray = $Array<::java::util::Locale$IsoCountryCode>;
 using $Serializable = ::java::io::Serializable;

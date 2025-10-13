@@ -29,10 +29,10 @@
 #include <jcpp.h>
 
 #undef CHAR_BUF_SIZE
-#undef MAX_HEADER_SIZE
-#undef MAX_BLOCK_SIZE
-#undef MAX_VALUE
 #undef HEADER_BLOCKED
+#undef MAX_BLOCK_SIZE
+#undef MAX_HEADER_SIZE
+#undef MAX_VALUE
 
 using $Bits = ::java::io::Bits;
 using $DataInput = ::java::io::DataInput;

@@ -70,14 +70,14 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef JAR_DISABLED_CHECK
 #undef CMS_ALGORITHM_PROTECTION_OID
-#undef MESSAGE_DIGEST_OID
-#undef DIGITAL_SIGNATURE
-#undef ONE
 #undef CONTENT_TYPE_OID
-#undef SIGNATURE_TIMESTAMP_TOKEN_OID
+#undef DIGITAL_SIGNATURE
+#undef JAR_DISABLED_CHECK
+#undef MESSAGE_DIGEST_OID
 #undef NON_REPUDIATION
+#undef ONE
+#undef SIGNATURE_TIMESTAMP_TOKEN_OID
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $SignerInfoArray = $Array<::sun::security::pkcs::SignerInfo>;
@@ -251,7 +251,7 @@ void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
 	$set(this, digestAlgorithmId, $AlgorithmId::parse(tmp));
 	if (oldStyle) {
 		derin->getSet(0);
-	} else if ((int8_t)($nc(derin)->peekByte()) == (int8_t)160) {
+	} else if ((int8_t)(derin->peekByte()) == (int8_t)160) {
 		$set(this, authenticatedAttributes, $new($PKCS9Attributes, derin));
 	}
 	$assign(tmp, derin->getDerValue());
@@ -535,7 +535,7 @@ $String* SignerInfo::makeSigAlg($AlgorithmId* digAlgId, $AlgorithmId* encAlgId, 
 						}
 					} else {
 						$init($SignatureUtil$EdDSADigestAlgHolder);
-						if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::shake256$512)) {
+						if (!digAlgId->equals($SignatureUtil$EdDSADigestAlgHolder::shake256$512)) {
 							$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
 						}
 					}

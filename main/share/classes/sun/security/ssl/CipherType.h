@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("STREAM_CIPHER")
-#undef STREAM_CIPHER
-#pragma push_macro("BLOCK_CIPHER")
-#undef BLOCK_CIPHER
 #pragma push_macro("AEAD_CIPHER")
 #undef AEAD_CIPHER
+#pragma push_macro("BLOCK_CIPHER")
+#undef BLOCK_CIPHER
 #pragma push_macro("NULL_CIPHER")
 #undef NULL_CIPHER
+#pragma push_macro("STREAM_CIPHER")
+#undef STREAM_CIPHER
 
 namespace sun {
 	namespace security {
@@ -38,9 +38,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("STREAM_CIPHER")
-#pragma pop_macro("BLOCK_CIPHER")
 #pragma pop_macro("AEAD_CIPHER")
+#pragma pop_macro("BLOCK_CIPHER")
 #pragma pop_macro("NULL_CIPHER")
+#pragma pop_macro("STREAM_CIPHER")
 
 #endif // _sun_security_ssl_CipherType_h_

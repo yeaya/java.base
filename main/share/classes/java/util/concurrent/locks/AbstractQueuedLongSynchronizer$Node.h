@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("STATUS")
-#undef STATUS
-#pragma push_macro("PREV")
-#undef PREV
 #pragma push_macro("NEXT")
 #undef NEXT
+#pragma push_macro("PREV")
+#undef PREV
+#pragma push_macro("STATUS")
+#undef STATUS
 
 namespace java {
 	namespace lang {
@@ -48,8 +48,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("STATUS")
-#pragma pop_macro("PREV")
 #pragma pop_macro("NEXT")
+#pragma pop_macro("PREV")
+#pragma pop_macro("STATUS")
 
 #endif // _java_util_concurrent_locks_AbstractQueuedLongSynchronizer$Node_h_

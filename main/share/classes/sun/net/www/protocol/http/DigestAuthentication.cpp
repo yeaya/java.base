@@ -36,10 +36,10 @@
 #include <sun/nio/cs/ISO_8859_1.h>
 #include <jcpp.h>
 
-#undef SERVER_AUTHENTICATION
-#undef PROXY_AUTHENTICATION
-#undef INSTANCE
 #undef DIGEST
+#undef INSTANCE
+#undef PROXY_AUTHENTICATION
+#undef SERVER_AUTHENTICATION
 #undef SETUP
 
 using $IOException = ::java::io::IOException;

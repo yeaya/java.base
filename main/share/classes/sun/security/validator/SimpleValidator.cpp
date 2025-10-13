@@ -48,29 +48,29 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef T_NO_TRUST_ANCHOR
-#undef OBJECT_SIGNING_CA
-#undef VAR_TLS_SERVER
-#undef OBJID_NETSCAPE_CERT_TYPE
-#undef VAR_GENERIC
 #undef CHAIN0
-#undef SSL_CA
-#undef VAR_TLS_CLIENT
-#undef OID_BASIC_CONSTRAINTS
-#undef NSCT_SSL_CA
-#undef T_CA_EXTENSIONS
-#undef T_SIGNATURE_ERROR
 #undef NSCT_CODE_SIGNING_CA
-#undef VAR_CODE_SIGNING
+#undef NSCT_SSL_CA
+#undef OBJECT_SIGNING_CA
+#undef OBJID_NETSCAPE_CERT_TYPE
+#undef OID_BASIC_CONSTRAINTS
 #undef OID_EKU_ANY_USAGE
-#undef T_ALGORITHM_DISABLED
-#undef OID_NETSCAPE_CERT_TYPE
-#undef TYPE_SIMPLE
-#undef T_UNTRUSTED_CERT
-#undef T_NAME_CHAINING
-#undef OID_KEY_USAGE
 #undef OID_EXTENDED_KEY_USAGE
+#undef OID_KEY_USAGE
+#undef OID_NETSCAPE_CERT_TYPE
+#undef SSL_CA
+#undef TYPE_SIMPLE
+#undef T_ALGORITHM_DISABLED
+#undef T_CA_EXTENSIONS
+#undef T_NAME_CHAINING
+#undef T_NO_TRUST_ANCHOR
+#undef T_SIGNATURE_ERROR
+#undef T_UNTRUSTED_CERT
+#undef VAR_CODE_SIGNING
+#undef VAR_GENERIC
 #undef VAR_JCE_SIGNING
+#undef VAR_TLS_CLIENT
+#undef VAR_TLS_SERVER
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $IOException = ::java::io::IOException;
@@ -284,16 +284,16 @@ void SimpleValidator::checkNetscapeCertType($X509Certificate* cert, $Set* critSe
 	$init($Validator);
 	if ($nc(this->variant)->equals($Validator::VAR_GENERIC)) {
 	} else {
-		bool var$3 = $nc(this->variant)->equals($Validator::VAR_TLS_CLIENT);
-		if (var$3 || $nc(this->variant)->equals($Validator::VAR_TLS_SERVER)) {
+		bool var$1 = $nc(this->variant)->equals($Validator::VAR_TLS_CLIENT);
+		if (var$1 || $nc(this->variant)->equals($Validator::VAR_TLS_SERVER)) {
 			if (getNetscapeCertTypeBit(cert, SimpleValidator::NSCT_SSL_CA) == false) {
 				$init($ValidatorException);
 				$throwNew($ValidatorException, "Invalid Netscape CertType extension for SSL CA certificate"_s, $ValidatorException::T_CA_EXTENSIONS, cert);
 			}
 			$nc(critSet)->remove(SimpleValidator::OID_NETSCAPE_CERT_TYPE);
 		} else {
-			bool var$5 = $nc(this->variant)->equals($Validator::VAR_CODE_SIGNING);
-			if (var$5 || $nc(this->variant)->equals($Validator::VAR_JCE_SIGNING)) {
+			bool var$3 = $nc(this->variant)->equals($Validator::VAR_CODE_SIGNING);
+			if (var$3 || $nc(this->variant)->equals($Validator::VAR_JCE_SIGNING)) {
 				if (getNetscapeCertTypeBit(cert, SimpleValidator::NSCT_CODE_SIGNING_CA) == false) {
 					$init($ValidatorException);
 					$throwNew($ValidatorException, "Invalid Netscape CertType extension for code signing CA certificate"_s, $ValidatorException::T_CA_EXTENSIONS, cert);

@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("AFTER_I")
+#undef AFTER_I
+#pragma push_macro("AFTER_SOFT_DOTTED")
+#undef AFTER_SOFT_DOTTED
+#pragma push_macro("COMBINING_CLASS_ABOVE")
+#undef COMBINING_CLASS_ABOVE
+#pragma push_macro("FINAL_CASED")
+#undef FINAL_CASED
 #pragma push_macro("MORE_ABOVE")
 #undef MORE_ABOVE
 #pragma push_macro("NOT_BEFORE_DOT")
 #undef NOT_BEFORE_DOT
-#pragma push_macro("AFTER_SOFT_DOTTED")
-#undef AFTER_SOFT_DOTTED
-#pragma push_macro("FINAL_CASED")
-#undef FINAL_CASED
-#pragma push_macro("AFTER_I")
-#undef AFTER_I
-#pragma push_macro("COMBINING_CLASS_ABOVE")
-#undef COMBINING_CLASS_ABOVE
 
 namespace java {
 	namespace lang {
@@ -64,11 +64,11 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("AFTER_I")
+#pragma pop_macro("AFTER_SOFT_DOTTED")
+#pragma pop_macro("COMBINING_CLASS_ABOVE")
+#pragma pop_macro("FINAL_CASED")
 #pragma pop_macro("MORE_ABOVE")
 #pragma pop_macro("NOT_BEFORE_DOT")
-#pragma pop_macro("AFTER_SOFT_DOTTED")
-#pragma pop_macro("FINAL_CASED")
-#pragma pop_macro("AFTER_I")
-#pragma pop_macro("COMBINING_CLASS_ABOVE")
 
 #endif // _java_lang_ConditionalSpecialCasing_h_

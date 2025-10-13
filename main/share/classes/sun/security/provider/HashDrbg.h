@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/AbstractHashDrbg.h>
 
-#pragma push_macro("ZERO")
-#undef ZERO
 #pragma push_macro("ONE")
 #undef ONE
+#pragma push_macro("ZERO")
+#undef ZERO
 
 namespace java {
 	namespace security {
@@ -51,7 +51,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("ZERO")
 #pragma pop_macro("ONE")
+#pragma pop_macro("ZERO")
 
 #endif // _sun_security_provider_HashDrbg_h_

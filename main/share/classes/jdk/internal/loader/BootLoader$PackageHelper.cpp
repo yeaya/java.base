@@ -183,7 +183,7 @@ $Module* BootLoader$PackageHelper::findModule($String* location) {
 	$var($String, mn, nullptr);
 	if ($nc(location)->startsWith("jrt:/"_s)) {
 		$assign(mn, location->substring(5, location->length()));
-	} else if ($nc(location)->startsWith("file:/"_s)) {
+	} else if (location->startsWith("file:/"_s)) {
 		$var($Path, path, $Path::of($($URI::create(location))));
 		$init($BootLoader);
 		$var($Path, modulesDir, $Path::of($BootLoader::JAVA_HOME, $$new($StringArray, {"modules"_s})));

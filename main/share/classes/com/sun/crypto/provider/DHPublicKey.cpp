@@ -33,8 +33,8 @@
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
 
-#undef LINE_SEP
 #undef DH_OID
+#undef LINE_SEP
 #undef PUBLIC
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

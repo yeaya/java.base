@@ -40,12 +40,12 @@
 
 #undef CENSIG
 #undef DEFAULT_COMPRESSION
-#undef STORED
 #undef DEFLATED
-#undef LOCSIG
-#undef INSTANCE
-#undef EXTSIG
 #undef ENDSIG
+#undef EXTSIG
+#undef INSTANCE
+#undef LOCSIG
+#undef STORED
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
@@ -274,9 +274,9 @@ void ZipOutputStream::putNextEntry($ZipEntry* e) {
 		{
 			if (e->size == -1) {
 				e->size = e->csize;
-			} else if ($nc(e)->csize == -1) {
+			} else if (e->csize == -1) {
 				e->csize = e->size;
-			} else if ($nc(e)->size != e->csize) {
+			} else if (e->size != e->csize) {
 				$throwNew($ZipException, "STORED entry where compressed != uncompressed size"_s);
 			}
 			if (e->size == -1 || e->crc == -1) {

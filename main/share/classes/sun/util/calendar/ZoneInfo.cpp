@@ -25,20 +25,20 @@
 #include <sun/util/calendar/ZoneInfoFile.h>
 #include <jcpp.h>
 
-#undef BC
+#undef ABBR_MASK
 #undef AD
+#undef BC
+#undef DAY_IN_MILLIS
+#undef DST_MASK
+#undef DST_NSHIFT
+#undef ID
+#undef OFFSET_MASK
+#undef SATURDAY
+#undef STANDARD_TIME
 #undef SUNDAY
 #undef TRANSITION_NSHIFT
-#undef DST_MASK
 #undef UTC_TIME
-#undef ABBR_MASK
-#undef STANDARD_TIME
-#undef DAY_IN_MILLIS
 #undef WALL_TIME
-#undef SATURDAY
-#undef OFFSET_MASK
-#undef ID
-#undef DST_NSHIFT
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

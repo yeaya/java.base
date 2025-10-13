@@ -17,8 +17,8 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef RSA
 #undef PSS
+#undef RSA
 
 using $RSAUtil$KeyTypeArray = $Array<::sun::security::rsa::RSAUtil$KeyType>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -114,8 +114,7 @@ RSAUtil$KeyType* RSAUtil$KeyType::lookup($String* name) {
 	$RSAUtil::requireNonNull(name, "Key algorithm should not be null"_s);
 	if ($nc(name)->indexOf("PSS"_s) != -1) {
 		return RSAUtil$KeyType::PSS;
-	} else if ($nc(name)->indexOf("RSA"_s) != -1) {
-		$init(RSAUtil$KeyType);
+	} else if (name->indexOf("RSA"_s) != -1) {
 		return RSAUtil$KeyType::RSA;
 	} else {
 		$throwNew($ProviderException, $$str({"Unsupported algorithm "_s, name}));

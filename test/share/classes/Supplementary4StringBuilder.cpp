@@ -22,8 +22,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_SUPPLEMENTARY_CODE_POINT
 #undef MAX_CODE_POINT
+#undef MIN_SUPPLEMENTARY_CODE_POINT
 
 using $intArray2 = $Array<int32_t, 2>;
 using $StringArray2 = $Array<::java::lang::String, 2>;

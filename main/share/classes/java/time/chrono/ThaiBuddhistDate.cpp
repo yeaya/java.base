@@ -44,12 +44,12 @@
 #include <jcpp.h>
 
 #undef BE
-#undef MONTH_OF_YEAR
-#undef YEAR
-#undef DAY_OF_MONTH
-#undef THAIBUDDHIST_DATE_TYPE
-#undef INSTANCE
 #undef BEFORE_BE
+#undef DAY_OF_MONTH
+#undef INSTANCE
+#undef MONTH_OF_YEAR
+#undef THAIBUDDHIST_DATE_TYPE
+#undef YEAR
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

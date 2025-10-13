@@ -8,10 +8,10 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("REASON")
-#undef REASON
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("REASON")
+#undef REASON
 
 namespace java {
 	namespace io {
@@ -72,7 +72,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("REASON")
 #pragma pop_macro("NAME")
+#pragma pop_macro("REASON")
 
 #endif // _sun_security_x509_CRLReasonCodeExtension_h_

@@ -13,8 +13,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef INVALID
 #undef CHECKED
+#undef INVALID
 
 using $File$PathStatusArray = $Array<::java::io::File$PathStatus>;
 using $File = ::java::io::File;

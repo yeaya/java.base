@@ -38,12 +38,12 @@
 #include <jcpp.h>
 
 #undef CH_SUPPORTED_VERSIONS
-#undef DTLS12
-#undef PROTOCOL_VERSION
-#undef NONE
 #undef CLIENT_HELLO
-#undef UNEXPECTED_MESSAGE
+#undef DTLS12
+#undef NONE
+#undef PROTOCOL_VERSION
 #undef TLS12
+#undef UNEXPECTED_MESSAGE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $Byte = ::java::lang::Byte;
@@ -161,7 +161,7 @@ void ClientHello$ClientHelloConsumer::onClientHello($ServerHandshakeContext* con
 			$init($ClientHello);
 			$nc($ClientHello::d12HandshakeConsumer)->consume(context, clientHello);
 		}
-	} else if ($nc(negotiatedProtocol)->useTLS13PlusSpec()) {
+	} else if (negotiatedProtocol->useTLS13PlusSpec()) {
 		$init($ClientHello);
 		$nc($ClientHello::t13HandshakeConsumer)->consume(context, clientHello);
 	} else {

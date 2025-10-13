@@ -37,16 +37,16 @@
 #include <jdk/internal/util/xml/impl/XMLStreamWriterImpl.h>
 #include <jcpp.h>
 
-#undef ELEMENT_ENTRY
 #undef ALLOWED_COMMENT
-#undef PROPS_DTD_DECL
-#undef ELEMENT_ROOT
-#undef PROPS_DTD
-#undef ELEMENT_COMMENT
-#undef PROPS_DTD_URI
 #undef ALLOWED_ELEMENTS
 #undef ATTR_KEY
+#undef ELEMENT_COMMENT
+#undef ELEMENT_ENTRY
+#undef ELEMENT_ROOT
 #undef EXTERNAL_XML_VERSION
+#undef PROPS_DTD
+#undef PROPS_DTD_DECL
+#undef PROPS_DTD_URI
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -227,7 +227,7 @@ void PropertiesDefaultHandler::startElement($String* uri, $String* localName, $S
 		if (this->key == nullptr) {
 			fatalError($$new($SAXParseException, "Attribute \"key\" is required and must be specified for element type \"entry\""_s, nullptr));
 		}
-	} else if ($nc(qName)->equals(PropertiesDefaultHandler::ALLOWED_COMMENT)) {
+	} else if (qName->equals(PropertiesDefaultHandler::ALLOWED_COMMENT)) {
 		if (this->sawComment) {
 			fatalError($$new($SAXParseException, "Only one comment element may be allowed. The content of element type \"properties\" must match \"(comment?,entry*)\""_s, nullptr));
 		}

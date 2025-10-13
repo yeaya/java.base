@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ")
-#undef READ
 #pragma push_macro("CONNECT")
 #undef CONNECT
+#pragma push_macro("READ")
+#undef READ
 #pragma push_macro("WRITE")
 #undef WRITE
 
@@ -35,8 +35,8 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("READ")
 #pragma pop_macro("CONNECT")
+#pragma pop_macro("READ")
 #pragma pop_macro("WRITE")
 
 #endif // _sun_nio_ch_UnixAsynchronousSocketChannelImpl$OpType_h_

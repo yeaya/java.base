@@ -27,8 +27,8 @@
 #include <sun/security/ssl/ServerHandshakeContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
+#undef CERTIFICATE_VERIFY
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $Byte = ::java::lang::Byte;

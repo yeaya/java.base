@@ -13,9 +13,9 @@
 #include <sun/net/ftp/FtpClient.h>
 #include <jcpp.h>
 
-#undef EBCDIC
-#undef BINARY
 #undef ASCII
+#undef BINARY
+#undef EBCDIC
 
 using $FtpClient$TransferTypeArray = $Array<::sun::net::ftp::FtpClient$TransferType>;
 using $ClassInfo = ::java::lang::ClassInfo;

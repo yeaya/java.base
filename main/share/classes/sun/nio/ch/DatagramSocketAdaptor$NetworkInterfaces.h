@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("GET_DEFAULT")
-#undef GET_DEFAULT
 #pragma push_macro("CONSTRUCTOR")
 #undef CONSTRUCTOR
+#pragma push_macro("GET_DEFAULT")
+#undef GET_DEFAULT
 
 namespace java {
 	namespace lang {
@@ -45,7 +45,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("GET_DEFAULT")
 #pragma pop_macro("CONSTRUCTOR")
+#pragma pop_macro("GET_DEFAULT")
 
 #endif // _sun_nio_ch_DatagramSocketAdaptor$NetworkInterfaces_h_

@@ -40,9 +40,9 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
+#undef DEFAULT_CAPACITY
 #undef MAXIMUM_CAPACITY
 #undef MINIMUM_CAPACITY
-#undef DEFAULT_CAPACITY
 #undef NULL_KEY
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -455,12 +455,12 @@ bool IdentityHashMap::equals(Object$* o) {
 		if ($equals(o, this)) {
 			return true;
 		} else {
-			bool var$3 = $instanceOf(IdentityHashMap, o);
-			if (var$3) {
+			bool var$1 = $instanceOf(IdentityHashMap, o);
+			if (var$1) {
 				$assign(m, $cast(IdentityHashMap, o));
-				var$3 = true;
+				var$1 = true;
 			}
-			if (var$3) {
+			if (var$1) {
 				if ($nc(m)->size() != this->size$) {
 					return false;
 				}
@@ -473,12 +473,12 @@ bool IdentityHashMap::equals(Object$* o) {
 				}
 				return true;
 			} else {
-				bool var$5 = $instanceOf($Map, o);
-				if (var$5) {
+				bool var$3 = $instanceOf($Map, o);
+				if (var$3) {
 					$assign(m_1, $cast($Map, o));
-					var$5 = true;
+					var$3 = true;
 				}
-				if (var$5) {
+				if (var$3) {
 					return $nc($(entrySet()))->equals($($nc(m_1)->entrySet()));
 				} else {
 					return false;

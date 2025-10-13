@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/reflect/ConstructorAccessorImpl.h>
 
-#pragma push_macro("U")
-#undef U
 #pragma push_macro("GENERATED_OFFSET")
 #undef GENERATED_OFFSET
+#pragma push_macro("U")
+#undef U
 
 namespace java {
 	namespace lang {
@@ -57,7 +57,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("U")
 #pragma pop_macro("GENERATED_OFFSET")
+#pragma pop_macro("U")
 
 #endif // _jdk_internal_reflect_NativeConstructorAccessorImpl_h_

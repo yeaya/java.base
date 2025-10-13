@@ -7,10 +7,10 @@
 
 #pragma push_macro("DN_NAME")
 #undef DN_NAME
-#pragma push_macro("IDENT")
-#undef IDENT
 #pragma push_macro("DN_PRINCIPAL")
 #undef DN_PRINCIPAL
+#pragma push_macro("IDENT")
+#undef IDENT
 #pragma push_macro("NAME")
 #undef NAME
 
@@ -80,8 +80,8 @@ public:
 } // sun
 
 #pragma pop_macro("DN_NAME")
-#pragma pop_macro("IDENT")
 #pragma pop_macro("DN_PRINCIPAL")
+#pragma pop_macro("IDENT")
 #pragma pop_macro("NAME")
 
 #endif // _sun_security_x509_CertificateSubjectName_h_

@@ -131,7 +131,7 @@ void Adler32::update($ByteBuffer* buffer) {
 				$throw(var$0);
 			}
 		}
-	} else if ($nc(buffer)->hasArray()) {
+	} else if (buffer->hasArray()) {
 		int32_t var$1 = this->adler;
 		$var($bytes, var$2, $cast($bytes, buffer->array()));
 		this->adler = updateBytes(var$1, var$2, pos + buffer->arrayOffset(), rem);

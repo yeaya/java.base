@@ -18,8 +18,8 @@
 #include <sun/net/InetAddressCachePolicy$2.h>
 #include <jcpp.h>
 
-#undef FOREVER
 #undef DEFAULT_POSITIVE
+#undef FOREVER
 #undef NEVER
 
 using $ClassInfo = ::java::lang::ClassInfo;

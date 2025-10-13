@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIN_PATH")
-#undef MIN_PATH
 #pragma push_macro("MAX_PATH")
 #undef MAX_PATH
+#pragma push_macro("MIN_PATH")
+#undef MIN_PATH
 
 namespace java {
 	namespace nio {
@@ -31,7 +31,7 @@ public:
 	static const int32_t MIN_PATH = 8;
 };
 
-#pragma pop_macro("MIN_PATH")
 #pragma pop_macro("MAX_PATH")
+#pragma pop_macro("MIN_PATH")
 
 #endif // _NameLimits_h_

@@ -22,13 +22,13 @@
 #include <sun/invoke/util/VerifyAccess$1.h>
 #include <jcpp.h>
 
-#undef MODULE_ALLOWED
-#undef PACKAGE_ONLY
-#undef PROTECTED_OR_PACKAGE_ALLOWED
 #undef ALL_ACCESS_MODES
-#undef UNCONDITIONAL_ALLOWED
+#undef MODULE_ALLOWED
 #undef ORIGINAL_ALLOWED
 #undef PACKAGE_ALLOWED
+#undef PACKAGE_ONLY
+#undef PROTECTED_OR_PACKAGE_ALLOWED
+#undef UNCONDITIONAL_ALLOWED
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

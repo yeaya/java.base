@@ -121,7 +121,7 @@ $List* ResourceBundle$Control$CandidateListCache::createObject($BaseLocale* base
 		nynorskList->add(idx++, $($Locale::getInstance("no"_s, "NO"_s, ""_s)));
 		nynorskList->add(idx++, $($Locale::getInstance("no"_s, ""_s, ""_s)));
 		return nynorskList;
-	} else if ($nc(language)->equals("zh"_s)) {
+	} else if (language->equals("zh"_s)) {
 		bool var$4 = $nc(script)->isEmpty();
 		if (var$4 && !$nc(region)->isEmpty()) {
 			{

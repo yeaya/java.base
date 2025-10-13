@@ -7,20 +7,20 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/AbstractChronology.h>
 
-#pragma push_macro("YEARS_DIFFERENCE")
-#undef YEARS_DIFFERENCE
-#pragma push_macro("TARGET_LANGUAGE")
-#undef TARGET_LANGUAGE
-#pragma push_macro("ERA_NARROW_NAMES")
-#undef ERA_NARROW_NAMES
-#pragma push_macro("FALLBACK_LANGUAGE")
-#undef FALLBACK_LANGUAGE
-#pragma push_macro("ERA_SHORT_NAMES")
-#undef ERA_SHORT_NAMES
-#pragma push_macro("INSTANCE")
-#undef INSTANCE
 #pragma push_macro("ERA_FULL_NAMES")
 #undef ERA_FULL_NAMES
+#pragma push_macro("ERA_NARROW_NAMES")
+#undef ERA_NARROW_NAMES
+#pragma push_macro("ERA_SHORT_NAMES")
+#undef ERA_SHORT_NAMES
+#pragma push_macro("FALLBACK_LANGUAGE")
+#undef FALLBACK_LANGUAGE
+#pragma push_macro("INSTANCE")
+#undef INSTANCE
+#pragma push_macro("TARGET_LANGUAGE")
+#undef TARGET_LANGUAGE
+#pragma push_macro("YEARS_DIFFERENCE")
+#undef YEARS_DIFFERENCE
 
 namespace java {
 	namespace io {
@@ -119,12 +119,12 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("YEARS_DIFFERENCE")
-#pragma pop_macro("TARGET_LANGUAGE")
-#pragma pop_macro("ERA_NARROW_NAMES")
-#pragma pop_macro("FALLBACK_LANGUAGE")
-#pragma pop_macro("ERA_SHORT_NAMES")
-#pragma pop_macro("INSTANCE")
 #pragma pop_macro("ERA_FULL_NAMES")
+#pragma pop_macro("ERA_NARROW_NAMES")
+#pragma pop_macro("ERA_SHORT_NAMES")
+#pragma pop_macro("FALLBACK_LANGUAGE")
+#pragma pop_macro("INSTANCE")
+#pragma pop_macro("TARGET_LANGUAGE")
+#pragma pop_macro("YEARS_DIFFERENCE")
 
 #endif // _java_time_chrono_ThaiBuddhistChronology_h_

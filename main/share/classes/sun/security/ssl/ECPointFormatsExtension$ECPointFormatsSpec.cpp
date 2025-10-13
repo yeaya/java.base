@@ -27,10 +27,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef UNCOMPRESSED
-#undef ENGLISH
-#undef DEFAULT
 #undef DECODE_ERROR
+#undef DEFAULT
+#undef ENGLISH
+#undef UNCOMPRESSED
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

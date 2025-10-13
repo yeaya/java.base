@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("LOGGERFINDER_PERMISSION")
-#undef LOGGERFINDER_PERMISSION
 #pragma push_macro("CLASSLOADER_PERMISSION")
 #undef CLASSLOADER_PERMISSION
+#pragma push_macro("LOGGERFINDER_PERMISSION")
+#undef LOGGERFINDER_PERMISSION
 #pragma push_macro("READ_PERMISSION")
 #undef READ_PERMISSION
 
@@ -65,8 +65,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("LOGGERFINDER_PERMISSION")
 #pragma pop_macro("CLASSLOADER_PERMISSION")
+#pragma pop_macro("LOGGERFINDER_PERMISSION")
 #pragma pop_macro("READ_PERMISSION")
 
 #endif // _jdk_internal_logger_LoggerFinderLoader_h_

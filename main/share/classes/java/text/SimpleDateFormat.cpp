@@ -57,66 +57,66 @@
 #include <sun/util/locale/provider/TimeZoneNameUtility.h>
 #include <jcpp.h>
 
-#undef HOUR_OF_DAY0
-#undef MONTH
-#undef HOUR_OF_DAY1
-#undef MILLISECOND_FIELD
-#undef FORMAT
-#undef WEEK_OF_MONTH
-#undef DAY_OF_WEEK_IN_MONTH
+#undef AM_PM
 #undef AM_PM_FIELD
-#undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID
-#undef LONG_STANDALONE
-#undef YEAR
-#undef WEEK_OF_YEAR
-#undef WEEK_OF_YEAR_FIELD
-#undef HOUR1_FIELD
-#undef MINUTE
-#undef TAG_QUOTE_CHARS
-#undef HOUR_OF_DAY0_FIELD
-#undef WEEK_OF_MONTH_FIELD
+#undef DATE
+#undef DATE_FIELD
+#undef DAY_OF_MONTH
+#undef DAY_OF_WEEK
+#undef DAY_OF_WEEK_FIELD
+#undef DAY_OF_WEEK_IN_MONTH
+#undef DAY_OF_WEEK_IN_MONTH_FIELD
+#undef DAY_OF_YEAR
 #undef DAY_OF_YEAR_FIELD
 #undef DST_OFFSET
-#undef LONG_FORMAT
-#undef YEAR_FIELD
-#undef MINUTE_FIELD
-#undef INSTANCE
-#undef MILLIS_PER_MINUTE
-#undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD
-#undef GMT
-#undef PATTERN_INDEX_TO_CALENDAR_FIELD
-#undef ERA_FIELD
-#undef HOUR_OF_DAY1_FIELD
-#undef DATE
-#undef MONTH_FIELD
 #undef ERA
-#undef DAY_OF_WEEK
-#undef HOUR0_FIELD
-#undef SECOND_FIELD
-#undef DAY_OF_YEAR
+#undef ERA_FIELD
+#undef FORMAT
+#undef GMT
 #undef HOUR
-#undef DAY_OF_MONTH
-#undef WEEK_YEAR
-#undef ISO_DAY_OF_WEEK
-#undef AM_PM
-#undef MAX_VALUE
-#undef ZONE_OFFSET
-#undef TIME_ZONE
-#undef REST_OF_STYLES
-#undef HOUR_OF_DAY
-#undef HOUR1
 #undef HOUR0
+#undef HOUR0_FIELD
+#undef HOUR1
+#undef HOUR1_FIELD
+#undef HOUR_OF_DAY
+#undef HOUR_OF_DAY0
+#undef HOUR_OF_DAY0_FIELD
+#undef HOUR_OF_DAY1
+#undef HOUR_OF_DAY1_FIELD
+#undef INSTANCE
+#undef ISO_DAY_OF_WEEK
 #undef LONG
-#undef SHORT_STANDALONE
-#undef DATE_FIELD
-#undef DAY_OF_WEEK_IN_MONTH_FIELD
-#undef TAG_QUOTE_ASCII_CHAR
-#undef SHORT
-#undef DAY_OF_WEEK_FIELD
-#undef SECOND
+#undef LONG_FORMAT
+#undef LONG_STANDALONE
+#undef MAX_VALUE
 #undef MILLISECOND
-#undef TIMEZONE_FIELD
+#undef MILLISECOND_FIELD
+#undef MILLIS_PER_MINUTE
+#undef MINUTE
+#undef MINUTE_FIELD
+#undef MONTH
+#undef MONTH_FIELD
+#undef PATTERN_INDEX_TO_CALENDAR_FIELD
+#undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD
+#undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID
+#undef REST_OF_STYLES
+#undef SECOND
+#undef SECOND_FIELD
+#undef SHORT
 #undef SHORT_FORMAT
+#undef SHORT_STANDALONE
+#undef TAG_QUOTE_ASCII_CHAR
+#undef TAG_QUOTE_CHARS
+#undef TIMEZONE_FIELD
+#undef TIME_ZONE
+#undef WEEK_OF_MONTH
+#undef WEEK_OF_MONTH_FIELD
+#undef WEEK_OF_YEAR
+#undef WEEK_OF_YEAR_FIELD
+#undef WEEK_YEAR
+#undef YEAR
+#undef YEAR_FIELD
+#undef ZONE_OFFSET
 
 using $DateFormat$FieldArray = $Array<::java::text::DateFormat$Field>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
@@ -1447,7 +1447,7 @@ int32_t SimpleDateFormat::subParse($String* text, int32_t start, int32_t pattern
 							} else if (c == u'-') {
 								sign = -1;
 							} else {
-								++$nc(pos)->index;
+								++pos->index;
 								parsing$break = true;
 								break;
 							}

@@ -27,8 +27,8 @@
 #include <jcpp.h>
 
 #undef OWN_FILTER
-#undef UNDECIDED
 #undef REJECTED
+#undef UNDECIDED
 
 using $SealedObjectForKeyProtector = ::com::sun::crypto::provider::SealedObjectForKeyProtector;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;

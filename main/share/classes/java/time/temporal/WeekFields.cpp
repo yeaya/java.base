@@ -25,12 +25,12 @@
 #include <sun/util/locale/provider/CalendarDataUtility.h>
 #include <jcpp.h>
 
-#undef SUNDAY_START
-#undef MONDAY
-#undef ISO
-#undef SUNDAY
-#undef WEEK_BASED_YEARS
 #undef CACHE
+#undef ISO
+#undef MONDAY
+#undef SUNDAY
+#undef SUNDAY_START
+#undef WEEK_BASED_YEARS
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

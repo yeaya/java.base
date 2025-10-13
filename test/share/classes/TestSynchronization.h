@@ -7,28 +7,28 @@
 
 #pragma push_macro("BOOLEAN_VAL")
 #undef BOOLEAN_VAL
-#pragma push_macro("CHAR_VAL")
-#undef CHAR_VAL
 #pragma push_macro("CHAR_ARRAY_VAL")
 #undef CHAR_ARRAY_VAL
-#pragma push_macro("STRING_BUFFER_VAL")
-#undef STRING_BUFFER_VAL
-#pragma push_macro("OBJECT_VAL")
-#undef OBJECT_VAL
-#pragma push_macro("STRING_VAL")
-#undef STRING_VAL
-#pragma push_macro("LONG_VAL")
-#undef LONG_VAL
-#pragma push_macro("STRING_BUILDER_VAL")
-#undef STRING_BUILDER_VAL
-#pragma push_macro("DOUBLE_VAL")
-#undef DOUBLE_VAL
-#pragma push_macro("INT_VAL")
-#undef INT_VAL
-#pragma push_macro("FLOAT_VAL")
-#undef FLOAT_VAL
 #pragma push_macro("CHAR_SEQUENCE_VAL")
 #undef CHAR_SEQUENCE_VAL
+#pragma push_macro("CHAR_VAL")
+#undef CHAR_VAL
+#pragma push_macro("DOUBLE_VAL")
+#undef DOUBLE_VAL
+#pragma push_macro("FLOAT_VAL")
+#undef FLOAT_VAL
+#pragma push_macro("INT_VAL")
+#undef INT_VAL
+#pragma push_macro("LONG_VAL")
+#undef LONG_VAL
+#pragma push_macro("OBJECT_VAL")
+#undef OBJECT_VAL
+#pragma push_macro("STRING_BUFFER_VAL")
+#undef STRING_BUFFER_VAL
+#pragma push_macro("STRING_BUILDER_VAL")
+#undef STRING_BUILDER_VAL
+#pragma push_macro("STRING_VAL")
+#undef STRING_VAL
 
 namespace java {
 	namespace lang {
@@ -70,16 +70,16 @@ public:
 };
 
 #pragma pop_macro("BOOLEAN_VAL")
-#pragma pop_macro("CHAR_VAL")
 #pragma pop_macro("CHAR_ARRAY_VAL")
-#pragma pop_macro("STRING_BUFFER_VAL")
-#pragma pop_macro("OBJECT_VAL")
-#pragma pop_macro("STRING_VAL")
-#pragma pop_macro("LONG_VAL")
-#pragma pop_macro("STRING_BUILDER_VAL")
-#pragma pop_macro("DOUBLE_VAL")
-#pragma pop_macro("INT_VAL")
-#pragma pop_macro("FLOAT_VAL")
 #pragma pop_macro("CHAR_SEQUENCE_VAL")
+#pragma pop_macro("CHAR_VAL")
+#pragma pop_macro("DOUBLE_VAL")
+#pragma pop_macro("FLOAT_VAL")
+#pragma pop_macro("INT_VAL")
+#pragma pop_macro("LONG_VAL")
+#pragma pop_macro("OBJECT_VAL")
+#pragma pop_macro("STRING_BUFFER_VAL")
+#pragma pop_macro("STRING_BUILDER_VAL")
+#pragma pop_macro("STRING_VAL")
 
 #endif // _TestSynchronization_h_

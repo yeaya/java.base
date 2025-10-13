@@ -6,28 +6,28 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("INTERFACE_SPECIAL")
-#undef INTERFACE_SPECIAL
-#pragma push_macro("GETTER")
-#undef GETTER
-#pragma push_macro("TABLE")
-#undef TABLE
-#pragma push_macro("STATIC_GETTER")
-#undef STATIC_GETTER
-#pragma push_macro("INTERFACE_VIRTUAL")
-#undef INTERFACE_VIRTUAL
-#pragma push_macro("STATIC_SETTER")
-#undef STATIC_SETTER
-#pragma push_macro("SETTER")
-#undef SETTER
 #pragma push_macro("CONSTRUCTOR")
 #undef CONSTRUCTOR
+#pragma push_macro("GETTER")
+#undef GETTER
+#pragma push_macro("INTERFACE_SPECIAL")
+#undef INTERFACE_SPECIAL
+#pragma push_macro("INTERFACE_STATIC")
+#undef INTERFACE_STATIC
+#pragma push_macro("INTERFACE_VIRTUAL")
+#undef INTERFACE_VIRTUAL
+#pragma push_macro("SETTER")
+#undef SETTER
 #pragma push_macro("SPECIAL")
 #undef SPECIAL
 #pragma push_macro("STATIC")
 #undef STATIC
-#pragma push_macro("INTERFACE_STATIC")
-#undef INTERFACE_STATIC
+#pragma push_macro("STATIC_GETTER")
+#undef STATIC_GETTER
+#pragma push_macro("STATIC_SETTER")
+#undef STATIC_SETTER
+#pragma push_macro("TABLE")
+#undef TABLE
 #pragma push_macro("VIRTUAL")
 #undef VIRTUAL
 
@@ -69,17 +69,17 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("INTERFACE_SPECIAL")
-#pragma pop_macro("GETTER")
-#pragma pop_macro("TABLE")
-#pragma pop_macro("STATIC_GETTER")
-#pragma pop_macro("INTERFACE_VIRTUAL")
-#pragma pop_macro("STATIC_SETTER")
-#pragma pop_macro("SETTER")
 #pragma pop_macro("CONSTRUCTOR")
+#pragma pop_macro("GETTER")
+#pragma pop_macro("INTERFACE_SPECIAL")
+#pragma pop_macro("INTERFACE_STATIC")
+#pragma pop_macro("INTERFACE_VIRTUAL")
+#pragma pop_macro("SETTER")
 #pragma pop_macro("SPECIAL")
 #pragma pop_macro("STATIC")
-#pragma pop_macro("INTERFACE_STATIC")
+#pragma pop_macro("STATIC_GETTER")
+#pragma pop_macro("STATIC_SETTER")
+#pragma pop_macro("TABLE")
 #pragma pop_macro("VIRTUAL")
 
 #endif // _java_lang_constant_DirectMethodHandleDesc$Kind_h_

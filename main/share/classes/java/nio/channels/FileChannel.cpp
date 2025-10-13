@@ -29,8 +29,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef NO_ATTRIBUTES
 #undef MAX_VALUE
+#undef NO_ATTRIBUTES
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

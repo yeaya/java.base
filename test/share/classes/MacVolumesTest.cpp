@@ -35,9 +35,9 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
+#undef DATA_VOLUME
 #undef FIRMLINKS
 #undef SYSTEM_VOLUME
-#undef DATA_VOLUME
 #undef WRITE
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;

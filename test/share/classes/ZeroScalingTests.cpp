@@ -27,12 +27,12 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef DOWN
-#undef UNNECESSARY
 #undef MAX_VALUE
 #undef MIN_VALUE
 #undef UNLIMITED
+#undef UNNECESSARY
+#undef ZERO
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $MathContextArray = $Array<::java::math::MathContext>;
@@ -169,7 +169,7 @@ int32_t ZeroScalingTests::addTests() {
 								if ($nc(mc)->getPrecision() != 0) {
 									if (preferredScale < -4) {
 										preferredScale = -4;
-									} else if (preferredScale > -(5 - $nc(mc)->getPrecision())) {
+									} else if (preferredScale > -(5 - mc->getPrecision())) {
 										preferredScale = -(5 - mc->getPrecision());
 									}
 								}
@@ -280,7 +280,7 @@ int32_t ZeroScalingTests::subtractTests() {
 								if ($nc(mc)->getPrecision() != 0) {
 									if (preferredScale < -4) {
 										preferredScale = -4;
-									} else if (preferredScale > -(5 - $nc(mc)->getPrecision())) {
+									} else if (preferredScale > -(5 - mc->getPrecision())) {
 										preferredScale = -(5 - mc->getPrecision());
 									}
 								}

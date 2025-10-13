@@ -16,8 +16,8 @@
 #include <jcpp.h>
 
 #undef IDENTICAL
-#undef SECONDARY
 #undef PRIMARY
+#undef SECONDARY
 #undef TERTIARY
 
 using $ClassInfo = ::java::lang::ClassInfo;

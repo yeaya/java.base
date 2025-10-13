@@ -26,10 +26,10 @@
 
 #include "StackWalk.h"
 
+#undef MAX_VALUE
 #undef NEW
 #undef SHOW_HIDDEN_FRAMES
 #undef SHOW_REFLECT_FRAMES
-#undef MAX_VALUE
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

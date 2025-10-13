@@ -7,26 +7,26 @@
 #include <java/lang/Byte.h>
 #include <java/lang/constant/ConstantDesc.h>
 
-#pragma push_macro("POSITIVE_INFINITY")
-#undef POSITIVE_INFINITY
 #pragma push_macro("BYTES")
 #undef BYTES
 #pragma push_macro("MAX_EXPONENT")
 #undef MAX_EXPONENT
-#pragma push_macro("NEGATIVE_INFINITY")
-#undef NEGATIVE_INFINITY
-#pragma push_macro("MIN_NORMAL")
-#undef MIN_NORMAL
-#pragma push_macro("SIZE")
-#undef SIZE
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
-#pragma push_macro("MIN_VALUE")
-#undef MIN_VALUE
-#pragma push_macro("TYPE")
-#undef TYPE
 #pragma push_macro("MIN_EXPONENT")
 #undef MIN_EXPONENT
+#pragma push_macro("MIN_NORMAL")
+#undef MIN_NORMAL
+#pragma push_macro("MIN_VALUE")
+#undef MIN_VALUE
+#pragma push_macro("NEGATIVE_INFINITY")
+#undef NEGATIVE_INFINITY
+#pragma push_macro("POSITIVE_INFINITY")
+#undef POSITIVE_INFINITY
+#pragma push_macro("SIZE")
+#undef SIZE
+#pragma push_macro("TYPE")
+#undef TYPE
 
 namespace java {
 	namespace lang {
@@ -103,15 +103,15 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("POSITIVE_INFINITY")
 #pragma pop_macro("BYTES")
 #pragma pop_macro("MAX_EXPONENT")
-#pragma pop_macro("NEGATIVE_INFINITY")
-#pragma pop_macro("MIN_NORMAL")
-#pragma pop_macro("SIZE")
 #pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("MIN_VALUE")
-#pragma pop_macro("TYPE")
 #pragma pop_macro("MIN_EXPONENT")
+#pragma pop_macro("MIN_NORMAL")
+#pragma pop_macro("MIN_VALUE")
+#pragma pop_macro("NEGATIVE_INFINITY")
+#pragma pop_macro("POSITIVE_INFINITY")
+#pragma pop_macro("SIZE")
+#pragma pop_macro("TYPE")
 
 #endif // _java_lang_Double_h_

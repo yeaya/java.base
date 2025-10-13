@@ -45,11 +45,11 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef DAYPERIOD_CACHE
-#undef RULE
-#undef DPCOMPARATOR
 #undef AM
+#undef DAYPERIOD_CACHE
+#undef DPCOMPARATOR
 #undef PM
+#undef RULE
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

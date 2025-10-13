@@ -57,14 +57,14 @@
 #include <sun/util/spi/CalendarProvider.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef TH_TH_TH
+#undef CLDR
 #undef FALLBACK
 #undef FORMAT_DEFAULT
-#undef JA_JP_JP
-#undef CLDR
-#undef JRE
 #undef INFO
+#undef JA_JP_JP
+#undef JRE
+#undef ROOT
+#undef TH_TH_TH
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $AssertionError = ::java::lang::AssertionError;

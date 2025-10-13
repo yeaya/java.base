@@ -8,24 +8,24 @@
 #include <java/nio/file/attribute/BasicFileAttributeView.h>
 #include <sun/nio/fs/DynamicFileAttributeView.h>
 
-#pragma push_macro("LAST_MODIFIED_TIME_NAME")
-#undef LAST_MODIFIED_TIME_NAME
-#pragma push_macro("IS_DIRECTORY_NAME")
-#undef IS_DIRECTORY_NAME
-#pragma push_macro("IS_REGULAR_FILE_NAME")
-#undef IS_REGULAR_FILE_NAME
-#pragma push_macro("LAST_ACCESS_TIME_NAME")
-#undef LAST_ACCESS_TIME_NAME
-#pragma push_macro("IS_SYMBOLIC_LINK_NAME")
-#undef IS_SYMBOLIC_LINK_NAME
 #pragma push_macro("CREATION_TIME_NAME")
 #undef CREATION_TIME_NAME
 #pragma push_macro("FILE_KEY_NAME")
 #undef FILE_KEY_NAME
-#pragma push_macro("SIZE_NAME")
-#undef SIZE_NAME
+#pragma push_macro("IS_DIRECTORY_NAME")
+#undef IS_DIRECTORY_NAME
 #pragma push_macro("IS_OTHER_NAME")
 #undef IS_OTHER_NAME
+#pragma push_macro("IS_REGULAR_FILE_NAME")
+#undef IS_REGULAR_FILE_NAME
+#pragma push_macro("IS_SYMBOLIC_LINK_NAME")
+#undef IS_SYMBOLIC_LINK_NAME
+#pragma push_macro("LAST_ACCESS_TIME_NAME")
+#undef LAST_ACCESS_TIME_NAME
+#pragma push_macro("LAST_MODIFIED_TIME_NAME")
+#undef LAST_MODIFIED_TIME_NAME
+#pragma push_macro("SIZE_NAME")
+#undef SIZE_NAME
 
 namespace java {
 	namespace nio {
@@ -86,14 +86,14 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("LAST_MODIFIED_TIME_NAME")
-#pragma pop_macro("IS_DIRECTORY_NAME")
-#pragma pop_macro("IS_REGULAR_FILE_NAME")
-#pragma pop_macro("LAST_ACCESS_TIME_NAME")
-#pragma pop_macro("IS_SYMBOLIC_LINK_NAME")
 #pragma pop_macro("CREATION_TIME_NAME")
 #pragma pop_macro("FILE_KEY_NAME")
-#pragma pop_macro("SIZE_NAME")
+#pragma pop_macro("IS_DIRECTORY_NAME")
 #pragma pop_macro("IS_OTHER_NAME")
+#pragma pop_macro("IS_REGULAR_FILE_NAME")
+#pragma pop_macro("IS_SYMBOLIC_LINK_NAME")
+#pragma pop_macro("LAST_ACCESS_TIME_NAME")
+#pragma pop_macro("LAST_MODIFIED_TIME_NAME")
+#pragma pop_macro("SIZE_NAME")
 
 #endif // _sun_nio_fs_AbstractBasicFileAttributeView_h_

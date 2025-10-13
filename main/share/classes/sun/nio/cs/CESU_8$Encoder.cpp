@@ -24,8 +24,8 @@
 #include <jcpp.h>
 
 #undef OVERFLOW
-#undef UNDERFLOW
 #undef REPLACE
+#undef UNDERFLOW
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -240,7 +240,7 @@ $CoderResult* CESU_8$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* ds
 			}
 			int32_t uc = $nc(this->sgp)->parse(c, src);
 			if (uc < 0) {
-				$nc(src)->position(mark);
+				src->position(mark);
 				return $nc(this->sgp)->error();
 			}
 			if ($nc(dst)->remaining() < 6) {

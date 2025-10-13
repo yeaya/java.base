@@ -26,29 +26,29 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef V_TYPE
-#undef FLOAT
 #undef ALL_TYPES
-#undef I_TYPE
-#undef F_TYPE
-#undef J_TYPE
-#undef L_TYPE_NUM
-#undef TYPE_LIMIT
-#undef D_TYPE_NUM
-#undef OBJECT
-#undef INT
 #undef ARG_TYPES
-#undef V_TYPE_NUM
 #undef ARG_TYPE_LIMIT
-#undef I_TYPE_NUM
-#undef F_TYPE_NUM
 #undef DOUBLE
-#undef VOID
-#undef TYPE
 #undef D_TYPE
-#undef L_TYPE
+#undef D_TYPE_NUM
+#undef FLOAT
+#undef F_TYPE
+#undef F_TYPE_NUM
+#undef INT
+#undef I_TYPE
+#undef I_TYPE_NUM
+#undef J_TYPE
 #undef J_TYPE_NUM
 #undef LONG
+#undef L_TYPE
+#undef L_TYPE_NUM
+#undef OBJECT
+#undef TYPE
+#undef TYPE_LIMIT
+#undef VOID
+#undef V_TYPE
+#undef V_TYPE_NUM
 
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
 using $AssertionError = ::java::lang::AssertionError;

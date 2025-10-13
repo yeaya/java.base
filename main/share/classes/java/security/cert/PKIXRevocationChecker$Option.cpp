@@ -13,10 +13,10 @@
 #include <java/security/cert/PKIXRevocationChecker.h>
 #include <jcpp.h>
 
-#undef SOFT_FAIL
 #undef NO_FALLBACK
 #undef ONLY_END_ENTITY
 #undef PREFER_CRLS
+#undef SOFT_FAIL
 
 using $PKIXRevocationChecker$OptionArray = $Array<::java::security::cert::PKIXRevocationChecker$Option>;
 using $ClassInfo = ::java::lang::ClassInfo;

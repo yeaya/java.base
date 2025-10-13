@@ -8,10 +8,10 @@
 
 #pragma push_macro("EMPTY_STACK_TRACE")
 #undef EMPTY_STACK_TRACE
-#pragma push_macro("MIN_PRIORITY")
-#undef MIN_PRIORITY
 #pragma push_macro("MAX_PRIORITY")
 #undef MAX_PRIORITY
+#pragma push_macro("MIN_PRIORITY")
+#undef MIN_PRIORITY
 #pragma push_macro("NORM_PRIORITY")
 #undef NORM_PRIORITY
 
@@ -178,8 +178,8 @@ public:
 } // java
 
 #pragma pop_macro("EMPTY_STACK_TRACE")
-#pragma pop_macro("MIN_PRIORITY")
 #pragma pop_macro("MAX_PRIORITY")
+#pragma pop_macro("MIN_PRIORITY")
 #pragma pop_macro("NORM_PRIORITY")
 
 #endif // _java_lang_Thread_h_

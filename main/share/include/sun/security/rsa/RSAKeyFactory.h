@@ -5,24 +5,24 @@
 
 #include <java/security/KeyFactorySpi.h>
 
-#pragma push_macro("PKCS8_KEYSPEC_CLS")
-#undef PKCS8_KEYSPEC_CLS
-#pragma push_macro("MAX_RESTRICTED_EXPLEN")
-#undef MAX_RESTRICTED_EXPLEN
 #pragma push_macro("MAX_MODLEN")
 #undef MAX_MODLEN
-#pragma push_macro("RSA_PUB_KEYSPEC_CLS")
-#undef RSA_PUB_KEYSPEC_CLS
-#pragma push_macro("MIN_MODLEN")
-#undef MIN_MODLEN
-#pragma push_macro("RSA_PRIVCRT_KEYSPEC_CLS")
-#undef RSA_PRIVCRT_KEYSPEC_CLS
-#pragma push_macro("X509_KEYSPEC_CLS")
-#undef X509_KEYSPEC_CLS
 #pragma push_macro("MAX_MODLEN_RESTRICT_EXP")
 #undef MAX_MODLEN_RESTRICT_EXP
+#pragma push_macro("MAX_RESTRICTED_EXPLEN")
+#undef MAX_RESTRICTED_EXPLEN
+#pragma push_macro("MIN_MODLEN")
+#undef MIN_MODLEN
+#pragma push_macro("PKCS8_KEYSPEC_CLS")
+#undef PKCS8_KEYSPEC_CLS
+#pragma push_macro("RSA_PRIVCRT_KEYSPEC_CLS")
+#undef RSA_PRIVCRT_KEYSPEC_CLS
 #pragma push_macro("RSA_PRIV_KEYSPEC_CLS")
 #undef RSA_PRIV_KEYSPEC_CLS
+#pragma push_macro("RSA_PUB_KEYSPEC_CLS")
+#undef RSA_PUB_KEYSPEC_CLS
+#pragma push_macro("X509_KEYSPEC_CLS")
+#undef X509_KEYSPEC_CLS
 
 namespace java {
 	namespace math {
@@ -98,14 +98,14 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("PKCS8_KEYSPEC_CLS")
-#pragma pop_macro("MAX_RESTRICTED_EXPLEN")
 #pragma pop_macro("MAX_MODLEN")
-#pragma pop_macro("RSA_PUB_KEYSPEC_CLS")
-#pragma pop_macro("MIN_MODLEN")
-#pragma pop_macro("RSA_PRIVCRT_KEYSPEC_CLS")
-#pragma pop_macro("X509_KEYSPEC_CLS")
 #pragma pop_macro("MAX_MODLEN_RESTRICT_EXP")
+#pragma pop_macro("MAX_RESTRICTED_EXPLEN")
+#pragma pop_macro("MIN_MODLEN")
+#pragma pop_macro("PKCS8_KEYSPEC_CLS")
+#pragma pop_macro("RSA_PRIVCRT_KEYSPEC_CLS")
 #pragma pop_macro("RSA_PRIV_KEYSPEC_CLS")
+#pragma pop_macro("RSA_PUB_KEYSPEC_CLS")
+#pragma pop_macro("X509_KEYSPEC_CLS")
 
 #endif // _sun_security_rsa_RSAKeyFactory_h_

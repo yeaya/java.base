@@ -32,11 +32,11 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef OFFSET_SECONDS
-#undef EPOCH_DAY
 #undef EPOCH
-#undef INSTANT_SECONDS
+#undef EPOCH_DAY
 #undef INSTANCE
+#undef INSTANT_SECONDS
+#undef OFFSET_SECONDS
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ClassInfo = ::java::lang::ClassInfo;

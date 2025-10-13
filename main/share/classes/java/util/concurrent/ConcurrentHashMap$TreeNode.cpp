@@ -89,18 +89,18 @@ ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeNode::findTreeNode(int32_t h, 
 			} else if (ph < h) {
 				$assign(p, pr);
 			} else {
-				bool var$3 = $equals($assign(pk, $nc(p)->key), k);
-				if (var$3 || (pk != nullptr && $nc($of(k))->equals(pk))) {
+				bool var$1 = $equals($assign(pk, p->key), k);
+				if (var$1 || (pk != nullptr && $of(k)->equals(pk))) {
 					return p;
 				} else if (pl == nullptr) {
 					$assign(p, pr);
 				} else if (pr == nullptr) {
 					$assign(p, pl);
 				} else {
-					bool var$5 = (kc != nullptr || (kc = $ConcurrentHashMap::comparableClassFor(k)) != nullptr);
-					if (var$5 && (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) != 0) {
+					bool var$3 = (kc != nullptr || (kc = $ConcurrentHashMap::comparableClassFor(k)) != nullptr);
+					if (var$3 && (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) != 0) {
 						$assign(p, (dir < 0) ? pl : pr);
-					} else if (($assign(q, $nc(pr)->findTreeNode(h, k, kc))) != nullptr) {
+					} else if (($assign(q, pr->findTreeNode(h, k, kc))) != nullptr) {
 						return q;
 					} else {
 						$assign(p, pl);

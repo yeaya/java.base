@@ -7,10 +7,10 @@
 
 #pragma push_macro("DAYPERIOD_CACHE")
 #undef DAYPERIOD_CACHE
-#pragma push_macro("RULE")
-#undef RULE
 #pragma push_macro("DPCOMPARATOR")
 #undef DPCOMPARATOR
+#pragma push_macro("RULE")
+#undef RULE
 
 namespace java {
 	namespace time {
@@ -69,7 +69,7 @@ public:
 } // java
 
 #pragma pop_macro("DAYPERIOD_CACHE")
-#pragma pop_macro("RULE")
 #pragma pop_macro("DPCOMPARATOR")
+#pragma pop_macro("RULE")
 
 #endif // _java_time_format_DateTimeFormatterBuilder$DayPeriod_h_

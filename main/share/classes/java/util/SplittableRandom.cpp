@@ -24,8 +24,8 @@
 #include <jdk/internal/util/random/RandomSupport.h>
 #include <jcpp.h>
 
-#undef MAX_VALUE
 #undef GOLDEN_GAMMA
+#undef MAX_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

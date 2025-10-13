@@ -5,10 +5,10 @@
 
 #include <java/security/spec/AlgorithmParameterSpec.h>
 
-#pragma push_macro("TRAILER_FIELD_BC")
-#undef TRAILER_FIELD_BC
 #pragma push_macro("DEFAULT")
 #undef DEFAULT
+#pragma push_macro("TRAILER_FIELD_BC")
+#undef TRAILER_FIELD_BC
 
 namespace java {
 	namespace security {
@@ -40,7 +40,7 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("TRAILER_FIELD_BC")
 #pragma pop_macro("DEFAULT")
+#pragma pop_macro("TRAILER_FIELD_BC")
 
 #endif // _java_security_spec_PSSParameterSpec_h_

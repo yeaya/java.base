@@ -14,8 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRACE
 #undef DEBUG
+#undef TRACE
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

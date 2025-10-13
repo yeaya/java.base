@@ -5,34 +5,34 @@
 
 #include <java/io/Externalizable.h>
 
-#pragma push_macro("PERIOD_TYPE")
-#undef PERIOD_TYPE
 #pragma push_macro("DURATION_TYPE")
 #undef DURATION_TYPE
-#pragma push_macro("ZONE_REGION_TYPE")
-#undef ZONE_REGION_TYPE
-#pragma push_macro("ZONE_OFFSET_TYPE")
-#undef ZONE_OFFSET_TYPE
-#pragma push_macro("YEAR_MONTH_TYPE")
-#undef YEAR_MONTH_TYPE
-#pragma push_macro("LOCAL_DATE_TYPE")
-#undef LOCAL_DATE_TYPE
-#pragma push_macro("LOCAL_TIME_TYPE")
-#undef LOCAL_TIME_TYPE
-#pragma push_macro("OFFSET_DATE_TIME_TYPE")
-#undef OFFSET_DATE_TIME_TYPE
-#pragma push_macro("OFFSET_TIME_TYPE")
-#undef OFFSET_TIME_TYPE
-#pragma push_macro("ZONE_DATE_TIME_TYPE")
-#undef ZONE_DATE_TIME_TYPE
-#pragma push_macro("YEAR_TYPE")
-#undef YEAR_TYPE
 #pragma push_macro("INSTANT_TYPE")
 #undef INSTANT_TYPE
 #pragma push_macro("LOCAL_DATE_TIME_TYPE")
 #undef LOCAL_DATE_TIME_TYPE
+#pragma push_macro("LOCAL_DATE_TYPE")
+#undef LOCAL_DATE_TYPE
+#pragma push_macro("LOCAL_TIME_TYPE")
+#undef LOCAL_TIME_TYPE
 #pragma push_macro("MONTH_DAY_TYPE")
 #undef MONTH_DAY_TYPE
+#pragma push_macro("OFFSET_DATE_TIME_TYPE")
+#undef OFFSET_DATE_TIME_TYPE
+#pragma push_macro("OFFSET_TIME_TYPE")
+#undef OFFSET_TIME_TYPE
+#pragma push_macro("PERIOD_TYPE")
+#undef PERIOD_TYPE
+#pragma push_macro("YEAR_MONTH_TYPE")
+#undef YEAR_MONTH_TYPE
+#pragma push_macro("YEAR_TYPE")
+#undef YEAR_TYPE
+#pragma push_macro("ZONE_DATE_TIME_TYPE")
+#undef ZONE_DATE_TIME_TYPE
+#pragma push_macro("ZONE_OFFSET_TYPE")
+#undef ZONE_OFFSET_TYPE
+#pragma push_macro("ZONE_REGION_TYPE")
+#undef ZONE_REGION_TYPE
 
 namespace java {
 	namespace io {
@@ -79,19 +79,19 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("PERIOD_TYPE")
 #pragma pop_macro("DURATION_TYPE")
-#pragma pop_macro("ZONE_REGION_TYPE")
-#pragma pop_macro("ZONE_OFFSET_TYPE")
-#pragma pop_macro("YEAR_MONTH_TYPE")
-#pragma pop_macro("LOCAL_DATE_TYPE")
-#pragma pop_macro("LOCAL_TIME_TYPE")
-#pragma pop_macro("OFFSET_DATE_TIME_TYPE")
-#pragma pop_macro("OFFSET_TIME_TYPE")
-#pragma pop_macro("ZONE_DATE_TIME_TYPE")
-#pragma pop_macro("YEAR_TYPE")
 #pragma pop_macro("INSTANT_TYPE")
 #pragma pop_macro("LOCAL_DATE_TIME_TYPE")
+#pragma pop_macro("LOCAL_DATE_TYPE")
+#pragma pop_macro("LOCAL_TIME_TYPE")
 #pragma pop_macro("MONTH_DAY_TYPE")
+#pragma pop_macro("OFFSET_DATE_TIME_TYPE")
+#pragma pop_macro("OFFSET_TIME_TYPE")
+#pragma pop_macro("PERIOD_TYPE")
+#pragma pop_macro("YEAR_MONTH_TYPE")
+#pragma pop_macro("YEAR_TYPE")
+#pragma pop_macro("ZONE_DATE_TIME_TYPE")
+#pragma pop_macro("ZONE_OFFSET_TYPE")
+#pragma pop_macro("ZONE_REGION_TYPE")
 
 #endif // _java_time_Ser_h_

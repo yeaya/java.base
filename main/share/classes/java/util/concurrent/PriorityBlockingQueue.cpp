@@ -58,8 +58,8 @@
 #include <jcpp.h>
 
 #undef ALLOCATIONSPINLOCK
-#undef MAX_VALUE
 #undef DEFAULT_INITIAL_CAPACITY
+#undef MAX_VALUE
 #undef TYPE
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;

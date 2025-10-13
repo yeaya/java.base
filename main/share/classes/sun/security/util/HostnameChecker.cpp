@@ -52,15 +52,15 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef TYPE_LDAP
-#undef ICANN
-#undef NFKC
-#undef ENGLISH
-#undef INSTANCE_LDAP
-#undef ALTNAME_IP
-#undef INSTANCE_TLS
-#undef TYPE_TLS
 #undef ALTNAME_DNS
+#undef ALTNAME_IP
+#undef ENGLISH
+#undef ICANN
+#undef INSTANCE_LDAP
+#undef INSTANCE_TLS
+#undef NFKC
+#undef TYPE_LDAP
+#undef TYPE_TLS
 
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
@@ -231,7 +231,6 @@ HostnameChecker* HostnameChecker::getInstance(int8_t checkType) {
 	if (checkType == HostnameChecker::TYPE_TLS) {
 		return HostnameChecker::INSTANCE_TLS;
 	} else if (checkType == HostnameChecker::TYPE_LDAP) {
-		$init(HostnameChecker);
 		return HostnameChecker::INSTANCE_LDAP;
 	}
 	$throwNew($IllegalArgumentException, $$str({"Unknown check type: "_s, $$str(checkType)}));

@@ -35,8 +35,8 @@
 
 #undef ALLOWED
 #undef MAX_VALUE
-#undef UNDECIDED
 #undef REJECTED
+#undef UNDECIDED
 
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;
@@ -533,7 +533,7 @@ void ObjectInputFilter$Config$Global::init$($String* pattern, bool checkComponen
 				} else {
 					$assign(patternFilter, static_cast<$Function*>($new(ObjectInputFilter$Config$Global$$Lambda$lambda$new$1$1, pkg)));
 				}
-			} else if ($nc(p)->endsWith(".**"_s)) {
+			} else if (p->endsWith(".**"_s)) {
 				$var($String, pkgs, p->substring(poffset, nameLen - 2));
 				if (pkgs->length() < 2) {
 					$throwNew($IllegalArgumentException, $$str({"package missing in: \""_s, pattern, "\""_s}));
@@ -581,11 +581,11 @@ bool ObjectInputFilter$Config$Global::parseLimit($String* pattern) {
 	$var($String, valueString, pattern->substring(eqNdx + 1));
 	if (pattern->startsWith("maxdepth="_s)) {
 		this->maxDepth = parseValue(valueString);
-	} else if ($nc(pattern)->startsWith("maxarray="_s)) {
+	} else if (pattern->startsWith("maxarray="_s)) {
 		this->maxArrayLength = parseValue(valueString);
-	} else if ($nc(pattern)->startsWith("maxrefs="_s)) {
+	} else if (pattern->startsWith("maxrefs="_s)) {
 		this->maxReferences = parseValue(valueString);
-	} else if ($nc(pattern)->startsWith("maxbytes="_s)) {
+	} else if (pattern->startsWith("maxbytes="_s)) {
 		this->maxStreamBytes = parseValue(valueString);
 	} else {
 		$throwNew($IllegalArgumentException, $$str({"unknown limit: "_s, $(pattern->substring(0, eqNdx))}));

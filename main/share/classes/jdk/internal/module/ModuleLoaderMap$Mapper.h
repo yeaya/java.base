@@ -5,12 +5,12 @@
 
 #include <java/util/function/Function.h>
 
-#pragma push_macro("PLATFORM_CLASSLOADER")
-#undef PLATFORM_CLASSLOADER
-#pragma push_macro("APP_LOADER_INDEX")
-#undef APP_LOADER_INDEX
 #pragma push_macro("APP_CLASSLOADER")
 #undef APP_CLASSLOADER
+#pragma push_macro("APP_LOADER_INDEX")
+#undef APP_LOADER_INDEX
+#pragma push_macro("PLATFORM_CLASSLOADER")
+#undef PLATFORM_CLASSLOADER
 #pragma push_macro("PLATFORM_LOADER_INDEX")
 #undef PLATFORM_LOADER_INDEX
 
@@ -55,9 +55,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("PLATFORM_CLASSLOADER")
-#pragma pop_macro("APP_LOADER_INDEX")
 #pragma pop_macro("APP_CLASSLOADER")
+#pragma pop_macro("APP_LOADER_INDEX")
+#pragma pop_macro("PLATFORM_CLASSLOADER")
 #pragma pop_macro("PLATFORM_LOADER_INDEX")
 
 #endif // _jdk_internal_module_ModuleLoaderMap$Mapper_h_

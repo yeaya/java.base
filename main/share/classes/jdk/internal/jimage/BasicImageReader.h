@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/AutoCloseable.h>
 
+#pragma push_macro("IS_64_BIT")
+#undef IS_64_BIT
 #pragma push_macro("MAP_ALL")
 #undef MAP_ALL
 #pragma push_macro("USE_JVM_MAP")
 #undef USE_JVM_MAP
-#pragma push_macro("IS_64_BIT")
-#undef IS_64_BIT
 
 namespace java {
 	namespace io {
@@ -122,8 +122,8 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("IS_64_BIT")
 #pragma pop_macro("MAP_ALL")
 #pragma pop_macro("USE_JVM_MAP")
-#pragma pop_macro("IS_64_BIT")
 
 #endif // _jdk_internal_jimage_BasicImageReader_h_

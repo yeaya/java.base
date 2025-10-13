@@ -8,10 +8,10 @@
 #include <java/util/zip/InflaterInputStream.h>
 #include <java/util/zip/ZipEntry.h>
 
-#pragma push_macro("STORED")
-#undef STORED
 #pragma push_macro("DEFLATED")
 #undef DEFLATED
+#pragma push_macro("STORED")
+#undef STORED
 
 namespace java {
 	namespace io {
@@ -79,7 +79,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("STORED")
 #pragma pop_macro("DEFLATED")
+#pragma pop_macro("STORED")
 
 #endif // _java_util_zip_ZipInputStream_h_

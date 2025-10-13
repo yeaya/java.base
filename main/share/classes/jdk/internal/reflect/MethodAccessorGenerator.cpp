@@ -27,13 +27,13 @@
 #include <jdk/internal/reflect/SerializationConstructorAccessorImpl.h>
 #include <jcpp.h>
 
-#undef NUM_BOXING_CPOOL_ENTRIES
 #undef ACC_PUBLIC
-#undef NUM_METHODS
-#undef TYPE
-#undef NUM_COMMON_CPOOL_ENTRIES
 #undef NUM_BASE_CPOOL_ENTRIES
+#undef NUM_BOXING_CPOOL_ENTRIES
+#undef NUM_COMMON_CPOOL_ENTRIES
+#undef NUM_METHODS
 #undef NUM_SERIALIZATION_CPOOL_ENTRIES
+#undef TYPE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -252,7 +252,7 @@ void MethodAccessorGenerator::emitInvoke() {
 		cb->opc_new(this->targetClass);
 		cb->opc_dup();
 	} else if (!isStatic()) {
-		$nc(cb)->opc_aload_1();
+		cb->opc_aload_1();
 		$var($Label, l, $new($Label));
 		cb->opc_ifnonnull(l);
 		cb->opc_new(this->nullPointerClass);
@@ -358,11 +358,11 @@ void MethodAccessorGenerator::emitInvoke() {
 	if (this->isConstructor) {
 		cb->opc_invokespecial(this->targetMethodRef, count, 0);
 	} else if (isStatic()) {
-		$nc(cb)->opc_invokestatic(this->targetMethodRef, count, typeSizeInStackSlots(this->returnType));
+		cb->opc_invokestatic(this->targetMethodRef, count, typeSizeInStackSlots(this->returnType));
 	} else if (isInterface()) {
-		$nc(cb)->opc_invokeinterface(this->targetMethodRef, count, count, typeSizeInStackSlots(this->returnType));
+		cb->opc_invokeinterface(this->targetMethodRef, count, count, typeSizeInStackSlots(this->returnType));
 	} else {
-		$nc(cb)->opc_invokevirtual(this->targetMethodRef, count, typeSizeInStackSlots(this->returnType));
+		cb->opc_invokevirtual(this->targetMethodRef, count, typeSizeInStackSlots(this->returnType));
 	}
 	int16_t invokeEndPC = cb->getLength();
 	if (!this->isConstructor) {

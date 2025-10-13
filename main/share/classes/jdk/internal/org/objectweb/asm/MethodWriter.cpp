@@ -35,99 +35,99 @@
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
 #include <jcpp.h>
 
-#undef FULL_FRAME
-#undef RET
-#undef F_NEW
-#undef NEW
-#undef LOCAL_VARIABLE_TABLE
-#undef ILOAD
-#undef SAME_FRAME_EXTENDED
-#undef ATHROW
-#undef JUMP
-#undef COMPUTE_NOTHING
-#undef COMPUTE_ALL_FRAMES
-#undef INVOKEDYNAMIC
-#undef SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED
-#undef PUTSTATIC
-#undef METHOD_PARAMETERS
-#undef COMPUTE_MAX_STACK_AND_LOCAL_FROM_FRAMES
-#undef EXCEPTIONS
-#undef F_CHOP
-#undef F_SAME1
-#undef FLAG_SUBROUTINE_CALLER
-#undef RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS
-#undef LSTORE
-#undef RUNTIME_INVISIBLE_TYPE_ANNOTATIONS
-#undef SAME_FRAME
-#undef RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS
-#undef ASM8
-#undef F_FULL
-#undef JSR
-#undef TABLESWITCH
-#undef MULTIANEWARRAY
-#undef STACK_MAP_TABLE
-#undef ACC_SYNTHETIC
-#undef LDC_W
-#undef LOCAL_VARIABLE_TYPE_TABLE
-#undef NOP
-#undef APPEND_FRAME
-#undef IRETURN
-#undef GETFIELD
-#undef NA
-#undef IFNULL
-#undef COMPUTE_MAX_STACK_AND_LOCAL
-#undef ITEM_UNINITIALIZED
-#undef SIPUSH
-#undef GETSTATIC
-#undef CONSTANT_DYNAMIC_TAG
-#undef DSTORE
-#undef ACC_STATIC
-#undef GOTO
-#undef ACC_DEPRECATED
-#undef STACK_SIZE_DELTA
-#undef EXCEPTION
-#undef F_APPEND
-#undef LDC
-#undef FLAG_REACHABLE
-#undef DLOAD
-#undef CHOP_FRAME
-#undef RETURN
-#undef ISTORE
-#undef FLAG_DEBUG_ONLY
-#undef LDC2_W
-#undef GOTO_W
-#undef COMPUTE_INSERTED_FRAMES
-#undef FLAG_RESOLVED
-#undef DOUBLE
-#undef LONG
-#undef NEWARRAY
-#undef LLOAD
-#undef WIDE_JUMP_OPCODE_DELTA
-#undef INVOKESTATIC
 #undef ACC_CONSTRUCTOR
-#undef FLAG_JUMP_TARGET
+#undef ACC_DEPRECATED
+#undef ACC_STATIC
+#undef ACC_SYNTHETIC
 #undef ANNOTATION_DEFAULT
-#undef LOOKUPSWITCH
-#undef CONSTANT_LONG_TAG
-#undef PUTFIELD
-#undef F_SAME
-#undef ITEM_OBJECT
-#undef MIN_VALUE
-#undef FLAG_SUBROUTINE_END
-#undef ILOAD_0
-#undef FLAG_SUBROUTINE_START
-#undef CONSTANT_DOUBLE_TAG
-#undef CODE
-#undef INVOKEINTERFACE
+#undef APPEND_FRAME
+#undef ASM8
 #undef ASM_GOTO_W
-#undef IINC
-#undef ISTORE_0
-#undef JSR_W
+#undef ATHROW
+#undef CHOP_FRAME
+#undef CODE
+#undef COMPUTE_ALL_FRAMES
+#undef COMPUTE_INSERTED_FRAMES
+#undef COMPUTE_MAX_STACK_AND_LOCAL
+#undef COMPUTE_MAX_STACK_AND_LOCAL_FROM_FRAMES
+#undef COMPUTE_NOTHING
+#undef CONSTANT_DOUBLE_TAG
+#undef CONSTANT_DYNAMIC_TAG
+#undef CONSTANT_LONG_TAG
+#undef DLOAD
+#undef DOUBLE
+#undef DSTORE
 #undef EMPTY_LIST
-#undef WIDE
-#undef SAME_LOCALS_1_STACK_ITEM_FRAME
-#undef RUNTIME_VISIBLE_TYPE_ANNOTATIONS
+#undef EXCEPTION
+#undef EXCEPTIONS
+#undef FLAG_DEBUG_ONLY
+#undef FLAG_JUMP_TARGET
+#undef FLAG_REACHABLE
+#undef FLAG_RESOLVED
+#undef FLAG_SUBROUTINE_CALLER
+#undef FLAG_SUBROUTINE_END
+#undef FLAG_SUBROUTINE_START
+#undef FULL_FRAME
+#undef F_APPEND
+#undef F_CHOP
+#undef F_FULL
+#undef F_NEW
+#undef F_SAME
+#undef F_SAME1
+#undef GETFIELD
+#undef GETSTATIC
+#undef GOTO
+#undef GOTO_W
+#undef IFNULL
+#undef IINC
+#undef ILOAD
+#undef ILOAD_0
+#undef INVOKEDYNAMIC
+#undef INVOKEINTERFACE
+#undef INVOKESTATIC
+#undef IRETURN
+#undef ISTORE
+#undef ISTORE_0
+#undef ITEM_OBJECT
+#undef ITEM_UNINITIALIZED
+#undef JSR
+#undef JSR_W
+#undef JUMP
+#undef LDC
+#undef LDC2_W
+#undef LDC_W
 #undef LINE_NUMBER_TABLE
+#undef LLOAD
+#undef LOCAL_VARIABLE_TABLE
+#undef LOCAL_VARIABLE_TYPE_TABLE
+#undef LONG
+#undef LOOKUPSWITCH
+#undef LSTORE
+#undef METHOD_PARAMETERS
+#undef MIN_VALUE
+#undef MULTIANEWARRAY
+#undef NA
+#undef NEW
+#undef NEWARRAY
+#undef NOP
+#undef PUTFIELD
+#undef PUTSTATIC
+#undef RET
+#undef RETURN
+#undef RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS
+#undef RUNTIME_INVISIBLE_TYPE_ANNOTATIONS
+#undef RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS
+#undef RUNTIME_VISIBLE_TYPE_ANNOTATIONS
+#undef SAME_FRAME
+#undef SAME_FRAME_EXTENDED
+#undef SAME_LOCALS_1_STACK_ITEM_FRAME
+#undef SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED
+#undef SIPUSH
+#undef STACK_MAP_TABLE
+#undef STACK_SIZE_DELTA
+#undef TABLESWITCH
+#undef WIDE
+#undef WIDE_JUMP_OPCODE_DELTA
 
 using $AnnotationWriterArray = $Array<::jdk::internal::org::objectweb::asm$::AnnotationWriter>;
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
@@ -737,10 +737,10 @@ void MethodWriter::visitJumpInsn(int32_t opcode, $Label* label) {
 		label->put(this->code, $nc(this->code)->length - 1, true);
 	} else if (baseOpcode != opcode) {
 		$nc(this->code)->putByte(opcode);
-		$nc(label)->put(this->code, $nc(this->code)->length - 1, true);
+		label->put(this->code, $nc(this->code)->length - 1, true);
 	} else {
 		$nc(this->code)->putByte(baseOpcode);
-		$nc(label)->put(this->code, $nc(this->code)->length - 1, false);
+		label->put(this->code, $nc(this->code)->length - 1, false);
 	}
 	if (this->currentBasicBlock != nullptr) {
 		$var($Label, nextBasicBlock, nullptr);
@@ -1355,7 +1355,7 @@ bool MethodWriter::canCopyMethodAttributes($ClassReader* source, bool hasSynthet
 		if (this->numberOfExceptions != 0) {
 			return false;
 		}
-	} else if ($nc(source)->readUnsignedShort(exceptionsOffset) == this->numberOfExceptions) {
+	} else if (source->readUnsignedShort(exceptionsOffset) == this->numberOfExceptions) {
 		int32_t currentExceptionOffset = exceptionsOffset + 2;
 		for (int32_t i = 0; i < this->numberOfExceptions; ++i) {
 			if (source->readUnsignedShort(currentExceptionOffset) != $nc(this->exceptionIndexTable)->get(i)) {

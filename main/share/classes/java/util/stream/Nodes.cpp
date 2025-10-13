@@ -72,16 +72,16 @@
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
 
-#undef MAX_ARRAY_SIZE
-#undef SUBSIZED
 #undef BAD_SIZE
-#undef EMPTY_LONG_NODE
-#undef EMPTY_INT_NODE
-#undef EMPTY_NODE
-#undef EMPTY_INT_ARRAY
 #undef EMPTY_DOUBLE_ARRAY
 #undef EMPTY_DOUBLE_NODE
+#undef EMPTY_INT_ARRAY
+#undef EMPTY_INT_NODE
 #undef EMPTY_LONG_ARRAY
+#undef EMPTY_LONG_NODE
+#undef EMPTY_NODE
+#undef MAX_ARRAY_SIZE
+#undef SUBSIZED
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

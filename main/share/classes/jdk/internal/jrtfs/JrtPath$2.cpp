@@ -14,8 +14,8 @@
 #include <jdk/internal/jrtfs/JrtPath.h>
 #include <jcpp.h>
 
-#undef READ
 #undef EXECUTE
+#undef READ
 #undef WRITE
 
 using $AccessModeArray = $Array<::java::nio::file::AccessMode>;

@@ -31,11 +31,11 @@
 #include <sun/security/ssl/SSLTrafficKeyDerivation.h>
 #include <jcpp.h>
 
-#undef H_NONE
-#undef BLOCK_CIPHER
-#undef TLS11
 #undef AEAD_CIPHER
+#undef BLOCK_CIPHER
 #undef DTLS10
+#undef H_NONE
+#undef TLS11
 #undef TLS12
 
 using $ClassInfo = ::java::lang::ClassInfo;

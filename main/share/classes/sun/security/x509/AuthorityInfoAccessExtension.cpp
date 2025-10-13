@@ -26,8 +26,8 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef IDENT
 #undef DESCRIPTIONS
+#undef IDENT
 #undef NAME
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

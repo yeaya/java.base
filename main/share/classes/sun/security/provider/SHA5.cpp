@@ -19,9 +19,9 @@
 #include <jcpp.h>
 
 #undef ITERATION
-#undef W
 #undef ROUND_CONSTS
 #undef SHA5
+#undef W
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

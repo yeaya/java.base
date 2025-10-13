@@ -17,8 +17,8 @@
 #include <java/util/Spliterators.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef DISTINCT
+#undef ORDERED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

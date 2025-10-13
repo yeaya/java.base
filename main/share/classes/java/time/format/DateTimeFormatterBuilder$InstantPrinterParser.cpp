@@ -25,17 +25,17 @@
 #include <java/time/temporal/TemporalField.h>
 #include <jcpp.h>
 
-#undef MONTH_OF_YEAR
-#undef YEAR
-#undef UTC
-#undef HOUR_OF_DAY
 #undef DAY_OF_MONTH
-#undef OFFSET_SECONDS
+#undef HOUR_OF_DAY
+#undef INSTANT_SECONDS
 #undef ISO_LOCAL_DATE
 #undef MINUTE_OF_HOUR
-#undef SECOND_OF_MINUTE
-#undef INSTANT_SECONDS
+#undef MONTH_OF_YEAR
 #undef NANO_OF_SECOND
+#undef OFFSET_SECONDS
+#undef SECOND_OF_MINUTE
+#undef UTC
+#undef YEAR
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
@@ -148,9 +148,9 @@ bool DateTimeFormatterBuilder$InstantPrinterParser::format($DateTimePrintContext
 			if ($nc(ldt)->getYear() == -10000) {
 				buf->replace(pos, pos + 2, $($Long::toString(hi - 1)));
 			} else if (lo == 0) {
-				$nc(buf)->insert(pos, hi);
+				buf->insert(pos, hi);
 			} else {
-				$nc(buf)->insert(pos + 1, $Math::abs(hi));
+				buf->insert(pos + 1, $Math::abs(hi));
 			}
 		}
 	}
@@ -194,7 +194,7 @@ int32_t DateTimeFormatterBuilder$InstantPrinterParser::parse($DateTimeParseConte
 		hour = 0;
 		days = 1;
 	} else if (hour == 23 && min == 59 && sec == 60) {
-		$nc(context)->setParsedLeapSecond();
+		context->setParsedLeapSecond();
 		sec = 59;
 	}
 	int32_t year = (int32_t)yearParsed % 10000;

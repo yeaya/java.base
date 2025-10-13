@@ -76,87 +76,87 @@
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
 #include <jcpp.h>
 
-#undef SIGN_BIT_MASK
-#undef ZERO
-#undef CLOCK_HOUR_OF_AMPM
-#undef MONTH
-#undef FORMAT
-#undef ZONE
-#undef NAME_OF_MONTH_ABBREV
-#undef TIME_12_HOUR
-#undef SECONDS_SINCE_EPOCH
-#undef DAY_OF_MONTH_0
-#undef YEAR
-#undef MINUTE
-#undef NAME_OF_MONTH_ABBREV_X
-#undef NONE
-#undef YEAR_OF_ERA
-#undef US
-#undef DECIMAL_FLOAT
-#undef LINE_SEPARATOR
-#undef ZONE_NUMERIC
-#undef DST_OFFSET
-#undef NAME_OF_DAY
-#undef BOOLEAN
-#undef PERCENT_SIGN
-#undef MAX_EXPONENT
-#undef HOUR_OF_DAY_0
-#undef DATE
-#undef OFFSET_SECONDS
-#undef MINUTE_OF_HOUR
-#undef DAY_OF_WEEK
-#undef DATE_TIME
-#undef PLUS
-#undef EXP_BIT_MASK
-#undef DAY_OF_YEAR
-#undef DECIMAL_INTEGER
-#undef ROOT
-#undef HOUR
-#undef DAY_OF_MONTH
-#undef CENTURY
-#undef AM_PM
-#undef SECOND_OF_MINUTE
-#undef HOUR_0
-#undef GENERAL
-#undef HEXADECIMAL_FLOAT
-#undef MILLI_OF_SECOND
-#undef PREVIOUS
-#undef SIGNIFICAND_WIDTH
-#undef ZONE_OFFSET
-#undef GROUP
-#undef HEXADECIMAL_INTEGER
-#undef HOUR_OF_DAY
-#undef UPPERCASE
-#undef CHARACTER
-#undef HALF_UP
-#undef NAME_OF_MONTH
-#undef MIN_EXPONENT
-#undef NANOSECOND
-#undef AMPM_OF_DAY
-#undef LEADING_SPACE
-#undef TIME_24_HOUR
-#undef ISO_STANDARD_DATE
-#undef TIME
-#undef NANO_OF_SECOND
-#undef MIN_VALUE
-#undef SHORT
-#undef SCIENTIFIC
 #undef ALTERNATE
-#undef MONTH_OF_YEAR
-#undef LEFT_JUSTIFY
-#undef PARENTHESES
-#undef NAME_OF_DAY_ABBREV
-#undef OCTAL_INTEGER
-#undef ZERO_PAD
-#undef SIGNIF_BIT_MASK
-#undef YEAR_4
-#undef STRING
+#undef AMPM_OF_DAY
+#undef AM_PM
+#undef BOOLEAN
+#undef CENTURY
+#undef CHARACTER
+#undef CLOCK_HOUR_OF_AMPM
+#undef DATE
+#undef DATE_TIME
+#undef DAY_OF_MONTH
+#undef DAY_OF_MONTH_0
+#undef DAY_OF_WEEK
+#undef DAY_OF_YEAR
+#undef DECIMAL_FLOAT
+#undef DECIMAL_INTEGER
+#undef DST_OFFSET
+#undef EXP_BIT_MASK
+#undef FORMAT
+#undef GENERAL
+#undef GROUP
+#undef HALF_UP
 #undef HASHCODE
+#undef HEXADECIMAL_FLOAT
+#undef HEXADECIMAL_INTEGER
+#undef HOUR
+#undef HOUR_0
+#undef HOUR_OF_DAY
+#undef HOUR_OF_DAY_0
 #undef INSTANT_SECONDS
-#undef SECOND
-#undef YEAR_2
+#undef ISO_STANDARD_DATE
+#undef LEADING_SPACE
+#undef LEFT_JUSTIFY
+#undef LINE_SEPARATOR
+#undef MAX_EXPONENT
 #undef MILLISECOND
 #undef MILLISECOND_SINCE_EPOCH
+#undef MILLI_OF_SECOND
+#undef MINUTE
+#undef MINUTE_OF_HOUR
+#undef MIN_EXPONENT
+#undef MIN_VALUE
+#undef MONTH
+#undef MONTH_OF_YEAR
+#undef NAME_OF_DAY
+#undef NAME_OF_DAY_ABBREV
+#undef NAME_OF_MONTH
+#undef NAME_OF_MONTH_ABBREV
+#undef NAME_OF_MONTH_ABBREV_X
+#undef NANOSECOND
+#undef NANO_OF_SECOND
+#undef NONE
+#undef OCTAL_INTEGER
+#undef OFFSET_SECONDS
+#undef PARENTHESES
+#undef PERCENT_SIGN
+#undef PLUS
+#undef PREVIOUS
+#undef ROOT
+#undef SCIENTIFIC
+#undef SECOND
+#undef SECONDS_SINCE_EPOCH
+#undef SECOND_OF_MINUTE
+#undef SHORT
+#undef SIGNIFICAND_WIDTH
+#undef SIGNIF_BIT_MASK
+#undef SIGN_BIT_MASK
+#undef STRING
+#undef TIME
+#undef TIME_12_HOUR
+#undef TIME_24_HOUR
+#undef UPPERCASE
+#undef US
+#undef YEAR
+#undef YEAR_2
+#undef YEAR_4
+#undef YEAR_OF_ERA
+#undef ZERO
+#undef ZERO_PAD
+#undef ZONE
+#undef ZONE_NUMERIC
+#undef ZONE_OFFSET
 
 using $Formatter$FlagsArray = $Array<::java::util::Formatter$Flags>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -936,12 +936,12 @@ void Formatter$FormatSpecifier::print(int64_t value, $Locale* l) {
 		$var($String, s, $Long::toOctalString(value));
 		int32_t len = ($nc(this->f)->contains($Formatter$Flags::ALTERNATE) ? $nc(s)->length() + 1 : s->length());
 		if ($nc(this->f)->contains($Formatter$Flags::ALTERNATE)) {
-			$nc(sb)->append(u'0');
+			sb->append(u'0');
 		}
 		if ($nc(this->f)->contains($Formatter$Flags::ZERO_PAD)) {
 			trailingZeros(sb, this->width$ - len);
 		}
-		$nc(sb)->append(s);
+		sb->append(s);
 	} else if (this->c == $Formatter$Conversion::HEXADECIMAL_INTEGER) {
 			$init($Formatter$Flags);
 		checkBadFlags($$new($Formatter$FlagsArray, {
@@ -952,7 +952,7 @@ void Formatter$FormatSpecifier::print(int64_t value, $Locale* l) {
 		$var($String, s, $Long::toHexString(value));
 		int32_t len = ($nc(this->f)->contains($Formatter$Flags::ALTERNATE) ? $nc(s)->length() + 2 : s->length());
 		if ($nc(this->f)->contains($Formatter$Flags::ALTERNATE)) {
-			$nc(sb)->append($nc(this->f)->contains($Formatter$Flags::UPPERCASE) ? "0X"_s : "0x"_s);
+			sb->append($nc(this->f)->contains($Formatter$Flags::UPPERCASE) ? "0X"_s : "0x"_s);
 		}
 		if ($nc(this->f)->contains($Formatter$Flags::ZERO_PAD)) {
 			trailingZeros(sb, this->width$ - len);
@@ -960,7 +960,7 @@ void Formatter$FormatSpecifier::print(int64_t value, $Locale* l) {
 		if ($nc(this->f)->contains($Formatter$Flags::UPPERCASE)) {
 			$assign(s, toUpperCaseWithLocale(s, l));
 		}
-		$nc(sb)->append(s);
+		sb->append(s);
 	}
 	appendJustified(this->this$0->a, sb);
 }
@@ -1007,7 +1007,7 @@ void Formatter$FormatSpecifier::print($BigInteger* value, $Locale* l) {
 	} else if (this->c == $Formatter$Conversion::OCTAL_INTEGER) {
 		$var($String, s, $nc(v)->toString(8));
 		int32_t var$3 = $nc(s)->length();
-		int32_t len = var$3 + $nc(sb)->length();
+		int32_t len = var$3 + sb->length();
 		$init($Formatter$Flags);
 		if (neg && $nc(this->f)->contains($Formatter$Flags::PARENTHESES)) {
 			++len;
@@ -1023,7 +1023,7 @@ void Formatter$FormatSpecifier::print($BigInteger* value, $Locale* l) {
 	} else if (this->c == $Formatter$Conversion::HEXADECIMAL_INTEGER) {
 		$var($String, s, $nc(v)->toString(16));
 		int32_t var$4 = $nc(s)->length();
-		int32_t len = var$4 + $nc(sb)->length();
+		int32_t len = var$4 + sb->length();
 		$init($Formatter$Flags);
 		if (neg && $nc(this->f)->contains($Formatter$Flags::PARENTHESES)) {
 			++len;

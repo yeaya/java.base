@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/security/Permission.h>
 
-#pragma push_macro("PARAMS2")
-#undef PARAMS2
-#pragma push_macro("PARAMS1")
-#undef PARAMS1
 #pragma push_macro("PARAMS0")
 #undef PARAMS0
+#pragma push_macro("PARAMS1")
+#undef PARAMS1
+#pragma push_macro("PARAMS2")
+#undef PARAMS2
 
 namespace java {
 	namespace io {
@@ -74,8 +74,8 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("PARAMS2")
-#pragma pop_macro("PARAMS1")
 #pragma pop_macro("PARAMS0")
+#pragma pop_macro("PARAMS1")
+#pragma pop_macro("PARAMS2")
 
 #endif // _java_security_UnresolvedPermission_h_

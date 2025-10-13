@@ -68,21 +68,21 @@
 #include <jcpp.h>
 
 #undef ALL_MODES
-#undef LOOKASIDE_TABLE
-#undef ORIGINAL
-#undef IMPL_NAMES
-#undef PRIVATE
-#undef IMPL_LOOKUP
-#undef MODULE
-#undef PUBLIC_LOOKUP
-#undef PACKAGE
-#undef PUBLIC
-#undef UNCONDITIONAL
-#undef TRUSTED
-#undef GET_CLASSLOADER_PERMISSION
 #undef CHECK_MEMBER_ACCESS_PERMISSION
-#undef PROTECTED
 #undef FULL_POWER_MODES
+#undef GET_CLASSLOADER_PERMISSION
+#undef IMPL_LOOKUP
+#undef IMPL_NAMES
+#undef LOOKASIDE_TABLE
+#undef MODULE
+#undef ORIGINAL
+#undef PACKAGE
+#undef PRIVATE
+#undef PROTECTED
+#undef PUBLIC
+#undef PUBLIC_LOOKUP
+#undef TRUSTED
+#undef UNCONDITIONAL
 
 using $MethodHandles$Lookup$ClassOptionArray = $Array<::java::lang::invoke::MethodHandles$Lookup$ClassOption>;
 using $AssertionError = ::java::lang::AssertionError;
@@ -674,7 +674,7 @@ $MethodHandle* MethodHandles$Lookup::findVirtual($Class* refc, $String* name, $M
 			}
 		}
 	}
-	int8_t refKind = ($nc(refc)->isInterface() ? (int8_t)9 : (int8_t)5);
+	int8_t refKind = (refc->isInterface() ? (int8_t)9 : (int8_t)5);
 	$var($MemberName, method, resolveOrFail(refKind, refc, name, type));
 	return getDirectMethod(refKind, refc, method, $(findBoundCallerLookup(method)));
 }
@@ -1079,33 +1079,33 @@ void MethodHandles$Lookup::checkMethod(int8_t refKind, $Class* refc, $MemberName
 	$var($String, message, nullptr);
 	if ($nc(m)->isConstructor()) {
 		$assign(message, "expected a method, not a constructor"_s);
-	} else if (!$nc(m)->isMethod()) {
+	} else if (!m->isMethod()) {
 		$assign(message, "expected a method"_s);
-	} else if (wantStatic != $nc(m)->isStatic()) {
+	} else if (wantStatic != m->isStatic()) {
 		$assign(message, wantStatic ? "expected a static method"_s : "expected a non-static method"_s);
 	} else {
 		checkAccess(refKind, refc, m);
 		return;
 	}
-	$throw($($nc(m)->makeAccessException(message, this)));
+	$throw($(m->makeAccessException(message, this)));
 }
 
 void MethodHandles$Lookup::checkField(int8_t refKind, $Class* refc, $MemberName* m) {
 	bool wantStatic = !$MethodHandleNatives::refKindHasReceiver(refKind);
 	$var($String, message, nullptr);
-	if (wantStatic != $nc(m)->isStatic()) {
+	if (wantStatic != m->isStatic()) {
 		$assign(message, wantStatic ? "expected a static field"_s : "expected a non-static field"_s);
 	} else {
 		checkAccess(refKind, refc, m);
 		return;
 	}
-	$throw($($nc(m)->makeAccessException(message, this)));
+	$throw($(m->makeAccessException(message, this)));
 }
 
 void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName* m) {
 	bool var$0 = !MethodHandles$Lookup::$assertionsDisabled;
 	if (var$0) {
-		bool var$2 = $nc(m)->referenceKindIsConsistentWith(refKind);
+		bool var$2 = m->referenceKindIsConsistentWith(refKind);
 		bool var$1 = var$2 && $MethodHandleNatives::refKindIsValid(refKind);
 		if (var$1) {
 			bool var$3 = $MethodHandleNatives::refKindIsField(refKind);
@@ -1120,7 +1120,7 @@ void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName
 	if (allowedModes == MethodHandles$Lookup::TRUSTED) {
 		return;
 	}
-	int32_t mods = $nc(m)->getModifiers();
+	int32_t mods = m->getModifiers();
 	bool var$6 = $Modifier::isProtected(mods) && refKind == (int8_t)5;
 	$load($Object);
 	bool var$5 = var$6 && m->getDeclaringClass() == $Object::class$;
@@ -1158,7 +1158,7 @@ void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName
 }
 
 $String* MethodHandles$Lookup::accessFailedMessage($Class* refc, $MemberName* m) {
-	$Class* defc = $nc(m)->getDeclaringClass();
+	$Class* defc = m->getDeclaringClass();
 	int32_t mods = m->getModifiers();
 	bool var$0 = $Modifier::isPublic($nc(defc)->getModifiers());
 	bool classOK = (var$0 && (defc == refc || $Modifier::isPublic($nc(refc)->getModifiers())));
@@ -1456,8 +1456,8 @@ $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $C
 	} else {
 		$load($VarHandle);
 		if (defc == $VarHandle::class$ && refKind == (int8_t)5) {
-			$var($String, var$2, member->getName());
-			$assign(mh, findVirtualForVH(var$2, $(member->getMethodType())));
+			$var($String, var$1, member->getName());
+			$assign(mh, findVirtualForVH(var$1, $(member->getMethodType())));
 			if (mh != nullptr) {
 				return mh;
 			}

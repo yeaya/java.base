@@ -67,12 +67,12 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef PUBLIC
-#undef TRUE
-#undef SYNTHETIC
-#undef FINAL
 #undef DEBUG
+#undef FINAL
 #undef JLA
+#undef PUBLIC
+#undef SYNTHETIC
+#undef TRUE
 
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $PrintStream = ::java::io::PrintStream;
@@ -299,10 +299,10 @@ $Class* Proxy$ProxyBuilder::defineProxyClass($Module* m, $List* interfaces) {
 					$var($String, pkg, intf->getPackageName());
 					if (proxyPkg == nullptr) {
 						$assign(proxyPkg, pkg);
-					} else if (!$nc(pkg)->equals(proxyPkg)) {
+					} else if (!pkg->equals(proxyPkg)) {
 						$throwNew($IllegalArgumentException, "non-public interfaces from different packages"_s);
 					}
-				} else if (!$nc($($nc(intf)->getModule()))->isExported($(intf->getPackageName()))) {
+				} else if (!$nc($(intf->getModule()))->isExported($(intf->getPackageName()))) {
 					nonExported = true;
 				}
 			}
@@ -314,18 +314,18 @@ $Class* Proxy$ProxyBuilder::defineProxyClass($Module* m, $List* interfaces) {
 		}
 		$assign(proxyPkg, nonExported ? $str({"com.sun.proxy"_s, "."_s, $($nc(m)->getName())}) : m->getName());
 	} else {
-		bool var$1 = $nc(proxyPkg)->isEmpty();
-		if (var$1 && $nc(m)->isNamed()) {
+		bool var$1 = proxyPkg->isEmpty();
+		if (var$1 && m->isNamed()) {
 			$throwNew($IllegalArgumentException, $$str({"Unnamed package cannot be added to "_s, m}));
 		}
 	}
-	if ($nc(m)->isNamed()) {
+	if (m->isNamed()) {
 		if (!$nc($($nc($(m->getDescriptor()))->packages()))->contains(proxyPkg)) {
 			$throwNew($InternalError, $$str({proxyPkg, " not exist in "_s, $(m->getName())}));
 		}
 	}
 	int64_t num = $nc(Proxy$ProxyBuilder::nextUniqueNumber)->getAndIncrement();
-	$var($String, proxyName, $nc(proxyPkg)->isEmpty() ? $str({Proxy$ProxyBuilder::proxyClassNamePrefix, $$str(num)}) : $str({proxyPkg, "."_s, Proxy$ProxyBuilder::proxyClassNamePrefix, $$str(num)}));
+	$var($String, proxyName, proxyPkg->isEmpty() ? $str({Proxy$ProxyBuilder::proxyClassNamePrefix, $$str(num)}) : $str({proxyPkg, "."_s, Proxy$ProxyBuilder::proxyClassNamePrefix, $$str(num)}));
 	$var($ClassLoader, loader, $Proxy::getLoader(m));
 	trace(proxyName, m, loader, interfaces);
 	$var($bytes, proxyClassFile, $ProxyGenerator::generateProxyClass(loader, proxyName, interfaces, accessFlags));
@@ -391,7 +391,7 @@ void Proxy$ProxyBuilder::trace($String* cn, $Module* module, $ClassLoader* loade
 		}));
 	}
 	if (isDebug("debug"_s)) {
-		$nc(interfaces)->forEach(static_cast<$Consumer*>($$new(Proxy$ProxyBuilder$$Lambda$lambda$trace$0)));
+		interfaces->forEach(static_cast<$Consumer*>($$new(Proxy$ProxyBuilder$$Lambda$lambda$trace$0)));
 	}
 }
 
@@ -409,7 +409,7 @@ void Proxy$ProxyBuilder::init$($ClassLoader* loader, $List* interfaces) {
 	if (!$VM::isModuleSystemInited()) {
 		$throwNew($InternalError, "Proxy is not supported until module system is fully initialized"_s);
 	}
-	if ($nc(interfaces)->size() > 0x0000FFFF) {
+	if (interfaces->size() > 0x0000FFFF) {
 		$throwNew($IllegalArgumentException, $$str({"interface limit exceeded: "_s, $$str(interfaces->size())}));
 	}
 	$var($Set, refTypes, referencedTypes(loader, interfaces));
@@ -455,9 +455,9 @@ $Constructor* Proxy$ProxyBuilder::build() {
 
 void Proxy$ProxyBuilder::validateProxyInterfaces($ClassLoader* loader, $List* interfaces, $Set* refTypes) {
 	$init(Proxy$ProxyBuilder);
-	$var($Map, interfaceSet, $new($IdentityHashMap, $nc(interfaces)->size()));
+	$var($Map, interfaceSet, $new($IdentityHashMap, interfaces->size()));
 	{
-		$var($Iterator, i$, $nc(interfaces)->iterator());
+		$var($Iterator, i$, interfaces->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* intf = $cast($Class, i$->next());
 			{
@@ -494,7 +494,7 @@ $Set* Proxy$ProxyBuilder::referencedTypes($ClassLoader* loader, $List* interface
 	$beforeCallerSensitive();
 	$var($HashSet, types, $new($HashSet));
 	{
-		$var($Iterator, i$, $nc(interfaces)->iterator());
+		$var($Iterator, i$, interfaces->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* intf = $cast($Class, i$->next());
 			{
@@ -546,7 +546,7 @@ $Module* Proxy$ProxyBuilder::mapToModule($ClassLoader* loader, $List* interfaces
 	$init(Proxy$ProxyBuilder);
 	$var($Map, packagePrivateTypes, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc(interfaces)->iterator());
+		$var($Iterator, i$, interfaces->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* intf = $cast($Class, i$->next());
 			{

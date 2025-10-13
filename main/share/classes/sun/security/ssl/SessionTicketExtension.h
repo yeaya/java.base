@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("TIMEOUT_DEFAULT")
-#undef TIMEOUT_DEFAULT
 #pragma push_macro("KEYLEN")
 #undef KEYLEN
+#pragma push_macro("TIMEOUT_DEFAULT")
+#undef TIMEOUT_DEFAULT
 
 namespace sun {
 	namespace security {
@@ -44,7 +44,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TIMEOUT_DEFAULT")
 #pragma pop_macro("KEYLEN")
+#pragma pop_macro("TIMEOUT_DEFAULT")
 
 #endif // _sun_security_ssl_SessionTicketExtension_h_

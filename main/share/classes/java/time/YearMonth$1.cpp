@@ -15,17 +15,17 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <jcpp.h>
 
-#undef MONTHS
-#undef YEARS
-#undef MONTH_OF_YEAR
-#undef YEAR
-#undef ERA
-#undef DECADES
-#undef MILLENNIA
 #undef CENTURIES
-#undef PROLEPTIC_MONTH
-#undef YEAR_OF_ERA
+#undef DECADES
+#undef ERA
 #undef ERAS
+#undef MILLENNIA
+#undef MONTHS
+#undef MONTH_OF_YEAR
+#undef PROLEPTIC_MONTH
+#undef YEAR
+#undef YEARS
+#undef YEAR_OF_ERA
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;

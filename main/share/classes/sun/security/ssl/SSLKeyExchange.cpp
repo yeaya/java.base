@@ -50,9 +50,9 @@
 #include <sun/security/ssl/X509Authentication$X509Possession.h>
 #include <jcpp.h>
 
-#undef RSA
 #undef ECDH
 #undef KE
+#undef RSA
 #undef RSA_EXPORT
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
@@ -281,11 +281,11 @@ $SSLHandshakeArray* SSLKeyExchange::getRelatedHandshakers($HandshakeContext* han
 	$var($SSLHandshakeArray, kaHandshakes, $nc(this->keyAgreement)->getRelatedHandshakers(handshakeContext));
 	if (auHandshakes == nullptr || $nc(auHandshakes)->length == 0) {
 		return kaHandshakes;
-	} else if (kaHandshakes == nullptr || $nc(kaHandshakes)->length == 0) {
+	} else if (kaHandshakes == nullptr || kaHandshakes->length == 0) {
 		return auHandshakes;
 	} else {
-		$var($SSLHandshakeArray, producers, $fcast($SSLHandshakeArray, $Arrays::copyOf(auHandshakes, $nc(auHandshakes)->length + kaHandshakes->length)));
-		$System::arraycopy(kaHandshakes, 0, producers, $nc(auHandshakes)->length, kaHandshakes->length);
+		$var($SSLHandshakeArray, producers, $fcast($SSLHandshakeArray, $Arrays::copyOf(auHandshakes, auHandshakes->length + kaHandshakes->length)));
+		$System::arraycopy(kaHandshakes, 0, producers, auHandshakes->length, kaHandshakes->length);
 		return producers;
 	}
 }
@@ -309,11 +309,11 @@ $Map$EntryArray* SSLKeyExchange::getHandshakeProducers($HandshakeContext* handsh
 	$var($Map$EntryArray, kaProducers, $nc(this->keyAgreement)->getHandshakeProducers(handshakeContext));
 	if (auProducers == nullptr || $nc(auProducers)->length == 0) {
 		return kaProducers;
-	} else if (kaProducers == nullptr || $nc(kaProducers)->length == 0) {
+	} else if (kaProducers == nullptr || kaProducers->length == 0) {
 		return auProducers;
 	} else {
-		$var($Map$EntryArray, producers, $fcast($Map$EntryArray, $Arrays::copyOf(auProducers, $nc(auProducers)->length + kaProducers->length)));
-		$System::arraycopy(kaProducers, 0, producers, $nc(auProducers)->length, kaProducers->length);
+		$var($Map$EntryArray, producers, $fcast($Map$EntryArray, $Arrays::copyOf(auProducers, auProducers->length + kaProducers->length)));
+		$System::arraycopy(kaProducers, 0, producers, auProducers->length, kaProducers->length);
 		return producers;
 	}
 }
@@ -337,11 +337,11 @@ $Map$EntryArray* SSLKeyExchange::getHandshakeConsumers($HandshakeContext* handsh
 	$var($Map$EntryArray, kaConsumers, $nc(this->keyAgreement)->getHandshakeConsumers(handshakeContext));
 	if (auConsumers == nullptr || $nc(auConsumers)->length == 0) {
 		return kaConsumers;
-	} else if (kaConsumers == nullptr || $nc(kaConsumers)->length == 0) {
+	} else if (kaConsumers == nullptr || kaConsumers->length == 0) {
 		return auConsumers;
 	} else {
-		$var($Map$EntryArray, producers, $fcast($Map$EntryArray, $Arrays::copyOf(auConsumers, $nc(auConsumers)->length + kaConsumers->length)));
-		$System::arraycopy(kaConsumers, 0, producers, $nc(auConsumers)->length, kaConsumers->length);
+		$var($Map$EntryArray, producers, $fcast($Map$EntryArray, $Arrays::copyOf(auConsumers, auConsumers->length + kaConsumers->length)));
+		$System::arraycopy(kaConsumers, 0, producers, auConsumers->length, kaConsumers->length);
 		return producers;
 	}
 }

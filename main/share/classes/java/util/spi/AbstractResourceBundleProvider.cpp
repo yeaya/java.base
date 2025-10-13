@@ -40,11 +40,11 @@
 #include <sun/util/resources/Bundles.h>
 #include <jcpp.h>
 
-#undef RB_ACCESS
-#undef FORMAT_PROPERTIES
-#undef FORMAT_DEFAULT
 #undef FORMAT_CLASS
+#undef FORMAT_DEFAULT
+#undef FORMAT_PROPERTIES
 #undef GET_CLASSLOADER_PERMISSION
+#undef RB_ACCESS
 
 using $PermissionArray = $Array<::java::security::Permission>;
 using $IOException = ::java::io::IOException;

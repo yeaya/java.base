@@ -62,15 +62,15 @@
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
 
-#undef OPTIONAL
-#undef TT_EOL
 #undef ENGLISH
-#undef UTF_8
-#undef REQUISITE
+#undef OPTIONAL
 #undef REQUIRED
-#undef TT_WORD
+#undef REQUISITE
 #undef SUFFICIENT
 #undef TT_EOF
+#undef TT_EOL
+#undef TT_WORD
+#undef UTF_8
 
 using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
 using $BufferedReader = ::java::io::BufferedReader;

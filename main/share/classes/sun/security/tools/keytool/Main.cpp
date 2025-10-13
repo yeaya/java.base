@@ -202,72 +202,72 @@
 #include <sun/security/x509/X509CertInfo.h>
 #include <jcpp.h>
 
-#undef DN_NAME
-#undef MONTH
-#undef PROPERTY_SECURITY_LEGACY_ALGS
-#undef EXTENSIONS
-#undef DEF_XEC_KEY_SIZE
-#undef INFO
-#undef SIGNATURE
-#undef DISABLED_CHECK
-#undef END_CERT
-#undef YEAR
-#undef IMPORTPASS
-#undef GENCRL
-#undef OCSP
-#undef MINUTE
-#undef KEYPASSWD
-#undef NONE
-#undef POINTS
-#undef NAME
-#undef PRINTCERTREQ
-#undef EXPORTCERT
-#undef PRINTCRL
-#undef DATE
-#undef PRINTCERT
-#undef CRLF
-#undef LIST
-#undef KEY
-#undef GENKEYPAIR
-#undef ROOT
-#undef IDENTITYDB
-#undef HOUR
-#undef PROPERTY_JAR_DISABLED_ALGS
-#undef SELFCERT
-#undef EXTENSION_REQUEST_OID
-#undef MAX_VALUE
-#undef CHANGEALIAS
-#undef IMPORTKEYSTORE
-#undef SERIAL_NUMBER
-#undef P12KEYSTORE
-#undef DELETE
-#undef IMPORTCERT
-#undef STOREPASSWD
-#undef HOUR_OF_DAY
-#undef SHOWINFO
-#undef GENCERT
-#undef VALIDITY
-#undef DEF_RSA_KEY_SIZE
-#undef DEF_DH_KEY_SIZE
-#undef ENGLISH
-#undef DEF_ED_KEY_SIZE
-#undef PROPERTY_CERTPATH_DISABLED_ALGS
-#undef DEF_DSA_KEY_SIZE
-#undef KEYCLONE
-#undef PRIMARY
-#undef P11KEYSTORE
-#undef CERTREQ
-#undef DEF_EC_KEY_SIZE
-#undef ISSUER
-#undef LEGACY_CHECK
 #undef BEGIN_CERT
-#undef NAME_URI
-#undef VERSION
-#undef SUBJECT
-#undef SECOND
-#undef MILLISECOND
-#undef SIG_PRIMITIVE_SET
+#undef CERTREQ
+#undef CHANGEALIAS
+#undef CRLF
+#undef DATE
+#undef DEF_DH_KEY_SIZE
+#undef DEF_DSA_KEY_SIZE
+#undef DEF_EC_KEY_SIZE
+#undef DEF_ED_KEY_SIZE
+#undef DEF_RSA_KEY_SIZE
+#undef DEF_XEC_KEY_SIZE
+#undef DELETE
+#undef DISABLED_CHECK
+#undef DN_NAME
+#undef END_CERT
+#undef ENGLISH
+#undef EXPORTCERT
+#undef EXTENSIONS
+#undef EXTENSION_REQUEST_OID
+#undef GENCERT
+#undef GENCRL
+#undef GENKEYPAIR
 #undef GENSECKEY
+#undef HOUR
+#undef HOUR_OF_DAY
+#undef IDENTITYDB
+#undef IMPORTCERT
+#undef IMPORTKEYSTORE
+#undef IMPORTPASS
+#undef INFO
+#undef ISSUER
+#undef KEY
+#undef KEYCLONE
+#undef KEYPASSWD
+#undef LEGACY_CHECK
+#undef LIST
+#undef MAX_VALUE
+#undef MILLISECOND
+#undef MINUTE
+#undef MONTH
+#undef NAME
+#undef NAME_URI
+#undef NONE
+#undef OCSP
+#undef P11KEYSTORE
+#undef P12KEYSTORE
+#undef POINTS
+#undef PRIMARY
+#undef PRINTCERT
+#undef PRINTCERTREQ
+#undef PRINTCRL
+#undef PROPERTY_CERTPATH_DISABLED_ALGS
+#undef PROPERTY_JAR_DISABLED_ALGS
+#undef PROPERTY_SECURITY_LEGACY_ALGS
+#undef ROOT
+#undef SECOND
+#undef SELFCERT
+#undef SERIAL_NUMBER
+#undef SHOWINFO
+#undef SIGNATURE
+#undef SIG_PRIMITIVE_SET
+#undef STOREPASSWD
+#undef SUBJECT
+#undef VALIDITY
+#undef VERSION
+#undef YEAR
 
 using $URLArray = $Array<::java::net::URL>;
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
@@ -1106,109 +1106,109 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 		if (c != nullptr) {
 			$set(this, command, c);
 		} else {
-			bool var$262 = $nc(Main::collator)->compare(flags, "--help"_s) == 0;
-			bool var$261 = var$262 || $nc(Main::collator)->compare(flags, "-h"_s) == 0;
-			bool var$260 = var$261 || $nc(Main::collator)->compare(flags, "-?"_s) == 0;
-			if (var$260 || $nc(Main::collator)->compare(flags, "-help"_s) == 0) {
+			bool var$8 = $nc(Main::collator)->compare(flags, "--help"_s) == 0;
+			bool var$7 = var$8 || $nc(Main::collator)->compare(flags, "-h"_s) == 0;
+			bool var$6 = var$7 || $nc(Main::collator)->compare(flags, "-?"_s) == 0;
+			if (var$6 || $nc(Main::collator)->compare(flags, "-help"_s) == 0) {
 				help = true;
 			} else if ($nc(Main::collator)->compare(flags, "-conf"_s) == 0) {
 				++i;
 			} else if ($nc(Main::collator)->compare(flags, "-nowarn"_s) == 0) {
 				this->nowarn = true;
 			} else if ($nc(Main::collator)->compare(flags, "-keystore"_s) == 0) {
-				$set(this, ksfname, $nc(args)->get(++i));
+				$set(this, ksfname, args->get(++i));
 				if ($nc($($$new($File, this->ksfname)->getCanonicalPath()))->equals($($$new($File, $($KeyStoreUtil::getCacerts()))->getCanonicalPath()))) {
 					$init($System);
 					$nc($System::err)->println($($nc(Main::rb)->getString("warning.cacerts.option"_s)));
 				}
 			} else if ($nc(Main::collator)->compare(flags, "-destkeystore"_s) == 0) {
-				$set(this, ksfname, $nc(args)->get(++i));
+				$set(this, ksfname, args->get(++i));
 			} else if ($nc(Main::collator)->compare(flags, "-cacerts"_s) == 0) {
 				this->cacerts = true;
 			} else {
-				bool var$390 = $nc(Main::collator)->compare(flags, "-storepass"_s) == 0;
-				if (var$390 || $nc(Main::collator)->compare(flags, "-deststorepass"_s) == 0) {
-					$set(this, storePass, getPass(modifier, $nc(args)->get(++i)));
+				bool var$10 = $nc(Main::collator)->compare(flags, "-storepass"_s) == 0;
+				if (var$10 || $nc(Main::collator)->compare(flags, "-deststorepass"_s) == 0) {
+					$set(this, storePass, getPass(modifier, args->get(++i)));
 					$nc(this->passwords)->add(this->storePass);
 				} else {
-					bool var$454 = $nc(Main::collator)->compare(flags, "-storetype"_s) == 0;
-					if (var$454 || $nc(Main::collator)->compare(flags, "-deststoretype"_s) == 0) {
-						$set(this, storetype, $KeyStoreUtil::niceStoreTypeName($nc(args)->get(++i)));
+					bool var$12 = $nc(Main::collator)->compare(flags, "-storetype"_s) == 0;
+					if (var$12 || $nc(Main::collator)->compare(flags, "-deststoretype"_s) == 0) {
+						$set(this, storetype, $KeyStoreUtil::niceStoreTypeName(args->get(++i)));
 					} else if ($nc(Main::collator)->compare(flags, "-srcstorepass"_s) == 0) {
-						$set(this, srcstorePass, getPass(modifier, $nc(args)->get(++i)));
+						$set(this, srcstorePass, getPass(modifier, args->get(++i)));
 						$nc(this->passwords)->add(this->srcstorePass);
 					} else if ($nc(Main::collator)->compare(flags, "-srcstoretype"_s) == 0) {
-						$set(this, srcstoretype, $KeyStoreUtil::niceStoreTypeName($nc(args)->get(++i)));
+						$set(this, srcstoretype, $KeyStoreUtil::niceStoreTypeName(args->get(++i)));
 					} else if ($nc(Main::collator)->compare(flags, "-srckeypass"_s) == 0) {
-						$set(this, srckeyPass, getPass(modifier, $nc(args)->get(++i)));
+						$set(this, srckeyPass, getPass(modifier, args->get(++i)));
 						$nc(this->passwords)->add(this->srckeyPass);
 					} else if ($nc(Main::collator)->compare(flags, "-srcprovidername"_s) == 0) {
-						$set(this, srcProviderName, $nc(args)->get(++i));
+						$set(this, srcProviderName, args->get(++i));
 					} else {
-						bool var$486 = $nc(Main::collator)->compare(flags, "-providername"_s) == 0;
-						if (var$486 || $nc(Main::collator)->compare(flags, "-destprovidername"_s) == 0) {
-							$set(this, providerName, $nc(args)->get(++i));
+						bool var$14 = $nc(Main::collator)->compare(flags, "-providername"_s) == 0;
+						if (var$14 || $nc(Main::collator)->compare(flags, "-destprovidername"_s) == 0) {
+							$set(this, providerName, args->get(++i));
 						} else if ($nc(Main::collator)->compare(flags, "-providerpath"_s) == 0) {
-							$set(this, pathlist, $nc(args)->get(++i));
+							$set(this, pathlist, args->get(++i));
 						} else if ($nc(Main::collator)->compare(flags, "-keypass"_s) == 0) {
-							$set(this, keyPass, getPass(modifier, $nc(args)->get(++i)));
+							$set(this, keyPass, getPass(modifier, args->get(++i)));
 							$nc(this->passwords)->add(this->keyPass);
 						} else if ($nc(Main::collator)->compare(flags, "-new"_s) == 0) {
-							$set(this, newPass, getPass(modifier, $nc(args)->get(++i)));
+							$set(this, newPass, getPass(modifier, args->get(++i)));
 							$nc(this->passwords)->add(this->newPass);
 						} else if ($nc(Main::collator)->compare(flags, "-destkeypass"_s) == 0) {
-							$set(this, destKeyPass, getPass(modifier, $nc(args)->get(++i)));
+							$set(this, destKeyPass, getPass(modifier, args->get(++i)));
 							$nc(this->passwords)->add(this->destKeyPass);
 						} else {
-							bool var$502 = $nc(Main::collator)->compare(flags, "-alias"_s) == 0;
-							if (var$502 || $nc(Main::collator)->compare(flags, "-srcalias"_s) == 0) {
-								$set(this, alias, $nc(args)->get(++i));
+							bool var$16 = $nc(Main::collator)->compare(flags, "-alias"_s) == 0;
+							if (var$16 || $nc(Main::collator)->compare(flags, "-srcalias"_s) == 0) {
+								$set(this, alias, args->get(++i));
 							} else {
-								bool var$510 = $nc(Main::collator)->compare(flags, "-dest"_s) == 0;
-								if (var$510 || $nc(Main::collator)->compare(flags, "-destalias"_s) == 0) {
-									$set(this, dest, $nc(args)->get(++i));
+								bool var$18 = $nc(Main::collator)->compare(flags, "-dest"_s) == 0;
+								if (var$18 || $nc(Main::collator)->compare(flags, "-destalias"_s) == 0) {
+									$set(this, dest, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-dname"_s) == 0) {
-									$set(this, dname, $nc(args)->get(++i));
+									$set(this, dname, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-keysize"_s) == 0) {
-									this->keysize = $Integer::parseInt($nc(args)->get(++i));
+									this->keysize = $Integer::parseInt(args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-groupname"_s) == 0) {
-									$set(this, groupName, $nc(args)->get(++i));
+									$set(this, groupName, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-keyalg"_s) == 0) {
-									$set(this, keyAlgName, $nc(args)->get(++i));
+									$set(this, keyAlgName, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-sigalg"_s) == 0) {
-									$set(this, sigAlgName, $nc(args)->get(++i));
+									$set(this, sigAlgName, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-signer"_s) == 0) {
-									$set(this, signerAlias, $nc(args)->get(++i));
+									$set(this, signerAlias, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-signerkeypass"_s) == 0) {
-									$set(this, signerKeyPass, getPass(modifier, $nc(args)->get(++i)));
+									$set(this, signerKeyPass, getPass(modifier, args->get(++i)));
 									$nc(this->passwords)->add(this->signerKeyPass);
 								} else if ($nc(Main::collator)->compare(flags, "-startdate"_s) == 0) {
-									$set(this, startDate, $nc(args)->get(++i));
+									$set(this, startDate, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-validity"_s) == 0) {
-									this->validity = $Long::parseLong($nc(args)->get(++i));
+									this->validity = $Long::parseLong(args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-ext"_s) == 0) {
-									$nc(this->v3ext)->add($nc(args)->get(++i));
+									$nc(this->v3ext)->add(args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-id"_s) == 0) {
-									$nc(this->ids)->add($nc(args)->get(++i));
+									$nc(this->ids)->add(args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-file"_s) == 0) {
-									$set(this, filename, $nc(args)->get(++i));
+									$set(this, filename, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-infile"_s) == 0) {
-									$set(this, infilename, $nc(args)->get(++i));
+									$set(this, infilename, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-outfile"_s) == 0) {
-									$set(this, outfilename, $nc(args)->get(++i));
+									$set(this, outfilename, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-sslserver"_s) == 0) {
-									$set(this, sslserver, $nc(args)->get(++i));
+									$set(this, sslserver, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-jarfile"_s) == 0) {
-									$set(this, jarfile, $nc(args)->get(++i));
+									$set(this, jarfile, args->get(++i));
 								} else if ($nc(Main::collator)->compare(flags, "-srckeystore"_s) == 0) {
-									$set(this, srcksfname, $nc(args)->get(++i));
+									$set(this, srcksfname, args->get(++i));
 								} else {
-									bool var$514 = $nc(Main::collator)->compare(flags, "-provider"_s) == 0;
-									if (var$514 || $nc(Main::collator)->compare(flags, "-providerclass"_s) == 0) {
+									bool var$20 = $nc(Main::collator)->compare(flags, "-provider"_s) == 0;
+									if (var$20 || $nc(Main::collator)->compare(flags, "-providerclass"_s) == 0) {
 										if (this->providerClasses == nullptr) {
 											$set(this, providerClasses, $new($HashSet, 3));
 										}
-										$var($String, providerClass, $nc(args)->get(++i));
+										$var($String, providerClass, args->get(++i));
 										$var($String, providerArg, nullptr);
 										if (args->length > (i + 1)) {
 											$assign(flags, args->get(i + 1));
@@ -1225,7 +1225,7 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 										if (this->providers == nullptr) {
 											$set(this, providers, $new($HashSet, 3));
 										}
-										$var($String, provider, $nc(args)->get(++i));
+										$var($String, provider, args->get(++i));
 										$var($String, providerArg, nullptr);
 										if (args->length > (i + 1)) {
 											$assign(flags, args->get(i + 1));
@@ -1248,8 +1248,8 @@ $StringArray* Main::parseArgs($StringArray* args$renamed) {
 									} else if ($nc(Main::collator)->compare(flags, "-trustcacerts"_s) == 0) {
 										this->trustcacerts = true;
 									} else {
-										bool var$516 = $nc(Main::collator)->compare(flags, "-protected"_s) == 0;
-										if (var$516 || $nc(Main::collator)->compare(flags, "-destprotected"_s) == 0) {
+										bool var$22 = $nc(Main::collator)->compare(flags, "-protected"_s) == 0;
+										if (var$22 || $nc(Main::collator)->compare(flags, "-destprotected"_s) == 0) {
 											this->protectedPath = true;
 										} else if ($nc(Main::collator)->compare(flags, "-srcprotected"_s) == 0) {
 											this->srcprotectedPath = true;
@@ -1507,7 +1507,6 @@ void Main::doCommands($PrintStream* out$renamed) {
 	} else if (this->storePass == nullptr) {
 		bool var$4 = !this->protectedPath && !$KeyStoreUtil::isWindowsKeyStore(this->storetype);
 		if (var$4 && isKeyStoreRelated(this->command) && !this->isPasswordlessKeyStore) {
-			$init($Main$Command);
 			if (this->command == $Main$Command::CERTREQ || this->command == $Main$Command::DELETE || this->command == $Main$Command::GENKEYPAIR || this->command == $Main$Command::GENSECKEY || this->command == $Main$Command::IMPORTCERT || this->command == $Main$Command::IMPORTPASS || this->command == $Main$Command::IMPORTKEYSTORE || this->command == $Main$Command::KEYCLONE || this->command == $Main$Command::CHANGEALIAS || this->command == $Main$Command::SELFCERT || this->command == $Main$Command::STOREPASSWD || this->command == $Main$Command::KEYPASSWD || this->command == $Main$Command::IDENTITYDB) {
 				int32_t count = 0;
 				do {
@@ -1654,7 +1653,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 					{
 						$var($PrintStream, ps, $new($PrintStream, static_cast<$OutputStream*>($$new($FileOutputStream, this->filename))));
 						{
-							$var($Throwable, var$344410, nullptr);
+							$var($Throwable, var$7, nullptr);
 							try {
 								try {
 									doExportCert(this->alias, ps);
@@ -1669,12 +1668,12 @@ void Main::doCommands($PrintStream* out$renamed) {
 									$throw(t$);
 								}
 							} catch ($Throwable&) {
-								$assign(var$344410, $catch());
+								$assign(var$7, $catch());
 							} /*finally*/ {
 								ps->close();
 							}
-							if (var$344410 != nullptr) {
-								$throw(var$344410);
+							if (var$7 != nullptr) {
+								$throw(var$7);
 							}
 						}
 					}
@@ -1714,7 +1713,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 									{
 										$var($InputStream, inStream, $new($FileInputStream, this->filename));
 										{
-											$var($Throwable, var$452036, nullptr);
+											$var($Throwable, var$8, nullptr);
 											try {
 												try {
 													doImportIdentityDatabase(inStream);
@@ -1729,12 +1728,12 @@ void Main::doCommands($PrintStream* out$renamed) {
 													$throw(t$);
 												}
 											} catch ($Throwable&) {
-												$assign(var$452036, $catch());
+												$assign(var$8, $catch());
 											} /*finally*/ {
 												inStream->close();
 											}
-											if (var$452036 != nullptr) {
-												$throw(var$452036);
+											if (var$8 != nullptr) {
+												$throw(var$8);
 											}
 										}
 									}
@@ -1751,7 +1750,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 									}
 									$var($String, importAlias, (this->alias != nullptr) ? this->alias : Main::keyAlias);
 									{
-										$var($Throwable, var$455624, nullptr);
+										$var($Throwable, var$9, nullptr);
 										try {
 											$load($KeyStore$PrivateKeyEntry);
 											if ($nc(this->keyStore)->entryInstanceOf(importAlias, $KeyStore$PrivateKeyEntry::class$)) {
@@ -1762,9 +1761,9 @@ void Main::doCommands($PrintStream* out$renamed) {
 													$nc($System::err)->println($($nc(Main::rb)->getString("Certificate.reply.was.not.installed.in.keystore"_s)));
 												}
 											} else {
-												bool var$455626 = !$nc(this->keyStore)->containsAlias(importAlias);
+												bool var$11 = !$nc(this->keyStore)->containsAlias(importAlias);
 												$load($KeyStore$TrustedCertificateEntry);
-												if (var$455626 || $nc(this->keyStore)->entryInstanceOf(importAlias, $KeyStore$TrustedCertificateEntry::class$)) {
+												if (var$11 || $nc(this->keyStore)->entryInstanceOf(importAlias, $KeyStore$TrustedCertificateEntry::class$)) {
 													this->kssave = addTrustedCert(importAlias, inStream);
 													if (this->kssave) {
 														$nc($System::err)->println($($nc(Main::rb)->getString("Certificate.was.added.to.keystore"_s)));
@@ -1774,14 +1773,14 @@ void Main::doCommands($PrintStream* out$renamed) {
 												}
 											}
 										} catch ($Throwable&) {
-											$assign(var$455624, $catch());
+											$assign(var$9, $catch());
 										} /*finally*/ {
 											if (inStream != $System::in) {
 												$nc(inStream)->close();
 											}
 										}
-										if (var$455624 != nullptr) {
-											$throw(var$455624);
+										if (var$9 != nullptr) {
+											$throw(var$9);
 										}
 									}
 								} else {
@@ -1862,11 +1861,11 @@ void Main::doCommands($PrintStream* out$renamed) {
 																			$assign(out, ps);
 																		}
 																		{
-																			$var($Throwable, var$459204, nullptr);
+																			$var($Throwable, var$12, nullptr);
 																			try {
 																				doGenCert(this->alias, this->sigAlgName, inStream, out);
 																			} catch ($Throwable&) {
-																				$assign(var$459204, $catch());
+																				$assign(var$12, $catch());
 																			} /*finally*/ {
 																				if (inStream != $System::in) {
 																					$nc(inStream)->close();
@@ -1875,8 +1874,8 @@ void Main::doCommands($PrintStream* out$renamed) {
 																					ps->close();
 																				}
 																			}
-																			if (var$459204 != nullptr) {
-																				$throw(var$459204);
+																			if (var$12 != nullptr) {
+																				$throw(var$12);
 																			}
 																		}
 																	} else {
@@ -1888,7 +1887,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 																				{
 																					$var($PrintStream, ps, $new($PrintStream, static_cast<$OutputStream*>($$new($FileOutputStream, this->filename))));
 																					{
-																						$var($Throwable, var$459208, nullptr);
+																						$var($Throwable, var$13, nullptr);
 																						try {
 																							try {
 																								doGenCRL(ps);
@@ -1903,12 +1902,12 @@ void Main::doCommands($PrintStream* out$renamed) {
 																								$throw(t$);
 																							}
 																						} catch ($Throwable&) {
-																							$assign(var$459208, $catch());
+																							$assign(var$13, $catch());
 																						} /*finally*/ {
 																							ps->close();
 																						}
-																						if (var$459208 != nullptr) {
-																							$throw(var$459208);
+																						if (var$13 != nullptr) {
+																							$throw(var$13);
 																						}
 																					}
 																				}
@@ -1921,7 +1920,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 																					{
 																						$var($InputStream, inStream, $new($FileInputStream, this->filename));
 																						{
-																							$var($Throwable, var$459210, nullptr);
+																							$var($Throwable, var$14, nullptr);
 																							try {
 																								try {
 																									doPrintCertReq(inStream, out);
@@ -1936,12 +1935,12 @@ void Main::doCommands($PrintStream* out$renamed) {
 																									$throw(t$);
 																								}
 																							} catch ($Throwable&) {
-																								$assign(var$459210, $catch());
+																								$assign(var$14, $catch());
 																							} /*finally*/ {
 																								inStream->close();
 																							}
-																							if (var$459210 != nullptr) {
-																								$throw(var$459210);
+																							if (var$14 != nullptr) {
+																								$throw(var$14);
 																							}
 																						}
 																					}
@@ -1995,7 +1994,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 				{
 					$var($FileOutputStream, fout, $new($FileOutputStream, this->ksfname));
 					{
-						$var($Throwable, var$459211, nullptr);
+						$var($Throwable, var$15, nullptr);
 						try {
 							try {
 								fout->write($(bout->toByteArray()));
@@ -2010,12 +2009,12 @@ void Main::doCommands($PrintStream* out$renamed) {
 								$throw(t$);
 							}
 						} catch ($Throwable&) {
-							$assign(var$459211, $catch());
+							$assign(var$15, $catch());
 						} /*finally*/ {
 							fout->close();
 						}
-						if (var$459211 != nullptr) {
-							$throw(var$459211);
+						if (var$15 != nullptr) {
+							$throw(var$15);
 						}
 					}
 				}
@@ -2030,8 +2029,8 @@ void Main::doCommands($PrintStream* out$renamed) {
 			try {
 				$set(this, keyStore, $KeyStore::getInstance(f, pass));
 				$assign(realType, $nc(this->keyStore)->getType());
-				bool var$459212 = $nc(realType)->equalsIgnoreCase("JKS"_s);
-				if (var$459212 || $nc(realType)->equalsIgnoreCase("JCEKS"_s)) {
+				bool var$16 = $nc(realType)->equalsIgnoreCase("JKS"_s);
+				if (var$16 || $nc(realType)->equalsIgnoreCase("JCEKS"_s)) {
 					bool allCerts = true;
 					{
 						$var($Iterator, i$, $nc($($Collections::list($($nc(this->keyStore)->aliases()))))->iterator());
@@ -2118,7 +2117,7 @@ void Main::doGenCert($String* alias, $String* sigAlgName$renamed, $InputStream* 
 			if (var$2 && s->indexOf("REQUEST"_s) >= 0) {
 				break;
 			} else if (canRead) {
-				$nc(sb)->append(s);
+				sb->append(s);
 			}
 		}
 	}
@@ -2312,7 +2311,6 @@ $chars* Main::promptForKeyPass($String* alias, $String* orig, $chars* origPass) 
 			if (entered == nullptr && origPass != nullptr) {
 				return origPass;
 			} else if (entered != nullptr && entered->length >= 6) {
-				$init($System);
 				$nc($System::err)->print($($nc(Main::rb)->getString("Re.enter.new.password."_s)));
 				$var($chars, passAgain, $Password::readPassword($System::in));
 				$nc(this->passwords)->add(passAgain);
@@ -2322,7 +2320,6 @@ $chars* Main::promptForKeyPass($String* alias, $String* orig, $chars* origPass) 
 				}
 				return entered;
 			} else {
-				$init($System);
 				$nc($System::err)->println($($nc(Main::rb)->getString("Key.password.is.too.short.must.be.at.least.6.characters"_s)));
 			}
 		}
@@ -2667,15 +2664,15 @@ void Main::doPrintEntry($String* label, $String* alias, $PrintStream* out) {
 						if (this->verbose && ($instanceOf($X509Certificate, chain->get(i)))) {
 							printX509Cert(($cast($X509Certificate, chain->get(i))), out);
 						} else if (this->debug) {
-							$nc(out)->println($($nc($nc(chain)->get(i))->toString()));
+							out->println($($nc(chain->get(i))->toString()));
 						} else {
-							dumpCert($nc(chain)->get(i), out);
+							dumpCert(chain->get(i), out);
 						}
 						checkWeak(label, chain->get(i));
 					}
 				} else {
-					$var($String, var$3, $($nc(Main::rb)->getString("Certificate.fingerprint.SHA.256."_s)));
-					$nc(out)->println($$concat(var$3, $(getCertFingerPrint("SHA-256"_s, chain->get(0)))));
+					$var($String, var$0, $($nc(Main::rb)->getString("Certificate.fingerprint.SHA.256."_s)));
+					$nc(out)->println($$concat(var$0, $(getCertFingerPrint("SHA-256"_s, chain->get(0)))));
 					checkWeak(label, chain);
 				}
 			} else {
@@ -2697,8 +2694,8 @@ void Main::doPrintEntry($String* label, $String* alias, $PrintStream* out) {
 					$nc(out)->println($($nc(cert)->toString()));
 				} else {
 					$nc(out)->println("trustedCertEntry, "_s);
-					$var($String, var$5, $($nc(Main::rb)->getString("Certificate.fingerprint.SHA.256."_s)));
-					out->println($$concat(var$5, $(getCertFingerPrint("SHA-256"_s, cert))));
+					$var($String, var$1, $($nc(Main::rb)->getString("Certificate.fingerprint.SHA.256."_s)));
+					out->println($$concat(var$1, $(getCertFingerPrint("SHA-256"_s, cert))));
 				}
 				checkWeak(label, cert);
 			} else {
@@ -2857,7 +2854,7 @@ int32_t Main::doImportKeyStoreSingle($KeyStore* srckeystore, $String* alias) {
 	if (this->destKeyPass != nullptr) {
 		$assign(newPass, this->destKeyPass);
 		$assign(pp, $new($KeyStore$PasswordProtection, this->destKeyPass));
-	} else if ($nc(objs)->snd != nullptr) {
+	} else if (objs->snd != nullptr) {
 		if ($nc(Main::P12KEYSTORE)->equalsIgnoreCase(this->storetype)) {
 			if (this->isPasswordlessKeyStore) {
 				$assign(newPass, $cast($chars, objs->snd));
@@ -3732,12 +3729,10 @@ $chars* Main::getNewPasswd($String* prompt, $chars* oldPasswd) {
 		if (entered == nullptr || $nc(entered)->length < 6) {
 			$nc($System::err)->println($($nc(Main::rb)->getString("Password.is.too.short.must.be.at.least.6.characters"_s)));
 		} else if ($Arrays::equals(entered, oldPasswd)) {
-			$init($System);
 			$nc($System::err)->println($($nc(Main::rb)->getString("Passwords.must.differ"_s)));
 		} else {
 			$assign(form, $new($MessageFormat, $($nc(Main::rb)->getString("Re.enter.new.prompt."_s))));
 			$var($ObjectArray, src, $new($ObjectArray, {$of(prompt)}));
-			$init($System);
 			$nc($System::err)->print($(form->format(src)));
 			$assign(reentered, $Password::readPassword($System::in));
 			$nc(this->passwords)->add(reentered);
@@ -4174,8 +4169,8 @@ $CertificateArray* Main::validateReply($String* alias, $Certificate* userCert, $
 		if ("NO"_s->equals(reply)) {
 			return nullptr;
 		}
-	} else if (!$equals($nc(root)->snd, topCert)) {
-		$var($CertificateArray, tmpCerts, $new($CertificateArray, $nc(replyCerts)->length + 1));
+	} else if (!$equals(root->snd, topCert)) {
+		$var($CertificateArray, tmpCerts, $new($CertificateArray, replyCerts->length + 1));
 		$System::arraycopy(replyCerts, 0, tmpCerts, 0, replyCerts->length);
 		tmpCerts->set(tmpCerts->length - 1, $cast($Certificate, root->snd));
 		$assign(replyCerts, tmpCerts);
@@ -4302,7 +4297,7 @@ void Main::keystorecerts2Hashtable($KeyStore* ks, $Hashtable* hash) {
 				if (vec == nullptr) {
 					$assign(vec, $new($Vector));
 					vec->addElement(pair);
-				} else if (!$nc(vec)->contains(pair)) {
+				} else if (!vec->contains(pair)) {
 					vec->addElement(pair);
 				}
 				hash->put(subjectDN, vec);
@@ -4475,20 +4470,19 @@ int32_t Main::oneOfMatch($BiFunction* matcher, $String* s, $StringArray* list) {
 	if (nmatch == 0) {
 		return -1;
 	} else if (nmatch == 1) {
-		return $nc(match)->get(0);
+		return match->get(0);
 	} else {
-		if ($nc(match)->get(1) > experiment) {
+		if (match->get(1) > experiment) {
 			return match->get(0);
 		}
 		$var($StringBuilder, sb, $new($StringBuilder));
-		$init(Main);
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("command.{0}.is.ambiguous."_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(s)}));
 		sb->append($(form->format(source)));
 		sb->append("\n    "_s);
-		for (int32_t i = 0; i < nmatch && $nc(match)->get(i) < experiment; ++i) {
+		for (int32_t i = 0; i < nmatch && match->get(i) < experiment; ++i) {
 			sb->append(u' ');
-			sb->append($nc(list)->get(match->get(i)));
+			sb->append(list->get(match->get(i)));
 		}
 		$throwNew($Exception, $(sb->toString()));
 	}
@@ -4752,9 +4746,9 @@ $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* request
 													$var($StringArray, nv, $nc(part)->split(":"_s));
 													if (nv->length != 2) {
 														$throwNew($Exception, $$str({$($nc(Main::rb)->getString("Illegal.value."_s)), extstr}));
-													} else if ($nc($nc(nv)->get(0))->equalsIgnoreCase("ca"_s)) {
+													} else if ($nc(nv->get(0))->equalsIgnoreCase("ca"_s)) {
 														isCA = $Boolean::parseBoolean(nv->get(1));
-													} else if ($nc($nc(nv)->get(0))->equalsIgnoreCase("pathlen"_s)) {
+													} else if ($nc(nv->get(0))->equalsIgnoreCase("pathlen"_s)) {
 														pathLen = $Integer::parseInt(nv->get(1));
 													} else {
 														$throwNew($Exception, $$str({$($nc(Main::rb)->getString("Illegal.value."_s)), extstr}));

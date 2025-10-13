@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MAP_SINGLEBYTE")
-#undef MAP_SINGLEBYTE
 #pragma push_macro("MAP_COMPOSITE")
 #undef MAP_COMPOSITE
 #pragma push_macro("MAP_DOUBLEBYTE1")
 #undef MAP_DOUBLEBYTE1
 #pragma push_macro("MAP_DOUBLEBYTE2")
 #undef MAP_DOUBLEBYTE2
-#pragma push_macro("MAP_SUPPLEMENT_C2B")
-#undef MAP_SUPPLEMENT_C2B
 #pragma push_macro("MAP_INDEXC2B")
 #undef MAP_INDEXC2B
-#pragma push_macro("UNMAPPABLE_ENCODING")
-#undef UNMAPPABLE_ENCODING
-#pragma push_macro("UNMAPPABLE_DECODING")
-#undef UNMAPPABLE_DECODING
+#pragma push_macro("MAP_SINGLEBYTE")
+#undef MAP_SINGLEBYTE
 #pragma push_macro("MAP_SUPPLEMENT")
 #undef MAP_SUPPLEMENT
+#pragma push_macro("MAP_SUPPLEMENT_C2B")
+#undef MAP_SUPPLEMENT_C2B
 #pragma push_macro("N")
 #undef N
+#pragma push_macro("UNMAPPABLE_DECODING")
+#undef UNMAPPABLE_DECODING
+#pragma push_macro("UNMAPPABLE_ENCODING")
+#undef UNMAPPABLE_ENCODING
 
 namespace java {
 	namespace io {
@@ -110,15 +110,15 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("MAP_SINGLEBYTE")
 #pragma pop_macro("MAP_COMPOSITE")
 #pragma pop_macro("MAP_DOUBLEBYTE1")
 #pragma pop_macro("MAP_DOUBLEBYTE2")
-#pragma pop_macro("MAP_SUPPLEMENT_C2B")
 #pragma pop_macro("MAP_INDEXC2B")
-#pragma pop_macro("UNMAPPABLE_ENCODING")
-#pragma pop_macro("UNMAPPABLE_DECODING")
+#pragma pop_macro("MAP_SINGLEBYTE")
 #pragma pop_macro("MAP_SUPPLEMENT")
+#pragma pop_macro("MAP_SUPPLEMENT_C2B")
 #pragma pop_macro("N")
+#pragma pop_macro("UNMAPPABLE_DECODING")
+#pragma pop_macro("UNMAPPABLE_ENCODING")
 
 #endif // _sun_nio_cs_CharsetMapping_h_

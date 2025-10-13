@@ -53,31 +53,31 @@
 #include <sun/invoke/util/VerifyAccess.h>
 #include <jcpp.h>
 
-#undef VARARGS
-#undef IS_TYPE
-#undef IS_CONSTRUCTOR
-#undef IS_INVOCABLE
-#undef BRIDGE
-#undef STATIC
-#undef CONSTRUCTOR_NAME
-#undef ANNOTATION
-#undef PACKAGE
-#undef RECOGNIZED_MODIFIERS
-#undef CALLER_SENSITIVE
 #undef ALL_ACCESS
-#undef IS_METHOD
-#undef TYPE
-#undef ENUM
-#undef IS_FIELD_OR_METHOD
-#undef TRUSTED_FINAL
-#undef SYNTHETIC
-#undef INSTANCE
-#undef MH_INVOKE_MODS
-#undef IS_FIELD
-#undef MODULE
 #undef ALL_KINDS
-#undef SEARCH_ALL_SUPERS
+#undef ANNOTATION
+#undef BRIDGE
+#undef CALLER_SENSITIVE
+#undef CONSTRUCTOR_NAME
+#undef ENUM
+#undef INSTANCE
+#undef IS_CONSTRUCTOR
+#undef IS_FIELD
+#undef IS_FIELD_OR_METHOD
+#undef IS_INVOCABLE
+#undef IS_METHOD
+#undef IS_TYPE
+#undef MH_INVOKE_MODS
+#undef MODULE
+#undef PACKAGE
 #undef PUBLIC
+#undef RECOGNIZED_MODIFIERS
+#undef SEARCH_ALL_SUPERS
+#undef STATIC
+#undef SYNTHETIC
+#undef TRUSTED_FINAL
+#undef TYPE
+#undef VARARGS
 
 using $AbstractMethodError = ::java::lang::AbstractMethodError;
 using $AssertionError = ::java::lang::AssertionError;

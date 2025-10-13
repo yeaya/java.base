@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/ClassVisitor.h>
 
-#pragma push_macro("USAGE")
-#undef USAGE
 #pragma push_macro("ERROR_AT")
 #undef ERROR_AT
+#pragma push_macro("USAGE")
+#undef USAGE
 
 namespace java {
 	namespace io {
@@ -148,7 +148,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("USAGE")
 #pragma pop_macro("ERROR_AT")
+#pragma pop_macro("USAGE")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_CheckClassAdapter_h_

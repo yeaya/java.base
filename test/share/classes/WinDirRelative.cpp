@@ -17,10 +17,10 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef NUM_FILES
 #undef BASENAME
 #undef COLON
 #undef EXTENSION
+#undef NUM_FILES
 
 using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;

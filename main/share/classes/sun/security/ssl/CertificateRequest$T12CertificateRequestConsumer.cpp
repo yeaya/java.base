@@ -44,11 +44,11 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
-#undef HANDSHAKE_FAILURE
+#undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_STATUS
+#undef CERTIFICATE_VERIFY
+#undef HANDSHAKE_FAILURE
 
 using $X500PrincipalArray = $Array<::javax::security::auth::x500::X500Principal>;
 using $Byte = ::java::lang::Byte;

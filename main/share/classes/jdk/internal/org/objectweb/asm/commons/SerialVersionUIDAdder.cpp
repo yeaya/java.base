@@ -36,20 +36,20 @@
 #include <jdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item.h>
 #include <jcpp.h>
 
-#undef ACC_PROTECTED
-#undef ACC_ENUM
-#undef ACC_STATIC
-#undef ASM8
 #undef ACC_ABSTRACT
-#undef ACC_SYNCHRONIZED
-#undef ACC_PRIVATE
-#undef ACC_VOLATILE
+#undef ACC_ENUM
 #undef ACC_FINAL
-#undef ACC_STRICT
-#undef ACC_NATIVE
 #undef ACC_INTERFACE
+#undef ACC_NATIVE
+#undef ACC_PRIVATE
+#undef ACC_PROTECTED
 #undef ACC_PUBLIC
+#undef ACC_STATIC
+#undef ACC_STRICT
+#undef ACC_SYNCHRONIZED
 #undef ACC_TRANSIENT
+#undef ACC_VOLATILE
+#undef ASM8
 #undef CLINIT
 
 using $SerialVersionUIDAdder$ItemArray = $Array<::jdk::internal::org::objectweb::asm$::commons::SerialVersionUIDAdder$Item>;

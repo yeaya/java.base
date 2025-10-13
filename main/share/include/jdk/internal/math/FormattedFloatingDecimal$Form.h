@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SCIENTIFIC")
-#undef SCIENTIFIC
 #pragma push_macro("COMPATIBLE")
 #undef COMPATIBLE
-#pragma push_macro("GENERAL")
-#undef GENERAL
 #pragma push_macro("DECIMAL_FLOAT")
 #undef DECIMAL_FLOAT
+#pragma push_macro("GENERAL")
+#undef GENERAL
+#pragma push_macro("SCIENTIFIC")
+#undef SCIENTIFIC
 
 namespace jdk {
 	namespace internal {
@@ -38,9 +38,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SCIENTIFIC")
 #pragma pop_macro("COMPATIBLE")
-#pragma pop_macro("GENERAL")
 #pragma pop_macro("DECIMAL_FLOAT")
+#pragma pop_macro("GENERAL")
+#pragma pop_macro("SCIENTIFIC")
 
 #endif // _jdk_internal_math_FormattedFloatingDecimal$Form_h_

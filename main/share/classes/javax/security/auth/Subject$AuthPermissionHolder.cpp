@@ -12,13 +12,13 @@
 #include <javax/security/auth/Subject.h>
 #include <jcpp.h>
 
+#undef DO_AS_PERMISSION
+#undef DO_AS_PRIVILEGED_PERMISSION
 #undef GET_SUBJECT_PERMISSION
 #undef MODIFY_PRINCIPALS_PERMISSION
 #undef MODIFY_PRIVATE_CREDENTIALS_PERMISSION
-#undef DO_AS_PERMISSION
-#undef SET_READ_ONLY_PERMISSION
-#undef DO_AS_PRIVILEGED_PERMISSION
 #undef MODIFY_PUBLIC_CREDENTIALS_PERMISSION
+#undef SET_READ_ONLY_PERMISSION
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

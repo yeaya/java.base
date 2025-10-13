@@ -13,9 +13,9 @@
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
-#undef BITS_8
-#undef BITS_32
 #undef BITS_16
+#undef BITS_32
+#undef BITS_8
 
 using $CodePointTrie$ValueWidthArray = $Array<::jdk::internal::icu::util::CodePointTrie$ValueWidth>;
 using $ClassInfo = ::java::lang::ClassInfo;

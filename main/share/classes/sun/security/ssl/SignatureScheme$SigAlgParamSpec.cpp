@@ -23,9 +23,9 @@
 #include <sun/security/ssl/SignatureScheme.h>
 #include <jcpp.h>
 
-#undef RSA_PSS_SHA512
-#undef RSA_PSS_SHA384
 #undef RSA_PSS_SHA256
+#undef RSA_PSS_SHA384
+#undef RSA_PSS_SHA512
 
 using $SignatureScheme$SigAlgParamSpecArray = $Array<::sun::security::ssl::SignatureScheme$SigAlgParamSpec>;
 using $ClassInfo = ::java::lang::ClassInfo;

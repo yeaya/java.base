@@ -193,9 +193,9 @@ void URLStreamHandler::parseURL($URL* u, $String* spec$renamed, int32_t start, i
 				$assign(separator, "/"_s);
 			}
 			$var($String, var$5, $$str({$(path->substring(0, ind + 1)), separator}));
-			$assign(path, $concat(var$5, $($nc(spec)->substring(start, limit))));
+			$assign(path, $concat(var$5, $(spec->substring(start, limit))));
 		} else {
-			$assign(path, $nc(spec)->substring(start, limit));
+			$assign(path, spec->substring(start, limit));
 			$assign(path, (authority != nullptr) ? $str({"/"_s, path}) : path);
 		}
 	} else if (queryOnly && path != nullptr) {
@@ -324,12 +324,12 @@ bool URLStreamHandler::hostsEqual($URL* u1, $URL* u2) {
 	if (a1 != nullptr && a2 != nullptr) {
 		return a1->equals(a2);
 	} else {
-		bool var$2 = $nc(u1)->getHost() != nullptr;
-		if (var$2 && $nc(u2)->getHost() != nullptr) {
+		bool var$1 = u1->getHost() != nullptr;
+		if (var$1 && u2->getHost() != nullptr) {
 			return $nc($(u1->getHost()))->equalsIgnoreCase($(u2->getHost()));
 		} else {
-			bool var$3 = u1->getHost() == nullptr;
-			return var$3 && u2->getHost() == nullptr;
+			bool var$2 = u1->getHost() == nullptr;
+			return var$2 && u2->getHost() == nullptr;
 		}
 	}
 }
@@ -347,13 +347,13 @@ $String* URLStreamHandler::toExternalForm($URL* u) {
 void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host, int32_t port, $String* authority, $String* userInfo, $String* path, $String* query, $String* ref) {
 	if (this != $nc(u)->handler) {
 		$throwNew($SecurityException, "handler for url different from this handler"_s);
-	} else if (host != nullptr && $nc(u)->isBuiltinStreamHandler(this)) {
+	} else if (host != nullptr && u->isBuiltinStreamHandler(this)) {
 		$var($String, s, $IPAddressUtil::checkHostString(host));
 		if (s != nullptr) {
 			$throwNew($IllegalArgumentException, s);
 		}
 	}
-	$nc(u)->set($(u->getProtocol()), host, port, authority, userInfo, path, query, ref);
+	u->set($(u->getProtocol()), host, port, authority, userInfo, path, query, ref);
 }
 
 void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host$renamed, int32_t port, $String* file, $String* ref) {

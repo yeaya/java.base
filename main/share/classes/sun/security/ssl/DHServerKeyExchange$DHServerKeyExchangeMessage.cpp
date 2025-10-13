@@ -60,12 +60,12 @@
 #include <sun/security/util/KeyUtil.h>
 #include <jcpp.h>
 
-#undef SIGNATURE_DSA
 #undef ENGLISH
 #undef HANDSHAKE_FAILURE
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
 #undef SERVER_KEY_EXCHANGE
+#undef SIGNATURE_DSA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

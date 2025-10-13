@@ -8,10 +8,10 @@
 #include <java/lang/Enum.h>
 #include <java/time/chrono/Era.h>
 
-#pragma push_macro("CE")
-#undef CE
 #pragma push_macro("BCE")
 #undef BCE
+#pragma push_macro("CE")
+#undef CE
 
 namespace java {
 	namespace time {
@@ -42,7 +42,7 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("CE")
 #pragma pop_macro("BCE")
+#pragma pop_macro("CE")
 
 #endif // _java_time_chrono_IsoEra_h_

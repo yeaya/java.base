@@ -59,15 +59,15 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef CRLCHECK
-#undef OCSP
-#undef DEFAULT_CONNECT_TIMEOUT
-#undef VAR_PLUGIN_CODE_SIGNING
-#undef UNDETERMINED_REVOCATION_STATUS
-#undef NAME_URI
 #undef CONNECT_TIMEOUT
-#undef MAX_VALUE
+#undef CRLCHECK
+#undef DEFAULT_CONNECT_TIMEOUT
 #undef HTTP_OK
+#undef MAX_VALUE
+#undef NAME_URI
+#undef OCSP
+#undef UNDETERMINED_REVOCATION_STATUS
+#undef VAR_PLUGIN_CODE_SIGNING
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;

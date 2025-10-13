@@ -16,15 +16,15 @@
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
-#undef DEFAULT_DIGITS
 #undef DECIMAL128
-#undef DECIMAL64
-#undef HALF_EVEN
-#undef MIN_DIGITS
-#undef HALF_UP
 #undef DECIMAL32
-#undef UNLIMITED
+#undef DECIMAL64
+#undef DEFAULT_DIGITS
 #undef DEFAULT_ROUNDINGMODE
+#undef HALF_EVEN
+#undef HALF_UP
+#undef MIN_DIGITS
+#undef UNLIMITED
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;

@@ -21,13 +21,13 @@
 #include <jdk/internal/org/objectweb/asm/tree/Util.h>
 #include <jcpp.h>
 
-#undef F_NEW
-#undef F_CHOP
-#undef F_SAME1
-#undef F_FULL
-#undef F_APPEND
-#undef F_SAME
 #undef FRAME
+#undef F_APPEND
+#undef F_CHOP
+#undef F_FULL
+#undef F_NEW
+#undef F_SAME
+#undef F_SAME1
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

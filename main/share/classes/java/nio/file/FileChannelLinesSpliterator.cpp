@@ -36,11 +36,11 @@
 #include <sun/nio/cs/UTF_8.h>
 #include <jcpp.h>
 
+#undef INSTANCE
 #undef NONNULL
 #undef ORDERED
-#undef INSTANCE
-#undef SUPPORTED_CHARSET_NAMES
 #undef READ_ONLY
+#undef SUPPORTED_CHARSET_NAMES
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
@@ -214,7 +214,7 @@ $Spliterator* FileChannelLinesSpliterator::trySplit() {
 		++mid;
 	} else if (c == u'\r') {
 		bool var$0 = ++mid < hi;
-		if (var$0 && $nc(b)->get(mid) == u'\n') {
+		if (var$0 && b->get(mid) == u'\n') {
 			++mid;
 		}
 	} else {
@@ -222,7 +222,7 @@ $Spliterator* FileChannelLinesSpliterator::trySplit() {
 		int32_t midR = mid + 1;
 		mid = 0;
 		while (midL > lo && midR < hi) {
-			c = $nc(b)->get(midL--);
+			c = b->get(midL--);
 			if (c == u'\n' || c == u'\r') {
 				mid = midL + 2;
 				break;

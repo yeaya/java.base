@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("RSA")
-#undef RSA
 #pragma push_macro("PSS")
 #undef PSS
+#pragma push_macro("RSA")
+#undef RSA
 
 namespace sun {
 	namespace security {
@@ -44,7 +44,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("RSA")
 #pragma pop_macro("PSS")
+#pragma pop_macro("RSA")
 
 #endif // _sun_security_rsa_RSAUtil$KeyType_h_

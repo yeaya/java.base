@@ -22,8 +22,8 @@
 #include <jdk/internal/perf/PerfCounter.h>
 #include <jcpp.h>
 
-#undef PUBLISH_COUNTERS
 #undef PRINT_COUNTERS
+#undef PUBLISH_COUNTERS
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -33,17 +33,17 @@
 #include <sun/security/validator/Validator.h>
 #include <jcpp.h>
 
-#undef VAR_TLS_SERVER
-#undef SERVER
-#undef VAR_GENERIC
+#undef CLIENT
 #undef EXPIRED
-#undef VAR_TLS_CLIENT
 #undef EXTENSION_MISMATCH
-#undef SNI_HOST_NAME
+#undef INSENSITIVE
 #undef NONE
 #undef OK
-#undef INSENSITIVE
-#undef CLIENT
+#undef SERVER
+#undef SNI_HOST_NAME
+#undef VAR_GENERIC
+#undef VAR_TLS_CLIENT
+#undef VAR_TLS_SERVER
 
 using $X509KeyManagerImpl$CheckTypeArray = $Array<::sun::security::ssl::X509KeyManagerImpl$CheckType>;
 using $ClassInfo = ::java::lang::ClassInfo;

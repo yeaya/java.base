@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("FLAG_BRIDGES")
-#undef FLAG_BRIDGES
-#pragma push_macro("FLAG_SERIALIZABLE")
-#undef FLAG_SERIALIZABLE
-#pragma push_macro("EMPTY_MT_ARRAY")
-#undef EMPTY_MT_ARRAY
-#pragma push_macro("FLAG_MARKERS")
-#undef FLAG_MARKERS
 #pragma push_macro("EMPTY_CLASS_ARRAY")
 #undef EMPTY_CLASS_ARRAY
+#pragma push_macro("EMPTY_MT_ARRAY")
+#undef EMPTY_MT_ARRAY
+#pragma push_macro("FLAG_BRIDGES")
+#undef FLAG_BRIDGES
+#pragma push_macro("FLAG_MARKERS")
+#undef FLAG_MARKERS
+#pragma push_macro("FLAG_SERIALIZABLE")
+#undef FLAG_SERIALIZABLE
 
 namespace java {
 	namespace lang {
@@ -51,10 +51,10 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("FLAG_BRIDGES")
-#pragma pop_macro("FLAG_SERIALIZABLE")
-#pragma pop_macro("EMPTY_MT_ARRAY")
-#pragma pop_macro("FLAG_MARKERS")
 #pragma pop_macro("EMPTY_CLASS_ARRAY")
+#pragma pop_macro("EMPTY_MT_ARRAY")
+#pragma pop_macro("FLAG_BRIDGES")
+#pragma pop_macro("FLAG_MARKERS")
+#pragma pop_macro("FLAG_SERIALIZABLE")
 
 #endif // _java_lang_invoke_LambdaMetafactory_h_

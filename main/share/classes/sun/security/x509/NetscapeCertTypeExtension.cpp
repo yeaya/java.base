@@ -26,19 +26,19 @@
 #include <sun/security/x509/NetscapeCertTypeExtension$MapEntry.h>
 #include <jcpp.h>
 
-#undef S_MIME
+#undef DIGITAL_SIGNATURE
+#undef IDENT
+#undef KEY_CERTSIGN
+#undef KEY_ENCIPHERMENT
+#undef NAME
+#undef OBJECT_SIGNING
 #undef OBJECT_SIGNING_CA
 #undef SSL_CA
-#undef SSL_SERVER
-#undef TRUE
-#undef KEY_CERTSIGN
-#undef NAME
 #undef SSL_CLIENT
-#undef OBJECT_SIGNING
+#undef SSL_SERVER
+#undef S_MIME
 #undef S_MIME_CA
-#undef IDENT
-#undef DIGITAL_SIGNATURE
-#undef KEY_ENCIPHERMENT
+#undef TRUE
 
 using $NetscapeCertTypeExtension$MapEntryArray = $Array<::sun::security::x509::NetscapeCertTypeExtension$MapEntry>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

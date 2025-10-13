@@ -13,8 +13,8 @@
 #include <jcpp.h>
 
 #undef OPTIONAL
-#undef REQUISITE
 #undef REQUIRED
+#undef REQUISITE
 #undef SUFFICIENT
 
 using $ClassInfo = ::java::lang::ClassInfo;

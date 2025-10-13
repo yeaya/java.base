@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/security/KeyStoreSpi.h>
 
-#pragma push_macro("VERSION_2")
-#undef VERSION_2
-#pragma push_macro("VERSION_1")
-#undef VERSION_1
 #pragma push_macro("JCEKS_MAGIC")
 #undef JCEKS_MAGIC
 #pragma push_macro("JKS_MAGIC")
 #undef JKS_MAGIC
+#pragma push_macro("VERSION_1")
+#undef VERSION_1
+#pragma push_macro("VERSION_2")
+#undef VERSION_2
 
 namespace java {
 	namespace io {
@@ -99,9 +99,9 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("VERSION_2")
-#pragma pop_macro("VERSION_1")
 #pragma pop_macro("JCEKS_MAGIC")
 #pragma pop_macro("JKS_MAGIC")
+#pragma pop_macro("VERSION_1")
+#pragma pop_macro("VERSION_2")
 
 #endif // _com_sun_crypto_provider_JceKeyStore_h_

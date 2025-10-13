@@ -14,10 +14,10 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
+#undef LONGMAX
 #undef LONGMIN
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef LONGMAX
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;

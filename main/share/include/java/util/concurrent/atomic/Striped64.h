@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Number.h>
 
-#pragma push_macro("THREAD_PROBE")
-#undef THREAD_PROBE
-#pragma push_macro("NCPU")
-#undef NCPU
-#pragma push_macro("CELLSBUSY")
-#undef CELLSBUSY
 #pragma push_macro("BASE")
 #undef BASE
+#pragma push_macro("CELLSBUSY")
+#undef CELLSBUSY
+#pragma push_macro("NCPU")
+#undef NCPU
+#pragma push_macro("THREAD_PROBE")
+#undef THREAD_PROBE
 
 namespace java {
 	namespace lang {
@@ -72,9 +72,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("THREAD_PROBE")
-#pragma pop_macro("NCPU")
-#pragma pop_macro("CELLSBUSY")
 #pragma pop_macro("BASE")
+#pragma pop_macro("CELLSBUSY")
+#pragma pop_macro("NCPU")
+#pragma pop_macro("THREAD_PROBE")
 
 #endif // _java_util_concurrent_atomic_Striped64_h_

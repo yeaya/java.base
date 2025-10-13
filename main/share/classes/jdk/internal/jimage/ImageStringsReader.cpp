@@ -21,9 +21,9 @@
 #include <jdk/internal/jimage/BasicImageReader.h>
 #include <jcpp.h>
 
-#undef US_ASCII
 #undef HASH_MULTIPLIER
 #undef POSITIVE_MASK
+#undef US_ASCII
 
 using $IOException = ::java::io::IOException;
 using $UTFDataFormatException = ::java::io::UTFDataFormatException;

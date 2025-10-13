@@ -32,13 +32,13 @@
 #include <jdk/internal/util/ArraysSupport.h>
 #include <jcpp.h>
 
-#undef MIN_SUPPLEMENTARY_CODE_POINT
+#undef COMPACT_STRINGS
+#undef ERROR
 #undef HI_BYTE_SHIFT
 #undef LO_BYTE_SHIFT
-#undef ERROR
-#undef COMPACT_STRINGS
-#undef MIN_VALUE
 #undef MAX_LENGTH
+#undef MIN_SUPPLEMENTARY_CODE_POINT
+#undef MIN_VALUE
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $AssertionError = ::java::lang::AssertionError;

@@ -9,10 +9,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NON_FINAL
-#undef STATIC_NON_FINAL
-#undef STATIC_FINAL
 #undef FINAL
+#undef NON_FINAL
+#undef STATIC_FINAL
+#undef STATIC_NON_FINAL
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

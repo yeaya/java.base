@@ -29,8 +29,8 @@
 #include <sun/util/calendar/LocalGregorianCalendar$Date.h>
 #include <jcpp.h>
 
-#undef EPOCH_OFFSET
 #undef DAY_IN_MILLIS
+#undef EPOCH_OFFSET
 #undef JAPANESE_ERAS
 
 using $EraArray = $Array<::sun::util::calendar::Era>;

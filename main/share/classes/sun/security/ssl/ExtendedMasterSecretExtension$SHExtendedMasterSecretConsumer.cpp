@@ -23,10 +23,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef UNSUPPORTED_EXTENSION
-#undef SH_EXTENDED_MASTER_SECRET
-#undef NOMINAL
 #undef CH_EXTENDED_MASTER_SECRET
+#undef NOMINAL
+#undef SH_EXTENDED_MASTER_SECRET
+#undef UNSUPPORTED_EXTENSION
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

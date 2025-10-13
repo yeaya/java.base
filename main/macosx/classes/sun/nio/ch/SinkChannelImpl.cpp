@@ -34,14 +34,14 @@
 #include <sun/nio/ch/SelectionKeyImpl.h>
 #include <jcpp.h>
 
+#undef OP_WRITE
+#undef POLLERR
+#undef POLLHUP
+#undef POLLNVAL
+#undef POLLOUT
 #undef ST_CLOSED
 #undef ST_CLOSING
-#undef POLLERR
 #undef ST_INUSE
-#undef POLLHUP
-#undef POLLOUT
-#undef POLLNVAL
-#undef OP_WRITE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $FileDescriptor = ::java::io::FileDescriptor;

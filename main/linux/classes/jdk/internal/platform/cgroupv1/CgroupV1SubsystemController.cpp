@@ -20,10 +20,10 @@
 #include <jdk/internal/platform/CgroupSubsystemController.h>
 #include <jcpp.h>
 
-#undef UNLIMITED_MIN
 #undef DOUBLE_RETVAL_UNLIMITED
-#undef MAX_VALUE
 #undef LONG_RETVAL_UNLIMITED
+#undef MAX_VALUE
+#undef UNLIMITED_MIN
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -130,7 +130,7 @@ void CgroupV1SubsystemController::setPath($String* cgroupPath) {
 			}
 		} else if ($nc(this->root)->equals(cgroupPath)) {
 			$set(this, path$, this->mountPoint);
-		} else if ($nc(cgroupPath)->startsWith(this->root)) {
+		} else if (cgroupPath->startsWith(this->root)) {
 			int32_t var$0 = cgroupPath->length();
 			if (var$0 > $nc(this->root)->length()) {
 				$var($String, cgroupSubstr, cgroupPath->substring($nc(this->root)->length()));

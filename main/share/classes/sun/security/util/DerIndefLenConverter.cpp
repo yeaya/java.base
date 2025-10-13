@@ -16,12 +16,12 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef FORM_MASK
-#undef SKIP_EOC_BYTES
-#undef LEN_MASK
-#undef LEN_LONG
-#undef TAG_MASK
 #undef CLASS_MASK
+#undef FORM_MASK
+#undef LEN_LONG
+#undef LEN_MASK
+#undef SKIP_EOC_BYTES
+#undef TAG_MASK
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;

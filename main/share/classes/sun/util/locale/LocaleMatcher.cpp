@@ -40,13 +40,13 @@
 #include <sun/util/locale/LocaleEquivalentMaps.h>
 #include <jcpp.h>
 
-#undef MAP_EXTENDED_RANGES
-#undef CASE_INSENSITIVE_ORDER
 #undef AUTOSELECT_FILTERING
-#undef ROOT
-#undef REJECT_EXTENDED_RANGES
-#undef MIN_VALUE
+#undef CASE_INSENSITIVE_ORDER
 #undef EXTENDED_FILTERING
+#undef MAP_EXTENDED_RANGES
+#undef MIN_VALUE
+#undef REJECT_EXTENDED_RANGES
+#undef ROOT
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -288,7 +288,7 @@ $List* LocaleMatcher::filterBasic($List* priorityList, $Collection* tags$renamed
 	$var($List, nonZeroRanges, nullptr);
 	$var($List, zeroRanges, nullptr);
 	if (splitIndex != -1) {
-		$assign(nonZeroRanges, $nc(priorityList)->subList(0, splitIndex));
+		$assign(nonZeroRanges, priorityList->subList(0, splitIndex));
 		$assign(zeroRanges, priorityList->subList(splitIndex, priorityList->size()));
 	} else {
 		$assign(nonZeroRanges, priorityList);
@@ -397,7 +397,7 @@ $List* LocaleMatcher::filterExtended($List* priorityList, $Collection* tags$rena
 	$var($List, nonZeroRanges, nullptr);
 	$var($List, zeroRanges, nullptr);
 	if (splitIndex != -1) {
-		$assign(nonZeroRanges, $nc(priorityList)->subList(0, splitIndex));
+		$assign(nonZeroRanges, priorityList->subList(0, splitIndex));
 		$assign(zeroRanges, priorityList->subList(splitIndex, priorityList->size()));
 	} else {
 		$assign(nonZeroRanges, priorityList);
@@ -500,11 +500,11 @@ int32_t LocaleMatcher::matchFilterExtendedSubtags($StringArray* rangeSubtags, $S
 	while (rangeIndex < $nc(rangeSubtags)->length && tagIndex < $nc(tagSubtags)->length) {
 		if ($nc(rangeSubtags->get(rangeIndex))->equals("*"_s)) {
 			++rangeIndex;
-		} else if ($nc($nc(rangeSubtags)->get(rangeIndex))->equals($nc(tagSubtags)->get(tagIndex))) {
+		} else if ($nc(rangeSubtags->get(rangeIndex))->equals(tagSubtags->get(tagIndex))) {
 			++rangeIndex;
 			++tagIndex;
 		} else {
-			bool var$1 = $nc($nc(tagSubtags)->get(tagIndex))->length() == 1;
+			bool var$1 = $nc(tagSubtags->get(tagIndex))->length() == 1;
 			if (var$1 && !$nc(tagSubtags->get(tagIndex))->equals("*"_s)) {
 				break;
 			} else {
@@ -516,7 +516,7 @@ int32_t LocaleMatcher::matchFilterExtendedSubtags($StringArray* rangeSubtags, $S
 }
 
 $Locale* LocaleMatcher::lookup($List* priorityList, $Collection* locales) {
-	bool var$0 = $nc(priorityList)->isEmpty();
+	bool var$0 = priorityList->isEmpty();
 	if (var$0 || $nc(locales)->isEmpty()) {
 		return nullptr;
 	}
@@ -539,7 +539,7 @@ $Locale* LocaleMatcher::lookup($List* priorityList, $Collection* locales) {
 }
 
 $String* LocaleMatcher::lookupTag($List* priorityList, $Collection* tags) {
-	bool var$0 = $nc(priorityList)->isEmpty();
+	bool var$0 = priorityList->isEmpty();
 	if (var$0 || $nc(tags)->isEmpty()) {
 		return nullptr;
 	}
@@ -547,7 +547,7 @@ $String* LocaleMatcher::lookupTag($List* priorityList, $Collection* tags) {
 	$var($List, nonZeroRanges, nullptr);
 	$var($List, zeroRanges, nullptr);
 	if (splitIndex != -1) {
-		$assign(nonZeroRanges, $nc(priorityList)->subList(0, splitIndex));
+		$assign(nonZeroRanges, priorityList->subList(0, splitIndex));
 		$assign(zeroRanges, priorityList->subList(splitIndex, priorityList->size()));
 	} else {
 		$assign(nonZeroRanges, priorityList);
@@ -625,7 +625,7 @@ $String* LocaleMatcher::truncateRange($String* rangeForRegex$renamed) {
 }
 
 int32_t LocaleMatcher::splitRanges($List* priorityList) {
-	int32_t size = $nc(priorityList)->size();
+	int32_t size = priorityList->size();
 	for (int32_t index = 0; index < size; ++index) {
 		$var($Locale$LanguageRange, range, $cast($Locale$LanguageRange, priorityList->get(index)));
 		if ($nc(range)->getWeight() == 0) {
@@ -799,7 +799,7 @@ int32_t LocaleMatcher::getExtentionKeyIndex($String* s) {
 }
 
 $List* LocaleMatcher::mapEquivalents($List* priorityList, $Map* map) {
-	if ($nc(priorityList)->isEmpty()) {
+	if (priorityList->isEmpty()) {
 		return $new($ArrayList);
 	}
 	if (map == nullptr || $nc(map)->isEmpty()) {
@@ -818,7 +818,7 @@ $List* LocaleMatcher::mapEquivalents($List* priorityList, $Map* map) {
 	}
 	$var($List, list, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc(priorityList)->iterator());
+		$var($Iterator, i$, priorityList->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Locale$LanguageRange, lr, $cast($Locale$LanguageRange, i$->next()));
 			{

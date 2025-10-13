@@ -10,10 +10,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SUMMED
 #undef CUMULATE
 #undef FINISHED
 #undef MIN_PARTITION
+#undef SUMMED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -15,9 +15,9 @@
 #include <java/util/StringTokenizer.h>
 #include <jcpp.h>
 
-#undef SAVE_TO_FILE
 #undef LAUNCH_APPLICATION
 #undef LOAD_INTO_BROWSER
+#undef SAVE_TO_FILE
 #undef UNKNOWN
 
 using $File = ::java::io::File;

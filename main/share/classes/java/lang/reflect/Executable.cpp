@@ -49,15 +49,15 @@
 #include <sun/reflect/generics/repository/ConstructorRepository.h>
 #include <jcpp.h>
 
-#undef VARARGS
+#undef ACCESS_MODIFIERS
+#undef FINAL
+#undef MANDATED
+#undef METHOD_FORMAL_PARAMETER
+#undef METHOD_RECEIVER
 #undef METHOD_RETURN
 #undef SYNTHETIC
 #undef THROWS
-#undef FINAL
-#undef MANDATED
-#undef METHOD_RECEIVER
-#undef ACCESS_MODIFIERS
-#undef METHOD_FORMAL_PARAMETER
+#undef VARARGS
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;

@@ -26,10 +26,10 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef MAX_LOAD_TRIES
-#undef P11_SOL_NAME
-#undef P11_SOL_ARG
 #undef FALSE
+#undef MAX_LOAD_TRIES
+#undef P11_SOL_ARG
+#undef P11_SOL_NAME
 
 using $SunJCE = ::com::sun::crypto::provider::SunJCE;
 using $Boolean = ::java::lang::Boolean;
@@ -205,18 +205,18 @@ $Provider* ProviderConfig::getProvider() {
 		if (var$0 || $nc(this->provName)->equals("sun.security.provider.Sun"_s)) {
 			$assign(p, $new($Sun));
 		} else {
-			bool var$12 = $nc(this->provName)->equals("SunRsaSign"_s);
-			if (var$12 || $nc(this->provName)->equals("sun.security.rsa.SunRsaSign"_s)) {
+			bool var$2 = $nc(this->provName)->equals("SunRsaSign"_s);
+			if (var$2 || $nc(this->provName)->equals("sun.security.rsa.SunRsaSign"_s)) {
 				$assign(p, $new($SunRsaSign));
 			} else {
-				bool var$18 = $nc(this->provName)->equals("SunJCE"_s);
-				if (var$18 || $nc(this->provName)->equals("com.sun.crypto.provider.SunJCE"_s)) {
+				bool var$4 = $nc(this->provName)->equals("SunJCE"_s);
+				if (var$4 || $nc(this->provName)->equals("com.sun.crypto.provider.SunJCE"_s)) {
 					$assign(p, $new($SunJCE));
 				} else if ($nc(this->provName)->equals("SunJSSE"_s)) {
 					$assign(p, $new($SunJSSE));
 				} else {
-					bool var$21 = $nc(this->provName)->equals("Apple"_s);
-					if (var$21 || $nc(this->provName)->equals("apple.security.AppleProvider"_s)) {
+					bool var$6 = $nc(this->provName)->equals("Apple"_s);
+					if (var$6 || $nc(this->provName)->equals("apple.security.AppleProvider"_s)) {
 						$var($Provider, tmp, $cast($Provider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ProviderConfig$2, this)))));
 						$assign(p, tmp);
 					} else {
@@ -228,18 +228,18 @@ $Provider* ProviderConfig::getProvider() {
 							return nullptr;
 						}
 						{
-							$var($Throwable, var$22, nullptr);
+							$var($Throwable, var$7, nullptr);
 							try {
 								this->isLoading = true;
 								++this->tries;
 								$assign(p, doLoadProvider());
 							} catch ($Throwable&) {
-								$assign(var$22, $catch());
+								$assign(var$7, $catch());
 							} /*finally*/ {
 								this->isLoading = false;
 							}
-							if (var$22 != nullptr) {
-								$throw(var$22);
+							if (var$7 != nullptr) {
+								$throw(var$7);
 							}
 						}
 					}

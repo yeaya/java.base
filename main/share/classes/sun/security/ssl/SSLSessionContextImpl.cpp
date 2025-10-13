@@ -30,9 +30,9 @@
 #include <sun/security/util/Cache.h>
 #include <jcpp.h>
 
-#undef ENGLISH
 #undef DEFAULT_MAX_CACHE_SIZE
 #undef DEFAULT_SESSION_TIMEOUT
+#undef ENGLISH
 #undef MAX_TICKET_LIFETIME
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -19,10 +19,10 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef FOREVER
-#undef ZERO_DAYS
-#undef SECONDS
 #undef DAYS
+#undef FOREVER
+#undef SECONDS
+#undef ZERO_DAYS
 #undef ZERO_SECONDS
 
 using $ClassInfo = ::java::lang::ClassInfo;

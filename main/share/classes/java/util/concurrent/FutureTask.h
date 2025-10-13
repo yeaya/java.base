@@ -5,26 +5,26 @@
 
 #include <java/util/concurrent/RunnableFuture.h>
 
-#pragma push_macro("NEW")
-#undef NEW
-#pragma push_macro("COMPLETING")
-#undef COMPLETING
 #pragma push_macro("CANCELLED")
 #undef CANCELLED
-#pragma push_macro("INTERRUPTING")
-#undef INTERRUPTING
-#pragma push_macro("WAITERS")
-#undef WAITERS
-#pragma push_macro("STATE")
-#undef STATE
+#pragma push_macro("COMPLETING")
+#undef COMPLETING
 #pragma push_macro("EXCEPTIONAL")
 #undef EXCEPTIONAL
-#pragma push_macro("NORMAL")
-#undef NORMAL
 #pragma push_macro("INTERRUPTED")
 #undef INTERRUPTED
+#pragma push_macro("INTERRUPTING")
+#undef INTERRUPTING
+#pragma push_macro("NEW")
+#undef NEW
+#pragma push_macro("NORMAL")
+#undef NORMAL
 #pragma push_macro("RUNNER")
 #undef RUNNER
+#pragma push_macro("STATE")
+#undef STATE
+#pragma push_macro("WAITERS")
+#undef WAITERS
 
 namespace java {
 	namespace lang {
@@ -97,15 +97,15 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("NEW")
-#pragma pop_macro("COMPLETING")
 #pragma pop_macro("CANCELLED")
-#pragma pop_macro("INTERRUPTING")
-#pragma pop_macro("WAITERS")
-#pragma pop_macro("STATE")
+#pragma pop_macro("COMPLETING")
 #pragma pop_macro("EXCEPTIONAL")
-#pragma pop_macro("NORMAL")
 #pragma pop_macro("INTERRUPTED")
+#pragma pop_macro("INTERRUPTING")
+#pragma pop_macro("NEW")
+#pragma pop_macro("NORMAL")
 #pragma pop_macro("RUNNER")
+#pragma pop_macro("STATE")
+#pragma pop_macro("WAITERS")
 
 #endif // _java_util_concurrent_FutureTask_h_

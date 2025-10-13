@@ -37,8 +37,8 @@
 #include <sun/security/validator/Validator.h>
 #include <jcpp.h>
 
-#undef VAR_TLS_SERVER
 #undef VAR_TLS_CLIENT
+#undef VAR_TLS_SERVER
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;

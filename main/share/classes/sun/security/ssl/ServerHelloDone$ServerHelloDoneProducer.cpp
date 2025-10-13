@@ -27,8 +27,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CLIENT_KEY_EXCHANGE
 #undef CHANGE_CIPHER_SPEC
+#undef CLIENT_KEY_EXCHANGE
 #undef FINISHED
 
 using $Byte = ::java::lang::Byte;

@@ -21,8 +21,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef IMM_LIST_NULLS
 #undef IMM_LIST
+#undef IMM_LIST_NULLS
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

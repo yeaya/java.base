@@ -213,22 +213,22 @@ void DictionaryBasedBreakIterator::divideUpDictionaryRange(int32_t startPos, int
 		if (state == -1) {
 			$nc(currentBreakPositions)->push($($Integer::valueOf(text->getIndex())));
 			break;
-		} else if (state == 0 || $nc(text)->getIndex() >= endPos) {
+		} else if (state == 0 || text->getIndex() >= endPos) {
 			if (text->getIndex() > farthestEndPoint) {
 				farthestEndPoint = text->getIndex();
 				$var($Stack, currentBreakPositionsCopy, $cast($Stack, $nc(currentBreakPositions)->clone()));
 				$assign(bestBreakPositions, currentBreakPositionsCopy);
 			}
 			while (true) {
-				bool var$0 = !$nc(possibleBreakPositions)->isEmpty();
-				if (!(var$0 && $nc(wrongBreakPositions)->contains($(possibleBreakPositions->peek())))) {
+				bool var$0 = !possibleBreakPositions->isEmpty();
+				if (!(var$0 && wrongBreakPositions->contains($(possibleBreakPositions->peek())))) {
 					break;
 				}
 				{
 					possibleBreakPositions->pop();
 				}
 			}
-			if ($nc(possibleBreakPositions)->isEmpty()) {
+			if (possibleBreakPositions->isEmpty()) {
 				if (bestBreakPositions != nullptr) {
 					$assign(currentBreakPositions, bestBreakPositions);
 					if (farthestEndPoint < endPos) {
@@ -263,7 +263,7 @@ void DictionaryBasedBreakIterator::divideUpDictionaryRange(int32_t startPos, int
 					}
 					{
 						$assign(temp2, $cast($Integer, currentBreakPositions->pop()));
-						$nc(wrongBreakPositions)->add(temp2);
+						wrongBreakPositions->add(temp2);
 					}
 				}
 				$nc(currentBreakPositions)->push(temp);

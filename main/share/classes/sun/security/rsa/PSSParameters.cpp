@@ -25,10 +25,10 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
+#undef DEFAULT
 #undef SHA1
 #undef TAG_CONTEXT
 #undef TRAILER_FIELD_BC
-#undef DEFAULT
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -122,7 +122,7 @@ void PSSParameters::engineInit($bytes* encoded) {
 			{
 				if ($nc(d)->isContextSpecific((int8_t)0)) {
 					$assign(mdName, $nc($($AlgorithmId::parse($($nc(d->data$)->getDerValue()))))->getName());
-				} else if ($nc(d)->isContextSpecific((int8_t)1)) {
+				} else if (d->isContextSpecific((int8_t)1)) {
 					$var($AlgorithmId, val, $AlgorithmId::parse($($nc(d->data$)->getDerValue())));
 					if (!$nc($($nc(val)->getOID()))->equals($AlgorithmId::MGF1_oid)) {
 						$throwNew($IOException, "Only MGF1 mgf is supported"_s);
@@ -284,12 +284,12 @@ void PSSParameters::engineInit($bytes* encoded) {
 							}
 						}
 					}
-				} else if ($nc(d)->isContextSpecific((int8_t)2)) {
+				} else if (d->isContextSpecific((int8_t)2)) {
 					saltLength = $nc($($nc(d->data$)->getDerValue()))->getInteger();
 					if (saltLength < 0) {
 						$throwNew($IOException, "Negative value for saltLength"_s);
 					}
-				} else if ($nc(d)->isContextSpecific((int8_t)3)) {
+				} else if (d->isContextSpecific((int8_t)3)) {
 					trailerField = $nc($($nc(d->data$)->getDerValue()))->getInteger();
 					if (trailerField != 1) {
 						$throwNew($IOException, $$str({"Unsupported trailerField value "_s, $$str(trailerField)}));

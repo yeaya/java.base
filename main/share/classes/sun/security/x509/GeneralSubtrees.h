@@ -6,14 +6,14 @@
 #include <java/lang/Cloneable.h>
 #include <sun/security/x509/GeneralNameInterface.h>
 
+#pragma push_macro("NAME_DIFF_TYPE")
+#undef NAME_DIFF_TYPE
 #pragma push_macro("NAME_MATCH")
 #undef NAME_MATCH
 #pragma push_macro("NAME_NARROWS")
 #undef NAME_NARROWS
 #pragma push_macro("NAME_SAME_TYPE")
 #undef NAME_SAME_TYPE
-#pragma push_macro("NAME_DIFF_TYPE")
-#undef NAME_DIFF_TYPE
 #pragma push_macro("NAME_WIDENS")
 #undef NAME_WIDENS
 
@@ -81,10 +81,10 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("NAME_DIFF_TYPE")
 #pragma pop_macro("NAME_MATCH")
 #pragma pop_macro("NAME_NARROWS")
 #pragma pop_macro("NAME_SAME_TYPE")
-#pragma pop_macro("NAME_DIFF_TYPE")
 #pragma pop_macro("NAME_WIDENS")
 
 #endif // _sun_security_x509_GeneralSubtrees_h_

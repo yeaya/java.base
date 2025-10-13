@@ -40,13 +40,13 @@
 #include <jdk/internal/util/ArraysSupport.h>
 #include <jcpp.h>
 
+#undef COMPACT_STRINGS
 #undef EMPTYVALUE
 #undef MAX_ARRAY_SIZE
-#undef SUBSIZED
+#undef MAX_VALUE
 #undef ORDERED
 #undef SIZED
-#undef MAX_VALUE
-#undef COMPACT_STRINGS
+#undef SUBSIZED
 
 using $Serializable = ::java::io::Serializable;
 using $Appendable = ::java::lang::Appendable;
@@ -1007,7 +1007,7 @@ void AbstractStringBuilder::appendChars($String* s, int32_t off, int32_t end) {
 				}
 			}
 		}
-	} else if ($nc(s)->isLatin1()) {
+	} else if (s->isLatin1()) {
 		$StringUTF16::putCharsSB(this->value, this->count, static_cast<$CharSequence*>(s), off, end);
 	} else {
 		$System::arraycopy($(s->value()), off << (int8_t)1, this->value, this->count << (int8_t)1, (end - off) << (int8_t)1);

@@ -11,10 +11,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef DIRECTIONALITY_LEFT_TO_RIGHT
+#undef DIRECTIONALITY_UNDEFINED
 #undef PRIVATE_USE
 #undef UNASSIGNED
-#undef DIRECTIONALITY_UNDEFINED
-#undef DIRECTIONALITY_LEFT_TO_RIGHT
 
 using $Character = ::java::lang::Character;
 using $CharacterData = ::java::lang::CharacterData;

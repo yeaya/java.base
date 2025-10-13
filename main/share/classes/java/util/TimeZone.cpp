@@ -34,16 +34,16 @@
 #include <sun/util/locale/provider/TimeZoneNameUtility.h>
 #include <jcpp.h>
 
-#undef ONE_HOUR
-#undef GMT_ID
 #undef DISPLAY
-#undef NO_TIMEZONE
-#undef ID
+#undef GMT_ID
 #undef GMT_ID_LENGTH
+#undef ID
+#undef LONG
+#undef NO_TIMEZONE
 #undef ONE_DAY
+#undef ONE_HOUR
 #undef ONE_MINUTE
 #undef SHORT
-#undef LONG
 #undef SHORT_IDS
 
 using $Serializable = ::java::io::Serializable;
@@ -276,7 +276,7 @@ TimeZone* TimeZone::getTimeZone($ZoneId* zoneId) {
 	char16_t c = $nc(tzid)->charAt(0);
 	if (c == u'+' || c == u'-') {
 		$assign(tzid, $str({"GMT"_s, tzid}));
-	} else if (c == u'Z' && $nc(tzid)->length() == 1) {
+	} else if (c == u'Z' && tzid->length() == 1) {
 		$assign(tzid, "UTC"_s);
 	}
 	return getTimeZone(tzid, true);

@@ -6,26 +6,26 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("STREAM_CIPHER")
-#undef STREAM_CIPHER
-#pragma push_macro("KEY_WRAP")
-#undef KEY_WRAP
-#pragma push_macro("PUBLIC_KEY_ENCRYPTION")
-#undef PUBLIC_KEY_ENCRYPTION
-#pragma push_macro("KEY_AGREEMENT")
-#undef KEY_AGREEMENT
 #pragma push_macro("BLOCK_CIPHER")
 #undef BLOCK_CIPHER
-#pragma push_macro("SECURE_RANDOM")
-#undef SECURE_RANDOM
+#pragma push_macro("KEY_AGREEMENT")
+#undef KEY_AGREEMENT
 #pragma push_macro("KEY_ENCAPSULATION")
 #undef KEY_ENCAPSULATION
-#pragma push_macro("MESSAGE_DIGEST")
-#undef MESSAGE_DIGEST
-#pragma push_macro("SIGNATURE")
-#undef SIGNATURE
+#pragma push_macro("KEY_WRAP")
+#undef KEY_WRAP
 #pragma push_macro("MAC")
 #undef MAC
+#pragma push_macro("MESSAGE_DIGEST")
+#undef MESSAGE_DIGEST
+#pragma push_macro("PUBLIC_KEY_ENCRYPTION")
+#undef PUBLIC_KEY_ENCRYPTION
+#pragma push_macro("SECURE_RANDOM")
+#undef SECURE_RANDOM
+#pragma push_macro("SIGNATURE")
+#undef SIGNATURE
+#pragma push_macro("STREAM_CIPHER")
+#undef STREAM_CIPHER
 
 namespace java {
 	namespace security {
@@ -54,15 +54,15 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("STREAM_CIPHER")
-#pragma pop_macro("KEY_WRAP")
-#pragma pop_macro("PUBLIC_KEY_ENCRYPTION")
-#pragma pop_macro("KEY_AGREEMENT")
 #pragma pop_macro("BLOCK_CIPHER")
-#pragma pop_macro("SECURE_RANDOM")
+#pragma pop_macro("KEY_AGREEMENT")
 #pragma pop_macro("KEY_ENCAPSULATION")
-#pragma pop_macro("MESSAGE_DIGEST")
-#pragma pop_macro("SIGNATURE")
+#pragma pop_macro("KEY_WRAP")
 #pragma pop_macro("MAC")
+#pragma pop_macro("MESSAGE_DIGEST")
+#pragma pop_macro("PUBLIC_KEY_ENCRYPTION")
+#pragma pop_macro("SECURE_RANDOM")
+#pragma pop_macro("SIGNATURE")
+#pragma pop_macro("STREAM_CIPHER")
 
 #endif // _java_security_CryptoPrimitive_h_

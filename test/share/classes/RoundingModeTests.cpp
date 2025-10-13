@@ -12,20 +12,20 @@
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
-#undef ROUND_DOWN
-#undef DOWN
-#undef ROUND_UNNECESSARY
-#undef ROUND_HALF_UP
-#undef UNNECESSARY
-#undef FLOOR
-#undef ROUND_CEILING
-#undef ROUND_HALF_DOWN
 #undef CEILING
-#undef HALF_EVEN
-#undef ROUND_FLOOR
-#undef ROUND_HALF_EVEN
-#undef HALF_UP
+#undef DOWN
+#undef FLOOR
 #undef HALF_DOWN
+#undef HALF_EVEN
+#undef HALF_UP
+#undef ROUND_CEILING
+#undef ROUND_DOWN
+#undef ROUND_FLOOR
+#undef ROUND_HALF_DOWN
+#undef ROUND_HALF_EVEN
+#undef ROUND_HALF_UP
+#undef ROUND_UNNECESSARY
+#undef UNNECESSARY
 
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -21,8 +21,8 @@
 
 #undef MAX_SHORT
 #undef MAX_VALUE
-#undef MIN_VALUE
 #undef MIN_SHORT
+#undef MIN_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

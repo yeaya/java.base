@@ -17,13 +17,13 @@
 #include <jcpp.h>
 
 #undef ARRAY
-#undef SET
-#undef STATIC_FIELD
-#undef GET_AND_UPDATE
-#undef FIELD
-#undef GET
 #undef COMPARE_AND_EXCHANGE
 #undef COMPARE_AND_SET
+#undef FIELD
+#undef GET
+#undef GET_AND_UPDATE
+#undef SET
+#undef STATIC_FIELD
 
 using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;
 using $VarHandle$VarHandleDesc$KindArray = $Array<::java::lang::invoke::VarHandle$VarHandleDesc$Kind>;

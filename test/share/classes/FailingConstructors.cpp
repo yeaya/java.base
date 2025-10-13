@@ -25,8 +25,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef UNSUPPORTED_CHARSET
 #undef FILE_CONTENTS
+#undef UNSUPPORTED_CHARSET
 
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
@@ -153,7 +153,7 @@ void FailingConstructors::check(bool exists, $File* file) {
 	$init(FailingConstructors);
 	if (exists) {
 		verifyContents(file);
-	} else if ($nc(file)->exists()) {
+	} else if (file->exists()) {
 		fail($$str({file, " should not have been created"_s}));
 	}
 }

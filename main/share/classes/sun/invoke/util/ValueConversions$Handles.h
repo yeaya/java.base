@@ -7,10 +7,10 @@
 
 #pragma push_macro("CAST_REFERENCE")
 #undef CAST_REFERENCE
-#pragma push_macro("IGNORE")
-#undef IGNORE
 #pragma push_macro("EMPTY")
 #undef EMPTY
+#pragma push_macro("IGNORE")
+#undef IGNORE
 
 namespace java {
 	namespace lang {
@@ -39,7 +39,7 @@ public:
 } // sun
 
 #pragma pop_macro("CAST_REFERENCE")
-#pragma pop_macro("IGNORE")
 #pragma pop_macro("EMPTY")
+#pragma pop_macro("IGNORE")
 
 #endif // _sun_invoke_util_ValueConversions$Handles_h_

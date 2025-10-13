@@ -7,34 +7,34 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("TAG_DISTRIBUTION_POINT")
-#undef TAG_DISTRIBUTION_POINT
+#pragma push_macro("IDENT")
+#undef IDENT
 #pragma push_macro("INDIRECT_CRL")
 #undef INDIRECT_CRL
-#pragma push_macro("ONLY_ATTRIBUTE_CERTS")
-#undef ONLY_ATTRIBUTE_CERTS
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("ONLY_ATTRIBUTE_CERTS")
+#undef ONLY_ATTRIBUTE_CERTS
+#pragma push_macro("ONLY_CA_CERTS")
+#undef ONLY_CA_CERTS
 #pragma push_macro("ONLY_USER_CERTS")
 #undef ONLY_USER_CERTS
-#pragma push_macro("TAG_ONLY_SOME_REASONS")
-#undef TAG_ONLY_SOME_REASONS
+#pragma push_macro("POINT")
+#undef POINT
+#pragma push_macro("REASONS")
+#undef REASONS
+#pragma push_macro("TAG_DISTRIBUTION_POINT")
+#undef TAG_DISTRIBUTION_POINT
 #pragma push_macro("TAG_INDIRECT_CRL")
 #undef TAG_INDIRECT_CRL
 #pragma push_macro("TAG_ONLY_ATTRIBUTE_CERTS")
 #undef TAG_ONLY_ATTRIBUTE_CERTS
-#pragma push_macro("ONLY_CA_CERTS")
-#undef ONLY_CA_CERTS
-#pragma push_macro("IDENT")
-#undef IDENT
-#pragma push_macro("REASONS")
-#undef REASONS
-#pragma push_macro("TAG_ONLY_USER_CERTS")
-#undef TAG_ONLY_USER_CERTS
-#pragma push_macro("POINT")
-#undef POINT
 #pragma push_macro("TAG_ONLY_CA_CERTS")
 #undef TAG_ONLY_CA_CERTS
+#pragma push_macro("TAG_ONLY_SOME_REASONS")
+#undef TAG_ONLY_SOME_REASONS
+#pragma push_macro("TAG_ONLY_USER_CERTS")
+#undef TAG_ONLY_USER_CERTS
 
 namespace java {
 	namespace io {
@@ -110,19 +110,19 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TAG_DISTRIBUTION_POINT")
+#pragma pop_macro("IDENT")
 #pragma pop_macro("INDIRECT_CRL")
-#pragma pop_macro("ONLY_ATTRIBUTE_CERTS")
 #pragma pop_macro("NAME")
+#pragma pop_macro("ONLY_ATTRIBUTE_CERTS")
+#pragma pop_macro("ONLY_CA_CERTS")
 #pragma pop_macro("ONLY_USER_CERTS")
-#pragma pop_macro("TAG_ONLY_SOME_REASONS")
+#pragma pop_macro("POINT")
+#pragma pop_macro("REASONS")
+#pragma pop_macro("TAG_DISTRIBUTION_POINT")
 #pragma pop_macro("TAG_INDIRECT_CRL")
 #pragma pop_macro("TAG_ONLY_ATTRIBUTE_CERTS")
-#pragma pop_macro("ONLY_CA_CERTS")
-#pragma pop_macro("IDENT")
-#pragma pop_macro("REASONS")
-#pragma pop_macro("TAG_ONLY_USER_CERTS")
-#pragma pop_macro("POINT")
 #pragma pop_macro("TAG_ONLY_CA_CERTS")
+#pragma pop_macro("TAG_ONLY_SOME_REASONS")
+#pragma pop_macro("TAG_ONLY_USER_CERTS")
 
 #endif // _sun_security_x509_IssuingDistributionPointExtension_h_

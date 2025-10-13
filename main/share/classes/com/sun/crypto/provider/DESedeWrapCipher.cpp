@@ -43,12 +43,12 @@
 #include <javax/crypto/spec/IvParameterSpec.h>
 #include <jcpp.h>
 
-#undef WRAP_MODE
-#undef IV2
-#undef UNWRAP_MODE
-#undef IV_LEN
-#undef DES_BLOCK_SIZE
 #undef CHECKSUM_LEN
+#undef DES_BLOCK_SIZE
+#undef IV2
+#undef IV_LEN
+#undef UNWRAP_MODE
+#undef WRAP_MODE
 
 using $CipherBlockChaining = ::com::sun::crypto::provider::CipherBlockChaining;
 using $ConstructKeys = ::com::sun::crypto::provider::ConstructKeys;

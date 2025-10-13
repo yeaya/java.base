@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("REPLACEMENT")
-#undef REPLACEMENT
 #pragma push_macro("BAD_CHARS")
 #undef BAD_CHARS
 #pragma push_macro("HEX")
 #undef HEX
+#pragma push_macro("REPLACEMENT")
+#undef REPLACEMENT
 
 namespace java {
 	namespace nio {
@@ -43,8 +43,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("REPLACEMENT")
 #pragma pop_macro("BAD_CHARS")
 #pragma pop_macro("HEX")
+#pragma pop_macro("REPLACEMENT")
 
 #endif // _java_lang_invoke_ProxyClassesDumper_h_

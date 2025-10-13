@@ -137,7 +137,7 @@ int32_t Console$LineReader::read($chars* cbuf$renamed, int32_t offset, int32_t l
 						this->nextChar = 0;
 					}
 					if (this->nextChar < this->nChars && $nc(this->cb)->get(this->nextChar) == u'\n') {
-						$nc(cbuf)->set(off++, u'\n');
+						cbuf->set(off++, u'\n');
 						++this->nextChar;
 					}
 					return off - offset;

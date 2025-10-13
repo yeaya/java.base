@@ -23,8 +23,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef INSTANCE_ID_ZERO
 #undef INSTANCE_ID_Z
+#undef INSTANCE_ID_ZERO
 #undef OFFSET_SECONDS
 #undef PATTERNS
 

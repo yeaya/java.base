@@ -10,20 +10,20 @@
 #include <sun/security/util/DerOutputStream.h>
 #include <jcpp.h>
 
-#undef NAME_NARROWS
-#undef NAME_WIDENS
-#undef NAME_RFC822
-#undef NAME_MATCH
-#undef NAME_IP
 #undef NAME_ANY
-#undef NAME_URI
-#undef NAME_X400
-#undef NAME_SAME_TYPE
-#undef NAME_EDI
-#undef NAME_OID
 #undef NAME_DIFF_TYPE
-#undef NAME_DNS
 #undef NAME_DIRECTORY
+#undef NAME_DNS
+#undef NAME_EDI
+#undef NAME_IP
+#undef NAME_MATCH
+#undef NAME_NARROWS
+#undef NAME_OID
+#undef NAME_RFC822
+#undef NAME_SAME_TYPE
+#undef NAME_URI
+#undef NAME_WIDENS
+#undef NAME_X400
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

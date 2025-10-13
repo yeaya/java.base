@@ -8,28 +8,28 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef DEFAULT_PORT
+#undef ADDR_TYPE_NOT_SUP
 #undef BIND
 #undef CMD_NOT_SUPPORTED
-#undef UDP_ASSOC
-#undef IPV6
-#undef NET_UNREACHABLE
-#undef CONN_REFUSED
-#undef IPV4
-#undef HOST_UNREACHABLE
-#undef NO_AUTH
-#undef PROTO_VERS4
-#undef NOT_ALLOWED
 #undef CONNECT
-#undef REQUEST_OK
+#undef CONN_REFUSED
+#undef DEFAULT_PORT
 #undef DOMAIN_NAME
 #undef GENERAL_FAILURE
 #undef GSSAPI
-#undef TTL_EXPIRED
-#undef USER_PASSW
+#undef HOST_UNREACHABLE
+#undef IPV4
+#undef IPV6
+#undef NET_UNREACHABLE
+#undef NOT_ALLOWED
+#undef NO_AUTH
 #undef NO_METHODS
 #undef PROTO_VERS
-#undef ADDR_TYPE_NOT_SUP
+#undef PROTO_VERS4
+#undef REQUEST_OK
+#undef TTL_EXPIRED
+#undef UDP_ASSOC
+#undef USER_PASSW
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

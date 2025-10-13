@@ -48,16 +48,16 @@
 #include <sun/security/util/NamedCurve.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_FFDHE
-#undef NAMED_GROUP_ECDHE
-#undef KEY_AGREEMENT
-#undef ARBITRARY_PRIME
 #undef ARBITRARY_CHAR2
+#undef ARBITRARY_PRIME
+#undef KEY_AGREEMENT
 #undef KEY_AGREEMENT_PRIMITIVE_SET
-#undef NAMED_GROUP_XDH
 #undef NAMED_GROUP_ARBITRARY
-#undef PROTOCOLS_TO_13
+#undef NAMED_GROUP_ECDHE
+#undef NAMED_GROUP_FFDHE
+#undef NAMED_GROUP_XDH
 #undef PROTOCOLS_TO_12
+#undef PROTOCOLS_TO_13
 
 using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;

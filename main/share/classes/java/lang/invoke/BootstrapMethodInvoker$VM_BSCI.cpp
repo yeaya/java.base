@@ -27,9 +27,9 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+#undef MIN_PF
 #undef NOT_PRESENT
 #undef TRACE_METHOD_LINKAGE
-#undef MIN_PF
 
 using $SerializableArray = $Array<::java::io::Serializable>;
 using $PrintStream = ::java::io::PrintStream;

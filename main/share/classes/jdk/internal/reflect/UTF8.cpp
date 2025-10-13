@@ -62,10 +62,10 @@ $bytes* UTF8::encode($String* str) {
 			if (c >= 1 && c <= 127) {
 				res->set(utf8Idx++, (int8_t)c);
 			} else if (c == 0 || (c >= 128 && c <= 2047)) {
-				$nc(res)->set(utf8Idx++, (int8_t)(192 + (c >> 6)));
+				res->set(utf8Idx++, (int8_t)(192 + (c >> 6)));
 				res->set(utf8Idx++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
 			} else {
-				$nc(res)->set(utf8Idx++, (int8_t)(224 + (c >> 12)));
+				res->set(utf8Idx++, (int8_t)(224 + (c >> 12)));
 				res->set(utf8Idx++, (int8_t)(128 + ((int32_t)((c >> 6) & (uint32_t)63))));
 				res->set(utf8Idx++, (int8_t)(128 + ((int32_t)(c & (uint32_t)63))));
 			}

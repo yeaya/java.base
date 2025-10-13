@@ -23,9 +23,9 @@
 #include <java/nio/channels/FileLock.h>
 #include <jcpp.h>
 
-#undef NUM_EXCEPTIONS
 #undef MAX_VALUE
 #undef NUM_CHANNELS
+#undef NUM_EXCEPTIONS
 
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;

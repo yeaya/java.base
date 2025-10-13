@@ -40,8 +40,8 @@
 #include <jcpp.h>
 
 #undef GROUP_NAME
-#undef PERMISSIONS_NAME
 #undef OWNER_NAME
+#undef PERMISSIONS_NAME
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

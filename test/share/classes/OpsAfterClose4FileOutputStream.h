@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("WRITE_BUF")
-#undef WRITE_BUF
-#pragma push_macro("GET_FD")
-#undef GET_FD
 #pragma push_macro("CLOSE")
 #undef CLOSE
-#pragma push_macro("WRITE_BUF_OFF")
-#undef WRITE_BUF_OFF
 #pragma push_macro("GET_CHANNEL")
 #undef GET_CHANNEL
+#pragma push_macro("GET_FD")
+#undef GET_FD
 #pragma push_macro("WRITE")
 #undef WRITE
+#pragma push_macro("WRITE_BUF")
+#undef WRITE_BUF
+#pragma push_macro("WRITE_BUF_OFF")
+#undef WRITE_BUF_OFF
 
 namespace java {
 	namespace io {
@@ -45,11 +45,11 @@ public:
 	static $Array<OpsAfterClose4FileOutputStream>* $VALUES;
 };
 
-#pragma pop_macro("WRITE_BUF")
-#pragma pop_macro("GET_FD")
 #pragma pop_macro("CLOSE")
-#pragma pop_macro("WRITE_BUF_OFF")
 #pragma pop_macro("GET_CHANNEL")
+#pragma pop_macro("GET_FD")
 #pragma pop_macro("WRITE")
+#pragma pop_macro("WRITE_BUF")
+#pragma pop_macro("WRITE_BUF_OFF")
 
 #endif // _OpsAfterClose4FileOutputStream_h_

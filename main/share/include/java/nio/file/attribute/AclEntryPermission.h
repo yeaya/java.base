@@ -6,40 +6,40 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ_ACL")
-#undef READ_ACL
-#pragma push_macro("WRITE_OWNER")
-#undef WRITE_OWNER
-#pragma push_macro("ADD_SUBDIRECTORY")
-#undef ADD_SUBDIRECTORY
 #pragma push_macro("ADD_FILE")
 #undef ADD_FILE
-#pragma push_macro("READ_DATA")
-#undef READ_DATA
+#pragma push_macro("ADD_SUBDIRECTORY")
+#undef ADD_SUBDIRECTORY
 #pragma push_macro("APPEND_DATA")
 #undef APPEND_DATA
-#pragma push_macro("WRITE_DATA")
-#undef WRITE_DATA
-#pragma push_macro("EXECUTE")
-#undef EXECUTE
-#pragma push_macro("READ_NAMED_ATTRS")
-#undef READ_NAMED_ATTRS
 #pragma push_macro("DELETE")
 #undef DELETE
-#pragma push_macro("WRITE_ACL")
-#undef WRITE_ACL
-#pragma push_macro("SYNCHRONIZE")
-#undef SYNCHRONIZE
-#pragma push_macro("READ_ATTRIBUTES")
-#undef READ_ATTRIBUTES
-#pragma push_macro("WRITE_ATTRIBUTES")
-#undef WRITE_ATTRIBUTES
 #pragma push_macro("DELETE_CHILD")
 #undef DELETE_CHILD
+#pragma push_macro("EXECUTE")
+#undef EXECUTE
 #pragma push_macro("LIST_DIRECTORY")
 #undef LIST_DIRECTORY
+#pragma push_macro("READ_ACL")
+#undef READ_ACL
+#pragma push_macro("READ_ATTRIBUTES")
+#undef READ_ATTRIBUTES
+#pragma push_macro("READ_DATA")
+#undef READ_DATA
+#pragma push_macro("READ_NAMED_ATTRS")
+#undef READ_NAMED_ATTRS
+#pragma push_macro("SYNCHRONIZE")
+#undef SYNCHRONIZE
+#pragma push_macro("WRITE_ACL")
+#undef WRITE_ACL
+#pragma push_macro("WRITE_ATTRIBUTES")
+#undef WRITE_ATTRIBUTES
+#pragma push_macro("WRITE_DATA")
+#undef WRITE_DATA
 #pragma push_macro("WRITE_NAMED_ATTRS")
 #undef WRITE_NAMED_ATTRS
+#pragma push_macro("WRITE_OWNER")
+#undef WRITE_OWNER
 
 namespace java {
 	namespace nio {
@@ -79,22 +79,22 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("READ_ACL")
-#pragma pop_macro("WRITE_OWNER")
-#pragma pop_macro("ADD_SUBDIRECTORY")
 #pragma pop_macro("ADD_FILE")
-#pragma pop_macro("READ_DATA")
+#pragma pop_macro("ADD_SUBDIRECTORY")
 #pragma pop_macro("APPEND_DATA")
-#pragma pop_macro("WRITE_DATA")
-#pragma pop_macro("EXECUTE")
-#pragma pop_macro("READ_NAMED_ATTRS")
 #pragma pop_macro("DELETE")
-#pragma pop_macro("WRITE_ACL")
-#pragma pop_macro("SYNCHRONIZE")
-#pragma pop_macro("READ_ATTRIBUTES")
-#pragma pop_macro("WRITE_ATTRIBUTES")
 #pragma pop_macro("DELETE_CHILD")
+#pragma pop_macro("EXECUTE")
 #pragma pop_macro("LIST_DIRECTORY")
+#pragma pop_macro("READ_ACL")
+#pragma pop_macro("READ_ATTRIBUTES")
+#pragma pop_macro("READ_DATA")
+#pragma pop_macro("READ_NAMED_ATTRS")
+#pragma pop_macro("SYNCHRONIZE")
+#pragma pop_macro("WRITE_ACL")
+#pragma pop_macro("WRITE_ATTRIBUTES")
+#pragma pop_macro("WRITE_DATA")
 #pragma pop_macro("WRITE_NAMED_ATTRS")
+#pragma pop_macro("WRITE_OWNER")
 
 #endif // _java_nio_file_attribute_AclEntryPermission_h_

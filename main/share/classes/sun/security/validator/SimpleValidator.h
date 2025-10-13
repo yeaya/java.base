@@ -9,20 +9,20 @@
 
 #pragma push_macro("NSCT_CODE_SIGNING_CA")
 #undef NSCT_CODE_SIGNING_CA
-#pragma push_macro("OID_EKU_ANY_USAGE")
-#undef OID_EKU_ANY_USAGE
-#pragma push_macro("OID_NETSCAPE_CERT_TYPE")
-#undef OID_NETSCAPE_CERT_TYPE
+#pragma push_macro("NSCT_SSL_CA")
+#undef NSCT_SSL_CA
 #pragma push_macro("OBJID_NETSCAPE_CERT_TYPE")
 #undef OBJID_NETSCAPE_CERT_TYPE
 #pragma push_macro("OID_BASIC_CONSTRAINTS")
 #undef OID_BASIC_CONSTRAINTS
-#pragma push_macro("NSCT_SSL_CA")
-#undef NSCT_SSL_CA
-#pragma push_macro("OID_KEY_USAGE")
-#undef OID_KEY_USAGE
+#pragma push_macro("OID_EKU_ANY_USAGE")
+#undef OID_EKU_ANY_USAGE
 #pragma push_macro("OID_EXTENDED_KEY_USAGE")
 #undef OID_EXTENDED_KEY_USAGE
+#pragma push_macro("OID_KEY_USAGE")
+#undef OID_KEY_USAGE
+#pragma push_macro("OID_NETSCAPE_CERT_TYPE")
+#undef OID_NETSCAPE_CERT_TYPE
 
 namespace java {
 	namespace security {
@@ -87,12 +87,12 @@ public:
 } // sun
 
 #pragma pop_macro("NSCT_CODE_SIGNING_CA")
-#pragma pop_macro("OID_EKU_ANY_USAGE")
-#pragma pop_macro("OID_NETSCAPE_CERT_TYPE")
+#pragma pop_macro("NSCT_SSL_CA")
 #pragma pop_macro("OBJID_NETSCAPE_CERT_TYPE")
 #pragma pop_macro("OID_BASIC_CONSTRAINTS")
-#pragma pop_macro("NSCT_SSL_CA")
-#pragma pop_macro("OID_KEY_USAGE")
+#pragma pop_macro("OID_EKU_ANY_USAGE")
 #pragma pop_macro("OID_EXTENDED_KEY_USAGE")
+#pragma pop_macro("OID_KEY_USAGE")
+#pragma pop_macro("OID_NETSCAPE_CERT_TYPE")
 
 #endif // _sun_security_validator_SimpleValidator_h_

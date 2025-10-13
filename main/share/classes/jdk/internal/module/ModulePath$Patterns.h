@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("DASH_VERSION")
+#undef DASH_VERSION
 #pragma push_macro("LEADING_DOTS")
 #undef LEADING_DOTS
 #pragma push_macro("NON_ALPHANUM")
 #undef NON_ALPHANUM
-#pragma push_macro("TRAILING_DOTS")
-#undef TRAILING_DOTS
-#pragma push_macro("DASH_VERSION")
-#undef DASH_VERSION
 #pragma push_macro("REPEATING_DOTS")
 #undef REPEATING_DOTS
+#pragma push_macro("TRAILING_DOTS")
+#undef TRAILING_DOTS
 
 namespace java {
 	namespace util {
@@ -44,10 +44,10 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("DASH_VERSION")
 #pragma pop_macro("LEADING_DOTS")
 #pragma pop_macro("NON_ALPHANUM")
-#pragma pop_macro("TRAILING_DOTS")
-#pragma pop_macro("DASH_VERSION")
 #pragma pop_macro("REPEATING_DOTS")
+#pragma pop_macro("TRAILING_DOTS")
 
 #endif // _jdk_internal_module_ModulePath$Patterns_h_

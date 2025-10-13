@@ -20,8 +20,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef DEFAULT_NAME
 #undef CONSTRUCTOR
+#undef DEFAULT_NAME
 
 using $ClassDescArray = $Array<::java::lang::constant::ClassDesc>;
 using $ClassInfo = ::java::lang::ClassInfo;

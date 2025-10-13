@@ -17,9 +17,9 @@
 #include <java/time/temporal/ValueRange.h>
 #include <jcpp.h>
 
+#undef INSTANCE
 #undef MONTHS
 #undef WEEKS
-#undef INSTANCE
 
 using $MockFieldNoValueArray = $Array<::test::java::time::temporal::MockFieldNoValue>;
 using $ClassInfo = ::java::lang::ClassInfo;

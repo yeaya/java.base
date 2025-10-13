@@ -7,12 +7,12 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/ChronoPeriod.h>
 
-#pragma push_macro("ZERO")
-#undef ZERO
 #pragma push_macro("PATTERN")
 #undef PATTERN
 #pragma push_macro("SUPPORTED_UNITS")
 #undef SUPPORTED_UNITS
+#pragma push_macro("ZERO")
+#undef ZERO
 
 namespace java {
 	namespace io {
@@ -128,8 +128,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("ZERO")
 #pragma pop_macro("PATTERN")
 #pragma pop_macro("SUPPORTED_UNITS")
+#pragma pop_macro("ZERO")
 
 #endif // _java_time_Period_h_

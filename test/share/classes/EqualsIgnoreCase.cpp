@@ -15,11 +15,11 @@
 #include <jcpp.h>
 
 #undef CAPITAL_GREEK_THETA
-#undef SMALL_I
+#undef CAPITAL_I
 #undef CAPITAL_I_WITH_DOT
 #undef LOWER_GREEK_THETA
-#undef CAPITAL_I
 #undef SMALL_DOTLESS_I
+#undef SMALL_I
 
 using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;

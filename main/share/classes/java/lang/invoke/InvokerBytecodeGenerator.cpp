@@ -93,128 +93,128 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef ARRAYLENGTH
-#undef POP2
-#undef CLS
-#undef MEMBERNAME_FACTORY
-#undef STATICALLY_INVOCABLE_PACKAGES
-#undef MHI
-#undef PUTSTATIC
-#undef DUMP_CLASS_FILES
-#undef ALOAD
-#undef INVOKER_METHOD_TYPE
-#undef LFN
-#undef INVOKER_SUPER_NAME
-#undef FSTORE
-#undef F2D
-#undef F2I
-#undef BASTORE
-#undef TYPE
-#undef F2L
-#undef DCONST_0
-#undef FRETURN
-#undef BIPUSH
-#undef INJECTEDPROFILE_SIG
-#undef POP
-#undef IRETURN
-#undef T_LONG
-#undef LCONST_0
-#undef T_FLOAT
-#undef LLV_SIG
-#undef FCONST_0
-#undef INVOKEVIRTUAL
-#undef DSTORE
-#undef COMPUTE_MAXS
-#undef LFN_SIG
-#undef HOST_CLASS
-#undef ACC_STATIC
-#undef GOTO
-#undef LRETURN
-#undef MAX_VALUE
-#undef PROFILE_GWT
-#undef IMPL_LOOKUP
-#undef ACC_FINAL
-#undef ISTORE
-#undef LOOKUP
-#undef I2B
-#undef I2D
-#undef ACONST_NULL
-#undef I2C
-#undef I2F
-#undef L_TYPE
-#undef LLOAD
-#undef INVOKESTATIC
-#undef I2L
-#undef PUTFIELD
-#undef I2S
-#undef ICONST_0
-#undef ICONST_1
-#undef INVOKEINTERFACE
-#undef PROFILE_LEVEL
-#undef LL_SIG
-#undef LF
-#undef NOT_ACC_PUBLIC
-#undef SASTORE
-#undef DRETURN
-#undef FASTORE
-#undef MHARY2
-#undef OBJARY
-#undef LF_COMPILED_SIG
-#undef ASTORE
-#undef MH_SIG
-#undef ILOAD
-#undef ATHROW
-#undef CLASS_PREFIX
-#undef LASTORE
-#undef D2F
-#undef D2I
-#undef MH
-#undef ACC_SUPER
-#undef LSTORE
-#undef L2D
-#undef D2L
-#undef COMPUTE_FRAMES
-#undef V_TYPE
-#undef L2F
-#undef T_BYTE
-#undef L2I
 #undef AALOAD
-#undef T_INT
-#undef IFEQ
-#undef OBJECT
-#undef DASTORE
-#undef GETFIELD
-#undef LOOP_CLAUSES
-#undef SWAP
-#undef DUMP_CLASS_FILES_COUNTERS
-#undef T_BOOLEAN
-#undef IFNE
 #undef AASTORE
-#undef SIPUSH
-#undef GETSTATIC
-#undef DONTINLINE_SIG
-#undef T_DOUBLE
-#undef SOURCE_PREFIX
+#undef ACC_FINAL
+#undef ACC_STATIC
+#undef ACC_SUPER
+#undef ACONST_NULL
+#undef ALOAD
 #undef ANEWARRAY
-#undef HIDDEN_SIG
+#undef ARETURN
+#undef ARRAYLENGTH
+#undef ASTORE
+#undef ATHROW
+#undef BASTORE
+#undef BIPUSH
 #undef CASTORE
 #undef CHECKCAST
+#undef CLASS_PREFIX
+#undef CLS
+#undef COMPUTE_FRAMES
+#undef COMPUTE_MAXS
+#undef D2F
+#undef D2I
+#undef D2L
+#undef DASTORE
+#undef DCONST_0
 #undef DLOAD
-#undef INT
-#undef T_CHAR
-#undef RETURN
-#undef FLOAD
-#undef OBJ
-#undef LF_SIG
-#undef DUP
+#undef DONTINLINE_SIG
+#undef DRETURN
+#undef DSTORE
+#undef DUMP_CLASS_FILES
+#undef DUMP_CLASS_FILES_COUNTERS
 #undef DUMP_CLASS_FILES_DIR
-#undef IASTORE
-#undef ARETURN
-#undef T_SHORT
-#undef MIN_VALUE
-#undef INVOKESPECIAL
-#undef IAND
+#undef DUP
+#undef F2D
+#undef F2I
+#undef F2L
+#undef FASTORE
+#undef FCONST_0
+#undef FLOAD
 #undef FORCEINLINE_SIG
+#undef FRETURN
+#undef FSTORE
+#undef GETFIELD
+#undef GETSTATIC
+#undef GOTO
+#undef HIDDEN_SIG
+#undef HOST_CLASS
+#undef I2B
+#undef I2C
+#undef I2D
+#undef I2F
+#undef I2L
+#undef I2S
+#undef IAND
+#undef IASTORE
+#undef ICONST_0
+#undef ICONST_1
+#undef IFEQ
+#undef IFNE
+#undef ILOAD
+#undef IMPL_LOOKUP
+#undef INJECTEDPROFILE_SIG
+#undef INT
+#undef INVOKEINTERFACE
+#undef INVOKER_METHOD_TYPE
+#undef INVOKER_SUPER_NAME
+#undef INVOKESPECIAL
+#undef INVOKESTATIC
+#undef INVOKEVIRTUAL
+#undef IRETURN
+#undef ISTORE
+#undef L2D
+#undef L2F
+#undef L2I
+#undef LASTORE
+#undef LCONST_0
+#undef LF
+#undef LFN
+#undef LFN_SIG
+#undef LF_COMPILED_SIG
+#undef LF_SIG
+#undef LLOAD
+#undef LLV_SIG
+#undef LL_SIG
+#undef LOOKUP
+#undef LOOP_CLAUSES
+#undef LRETURN
+#undef LSTORE
+#undef L_TYPE
+#undef MAX_VALUE
+#undef MEMBERNAME_FACTORY
+#undef MH
+#undef MHARY2
+#undef MHI
+#undef MH_SIG
+#undef MIN_VALUE
+#undef NOT_ACC_PUBLIC
+#undef OBJ
+#undef OBJARY
+#undef OBJECT
+#undef POP
+#undef POP2
+#undef PROFILE_GWT
+#undef PROFILE_LEVEL
+#undef PUTFIELD
+#undef PUTSTATIC
+#undef RETURN
+#undef SASTORE
+#undef SIPUSH
+#undef SOURCE_PREFIX
+#undef STATICALLY_INVOCABLE_PACKAGES
+#undef SWAP
+#undef TYPE
+#undef T_BOOLEAN
+#undef T_BYTE
+#undef T_CHAR
+#undef T_DOUBLE
+#undef T_FLOAT
+#undef T_INT
+#undef T_LONG
+#undef T_SHORT
+#undef V_TYPE
 
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
 using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
@@ -1237,7 +1237,7 @@ bool InvokerBytecodeGenerator::assertStaticType($Class* cls, $LambdaForm$Name* n
 	$Class* aclass = $nc(this->localClasses)->get(local);
 	if (aclass != nullptr && (aclass == cls || $nc(cls)->isAssignableFrom(aclass))) {
 		return true;
-	} else if (aclass == nullptr || $nc(aclass)->isAssignableFrom(cls)) {
+	} else if (aclass == nullptr || aclass->isAssignableFrom(cls)) {
 		$nc(this->localClasses)->set(local, cls);
 	}
 	return false;
@@ -1349,13 +1349,13 @@ $String* InvokerBytecodeGenerator::getInternalName($Class* c) {
 		}
 	}
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !($VerifyAccess::isTypeVisible(c, $Object::class$))) {
-		$throwNew($AssertionError, $($of($nc(c)->getName())));
+		$throwNew($AssertionError, $($of(c->getName())));
 	}
 	if (c == this->lastClass) {
 		return this->lastInternalName;
 	}
 	$set(this, lastClass, c);
-	return $assignField(this, lastInternalName, $nc($($nc(c)->getName()))->replace(u'.', u'/'));
+	return $assignField(this, lastInternalName, $nc($(c->getName()))->replace(u'.', u'/'));
 }
 
 $MemberName* InvokerBytecodeGenerator::resolveFrom($String* name, $MethodType* type, $Class* holder) {
@@ -2340,7 +2340,7 @@ void InvokerBytecodeGenerator::emitPrimCast($Wrapper* from, $Wrapper* to) {
 	}
 	if ($nc(from)->isSubwordOrInt()) {
 		emitI2X(to);
-	} else if ($nc(to)->isSubwordOrInt()) {
+	} else if (to->isSubwordOrInt()) {
 		emitX2I(from);
 		if (to->bitWidth() < 32) {
 			emitI2X(to);
@@ -2348,7 +2348,7 @@ void InvokerBytecodeGenerator::emitPrimCast($Wrapper* from, $Wrapper* to) {
 	} else {
 		bool error = false;
 		$init($InvokerBytecodeGenerator$2);
-		switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((from))->ordinal())) {
+		switch ($nc($InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper)->get((from)->ordinal())) {
 		case 6:
 			{
 				{

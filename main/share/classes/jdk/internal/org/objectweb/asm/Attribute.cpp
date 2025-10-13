@@ -20,10 +20,10 @@
 #include <jcpp.h>
 
 #undef ACC_DEPRECATED
-#undef SYNTHETIC
 #undef ACC_SYNTHETIC
-#undef SIGNATURE
 #undef DEPRECATED
+#undef SIGNATURE
+#undef SYNTHETIC
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $ClassInfo = ::java::lang::ClassInfo;

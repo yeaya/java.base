@@ -6,42 +6,42 @@
 #include <java/lang/Array.h>
 #include <java/nio/file/Path.h>
 
-#pragma push_macro("H_PATH")
-#undef H_PATH
-#pragma push_macro("L_ALPHA")
-#undef L_ALPHA
-#pragma push_macro("L_PATH")
-#undef L_PATH
-#pragma push_macro("L_ALPHANUM")
-#undef L_ALPHANUM
-#pragma push_macro("H_DIGIT")
-#undef H_DIGIT
-#pragma push_macro("L_DIGIT")
-#undef L_DIGIT
-#pragma push_macro("H_UNRESERVED")
-#undef H_UNRESERVED
-#pragma push_macro("H_PCHAR")
-#undef H_PCHAR
-#pragma push_macro("L_MARK")
-#undef L_MARK
-#pragma push_macro("L_UNRESERVED")
-#undef L_UNRESERVED
-#pragma push_macro("L_PCHAR")
-#undef L_PCHAR
 #pragma push_macro("H_ALPHA")
 #undef H_ALPHA
 #pragma push_macro("H_ALPHANUM")
 #undef H_ALPHANUM
-#pragma push_macro("H_UPALPHA")
-#undef H_UPALPHA
-#pragma push_macro("L_LOWALPHA")
-#undef L_LOWALPHA
-#pragma push_macro("L_UPALPHA")
-#undef L_UPALPHA
+#pragma push_macro("H_DIGIT")
+#undef H_DIGIT
 #pragma push_macro("H_LOWALPHA")
 #undef H_LOWALPHA
 #pragma push_macro("H_MARK")
 #undef H_MARK
+#pragma push_macro("H_PATH")
+#undef H_PATH
+#pragma push_macro("H_PCHAR")
+#undef H_PCHAR
+#pragma push_macro("H_UNRESERVED")
+#undef H_UNRESERVED
+#pragma push_macro("H_UPALPHA")
+#undef H_UPALPHA
+#pragma push_macro("L_ALPHA")
+#undef L_ALPHA
+#pragma push_macro("L_ALPHANUM")
+#undef L_ALPHANUM
+#pragma push_macro("L_DIGIT")
+#undef L_DIGIT
+#pragma push_macro("L_LOWALPHA")
+#undef L_LOWALPHA
+#pragma push_macro("L_MARK")
+#undef L_MARK
+#pragma push_macro("L_PATH")
+#undef L_PATH
+#pragma push_macro("L_PCHAR")
+#undef L_PCHAR
+#pragma push_macro("L_UNRESERVED")
+#undef L_UNRESERVED
+#pragma push_macro("L_UPALPHA")
+#undef L_UPALPHA
 
 namespace java {
 	namespace io {
@@ -213,23 +213,23 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("H_PATH")
-#pragma pop_macro("L_ALPHA")
-#pragma pop_macro("L_PATH")
-#pragma pop_macro("L_ALPHANUM")
-#pragma pop_macro("H_DIGIT")
-#pragma pop_macro("L_DIGIT")
-#pragma pop_macro("H_UNRESERVED")
-#pragma pop_macro("H_PCHAR")
-#pragma pop_macro("L_MARK")
-#pragma pop_macro("L_UNRESERVED")
-#pragma pop_macro("L_PCHAR")
 #pragma pop_macro("H_ALPHA")
 #pragma pop_macro("H_ALPHANUM")
-#pragma pop_macro("H_UPALPHA")
-#pragma pop_macro("L_LOWALPHA")
-#pragma pop_macro("L_UPALPHA")
+#pragma pop_macro("H_DIGIT")
 #pragma pop_macro("H_LOWALPHA")
 #pragma pop_macro("H_MARK")
+#pragma pop_macro("H_PATH")
+#pragma pop_macro("H_PCHAR")
+#pragma pop_macro("H_UNRESERVED")
+#pragma pop_macro("H_UPALPHA")
+#pragma pop_macro("L_ALPHA")
+#pragma pop_macro("L_ALPHANUM")
+#pragma pop_macro("L_DIGIT")
+#pragma pop_macro("L_LOWALPHA")
+#pragma pop_macro("L_MARK")
+#pragma pop_macro("L_PATH")
+#pragma pop_macro("L_PCHAR")
+#pragma pop_macro("L_UNRESERVED")
+#pragma pop_macro("L_UPALPHA")
 
 #endif // _jdk_internal_jrtfs_JrtPath_h_

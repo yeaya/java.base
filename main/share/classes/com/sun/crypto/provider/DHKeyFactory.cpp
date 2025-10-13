@@ -176,23 +176,23 @@ $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 			if (keySpec->isAssignableFrom($PKCS8EncodedKeySpec::class$)) {
 				$var($bytes, encoded, $nc(key)->getEncoded());
 				{
-					$var($Throwable, var$7, nullptr);
-					$var($KeySpec, var$9, nullptr);
-					bool return$8 = false;
+					$var($Throwable, var$4, nullptr);
+					$var($KeySpec, var$6, nullptr);
+					bool return$5 = false;
 					try {
-						$assign(var$9, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
-						return$8 = true;
-						goto $finally1;
+						$assign(var$6, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
+						return$5 = true;
+						goto $finally;
 					} catch ($Throwable&) {
-						$assign(var$7, $catch());
-					} $finally1: {
+						$assign(var$4, $catch());
+					} $finally: {
 						$Arrays::fill(encoded, (int8_t)0);
 					}
-					if (var$7 != nullptr) {
-						$throw(var$7);
+					if (var$4 != nullptr) {
+						$throw(var$4);
 					}
-					if (return$8) {
-						return var$9;
+					if (return$5) {
+						return var$6;
 					}
 				}
 			} else {

@@ -44,105 +44,105 @@
 #include <jdk/internal/icu/text/UTF16.h>
 #include <jcpp.h>
 
-#undef NUMERIC_SHAPING
-#undef RLM_AFTER
-#undef RUN_DIRECTION
-#undef DO_MIRRORING
-#undef DIRECTION_DEFAULT_LEFT_TO_RIGHT
-#undef SIMPLE_PARAS_COUNT
-#undef MASK_EXPLICIT
-#undef FSI
-#undef TYPE
-#undef MAX_EXPLICIT_LEVEL
-#undef FOUND_R
-#undef NSM
-#undef INSTANCE
-#undef REORDER_INVERSE_NUMBERS_AS_L
 #undef AL
 #undef AN
-#undef RUN_DIRECTION_LTR
-#undef LEVEL_DEFAULT_LTR
-#undef REORDER_INVERSE_LIKE_DIRECT
-#undef OPTION_STREAMING
-#undef FOUND_L
-#undef REORDER_INVERSE_FOR_NUMBERS_SPECIAL
 #undef B
-#undef LRM_BEFORE
-#undef _EN
-#undef RLE
-#undef RTL
-#undef REORDER_GROUP_NUMBERS_WITH_R
-#undef L
-#undef BN
-#undef KEEP_BASE_COMBINING
-#undef REORDER_LAST_LOGICAL_TO_VISUAL
-#undef RLI
-#undef ISOLATE
-#undef R
-#undef S
-#undef DIRECTION_DEFAULT_RIGHT_TO_LEFT
-#undef RLO
-#undef DIRECTION_RIGHT_TO_LEFT
-#undef REORDER_RUNS_ONLY
+#undef BIDI_EMBEDDING
 #undef BIDI_PAIRED_BRACKET_TYPE
-#undef MASK_EMBEDDING
-#undef NOT_SEEKING_STRONG
-#undef INSERT_LRM_FOR_NUMERIC
-#undef RLM_BEFORE
-#undef LOOKING_FOR_PDI
-#undef MASK_RTL
-#undef MASK_R_AL
-#undef SEEKING_STRONG_FOR_FSI
+#undef BN
 #undef CHAR_DIRECTION_COUNT
 #undef CR
-#undef OPEN
 #undef CS
-#undef SEEKING_STRONG_FOR_PARA
-#undef LF
-#undef LRE
-#undef _ON
-#undef LRI
-#undef MIXED
-#undef LRM_AFTER
-#undef LRO
-#undef MASK_ISO
-#undef OPTION_INSERT_MARKS
-#undef BIDI_EMBEDDING
-#undef OPTION_REMOVE_CONTROLS
+#undef DIRECTION_DEFAULT_LEFT_TO_RIGHT
+#undef DIRECTION_DEFAULT_RIGHT_TO_LEFT
+#undef DIRECTION_LEFT_TO_RIGHT
+#undef DIRECTION_RIGHT_TO_LEFT
 #undef DONE
+#undef DO_MIRRORING
 #undef EN
-#undef LEVEL_OVERRIDE
+#undef ENL
+#undef ENR
 #undef ES
 #undef ET
-#undef IMPTABLEVELS_COLUMNS
-#undef LEVEL_DEFAULT_RTL
-#undef IMPTABPROPS_RES
-#undef ENL
-#undef _B
-#undef MASK_BN_EXPLICIT
-#undef ENR
-#undef LTR
-#undef _L
-#undef _AN
-#undef MASK_WS
-#undef PDF
-#undef _R
-#undef PDI
-#undef _S
-#undef WS
-#undef MASK_B_S
-#undef ON
-#undef MAP_NOWHERE
-#undef REORDER_NUMBERS_SPECIAL
-#undef MASK_LTR
 #undef FIRSTALLOC
-#undef REMOVE_BIDI_CONTROLS
-#undef DIRECTION_LEFT_TO_RIGHT
+#undef FOUND_L
+#undef FOUND_R
+#undef FSI
+#undef IMPTABLEVELS_COLUMNS
 #undef IMPTABLEVELS_RES
-#undef MASK_POSSIBLE_N
-#undef OUTPUT_REVERSE
 #undef IMPTABPROPS_COLUMNS
+#undef IMPTABPROPS_RES
+#undef INSERT_LRM_FOR_NUMERIC
+#undef INSTANCE
+#undef ISOLATE
+#undef KEEP_BASE_COMBINING
+#undef L
+#undef LEVEL_DEFAULT_LTR
+#undef LEVEL_DEFAULT_RTL
+#undef LEVEL_OVERRIDE
+#undef LF
+#undef LOOKING_FOR_PDI
+#undef LRE
+#undef LRI
+#undef LRM_AFTER
+#undef LRM_BEFORE
+#undef LRO
+#undef LTR
+#undef MAP_NOWHERE
+#undef MASK_BN_EXPLICIT
+#undef MASK_B_S
+#undef MASK_EMBEDDING
+#undef MASK_EXPLICIT
+#undef MASK_ISO
+#undef MASK_LTR
+#undef MASK_POSSIBLE_N
+#undef MASK_RTL
+#undef MASK_R_AL
+#undef MASK_WS
+#undef MAX_EXPLICIT_LEVEL
+#undef MIXED
+#undef NOT_SEEKING_STRONG
+#undef NSM
+#undef NUMERIC_SHAPING
+#undef ON
+#undef OPEN
+#undef OPTION_INSERT_MARKS
+#undef OPTION_REMOVE_CONTROLS
+#undef OPTION_STREAMING
+#undef OUTPUT_REVERSE
+#undef PDF
+#undef PDI
+#undef R
+#undef REMOVE_BIDI_CONTROLS
 #undef REORDER_DEFAULT
+#undef REORDER_GROUP_NUMBERS_WITH_R
+#undef REORDER_INVERSE_FOR_NUMBERS_SPECIAL
+#undef REORDER_INVERSE_LIKE_DIRECT
+#undef REORDER_INVERSE_NUMBERS_AS_L
+#undef REORDER_LAST_LOGICAL_TO_VISUAL
+#undef REORDER_NUMBERS_SPECIAL
+#undef REORDER_RUNS_ONLY
+#undef RLE
+#undef RLI
+#undef RLM_AFTER
+#undef RLM_BEFORE
+#undef RLO
+#undef RTL
+#undef RUN_DIRECTION
+#undef RUN_DIRECTION_LTR
+#undef S
+#undef SEEKING_STRONG_FOR_FSI
+#undef SEEKING_STRONG_FOR_PARA
+#undef SIMPLE_PARAS_COUNT
+#undef TYPE
+#undef WS
+#undef _AN
+#undef _B
+#undef _EN
+#undef _L
+#undef _ON
+#undef _R
+#undef _S
 
 using $BidiBase$IsoRunArray = $Array<::jdk::internal::icu::text::BidiBase$IsoRun>;
 using $BidiBase$IsolateArray = $Array<::jdk::internal::icu::text::BidiBase$Isolate>;
@@ -767,7 +767,7 @@ void BidiBase::getDirProps() {
 				state = (int8_t)BidiBase::NOT_SEEKING_STRONG;
 			} else if (state == BidiBase::SEEKING_STRONG_FOR_FSI) {
 				if (stackLast <= BidiBase::MAX_EXPLICIT_LEVEL) {
-					$nc(this->dirProps)->set($nc(isolateStartStack)->get(stackLast), BidiBase::RLI);
+					$nc(this->dirProps)->set(isolateStartStack->get(stackLast), BidiBase::RLI);
 					this->flags |= DirPropFlag(BidiBase::RLI);
 				}
 				state = (int8_t)BidiBase::LOOKING_FOR_PDI;
@@ -1011,18 +1011,18 @@ int8_t BidiBase::bracketProcessClosing($BidiBase$BracketData* bd, int32_t openId
 	stable = true;
 	if ((direction == 0 && ((int32_t)($nc(pOpening)->flags & (uint32_t)(int32_t)BidiBase::FOUND_L)) > 0) || (direction == 1 && ((int32_t)($nc(pOpening)->flags & (uint32_t)(int32_t)BidiBase::FOUND_R)) > 0)) {
 		newProp = direction;
-	} else if (((int32_t)($nc(pOpening)->flags & (uint32_t)(BidiBase::FOUND_L | BidiBase::FOUND_R))) != 0) {
-		stable = (openIdx == $nc(pLastIsoRun)->start);
+	} else if (((int32_t)(pOpening->flags & (uint32_t)(BidiBase::FOUND_L | BidiBase::FOUND_R))) != 0) {
+		stable = (openIdx == pLastIsoRun->start);
 		if (direction != pOpening->contextDir) {
 			newProp = pOpening->contextDir;
 		} else {
 			newProp = direction;
 		}
 	} else {
-		$nc(pLastIsoRun)->limit = (int16_t)openIdx;
+		pLastIsoRun->limit = (int16_t)openIdx;
 		return BidiBase::ON;
 	}
-	$nc(this->dirProps)->set($nc(pOpening)->position, newProp);
+	$nc(this->dirProps)->set(pOpening->position, newProp);
 	$nc(this->dirProps)->set(position, newProp);
 	fixN0c(bd, openIdx, pOpening->position, newProp);
 	if (stable) {
@@ -1122,7 +1122,7 @@ void BidiBase::bracketProcessChar($BidiBase$BracketData* bd, int32_t position) {
 		$nc(pLastIsoRun)->lastBase = BidiBase::EN;
 		if (pLastIsoRun->lastStrong == BidiBase::L) {
 			newProp = BidiBase::L;
-			if (!$nc(bd)->isNumbersSpecial) {
+			if (!bd->isNumbersSpecial) {
 				$nc(this->dirProps)->set(position, BidiBase::ENL);
 			}
 			pLastIsoRun->contextDir = BidiBase::L;
@@ -1345,7 +1345,7 @@ int8_t BidiBase::resolveExplicitLevels() {
 					this->flags |= DirPropFlag(BidiBase::PDI);
 					lastCcPos = i;
 					overflowEmbeddingCount = 0;
-					while ($nc(stack)->get(stackLast) < BidiBase::ISOLATE) {
+					while (stack->get(stackLast) < BidiBase::ISOLATE) {
 						--stackLast;
 					}
 					--stackLast;
@@ -2270,10 +2270,10 @@ void BidiBase::setPara($AttributedCharacterIterator* paragraph) {
 			if (level == 0) {
 			} else if (level < 0) {
 				$assign(lvls, embeddingLevels);
-				$nc(embeddingLevels)->set(i, (int8_t)((0 - level) | BidiBase::LEVEL_OVERRIDE));
+				embeddingLevels->set(i, (int8_t)((0 - level) | BidiBase::LEVEL_OVERRIDE));
 			} else {
 				$assign(lvls, embeddingLevels);
-				$nc(embeddingLevels)->set(i, level);
+				embeddingLevels->set(i, level);
 			}
 		}
 		ch = paragraph->next();

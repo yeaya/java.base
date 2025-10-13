@@ -20,25 +20,25 @@
 #include <java/util/concurrent/CountedCompleter.h>
 #include <jcpp.h>
 
-#undef MAX_RUN_CAPACITY
-#undef NUM_BYTE_VALUES
-#undef MIN_PARALLEL_MERGE_PARTS_SIZE
-#undef MIN_PARALLEL_SORT_SIZE
 #undef DELTA
-#undef MAX_INSERTION_SORT_SIZE
-#undef MIN_RUN_COUNT
-#undef MIN_TRY_MERGE_SIZE
-#undef MAX_VALUE
-#undef NUM_CHAR_VALUES
-#undef MAX_MIXED_INSERTION_SORT_SIZE
 #undef MAX_BYTE_INDEX
-#undef MIN_BYTE_COUNTING_SORT_SIZE
-#undef NUM_SHORT_VALUES
+#undef MAX_INSERTION_SORT_SIZE
+#undef MAX_MIXED_INSERTION_SORT_SIZE
 #undef MAX_RECURSION_DEPTH
+#undef MAX_RUN_CAPACITY
 #undef MAX_SHORT_INDEX
+#undef MAX_VALUE
+#undef MIN_BYTE_COUNTING_SORT_SIZE
 #undef MIN_FIRST_RUNS_FACTOR
 #undef MIN_FIRST_RUN_SIZE
+#undef MIN_PARALLEL_MERGE_PARTS_SIZE
+#undef MIN_PARALLEL_SORT_SIZE
+#undef MIN_RUN_COUNT
 #undef MIN_SHORT_OR_CHAR_COUNTING_SORT_SIZE
+#undef MIN_TRY_MERGE_SIZE
+#undef NUM_BYTE_VALUES
+#undef NUM_CHAR_VALUES
+#undef NUM_SHORT_VALUES
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -241,7 +241,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $ints* a, int3
 				a->set(e3, a->get(e2));
 				a->set(e2, a3);
 			}
-		} else if (a3 > $nc(a)->get(e4)) {
+		} else if (a3 > a->get(e4)) {
 			if (a3 > a->get(e5)) {
 				a->set(e3, a->get(e4));
 				a->set(e4, a->get(e5));
@@ -281,7 +281,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $ints* a, int3
 							}
 						}
 					} else if (ak > pivot2) {
-						$nc(a)->set(k, a->get(--upper));
+						a->set(k, a->get(--upper));
 						a->set(upper, ak);
 					}
 				}
@@ -352,16 +352,16 @@ void DualPivotQuicksort::mixedInsertionSort($ints* a, int32_t low, int32_t end, 
 					}
 					a->set(i + 1, ai);
 				} else if (p > i && ai > pin) {
-					while ($nc(a)->get(--p) > pin) {
+					while (a->get(--p) > pin) {
 					}
 					if (p > i) {
-						ai = $nc(a)->get(p);
+						ai = a->get(p);
 						a->set(p, a->get(i));
 					}
-					while (ai < $nc(a)->get(--i)) {
+					while (ai < a->get(--i)) {
 						a->set(i + 1, a->get(i));
 					}
-					$nc(a)->set(i + 1, ai);
+					a->set(i + 1, ai);
 				}
 			}
 		}
@@ -377,7 +377,7 @@ void DualPivotQuicksort::mixedInsertionSort($ints* a, int32_t low, int32_t end, 
 					a->set(i + 1, a->get(i));
 				}
 				a->set(i + 1, a2);
-			} else if (a1 < $nc(a)->get(i - 1)) {
+			} else if (a1 < a->get(i - 1)) {
 				while (a2 < a->get(--i)) {
 					a->set(i + 2, a->get(i));
 				}
@@ -458,7 +458,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $ints*
 				{
 				}
 			}
-		} else if ($nc(a)->get(k - 1) > a->get(k)) {
+		} else if (a->get(k - 1) > a->get(k)) {
 			while (true) {
 				bool var$1 = ++k < high;
 				if (!(var$1 && a->get(k - 1) >= a->get(k))) {
@@ -507,7 +507,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $ints*
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if ($nc(a)->get(last - 1) > a->get(last)) {
+		} else if (a->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}
@@ -692,7 +692,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $longs* a, int
 				a->set(e3, a->get(e2));
 				a->set(e2, a3);
 			}
-		} else if (a3 > $nc(a)->get(e4)) {
+		} else if (a3 > a->get(e4)) {
 			if (a3 > a->get(e5)) {
 				a->set(e3, a->get(e4));
 				a->set(e4, a->get(e5));
@@ -732,7 +732,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $longs* a, int
 							}
 						}
 					} else if (ak > pivot2) {
-						$nc(a)->set(k, a->get(--upper));
+						a->set(k, a->get(--upper));
 						a->set(upper, ak);
 					}
 				}
@@ -803,16 +803,16 @@ void DualPivotQuicksort::mixedInsertionSort($longs* a, int32_t low, int32_t end,
 					}
 					a->set(i + 1, ai);
 				} else if (p > i && ai > pin) {
-					while ($nc(a)->get(--p) > pin) {
+					while (a->get(--p) > pin) {
 					}
 					if (p > i) {
-						ai = $nc(a)->get(p);
+						ai = a->get(p);
 						a->set(p, a->get(i));
 					}
-					while (ai < $nc(a)->get(--i)) {
+					while (ai < a->get(--i)) {
 						a->set(i + 1, a->get(i));
 					}
-					$nc(a)->set(i + 1, ai);
+					a->set(i + 1, ai);
 				}
 			}
 		}
@@ -828,7 +828,7 @@ void DualPivotQuicksort::mixedInsertionSort($longs* a, int32_t low, int32_t end,
 					a->set(i + 1, a->get(i));
 				}
 				a->set(i + 1, a2);
-			} else if (a1 < $nc(a)->get(i - 1)) {
+			} else if (a1 < a->get(i - 1)) {
 				while (a2 < a->get(--i)) {
 					a->set(i + 2, a->get(i));
 				}
@@ -909,7 +909,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $longs
 				{
 				}
 			}
-		} else if ($nc(a)->get(k - 1) > a->get(k)) {
+		} else if (a->get(k - 1) > a->get(k)) {
 			while (true) {
 				bool var$1 = ++k < high;
 				if (!(var$1 && a->get(k - 1) >= a->get(k))) {
@@ -958,7 +958,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $longs
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if ($nc(a)->get(last - 1) > a->get(last)) {
+		} else if (a->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}
@@ -1186,7 +1186,7 @@ void DualPivotQuicksort::sort($chars* a, int32_t bits, int32_t low, int32_t high
 				a->set(e3, a->get(e2));
 				a->set(e2, a3);
 			}
-		} else if (a3 > $nc(a)->get(e4)) {
+		} else if (a3 > a->get(e4)) {
 			if (a3 > a->get(e5)) {
 				a->set(e3, a->get(e4));
 				a->set(e4, a->get(e5));
@@ -1226,7 +1226,7 @@ void DualPivotQuicksort::sort($chars* a, int32_t bits, int32_t low, int32_t high
 							}
 						}
 					} else if (ak > pivot2) {
-						$nc(a)->set(k, a->get(--upper));
+						a->set(k, a->get(--upper));
 						a->set(upper, ak);
 					}
 				}
@@ -1368,7 +1368,7 @@ void DualPivotQuicksort::sort($shorts* a, int32_t bits, int32_t low, int32_t hig
 				a->set(e3, a->get(e2));
 				a->set(e2, a3);
 			}
-		} else if (a3 > $nc(a)->get(e4)) {
+		} else if (a3 > a->get(e4)) {
 			if (a3 > a->get(e5)) {
 				a->set(e3, a->get(e4));
 				a->set(e4, a->get(e5));
@@ -1408,7 +1408,7 @@ void DualPivotQuicksort::sort($shorts* a, int32_t bits, int32_t low, int32_t hig
 							}
 						}
 					} else if (ak > pivot2) {
-						$nc(a)->set(k, a->get(--upper));
+						a->set(k, a->get(--upper));
 						a->set(upper, ak);
 					}
 				}
@@ -1499,7 +1499,7 @@ void DualPivotQuicksort::sort($floats* a, int32_t parallelism, int32_t low, int3
 			numNegativeZero += 1;
 			a->set(k, 0.0f);
 		} else if (ak != ak) {
-			$nc(a)->set(k, a->get(--high));
+			a->set(k, a->get(--high));
 			a->set(high, ak);
 		}
 	}
@@ -1587,7 +1587,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $floats* a, in
 				a->set(e3, a->get(e2));
 				a->set(e2, a3);
 			}
-		} else if (a3 > $nc(a)->get(e4)) {
+		} else if (a3 > a->get(e4)) {
 			if (a3 > a->get(e5)) {
 				a->set(e3, a->get(e4));
 				a->set(e4, a->get(e5));
@@ -1627,7 +1627,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $floats* a, in
 							}
 						}
 					} else if (ak > pivot2) {
-						$nc(a)->set(k, a->get(--upper));
+						a->set(k, a->get(--upper));
 						a->set(upper, ak);
 					}
 				}
@@ -1698,16 +1698,16 @@ void DualPivotQuicksort::mixedInsertionSort($floats* a, int32_t low, int32_t end
 					}
 					a->set(i + 1, ai);
 				} else if (p > i && ai > pin) {
-					while ($nc(a)->get(--p) > pin) {
+					while (a->get(--p) > pin) {
 					}
 					if (p > i) {
-						ai = $nc(a)->get(p);
+						ai = a->get(p);
 						a->set(p, a->get(i));
 					}
-					while (ai < $nc(a)->get(--i)) {
+					while (ai < a->get(--i)) {
 						a->set(i + 1, a->get(i));
 					}
-					$nc(a)->set(i + 1, ai);
+					a->set(i + 1, ai);
 				}
 			}
 		}
@@ -1723,7 +1723,7 @@ void DualPivotQuicksort::mixedInsertionSort($floats* a, int32_t low, int32_t end
 					a->set(i + 1, a->get(i));
 				}
 				a->set(i + 1, a2);
-			} else if (a1 < $nc(a)->get(i - 1)) {
+			} else if (a1 < a->get(i - 1)) {
 				while (a2 < a->get(--i)) {
 					a->set(i + 2, a->get(i));
 				}
@@ -1804,7 +1804,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $float
 				{
 				}
 			}
-		} else if ($nc(a)->get(k - 1) > a->get(k)) {
+		} else if (a->get(k - 1) > a->get(k)) {
 			while (true) {
 				bool var$1 = ++k < high;
 				if (!(var$1 && a->get(k - 1) >= a->get(k))) {
@@ -1853,7 +1853,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $float
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if ($nc(a)->get(last - 1) > a->get(last)) {
+		} else if (a->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}
@@ -1975,7 +1975,7 @@ void DualPivotQuicksort::sort($doubles* a, int32_t parallelism, int32_t low, int
 			numNegativeZero += 1;
 			a->set(k, 0.0);
 		} else if (ak != ak) {
-			$nc(a)->set(k, a->get(--high));
+			a->set(k, a->get(--high));
 			a->set(high, ak);
 		}
 	}
@@ -2063,7 +2063,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $doubles* a, i
 				a->set(e3, a->get(e2));
 				a->set(e2, a3);
 			}
-		} else if (a3 > $nc(a)->get(e4)) {
+		} else if (a3 > a->get(e4)) {
 			if (a3 > a->get(e5)) {
 				a->set(e3, a->get(e4));
 				a->set(e4, a->get(e5));
@@ -2103,7 +2103,7 @@ void DualPivotQuicksort::sort($DualPivotQuicksort$Sorter* sorter, $doubles* a, i
 							}
 						}
 					} else if (ak > pivot2) {
-						$nc(a)->set(k, a->get(--upper));
+						a->set(k, a->get(--upper));
 						a->set(upper, ak);
 					}
 				}
@@ -2174,16 +2174,16 @@ void DualPivotQuicksort::mixedInsertionSort($doubles* a, int32_t low, int32_t en
 					}
 					a->set(i + 1, ai);
 				} else if (p > i && ai > pin) {
-					while ($nc(a)->get(--p) > pin) {
+					while (a->get(--p) > pin) {
 					}
 					if (p > i) {
-						ai = $nc(a)->get(p);
+						ai = a->get(p);
 						a->set(p, a->get(i));
 					}
-					while (ai < $nc(a)->get(--i)) {
+					while (ai < a->get(--i)) {
 						a->set(i + 1, a->get(i));
 					}
-					$nc(a)->set(i + 1, ai);
+					a->set(i + 1, ai);
 				}
 			}
 		}
@@ -2199,7 +2199,7 @@ void DualPivotQuicksort::mixedInsertionSort($doubles* a, int32_t low, int32_t en
 					a->set(i + 1, a->get(i));
 				}
 				a->set(i + 1, a2);
-			} else if (a1 < $nc(a)->get(i - 1)) {
+			} else if (a1 < a->get(i - 1)) {
 				while (a2 < a->get(--i)) {
 					a->set(i + 2, a->get(i));
 				}
@@ -2280,7 +2280,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $doubl
 				{
 				}
 			}
-		} else if ($nc(a)->get(k - 1) > a->get(k)) {
+		} else if (a->get(k - 1) > a->get(k)) {
 			while (true) {
 				bool var$1 = ++k < high;
 				if (!(var$1 && a->get(k - 1) >= a->get(k))) {
@@ -2329,7 +2329,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $doubl
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if ($nc(a)->get(last - 1) > a->get(last)) {
+		} else if (a->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}

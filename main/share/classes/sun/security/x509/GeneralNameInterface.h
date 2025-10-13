@@ -5,34 +5,34 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("NAME_NARROWS")
-#undef NAME_NARROWS
-#pragma push_macro("NAME_WIDENS")
-#undef NAME_WIDENS
-#pragma push_macro("NAME_RFC822")
-#undef NAME_RFC822
-#pragma push_macro("NAME_MATCH")
-#undef NAME_MATCH
-#pragma push_macro("NAME_IP")
-#undef NAME_IP
 #pragma push_macro("NAME_ANY")
 #undef NAME_ANY
-#pragma push_macro("NAME_URI")
-#undef NAME_URI
-#pragma push_macro("NAME_X400")
-#undef NAME_X400
-#pragma push_macro("NAME_SAME_TYPE")
-#undef NAME_SAME_TYPE
-#pragma push_macro("NAME_EDI")
-#undef NAME_EDI
-#pragma push_macro("NAME_OID")
-#undef NAME_OID
 #pragma push_macro("NAME_DIFF_TYPE")
 #undef NAME_DIFF_TYPE
-#pragma push_macro("NAME_DNS")
-#undef NAME_DNS
 #pragma push_macro("NAME_DIRECTORY")
 #undef NAME_DIRECTORY
+#pragma push_macro("NAME_DNS")
+#undef NAME_DNS
+#pragma push_macro("NAME_EDI")
+#undef NAME_EDI
+#pragma push_macro("NAME_IP")
+#undef NAME_IP
+#pragma push_macro("NAME_MATCH")
+#undef NAME_MATCH
+#pragma push_macro("NAME_NARROWS")
+#undef NAME_NARROWS
+#pragma push_macro("NAME_OID")
+#undef NAME_OID
+#pragma push_macro("NAME_RFC822")
+#undef NAME_RFC822
+#pragma push_macro("NAME_SAME_TYPE")
+#undef NAME_SAME_TYPE
+#pragma push_macro("NAME_URI")
+#undef NAME_URI
+#pragma push_macro("NAME_WIDENS")
+#undef NAME_WIDENS
+#pragma push_macro("NAME_X400")
+#undef NAME_X400
 
 namespace sun {
 	namespace security {
@@ -73,19 +73,19 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NAME_NARROWS")
-#pragma pop_macro("NAME_WIDENS")
-#pragma pop_macro("NAME_RFC822")
-#pragma pop_macro("NAME_MATCH")
-#pragma pop_macro("NAME_IP")
 #pragma pop_macro("NAME_ANY")
-#pragma pop_macro("NAME_URI")
-#pragma pop_macro("NAME_X400")
-#pragma pop_macro("NAME_SAME_TYPE")
-#pragma pop_macro("NAME_EDI")
-#pragma pop_macro("NAME_OID")
 #pragma pop_macro("NAME_DIFF_TYPE")
-#pragma pop_macro("NAME_DNS")
 #pragma pop_macro("NAME_DIRECTORY")
+#pragma pop_macro("NAME_DNS")
+#pragma pop_macro("NAME_EDI")
+#pragma pop_macro("NAME_IP")
+#pragma pop_macro("NAME_MATCH")
+#pragma pop_macro("NAME_NARROWS")
+#pragma pop_macro("NAME_OID")
+#pragma pop_macro("NAME_RFC822")
+#pragma pop_macro("NAME_SAME_TYPE")
+#pragma pop_macro("NAME_URI")
+#pragma pop_macro("NAME_WIDENS")
+#pragma pop_macro("NAME_X400")
 
 #endif // _sun_security_x509_GeneralNameInterface_h_

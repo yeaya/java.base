@@ -19,9 +19,9 @@
 #include <jdk/internal/org/objectweb/asm/commons/Remapper.h>
 #include <jcpp.h>
 
+#undef ASM5
 #undef ASM8
 #undef SOURCE_DEPRECATED
-#undef ASM5
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $ClassInfo = ::java::lang::ClassInfo;

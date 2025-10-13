@@ -23,8 +23,8 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef PROXY_PACKAGE
 #undef CHECK_MEMBER_ACCESS_PERMISSION
+#undef PROXY_PACKAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;

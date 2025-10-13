@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MEDIUM
 #undef FULL
 #undef LONG
+#undef MEDIUM
 #undef SHORT
 
 using $FormatStyleArray = $Array<::java::time::format::FormatStyle>;

@@ -7,18 +7,18 @@
 #include <java/lang/Integer.h>
 #include <javax/crypto/CipherSpi.h>
 
-#pragma push_macro("MAX_BUF_SIZE")
-#undef MAX_BUF_SIZE
-#pragma push_macro("TRIGGERLEN")
-#undef TRIGGERLEN
+#pragma push_macro("DEFAULT_IV_LEN")
+#undef DEFAULT_IV_LEN
 #pragma push_macro("DEFAULT_TAG_LEN")
 #undef DEFAULT_TAG_LEN
 #pragma push_macro("EMPTY_BUF")
 #undef EMPTY_BUF
+#pragma push_macro("MAX_BUF_SIZE")
+#undef MAX_BUF_SIZE
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
-#pragma push_macro("DEFAULT_IV_LEN")
-#undef DEFAULT_IV_LEN
+#pragma push_macro("TRIGGERLEN")
+#undef TRIGGERLEN
 
 namespace com {
 	namespace sun {
@@ -128,11 +128,11 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("MAX_BUF_SIZE")
-#pragma pop_macro("TRIGGERLEN")
+#pragma pop_macro("DEFAULT_IV_LEN")
 #pragma pop_macro("DEFAULT_TAG_LEN")
 #pragma pop_macro("EMPTY_BUF")
+#pragma pop_macro("MAX_BUF_SIZE")
 #pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("DEFAULT_IV_LEN")
+#pragma pop_macro("TRIGGERLEN")
 
 #endif // _com_sun_crypto_provider_GaloisCounterMode_h_

@@ -18,13 +18,13 @@
 #include <java/time/temporal/TemporalQuery.h>
 #include <jcpp.h>
 
-#undef LOCAL_TIME
 #undef CHRONO
-#undef ZONE_ID
-#undef ZONE
 #undef LOCAL_DATE
+#undef LOCAL_TIME
 #undef OFFSET
 #undef PRECISION
+#undef ZONE
+#undef ZONE_ID
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

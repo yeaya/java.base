@@ -5,36 +5,36 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("FLOAT")
-#undef FLOAT
-#pragma push_macro("SLOT_MASK")
-#undef SLOT_MASK
-#pragma push_macro("UNSIGNED")
-#undef UNSIGNED
-#pragma push_macro("CHAR")
-#undef CHAR
-#pragma push_macro("KIND_SHIFT")
-#undef KIND_SHIFT
-#pragma push_macro("INT")
-#undef INT
 #pragma push_macro("BOOLEAN")
 #undef BOOLEAN
-#pragma push_macro("SHORT")
-#undef SHORT
+#pragma push_macro("CHAR")
+#undef CHAR
+#pragma push_macro("FLOAT")
+#undef FLOAT
 #pragma push_macro("FLOATING")
 #undef FLOATING
-#pragma push_macro("SIGNED")
-#undef SIGNED
+#pragma push_macro("INT")
+#undef INT
+#pragma push_macro("KIND_SHIFT")
+#undef KIND_SHIFT
 #pragma push_macro("NUM_MASK")
 #undef NUM_MASK
-#pragma push_macro("SLOT_SHIFT")
-#undef SLOT_SHIFT
+#pragma push_macro("SHORT")
+#undef SHORT
+#pragma push_macro("SIGNED")
+#undef SIGNED
 #pragma push_macro("SIZE_MASK")
 #undef SIZE_MASK
-#pragma push_macro("VOID")
-#undef VOID
 #pragma push_macro("SIZE_SHIFT")
 #undef SIZE_SHIFT
+#pragma push_macro("SLOT_MASK")
+#undef SLOT_MASK
+#pragma push_macro("SLOT_SHIFT")
+#undef SLOT_SHIFT
+#pragma push_macro("UNSIGNED")
+#undef UNSIGNED
+#pragma push_macro("VOID")
+#undef VOID
 
 namespace sun {
 	namespace invoke {
@@ -72,20 +72,20 @@ public:
 	} // invoke
 } // sun
 
-#pragma pop_macro("FLOAT")
-#pragma pop_macro("SLOT_MASK")
-#pragma pop_macro("UNSIGNED")
-#pragma pop_macro("CHAR")
-#pragma pop_macro("KIND_SHIFT")
-#pragma pop_macro("INT")
 #pragma pop_macro("BOOLEAN")
-#pragma pop_macro("SHORT")
+#pragma pop_macro("CHAR")
+#pragma pop_macro("FLOAT")
 #pragma pop_macro("FLOATING")
-#pragma pop_macro("SIGNED")
+#pragma pop_macro("INT")
+#pragma pop_macro("KIND_SHIFT")
 #pragma pop_macro("NUM_MASK")
-#pragma pop_macro("SLOT_SHIFT")
+#pragma pop_macro("SHORT")
+#pragma pop_macro("SIGNED")
 #pragma pop_macro("SIZE_MASK")
-#pragma pop_macro("VOID")
 #pragma pop_macro("SIZE_SHIFT")
+#pragma pop_macro("SLOT_MASK")
+#pragma pop_macro("SLOT_SHIFT")
+#pragma pop_macro("UNSIGNED")
+#pragma pop_macro("VOID")
 
 #endif // _sun_invoke_util_Wrapper$Format_h_

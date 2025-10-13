@@ -6,24 +6,24 @@
 #include <java/lang/Array.h>
 #include <java/util/TimeZone.h>
 
-#pragma push_macro("STANDARD_TIME")
-#undef STANDARD_TIME
-#pragma push_macro("WALL_TIME")
-#undef WALL_TIME
-#pragma push_macro("ID")
-#undef ID
-#pragma push_macro("OFFSET_MASK")
-#undef OFFSET_MASK
-#pragma push_macro("TRANSITION_NSHIFT")
-#undef TRANSITION_NSHIFT
+#pragma push_macro("ABBR_MASK")
+#undef ABBR_MASK
 #pragma push_macro("DST_MASK")
 #undef DST_MASK
 #pragma push_macro("DST_NSHIFT")
 #undef DST_NSHIFT
+#pragma push_macro("ID")
+#undef ID
+#pragma push_macro("OFFSET_MASK")
+#undef OFFSET_MASK
+#pragma push_macro("STANDARD_TIME")
+#undef STANDARD_TIME
+#pragma push_macro("TRANSITION_NSHIFT")
+#undef TRANSITION_NSHIFT
 #pragma push_macro("UTC_TIME")
 #undef UTC_TIME
-#pragma push_macro("ABBR_MASK")
-#undef ABBR_MASK
+#pragma push_macro("WALL_TIME")
+#undef WALL_TIME
 
 namespace java {
 	namespace io {
@@ -101,14 +101,14 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("STANDARD_TIME")
-#pragma pop_macro("WALL_TIME")
-#pragma pop_macro("ID")
-#pragma pop_macro("OFFSET_MASK")
-#pragma pop_macro("TRANSITION_NSHIFT")
+#pragma pop_macro("ABBR_MASK")
 #pragma pop_macro("DST_MASK")
 #pragma pop_macro("DST_NSHIFT")
+#pragma pop_macro("ID")
+#pragma pop_macro("OFFSET_MASK")
+#pragma pop_macro("STANDARD_TIME")
+#pragma pop_macro("TRANSITION_NSHIFT")
 #pragma pop_macro("UTC_TIME")
-#pragma pop_macro("ABBR_MASK")
+#pragma pop_macro("WALL_TIME")
 
 #endif // _sun_util_calendar_ZoneInfo_h_

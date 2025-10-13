@@ -17,24 +17,24 @@
 #include <jcpp.h>
 
 #undef DHE
-#undef K_ECDHE_ECDSA
-#undef RSA
-#undef K_RSA
+#undef DHE_EXPORT
 #undef ECDH
 #undef ECDHE
-#undef K_DH_ANON
-#undef K_DHE_DSS_EXPORT
 #undef K_DHE_DSS
-#undef DHE_EXPORT
+#undef K_DHE_DSS_EXPORT
+#undef K_DHE_RSA
+#undef K_DHE_RSA_EXPORT
+#undef K_DH_ANON
 #undef K_DH_ANON_EXPORT
+#undef K_ECDHE_ECDSA
 #undef K_ECDHE_RSA
 #undef K_ECDH_ANON
-#undef K_DHE_RSA
 #undef K_ECDH_ECDSA
-#undef RSA_EXPORT
-#undef K_RSA_EXPORT
-#undef K_DHE_RSA_EXPORT
 #undef K_ECDH_RSA
+#undef K_RSA
+#undef K_RSA_EXPORT
+#undef RSA
+#undef RSA_EXPORT
 
 using $CipherSuite$KeyExchangeArray = $Array<::sun::security::ssl::CipherSuite$KeyExchange>;
 using $SSLKeyExchange$T12KeyAgreementArray = $Array<::sun::security::ssl::SSLKeyExchange$T12KeyAgreement>;

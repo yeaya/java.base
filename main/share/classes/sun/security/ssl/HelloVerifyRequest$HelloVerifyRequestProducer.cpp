@@ -24,8 +24,8 @@
 #include <sun/security/ssl/ServerHandshakeContext.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
 #undef CLIENT_HELLO
+#undef HELLO_VERIFY_REQUEST
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -30,8 +30,8 @@
 #include <sun/security/util/KeyUtil.h>
 #include <jcpp.h>
 
-#undef MAX_VALUE
 #undef ALGORITHM_CONSTRAINED
+#undef MAX_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

@@ -14,8 +14,8 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-#undef REVERSE
 #undef EMPTY
+#undef REVERSE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

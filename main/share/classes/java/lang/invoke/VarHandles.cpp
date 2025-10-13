@@ -139,13 +139,13 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef IMPL_LOOKUP
 #undef ADDRESS_FACTORIES
 #undef BIG_ENDIAN
 #undef GET
-#undef VAR_HANDLE_IDENTITY_ADAPT
-#undef UNSAFE
+#undef IMPL_LOOKUP
 #undef TYPE
+#undef UNSAFE
+#undef VAR_HANDLE_IDENTITY_ADAPT
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $FieldArray = $Array<::java::lang::reflect::Field>;
@@ -1022,44 +1022,44 @@ $VarHandle* VarHandles::filterValue($VarHandle* target, $MethodHandle* filterToT
 		$var($String, var$1, "filterFromTarget and filterToTarget have different arity"_s);
 		$var($Object, var$2, $of(filterFromTarget->type()));
 		$throw($($MethodHandleStatics::newIllegalArgumentException(var$1, var$2, $(filterToTarget->type()))));
-	} else if ($nc($($nc(filterFromTarget)->type()))->parameterCount() < 1) {
+	} else if ($nc($(filterFromTarget->type()))->parameterCount() < 1) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("filterFromTarget filter type has wrong arity"_s, $(filterFromTarget->type()))));
-	} else if ($nc($($nc(filterToTarget)->type()))->parameterCount() < 1) {
-		$throw($($MethodHandleStatics::newIllegalArgumentException("filterToTarget filter type has wrong arity"_s, $($nc(filterFromTarget)->type()))));
+	} else if ($nc($(filterToTarget->type()))->parameterCount() < 1) {
+		$throw($($MethodHandleStatics::newIllegalArgumentException("filterToTarget filter type has wrong arity"_s, $(filterFromTarget->type()))));
 	} else {
-		bool var$12 = $nc($($nc(filterFromTarget)->type()))->lastParameterType() != $cast($Class, $nc($(filterToTarget->type()))->returnType());
-		if (!var$12) {
-			var$12 = $nc($(filterToTarget->type()))->lastParameterType() != $cast($Class, $nc($($nc(filterFromTarget)->type()))->returnType());
+		bool var$4 = $nc($(filterFromTarget->type()))->lastParameterType() != $cast($Class, $nc($(filterToTarget->type()))->returnType());
+		if (!var$4) {
+			var$4 = $nc($(filterToTarget->type()))->lastParameterType() != $cast($Class, $nc($(filterFromTarget->type()))->returnType());
 		}
-		if (var$12) {
-			$var($String, var$13, "filterFromTarget and filterToTarget filter types do not match"_s);
-			$var($Object, var$14, $of(filterFromTarget->type()));
-			$throw($($MethodHandleStatics::newIllegalArgumentException(var$13, var$14, $(filterToTarget->type()))));
-		} else if ($nc(target)->varType() != $nc($($nc(filterFromTarget)->type()))->lastParameterType()) {
-			$var($String, var$15, "filterFromTarget filter type does not match target var handle type"_s);
-			$var($Object, var$16, $of(filterFromTarget->type()));
-			$throw($($MethodHandleStatics::newIllegalArgumentException(var$15, var$16, target->varType())));
-		} else if ($nc(target)->varType() != $cast($Class, $nc($($nc(filterToTarget)->type()))->returnType())) {
-			$var($String, var$17, "filterFromTarget filter type does not match target var handle type"_s);
-			$var($Object, var$18, $of(filterToTarget->type()));
-			$throw($($MethodHandleStatics::newIllegalArgumentException(var$17, var$18, target->varType())));
-		} else if ($nc($($nc(filterFromTarget)->type()))->parameterCount() > 1) {
+		if (var$4) {
+			$var($String, var$5, "filterFromTarget and filterToTarget filter types do not match"_s);
+			$var($Object, var$6, $of(filterFromTarget->type()));
+			$throw($($MethodHandleStatics::newIllegalArgumentException(var$5, var$6, $(filterToTarget->type()))));
+		} else if (target->varType() != $nc($(filterFromTarget->type()))->lastParameterType()) {
+			$var($String, var$7, "filterFromTarget filter type does not match target var handle type"_s);
+			$var($Object, var$8, $of(filterFromTarget->type()));
+			$throw($($MethodHandleStatics::newIllegalArgumentException(var$7, var$8, target->varType())));
+		} else if (target->varType() != $cast($Class, $nc($(filterToTarget->type()))->returnType())) {
+			$var($String, var$9, "filterFromTarget filter type does not match target var handle type"_s);
+			$var($Object, var$10, $of(filterToTarget->type()));
+			$throw($($MethodHandleStatics::newIllegalArgumentException(var$9, var$10, target->varType())));
+		} else if ($nc($(filterFromTarget->type()))->parameterCount() > 1) {
 			for (int32_t i = 0; i < $nc($(filterFromTarget->type()))->parameterCount() - 1; ++i) {
-				if ($cast($Class, $nc($(filterFromTarget->type()))->parameterType(i)) != $cast($Class, $nc($($nc(filterToTarget)->type()))->parameterType(i))) {
-					$var($String, var$19, "filterFromTarget and filterToTarget filter types do not match"_s);
-					$var($Object, var$20, $of(filterFromTarget->type()));
-					$throw($($MethodHandleStatics::newIllegalArgumentException(var$19, var$20, $(filterToTarget->type()))));
+				if ($cast($Class, $nc($(filterFromTarget->type()))->parameterType(i)) != $cast($Class, $nc($(filterToTarget->type()))->parameterType(i))) {
+					$var($String, var$11, "filterFromTarget and filterToTarget filter types do not match"_s);
+					$var($Object, var$12, $of(filterFromTarget->type()));
+					$throw($($MethodHandleStatics::newIllegalArgumentException(var$11, var$12, $(filterToTarget->type()))));
 				} else {
-					$nc(newCoordinates)->add($($nc($(filterFromTarget->type()))->parameterType(i)));
-					$nc(additionalCoordinates)->add(($($nc($(filterFromTarget->type()))->parameterType(i))));
+					newCoordinates->add($($nc($(filterFromTarget->type()))->parameterType(i)));
+					additionalCoordinates->add(($($nc($(filterFromTarget->type()))->parameterType(i))));
 				}
 			}
 		}
 	}
-	$var($VarHandle, var$21, target);
-	$Class* var$22 = $cast($Class, $nc($(filterFromTarget->type()))->returnType());
-	$var($ClassArray, var$23, $fcast($ClassArray, newCoordinates->toArray($$new($ClassArray, 0))));
-	return $new($IndirectVarHandle, var$21, var$22, var$23, static_cast<$BiFunction*>($$new(VarHandles$$Lambda$lambda$filterValue$0, filterFromTarget, filterToTarget, additionalCoordinates)));
+	$var($VarHandle, var$13, target);
+	$Class* var$14 = $cast($Class, $nc($(filterFromTarget->type()))->returnType());
+	$var($ClassArray, var$15, $fcast($ClassArray, newCoordinates->toArray($$new($ClassArray, 0))));
+	return $new($IndirectVarHandle, var$13, var$14, var$15, static_cast<$BiFunction*>($$new(VarHandles$$Lambda$lambda$filterValue$0, filterFromTarget, filterToTarget, additionalCoordinates)));
 }
 
 $MethodHandle* VarHandles::joinDuplicateArgs($MethodHandle* handle, int32_t originalStart, int32_t dropStart, int32_t length) {
@@ -1084,7 +1084,7 @@ $VarHandle* VarHandles::filterCoordinates($VarHandle* target, int32_t pos, $Meth
 	$var($List, targetCoordinates, target->coordinateTypes());
 	if (pos < 0 || pos >= $nc(targetCoordinates)->size()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"Invalid position "_s, $$str(pos), " for coordinate types"_s}), targetCoordinates)));
-	} else if (pos + $nc(filters)->length > $nc(targetCoordinates)->size()) {
+	} else if (pos + filters->length > targetCoordinates->size()) {
 		$throwNew($IllegalArgumentException, "Too many filters"_s);
 	}
 	if (filters->length == 0) {
@@ -1096,7 +1096,7 @@ $VarHandle* VarHandles::filterCoordinates($VarHandle* target, int32_t pos, $Meth
 		$var($MethodType, filterType, $nc(filters->get(i))->type());
 		if ($nc(filterType)->parameterCount() != 1) {
 			$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"Invalid filter type "_s, filterType}))));
-		} else if (!$equals($nc(newCoordinates)->get(pos + i), $cast($Class, $nc(filterType)->returnType()))) {
+		} else if (!$equals(newCoordinates->get(pos + i), $cast($Class, filterType->returnType()))) {
 			$var($String, var$0, $$str({"Invalid filter type "_s, filterType, " for coordinate type "_s}));
 			$throw($($MethodHandleStatics::newIllegalArgumentException($$concat(var$0, $(newCoordinates->get(i))))));
 		}
@@ -1115,7 +1115,7 @@ $VarHandle* VarHandles::insertCoordinates($VarHandle* target, int32_t pos, $Obje
 	$var($List, targetCoordinates, target->coordinateTypes());
 	if (pos < 0 || pos >= $nc(targetCoordinates)->size()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"Invalid position "_s, $$str(pos), " for coordinate types"_s}), targetCoordinates)));
-	} else if (pos + $nc(values)->length > $nc(targetCoordinates)->size()) {
+	} else if (pos + values->length > targetCoordinates->size()) {
 		$throwNew($IllegalArgumentException, "Too many values"_s);
 	}
 	if (values->length == 0) {
@@ -1225,18 +1225,18 @@ $VarHandle* VarHandles::collectCoordinates($VarHandle* target, int32_t pos, $Met
 		$init($Void);
 		if ($cast($Class, $nc($(filter->type()))->returnType()) == $Void::TYPE) {
 			$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"Invalid filter type "_s, $(filter->type()), " ; filter cannot be void"_s}))));
-		} else if (!$equals($cast($Class, $nc($($nc(filter)->type()))->returnType()), $nc(targetCoordinates)->get(pos))) {
-			$var($String, var$1, $$str({"Invalid filter type "_s, $(filter->type()), " for coordinate type "_s}));
-			$throw($($MethodHandleStatics::newIllegalArgumentException($$concat(var$1, $(targetCoordinates->get(pos))))));
+		} else if (!$equals($cast($Class, $nc($(filter->type()))->returnType()), targetCoordinates->get(pos))) {
+			$var($String, var$0, $$str({"Invalid filter type "_s, $(filter->type()), " for coordinate type "_s}));
+			$throw($($MethodHandleStatics::newIllegalArgumentException($$concat(var$0, $(targetCoordinates->get(pos))))));
 		}
 	}
 	$var($List, newCoordinates, $new($ArrayList, static_cast<$Collection*>(targetCoordinates)));
 	newCoordinates->remove(pos);
 	newCoordinates->addAll(pos, $($nc($(filter->type()))->parameterList()));
-	$var($VarHandle, var$2, target);
-	$Class* var$3 = target->varType();
-	$var($ClassArray, var$4, $fcast($ClassArray, newCoordinates->toArray($$new($ClassArray, 0))));
-	return $new($IndirectVarHandle, var$2, var$3, var$4, static_cast<$BiFunction*>($$new(VarHandles$$Lambda$lambda$collectCoordinates$4$4, pos, filter)));
+	$var($VarHandle, var$1, target);
+	$Class* var$2 = target->varType();
+	$var($ClassArray, var$3, $fcast($ClassArray, newCoordinates->toArray($$new($ClassArray, 0))));
+	return $new($IndirectVarHandle, var$1, var$2, var$3, static_cast<$BiFunction*>($$new(VarHandles$$Lambda$lambda$collectCoordinates$4$4, pos, filter)));
 }
 
 $VarHandle* VarHandles::dropCoordinates($VarHandle* target, int32_t pos, $ClassArray* valueTypes) {
@@ -1279,8 +1279,7 @@ void VarHandles::noCheckedExceptions($MethodHandle* handle) {
 				$assign(exceptionTypes, nullptr);
 			} else if ($MethodHandleNatives::refKindIsConstructor(refKind)) {
 				$load($Constructor);
-				$init($MethodHandles$Lookup);
-				$assign(exceptionTypes, $nc(($cast($Constructor, $($nc(info)->reflectAs($Constructor::class$, $MethodHandles$Lookup::IMPL_LOOKUP)))))->getExceptionTypes());
+				$assign(exceptionTypes, $nc(($cast($Constructor, $(info->reflectAs($Constructor::class$, $MethodHandles$Lookup::IMPL_LOOKUP)))))->getExceptionTypes());
 			} else {
 				$throwNew($AssertionError, $of("Cannot get here"_s));
 			}

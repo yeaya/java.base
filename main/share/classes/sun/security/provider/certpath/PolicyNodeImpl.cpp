@@ -20,8 +20,8 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-#undef CE_CERT_POLICIES_ANY
 #undef ANY_POLICY
+#undef CE_CERT_POLICIES_ANY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -300,10 +300,10 @@ $Set* PolicyNodeImpl::getPolicyNodesExpectedHelper(int32_t depth, $String* expec
 		}
 	} else if (matchAny) {
 		if ($nc(this->mExpectedPolicySet)->contains(PolicyNodeImpl::ANY_POLICY)) {
-			$nc(set)->add(this);
+			set->add(this);
 		}
 	} else if ($nc(this->mExpectedPolicySet)->contains(expectedOID)) {
-		$nc(set)->add(this);
+		set->add(this);
 	}
 	return set;
 }
@@ -321,7 +321,7 @@ $Set* PolicyNodeImpl::getPolicyNodesValid(int32_t depth, $String* validOID) {
 			}
 		}
 	} else if ($nc(this->mValidPolicy)->equals(validOID)) {
-		$nc(set)->add(this);
+		set->add(this);
 	}
 	return set;
 }

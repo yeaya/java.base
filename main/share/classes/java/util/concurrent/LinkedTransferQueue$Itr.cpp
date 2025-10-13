@@ -90,7 +90,7 @@ void LinkedTransferQueue$Itr::advance($LinkedTransferQueue$Node* pred$renamed) {
 					this->this$0->tryCasSuccessor(pred, c, p);
 				}
 				return;
-			} else if (!$nc(p)->isData && item == nullptr) {
+			} else if (!p->isData && item == nullptr) {
 				break;
 			}
 			bool var$0 = c != p;
@@ -159,7 +159,7 @@ void LinkedTransferQueue$Itr::remove() {
 	}
 	$var($LinkedTransferQueue$Node, pred, this->ancestor);
 	{
-		$var($LinkedTransferQueue$Node, p, (pred == nullptr) ? $cast($LinkedTransferQueue$Node, this->this$0->head) : $cast($LinkedTransferQueue$Node, $nc(pred)->next));
+		$var($LinkedTransferQueue$Node, p, (pred == nullptr) ? $cast($LinkedTransferQueue$Node, this->this$0->head) : $cast($LinkedTransferQueue$Node, pred->next));
 		$var($LinkedTransferQueue$Node, c, p);
 		$var($LinkedTransferQueue$Node, q, nullptr);
 		for (; p != nullptr;) {
@@ -180,7 +180,7 @@ void LinkedTransferQueue$Itr::remove() {
 			$var($Object, item, nullptr);
 			bool pAlive = false;
 			if (pAlive = (($assign(item, p->item)) != nullptr && p->isData)) {
-			} else if (!$nc(p)->isData && item == nullptr) {
+			} else if (!p->isData && item == nullptr) {
 				break;
 			}
 			bool var$0 = c != p;

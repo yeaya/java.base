@@ -16,9 +16,9 @@
 #include <java/util/function/IntConsumer.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
 #undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

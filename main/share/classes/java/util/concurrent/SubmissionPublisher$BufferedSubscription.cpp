@@ -41,19 +41,19 @@
 #include <java/util/function/BiConsumer.h>
 #include <jcpp.h>
 
-#undef CLOSED
 #undef ACTIVE
-#undef RUN
+#undef CLOSED
+#undef COMPLETE
+#undef CTL
+#undef DEMAND
+#undef ERROR
+#undef INTERRUPTED
 #undef MAX_VALUE
 #undef OPEN
 #undef QA
-#undef COMPLETE
-#undef DEMAND
 #undef REQS
-#undef ERROR
-#undef CTL
+#undef RUN
 #undef TYPE
-#undef INTERRUPTED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

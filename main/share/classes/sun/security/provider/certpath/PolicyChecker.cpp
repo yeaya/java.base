@@ -44,14 +44,14 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef INVALID_POLICY
-#undef CE_CERT_POLICIES_ANY
 #undef ANY_POLICY
-#undef MAP
+#undef CE_CERT_POLICIES_ANY
 #undef INHIBIT
-#undef SKIP_CERTS
+#undef INVALID_POLICY
+#undef MAP
 #undef POLICIES
 #undef REQUIRE
+#undef SKIP_CERTS
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -401,7 +401,6 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 			$assign(rootNode, nullptr);
 		}
 	} else if (currCertPolicies == nullptr) {
-		$init(PolicyChecker);
 		if (PolicyChecker::debug != nullptr) {
 			$nc(PolicyChecker::debug)->println("PolicyChecker.processPolicies() no policies present in cert"_s);
 		}
@@ -583,7 +582,6 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 									$nc(curNode)->addExpectedPolicy(subjectDomain);
 								} else if (policyMapping == 0) {
 									$var($PolicyNodeImpl, parentNode, $cast($PolicyNodeImpl, $nc(curNode)->getParent()));
-									$init(PolicyChecker);
 									if (PolicyChecker::debug != nullptr) {
 										$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processPolicyMappings() before deleting: policy tree = "_s, rootNode}));
 									}
@@ -597,8 +595,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 						}
 					}
 				} else if ((policyMapping > 0) || (policyMapping == -1)) {
-					$init(PolicyChecker);
-					$var($Set, validAnyNodes, $nc(rootNode)->getPolicyNodesValid(certIndex, PolicyChecker::ANY_POLICY));
+					$var($Set, validAnyNodes, rootNode->getPolicyNodesValid(certIndex, PolicyChecker::ANY_POLICY));
 					{
 						$var($Iterator, i$, $nc(validAnyNodes)->iterator());
 						for (; $nc(i$)->hasNext();) {

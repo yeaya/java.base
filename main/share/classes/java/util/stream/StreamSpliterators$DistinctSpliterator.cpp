@@ -24,13 +24,13 @@
 #include <java/util/stream/StreamSpliterators.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
+#undef DISTINCT
+#undef NULL_VALUE
 #undef ORDERED
 #undef SIZED
-#undef DISTINCT
-#undef TRUE
-#undef NULL_VALUE
 #undef SORTED
+#undef SUBSIZED
+#undef TRUE
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

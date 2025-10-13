@@ -20,17 +20,17 @@
 #include <jcpp.h>
 
 #undef ALL_PERMISSIONS
+#undef ALL_READWRITE
+#undef S_IRGRP
 #undef S_IROTH
 #undef S_IRUSR
-#undef S_IWUSR
 #undef S_IWGRP
-#undef S_IXGRP
-#undef S_IXUSR
 #undef S_IWOTH
+#undef S_IWUSR
+#undef S_IXGRP
 #undef S_IXOTH
-#undef ALL_READWRITE
+#undef S_IXUSR
 #undef TEMPFILE_PERMISSIONS
-#undef S_IRGRP
 
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $ClassInfo = ::java::lang::ClassInfo;

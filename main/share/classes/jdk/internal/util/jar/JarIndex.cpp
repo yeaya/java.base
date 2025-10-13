@@ -34,8 +34,8 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef INSTANCE
 #undef INDEX_NAME
+#undef INSTANCE
 #undef MANIFEST_NAME
 
 using $BufferedReader = ::java::io::BufferedReader;
@@ -152,7 +152,7 @@ void JarIndex::addToList($String* key, $String* value, $HashMap* t) {
 		$assign(list, $new($LinkedList));
 		list->add(value);
 		t->put(key, list);
-	} else if (!$nc(list)->contains(value)) {
+	} else if (!list->contains(value)) {
 		list->add(value);
 	}
 }
@@ -206,7 +206,7 @@ void JarIndex::parseJars($StringArray* files) {
 			}
 			if (!JarIndex::metaInfFilenames || !$nc(fileName)->startsWith("META-INF/"_s)) {
 				add(fileName, currentJar);
-			} else if (!$nc(entry)->isDirectory()) {
+			} else if (!entry->isDirectory()) {
 				addMapping(fileName, currentJar);
 			}
 		}

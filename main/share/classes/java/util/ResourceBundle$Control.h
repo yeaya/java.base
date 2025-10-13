@@ -5,20 +5,20 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("FORMAT_PROPERTIES")
-#undef FORMAT_PROPERTIES
 #pragma push_macro("CANDIDATES_CACHE")
 #undef CANDIDATES_CACHE
-#pragma push_macro("TTL_DONT_CACHE")
-#undef TTL_DONT_CACHE
-#pragma push_macro("FORMAT_DEFAULT")
-#undef FORMAT_DEFAULT
-#pragma push_macro("TTL_NO_EXPIRATION_CONTROL")
-#undef TTL_NO_EXPIRATION_CONTROL
 #pragma push_macro("FORMAT_CLASS")
 #undef FORMAT_CLASS
+#pragma push_macro("FORMAT_DEFAULT")
+#undef FORMAT_DEFAULT
+#pragma push_macro("FORMAT_PROPERTIES")
+#undef FORMAT_PROPERTIES
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("TTL_DONT_CACHE")
+#undef TTL_DONT_CACHE
+#pragma push_macro("TTL_NO_EXPIRATION_CONTROL")
+#undef TTL_NO_EXPIRATION_CONTROL
 
 namespace java {
 	namespace lang {
@@ -76,12 +76,12 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("FORMAT_PROPERTIES")
 #pragma pop_macro("CANDIDATES_CACHE")
-#pragma pop_macro("TTL_DONT_CACHE")
-#pragma pop_macro("FORMAT_DEFAULT")
-#pragma pop_macro("TTL_NO_EXPIRATION_CONTROL")
 #pragma pop_macro("FORMAT_CLASS")
+#pragma pop_macro("FORMAT_DEFAULT")
+#pragma pop_macro("FORMAT_PROPERTIES")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("TTL_DONT_CACHE")
+#pragma pop_macro("TTL_NO_EXPIRATION_CONTROL")
 
 #endif // _java_util_ResourceBundle$Control_h_

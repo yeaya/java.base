@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SIZE_IOVEC")
-#undef SIZE_IOVEC
 #pragma push_macro("BASE_OFFSET")
 #undef BASE_OFFSET
 #pragma push_macro("LEN_OFFSET")
 #undef LEN_OFFSET
+#pragma push_macro("SIZE_IOVEC")
+#undef SIZE_IOVEC
 
 namespace java {
 	namespace lang {
@@ -67,8 +67,8 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("SIZE_IOVEC")
 #pragma pop_macro("BASE_OFFSET")
 #pragma pop_macro("LEN_OFFSET")
+#pragma pop_macro("SIZE_IOVEC")
 
 #endif // _sun_nio_ch_IOVecWrapper_h_

@@ -27,15 +27,15 @@
 #include <sun/util/logging/PlatformLogger$Level.h>
 #include <jcpp.h>
 
-#undef CONFIG
 #undef ALL
-#undef SEVERE
+#undef CONFIG
+#undef FINE
 #undef FINER
 #undef FINEST
-#undef FINE
 #undef INFO
-#undef WARNING
 #undef OFF
+#undef SEVERE
+#undef WARNING
 
 using $PlatformLogger$LevelArray = $Array<::sun::util::logging::PlatformLogger$Level>;
 using $AssertionError = ::java::lang::AssertionError;

@@ -21,11 +21,11 @@
 #include <jcpp.h>
 
 #undef CLASS
+#undef DEBUG
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef DEBUG
-#undef TYPE
 #undef NAME
+#undef TYPE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;

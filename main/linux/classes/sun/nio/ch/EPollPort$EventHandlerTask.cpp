@@ -34,8 +34,8 @@
 #include <jcpp.h>
 
 #undef EXECUTE_TASK_OR_SHUTDOWN
-#undef NEED_TO_POLL
 #undef INTERRUPTED
+#undef NEED_TO_POLL
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

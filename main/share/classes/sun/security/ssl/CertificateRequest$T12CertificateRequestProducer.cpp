@@ -35,8 +35,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
+#undef CERTIFICATE_VERIFY
 #undef HANDSHAKE_FAILURE
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;

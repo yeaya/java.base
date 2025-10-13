@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("FOREVER")
-#undef FOREVER
 #pragma push_macro("DEFAULT_POSITIVE")
 #undef DEFAULT_POSITIVE
+#pragma push_macro("FOREVER")
+#undef FOREVER
 #pragma push_macro("NEVER")
 #undef NEVER
 
@@ -41,8 +41,8 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("FOREVER")
 #pragma pop_macro("DEFAULT_POSITIVE")
+#pragma pop_macro("FOREVER")
 #pragma pop_macro("NEVER")
 
 #endif // _sun_net_InetAddressCachePolicy_h_

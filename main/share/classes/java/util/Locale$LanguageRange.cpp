@@ -19,8 +19,8 @@
 #include <jcpp.h>
 
 #undef MAX_WEIGHT
-#undef ROOT
 #undef MIN_WEIGHT
+#undef ROOT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -130,10 +130,10 @@ bool Locale$LanguageRange::isSubtagIllFormed($String* subtag, bool isFirstSubtag
 	bool var$0 = $nc(subtag)->isEmpty();
 	if (var$0 || $nc(subtag)->length() > 8) {
 		return true;
-	} else if ($nc(subtag)->equals("*"_s)) {
+	} else if (subtag->equals("*"_s)) {
 		return false;
 	}
-	$var($chars, charArray, $nc(subtag)->toCharArray());
+	$var($chars, charArray, subtag->toCharArray());
 	if (isFirstSubtag) {
 		{
 			$var($chars, arr$, charArray);

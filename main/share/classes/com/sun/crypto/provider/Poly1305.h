@@ -7,12 +7,12 @@
 
 #pragma push_macro("BLOCK_LENGTH")
 #undef BLOCK_LENGTH
-#pragma push_macro("TAG_LENGTH")
-#undef TAG_LENGTH
 #pragma push_macro("KEY_LENGTH")
 #undef KEY_LENGTH
 #pragma push_macro("RS_LENGTH")
 #undef RS_LENGTH
+#pragma push_macro("TAG_LENGTH")
+#undef TAG_LENGTH
 
 namespace java {
 	namespace nio {
@@ -84,8 +84,8 @@ public:
 } // com
 
 #pragma pop_macro("BLOCK_LENGTH")
-#pragma pop_macro("TAG_LENGTH")
 #pragma pop_macro("KEY_LENGTH")
 #pragma pop_macro("RS_LENGTH")
+#pragma pop_macro("TAG_LENGTH")
 
 #endif // _com_sun_crypto_provider_Poly1305_h_

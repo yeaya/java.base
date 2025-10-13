@@ -28,14 +28,14 @@
 #include <sun/security/util/SecurityProviderConstants.h>
 #include <jcpp.h>
 
-#undef U
 #undef DEF_DSA_KEY_SIZE
-#undef V
+#undef J
 #undef ONE
+#undef TWO
+#undef U
+#undef V
 #undef W
 #undef X
-#undef J
-#undef TWO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $ClassInfo = ::java::lang::ClassInfo;

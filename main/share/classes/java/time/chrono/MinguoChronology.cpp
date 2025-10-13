@@ -36,11 +36,11 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef YEARS_DIFFERENCE
-#undef YEAR
-#undef ROC
 #undef INSTANCE
 #undef PROLEPTIC_MONTH
+#undef ROC
+#undef YEAR
+#undef YEARS_DIFFERENCE
 
 using $MinguoEraArray = $Array<::java::time::chrono::MinguoEra>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

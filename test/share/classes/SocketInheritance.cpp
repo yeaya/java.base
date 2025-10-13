@@ -150,7 +150,7 @@ void SocketInheritance::main($StringArray* args) {
 	}
 	if ($nc(args)->length == 0) {
 		start();
-	} else if ($nc($nc(args)->get(0))->equals("-child"_s)) {
+	} else if ($nc(args->get(0))->equals("-child"_s)) {
 		child($Integer::parseInt(args->get(1)));
 	}
 }

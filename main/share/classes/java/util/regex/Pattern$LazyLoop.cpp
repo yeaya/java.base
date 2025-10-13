@@ -104,7 +104,7 @@ bool Pattern$LazyLoop::matchInit($Matcher* matcher, int32_t i, $CharSequence* se
 	} else if ($nc(this->next)->match(matcher, i, seq)) {
 		ret = true;
 	} else if (0 < this->cmax) {
-		$nc($nc(matcher)->locals)->set(this->countIndex, 1);
+		$nc(matcher->locals)->set(this->countIndex, 1);
 		ret = $nc(this->body)->match(matcher, i, seq);
 	}
 	$nc(matcher->locals)->set(this->countIndex, save);

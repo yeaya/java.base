@@ -66,7 +66,7 @@ void App::main($StringArray* args) {
 			{
 				if (expected == nullptr) {
 					$assign(expected, s);
-				} else if ($nc(s)->equals("-"_s)) {
+				} else if (s->equals("-"_s)) {
 					f = false;
 				} else if (f) {
 					try {
@@ -76,7 +76,7 @@ void App::main($StringArray* args) {
 							try {
 								try {
 									is->readAllBytes();
-									$nc(sb)->append(u'+');
+									sb->append(u'+');
 								} catch ($Throwable&) {
 									$var($Throwable, t$, $catch());
 									try {
@@ -100,23 +100,22 @@ void App::main($StringArray* args) {
 						$var($SecurityException, se, $catch());
 						$init($System);
 						$nc($System::out)->println($of(se));
-						$nc(sb)->append(u'S');
+						sb->append(u'S');
 					} catch ($Exception&) {
 						$var($Exception, e, $catch());
 						$init($System);
 						$nc($System::out)->println($of(e));
-						$nc(sb)->append(u'-');
+						sb->append(u'-');
 					}
 				} else {
 					try {
-						$load(App);
 						$var($InputStream, is, App::class$->getResourceAsStream(s));
 						{
 							$var($Throwable, var$1, nullptr);
 							try {
 								try {
 									$nc(is)->readAllBytes();
-									$nc(sb)->append(u'+');
+									sb->append(u'+');
 								} catch ($Throwable&) {
 									$var($Throwable, t$, $catch());
 									if (is != nullptr) {
@@ -144,12 +143,12 @@ void App::main($StringArray* args) {
 						$var($NullPointerException, npe, $catch());
 						$init($System);
 						$nc($System::out)->println($of(npe));
-						$nc(sb)->append(u'0');
+						sb->append(u'0');
 					} catch ($Exception&) {
 						$var($Exception, e, $catch());
 						$init($System);
 						$nc($System::out)->println($of(e));
-						$nc(sb)->append(u'-');
+						sb->append(u'-');
 					}
 				}
 			}

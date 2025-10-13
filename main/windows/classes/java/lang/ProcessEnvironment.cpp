@@ -33,8 +33,8 @@
 #include <java/util/TreeMap.h>
 #include <jcpp.h>
 
-#undef SYSTEMROOT
 #undef MIN_NAME_LENGTH
+#undef SYSTEMROOT
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;

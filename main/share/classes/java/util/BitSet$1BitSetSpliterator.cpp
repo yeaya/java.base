@@ -20,10 +20,10 @@
 #include <java/util/function/IntConsumer.h>
 #include <jcpp.h>
 
-#undef ORDERED
-#undef SIZED
 #undef DISTINCT
 #undef MAX_VALUE
+#undef ORDERED
+#undef SIZED
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

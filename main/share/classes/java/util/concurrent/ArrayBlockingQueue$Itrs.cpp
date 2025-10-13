@@ -14,8 +14,8 @@
 #include <java/util/concurrent/ArrayBlockingQueue.h>
 #include <jcpp.h>
 
-#undef SHORT_SWEEP_PROBES
 #undef LONG_SWEEP_PROBES
+#undef SHORT_SWEEP_PROBES
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

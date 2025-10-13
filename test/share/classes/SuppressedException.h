@@ -7,10 +7,10 @@
 
 #pragma push_macro("CLOSE_MESSAGE")
 #undef CLOSE_MESSAGE
-#pragma push_macro("SAME_MESSAGE")
-#undef SAME_MESSAGE
 #pragma push_macro("FLUSH_MESSAGE")
 #undef FLUSH_MESSAGE
+#pragma push_macro("SAME_MESSAGE")
+#undef SAME_MESSAGE
 
 namespace java {
 	namespace io {
@@ -33,7 +33,7 @@ public:
 };
 
 #pragma pop_macro("CLOSE_MESSAGE")
-#pragma pop_macro("SAME_MESSAGE")
 #pragma pop_macro("FLUSH_MESSAGE")
+#pragma pop_macro("SAME_MESSAGE")
 
 #endif // _SuppressedException_h_

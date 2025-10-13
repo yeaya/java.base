@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("POSSIBLE")
-#undef POSSIBLE
-#pragma push_macro("FOLLOW")
-#undef FOLLOW
-#pragma push_macro("SUCCEED")
-#undef SUCCEED
 #pragma push_macro("BACK")
 #undef BACK
 #pragma push_macro("FAIL")
 #undef FAIL
+#pragma push_macro("FOLLOW")
+#undef FOLLOW
+#pragma push_macro("POSSIBLE")
+#undef POSSIBLE
+#pragma push_macro("SUCCEED")
+#undef SUCCEED
 
 namespace java {
 	namespace lang {
@@ -76,10 +76,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("POSSIBLE")
-#pragma pop_macro("FOLLOW")
-#pragma pop_macro("SUCCEED")
 #pragma pop_macro("BACK")
 #pragma pop_macro("FAIL")
+#pragma pop_macro("FOLLOW")
+#pragma pop_macro("POSSIBLE")
+#pragma pop_macro("SUCCEED")
 
 #endif // _sun_security_provider_certpath_BuildStep_h_

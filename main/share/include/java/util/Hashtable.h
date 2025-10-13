@@ -11,16 +11,16 @@
 #include <java/util/Dictionary.h>
 #include <java/util/Map.h>
 
-#pragma push_macro("MAX_ARRAY_SIZE")
-#undef MAX_ARRAY_SIZE
-#pragma push_macro("KEYS")
-#undef KEYS
-#pragma push_macro("VALUES")
-#undef VALUES
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("ENTRIES")
 #undef ENTRIES
+#pragma push_macro("KEYS")
+#undef KEYS
+#pragma push_macro("MAX_ARRAY_SIZE")
+#undef MAX_ARRAY_SIZE
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
+#pragma push_macro("VALUES")
+#undef VALUES
 
 namespace java {
 	namespace io {
@@ -125,10 +125,10 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("KEYS")
-#pragma pop_macro("VALUES")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("ENTRIES")
+#pragma pop_macro("KEYS")
+#pragma pop_macro("MAX_ARRAY_SIZE")
+#pragma pop_macro("MAX_VALUE")
+#pragma pop_macro("VALUES")
 
 #endif // _java_util_Hashtable_h_

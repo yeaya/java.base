@@ -7,10 +7,10 @@
 #include <java/lang/Cloneable.h>
 #include <sun/net/www/protocol/http/AuthCacheValue.h>
 
-#pragma push_macro("SERVER_AUTHENTICATION")
-#undef SERVER_AUTHENTICATION
 #pragma push_macro("PROXY_AUTHENTICATION")
 #undef PROXY_AUTHENTICATION
+#pragma push_macro("SERVER_AUTHENTICATION")
+#undef SERVER_AUTHENTICATION
 
 namespace java {
 	namespace io {
@@ -145,7 +145,7 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("SERVER_AUTHENTICATION")
 #pragma pop_macro("PROXY_AUTHENTICATION")
+#pragma pop_macro("SERVER_AUTHENTICATION")
 
 #endif // _sun_net_www_protocol_http_AuthenticationInfo_h_

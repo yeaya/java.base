@@ -59,19 +59,19 @@
 #include <sun/util/resources/Bundles.h>
 #include <jcpp.h>
 
-#undef FORMAT_PROPERTIES
-#undef NO_FALLBACK
-#undef ROOT
-#undef TTL_NO_EXPIRATION_CONTROL
-#undef INSTANCE
-#undef PROPERTIES_ONLY
-#undef PROPERTIES_ONLY_NO_FALLBACK
+#undef CANDIDATES_CACHE
 #undef CLASS_ONLY
 #undef CLASS_ONLY_NO_FALLBACK
-#undef CANDIDATES_CACHE
-#undef TTL_DONT_CACHE
-#undef FORMAT_DEFAULT
 #undef FORMAT_CLASS
+#undef FORMAT_DEFAULT
+#undef FORMAT_PROPERTIES
+#undef INSTANCE
+#undef NO_FALLBACK
+#undef PROPERTIES_ONLY
+#undef PROPERTIES_ONLY_NO_FALLBACK
+#undef ROOT
+#undef TTL_DONT_CACHE
+#undef TTL_NO_EXPIRATION_CONTROL
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -347,7 +347,7 @@ $ResourceBundle* ResourceBundle$Control::newBundle0($String* bundleName, $String
 		} catch ($ClassNotFoundException&) {
 			$catch();
 		}
-	} else if ($nc(format)->equals("java.properties"_s)) {
+	} else if (format->equals("java.properties"_s)) {
 		$var($String, resourceName, toResourceName0(bundleName, "properties"_s));
 		if (resourceName == nullptr) {
 			return bundle;
@@ -450,16 +450,16 @@ $String* ResourceBundle$Control::toBundleName($String* baseName, $Locale* locale
 		if (variant != ""_s) {
 			sb->append(language)->append(u'_')->append(script)->append(u'_')->append(country)->append(u'_')->append(variant);
 		} else if (country != ""_s) {
-			$nc(sb)->append(language)->append(u'_')->append(script)->append(u'_')->append(country);
+			sb->append(language)->append(u'_')->append(script)->append(u'_')->append(country);
 		} else {
-			$nc(sb)->append(language)->append(u'_')->append(script);
+			sb->append(language)->append(u'_')->append(script);
 		}
 	} else if (variant != ""_s) {
-		$nc(sb)->append(language)->append(u'_')->append(country)->append(u'_')->append(variant);
+		sb->append(language)->append(u'_')->append(country)->append(u'_')->append(variant);
 	} else if (country != ""_s) {
-		$nc(sb)->append(language)->append(u'_')->append(country);
+		sb->append(language)->append(u'_')->append(country);
 	} else {
-		$nc(sb)->append(language);
+		sb->append(language);
 	}
 	return sb->toString();
 }

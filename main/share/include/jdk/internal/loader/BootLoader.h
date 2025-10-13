@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UNNAMED_MODULE")
-#undef UNNAMED_MODULE
-#pragma push_macro("NATIVE_LIBS")
-#undef NATIVE_LIBS
-#pragma push_macro("JAVA_HOME")
-#undef JAVA_HOME
 #pragma push_macro("CLASS_LOADER_VALUE_MAP")
 #undef CLASS_LOADER_VALUE_MAP
+#pragma push_macro("JAVA_HOME")
+#undef JAVA_HOME
 #pragma push_macro("JLA")
 #undef JLA
+#pragma push_macro("NATIVE_LIBS")
+#undef NATIVE_LIBS
+#pragma push_macro("UNNAMED_MODULE")
+#undef UNNAMED_MODULE
 
 namespace java {
 	namespace io {
@@ -120,10 +120,10 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("UNNAMED_MODULE")
-#pragma pop_macro("NATIVE_LIBS")
-#pragma pop_macro("JAVA_HOME")
 #pragma pop_macro("CLASS_LOADER_VALUE_MAP")
+#pragma pop_macro("JAVA_HOME")
 #pragma pop_macro("JLA")
+#pragma pop_macro("NATIVE_LIBS")
+#pragma pop_macro("UNNAMED_MODULE")
 
 #endif // _jdk_internal_loader_BootLoader_h_

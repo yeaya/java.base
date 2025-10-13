@@ -28,32 +28,32 @@
 #include <jdk/internal/util/xml/impl/ReaderUTF8.h>
 #include <jcpp.h>
 
-#undef EV_DTD
-#undef XMLNS
-#undef PH_DOC_START
-#undef EV_CDAT
 #undef BUFFSIZE_PARSER
-#undef PH_DTD
+#undef BUFFSIZE_READER
+#undef EOS
+#undef EV_CDAT
+#undef EV_COMM
+#undef EV_DTD
+#undef EV_ELM
+#undef EV_ELME
+#undef EV_ELMS
+#undef EV_ENT
+#undef EV_NULL
+#undef EV_PI
 #undef EV_TEXT
+#undef EV_WSPC
+#undef FAULT
+#undef NONS
 #undef PH_AFTER_DOC
 #undef PH_BEFORE_DOC
-#undef EV_ENT
-#undef EV_ELM
-#undef PH_DOCELM_MISC
-#undef NONS
-#undef EV_ELME
-#undef EOS
-#undef PH_MISC_DTD
-#undef EV_WSPC
-#undef EV_ELMS
-#undef EV_PI
-#undef EV_COMM
-#undef BUFFSIZE_READER
-#undef PH_DTD_MISC
-#undef XML
-#undef FAULT
-#undef EV_NULL
 #undef PH_DOCELM
+#undef PH_DOCELM_MISC
+#undef PH_DOC_START
+#undef PH_DTD
+#undef PH_DTD_MISC
+#undef PH_MISC_DTD
+#undef XML
+#undef XMLNS
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -2110,7 +2110,7 @@ bool Parser::isdecl($Pair* name, $String* value) {
 			++$nc(this->mElm)->num;
 			return true;
 		}
-	} else if ($nc(name)->eqpref(Parser::XMLNS) == true) {
+	} else if (name->eqpref(Parser::XMLNS) == true) {
 		int32_t len = $nc(name->name)->length();
 		$set(this, mPref, pair(this->mPref));
 		$set($nc(this->mPref), list, this->mElm);
@@ -2732,7 +2732,7 @@ void Parser::setinp($InputSource* is) {
 	if ($nc(is)->getCharacterStream() != nullptr) {
 		$assign(reader, is->getCharacterStream());
 		xml(reader);
-	} else if ($nc(is)->getByteStream() != nullptr) {
+	} else if (is->getByteStream() != nullptr) {
 		$var($String, expenc, nullptr);
 		if (is->getEncoding() != nullptr) {
 			$assign(expenc, $nc($(is->getEncoding()))->toUpperCase());
@@ -2764,7 +2764,7 @@ void Parser::setinp($InputSource* is) {
 		panic(Parser::FAULT);
 	}
 	$set($nc(this->mInp), src, reader);
-	$set($nc(this->mInp), pubid, $nc(is)->getPublicId());
+	$set($nc(this->mInp), pubid, is->getPublicId());
 	$set($nc(this->mInp), sysid, is->getSystemId());
 }
 
@@ -3043,7 +3043,7 @@ $String* Parser::xml($Reader* reader) {
 							$assign(str, $nc($(eqstr(u'=')))->toLowerCase());
 							if (str->equals("yes"_s) == true) {
 								this->mIsSAlone = true;
-							} else if ($nc(str)->equals("no"_s) == true) {
+							} else if (str->equals("no"_s) == true) {
 								this->mIsSAlone = false;
 							} else {
 								panic(Parser::FAULT);
@@ -3112,9 +3112,9 @@ $String* Parser::xml($Reader* reader) {
 $Reader* Parser::enc($String* name, $InputStream* is) {
 	if ($nc(name)->equals("UTF-8"_s)) {
 		return $new($ReaderUTF8, is);
-	} else if ($nc(name)->equals("UTF-16LE"_s)) {
+	} else if (name->equals("UTF-16LE"_s)) {
 		return $new($ReaderUTF16, is, u'l');
-	} else if ($nc(name)->equals("UTF-16BE"_s)) {
+	} else if (name->equals("UTF-16BE"_s)) {
 		return $new($ReaderUTF16, is, u'b');
 	} else {
 		return $new($InputStreamReader, is, name);

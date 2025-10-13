@@ -289,36 +289,36 @@ void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 			} else if ($instanceOf($Pattern$Loop, node)) {
 				return;
 			} else {
-				bool var$34 = $instanceOf($Pattern$Curly, node);
-				if (var$34) {
+				bool var$1 = $instanceOf($Pattern$Curly, node);
+				if (var$1) {
 					$assign(c, $cast($Pattern$Curly, node));
-					var$34 = true;
+					var$1 = true;
 				}
-				if (var$34) {
-					$var($String, var$35, $$str({"Curly "_s, $nc(c)->type, " "_s}));
-					$assign(str, $concat(var$35, $(toStringRange(c->cmin, c->cmax))));
+				if (var$1) {
+					$var($String, var$2, $$str({"Curly "_s, $nc(c)->type, " "_s}));
+					$assign(str, $concat(var$2, $(toStringRange(c->cmin, c->cmax))));
 					print(node, str, depth);
 					walk(c->atom, depth);
 					print("/Curly"_s, depth);
 				} else {
-					bool var$52 = $instanceOf($Pattern$GroupCurly, node);
-					if (var$52) {
+					bool var$4 = $instanceOf($Pattern$GroupCurly, node);
+					if (var$4) {
 						$assign(gc, $cast($Pattern$GroupCurly, node));
-						var$52 = true;
+						var$4 = true;
 					}
-					if (var$52) {
-						$var($String, var$53, $$str({"GroupCurly "_s, $$str($nc(gc)->groupIndex / 2), ", "_s, gc->type, " "_s}));
-						$assign(str, $concat(var$53, $(toStringRange(gc->cmin, gc->cmax))));
+					if (var$4) {
+						$var($String, var$5, $$str({"GroupCurly "_s, $$str($nc(gc)->groupIndex / 2), ", "_s, gc->type, " "_s}));
+						$assign(str, $concat(var$5, $(toStringRange(gc->cmin, gc->cmax))));
 						print(node, str, depth);
 						walk(gc->atom, depth);
 						print("/GroupCurly"_s, depth);
 					} else {
-						bool var$61 = $instanceOf($Pattern$GroupHead, node);
-						if (var$61) {
+						bool var$7 = $instanceOf($Pattern$GroupHead, node);
+						if (var$7) {
 							$assign(head, $cast($Pattern$GroupHead, node));
-							var$61 = true;
+							var$7 = true;
 						}
-						if (var$61) {
+						if (var$7) {
 							$var($Pattern$GroupTail, tail, $nc(head)->tail);
 							print(head, $$str({"Group.head "_s, $$str(($nc(tail)->groupIndex / 2))}), depth);
 							walk(head->next, depth);
@@ -331,12 +331,12 @@ void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 							walk($nc(($cast($Pattern$Ques, node)))->atom, depth);
 							print("/Ques"_s, depth);
 						} else {
-							bool var$65 = $instanceOf($Pattern$Branch, node);
-							if (var$65) {
+							bool var$9 = $instanceOf($Pattern$Branch, node);
+							if (var$9) {
 								$assign(b, $cast($Pattern$Branch, node));
-								var$65 = true;
+								var$9 = true;
 							}
-							if (var$65) {
+							if (var$9) {
 								print(b, name, depth);
 								int32_t i = 0;
 								while (true) {
@@ -355,7 +355,6 @@ void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 							} else if ($instanceOf($Pattern$BranchConn, node)) {
 								return;
 							} else if ($instanceOf($Pattern$CharProperty, node)) {
-								$init(PrintPattern);
 								$assign(str, $cast($String, $nc(PrintPattern::pmap)->get($nc(($cast($Pattern$CharProperty, node)))->predicate)));
 								if (str == nullptr) {
 									$assign(str, toString(node));
@@ -367,13 +366,12 @@ void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 								$assign(str, $str({name, "  \""_s, $(toStringCPS($nc(($cast($Pattern$SliceNode, node)))->buffer)), "\""_s}));
 								print(node, str, depth);
 							} else {
-								bool var$67 = $instanceOf($Pattern$CharPropertyGreedy, node);
-								if (var$67) {
+								bool var$11 = $instanceOf($Pattern$CharPropertyGreedy, node);
+								if (var$11) {
 									$assign(gcp, $cast($Pattern$CharPropertyGreedy, node));
-									var$67 = true;
+									var$11 = true;
 								}
-								if (var$67) {
-									$init(PrintPattern);
+								if (var$11) {
 									$var($String, pstr, $cast($String, $nc(PrintPattern::pmap)->get($nc(gcp)->predicate)));
 									if (pstr == nullptr) {
 										$assign(pstr, $nc($of($nc(gcp)->predicate))->toString());
@@ -383,7 +381,7 @@ void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 									$assign(str, $str({name, " "_s, pstr}));
 									if ($nc(gcp)->cmin == 0) {
 										$plusAssign(str, "*"_s);
-									} else if ($nc(gcp)->cmin == 1) {
+									} else if (gcp->cmin == 1) {
 										$plusAssign(str, "+"_s);
 									} else {
 										$plusAssign(str, $$str({"{"_s, $$str(gcp->cmin), ",}"_s}));

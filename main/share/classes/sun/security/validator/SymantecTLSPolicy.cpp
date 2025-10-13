@@ -23,12 +23,12 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef FINGERPRINTS
-#undef EXEMPT_SUBCAS
-#undef UTC
-#undef DECEMBER
-#undef T_UNTRUSTED_CERT
 #undef APRIL
+#undef DECEMBER
+#undef EXEMPT_SUBCAS
+#undef FINGERPRINTS
+#undef T_UNTRUSTED_CERT
+#undef UTC
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;

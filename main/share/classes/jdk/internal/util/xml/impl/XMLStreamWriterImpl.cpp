@@ -27,27 +27,27 @@
 #include <jcpp.h>
 
 #undef AMPERSAND
-#undef ELEMENT_STARTTAG_CLOSE
-#undef CLOSE_START_TAG
 #undef CLOSE_EMPTY_ELEMENT
-#undef ELEMENT_STARTTAG_OPEN
-#undef START_CDATA
-#undef END_CDATA
-#undef STATE_ELEMENT
-#undef STATE_XML_DECL
-#undef STATE_PROLOG
-#undef ELEMENT_ENDTAG_OPEN
-#undef ELEMENT_ENDTAG_CLOSE
-#undef OPEN_END_TAG
-#undef SPACE
-#undef DEFAULT_XML_VERSION
 #undef CLOSE_END_TAG
-#undef SEMICOLON
+#undef CLOSE_START_TAG
 #undef DEFAULT_CHARSET
-#undef ENCODING_PREFIX
+#undef DEFAULT_XML_VERSION
 #undef DOUBLEQUOT
+#undef ELEMENT_ENDTAG_CLOSE
+#undef ELEMENT_ENDTAG_OPEN
+#undef ELEMENT_STARTTAG_CLOSE
+#undef ELEMENT_STARTTAG_OPEN
+#undef ENCODING_PREFIX
+#undef END_CDATA
+#undef OPEN_END_TAG
 #undef OPEN_START_TAG
+#undef SEMICOLON
+#undef SPACE
+#undef START_CDATA
 #undef STATE_DTD_DECL
+#undef STATE_ELEMENT
+#undef STATE_PROLOG
+#undef STATE_XML_DECL
 
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;

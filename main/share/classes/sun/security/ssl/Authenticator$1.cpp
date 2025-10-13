@@ -14,10 +14,10 @@
 #include <sun/security/ssl/CipherSuite$MacAlg.h>
 #include <jcpp.h>
 
-#undef M_SHA
-#undef M_SHA384
 #undef M_MD5
+#undef M_SHA
 #undef M_SHA256
+#undef M_SHA384
 
 using $CipherSuite$MacAlgArray = $Array<::sun::security::ssl::CipherSuite$MacAlg>;
 using $ClassInfo = ::java::lang::ClassInfo;

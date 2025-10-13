@@ -188,12 +188,12 @@ void ArrayPrefixHelpers$CumulateTask::compute() {
 					a->set(i, $assign(sum, $nc(fn)->apply(sum, a->get(i))));
 				}
 			} else if (h < fnc) {
-				$assign(sum, $nc(a)->get(l));
+				$assign(sum, a->get(l));
 				for (int32_t i = l + 1; i < h; ++i) {
 					$assign(sum, $nc(fn)->apply(sum, a->get(i)));
 				}
 			} else {
-				$assign(sum, $nc(t)->in);
+				$assign(sum, t->in);
 			}
 			$set(t, out, sum);
 			{
@@ -214,20 +214,20 @@ void ArrayPrefixHelpers$CumulateTask::compute() {
 						int32_t nextState = 0;
 						$var(ArrayPrefixHelpers$CumulateTask, lt, nullptr);
 						$var(ArrayPrefixHelpers$CumulateTask, rt, nullptr);
-						if (($assign(lt, $nc(par)->left)) != nullptr && ($assign(rt, par->right)) != nullptr) {
+						if (($assign(lt, par->left)) != nullptr && ($assign(rt, par->right)) != nullptr) {
 							$var($Object, lout, $nc(lt)->out);
 							$set(par, out, $nc(rt)->hi == fnc ? lout : $nc(fn)->apply(lout, $nc(rt)->out));
 						}
-						int32_t refork = ((((int32_t)(b & (uint32_t)1)) == 0 && $nc(par)->lo == org) ? 1 : 0);
+						int32_t refork = ((((int32_t)(b & (uint32_t)1)) == 0 && par->lo == org) ? 1 : 0);
 						bool var$0 = (nextState = (b | state) | refork) == b;
-						if (var$0 || $nc(par)->compareAndSetPendingCount(b, nextState)) {
+						if (var$0 || par->compareAndSetPendingCount(b, nextState)) {
 							state = 2;
 							$assign(t, par);
 							if (refork != 0) {
 								par->fork();
 							}
 						}
-					} else if ($nc(par)->compareAndSetPendingCount(b, b | state)) {
+					} else if (par->compareAndSetPendingCount(b, b | state)) {
 						outer$break = true;
 						break;
 					}

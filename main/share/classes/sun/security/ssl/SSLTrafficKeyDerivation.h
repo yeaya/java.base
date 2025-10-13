@@ -12,10 +12,10 @@
 #undef SSL30
 #pragma push_macro("TLS10")
 #undef TLS10
-#pragma push_macro("TLS13")
-#undef TLS13
 #pragma push_macro("TLS12")
 #undef TLS12
+#pragma push_macro("TLS13")
+#undef TLS13
 
 namespace javax {
 	namespace crypto {
@@ -67,7 +67,7 @@ public:
 
 #pragma pop_macro("SSL30")
 #pragma pop_macro("TLS10")
-#pragma pop_macro("TLS13")
 #pragma pop_macro("TLS12")
+#pragma pop_macro("TLS13")
 
 #endif // _sun_security_ssl_SSLTrafficKeyDerivation_h_

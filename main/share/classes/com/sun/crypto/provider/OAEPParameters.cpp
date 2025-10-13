@@ -32,8 +32,8 @@
 #include <jcpp.h>
 
 #undef MGF1
-#undef SHA1
 #undef OID_MGF1
+#undef SHA1
 #undef TAG_CONTEXT
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
@@ -141,7 +141,7 @@ void OAEPParameters::engineInit($bytes* encoded) {
 		$var($DerValue, data, datum->get(i));
 		if ($nc(data)->isContextSpecific((int8_t)0)) {
 			$set(this, mdName, $nc($($AlgorithmId::parse($($nc(data->data$)->getDerValue()))))->getName());
-		} else if ($nc(data)->isContextSpecific((int8_t)1)) {
+		} else if (data->isContextSpecific((int8_t)1)) {
 			$var($AlgorithmId, val, $AlgorithmId::parse($($nc(data->data$)->getDerValue())));
 			if (!$nc($($nc(val)->getOID()))->equals(OAEPParameters::OID_MGF1)) {
 				$throwNew($IOException, "Only MGF1 mgf is supported"_s);
@@ -149,30 +149,23 @@ void OAEPParameters::engineInit($bytes* encoded) {
 			$var($AlgorithmId, params, $AlgorithmId::parse($$new($DerValue, $($nc(val)->getEncodedParams()))));
 			$var($String, mgfDigestName, $nc(params)->getName());
 			if ($nc(mgfDigestName)->equals("SHA-1"_s)) {
-				$init($MGF1ParameterSpec);
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA1);
-			} else if ($nc(mgfDigestName)->equals("SHA-224"_s)) {
-				$init($MGF1ParameterSpec);
+			} else if (mgfDigestName->equals("SHA-224"_s)) {
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA224);
-			} else if ($nc(mgfDigestName)->equals("SHA-256"_s)) {
-				$init($MGF1ParameterSpec);
+			} else if (mgfDigestName->equals("SHA-256"_s)) {
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA256);
-			} else if ($nc(mgfDigestName)->equals("SHA-384"_s)) {
-				$init($MGF1ParameterSpec);
+			} else if (mgfDigestName->equals("SHA-384"_s)) {
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA384);
-			} else if ($nc(mgfDigestName)->equals("SHA-512"_s)) {
-				$init($MGF1ParameterSpec);
+			} else if (mgfDigestName->equals("SHA-512"_s)) {
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA512);
-			} else if ($nc(mgfDigestName)->equals("SHA-512/224"_s)) {
-				$init($MGF1ParameterSpec);
+			} else if (mgfDigestName->equals("SHA-512/224"_s)) {
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA512_224);
-			} else if ($nc(mgfDigestName)->equals("SHA-512/256"_s)) {
-				$init($MGF1ParameterSpec);
+			} else if (mgfDigestName->equals("SHA-512/256"_s)) {
 				$set(this, mgfSpec, $MGF1ParameterSpec::SHA512_256);
 			} else {
 				$throwNew($IOException, "Unrecognized message digest algorithm"_s);
 			}
-		} else if ($nc(data)->isContextSpecific((int8_t)2)) {
+		} else if (data->isContextSpecific((int8_t)2)) {
 			$var($AlgorithmId, val, $AlgorithmId::parse($($nc(data->data$)->getDerValue())));
 			if (!$nc($($nc(val)->getOID()))->equals(OAEPParameters::OID_PSpecified)) {
 				$throwNew($IOException, "Wrong OID for pSpecified"_s);

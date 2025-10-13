@@ -5,20 +5,20 @@
 
 #include <jdk/internal/org/objectweb/asm/tree/analysis/Value.h>
 
-#pragma push_macro("INT_VALUE")
-#undef INT_VALUE
-#pragma push_macro("RETURNADDRESS_VALUE")
-#undef RETURNADDRESS_VALUE
-#pragma push_macro("REFERENCE_VALUE")
-#undef REFERENCE_VALUE
-#pragma push_macro("UNINITIALIZED_VALUE")
-#undef UNINITIALIZED_VALUE
-#pragma push_macro("LONG_VALUE")
-#undef LONG_VALUE
 #pragma push_macro("DOUBLE_VALUE")
 #undef DOUBLE_VALUE
 #pragma push_macro("FLOAT_VALUE")
 #undef FLOAT_VALUE
+#pragma push_macro("INT_VALUE")
+#undef INT_VALUE
+#pragma push_macro("LONG_VALUE")
+#undef LONG_VALUE
+#pragma push_macro("REFERENCE_VALUE")
+#undef REFERENCE_VALUE
+#pragma push_macro("RETURNADDRESS_VALUE")
+#undef RETURNADDRESS_VALUE
+#pragma push_macro("UNINITIALIZED_VALUE")
+#undef UNINITIALIZED_VALUE
 
 namespace jdk {
 	namespace internal {
@@ -69,12 +69,12 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("INT_VALUE")
-#pragma pop_macro("RETURNADDRESS_VALUE")
-#pragma pop_macro("REFERENCE_VALUE")
-#pragma pop_macro("UNINITIALIZED_VALUE")
-#pragma pop_macro("LONG_VALUE")
 #pragma pop_macro("DOUBLE_VALUE")
 #pragma pop_macro("FLOAT_VALUE")
+#pragma pop_macro("INT_VALUE")
+#pragma pop_macro("LONG_VALUE")
+#pragma pop_macro("REFERENCE_VALUE")
+#pragma pop_macro("RETURNADDRESS_VALUE")
+#pragma pop_macro("UNINITIALIZED_VALUE")
 
 #endif // _jdk_internal_org_objectweb_asm$_tree_analysis_BasicValue_h_

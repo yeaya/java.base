@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/util/concurrent/Callable.h>
 
-#pragma push_macro("NUM_THREADS")
-#undef NUM_THREADS
 #pragma push_macro("NUM_ITERS")
 #undef NUM_ITERS
+#pragma push_macro("NUM_THREADS")
+#undef NUM_THREADS
 
 namespace java {
 	namespace net {
@@ -56,7 +56,7 @@ public:
 	static ::java::util::function::Predicate* hasHardwareAddress;
 };
 
-#pragma pop_macro("NUM_THREADS")
 #pragma pop_macro("NUM_ITERS")
+#pragma pop_macro("NUM_THREADS")
 
 #endif // _GetMacAddress_h_

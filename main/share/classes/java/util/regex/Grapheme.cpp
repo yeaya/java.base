@@ -14,41 +14,41 @@
 #include <java/util/regex/EmojiData.h>
 #include <jcpp.h>
 
-#undef SPACINGMARK
+#undef COMBINING_SPACING_MARK
+#undef CONTROL
+#undef CR
+#undef ENCLOSING_MARK
+#undef EXTEND
+#undef EXTENDED_PICTOGRAPHIC
+#undef FIRST_TYPE
 #undef FORMAT
-#undef PARAGRAPH_SEPARATOR
-#undef MODIFIER_LETTER
+#undef L
+#undef LAST_TYPE
+#undef LCOUNT
+#undef LF
+#undef LINE_SEPARATOR
 #undef LV
 #undef LVT
-#undef SCOUNT
-#undef L
-#undef NCOUNT
+#undef MODIFIER_LETTER
 #undef MODIFIER_SYMBOL
-#undef VCOUNT
-#undef T
-#undef V
-#undef LAST_TYPE
-#undef FIRST_TYPE
-#undef EXTENDED_PICTOGRAPHIC
-#undef LINE_SEPARATOR
-#undef SURROGATE
-#undef LCOUNT
-#undef EXTEND
+#undef NCOUNT
 #undef NON_SPACING_MARK
-#undef ZWJ
-#undef COMBINING_SPACING_MARK
-#undef CR
 #undef OTHER
-#undef UNASSIGNED
-#undef ENCLOSING_MARK
-#undef OTHER_SYMBOL
-#undef RI
-#undef TCOUNT
-#undef LF
-#undef CONTROL
-#undef PREPEND
-#undef SYLLABLE_BASE
 #undef OTHER_LETTER
+#undef OTHER_SYMBOL
+#undef PARAGRAPH_SEPARATOR
+#undef PREPEND
+#undef RI
+#undef SCOUNT
+#undef SPACINGMARK
+#undef SURROGATE
+#undef SYLLABLE_BASE
+#undef T
+#undef TCOUNT
+#undef UNASSIGNED
+#undef V
+#undef VCOUNT
+#undef ZWJ
 
 using $booleanArray2 = $Array<bool, 2>;
 using $CharSequence = ::java::lang::CharSequence;
@@ -131,7 +131,6 @@ int32_t Grapheme::nextBoundary($CharSequence* src, int32_t off, int32_t limit) {
 		if (gb11 && t0 == Grapheme::ZWJ && t1 == Grapheme::EXTENDED_PICTOGRAPHIC) {
 		} else if (riCount % 2 == 1 && t0 == Grapheme::RI && t1 == Grapheme::RI) {
 		} else {
-			$init(Grapheme);
 			if ($nc($nc(Grapheme::rules)->get(t0))->get(t1)) {
 				if (ret > off) {
 					break;

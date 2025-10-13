@@ -22,16 +22,16 @@
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
-#undef ZERO
+#undef DOWN
 #undef FIVE
 #undef FLOOR
-#undef DOWN
-#undef UNNECESSARY
-#undef ONE
-#undef MAX_VALUE
-#undef TEN
 #undef HALF_UP
+#undef MAX_VALUE
+#undef ONE
+#undef TEN
 #undef TWO
+#undef UNNECESSARY
+#undef ZERO
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $longArray2 = $Array<int64_t, 2>;

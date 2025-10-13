@@ -21,12 +21,12 @@
 #include <sun/security/x509/GeneralNameInterface.h>
 #include <jcpp.h>
 
+#undef MASKSIZE
+#undef NAME_DIFF_TYPE
+#undef NAME_IP
 #undef NAME_MATCH
 #undef NAME_NARROWS
-#undef MASKSIZE
-#undef NAME_IP
 #undef NAME_SAME_TYPE
-#undef NAME_DIFF_TYPE
 #undef NAME_WIDENS
 
 using $IOException = ::java::io::IOException;
@@ -93,7 +93,7 @@ void IPAddressName::init$($DerValue* derValue) {
 void IPAddressName::init$($bytes* address) {
 	if ($nc(address)->length == 4 || $nc(address)->length == 8) {
 		this->isIPv4 = true;
-	} else if ($nc(address)->length == 16 || $nc(address)->length == 32) {
+	} else if (address->length == 16 || address->length == 32) {
 		this->isIPv4 = false;
 	} else {
 		$throwNew($IOException, "Invalid IPAddressName"_s);
@@ -111,7 +111,7 @@ void IPAddressName::init$($String* name) {
 	if ($nc(name)->indexOf((int32_t)u':') >= 0) {
 		parseIPv6(name);
 		this->isIPv4 = false;
-	} else if ($nc(name)->indexOf((int32_t)u'.') >= 0) {
+	} else if (name->indexOf((int32_t)u'.') >= 0) {
 		parseIPv4(name);
 		this->isIPv4 = true;
 	} else {
@@ -262,16 +262,16 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_IP) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_IP) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(($cast(IPAddressName, inputName)))->equals(this)) {
+	} else if (($cast(IPAddressName, inputName))->equals(this)) {
 		constraintType = $GeneralNameInterface::NAME_MATCH;
 	} else {
 		$var(IPAddressName, otherName, $cast(IPAddressName, inputName));
 		$var($bytes, otherAddress, $nc(otherName)->address);
 		if ($nc(otherAddress)->length == 4 && $nc(this->address)->length == 4) {
 			constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
-		} else if (($nc(otherAddress)->length == 8 && $nc(this->address)->length == 8) || ($nc(otherAddress)->length == 32 && $nc(this->address)->length == 32)) {
+		} else if ((otherAddress->length == 8 && $nc(this->address)->length == 8) || (otherAddress->length == 32 && $nc(this->address)->length == 32)) {
 			bool otherSubsetOfThis = true;
 			bool thisSubsetOfOther = true;
 			bool thisEmpty = false;
@@ -306,7 +306,7 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 			} else {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 			}
-		} else if ($nc(otherAddress)->length == 8 || $nc(otherAddress)->length == 32) {
+		} else if (otherAddress->length == 8 || otherAddress->length == 32) {
 			int32_t i = 0;
 			int32_t maskOffset = otherAddress->length / 2;
 			for (; i < maskOffset; ++i) {
@@ -323,7 +323,7 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 			int32_t i = 0;
 			int32_t maskOffset = $nc(this->address)->length / 2;
 			for (; i < maskOffset; ++i) {
-				if (((int32_t)($nc(otherAddress)->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset))) != $nc(this->address)->get(i)) {
+				if (((int32_t)(otherAddress->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset))) != $nc(this->address)->get(i)) {
 					break;
 				}
 			}

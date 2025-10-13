@@ -11,16 +11,16 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef STREAM_CIPHER
-#undef KEY_WRAP
-#undef PUBLIC_KEY_ENCRYPTION
-#undef KEY_AGREEMENT
 #undef BLOCK_CIPHER
-#undef SECURE_RANDOM
+#undef KEY_AGREEMENT
 #undef KEY_ENCAPSULATION
-#undef MESSAGE_DIGEST
-#undef SIGNATURE
+#undef KEY_WRAP
 #undef MAC
+#undef MESSAGE_DIGEST
+#undef PUBLIC_KEY_ENCRYPTION
+#undef SECURE_RANDOM
+#undef SIGNATURE
+#undef STREAM_CIPHER
 
 using $CryptoPrimitiveArray = $Array<::java::security::CryptoPrimitive>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -21,9 +21,9 @@
 #include <java/util/stream/StreamSpliterators.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef SIZED
 #undef SORTED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/time/format/DateTimeFormatterBuilder$DateTimePrinterParser.h>
 
-#pragma push_macro("INSTANCE_ID_ZERO")
-#undef INSTANCE_ID_ZERO
 #pragma push_macro("INSTANCE_ID_Z")
 #undef INSTANCE_ID_Z
+#pragma push_macro("INSTANCE_ID_ZERO")
+#undef INSTANCE_ID_ZERO
 #pragma push_macro("PATTERNS")
 #undef PATTERNS
 
@@ -62,8 +62,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("INSTANCE_ID_ZERO")
 #pragma pop_macro("INSTANCE_ID_Z")
+#pragma pop_macro("INSTANCE_ID_ZERO")
 #pragma pop_macro("PATTERNS")
 
 #endif // _java_time_format_DateTimeFormatterBuilder$OffsetIdPrinterParser_h_

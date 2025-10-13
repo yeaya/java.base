@@ -25,10 +25,10 @@
 #include <jdk/internal/module/SystemModuleFinders.h>
 #include <jcpp.h>
 
-#undef NONNULL
 #undef DISTINCT
 #undef IMMUTABLE
 #undef MAX_VALUE
+#undef NONNULL
 
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;

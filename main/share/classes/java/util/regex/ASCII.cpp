@@ -10,20 +10,20 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef GRAPH
-#undef WORD
-#undef ALPHA
-#undef UNDER
-#undef ASCII
 #undef ALNUM
-#undef DIGIT
-#undef SPACE
-#undef UPPER
+#undef ALPHA
+#undef ASCII
 #undef BLANK
+#undef CNTRL
+#undef DIGIT
+#undef GRAPH
+#undef HEX
 #undef LOWER
 #undef PUNCT
-#undef CNTRL
-#undef HEX
+#undef SPACE
+#undef UNDER
+#undef UPPER
+#undef WORD
 #undef XDIGIT
 
 using $ClassInfo = ::java::lang::ClassInfo;

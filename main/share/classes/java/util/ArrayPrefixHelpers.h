@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("SUMMED")
-#undef SUMMED
 #pragma push_macro("CUMULATE")
 #undef CUMULATE
 #pragma push_macro("FINISHED")
 #undef FINISHED
 #pragma push_macro("MIN_PARTITION")
 #undef MIN_PARTITION
+#pragma push_macro("SUMMED")
+#undef SUMMED
 
 namespace java {
 	namespace util {
@@ -31,9 +31,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SUMMED")
 #pragma pop_macro("CUMULATE")
 #pragma pop_macro("FINISHED")
 #pragma pop_macro("MIN_PARTITION")
+#pragma pop_macro("SUMMED")
 
 #endif // _java_util_ArrayPrefixHelpers_h_

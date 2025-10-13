@@ -31,8 +31,8 @@
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
 
-#undef INT_VALUE
 #undef ENABLED
+#undef INT_VALUE
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $Serializable = ::java::io::Serializable;

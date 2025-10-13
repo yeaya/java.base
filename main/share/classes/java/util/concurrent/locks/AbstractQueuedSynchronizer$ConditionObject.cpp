@@ -235,7 +235,7 @@ void AbstractQueuedSynchronizer$ConditionObject::awaitUninterruptibly() {
 	while (!canReacquire(node)) {
 		if ($Thread::interrupted()) {
 			interrupted = true;
-		} else if (((int32_t)($nc(node)->status & (uint32_t)2)) != 0) {
+		} else if (((int32_t)(node->status & (uint32_t)2)) != 0) {
 			try {
 				if (rejected) {
 					node->block();
@@ -276,7 +276,7 @@ void AbstractQueuedSynchronizer$ConditionObject::await() {
 			if (cancelled = ((int32_t)(node->getAndUnsetStatus(2) & (uint32_t)2)) != 0) {
 				break;
 			}
-		} else if (((int32_t)($nc(node)->status & (uint32_t)2)) != 0) {
+		} else if (((int32_t)(node->status & (uint32_t)2)) != 0) {
 			try {
 				if (rejected) {
 					node->block();

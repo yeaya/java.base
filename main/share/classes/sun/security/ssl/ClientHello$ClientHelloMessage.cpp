@@ -44,11 +44,11 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
+#undef CH_PRE_SHARED_KEY
+#undef CLIENT_HELLO
 #undef ENGLISH
 #undef ILLEGAL_PARAMETER
-#undef CH_PRE_SHARED_KEY
 #undef NULL_COMPRESSION
-#undef CLIENT_HELLO
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

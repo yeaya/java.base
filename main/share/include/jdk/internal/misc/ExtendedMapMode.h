@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("READ_WRITE_SYNC")
-#undef READ_WRITE_SYNC
 #pragma push_macro("MAP_MODE_CONSTRUCTOR")
 #undef MAP_MODE_CONSTRUCTOR
 #pragma push_macro("READ_ONLY_SYNC")
 #undef READ_ONLY_SYNC
+#pragma push_macro("READ_WRITE_SYNC")
+#undef READ_WRITE_SYNC
 
 namespace java {
 	namespace lang {
@@ -48,8 +48,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("READ_WRITE_SYNC")
 #pragma pop_macro("MAP_MODE_CONSTRUCTOR")
 #pragma pop_macro("READ_ONLY_SYNC")
+#pragma pop_macro("READ_WRITE_SYNC")
 
 #endif // _jdk_internal_misc_ExtendedMapMode_h_

@@ -5,38 +5,38 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("CURRENCY_NAMES")
-#undef CURRENCY_NAMES
-#pragma push_macro("TIME_ZONE_NAMES")
-#undef TIME_ZONE_NAMES
-#pragma push_macro("COLLATION_DATA_CACHEKEY")
-#undef COLLATION_DATA_CACHEKEY
-#pragma push_macro("DATE_TIME_PATTERN")
-#undef DATE_TIME_PATTERN
-#pragma push_macro("TRACE_ON")
-#undef TRACE_ON
 #pragma push_macro("BREAK_ITERATOR_INFO")
 #undef BREAK_ITERATOR_INFO
-#pragma push_macro("TZNB_EXCITY_PREFIX")
-#undef TZNB_EXCITY_PREFIX
-#pragma push_macro("DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY")
-#undef DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY
-#pragma push_macro("RULES_CACHEKEY")
-#undef RULES_CACHEKEY
-#pragma push_macro("LOCALE_NAMES")
-#undef LOCALE_NAMES
 #pragma push_macro("CALENDAR_DATA")
 #undef CALENDAR_DATA
 #pragma push_macro("CALENDAR_NAMES")
 #undef CALENDAR_NAMES
+#pragma push_macro("COLLATION_DATA_CACHEKEY")
+#undef COLLATION_DATA_CACHEKEY
+#pragma push_macro("COMPACT_NUMBER_PATTERNS_CACHEKEY")
+#undef COMPACT_NUMBER_PATTERNS_CACHEKEY
+#pragma push_macro("CURRENCY_NAMES")
+#undef CURRENCY_NAMES
+#pragma push_macro("DATE_TIME_PATTERN")
+#undef DATE_TIME_PATTERN
+#pragma push_macro("DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY")
+#undef DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY
+#pragma push_macro("LOCALE_NAMES")
+#undef LOCALE_NAMES
 #pragma push_macro("NULLOBJECT")
 #undef NULLOBJECT
 #pragma push_macro("NUMBER_PATTERNS_CACHEKEY")
 #undef NUMBER_PATTERNS_CACHEKEY
+#pragma push_macro("RULES_CACHEKEY")
+#undef RULES_CACHEKEY
+#pragma push_macro("TIME_ZONE_NAMES")
+#undef TIME_ZONE_NAMES
+#pragma push_macro("TRACE_ON")
+#undef TRACE_ON
+#pragma push_macro("TZNB_EXCITY_PREFIX")
+#undef TZNB_EXCITY_PREFIX
 #pragma push_macro("ZONE_IDS_CACHEKEY")
 #undef ZONE_IDS_CACHEKEY
-#pragma push_macro("COMPACT_NUMBER_PATTERNS_CACHEKEY")
-#undef COMPACT_NUMBER_PATTERNS_CACHEKEY
 
 namespace java {
 	namespace lang {
@@ -148,21 +148,21 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("CURRENCY_NAMES")
-#pragma pop_macro("TIME_ZONE_NAMES")
-#pragma pop_macro("COLLATION_DATA_CACHEKEY")
-#pragma pop_macro("DATE_TIME_PATTERN")
-#pragma pop_macro("TRACE_ON")
 #pragma pop_macro("BREAK_ITERATOR_INFO")
-#pragma pop_macro("TZNB_EXCITY_PREFIX")
-#pragma pop_macro("DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY")
-#pragma pop_macro("RULES_CACHEKEY")
-#pragma pop_macro("LOCALE_NAMES")
 #pragma pop_macro("CALENDAR_DATA")
 #pragma pop_macro("CALENDAR_NAMES")
+#pragma pop_macro("COLLATION_DATA_CACHEKEY")
+#pragma pop_macro("COMPACT_NUMBER_PATTERNS_CACHEKEY")
+#pragma pop_macro("CURRENCY_NAMES")
+#pragma pop_macro("DATE_TIME_PATTERN")
+#pragma pop_macro("DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY")
+#pragma pop_macro("LOCALE_NAMES")
 #pragma pop_macro("NULLOBJECT")
 #pragma pop_macro("NUMBER_PATTERNS_CACHEKEY")
+#pragma pop_macro("RULES_CACHEKEY")
+#pragma pop_macro("TIME_ZONE_NAMES")
+#pragma pop_macro("TRACE_ON")
+#pragma pop_macro("TZNB_EXCITY_PREFIX")
 #pragma pop_macro("ZONE_IDS_CACHEKEY")
-#pragma pop_macro("COMPACT_NUMBER_PATTERNS_CACHEKEY")
 
 #endif // _sun_util_locale_provider_LocaleResources_h_

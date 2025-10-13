@@ -5,38 +5,38 @@
 
 #include <java/lang/Character.h>
 
-#pragma push_macro("MAX_SURROGATE")
-#undef MAX_SURROGATE
-#pragma push_macro("MIN_LOW_SURROGATE")
-#undef MIN_LOW_SURROGATE
-#pragma push_macro("UCS4_MAX")
-#undef UCS4_MAX
 #pragma push_macro("MAX")
 #undef MAX
-#pragma push_macro("MAX_HIGH")
-#undef MAX_HIGH
-#pragma push_macro("MIN_LOW")
-#undef MIN_LOW
-#pragma push_macro("MIN_SURROGATE")
-#undef MIN_SURROGATE
-#pragma push_macro("MIN_SUPPLEMENTARY_CODE_POINT")
-#undef MIN_SUPPLEMENTARY_CODE_POINT
-#pragma push_macro("UCS4_MIN")
-#undef UCS4_MIN
-#pragma push_macro("MIN")
-#undef MIN
-#pragma push_macro("MAX_HIGH_SURROGATE")
-#undef MAX_HIGH_SURROGATE
-#pragma push_macro("MAX_LOW_SURROGATE")
-#undef MAX_LOW_SURROGATE
-#pragma push_macro("MAX_LOW")
-#undef MAX_LOW
-#pragma push_macro("MIN_HIGH_SURROGATE")
-#undef MIN_HIGH_SURROGATE
-#pragma push_macro("MIN_HIGH")
-#undef MIN_HIGH
 #pragma push_macro("MAX_CODE_POINT")
 #undef MAX_CODE_POINT
+#pragma push_macro("MAX_HIGH")
+#undef MAX_HIGH
+#pragma push_macro("MAX_HIGH_SURROGATE")
+#undef MAX_HIGH_SURROGATE
+#pragma push_macro("MAX_LOW")
+#undef MAX_LOW
+#pragma push_macro("MAX_LOW_SURROGATE")
+#undef MAX_LOW_SURROGATE
+#pragma push_macro("MAX_SURROGATE")
+#undef MAX_SURROGATE
+#pragma push_macro("MIN")
+#undef MIN
+#pragma push_macro("MIN_HIGH")
+#undef MIN_HIGH
+#pragma push_macro("MIN_HIGH_SURROGATE")
+#undef MIN_HIGH_SURROGATE
+#pragma push_macro("MIN_LOW")
+#undef MIN_LOW
+#pragma push_macro("MIN_LOW_SURROGATE")
+#undef MIN_LOW_SURROGATE
+#pragma push_macro("MIN_SUPPLEMENTARY_CODE_POINT")
+#undef MIN_SUPPLEMENTARY_CODE_POINT
+#pragma push_macro("MIN_SURROGATE")
+#undef MIN_SURROGATE
+#pragma push_macro("UCS4_MAX")
+#undef UCS4_MAX
+#pragma push_macro("UCS4_MIN")
+#undef UCS4_MIN
 
 namespace sun {
 	namespace nio {
@@ -69,21 +69,21 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("MAX_SURROGATE")
-#pragma pop_macro("MIN_LOW_SURROGATE")
-#pragma pop_macro("UCS4_MAX")
 #pragma pop_macro("MAX")
-#pragma pop_macro("MAX_HIGH")
-#pragma pop_macro("MIN_LOW")
-#pragma pop_macro("MIN_SURROGATE")
-#pragma pop_macro("MIN_SUPPLEMENTARY_CODE_POINT")
-#pragma pop_macro("UCS4_MIN")
-#pragma pop_macro("MIN")
-#pragma pop_macro("MAX_HIGH_SURROGATE")
-#pragma pop_macro("MAX_LOW_SURROGATE")
-#pragma pop_macro("MAX_LOW")
-#pragma pop_macro("MIN_HIGH_SURROGATE")
-#pragma pop_macro("MIN_HIGH")
 #pragma pop_macro("MAX_CODE_POINT")
+#pragma pop_macro("MAX_HIGH")
+#pragma pop_macro("MAX_HIGH_SURROGATE")
+#pragma pop_macro("MAX_LOW")
+#pragma pop_macro("MAX_LOW_SURROGATE")
+#pragma pop_macro("MAX_SURROGATE")
+#pragma pop_macro("MIN")
+#pragma pop_macro("MIN_HIGH")
+#pragma pop_macro("MIN_HIGH_SURROGATE")
+#pragma pop_macro("MIN_LOW")
+#pragma pop_macro("MIN_LOW_SURROGATE")
+#pragma pop_macro("MIN_SUPPLEMENTARY_CODE_POINT")
+#pragma pop_macro("MIN_SURROGATE")
+#pragma pop_macro("UCS4_MAX")
+#pragma pop_macro("UCS4_MIN")
 
 #endif // _sun_nio_cs_Surrogate_h_

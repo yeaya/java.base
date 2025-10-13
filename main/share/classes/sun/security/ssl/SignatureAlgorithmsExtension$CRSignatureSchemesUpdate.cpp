@@ -29,8 +29,8 @@
 #include <jcpp.h>
 
 #undef CR_SIGNATURE_ALGORITHMS
-#undef HANDSHAKE_FAILURE
 #undef CR_SIGNATURE_ALGORITHMS_CERT
+#undef HANDSHAKE_FAILURE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

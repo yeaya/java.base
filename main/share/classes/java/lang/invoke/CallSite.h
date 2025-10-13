@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("THROW_UCS")
-#undef THROW_UCS
-#pragma push_macro("TARGET_OFFSET")
-#undef TARGET_OFFSET
 #pragma push_macro("GET_TARGET")
 #undef GET_TARGET
+#pragma push_macro("TARGET_OFFSET")
+#undef TARGET_OFFSET
+#pragma push_macro("THROW_UCS")
+#undef THROW_UCS
 
 namespace java {
 	namespace lang {
@@ -62,8 +62,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("THROW_UCS")
-#pragma pop_macro("TARGET_OFFSET")
 #pragma pop_macro("GET_TARGET")
+#pragma pop_macro("TARGET_OFFSET")
+#pragma pop_macro("THROW_UCS")
 
 #endif // _java_lang_invoke_CallSite_h_

@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UTF8")
-#undef UTF8
 #pragma push_macro("JLA")
 #undef JLA
+#pragma push_macro("UTF8")
+#undef UTF8
 
 namespace java {
 	namespace nio {
@@ -69,7 +69,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("UTF8")
 #pragma pop_macro("JLA")
+#pragma pop_macro("UTF8")
 
 #endif // _java_util_zip_ZipCoder_h_

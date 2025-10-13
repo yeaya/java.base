@@ -13,8 +13,8 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef CLDR
+#undef ROOT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

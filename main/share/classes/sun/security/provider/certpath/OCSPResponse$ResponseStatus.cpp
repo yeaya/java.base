@@ -13,12 +13,12 @@
 #include <sun/security/provider/certpath/OCSPResponse.h>
 #include <jcpp.h>
 
-#undef TRY_LATER
-#undef SUCCESSFUL
-#undef UNAUTHORIZED
+#undef INTERNAL_ERROR
 #undef MALFORMED_REQUEST
 #undef SIG_REQUIRED
-#undef INTERNAL_ERROR
+#undef SUCCESSFUL
+#undef TRY_LATER
+#undef UNAUTHORIZED
 #undef UNUSED
 
 using $OCSPResponse$ResponseStatusArray = $Array<::sun::security::provider::certpath::OCSPResponse$ResponseStatus>;

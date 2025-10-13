@@ -14,8 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_PRIORITY
 #undef MAX_PRIORITY
+#undef MIN_PRIORITY
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

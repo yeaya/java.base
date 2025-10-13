@@ -13,18 +13,18 @@
 #include <java/time/Month.h>
 #include <jcpp.h>
 
-#undef JUNE
-#undef JANUARY
-#undef MAY
-#undef OCTOBER
-#undef DECEMBER
-#undef MARCH
-#undef FEBRUARY
-#undef AUGUST
-#undef SEPTEMBER
-#undef JULY
-#undef NOVEMBER
 #undef APRIL
+#undef AUGUST
+#undef DECEMBER
+#undef FEBRUARY
+#undef JANUARY
+#undef JULY
+#undef JUNE
+#undef MARCH
+#undef MAY
+#undef NOVEMBER
+#undef OCTOBER
+#undef SEPTEMBER
 
 using $MonthArray = $Array<::java::time::Month>;
 using $ClassInfo = ::java::lang::ClassInfo;

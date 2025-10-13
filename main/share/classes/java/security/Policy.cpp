@@ -46,9 +46,9 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef ALL_PERMISSION
 #undef DEFAULT_POLICY
 #undef GET_POLICY_PERMISSION
-#undef ALL_PERMISSION
 #undef UNSUPPORTED_EMPTY_COLLECTION
 
 using $ClassInfo = ::java::lang::ClassInfo;

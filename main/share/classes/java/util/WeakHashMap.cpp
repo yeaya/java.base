@@ -34,10 +34,10 @@
 #include <java/util/function/BiFunction.h>
 #include <jcpp.h>
 
-#undef DEFAULT_LOAD_FACTOR
-#undef MAX_VALUE
 #undef DEFAULT_INITIAL_CAPACITY
+#undef DEFAULT_LOAD_FACTOR
 #undef MAXIMUM_CAPACITY
+#undef MAX_VALUE
 #undef NULL_KEY
 
 using $WeakHashMap$EntryArray = $Array<::java::util::WeakHashMap$Entry>;

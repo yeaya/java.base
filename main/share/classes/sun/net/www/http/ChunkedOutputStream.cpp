@@ -21,14 +21,14 @@
 #include <sun/nio/cs/US_ASCII.h>
 #include <jcpp.h>
 
+#undef CRLF
 #undef CRLF_SIZE
 #undef DEFAULT_CHUNK_SIZE
 #undef EMPTY_CHUNK_HEADER
-#undef FOOTER_SIZE
-#undef CRLF
-#undef INSTANCE
-#undef FOOTER
 #undef EMPTY_CHUNK_HEADER_SIZE
+#undef FOOTER
+#undef FOOTER_SIZE
+#undef INSTANCE
 
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;

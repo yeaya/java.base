@@ -12,13 +12,13 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef MAX_EXPONENT
-#undef NEGATIVE_INFINITY
-#undef MIN_NORMAL
 #undef MAX_VALUE
-#undef MIN_VALUE
 #undef MIN_EXPONENT
+#undef MIN_NORMAL
+#undef MIN_VALUE
+#undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

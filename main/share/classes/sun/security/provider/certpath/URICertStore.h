@@ -5,18 +5,18 @@
 
 #include <java/security/cert/CertStoreSpi.h>
 
-#pragma push_macro("DEFAULT_CRL_READ_TIMEOUT")
-#undef DEFAULT_CRL_READ_TIMEOUT
 #pragma push_macro("CACHE_SIZE")
 #undef CACHE_SIZE
-#pragma push_macro("DEFAULT_CRL_CONNECT_TIMEOUT")
-#undef DEFAULT_CRL_CONNECT_TIMEOUT
 #pragma push_macro("CHECK_INTERVAL")
 #undef CHECK_INTERVAL
 #pragma push_macro("CRL_CONNECT_TIMEOUT")
 #undef CRL_CONNECT_TIMEOUT
 #pragma push_macro("CRL_READ_TIMEOUT")
 #undef CRL_READ_TIMEOUT
+#pragma push_macro("DEFAULT_CRL_CONNECT_TIMEOUT")
+#undef DEFAULT_CRL_CONNECT_TIMEOUT
+#pragma push_macro("DEFAULT_CRL_READ_TIMEOUT")
+#undef DEFAULT_CRL_READ_TIMEOUT
 
 namespace java {
 	namespace net {
@@ -97,11 +97,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DEFAULT_CRL_READ_TIMEOUT")
 #pragma pop_macro("CACHE_SIZE")
-#pragma pop_macro("DEFAULT_CRL_CONNECT_TIMEOUT")
 #pragma pop_macro("CHECK_INTERVAL")
 #pragma pop_macro("CRL_CONNECT_TIMEOUT")
 #pragma pop_macro("CRL_READ_TIMEOUT")
+#pragma pop_macro("DEFAULT_CRL_CONNECT_TIMEOUT")
+#pragma pop_macro("DEFAULT_CRL_READ_TIMEOUT")
 
 #endif // _sun_security_provider_certpath_URICertStore_h_

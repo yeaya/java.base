@@ -9,10 +9,10 @@
 #undef LA
 #pragma push_macro("LONDON")
 #undef LONDON
-#pragma push_macro("ZONES")
-#undef ZONES
 #pragma push_macro("MOSCOW")
 #undef MOSCOW
+#pragma push_macro("ZONES")
+#undef ZONES
 
 namespace java {
 	namespace text {
@@ -42,7 +42,7 @@ public:
 
 #pragma pop_macro("LA")
 #pragma pop_macro("LONDON")
-#pragma pop_macro("ZONES")
 #pragma pop_macro("MOSCOW")
+#pragma pop_macro("ZONES")
 
 #endif // _Bug7130335_h_

@@ -120,10 +120,10 @@ $bytes* RSAServerKeyExchange$RSAServerKeyExchangeProducer::produce($ConnectionCo
 		return nullptr;
 	} else if (x509Possession == nullptr) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "No RSA certificate negotiated for server key exchange"_s)));
+		$throw($($nc(shc->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "No RSA certificate negotiated for server key exchange"_s)));
 	} else if (!"RSA"_s->equals($($nc($nc(x509Possession)->popPrivateKey)->getAlgorithm()))) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "No X.509 possession can be used for ephemeral RSA ServerKeyExchange"_s)));
+		$throw($($nc(shc->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "No X.509 possession can be used for ephemeral RSA ServerKeyExchange"_s)));
 	}
 	$var($RSAServerKeyExchange$RSAServerKeyExchangeMessage, skem, $new($RSAServerKeyExchange$RSAServerKeyExchangeMessage, shc, x509Possession, rsaPossession));
 	$init($SSLLogger);

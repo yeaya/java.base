@@ -35,13 +35,13 @@
 #include <sun/nio/fs/AbstractPoller$RequestType.h>
 #include <jcpp.h>
 
-#undef REGISTER
-#undef OVERFLOW
 #undef CANCEL
 #undef CLOSE
 #undef ENTRY_CREATE
-#undef ENTRY_MODIFY
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef OVERFLOW
+#undef REGISTER
 
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
 using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;

@@ -80,20 +80,20 @@
 #include <sun/security/x509/X509CertInfo.h>
 #include <jcpp.h>
 
-#undef DN_NAME
 #undef CMS_ALGORITHM_PROTECTION_OID
-#undef OLD_SIGNED_DATA_OID
-#undef PKCS7
-#undef RANDOM
-#undef NETSCAPE_CERT_SEQUENCE_OID
-#undef ONE
 #undef CONTENT_TYPE_OID
 #undef DATA_OID
+#undef DN_NAME
 #undef ISSUER
 #undef MESSAGE_DIGEST_OID
 #undef NAME_URI
-#undef SIGNED_DATA_OID
+#undef NETSCAPE_CERT_SEQUENCE_OID
+#undef OLD_SIGNED_DATA_OID
+#undef ONE
+#undef PKCS7
+#undef RANDOM
 #undef SIGNATURE_TIMESTAMP_TOKEN_OID
+#undef SIGNED_DATA_OID
 #undef SIGNING_TIME_OID
 
 using $PrincipalArray = $Array<::java::security::Principal>;

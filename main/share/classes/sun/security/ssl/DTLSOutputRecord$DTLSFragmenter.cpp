@@ -29,15 +29,15 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef NOT_APPLICABLE
-#undef HELLO_VERIFY_REQUEST
-#undef SERVER_HELLO_DONE
-#undef HELLO_REQUEST
-#undef CHANGE_CIPHER_SPEC
-#undef HANDSHAKE
 #undef ALERT
-#undef FINISHED
+#undef CHANGE_CIPHER_SPEC
 #undef CLIENT_HELLO
+#undef FINISHED
+#undef HANDSHAKE
+#undef HELLO_REQUEST
+#undef HELLO_VERIFY_REQUEST
+#undef NOT_APPLICABLE
+#undef SERVER_HELLO_DONE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

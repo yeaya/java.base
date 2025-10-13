@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SIGNAL")
-#undef SIGNAL
 #pragma push_macro("JAVA_EXE")
 #undef JAVA_EXE
+#pragma push_macro("SIGNAL")
+#undef SIGNAL
 
 namespace java {
 	namespace io {
@@ -31,7 +31,7 @@ public:
 	static $String* JAVA_EXE;
 };
 
-#pragma pop_macro("SIGNAL")
 #pragma pop_macro("JAVA_EXE")
+#pragma pop_macro("SIGNAL")
 
 #endif // _InheritIOEHandle_h_

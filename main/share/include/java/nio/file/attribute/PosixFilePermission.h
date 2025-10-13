@@ -6,24 +6,24 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("OWNER_READ")
-#undef OWNER_READ
-#pragma push_macro("GROUP_WRITE")
-#undef GROUP_WRITE
-#pragma push_macro("GROUP_READ")
-#undef GROUP_READ
-#pragma push_macro("OTHERS_WRITE")
-#undef OTHERS_WRITE
-#pragma push_macro("OWNER_WRITE")
-#undef OWNER_WRITE
-#pragma push_macro("OTHERS_READ")
-#undef OTHERS_READ
-#pragma push_macro("OTHERS_EXECUTE")
-#undef OTHERS_EXECUTE
-#pragma push_macro("OWNER_EXECUTE")
-#undef OWNER_EXECUTE
 #pragma push_macro("GROUP_EXECUTE")
 #undef GROUP_EXECUTE
+#pragma push_macro("GROUP_READ")
+#undef GROUP_READ
+#pragma push_macro("GROUP_WRITE")
+#undef GROUP_WRITE
+#pragma push_macro("OTHERS_EXECUTE")
+#undef OTHERS_EXECUTE
+#pragma push_macro("OTHERS_READ")
+#undef OTHERS_READ
+#pragma push_macro("OTHERS_WRITE")
+#undef OTHERS_WRITE
+#pragma push_macro("OWNER_EXECUTE")
+#undef OWNER_EXECUTE
+#pragma push_macro("OWNER_READ")
+#undef OWNER_READ
+#pragma push_macro("OWNER_WRITE")
+#undef OWNER_WRITE
 
 namespace java {
 	namespace nio {
@@ -55,14 +55,14 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("OWNER_READ")
-#pragma pop_macro("GROUP_WRITE")
-#pragma pop_macro("GROUP_READ")
-#pragma pop_macro("OTHERS_WRITE")
-#pragma pop_macro("OWNER_WRITE")
-#pragma pop_macro("OTHERS_READ")
-#pragma pop_macro("OTHERS_EXECUTE")
-#pragma pop_macro("OWNER_EXECUTE")
 #pragma pop_macro("GROUP_EXECUTE")
+#pragma pop_macro("GROUP_READ")
+#pragma pop_macro("GROUP_WRITE")
+#pragma pop_macro("OTHERS_EXECUTE")
+#pragma pop_macro("OTHERS_READ")
+#pragma pop_macro("OTHERS_WRITE")
+#pragma pop_macro("OWNER_EXECUTE")
+#pragma pop_macro("OWNER_READ")
+#pragma pop_macro("OWNER_WRITE")
 
 #endif // _java_nio_file_attribute_PosixFilePermission_h_

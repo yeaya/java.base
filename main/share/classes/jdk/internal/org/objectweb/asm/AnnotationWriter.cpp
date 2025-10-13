@@ -25,9 +25,9 @@
 
 #undef ASM8
 #undef RUNTIME_INVISIBLE_ANNOTATIONS
+#undef RUNTIME_INVISIBLE_TYPE_ANNOTATIONS
 #undef RUNTIME_VISIBLE_ANNOTATIONS
 #undef RUNTIME_VISIBLE_TYPE_ANNOTATIONS
-#undef RUNTIME_INVISIBLE_TYPE_ANNOTATIONS
 
 using $AnnotationWriterArray = $Array<::jdk::internal::org::objectweb::asm$::AnnotationWriter>;
 using $Boolean = ::java::lang::Boolean;

@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MAX_FIELD")
-#undef MAX_FIELD
 #pragma push_macro("COMPUTED")
 #undef COMPUTED
-#pragma push_macro("WEEK_YEAR")
-#undef WEEK_YEAR
 #pragma push_macro("ISO_DAY_OF_WEEK")
 #undef ISO_DAY_OF_WEEK
-#pragma push_macro("UNSET")
-#undef UNSET
+#pragma push_macro("MAX_FIELD")
+#undef MAX_FIELD
 #pragma push_macro("MINIMUM_USER_STAMP")
 #undef MINIMUM_USER_STAMP
+#pragma push_macro("UNSET")
+#undef UNSET
+#pragma push_macro("WEEK_YEAR")
+#undef WEEK_YEAR
 
 namespace java {
 	namespace util {
@@ -55,11 +55,11 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("MAX_FIELD")
 #pragma pop_macro("COMPUTED")
-#pragma pop_macro("WEEK_YEAR")
 #pragma pop_macro("ISO_DAY_OF_WEEK")
-#pragma pop_macro("UNSET")
+#pragma pop_macro("MAX_FIELD")
 #pragma pop_macro("MINIMUM_USER_STAMP")
+#pragma pop_macro("UNSET")
+#pragma pop_macro("WEEK_YEAR")
 
 #endif // _java_text_CalendarBuilder_h_

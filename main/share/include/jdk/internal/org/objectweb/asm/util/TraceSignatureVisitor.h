@@ -5,14 +5,14 @@
 
 #include <jdk/internal/org/objectweb/asm/signature/SignatureVisitor.h>
 
+#pragma push_macro("BASE_TYPES")
+#undef BASE_TYPES
 #pragma push_macro("COMMA_SEPARATOR")
 #undef COMMA_SEPARATOR
 #pragma push_macro("EXTENDS_SEPARATOR")
 #undef EXTENDS_SEPARATOR
 #pragma push_macro("IMPLEMENTS_SEPARATOR")
 #undef IMPLEMENTS_SEPARATOR
-#pragma push_macro("BASE_TYPES")
-#undef BASE_TYPES
 
 namespace java {
 	namespace lang {
@@ -84,9 +84,9 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("BASE_TYPES")
 #pragma pop_macro("COMMA_SEPARATOR")
 #pragma pop_macro("EXTENDS_SEPARATOR")
 #pragma pop_macro("IMPLEMENTS_SEPARATOR")
-#pragma pop_macro("BASE_TYPES")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_TraceSignatureVisitor_h_

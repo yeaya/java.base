@@ -44,17 +44,17 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
+#undef ANY_POLICY
+#undef EXCLUDED_SUBTREES
+#undef NAME_DIFF_TYPE
+#undef NAME_DIRECTORY
 #undef NAME_MATCH
 #undef NAME_NARROWS
-#undef SUBJECT_NAME
 #undef NAME_SAME_TYPE
-#undef NAME_DIFF_TYPE
 #undef NAME_WIDENS
-#undef USE_AIA
-#undef NAME_DIRECTORY
-#undef EXCLUDED_SUBTREES
-#undef ANY_POLICY
 #undef PERMITTED_SUBTREES
+#undef SUBJECT_NAME
+#undef USE_AIA
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

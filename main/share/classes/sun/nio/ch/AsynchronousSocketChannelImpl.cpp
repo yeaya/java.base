@@ -60,14 +60,14 @@
 #include <jcpp.h>
 
 #undef MILLISECONDS
-#undef SHUT_WR
-#undef ST_UNCONNECTED
-#undef ST_PENDING
-#undef ST_UNINITIALIZED
-#undef SO_REUSEADDR
-#undef UNSPEC
 #undef SHUT_RD
+#undef SHUT_WR
+#undef SO_REUSEADDR
 #undef ST_CONNECTED
+#undef ST_PENDING
+#undef ST_UNCONNECTED
+#undef ST_UNINITIALIZED
+#undef UNSPEC
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $FileDescriptor = ::java::io::FileDescriptor;

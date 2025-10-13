@@ -30,10 +30,10 @@
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
 
+#undef DOUBLE_VALUE
 #undef IS_ORDERED
 #undef IS_SORTED
 #undef SIZED
-#undef DOUBLE_VALUE
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

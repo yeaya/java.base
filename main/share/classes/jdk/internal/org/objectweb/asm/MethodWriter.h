@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 
+#pragma push_macro("COMPUTE_ALL_FRAMES")
+#undef COMPUTE_ALL_FRAMES
+#pragma push_macro("COMPUTE_INSERTED_FRAMES")
+#undef COMPUTE_INSERTED_FRAMES
+#pragma push_macro("COMPUTE_MAX_STACK_AND_LOCAL")
+#undef COMPUTE_MAX_STACK_AND_LOCAL
 #pragma push_macro("COMPUTE_MAX_STACK_AND_LOCAL_FROM_FRAMES")
 #undef COMPUTE_MAX_STACK_AND_LOCAL_FROM_FRAMES
+#pragma push_macro("COMPUTE_NOTHING")
+#undef COMPUTE_NOTHING
 #pragma push_macro("NA")
 #undef NA
 #pragma push_macro("STACK_SIZE_DELTA")
 #undef STACK_SIZE_DELTA
-#pragma push_macro("COMPUTE_MAX_STACK_AND_LOCAL")
-#undef COMPUTE_MAX_STACK_AND_LOCAL
-#pragma push_macro("COMPUTE_INSERTED_FRAMES")
-#undef COMPUTE_INSERTED_FRAMES
-#pragma push_macro("COMPUTE_NOTHING")
-#undef COMPUTE_NOTHING
-#pragma push_macro("COMPUTE_ALL_FRAMES")
-#undef COMPUTE_ALL_FRAMES
 
 namespace jdk {
 	namespace internal {
@@ -171,12 +171,12 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("COMPUTE_ALL_FRAMES")
+#pragma pop_macro("COMPUTE_INSERTED_FRAMES")
+#pragma pop_macro("COMPUTE_MAX_STACK_AND_LOCAL")
 #pragma pop_macro("COMPUTE_MAX_STACK_AND_LOCAL_FROM_FRAMES")
+#pragma pop_macro("COMPUTE_NOTHING")
 #pragma pop_macro("NA")
 #pragma pop_macro("STACK_SIZE_DELTA")
-#pragma pop_macro("COMPUTE_MAX_STACK_AND_LOCAL")
-#pragma pop_macro("COMPUTE_INSERTED_FRAMES")
-#pragma pop_macro("COMPUTE_NOTHING")
-#pragma pop_macro("COMPUTE_ALL_FRAMES")
 
 #endif // _jdk_internal_org_objectweb_asm$_MethodWriter_h_

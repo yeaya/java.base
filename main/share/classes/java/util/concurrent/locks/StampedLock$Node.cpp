@@ -13,10 +13,10 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
+#undef NEXT
+#undef PREV
 #undef STATUS
 #undef U
-#undef PREV
-#undef NEXT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -27,10 +27,10 @@
 #include <sun/reflect/annotation/TypeAnnotation.h>
 #include <jcpp.h>
 
-#undef EMPTY_ANNOTATED_TYPE_ARRAY
-#undef EMPTY_ANNOTATED_TYPE
-#undef EMPTY_TYPE_ANNOTATION_ARRAY
 #undef BASE_LOCATION
+#undef EMPTY_ANNOTATED_TYPE
+#undef EMPTY_ANNOTATED_TYPE_ARRAY
+#undef EMPTY_TYPE_ANNOTATION_ARRAY
 
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $TypeAnnotationArray = $Array<::sun::reflect::annotation::TypeAnnotation>;

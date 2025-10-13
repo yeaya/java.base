@@ -230,7 +230,7 @@ $String* Debug::toHexString($BigInteger* b) {
 			if ((i % 64) == 0) {
 				sb->append("\n    "_s);
 			} else if (i % 8 == 0) {
-				$nc(sb)->append(" "_s);
+				sb->append(" "_s);
 			}
 		}
 	}

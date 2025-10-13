@@ -13,8 +13,8 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef U
 #undef COWAITERS
+#undef U
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

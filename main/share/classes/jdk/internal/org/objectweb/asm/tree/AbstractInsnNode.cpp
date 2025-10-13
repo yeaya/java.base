@@ -20,22 +20,22 @@
 #include <jdk/internal/org/objectweb/asm/tree/TypeAnnotationNode.h>
 #include <jcpp.h>
 
-#undef INT_INSN
-#undef INSN
-#undef LDC_INSN
 #undef FIELD_INSN
 #undef FRAME
-#undef TYPE_INSN
-#undef METHOD_INSN
-#undef LOOKUPSWITCH_INSN
-#undef INVOKE_DYNAMIC_INSN
-#undef LINE
-#undef TABLESWITCH_INSN
-#undef LABEL
 #undef IINC_INSN
-#undef MULTIANEWARRAY_INSN
-#undef VAR_INSN
+#undef INSN
+#undef INT_INSN
+#undef INVOKE_DYNAMIC_INSN
 #undef JUMP_INSN
+#undef LABEL
+#undef LDC_INSN
+#undef LINE
+#undef LOOKUPSWITCH_INSN
+#undef METHOD_INSN
+#undef MULTIANEWARRAY_INSN
+#undef TABLESWITCH_INSN
+#undef TYPE_INSN
+#undef VAR_INSN
 
 using $LabelNodeArray = $Array<::jdk::internal::org::objectweb::asm$::tree::LabelNode>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -5,44 +5,44 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("EXTENSION_NAME")
-#undef EXTENSION_NAME
-#pragma push_macro("MULTI_RELEASE")
-#undef MULTI_RELEASE
-#pragma push_macro("EXTENSION_INSTALLATION")
-#undef EXTENSION_INSTALLATION
-#pragma push_macro("IMPLEMENTATION_VERSION")
-#undef IMPLEMENTATION_VERSION
-#pragma push_macro("IMPLEMENTATION_TITLE")
-#undef IMPLEMENTATION_TITLE
-#pragma push_macro("SIGNATURE_VERSION")
-#undef SIGNATURE_VERSION
 #pragma push_macro("CLASS_PATH")
 #undef CLASS_PATH
-#pragma push_macro("MAIN_CLASS")
-#undef MAIN_CLASS
-#pragma push_macro("SEALED")
-#undef SEALED
-#pragma push_macro("IMPLEMENTATION_URL")
-#undef IMPLEMENTATION_URL
-#pragma push_macro("IMPLEMENTATION_VENDOR_ID")
-#undef IMPLEMENTATION_VENDOR_ID
-#pragma push_macro("SPECIFICATION_VERSION")
-#undef SPECIFICATION_VERSION
-#pragma push_macro("EXTENSION_LIST")
-#undef EXTENSION_LIST
-#pragma push_macro("SPECIFICATION_VENDOR")
-#undef SPECIFICATION_VENDOR
 #pragma push_macro("CONTENT_TYPE")
 #undef CONTENT_TYPE
-#pragma push_macro("SPECIFICATION_TITLE")
-#undef SPECIFICATION_TITLE
-#pragma push_macro("MANIFEST_VERSION")
-#undef MANIFEST_VERSION
+#pragma push_macro("EXTENSION_INSTALLATION")
+#undef EXTENSION_INSTALLATION
+#pragma push_macro("EXTENSION_LIST")
+#undef EXTENSION_LIST
+#pragma push_macro("EXTENSION_NAME")
+#undef EXTENSION_NAME
+#pragma push_macro("IMPLEMENTATION_TITLE")
+#undef IMPLEMENTATION_TITLE
+#pragma push_macro("IMPLEMENTATION_URL")
+#undef IMPLEMENTATION_URL
 #pragma push_macro("IMPLEMENTATION_VENDOR")
 #undef IMPLEMENTATION_VENDOR
+#pragma push_macro("IMPLEMENTATION_VENDOR_ID")
+#undef IMPLEMENTATION_VENDOR_ID
+#pragma push_macro("IMPLEMENTATION_VERSION")
+#undef IMPLEMENTATION_VERSION
 #pragma push_macro("KNOWN_NAMES")
 #undef KNOWN_NAMES
+#pragma push_macro("MAIN_CLASS")
+#undef MAIN_CLASS
+#pragma push_macro("MANIFEST_VERSION")
+#undef MANIFEST_VERSION
+#pragma push_macro("MULTI_RELEASE")
+#undef MULTI_RELEASE
+#pragma push_macro("SEALED")
+#undef SEALED
+#pragma push_macro("SIGNATURE_VERSION")
+#undef SIGNATURE_VERSION
+#pragma push_macro("SPECIFICATION_TITLE")
+#undef SPECIFICATION_TITLE
+#pragma push_macro("SPECIFICATION_VENDOR")
+#undef SPECIFICATION_VENDOR
+#pragma push_macro("SPECIFICATION_VERSION")
+#undef SPECIFICATION_VERSION
 
 namespace java {
 	namespace util {
@@ -92,24 +92,24 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("EXTENSION_NAME")
-#pragma pop_macro("MULTI_RELEASE")
-#pragma pop_macro("EXTENSION_INSTALLATION")
-#pragma pop_macro("IMPLEMENTATION_VERSION")
-#pragma pop_macro("IMPLEMENTATION_TITLE")
-#pragma pop_macro("SIGNATURE_VERSION")
 #pragma pop_macro("CLASS_PATH")
-#pragma pop_macro("MAIN_CLASS")
-#pragma pop_macro("SEALED")
-#pragma pop_macro("IMPLEMENTATION_URL")
-#pragma pop_macro("IMPLEMENTATION_VENDOR_ID")
-#pragma pop_macro("SPECIFICATION_VERSION")
-#pragma pop_macro("EXTENSION_LIST")
-#pragma pop_macro("SPECIFICATION_VENDOR")
 #pragma pop_macro("CONTENT_TYPE")
-#pragma pop_macro("SPECIFICATION_TITLE")
-#pragma pop_macro("MANIFEST_VERSION")
+#pragma pop_macro("EXTENSION_INSTALLATION")
+#pragma pop_macro("EXTENSION_LIST")
+#pragma pop_macro("EXTENSION_NAME")
+#pragma pop_macro("IMPLEMENTATION_TITLE")
+#pragma pop_macro("IMPLEMENTATION_URL")
 #pragma pop_macro("IMPLEMENTATION_VENDOR")
+#pragma pop_macro("IMPLEMENTATION_VENDOR_ID")
+#pragma pop_macro("IMPLEMENTATION_VERSION")
 #pragma pop_macro("KNOWN_NAMES")
+#pragma pop_macro("MAIN_CLASS")
+#pragma pop_macro("MANIFEST_VERSION")
+#pragma pop_macro("MULTI_RELEASE")
+#pragma pop_macro("SEALED")
+#pragma pop_macro("SIGNATURE_VERSION")
+#pragma pop_macro("SPECIFICATION_TITLE")
+#pragma pop_macro("SPECIFICATION_VENDOR")
+#pragma pop_macro("SPECIFICATION_VERSION")
 
 #endif // _java_util_jar_Attributes$Name_h_

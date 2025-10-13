@@ -32,25 +32,25 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef STORED
 #undef DEFLATED
-#undef LOCFLG
-#undef LOCEXT
-#undef EXTHDR
-#undef INSTANCE
-#undef EXTLEN
-#undef MAX_VALUE
-#undef LOCSIZ
-#undef EXTSIG
 #undef EXTCRC
-#undef LOCTIM
-#undef LOCNAM
-#undef LOCSIG
+#undef EXTHDR
+#undef EXTLEN
+#undef EXTSIG
+#undef EXTSIZ
+#undef INSTANCE
+#undef LOCCRC
+#undef LOCEXT
+#undef LOCFLG
+#undef LOCHDR
 #undef LOCHOW
 #undef LOCLEN
-#undef LOCCRC
-#undef EXTSIZ
-#undef LOCHDR
+#undef LOCNAM
+#undef LOCSIG
+#undef LOCSIZ
+#undef LOCTIM
+#undef MAX_VALUE
+#undef STORED
 
 using $EOFException = ::java::io::EOFException;
 using $FilterInputStream = ::java::io::FilterInputStream;

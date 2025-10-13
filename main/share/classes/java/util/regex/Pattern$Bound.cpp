@@ -17,11 +17,11 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
+#undef BOTH
 #undef LEFT
+#undef NONE
 #undef NON_SPACING_MARK
 #undef RIGHT
-#undef NONE
-#undef BOTH
 
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;

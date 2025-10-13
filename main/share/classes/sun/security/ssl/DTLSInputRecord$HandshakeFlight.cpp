@@ -15,8 +15,8 @@
 #include <sun/security/ssl/SSLHandshake.h>
 #include <jcpp.h>
 
-#undef NOT_APPLICABLE
 #undef HF_UNKNOWN
+#undef NOT_APPLICABLE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;

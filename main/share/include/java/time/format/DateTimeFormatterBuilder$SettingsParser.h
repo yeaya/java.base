@@ -8,14 +8,14 @@
 #include <java/lang/Enum.h>
 #include <java/time/format/DateTimeFormatterBuilder$DateTimePrinterParser.h>
 
-#pragma push_macro("STRICT")
-#undef STRICT
+#pragma push_macro("INSENSITIVE")
+#undef INSENSITIVE
 #pragma push_macro("LENIENT")
 #undef LENIENT
 #pragma push_macro("SENSITIVE")
 #undef SENSITIVE
-#pragma push_macro("INSENSITIVE")
-#undef INSENSITIVE
+#pragma push_macro("STRICT")
+#undef STRICT
 
 namespace java {
 	namespace lang {
@@ -63,9 +63,9 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("STRICT")
+#pragma pop_macro("INSENSITIVE")
 #pragma pop_macro("LENIENT")
 #pragma pop_macro("SENSITIVE")
-#pragma pop_macro("INSENSITIVE")
+#pragma pop_macro("STRICT")
 
 #endif // _java_time_format_DateTimeFormatterBuilder$SettingsParser_h_

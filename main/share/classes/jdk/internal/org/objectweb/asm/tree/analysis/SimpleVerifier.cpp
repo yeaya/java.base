@@ -26,20 +26,20 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/Value.h>
 #include <jcpp.h>
 
-#undef FLOAT
-#undef ASM8
 #undef ARRAY
-#undef REFERENCE_VALUE
-#undef UNINITIALIZED_VALUE
-#undef CHAR
-#undef OBJECT
+#undef ASM8
 #undef BOOLEAN
-#undef INT
-#undef SHORT
 #undef BYTE
-#undef NULL_TYPE
+#undef CHAR
 #undef DOUBLE
+#undef FLOAT
+#undef INT
 #undef LONG
+#undef NULL_TYPE
+#undef OBJECT
+#undef REFERENCE_VALUE
+#undef SHORT
+#undef UNINITIALIZED_VALUE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

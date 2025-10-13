@@ -13,10 +13,10 @@
 #include <java/util/stream/StreamOpFlag.h>
 #include <jcpp.h>
 
-#undef SPLITERATOR
 #undef OP
-#undef TERMINAL_OP
+#undef SPLITERATOR
 #undef STREAM
+#undef TERMINAL_OP
 #undef UPSTREAM_TERMINAL_OP
 
 using $StreamOpFlag$TypeArray = $Array<::java::util::stream::StreamOpFlag$Type>;

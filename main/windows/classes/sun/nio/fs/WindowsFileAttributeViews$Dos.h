@@ -8,16 +8,16 @@
 #include <java/nio/file/attribute/DosFileAttributeView.h>
 #include <sun/nio/fs/WindowsFileAttributeViews$Basic.h>
 
-#pragma push_macro("ATTRIBUTES_NAME")
-#undef ATTRIBUTES_NAME
-#pragma push_macro("READONLY_NAME")
-#undef READONLY_NAME
 #pragma push_macro("ARCHIVE_NAME")
 #undef ARCHIVE_NAME
-#pragma push_macro("SYSTEM_NAME")
-#undef SYSTEM_NAME
+#pragma push_macro("ATTRIBUTES_NAME")
+#undef ATTRIBUTES_NAME
 #pragma push_macro("HIDDEN_NAME")
 #undef HIDDEN_NAME
+#pragma push_macro("READONLY_NAME")
+#undef READONLY_NAME
+#pragma push_macro("SYSTEM_NAME")
+#undef SYSTEM_NAME
 
 namespace java {
 	namespace nio {
@@ -81,10 +81,10 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("ATTRIBUTES_NAME")
-#pragma pop_macro("READONLY_NAME")
 #pragma pop_macro("ARCHIVE_NAME")
-#pragma pop_macro("SYSTEM_NAME")
+#pragma pop_macro("ATTRIBUTES_NAME")
 #pragma pop_macro("HIDDEN_NAME")
+#pragma pop_macro("READONLY_NAME")
+#pragma pop_macro("SYSTEM_NAME")
 
 #endif // _sun_nio_fs_WindowsFileAttributeViews$Dos_h_

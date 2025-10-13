@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/DigestBase.h>
 
-#pragma push_macro("SHA2")
-#undef SHA2
 #pragma push_macro("ITERATION")
 #undef ITERATION
-#pragma push_macro("W")
-#undef W
 #pragma push_macro("ROUND_CONSTS")
 #undef ROUND_CONSTS
+#pragma push_macro("SHA2")
+#undef SHA2
+#pragma push_macro("W")
+#undef W
 
 namespace sun {
 	namespace security {
@@ -43,9 +43,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SHA2")
 #pragma pop_macro("ITERATION")
-#pragma pop_macro("W")
 #pragma pop_macro("ROUND_CONSTS")
+#pragma pop_macro("SHA2")
+#pragma pop_macro("W")
 
 #endif // _sun_security_provider_SHA2_h_

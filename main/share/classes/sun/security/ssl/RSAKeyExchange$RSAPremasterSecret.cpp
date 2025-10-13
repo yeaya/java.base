@@ -40,12 +40,12 @@
 #include <sun/security/util/KeyUtil.h>
 #include <jcpp.h>
 
-#undef WRAP_MODE
-#undef UNWRAP_MODE
 #undef CIPHER_RSA_PKCS1
-#undef SECRET_KEY
 #undef DECRYPT_MODE
+#undef SECRET_KEY
 #undef TLS12
+#undef UNWRAP_MODE
+#undef WRAP_MODE
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

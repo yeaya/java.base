@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 
-#pragma push_macro("START_LABEL")
-#undef START_LABEL
-#pragma push_macro("INVALID_DESCRIPTOR")
-#undef INVALID_DESCRIPTOR
-#pragma push_macro("INVALID_TYPE_REFERENCE")
-#undef INVALID_TYPE_REFERENCE
-#pragma push_macro("INVALID_LOCAL_VARIABLE_INDEX")
-#undef INVALID_LOCAL_VARIABLE_INDEX
-#pragma push_macro("OPCODE_METHODS")
-#undef OPCODE_METHODS
-#pragma push_macro("MUST_NOT_BE_NULL_OR_EMPTY")
-#undef MUST_NOT_BE_NULL_OR_EMPTY
-#pragma push_macro("INVALID")
-#undef INVALID
 #pragma push_macro("END_LABEL")
 #undef END_LABEL
+#pragma push_macro("INVALID")
+#undef INVALID
+#pragma push_macro("INVALID_DESCRIPTOR")
+#undef INVALID_DESCRIPTOR
+#pragma push_macro("INVALID_LOCAL_VARIABLE_INDEX")
+#undef INVALID_LOCAL_VARIABLE_INDEX
+#pragma push_macro("INVALID_TYPE_REFERENCE")
+#undef INVALID_TYPE_REFERENCE
+#pragma push_macro("MUST_NOT_BE_NULL_OR_EMPTY")
+#undef MUST_NOT_BE_NULL_OR_EMPTY
+#pragma push_macro("OPCODE_METHODS")
+#undef OPCODE_METHODS
+#pragma push_macro("START_LABEL")
+#undef START_LABEL
 
 namespace java {
 	namespace util {
@@ -157,13 +157,13 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("START_LABEL")
-#pragma pop_macro("INVALID_DESCRIPTOR")
-#pragma pop_macro("INVALID_TYPE_REFERENCE")
-#pragma pop_macro("INVALID_LOCAL_VARIABLE_INDEX")
-#pragma pop_macro("OPCODE_METHODS")
-#pragma pop_macro("MUST_NOT_BE_NULL_OR_EMPTY")
-#pragma pop_macro("INVALID")
 #pragma pop_macro("END_LABEL")
+#pragma pop_macro("INVALID")
+#pragma pop_macro("INVALID_DESCRIPTOR")
+#pragma pop_macro("INVALID_LOCAL_VARIABLE_INDEX")
+#pragma pop_macro("INVALID_TYPE_REFERENCE")
+#pragma pop_macro("MUST_NOT_BE_NULL_OR_EMPTY")
+#pragma pop_macro("OPCODE_METHODS")
+#pragma pop_macro("START_LABEL")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_CheckMethodAdapter_h_

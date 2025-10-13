@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("LONG_VALUES")
-#undef LONG_VALUES
 #pragma push_macro("INT_VALUES")
 #undef INT_VALUES
+#pragma push_macro("LONG_VALUES")
+#undef LONG_VALUES
 
 namespace java {
 	namespace lang {
@@ -40,7 +40,7 @@ public:
 	static ::java::util::Map* LONG_VALUES;
 };
 
-#pragma pop_macro("LONG_VALUES")
 #pragma pop_macro("INT_VALUES")
+#pragma pop_macro("LONG_VALUES")
 
 #endif // _IntegralValueTests_h_

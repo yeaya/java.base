@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 
-#pragma push_macro("NUM_LIMBS")
-#undef NUM_LIMBS
-#pragma push_macro("MODULUS")
-#undef MODULUS
-#pragma push_macro("CARRY_ADD")
-#undef CARRY_ADD
 #pragma push_macro("BITS_PER_LIMB")
 #undef BITS_PER_LIMB
+#pragma push_macro("CARRY_ADD")
+#undef CARRY_ADD
 #pragma push_macro("MAX_ADDS")
 #undef MAX_ADDS
+#pragma push_macro("MODULUS")
+#undef MODULUS
+#pragma push_macro("NUM_LIMBS")
+#undef NUM_LIMBS
 
 namespace java {
 	namespace math {
@@ -57,10 +57,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NUM_LIMBS")
-#pragma pop_macro("MODULUS")
-#pragma pop_macro("CARRY_ADD")
 #pragma pop_macro("BITS_PER_LIMB")
+#pragma pop_macro("CARRY_ADD")
 #pragma pop_macro("MAX_ADDS")
+#pragma pop_macro("MODULUS")
+#pragma pop_macro("NUM_LIMBS")
 
 #endif // _sun_security_util_math_intpoly_IntegerPolynomial448_h_

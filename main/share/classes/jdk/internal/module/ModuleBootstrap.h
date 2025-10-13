@@ -5,32 +5,32 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("ALL_SYSTEM")
-#undef ALL_SYSTEM
-#pragma push_macro("ALL_MODULE_PATH")
-#undef ALL_MODULE_PATH
-#pragma push_macro("ADD_READS")
-#undef ADD_READS
-#pragma push_macro("ENABLE_NATIVE_ACCESS")
-#undef ENABLE_NATIVE_ACCESS
-#pragma push_macro("ADD_MODULES")
-#undef ADD_MODULES
-#pragma push_macro("JLMA")
-#undef JLMA
 #pragma push_macro("ADD_EXPORTS")
 #undef ADD_EXPORTS
-#pragma push_macro("ALL_UNNAMED")
-#undef ALL_UNNAMED
+#pragma push_macro("ADD_MODULES")
+#undef ADD_MODULES
 #pragma push_macro("ADD_OPENS")
 #undef ADD_OPENS
-#pragma push_macro("PATCH_MODULE")
-#undef PATCH_MODULE
+#pragma push_macro("ADD_READS")
+#undef ADD_READS
 #pragma push_macro("ALL_DEFAULT")
 #undef ALL_DEFAULT
-#pragma push_macro("JLA")
-#undef JLA
+#pragma push_macro("ALL_MODULE_PATH")
+#undef ALL_MODULE_PATH
+#pragma push_macro("ALL_SYSTEM")
+#undef ALL_SYSTEM
+#pragma push_macro("ALL_UNNAMED")
+#undef ALL_UNNAMED
+#pragma push_macro("ENABLE_NATIVE_ACCESS")
+#undef ENABLE_NATIVE_ACCESS
 #pragma push_macro("JAVA_BASE")
 #undef JAVA_BASE
+#pragma push_macro("JLA")
+#undef JLA
+#pragma push_macro("JLMA")
+#undef JLMA
+#pragma push_macro("PATCH_MODULE")
+#undef PATCH_MODULE
 
 namespace java {
 	namespace lang {
@@ -143,18 +143,18 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("ALL_SYSTEM")
-#pragma pop_macro("ALL_MODULE_PATH")
-#pragma pop_macro("ADD_READS")
-#pragma pop_macro("ENABLE_NATIVE_ACCESS")
-#pragma pop_macro("ADD_MODULES")
-#pragma pop_macro("JLMA")
 #pragma pop_macro("ADD_EXPORTS")
-#pragma pop_macro("ALL_UNNAMED")
+#pragma pop_macro("ADD_MODULES")
 #pragma pop_macro("ADD_OPENS")
-#pragma pop_macro("PATCH_MODULE")
+#pragma pop_macro("ADD_READS")
 #pragma pop_macro("ALL_DEFAULT")
-#pragma pop_macro("JLA")
+#pragma pop_macro("ALL_MODULE_PATH")
+#pragma pop_macro("ALL_SYSTEM")
+#pragma pop_macro("ALL_UNNAMED")
+#pragma pop_macro("ENABLE_NATIVE_ACCESS")
 #pragma pop_macro("JAVA_BASE")
+#pragma pop_macro("JLA")
+#pragma pop_macro("JLMA")
+#pragma pop_macro("PATCH_MODULE")
 
 #endif // _jdk_internal_module_ModuleBootstrap_h_

@@ -13,11 +13,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_CHUNK_SIZE
 #undef MAX_CHUNK_POWER
+#undef MIN_CHUNK_POWER
+#undef MIN_CHUNK_SIZE
 #undef MIN_SPINE_SIZE
 #undef SIZE
-#undef MIN_CHUNK_POWER
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

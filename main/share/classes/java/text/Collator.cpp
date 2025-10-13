@@ -24,16 +24,16 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <jcpp.h>
 
-#undef FULL_DECOMPOSITION
+#undef CANONICAL_DECOMPOSITION
 #undef EQUAL
-#undef SECONDARY
-#undef IDENTICAL
+#undef FULL_DECOMPOSITION
 #undef GREATER
-#undef PRIMARY
+#undef IDENTICAL
 #undef LESS
 #undef NO_DECOMPOSITION
+#undef PRIMARY
+#undef SECONDARY
 #undef TERTIARY
-#undef CANONICAL_DECOMPOSITION
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;

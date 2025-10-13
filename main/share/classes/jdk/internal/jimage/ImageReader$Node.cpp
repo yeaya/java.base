@@ -17,9 +17,9 @@
 #include <jdk/internal/jimage/ImageReader.h>
 #include <jcpp.h>
 
+#undef MODULES_DIR
 #undef PACKAGES_DIR
 #undef ROOT_DIR
-#undef MODULES_DIR
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

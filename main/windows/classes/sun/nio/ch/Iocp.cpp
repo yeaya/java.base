@@ -40,8 +40,8 @@
 #include <sun/nio/ch/ThreadPool.h>
 #include <jcpp.h>
 
-#undef MAX_BATCH_SIZE
 #undef INVALID_HANDLE_VALUE
+#undef MAX_BATCH_SIZE
 
 using $Iocp$OverlappedChannelArray = $Array<::sun::nio::ch::Iocp$OverlappedChannel>;
 using $Closeable = ::java::io::Closeable;

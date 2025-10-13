@@ -31,9 +31,9 @@
 #include <jdk/internal/org/objectweb/asm/commons/ModuleTargetAttribute.h>
 #include <jcpp.h>
 
-#undef COMPUTE_MAXS
-#undef COMPUTE_FRAMES
 #undef ASM7
+#undef COMPUTE_FRAMES
+#undef COMPUTE_MAXS
 
 using $AttributeArray = $Array<::jdk::internal::org::objectweb::asm$::Attribute>;
 using $InputStream = ::java::io::InputStream;

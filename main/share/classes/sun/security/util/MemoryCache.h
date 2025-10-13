@@ -5,10 +5,10 @@
 
 #include <sun/security/util/Cache.h>
 
-#pragma push_macro("LOAD_FACTOR")
-#undef LOAD_FACTOR
 #pragma push_macro("DEBUG")
 #undef DEBUG
+#pragma push_macro("LOAD_FACTOR")
+#undef LOAD_FACTOR
 
 namespace java {
 	namespace lang {
@@ -67,7 +67,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("LOAD_FACTOR")
 #pragma pop_macro("DEBUG")
+#pragma pop_macro("LOAD_FACTOR")
 
 #endif // _sun_security_util_MemoryCache_h_

@@ -28,8 +28,8 @@
 #include <java/util/stream/SortedOps.h>
 #include <jcpp.h>
 
-#undef MAX_ARRAY_SIZE
 #undef BAD_SIZE
+#undef MAX_ARRAY_SIZE
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

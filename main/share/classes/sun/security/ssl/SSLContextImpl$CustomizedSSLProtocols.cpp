@@ -16,8 +16,8 @@
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <jcpp.h>
 
-#undef JDK_TLS_SERVER_PROTOCOLS
 #undef JDK_TLS_CLIENT_PROTOCOLS
+#undef JDK_TLS_SERVER_PROTOCOLS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -9,28 +9,28 @@
 
 #pragma push_macro("BYTES")
 #undef BYTES
+#pragma push_macro("CIPHERBUF_BASE")
+#undef CIPHERBUF_BASE
+#pragma push_macro("KEYSTREAM_SIZE")
+#undef KEYSTREAM_SIZE
+#pragma push_macro("KS_SIZE_INTS")
+#undef KS_SIZE_INTS
+#pragma push_macro("MAX_UINT32")
+#undef MAX_UINT32
 #pragma push_macro("MODE_AEAD")
 #undef MODE_AEAD
 #pragma push_macro("MODE_NONE")
 #undef MODE_NONE
-#pragma push_macro("STATE_CONST_1")
-#undef STATE_CONST_1
 #pragma push_macro("STATE_CONST_0")
 #undef STATE_CONST_0
-#pragma push_macro("KEYSTREAM_SIZE")
-#undef KEYSTREAM_SIZE
-#pragma push_macro("TAG_LENGTH")
-#undef TAG_LENGTH
-#pragma push_macro("MAX_UINT32")
-#undef MAX_UINT32
-#pragma push_macro("CIPHERBUF_BASE")
-#undef CIPHERBUF_BASE
-#pragma push_macro("STATE_CONST_3")
-#undef STATE_CONST_3
+#pragma push_macro("STATE_CONST_1")
+#undef STATE_CONST_1
 #pragma push_macro("STATE_CONST_2")
 #undef STATE_CONST_2
-#pragma push_macro("KS_SIZE_INTS")
-#undef KS_SIZE_INTS
+#pragma push_macro("STATE_CONST_3")
+#undef STATE_CONST_3
+#pragma push_macro("TAG_LENGTH")
+#undef TAG_LENGTH
 
 namespace com {
 	namespace sun {
@@ -153,16 +153,16 @@ public:
 } // com
 
 #pragma pop_macro("BYTES")
+#pragma pop_macro("CIPHERBUF_BASE")
+#pragma pop_macro("KEYSTREAM_SIZE")
+#pragma pop_macro("KS_SIZE_INTS")
+#pragma pop_macro("MAX_UINT32")
 #pragma pop_macro("MODE_AEAD")
 #pragma pop_macro("MODE_NONE")
-#pragma pop_macro("STATE_CONST_1")
 #pragma pop_macro("STATE_CONST_0")
-#pragma pop_macro("KEYSTREAM_SIZE")
-#pragma pop_macro("TAG_LENGTH")
-#pragma pop_macro("MAX_UINT32")
-#pragma pop_macro("CIPHERBUF_BASE")
-#pragma pop_macro("STATE_CONST_3")
+#pragma pop_macro("STATE_CONST_1")
 #pragma pop_macro("STATE_CONST_2")
-#pragma pop_macro("KS_SIZE_INTS")
+#pragma pop_macro("STATE_CONST_3")
+#pragma pop_macro("TAG_LENGTH")
 
 #endif // _com_sun_crypto_provider_ChaCha20Cipher_h_

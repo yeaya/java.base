@@ -36,8 +36,8 @@
 #include <sun/security/util/SecurityProperties.h>
 #include <jcpp.h>
 
-#undef INSTANCE
 #undef INCLUDE_JAR_NAME_IN_EXCEPTIONS
+#undef INSTANCE
 
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;

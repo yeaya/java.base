@@ -8,22 +8,22 @@
 #include <java/lang/Enum.h>
 #include <java/security/cert/CertPathValidatorException$Reason.h>
 
-#pragma push_macro("NAME_CHAINING")
-#undef NAME_CHAINING
-#pragma push_macro("UNRECOGNIZED_CRIT_EXT")
-#undef UNRECOGNIZED_CRIT_EXT
-#pragma push_macro("PATH_TOO_LONG")
-#undef PATH_TOO_LONG
-#pragma push_macro("INVALID_POLICY")
-#undef INVALID_POLICY
 #pragma push_macro("INVALID_KEY_USAGE")
 #undef INVALID_KEY_USAGE
 #pragma push_macro("INVALID_NAME")
 #undef INVALID_NAME
+#pragma push_macro("INVALID_POLICY")
+#undef INVALID_POLICY
+#pragma push_macro("NAME_CHAINING")
+#undef NAME_CHAINING
 #pragma push_macro("NOT_CA_CERT")
 #undef NOT_CA_CERT
 #pragma push_macro("NO_TRUST_ANCHOR")
 #undef NO_TRUST_ANCHOR
+#pragma push_macro("PATH_TOO_LONG")
+#undef PATH_TOO_LONG
+#pragma push_macro("UNRECOGNIZED_CRIT_EXT")
+#undef UNRECOGNIZED_CRIT_EXT
 
 namespace java {
 	namespace security {
@@ -58,13 +58,13 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("NAME_CHAINING")
-#pragma pop_macro("UNRECOGNIZED_CRIT_EXT")
-#pragma pop_macro("PATH_TOO_LONG")
-#pragma pop_macro("INVALID_POLICY")
 #pragma pop_macro("INVALID_KEY_USAGE")
 #pragma pop_macro("INVALID_NAME")
+#pragma pop_macro("INVALID_POLICY")
+#pragma pop_macro("NAME_CHAINING")
 #pragma pop_macro("NOT_CA_CERT")
 #pragma pop_macro("NO_TRUST_ANCHOR")
+#pragma pop_macro("PATH_TOO_LONG")
+#pragma pop_macro("UNRECOGNIZED_CRIT_EXT")
 
 #endif // _java_security_cert_PKIXReason_h_

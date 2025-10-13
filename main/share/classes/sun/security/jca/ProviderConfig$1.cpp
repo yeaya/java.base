@@ -15,8 +15,8 @@
 #include <sun/security/jca/ProviderConfig.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
+#undef TRUE
 
 using $File = ::java::io::File;
 using $Boolean = ::java::lang::Boolean;

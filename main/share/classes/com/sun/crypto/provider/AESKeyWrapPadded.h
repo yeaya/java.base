@@ -6,10 +6,10 @@
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("PAD_BLK")
-#undef PAD_BLK
 #pragma push_macro("ICV2")
 #undef ICV2
+#pragma push_macro("PAD_BLK")
+#undef PAD_BLK
 
 namespace com {
 	namespace sun {
@@ -42,7 +42,7 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("PAD_BLK")
 #pragma pop_macro("ICV2")
+#pragma pop_macro("PAD_BLK")
 
 #endif // _com_sun_crypto_provider_AESKeyWrapPadded_h_

@@ -15,9 +15,9 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
+#undef DHE_EXPORT
 #undef DSA
 #undef KE
-#undef DHE_EXPORT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

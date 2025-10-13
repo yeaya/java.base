@@ -5,24 +5,24 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TYPE_PKIX")
-#undef TYPE_PKIX
-#pragma push_macro("VAR_CODE_SIGNING")
-#undef VAR_CODE_SIGNING
-#pragma push_macro("VAR_TLS_SERVER")
-#undef VAR_TLS_SERVER
 #pragma push_macro("CHAIN0")
 #undef CHAIN0
+#pragma push_macro("TYPE_PKIX")
+#undef TYPE_PKIX
 #pragma push_macro("TYPE_SIMPLE")
 #undef TYPE_SIMPLE
+#pragma push_macro("VAR_CODE_SIGNING")
+#undef VAR_CODE_SIGNING
 #pragma push_macro("VAR_GENERIC")
 #undef VAR_GENERIC
+#pragma push_macro("VAR_JCE_SIGNING")
+#undef VAR_JCE_SIGNING
 #pragma push_macro("VAR_PLUGIN_CODE_SIGNING")
 #undef VAR_PLUGIN_CODE_SIGNING
 #pragma push_macro("VAR_TLS_CLIENT")
 #undef VAR_TLS_CLIENT
-#pragma push_macro("VAR_JCE_SIGNING")
-#undef VAR_JCE_SIGNING
+#pragma push_macro("VAR_TLS_SERVER")
+#undef VAR_TLS_SERVER
 #pragma push_macro("VAR_TSA_SERVER")
 #undef VAR_TSA_SERVER
 
@@ -94,15 +94,15 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TYPE_PKIX")
-#pragma pop_macro("VAR_CODE_SIGNING")
-#pragma pop_macro("VAR_TLS_SERVER")
 #pragma pop_macro("CHAIN0")
+#pragma pop_macro("TYPE_PKIX")
 #pragma pop_macro("TYPE_SIMPLE")
+#pragma pop_macro("VAR_CODE_SIGNING")
 #pragma pop_macro("VAR_GENERIC")
+#pragma pop_macro("VAR_JCE_SIGNING")
 #pragma pop_macro("VAR_PLUGIN_CODE_SIGNING")
 #pragma pop_macro("VAR_TLS_CLIENT")
-#pragma pop_macro("VAR_JCE_SIGNING")
+#pragma pop_macro("VAR_TLS_SERVER")
 #pragma pop_macro("VAR_TSA_SERVER")
 
 #endif // _sun_security_validator_Validator_h_

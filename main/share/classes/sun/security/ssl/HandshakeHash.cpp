@@ -30,8 +30,8 @@
 #include <sun/security/ssl/SSLHandshake.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
 #undef HELLO_REQUEST
+#undef HELLO_VERIFY_REQUEST
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -138,9 +138,9 @@ void HandshakeHash::determine($ProtocolVersion* protocolVersion, $CipherSuite* c
 	$var($HandshakeHash$CacheOnlyHash, coh, $cast($HandshakeHash$CacheOnlyHash, this->transcriptHash));
 	if ($nc(protocolVersion)->useTLS13PlusSpec()) {
 		$set(this, transcriptHash, $new($HandshakeHash$T13HandshakeHash, cipherSuite));
-	} else if ($nc(protocolVersion)->useTLS12PlusSpec()) {
+	} else if (protocolVersion->useTLS12PlusSpec()) {
 		$set(this, transcriptHash, $new($HandshakeHash$T12HandshakeHash, cipherSuite));
-	} else if ($nc(protocolVersion)->useTLS10PlusSpec()) {
+	} else if (protocolVersion->useTLS10PlusSpec()) {
 		$set(this, transcriptHash, $new($HandshakeHash$T10HandshakeHash, cipherSuite));
 	} else {
 		$set(this, transcriptHash, $new($HandshakeHash$S30HandshakeHash, cipherSuite));

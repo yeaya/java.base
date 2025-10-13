@@ -13,10 +13,10 @@
 #include <sun/net/ProgressSource$State.h>
 #include <jcpp.h>
 
-#undef NEW
-#undef DELETE
-#undef UPDATE
 #undef CONNECTED
+#undef DELETE
+#undef NEW
+#undef UPDATE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

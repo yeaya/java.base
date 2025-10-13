@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ST_END")
-#undef ST_END
 #pragma push_macro("ST_CODING")
 #undef ST_CODING
+#pragma push_macro("ST_END")
+#undef ST_END
 #pragma push_macro("ST_FLUSHED")
 #undef ST_FLUSHED
 #pragma push_macro("ST_RESET")
@@ -82,8 +82,8 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("ST_END")
 #pragma pop_macro("ST_CODING")
+#pragma pop_macro("ST_END")
 #pragma pop_macro("ST_FLUSHED")
 #pragma pop_macro("ST_RESET")
 

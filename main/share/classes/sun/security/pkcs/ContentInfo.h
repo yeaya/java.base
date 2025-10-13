@@ -5,28 +5,28 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("OLD_SIGNED_DATA_OID")
-#undef OLD_SIGNED_DATA_OID
-#pragma push_macro("PKCS7_OID")
-#undef PKCS7_OID
-#pragma push_macro("TIMESTAMP_TOKEN_INFO_OID")
-#undef TIMESTAMP_TOKEN_INFO_OID
-#pragma push_macro("SIGNED_AND_ENVELOPED_DATA_OID")
-#undef SIGNED_AND_ENVELOPED_DATA_OID
+#pragma push_macro("DATA_OID")
+#undef DATA_OID
 #pragma push_macro("DIGESTED_DATA_OID")
 #undef DIGESTED_DATA_OID
 #pragma push_macro("ENCRYPTED_DATA_OID")
 #undef ENCRYPTED_DATA_OID
-#pragma push_macro("OLD_DATA_OID")
-#undef OLD_DATA_OID
-#pragma push_macro("NETSCAPE_CERT_SEQUENCE_OID")
-#undef NETSCAPE_CERT_SEQUENCE_OID
-#pragma push_macro("SIGNED_DATA_OID")
-#undef SIGNED_DATA_OID
-#pragma push_macro("DATA_OID")
-#undef DATA_OID
 #pragma push_macro("ENVELOPED_DATA_OID")
 #undef ENVELOPED_DATA_OID
+#pragma push_macro("NETSCAPE_CERT_SEQUENCE_OID")
+#undef NETSCAPE_CERT_SEQUENCE_OID
+#pragma push_macro("OLD_DATA_OID")
+#undef OLD_DATA_OID
+#pragma push_macro("OLD_SIGNED_DATA_OID")
+#undef OLD_SIGNED_DATA_OID
+#pragma push_macro("PKCS7_OID")
+#undef PKCS7_OID
+#pragma push_macro("SIGNED_AND_ENVELOPED_DATA_OID")
+#undef SIGNED_AND_ENVELOPED_DATA_OID
+#pragma push_macro("SIGNED_DATA_OID")
+#undef SIGNED_DATA_OID
+#pragma push_macro("TIMESTAMP_TOKEN_INFO_OID")
+#undef TIMESTAMP_TOKEN_INFO_OID
 
 namespace sun {
 	namespace security {
@@ -76,16 +76,16 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("OLD_SIGNED_DATA_OID")
-#pragma pop_macro("PKCS7_OID")
-#pragma pop_macro("TIMESTAMP_TOKEN_INFO_OID")
-#pragma pop_macro("SIGNED_AND_ENVELOPED_DATA_OID")
+#pragma pop_macro("DATA_OID")
 #pragma pop_macro("DIGESTED_DATA_OID")
 #pragma pop_macro("ENCRYPTED_DATA_OID")
-#pragma pop_macro("OLD_DATA_OID")
-#pragma pop_macro("NETSCAPE_CERT_SEQUENCE_OID")
-#pragma pop_macro("SIGNED_DATA_OID")
-#pragma pop_macro("DATA_OID")
 #pragma pop_macro("ENVELOPED_DATA_OID")
+#pragma pop_macro("NETSCAPE_CERT_SEQUENCE_OID")
+#pragma pop_macro("OLD_DATA_OID")
+#pragma pop_macro("OLD_SIGNED_DATA_OID")
+#pragma pop_macro("PKCS7_OID")
+#pragma pop_macro("SIGNED_AND_ENVELOPED_DATA_OID")
+#pragma pop_macro("SIGNED_DATA_OID")
+#pragma pop_macro("TIMESTAMP_TOKEN_INFO_OID")
 
 #endif // _sun_security_pkcs_ContentInfo_h_

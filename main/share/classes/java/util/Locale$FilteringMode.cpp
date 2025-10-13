@@ -13,11 +13,11 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
+#undef AUTOSELECT_FILTERING
+#undef EXTENDED_FILTERING
 #undef IGNORE_EXTENDED_RANGES
 #undef MAP_EXTENDED_RANGES
-#undef AUTOSELECT_FILTERING
 #undef REJECT_EXTENDED_RANGES
-#undef EXTENDED_FILTERING
 
 using $Locale$FilteringModeArray = $Array<::java::util::Locale$FilteringMode>;
 using $ClassInfo = ::java::lang::ClassInfo;

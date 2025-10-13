@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CLASSES")
+#undef CLASSES
 #pragma push_macro("CONFIG")
 #undef CONFIG
 #pragma push_macro("HEADER_FILES")
 #undef HEADER_FILES
-#pragma push_macro("MAN_PAGES")
-#undef MAN_PAGES
-#pragma push_macro("NATIVE_LIBS")
-#undef NATIVE_LIBS
 #pragma push_macro("LEGAL_NOTICES")
 #undef LEGAL_NOTICES
-#pragma push_macro("CLASSES")
-#undef CLASSES
+#pragma push_macro("MAN_PAGES")
+#undef MAN_PAGES
 #pragma push_macro("NATIVE_CMDS")
 #undef NATIVE_CMDS
+#pragma push_macro("NATIVE_LIBS")
+#undef NATIVE_LIBS
 
 namespace jdk {
 	namespace internal {
@@ -49,12 +49,12 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("CLASSES")
 #pragma pop_macro("CONFIG")
 #pragma pop_macro("HEADER_FILES")
-#pragma pop_macro("MAN_PAGES")
-#pragma pop_macro("NATIVE_LIBS")
 #pragma pop_macro("LEGAL_NOTICES")
-#pragma pop_macro("CLASSES")
+#pragma pop_macro("MAN_PAGES")
 #pragma pop_macro("NATIVE_CMDS")
+#pragma pop_macro("NATIVE_LIBS")
 
 #endif // _jdk_internal_jmod_JmodFile$Section_h_

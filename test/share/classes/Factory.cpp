@@ -11,8 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
+#undef TRUE
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -27,13 +27,13 @@
 #include <sun/nio/cs/US_ASCII.h>
 #include <jcpp.h>
 
-#undef STATE_DONE
-#undef STATE_AWAITING_CHUNK_EOL
-#undef MAX_CHUNK_HEADER_SIZE
-#undef STATE_AWAITING_CHUNK_HEADER
 #undef INSTANCE
-#undef STATE_READING_CHUNK
+#undef MAX_CHUNK_HEADER_SIZE
+#undef STATE_AWAITING_CHUNK_EOL
+#undef STATE_AWAITING_CHUNK_HEADER
 #undef STATE_AWAITING_TRAILERS
+#undef STATE_DONE
+#undef STATE_READING_CHUNK
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;

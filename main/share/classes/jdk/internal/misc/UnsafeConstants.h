@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("BIG_ENDIAN")
-#undef BIG_ENDIAN
 #pragma push_macro("ADDRESS_SIZE0")
 #undef ADDRESS_SIZE0
-#pragma push_macro("PAGE_SIZE")
-#undef PAGE_SIZE
+#pragma push_macro("BIG_ENDIAN")
+#undef BIG_ENDIAN
 #pragma push_macro("DATA_CACHE_LINE_FLUSH_SIZE")
 #undef DATA_CACHE_LINE_FLUSH_SIZE
+#pragma push_macro("PAGE_SIZE")
+#undef PAGE_SIZE
 #pragma push_macro("UNALIGNED_ACCESS")
 #undef UNALIGNED_ACCESS
 
@@ -36,10 +36,10 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("BIG_ENDIAN")
 #pragma pop_macro("ADDRESS_SIZE0")
-#pragma pop_macro("PAGE_SIZE")
+#pragma pop_macro("BIG_ENDIAN")
 #pragma pop_macro("DATA_CACHE_LINE_FLUSH_SIZE")
+#pragma pop_macro("PAGE_SIZE")
 #pragma pop_macro("UNALIGNED_ACCESS")
 
 #endif // _jdk_internal_misc_UnsafeConstants_h_

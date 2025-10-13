@@ -23,21 +23,21 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-#undef DEF_DH_KEY_SIZE
-#undef RSA
-#undef DEF_XEC_KEY_SIZE
-#undef OIW_DSA
-#undef DEF_ED_KEY_SIZE
-#undef DEF_DSA_KEY_SIZE
-#undef DEF_RSASSA_PSS_KEY_SIZE
 #undef ARCFOUR
-#undef PKCS1
-#undef SHA_1
+#undef DEF_DH_KEY_SIZE
+#undef DEF_DSA_KEY_SIZE
 #undef DEF_EC_KEY_SIZE
-#undef KEY_LENGTH_PROP
+#undef DEF_ED_KEY_SIZE
+#undef DEF_RSASSA_PSS_KEY_SIZE
+#undef DEF_RSA_KEY_SIZE
+#undef DEF_XEC_KEY_SIZE
 #undef DSA
 #undef EC
-#undef DEF_RSA_KEY_SIZE
+#undef KEY_LENGTH_PROP
+#undef OIW_DSA
+#undef PKCS1
+#undef RSA
+#undef SHA_1
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -219,17 +219,17 @@ void clinit$SecurityProviderConstants($Class* class$) {
 							}
 							if (algoName->equals("DSA"_s)) {
 								dsaKeySize = value;
-							} else if ($nc(algoName)->equals("RSA"_s)) {
+							} else if (algoName->equals("RSA"_s)) {
 								rsaKeySize = value;
-							} else if ($nc(algoName)->equals("RSASSA-PSS"_s)) {
+							} else if (algoName->equals("RSASSA-PSS"_s)) {
 								rsaSsaPssKeySize = value;
-							} else if ($nc(algoName)->equals("DH"_s)) {
+							} else if (algoName->equals("DH"_s)) {
 								dhKeySize = value;
-							} else if ($nc(algoName)->equals("EC"_s)) {
+							} else if (algoName->equals("EC"_s)) {
 								ecKeySize = value;
-							} else if ($nc(algoName)->equalsIgnoreCase("EdDSA"_s)) {
+							} else if (algoName->equalsIgnoreCase("EdDSA"_s)) {
 								edKeySize = value;
-							} else if ($nc(algoName)->equals("XDH"_s)) {
+							} else if (algoName->equals("XDH"_s)) {
 								xecKeySize = value;
 							} else {
 								if (SecurityProviderConstants::debug != nullptr) {

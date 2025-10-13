@@ -7,10 +7,10 @@
 
 #pragma push_macro("BUFFER_ADDRESS")
 #undef BUFFER_ADDRESS
-#pragma push_macro("NIO_ACCESS")
-#undef NIO_ACCESS
 #pragma push_macro("BYTE_BUFFER_HB")
 #undef BYTE_BUFFER_HB
+#pragma push_macro("NIO_ACCESS")
+#undef NIO_ACCESS
 
 namespace java {
 	namespace nio {
@@ -54,7 +54,7 @@ public:
 } // jdk
 
 #pragma pop_macro("BUFFER_ADDRESS")
-#pragma pop_macro("NIO_ACCESS")
 #pragma pop_macro("BYTE_BUFFER_HB")
+#pragma pop_macro("NIO_ACCESS")
 
 #endif // _jdk_internal_misc_ScopedMemoryAccess$BufferAccess_h_

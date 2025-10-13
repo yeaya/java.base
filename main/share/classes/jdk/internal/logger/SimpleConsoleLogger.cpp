@@ -32,11 +32,11 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef SIMPLE_CONSOLE_LOGGER_FORMAT
 #undef DEFAULT_LEVEL
 #undef DEFAULT_PLATFORM_LEVEL
 #undef INFO
 #undef OFF
+#undef SIMPLE_CONSOLE_LOGGER_FORMAT
 
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;

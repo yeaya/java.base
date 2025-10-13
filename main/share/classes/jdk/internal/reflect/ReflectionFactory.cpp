@@ -64,11 +64,11 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef REFLECTION_FACTORY_ACCESS_PERMISSION
-#undef PUBLIC
-#undef PROTECTED
-#undef TYPE
 #undef PRIVATE
+#undef PROTECTED
+#undef PUBLIC
+#undef REFLECTION_FACTORY_ACCESS_PERMISSION
+#undef TYPE
 
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $Externalizable = ::java::io::Externalizable;

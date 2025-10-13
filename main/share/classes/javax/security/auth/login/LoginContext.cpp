@@ -60,14 +60,14 @@
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
 
-#undef OTHER
-#undef LOGIN_METHOD
 #undef ABORT_METHOD
 #undef COMMIT_METHOD
-#undef LOGOUT_METHOD
-#undef REQUISITE
-#undef REQUIRED
 #undef DEFAULT_HANDLER
+#undef LOGIN_METHOD
+#undef LOGOUT_METHOD
+#undef OTHER
+#undef REQUIRED
+#undef REQUISITE
 #undef SUFFICIENT
 
 using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
@@ -572,11 +572,11 @@ void LoginContext::invoke($String* methodName) {
 				le->initCause($$new($SecurityException));
 				if (LoginContext::debug != nullptr) {
 					$nc(LoginContext::debug)->println("original security exception with detail msg replaced by new exception with empty detail msg"_s);
-					$nc(LoginContext::debug)->println($$str({"original security exception: "_s, $($nc(ite)->toString())}));
+					$nc(LoginContext::debug)->println($$str({"original security exception: "_s, $(ite->toString())}));
 				}
 			} else {
 				$var($StringWriter, sw, $new($StringWriter));
-				$nc(ite)->printStackTrace($$new($PrintWriter, static_cast<$Writer*>(sw)));
+				ite->printStackTrace($$new($PrintWriter, static_cast<$Writer*>(sw)));
 				sw->flush();
 				$assign(le, $new($LoginException, $(sw->toString())));
 			}

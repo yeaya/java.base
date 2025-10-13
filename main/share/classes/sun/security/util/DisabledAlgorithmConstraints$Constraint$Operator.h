@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NE")
-#undef NE
-#pragma push_macro("LT")
-#undef LT
-#pragma push_macro("LE")
-#undef LE
 #pragma push_macro("EQ")
 #undef EQ
-#pragma push_macro("GT")
-#undef GT
 #pragma push_macro("GE")
 #undef GE
+#pragma push_macro("GT")
+#undef GT
+#pragma push_macro("LE")
+#undef LE
+#pragma push_macro("LT")
+#undef LT
+#pragma push_macro("NE")
+#undef NE
 
 namespace sun {
 	namespace security {
@@ -45,11 +45,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NE")
-#pragma pop_macro("LT")
-#pragma pop_macro("LE")
 #pragma pop_macro("EQ")
-#pragma pop_macro("GT")
 #pragma pop_macro("GE")
+#pragma pop_macro("GT")
+#pragma pop_macro("LE")
+#pragma pop_macro("LT")
+#pragma pop_macro("NE")
 
 #endif // _sun_security_util_DisabledAlgorithmConstraints$Constraint$Operator_h_

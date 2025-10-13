@@ -28,11 +28,11 @@
 #include <java/nio/channels/SocketChannel.h>
 #include <jcpp.h>
 
-#undef SO_LINGER
-#undef NON_BLOCKING_AND_REGISTERED
-#undef NON_BLOCKING
-#undef OP_READ
 #undef BLOCKING
+#undef NON_BLOCKING
+#undef NON_BLOCKING_AND_REGISTERED
+#undef OP_READ
+#undef SO_LINGER
 
 using $LingerOnClose$TestMode = ::LingerOnClose$TestMode;
 using $IOException = ::java::io::IOException;

@@ -9,10 +9,10 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("SUBJECT_NAME")
-#undef SUBJECT_NAME
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("SUBJECT_NAME")
+#undef SUBJECT_NAME
 
 namespace java {
 	namespace io {
@@ -74,7 +74,7 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("SUBJECT_NAME")
 #pragma pop_macro("NAME")
+#pragma pop_macro("SUBJECT_NAME")
 
 #endif // _sun_security_x509_SubjectAlternativeNameExtension_h_

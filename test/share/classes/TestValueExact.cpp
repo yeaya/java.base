@@ -18,11 +18,11 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef ONE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef ONE
 #undef TEN
+#undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $PrintStream = ::java::io::PrintStream;

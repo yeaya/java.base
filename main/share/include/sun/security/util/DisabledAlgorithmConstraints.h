@@ -5,16 +5,16 @@
 
 #include <sun/security/util/AbstractAlgorithmConstraints.h>
 
-#pragma push_macro("PROPERTY_TLS_DISABLED_ALGS")
-#undef PROPERTY_TLS_DISABLED_ALGS
-#pragma push_macro("PROPERTY_SECURITY_LEGACY_ALGS")
-#undef PROPERTY_SECURITY_LEGACY_ALGS
 #pragma push_macro("PROPERTY_CERTPATH_DISABLED_ALGS")
 #undef PROPERTY_CERTPATH_DISABLED_ALGS
 #pragma push_macro("PROPERTY_DISABLED_EC_CURVES")
 #undef PROPERTY_DISABLED_EC_CURVES
 #pragma push_macro("PROPERTY_JAR_DISABLED_ALGS")
 #undef PROPERTY_JAR_DISABLED_ALGS
+#pragma push_macro("PROPERTY_SECURITY_LEGACY_ALGS")
+#undef PROPERTY_SECURITY_LEGACY_ALGS
+#pragma push_macro("PROPERTY_TLS_DISABLED_ALGS")
+#undef PROPERTY_TLS_DISABLED_ALGS
 
 namespace java {
 	namespace security {
@@ -74,10 +74,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("PROPERTY_TLS_DISABLED_ALGS")
-#pragma pop_macro("PROPERTY_SECURITY_LEGACY_ALGS")
 #pragma pop_macro("PROPERTY_CERTPATH_DISABLED_ALGS")
 #pragma pop_macro("PROPERTY_DISABLED_EC_CURVES")
 #pragma pop_macro("PROPERTY_JAR_DISABLED_ALGS")
+#pragma pop_macro("PROPERTY_SECURITY_LEGACY_ALGS")
+#pragma pop_macro("PROPERTY_TLS_DISABLED_ALGS")
 
 #endif // _sun_security_util_DisabledAlgorithmConstraints_h_

@@ -26,9 +26,9 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef CH_RENEGOTIATION_INFO
 #undef HANDSHAKE_FAILURE
 #undef NOMINAL
-#undef CH_RENEGOTIATION_INFO
 #undef UNEXPECTED_MESSAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -108,15 +108,15 @@ void RenegoInfoExtension$CHRenegotiationInfoConsumer::consume($ConnectionContext
 			$throw($($nc(shc->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, "Invalid renegotiation_info extension data: not empty"_s)));
 		}
 		$nc(shc->conContext)->secureRenegotiation = true;
-	} else if (!$nc($nc(shc)->conContext)->secureRenegotiation) {
+	} else if (!$nc(shc->conContext)->secureRenegotiation) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "The renegotiation_info is present in a insecure renegotiation"_s)));
-	} else if (!$Arrays::equals($nc($nc(shc)->conContext)->clientVerifyData, $nc(spec)->renegotiatedConnection)) {
+	} else if (!$Arrays::equals($nc(shc->conContext)->clientVerifyData, spec->renegotiatedConnection)) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, "Invalid renegotiation_info extension data: incorrect verify data in ClientHello"_s)));
+		$throw($($nc(shc->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, "Invalid renegotiation_info extension data: incorrect verify data in ClientHello"_s)));
 	}
 	$init($RenegoInfoExtension$RenegotiationInfoSpec);
-	$nc($nc(shc)->handshakeExtensions)->put($SSLExtension::CH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
+	$nc(shc->handshakeExtensions)->put($SSLExtension::CH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
 }
 
 RenegoInfoExtension$CHRenegotiationInfoConsumer::RenegoInfoExtension$CHRenegotiationInfoConsumer() {

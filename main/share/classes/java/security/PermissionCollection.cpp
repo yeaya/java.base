@@ -19,8 +19,8 @@
 #include <java/util/stream/StreamSupport.h>
 #include <jcpp.h>
 
-#undef NONNULL
 #undef IMMUTABLE
+#undef NONNULL
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -15,10 +15,10 @@
 #include <jcpp.h>
 
 #undef ALIGNED_WEEK_OF_MONTH
-#undef MONTH_OF_YEAR
-#undef YEAR
 #undef DAY_OF_MONTH
+#undef MONTH_OF_YEAR
 #undef PROLEPTIC_MONTH
+#undef YEAR
 #undef YEAR_OF_ERA
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;

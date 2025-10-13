@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TICK")
-#undef TICK
 #pragma push_macro("LAST_LOSER")
 #undef LAST_LOSER
+#pragma push_macro("TICK")
+#undef TICK
 
 namespace java {
 	namespace lang {
@@ -78,7 +78,7 @@ public:
 	} // java
 } // test
 
-#pragma pop_macro("TICK")
 #pragma pop_macro("LAST_LOSER")
+#pragma pop_macro("TICK")
 
 #endif // _test_java_lang_invoke_CallStaticInitOrder_h_

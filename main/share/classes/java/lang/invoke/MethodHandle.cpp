@@ -51,24 +51,24 @@
 
 #include "_java_lang_invoke_MethodHandle.h"
 
-#undef UPDATE_OFFSET
-#undef INTERFACE_SPECIAL
+#undef CONSTRUCTOR
+#undef CUSTOMIZE_THRESHOLD
 #undef DEBUG_METHOD_HANDLE_NAMES
+#undef FORM_OFFSET
+#undef GETTER
+#undef IMPL_LOOKUP
+#undef INTERFACE_SPECIAL
+#undef INTERFACE_STATIC
+#undef INTERFACE_VIRTUAL
+#undef NONE
 #undef SETTER
 #undef SPECIAL
 #undef STATIC
-#undef GETTER
-#undef IMPL_LOOKUP
 #undef STATIC_GETTER
-#undef INTERFACE_VIRTUAL
 #undef STATIC_SETTER
-#undef UNSAFE
-#undef CONSTRUCTOR
-#undef NONE
-#undef FORM_OFFSET
 #undef TYPE
-#undef CUSTOMIZE_THRESHOLD
-#undef INTERFACE_STATIC
+#undef UNSAFE
+#undef UPDATE_OFFSET
 #undef VIRTUAL
 
 using $ConstableArray = $Array<::java::lang::constant::Constable>;

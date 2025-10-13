@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("KIND")
-#undef KIND
-#pragma push_macro("DO_CASTS")
-#undef DO_CASTS
 #pragma push_macro("BITS")
 #undef BITS
-#pragma push_macro("NUMERIC_TYPE_WIDENING_ORDER")
-#undef NUMERIC_TYPE_WIDENING_ORDER
 #pragma push_macro("CLASS")
 #undef CLASS
+#pragma push_macro("DO_CASTS")
+#undef DO_CASTS
+#pragma push_macro("KIND")
+#undef KIND
 #pragma push_macro("N")
 #undef N
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("NUMERIC_TYPE_WIDENING_ORDER")
+#undef NUMERIC_TYPE_WIDENING_ORDER
 
 namespace java {
 	namespace lang {
@@ -178,12 +178,12 @@ public:
 	static ::java::lang::invoke::MethodHandle* mh_vd;
 };
 
-#pragma pop_macro("KIND")
-#pragma pop_macro("DO_CASTS")
 #pragma pop_macro("BITS")
-#pragma pop_macro("NUMERIC_TYPE_WIDENING_ORDER")
 #pragma pop_macro("CLASS")
+#pragma pop_macro("DO_CASTS")
+#pragma pop_macro("KIND")
 #pragma pop_macro("N")
 #pragma pop_macro("NAME")
+#pragma pop_macro("NUMERIC_TYPE_WIDENING_ORDER")
 
 #endif // _Test6998541_h_

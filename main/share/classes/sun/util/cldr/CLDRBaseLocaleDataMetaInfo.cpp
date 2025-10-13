@@ -17,8 +17,8 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter$Type.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef CLDR
+#undef ROOT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

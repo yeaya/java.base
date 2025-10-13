@@ -22,9 +22,9 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
+#undef EACCES
 #undef EEXIST
 #undef ELOOP
-#undef EACCES
 #undef ENOENT
 
 using $IOException = ::java::io::IOException;

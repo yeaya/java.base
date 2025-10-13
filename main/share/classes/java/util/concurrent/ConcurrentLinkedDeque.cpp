@@ -48,14 +48,14 @@
 #include <jcpp.h>
 
 #undef HEAD
+#undef HOPS
 #undef ITEM
-#undef PREV
-#undef TAIL
+#undef MAX_VALUE
 #undef NEXT
 #undef NEXT_TERMINATOR
-#undef HOPS
-#undef MAX_VALUE
+#undef PREV
 #undef PREV_TERMINATOR
+#undef TAIL
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -368,7 +368,7 @@ void ConcurrentLinkedDeque::linkFirst(Object$* e) {
 				if (var$0 && ($assign(q, $nc(($assign(p, q)))->prev)) != nullptr) {
 					$var($ConcurrentLinkedDeque$Node, var$1, h);
 					$assign(p, (var$1 != ($assign(h, this->head))) ? h : q);
-				} else if ($nc(p)->next == p) {
+				} else if (p->next == p) {
 					restartFromHead$continue = true;
 					break;
 				} else {
@@ -402,7 +402,7 @@ void ConcurrentLinkedDeque::linkLast(Object$* e) {
 				if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
 					$var($ConcurrentLinkedDeque$Node, var$1, t);
 					$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
-				} else if ($nc(p)->prev == p) {
+				} else if (p->prev == p) {
 					restartFromTail$continue = true;
 					break;
 				} else {
@@ -1135,7 +1135,7 @@ bool ConcurrentLinkedDeque::addAll($Collection* c) {
 				if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
 					$var($ConcurrentLinkedDeque$Node, var$1, t);
 					$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
-				} else if ($nc(p)->prev == p) {
+				} else if (p->prev == p) {
 					restartFromTail$continue = true;
 					break;
 				} else {
@@ -1177,11 +1177,11 @@ $String* ConcurrentLinkedDeque::toString() {
 				if (($assign(item, p->item)) != nullptr) {
 					if (a == nullptr) {
 						$assign(a, $new($StringArray, 4));
-					} else if (size == $nc(a)->length) {
+					} else if (size == a->length) {
 						$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
 					}
 					$var($String, s, $nc($of(item))->toString());
-					$nc(a)->set(size++, s);
+					a->set(size++, s);
 					charLength += $nc(s)->length();
 				}
 				$var($ConcurrentLinkedDeque$Node, var$0, p);
@@ -1214,10 +1214,10 @@ $ObjectArray* ConcurrentLinkedDeque::toArrayInternal($ObjectArray* a) {
 				if (($assign(item, p->item)) != nullptr) {
 					if (x == nullptr) {
 						$assign(x, $new($ObjectArray, 4));
-					} else if (size == $nc(x)->length) {
+					} else if (size == x->length) {
 						$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 					}
-					$nc(x)->set(size++, item);
+					x->set(size++, item);
 				}
 				$var($ConcurrentLinkedDeque$Node, var$0, p);
 				if (var$0 == ($assign(p, p->next))) {

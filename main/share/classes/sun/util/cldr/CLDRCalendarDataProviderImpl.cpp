@@ -22,10 +22,10 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef FIRST_DAY_OF_WEEK
-#undef ROOT
-#undef MINIMAL_DAYS_IN_FIRST_WEEK
 #undef CLDR
+#undef FIRST_DAY_OF_WEEK
+#undef MINIMAL_DAYS_IN_FIRST_WEEK
+#undef ROOT
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

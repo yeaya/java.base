@@ -5,46 +5,46 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("COLLECT_ARGS")
-#undef COLLECT_ARGS
-#pragma push_macro("FILTER_ARG")
-#undef FILTER_ARG
-#pragma push_macro("LOCAL_TYPES")
-#undef LOCAL_TYPES
-#pragma push_macro("SPREAD_ARGS")
-#undef SPREAD_ARGS
-#pragma push_macro("FILTER_RETURN")
-#undef FILTER_RETURN
-#pragma push_macro("FILTER_SELECT_ARGS")
-#undef FILTER_SELECT_ARGS
+#pragma push_macro("ADD_ARG")
+#undef ADD_ARG
 #pragma push_macro("BIND_ARG")
 #undef BIND_ARG
+#pragma push_macro("COLLECT_ARGS")
+#undef COLLECT_ARGS
+#pragma push_macro("COLLECT_ARGS_TO_ARRAY")
+#undef COLLECT_ARGS_TO_ARRAY
 #pragma push_macro("COLLECT_ARGS_TO_VOID")
 #undef COLLECT_ARGS_TO_VOID
-#pragma push_macro("PERMUTE_ARGS")
-#undef PERMUTE_ARGS
+#pragma push_macro("DUP_ARG")
+#undef DUP_ARG
+#pragma push_macro("FILTER_ARG")
+#undef FILTER_ARG
+#pragma push_macro("FILTER_RETURN")
+#undef FILTER_RETURN
+#pragma push_macro("FILTER_RETURN_TO_ZERO")
+#undef FILTER_RETURN_TO_ZERO
+#pragma push_macro("FILTER_SELECT_ARGS")
+#undef FILTER_SELECT_ARGS
+#pragma push_macro("FOLD_ARGS")
+#undef FOLD_ARGS
+#pragma push_macro("FOLD_ARGS_TO_VOID")
+#undef FOLD_ARGS_TO_VOID
 #pragma push_macro("FOLD_SELECT_ARGS")
 #undef FOLD_SELECT_ARGS
 #pragma push_macro("FOLD_SELECT_ARGS_TO_VOID")
 #undef FOLD_SELECT_ARGS_TO_VOID
-#pragma push_macro("FOLD_ARGS_TO_VOID")
-#undef FOLD_ARGS_TO_VOID
+#pragma push_macro("LOCAL_TYPES")
+#undef LOCAL_TYPES
 #pragma push_macro("MAX_CACHE_ARRAY_SIZE")
 #undef MAX_CACHE_ARRAY_SIZE
-#pragma push_macro("ADD_ARG")
-#undef ADD_ARG
-#pragma push_macro("DUP_ARG")
-#undef DUP_ARG
-#pragma push_macro("FOLD_ARGS")
-#undef FOLD_ARGS
-#pragma push_macro("COLLECT_ARGS_TO_ARRAY")
-#undef COLLECT_ARGS_TO_ARRAY
-#pragma push_macro("REPEAT_FILTER_ARGS")
-#undef REPEAT_FILTER_ARGS
-#pragma push_macro("FILTER_RETURN_TO_ZERO")
-#undef FILTER_RETURN_TO_ZERO
 #pragma push_macro("MIN_CACHE_ARRAY_SIZE")
 #undef MIN_CACHE_ARRAY_SIZE
+#pragma push_macro("PERMUTE_ARGS")
+#undef PERMUTE_ARGS
+#pragma push_macro("REPEAT_FILTER_ARGS")
+#undef REPEAT_FILTER_ARGS
+#pragma push_macro("SPREAD_ARGS")
+#undef SPREAD_ARGS
 
 namespace java {
 	namespace lang {
@@ -129,25 +129,25 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("COLLECT_ARGS")
-#pragma pop_macro("FILTER_ARG")
-#pragma pop_macro("LOCAL_TYPES")
-#pragma pop_macro("SPREAD_ARGS")
-#pragma pop_macro("FILTER_RETURN")
-#pragma pop_macro("FILTER_SELECT_ARGS")
+#pragma pop_macro("ADD_ARG")
 #pragma pop_macro("BIND_ARG")
+#pragma pop_macro("COLLECT_ARGS")
+#pragma pop_macro("COLLECT_ARGS_TO_ARRAY")
 #pragma pop_macro("COLLECT_ARGS_TO_VOID")
-#pragma pop_macro("PERMUTE_ARGS")
+#pragma pop_macro("DUP_ARG")
+#pragma pop_macro("FILTER_ARG")
+#pragma pop_macro("FILTER_RETURN")
+#pragma pop_macro("FILTER_RETURN_TO_ZERO")
+#pragma pop_macro("FILTER_SELECT_ARGS")
+#pragma pop_macro("FOLD_ARGS")
+#pragma pop_macro("FOLD_ARGS_TO_VOID")
 #pragma pop_macro("FOLD_SELECT_ARGS")
 #pragma pop_macro("FOLD_SELECT_ARGS_TO_VOID")
-#pragma pop_macro("FOLD_ARGS_TO_VOID")
+#pragma pop_macro("LOCAL_TYPES")
 #pragma pop_macro("MAX_CACHE_ARRAY_SIZE")
-#pragma pop_macro("ADD_ARG")
-#pragma pop_macro("DUP_ARG")
-#pragma pop_macro("FOLD_ARGS")
-#pragma pop_macro("COLLECT_ARGS_TO_ARRAY")
-#pragma pop_macro("REPEAT_FILTER_ARGS")
-#pragma pop_macro("FILTER_RETURN_TO_ZERO")
 #pragma pop_macro("MIN_CACHE_ARRAY_SIZE")
+#pragma pop_macro("PERMUTE_ARGS")
+#pragma pop_macro("REPEAT_FILTER_ARGS")
+#pragma pop_macro("SPREAD_ARGS")
 
 #endif // _java_lang_invoke_LambdaFormEditor_h_

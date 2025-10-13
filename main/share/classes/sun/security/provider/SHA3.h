@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/DigestBase.h>
 
-#pragma push_macro("SHA3")
-#undef SHA3
-#pragma push_macro("NR")
-#undef NR
 #pragma push_macro("DM")
 #undef DM
-#pragma push_macro("WIDTH")
-#undef WIDTH
+#pragma push_macro("NR")
+#undef NR
 #pragma push_macro("RC_CONSTANTS")
 #undef RC_CONSTANTS
+#pragma push_macro("SHA3")
+#undef SHA3
+#pragma push_macro("WIDTH")
+#undef WIDTH
 
 namespace sun {
 	namespace security {
@@ -54,10 +54,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SHA3")
-#pragma pop_macro("NR")
 #pragma pop_macro("DM")
-#pragma pop_macro("WIDTH")
+#pragma pop_macro("NR")
 #pragma pop_macro("RC_CONSTANTS")
+#pragma pop_macro("SHA3")
+#pragma pop_macro("WIDTH")
 
 #endif // _sun_security_provider_SHA3_h_

@@ -70,26 +70,26 @@
 #include <sun/security/util/ManifestEntryVerifier.h>
 #include <jcpp.h>
 
-#undef CLASSPATH_LASTOCC
-#undef MULTI_RELEASE_FORCED
-#undef MULTI_RELEASE
-#undef RUNTIME_VERSION
 #undef BASE_VERSION
-#undef MULTIRELEASE_OPTOSFT
-#undef TRUE
-#undef CLASSPATH_OPTOSFT
-#undef OPEN_READ
-#undef META_INF_VERSIONS
-#undef JUZFA
-#undef MAX_ARRAY_SIZE
-#undef MULTIRELEASE_LASTOCC
-#undef MULTI_RELEASE_ENABLED
-#undef CLASSPATH_CHARS
-#undef MULTIRELEASE_CHARS
-#undef META_INF
 #undef BASE_VERSION_FEATURE
+#undef CLASSPATH_CHARS
+#undef CLASSPATH_LASTOCC
+#undef CLASSPATH_OPTOSFT
 #undef FALSE
+#undef JUZFA
 #undef MANIFEST_NAME
+#undef MAX_ARRAY_SIZE
+#undef META_INF
+#undef META_INF_VERSIONS
+#undef MULTIRELEASE_CHARS
+#undef MULTIRELEASE_LASTOCC
+#undef MULTIRELEASE_OPTOSFT
+#undef MULTI_RELEASE
+#undef MULTI_RELEASE_ENABLED
+#undef MULTI_RELEASE_FORCED
+#undef OPEN_READ
+#undef RUNTIME_VERSION
+#undef TRUE
 
 using $CodeSignerArray = $Array<::java::security::CodeSigner>;
 using $CodeSourceArray = $Array<::java::security::CodeSource>;
@@ -433,7 +433,7 @@ void JarFile::init$($File* file, bool verify, int32_t mode, $Runtime$Version* ve
 	}
 	if (var$0) {
 		$set(this, version, JarFile::RUNTIME_VERSION);
-	} else if ($nc(version)->feature() <= JarFile::BASE_VERSION_FEATURE) {
+	} else if (version->feature() <= JarFile::BASE_VERSION_FEATURE) {
 		$set(this, version, JarFile::BASE_VERSION);
 	} else {
 		$set(this, version, $Runtime$Version::parse($($Integer::toString(version->feature()))));

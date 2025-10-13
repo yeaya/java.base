@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("NIO_ACCESS")
-#undef NIO_ACCESS
 #pragma push_macro("IOV_MAX")
 #undef IOV_MAX
+#pragma push_macro("NIO_ACCESS")
+#undef NIO_ACCESS
 
 namespace java {
 	namespace io {
@@ -103,7 +103,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("NIO_ACCESS")
 #pragma pop_macro("IOV_MAX")
+#pragma pop_macro("NIO_ACCESS")
 
 #endif // _sun_nio_ch_IOUtil_h_

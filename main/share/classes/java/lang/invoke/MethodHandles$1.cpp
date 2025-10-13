@@ -14,8 +14,8 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef FLOAT
 #undef DOUBLE
+#undef FLOAT
 #undef INT
 #undef LONG
 

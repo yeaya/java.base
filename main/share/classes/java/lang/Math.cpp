@@ -23,26 +23,26 @@
 #include <jdk/internal/math/FloatConsts.h>
 #include <jcpp.h>
 
-#undef SIGN_BIT_MASK
-#undef EXP_BIT_MASK
 #undef A
 #undef B
-#undef DEGREES_TO_RADIANS
 #undef C
+#undef DEGREES_TO_RADIANS
 #undef E
 #undef EXP_BIAS
-#undef RADIANS_TO_DEGREES
-#undef MAX_VALUE
+#undef EXP_BIT_MASK
 #undef K
-#undef MIN_VALUE
-#undef SIGNIFICAND_WIDTH
-#undef POSITIVE_INFINITY
 #undef MAX_EXPONENT
-#undef NEGATIVE_INFINITY
-#undef SIGNIF_BIT_MASK
-#undef PI
 #undef MAX_SCALE
+#undef MAX_VALUE
 #undef MIN_EXPONENT
+#undef MIN_VALUE
+#undef NEGATIVE_INFINITY
+#undef PI
+#undef POSITIVE_INFINITY
+#undef RADIANS_TO_DEGREES
+#undef SIGNIFICAND_WIDTH
+#undef SIGNIF_BIT_MASK
+#undef SIGN_BIT_MASK
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $AssertionError = ::java::lang::AssertionError;
@@ -1122,7 +1122,6 @@ double Math::nextDown(double d) {
 	if ($Double::isNaN(d) || d == $Double::NEGATIVE_INFINITY) {
 		return d;
 	} else if (d == 0.0) {
-		$init($Double);
 		return -$Double::MIN_VALUE;
 	} else {
 		return $Double::longBitsToDouble($Double::doubleToRawLongBits(d) + ((d > 0.0) ? (int64_t)-1 : +(int64_t)1));
@@ -1135,7 +1134,6 @@ float Math::nextDown(float f) {
 	if ($Float::isNaN(f) || f == $Float::NEGATIVE_INFINITY) {
 		return f;
 	} else if (f == 0.0f) {
-		$init($Float);
 		return -$Float::MIN_VALUE;
 	} else {
 		return $Float::intBitsToFloat($Float::floatToRawIntBits(f) + ((f > 0.0f) ? -1 : +1));

@@ -35,11 +35,11 @@
 #include <jdk/internal/util/Preconditions.h>
 #include <jcpp.h>
 
-#undef FORM
 #undef ARRAY_BYTE_BASE_OFFSET
-#undef UNSAFE
+#undef FORM
 #undef OOBEF
 #undef TYPE
+#undef UNSAFE
 
 using $Serializable = ::java::io::Serializable;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;

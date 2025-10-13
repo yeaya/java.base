@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("STRINGS")
-#undef STRINGS
 #pragma push_macro("REPEATS")
 #undef REPEATS
+#pragma push_macro("STRINGS")
+#undef STRINGS
 
 class $export StringRepeat : public ::java::lang::Object {
 	$class(StringRepeat, 0, ::java::lang::Object)
@@ -24,7 +24,7 @@ public:
 	static $StringArray* STRINGS;
 };
 
-#pragma pop_macro("STRINGS")
 #pragma pop_macro("REPEATS")
+#pragma pop_macro("STRINGS")
 
 #endif // _StringRepeat_h_

@@ -15,9 +15,9 @@
 #include <jcpp.h>
 
 #undef CDIR
-#undef PDIR
-#undef FILE
 #undef DIR
+#undef FILE
+#undef PDIR
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

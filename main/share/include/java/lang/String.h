@@ -13,14 +13,14 @@
 
 #pragma push_macro("CASE_INSENSITIVE_ORDER")
 #undef CASE_INSENSITIVE_ORDER
+#pragma push_macro("COMPACT_STRINGS")
+#undef COMPACT_STRINGS
 #pragma push_macro("LATIN1")
 #undef LATIN1
 #pragma push_macro("REPL")
 #undef REPL
 #pragma push_macro("UTF16")
 #undef UTF16
-#pragma push_macro("COMPACT_STRINGS")
-#undef COMPACT_STRINGS
 
 namespace java {
 	namespace io {
@@ -342,9 +342,9 @@ public:
 } // java
 
 #pragma pop_macro("CASE_INSENSITIVE_ORDER")
+#pragma pop_macro("COMPACT_STRINGS")
 #pragma pop_macro("LATIN1")
 #pragma pop_macro("REPL")
 #pragma pop_macro("UTF16")
-#pragma pop_macro("COMPACT_STRINGS")
 
 #endif // _java_lang_String_h_

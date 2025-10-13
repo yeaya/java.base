@@ -9,22 +9,22 @@
 #include <java/time/temporal/TemporalAccessor.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 
-#pragma push_macro("WEDNESDAY")
-#undef WEDNESDAY
-#pragma push_macro("MONDAY")
-#undef MONDAY
-#pragma push_macro("THURSDAY")
-#undef THURSDAY
 #pragma push_macro("ENUMS")
 #undef ENUMS
-#pragma push_macro("SUNDAY")
-#undef SUNDAY
-#pragma push_macro("TUESDAY")
-#undef TUESDAY
 #pragma push_macro("FRIDAY")
 #undef FRIDAY
+#pragma push_macro("MONDAY")
+#undef MONDAY
 #pragma push_macro("SATURDAY")
 #undef SATURDAY
+#pragma push_macro("SUNDAY")
+#undef SUNDAY
+#pragma push_macro("THURSDAY")
+#undef THURSDAY
+#pragma push_macro("TUESDAY")
+#undef TUESDAY
+#pragma push_macro("WEDNESDAY")
+#undef WEDNESDAY
 
 namespace java {
 	namespace time {
@@ -92,13 +92,13 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("WEDNESDAY")
-#pragma pop_macro("MONDAY")
-#pragma pop_macro("THURSDAY")
 #pragma pop_macro("ENUMS")
-#pragma pop_macro("SUNDAY")
-#pragma pop_macro("TUESDAY")
 #pragma pop_macro("FRIDAY")
+#pragma pop_macro("MONDAY")
 #pragma pop_macro("SATURDAY")
+#pragma pop_macro("SUNDAY")
+#pragma pop_macro("THURSDAY")
+#pragma pop_macro("TUESDAY")
+#pragma pop_macro("WEDNESDAY")
 
 #endif // _java_time_DayOfWeek_h_

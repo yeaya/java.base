@@ -12,17 +12,17 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
+#undef BUILD
+#undef BUILD_GROUP
+#undef OPT
+#undef OPT_GROUP
+#undef PLUS_GROUP
+#undef PRE
+#undef PRE_GROUP
+#undef VNUM
+#undef VNUM_GROUP
 #undef VSTR_FORMAT
 #undef VSTR_PATTERN
-#undef OPT_GROUP
-#undef PRE
-#undef OPT
-#undef PLUS_GROUP
-#undef VNUM_GROUP
-#undef BUILD_GROUP
-#undef BUILD
-#undef VNUM
-#undef PRE_GROUP
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

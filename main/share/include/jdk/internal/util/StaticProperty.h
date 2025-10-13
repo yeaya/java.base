@@ -5,26 +5,26 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("USER_HOME")
-#undef USER_HOME
-#pragma push_macro("NATIVE_ENCODING")
-#undef NATIVE_ENCODING
-#pragma push_macro("JAVA_LIBRARY_PATH")
-#undef JAVA_LIBRARY_PATH
-#pragma push_macro("JDK_SERIAL_FILTER")
-#undef JDK_SERIAL_FILTER
-#pragma push_macro("SUN_BOOT_LIBRARY_PATH")
-#undef SUN_BOOT_LIBRARY_PATH
 #pragma push_macro("JAVA_HOME")
 #undef JAVA_HOME
 #pragma push_macro("JAVA_IO_TMPDIR")
 #undef JAVA_IO_TMPDIR
-#pragma push_macro("USER_NAME")
-#undef USER_NAME
-#pragma push_macro("USER_DIR")
-#undef USER_DIR
+#pragma push_macro("JAVA_LIBRARY_PATH")
+#undef JAVA_LIBRARY_PATH
+#pragma push_macro("JDK_SERIAL_FILTER")
+#undef JDK_SERIAL_FILTER
 #pragma push_macro("JDK_SERIAL_FILTER_FACTORY")
 #undef JDK_SERIAL_FILTER_FACTORY
+#pragma push_macro("NATIVE_ENCODING")
+#undef NATIVE_ENCODING
+#pragma push_macro("SUN_BOOT_LIBRARY_PATH")
+#undef SUN_BOOT_LIBRARY_PATH
+#pragma push_macro("USER_DIR")
+#undef USER_DIR
+#pragma push_macro("USER_HOME")
+#undef USER_HOME
+#pragma push_macro("USER_NAME")
+#undef USER_NAME
 
 namespace java {
 	namespace util {
@@ -69,15 +69,15 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("USER_HOME")
-#pragma pop_macro("NATIVE_ENCODING")
-#pragma pop_macro("JAVA_LIBRARY_PATH")
-#pragma pop_macro("JDK_SERIAL_FILTER")
-#pragma pop_macro("SUN_BOOT_LIBRARY_PATH")
 #pragma pop_macro("JAVA_HOME")
 #pragma pop_macro("JAVA_IO_TMPDIR")
-#pragma pop_macro("USER_NAME")
-#pragma pop_macro("USER_DIR")
+#pragma pop_macro("JAVA_LIBRARY_PATH")
+#pragma pop_macro("JDK_SERIAL_FILTER")
 #pragma pop_macro("JDK_SERIAL_FILTER_FACTORY")
+#pragma pop_macro("NATIVE_ENCODING")
+#pragma pop_macro("SUN_BOOT_LIBRARY_PATH")
+#pragma pop_macro("USER_DIR")
+#pragma pop_macro("USER_HOME")
+#pragma pop_macro("USER_NAME")
 
 #endif // _jdk_internal_util_StaticProperty_h_

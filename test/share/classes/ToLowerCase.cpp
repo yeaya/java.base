@@ -15,10 +15,10 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef MAX_HIGH_SURROGATE
 #undef JAPAN
+#undef MAX_HIGH_SURROGATE
 #undef MIN_HIGH_SURROGATE
+#undef ROOT
 #undef US
 
 using $StringArray2 = $Array<::java::lang::String, 2>;

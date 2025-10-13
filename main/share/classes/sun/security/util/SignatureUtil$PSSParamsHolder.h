@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("PSS_512_SPEC")
-#undef PSS_512_SPEC
 #pragma push_macro("PSS_256_SPEC")
 #undef PSS_256_SPEC
 #pragma push_macro("PSS_384_SPEC")
 #undef PSS_384_SPEC
+#pragma push_macro("PSS_512_SPEC")
+#undef PSS_512_SPEC
 
 namespace java {
 	namespace security {
@@ -38,8 +38,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("PSS_512_SPEC")
 #pragma pop_macro("PSS_256_SPEC")
 #pragma pop_macro("PSS_384_SPEC")
+#pragma pop_macro("PSS_512_SPEC")
 
 #endif // _sun_security_util_SignatureUtil$PSSParamsHolder_h_

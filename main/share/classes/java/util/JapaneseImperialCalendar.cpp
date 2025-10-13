@@ -40,72 +40,72 @@
 #include <sun/util/locale/provider/CalendarDataUtility.h>
 #include <jcpp.h>
 
-#undef HEISEI
-#undef ONE_HOUR
-#undef MONTH
-#undef LEAP_MONTH_LENGTH
-#undef WEEK_OF_MONTH
-#undef DECEMBER
-#undef HOUR_OF_DAY_MASK
-#undef DAY_OF_WEEK_IN_MONTH
-#undef NARROW_FORMAT
-#undef WEEK_OF_YEAR_MASK
-#undef YEAR_MASK
-#undef TAISHO
-#undef YEAR
-#undef WEEK_OF_YEAR
-#undef FIELD_COUNT
-#undef NO_TIMEZONE
-#undef SATURDAY
-#undef MONTH_LENGTH
-#undef MINUTE
-#undef ONE_DAY
-#undef ONE_MINUTE
-#undef HOUR_MASK
-#undef LEAST_MAX_VALUES
-#undef JANUARY
-#undef DAY_OF_YEAR_MASK
-#undef DST_OFFSET
-#undef SUNDAY
-#undef AM
-#undef ERA_MASK
-#undef SECOND_MASK
-#undef ERA
-#undef MINUTE_MASK
-#undef MILLISECOND_MASK
-#undef MAX_VALUES
-#undef DAY_OF_WEEK
-#undef BEFORE_MEIJI
-#undef ONE_SECOND
-#undef DST_OFFSET_MASK
-#undef DAY_OF_YEAR
-#undef DAY_OF_MONTH
-#undef HOUR
-#undef AM_PM
-#undef MAX_VALUE
-#undef ALL_STYLES
-#undef ZONE_OFFSET
-#undef MIN_VALUES
-#undef EPOCH_OFFSET
-#undef HOUR_OF_DAY
-#undef SHOWA
-#undef AM_PM_MASK
-#undef LONG
-#undef BEFORE_MEIJI_ERA
-#undef DAY_OF_WEEK_IN_MONTH_MASK
-#undef REIWA
-#undef DAY_OF_MONTH_MASK
-#undef MIN_VALUE
-#undef MEIJI
-#undef SHORT
 #undef ALL_FIELDS
-#undef MONTH_MASK
+#undef ALL_STYLES
+#undef AM
+#undef AM_PM
+#undef AM_PM_MASK
+#undef BEFORE_MEIJI
+#undef BEFORE_MEIJI_ERA
+#undef DAY_OF_MONTH
+#undef DAY_OF_MONTH_MASK
+#undef DAY_OF_WEEK
+#undef DAY_OF_WEEK_IN_MONTH
+#undef DAY_OF_WEEK_IN_MONTH_MASK
 #undef DAY_OF_WEEK_MASK
-#undef WEEK_OF_MONTH_MASK
-#undef ZONE_OFFSET_MASK
-#undef SECOND
+#undef DAY_OF_YEAR
+#undef DAY_OF_YEAR_MASK
+#undef DECEMBER
+#undef DST_OFFSET
+#undef DST_OFFSET_MASK
+#undef EPOCH_OFFSET
+#undef ERA
+#undef ERA_MASK
+#undef FIELD_COUNT
+#undef HEISEI
+#undef HOUR
+#undef HOUR_MASK
+#undef HOUR_OF_DAY
+#undef HOUR_OF_DAY_MASK
+#undef JANUARY
+#undef LEAP_MONTH_LENGTH
+#undef LEAST_MAX_VALUES
+#undef LONG
+#undef MAX_VALUE
+#undef MAX_VALUES
+#undef MEIJI
 #undef MILLISECOND
+#undef MILLISECOND_MASK
+#undef MINUTE
+#undef MINUTE_MASK
+#undef MIN_VALUE
+#undef MIN_VALUES
+#undef MONTH
+#undef MONTH_LENGTH
+#undef MONTH_MASK
+#undef NARROW_FORMAT
+#undef NO_TIMEZONE
+#undef ONE_DAY
+#undef ONE_HOUR
+#undef ONE_MINUTE
+#undef ONE_SECOND
 #undef PM
+#undef REIWA
+#undef SATURDAY
+#undef SECOND
+#undef SECOND_MASK
+#undef SHORT
+#undef SHOWA
+#undef SUNDAY
+#undef TAISHO
+#undef WEEK_OF_MONTH
+#undef WEEK_OF_MONTH_MASK
+#undef WEEK_OF_YEAR
+#undef WEEK_OF_YEAR_MASK
+#undef YEAR
+#undef YEAR_MASK
+#undef ZONE_OFFSET
+#undef ZONE_OFFSET_MASK
 
 using $EraArray = $Array<::sun::util::calendar::Era>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -560,7 +560,7 @@ void JapaneseImperialCalendar::roll(int32_t field, int32_t amount) {
 								set($Calendar::DAY_OF_MONTH, transition->getDayOfMonth());
 							}
 						}
-					} else if (n == max && ($nc(transition)->getMonth() - 1 == n)) {
+					} else if (n == max && (transition->getMonth() - 1 == n)) {
 						int32_t dom = transition->getDayOfMonth();
 						if ($nc(this->jdate)->getDayOfMonth() >= dom) {
 							set($Calendar::DAY_OF_MONTH, dom - 1);
@@ -1154,14 +1154,14 @@ int32_t JapaneseImperialCalendar::getActualMaximum(int32_t field) {
 					}
 					$init($TimeZone);
 					$var($CalendarDate, d, $nc(JapaneseImperialCalendar::gcal)->newCalendarDate($TimeZone::NO_TIMEZONE));
-					$nc(d)->setDate($nc(date)->getNormalizedYear(), $BaseCalendar::JANUARY, 1);
+					$nc(d)->setDate(date->getNormalizedYear(), $BaseCalendar::JANUARY, 1);
 					int32_t dayOfWeek = $nc(JapaneseImperialCalendar::gcal)->getDayOfWeek(d);
 					dayOfWeek -= getFirstDayOfWeek();
 					if (dayOfWeek < 0) {
 						dayOfWeek += 7;
 					}
 					int32_t magic = dayOfWeek + getMinimalDaysInFirstWeek() - 1;
-					if ((magic == 6) || ($nc(date)->isLeapYear() && (magic == 5 || magic == 12))) {
+					if ((magic == 6) || (date->isLeapYear() && (magic == 5 || magic == 12))) {
 						var$0 = 53;
 						break;
 					}
@@ -1675,7 +1675,7 @@ int64_t JapaneseImperialCalendar::getFixedDate(int32_t era, int32_t year, int32_
 			}
 		}
 	} else if (isFieldSet(fieldMask, $Calendar::DAY_OF_YEAR)) {
-		if (isTransitionYear($nc(date)->getNormalizedYear())) {
+		if (isTransitionYear(date->getNormalizedYear())) {
 			fixedDate = getFixedDateJan1(date, fixedDate);
 		}
 		fixedDate += internalGet($Calendar::DAY_OF_YEAR);
@@ -1850,13 +1850,13 @@ void JapaneseImperialCalendar::pinDayOfMonth($LocalGregorianCalendar$Date* date)
 		int32_t monthLength = $nc(JapaneseImperialCalendar::jcal)->getMonthLength(realDate);
 		if (dom > monthLength) {
 			realDate->setDayOfMonth(monthLength);
-		} else if (dom < $nc(d)->getDayOfMonth()) {
-			$nc(realDate)->setDayOfMonth(d->getDayOfMonth());
+		} else if (dom < d->getDayOfMonth()) {
+			realDate->setDayOfMonth(d->getDayOfMonth());
 		} else {
-			$nc(realDate)->setDayOfMonth(dom);
+			realDate->setDayOfMonth(dom);
 		}
 		int32_t var$1 = realDate->getDayOfMonth();
-		bool var$0 = var$1 == $nc(d)->getDayOfMonth();
+		bool var$0 = var$1 == d->getDayOfMonth();
 		if (var$0 && tod < d->getTimeOfDay()) {
 			realDate->setDayOfMonth($Math::min(dom + 1, monthLength));
 		}

@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ")
-#undef READ
-#pragma push_macro("READ_BUF_OFF")
-#undef READ_BUF_OFF
-#pragma push_macro("READ_BUF")
-#undef READ_BUF
-#pragma push_macro("SKIP")
-#undef SKIP
-#pragma push_macro("GET_FD")
-#undef GET_FD
 #pragma push_macro("CLOSE")
 #undef CLOSE
 #pragma push_macro("GET_CHANNEL")
 #undef GET_CHANNEL
+#pragma push_macro("GET_FD")
+#undef GET_FD
+#pragma push_macro("READ")
+#undef READ
+#pragma push_macro("READ_BUF")
+#undef READ_BUF
+#pragma push_macro("READ_BUF_OFF")
+#undef READ_BUF_OFF
+#pragma push_macro("SKIP")
+#undef SKIP
 
 namespace java {
 	namespace io {
@@ -48,12 +48,12 @@ public:
 	static $Array<OpsAfterClose4FileInputStream>* $VALUES;
 };
 
-#pragma pop_macro("READ")
-#pragma pop_macro("READ_BUF_OFF")
-#pragma pop_macro("READ_BUF")
-#pragma pop_macro("SKIP")
-#pragma pop_macro("GET_FD")
 #pragma pop_macro("CLOSE")
 #pragma pop_macro("GET_CHANNEL")
+#pragma pop_macro("GET_FD")
+#pragma pop_macro("READ")
+#pragma pop_macro("READ_BUF")
+#pragma pop_macro("READ_BUF_OFF")
+#pragma pop_macro("SKIP")
 
 #endif // _OpsAfterClose4FileInputStream_h_

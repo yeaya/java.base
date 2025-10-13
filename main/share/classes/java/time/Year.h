@@ -9,12 +9,12 @@
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 
-#pragma push_macro("PARSER")
-#undef PARSER
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
 #pragma push_macro("MIN_VALUE")
 #undef MIN_VALUE
+#pragma push_macro("PARSER")
+#undef PARSER
 
 namespace java {
 	namespace io {
@@ -123,8 +123,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("PARSER")
 #pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MIN_VALUE")
+#pragma pop_macro("PARSER")
 
 #endif // _java_time_Year_h_

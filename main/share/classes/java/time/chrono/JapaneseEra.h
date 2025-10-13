@@ -8,24 +8,24 @@
 #include <java/lang/Array.h>
 #include <java/time/chrono/Era.h>
 
-#pragma push_macro("HEISEI")
-#undef HEISEI
-#pragma push_macro("ERA_OFFSET")
-#undef ERA_OFFSET
-#pragma push_macro("TAISHO")
-#undef TAISHO
-#pragma push_macro("REIWA")
-#undef REIWA
-#pragma push_macro("KNOWN_ERAS")
-#undef KNOWN_ERAS
-#pragma push_macro("SHOWA")
-#undef SHOWA
 #pragma push_macro("ERA_CONFIG")
 #undef ERA_CONFIG
+#pragma push_macro("ERA_OFFSET")
+#undef ERA_OFFSET
+#pragma push_macro("HEISEI")
+#undef HEISEI
+#pragma push_macro("KNOWN_ERAS")
+#undef KNOWN_ERAS
 #pragma push_macro("MEIJI")
 #undef MEIJI
 #pragma push_macro("N_ERA_CONSTANTS")
 #undef N_ERA_CONSTANTS
+#pragma push_macro("REIWA")
+#undef REIWA
+#pragma push_macro("SHOWA")
+#undef SHOWA
+#pragma push_macro("TAISHO")
+#undef TAISHO
 
 namespace java {
 	namespace io {
@@ -117,14 +117,14 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("HEISEI")
-#pragma pop_macro("ERA_OFFSET")
-#pragma pop_macro("TAISHO")
-#pragma pop_macro("REIWA")
-#pragma pop_macro("KNOWN_ERAS")
-#pragma pop_macro("SHOWA")
 #pragma pop_macro("ERA_CONFIG")
+#pragma pop_macro("ERA_OFFSET")
+#pragma pop_macro("HEISEI")
+#pragma pop_macro("KNOWN_ERAS")
 #pragma pop_macro("MEIJI")
 #pragma pop_macro("N_ERA_CONSTANTS")
+#pragma pop_macro("REIWA")
+#pragma pop_macro("SHOWA")
+#pragma pop_macro("TAISHO")
 
 #endif // _java_time_chrono_JapaneseEra_h_

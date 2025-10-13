@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MAX_JVM_ARITY")
-#undef MAX_JVM_ARITY
-#pragma push_macro("NF_LIMIT")
-#undef NF_LIMIT
-#pragma push_macro("NFS")
-#undef NFS
-#pragma push_macro("HANDLES")
-#undef HANDLES
-#pragma push_macro("FAKE_METHOD_HANDLE_INVOKE")
-#undef FAKE_METHOD_HANDLE_INVOKE
 #pragma push_macro("ARRAYS")
 #undef ARRAYS
+#pragma push_macro("FAKE_METHOD_HANDLE_INVOKE")
+#undef FAKE_METHOD_HANDLE_INVOKE
+#pragma push_macro("HANDLES")
+#undef HANDLES
+#pragma push_macro("MAX_JVM_ARITY")
+#undef MAX_JVM_ARITY
 #pragma push_macro("MH_LIMIT")
 #undef MH_LIMIT
+#pragma push_macro("NFS")
+#undef NFS
+#pragma push_macro("NF_LIMIT")
+#undef NF_LIMIT
 
 namespace java {
 	namespace lang {
@@ -156,12 +156,12 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("MAX_JVM_ARITY")
-#pragma pop_macro("NF_LIMIT")
-#pragma pop_macro("NFS")
-#pragma pop_macro("HANDLES")
-#pragma pop_macro("FAKE_METHOD_HANDLE_INVOKE")
 #pragma pop_macro("ARRAYS")
+#pragma pop_macro("FAKE_METHOD_HANDLE_INVOKE")
+#pragma pop_macro("HANDLES")
+#pragma pop_macro("MAX_JVM_ARITY")
 #pragma pop_macro("MH_LIMIT")
+#pragma pop_macro("NFS")
+#pragma pop_macro("NF_LIMIT")
 
 #endif // _java_lang_invoke_MethodHandleImpl_h_

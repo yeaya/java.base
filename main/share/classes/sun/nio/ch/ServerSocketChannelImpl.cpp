@@ -61,20 +61,20 @@
 #include <sun/nio/ch/UnixDomainSockets.h>
 #include <jcpp.h>
 
-#undef OP_ACCEPT
-#undef ST_CLOSED
-#undef POLLIN
-#undef SO_REUSEADDR
-#undef UNSPEC
-#undef INET6
-#undef UNIX
-#undef ST_CLOSING
-#undef POLLERR
-#undef ST_INUSE
 #undef INET
+#undef INET6
+#undef OP_ACCEPT
+#undef POLLERR
 #undef POLLHUP
-#undef UNAVAILABLE
+#undef POLLIN
 #undef POLLNVAL
+#undef SO_REUSEADDR
+#undef ST_CLOSED
+#undef ST_CLOSING
+#undef ST_INUSE
+#undef UNAVAILABLE
+#undef UNIX
+#undef UNSPEC
 
 using $InetSocketAddressArray = $Array<::java::net::InetSocketAddress>;
 using $SocketAddressArray = $Array<::java::net::SocketAddress>;
@@ -821,9 +821,9 @@ $String* ServerSocketChannelImpl::toString() {
 			if (addr == nullptr) {
 				sb->append("unbound"_s);
 			} else if (isUnixSocket()) {
-				$nc(sb)->append($($UnixDomainSockets::getRevealedLocalAddressAsString(addr)));
+				sb->append($($UnixDomainSockets::getRevealedLocalAddressAsString(addr)));
 			} else {
-				$nc(sb)->append($($Net::getRevealedLocalAddressAsString(addr)));
+				sb->append($($Net::getRevealedLocalAddressAsString(addr)));
 			}
 		}
 	}

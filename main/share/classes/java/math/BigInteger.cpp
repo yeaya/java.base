@@ -47,43 +47,43 @@
 #include <jdk/internal/math/FloatConsts.h>
 #include <jcpp.h>
 
-#undef SIGN_BIT_MASK
-#undef ZERO
-#undef ONE
-#undef EXP_BIAS
-#undef MAX_VALUE
-#undef MAX_CONSTANT
-#undef MAX_RADIX
-#undef SIGNIFICAND_WIDTH
-#undef NEGATIVE_INFINITY
-#undef TOOM_COOK_THRESHOLD
-#undef SMALL_PRIME_PRODUCT
-#undef KARATSUBA_SQUARE_THRESHOLD
-#undef DEFAULT_PRIME_CERTAINTY
-#undef NUM_ZEROS
-#undef BURNIKEL_ZIEGLER_THRESHOLD
-#undef TYPE
-#undef INFLATED
 #undef BURNIKEL_ZIEGLER_OFFSET
-#undef SIZE
-#undef MAX_MAG_LENGTH
-#undef SCHOENHAGE_BASE_CONVERSION_THRESHOLD
-#undef LOG_TWO
-#undef MIN_VALUE
-#undef TOOM_COOK_SQUARE_THRESHOLD
-#undef TWO
-#undef POSITIVE_INFINITY
-#undef MAX_EXPONENT
-#undef MONTGOMERY_INTRINSIC_THRESHOLD
+#undef BURNIKEL_ZIEGLER_THRESHOLD
+#undef DEFAULT_PRIME_CERTAINTY
+#undef EXP_BIAS
+#undef INFLATED
+#undef KARATSUBA_SQUARE_THRESHOLD
 #undef KARATSUBA_THRESHOLD
+#undef LOG_TWO
 #undef LONG_MASK
-#undef MULTIPLY_SQUARE_THRESHOLD
-#undef SIGNIF_BIT_MASK
+#undef MAX_CONSTANT
+#undef MAX_EXPONENT
+#undef MAX_MAG_LENGTH
+#undef MAX_RADIX
+#undef MAX_VALUE
 #undef MIN_RADIX
+#undef MIN_VALUE
+#undef MONTGOMERY_INTRINSIC_THRESHOLD
+#undef MULTIPLY_SQUARE_THRESHOLD
+#undef NEGATIVE_INFINITY
 #undef NEGATIVE_ONE
-#undef TEN
+#undef NUM_ZEROS
+#undef ONE
+#undef POSITIVE_INFINITY
 #undef PRIME_SEARCH_BIT_LENGTH_LIMIT
+#undef SCHOENHAGE_BASE_CONVERSION_THRESHOLD
+#undef SIGNIFICAND_WIDTH
+#undef SIGNIF_BIT_MASK
+#undef SIGN_BIT_MASK
+#undef SIZE
+#undef SMALL_PRIME_PRODUCT
 #undef SMALL_PRIME_THRESHOLD
+#undef TEN
+#undef TOOM_COOK_SQUARE_THRESHOLD
+#undef TOOM_COOK_THRESHOLD
+#undef TWO
+#undef TYPE
+#undef ZERO
 #undef ZEROS
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
@@ -1048,7 +1048,6 @@ BigInteger* BigInteger::valueOf(int64_t val) {
 	if (val > 0 && val <= BigInteger::MAX_CONSTANT) {
 		return $nc(BigInteger::posConst)->get((int32_t)val);
 	} else if (val < 0 && val >= -BigInteger::MAX_CONSTANT) {
-		$init(BigInteger);
 		return $nc(BigInteger::negConst)->get((int32_t)-val);
 	}
 	return $new(BigInteger, val);
@@ -1129,13 +1128,13 @@ $ints* BigInteger::add($ints* x, int64_t val) {
 		result->set(xIndex, (int32_t)sum);
 	} else if (xIndex == 1) {
 		$assign(result, $new($ints, 2));
-		sum = val + ((int64_t)($nc(x)->get(0) & (uint64_t)BigInteger::LONG_MASK));
+		sum = val + ((int64_t)(x->get(0) & (uint64_t)BigInteger::LONG_MASK));
 		result->set(1, (int32_t)sum);
 		result->set(0, (int32_t)((int64_t)((uint64_t)sum >> 32)));
 		return result;
 	} else {
 		$assign(result, $new($ints, xIndex));
-		sum = ((int64_t)($nc(x)->get(--xIndex) & (uint64_t)BigInteger::LONG_MASK)) + ((int64_t)(val & (uint64_t)BigInteger::LONG_MASK));
+		sum = ((int64_t)(x->get(--xIndex) & (uint64_t)BigInteger::LONG_MASK)) + ((int64_t)(val & (uint64_t)BigInteger::LONG_MASK));
 		result->set(xIndex, (int32_t)sum);
 		sum = ((int64_t)(x->get(--xIndex) & (uint64_t)BigInteger::LONG_MASK)) + ((int64_t)(highWord & (uint64_t)BigInteger::LONG_MASK)) + ((int64_t)((uint64_t)sum >> 32));
 		result->set(xIndex, (int32_t)sum);
@@ -1324,7 +1323,7 @@ BigInteger* BigInteger::multiply(BigInteger* val, bool isRecursion) {
 	} else {
 		if (!isRecursion) {
 			int32_t var$0 = bitLength(this->mag, $nc(this->mag)->length);
-			if (var$0 + bitLength($nc(val)->mag, $nc(val->mag)->length) > (int64_t)32 * BigInteger::MAX_MAG_LENGTH) {
+			if (var$0 + bitLength(val->mag, $nc(val->mag)->length) > (int64_t)32 * BigInteger::MAX_MAG_LENGTH) {
 				reportOverflow();
 			}
 		}
@@ -1908,7 +1907,7 @@ BigInteger* BigInteger::gcd(BigInteger* val) {
 	if ($nc(val)->signum$ == 0) {
 		return this->abs();
 	} else if (this->signum$ == 0) {
-		return $nc(val)->abs();
+		return val->abs();
 	}
 	$var($MutableBigInteger, a, $new($MutableBigInteger, this));
 	$var($MutableBigInteger, b, $new($MutableBigInteger, val));

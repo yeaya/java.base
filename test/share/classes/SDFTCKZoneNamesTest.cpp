@@ -35,32 +35,32 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef MONTH
-#undef ROOT
-#undef HOUR
-#undef TAIWAN
-#undef WEEK_OF_MONTH
 #undef AM_PM
-#undef DAY_OF_WEEK_IN_MONTH
-#undef ZONE_OFFSET
-#undef GERMANY
-#undef YEAR
-#undef WEEK_OF_YEAR
-#undef HOUR_OF_DAY
-#undef UK
-#undef JAPAN
-#undef MINUTE
-#undef ID
-#undef US
-#undef DST_OFFSET
 #undef CHINA
 #undef DATE
-#undef ERA
-#undef SECOND
-#undef MILLISECOND
 #undef DAY_OF_WEEK
+#undef DAY_OF_WEEK_IN_MONTH
+#undef DAY_OF_YEAR
+#undef DST_OFFSET
+#undef ERA
+#undef GERMANY
+#undef HOUR
+#undef HOUR_OF_DAY
+#undef ID
+#undef JAPAN
+#undef MILLISECOND
+#undef MINUTE
+#undef MONTH
+#undef ROOT
+#undef SECOND
+#undef TAIWAN
 #undef TIMEZONE_FIELD
+#undef UK
+#undef US
+#undef WEEK_OF_MONTH
+#undef WEEK_OF_YEAR
+#undef YEAR
+#undef ZONE_OFFSET
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
@@ -195,13 +195,13 @@ $StringBuffer* SDFTCKZoneNamesTest::myFormat($Date* date, $SimpleDateFormat* sdf
 		} else if (ch == u'\'') {
 			inQuote = true;
 			if (count > 0) {
-				$nc(toAppendTo)->append($(subFormat(prevCh, count, date, sdf)));
+				toAppendTo->append($(subFormat(prevCh, count, date, sdf)));
 				count = 0;
 				prevCh = (char16_t)0;
 			}
 		} else if (ch >= u'a' && ch <= u'z' || ch >= u'A' && ch <= u'Z') {
 			if (ch != prevCh && count > 0) {
-				$nc(toAppendTo)->append($(subFormat(prevCh, count, date, sdf)));
+				toAppendTo->append($(subFormat(prevCh, count, date, sdf)));
 				prevCh = ch;
 				count = 1;
 			} else {
@@ -211,12 +211,12 @@ $StringBuffer* SDFTCKZoneNamesTest::myFormat($Date* date, $SimpleDateFormat* sdf
 				++count;
 			}
 		} else if (count > 0) {
-			$nc(toAppendTo)->append($(subFormat(prevCh, count, date, sdf)));
+			toAppendTo->append($(subFormat(prevCh, count, date, sdf)));
 			toAppendTo->append(ch);
 			prevCh = (char16_t)0;
 			count = 0;
 		} else {
-			$nc(toAppendTo)->append(ch);
+			toAppendTo->append(ch);
 		}
 	}
 	if (count > 0) {
@@ -380,7 +380,7 @@ $String* SDFTCKZoneNamesTest::subFormat(char16_t ch, int32_t count, $Date* date,
 					zoneString->append(u':');
 					zoneString->append($(zeroPaddingNumber(($div(($mod(value, (60 * 60 * 1000))), (60 * 1000))), 2, 2, nf)));
 					$assign(current, zoneString->toString());
-				} else if ($nc(calendar)->get($Calendar::DST_OFFSET) != 0) {
+				} else if (calendar->get($Calendar::DST_OFFSET) != 0) {
 					if (count >= 4) {
 						$assign(current, $nc($nc($($nc(formatData)->getZoneStrings()))->get(zoneIndex))->get(3));
 					} else {

@@ -35,9 +35,9 @@
 #include <java/util/stream/SpinedBuffer$1Splitr.h>
 #include <jcpp.h>
 
+#undef BAD_SIZE
 #undef MAX_ARRAY_SIZE
 #undef MIN_SPINE_SIZE
-#undef BAD_SIZE
 #undef SPLITERATOR_CHARACTERISTICS
 
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;

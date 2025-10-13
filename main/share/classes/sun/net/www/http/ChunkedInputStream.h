@@ -8,18 +8,18 @@
 #include <java/lang/Array.h>
 #include <sun/net/www/http/Hurryable.h>
 
-#pragma push_macro("STATE_DONE")
-#undef STATE_DONE
-#pragma push_macro("STATE_AWAITING_CHUNK_EOL")
-#undef STATE_AWAITING_CHUNK_EOL
 #pragma push_macro("MAX_CHUNK_HEADER_SIZE")
 #undef MAX_CHUNK_HEADER_SIZE
+#pragma push_macro("STATE_AWAITING_CHUNK_EOL")
+#undef STATE_AWAITING_CHUNK_EOL
 #pragma push_macro("STATE_AWAITING_CHUNK_HEADER")
 #undef STATE_AWAITING_CHUNK_HEADER
-#pragma push_macro("STATE_READING_CHUNK")
-#undef STATE_READING_CHUNK
 #pragma push_macro("STATE_AWAITING_TRAILERS")
 #undef STATE_AWAITING_TRAILERS
+#pragma push_macro("STATE_DONE")
+#undef STATE_DONE
+#pragma push_macro("STATE_READING_CHUNK")
+#undef STATE_READING_CHUNK
 
 namespace java {
 	namespace util {
@@ -105,11 +105,11 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("STATE_DONE")
-#pragma pop_macro("STATE_AWAITING_CHUNK_EOL")
 #pragma pop_macro("MAX_CHUNK_HEADER_SIZE")
+#pragma pop_macro("STATE_AWAITING_CHUNK_EOL")
 #pragma pop_macro("STATE_AWAITING_CHUNK_HEADER")
-#pragma pop_macro("STATE_READING_CHUNK")
 #pragma pop_macro("STATE_AWAITING_TRAILERS")
+#pragma pop_macro("STATE_DONE")
+#pragma pop_macro("STATE_READING_CHUNK")
 
 #endif // _sun_net_www_http_ChunkedInputStream_h_

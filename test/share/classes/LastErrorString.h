@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UNWRITEABLE_DIR")
-#undef UNWRITEABLE_DIR
 #pragma push_macro("INVALID_PATH")
 #undef INVALID_PATH
 #pragma push_macro("READABLE_FILE")
 #undef READABLE_FILE
-#pragma push_macro("WRITEABLE_FILE")
-#undef WRITEABLE_FILE
 #pragma push_macro("UNREADABLE_FILE")
 #undef UNREADABLE_FILE
+#pragma push_macro("UNWRITEABLE_DIR")
+#undef UNWRITEABLE_DIR
+#pragma push_macro("WRITEABLE_FILE")
+#undef WRITEABLE_FILE
 
 class $export LastErrorString : public ::java::lang::Object {
 	$class(LastErrorString, 0, ::java::lang::Object)
@@ -30,10 +30,10 @@ public:
 	static $String* INVALID_PATH;
 };
 
-#pragma pop_macro("UNWRITEABLE_DIR")
 #pragma pop_macro("INVALID_PATH")
 #pragma pop_macro("READABLE_FILE")
-#pragma pop_macro("WRITEABLE_FILE")
 #pragma pop_macro("UNREADABLE_FILE")
+#pragma pop_macro("UNWRITEABLE_DIR")
+#pragma pop_macro("WRITEABLE_FILE")
 
 #endif // _LastErrorString_h_

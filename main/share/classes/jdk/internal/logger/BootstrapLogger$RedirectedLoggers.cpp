@@ -24,9 +24,9 @@
 #include <jdk/internal/logger/SurrogateLogger.h>
 #include <jcpp.h>
 
-#undef JUL_WITH_CONFIG
 #undef INSTANCE
 #undef JUL_DEFAULT
+#undef JUL_WITH_CONFIG
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

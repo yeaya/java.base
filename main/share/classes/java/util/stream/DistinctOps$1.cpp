@@ -51,10 +51,10 @@
 #include <java/util/stream/TerminalOp.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef DISTINCT
-#undef TRUE
+#undef ORDERED
 #undef SORTED
+#undef TRUE
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

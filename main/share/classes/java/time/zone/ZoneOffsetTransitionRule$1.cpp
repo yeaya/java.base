@@ -14,8 +14,8 @@
 #include <java/time/zone/ZoneOffsetTransitionRule.h>
 #include <jcpp.h>
 
-#undef UTC
 #undef STANDARD
+#undef UTC
 
 using $ZoneOffsetTransitionRule$TimeDefinitionArray = $Array<::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition>;
 using $ClassInfo = ::java::lang::ClassInfo;

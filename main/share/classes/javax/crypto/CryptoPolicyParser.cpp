@@ -27,14 +27,14 @@
 #include <jcpp.h>
 
 #undef ALG_NAME
+#undef ALG_NAME_WILDCARD
 #undef ENGLISH
 #undef INSTANCE
-#undef TT_NUMBER
 #undef MAX_VALUE
+#undef TT_EOF
+#undef TT_NUMBER
 #undef TT_WORD
 #undef TYPE
-#undef TT_EOF
-#undef ALG_NAME_WILDCARD
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $CryptoPermissionArray = $Array<::javax::crypto::CryptoPermission>;
@@ -185,7 +185,7 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 	} else if (peek("*"_s)) {
 		match("*"_s);
 		$init($CryptoPermission);
-		$set($nc(e), alg, $CryptoPermission::ALG_NAME_WILDCARD);
+		$set(e, alg, $CryptoPermission::ALG_NAME_WILDCARD);
 	} else {
 		$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), "Missing the algorithm name"_s);
 	}
@@ -202,11 +202,11 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 		e->maxKeySize = match();
 	} else if (peek("*"_s)) {
 		match("*"_s);
-		$nc(e)->maxKeySize = $Integer::MAX_VALUE;
+		e->maxKeySize = $Integer::MAX_VALUE;
 	} else if (!peek(";"_s)) {
 		$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), "Missing the maximum allowable key size"_s);
 	} else {
-		$nc(e)->maxKeySize = $Integer::MAX_VALUE;
+		e->maxKeySize = $Integer::MAX_VALUE;
 	}
 	peekAndMatch(","_s);
 	if (peek("\""_s)) {
@@ -218,7 +218,7 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 				paramsV->addElement($($Integer::valueOf(match())));
 			} else if (peek("*"_s)) {
 				match("*"_s);
-				$nc(paramsV)->addElement($($Integer::valueOf($Integer::MAX_VALUE)));
+				paramsV->addElement($($Integer::valueOf($Integer::MAX_VALUE)));
 			} else {
 				$throwNew($CryptoPolicyParser$ParsingException, $nc(this->st)->lineno(), "Expecting an integer"_s);
 			}
@@ -369,7 +369,7 @@ $String* CryptoPolicyParser::match($String* expect) {
 		{
 			if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
 				this->lookahead = $nc(this->st)->nextToken();
-			} else if ($nc(expect)->equalsIgnoreCase("permission type"_s)) {
+			} else if (expect->equalsIgnoreCase("permission type"_s)) {
 				$assign(value, $nc(this->st)->sval);
 				this->lookahead = $nc(this->st)->nextToken();
 			} else {
@@ -382,7 +382,7 @@ $String* CryptoPolicyParser::match($String* expect) {
 			if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
 				$assign(value, $nc(this->st)->sval);
 				this->lookahead = $nc(this->st)->nextToken();
-			} else if ($nc(expect)->equalsIgnoreCase("permission type"_s)) {
+			} else if (expect->equalsIgnoreCase("permission type"_s)) {
 				$assign(value, $nc(this->st)->sval);
 				this->lookahead = $nc(this->st)->nextToken();
 			} else {
@@ -456,10 +456,10 @@ $CryptoPermissionArray* CryptoPolicyParser::getPermissions() {
 			if ($nc($nc(pe)->cryptoPermission)->equals("javax.crypto.CryptoAllPermission"_s)) {
 				$init($CryptoAllPermission);
 				result->addElement($CryptoAllPermission::INSTANCE);
-			} else if ($nc(pe)->checkParam) {
-				$nc(result)->addElement($$new($CryptoPermission, pe->alg, pe->maxKeySize, pe->algParamSpec, pe->exemptionMechanism));
+			} else if (pe->checkParam) {
+				result->addElement($$new($CryptoPermission, pe->alg, pe->maxKeySize, pe->algParamSpec, pe->exemptionMechanism));
 			} else {
-				$nc(result)->addElement($$new($CryptoPermission, pe->alg, pe->maxKeySize, pe->exemptionMechanism));
+				result->addElement($$new($CryptoPermission, pe->alg, pe->maxKeySize, pe->exemptionMechanism));
 			}
 		}
 	}

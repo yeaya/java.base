@@ -33,13 +33,13 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef INHERITEDACCESSCONTROLCONTEXT
 #undef ACC
 #undef CONTEXTCLASSLOADER
-#undef THREAD_LOCALS
 #undef INHERITABLE_THREAD_LOCALS
-#undef UNSAFE
+#undef INHERITEDACCESSCONTROLCONTEXT
 #undef INNOCUOUSTHREADGROUP
+#undef THREAD_LOCALS
+#undef UNSAFE
 
 using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $ClassInfo = ::java::lang::ClassInfo;

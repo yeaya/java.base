@@ -32,10 +32,10 @@
 #include <java/util/stream/TerminalOp.h>
 #include <jcpp.h>
 
+#undef DOUBLE_VALUE
 #undef INT_VALUE
 #undef LONG_VALUE
 #undef REFERENCE
-#undef DOUBLE_VALUE
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

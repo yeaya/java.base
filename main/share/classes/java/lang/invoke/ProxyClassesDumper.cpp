@@ -30,9 +30,9 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef REPLACEMENT
 #undef BAD_CHARS
 #undef HEX
+#undef REPLACEMENT
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

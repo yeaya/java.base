@@ -14,10 +14,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef READ
+#undef APPEND
 #undef INHERIT
 #undef PIPE
-#undef APPEND
+#undef READ
 #undef WRITE
 
 using $ProcessBuilder$Redirect$TypeArray = $Array<::java::lang::ProcessBuilder$Redirect$Type>;

@@ -13,14 +13,14 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef SUBSIZED
-#undef ORDERED
-#undef DISTINCT
-#undef SIZED
-#undef IMMUTABLE
 #undef CONCURRENT
+#undef DISTINCT
+#undef IMMUTABLE
+#undef NONNULL
+#undef ORDERED
+#undef SIZED
 #undef SORTED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

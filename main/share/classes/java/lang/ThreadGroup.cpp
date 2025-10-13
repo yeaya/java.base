@@ -24,8 +24,8 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef MIN_PRIORITY
 #undef MAX_PRIORITY
+#undef MIN_PRIORITY
 
 using $ThreadArray = $Array<::java::lang::Thread>;
 using $ThreadGroupArray = $Array<::java::lang::ThreadGroup>;

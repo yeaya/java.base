@@ -53,9 +53,9 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
+#undef BLACK
 #undef RED
 #undef UNBOUNDED
-#undef BLACK
 
 using $IOException = ::java::io::IOException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -404,7 +404,7 @@ $TreeMap$Entry* TreeMap::getEntry(Object$* key) {
 		if (cmp < 0) {
 			$assign(p, p->left);
 		} else if (cmp > 0) {
-			$assign(p, $nc(p)->right);
+			$assign(p, p->right);
 		} else {
 			return p;
 		}
@@ -422,7 +422,7 @@ $TreeMap$Entry* TreeMap::getEntryUsingComparator(Object$* key) {
 			if (cmp < 0) {
 				$assign(p, p->left);
 			} else if (cmp > 0) {
-				$assign(p, $nc(p)->right);
+				$assign(p, p->right);
 			} else {
 				return p;
 			}
@@ -442,7 +442,7 @@ $TreeMap$Entry* TreeMap::getCeilingEntry(Object$* key) {
 				return p;
 			}
 		} else if (cmp > 0) {
-			if ($nc(p)->right != nullptr) {
+			if (p->right != nullptr) {
 				$assign(p, p->right);
 			} else {
 				$var($TreeMap$Entry, parent, p->parent);
@@ -471,7 +471,7 @@ $TreeMap$Entry* TreeMap::getFloorEntry(Object$* key) {
 				return p;
 			}
 		} else if (cmp < 0) {
-			if ($nc(p)->left != nullptr) {
+			if (p->left != nullptr) {
 				$assign(p, p->left);
 			} else {
 				$var($TreeMap$Entry, parent, p->parent);
@@ -499,7 +499,7 @@ $TreeMap$Entry* TreeMap::getHigherEntry(Object$* key) {
 			} else {
 				return p;
 			}
-		} else if ($nc(p)->right != nullptr) {
+		} else if (p->right != nullptr) {
 			$assign(p, p->right);
 		} else {
 			$var($TreeMap$Entry, parent, p->parent);
@@ -524,7 +524,7 @@ $TreeMap$Entry* TreeMap::getLowerEntry(Object$* key) {
 			} else {
 				return p;
 			}
-		} else if ($nc(p)->left != nullptr) {
+		} else if (p->left != nullptr) {
 			$assign(p, p->left);
 		} else {
 			$var($TreeMap$Entry, parent, p->parent);
@@ -1084,7 +1084,7 @@ $TreeMap$Entry* TreeMap::successor($TreeMap$Entry* t) {
 	$init(TreeMap);
 	if (t == nullptr) {
 		return nullptr;
-	} else if ($nc(t)->right != nullptr) {
+	} else if (t->right != nullptr) {
 		$var($TreeMap$Entry, p, t->right);
 		while ($nc(p)->left != nullptr) {
 			$assign(p, p->left);
@@ -1105,7 +1105,7 @@ $TreeMap$Entry* TreeMap::predecessor($TreeMap$Entry* t) {
 	$init(TreeMap);
 	if (t == nullptr) {
 		return nullptr;
-	} else if ($nc(t)->left != nullptr) {
+	} else if (t->left != nullptr) {
 		$var($TreeMap$Entry, p, t->left);
 		while ($nc(p)->right != nullptr) {
 			$assign(p, p->right);
@@ -1159,7 +1159,7 @@ void TreeMap::rotateLeft($TreeMap$Entry* p) {
 		$set(r, parent, p->parent);
 		if (p->parent == nullptr) {
 			$set(this, root, r);
-		} else if ($nc($nc(p)->parent)->left == p) {
+		} else if ($nc(p->parent)->left == p) {
 			$set($nc(p->parent), left, r);
 		} else {
 			$set($nc(p->parent), right, r);
@@ -1179,7 +1179,7 @@ void TreeMap::rotateRight($TreeMap$Entry* p) {
 		$set(l, parent, p->parent);
 		if (p->parent == nullptr) {
 			$set(this, root, l);
-		} else if ($nc($nc(p)->parent)->right == p) {
+		} else if ($nc(p->parent)->right == p) {
 			$set($nc(p->parent), right, l);
 		} else {
 			$set($nc(p->parent), left, l);
@@ -1245,7 +1245,7 @@ void TreeMap::deleteEntry($TreeMap$Entry* p$renamed) {
 		$set(replacement, parent, p->parent);
 		if (p->parent == nullptr) {
 			$set(this, root, replacement);
-		} else if (p == $nc($nc(p)->parent)->left) {
+		} else if (p == $nc(p->parent)->left) {
 			$set($nc(p->parent), left, replacement);
 		} else {
 			$set($nc(p->parent), right, replacement);
@@ -1254,7 +1254,7 @@ void TreeMap::deleteEntry($TreeMap$Entry* p$renamed) {
 		if (p->color == TreeMap::BLACK) {
 			fixAfterDeletion(replacement);
 		}
-	} else if ($nc(p)->parent == nullptr) {
+	} else if (p->parent == nullptr) {
 		$set(this, root, nullptr);
 	} else {
 		if (p->color == TreeMap::BLACK) {
@@ -1263,7 +1263,7 @@ void TreeMap::deleteEntry($TreeMap$Entry* p$renamed) {
 		if (p->parent != nullptr) {
 			if (p == $nc(p->parent)->left) {
 				$set($nc(p->parent), left, nullptr);
-			} else if (p == $nc($nc(p)->parent)->right) {
+			} else if (p == $nc(p->parent)->right) {
 				$set($nc(p->parent), right, nullptr);
 			}
 			$set(p, parent, nullptr);

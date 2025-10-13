@@ -173,20 +173,20 @@ using ::java::io::ByteArrayOutputStream;
 using ::java::io::DataOutputStream;
 using namespace ::java::lang::ref;
 
-#undef ENUM
-#undef SYNTHETIC
-#undef FINAL
 #undef ALL_PERMISSION
 #undef ANNOTATION
+#undef CHECK_MEMBER_ACCESS_PERMISSION
+#undef DECLARED
+#undef EMPTY_CLASS_ARRAY
+#undef ENUM
+#undef FINAL
+#undef GET_CLASSLOADER_PERMISSION
+#undef GET_PD_PERMISSION
+#undef NONE
 #undef NULL_SENTINEL
 #undef PUBLIC
-#undef GET_CLASSLOADER_PERMISSION
-#undef DECLARED
-#undef GET_PD_PERMISSION
-#undef CHECK_MEMBER_ACCESS_PERMISSION
-#undef NONE
+#undef SYNTHETIC
 #undef TYPE
-#undef EMPTY_CLASS_ARRAY
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
@@ -1104,11 +1104,11 @@ $String* Class::toGenericString() {
 			if (isInterface()) {
 				sb->append("interface"_s);
 			} else if (isEnum()) {
-				$nc(sb)->append("enum"_s);
+				sb->append("enum"_s);
 			} else if (isRecord()) {
-				$nc(sb)->append("record"_s);
+				sb->append("record"_s);
 			} else {
-				$nc(sb)->append("class"_s);
+				sb->append("class"_s);
 			}
 			sb->append(u' ');
 			sb->append($(getName()));

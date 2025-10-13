@@ -24,9 +24,9 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
+#undef CERTIFICATE
 #undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_VERIFY
-#undef CERTIFICATE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $Byte = ::java::lang::Byte;

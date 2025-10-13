@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 
-#pragma push_macro("PLANEMASK")
-#undef PLANEMASK
+#pragma push_macro("BLOCKCOUNT")
+#undef BLOCKCOUNT
+#pragma push_macro("BLOCKMASK")
+#undef BLOCKMASK
+#pragma push_macro("BLOCKSHIFT")
+#undef BLOCKSHIFT
 #pragma push_macro("CODEPOINTMASK")
 #undef CODEPOINTMASK
 #pragma push_macro("INDEXCOUNT")
 #undef INDEXCOUNT
 #pragma push_macro("INDEXSHIFT")
 #undef INDEXSHIFT
-#pragma push_macro("BLOCKSHIFT")
-#undef BLOCKSHIFT
 #pragma push_macro("PLANECOUNT")
 #undef PLANECOUNT
-#pragma push_macro("BLOCKMASK")
-#undef BLOCKMASK
-#pragma push_macro("BLOCKCOUNT")
-#undef BLOCKCOUNT
+#pragma push_macro("PLANEMASK")
+#undef PLANEMASK
 #pragma push_macro("PLANESHIFT")
 #undef PLANESHIFT
 #pragma push_macro("UNICODECOUNT")
@@ -63,14 +63,14 @@ public:
 	} // text
 } // sun
 
-#pragma pop_macro("PLANEMASK")
+#pragma pop_macro("BLOCKCOUNT")
+#pragma pop_macro("BLOCKMASK")
+#pragma pop_macro("BLOCKSHIFT")
 #pragma pop_macro("CODEPOINTMASK")
 #pragma pop_macro("INDEXCOUNT")
 #pragma pop_macro("INDEXSHIFT")
-#pragma pop_macro("BLOCKSHIFT")
 #pragma pop_macro("PLANECOUNT")
-#pragma pop_macro("BLOCKMASK")
-#pragma pop_macro("BLOCKCOUNT")
+#pragma pop_macro("PLANEMASK")
 #pragma pop_macro("PLANESHIFT")
 #pragma pop_macro("UNICODECOUNT")
 

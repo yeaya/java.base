@@ -50,21 +50,21 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef DOWN
-#undef SECONDS_PER_DAY
-#undef NANOS_PER_DAY
-#undef DURATION_TYPE
-#undef SECONDS
+#undef BI_NANOS_PER_SECOND
 #undef DAYS
-#undef NANO_OF_SECOND
+#undef DOWN
+#undef DURATION_TYPE
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef NANOS_PER_SECOND
-#undef PATTERN
 #undef NANOS
-#undef BI_NANOS_PER_SECOND
+#undef NANOS_PER_DAY
+#undef NANOS_PER_SECOND
+#undef NANO_OF_SECOND
+#undef PATTERN
+#undef SECONDS
+#undef SECONDS_PER_DAY
 #undef UNITS
+#undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $DataInput = ::java::io::DataInput;
@@ -791,7 +791,7 @@ Duration* Duration::truncatedTo($TemporalUnit* unit) {
 			return this;
 		}
 	}
-	$var(Duration, unitDur, $nc(unit)->getDuration());
+	$var(Duration, unitDur, unit->getDuration());
 	if ($nc(unitDur)->getSeconds() > $LocalTime::SECONDS_PER_DAY) {
 		$throwNew($UnsupportedTemporalTypeException, "Unit is too large to be used for truncation"_s);
 	}

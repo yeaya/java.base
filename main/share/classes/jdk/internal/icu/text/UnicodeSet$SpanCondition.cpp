@@ -13,9 +13,9 @@
 #include <jdk/internal/icu/text/UnicodeSet.h>
 #include <jcpp.h>
 
+#undef CONTAINED
 #undef NOT_CONTAINED
 #undef SIMPLE
-#undef CONTAINED
 
 using $UnicodeSet$SpanConditionArray = $Array<::jdk::internal::icu::text::UnicodeSet$SpanCondition>;
 using $ClassInfo = ::java::lang::ClassInfo;

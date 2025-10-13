@@ -44,22 +44,22 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef NAME_NARROWS
 #undef EMAIL_ADDRESS_OID
-#undef NAME_WIDENS
 #undef EXCLUDED_SUBTREES
-#undef NAME
-#undef TAG_EXCLUDED
-#undef NAME_MATCH
 #undef IDENT
-#undef NAME_IP
-#undef SUBJECT_NAME
-#undef TAG_CONTEXT
-#undef NAME_SAME_TYPE
-#undef TAG_PERMITTED
+#undef NAME
 #undef NAME_DIFF_TYPE
 #undef NAME_DNS
+#undef NAME_IP
+#undef NAME_MATCH
+#undef NAME_NARROWS
+#undef NAME_SAME_TYPE
+#undef NAME_WIDENS
 #undef PERMITTED_SUBTREES
+#undef SUBJECT_NAME
+#undef TAG_CONTEXT
+#undef TAG_EXCLUDED
+#undef TAG_PERMITTED
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -311,7 +311,7 @@ void NameConstraintsExtension::set($String* name, Object$* obj) {
 			$throwNew($IOException, "Attribute value should be of type GeneralSubtrees."_s);
 		}
 		$set(this, permitted, $cast($GeneralSubtrees, obj));
-	} else if ($nc(name)->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
+	} else if (name->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
 		if (!($instanceOf($GeneralSubtrees, obj))) {
 			$throwNew($IOException, "Attribute value should be of type GeneralSubtrees."_s);
 		}
@@ -325,7 +325,7 @@ void NameConstraintsExtension::set($String* name, Object$* obj) {
 $Object* NameConstraintsExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(NameConstraintsExtension::PERMITTED_SUBTREES)) {
 		return $of((this->permitted));
-	} else if ($nc(name)->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
+	} else if (name->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
 		return $of((this->excluded));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:NameConstraintsExtension."_s);
@@ -335,7 +335,7 @@ $Object* NameConstraintsExtension::get($String* name) {
 void NameConstraintsExtension::delete$($String* name) {
 	if ($nc(name)->equalsIgnoreCase(NameConstraintsExtension::PERMITTED_SUBTREES)) {
 		$set(this, permitted, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
+	} else if (name->equalsIgnoreCase(NameConstraintsExtension::EXCLUDED_SUBTREES)) {
 		$set(this, excluded, nullptr);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:NameConstraintsExtension."_s);

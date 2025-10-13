@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SKIP_CODE")
-#undef SKIP_CODE
 #pragma push_macro("EXPAND_ASM_INSNS")
 #undef EXPAND_ASM_INSNS
-#pragma push_macro("INPUT_STREAM_DATA_CHUNK_SIZE")
-#undef INPUT_STREAM_DATA_CHUNK_SIZE
 #pragma push_macro("EXPAND_FRAMES")
 #undef EXPAND_FRAMES
-#pragma push_macro("SKIP_FRAMES")
-#undef SKIP_FRAMES
+#pragma push_macro("INPUT_STREAM_DATA_CHUNK_SIZE")
+#undef INPUT_STREAM_DATA_CHUNK_SIZE
+#pragma push_macro("SKIP_CODE")
+#undef SKIP_CODE
 #pragma push_macro("SKIP_DEBUG")
 #undef SKIP_DEBUG
+#pragma push_macro("SKIP_FRAMES")
+#undef SKIP_FRAMES
 
 namespace java {
 	namespace io {
@@ -122,11 +122,11 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SKIP_CODE")
 #pragma pop_macro("EXPAND_ASM_INSNS")
-#pragma pop_macro("INPUT_STREAM_DATA_CHUNK_SIZE")
 #pragma pop_macro("EXPAND_FRAMES")
-#pragma pop_macro("SKIP_FRAMES")
+#pragma pop_macro("INPUT_STREAM_DATA_CHUNK_SIZE")
+#pragma pop_macro("SKIP_CODE")
 #pragma pop_macro("SKIP_DEBUG")
+#pragma pop_macro("SKIP_FRAMES")
 
 #endif // _jdk_internal_org_objectweb_asm$_ClassReader_h_

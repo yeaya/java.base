@@ -14,10 +14,10 @@
 #include <sun/security/util/SignatureUtil.h>
 #include <jcpp.h>
 
-#undef PSS_512_SPEC
-#undef TRAILER_FIELD_BC
 #undef PSS_256_SPEC
 #undef PSS_384_SPEC
+#undef PSS_512_SPEC
+#undef TRAILER_FIELD_BC
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

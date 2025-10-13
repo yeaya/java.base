@@ -8,10 +8,10 @@
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/commons/GeneratorAdapter.h>
 
-#pragma push_macro("OTHER")
-#undef OTHER
 #pragma push_macro("INVALID_OPCODE")
 #undef INVALID_OPCODE
+#pragma push_macro("OTHER")
+#undef OTHER
 #pragma push_macro("UNINITIALIZED_THIS")
 #undef UNINITIALIZED_THIS
 
@@ -95,8 +95,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("OTHER")
 #pragma pop_macro("INVALID_OPCODE")
+#pragma pop_macro("OTHER")
 #pragma pop_macro("UNINITIALIZED_THIS")
 
 #endif // _jdk_internal_org_objectweb_asm$_commons_AdviceAdapter_h_

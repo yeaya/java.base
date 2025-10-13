@@ -32,8 +32,8 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef SEVERE
 #undef ACCEPT_ORIGINAL_SERVER
+#undef SEVERE
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

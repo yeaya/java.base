@@ -15,28 +15,28 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <jcpp.h>
 
-#undef CLOCK_HOUR_OF_AMPM
 #undef AMPM_OF_DAY
-#undef MICRO_OF_DAY
-#undef MICROS
-#undef SECONDS
-#undef SECOND_OF_MINUTE
-#undef NANO_OF_SECOND
-#undef MILLIS
-#undef MILLI_OF_SECOND
-#undef NANO_OF_DAY
-#undef SECOND_OF_DAY
-#undef HALF_DAYS
+#undef CLOCK_HOUR_OF_AMPM
 #undef CLOCK_HOUR_OF_DAY
-#undef MINUTE_OF_DAY
-#undef MICRO_OF_SECOND
+#undef HALF_DAYS
 #undef HOURS
-#undef HOUR_OF_DAY
-#undef NANOS
 #undef HOUR_OF_AMPM
-#undef MINUTE_OF_HOUR
+#undef HOUR_OF_DAY
+#undef MICROS
+#undef MICRO_OF_DAY
+#undef MICRO_OF_SECOND
+#undef MILLIS
 #undef MILLI_OF_DAY
+#undef MILLI_OF_SECOND
 #undef MINUTES
+#undef MINUTE_OF_DAY
+#undef MINUTE_OF_HOUR
+#undef NANOS
+#undef NANO_OF_DAY
+#undef NANO_OF_SECOND
+#undef SECONDS
+#undef SECOND_OF_DAY
+#undef SECOND_OF_MINUTE
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;

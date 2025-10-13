@@ -21,8 +21,8 @@
 #include <sun/security/validator/CADistrustPolicy$2.h>
 #include <jcpp.h>
 
-#undef SYMANTEC_TLS
 #undef POLICIES
+#undef SYMANTEC_TLS
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $CADistrustPolicyArray = $Array<::sun::security::validator::CADistrustPolicy>;

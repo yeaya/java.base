@@ -6,22 +6,22 @@
 #include <java/lang/Integer.h>
 #include <java/util/concurrent/AbstractExecutorService.h>
 
+#pragma push_macro("COUNT_BITS")
+#undef COUNT_BITS
+#pragma push_macro("COUNT_MASK")
+#undef COUNT_MASK
+#pragma push_macro("ONLY_ONE")
+#undef ONLY_ONE
 #pragma push_macro("RUNNING")
 #undef RUNNING
+#pragma push_macro("SHUTDOWN")
+#undef SHUTDOWN
+#pragma push_macro("SIZE")
+#undef SIZE
 #pragma push_macro("STOP")
 #undef STOP
 #pragma push_macro("TERMINATED")
 #undef TERMINATED
-#pragma push_macro("ONLY_ONE")
-#undef ONLY_ONE
-#pragma push_macro("COUNT_BITS")
-#undef COUNT_BITS
-#pragma push_macro("SIZE")
-#undef SIZE
-#pragma push_macro("COUNT_MASK")
-#undef COUNT_MASK
-#pragma push_macro("SHUTDOWN")
-#undef SHUTDOWN
 #pragma push_macro("TIDYING")
 #undef TIDYING
 
@@ -170,14 +170,14 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("COUNT_BITS")
+#pragma pop_macro("COUNT_MASK")
+#pragma pop_macro("ONLY_ONE")
 #pragma pop_macro("RUNNING")
+#pragma pop_macro("SHUTDOWN")
+#pragma pop_macro("SIZE")
 #pragma pop_macro("STOP")
 #pragma pop_macro("TERMINATED")
-#pragma pop_macro("ONLY_ONE")
-#pragma pop_macro("COUNT_BITS")
-#pragma pop_macro("SIZE")
-#pragma pop_macro("COUNT_MASK")
-#pragma pop_macro("SHUTDOWN")
 #pragma pop_macro("TIDYING")
 
 #endif // _java_util_concurrent_ThreadPoolExecutor_h_

@@ -16,8 +16,8 @@
 #include <java/util/Formatter$FormatSpecifier.h>
 #include <jcpp.h>
 
-#undef SCIENTIFIC
 #undef DECIMAL_FLOAT
+#undef SCIENTIFIC
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -144,7 +144,7 @@ void Formatter$FormatSpecifier$BigDecimalLayout::layout($BigInteger* intVal, int
 				$nc(this->mant)->append(static_cast<$CharSequence*>(coeff), pad, len);
 			} else {
 				$nc(this->mant)->append(static_cast<$CharSequence*>(coeff), 0, len);
-				if ($nc(intVal)->signum() != 0) {
+				if (intVal->signum() != 0) {
 					this->this$1->trailingZeros(this->mant, -scale);
 				}
 				this->scale$ = 0;

@@ -47,8 +47,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef SO_TIMEOUT
 #undef HTTP
+#undef SO_TIMEOUT
 
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;

@@ -14,9 +14,9 @@
 #include <jcpp.h>
 
 #undef AUTOMATIC
-#undef SYNTHETIC
 #undef MANDATED
 #undef OPEN
+#undef SYNTHETIC
 
 using $ModuleDescriptor$ModifierArray = $Array<::java::lang::module::ModuleDescriptor$Modifier>;
 using $ClassInfo = ::java::lang::ClassInfo;

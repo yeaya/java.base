@@ -11,15 +11,15 @@
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jcpp.h>
 
+#undef ASM4
+#undef ASM5
+#undef ASM6
+#undef ASM7
+#undef ASM8
+#undef ASM9_EXPERIMENTAL
 #undef EXTENDS
 #undef INSTANCEOF
 #undef SUPER
-#undef ASM7
-#undef ASM8
-#undef ASM5
-#undef ASM6
-#undef ASM4
-#undef ASM9_EXPERIMENTAL
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

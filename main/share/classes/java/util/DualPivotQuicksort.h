@@ -7,44 +7,44 @@
 #include <java/lang/Byte.h>
 #include <java/lang/Short.h>
 
-#pragma push_macro("MAX_RUN_CAPACITY")
-#undef MAX_RUN_CAPACITY
-#pragma push_macro("NUM_BYTE_VALUES")
-#undef NUM_BYTE_VALUES
-#pragma push_macro("MIN_PARALLEL_MERGE_PARTS_SIZE")
-#undef MIN_PARALLEL_MERGE_PARTS_SIZE
-#pragma push_macro("MIN_PARALLEL_SORT_SIZE")
-#undef MIN_PARALLEL_SORT_SIZE
 #pragma push_macro("DELTA")
 #undef DELTA
-#pragma push_macro("MAX_INSERTION_SORT_SIZE")
-#undef MAX_INSERTION_SORT_SIZE
-#pragma push_macro("MIN_RUN_COUNT")
-#undef MIN_RUN_COUNT
-#pragma push_macro("MIN_TRY_MERGE_SIZE")
-#undef MIN_TRY_MERGE_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("NUM_CHAR_VALUES")
-#undef NUM_CHAR_VALUES
-#pragma push_macro("MAX_MIXED_INSERTION_SORT_SIZE")
-#undef MAX_MIXED_INSERTION_SORT_SIZE
 #pragma push_macro("MAX_BYTE_INDEX")
 #undef MAX_BYTE_INDEX
-#pragma push_macro("MIN_BYTE_COUNTING_SORT_SIZE")
-#undef MIN_BYTE_COUNTING_SORT_SIZE
-#pragma push_macro("NUM_SHORT_VALUES")
-#undef NUM_SHORT_VALUES
+#pragma push_macro("MAX_INSERTION_SORT_SIZE")
+#undef MAX_INSERTION_SORT_SIZE
+#pragma push_macro("MAX_MIXED_INSERTION_SORT_SIZE")
+#undef MAX_MIXED_INSERTION_SORT_SIZE
 #pragma push_macro("MAX_RECURSION_DEPTH")
 #undef MAX_RECURSION_DEPTH
+#pragma push_macro("MAX_RUN_CAPACITY")
+#undef MAX_RUN_CAPACITY
 #pragma push_macro("MAX_SHORT_INDEX")
 #undef MAX_SHORT_INDEX
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
+#pragma push_macro("MIN_BYTE_COUNTING_SORT_SIZE")
+#undef MIN_BYTE_COUNTING_SORT_SIZE
 #pragma push_macro("MIN_FIRST_RUNS_FACTOR")
 #undef MIN_FIRST_RUNS_FACTOR
 #pragma push_macro("MIN_FIRST_RUN_SIZE")
 #undef MIN_FIRST_RUN_SIZE
+#pragma push_macro("MIN_PARALLEL_MERGE_PARTS_SIZE")
+#undef MIN_PARALLEL_MERGE_PARTS_SIZE
+#pragma push_macro("MIN_PARALLEL_SORT_SIZE")
+#undef MIN_PARALLEL_SORT_SIZE
+#pragma push_macro("MIN_RUN_COUNT")
+#undef MIN_RUN_COUNT
 #pragma push_macro("MIN_SHORT_OR_CHAR_COUNTING_SORT_SIZE")
 #undef MIN_SHORT_OR_CHAR_COUNTING_SORT_SIZE
+#pragma push_macro("MIN_TRY_MERGE_SIZE")
+#undef MIN_TRY_MERGE_SIZE
+#pragma push_macro("NUM_BYTE_VALUES")
+#undef NUM_BYTE_VALUES
+#pragma push_macro("NUM_CHAR_VALUES")
+#undef NUM_CHAR_VALUES
+#pragma push_macro("NUM_SHORT_VALUES")
+#undef NUM_SHORT_VALUES
 
 namespace java {
 	namespace util {
@@ -132,24 +132,24 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MAX_RUN_CAPACITY")
-#pragma pop_macro("NUM_BYTE_VALUES")
-#pragma pop_macro("MIN_PARALLEL_MERGE_PARTS_SIZE")
-#pragma pop_macro("MIN_PARALLEL_SORT_SIZE")
 #pragma pop_macro("DELTA")
-#pragma pop_macro("MAX_INSERTION_SORT_SIZE")
-#pragma pop_macro("MIN_RUN_COUNT")
-#pragma pop_macro("MIN_TRY_MERGE_SIZE")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("NUM_CHAR_VALUES")
-#pragma pop_macro("MAX_MIXED_INSERTION_SORT_SIZE")
 #pragma pop_macro("MAX_BYTE_INDEX")
-#pragma pop_macro("MIN_BYTE_COUNTING_SORT_SIZE")
-#pragma pop_macro("NUM_SHORT_VALUES")
+#pragma pop_macro("MAX_INSERTION_SORT_SIZE")
+#pragma pop_macro("MAX_MIXED_INSERTION_SORT_SIZE")
 #pragma pop_macro("MAX_RECURSION_DEPTH")
+#pragma pop_macro("MAX_RUN_CAPACITY")
 #pragma pop_macro("MAX_SHORT_INDEX")
+#pragma pop_macro("MAX_VALUE")
+#pragma pop_macro("MIN_BYTE_COUNTING_SORT_SIZE")
 #pragma pop_macro("MIN_FIRST_RUNS_FACTOR")
 #pragma pop_macro("MIN_FIRST_RUN_SIZE")
+#pragma pop_macro("MIN_PARALLEL_MERGE_PARTS_SIZE")
+#pragma pop_macro("MIN_PARALLEL_SORT_SIZE")
+#pragma pop_macro("MIN_RUN_COUNT")
 #pragma pop_macro("MIN_SHORT_OR_CHAR_COUNTING_SORT_SIZE")
+#pragma pop_macro("MIN_TRY_MERGE_SIZE")
+#pragma pop_macro("NUM_BYTE_VALUES")
+#pragma pop_macro("NUM_CHAR_VALUES")
+#pragma pop_macro("NUM_SHORT_VALUES")
 
 #endif // _java_util_DualPivotQuicksort_h_

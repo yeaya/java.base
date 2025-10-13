@@ -26,9 +26,9 @@
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
 
-#undef PUB_CREDENTIAL_SET
 #undef PRINCIPAL_SET
 #undef PRIV_CREDENTIAL_SET
+#undef PUB_CREDENTIAL_SET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -123,7 +123,7 @@ bool Pattern$Loop::matchInit($Matcher* matcher, int32_t i, $CharSequence* seq) {
 		$nc(matcher->locals)->set(this->countIndex, 1);
 		ret = $nc(this->body)->match(matcher, i, seq);
 	} else if (0 < this->cmax) {
-		$nc($nc(matcher)->locals)->set(this->countIndex, 1);
+		$nc(matcher->locals)->set(this->countIndex, 1);
 		ret = $nc(this->body)->match(matcher, i, seq);
 		if (ret == false) {
 			ret = $nc(this->next)->match(matcher, i, seq);

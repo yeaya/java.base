@@ -23,9 +23,9 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial$Limb.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef LITTLE_ENDIAN
 #undef TWO
+#undef ZERO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

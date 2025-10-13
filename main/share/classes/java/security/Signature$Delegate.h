@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/security/Signature.h>
 
-#pragma push_macro("I_PRIV_PARAM_SR")
-#undef I_PRIV_PARAM_SR
-#pragma push_macro("I_PUB")
-#undef I_PUB
-#pragma push_macro("S_PARAM")
-#undef S_PARAM
 #pragma push_macro("I_PRIV")
 #undef I_PRIV
+#pragma push_macro("I_PRIV_PARAM_SR")
+#undef I_PRIV_PARAM_SR
 #pragma push_macro("I_PRIV_SR")
 #undef I_PRIV_SR
+#pragma push_macro("I_PUB")
+#undef I_PUB
 #pragma push_macro("I_PUB_PARAM")
 #undef I_PUB_PARAM
+#pragma push_macro("S_PARAM")
+#undef S_PARAM
 
 namespace java {
 	namespace nio {
@@ -95,11 +95,11 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("I_PRIV_PARAM_SR")
-#pragma pop_macro("I_PUB")
-#pragma pop_macro("S_PARAM")
 #pragma pop_macro("I_PRIV")
+#pragma pop_macro("I_PRIV_PARAM_SR")
 #pragma pop_macro("I_PRIV_SR")
+#pragma pop_macro("I_PUB")
 #pragma pop_macro("I_PUB_PARAM")
+#pragma pop_macro("S_PARAM")
 
 #endif // _java_security_Signature$Delegate_h_

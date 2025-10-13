@@ -18,8 +18,8 @@
 #include <sun/security/action/GetIntegerAction.h>
 #include <jcpp.h>
 
-#undef SET_FILTER_AFTER_READ
 #undef PROXY_INTERFACE_LIMIT
+#undef SET_FILTER_AFTER_READ
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

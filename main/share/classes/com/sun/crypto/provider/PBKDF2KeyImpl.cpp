@@ -48,8 +48,8 @@
 #include <jcpp.h>
 
 #undef ENGLISH
-#undef UTF_8
 #undef SECRET
+#undef UTF_8
 
 using $PBKDF2KeyImpl$1 = ::com::sun::crypto::provider::PBKDF2KeyImpl$1;
 using $SunJCE = ::com::sun::crypto::provider::SunJCE;

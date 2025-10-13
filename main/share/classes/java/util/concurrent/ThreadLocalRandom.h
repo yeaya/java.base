@@ -6,32 +6,32 @@
 #include <java/lang/Array.h>
 #include <java/util/Random.h>
 
-#pragma push_macro("INHERITEDACCESSCONTROLCONTEXT")
-#undef INHERITEDACCESSCONTROLCONTEXT
-#pragma push_macro("INHERITABLETHREADLOCALS")
-#undef INHERITABLETHREADLOCALS
-#pragma push_macro("THREADLOCALS")
-#undef THREADLOCALS
-#pragma push_macro("SEEDER_INCREMENT")
-#undef SEEDER_INCREMENT
-#pragma push_macro("SECONDARY")
-#undef SECONDARY
-#pragma push_macro("BAD_RANGE")
-#undef BAD_RANGE
-#pragma push_macro("U")
-#undef U
-#pragma push_macro("BAD_SIZE")
-#undef BAD_SIZE
-#pragma push_macro("SEED")
-#undef SEED
 #pragma push_macro("BAD_BOUND")
 #undef BAD_BOUND
-#pragma push_macro("PROBE_INCREMENT")
-#undef PROBE_INCREMENT
+#pragma push_macro("BAD_RANGE")
+#undef BAD_RANGE
+#pragma push_macro("BAD_SIZE")
+#undef BAD_SIZE
 #pragma push_macro("GOLDEN_GAMMA")
 #undef GOLDEN_GAMMA
+#pragma push_macro("INHERITABLETHREADLOCALS")
+#undef INHERITABLETHREADLOCALS
+#pragma push_macro("INHERITEDACCESSCONTROLCONTEXT")
+#undef INHERITEDACCESSCONTROLCONTEXT
 #pragma push_macro("PROBE")
 #undef PROBE
+#pragma push_macro("PROBE_INCREMENT")
+#undef PROBE_INCREMENT
+#pragma push_macro("SECONDARY")
+#undef SECONDARY
+#pragma push_macro("SEED")
+#undef SEED
+#pragma push_macro("SEEDER_INCREMENT")
+#undef SEEDER_INCREMENT
+#pragma push_macro("THREADLOCALS")
+#undef THREADLOCALS
+#pragma push_macro("U")
+#undef U
 
 namespace java {
 	namespace io {
@@ -149,18 +149,18 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("INHERITEDACCESSCONTROLCONTEXT")
-#pragma pop_macro("INHERITABLETHREADLOCALS")
-#pragma pop_macro("THREADLOCALS")
-#pragma pop_macro("SEEDER_INCREMENT")
-#pragma pop_macro("SECONDARY")
-#pragma pop_macro("BAD_RANGE")
-#pragma pop_macro("U")
-#pragma pop_macro("BAD_SIZE")
-#pragma pop_macro("SEED")
 #pragma pop_macro("BAD_BOUND")
-#pragma pop_macro("PROBE_INCREMENT")
+#pragma pop_macro("BAD_RANGE")
+#pragma pop_macro("BAD_SIZE")
 #pragma pop_macro("GOLDEN_GAMMA")
+#pragma pop_macro("INHERITABLETHREADLOCALS")
+#pragma pop_macro("INHERITEDACCESSCONTROLCONTEXT")
 #pragma pop_macro("PROBE")
+#pragma pop_macro("PROBE_INCREMENT")
+#pragma pop_macro("SECONDARY")
+#pragma pop_macro("SEED")
+#pragma pop_macro("SEEDER_INCREMENT")
+#pragma pop_macro("THREADLOCALS")
+#pragma pop_macro("U")
 
 #endif // _java_util_concurrent_ThreadLocalRandom_h_

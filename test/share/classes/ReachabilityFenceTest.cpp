@@ -20,9 +20,9 @@
 #include <jcpp.h>
 
 #undef LOOP_ITERS
+#undef MAIN_ITERS
 #undef PREMATURE_FINALIZATION
 #undef WARMUP_LOOP_ITERS
-#undef MAIN_ITERS
 
 using $ReachabilityFenceTest$MyFinalizeable = ::ReachabilityFenceTest$MyFinalizeable;
 using $Boolean = ::java::lang::Boolean;

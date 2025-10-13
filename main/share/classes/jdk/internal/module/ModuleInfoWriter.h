@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("REQUIRES_MODS_TO_FLAGS")
-#undef REQUIRES_MODS_TO_FLAGS
-#pragma push_macro("OPENS_MODS_TO_FLAGS")
-#undef OPENS_MODS_TO_FLAGS
-#pragma push_macro("MODULE_MODS_TO_FLAGS")
-#undef MODULE_MODS_TO_FLAGS
-#pragma push_macro("EXPORTS_MODS_TO_FLAGS")
-#undef EXPORTS_MODS_TO_FLAGS
 #pragma push_macro("EMPTY_STRING_ARRAY")
 #undef EMPTY_STRING_ARRAY
+#pragma push_macro("EXPORTS_MODS_TO_FLAGS")
+#undef EXPORTS_MODS_TO_FLAGS
+#pragma push_macro("MODULE_MODS_TO_FLAGS")
+#undef MODULE_MODS_TO_FLAGS
+#pragma push_macro("OPENS_MODS_TO_FLAGS")
+#undef OPENS_MODS_TO_FLAGS
+#pragma push_macro("REQUIRES_MODS_TO_FLAGS")
+#undef REQUIRES_MODS_TO_FLAGS
 
 namespace java {
 	namespace io {
@@ -82,10 +82,10 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("REQUIRES_MODS_TO_FLAGS")
-#pragma pop_macro("OPENS_MODS_TO_FLAGS")
-#pragma pop_macro("MODULE_MODS_TO_FLAGS")
-#pragma pop_macro("EXPORTS_MODS_TO_FLAGS")
 #pragma pop_macro("EMPTY_STRING_ARRAY")
+#pragma pop_macro("EXPORTS_MODS_TO_FLAGS")
+#pragma pop_macro("MODULE_MODS_TO_FLAGS")
+#pragma pop_macro("OPENS_MODS_TO_FLAGS")
+#pragma pop_macro("REQUIRES_MODS_TO_FLAGS")
 
 #endif // _jdk_internal_module_ModuleInfoWriter_h_

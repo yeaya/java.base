@@ -23,11 +23,11 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef FLAG_BRIDGES
-#undef FLAG_SERIALIZABLE
-#undef EMPTY_MT_ARRAY
-#undef FLAG_MARKERS
 #undef EMPTY_CLASS_ARRAY
+#undef EMPTY_MT_ARRAY
+#undef FLAG_BRIDGES
+#undef FLAG_MARKERS
+#undef FLAG_SERIALIZABLE
 
 using $MethodTypeArray = $Array<::java::lang::invoke::MethodType>;
 using $Serializable = ::java::io::Serializable;

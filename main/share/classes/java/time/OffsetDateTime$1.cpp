@@ -14,8 +14,8 @@
 #include <java/time/temporal/ChronoField.h>
 #include <jcpp.h>
 
-#undef OFFSET_SECONDS
 #undef INSTANT_SECONDS
+#undef OFFSET_SECONDS
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ClassInfo = ::java::lang::ClassInfo;

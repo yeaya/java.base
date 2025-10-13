@@ -99,14 +99,14 @@
 #include <jcpp.h>
 
 #undef ALL
-#undef NOT_DISTINCT
-#undef NOT_SIZED
-#undef NOT_ORDERED
-#undef LONG_VALUE
-#undef ENABLED
-#undef NOT_SORTED
 #undef ANY
+#undef ENABLED
+#undef LONG_VALUE
 #undef NONE
+#undef NOT_DISTINCT
+#undef NOT_ORDERED
+#undef NOT_SIZED
+#undef NOT_SORTED
 
 using $LongArray = $Array<::java::lang::Long>;
 using $Serializable = ::java::io::Serializable;

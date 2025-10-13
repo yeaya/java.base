@@ -8,14 +8,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 
-#pragma push_macro("WORD_MASK")
-#undef WORD_MASK
-#pragma push_macro("BITS_PER_WORD")
-#undef BITS_PER_WORD
 #pragma push_macro("ADDRESS_BITS_PER_WORD")
 #undef ADDRESS_BITS_PER_WORD
+#pragma push_macro("BITS_PER_WORD")
+#undef BITS_PER_WORD
 #pragma push_macro("BIT_INDEX_MASK")
 #undef BIT_INDEX_MASK
+#pragma push_macro("WORD_MASK")
+#undef WORD_MASK
 
 namespace java {
 	namespace io {
@@ -111,9 +111,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("WORD_MASK")
-#pragma pop_macro("BITS_PER_WORD")
 #pragma pop_macro("ADDRESS_BITS_PER_WORD")
+#pragma pop_macro("BITS_PER_WORD")
 #pragma pop_macro("BIT_INDEX_MASK")
+#pragma pop_macro("WORD_MASK")
 
 #endif // _java_util_BitSet_h_

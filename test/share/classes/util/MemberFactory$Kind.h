@@ -8,12 +8,12 @@
 #include <java/lang/Enum.h>
 #include <java/util/function/BiFunction.h>
 
+#pragma push_macro("CONSTRUCTOR")
+#undef CONSTRUCTOR
 #pragma push_macro("FIELD")
 #undef FIELD
 #pragma push_macro("METHOD")
 #undef METHOD
-#pragma push_macro("CONSTRUCTOR")
-#undef CONSTRUCTOR
 
 namespace util {
 
@@ -39,8 +39,8 @@ public:
 
 } // util
 
+#pragma pop_macro("CONSTRUCTOR")
 #pragma pop_macro("FIELD")
 #pragma pop_macro("METHOD")
-#pragma pop_macro("CONSTRUCTOR")
 
 #endif // _util_MemberFactory$Kind_h_

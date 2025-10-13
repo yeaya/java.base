@@ -5,38 +5,38 @@
 
 #include <java/io/Serializable.h>
 
+#pragma push_macro("ABITS")
+#undef ABITS
+#pragma push_macro("CANCELLED")
+#undef CANCELLED
 #pragma push_macro("HEAD")
 #undef HEAD
+#pragma push_macro("INTERRUPTED")
+#undef INTERRUPTED
 #pragma push_macro("LG_READERS")
 #undef LG_READERS
+#pragma push_macro("ORIGIN")
+#undef ORIGIN
+#pragma push_macro("RBITS")
+#undef RBITS
 #pragma push_macro("RFULL")
 #undef RFULL
+#pragma push_macro("RSAFE")
+#undef RSAFE
+#pragma push_macro("RUNIT")
+#undef RUNIT
 #pragma push_macro("SBITS")
 #undef SBITS
 #pragma push_macro("STATE")
 #undef STATE
-#pragma push_macro("CANCELLED")
-#undef CANCELLED
-#pragma push_macro("ORIGIN")
-#undef ORIGIN
-#pragma push_macro("ABITS")
-#undef ABITS
-#pragma push_macro("RSAFE")
-#undef RSAFE
-#pragma push_macro("U")
-#undef U
 #pragma push_macro("TAIL")
 #undef TAIL
+#pragma push_macro("U")
+#undef U
 #pragma push_macro("WAITING")
 #undef WAITING
-#pragma push_macro("RBITS")
-#undef RBITS
-#pragma push_macro("RUNIT")
-#undef RUNIT
 #pragma push_macro("WBIT")
 #undef WBIT
-#pragma push_macro("INTERRUPTED")
-#undef INTERRUPTED
 
 namespace java {
 	namespace io {
@@ -164,21 +164,21 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("ABITS")
+#pragma pop_macro("CANCELLED")
 #pragma pop_macro("HEAD")
+#pragma pop_macro("INTERRUPTED")
 #pragma pop_macro("LG_READERS")
+#pragma pop_macro("ORIGIN")
+#pragma pop_macro("RBITS")
 #pragma pop_macro("RFULL")
+#pragma pop_macro("RSAFE")
+#pragma pop_macro("RUNIT")
 #pragma pop_macro("SBITS")
 #pragma pop_macro("STATE")
-#pragma pop_macro("CANCELLED")
-#pragma pop_macro("ORIGIN")
-#pragma pop_macro("ABITS")
-#pragma pop_macro("RSAFE")
-#pragma pop_macro("U")
 #pragma pop_macro("TAIL")
+#pragma pop_macro("U")
 #pragma pop_macro("WAITING")
-#pragma pop_macro("RBITS")
-#pragma pop_macro("RUNIT")
 #pragma pop_macro("WBIT")
-#pragma pop_macro("INTERRUPTED")
 
 #endif // _java_util_concurrent_locks_StampedLock_h_

@@ -27,10 +27,10 @@
 #include <sun/security/util/DerValue.h>
 #include <jcpp.h>
 
-#undef REVOKED
-#undef UNSPECIFIED
-#undef UNKNOWN
 #undef GOOD
+#undef REVOKED
+#undef UNKNOWN
+#undef UNSPECIFIED
 
 using $CRLReasonArray = $Array<::java::security::cert::CRLReason>;
 using $IOException = ::java::io::IOException;

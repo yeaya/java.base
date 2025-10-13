@@ -21,16 +21,16 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MAX_SUPPLEMENTARY
-#undef MIN_CODE_POINT
-#undef MAX_LOW
-#undef MIN_HIGH
+#undef MAX_CODE_POINT
 #undef MAX_HIGH
+#undef MAX_LOW
+#undef MAX_SUPPLEMENTARY
 #undef MAX_VALUE
-#undef MIN_VALUE
+#undef MIN_CODE_POINT
+#undef MIN_HIGH
 #undef MIN_LOW
 #undef MIN_SUPPLEMENTARY
-#undef MAX_CODE_POINT
+#undef MIN_VALUE
 
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;

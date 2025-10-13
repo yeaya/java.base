@@ -60,20 +60,20 @@
 #include <sun/net/util/SocketExceptions.h>
 #include <jcpp.h>
 
+#undef FALSE
 #undef IP_TOS
-#undef SO_TIMEOUT
-#undef SO_SNDBUF
 #undef SHUT_RD
-#undef SO_REUSEADDR
-#undef TCP_NODELAY
-#undef SO_LINGER
 #undef SHUT_WR
 #undef SO_BINDADDR
-#undef SO_RCVBUF
 #undef SO_KEEPALIVE
-#undef FALSE
+#undef SO_LINGER
 #undef SO_OOBINLINE
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
 #undef SO_REUSEPORT
+#undef SO_SNDBUF
+#undef SO_TIMEOUT
+#undef TCP_NODELAY
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;

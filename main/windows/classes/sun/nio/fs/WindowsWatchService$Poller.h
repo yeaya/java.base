@@ -6,24 +6,24 @@
 #include <java/lang/Array.h>
 #include <sun/nio/fs/AbstractPoller.h>
 
-#pragma push_macro("SIZEOF_DWORD")
-#undef SIZEOF_DWORD
-#pragma push_macro("OFFSETOF_HEVENT")
-#undef OFFSETOF_HEVENT
-#pragma push_macro("OFFSETOF_FILENAME")
-#undef OFFSETOF_FILENAME
-#pragma push_macro("SIZEOF_OVERLAPPED")
-#undef SIZEOF_OVERLAPPED
-#pragma push_macro("OFFSETOF_NEXTENTRYOFFSET")
-#undef OFFSETOF_NEXTENTRYOFFSET
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
-#pragma push_macro("OFFSETOF_ACTION")
-#undef OFFSETOF_ACTION
 #pragma push_macro("CHANGES_BUFFER_SIZE")
 #undef CHANGES_BUFFER_SIZE
+#pragma push_macro("OFFSETOF_ACTION")
+#undef OFFSETOF_ACTION
+#pragma push_macro("OFFSETOF_FILENAME")
+#undef OFFSETOF_FILENAME
 #pragma push_macro("OFFSETOF_FILENAMELENGTH")
 #undef OFFSETOF_FILENAMELENGTH
+#pragma push_macro("OFFSETOF_HEVENT")
+#undef OFFSETOF_HEVENT
+#pragma push_macro("OFFSETOF_NEXTENTRYOFFSET")
+#undef OFFSETOF_NEXTENTRYOFFSET
+#pragma push_macro("SIZEOF_DWORD")
+#undef SIZEOF_DWORD
+#pragma push_macro("SIZEOF_OVERLAPPED")
+#undef SIZEOF_OVERLAPPED
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace java {
 	namespace nio {
@@ -98,14 +98,14 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("SIZEOF_DWORD")
-#pragma pop_macro("OFFSETOF_HEVENT")
-#pragma pop_macro("OFFSETOF_FILENAME")
-#pragma pop_macro("SIZEOF_OVERLAPPED")
-#pragma pop_macro("OFFSETOF_NEXTENTRYOFFSET")
-#pragma pop_macro("UNSAFE")
-#pragma pop_macro("OFFSETOF_ACTION")
 #pragma pop_macro("CHANGES_BUFFER_SIZE")
+#pragma pop_macro("OFFSETOF_ACTION")
+#pragma pop_macro("OFFSETOF_FILENAME")
 #pragma pop_macro("OFFSETOF_FILENAMELENGTH")
+#pragma pop_macro("OFFSETOF_HEVENT")
+#pragma pop_macro("OFFSETOF_NEXTENTRYOFFSET")
+#pragma pop_macro("SIZEOF_DWORD")
+#pragma pop_macro("SIZEOF_OVERLAPPED")
+#pragma pop_macro("UNSAFE")
 
 #endif // _sun_nio_fs_WindowsWatchService$Poller_h_

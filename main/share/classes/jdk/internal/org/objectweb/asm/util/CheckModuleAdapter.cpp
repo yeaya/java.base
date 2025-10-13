@@ -20,10 +20,10 @@
 #include <jcpp.h>
 
 #undef ACC_MANDATED
-#undef ASM8
 #undef ACC_STATIC_PHASE
 #undef ACC_SYNTHETIC
 #undef ACC_TRANSITIVE
+#undef ASM8
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -48,11 +48,11 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
+#undef CLIENT_AUTH_NONE
 #undef CLIENT_AUTH_REQUESTED
 #undef CLIENT_AUTH_REQUIRED
-#undef CLIENT_AUTH_NONE
-#undef NONE
 #undef DEFAULT
+#undef NONE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -291,7 +291,7 @@ void SSLConfiguration::setSSLParameters($SSLParameters* params) {
 	if (params->getNeedClientAuth()) {
 		$init($ClientAuthType);
 		$set(this, clientAuthType, $ClientAuthType::CLIENT_AUTH_REQUIRED);
-	} else if ($nc(params)->getWantClientAuth()) {
+	} else if (params->getWantClientAuth()) {
 		$init($ClientAuthType);
 		$set(this, clientAuthType, $ClientAuthType::CLIENT_AUTH_REQUESTED);
 	} else {

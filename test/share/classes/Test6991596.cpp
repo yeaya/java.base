@@ -24,11 +24,11 @@
 #include <jcpp.h>
 
 #undef CLASS
+#undef DEBUG
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef DEBUG
-#undef TYPE
 #undef NAME
+#undef TYPE
 
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;

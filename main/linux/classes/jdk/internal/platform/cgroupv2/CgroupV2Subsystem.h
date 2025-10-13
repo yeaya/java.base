@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/platform/CgroupSubsystem.h>
 
-#pragma push_macro("INT_ARRAY_UNAVAILABLE")
-#undef INT_ARRAY_UNAVAILABLE
-#pragma push_macro("PER_CPU_SHARES")
-#undef PER_CPU_SHARES
 #pragma push_macro("EMPTY_STR")
 #undef EMPTY_STR
-#pragma push_macro("NO_SWAP")
-#undef NO_SWAP
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
-#pragma push_macro("MAX_VAL")
-#undef MAX_VAL
+#pragma push_macro("INT_ARRAY_UNAVAILABLE")
+#undef INT_ARRAY_UNAVAILABLE
 #pragma push_macro("LONG_ARRAY_NOT_SUPPORTED")
 #undef LONG_ARRAY_NOT_SUPPORTED
+#pragma push_macro("MAX_VAL")
+#undef MAX_VAL
+#pragma push_macro("NO_SWAP")
+#undef NO_SWAP
+#pragma push_macro("PER_CPU_SHARES")
+#undef PER_CPU_SHARES
 #pragma push_macro("PROVIDER_NAME")
 #undef PROVIDER_NAME
 
@@ -110,13 +110,13 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("INT_ARRAY_UNAVAILABLE")
-#pragma pop_macro("PER_CPU_SHARES")
 #pragma pop_macro("EMPTY_STR")
-#pragma pop_macro("NO_SWAP")
 #pragma pop_macro("INSTANCE")
-#pragma pop_macro("MAX_VAL")
+#pragma pop_macro("INT_ARRAY_UNAVAILABLE")
 #pragma pop_macro("LONG_ARRAY_NOT_SUPPORTED")
+#pragma pop_macro("MAX_VAL")
+#pragma pop_macro("NO_SWAP")
+#pragma pop_macro("PER_CPU_SHARES")
 #pragma pop_macro("PROVIDER_NAME")
 
 #endif // _jdk_internal_platform_cgroupv2_CgroupV2Subsystem_h_

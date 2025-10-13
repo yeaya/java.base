@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <sun/util/calendar/CalendarSystem.h>
 
-#pragma push_macro("SECOND_IN_MILLIS")
-#undef SECOND_IN_MILLIS
-#pragma push_macro("EPOCH_OFFSET")
-#undef EPOCH_OFFSET
-#pragma push_macro("MINUTE_IN_MILLIS")
-#undef MINUTE_IN_MILLIS
 #pragma push_macro("DAY_IN_MILLIS")
 #undef DAY_IN_MILLIS
+#pragma push_macro("EPOCH_OFFSET")
+#undef EPOCH_OFFSET
 #pragma push_macro("HOUR_IN_MILLIS")
 #undef HOUR_IN_MILLIS
+#pragma push_macro("MINUTE_IN_MILLIS")
+#undef MINUTE_IN_MILLIS
+#pragma push_macro("SECOND_IN_MILLIS")
+#undef SECOND_IN_MILLIS
 
 namespace java {
 	namespace util {
@@ -74,10 +74,10 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("SECOND_IN_MILLIS")
-#pragma pop_macro("EPOCH_OFFSET")
-#pragma pop_macro("MINUTE_IN_MILLIS")
 #pragma pop_macro("DAY_IN_MILLIS")
+#pragma pop_macro("EPOCH_OFFSET")
 #pragma pop_macro("HOUR_IN_MILLIS")
+#pragma pop_macro("MINUTE_IN_MILLIS")
+#pragma pop_macro("SECOND_IN_MILLIS")
 
 #endif // _sun_util_calendar_AbstractCalendar_h_

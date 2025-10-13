@@ -193,7 +193,7 @@ int32_t ImmutableCollections$MapN::probe(Object$* pk) {
 		$var($Object, ek, $nc(this->table)->get(idx));
 		if (ek == nullptr) {
 			return -idx - 1;
-		} else if ($nc($of(pk))->equals(ek)) {
+		} else if ($of(pk)->equals(ek)) {
 			return idx;
 		} else if ((idx += 2) == $nc(this->table)->length) {
 			idx = 0;

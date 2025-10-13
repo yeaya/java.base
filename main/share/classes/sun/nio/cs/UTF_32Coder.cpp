@@ -10,9 +10,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef BOM_LITTLE
 #undef BIG
 #undef BOM_BIG
+#undef BOM_LITTLE
 #undef LITTLE
 #undef NONE
 

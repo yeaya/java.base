@@ -165,11 +165,11 @@ $ChronoZonedDateTime* ChronoZonedDateTimeImpl::ofBest($ChronoLocalDateTimeImpl* 
 	$var($ZoneOffset, offset, nullptr);
 	if ($nc(validOffsets)->size() == 1) {
 		$assign(offset, $cast($ZoneOffset, validOffsets->get(0)));
-	} else if ($nc(validOffsets)->size() == 0) {
-		$var($ZoneOffsetTransition, trans, $nc(rules)->getTransition(isoLDT));
+	} else if (validOffsets->size() == 0) {
+		$var($ZoneOffsetTransition, trans, rules->getTransition(isoLDT));
 		$assign(localDateTime, $nc(localDateTime)->plusSeconds($nc($($nc(trans)->getDuration()))->getSeconds()));
 		$assign(offset, $nc(trans)->getOffsetAfter());
-	} else if (preferredOffset != nullptr && $nc(validOffsets)->contains(preferredOffset)) {
+	} else if (preferredOffset != nullptr && validOffsets->contains(preferredOffset)) {
 		$assign(offset, preferredOffset);
 	} else {
 		$assign(offset, $cast($ZoneOffset, validOffsets->get(0)));

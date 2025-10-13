@@ -23,10 +23,10 @@
 #include <jcpp.h>
 
 #undef AES_BLOCK_SIZE
-#undef MAX_LEN
 #undef BIG_ENDIAN
-#undef X
 #undef GHASH
+#undef MAX_LEN
+#undef X
 
 using $GCM = ::com::sun::crypto::provider::GCM;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -209,7 +209,7 @@ int32_t GHASH::update($ByteBuffer* ct, int32_t inLen) {
 		int32_t processed = inLen;
 		processBlocksDirect(ct, inLen);
 		return processed;
-	} else if (!$nc(ct)->isReadOnly()) {
+	} else if (!ct->isReadOnly()) {
 		$var($bytes, var$0, $cast($bytes, ct->array()));
 		int32_t var$1 = ct->arrayOffset();
 		int32_t processed = update(var$0, var$1 + ct->position(), inLen);
@@ -219,11 +219,11 @@ int32_t GHASH::update($ByteBuffer* ct, int32_t inLen) {
 	int32_t to_process = inLen;
 	$var($bytes, in, $new($bytes, $Math::min(GHASH::MAX_LEN, inLen)));
 	while (to_process > GHASH::MAX_LEN) {
-		$nc(ct)->get(in, 0, GHASH::MAX_LEN);
+		ct->get(in, 0, GHASH::MAX_LEN);
 		update(in, 0, GHASH::MAX_LEN);
 		to_process -= GHASH::MAX_LEN;
 	}
-	$nc(ct)->get(in, 0, to_process);
+	ct->get(in, 0, to_process);
 	update(in, 0, to_process);
 	return inLen;
 }

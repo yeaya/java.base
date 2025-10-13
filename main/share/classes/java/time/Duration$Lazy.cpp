@@ -12,8 +12,8 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef PATTERN
 #undef CASE_INSENSITIVE
+#undef PATTERN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

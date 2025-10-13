@@ -7,30 +7,30 @@
 
 #pragma push_macro("CURRENCY")
 #undef CURRENCY
-#pragma push_macro("EXPONENT_SIGN")
-#undef EXPONENT_SIGN
-#pragma push_macro("SUFFIX")
-#undef SUFFIX
-#pragma push_macro("FRACTION")
-#undef FRACTION
 #pragma push_macro("DECIMAL_SEPARATOR")
 #undef DECIMAL_SEPARATOR
+#pragma push_macro("EXPONENT")
+#undef EXPONENT
+#pragma push_macro("EXPONENT_SIGN")
+#undef EXPONENT_SIGN
+#pragma push_macro("EXPONENT_SYMBOL")
+#undef EXPONENT_SYMBOL
+#pragma push_macro("FRACTION")
+#undef FRACTION
 #pragma push_macro("GROUPING_SEPARATOR")
 #undef GROUPING_SEPARATOR
+#pragma push_macro("INTEGER")
+#undef INTEGER
+#pragma push_macro("PERCENT")
+#undef PERCENT
 #pragma push_macro("PERMILLE")
 #undef PERMILLE
 #pragma push_macro("PREFIX")
 #undef PREFIX
-#pragma push_macro("PERCENT")
-#undef PERCENT
-#pragma push_macro("EXPONENT")
-#undef EXPONENT
 #pragma push_macro("SIGN")
 #undef SIGN
-#pragma push_macro("INTEGER")
-#undef INTEGER
-#pragma push_macro("EXPONENT_SYMBOL")
-#undef EXPONENT_SYMBOL
+#pragma push_macro("SUFFIX")
+#undef SUFFIX
 
 namespace java {
 	namespace util {
@@ -68,17 +68,17 @@ public:
 } // java
 
 #pragma pop_macro("CURRENCY")
-#pragma pop_macro("EXPONENT_SIGN")
-#pragma pop_macro("SUFFIX")
-#pragma pop_macro("FRACTION")
 #pragma pop_macro("DECIMAL_SEPARATOR")
+#pragma pop_macro("EXPONENT")
+#pragma pop_macro("EXPONENT_SIGN")
+#pragma pop_macro("EXPONENT_SYMBOL")
+#pragma pop_macro("FRACTION")
 #pragma pop_macro("GROUPING_SEPARATOR")
+#pragma pop_macro("INTEGER")
+#pragma pop_macro("PERCENT")
 #pragma pop_macro("PERMILLE")
 #pragma pop_macro("PREFIX")
-#pragma pop_macro("PERCENT")
-#pragma pop_macro("EXPONENT")
 #pragma pop_macro("SIGN")
-#pragma pop_macro("INTEGER")
-#pragma pop_macro("EXPONENT_SYMBOL")
+#pragma pop_macro("SUFFIX")
 
 #endif // _java_text_NumberFormat$Field_h_

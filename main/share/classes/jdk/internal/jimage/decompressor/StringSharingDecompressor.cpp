@@ -26,10 +26,10 @@
 #include <jcpp.h>
 
 #undef BIG_ENDIAN
-#undef SIZES
 #undef EXTERNALIZED_STRING
 #undef EXTERNALIZED_STRING_DESCRIPTOR
 #undef NAME
+#undef SIZES
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

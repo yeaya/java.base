@@ -16,9 +16,9 @@
 #include <util/MemberFactory.h>
 #include <jcpp.h>
 
+#undef CONSTRUCTOR
 #undef FIELD
 #undef METHOD
-#undef CONSTRUCTOR
 
 using $MemberFactory$KindArray = $Array<::util::MemberFactory$Kind>;
 using $ClassInfo = ::java::lang::ClassInfo;

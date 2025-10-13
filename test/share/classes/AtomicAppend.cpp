@@ -28,8 +28,8 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef MINUTES
 #undef APPEND
+#undef MINUTES
 
 using $AtomicAppend$1 = ::AtomicAppend$1;
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;

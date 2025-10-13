@@ -27,13 +27,13 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef FOREVER
-#undef RATA_DIE
-#undef LENIENT
-#undef JULIAN_DAY
-#undef EPOCH_DAY
-#undef MODIFIED_JULIAN_DAY
 #undef DAYS
+#undef EPOCH_DAY
+#undef FOREVER
+#undef JULIAN_DAY
+#undef LENIENT
+#undef MODIFIED_JULIAN_DAY
+#undef RATA_DIE
 
 using $JulianFields$FieldArray = $Array<::java::time::temporal::JulianFields$Field>;
 using $ClassInfo = ::java::lang::ClassInfo;

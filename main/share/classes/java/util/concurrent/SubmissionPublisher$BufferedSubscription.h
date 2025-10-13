@@ -8,28 +8,28 @@
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 
-#pragma push_macro("QA")
-#undef QA
-#pragma push_macro("COMPLETE")
-#undef COMPLETE
-#pragma push_macro("DEMAND")
-#undef DEMAND
-#pragma push_macro("REQS")
-#undef REQS
-#pragma push_macro("CLOSED")
-#undef CLOSED
 #pragma push_macro("ACTIVE")
 #undef ACTIVE
-#pragma push_macro("ERROR")
-#undef ERROR
-#pragma push_macro("RUN")
-#undef RUN
+#pragma push_macro("CLOSED")
+#undef CLOSED
+#pragma push_macro("COMPLETE")
+#undef COMPLETE
 #pragma push_macro("CTL")
 #undef CTL
+#pragma push_macro("DEMAND")
+#undef DEMAND
+#pragma push_macro("ERROR")
+#undef ERROR
 #pragma push_macro("INTERRUPTED")
 #undef INTERRUPTED
 #pragma push_macro("OPEN")
 #undef OPEN
+#pragma push_macro("QA")
+#undef QA
+#pragma push_macro("REQS")
+#undef REQS
+#pragma push_macro("RUN")
+#undef RUN
 
 namespace java {
 	namespace lang {
@@ -138,16 +138,16 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("QA")
-#pragma pop_macro("COMPLETE")
-#pragma pop_macro("DEMAND")
-#pragma pop_macro("REQS")
-#pragma pop_macro("CLOSED")
 #pragma pop_macro("ACTIVE")
-#pragma pop_macro("ERROR")
-#pragma pop_macro("RUN")
+#pragma pop_macro("CLOSED")
+#pragma pop_macro("COMPLETE")
 #pragma pop_macro("CTL")
+#pragma pop_macro("DEMAND")
+#pragma pop_macro("ERROR")
 #pragma pop_macro("INTERRUPTED")
 #pragma pop_macro("OPEN")
+#pragma pop_macro("QA")
+#pragma pop_macro("REQS")
+#pragma pop_macro("RUN")
 
 #endif // _java_util_concurrent_SubmissionPublisher$BufferedSubscription_h_

@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("PATH")
-#undef PATH
-#pragma push_macro("REF")
-#undef REF
-#pragma push_macro("USERINFO")
-#undef USERINFO
-#pragma push_macro("PORT")
-#undef PORT
-#pragma push_macro("QUERY")
-#undef QUERY
-#pragma push_macro("PROTOCOL")
-#undef PROTOCOL
 #pragma push_macro("HOST")
 #undef HOST
 #pragma push_macro("PARSEFAIL")
 #undef PARSEFAIL
+#pragma push_macro("PATH")
+#undef PATH
+#pragma push_macro("PORT")
+#undef PORT
+#pragma push_macro("PROTOCOL")
+#undef PROTOCOL
+#pragma push_macro("QUERY")
+#undef QUERY
+#pragma push_macro("REF")
+#undef REF
+#pragma push_macro("USERINFO")
+#undef USERINFO
 
 namespace java {
 	namespace io {
@@ -98,13 +98,13 @@ public:
 	::java::lang::Exception* exc = nullptr;
 };
 
-#pragma pop_macro("PATH")
-#pragma pop_macro("REF")
-#pragma pop_macro("USERINFO")
-#pragma pop_macro("PORT")
-#pragma pop_macro("QUERY")
-#pragma pop_macro("PROTOCOL")
 #pragma pop_macro("HOST")
 #pragma pop_macro("PARSEFAIL")
+#pragma pop_macro("PATH")
+#pragma pop_macro("PORT")
+#pragma pop_macro("PROTOCOL")
+#pragma pop_macro("QUERY")
+#pragma pop_macro("REF")
+#pragma pop_macro("USERINFO")
 
 #endif // _Test4URL_h_

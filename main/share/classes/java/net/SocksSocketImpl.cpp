@@ -61,28 +61,28 @@
 #include <sun/net/www/ParseUtil.h>
 #include <jcpp.h>
 
-#undef DEFAULT_PORT
+#undef ADDR_TYPE_NOT_SUP
 #undef CMD_NOT_SUPPORTED
-#undef IPV6
-#undef NET_UNREACHABLE
-#undef SO_TIMEOUT
-#undef CONN_REFUSED
-#undef IPV4
-#undef HOST_UNREACHABLE
-#undef NO_AUTH
-#undef PROTO_VERS4
-#undef NOT_ALLOWED
 #undef CONNECT
-#undef MAX_VALUE
-#undef REQUEST_OK
+#undef CONN_REFUSED
+#undef DEFAULT_PORT
 #undef DOMAIN_NAME
 #undef GENERAL_FAILURE
-#undef TTL_EXPIRED
-#undef USER_PASSW
-#undef SOCKS
+#undef HOST_UNREACHABLE
+#undef IPV4
+#undef IPV6
+#undef MAX_VALUE
+#undef NET_UNREACHABLE
+#undef NOT_ALLOWED
+#undef NO_AUTH
 #undef NO_METHODS
 #undef PROTO_VERS
-#undef ADDR_TYPE_NOT_SUP
+#undef PROTO_VERS4
+#undef REQUEST_OK
+#undef SOCKS
+#undef SO_TIMEOUT
+#undef TTL_EXPIRED
+#undef USER_PASSW
 
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
@@ -582,13 +582,13 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 		out->write($($nc($(epoint->getHostName()))->getBytes($StandardCharsets::ISO_8859_1)));
 		out->write((int32_t)((epoint->getPort() >> 8) & (uint32_t)255));
 		out->write((int32_t)((epoint->getPort() >> 0) & (uint32_t)255));
-	} else if ($instanceOf($Inet6Address, $($nc(epoint)->getAddress()))) {
-		$nc(out)->write($SocksConsts::IPV6);
+	} else if ($instanceOf($Inet6Address, $(epoint->getAddress()))) {
+		out->write($SocksConsts::IPV6);
 		out->write($($nc($(epoint->getAddress()))->getAddress()));
 		out->write((int32_t)((epoint->getPort() >> 8) & (uint32_t)255));
 		out->write((int32_t)((epoint->getPort() >> 0) & (uint32_t)255));
 	} else {
-		$nc(out)->write($SocksConsts::IPV4);
+		out->write($SocksConsts::IPV4);
 		out->write($($nc($(epoint->getAddress()))->getAddress()));
 		out->write((int32_t)((epoint->getPort() >> 8) & (uint32_t)255));
 		out->write((int32_t)((epoint->getPort() >> 0) & (uint32_t)255));

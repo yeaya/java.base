@@ -24,14 +24,14 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
+#undef CTIME_NAME
+#undef DEV_NAME
+#undef GID_NAME
+#undef INO_NAME
 #undef MODE_NAME
 #undef NLINK_NAME
-#undef DEV_NAME
-#undef INO_NAME
-#undef UID_NAME
-#undef CTIME_NAME
-#undef GID_NAME
 #undef RDEV_NAME
+#undef UID_NAME
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

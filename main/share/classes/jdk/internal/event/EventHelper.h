@@ -7,12 +7,12 @@
 
 #pragma push_macro("JUJA")
 #undef JUJA
-#pragma push_macro("SECURITY_LOGGER_NAME")
-#undef SECURITY_LOGGER_NAME
 #pragma push_macro("LOGGER_HANDLE")
 #undef LOGGER_HANDLE
 #pragma push_macro("LOG_LEVEL")
 #undef LOG_LEVEL
+#pragma push_macro("SECURITY_LOGGER_NAME")
+#undef SECURITY_LOGGER_NAME
 
 namespace java {
 	namespace lang {
@@ -69,8 +69,8 @@ public:
 } // jdk
 
 #pragma pop_macro("JUJA")
-#pragma pop_macro("SECURITY_LOGGER_NAME")
 #pragma pop_macro("LOGGER_HANDLE")
 #pragma pop_macro("LOG_LEVEL")
+#pragma pop_macro("SECURITY_LOGGER_NAME")
 
 #endif // _jdk_internal_event_EventHelper_h_

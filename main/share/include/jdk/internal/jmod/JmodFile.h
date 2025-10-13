@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/AutoCloseable.h>
 
-#pragma push_macro("JMOD_MINOR_VERSION")
-#undef JMOD_MINOR_VERSION
 #pragma push_macro("JMOD_MAGIC_NUMBER")
 #undef JMOD_MAGIC_NUMBER
 #pragma push_macro("JMOD_MAJOR_VERSION")
 #undef JMOD_MAJOR_VERSION
+#pragma push_macro("JMOD_MINOR_VERSION")
+#undef JMOD_MINOR_VERSION
 
 namespace java {
 	namespace io {
@@ -76,8 +76,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("JMOD_MINOR_VERSION")
 #pragma pop_macro("JMOD_MAGIC_NUMBER")
 #pragma pop_macro("JMOD_MAJOR_VERSION")
+#pragma pop_macro("JMOD_MINOR_VERSION")
 
 #endif // _jdk_internal_jmod_JmodFile_h_

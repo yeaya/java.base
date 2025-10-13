@@ -13,9 +13,9 @@
 #include <java/security/KeyRep.h>
 #include <jcpp.h>
 
+#undef PRIVATE
 #undef PUBLIC
 #undef SECRET
-#undef PRIVATE
 
 using $KeyRep$TypeArray = $Array<::java::security::KeyRep$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;

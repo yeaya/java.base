@@ -36,11 +36,11 @@
 #include <sun/nio/fs/WindowsPath.h>
 #include <jcpp.h>
 
-#undef READ
-#undef TRUNCATE_EXISTING
-#undef OPEN_REPARSE_POINT
 #undef CREATE
 #undef MAX_VALUE
+#undef OPEN_REPARSE_POINT
+#undef READ
+#undef TRUNCATE_EXISTING
 #undef WRITE
 
 using $IOException = ::java::io::IOException;

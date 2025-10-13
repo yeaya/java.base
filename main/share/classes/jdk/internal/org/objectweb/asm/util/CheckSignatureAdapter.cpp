@@ -18,28 +18,28 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State.h>
 #include <jcpp.h>
 
-#undef VISIT_RETURN_TYPE_STATES
-#undef TYPE_SIGNATURE
-#undef SUPER
 #undef ASM8
-#undef SIMPLE_TYPE
-#undef VISIT_FORMAL_TYPE_PARAMETER_STATES
-#undef PARAM
-#undef INVALID
-#undef CLASS_SIGNATURE
-#undef METHOD_SIGNATURE
-#undef RETURN
-#undef VISIT_INTERFACE_STATES
-#undef VISIT_CLASS_BOUND_STATES
 #undef BOUND
-#undef VISIT_INTERFACE_BOUND_STATES
-#undef END
-#undef VISIT_SUPER_CLASS_STATES
-#undef VISIT_EXCEPTION_TYPE_STATES
-#undef EMPTY
-#undef FORMAL
+#undef CLASS_SIGNATURE
 #undef CLASS_TYPE
+#undef EMPTY
+#undef END
+#undef FORMAL
+#undef INVALID
+#undef METHOD_SIGNATURE
+#undef PARAM
+#undef RETURN
+#undef SIMPLE_TYPE
+#undef SUPER
+#undef TYPE_SIGNATURE
+#undef VISIT_CLASS_BOUND_STATES
+#undef VISIT_EXCEPTION_TYPE_STATES
+#undef VISIT_FORMAL_TYPE_PARAMETER_STATES
+#undef VISIT_INTERFACE_BOUND_STATES
+#undef VISIT_INTERFACE_STATES
 #undef VISIT_PARAMETER_TYPE_STATES
+#undef VISIT_RETURN_TYPE_STATES
+#undef VISIT_SUPER_CLASS_STATES
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

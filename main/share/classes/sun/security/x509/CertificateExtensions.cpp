@@ -40,9 +40,9 @@
 #include <jcpp.h>
 
 #undef IDENT
-#undef TAG_CONTEXT
-#undef PARAMS
 #undef NAME
+#undef PARAMS
+#undef TAG_CONTEXT
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -221,7 +221,7 @@ void CertificateExtensions::encode($OutputStream* out, bool isCertReq) {
 	for (int32_t i = 0; i < $nc(objs)->length; ++i) {
 		if ($instanceOf($CertAttrSet, objs->get(i))) {
 			$nc(($cast($CertAttrSet, objs->get(i))))->encode(extOut);
-		} else if ($instanceOf($Extension, $nc(objs)->get(i))) {
+		} else if ($instanceOf($Extension, objs->get(i))) {
 			$nc(($cast($Extension, objs->get(i))))->encode(extOut);
 		} else {
 			$throwNew($CertificateException, "Illegal extension object"_s);

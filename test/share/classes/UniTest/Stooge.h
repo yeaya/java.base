@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("MOE")
-#undef MOE
 #pragma push_macro("CURLY")
 #undef CURLY
 #pragma push_macro("LARRY")
 #undef LARRY
+#pragma push_macro("MOE")
+#undef MOE
 
 namespace UniTest {
 
@@ -31,8 +31,8 @@ public:
 
 } // UniTest
 
-#pragma pop_macro("MOE")
 #pragma pop_macro("CURLY")
 #pragma pop_macro("LARRY")
+#pragma pop_macro("MOE")
 
 #endif // _UniTest_Stooge_h_

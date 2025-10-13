@@ -15,10 +15,10 @@
 #include <sun/security/x509/GeneralName.h>
 #include <jcpp.h>
 
-#undef TAG_MAX
-#undef TAG_MIN
 #undef MIN_DEFAULT
 #undef TAG_CONTEXT
+#undef TAG_MAX
+#undef TAG_MIN
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

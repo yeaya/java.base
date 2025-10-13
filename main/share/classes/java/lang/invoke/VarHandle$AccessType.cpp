@@ -19,12 +19,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SET
-#undef GET_AND_UPDATE
-#undef GET
 #undef COMPARE_AND_EXCHANGE
-#undef COUNT
 #undef COMPARE_AND_SET
+#undef COUNT
+#undef GET
+#undef GET_AND_UPDATE
+#undef SET
 #undef TYPE
 
 using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;

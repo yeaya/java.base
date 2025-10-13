@@ -41,10 +41,10 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef YEAR
-#undef ERA
-#undef EPOCH_DAY
 #undef DAYS
+#undef EPOCH_DAY
+#undef ERA
+#undef YEAR
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

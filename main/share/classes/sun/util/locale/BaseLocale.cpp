@@ -20,29 +20,29 @@
 #include <sun/util/locale/LocaleUtils.h>
 #include <jcpp.h>
 
-#undef CANADA
-#undef ENGLISH
-#undef ROOT
-#undef ITALY
-#undef NUM_CONSTANTS
-#undef CHINESE
-#undef KOREA
 #undef CACHE
-#undef FRENCH
-#undef FRANCE
-#undef TRADITIONAL_CHINESE
+#undef CANADA
 #undef CANADA_FRENCH
+#undef CHINESE
+#undef ENGLISH
+#undef FRANCE
+#undef FRENCH
+#undef GERMAN
 #undef GERMANY
 #undef ITALIAN
-#undef UK
+#undef ITALY
 #undef JAPAN
 #undef JAPANESE
-#undef SIMPLIFIED_CHINESE
-#undef OLD_ISO_CODES
-#undef GERMAN
-#undef US
+#undef KOREA
 #undef KOREAN
+#undef NUM_CONSTANTS
+#undef OLD_ISO_CODES
+#undef ROOT
 #undef SEP
+#undef SIMPLIFIED_CHINESE
+#undef TRADITIONAL_CHINESE
+#undef UK
+#undef US
 
 using $BaseLocaleArray = $Array<::sun::util::locale::BaseLocale>;
 using $CharSequence = ::java::lang::CharSequence;

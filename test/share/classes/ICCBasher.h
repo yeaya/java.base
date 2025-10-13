@@ -7,10 +7,10 @@
 
 #pragma push_macro("CHAR_VALUE_LIMIT")
 #undef CHAR_VALUE_LIMIT
-#pragma push_macro("TEST_SIZE")
-#undef TEST_SIZE
 #pragma push_macro("STRING_SIZE")
 #undef STRING_SIZE
+#pragma push_macro("TEST_SIZE")
+#undef TEST_SIZE
 
 class $export ICCBasher : public ::java::lang::Object {
 	$class(ICCBasher, $NO_CLASS_INIT, ::java::lang::Object)
@@ -24,7 +24,7 @@ public:
 };
 
 #pragma pop_macro("CHAR_VALUE_LIMIT")
-#pragma pop_macro("TEST_SIZE")
 #pragma pop_macro("STRING_SIZE")
+#pragma pop_macro("TEST_SIZE")
 
 #endif // _ICCBasher_h_

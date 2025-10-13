@@ -37,12 +37,12 @@
 #include <sun/security/provider/MoreDrbgParameters.h>
 #include <jcpp.h>
 
-#undef RESEED_ONLY
 #undef DRBG
-#undef ROOT
-#undef PROP_NAME
 #undef NONE
+#undef PROP_NAME
 #undef PR_AND_RESEED
+#undef RESEED_ONLY
+#undef ROOT
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;

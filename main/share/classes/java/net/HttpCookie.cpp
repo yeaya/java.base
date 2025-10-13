@@ -50,15 +50,15 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef SET_COOKIE2
 #undef COOKIE_DATE_FORMATS
 #undef D
-#undef YEAR
-#undef SET_COOKIE
-#undef MAX_AGE_UNSPECIFIED
-#undef H
-#undef US
 #undef GMT
+#undef H
+#undef MAX_AGE_UNSPECIFIED
+#undef SET_COOKIE
+#undef SET_COOKIE2
+#undef US
+#undef YEAR
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -426,13 +426,13 @@ bool HttpCookie::domainMatches($String* domain, $String* host) {
 	if (lengthDiff == 0) {
 		return host->equalsIgnoreCase(domain);
 	} else if (lengthDiff > 0) {
-		$var($String, H, $nc(host)->substring(0, lengthDiff));
+		$var($String, H, host->substring(0, lengthDiff));
 		$var($String, D, host->substring(lengthDiff));
 		bool var$0 = H->indexOf((int32_t)u'.') == -1;
 		return (var$0 && D->equalsIgnoreCase(domain));
 	} else if (lengthDiff == -1) {
-		bool var$1 = $nc(domain)->charAt(0) == u'.';
-		return (var$1 && $nc(host)->equalsIgnoreCase($(domain->substring(1))));
+		bool var$1 = domain->charAt(0) == u'.';
+		return (var$1 && host->equalsIgnoreCase($(domain->substring(1))));
 	}
 	return false;
 }
@@ -616,12 +616,11 @@ int32_t HttpCookie::guessCookieVersion($String* header$renamed) {
 	$assign(header, $nc(header)->toLowerCase());
 	if (header->indexOf("expires="_s) != -1) {
 		version = 0;
-	} else if ($nc(header)->indexOf("version="_s) != -1) {
+	} else if (header->indexOf("version="_s) != -1) {
 		version = 1;
-	} else if ($nc(header)->indexOf("max-age"_s) != -1) {
+	} else if (header->indexOf("max-age"_s) != -1) {
 		version = 1;
 	} else {
-		$init(HttpCookie);
 		if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE2)) {
 			version = 1;
 		}
@@ -674,7 +673,7 @@ $List* HttpCookie::splitMultiCookies($String* header) {
 	int32_t quoteCount = 0;
 	int32_t p = 0;
 	int32_t q = 0;
-	for (p = 0, q = 0; p < $nc(header)->length(); ++p) {
+	for (p = 0, q = 0; p < header->length(); ++p) {
 		char16_t c = header->charAt(p);
 		if (c == u'\"') {
 			++quoteCount;
@@ -684,7 +683,7 @@ $List* HttpCookie::splitMultiCookies($String* header) {
 			q = p + 1;
 		}
 	}
-	cookies->add($($nc(header)->substring(q)));
+	cookies->add($(header->substring(q)));
 	return cookies;
 }
 

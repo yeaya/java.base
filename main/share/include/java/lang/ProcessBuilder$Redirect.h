@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("INHERIT")
-#undef INHERIT
 #pragma push_macro("DISCARD")
 #undef DISCARD
+#pragma push_macro("INHERIT")
+#undef INHERIT
 #pragma push_macro("NULL_FILE")
 #undef NULL_FILE
 #pragma push_macro("PIPE")
@@ -51,8 +51,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("INHERIT")
 #pragma pop_macro("DISCARD")
+#pragma pop_macro("INHERIT")
 #pragma pop_macro("NULL_FILE")
 #pragma pop_macro("PIPE")
 

@@ -83,19 +83,19 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef RESOURCE_PREFIX
-#undef KEY_ISO_START
 #undef AH
+#undef CONF_PATH
+#undef EPOCH_DAY
 #undef INSTANCE
 #undef KEY_ID
-#undef MAX_VALUE
-#undef MIN_VALUE
-#undef RESOURCE_SUFFIX
-#undef READ
-#undef EPOCH_DAY
+#undef KEY_ISO_START
 #undef KEY_TYPE
 #undef KEY_VERSION
-#undef CONF_PATH
+#undef MAX_VALUE
+#undef MIN_VALUE
+#undef READ
+#undef RESOURCE_PREFIX
+#undef RESOURCE_SUFFIX
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

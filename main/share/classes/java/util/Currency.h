@@ -6,42 +6,42 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 
+#pragma push_macro("A_TO_Z")
+#undef A_TO_Z
+#pragma push_macro("COUNTRY_TYPE_MASK")
+#undef COUNTRY_TYPE_MASK
+#pragma push_macro("COUNTRY_WITHOUT_CURRENCY_ENTRY")
+#undef COUNTRY_WITHOUT_CURRENCY_ENTRY
 #pragma push_macro("DISPLAYNAME")
 #undef DISPLAYNAME
-#pragma push_macro("SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK")
-#undef SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK
-#pragma push_macro("NUMERIC_CODE_SHIFT")
-#undef NUMERIC_CODE_SHIFT
-#pragma push_macro("VALID_FORMAT_VERSION")
-#undef VALID_FORMAT_VERSION
 #pragma push_macro("INVALID_COUNTRY_ENTRY")
 #undef INVALID_COUNTRY_ENTRY
+#pragma push_macro("MAGIC_NUMBER")
+#undef MAGIC_NUMBER
+#pragma push_macro("NUMERIC_CODE_MASK")
+#undef NUMERIC_CODE_MASK
+#pragma push_macro("NUMERIC_CODE_SHIFT")
+#undef NUMERIC_CODE_SHIFT
+#pragma push_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK")
+#undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK
+#pragma push_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT")
+#undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT
+#pragma push_macro("SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK")
+#undef SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK
 #pragma push_macro("SIMPLE_CASE_COUNTRY_MASK")
 #undef SIMPLE_CASE_COUNTRY_MASK
 #pragma push_macro("SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS")
 #undef SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS
 #pragma push_macro("SPECIAL_CASE_COUNTRY_INDEX_DELTA")
 #undef SPECIAL_CASE_COUNTRY_INDEX_DELTA
-#pragma push_macro("NUMERIC_CODE_MASK")
-#undef NUMERIC_CODE_MASK
-#pragma push_macro("COUNTRY_TYPE_MASK")
-#undef COUNTRY_TYPE_MASK
-#pragma push_macro("SYMBOL")
-#undef SYMBOL
-#pragma push_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT")
-#undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT
-#pragma push_macro("MAGIC_NUMBER")
-#undef MAGIC_NUMBER
-#pragma push_macro("A_TO_Z")
-#undef A_TO_Z
-#pragma push_macro("SPECIAL_CASE_COUNTRY_MASK")
-#undef SPECIAL_CASE_COUNTRY_MASK
-#pragma push_macro("COUNTRY_WITHOUT_CURRENCY_ENTRY")
-#undef COUNTRY_WITHOUT_CURRENCY_ENTRY
-#pragma push_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK")
-#undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK
 #pragma push_macro("SPECIAL_CASE_COUNTRY_INDEX_MASK")
 #undef SPECIAL_CASE_COUNTRY_INDEX_MASK
+#pragma push_macro("SPECIAL_CASE_COUNTRY_MASK")
+#undef SPECIAL_CASE_COUNTRY_MASK
+#pragma push_macro("SYMBOL")
+#undef SYMBOL
+#pragma push_macro("VALID_FORMAT_VERSION")
+#undef VALID_FORMAT_VERSION
 
 namespace java {
 	namespace io {
@@ -150,23 +150,23 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("A_TO_Z")
+#pragma pop_macro("COUNTRY_TYPE_MASK")
+#pragma pop_macro("COUNTRY_WITHOUT_CURRENCY_ENTRY")
 #pragma pop_macro("DISPLAYNAME")
-#pragma pop_macro("SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK")
-#pragma pop_macro("NUMERIC_CODE_SHIFT")
-#pragma pop_macro("VALID_FORMAT_VERSION")
 #pragma pop_macro("INVALID_COUNTRY_ENTRY")
+#pragma pop_macro("MAGIC_NUMBER")
+#pragma pop_macro("NUMERIC_CODE_MASK")
+#pragma pop_macro("NUMERIC_CODE_SHIFT")
+#pragma pop_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK")
+#pragma pop_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT")
+#pragma pop_macro("SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK")
 #pragma pop_macro("SIMPLE_CASE_COUNTRY_MASK")
 #pragma pop_macro("SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS")
 #pragma pop_macro("SPECIAL_CASE_COUNTRY_INDEX_DELTA")
-#pragma pop_macro("NUMERIC_CODE_MASK")
-#pragma pop_macro("COUNTRY_TYPE_MASK")
-#pragma pop_macro("SYMBOL")
-#pragma pop_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT")
-#pragma pop_macro("MAGIC_NUMBER")
-#pragma pop_macro("A_TO_Z")
-#pragma pop_macro("SPECIAL_CASE_COUNTRY_MASK")
-#pragma pop_macro("COUNTRY_WITHOUT_CURRENCY_ENTRY")
-#pragma pop_macro("SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK")
 #pragma pop_macro("SPECIAL_CASE_COUNTRY_INDEX_MASK")
+#pragma pop_macro("SPECIAL_CASE_COUNTRY_MASK")
+#pragma pop_macro("SYMBOL")
+#pragma pop_macro("VALID_FORMAT_VERSION")
 
 #endif // _java_util_Currency_h_

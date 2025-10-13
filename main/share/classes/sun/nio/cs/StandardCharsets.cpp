@@ -34,10 +34,10 @@
 #include <sun/util/PreHashedMap.h>
 #include <jcpp.h>
 
-#undef UTF_16
-#undef UTF_16LE
-#undef UTF_16BE
 #undef INSTANCE
+#undef UTF_16
+#undef UTF_16BE
+#undef UTF_16LE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -834,10 +834,10 @@ $Charset* StandardCharsets::lookup($String* charsetName) {
 	if ($nc(charsetName)->equals("UTF-8"_s)) {
 		$init($UTF_8);
 		return $UTF_8::INSTANCE;
-	} else if ($nc(charsetName)->equals("US-ASCII"_s)) {
+	} else if (charsetName->equals("US-ASCII"_s)) {
 		$init($US_ASCII);
 		return $US_ASCII::INSTANCE;
-	} else if ($nc(charsetName)->equals("ISO-8859-1"_s)) {
+	} else if (charsetName->equals("ISO-8859-1"_s)) {
 		$init($ISO_8859_1);
 		return $ISO_8859_1::INSTANCE;
 	} else {

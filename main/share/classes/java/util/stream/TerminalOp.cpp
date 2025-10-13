@@ -12,8 +12,8 @@
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
 
-#undef REFERENCE
 #undef ENABLED
+#undef REFERENCE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

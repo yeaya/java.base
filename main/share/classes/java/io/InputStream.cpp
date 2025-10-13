@@ -26,9 +26,9 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MAX_SKIP_BUFFER_SIZE
-#undef MAX_BUFFER_SIZE
 #undef DEFAULT_BUFFER_SIZE
+#undef MAX_BUFFER_SIZE
+#undef MAX_SKIP_BUFFER_SIZE
 #undef MAX_VALUE
 
 using $Closeable = ::java::io::Closeable;

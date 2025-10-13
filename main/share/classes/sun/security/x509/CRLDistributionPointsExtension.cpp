@@ -28,8 +28,8 @@
 #include <jcpp.h>
 
 #undef IDENT
-#undef POINTS
 #undef NAME
+#undef POINTS
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

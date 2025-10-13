@@ -87,11 +87,11 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef DRIVE_RELATIVE
+#undef EMPTY_PATH
+#undef FILE_READLINK_ACTION
 #undef RELATIVE
 #undef UTF_8
-#undef DRIVE_RELATIVE
-#undef FILE_READLINK_ACTION
-#undef EMPTY_PATH
 
 using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;

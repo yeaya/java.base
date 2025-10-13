@@ -34,10 +34,10 @@
 #include <sun/util/locale/provider/TimeZoneNameUtility$TimeZoneNameGetter.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef ENGLISH
 #undef CLDR
+#undef ENGLISH
 #undef INSTANCE
+#undef ROOT
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;

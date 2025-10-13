@@ -67,13 +67,13 @@
 #include <sun/security/util/IOUtils.h>
 #include <jcpp.h>
 
-#undef VERSION_2
-#undef VERSION_1
 #undef ENGLISH
-#undef UTF_8
 #undef JCEKS_MAGIC
-#undef MAX_VALUE
 #undef JKS_MAGIC
+#undef MAX_VALUE
+#undef UTF_8
+#undef VERSION_1
+#undef VERSION_2
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $EncryptedPrivateKeyInfo = ::com::sun::crypto::provider::EncryptedPrivateKeyInfo;
@@ -480,7 +480,7 @@ void JceKeyStore::engineStore($OutputStream* stream, $chars* password) {
 							dos->write(encoded);
 						}
 					} else if ($instanceOf($JceKeyStore$TrustedCertEntry, entry)) {
-						$nc(dos)->writeInt(2);
+						dos->writeInt(2);
 						dos->writeUTF(alias);
 						dos->writeLong($nc($nc(($cast($JceKeyStore$TrustedCertEntry, entry)))->date)->getTime());
 						$assign(encoded, $nc($nc(($cast($JceKeyStore$TrustedCertEntry, entry)))->cert)->getEncoded());
@@ -488,7 +488,7 @@ void JceKeyStore::engineStore($OutputStream* stream, $chars* password) {
 						dos->writeInt($nc(encoded)->length);
 						dos->write(encoded);
 					} else {
-						$nc(dos)->writeInt(3);
+						dos->writeInt(3);
 						dos->writeUTF(alias);
 						dos->writeLong($nc($nc(($cast($JceKeyStore$SecretKeyEntry, entry)))->date)->getTime());
 						$assign(oos, $new($ObjectOutputStream, dos));
@@ -586,7 +586,7 @@ void JceKeyStore::engineLoad($InputStream* stream$renamed, $chars* password) {
 					} else if (tag == 2) {
 						++trustedKeyCount;
 						$var($JceKeyStore$TrustedCertEntry, entry, $new($JceKeyStore$TrustedCertEntry));
-						$assign(alias, $nc(dis)->readUTF());
+						$assign(alias, dis->readUTF());
 						$set(entry, date, $new($Date, dis->readLong()));
 						if (xVersion == 2) {
 							$var($String, certType, dis->readUTF());
@@ -604,7 +604,7 @@ void JceKeyStore::engineLoad($InputStream* stream$renamed, $chars* password) {
 					} else if (tag == 3) {
 						++secretKeyCount;
 						$var($JceKeyStore$SecretKeyEntry, entry, $new($JceKeyStore$SecretKeyEntry));
-						$assign(alias, $nc(dis)->readUTF());
+						$assign(alias, dis->readUTF());
 						$set(entry, date, $new($Date, dis->readLong()));
 						try {
 							$assign(ois, $new($ObjectInputStream, dis));

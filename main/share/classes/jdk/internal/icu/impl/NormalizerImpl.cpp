@@ -36,57 +36,57 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
 #include <jcpp.h>
 
-#undef COMP_1_TRAIL_LIMIT
-#undef JAMO_L_BASE
-#undef HANGUL_BASE
-#undef COMP_1_TRAIL_MASK
-#undef MIN_CCC_LCCC_CP
-#undef IX_MIN_NO_NO_COMP_BOUNDARY_BEFORE
-#undef IX_COUNT
-#undef COMP_1_TRIPLE
-#undef OFFSET_SHIFT
-#undef COMP_2_TRAIL_SHIFT
-#undef IX_TOTAL_SIZE
-#undef COMP_1_TRAIL_SHIFT
-#undef IX_LIMIT_NO_NO
-#undef IX_MIN_NO_NO
-#undef IX_NORM_TRIE_OFFSET
-#undef INERT
-#undef IX_EXTRA_DATA_OFFSET
-#undef MIN_YES_YES_WITH_CC
-#undef IX_MIN_LCCC_CP
-#undef IX_MIN_YES_NO
-#undef JAMO_T_COUNT
-#undef MAPPING_LENGTH_MASK
-#undef IS_ACCEPTABLE
-#undef JAMO_T_BASE
-#undef HAS_COMP_BOUNDARY_AFTER
-#undef MAX_DELTA
-#undef MAPPING_HAS_RAW_MAPPING
-#undef DATA_FORMAT
-#undef IX_MIN_MAYBE_YES
-#undef DELTA_TCCC_GT_1
-#undef DELTA_TCCC_1
-#undef MIN_SUPPLEMENTARY_CODE_POINT
-#undef JAMO_L
-#undef JAMO_V_COUNT
-#undef DELTA_TCCC_0
 #undef COMP_1_LAST_TUPLE
-#undef JAMO_V_BASE
-#undef DELTA_TCCC_MASK
+#undef COMP_1_TRAIL_LIMIT
+#undef COMP_1_TRAIL_MASK
+#undef COMP_1_TRAIL_SHIFT
+#undef COMP_1_TRIPLE
 #undef COMP_2_TRAIL_MASK
-#undef MIN_NORMAL_MAYBE_YES
-#undef MAPPING_HAS_CCC_LCCC_WORD
-#undef IX_MIN_COMP_NO_MAYBE_CP
-#undef JAMO_L_COUNT
-#undef IX_RESERVED3_OFFSET
-#undef IX_MIN_DECOMP_NO_CP
-#undef IX_MIN_NO_NO_EMPTY
+#undef COMP_2_TRAIL_SHIFT
+#undef DATA_FORMAT
 #undef DELTA_SHIFT
-#undef IX_SMALL_FCD_OFFSET
-#undef JAMO_VT
-#undef IX_MIN_YES_NO_MAPPINGS_ONLY
+#undef DELTA_TCCC_0
+#undef DELTA_TCCC_1
+#undef DELTA_TCCC_GT_1
+#undef DELTA_TCCC_MASK
+#undef HANGUL_BASE
+#undef HAS_COMP_BOUNDARY_AFTER
+#undef INERT
+#undef IS_ACCEPTABLE
+#undef IX_COUNT
+#undef IX_EXTRA_DATA_OFFSET
+#undef IX_LIMIT_NO_NO
+#undef IX_MIN_COMP_NO_MAYBE_CP
+#undef IX_MIN_DECOMP_NO_CP
+#undef IX_MIN_LCCC_CP
+#undef IX_MIN_MAYBE_YES
+#undef IX_MIN_NO_NO
+#undef IX_MIN_NO_NO_COMP_BOUNDARY_BEFORE
 #undef IX_MIN_NO_NO_COMP_NO_MAYBE_CC
+#undef IX_MIN_NO_NO_EMPTY
+#undef IX_MIN_YES_NO
+#undef IX_MIN_YES_NO_MAPPINGS_ONLY
+#undef IX_NORM_TRIE_OFFSET
+#undef IX_RESERVED3_OFFSET
+#undef IX_SMALL_FCD_OFFSET
+#undef IX_TOTAL_SIZE
+#undef JAMO_L
+#undef JAMO_L_BASE
+#undef JAMO_L_COUNT
+#undef JAMO_T_BASE
+#undef JAMO_T_COUNT
+#undef JAMO_VT
+#undef JAMO_V_BASE
+#undef JAMO_V_COUNT
+#undef MAPPING_HAS_CCC_LCCC_WORD
+#undef MAPPING_HAS_RAW_MAPPING
+#undef MAPPING_LENGTH_MASK
+#undef MAX_DELTA
+#undef MIN_CCC_LCCC_CP
+#undef MIN_NORMAL_MAYBE_YES
+#undef MIN_SUPPLEMENTARY_CODE_POINT
+#undef MIN_YES_YES_WITH_CC
+#undef OFFSET_SHIFT
 
 using $IOException = ::java::io::IOException;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -870,7 +870,7 @@ int32_t NormalizerImpl::makeFCD($CharSequence* s, int32_t src, int32_t limit, $N
 			} else {
 				if ($NormalizerImpl$UTF16Plus::isLeadSurrogate(c)) {
 					char16_t c2 = 0;
-					if ((src + 1) != limit && $Character::isLowSurrogate(c2 = $nc(s)->charAt(src + 1))) {
+					if ((src + 1) != limit && $Character::isLowSurrogate(c2 = s->charAt(src + 1))) {
 						c = $Character::toCodePoint((char16_t)c, c2);
 					}
 				}
@@ -1164,14 +1164,14 @@ int32_t NormalizerImpl::combine($String* compositions, int32_t list, int32_t tra
 			if (key1 > (firstUnit = $nc(compositions)->charAt(list))) {
 				list += 2 + ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRIPLE));
 			} else if (key1 == ((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_TRAIL_MASK))) {
-				if (key2 > (secondUnit = $nc(compositions)->charAt(list + 1))) {
+				if (key2 > (secondUnit = compositions->charAt(list + 1))) {
 					if (((int32_t)(firstUnit & (uint32_t)NormalizerImpl::COMP_1_LAST_TUPLE)) != 0) {
 						break;
 					} else {
 						list += 3;
 					}
 				} else if (key2 == ((int32_t)(secondUnit & (uint32_t)NormalizerImpl::COMP_2_TRAIL_MASK))) {
-					return (((int32_t)(secondUnit & (uint32_t)~NormalizerImpl::COMP_2_TRAIL_MASK)) << 16) | $nc(compositions)->charAt(list + 2);
+					return (((int32_t)(secondUnit & (uint32_t)~NormalizerImpl::COMP_2_TRAIL_MASK)) << 16) | compositions->charAt(list + 2);
 				} else {
 					break;
 				}
@@ -1233,7 +1233,7 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 			} else if ((compositeAndFwd = combine(this->maybeYesCompositions, compositionsList, c)) >= 0) {
 				int32_t composite = compositeAndFwd >> 1;
 				pRemove = p - $Character::charCount(c);
-				$nc(sb)->delete$(pRemove, p);
+				sb->delete$(pRemove, p);
 				p = pRemove;
 				if (starterIsSupplementary) {
 					if (composite > 0x0000FFFF) {
@@ -1247,11 +1247,11 @@ void NormalizerImpl::recompose($NormalizerImpl$ReorderingBuffer* buffer, int32_t
 					}
 				} else if (composite > 0x0000FFFF) {
 					starterIsSupplementary = true;
-					$nc(sb)->setCharAt(starter, $UTF16::getLeadSurrogate(composite));
+					sb->setCharAt(starter, $UTF16::getLeadSurrogate(composite));
 					sb->insert(starter + 1, $UTF16::getTrailSurrogate(composite));
 					++p;
 				} else {
-					$nc(sb)->setCharAt(starter, (char16_t)composite);
+					sb->setCharAt(starter, (char16_t)composite);
 				}
 				if (p == sb->length()) {
 					break;
@@ -1478,13 +1478,13 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 					destIndex += length;
 					trailCC = insertOrdered(dest, reorderStartIndex, reorderSplit, destIndex, c1, c2, cc);
 				} else {
-					$nc(dest)->set(destIndex++, c1);
+					dest->set(destIndex++, c1);
 					if (c2 != 0) {
 						dest->set(destIndex++, c2);
 					}
 				}
 			} else if (needSingleQuotation($nc(p)->get(pStart))) {
-				$nc(dest)->set(destIndex++, u'\'');
+				dest->set(destIndex++, u'\'');
 				dest->set(destIndex++, $nc(p)->get(pStart++));
 				dest->set(destIndex++, u'\'');
 				--length;
@@ -1496,7 +1496,7 @@ $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) 
 				trailCC = mergeOrdered(dest, reorderStartIndex, reorderSplit, p, pStart, pStart + length);
 			} else {
 				do {
-					$nc(dest)->set(destIndex++, $nc(p)->get(pStart++));
+					dest->set(destIndex++, $nc(p)->get(pStart++));
 				} while (--length > 0);
 			}
 		}
@@ -1604,9 +1604,9 @@ int32_t NormalizerImpl::getNextCC($NormalizerImpl$NextCCArgs* args) {
 	args->c2 = (char16_t)0;
 	if ($UTF16::isTrailSurrogate(args->c1)) {
 		return 0;
-	} else if (!$UTF16::isLeadSurrogate($nc(args)->c1)) {
-		return $UCharacter::getCombiningClass($nc(args)->c1);
-	} else if ($nc(args)->next != args->limit && $UTF16::isTrailSurrogate(args->c2 = $nc(args->source)->get(args->next))) {
+	} else if (!$UTF16::isLeadSurrogate(args->c1)) {
+		return $UCharacter::getCombiningClass(args->c1);
+	} else if (args->next != args->limit && $UTF16::isTrailSurrogate(args->c2 = $nc(args->source)->get(args->next))) {
 		++args->next;
 		return $UCharacter::getCombiningClass($Character::toCodePoint(args->c1, args->c2));
 	} else {
@@ -1621,11 +1621,11 @@ int32_t NormalizerImpl::getPrevCC($NormalizerImpl$PrevArgs* args) {
 	args->c2 = (char16_t)0;
 	if (args->c1 < NormalizerImpl::MIN_CCC_LCCC_CP) {
 		return 0;
-	} else if ($UTF16::isLeadSurrogate($nc(args)->c1)) {
+	} else if ($UTF16::isLeadSurrogate(args->c1)) {
 		return 0;
-	} else if (!$UTF16::isTrailSurrogate($nc(args)->c1)) {
-		return $UCharacter::getCombiningClass($nc(args)->c1);
-	} else if ($nc(args)->current != args->start && $UTF16::isLeadSurrogate(args->c2 = $nc(args->src)->get(args->current - 1))) {
+	} else if (!$UTF16::isTrailSurrogate(args->c1)) {
+		return $UCharacter::getCombiningClass(args->c1);
+	} else if (args->current != args->start && $UTF16::isLeadSurrogate(args->c2 = $nc(args->src)->get(args->current - 1))) {
 		--args->current;
 		return $UCharacter::getCombiningClass($Character::toCodePoint(args->c2, args->c1));
 	} else {

@@ -31,13 +31,13 @@
 #include <jcpp.h>
 
 #undef BYTES
-#undef SIZE
-#undef MIN_RADIX
-#undef MAX_VALUE
-#undef MIN_VALUE
 #undef COMPACT_STRINGS
-#undef TYPE
 #undef MAX_RADIX
+#undef MAX_VALUE
+#undef MIN_RADIX
+#undef MIN_VALUE
+#undef SIZE
+#undef TYPE
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $Byte = ::java::lang::Byte;
@@ -707,7 +707,7 @@ Integer* Integer::decode($String* nm) {
 	if (var$0 || nm->startsWith("0X"_s, index)) {
 		index += 2;
 		radix = 16;
-	} else if ($nc(nm)->startsWith("#"_s, index)) {
+	} else if (nm->startsWith("#"_s, index)) {
 		++index;
 		radix = 16;
 	} else {

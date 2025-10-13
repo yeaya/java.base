@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("JAVAFX_LAUNCH_MODE_MODULE")
-#undef JAVAFX_LAUNCH_MODE_MODULE
 #pragma push_macro("JAVAFX_GRAPHICS_MODULE_NAME")
 #undef JAVAFX_GRAPHICS_MODULE_NAME
-#pragma push_macro("JAVAFX_LAUNCH_MODE_CLASS")
-#undef JAVAFX_LAUNCH_MODE_CLASS
 #pragma push_macro("JAVAFX_LAUNCHER_CLASS_NAME")
 #undef JAVAFX_LAUNCHER_CLASS_NAME
+#pragma push_macro("JAVAFX_LAUNCH_MODE_CLASS")
+#undef JAVAFX_LAUNCH_MODE_CLASS
 #pragma push_macro("JAVAFX_LAUNCH_MODE_JAR")
 #undef JAVAFX_LAUNCH_MODE_JAR
+#pragma push_macro("JAVAFX_LAUNCH_MODE_MODULE")
+#undef JAVAFX_LAUNCH_MODE_MODULE
 
 namespace java {
 	namespace lang {
@@ -48,10 +48,10 @@ public:
 	} // launcher
 } // sun
 
-#pragma pop_macro("JAVAFX_LAUNCH_MODE_MODULE")
 #pragma pop_macro("JAVAFX_GRAPHICS_MODULE_NAME")
-#pragma pop_macro("JAVAFX_LAUNCH_MODE_CLASS")
 #pragma pop_macro("JAVAFX_LAUNCHER_CLASS_NAME")
+#pragma pop_macro("JAVAFX_LAUNCH_MODE_CLASS")
 #pragma pop_macro("JAVAFX_LAUNCH_MODE_JAR")
+#pragma pop_macro("JAVAFX_LAUNCH_MODE_MODULE")
 
 #endif // _sun_launcher_LauncherHelper$FXHelper_h_

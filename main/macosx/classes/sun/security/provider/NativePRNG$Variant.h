@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("BLOCKING")
+#undef BLOCKING
 #pragma push_macro("MIXED")
 #undef MIXED
 #pragma push_macro("NONBLOCKING")
 #undef NONBLOCKING
-#pragma push_macro("BLOCKING")
-#undef BLOCKING
 
 namespace sun {
 	namespace security {
@@ -35,8 +35,8 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("BLOCKING")
 #pragma pop_macro("MIXED")
 #pragma pop_macro("NONBLOCKING")
-#pragma pop_macro("BLOCKING")
 
 #endif // _sun_security_provider_NativePRNG$Variant_h_

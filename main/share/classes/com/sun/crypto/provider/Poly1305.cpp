@@ -26,9 +26,9 @@
 #include <jcpp.h>
 
 #undef BLOCK_LENGTH
-#undef TAG_LENGTH
 #undef KEY_LENGTH
 #undef RS_LENGTH
+#undef TAG_LENGTH
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -53,22 +53,22 @@
 #include <jcpp.h>
 
 #undef BYTES
-#undef WRAP_MODE
-#undef MODE_NONE
-#undef KEYSTREAM_SIZE
 #undef CIPHERBUF_BASE
-#undef LITTLE_ENDIAN
+#undef DECRYPT_MODE
+#undef ENCRYPT_MODE
+#undef KEYSTREAM_SIZE
 #undef KS_SIZE_INTS
+#undef LITTLE_ENDIAN
+#undef MAX_UINT32
 #undef MODE_AEAD
-#undef STATE_CONST_1
+#undef MODE_NONE
 #undef STATE_CONST_0
+#undef STATE_CONST_1
+#undef STATE_CONST_2
+#undef STATE_CONST_3
 #undef TAG_LENGTH
 #undef UNWRAP_MODE
-#undef MAX_UINT32
-#undef ENCRYPT_MODE
-#undef STATE_CONST_3
-#undef STATE_CONST_2
-#undef DECRYPT_MODE
+#undef WRAP_MODE
 
 using $ChaCha20Cipher$ChaChaEngine = ::com::sun::crypto::provider::ChaCha20Cipher$ChaChaEngine;
 using $ChaCha20Cipher$EngineAEADDec = ::com::sun::crypto::provider::ChaCha20Cipher$EngineAEADDec;

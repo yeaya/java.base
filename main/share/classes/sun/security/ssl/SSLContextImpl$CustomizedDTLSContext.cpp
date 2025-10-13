@@ -22,8 +22,8 @@
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <jcpp.h>
 
-#undef DTLS12
 #undef DTLS10
+#undef DTLS12
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;

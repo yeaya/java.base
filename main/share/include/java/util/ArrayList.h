@@ -10,12 +10,12 @@
 #include <java/util/AbstractList.h>
 #include <java/util/RandomAccess.h>
 
-#pragma push_macro("EMPTY_ELEMENTDATA")
-#undef EMPTY_ELEMENTDATA
 #pragma push_macro("DEFAULTCAPACITY_EMPTY_ELEMENTDATA")
 #undef DEFAULTCAPACITY_EMPTY_ELEMENTDATA
 #pragma push_macro("DEFAULT_CAPACITY")
 #undef DEFAULT_CAPACITY
+#pragma push_macro("EMPTY_ELEMENTDATA")
+#undef EMPTY_ELEMENTDATA
 
 namespace java {
 	namespace io {
@@ -126,8 +126,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("EMPTY_ELEMENTDATA")
 #pragma pop_macro("DEFAULTCAPACITY_EMPTY_ELEMENTDATA")
 #pragma pop_macro("DEFAULT_CAPACITY")
+#pragma pop_macro("EMPTY_ELEMENTDATA")
 
 #endif // _java_util_ArrayList_h_

@@ -6,20 +6,20 @@
 #include <java/io/OutputStream.h>
 #include <java/lang/Array.h>
 
+#pragma push_macro("CRLF")
+#undef CRLF
 #pragma push_macro("CRLF_SIZE")
 #undef CRLF_SIZE
 #pragma push_macro("DEFAULT_CHUNK_SIZE")
 #undef DEFAULT_CHUNK_SIZE
 #pragma push_macro("EMPTY_CHUNK_HEADER")
 #undef EMPTY_CHUNK_HEADER
-#pragma push_macro("FOOTER_SIZE")
-#undef FOOTER_SIZE
-#pragma push_macro("CRLF")
-#undef CRLF
-#pragma push_macro("FOOTER")
-#undef FOOTER
 #pragma push_macro("EMPTY_CHUNK_HEADER_SIZE")
 #undef EMPTY_CHUNK_HEADER_SIZE
+#pragma push_macro("FOOTER")
+#undef FOOTER
+#pragma push_macro("FOOTER_SIZE")
+#undef FOOTER_SIZE
 
 namespace java {
 	namespace io {
@@ -83,12 +83,12 @@ public:
 	} // net
 } // sun
 
+#pragma pop_macro("CRLF")
 #pragma pop_macro("CRLF_SIZE")
 #pragma pop_macro("DEFAULT_CHUNK_SIZE")
 #pragma pop_macro("EMPTY_CHUNK_HEADER")
-#pragma pop_macro("FOOTER_SIZE")
-#pragma pop_macro("CRLF")
-#pragma pop_macro("FOOTER")
 #pragma pop_macro("EMPTY_CHUNK_HEADER_SIZE")
+#pragma pop_macro("FOOTER")
+#pragma pop_macro("FOOTER_SIZE")
 
 #endif // _sun_net_www_http_ChunkedOutputStream_h_

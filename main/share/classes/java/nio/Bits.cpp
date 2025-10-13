@@ -27,18 +27,18 @@
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
 
-#undef MEMORY_LIMIT_SET
-#undef MAX_SLEEPS
 #undef BUFFER_POOL
-#undef JNI_COPY_TO_ARRAY_THRESHOLD
-#undef PAGE_SIZE
-#undef MAX_MEMORY
-#undef RESERVED_MEMORY
 #undef COUNT
-#undef UNSAFE
-#undef UNALIGNED
-#undef TOTAL_CAPACITY
 #undef JNI_COPY_FROM_ARRAY_THRESHOLD
+#undef JNI_COPY_TO_ARRAY_THRESHOLD
+#undef MAX_MEMORY
+#undef MAX_SLEEPS
+#undef MEMORY_LIMIT_SET
+#undef PAGE_SIZE
+#undef RESERVED_MEMORY
+#undef TOTAL_CAPACITY
+#undef UNALIGNED
+#undef UNSAFE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;

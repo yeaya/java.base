@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TAG_CONST")
-#undef TAG_CONST
 #pragma push_macro("TAG_ARG")
 #undef TAG_ARG
+#pragma push_macro("TAG_CONST")
+#undef TAG_CONST
 
 namespace java {
 	namespace lang {
@@ -71,7 +71,7 @@ public:
 	static const char16_t TAG_CONST = ((char16_t)2);
 };
 
-#pragma pop_macro("TAG_CONST")
 #pragma pop_macro("TAG_ARG")
+#pragma pop_macro("TAG_CONST")
 
 #endif // _StringConcatFactoryInvariants_h_

@@ -19,8 +19,8 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef UTF_8
 #undef INSTANCE
+#undef UTF_8
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

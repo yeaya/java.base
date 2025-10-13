@@ -35,16 +35,16 @@
 #include <jdk/internal/util/Preconditions.h>
 #include <jcpp.h>
 
-#undef BUFFER_ADDRESS
-#undef BYTE_BUFFER_IS_READ_ONLY
 #undef BE
-#undef NIO_ACCESS
-#undef FORM
+#undef BUFFER_ADDRESS
 #undef BUFFER_LIMIT
-#undef UNSAFE
-#undef TYPE
-#undef SCOPED_MEMORY_ACCESS
 #undef BYTE_BUFFER_HB
+#undef BYTE_BUFFER_IS_READ_ONLY
+#undef FORM
+#undef NIO_ACCESS
+#undef SCOPED_MEMORY_ACCESS
+#undef TYPE
+#undef UNSAFE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

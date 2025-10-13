@@ -7,10 +7,10 @@
 
 #pragma push_macro("BIG")
 #undef BIG
-#pragma push_macro("BOM_LOW")
-#undef BOM_LOW
 #pragma push_macro("BOM_HIGH")
 #undef BOM_HIGH
+#pragma push_macro("BOM_LOW")
+#undef BOM_LOW
 #pragma push_macro("LITTLE")
 #undef LITTLE
 
@@ -30,8 +30,8 @@ public:
 };
 
 #pragma pop_macro("BIG")
-#pragma pop_macro("BOM_LOW")
 #pragma pop_macro("BOM_HIGH")
+#pragma pop_macro("BOM_LOW")
 #pragma pop_macro("LITTLE")
 
 #endif // _Unicode_h_

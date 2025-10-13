@@ -354,9 +354,9 @@ $String* AsynchronousServerSocketChannelImpl::toString() {
 	if (!isOpen()) {
 		sb->append("closed"_s);
 	} else if (this->localAddress == nullptr) {
-		$nc(sb)->append("unbound"_s);
+		sb->append("unbound"_s);
 	} else {
-		$nc(sb)->append($($Net::getRevealedLocalAddressAsString(this->localAddress)));
+		sb->append($($Net::getRevealedLocalAddressAsString(this->localAddress)));
 	}
 	sb->append(u']');
 	return sb->toString();

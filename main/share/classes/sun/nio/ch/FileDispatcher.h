@@ -5,14 +5,14 @@
 
 #include <sun/nio/ch/NativeDispatcher.h>
 
+#pragma push_macro("INTERRUPTED")
+#undef INTERRUPTED
 #pragma push_macro("LOCKED")
 #undef LOCKED
 #pragma push_macro("NO_LOCK")
 #undef NO_LOCK
 #pragma push_macro("RET_EX_LOCK")
 #undef RET_EX_LOCK
-#pragma push_macro("INTERRUPTED")
-#undef INTERRUPTED
 
 namespace java {
 	namespace io {
@@ -56,9 +56,9 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("INTERRUPTED")
 #pragma pop_macro("LOCKED")
 #pragma pop_macro("NO_LOCK")
 #pragma pop_macro("RET_EX_LOCK")
-#pragma pop_macro("INTERRUPTED")
 
 #endif // _sun_nio_ch_FileDispatcher_h_

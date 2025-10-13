@@ -34,12 +34,12 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef THROW_UCS
+#undef GET_TARGET
 #undef IMPL_LOOKUP
 #undef MH_UNINIT_CS
 #undef TARGET_OFFSET
+#undef THROW_UCS
 #undef UNSAFE
-#undef GET_TARGET
 
 using $AssertionError = ::java::lang::AssertionError;
 using $BootstrapMethodError = ::java::lang::BootstrapMethodError;

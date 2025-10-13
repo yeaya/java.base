@@ -16,8 +16,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef UTC
 #undef INSTANCE
+#undef UTC
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -14,9 +14,9 @@
 #include <java/util/HashMap.h>
 #include <jcpp.h>
 
-#undef MAP_
 #undef ICU_DATA_VERSION_PATH
 #undef INVALID_VERSION_NUMBER_
+#undef MAP_
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

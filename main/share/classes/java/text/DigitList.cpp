@@ -28,12 +28,12 @@
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef MAX_COUNT
 #undef HALF_EVEN
-#undef LONG_MIN_REP
-#undef MIN_VALUE
 #undef HALF_UP
+#undef LONG_MIN_REP
+#undef MAX_COUNT
+#undef MIN_VALUE
+#undef ZERO
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $AssertionError = ::java::lang::AssertionError;

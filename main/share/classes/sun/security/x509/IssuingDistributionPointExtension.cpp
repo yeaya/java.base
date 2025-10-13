@@ -25,21 +25,21 @@
 #include <sun/security/x509/ReasonFlags.h>
 #include <jcpp.h>
 
-#undef TAG_DISTRIBUTION_POINT
-#undef INDIRECT_CRL
-#undef ONLY_ATTRIBUTE_CERTS
-#undef NAME
-#undef ONLY_USER_CERTS
-#undef TAG_ONLY_SOME_REASONS
-#undef TAG_INDIRECT_CRL
-#undef TAG_ONLY_ATTRIBUTE_CERTS
-#undef ONLY_CA_CERTS
 #undef IDENT
+#undef INDIRECT_CRL
+#undef NAME
+#undef ONLY_ATTRIBUTE_CERTS
+#undef ONLY_CA_CERTS
+#undef ONLY_USER_CERTS
+#undef POINT
 #undef REASONS
 #undef TAG_CONTEXT
-#undef TAG_ONLY_USER_CERTS
-#undef POINT
+#undef TAG_DISTRIBUTION_POINT
+#undef TAG_INDIRECT_CRL
+#undef TAG_ONLY_ATTRIBUTE_CERTS
 #undef TAG_ONLY_CA_CERTS
+#undef TAG_ONLY_SOME_REASONS
+#undef TAG_ONLY_USER_CERTS
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -201,27 +201,27 @@ void IssuingDistributionPointExtension::init$($Boolean* critical, Object$* value
 		if (var$0 && opt->isConstructed()) {
 			$set(this, distributionPoint, $new($DistributionPointName, $($nc(opt->data$)->getDerValue())));
 		} else {
-			bool var$32 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_USER_CERTS);
-			if (var$32 && !opt->isConstructed()) {
+			bool var$2 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_USER_CERTS);
+			if (var$2 && !opt->isConstructed()) {
 				opt->resetTag($DerValue::tag_Boolean);
 				this->hasOnlyUserCerts = opt->getBoolean();
 			} else {
-				bool var$48 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_CA_CERTS);
-				if (var$48 && !opt->isConstructed()) {
+				bool var$4 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_CA_CERTS);
+				if (var$4 && !opt->isConstructed()) {
 					opt->resetTag($DerValue::tag_Boolean);
 					this->hasOnlyCACerts = opt->getBoolean();
 				} else {
-					bool var$56 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_SOME_REASONS);
-					if (var$56 && !opt->isConstructed()) {
+					bool var$6 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_SOME_REASONS);
+					if (var$6 && !opt->isConstructed()) {
 						$set(this, revocationReasons, $new($ReasonFlags, opt));
 					} else {
-						bool var$60 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_INDIRECT_CRL);
-						if (var$60 && !opt->isConstructed()) {
+						bool var$8 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_INDIRECT_CRL);
+						if (var$8 && !opt->isConstructed()) {
 							opt->resetTag($DerValue::tag_Boolean);
 							this->isIndirectCRL = opt->getBoolean();
 						} else {
-							bool var$62 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_ATTRIBUTE_CERTS);
-							if (var$62 && !opt->isConstructed()) {
+							bool var$10 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_ATTRIBUTE_CERTS);
+							if (var$10 && !opt->isConstructed()) {
 								opt->resetTag($DerValue::tag_Boolean);
 								this->hasOnlyAttributeCerts = opt->getBoolean();
 							} else {
@@ -257,27 +257,27 @@ void IssuingDistributionPointExtension::set($String* name, Object$* obj) {
 			$throwNew($IOException, "Attribute value should be of type DistributionPointName."_s);
 		}
 		$set(this, distributionPoint, $cast($DistributionPointName, obj));
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
 		if (!($instanceOf($ReasonFlags, obj))) {
 			$throwNew($IOException, "Attribute value should be of type ReasonFlags."_s);
 		}
 		$set(this, revocationReasons, $cast($ReasonFlags, obj));
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
 		this->isIndirectCRL = $nc(($cast($Boolean, obj)))->booleanValue();
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
 		this->hasOnlyUserCerts = $nc(($cast($Boolean, obj)))->booleanValue();
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
 		this->hasOnlyCACerts = $nc(($cast($Boolean, obj)))->booleanValue();
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
@@ -289,17 +289,17 @@ void IssuingDistributionPointExtension::set($String* name, Object$* obj) {
 }
 
 $Object* IssuingDistributionPointExtension::get($String* name) {
-	if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
+	if (name->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
 		return $of(this->distributionPoint);
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
 		return $of($Boolean::valueOf(this->isIndirectCRL));
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
 		return $of(this->revocationReasons);
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
 		return $of($Boolean::valueOf(this->hasOnlyUserCerts));
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
 		return $of($Boolean::valueOf(this->hasOnlyCACerts));
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
 		return $of($Boolean::valueOf(this->hasOnlyAttributeCerts));
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:IssuingDistributionPointExtension."_s}));
@@ -307,17 +307,17 @@ $Object* IssuingDistributionPointExtension::get($String* name) {
 }
 
 void IssuingDistributionPointExtension::delete$($String* name) {
-	if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
+	if (name->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
 		$set(this, distributionPoint, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
 		this->isIndirectCRL = false;
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
 		$set(this, revocationReasons, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
 		this->hasOnlyUserCerts = false;
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
 		this->hasOnlyCACerts = false;
-	} else if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
+	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
 		this->hasOnlyAttributeCerts = false;
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:IssuingDistributionPointExtension."_s}));

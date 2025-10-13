@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/ProcessHandle.h>
 
+#pragma push_macro("NOT_A_CHILD")
+#undef NOT_A_CHILD
+#pragma push_macro("REAPER_DEFAULT_STACKSIZE")
+#undef REAPER_DEFAULT_STACKSIZE
 #pragma push_macro("STARTTIME_ANY")
 #undef STARTTIME_ANY
 #pragma push_macro("STARTTIME_PROCESS_UNKNOWN")
 #undef STARTTIME_PROCESS_UNKNOWN
-#pragma push_macro("REAPER_DEFAULT_STACKSIZE")
-#undef REAPER_DEFAULT_STACKSIZE
-#pragma push_macro("NOT_A_CHILD")
-#undef NOT_A_CHILD
 
 namespace java {
 	namespace lang {
@@ -103,9 +103,9 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("NOT_A_CHILD")
+#pragma pop_macro("REAPER_DEFAULT_STACKSIZE")
 #pragma pop_macro("STARTTIME_ANY")
 #pragma pop_macro("STARTTIME_PROCESS_UNKNOWN")
-#pragma pop_macro("REAPER_DEFAULT_STACKSIZE")
-#pragma pop_macro("NOT_A_CHILD")
 
 #endif // _java_lang_ProcessHandleImpl_h_

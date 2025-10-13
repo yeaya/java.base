@@ -15,9 +15,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
+#undef IMMUTABLE
 #undef NONNULL
 #undef ORDERED
-#undef IMMUTABLE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

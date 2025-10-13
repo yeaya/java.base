@@ -30,12 +30,12 @@
 #include <sun/util/locale/UnicodeLocaleExtension.h>
 #include <jcpp.h>
 
+#undef CALENDAR_JAPANESE
+#undef CA_JAPANESE
 #undef NUMBER_THAI
 #undef NU_THAI
-#undef CALENDAR_JAPANESE
-#undef SINGLETON
 #undef SEP
-#undef CA_JAPANESE
+#undef SINGLETON
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;

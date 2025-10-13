@@ -35,12 +35,12 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef E_THROWABLE
 #undef CREATE_RESERVATION
-#undef MH_SIG
-#undef STABLE_SIG
+#undef E_THROWABLE
 #undef MH
+#undef MH_SIG
 #undef STABLE
+#undef STABLE_SIG
 #undef TYPE
 
 using $AssertionError = ::java::lang::AssertionError;

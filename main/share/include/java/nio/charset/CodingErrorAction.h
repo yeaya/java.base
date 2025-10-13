@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("REPORT")
-#undef REPORT
 #pragma push_macro("IGNORE")
 #undef IGNORE
 #pragma push_macro("REPLACE")
 #undef REPLACE
+#pragma push_macro("REPORT")
+#undef REPORT
 
 namespace java {
 	namespace nio {
@@ -32,8 +32,8 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("REPORT")
 #pragma pop_macro("IGNORE")
 #pragma pop_macro("REPLACE")
+#pragma pop_macro("REPORT")
 
 #endif // _java_nio_charset_CodingErrorAction_h_

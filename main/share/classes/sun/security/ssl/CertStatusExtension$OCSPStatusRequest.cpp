@@ -31,11 +31,11 @@
 #include <sun/security/x509/Extension.h>
 #include <jcpp.h>
 
-#undef OCSP_MULTI
-#undef ENGLISH
-#undef OCSP
 #undef EMPTY_OCSP
 #undef EMPTY_OCSP_MULTI
+#undef ENGLISH
+#undef OCSP
+#undef OCSP_MULTI
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $IOException = ::java::io::IOException;

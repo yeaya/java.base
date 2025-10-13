@@ -7,10 +7,10 @@
 #include <java/net/SocketImpl.h>
 #include <sun/net/PlatformSocketImpl.h>
 
-#pragma push_macro("SHUT_WR")
-#undef SHUT_WR
 #pragma push_macro("SHUT_RD")
 #undef SHUT_RD
+#pragma push_macro("SHUT_WR")
+#undef SHUT_WR
 
 namespace java {
 	namespace io {
@@ -135,7 +135,7 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("SHUT_WR")
 #pragma pop_macro("SHUT_RD")
+#pragma pop_macro("SHUT_WR")
 
 #endif // _java_net_AbstractPlainSocketImpl_h_

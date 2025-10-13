@@ -36,10 +36,10 @@
 #include <jcpp.h>
 
 #undef ARRAY_CHAR_BASE_OFFSET
-#undef OFFSETOF_REPARSETAG
+#undef OFFSETOF_PATHBUFFER
 #undef OFFSETOF_PATHLENGTH
 #undef OFFSETOF_PATHOFFSET
-#undef OFFSETOF_PATHBUFFER
+#undef OFFSETOF_REPARSETAG
 
 using $IOError = ::java::io::IOError;
 using $IOException = ::java::io::IOException;
@@ -261,17 +261,17 @@ $String* WindowsLinkSupport::getRealPath($WindowsPath* input, bool resolveLinks)
 		sb->append(":\\"_s);
 		start = 3;
 	} else if (c0 == u'\\' && c1 == u'\\') {
-		int32_t last = $nc(path)->length() - 1;
+		int32_t last = path->length() - 1;
 		int32_t pos = path->indexOf((int32_t)u'\\', 2);
 		if (pos == -1 || (pos == last)) {
-			$throwNew($FileSystemException, $($nc(input)->getPathForExceptionMessage()), nullptr, "UNC has invalid share"_s);
+			$throwNew($FileSystemException, $(input->getPathForExceptionMessage()), nullptr, "UNC has invalid share"_s);
 		}
 		pos = path->indexOf((int32_t)u'\\', pos + 1);
 		if (pos < 0) {
 			pos = last;
-			$nc(sb)->append(path)->append("\\"_s);
+			sb->append(path)->append("\\"_s);
 		} else {
-			$nc(sb)->append(static_cast<$CharSequence*>(path), 0, pos + 1);
+			sb->append(static_cast<$CharSequence*>(path), 0, pos + 1);
 		}
 		start = pos + 1;
 	} else {

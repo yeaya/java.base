@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("HEADER_SLOTS")
+#undef HEADER_SLOTS
 #pragma push_macro("MAGIC")
 #undef MAGIC
 #pragma push_macro("MAJOR_VERSION")
 #undef MAJOR_VERSION
 #pragma push_macro("MINOR_VERSION")
 #undef MINOR_VERSION
-#pragma push_macro("HEADER_SLOTS")
-#undef HEADER_SLOTS
 
 namespace java {
 	namespace nio {
@@ -75,9 +75,9 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("HEADER_SLOTS")
 #pragma pop_macro("MAGIC")
 #pragma pop_macro("MAJOR_VERSION")
 #pragma pop_macro("MINOR_VERSION")
-#pragma pop_macro("HEADER_SLOTS")
 
 #endif // _jdk_internal_jimage_ImageHeader_h_

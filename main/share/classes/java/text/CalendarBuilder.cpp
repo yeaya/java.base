@@ -13,12 +13,12 @@
 #include <java/util/StringJoiner.h>
 #include <jcpp.h>
 
-#undef MAX_FIELD
 #undef COMPUTED
-#undef WEEK_YEAR
 #undef ISO_DAY_OF_WEEK
-#undef UNSET
+#undef MAX_FIELD
 #undef MINIMUM_USER_STAMP
+#undef UNSET
+#undef WEEK_YEAR
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

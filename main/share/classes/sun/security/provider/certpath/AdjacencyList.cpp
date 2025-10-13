@@ -18,11 +18,11 @@
 #include <sun/security/provider/certpath/Vertex.h>
 #include <jcpp.h>
 
-#undef POSSIBLE
-#undef FOLLOW
-#undef SUCCEED
 #undef BACK
 #undef FAIL
+#undef FOLLOW
+#undef POSSIBLE
+#undef SUCCEED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -90,7 +90,7 @@ bool AdjacencyList::buildList($List* theList, int32_t index, $BuildStep* follow)
 					if ($nc(($cast($List, $(theList->get(v->getIndex())))))->size() != 0) {
 						allNegOne = false;
 					}
-				} else if ($nc(v)->getThrowable() == nullptr) {
+				} else if (v->getThrowable() == nullptr) {
 					allXcps = false;
 				}
 				$nc(this->mStepList)->add($$new($BuildStep, v, $BuildStep::POSSIBLE));

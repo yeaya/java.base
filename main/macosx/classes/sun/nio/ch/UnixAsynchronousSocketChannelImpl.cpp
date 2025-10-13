@@ -62,15 +62,15 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef READ
-#undef POLLIN
-#undef POLLERR
-#undef ST_PENDING
-#undef POLLHUP
-#undef UNAVAILABLE
 #undef CONNECT
+#undef POLLERR
+#undef POLLHUP
+#undef POLLIN
 #undef POLLOUT
+#undef READ
 #undef ST_CONNECTED
+#undef ST_PENDING
+#undef UNAVAILABLE
 #undef WRITE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;

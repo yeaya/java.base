@@ -8,10 +8,10 @@
 
 #pragma push_macro("ARRAY")
 #undef ARRAY
-#pragma push_macro("STATIC_FIELD")
-#undef STATIC_FIELD
 #pragma push_macro("FIELD")
 #undef FIELD
+#pragma push_macro("STATIC_FIELD")
+#undef STATIC_FIELD
 
 namespace java {
 	namespace lang {
@@ -48,7 +48,7 @@ public:
 } // java
 
 #pragma pop_macro("ARRAY")
-#pragma pop_macro("STATIC_FIELD")
 #pragma pop_macro("FIELD")
+#pragma pop_macro("STATIC_FIELD")
 
 #endif // _java_lang_invoke_VarHandle$VarHandleDesc$Kind_h_

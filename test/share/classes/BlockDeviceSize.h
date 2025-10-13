@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("BLK_PATH")
-#undef BLK_PATH
 #pragma push_macro("BLK_FNAME")
 #undef BLK_FNAME
+#pragma push_macro("BLK_PATH")
+#undef BLK_PATH
 
 namespace java {
 	namespace nio {
@@ -28,7 +28,7 @@ public:
 	static ::java::nio::file::Path* BLK_PATH;
 };
 
-#pragma pop_macro("BLK_PATH")
 #pragma pop_macro("BLK_FNAME")
+#pragma pop_macro("BLK_PATH")
 
 #endif // _BlockDeviceSize_h_

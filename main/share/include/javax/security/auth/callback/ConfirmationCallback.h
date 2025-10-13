@@ -8,28 +8,28 @@
 #include <java/lang/Array.h>
 #include <javax/security/auth/callback/Callback.h>
 
-#pragma push_macro("NO")
-#undef NO
-#pragma push_macro("YES_NO_OPTION")
-#undef YES_NO_OPTION
-#pragma push_macro("YES_NO_CANCEL_OPTION")
-#undef YES_NO_CANCEL_OPTION
-#pragma push_macro("YES")
-#undef YES
-#pragma push_macro("INFORMATION")
-#undef INFORMATION
 #pragma push_macro("CANCEL")
 #undef CANCEL
-#pragma push_macro("OK_CANCEL_OPTION")
-#undef OK_CANCEL_OPTION
 #pragma push_macro("ERROR")
 #undef ERROR
-#pragma push_macro("UNSPECIFIED_OPTION")
-#undef UNSPECIFIED_OPTION
+#pragma push_macro("INFORMATION")
+#undef INFORMATION
+#pragma push_macro("NO")
+#undef NO
 #pragma push_macro("OK")
 #undef OK
+#pragma push_macro("OK_CANCEL_OPTION")
+#undef OK_CANCEL_OPTION
+#pragma push_macro("UNSPECIFIED_OPTION")
+#undef UNSPECIFIED_OPTION
 #pragma push_macro("WARNING")
 #undef WARNING
+#pragma push_macro("YES")
+#undef YES
+#pragma push_macro("YES_NO_CANCEL_OPTION")
+#undef YES_NO_CANCEL_OPTION
+#pragma push_macro("YES_NO_OPTION")
+#undef YES_NO_OPTION
 
 namespace javax {
 	namespace security {
@@ -82,16 +82,16 @@ public:
 	} // security
 } // javax
 
-#pragma pop_macro("NO")
-#pragma pop_macro("YES_NO_OPTION")
-#pragma pop_macro("YES_NO_CANCEL_OPTION")
-#pragma pop_macro("YES")
-#pragma pop_macro("INFORMATION")
 #pragma pop_macro("CANCEL")
-#pragma pop_macro("OK_CANCEL_OPTION")
 #pragma pop_macro("ERROR")
-#pragma pop_macro("UNSPECIFIED_OPTION")
+#pragma pop_macro("INFORMATION")
+#pragma pop_macro("NO")
 #pragma pop_macro("OK")
+#pragma pop_macro("OK_CANCEL_OPTION")
+#pragma pop_macro("UNSPECIFIED_OPTION")
 #pragma pop_macro("WARNING")
+#pragma pop_macro("YES")
+#pragma pop_macro("YES_NO_CANCEL_OPTION")
+#pragma pop_macro("YES_NO_OPTION")
 
 #endif // _javax_security_auth_callback_ConfirmationCallback_h_

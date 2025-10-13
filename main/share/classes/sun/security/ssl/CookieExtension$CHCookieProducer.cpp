@@ -21,8 +21,8 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef HRR_COOKIE
 #undef CH_COOKIE
+#undef HRR_COOKIE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

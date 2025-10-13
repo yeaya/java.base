@@ -27,9 +27,9 @@
 #include <java/util/stream/TerminalSink.h>
 #include <jcpp.h>
 
-#undef REFERENCE
 #undef OP_FIND_ANY
 #undef OP_FIND_FIRST
+#undef REFERENCE
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

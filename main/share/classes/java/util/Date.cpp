@@ -39,12 +39,12 @@
 #include <jcpp.h>
 
 #undef DEFAULT_GREGORIAN_CUTOVER
-#undef SUNDAY
-#undef UTC
 #undef MILLISECOND
 #undef MIN_VALUE
-#undef US
 #undef SHORT
+#undef SUNDAY
+#undef US
+#undef UTC
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -461,7 +461,7 @@ int64_t Date::parse($String* s) {
 				} else {
 					int32_t st = i - 1;
 					while (i < limit) {
-						c = $nc(s)->charAt(i);
+						c = s->charAt(i);
 						if (!(u'A' <= c && c <= u'Z' || u'a' <= c && c <= u'z')) {
 							break;
 						}
@@ -472,7 +472,6 @@ int64_t Date::parse($String* s) {
 						break;
 					}
 					int32_t k = 0;
-					$init(Date);
 					for (k = $nc(Date::wtb)->length; --k >= 0;) {
 						if ($nc($nc(Date::wtb)->get(k))->regionMatches(true, 0, s, st, i - st)) {
 							int32_t action = $nc(Date::ttb)->get(k);

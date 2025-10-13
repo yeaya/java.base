@@ -8,16 +8,16 @@
 #include <java/lang/Array.h>
 #include <java/util/concurrent/Future.h>
 
-#pragma push_macro("DONE")
-#undef DONE
-#pragma push_macro("STATUS")
-#undef STATUS
-#pragma push_macro("AUX")
-#undef AUX
 #pragma push_macro("ABNORMAL")
 #undef ABNORMAL
+#pragma push_macro("AUX")
+#undef AUX
+#pragma push_macro("DONE")
+#undef DONE
 #pragma push_macro("SMASK")
 #undef SMASK
+#pragma push_macro("STATUS")
+#undef STATUS
 #pragma push_macro("THROWN")
 #undef THROWN
 #pragma push_macro("UNCOMPENSATE")
@@ -154,11 +154,11 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("DONE")
-#pragma pop_macro("STATUS")
-#pragma pop_macro("AUX")
 #pragma pop_macro("ABNORMAL")
+#pragma pop_macro("AUX")
+#pragma pop_macro("DONE")
 #pragma pop_macro("SMASK")
+#pragma pop_macro("STATUS")
 #pragma pop_macro("THROWN")
 #pragma pop_macro("UNCOMPENSATE")
 

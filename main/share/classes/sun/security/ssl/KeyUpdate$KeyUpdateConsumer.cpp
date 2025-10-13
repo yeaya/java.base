@@ -43,8 +43,8 @@
 
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
-#undef REQUESTED
 #undef NOTREQUESTED
+#undef REQUESTED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

@@ -38,9 +38,9 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-#undef RAND
 #undef ENTRY_CREATE
 #undef ENTRY_DELETE
+#undef RAND
 
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;

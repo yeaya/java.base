@@ -27,8 +27,8 @@
 #include <sun/util/ResourceBundleEnumeration.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef INSTANCE
+#undef ROOT
 
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;

@@ -21,8 +21,8 @@
 #include <jcpp.h>
 
 #undef FORM
-#undef UNSAFE
 #undef TYPE
+#undef UNSAFE
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

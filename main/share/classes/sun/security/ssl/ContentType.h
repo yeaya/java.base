@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("ALERT")
+#undef ALERT
+#pragma push_macro("APPLICATION_DATA")
+#undef APPLICATION_DATA
 #pragma push_macro("CHANGE_CIPHER_SPEC")
 #undef CHANGE_CIPHER_SPEC
 #pragma push_macro("HANDSHAKE")
 #undef HANDSHAKE
-#pragma push_macro("APPLICATION_DATA")
-#undef APPLICATION_DATA
-#pragma push_macro("ALERT")
-#undef ALERT
 #pragma push_macro("INVALID")
 #undef INVALID
 
@@ -54,10 +54,10 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("ALERT")
+#pragma pop_macro("APPLICATION_DATA")
 #pragma pop_macro("CHANGE_CIPHER_SPEC")
 #pragma pop_macro("HANDSHAKE")
-#pragma pop_macro("APPLICATION_DATA")
-#pragma pop_macro("ALERT")
 #pragma pop_macro("INVALID")
 
 #endif // _sun_security_ssl_ContentType_h_

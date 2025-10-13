@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("REGULAR")
-#undef REGULAR
 #pragma push_macro("ABSTRACT")
 #undef ABSTRACT
 #pragma push_macro("DEFAULT")
 #undef DEFAULT
+#pragma push_macro("REGULAR")
+#undef REGULAR
 #pragma push_macro("STATIC")
 #undef STATIC
 
@@ -34,9 +34,9 @@ public:
 
 } // helper
 
-#pragma pop_macro("REGULAR")
 #pragma pop_macro("ABSTRACT")
 #pragma pop_macro("DEFAULT")
+#pragma pop_macro("REGULAR")
 #pragma pop_macro("STATIC")
 
 #endif // _helper_Mod_h_

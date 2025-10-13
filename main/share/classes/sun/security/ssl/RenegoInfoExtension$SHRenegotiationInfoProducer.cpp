@@ -21,8 +21,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef NOMINAL
 #undef CH_RENEGOTIATION_INFO
+#undef NOMINAL
 #undef SH_RENEGOTIATION_INFO
 
 using $ClassInfo = ::java::lang::ClassInfo;

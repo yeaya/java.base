@@ -15,11 +15,11 @@
 #include <sun/launcher/LauncherHelper.h>
 #include <jcpp.h>
 
-#undef KILO
+#undef GIGA
 #undef HALF_EVEN
+#undef KILO
 #undef MEGA
 #undef TERA
-#undef GIGA
 
 using $LauncherHelper$SizePrefixArray = $Array<::sun::launcher::LauncherHelper$SizePrefix>;
 using $ClassInfo = ::java::lang::ClassInfo;

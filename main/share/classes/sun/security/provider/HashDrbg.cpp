@@ -31,8 +31,8 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef ONE
+#undef ZERO
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $AssertionError = ::java::lang::AssertionError;

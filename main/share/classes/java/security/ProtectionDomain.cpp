@@ -275,8 +275,8 @@ bool ProtectionDomain::seeAllp() {
 	} else {
 		$init($ProtectionDomain$DebugHolder);
 		if ($ProtectionDomain$DebugHolder::debug != nullptr) {
-			bool var$1 = $nc($of(sm))->getClass()->getClassLoader() == nullptr;
-			if (var$1 && $nc($of($($Policy::getPolicyNoCheck())))->getClass()->getClassLoader() == nullptr) {
+			bool var$0 = $nc($of(sm))->getClass()->getClassLoader() == nullptr;
+			if (var$0 && $nc($of($($Policy::getPolicyNoCheck())))->getClass()->getClassLoader() == nullptr) {
 				return true;
 			}
 		} else {

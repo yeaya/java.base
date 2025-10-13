@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("LONGMIN")
-#undef LONGMIN
 #pragma push_macro("LONGMAX")
 #undef LONGMAX
+#pragma push_macro("LONGMIN")
+#undef LONGMIN
 
 namespace java {
 	namespace math {
@@ -33,7 +33,7 @@ public:
 	} // math
 } // java
 
-#pragma pop_macro("LONGMIN")
 #pragma pop_macro("LONGMAX")
+#pragma pop_macro("LONGMIN")
 
 #endif // _java_math_BigDecimal$LongOverflow_h_

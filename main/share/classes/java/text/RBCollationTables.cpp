@@ -18,16 +18,16 @@
 #include <sun/text/UCompactIntArray.h>
 #include <jcpp.h>
 
-#undef TERTIARYORDERMASK
-#undef SECONDARYDIFFERENCEONLY
-#undef PRIMARYORDERSHIFT
 #undef CONTRACTCHARINDEX
-#undef UNMAPPED
 #undef EXPANDCHARINDEX
-#undef SECONDARYORDERSHIFT
 #undef PRIMARYDIFFERENCEONLY
-#undef SECONDARYORDERMASK
 #undef PRIMARYORDERMASK
+#undef PRIMARYORDERSHIFT
+#undef SECONDARYDIFFERENCEONLY
+#undef SECONDARYORDERMASK
+#undef SECONDARYORDERSHIFT
+#undef TERTIARYORDERMASK
+#undef UNMAPPED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

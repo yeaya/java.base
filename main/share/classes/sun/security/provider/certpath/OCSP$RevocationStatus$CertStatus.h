@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("GOOD")
+#undef GOOD
 #pragma push_macro("REVOKED")
 #undef REVOKED
 #pragma push_macro("UNKNOWN")
 #undef UNKNOWN
-#pragma push_macro("GOOD")
-#undef GOOD
 
 namespace sun {
 	namespace security {
@@ -37,8 +37,8 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("GOOD")
 #pragma pop_macro("REVOKED")
 #pragma pop_macro("UNKNOWN")
-#pragma pop_macro("GOOD")
 
 #endif // _sun_security_provider_certpath_OCSP$RevocationStatus$CertStatus_h_

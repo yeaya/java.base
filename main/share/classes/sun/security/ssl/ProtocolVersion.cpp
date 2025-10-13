@@ -24,31 +24,31 @@
 #include <sun/security/ssl/SSLAlgorithmConstraints.h>
 #include <jcpp.h>
 
-#undef PROTOCOLS_TO_10
-#undef PROTOCOLS_TO_TLS10
-#undef PROTOCOLS_TO_TLS11
-#undef PROTOCOLS_TO_TLS12
+#undef DEFAULT_SSL_ONLY
+#undef DTLS10
+#undef DTLS12
+#undef KEY_AGREEMENT
+#undef LIMIT_MAX_VALUE
 #undef LIMIT_MIN_VALUE
+#undef NONE
+#undef PROTOCOLS_EMPTY
 #undef PROTOCOLS_OF_11
 #undef PROTOCOLS_OF_12
 #undef PROTOCOLS_OF_13
 #undef PROTOCOLS_OF_30
-#undef NONE
-#undef DEFAULT_SSL_ONLY
-#undef KEY_AGREEMENT
-#undef PROTOCOLS_EMPTY
-#undef LIMIT_MAX_VALUE
 #undef PROTOCOLS_OF_NONE
-#undef SSL30
-#undef DTLS12
-#undef TLS11
-#undef TLS10
-#undef DTLS10
-#undef PROTOCOLS_TO_13
-#undef TLS13
-#undef PROTOCOLS_TO_12
-#undef TLS12
+#undef PROTOCOLS_TO_10
 #undef PROTOCOLS_TO_11
+#undef PROTOCOLS_TO_12
+#undef PROTOCOLS_TO_13
+#undef PROTOCOLS_TO_TLS10
+#undef PROTOCOLS_TO_TLS11
+#undef PROTOCOLS_TO_TLS12
+#undef SSL30
+#undef TLS10
+#undef TLS11
+#undef TLS12
+#undef TLS13
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -392,9 +392,9 @@ int32_t ProtocolVersion::compare(ProtocolVersion* that) {
 		return 1;
 	}
 	if (this->isDTLS) {
-		return $nc(that)->id - this->id;
+		return that->id - this->id;
 	} else {
-		return this->id - $nc(that)->id;
+		return this->id - that->id;
 	}
 }
 
@@ -434,11 +434,11 @@ ProtocolVersion* ProtocolVersion::selectedFrom($List* listedVersions, int32_t su
 			{
 				if ($nc(pv)->id == suggestedVersion) {
 					return pv;
-				} else if ($nc(pv)->isDTLS) {
+				} else if (pv->isDTLS) {
 					if (pv->id > suggestedVersion && pv->id < $nc(selectedVersion)->id) {
 						selectedVersion = pv;
 					}
-				} else if ($nc(pv)->id < suggestedVersion && pv->id > $nc(selectedVersion)->id) {
+				} else if (pv->id < suggestedVersion && pv->id > selectedVersion->id) {
 					selectedVersion = pv;
 				}
 			}

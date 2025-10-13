@@ -8,32 +8,32 @@
 
 #pragma push_macro("ALL_MODES")
 #undef ALL_MODES
-#pragma push_macro("LOOKASIDE_TABLE")
-#undef LOOKASIDE_TABLE
-#pragma push_macro("ORIGINAL")
-#undef ORIGINAL
-#pragma push_macro("STATIC")
-#undef STATIC
-#pragma push_macro("PRIVATE")
-#undef PRIVATE
-#pragma push_macro("IMPL_LOOKUP")
-#undef IMPL_LOOKUP
-#pragma push_macro("MODULE")
-#undef MODULE
-#pragma push_macro("PUBLIC_LOOKUP")
-#undef PUBLIC_LOOKUP
-#pragma push_macro("PACKAGE")
-#undef PACKAGE
-#pragma push_macro("PUBLIC")
-#undef PUBLIC
-#pragma push_macro("UNCONDITIONAL")
-#undef UNCONDITIONAL
-#pragma push_macro("TRUSTED")
-#undef TRUSTED
-#pragma push_macro("PROTECTED")
-#undef PROTECTED
 #pragma push_macro("FULL_POWER_MODES")
 #undef FULL_POWER_MODES
+#pragma push_macro("IMPL_LOOKUP")
+#undef IMPL_LOOKUP
+#pragma push_macro("LOOKASIDE_TABLE")
+#undef LOOKASIDE_TABLE
+#pragma push_macro("MODULE")
+#undef MODULE
+#pragma push_macro("ORIGINAL")
+#undef ORIGINAL
+#pragma push_macro("PACKAGE")
+#undef PACKAGE
+#pragma push_macro("PRIVATE")
+#undef PRIVATE
+#pragma push_macro("PROTECTED")
+#undef PROTECTED
+#pragma push_macro("PUBLIC")
+#undef PUBLIC
+#pragma push_macro("PUBLIC_LOOKUP")
+#undef PUBLIC_LOOKUP
+#pragma push_macro("STATIC")
+#undef STATIC
+#pragma push_macro("TRUSTED")
+#undef TRUSTED
+#pragma push_macro("UNCONDITIONAL")
+#undef UNCONDITIONAL
 
 namespace java {
 	namespace lang {
@@ -201,18 +201,18 @@ public:
 } // java
 
 #pragma pop_macro("ALL_MODES")
-#pragma pop_macro("LOOKASIDE_TABLE")
-#pragma pop_macro("ORIGINAL")
-#pragma pop_macro("STATIC")
-#pragma pop_macro("PRIVATE")
-#pragma pop_macro("IMPL_LOOKUP")
-#pragma pop_macro("MODULE")
-#pragma pop_macro("PUBLIC_LOOKUP")
-#pragma pop_macro("PACKAGE")
-#pragma pop_macro("PUBLIC")
-#pragma pop_macro("UNCONDITIONAL")
-#pragma pop_macro("TRUSTED")
-#pragma pop_macro("PROTECTED")
 #pragma pop_macro("FULL_POWER_MODES")
+#pragma pop_macro("IMPL_LOOKUP")
+#pragma pop_macro("LOOKASIDE_TABLE")
+#pragma pop_macro("MODULE")
+#pragma pop_macro("ORIGINAL")
+#pragma pop_macro("PACKAGE")
+#pragma pop_macro("PRIVATE")
+#pragma pop_macro("PROTECTED")
+#pragma pop_macro("PUBLIC")
+#pragma pop_macro("PUBLIC_LOOKUP")
+#pragma pop_macro("STATIC")
+#pragma pop_macro("TRUSTED")
+#pragma pop_macro("UNCONDITIONAL")
 
 #endif // _java_lang_invoke_MethodHandles$Lookup_h_

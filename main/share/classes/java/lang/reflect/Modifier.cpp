@@ -12,31 +12,31 @@
 #include <java/util/StringJoiner.h>
 #include <jcpp.h>
 
-#undef VOLATILE
-#undef METHOD_MODIFIERS
-#undef VARARGS
-#undef NATIVE
-#undef INTERFACE_MODIFIERS
-#undef PARAMETER_MODIFIERS
-#undef BRIDGE
 #undef ABSTRACT
-#undef STATIC
-#undef CONSTRUCTOR_MODIFIERS
-#undef INTERFACE
-#undef ANNOTATION
 #undef ACCESS_MODIFIERS
-#undef PROTECTED
-#undef SYNCHRONIZED
-#undef STRICT
+#undef ANNOTATION
+#undef BRIDGE
+#undef CLASS_MODIFIERS
+#undef CONSTRUCTOR_MODIFIERS
 #undef ENUM
 #undef FIELD_MODIFIERS
-#undef CLASS_MODIFIERS
-#undef SYNTHETIC
 #undef FINAL
-#undef PRIVATE
-#undef PUBLIC
+#undef INTERFACE
+#undef INTERFACE_MODIFIERS
 #undef MANDATED
+#undef METHOD_MODIFIERS
+#undef NATIVE
+#undef PARAMETER_MODIFIERS
+#undef PRIVATE
+#undef PROTECTED
+#undef PUBLIC
+#undef STATIC
+#undef STRICT
+#undef SYNCHRONIZED
+#undef SYNTHETIC
 #undef TRANSIENT
+#undef VARARGS
+#undef VOLATILE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;

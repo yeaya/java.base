@@ -20,13 +20,13 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef BURNIKEL_ZIEGLER_OFFSET
-#undef KNUTH_POW2_THRESH_LEN
-#undef ONE
-#undef MIN_VALUE
 #undef BURNIKEL_ZIEGLER_THRESHOLD
+#undef KNUTH_POW2_THRESH_LEN
 #undef KNUTH_POW2_THRESH_ZEROS
+#undef MIN_VALUE
+#undef ONE
+#undef ZERO
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $AssertionError = ::java::lang::AssertionError;

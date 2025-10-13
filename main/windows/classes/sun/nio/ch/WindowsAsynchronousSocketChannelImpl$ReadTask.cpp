@@ -34,11 +34,11 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl.h>
 #include <jcpp.h>
 
-#undef UNAVAILABLE
-#undef MAX_VALUE
 #undef EOF
-#undef SIZEOF_WSABUF
+#undef MAX_VALUE
 #undef OFFSETOF_BUF
+#undef SIZEOF_WSABUF
+#undef UNAVAILABLE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $IOException = ::java::io::IOException;

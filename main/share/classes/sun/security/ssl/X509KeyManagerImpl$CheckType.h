@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SERVER")
-#undef SERVER
-#pragma push_macro("NONE")
-#undef NONE
 #pragma push_macro("CLIENT")
 #undef CLIENT
+#pragma push_macro("NONE")
+#undef NONE
+#pragma push_macro("SERVER")
+#undef SERVER
 
 namespace java {
 	namespace security {
@@ -61,8 +61,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SERVER")
-#pragma pop_macro("NONE")
 #pragma pop_macro("CLIENT")
+#pragma pop_macro("NONE")
+#pragma pop_macro("SERVER")
 
 #endif // _sun_security_ssl_X509KeyManagerImpl$CheckType_h_

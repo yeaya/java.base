@@ -15,10 +15,10 @@
 #include <jcpp.h>
 
 #undef BLKSIZE
-#undef T
-#undef W
 #undef MIN_INPUTLEN
 #undef SEMI_BLKSIZE
+#undef T
+#undef W
 #undef W_INV
 
 using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;

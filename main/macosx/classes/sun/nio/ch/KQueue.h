@@ -5,26 +5,26 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("EVFILT_READ")
+#undef EVFILT_READ
 #pragma push_macro("EVFILT_WRITE")
 #undef EVFILT_WRITE
-#pragma push_macro("EV_ONESHOT")
-#undef EV_ONESHOT
 #pragma push_macro("EV_ADD")
 #undef EV_ADD
 #pragma push_macro("EV_CLEAR")
 #undef EV_CLEAR
-#pragma push_macro("EVFILT_READ")
-#undef EVFILT_READ
-#pragma push_macro("SIZEOF_KQUEUEEVENT")
-#undef SIZEOF_KQUEUEEVENT
-#pragma push_macro("OFFSET_IDENT")
-#undef OFFSET_IDENT
 #pragma push_macro("EV_DELETE")
 #undef EV_DELETE
-#pragma push_macro("OFFSET_FLAGS")
-#undef OFFSET_FLAGS
+#pragma push_macro("EV_ONESHOT")
+#undef EV_ONESHOT
 #pragma push_macro("OFFSET_FILTER")
 #undef OFFSET_FILTER
+#pragma push_macro("OFFSET_FLAGS")
+#undef OFFSET_FLAGS
+#pragma push_macro("OFFSET_IDENT")
+#undef OFFSET_IDENT
+#pragma push_macro("SIZEOF_KQUEUEEVENT")
+#undef SIZEOF_KQUEUEEVENT
 
 namespace jdk {
 	namespace internal {
@@ -73,15 +73,15 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("EVFILT_READ")
 #pragma pop_macro("EVFILT_WRITE")
-#pragma pop_macro("EV_ONESHOT")
 #pragma pop_macro("EV_ADD")
 #pragma pop_macro("EV_CLEAR")
-#pragma pop_macro("EVFILT_READ")
-#pragma pop_macro("SIZEOF_KQUEUEEVENT")
-#pragma pop_macro("OFFSET_IDENT")
 #pragma pop_macro("EV_DELETE")
-#pragma pop_macro("OFFSET_FLAGS")
+#pragma pop_macro("EV_ONESHOT")
 #pragma pop_macro("OFFSET_FILTER")
+#pragma pop_macro("OFFSET_FLAGS")
+#pragma pop_macro("OFFSET_IDENT")
+#pragma pop_macro("SIZEOF_KQUEUEEVENT")
 
 #endif // _sun_nio_ch_KQueue_h_

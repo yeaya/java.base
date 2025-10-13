@@ -13,13 +13,13 @@
 #include <java/security/cert/CertPathValidatorException.h>
 #include <jcpp.h>
 
-#undef REVOKED
-#undef UNSPECIFIED
-#undef UNDETERMINED_REVOCATION_STATUS
-#undef EXPIRED
 #undef ALGORITHM_CONSTRAINED
+#undef EXPIRED
 #undef INVALID_SIGNATURE
 #undef NOT_YET_VALID
+#undef REVOKED
+#undef UNDETERMINED_REVOCATION_STATUS
+#undef UNSPECIFIED
 
 using $CertPathValidatorException$BasicReasonArray = $Array<::java::security::cert::CertPathValidatorException$BasicReason>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -54,25 +54,25 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef POLLCONN
-#undef POLLIN
+#undef FALSE
+#undef INET
+#undef INET6
+#undef IP_MULTICAST_TTL
 #undef IP_TOS
+#undef POLLCONN
+#undef POLLERR
+#undef POLLHUP
+#undef POLLIN
+#undef POLLNVAL
+#undef POLLOUT
+#undef SHUT_RD
+#undef SHUT_RDWR
+#undef SHUT_WR
+#undef SO_LINGER
+#undef SO_RCVBUF
 #undef SO_SNDBUF
 #undef TRUE
 #undef UNSPEC
-#undef SHUT_RD
-#undef INET6
-#undef SO_LINGER
-#undef SHUT_WR
-#undef SO_RCVBUF
-#undef POLLERR
-#undef SHUT_RDWR
-#undef INET
-#undef POLLHUP
-#undef FALSE
-#undef POLLOUT
-#undef POLLNVAL
-#undef IP_MULTICAST_TTL
 
 using $InetSocketAddressArray = $Array<::java::net::InetSocketAddress>;
 using $FileDescriptor = ::java::io::FileDescriptor;

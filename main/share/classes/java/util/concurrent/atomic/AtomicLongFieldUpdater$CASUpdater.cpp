@@ -28,8 +28,8 @@
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
 
-#undef U
 #undef TYPE
+#undef U
 
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;

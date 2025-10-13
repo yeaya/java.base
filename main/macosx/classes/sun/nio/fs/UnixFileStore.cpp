@@ -51,12 +51,12 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
-#undef NOT_PRESENT
-#undef XATTR_NOT_FOUND
-#undef PRESENT
 #undef INSTANCE
 #undef MAX_VALUE
+#undef NOT_PRESENT
+#undef PRESENT
 #undef UNKNOWN
+#undef XATTR_NOT_FOUND
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $IOException = ::java::io::IOException;

@@ -18,12 +18,12 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef ONE
-#undef TRUE
 #undef MAX_VALUE
-#undef TEN
 #undef MIN_VALUE
+#undef ONE
+#undef TEN
+#undef TRUE
+#undef ZERO
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $BigDecimalArray2 = $Array<::java::math::BigDecimal, 2>;

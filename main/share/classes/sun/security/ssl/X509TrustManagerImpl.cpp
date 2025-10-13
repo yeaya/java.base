@@ -39,11 +39,11 @@
 #include <sun/security/validator/Validator.h>
 #include <jcpp.h>
 
-#undef TYPE_LDAP
-#undef VAR_TLS_SERVER
-#undef VAR_TLS_CLIENT
 #undef SNI_HOST_NAME
+#undef TYPE_LDAP
 #undef TYPE_TLS
+#undef VAR_TLS_CLIENT
+#undef VAR_TLS_SERVER
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;

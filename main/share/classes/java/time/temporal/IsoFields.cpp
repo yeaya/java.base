@@ -18,13 +18,13 @@
 #include <java/time/temporal/TemporalUnit.h>
 #include <jcpp.h>
 
-#undef QUARTER_OF_YEAR
-#undef QUARTER_YEARS
 #undef DAY_OF_QUARTER
 #undef INSTANCE
-#undef WEEK_OF_WEEK_BASED_YEAR
+#undef QUARTER_OF_YEAR
+#undef QUARTER_YEARS
 #undef WEEK_BASED_YEAR
 #undef WEEK_BASED_YEARS
+#undef WEEK_OF_WEEK_BASED_YEAR
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

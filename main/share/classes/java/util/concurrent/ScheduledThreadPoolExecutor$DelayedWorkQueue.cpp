@@ -37,8 +37,8 @@
 #include <jcpp.h>
 
 #undef INITIAL_CAPACITY
-#undef NANOSECONDS
 #undef MAX_VALUE
+#undef NANOSECONDS
 
 using $RunnableScheduledFutureArray = $Array<::java::util::concurrent::RunnableScheduledFuture>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -23,8 +23,8 @@
 #include <java/util/spi/ResourceBundleProvider.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
+#undef TRUE
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

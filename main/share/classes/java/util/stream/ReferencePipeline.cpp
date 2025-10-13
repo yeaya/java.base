@@ -95,16 +95,16 @@
 #include <jcpp.h>
 
 #undef ALL
+#undef ANY
+#undef CONCURRENT
+#undef IDENTITY_FINISH
+#undef NONE
 #undef NOT_DISTINCT
 #undef NOT_ORDERED
 #undef NOT_SIZED
-#undef IDENTITY_FINISH
+#undef NOT_SORTED
 #undef REFERENCE
 #undef UNORDERED
-#undef NOT_SORTED
-#undef ANY
-#undef NONE
-#undef CONCURRENT
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

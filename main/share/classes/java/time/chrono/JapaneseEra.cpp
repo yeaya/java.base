@@ -40,21 +40,21 @@
 #include <sun/util/calendar/LocalGregorianCalendar.h>
 #include <jcpp.h>
 
-#undef HEISEI
-#undef ERA_OFFSET
-#undef REIWA
-#undef JCAL
+#undef ERA
 #undef ERA_CONFIG
+#undef ERA_OFFSET
+#undef HEISEI
 #undef INSTANCE
+#undef JAPANESE_ERA_TYPE
+#undef JCAL
+#undef KNOWN_ERAS
 #undef MEIJI
-#undef N_ERA_CONSTANTS
 #undef MEIJI_6_ISODATE
 #undef NARROW
-#undef TAISHO
-#undef KNOWN_ERAS
-#undef ERA
-#undef JAPANESE_ERA_TYPE
+#undef N_ERA_CONSTANTS
+#undef REIWA
 #undef SHOWA
+#undef TAISHO
 
 using $JapaneseEraArray = $Array<::java::time::chrono::JapaneseEra>;
 using $EraArray = $Array<::sun::util::calendar::Era>;

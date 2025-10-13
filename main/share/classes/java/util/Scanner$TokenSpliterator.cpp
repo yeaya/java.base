@@ -16,10 +16,10 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef ORDERED
 #undef IMMUTABLE
 #undef MAX_VALUE
+#undef NONNULL
+#undef ORDERED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

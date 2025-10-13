@@ -66,11 +66,11 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef PROXY_PACKAGE_PREFIX
-#undef PROXY_PACKAGE
-#undef GET_CLASSLOADER_PERMISSION
-#undef EMPTY_ARGS
 #undef DEFAULT_METHODS_MAP
+#undef EMPTY_ARGS
+#undef GET_CLASSLOADER_PERMISSION
+#undef PROXY_PACKAGE
+#undef PROXY_PACKAGE_PREFIX
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;

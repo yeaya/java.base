@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("OVERRIDE_BUILDER")
-#undef OVERRIDE_BUILDER
 #pragma push_macro("FIRST_DAY_OF_WEEK")
 #undef FIRST_DAY_OF_WEEK
 #pragma push_macro("MINIMAL_DAYS_IN_FIRST_WEEK")
 #undef MINIMAL_DAYS_IN_FIRST_WEEK
+#pragma push_macro("OVERRIDE_BUILDER")
+#undef OVERRIDE_BUILDER
 
 namespace java {
 	namespace util {
@@ -48,8 +48,8 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("OVERRIDE_BUILDER")
 #pragma pop_macro("FIRST_DAY_OF_WEEK")
 #pragma pop_macro("MINIMAL_DAYS_IN_FIRST_WEEK")
+#pragma pop_macro("OVERRIDE_BUILDER")
 
 #endif // _sun_util_locale_provider_CalendarDataUtility_h_

@@ -5,48 +5,48 @@
 
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 
-#pragma push_macro("MN_IS_FIELD")
-#undef MN_IS_FIELD
-#pragma push_macro("MN_IS_CONSTRUCTOR")
-#undef MN_IS_CONSTRUCTOR
-#pragma push_macro("MN_TRUSTED_FINAL")
-#undef MN_TRUSTED_FINAL
-#pragma push_macro("REF_NONE")
-#undef REF_NONE
-#pragma push_macro("HIDDEN_CLASS")
-#undef HIDDEN_CLASS
-#pragma push_macro("NESTMATE_CLASS")
-#undef NESTMATE_CLASS
 #pragma push_macro("ACCESS_VM_ANNOTATIONS")
 #undef ACCESS_VM_ANNOTATIONS
+#pragma push_macro("HIDDEN_CLASS")
+#undef HIDDEN_CLASS
 #pragma push_macro("LM_MODULE")
 #undef LM_MODULE
-#pragma push_macro("REF_LIMIT")
-#undef REF_LIMIT
-#pragma push_macro("MODULE")
-#undef MODULE
-#pragma push_macro("MN_SEARCH_INTERFACES")
-#undef MN_SEARCH_INTERFACES
-#pragma push_macro("MN_IS_METHOD")
-#undef MN_IS_METHOD
-#pragma push_macro("MN_CALLER_SENSITIVE")
-#undef MN_CALLER_SENSITIVE
-#pragma push_macro("MN_SEARCH_SUPERCLASSES")
-#undef MN_SEARCH_SUPERCLASSES
-#pragma push_macro("STRONG_LOADER_LINK")
-#undef STRONG_LOADER_LINK
 #pragma push_macro("LM_TRUSTED")
 #undef LM_TRUSTED
-#pragma push_macro("MN_IS_TYPE")
-#undef MN_IS_TYPE
-#pragma push_macro("UNCONDITIONAL")
-#undef UNCONDITIONAL
-#pragma push_macro("MN_REFERENCE_KIND_SHIFT")
-#undef MN_REFERENCE_KIND_SHIFT
 #pragma push_macro("LM_UNCONDITIONAL")
 #undef LM_UNCONDITIONAL
+#pragma push_macro("MN_CALLER_SENSITIVE")
+#undef MN_CALLER_SENSITIVE
+#pragma push_macro("MN_IS_CONSTRUCTOR")
+#undef MN_IS_CONSTRUCTOR
+#pragma push_macro("MN_IS_FIELD")
+#undef MN_IS_FIELD
+#pragma push_macro("MN_IS_METHOD")
+#undef MN_IS_METHOD
+#pragma push_macro("MN_IS_TYPE")
+#undef MN_IS_TYPE
 #pragma push_macro("MN_REFERENCE_KIND_MASK")
 #undef MN_REFERENCE_KIND_MASK
+#pragma push_macro("MN_REFERENCE_KIND_SHIFT")
+#undef MN_REFERENCE_KIND_SHIFT
+#pragma push_macro("MN_SEARCH_INTERFACES")
+#undef MN_SEARCH_INTERFACES
+#pragma push_macro("MN_SEARCH_SUPERCLASSES")
+#undef MN_SEARCH_SUPERCLASSES
+#pragma push_macro("MN_TRUSTED_FINAL")
+#undef MN_TRUSTED_FINAL
+#pragma push_macro("MODULE")
+#undef MODULE
+#pragma push_macro("NESTMATE_CLASS")
+#undef NESTMATE_CLASS
+#pragma push_macro("REF_LIMIT")
+#undef REF_LIMIT
+#pragma push_macro("REF_NONE")
+#undef REF_NONE
+#pragma push_macro("STRONG_LOADER_LINK")
+#undef STRONG_LOADER_LINK
+#pragma push_macro("UNCONDITIONAL")
+#undef UNCONDITIONAL
 
 namespace java {
 	namespace lang {
@@ -91,26 +91,26 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("MN_IS_FIELD")
-#pragma pop_macro("MN_IS_CONSTRUCTOR")
-#pragma pop_macro("MN_TRUSTED_FINAL")
-#pragma pop_macro("REF_NONE")
-#pragma pop_macro("HIDDEN_CLASS")
-#pragma pop_macro("NESTMATE_CLASS")
 #pragma pop_macro("ACCESS_VM_ANNOTATIONS")
+#pragma pop_macro("HIDDEN_CLASS")
 #pragma pop_macro("LM_MODULE")
-#pragma pop_macro("REF_LIMIT")
-#pragma pop_macro("MODULE")
-#pragma pop_macro("MN_SEARCH_INTERFACES")
-#pragma pop_macro("MN_IS_METHOD")
-#pragma pop_macro("MN_CALLER_SENSITIVE")
-#pragma pop_macro("MN_SEARCH_SUPERCLASSES")
-#pragma pop_macro("STRONG_LOADER_LINK")
 #pragma pop_macro("LM_TRUSTED")
-#pragma pop_macro("MN_IS_TYPE")
-#pragma pop_macro("UNCONDITIONAL")
-#pragma pop_macro("MN_REFERENCE_KIND_SHIFT")
 #pragma pop_macro("LM_UNCONDITIONAL")
+#pragma pop_macro("MN_CALLER_SENSITIVE")
+#pragma pop_macro("MN_IS_CONSTRUCTOR")
+#pragma pop_macro("MN_IS_FIELD")
+#pragma pop_macro("MN_IS_METHOD")
+#pragma pop_macro("MN_IS_TYPE")
 #pragma pop_macro("MN_REFERENCE_KIND_MASK")
+#pragma pop_macro("MN_REFERENCE_KIND_SHIFT")
+#pragma pop_macro("MN_SEARCH_INTERFACES")
+#pragma pop_macro("MN_SEARCH_SUPERCLASSES")
+#pragma pop_macro("MN_TRUSTED_FINAL")
+#pragma pop_macro("MODULE")
+#pragma pop_macro("NESTMATE_CLASS")
+#pragma pop_macro("REF_LIMIT")
+#pragma pop_macro("REF_NONE")
+#pragma pop_macro("STRONG_LOADER_LINK")
+#pragma pop_macro("UNCONDITIONAL")
 
 #endif // _java_lang_invoke_MethodHandleNatives$Constants_h_

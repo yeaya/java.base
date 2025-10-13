@@ -12,10 +12,10 @@
 #include <sun/nio/ch/NativeDispatcher.h>
 #include <jcpp.h>
 
+#undef INTERRUPTED
 #undef LOCKED
 #undef NO_LOCK
 #undef RET_EX_LOCK
-#undef INTERRUPTED
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;

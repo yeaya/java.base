@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("CACHE")
+#undef CACHE
 #pragma push_macro("COMPARATOR")
 #undef COMPARATOR
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
-#pragma push_macro("CACHE")
-#undef CACHE
 
 namespace java {
 	namespace time {
@@ -77,8 +77,8 @@ public:
 	} // time
 } // java
 
+#pragma pop_macro("CACHE")
 #pragma pop_macro("COMPARATOR")
 #pragma pop_macro("INSTANCE")
-#pragma pop_macro("CACHE")
 
 #endif // _java_time_format_DateTimeTextProvider_h_

@@ -25,9 +25,9 @@
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
+#undef CANDIDATES_MAP
 #undef DOTCLDR
 #undef FORMAT_DEFAULT
-#undef CANDIDATES_MAP
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

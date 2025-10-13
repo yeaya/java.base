@@ -262,7 +262,7 @@ $List* URLPermission::normalizeMethods($String* methods) {
 			if (c >= u'a' && c <= u'z') {
 				c += u'A' - u'a';
 			}
-			$nc(b)->append(c);
+			b->append(c);
 		}
 	}
 	$var($String, s, b->toString());
@@ -288,17 +288,17 @@ $List* URLPermission::normalizeHeaders($String* headers) {
 			$throwNew($IllegalArgumentException, $$str({"White space not allowed in headers: \""_s, headers, "\""_s}));
 		} else if (c == u'-') {
 			capitalizeNext = true;
-			$nc(b)->append(c);
+			b->append(c);
 		} else if (c == u',') {
-			$var($String, s, $nc(b)->toString());
+			$var($String, s, b->toString());
 			if (!$nc(s)->isEmpty()) {
-				$nc(l)->add(s);
+				l->add(s);
 			}
 			$assign(b, $new($StringBuilder));
 			capitalizeNext = true;
 		} else {
 			capitalizeNext = false;
-			$nc(b)->append(c);
+			b->append(c);
 		}
 	}
 	$var($String, s, b->toString());

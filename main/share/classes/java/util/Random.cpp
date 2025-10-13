@@ -38,8 +38,8 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractSpliteratorGenerator.h>
 #include <jcpp.h>
 
-#undef SIZE
 #undef DOUBLE_UNIT
+#undef SIZE
 #undef TYPE
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;

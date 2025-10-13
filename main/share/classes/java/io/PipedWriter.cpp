@@ -72,13 +72,13 @@ void PipedWriter::connect($PipedReader* snk) {
 	$synchronized(this) {
 		if (snk == nullptr) {
 			$throwNew($NullPointerException);
-		} else if (this->sink != nullptr || $nc(snk)->connected) {
+		} else if (this->sink != nullptr || snk->connected) {
 			$throwNew($IOException, "Already connected"_s);
-		} else if ($nc(snk)->closedByReader || this->closed) {
+		} else if (snk->closedByReader || this->closed) {
 			$throwNew($IOException, "Pipe closed"_s);
 		}
 		$set(this, sink, snk);
-		$nc(snk)->in = -1;
+		snk->in = -1;
 		snk->out = 0;
 		snk->connected = true;
 	}
@@ -94,7 +94,7 @@ void PipedWriter::write(int32_t c) {
 void PipedWriter::write($chars* cbuf, int32_t off, int32_t len) {
 	if (this->sink == nullptr) {
 		$throwNew($IOException, "Pipe not connected"_s);
-	} else if ((((off | len) | (off + len)) | ($nc(cbuf)->length - (off + len))) < 0) {
+	} else if ((((off | len) | (off + len)) | (cbuf->length - (off + len))) < 0) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$nc(this->sink)->receive(cbuf, off, len);

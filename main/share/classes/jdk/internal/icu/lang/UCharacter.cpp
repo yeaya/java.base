@@ -16,15 +16,15 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
 #include <jcpp.h>
 
-#undef ENCLOSING_MARK
-#undef NON_SPACING_MARK
 #undef CHAR_CATEGORY_COUNT
-#undef RIGHT_TO_LEFT_ARABIC
+#undef COMBINING_SPACING_MARK
+#undef ENCLOSING_MARK
 #undef INSTANCE
-#undef RIGHT_TO_LEFT
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef COMBINING_SPACING_MARK
+#undef NON_SPACING_MARK
+#undef RIGHT_TO_LEFT
+#undef RIGHT_TO_LEFT_ARABIC
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -114,23 +114,23 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef SOFT_FAIL
-#undef REVOKED
+#undef ALL_REASONS
+#undef CRL_SIGN_USAGE
+#undef DEFAULT_NONCE_BYTES
+#undef MAX_CLOCK_SKEW
 #undef NO_FALLBACK
 #undef ONLY_CRLS
-#undef ALL_REASONS
-#undef UNDETERMINED_REVOCATION_STATUS
-#undef USE_AIA
-#undef UNSPECIFIED
-#undef ONLY_OCSP
-#undef MAX_CLOCK_SKEW
-#undef UNKNOWN
-#undef CRL_SIGN_USAGE
 #undef ONLY_END_ENTITY
+#undef ONLY_OCSP
 #undef POINTS
-#undef PREFER_OCSP
 #undef PREFER_CRLS
-#undef DEFAULT_NONCE_BYTES
+#undef PREFER_OCSP
+#undef REVOKED
+#undef SOFT_FAIL
+#undef UNDETERMINED_REVOCATION_STATUS
+#undef UNKNOWN
+#undef UNSPECIFIED
+#undef USE_AIA
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -466,9 +466,9 @@ $X509Certificate* RevocationChecker::getResponderCert($RevocationChecker$Revocat
 	$init(RevocationChecker);
 	if ($nc(rp)->ocspSubject != nullptr) {
 		return getResponderCert(rp->ocspSubject, anchors, stores);
-	} else if ($nc(rp)->ocspIssuer != nullptr && rp->ocspSerial != nullptr) {
+	} else if (rp->ocspIssuer != nullptr && rp->ocspSerial != nullptr) {
 		return getResponderCert(rp->ocspIssuer, rp->ocspSerial, anchors, stores);
-	} else if ($nc(rp)->ocspIssuer != nullptr || $nc(rp)->ocspSerial != nullptr) {
+	} else if (rp->ocspIssuer != nullptr || rp->ocspSerial != nullptr) {
 		$throwNew($CertPathValidatorException, "Must specify both ocsp.responderCertIssuerName and ocsp.responderCertSerialNumber properties"_s);
 	}
 	return nullptr;

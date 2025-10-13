@@ -63,19 +63,19 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef FOREVER
-#undef MAX
-#undef INSTANCE
-#undef ISO_OFFSET_DATE_TIME
-#undef MAX_VALUE
-#undef MIN_VALUE
-#undef NANO_OF_DAY
-#undef MIN
-#undef OFFSET_SECONDS
 #undef EPOCH_DAY
-#undef NANOS
-#undef OFFSET_DATE_TIME_TYPE
+#undef FOREVER
+#undef INSTANCE
 #undef INSTANT_SECONDS
+#undef ISO_OFFSET_DATE_TIME
+#undef MAX
+#undef MAX_VALUE
+#undef MIN
+#undef MIN_VALUE
+#undef NANOS
+#undef NANO_OF_DAY
+#undef OFFSET_DATE_TIME_TYPE
+#undef OFFSET_SECONDS
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

@@ -54,12 +54,12 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
+#undef MAX_PRIORITY
+#undef NOT_A_CHILD
+#undef REAPER_DEFAULT_STACKSIZE
 #undef STARTTIME_ANY
 #undef STARTTIME_PROCESS_UNKNOWN
 #undef SUPPORTS_NORMAL_TERMINATION
-#undef REAPER_DEFAULT_STACKSIZE
-#undef NOT_A_CHILD
-#undef MAX_PRIORITY
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

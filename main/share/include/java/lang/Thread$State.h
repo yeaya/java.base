@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NEW")
-#undef NEW
-#pragma push_macro("TERMINATED")
-#undef TERMINATED
-#pragma push_macro("RUNNABLE")
-#undef RUNNABLE
 #pragma push_macro("BLOCKED")
 #undef BLOCKED
-#pragma push_macro("WAITING")
-#undef WAITING
+#pragma push_macro("NEW")
+#undef NEW
+#pragma push_macro("RUNNABLE")
+#undef RUNNABLE
+#pragma push_macro("TERMINATED")
+#undef TERMINATED
 #pragma push_macro("TIMED_WAITING")
 #undef TIMED_WAITING
+#pragma push_macro("WAITING")
+#undef WAITING
 
 namespace java {
 	namespace lang {
@@ -42,11 +42,11 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("NEW")
-#pragma pop_macro("TERMINATED")
-#pragma pop_macro("RUNNABLE")
 #pragma pop_macro("BLOCKED")
-#pragma pop_macro("WAITING")
+#pragma pop_macro("NEW")
+#pragma pop_macro("RUNNABLE")
+#pragma pop_macro("TERMINATED")
 #pragma pop_macro("TIMED_WAITING")
+#pragma pop_macro("WAITING")
 
 #endif // _java_lang_Thread$State_h_

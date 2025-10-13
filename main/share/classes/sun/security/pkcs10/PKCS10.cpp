@@ -40,9 +40,9 @@
 #include <sun/security/x509/X509Key.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef CRLF
 #undef PKCS10
+#undef ZERO
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

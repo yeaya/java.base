@@ -12,10 +12,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MIN_RADIX
-#undef MAX_VALUE
-#undef MIN_VALUE
 #undef MAX_RADIX
+#undef MAX_VALUE
+#undef MIN_RADIX
+#undef MIN_VALUE
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

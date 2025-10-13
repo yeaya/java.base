@@ -33,12 +33,12 @@
 #include <jdk/internal/org/objectweb/asm/tree/Util.h>
 #include <jcpp.h>
 
-#undef ASM7
-#undef ASM8
+#undef ACC_RECORD
 #undef ASM5
 #undef ASM6
+#undef ASM7
+#undef ASM8
 #undef ASM9_EXPERIMENTAL
-#undef ACC_RECORD
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

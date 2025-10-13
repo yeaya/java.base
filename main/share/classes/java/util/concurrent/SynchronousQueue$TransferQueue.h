@@ -5,10 +5,10 @@
 
 #include <java/util/concurrent/SynchronousQueue$Transferer.h>
 
-#pragma push_macro("QHEAD")
-#undef QHEAD
 #pragma push_macro("QCLEANME")
 #undef QCLEANME
+#pragma push_macro("QHEAD")
+#undef QHEAD
 #pragma push_macro("QTAIL")
 #undef QTAIL
 
@@ -53,8 +53,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("QHEAD")
 #pragma pop_macro("QCLEANME")
+#pragma pop_macro("QHEAD")
 #pragma pop_macro("QTAIL")
 
 #endif // _java_util_concurrent_SynchronousQueue$TransferQueue_h_

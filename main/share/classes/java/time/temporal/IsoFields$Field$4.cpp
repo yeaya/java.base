@@ -23,12 +23,12 @@
 #include <java/time/temporal/ValueRange.h>
 #include <jcpp.h>
 
-#undef FOREVER
-#undef YEAR
-#undef EPOCH_DAY
-#undef WEEK_BASED_YEARS
-#undef WEEK_BASED_YEAR
 #undef DAY_OF_WEEK
+#undef EPOCH_DAY
+#undef FOREVER
+#undef WEEK_BASED_YEAR
+#undef WEEK_BASED_YEARS
+#undef YEAR
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

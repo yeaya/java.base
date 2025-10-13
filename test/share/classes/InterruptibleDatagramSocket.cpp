@@ -191,7 +191,7 @@ void InterruptibleDatagramSocket::test($DatagramSocket* s, bool interruptible) {
 	}
 	if ($nc(s)->isClosed() && !interruptible) {
 		$throwNew($RuntimeException, "DatagramSocket should not be closed"_s);
-	} else if (!$nc(s)->isClosed() && interruptible) {
+	} else if (!s->isClosed() && interruptible) {
 		$throwNew($RuntimeException, "DatagramSocket should be closed"_s);
 	}
 }

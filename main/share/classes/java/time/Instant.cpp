@@ -52,24 +52,24 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef SECONDS_PER_DAY
-#undef MAX
-#undef NANOS_PER_DAY
 #undef DAYS
-#undef ISO_INSTANT
-#undef NANO_OF_SECOND
-#undef MAX_VALUE
-#undef MIN_VALUE
-#undef MILLI_OF_SECOND
-#undef NANOS_PER_SECOND
-#undef MAX_SECOND
-#undef MIN
-#undef MICRO_OF_SECOND
-#undef MIN_SECOND
-#undef NANOS
 #undef EPOCH
 #undef INSTANT_SECONDS
 #undef INSTANT_TYPE
+#undef ISO_INSTANT
+#undef MAX
+#undef MAX_SECOND
+#undef MAX_VALUE
+#undef MICRO_OF_SECOND
+#undef MILLI_OF_SECOND
+#undef MIN
+#undef MIN_SECOND
+#undef MIN_VALUE
+#undef NANOS
+#undef NANOS_PER_DAY
+#undef NANOS_PER_SECOND
+#undef NANO_OF_SECOND
+#undef SECONDS_PER_DAY
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

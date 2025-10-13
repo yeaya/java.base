@@ -83,30 +83,30 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef V_TYPE
-#undef ZERO
-#undef SET
-#undef BIG_ENDIAN
-#undef LENGTH
-#undef ORIGINAL
-#undef ZERO_MHS
-#undef MH_RECEIVER_OFFSET
-#undef OBJECT
-#undef IMPL_NAMES
 #undef ACCESS_PERMISSION
-#undef PRIVATE
-#undef IDENTITY
-#undef IMPL_LOOKUP
-#undef PUBLIC_LOOKUP
-#undef MODULE
-#undef DEFAULT_NAME
-#undef IDENTITY_MHS
-#undef GET
-#undef TRUSTED
+#undef BIG_ENDIAN
 #undef BIT_LIMIT
 #undef COUNT
-#undef TYPE
+#undef DEFAULT_NAME
 #undef FULL_POWER_MODES
+#undef GET
+#undef IDENTITY
+#undef IDENTITY_MHS
+#undef IMPL_LOOKUP
+#undef IMPL_NAMES
+#undef LENGTH
+#undef MH_RECEIVER_OFFSET
+#undef MODULE
+#undef OBJECT
+#undef ORIGINAL
+#undef PRIVATE
+#undef PUBLIC_LOOKUP
+#undef SET
+#undef TRUSTED
+#undef TYPE
+#undef V_TYPE
+#undef ZERO
+#undef ZERO_MHS
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $ListArray = $Array<::java::util::List>;
@@ -1735,7 +1735,7 @@ $MethodHandle* MethodHandles::filterArguments($MethodHandle* target, int32_t pos
 	if (index > 1) {
 		$assign(adapter, filterRepeatedArgument(adapter, filter, $($Arrays::copyOf(positions, index))));
 	} else if (index == 1) {
-		$assign(adapter, filterArgument(adapter, $nc(positions)->get(0) - 1, filter));
+		$assign(adapter, filterArgument(adapter, positions->get(0) - 1, filter));
 	}
 	return adapter;
 }
@@ -2060,9 +2060,9 @@ $MethodHandle* MethodHandles::loop($MethodHandleArray2* clauses) {
 			iterationVariableTypes->add($Void::TYPE);
 		} else if (in != nullptr && st != nullptr) {
 			loopChecks1a(i, in, st);
-			$nc(iterationVariableTypes)->add($($nc($(in->type()))->returnType()));
+			iterationVariableTypes->add($($nc($(in->type()))->returnType()));
 		} else {
-			$nc(iterationVariableTypes)->add(in == nullptr ? $($cast($Class, $nc($(st->type()))->returnType())) : $($cast($Class, $nc($(in->type()))->returnType())));
+			iterationVariableTypes->add(in == nullptr ? $($cast($Class, $nc($(st->type()))->returnType())) : $($cast($Class, $nc($(in->type()))->returnType())));
 		}
 	}
 	$var($List, commonPrefix, $nc($($nc($(iterationVariableTypes->stream()))->filter(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$lambda$loop$2$3)))))->toList());
@@ -2242,8 +2242,8 @@ void MethodHandles::whileLoopChecks($MethodHandle* init, $MethodHandle* pred, $M
 	$init($Void);
 	if (returnType == $Void::TYPE) {
 	} else {
-		bool var$1 = $nc(innerList)->size() == 0;
-		if (var$1 || !$equals($nc(innerList)->get(0), returnType)) {
+		bool var$1 = innerList->size() == 0;
+		if (var$1 || !$equals(innerList->get(0), returnType)) {
 			$var($MethodType, expected, bodyType->insertParameterTypes(0, $$new($ClassArray, {returnType})));
 			$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 		} else {
@@ -2318,7 +2318,7 @@ void MethodHandles::countedLoopChecks($MethodHandle* start, $MethodHandle* end, 
 	if (counterType != $Integer::TYPE) {
 		$var($MethodType, expected, $nc($(start->type()))->changeReturnType($Integer::TYPE));
 		$throw($(misMatchedTypes("start function"_s, $(start->type()), expected)));
-	} else if ($cast($Class, $nc($($nc(end)->type()))->returnType()) != counterType) {
+	} else if ($cast($Class, $nc($(end->type()))->returnType()) != counterType) {
 		$var($MethodType, expected, $nc($(end->type()))->changeReturnType(counterType));
 		$throw($(misMatchedTypes("end function"_s, $(end->type()), expected)));
 	}
@@ -2342,7 +2342,7 @@ void MethodHandles::countedLoopChecks($MethodHandle* start, $MethodHandle* end, 
 			$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 		}
 	}
-	$var($List, outerList, $nc(innerList)->subList(vsize + 1, innerList->size()));
+	$var($List, outerList, innerList->subList(vsize + 1, innerList->size()));
 	if ($nc(outerList)->isEmpty()) {
 		$assign(outerList, $nc($(end->type()))->parameterList());
 		$assign(innerList, $nc($(bodyType->insertParameterTypes(vsize + 1, outerList)))->parameterList());
@@ -2433,12 +2433,12 @@ $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle
 	if (var$0) {
 		$var($MethodType, expected, bodyType->insertParameterTypes(0, $$new($ClassArray, {returnType})));
 		$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
-	} else if ($nc(internalParamList)->size() <= vsize) {
+	} else if (internalParamList->size() <= vsize) {
 		$load($Object);
-		$var($MethodType, expected, $nc(bodyType)->insertParameterTypes(vsize, $$new($ClassArray, {$Object::class$})));
+		$var($MethodType, expected, bodyType->insertParameterTypes(vsize, $$new($ClassArray, {$Object::class$})));
 		$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 	}
-	$var($List, externalParamList, $nc(internalParamList)->subList(vsize + 1, internalParamList->size()));
+	$var($List, externalParamList, internalParamList->subList(vsize + 1, internalParamList->size()));
 	$Class* iterableType = nullptr;
 	if (iterator != nullptr) {
 		if ($nc(externalParamList)->isEmpty()) {
@@ -2453,7 +2453,7 @@ $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle
 			$var($MethodType, expected, $MethodType::methodType($($cast($Class, itype->returnType())), externalParamList));
 			$throw($(misMatchedTypes("iterator parameters"_s, itype, expected)));
 		}
-	} else if ($nc(externalParamList)->isEmpty()) {
+	} else if (externalParamList->isEmpty()) {
 		$load($Iterable);
 		$assign(externalParamList, $Arrays::asList($$new($ClassArray, {$Iterable::class$})));
 		iterableType = $Iterable::class$;

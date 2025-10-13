@@ -29,9 +29,9 @@
 #include <java/util/stream/StreamSupport.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
 #undef SIZED
+#undef SUBSIZED
 
 using $Serializable = ::java::io::Serializable;
 using $CharSequence$1CharIterator = ::java::lang::CharSequence$1CharIterator;

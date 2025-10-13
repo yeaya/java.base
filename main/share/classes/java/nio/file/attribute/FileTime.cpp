@@ -22,27 +22,27 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef SECONDS_PER_MINUTE
-#undef SECONDS_PER_DAY
-#undef MAX
-#undef UTC
-#undef SECONDS
-#undef NANOSECONDS
 #undef DAYS
 #undef HOURS_PER_DAY
-#undef MAX_VALUE
-#undef MILLIS_PER_SECOND
-#undef MIN_VALUE
-#undef SECONDS_PER_HOUR
-#undef NANOS_PER_SECOND
+#undef MAX
 #undef MAX_SECOND
-#undef MIN
-#undef NANOS_PER_MILLI
-#undef MIN_SECOND
+#undef MAX_VALUE
 #undef MICROS_PER_SECOND
+#undef MILLISECONDS
+#undef MILLIS_PER_SECOND
+#undef MIN
 #undef MINUTES_PER_HOUR
+#undef MIN_SECOND
+#undef MIN_VALUE
+#undef NANOSECONDS
 #undef NANOS_PER_MICRO
+#undef NANOS_PER_MILLI
+#undef NANOS_PER_SECOND
+#undef SECONDS
+#undef SECONDS_PER_DAY
+#undef SECONDS_PER_HOUR
+#undef SECONDS_PER_MINUTE
+#undef UTC
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

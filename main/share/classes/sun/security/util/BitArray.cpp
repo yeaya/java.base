@@ -17,8 +17,8 @@
 #include <jcpp.h>
 
 #undef BITS_PER_UNIT
-#undef NYBBLE
 #undef BYTES_PER_LINE
+#undef NYBBLE
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

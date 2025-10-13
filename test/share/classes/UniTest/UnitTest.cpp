@@ -203,12 +203,12 @@
 #include <java/util/SortedSet.h>
 #include <jcpp.h>
 
-#undef MOE
 #undef CURLY
+#undef LARRY
+#undef MOE
+#undef TYPE
 #undef X
 #undef Y
-#undef LARRY
-#undef TYPE
 
 using $ArrayTypes = ::UniTest::ArrayTypes;
 using $ArrayTypesWithDefault = ::UniTest::ArrayTypesWithDefault;

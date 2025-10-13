@@ -24,8 +24,8 @@
 #include <sun/security/ssl/ServerHandshakeContext.h>
 #include <jcpp.h>
 
-#undef CH_STATUS_REQUEST_V2
 #undef CERTIFICATE_STATUS
+#undef CH_STATUS_REQUEST_V2
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

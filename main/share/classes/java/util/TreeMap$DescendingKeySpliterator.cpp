@@ -16,9 +16,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
+#undef DISTINCT
 #undef ORDERED
 #undef SIZED
-#undef DISTINCT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

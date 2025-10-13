@@ -8,10 +8,10 @@
 
 #pragma push_macro("DBCS")
 #undef DBCS
-#pragma push_macro("SI")
-#undef SI
 #pragma push_macro("SBCS")
 #undef SBCS
+#pragma push_macro("SI")
+#undef SI
 #pragma push_macro("SO")
 #undef SO
 
@@ -58,8 +58,8 @@ public:
 } // sun
 
 #pragma pop_macro("DBCS")
-#pragma pop_macro("SI")
 #pragma pop_macro("SBCS")
+#pragma pop_macro("SI")
 #pragma pop_macro("SO")
 
 #endif // _sun_nio_cs_DoubleByte$Decoder_EBCDIC_h_

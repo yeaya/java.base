@@ -80,26 +80,26 @@
 #include <sun/security/x509/X509Key.h>
 #include <jcpp.h>
 
-#undef NOT_AFTER
-#undef NAME_WIDENS
-#undef NAME_RFC822
-#undef EXCLUDED_SUBTREES
 #undef ANY_EXTENDED_KEY_USAGE
-#undef USAGES
-#undef POLICIES
-#undef NAME_MATCH
-#undef NAME_IP
-#undef NOT_BEFORE
-#undef NAME_ANY
-#undef NAME_URI
-#undef SUBJECT_NAME
-#undef NAME_X400
-#undef NAME_EDI
-#undef NAME_OID
+#undef EXCLUDED_SUBTREES
 #undef FALSE
-#undef NAME_DNS
+#undef NAME_ANY
 #undef NAME_DIRECTORY
+#undef NAME_DNS
+#undef NAME_EDI
+#undef NAME_IP
+#undef NAME_MATCH
+#undef NAME_OID
+#undef NAME_RFC822
+#undef NAME_URI
+#undef NAME_WIDENS
+#undef NAME_X400
+#undef NOT_AFTER
+#undef NOT_BEFORE
 #undef PERMITTED_SUBTREES
+#undef POLICIES
+#undef SUBJECT_NAME
+#undef USAGES
 
 using $IOException = ::java::io::IOException;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
@@ -649,7 +649,6 @@ $GeneralNameInterface* X509CertSelector::makeGeneralNameInterface(int32_t type, 
 			}
 		} else if ($instanceOf($bytes, name)) {
 			$var($DerValue, val, $new($DerValue, $cast($bytes, name)));
-			$init(X509CertSelector);
 			if (X509CertSelector::debug != nullptr) {
 				$nc(X509CertSelector::debug)->println("X509CertSelector.makeGeneralNameInterface() is byte[]"_s);
 			}
@@ -708,7 +707,6 @@ $GeneralNameInterface* X509CertSelector::makeGeneralNameInterface(int32_t type, 
 				$nc(X509CertSelector::debug)->println($$str({"X509CertSelector.makeGeneralNameInterface() result: "_s, $($nc($of(result))->toString())}));
 			}
 		} else {
-			$init(X509CertSelector);
 			if (X509CertSelector::debug != nullptr) {
 				$nc(X509CertSelector::debug)->println("X509CertSelector.makeGeneralName() input name not String or byte array"_s);
 			}

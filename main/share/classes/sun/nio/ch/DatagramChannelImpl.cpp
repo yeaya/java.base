@@ -102,25 +102,25 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef ST_CLOSED
-#undef POLLIN
-#undef OP_READ
-#undef ST_UNCONNECTED
-#undef IP_MULTICAST_IF
-#undef SOCKET
-#undef UNSPEC
-#undef SO_REUSEADDR
-#undef INET6
-#undef OP_CONNECT
-#undef ST_CLOSING
-#undef POLLERR
 #undef INET
-#undef POLLHUP
-#undef UNAVAILABLE
-#undef POLLOUT
-#undef POLLNVAL
-#undef ST_CONNECTED
+#undef INET6
+#undef IP_MULTICAST_IF
+#undef OP_CONNECT
+#undef OP_READ
 #undef OP_WRITE
+#undef POLLERR
+#undef POLLHUP
+#undef POLLIN
+#undef POLLNVAL
+#undef POLLOUT
+#undef SOCKET
+#undef SO_REUSEADDR
+#undef ST_CLOSED
+#undef ST_CLOSING
+#undef ST_CONNECTED
+#undef ST_UNCONNECTED
+#undef UNAVAILABLE
+#undef UNSPEC
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $NativeSocketAddressArray = $Array<::sun::nio::ch::NativeSocketAddress>;

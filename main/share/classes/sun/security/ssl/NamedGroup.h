@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("ARBITRARY_PRIME")
-#undef ARBITRARY_PRIME
 #pragma push_macro("ARBITRARY_CHAR2")
 #undef ARBITRARY_CHAR2
+#pragma push_macro("ARBITRARY_PRIME")
+#undef ARBITRARY_PRIME
 #pragma push_macro("KEY_AGREEMENT_PRIMITIVE_SET")
 #undef KEY_AGREEMENT_PRIMITIVE_SET
 
@@ -131,8 +131,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("ARBITRARY_PRIME")
 #pragma pop_macro("ARBITRARY_CHAR2")
+#pragma pop_macro("ARBITRARY_PRIME")
 #pragma pop_macro("KEY_AGREEMENT_PRIMITIVE_SET")
 
 #endif // _sun_security_ssl_NamedGroup_h_

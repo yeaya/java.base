@@ -27,8 +27,8 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef KEY_CERT_SIGN
 #undef INVALID_KEY_USAGE
+#undef KEY_CERT_SIGN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -35,11 +35,11 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef RESEED_ONLY
 #undef DEFAULT_STRENGTH
 #undef MAX_VALUE
 #undef NONE
 #undef PR_AND_RESEED
+#undef RESEED_ONLY
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -275,7 +275,7 @@ void AbstractDrbg::engineSetSeed($bytes* input$renamed) {
 		}
 		if ($nc(input)->length < this->minLength) {
 			$assign(input, $Arrays::copyOf(input, this->minLength));
-		} else if ($nc(input)->length > this->maxLength) {
+		} else if (input->length > this->maxLength) {
 			$assign(input, $Arrays::copyOf(input, this->maxLength));
 		}
 		if (!this->instantiated) {

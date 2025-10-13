@@ -16,9 +16,9 @@
 #include <sun/security/x509/GeneralNameInterface.h>
 #include <jcpp.h>
 
+#undef NAME_DIFF_TYPE
 #undef NAME_MATCH
 #undef NAME_OID
-#undef NAME_DIFF_TYPE
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -120,7 +120,7 @@ int32_t OIDName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_OID) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_OID) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else if (this->equals($cast(OIDName, inputName))) {
 		constraintType = $GeneralNameInterface::NAME_MATCH;

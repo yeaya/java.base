@@ -15,8 +15,8 @@
 #include <jcpp.h>
 
 #undef BIG
-#undef BOM_LOW
 #undef BOM_HIGH
+#undef BOM_LOW
 #undef LITTLE
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -116,7 +116,7 @@ void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
 			bo->write(Unicode::BOM_HIGH);
 			bo->write(Unicode::BOM_LOW);
 		} else if (byteOrder == Unicode::LITTLE) {
-			$nc(bo)->write(Unicode::BOM_LOW);
+			bo->write(Unicode::BOM_LOW);
 			bo->write(Unicode::BOM_HIGH);
 		}
 	}
@@ -126,7 +126,7 @@ void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
 			bo->write(c >> 8);
 			bo->write((int32_t)(c & (uint32_t)255));
 		} else if (byteOrder == Unicode::LITTLE) {
-			$nc(bo)->write((int32_t)(c & (uint32_t)255));
+			bo->write((int32_t)(c & (uint32_t)255));
 			bo->write(c >> 8);
 		}
 	}

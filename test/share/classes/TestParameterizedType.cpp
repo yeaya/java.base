@@ -180,7 +180,7 @@ void TestParameterizedType::main($StringArray* argv) {
 						$of(type2)
 					}));
 				}
-			} else if ($nc($of(type1))->equals(type2)) {
+			} else if ($of(type1)->equals(type2)) {
 				failed = true;
 				$init($System);
 				$nc($System::err)->printf("Unexpected equality: [%d, %d] %n\t%s%n\t%s%n"_s, $$new($ObjectArray, {

@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/security/cert/CertificateFactorySpi.h>
 
-#pragma push_macro("END_CERT")
-#undef END_CERT
 #pragma push_macro("BEGIN_CERT")
 #undef BEGIN_CERT
 #pragma push_macro("ENC_MAX_LENGTH")
 #undef ENC_MAX_LENGTH
+#pragma push_macro("END_CERT")
+#undef END_CERT
 
 namespace java {
 	namespace io {
@@ -92,8 +92,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("END_CERT")
 #pragma pop_macro("BEGIN_CERT")
 #pragma pop_macro("ENC_MAX_LENGTH")
+#pragma pop_macro("END_CERT")
 
 #endif // _sun_security_provider_X509Factory_h_

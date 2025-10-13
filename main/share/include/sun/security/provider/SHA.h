@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <sun/security/provider/DigestBase.h>
 
-#pragma push_macro("W")
-#undef W
 #pragma push_macro("SHA")
 #undef SHA
+#pragma push_macro("W")
+#undef W
 
 namespace sun {
 	namespace security {
@@ -40,7 +40,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("W")
 #pragma pop_macro("SHA")
+#pragma pop_macro("W")
 
 #endif // _sun_security_provider_SHA_h_

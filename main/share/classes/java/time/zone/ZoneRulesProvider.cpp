@@ -37,8 +37,8 @@
 #include <jcpp.h>
 
 #undef PROVIDERS
-#undef ZONE_IDS
 #undef ZONES
+#undef ZONE_IDS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;

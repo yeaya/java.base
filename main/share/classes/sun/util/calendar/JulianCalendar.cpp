@@ -22,12 +22,12 @@
 #include <sun/util/calendar/JulianCalendar$Date.h>
 #include <jcpp.h>
 
-#undef JANUARY
-#undef CE
-#undef JULIAN_EPOCH
 #undef BCE
-#undef MARCH
+#undef CE
 #undef FEBRUARY
+#undef JANUARY
+#undef JULIAN_EPOCH
+#undef MARCH
 #undef MIN_VALUE
 
 using $EraArray = $Array<::sun::util::calendar::Era>;

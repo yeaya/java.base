@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("RETAIN_CLASS_REFERENCE")
+#undef RETAIN_CLASS_REFERENCE
 #pragma push_macro("SHOW_HIDDEN_FRAMES")
 #undef SHOW_HIDDEN_FRAMES
 #pragma push_macro("SHOW_REFLECT_FRAMES")
 #undef SHOW_REFLECT_FRAMES
-#pragma push_macro("RETAIN_CLASS_REFERENCE")
-#undef RETAIN_CLASS_REFERENCE
 
 namespace java {
 	namespace lang {
@@ -33,8 +33,8 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("RETAIN_CLASS_REFERENCE")
 #pragma pop_macro("SHOW_HIDDEN_FRAMES")
 #pragma pop_macro("SHOW_REFLECT_FRAMES")
-#pragma pop_macro("RETAIN_CLASS_REFERENCE")
 
 #endif // _java_lang_StackWalker$Option_h_

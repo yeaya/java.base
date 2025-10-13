@@ -48,12 +48,12 @@
 #include <jcpp.h>
 
 #undef MODIFY_PRINCIPALS_PERMISSION
-#undef PUB_CREDENTIAL_SET
 #undef MODIFY_PRIVATE_CREDENTIALS_PERMISSION
+#undef MODIFY_PUBLIC_CREDENTIALS_PERMISSION
 #undef PRINCIPAL_SET
 #undef PRIV_CREDENTIAL_SET
+#undef PUB_CREDENTIAL_SET
 #undef TYPE
-#undef MODIFY_PUBLIC_CREDENTIALS_PERMISSION
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

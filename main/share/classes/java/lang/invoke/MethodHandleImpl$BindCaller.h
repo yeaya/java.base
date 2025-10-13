@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("INVOKER_MT")
-#undef INVOKER_MT
 #pragma push_macro("INJECTED_INVOKER_TEMPLATE")
 #undef INJECTED_INVOKER_TEMPLATE
+#pragma push_macro("INVOKER_MT")
+#undef INVOKER_MT
 
 namespace java {
 	namespace lang {
@@ -51,7 +51,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("INVOKER_MT")
 #pragma pop_macro("INJECTED_INVOKER_TEMPLATE")
+#pragma pop_macro("INVOKER_MT")
 
 #endif // _java_lang_invoke_MethodHandleImpl$BindCaller_h_

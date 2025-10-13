@@ -9,12 +9,12 @@
 #include <java/lang/Cloneable.h>
 #include <java/util/AbstractMap.h>
 
+#pragma push_macro("DEFAULT_CAPACITY")
+#undef DEFAULT_CAPACITY
 #pragma push_macro("MAXIMUM_CAPACITY")
 #undef MAXIMUM_CAPACITY
 #pragma push_macro("MINIMUM_CAPACITY")
 #undef MINIMUM_CAPACITY
-#pragma push_macro("DEFAULT_CAPACITY")
-#undef DEFAULT_CAPACITY
 #pragma push_macro("NULL_KEY")
 #undef NULL_KEY
 
@@ -98,9 +98,9 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("DEFAULT_CAPACITY")
 #pragma pop_macro("MAXIMUM_CAPACITY")
 #pragma pop_macro("MINIMUM_CAPACITY")
-#pragma pop_macro("DEFAULT_CAPACITY")
 #pragma pop_macro("NULL_KEY")
 
 #endif // _java_util_IdentityHashMap_h_

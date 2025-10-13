@@ -48,37 +48,37 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef TYPE_CHOICE
-#undef ROOT
-#undef FORMAT
-#undef SEG_RAW
-#undef MODIFIER_SHORT
-#undef INITIAL_FORMATS
-#undef MODIFIER_LONG
-#undef SEG_MODIFIER
-#undef MODIFIER_FULL
 #undef ARGUMENT
-#undef TYPE_DATE
-#undef MODIFIER_INTEGER
-#undef SEG_TYPE
 #undef DATE_TIME_MODIFIERS
-#undef LONG
-#undef TYPE_NULL
+#undef DATE_TIME_MODIFIER_KEYWORDS
+#undef DEFAULT
 #undef DONE
+#undef FORMAT
+#undef FULL
+#undef INITIAL_FORMATS
+#undef LONG
 #undef MEDIUM
 #undef MODIFIER_CURRENCY
-#undef SEG_INDEX
-#undef TYPE_NUMBER
-#undef NUMBER_MODIFIER_KEYWORDS
-#undef MODIFIER_MEDIUM
-#undef FULL
-#undef SHORT
-#undef DATE_TIME_MODIFIER_KEYWORDS
-#undef TYPE_KEYWORDS
 #undef MODIFIER_DEFAULT
-#undef TYPE_TIME
+#undef MODIFIER_FULL
+#undef MODIFIER_INTEGER
+#undef MODIFIER_LONG
+#undef MODIFIER_MEDIUM
 #undef MODIFIER_PERCENT
-#undef DEFAULT
+#undef MODIFIER_SHORT
+#undef NUMBER_MODIFIER_KEYWORDS
+#undef ROOT
+#undef SEG_INDEX
+#undef SEG_MODIFIER
+#undef SEG_RAW
+#undef SEG_TYPE
+#undef SHORT
+#undef TYPE_CHOICE
+#undef TYPE_DATE
+#undef TYPE_KEYWORDS
+#undef TYPE_NULL
+#undef TYPE_NUMBER
+#undef TYPE_TIME
 
 using $StringBuilderArray = $Array<::java::lang::StringBuilder>;
 using $AttributedCharacterIteratorArray = $Array<::java::text::AttributedCharacterIterator>;
@@ -272,14 +272,14 @@ void MessageFormat::applyPattern($String* pattern) {
 				}
 			} else if (ch == u'{' && !inQuote) {
 				part = MessageFormat::SEG_INDEX;
-				if ($nc(segments)->get(MessageFormat::SEG_INDEX) == nullptr) {
+				if (segments->get(MessageFormat::SEG_INDEX) == nullptr) {
 					segments->set(MessageFormat::SEG_INDEX, $$new($StringBuilder));
 				}
 			} else {
-				$nc($nc(segments)->get(part))->append(ch);
+				$nc(segments->get(part))->append(ch);
 			}
 		} else if (inQuote) {
-			$nc($nc(segments)->get(part))->append(ch);
+			$nc(segments->get(part))->append(ch);
 			if (ch == u'\'') {
 				inQuote = false;
 			}
@@ -288,18 +288,18 @@ void MessageFormat::applyPattern($String* pattern) {
 			case u',':
 				{
 					if (part < MessageFormat::SEG_MODIFIER) {
-						if ($nc(segments)->get(++part) == nullptr) {
+						if (segments->get(++part) == nullptr) {
 							segments->set(part, $$new($StringBuilder));
 						}
 					} else {
-						$nc($nc(segments)->get(part))->append(ch);
+						$nc(segments->get(part))->append(ch);
 					}
 					break;
 				}
 			case u'{':
 				{
 					++braceStack;
-					$nc($nc(segments)->get(part))->append(ch);
+					$nc(segments->get(part))->append(ch);
 					break;
 				}
 			case u'}':
@@ -308,18 +308,18 @@ void MessageFormat::applyPattern($String* pattern) {
 						part = MessageFormat::SEG_RAW;
 						makeFormat(i, formatNumber, segments);
 						++formatNumber;
-						$nc(segments)->set(MessageFormat::SEG_INDEX, nullptr);
+						segments->set(MessageFormat::SEG_INDEX, nullptr);
 						segments->set(MessageFormat::SEG_TYPE, nullptr);
 						segments->set(MessageFormat::SEG_MODIFIER, nullptr);
 					} else {
 						--braceStack;
-						$nc($nc(segments)->get(part))->append(ch);
+						$nc(segments->get(part))->append(ch);
 					}
 					break;
 				}
 			case u' ':
 				{
-					if (part != MessageFormat::SEG_TYPE || $nc($nc(segments)->get(MessageFormat::SEG_TYPE))->length() > 0) {
+					if (part != MessageFormat::SEG_TYPE || $nc(segments->get(MessageFormat::SEG_TYPE))->length() > 0) {
 						$nc(segments->get(part))->append(ch);
 					}
 					break;
@@ -330,7 +330,7 @@ void MessageFormat::applyPattern($String* pattern) {
 				}
 			default:
 				{
-					$nc($nc(segments)->get(part))->append(ch);
+					$nc(segments->get(part))->append(ch);
 					break;
 				}
 			}
@@ -354,40 +354,40 @@ $String* MessageFormat::toPattern() {
 		if (fmt == nullptr) {
 		} else if ($instanceOf($NumberFormat, fmt)) {
 			if ($nc($of(fmt))->equals($($NumberFormat::getInstance(this->locale)))) {
-				$nc(result)->append(",number"_s);
-			} else if ($nc($of(fmt))->equals($($NumberFormat::getCurrencyInstance(this->locale)))) {
-				$nc(result)->append(",number,currency"_s);
-			} else if ($nc($of(fmt))->equals($($NumberFormat::getPercentInstance(this->locale)))) {
-				$nc(result)->append(",number,percent"_s);
-			} else if ($nc($of(fmt))->equals($($NumberFormat::getIntegerInstance(this->locale)))) {
-				$nc(result)->append(",number,integer"_s);
+				result->append(",number"_s);
+			} else if ($of(fmt)->equals($($NumberFormat::getCurrencyInstance(this->locale)))) {
+				result->append(",number,currency"_s);
+			} else if ($of(fmt)->equals($($NumberFormat::getPercentInstance(this->locale)))) {
+				result->append(",number,percent"_s);
+			} else if ($of(fmt)->equals($($NumberFormat::getIntegerInstance(this->locale)))) {
+				result->append(",number,integer"_s);
 			} else if ($instanceOf($DecimalFormat, fmt)) {
-				$nc(result)->append(",number,"_s)->append($($nc(($cast($DecimalFormat, fmt)))->toPattern()));
+				result->append(",number,"_s)->append($($nc(($cast($DecimalFormat, fmt)))->toPattern()));
 			} else if ($instanceOf($ChoiceFormat, fmt)) {
-				$nc(result)->append(",choice,"_s)->append($($nc(($cast($ChoiceFormat, fmt)))->toPattern()));
+				result->append(",choice,"_s)->append($($nc(($cast($ChoiceFormat, fmt)))->toPattern()));
 			} else {
 			}
 		} else if ($instanceOf($DateFormat, fmt)) {
 			int32_t index = 0;
 			for (index = MessageFormat::MODIFIER_DEFAULT; index < $nc(MessageFormat::DATE_TIME_MODIFIERS)->length; ++index) {
 				$var($DateFormat, df, $DateFormat::getDateInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(index), this->locale));
-				if ($nc($of(fmt))->equals(df)) {
-					$nc(result)->append(",date"_s);
+				if ($of(fmt)->equals(df)) {
+					result->append(",date"_s);
 					break;
 				}
 				$assign(df, $DateFormat::getTimeInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(index), this->locale));
-				if ($nc($of(fmt))->equals(df)) {
-					$nc(result)->append(",time"_s);
+				if ($of(fmt)->equals(df)) {
+					result->append(",time"_s);
 					break;
 				}
 			}
 			if (index >= $nc(MessageFormat::DATE_TIME_MODIFIERS)->length) {
 				if ($instanceOf($SimpleDateFormat, fmt)) {
-					$nc(result)->append(",date,"_s)->append($($nc(($cast($SimpleDateFormat, fmt)))->toPattern()));
+					result->append(",date,"_s)->append($($nc(($cast($SimpleDateFormat, fmt)))->toPattern()));
 				} else {
 				}
 			} else if (index != MessageFormat::MODIFIER_DEFAULT) {
-				$nc(result)->append(u',')->append($nc(MessageFormat::DATE_TIME_MODIFIER_KEYWORDS)->get(index));
+				result->append(u',')->append($nc(MessageFormat::DATE_TIME_MODIFIER_KEYWORDS)->get(index));
 			}
 		} else {
 		}

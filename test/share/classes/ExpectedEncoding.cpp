@@ -54,16 +54,14 @@ void ExpectedEncoding::main($StringArray* args) {
 	$var($String, jnuEnc, $System::getProperty("sun.jnu.encoding"_s));
 	if ("skip"_s->equals(expectFileEnc)) {
 		$nc($System::err)->println("Expected file.encoding is \"skip\", ignoring"_s);
-	} else if (fileEnc == nullptr || !$nc(fileEnc)->equals(expectFileEnc)) {
-		$init($System);
+	} else if (fileEnc == nullptr || !fileEnc->equals(expectFileEnc)) {
 		$nc($System::err)->println($$str({"Expected file.encoding: "_s, expectFileEnc}));
 		$nc($System::err)->println($$str({"Actual file.encoding: "_s, fileEnc}));
 		failed = true;
 	}
 	if ("skip"_s->equals(expectSunJnuEnc)) {
 		$nc($System::err)->println("Expected sun.jnu.encoding is \"skip\", ignoring"_s);
-	} else if (jnuEnc == nullptr || !$nc(jnuEnc)->equals(expectSunJnuEnc)) {
-		$init($System);
+	} else if (jnuEnc == nullptr || !jnuEnc->equals(expectSunJnuEnc)) {
 		$nc($System::err)->println($$str({"Expected sun.jnu.encoding: "_s, expectSunJnuEnc}));
 		$nc($System::err)->println($$str({"Actual sun.jnu.encoding: "_s, jnuEnc}));
 		failed = true;

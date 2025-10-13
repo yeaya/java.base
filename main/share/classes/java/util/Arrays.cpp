@@ -79,12 +79,12 @@
 
 using ::java::lang::ObjectManager;
 
-#undef INSERTIONSORT_THRESHOLD
-#undef ORDERED
-#undef MIN_ARRAY_SORT_GRAN
-#undef INSTANCE
 #undef IMMUTABLE
+#undef INSERTIONSORT_THRESHOLD
+#undef INSTANCE
 #undef MAX_VALUE
+#undef MIN_ARRAY_SORT_GRAN
+#undef ORDERED
 #undef TYPE
 
 using $ComparableArray = $Array<::java::lang::Comparable>;
@@ -2112,7 +2112,7 @@ int32_t Arrays::deepHashCode($ObjectArray* a) {
 				$Class* cl = nullptr;
 				if (element == nullptr) {
 					elementHash = 0;
-				} else if ((cl = $nc($of(element))->getClass()->getComponentType()) == nullptr) {
+				} else if ((cl = $of(element)->getClass()->getComponentType()) == nullptr) {
 					elementHash = $of(element)->hashCode();
 				} else if ($instanceOf($ObjectArray, element)) {
 					elementHash = deepHashCode($cast($ObjectArray, element));
@@ -2442,8 +2442,8 @@ void Arrays::deepToString($ObjectArray* a, $StringBuilder* buf, $Set* dejaVu) {
 											$load($booleans);
 											if (eClass == $getClass($booleans)) {
 												buf->append($(toString($cast($booleans, element))));
-											} else if ($nc(dejaVu)->contains(element)) {
-												$nc(buf)->append("[...]"_s);
+											} else if (dejaVu->contains(element)) {
+												buf->append("[...]"_s);
 											} else {
 												deepToString($cast($ObjectArray, element), buf, dejaVu);
 											}

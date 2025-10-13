@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("OTHER")
-#undef OTHER
-#pragma push_macro("LOGIN_METHOD")
-#undef LOGIN_METHOD
 #pragma push_macro("ABORT_METHOD")
 #undef ABORT_METHOD
 #pragma push_macro("COMMIT_METHOD")
 #undef COMMIT_METHOD
-#pragma push_macro("LOGOUT_METHOD")
-#undef LOGOUT_METHOD
 #pragma push_macro("DEFAULT_HANDLER")
 #undef DEFAULT_HANDLER
+#pragma push_macro("LOGIN_METHOD")
+#undef LOGIN_METHOD
+#pragma push_macro("LOGOUT_METHOD")
+#undef LOGOUT_METHOD
+#pragma push_macro("OTHER")
+#undef OTHER
 
 namespace java {
 	namespace lang {
@@ -120,11 +120,11 @@ public:
 	} // security
 } // javax
 
-#pragma pop_macro("OTHER")
-#pragma pop_macro("LOGIN_METHOD")
 #pragma pop_macro("ABORT_METHOD")
 #pragma pop_macro("COMMIT_METHOD")
-#pragma pop_macro("LOGOUT_METHOD")
 #pragma pop_macro("DEFAULT_HANDLER")
+#pragma pop_macro("LOGIN_METHOD")
+#pragma pop_macro("LOGOUT_METHOD")
+#pragma pop_macro("OTHER")
 
 #endif // _javax_security_auth_login_LoginContext_h_

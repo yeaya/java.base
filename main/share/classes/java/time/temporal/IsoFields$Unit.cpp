@@ -23,12 +23,12 @@
 #include <java/time/temporal/TemporalUnit.h>
 #include <jcpp.h>
 
-#undef YEARS
+#undef EPOCH_DAY
 #undef MONTHS
 #undef QUARTER_YEARS
-#undef EPOCH_DAY
-#undef WEEK_BASED_YEARS
 #undef WEEK_BASED_YEAR
+#undef WEEK_BASED_YEARS
+#undef YEARS
 
 using $IsoFields$UnitArray = $Array<::java::time::temporal::IsoFields$Unit>;
 using $ClassInfo = ::java::lang::ClassInfo;

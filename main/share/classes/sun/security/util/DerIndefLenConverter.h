@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("FORM_MASK")
-#undef FORM_MASK
-#pragma push_macro("SKIP_EOC_BYTES")
-#undef SKIP_EOC_BYTES
-#pragma push_macro("LEN_MASK")
-#undef LEN_MASK
-#pragma push_macro("LEN_LONG")
-#undef LEN_LONG
-#pragma push_macro("TAG_MASK")
-#undef TAG_MASK
 #pragma push_macro("CLASS_MASK")
 #undef CLASS_MASK
+#pragma push_macro("FORM_MASK")
+#undef FORM_MASK
+#pragma push_macro("LEN_LONG")
+#undef LEN_LONG
+#pragma push_macro("LEN_MASK")
+#undef LEN_MASK
+#pragma push_macro("SKIP_EOC_BYTES")
+#undef SKIP_EOC_BYTES
+#pragma push_macro("TAG_MASK")
+#undef TAG_MASK
 
 namespace java {
 	namespace io {
@@ -73,11 +73,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("FORM_MASK")
-#pragma pop_macro("SKIP_EOC_BYTES")
-#pragma pop_macro("LEN_MASK")
-#pragma pop_macro("LEN_LONG")
-#pragma pop_macro("TAG_MASK")
 #pragma pop_macro("CLASS_MASK")
+#pragma pop_macro("FORM_MASK")
+#pragma pop_macro("LEN_LONG")
+#pragma pop_macro("LEN_MASK")
+#pragma pop_macro("SKIP_EOC_BYTES")
+#pragma pop_macro("TAG_MASK")
 
 #endif // _sun_security_util_DerIndefLenConverter_h_

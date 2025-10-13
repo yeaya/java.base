@@ -28,11 +28,11 @@
 #include <jcpp.h>
 
 #undef MODIFY_PRINCIPALS_PERMISSION
-#undef PUB_CREDENTIAL_SET
 #undef MODIFY_PRIVATE_CREDENTIALS_PERMISSION
+#undef MODIFY_PUBLIC_CREDENTIALS_PERMISSION
 #undef PRINCIPAL_SET
 #undef PRIV_CREDENTIAL_SET
-#undef MODIFY_PUBLIC_CREDENTIALS_PERMISSION
+#undef PUB_CREDENTIAL_SET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

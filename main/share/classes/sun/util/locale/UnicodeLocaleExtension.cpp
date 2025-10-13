@@ -21,12 +21,12 @@
 #include <sun/util/locale/LocaleUtils.h>
 #include <jcpp.h>
 
-#undef EMPTY_MAP
-#undef NU_THAI
-#undef SINGLETON
-#undef EMPTY_SET
 #undef CA_JAPANESE
+#undef EMPTY_MAP
+#undef EMPTY_SET
+#undef NU_THAI
 #undef SEP
+#undef SINGLETON
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

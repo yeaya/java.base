@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MORE")
-#undef MORE
-#pragma push_macro("EQUAL")
-#undef EQUAL
-#pragma push_macro("STRING")
-#undef STRING
-#pragma push_macro("OPEN_PAIR")
-#undef OPEN_PAIR
-#pragma push_macro("CLOSE_PAIR")
-#undef CLOSE_PAIR
-#pragma push_macro("WS")
-#undef WS
-#pragma push_macro("OPEN_ARRAY")
-#undef OPEN_ARRAY
 #pragma push_macro("CLOSE_ARRAY")
 #undef CLOSE_ARRAY
+#pragma push_macro("CLOSE_PAIR")
+#undef CLOSE_PAIR
+#pragma push_macro("EQUAL")
+#undef EQUAL
+#pragma push_macro("MORE")
+#undef MORE
+#pragma push_macro("OPEN_ARRAY")
+#undef OPEN_ARRAY
+#pragma push_macro("OPEN_PAIR")
+#undef OPEN_PAIR
+#pragma push_macro("STRING")
+#undef STRING
+#pragma push_macro("WS")
+#undef WS
 
 namespace java {
 	namespace io {
@@ -72,13 +72,13 @@ public:
 	int32_t column = 0;
 };
 
-#pragma pop_macro("MORE")
-#pragma pop_macro("EQUAL")
-#pragma pop_macro("STRING")
-#pragma pop_macro("OPEN_PAIR")
-#pragma pop_macro("CLOSE_PAIR")
-#pragma pop_macro("WS")
-#pragma pop_macro("OPEN_ARRAY")
 #pragma pop_macro("CLOSE_ARRAY")
+#pragma pop_macro("CLOSE_PAIR")
+#pragma pop_macro("EQUAL")
+#pragma pop_macro("MORE")
+#pragma pop_macro("OPEN_ARRAY")
+#pragma pop_macro("OPEN_PAIR")
+#pragma pop_macro("STRING")
+#pragma pop_macro("WS")
 
 #endif // _PParser_h_

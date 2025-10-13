@@ -75,14 +75,14 @@
 #include <jcpp.h>
 
 #undef CH_CONCURRENT_ID
-#undef CH_UNORDERED_ID
-#undef IDENTITY_FINISH
 #undef CH_CONCURRENT_NOID
 #undef CH_ID
-#undef CH_UNORDERED_NOID
-#undef UNORDERED
 #undef CH_NOID
+#undef CH_UNORDERED_ID
+#undef CH_UNORDERED_NOID
 #undef CONCURRENT
+#undef IDENTITY_FINISH
+#undef UNORDERED
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $Serializable = ::java::io::Serializable;

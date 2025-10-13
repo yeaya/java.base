@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("DOUBLE_VALUE")
+#undef DOUBLE_VALUE
 #pragma push_macro("INT_VALUE")
 #undef INT_VALUE
 #pragma push_macro("LONG_VALUE")
 #undef LONG_VALUE
 #pragma push_macro("REFERENCE")
 #undef REFERENCE
-#pragma push_macro("DOUBLE_VALUE")
-#undef DOUBLE_VALUE
 
 namespace java {
 	namespace util {
@@ -38,9 +38,9 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("DOUBLE_VALUE")
 #pragma pop_macro("INT_VALUE")
 #pragma pop_macro("LONG_VALUE")
 #pragma pop_macro("REFERENCE")
-#pragma pop_macro("DOUBLE_VALUE")
 
 #endif // _java_util_stream_StreamShape_h_

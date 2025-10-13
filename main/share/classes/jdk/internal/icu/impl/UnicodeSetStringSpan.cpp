@@ -20,18 +20,18 @@
 #include <jdk/internal/icu/util/OutputInt.h>
 #include <jcpp.h>
 
-#undef LONG_SPAN
 #undef ALL
-#undef FWD
-#undef FWD_UTF16_NOT_CONTAINED
-#undef FWD_UTF16_CONTAINED
-#undef NOT_CONTAINED
-#undef BACK_UTF16_CONTAINED
-#undef WITH_COUNT
+#undef ALL_CP_CONTAINED
 #undef BACK
+#undef BACK_UTF16_CONTAINED
 #undef BACK_UTF16_NOT_CONTAINED
 #undef CONTAINED
-#undef ALL_CP_CONTAINED
+#undef FWD
+#undef FWD_UTF16_CONTAINED
+#undef FWD_UTF16_NOT_CONTAINED
+#undef LONG_SPAN
+#undef NOT_CONTAINED
+#undef WITH_COUNT
 
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
@@ -328,7 +328,6 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 					return pos;
 				}
 			} else if ($nc(this->offsets)->isEmpty()) {
-				$init($UnicodeSet$SpanCondition);
 				spanLimit = $nc(this->spanSet)->span(s, pos, $UnicodeSet$SpanCondition::CONTAINED);
 				spanLength = spanLimit - pos;
 				if (spanLength == rest || spanLength == 0) {
@@ -529,7 +528,6 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 				}
 			} else if ($nc(this->offsets)->isEmpty()) {
 				int32_t oldPos = pos;
-				$init($UnicodeSet$SpanCondition);
 				pos = $nc(this->spanSet)->spanBack(s, oldPos, $UnicodeSet$SpanCondition::CONTAINED);
 				spanLength = oldPos - pos;
 				if (pos == 0 || spanLength == 0) {

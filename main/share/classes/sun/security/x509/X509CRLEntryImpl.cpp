@@ -470,7 +470,7 @@ void X509CRLEntryImpl::parse($DerValue* derVal) {
 	if ((int8_t)nextByte == $DerValue::tag_UtcTime) {
 		$set(this, revocationDate, $nc(derVal->data$)->getUTCTime());
 	} else if ((int8_t)nextByte == $DerValue::tag_GeneralizedTime) {
-		$set(this, revocationDate, $nc($nc(derVal)->data$)->getGeneralizedTime());
+		$set(this, revocationDate, $nc(derVal->data$)->getGeneralizedTime());
 	} else {
 		$throwNew($CRLException, "Invalid encoding for revocation date"_s);
 	}

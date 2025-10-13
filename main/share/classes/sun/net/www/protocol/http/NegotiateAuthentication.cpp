@@ -35,11 +35,11 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef SERVER_AUTHENTICATION
+#undef KERBEROS
+#undef NEGOTIATE
 #undef PROXY
 #undef PROXY_AUTHENTICATION
-#undef NEGOTIATE
-#undef KERBEROS
+#undef SERVER_AUTHENTICATION
 
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;

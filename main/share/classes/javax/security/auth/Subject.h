@@ -6,14 +6,14 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("PUB_CREDENTIAL_SET")
-#undef PUB_CREDENTIAL_SET
+#pragma push_macro("NULL_PD_ARRAY")
+#undef NULL_PD_ARRAY
 #pragma push_macro("PRINCIPAL_SET")
 #undef PRINCIPAL_SET
 #pragma push_macro("PRIV_CREDENTIAL_SET")
 #undef PRIV_CREDENTIAL_SET
-#pragma push_macro("NULL_PD_ARRAY")
-#undef NULL_PD_ARRAY
+#pragma push_macro("PUB_CREDENTIAL_SET")
+#undef PUB_CREDENTIAL_SET
 
 namespace java {
 	namespace io {
@@ -84,9 +84,9 @@ public:
 	} // security
 } // javax
 
-#pragma pop_macro("PUB_CREDENTIAL_SET")
+#pragma pop_macro("NULL_PD_ARRAY")
 #pragma pop_macro("PRINCIPAL_SET")
 #pragma pop_macro("PRIV_CREDENTIAL_SET")
-#pragma pop_macro("NULL_PD_ARRAY")
+#pragma pop_macro("PUB_CREDENTIAL_SET")
 
 #endif // _javax_security_auth_Subject_h_

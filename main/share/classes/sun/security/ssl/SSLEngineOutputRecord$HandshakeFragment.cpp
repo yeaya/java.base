@@ -28,10 +28,10 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef NOT_APPLICABLE
+#undef ALERT
 #undef CHANGE_CIPHER_SPEC
 #undef HANDSHAKE
-#undef ALERT
+#undef NOT_APPLICABLE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

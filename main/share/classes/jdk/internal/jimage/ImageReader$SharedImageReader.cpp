@@ -45,8 +45,8 @@
 #include <jdk/internal/jimage/ImageReader.h>
 #include <jcpp.h>
 
-#undef SIZE_OF_OFFSET
 #undef OPEN_FILES
+#undef SIZE_OF_OFFSET
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $IOException = ::java::io::IOException;
@@ -263,11 +263,11 @@ $ImageReader* ImageReader$SharedImageReader::open($Path* imagePath, $ByteOrder* 
 		if (reader == nullptr) {
 			$assign(reader, $new(ImageReader$SharedImageReader, imagePath, byteOrder));
 			$nc(ImageReader$SharedImageReader::OPEN_FILES)->put(imagePath, reader);
-		} else if ($nc(reader)->getByteOrder() != byteOrder) {
+		} else if (reader->getByteOrder() != byteOrder) {
 			$throwNew($IOException, $$str({"\""_s, $(reader->getName()), "\" is not an image file"_s}));
 		}
 		$var($ImageReader, image, $new($ImageReader, reader));
-		$nc($nc(reader)->openers)->add(image);
+		$nc(reader->openers)->add(image);
 		return image;
 	}
 }
@@ -392,7 +392,7 @@ $ImageReader$Node* ImageReader$SharedImageReader::handlePackages($String* name, 
 		$nc(pkgDir)->setCompleted(true);
 		$assign(n, pkgDir);
 	} else {
-		$var($String, pkgName, $nc(loc)->getParent());
+		$var($String, pkgName, loc->getParent());
 		$var($String, modName, getBaseExt(loc));
 		$var($ImageReader$Node, targetNode, findNode($$str({"/modules/"_s, modName})));
 		if (targetNode != nullptr) {

@@ -38,18 +38,18 @@
 #include <jcpp.h>
 
 #undef BOOLEAN_VAL
-#undef STRING_VAL
-#undef LONG_VAL
-#undef FLOAT_VAL
-#undef CHAR_VAL
 #undef CHAR_ARRAY_VAL
-#undef STRING_BUFFER_VAL
-#undef OBJECT_VAL
-#undef STRING_BUILDER_VAL
-#undef DOUBLE_VAL
-#undef INT_VAL
-#undef TYPE
 #undef CHAR_SEQUENCE_VAL
+#undef CHAR_VAL
+#undef DOUBLE_VAL
+#undef FLOAT_VAL
+#undef INT_VAL
+#undef LONG_VAL
+#undef OBJECT_VAL
+#undef STRING_BUFFER_VAL
+#undef STRING_BUILDER_VAL
+#undef STRING_VAL
+#undef TYPE
 
 using $TestSynchronization$1 = ::TestSynchronization$1;
 using $TestSynchronization$InvokeTask = ::TestSynchronization$InvokeTask;
@@ -282,8 +282,8 @@ void TestSynchronization::testMethod($Class* aClass, $Method* m) {
 											if ($of(pType)->equals($String::class$)) {
 												args->set(i, TestSynchronization::STRING_VAL);
 											} else {
-												bool var$1023 = pType->isArray();
-												if (var$1023 && $nc($of(pType->getComponentType()))->equals($Character::TYPE)) {
+												bool var$1 = pType->isArray();
+												if (var$1 && $nc($of(pType->getComponentType()))->equals($Character::TYPE)) {
 													args->set(i, TestSynchronization::CHAR_ARRAY_VAL);
 												} else {
 													$load($CharSequence);

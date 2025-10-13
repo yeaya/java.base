@@ -32,14 +32,14 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef STRICT
-#undef LENIENT
-#undef WEEKS
-#undef EPOCH_DAY
-#undef WEEK_OF_WEEK_BASED_YEAR
-#undef WEEK_BASED_YEARS
-#undef WEEK_BASED_YEAR
 #undef DAY_OF_WEEK
+#undef EPOCH_DAY
+#undef LENIENT
+#undef STRICT
+#undef WEEKS
+#undef WEEK_BASED_YEAR
+#undef WEEK_BASED_YEARS
+#undef WEEK_OF_WEEK_BASED_YEAR
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

@@ -26,8 +26,8 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-#undef NO_ATTRIBUTES
 #undef MAX_VALUE
+#undef NO_ATTRIBUTES
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;

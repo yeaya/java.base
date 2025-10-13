@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("EVENT_OFFSET")
+#undef EVENT_OFFSET
 #pragma push_macro("FD_OFFSET")
 #undef FD_OFFSET
 #pragma push_macro("SIZE_POLLFD")
 #undef SIZE_POLLFD
-#pragma push_macro("EVENT_OFFSET")
-#undef EVENT_OFFSET
 
 namespace sun {
 	namespace nio {
@@ -51,8 +51,8 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("EVENT_OFFSET")
 #pragma pop_macro("FD_OFFSET")
 #pragma pop_macro("SIZE_POLLFD")
-#pragma pop_macro("EVENT_OFFSET")
 
 #endif // _sun_nio_ch_PollArrayWrapper_h_

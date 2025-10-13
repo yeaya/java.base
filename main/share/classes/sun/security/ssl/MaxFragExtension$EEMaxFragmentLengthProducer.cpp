@@ -26,8 +26,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef EE_MAX_FRAGMENT_LENGTH
 #undef CH_MAX_FRAGMENT_LENGTH
+#undef EE_MAX_FRAGMENT_LENGTH
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

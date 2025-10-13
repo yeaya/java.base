@@ -14,8 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NEW
 #undef CLOSED
+#undef NEW
 #undef OPEN
 
 using $StackStreamFactory$WalkerStateArray = $Array<::java::lang::StackStreamFactory$WalkerState>;

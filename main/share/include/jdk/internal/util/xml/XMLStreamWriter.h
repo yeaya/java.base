@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DEFAULT_XML_VERSION")
-#undef DEFAULT_XML_VERSION
-#pragma push_macro("DEFAULT_ENCODING")
-#undef DEFAULT_ENCODING
 #pragma push_macro("DEFAULT_CHARSET")
 #undef DEFAULT_CHARSET
+#pragma push_macro("DEFAULT_ENCODING")
+#undef DEFAULT_ENCODING
+#pragma push_macro("DEFAULT_XML_VERSION")
+#undef DEFAULT_XML_VERSION
 
 namespace java {
 	namespace nio {
@@ -52,8 +52,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("DEFAULT_XML_VERSION")
-#pragma pop_macro("DEFAULT_ENCODING")
 #pragma pop_macro("DEFAULT_CHARSET")
+#pragma pop_macro("DEFAULT_ENCODING")
+#pragma pop_macro("DEFAULT_XML_VERSION")
 
 #endif // _jdk_internal_util_xml_XMLStreamWriter_h_

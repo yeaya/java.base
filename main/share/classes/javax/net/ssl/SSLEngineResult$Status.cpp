@@ -14,8 +14,8 @@
 #include <jcpp.h>
 
 #undef BUFFER_OVERFLOW
-#undef CLOSED
 #undef BUFFER_UNDERFLOW
+#undef CLOSED
 #undef OK
 
 using $SSLEngineResult$StatusArray = $Array<::javax::net::ssl::SSLEngineResult$Status>;

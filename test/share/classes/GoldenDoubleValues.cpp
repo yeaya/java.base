@@ -12,13 +12,13 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
-#undef NEGATIVE_INFINITY
-#undef MIN_NORMAL
-#undef PROPERTY_CHECK_NEGATIVE_VALUE
 #undef MAX_VALUE
-#undef PROPERTY_CHECK_POSITIVE_VALUE
+#undef MIN_NORMAL
 #undef MIN_VALUE
+#undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
+#undef PROPERTY_CHECK_NEGATIVE_VALUE
+#undef PROPERTY_CHECK_POSITIVE_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

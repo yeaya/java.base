@@ -16,8 +16,8 @@
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef FALLBACK
+#undef ROOT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

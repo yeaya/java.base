@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("CFB_MODE")
-#undef CFB_MODE
 #pragma push_macro("CBC_MODE")
 #undef CBC_MODE
+#pragma push_macro("CFB_MODE")
+#undef CFB_MODE
 #pragma push_macro("CTR_MODE")
 #undef CTR_MODE
-#pragma push_macro("OFB_MODE")
-#undef OFB_MODE
 #pragma push_macro("CTS_MODE")
 #undef CTS_MODE
-#pragma push_macro("PCBC_MODE")
-#undef PCBC_MODE
 #pragma push_macro("ECB_MODE")
 #undef ECB_MODE
+#pragma push_macro("OFB_MODE")
+#undef OFB_MODE
+#pragma push_macro("PCBC_MODE")
+#undef PCBC_MODE
 
 namespace com {
 	namespace sun {
@@ -103,12 +103,12 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("CFB_MODE")
 #pragma pop_macro("CBC_MODE")
+#pragma pop_macro("CFB_MODE")
 #pragma pop_macro("CTR_MODE")
-#pragma pop_macro("OFB_MODE")
 #pragma pop_macro("CTS_MODE")
-#pragma pop_macro("PCBC_MODE")
 #pragma pop_macro("ECB_MODE")
+#pragma pop_macro("OFB_MODE")
+#pragma pop_macro("PCBC_MODE")
 
 #endif // _com_sun_crypto_provider_CipherCore_h_

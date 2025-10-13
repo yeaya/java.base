@@ -210,7 +210,7 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 		}
 	} else {
 		$load($MultiThreadStackWalk$Call);
-		if (count <= 0 && $nc(sfi)->getDeclaringClass() != $MultiThreadStackWalk$Call::class$) {
+		if (count <= 0 && sfi->getDeclaringClass() != $MultiThreadStackWalk$Call::class$) {
 			$throwNew($RuntimeException, $$str({"Expected Call at "_s, $$str(count), ", found "_s, sfi->getDeclaringClass()}));
 		} else {
 			$load($MultiThreadStackWalk$Test);
@@ -219,22 +219,21 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 			} else {
 				if (count == this->max && sfi->getDeclaringClass() != $MultiThreadStackWalk::class$) {
 					$throwNew($RuntimeException, $$str({"Expected MultiThreadStackWalk at "_s, $$str(count), ", found "_s, sfi->getDeclaringClass()}));
-				} else if (count == this->max && !$nc($($nc($($nc(sfi)->toStackTraceElement()))->getMethodName()))->equals("runTest"_s)) {
+				} else if (count == this->max && !$nc($($nc($(sfi->toStackTraceElement()))->getMethodName()))->equals("runTest"_s)) {
 					$throwNew($RuntimeException, $$str({"Expected runTest method at "_s, $$str(count), ", found "_s, $($nc($(sfi->toStackTraceElement()))->getMethodName())}));
 				} else if (count == this->max + 1) {
 					$load($MultiThreadStackWalk$WalkThread);
-					if ($nc(sfi)->getDeclaringClass() != $MultiThreadStackWalk$WalkThread::class$) {
+					if (sfi->getDeclaringClass() != $MultiThreadStackWalk$WalkThread::class$) {
 						$throwNew($RuntimeException, $$str({"Expected MultiThreadStackWalk at "_s, $$str(count), ", found "_s, sfi->getDeclaringClass()}));
 					}
-					if (count == this->max && !$nc($($nc($($nc(sfi)->toStackTraceElement()))->getMethodName()))->equals("run"_s)) {
+					if (count == this->max && !$nc($($nc($(sfi->toStackTraceElement()))->getMethodName()))->equals("run"_s)) {
 						$throwNew($RuntimeException, $$str({"Expected main method at "_s, $$str(count), ", found "_s, $($nc($(sfi->toStackTraceElement()))->getMethodName())}));
 					}
 				} else if (count > this->max + 1) {
-					$init($MultiThreadStackWalk);
-					if (!$nc($MultiThreadStackWalk::infrastructureClasses)->contains($($nc($nc(sfi)->getDeclaringClass())->getName()))) {
+					if (!$nc($MultiThreadStackWalk::infrastructureClasses)->contains($($nc(sfi->getDeclaringClass())->getName()))) {
 						$init($System);
-						$nc($System::err)->println($$str({"**** WARNING: encountered unexpected infrastructure class at "_s, $$str(count), ": "_s, $($nc($nc(sfi)->getDeclaringClass())->getName())}));
-						$nc(this->unexpected)->add($($nc($nc(sfi)->getDeclaringClass())->getName()));
+						$nc($System::err)->println($$str({"**** WARNING: encountered unexpected infrastructure class at "_s, $$str(count), ": "_s, $($nc(sfi->getDeclaringClass())->getName())}));
+						$nc(this->unexpected)->add($($nc(sfi->getDeclaringClass())->getName()));
 					}
 				}
 			}

@@ -44,28 +44,28 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef STRICT
-#undef CLOCK_HOUR_OF_AMPM
 #undef AMPM_OF_DAY
-#undef MICRO_OF_DAY
-#undef SECOND_OF_MINUTE
-#undef MIDNIGHT
-#undef NANO_OF_SECOND
-#undef MILLI_OF_SECOND
-#undef SECOND_OF_DAY
-#undef NANO_OF_DAY
+#undef CLOCK_HOUR_OF_AMPM
 #undef CLOCK_HOUR_OF_DAY
-#undef LENIENT
-#undef MINUTE_OF_DAY
-#undef MICRO_OF_SECOND
-#undef OFFSET_SECONDS
-#undef HOUR_OF_DAY
 #undef HOUR_OF_AMPM
-#undef MINUTE_OF_HOUR
+#undef HOUR_OF_DAY
 #undef INSTANT_SECONDS
+#undef LENIENT
+#undef MICRO_OF_DAY
+#undef MICRO_OF_SECOND
+#undef MIDNIGHT
 #undef MILLI_OF_DAY
+#undef MILLI_OF_SECOND
+#undef MINUTE_OF_DAY
+#undef MINUTE_OF_HOUR
+#undef NANO_OF_DAY
+#undef NANO_OF_SECOND
+#undef OFFSET_SECONDS
+#undef SECOND_OF_DAY
+#undef SECOND_OF_MINUTE
 #undef SMART
+#undef STRICT
+#undef ZERO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -659,7 +659,6 @@ void Parsed::resolveInstant() {
 			$nc(this->fieldValues)->put($ChronoField::INSTANT_SECONDS, $($Long::valueOf(instant)));
 		} else if (this->zone != nullptr) {
 			int64_t instant = $nc($($nc($($nc(this->date)->atTime(this->time)))->atZone(this->zone)))->toEpochSecond();
-			$init($ChronoField);
 			$nc(this->fieldValues)->put($ChronoField::INSTANT_SECONDS, $($Long::valueOf(instant)));
 		}
 	}

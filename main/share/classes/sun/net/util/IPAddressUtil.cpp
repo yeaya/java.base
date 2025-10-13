@@ -38,26 +38,26 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef H_GEN_DELIMS
-#undef INADDR16SZ
-#undef L_SLASH
-#undef L_NON_PRINTABLE
-#undef INADDR4SZ
-#undef L_COLON
 #undef H_AUTH_DELIMS
 #undef H_BACKSLASH
-#undef L_BACKSLASH
-#undef L_EXCLUDE
-#undef L_IPV6_DELIMS
-#undef INT16SZ
-#undef H_NON_PRINTABLE
-#undef L_AUTH_DELIMS
-#undef H_IPV6_DELIMS
-#undef OTHERS
-#undef H_SLASH
-#undef L_GEN_DELIMS
-#undef H_EXCLUDE
 #undef H_COLON
+#undef H_EXCLUDE
+#undef H_GEN_DELIMS
+#undef H_IPV6_DELIMS
+#undef H_NON_PRINTABLE
+#undef H_SLASH
+#undef INADDR16SZ
+#undef INADDR4SZ
+#undef INT16SZ
+#undef L_AUTH_DELIMS
+#undef L_BACKSLASH
+#undef L_COLON
+#undef L_EXCLUDE
+#undef L_GEN_DELIMS
+#undef L_IPV6_DELIMS
+#undef L_NON_PRINTABLE
+#undef L_SLASH
+#undef OTHERS
 
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;

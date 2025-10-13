@@ -16,8 +16,8 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef PRODUCE_REINVOKER_FORM
 #undef PRODUCE_BLOCK_INLINING_FORM
+#undef PRODUCE_REINVOKER_FORM
 #undef TYPED_COLLECTORS
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -43,23 +43,23 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef JANUARY
-#undef AMPM_OF_DAY
-#undef MONTH
-#undef QUARTER_OF_YEAR
-#undef SUNDAY
-#undef COMPARATOR
-#undef DECEMBER
-#undef AM_PM
-#undef NARROW_STANDALONE
-#undef INSTANCE
 #undef ALL_STYLES
+#undef AMPM_OF_DAY
+#undef AM_PM
 #undef CACHE
-#undef NARROW
-#undef MONTH_OF_YEAR
-#undef ERA
-#undef SATURDAY
+#undef COMPARATOR
 #undef DAY_OF_WEEK
+#undef DECEMBER
+#undef ERA
+#undef INSTANCE
+#undef JANUARY
+#undef MONTH
+#undef MONTH_OF_YEAR
+#undef NARROW
+#undef NARROW_STANDALONE
+#undef QUARTER_OF_YEAR
+#undef SATURDAY
+#undef SUNDAY
 
 using $TextStyleArray = $Array<::java::time::format::TextStyle>;
 using $ClassInfo = ::java::lang::ClassInfo;

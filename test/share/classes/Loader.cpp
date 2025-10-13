@@ -22,9 +22,9 @@
 #include <java/net/URL.h>
 #include <jcpp.h>
 
-#undef RESOURCES
 #undef FIND
 #undef RESOURCE
+#undef RESOURCES
 
 using $DataInputStream = ::java::io::DataInputStream;
 using $File = ::java::io::File;

@@ -18,8 +18,8 @@
 #include <javax/crypto/spec/RC5ParameterSpec.h>
 #include <jcpp.h>
 
-#undef MAX_VALUE
 #undef ALG_NAME_WILDCARD
+#undef MAX_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -239,7 +239,7 @@ $String* CryptoPermission::toString() {
 		if ($instanceOf($RC2ParameterSpec, this->algParamSpec)) {
 			buf->append($$str({" , effective "_s, $$str($nc(($cast($RC2ParameterSpec, this->algParamSpec)))->getEffectiveKeyBits())}));
 		} else if ($instanceOf($RC5ParameterSpec, this->algParamSpec)) {
-			$nc(buf)->append($$str({" , rounds "_s, $$str($nc(($cast($RC5ParameterSpec, this->algParamSpec)))->getRounds())}));
+			buf->append($$str({" , rounds "_s, $$str($nc(($cast($RC5ParameterSpec, this->algParamSpec)))->getRounds())}));
 		}
 	}
 	if (this->exemptionMechanism != nullptr) {

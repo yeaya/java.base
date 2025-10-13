@@ -13,9 +13,9 @@
 #include <java/util/stream/Collector.h>
 #include <jcpp.h>
 
+#undef CONCURRENT
 #undef IDENTITY_FINISH
 #undef UNORDERED
-#undef CONCURRENT
 
 using $Collector$CharacteristicsArray = $Array<::java::util::stream::Collector$Characteristics>;
 using $ClassInfo = ::java::lang::ClassInfo;

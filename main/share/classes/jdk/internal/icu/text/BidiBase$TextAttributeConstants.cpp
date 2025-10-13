@@ -18,10 +18,10 @@
 #include <jdk/internal/icu/text/BidiBase.h>
 #include <jcpp.h>
 
-#undef RUN_DIRECTION
-#undef NUMERIC_SHAPING
 #undef BIDI_EMBEDDING
 #undef FALSE
+#undef NUMERIC_SHAPING
+#undef RUN_DIRECTION
 #undef RUN_DIRECTION_LTR
 
 using $Boolean = ::java::lang::Boolean;

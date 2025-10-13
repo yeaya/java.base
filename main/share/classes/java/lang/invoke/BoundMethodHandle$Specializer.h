@@ -5,12 +5,12 @@
 
 #include <java/lang/invoke/ClassSpecializer.h>
 
+#pragma push_macro("BMH_TRANSFORMS")
+#undef BMH_TRANSFORMS
 #pragma push_macro("SPECIES_DATA_ACCESSOR")
 #undef SPECIES_DATA_ACCESSOR
 #pragma push_macro("TN_COPY_NO_EXTEND")
 #undef TN_COPY_NO_EXTEND
-#pragma push_macro("BMH_TRANSFORMS")
-#undef BMH_TRANSFORMS
 
 namespace java {
 	namespace lang {
@@ -51,8 +51,8 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("BMH_TRANSFORMS")
 #pragma pop_macro("SPECIES_DATA_ACCESSOR")
 #pragma pop_macro("TN_COPY_NO_EXTEND")
-#pragma pop_macro("BMH_TRANSFORMS")
 
 #endif // _java_lang_invoke_BoundMethodHandle$Specializer_h_

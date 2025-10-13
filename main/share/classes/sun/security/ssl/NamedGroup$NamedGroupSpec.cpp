@@ -29,11 +29,11 @@
 #include <sun/security/ssl/SSLPossession.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_FFDHE
+#undef NAMED_GROUP_ARBITRARY
 #undef NAMED_GROUP_ECDHE
+#undef NAMED_GROUP_FFDHE
 #undef NAMED_GROUP_NONE
 #undef NAMED_GROUP_XDH
-#undef NAMED_GROUP_ARBITRARY
 
 using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;
 using $ClassInfo = ::java::lang::ClassInfo;

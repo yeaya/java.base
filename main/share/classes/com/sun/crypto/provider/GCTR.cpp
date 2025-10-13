@@ -19,9 +19,9 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef MAX_LEN
 #undef BIG_ENDIAN
 #undef GCTR
+#undef MAX_LEN
 
 using $CounterMode = ::com::sun::crypto::provider::CounterMode;
 using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;

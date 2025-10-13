@@ -46,9 +46,9 @@
 #include <jcpp.h>
 
 #undef FOREVER
-#undef OFFSET_SECONDS
-#undef NANOS
 #undef INSTANT_SECONDS
+#undef NANOS
+#undef OFFSET_SECONDS
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

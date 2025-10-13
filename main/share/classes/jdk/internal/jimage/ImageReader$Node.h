@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("MODULES_DIR")
+#undef MODULES_DIR
 #pragma push_macro("PACKAGES_DIR")
 #undef PACKAGES_DIR
 #pragma push_macro("ROOT_DIR")
 #undef ROOT_DIR
-#pragma push_macro("MODULES_DIR")
-#undef MODULES_DIR
 
 namespace java {
 	namespace nio {
@@ -85,8 +85,8 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("MODULES_DIR")
 #pragma pop_macro("PACKAGES_DIR")
 #pragma pop_macro("ROOT_DIR")
-#pragma pop_macro("MODULES_DIR")
 
 #endif // _jdk_internal_jimage_ImageReader$Node_h_

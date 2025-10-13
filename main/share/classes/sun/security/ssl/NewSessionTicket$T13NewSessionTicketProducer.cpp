@@ -131,14 +131,14 @@ $bytes* NewSessionTicket$T13NewSessionTicketProducer::produce($ConnectionContext
 			}
 			return nullptr;
 		}
-	} else if (!$nc($nc(hc)->handshakeSession)->isPSKable()) {
+	} else if (!$nc(hc->handshakeSession)->isPSKable()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("No session ticket produced: No session ticket allowed in this session"_s, $$new($ObjectArray, 0));
 		}
 		return nullptr;
 	}
-	$var($SSLSessionContextImpl, sessionCache, $cast($SSLSessionContextImpl, $nc($nc(hc)->sslContext)->engineGetServerSessionContext()));
+	$var($SSLSessionContextImpl, sessionCache, $cast($SSLSessionContextImpl, $nc(hc->sslContext)->engineGetServerSessionContext()));
 	$var($SessionId, newId, $new($SessionId, true, $($nc(hc->sslContext)->getSecureRandom())));
 	$var($SecretKey, resumptionMasterSecret, $nc(hc->handshakeSession)->getResumptionMasterSecret());
 	if (resumptionMasterSecret == nullptr) {

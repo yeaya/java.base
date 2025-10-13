@@ -16,8 +16,8 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ONE
 #undef MAX_VALUE
+#undef ONE
 
 using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;

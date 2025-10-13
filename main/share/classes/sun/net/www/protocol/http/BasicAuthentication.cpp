@@ -29,10 +29,10 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef SERVER_AUTHENTICATION
-#undef PROXY_AUTHENTICATION
-#undef INSTANCE
 #undef BASIC
+#undef INSTANCE
+#undef PROXY_AUTHENTICATION
+#undef SERVER_AUTHENTICATION
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

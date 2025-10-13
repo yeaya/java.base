@@ -8,18 +8,18 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("IDENT")
-#undef IDENT
-#pragma push_macro("TAG_PERMITTED")
-#undef TAG_PERMITTED
 #pragma push_macro("EXCLUDED_SUBTREES")
 #undef EXCLUDED_SUBTREES
-#pragma push_macro("PERMITTED_SUBTREES")
-#undef PERMITTED_SUBTREES
+#pragma push_macro("IDENT")
+#undef IDENT
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("PERMITTED_SUBTREES")
+#undef PERMITTED_SUBTREES
 #pragma push_macro("TAG_EXCLUDED")
 #undef TAG_EXCLUDED
+#pragma push_macro("TAG_PERMITTED")
+#undef TAG_PERMITTED
 
 namespace java {
 	namespace io {
@@ -99,11 +99,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("IDENT")
-#pragma pop_macro("TAG_PERMITTED")
 #pragma pop_macro("EXCLUDED_SUBTREES")
-#pragma pop_macro("PERMITTED_SUBTREES")
+#pragma pop_macro("IDENT")
 #pragma pop_macro("NAME")
+#pragma pop_macro("PERMITTED_SUBTREES")
 #pragma pop_macro("TAG_EXCLUDED")
+#pragma pop_macro("TAG_PERMITTED")
 
 #endif // _sun_security_x509_NameConstraintsExtension_h_

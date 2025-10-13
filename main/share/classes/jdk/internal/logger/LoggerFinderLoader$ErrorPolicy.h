@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("QUIET")
-#undef QUIET
-#pragma push_macro("ERROR")
-#undef ERROR
-#pragma push_macro("WARNING")
-#undef WARNING
 #pragma push_macro("DEBUG")
 #undef DEBUG
+#pragma push_macro("ERROR")
+#undef ERROR
+#pragma push_macro("QUIET")
+#undef QUIET
+#pragma push_macro("WARNING")
+#undef WARNING
 
 namespace jdk {
 	namespace internal {
@@ -38,9 +38,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("QUIET")
-#pragma pop_macro("ERROR")
-#pragma pop_macro("WARNING")
 #pragma pop_macro("DEBUG")
+#pragma pop_macro("ERROR")
+#pragma pop_macro("QUIET")
+#pragma pop_macro("WARNING")
 
 #endif // _jdk_internal_logger_LoggerFinderLoader$ErrorPolicy_h_

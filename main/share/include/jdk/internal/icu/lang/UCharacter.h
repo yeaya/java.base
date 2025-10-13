@@ -5,26 +5,26 @@
 
 #include <jdk/internal/icu/text/UTF16.h>
 
-#pragma push_macro("ENCLOSING_MARK")
-#undef ENCLOSING_MARK
-#pragma push_macro("CODEPOINT_MIN_VALUE")
-#undef CODEPOINT_MIN_VALUE
-#pragma push_macro("NON_SPACING_MARK")
-#undef NON_SPACING_MARK
 #pragma push_macro("CHAR_CATEGORY_COUNT")
 #undef CHAR_CATEGORY_COUNT
-#pragma push_macro("RIGHT_TO_LEFT_ARABIC")
-#undef RIGHT_TO_LEFT_ARABIC
-#pragma push_macro("RIGHT_TO_LEFT")
-#undef RIGHT_TO_LEFT
+#pragma push_macro("CODEPOINT_MAX_VALUE")
+#undef CODEPOINT_MAX_VALUE
+#pragma push_macro("CODEPOINT_MIN_VALUE")
+#undef CODEPOINT_MIN_VALUE
+#pragma push_macro("COMBINING_SPACING_MARK")
+#undef COMBINING_SPACING_MARK
+#pragma push_macro("ENCLOSING_MARK")
+#undef ENCLOSING_MARK
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
 #pragma push_macro("MIN_VALUE")
 #undef MIN_VALUE
-#pragma push_macro("COMBINING_SPACING_MARK")
-#undef COMBINING_SPACING_MARK
-#pragma push_macro("CODEPOINT_MAX_VALUE")
-#undef CODEPOINT_MAX_VALUE
+#pragma push_macro("NON_SPACING_MARK")
+#undef NON_SPACING_MARK
+#pragma push_macro("RIGHT_TO_LEFT")
+#undef RIGHT_TO_LEFT
+#pragma push_macro("RIGHT_TO_LEFT_ARABIC")
+#undef RIGHT_TO_LEFT_ARABIC
 
 namespace jdk {
 	namespace internal {
@@ -72,15 +72,15 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("ENCLOSING_MARK")
-#pragma pop_macro("CODEPOINT_MIN_VALUE")
-#pragma pop_macro("NON_SPACING_MARK")
 #pragma pop_macro("CHAR_CATEGORY_COUNT")
-#pragma pop_macro("RIGHT_TO_LEFT_ARABIC")
-#pragma pop_macro("RIGHT_TO_LEFT")
+#pragma pop_macro("CODEPOINT_MAX_VALUE")
+#pragma pop_macro("CODEPOINT_MIN_VALUE")
+#pragma pop_macro("COMBINING_SPACING_MARK")
+#pragma pop_macro("ENCLOSING_MARK")
 #pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MIN_VALUE")
-#pragma pop_macro("COMBINING_SPACING_MARK")
-#pragma pop_macro("CODEPOINT_MAX_VALUE")
+#pragma pop_macro("NON_SPACING_MARK")
+#pragma pop_macro("RIGHT_TO_LEFT")
+#pragma pop_macro("RIGHT_TO_LEFT_ARABIC")
 
 #endif // _jdk_internal_icu_lang_UCharacter_h_

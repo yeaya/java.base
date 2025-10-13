@@ -28,22 +28,22 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
+#undef ABITS
+#undef CANCELLED
 #undef HEAD
+#undef INTERRUPTED
 #undef LG_READERS
+#undef ORIGIN
+#undef RBITS
 #undef RFULL
+#undef RSAFE
+#undef RUNIT
 #undef SBITS
 #undef STATE
-#undef CANCELLED
-#undef ORIGIN
-#undef ABITS
-#undef RSAFE
-#undef U
 #undef TAIL
+#undef U
 #undef WAITING
-#undef RBITS
-#undef RUNIT
 #undef WBIT
-#undef INTERRUPTED
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
@@ -720,7 +720,7 @@ int64_t StampedLock::acquireWrite(bool interruptible, bool timed, int64_t time) 
 				if ($nc(pred)->status < 0) {
 					cleanQueue();
 					continue;
-				} else if ($nc(pred)->prev == nullptr) {
+				} else if (pred->prev == nullptr) {
 					$Thread::onSpinWait();
 					continue;
 				}
@@ -746,14 +746,14 @@ int64_t StampedLock::acquireWrite(bool interruptible, bool timed, int64_t time) 
 				if (t == nullptr) {
 					tryInitializeHead();
 				} else if (!casTail(t, node)) {
-					$nc(node)->setPrevRelaxed(nullptr);
+					node->setPrevRelaxed(nullptr);
 				} else {
 					$set($nc(t), next, node);
 				}
 			} else if (first && spins != 0) {
 				--spins;
 				$Thread::onSpinWait();
-			} else if ($nc(node)->status == 0) {
+			} else if (node->status == 0) {
 				if (node->waiter == nullptr) {
 					$set(node, waiter, $Thread::currentThread());
 				}
@@ -797,7 +797,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 			if (this->tail == t) {
 				$nc(node)->setPrevRelaxed(t);
 				if (casTail(t, node)) {
-					$set($nc(t), next, node);
+					$set(t, next, node);
 					break;
 				}
 				node->setPrevRelaxed(nullptr);
@@ -808,11 +808,11 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 					break;
 				} else if (node == nullptr) {
 					$assign(node, $new($StampedLock$ReaderNode));
-				} else if ($nc(node)->waiter == nullptr) {
+				} else if (node->waiter == nullptr) {
 					$set(node, waiter, $Thread::currentThread());
 				} else if (!attached) {
-					$var($StampedLock$ReaderNode, c, $nc(leader)->cowaiters);
-					$nc(node)->setCowaitersRelaxed(c);
+					$var($StampedLock$ReaderNode, c, leader->cowaiters);
+					node->setCowaitersRelaxed(c);
 					attached = leader->casCowaiters(c, node);
 					if (!attached) {
 						node->setCowaitersRelaxed(nullptr);
@@ -855,7 +855,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 			if ($nc(pred)->status < 0) {
 				cleanQueue();
 				continue;
-			} else if ($nc(pred)->prev == nullptr) {
+			} else if (pred->prev == nullptr) {
 				$Thread::onSpinWait();
 				continue;
 			}
@@ -875,7 +875,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 		} else if (first && spins != 0) {
 			--spins;
 			$Thread::onSpinWait();
-		} else if ($nc(node)->status == 0) {
+		} else if (node->status == 0) {
 			if (node->waiter == nullptr) {
 				$set(node, waiter, $Thread::currentThread());
 			}

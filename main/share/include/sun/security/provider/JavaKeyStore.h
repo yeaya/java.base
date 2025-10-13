@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/security/KeyStoreSpi.h>
 
-#pragma push_macro("VERSION_2")
-#undef VERSION_2
-#pragma push_macro("VERSION_1")
-#undef VERSION_1
 #pragma push_macro("MAGIC")
 #undef MAGIC
+#pragma push_macro("VERSION_1")
+#undef VERSION_1
+#pragma push_macro("VERSION_2")
+#undef VERSION_2
 
 namespace java {
 	namespace io {
@@ -88,8 +88,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("VERSION_2")
-#pragma pop_macro("VERSION_1")
 #pragma pop_macro("MAGIC")
+#pragma pop_macro("VERSION_1")
+#pragma pop_macro("VERSION_2")
 
 #endif // _sun_security_provider_JavaKeyStore_h_

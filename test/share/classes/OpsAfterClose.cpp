@@ -37,13 +37,13 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef CLOSE
+#undef MARK
 #undef READ
 #undef READY
 #undef READ_BUF
-#undef SKIP
 #undef RESET
-#undef CLOSE
-#undef MARK
+#undef SKIP
 
 using $OpsAfterClose$1 = ::OpsAfterClose$1;
 using $OpsAfterClose$2 = ::OpsAfterClose$2;

@@ -8,10 +8,10 @@
 
 #pragma push_macro("MAX_LISTXATTR_BUF_SIZE")
 #undef MAX_LISTXATTR_BUF_SIZE
-#pragma push_macro("USER_NAMESPACE")
-#undef USER_NAMESPACE
 #pragma push_macro("MIN_LISTXATTR_BUF_SIZE")
 #undef MIN_LISTXATTR_BUF_SIZE
+#pragma push_macro("USER_NAMESPACE")
+#undef USER_NAMESPACE
 
 namespace java {
 	namespace nio {
@@ -76,7 +76,7 @@ public:
 } // sun
 
 #pragma pop_macro("MAX_LISTXATTR_BUF_SIZE")
-#pragma pop_macro("USER_NAMESPACE")
 #pragma pop_macro("MIN_LISTXATTR_BUF_SIZE")
+#pragma pop_macro("USER_NAMESPACE")
 
 #endif // _sun_nio_fs_UnixUserDefinedFileAttributeView_h_

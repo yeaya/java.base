@@ -23,13 +23,13 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef BSM_VARHANDLE_FIELD
 #undef BSM_ENUM_CONSTANT
-#undef BSM_VARHANDLE_ARRAY
-#undef CANONICAL_MAP
-#undef BSM_VARHANDLE_STATIC_FIELD
 #undef BSM_NULL_CONSTANT
 #undef BSM_PRIMITIVE_CLASS
+#undef BSM_VARHANDLE_ARRAY
+#undef BSM_VARHANDLE_FIELD
+#undef BSM_VARHANDLE_STATIC_FIELD
+#undef CANONICAL_MAP
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $Serializable = ::java::io::Serializable;

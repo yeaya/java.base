@@ -160,9 +160,9 @@ $String* LocaleUtils::toTitleString($String* s) {
 		if (i == 0 && idx == 0) {
 			buf->set(i, toUpper(c));
 		} else if (i < idx) {
-			$nc(buf)->set(i, c);
+			buf->set(i, c);
 		} else {
-			$nc(buf)->set(i, toLower(c));
+			buf->set(i, toLower(c));
 		}
 	}
 	return $new($String, buf);

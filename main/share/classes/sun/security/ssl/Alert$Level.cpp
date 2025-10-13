@@ -13,8 +13,8 @@
 #include <sun/security/ssl/Alert.h>
 #include <jcpp.h>
 
-#undef WARNING
 #undef FATAL
+#undef WARNING
 
 using $Alert$LevelArray = $Array<::sun::security::ssl::Alert$Level>;
 using $ClassInfo = ::java::lang::ClassInfo;

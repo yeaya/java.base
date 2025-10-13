@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor.h>
 
-#pragma push_macro("SIZES")
-#undef SIZES
 #pragma push_macro("EXTERNALIZED_STRING")
 #undef EXTERNALIZED_STRING
 #pragma push_macro("EXTERNALIZED_STRING_DESCRIPTOR")
 #undef EXTERNALIZED_STRING_DESCRIPTOR
+#pragma push_macro("SIZES")
+#undef SIZES
 
 namespace java {
 	namespace io {
@@ -82,8 +82,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SIZES")
 #pragma pop_macro("EXTERNALIZED_STRING")
 #pragma pop_macro("EXTERNALIZED_STRING_DESCRIPTOR")
+#pragma pop_macro("SIZES")
 
 #endif // _jdk_internal_jimage_decompressor_StringSharingDecompressor_h_

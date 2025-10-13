@@ -7,12 +7,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Integer.h>
 
-#pragma push_macro("MAX_SKIP_BUFFER_SIZE")
-#undef MAX_SKIP_BUFFER_SIZE
-#pragma push_macro("MAX_BUFFER_SIZE")
-#undef MAX_BUFFER_SIZE
 #pragma push_macro("DEFAULT_BUFFER_SIZE")
 #undef DEFAULT_BUFFER_SIZE
+#pragma push_macro("MAX_BUFFER_SIZE")
+#undef MAX_BUFFER_SIZE
+#pragma push_macro("MAX_SKIP_BUFFER_SIZE")
+#undef MAX_SKIP_BUFFER_SIZE
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
 
@@ -53,9 +53,9 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("MAX_SKIP_BUFFER_SIZE")
-#pragma pop_macro("MAX_BUFFER_SIZE")
 #pragma pop_macro("DEFAULT_BUFFER_SIZE")
+#pragma pop_macro("MAX_BUFFER_SIZE")
+#pragma pop_macro("MAX_SKIP_BUFFER_SIZE")
 #pragma pop_macro("MAX_VALUE")
 
 #endif // _java_io_InputStream_h_

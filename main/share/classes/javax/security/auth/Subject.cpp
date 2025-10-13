@@ -44,14 +44,14 @@
 #include <sun/security/util/ResourcesMgr.h>
 #include <jcpp.h>
 
-#undef GET_SUBJECT_PERMISSION
-#undef PUB_CREDENTIAL_SET
 #undef DO_AS_PERMISSION
-#undef SET_READ_ONLY_PERMISSION
+#undef DO_AS_PRIVILEGED_PERMISSION
+#undef GET_SUBJECT_PERMISSION
+#undef NULL_PD_ARRAY
 #undef PRINCIPAL_SET
 #undef PRIV_CREDENTIAL_SET
-#undef NULL_PD_ARRAY
-#undef DO_AS_PRIVILEGED_PERMISSION
+#undef PUB_CREDENTIAL_SET
+#undef SET_READ_ONLY_PERMISSION
 
 using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

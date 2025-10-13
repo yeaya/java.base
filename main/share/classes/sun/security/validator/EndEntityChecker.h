@@ -6,42 +6,42 @@
 #include <java/lang/Array.h>
 #include <sun/security/x509/NetscapeCertTypeExtension.h>
 
-#pragma push_macro("NSCT_SSL_CLIENT")
-#undef NSCT_SSL_CLIENT
-#pragma push_macro("NSCT_CODE_SIGNING")
-#undef NSCT_CODE_SIGNING
+#pragma push_macro("KU_KEY_AGREEMENT")
+#undef KU_KEY_AGREEMENT
 #pragma push_macro("KU_KEY_ENCIPHERMENT")
 #undef KU_KEY_ENCIPHERMENT
 #pragma push_macro("KU_SERVER_ENCRYPTION")
 #undef KU_SERVER_ENCRYPTION
-#pragma push_macro("OID_EKU_TIME_STAMPING")
-#undef OID_EKU_TIME_STAMPING
-#pragma push_macro("NSCT_SSL_SERVER")
-#undef NSCT_SSL_SERVER
-#pragma push_macro("KU_SERVER_SIGNATURE")
-#undef KU_SERVER_SIGNATURE
-#pragma push_macro("OID_EKU_MS_SGC")
-#undef OID_EKU_MS_SGC
-#pragma push_macro("OID_EKU_TLS_CLIENT")
-#undef OID_EKU_TLS_CLIENT
-#pragma push_macro("KU_SIGNATURE")
-#undef KU_SIGNATURE
 #pragma push_macro("KU_SERVER_KEY_AGREEMENT")
 #undef KU_SERVER_KEY_AGREEMENT
-#pragma push_macro("OID_SUBJECT_ALT_NAME")
-#undef OID_SUBJECT_ALT_NAME
+#pragma push_macro("KU_SERVER_SIGNATURE")
+#undef KU_SERVER_SIGNATURE
+#pragma push_macro("KU_SIGNATURE")
+#undef KU_SIGNATURE
+#pragma push_macro("NSCT_CODE_SIGNING")
+#undef NSCT_CODE_SIGNING
+#pragma push_macro("NSCT_SSL_CLIENT")
+#undef NSCT_SSL_CLIENT
+#pragma push_macro("NSCT_SSL_SERVER")
+#undef NSCT_SSL_SERVER
 #pragma push_macro("OID_EKU_ANY_USAGE")
 #undef OID_EKU_ANY_USAGE
-#pragma push_macro("KU_KEY_AGREEMENT")
-#undef KU_KEY_AGREEMENT
-#pragma push_macro("OID_EKU_TLS_SERVER")
-#undef OID_EKU_TLS_SERVER
-#pragma push_macro("OID_EKU_NS_SGC")
-#undef OID_EKU_NS_SGC
-#pragma push_macro("OID_EXTENDED_KEY_USAGE")
-#undef OID_EXTENDED_KEY_USAGE
 #pragma push_macro("OID_EKU_CODE_SIGNING")
 #undef OID_EKU_CODE_SIGNING
+#pragma push_macro("OID_EKU_MS_SGC")
+#undef OID_EKU_MS_SGC
+#pragma push_macro("OID_EKU_NS_SGC")
+#undef OID_EKU_NS_SGC
+#pragma push_macro("OID_EKU_TIME_STAMPING")
+#undef OID_EKU_TIME_STAMPING
+#pragma push_macro("OID_EKU_TLS_CLIENT")
+#undef OID_EKU_TLS_CLIENT
+#pragma push_macro("OID_EKU_TLS_SERVER")
+#undef OID_EKU_TLS_SERVER
+#pragma push_macro("OID_EXTENDED_KEY_USAGE")
+#undef OID_EXTENDED_KEY_USAGE
+#pragma push_macro("OID_SUBJECT_ALT_NAME")
+#undef OID_SUBJECT_ALT_NAME
 
 namespace java {
 	namespace security {
@@ -102,23 +102,23 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NSCT_SSL_CLIENT")
-#pragma pop_macro("NSCT_CODE_SIGNING")
+#pragma pop_macro("KU_KEY_AGREEMENT")
 #pragma pop_macro("KU_KEY_ENCIPHERMENT")
 #pragma pop_macro("KU_SERVER_ENCRYPTION")
-#pragma pop_macro("OID_EKU_TIME_STAMPING")
-#pragma pop_macro("NSCT_SSL_SERVER")
-#pragma pop_macro("KU_SERVER_SIGNATURE")
-#pragma pop_macro("OID_EKU_MS_SGC")
-#pragma pop_macro("OID_EKU_TLS_CLIENT")
-#pragma pop_macro("KU_SIGNATURE")
 #pragma pop_macro("KU_SERVER_KEY_AGREEMENT")
-#pragma pop_macro("OID_SUBJECT_ALT_NAME")
+#pragma pop_macro("KU_SERVER_SIGNATURE")
+#pragma pop_macro("KU_SIGNATURE")
+#pragma pop_macro("NSCT_CODE_SIGNING")
+#pragma pop_macro("NSCT_SSL_CLIENT")
+#pragma pop_macro("NSCT_SSL_SERVER")
 #pragma pop_macro("OID_EKU_ANY_USAGE")
-#pragma pop_macro("KU_KEY_AGREEMENT")
-#pragma pop_macro("OID_EKU_TLS_SERVER")
-#pragma pop_macro("OID_EKU_NS_SGC")
-#pragma pop_macro("OID_EXTENDED_KEY_USAGE")
 #pragma pop_macro("OID_EKU_CODE_SIGNING")
+#pragma pop_macro("OID_EKU_MS_SGC")
+#pragma pop_macro("OID_EKU_NS_SGC")
+#pragma pop_macro("OID_EKU_TIME_STAMPING")
+#pragma pop_macro("OID_EKU_TLS_CLIENT")
+#pragma pop_macro("OID_EKU_TLS_SERVER")
+#pragma pop_macro("OID_EXTENDED_KEY_USAGE")
+#pragma pop_macro("OID_SUBJECT_ALT_NAME")
 
 #endif // _sun_security_validator_EndEntityChecker_h_

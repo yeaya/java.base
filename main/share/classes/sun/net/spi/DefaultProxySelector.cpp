@@ -317,9 +317,9 @@ $String* DefaultProxySelector::disjunctToRegex($String* disjunct) {
 		bool var$1 = disjunct->startsWith("*"_s);
 		if (var$1 && disjunct->endsWith("*"_s)) {
 			$assign(regex, $str({".*"_s, $($Pattern::quote($(disjunct->substring(1, disjunct->length() - 1)))), ".*"_s}));
-		} else if ($nc(disjunct)->startsWith("*"_s)) {
+		} else if (disjunct->startsWith("*"_s)) {
 			$assign(regex, $str({".*"_s, $($Pattern::quote($(disjunct->substring(1))))}));
-		} else if ($nc(disjunct)->endsWith("*"_s)) {
+		} else if (disjunct->endsWith("*"_s)) {
 			$assign(regex, $str({$($Pattern::quote($(disjunct->substring(0, disjunct->length() - 1)))), ".*"_s}));
 		} else {
 			$assign(regex, $Pattern::quote(disjunct));

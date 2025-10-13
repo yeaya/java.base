@@ -5,36 +5,36 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ISO_OFFSET_TIME")
-#undef ISO_OFFSET_TIME
-#pragma push_macro("ISO_LOCAL_DATE_TIME")
-#undef ISO_LOCAL_DATE_TIME
-#pragma push_macro("PARSED_EXCESS_DAYS")
-#undef PARSED_EXCESS_DAYS
-#pragma push_macro("ISO_INSTANT")
-#undef ISO_INSTANT
-#pragma push_macro("ISO_ZONED_DATE_TIME")
-#undef ISO_ZONED_DATE_TIME
-#pragma push_macro("ISO_OFFSET_DATE_TIME")
-#undef ISO_OFFSET_DATE_TIME
-#pragma push_macro("ISO_DATE_TIME")
-#undef ISO_DATE_TIME
+#pragma push_macro("BASIC_ISO_DATE")
+#undef BASIC_ISO_DATE
 #pragma push_macro("ISO_DATE")
 #undef ISO_DATE
-#pragma push_macro("ISO_TIME")
-#undef ISO_TIME
+#pragma push_macro("ISO_DATE_TIME")
+#undef ISO_DATE_TIME
+#pragma push_macro("ISO_INSTANT")
+#undef ISO_INSTANT
+#pragma push_macro("ISO_LOCAL_DATE")
+#undef ISO_LOCAL_DATE
+#pragma push_macro("ISO_LOCAL_DATE_TIME")
+#undef ISO_LOCAL_DATE_TIME
 #pragma push_macro("ISO_LOCAL_TIME")
 #undef ISO_LOCAL_TIME
 #pragma push_macro("ISO_OFFSET_DATE")
 #undef ISO_OFFSET_DATE
+#pragma push_macro("ISO_OFFSET_DATE_TIME")
+#undef ISO_OFFSET_DATE_TIME
+#pragma push_macro("ISO_OFFSET_TIME")
+#undef ISO_OFFSET_TIME
 #pragma push_macro("ISO_ORDINAL_DATE")
 #undef ISO_ORDINAL_DATE
-#pragma push_macro("ISO_LOCAL_DATE")
-#undef ISO_LOCAL_DATE
-#pragma push_macro("BASIC_ISO_DATE")
-#undef BASIC_ISO_DATE
+#pragma push_macro("ISO_TIME")
+#undef ISO_TIME
 #pragma push_macro("ISO_WEEK_DATE")
 #undef ISO_WEEK_DATE
+#pragma push_macro("ISO_ZONED_DATE_TIME")
+#undef ISO_ZONED_DATE_TIME
+#pragma push_macro("PARSED_EXCESS_DAYS")
+#undef PARSED_EXCESS_DAYS
 #pragma push_macro("PARSED_LEAP_SECOND")
 #undef PARSED_LEAP_SECOND
 
@@ -170,21 +170,21 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("ISO_OFFSET_TIME")
-#pragma pop_macro("ISO_LOCAL_DATE_TIME")
-#pragma pop_macro("PARSED_EXCESS_DAYS")
-#pragma pop_macro("ISO_INSTANT")
-#pragma pop_macro("ISO_ZONED_DATE_TIME")
-#pragma pop_macro("ISO_OFFSET_DATE_TIME")
-#pragma pop_macro("ISO_DATE_TIME")
+#pragma pop_macro("BASIC_ISO_DATE")
 #pragma pop_macro("ISO_DATE")
-#pragma pop_macro("ISO_TIME")
+#pragma pop_macro("ISO_DATE_TIME")
+#pragma pop_macro("ISO_INSTANT")
+#pragma pop_macro("ISO_LOCAL_DATE")
+#pragma pop_macro("ISO_LOCAL_DATE_TIME")
 #pragma pop_macro("ISO_LOCAL_TIME")
 #pragma pop_macro("ISO_OFFSET_DATE")
+#pragma pop_macro("ISO_OFFSET_DATE_TIME")
+#pragma pop_macro("ISO_OFFSET_TIME")
 #pragma pop_macro("ISO_ORDINAL_DATE")
-#pragma pop_macro("ISO_LOCAL_DATE")
-#pragma pop_macro("BASIC_ISO_DATE")
+#pragma pop_macro("ISO_TIME")
 #pragma pop_macro("ISO_WEEK_DATE")
+#pragma pop_macro("ISO_ZONED_DATE_TIME")
+#pragma pop_macro("PARSED_EXCESS_DAYS")
 #pragma pop_macro("PARSED_LEAP_SECOND")
 
 #endif // _java_time_format_DateTimeFormatter_h_

@@ -33,9 +33,9 @@
 #include <jdk/internal/jmod/JmodFile$Section.h>
 #include <jcpp.h>
 
-#undef JMOD_MINOR_VERSION
 #undef JMOD_MAGIC_NUMBER
 #undef JMOD_MAJOR_VERSION
+#undef JMOD_MINOR_VERSION
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $File = ::java::io::File;

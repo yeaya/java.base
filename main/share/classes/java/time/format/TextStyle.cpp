@@ -12,16 +12,16 @@
 #include <java/util/Calendar.h>
 #include <jcpp.h>
 
-#undef SHORT_STANDALONE
-#undef LONG_STANDALONE
-#undef LONG_FORMAT
-#undef NARROW_STANDALONE
-#undef FULL_STANDALONE
 #undef FULL
-#undef NARROW_FORMAT
-#undef SHORT
+#undef FULL_STANDALONE
+#undef LONG_FORMAT
+#undef LONG_STANDALONE
 #undef NARROW
+#undef NARROW_FORMAT
+#undef NARROW_STANDALONE
+#undef SHORT
 #undef SHORT_FORMAT
+#undef SHORT_STANDALONE
 
 using $TextStyleArray = $Array<::java::time::format::TextStyle>;
 using $ClassInfo = ::java::lang::ClassInfo;

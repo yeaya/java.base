@@ -40,10 +40,10 @@
 #include <jcpp.h>
 
 #undef ENGLISH
+#undef HELLO_RETRY_REQUEST
+#undef ILLEGAL_PARAMETER
 #undef PROTOCOL_VERSION
 #undef SERVER_HELLO
-#undef ILLEGAL_PARAMETER
-#undef HELLO_RETRY_REQUEST
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $IOException = ::java::io::IOException;

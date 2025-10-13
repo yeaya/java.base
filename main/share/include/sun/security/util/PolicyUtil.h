@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("P11KEYSTORE")
-#undef P11KEYSTORE
 #pragma push_macro("NONE")
 #undef NONE
+#pragma push_macro("P11KEYSTORE")
+#undef P11KEYSTORE
 
 namespace java {
 	namespace io {
@@ -52,7 +52,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("P11KEYSTORE")
 #pragma pop_macro("NONE")
+#pragma pop_macro("P11KEYSTORE")
 
 #endif // _sun_security_util_PolicyUtil_h_

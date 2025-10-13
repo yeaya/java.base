@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("OPEN_CMD")
-#undef OPEN_CMD
-#pragma push_macro("LOCK_CMD")
-#undef LOCK_CMD
-#pragma push_macro("TERMINATOR")
-#undef TERMINATOR
 #pragma push_macro("CLOSE_CMD")
 #undef CLOSE_CMD
+#pragma push_macro("LOCK_CMD")
+#undef LOCK_CMD
+#pragma push_macro("OPEN_CMD")
+#undef OPEN_CMD
+#pragma push_macro("TERMINATOR")
+#undef TERMINATOR
 #pragma push_macro("UNLOCK_CMD")
 #undef UNLOCK_CMD
 
@@ -46,10 +46,10 @@ public:
 	static const char16_t TERMINATOR = ((char16_t)59);
 };
 
-#pragma pop_macro("OPEN_CMD")
-#pragma pop_macro("LOCK_CMD")
-#pragma pop_macro("TERMINATOR")
 #pragma pop_macro("CLOSE_CMD")
+#pragma pop_macro("LOCK_CMD")
+#pragma pop_macro("OPEN_CMD")
+#pragma pop_macro("TERMINATOR")
 #pragma pop_macro("UNLOCK_CMD")
 
 #endif // _Lock_h_

@@ -56,11 +56,11 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef INSTANCE
-#undef TRUE
 #undef FALSE
-#undef PROVIDER_VERIFIED
+#undef INSTANCE
 #undef NULL_URL
+#undef PROVIDER_VERIFIED
+#undef TRUE
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
@@ -363,8 +363,7 @@ void JceSecurity::setupJurisdictionPolicies() {
 												tmpPerms->load(is);
 												if ($nc(filename)->startsWith("default_"_s)) {
 													$assignStatic(JceSecurity::defaultPolicy, (JceSecurity::defaultPolicy == nullptr) ? tmpPerms : $nc(JceSecurity::defaultPolicy)->getMinimum(tmpPerms));
-												} else if ($nc(filename)->startsWith("exempt_"_s)) {
-													$init(JceSecurity);
+												} else if (filename->startsWith("exempt_"_s)) {
 													$assignStatic(JceSecurity::exemptPolicy, (JceSecurity::exemptPolicy == nullptr) ? tmpPerms : $nc(JceSecurity::exemptPolicy)->getMinimum(tmpPerms));
 												} else {
 													$throwNew($SecurityException, $$str({"Unexpected jurisdiction policy files in : "_s, cryptoPolicyProperty}));

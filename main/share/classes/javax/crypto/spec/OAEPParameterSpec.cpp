@@ -14,8 +14,8 @@
 #include <javax/crypto/spec/PSource.h>
 #include <jcpp.h>
 
-#undef SHA1
 #undef DEFAULT
+#undef SHA1
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -21,11 +21,11 @@
 #include <sun/nio/ch/Net.h>
 #include <jcpp.h>
 
-#undef SO_RCVBUF
 #undef SO_KEEPALIVE
-#undef SO_SNDBUF
+#undef SO_RCVBUF
 #undef SO_REUSEADDR
 #undef SO_REUSEPORT
+#undef SO_SNDBUF
 #undef TCP_NODELAY
 
 using $ClassInfo = ::java::lang::ClassInfo;

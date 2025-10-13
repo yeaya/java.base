@@ -57,15 +57,15 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef NO_PROXY
+#undef ASCII
 #undef BIN
 #undef DEFAULT_CONNECT_TIMEOUT
 #undef DEFAULT_READ_TIMEOUT
-#undef SOCKS
-#undef HTTP
-#undef ASCII
-#undef NONE
 #undef DIR
+#undef HTTP
+#undef NONE
+#undef NO_PROXY
+#undef SOCKS
 
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FilterInputStream = ::java::io::FilterInputStream;

@@ -12,9 +12,9 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef ONE
 #undef TEN
+#undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -29,8 +29,8 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef INSTANCE
 #undef CONTROL_PROVIDERS
+#undef INSTANCE
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

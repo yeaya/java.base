@@ -15,10 +15,10 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
-#undef ECDHE
-#undef KE
 #undef EC
+#undef ECDHE
 #undef EDDSA
+#undef KE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

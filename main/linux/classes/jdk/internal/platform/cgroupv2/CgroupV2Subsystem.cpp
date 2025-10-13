@@ -37,16 +37,16 @@
 #include <jdk/internal/platform/cgroupv2/CgroupV2SubsystemController.h>
 #include <jcpp.h>
 
-#undef INT_ARRAY_UNAVAILABLE
-#undef MICROSECONDS
-#undef PER_CPU_SHARES
 #undef EMPTY_STR
-#undef NO_SWAP
 #undef INSTANCE
-#undef MAX_VAL
+#undef INT_ARRAY_UNAVAILABLE
 #undef LONG_ARRAY_NOT_SUPPORTED
-#undef PROVIDER_NAME
 #undef LONG_RETVAL_UNLIMITED
+#undef MAX_VAL
+#undef MICROSECONDS
+#undef NO_SWAP
+#undef PER_CPU_SHARES
+#undef PROVIDER_NAME
 
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;

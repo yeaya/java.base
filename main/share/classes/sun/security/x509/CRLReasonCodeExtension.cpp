@@ -22,9 +22,9 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef UNSPECIFIED
-#undef REASON
 #undef NAME
+#undef REASON
+#undef UNSPECIFIED
 
 using $CRLReasonArray = $Array<::java::security::cert::CRLReason>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

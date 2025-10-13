@@ -65,8 +65,8 @@
 #include <jcpp.h>
 
 #undef INSTANCE
-#undef UNSAFE
 #undef MAX_VALUE
+#undef UNSAFE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $BufferedWriter = ::java::io::BufferedWriter;

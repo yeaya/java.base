@@ -13,14 +13,14 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <jcpp.h>
 
-#undef FALLBACK
+#undef CLASSNAME
 #undef CLDR
+#undef FALLBACK
 #undef HOST
 #undef JRE
-#undef CLASSNAME
 #undef SPI
-#undef UTIL_RESOURCES_PACKAGE
 #undef TEXT_RESOURCES_PACKAGE
+#undef UTIL_RESOURCES_PACKAGE
 
 using $LocaleProviderAdapter$TypeArray = $Array<::sun::util::locale::provider::LocaleProviderAdapter$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;

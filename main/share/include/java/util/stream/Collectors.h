@@ -7,16 +7,16 @@
 
 #pragma push_macro("CH_CONCURRENT_ID")
 #undef CH_CONCURRENT_ID
-#pragma push_macro("CH_UNORDERED_ID")
-#undef CH_UNORDERED_ID
 #pragma push_macro("CH_CONCURRENT_NOID")
 #undef CH_CONCURRENT_NOID
 #pragma push_macro("CH_ID")
 #undef CH_ID
-#pragma push_macro("CH_UNORDERED_NOID")
-#undef CH_UNORDERED_NOID
 #pragma push_macro("CH_NOID")
 #undef CH_NOID
+#pragma push_macro("CH_UNORDERED_ID")
+#undef CH_UNORDERED_ID
+#pragma push_macro("CH_UNORDERED_NOID")
+#undef CH_UNORDERED_NOID
 
 namespace java {
 	namespace lang {
@@ -220,10 +220,10 @@ public:
 } // java
 
 #pragma pop_macro("CH_CONCURRENT_ID")
-#pragma pop_macro("CH_UNORDERED_ID")
 #pragma pop_macro("CH_CONCURRENT_NOID")
 #pragma pop_macro("CH_ID")
-#pragma pop_macro("CH_UNORDERED_NOID")
 #pragma pop_macro("CH_NOID")
+#pragma pop_macro("CH_UNORDERED_ID")
+#pragma pop_macro("CH_UNORDERED_NOID")
 
 #endif // _java_util_stream_Collectors_h_

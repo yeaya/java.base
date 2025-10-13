@@ -76,15 +76,15 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef HTTP_CONTINUE
-#undef NO_PROXY
-#undef TUNNELING
-#undef HTTP_NOT_MODIFIED
+#undef DEFAULT
 #undef FINEST
 #undef HTTP
-#undef DEFAULT
-#undef US
+#undef HTTP_CONTINUE
+#undef HTTP_NOT_MODIFIED
 #undef HTTP_NO_CONTENT
+#undef NO_PROXY
+#undef TUNNELING
+#undef US
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
@@ -806,7 +806,7 @@ $String* HttpClient::getURLFile() {
 		$assign(fileName, $nc(this->url)->getFile());
 		if ((fileName == nullptr) || ($nc(fileName)->isEmpty())) {
 			$assign(fileName, "/"_s);
-		} else if ($nc(fileName)->charAt(0) == u'?') {
+		} else if (fileName->charAt(0) == u'?') {
 			$assign(fileName, $str({"/"_s, fileName}));
 		}
 	}
@@ -941,7 +941,7 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 					this->keepAliveConnections = p->findInt("max"_s, this->usingProxy ? 50 : 5);
 					this->keepAliveTimeout = p->findInt("timeout"_s, this->usingProxy ? 60 : 5);
 				}
-			} else if ($nc(b)->get(7) != u'0') {
+			} else if (b->get(7) != u'0') {
 				if (keep != nullptr || this->disableKeepAlive) {
 					this->keepAliveConnections = 1;
 				} else {
@@ -1034,7 +1034,7 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 		}
 	} else if (cl == -1) {
 		if (pi != nullptr) {
-			pi->setContentType($($nc(responses)->findValue("content-type"_s)));
+			pi->setContentType($(responses->findValue("content-type"_s)));
 			$set(this, serverInput, $new($MeteredStream, this->serverInput, pi, cl));
 		} else {
 		}

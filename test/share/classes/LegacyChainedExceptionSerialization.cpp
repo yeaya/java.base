@@ -39,13 +39,13 @@
 #include <jcpp.h>
 
 #undef CNFE_OLD_VERSION
-#undef ITE1_OLD_VERSION
-#undef UTE1_OLD_VERSION
-#undef PAE_OLD_VERSION
-#undef ITE2_OLD_VERSION
-#undef UTE2_OLD_VERSION
-#undef SERIALIZED_DATA
 #undef EIIE_OLD_VERSION
+#undef ITE1_OLD_VERSION
+#undef ITE2_OLD_VERSION
+#undef PAE_OLD_VERSION
+#undef SERIALIZED_DATA
+#undef UTE1_OLD_VERSION
+#undef UTE2_OLD_VERSION
 
 using $LegacyChainedExceptionSerialization$SubClass = ::LegacyChainedExceptionSerialization$SubClass;
 using $ThrowableArray = $Array<::java::lang::Throwable>;

@@ -69,29 +69,29 @@
 #include <jdk/internal/jrtfs/JrtPath$2.h>
 #include <jcpp.h>
 
-#undef H_PATH
-#undef L_ALPHA
-#undef CREATE_NEW
-#undef L_PATH
 #undef COPY_ATTRIBUTES
-#undef L_ALPHANUM
-#undef H_DIGIT
-#undef L_DIGIT
-#undef H_UNRESERVED
-#undef H_PCHAR
-#undef REPLACE_EXISTING
-#undef L_MARK
-#undef L_UNRESERVED
-#undef L_PCHAR
-#undef WRITE
-#undef READ
+#undef CREATE_NEW
 #undef H_ALPHA
 #undef H_ALPHANUM
-#undef H_UPALPHA
-#undef L_LOWALPHA
-#undef L_UPALPHA
+#undef H_DIGIT
 #undef H_LOWALPHA
 #undef H_MARK
+#undef H_PATH
+#undef H_PCHAR
+#undef H_UNRESERVED
+#undef H_UPALPHA
+#undef L_ALPHA
+#undef L_ALPHANUM
+#undef L_DIGIT
+#undef L_LOWALPHA
+#undef L_MARK
+#undef L_PATH
+#undef L_PCHAR
+#undef L_UNRESERVED
+#undef L_UPALPHA
+#undef READ
+#undef REPLACE_EXISTING
+#undef WRITE
 
 using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;

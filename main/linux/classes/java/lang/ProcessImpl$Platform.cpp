@@ -35,12 +35,12 @@
 #include <jcpp.h>
 
 #undef AIX
-#undef POSIX_SPAWN
 #undef BSD
-#undef FORK
 #undef ENGLISH
-#undef VFORK
+#undef FORK
 #undef LINUX
+#undef POSIX_SPAWN
+#undef VFORK
 
 using $ProcessImpl$LaunchMechanismArray = $Array<::java::lang::ProcessImpl$LaunchMechanism>;
 using $ProcessImpl$PlatformArray = $Array<::java::lang::ProcessImpl$Platform>;

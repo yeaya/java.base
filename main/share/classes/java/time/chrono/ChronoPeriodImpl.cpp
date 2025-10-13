@@ -34,12 +34,12 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef YEARS
-#undef MONTHS
-#undef MONTH_OF_YEAR
 #undef CHRONO_PERIOD_TYPE
 #undef DAYS
+#undef MONTHS
+#undef MONTH_OF_YEAR
 #undef SUPPORTED_UNITS
+#undef YEARS
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

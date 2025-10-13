@@ -30,9 +30,9 @@
 #include <sun/security/ssl/SSLSessionImpl.h>
 #include <jcpp.h>
 
+#undef DTLS10
 #undef H_NONE
 #undef TLS11
-#undef DTLS10
 #undef TLS12
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -22,10 +22,10 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef MIXED
-#undef NAME_URANDOM
-#undef NAME_RANDOM
 #undef INSTANCE
+#undef MIXED
+#undef NAME_RANDOM
+#undef NAME_URANDOM
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

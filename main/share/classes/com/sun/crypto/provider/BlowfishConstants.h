@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("BLOWFISH_MAX_KEYSIZE")
-#undef BLOWFISH_MAX_KEYSIZE
 #pragma push_macro("BLOWFISH_BLOCK_SIZE")
 #undef BLOWFISH_BLOCK_SIZE
+#pragma push_macro("BLOWFISH_MAX_KEYSIZE")
+#undef BLOWFISH_MAX_KEYSIZE
 
 namespace com {
 	namespace sun {
@@ -27,7 +27,7 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("BLOWFISH_MAX_KEYSIZE")
 #pragma pop_macro("BLOWFISH_BLOCK_SIZE")
+#pragma pop_macro("BLOWFISH_MAX_KEYSIZE")
 
 #endif // _com_sun_crypto_provider_BlowfishConstants_h_

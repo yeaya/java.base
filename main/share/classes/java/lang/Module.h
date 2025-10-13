@@ -8,12 +8,12 @@
 
 #pragma push_macro("ALL_UNNAMED_MODULE")
 #undef ALL_UNNAMED_MODULE
+#pragma push_macro("ALL_UNNAMED_MODULE_SET")
+#undef ALL_UNNAMED_MODULE_SET
 #pragma push_macro("EVERYONE_MODULE")
 #undef EVERYONE_MODULE
 #pragma push_macro("EVERYONE_SET")
 #undef EVERYONE_SET
-#pragma push_macro("ALL_UNNAMED_MODULE_SET")
-#undef ALL_UNNAMED_MODULE_SET
 
 namespace java {
 	namespace io {
@@ -157,8 +157,8 @@ public:
 } // java
 
 #pragma pop_macro("ALL_UNNAMED_MODULE")
+#pragma pop_macro("ALL_UNNAMED_MODULE_SET")
 #pragma pop_macro("EVERYONE_MODULE")
 #pragma pop_macro("EVERYONE_SET")
-#pragma pop_macro("ALL_UNNAMED_MODULE_SET")
 
 #endif // _java_lang_Module_h_

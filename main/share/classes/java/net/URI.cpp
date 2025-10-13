@@ -42,52 +42,52 @@
 #include <sun/nio/cs/UTF_8.h>
 #include <jcpp.h>
 
-#undef H_PATH
-#undef H_SERVER_PERCENT
-#undef H_SERVER
-#undef H_SCHEME
-#undef L_SCHEME
-#undef L_SERVER
-#undef H_USERINFO
-#undef NFC
-#undef L_DIGIT
-#undef H_UNRESERVED
-#undef H_PCHAR
-#undef L_USERINFO
-#undef URI
-#undef L_RESERVED
-#undef L_UNRESERVED
-#undef L_PCHAR
-#undef H_REG_NAME
-#undef H_DOT
 #undef H_ALPHA
 #undef H_ALPHANUM
-#undef L_HEX
-#undef L_SCOPE_ID
-#undef L_LOWALPHA
-#undef L_URIC
-#undef REPLACE
-#undef L_UPALPHA
 #undef H_DASH
-#undef H_MARK
-#undef H_ESCAPED
-#undef L_REG_NAME
-#undef L_ALPHA
-#undef H_HEX
-#undef L_PATH
-#undef INSTANCE
-#undef L_ALPHANUM
 #undef H_DIGIT
-#undef L_DOT
-#undef L_MARK
-#undef H_RESERVED
-#undef L_ESCAPED
-#undef L_DASH
-#undef H_URIC
-#undef L_SERVER_PERCENT
-#undef H_UPALPHA
-#undef H_SCOPE_ID
+#undef H_DOT
+#undef H_ESCAPED
+#undef H_HEX
 #undef H_LOWALPHA
+#undef H_MARK
+#undef H_PATH
+#undef H_PCHAR
+#undef H_REG_NAME
+#undef H_RESERVED
+#undef H_SCHEME
+#undef H_SCOPE_ID
+#undef H_SERVER
+#undef H_SERVER_PERCENT
+#undef H_UNRESERVED
+#undef H_UPALPHA
+#undef H_URIC
+#undef H_USERINFO
+#undef INSTANCE
+#undef L_ALPHA
+#undef L_ALPHANUM
+#undef L_DASH
+#undef L_DIGIT
+#undef L_DOT
+#undef L_ESCAPED
+#undef L_HEX
+#undef L_LOWALPHA
+#undef L_MARK
+#undef L_PATH
+#undef L_PCHAR
+#undef L_REG_NAME
+#undef L_RESERVED
+#undef L_SCHEME
+#undef L_SCOPE_ID
+#undef L_SERVER
+#undef L_SERVER_PERCENT
+#undef L_UNRESERVED
+#undef L_UPALPHA
+#undef L_URIC
+#undef L_USERINFO
+#undef NFC
+#undef REPLACE
+#undef URI
 
 using $IOException = ::java::io::IOException;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
@@ -575,7 +575,7 @@ bool URI::equals(Object$* ob) {
 		if (!equal(this->authority, $nc(that)->authority)) {
 			return false;
 		}
-	} else if (this->authority != $nc(that)->authority) {
+	} else if (this->authority != that->authority) {
 		return false;
 	}
 	return true;
@@ -619,10 +619,10 @@ int32_t URI::compareTo(URI* that) {
 			return compare(this->fragment, that->fragment);
 		}
 		return +1;
-	} else if ($nc(that)->isOpaque()) {
+	} else if (that->isOpaque()) {
 		return -1;
 	}
-	if ((this->host != nullptr) && ($nc(that)->host != nullptr)) {
+	if ((this->host != nullptr) && (that->host != nullptr)) {
 		if ((c = compare(this->userInfo, that->userInfo)) != 0) {
 			return c;
 		}
@@ -632,16 +632,16 @@ int32_t URI::compareTo(URI* that) {
 		if ((c = this->port - that->port) != 0) {
 			return c;
 		}
-	} else if ((c = compare(this->authority, $nc(that)->authority)) != 0) {
+	} else if ((c = compare(this->authority, that->authority)) != 0) {
 		return c;
 	}
-	if ((c = compare(this->path, $nc(that)->path)) != 0) {
+	if ((c = compare(this->path, that->path)) != 0) {
 		return c;
 	}
-	if ((c = compare(this->query, $nc(that)->query)) != 0) {
+	if ((c = compare(this->query, that->query)) != 0) {
 		return c;
 	}
-	return compare(this->fragment, $nc(that)->fragment);
+	return compare(this->fragment, that->fragment);
 }
 
 $String* URI::toString() {
@@ -686,7 +686,7 @@ $String* URI::defineString() {
 				sb->append(this->port);
 			}
 		} else if (this->authority != nullptr) {
-			$nc(sb)->append("//"_s);
+			sb->append("//"_s);
 			sb->append(this->authority);
 		}
 		if (this->path != nullptr) {
@@ -1224,11 +1224,11 @@ int32_t URI::join($chars* path, $ints* segs) {
 				path->set(p++, u'/');
 			}
 		} else if (p < q) {
-			while ((q <= end) && ($nc(path)->get(q) != u'\0')) {
+			while ((q <= end) && (path->get(q) != u'\0')) {
 				path->set(p++, path->get(q++));
 			}
 			if (q <= end) {
-				$nc(path)->set(p++, u'/');
+				path->set(p++, u'/');
 			}
 		} else {
 			$throwNew($InternalError);
@@ -1249,10 +1249,10 @@ void URI::removeDots($chars* path, $ints* segs) {
 				if (p == end) {
 					dots = 1;
 					break;
-				} else if ($nc(path)->get(p + 1) == u'\0') {
+				} else if (path->get(p + 1) == u'\0') {
 					dots = 1;
 					break;
-				} else if (($nc(path)->get(p + 1) == u'.') && ((p + 1 == end) || ($nc(path)->get(p + 2) == u'\0'))) {
+				} else if ((path->get(p + 1) == u'.') && ((p + 1 == end) || (path->get(p + 2) == u'\0'))) {
 					dots = 2;
 					break;
 				}

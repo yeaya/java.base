@@ -13,8 +13,8 @@
 #include <jdk/internal/org/objectweb/asm/tree/AbstractInsnNode.h>
 #include <jcpp.h>
 
-#undef LDC_INSN
 #undef LDC
+#undef LDC_INSN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

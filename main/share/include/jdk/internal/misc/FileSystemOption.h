@@ -5,24 +5,24 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("DIRECT")
+#undef DIRECT
+#pragma push_macro("FILE_TREE")
+#undef FILE_TREE
 #pragma push_macro("INTERRUPTIBLE")
 #undef INTERRUPTIBLE
 #pragma push_macro("NOSHARE_DELETE")
 #undef NOSHARE_DELETE
-#pragma push_macro("FILE_TREE")
-#undef FILE_TREE
-#pragma push_macro("SENSITIVITY_MEDIUM")
-#undef SENSITIVITY_MEDIUM
+#pragma push_macro("NOSHARE_READ")
+#undef NOSHARE_READ
 #pragma push_macro("NOSHARE_WRITE")
 #undef NOSHARE_WRITE
 #pragma push_macro("SENSITIVITY_HIGH")
 #undef SENSITIVITY_HIGH
-#pragma push_macro("NOSHARE_READ")
-#undef NOSHARE_READ
 #pragma push_macro("SENSITIVITY_LOW")
 #undef SENSITIVITY_LOW
-#pragma push_macro("DIRECT")
-#undef DIRECT
+#pragma push_macro("SENSITIVITY_MEDIUM")
+#undef SENSITIVITY_MEDIUM
 
 namespace java {
 	namespace nio {
@@ -70,14 +70,14 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("DIRECT")
+#pragma pop_macro("FILE_TREE")
 #pragma pop_macro("INTERRUPTIBLE")
 #pragma pop_macro("NOSHARE_DELETE")
-#pragma pop_macro("FILE_TREE")
-#pragma pop_macro("SENSITIVITY_MEDIUM")
+#pragma pop_macro("NOSHARE_READ")
 #pragma pop_macro("NOSHARE_WRITE")
 #pragma pop_macro("SENSITIVITY_HIGH")
-#pragma pop_macro("NOSHARE_READ")
 #pragma pop_macro("SENSITIVITY_LOW")
-#pragma pop_macro("DIRECT")
+#pragma pop_macro("SENSITIVITY_MEDIUM")
 
 #endif // _jdk_internal_misc_FileSystemOption_h_

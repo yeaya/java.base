@@ -94,9 +94,9 @@
 
 #include <java/lang/Machine.h>
 
-#undef NONNULL
-#undef IMMUTABLE
 #undef GET_CLASSLOADER_PERMISSION
+#undef IMMUTABLE
+#undef NONNULL
 
 using $PackageArray = $Array<::java::lang::Package>;
 using $PrincipalArray = $Array<::java::security::Principal>;

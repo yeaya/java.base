@@ -20,8 +20,8 @@
 #include <sun/security/x509/AttributeNameEnumeration.h>
 #include <jcpp.h>
 
-#undef IDENT
 #undef ALGORITHM
+#undef IDENT
 #undef NAME
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

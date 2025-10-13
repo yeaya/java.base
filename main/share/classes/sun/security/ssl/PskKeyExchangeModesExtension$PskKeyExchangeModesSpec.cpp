@@ -27,10 +27,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef PSK_DHE_KE
-#undef ENGLISH
-#undef DEFAULT
 #undef DECODE_ERROR
+#undef DEFAULT
+#undef ENGLISH
+#undef PSK_DHE_KE
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

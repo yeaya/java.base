@@ -30,8 +30,8 @@
 #include <sun/security/ssl/SupportedGroupsExtension.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_FFDHE
 #undef CH_SUPPORTED_GROUPS
+#undef NAMED_GROUP_FFDHE
 
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;
 using $ClassInfo = ::java::lang::ClassInfo;

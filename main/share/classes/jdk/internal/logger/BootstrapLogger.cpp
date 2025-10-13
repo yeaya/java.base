@@ -33,8 +33,8 @@
 #include <jcpp.h>
 
 #undef CUSTOM
-#undef INSTANCE
 #undef INFO
+#undef INSTANCE
 #undef JUL_DEFAULT
 
 using $AssertionError = ::java::lang::AssertionError;

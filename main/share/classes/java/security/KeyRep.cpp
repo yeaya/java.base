@@ -27,10 +27,10 @@
 
 #undef ENGLISH
 #undef PKCS8
-#undef RAW
-#undef PUBLIC
-#undef SECRET
 #undef PRIVATE
+#undef PUBLIC
+#undef RAW
+#undef SECRET
 
 using $NotSerializableException = ::java::io::NotSerializableException;
 using $Serializable = ::java::io::Serializable;

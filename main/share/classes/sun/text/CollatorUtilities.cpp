@@ -13,9 +13,9 @@
 #include <jdk/internal/icu/text/NormalizerBase.h>
 #include <jcpp.h>
 
+#undef NFD
 #undef NFKD
 #undef NONE
-#undef NFD
 
 using $NormalizerBase$ModeArray = $Array<::jdk::internal::icu::text::NormalizerBase$Mode>;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;

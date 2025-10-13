@@ -12,10 +12,10 @@
 #include <jcpp.h>
 
 #undef ABSOLUTE
-#undef RELATIVE
-#undef DRIVE_RELATIVE
-#undef UNC
 #undef DIRECTORY_RELATIVE
+#undef DRIVE_RELATIVE
+#undef RELATIVE
+#undef UNC
 
 using $WindowsPathTypeArray = $Array<::sun::nio::fs::WindowsPathType>;
 using $ClassInfo = ::java::lang::ClassInfo;

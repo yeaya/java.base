@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UNSUPPORTED_CHARSET")
-#undef UNSUPPORTED_CHARSET
 #pragma push_macro("FILE_CONTENTS")
 #undef FILE_CONTENTS
+#pragma push_macro("UNSUPPORTED_CHARSET")
+#undef UNSUPPORTED_CHARSET
 
 namespace java {
 	namespace io {
@@ -42,7 +42,7 @@ public:
 	static $volatile(int32_t) failed;
 };
 
-#pragma pop_macro("UNSUPPORTED_CHARSET")
 #pragma pop_macro("FILE_CONTENTS")
+#pragma pop_macro("UNSUPPORTED_CHARSET")
 
 #endif // _FailingConstructors_h_

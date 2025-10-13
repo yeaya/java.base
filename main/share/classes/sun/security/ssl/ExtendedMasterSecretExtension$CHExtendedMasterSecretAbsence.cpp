@@ -23,8 +23,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE_FAILURE
 #undef CH_EXTENDED_MASTER_SECRET
+#undef HANDSHAKE_FAILURE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

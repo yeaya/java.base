@@ -23,8 +23,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef LONG_VALUES
 #undef INT_VALUES
+#undef LONG_VALUES
 #undef MAX_VALUE
 #undef MIN_VALUE
 

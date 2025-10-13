@@ -22,20 +22,20 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef SIGNATURE_DSA
+#undef ALLOW_ECC
 #undef CIPHER_3DES
+#undef CIPHER_AES
+#undef CIPHER_AES_GCM
+#undef CIPHER_DES
 #undef CIPHER_RC4
 #undef CIPHER_RSA_PKCS1
-#undef SIGNATURE_SSLRSA
-#undef SIGNATURE_RAWECDSA
-#undef CIPHER_AES
-#undef SIGNATURE_RAWRSA
-#undef ALLOW_ECC
-#undef CIPHER_DES
-#undef SIGNATURE_RAWDSA
-#undef CIPHER_AES_GCM
+#undef SIGNATURE_DSA
 #undef SIGNATURE_ECDSA
 #undef SIGNATURE_EDDSA
+#undef SIGNATURE_RAWDSA
+#undef SIGNATURE_RAWECDSA
+#undef SIGNATURE_RAWRSA
+#undef SIGNATURE_SSLRSA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

@@ -18,10 +18,10 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef HALF
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef POSITIVE_INFINITY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -105,7 +105,7 @@ void ParseFloat::check($String* val) {
 	bool isNegative = false;
 	if (s->charAt(0) == u'+') {
 		$assign(s, s->substring(1));
-	} else if ($nc(s)->charAt(0) == u'-') {
+	} else if (s->charAt(0) == u'-') {
 		$assign(s, s->substring(1));
 		isNegative = true;
 	}

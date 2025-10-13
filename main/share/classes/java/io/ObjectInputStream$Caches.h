@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("SET_FILTER_AFTER_READ")
-#undef SET_FILTER_AFTER_READ
 #pragma push_macro("PROXY_INTERFACE_LIMIT")
 #undef PROXY_INTERFACE_LIMIT
+#pragma push_macro("SET_FILTER_AFTER_READ")
+#undef SET_FILTER_AFTER_READ
 
 namespace java {
 	namespace lang {
@@ -42,7 +42,7 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("SET_FILTER_AFTER_READ")
 #pragma pop_macro("PROXY_INTERFACE_LIMIT")
+#pragma pop_macro("SET_FILTER_AFTER_READ")
 
 #endif // _java_io_ObjectInputStream$Caches_h_

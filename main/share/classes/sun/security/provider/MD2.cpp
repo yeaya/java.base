@@ -13,10 +13,10 @@
 #include <jcpp.h>
 
 #undef C
-#undef S
-#undef X
 #undef MD2
 #undef PADDING
+#undef S
+#undef X
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;

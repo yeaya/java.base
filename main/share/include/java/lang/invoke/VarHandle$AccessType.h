@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SET")
-#undef SET
-#pragma push_macro("GET_AND_UPDATE")
-#undef GET_AND_UPDATE
-#pragma push_macro("GET")
-#undef GET
 #pragma push_macro("COMPARE_AND_EXCHANGE")
 #undef COMPARE_AND_EXCHANGE
-#pragma push_macro("COUNT")
-#undef COUNT
 #pragma push_macro("COMPARE_AND_SET")
 #undef COMPARE_AND_SET
+#pragma push_macro("COUNT")
+#undef COUNT
+#pragma push_macro("GET")
+#undef GET
+#pragma push_macro("GET_AND_UPDATE")
+#undef GET_AND_UPDATE
+#pragma push_macro("SET")
+#undef SET
 
 namespace java {
 	namespace lang {
@@ -58,11 +58,11 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("SET")
-#pragma pop_macro("GET_AND_UPDATE")
-#pragma pop_macro("GET")
 #pragma pop_macro("COMPARE_AND_EXCHANGE")
-#pragma pop_macro("COUNT")
 #pragma pop_macro("COMPARE_AND_SET")
+#pragma pop_macro("COUNT")
+#pragma pop_macro("GET")
+#pragma pop_macro("GET_AND_UPDATE")
+#pragma pop_macro("SET")
 
 #endif // _java_lang_invoke_VarHandle$AccessType_h_

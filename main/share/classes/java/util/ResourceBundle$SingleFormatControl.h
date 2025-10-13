@@ -5,10 +5,10 @@
 
 #include <java/util/ResourceBundle$Control.h>
 
-#pragma push_macro("PROPERTIES_ONLY")
-#undef PROPERTIES_ONLY
 #pragma push_macro("CLASS_ONLY")
 #undef CLASS_ONLY
+#pragma push_macro("PROPERTIES_ONLY")
+#undef PROPERTIES_ONLY
 
 namespace java {
 	namespace util {
@@ -33,7 +33,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("PROPERTIES_ONLY")
 #pragma pop_macro("CLASS_ONLY")
+#pragma pop_macro("PROPERTIES_ONLY")
 
 #endif // _java_util_ResourceBundle$SingleFormatControl_h_

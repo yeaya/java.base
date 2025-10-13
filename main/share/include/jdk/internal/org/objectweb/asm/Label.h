@@ -5,34 +5,34 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("LINE_NUMBERS_CAPACITY_INCREMENT")
-#undef LINE_NUMBERS_CAPACITY_INCREMENT
+#pragma push_macro("EMPTY_LIST")
+#undef EMPTY_LIST
+#pragma push_macro("FLAG_DEBUG_ONLY")
+#undef FLAG_DEBUG_ONLY
 #pragma push_macro("FLAG_JUMP_TARGET")
 #undef FLAG_JUMP_TARGET
 #pragma push_macro("FLAG_REACHABLE")
 #undef FLAG_REACHABLE
-#pragma push_macro("FORWARD_REFERENCES_CAPACITY_INCREMENT")
-#undef FORWARD_REFERENCES_CAPACITY_INCREMENT
-#pragma push_macro("FORWARD_REFERENCE_TYPE_SHORT")
-#undef FORWARD_REFERENCE_TYPE_SHORT
+#pragma push_macro("FLAG_RESOLVED")
+#undef FLAG_RESOLVED
+#pragma push_macro("FLAG_SUBROUTINE_CALLER")
+#undef FLAG_SUBROUTINE_CALLER
 #pragma push_macro("FLAG_SUBROUTINE_END")
 #undef FLAG_SUBROUTINE_END
+#pragma push_macro("FLAG_SUBROUTINE_START")
+#undef FLAG_SUBROUTINE_START
+#pragma push_macro("FORWARD_REFERENCES_CAPACITY_INCREMENT")
+#undef FORWARD_REFERENCES_CAPACITY_INCREMENT
 #pragma push_macro("FORWARD_REFERENCE_HANDLE_MASK")
 #undef FORWARD_REFERENCE_HANDLE_MASK
 #pragma push_macro("FORWARD_REFERENCE_TYPE_MASK")
 #undef FORWARD_REFERENCE_TYPE_MASK
-#pragma push_macro("FLAG_DEBUG_ONLY")
-#undef FLAG_DEBUG_ONLY
-#pragma push_macro("FLAG_SUBROUTINE_CALLER")
-#undef FLAG_SUBROUTINE_CALLER
-#pragma push_macro("FLAG_SUBROUTINE_START")
-#undef FLAG_SUBROUTINE_START
-#pragma push_macro("FLAG_RESOLVED")
-#undef FLAG_RESOLVED
-#pragma push_macro("EMPTY_LIST")
-#undef EMPTY_LIST
+#pragma push_macro("FORWARD_REFERENCE_TYPE_SHORT")
+#undef FORWARD_REFERENCE_TYPE_SHORT
 #pragma push_macro("FORWARD_REFERENCE_TYPE_WIDE")
 #undef FORWARD_REFERENCE_TYPE_WIDE
+#pragma push_macro("LINE_NUMBERS_CAPACITY_INCREMENT")
+#undef LINE_NUMBERS_CAPACITY_INCREMENT
 
 namespace jdk {
 	namespace internal {
@@ -107,19 +107,19 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("LINE_NUMBERS_CAPACITY_INCREMENT")
+#pragma pop_macro("EMPTY_LIST")
+#pragma pop_macro("FLAG_DEBUG_ONLY")
 #pragma pop_macro("FLAG_JUMP_TARGET")
 #pragma pop_macro("FLAG_REACHABLE")
-#pragma pop_macro("FORWARD_REFERENCES_CAPACITY_INCREMENT")
-#pragma pop_macro("FORWARD_REFERENCE_TYPE_SHORT")
+#pragma pop_macro("FLAG_RESOLVED")
+#pragma pop_macro("FLAG_SUBROUTINE_CALLER")
 #pragma pop_macro("FLAG_SUBROUTINE_END")
+#pragma pop_macro("FLAG_SUBROUTINE_START")
+#pragma pop_macro("FORWARD_REFERENCES_CAPACITY_INCREMENT")
 #pragma pop_macro("FORWARD_REFERENCE_HANDLE_MASK")
 #pragma pop_macro("FORWARD_REFERENCE_TYPE_MASK")
-#pragma pop_macro("FLAG_DEBUG_ONLY")
-#pragma pop_macro("FLAG_SUBROUTINE_CALLER")
-#pragma pop_macro("FLAG_SUBROUTINE_START")
-#pragma pop_macro("FLAG_RESOLVED")
-#pragma pop_macro("EMPTY_LIST")
+#pragma pop_macro("FORWARD_REFERENCE_TYPE_SHORT")
 #pragma pop_macro("FORWARD_REFERENCE_TYPE_WIDE")
+#pragma pop_macro("LINE_NUMBERS_CAPACITY_INCREMENT")
 
 #endif // _jdk_internal_org_objectweb_asm$_Label_h_

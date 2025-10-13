@@ -13,9 +13,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef RETAIN_CLASS_REFERENCE
 #undef SHOW_HIDDEN_FRAMES
 #undef SHOW_REFLECT_FRAMES
-#undef RETAIN_CLASS_REFERENCE
 
 using $StackWalker$OptionArray = $Array<::java::lang::StackWalker$Option>;
 using $ClassInfo = ::java::lang::ClassInfo;

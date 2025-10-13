@@ -15,9 +15,9 @@
 #include <sun/security/util/LocalizedMessage.h>
 #include <jcpp.h>
 
-#undef WILDCARD_NAME
-#undef WILDCARD_CLASS
 #undef REPLACE_NAME
+#undef WILDCARD_CLASS
+#undef WILDCARD_NAME
 
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;

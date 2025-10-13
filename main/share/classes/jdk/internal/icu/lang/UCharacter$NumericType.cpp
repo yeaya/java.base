@@ -10,11 +10,11 @@
 #include <jdk/internal/icu/lang/UCharacter.h>
 #include <jcpp.h>
 
-#undef NUMERIC
-#undef DECIMAL
 #undef COUNT
-#undef NONE
+#undef DECIMAL
 #undef DIGIT
+#undef NONE
+#undef NUMERIC
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

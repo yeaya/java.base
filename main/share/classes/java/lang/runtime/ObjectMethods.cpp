@@ -42,23 +42,23 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
+#undef CLASS_IS_INSTANCE
+#undef DESCRIPTOR_MT
+#undef FALSE
+#undef HASH_COMBINER
+#undef NAMES_MT
+#undef OBJECTS_EQUALS
+#undef OBJECTS_HASHCODE
 #undef OBJECTS_TOSTRING
-#undef OBJECT_TO_STRING
-#undef ZERO
 #undef OBJECT_EQ
 #undef OBJECT_EQUALS
-#undef OBJECTS_HASHCODE
-#undef OBJECT_METHODS_CLASS
-#undef HASH_COMBINER
-#undef TRUE
-#undef STRING_FORMAT
-#undef DESCRIPTOR_MT
-#undef CLASS_IS_INSTANCE
-#undef NAMES_MT
-#undef FALSE
-#undef OBJECTS_EQUALS
 #undef OBJECT_HASHCODE
+#undef OBJECT_METHODS_CLASS
+#undef OBJECT_TO_STRING
+#undef STRING_FORMAT
+#undef TRUE
 #undef TYPE
+#undef ZERO
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $AssertionError = ::java::lang::AssertionError;

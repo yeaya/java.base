@@ -9,12 +9,12 @@
 #include <java/util/AbstractMap.h>
 #include <java/util/NavigableMap.h>
 
+#pragma push_macro("BLACK")
+#undef BLACK
 #pragma push_macro("RED")
 #undef RED
 #pragma push_macro("UNBOUNDED")
 #undef UNBOUNDED
-#pragma push_macro("BLACK")
-#undef BLACK
 
 namespace java {
 	namespace io {
@@ -173,8 +173,8 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("BLACK")
 #pragma pop_macro("RED")
 #pragma pop_macro("UNBOUNDED")
-#pragma pop_macro("BLACK")
 
 #endif // _java_util_TreeMap_h_

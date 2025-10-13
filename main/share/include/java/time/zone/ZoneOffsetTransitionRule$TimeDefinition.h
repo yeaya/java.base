@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("WALL")
-#undef WALL
-#pragma push_macro("UTC")
-#undef UTC
 #pragma push_macro("STANDARD")
 #undef STANDARD
+#pragma push_macro("UTC")
+#undef UTC
+#pragma push_macro("WALL")
+#undef WALL
 
 namespace java {
 	namespace time {
@@ -43,8 +43,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("WALL")
-#pragma pop_macro("UTC")
 #pragma pop_macro("STANDARD")
+#pragma pop_macro("UTC")
+#pragma pop_macro("WALL")
 
 #endif // _java_time_zone_ZoneOffsetTransitionRule$TimeDefinition_h_

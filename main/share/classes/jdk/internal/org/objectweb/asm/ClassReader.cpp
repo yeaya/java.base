@@ -46,339 +46,339 @@
 #include <jdk/internal/org/objectweb/asm/TypeReference.h>
 #include <jcpp.h>
 
-#undef SKIP_CODE
-#undef F_NEW
-#undef ASM_IF_ACMPEQ
-#undef CONSTANT_METHOD_HANDLE_TAG
-#undef POP2
-#undef ALOAD_1
-#undef CONSTANT_CLASS_TAG
-#undef ALOAD_0
-#undef ALOAD_3
-#undef ALOAD_2
-#undef ITEM_DOUBLE
-#undef MONITORENTER
-#undef DUP2
-#undef FSTORE
-#undef ITEM_LONG
-#undef ASM_IF_ICMPLE
-#undef DCONST_0
-#undef LUSHR
-#undef DCONST_1
-#undef FRETURN
-#undef SOURCE_FILE
-#undef FCONST_2
-#undef METHOD_REFERENCE
-#undef F_FULL
-#undef JSR
-#undef SYNTHETIC
+#undef AALOAD
+#undef AASTORE
+#undef ACC_DEPRECATED
 #undef ACC_RECORD
+#undef ACC_STATIC
 #undef ACC_SYNTHETIC
-#undef DEPRECATED
-#undef LOCAL_VARIABLE_TYPE_TABLE
-#undef POP
-#undef LCONST_1
-#undef LCONST_0
+#undef ACONST_NULL
+#undef ALOAD
+#undef ALOAD_0
+#undef ALOAD_1
+#undef ALOAD_2
+#undef ALOAD_3
+#undef ANEWARRAY
+#undef ANNOTATION_DEFAULT
+#undef ARETURN
+#undef ARRAYLENGTH
+#undef ASM_GOTO
+#undef ASM_GOTO_W
+#undef ASM_IFEQ
+#undef ASM_IFGE
+#undef ASM_IFGT
+#undef ASM_IFLE
+#undef ASM_IFLT
+#undef ASM_IFNE
+#undef ASM_IFNONNULL
+#undef ASM_IFNULL
+#undef ASM_IFNULL_OPCODE_DELTA
+#undef ASM_IF_ACMPEQ
+#undef ASM_IF_ACMPNE
+#undef ASM_IF_ICMPEQ
+#undef ASM_IF_ICMPGE
+#undef ASM_IF_ICMPGT
+#undef ASM_IF_ICMPLE
+#undef ASM_IF_ICMPLT
+#undef ASM_IF_ICMPNE
+#undef ASM_JSR
+#undef ASM_OPCODE_DELTA
+#undef ASTORE
+#undef ASTORE_0
+#undef ASTORE_1
+#undef ASTORE_2
+#undef ASTORE_3
+#undef ATHROW
+#undef BALOAD
+#undef BASTORE
+#undef BIPUSH
+#undef BOOTSTRAP_METHODS
+#undef CALOAD
+#undef CAST
+#undef CASTORE
+#undef CHECKCAST
+#undef CHOP_FRAME
 #undef CLASS_EXTENDS
+#undef CLASS_TYPE_PARAMETER
+#undef CLASS_TYPE_PARAMETER_BOUND
+#undef CODE
+#undef CONSTANT_CLASS_TAG
+#undef CONSTANT_DOUBLE_TAG
+#undef CONSTANT_DYNAMIC_TAG
+#undef CONSTANT_FIELDREF_TAG
+#undef CONSTANT_FLOAT_TAG
 #undef CONSTANT_INTEGER_TAG
+#undef CONSTANT_INTERFACE_METHODREF_TAG
+#undef CONSTANT_INVOKE_DYNAMIC_TAG
+#undef CONSTANT_LONG_TAG
+#undef CONSTANT_METHODREF_TAG
+#undef CONSTANT_METHOD_HANDLE_TAG
+#undef CONSTANT_METHOD_TYPE_TAG
+#undef CONSTANT_MODULE_TAG
+#undef CONSTANT_NAME_AND_TYPE_TAG
+#undef CONSTANT_PACKAGE_TAG
+#undef CONSTANT_STRING_TAG
+#undef CONSTANT_UTF8_TAG
+#undef CONSTANT_VALUE
+#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
+#undef CONSTRUCTOR_REFERENCE
+#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
+#undef D2F
+#undef D2I
+#undef D2L
+#undef DADD
+#undef DALOAD
+#undef DASTORE
+#undef DCMPG
+#undef DCMPL
+#undef DCONST_0
+#undef DCONST_1
+#undef DDIV
+#undef DEPRECATED
+#undef DLOAD
+#undef DLOAD_0
+#undef DLOAD_1
+#undef DLOAD_2
+#undef DLOAD_3
+#undef DMUL
+#undef DNEG
+#undef DOUBLE
+#undef DREM
+#undef DRETURN
+#undef DSTORE
+#undef DSTORE_0
+#undef DSTORE_1
+#undef DSTORE_2
+#undef DSTORE_3
+#undef DSUB
+#undef DUP
+#undef DUP2
+#undef DUP2_X1
+#undef DUP2_X2
+#undef DUP_X1
+#undef DUP_X2
+#undef ENCLOSING_METHOD
+#undef EXCEPTIONS
+#undef EXCEPTION_PARAMETER
+#undef EXPAND_ASM_INSNS
+#undef EXPAND_FRAMES
+#undef F2D
+#undef F2I
+#undef F2L
+#undef FADD
+#undef FALOAD
+#undef FALSE
+#undef FASTORE
+#undef FCMPG
+#undef FCMPL
 #undef FCONST_0
 #undef FCONST_1
-#undef FSUB
-#undef METHOD_FORMAL_PARAMETER
-#undef INVOKEVIRTUAL
-#undef DSTORE
-#undef METHOD_TYPE_PARAMETER_BOUND
-#undef ACC_STATIC
-#undef LRETURN
-#undef CALOAD
+#undef FCONST_2
 #undef FDIV
-#undef LXOR
-#undef CONSTANT_INTERFACE_METHODREF_TAG
-#undef LDC2_W
-#undef CLASS_TYPE_PARAMETER_BOUND
+#undef FIELD
+#undef FLAG_DEBUG_ONLY
+#undef FLOAD
+#undef FLOAD_0
+#undef FLOAD_1
+#undef FLOAD_2
+#undef FLOAD_3
+#undef FLOAT
+#undef FMUL
+#undef FNEG
 #undef FREM
-#undef I2B
-#undef I2D
-#undef ACONST_NULL
-#undef FADD
-#undef I2C
-#undef IF_ACMPNE
-#undef I2F
-#undef LONG
-#undef NEWARRAY
-#undef INVOKESTATIC
-#undef RESOURCE_VARIABLE
-#undef ITEM_FLOAT
-#undef I2L
-#undef I2S
-#undef F_SAME
-#undef METHOD_RETURN
-#undef MODULE_MAIN_CLASS
-#undef INVOKEINTERFACE
-#undef SKIP_FRAMES
-#undef LSUB
-#undef ASM_GOTO_W
-#undef ISTORE_0
-#undef ASTORE_0
-#undef ISTORE_2
-#undef ASTORE_1
-#undef ISTORE_1
-#undef ASTORE_2
-#undef RUNTIME_VISIBLE_TYPE_ANNOTATIONS
-#undef ASTORE_3
-#undef ISTORE_3
-#undef FASTORE
-#undef ASM_IFEQ
-#undef RET
-#undef CONSTANT_UTF8_TAG
-#undef ASTORE
-#undef LDIV
-#undef ILOAD
-#undef ATHROW
-#undef DNEG
-#undef SIGNATURE
-#undef LREM
-#undef ASM_IF_ICMPGE
-#undef CONSTANT_MODULE_TAG
-#undef INVOKEDYNAMIC
-#undef METHOD_PARAMETERS
-#undef EXCEPTIONS
-#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
-#undef F_SAME1
-#undef EXPAND_ASM_INSNS
-#undef LADD
-#undef IMUL
-#undef IFGE
-#undef CLASS_TYPE_PARAMETER
-#undef EXCEPTION_PARAMETER
-#undef INTEGER
-#undef CONSTANT_METHOD_TYPE_TAG
-#undef RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS
-#undef INEG
-#undef TABLESWITCH
-#undef STACK_MAP_TABLE
-#undef IFEQ
-#undef LDC_W
-#undef CONSTANT_VALUE
-#undef NOP
-#undef DASTORE
-#undef LALOAD
-#undef IFNULL
-#undef AASTORE
-#undef RUNTIME_VISIBLE_ANNOTATIONS
-#undef ASM_IF_ICMPGT
-#undef CONSTANT_DYNAMIC_TAG
-#undef CONSTANT_METHODREF_TAG
-#undef DMUL
-#undef ASM_JSR
-#undef CASTORE
-#undef DLOAD
-#undef NEST_HOST
-#undef RETURN
-#undef DUP2_X2
-#undef MODULE_PACKAGES
-#undef DUP2_X1
-#undef FCMPL
-#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
-#undef ITEM_INTEGER
-#undef F_INSERT
-#undef CONSTRUCTOR_REFERENCE
-#undef CONSTANT_PACKAGE_TAG
-#undef PERMITTED_SUBCLASSES
-#undef FCMPG
-#undef ITEM_TOP
-#undef SOURCE_DEBUG_EXTENSION
-#undef LLOAD_0
-#undef LLOAD_2
-#undef LLOAD_1
-#undef CONSTANT_LONG_TAG
-#undef ARETURN
-#undef LLOAD_3
-#undef LSHL
-#undef IFGT
-#undef RESERVED
-#undef IAND
-#undef INVOKESPECIAL
-#undef LSHR
-#undef ASM_IF_ICMPEQ
-#undef IINC
-#undef METHOD_REFERENCE_TYPE_ARGUMENT
-#undef IF_ICMPNE
-#undef FALSE
-#undef WIDE
-#undef SAME_LOCALS_1_STACK_ITEM_FRAME
-#undef LINE_NUMBER_TABLE
-#undef ARRAYLENGTH
-#undef LOCAL_VARIABLE_TABLE
-#undef BOOTSTRAP_METHODS
-#undef SAME_FRAME_EXTENDED
-#undef FALOAD
-#undef IF_ICMPLT
-#undef ITEM_NULL
-#undef PUTSTATIC
-#undef SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED
-#undef ALOAD
-#undef DLOAD_3
-#undef DLOAD_2
-#undef DLOAD_1
-#undef DLOAD_0
-#undef ISUB
-#undef ASM_IF_ACMPNE
-#undef ICONST_M1
-#undef F2D
-#undef ASM_IFNULL
-#undef F2I
-#undef BASTORE
-#undef METHOD_INVOCATION_TYPE_ARGUMENT
-#undef FSTORE_2
-#undef CAST
-#undef F2L
-#undef FSTORE_3
-#undef DALOAD
+#undef FRETURN
+#undef FSTORE
 #undef FSTORE_0
 #undef FSTORE_1
-#undef DSTORE_1
-#undef DSTORE_0
-#undef FIELD
-#undef MULTIANEWARRAY
-#undef ASM_IFLE
-#undef METHOD_RECEIVER
-#undef BIPUSH
-#undef LOR
-#undef ASM_OPCODE_DELTA
-#undef IRETURN
-#undef LSTORE_1
-#undef LSTORE_0
-#undef IF_ICMPLE
-#undef TOP
-#undef ITEM_UNINITIALIZED_THIS
-#undef ITEM_UNINITIALIZED
-#undef THROWS
-#undef DSTORE_3
-#undef DSTORE_2
-#undef LSTORE_3
-#undef LSTORE_2
-#undef CONSTANT_FIELDREF_TAG
-#undef GOTO
-#undef EXPAND_FRAMES
-#undef IFLT
+#undef FSTORE_2
+#undef FSTORE_3
+#undef FSUB
+#undef FULL_FRAME
 #undef F_APPEND
-#undef FNEG
-#undef ISTORE
-#undef ASM_GOTO
-#undef IF_ACMPEQ
-#undef RUNTIME_INVISIBLE_ANNOTATIONS
-#undef ASM_IFLT
-#undef DOUBLE
-#undef LLOAD
-#undef WIDE_JUMP_OPCODE_DELTA
-#undef CONSTANT_INVOKE_DYNAMIC_TAG
-#undef ANNOTATION_DEFAULT
-#undef CONSTANT_NAME_AND_TYPE_TAG
-#undef LOOKUPSWITCH
-#undef ICONST_5
-#undef PUTFIELD
-#undef ASM_IFNE
-#undef ITEM_OBJECT
-#undef ILOAD_3
-#undef SALOAD
-#undef ILOAD_2
-#undef UNINITIALIZED_THIS
-#undef ILOAD_1
-#undef ILOAD_0
-#undef IXOR
-#undef ASM_IFNONNULL
+#undef F_CHOP
+#undef F_FULL
+#undef F_INSERT
+#undef F_NEW
+#undef F_SAME
+#undef F_SAME1
+#undef GETFIELD
+#undef GETSTATIC
+#undef GOTO
+#undef GOTO_W
+#undef I2B
+#undef I2C
+#undef I2D
+#undef I2F
+#undef I2L
+#undef I2S
+#undef IADD
+#undef IALOAD
+#undef IAND
+#undef IASTORE
 #undef ICONST_0
 #undef ICONST_1
-#undef IFLE
 #undef ICONST_2
 #undef ICONST_3
 #undef ICONST_4
-#undef LCMP
-#undef SASTORE
-#undef DSUB
-#undef DRETURN
-#undef ASM_IFNULL_OPCODE_DELTA
-#undef FULL_FRAME
-#undef CONSTANT_STRING_TAG
-#undef NEW
-#undef INSTANCEOF
-#undef LNEG
-#undef RECORD
-#undef SKIP_DEBUG
-#undef ISHL
-#undef ASM_IFGE
-#undef IFNONNULL
-#undef LASTORE
-#undef F_CHOP
-#undef DREM
-#undef ISHR
-#undef METHOD_TYPE_PARAMETER
-#undef D2F
-#undef D2I
-#undef RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS
-#undef RUNTIME_INVISIBLE_TYPE_ANNOTATIONS
-#undef LSTORE
-#undef L2D
-#undef D2L
-#undef IF_ICMPGT
-#undef L2F
-#undef DADD
-#undef L2I
-#undef NULL
-#undef AALOAD
-#undef ENCLOSING_METHOD
-#undef TRUE
+#undef ICONST_5
+#undef ICONST_M1
 #undef IDIV
-#undef GETFIELD
-#undef MODULE
-#undef DDIV
-#undef IREM
-#undef SWAP
+#undef IFEQ
+#undef IFGE
+#undef IFGT
+#undef IFLE
+#undef IFLT
 #undef IFNE
-#undef IALOAD
-#undef IADD
-#undef SIPUSH
-#undef GETSTATIC
-#undef ASM_IFGT
-#undef FMUL
-#undef FLOAD_0
-#undef FLOAD_1
-#undef FLOAT
-#undef FLOAD_2
-#undef ANEWARRAY
-#undef ACC_DEPRECATED
-#undef LOCAL_VARIABLE
-#undef CHECKCAST
-#undef LAND
-#undef LDC
-#undef CHOP_FRAME
-#undef IF_ICMPGE
-#undef FLOAD
-#undef FLAG_DEBUG_ONLY
-#undef INPUT_STREAM_DATA_CHUNK_SIZE
-#undef GOTO_W
-#undef ASM_IF_ICMPLT
-#undef MONITOREXIT
-#undef IUSHR
-#undef DUP
-#undef NEST_MEMBERS
-#undef INNER_CLASSES
-#undef IASTORE
-#undef CONSTANT_FLOAT_TAG
-#undef DUP_X1
-#undef ASM_IF_ICMPNE
-#undef DUP_X2
+#undef IFNONNULL
+#undef IFNULL
+#undef IF_ACMPEQ
+#undef IF_ACMPNE
 #undef IF_ICMPEQ
+#undef IF_ICMPGE
+#undef IF_ICMPGT
+#undef IF_ICMPLE
+#undef IF_ICMPLT
+#undef IF_ICMPNE
+#undef IINC
+#undef ILOAD
+#undef ILOAD_0
+#undef ILOAD_1
+#undef ILOAD_2
+#undef ILOAD_3
+#undef IMUL
+#undef INEG
+#undef INNER_CLASSES
+#undef INPUT_STREAM_DATA_CHUNK_SIZE
+#undef INSTANCEOF
+#undef INTEGER
+#undef INVOKEDYNAMIC
+#undef INVOKEINTERFACE
+#undef INVOKESPECIAL
+#undef INVOKESTATIC
+#undef INVOKEVIRTUAL
 #undef IOR
-#undef CONSTANT_DOUBLE_TAG
-#undef CODE
-#undef BALOAD
-#undef DCMPL
-#undef DCMPG
+#undef IREM
+#undef IRETURN
+#undef ISHL
+#undef ISHR
+#undef ISTORE
+#undef ISTORE_0
+#undef ISTORE_1
+#undef ISTORE_2
+#undef ISTORE_3
+#undef ISUB
+#undef ITEM_DOUBLE
+#undef ITEM_FLOAT
+#undef ITEM_INTEGER
+#undef ITEM_LONG
+#undef ITEM_NULL
+#undef ITEM_OBJECT
+#undef ITEM_TOP
+#undef ITEM_UNINITIALIZED
+#undef ITEM_UNINITIALIZED_THIS
+#undef IUSHR
+#undef IXOR
+#undef JSR
 #undef JSR_W
+#undef L2D
+#undef L2F
+#undef L2I
+#undef LADD
+#undef LALOAD
+#undef LAND
+#undef LASTORE
+#undef LCMP
+#undef LCONST_0
+#undef LCONST_1
+#undef LDC
+#undef LDC2_W
+#undef LDC_W
+#undef LDIV
+#undef LINE_NUMBER_TABLE
+#undef LLOAD
+#undef LLOAD_0
+#undef LLOAD_1
+#undef LLOAD_2
+#undef LLOAD_3
 #undef LMUL
-#undef FLOAD_3
+#undef LNEG
+#undef LOCAL_VARIABLE
+#undef LOCAL_VARIABLE_TABLE
+#undef LOCAL_VARIABLE_TYPE_TABLE
+#undef LONG
+#undef LOOKUPSWITCH
+#undef LOR
+#undef LREM
+#undef LRETURN
+#undef LSHL
+#undef LSHR
+#undef LSTORE
+#undef LSTORE_0
+#undef LSTORE_1
+#undef LSTORE_2
+#undef LSTORE_3
+#undef LSUB
+#undef LUSHR
+#undef LXOR
+#undef METHOD_FORMAL_PARAMETER
+#undef METHOD_INVOCATION_TYPE_ARGUMENT
+#undef METHOD_PARAMETERS
+#undef METHOD_RECEIVER
+#undef METHOD_REFERENCE
+#undef METHOD_REFERENCE_TYPE_ARGUMENT
+#undef METHOD_RETURN
+#undef METHOD_TYPE_PARAMETER
+#undef METHOD_TYPE_PARAMETER_BOUND
+#undef MODULE
+#undef MODULE_MAIN_CLASS
+#undef MODULE_PACKAGES
+#undef MONITORENTER
+#undef MONITOREXIT
+#undef MULTIANEWARRAY
+#undef NEST_HOST
+#undef NEST_MEMBERS
+#undef NEW
+#undef NEWARRAY
+#undef NOP
+#undef NULL
+#undef PERMITTED_SUBCLASSES
+#undef POP
+#undef POP2
+#undef PUTFIELD
+#undef PUTSTATIC
+#undef RECORD
+#undef RESERVED
+#undef RESOURCE_VARIABLE
+#undef RET
+#undef RETURN
+#undef RUNTIME_INVISIBLE_ANNOTATIONS
+#undef RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS
+#undef RUNTIME_INVISIBLE_TYPE_ANNOTATIONS
+#undef RUNTIME_VISIBLE_ANNOTATIONS
+#undef RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS
+#undef RUNTIME_VISIBLE_TYPE_ANNOTATIONS
+#undef SALOAD
+#undef SAME_FRAME_EXTENDED
+#undef SAME_LOCALS_1_STACK_ITEM_FRAME
+#undef SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED
+#undef SASTORE
+#undef SIGNATURE
+#undef SIPUSH
+#undef SKIP_CODE
+#undef SKIP_DEBUG
+#undef SKIP_FRAMES
+#undef SOURCE_DEBUG_EXTENSION
+#undef SOURCE_FILE
+#undef STACK_MAP_TABLE
+#undef SWAP
+#undef SYNTHETIC
+#undef TABLESWITCH
+#undef THROWS
+#undef TOP
+#undef TRUE
+#undef UNINITIALIZED_THIS
+#undef WIDE
+#undef WIDE_JUMP_OPCODE_DELTA
 
 using $AttributeArray = $Array<::jdk::internal::org::objectweb::asm$::Attribute>;
 using $ConstantDynamicArray = $Array<::jdk::internal::org::objectweb::asm$::ConstantDynamic>;
@@ -2051,13 +2051,13 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 									stackMapTableEndOffset = currentOffset + attributeLength;
 								}
 							} else if ("StackMap"_s->equals(attributeName)) {
-								if (((int32_t)($nc(context)->parsingOptions & (uint32_t)ClassReader::SKIP_FRAMES)) == 0) {
+								if (((int32_t)(context->parsingOptions & (uint32_t)ClassReader::SKIP_FRAMES)) == 0) {
 									stackMapFrameOffset = currentOffset + 2;
 									stackMapTableEndOffset = currentOffset + attributeLength;
 									compressedFrames = false;
 								}
 							} else {
-								$var($Attribute, attribute, readAttribute($nc(context)->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, codeOffset, labels));
+								$var($Attribute, attribute, readAttribute(context->attributePrototypes, attributeName, currentOffset, attributeLength, charBuffer, codeOffset, labels));
 								$set($nc(attribute), nextAttribute, attributes);
 								$assign(attributes, attribute);
 							}
@@ -3387,26 +3387,26 @@ int32_t ClassReader::readStackMapFrame(int32_t stackMapFrameOffset, bool compres
 		context->currentFrameStackCount = 0;
 	} else if (frameType < $Frame::RESERVED) {
 		offsetDelta = frameType - $Frame::SAME_LOCALS_1_STACK_ITEM_FRAME;
-		currentOffset = readVerificationTypeInfo(currentOffset, $nc(context)->currentFrameStackTypes, 0, charBuffer, labels);
-		$nc(context)->currentFrameType = $Opcodes::F_SAME1;
+		currentOffset = readVerificationTypeInfo(currentOffset, context->currentFrameStackTypes, 0, charBuffer, labels);
+		context->currentFrameType = $Opcodes::F_SAME1;
 		context->currentFrameStackCount = 1;
 	} else if (frameType >= $Frame::SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED) {
 		offsetDelta = readUnsignedShort(currentOffset);
 		currentOffset += 2;
 		if (frameType == $Frame::SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED) {
-			currentOffset = readVerificationTypeInfo(currentOffset, $nc(context)->currentFrameStackTypes, 0, charBuffer, labels);
-			$nc(context)->currentFrameType = $Opcodes::F_SAME1;
+			currentOffset = readVerificationTypeInfo(currentOffset, context->currentFrameStackTypes, 0, charBuffer, labels);
+			context->currentFrameType = $Opcodes::F_SAME1;
 			context->currentFrameStackCount = 1;
 		} else if (frameType >= $Frame::CHOP_FRAME && frameType < $Frame::SAME_FRAME_EXTENDED) {
-			$nc(context)->currentFrameType = $Opcodes::F_CHOP;
+			context->currentFrameType = $Opcodes::F_CHOP;
 			context->currentFrameLocalCountDelta = $Frame::SAME_FRAME_EXTENDED - frameType;
 			context->currentFrameLocalCount -= context->currentFrameLocalCountDelta;
 			context->currentFrameStackCount = 0;
 		} else if (frameType == $Frame::SAME_FRAME_EXTENDED) {
-			$nc(context)->currentFrameType = $Opcodes::F_SAME;
+			context->currentFrameType = $Opcodes::F_SAME;
 			context->currentFrameStackCount = 0;
 		} else if (frameType < $Frame::FULL_FRAME) {
-			int32_t local = expand ? $nc(context)->currentFrameLocalCount : 0;
+			int32_t local = expand ? context->currentFrameLocalCount : 0;
 			for (int32_t k = frameType - $Frame::SAME_FRAME_EXTENDED; k > 0; --k) {
 				currentOffset = readVerificationTypeInfo(currentOffset, context->currentFrameLocalTypes, local++, charBuffer, labels);
 			}
@@ -3417,7 +3417,7 @@ int32_t ClassReader::readStackMapFrame(int32_t stackMapFrameOffset, bool compres
 		} else {
 			int32_t numberOfLocals = readUnsignedShort(currentOffset);
 			currentOffset += 2;
-			$nc(context)->currentFrameType = $Opcodes::F_FULL;
+			context->currentFrameType = $Opcodes::F_FULL;
 			context->currentFrameLocalCountDelta = numberOfLocals;
 			context->currentFrameLocalCount = numberOfLocals;
 			for (int32_t local = 0; local < numberOfLocals; ++local) {
@@ -3631,9 +3631,9 @@ $String* ClassReader::readUtf(int32_t utfOffset, int32_t utfLength, $chars* char
 		if (((int32_t)(currentByte & (uint32_t)128)) == 0) {
 			$nc(charBuffer)->set(strLength++, (char16_t)((int32_t)(currentByte & (uint32_t)127)));
 		} else if (((int32_t)(currentByte & (uint32_t)224)) == 192) {
-			$nc(charBuffer)->set(strLength++, (char16_t)((((int32_t)(currentByte & (uint32_t)31)) << 6) + ((int32_t)($nc(classBuffer)->get(currentOffset++) & (uint32_t)63))));
+			$nc(charBuffer)->set(strLength++, (char16_t)((((int32_t)(currentByte & (uint32_t)31)) << 6) + ((int32_t)(classBuffer->get(currentOffset++) & (uint32_t)63))));
 		} else {
-			int32_t var$0 = (((int32_t)(currentByte & (uint32_t)15)) << 12) + (((int32_t)($nc(classBuffer)->get(currentOffset++) & (uint32_t)63)) << 6);
+			int32_t var$0 = (((int32_t)(currentByte & (uint32_t)15)) << 12) + (((int32_t)(classBuffer->get(currentOffset++) & (uint32_t)63)) << 6);
 			$nc(charBuffer)->set(strLength++, (char16_t)(var$0 + ((int32_t)(classBuffer->get(currentOffset++) & (uint32_t)63))));
 		}
 	}

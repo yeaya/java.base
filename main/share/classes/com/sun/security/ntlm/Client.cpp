@@ -21,8 +21,8 @@
 #include <jcpp.h>
 
 #undef NTLM
-#undef PROTOCOL
 #undef NTLM2
+#undef PROTOCOL
 #undef US
 
 using $NTLM = ::com::sun::security::ntlm::NTLM;

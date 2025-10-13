@@ -8,14 +8,14 @@
 
 #pragma push_macro("CDIR")
 #undef CDIR
-#pragma push_macro("PDIR")
-#undef PDIR
-#pragma push_macro("LINK")
-#undef LINK
-#pragma push_macro("FILE")
-#undef FILE
 #pragma push_macro("DIR")
 #undef DIR
+#pragma push_macro("FILE")
+#undef FILE
+#pragma push_macro("LINK")
+#undef LINK
+#pragma push_macro("PDIR")
+#undef PDIR
 
 namespace sun {
 	namespace net {
@@ -42,9 +42,9 @@ public:
 } // sun
 
 #pragma pop_macro("CDIR")
-#pragma pop_macro("PDIR")
-#pragma pop_macro("LINK")
-#pragma pop_macro("FILE")
 #pragma pop_macro("DIR")
+#pragma pop_macro("FILE")
+#pragma pop_macro("LINK")
+#pragma pop_macro("PDIR")
 
 #endif // _sun_net_ftp_FtpDirEntry$Type_h_

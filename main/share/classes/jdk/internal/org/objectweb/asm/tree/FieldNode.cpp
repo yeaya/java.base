@@ -21,8 +21,8 @@
 #include <jdk/internal/org/objectweb/asm/tree/Util.h>
 #include <jcpp.h>
 
-#undef ASM8
 #undef ASM4
+#undef ASM8
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

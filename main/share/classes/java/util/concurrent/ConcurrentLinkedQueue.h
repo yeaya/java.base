@@ -14,10 +14,10 @@
 #undef ITEM
 #pragma push_macro("MAX_HOPS")
 #undef MAX_HOPS
-#pragma push_macro("TAIL")
-#undef TAIL
 #pragma push_macro("NEXT")
 #undef NEXT
+#pragma push_macro("TAIL")
+#undef TAIL
 
 namespace java {
 	namespace io {
@@ -121,7 +121,7 @@ public:
 #pragma pop_macro("HEAD")
 #pragma pop_macro("ITEM")
 #pragma pop_macro("MAX_HOPS")
-#pragma pop_macro("TAIL")
 #pragma pop_macro("NEXT")
+#pragma pop_macro("TAIL")
 
 #endif // _java_util_concurrent_ConcurrentLinkedQueue_h_

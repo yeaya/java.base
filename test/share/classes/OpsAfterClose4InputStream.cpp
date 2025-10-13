@@ -38,15 +38,15 @@
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
 
-#undef READ
 #undef AVAILABLE
-#undef MARK_SUPPORTED
-#undef READ_BUF_OFF
-#undef READ_BUF
-#undef SKIP
-#undef RESET
 #undef CLOSE
 #undef MARK
+#undef MARK_SUPPORTED
+#undef READ
+#undef READ_BUF
+#undef READ_BUF_OFF
+#undef RESET
+#undef SKIP
 
 using $OpsAfterClose4InputStream$1 = ::OpsAfterClose4InputStream$1;
 using $OpsAfterClose4InputStream$2 = ::OpsAfterClose4InputStream$2;

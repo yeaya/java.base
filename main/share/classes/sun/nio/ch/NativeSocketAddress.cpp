@@ -32,26 +32,26 @@
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
 
-#undef OFFSET_SIN4_PORT
-#undef SIZEOF_SOCKADDR6
-#undef LOG2_ARRAY_BYTE_INDEX_SCALE
-#undef SIZEOF_SOCKADDR4
-#undef OFFSET_SIN6_FLOWINFO
-#undef SIZEOF_FAMILY
-#undef AF_INET
-#undef AFINET6
-#undef AF_INET6
-#undef SIZEOF_SOCKETADDRESS
-#undef JNINA
-#undef OFFSET_SIN6_SCOPE_ID
-#undef INET
-#undef OFFSET_SIN6_PORT
-#undef ARRAY_BASE_OFFSET
-#undef OFFSET_SIN4_ADDR
-#undef OFFSET_FAMILY
-#undef UNSAFE
-#undef OFFSET_SIN6_ADDR
 #undef AFINET
+#undef AFINET6
+#undef AF_INET
+#undef AF_INET6
+#undef ARRAY_BASE_OFFSET
+#undef INET
+#undef JNINA
+#undef LOG2_ARRAY_BYTE_INDEX_SCALE
+#undef OFFSET_FAMILY
+#undef OFFSET_SIN4_ADDR
+#undef OFFSET_SIN4_PORT
+#undef OFFSET_SIN6_ADDR
+#undef OFFSET_SIN6_FLOWINFO
+#undef OFFSET_SIN6_PORT
+#undef OFFSET_SIN6_SCOPE_ID
+#undef SIZEOF_FAMILY
+#undef SIZEOF_SOCKADDR4
+#undef SIZEOF_SOCKADDR6
+#undef SIZEOF_SOCKETADDRESS
+#undef UNSAFE
 
 using $NativeSocketAddressArray = $Array<::sun::nio::ch::NativeSocketAddress>;
 using $IOException = ::java::io::IOException;

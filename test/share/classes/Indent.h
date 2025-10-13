@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIDDLES")
-#undef MIDDLES
 #pragma push_macro("ENDS")
 #undef ENDS
+#pragma push_macro("MIDDLES")
+#undef MIDDLES
 
 namespace java {
 	namespace util {
@@ -32,7 +32,7 @@ public:
 	static ::java::util::List* MIDDLES;
 };
 
-#pragma pop_macro("MIDDLES")
 #pragma pop_macro("ENDS")
+#pragma pop_macro("MIDDLES")
 
 #endif // _Indent_h_

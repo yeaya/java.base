@@ -20,11 +20,11 @@
 #include <sun/security/x509/IPAddressName.h>
 #include <jcpp.h>
 
+#undef NAME_DIFF_TYPE
 #undef NAME_MATCH
 #undef NAME_NARROWS
-#undef NAME_URI
 #undef NAME_SAME_TYPE
-#undef NAME_DIFF_TYPE
+#undef NAME_URI
 #undef NAME_WIDENS
 
 using $IOException = ::java::io::IOException;
@@ -217,7 +217,7 @@ int32_t URIName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_URI) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_URI) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$var($String, otherHost, $nc(($cast(URIName, inputName)))->getHost());

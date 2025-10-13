@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SHORT")
-#undef SHORT
 #pragma push_macro("LONG")
 #undef LONG
+#pragma push_macro("SHORT")
+#undef SHORT
 
 namespace java {
 	namespace text {
@@ -30,7 +30,7 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("SHORT")
 #pragma pop_macro("LONG")
+#pragma pop_macro("SHORT")
 
 #endif // _java_text_NumberFormat$Style_h_

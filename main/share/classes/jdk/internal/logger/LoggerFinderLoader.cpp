@@ -47,16 +47,16 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef LOGGERFINDER_PERMISSION
 #undef CLASSLOADER_PERMISSION
-#undef ROOT
-#undef FILE_READ_ACTION
-#undef READ_PERMISSION
-#undef QUIET
-#undef ERROR
-#undef GET_CLASSLOADER_PERMISSION
-#undef WARNING
 #undef DEBUG
+#undef ERROR
+#undef FILE_READ_ACTION
+#undef GET_CLASSLOADER_PERMISSION
+#undef LOGGERFINDER_PERMISSION
+#undef QUIET
+#undef READ_PERMISSION
+#undef ROOT
+#undef WARNING
 
 using $PermissionArray = $Array<::java::security::Permission>;
 using $FilePermission = ::java::io::FilePermission;

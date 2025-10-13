@@ -147,16 +147,12 @@ MaxFragExtension$MaxFragLenEnum* MaxFragExtension$MaxFragLenEnum::valueOf(int32_
 	if (fragmentSize <= 0) {
 		return nullptr;
 	} else if (fragmentSize < 1024) {
-		$init(MaxFragExtension$MaxFragLenEnum);
 		return MaxFragExtension$MaxFragLenEnum::MFL_512;
 	} else if (fragmentSize < 2048) {
-		$init(MaxFragExtension$MaxFragLenEnum);
 		return MaxFragExtension$MaxFragLenEnum::MFL_1024;
 	} else if (fragmentSize < 4096) {
-		$init(MaxFragExtension$MaxFragLenEnum);
 		return MaxFragExtension$MaxFragLenEnum::MFL_2048;
 	} else if (fragmentSize == 4096) {
-		$init(MaxFragExtension$MaxFragLenEnum);
 		return MaxFragExtension$MaxFragLenEnum::MFL_4096;
 	}
 	return nullptr;

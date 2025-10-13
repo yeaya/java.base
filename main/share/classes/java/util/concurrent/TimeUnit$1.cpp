@@ -14,16 +14,16 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef HOURS
-#undef MICROSECONDS
-#undef NANOS
-#undef MICROS
-#undef SECONDS
 #undef DAYS
-#undef NANOSECONDS
+#undef HOURS
+#undef MICROS
+#undef MICROSECONDS
 #undef MILLIS
+#undef MILLISECONDS
 #undef MINUTES
+#undef NANOS
+#undef NANOSECONDS
+#undef SECONDS
 
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $TimeUnitArray = $Array<::java::util::concurrent::TimeUnit>;

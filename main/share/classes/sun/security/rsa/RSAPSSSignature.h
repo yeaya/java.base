@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/security/SignatureSpi.h>
 
-#pragma push_macro("DIGEST_LENGTHS")
-#undef DIGEST_LENGTHS
 #pragma push_macro("DEBUG")
 #undef DEBUG
+#pragma push_macro("DIGEST_LENGTHS")
+#undef DIGEST_LENGTHS
 #pragma push_macro("EIGHT_BYTES_OF_ZEROS")
 #undef EIGHT_BYTES_OF_ZEROS
 
@@ -101,8 +101,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DIGEST_LENGTHS")
 #pragma pop_macro("DEBUG")
+#pragma pop_macro("DIGEST_LENGTHS")
 #pragma pop_macro("EIGHT_BYTES_OF_ZEROS")
 
 #endif // _sun_security_rsa_RSAPSSSignature_h_

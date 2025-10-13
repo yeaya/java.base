@@ -10,14 +10,14 @@
 
 #pragma push_macro("DHE")
 #undef DHE
-#pragma push_macro("RSA")
-#undef RSA
+#pragma push_macro("DHE_EXPORT")
+#undef DHE_EXPORT
 #pragma push_macro("ECDH")
 #undef ECDH
 #pragma push_macro("ECDHE")
 #undef ECDHE
-#pragma push_macro("DHE_EXPORT")
-#undef DHE_EXPORT
+#pragma push_macro("RSA")
+#undef RSA
 #pragma push_macro("RSA_EXPORT")
 #undef RSA_EXPORT
 
@@ -79,10 +79,10 @@ public:
 } // sun
 
 #pragma pop_macro("DHE")
-#pragma pop_macro("RSA")
+#pragma pop_macro("DHE_EXPORT")
 #pragma pop_macro("ECDH")
 #pragma pop_macro("ECDHE")
-#pragma pop_macro("DHE_EXPORT")
+#pragma pop_macro("RSA")
 #pragma pop_macro("RSA_EXPORT")
 
 #endif // _sun_security_ssl_SSLKeyExchange$T12KeyAgreement_h_

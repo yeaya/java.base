@@ -9,10 +9,10 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("POLICIES")
-#undef POLICIES
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("POLICIES")
+#undef POLICIES
 
 namespace java {
 	namespace io {
@@ -67,7 +67,7 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("POLICIES")
 #pragma pop_macro("NAME")
+#pragma pop_macro("POLICIES")
 
 #endif // _sun_security_x509_CertificatePoliciesExtension_h_

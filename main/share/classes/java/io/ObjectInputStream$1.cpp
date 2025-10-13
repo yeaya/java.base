@@ -15,8 +15,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
+#undef TRUE
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Boolean = ::java::lang::Boolean;

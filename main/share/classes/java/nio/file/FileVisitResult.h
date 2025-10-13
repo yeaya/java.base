@@ -8,12 +8,12 @@
 
 #pragma push_macro("CONTINUE")
 #undef CONTINUE
-#pragma push_macro("TERMINATE")
-#undef TERMINATE
-#pragma push_macro("SKIP_SUBTREE")
-#undef SKIP_SUBTREE
 #pragma push_macro("SKIP_SIBLINGS")
 #undef SKIP_SIBLINGS
+#pragma push_macro("SKIP_SUBTREE")
+#undef SKIP_SUBTREE
+#pragma push_macro("TERMINATE")
+#undef TERMINATE
 
 namespace java {
 	namespace nio {
@@ -39,8 +39,8 @@ public:
 } // java
 
 #pragma pop_macro("CONTINUE")
-#pragma pop_macro("TERMINATE")
-#pragma pop_macro("SKIP_SUBTREE")
 #pragma pop_macro("SKIP_SIBLINGS")
+#pragma pop_macro("SKIP_SUBTREE")
+#pragma pop_macro("TERMINATE")
 
 #endif // _java_nio_file_FileVisitResult_h_

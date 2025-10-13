@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("STRICT")
-#undef STRICT
 #pragma push_macro("LENIENT")
 #undef LENIENT
 #pragma push_macro("SMART")
 #undef SMART
+#pragma push_macro("STRICT")
+#undef STRICT
 
 namespace java {
 	namespace time {
@@ -35,8 +35,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("STRICT")
 #pragma pop_macro("LENIENT")
 #pragma pop_macro("SMART")
+#pragma pop_macro("STRICT")
 
 #endif // _java_time_format_ResolverStyle_h_

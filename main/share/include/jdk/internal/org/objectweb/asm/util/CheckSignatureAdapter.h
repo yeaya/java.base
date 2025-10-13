@@ -5,30 +5,30 @@
 
 #include <jdk/internal/org/objectweb/asm/signature/SignatureVisitor.h>
 
+#pragma push_macro("CLASS_SIGNATURE")
+#undef CLASS_SIGNATURE
+#pragma push_macro("INVALID")
+#undef INVALID
 #pragma push_macro("METHOD_SIGNATURE")
 #undef METHOD_SIGNATURE
-#pragma push_macro("VISIT_RETURN_TYPE_STATES")
-#undef VISIT_RETURN_TYPE_STATES
 #pragma push_macro("TYPE_SIGNATURE")
 #undef TYPE_SIGNATURE
-#pragma push_macro("VISIT_INTERFACE_STATES")
-#undef VISIT_INTERFACE_STATES
 #pragma push_macro("VISIT_CLASS_BOUND_STATES")
 #undef VISIT_CLASS_BOUND_STATES
+#pragma push_macro("VISIT_EXCEPTION_TYPE_STATES")
+#undef VISIT_EXCEPTION_TYPE_STATES
 #pragma push_macro("VISIT_FORMAL_TYPE_PARAMETER_STATES")
 #undef VISIT_FORMAL_TYPE_PARAMETER_STATES
 #pragma push_macro("VISIT_INTERFACE_BOUND_STATES")
 #undef VISIT_INTERFACE_BOUND_STATES
-#pragma push_macro("VISIT_SUPER_CLASS_STATES")
-#undef VISIT_SUPER_CLASS_STATES
-#pragma push_macro("VISIT_EXCEPTION_TYPE_STATES")
-#undef VISIT_EXCEPTION_TYPE_STATES
-#pragma push_macro("INVALID")
-#undef INVALID
-#pragma push_macro("CLASS_SIGNATURE")
-#undef CLASS_SIGNATURE
+#pragma push_macro("VISIT_INTERFACE_STATES")
+#undef VISIT_INTERFACE_STATES
 #pragma push_macro("VISIT_PARAMETER_TYPE_STATES")
 #undef VISIT_PARAMETER_TYPE_STATES
+#pragma push_macro("VISIT_RETURN_TYPE_STATES")
+#undef VISIT_RETURN_TYPE_STATES
+#pragma push_macro("VISIT_SUPER_CLASS_STATES")
+#undef VISIT_SUPER_CLASS_STATES
 
 namespace java {
 	namespace util {
@@ -105,17 +105,17 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("CLASS_SIGNATURE")
+#pragma pop_macro("INVALID")
 #pragma pop_macro("METHOD_SIGNATURE")
-#pragma pop_macro("VISIT_RETURN_TYPE_STATES")
 #pragma pop_macro("TYPE_SIGNATURE")
-#pragma pop_macro("VISIT_INTERFACE_STATES")
 #pragma pop_macro("VISIT_CLASS_BOUND_STATES")
+#pragma pop_macro("VISIT_EXCEPTION_TYPE_STATES")
 #pragma pop_macro("VISIT_FORMAL_TYPE_PARAMETER_STATES")
 #pragma pop_macro("VISIT_INTERFACE_BOUND_STATES")
-#pragma pop_macro("VISIT_SUPER_CLASS_STATES")
-#pragma pop_macro("VISIT_EXCEPTION_TYPE_STATES")
-#pragma pop_macro("INVALID")
-#pragma pop_macro("CLASS_SIGNATURE")
+#pragma pop_macro("VISIT_INTERFACE_STATES")
 #pragma pop_macro("VISIT_PARAMETER_TYPE_STATES")
+#pragma pop_macro("VISIT_RETURN_TYPE_STATES")
+#pragma pop_macro("VISIT_SUPER_CLASS_STATES")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_CheckSignatureAdapter_h_

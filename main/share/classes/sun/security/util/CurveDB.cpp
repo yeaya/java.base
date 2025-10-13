@@ -30,11 +30,11 @@
 #include <sun/security/util/NamedCurve.h>
 #include <jcpp.h>
 
-#undef P
 #undef B
 #undef BD
-#undef PD
 #undef ENGLISH
+#undef P
+#undef PD
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

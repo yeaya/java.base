@@ -29,8 +29,8 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef TS_QUERY_MIME_TYPE
 #undef CONNECT_TIMEOUT
+#undef TS_QUERY_MIME_TYPE
 #undef TS_REPLY_MIME_TYPE
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;

@@ -53,32 +53,32 @@
 #include <sun/security/action/GetBooleanAction.h>
 #include <jcpp.h>
 
-#undef JL_ILLEGAL_ACCESS_EX
-#undef JL_NO_SUCH_METHOD_ERROR
-#undef NEW
-#undef JL_NO_CLASS_DEF_FOUND_ERROR
-#undef JL_NO_SUCH_METHOD_EX
-#undef STATIC
-#undef JLI_LOOKUP
-#undef NAME_LOOKUP_ACCESSOR
-#undef MJLR_INVOCATIONHANDLER
-#undef JLR_PROXY
-#undef LJL_CLASS
-#undef NAME_CTOR
-#undef JL_THROWABLE
-#undef NAME_CLINIT
-#undef TYPE
 #undef COMPUTE_FRAMES
-#undef JLR_INVOCATION_HANDLER
-#undef LJLR_METHOD
-#undef JL_CLASS_NOT_FOUND_EX
-#undef JL_OBJECT
-#undef PUBLIC
-#undef JL_CLASS
-#undef JLI_METHODHANDLES
-#undef LJLR_INVOCATION_HANDLER
-#undef JLR_UNDECLARED_THROWABLE_EX
 #undef EMPTY_CLASS_ARRAY
+#undef JLI_LOOKUP
+#undef JLI_METHODHANDLES
+#undef JLR_INVOCATION_HANDLER
+#undef JLR_PROXY
+#undef JLR_UNDECLARED_THROWABLE_EX
+#undef JL_CLASS
+#undef JL_CLASS_NOT_FOUND_EX
+#undef JL_ILLEGAL_ACCESS_EX
+#undef JL_NO_CLASS_DEF_FOUND_ERROR
+#undef JL_NO_SUCH_METHOD_ERROR
+#undef JL_NO_SUCH_METHOD_EX
+#undef JL_OBJECT
+#undef JL_THROWABLE
+#undef LJLR_INVOCATION_HANDLER
+#undef LJLR_METHOD
+#undef LJL_CLASS
+#undef MJLR_INVOCATIONHANDLER
+#undef NAME_CLINIT
+#undef NAME_CTOR
+#undef NAME_LOOKUP_ACCESSOR
+#undef NEW
+#undef PUBLIC
+#undef STATIC
+#undef TYPE
 
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $Serializable = ::java::io::Serializable;
@@ -393,8 +393,8 @@ $List* ProxyGenerator::computeUniqueCatchList($ClassArray* exceptions) {
 					if ($nc(ex2)->isAssignableFrom(ex)) {
 						nextException$continue = true;
 						break;
-					} else if ($nc(ex)->isAssignableFrom(ex2)) {
-						$nc(uniqueList)->remove(j);
+					} else if (ex->isAssignableFrom(ex2)) {
+						uniqueList->remove(j);
 					} else {
 						++j;
 					}

@@ -161,7 +161,7 @@ int32_t SignatureReader::parseType($String* signature, int32_t startOffset, $Sig
 						visited = false;
 						inner = true;
 					} else if (currentChar == u'<') {
-						$var($String, name, $nc(signature)->substring(start, offset - 1));
+						$var($String, name, signature->substring(start, offset - 1));
 						if (inner) {
 							$nc(signatureVisitor)->visitInnerClassType(name);
 						} else {

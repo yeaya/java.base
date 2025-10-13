@@ -20,8 +20,8 @@
 #include <jcpp.h>
 
 #undef CH_STATUS_REQUEST_V2
-#undef SH_STATUS_REQUEST_V2
 #undef DEFAULT
+#undef SH_STATUS_REQUEST_V2
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -17,11 +17,11 @@
 #include <java/util/ArrayList.h>
 #include <jcpp.h>
 
-#undef IDENTICAL
 #undef BITARRAYMASK
 #undef BYTEMASK
-#undef RESET
 #undef BYTEPOWER
+#undef IDENTICAL
+#undef RESET
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

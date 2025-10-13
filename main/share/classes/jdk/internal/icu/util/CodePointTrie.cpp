@@ -37,43 +37,43 @@
 #include <jdk/internal/icu/util/CodePointTrie$ValueWidth.h>
 #include <jcpp.h>
 
-#undef FAST_DATA_MASK
-#undef FAST_DATA_BLOCK_LENGTH
-#undef SMALL_MAX
-#undef OPTIONS_VALUE_BITS_MASK
-#undef LITTLE_ENDIAN
-#undef OPTIONS_RESERVED_MASK
-#undef BITS_32
-#undef BITS_16
-#undef ERROR_VALUE_NEG_DATA_OFFSET
-#undef SMALL
-#undef INDEX_2_MASK
 #undef ASCII_LIMIT
-#undef SMALL_DATA_BLOCK_LENGTH
-#undef HIGH_VALUE_NEG_DATA_OFFSET
-#undef SMALL_INDEX_LENGTH
-#undef INDEX_3_MASK
-#undef SHIFT_2_3
-#undef OPTIONS_DATA_NULL_OFFSET_MASK
 #undef BIG_ENDIAN
-#undef BMP_INDEX_LENGTH
-#undef SMALL_DATA_MASK
-#undef OPTIONS_DATA_LENGTH_MASK
-#undef SHIFT_1_2
-#undef NO_DATA_NULL_OFFSET
-#undef FAST_SHIFT
-#undef SHIFT_3
-#undef SHIFT_2
-#undef SHIFT_1
+#undef BITS_16
+#undef BITS_32
 #undef BITS_8
-#undef OMITTED_BMP_INDEX_1_LENGTH
-#undef NO_INDEX3_NULL_OFFSET
-#undef MAX_UNICODE
-#undef INDEX_3_BLOCK_LENGTH
-#undef INDEX_2_BLOCK_LENGTH
-#undef FAST
-#undef SMALL_LIMIT
+#undef BMP_INDEX_LENGTH
 #undef CP_PER_INDEX_2_ENTRY
+#undef ERROR_VALUE_NEG_DATA_OFFSET
+#undef FAST
+#undef FAST_DATA_BLOCK_LENGTH
+#undef FAST_DATA_MASK
+#undef FAST_SHIFT
+#undef HIGH_VALUE_NEG_DATA_OFFSET
+#undef INDEX_2_BLOCK_LENGTH
+#undef INDEX_2_MASK
+#undef INDEX_3_BLOCK_LENGTH
+#undef INDEX_3_MASK
+#undef LITTLE_ENDIAN
+#undef MAX_UNICODE
+#undef NO_DATA_NULL_OFFSET
+#undef NO_INDEX3_NULL_OFFSET
+#undef OMITTED_BMP_INDEX_1_LENGTH
+#undef OPTIONS_DATA_LENGTH_MASK
+#undef OPTIONS_DATA_NULL_OFFSET_MASK
+#undef OPTIONS_RESERVED_MASK
+#undef OPTIONS_VALUE_BITS_MASK
+#undef SHIFT_1
+#undef SHIFT_1_2
+#undef SHIFT_2
+#undef SHIFT_2_3
+#undef SHIFT_3
+#undef SMALL
+#undef SMALL_DATA_BLOCK_LENGTH
+#undef SMALL_DATA_MASK
+#undef SMALL_INDEX_LENGTH
+#undef SMALL_LIMIT
+#undef SMALL_MAX
 
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
@@ -379,7 +379,7 @@ CodePointTrie* CodePointTrie::fromBinary($CodePointTrie$Type* type$renamed, $Cod
 			}
 			$var($chars, index, $ICUBinary::getChars(bytes, indexLength, 0));
 			$init($CodePointTrie$1);
-			switch ($nc($CodePointTrie$1::$SwitchMap$jdk$internal$icu$util$CodePointTrie$ValueWidth)->get($nc((valueWidth))->ordinal())) {
+			switch ($nc($CodePointTrie$1::$SwitchMap$jdk$internal$icu$util$CodePointTrie$ValueWidth)->get((valueWidth)->ordinal())) {
 			case 1:
 				{
 					{

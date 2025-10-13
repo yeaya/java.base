@@ -34,8 +34,8 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef MANIFEST_VERSION
 #undef INSTANCE
+#undef MANIFEST_VERSION
 #undef SIGNATURE_VERSION
 
 using $DataOutputStream = ::java::io::DataOutputStream;

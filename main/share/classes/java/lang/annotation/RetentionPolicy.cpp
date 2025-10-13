@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef CLASS
 #undef RUNTIME
 #undef SOURCE
-#undef CLASS
 
 using $RetentionPolicyArray = $Array<::java::lang::annotation::RetentionPolicy>;
 using $ClassInfo = ::java::lang::ClassInfo;

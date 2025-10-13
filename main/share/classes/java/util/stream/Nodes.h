@@ -6,26 +6,26 @@
 #include <java/lang/Array.h>
 #include <java/lang/Integer.h>
 
-#pragma push_macro("MAX_ARRAY_SIZE")
-#undef MAX_ARRAY_SIZE
 #pragma push_macro("BAD_SIZE")
 #undef BAD_SIZE
-#pragma push_macro("EMPTY_LONG_NODE")
-#undef EMPTY_LONG_NODE
-#pragma push_macro("EMPTY_INT_NODE")
-#undef EMPTY_INT_NODE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("EMPTY_NODE")
-#undef EMPTY_NODE
-#pragma push_macro("EMPTY_INT_ARRAY")
-#undef EMPTY_INT_ARRAY
 #pragma push_macro("EMPTY_DOUBLE_ARRAY")
 #undef EMPTY_DOUBLE_ARRAY
 #pragma push_macro("EMPTY_DOUBLE_NODE")
 #undef EMPTY_DOUBLE_NODE
+#pragma push_macro("EMPTY_INT_ARRAY")
+#undef EMPTY_INT_ARRAY
+#pragma push_macro("EMPTY_INT_NODE")
+#undef EMPTY_INT_NODE
 #pragma push_macro("EMPTY_LONG_ARRAY")
 #undef EMPTY_LONG_ARRAY
+#pragma push_macro("EMPTY_LONG_NODE")
+#undef EMPTY_LONG_NODE
+#pragma push_macro("EMPTY_NODE")
+#undef EMPTY_NODE
+#pragma push_macro("MAX_ARRAY_SIZE")
+#undef MAX_ARRAY_SIZE
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
 
 namespace java {
 	namespace util {
@@ -106,15 +106,15 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MAX_ARRAY_SIZE")
 #pragma pop_macro("BAD_SIZE")
-#pragma pop_macro("EMPTY_LONG_NODE")
-#pragma pop_macro("EMPTY_INT_NODE")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("EMPTY_NODE")
-#pragma pop_macro("EMPTY_INT_ARRAY")
 #pragma pop_macro("EMPTY_DOUBLE_ARRAY")
 #pragma pop_macro("EMPTY_DOUBLE_NODE")
+#pragma pop_macro("EMPTY_INT_ARRAY")
+#pragma pop_macro("EMPTY_INT_NODE")
 #pragma pop_macro("EMPTY_LONG_ARRAY")
+#pragma pop_macro("EMPTY_LONG_NODE")
+#pragma pop_macro("EMPTY_NODE")
+#pragma pop_macro("MAX_ARRAY_SIZE")
+#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_util_stream_Nodes_h_

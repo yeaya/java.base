@@ -20,17 +20,17 @@
 #include <sun/security/x509/AttributeNameEnumeration.h>
 #include <jcpp.h>
 
-#undef KEY_COMPROMISE
+#undef AA_COMPROMISE
+#undef AFFILIATION_CHANGED
+#undef CA_COMPROMISE
 #undef CERTIFICATE_HOLD
+#undef CESSATION_OF_OPERATION
+#undef FALSE
+#undef KEY_COMPROMISE
 #undef NAMES
 #undef PRIVILEGE_WITHDRAWN
 #undef SUPERSEDED
-#undef AA_COMPROMISE
-#undef AFFILIATION_CHANGED
 #undef UNUSED
-#undef CA_COMPROMISE
-#undef FALSE
-#undef CESSATION_OF_OPERATION
 
 using $IOException = ::java::io::IOException;
 using $Boolean = ::java::lang::Boolean;

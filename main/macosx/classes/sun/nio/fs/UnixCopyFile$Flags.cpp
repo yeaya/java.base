@@ -19,9 +19,9 @@
 #include <sun/nio/fs/UnixCopyFile.h>
 #include <jcpp.h>
 
-#undef INTERRUPTIBLE
 #undef ATOMIC_MOVE
 #undef COPY_ATTRIBUTES
+#undef INTERRUPTIBLE
 #undef NOFOLLOW_LINKS
 #undef REPLACE_EXISTING
 

@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("NUMBER_THAI")
-#undef NUMBER_THAI
 #pragma push_macro("CALENDAR_JAPANESE")
 #undef CALENDAR_JAPANESE
+#pragma push_macro("NUMBER_THAI")
+#undef NUMBER_THAI
 
 namespace java {
 	namespace lang {
@@ -65,7 +65,7 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("NUMBER_THAI")
 #pragma pop_macro("CALENDAR_JAPANESE")
+#pragma pop_macro("NUMBER_THAI")
 
 #endif // _sun_util_locale_LocaleExtensions_h_

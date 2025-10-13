@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("IDENTITY_MHS")
-#undef IDENTITY_MHS
-#pragma push_macro("ZERO_MHS")
-#undef ZERO_MHS
-#pragma push_macro("IMPL_NAMES")
-#undef IMPL_NAMES
 #pragma push_macro("ACCESS_PERMISSION")
 #undef ACCESS_PERMISSION
+#pragma push_macro("IDENTITY_MHS")
+#undef IDENTITY_MHS
+#pragma push_macro("IMPL_NAMES")
+#undef IMPL_NAMES
+#pragma push_macro("ZERO_MHS")
+#undef ZERO_MHS
 
 namespace java {
 	namespace lang {
@@ -190,9 +190,9 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("IDENTITY_MHS")
-#pragma pop_macro("ZERO_MHS")
-#pragma pop_macro("IMPL_NAMES")
 #pragma pop_macro("ACCESS_PERMISSION")
+#pragma pop_macro("IDENTITY_MHS")
+#pragma pop_macro("IMPL_NAMES")
+#pragma pop_macro("ZERO_MHS")
 
 #endif // _java_lang_invoke_MethodHandles_h_

@@ -35,9 +35,9 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef SERVER_AUTHENTICATION
 #undef NTLM
 #undef PROXY_AUTHENTICATION
+#undef SERVER_AUTHENTICATION
 
 using $Client = ::com::sun::security::ntlm::Client;
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;

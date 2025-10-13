@@ -9,12 +9,12 @@
 #undef AUTH_FAILED
 #pragma push_macro("BAD_VERSION")
 #undef BAD_VERSION
-#pragma push_macro("PROTOCOL")
-#undef PROTOCOL
-#pragma push_macro("PACKET_READ_ERROR")
-#undef PACKET_READ_ERROR
 #pragma push_macro("NO_DOMAIN_INFO")
 #undef NO_DOMAIN_INFO
+#pragma push_macro("PACKET_READ_ERROR")
+#undef PACKET_READ_ERROR
+#pragma push_macro("PROTOCOL")
+#undef PROTOCOL
 #pragma push_macro("USER_UNKNOWN")
 #undef USER_UNKNOWN
 
@@ -49,9 +49,9 @@ public:
 
 #pragma pop_macro("AUTH_FAILED")
 #pragma pop_macro("BAD_VERSION")
-#pragma pop_macro("PROTOCOL")
-#pragma pop_macro("PACKET_READ_ERROR")
 #pragma pop_macro("NO_DOMAIN_INFO")
+#pragma pop_macro("PACKET_READ_ERROR")
+#pragma pop_macro("PROTOCOL")
 #pragma pop_macro("USER_UNKNOWN")
 
 #endif // _com_sun_security_ntlm_NTLMException_h_

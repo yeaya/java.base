@@ -48,12 +48,12 @@
 #include <jdk/internal/util/StaticProperty.h>
 #include <jcpp.h>
 
+#undef DEBUG
+#undef ERROR
 #undef SERIAL_FILTER_FACTORY_PROPNAME
-#undef TRACE
 #undef SERIAL_FILTER_PERMISSION
 #undef SERIAL_FILTER_PROPNAME
-#undef ERROR
-#undef DEBUG
+#undef TRACE
 
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config$BuiltinFilterFactory = ::java::io::ObjectInputFilter$Config$BuiltinFilterFactory;

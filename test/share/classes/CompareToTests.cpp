@@ -14,14 +14,14 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef ONE
-#undef TWO_POW_128
-#undef TWO_POW_127
 #undef MAX_VALUE
 #undef MINUS_ONE
 #undef MIN_VALUE
+#undef ONE
 #undef TWO_POW_126
+#undef TWO_POW_127
+#undef TWO_POW_128
+#undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $BigIntegerArray2 = $Array<::java::math::BigInteger, 2>;

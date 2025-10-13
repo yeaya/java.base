@@ -14,10 +14,10 @@
 #include <jdk/internal/icu/text/BidiBase.h>
 #include <jcpp.h>
 
-#undef DIRECTION_DEFAULT_RIGHT_TO_LEFT
 #undef DIRECTION_DEFAULT_LEFT_TO_RIGHT
-#undef DIRECTION_RIGHT_TO_LEFT
+#undef DIRECTION_DEFAULT_RIGHT_TO_LEFT
 #undef DIRECTION_LEFT_TO_RIGHT
+#undef DIRECTION_RIGHT_TO_LEFT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

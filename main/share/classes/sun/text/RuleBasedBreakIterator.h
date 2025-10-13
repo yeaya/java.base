@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/text/BreakIterator.h>
 
-#pragma push_macro("START_STATE")
-#undef START_STATE
+#pragma push_macro("BMP_INDICES_LENGTH")
+#undef BMP_INDICES_LENGTH
+#pragma push_macro("IGNORE")
+#undef IGNORE
 #pragma push_macro("LABEL")
 #undef LABEL
 #pragma push_macro("LABEL_LENGTH")
 #undef LABEL_LENGTH
-#pragma push_macro("IGNORE")
-#undef IGNORE
+#pragma push_macro("START_STATE")
+#undef START_STATE
 #pragma push_macro("STOP_STATE")
 #undef STOP_STATE
-#pragma push_macro("BMP_INDICES_LENGTH")
-#undef BMP_INDICES_LENGTH
 
 namespace java {
 	namespace nio {
@@ -99,11 +99,11 @@ public:
 	} // text
 } // sun
 
-#pragma pop_macro("START_STATE")
+#pragma pop_macro("BMP_INDICES_LENGTH")
+#pragma pop_macro("IGNORE")
 #pragma pop_macro("LABEL")
 #pragma pop_macro("LABEL_LENGTH")
-#pragma pop_macro("IGNORE")
+#pragma pop_macro("START_STATE")
 #pragma pop_macro("STOP_STATE")
-#pragma pop_macro("BMP_INDICES_LENGTH")
 
 #endif // _sun_text_RuleBasedBreakIterator_h_

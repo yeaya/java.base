@@ -23,10 +23,10 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef HALF
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef POSITIVE_INFINITY
 #undef TWO
 
 using $PrintStream = ::java::io::PrintStream;
@@ -114,7 +114,7 @@ void ParseDouble::check($String* val) {
 	bool isNegative = false;
 	if (s->charAt(0) == u'+') {
 		$assign(s, s->substring(1));
-	} else if ($nc(s)->charAt(0) == u'-') {
+	} else if (s->charAt(0) == u'-') {
 		$assign(s, s->substring(1));
 		isNegative = true;
 	}

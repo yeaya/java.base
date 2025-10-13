@@ -33,13 +33,13 @@
 #include <jdk/internal/invoke/NativeEntryPoint.h>
 #include <jcpp.h>
 
-#undef LF_INVNATIVE
-#undef GET_NEP
 #undef ARG_BASE
-#undef GET_FALLBACK
 #undef ARG_LIMIT
-#undef LINKER_CALL
+#undef GET_FALLBACK
+#undef GET_NEP
 #undef IMPL_NAMES
+#undef LF_INVNATIVE
+#undef LINKER_CALL
 #undef NMH_THIS
 
 using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;

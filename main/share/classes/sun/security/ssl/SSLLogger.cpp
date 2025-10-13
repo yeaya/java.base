@@ -21,13 +21,13 @@
 #include <sun/security/ssl/SSLLogger$SSLSimpleFormatter.h>
 #include <jcpp.h>
 
-#undef TRACE
 #undef ALL
+#undef DEBUG
 #undef ENGLISH
 #undef ERROR
 #undef INFO
+#undef TRACE
 #undef WARNING
-#undef DEBUG
 
 using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;

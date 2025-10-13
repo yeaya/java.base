@@ -203,9 +203,9 @@ $String* Globs::toRegexPattern($String* globPattern, bool isDos) {
 						regex->append(".*"_s);
 						++i;
 					} else if (isDos) {
-						$nc(regex)->append("[^\\\\]*"_s);
+						regex->append("[^\\\\]*"_s);
 					} else {
-						$nc(regex)->append("[^/]*"_s);
+						regex->append("[^/]*"_s);
 					}
 					break;
 				}

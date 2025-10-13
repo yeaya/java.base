@@ -14,8 +14,8 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef ONE
+#undef ZERO
 
 using $BigIntegerArray = $Array<::java::math::BigInteger>;
 using $PrintStream = ::java::io::PrintStream;

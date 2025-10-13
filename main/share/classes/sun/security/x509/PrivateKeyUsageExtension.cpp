@@ -28,13 +28,13 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef NOT_AFTER
 #undef IDENT
+#undef NAME
+#undef NOT_AFTER
 #undef NOT_BEFORE
-#undef TAG_CONTEXT
 #undef TAG_AFTER
 #undef TAG_BEFORE
-#undef NAME
+#undef TAG_CONTEXT
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -252,7 +252,7 @@ void PrivateKeyUsageExtension::set($String* name, Object$* obj) {
 	}
 	if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_BEFORE)) {
 		$set(this, notBefore, $cast($Date, obj));
-	} else if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
+	} else if (name->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
 		$set(this, notAfter, $cast($Date, obj));
 	} else {
 		$throwNew($CertificateException, "Attribute name not recognized by CertAttrSet:PrivateKeyUsage."_s);
@@ -263,7 +263,7 @@ void PrivateKeyUsageExtension::set($String* name, Object$* obj) {
 $Object* PrivateKeyUsageExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_BEFORE)) {
 		return $of(($new($Date, $nc(this->notBefore)->getTime())));
-	} else if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
+	} else if (name->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
 		return $of(($new($Date, $nc(this->notAfter)->getTime())));
 	} else {
 		$throwNew($CertificateException, "Attribute name not recognized by CertAttrSet:PrivateKeyUsage."_s);
@@ -273,7 +273,7 @@ $Object* PrivateKeyUsageExtension::get($String* name) {
 void PrivateKeyUsageExtension::delete$($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_BEFORE)) {
 		$set(this, notBefore, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
+	} else if (name->equalsIgnoreCase(PrivateKeyUsageExtension::NOT_AFTER)) {
 		$set(this, notAfter, nullptr);
 	} else {
 		$throwNew($CertificateException, "Attribute name not recognized by CertAttrSet:PrivateKeyUsage."_s);

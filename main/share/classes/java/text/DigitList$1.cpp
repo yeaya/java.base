@@ -14,14 +14,14 @@
 #include <java/text/DigitList.h>
 #include <jcpp.h>
 
+#undef CEILING
 #undef DOWN
 #undef FLOOR
-#undef UNNECESSARY
-#undef CEILING
-#undef HALF_EVEN
-#undef UP
-#undef HALF_UP
 #undef HALF_DOWN
+#undef HALF_EVEN
+#undef HALF_UP
+#undef UNNECESSARY
+#undef UP
 
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;
 using $ClassInfo = ::java::lang::ClassInfo;

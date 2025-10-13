@@ -7,46 +7,46 @@
 #include <java/lang/Integer.h>
 #include <java/text/NumberFormat.h>
 
-#pragma push_macro("PATTERN_DECIMAL_SEPARATOR")
-#undef PATTERN_DECIMAL_SEPARATOR
+#pragma push_macro("CURRENCY_SIGN")
+#undef CURRENCY_SIGN
+#pragma push_macro("DOUBLE_FRACTION_DIGITS")
+#undef DOUBLE_FRACTION_DIGITS
 #pragma push_macro("DOUBLE_INTEGER_DIGITS")
 #undef DOUBLE_INTEGER_DIGITS
 #pragma push_macro("MAXIMUM_FRACTION_DIGITS")
 #undef MAXIMUM_FRACTION_DIGITS
-#pragma push_macro("PATTERN_PER_MILLE")
-#undef PATTERN_PER_MILLE
-#pragma push_macro("QUOTE")
-#undef QUOTE
 #pragma push_macro("MAXIMUM_INTEGER_DIGITS")
 #undef MAXIMUM_INTEGER_DIGITS
+#pragma push_macro("MAX_INT_AS_DOUBLE")
+#undef MAX_INT_AS_DOUBLE
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
+#pragma push_macro("PATTERN_DECIMAL_SEPARATOR")
+#undef PATTERN_DECIMAL_SEPARATOR
+#pragma push_macro("PATTERN_DIGIT")
+#undef PATTERN_DIGIT
+#pragma push_macro("PATTERN_EXPONENT")
+#undef PATTERN_EXPONENT
+#pragma push_macro("PATTERN_GROUPING_SEPARATOR")
+#undef PATTERN_GROUPING_SEPARATOR
 #pragma push_macro("PATTERN_MINUS")
 #undef PATTERN_MINUS
 #pragma push_macro("PATTERN_PERCENT")
 #undef PATTERN_PERCENT
-#pragma push_macro("STATUS_LENGTH")
-#undef STATUS_LENGTH
-#pragma push_macro("DOUBLE_FRACTION_DIGITS")
-#undef DOUBLE_FRACTION_DIGITS
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("PATTERN_EXPONENT")
-#undef PATTERN_EXPONENT
-#pragma push_macro("STATUS_POSITIVE")
-#undef STATUS_POSITIVE
-#pragma push_macro("MAX_INT_AS_DOUBLE")
-#undef MAX_INT_AS_DOUBLE
-#pragma push_macro("STATUS_INFINITE")
-#undef STATUS_INFINITE
-#pragma push_macro("CURRENCY_SIGN")
-#undef CURRENCY_SIGN
-#pragma push_macro("PATTERN_DIGIT")
-#undef PATTERN_DIGIT
-#pragma push_macro("PATTERN_ZERO_DIGIT")
-#undef PATTERN_ZERO_DIGIT
-#pragma push_macro("PATTERN_GROUPING_SEPARATOR")
-#undef PATTERN_GROUPING_SEPARATOR
+#pragma push_macro("PATTERN_PER_MILLE")
+#undef PATTERN_PER_MILLE
 #pragma push_macro("PATTERN_SEPARATOR")
 #undef PATTERN_SEPARATOR
+#pragma push_macro("PATTERN_ZERO_DIGIT")
+#undef PATTERN_ZERO_DIGIT
+#pragma push_macro("QUOTE")
+#undef QUOTE
+#pragma push_macro("STATUS_INFINITE")
+#undef STATUS_INFINITE
+#pragma push_macro("STATUS_LENGTH")
+#undef STATUS_LENGTH
+#pragma push_macro("STATUS_POSITIVE")
+#undef STATUS_POSITIVE
 
 namespace java {
 	namespace io {
@@ -240,25 +240,25 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("PATTERN_DECIMAL_SEPARATOR")
+#pragma pop_macro("CURRENCY_SIGN")
+#pragma pop_macro("DOUBLE_FRACTION_DIGITS")
 #pragma pop_macro("DOUBLE_INTEGER_DIGITS")
 #pragma pop_macro("MAXIMUM_FRACTION_DIGITS")
-#pragma pop_macro("PATTERN_PER_MILLE")
-#pragma pop_macro("QUOTE")
 #pragma pop_macro("MAXIMUM_INTEGER_DIGITS")
+#pragma pop_macro("MAX_INT_AS_DOUBLE")
+#pragma pop_macro("MAX_VALUE")
+#pragma pop_macro("PATTERN_DECIMAL_SEPARATOR")
+#pragma pop_macro("PATTERN_DIGIT")
+#pragma pop_macro("PATTERN_EXPONENT")
+#pragma pop_macro("PATTERN_GROUPING_SEPARATOR")
 #pragma pop_macro("PATTERN_MINUS")
 #pragma pop_macro("PATTERN_PERCENT")
-#pragma pop_macro("STATUS_LENGTH")
-#pragma pop_macro("DOUBLE_FRACTION_DIGITS")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("PATTERN_EXPONENT")
-#pragma pop_macro("STATUS_POSITIVE")
-#pragma pop_macro("MAX_INT_AS_DOUBLE")
-#pragma pop_macro("STATUS_INFINITE")
-#pragma pop_macro("CURRENCY_SIGN")
-#pragma pop_macro("PATTERN_DIGIT")
-#pragma pop_macro("PATTERN_ZERO_DIGIT")
-#pragma pop_macro("PATTERN_GROUPING_SEPARATOR")
+#pragma pop_macro("PATTERN_PER_MILLE")
 #pragma pop_macro("PATTERN_SEPARATOR")
+#pragma pop_macro("PATTERN_ZERO_DIGIT")
+#pragma pop_macro("QUOTE")
+#pragma pop_macro("STATUS_INFINITE")
+#pragma pop_macro("STATUS_LENGTH")
+#pragma pop_macro("STATUS_POSITIVE")
 
 #endif // _java_text_DecimalFormat_h_

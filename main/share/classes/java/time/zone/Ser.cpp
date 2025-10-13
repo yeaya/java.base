@@ -20,9 +20,9 @@
 #include <java/time/zone/ZoneRules.h>
 #include <jcpp.h>
 
-#undef ZRULES
 #undef ZOT
 #undef ZOTRULE
+#undef ZRULES
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

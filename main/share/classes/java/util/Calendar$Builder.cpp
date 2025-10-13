@@ -23,9 +23,9 @@
 #include <sun/util/BuddhistCalendar.h>
 #include <jcpp.h>
 
-#undef WEEK_YEAR
-#undef NFIELDS
 #undef MIN_VALUE
+#undef NFIELDS
+#undef WEEK_YEAR
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

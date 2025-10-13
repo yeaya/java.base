@@ -6,36 +6,36 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("RSA_PSS_RSAE_SHA384")
-#undef RSA_PSS_RSAE_SHA384
-#pragma push_macro("ECDSA_SHA1")
-#undef ECDSA_SHA1
-#pragma push_macro("RSA_PKCS1_SHA1")
-#undef RSA_PKCS1_SHA1
-#pragma push_macro("RSA_SHA224")
-#undef RSA_SHA224
-#pragma push_macro("RSA_PSS_PSS_SHA384")
-#undef RSA_PSS_PSS_SHA384
+#pragma push_macro("DSA_SHA1")
+#undef DSA_SHA1
 #pragma push_macro("DSA_SHA224")
 #undef DSA_SHA224
 #pragma push_macro("DSA_SHA256")
 #undef DSA_SHA256
-#pragma push_macro("SIGNATURE_PRIMITIVE_SET")
-#undef SIGNATURE_PRIMITIVE_SET
+#pragma push_macro("ECDSA_SHA1")
+#undef ECDSA_SHA1
 #pragma push_macro("ECDSA_SHA224")
 #undef ECDSA_SHA224
-#pragma push_macro("DSA_SHA1")
-#undef DSA_SHA1
-#pragma push_macro("RSA_PSS_PSS_SHA256")
-#undef RSA_PSS_PSS_SHA256
-#pragma push_macro("RSA_PSS_PSS_SHA512")
-#undef RSA_PSS_PSS_SHA512
-#pragma push_macro("RSA_PSS_RSAE_SHA512")
-#undef RSA_PSS_RSAE_SHA512
 #pragma push_macro("RSA_MD5")
 #undef RSA_MD5
+#pragma push_macro("RSA_PKCS1_SHA1")
+#undef RSA_PKCS1_SHA1
+#pragma push_macro("RSA_PSS_PSS_SHA256")
+#undef RSA_PSS_PSS_SHA256
+#pragma push_macro("RSA_PSS_PSS_SHA384")
+#undef RSA_PSS_PSS_SHA384
+#pragma push_macro("RSA_PSS_PSS_SHA512")
+#undef RSA_PSS_PSS_SHA512
 #pragma push_macro("RSA_PSS_RSAE_SHA256")
 #undef RSA_PSS_RSAE_SHA256
+#pragma push_macro("RSA_PSS_RSAE_SHA384")
+#undef RSA_PSS_RSAE_SHA384
+#pragma push_macro("RSA_PSS_RSAE_SHA512")
+#undef RSA_PSS_RSAE_SHA512
+#pragma push_macro("RSA_SHA224")
+#undef RSA_SHA224
+#pragma push_macro("SIGNATURE_PRIMITIVE_SET")
+#undef SIGNATURE_PRIMITIVE_SET
 
 namespace java {
 	namespace security {
@@ -135,20 +135,20 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("RSA_PSS_RSAE_SHA384")
-#pragma pop_macro("ECDSA_SHA1")
-#pragma pop_macro("RSA_PKCS1_SHA1")
-#pragma pop_macro("RSA_SHA224")
-#pragma pop_macro("RSA_PSS_PSS_SHA384")
+#pragma pop_macro("DSA_SHA1")
 #pragma pop_macro("DSA_SHA224")
 #pragma pop_macro("DSA_SHA256")
-#pragma pop_macro("SIGNATURE_PRIMITIVE_SET")
+#pragma pop_macro("ECDSA_SHA1")
 #pragma pop_macro("ECDSA_SHA224")
-#pragma pop_macro("DSA_SHA1")
-#pragma pop_macro("RSA_PSS_PSS_SHA256")
-#pragma pop_macro("RSA_PSS_PSS_SHA512")
-#pragma pop_macro("RSA_PSS_RSAE_SHA512")
 #pragma pop_macro("RSA_MD5")
+#pragma pop_macro("RSA_PKCS1_SHA1")
+#pragma pop_macro("RSA_PSS_PSS_SHA256")
+#pragma pop_macro("RSA_PSS_PSS_SHA384")
+#pragma pop_macro("RSA_PSS_PSS_SHA512")
 #pragma pop_macro("RSA_PSS_RSAE_SHA256")
+#pragma pop_macro("RSA_PSS_RSAE_SHA384")
+#pragma pop_macro("RSA_PSS_RSAE_SHA512")
+#pragma pop_macro("RSA_SHA224")
+#pragma pop_macro("SIGNATURE_PRIMITIVE_SET")
 
 #endif // _sun_security_ssl_SignatureScheme_h_

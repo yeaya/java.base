@@ -13,8 +13,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

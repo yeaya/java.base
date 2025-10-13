@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("CACHE")
+#undef CACHE
 #pragma push_macro("DECREASING_CAPACITY_NULLS_LAST")
 #undef DECREASING_CAPACITY_NULLS_LAST
 #pragma push_macro("LARGE_BUFFER")
 #undef LARGE_BUFFER
-#pragma push_macro("CACHE")
-#undef CACHE
 #pragma push_macro("MAX_CACHED_BUFFERS")
 #undef MAX_CACHED_BUFFERS
 
@@ -56,9 +56,9 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("CACHE")
 #pragma pop_macro("DECREASING_CAPACITY_NULLS_LAST")
 #pragma pop_macro("LARGE_BUFFER")
-#pragma pop_macro("CACHE")
 #pragma pop_macro("MAX_CACHED_BUFFERS")
 
 #endif // _jdk_internal_jimage_ImageBufferCache_h_

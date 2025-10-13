@@ -24,15 +24,15 @@
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
 
-#undef SIGN_BIT_MASK
-#undef ZERO
+#undef EXP_BIAS
 #undef EXP_BIT_MASK
-#undef SMALL_5_POW
+#undef LONG_5_POW
+#undef MAX_VALUE
 #undef N_5_BITS
 #undef SIGNIF_BIT_MASK
-#undef EXP_BIAS
-#undef MAX_VALUE
-#undef LONG_5_POW
+#undef SIGN_BIT_MASK
+#undef SMALL_5_POW
+#undef ZERO
 
 using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -558,10 +558,10 @@ int32_t FloatingDecimal$BinaryToASCIIBuffer::getChars($chars* result) {
 		if (e <= 9) {
 			result->set(i++, (char16_t)(e + u'0'));
 		} else if (e <= 99) {
-			$nc(result)->set(i++, (char16_t)(e / 10 + u'0'));
+			result->set(i++, (char16_t)(e / 10 + u'0'));
 			result->set(i++, (char16_t)(e % 10 + u'0'));
 		} else {
-			$nc(result)->set(i++, (char16_t)(e / 100 + u'0'));
+			result->set(i++, (char16_t)(e / 100 + u'0'));
 			$modAssign(e, 100);
 			result->set(i++, (char16_t)(e / 10 + u'0'));
 			result->set(i++, (char16_t)(e % 10 + u'0'));

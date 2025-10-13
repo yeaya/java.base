@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CLOSE")
+#undef CLOSE
+#pragma push_macro("MARK")
+#undef MARK
 #pragma push_macro("READ")
 #undef READ
 #pragma push_macro("READY")
 #undef READY
 #pragma push_macro("READ_BUF")
 #undef READ_BUF
-#pragma push_macro("SKIP")
-#undef SKIP
 #pragma push_macro("RESET")
 #undef RESET
-#pragma push_macro("CLOSE")
-#undef CLOSE
-#pragma push_macro("MARK")
-#undef MARK
+#pragma push_macro("SKIP")
+#undef SKIP
 
 namespace java {
 	namespace io {
@@ -50,12 +50,12 @@ public:
 	static $Array<OpsAfterClose>* $VALUES;
 };
 
+#pragma pop_macro("CLOSE")
+#pragma pop_macro("MARK")
 #pragma pop_macro("READ")
 #pragma pop_macro("READY")
 #pragma pop_macro("READ_BUF")
-#pragma pop_macro("SKIP")
 #pragma pop_macro("RESET")
-#pragma pop_macro("CLOSE")
-#pragma pop_macro("MARK")
+#pragma pop_macro("SKIP")
 
 #endif // _OpsAfterClose_h_

@@ -13,12 +13,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NEW
-#undef TERMINATED
-#undef RUNNABLE
 #undef BLOCKED
-#undef WAITING
+#undef NEW
+#undef RUNNABLE
+#undef TERMINATED
 #undef TIMED_WAITING
+#undef WAITING
 
 using $Thread$StateArray = $Array<::java::lang::Thread$State>;
 using $ClassInfo = ::java::lang::ClassInfo;

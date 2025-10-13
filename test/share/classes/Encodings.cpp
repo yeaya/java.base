@@ -89,7 +89,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
 		if (!($$new($String, bytes, 4, $nc(bytes)->length - 4, charset)->equals(end))) {
 			$throwNew($Exception, $$str({charset, ": String constructor failed"_s}));
 		}
-	} else if ($nc(enc)->equals("UTF-16"_s)) {
+	} else if (enc->equals("UTF-16"_s)) {
 		if (!($$new($String, bytes, 0, 6, charset)->equals(start))) {
 			$throwNew($Exception, $$str({charset, ": String constructor failed"_s}));
 		}

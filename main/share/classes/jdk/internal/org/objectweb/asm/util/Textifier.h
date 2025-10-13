@@ -6,32 +6,32 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/util/Printer.h>
 
-#pragma push_macro("CLASS_SUFFIX")
-#undef CLASS_SUFFIX
-#pragma push_macro("RECORD")
-#undef RECORD
-#pragma push_macro("FIELD_DESCRIPTOR")
-#undef FIELD_DESCRIPTOR
-#pragma push_macro("DEPRECATED")
-#undef DEPRECATED
-#pragma push_macro("HANDLE_DESCRIPTOR")
-#undef HANDLE_DESCRIPTOR
 #pragma push_macro("CLASS_SIGNATURE")
 #undef CLASS_SIGNATURE
-#pragma push_macro("METHOD_SIGNATURE")
-#undef METHOD_SIGNATURE
-#pragma push_macro("INVISIBLE")
-#undef INVISIBLE
-#pragma push_macro("INTERNAL_NAME")
-#undef INTERNAL_NAME
+#pragma push_macro("CLASS_SUFFIX")
+#undef CLASS_SUFFIX
+#pragma push_macro("DEPRECATED")
+#undef DEPRECATED
+#pragma push_macro("FIELD_DESCRIPTOR")
+#undef FIELD_DESCRIPTOR
 #pragma push_macro("FIELD_SIGNATURE")
 #undef FIELD_SIGNATURE
-#pragma push_macro("USAGE")
-#undef USAGE
-#pragma push_macro("METHOD_DESCRIPTOR")
-#undef METHOD_DESCRIPTOR
 #pragma push_macro("FRAME_TYPES")
 #undef FRAME_TYPES
+#pragma push_macro("HANDLE_DESCRIPTOR")
+#undef HANDLE_DESCRIPTOR
+#pragma push_macro("INTERNAL_NAME")
+#undef INTERNAL_NAME
+#pragma push_macro("INVISIBLE")
+#undef INVISIBLE
+#pragma push_macro("METHOD_DESCRIPTOR")
+#undef METHOD_DESCRIPTOR
+#pragma push_macro("METHOD_SIGNATURE")
+#undef METHOD_SIGNATURE
+#pragma push_macro("RECORD")
+#undef RECORD
+#pragma push_macro("USAGE")
+#undef USAGE
 
 namespace java {
 	namespace io {
@@ -198,18 +198,18 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("CLASS_SUFFIX")
-#pragma pop_macro("RECORD")
-#pragma pop_macro("FIELD_DESCRIPTOR")
-#pragma pop_macro("DEPRECATED")
-#pragma pop_macro("HANDLE_DESCRIPTOR")
 #pragma pop_macro("CLASS_SIGNATURE")
-#pragma pop_macro("METHOD_SIGNATURE")
-#pragma pop_macro("INVISIBLE")
-#pragma pop_macro("INTERNAL_NAME")
+#pragma pop_macro("CLASS_SUFFIX")
+#pragma pop_macro("DEPRECATED")
+#pragma pop_macro("FIELD_DESCRIPTOR")
 #pragma pop_macro("FIELD_SIGNATURE")
-#pragma pop_macro("USAGE")
-#pragma pop_macro("METHOD_DESCRIPTOR")
 #pragma pop_macro("FRAME_TYPES")
+#pragma pop_macro("HANDLE_DESCRIPTOR")
+#pragma pop_macro("INTERNAL_NAME")
+#pragma pop_macro("INVISIBLE")
+#pragma pop_macro("METHOD_DESCRIPTOR")
+#pragma pop_macro("METHOD_SIGNATURE")
+#pragma pop_macro("RECORD")
+#pragma pop_macro("USAGE")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_Textifier_h_

@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DIGIT_TENS")
-#undef DIGIT_TENS
 #pragma push_macro("DIGIT_ONES")
 #undef DIGIT_ONES
+#pragma push_macro("DIGIT_TENS")
+#undef DIGIT_TENS
 
 namespace java {
 	namespace lang {
@@ -37,7 +37,7 @@ public:
 	} // math
 } // java
 
-#pragma pop_macro("DIGIT_TENS")
 #pragma pop_macro("DIGIT_ONES")
+#pragma pop_macro("DIGIT_TENS")
 
 #endif // _java_math_BigDecimal$StringBuilderHelper_h_

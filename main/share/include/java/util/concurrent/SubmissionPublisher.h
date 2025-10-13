@@ -7,12 +7,12 @@
 #include <java/lang/AutoCloseable.h>
 #include <java/util/concurrent/Flow$Publisher.h>
 
-#pragma push_macro("INITIAL_CAPACITY")
-#undef INITIAL_CAPACITY
-#pragma push_macro("BUFFER_CAPACITY_LIMIT")
-#undef BUFFER_CAPACITY_LIMIT
 #pragma push_macro("ASYNC_POOL")
 #undef ASYNC_POOL
+#pragma push_macro("BUFFER_CAPACITY_LIMIT")
+#undef BUFFER_CAPACITY_LIMIT
+#pragma push_macro("INITIAL_CAPACITY")
+#undef INITIAL_CAPACITY
 
 namespace java {
 	namespace lang {
@@ -111,8 +111,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("INITIAL_CAPACITY")
-#pragma pop_macro("BUFFER_CAPACITY_LIMIT")
 #pragma pop_macro("ASYNC_POOL")
+#pragma pop_macro("BUFFER_CAPACITY_LIMIT")
+#pragma pop_macro("INITIAL_CAPACITY")
 
 #endif // _java_util_concurrent_SubmissionPublisher_h_

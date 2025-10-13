@@ -37,13 +37,13 @@
 #include <sun/nio/ch/SelectorImpl.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef POLLIN
-#undef NANOSECONDS
+#undef INTERRUPTED
 #undef MAX_KEVENTS
 #undef MAX_VALUE
+#undef MILLISECONDS
+#undef NANOSECONDS
+#undef POLLIN
 #undef POLLOUT
-#undef INTERRUPTED
 
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;

@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DEF_EC_KEY_SIZE")
-#undef DEF_EC_KEY_SIZE
 #pragma push_macro("DEF_DH_KEY_SIZE")
 #undef DEF_DH_KEY_SIZE
-#pragma push_macro("KEY_LENGTH_PROP")
-#undef KEY_LENGTH_PROP
-#pragma push_macro("DEF_XEC_KEY_SIZE")
-#undef DEF_XEC_KEY_SIZE
-#pragma push_macro("DEF_ED_KEY_SIZE")
-#undef DEF_ED_KEY_SIZE
 #pragma push_macro("DEF_DSA_KEY_SIZE")
 #undef DEF_DSA_KEY_SIZE
+#pragma push_macro("DEF_EC_KEY_SIZE")
+#undef DEF_EC_KEY_SIZE
+#pragma push_macro("DEF_ED_KEY_SIZE")
+#undef DEF_ED_KEY_SIZE
 #pragma push_macro("DEF_RSASSA_PSS_KEY_SIZE")
 #undef DEF_RSASSA_PSS_KEY_SIZE
 #pragma push_macro("DEF_RSA_KEY_SIZE")
 #undef DEF_RSA_KEY_SIZE
+#pragma push_macro("DEF_XEC_KEY_SIZE")
+#undef DEF_XEC_KEY_SIZE
+#pragma push_macro("KEY_LENGTH_PROP")
+#undef KEY_LENGTH_PROP
 
 namespace java {
 	namespace util {
@@ -71,13 +71,13 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DEF_EC_KEY_SIZE")
 #pragma pop_macro("DEF_DH_KEY_SIZE")
-#pragma pop_macro("KEY_LENGTH_PROP")
-#pragma pop_macro("DEF_XEC_KEY_SIZE")
-#pragma pop_macro("DEF_ED_KEY_SIZE")
 #pragma pop_macro("DEF_DSA_KEY_SIZE")
+#pragma pop_macro("DEF_EC_KEY_SIZE")
+#pragma pop_macro("DEF_ED_KEY_SIZE")
 #pragma pop_macro("DEF_RSASSA_PSS_KEY_SIZE")
 #pragma pop_macro("DEF_RSA_KEY_SIZE")
+#pragma pop_macro("DEF_XEC_KEY_SIZE")
+#pragma pop_macro("KEY_LENGTH_PROP")
 
 #endif // _sun_security_util_SecurityProviderConstants_h_

@@ -99,7 +99,7 @@ void DistinctOps$1$1::accept(Object$* t) {
 			this->seenNull = true;
 			$nc(this->downstream)->accept($assignField(this, lastSeen, nullptr));
 		}
-	} else if (this->lastSeen == nullptr || !$nc($of(t))->equals(this->lastSeen)) {
+	} else if (this->lastSeen == nullptr || !$of(t)->equals(this->lastSeen)) {
 		$nc(this->downstream)->accept($assignField(this, lastSeen, t));
 	}
 }

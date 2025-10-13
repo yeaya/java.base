@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TESTS")
-#undef TESTS
 #pragma push_macro("LOOKUP")
 #undef LOOKUP
+#pragma push_macro("TESTS")
+#undef TESTS
 
 class Test7087570$TestMethodData;
 namespace java {
@@ -50,7 +50,7 @@ public:
 	static ::java::util::List* specialMethodHandles;
 };
 
-#pragma pop_macro("TESTS")
 #pragma pop_macro("LOOKUP")
+#pragma pop_macro("TESTS")
 
 #endif // _Test7087570_h_

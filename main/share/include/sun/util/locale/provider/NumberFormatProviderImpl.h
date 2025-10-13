@@ -8,16 +8,16 @@
 #include <java/text/spi/NumberFormatProvider.h>
 #include <sun/util/locale/provider/AvailableLanguageTags.h>
 
-#pragma push_macro("NUMBERSTYLE")
-#undef NUMBERSTYLE
-#pragma push_macro("PERCENTSTYLE")
-#undef PERCENTSTYLE
 #pragma push_macro("ACCOUNTINGSTYLE")
 #undef ACCOUNTINGSTYLE
 #pragma push_macro("CURRENCYSTYLE")
 #undef CURRENCYSTYLE
 #pragma push_macro("INTEGERSTYLE")
 #undef INTEGERSTYLE
+#pragma push_macro("NUMBERSTYLE")
+#undef NUMBERSTYLE
+#pragma push_macro("PERCENTSTYLE")
+#undef PERCENTSTYLE
 
 namespace java {
 	namespace text {
@@ -83,10 +83,10 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("NUMBERSTYLE")
-#pragma pop_macro("PERCENTSTYLE")
 #pragma pop_macro("ACCOUNTINGSTYLE")
 #pragma pop_macro("CURRENCYSTYLE")
 #pragma pop_macro("INTEGERSTYLE")
+#pragma pop_macro("NUMBERSTYLE")
+#pragma pop_macro("PERCENTSTYLE")
 
 #endif // _sun_util_locale_provider_NumberFormatProviderImpl_h_

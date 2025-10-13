@@ -23,12 +23,12 @@
 #include <sun/net/ftp/impl/FtpClient.h>
 #include <jcpp.h>
 
-#undef YEAR
+#undef DIR
+#undef FILE
 #undef HOUR
 #undef LINK
 #undef MINUTE
-#undef DIR
-#undef FILE
+#undef YEAR
 
 using $PatternArray = $Array<::java::util::regex::Pattern>;
 using $intArray2 = $Array<int32_t, 2>;

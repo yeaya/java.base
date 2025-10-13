@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("GIGA")
+#undef GIGA
 #pragma push_macro("KILO")
 #undef KILO
 #pragma push_macro("MEGA")
 #undef MEGA
 #pragma push_macro("TERA")
 #undef TERA
-#pragma push_macro("GIGA")
-#undef GIGA
 
 namespace sun {
 	namespace launcher {
@@ -40,9 +40,9 @@ public:
 	} // launcher
 } // sun
 
+#pragma pop_macro("GIGA")
 #pragma pop_macro("KILO")
 #pragma pop_macro("MEGA")
 #pragma pop_macro("TERA")
-#pragma pop_macro("GIGA")
 
 #endif // _sun_launcher_LauncherHelper$SizePrefix_h_

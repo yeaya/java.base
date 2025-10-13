@@ -47,10 +47,10 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef MAX_ARRAY_SIZE
-#undef KEYS
-#undef VALUES
 #undef ENTRIES
+#undef KEYS
+#undef MAX_ARRAY_SIZE
+#undef VALUES
 
 using $Hashtable$EntryArray = $Array<::java::util::Hashtable$Entry>;
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
@@ -547,7 +547,7 @@ bool Hashtable::equals(Object$* o) {
 							if (!(var$2 && t->containsKey(key))) {
 								return false;
 							}
-						} else if (!$nc($of(value))->equals($($nc(t)->get(key)))) {
+						} else if (!$of(value)->equals($($nc(t)->get(key)))) {
 							return false;
 						}
 					}

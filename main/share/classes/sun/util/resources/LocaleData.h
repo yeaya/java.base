@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("DOTCLDR")
-#undef DOTCLDR
 #pragma push_macro("CANDIDATES_MAP")
 #undef CANDIDATES_MAP
+#pragma push_macro("DOTCLDR")
+#undef DOTCLDR
 
 namespace java {
 	namespace util {
@@ -69,7 +69,7 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("DOTCLDR")
 #pragma pop_macro("CANDIDATES_MAP")
+#pragma pop_macro("DOTCLDR")
 
 #endif // _sun_util_resources_LocaleData_h_

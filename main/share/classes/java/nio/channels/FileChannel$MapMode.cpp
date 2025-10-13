@@ -11,9 +11,9 @@
 #include <java/nio/channels/FileChannel.h>
 #include <jcpp.h>
 
+#undef PRIVATE
 #undef READ_ONLY
 #undef READ_WRITE
-#undef PRIVATE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

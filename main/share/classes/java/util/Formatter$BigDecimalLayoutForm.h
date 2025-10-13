@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SCIENTIFIC")
-#undef SCIENTIFIC
 #pragma push_macro("DECIMAL_FLOAT")
 #undef DECIMAL_FLOAT
+#pragma push_macro("SCIENTIFIC")
+#undef SCIENTIFIC
 
 namespace java {
 	namespace util {
@@ -30,7 +30,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SCIENTIFIC")
 #pragma pop_macro("DECIMAL_FLOAT")
+#pragma pop_macro("SCIENTIFIC")
 
 #endif // _java_util_Formatter$BigDecimalLayoutForm_h_

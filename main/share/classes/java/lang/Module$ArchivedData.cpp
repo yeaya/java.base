@@ -14,9 +14,9 @@
 #include <jcpp.h>
 
 #undef ALL_UNNAMED_MODULE
+#undef ALL_UNNAMED_MODULE_SET
 #undef EVERYONE_MODULE
 #undef EVERYONE_SET
-#undef ALL_UNNAMED_MODULE_SET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

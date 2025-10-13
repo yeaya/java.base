@@ -15,8 +15,8 @@
 #include <sun/net/www/protocol/http/AuthenticatorKeys$AuthenticatorKeyAccess.h>
 #include <jcpp.h>
 
-#undef IDS
 #undef DEFAULT
+#undef IDS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

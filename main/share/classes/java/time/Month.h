@@ -9,32 +9,32 @@
 #include <java/time/temporal/TemporalAccessor.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 
-#pragma push_macro("JANUARY")
-#undef JANUARY
-#pragma push_macro("JUNE")
-#undef JUNE
-#pragma push_macro("ENUMS")
-#undef ENUMS
-#pragma push_macro("MAY")
-#undef MAY
-#pragma push_macro("OCTOBER")
-#undef OCTOBER
-#pragma push_macro("DECEMBER")
-#undef DECEMBER
-#pragma push_macro("FEBRUARY")
-#undef FEBRUARY
-#pragma push_macro("SEPTEMBER")
-#undef SEPTEMBER
-#pragma push_macro("NOVEMBER")
-#undef NOVEMBER
-#pragma push_macro("MARCH")
-#undef MARCH
-#pragma push_macro("AUGUST")
-#undef AUGUST
-#pragma push_macro("JULY")
-#undef JULY
 #pragma push_macro("APRIL")
 #undef APRIL
+#pragma push_macro("AUGUST")
+#undef AUGUST
+#pragma push_macro("DECEMBER")
+#undef DECEMBER
+#pragma push_macro("ENUMS")
+#undef ENUMS
+#pragma push_macro("FEBRUARY")
+#undef FEBRUARY
+#pragma push_macro("JANUARY")
+#undef JANUARY
+#pragma push_macro("JULY")
+#undef JULY
+#pragma push_macro("JUNE")
+#undef JUNE
+#pragma push_macro("MARCH")
+#undef MARCH
+#pragma push_macro("MAY")
+#undef MAY
+#pragma push_macro("NOVEMBER")
+#undef NOVEMBER
+#pragma push_macro("OCTOBER")
+#undef OCTOBER
+#pragma push_macro("SEPTEMBER")
+#undef SEPTEMBER
 
 namespace java {
 	namespace time {
@@ -112,18 +112,18 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("JANUARY")
-#pragma pop_macro("JUNE")
-#pragma pop_macro("ENUMS")
-#pragma pop_macro("MAY")
-#pragma pop_macro("OCTOBER")
-#pragma pop_macro("DECEMBER")
-#pragma pop_macro("FEBRUARY")
-#pragma pop_macro("SEPTEMBER")
-#pragma pop_macro("NOVEMBER")
-#pragma pop_macro("MARCH")
-#pragma pop_macro("AUGUST")
-#pragma pop_macro("JULY")
 #pragma pop_macro("APRIL")
+#pragma pop_macro("AUGUST")
+#pragma pop_macro("DECEMBER")
+#pragma pop_macro("ENUMS")
+#pragma pop_macro("FEBRUARY")
+#pragma pop_macro("JANUARY")
+#pragma pop_macro("JULY")
+#pragma pop_macro("JUNE")
+#pragma pop_macro("MARCH")
+#pragma pop_macro("MAY")
+#pragma pop_macro("NOVEMBER")
+#pragma pop_macro("OCTOBER")
+#pragma pop_macro("SEPTEMBER")
 
 #endif // _java_time_Month_h_

@@ -18,21 +18,21 @@
 #include <jdk/internal/icu/text/UTF16.h>
 #include <jcpp.h>
 
+#undef DATA_BLOCK_LENGTH
+#undef HEADER_OPTIONS_DATA_IS_32_BIT_
+#undef HEADER_OPTIONS_INDEX_SHIFT_
 #undef HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_
 #undef HEADER_OPTIONS_SHIFT_MASK_
-#undef INDEX_STAGE_3_MASK_
-#undef LEAD_SURROGATE_MIN_VALUE
-#undef DATA_BLOCK_LENGTH
-#undef LEAD_INDEX_OFFSET_
-#undef MAX_VALUE
-#undef SURROGATE_MASK_
-#undef INDEX_STAGE_1_SHIFT_
 #undef HEADER_SIGNATURE_
-#undef HEADER_OPTIONS_DATA_IS_32_BIT_
-#undef SUPPLEMENTARY_MIN_VALUE
+#undef INDEX_STAGE_1_SHIFT_
 #undef INDEX_STAGE_2_SHIFT_
-#undef HEADER_OPTIONS_INDEX_SHIFT_
+#undef INDEX_STAGE_3_MASK_
+#undef LEAD_INDEX_OFFSET_
 #undef LEAD_SURROGATE_MAX_VALUE
+#undef LEAD_SURROGATE_MIN_VALUE
+#undef MAX_VALUE
+#undef SUPPLEMENTARY_MIN_VALUE
+#undef SURROGATE_MASK_
 
 using $DataInputStream = ::java::io::DataInputStream;
 using $InputStream = ::java::io::InputStream;

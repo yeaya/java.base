@@ -21,8 +21,8 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef ARRAY_INDEX_SCALE
 #undef ARRAY_BASE_OFFSET
+#undef ARRAY_INDEX_SCALE
 #undef UNSAFE
 
 using $AssertionError = ::java::lang::AssertionError;

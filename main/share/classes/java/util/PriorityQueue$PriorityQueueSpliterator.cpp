@@ -17,8 +17,8 @@
 #include <jcpp.h>
 
 #undef NONNULL
-#undef SUBSIZED
 #undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

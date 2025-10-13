@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <java/security/SignatureSpi.h>
 
+#pragma push_macro("RSA_CIPHER")
+#undef RSA_CIPHER
 #pragma push_macro("RSA_SIGNATURE")
 #undef RSA_SIGNATURE
+#pragma push_macro("SIGN")
+#undef SIGN
 #pragma push_macro("UNINITIALIZED")
 #undef UNINITIALIZED
 #pragma push_macro("VERIFY")
 #undef VERIFY
-#pragma push_macro("SIGN")
-#undef SIGN
-#pragma push_macro("RSA_CIPHER")
-#undef RSA_CIPHER
 
 namespace java {
 	namespace nio {
@@ -125,10 +125,10 @@ public:
 	} // security
 } // java
 
+#pragma pop_macro("RSA_CIPHER")
 #pragma pop_macro("RSA_SIGNATURE")
+#pragma pop_macro("SIGN")
 #pragma pop_macro("UNINITIALIZED")
 #pragma pop_macro("VERIFY")
-#pragma pop_macro("SIGN")
-#pragma pop_macro("RSA_CIPHER")
 
 #endif // _java_security_Signature_h_

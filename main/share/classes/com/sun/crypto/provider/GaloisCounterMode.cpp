@@ -53,16 +53,16 @@
 #include <sun/security/util/ArrayUtil.h>
 #include <jcpp.h>
 
-#undef MAX_BUF_SIZE
-#undef WRAP_MODE
-#undef TRIGGERLEN
 #undef BIG_ENDIAN
-#undef UNWRAP_MODE
-#undef DEFAULT_TAG_LEN
-#undef ENCRYPT_MODE
-#undef EMPTY_BUF
 #undef DECRYPT_MODE
 #undef DEFAULT_IV_LEN
+#undef DEFAULT_TAG_LEN
+#undef EMPTY_BUF
+#undef ENCRYPT_MODE
+#undef MAX_BUF_SIZE
+#undef TRIGGERLEN
+#undef UNWRAP_MODE
+#undef WRAP_MODE
 
 using $AESCrypt = ::com::sun::crypto::provider::AESCrypt;
 using $ConstructKeys = ::com::sun::crypto::provider::ConstructKeys;
@@ -235,7 +235,7 @@ void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec)
 	$var($bytes, keyValue, $nc(key)->getEncoded());
 	if (keyValue == nullptr) {
 		$throwNew($InvalidKeyException, "Key encoding must not be null"_s);
-	} else if (this->keySize != -1 && $nc(keyValue)->length != this->keySize) {
+	} else if (this->keySize != -1 && keyValue->length != this->keySize) {
 		$Arrays::fill(keyValue, (int8_t)0);
 		$throwNew($InvalidKeyException, $$str({"The key must be "_s, $$str(this->keySize), " bytes"_s}));
 	}

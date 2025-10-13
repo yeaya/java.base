@@ -50,11 +50,11 @@
 #include <sun/util/locale/provider/CalendarDataUtility.h>
 #include <jcpp.h>
 
-#undef HOUR_OF_DAY
-#undef MINUTE_OF_HOUR
 #undef AM_PM
 #undef DAYPERIOD_LOCALESTORE
 #undef DPCOMPARATOR
+#undef HOUR_OF_DAY
+#undef MINUTE_OF_HOUR
 
 using $TextStyleArray = $Array<::java::time::format::TextStyle>;
 using $Serializable = ::java::io::Serializable;

@@ -14,8 +14,8 @@
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
-#undef NO_PROXY
 #undef DIRECT
+#undef NO_PROXY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

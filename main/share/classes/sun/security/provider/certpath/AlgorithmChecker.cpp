@@ -55,16 +55,16 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef SIGNATURE_PRIMITIVE_SET
-#undef PUBLIC_KEY_ENCRYPTION
+#undef ALGORITHM_CONSTRAINED
+#undef INVALID_KEY_USAGE
 #undef KEY_AGREEMENT
+#undef KEY_ENCAPSULATION
 #undef KU_PRIMITIVE_SET
+#undef PUBLIC_KEY_ENCRYPTION
+#undef SIGNATURE
+#undef SIGNATURE_PRIMITIVE_SET
 #undef SIG_ALG
 #undef VAR_GENERIC
-#undef INVALID_KEY_USAGE
-#undef KEY_ENCAPSULATION
-#undef ALGORITHM_CONSTRAINED
-#undef SIGNATURE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

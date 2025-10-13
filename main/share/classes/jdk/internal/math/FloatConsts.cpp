@@ -9,12 +9,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SIGN_BIT_MASK
-#undef EXP_BIT_MASK
-#undef SIGNIF_BIT_MASK
 #undef EXP_BIAS
+#undef EXP_BIT_MASK
 #undef MIN_SUB_EXPONENT
 #undef SIGNIFICAND_WIDTH
+#undef SIGNIF_BIT_MASK
+#undef SIGN_BIT_MASK
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

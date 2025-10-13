@@ -12,16 +12,16 @@
 #include <java/util/Properties.h>
 #include <jcpp.h>
 
-#undef USER_HOME
-#undef NATIVE_ENCODING
-#undef JAVA_LIBRARY_PATH
-#undef JDK_SERIAL_FILTER
-#undef SUN_BOOT_LIBRARY_PATH
 #undef JAVA_HOME
 #undef JAVA_IO_TMPDIR
-#undef USER_NAME
-#undef USER_DIR
+#undef JAVA_LIBRARY_PATH
+#undef JDK_SERIAL_FILTER
 #undef JDK_SERIAL_FILTER_FACTORY
+#undef NATIVE_ENCODING
+#undef SUN_BOOT_LIBRARY_PATH
+#undef USER_DIR
+#undef USER_HOME
+#undef USER_NAME
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

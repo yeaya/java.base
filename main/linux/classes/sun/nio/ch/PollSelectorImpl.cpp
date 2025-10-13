@@ -38,16 +38,16 @@
 #include <sun/nio/ch/SelectorImpl.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef INITIAL_CAPACITY
-#undef FD_OFFSET
-#undef POLLIN
-#undef NANOSECONDS
-#undef REVENT_OFFSET
-#undef MAX_VALUE
-#undef SIZE_POLLFD
-#undef INTERRUPTED
 #undef EVENT_OFFSET
+#undef FD_OFFSET
+#undef INITIAL_CAPACITY
+#undef INTERRUPTED
+#undef MAX_VALUE
+#undef MILLISECONDS
+#undef NANOSECONDS
+#undef POLLIN
+#undef REVENT_OFFSET
+#undef SIZE_POLLFD
 
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;

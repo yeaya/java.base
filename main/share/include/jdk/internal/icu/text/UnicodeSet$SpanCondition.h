@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CONTAINED")
+#undef CONTAINED
 #pragma push_macro("NOT_CONTAINED")
 #undef NOT_CONTAINED
 #pragma push_macro("SIMPLE")
 #undef SIMPLE
-#pragma push_macro("CONTAINED")
-#undef CONTAINED
 
 namespace jdk {
 	namespace internal {
@@ -37,8 +37,8 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("CONTAINED")
 #pragma pop_macro("NOT_CONTAINED")
 #pragma pop_macro("SIMPLE")
-#pragma pop_macro("CONTAINED")
 
 #endif // _jdk_internal_icu_text_UnicodeSet$SpanCondition_h_

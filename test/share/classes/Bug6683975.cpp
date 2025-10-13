@@ -21,12 +21,12 @@
 #include <java/util/TimeZone.h>
 #include <jcpp.h>
 
-#undef MEDIUM
-#undef SEPTEMBER
-#undef US
 #undef FULL
 #undef LONG
+#undef MEDIUM
+#undef SEPTEMBER
 #undef SHORT
+#undef US
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

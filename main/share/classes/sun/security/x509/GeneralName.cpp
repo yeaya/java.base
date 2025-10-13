@@ -25,17 +25,17 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef NAME_MATCH
-#undef NAME_IP
 #undef NAME_ANY
+#undef NAME_DIRECTORY
+#undef NAME_DNS
+#undef NAME_EDI
+#undef NAME_IP
+#undef NAME_MATCH
+#undef NAME_OID
+#undef NAME_RFC822
 #undef NAME_URI
 #undef NAME_X400
 #undef TAG_CONTEXT
-#undef NAME_OID
-#undef NAME_EDI
-#undef NAME_DNS
-#undef NAME_RFC822
-#undef NAME_DIRECTORY
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

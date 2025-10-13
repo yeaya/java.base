@@ -71,56 +71,56 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceMethodVisitor.h>
 #include <jcpp.h>
 
-#undef ACC_PROTECTED
-#undef INSTANCEOF
-#undef NEW
-#undef ACC_ENUM
-#undef ACC_VOLATILE
-#undef SKIP_DEBUG
-#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
-#undef ACC_BRIDGE
-#undef METHOD_TYPE_PARAMETER
-#undef ACC_SUPER
-#undef CLASS_TYPE_PARAMETER
-#undef EXCEPTION_PARAMETER
-#undef METHOD_INVOCATION_TYPE_ARGUMENT
-#undef CAST
-#undef ACC_VARARGS
-#undef ASM8
-#undef METHOD_REFERENCE
-#undef FIELD
-#undef ASM9_EXPERIMENTAL
-#undef ACC_RECORD
-#undef METHOD_RECEIVER
-#undef ACC_SYNTHETIC
-#undef ACC_STRICT
-#undef CLASS_EXTENDS
-#undef ERROR_AT
-#undef ACC_PUBLIC
-#undef THROWS
-#undef ACC_TRANSIENT
-#undef METHOD_FORMAL_PARAMETER
-#undef METHOD_TYPE_PARAMETER_BOUND
-#undef ACC_MANDATED
-#undef ACC_STATIC
 #undef ACC_ABSTRACT
+#undef ACC_ANNOTATION
+#undef ACC_BRIDGE
 #undef ACC_DEPRECATED
-#undef LOCAL_VARIABLE
+#undef ACC_ENUM
+#undef ACC_FINAL
+#undef ACC_INTERFACE
+#undef ACC_MANDATED
 #undef ACC_MODULE
+#undef ACC_NATIVE
 #undef ACC_OPEN
 #undef ACC_PRIVATE
-#undef ACC_FINAL
-#undef CLASS_TYPE_PARAMETER_BOUND
-#undef USAGE
-#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
-#undef ACC_INTERFACE
-#undef CONSTRUCTOR_REFERENCE
-#undef RESOURCE_VARIABLE
+#undef ACC_PROTECTED
+#undef ACC_PUBLIC
+#undef ACC_RECORD
+#undef ACC_STATIC
+#undef ACC_STRICT
+#undef ACC_SUPER
 #undef ACC_SYNCHRONIZED
-#undef METHOD_RETURN
-#undef ACC_NATIVE
+#undef ACC_SYNTHETIC
+#undef ACC_TRANSIENT
+#undef ACC_VARARGS
+#undef ACC_VOLATILE
+#undef ASM8
+#undef ASM9_EXPERIMENTAL
+#undef CAST
+#undef CLASS_EXTENDS
+#undef CLASS_TYPE_PARAMETER
+#undef CLASS_TYPE_PARAMETER_BOUND
+#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
+#undef CONSTRUCTOR_REFERENCE
+#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
+#undef ERROR_AT
+#undef EXCEPTION_PARAMETER
+#undef FIELD
+#undef INSTANCEOF
+#undef LOCAL_VARIABLE
+#undef METHOD_FORMAL_PARAMETER
+#undef METHOD_INVOCATION_TYPE_ARGUMENT
+#undef METHOD_RECEIVER
+#undef METHOD_REFERENCE
 #undef METHOD_REFERENCE_TYPE_ARGUMENT
-#undef ACC_ANNOTATION
+#undef METHOD_RETURN
+#undef METHOD_TYPE_PARAMETER
+#undef METHOD_TYPE_PARAMETER_BOUND
+#undef NEW
+#undef RESOURCE_VARIABLE
+#undef SKIP_DEBUG
+#undef THROWS
+#undef USAGE
 
 using $FrameArray = $Array<::jdk::internal::org::objectweb::asm$::tree::analysis::Frame>;
 using $FileInputStream = ::java::io::FileInputStream;
@@ -324,7 +324,7 @@ void CheckClassAdapter::visit(int32_t version, int32_t access, $String* name, $S
 		if (superName != nullptr) {
 			$throwNew($IllegalArgumentException, "The super class name of the Object class must be \'null\'"_s);
 		}
-	} else if ($nc(name)->endsWith("module-info"_s)) {
+	} else if (name->endsWith("module-info"_s)) {
 		if (superName != nullptr) {
 			$throwNew($IllegalArgumentException, "The super class name of a module-info class must be \'null\'"_s);
 		}

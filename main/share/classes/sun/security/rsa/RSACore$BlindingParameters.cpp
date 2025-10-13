@@ -17,9 +17,9 @@
 #include <sun/security/rsa/RSACore.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef ONE
 #undef BIG_TWO
+#undef ONE
+#undef ZERO
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;

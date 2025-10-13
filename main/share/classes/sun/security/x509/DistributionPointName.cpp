@@ -18,8 +18,8 @@
 #include <jcpp.h>
 
 #undef TAG_CONTEXT
-#undef TAG_RELATIVE_NAME
 #undef TAG_FULL_NAME
+#undef TAG_RELATIVE_NAME
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

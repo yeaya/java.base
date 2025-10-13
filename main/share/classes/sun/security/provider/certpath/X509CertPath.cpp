@@ -38,10 +38,10 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef PKCS7_ENCODING
-#undef DATA_OID
-#undef PKIPATH_ENCODING
 #undef COUNT_ENCODING
+#undef DATA_OID
+#undef PKCS7_ENCODING
+#undef PKIPATH_ENCODING
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $SignerInfoArray = $Array<::sun::security::pkcs::SignerInfo>;

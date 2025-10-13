@@ -23,11 +23,11 @@
 #include <sun/security/validator/Validator.h>
 #include <jcpp.h>
 
+#undef ALGORITHM_CONSTRAINED
 #undef VAR_CODE_SIGNING
-#undef VAR_TLS_SERVER
 #undef VAR_PLUGIN_CODE_SIGNING
 #undef VAR_TLS_CLIENT
-#undef ALGORITHM_CONSTRAINED
+#undef VAR_TLS_SERVER
 #undef VAR_TSA_SERVER
 
 using $PrintStream = ::java::io::PrintStream;

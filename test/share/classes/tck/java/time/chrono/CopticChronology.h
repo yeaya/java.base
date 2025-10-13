@@ -7,14 +7,14 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/AbstractChronology.h>
 
-#pragma push_macro("DOM_RANGE_NONLEAP")
-#undef DOM_RANGE_NONLEAP
 #pragma push_macro("DOM_RANGE")
 #undef DOM_RANGE
-#pragma push_macro("INSTANCE")
-#undef INSTANCE
 #pragma push_macro("DOM_RANGE_LEAP")
 #undef DOM_RANGE_LEAP
+#pragma push_macro("DOM_RANGE_NONLEAP")
+#undef DOM_RANGE_NONLEAP
+#pragma push_macro("INSTANCE")
+#undef INSTANCE
 #pragma push_macro("MOY_RANGE")
 #undef MOY_RANGE
 
@@ -84,10 +84,10 @@ public:
 	} // java
 } // tck
 
-#pragma pop_macro("DOM_RANGE_NONLEAP")
 #pragma pop_macro("DOM_RANGE")
-#pragma pop_macro("INSTANCE")
 #pragma pop_macro("DOM_RANGE_LEAP")
+#pragma pop_macro("DOM_RANGE_NONLEAP")
+#pragma pop_macro("INSTANCE")
 #pragma pop_macro("MOY_RANGE")
 
 #endif // _tck_java_time_chrono_CopticChronology_h_

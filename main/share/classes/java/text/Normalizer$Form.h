@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NFKC")
-#undef NFKC
-#pragma push_macro("NFKD")
-#undef NFKD
 #pragma push_macro("NFC")
 #undef NFC
 #pragma push_macro("NFD")
 #undef NFD
+#pragma push_macro("NFKC")
+#undef NFKC
+#pragma push_macro("NFKD")
+#undef NFKD
 
 namespace java {
 	namespace text {
@@ -36,9 +36,9 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("NFKC")
-#pragma pop_macro("NFKD")
 #pragma pop_macro("NFC")
 #pragma pop_macro("NFD")
+#pragma pop_macro("NFKC")
+#pragma pop_macro("NFKD")
 
 #endif // _java_text_Normalizer$Form_h_

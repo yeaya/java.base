@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("MIN_DEFAULT")
+#undef MIN_DEFAULT
 #pragma push_macro("TAG_MAX")
 #undef TAG_MAX
 #pragma push_macro("TAG_MIN")
 #undef TAG_MIN
-#pragma push_macro("MIN_DEFAULT")
-#undef MIN_DEFAULT
 
 namespace sun {
 	namespace security {
@@ -58,8 +58,8 @@ public:
 	} // security
 } // sun
 
+#pragma pop_macro("MIN_DEFAULT")
 #pragma pop_macro("TAG_MAX")
 #pragma pop_macro("TAG_MIN")
-#pragma pop_macro("MIN_DEFAULT")
 
 #endif // _sun_security_x509_GeneralSubtree_h_

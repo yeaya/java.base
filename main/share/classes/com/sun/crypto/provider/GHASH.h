@@ -10,10 +10,10 @@
 
 #pragma push_macro("AES_BLOCK_SIZE")
 #undef AES_BLOCK_SIZE
-#pragma push_macro("MAX_LEN")
-#undef MAX_LEN
 #pragma push_macro("GHASH")
 #undef GHASH
+#pragma push_macro("MAX_LEN")
+#undef MAX_LEN
 
 namespace java {
 	namespace lang {
@@ -74,7 +74,7 @@ public:
 } // com
 
 #pragma pop_macro("AES_BLOCK_SIZE")
-#pragma pop_macro("MAX_LEN")
 #pragma pop_macro("GHASH")
+#pragma pop_macro("MAX_LEN")
 
 #endif // _com_sun_crypto_provider_GHASH_h_

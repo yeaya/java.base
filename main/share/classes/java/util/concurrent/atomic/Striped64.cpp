@@ -32,11 +32,11 @@
 #include <java/util/function/LongBinaryOperator.h>
 #include <jcpp.h>
 
+#undef BASE
+#undef CELLSBUSY
+#undef NCPU
 #undef THREAD_PROBE
 #undef TYPE
-#undef NCPU
-#undef CELLSBUSY
-#undef BASE
 
 using $Striped64$CellArray = $Array<::java::util::concurrent::atomic::Striped64$Cell>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -204,8 +204,8 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 			} else if (!wasUncontended) {
 				wasUncontended = true;
 			} else {
-				int64_t var$7 = v = c->value;
-				if ($nc(c)->cas(var$7, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
+				int64_t var$6 = v = c->value;
+				if (c->cas(var$6, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
 					break;
 				} else if (n >= Striped64::NCPU || this->cells != cs) {
 					collide = false;
@@ -213,18 +213,18 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 					collide = true;
 				} else if (this->cellsBusy == 0 && casCellsBusy()) {
 					{
-						$var($Throwable, var$8, nullptr);
+						$var($Throwable, var$7, nullptr);
 						try {
 							if (this->cells == cs) {
 								$set(this, cells, $fcast($Striped64$CellArray, $Arrays::copyOf(cs, n << 1)));
 							}
 						} catch ($Throwable&) {
-							$assign(var$8, $catch());
+							$assign(var$7, $catch());
 						} /*finally*/ {
 							this->cellsBusy = 0;
 						}
-						if (var$8 != nullptr) {
-							$throw(var$8);
+						if (var$7 != nullptr) {
+							$throw(var$7);
 						}
 					}
 					collide = false;
@@ -234,32 +234,32 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 			index = advanceProbe(index);
 		} else if (this->cellsBusy == 0 && this->cells == cs && casCellsBusy()) {
 			{
-				$var($Throwable, var$9, nullptr);
-				bool break$10 = false;
+				$var($Throwable, var$8, nullptr);
+				bool break$9 = false;
 				try {
 					if (this->cells == cs) {
 						$var($Striped64$CellArray, rs, $new($Striped64$CellArray, 2));
 						rs->set((int32_t)(index & (uint32_t)1), $$new($Striped64$Cell, x));
 						$set(this, cells, rs);
 						// break;
-						break$10 = true;
-						goto $finally3;
+						break$9 = true;
+						goto $finally2;
 					}
 				} catch ($Throwable&) {
-					$assign(var$9, $catch());
-				} $finally3: {
+					$assign(var$8, $catch());
+				} $finally2: {
 					this->cellsBusy = 0;
 				}
-				if (var$9 != nullptr) {
-					$throw(var$9);
+				if (var$8 != nullptr) {
+					$throw(var$8);
 				}
-				if (break$10) {
+				if (break$9) {
 					break;
 				}
 			}
 		} else {
-			int64_t var$12 = v = this->base;
-			if (casBase(var$12, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
+			int64_t var$11 = v = this->base;
+			if (casBase(var$11, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
 				break;
 			}
 		}
@@ -324,8 +324,8 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 			} else if (!wasUncontended) {
 				wasUncontended = true;
 			} else {
-				int64_t var$7 = v = c->value;
-				if ($nc(c)->cas(var$7, apply(fn, v, x))) {
+				int64_t var$6 = v = c->value;
+				if (c->cas(var$6, apply(fn, v, x))) {
 					break;
 				} else if (n >= Striped64::NCPU || this->cells != cs) {
 					collide = false;
@@ -333,18 +333,18 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 					collide = true;
 				} else if (this->cellsBusy == 0 && casCellsBusy()) {
 					{
-						$var($Throwable, var$8, nullptr);
+						$var($Throwable, var$7, nullptr);
 						try {
 							if (this->cells == cs) {
 								$set(this, cells, $fcast($Striped64$CellArray, $Arrays::copyOf(cs, n << 1)));
 							}
 						} catch ($Throwable&) {
-							$assign(var$8, $catch());
+							$assign(var$7, $catch());
 						} /*finally*/ {
 							this->cellsBusy = 0;
 						}
-						if (var$8 != nullptr) {
-							$throw(var$8);
+						if (var$7 != nullptr) {
+							$throw(var$7);
 						}
 					}
 					collide = false;
@@ -354,32 +354,32 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 			index = advanceProbe(index);
 		} else if (this->cellsBusy == 0 && this->cells == cs && casCellsBusy()) {
 			{
-				$var($Throwable, var$9, nullptr);
-				bool break$10 = false;
+				$var($Throwable, var$8, nullptr);
+				bool break$9 = false;
 				try {
 					if (this->cells == cs) {
 						$var($Striped64$CellArray, rs, $new($Striped64$CellArray, 2));
 						rs->set((int32_t)(index & (uint32_t)1), $$new($Striped64$Cell, $Double::doubleToRawLongBits(x)));
 						$set(this, cells, rs);
 						// break;
-						break$10 = true;
-						goto $finally3;
+						break$9 = true;
+						goto $finally2;
 					}
 				} catch ($Throwable&) {
-					$assign(var$9, $catch());
-				} $finally3: {
+					$assign(var$8, $catch());
+				} $finally2: {
 					this->cellsBusy = 0;
 				}
-				if (var$9 != nullptr) {
-					$throw(var$9);
+				if (var$8 != nullptr) {
+					$throw(var$8);
 				}
-				if (break$10) {
+				if (break$9) {
 					break;
 				}
 			}
 		} else {
-			int64_t var$12 = v = this->base;
-			if (casBase(var$12, apply(fn, v, x))) {
+			int64_t var$11 = v = this->base;
+			if (casBase(var$11, apply(fn, v, x))) {
 				break;
 			}
 		}

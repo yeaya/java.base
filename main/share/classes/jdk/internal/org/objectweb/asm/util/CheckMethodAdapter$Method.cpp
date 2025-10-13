@@ -14,12 +14,12 @@
 #include <jcpp.h>
 
 #undef VISIT_FIELD_INSN
-#undef VISIT_JUMP_INSN
 #undef VISIT_INSN
 #undef VISIT_INT_INSN
+#undef VISIT_JUMP_INSN
 #undef VISIT_METHOD_INSN
-#undef VISIT_VAR_INSN
 #undef VISIT_TYPE_INSN
+#undef VISIT_VAR_INSN
 
 using $CheckMethodAdapter$MethodArray = $Array<::jdk::internal::org::objectweb::asm$::util::CheckMethodAdapter$Method>;
 using $ClassInfo = ::java::lang::ClassInfo;

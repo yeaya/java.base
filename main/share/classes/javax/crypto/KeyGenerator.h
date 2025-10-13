@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("I_RANDOM")
-#undef I_RANDOM
-#pragma push_macro("I_SIZE")
-#undef I_SIZE
 #pragma push_macro("I_NONE")
 #undef I_NONE
 #pragma push_macro("I_PARAMS")
 #undef I_PARAMS
+#pragma push_macro("I_RANDOM")
+#undef I_RANDOM
+#pragma push_macro("I_SIZE")
+#undef I_SIZE
 
 namespace java {
 	namespace security {
@@ -89,9 +89,9 @@ public:
 	} // crypto
 } // javax
 
-#pragma pop_macro("I_RANDOM")
-#pragma pop_macro("I_SIZE")
 #pragma pop_macro("I_NONE")
 #pragma pop_macro("I_PARAMS")
+#pragma pop_macro("I_RANDOM")
+#pragma pop_macro("I_SIZE")
 
 #endif // _javax_crypto_KeyGenerator_h_

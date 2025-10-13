@@ -11,10 +11,10 @@
 
 #include "Platform.h"
 
-#undef BIG_ENDIAN
 #undef ADDRESS_SIZE0
-#undef PAGE_SIZE
+#undef BIG_ENDIAN
 #undef DATA_CACHE_LINE_FLUSH_SIZE
+#undef PAGE_SIZE
 #undef UNALIGNED_ACCESS
 
 using $ClassInfo = ::java::lang::ClassInfo;

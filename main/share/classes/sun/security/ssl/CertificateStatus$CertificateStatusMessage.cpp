@@ -41,12 +41,12 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef OCSP_MULTI
+#undef CERTIFICATE_STATUS
 #undef ENGLISH
-#undef OCSP
 #undef HANDSHAKE_FAILURE
 #undef INTERNAL_ERROR
-#undef CERTIFICATE_STATUS
+#undef OCSP
+#undef OCSP_MULTI
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;

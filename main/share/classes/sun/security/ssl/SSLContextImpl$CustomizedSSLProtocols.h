@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("JDK_TLS_SERVER_PROTOCOLS")
-#undef JDK_TLS_SERVER_PROTOCOLS
 #pragma push_macro("JDK_TLS_CLIENT_PROTOCOLS")
 #undef JDK_TLS_CLIENT_PROTOCOLS
+#pragma push_macro("JDK_TLS_SERVER_PROTOCOLS")
+#undef JDK_TLS_SERVER_PROTOCOLS
 
 namespace java {
 	namespace lang {
@@ -42,7 +42,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("JDK_TLS_SERVER_PROTOCOLS")
 #pragma pop_macro("JDK_TLS_CLIENT_PROTOCOLS")
+#pragma pop_macro("JDK_TLS_SERVER_PROTOCOLS")
 
 #endif // _sun_security_ssl_SSLContextImpl$CustomizedSSLProtocols_h_

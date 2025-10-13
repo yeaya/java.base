@@ -48,12 +48,12 @@
 
 #undef CERTIFICATE_VERIFY
 #undef ENGLISH
-#undef SIGNATURE_RAWRSA
 #undef HANDSHAKE_FAILURE
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
 #undef SIGNATURE_RAWDSA
 #undef SIGNATURE_RAWECDSA
+#undef SIGNATURE_RAWRSA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

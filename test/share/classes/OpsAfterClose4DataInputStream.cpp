@@ -41,26 +41,26 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef READ_BYTE
-#undef READ_INT
-#undef READ_BUF_OFF
-#undef SKIP_BYTES
-#undef READ_BUF
-#undef READ_CHAR
-#undef RESET
-#undef CLOSE
-#undef READ_FULLY
-#undef READ_DOUBLE
-#undef MARK
-#undef READ_SHORT
-#undef READ
 #undef AVAILABLE
+#undef CLOSE
+#undef MARK
 #undef MARK_SUPPORTED
+#undef READ
+#undef READ_BUF
+#undef READ_BUF_OFF
+#undef READ_BYTE
+#undef READ_CHAR
+#undef READ_DOUBLE
 #undef READ_FLOAT
+#undef READ_FULLY
 #undef READ_FULLY_BUF
-#undef SKIP
-#undef READ_UTF
+#undef READ_INT
 #undef READ_LONG
+#undef READ_SHORT
+#undef READ_UTF
+#undef RESET
+#undef SKIP
+#undef SKIP_BYTES
 
 using $OpsAfterClose4DataInputStream$1 = ::OpsAfterClose4DataInputStream$1;
 using $OpsAfterClose4DataInputStream$10 = ::OpsAfterClose4DataInputStream$10;

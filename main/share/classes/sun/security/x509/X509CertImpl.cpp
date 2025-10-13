@@ -118,48 +118,48 @@
 #include <sun/security/x509/X509CertInfo.h>
 #include <jcpp.h>
 
-#undef DN_NAME
-#undef NOT_AFTER
-#undef ISSUER_NAME
-#undef ALG_ID
 #undef ALGORITHM
-#undef ISSUER_ID
-#undef MAX_VALUE
-#undef INFO
-#undef NAME_RFC822
-#undef SIGNATURE
-#undef US_ASCII
-#undef SERIAL_NUMBER
-#undef END_CERT
-#undef NUM_STANDARD_KEY_USAGE
-#undef NOT_BEFORE
-#undef PATH_LEN
-#undef SUBJECT_ID
-#undef NAME_OID
-#undef NUMBER
-#undef SUBJECT_DN
-#undef SIG_ALG
-#undef DOT
-#undef PUBLIC_KEY
-#undef KEY_ID
-#undef NAME
-#undef SERIAL_ID
-#undef SIG
-#undef ISSUER
-#undef BEGIN_CERT
-#undef NAME_IP
-#undef NAME_URI
-#undef SUBJECT_NAME
-#undef SIGNED_CERT
-#undef VERSION
-#undef IS_CA
-#undef ISSUER_DN
-#undef SUBJECT
-#undef FALSE
-#undef NAME_DNS
 #undef ALGORITHM_ID
-#undef NAME_DIRECTORY
+#undef ALG_ID
+#undef BEGIN_CERT
+#undef DN_NAME
+#undef DOT
+#undef END_CERT
+#undef FALSE
+#undef INFO
+#undef ISSUER
+#undef ISSUER_DN
+#undef ISSUER_ID
+#undef ISSUER_NAME
+#undef IS_CA
 #undef KEY
+#undef KEY_ID
+#undef MAX_VALUE
+#undef NAME
+#undef NAME_DIRECTORY
+#undef NAME_DNS
+#undef NAME_IP
+#undef NAME_OID
+#undef NAME_RFC822
+#undef NAME_URI
+#undef NOT_AFTER
+#undef NOT_BEFORE
+#undef NUMBER
+#undef NUM_STANDARD_KEY_USAGE
+#undef PATH_LEN
+#undef PUBLIC_KEY
+#undef SERIAL_ID
+#undef SERIAL_NUMBER
+#undef SIG
+#undef SIGNATURE
+#undef SIGNED_CERT
+#undef SIG_ALG
+#undef SUBJECT
+#undef SUBJECT_DN
+#undef SUBJECT_ID
+#undef SUBJECT_NAME
+#undef US_ASCII
+#undef VERSION
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
@@ -791,15 +791,15 @@ $Object* X509CertImpl::get($String* name) {
 		} else {
 			return $of(this->info);
 		}
-	} else if ($nc(id)->equalsIgnoreCase(X509CertImpl::ALG_ID)) {
+	} else if (id->equalsIgnoreCase(X509CertImpl::ALG_ID)) {
 		return $of((this->algId));
-	} else if ($nc(id)->equalsIgnoreCase(X509CertImpl::SIGNATURE)) {
+	} else if (id->equalsIgnoreCase(X509CertImpl::SIGNATURE)) {
 		if (this->signature != nullptr) {
 			return $of($nc(this->signature)->clone());
 		} else {
 			return $of(nullptr);
 		}
-	} else if ($nc(id)->equalsIgnoreCase(X509CertImpl::SIGNED_CERT)) {
+	} else if (id->equalsIgnoreCase(X509CertImpl::SIGNED_CERT)) {
 		if (this->signedCert != nullptr) {
 			return $of($nc(this->signedCert)->clone());
 		} else {
@@ -816,12 +816,12 @@ void X509CertImpl::set($String* name, Object$* obj) {
 	}
 	$var($X509AttributeName, attr, $new($X509AttributeName, name));
 	$var($String, id, attr->getPrefix());
-	if (!($nc(id)->equalsIgnoreCase(X509CertImpl::NAME))) {
+	if (!(id->equalsIgnoreCase(X509CertImpl::NAME))) {
 		$throwNew($CertificateException, $$str({"Invalid root of attribute name, expected ["_s, X509CertImpl::NAME, "], received "_s, id}));
 	}
 	$assign(attr, $new($X509AttributeName, $(attr->getSuffix())));
 	$assign(id, attr->getPrefix());
-	if ($nc(id)->equalsIgnoreCase(X509CertImpl::INFO)) {
+	if (id->equalsIgnoreCase(X509CertImpl::INFO)) {
 		if (attr->getSuffix() == nullptr) {
 			if (!($instanceOf($X509CertInfo, obj))) {
 				$throwNew($CertificateException, "Attribute value should be of type X509CertInfo."_s);
@@ -843,22 +843,22 @@ void X509CertImpl::delete$($String* name) {
 	}
 	$var($X509AttributeName, attr, $new($X509AttributeName, name));
 	$var($String, id, attr->getPrefix());
-	if (!($nc(id)->equalsIgnoreCase(X509CertImpl::NAME))) {
+	if (!(id->equalsIgnoreCase(X509CertImpl::NAME))) {
 		$throwNew($CertificateException, $$str({"Invalid root of attribute name, expected ["_s, X509CertImpl::NAME, "], received "_s, id}));
 	}
 	$assign(attr, $new($X509AttributeName, $(attr->getSuffix())));
 	$assign(id, attr->getPrefix());
-	if ($nc(id)->equalsIgnoreCase(X509CertImpl::INFO)) {
+	if (id->equalsIgnoreCase(X509CertImpl::INFO)) {
 		if (attr->getSuffix() != nullptr) {
 			$set(this, info, nullptr);
 		} else {
 			$nc(this->info)->delete$($(attr->getSuffix()));
 		}
-	} else if ($nc(id)->equalsIgnoreCase(X509CertImpl::ALG_ID)) {
+	} else if (id->equalsIgnoreCase(X509CertImpl::ALG_ID)) {
 		$set(this, algId, nullptr);
-	} else if ($nc(id)->equalsIgnoreCase(X509CertImpl::SIGNATURE)) {
+	} else if (id->equalsIgnoreCase(X509CertImpl::SIGNATURE)) {
 		$set(this, signature, nullptr);
-	} else if ($nc(id)->equalsIgnoreCase(X509CertImpl::SIGNED_CERT)) {
+	} else if (id->equalsIgnoreCase(X509CertImpl::SIGNED_CERT)) {
 		$set(this, signedCert, nullptr);
 	} else {
 		$throwNew($CertificateException, $$str({"Attribute name not recognized or delete() not allowed for the same: "_s, id}));
@@ -1081,7 +1081,7 @@ $booleans* X509CertImpl::getIssuerUniqueID() {
 		if (id == nullptr) {
 			return nullptr;
 		} else {
-			return ($nc(id)->getId());
+			return (id->getId());
 		}
 	} catch ($Exception&) {
 		$var($Exception, e, $catch());
@@ -1100,7 +1100,7 @@ $booleans* X509CertImpl::getSubjectUniqueID() {
 		if (id == nullptr) {
 			return nullptr;
 		} else {
-			return ($nc(id)->getId());
+			return (id->getId());
 		}
 	} catch ($Exception&) {
 		$var($Exception, e, $catch());

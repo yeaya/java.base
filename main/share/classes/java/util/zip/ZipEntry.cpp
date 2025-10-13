@@ -25,10 +25,10 @@
 #include <java/util/zip/ZipUtils.h>
 #include <jcpp.h>
 
+#undef DEFLATED
 #undef MILLISECONDS
 #undef STORED
 #undef UPPER_DOSTIME_BOUND
-#undef DEFLATED
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

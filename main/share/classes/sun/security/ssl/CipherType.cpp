@@ -11,10 +11,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef STREAM_CIPHER
-#undef BLOCK_CIPHER
 #undef AEAD_CIPHER
+#undef BLOCK_CIPHER
 #undef NULL_CIPHER
+#undef STREAM_CIPHER
 
 using $CipherTypeArray = $Array<::sun::security::ssl::CipherType>;
 using $ClassInfo = ::java::lang::ClassInfo;

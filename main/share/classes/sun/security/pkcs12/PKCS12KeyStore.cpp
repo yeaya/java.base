@@ -118,32 +118,32 @@
 #include <sun/security/x509/AuthorityKeyIdentifierExtension.h>
 #include <jcpp.h>
 
-#undef DATA_OID
-#undef PKCS12_HEADER_MASKS
-#undef MAX_ITERATION_COUNT
-#undef PBES2
-#undef VERSION_3
-#undef UTF_8
-#undef ENCRYPTED_DATA_OID
-#undef LEGACY_CERT_PBE_ALGORITHM
-#undef USE_LEGACY_PROP
-#undef LEGACY_MAC_ITERATION_COUNT
 #undef CORE_ATTRIBUTES
+#undef DATA_OID
 #undef DECRYPT_MODE
-#undef ENGLISH
-#undef LEGACY_PBE_ITERATION_COUNT
+#undef DEFAULT_CERT_PBE_ALGORITHM
+#undef DEFAULT_CERT_PBE_ITERATION_COUNT
+#undef DEFAULT_KEY_PBE_ALGORITHM
+#undef DEFAULT_KEY_PBE_ITERATION_COUNT
 #undef DEFAULT_MAC_ALGORITHM
 #undef DEFAULT_MAC_ITERATION_COUNT
-#undef DEFAULT_KEY_PBE_ITERATION_COUNT
-#undef DEFAULT_CERT_PBE_ITERATION_COUNT
-#undef LEGACY_MAC_ALGORITHM
-#undef DEFAULT_CERT_PBE_ALGORITHM
-#undef TAG_CONTEXT
+#undef ENCRYPTED_DATA_OID
 #undef ENCRYPT_MODE
-#undef PKCS12_HEADER_PATTERNS
-#undef DEFAULT_KEY_PBE_ALGORITHM
+#undef ENGLISH
+#undef LEGACY_CERT_PBE_ALGORITHM
 #undef LEGACY_KEY_PBE_ALGORITHM
+#undef LEGACY_MAC_ALGORITHM
+#undef LEGACY_MAC_ITERATION_COUNT
+#undef LEGACY_PBE_ITERATION_COUNT
+#undef MAX_ITERATION_COUNT
+#undef PBES2
+#undef PKCS12_HEADER_MASKS
+#undef PKCS12_HEADER_PATTERNS
 #undef SALT_LEN
+#undef TAG_CONTEXT
+#undef USE_LEGACY_PROP
+#undef UTF_8
+#undef VERSION_3
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $PKCS12KeyStore$PrivateKeyEntryArray = $Array<::sun::security::pkcs12::PKCS12KeyStore$PrivateKeyEntry>;
@@ -1555,7 +1555,7 @@ $bytes* PKCS12KeyStore::createSafeContent() {
 				bagValue->write($($nc(encrInfo)->getEncoded()));
 				safeBag->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), bagValue);
 			} else if ($instanceOf($PKCS12KeyStore$SecretKeyEntry, keyEntry)) {
-				$nc(safeBag)->putOID(PKCS12KeyStore::SecretBag_OID);
+				safeBag->putOID(PKCS12KeyStore::SecretBag_OID);
 				$var($DerOutputStream, secretBag, $new($DerOutputStream));
 				secretBag->putOID(PKCS12KeyStore::PKCS8ShroudedKeyBag_OID);
 				$var($DerOutputStream, secretKeyValue, $new($DerOutputStream));
@@ -1934,7 +1934,7 @@ $X509Certificate* PKCS12KeyStore::findMatchedCertificate($PKCS12KeyStore$Private
 					if ($nc($nc(entry)->alias)->equalsIgnoreCase($nc(ce)->alias)) {
 						return $nc(ce)->cert;
 					}
-				} else if ($nc($nc(entry)->alias)->equalsIgnoreCase($nc(ce)->alias)) {
+				} else if ($nc(entry->alias)->equalsIgnoreCase($nc(ce)->alias)) {
 					$assign(aliasMatch, ce);
 				}
 			}
@@ -1969,8 +1969,8 @@ void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
 			$set(kEntry, protectedPrivKey, bagValue->toByteArray());
 			$assign(bagItem, kEntry);
 			++this->privateKeyCount;
-		} else if ($nc(bagId)->equals(PKCS12KeyStore::CertBag_OID)) {
-			$var($DerInputStream, cs, $new($DerInputStream, $($nc(bagValue)->toByteArray())));
+		} else if (bagId->equals(PKCS12KeyStore::CertBag_OID)) {
+			$var($DerInputStream, cs, $new($DerInputStream, $(bagValue->toByteArray())));
 			$var($DerValueArray, certValues, cs->getSequence(2));
 			if ($nc(certValues)->length != 2) {
 				$throwNew($IOException, "Invalid length for CertBag"_s);
@@ -1985,8 +1985,8 @@ void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
 			$assign(cert, $cast($X509Certificate, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, $($nc(certValue)->getOctetString())))));
 			$assign(bagItem, cert);
 			++this->certificateCount;
-		} else if ($nc(bagId)->equals(PKCS12KeyStore::SecretBag_OID)) {
-			$var($DerInputStream, ss, $new($DerInputStream, $($nc(bagValue)->toByteArray())));
+		} else if (bagId->equals(PKCS12KeyStore::SecretBag_OID)) {
+			$var($DerInputStream, ss, $new($DerInputStream, $(bagValue->toByteArray())));
 			$var($DerValueArray, secretValues, ss->getSequence(2));
 			if ($nc(secretValues)->length != 2) {
 				$throwNew($IOException, "Invalid length for SecretBag"_s);
@@ -2034,15 +2034,15 @@ void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
 				}
 				if ($nc(attrId)->equals(PKCS12KeyStore::PKCS9FriendlyName_OID)) {
 					$assign(alias, $nc($nc(valSet)->get(0))->getBMPString());
-				} else if ($nc(attrId)->equals(PKCS12KeyStore::PKCS9LocalKeyId_OID)) {
+				} else if (attrId->equals(PKCS12KeyStore::PKCS9LocalKeyId_OID)) {
 					$assign(keyId, $nc($nc(valSet)->get(0))->getOctetString());
-				} else if ($nc(attrId)->equals(PKCS12KeyStore::TrustedKeyUsage_OID)) {
+				} else if (attrId->equals(PKCS12KeyStore::TrustedKeyUsage_OID)) {
 					$assign(trustedKeyUsage, $new($ObjectIdentifierArray, $nc(valSet)->length));
 					for (int32_t k = 0; k < valSet->length; ++k) {
 						trustedKeyUsage->set(k, $($nc(valSet->get(k))->getOID()));
 					}
 				} else {
-					$nc(attributes)->add($$new($PKCS12Attribute, encoded));
+					attributes->add($$new($PKCS12Attribute, encoded));
 				}
 			}
 		}

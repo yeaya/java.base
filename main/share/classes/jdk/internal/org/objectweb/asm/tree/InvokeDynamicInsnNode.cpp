@@ -15,8 +15,8 @@
 #include <jdk/internal/org/objectweb/asm/tree/AbstractInsnNode.h>
 #include <jcpp.h>
 
-#undef INVOKE_DYNAMIC_INSN
 #undef INVOKEDYNAMIC
+#undef INVOKE_DYNAMIC_INSN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

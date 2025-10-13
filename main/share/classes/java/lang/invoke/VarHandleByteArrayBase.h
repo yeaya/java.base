@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("BUFFER_ADDRESS")
-#undef BUFFER_ADDRESS
-#pragma push_macro("BYTE_BUFFER_IS_READ_ONLY")
-#undef BYTE_BUFFER_IS_READ_ONLY
 #pragma push_macro("BE")
 #undef BE
+#pragma push_macro("BUFFER_ADDRESS")
+#undef BUFFER_ADDRESS
 #pragma push_macro("BUFFER_LIMIT")
 #undef BUFFER_LIMIT
 #pragma push_macro("BYTE_BUFFER_HB")
 #undef BYTE_BUFFER_HB
+#pragma push_macro("BYTE_BUFFER_IS_READ_ONLY")
+#undef BYTE_BUFFER_IS_READ_ONLY
 
 namespace java {
 	namespace lang {
@@ -43,10 +43,10 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("BUFFER_ADDRESS")
-#pragma pop_macro("BYTE_BUFFER_IS_READ_ONLY")
 #pragma pop_macro("BE")
+#pragma pop_macro("BUFFER_ADDRESS")
 #pragma pop_macro("BUFFER_LIMIT")
 #pragma pop_macro("BYTE_BUFFER_HB")
+#pragma pop_macro("BYTE_BUFFER_IS_READ_ONLY")
 
 #endif // _java_lang_invoke_VarHandleByteArrayBase_h_

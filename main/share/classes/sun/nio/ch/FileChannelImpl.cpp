@@ -77,23 +77,23 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef READ_WRITE_SYNC
-#undef TRANSFER_SIZE
+#undef INTERRUPTED
+#undef MAPPED_TRANSFER_SIZE
 #undef MAP_INVALID
+#undef MAP_PV
+#undef MAP_RO
+#undef MAP_RW
 #undef MAX_VALUE
-#undef UNSUPPORTED
-#undef UNSUPPORTED_CASE
+#undef NO_LOCK
+#undef PRIVATE
 #undef READ_ONLY
 #undef READ_ONLY_SYNC
 #undef READ_WRITE
-#undef PRIVATE
-#undef MAPPED_TRANSFER_SIZE
-#undef MAP_RW
-#undef MAP_PV
-#undef NO_LOCK
-#undef MAP_RO
-#undef INTERRUPTED
+#undef READ_WRITE_SYNC
 #undef RET_EX_LOCK
+#undef TRANSFER_SIZE
+#undef UNSUPPORTED
+#undef UNSUPPORTED_CASE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $Closeable = ::java::io::Closeable;

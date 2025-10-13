@@ -15,8 +15,8 @@
 
 #undef EXPIRED
 #undef EXTENSION_MISMATCH
-#undef OK
 #undef INSENSITIVE
+#undef OK
 
 using $X509KeyManagerImpl$CheckResultArray = $Array<::sun::security::ssl::X509KeyManagerImpl$CheckResult>;
 using $ClassInfo = ::java::lang::ClassInfo;

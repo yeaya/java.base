@@ -39,9 +39,9 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef NAME_CHAINING
 #undef EXPIRED
 #undef INVALID_SIGNATURE
+#undef NAME_CHAINING
 #undef NOT_YET_VALID
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -31,8 +31,8 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
-#undef SECONDS
 #undef ENTRY_CREATE
+#undef SECONDS
 
 using $UpdateInterference$1 = ::UpdateInterference$1;
 using $UpdateInterference$2 = ::UpdateInterference$2;

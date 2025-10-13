@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("TAG_RELATIVE_NAME")
-#undef TAG_RELATIVE_NAME
 #pragma push_macro("TAG_FULL_NAME")
 #undef TAG_FULL_NAME
+#pragma push_macro("TAG_RELATIVE_NAME")
+#undef TAG_RELATIVE_NAME
 
 namespace sun {
 	namespace security {
@@ -55,7 +55,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TAG_RELATIVE_NAME")
 #pragma pop_macro("TAG_FULL_NAME")
+#pragma pop_macro("TAG_RELATIVE_NAME")
 
 #endif // _sun_security_x509_DistributionPointName_h_

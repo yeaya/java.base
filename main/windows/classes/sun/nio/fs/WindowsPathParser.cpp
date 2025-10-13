@@ -16,10 +16,10 @@
 #include <jcpp.h>
 
 #undef ABSOLUTE
-#undef RELATIVE
-#undef DRIVE_RELATIVE
-#undef UNC
 #undef DIRECTORY_RELATIVE
+#undef DRIVE_RELATIVE
+#undef RELATIVE
+#undef UNC
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -122,17 +122,17 @@ $WindowsPathParser$Result* WindowsPathParser::parse($String* input, bool require
 			off = next;
 		} else if (isLetter(c0) && c1 == u':') {
 			char16_t c2 = 0;
-			if (len > 2 && isSlash(c2 = $nc(input)->charAt(2))) {
+			if (len > 2 && isSlash(c2 = input->charAt(2))) {
 				if (c2 == u'\\') {
-					$assign(root, $nc(input)->substring(0, 3));
+					$assign(root, input->substring(0, 3));
 				} else {
-					$assign(root, $str({$($nc(input)->substring(0, 2)), $$str(u'\\')}));
+					$assign(root, $str({$(input->substring(0, 2)), $$str(u'\\')}));
 				}
 				off = 3;
 				$init($WindowsPathType);
 				type = $WindowsPathType::ABSOLUTE;
 			} else {
-				$assign(root, $nc(input)->substring(0, 2));
+				$assign(root, input->substring(0, 2));
 				off = 2;
 				$init($WindowsPathType);
 				type = $WindowsPathType::DRIVE_RELATIVE;

@@ -107,8 +107,8 @@ using List = ::java::util::List;
 
 #undef LOGGERFINDER_PERMISSION
 #undef MAYBE
-#undef PROPERTY_WRITE_ACTION
 #undef NEVER
+#undef PROPERTY_WRITE_ACTION
 
 using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $PermissionArray = $Array<::java::security::Permission>;

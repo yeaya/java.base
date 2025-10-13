@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SOCKS")
-#undef SOCKS
-#pragma push_macro("HTTP")
-#undef HTTP
 #pragma push_macro("DIRECT")
 #undef DIRECT
+#pragma push_macro("HTTP")
+#undef HTTP
+#pragma push_macro("SOCKS")
+#undef SOCKS
 
 namespace java {
 	namespace net {
@@ -33,8 +33,8 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("SOCKS")
-#pragma pop_macro("HTTP")
 #pragma pop_macro("DIRECT")
+#pragma pop_macro("HTTP")
+#pragma pop_macro("SOCKS")
 
 #endif // _java_net_Proxy$Type_h_

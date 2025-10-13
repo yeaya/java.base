@@ -31,31 +31,31 @@
 #include <jdk/internal/org/objectweb/asm/Type.h>
 #include <jcpp.h>
 
-#undef H_PUTSTATIC
-#undef CONSTANT_STRING_TAG
-#undef CONSTANT_UTF8_TAG
-#undef BOOTSTRAP_METHOD_TAG
-#undef CONSTANT_METHOD_HANDLE_TAG
-#undef CONSTANT_CLASS_TAG
 #undef BOOTSTRAP_METHODS
-#undef CONSTANT_MODULE_TAG
-#undef CONSTANT_INTERFACE_METHODREF_TAG
-#undef MERGED_TYPE_TAG
-#undef CONSTANT_PACKAGE_TAG
-#undef TYPE_TAG
-#undef CONSTANT_INVOKE_DYNAMIC_TAG
-#undef CONSTANT_METHOD_TYPE_TAG
-#undef CONSTANT_FLOAT_TAG
-#undef CONSTANT_NAME_AND_TYPE_TAG
-#undef CONSTANT_LONG_TAG
-#undef OBJECT
-#undef UNINITIALIZED_TYPE_TAG
+#undef BOOTSTRAP_METHOD_TAG
+#undef CONSTANT_CLASS_TAG
 #undef CONSTANT_DOUBLE_TAG
-#undef CONSTANT_INTEGER_TAG
-#undef METHOD
 #undef CONSTANT_DYNAMIC_TAG
 #undef CONSTANT_FIELDREF_TAG
+#undef CONSTANT_FLOAT_TAG
+#undef CONSTANT_INTEGER_TAG
+#undef CONSTANT_INTERFACE_METHODREF_TAG
+#undef CONSTANT_INVOKE_DYNAMIC_TAG
+#undef CONSTANT_LONG_TAG
 #undef CONSTANT_METHODREF_TAG
+#undef CONSTANT_METHOD_HANDLE_TAG
+#undef CONSTANT_METHOD_TYPE_TAG
+#undef CONSTANT_MODULE_TAG
+#undef CONSTANT_NAME_AND_TYPE_TAG
+#undef CONSTANT_PACKAGE_TAG
+#undef CONSTANT_STRING_TAG
+#undef CONSTANT_UTF8_TAG
+#undef H_PUTSTATIC
+#undef MERGED_TYPE_TAG
+#undef METHOD
+#undef OBJECT
+#undef TYPE_TAG
+#undef UNINITIALIZED_TYPE_TAG
 
 using $SymbolTable$EntryArray = $Array<::jdk::internal::org::objectweb::asm$::SymbolTable$Entry>;
 using $Boolean = ::java::lang::Boolean;
@@ -451,9 +451,9 @@ $Symbol* SymbolTable::addConstant(Object$* value) {
 		if (typeSort == $Type::OBJECT) {
 			return addConstantClass($(type->getInternalName()));
 		} else if (typeSort == $Type::METHOD) {
-			return addConstantMethodType($($nc(type)->getDescriptor()));
+			return addConstantMethodType($(type->getDescriptor()));
 		} else {
-			return addConstantClass($($nc(type)->getDescriptor()));
+			return addConstantClass($(type->getDescriptor()));
 		}
 	} else if ($instanceOf($Handle, value)) {
 		$var($Handle, handle, $cast($Handle, value));

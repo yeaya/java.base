@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MOE
 #undef CURLY
 #undef LARRY
+#undef MOE
 
 using $StoogeArray = $Array<::UniTest::Stooge>;
 using $ClassInfo = ::java::lang::ClassInfo;

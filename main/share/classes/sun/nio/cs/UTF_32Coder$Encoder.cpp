@@ -141,13 +141,13 @@ $CoderResult* UTF_32Coder$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst
 					++mark;
 					put(c, dst);
 				} else if ($Character::isHighSurrogate(c)) {
-					if (!$nc(src)->hasRemaining()) {
+					if (!src->hasRemaining()) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::UNDERFLOW);
 						return$1 = true;
 						goto $finally;
 					}
-					char16_t low = $nc(src)->get();
+					char16_t low = src->get();
 					if ($Character::isLowSurrogate(low)) {
 						if ($nc(dst)->remaining() < 4) {
 							$init($CoderResult);

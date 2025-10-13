@@ -28,11 +28,11 @@
 #include <jcpp.h>
 
 #undef BE
-#undef VM_ALIGN
 #undef FORM
-#undef UNSAFE
 #undef SCOPED_MEMORY_ACCESS
 #undef TYPE
+#undef UNSAFE
+#undef VM_ALIGN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

@@ -24,8 +24,8 @@
 #include <java/util/function/UnaryOperator.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef EMPTY_LIST
+#undef ORDERED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

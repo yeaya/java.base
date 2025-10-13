@@ -7,10 +7,10 @@
 #include <java/lang/Runnable.h>
 #include <java/util/HashMap.h>
 
-#pragma push_macro("MAX_CONNECTIONS")
-#undef MAX_CONNECTIONS
 #pragma push_macro("LIFETIME")
 #undef LIFETIME
+#pragma push_macro("MAX_CONNECTIONS")
+#undef MAX_CONNECTIONS
 
 namespace java {
 	namespace io {
@@ -89,7 +89,7 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("MAX_CONNECTIONS")
 #pragma pop_macro("LIFETIME")
+#pragma pop_macro("MAX_CONNECTIONS")
 
 #endif // _sun_net_www_http_KeepAliveCache_h_

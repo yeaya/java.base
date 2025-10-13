@@ -41,8 +41,8 @@
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef FORMAT
+#undef ROOT
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

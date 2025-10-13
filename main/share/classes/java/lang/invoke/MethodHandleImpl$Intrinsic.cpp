@@ -14,16 +14,16 @@
 #include <jcpp.h>
 
 #undef ARRAY_LENGTH
-#undef IDENTITY
-#undef GUARD_WITH_CATCH
-#undef ZERO
-#undef ARRAY_STORE
-#undef TRY_FINALLY
-#undef LOOP
 #undef ARRAY_LOAD
+#undef ARRAY_STORE
+#undef GUARD_WITH_CATCH
+#undef IDENTITY
+#undef LOOP
 #undef NONE
-#undef TABLE_SWITCH
 #undef SELECT_ALTERNATIVE
+#undef TABLE_SWITCH
+#undef TRY_FINALLY
+#undef ZERO
 
 using $MethodHandleImpl$IntrinsicArray = $Array<::java::lang::invoke::MethodHandleImpl$Intrinsic>;
 using $ClassInfo = ::java::lang::ClassInfo;

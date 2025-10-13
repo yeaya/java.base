@@ -5,30 +5,30 @@
 
 #include <java/security/Permission.h>
 
-#pragma push_macro("READ")
-#undef READ
-#pragma push_macro("EXECUTE")
-#undef EXECUTE
 #pragma push_macro("ALL")
 #undef ALL
+#pragma push_macro("DASH_PATH")
+#undef DASH_PATH
 #pragma push_macro("DELETE")
 #undef DELETE
 #pragma push_macro("DOTDOT_PATH")
 #undef DOTDOT_PATH
-#pragma push_macro("RECURSIVE_CHAR")
-#undef RECURSIVE_CHAR
-#pragma push_macro("READLINK")
-#undef READLINK
-#pragma push_macro("NONE")
-#undef NONE
 #pragma push_macro("EMPTY_PATH")
 #undef EMPTY_PATH
-#pragma push_macro("DASH_PATH")
-#undef DASH_PATH
-#pragma push_macro("WRITE")
-#undef WRITE
+#pragma push_macro("EXECUTE")
+#undef EXECUTE
+#pragma push_macro("NONE")
+#undef NONE
+#pragma push_macro("READ")
+#undef READ
+#pragma push_macro("READLINK")
+#undef READLINK
+#pragma push_macro("RECURSIVE_CHAR")
+#undef RECURSIVE_CHAR
 #pragma push_macro("WILD_CHAR")
 #undef WILD_CHAR
+#pragma push_macro("WRITE")
+#undef WRITE
 
 namespace java {
 	namespace io {
@@ -104,17 +104,17 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("READ")
-#pragma pop_macro("EXECUTE")
 #pragma pop_macro("ALL")
+#pragma pop_macro("DASH_PATH")
 #pragma pop_macro("DELETE")
 #pragma pop_macro("DOTDOT_PATH")
-#pragma pop_macro("RECURSIVE_CHAR")
-#pragma pop_macro("READLINK")
-#pragma pop_macro("NONE")
 #pragma pop_macro("EMPTY_PATH")
-#pragma pop_macro("DASH_PATH")
-#pragma pop_macro("WRITE")
+#pragma pop_macro("EXECUTE")
+#pragma pop_macro("NONE")
+#pragma pop_macro("READ")
+#pragma pop_macro("READLINK")
+#pragma pop_macro("RECURSIVE_CHAR")
 #pragma pop_macro("WILD_CHAR")
+#pragma pop_macro("WRITE")
 
 #endif // _java_io_FilePermission_h_

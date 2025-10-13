@@ -7,20 +7,20 @@
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <sun/invoke/util/Wrapper.h>
 
-#pragma push_macro("NUM_WRAPPERS")
-#undef NUM_WRAPPERS
-#pragma push_macro("FROM_WRAPPER_NAME")
-#undef FROM_WRAPPER_NAME
-#pragma push_macro("FROM_TYPE_SORT")
-#undef FROM_TYPE_SORT
-#pragma push_macro("NAME_BOX_METHOD")
-#undef NAME_BOX_METHOD
-#pragma push_macro("WRAPPER_PREFIX")
-#undef WRAPPER_PREFIX
 #pragma push_macro("COUNT")
 #undef COUNT
+#pragma push_macro("FROM_TYPE_SORT")
+#undef FROM_TYPE_SORT
+#pragma push_macro("FROM_WRAPPER_NAME")
+#undef FROM_WRAPPER_NAME
+#pragma push_macro("NAME_BOX_METHOD")
+#undef NAME_BOX_METHOD
 #pragma push_macro("NAME_OBJECT")
 #undef NAME_OBJECT
+#pragma push_macro("NUM_WRAPPERS")
+#undef NUM_WRAPPERS
+#pragma push_macro("WRAPPER_PREFIX")
+#undef WRAPPER_PREFIX
 
 namespace jdk {
 	namespace internal {
@@ -73,12 +73,12 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("NUM_WRAPPERS")
-#pragma pop_macro("FROM_WRAPPER_NAME")
-#pragma pop_macro("FROM_TYPE_SORT")
-#pragma pop_macro("NAME_BOX_METHOD")
-#pragma pop_macro("WRAPPER_PREFIX")
 #pragma pop_macro("COUNT")
+#pragma pop_macro("FROM_TYPE_SORT")
+#pragma pop_macro("FROM_WRAPPER_NAME")
+#pragma pop_macro("NAME_BOX_METHOD")
 #pragma pop_macro("NAME_OBJECT")
+#pragma pop_macro("NUM_WRAPPERS")
+#pragma pop_macro("WRAPPER_PREFIX")
 
 #endif // _java_lang_invoke_TypeConvertingMethodAdapter_h_

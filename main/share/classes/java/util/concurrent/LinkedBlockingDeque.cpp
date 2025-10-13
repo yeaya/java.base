@@ -436,7 +436,7 @@ void LinkedBlockingDeque::unlink($LinkedBlockingDeque$Node* x) {
 	} else {
 		$set($nc(p), next, n);
 		$set($nc(n), prev, p);
-		$set($nc(x), item, nullptr);
+		$set(x, item, nullptr);
 		--this->count;
 		$nc(this->notFull)->signal();
 	}

@@ -14,16 +14,16 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef CONSTRUCTOR
 #undef GETTER
 #undef INTERFACE_SPECIAL
-#undef STATIC_GETTER
-#undef INTERFACE_VIRTUAL
-#undef STATIC_SETTER
-#undef SETTER
-#undef CONSTRUCTOR
-#undef SPECIAL
 #undef INTERFACE_STATIC
+#undef INTERFACE_VIRTUAL
+#undef SETTER
+#undef SPECIAL
 #undef STATIC
+#undef STATIC_GETTER
+#undef STATIC_SETTER
 #undef VIRTUAL
 
 using $DirectMethodHandleDesc$KindArray = $Array<::java::lang::constant::DirectMethodHandleDesc$Kind>;

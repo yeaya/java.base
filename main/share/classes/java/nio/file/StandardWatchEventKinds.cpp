@@ -13,10 +13,10 @@
 #include <java/nio/file/WatchEvent$Kind.h>
 #include <jcpp.h>
 
-#undef OVERFLOW
 #undef ENTRY_CREATE
-#undef ENTRY_MODIFY
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef OVERFLOW
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

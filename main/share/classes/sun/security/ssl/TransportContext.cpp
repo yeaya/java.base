@@ -64,19 +64,19 @@
 #include <sun/security/ssl/TransportContext$NotifyHandshake.h>
 #include <jcpp.h>
 
-#undef NEED_UNWRAP
-#undef KEY_UPDATE
 #undef CLOSE_NOTIFY
-#undef NEED_TASK
-#undef FINISHED
-#undef WARNING
-#undef UNEXPECTED_MESSAGE
-#undef NEED_WRAP
-#undef NEED_UNWRAP_AGAIN
-#undef NOT_HANDSHAKING
-#undef USER_CANCELED
-#undef NEW_SESSION_TICKET
 #undef FATAL
+#undef FINISHED
+#undef KEY_UPDATE
+#undef NEED_TASK
+#undef NEED_UNWRAP
+#undef NEED_UNWRAP_AGAIN
+#undef NEED_WRAP
+#undef NEW_SESSION_TICKET
+#undef NOT_HANDSHAKING
+#undef UNEXPECTED_MESSAGE
+#undef USER_CANCELED
+#undef WARNING
 
 using $IOException = ::java::io::IOException;
 using $Byte = ::java::lang::Byte;
@@ -633,8 +633,8 @@ $SSLEngineResult$HandshakeStatus* TransportContext::getHandshakeStatus() {
 		$init($SSLEngineResult$HandshakeStatus);
 		return $SSLEngineResult$HandshakeStatus::NEED_WRAP;
 	} else {
-		bool var$2 = isOutboundClosed();
-		if (var$2 && isInboundClosed()) {
+		bool var$1 = isOutboundClosed();
+		if (var$1 && isInboundClosed()) {
 			$init($SSLEngineResult$HandshakeStatus);
 			return $SSLEngineResult$HandshakeStatus::NOT_HANDSHAKING;
 		} else if (this->handshakeContext != nullptr) {
@@ -642,8 +642,8 @@ $SSLEngineResult$HandshakeStatus* TransportContext::getHandshakeStatus() {
 				$init($SSLEngineResult$HandshakeStatus);
 				return $SSLEngineResult$HandshakeStatus::NEED_TASK;
 			} else if (!isInboundClosed()) {
-				bool var$3 = $nc(this->sslContext)->isDTLS();
-				if (var$3 && !$nc(this->inputRecord)->isEmpty()) {
+				bool var$2 = $nc(this->sslContext)->isDTLS();
+				if (var$2 && !$nc(this->inputRecord)->isEmpty()) {
 					$init($SSLEngineResult$HandshakeStatus);
 					return $SSLEngineResult$HandshakeStatus::NEED_UNWRAP_AGAIN;
 				} else {

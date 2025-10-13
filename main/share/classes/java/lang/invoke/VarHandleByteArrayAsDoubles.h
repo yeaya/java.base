@@ -6,10 +6,10 @@
 #include <java/lang/Double.h>
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
 
-#pragma push_macro("BYTES")
-#undef BYTES
 #pragma push_macro("ALIGN")
 #undef ALIGN
+#pragma push_macro("BYTES")
+#undef BYTES
 #pragma push_macro("NIO_ACCESS")
 #undef NIO_ACCESS
 #pragma push_macro("SCOPED_MEMORY_ACCESS")
@@ -50,8 +50,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("BYTES")
 #pragma pop_macro("ALIGN")
+#pragma pop_macro("BYTES")
 #pragma pop_macro("NIO_ACCESS")
 #pragma pop_macro("SCOPED_MEMORY_ACCESS")
 

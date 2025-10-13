@@ -9,10 +9,10 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("USAGES")
-#undef USAGES
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("USAGES")
+#undef USAGES
 
 namespace java {
 	namespace io {
@@ -69,7 +69,7 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("USAGES")
 #pragma pop_macro("NAME")
+#pragma pop_macro("USAGES")
 
 #endif // _sun_security_x509_ExtendedKeyUsageExtension_h_

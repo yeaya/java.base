@@ -8,18 +8,18 @@
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/SSLAuthentication.h>
 
-#pragma push_macro("RSA")
-#undef RSA
-#pragma push_macro("RSA_OR_PSS")
-#undef RSA_OR_PSS
 #pragma push_macro("DSA")
 #undef DSA
-#pragma push_macro("RSASSA_PSS")
-#undef RSASSA_PSS
 #pragma push_macro("EC")
 #undef EC
 #pragma push_macro("EDDSA")
 #undef EDDSA
+#pragma push_macro("RSA")
+#undef RSA
+#pragma push_macro("RSASSA_PSS")
+#undef RSASSA_PSS
+#pragma push_macro("RSA_OR_PSS")
+#undef RSA_OR_PSS
 
 namespace java {
 	namespace util {
@@ -75,11 +75,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("RSA")
-#pragma pop_macro("RSA_OR_PSS")
 #pragma pop_macro("DSA")
-#pragma pop_macro("RSASSA_PSS")
 #pragma pop_macro("EC")
 #pragma pop_macro("EDDSA")
+#pragma pop_macro("RSA")
+#pragma pop_macro("RSASSA_PSS")
+#pragma pop_macro("RSA_OR_PSS")
 
 #endif // _sun_security_ssl_X509Authentication_h_

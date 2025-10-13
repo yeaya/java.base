@@ -19,8 +19,8 @@
 #include <java/util/stream/SpinedBuffer$OfDouble.h>
 #include <jcpp.h>
 
-#undef MAX_ARRAY_SIZE
 #undef BAD_SIZE
+#undef MAX_ARRAY_SIZE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

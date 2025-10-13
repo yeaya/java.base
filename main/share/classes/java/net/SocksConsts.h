@@ -5,50 +5,50 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("DEFAULT_PORT")
-#undef DEFAULT_PORT
+#pragma push_macro("ADDR_TYPE_NOT_SUP")
+#undef ADDR_TYPE_NOT_SUP
 #pragma push_macro("BIND")
 #undef BIND
 #pragma push_macro("CMD_NOT_SUPPORTED")
 #undef CMD_NOT_SUPPORTED
-#pragma push_macro("UDP_ASSOC")
-#undef UDP_ASSOC
-#pragma push_macro("IPV6")
-#undef IPV6
-#pragma push_macro("NET_UNREACHABLE")
-#undef NET_UNREACHABLE
-#pragma push_macro("CONN_REFUSED")
-#undef CONN_REFUSED
-#pragma push_macro("IPV4")
-#undef IPV4
-#pragma push_macro("HOST_UNREACHABLE")
-#undef HOST_UNREACHABLE
-#pragma push_macro("NO_AUTH")
-#undef NO_AUTH
-#pragma push_macro("PROTO_VERS4")
-#undef PROTO_VERS4
-#pragma push_macro("NOT_ALLOWED")
-#undef NOT_ALLOWED
 #pragma push_macro("CONNECT")
 #undef CONNECT
-#pragma push_macro("REQUEST_OK")
-#undef REQUEST_OK
+#pragma push_macro("CONN_REFUSED")
+#undef CONN_REFUSED
+#pragma push_macro("DEFAULT_PORT")
+#undef DEFAULT_PORT
 #pragma push_macro("DOMAIN_NAME")
 #undef DOMAIN_NAME
 #pragma push_macro("GENERAL_FAILURE")
 #undef GENERAL_FAILURE
 #pragma push_macro("GSSAPI")
 #undef GSSAPI
-#pragma push_macro("TTL_EXPIRED")
-#undef TTL_EXPIRED
-#pragma push_macro("USER_PASSW")
-#undef USER_PASSW
+#pragma push_macro("HOST_UNREACHABLE")
+#undef HOST_UNREACHABLE
+#pragma push_macro("IPV4")
+#undef IPV4
+#pragma push_macro("IPV6")
+#undef IPV6
+#pragma push_macro("NET_UNREACHABLE")
+#undef NET_UNREACHABLE
+#pragma push_macro("NOT_ALLOWED")
+#undef NOT_ALLOWED
+#pragma push_macro("NO_AUTH")
+#undef NO_AUTH
 #pragma push_macro("NO_METHODS")
 #undef NO_METHODS
 #pragma push_macro("PROTO_VERS")
 #undef PROTO_VERS
-#pragma push_macro("ADDR_TYPE_NOT_SUP")
-#undef ADDR_TYPE_NOT_SUP
+#pragma push_macro("PROTO_VERS4")
+#undef PROTO_VERS4
+#pragma push_macro("REQUEST_OK")
+#undef REQUEST_OK
+#pragma push_macro("TTL_EXPIRED")
+#undef TTL_EXPIRED
+#pragma push_macro("UDP_ASSOC")
+#undef UDP_ASSOC
+#pragma push_macro("USER_PASSW")
+#undef USER_PASSW
 
 namespace java {
 	namespace net {
@@ -83,27 +83,27 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("DEFAULT_PORT")
+#pragma pop_macro("ADDR_TYPE_NOT_SUP")
 #pragma pop_macro("BIND")
 #pragma pop_macro("CMD_NOT_SUPPORTED")
-#pragma pop_macro("UDP_ASSOC")
-#pragma pop_macro("IPV6")
-#pragma pop_macro("NET_UNREACHABLE")
-#pragma pop_macro("CONN_REFUSED")
-#pragma pop_macro("IPV4")
-#pragma pop_macro("HOST_UNREACHABLE")
-#pragma pop_macro("NO_AUTH")
-#pragma pop_macro("PROTO_VERS4")
-#pragma pop_macro("NOT_ALLOWED")
 #pragma pop_macro("CONNECT")
-#pragma pop_macro("REQUEST_OK")
+#pragma pop_macro("CONN_REFUSED")
+#pragma pop_macro("DEFAULT_PORT")
 #pragma pop_macro("DOMAIN_NAME")
 #pragma pop_macro("GENERAL_FAILURE")
 #pragma pop_macro("GSSAPI")
-#pragma pop_macro("TTL_EXPIRED")
-#pragma pop_macro("USER_PASSW")
+#pragma pop_macro("HOST_UNREACHABLE")
+#pragma pop_macro("IPV4")
+#pragma pop_macro("IPV6")
+#pragma pop_macro("NET_UNREACHABLE")
+#pragma pop_macro("NOT_ALLOWED")
+#pragma pop_macro("NO_AUTH")
 #pragma pop_macro("NO_METHODS")
 #pragma pop_macro("PROTO_VERS")
-#pragma pop_macro("ADDR_TYPE_NOT_SUP")
+#pragma pop_macro("PROTO_VERS4")
+#pragma pop_macro("REQUEST_OK")
+#pragma pop_macro("TTL_EXPIRED")
+#pragma pop_macro("UDP_ASSOC")
+#pragma pop_macro("USER_PASSW")
 
 #endif // _java_net_SocksConsts_h_

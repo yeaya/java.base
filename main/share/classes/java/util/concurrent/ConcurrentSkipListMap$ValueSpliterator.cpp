@@ -17,9 +17,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
+#undef CONCURRENT
 #undef NONNULL
 #undef ORDERED
-#undef CONCURRENT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -28,10 +28,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef CH_KEY_SHARE
 #undef HRR_KEY_SHARE
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
-#undef CH_KEY_SHARE
 #undef UNEXPECTED_MESSAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;

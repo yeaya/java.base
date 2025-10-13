@@ -19,15 +19,15 @@
 #include <jdk/internal/jimage/ImageStringsReader.h>
 #include <jcpp.h>
 
-#undef ATTRIBUTE_OFFSET
 #undef ATTRIBUTE_BASE
 #undef ATTRIBUTE_COMPRESSED
-#undef ATTRIBUTE_MODULE
-#undef ATTRIBUTE_PARENT
-#undef ATTRIBUTE_EXTENSION
-#undef ATTRIBUTE_UNCOMPRESSED
-#undef ATTRIBUTE_END
 #undef ATTRIBUTE_COUNT
+#undef ATTRIBUTE_END
+#undef ATTRIBUTE_EXTENSION
+#undef ATTRIBUTE_MODULE
+#undef ATTRIBUTE_OFFSET
+#undef ATTRIBUTE_PARENT
+#undef ATTRIBUTE_UNCOMPRESSED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

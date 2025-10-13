@@ -35,10 +35,10 @@
 #include <jcpp.h>
 
 #undef EXECUTE_TASK_OR_SHUTDOWN
+#undef INTERRUPTED
+#undef NEED_TO_POLL
 #undef POLLIN
 #undef POLLOUT
-#undef NEED_TO_POLL
-#undef INTERRUPTED
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

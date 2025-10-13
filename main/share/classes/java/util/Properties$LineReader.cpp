@@ -198,7 +198,7 @@ int32_t Properties$LineReader::readLine() {
 						if (byteBuf->get(off) == u'\n') {
 							++off;
 						}
-					} else if ($nc(charBuf)->get(off) == u'\n') {
+					} else if (charBuf->get(off) == u'\n') {
 						++off;
 					}
 				}

@@ -41,9 +41,9 @@
 #include <java/util/concurrent/TimeUnit.h>
 #include <jcpp.h>
 
+#undef MAX_VALUE
 #undef MILLISECONDS
 #undef SECONDS
-#undef MAX_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

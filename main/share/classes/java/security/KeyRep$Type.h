@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("PRIVATE")
+#undef PRIVATE
 #pragma push_macro("PUBLIC")
 #undef PUBLIC
 #pragma push_macro("SECRET")
 #undef SECRET
-#pragma push_macro("PRIVATE")
-#undef PRIVATE
 
 namespace java {
 	namespace security {
@@ -33,8 +33,8 @@ public:
 	} // security
 } // java
 
+#pragma pop_macro("PRIVATE")
 #pragma pop_macro("PUBLIC")
 #pragma pop_macro("SECRET")
-#pragma pop_macro("PRIVATE")
 
 #endif // _java_security_KeyRep$Type_h_

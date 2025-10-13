@@ -17,8 +17,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef INSTRUCTION_NAMES
 #undef INSTRUCTION_INFO
+#undef INSTRUCTION_NAMES
 
 using $Indify = ::indify::Indify;
 using $ClassInfo = ::java::lang::ClassInfo;

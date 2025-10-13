@@ -57,7 +57,7 @@ void Create::main($StringArray* args) {
 			if (!file->exists()) {
 				$throwNew($RuntimeException, "Result is incorrect"_s);
 			}
-		} else if ($nc(file)->exists()) {
+		} else if (file->exists()) {
 			$throwNew($RuntimeException, "Result is incorrect"_s);
 		}
 	} catch ($IOException&) {

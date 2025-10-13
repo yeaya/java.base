@@ -29,12 +29,12 @@
 #include <jcpp.h>
 
 #undef CANCELLED
-#undef HEAD
-#undef U
-#undef TAIL
-#undef WAITING
-#undef STATE
 #undef COND
+#undef HEAD
+#undef STATE
+#undef TAIL
+#undef U
+#undef WAITING
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -191,7 +191,7 @@ void AbstractQueuedSynchronizer::enqueue($AbstractQueuedSynchronizer$Node* node)
 			} else if (casTail(t, node)) {
 				$set($nc(t), next, node);
 				if (t->status < 0) {
-					$LockSupport::unpark($nc(node)->waiter);
+					$LockSupport::unpark(node->waiter);
 				}
 				break;
 			}
@@ -246,7 +246,7 @@ int32_t AbstractQueuedSynchronizer::acquire($AbstractQueuedSynchronizer$Node* no
 			if ($nc(pred)->status < 0) {
 				cleanQueue();
 				continue;
-			} else if ($nc(pred)->prev == nullptr) {
+			} else if (pred->prev == nullptr) {
 				$Thread::onSpinWait();
 				continue;
 			}
@@ -293,14 +293,14 @@ int32_t AbstractQueuedSynchronizer::acquire($AbstractQueuedSynchronizer$Node* no
 			if (t == nullptr) {
 				tryInitializeHead();
 			} else if (!casTail(t, node)) {
-				$nc(node)->setPrevRelaxed(nullptr);
+				node->setPrevRelaxed(nullptr);
 			} else {
 				$set($nc(t), next, node);
 			}
 		} else if (first && spins != 0) {
 			--spins;
 			$Thread::onSpinWait();
-		} else if ($nc(node)->status == 0) {
+		} else if (node->status == 0) {
 			node->status = AbstractQueuedSynchronizer::WAITING;
 		} else {
 			int64_t nanos = 0;

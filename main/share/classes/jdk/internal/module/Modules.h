@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("JLMA")
-#undef JLMA
 #pragma push_macro("JLA")
 #undef JLA
+#pragma push_macro("JLMA")
+#undef JLMA
 
 namespace java {
 	namespace io {
@@ -93,7 +93,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("JLMA")
 #pragma pop_macro("JLA")
+#pragma pop_macro("JLMA")
 
 #endif // _jdk_internal_module_Modules_h_

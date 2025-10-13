@@ -15,12 +15,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NEW
-#undef TERMINATED
-#undef RUNNABLE
-#undef WAITING
-#undef TIMED_WAITING
 #undef BLOCKED
+#undef NEW
+#undef RUNNABLE
+#undef TERMINATED
+#undef TIMED_WAITING
+#undef WAITING
 
 using $TestSynchronization = ::TestSynchronization;
 using $Thread$StateArray = $Array<::java::lang::Thread$State>;

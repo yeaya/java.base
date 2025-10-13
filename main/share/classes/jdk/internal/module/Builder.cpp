@@ -23,9 +23,9 @@
 #include <jcpp.h>
 
 #undef JLMA
-#undef SYNTHETIC
 #undef MANDATED
 #undef OPEN
+#undef SYNTHETIC
 
 using $ModuleDescriptor$ExportsArray = $Array<::java::lang::module::ModuleDescriptor$Exports>;
 using $ModuleDescriptor$ModifierArray = $Array<::java::lang::module::ModuleDescriptor$Modifier>;

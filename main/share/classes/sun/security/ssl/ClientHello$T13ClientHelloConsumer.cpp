@@ -36,22 +36,22 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
 #undef CERTIFICATE
-#undef HANDSHAKE_FAILURE
-#undef CH_PRE_SHARED_KEY
-#undef FINISHED
-#undef UNEXPECTED_MESSAGE
-#undef ENCRYPTED_EXTENSIONS
+#undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_VERIFY
-#undef PROTOCOL_VERSION
-#undef CH_SUPPORTED_VERSIONS
-#undef SERVER_HELLO
-#undef HELLO_RETRY_REQUEST
 #undef CHANGE_CIPHER_SPEC
-#undef PSK_KEY_EXCHANGE_MODES
-#undef TLS12
+#undef CH_PRE_SHARED_KEY
+#undef CH_SUPPORTED_VERSIONS
 #undef CLIENT_HELLO
+#undef ENCRYPTED_EXTENSIONS
+#undef FINISHED
+#undef HANDSHAKE_FAILURE
+#undef HELLO_RETRY_REQUEST
+#undef PROTOCOL_VERSION
+#undef PSK_KEY_EXCHANGE_MODES
+#undef SERVER_HELLO
+#undef TLS12
+#undef UNEXPECTED_MESSAGE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

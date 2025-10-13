@@ -16,8 +16,8 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef PREPENDERS
 #undef PREPEND
+#undef PREPENDERS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

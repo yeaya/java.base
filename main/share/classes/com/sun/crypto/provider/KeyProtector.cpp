@@ -55,14 +55,14 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef MAX_ITERATION_COUNT
-#undef ENCRYPT_MODE
-#undef DEFAULT_ITERATION_COUNT
-#undef ITERATION_COUNT
 #undef DECRYPT_MODE
+#undef DEFAULT_ITERATION_COUNT
+#undef DIGEST_LEN
+#undef ENCRYPT_MODE
+#undef ITERATION_COUNT
+#undef MAX_ITERATION_COUNT
 #undef MIN_ITERATION_COUNT
 #undef SALT_LEN
-#undef DIGEST_LEN
 
 using $CipherForKeyProtector = ::com::sun::crypto::provider::CipherForKeyProtector;
 using $EncryptedPrivateKeyInfo = ::com::sun::crypto::provider::EncryptedPrivateKeyInfo;

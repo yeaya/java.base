@@ -70,9 +70,9 @@
 #include <jcpp.h>
 
 #undef ARRAY_BASE_OFFSET
+#undef SCOPED_MEMORY_ACCESS
 #undef UNALIGNED
 #undef UNSAFE
-#undef SCOPED_MEMORY_ACCESS
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $AssertionError = ::java::lang::AssertionError;

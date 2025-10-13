@@ -41,10 +41,10 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-#undef ITERATIONS_COUNT
 #undef ENTRY_CREATE
-#undef ENTRY_MODIFY
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef ITERATIONS_COUNT
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;

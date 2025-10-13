@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("WILDCARD_BOUND")
-#undef WILDCARD_BOUND
+#pragma push_macro("ARRAY_ELEMENT")
+#undef ARRAY_ELEMENT
 #pragma push_macro("INNER_TYPE")
 #undef INNER_TYPE
 #pragma push_macro("TYPE_ARGUMENT")
 #undef TYPE_ARGUMENT
-#pragma push_macro("ARRAY_ELEMENT")
-#undef ARRAY_ELEMENT
+#pragma push_macro("WILDCARD_BOUND")
+#undef WILDCARD_BOUND
 
 namespace jdk {
 	namespace internal {
@@ -57,9 +57,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("WILDCARD_BOUND")
+#pragma pop_macro("ARRAY_ELEMENT")
 #pragma pop_macro("INNER_TYPE")
 #pragma pop_macro("TYPE_ARGUMENT")
-#pragma pop_macro("ARRAY_ELEMENT")
+#pragma pop_macro("WILDCARD_BOUND")
 
 #endif // _jdk_internal_org_objectweb_asm$_TypePath_h_

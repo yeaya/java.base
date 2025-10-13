@@ -11,16 +11,16 @@
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
 
+#undef EVFILT_READ
 #undef EVFILT_WRITE
-#undef EV_ONESHOT
 #undef EV_ADD
 #undef EV_CLEAR
-#undef EVFILT_READ
-#undef SIZEOF_KQUEUEEVENT
-#undef OFFSET_IDENT
 #undef EV_DELETE
-#undef OFFSET_FLAGS
+#undef EV_ONESHOT
 #undef OFFSET_FILTER
+#undef OFFSET_FLAGS
+#undef OFFSET_IDENT
+#undef SIZEOF_KQUEUEEVENT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

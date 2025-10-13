@@ -15,10 +15,10 @@
 #include <jdk/internal/icu/text/NormalizerBase.h>
 #include <jcpp.h>
 
-#undef NFKC
-#undef NFKD
 #undef NFC
 #undef NFD
+#undef NFKC
+#undef NFKD
 
 using $Normalizer$FormArray = $Array<::java::text::Normalizer$Form>;
 using $ClassInfo = ::java::lang::ClassInfo;

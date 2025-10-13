@@ -10,14 +10,14 @@
 #include <java/util/function/Consumer.h>
 #include <java/util/stream/AbstractSpinedBuffer.h>
 
-#pragma push_macro("SUBSIZED")
-#undef SUBSIZED
 #pragma push_macro("ORDERED")
 #undef ORDERED
 #pragma push_macro("SIZED")
 #undef SIZED
 #pragma push_macro("SPLITERATOR_CHARACTERISTICS")
 #undef SPLITERATOR_CHARACTERISTICS
+#pragma push_macro("SUBSIZED")
+#undef SUBSIZED
 
 namespace java {
 	namespace util {
@@ -69,9 +69,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SUBSIZED")
 #pragma pop_macro("ORDERED")
 #pragma pop_macro("SIZED")
 #pragma pop_macro("SPLITERATOR_CHARACTERISTICS")
+#pragma pop_macro("SUBSIZED")
 
 #endif // _java_util_stream_SpinedBuffer_h_

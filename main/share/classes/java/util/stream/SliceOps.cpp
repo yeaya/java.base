@@ -46,14 +46,14 @@
 #include <java/util/stream/StreamSpliterators$SliceSpliterator.h>
 #include <jcpp.h>
 
-#undef INT_VALUE
-#undef IS_SIZE_ADJUSTING
-#undef SUBSIZED
-#undef LONG_VALUE
-#undef REFERENCE
-#undef MAX_VALUE
 #undef DOUBLE_VALUE
+#undef INT_VALUE
 #undef IS_SHORT_CIRCUIT
+#undef IS_SIZE_ADJUSTING
+#undef LONG_VALUE
+#undef MAX_VALUE
+#undef REFERENCE
+#undef SUBSIZED
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

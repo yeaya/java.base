@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Byte.h>
 
-#pragma push_macro("HEADER_WIDTH")
-#undef HEADER_WIDTH
 #pragma push_macro("COMPRESSED_FLAG")
 #undef COMPRESSED_FLAG
-#pragma push_macro("SIZE")
-#undef SIZE
 #pragma push_macro("HEADER_SHIFT")
 #undef HEADER_SHIFT
+#pragma push_macro("HEADER_WIDTH")
+#undef HEADER_WIDTH
+#pragma push_macro("SIZE")
+#undef SIZE
 
 namespace java {
 	namespace io {
@@ -53,9 +53,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("HEADER_WIDTH")
 #pragma pop_macro("COMPRESSED_FLAG")
-#pragma pop_macro("SIZE")
 #pragma pop_macro("HEADER_SHIFT")
+#pragma pop_macro("HEADER_WIDTH")
+#pragma pop_macro("SIZE")
 
 #endif // _jdk_internal_jimage_decompressor_CompressIndexes_h_

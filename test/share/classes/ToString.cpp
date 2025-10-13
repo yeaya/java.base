@@ -22,12 +22,12 @@
 
 #undef B
 #undef C
-#undef S
 #undef D
 #undef F
-#undef Y
 #undef I
 #undef L
+#undef S
+#undef Y
 
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;

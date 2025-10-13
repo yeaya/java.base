@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("HASH_INCREMENT")
-#undef HASH_INCREMENT
-#pragma push_macro("HASH_MASK")
-#undef HASH_MASK
 #pragma push_macro("CRITICAL_SECTION")
 #undef CRITICAL_SECTION
 #pragma push_macro("EMPTY_CACHE")
 #undef EMPTY_CACHE
+#pragma push_macro("HASH_INCREMENT")
+#undef HASH_INCREMENT
+#pragma push_macro("HASH_MASK")
+#undef HASH_MASK
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
 
@@ -77,10 +77,10 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("HASH_INCREMENT")
-#pragma pop_macro("HASH_MASK")
 #pragma pop_macro("CRITICAL_SECTION")
 #pragma pop_macro("EMPTY_CACHE")
+#pragma pop_macro("HASH_INCREMENT")
+#pragma pop_macro("HASH_MASK")
 #pragma pop_macro("UNSAFE")
 
 #endif // _java_lang_ClassValue_h_

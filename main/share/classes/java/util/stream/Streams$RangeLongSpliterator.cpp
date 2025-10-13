@@ -17,15 +17,15 @@
 #include <java/util/stream/Streams.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef SUBSIZED
-#undef ORDERED
-#undef SIZED
-#undef DISTINCT
 #undef BALANCED_SPLIT_THRESHOLD
+#undef DISTINCT
 #undef IMMUTABLE
+#undef NONNULL
+#undef ORDERED
 #undef RIGHT_BALANCED_SPLIT_RATIO
+#undef SIZED
 #undef SORTED
+#undef SUBSIZED
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -118,7 +118,7 @@ bool Streams$RangeLongSpliterator::tryAdvance($LongConsumer* consumer) {
 		return true;
 	} else if (this->last > 0) {
 		this->last = 0;
-		$nc(consumer)->accept(i);
+		consumer->accept(i);
 		return true;
 	}
 	return false;

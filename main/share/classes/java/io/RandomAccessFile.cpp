@@ -38,9 +38,9 @@
 #include <sun/nio/ch/FileChannelImpl.h>
 #include <jcpp.h>
 
-#undef O_RDWR
 #undef O_DSYNC
 #undef O_RDONLY
+#undef O_RDWR
 #undef O_SYNC
 #undef O_TEMPORARY
 
@@ -222,13 +222,13 @@ void RandomAccessFile::init$($File* file, $String* mode, bool openAndDelete) {
 	int32_t imode = -1;
 	if ($nc(mode)->equals("r"_s)) {
 		imode = RandomAccessFile::O_RDONLY;
-	} else if ($nc(mode)->startsWith("rw"_s)) {
+	} else if (mode->startsWith("rw"_s)) {
 		imode = RandomAccessFile::O_RDWR;
 		this->rw = true;
 		if (mode->length() > 2) {
 			if (mode->equals("rws"_s)) {
 				imode |= RandomAccessFile::O_SYNC;
-			} else if ($nc(mode)->equals("rwd"_s)) {
+			} else if (mode->equals("rwd"_s)) {
 				imode |= RandomAccessFile::O_DSYNC;
 			} else {
 				imode = -1;

@@ -20,8 +20,8 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef SET_RESPONSECACHE_PERMISSION
 #undef GET_RESPONSECACHE_PERMISSION
+#undef SET_RESPONSECACHE_PERMISSION
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

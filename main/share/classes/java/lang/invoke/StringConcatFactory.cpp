@@ -51,31 +51,31 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef NEW_STRING
-#undef FLOAT_STRINGIFIER
-#undef DOUBLE_STRINGIFIER
-#undef TAG_CONST
-#undef MAX_INDY_CONCAT_ARG_SLOTS
-#undef MIXERS
 #undef BOOLEAN_STRINGIFIER
-#undef TYPE
-#undef OBJECT_STRINGIFIER
-#undef NEW_STRINGIFIER
-#undef INITIAL_CODER
-#undef SIMPLE_CONCAT
-#undef NEW_ARRAY
-#undef LONG_STRINGIFIER
-#undef PRIVATE
 #undef CHAR_STRINGIFIER
-#undef PREPENDERS
-#undef NEW_ARRAY_SUFFIX
-#undef NULL_PREPEND
-#undef TAG_ARG
+#undef DOUBLE_STRINGIFIER
+#undef FLOAT_STRINGIFIER
+#undef INITIAL_CODER
 #undef INT_STRINGIFIER
-#undef NULL_PREPENDERS
-#undef MIX
 #undef JLA
+#undef LONG_STRINGIFIER
+#undef MAX_INDY_CONCAT_ARG_SLOTS
+#undef MIX
+#undef MIXERS
+#undef NEW_ARRAY
+#undef NEW_ARRAY_SUFFIX
+#undef NEW_STRING
+#undef NEW_STRINGIFIER
+#undef NULL_PREPEND
+#undef NULL_PREPENDERS
+#undef OBJECT_STRINGIFIER
 #undef PREPEND
+#undef PREPENDERS
+#undef PRIVATE
+#undef SIMPLE_CONCAT
+#undef TAG_ARG
+#undef TAG_CONST
+#undef TYPE
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -351,14 +351,14 @@ $List* StringConcatFactory::parseRecipe($MethodType* concatType, $String* recipe
 			}
 			acc->append($nc(constants)->get(cCount++));
 		} else if (c == StringConcatFactory::TAG_ARG) {
-			if ($nc(acc)->length() > 0) {
-				$nc(elements)->add($(acc->toString()));
+			if (acc->length() > 0) {
+				elements->add($(acc->toString()));
 				acc->setLength(0);
 			}
-			$nc(elements)->add(nullptr);
+			elements->add(nullptr);
 			++oCount;
 		} else {
-			$nc(acc)->append(c);
+			acc->append(c);
 		}
 	}
 	if (acc->length() > 0) {
@@ -401,7 +401,7 @@ $MethodHandle* StringConcatFactory::generateMHInlineCopy($MethodType* mt, $List*
 		bool var$0 = var$1 && !$nc($($cast($Class, mt->parameterType(0))))->isPrimitive();
 		if (var$0 && !$nc($($cast($Class, mt->parameterType(1))))->isPrimitive() && s0 == nullptr && s1 == nullptr) {
 			return simpleConcat();
-		} else if ($nc(mt)->parameterCount() == 1) {
+		} else if (mt->parameterCount() == 1) {
 			$var($String, constant, nullptr);
 			int32_t constIdx = 0;
 			if (s1 == nullptr) {
@@ -413,12 +413,12 @@ $MethodHandle* StringConcatFactory::generateMHInlineCopy($MethodType* mt, $List*
 			}
 			if ($nc(constant)->isEmpty()) {
 				return unaryConcat($($cast($Class, mt->parameterType(0))));
-			} else if (!$nc($($cast($Class, $nc(mt)->parameterType(0))))->isPrimitive()) {
+			} else if (!$nc($($cast($Class, mt->parameterType(0))))->isPrimitive()) {
 				return $MethodHandles::insertArguments($(simpleConcat()), constIdx, $$new($ObjectArray, {$of(constant)}));
 			}
 		}
 	}
-	$var($ClassArray, ptypes, $fcast($ClassArray, $nc($($nc(mt)->erase()))->parameterArray()));
+	$var($ClassArray, ptypes, $fcast($ClassArray, $nc($(mt->erase()))->parameterArray()));
 	$var($MethodHandleArray, filters, nullptr);
 	for (int32_t i = 0; i < $nc(ptypes)->length; ++i) {
 		$var($MethodHandle, filter, stringifierFor(ptypes->get(i)));

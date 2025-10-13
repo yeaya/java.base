@@ -29,12 +29,12 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceClassVisitor.h>
 #include <jcpp.h>
 
-#undef OPCODES
-#undef TYPES
-#undef INVOKEINTERFACE
 #undef HANDLE_TAG
-#undef UNSUPPORTED_OPERATION
+#undef INVOKEINTERFACE
+#undef OPCODES
 #undef SKIP_DEBUG
+#undef TYPES
+#undef UNSUPPORTED_OPERATION
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $FileInputStream = ::java::io::FileInputStream;
@@ -345,23 +345,23 @@ void Printer::appendString($StringBuilder* stringBuilder, $String* string) {
 		if (c == u'\n') {
 			stringBuilder->append("\\n"_s);
 		} else if (c == u'\r') {
-			$nc(stringBuilder)->append("\\r"_s);
+			stringBuilder->append("\\r"_s);
 		} else if (c == u'\\') {
-			$nc(stringBuilder)->append("\\\\"_s);
+			stringBuilder->append("\\\\"_s);
 		} else if (c == u'\"') {
-			$nc(stringBuilder)->append("\\\""_s);
+			stringBuilder->append("\\\""_s);
 		} else if (c < 32 || c > 127) {
-			$nc(stringBuilder)->append("\\u"_s);
+			stringBuilder->append("\\u"_s);
 			if (c < 16) {
 				stringBuilder->append("000"_s);
 			} else if (c < 256) {
-				$nc(stringBuilder)->append("00"_s);
+				stringBuilder->append("00"_s);
 			} else if (c < 4096) {
-				$nc(stringBuilder)->append(u'0');
+				stringBuilder->append(u'0');
 			}
 			stringBuilder->append($($Integer::toString(c, 16)));
 		} else {
-			$nc(stringBuilder)->append(c);
+			stringBuilder->append(c);
 		}
 	}
 	stringBuilder->append(u'\"');

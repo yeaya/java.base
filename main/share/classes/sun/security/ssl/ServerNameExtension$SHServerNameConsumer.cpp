@@ -25,8 +25,8 @@
 #include <jcpp.h>
 
 #undef CH_SERVER_NAME
-#undef SH_SERVER_NAME
 #undef DEFAULT
+#undef SH_SERVER_NAME
 #undef UNEXPECTED_MESSAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;

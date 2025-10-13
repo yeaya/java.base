@@ -6,6 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/text/DateFormat.h>
 
+#pragma push_macro("GMT")
+#undef GMT
+#pragma push_macro("MILLIS_PER_MINUTE")
+#undef MILLIS_PER_MINUTE
+#pragma push_macro("PATTERN_INDEX_TO_CALENDAR_FIELD")
+#undef PATTERN_INDEX_TO_CALENDAR_FIELD
+#pragma push_macro("PATTERN_INDEX_TO_DATE_FORMAT_FIELD")
+#undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD
 #pragma push_macro("PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID")
 #undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID
 #pragma push_macro("REST_OF_STYLES")
@@ -14,14 +22,6 @@
 #undef TAG_QUOTE_ASCII_CHAR
 #pragma push_macro("TAG_QUOTE_CHARS")
 #undef TAG_QUOTE_CHARS
-#pragma push_macro("MILLIS_PER_MINUTE")
-#undef MILLIS_PER_MINUTE
-#pragma push_macro("PATTERN_INDEX_TO_DATE_FORMAT_FIELD")
-#undef PATTERN_INDEX_TO_DATE_FORMAT_FIELD
-#pragma push_macro("GMT")
-#undef GMT
-#pragma push_macro("PATTERN_INDEX_TO_CALENDAR_FIELD")
-#undef PATTERN_INDEX_TO_CALENDAR_FIELD
 
 namespace java {
 	namespace io {
@@ -145,13 +145,13 @@ public:
 	} // text
 } // java
 
+#pragma pop_macro("GMT")
+#pragma pop_macro("MILLIS_PER_MINUTE")
+#pragma pop_macro("PATTERN_INDEX_TO_CALENDAR_FIELD")
+#pragma pop_macro("PATTERN_INDEX_TO_DATE_FORMAT_FIELD")
 #pragma pop_macro("PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID")
 #pragma pop_macro("REST_OF_STYLES")
 #pragma pop_macro("TAG_QUOTE_ASCII_CHAR")
 #pragma pop_macro("TAG_QUOTE_CHARS")
-#pragma pop_macro("MILLIS_PER_MINUTE")
-#pragma pop_macro("PATTERN_INDEX_TO_DATE_FORMAT_FIELD")
-#pragma pop_macro("GMT")
-#pragma pop_macro("PATTERN_INDEX_TO_CALENDAR_FIELD")
 
 #endif // _java_text_SimpleDateFormat_h_

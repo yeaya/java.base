@@ -97,7 +97,7 @@ $bytes* MaxFragExtension$CHMaxFragmentLengthProducer::produce($ConnectionContext
 	int32_t requestedMFLength = 0;
 	if ($nc(chc)->isResumption && (chc->resumingSession != nullptr)) {
 		requestedMFLength = $nc(chc->resumingSession)->getNegotiatedMaxFragSize();
-	} else if ($nc($nc(chc)->sslConfig)->maximumPacketSize != 0) {
+	} else if ($nc(chc->sslConfig)->maximumPacketSize != 0) {
 		requestedMFLength = $nc(chc->sslConfig)->maximumPacketSize;
 		if ($nc(chc->sslContext)->isDTLS()) {
 			requestedMFLength -= $DTLSRecord::maxPlaintextPlusSize;
@@ -109,10 +109,10 @@ $bytes* MaxFragExtension$CHMaxFragmentLengthProducer::produce($ConnectionContext
 	}
 	$MaxFragExtension$MaxFragLenEnum* mfl = $MaxFragExtension$MaxFragLenEnum::valueOf(requestedMFLength);
 	if (mfl != nullptr) {
-		$nc($nc(chc)->handshakeExtensions)->put($SSLExtension::CH_MAX_FRAGMENT_LENGTH, $$new($MaxFragExtension$MaxFragLenSpec, mfl->id));
+		$nc(chc->handshakeExtensions)->put($SSLExtension::CH_MAX_FRAGMENT_LENGTH, $$new($MaxFragExtension$MaxFragLenSpec, mfl->id));
 		return $new($bytes, {mfl->id});
 	} else {
-		$nc(chc)->maxFragmentLength = -1;
+		chc->maxFragmentLength = -1;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine($$str({"No available max_fragment_length extension can be used for fragment size of "_s, $$str(requestedMFLength), "bytes"_s}), $$new($ObjectArray, 0));

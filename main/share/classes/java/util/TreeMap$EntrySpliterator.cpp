@@ -29,9 +29,9 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
+#undef DISTINCT
 #undef ORDERED
 #undef SIZED
-#undef DISTINCT
 #undef SORTED
 
 using $Serializable = ::java::io::Serializable;

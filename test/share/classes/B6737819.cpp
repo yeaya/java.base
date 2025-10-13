@@ -17,8 +17,8 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef HTTP
 #undef DIRECT
+#undef HTTP
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("EMPTY_LONG_SPLITERATOR")
-#undef EMPTY_LONG_SPLITERATOR
-#pragma push_macro("EMPTY_INT_SPLITERATOR")
-#undef EMPTY_INT_SPLITERATOR
 #pragma push_macro("EMPTY_DOUBLE_SPLITERATOR")
 #undef EMPTY_DOUBLE_SPLITERATOR
+#pragma push_macro("EMPTY_INT_SPLITERATOR")
+#undef EMPTY_INT_SPLITERATOR
+#pragma push_macro("EMPTY_LONG_SPLITERATOR")
+#undef EMPTY_LONG_SPLITERATOR
 #pragma push_macro("EMPTY_SPLITERATOR")
 #undef EMPTY_SPLITERATOR
 
@@ -71,9 +71,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("EMPTY_LONG_SPLITERATOR")
-#pragma pop_macro("EMPTY_INT_SPLITERATOR")
 #pragma pop_macro("EMPTY_DOUBLE_SPLITERATOR")
+#pragma pop_macro("EMPTY_INT_SPLITERATOR")
+#pragma pop_macro("EMPTY_LONG_SPLITERATOR")
 #pragma pop_macro("EMPTY_SPLITERATOR")
 
 #endif // _java_util_Spliterators_h_

@@ -76,9 +76,9 @@
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
-#undef RUNTIME
 #undef EMPTY_ANNOTATIONS_ARRAY
 #undef EMPTY_ANNOTATION_ARRAY
+#undef RUNTIME
 #undef TYPE
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
@@ -570,7 +570,7 @@ $Object* AnnotationParser::parseMemberValue($Class* memberType, $ByteBuffer* buf
 	}
 	if (result == nullptr) {
 		$assign(result, $new($AnnotationTypeMismatchExceptionProxy, $Proxy::isProxyClass(memberType) ? $($nc($($nc(memberType)->getInterfaces())->get(0))->getName()) : $(memberType->getName())));
-	} else if (!($instanceOf($ExceptionProxy, result)) && !$nc(memberType)->isInstance(result)) {
+	} else if (!($instanceOf($ExceptionProxy, result)) && !memberType->isInstance(result)) {
 		if ($instanceOf($Annotation, result)) {
 			$assign(result, $new($AnnotationTypeMismatchExceptionProxy, $($nc($of(result))->toString())));
 		} else {
@@ -728,9 +728,9 @@ $Object* AnnotationParser::parseArray($Class* arrayType, $ByteBuffer* buf, $Cons
 									} else {
 										if (componentType == $Class::class$) {
 											return $of(parseClassArray(length, buf, constPool, container));
-										} else if ($nc(componentType)->isEnum()) {
+										} else if (componentType->isEnum()) {
 											return $of(parseEnumArray(length, componentType, buf, constPool, container));
-										} else if ($nc(componentType)->isAnnotation()) {
+										} else if (componentType->isAnnotation()) {
 											return $of(parseAnnotationArray(length, componentType, buf, constPool, container));
 										} else {
 											return $of(parseUnknownArray(length, buf));

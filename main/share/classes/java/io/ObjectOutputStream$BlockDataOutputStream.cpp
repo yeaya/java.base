@@ -19,8 +19,8 @@
 #include <jcpp.h>
 
 #undef CHAR_BUF_SIZE
-#undef MAX_HEADER_SIZE
 #undef MAX_BLOCK_SIZE
+#undef MAX_HEADER_SIZE
 
 using $Bits = ::java::io::Bits;
 using $DataOutput = ::java::io::DataOutput;

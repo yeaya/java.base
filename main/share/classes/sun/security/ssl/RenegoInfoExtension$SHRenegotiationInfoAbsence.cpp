@@ -25,10 +25,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE_FAILURE
-#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
-#undef INTERNAL_ERROR
 #undef CH_RENEGOTIATION_INFO
+#undef HANDSHAKE_FAILURE
+#undef INTERNAL_ERROR
+#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -108,7 +108,7 @@ void RenegoInfoExtension$SHRenegotiationInfoAbsence::absent($ConnectionContext* 
 			$SSLLogger::warning("Warning: No renegotiation indication in ServerHello, allow legacy ServerHello"_s, $$new($ObjectArray, 0));
 		}
 		$nc(chc->conContext)->secureRenegotiation = false;
-	} else if ($nc($nc(chc)->conContext)->secureRenegotiation) {
+	} else if ($nc(chc->conContext)->secureRenegotiation) {
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "Inconsistent secure renegotiation indication"_s)));
 	} else {

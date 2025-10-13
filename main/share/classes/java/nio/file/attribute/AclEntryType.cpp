@@ -11,10 +11,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef AUDIT
-#undef DENY
 #undef ALARM
 #undef ALLOW
+#undef AUDIT
+#undef DENY
 
 using $AclEntryTypeArray = $Array<::java::nio::file::attribute::AclEntryType>;
 using $ClassInfo = ::java::lang::ClassInfo;

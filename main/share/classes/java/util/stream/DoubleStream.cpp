@@ -57,10 +57,10 @@
 #include <java/util/stream/WhileOps$UnorderedWhileSpliterator$OfDouble.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef ORDERED
 #undef IMMUTABLE
 #undef MAX_VALUE
+#undef NONNULL
+#undef ORDERED
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

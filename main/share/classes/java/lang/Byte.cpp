@@ -23,11 +23,11 @@
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
-#undef BYTES
 #undef BSM_EXPLICIT_CAST
-#undef SIZE
+#undef BYTES
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef SIZE
 #undef TYPE
 
 using $ByteArray = $Array<::java::lang::Byte>;

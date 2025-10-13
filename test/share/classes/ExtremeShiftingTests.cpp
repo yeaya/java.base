@@ -13,9 +13,9 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef ONE
 #undef MIN_VALUE
+#undef ONE
+#undef ZERO
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;

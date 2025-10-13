@@ -7,20 +7,20 @@
 
 #pragma push_macro("GETTER_INDEX")
 #undef GETTER_INDEX
-#pragma push_macro("TYPED_ACCESSORS")
-#undef TYPED_ACCESSORS
-#pragma push_macro("OBJECT_ARRAY_GETTER")
-#undef OBJECT_ARRAY_GETTER
 #pragma push_macro("INDEX_LIMIT")
 #undef INDEX_LIMIT
+#pragma push_macro("LENGTH_INDEX")
+#undef LENGTH_INDEX
+#pragma push_macro("OBJECT_ARRAY_GETTER")
+#undef OBJECT_ARRAY_GETTER
 #pragma push_macro("OBJECT_ARRAY_LENGTH")
 #undef OBJECT_ARRAY_LENGTH
 #pragma push_macro("OBJECT_ARRAY_SETTER")
 #undef OBJECT_ARRAY_SETTER
-#pragma push_macro("LENGTH_INDEX")
-#undef LENGTH_INDEX
 #pragma push_macro("SETTER_INDEX")
 #undef SETTER_INDEX
+#pragma push_macro("TYPED_ACCESSORS")
+#undef TYPED_ACCESSORS
 
 namespace java {
 	namespace lang {
@@ -93,12 +93,12 @@ public:
 } // java
 
 #pragma pop_macro("GETTER_INDEX")
-#pragma pop_macro("TYPED_ACCESSORS")
-#pragma pop_macro("OBJECT_ARRAY_GETTER")
 #pragma pop_macro("INDEX_LIMIT")
+#pragma pop_macro("LENGTH_INDEX")
+#pragma pop_macro("OBJECT_ARRAY_GETTER")
 #pragma pop_macro("OBJECT_ARRAY_LENGTH")
 #pragma pop_macro("OBJECT_ARRAY_SETTER")
-#pragma pop_macro("LENGTH_INDEX")
 #pragma pop_macro("SETTER_INDEX")
+#pragma pop_macro("TYPED_ACCESSORS")
 
 #endif // _java_lang_invoke_MethodHandleImpl$ArrayAccessor_h_

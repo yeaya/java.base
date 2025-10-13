@@ -9,10 +9,10 @@
 #undef CANCELLED
 #pragma push_macro("EXECUTED")
 #undef EXECUTED
-#pragma push_macro("VIRGIN")
-#undef VIRGIN
 #pragma push_macro("SCHEDULED")
 #undef SCHEDULED
+#pragma push_macro("VIRGIN")
+#undef VIRGIN
 
 namespace java {
 	namespace util {
@@ -40,7 +40,7 @@ public:
 
 #pragma pop_macro("CANCELLED")
 #pragma pop_macro("EXECUTED")
-#pragma pop_macro("VIRGIN")
 #pragma pop_macro("SCHEDULED")
+#pragma pop_macro("VIRGIN")
 
 #endif // _java_util_TimerTask_h_

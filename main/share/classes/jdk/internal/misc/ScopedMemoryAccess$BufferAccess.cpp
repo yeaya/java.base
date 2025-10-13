@@ -20,9 +20,9 @@
 #include <jcpp.h>
 
 #undef BUFFER_ADDRESS
+#undef BYTE_BUFFER_HB
 #undef NIO_ACCESS
 #undef UNSAFE
-#undef BYTE_BUFFER_HB
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

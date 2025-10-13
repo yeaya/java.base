@@ -7,22 +7,22 @@
 #include <java/io/Closeable.h>
 #include <java/util/Iterator.h>
 
-#pragma push_macro("FIND_ANY_PATTERN")
-#undef FIND_ANY_PATTERN
-#pragma push_macro("SIMPLE_GROUP_INDEX")
-#undef SIMPLE_GROUP_INDEX
-#pragma push_macro("LINE_SEPARATOR_PATTERN")
-#undef LINE_SEPARATOR_PATTERN
-#pragma push_macro("WHITESPACE_PATTERN")
-#undef WHITESPACE_PATTERN
-#pragma push_macro("NON_ASCII_DIGIT")
-#undef NON_ASCII_DIGIT
-#pragma push_macro("BUFFER_SIZE")
-#undef BUFFER_SIZE
 #pragma push_macro("BOOLEAN_PATTERN")
 #undef BOOLEAN_PATTERN
+#pragma push_macro("BUFFER_SIZE")
+#undef BUFFER_SIZE
+#pragma push_macro("FIND_ANY_PATTERN")
+#undef FIND_ANY_PATTERN
 #pragma push_macro("LINE_PATTERN")
 #undef LINE_PATTERN
+#pragma push_macro("LINE_SEPARATOR_PATTERN")
+#undef LINE_SEPARATOR_PATTERN
+#pragma push_macro("NON_ASCII_DIGIT")
+#undef NON_ASCII_DIGIT
+#pragma push_macro("SIMPLE_GROUP_INDEX")
+#undef SIMPLE_GROUP_INDEX
+#pragma push_macro("WHITESPACE_PATTERN")
+#undef WHITESPACE_PATTERN
 
 namespace java {
 	namespace io {
@@ -264,13 +264,13 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("FIND_ANY_PATTERN")
-#pragma pop_macro("SIMPLE_GROUP_INDEX")
-#pragma pop_macro("LINE_SEPARATOR_PATTERN")
-#pragma pop_macro("WHITESPACE_PATTERN")
-#pragma pop_macro("NON_ASCII_DIGIT")
-#pragma pop_macro("BUFFER_SIZE")
 #pragma pop_macro("BOOLEAN_PATTERN")
+#pragma pop_macro("BUFFER_SIZE")
+#pragma pop_macro("FIND_ANY_PATTERN")
 #pragma pop_macro("LINE_PATTERN")
+#pragma pop_macro("LINE_SEPARATOR_PATTERN")
+#pragma pop_macro("NON_ASCII_DIGIT")
+#pragma pop_macro("SIMPLE_GROUP_INDEX")
+#pragma pop_macro("WHITESPACE_PATTERN")
 
 #endif // _java_util_Scanner_h_

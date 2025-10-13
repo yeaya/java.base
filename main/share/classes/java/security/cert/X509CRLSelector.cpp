@@ -41,8 +41,8 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef NUMBER
 #undef FALSE
+#undef NUMBER
 
 using $IOException = ::java::io::IOException;
 using $Boolean = ::java::lang::Boolean;

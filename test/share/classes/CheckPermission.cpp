@@ -31,10 +31,10 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef READ
-#undef EXEC
-#undef DELETE
 #undef CHECK_PERMISSION_TEST
+#undef DELETE
+#undef EXEC
+#undef READ
 #undef WRITE
 
 using $CheckPermission$1 = ::CheckPermission$1;

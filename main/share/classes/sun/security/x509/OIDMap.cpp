@@ -45,33 +45,33 @@
 #include <sun/security/x509/X509CertInfo.h>
 #include <jcpp.h>
 
-#undef CRL_REASON
-#undef ROOT
-#undef EXTENSIONS
-#undef POLICY_MAPPINGS
-#undef NAME_CONSTRAINTS
-#undef SUBJECT_INFO_ACCESS
-#undef CRL_NUMBER
-#undef NETSCAPE_CERT
-#undef OCSPNOCHECK
-#undef SUB_ALT_NAME
-#undef BASIC_CONSTRAINTS
-#undef CERT_ISSUER
-#undef ISSUING_DIST_POINT
 #undef AUTH_INFO_ACCESS
 #undef AUTH_KEY_IDENTIFIER
+#undef BASIC_CONSTRAINTS
+#undef CERT_ISSUER
 #undef CERT_POLICIES
-#undef INHIBIT_ANY_POLICY
-#undef EXT_KEY_USAGE
 #undef CRL_DIST_POINTS
+#undef CRL_NUMBER
+#undef CRL_REASON
 #undef DELTA_CRL_INDICATOR
-#undef PRIVATE_KEY_USAGE
-#undef NAME
-#undef SUB_KEY_IDENTIFIER
+#undef EXTENSIONS
+#undef EXT_KEY_USAGE
 #undef FRESHEST_CRL
-#undef KEY_USAGE
+#undef INHIBIT_ANY_POLICY
 #undef ISSUER_ALT_NAME
+#undef ISSUING_DIST_POINT
+#undef KEY_USAGE
+#undef NAME
+#undef NAME_CONSTRAINTS
+#undef NETSCAPE_CERT
+#undef OCSPNOCHECK
 #undef POLICY_CONSTRAINTS
+#undef POLICY_MAPPINGS
+#undef PRIVATE_KEY_USAGE
+#undef ROOT
+#undef SUBJECT_INFO_ACCESS
+#undef SUB_ALT_NAME
+#undef SUB_KEY_IDENTIFIER
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -5,14 +5,14 @@
 
 #include <sun/net/www/URLConnection.h>
 
-#pragma push_macro("BIN")
-#undef BIN
 #pragma push_macro("ASCII")
 #undef ASCII
-#pragma push_macro("NONE")
-#undef NONE
+#pragma push_macro("BIN")
+#undef BIN
 #pragma push_macro("DIR")
 #undef DIR
+#pragma push_macro("NONE")
+#undef NONE
 
 namespace java {
 	namespace io {
@@ -105,9 +105,9 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("BIN")
 #pragma pop_macro("ASCII")
-#pragma pop_macro("NONE")
+#pragma pop_macro("BIN")
 #pragma pop_macro("DIR")
+#pragma pop_macro("NONE")
 
 #endif // _sun_net_www_protocol_ftp_FtpURLConnection_h_

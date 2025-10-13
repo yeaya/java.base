@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NEW")
-#undef NEW
-#pragma push_macro("DELETE")
-#undef DELETE
-#pragma push_macro("UPDATE")
-#undef UPDATE
 #pragma push_macro("CONNECTED")
 #undef CONNECTED
+#pragma push_macro("DELETE")
+#undef DELETE
+#pragma push_macro("NEW")
+#undef NEW
+#pragma push_macro("UPDATE")
+#undef UPDATE
 
 namespace sun {
 	namespace net {
@@ -36,9 +36,9 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("NEW")
-#pragma pop_macro("DELETE")
-#pragma pop_macro("UPDATE")
 #pragma pop_macro("CONNECTED")
+#pragma pop_macro("DELETE")
+#pragma pop_macro("NEW")
+#pragma pop_macro("UPDATE")
 
 #endif // _sun_net_ProgressSource$State_h_

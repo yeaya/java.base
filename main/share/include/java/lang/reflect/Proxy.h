@@ -7,12 +7,12 @@
 #include <java/lang/Array.h>
 #include <sun/reflect/misc/ReflectUtil.h>
 
-#pragma push_macro("PROXY_PACKAGE_PREFIX")
-#undef PROXY_PACKAGE_PREFIX
-#pragma push_macro("EMPTY_ARGS")
-#undef EMPTY_ARGS
 #pragma push_macro("DEFAULT_METHODS_MAP")
 #undef DEFAULT_METHODS_MAP
+#pragma push_macro("EMPTY_ARGS")
+#undef EMPTY_ARGS
+#pragma push_macro("PROXY_PACKAGE_PREFIX")
+#undef PROXY_PACKAGE_PREFIX
 
 namespace java {
 	namespace lang {
@@ -95,8 +95,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("PROXY_PACKAGE_PREFIX")
-#pragma pop_macro("EMPTY_ARGS")
 #pragma pop_macro("DEFAULT_METHODS_MAP")
+#pragma pop_macro("EMPTY_ARGS")
+#pragma pop_macro("PROXY_PACKAGE_PREFIX")
 
 #endif // _java_lang_reflect_Proxy_h_

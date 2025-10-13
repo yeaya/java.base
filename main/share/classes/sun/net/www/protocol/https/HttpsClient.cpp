@@ -61,12 +61,12 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef NO_PROXY
-#undef TUNNELING
-#undef FINEST
-#undef SOCKS
-#undef DIRECT
 #undef DEFAULT
+#undef DIRECT
+#undef FINEST
+#undef NO_PROXY
+#undef SOCKS
+#undef TUNNELING
 #undef TYPE_TLS
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;

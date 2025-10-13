@@ -22,37 +22,37 @@
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
 #include <jcpp.h>
 
-#undef RET
-#undef F_NEW
 #undef ACC_STATIC
-#undef DOUBLE_TYPE
-#undef FLOAT
+#undef ALOAD
 #undef ARRAY
+#undef ASM8
 #undef ASTORE
-#undef ILOAD
+#undef BOOLEAN
+#undef BYTE
 #undef CHAR
 #undef DLOAD
-#undef OBJECT_TYPE
-#undef FLOAT_TYPE
-#undef INT
-#undef ALOAD
-#undef FLOAD
-#undef ISTORE
-#undef FSTORE
-#undef BYTE
 #undef DOUBLE
-#undef LSTORE
+#undef DOUBLE_TYPE
+#undef DSTORE
+#undef FLOAD
+#undef FLOAT
+#undef FLOAT_TYPE
+#undef FSTORE
+#undef F_NEW
+#undef ILOAD
+#undef INT
 #undef INTEGER
-#undef LONG
+#undef INT_TYPE
+#undef ISTORE
 #undef LLOAD
-#undef ASM8
+#undef LONG
 #undef LONG_TYPE
+#undef LSTORE
 #undef OBJECT
-#undef BOOLEAN
+#undef OBJECT_TYPE
+#undef RET
 #undef SHORT
 #undef TOP
-#undef DSTORE
-#undef INT_TYPE
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;

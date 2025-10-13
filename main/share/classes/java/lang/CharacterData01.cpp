@@ -14,14 +14,14 @@
 #include <jcpp.h>
 
 #undef A
-#undef B
-#undef DIRECTIONALITY_UNDEFINED
-#undef DECIMAL_DIGIT_NUMBER
-#undef X
-#undef MIN_RADIX
-#undef Y
 #undef A_DATA
+#undef B
+#undef DECIMAL_DIGIT_NUMBER
+#undef DIRECTIONALITY_UNDEFINED
 #undef MAX_RADIX
+#undef MIN_RADIX
+#undef X
+#undef Y
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;

@@ -15,15 +15,15 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRACE
 #undef ALL
-#undef ERROR
-#undef MAX_VALUE
-#undef INFO
-#undef MIN_VALUE
 #undef DEBUG
-#undef WARNING
+#undef ERROR
+#undef INFO
+#undef MAX_VALUE
+#undef MIN_VALUE
 #undef OFF
+#undef TRACE
+#undef WARNING
 
 using $System$Logger$LevelArray = $Array<::java::lang::System$Logger$Level>;
 using $ClassInfo = ::java::lang::ClassInfo;

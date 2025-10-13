@@ -33,17 +33,17 @@
 #include <java/util/concurrent/locks/LockSupport.h>
 #include <jcpp.h>
 
-#undef NEW
-#undef COMPLETING
 #undef CANCELLED
-#undef INTERRUPTING
-#undef WAITERS
-#undef STATE
+#undef COMPLETING
 #undef EXCEPTIONAL
-#undef TYPE
-#undef NORMAL
 #undef INTERRUPTED
+#undef INTERRUPTING
+#undef NEW
+#undef NORMAL
 #undef RUNNER
+#undef STATE
+#undef TYPE
+#undef WAITERS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

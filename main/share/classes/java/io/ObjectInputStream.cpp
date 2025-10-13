@@ -103,35 +103,35 @@
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
 
-#undef TC_REFERENCE
-#undef TC_BLOCKDATA
-#undef STREAM_VERSION
-#undef SET_FILTER_AFTER_READ
-#undef TC_PROXYCLASSDESC
-#undef TC_BLOCKDATALONG
-#undef TC_ARRAY
-#undef TC_EXCEPTION
-#undef SERIAL_FILTER_PERMISSION
-#undef TC_ENDBLOCKDATA
-#undef SUBSTITUTION_PERMISSION
-#undef TC_STRING
-#undef UNSAFE
-#undef TC_CLASS
-#undef TYPE
-#undef REJECTED
-#undef NULL_HANDLE
-#undef TRACE
-#undef TC_NULL
-#undef TC_CLASSDESC
-#undef TC_OBJECT
-#undef TC_ENUM
 #undef DEBUG
-#undef STREAM_MAGIC
-#undef SUBCLASS_IMPLEMENTATION_PERMISSION
+#undef NULL_HANDLE
 #undef PROXY_INTERFACE_LIMIT
-#undef TC_LONGSTRING
 #undef PUBLIC
+#undef REJECTED
+#undef SERIAL_FILTER_PERMISSION
+#undef SET_FILTER_AFTER_READ
+#undef STREAM_MAGIC
+#undef STREAM_VERSION
+#undef SUBCLASS_IMPLEMENTATION_PERMISSION
+#undef SUBSTITUTION_PERMISSION
+#undef TC_ARRAY
+#undef TC_BLOCKDATA
+#undef TC_BLOCKDATALONG
+#undef TC_CLASS
+#undef TC_CLASSDESC
+#undef TC_ENDBLOCKDATA
+#undef TC_ENUM
+#undef TC_EXCEPTION
+#undef TC_LONGSTRING
+#undef TC_NULL
+#undef TC_OBJECT
+#undef TC_PROXYCLASSDESC
+#undef TC_REFERENCE
 #undef TC_RESET
+#undef TC_STRING
+#undef TRACE
+#undef TYPE
+#undef UNSAFE
 
 using $ObjectInputStream$FieldValuesArray = $Array<::java::io::ObjectInputStream$FieldValues>;
 using $ObjectStreamClass$ClassDataSlotArray = $Array<::java::io::ObjectStreamClass$ClassDataSlot>;
@@ -1434,7 +1434,7 @@ $Object* ObjectInputStream::readArray(bool unshared) {
 			$load($Object);
 			readObject0($Object::class$, false);
 		}
-	} else if ($nc(ccl)->isPrimitive()) {
+	} else if (ccl->isPrimitive()) {
 		$init($Integer);
 		if (ccl == $Integer::TYPE) {
 			$nc(this->bin)->readInts($cast($ints, array), 0, len);
@@ -1557,7 +1557,7 @@ $Object* ObjectInputStream::readOrdinaryObject(bool unshared) {
 		if (!unshared) {
 			$nc(this->handles)->setObject(this->passHandle, obj);
 		}
-	} else if ($nc(desc)->isExternalizable()) {
+	} else if (desc->isExternalizable()) {
 		readExternalData($cast($Externalizable, obj), desc);
 	} else {
 		readSerialData(obj, desc);
@@ -1672,7 +1672,7 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 		if ($nc(slots->get(i))->hasData) {
 			if (obj == nullptr || $nc(this->handles)->lookupException(this->passHandle) != nullptr) {
 				$new($ObjectInputStream$FieldValues, this, slotDesc, true);
-			} else if ($nc(slotDesc)->hasReadObjectMethod()) {
+			} else if (slotDesc->hasReadObjectMethod()) {
 				$var($ThreadDeath, t, nullptr);
 				bool reset = false;
 				$var($SerialCallbackContext, oldContext, this->curContext);
@@ -1720,17 +1720,17 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 				if (slotValues != nullptr) {
 					slotValues->set(i, values);
 				} else if (obj != nullptr) {
-					$nc(values)->defaultCheckFieldValues(obj);
+					values->defaultCheckFieldValues(obj);
 					values->defaultSetFieldValues(obj);
 				}
 			}
-			if ($nc(slotDesc)->hasWriteObjectData()) {
+			if (slotDesc->hasWriteObjectData()) {
 				skipCustomData();
 			} else {
 				$nc(this->bin)->setBlockDataMode(false);
 			}
 		} else {
-			bool var$3 = obj != nullptr && $nc(slotDesc)->hasReadObjectNoDataMethod();
+			bool var$3 = obj != nullptr && slotDesc->hasReadObjectNoDataMethod();
 			if (var$3 && $nc(this->handles)->lookupException(this->passHandle) == nullptr) {
 				slotDesc->invokeReadObjectNoData(obj);
 			}

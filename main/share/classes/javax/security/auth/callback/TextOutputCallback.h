@@ -7,10 +7,10 @@
 #include <java/io/Serializable.h>
 #include <javax/security/auth/callback/Callback.h>
 
-#pragma push_macro("INFORMATION")
-#undef INFORMATION
 #pragma push_macro("ERROR")
 #undef ERROR
+#pragma push_macro("INFORMATION")
+#undef INFORMATION
 #pragma push_macro("WARNING")
 #undef WARNING
 
@@ -45,8 +45,8 @@ public:
 	} // security
 } // javax
 
-#pragma pop_macro("INFORMATION")
 #pragma pop_macro("ERROR")
+#pragma pop_macro("INFORMATION")
 #pragma pop_macro("WARNING")
 
 #endif // _javax_security_auth_callback_TextOutputCallback_h_

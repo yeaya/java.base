@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("PROVIDER_VERIFIED")
-#undef PROVIDER_VERIFIED
 #pragma push_macro("NULL_URL")
 #undef NULL_URL
+#pragma push_macro("PROVIDER_VERIFIED")
+#undef PROVIDER_VERIFIED
 
 namespace java {
 	namespace lang {
@@ -84,7 +84,7 @@ public:
 	} // crypto
 } // javax
 
-#pragma pop_macro("PROVIDER_VERIFIED")
 #pragma pop_macro("NULL_URL")
+#pragma pop_macro("PROVIDER_VERIFIED")
 
 #endif // _javax_crypto_JceSecurity_h_

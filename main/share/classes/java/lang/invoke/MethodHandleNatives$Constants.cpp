@@ -11,25 +11,25 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef MN_IS_FIELD
-#undef MN_IS_CONSTRUCTOR
-#undef MN_TRUSTED_FINAL
-#undef REF_NONE
-#undef HIDDEN_CLASS
-#undef NESTMATE_CLASS
 #undef ACCESS_VM_ANNOTATIONS
+#undef HIDDEN_CLASS
 #undef LM_MODULE
-#undef REF_LIMIT
-#undef MN_SEARCH_INTERFACES
-#undef MN_IS_METHOD
-#undef MN_CALLER_SENSITIVE
-#undef MN_SEARCH_SUPERCLASSES
-#undef STRONG_LOADER_LINK
 #undef LM_TRUSTED
-#undef MN_IS_TYPE
-#undef MN_REFERENCE_KIND_SHIFT
 #undef LM_UNCONDITIONAL
+#undef MN_CALLER_SENSITIVE
+#undef MN_IS_CONSTRUCTOR
+#undef MN_IS_FIELD
+#undef MN_IS_METHOD
+#undef MN_IS_TYPE
 #undef MN_REFERENCE_KIND_MASK
+#undef MN_REFERENCE_KIND_SHIFT
+#undef MN_SEARCH_INTERFACES
+#undef MN_SEARCH_SUPERCLASSES
+#undef MN_TRUSTED_FINAL
+#undef NESTMATE_CLASS
+#undef REF_LIMIT
+#undef REF_NONE
+#undef STRONG_LOADER_LINK
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -5,28 +5,28 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("SO_LINGER")
-#undef SO_LINGER
-#pragma push_macro("IP_MULTICAST_LOOP")
-#undef IP_MULTICAST_LOOP
-#pragma push_macro("SO_RCVBUF")
-#undef SO_RCVBUF
-#pragma push_macro("IP_TOS")
-#undef IP_TOS
-#pragma push_macro("SO_KEEPALIVE")
-#undef SO_KEEPALIVE
-#pragma push_macro("SO_SNDBUF")
-#undef SO_SNDBUF
 #pragma push_macro("IP_MULTICAST_IF")
 #undef IP_MULTICAST_IF
+#pragma push_macro("IP_MULTICAST_LOOP")
+#undef IP_MULTICAST_LOOP
+#pragma push_macro("IP_MULTICAST_TTL")
+#undef IP_MULTICAST_TTL
+#pragma push_macro("IP_TOS")
+#undef IP_TOS
 #pragma push_macro("SO_BROADCAST")
 #undef SO_BROADCAST
+#pragma push_macro("SO_KEEPALIVE")
+#undef SO_KEEPALIVE
+#pragma push_macro("SO_LINGER")
+#undef SO_LINGER
+#pragma push_macro("SO_RCVBUF")
+#undef SO_RCVBUF
 #pragma push_macro("SO_REUSEADDR")
 #undef SO_REUSEADDR
 #pragma push_macro("SO_REUSEPORT")
 #undef SO_REUSEPORT
-#pragma push_macro("IP_MULTICAST_TTL")
-#undef IP_MULTICAST_TTL
+#pragma push_macro("SO_SNDBUF")
+#undef SO_SNDBUF
 #pragma push_macro("TCP_NODELAY")
 #undef TCP_NODELAY
 
@@ -61,17 +61,17 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("SO_LINGER")
-#pragma pop_macro("IP_MULTICAST_LOOP")
-#pragma pop_macro("SO_RCVBUF")
-#pragma pop_macro("IP_TOS")
-#pragma pop_macro("SO_KEEPALIVE")
-#pragma pop_macro("SO_SNDBUF")
 #pragma pop_macro("IP_MULTICAST_IF")
+#pragma pop_macro("IP_MULTICAST_LOOP")
+#pragma pop_macro("IP_MULTICAST_TTL")
+#pragma pop_macro("IP_TOS")
 #pragma pop_macro("SO_BROADCAST")
+#pragma pop_macro("SO_KEEPALIVE")
+#pragma pop_macro("SO_LINGER")
+#pragma pop_macro("SO_RCVBUF")
 #pragma pop_macro("SO_REUSEADDR")
 #pragma pop_macro("SO_REUSEPORT")
-#pragma pop_macro("IP_MULTICAST_TTL")
+#pragma pop_macro("SO_SNDBUF")
 #pragma pop_macro("TCP_NODELAY")
 
 #endif // _java_net_StandardSocketOptions_h_

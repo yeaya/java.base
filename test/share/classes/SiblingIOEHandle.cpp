@@ -34,10 +34,10 @@
 #include <java/util/concurrent/CyclicBarrier.h>
 #include <jcpp.h>
 
-#undef SIGNAL
 #undef A
 #undef B
 #undef JAVA_EXE
+#undef SIGNAL
 
 using $SiblingIOEHandle$1 = ::SiblingIOEHandle$1;
 using $SiblingIOEHandle$APP = ::SiblingIOEHandle$APP;

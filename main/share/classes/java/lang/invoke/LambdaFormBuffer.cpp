@@ -22,10 +22,10 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef V_TYPE
+#undef F_OWNED
 #undef F_TRANS
 #undef SLOP
-#undef F_OWNED
+#undef V_TYPE
 
 using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
 using $AssertionError = ::java::lang::AssertionError;

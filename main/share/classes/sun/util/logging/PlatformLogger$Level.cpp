@@ -15,28 +15,28 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef TRACE
 #undef ALL
-#undef SEVERE
+#undef CONFIG
+#undef DEBUG
+#undef ERROR
+#undef FINE
 #undef FINER
-#undef SEVERITY_OFF
-#undef SEVERITY_CONFIG
 #undef FINEST
 #undef INFO
-#undef WARNING
-#undef SEVERITY_FINER
-#undef DEBUG
-#undef OFF
-#undef CONFIG
-#undef SEVERITY_SEVERE
-#undef SEVERITY_FINEST
-#undef SEVERITY_ALL
-#undef SEVERITY_INFO
-#undef SEVERITY_WARNING
-#undef FINE
-#undef ERROR
 #undef LEVEL_VALUES
+#undef OFF
+#undef SEVERE
+#undef SEVERITY_ALL
+#undef SEVERITY_CONFIG
 #undef SEVERITY_FINE
+#undef SEVERITY_FINER
+#undef SEVERITY_FINEST
+#undef SEVERITY_INFO
+#undef SEVERITY_OFF
+#undef SEVERITY_SEVERE
+#undef SEVERITY_WARNING
+#undef TRACE
+#undef WARNING
 
 using $PlatformLogger$LevelArray = $Array<::sun::util::logging::PlatformLogger$Level>;
 using $ClassInfo = ::java::lang::ClassInfo;

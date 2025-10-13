@@ -10,20 +10,20 @@
 #include <jdk/internal/org/objectweb/asm/Type.h>
 #include <jcpp.h>
 
-#undef INT_VALUE
-#undef RETURNADDRESS_VALUE
-#undef DOUBLE_TYPE
-#undef REFERENCE_VALUE
-#undef LONG_TYPE
 #undef ARRAY
-#undef UNINITIALIZED_VALUE
-#undef VOID_TYPE
+#undef DOUBLE_TYPE
 #undef DOUBLE_VALUE
-#undef OBJECT
 #undef FLOAT_TYPE
 #undef FLOAT_VALUE
-#undef LONG_VALUE
 #undef INT_TYPE
+#undef INT_VALUE
+#undef LONG_TYPE
+#undef LONG_VALUE
+#undef OBJECT
+#undef REFERENCE_VALUE
+#undef RETURNADDRESS_VALUE
+#undef UNINITIALIZED_VALUE
+#undef VOID_TYPE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

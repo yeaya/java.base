@@ -53,24 +53,24 @@
 #include <sun/nio/fs/WindowsWatchService.h>
 #include <jcpp.h>
 
-#undef SIZEOF_DWORD
 #undef ARRAY_CHAR_BASE_OFFSET
-#undef OFFSETOF_FILENAME
-#undef FILE_TREE
-#undef SENSITIVITY_MEDIUM
-#undef OFFSETOF_NEXTENTRYOFFSET
-#undef OFFSETOF_ACTION
-#undef SENSITIVITY_LOW
-#undef ENTRY_MODIFY
-#undef ENTRY_CREATE
-#undef OFFSETOF_HEVENT
-#undef OVERFLOW
-#undef SIZEOF_OVERLAPPED
-#undef SENSITIVITY_HIGH
-#undef UNSAFE
 #undef CHANGES_BUFFER_SIZE
+#undef ENTRY_CREATE
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef FILE_TREE
+#undef OFFSETOF_ACTION
+#undef OFFSETOF_FILENAME
 #undef OFFSETOF_FILENAMELENGTH
+#undef OFFSETOF_HEVENT
+#undef OFFSETOF_NEXTENTRYOFFSET
+#undef OVERFLOW
+#undef SENSITIVITY_HIGH
+#undef SENSITIVITY_LOW
+#undef SENSITIVITY_MEDIUM
+#undef SIZEOF_DWORD
+#undef SIZEOF_OVERLAPPED
+#undef UNSAFE
 
 using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
 using $IOException = ::java::io::IOException;

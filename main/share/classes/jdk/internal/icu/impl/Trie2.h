@@ -6,38 +6,38 @@
 #include <java/lang/Array.h>
 #include <java/lang/Iterable.h>
 
-#pragma push_macro("UTRIE2_INDEX_2_BLOCK_LENGTH")
-#undef UTRIE2_INDEX_2_BLOCK_LENGTH
 #pragma push_macro("UTRIE2_BAD_UTF8_DATA_OFFSET")
 #undef UTRIE2_BAD_UTF8_DATA_OFFSET
-#pragma push_macro("UTRIE2_SHIFT_1_2")
-#undef UTRIE2_SHIFT_1_2
-#pragma push_macro("UTRIE2_OPTIONS_VALUE_BITS_MASK")
-#undef UTRIE2_OPTIONS_VALUE_BITS_MASK
+#pragma push_macro("UTRIE2_DATA_BLOCK_LENGTH")
+#undef UTRIE2_DATA_BLOCK_LENGTH
+#pragma push_macro("UTRIE2_DATA_GRANULARITY")
+#undef UTRIE2_DATA_GRANULARITY
+#pragma push_macro("UTRIE2_DATA_MASK")
+#undef UTRIE2_DATA_MASK
+#pragma push_macro("UTRIE2_INDEX_1_OFFSET")
+#undef UTRIE2_INDEX_1_OFFSET
+#pragma push_macro("UTRIE2_INDEX_2_BLOCK_LENGTH")
+#undef UTRIE2_INDEX_2_BLOCK_LENGTH
+#pragma push_macro("UTRIE2_INDEX_2_BMP_LENGTH")
+#undef UTRIE2_INDEX_2_BMP_LENGTH
+#pragma push_macro("UTRIE2_INDEX_2_MASK")
+#undef UTRIE2_INDEX_2_MASK
+#pragma push_macro("UTRIE2_INDEX_SHIFT")
+#undef UTRIE2_INDEX_SHIFT
 #pragma push_macro("UTRIE2_LSCP_INDEX_2_LENGTH")
 #undef UTRIE2_LSCP_INDEX_2_LENGTH
 #pragma push_macro("UTRIE2_LSCP_INDEX_2_OFFSET")
 #undef UTRIE2_LSCP_INDEX_2_OFFSET
-#pragma push_macro("UTRIE2_INDEX_1_OFFSET")
-#undef UTRIE2_INDEX_1_OFFSET
-#pragma push_macro("UTRIE2_DATA_MASK")
-#undef UTRIE2_DATA_MASK
-#pragma push_macro("UTRIE2_INDEX_SHIFT")
-#undef UTRIE2_INDEX_SHIFT
 #pragma push_macro("UTRIE2_OMITTED_BMP_INDEX_1_LENGTH")
 #undef UTRIE2_OMITTED_BMP_INDEX_1_LENGTH
-#pragma push_macro("UTRIE2_INDEX_2_BMP_LENGTH")
-#undef UTRIE2_INDEX_2_BMP_LENGTH
+#pragma push_macro("UTRIE2_OPTIONS_VALUE_BITS_MASK")
+#undef UTRIE2_OPTIONS_VALUE_BITS_MASK
 #pragma push_macro("UTRIE2_SHIFT_1")
 #undef UTRIE2_SHIFT_1
+#pragma push_macro("UTRIE2_SHIFT_1_2")
+#undef UTRIE2_SHIFT_1_2
 #pragma push_macro("UTRIE2_SHIFT_2")
 #undef UTRIE2_SHIFT_2
-#pragma push_macro("UTRIE2_INDEX_2_MASK")
-#undef UTRIE2_INDEX_2_MASK
-#pragma push_macro("UTRIE2_DATA_GRANULARITY")
-#undef UTRIE2_DATA_GRANULARITY
-#pragma push_macro("UTRIE2_DATA_BLOCK_LENGTH")
-#undef UTRIE2_DATA_BLOCK_LENGTH
 
 namespace java {
 	namespace nio {
@@ -118,21 +118,21 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("UTRIE2_INDEX_2_BLOCK_LENGTH")
 #pragma pop_macro("UTRIE2_BAD_UTF8_DATA_OFFSET")
-#pragma pop_macro("UTRIE2_SHIFT_1_2")
-#pragma pop_macro("UTRIE2_OPTIONS_VALUE_BITS_MASK")
+#pragma pop_macro("UTRIE2_DATA_BLOCK_LENGTH")
+#pragma pop_macro("UTRIE2_DATA_GRANULARITY")
+#pragma pop_macro("UTRIE2_DATA_MASK")
+#pragma pop_macro("UTRIE2_INDEX_1_OFFSET")
+#pragma pop_macro("UTRIE2_INDEX_2_BLOCK_LENGTH")
+#pragma pop_macro("UTRIE2_INDEX_2_BMP_LENGTH")
+#pragma pop_macro("UTRIE2_INDEX_2_MASK")
+#pragma pop_macro("UTRIE2_INDEX_SHIFT")
 #pragma pop_macro("UTRIE2_LSCP_INDEX_2_LENGTH")
 #pragma pop_macro("UTRIE2_LSCP_INDEX_2_OFFSET")
-#pragma pop_macro("UTRIE2_INDEX_1_OFFSET")
-#pragma pop_macro("UTRIE2_DATA_MASK")
-#pragma pop_macro("UTRIE2_INDEX_SHIFT")
 #pragma pop_macro("UTRIE2_OMITTED_BMP_INDEX_1_LENGTH")
-#pragma pop_macro("UTRIE2_INDEX_2_BMP_LENGTH")
+#pragma pop_macro("UTRIE2_OPTIONS_VALUE_BITS_MASK")
 #pragma pop_macro("UTRIE2_SHIFT_1")
+#pragma pop_macro("UTRIE2_SHIFT_1_2")
 #pragma pop_macro("UTRIE2_SHIFT_2")
-#pragma pop_macro("UTRIE2_INDEX_2_MASK")
-#pragma pop_macro("UTRIE2_DATA_GRANULARITY")
-#pragma pop_macro("UTRIE2_DATA_BLOCK_LENGTH")
 
 #endif // _jdk_internal_icu_impl_Trie2_h_

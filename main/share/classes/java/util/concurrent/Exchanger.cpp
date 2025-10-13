@@ -29,18 +29,18 @@
 #include <jcpp.h>
 
 #undef AA
-#undef SPINS
-#undef FULL
-#undef NULL_ITEM
-#undef TIMED_OUT
-#undef MMASK
-#undef SLOT
-#undef BOUND
-#undef TYPE
-#undef SEQ
-#undef NCPU
-#undef MATCH
 #undef ASHIFT
+#undef BOUND
+#undef FULL
+#undef MATCH
+#undef MMASK
+#undef NCPU
+#undef NULL_ITEM
+#undef SEQ
+#undef SLOT
+#undef SPINS
+#undef TIMED_OUT
+#undef TYPE
 
 using $Exchanger$NodeArray = $Array<::java::util::concurrent::Exchanger$Node>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -175,15 +175,15 @@ $Object* Exchanger::arenaExchange(Object$* item, bool timed, int64_t ns) {
 							h ^= (int32_t)((uint32_t)h >> 3);
 							h ^= h << 10;
 							if (h == 0) {
-								h = Exchanger::SPINS | (int32_t)$nc(t)->getId();
+								h = Exchanger::SPINS | (int32_t)t->getId();
 							} else if (h < 0 && ((int32_t)(--spins & (uint32_t)(((int32_t)((uint32_t)Exchanger::SPINS >> 1)) - 1))) == 0) {
 								$Thread::yield();
 							}
 						} else if (!$equals($nc(Exchanger::AA)->getAcquire($$new($ObjectArray, {$of(a), $$of(j)})), p)) {
 							spins = Exchanger::SPINS;
 						} else {
-							bool var$3 = !$nc(t)->isInterrupted() && m == 0;
-							if (var$3 && (!timed || (ns = end - $System::nanoTime()) > (int64_t)0)) {
+							bool var$1 = !t->isInterrupted() && m == 0;
+							if (var$1 && (!timed || (ns = end - $System::nanoTime()) > (int64_t)0)) {
 								$set(p, parked, t);
 								if ($equals($nc(Exchanger::AA)->getAcquire($$new($ObjectArray, {$of(a), $$of(j)})), p)) {
 									if (ns == (int64_t)0) {
@@ -194,8 +194,8 @@ $Object* Exchanger::arenaExchange(Object$* item, bool timed, int64_t ns) {
 								}
 								$set(p, parked, nullptr);
 							} else {
-								bool var$5 = $equals($nc(Exchanger::AA)->getAcquire($$new($ObjectArray, {$of(a), $$of(j)})), p);
-								if (var$5 && $nc(Exchanger::AA)->compareAndSet($$new($ObjectArray, {$of(a), $$of(j), $of(p), ($Object*)nullptr}))) {
+								bool var$3 = $equals($nc(Exchanger::AA)->getAcquire($$new($ObjectArray, {$of(a), $$of(j)})), p);
+								if (var$3 && $nc(Exchanger::AA)->compareAndSet($$new($ObjectArray, {$of(a), $$of(j), $of(p), ($Object*)nullptr}))) {
 									if (m != 0) {
 										$nc(Exchanger::BOUND)->compareAndSet($$new($ObjectArray, {$of(this), $$of(b), $$of((b + Exchanger::SEQ - 1))}));
 									}
@@ -258,7 +258,7 @@ $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
 			} else if (this->arena != nullptr) {
 				return $of(nullptr);
 			} else {
-				$set($nc(p), item, item);
+				$set(p, item, item);
 				if ($nc(Exchanger::SLOT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $of(p)}))) {
 					break;
 				}
@@ -266,7 +266,7 @@ $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
 			}
 		}
 	}
-	int32_t h = $nc(p)->hash;
+	int32_t h = p->hash;
 	int64_t end = timed ? $System::nanoTime() + ns : (int64_t)0;
 	int32_t spins = (Exchanger::NCPU > 1) ? Exchanger::SPINS : 1;
 	$var($Object, v, nullptr);
@@ -283,9 +283,9 @@ $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
 		} else if (this->slot != p) {
 			spins = Exchanger::SPINS;
 		} else {
-			bool var$1 = !$nc(t)->isInterrupted() && this->arena == nullptr;
+			bool var$1 = !t->isInterrupted() && this->arena == nullptr;
 			if (var$1 && (!timed || (ns = end - $System::nanoTime()) > (int64_t)0)) {
-				$set($nc(p), parked, t);
+				$set(p, parked, t);
 				if (this->slot == p) {
 					if (ns == (int64_t)0) {
 						$LockSupport::park(this);
@@ -295,7 +295,7 @@ $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
 				}
 				$set(p, parked, nullptr);
 			} else if ($nc(Exchanger::SLOT)->compareAndSet($$new($ObjectArray, {$of(this), $of(p), ($Object*)nullptr}))) {
-				$assign(v, timed && ns <= (int64_t)0 && !$nc(t)->isInterrupted() ? Exchanger::TIMED_OUT : ($Object*)nullptr);
+				$assign(v, timed && ns <= (int64_t)0 && !t->isInterrupted() ? Exchanger::TIMED_OUT : ($Object*)nullptr);
 				break;
 			}
 		}

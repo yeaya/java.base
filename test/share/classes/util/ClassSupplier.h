@@ -12,10 +12,10 @@
 #undef PACKAGE_CLASS_IN_PKG_A
 #pragma push_macro("PACKAGE_CLASS_IN_PKG_B")
 #undef PACKAGE_CLASS_IN_PKG_B
-#pragma push_macro("PUBLIC_SUPERCLASS_IN_PKG_A")
-#undef PUBLIC_SUPERCLASS_IN_PKG_A
 #pragma push_macro("PUBLIC_SUBCLASS_IN_PKG_B")
 #undef PUBLIC_SUBCLASS_IN_PKG_B
+#pragma push_macro("PUBLIC_SUPERCLASS_IN_PKG_A")
+#undef PUBLIC_SUPERCLASS_IN_PKG_A
 
 namespace util {
 
@@ -46,7 +46,7 @@ public:
 
 #pragma pop_macro("PACKAGE_CLASS_IN_PKG_A")
 #pragma pop_macro("PACKAGE_CLASS_IN_PKG_B")
-#pragma pop_macro("PUBLIC_SUPERCLASS_IN_PKG_A")
 #pragma pop_macro("PUBLIC_SUBCLASS_IN_PKG_B")
+#pragma pop_macro("PUBLIC_SUPERCLASS_IN_PKG_A")
 
 #endif // _util_ClassSupplier_h_

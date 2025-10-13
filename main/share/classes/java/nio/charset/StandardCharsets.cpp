@@ -18,12 +18,12 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
+#undef INSTANCE
 #undef US_ASCII
 #undef UTF_16
-#undef UTF_16LE
 #undef UTF_16BE
+#undef UTF_16LE
 #undef UTF_8
-#undef INSTANCE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

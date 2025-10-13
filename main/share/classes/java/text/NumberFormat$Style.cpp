@@ -13,8 +13,8 @@
 #include <java/text/NumberFormat.h>
 #include <jcpp.h>
 
-#undef SHORT
 #undef LONG
+#undef SHORT
 
 using $NumberFormat$StyleArray = $Array<::java::text::NumberFormat$Style>;
 using $ClassInfo = ::java::lang::ClassInfo;

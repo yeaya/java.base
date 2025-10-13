@@ -20,8 +20,8 @@
 #include <jdk/internal/org/objectweb/asm/tree/Util.h>
 #include <jcpp.h>
 
-#undef LOOKUPSWITCH_INSN
 #undef LOOKUPSWITCH
+#undef LOOKUPSWITCH_INSN
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $LabelNodeArray = $Array<::jdk::internal::org::objectweb::asm$::tree::LabelNode>;

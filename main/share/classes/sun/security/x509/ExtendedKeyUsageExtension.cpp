@@ -27,10 +27,10 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef IDENT
 #undef FALSE
-#undef USAGES
+#undef IDENT
 #undef NAME
+#undef USAGES
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

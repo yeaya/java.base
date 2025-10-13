@@ -25,8 +25,8 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef THIS_CLASS
 #undef DONT_INLINE_THRESHOLD
+#undef THIS_CLASS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

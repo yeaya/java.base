@@ -281,12 +281,12 @@ bool InMemoryCookieStore::netscapeDomainMatches($String* domain, $String* host) 
 	if (lengthDiff == 0) {
 		return host->equalsIgnoreCase(domain);
 	} else if (lengthDiff > 0) {
-		$var($String, H, $nc(host)->substring(0, lengthDiff));
+		$var($String, H, host->substring(0, lengthDiff));
 		$var($String, D, host->substring(lengthDiff));
 		return (D->equalsIgnoreCase(domain));
 	} else if (lengthDiff == -1) {
-		bool var$0 = $nc(domain)->charAt(0) == u'.';
-		return (var$0 && $nc(host)->equalsIgnoreCase($(domain->substring(1))));
+		bool var$0 = domain->charAt(0) == u'.';
+		return (var$0 && host->equalsIgnoreCase($(domain->substring(1))));
 	}
 	return false;
 }

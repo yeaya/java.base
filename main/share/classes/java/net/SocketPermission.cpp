@@ -48,21 +48,21 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef ALL
-#undef PORT_MAX
-#undef CONNECT
-#undef SOCKET_LISTEN_ACTION
-#undef SOCKET_RESOLVE_ACTION
-#undef SOCKET_CONNECT_ACCEPT_ACTION
 #undef ACCEPT
-#undef PRIV_PORT_MAX
-#undef SOCKET_CONNECT_ACTION
-#undef PORT_MIN
-#undef RESOLVE
+#undef ALL
+#undef CONNECT
+#undef DEF_EPH_LOW
 #undef LISTEN
 #undef NONE
+#undef PORT_MAX
+#undef PORT_MIN
+#undef PRIV_PORT_MAX
+#undef RESOLVE
 #undef SOCKET_ACCEPT_ACTION
-#undef DEF_EPH_LOW
+#undef SOCKET_CONNECT_ACCEPT_ACTION
+#undef SOCKET_CONNECT_ACTION
+#undef SOCKET_LISTEN_ACTION
+#undef SOCKET_RESOLVE_ACTION
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -282,7 +282,7 @@ $String* SocketPermission::getHost($String* host$renamed) {
 					ind = host->lastIndexOf((int32_t)u':');
 					$var($String, var$1, $$str({"["_s, $(host->substring(0, ind)), "]"_s}));
 					$assign(host, $concat(var$1, $(host->substring(ind))));
-				} else if (tokens == 8 && $nc(host)->indexOf("::"_s) == -1) {
+				} else if (tokens == 8 && host->indexOf("::"_s) == -1) {
 					$assign(host, $str({"["_s, host, "]"_s}));
 				} else {
 					$throwNew($IllegalArgumentException, "Ambiguous hostport part"_s);
@@ -382,17 +382,17 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 	$set(this, hostname, host);
 	if ($nc(host)->lastIndexOf((int32_t)u'*') > 0) {
 		$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);
-	} else if ($nc(host)->startsWith("*"_s)) {
+	} else if (host->startsWith("*"_s)) {
 		this->wildcard = true;
 		if (host->equals("*"_s)) {
 			$set(this, cname, ""_s);
-		} else if ($nc(host)->startsWith("*."_s)) {
+		} else if (host->startsWith("*."_s)) {
 			$set(this, cname, $(host->substring(1))->toLowerCase());
 		} else {
 			$throwNew($IllegalArgumentException, "invalid host wildcard specification"_s);
 		}
 		return;
-	} else if (!$nc(host)->isEmpty()) {
+	} else if (!host->isEmpty()) {
 		char16_t ch = host->charAt(0);
 		if (ch == u':' || $Character::digit(ch, 16) != -1) {
 			$var($bytes, ip, $IPAddressUtil::textToNumericFormatV4(host));
@@ -468,13 +468,13 @@ int32_t SocketPermission::getMask($String* action) {
 		if (i >= 6 && (a->get(i - 6) == u'c' || a->get(i - 6) == u'C') && (a->get(i - 5) == u'o' || a->get(i - 5) == u'O') && (a->get(i - 4) == u'n' || a->get(i - 4) == u'N') && (a->get(i - 3) == u'n' || a->get(i - 3) == u'N') && (a->get(i - 2) == u'e' || a->get(i - 2) == u'E') && (a->get(i - 1) == u'c' || a->get(i - 1) == u'C') && (a->get(i) == u't' || a->get(i) == u'T')) {
 			matchlen = 7;
 			mask |= SocketPermission::CONNECT;
-		} else if (i >= 6 && ($nc(a)->get(i - 6) == u'r' || $nc(a)->get(i - 6) == u'R') && (a->get(i - 5) == u'e' || $nc(a)->get(i - 5) == u'E') && (a->get(i - 4) == u's' || $nc(a)->get(i - 4) == u'S') && (a->get(i - 3) == u'o' || $nc(a)->get(i - 3) == u'O') && (a->get(i - 2) == u'l' || $nc(a)->get(i - 2) == u'L') && (a->get(i - 1) == u'v' || $nc(a)->get(i - 1) == u'V') && (a->get(i) == u'e' || $nc(a)->get(i) == u'E')) {
+		} else if (i >= 6 && (a->get(i - 6) == u'r' || a->get(i - 6) == u'R') && (a->get(i - 5) == u'e' || a->get(i - 5) == u'E') && (a->get(i - 4) == u's' || a->get(i - 4) == u'S') && (a->get(i - 3) == u'o' || a->get(i - 3) == u'O') && (a->get(i - 2) == u'l' || a->get(i - 2) == u'L') && (a->get(i - 1) == u'v' || a->get(i - 1) == u'V') && (a->get(i) == u'e' || a->get(i) == u'E')) {
 			matchlen = 7;
 			mask |= SocketPermission::RESOLVE;
-		} else if (i >= 5 && ($nc(a)->get(i - 5) == u'l' || $nc(a)->get(i - 5) == u'L') && (a->get(i - 4) == u'i' || $nc(a)->get(i - 4) == u'I') && (a->get(i - 3) == u's' || $nc(a)->get(i - 3) == u'S') && (a->get(i - 2) == u't' || $nc(a)->get(i - 2) == u'T') && (a->get(i - 1) == u'e' || $nc(a)->get(i - 1) == u'E') && (a->get(i) == u'n' || $nc(a)->get(i) == u'N')) {
+		} else if (i >= 5 && (a->get(i - 5) == u'l' || a->get(i - 5) == u'L') && (a->get(i - 4) == u'i' || a->get(i - 4) == u'I') && (a->get(i - 3) == u's' || a->get(i - 3) == u'S') && (a->get(i - 2) == u't' || a->get(i - 2) == u'T') && (a->get(i - 1) == u'e' || a->get(i - 1) == u'E') && (a->get(i) == u'n' || a->get(i) == u'N')) {
 			matchlen = 6;
 			mask |= SocketPermission::LISTEN;
-		} else if (i >= 5 && ($nc(a)->get(i - 5) == u'a' || $nc(a)->get(i - 5) == u'A') && (a->get(i - 4) == u'c' || $nc(a)->get(i - 4) == u'C') && (a->get(i - 3) == u'c' || $nc(a)->get(i - 3) == u'C') && (a->get(i - 2) == u'e' || $nc(a)->get(i - 2) == u'E') && (a->get(i - 1) == u'p' || $nc(a)->get(i - 1) == u'P') && (a->get(i) == u't' || $nc(a)->get(i) == u'T')) {
+		} else if (i >= 5 && (a->get(i - 5) == u'a' || a->get(i - 5) == u'A') && (a->get(i - 4) == u'c' || a->get(i - 4) == u'C') && (a->get(i - 3) == u'c' || a->get(i - 3) == u'C') && (a->get(i - 2) == u'e' || a->get(i - 2) == u'E') && (a->get(i - 1) == u'p' || a->get(i - 1) == u'P') && (a->get(i) == u't' || a->get(i) == u'T')) {
 			matchlen = 6;
 			mask |= SocketPermission::ACCEPT;
 		} else {
@@ -599,7 +599,7 @@ bool SocketPermission::match($String* cname, $String* hname) {
 bool SocketPermission::authorized($String* cname, $bytes* addr) {
 	if ($nc(addr)->length == 4) {
 		return authorizedIPv4(cname, addr);
-	} else if ($nc(addr)->length == 16) {
+	} else if (addr->length == 16) {
 		return authorizedIPv6(cname, addr);
 	} else {
 		return false;

@@ -18,23 +18,23 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef BSM_VARHANDLE_FIELD
-#undef CONDY_BOOTSTRAP_ARGS
-#undef BSM_VARHANDLE_ARRAY
-#undef NULL
-#undef BSM_VARHANDLE_STATIC_FIELD
-#undef INDY_BOOTSTRAP_ARGS
-#undef BSM_NULL_CONSTANT
-#undef TRUE
-#undef MHD_METHODHANDLE_ASTYPE
-#undef BSM_PRIMITIVE_CLASS
-#undef STATIC
 #undef BSM_ENUM_CONSTANT
 #undef BSM_EXPLICIT_CAST
-#undef DEFAULT_NAME
-#undef BSM_INVOKE
-#undef FALSE
 #undef BSM_GET_STATIC_FINAL
+#undef BSM_INVOKE
+#undef BSM_NULL_CONSTANT
+#undef BSM_PRIMITIVE_CLASS
+#undef BSM_VARHANDLE_ARRAY
+#undef BSM_VARHANDLE_FIELD
+#undef BSM_VARHANDLE_STATIC_FIELD
+#undef CONDY_BOOTSTRAP_ARGS
+#undef DEFAULT_NAME
+#undef FALSE
+#undef INDY_BOOTSTRAP_ARGS
+#undef MHD_METHODHANDLE_ASTYPE
+#undef NULL
+#undef STATIC
+#undef TRUE
 #undef VIRTUAL
 
 using $ClassDescArray = $Array<::java::lang::constant::ClassDesc>;

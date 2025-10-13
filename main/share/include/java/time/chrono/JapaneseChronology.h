@@ -7,12 +7,12 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/AbstractChronology.h>
 
-#pragma push_macro("LOCALE")
-#undef LOCALE
-#pragma push_macro("JCAL")
-#undef JCAL
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("JCAL")
+#undef JCAL
+#pragma push_macro("LOCALE")
+#undef LOCALE
 
 namespace java {
 	namespace io {
@@ -122,8 +122,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("LOCALE")
-#pragma pop_macro("JCAL")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("JCAL")
+#pragma pop_macro("LOCALE")
 
 #endif // _java_time_chrono_JapaneseChronology_h_

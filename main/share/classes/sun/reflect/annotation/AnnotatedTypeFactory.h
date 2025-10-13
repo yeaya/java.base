@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("EMPTY_ANNOTATED_TYPE_ARRAY")
-#undef EMPTY_ANNOTATED_TYPE_ARRAY
 #pragma push_macro("EMPTY_ANNOTATED_TYPE")
 #undef EMPTY_ANNOTATED_TYPE
+#pragma push_macro("EMPTY_ANNOTATED_TYPE_ARRAY")
+#undef EMPTY_ANNOTATED_TYPE_ARRAY
 #pragma push_macro("EMPTY_TYPE_ANNOTATION_ARRAY")
 #undef EMPTY_TYPE_ANNOTATION_ARRAY
 
@@ -51,8 +51,8 @@ public:
 	} // reflect
 } // sun
 
-#pragma pop_macro("EMPTY_ANNOTATED_TYPE_ARRAY")
 #pragma pop_macro("EMPTY_ANNOTATED_TYPE")
+#pragma pop_macro("EMPTY_ANNOTATED_TYPE_ARRAY")
 #pragma pop_macro("EMPTY_TYPE_ANNOTATION_ARRAY")
 
 #endif // _sun_reflect_annotation_AnnotatedTypeFactory_h_

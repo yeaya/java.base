@@ -41,9 +41,9 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
-#undef O_RDONLY
-#undef O_NOFOLLOW
 #undef JLA
+#undef O_NOFOLLOW
+#undef O_RDONLY
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;
@@ -598,13 +598,13 @@ UnixPath* UnixPath::normalize() {
 				} else if (isAbsolute) {
 					bool hasPrevious = false;
 					for (int32_t j = 0; j < i; ++j) {
-						if (!$nc(ignore)->get(j)) {
+						if (!ignore->get(j)) {
 							hasPrevious = true;
 							break;
 						}
 					}
 					if (!hasPrevious) {
-						$nc(ignore)->set(i, true);
+						ignore->set(i, true);
 						--remaining;
 					}
 				}
@@ -709,13 +709,13 @@ bool UnixPath::endsWith($Path* other) {
 		}
 		int32_t expectedLen = thisLen;
 		bool var$1 = this->isAbsolute();
-		if (var$1 && !$nc(that)->isAbsolute()) {
+		if (var$1 && !that->isAbsolute()) {
 			--expectedLen;
 		}
 		if (thatLen != expectedLen) {
 			return false;
 		}
-	} else if ($nc(that)->isAbsolute()) {
+	} else if (that->isAbsolute()) {
 		return false;
 	}
 	int32_t thisPos = $nc(this->offsets)->get(thisOffsetCount - thatOffsetCount);

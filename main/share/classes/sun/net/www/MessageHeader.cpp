@@ -367,8 +367,8 @@ void MessageHeader::print(int32_t nkeys, $StringArray* keys, $StringArray* value
 			$var($StringBuilder, sb, $new($StringBuilder, keys->get(i)));
 			if ($nc(values)->get(i) != nullptr) {
 				sb->append($$str({": "_s, values->get(i)}));
-			} else if (i != 0 || !isRequestline($nc(keys)->get(i))) {
-				$nc(sb)->append(":"_s);
+			} else if (i != 0 || !isRequestline(keys->get(i))) {
+				sb->append(":"_s);
 			}
 			$nc(p)->print($of(sb->append("\r\n"_s)));
 		}

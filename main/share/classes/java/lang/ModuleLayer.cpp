@@ -67,10 +67,10 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef CLV
 #undef CREATE_CLASSLOADER_PERMISSION
 #undef EMPTY_LAYER
 #undef GET_CLASSLOADER_PERMISSION
-#undef CLV
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

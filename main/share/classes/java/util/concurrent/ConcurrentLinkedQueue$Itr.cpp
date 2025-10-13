@@ -87,7 +87,7 @@ void ConcurrentLinkedQueue$Itr::init$($ConcurrentLinkedQueue* this$0) {
 				$set(this, nextNode, p);
 				$set(this, nextItem, item);
 				break;
-			} else if (($assign(q, $nc(p)->next)) == nullptr) {
+			} else if (($assign(q, p->next)) == nullptr) {
 				break;
 			} else if (p == q) {
 				restartFromHead$continue = true;

@@ -20,11 +20,11 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef OP_READ
-#undef PIPES_COUNT
 #undef BUF_SIZE
 #undef LOOPS
+#undef OP_READ
 #undef OP_WRITE
+#undef PIPES_COUNT
 
 using $PipeArray = $Array<::java::nio::channels::Pipe>;
 using $ClassInfo = ::java::lang::ClassInfo;

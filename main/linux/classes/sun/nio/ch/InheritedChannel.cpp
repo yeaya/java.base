@@ -49,20 +49,20 @@
 #include <sun/nio/ch/SocketChannelImpl.h>
 #include <jcpp.h>
 
-#undef AF_UNIX
 #undef AF_INET
-#undef INET6
-#undef SOCK_DGRAM
-#undef AF_UNKNOWN
 #undef AF_INET6
-#undef UNIX
-#undef SOCK_STREAM
-#undef O_RDWR
-#undef O_RDONLY
+#undef AF_UNIX
+#undef AF_UNKNOWN
 #undef INET
-#undef UNKNOWN
+#undef INET6
+#undef O_RDONLY
+#undef O_RDWR
 #undef O_WRONLY
+#undef SOCK_DGRAM
+#undef SOCK_STREAM
 #undef TYPE
+#undef UNIX
+#undef UNKNOWN
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;

@@ -60,9 +60,9 @@
 #include <sun/security/ssl/X509TrustManagerImpl.h>
 #include <jcpp.h>
 
-#undef SERVER
-#undef OK
 #undef CLIENT
+#undef OK
+#undef SERVER
 
 using $PrincipalArray = $Array<::java::security::Principal>;
 using $CertificateArray = $Array<::java::security::cert::Certificate>;

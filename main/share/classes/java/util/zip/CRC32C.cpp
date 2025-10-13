@@ -25,17 +25,17 @@
 #include <sun/nio/ch/DirectBuffer.h>
 #include <jcpp.h>
 
-#undef REVERSED_CRC32C_POLY
-#undef BYTES
-#undef BIG_ENDIAN
-#undef CRC32C
+#undef ADDRESS_SIZE
+#undef ARRAY_BYTE_BASE_OFFSET
 #undef ARRAY_BYTE_INDEX_SCALE
-#undef SIZE
+#undef BIG_ENDIAN
+#undef BYTES
+#undef CRC32C
 #undef CRC32C_POLY
 #undef LITTLE_ENDIAN
+#undef REVERSED_CRC32C_POLY
+#undef SIZE
 #undef UNSAFE
-#undef ARRAY_BYTE_BASE_OFFSET
-#undef ADDRESS_SIZE
 
 using $intArray2 = $Array<int32_t, 2>;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
@@ -171,7 +171,7 @@ void CRC32C::update($ByteBuffer* buffer) {
 				$throw(var$0);
 			}
 		}
-	} else if ($nc(buffer)->hasArray()) {
+	} else if (buffer->hasArray()) {
 		int32_t var$1 = this->crc;
 		$var($bytes, var$2, $cast($bytes, buffer->array()));
 		int32_t var$3 = pos + buffer->arrayOffset();

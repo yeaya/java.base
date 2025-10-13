@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef ALWAYS
 #undef EXCEEDS_PAD
 #undef NEVER
-#undef ALWAYS
 #undef NORMAL
 #undef NOT_NEGATIVE
 

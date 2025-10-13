@@ -8,24 +8,24 @@
 #include <java/lang/Enum.h>
 #include <java/nio/file/OpenOption.h>
 
-#pragma push_macro("READ")
-#undef READ
-#pragma push_macro("TRUNCATE_EXISTING")
-#undef TRUNCATE_EXISTING
+#pragma push_macro("APPEND")
+#undef APPEND
 #pragma push_macro("CREATE")
 #undef CREATE
 #pragma push_macro("CREATE_NEW")
 #undef CREATE_NEW
-#pragma push_macro("SPARSE")
-#undef SPARSE
 #pragma push_macro("DELETE_ON_CLOSE")
 #undef DELETE_ON_CLOSE
 #pragma push_macro("DSYNC")
 #undef DSYNC
+#pragma push_macro("READ")
+#undef READ
+#pragma push_macro("SPARSE")
+#undef SPARSE
 #pragma push_macro("SYNC")
 #undef SYNC
-#pragma push_macro("APPEND")
-#undef APPEND
+#pragma push_macro("TRUNCATE_EXISTING")
+#undef TRUNCATE_EXISTING
 #pragma push_macro("WRITE")
 #undef WRITE
 
@@ -64,15 +64,15 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("READ")
-#pragma pop_macro("TRUNCATE_EXISTING")
+#pragma pop_macro("APPEND")
 #pragma pop_macro("CREATE")
 #pragma pop_macro("CREATE_NEW")
-#pragma pop_macro("SPARSE")
 #pragma pop_macro("DELETE_ON_CLOSE")
 #pragma pop_macro("DSYNC")
+#pragma pop_macro("READ")
+#pragma pop_macro("SPARSE")
 #pragma pop_macro("SYNC")
-#pragma pop_macro("APPEND")
+#pragma pop_macro("TRUNCATE_EXISTING")
 #pragma pop_macro("WRITE")
 
 #endif // _java_nio_file_StandardOpenOption_h_

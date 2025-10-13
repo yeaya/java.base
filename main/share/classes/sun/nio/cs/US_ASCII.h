@@ -7,10 +7,10 @@
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/HistoricallyNamedCharset.h>
 
-#pragma push_macro("US_ASCII")
-#undef US_ASCII
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("US_ASCII")
+#undef US_ASCII
 
 namespace java {
 	namespace nio {
@@ -47,7 +47,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("US_ASCII")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("US_ASCII")
 
 #endif // _sun_nio_cs_US_ASCII_h_

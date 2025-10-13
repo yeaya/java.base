@@ -13,9 +13,9 @@
 #include <jdk/internal/javac/PreviewFeature.h>
 #include <jcpp.h>
 
-#undef TEST
 #undef SEALED_CLASSES
 #undef SWITCH_PATTERN_MATCHING
+#undef TEST
 
 using $PreviewFeature$FeatureArray = $Array<::jdk::internal::javac::PreviewFeature$Feature>;
 using $ClassInfo = ::java::lang::ClassInfo;

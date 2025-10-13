@@ -159,9 +159,7 @@ JVM_ENTRY(void, JVM_BeforeHalt())
 JVM_END_VOID
 
 JVM_ENTRY(void, JVM_Halt(jint code))
-	if (code == 0) {
-		System::deinit();
-	}
+	ObjectManagerInternal::beforeExit();
 	OS::exit(code);
 JVM_END_VOID
 

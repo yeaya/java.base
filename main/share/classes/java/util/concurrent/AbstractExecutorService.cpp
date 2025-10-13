@@ -172,13 +172,13 @@ $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, in
 						break;
 					} else if (timed) {
 						$init($TimeUnit);
-						$assign(f, $nc(ecs)->poll(nanos, $TimeUnit::NANOSECONDS));
+						$assign(f, ecs->poll(nanos, $TimeUnit::NANOSECONDS));
 						if (f == nullptr) {
 							$throwNew($TimeoutException);
 						}
 						nanos = deadline - $System::nanoTime();
 					} else {
-						$assign(f, $nc(ecs)->take());
+						$assign(f, ecs->take());
 					}
 				}
 				if (f != nullptr) {

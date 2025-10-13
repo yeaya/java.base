@@ -29,10 +29,10 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef UTF8
 #undef INSTANCE
-#undef REPORT
 #undef JLA
+#undef REPORT
+#undef UTF8
 
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;

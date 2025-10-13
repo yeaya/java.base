@@ -30,9 +30,9 @@
 #include <sun/security/internal/spec/TlsMasterSecretParameterSpec.h>
 #include <jcpp.h>
 
-#undef MSG
 #undef LABEL_EXTENDED_MASTER_SECRET
 #undef LABEL_MASTER_SECRET
+#undef MSG
 #undef SSL3_CONST
 
 using $byteArray2 = $Array<int8_t, 2>;

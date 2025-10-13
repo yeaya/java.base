@@ -11,8 +11,8 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef ARRAY_BYTE_INDEX_SCALE
 #undef ARRAY_BYTE_BASE_OFFSET
+#undef ARRAY_BYTE_INDEX_SCALE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

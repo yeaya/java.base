@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("WILDCARD")
-#undef WILDCARD
 #pragma push_macro("ALL_MEMBERS")
 #undef ALL_MEMBERS
+#pragma push_macro("WILDCARD")
+#undef WILDCARD
 
 namespace java {
 	namespace lang {
@@ -71,7 +71,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("WILDCARD")
 #pragma pop_macro("ALL_MEMBERS")
+#pragma pop_macro("WILDCARD")
 
 #endif // _jdk_internal_reflect_Reflection_h_

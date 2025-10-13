@@ -18,13 +18,13 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 #include <jcpp.h>
 
-#undef SUBTRAHEND
-#undef NUM_LIMBS
-#undef MODULUS
 #undef AS_LONG_LE
-#undef POWER
-#undef LITTLE_ENDIAN
 #undef BITS_PER_LIMB
+#undef LITTLE_ENDIAN
+#undef MODULUS
+#undef NUM_LIMBS
+#undef POWER
+#undef SUBTRAHEND
 #undef TWO
 
 using $ClassInfo = ::java::lang::ClassInfo;

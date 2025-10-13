@@ -21,9 +21,9 @@
 
 #undef IMPL_LOOKUP
 #undef MAX_MH_ARITY
+#undef MAX_SAFE_SIZE
 #undef NON_SPREAD_ARG_COUNT
 #undef THIS_CLASS
-#undef MAX_SAFE_SIZE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

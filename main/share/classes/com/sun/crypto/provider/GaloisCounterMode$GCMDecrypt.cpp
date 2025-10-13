@@ -232,7 +232,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doFinal($ByteBuffer* src, $ByteBuffer* dst
 	} else if (buffer != nullptr) {
 		$assign(tag, $ByteBuffer::allocate(this->this$0->tagLenBytes));
 		int32_t var$0 = buffer->remaining();
-		int32_t limit = var$0 - (this->this$0->tagLenBytes - $nc(ct)->remaining());
+		int32_t limit = var$0 - (this->this$0->tagLenBytes - ct->remaining());
 		buffer->mark();
 		buffer->position(limit);
 		$nc(tag)->put(buffer);

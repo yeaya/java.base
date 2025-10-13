@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("PART3")
-#undef PART3
 #pragma push_macro("PART1_ALPHA2")
 #undef PART1_ALPHA2
 #pragma push_macro("PART1_ALPHA3")
 #undef PART1_ALPHA3
+#pragma push_macro("PART3")
+#undef PART3
 
 namespace java {
 	namespace util {
@@ -43,8 +43,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("PART3")
 #pragma pop_macro("PART1_ALPHA2")
 #pragma pop_macro("PART1_ALPHA3")
+#pragma pop_macro("PART3")
 
 #endif // _java_util_Locale$IsoCountryCode_h_

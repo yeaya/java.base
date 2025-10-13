@@ -43,10 +43,10 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef SO_RCVBUF
-#undef SO_TIMEOUT
-#undef SO_REUSEADDR
 #undef SET_SOCKETIMPL_PERMISSION
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
+#undef SO_TIMEOUT
 
 using $Closeable = ::java::io::Closeable;
 using $FileDescriptor = ::java::io::FileDescriptor;

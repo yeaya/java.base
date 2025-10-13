@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("U")
-#undef U
 #pragma push_macro("PARKBLOCKER")
 #undef PARKBLOCKER
 #pragma push_macro("TID")
 #undef TID
+#pragma push_macro("U")
+#undef U
 
 namespace java {
 	namespace lang {
@@ -56,8 +56,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("U")
 #pragma pop_macro("PARKBLOCKER")
 #pragma pop_macro("TID")
+#pragma pop_macro("U")
 
 #endif // _java_util_concurrent_locks_LockSupport_h_

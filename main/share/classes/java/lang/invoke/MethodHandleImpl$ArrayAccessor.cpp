@@ -34,22 +34,22 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef TYPED_ACCESSORS
-#undef SET
-#undef INDEX_LIMIT
-#undef OBJECT_ARRAY_LENGTH
-#undef LENGTH
-#undef ARRAY_LOAD
-#undef SETTER_INDEX
 #undef ARRAY_LENGTH
-#undef IMPL_LOOKUP
-#undef GETTER_INDEX
+#undef ARRAY_LOAD
 #undef ARRAY_STORE
-#undef OBJECT_ARRAY_GETTER
 #undef GET
-#undef OBJECT_ARRAY_SETTER
+#undef GETTER_INDEX
+#undef IMPL_LOOKUP
+#undef INDEX_LIMIT
+#undef LENGTH
 #undef LENGTH_INDEX
+#undef OBJECT_ARRAY_GETTER
+#undef OBJECT_ARRAY_LENGTH
+#undef OBJECT_ARRAY_SETTER
+#undef SET
+#undef SETTER_INDEX
 #undef TYPE
+#undef TYPED_ACCESSORS
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $AssertionError = ::java::lang::AssertionError;

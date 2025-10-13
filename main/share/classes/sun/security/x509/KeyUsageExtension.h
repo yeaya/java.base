@@ -8,28 +8,28 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("DATA_ENCIPHERMENT")
-#undef DATA_ENCIPHERMENT
 #pragma push_macro("CRL_SIGN")
 #undef CRL_SIGN
-#pragma push_macro("KEY_AGREEMENT")
-#undef KEY_AGREEMENT
+#pragma push_macro("DATA_ENCIPHERMENT")
+#undef DATA_ENCIPHERMENT
 #pragma push_macro("DECIPHER_ONLY")
 #undef DECIPHER_ONLY
-#pragma push_macro("IDENT")
-#undef IDENT
 #pragma push_macro("DIGITAL_SIGNATURE")
 #undef DIGITAL_SIGNATURE
 #pragma push_macro("ENCIPHER_ONLY")
 #undef ENCIPHER_ONLY
-#pragma push_macro("KEY_ENCIPHERMENT")
-#undef KEY_ENCIPHERMENT
-#pragma push_macro("NON_REPUDIATION")
-#undef NON_REPUDIATION
+#pragma push_macro("IDENT")
+#undef IDENT
+#pragma push_macro("KEY_AGREEMENT")
+#undef KEY_AGREEMENT
 #pragma push_macro("KEY_CERTSIGN")
 #undef KEY_CERTSIGN
+#pragma push_macro("KEY_ENCIPHERMENT")
+#undef KEY_ENCIPHERMENT
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("NON_REPUDIATION")
+#undef NON_REPUDIATION
 
 namespace java {
 	namespace io {
@@ -102,16 +102,16 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("DATA_ENCIPHERMENT")
 #pragma pop_macro("CRL_SIGN")
-#pragma pop_macro("KEY_AGREEMENT")
+#pragma pop_macro("DATA_ENCIPHERMENT")
 #pragma pop_macro("DECIPHER_ONLY")
-#pragma pop_macro("IDENT")
 #pragma pop_macro("DIGITAL_SIGNATURE")
 #pragma pop_macro("ENCIPHER_ONLY")
-#pragma pop_macro("KEY_ENCIPHERMENT")
-#pragma pop_macro("NON_REPUDIATION")
+#pragma pop_macro("IDENT")
+#pragma pop_macro("KEY_AGREEMENT")
 #pragma pop_macro("KEY_CERTSIGN")
+#pragma pop_macro("KEY_ENCIPHERMENT")
 #pragma pop_macro("NAME")
+#pragma pop_macro("NON_REPUDIATION")
 
 #endif // _sun_security_x509_KeyUsageExtension_h_

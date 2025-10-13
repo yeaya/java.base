@@ -46,17 +46,17 @@
 #include <sun/security/x509/X509Key.h>
 #include <jcpp.h>
 
-#undef RSA
-#undef PKCS8_KEYSPEC_CLS
-#undef MAX_RESTRICTED_EXPLEN
 #undef MAX_MODLEN
-#undef RSA_PUB_KEYSPEC_CLS
-#undef MIN_MODLEN
-#undef RSA_PRIVCRT_KEYSPEC_CLS
-#undef X509_KEYSPEC_CLS
 #undef MAX_MODLEN_RESTRICT_EXP
+#undef MAX_RESTRICTED_EXPLEN
 #undef MAX_VALUE
+#undef MIN_MODLEN
+#undef PKCS8_KEYSPEC_CLS
+#undef RSA
+#undef RSA_PRIVCRT_KEYSPEC_CLS
 #undef RSA_PRIV_KEYSPEC_CLS
+#undef RSA_PUB_KEYSPEC_CLS
+#undef X509_KEYSPEC_CLS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -440,7 +440,7 @@ $KeySpec* RSAKeyFactory::engineGetKeySpec($Key* key$renamed, $Class* keySpec) {
 			$var($BigInteger, var$0, $nc(rsaKey)->getModulus());
 			$var($BigInteger, var$1, rsaKey->getPublicExponent());
 			return $cast($KeySpec, keySpec->cast($$new($RSAPublicKeySpec, var$0, var$1, $(rsaKey->getParams()))));
-		} else if ($nc(keySpec)->isAssignableFrom(RSAKeyFactory::X509_KEYSPEC_CLS)) {
+		} else if (keySpec->isAssignableFrom(RSAKeyFactory::X509_KEYSPEC_CLS)) {
 			return $cast($KeySpec, keySpec->cast($$new($X509EncodedKeySpec, $($nc(key)->getEncoded()))));
 		} else {
 			$throwNew($InvalidKeySpecException, "KeySpec must be RSAPublicKeySpec or X509EncodedKeySpec for RSA public keys"_s);
@@ -468,7 +468,7 @@ $KeySpec* RSAKeyFactory::engineGetKeySpec($Key* key$renamed, $Class* keySpec) {
 					return var$4;
 				}
 			}
-		} else if ($nc(keySpec)->isAssignableFrom(RSAKeyFactory::RSA_PRIVCRT_KEYSPEC_CLS)) {
+		} else if (keySpec->isAssignableFrom(RSAKeyFactory::RSA_PRIVCRT_KEYSPEC_CLS)) {
 			if ($instanceOf($RSAPrivateCrtKey, key)) {
 				$var($RSAPrivateCrtKey, crtKey, $cast($RSAPrivateCrtKey, key));
 				$var($BigInteger, var$5, $nc(crtKey)->getModulus());

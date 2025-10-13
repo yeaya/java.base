@@ -50,8 +50,8 @@
 #include <jcpp.h>
 
 #undef AUTOMATIC
-#undef ROOT
 #undef OPEN
+#undef ROOT
 
 using $ComparableArray = $Array<::java::lang::Comparable>;
 using $InputStream = ::java::io::InputStream;

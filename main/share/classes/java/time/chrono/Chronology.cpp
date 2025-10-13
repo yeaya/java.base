@@ -48,9 +48,9 @@
 #include <jcpp.h>
 
 #undef HOUR_OF_DAY
+#undef INSTANCE
 #undef MINUTE_OF_HOUR
 #undef SECOND_OF_MINUTE
-#undef INSTANCE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Comparable = ::java::lang::Comparable;

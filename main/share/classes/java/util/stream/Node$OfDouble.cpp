@@ -31,8 +31,8 @@
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
 
-#undef ENABLED
 #undef DOUBLE_VALUE
+#undef ENABLED
 
 using $DoubleArray = $Array<::java::lang::Double>;
 using $Serializable = ::java::io::Serializable;

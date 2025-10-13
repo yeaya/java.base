@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NEED_WRAP")
-#undef NEED_WRAP
+#pragma push_macro("FINISHED")
+#undef FINISHED
+#pragma push_macro("NEED_TASK")
+#undef NEED_TASK
 #pragma push_macro("NEED_UNWRAP")
 #undef NEED_UNWRAP
 #pragma push_macro("NEED_UNWRAP_AGAIN")
 #undef NEED_UNWRAP_AGAIN
+#pragma push_macro("NEED_WRAP")
+#undef NEED_WRAP
 #pragma push_macro("NOT_HANDSHAKING")
 #undef NOT_HANDSHAKING
-#pragma push_macro("NEED_TASK")
-#undef NEED_TASK
-#pragma push_macro("FINISHED")
-#undef FINISHED
 
 namespace javax {
 	namespace net {
@@ -44,11 +44,11 @@ public:
 	} // net
 } // javax
 
-#pragma pop_macro("NEED_WRAP")
+#pragma pop_macro("FINISHED")
+#pragma pop_macro("NEED_TASK")
 #pragma pop_macro("NEED_UNWRAP")
 #pragma pop_macro("NEED_UNWRAP_AGAIN")
+#pragma pop_macro("NEED_WRAP")
 #pragma pop_macro("NOT_HANDSHAKING")
-#pragma pop_macro("NEED_TASK")
-#pragma pop_macro("FINISHED")
 
 #endif // _javax_net_ssl_SSLEngineResult$HandshakeStatus_h_

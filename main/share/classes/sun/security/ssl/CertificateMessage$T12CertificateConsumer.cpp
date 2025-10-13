@@ -61,24 +61,24 @@
 #include <sun/security/ssl/X509Authentication$X509Credentials.h>
 #include <jcpp.h>
 
-#undef REVOKED
-#undef CLIENT_AUTH_REQUESTED
-#undef K_RSA
-#undef CERTIFICATE
-#undef UNDETERMINED_REVOCATION_STATUS
-#undef EXPIRED
 #undef ALGORITHM_CONSTRAINED
-#undef BAD_CERT_STATUS_RESPONSE
-#undef CERTIFICATE_EXPIRED
-#undef CERTIFICATE_VERIFY
 #undef BAD_CERTIFICATE
-#undef UNSUPPORTED_CERTIFICATE
-#undef CERTIFICATE_UNKNOWN
-#undef INVALID_SIGNATURE
+#undef BAD_CERT_STATUS_RESPONSE
+#undef CERTIFICATE
+#undef CERTIFICATE_EXPIRED
 #undef CERTIFICATE_REVOKED
-#undef NOT_YET_VALID
-#undef K_RSA_EXPORT
+#undef CERTIFICATE_UNKNOWN
+#undef CERTIFICATE_VERIFY
+#undef CLIENT_AUTH_REQUESTED
+#undef EXPIRED
+#undef INVALID_SIGNATURE
 #undef K_DHE_RSA_EXPORT
+#undef K_RSA
+#undef K_RSA_EXPORT
+#undef NOT_YET_VALID
+#undef REVOKED
+#undef UNDETERMINED_REVOCATION_STATUS
+#undef UNSUPPORTED_CERTIFICATE
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

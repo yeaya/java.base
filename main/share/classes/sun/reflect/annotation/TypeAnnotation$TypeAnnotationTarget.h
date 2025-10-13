@@ -6,30 +6,30 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("METHOD_RETURN")
-#undef METHOD_RETURN
 #pragma push_macro("CLASS_EXTENDS")
 #undef CLASS_EXTENDS
+#pragma push_macro("CLASS_IMPLEMENTS")
+#undef CLASS_IMPLEMENTS
+#pragma push_macro("CLASS_TYPE_PARAMETER")
+#undef CLASS_TYPE_PARAMETER
 #pragma push_macro("CLASS_TYPE_PARAMETER_BOUND")
 #undef CLASS_TYPE_PARAMETER_BOUND
 #pragma push_macro("FIELD")
 #undef FIELD
-#pragma push_macro("METHOD_TYPE_PARAMETER")
-#undef METHOD_TYPE_PARAMETER
-#pragma push_macro("THROWS")
-#undef THROWS
-#pragma push_macro("RECORD_COMPONENT")
-#undef RECORD_COMPONENT
-#pragma push_macro("CLASS_IMPLEMENTS")
-#undef CLASS_IMPLEMENTS
-#pragma push_macro("METHOD_RECEIVER")
-#undef METHOD_RECEIVER
 #pragma push_macro("METHOD_FORMAL_PARAMETER")
 #undef METHOD_FORMAL_PARAMETER
-#pragma push_macro("CLASS_TYPE_PARAMETER")
-#undef CLASS_TYPE_PARAMETER
+#pragma push_macro("METHOD_RECEIVER")
+#undef METHOD_RECEIVER
+#pragma push_macro("METHOD_RETURN")
+#undef METHOD_RETURN
+#pragma push_macro("METHOD_TYPE_PARAMETER")
+#undef METHOD_TYPE_PARAMETER
 #pragma push_macro("METHOD_TYPE_PARAMETER_BOUND")
 #undef METHOD_TYPE_PARAMETER_BOUND
+#pragma push_macro("RECORD_COMPONENT")
+#undef RECORD_COMPONENT
+#pragma push_macro("THROWS")
+#undef THROWS
 
 namespace sun {
 	namespace reflect {
@@ -62,17 +62,17 @@ public:
 	} // reflect
 } // sun
 
-#pragma pop_macro("METHOD_RETURN")
 #pragma pop_macro("CLASS_EXTENDS")
+#pragma pop_macro("CLASS_IMPLEMENTS")
+#pragma pop_macro("CLASS_TYPE_PARAMETER")
 #pragma pop_macro("CLASS_TYPE_PARAMETER_BOUND")
 #pragma pop_macro("FIELD")
-#pragma pop_macro("METHOD_TYPE_PARAMETER")
-#pragma pop_macro("THROWS")
-#pragma pop_macro("RECORD_COMPONENT")
-#pragma pop_macro("CLASS_IMPLEMENTS")
-#pragma pop_macro("METHOD_RECEIVER")
 #pragma pop_macro("METHOD_FORMAL_PARAMETER")
-#pragma pop_macro("CLASS_TYPE_PARAMETER")
+#pragma pop_macro("METHOD_RECEIVER")
+#pragma pop_macro("METHOD_RETURN")
+#pragma pop_macro("METHOD_TYPE_PARAMETER")
 #pragma pop_macro("METHOD_TYPE_PARAMETER_BOUND")
+#pragma pop_macro("RECORD_COMPONENT")
+#pragma pop_macro("THROWS")
 
 #endif // _sun_reflect_annotation_TypeAnnotation$TypeAnnotationTarget_h_

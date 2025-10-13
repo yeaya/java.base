@@ -31,8 +31,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_FFDHE
 #undef EE_SUPPORTED_GROUPS
+#undef NAMED_GROUP_FFDHE
 
 using $NamedGroupArray = $Array<::sun::security::ssl::NamedGroup>;
 using $ClassInfo = ::java::lang::ClassInfo;

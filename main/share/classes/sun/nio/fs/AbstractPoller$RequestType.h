@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("REGISTER")
-#undef REGISTER
 #pragma push_macro("CANCEL")
 #undef CANCEL
 #pragma push_macro("CLOSE")
 #undef CLOSE
+#pragma push_macro("REGISTER")
+#undef REGISTER
 
 namespace sun {
 	namespace nio {
@@ -35,8 +35,8 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("REGISTER")
 #pragma pop_macro("CANCEL")
 #pragma pop_macro("CLOSE")
+#pragma pop_macro("REGISTER")
 
 #endif // _sun_nio_fs_AbstractPoller$RequestType_h_

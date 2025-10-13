@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SHORT_STANDALONE")
-#undef SHORT_STANDALONE
-#pragma push_macro("NARROW_STANDALONE")
-#undef NARROW_STANDALONE
-#pragma push_macro("FULL_STANDALONE")
-#undef FULL_STANDALONE
 #pragma push_macro("FULL")
 #undef FULL
-#pragma push_macro("SHORT")
-#undef SHORT
+#pragma push_macro("FULL_STANDALONE")
+#undef FULL_STANDALONE
 #pragma push_macro("NARROW")
 #undef NARROW
+#pragma push_macro("NARROW_STANDALONE")
+#undef NARROW_STANDALONE
+#pragma push_macro("SHORT")
+#undef SHORT
+#pragma push_macro("SHORT_STANDALONE")
+#undef SHORT_STANDALONE
 
 namespace java {
 	namespace time {
@@ -51,11 +51,11 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("SHORT_STANDALONE")
-#pragma pop_macro("NARROW_STANDALONE")
-#pragma pop_macro("FULL_STANDALONE")
 #pragma pop_macro("FULL")
-#pragma pop_macro("SHORT")
+#pragma pop_macro("FULL_STANDALONE")
 #pragma pop_macro("NARROW")
+#pragma pop_macro("NARROW_STANDALONE")
+#pragma pop_macro("SHORT")
+#pragma pop_macro("SHORT_STANDALONE")
 
 #endif // _java_time_format_TextStyle_h_

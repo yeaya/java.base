@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("UNDETERMINED")
-#undef UNDETERMINED
-#pragma push_macro("PRIVATEUSE")
-#undef PRIVATEUSE
 #pragma push_macro("LEGACY")
 #undef LEGACY
+#pragma push_macro("PRIVATEUSE")
+#undef PRIVATEUSE
 #pragma push_macro("PRIVUSE_VARIANT_PREFIX")
 #undef PRIVUSE_VARIANT_PREFIX
 #pragma push_macro("SEP")
 #undef SEP
+#pragma push_macro("UNDETERMINED")
+#undef UNDETERMINED
 
 namespace java {
 	namespace util {
@@ -98,10 +98,10 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("UNDETERMINED")
-#pragma pop_macro("PRIVATEUSE")
 #pragma pop_macro("LEGACY")
+#pragma pop_macro("PRIVATEUSE")
 #pragma pop_macro("PRIVUSE_VARIANT_PREFIX")
 #pragma pop_macro("SEP")
+#pragma pop_macro("UNDETERMINED")
 
 #endif // _sun_util_locale_LanguageTag_h_

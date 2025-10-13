@@ -51,9 +51,9 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
-#undef PROTOCOLS_OF_13
 #undef CERTIFICATE
 #undef HANDSHAKE_FAILURE
+#undef PROTOCOLS_OF_13
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;

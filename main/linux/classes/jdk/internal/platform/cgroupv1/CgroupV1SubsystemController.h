@@ -6,10 +6,10 @@
 #include <jdk/internal/platform/CgroupSubsystem.h>
 #include <jdk/internal/platform/CgroupSubsystemController.h>
 
-#pragma push_macro("UNLIMITED_MIN")
-#undef UNLIMITED_MIN
 #pragma push_macro("DOUBLE_RETVAL_UNLIMITED")
 #undef DOUBLE_RETVAL_UNLIMITED
+#pragma push_macro("UNLIMITED_MIN")
+#undef UNLIMITED_MIN
 
 namespace jdk {
 	namespace internal {
@@ -41,7 +41,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("UNLIMITED_MIN")
 #pragma pop_macro("DOUBLE_RETVAL_UNLIMITED")
+#pragma pop_macro("UNLIMITED_MIN")
 
 #endif // _jdk_internal_platform_cgroupv1_CgroupV1SubsystemController_h_

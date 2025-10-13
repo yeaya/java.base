@@ -13,8 +13,8 @@
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
-#undef SMALL
 #undef FAST
+#undef SMALL
 
 using $CodePointTrie$TypeArray = $Array<::jdk::internal::icu::util::CodePointTrie$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;

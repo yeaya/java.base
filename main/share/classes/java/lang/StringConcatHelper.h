@@ -8,10 +8,10 @@
 
 #pragma push_macro("LATIN1")
 #undef LATIN1
-#pragma push_macro("UTF16")
-#undef UTF16
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
+#pragma push_macro("UTF16")
+#undef UTF16
 
 namespace java {
 	namespace lang {
@@ -74,7 +74,7 @@ public:
 } // java
 
 #pragma pop_macro("LATIN1")
-#pragma pop_macro("UTF16")
 #pragma pop_macro("UNSAFE")
+#pragma pop_macro("UTF16")
 
 #endif // _java_lang_StringConcatHelper_h_

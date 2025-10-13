@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("COUNT")
-#undef COUNT
 #pragma push_macro("CLOSE")
 #undef CLOSE
+#pragma push_macro("COUNT")
+#undef COUNT
 #pragma push_macro("NONE")
 #undef NONE
 #pragma push_macro("OPEN")
@@ -33,8 +33,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("COUNT")
 #pragma pop_macro("CLOSE")
+#pragma pop_macro("COUNT")
 #pragma pop_macro("NONE")
 #pragma pop_macro("OPEN")
 

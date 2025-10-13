@@ -73,11 +73,11 @@
 #include <sun/reflect/annotation/ExceptionProxy.h>
 #include <jcpp.h>
 
-#undef PUBLIC
 #undef ABSTRACT
-#undef TYPE
-#undef STATIC
 #undef PRIVATE
+#undef PUBLIC
+#undef STATIC
+#undef TYPE
 
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
@@ -910,7 +910,7 @@ AnnotationInvocationHandler* AnnotationInvocationHandler::asOneOfUs(Object$* o) 
 bool AnnotationInvocationHandler::memberValueEquals(Object$* v1, Object$* v2) {
 	$init(AnnotationInvocationHandler);
 	$Class* type = $nc($of(v1))->getClass();
-	if (!$nc(type)->isArray()) {
+	if (!type->isArray()) {
 		return $of(v1)->equals(v2);
 	}
 	if ($instanceOf($ObjectArray, v1) && $instanceOf($ObjectArray, v2)) {
@@ -1042,7 +1042,7 @@ int32_t AnnotationInvocationHandler::hashCodeImpl() {
 int32_t AnnotationInvocationHandler::memberValueHashCode(Object$* value) {
 	$init(AnnotationInvocationHandler);
 	$Class* type = $nc($of(value))->getClass();
-	if (!$nc(type)->isArray()) {
+	if (!type->isArray()) {
 		return $of(value)->hashCode();
 	}
 	$load($bytes);

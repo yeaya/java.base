@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("OTHER")
-#undef OTHER
-#pragma push_macro("STRIPPED")
-#undef STRIPPED
 #pragma push_macro("ARRAY")
 #undef ARRAY
 #pragma push_macro("EQUAL")
 #undef EQUAL
+#pragma push_macro("OTHER")
+#undef OTHER
 #pragma push_macro("POSTFIX")
 #undef POSTFIX
+#pragma push_macro("STRIPPED")
+#undef STRIPPED
 
 class TestObjectMethods$Relation : public ::java::lang::Enum {
 	$class(TestObjectMethods$Relation, 0, ::java::lang::Enum)
@@ -33,10 +33,10 @@ public:
 	static $Array<TestObjectMethods$Relation>* $VALUES;
 };
 
-#pragma pop_macro("OTHER")
-#pragma pop_macro("STRIPPED")
 #pragma pop_macro("ARRAY")
 #pragma pop_macro("EQUAL")
+#pragma pop_macro("OTHER")
 #pragma pop_macro("POSTFIX")
+#pragma pop_macro("STRIPPED")
 
 #endif // _TestObjectMethods$Relation_h_

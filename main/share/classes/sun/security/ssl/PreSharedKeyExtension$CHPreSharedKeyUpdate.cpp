@@ -27,8 +27,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef INTERNAL_ERROR
 #undef CH_PRE_SHARED_KEY
+#undef INTERNAL_ERROR
 #undef SH_PRE_SHARED_KEY
 
 using $ClassInfo = ::java::lang::ClassInfo;

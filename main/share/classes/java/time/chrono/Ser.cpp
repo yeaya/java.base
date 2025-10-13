@@ -29,15 +29,15 @@
 #include <java/time/chrono/ThaiBuddhistDate.h>
 #include <jcpp.h>
 
-#undef JAPANESE_DATE_TYPE
+#undef CHRONO_LOCAL_DATE_TIME_TYPE
 #undef CHRONO_PERIOD_TYPE
 #undef CHRONO_TYPE
 #undef CHRONO_ZONE_DATE_TIME_TYPE
-#undef JAPANESE_ERA_TYPE
-#undef THAIBUDDHIST_DATE_TYPE
-#undef MINGUO_DATE_TYPE
-#undef CHRONO_LOCAL_DATE_TIME_TYPE
 #undef HIJRAH_DATE_TYPE
+#undef JAPANESE_DATE_TYPE
+#undef JAPANESE_ERA_TYPE
+#undef MINGUO_DATE_TYPE
+#undef THAIBUDDHIST_DATE_TYPE
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

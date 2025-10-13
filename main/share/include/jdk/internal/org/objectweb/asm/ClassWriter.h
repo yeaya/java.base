@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/ClassVisitor.h>
 
-#pragma push_macro("COMPUTE_MAXS")
-#undef COMPUTE_MAXS
 #pragma push_macro("COMPUTE_FRAMES")
 #undef COMPUTE_FRAMES
+#pragma push_macro("COMPUTE_MAXS")
+#undef COMPUTE_MAXS
 
 namespace java {
 	namespace lang {
@@ -130,7 +130,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("COMPUTE_MAXS")
 #pragma pop_macro("COMPUTE_FRAMES")
+#pragma pop_macro("COMPUTE_MAXS")
 
 #endif // _jdk_internal_org_objectweb_asm$_ClassWriter_h_

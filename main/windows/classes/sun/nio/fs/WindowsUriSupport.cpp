@@ -169,7 +169,7 @@ $WindowsPath* WindowsUriSupport::fromUri($WindowsFileSystem* fs, $URI* uri) {
 		}
 		$assign(path, $str({"\\\\"_s, host, path}));
 	} else {
-		bool var$1 = ($nc(path)->length() > 2);
+		bool var$1 = (path->length() > 2);
 		if (var$1 && (path->charAt(2) == u':')) {
 			$assign(path, path->substring(1));
 		}

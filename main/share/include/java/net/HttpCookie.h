@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 
-#pragma push_macro("SET_COOKIE2")
-#undef SET_COOKIE2
 #pragma push_macro("COOKIE_DATE_FORMATS")
 #undef COOKIE_DATE_FORMATS
-#pragma push_macro("SET_COOKIE")
-#undef SET_COOKIE
-#pragma push_macro("MAX_AGE_UNSPECIFIED")
-#undef MAX_AGE_UNSPECIFIED
 #pragma push_macro("GMT")
 #undef GMT
+#pragma push_macro("MAX_AGE_UNSPECIFIED")
+#undef MAX_AGE_UNSPECIFIED
+#pragma push_macro("SET_COOKIE")
+#undef SET_COOKIE
+#pragma push_macro("SET_COOKIE2")
+#undef SET_COOKIE2
 
 namespace java {
 	namespace util {
@@ -105,10 +105,10 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("SET_COOKIE2")
 #pragma pop_macro("COOKIE_DATE_FORMATS")
-#pragma pop_macro("SET_COOKIE")
-#pragma pop_macro("MAX_AGE_UNSPECIFIED")
 #pragma pop_macro("GMT")
+#pragma pop_macro("MAX_AGE_UNSPECIFIED")
+#pragma pop_macro("SET_COOKIE")
+#pragma pop_macro("SET_COOKIE2")
 
 #endif // _java_net_HttpCookie_h_

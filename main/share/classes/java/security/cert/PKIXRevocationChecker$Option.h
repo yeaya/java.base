@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SOFT_FAIL")
-#undef SOFT_FAIL
 #pragma push_macro("NO_FALLBACK")
 #undef NO_FALLBACK
 #pragma push_macro("ONLY_END_ENTITY")
 #undef ONLY_END_ENTITY
 #pragma push_macro("PREFER_CRLS")
 #undef PREFER_CRLS
+#pragma push_macro("SOFT_FAIL")
+#undef SOFT_FAIL
 
 namespace java {
 	namespace security {
@@ -38,9 +38,9 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("SOFT_FAIL")
 #pragma pop_macro("NO_FALLBACK")
 #pragma pop_macro("ONLY_END_ENTITY")
 #pragma pop_macro("PREFER_CRLS")
+#pragma pop_macro("SOFT_FAIL")
 
 #endif // _java_security_cert_PKIXRevocationChecker$Option_h_

@@ -16,8 +16,8 @@
 #include <jcpp.h>
 
 #undef DHE
-#undef RSA
 #undef KE
+#undef RSA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

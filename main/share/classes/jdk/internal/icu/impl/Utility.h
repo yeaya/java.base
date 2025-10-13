@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("UNESCAPE_MAP")
-#undef UNESCAPE_MAP
 #pragma push_macro("DIGITS")
 #undef DIGITS
+#pragma push_macro("UNESCAPE_MAP")
+#undef UNESCAPE_MAP
 
 namespace java {
 	namespace lang {
@@ -40,7 +40,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("UNESCAPE_MAP")
 #pragma pop_macro("DIGITS")
+#pragma pop_macro("UNESCAPE_MAP")
 
 #endif // _jdk_internal_icu_impl_Utility_h_

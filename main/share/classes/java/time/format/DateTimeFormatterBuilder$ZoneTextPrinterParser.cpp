@@ -65,16 +65,16 @@
 #include <sun/util/locale/provider/TimeZoneNameUtility.h>
 #include <jcpp.h>
 
-#undef STD
-#undef GENERIC
 #undef DST
 #undef EPOCH_DAY
-#undef INSTANT_SECONDS
 #undef FULL
-#undef NARROW
+#undef GENERIC
+#undef INSTANT_SECONDS
 #undef LONG
-#undef SHORT
 #undef NANO_OF_DAY
+#undef NARROW
+#undef SHORT
+#undef STD
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $Serializable = ::java::io::Serializable;

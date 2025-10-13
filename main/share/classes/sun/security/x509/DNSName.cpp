@@ -15,13 +15,13 @@
 #include <sun/security/x509/GeneralNameInterface.h>
 #include <jcpp.h>
 
+#undef ENGLISH
+#undef NAME_DIFF_TYPE
+#undef NAME_DNS
 #undef NAME_MATCH
 #undef NAME_NARROWS
-#undef ENGLISH
 #undef NAME_SAME_TYPE
-#undef NAME_DIFF_TYPE
 #undef NAME_WIDENS
-#undef NAME_DNS
 
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;
@@ -108,7 +108,7 @@ void DNSName::init$($String* name, bool allowWildcard) {
 						$throwNew($IOException, "DNSName components must begin with a letter, digit, or the first component can have only a wildcard character *"_s);
 					}
 				}
-			} else if ($nc(DNSName::alphaDigits)->indexOf((int32_t)$nc(name)->charAt(startIndex)) < 0) {
+			} else if ($nc(DNSName::alphaDigits)->indexOf((int32_t)name->charAt(startIndex)) < 0) {
 				$throwNew($IOException, "DNSName components must begin with a letter or digit"_s);
 			}
 			for (int32_t nonStartIndex = startIndex + 1; nonStartIndex < endIndex; ++nonStartIndex) {
@@ -162,7 +162,7 @@ int32_t DNSName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_DNS) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_DNS) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$init($Locale);
@@ -170,14 +170,14 @@ int32_t DNSName::constrains($GeneralNameInterface* inputName) {
 		$var($String, thisName, $nc(this->name)->toLowerCase($Locale::ENGLISH));
 		if (inName->equals(thisName)) {
 			constraintType = $GeneralNameInterface::NAME_MATCH;
-		} else if ($nc(thisName)->endsWith(inName)) {
+		} else if (thisName->endsWith(inName)) {
 			int32_t inNdx = thisName->lastIndexOf(inName);
 			if (thisName->charAt(inNdx - 1) == u'.') {
 				constraintType = $GeneralNameInterface::NAME_WIDENS;
 			} else {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 			}
-		} else if ($nc(inName)->endsWith(thisName)) {
+		} else if (inName->endsWith(thisName)) {
 			int32_t ndx = inName->lastIndexOf(thisName);
 			if (inName->charAt(ndx - 1) == u'.') {
 				constraintType = $GeneralNameInterface::NAME_NARROWS;

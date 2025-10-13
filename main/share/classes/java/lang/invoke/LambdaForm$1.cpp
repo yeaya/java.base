@@ -14,12 +14,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef V_TYPE
-#undef I_TYPE
-#undef F_TYPE
-#undef J_TYPE
 #undef D_TYPE
+#undef F_TYPE
+#undef I_TYPE
+#undef J_TYPE
 #undef L_TYPE
+#undef V_TYPE
 
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
 using $ClassInfo = ::java::lang::ClassInfo;

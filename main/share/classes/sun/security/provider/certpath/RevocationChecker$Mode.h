@@ -10,10 +10,10 @@
 #undef ONLY_CRLS
 #pragma push_macro("ONLY_OCSP")
 #undef ONLY_OCSP
-#pragma push_macro("PREFER_OCSP")
-#undef PREFER_OCSP
 #pragma push_macro("PREFER_CRLS")
 #undef PREFER_CRLS
+#pragma push_macro("PREFER_OCSP")
+#undef PREFER_OCSP
 
 namespace sun {
 	namespace security {
@@ -42,7 +42,7 @@ public:
 
 #pragma pop_macro("ONLY_CRLS")
 #pragma pop_macro("ONLY_OCSP")
-#pragma pop_macro("PREFER_OCSP")
 #pragma pop_macro("PREFER_CRLS")
+#pragma pop_macro("PREFER_OCSP")
 
 #endif // _sun_security_provider_certpath_RevocationChecker$Mode_h_

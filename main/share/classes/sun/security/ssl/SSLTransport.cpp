@@ -35,11 +35,11 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HANDSHAKE_FAILURE
-#undef BAD_RECORD_MAC
-#undef PLAINTEXT_NULL
-#undef INTERNAL_ERROR
 #undef APPLICATION_DATA
+#undef BAD_RECORD_MAC
+#undef HANDSHAKE_FAILURE
+#undef INTERNAL_ERROR
+#undef PLAINTEXT_NULL
 #undef UNEXPECTED_MESSAGE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
@@ -175,7 +175,7 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 					$assign(plainText, $Plaintext::PLAINTEXT_NULL);
 				} else {
 					$init($ContentType);
-					if ($nc(plainText)->contentType == $ContentType::APPLICATION_DATA->id) {
+					if (plainText->contentType == $ContentType::APPLICATION_DATA->id) {
 						if (!$nc(context)->isNegotiated) {
 							$init($SSLLogger);
 							if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,verbose"_s)) {

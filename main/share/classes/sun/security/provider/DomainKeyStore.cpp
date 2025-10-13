@@ -67,15 +67,15 @@
 #include <sun/security/util/PolicyUtil.h>
 #include <jcpp.h>
 
-#undef KEYSTORE_TYPE
 #undef DEFAULT_KEYSTORE_TYPE
-#undef ENTRY_NAME_SEPARATOR
-#undef KEYSTORE_URI
-#undef KEYSTORE_PASSWORD_ENV
 #undef DEFAULT_STREAM_PREFIX
-#undef UTF_8
+#undef ENTRY_NAME_SEPARATOR
+#undef KEYSTORE_PASSWORD_ENV
 #undef KEYSTORE_PROVIDER_NAME
+#undef KEYSTORE_TYPE
+#undef KEYSTORE_URI
 #undef REGEX_META
+#undef UTF_8
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $File = ::java::io::File;
@@ -459,7 +459,7 @@ $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoresForReading($String* alias)
 		if (keystore != nullptr) {
 			return $new($AbstractMap$SimpleEntry, splits->get(1), static_cast<$Collection*>($($Collections::singleton(keystore))));
 		}
-	} else if ($nc(splits)->length == 1) {
+	} else if (splits->length == 1) {
 		return $new($AbstractMap$SimpleEntry, alias, $($nc(this->keystores)->values()));
 	}
 	return $new($AbstractMap$SimpleEntry, ""_s, static_cast<$Collection*>($($Collections::emptyList())));
@@ -722,7 +722,7 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 							$var($KeyStore$ProtectionParameter, keystoreProtection, nullptr);
 							if ($nc(passwords)->containsKey(keystoreName)) {
 								$assign(keystoreProtection, $cast($KeyStore$ProtectionParameter, passwords->get(keystoreName)));
-							} else if ($nc(properties)->containsKey(DomainKeyStore::KEYSTORE_PASSWORD_ENV)) {
+							} else if (properties->containsKey(DomainKeyStore::KEYSTORE_PASSWORD_ENV)) {
 								$var($String, env, $cast($String, properties->get(DomainKeyStore::KEYSTORE_PASSWORD_ENV)));
 								$var($String, pwd, $System::getenv(env));
 								if (pwd != nullptr) {

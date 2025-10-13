@@ -5,12 +5,12 @@
 
 #include <java/security/KeyPairGenerator.h>
 
-#pragma push_macro("I_SIZE")
-#undef I_SIZE
 #pragma push_macro("I_NONE")
 #undef I_NONE
 #pragma push_macro("I_PARAMS")
 #undef I_PARAMS
+#pragma push_macro("I_SIZE")
+#undef I_SIZE
 
 namespace java {
 	namespace security {
@@ -69,8 +69,8 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("I_SIZE")
 #pragma pop_macro("I_NONE")
 #pragma pop_macro("I_PARAMS")
+#pragma pop_macro("I_SIZE")
 
 #endif // _java_security_KeyPairGenerator$Delegate_h_

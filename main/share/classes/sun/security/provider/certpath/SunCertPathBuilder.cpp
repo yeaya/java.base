@@ -67,9 +67,9 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
+#undef ANY_POLICY
 #undef REVOKED
 #undef UNRECOGNIZED_CRIT_EXT
-#undef ANY_POLICY
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

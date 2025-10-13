@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("PUBLIC")
-#undef PUBLIC
 #pragma push_macro("DECLARED")
 #undef DECLARED
+#pragma push_macro("PUBLIC")
+#undef PUBLIC
 
 namespace java {
 	namespace lang {
@@ -29,7 +29,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("PUBLIC")
 #pragma pop_macro("DECLARED")
+#pragma pop_macro("PUBLIC")
 
 #endif // _java_lang_reflect_Member_h_

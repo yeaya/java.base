@@ -15,8 +15,8 @@
 #include <sun/security/ssl/X509Authentication.h>
 #include <jcpp.h>
 
-#undef RSA
 #undef KE
+#undef RSA
 #undef RSA_EXPORT
 
 using $ClassInfo = ::java::lang::ClassInfo;

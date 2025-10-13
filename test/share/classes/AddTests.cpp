@@ -25,9 +25,9 @@
 #include <jcpp.h>
 
 #undef DOWN
-#undef UNNECESSARY
-#undef ONE
 #undef MAX_VALUE
+#undef ONE
+#undef UNNECESSARY
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $PrintStream = ::java::io::PrintStream;

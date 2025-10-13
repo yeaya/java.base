@@ -19,13 +19,13 @@
 #include <jdk/internal/misc/CDS.h>
 #include <jcpp.h>
 
+#undef LONG_5_POW
+#undef LONG_MASK
 #undef MAX_FIVE_POW
-#undef ZERO
+#undef POW_5_CACHE
 #undef S
 #undef SMALL_5_POW
-#undef LONG_MASK
-#undef POW_5_CACHE
-#undef LONG_5_POW
+#undef ZERO
 
 using $FDBigIntegerArray = $Array<::jdk::internal::math::FDBigInteger>;
 using $AssertionError = ::java::lang::AssertionError;

@@ -24,15 +24,15 @@
 #include <sun/security/util/AlgorithmDecomposer.h>
 #include <jcpp.h>
 
-#undef H_SHA384
-#undef M_SHA
-#undef M_SHA384
-#undef M_MD5
-#undef H_SHA256
 #undef AEAD_CIPHER
-#undef M_SHA256
-#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+#undef H_SHA256
+#undef H_SHA384
+#undef M_MD5
 #undef M_NULL
+#undef M_SHA
+#undef M_SHA256
+#undef M_SHA384
+#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

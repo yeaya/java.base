@@ -46,9 +46,9 @@
 #include <sun/nio/ch/ThreadPool.h>
 #include <jcpp.h>
 
+#undef INTERRUPTED
 #undef LOCKED
 #undef NO_LOCK
-#undef INTERRUPTED
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;

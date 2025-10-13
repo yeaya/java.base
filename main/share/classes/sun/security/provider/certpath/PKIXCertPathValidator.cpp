@@ -70,8 +70,8 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef NO_TRUST_ANCHOR
 #undef ANY_POLICY
+#undef NO_TRUST_ANCHOR
 
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;

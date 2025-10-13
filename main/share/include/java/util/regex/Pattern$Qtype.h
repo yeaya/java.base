@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("LAZY")
-#undef LAZY
-#pragma push_macro("INDEPENDENT")
-#undef INDEPENDENT
 #pragma push_macro("GREEDY")
 #undef GREEDY
+#pragma push_macro("INDEPENDENT")
+#undef INDEPENDENT
+#pragma push_macro("LAZY")
+#undef LAZY
 #pragma push_macro("POSSESSIVE")
 #undef POSSESSIVE
 
@@ -38,9 +38,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("LAZY")
-#pragma pop_macro("INDEPENDENT")
 #pragma pop_macro("GREEDY")
+#pragma pop_macro("INDEPENDENT")
+#pragma pop_macro("LAZY")
 #pragma pop_macro("POSSESSIVE")
 
 #endif // _java_util_regex_Pattern$Qtype_h_

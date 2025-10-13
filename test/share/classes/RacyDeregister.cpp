@@ -26,10 +26,10 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef OP_READ
-#undef TRUE
 #undef FALSE
+#undef OP_READ
 #undef TIMEOUT_THRESHOLD_MILLIS
+#undef TRUE
 
 using $RacyDeregister$1 = ::RacyDeregister$1;
 using $SelectionKeyArray = $Array<::java::nio::channels::SelectionKey>;

@@ -45,8 +45,8 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfDouble.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
+#undef SUBSIZED
 
 using $DoubleArray = $Array<::java::lang::Double>;
 using $Serializable = ::java::io::Serializable;

@@ -21,26 +21,26 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
 #include <jcpp.h>
 
-#undef IX_JG_LIMIT2
-#undef JT_MASK
-#undef MIRROR_INDEX_SHIFT
-#undef INSTANCE
-#undef FMT
-#undef IX_MIRROR_LENGTH
-#undef CLASS_MASK
-#undef ESC_MIRROR_DELTA
-#undef IX_JG_START2
-#undef MIRROR_DELTA_SHIFT
 #undef BPT_MASK
-#undef IX_JG_START
+#undef BPT_SHIFT
+#undef CLASS_MASK
+#undef DATA_FILE_NAME
+#undef ESC_MIRROR_DELTA
+#undef FMT
+#undef ICU_DATA_VERSION_PATH
+#undef INSTANCE
 #undef IX_JG_LIMIT
+#undef IX_JG_LIMIT2
+#undef IX_JG_START
+#undef IX_JG_START2
+#undef IX_MIRROR_LENGTH
 #undef IX_TOP
 #undef IX_TRIE_SIZE
-#undef BPT_SHIFT
-#undef ICU_DATA_VERSION_PATH
-#undef DATA_FILE_NAME
-#undef NO_JOINING_GROUP
+#undef JT_MASK
 #undef JT_SHIFT
+#undef MIRROR_DELTA_SHIFT
+#undef MIRROR_INDEX_SHIFT
+#undef NO_JOINING_GROUP
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

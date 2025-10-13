@@ -29,10 +29,10 @@
 #include <jdk/internal/platform/cgroupv1/CgroupV1SubsystemController.h>
 #include <jcpp.h>
 
-#undef UNLIMITED_MIN
 #undef INSTANCE
-#undef PROVIDER_NAME
 #undef LONG_RETVAL_UNLIMITED
+#undef PROVIDER_NAME
+#undef UNLIMITED_MIN
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;

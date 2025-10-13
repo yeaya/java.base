@@ -17,9 +17,9 @@
 #include <java/util/Comparator.h>
 #include <jcpp.h>
 
-#undef MIN_MERGE
 #undef INITIAL_TMP_STORAGE_LENGTH
 #undef MIN_GALLOP
+#undef MIN_MERGE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

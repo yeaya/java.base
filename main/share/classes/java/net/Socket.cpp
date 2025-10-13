@@ -56,22 +56,22 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef NO_PROXY
+#undef HTTP
 #undef IN
 #undef IP_TOS
-#undef SO_TIMEOUT
-#undef SO_SNDBUF
-#undef HTTP
-#undef SO_REUSEADDR
-#undef TCP_NODELAY
+#undef NO_PROXY
 #undef OUT
-#undef SO_LINGER
-#undef SO_BINDADDR
-#undef SO_RCVBUF
-#undef SO_KEEPALIVE
-#undef SOCKS
-#undef SO_OOBINLINE
 #undef SET_SOCKETIMPL_PERMISSION
+#undef SOCKS
+#undef SO_BINDADDR
+#undef SO_KEEPALIVE
+#undef SO_LINGER
+#undef SO_OOBINLINE
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
+#undef SO_SNDBUF
+#undef SO_TIMEOUT
+#undef TCP_NODELAY
 
 using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;

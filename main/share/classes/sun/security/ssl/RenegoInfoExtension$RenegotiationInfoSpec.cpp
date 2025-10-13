@@ -27,9 +27,9 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
+#undef DECODE_ERROR
 #undef ENGLISH
 #undef NOMINAL
-#undef DECODE_ERROR
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -19,8 +19,8 @@
 
 #undef AUTH_FAILED
 #undef NTLM
-#undef PROTOCOL
 #undef NTLM2
+#undef PROTOCOL
 #undef US
 #undef USER_UNKNOWN
 

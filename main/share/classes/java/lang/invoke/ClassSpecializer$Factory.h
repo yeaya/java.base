@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SPECIES_DATA_NAME")
-#undef SPECIES_DATA_NAME
-#pragma push_macro("SPECIES_DATA_SIG")
-#undef SPECIES_DATA_SIG
 #pragma push_macro("ACC_PPP")
 #undef ACC_PPP
 #pragma push_macro("SPECIES_DATA")
 #undef SPECIES_DATA
+#pragma push_macro("SPECIES_DATA_MODS")
+#undef SPECIES_DATA_MODS
+#pragma push_macro("SPECIES_DATA_NAME")
+#undef SPECIES_DATA_NAME
+#pragma push_macro("SPECIES_DATA_SIG")
+#undef SPECIES_DATA_SIG
 #pragma push_macro("TRANSFORM_MODS")
 #undef TRANSFORM_MODS
 #pragma push_macro("TRANSFORM_NAMES")
 #undef TRANSFORM_NAMES
 #pragma push_macro("TRANSFORM_TYPES")
 #undef TRANSFORM_TYPES
-#pragma push_macro("SPECIES_DATA_MODS")
-#undef SPECIES_DATA_MODS
 
 namespace java {
 	namespace lang {
@@ -96,13 +96,13 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("SPECIES_DATA_NAME")
-#pragma pop_macro("SPECIES_DATA_SIG")
 #pragma pop_macro("ACC_PPP")
 #pragma pop_macro("SPECIES_DATA")
+#pragma pop_macro("SPECIES_DATA_MODS")
+#pragma pop_macro("SPECIES_DATA_NAME")
+#pragma pop_macro("SPECIES_DATA_SIG")
 #pragma pop_macro("TRANSFORM_MODS")
 #pragma pop_macro("TRANSFORM_NAMES")
 #pragma pop_macro("TRANSFORM_TYPES")
-#pragma pop_macro("SPECIES_DATA_MODS")
 
 #endif // _java_lang_invoke_ClassSpecializer$Factory_h_

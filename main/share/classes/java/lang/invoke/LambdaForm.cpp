@@ -57,36 +57,36 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef LAST_RESULT
+#undef ARG_TYPES
+#undef ARG_TYPE_LIMIT
+#undef COMPILE_THRESHOLD
 #undef DEBUG_NAMES
-#undef VOID_RESULT
+#undef DEBUG_NAME_COUNTERS
+#undef GENERIC
+#undef IDENTITY
 #undef IMPL_NAMES
-#undef POS_TABLE_SWITCH
 #undef INT
 #undef INTERNED_ARGUMENTS
-#undef ARG_TYPES
-#undef MIN_RUN
-#undef ARG_TYPE_LIMIT
-#undef TRACE_INTERPRETER
-#undef NO_CHAR
-#undef UNSAFE
-#undef TYPE
-#undef LF_FAILED
-#undef MAX_MH_INVOKER_ARITY
-#undef L_TYPE
-#undef COMPILE_THRESHOLD
 #undef INTERNED_ARGUMENT_LIMIT
-#undef V_TYPE
-#undef MAX_JVM_ARITY
-#undef TYPE_LIMIT
-#undef DEBUG_NAME_COUNTERS
-#undef LOG_LF_COMPILATION_FAILURE
-#undef IDENTITY
+#undef LAST_RESULT
+#undef LF_FAILED
 #undef LF_INTERPRET
-#undef GENERIC
-#undef POS_UNBOX_RESULT
+#undef LOG_LF_COMPILATION_FAILURE
+#undef L_TYPE
+#undef MAX_JVM_ARITY
+#undef MAX_MH_INVOKER_ARITY
+#undef MIN_RUN
+#undef NO_CHAR
 #undef POS_COLLECT_ARGS
+#undef POS_TABLE_SWITCH
+#undef POS_UNBOX_RESULT
+#undef TRACE_INTERPRETER
+#undef TYPE
+#undef TYPE_LIMIT
+#undef UNSAFE
+#undef VOID_RESULT
+#undef V_TYPE
+#undef ZERO
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
@@ -517,7 +517,7 @@ bool LambdaForm::namesOK(int32_t arity, $LambdaForm$NameArray* names) {
 				$throwNew($AssertionError, $of($$str({n, " is not param at "_s, $$str(i)})));
 			}
 		} else {
-			if (!LambdaForm::$assertionsDisabled && !(!$nc(n)->isParam())) {
+			if (!LambdaForm::$assertionsDisabled && !(!n->isParam())) {
 				$throwNew($AssertionError, $of($$str({n, " is param at "_s, $$str(i)})));
 			}
 		}

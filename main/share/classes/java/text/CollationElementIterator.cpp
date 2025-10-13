@@ -22,21 +22,21 @@
 #include <sun/text/CollatorUtilities.h>
 #include <jcpp.h>
 
-#undef NULLORDER
-#undef PRIMARYORDERSHIFT
-#undef TERTIARYORDERMASK
-#undef SECONDARYDIFFERENCEONLY
-#undef DONE
 #undef CONTRACTCHARINDEX
-#undef UNMAPPED
+#undef DONE
 #undef EXPANDCHARINDEX
-#undef SECONDARYORDERSHIFT
-#undef SECONDARY
+#undef NULLORDER
 #undef PRIMARY
-#undef SECONDARYORDERMASK
-#undef PRIMARYORDERMASK
-#undef UNMAPPEDCHARVALUE
 #undef PRIMARYDIFFERENCEONLY
+#undef PRIMARYORDERMASK
+#undef PRIMARYORDERSHIFT
+#undef SECONDARY
+#undef SECONDARYDIFFERENCEONLY
+#undef SECONDARYORDERMASK
+#undef SECONDARYORDERSHIFT
+#undef TERTIARYORDERMASK
+#undef UNMAPPED
+#undef UNMAPPEDCHARVALUE
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

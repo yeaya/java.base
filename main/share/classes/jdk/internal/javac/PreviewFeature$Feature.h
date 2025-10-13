@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("TEST")
-#undef TEST
 #pragma push_macro("SEALED_CLASSES")
 #undef SEALED_CLASSES
 #pragma push_macro("SWITCH_PATTERN_MATCHING")
 #undef SWITCH_PATTERN_MATCHING
+#pragma push_macro("TEST")
+#undef TEST
 
 namespace jdk {
 	namespace internal {
@@ -35,8 +35,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("TEST")
 #pragma pop_macro("SEALED_CLASSES")
 #pragma pop_macro("SWITCH_PATTERN_MATCHING")
+#pragma pop_macro("TEST")
 
 #endif // _jdk_internal_javac_PreviewFeature$Feature_h_

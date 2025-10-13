@@ -9,22 +9,22 @@
 #include <java/util/AbstractMap.h>
 #include <java/util/concurrent/ConcurrentNavigableMap.h>
 
-#pragma push_macro("VAL")
-#undef VAL
-#pragma push_macro("HEAD")
-#undef HEAD
-#pragma push_macro("NEXT")
-#undef NEXT
-#pragma push_macro("LT")
-#undef LT
-#pragma push_macro("RIGHT")
-#undef RIGHT
+#pragma push_macro("ADDER")
+#undef ADDER
 #pragma push_macro("EQ")
 #undef EQ
 #pragma push_macro("GT")
 #undef GT
-#pragma push_macro("ADDER")
-#undef ADDER
+#pragma push_macro("HEAD")
+#undef HEAD
+#pragma push_macro("LT")
+#undef LT
+#pragma push_macro("NEXT")
+#undef NEXT
+#pragma push_macro("RIGHT")
+#undef RIGHT
+#pragma push_macro("VAL")
+#undef VAL
 
 namespace java {
 	namespace io {
@@ -204,13 +204,13 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("VAL")
-#pragma pop_macro("HEAD")
-#pragma pop_macro("NEXT")
-#pragma pop_macro("LT")
-#pragma pop_macro("RIGHT")
+#pragma pop_macro("ADDER")
 #pragma pop_macro("EQ")
 #pragma pop_macro("GT")
-#pragma pop_macro("ADDER")
+#pragma pop_macro("HEAD")
+#pragma pop_macro("LT")
+#pragma pop_macro("NEXT")
+#pragma pop_macro("RIGHT")
+#pragma pop_macro("VAL")
 
 #endif // _java_util_concurrent_ConcurrentSkipListMap_h_

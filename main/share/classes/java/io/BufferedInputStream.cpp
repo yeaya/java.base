@@ -19,10 +19,10 @@
 #include <jdk/internal/util/ArraysSupport.h>
 #include <jcpp.h>
 
-#undef U
-#undef DEFAULT_BUFFER_SIZE
 #undef BUF_OFFSET
+#undef DEFAULT_BUFFER_SIZE
 #undef MAX_VALUE
+#undef U
 
 using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
@@ -120,13 +120,13 @@ void BufferedInputStream::fill() {
 	$var($bytes, buffer, getBufIfOpen());
 	if (this->markpos < 0) {
 		this->pos = 0;
-	} else if (this->pos >= $nc(buffer)->length) {
+	} else if (this->pos >= buffer->length) {
 		if (this->markpos > 0) {
 			int32_t sz = this->pos - this->markpos;
 			$System::arraycopy(buffer, this->markpos, buffer, 0, sz);
 			this->pos = sz;
 			this->markpos = 0;
-		} else if ($nc(buffer)->length >= this->marklimit) {
+		} else if (buffer->length >= this->marklimit) {
 			this->markpos = -1;
 			this->pos = 0;
 		} else {
@@ -143,7 +143,7 @@ void BufferedInputStream::fill() {
 		}
 	}
 	this->count = this->pos;
-	int32_t n = $nc($(getInIfOpen()))->read(buffer, this->pos, $nc(buffer)->length - this->pos);
+	int32_t n = $nc($(getInIfOpen()))->read(buffer, this->pos, buffer->length - this->pos);
 	if (n > 0) {
 		this->count = n + this->pos;
 	}

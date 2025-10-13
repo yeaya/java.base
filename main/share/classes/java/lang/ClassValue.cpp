@@ -19,10 +19,10 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef HASH_INCREMENT
-#undef HASH_MASK
 #undef CRITICAL_SECTION
 #undef EMPTY_CACHE
+#undef HASH_INCREMENT
+#undef HASH_MASK
 #undef UNSAFE
 
 using $ClassValue$EntryArray = $Array<::java::lang::ClassValue$Entry>;

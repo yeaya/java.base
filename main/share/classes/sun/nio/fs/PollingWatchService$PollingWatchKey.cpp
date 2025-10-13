@@ -38,11 +38,11 @@
 #include <sun/nio/fs/PollingWatchService.h>
 #include <jcpp.h>
 
-#undef SECONDS
-#undef NOFOLLOW_LINKS
 #undef ENTRY_CREATE
-#undef ENTRY_MODIFY
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef NOFOLLOW_LINKS
+#undef SECONDS
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Closeable = ::java::io::Closeable;
@@ -285,7 +285,7 @@ void PollingWatchService$PollingWatchKey::poll() {
 				$assign(var$0, $catch());
 			} /*finally*/ {
 				try {
-					$nc(stream)->close();
+					stream->close();
 				} catch ($IOException&) {
 					$catch();
 				}

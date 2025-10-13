@@ -15,28 +15,28 @@
 #include <sun/security/ssl/NamedGroup$NamedGroupSpec.h>
 #include <jcpp.h>
 
+#undef ALLOW_ECC
+#undef K_DHE_DSS
+#undef K_DHE_DSS_EXPORT
+#undef K_DHE_RSA
+#undef K_DHE_RSA_EXPORT
+#undef K_DH_ANON
+#undef K_DH_ANON_EXPORT
+#undef K_DH_DSS
+#undef K_DH_RSA
 #undef K_ECDHE_ECDSA
+#undef K_ECDHE_RSA
+#undef K_ECDH_ANON
+#undef K_ECDH_ECDSA
+#undef K_ECDH_RSA
 #undef K_NULL
 #undef K_RSA
-#undef NAMED_GROUP_ECDHE
-#undef K_DH_DSS
-#undef K_DH_ANON
-#undef NAMED_GROUP_NONE
-#undef K_DHE_DSS_EXPORT
-#undef NAMED_GROUP_XDH
-#undef K_DHE_DSS
-#undef K_DH_RSA
-#undef K_DH_ANON_EXPORT
-#undef K_ECDHE_RSA
-#undef NAMED_GROUP_FFDHE
-#undef K_ECDH_ANON
-#undef K_DHE_RSA
-#undef ALLOW_ECC
-#undef K_SCSV
-#undef K_ECDH_ECDSA
 #undef K_RSA_EXPORT
-#undef K_DHE_RSA_EXPORT
-#undef K_ECDH_RSA
+#undef K_SCSV
+#undef NAMED_GROUP_ECDHE
+#undef NAMED_GROUP_FFDHE
+#undef NAMED_GROUP_NONE
+#undef NAMED_GROUP_XDH
 
 using $CipherSuite$KeyExchangeArray = $Array<::sun::security::ssl::CipherSuite$KeyExchange>;
 using $NamedGroup$NamedGroupSpecArray = $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>;

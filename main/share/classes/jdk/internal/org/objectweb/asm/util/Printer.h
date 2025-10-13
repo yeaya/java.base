@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("HANDLE_TAG")
+#undef HANDLE_TAG
 #pragma push_macro("OPCODES")
 #undef OPCODES
 #pragma push_macro("TYPES")
 #undef TYPES
-#pragma push_macro("HANDLE_TAG")
-#undef HANDLE_TAG
 #pragma push_macro("UNSUPPORTED_OPERATION")
 #undef UNSUPPORTED_OPERATION
 
@@ -145,9 +145,9 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("HANDLE_TAG")
 #pragma pop_macro("OPCODES")
 #pragma pop_macro("TYPES")
-#pragma pop_macro("HANDLE_TAG")
 #pragma pop_macro("UNSUPPORTED_OPERATION")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_Printer_h_

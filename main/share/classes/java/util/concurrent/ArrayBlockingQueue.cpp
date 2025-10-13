@@ -46,10 +46,10 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
+#undef CONCURRENT
+#undef MAX_VALUE
 #undef NONNULL
 #undef ORDERED
-#undef MAX_VALUE
-#undef CONCURRENT
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

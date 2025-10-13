@@ -27,11 +27,11 @@
 #include <jcpp.h>
 
 #undef BE
-#undef VM_ALIGN
 #undef FORM
-#undef UNSAFE
 #undef SCOPED_MEMORY_ACCESS
 #undef TYPE
+#undef UNSAFE
+#undef VM_ALIGN
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

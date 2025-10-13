@@ -42,8 +42,8 @@
 
 #undef ENUM
 #undef METHOD_RECEIVER
-#undef TYPE
 #undef STATIC
+#undef TYPE
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
@@ -436,12 +436,12 @@ bool Constructor::handleParameterNumberMismatch(int32_t resultLength, $ClassArra
 		$init($Integer);
 		return resultLength + 2 == numParameters && parameterTypes->get(0) == $String::class$ && parameterTypes->get(1) == $Integer::TYPE;
 	} else {
-		bool var$3 = declaringClass->isAnonymousClass();
-		if (var$3 || declaringClass->isLocalClass()) {
+		bool var$1 = declaringClass->isAnonymousClass();
+		if (var$1 || declaringClass->isLocalClass()) {
 			return false;
 		} else {
-			bool var$5 = declaringClass->isMemberClass();
-			if (var$5 && (((int32_t)(declaringClass->getModifiers() & (uint32_t)$Modifier::STATIC)) == 0) && resultLength + 1 == numParameters) {
+			bool var$3 = declaringClass->isMemberClass();
+			if (var$3 && (((int32_t)(declaringClass->getModifiers() & (uint32_t)$Modifier::STATIC)) == 0) && resultLength + 1 == numParameters) {
 				return true;
 			} else {
 				$throwNew($AnnotationFormatError, "Parameter annotations don\'t match number of parameters"_s);

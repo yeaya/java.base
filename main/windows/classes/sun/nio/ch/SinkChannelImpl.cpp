@@ -28,11 +28,11 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
+#undef OP_WRITE
 #undef POLLERR
 #undef POLLHUP
-#undef POLLOUT
 #undef POLLNVAL
-#undef OP_WRITE
+#undef POLLOUT
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $FileDescriptor = ::java::io::FileDescriptor;

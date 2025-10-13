@@ -42,16 +42,16 @@
 #include <java/time/temporal/ValueRange.h>
 #include <jcpp.h>
 
+#undef AH
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
 #undef ALIGNED_WEEK_OF_MONTH
+#undef ALIGNED_WEEK_OF_YEAR
+#undef DAY_OF_MONTH
+#undef HIJRAH_DATE_TYPE
+#undef INSTANCE
 #undef MONTH_OF_YEAR
 #undef YEAR
-#undef DAY_OF_MONTH
-#undef AH
-#undef INSTANCE
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef ALIGNED_WEEK_OF_YEAR
-#undef HIJRAH_DATE_TYPE
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
@@ -542,7 +542,7 @@ $ChronoPeriod* HijrahDate::until($ChronoLocalDate* endDate) {
 		days = (int32_t)(var$0 - $nc(calcDate)->toEpochDay());
 	} else if (totalMonths < 0 && days > 0) {
 		++totalMonths;
-		days -= $nc(end)->lengthOfMonth();
+		days -= end->lengthOfMonth();
 	}
 	int64_t years = totalMonths / 12;
 	int32_t months = (int32_t)(totalMonths % 12);

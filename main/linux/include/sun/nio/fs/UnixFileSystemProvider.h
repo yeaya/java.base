@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <sun/nio/fs/AbstractFileSystemProvider.h>
 
-#pragma push_macro("USER_DIR")
-#undef USER_DIR
 #pragma push_macro("EMPTY_PATH")
 #undef EMPTY_PATH
+#pragma push_macro("USER_DIR")
+#undef USER_DIR
 
 namespace java {
 	namespace net {
@@ -136,7 +136,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("USER_DIR")
 #pragma pop_macro("EMPTY_PATH")
+#pragma pop_macro("USER_DIR")
 
 #endif // _sun_nio_fs_UnixFileSystemProvider_h_

@@ -40,9 +40,9 @@
 #include <sun/security/action/GetBooleanAction.h>
 #include <jcpp.h>
 
-#undef SERVER_AUTHENTICATION
-#undef PROXY_AUTHENTICATION
 #undef DEFAULT
+#undef PROXY_AUTHENTICATION
+#undef SERVER_AUTHENTICATION
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;

@@ -15,10 +15,10 @@
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
 
-#undef HTTP_URL1A
-#undef HTTP_URL1B
 #undef FILE_URL1A
 #undef FILE_URL1B
+#undef HTTP_URL1A
+#undef HTTP_URL1B
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

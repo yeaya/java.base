@@ -46,14 +46,14 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
-#undef DTLS12
-#undef SERVER_HELLO
-#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
-#undef NONE
-#undef CLIENT_HELLO
 #undef CH_EXTENDED_MASTER_SECRET
+#undef CLIENT_HELLO
+#undef DTLS12
+#undef HELLO_VERIFY_REQUEST
+#undef NONE
+#undef SERVER_HELLO
 #undef TLS12
+#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;

@@ -14,9 +14,9 @@
 #include <sun/util/logging/PlatformLogger$Level.h>
 #include <jcpp.h>
 
-#undef JUL_FORMAT_PROP_KEY
-#undef JUL_DEFAULT_LEVEL
 #undef INFO
+#undef JUL_DEFAULT_LEVEL
+#undef JUL_FORMAT_PROP_KEY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

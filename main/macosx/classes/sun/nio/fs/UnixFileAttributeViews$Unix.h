@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <sun/nio/fs/UnixFileAttributeViews$Posix.h>
 
+#pragma push_macro("CTIME_NAME")
+#undef CTIME_NAME
+#pragma push_macro("DEV_NAME")
+#undef DEV_NAME
+#pragma push_macro("GID_NAME")
+#undef GID_NAME
+#pragma push_macro("INO_NAME")
+#undef INO_NAME
 #pragma push_macro("MODE_NAME")
 #undef MODE_NAME
 #pragma push_macro("NLINK_NAME")
 #undef NLINK_NAME
-#pragma push_macro("DEV_NAME")
-#undef DEV_NAME
-#pragma push_macro("INO_NAME")
-#undef INO_NAME
-#pragma push_macro("UID_NAME")
-#undef UID_NAME
-#pragma push_macro("CTIME_NAME")
-#undef CTIME_NAME
-#pragma push_macro("GID_NAME")
-#undef GID_NAME
 #pragma push_macro("RDEV_NAME")
 #undef RDEV_NAME
+#pragma push_macro("UID_NAME")
+#undef UID_NAME
 
 namespace java {
 	namespace util {
@@ -65,13 +65,13 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("CTIME_NAME")
+#pragma pop_macro("DEV_NAME")
+#pragma pop_macro("GID_NAME")
+#pragma pop_macro("INO_NAME")
 #pragma pop_macro("MODE_NAME")
 #pragma pop_macro("NLINK_NAME")
-#pragma pop_macro("DEV_NAME")
-#pragma pop_macro("INO_NAME")
-#pragma pop_macro("UID_NAME")
-#pragma pop_macro("CTIME_NAME")
-#pragma pop_macro("GID_NAME")
 #pragma pop_macro("RDEV_NAME")
+#pragma pop_macro("UID_NAME")
 
 #endif // _sun_nio_fs_UnixFileAttributeViews$Unix_h_

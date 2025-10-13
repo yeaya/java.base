@@ -15,12 +15,12 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef SUBSIZED
-#undef ORDERED
-#undef SIZED
 #undef DISTINCT
 #undef IMMUTABLE
+#undef NONNULL
+#undef ORDERED
+#undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

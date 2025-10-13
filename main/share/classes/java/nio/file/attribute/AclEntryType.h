@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("AUDIT")
-#undef AUDIT
-#pragma push_macro("DENY")
-#undef DENY
 #pragma push_macro("ALARM")
 #undef ALARM
 #pragma push_macro("ALLOW")
 #undef ALLOW
+#pragma push_macro("AUDIT")
+#undef AUDIT
+#pragma push_macro("DENY")
+#undef DENY
 
 namespace java {
 	namespace nio {
@@ -40,9 +40,9 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("AUDIT")
-#pragma pop_macro("DENY")
 #pragma pop_macro("ALARM")
 #pragma pop_macro("ALLOW")
+#pragma pop_macro("AUDIT")
+#pragma pop_macro("DENY")
 
 #endif // _java_nio_file_attribute_AclEntryType_h_

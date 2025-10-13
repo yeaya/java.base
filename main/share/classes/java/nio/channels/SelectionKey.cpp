@@ -18,9 +18,9 @@
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
 
-#undef OP_CONNECT
-#undef OP_ACCEPT
 #undef ATTACHMENT
+#undef OP_ACCEPT
+#undef OP_CONNECT
 #undef OP_READ
 #undef OP_WRITE
 

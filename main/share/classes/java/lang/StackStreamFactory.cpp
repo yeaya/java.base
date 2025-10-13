@@ -23,14 +23,14 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef MIN_BATCH_SIZE
+#undef BATCH_SIZE
+#undef DEFAULT_MODE
+#undef FILL_CLASS_REFS_ONLY
 #undef FILL_LIVE_STACK_FRAMES
 #undef GET_CALLER_CLASS
-#undef SHOW_HIDDEN_FRAMES
-#undef BATCH_SIZE
-#undef FILL_CLASS_REFS_ONLY
 #undef LARGE_BATCH_SIZE
-#undef DEFAULT_MODE
+#undef MIN_BATCH_SIZE
+#undef SHOW_HIDDEN_FRAMES
 #undef SMALL_BATCH
 
 using $ClassInfo = ::java::lang::ClassInfo;

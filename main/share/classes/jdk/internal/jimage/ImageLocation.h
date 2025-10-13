@@ -5,24 +5,24 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ATTRIBUTE_OFFSET")
-#undef ATTRIBUTE_OFFSET
 #pragma push_macro("ATTRIBUTE_BASE")
 #undef ATTRIBUTE_BASE
 #pragma push_macro("ATTRIBUTE_COMPRESSED")
 #undef ATTRIBUTE_COMPRESSED
-#pragma push_macro("ATTRIBUTE_MODULE")
-#undef ATTRIBUTE_MODULE
-#pragma push_macro("ATTRIBUTE_PARENT")
-#undef ATTRIBUTE_PARENT
-#pragma push_macro("ATTRIBUTE_EXTENSION")
-#undef ATTRIBUTE_EXTENSION
-#pragma push_macro("ATTRIBUTE_UNCOMPRESSED")
-#undef ATTRIBUTE_UNCOMPRESSED
-#pragma push_macro("ATTRIBUTE_END")
-#undef ATTRIBUTE_END
 #pragma push_macro("ATTRIBUTE_COUNT")
 #undef ATTRIBUTE_COUNT
+#pragma push_macro("ATTRIBUTE_END")
+#undef ATTRIBUTE_END
+#pragma push_macro("ATTRIBUTE_EXTENSION")
+#undef ATTRIBUTE_EXTENSION
+#pragma push_macro("ATTRIBUTE_MODULE")
+#undef ATTRIBUTE_MODULE
+#pragma push_macro("ATTRIBUTE_OFFSET")
+#undef ATTRIBUTE_OFFSET
+#pragma push_macro("ATTRIBUTE_PARENT")
+#undef ATTRIBUTE_PARENT
+#pragma push_macro("ATTRIBUTE_UNCOMPRESSED")
+#undef ATTRIBUTE_UNCOMPRESSED
 
 namespace java {
 	namespace nio {
@@ -90,14 +90,14 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("ATTRIBUTE_OFFSET")
 #pragma pop_macro("ATTRIBUTE_BASE")
 #pragma pop_macro("ATTRIBUTE_COMPRESSED")
-#pragma pop_macro("ATTRIBUTE_MODULE")
-#pragma pop_macro("ATTRIBUTE_PARENT")
-#pragma pop_macro("ATTRIBUTE_EXTENSION")
-#pragma pop_macro("ATTRIBUTE_UNCOMPRESSED")
-#pragma pop_macro("ATTRIBUTE_END")
 #pragma pop_macro("ATTRIBUTE_COUNT")
+#pragma pop_macro("ATTRIBUTE_END")
+#pragma pop_macro("ATTRIBUTE_EXTENSION")
+#pragma pop_macro("ATTRIBUTE_MODULE")
+#pragma pop_macro("ATTRIBUTE_OFFSET")
+#pragma pop_macro("ATTRIBUTE_PARENT")
+#pragma pop_macro("ATTRIBUTE_UNCOMPRESSED")
 
 #endif // _jdk_internal_jimage_ImageLocation_h_

@@ -15,12 +15,12 @@
 #include <sun/security/util/DisabledAlgorithmConstraints.h>
 #include <jcpp.h>
 
-#undef NE
-#undef LT
-#undef LE
 #undef EQ
-#undef GT
 #undef GE
+#undef GT
+#undef LE
+#undef LT
+#undef NE
 
 using $DisabledAlgorithmConstraints$Constraint$OperatorArray = $Array<::sun::security::util::DisabledAlgorithmConstraints$Constraint$Operator>;
 using $ClassInfo = ::java::lang::ClassInfo;

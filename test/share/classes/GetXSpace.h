@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("IS_MAC")
-#undef IS_MAC
+#pragma push_macro("DF_PATTERN")
+#undef DF_PATTERN
 #pragma push_macro("FILE_PREFIX")
 #undef FILE_PREFIX
+#pragma push_macro("IS_MAC")
+#undef IS_MAC
 #pragma push_macro("IS_WIN")
 #undef IS_WIN
 #pragma push_macro("OS_NAME")
 #undef OS_NAME
-#pragma push_macro("DF_PATTERN")
-#undef DF_PATTERN
 
 class GetXSpace$Space;
 namespace java {
@@ -81,10 +81,10 @@ public:
 	static $String* FILE_PREFIX;
 };
 
-#pragma pop_macro("IS_MAC")
+#pragma pop_macro("DF_PATTERN")
 #pragma pop_macro("FILE_PREFIX")
+#pragma pop_macro("IS_MAC")
 #pragma pop_macro("IS_WIN")
 #pragma pop_macro("OS_NAME")
-#pragma pop_macro("DF_PATTERN")
 
 #endif // _GetXSpace_h_

@@ -51,10 +51,10 @@
 #include <jcpp.h>
 
 #undef ALIAS_LENGTH
-#undef ENGLISH
 #undef ALIAS_PREFIX
 #undef ALIAS_PREFIX_LOWER
 #undef EMPTY
+#undef ENGLISH
 
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

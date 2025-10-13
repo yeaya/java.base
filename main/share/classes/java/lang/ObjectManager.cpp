@@ -566,7 +566,7 @@ std::atomic<int64_t> scanIndex = 0;
 volatile GcType globalGcType = GC_TYPE_NONE;
 //std::atomic_bool globalStop4gc = false;
 
-bool objectManagerInited = false;
+volatile bool objectManagerInited = false;
 
 enum GcStatus {
 	GC_STATUS_NONE = 0,
@@ -1092,6 +1092,7 @@ public:
 
 	char threadName[32];
 	bool daemon;
+	bool exiting;
 	std::mutex mutexLocal;
 	std::condition_variable cvLocal;
 
@@ -1192,7 +1193,7 @@ public:
 
 	int32_t makeRefScanCount(ObjectHead* oh);
 
-	void deinit();
+	void deinit(bool force);
 
 	void debugAnalayzeOH(ObjectHead* oh) {
 #ifdef OBJECT_DEBUG
@@ -2045,6 +2046,7 @@ public:
 };
 
 GlobalControllerThread* globalControllerThread = nullptr;
+std::mutex globalControllerThreadMutex;
 
 bool isObjectField2(const char* descriptor) {
 	return descriptor[1] != '\0';
@@ -2566,6 +2568,7 @@ void LocalController::init(Thread* thread) {
 	//statLocal.threadCount = 1;
 	this->thread = thread;
 	this->daemon = thread->isDaemon();
+	this->exiting = false;
 	thread->localController = this;
 	$var(String, tname, thread->getName());
 	if (tname != nullptr) {
@@ -3363,11 +3366,30 @@ void ObjectManagerInternal::init3() {
 
 void ObjectManagerInternal::deinit() {
 	log_debug("ObjectManagerInternal::deinit()");
-	if (globalControllerThread != nullptr) {
-		globalController->deinit();
+	if (objectManagerInited) {
+		globalController->deinit(false);
+		if (globalControllerThread != nullptr) {
+			std::lock_guard lock(globalControllerThreadMutex);
+			if (globalControllerThread != nullptr) {
+				globalControllerThread->stop();
+				globalControllerThread = nullptr;
+			}
+		}
+		objectManagerInited = false;
+	}
+}
 
-		globalControllerThread->stop();
-		globalControllerThread = nullptr;
+void ObjectManagerInternal::beforeExit() {
+	log_debug("ObjectManagerInternal::beforeExit()");
+	if (objectManagerInited) {
+		globalController->deinit(true);
+		if (globalControllerThread != nullptr) {
+			std::lock_guard lock(globalControllerThreadMutex);
+			if (globalControllerThread != nullptr) {
+				globalControllerThread->stop();
+				globalControllerThread = nullptr;
+			}
+		}
 		objectManagerInited = false;
 	}
 }
@@ -3601,7 +3623,7 @@ bool GlobalController::existsNonDaemonThread() {
 			it.next();
 			// printf("controller %s\n", controller->threadName);
 			// localController is main thread
-			if (controller != localController && !controller->daemon) {
+			if (!controller->exiting && !controller->daemon) {
 				ret = true;
 				break;
 			}
@@ -3619,7 +3641,9 @@ void GlobalController::printThreads() {
 		if (controller == localController) {
 			log_debug("*");
 		}
-		if (controller->daemon) {
+		if (controller->exiting) {
+			log_debug("exiting thread %s\n", controller->threadName);
+		}  else if (controller->daemon) {
 			log_debug("daemon thread %s\n", controller->threadName);
 		} else {
 			log_debug("thread %s\n", controller->threadName);
@@ -3634,89 +3658,8 @@ bool isClassObj(Object* obj, Class* clazz) {
 	return false;
 }
 
-/*
-template<typename T1, typename T2>
-inline void LocalController::handleAssign4Gc(T1 newRef, T2 delRef) {
-	GcType type = globalGcType;
-	//if (type != GC_TYPE_NONE) 
-	if (savePendingLocal) {
-		if (newRef != nullptr || delRef != nullptr) {
-			ObjectHead* newOH = nullptr;
-			if (newRef != nullptr) {
-				Object0* obj0 = toObject0(newRef);
-				newOH = toOh(obj0);
-				if (type == GC_TYPE_ASYNC_LOCAL) {
-					if (newOH->isGlobal()) {
-						newOH = nullptr;
-					} else if (newOH->isLive(liveCodeLocal)) {
-						newOH = nullptr;
-					}
-				} else if (type == GC_TYPE_FULL) {
-					if (newOH->isLive(globalController->liveCodeGlobal)) {
-						newOH = nullptr;
-					}
-				}
-			}
-			ObjectHead* delOH = nullptr;
-			if (delRef != nullptr) {
-				Object0* obj0 = toObject0(delRef);
-				delOH = toOh(obj0);
-				if (type == GC_TYPE_ASYNC_LOCAL) {
-					if (delOH->isGlobal()) {
-						delOH = nullptr;
-					} else if (delOH->isLive(liveCodeLocal)) {
-						delOH = nullptr;
-					}
-				} else if (type == GC_TYPE_FULL) {
-					if (delOH->isLive(globalController->liveCodeGlobal)) {
-						delOH = nullptr;
-					}
-				}
-			}
-			if (newOH != nullptr || delOH != nullptr) {
-				if (type == GC_TYPE_ASYNC_LOCAL) {
-					if (localStop4gc) {
-						while (localStop4gc) {
-							//std::unique_lock<std::mutex> lock(mutexLocal);
-							//if (localStop4gc) {
-							//	cvLocal.wait_for(lock, std::chrono::nanoseconds(10));
-							//}
-						}
-						return;
-					}
-				} else {
-					if (globalStop4gc) {
-						while (globalStop4gc) {
-							//std::unique_lock<std::mutex> lock(mutexLocal);
-							//if (globalStop4gc) {
-							//	cvLocal.wait_for(lock, std::chrono::nanoseconds(10));
-							//}
-						}
-						return;
-					}
-				}
-				if (newOH != nullptr) {
-					bool ret = pendingSaver.write(newOH);
-					if (!ret) {
-						//while (globalGcType != GC_TYPE_NONE) {}
-						while (savePendingLocal) {}
-					}
-				}
-				if (delOH != nullptr) {
-					bool ret = pendingSaver.write(delOH);
-					if (!ret) {
-						//while (globalGcType != GC_TYPE_NONE) {}
-						while (savePendingLocal) {}
-					}
-				}
-			}
-		}
-	}
-}
-*/
 template<typename T>
 void LocalController::savePending4Gc(T obj) {
-	//if (type != GC_TYPE_NONE) 
 	if (savePendingLocal) {
 		if (obj != nullptr) {
 			Object0* obj0 = toObject0(obj);
@@ -3727,51 +3670,19 @@ void LocalController::savePending4Gc(T obj) {
 			if (oh->isLive(liveCodeLocal)) {
 				return;
 			}
-			//GcType type = globalGcType;
 			if (oh->isGlobal() && globalGcType == GC_TYPE_ASYNC_LOCAL) {
-				//if (oh->isGlobal()) {
-					return;
-				//} else if (oh->isLive(liveCodeLocal)) {
-				//	return;
-				//}
-			//} else if (type == GC_TYPE_FULL) {
-			//	if (oh->isLive(globalController->liveCodeGlobal)) {
-			//		return;
-			//	}
+				return;
 			}
-			// is leaf Object
-			//Class* clazz = oh->clazz;
-			//Class* componentType = clazz->componentType$;
-			//if (componentType != nullptr && componentType->primitive) {
-			//	oh->setLive(liveCodeLocal);
-			//	return;
-			//} else if (clazz == String::class$) {
-			//	oh->setLive(liveCodeLocal);
-			//	String* s = (String*)obj0;
-			//	ObjectHead* valuesOH = toOh($of(s->value$));
-			//	valuesOH->setLive(liveCodeLocal);
-			//	return;
-			//}
 			
-			//if (type == GC_TYPE_ASYNC_LOCAL) {
-				if (localStop4gc) {
-					int64_t stopSartNS = System::nanoTime();
-					while (localStop4gc) {}
-					stopNSLocal += System::nanoTime() - stopSartNS;
-					return;
-				}
-			//} else {
-			//	if (globalStop4gc) {
-			//		int64_t stopSartNS = System::nanoTime();
-			//		while (globalStop4gc) {}
-			//		stopNSLocal += System::nanoTime() - stopSartNS;
-			//		return;
-			//	}
-			//}
+			if (localStop4gc) {
+				int64_t stopSartNS = System::nanoTime();
+				while (localStop4gc) {}
+				stopNSLocal += System::nanoTime() - stopSartNS;
+				return;
+			}
 			bool ret = pendingSaver.write(oh);
 			if (!ret) {
 				int64_t stopSartNS = System::nanoTime();
-				//while (globalGcType != GC_TYPE_NONE) {}
 				while (savePendingLocal) {}
 				stopNSLocal += System::nanoTime() - stopSartNS;
 			}
@@ -6475,11 +6386,12 @@ int32_t GlobalController::makeRefScanCount(ObjectHead* oh) {
 	return scanner.scanedCount;
 }
 
-void GlobalController::deinit() {
+void GlobalController::deinit(bool force) {
 	//int32_t refPendingListGlobalCount = refPendingListGlobal.size();
 
 	if (localController != nullptr) {
 		localController->expungeStaleEntries4ThreadLocal();
+		localController->exiting = true;
 	}
 
 	GcResult gcResult(GC_TYPE_FULL);
@@ -6497,6 +6409,9 @@ void GlobalController::deinit() {
 		if (System::currentTimeMillis() - lastPrintMs > 5000) {
 			printThreads();
 			lastPrintMs = System::currentTimeMillis();
+		}
+		if (force) {
+			break;
 		}
 		{
 			std::unique_lock lock(this->mutexGlobal);

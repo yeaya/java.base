@@ -15,8 +15,8 @@
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
 
-#undef NOT_SIZED
 #undef IS_DISTINCT
+#undef NOT_SIZED
 #undef REFERENCE
 
 using $ClassInfo = ::java::lang::ClassInfo;

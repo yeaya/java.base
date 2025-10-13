@@ -5,34 +5,34 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("BAD_REQUEST")
-#undef BAD_REQUEST
-#pragma push_macro("TIME_NOT_AVAILABLE")
-#undef TIME_NOT_AVAILABLE
-#pragma push_macro("SYSTEM_FAILURE")
-#undef SYSTEM_FAILURE
-#pragma push_macro("BAD_ALG")
-#undef BAD_ALG
-#pragma push_macro("REVOCATION_WARNING")
-#undef REVOCATION_WARNING
-#pragma push_macro("REJECTION")
-#undef REJECTION
-#pragma push_macro("BAD_DATA_FORMAT")
-#undef BAD_DATA_FORMAT
-#pragma push_macro("REVOCATION_NOTIFICATION")
-#undef REVOCATION_NOTIFICATION
-#pragma push_macro("GRANTED_WITH_MODS")
-#undef GRANTED_WITH_MODS
-#pragma push_macro("WAITING")
-#undef WAITING
-#pragma push_macro("UNACCEPTED_POLICY")
-#undef UNACCEPTED_POLICY
-#pragma push_macro("UNACCEPTED_EXTENSION")
-#undef UNACCEPTED_EXTENSION
-#pragma push_macro("GRANTED")
-#undef GRANTED
 #pragma push_macro("ADD_INFO_NOT_AVAILABLE")
 #undef ADD_INFO_NOT_AVAILABLE
+#pragma push_macro("BAD_ALG")
+#undef BAD_ALG
+#pragma push_macro("BAD_DATA_FORMAT")
+#undef BAD_DATA_FORMAT
+#pragma push_macro("BAD_REQUEST")
+#undef BAD_REQUEST
+#pragma push_macro("GRANTED")
+#undef GRANTED
+#pragma push_macro("GRANTED_WITH_MODS")
+#undef GRANTED_WITH_MODS
+#pragma push_macro("REJECTION")
+#undef REJECTION
+#pragma push_macro("REVOCATION_NOTIFICATION")
+#undef REVOCATION_NOTIFICATION
+#pragma push_macro("REVOCATION_WARNING")
+#undef REVOCATION_WARNING
+#pragma push_macro("SYSTEM_FAILURE")
+#undef SYSTEM_FAILURE
+#pragma push_macro("TIME_NOT_AVAILABLE")
+#undef TIME_NOT_AVAILABLE
+#pragma push_macro("UNACCEPTED_EXTENSION")
+#undef UNACCEPTED_EXTENSION
+#pragma push_macro("UNACCEPTED_POLICY")
+#undef UNACCEPTED_POLICY
+#pragma push_macro("WAITING")
+#undef WAITING
 
 namespace sun {
 	namespace security {
@@ -102,19 +102,19 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("BAD_REQUEST")
-#pragma pop_macro("TIME_NOT_AVAILABLE")
-#pragma pop_macro("SYSTEM_FAILURE")
-#pragma pop_macro("BAD_ALG")
-#pragma pop_macro("REVOCATION_WARNING")
-#pragma pop_macro("REJECTION")
-#pragma pop_macro("BAD_DATA_FORMAT")
-#pragma pop_macro("REVOCATION_NOTIFICATION")
-#pragma pop_macro("GRANTED_WITH_MODS")
-#pragma pop_macro("WAITING")
-#pragma pop_macro("UNACCEPTED_POLICY")
-#pragma pop_macro("UNACCEPTED_EXTENSION")
-#pragma pop_macro("GRANTED")
 #pragma pop_macro("ADD_INFO_NOT_AVAILABLE")
+#pragma pop_macro("BAD_ALG")
+#pragma pop_macro("BAD_DATA_FORMAT")
+#pragma pop_macro("BAD_REQUEST")
+#pragma pop_macro("GRANTED")
+#pragma pop_macro("GRANTED_WITH_MODS")
+#pragma pop_macro("REJECTION")
+#pragma pop_macro("REVOCATION_NOTIFICATION")
+#pragma pop_macro("REVOCATION_WARNING")
+#pragma pop_macro("SYSTEM_FAILURE")
+#pragma pop_macro("TIME_NOT_AVAILABLE")
+#pragma pop_macro("UNACCEPTED_EXTENSION")
+#pragma pop_macro("UNACCEPTED_POLICY")
+#pragma pop_macro("WAITING")
 
 #endif // _sun_security_timestamp_TSResponse_h_

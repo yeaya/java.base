@@ -22,15 +22,15 @@
 #include <java/text/ParseException.h>
 #include <jcpp.h>
 
+#undef AE
+#undef CEILING
 #undef DOWN
 #undef FLOOR
-#undef AE
-#undef UNNECESSARY
-#undef CEILING
-#undef HALF_EVEN
-#undef UP
-#undef HALF_UP
 #undef HALF_DOWN
+#undef HALF_EVEN
+#undef HALF_UP
+#undef UNNECESSARY
+#undef UP
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;

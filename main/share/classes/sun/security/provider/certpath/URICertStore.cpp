@@ -56,14 +56,14 @@
 #include <sun/security/x509/URIName.h>
 #include <jcpp.h>
 
-#undef ENGLISH
-#undef HTTP_NOT_MODIFIED
-#undef DEFAULT_CRL_READ_TIMEOUT
 #undef CACHE_SIZE
-#undef DEFAULT_CRL_CONNECT_TIMEOUT
 #undef CHECK_INTERVAL
 #undef CRL_CONNECT_TIMEOUT
 #undef CRL_READ_TIMEOUT
+#undef DEFAULT_CRL_CONNECT_TIMEOUT
+#undef DEFAULT_CRL_READ_TIMEOUT
+#undef ENGLISH
+#undef HTTP_NOT_MODIFIED
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -298,7 +298,7 @@ $Collection* URICertStore::engineGetCertificates($CertSelector* selector) {
 									goto $finally;
 								} else if ($instanceOf($HttpURLConnection, connection)) {
 									$var($HttpURLConnection, hconn, $cast($HttpURLConnection, connection));
-									if ($nc(hconn)->getResponseCode() == $HttpURLConnection::HTTP_NOT_MODIFIED) {
+									if (hconn->getResponseCode() == $HttpURLConnection::HTTP_NOT_MODIFIED) {
 										if (URICertStore::debug != nullptr) {
 											$nc(URICertStore::debug)->println("Not modified, using cached copy"_s);
 										}
@@ -424,7 +424,7 @@ $Collection* URICertStore::engineGetCRLs($CRLSelector* selector) {
 									goto $finally;
 								} else if ($instanceOf($HttpURLConnection, connection)) {
 									$var($HttpURLConnection, hconn, $cast($HttpURLConnection, connection));
-									if ($nc(hconn)->getResponseCode() == $HttpURLConnection::HTTP_NOT_MODIFIED) {
+									if (hconn->getResponseCode() == $HttpURLConnection::HTTP_NOT_MODIFIED) {
 										if (URICertStore::debug != nullptr) {
 											$nc(URICertStore::debug)->println("Not modified, using cached copy"_s);
 										}

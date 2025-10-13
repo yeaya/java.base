@@ -13,8 +13,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef POSIX_SPAWN
 #undef FORK
+#undef POSIX_SPAWN
 #undef VFORK
 
 using $ProcessImpl$LaunchMechanismArray = $Array<::java::lang::ProcessImpl$LaunchMechanism>;

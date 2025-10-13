@@ -143,7 +143,7 @@ void CRC32::update($ByteBuffer* buffer) {
 				$throw(var$0);
 			}
 		}
-	} else if ($nc(buffer)->hasArray()) {
+	} else if (buffer->hasArray()) {
 		int32_t var$1 = this->crc;
 		$var($bytes, var$2, $cast($bytes, buffer->array()));
 		this->crc = updateBytes(var$1, var$2, pos + buffer->arrayOffset(), rem);

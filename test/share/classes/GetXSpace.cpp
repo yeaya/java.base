@@ -46,11 +46,11 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef IS_MAC
+#undef DF_PATTERN
 #undef FILE_PREFIX
+#undef IS_MAC
 #undef IS_WIN
 #undef OS_NAME
-#undef DF_PATTERN
 
 using $GetXSpace$Allow = ::GetXSpace$Allow;
 using $GetXSpace$Deny = ::GetXSpace$Deny;

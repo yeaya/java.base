@@ -23,8 +23,8 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
 
 using $StringBufferArray = $Array<::java::lang::StringBuffer>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
@@ -112,22 +112,19 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 				inQuote = !inQuote;
 			}
 		} else if (inQuote) {
-			$nc($nc(segments)->get(part))->append(ch);
+			$nc(segments->get(part))->append(ch);
 		} else if (ch == u'<' || ch == u'#' || ch == (char16_t)0x2264) {
-			if ($nc($nc(segments)->get(0))->length() == 0) {
+			if ($nc(segments->get(0))->length() == 0) {
 				$throwNew($IllegalArgumentException, "Each interval must contain a number before a format"_s);
 			}
-			$var($String, tempBuffer, $nc($nc(segments)->get(0))->toString());
+			$var($String, tempBuffer, $nc(segments->get(0))->toString());
 			if ($nc(tempBuffer)->equals(u"\u221e"_s)) {
-				$init($Double);
 				startValue = $Double::POSITIVE_INFINITY;
-			} else if ($nc(tempBuffer)->equals(u"-\u221e"_s)) {
-				$init($Double);
+			} else if (tempBuffer->equals(u"-\u221e"_s)) {
 				startValue = $Double::NEGATIVE_INFINITY;
 			} else {
 				startValue = $Double::parseDouble(tempBuffer);
 			}
-			$init($Double);
 			if (ch == u'<' && startValue != $Double::POSITIVE_INFINITY && startValue != $Double::NEGATIVE_INFINITY) {
 				startValue = nextDouble(startValue);
 			}
@@ -142,13 +139,13 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 				$assign(newChoiceFormats, doubleArraySize(newChoiceFormats));
 			}
 			$nc(newChoiceLimits)->set(count, startValue);
-			$nc(newChoiceFormats)->set(count, $($nc($nc(segments)->get(1))->toString()));
+			$nc(newChoiceFormats)->set(count, $($nc(segments->get(1))->toString()));
 			++count;
 			oldStartValue = startValue;
 			$nc(segments->get(1))->setLength(0);
 			part = 0;
 		} else {
-			$nc($nc(segments)->get(part))->append(ch);
+			$nc(segments->get(part))->append(ch);
 		}
 	}
 	if (part == 1) {

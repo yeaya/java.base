@@ -11,10 +11,10 @@
 #undef SUPPORTS_FUTIMENS
 #pragma push_macro("SUPPORTS_FUTIMES")
 #undef SUPPORTS_FUTIMES
-#pragma push_macro("SUPPORTS_OPENAT")
-#undef SUPPORTS_OPENAT
 #pragma push_macro("SUPPORTS_LUTIMES")
 #undef SUPPORTS_LUTIMES
+#pragma push_macro("SUPPORTS_OPENAT")
+#undef SUPPORTS_OPENAT
 #pragma push_macro("SUPPORTS_XATTR")
 #undef SUPPORTS_XATTR
 
@@ -144,8 +144,8 @@ public:
 #pragma pop_macro("SUPPORTS_BIRTHTIME")
 #pragma pop_macro("SUPPORTS_FUTIMENS")
 #pragma pop_macro("SUPPORTS_FUTIMES")
-#pragma pop_macro("SUPPORTS_OPENAT")
 #pragma pop_macro("SUPPORTS_LUTIMES")
+#pragma pop_macro("SUPPORTS_OPENAT")
 #pragma pop_macro("SUPPORTS_XATTR")
 
 #endif // _sun_nio_fs_UnixNativeDispatcher_h_

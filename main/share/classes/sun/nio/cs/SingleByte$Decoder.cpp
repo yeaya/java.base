@@ -23,9 +23,9 @@
 #include <sun/nio/cs/SingleByte.h>
 #include <jcpp.h>
 
+#undef JLA
 #undef OVERFLOW
 #undef UNDERFLOW
-#undef JLA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

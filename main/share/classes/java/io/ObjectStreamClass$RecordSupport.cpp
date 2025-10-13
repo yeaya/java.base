@@ -42,8 +42,8 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef TYPE
 #undef PRIM_VALUE_EXTRACTORS
+#undef TYPE
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $RecordComponentArray = $Array<::java::lang::reflect::RecordComponent>;

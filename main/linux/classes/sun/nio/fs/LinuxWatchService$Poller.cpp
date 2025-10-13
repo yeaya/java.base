@@ -42,32 +42,32 @@
 #include <sun/nio/fs/UnixPath.h>
 #include <jcpp.h>
 
-#undef IN_IGNORED
-#undef ENTRY_CREATE
-#undef SENSITIVITY_LOW
-#undef IN_DELETE
-#undef OFFSETOF_NAME
-#undef OFFSETOF_LEN
-#undef IN_CREATE
-#undef IN_MOVED_FROM
-#undef BUFFER_SIZE
-#undef IN_ATTRIB
-#undef SENSITIVITY_MEDIUM
-#undef EAGAIN
-#undef OFFSETOF_MASK
-#undef ENTRY_MODIFY
-#undef SIZEOF_INOTIFY_EVENT
-#undef IN_UNMOUNT
-#undef ENOSPC
-#undef IN_MOVED_TO
-#undef OVERFLOW
-#undef IN_MODIFY
-#undef SENSITIVITY_HIGH
-#undef EWOULDBLOCK
 #undef ARRAY_BYTE_BASE_OFFSET
-#undef OFFSETOF_WD
+#undef BUFFER_SIZE
+#undef EAGAIN
+#undef ENOSPC
+#undef ENTRY_CREATE
 #undef ENTRY_DELETE
+#undef ENTRY_MODIFY
+#undef EWOULDBLOCK
+#undef IN_ATTRIB
+#undef IN_CREATE
+#undef IN_DELETE
+#undef IN_IGNORED
+#undef IN_MODIFY
+#undef IN_MOVED_FROM
+#undef IN_MOVED_TO
 #undef IN_Q_OVERFLOW
+#undef IN_UNMOUNT
+#undef OFFSETOF_LEN
+#undef OFFSETOF_MASK
+#undef OFFSETOF_NAME
+#undef OFFSETOF_WD
+#undef OVERFLOW
+#undef SENSITIVITY_HIGH
+#undef SENSITIVITY_LOW
+#undef SENSITIVITY_MEDIUM
+#undef SIZEOF_INOTIFY_EVENT
 
 using $WatchEvent$ModifierArray = $Array<::java::nio::file::WatchEvent$Modifier>;
 using $IOException = ::java::io::IOException;

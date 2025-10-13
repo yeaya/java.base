@@ -27,8 +27,8 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef IN_PROGRESS
 #undef INITIAL
+#undef IN_PROGRESS
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $OutputStream = ::java::io::OutputStream;

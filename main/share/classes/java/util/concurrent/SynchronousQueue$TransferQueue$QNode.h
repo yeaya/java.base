@@ -7,10 +7,10 @@
 
 #pragma push_macro("QITEM")
 #undef QITEM
-#pragma push_macro("QWAITER")
-#undef QWAITER
 #pragma push_macro("QNEXT")
 #undef QNEXT
+#pragma push_macro("QWAITER")
+#undef QWAITER
 
 namespace java {
 	namespace lang {
@@ -57,7 +57,7 @@ public:
 } // java
 
 #pragma pop_macro("QITEM")
-#pragma pop_macro("QWAITER")
 #pragma pop_macro("QNEXT")
+#pragma pop_macro("QWAITER")
 
 #endif // _java_util_concurrent_SynchronousQueue$TransferQueue$QNode_h_

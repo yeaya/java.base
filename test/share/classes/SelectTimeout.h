@@ -7,10 +7,10 @@
 
 #pragma push_macro("BIGGER_TIMEOUT")
 #undef BIGGER_TIMEOUT
-#pragma push_macro("SLEEP_MILLIS")
-#undef SLEEP_MILLIS
 #pragma push_macro("BIG_TIMEOUT")
 #undef BIG_TIMEOUT
+#pragma push_macro("SLEEP_MILLIS")
+#undef SLEEP_MILLIS
 
 namespace java {
 	namespace nio {
@@ -44,7 +44,7 @@ public:
 };
 
 #pragma pop_macro("BIGGER_TIMEOUT")
-#pragma pop_macro("SLEEP_MILLIS")
 #pragma pop_macro("BIG_TIMEOUT")
+#pragma pop_macro("SLEEP_MILLIS")
 
 #endif // _SelectTimeout_h_

@@ -31,12 +31,12 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef UPPERCASE_DIGITS
-#undef LOWERCASE_DIGITS
 #undef DIGITS
 #undef EMPTY_BYTES
-#undef MAX_VALUE
 #undef HEX_FORMAT
+#undef LOWERCASE_DIGITS
+#undef MAX_VALUE
+#undef UPPERCASE_DIGITS
 
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;

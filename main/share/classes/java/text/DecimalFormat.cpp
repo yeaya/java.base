@@ -55,44 +55,44 @@
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
 #include <jcpp.h>
 
-#undef PATTERN_DECIMAL_SEPARATOR
-#undef DOUBLE_INTEGER_DIGITS
-#undef PATTERN_PER_MILLE
-#undef QUOTE
-#undef MAXIMUM_INTEGER_DIGITS
-#undef FORMAT
-#undef PATTERN_PERCENT
-#undef MAX_VALUE
-#undef PATTERN_EXPONENT
-#undef DECIMAL_SEPARATOR
-#undef FRACTION
-#undef GROUPING_SEPARATOR
-#undef NEGATIVE_INFINITY
-#undef MAX_INT_AS_DOUBLE
-#undef STATUS_INFINITE
-#undef PATTERN_DIGIT
-#undef PATTERN_ZERO_DIGIT
-#undef PATTERN_GROUPING_SEPARATOR
-#undef SIGN
-#undef PATTERN_SEPARATOR
-#undef INTEGER
-#undef EXPONENT_SYMBOL
-#undef MAXIMUM_FRACTION_DIGITS
 #undef CURRENCY
-#undef EXPONENT_SIGN
-#undef PATTERN_MINUS
-#undef STATUS_LENGTH
-#undef INSTANCE
-#undef DOUBLE_FRACTION_DIGITS
-#undef INTEGER_FIELD
-#undef POSITIVE_INFINITY
-#undef STATUS_POSITIVE
-#undef PERMILLE
 #undef CURRENCY_SIGN
-#undef HALF_EVEN
-#undef FRACTION_FIELD
-#undef PERCENT
+#undef DECIMAL_SEPARATOR
+#undef DOUBLE_FRACTION_DIGITS
+#undef DOUBLE_INTEGER_DIGITS
 #undef EXPONENT
+#undef EXPONENT_SIGN
+#undef EXPONENT_SYMBOL
+#undef FORMAT
+#undef FRACTION
+#undef FRACTION_FIELD
+#undef GROUPING_SEPARATOR
+#undef HALF_EVEN
+#undef INSTANCE
+#undef INTEGER
+#undef INTEGER_FIELD
+#undef MAXIMUM_FRACTION_DIGITS
+#undef MAXIMUM_INTEGER_DIGITS
+#undef MAX_INT_AS_DOUBLE
+#undef MAX_VALUE
+#undef NEGATIVE_INFINITY
+#undef PATTERN_DECIMAL_SEPARATOR
+#undef PATTERN_DIGIT
+#undef PATTERN_EXPONENT
+#undef PATTERN_GROUPING_SEPARATOR
+#undef PATTERN_MINUS
+#undef PATTERN_PERCENT
+#undef PATTERN_PER_MILLE
+#undef PATTERN_SEPARATOR
+#undef PATTERN_ZERO_DIGIT
+#undef PERCENT
+#undef PERMILLE
+#undef POSITIVE_INFINITY
+#undef QUOTE
+#undef SIGN
+#undef STATUS_INFINITE
+#undef STATUS_LENGTH
+#undef STATUS_POSITIVE
 
 using $FieldPositionArray = $Array<::java::text::FieldPosition>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
@@ -793,13 +793,12 @@ void DecimalFormat::collectFractionalDigits(int32_t number, $chars* digitsBuffer
 		$nc(digitsBuffer)->set(index++, digitTens);
 		digitsBuffer->set(index++, digitOnes);
 	} else if (number != 0) {
-		$init($DecimalFormat$DigitArrays);
 		$nc(digitsBuffer)->set(index++, $nc($DecimalFormat$DigitArrays::DigitHundreds1000)->get(number));
 		if (digitOnes != u'0') {
 			digitsBuffer->set(index++, digitTens);
 			digitsBuffer->set(index++, digitOnes);
 		} else if (digitTens != u'0') {
-			$nc(digitsBuffer)->set(index++, digitTens);
+			digitsBuffer->set(index++, digitTens);
 		}
 	} else {
 		--index;
@@ -1167,7 +1166,7 @@ $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
 		if ($nc(this->digitList)->isZero()) {
 			$init($Double);
 			return $Double::valueOf($Double::NaN);
-		} else if ($nc(status)->get(DecimalFormat::STATUS_POSITIVE)) {
+		} else if (status->get(DecimalFormat::STATUS_POSITIVE)) {
 			$init($Double);
 			return $Double::valueOf($Double::POSITIVE_INFINITY);
 		} else {
@@ -1262,7 +1261,7 @@ bool DecimalFormat::subparse($String* text, $ParsePosition* parsePosition, $Stri
 	} else if (gotNegative) {
 		position += $nc(negativePrefix)->length();
 	} else {
-		$nc(parsePosition)->errorIndex = position;
+		parsePosition->errorIndex = position;
 		return false;
 	}
 	position = subparseNumber(text, position, digits, true, isExponent, status);
@@ -1349,20 +1348,20 @@ int32_t DecimalFormat::subparseNumber($String* text, int32_t position, $DigitLis
 			} else if (digit > 0 && digit <= 9) {
 				sawDigit = true;
 				++digitCount;
-				$nc(digits)->append((char16_t)(digit + u'0'));
+				digits->append((char16_t)(digit + u'0'));
 				backup = -1;
 			} else if (!isExponent && ch == decimal) {
 				if (isParseIntegerOnly() || sawDecimal) {
 					break;
 				}
-				$nc(digits)->decimalAt = digitCount;
+				digits->decimalAt = digitCount;
 				sawDecimal = true;
 			} else if (!isExponent && ch == grouping && isGroupingUsed()) {
 				if (sawDecimal) {
 					break;
 				}
 				backup = position;
-			} else if (checkExponent && !isExponent && $nc(text)->regionMatches(position, exponentString, 0, $nc(exponentString)->length()) && !sawExponent) {
+			} else if (checkExponent && !isExponent && text->regionMatches(position, exponentString, 0, $nc(exponentString)->length()) && !sawExponent) {
 				$var($ParsePosition, pos, $new($ParsePosition, position + $nc(exponentString)->length()));
 				$var($booleans, stat, $new($booleans, DecimalFormat::STATUS_LENGTH));
 				$var($DigitList, exponentDigits, $new($DigitList));
@@ -1928,20 +1927,20 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 						--pos;
 						continue;
 					} else if (ch == DecimalFormat::CURRENCY_SIGN) {
-						bool var$1 = (pos + 1) < $nc(pattern)->length();
+						bool var$1 = (pos + 1) < pattern->length();
 						bool doubled = var$1 && pattern->charAt(pos + 1) == DecimalFormat::CURRENCY_SIGN;
 						if (doubled) {
 							++pos;
 						}
 						this->isCurrencyFormat = true;
-						$nc(affix)->append(doubled ? u"\'\u00a4\u00a4"_s : u"\'\u00a4"_s);
+						affix->append(doubled ? u"\'\u00a4\u00a4"_s : u"\'\u00a4"_s);
 						continue;
 					} else if (ch == DecimalFormat::QUOTE) {
 						if (ch == DecimalFormat::QUOTE) {
-							bool var$2 = (pos + 1) < $nc(pattern)->length();
+							bool var$2 = (pos + 1) < pattern->length();
 							if (var$2 && pattern->charAt(pos + 1) == DecimalFormat::QUOTE) {
 								++pos;
-								$nc(affix)->append("\'\'"_s);
+								affix->append("\'\'"_s);
 							} else {
 								inQuote = true;
 							}
@@ -1952,24 +1951,24 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 							$throwNew($IllegalArgumentException, $$str({"Unquoted special character \'"_s, $$str(ch), "\' in pattern \""_s, pattern, $$str(u'\"')}));
 						}
 						start = pos + 1;
-						pos = $nc(pattern)->length();
+						pos = pattern->length();
 						continue;
 					} else if (ch == percent) {
 						if (multiplier != 1) {
 							$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
 						}
 						multiplier = 100;
-						$nc(affix)->append("\'%"_s);
+						affix->append("\'%"_s);
 						continue;
 					} else if (ch == perMill) {
 						if (multiplier != 1) {
 							$throwNew($IllegalArgumentException, $$str({"Too many percent/per mille characters in pattern \""_s, pattern, $$str(u'\"')}));
 						}
 						multiplier = 1000;
-						$nc(affix)->append(u"\'\u2030"_s);
+						affix->append(u"\'\u2030"_s);
 						continue;
 					} else if (ch == minus) {
-						$nc(affix)->append("\'-"_s);
+						affix->append("\'-"_s);
 						continue;
 					}
 					affix->append(ch);
@@ -1982,7 +1981,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 							char16_t negPatternChar = pattern->charAt(pos);
 							if (negPatternChar == digit || negPatternChar == zeroDigit || negPatternChar == groupingSeparator || negPatternChar == decimalSeparator) {
 								++pos;
-							} else if ($nc(pattern)->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
+							} else if (pattern->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
 								pos = pos + $nc(exponent)->length();
 							} else {
 								--pos;
@@ -2017,7 +2016,7 @@ void DecimalFormat::applyPattern($String* pattern, bool localized) {
 							$throwNew($IllegalArgumentException, $$str({"Multiple decimal separators in pattern \""_s, pattern, $$str(u'\"')}));
 						}
 						decimalPos = digitLeftCount + zeroDigitCount + digitRightCount;
-					} else if ($nc(pattern)->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
+					} else if (pattern->regionMatches(pos, exponent, 0, $nc(exponent)->length())) {
 						if (this->useExponentialNotation) {
 							$throwNew($IllegalArgumentException, $$str({"Multiple exponential symbols in pattern \""_s, pattern, $$str(u'\"')}));
 						}

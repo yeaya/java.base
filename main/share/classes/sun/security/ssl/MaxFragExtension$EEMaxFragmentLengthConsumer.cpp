@@ -23,9 +23,9 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef CH_MAX_FRAGMENT_LENGTH
 #undef EE_MAX_FRAGMENT_LENGTH
 #undef ILLEGAL_PARAMETER
-#undef CH_MAX_FRAGMENT_LENGTH
 #undef UNEXPECTED_MESSAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;

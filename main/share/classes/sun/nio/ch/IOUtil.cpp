@@ -31,8 +31,8 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef NIO_ACCESS
 #undef IOV_MAX
+#undef NIO_ACCESS
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $FileDescriptor = ::java::io::FileDescriptor;

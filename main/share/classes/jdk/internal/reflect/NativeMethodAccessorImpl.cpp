@@ -26,8 +26,8 @@ using ::java::lang::Util;
 using ::java::lang::LongArray;
 using ::java::lang::reflect::InvocationTargetException;
 
-#undef U
 #undef GENERATED_OFFSET
+#undef U
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

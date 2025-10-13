@@ -33,10 +33,10 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef PATH_TOO_LONG
 #undef INVALID_NAME
-#undef NOT_CA_CERT
 #undef MAX_VALUE
+#undef NOT_CA_CERT
+#undef PATH_TOO_LONG
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

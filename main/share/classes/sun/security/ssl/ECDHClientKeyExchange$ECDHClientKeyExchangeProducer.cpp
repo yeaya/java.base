@@ -152,7 +152,7 @@ $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($Connection
 	if ($nc(algorithm)->equals("EC"_s)) {
 		$var($ECParameterSpec, params, $nc(($cast($ECPublicKey, publicKey)))->getParams());
 		namedGroup = $NamedGroup::valueOf(params);
-	} else if ($nc(algorithm)->equals("XDH"_s)) {
+	} else if (algorithm->equals("XDH"_s)) {
 		$var($AlgorithmParameterSpec, params, $nc(($cast($XECPublicKey, publicKey)))->getParams());
 		if ($instanceOf($NamedParameterSpec, params)) {
 			$var($String, name, $nc(($cast($NamedParameterSpec, params)))->getName());
@@ -160,7 +160,7 @@ $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($Connection
 		}
 	} else {
 		$init($Alert);
-		$throw($($nc($nc(chc)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Not EC/XDH server certificate for ECDH client key exchange"_s)));
+		$throw($($nc(chc->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Not EC/XDH server certificate for ECDH client key exchange"_s)));
 	}
 	if (namedGroup == nullptr) {
 		$init($Alert);

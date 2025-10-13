@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <sun/util/locale/provider/TimeZoneNameProviderImpl.h>
 
-#pragma push_macro("INDEX_STD_LONG")
-#undef INDEX_STD_LONG
+#pragma push_macro("INDEX_DST_LONG")
+#undef INDEX_DST_LONG
+#pragma push_macro("INDEX_DST_SHORT")
+#undef INDEX_DST_SHORT
 #pragma push_macro("INDEX_GEN_LONG")
 #undef INDEX_GEN_LONG
 #pragma push_macro("INDEX_GEN_SHORT")
 #undef INDEX_GEN_SHORT
-#pragma push_macro("NO_INHERITANCE_MARKER")
-#undef NO_INHERITANCE_MARKER
-#pragma push_macro("INDEX_DST_SHORT")
-#undef INDEX_DST_SHORT
-#pragma push_macro("INDEX_TZID")
-#undef INDEX_TZID
-#pragma push_macro("INDEX_DST_LONG")
-#undef INDEX_DST_LONG
+#pragma push_macro("INDEX_STD_LONG")
+#undef INDEX_STD_LONG
 #pragma push_macro("INDEX_STD_SHORT")
 #undef INDEX_STD_SHORT
+#pragma push_macro("INDEX_TZID")
+#undef INDEX_TZID
+#pragma push_macro("NO_INHERITANCE_MARKER")
+#undef NO_INHERITANCE_MARKER
 
 namespace java {
 	namespace util {
@@ -71,13 +71,13 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("INDEX_STD_LONG")
+#pragma pop_macro("INDEX_DST_LONG")
+#pragma pop_macro("INDEX_DST_SHORT")
 #pragma pop_macro("INDEX_GEN_LONG")
 #pragma pop_macro("INDEX_GEN_SHORT")
-#pragma pop_macro("NO_INHERITANCE_MARKER")
-#pragma pop_macro("INDEX_DST_SHORT")
-#pragma pop_macro("INDEX_TZID")
-#pragma pop_macro("INDEX_DST_LONG")
+#pragma pop_macro("INDEX_STD_LONG")
 #pragma pop_macro("INDEX_STD_SHORT")
+#pragma pop_macro("INDEX_TZID")
+#pragma pop_macro("NO_INHERITANCE_MARKER")
 
 #endif // _sun_util_cldr_CLDRTimeZoneNameProviderImpl_h_

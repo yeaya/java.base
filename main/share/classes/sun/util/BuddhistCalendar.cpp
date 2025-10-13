@@ -20,9 +20,9 @@
 #include <sun/util/locale/provider/CalendarDataUtility.h>
 #include <jcpp.h>
 
-#undef YEAR
-#undef ERA
 #undef BUDDHIST_YEAR_OFFSET
+#undef ERA
+#undef YEAR
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $CharSequence = ::java::lang::CharSequence;

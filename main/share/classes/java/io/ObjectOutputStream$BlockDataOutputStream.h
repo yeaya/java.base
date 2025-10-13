@@ -10,10 +10,10 @@
 
 #pragma push_macro("CHAR_BUF_SIZE")
 #undef CHAR_BUF_SIZE
-#pragma push_macro("MAX_HEADER_SIZE")
-#undef MAX_HEADER_SIZE
 #pragma push_macro("MAX_BLOCK_SIZE")
 #undef MAX_BLOCK_SIZE
+#pragma push_macro("MAX_HEADER_SIZE")
+#undef MAX_HEADER_SIZE
 
 namespace java {
 	namespace io {
@@ -84,7 +84,7 @@ public:
 } // java
 
 #pragma pop_macro("CHAR_BUF_SIZE")
-#pragma pop_macro("MAX_HEADER_SIZE")
 #pragma pop_macro("MAX_BLOCK_SIZE")
+#pragma pop_macro("MAX_HEADER_SIZE")
 
 #endif // _java_io_ObjectOutputStream$BlockDataOutputStream_h_

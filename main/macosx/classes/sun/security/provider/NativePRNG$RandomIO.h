@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIN_BUFFER_SIZE")
-#undef MIN_BUFFER_SIZE
-#pragma push_macro("REQ_LIMIT_INC")
-#undef REQ_LIMIT_INC
-#pragma push_macro("MAX_BUFFER_TIME")
-#undef MAX_BUFFER_TIME
-#pragma push_macro("MAX_BUFFER_SIZE")
-#undef MAX_BUFFER_SIZE
-#pragma push_macro("REQ_LIMIT_DEC")
-#undef REQ_LIMIT_DEC
-#pragma push_macro("LOCK_SET_SEED")
-#undef LOCK_SET_SEED
-#pragma push_macro("LOCK_GET_SEED")
-#undef LOCK_GET_SEED
 #pragma push_macro("LOCK_GET_BYTES")
 #undef LOCK_GET_BYTES
+#pragma push_macro("LOCK_GET_SEED")
+#undef LOCK_GET_SEED
+#pragma push_macro("LOCK_SET_SEED")
+#undef LOCK_SET_SEED
+#pragma push_macro("MAX_BUFFER_SIZE")
+#undef MAX_BUFFER_SIZE
+#pragma push_macro("MAX_BUFFER_TIME")
+#undef MAX_BUFFER_TIME
+#pragma push_macro("MIN_BUFFER_SIZE")
+#undef MIN_BUFFER_SIZE
+#pragma push_macro("REQ_LIMIT_DEC")
+#undef REQ_LIMIT_DEC
+#pragma push_macro("REQ_LIMIT_INC")
+#undef REQ_LIMIT_INC
 
 namespace java {
 	namespace io {
@@ -77,13 +77,13 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("MIN_BUFFER_SIZE")
-#pragma pop_macro("REQ_LIMIT_INC")
-#pragma pop_macro("MAX_BUFFER_TIME")
-#pragma pop_macro("MAX_BUFFER_SIZE")
-#pragma pop_macro("REQ_LIMIT_DEC")
-#pragma pop_macro("LOCK_SET_SEED")
-#pragma pop_macro("LOCK_GET_SEED")
 #pragma pop_macro("LOCK_GET_BYTES")
+#pragma pop_macro("LOCK_GET_SEED")
+#pragma pop_macro("LOCK_SET_SEED")
+#pragma pop_macro("MAX_BUFFER_SIZE")
+#pragma pop_macro("MAX_BUFFER_TIME")
+#pragma pop_macro("MIN_BUFFER_SIZE")
+#pragma pop_macro("REQ_LIMIT_DEC")
+#pragma pop_macro("REQ_LIMIT_INC")
 
 #endif // _sun_security_provider_NativePRNG$RandomIO_h_

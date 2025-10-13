@@ -54,8 +54,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef INSTRUCTION_CONSTANTS
 #undef EMPTY_SLOT
+#undef INSTRUCTION_CONSTANTS
 #undef INSTRUCTION_POPS
 #undef UNKNOWN_CON
 
@@ -528,13 +528,13 @@ bool Indify$Logic::initializeMarks() {
 char16_t Indify$Logic::nameMark($String* s) {
 	if ($nc(s)->startsWith("MT_"_s)) {
 		return u'T';
-	} else if ($nc(s)->startsWith("MH_"_s)) {
+	} else if (s->startsWith("MH_"_s)) {
 		return u'H';
-	} else if ($nc(s)->startsWith("INDY_"_s)) {
+	} else if (s->startsWith("INDY_"_s)) {
 		return u'I';
-	} else if ($nc(s)->startsWith("java/lang/invoke/"_s)) {
+	} else if (s->startsWith("java/lang/invoke/"_s)) {
 		return u'D';
-	} else if ($nc(s)->startsWith("java/lang/"_s)) {
+	} else if (s->startsWith("java/lang/"_s)) {
 		return u'J';
 	}
 	return (char16_t)0;
@@ -1160,11 +1160,11 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 												} else if ($instanceOf($Indify$Constant, typeArg)) {
 													$var($Indify$Constant, argCon, $cast($Indify$Constant, typeArg));
 													if ($nc(argCon)->tag == (int8_t)7) {
-														$var($String, cn, $nc($($cast($Indify$Constant, $nc(pool)->get($nc($(argCon->itemIndex()))->shortValue()))))->itemString());
+														$var($String, cn, $nc($($cast($Indify$Constant, pool->get($nc($(argCon->itemIndex()))->shortValue()))))->itemString());
 														if ($nc(cn)->endsWith(";"_s)) {
-															$nc(buf)->append(cn);
+															buf->append(cn);
 														} else {
-															$nc(buf)->append(u'L')->append(cn)->append(u';');
+															buf->append(u'L')->append(cn)->append(u';');
 														}
 													} else {
 														decode$break = true;
@@ -1272,7 +1272,7 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 						$nc(args)->clear();
 						args->add(con);
 						continue;
-					} else if ($nc(type)->endsWith(")V"_s)) {
+					} else if (type->endsWith(")V"_s)) {
 						$nc(args)->clear();
 						continue;
 					}

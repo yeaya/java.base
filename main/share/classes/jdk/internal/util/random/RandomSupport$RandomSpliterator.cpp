@@ -12,10 +12,10 @@
 #include <jdk/internal/util/random/RandomSupport.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef SUBSIZED
-#undef SIZED
 #undef IMMUTABLE
+#undef NONNULL
+#undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

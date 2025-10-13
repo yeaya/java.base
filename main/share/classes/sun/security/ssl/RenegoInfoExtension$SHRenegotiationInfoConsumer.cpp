@@ -26,12 +26,12 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef CH_RENEGOTIATION_INFO
 #undef HANDSHAKE_FAILURE
-#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 #undef INTERNAL_ERROR
 #undef NOMINAL
-#undef CH_RENEGOTIATION_INFO
 #undef SH_RENEGOTIATION_INFO
+#undef TLS_EMPTY_RENEGOTIATION_INFO_SCSV
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

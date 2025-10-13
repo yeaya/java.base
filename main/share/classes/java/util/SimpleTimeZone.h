@@ -8,22 +8,22 @@
 
 #pragma push_macro("DOM_MODE")
 #undef DOM_MODE
+#pragma push_macro("DOW_GE_DOM_MODE")
+#undef DOW_GE_DOM_MODE
+#pragma push_macro("DOW_IN_MONTH_MODE")
+#undef DOW_IN_MONTH_MODE
 #pragma push_macro("DOW_LE_DOM_MODE")
 #undef DOW_LE_DOM_MODE
+#pragma push_macro("ID")
+#undef ID
 #pragma push_macro("MAX_RULE_NUM")
 #undef MAX_RULE_NUM
 #pragma push_macro("STANDARD_TIME")
 #undef STANDARD_TIME
-#pragma push_macro("DOW_GE_DOM_MODE")
-#undef DOW_GE_DOM_MODE
-#pragma push_macro("WALL_TIME")
-#undef WALL_TIME
-#pragma push_macro("ID")
-#undef ID
-#pragma push_macro("DOW_IN_MONTH_MODE")
-#undef DOW_IN_MONTH_MODE
 #pragma push_macro("UTC_TIME")
 #undef UTC_TIME
+#pragma push_macro("WALL_TIME")
+#undef WALL_TIME
 
 namespace java {
 	namespace io {
@@ -135,13 +135,13 @@ public:
 } // java
 
 #pragma pop_macro("DOM_MODE")
+#pragma pop_macro("DOW_GE_DOM_MODE")
+#pragma pop_macro("DOW_IN_MONTH_MODE")
 #pragma pop_macro("DOW_LE_DOM_MODE")
+#pragma pop_macro("ID")
 #pragma pop_macro("MAX_RULE_NUM")
 #pragma pop_macro("STANDARD_TIME")
-#pragma pop_macro("DOW_GE_DOM_MODE")
-#pragma pop_macro("WALL_TIME")
-#pragma pop_macro("ID")
-#pragma pop_macro("DOW_IN_MONTH_MODE")
 #pragma pop_macro("UTC_TIME")
+#pragma pop_macro("WALL_TIME")
 
 #endif // _java_util_SimpleTimeZone_h_

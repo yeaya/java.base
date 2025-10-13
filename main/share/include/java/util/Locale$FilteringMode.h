@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("AUTOSELECT_FILTERING")
+#undef AUTOSELECT_FILTERING
+#pragma push_macro("EXTENDED_FILTERING")
+#undef EXTENDED_FILTERING
 #pragma push_macro("IGNORE_EXTENDED_RANGES")
 #undef IGNORE_EXTENDED_RANGES
 #pragma push_macro("MAP_EXTENDED_RANGES")
 #undef MAP_EXTENDED_RANGES
-#pragma push_macro("AUTOSELECT_FILTERING")
-#undef AUTOSELECT_FILTERING
 #pragma push_macro("REJECT_EXTENDED_RANGES")
 #undef REJECT_EXTENDED_RANGES
-#pragma push_macro("EXTENDED_FILTERING")
-#undef EXTENDED_FILTERING
 
 namespace java {
 	namespace util {
@@ -39,10 +39,10 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("AUTOSELECT_FILTERING")
+#pragma pop_macro("EXTENDED_FILTERING")
 #pragma pop_macro("IGNORE_EXTENDED_RANGES")
 #pragma pop_macro("MAP_EXTENDED_RANGES")
-#pragma pop_macro("AUTOSELECT_FILTERING")
 #pragma pop_macro("REJECT_EXTENDED_RANGES")
-#pragma pop_macro("EXTENDED_FILTERING")
 
 #endif // _java_util_Locale$FilteringMode_h_

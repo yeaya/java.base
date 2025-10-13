@@ -24,8 +24,8 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef NO_DECOMPOSITION
 #undef DEFAULTRULES
+#undef NO_DECOMPOSITION
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;

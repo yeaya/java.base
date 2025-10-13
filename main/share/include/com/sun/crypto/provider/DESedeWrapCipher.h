@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <javax/crypto/CipherSpi.h>
 
+#pragma push_macro("CHECKSUM_LEN")
+#undef CHECKSUM_LEN
 #pragma push_macro("IV2")
 #undef IV2
 #pragma push_macro("IV_LEN")
 #undef IV_LEN
-#pragma push_macro("CHECKSUM_LEN")
-#undef CHECKSUM_LEN
 
 namespace com {
 	namespace sun {
@@ -81,8 +81,8 @@ public:
 	} // sun
 } // com
 
+#pragma pop_macro("CHECKSUM_LEN")
 #pragma pop_macro("IV2")
 #pragma pop_macro("IV_LEN")
-#pragma pop_macro("CHECKSUM_LEN")
 
 #endif // _com_sun_crypto_provider_DESedeWrapCipher_h_

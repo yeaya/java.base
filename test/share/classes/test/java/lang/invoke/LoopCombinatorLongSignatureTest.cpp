@@ -20,13 +20,13 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef PRED_T
-#undef INIT
-#undef STEP
 #undef ARG_LIMIT
-#undef TYPE
 #undef FINI
+#undef INIT
 #undef PRED_F
+#undef PRED_T
+#undef STEP
+#undef TYPE
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $MethodHandleArray2 = $Array<::java::lang::invoke::MethodHandle, 2>;
@@ -132,10 +132,8 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 				$Arrays::fill(args, $($of($Integer::valueOf(0))));
 				r = $nc(($cast($Integer, $($nc(loop)->invokeWithArguments(args)))))->intValue();
 			}
-			$init($System);
 			$nc($System::out)->println($$str({"SUCCEEDED (OK) -> "_s, $$str(r)}));
 		} else {
-			$init($System);
 			$nc($System::out)->println("SUCCEEDED (OK)"_s);
 		}
 	} catch ($IllegalArgumentException&) {

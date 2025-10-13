@@ -5,12 +5,12 @@
 
 #include <java/security/BasicPermission.h>
 
-#pragma push_macro("READ")
-#undef READ
 #pragma push_macro("ALL")
 #undef ALL
 #pragma push_macro("NONE")
 #undef NONE
+#pragma push_macro("READ")
+#undef READ
 #pragma push_macro("WRITE")
 #undef WRITE
 
@@ -59,9 +59,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("READ")
 #pragma pop_macro("ALL")
 #pragma pop_macro("NONE")
+#pragma pop_macro("READ")
 #pragma pop_macro("WRITE")
 
 #endif // _java_util_PropertyPermission_h_

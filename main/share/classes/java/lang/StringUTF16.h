@@ -10,10 +10,10 @@
 #undef HI_BYTE_SHIFT
 #pragma push_macro("LO_BYTE_SHIFT")
 #undef LO_BYTE_SHIFT
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("MAX_LENGTH")
 #undef MAX_LENGTH
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
 
 namespace java {
 	namespace lang {
@@ -142,7 +142,7 @@ public:
 
 #pragma pop_macro("HI_BYTE_SHIFT")
 #pragma pop_macro("LO_BYTE_SHIFT")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MAX_LENGTH")
+#pragma pop_macro("MAX_VALUE")
 
 #endif // _java_lang_StringUTF16_h_

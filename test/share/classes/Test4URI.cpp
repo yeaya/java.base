@@ -31,30 +31,30 @@
 #include <java/net/URL.h>
 #include <jcpp.h>
 
-#undef PATH
-#undef TOASCII
-#undef PORT
-#undef IDENT_STR
+#undef FRAGMENT
 #undef FRAGMENT_D
 #undef HOST
+#undef IDENT_STR
+#undef IDENT_URI1
+#undef IDENT_URI3
+#undef IDENT_URI5
+#undef IDENT_URI7
+#undef OPAQUEPART
 #undef PARSEFAIL
-#undef SSP_D
+#undef PATH
+#undef PATH_D
+#undef PORT
+#undef QUERY
+#undef QUERY_D
+#undef REGISTRY
+#undef REGISTRY_D
 #undef SCHEME
 #undef SSP
-#undef USERINFO
-#undef PATH_D
-#undef QUERY
-#undef IDENT_URI7
-#undef IDENT_URI5
-#undef FRAGMENT
-#undef REGISTRY_D
-#undef IDENT_URI3
-#undef QUERY_D
-#undef OPAQUEPART
-#undef IDENT_URI1
+#undef SSP_D
+#undef TOASCII
 #undef TOSTRING
+#undef USERINFO
 #undef USERINFO_D
-#undef REGISTRY
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

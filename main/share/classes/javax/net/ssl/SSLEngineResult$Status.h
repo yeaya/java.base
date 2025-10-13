@@ -8,10 +8,10 @@
 
 #pragma push_macro("BUFFER_OVERFLOW")
 #undef BUFFER_OVERFLOW
-#pragma push_macro("CLOSED")
-#undef CLOSED
 #pragma push_macro("BUFFER_UNDERFLOW")
 #undef BUFFER_UNDERFLOW
+#pragma push_macro("CLOSED")
+#undef CLOSED
 #pragma push_macro("OK")
 #undef OK
 
@@ -39,8 +39,8 @@ public:
 } // javax
 
 #pragma pop_macro("BUFFER_OVERFLOW")
-#pragma pop_macro("CLOSED")
 #pragma pop_macro("BUFFER_UNDERFLOW")
+#pragma pop_macro("CLOSED")
 #pragma pop_macro("OK")
 
 #endif // _javax_net_ssl_SSLEngineResult$Status_h_

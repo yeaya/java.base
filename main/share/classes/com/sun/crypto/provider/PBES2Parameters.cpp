@@ -344,7 +344,7 @@ $String* PBES2Parameters::parseES($DerValue* encryptionScheme) {
 		this->keysize = 128;
 	} else if ($nc(PBES2Parameters::aes256CBC_OID)->equals(this->cipherAlgo_OID)) {
 		$assign(cipherAlgo, "AES_256"_s);
-		$set(this, cipherParam, $new($IvParameterSpec, $($nc($nc(encryptionScheme)->data$)->getOctetString())));
+		$set(this, cipherParam, $new($IvParameterSpec, $($nc(encryptionScheme->data$)->getOctetString())));
 		this->keysize = 256;
 	} else {
 		$throwNew($IOException, "PBE parameter parsing error: expecting the object identifier for AES cipher"_s);

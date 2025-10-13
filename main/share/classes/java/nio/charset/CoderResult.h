@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("CR_UNMAPPABLE")
-#undef CR_UNMAPPABLE
-#pragma push_macro("CR_MALFORMED")
-#undef CR_MALFORMED
-#pragma push_macro("OVERFLOW")
-#undef OVERFLOW
-#pragma push_macro("CR_UNDERFLOW")
-#undef CR_UNDERFLOW
-#pragma push_macro("UNDERFLOW")
-#undef UNDERFLOW
 #pragma push_macro("CR_ERROR_MIN")
 #undef CR_ERROR_MIN
+#pragma push_macro("CR_MALFORMED")
+#undef CR_MALFORMED
 #pragma push_macro("CR_OVERFLOW")
 #undef CR_OVERFLOW
+#pragma push_macro("CR_UNDERFLOW")
+#undef CR_UNDERFLOW
+#pragma push_macro("CR_UNMAPPABLE")
+#undef CR_UNMAPPABLE
+#pragma push_macro("OVERFLOW")
+#undef OVERFLOW
+#pragma push_macro("UNDERFLOW")
+#undef UNDERFLOW
 
 namespace java {
 	namespace lang {
@@ -66,12 +66,12 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("CR_UNMAPPABLE")
-#pragma pop_macro("CR_MALFORMED")
-#pragma pop_macro("OVERFLOW")
-#pragma pop_macro("CR_UNDERFLOW")
-#pragma pop_macro("UNDERFLOW")
 #pragma pop_macro("CR_ERROR_MIN")
+#pragma pop_macro("CR_MALFORMED")
 #pragma pop_macro("CR_OVERFLOW")
+#pragma pop_macro("CR_UNDERFLOW")
+#pragma pop_macro("CR_UNMAPPABLE")
+#pragma pop_macro("OVERFLOW")
+#pragma pop_macro("UNDERFLOW")
 
 #endif // _java_nio_charset_CoderResult_h_

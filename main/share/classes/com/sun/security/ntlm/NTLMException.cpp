@@ -12,9 +12,9 @@
 
 #undef AUTH_FAILED
 #undef BAD_VERSION
-#undef PROTOCOL
-#undef PACKET_READ_ERROR
 #undef NO_DOMAIN_INFO
+#undef PACKET_READ_ERROR
+#undef PROTOCOL
 #undef USER_UNKNOWN
 
 using $ClassInfo = ::java::lang::ClassInfo;

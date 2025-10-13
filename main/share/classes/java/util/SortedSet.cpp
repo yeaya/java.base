@@ -15,8 +15,8 @@
 #include <java/util/Spliterators$IteratorSpliterator.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef DISTINCT
+#undef ORDERED
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

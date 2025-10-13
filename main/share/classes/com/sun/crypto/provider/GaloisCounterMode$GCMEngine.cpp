@@ -279,17 +279,17 @@ $ByteBuffer* GaloisCounterMode$GCMEngine::overlapDetection($ByteBuffer* src, $By
 			return dst;
 		}
 	} else {
-		bool var$10 = !src->isDirect();
-		if (var$10 && !dst->isDirect()) {
+		bool var$6 = !src->isDirect();
+		if (var$6 && !dst->isDirect()) {
 			if (!src->isReadOnly()) {
 				if ($cast($bytes, src->array()) != $cast($bytes, dst->array())) {
 					return dst;
 				}
-				int32_t var$12 = src->position();
-				int32_t var$11 = var$12 + src->arrayOffset();
-				int32_t var$14 = dst->position();
-				int32_t var$13 = var$14 + dst->arrayOffset();
-				if (var$11 >= var$13) {
+				int32_t var$8 = src->position();
+				int32_t var$7 = var$8 + src->arrayOffset();
+				int32_t var$10 = dst->position();
+				int32_t var$9 = var$10 + dst->arrayOffset();
+				if (var$7 >= var$9) {
 					return dst;
 				}
 			}
@@ -297,7 +297,7 @@ $ByteBuffer* GaloisCounterMode$GCMEngine::overlapDetection($ByteBuffer* src, $By
 			return dst;
 		}
 	}
-	$var($ByteBuffer, tmp, $nc(dst)->duplicate());
+	$var($ByteBuffer, tmp, dst->duplicate());
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(dst->remaining()));
 	$nc(tmp)->limit(dst->limit());
 	tmp->position(dst->position());

@@ -5,36 +5,36 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("CLASS_IS_INSTANCE")
+#undef CLASS_IS_INSTANCE
+#pragma push_macro("DESCRIPTOR_MT")
+#undef DESCRIPTOR_MT
+#pragma push_macro("FALSE")
+#undef FALSE
+#pragma push_macro("HASH_COMBINER")
+#undef HASH_COMBINER
+#pragma push_macro("NAMES_MT")
+#undef NAMES_MT
+#pragma push_macro("OBJECTS_EQUALS")
+#undef OBJECTS_EQUALS
+#pragma push_macro("OBJECTS_HASHCODE")
+#undef OBJECTS_HASHCODE
 #pragma push_macro("OBJECTS_TOSTRING")
 #undef OBJECTS_TOSTRING
-#pragma push_macro("OBJECT_TO_STRING")
-#undef OBJECT_TO_STRING
-#pragma push_macro("ZERO")
-#undef ZERO
 #pragma push_macro("OBJECT_EQ")
 #undef OBJECT_EQ
 #pragma push_macro("OBJECT_EQUALS")
 #undef OBJECT_EQUALS
-#pragma push_macro("OBJECTS_HASHCODE")
-#undef OBJECTS_HASHCODE
-#pragma push_macro("HASH_COMBINER")
-#undef HASH_COMBINER
-#pragma push_macro("TRUE")
-#undef TRUE
-#pragma push_macro("STRING_FORMAT")
-#undef STRING_FORMAT
-#pragma push_macro("DESCRIPTOR_MT")
-#undef DESCRIPTOR_MT
-#pragma push_macro("CLASS_IS_INSTANCE")
-#undef CLASS_IS_INSTANCE
-#pragma push_macro("NAMES_MT")
-#undef NAMES_MT
-#pragma push_macro("FALSE")
-#undef FALSE
-#pragma push_macro("OBJECTS_EQUALS")
-#undef OBJECTS_EQUALS
 #pragma push_macro("OBJECT_HASHCODE")
 #undef OBJECT_HASHCODE
+#pragma push_macro("OBJECT_TO_STRING")
+#undef OBJECT_TO_STRING
+#pragma push_macro("STRING_FORMAT")
+#undef STRING_FORMAT
+#pragma push_macro("TRUE")
+#undef TRUE
+#pragma push_macro("ZERO")
+#undef ZERO
 
 namespace java {
 	namespace lang {
@@ -104,20 +104,20 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("CLASS_IS_INSTANCE")
+#pragma pop_macro("DESCRIPTOR_MT")
+#pragma pop_macro("FALSE")
+#pragma pop_macro("HASH_COMBINER")
+#pragma pop_macro("NAMES_MT")
+#pragma pop_macro("OBJECTS_EQUALS")
+#pragma pop_macro("OBJECTS_HASHCODE")
 #pragma pop_macro("OBJECTS_TOSTRING")
-#pragma pop_macro("OBJECT_TO_STRING")
-#pragma pop_macro("ZERO")
 #pragma pop_macro("OBJECT_EQ")
 #pragma pop_macro("OBJECT_EQUALS")
-#pragma pop_macro("OBJECTS_HASHCODE")
-#pragma pop_macro("HASH_COMBINER")
-#pragma pop_macro("TRUE")
-#pragma pop_macro("STRING_FORMAT")
-#pragma pop_macro("DESCRIPTOR_MT")
-#pragma pop_macro("CLASS_IS_INSTANCE")
-#pragma pop_macro("NAMES_MT")
-#pragma pop_macro("FALSE")
-#pragma pop_macro("OBJECTS_EQUALS")
 #pragma pop_macro("OBJECT_HASHCODE")
+#pragma pop_macro("OBJECT_TO_STRING")
+#pragma pop_macro("STRING_FORMAT")
+#pragma pop_macro("TRUE")
+#pragma pop_macro("ZERO")
 
 #endif // _java_lang_runtime_ObjectMethods_h_

@@ -40,11 +40,11 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef STE_WALKER
 #undef DEFAULT_WALKER
 #undef GOLDEN_CLASS_NAMES
 #undef GOLDEN_METHOD_NAMES
 #undef RETAIN_CLASS_REFERENCE
+#undef STE_WALKER
 
 using $StackStreamTest = ::StackStreamTest;
 using $PrintStream = ::java::io::PrintStream;

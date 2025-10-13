@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DIRECT_HOLDER_CLASS_NAME")
-#undef DIRECT_HOLDER_CLASS_NAME
-#pragma push_macro("INVOKERS_HOLDER_CLASS_NAME")
-#undef INVOKERS_HOLDER_CLASS_NAME
+#pragma push_macro("BASIC_FORMS_HOLDER_CLASS_NAME")
+#undef BASIC_FORMS_HOLDER_CLASS_NAME
 #pragma push_macro("CDS")
 #undef CDS
 #pragma push_macro("DELEGATING_HOLDER_CLASS_NAME")
 #undef DELEGATING_HOLDER_CLASS_NAME
-#pragma push_macro("BASIC_FORMS_HOLDER_CLASS_NAME")
-#undef BASIC_FORMS_HOLDER_CLASS_NAME
+#pragma push_macro("DIRECT_HOLDER_CLASS_NAME")
+#undef DIRECT_HOLDER_CLASS_NAME
+#pragma push_macro("INVOKERS_HOLDER_CLASS_NAME")
+#undef INVOKERS_HOLDER_CLASS_NAME
 
 namespace java {
 	namespace io {
@@ -78,10 +78,10 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("DIRECT_HOLDER_CLASS_NAME")
-#pragma pop_macro("INVOKERS_HOLDER_CLASS_NAME")
+#pragma pop_macro("BASIC_FORMS_HOLDER_CLASS_NAME")
 #pragma pop_macro("CDS")
 #pragma pop_macro("DELEGATING_HOLDER_CLASS_NAME")
-#pragma pop_macro("BASIC_FORMS_HOLDER_CLASS_NAME")
+#pragma pop_macro("DIRECT_HOLDER_CLASS_NAME")
+#pragma pop_macro("INVOKERS_HOLDER_CLASS_NAME")
 
 #endif // _jdk_internal_misc_CDS_h_

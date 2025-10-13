@@ -16,8 +16,8 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator.h>
 #include <jcpp.h>
 
-#undef NO_MORE
 #undef MAYBE_MORE
+#undef NO_MORE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -135,7 +135,7 @@ bool StreamSpliterators$UnorderedSliceSpliterator$OfRef::tryAdvance($Consumer* a
 		if (!$nc(this->s)->tryAdvance(this)) {
 			return false;
 		} else if (acquirePermits(1) == 1) {
-			$nc(action)->accept(this->tmpSlot);
+			action->accept(this->tmpSlot);
 			$set(this, tmpSlot, nullptr);
 			return true;
 		}

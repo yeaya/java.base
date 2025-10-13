@@ -8,16 +8,16 @@
 
 #pragma push_macro("MAPPED_TRANSFER_SIZE")
 #undef MAPPED_TRANSFER_SIZE
-#pragma push_macro("TRANSFER_SIZE")
-#undef TRANSFER_SIZE
-#pragma push_macro("MAP_RW")
-#undef MAP_RW
-#pragma push_macro("MAP_PV")
-#undef MAP_PV
 #pragma push_macro("MAP_INVALID")
 #undef MAP_INVALID
+#pragma push_macro("MAP_PV")
+#undef MAP_PV
 #pragma push_macro("MAP_RO")
 #undef MAP_RO
+#pragma push_macro("MAP_RW")
+#undef MAP_RW
+#pragma push_macro("TRANSFER_SIZE")
+#undef TRANSFER_SIZE
 
 namespace java {
 	namespace io {
@@ -163,10 +163,10 @@ public:
 } // sun
 
 #pragma pop_macro("MAPPED_TRANSFER_SIZE")
-#pragma pop_macro("TRANSFER_SIZE")
-#pragma pop_macro("MAP_RW")
-#pragma pop_macro("MAP_PV")
 #pragma pop_macro("MAP_INVALID")
+#pragma pop_macro("MAP_PV")
 #pragma pop_macro("MAP_RO")
+#pragma pop_macro("MAP_RW")
+#pragma pop_macro("TRANSFER_SIZE")
 
 #endif // _sun_nio_ch_FileChannelImpl_h_

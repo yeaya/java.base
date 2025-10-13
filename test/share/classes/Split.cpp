@@ -70,7 +70,7 @@ void Split::main($StringArray* args) {
 				if (!$nc(result->get(0))->equals($(source->substring(0, x)))) {
 					if (limit != 1) {
 						$throwNew($RuntimeException, "String.split failure 4"_s);
-					} else if (!$nc($nc(result)->get(0))->equals($($nc(source)->substring(0, 10)))) {
+					} else if (!$nc(result->get(0))->equals($(source->substring(0, 10)))) {
 						$throwNew($RuntimeException, "String.split failure 10"_s);
 					}
 				}

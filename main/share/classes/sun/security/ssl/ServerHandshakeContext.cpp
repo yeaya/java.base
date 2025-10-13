@@ -29,9 +29,9 @@
 #include <sun/security/util/LegacyAlgorithmConstraints.h>
 #include <jcpp.h>
 
+#undef CLIENT_HELLO
 #undef DEFAULT_STATUS_RESP_DELAY
 #undef PROPERTY_TLS_LEGACY_ALGS
-#undef CLIENT_HELLO
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

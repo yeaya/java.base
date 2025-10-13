@@ -5,12 +5,12 @@
 
 #include <java/lang/invoke/MethodHandle.h>
 
-#pragma push_macro("SPECIALIZER")
-#undef SPECIALIZER
-#pragma push_macro("FORM_EXPRESSION_THRESHOLD")
-#undef FORM_EXPRESSION_THRESHOLD
 #pragma push_macro("FIELD_COUNT_THRESHOLD")
 #undef FIELD_COUNT_THRESHOLD
+#pragma push_macro("FORM_EXPRESSION_THRESHOLD")
+#undef FORM_EXPRESSION_THRESHOLD
+#pragma push_macro("SPECIALIZER")
+#undef SPECIALIZER
 
 namespace java {
 	namespace lang {
@@ -72,8 +72,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("SPECIALIZER")
-#pragma pop_macro("FORM_EXPRESSION_THRESHOLD")
 #pragma pop_macro("FIELD_COUNT_THRESHOLD")
+#pragma pop_macro("FORM_EXPRESSION_THRESHOLD")
+#pragma pop_macro("SPECIALIZER")
 
 #endif // _java_lang_invoke_BoundMethodHandle_h_

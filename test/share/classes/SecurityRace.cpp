@@ -19,13 +19,13 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SET_TIMING_LOOPS
-#undef WARMUP_LOOPS
+#undef GETPROPERTY_LOOPS
 #undef GET_TIMING_LOOPS
 #undef MAX_MILLISECONDS
-#undef TIMING_TRIALS
-#undef GETPROPERTY_LOOPS
+#undef SET_TIMING_LOOPS
 #undef STRESS_MILLISECONDS
+#undef TIMING_TRIALS
+#undef WARMUP_LOOPS
 
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -89,8 +89,7 @@ void SecurityRace::main($StringArray* argv) {
 			$init($System);
 			$nc($System::out)->println("boo"_s);
 			timeit(SecurityRace::TIMING_TRIALS, SecurityRace::GET_TIMING_LOOPS, SecurityRace::SET_TIMING_LOOPS);
-		} else if ($nc($nc(argv)->get(0))->equals("stress"_s)) {
-			$init(SecurityRace);
+		} else if ($nc(argv->get(0))->equals("stress"_s)) {
 			SecurityRace::MAX_MILLISECONDS = SecurityRace::STRESS_MILLISECONDS;
 		} else {
 			$throwNew($RuntimeException, $$str({"SecurityRace: "_s, argv->get(0), " argument to main not recognized"_s}));

@@ -17,10 +17,10 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
+#undef CONCURRENT
+#undef DISTINCT
 #undef NONNULL
 #undef ORDERED
-#undef DISTINCT
-#undef CONCURRENT
 #undef SORTED
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <sun/nio/ch/Port.h>
 
+#pragma push_macro("ENOENT")
+#undef ENOENT
 #pragma push_macro("EXECUTE_TASK_OR_SHUTDOWN")
 #undef EXECUTE_TASK_OR_SHUTDOWN
 #pragma push_macro("MAX_EPOLL_EVENTS")
 #undef MAX_EPOLL_EVENTS
-#pragma push_macro("ENOENT")
-#undef ENOENT
 #pragma push_macro("NEED_TO_POLL")
 #undef NEED_TO_POLL
 
@@ -85,9 +85,9 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("ENOENT")
 #pragma pop_macro("EXECUTE_TASK_OR_SHUTDOWN")
 #pragma pop_macro("MAX_EPOLL_EVENTS")
-#pragma pop_macro("ENOENT")
 #pragma pop_macro("NEED_TO_POLL")
 
 #endif // _sun_nio_ch_EPollPort_h_

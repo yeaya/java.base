@@ -5,22 +5,22 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("NONNULL")
-#undef NONNULL
-#pragma push_macro("SUBSIZED")
-#undef SUBSIZED
-#pragma push_macro("ORDERED")
-#undef ORDERED
-#pragma push_macro("DISTINCT")
-#undef DISTINCT
-#pragma push_macro("SIZED")
-#undef SIZED
-#pragma push_macro("IMMUTABLE")
-#undef IMMUTABLE
 #pragma push_macro("CONCURRENT")
 #undef CONCURRENT
+#pragma push_macro("DISTINCT")
+#undef DISTINCT
+#pragma push_macro("IMMUTABLE")
+#undef IMMUTABLE
+#pragma push_macro("NONNULL")
+#undef NONNULL
+#pragma push_macro("ORDERED")
+#undef ORDERED
+#pragma push_macro("SIZED")
+#undef SIZED
 #pragma push_macro("SORTED")
 #undef SORTED
+#pragma push_macro("SUBSIZED")
+#undef SUBSIZED
 
 namespace java {
 	namespace util {
@@ -62,13 +62,13 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("NONNULL")
-#pragma pop_macro("SUBSIZED")
-#pragma pop_macro("ORDERED")
-#pragma pop_macro("DISTINCT")
-#pragma pop_macro("SIZED")
-#pragma pop_macro("IMMUTABLE")
 #pragma pop_macro("CONCURRENT")
+#pragma pop_macro("DISTINCT")
+#pragma pop_macro("IMMUTABLE")
+#pragma pop_macro("NONNULL")
+#pragma pop_macro("ORDERED")
+#pragma pop_macro("SIZED")
 #pragma pop_macro("SORTED")
+#pragma pop_macro("SUBSIZED")
 
 #endif // _java_util_Spliterator_h_

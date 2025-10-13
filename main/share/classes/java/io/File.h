@@ -8,12 +8,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Comparable.h>
 
+#pragma push_macro("PATH_OFFSET")
+#undef PATH_OFFSET
 #pragma push_macro("PREFIX_LENGTH_OFFSET")
 #undef PREFIX_LENGTH_OFFSET
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
-#pragma push_macro("PATH_OFFSET")
-#undef PATH_OFFSET
 
 namespace java {
 	namespace io {
@@ -138,8 +138,8 @@ public:
 	} // io
 } // java
 
+#pragma pop_macro("PATH_OFFSET")
 #pragma pop_macro("PREFIX_LENGTH_OFFSET")
 #pragma pop_macro("UNSAFE")
-#pragma pop_macro("PATH_OFFSET")
 
 #endif // _java_io_File_h_

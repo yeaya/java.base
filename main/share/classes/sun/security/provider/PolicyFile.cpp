@@ -106,16 +106,16 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef DEFAULT_CACHE_SIZE
-#undef POLICY
-#undef PARAMS2
-#undef PARAMS1
-#undef PARAMS0
-#undef UTF_8
-#undef EMPTY_SET
-#undef SELF
-#undef POLICY_URL
 #undef ALL_PERMISSION
+#undef DEFAULT_CACHE_SIZE
+#undef EMPTY_SET
+#undef PARAMS0
+#undef PARAMS1
+#undef PARAMS2
+#undef POLICY
+#undef POLICY_URL
+#undef SELF
+#undef UTF_8
 #undef X500PRINCIPAL
 
 using $PrincipalArray = $Array<::java::security::Principal>;
@@ -684,12 +684,10 @@ $Permission* PolicyFile::getInstance($String* type, $String* name, $String* acti
 		}
 	} else if (name != nullptr && actions == nullptr) {
 		try {
-			$init(PolicyFile);
 			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(name)})));
 		} catch ($NoSuchMethodException&) {
 			$var($NoSuchMethodException, ne, $catch());
-			$init(PolicyFile);
 			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
 				$of(name),
@@ -697,7 +695,6 @@ $Permission* PolicyFile::getInstance($String* type, $String* name, $String* acti
 			})));
 		}
 	} else {
-		$init(PolicyFile);
 		$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
 		return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
 			$of(name),
@@ -750,7 +747,7 @@ $Permission* PolicyFile::getKnownPermission($Class* claz, $String* name, $String
 $Principal* PolicyFile::getKnownPrincipal($Class* claz, $String* name) {
 	$init(PolicyFile);
 	$load($X500Principal);
-	if ($nc($of(claz))->equals($X500Principal::class$)) {
+	if ($of(claz)->equals($X500Principal::class$)) {
 		return $new($X500Principal, name);
 	} else {
 		return nullptr;
@@ -899,7 +896,7 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 			$nc(PolicyFile::debug)->println("evaluation (codesource/principals) passed"_s);
 		}
 		return;
-	} else if (principals == nullptr || $nc(principals)->length == 0) {
+	} else if (principals == nullptr || principals->length == 0) {
 		if (PolicyFile::debug != nullptr) {
 			$nc(PolicyFile::debug)->println("evaluation (principals) failed"_s);
 		}
@@ -1218,7 +1215,7 @@ $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSigne
 			}
 		}
 	} else if (extractSignerCerts) {
-		$var($URL, var$3, $nc(cs)->getLocation());
+		$var($URL, var$3, cs->getLocation());
 		$assign(canonCs, $new($CodeSource, var$3, $(getSignerCertificates(cs))));
 	}
 	return canonCs;
@@ -1310,17 +1307,17 @@ void PolicyFile::expandPermissionName($PolicyParser$PermissionEntry* pe, $KeySto
 			sb->append($($nc(pe->name)->substring(b, e + 2)));
 			startIndex = e + 2;
 			continue;
-		} else if ($nc(prefix)->equalsIgnoreCase("alias"_s)) {
+		} else if (prefix->equalsIgnoreCase("alias"_s)) {
 			if (colonIndex == -1) {
-				$var($ObjectArray, source, $new($ObjectArray, {$of($nc(pe)->name)}));
+				$var($ObjectArray, source, $new($ObjectArray, {$of(pe->name)}));
 				$throwNew($Exception, $($LocalizedMessage::getNonlocalized("alias.name.not.provided.pe.name."_s, source)));
 			}
-			$assign(suffix, $nc(value)->substring(colonIndex + 1));
+			$assign(suffix, value->substring(colonIndex + 1));
 			if (($assign(suffix, getDN(suffix, keystore))) == nullptr) {
 				$var($ObjectArray, source, $new($ObjectArray, {$($of(value->substring(colonIndex + 1)))}));
 				$throwNew($Exception, $($LocalizedMessage::getNonlocalized("unable.to.perform.substitution.on.alias.suffix"_s, source)));
 			}
-			$nc(sb)->append($$str({PolicyFile::X500PRINCIPAL, " \""_s, suffix, "\""_s}));
+			sb->append($$str({PolicyFile::X500PRINCIPAL, " \""_s, suffix, "\""_s}));
 			startIndex = e + 2;
 		} else {
 			$var($ObjectArray, source, $new($ObjectArray, {$of(prefix)}));

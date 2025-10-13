@@ -24,8 +24,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HRR_KEY_SHARE
 #undef CH_KEY_SHARE
+#undef HRR_KEY_SHARE
 #undef UNEXPECTED_MESSAGE
 
 using $ClassInfo = ::java::lang::ClassInfo;

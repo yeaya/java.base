@@ -184,9 +184,9 @@ void AnnotationNode::accept($AnnotationVisitor* annotationVisitor, $String* name
 			annotationVisitor->visitEnum(name, $nc(typeValue)->get(0), typeValue->get(1));
 		} else if ($instanceOf(AnnotationNode, value)) {
 			$var(AnnotationNode, annotationValue, $cast(AnnotationNode, value));
-			$nc(annotationValue)->accept($($nc(annotationVisitor)->visitAnnotation(name, annotationValue->desc)));
+			$nc(annotationValue)->accept($(annotationVisitor->visitAnnotation(name, annotationValue->desc)));
 		} else if ($instanceOf($List, value)) {
-			$var($AnnotationVisitor, arrayAnnotationVisitor, $nc(annotationVisitor)->visitArray(name));
+			$var($AnnotationVisitor, arrayAnnotationVisitor, annotationVisitor->visitArray(name));
 			if (arrayAnnotationVisitor != nullptr) {
 				$var($List, arrayValue, $cast($List, value));
 				{
@@ -199,7 +199,7 @@ void AnnotationNode::accept($AnnotationVisitor* annotationVisitor, $String* name
 				arrayAnnotationVisitor->visitEnd();
 			}
 		} else {
-			$nc(annotationVisitor)->visit(name, value);
+			annotationVisitor->visit(name, value);
 		}
 	}
 }

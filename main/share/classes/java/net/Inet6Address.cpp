@@ -30,11 +30,11 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
+#undef FIELDS_OFFSET
 #undef INADDRSZ
-#undef UNSAFE
 #undef INT16SZ
 #undef TYPE
-#undef FIELDS_OFFSET
+#undef UNSAFE
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

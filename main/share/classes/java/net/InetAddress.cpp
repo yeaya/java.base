@@ -62,13 +62,13 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef PREFER_IPV6_VALUE
-#undef PREFER_IPV4_VALUE
-#undef PREFER_SYSTEM_VALUE
-#undef INADDRSZ
-#undef UNSAFE
-#undef TYPE
 #undef FIELDS_OFFSET
+#undef INADDRSZ
+#undef PREFER_IPV4_VALUE
+#undef PREFER_IPV6_VALUE
+#undef PREFER_SYSTEM_VALUE
+#undef TYPE
+#undef UNSAFE
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $InetAddressArray = $Array<::java::net::InetAddress>;
@@ -410,7 +410,7 @@ InetAddress* InetAddress::getByAddress($String* host$renamed, $bytes* addr) {
 	if (addr != nullptr) {
 		if (addr->length == $Inet4Address::INADDRSZ) {
 			return $new($Inet4Address, host, addr);
-		} else if ($nc(addr)->length == $Inet6Address::INADDRSZ) {
+		} else if (addr->length == $Inet6Address::INADDRSZ) {
 			$var($bytes, newAddr, $IPAddressUtil::convertFromIPv4MappedAddress(addr));
 			if (newAddr != nullptr) {
 				return $new($Inet4Address, host, newAddr);
@@ -481,9 +481,9 @@ $InetAddressArray* InetAddress::getAllByName($String* host$renamed, InetAddress*
 			if (addr->length == $Inet4Address::INADDRSZ) {
 				ret->set(0, $$new($Inet4Address, ($String*)nullptr, addr));
 			} else if (ifname != nullptr) {
-				$nc(ret)->set(0, $$new($Inet6Address, ($String*)nullptr, addr, ifname));
+				ret->set(0, $$new($Inet6Address, ($String*)nullptr, addr, ifname));
 			} else {
-				$nc(ret)->set(0, $$new($Inet6Address, ($String*)nullptr, addr, numericZone));
+				ret->set(0, $$new($Inet6Address, ($String*)nullptr, addr, numericZone));
 			}
 			return ret;
 		}
@@ -743,11 +743,11 @@ void clinit$InetAddress($Class* class$) {
 		$var($String, str, $GetPropertyAction::privilegedGetProperty("java.net.preferIPv6Addresses"_s));
 		if (str == nullptr) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV4_VALUE;
-		} else if ($nc(str)->equalsIgnoreCase("true"_s)) {
+		} else if (str->equalsIgnoreCase("true"_s)) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV6_VALUE;
-		} else if ($nc(str)->equalsIgnoreCase("false"_s)) {
+		} else if (str->equalsIgnoreCase("false"_s)) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV4_VALUE;
-		} else if ($nc(str)->equalsIgnoreCase("system"_s)) {
+		} else if (str->equalsIgnoreCase("system"_s)) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_SYSTEM_VALUE;
 		} else {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV4_VALUE;

@@ -25,9 +25,9 @@
 #include <jdk/internal/jimage/ImageReaderFactory$1.h>
 #include <jcpp.h>
 
-#undef OPENER
-#undef JAVA_HOME
 #undef BOOT_MODULES_JIMAGE
+#undef JAVA_HOME
+#undef OPENER
 
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;

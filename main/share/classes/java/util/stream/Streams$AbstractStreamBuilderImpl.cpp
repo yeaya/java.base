@@ -12,10 +12,10 @@
 #include <java/util/stream/Streams.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
+#undef IMMUTABLE
 #undef ORDERED
 #undef SIZED
-#undef IMMUTABLE
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

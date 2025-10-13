@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SMALL")
-#undef SMALL
 #pragma push_macro("FAST")
 #undef FAST
+#pragma push_macro("SMALL")
+#undef SMALL
 
 namespace jdk {
 	namespace internal {
@@ -34,7 +34,7 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SMALL")
 #pragma pop_macro("FAST")
+#pragma pop_macro("SMALL")
 
 #endif // _jdk_internal_icu_util_CodePointTrie$Type_h_

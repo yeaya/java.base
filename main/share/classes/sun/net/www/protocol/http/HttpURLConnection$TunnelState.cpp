@@ -13,9 +13,9 @@
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <jcpp.h>
 
-#undef TUNNELING
 #undef NONE
 #undef SETUP
+#undef TUNNELING
 
 using $HttpURLConnection$TunnelStateArray = $Array<::sun::net::www::protocol::http::HttpURLConnection$TunnelState>;
 using $ClassInfo = ::java::lang::ClassInfo;

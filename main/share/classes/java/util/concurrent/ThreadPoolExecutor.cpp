@@ -48,15 +48,15 @@
 #include <java/util/concurrent/locks/ReentrantLock.h>
 #include <jcpp.h>
 
+#undef COUNT_BITS
+#undef COUNT_MASK
+#undef NANOSECONDS
 #undef NEW
+#undef ONLY_ONE
 #undef RUNNING
+#undef SHUTDOWN
 #undef STOP
 #undef TERMINATED
-#undef ONLY_ONE
-#undef COUNT_BITS
-#undef NANOSECONDS
-#undef COUNT_MASK
-#undef SHUTDOWN
 #undef TIDYING
 
 using $RunnableArray = $Array<::java::lang::Runnable>;

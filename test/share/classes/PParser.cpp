@@ -34,14 +34,14 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef MORE
-#undef EQUAL
-#undef STRING
-#undef OPEN_PAIR
-#undef CLOSE_PAIR
-#undef WS
-#undef OPEN_ARRAY
 #undef CLOSE_ARRAY
+#undef CLOSE_PAIR
+#undef EQUAL
+#undef MORE
+#undef OPEN_ARRAY
+#undef OPEN_PAIR
+#undef STRING
+#undef WS
 
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;

@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("EMPTY_LAYER")
-#undef EMPTY_LAYER
 #pragma push_macro("CLV")
 #undef CLV
+#pragma push_macro("EMPTY_LAYER")
+#undef EMPTY_LAYER
 
 namespace java {
 	namespace lang {
@@ -110,7 +110,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("EMPTY_LAYER")
 #pragma pop_macro("CLV")
+#pragma pop_macro("EMPTY_LAYER")
 
 #endif // _java_lang_ModuleLayer_h_

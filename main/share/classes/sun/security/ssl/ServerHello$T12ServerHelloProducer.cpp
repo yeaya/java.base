@@ -64,20 +64,20 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef CLIENT_AUTH_REQUIRED
-#undef KEY_AGREEMENT
 #undef CERTIFICATE
+#undef CERTIFICATE_REQUEST
+#undef CLIENT_AUTH_NONE
+#undef CLIENT_AUTH_REQUIRED
+#undef CLIENT_HELLO
+#undef C_NULL
+#undef FINISHED
 #undef HANDSHAKE_FAILURE
 #undef INTERNAL_ERROR
+#undef KEY_AGREEMENT
 #undef K_DH_ANON
-#undef CLIENT_AUTH_NONE
-#undef FINISHED
-#undef SERVER_HELLO_DONE
-#undef SERVER_HELLO
 #undef K_ECDH_ANON
-#undef C_NULL
-#undef CLIENT_HELLO
+#undef SERVER_HELLO
+#undef SERVER_HELLO_DONE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;

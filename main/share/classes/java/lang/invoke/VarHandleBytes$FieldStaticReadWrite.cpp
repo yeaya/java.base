@@ -20,8 +20,8 @@
 #include <jcpp.h>
 
 #undef FORM
-#undef UNSAFE
 #undef TYPE
+#undef UNSAFE
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

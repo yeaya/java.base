@@ -32,28 +32,28 @@
 #include <jdk/internal/util/xml/impl/Parser.h>
 #include <jcpp.h>
 
-#undef FEATURE_NS
-#undef EV_DTD
-#undef PH_DOCELM_MISC
-#undef EV_ELME
+#undef BUFFSIZE_READER
 #undef EOS
 #undef EV_CDAT
-#undef EV_TEXT
-#undef PH_MISC_DTD
-#undef PH_AFTER_DOC
-#undef EV_WSPC
-#undef EV_ELMS
-#undef PH_BEFORE_DOC
 #undef EV_COMM
-#undef EV_PI
-#undef BUFFSIZE_READER
-#undef PH_DTD_MISC
-#undef EV_NULL
-#undef FAULT
-#undef EV_ENT
-#undef PH_DOCELM
+#undef EV_DTD
 #undef EV_ELM
+#undef EV_ELME
+#undef EV_ELMS
+#undef EV_ENT
+#undef EV_NULL
+#undef EV_PI
+#undef EV_TEXT
+#undef EV_WSPC
+#undef FAULT
+#undef FEATURE_NS
 #undef FEATURE_PREF
+#undef PH_AFTER_DOC
+#undef PH_BEFORE_DOC
+#undef PH_DOCELM
+#undef PH_DOCELM_MISC
+#undef PH_DTD_MISC
+#undef PH_MISC_DTD
 
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;

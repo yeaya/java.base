@@ -25,11 +25,11 @@
 #include <sun/security/util/SecurityProviderConstants.h>
 #include <jcpp.h>
 
-#undef BLOCK_MODES128
-#undef RANDOM
-#undef BLOCK_PADS
 #undef BLOCK_MODES
+#undef BLOCK_MODES128
+#undef BLOCK_PADS
 #undef PROVIDER_VER
+#undef RANDOM
 
 using $SunJCE$1 = ::com::sun::crypto::provider::SunJCE$1;
 using $SunJCE$SecureRandomHolder = ::com::sun::crypto::provider::SunJCE$SecureRandomHolder;

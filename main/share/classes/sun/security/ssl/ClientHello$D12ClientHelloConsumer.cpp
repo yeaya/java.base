@@ -42,19 +42,19 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef HELLO_VERIFY_REQUEST
-#undef CLIENT_AUTH_REQUIRED
 #undef CERTIFICATE
-#undef HANDSHAKE_FAILURE
-#undef FINISHED
-#undef SERVER_HELLO_DONE
-#undef SERVER_HELLO
-#undef CH_SESSION_TICKET
+#undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_STATUS
-#undef DTLS10
-#undef SERVER_KEY_EXCHANGE
+#undef CH_SESSION_TICKET
+#undef CLIENT_AUTH_REQUIRED
 #undef CLIENT_HELLO
+#undef DTLS10
+#undef FINISHED
+#undef HANDSHAKE_FAILURE
+#undef HELLO_VERIFY_REQUEST
+#undef SERVER_HELLO
+#undef SERVER_HELLO_DONE
+#undef SERVER_KEY_EXCHANGE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

@@ -42,13 +42,13 @@
 #include <sun/security/util/HexDumpEncoder.h>
 #include <jcpp.h>
 
-#undef UTF_16LE
-#undef NTLM
-#undef ENGLISH
 #undef BAD_VERSION
-#undef ENCRYPT_MODE
-#undef NTLM2
 #undef DEBUG
+#undef ENCRYPT_MODE
+#undef ENGLISH
+#undef NTLM
+#undef NTLM2
+#undef UTF_16LE
 
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;
 using $Version = ::com::sun::security::ntlm::Version;

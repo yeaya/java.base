@@ -21,11 +21,11 @@
 #include <jdk/internal/org/objectweb/asm/signature/SignatureWriter.h>
 #include <jcpp.h>
 
-#undef H_PUTSTATIC
 #undef ARRAY
+#undef H_PUTSTATIC
 #undef METHOD
-#undef VOID_TYPE
 #undef OBJECT
+#undef VOID_TYPE
 
 using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
 using $CharSequence = ::java::lang::CharSequence;

@@ -20,10 +20,10 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef NOT_APPLICABLE
-#undef CH_SERVER_NAME
 #undef CH_CERTIFICATE_AUTHORITIES
 #undef CH_MAX_FRAGMENT_LENGTH
+#undef CH_SERVER_NAME
+#undef NOT_APPLICABLE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $ClassInfo = ::java::lang::ClassInfo;

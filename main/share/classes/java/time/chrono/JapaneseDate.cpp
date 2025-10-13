@@ -52,21 +52,21 @@
 #include <sun/util/calendar/LocalGregorianCalendar.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef JAPANESE_DATE_TYPE
-#undef ERA_OFFSET
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
-#undef DAY_OF_MONTH
-#undef JCAL
-#undef INSTANCE
-#undef MEIJI_6_ISODATE
-#undef LOCALE
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
 #undef ALIGNED_WEEK_OF_MONTH
+#undef ALIGNED_WEEK_OF_YEAR
+#undef DAY_OF_MONTH
+#undef DAY_OF_YEAR
+#undef ERA
+#undef ERA_OFFSET
+#undef INSTANCE
+#undef JAPANESE_DATE_TYPE
+#undef JCAL
+#undef LOCALE
+#undef MEIJI_6_ISODATE
 #undef MONTH_OF_YEAR
 #undef YEAR
-#undef ERA
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef ALIGNED_WEEK_OF_YEAR
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

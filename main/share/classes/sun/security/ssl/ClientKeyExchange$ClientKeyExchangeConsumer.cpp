@@ -29,8 +29,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CLIENT_KEY_EXCHANGE
 #undef CERTIFICATE
+#undef CLIENT_KEY_EXCHANGE
 #undef UNEXPECTED_MESSAGE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;

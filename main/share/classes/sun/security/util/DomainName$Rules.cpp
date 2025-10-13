@@ -42,8 +42,8 @@
 #include <sun/security/util/DomainName.h>
 #include <jcpp.h>
 
-#undef UTF_8
 #undef EXCEPTION
+#undef UTF_8
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $FilterInputStream = ::java::io::FilterInputStream;

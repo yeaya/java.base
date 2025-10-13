@@ -77,19 +77,19 @@
 #include <jdk/internal/module/SystemModules.h>
 #include <jcpp.h>
 
-#undef ALL_SYSTEM
-#undef ALL_MODULE_PATH
-#undef ADD_READS
-#undef ENABLE_NATIVE_ACCESS
-#undef ADD_MODULES
-#undef JLMA
 #undef ADD_EXPORTS
-#undef ALL_UNNAMED
+#undef ADD_MODULES
 #undef ADD_OPENS
-#undef PATCH_MODULE
+#undef ADD_READS
 #undef ALL_DEFAULT
-#undef JLA
+#undef ALL_MODULE_PATH
+#undef ALL_SYSTEM
+#undef ALL_UNNAMED
+#undef ENABLE_NATIVE_ACCESS
 #undef JAVA_BASE
+#undef JLA
+#undef JLMA
+#undef PATCH_MODULE
 
 using $ModuleFinderArray = $Array<::java::lang::module::ModuleFinder>;
 using $PathArray = $Array<::java::nio::file::Path>;
@@ -949,7 +949,6 @@ $ModuleLayer* ModuleBootstrap::boot2() {
 		$assign(cf, archivedModuleGraph->configuration());
 	} else {
 		$var($Map, map, $nc(systemModules)->moduleReads());
-		$init(ModuleBootstrap);
 		$assign(cf, $nc(ModuleBootstrap::JLMA)->newConfiguration(systemModuleFinder, map));
 	}
 	if (isPatched) {
@@ -1038,7 +1037,7 @@ void ModuleBootstrap::checkSplitPackages($Configuration* cf, $Function* clf) {
 	$init(ModuleBootstrap);
 	$var($Map, packageToModule, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
+		$var($Iterator, i$, $nc($(cf->modules()))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ResolvedModule, resolvedModule, $cast($ResolvedModule, i$->next()));
 			{
@@ -1406,7 +1405,7 @@ void ModuleBootstrap::checkIncubatingStatus($Configuration* cf) {
 	$init(ModuleBootstrap);
 	$var($String, incubating, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
+		$var($Iterator, i$, $nc($(cf->modules()))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ResolvedModule, resolvedModule, $cast($ResolvedModule, i$->next()));
 			{
@@ -1526,12 +1525,12 @@ $List* ModuleBootstrap::lambda$decode$8($String* k) {
 
 void ModuleBootstrap::lambda$limitFinder$7($Map* map, $ModuleReference* mref) {
 	$init(ModuleBootstrap);
-	$nc(map)->putIfAbsent($($nc($($nc(mref)->descriptor()))->name()), mref);
+	map->putIfAbsent($($nc($($nc(mref)->descriptor()))->name()), mref);
 }
 
 void ModuleBootstrap::lambda$limitFinder$6($Map* map, $ModuleReference* mref) {
 	$init(ModuleBootstrap);
-	$nc(map)->put($($nc($($nc(mref)->descriptor()))->name()), mref);
+	map->put($($nc($($nc(mref)->descriptor()))->name()), mref);
 }
 
 void ModuleBootstrap::lambda$boot2$5($String* mn) {
@@ -1541,7 +1540,7 @@ void ModuleBootstrap::lambda$boot2$5($String* mn) {
 
 bool ModuleBootstrap::lambda$boot2$4($Configuration* cf, $String* mn) {
 	$init(ModuleBootstrap);
-	return !$nc($($nc(cf)->findModule(mn)))->isPresent();
+	return !$nc($(cf->findModule(mn)))->isPresent();
 }
 
 void ModuleBootstrap::lambda$boot2$1($Set* roots, $String* mn) {

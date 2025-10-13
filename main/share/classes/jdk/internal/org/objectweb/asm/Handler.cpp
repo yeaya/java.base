@@ -93,9 +93,9 @@ Handler* Handler::removeRange(Handler* firstHandler, $Label* start, $Label* end)
 			return $new(Handler, firstHandler, end, firstHandler->endPc);
 		}
 	} else if (rangeEnd >= handlerEnd) {
-		return $new(Handler, firstHandler, $nc(firstHandler)->startPc, start);
+		return $new(Handler, firstHandler, firstHandler->startPc, start);
 	} else {
-		$set($nc(firstHandler), nextHandler, $new(Handler, firstHandler, end, firstHandler->endPc));
+		$set(firstHandler, nextHandler, $new(Handler, firstHandler, end, firstHandler->endPc));
 		return $new(Handler, firstHandler, firstHandler->startPc, start);
 	}
 }

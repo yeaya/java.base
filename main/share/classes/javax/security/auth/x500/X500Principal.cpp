@@ -182,9 +182,9 @@ $String* X500Principal::getName($String* format) {
 	if (format != nullptr) {
 		if (format->equalsIgnoreCase(X500Principal::RFC1779)) {
 			return $nc(this->thisX500Name)->getRFC1779Name();
-		} else if ($nc(format)->equalsIgnoreCase(X500Principal::RFC2253)) {
+		} else if (format->equalsIgnoreCase(X500Principal::RFC2253)) {
 			return $nc(this->thisX500Name)->getRFC2253Name();
-		} else if ($nc(format)->equalsIgnoreCase(X500Principal::CANONICAL)) {
+		} else if (format->equalsIgnoreCase(X500Principal::CANONICAL)) {
 			return $nc(this->thisX500Name)->getRFC2253CanonicalName();
 		}
 	}
@@ -198,7 +198,7 @@ $String* X500Principal::getName($String* format, $Map* oidMap) {
 	if (format != nullptr) {
 		if (format->equalsIgnoreCase(X500Principal::RFC1779)) {
 			return $nc(this->thisX500Name)->getRFC1779Name(oidMap);
-		} else if ($nc(format)->equalsIgnoreCase(X500Principal::RFC2253)) {
+		} else if (format->equalsIgnoreCase(X500Principal::RFC2253)) {
 			return $nc(this->thisX500Name)->getRFC2253Name(oidMap);
 		}
 	}

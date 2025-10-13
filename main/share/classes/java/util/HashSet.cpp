@@ -33,8 +33,8 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
-#undef PRESENT
 #undef MAXIMUM_CAPACITY
+#undef PRESENT
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

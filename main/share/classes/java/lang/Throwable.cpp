@@ -43,13 +43,13 @@
 
 #undef CAUSE_CAPTION
 #undef EMPTY_THROWABLE_ARRAY
-#undef SELF_SUPPRESSION_MESSAGE
-#undef UNASSIGNED_STACK
 #undef NULL_CAUSE_MESSAGE
+#undef SELF_SUPPRESSION_MESSAGE
+#undef STACK_TRACE_ELEMENT_SENTINEL
+#undef STACK_TRACE_SENTINEL
 #undef SUPPRESSED_CAPTION
 #undef SUPPRESSED_SENTINEL
-#undef STACK_TRACE_SENTINEL
-#undef STACK_TRACE_ELEMENT_SENTINEL
+#undef UNASSIGNED_STACK
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $ThrowableArray = $Array<::java::lang::Throwable>;

@@ -43,10 +43,10 @@
 #include <javax/crypto/spec/SecretKeySpec.h>
 #include <jcpp.h>
 
-#undef UNWRAP_MODE
-#undef DES_BLOCK_SIZE
 #undef DECRYPT_MODE
+#undef DES_BLOCK_SIZE
 #undef DES_EDE_KEY_LEN
+#undef UNWRAP_MODE
 
 using $CipherCore = ::com::sun::crypto::provider::CipherCore;
 using $ConstructKeys = ::com::sun::crypto::provider::ConstructKeys;

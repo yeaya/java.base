@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("KEY_COMPROMISE")
-#undef KEY_COMPROMISE
+#pragma push_macro("AA_COMPROMISE")
+#undef AA_COMPROMISE
+#pragma push_macro("AFFILIATION_CHANGED")
+#undef AFFILIATION_CHANGED
+#pragma push_macro("CA_COMPROMISE")
+#undef CA_COMPROMISE
 #pragma push_macro("CERTIFICATE_HOLD")
 #undef CERTIFICATE_HOLD
+#pragma push_macro("CESSATION_OF_OPERATION")
+#undef CESSATION_OF_OPERATION
+#pragma push_macro("KEY_COMPROMISE")
+#undef KEY_COMPROMISE
 #pragma push_macro("NAMES")
 #undef NAMES
 #pragma push_macro("PRIVILEGE_WITHDRAWN")
 #undef PRIVILEGE_WITHDRAWN
 #pragma push_macro("SUPERSEDED")
 #undef SUPERSEDED
-#pragma push_macro("AA_COMPROMISE")
-#undef AA_COMPROMISE
-#pragma push_macro("AFFILIATION_CHANGED")
-#undef AFFILIATION_CHANGED
 #pragma push_macro("UNUSED")
 #undef UNUSED
-#pragma push_macro("CA_COMPROMISE")
-#undef CA_COMPROMISE
-#pragma push_macro("CESSATION_OF_OPERATION")
-#undef CESSATION_OF_OPERATION
 
 namespace java {
 	namespace util {
@@ -82,15 +82,15 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("KEY_COMPROMISE")
+#pragma pop_macro("AA_COMPROMISE")
+#pragma pop_macro("AFFILIATION_CHANGED")
+#pragma pop_macro("CA_COMPROMISE")
 #pragma pop_macro("CERTIFICATE_HOLD")
+#pragma pop_macro("CESSATION_OF_OPERATION")
+#pragma pop_macro("KEY_COMPROMISE")
 #pragma pop_macro("NAMES")
 #pragma pop_macro("PRIVILEGE_WITHDRAWN")
 #pragma pop_macro("SUPERSEDED")
-#pragma pop_macro("AA_COMPROMISE")
-#pragma pop_macro("AFFILIATION_CHANGED")
 #pragma pop_macro("UNUSED")
-#pragma pop_macro("CA_COMPROMISE")
-#pragma pop_macro("CESSATION_OF_OPERATION")
 
 #endif // _sun_security_x509_ReasonFlags_h_

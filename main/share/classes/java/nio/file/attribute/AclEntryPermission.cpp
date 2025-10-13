@@ -11,23 +11,23 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef READ_ACL
-#undef WRITE_OWNER
-#undef ADD_SUBDIRECTORY
 #undef ADD_FILE
-#undef READ_DATA
+#undef ADD_SUBDIRECTORY
 #undef APPEND_DATA
-#undef WRITE_DATA
-#undef EXECUTE
-#undef READ_NAMED_ATTRS
 #undef DELETE
-#undef WRITE_ACL
-#undef SYNCHRONIZE
-#undef READ_ATTRIBUTES
-#undef WRITE_ATTRIBUTES
 #undef DELETE_CHILD
+#undef EXECUTE
 #undef LIST_DIRECTORY
+#undef READ_ACL
+#undef READ_ATTRIBUTES
+#undef READ_DATA
+#undef READ_NAMED_ATTRS
+#undef SYNCHRONIZE
+#undef WRITE_ACL
+#undef WRITE_ATTRIBUTES
+#undef WRITE_DATA
 #undef WRITE_NAMED_ATTRS
+#undef WRITE_OWNER
 
 using $AclEntryPermissionArray = $Array<::java::nio::file::attribute::AclEntryPermission>;
 using $ClassInfo = ::java::lang::ClassInfo;

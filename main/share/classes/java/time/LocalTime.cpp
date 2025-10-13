@@ -53,36 +53,36 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef SECONDS_PER_DAY
-#undef MICRO_OF_DAY
-#undef NOON
-#undef MAX
-#undef MILLIS_PER_DAY
-#undef MIDNIGHT
-#undef SECOND_OF_MINUTE
-#undef MAX_VALUE
-#undef NANO_OF_DAY
-#undef ISO_LOCAL_TIME
-#undef NANOS_PER_MINUTE
-#undef LOCAL_TIME_TYPE
-#undef NANOS_PER_MILLI
-#undef HOUR_OF_DAY
-#undef MINUTES_PER_DAY
-#undef SECONDS_PER_MINUTE
-#undef NANOS_PER_DAY
-#undef NANO_OF_SECOND
-#undef HOURS_PER_DAY
-#undef MIN_VALUE
-#undef SECOND_OF_DAY
-#undef NANOS_PER_HOUR
-#undef SECONDS_PER_HOUR
-#undef NANOS_PER_SECOND
-#undef MIN
 #undef HOURS
+#undef HOURS_PER_DAY
+#undef HOUR_OF_DAY
+#undef ISO_LOCAL_TIME
+#undef LOCAL_TIME_TYPE
+#undef MAX
+#undef MAX_VALUE
 #undef MICROS_PER_DAY
-#undef NANOS
+#undef MICRO_OF_DAY
+#undef MIDNIGHT
+#undef MILLIS_PER_DAY
+#undef MIN
+#undef MINUTES_PER_DAY
 #undef MINUTES_PER_HOUR
 #undef MINUTE_OF_HOUR
+#undef MIN_VALUE
+#undef NANOS
+#undef NANOS_PER_DAY
+#undef NANOS_PER_HOUR
+#undef NANOS_PER_MILLI
+#undef NANOS_PER_MINUTE
+#undef NANOS_PER_SECOND
+#undef NANO_OF_DAY
+#undef NANO_OF_SECOND
+#undef NOON
+#undef SECONDS_PER_DAY
+#undef SECONDS_PER_HOUR
+#undef SECONDS_PER_MINUTE
+#undef SECOND_OF_DAY
+#undef SECOND_OF_MINUTE
 
 using $LocalTimeArray = $Array<::java::time::LocalTime>;
 using $DataInput = ::java::io::DataInput;
@@ -994,9 +994,9 @@ $String* LocalTime::toString() {
 			if (nanoValue % 0x000F4240 == 0) {
 				buf->append($($nc($($Integer::toString((nanoValue / 0x000F4240) + 1000)))->substring(1)));
 			} else if (nanoValue % 1000 == 0) {
-				$nc(buf)->append($($nc($($Integer::toString((nanoValue / 1000) + 0x000F4240)))->substring(1)));
+				buf->append($($nc($($Integer::toString((nanoValue / 1000) + 0x000F4240)))->substring(1)));
 			} else {
-				$nc(buf)->append($($nc($($Integer::toString((nanoValue) + 0x3B9ACA00)))->substring(1)));
+				buf->append($($nc($($Integer::toString((nanoValue) + 0x3B9ACA00)))->substring(1)));
 			}
 		}
 	}

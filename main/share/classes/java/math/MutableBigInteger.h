@@ -7,10 +7,10 @@
 
 #pragma push_macro("KNUTH_POW2_THRESH_LEN")
 #undef KNUTH_POW2_THRESH_LEN
-#pragma push_macro("ONE")
-#undef ONE
 #pragma push_macro("KNUTH_POW2_THRESH_ZEROS")
 #undef KNUTH_POW2_THRESH_ZEROS
+#pragma push_macro("ONE")
+#undef ONE
 
 namespace java {
 	namespace math {
@@ -121,7 +121,7 @@ public:
 } // java
 
 #pragma pop_macro("KNUTH_POW2_THRESH_LEN")
-#pragma pop_macro("ONE")
 #pragma pop_macro("KNUTH_POW2_THRESH_ZEROS")
+#pragma pop_macro("ONE")
 
 #endif // _java_math_MutableBigInteger_h_

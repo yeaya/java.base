@@ -26,15 +26,15 @@
 #include <sun/security/x509/SerialNumber.h>
 #include <jcpp.h>
 
-#undef SERIAL_NUMBER
-#undef TAG_NAMES
-#undef IDENT
-#undef TAG_CONTEXT
 #undef AUTH_NAME
+#undef IDENT
 #undef KEY_ID
-#undef TAG_ID
-#undef TAG_SERIAL_NUM
 #undef NAME
+#undef SERIAL_NUMBER
+#undef TAG_CONTEXT
+#undef TAG_ID
+#undef TAG_NAMES
+#undef TAG_SERIAL_NUM
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -202,16 +202,16 @@ void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) 
 			opt->resetTag($DerValue::tag_OctetString);
 			$set(this, id, $new($KeyIdentifier, opt));
 		} else {
-			bool var$4 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_NAMES);
-			if (var$4 && opt->isConstructed()) {
+			bool var$2 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_NAMES);
+			if (var$2 && opt->isConstructed()) {
 				if (this->names != nullptr) {
 					$throwNew($IOException, "Duplicate GeneralNames in AuthorityKeyIdentifier."_s);
 				}
 				opt->resetTag($DerValue::tag_Sequence);
 				$set(this, names, $new($GeneralNames, opt));
 			} else {
-				bool var$6 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_SERIAL_NUM);
-				if (var$6 && !opt->isConstructed()) {
+				bool var$4 = opt->isContextSpecific(AuthorityKeyIdentifierExtension::TAG_SERIAL_NUM);
+				if (var$4 && !opt->isConstructed()) {
 					if (this->serialNum != nullptr) {
 						$throwNew($IOException, "Duplicate SerialNumber in AuthorityKeyIdentifier."_s);
 					}
@@ -259,12 +259,12 @@ void AuthorityKeyIdentifierExtension::set($String* name, Object$* obj) {
 			$throwNew($IOException, "Attribute value should be of type KeyIdentifier."_s);
 		}
 		$set(this, id, $cast($KeyIdentifier, obj));
-	} else if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
+	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
 		if (!($instanceOf($GeneralNames, obj))) {
 			$throwNew($IOException, "Attribute value should be of type GeneralNames."_s);
 		}
 		$set(this, names, $cast($GeneralNames, obj));
-	} else if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
+	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
 		if (!($instanceOf($SerialNumber, obj))) {
 			$throwNew($IOException, "Attribute value should be of type SerialNumber."_s);
 		}
@@ -276,11 +276,11 @@ void AuthorityKeyIdentifierExtension::set($String* name, Object$* obj) {
 }
 
 $Object* AuthorityKeyIdentifierExtension::get($String* name) {
-	if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
+	if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
 		return $of((this->id));
-	} else if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
+	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
 		return $of((this->names));
-	} else if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
+	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
 		return $of((this->serialNum));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:AuthorityKeyIdentifier."_s);
@@ -288,11 +288,11 @@ $Object* AuthorityKeyIdentifierExtension::get($String* name) {
 }
 
 void AuthorityKeyIdentifierExtension::delete$($String* name) {
-	if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
+	if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
 		$set(this, id, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
+	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
 		$set(this, names, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
+	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::SERIAL_NUMBER)) {
 		$set(this, serialNum, nullptr);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:AuthorityKeyIdentifier."_s);

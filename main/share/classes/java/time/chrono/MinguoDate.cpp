@@ -44,12 +44,12 @@
 #include <jcpp.h>
 
 #undef BEFORE_ROC
-#undef MONTH_OF_YEAR
-#undef YEAR
 #undef DAY_OF_MONTH
-#undef ROC
 #undef INSTANCE
 #undef MINGUO_DATE_TYPE
+#undef MONTH_OF_YEAR
+#undef ROC
+#undef YEAR
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

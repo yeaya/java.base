@@ -458,7 +458,7 @@ Map* Map::ofEntries($Map$EntryArray* entries) {
 		$init($ImmutableCollections);
 		$var(Map, map, static_cast<Map*>($ImmutableCollections::EMPTY_MAP));
 		return map;
-	} else if ($nc(entries)->length == 1) {
+	} else if (entries->length == 1) {
 		$var($Object, var$0, $nc(entries->get(0))->getKey());
 		return $new($ImmutableCollections$Map1, var$0, $($nc(entries->get(0))->getValue()));
 	} else {

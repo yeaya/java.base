@@ -80,9 +80,9 @@ int32_t DTLSInputRecord$HandshakeFragment::compareTo($DTLSInputRecord$RecordFrag
 		$var(DTLSInputRecord$HandshakeFragment, other, $cast(DTLSInputRecord$HandshakeFragment, o));
 		if (this->messageSeq != $nc(other)->messageSeq) {
 			return this->messageSeq - other->messageSeq;
-		} else if (this->fragmentOffset != $nc(other)->fragmentOffset) {
+		} else if (this->fragmentOffset != other->fragmentOffset) {
 			return this->fragmentOffset - other->fragmentOffset;
-		} else if (this->fragmentLength == $nc(other)->fragmentLength) {
+		} else if (this->fragmentLength == other->fragmentLength) {
 			return 0;
 		}
 		return compareToSequence($nc(o)->recordEpoch, o->recordSeq);

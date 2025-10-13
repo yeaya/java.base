@@ -35,8 +35,8 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef NUM_THREADS
 #undef NUM_ITERS
+#undef NUM_THREADS
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;

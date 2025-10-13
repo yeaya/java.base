@@ -26,10 +26,10 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef POLLIN
-#undef POLLERR
 #undef OP_READ
+#undef POLLERR
 #undef POLLHUP
+#undef POLLIN
 #undef POLLNVAL
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;

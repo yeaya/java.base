@@ -37,10 +37,10 @@
 #include <java/util/stream/StreamSupport.h>
 #include <jcpp.h>
 
-#undef NONNULL
-#undef ORDERED
 #undef ENDANCHOR
 #undef NOANCHOR
+#undef NONNULL
+#undef ORDERED
 
 using $IntHashSetArray = $Array<::java::util::regex::IntHashSet>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -429,10 +429,10 @@ $StringBuilder* Matcher::appendExpandedReplacement($String* replacement, $String
 			++cursor;
 		} else if (nextChar == u'$') {
 			++cursor;
-			if (cursor == $nc(replacement)->length()) {
+			if (cursor == replacement->length()) {
 				$throwNew($IllegalArgumentException, "Illegal group reference: group index is missing"_s);
 			}
-			nextChar = $nc(replacement)->charAt(cursor);
+			nextChar = replacement->charAt(cursor);
 			int32_t refNum = -1;
 			if (nextChar == u'{') {
 				++cursor;

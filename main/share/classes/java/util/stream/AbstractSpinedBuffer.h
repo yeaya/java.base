@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIN_CHUNK_SIZE")
-#undef MIN_CHUNK_SIZE
 #pragma push_macro("MAX_CHUNK_POWER")
 #undef MAX_CHUNK_POWER
-#pragma push_macro("MIN_SPINE_SIZE")
-#undef MIN_SPINE_SIZE
 #pragma push_macro("MIN_CHUNK_POWER")
 #undef MIN_CHUNK_POWER
+#pragma push_macro("MIN_CHUNK_SIZE")
+#undef MIN_CHUNK_SIZE
+#pragma push_macro("MIN_SPINE_SIZE")
+#undef MIN_SPINE_SIZE
 
 namespace java {
 	namespace util {
@@ -42,9 +42,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MIN_CHUNK_SIZE")
 #pragma pop_macro("MAX_CHUNK_POWER")
-#pragma pop_macro("MIN_SPINE_SIZE")
 #pragma pop_macro("MIN_CHUNK_POWER")
+#pragma pop_macro("MIN_CHUNK_SIZE")
+#pragma pop_macro("MIN_SPINE_SIZE")
 
 #endif // _java_util_stream_AbstractSpinedBuffer_h_

@@ -11,8 +11,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef UNASSIGNED
 #undef DIRECTIONALITY_UNDEFINED
+#undef UNASSIGNED
 
 using $Character = ::java::lang::Character;
 using $CharacterData = ::java::lang::CharacterData;

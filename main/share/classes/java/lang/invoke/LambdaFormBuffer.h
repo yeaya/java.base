@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("F_TRANS")
-#undef F_TRANS
 #pragma push_macro("F_OWNED")
 #undef F_OWNED
+#pragma push_macro("F_TRANS")
+#undef F_TRANS
 
 namespace java {
 	namespace lang {
@@ -80,7 +80,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("F_TRANS")
 #pragma pop_macro("F_OWNED")
+#pragma pop_macro("F_TRANS")
 
 #endif // _java_lang_invoke_LambdaFormBuffer_h_

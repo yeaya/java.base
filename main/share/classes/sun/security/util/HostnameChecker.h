@@ -5,18 +5,18 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("TYPE_LDAP")
-#undef TYPE_LDAP
-#pragma push_macro("INSTANCE_LDAP")
-#undef INSTANCE_LDAP
-#pragma push_macro("ALTNAME_IP")
-#undef ALTNAME_IP
-#pragma push_macro("INSTANCE_TLS")
-#undef INSTANCE_TLS
-#pragma push_macro("TYPE_TLS")
-#undef TYPE_TLS
 #pragma push_macro("ALTNAME_DNS")
 #undef ALTNAME_DNS
+#pragma push_macro("ALTNAME_IP")
+#undef ALTNAME_IP
+#pragma push_macro("INSTANCE_LDAP")
+#undef INSTANCE_LDAP
+#pragma push_macro("INSTANCE_TLS")
+#undef INSTANCE_TLS
+#pragma push_macro("TYPE_LDAP")
+#undef TYPE_LDAP
+#pragma push_macro("TYPE_TLS")
+#undef TYPE_TLS
 
 namespace java {
 	namespace security {
@@ -75,11 +75,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TYPE_LDAP")
-#pragma pop_macro("INSTANCE_LDAP")
-#pragma pop_macro("ALTNAME_IP")
-#pragma pop_macro("INSTANCE_TLS")
-#pragma pop_macro("TYPE_TLS")
 #pragma pop_macro("ALTNAME_DNS")
+#pragma pop_macro("ALTNAME_IP")
+#pragma pop_macro("INSTANCE_LDAP")
+#pragma pop_macro("INSTANCE_TLS")
+#pragma pop_macro("TYPE_LDAP")
+#pragma pop_macro("TYPE_TLS")
 
 #endif // _sun_security_util_HostnameChecker_h_

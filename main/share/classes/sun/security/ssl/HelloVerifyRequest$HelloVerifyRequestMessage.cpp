@@ -31,10 +31,10 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
-#undef ENGLISH
-#undef ILLEGAL_PARAMETER
 #undef DTLS10
+#undef ENGLISH
+#undef HELLO_VERIFY_REQUEST
+#undef ILLEGAL_PARAMETER
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

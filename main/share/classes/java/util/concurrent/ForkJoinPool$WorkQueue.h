@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("QA")
-#undef QA
-#pragma push_macro("SOURCE")
-#undef SOURCE
 #pragma push_macro("BASE")
 #undef BASE
 #pragma push_macro("INNOCUOUS_ACC")
 #undef INNOCUOUS_ACC
+#pragma push_macro("QA")
+#undef QA
+#pragma push_macro("SOURCE")
+#undef SOURCE
 
 namespace java {
 	namespace lang {
@@ -91,9 +91,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("QA")
-#pragma pop_macro("SOURCE")
 #pragma pop_macro("BASE")
 #pragma pop_macro("INNOCUOUS_ACC")
+#pragma pop_macro("QA")
+#pragma pop_macro("SOURCE")
 
 #endif // _java_util_concurrent_ForkJoinPool$WorkQueue_h_

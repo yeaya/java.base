@@ -14,9 +14,9 @@
 #include <sun/security/ssl/SSLHandshake.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
 #undef HELLO_REQUEST
 #undef HELLO_RETRY_REQUEST
+#undef HELLO_VERIFY_REQUEST
 
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;
 using $ClassInfo = ::java::lang::ClassInfo;

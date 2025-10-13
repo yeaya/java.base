@@ -19,8 +19,8 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef PSK_KEY_EXCHANGE_MODES
 #undef DEFAULT
+#undef PSK_KEY_EXCHANGE_MODES
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

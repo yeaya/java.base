@@ -22,9 +22,9 @@
 #include <jdk/internal/module/ModuleLoaderMap.h>
 #include <jcpp.h>
 
-#undef PLATFORM_CLASSLOADER
-#undef APP_LOADER_INDEX
 #undef APP_CLASSLOADER
+#undef APP_LOADER_INDEX
+#undef PLATFORM_CLASSLOADER
 #undef PLATFORM_LOADER_INDEX
 
 using $ClassInfo = ::java::lang::ClassInfo;

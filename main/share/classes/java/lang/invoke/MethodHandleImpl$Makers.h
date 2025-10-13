@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("PRODUCE_REINVOKER_FORM")
-#undef PRODUCE_REINVOKER_FORM
 #pragma push_macro("PRODUCE_BLOCK_INLINING_FORM")
 #undef PRODUCE_BLOCK_INLINING_FORM
+#pragma push_macro("PRODUCE_REINVOKER_FORM")
+#undef PRODUCE_REINVOKER_FORM
 #pragma push_macro("TYPED_COLLECTORS")
 #undef TYPED_COLLECTORS
 
@@ -43,8 +43,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("PRODUCE_REINVOKER_FORM")
 #pragma pop_macro("PRODUCE_BLOCK_INLINING_FORM")
+#pragma pop_macro("PRODUCE_REINVOKER_FORM")
 #pragma pop_macro("TYPED_COLLECTORS")
 
 #endif // _java_lang_invoke_MethodHandleImpl$Makers_h_

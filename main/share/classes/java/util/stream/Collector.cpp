@@ -24,9 +24,9 @@
 #include <java/util/stream/Collectors.h>
 #include <jcpp.h>
 
-#undef IDENTITY_FINISH
 #undef CH_ID
 #undef CH_NOID
+#undef IDENTITY_FINISH
 
 using $EnumArray = $Array<::java::lang::Enum>;
 using $Collector$CharacteristicsArray = $Array<::java::util::stream::Collector$Characteristics>;

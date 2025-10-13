@@ -16,9 +16,9 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef JANUARY
 #undef DATA
 #undef EXPECTED
+#undef JANUARY
 #undef US
 
 using $ClassInfo = ::java::lang::ClassInfo;

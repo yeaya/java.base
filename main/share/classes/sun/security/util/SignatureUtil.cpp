@@ -48,11 +48,11 @@
 #include <sun/security/x509/AlgorithmId.h>
 #include <jcpp.h>
 
-#undef PSS_512_SPEC
 #undef ENGLISH
 #undef PSS_256_SPEC
-#undef US
 #undef PSS_384_SPEC
+#undef PSS_512_SPEC
+#undef US
 
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
@@ -198,10 +198,10 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 		}
 		if (sigName->indexOf("RSA"_s) != -1) {
 			$assign(paramSpec, $RSAUtil::getParamSpec(params));
-		} else if ($nc(sigName)->indexOf("ECDSA"_s) != -1) {
+		} else if (sigName->indexOf("ECDSA"_s) != -1) {
 			try {
 				$load($ECParameterSpec);
-				$assign(paramSpec, $nc(params)->getParameterSpec($ECParameterSpec::class$));
+				$assign(paramSpec, params->getParameterSpec($ECParameterSpec::class$));
 			} catch ($Exception&) {
 				$var($Exception, e, $catch());
 				$throwNew($ProviderException, "Error handling EC parameters"_s, e);
@@ -222,7 +222,7 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 		if (sigName->indexOf("RSA"_s) != -1) {
 			$var($AlgorithmParameters, params, createAlgorithmParameters(sigName, paramBytes));
 			$assign(paramSpec, $RSAUtil::getParamSpec(params));
-		} else if ($nc(sigName)->indexOf("ECDSA"_s) != -1) {
+		} else if (sigName->indexOf("ECDSA"_s) != -1) {
 			try {
 				$var($Provider, p, $nc($($Signature::getInstance(sigName)))->getProvider());
 				$assign(paramSpec, $ECUtil::getECParameterSpec(p, paramBytes));
@@ -304,7 +304,7 @@ $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $
 				}
 			}
 		}
-	} else if ($nc(sigalg)->equalsIgnoreCase("RSASSA-PSS"_s)) {
+	} else if (sigalg->equalsIgnoreCase("RSASSA-PSS"_s)) {
 		try {
 			$load($PSSParameterSpec);
 			$assign(digAlgID, $AlgorithmId::get($($nc(($cast($PSSParameterSpec, $($nc($($nc(signer)->getParameters()))->getParameterSpec($PSSParameterSpec::class$)))))->getDigestAlgorithm())));

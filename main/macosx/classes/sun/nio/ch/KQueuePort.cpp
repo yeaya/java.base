@@ -31,10 +31,10 @@
 #include <jcpp.h>
 
 #undef EXECUTE_TASK_OR_SHUTDOWN
-#undef POLLIN
 #undef MAX_KEVENTS_TO_POLL
-#undef POLLOUT
 #undef NEED_TO_POLL
+#undef POLLIN
+#undef POLLOUT
 
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;

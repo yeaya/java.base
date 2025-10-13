@@ -17,8 +17,8 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef NONNULL
 #undef CONCURRENT
+#undef NONNULL
 
 using $ConcurrentHashMap$NodeArray = $Array<::java::util::concurrent::ConcurrentHashMap$Node>;
 using $ClassInfo = ::java::lang::ClassInfo;

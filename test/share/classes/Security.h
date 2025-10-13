@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SE")
-#undef SE
 #pragma push_macro("IOE")
 #undef IOE
+#pragma push_macro("SE")
+#undef SE
 
 class Security$Command;
 namespace java {
@@ -44,7 +44,7 @@ public:
 	static $Class* IOE;
 };
 
-#pragma pop_macro("SE")
 #pragma pop_macro("IOE")
+#pragma pop_macro("SE")
 
 #endif // _Security_h_

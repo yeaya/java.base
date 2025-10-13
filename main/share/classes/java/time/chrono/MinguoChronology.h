@@ -7,10 +7,10 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/AbstractChronology.h>
 
-#pragma push_macro("YEARS_DIFFERENCE")
-#undef YEARS_DIFFERENCE
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("YEARS_DIFFERENCE")
+#undef YEARS_DIFFERENCE
 
 namespace java {
 	namespace io {
@@ -103,7 +103,7 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("YEARS_DIFFERENCE")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("YEARS_DIFFERENCE")
 
 #endif // _java_time_chrono_MinguoChronology_h_

@@ -22,41 +22,41 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef LF_VH_EX_INVOKER
-#undef LF_INVVIRTUAL
-#undef LF_NEWINVSPECIAL
-#undef LF_EX_LINKER
-#undef LF_TF
+#undef ERASE
 #undef LF_COLLECTOR
+#undef LF_CS_LINKER
+#undef LF_DELEGATE
+#undef LF_DELEGATE_BLOCK_INLINING
+#undef LF_EX_INVOKER
+#undef LF_EX_LINKER
+#undef LF_GEN_INVOKER
+#undef LF_GEN_LINKER
+#undef LF_GWC
+#undef LF_GWT
+#undef LF_INTERPRET
+#undef LF_INVINTERFACE
+#undef LF_INVNATIVE
 #undef LF_INVSPECIAL
-#undef MH_NF_INV
+#undef LF_INVSPECIAL_IFC
+#undef LF_INVSTATIC
+#undef LF_INVSTATIC_INIT
+#undef LF_INVVIRTUAL
+#undef LF_LIMIT
+#undef LF_LOOP
+#undef LF_MH_LINKER
+#undef LF_NEWINVSPECIAL
+#undef LF_REBIND
+#undef LF_TF
+#undef LF_VH_EX_INVOKER
+#undef LF_VH_GEN_INVOKER
 #undef LF_VH_GEN_LINKER
 #undef MH_BASIC_INV
-#undef LF_INVSTATIC_INIT
-#undef LF_GEN_INVOKER
-#undef UNWRAP
-#undef TYPE
 #undef MH_LIMIT
+#undef MH_NF_INV
 #undef MH_UNINIT_CS
-#undef LF_LOOP
+#undef TYPE
+#undef UNWRAP
 #undef WRAP
-#undef LF_INVSTATIC
-#undef LF_GWT
-#undef LF_INVSPECIAL_IFC
-#undef LF_EX_INVOKER
-#undef LF_CS_LINKER
-#undef LF_VH_GEN_INVOKER
-#undef LF_LIMIT
-#undef LF_DELEGATE_BLOCK_INLINING
-#undef LF_DELEGATE
-#undef LF_INVNATIVE
-#undef LF_INTERPRET
-#undef ERASE
-#undef LF_INVINTERFACE
-#undef LF_GEN_LINKER
-#undef LF_REBIND
-#undef LF_GWC
-#undef LF_MH_LINKER
 
 using $SoftReferenceArray = $Array<::java::lang::ref::SoftReference>;
 using $AssertionError = ::java::lang::AssertionError;
@@ -307,7 +307,7 @@ $Class* MethodTypeForm::canonicalize($Class* t, int32_t how) {
 	$init(MethodTypeForm);
 	$load($Object);
 	if (t == $Object::class$) {
-	} else if (!$nc(t)->isPrimitive()) {
+	} else if (!t->isPrimitive()) {
 		{
 			$var($Class, ct, nullptr)
 			switch (how) {
@@ -321,7 +321,6 @@ $Class* MethodTypeForm::canonicalize($Class* t, int32_t how) {
 				}
 			case MethodTypeForm::ERASE:
 				{
-					$load($Object);
 					return $Object::class$;
 				}
 			}

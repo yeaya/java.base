@@ -8,10 +8,10 @@
 #include <java/lang/Enum.h>
 #include <java/time/chrono/Era.h>
 
-#pragma push_macro("BEFORE_AM")
-#undef BEFORE_AM
 #pragma push_macro("AM")
 #undef AM
+#pragma push_macro("BEFORE_AM")
+#undef BEFORE_AM
 
 namespace tck {
 	namespace java {
@@ -44,7 +44,7 @@ public:
 	} // java
 } // tck
 
-#pragma pop_macro("BEFORE_AM")
 #pragma pop_macro("AM")
+#pragma pop_macro("BEFORE_AM")
 
 #endif // _tck_java_time_chrono_CopticEra_h_

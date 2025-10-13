@@ -10,10 +10,10 @@
 #undef EXPIRED
 #pragma push_macro("EXTENSION_MISMATCH")
 #undef EXTENSION_MISMATCH
-#pragma push_macro("OK")
-#undef OK
 #pragma push_macro("INSENSITIVE")
 #undef INSENSITIVE
+#pragma push_macro("OK")
+#undef OK
 
 namespace sun {
 	namespace security {
@@ -40,7 +40,7 @@ public:
 
 #pragma pop_macro("EXPIRED")
 #pragma pop_macro("EXTENSION_MISMATCH")
-#pragma pop_macro("OK")
 #pragma pop_macro("INSENSITIVE")
+#pragma pop_macro("OK")
 
 #endif // _sun_security_ssl_X509KeyManagerImpl$CheckResult_h_

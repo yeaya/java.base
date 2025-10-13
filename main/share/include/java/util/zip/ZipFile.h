@@ -8,14 +8,14 @@
 #include <java/lang/Array.h>
 #include <java/util/zip/ZipEntry.h>
 
-#pragma push_macro("STORED")
-#undef STORED
 #pragma push_macro("DEFLATED")
 #undef DEFLATED
 #pragma push_macro("OPEN_DELETE")
 #undef OPEN_DELETE
 #pragma push_macro("OPEN_READ")
 #undef OPEN_READ
+#pragma push_macro("STORED")
+#undef STORED
 
 namespace java {
 	namespace io {
@@ -115,9 +115,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("STORED")
 #pragma pop_macro("DEFLATED")
 #pragma pop_macro("OPEN_DELETE")
 #pragma pop_macro("OPEN_READ")
+#pragma pop_macro("STORED")
 
 #endif // _java_util_zip_ZipFile_h_

@@ -55,15 +55,15 @@
 #include <sun/security/ssl/X509Authentication$X509Credentials.h>
 #include <jcpp.h>
 
-#undef REVOKED
-#undef CLIENT_AUTH_REQUIRED
-#undef CERTIFICATE_VERIFY
 #undef BAD_CERTIFICATE
-#undef CERTIFICATE
-#undef UNDETERMINED_REVOCATION_STATUS
-#undef CERTIFICATE_UNKNOWN
 #undef BAD_CERT_STATUS_RESPONSE
+#undef CERTIFICATE
 #undef CERTIFICATE_REVOKED
+#undef CERTIFICATE_UNKNOWN
+#undef CERTIFICATE_VERIFY
+#undef CLIENT_AUTH_REQUIRED
+#undef REVOKED
+#undef UNDETERMINED_REVOCATION_STATUS
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;

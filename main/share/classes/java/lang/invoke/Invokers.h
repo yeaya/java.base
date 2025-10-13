@@ -5,24 +5,24 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("INV_GENERIC")
-#undef INV_GENERIC
 #pragma push_macro("INV_BASIC")
 #undef INV_BASIC
 #pragma push_macro("INV_EXACT")
 #undef INV_EXACT
+#pragma push_macro("INV_GENERIC")
+#undef INV_GENERIC
 #pragma push_macro("INV_LIMIT")
 #undef INV_LIMIT
-#pragma push_macro("NF_LIMIT")
-#undef NF_LIMIT
-#pragma push_macro("NFS")
-#undef NFS
-#pragma push_macro("VH_INV_GENERIC")
-#undef VH_INV_GENERIC
-#pragma push_macro("VH_INV_EXACT")
-#undef VH_INV_EXACT
 #pragma push_macro("MH_LINKER_ARG_APPENDED")
 #undef MH_LINKER_ARG_APPENDED
+#pragma push_macro("NFS")
+#undef NFS
+#pragma push_macro("NF_LIMIT")
+#undef NF_LIMIT
+#pragma push_macro("VH_INV_EXACT")
+#undef VH_INV_EXACT
+#pragma push_macro("VH_INV_GENERIC")
+#undef VH_INV_GENERIC
 
 namespace java {
 	namespace lang {
@@ -113,14 +113,14 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("INV_GENERIC")
 #pragma pop_macro("INV_BASIC")
 #pragma pop_macro("INV_EXACT")
+#pragma pop_macro("INV_GENERIC")
 #pragma pop_macro("INV_LIMIT")
-#pragma pop_macro("NF_LIMIT")
-#pragma pop_macro("NFS")
-#pragma pop_macro("VH_INV_GENERIC")
-#pragma pop_macro("VH_INV_EXACT")
 #pragma pop_macro("MH_LINKER_ARG_APPENDED")
+#pragma pop_macro("NFS")
+#pragma pop_macro("NF_LIMIT")
+#pragma pop_macro("VH_INV_EXACT")
+#pragma pop_macro("VH_INV_GENERIC")
 
 #endif // _java_lang_invoke_Invokers_h_

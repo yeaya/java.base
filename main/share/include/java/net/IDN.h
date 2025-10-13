@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("MAX_LABEL_LENGTH")
-#undef MAX_LABEL_LENGTH
-#pragma push_macro("IDN")
-#undef IDN
 #pragma push_macro("ACE_PREFIX")
 #undef ACE_PREFIX
 #pragma push_macro("ACE_PREFIX_LENGTH")
 #undef ACE_PREFIX_LENGTH
 #pragma push_macro("ALLOW_UNASSIGNED")
 #undef ALLOW_UNASSIGNED
+#pragma push_macro("IDN")
+#undef IDN
+#pragma push_macro("MAX_LABEL_LENGTH")
+#undef MAX_LABEL_LENGTH
 #pragma push_macro("USE_STD3_ASCII_RULES")
 #undef USE_STD3_ASCII_RULES
 
@@ -67,11 +67,11 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("MAX_LABEL_LENGTH")
-#pragma pop_macro("IDN")
 #pragma pop_macro("ACE_PREFIX")
 #pragma pop_macro("ACE_PREFIX_LENGTH")
 #pragma pop_macro("ALLOW_UNASSIGNED")
+#pragma pop_macro("IDN")
+#pragma pop_macro("MAX_LABEL_LENGTH")
 #pragma pop_macro("USE_STD3_ASCII_RULES")
 
 #endif // _java_net_IDN_h_

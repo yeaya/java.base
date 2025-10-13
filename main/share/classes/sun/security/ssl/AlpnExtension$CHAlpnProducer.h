@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 
-#pragma push_macro("MAX_AP_LIST_LENGTH")
-#undef MAX_AP_LIST_LENGTH
 #pragma push_macro("MAX_AP_LENGTH")
 #undef MAX_AP_LENGTH
+#pragma push_macro("MAX_AP_LIST_LENGTH")
+#undef MAX_AP_LIST_LENGTH
 
 namespace sun {
 	namespace security {
@@ -38,7 +38,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("MAX_AP_LIST_LENGTH")
 #pragma pop_macro("MAX_AP_LENGTH")
+#pragma pop_macro("MAX_AP_LIST_LENGTH")
 
 #endif // _sun_security_ssl_AlpnExtension$CHAlpnProducer_h_

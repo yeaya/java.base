@@ -73,15 +73,15 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef GET_CLASSLOADER_PERMISSION
 #undef INITIAL_CACHE_SIZE
-#undef TRACE_ON
+#undef INSTANCE
+#undef NONEXISTENT_BUNDLE
 #undef ROOT
+#undef TRACE_ON
 #undef TTL_DONT_CACHE
 #undef TTL_NO_EXPIRATION_CONTROL
 #undef UNKNOWN_FORMAT
-#undef INSTANCE
-#undef GET_CLASSLOADER_PERMISSION
-#undef NONEXISTENT_BUNDLE
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;

@@ -22,8 +22,8 @@
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
 
-#undef NOT_ORDERED
 #undef IS_SHORT_CIRCUIT
+#undef NOT_ORDERED
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

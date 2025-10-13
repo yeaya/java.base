@@ -55,9 +55,9 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef KEY_AGREEMENT
 #undef HANDSHAKE_FAILURE
 #undef INTERNAL_ERROR
+#undef KEY_AGREEMENT
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

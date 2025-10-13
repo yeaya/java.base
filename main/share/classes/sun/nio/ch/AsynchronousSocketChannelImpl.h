@@ -9,14 +9,14 @@
 #include <sun/nio/ch/Cancellable.h>
 #include <sun/nio/ch/Groupable.h>
 
-#pragma push_macro("ST_UNCONNECTED")
-#undef ST_UNCONNECTED
-#pragma push_macro("ST_PENDING")
-#undef ST_PENDING
-#pragma push_macro("ST_UNINITIALIZED")
-#undef ST_UNINITIALIZED
 #pragma push_macro("ST_CONNECTED")
 #undef ST_CONNECTED
+#pragma push_macro("ST_PENDING")
+#undef ST_PENDING
+#pragma push_macro("ST_UNCONNECTED")
+#undef ST_UNCONNECTED
+#pragma push_macro("ST_UNINITIALIZED")
+#undef ST_UNINITIALIZED
 
 namespace java {
 	namespace io {
@@ -150,9 +150,9 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("ST_UNCONNECTED")
-#pragma pop_macro("ST_PENDING")
-#pragma pop_macro("ST_UNINITIALIZED")
 #pragma pop_macro("ST_CONNECTED")
+#pragma pop_macro("ST_PENDING")
+#pragma pop_macro("ST_UNCONNECTED")
+#pragma pop_macro("ST_UNINITIALIZED")
 
 #endif // _sun_nio_ch_AsynchronousSocketChannelImpl_h_

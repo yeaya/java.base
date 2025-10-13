@@ -27,10 +27,10 @@
 #include <sun/security/x509/PolicyInformation.h>
 #include <jcpp.h>
 
-#undef IDENT
 #undef FALSE
-#undef POLICIES
+#undef IDENT
 #undef NAME
+#undef POLICIES
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

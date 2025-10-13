@@ -24,9 +24,9 @@
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
 
-#undef ZERO
-#undef UTC
 #undef OFFSET_SEED
+#undef UTC
+#undef ZERO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

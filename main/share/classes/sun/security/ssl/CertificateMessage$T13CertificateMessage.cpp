@@ -34,8 +34,8 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef ENGLISH
 #undef CERTIFICATE
+#undef ENGLISH
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;

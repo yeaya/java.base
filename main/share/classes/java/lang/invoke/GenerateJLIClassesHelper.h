@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("INVOKERS_HOLDER_CLASS_NAME")
-#undef INVOKERS_HOLDER_CLASS_NAME
+#pragma push_macro("BASIC_FORMS_HOLDER")
+#undef BASIC_FORMS_HOLDER
+#pragma push_macro("BMH_SPECIES_PREFIX")
+#undef BMH_SPECIES_PREFIX
 #pragma push_macro("DELEGATING_HOLDER")
 #undef DELEGATING_HOLDER
 #pragma push_macro("DIRECT_HOLDER")
 #undef DIRECT_HOLDER
 #pragma push_macro("DMH_METHOD_TYPE_MAP")
 #undef DMH_METHOD_TYPE_MAP
-#pragma push_macro("BMH_SPECIES_PREFIX")
-#undef BMH_SPECIES_PREFIX
-#pragma push_macro("BASIC_FORMS_HOLDER")
-#undef BASIC_FORMS_HOLDER
 #pragma push_macro("INVOKERS_HOLDER")
 #undef INVOKERS_HOLDER
+#pragma push_macro("INVOKERS_HOLDER_CLASS_NAME")
+#undef INVOKERS_HOLDER_CLASS_NAME
 
 namespace java {
 	namespace lang {
@@ -77,12 +77,12 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("INVOKERS_HOLDER_CLASS_NAME")
+#pragma pop_macro("BASIC_FORMS_HOLDER")
+#pragma pop_macro("BMH_SPECIES_PREFIX")
 #pragma pop_macro("DELEGATING_HOLDER")
 #pragma pop_macro("DIRECT_HOLDER")
 #pragma pop_macro("DMH_METHOD_TYPE_MAP")
-#pragma pop_macro("BMH_SPECIES_PREFIX")
-#pragma pop_macro("BASIC_FORMS_HOLDER")
 #pragma pop_macro("INVOKERS_HOLDER")
+#pragma pop_macro("INVOKERS_HOLDER_CLASS_NAME")
 
 #endif // _java_lang_invoke_GenerateJLIClassesHelper_h_

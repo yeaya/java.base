@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <javax/crypto/KeyGeneratorSpi.h>
 
-#pragma push_macro("MSG")
-#undef MSG
-#pragma push_macro("LABEL_MASTER_SECRET")
-#undef LABEL_MASTER_SECRET
-#pragma push_macro("LABEL_EXTENDED_MASTER_SECRET")
-#undef LABEL_EXTENDED_MASTER_SECRET
-#pragma push_macro("SSL3_CONST")
-#undef SSL3_CONST
-#pragma push_macro("LABEL_KEY_EXPANSION")
-#undef LABEL_KEY_EXPANSION
-#pragma push_macro("LABEL_IV_BLOCK")
-#undef LABEL_IV_BLOCK
 #pragma push_macro("LABEL_CLIENT_WRITE_KEY")
 #undef LABEL_CLIENT_WRITE_KEY
+#pragma push_macro("LABEL_EXTENDED_MASTER_SECRET")
+#undef LABEL_EXTENDED_MASTER_SECRET
+#pragma push_macro("LABEL_IV_BLOCK")
+#undef LABEL_IV_BLOCK
+#pragma push_macro("LABEL_KEY_EXPANSION")
+#undef LABEL_KEY_EXPANSION
+#pragma push_macro("LABEL_MASTER_SECRET")
+#undef LABEL_MASTER_SECRET
 #pragma push_macro("LABEL_SERVER_WRITE_KEY")
 #undef LABEL_SERVER_WRITE_KEY
+#pragma push_macro("MSG")
+#undef MSG
+#pragma push_macro("SSL3_CONST")
+#undef SSL3_CONST
 
 namespace java {
 	namespace security {
@@ -94,13 +94,13 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("MSG")
-#pragma pop_macro("LABEL_MASTER_SECRET")
-#pragma pop_macro("LABEL_EXTENDED_MASTER_SECRET")
-#pragma pop_macro("SSL3_CONST")
-#pragma pop_macro("LABEL_KEY_EXPANSION")
-#pragma pop_macro("LABEL_IV_BLOCK")
 #pragma pop_macro("LABEL_CLIENT_WRITE_KEY")
+#pragma pop_macro("LABEL_EXTENDED_MASTER_SECRET")
+#pragma pop_macro("LABEL_IV_BLOCK")
+#pragma pop_macro("LABEL_KEY_EXPANSION")
+#pragma pop_macro("LABEL_MASTER_SECRET")
 #pragma pop_macro("LABEL_SERVER_WRITE_KEY")
+#pragma pop_macro("MSG")
+#pragma pop_macro("SSL3_CONST")
 
 #endif // _com_sun_crypto_provider_TlsPrfGenerator_h_

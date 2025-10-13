@@ -11,18 +11,18 @@
 #include <java/lang/reflect/Modifier.h>
 #include <jcpp.h>
 
-#undef VOLATILE
-#undef SYNCHRONIZED
-#undef STRICT
-#undef NATIVE
-#undef INTERFACE
-#undef PUBLIC
-#undef FINAL
-#undef PROTECTED
 #undef ABSTRACT
-#undef TRANSIENT
-#undef STATIC
+#undef FINAL
+#undef INTERFACE
+#undef NATIVE
 #undef PRIVATE
+#undef PROTECTED
+#undef PUBLIC
+#undef STATIC
+#undef STRICT
+#undef SYNCHRONIZED
+#undef TRANSIENT
+#undef VOLATILE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -48,8 +48,8 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef INSTANCE
 #undef GET_CLASSLOADER_PERMISSION
+#undef INSTANCE
 
 using $PermissionArray = $Array<::java::security::Permission>;
 using $IOException = ::java::io::IOException;

@@ -6,34 +6,34 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/org/objectweb/asm/util/Printer.h>
 
-#pragma push_macro("COMMA")
-#undef COMMA
-#pragma push_macro("NEW_OBJECT_ARRAY")
-#undef NEW_OBJECT_ARRAY
 #pragma push_macro("ACCESS_CLASS")
 #undef ACCESS_CLASS
-#pragma push_macro("END_PARAMETERS")
-#undef END_PARAMETERS
+#pragma push_macro("ACCESS_FIELD")
+#undef ACCESS_FIELD
+#pragma push_macro("ACCESS_INNER")
+#undef ACCESS_INNER
 #pragma push_macro("ACCESS_MODULE")
 #undef ACCESS_MODULE
 #pragma push_macro("ANNOTATION_VISITOR")
 #undef ANNOTATION_VISITOR
 #pragma push_macro("ANNOTATION_VISITOR0")
 #undef ANNOTATION_VISITOR0
-#pragma push_macro("VISIT_END")
-#undef VISIT_END
-#pragma push_macro("USAGE")
-#undef USAGE
-#pragma push_macro("ACCESS_INNER")
-#undef ACCESS_INNER
-#pragma push_macro("END_ARRAY")
-#undef END_ARRAY
 #pragma push_macro("CLASS_VERSIONS")
 #undef CLASS_VERSIONS
+#pragma push_macro("COMMA")
+#undef COMMA
+#pragma push_macro("END_ARRAY")
+#undef END_ARRAY
+#pragma push_macro("END_PARAMETERS")
+#undef END_PARAMETERS
 #pragma push_macro("FRAME_TYPES")
 #undef FRAME_TYPES
-#pragma push_macro("ACCESS_FIELD")
-#undef ACCESS_FIELD
+#pragma push_macro("NEW_OBJECT_ARRAY")
+#undef NEW_OBJECT_ARRAY
+#pragma push_macro("USAGE")
+#undef USAGE
+#pragma push_macro("VISIT_END")
+#undef VISIT_END
 
 namespace java {
 	namespace io {
@@ -182,19 +182,19 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("COMMA")
-#pragma pop_macro("NEW_OBJECT_ARRAY")
 #pragma pop_macro("ACCESS_CLASS")
-#pragma pop_macro("END_PARAMETERS")
+#pragma pop_macro("ACCESS_FIELD")
+#pragma pop_macro("ACCESS_INNER")
 #pragma pop_macro("ACCESS_MODULE")
 #pragma pop_macro("ANNOTATION_VISITOR")
 #pragma pop_macro("ANNOTATION_VISITOR0")
-#pragma pop_macro("VISIT_END")
-#pragma pop_macro("USAGE")
-#pragma pop_macro("ACCESS_INNER")
-#pragma pop_macro("END_ARRAY")
 #pragma pop_macro("CLASS_VERSIONS")
+#pragma pop_macro("COMMA")
+#pragma pop_macro("END_ARRAY")
+#pragma pop_macro("END_PARAMETERS")
 #pragma pop_macro("FRAME_TYPES")
-#pragma pop_macro("ACCESS_FIELD")
+#pragma pop_macro("NEW_OBJECT_ARRAY")
+#pragma pop_macro("USAGE")
+#pragma pop_macro("VISIT_END")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_ASMifier_h_

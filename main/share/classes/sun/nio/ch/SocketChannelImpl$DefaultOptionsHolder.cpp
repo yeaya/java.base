@@ -22,14 +22,14 @@
 #include <sun/nio/ch/SocketChannelImpl.h>
 #include <jcpp.h>
 
-#undef SO_LINGER
-#undef SO_RCVBUF
 #undef IP_TOS
 #undef SO_KEEPALIVE
-#undef SO_SNDBUF
-#undef SO_REUSEADDR
+#undef SO_LINGER
 #undef SO_OOBINLINE
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
 #undef SO_REUSEPORT
+#undef SO_SNDBUF
 #undef TCP_NODELAY
 
 using $ClassInfo = ::java::lang::ClassInfo;

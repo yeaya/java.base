@@ -40,10 +40,10 @@
 #include <sun/security/ssl/X509Authentication$X509Possession.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
+#undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_STATUS
+#undef CERTIFICATE_VERIFY
 
 using $PrincipalArray = $Array<::java::security::Principal>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
@@ -139,8 +139,8 @@ void CertificateRequest$T10CertificateRequestConsumer::consume($ConnectionContex
 	if ($instanceOf($SSLSocketImpl, $nc(chc->conContext)->transport)) {
 		$var($StringArray, var$0, crm->getKeyTypes());
 		$assign(clientAlias, $nc(km)->chooseClientAlias(var$0, $($fcast($PrincipalArray, crm->getAuthorities())), $cast($SSLSocket, $nc(chc->conContext)->transport)));
-	} else if ($instanceOf($SSLEngineImpl, $nc($nc(chc)->conContext)->transport)) {
-		$var($StringArray, var$1, $nc(crm)->getKeyTypes());
+	} else if ($instanceOf($SSLEngineImpl, $nc(chc->conContext)->transport)) {
+		$var($StringArray, var$1, crm->getKeyTypes());
 		$assign(clientAlias, $nc(km)->chooseEngineClientAlias(var$1, $($fcast($PrincipalArray, crm->getAuthorities())), $cast($SSLEngine, $nc(chc->conContext)->transport)));
 	}
 	if (clientAlias == nullptr) {

@@ -65,15 +65,15 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef KEY_AGREEMENT
-#undef ENCRYPTED_EXTENSIONS
-#undef SERVER_HELLO
-#undef HANDSHAKE_FAILURE
+#undef CLIENT_HELLO
 #undef C_NULL
+#undef ENCRYPTED_EXTENSIONS
+#undef FINISHED
+#undef HANDSHAKE_FAILURE
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
-#undef FINISHED
-#undef CLIENT_HELLO
+#undef KEY_AGREEMENT
+#undef SERVER_HELLO
 #undef TLS12
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;

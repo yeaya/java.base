@@ -46,14 +46,14 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
-#undef EEXIST
-#undef O_RDONLY
-#undef AT_REMOVEDIR
-#undef O_NOFOLLOW
-#undef ENOTDIR
-#undef EXDEV
 #undef ALL_READWRITE
+#undef AT_REMOVEDIR
+#undef EEXIST
+#undef ENOTDIR
 #undef ENOTEMPTY
+#undef EXDEV
+#undef O_NOFOLLOW
+#undef O_RDONLY
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;

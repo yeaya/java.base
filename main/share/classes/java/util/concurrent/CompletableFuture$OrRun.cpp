@@ -94,10 +94,10 @@ $CompletableFuture* CompletableFuture$OrRun::tryFire(int32_t mode) {
 			if (mode <= 0 && !claim()) {
 				return nullptr;
 			} else if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
-				$nc(d)->completeThrowable(x, r);
+				d->completeThrowable(x, r);
 			} else {
 				$nc(f)->run();
-				$nc(d)->completeNull();
+				d->completeNull();
 			}
 		} catch ($Throwable&) {
 			$var($Throwable, ex, $catch());

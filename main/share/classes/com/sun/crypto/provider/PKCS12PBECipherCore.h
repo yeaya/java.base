@@ -9,12 +9,12 @@
 #undef CIPHER_IV
 #pragma push_macro("CIPHER_KEY")
 #undef CIPHER_KEY
-#pragma push_macro("MAC_KEY")
-#undef MAC_KEY
-#pragma push_macro("DEFAULT_SALT_LENGTH")
-#undef DEFAULT_SALT_LENGTH
 #pragma push_macro("DEFAULT_COUNT")
 #undef DEFAULT_COUNT
+#pragma push_macro("DEFAULT_SALT_LENGTH")
+#undef DEFAULT_SALT_LENGTH
+#pragma push_macro("MAC_KEY")
+#undef MAC_KEY
 
 namespace com {
 	namespace sun {
@@ -102,8 +102,8 @@ public:
 
 #pragma pop_macro("CIPHER_IV")
 #pragma pop_macro("CIPHER_KEY")
-#pragma pop_macro("MAC_KEY")
-#pragma pop_macro("DEFAULT_SALT_LENGTH")
 #pragma pop_macro("DEFAULT_COUNT")
+#pragma pop_macro("DEFAULT_SALT_LENGTH")
+#pragma pop_macro("MAC_KEY")
 
 #endif // _com_sun_crypto_provider_PKCS12PBECipherCore_h_

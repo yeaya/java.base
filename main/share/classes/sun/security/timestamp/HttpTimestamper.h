@@ -5,10 +5,10 @@
 
 #include <sun/security/timestamp/Timestamper.h>
 
-#pragma push_macro("TS_QUERY_MIME_TYPE")
-#undef TS_QUERY_MIME_TYPE
 #pragma push_macro("CONNECT_TIMEOUT")
 #undef CONNECT_TIMEOUT
+#pragma push_macro("TS_QUERY_MIME_TYPE")
+#undef TS_QUERY_MIME_TYPE
 #pragma push_macro("TS_REPLY_MIME_TYPE")
 #undef TS_REPLY_MIME_TYPE
 
@@ -55,8 +55,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TS_QUERY_MIME_TYPE")
 #pragma pop_macro("CONNECT_TIMEOUT")
+#pragma pop_macro("TS_QUERY_MIME_TYPE")
 #pragma pop_macro("TS_REPLY_MIME_TYPE")
 
 #endif // _sun_security_timestamp_HttpTimestamper_h_

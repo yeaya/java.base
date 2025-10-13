@@ -254,7 +254,7 @@ int32_t PipedInputStream::read($bytes* b, int32_t off, int32_t len) {
 	$synchronized(this) {
 		if (b == nullptr) {
 			$throwNew($NullPointerException);
-		} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
+		} else if (off < 0 || len < 0 || len > b->length - off) {
 			$throwNew($IndexOutOfBoundsException);
 		} else if (len == 0) {
 			return 0;
@@ -263,7 +263,7 @@ int32_t PipedInputStream::read($bytes* b, int32_t off, int32_t len) {
 		if (c < 0) {
 			return -1;
 		}
-		$nc(b)->set(off, (int8_t)c);
+		b->set(off, (int8_t)c);
 		int32_t rlen = 1;
 		while ((this->in >= 0) && (len > 1)) {
 			int32_t available = 0;

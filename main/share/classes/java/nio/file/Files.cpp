@@ -127,24 +127,24 @@
 #include <sun/nio/fs/AbstractFileSystemProvider.h>
 #include <jcpp.h>
 
-#undef FILTER
-#undef CREATE_NEW
-#undef DISTINCT
-#undef SKIP_SUBTREE
-#undef INSTANCE
-#undef MAX_VALUE
-#undef REPLACE_EXISTING
-#undef WRITE
-#undef READ
-#undef CONTINUE
-#undef EXECUTE
-#undef TERMINATE
-#undef DEFAULT_CREATE_OPTIONS
-#undef NOFOLLOW_LINKS
-#undef SUPPORTED_CHARSET_NAMES
 #undef BUFFER_SIZE
+#undef CONTINUE
+#undef CREATE_NEW
+#undef DEFAULT_CREATE_OPTIONS
+#undef DISTINCT
+#undef EXECUTE
+#undef FILTER
+#undef INSTANCE
 #undef JLA
+#undef MAX_VALUE
+#undef NOFOLLOW_LINKS
+#undef READ
+#undef REPLACE_EXISTING
 #undef SKIP_SIBLINGS
+#undef SKIP_SUBTREE
+#undef SUPPORTED_CHARSET_NAMES
+#undef TERMINATE
+#undef WRITE
 
 using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;

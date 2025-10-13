@@ -5,30 +5,30 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("LONG_SPAN")
-#undef LONG_SPAN
 #pragma push_macro("ALL")
 #undef ALL
-#pragma push_macro("FWD")
-#undef FWD
-#pragma push_macro("FWD_UTF16_NOT_CONTAINED")
-#undef FWD_UTF16_NOT_CONTAINED
-#pragma push_macro("FWD_UTF16_CONTAINED")
-#undef FWD_UTF16_CONTAINED
-#pragma push_macro("NOT_CONTAINED")
-#undef NOT_CONTAINED
-#pragma push_macro("BACK_UTF16_CONTAINED")
-#undef BACK_UTF16_CONTAINED
-#pragma push_macro("WITH_COUNT")
-#undef WITH_COUNT
+#pragma push_macro("ALL_CP_CONTAINED")
+#undef ALL_CP_CONTAINED
 #pragma push_macro("BACK")
 #undef BACK
+#pragma push_macro("BACK_UTF16_CONTAINED")
+#undef BACK_UTF16_CONTAINED
 #pragma push_macro("BACK_UTF16_NOT_CONTAINED")
 #undef BACK_UTF16_NOT_CONTAINED
 #pragma push_macro("CONTAINED")
 #undef CONTAINED
-#pragma push_macro("ALL_CP_CONTAINED")
-#undef ALL_CP_CONTAINED
+#pragma push_macro("FWD")
+#undef FWD
+#pragma push_macro("FWD_UTF16_CONTAINED")
+#undef FWD_UTF16_CONTAINED
+#pragma push_macro("FWD_UTF16_NOT_CONTAINED")
+#undef FWD_UTF16_NOT_CONTAINED
+#pragma push_macro("LONG_SPAN")
+#undef LONG_SPAN
+#pragma push_macro("NOT_CONTAINED")
+#undef NOT_CONTAINED
+#pragma push_macro("WITH_COUNT")
+#undef WITH_COUNT
 
 namespace java {
 	namespace lang {
@@ -121,17 +121,17 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("LONG_SPAN")
 #pragma pop_macro("ALL")
-#pragma pop_macro("FWD")
-#pragma pop_macro("FWD_UTF16_NOT_CONTAINED")
-#pragma pop_macro("FWD_UTF16_CONTAINED")
-#pragma pop_macro("NOT_CONTAINED")
-#pragma pop_macro("BACK_UTF16_CONTAINED")
-#pragma pop_macro("WITH_COUNT")
+#pragma pop_macro("ALL_CP_CONTAINED")
 #pragma pop_macro("BACK")
+#pragma pop_macro("BACK_UTF16_CONTAINED")
 #pragma pop_macro("BACK_UTF16_NOT_CONTAINED")
 #pragma pop_macro("CONTAINED")
-#pragma pop_macro("ALL_CP_CONTAINED")
+#pragma pop_macro("FWD")
+#pragma pop_macro("FWD_UTF16_CONTAINED")
+#pragma pop_macro("FWD_UTF16_NOT_CONTAINED")
+#pragma pop_macro("LONG_SPAN")
+#pragma pop_macro("NOT_CONTAINED")
+#pragma pop_macro("WITH_COUNT")
 
 #endif // _jdk_internal_icu_impl_UnicodeSetStringSpan_h_

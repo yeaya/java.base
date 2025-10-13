@@ -21,21 +21,21 @@
 #include <sun/security/x509/RDN.h>
 #include <jcpp.h>
 
-#undef KEY_COMPROMISE
-#undef PRIVILEGE_WITHDRAWN
-#undef SUPERSEDED
+#undef AA_COMPROMISE
 #undef AFFILIATION_CHANGED
 #undef CA_COMPROMISE
-#undef TAG_REL_NAME
-#undef CESSATION_OF_OPERATION
 #undef CERTIFICATE_HOLD
-#undef AA_COMPROMISE
-#undef TAG_DIST_PT
+#undef CESSATION_OF_OPERATION
+#undef KEY_COMPROMISE
+#undef PRIVILEGE_WITHDRAWN
 #undef REASON_STRINGS
+#undef SUPERSEDED
 #undef TAG_CONTEXT
-#undef TAG_REASONS
-#undef TAG_ISSUER
+#undef TAG_DIST_PT
 #undef TAG_FULL_NAME
+#undef TAG_ISSUER
+#undef TAG_REASONS
+#undef TAG_REL_NAME
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -153,16 +153,16 @@ void DistributionPoint::init$($DerValue* val) {
 				}
 			}
 		} else {
-			bool var$7 = opt->isContextSpecific(DistributionPoint::TAG_REASONS);
-			if (var$7 && !opt->isConstructed()) {
+			bool var$5 = opt->isContextSpecific(DistributionPoint::TAG_REASONS);
+			if (var$5 && !opt->isConstructed()) {
 				if (this->reasonFlags != nullptr) {
 					$throwNew($IOException, "Duplicate Reasons in DistributionPoint."_s);
 				}
 				opt->resetTag($DerValue::tag_BitString);
 				$set(this, reasonFlags, $nc(($(opt->getUnalignedBitString())))->toBooleanArray());
 			} else {
-				bool var$9 = opt->isContextSpecific(DistributionPoint::TAG_ISSUER);
-				if (var$9 && opt->isConstructed()) {
+				bool var$7 = opt->isContextSpecific(DistributionPoint::TAG_ISSUER);
+				if (var$7 && opt->isConstructed()) {
 					if (this->crlIssuer != nullptr) {
 						$throwNew($IOException, "Duplicate CRLIssuer in DistributionPoint."_s);
 					}
@@ -206,7 +206,7 @@ void DistributionPoint::encode($DerOutputStream* out) {
 		} else if (this->relativeName != nullptr) {
 			$var($DerOutputStream, derOut, $new($DerOutputStream));
 			$nc(this->relativeName)->encode(derOut);
-			$nc(distributionPoint)->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_REL_NAME), derOut);
+			distributionPoint->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_REL_NAME), derOut);
 		}
 		tagged->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_DIST_PT), distributionPoint);
 	}

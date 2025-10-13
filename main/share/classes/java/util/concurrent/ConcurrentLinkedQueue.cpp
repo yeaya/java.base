@@ -44,9 +44,9 @@
 #undef HEAD
 #undef ITEM
 #undef MAX_HOPS
-#undef TAIL
-#undef NEXT
 #undef MAX_VALUE
+#undef NEXT
+#undef TAIL
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -415,7 +415,7 @@ $Object* ConcurrentLinkedQueue::poll() {
 						updateHead(h, (($assign(q, p->next)) != nullptr) ? q : p);
 					}
 					return $of(item);
-				} else if (($assign(q, $nc(p)->next)) == nullptr) {
+				} else if (($assign(q, p->next)) == nullptr) {
 					updateHead(h, p);
 					return $of(nullptr);
 				} else if (p == q) {
@@ -676,11 +676,11 @@ $String* ConcurrentLinkedQueue::toString() {
 				if (($assign(item, p->item)) != nullptr) {
 					if (a == nullptr) {
 						$assign(a, $new($StringArray, 4));
-					} else if (size == $nc(a)->length) {
+					} else if (size == a->length) {
 						$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
 					}
 					$var($String, s, $nc($of(item))->toString());
-					$nc(a)->set(size++, s);
+					a->set(size++, s);
 					charLength += $nc(s)->length();
 				}
 				$var($ConcurrentLinkedQueue$Node, var$0, p);
@@ -713,10 +713,10 @@ $ObjectArray* ConcurrentLinkedQueue::toArrayInternal($ObjectArray* a) {
 				if (($assign(item, p->item)) != nullptr) {
 					if (x == nullptr) {
 						$assign(x, $new($ObjectArray, 4));
-					} else if (size == $nc(x)->length) {
+					} else if (size == x->length) {
 						$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 					}
-					$nc(x)->set(size++, item);
+					x->set(size++, item);
 				}
 				$var($ConcurrentLinkedQueue$Node, var$0, p);
 				if (var$0 == ($assign(p, p->next))) {

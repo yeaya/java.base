@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("RESEED_ONLY")
-#undef RESEED_ONLY
 #pragma push_macro("NONE")
 #undef NONE
 #pragma push_macro("PR_AND_RESEED")
 #undef PR_AND_RESEED
+#pragma push_macro("RESEED_ONLY")
+#undef RESEED_ONLY
 
 namespace java {
 	namespace security {
@@ -36,8 +36,8 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("RESEED_ONLY")
 #pragma pop_macro("NONE")
 #pragma pop_macro("PR_AND_RESEED")
+#pragma pop_macro("RESEED_ONLY")
 
 #endif // _java_security_DrbgParameters$Capability_h_

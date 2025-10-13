@@ -53,9 +53,9 @@
 #include <sun/util/locale/provider/TimeZoneNameProviderImpl.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef ENGLISH
 #undef CLDR
+#undef ENGLISH
+#undef ROOT
 #undef US
 
 using $LocaleArray = $Array<::java::util::Locale>;

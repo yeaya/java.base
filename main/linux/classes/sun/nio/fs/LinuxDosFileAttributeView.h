@@ -8,26 +8,26 @@
 #include <java/nio/file/attribute/DosFileAttributeView.h>
 #include <sun/nio/fs/UnixFileAttributeViews$Basic.h>
 
-#pragma push_macro("DOS_XATTR_SYSTEM")
-#undef DOS_XATTR_SYSTEM
-#pragma push_macro("DOS_XATTR_NAME")
-#undef DOS_XATTR_NAME
-#pragma push_macro("READONLY_NAME")
-#undef READONLY_NAME
 #pragma push_macro("ARCHIVE_NAME")
 #undef ARCHIVE_NAME
-#pragma push_macro("SYSTEM_NAME")
-#undef SYSTEM_NAME
-#pragma push_macro("HIDDEN_NAME")
-#undef HIDDEN_NAME
-#pragma push_macro("DOS_XATTR_HIDDEN")
-#undef DOS_XATTR_HIDDEN
 #pragma push_macro("DOS_XATTR_ARCHIVE")
 #undef DOS_XATTR_ARCHIVE
+#pragma push_macro("DOS_XATTR_HIDDEN")
+#undef DOS_XATTR_HIDDEN
+#pragma push_macro("DOS_XATTR_NAME")
+#undef DOS_XATTR_NAME
 #pragma push_macro("DOS_XATTR_NAME_AS_BYTES")
 #undef DOS_XATTR_NAME_AS_BYTES
 #pragma push_macro("DOS_XATTR_READONLY")
 #undef DOS_XATTR_READONLY
+#pragma push_macro("DOS_XATTR_SYSTEM")
+#undef DOS_XATTR_SYSTEM
+#pragma push_macro("HIDDEN_NAME")
+#undef HIDDEN_NAME
+#pragma push_macro("READONLY_NAME")
+#undef READONLY_NAME
+#pragma push_macro("SYSTEM_NAME")
+#undef SYSTEM_NAME
 
 namespace java {
 	namespace nio {
@@ -103,15 +103,15 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("DOS_XATTR_SYSTEM")
-#pragma pop_macro("DOS_XATTR_NAME")
-#pragma pop_macro("READONLY_NAME")
 #pragma pop_macro("ARCHIVE_NAME")
-#pragma pop_macro("SYSTEM_NAME")
-#pragma pop_macro("HIDDEN_NAME")
-#pragma pop_macro("DOS_XATTR_HIDDEN")
 #pragma pop_macro("DOS_XATTR_ARCHIVE")
+#pragma pop_macro("DOS_XATTR_HIDDEN")
+#pragma pop_macro("DOS_XATTR_NAME")
 #pragma pop_macro("DOS_XATTR_NAME_AS_BYTES")
 #pragma pop_macro("DOS_XATTR_READONLY")
+#pragma pop_macro("DOS_XATTR_SYSTEM")
+#pragma pop_macro("HIDDEN_NAME")
+#pragma pop_macro("READONLY_NAME")
+#pragma pop_macro("SYSTEM_NAME")
 
 #endif // _sun_nio_fs_LinuxDosFileAttributeView_h_

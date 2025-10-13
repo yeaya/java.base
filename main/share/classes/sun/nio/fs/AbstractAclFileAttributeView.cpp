@@ -19,8 +19,8 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef OWNER_NAME
 #undef ACL_NAME
+#undef OWNER_NAME
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

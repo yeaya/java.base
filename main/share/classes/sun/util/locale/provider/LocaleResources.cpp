@@ -59,24 +59,24 @@
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
-#undef CURRENCY_NAMES
-#undef TIME_ZONE_NAMES
-#undef COLLATION_DATA_CACHEKEY
-#undef DATE_TIME_PATTERN
-#undef TRACE_ON
 #undef BREAK_ITERATOR_INFO
-#undef TZNB_EXCITY_PREFIX
-#undef CLDR
-#undef DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY
-#undef RULES_CACHEKEY
-#undef LOCALE_NAMES
 #undef CALENDAR_DATA
 #undef CALENDAR_NAMES
+#undef CLDR
+#undef COLLATION_DATA_CACHEKEY
+#undef COMPACT_NUMBER_PATTERNS_CACHEKEY
+#undef CURRENCY_NAMES
+#undef DATE_TIME_PATTERN
+#undef DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY
+#undef LOCALE_NAMES
+#undef LONG
 #undef NULLOBJECT
 #undef NUMBER_PATTERNS_CACHEKEY
+#undef RULES_CACHEKEY
+#undef TIME_ZONE_NAMES
+#undef TRACE_ON
+#undef TZNB_EXCITY_PREFIX
 #undef ZONE_IDS_CACHEKEY
-#undef COMPACT_NUMBER_PATTERNS_CACHEKEY
-#undef LONG
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $PrintStream = ::java::io::PrintStream;

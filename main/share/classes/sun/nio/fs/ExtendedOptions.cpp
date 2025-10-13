@@ -14,15 +14,15 @@
 #include <sun/nio/fs/ExtendedOptions$InternalOption.h>
 #include <jcpp.h>
 
+#undef DIRECT
+#undef FILE_TREE
 #undef INTERRUPTIBLE
 #undef NOSHARE_DELETE
-#undef FILE_TREE
-#undef SENSITIVITY_MEDIUM
+#undef NOSHARE_READ
 #undef NOSHARE_WRITE
 #undef SENSITIVITY_HIGH
-#undef NOSHARE_READ
 #undef SENSITIVITY_LOW
-#undef DIRECT
+#undef SENSITIVITY_MEDIUM
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -19,12 +19,12 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef READ
 #undef ALL
-#undef PROPERTY_WRITE_ACTION
-#undef PROPERTY_RW_ACTION
 #undef NONE
 #undef PROPERTY_READ_ACTION
+#undef PROPERTY_RW_ACTION
+#undef PROPERTY_WRITE_ACTION
+#undef READ
 #undef WRITE
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -182,7 +182,7 @@ int32_t PropertyPermission::getMask($String* actions) {
 		if (i >= 3 && (a->get(i - 3) == u'r' || a->get(i - 3) == u'R') && (a->get(i - 2) == u'e' || a->get(i - 2) == u'E') && (a->get(i - 1) == u'a' || a->get(i - 1) == u'A') && (a->get(i) == u'd' || a->get(i) == u'D')) {
 			matchlen = 4;
 			mask |= PropertyPermission::READ;
-		} else if (i >= 4 && ($nc(a)->get(i - 4) == u'w' || $nc(a)->get(i - 4) == u'W') && (a->get(i - 3) == u'r' || $nc(a)->get(i - 3) == u'R') && (a->get(i - 2) == u'i' || $nc(a)->get(i - 2) == u'I') && (a->get(i - 1) == u't' || $nc(a)->get(i - 1) == u'T') && (a->get(i) == u'e' || $nc(a)->get(i) == u'E')) {
+		} else if (i >= 4 && (a->get(i - 4) == u'w' || a->get(i - 4) == u'W') && (a->get(i - 3) == u'r' || a->get(i - 3) == u'R') && (a->get(i - 2) == u'i' || a->get(i - 2) == u'I') && (a->get(i - 1) == u't' || a->get(i - 1) == u'T') && (a->get(i) == u'e' || a->get(i) == u'E')) {
 			matchlen = 5;
 			mask |= PropertyPermission::WRITE;
 		} else {

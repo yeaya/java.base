@@ -129,7 +129,7 @@ void HeaderParser::parse() {
 					inQuote = false;
 					do {
 						++end;
-					} while (end < len && ($nc(ca)->get(end) == u' ' || $nc(ca)->get(end) == u','));
+					} while (end < len && (ca->get(end) == u' ' || ca->get(end) == u','));
 					inKey = true;
 					beg = end;
 				} else {
@@ -146,7 +146,7 @@ void HeaderParser::parse() {
 				} else {
 					$nc($nc(this->tab)->get(i++))->set(1, ($$new($String, ca, beg, end - beg)));
 				}
-				while (end < len && ($nc(ca)->get(end) == u' ' || $nc(ca)->get(end) == u',')) {
+				while (end < len && (ca->get(end) == u' ' || ca->get(end) == u',')) {
 					++end;
 				}
 				inKey = true;
@@ -173,13 +173,13 @@ void HeaderParser::parse() {
 			}
 		} else if (end == beg) {
 			if (!inKey) {
-				if ($nc(ca)->get(end) == u'\"') {
+				if (ca->get(end) == u'\"') {
 					$nc($nc(this->tab)->get(i++))->set(1, $($String::valueOf(ca->get(end - 1))));
 				} else {
 					$nc($nc(this->tab)->get(i++))->set(1, $($String::valueOf(ca->get(end))));
 				}
 			} else {
-				$nc($nc(this->tab)->get(i++))->set(0, $($($String::valueOf($nc(ca)->get(end)))->toLowerCase()));
+				$nc($nc(this->tab)->get(i++))->set(0, $($($String::valueOf(ca->get(end)))->toLowerCase()));
 			}
 		}
 		this->nkeys = i;
@@ -213,7 +213,7 @@ $String* HeaderParser::findValue($String* k$renamed, $String* Default) {
 	for (int32_t i = 0; i < this->asize; ++i) {
 		if ($nc($nc(this->tab)->get(i))->get(0) == nullptr) {
 			return Default;
-		} else if ($nc(k)->equals($nc($nc(this->tab)->get(i))->get(0))) {
+		} else if (k->equals($nc($nc(this->tab)->get(i))->get(0))) {
 			return $nc($nc(this->tab)->get(i))->get(1);
 		}
 	}

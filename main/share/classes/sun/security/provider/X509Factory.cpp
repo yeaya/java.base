@@ -55,9 +55,9 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef END_CERT
 #undef BEGIN_CERT
 #undef ENC_MAX_LENGTH
+#undef END_CERT
 
 using $X509CRLArray = $Array<::java::security::cert::X509CRL>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
@@ -595,33 +595,33 @@ int32_t X509Factory::readBERInternal($InputStream* is, $ByteArrayOutputStream* b
 		if (n < 128) {
 			length = n;
 		} else if (n == 129) {
-			length = $nc(is)->read();
+			length = is->read();
 			if (length == -1) {
 				$throwNew($IOException, "Incomplete BER/DER length info"_s);
 			}
-			$nc(bout)->write(length);
+			bout->write(length);
 		} else if (n == 130) {
-			int32_t highByte = $nc(is)->read();
+			int32_t highByte = is->read();
 			int32_t lowByte = is->read();
 			if (lowByte == -1) {
 				$throwNew($IOException, "Incomplete BER/DER length info"_s);
 			}
-			$nc(bout)->write(highByte);
+			bout->write(highByte);
 			bout->write(lowByte);
 			length = (highByte << 8) | lowByte;
 		} else if (n == 131) {
-			int32_t highByte = $nc(is)->read();
+			int32_t highByte = is->read();
 			int32_t midByte = is->read();
 			int32_t lowByte = is->read();
 			if (lowByte == -1) {
 				$throwNew($IOException, "Incomplete BER/DER length info"_s);
 			}
-			$nc(bout)->write(highByte);
+			bout->write(highByte);
 			bout->write(midByte);
 			bout->write(lowByte);
 			length = ((highByte << 16) | (midByte << 8)) | lowByte;
 		} else if (n == 132) {
-			int32_t highByte = $nc(is)->read();
+			int32_t highByte = is->read();
 			int32_t nextByte = is->read();
 			int32_t midByte = is->read();
 			int32_t lowByte = is->read();
@@ -631,7 +631,7 @@ int32_t X509Factory::readBERInternal($InputStream* is, $ByteArrayOutputStream* b
 			if (highByte > 127) {
 				$throwNew($IOException, "Invalid BER/DER data (a little huge?)"_s);
 			}
-			$nc(bout)->write(highByte);
+			bout->write(highByte);
 			bout->write(nextByte);
 			bout->write(midByte);
 			bout->write(lowByte);

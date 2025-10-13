@@ -20,8 +20,8 @@
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <jcpp.h>
 
-#undef MIN_PATH
 #undef MAX_PATH
+#undef MIN_PATH
 
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $IOException = ::java::io::IOException;

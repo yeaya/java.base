@@ -16,20 +16,20 @@
 
 #include <limits>
 
-#undef CP_L
-#undef INV_LN2_L
-#undef CP_H
-#undef MAX_VALUE
-#undef INV_LN2
-#undef OVT
-#undef INV_LN2_H
-#undef CP
 #undef BP
+#undef CP
+#undef CP_H
+#undef CP_L
+#undef DP_H
+#undef DP_L
+#undef INV_LN2
+#undef INV_LN2_H
+#undef INV_LN2_L
+#undef LG2
 #undef LG2_H
 #undef LG2_L
-#undef DP_H
-#undef LG2
-#undef DP_L
+#undef MAX_VALUE
+#undef OVT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -101,7 +101,6 @@ double FdLibm$Pow::compute(double x, double y) {
 	if (y == 2.0) {
 		return x * x;
 	} else if (y == 0.5) {
-		$init($Double);
 		if (x >= -$Double::MAX_VALUE) {
 			return $Math::sqrt(x + 0.0);
 		}

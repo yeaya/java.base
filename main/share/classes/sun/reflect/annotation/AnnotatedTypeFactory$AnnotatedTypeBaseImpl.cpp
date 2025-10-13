@@ -45,9 +45,9 @@
 #include <sun/reflect/annotation/TypeAnnotationParser.h>
 #include <jcpp.h>
 
+#undef BASE_LOCATION
 #undef EMPTY_TYPE_ANNOTATION_ARRAY
 #undef TYPE
-#undef BASE_LOCATION
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $TypeAnnotationArray = $Array<::sun::reflect::annotation::TypeAnnotation>;

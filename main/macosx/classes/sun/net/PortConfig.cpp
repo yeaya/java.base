@@ -100,10 +100,10 @@ void clinit$PortConfig($Class* class$) {
 		if ($nc(os)->startsWith("Linux"_s)) {
 			PortConfig::defaultLower = 32768;
 			PortConfig::defaultUpper = 0x0000EE48;
-		} else if ($nc(os)->contains("OS X"_s)) {
+		} else if (os->contains("OS X"_s)) {
 			PortConfig::defaultLower = 0x0000C000;
 			PortConfig::defaultUpper = 0x0000FFFF;
-		} else if ($nc(os)->startsWith("AIX"_s)) {
+		} else if (os->startsWith("AIX"_s)) {
 			PortConfig::defaultLower = 32768;
 			PortConfig::defaultUpper = 0x0000FFFF;
 		} else {

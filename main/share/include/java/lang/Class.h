@@ -21,14 +21,14 @@ namespace java {
 	}
 }
 
-#pragma push_macro("ENUM")
-#undef ENUM
 #pragma push_macro("ANNOTATION")
 #undef ANNOTATION
-#pragma push_macro("SYNTHETIC")
-#undef SYNTHETIC
 #pragma push_macro("EMPTY_CLASS_ARRAY")
 #undef EMPTY_CLASS_ARRAY
+#pragma push_macro("ENUM")
+#undef ENUM
+#pragma push_macro("SYNTHETIC")
+#undef SYNTHETIC
 
 namespace java {
 	namespace io {
@@ -455,9 +455,9 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("ENUM")
 #pragma pop_macro("ANNOTATION")
-#pragma pop_macro("SYNTHETIC")
 #pragma pop_macro("EMPTY_CLASS_ARRAY")
+#pragma pop_macro("ENUM")
+#pragma pop_macro("SYNTHETIC")
 
 #endif // _java_lang_Class_h_

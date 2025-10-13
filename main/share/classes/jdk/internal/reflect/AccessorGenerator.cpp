@@ -26,10 +26,10 @@
 #include <jdk/internal/reflect/ClassFileConstants.h>
 #include <jcpp.h>
 
-#undef NUM_BOXING_CPOOL_ENTRIES
 #undef ACC_PUBLIC
-#undef TYPE
+#undef NUM_BOXING_CPOOL_ENTRIES
 #undef NUM_COMMON_CPOOL_ENTRIES
+#undef TYPE
 
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -402,12 +402,12 @@ $String* AccessorGenerator::getClassName($Class* c, bool addPrefixAndSuffixForNo
 			}
 		}
 		$throwNew($InternalError, "Should have found primitive type"_s);
-	} else if ($nc(c)->isArray()) {
+	} else if (c->isArray()) {
 		return $str({"["_s, $(getClassName(c->getComponentType(), true))});
 	} else if (addPrefixAndSuffixForNonPrimitiveTypes) {
-		return internalize($$str({"L"_s, $($nc(c)->getName()), ";"_s}));
+		return internalize($$str({"L"_s, $(c->getName()), ";"_s}));
 	} else {
-		return internalize($($nc(c)->getName()));
+		return internalize($(c->getName()));
 	}
 }
 
@@ -724,7 +724,7 @@ int16_t AccessorGenerator::unboxingMethodForPrimitiveType($Class* primType) {
 bool AccessorGenerator::isPrimitive($Class* c) {
 	$init(AccessorGenerator);
 	$init($Void);
-	return ($nc(c)->isPrimitive() && c != $Void::TYPE);
+	return (c->isPrimitive() && c != $Void::TYPE);
 }
 
 int32_t AccessorGenerator::typeSizeInStackSlots($Class* c) {

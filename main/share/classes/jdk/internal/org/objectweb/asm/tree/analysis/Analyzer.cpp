@@ -38,28 +38,28 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/Value.h>
 #include <jcpp.h>
 
-#undef RET
-#undef LLOAD
-#undef GOTO
-#undef ACC_STATIC
 #undef ACC_ABSTRACT
-#undef FRETURN
-#undef LOOKUPSWITCH
-#undef LRETURN
+#undef ACC_NATIVE
+#undef ACC_STATIC
 #undef ARETURN
-#undef JSR
-#undef TABLESWITCH
 #undef ATHROW
 #undef DLOAD
-#undef FRAME
-#undef IRETURN
-#undef RETURN
-#undef ACC_NATIVE
-#undef LINE
-#undef LABEL
-#undef LSTORE
 #undef DRETURN
 #undef DSTORE
+#undef FRAME
+#undef FRETURN
+#undef GOTO
+#undef IRETURN
+#undef JSR
+#undef LABEL
+#undef LINE
+#undef LLOAD
+#undef LOOKUPSWITCH
+#undef LRETURN
+#undef LSTORE
+#undef RET
+#undef RETURN
+#undef TABLESWITCH
 
 using $ListArray = $Array<::java::util::List>;
 using $TypeArray = $Array<::jdk::internal::org::objectweb::asm$::Type>;
@@ -235,11 +235,11 @@ $FrameArray* Analyzer::analyze($String* owner, $MethodNode* method) {
 					newControlFlowEdge(insnIndex, jumpInsnIndex);
 				} else if ($instanceOf($LookupSwitchInsnNode, insnNode)) {
 					$var($LookupSwitchInsnNode, lookupSwitchInsn, $cast($LookupSwitchInsnNode, insnNode));
-					int32_t targetInsnIndex = $nc(this->insnList)->indexOf($nc(lookupSwitchInsn)->dflt);
-					$nc(currentFrame)->initJumpTarget(insnOpcode, $nc(lookupSwitchInsn)->dflt);
+					int32_t targetInsnIndex = $nc(this->insnList)->indexOf(lookupSwitchInsn->dflt);
+					currentFrame->initJumpTarget(insnOpcode, lookupSwitchInsn->dflt);
 					merge(targetInsnIndex, currentFrame, subroutine);
 					newControlFlowEdge(insnIndex, targetInsnIndex);
-					for (int32_t i = 0; i < $nc($nc(lookupSwitchInsn)->labels)->size(); ++i) {
+					for (int32_t i = 0; i < $nc(lookupSwitchInsn->labels)->size(); ++i) {
 						$var($LabelNode, label, $cast($LabelNode, $nc(lookupSwitchInsn->labels)->get(i)));
 						targetInsnIndex = $nc(this->insnList)->indexOf(label);
 						currentFrame->initJumpTarget(insnOpcode, label);
@@ -248,11 +248,11 @@ $FrameArray* Analyzer::analyze($String* owner, $MethodNode* method) {
 					}
 				} else if ($instanceOf($TableSwitchInsnNode, insnNode)) {
 					$var($TableSwitchInsnNode, tableSwitchInsn, $cast($TableSwitchInsnNode, insnNode));
-					int32_t targetInsnIndex = $nc(this->insnList)->indexOf($nc(tableSwitchInsn)->dflt);
-					$nc(currentFrame)->initJumpTarget(insnOpcode, $nc(tableSwitchInsn)->dflt);
+					int32_t targetInsnIndex = $nc(this->insnList)->indexOf(tableSwitchInsn->dflt);
+					currentFrame->initJumpTarget(insnOpcode, tableSwitchInsn->dflt);
 					merge(targetInsnIndex, currentFrame, subroutine);
 					newControlFlowEdge(insnIndex, targetInsnIndex);
-					for (int32_t i = 0; i < $nc($nc(tableSwitchInsn)->labels)->size(); ++i) {
+					for (int32_t i = 0; i < $nc(tableSwitchInsn->labels)->size(); ++i) {
 						$var($LabelNode, label, $cast($LabelNode, $nc(tableSwitchInsn->labels)->get(i)));
 						currentFrame->initJumpTarget(insnOpcode, label);
 						targetInsnIndex = $nc(this->insnList)->indexOf(label);
@@ -281,7 +281,7 @@ $FrameArray* Analyzer::analyze($String* owner, $MethodNode* method) {
 							}
 						} else if ($instanceOf($IincInsnNode, insnNode)) {
 							int32_t var = $nc(($cast($IincInsnNode, insnNode)))->var;
-							$nc($nc(subroutine)->localsUsed)->set(var, true);
+							$nc(subroutine->localsUsed)->set(var, true);
 						}
 					}
 					merge(insnIndex + 1, currentFrame, subroutine);
@@ -347,14 +347,14 @@ void Analyzer::findSubroutine(int32_t insnIndex, $Subroutine* subroutine, $List*
 			findSubroutine($nc(this->insnList)->indexOf($nc(tableSwitchInsn)->dflt), subroutine, jsrInsns);
 			for (int32_t i = $nc($nc(tableSwitchInsn)->labels)->size() - 1; i >= 0; --i) {
 				$var($LabelNode, labelNode, $cast($LabelNode, $nc(tableSwitchInsn->labels)->get(i)));
-				$nc(instructionIndicesToProcess)->add($($Integer::valueOf($nc(this->insnList)->indexOf(labelNode))));
+				instructionIndicesToProcess->add($($Integer::valueOf($nc(this->insnList)->indexOf(labelNode))));
 			}
 		} else if ($instanceOf($LookupSwitchInsnNode, currentInsn)) {
 			$var($LookupSwitchInsnNode, lookupSwitchInsn, $cast($LookupSwitchInsnNode, currentInsn));
 			findSubroutine($nc(this->insnList)->indexOf($nc(lookupSwitchInsn)->dflt), subroutine, jsrInsns);
 			for (int32_t i = $nc($nc(lookupSwitchInsn)->labels)->size() - 1; i >= 0; --i) {
 				$var($LabelNode, labelNode, $cast($LabelNode, $nc(lookupSwitchInsn->labels)->get(i)));
-				$nc(instructionIndicesToProcess)->add($($Integer::valueOf($nc(this->insnList)->indexOf(labelNode))));
+				instructionIndicesToProcess->add($($Integer::valueOf($nc(this->insnList)->indexOf(labelNode))));
 			}
 		}
 		$var($List, insnHandlers, $nc(this->handlers)->get(currentInsnIndex));

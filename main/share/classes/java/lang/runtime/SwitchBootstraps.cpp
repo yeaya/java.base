@@ -35,10 +35,10 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef LOOKUP
 #undef DO_ENUM_SWITCH
-#undef TYPE
 #undef DO_TYPE_SWITCH
+#undef LOOKUP
+#undef TYPE
 
 using $Serializable = ::java::io::Serializable;
 using $Character = ::java::lang::Character;
@@ -246,44 +246,44 @@ int32_t SwitchBootstraps::doTypeSwitch(Object$* target, int32_t startIndex, $Obj
 					return i;
 				}
 			} else {
-				bool var$11 = $instanceOf($Integer, label);
-				if (var$11) {
+				bool var$2 = $instanceOf($Integer, label);
+				if (var$2) {
 					$assign(constant, $cast($Integer, label));
-					var$11 = true;
+					var$2 = true;
 				}
-				if (var$11) {
+				if (var$2) {
 					{
 						$var($Number, input, nullptr);
 						$var($Character, input_1, nullptr);
-						bool var$13 = $instanceOf($Number, target);
-						if (var$13) {
+						bool var$4 = $instanceOf($Number, target);
+						if (var$4) {
 							$assign(input, $cast($Number, target));
-							var$13 = true;
+							var$4 = true;
 						}
-						bool var$12 = var$13;
-						if (var$12) {
-							int32_t var$14 = $nc(constant)->intValue();
-							var$12 = var$14 == $nc(input)->intValue();
+						bool var$3 = var$4;
+						if (var$3) {
+							int32_t var$5 = $nc(constant)->intValue();
+							var$3 = var$5 == $nc(input)->intValue();
 						}
-						if (var$12) {
+						if (var$3) {
 							return i;
 						} else {
-							bool var$19 = $instanceOf($Character, target);
-							if (var$19) {
+							bool var$10 = $instanceOf($Character, target);
+							if (var$10) {
 								$assign(input_1, $cast($Character, target));
-								var$19 = true;
+								var$10 = true;
 							}
-							bool var$18 = var$19;
-							if (var$18) {
-								int32_t var$20 = constant->intValue();
-								var$18 = var$20 == input_1->charValue();
+							bool var$9 = var$10;
+							if (var$9) {
+								int32_t var$11 = constant->intValue();
+								var$9 = var$11 == input_1->charValue();
 							}
-							if (var$18) {
+							if (var$9) {
 								return i;
 							}
 						}
 					}
-				} else if ($nc($of(label))->equals(target)) {
+				} else if ($of(label)->equals(target)) {
 					return i;
 				}
 			}

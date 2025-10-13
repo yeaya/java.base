@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("P")
-#undef P
 #pragma push_macro("B")
 #undef B
 #pragma push_macro("BD")
 #undef BD
+#pragma push_macro("P")
+#undef P
 #pragma push_macro("PD")
 #undef PD
 
@@ -69,9 +69,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("P")
 #pragma pop_macro("B")
 #pragma pop_macro("BD")
+#pragma pop_macro("P")
 #pragma pop_macro("PD")
 
 #endif // _sun_security_util_CurveDB_h_

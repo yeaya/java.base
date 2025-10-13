@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 
-#pragma push_macro("MAX_COUNT")
-#undef MAX_COUNT
 #pragma push_macro("LONG_MIN_REP")
 #undef LONG_MIN_REP
+#pragma push_macro("MAX_COUNT")
+#undef MAX_COUNT
 
 namespace java {
 	namespace lang {
@@ -73,7 +73,7 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("MAX_COUNT")
 #pragma pop_macro("LONG_MIN_REP")
+#pragma pop_macro("MAX_COUNT")
 
 #endif // _java_text_DigitList_h_

@@ -24,8 +24,8 @@
 #include <sun/nio/fs/MimeTypesFileTypeDetector$1.h>
 #include <jcpp.h>
 
-#undef TYPEEQUAL
 #undef EXTEQUAL
+#undef TYPEEQUAL
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

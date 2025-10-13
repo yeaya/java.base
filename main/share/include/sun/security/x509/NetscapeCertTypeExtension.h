@@ -8,24 +8,24 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("SSL_CLIENT")
-#undef SSL_CLIENT
-#pragma push_macro("S_MIME")
-#undef S_MIME
-#pragma push_macro("OBJECT_SIGNING_CA")
-#undef OBJECT_SIGNING_CA
-#pragma push_macro("OBJECT_SIGNING")
-#undef OBJECT_SIGNING
-#pragma push_macro("S_MIME_CA")
-#undef S_MIME_CA
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("SSL_CA")
-#undef SSL_CA
-#pragma push_macro("SSL_SERVER")
-#undef SSL_SERVER
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("OBJECT_SIGNING")
+#undef OBJECT_SIGNING
+#pragma push_macro("OBJECT_SIGNING_CA")
+#undef OBJECT_SIGNING_CA
+#pragma push_macro("SSL_CA")
+#undef SSL_CA
+#pragma push_macro("SSL_CLIENT")
+#undef SSL_CLIENT
+#pragma push_macro("SSL_SERVER")
+#undef SSL_SERVER
+#pragma push_macro("S_MIME")
+#undef S_MIME
+#pragma push_macro("S_MIME_CA")
+#undef S_MIME_CA
 
 namespace java {
 	namespace io {
@@ -107,14 +107,14 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SSL_CLIENT")
-#pragma pop_macro("S_MIME")
-#pragma pop_macro("OBJECT_SIGNING_CA")
-#pragma pop_macro("OBJECT_SIGNING")
-#pragma pop_macro("S_MIME_CA")
 #pragma pop_macro("IDENT")
-#pragma pop_macro("SSL_CA")
-#pragma pop_macro("SSL_SERVER")
 #pragma pop_macro("NAME")
+#pragma pop_macro("OBJECT_SIGNING")
+#pragma pop_macro("OBJECT_SIGNING_CA")
+#pragma pop_macro("SSL_CA")
+#pragma pop_macro("SSL_CLIENT")
+#pragma pop_macro("SSL_SERVER")
+#pragma pop_macro("S_MIME")
+#pragma pop_macro("S_MIME_CA")
 
 #endif // _sun_security_x509_NetscapeCertTypeExtension_h_

@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <java/lang/Runnable.h>
 
-#pragma push_macro("SET_TIMING_LOOPS")
-#undef SET_TIMING_LOOPS
-#pragma push_macro("WARMUP_LOOPS")
-#undef WARMUP_LOOPS
+#pragma push_macro("GETPROPERTY_LOOPS")
+#undef GETPROPERTY_LOOPS
 #pragma push_macro("GET_TIMING_LOOPS")
 #undef GET_TIMING_LOOPS
 #pragma push_macro("MAX_MILLISECONDS")
 #undef MAX_MILLISECONDS
-#pragma push_macro("TIMING_TRIALS")
-#undef TIMING_TRIALS
-#pragma push_macro("GETPROPERTY_LOOPS")
-#undef GETPROPERTY_LOOPS
+#pragma push_macro("SET_TIMING_LOOPS")
+#undef SET_TIMING_LOOPS
 #pragma push_macro("STRESS_MILLISECONDS")
 #undef STRESS_MILLISECONDS
+#pragma push_macro("TIMING_TRIALS")
+#undef TIMING_TRIALS
+#pragma push_macro("WARMUP_LOOPS")
+#undef WARMUP_LOOPS
 
 namespace java {
 	namespace lang {
@@ -46,12 +46,12 @@ public:
 	static ::java::lang::SecurityManager* sm;
 };
 
-#pragma pop_macro("SET_TIMING_LOOPS")
-#pragma pop_macro("WARMUP_LOOPS")
+#pragma pop_macro("GETPROPERTY_LOOPS")
 #pragma pop_macro("GET_TIMING_LOOPS")
 #pragma pop_macro("MAX_MILLISECONDS")
-#pragma pop_macro("TIMING_TRIALS")
-#pragma pop_macro("GETPROPERTY_LOOPS")
+#pragma pop_macro("SET_TIMING_LOOPS")
 #pragma pop_macro("STRESS_MILLISECONDS")
+#pragma pop_macro("TIMING_TRIALS")
+#pragma pop_macro("WARMUP_LOOPS")
 
 #endif // _SecurityRace_h_

@@ -22,8 +22,8 @@
 #include <sun/net/ftp/FtpReplyCode.h>
 #include <jcpp.h>
 
-#undef BINARY
 #undef ASCII
+#undef BINARY
 #undef FTP_PORT
 
 using $Closeable = ::java::io::Closeable;

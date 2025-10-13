@@ -15,9 +15,9 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
+#undef DEFAULT
 #undef SHA1
 #undef TRAILER_FIELD_BC
-#undef DEFAULT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

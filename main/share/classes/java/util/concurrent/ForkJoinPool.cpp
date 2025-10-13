@@ -77,40 +77,40 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-#undef SS_SEQ
-#undef TC_MASK
-#undef POOLIDS
-#undef SRC
-#undef TERMINATED
-#undef MODE
-#undef RC_MASK
-#undef QUIET
-#undef INITIAL_QUEUE_CAPACITY
-#undef TIMEOUT_SLOP
-#undef SP_MASK
-#undef SMASK
-#undef UNCOMPENSATE
-#undef TC_UNIT
-#undef MAX_CAP
-#undef UC_MASK
-#undef COMMON_PARALLELISM
-#undef SHUTDOWN
-#undef TYPE
-#undef MILLISECONDS
-#undef RC_UNIT
-#undef STOP
-#undef DEFAULT_KEEPALIVE
-#undef RC_SHIFT
-#undef TC_SHIFT
-#undef UNSIGNALLED
-#undef FIFO
 #undef ADD_WORKER
-#undef THREADIDS
-#undef INNOCUOUS
 #undef COMMON_MAX_SPARES
+#undef COMMON_PARALLELISM
 #undef CTL
 #undef DEFAULT_COMMON_MAX_SPARES
+#undef DEFAULT_KEEPALIVE
+#undef FIFO
+#undef INITIAL_QUEUE_CAPACITY
+#undef INNOCUOUS
+#undef MAX_CAP
+#undef MILLISECONDS
+#undef MODE
+#undef POOLIDS
+#undef QUIET
+#undef RC_MASK
+#undef RC_SHIFT
+#undef RC_UNIT
+#undef SHUTDOWN
+#undef SMASK
+#undef SP_MASK
+#undef SRC
+#undef SS_SEQ
+#undef STOP
 #undef SWIDTH
+#undef TC_MASK
+#undef TC_SHIFT
+#undef TC_UNIT
+#undef TERMINATED
+#undef THREADIDS
+#undef TIMEOUT_SLOP
+#undef TYPE
+#undef UC_MASK
+#undef UNCOMPENSATE
+#undef UNSIGNALLED
 
 using $PermissionArray = $Array<::java::security::Permission>;
 using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
@@ -577,9 +577,9 @@ void ForkJoinPool::signalWork() {
 			}
 		} else if (($assign(qs, this->queues)) == nullptr) {
 			break;
-		} else if ($nc(qs)->length <= (i = (int32_t)(sp & (uint32_t)ForkJoinPool::SMASK))) {
+		} else if (qs->length <= (i = (int32_t)(sp & (uint32_t)ForkJoinPool::SMASK))) {
 			break;
-		} else if (($assign(v, $nc(qs)->get(i))) == nullptr) {
+		} else if (($assign(v, qs->get(i))) == nullptr) {
 			break;
 		} else {
 			int64_t nc = ((int64_t)($nc(v)->stackPred & (uint64_t)ForkJoinPool::SP_MASK)) | ((int64_t)(ForkJoinPool::UC_MASK & (uint64_t)(c + ForkJoinPool::RC_UNIT)));
@@ -632,14 +632,14 @@ int32_t ForkJoinPool::scan($ForkJoinPool$WorkQueue* w, int32_t prevSrc, int32_t 
 				if (q->base != b) {
 					return prevSrc;
 				} else if (t != nullptr && $ForkJoinPool$WorkQueue::casSlotToNull(a, k, t)) {
-					$nc(q)->base = nextBase;
-					$var($ForkJoinTask, next, $nc(a)->get(nextIndex));
+					q->base = nextBase;
+					$var($ForkJoinTask, next, a->get(nextIndex));
 					if (($nc(w)->source = src) != prevSrc && next != nullptr) {
 						signalWork();
 					}
 					$nc(w)->topLevelExec(t, q);
 					return src;
-				} else if ($nc(a)->get(nextIndex) != nullptr) {
+				} else if (a->get(nextIndex) != nullptr) {
 					return prevSrc;
 				}
 			}
@@ -694,7 +694,7 @@ int32_t ForkJoinPool::awaitWork($ForkJoinPool$WorkQueue* w) {
 				}
 				if (var$5) {
 					if (compareAndSetCtl(c, prevCtl)) {
-						$nc(w)->phase = phase;
+						w->phase = phase;
 					}
 					checkTermination = false;
 					break;
@@ -718,7 +718,7 @@ int32_t ForkJoinPool::awaitWork($ForkJoinPool$WorkQueue* w) {
 			$LockSupport::park();
 		} else if (deadline - $System::currentTimeMillis() > ForkJoinPool::TIMEOUT_SLOP) {
 			$LockSupport::parkUntil(deadline);
-		} else if (((int32_t)((int32_t)c & (uint32_t)ForkJoinPool::SMASK)) == ((int32_t)($nc(w)->config & (uint32_t)ForkJoinPool::SMASK)) && compareAndSetCtl(c, (((int64_t)(ForkJoinPool::UC_MASK & (uint64_t)(c - ForkJoinPool::TC_UNIT))) | ((int64_t)(prevCtl & (uint64_t)ForkJoinPool::SP_MASK))))) {
+		} else if (((int32_t)((int32_t)c & (uint32_t)ForkJoinPool::SMASK)) == ((int32_t)(w->config & (uint32_t)ForkJoinPool::SMASK)) && compareAndSetCtl(c, (((int64_t)(ForkJoinPool::UC_MASK & (uint64_t)(c - ForkJoinPool::TC_UNIT))) | ((int64_t)(prevCtl & (uint64_t)ForkJoinPool::SP_MASK))))) {
 			w->config |= ForkJoinPool::QUIET;
 			return -1;
 		} else if ((deadline += this->keepAlive) == (int64_t)0) {
@@ -879,17 +879,17 @@ int32_t ForkJoinPool::helpJoin($ForkJoinTask* task, $ForkJoinPool$WorkQueue* w, 
 								var$5 = (var$6);
 							}
 							bool eligible = var$5;
-							if ((s = $nc(task)->status) < 0) {
+							if ((s = task->status) < 0) {
 								outer$break = true;
 								break;
-							} else if (((int32_t)($nc(q)->source & (uint32_t)ForkJoinPool::SMASK)) != sq || $nc(q)->base != b) {
+							} else if (((int32_t)(q->source & (uint32_t)ForkJoinPool::SMASK)) != sq || q->base != b) {
 								scan = true;
 							} else if (t == nullptr) {
-								scan |= ($nc(a)->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr || $nc(q)->top != b);
+								scan |= (a->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr || q->top != b);
 							} else if (eligible) {
 								if ($ForkJoinPool$WorkQueue::casSlotToNull(a, k, t)) {
-									$nc(q)->base = nextBase;
-									$nc(w)->source = src;
+									q->base = nextBase;
+									w->source = src;
 									$nc(t)->doExec();
 									w->source = wsrc;
 								}
@@ -922,7 +922,7 @@ int32_t ForkJoinPool::helpComplete($ForkJoinTask* task, $ForkJoinPool$WorkQueue*
 					break;
 				}
 				locals = false;
-			} else if ((s = $nc(task)->status) < 0) {
+			} else if ((s = task->status) < 0) {
 				break;
 			} else if (scan = !scan) {
 				int64_t var$0 = c;
@@ -952,16 +952,16 @@ int32_t ForkJoinPool::helpComplete($ForkJoinTask* task, $ForkJoinPool$WorkQueue*
 								var$3 = !(eligible = ($equals(f, task)));
 							} while (var$3 && ($assign(f, $nc(f)->completer)) != nullptr);
 						}
-						if ((s = $nc(task)->status) < 0) {
+						if ((s = task->status) < 0) {
 							outer$break = true;
 							break;
-						} else if ($nc(q)->base != b) {
+						} else if (q->base != b) {
 							scan = true;
 						} else if (t == nullptr) {
-							scan |= ($nc(a)->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr || $nc(q)->top != b);
+							scan |= (a->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr || q->top != b);
 						} else if (eligible) {
 							if ($ForkJoinPool$WorkQueue::casSlotToNull(a, k, t)) {
-								$nc(q)->setBaseOpaque(nextBase);
+								q->setBaseOpaque(nextBase);
 								$nc(t)->doExec();
 								locals = true;
 							}
@@ -1010,11 +1010,11 @@ $ForkJoinTask* ForkJoinPool::pollScan(bool submissionsOnly) {
 					if (q->base != b) {
 						scan = true;
 					} else if (t == nullptr) {
-						scan |= ($nc(q)->top != b || $nc(a)->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr);
+						scan |= (q->top != b || a->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr);
 					} else if (!$ForkJoinPool$WorkQueue::casSlotToNull(a, k, t)) {
 						scan = true;
 					} else {
-						$nc(q)->setBaseOpaque(nextBase);
+						q->setBaseOpaque(nextBase);
 						return t;
 					}
 				}
@@ -1077,17 +1077,17 @@ int32_t ForkJoinPool::helpQuiescePool($ForkJoinPool$WorkQueue* w, int64_t nanos,
 							getAndAddCtl(ForkJoinPool::RC_UNIT);
 						}
 						if ($ForkJoinPool$WorkQueue::casSlotToNull(a, k, t)) {
-							$nc(q)->base = nextBase;
-							$nc(w)->source = src;
+							q->base = nextBase;
+							w->source = src;
 							t->doExec();
 							w->source = (wsrc = prevSrc);
 							locals = true;
 						}
 						break;
 					} else if (!busy) {
-						if ($nc(q)->top != b || $nc(a)->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr) {
+						if (q->top != b || a->get((int32_t)(nextBase & (uint32_t)(cap - 1))) != nullptr) {
 							busy = (scan = true);
-						} else if ($nc(q)->source != ForkJoinPool::QUIET && q->phase >= 0) {
+						} else if (q->source != ForkJoinPool::QUIET && q->phase >= 0) {
 							busy = true;
 						}
 					}
@@ -1181,7 +1181,7 @@ $ForkJoinPool$WorkQueue* ForkJoinPool::submissionQueue() {
 		$var($ForkJoinPool$WorkQueueArray, qs, this->queues);
 		if (((int32_t)(md & (uint32_t)ForkJoinPool::SHUTDOWN)) != 0 || qs == nullptr || (n = $nc(qs)->length) <= 0) {
 			return nullptr;
-		} else if (($assign(q, $nc(qs)->get(i = (int32_t)((n - 1) & (uint32_t)id)))) == nullptr) {
+		} else if (($assign(q, qs->get(i = (int32_t)((n - 1) & (uint32_t)id)))) == nullptr) {
 			if (($assign(lock, this->registrationLock)) != nullptr) {
 				$var($ForkJoinPool$WorkQueue, w, $new($ForkJoinPool$WorkQueue, id | ForkJoinPool::SRC));
 				$nc(lock)->lock();
@@ -1190,7 +1190,7 @@ $ForkJoinPool$WorkQueue* ForkJoinPool::submissionQueue() {
 				}
 				lock->unlock();
 			}
-		} else if (!$nc(q)->tryLock()) {
+		} else if (!q->tryLock()) {
 			id = (r = $ThreadLocalRandom::advanceProbe(r)) << 1;
 		} else {
 			return q;
@@ -1202,7 +1202,7 @@ void ForkJoinPool::externalPush($ForkJoinTask* task) {
 	$var($ForkJoinPool$WorkQueue, q, nullptr);
 	if (($assign(q, submissionQueue())) == nullptr) {
 		$throwNew($RejectedExecutionException);
-	} else if ($nc(q)->lockedPush(task)) {
+	} else if (q->lockedPush(task)) {
 		signalWork();
 	}
 }
@@ -1429,7 +1429,7 @@ ForkJoinPool* ForkJoinPool::commonPool() {
 
 $Object* ForkJoinPool::invoke($ForkJoinTask* task) {
 	externalSubmit(task);
-	return $of($nc(task)->joinForPoolInvoke(this));
+	return $of(task->joinForPoolInvoke(this));
 }
 
 void ForkJoinPool::execute($ForkJoinTask* task) {

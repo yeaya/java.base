@@ -6,36 +6,36 @@
 #include <java/lang/Array.h>
 #include <java/util/Calendar.h>
 
-#pragma push_macro("HEISEI")
-#undef HEISEI
-#pragma push_macro("ONE_HOUR")
-#undef ONE_HOUR
+#pragma push_macro("BEFORE_MEIJI")
+#undef BEFORE_MEIJI
 #pragma push_macro("BEFORE_MEIJI_ERA")
 #undef BEFORE_MEIJI_ERA
-#pragma push_macro("REIWA")
-#undef REIWA
+#pragma push_macro("EPOCH_OFFSET")
+#undef EPOCH_OFFSET
+#pragma push_macro("HEISEI")
+#undef HEISEI
+#pragma push_macro("LEAST_MAX_VALUES")
+#undef LEAST_MAX_VALUES
+#pragma push_macro("MAX_VALUES")
+#undef MAX_VALUES
 #pragma push_macro("MEIJI")
 #undef MEIJI
 #pragma push_macro("MIN_VALUES")
 #undef MIN_VALUES
-#pragma push_macro("EPOCH_OFFSET")
-#undef EPOCH_OFFSET
-#pragma push_macro("TAISHO")
-#undef TAISHO
-#pragma push_macro("SHOWA")
-#undef SHOWA
-#pragma push_macro("MAX_VALUES")
-#undef MAX_VALUES
-#pragma push_macro("BEFORE_MEIJI")
-#undef BEFORE_MEIJI
 #pragma push_macro("ONE_DAY")
 #undef ONE_DAY
-#pragma push_macro("ONE_SECOND")
-#undef ONE_SECOND
+#pragma push_macro("ONE_HOUR")
+#undef ONE_HOUR
 #pragma push_macro("ONE_MINUTE")
 #undef ONE_MINUTE
-#pragma push_macro("LEAST_MAX_VALUES")
-#undef LEAST_MAX_VALUES
+#pragma push_macro("ONE_SECOND")
+#undef ONE_SECOND
+#pragma push_macro("REIWA")
+#undef REIWA
+#pragma push_macro("SHOWA")
+#undef SHOWA
+#pragma push_macro("TAISHO")
+#undef TAISHO
 
 namespace java {
 	namespace io {
@@ -138,20 +138,20 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("HEISEI")
-#pragma pop_macro("ONE_HOUR")
+#pragma pop_macro("BEFORE_MEIJI")
 #pragma pop_macro("BEFORE_MEIJI_ERA")
-#pragma pop_macro("REIWA")
+#pragma pop_macro("EPOCH_OFFSET")
+#pragma pop_macro("HEISEI")
+#pragma pop_macro("LEAST_MAX_VALUES")
+#pragma pop_macro("MAX_VALUES")
 #pragma pop_macro("MEIJI")
 #pragma pop_macro("MIN_VALUES")
-#pragma pop_macro("EPOCH_OFFSET")
-#pragma pop_macro("TAISHO")
-#pragma pop_macro("SHOWA")
-#pragma pop_macro("MAX_VALUES")
-#pragma pop_macro("BEFORE_MEIJI")
 #pragma pop_macro("ONE_DAY")
-#pragma pop_macro("ONE_SECOND")
+#pragma pop_macro("ONE_HOUR")
 #pragma pop_macro("ONE_MINUTE")
-#pragma pop_macro("LEAST_MAX_VALUES")
+#pragma pop_macro("ONE_SECOND")
+#pragma pop_macro("REIWA")
+#pragma pop_macro("SHOWA")
+#pragma pop_macro("TAISHO")
 
 #endif // _java_util_JapaneseImperialCalendar_h_

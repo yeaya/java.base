@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("TRACE")
-#undef TRACE
 #pragma push_macro("ALL")
 #undef ALL
+#pragma push_macro("DEBUG")
+#undef DEBUG
 #pragma push_macro("ERROR")
 #undef ERROR
 #pragma push_macro("INFO")
 #undef INFO
-#pragma push_macro("DEBUG")
-#undef DEBUG
-#pragma push_macro("WARNING")
-#undef WARNING
 #pragma push_macro("OFF")
 #undef OFF
+#pragma push_macro("TRACE")
+#undef TRACE
+#pragma push_macro("WARNING")
+#undef WARNING
 
 namespace java {
 	namespace lang {
@@ -48,12 +48,12 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("TRACE")
 #pragma pop_macro("ALL")
+#pragma pop_macro("DEBUG")
 #pragma pop_macro("ERROR")
 #pragma pop_macro("INFO")
-#pragma pop_macro("DEBUG")
-#pragma pop_macro("WARNING")
 #pragma pop_macro("OFF")
+#pragma pop_macro("TRACE")
+#pragma pop_macro("WARNING")
 
 #endif // _java_lang_System$Logger$Level_h_

@@ -18,8 +18,8 @@
 #include <jcpp.h>
 
 #undef STATUS_EXCEPTION
-#undef STATUS_UNKNOWN
 #undef STATUS_OK
+#undef STATUS_UNKNOWN
 
 using $ObjectInputStream$HandleTable$HandleListArray = $Array<::java::io::ObjectInputStream$HandleTable$HandleList>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

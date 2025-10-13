@@ -14,9 +14,9 @@
 #include <sun/nio/fs/WindowsPathType.h>
 #include <jcpp.h>
 
-#undef RELATIVE
-#undef DRIVE_RELATIVE
 #undef DIRECTORY_RELATIVE
+#undef DRIVE_RELATIVE
+#undef RELATIVE
 
 using $WindowsPathTypeArray = $Array<::sun::nio::fs::WindowsPathType>;
 using $ClassInfo = ::java::lang::ClassInfo;

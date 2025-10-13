@@ -18,9 +18,9 @@
 #include <jcpp.h>
 
 #undef DOWN
-#undef ONE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef ONE
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $RoundingModeArray = $Array<::java::math::RoundingMode>;

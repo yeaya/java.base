@@ -5,14 +5,14 @@
 
 #include <java/util/concurrent/SynchronousQueue$Transferer.h>
 
-#pragma push_macro("SHEAD")
-#undef SHEAD
-#pragma push_macro("REQUEST")
-#undef REQUEST
 #pragma push_macro("DATA")
 #undef DATA
 #pragma push_macro("FULFILLING")
 #undef FULFILLING
+#pragma push_macro("REQUEST")
+#undef REQUEST
+#pragma push_macro("SHEAD")
+#undef SHEAD
 
 namespace java {
 	namespace lang {
@@ -54,9 +54,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SHEAD")
-#pragma pop_macro("REQUEST")
 #pragma pop_macro("DATA")
 #pragma pop_macro("FULFILLING")
+#pragma pop_macro("REQUEST")
+#pragma pop_macro("SHEAD")
 
 #endif // _java_util_concurrent_SynchronousQueue$TransferStack_h_

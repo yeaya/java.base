@@ -24,13 +24,13 @@
 #include <sun/util/resources/LocaleData.h>
 #include <jcpp.h>
 
-#undef ROOT
-#undef ENGLISH
-#undef JAVA_BASE_LOCALES
-#undef CLDR
-#undef INSTANCE
-#undef JRE
 #undef CANDIDATES_MAP
+#undef CLDR
+#undef ENGLISH
+#undef INSTANCE
+#undef JAVA_BASE_LOCALES
+#undef JRE
+#undef ROOT
 #undef US
 
 using $AssertionError = ::java::lang::AssertionError;

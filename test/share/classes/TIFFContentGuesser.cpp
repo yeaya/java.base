@@ -16,9 +16,9 @@
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
 
+#undef BIG_ENDIAN_MAGIC
 #undef LITTLE_ENDIAN_MAGIC
 #undef TIFF_MIME_TYPE
-#undef BIG_ENDIAN_MAGIC
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;

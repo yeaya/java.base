@@ -5,12 +5,12 @@
 
 #include <sun/util/locale/Extension.h>
 
+#pragma push_macro("CA_JAPANESE")
+#undef CA_JAPANESE
 #pragma push_macro("NU_THAI")
 #undef NU_THAI
 #pragma push_macro("SINGLETON")
 #undef SINGLETON
-#pragma push_macro("CA_JAPANESE")
-#undef CA_JAPANESE
 
 namespace java {
 	namespace util {
@@ -53,8 +53,8 @@ public:
 	} // util
 } // sun
 
+#pragma pop_macro("CA_JAPANESE")
 #pragma pop_macro("NU_THAI")
 #pragma pop_macro("SINGLETON")
-#pragma pop_macro("CA_JAPANESE")
 
 #endif // _sun_util_locale_UnicodeLocaleExtension_h_

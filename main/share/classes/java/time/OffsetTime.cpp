@@ -55,15 +55,15 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MIN
 #undef ISO_OFFSET_TIME
 #undef MAX
-#undef OFFSET_SECONDS
-#undef NANOS
-#undef OFFSET_TIME_TYPE
 #undef MAX_VALUE
+#undef MIN
 #undef MIN_VALUE
+#undef NANOS
 #undef NANO_OF_DAY
+#undef OFFSET_SECONDS
+#undef OFFSET_TIME_TYPE
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

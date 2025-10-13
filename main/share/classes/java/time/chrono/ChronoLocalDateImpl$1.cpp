@@ -14,14 +14,14 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <jcpp.h>
 
-#undef MONTHS
-#undef YEARS
-#undef WEEKS
-#undef DECADES
-#undef MILLENNIA
-#undef DAYS
 #undef CENTURIES
+#undef DAYS
+#undef DECADES
 #undef ERAS
+#undef MILLENNIA
+#undef MONTHS
+#undef WEEKS
+#undef YEARS
 
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;

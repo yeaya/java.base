@@ -53,9 +53,9 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef FINISHED
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
-#undef FINISHED
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

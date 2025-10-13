@@ -39,8 +39,8 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef DEFAULT_WALKER
 #undef DEFAULT_EMPTY_OPTION
+#undef DEFAULT_WALKER
 #undef LOCALS_AND_OPERANDS
 #undef RETAIN_CLASS_REFERENCE
 

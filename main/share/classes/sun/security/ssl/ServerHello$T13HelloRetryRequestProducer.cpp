@@ -37,10 +37,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef CLIENT_HELLO
 #undef HANDSHAKE_FAILURE
 #undef HELLO_RETRY_REQUEST
 #undef TLS12
-#undef CLIENT_HELLO
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $Byte = ::java::lang::Byte;

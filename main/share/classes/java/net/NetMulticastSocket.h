@@ -5,12 +5,12 @@
 
 #include <java/net/MulticastSocket.h>
 
+#pragma push_macro("ST_CONNECTED")
+#undef ST_CONNECTED
 #pragma push_macro("ST_CONNECTED_NO_IMPL")
 #undef ST_CONNECTED_NO_IMPL
 #pragma push_macro("ST_NOT_CONNECTED")
 #undef ST_NOT_CONNECTED
-#pragma push_macro("ST_CONNECTED")
-#undef ST_CONNECTED
 
 namespace java {
 	namespace net {
@@ -113,8 +113,8 @@ public:
 	} // net
 } // java
 
+#pragma pop_macro("ST_CONNECTED")
 #pragma pop_macro("ST_CONNECTED_NO_IMPL")
 #pragma pop_macro("ST_NOT_CONNECTED")
-#pragma pop_macro("ST_CONNECTED")
 
 #endif // _java_net_NetMulticastSocket_h_

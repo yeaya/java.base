@@ -47,16 +47,16 @@
 #include <jdk/internal/org/objectweb/asm/commons/ModuleTargetAttribute.h>
 #include <jcpp.h>
 
-#undef TRANSITIVE
-#undef REQUIRES_MODS_TO_FLAGS
-#undef OPENS_MODS_TO_FLAGS
-#undef SYNTHETIC
+#undef EMPTY_STRING_ARRAY
+#undef EXPORTS_MODS_TO_FLAGS
 #undef MANDATED
 #undef MODULE_MODS_TO_FLAGS
-#undef EXPORTS_MODS_TO_FLAGS
-#undef STATIC
-#undef EMPTY_STRING_ARRAY
 #undef OPEN
+#undef OPENS_MODS_TO_FLAGS
+#undef REQUIRES_MODS_TO_FLAGS
+#undef STATIC
+#undef SYNTHETIC
+#undef TRANSITIVE
 
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;

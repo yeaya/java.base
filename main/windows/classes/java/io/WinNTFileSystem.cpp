@@ -709,11 +709,11 @@ $String* WinNTFileSystem::parentOrNull($String* path) {
 			if (adjacentDots == 1 && nonDotCount == 0) {
 				return nullptr;
 			}
-			bool var$0 = idx == 0 || idx >= last - 1 || $nc(path)->charAt(idx - 1) == sep;
-			if (var$0 || $nc(path)->charAt(idx - 1) == altSep) {
+			bool var$0 = idx == 0 || idx >= last - 1 || path->charAt(idx - 1) == sep;
+			if (var$0 || path->charAt(idx - 1) == altSep) {
 				return nullptr;
 			}
-			return $nc(path)->substring(0, idx);
+			return path->substring(0, idx);
 		} else if (c == altSep) {
 			return nullptr;
 		} else if (c == u'*' || c == u'?') {

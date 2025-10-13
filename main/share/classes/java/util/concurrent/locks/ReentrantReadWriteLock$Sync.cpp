@@ -23,10 +23,10 @@
 #include <java/util/concurrent/locks/ReentrantReadWriteLock.h>
 #include <jcpp.h>
 
-#undef MAX_COUNT
-#undef SHARED_UNIT
-#undef SHARED_SHIFT
 #undef EXCLUSIVE_MASK
+#undef MAX_COUNT
+#undef SHARED_SHIFT
+#undef SHARED_UNIT
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -253,10 +253,10 @@ int32_t ReentrantReadWriteLock$Sync::tryAcquireShared(int32_t unused) {
 			$var($ReentrantReadWriteLock$Sync$HoldCounter, rh, this->cachedHoldCounter);
 			if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
 				$set(this, cachedHoldCounter, ($assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()))));
-			} else if ($nc(rh)->count == 0) {
+			} else if (rh->count == 0) {
 				$nc(this->readHolds)->set(rh);
 			}
-			++$nc(rh)->count;
+			++rh->count;
 		}
 		return 1;
 	}
@@ -303,10 +303,10 @@ int32_t ReentrantReadWriteLock$Sync::fullTryAcquireShared($Thread* current) {
 				}
 				if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
 					$assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()));
-				} else if ($nc(rh)->count == 0) {
+				} else if (rh->count == 0) {
 					$nc(this->readHolds)->set(rh);
 				}
-				++$nc(rh)->count;
+				++rh->count;
 				$set(this, cachedHoldCounter, rh);
 			}
 			return 1;
@@ -355,10 +355,10 @@ bool ReentrantReadWriteLock$Sync::tryReadLock() {
 				$var($ReentrantReadWriteLock$Sync$HoldCounter, rh, this->cachedHoldCounter);
 				if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
 					$set(this, cachedHoldCounter, ($assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()))));
-				} else if ($nc(rh)->count == 0) {
+				} else if (rh->count == 0) {
 					$nc(this->readHolds)->set(rh);
 				}
-				++$nc(rh)->count;
+				++rh->count;
 			}
 			return true;
 		}

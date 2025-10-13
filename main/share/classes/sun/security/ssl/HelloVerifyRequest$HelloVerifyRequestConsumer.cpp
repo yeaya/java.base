@@ -28,10 +28,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef CLIENT_HELLO
 #undef HELLO_VERIFY_REQUEST
 #undef SERVER_HELLO
 #undef UNEXPECTED_MESSAGE
-#undef CLIENT_HELLO
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

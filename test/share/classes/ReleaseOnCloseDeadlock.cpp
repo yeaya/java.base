@@ -32,8 +32,8 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-#undef READ
 #undef LOCK_COUNT
+#undef READ
 #undef WRITE
 
 using $ReleaseOnCloseDeadlock$1 = ::ReleaseOnCloseDeadlock$1;

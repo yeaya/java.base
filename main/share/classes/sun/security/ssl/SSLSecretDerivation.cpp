@@ -29,8 +29,8 @@
 #include <sun/security/ssl/SSLSecretDerivation$SecretSchedule.h>
 #include <jcpp.h>
 
-#undef H_SHA384
 #undef H_SHA256
+#undef H_SHA384
 
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;

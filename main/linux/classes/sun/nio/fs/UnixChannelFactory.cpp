@@ -32,19 +32,19 @@
 #include <jcpp.h>
 
 #undef EEXIST
-#undef O_DSYNC
-#undef O_NOFOLLOW
-#undef O_CREAT
-#undef O_EXCL
+#undef EISDIR
+#undef ELOOP
 #undef ENOENT
 #undef O_APPEND
-#undef O_RDWR
-#undef O_TRUNC
-#undef O_RDONLY
-#undef EISDIR
+#undef O_CREAT
 #undef O_DIRECT
-#undef ELOOP
+#undef O_DSYNC
+#undef O_EXCL
+#undef O_NOFOLLOW
+#undef O_RDONLY
+#undef O_RDWR
 #undef O_SYNC
+#undef O_TRUNC
 #undef O_WRONLY
 
 using $FileDescriptor = ::java::io::FileDescriptor;
@@ -185,7 +185,7 @@ $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String*
 			}
 			$init($UnixConstants);
 			oflags |= ($UnixConstants::O_CREAT | $UnixConstants::O_EXCL);
-		} else if ($nc(flags)->create) {
+		} else if (flags->create) {
 			$init($UnixConstants);
 			oflags |= $UnixConstants::O_CREAT;
 		}

@@ -28,31 +28,31 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <jcpp.h>
 
-#undef MILLISECOND_FIELD
-#undef FORMAT
 #undef AM_PM_FIELD
-#undef WEEK_OF_YEAR_FIELD
+#undef DATE_FIELD
+#undef DAY_OF_WEEK_FIELD
+#undef DAY_OF_WEEK_IN_MONTH_FIELD
+#undef DAY_OF_YEAR_FIELD
+#undef DEFAULT
+#undef ERA_FIELD
+#undef FORMAT
+#undef FULL
+#undef HOUR0_FIELD
 #undef HOUR1_FIELD
 #undef HOUR_OF_DAY0_FIELD
-#undef WEEK_OF_MONTH_FIELD
-#undef LONG
-#undef DAY_OF_YEAR_FIELD
-#undef DATE_FIELD
-#undef MEDIUM
-#undef YEAR_FIELD
-#undef DAY_OF_WEEK_IN_MONTH_FIELD
-#undef MINUTE_FIELD
-#undef INSTANCE
-#undef FULL
-#undef ERA_FIELD
-#undef SHORT
 #undef HOUR_OF_DAY1_FIELD
+#undef INSTANCE
+#undef LONG
+#undef MEDIUM
+#undef MILLISECOND_FIELD
+#undef MINUTE_FIELD
 #undef MONTH_FIELD
-#undef DAY_OF_WEEK_FIELD
-#undef TIMEZONE_FIELD
-#undef HOUR0_FIELD
-#undef DEFAULT
 #undef SECOND_FIELD
+#undef SHORT
+#undef TIMEZONE_FIELD
+#undef WEEK_OF_MONTH_FIELD
+#undef WEEK_OF_YEAR_FIELD
+#undef YEAR_FIELD
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;

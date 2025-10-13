@@ -14,8 +14,8 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
 #include <jcpp.h>
 
-#undef ICU_DATA_VERSION_PATH
 #undef DATA_FILE_NAME
+#undef ICU_DATA_VERSION_PATH
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

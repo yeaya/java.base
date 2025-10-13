@@ -49,11 +49,11 @@
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
 
-#undef DIRECT_HOLDER_CLASS_NAME
-#undef INVOKERS_HOLDER_CLASS_NAME
+#undef BASIC_FORMS_HOLDER_CLASS_NAME
 #undef CDS
 #undef DELEGATING_HOLDER_CLASS_NAME
-#undef BASIC_FORMS_HOLDER_CLASS_NAME
+#undef DIRECT_HOLDER_CLASS_NAME
+#undef INVOKERS_HOLDER_CLASS_NAME
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
@@ -365,7 +365,7 @@ void CDS::validateInputLines($StringArray* lines) {
 					if (!isValidMethodType(parts->get(3))) {
 						$throwNew($IllegalArgumentException, $$str({"Invalid method type: "_s, parts->get(3)}));
 					}
-				} else if ($nc(parts)->length != 2) {
+				} else if (parts->length != 2) {
 					$throwNew($IllegalArgumentException, $$str({"Incorrect number of items in the line: "_s, $$str(parts->length)}));
 				}
 			}

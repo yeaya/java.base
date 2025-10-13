@@ -34,10 +34,10 @@
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
 #undef DEFAULT_KEEPALIVE_MILLIS
-#undef NANOSECONDS
 #undef MAX_VALUE
+#undef MILLISECONDS
+#undef NANOSECONDS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

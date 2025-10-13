@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/nio/ShortBuffer.h>
 
-#pragma push_macro("ARRAY_INDEX_SCALE")
-#undef ARRAY_INDEX_SCALE
 #pragma push_macro("ARRAY_BASE_OFFSET")
 #undef ARRAY_BASE_OFFSET
+#pragma push_macro("ARRAY_INDEX_SCALE")
+#undef ARRAY_INDEX_SCALE
 
 namespace java {
 	namespace nio {
@@ -67,7 +67,7 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("ARRAY_INDEX_SCALE")
 #pragma pop_macro("ARRAY_BASE_OFFSET")
+#pragma pop_macro("ARRAY_INDEX_SCALE")
 
 #endif // _java_nio_HeapShortBuffer_h_

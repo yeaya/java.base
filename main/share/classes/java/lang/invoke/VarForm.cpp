@@ -22,15 +22,15 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef COMPARE_AND_EXCHANGE
+#undef COMPARE_AND_SET
+#undef COUNT
+#undef ERASE
+#undef GET
+#undef GET_AND_UPDATE
 #undef IMPL_LOOKUP
 #undef SET
-#undef ERASE
-#undef GET_AND_UPDATE
-#undef GET
-#undef COMPARE_AND_EXCHANGE
-#undef COUNT
 #undef TYPE
-#undef COMPARE_AND_SET
 
 using $MemberNameArray = $Array<::java::lang::invoke::MemberName>;
 using $MethodTypeArray = $Array<::java::lang::invoke::MethodType>;

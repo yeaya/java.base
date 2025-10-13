@@ -5,46 +5,46 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("H_GEN_DELIMS")
-#undef H_GEN_DELIMS
-#pragma push_macro("INADDR16SZ")
-#undef INADDR16SZ
-#pragma push_macro("L_SLASH")
-#undef L_SLASH
-#pragma push_macro("L_NON_PRINTABLE")
-#undef L_NON_PRINTABLE
-#pragma push_macro("INADDR4SZ")
-#undef INADDR4SZ
-#pragma push_macro("L_COLON")
-#undef L_COLON
 #pragma push_macro("H_AUTH_DELIMS")
 #undef H_AUTH_DELIMS
 #pragma push_macro("H_BACKSLASH")
 #undef H_BACKSLASH
-#pragma push_macro("L_BACKSLASH")
-#undef L_BACKSLASH
-#pragma push_macro("L_EXCLUDE")
-#undef L_EXCLUDE
-#pragma push_macro("L_IPV6_DELIMS")
-#undef L_IPV6_DELIMS
-#pragma push_macro("INT16SZ")
-#undef INT16SZ
-#pragma push_macro("H_NON_PRINTABLE")
-#undef H_NON_PRINTABLE
-#pragma push_macro("L_AUTH_DELIMS")
-#undef L_AUTH_DELIMS
-#pragma push_macro("H_IPV6_DELIMS")
-#undef H_IPV6_DELIMS
-#pragma push_macro("OTHERS")
-#undef OTHERS
-#pragma push_macro("H_SLASH")
-#undef H_SLASH
-#pragma push_macro("L_GEN_DELIMS")
-#undef L_GEN_DELIMS
-#pragma push_macro("H_EXCLUDE")
-#undef H_EXCLUDE
 #pragma push_macro("H_COLON")
 #undef H_COLON
+#pragma push_macro("H_EXCLUDE")
+#undef H_EXCLUDE
+#pragma push_macro("H_GEN_DELIMS")
+#undef H_GEN_DELIMS
+#pragma push_macro("H_IPV6_DELIMS")
+#undef H_IPV6_DELIMS
+#pragma push_macro("H_NON_PRINTABLE")
+#undef H_NON_PRINTABLE
+#pragma push_macro("H_SLASH")
+#undef H_SLASH
+#pragma push_macro("INADDR16SZ")
+#undef INADDR16SZ
+#pragma push_macro("INADDR4SZ")
+#undef INADDR4SZ
+#pragma push_macro("INT16SZ")
+#undef INT16SZ
+#pragma push_macro("L_AUTH_DELIMS")
+#undef L_AUTH_DELIMS
+#pragma push_macro("L_BACKSLASH")
+#undef L_BACKSLASH
+#pragma push_macro("L_COLON")
+#undef L_COLON
+#pragma push_macro("L_EXCLUDE")
+#undef L_EXCLUDE
+#pragma push_macro("L_GEN_DELIMS")
+#undef L_GEN_DELIMS
+#pragma push_macro("L_IPV6_DELIMS")
+#undef L_IPV6_DELIMS
+#pragma push_macro("L_NON_PRINTABLE")
+#undef L_NON_PRINTABLE
+#pragma push_macro("L_SLASH")
+#undef L_SLASH
+#pragma push_macro("OTHERS")
+#undef OTHERS
 
 namespace java {
 	namespace net {
@@ -124,25 +124,25 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("H_GEN_DELIMS")
-#pragma pop_macro("INADDR16SZ")
-#pragma pop_macro("L_SLASH")
-#pragma pop_macro("L_NON_PRINTABLE")
-#pragma pop_macro("INADDR4SZ")
-#pragma pop_macro("L_COLON")
 #pragma pop_macro("H_AUTH_DELIMS")
 #pragma pop_macro("H_BACKSLASH")
-#pragma pop_macro("L_BACKSLASH")
-#pragma pop_macro("L_EXCLUDE")
-#pragma pop_macro("L_IPV6_DELIMS")
-#pragma pop_macro("INT16SZ")
-#pragma pop_macro("H_NON_PRINTABLE")
-#pragma pop_macro("L_AUTH_DELIMS")
-#pragma pop_macro("H_IPV6_DELIMS")
-#pragma pop_macro("OTHERS")
-#pragma pop_macro("H_SLASH")
-#pragma pop_macro("L_GEN_DELIMS")
-#pragma pop_macro("H_EXCLUDE")
 #pragma pop_macro("H_COLON")
+#pragma pop_macro("H_EXCLUDE")
+#pragma pop_macro("H_GEN_DELIMS")
+#pragma pop_macro("H_IPV6_DELIMS")
+#pragma pop_macro("H_NON_PRINTABLE")
+#pragma pop_macro("H_SLASH")
+#pragma pop_macro("INADDR16SZ")
+#pragma pop_macro("INADDR4SZ")
+#pragma pop_macro("INT16SZ")
+#pragma pop_macro("L_AUTH_DELIMS")
+#pragma pop_macro("L_BACKSLASH")
+#pragma pop_macro("L_COLON")
+#pragma pop_macro("L_EXCLUDE")
+#pragma pop_macro("L_GEN_DELIMS")
+#pragma pop_macro("L_IPV6_DELIMS")
+#pragma pop_macro("L_NON_PRINTABLE")
+#pragma pop_macro("L_SLASH")
+#pragma pop_macro("OTHERS")
 
 #endif // _sun_net_util_IPAddressUtil_h_

@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SHUT_WR")
-#undef SHUT_WR
 #pragma push_macro("POLLCONN")
 #undef POLLCONN
-#pragma push_macro("POLLIN")
-#undef POLLIN
 #pragma push_macro("POLLERR")
 #undef POLLERR
-#pragma push_macro("SHUT_RDWR")
-#undef SHUT_RDWR
 #pragma push_macro("POLLHUP")
 #undef POLLHUP
-#pragma push_macro("UNSPEC")
-#undef UNSPEC
-#pragma push_macro("SHUT_RD")
-#undef SHUT_RD
-#pragma push_macro("POLLOUT")
-#undef POLLOUT
+#pragma push_macro("POLLIN")
+#undef POLLIN
 #pragma push_macro("POLLNVAL")
 #undef POLLNVAL
+#pragma push_macro("POLLOUT")
+#undef POLLOUT
+#pragma push_macro("SHUT_RD")
+#undef SHUT_RD
+#pragma push_macro("SHUT_RDWR")
+#undef SHUT_RDWR
+#pragma push_macro("SHUT_WR")
+#undef SHUT_WR
+#pragma push_macro("UNSPEC")
+#undef UNSPEC
 
 namespace java {
 	namespace io {
@@ -180,15 +180,15 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("SHUT_WR")
 #pragma pop_macro("POLLCONN")
-#pragma pop_macro("POLLIN")
 #pragma pop_macro("POLLERR")
-#pragma pop_macro("SHUT_RDWR")
 #pragma pop_macro("POLLHUP")
-#pragma pop_macro("UNSPEC")
-#pragma pop_macro("SHUT_RD")
-#pragma pop_macro("POLLOUT")
+#pragma pop_macro("POLLIN")
 #pragma pop_macro("POLLNVAL")
+#pragma pop_macro("POLLOUT")
+#pragma pop_macro("SHUT_RD")
+#pragma pop_macro("SHUT_RDWR")
+#pragma pop_macro("SHUT_WR")
+#pragma pop_macro("UNSPEC")
 
 #endif // _sun_nio_ch_Net_h_

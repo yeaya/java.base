@@ -27,8 +27,8 @@
 #include <sun/nio/ch/DatagramSocketAdaptor.h>
 #include <jcpp.h>
 
-#undef LENGTH
 #undef BUF_LENGTH
+#undef LENGTH
 #undef TYPE
 
 using $Serializable = ::java::io::Serializable;

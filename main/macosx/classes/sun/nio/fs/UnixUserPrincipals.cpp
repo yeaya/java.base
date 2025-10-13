@@ -27,9 +27,9 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
+#undef SPECIAL_EVERYONE
 #undef SPECIAL_GROUP
 #undef SPECIAL_OWNER
-#undef SPECIAL_EVERYONE
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

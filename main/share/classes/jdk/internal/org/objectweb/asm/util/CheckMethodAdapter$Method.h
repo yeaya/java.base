@@ -8,18 +8,18 @@
 
 #pragma push_macro("VISIT_FIELD_INSN")
 #undef VISIT_FIELD_INSN
-#pragma push_macro("VISIT_JUMP_INSN")
-#undef VISIT_JUMP_INSN
 #pragma push_macro("VISIT_INSN")
 #undef VISIT_INSN
 #pragma push_macro("VISIT_INT_INSN")
 #undef VISIT_INT_INSN
+#pragma push_macro("VISIT_JUMP_INSN")
+#undef VISIT_JUMP_INSN
 #pragma push_macro("VISIT_METHOD_INSN")
 #undef VISIT_METHOD_INSN
-#pragma push_macro("VISIT_VAR_INSN")
-#undef VISIT_VAR_INSN
 #pragma push_macro("VISIT_TYPE_INSN")
 #undef VISIT_TYPE_INSN
+#pragma push_macro("VISIT_VAR_INSN")
+#undef VISIT_VAR_INSN
 
 namespace jdk {
 	namespace internal {
@@ -54,11 +54,11 @@ public:
 } // jdk
 
 #pragma pop_macro("VISIT_FIELD_INSN")
-#pragma pop_macro("VISIT_JUMP_INSN")
 #pragma pop_macro("VISIT_INSN")
 #pragma pop_macro("VISIT_INT_INSN")
+#pragma pop_macro("VISIT_JUMP_INSN")
 #pragma pop_macro("VISIT_METHOD_INSN")
-#pragma pop_macro("VISIT_VAR_INSN")
 #pragma pop_macro("VISIT_TYPE_INSN")
+#pragma pop_macro("VISIT_VAR_INSN")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_CheckMethodAdapter$Method_h_

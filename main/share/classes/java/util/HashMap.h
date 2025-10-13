@@ -9,18 +9,18 @@
 #include <java/lang/Cloneable.h>
 #include <java/util/AbstractMap.h>
 
-#pragma push_macro("UNTREEIFY_THRESHOLD")
-#undef UNTREEIFY_THRESHOLD
-#pragma push_macro("TREEIFY_THRESHOLD")
-#undef TREEIFY_THRESHOLD
-#pragma push_macro("DEFAULT_LOAD_FACTOR")
-#undef DEFAULT_LOAD_FACTOR
 #pragma push_macro("DEFAULT_INITIAL_CAPACITY")
 #undef DEFAULT_INITIAL_CAPACITY
+#pragma push_macro("DEFAULT_LOAD_FACTOR")
+#undef DEFAULT_LOAD_FACTOR
 #pragma push_macro("MAXIMUM_CAPACITY")
 #undef MAXIMUM_CAPACITY
 #pragma push_macro("MIN_TREEIFY_CAPACITY")
 #undef MIN_TREEIFY_CAPACITY
+#pragma push_macro("TREEIFY_THRESHOLD")
+#undef TREEIFY_THRESHOLD
+#pragma push_macro("UNTREEIFY_THRESHOLD")
+#undef UNTREEIFY_THRESHOLD
 
 namespace java {
 	namespace io {
@@ -131,11 +131,11 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("UNTREEIFY_THRESHOLD")
-#pragma pop_macro("TREEIFY_THRESHOLD")
-#pragma pop_macro("DEFAULT_LOAD_FACTOR")
 #pragma pop_macro("DEFAULT_INITIAL_CAPACITY")
+#pragma pop_macro("DEFAULT_LOAD_FACTOR")
 #pragma pop_macro("MAXIMUM_CAPACITY")
 #pragma pop_macro("MIN_TREEIFY_CAPACITY")
+#pragma pop_macro("TREEIFY_THRESHOLD")
+#pragma pop_macro("UNTREEIFY_THRESHOLD")
 
 #endif // _java_util_HashMap_h_

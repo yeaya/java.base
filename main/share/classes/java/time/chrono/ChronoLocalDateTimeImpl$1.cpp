@@ -16,11 +16,11 @@
 
 #undef HALF_DAYS
 #undef HOURS
-#undef NANOS
 #undef MICROS
-#undef SECONDS
 #undef MILLIS
 #undef MINUTES
+#undef NANOS
+#undef SECONDS
 
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;

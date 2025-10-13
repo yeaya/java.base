@@ -5,38 +5,38 @@
 
 #include <java/lang/Integer.h>
 
-#pragma push_macro("PHASE_SHIFT")
-#undef PHASE_SHIFT
 #pragma push_macro("COUNTS_MASK")
 #undef COUNTS_MASK
+#pragma push_macro("EMPTY")
+#undef EMPTY
 #pragma push_macro("MAX_PARTIES")
 #undef MAX_PARTIES
-#pragma push_macro("UNARRIVED_MASK")
-#undef UNARRIVED_MASK
-#pragma push_macro("TERMINATION_BIT")
-#undef TERMINATION_BIT
-#pragma push_macro("ONE_PARTY")
-#undef ONE_PARTY
-#pragma push_macro("STATE")
-#undef STATE
 #pragma push_macro("MAX_PHASE")
 #undef MAX_PHASE
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
+#pragma push_macro("NCPU")
+#undef NCPU
+#pragma push_macro("ONE_ARRIVAL")
+#undef ONE_ARRIVAL
 #pragma push_macro("ONE_DEREGISTER")
 #undef ONE_DEREGISTER
-#pragma push_macro("SPINS_PER_ARRIVAL")
-#undef SPINS_PER_ARRIVAL
+#pragma push_macro("ONE_PARTY")
+#undef ONE_PARTY
 #pragma push_macro("PARTIES_MASK")
 #undef PARTIES_MASK
 #pragma push_macro("PARTIES_SHIFT")
 #undef PARTIES_SHIFT
-#pragma push_macro("ONE_ARRIVAL")
-#undef ONE_ARRIVAL
-#pragma push_macro("EMPTY")
-#undef EMPTY
-#pragma push_macro("NCPU")
-#undef NCPU
+#pragma push_macro("PHASE_SHIFT")
+#undef PHASE_SHIFT
+#pragma push_macro("SPINS_PER_ARRIVAL")
+#undef SPINS_PER_ARRIVAL
+#pragma push_macro("STATE")
+#undef STATE
+#pragma push_macro("TERMINATION_BIT")
+#undef TERMINATION_BIT
+#pragma push_macro("UNARRIVED_MASK")
+#undef UNARRIVED_MASK
 
 namespace java {
 	namespace lang {
@@ -132,21 +132,21 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("PHASE_SHIFT")
 #pragma pop_macro("COUNTS_MASK")
+#pragma pop_macro("EMPTY")
 #pragma pop_macro("MAX_PARTIES")
-#pragma pop_macro("UNARRIVED_MASK")
-#pragma pop_macro("TERMINATION_BIT")
-#pragma pop_macro("ONE_PARTY")
-#pragma pop_macro("STATE")
 #pragma pop_macro("MAX_PHASE")
 #pragma pop_macro("MAX_VALUE")
+#pragma pop_macro("NCPU")
+#pragma pop_macro("ONE_ARRIVAL")
 #pragma pop_macro("ONE_DEREGISTER")
-#pragma pop_macro("SPINS_PER_ARRIVAL")
+#pragma pop_macro("ONE_PARTY")
 #pragma pop_macro("PARTIES_MASK")
 #pragma pop_macro("PARTIES_SHIFT")
-#pragma pop_macro("ONE_ARRIVAL")
-#pragma pop_macro("EMPTY")
-#pragma pop_macro("NCPU")
+#pragma pop_macro("PHASE_SHIFT")
+#pragma pop_macro("SPINS_PER_ARRIVAL")
+#pragma pop_macro("STATE")
+#pragma pop_macro("TERMINATION_BIT")
+#pragma pop_macro("UNARRIVED_MASK")
 
 #endif // _java_util_concurrent_Phaser_h_

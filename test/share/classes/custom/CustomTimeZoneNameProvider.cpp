@@ -13,10 +13,10 @@
 #include <java/util/spi/TimeZoneNameProvider.h>
 #include <jcpp.h>
 
-#undef ZONE_ID
 #undef ID
-#undef SHORT
 #undef LONG
+#undef SHORT
+#undef ZONE_ID
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;

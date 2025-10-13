@@ -5,12 +5,12 @@
 
 #include <java/util/concurrent/ForkJoinPool$ManagedBlocker.h>
 
+#pragma push_macro("SMATCH")
+#undef SMATCH
 #pragma push_macro("SNEXT")
 #undef SNEXT
 #pragma push_macro("SWAITER")
 #undef SWAITER
-#pragma push_macro("SMATCH")
-#undef SMATCH
 
 namespace java {
 	namespace lang {
@@ -55,8 +55,8 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("SMATCH")
 #pragma pop_macro("SNEXT")
 #pragma pop_macro("SWAITER")
-#pragma pop_macro("SMATCH")
 
 #endif // _java_util_concurrent_SynchronousQueue$TransferStack$SNode_h_

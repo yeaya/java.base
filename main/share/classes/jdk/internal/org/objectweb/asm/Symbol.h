@@ -5,48 +5,48 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("CONSTANT_STRING_TAG")
-#undef CONSTANT_STRING_TAG
-#pragma push_macro("CONSTANT_INVOKE_DYNAMIC_TAG")
-#undef CONSTANT_INVOKE_DYNAMIC_TAG
-#pragma push_macro("CONSTANT_UTF8_TAG")
-#undef CONSTANT_UTF8_TAG
-#pragma push_macro("CONSTANT_METHOD_TYPE_TAG")
-#undef CONSTANT_METHOD_TYPE_TAG
 #pragma push_macro("BOOTSTRAP_METHOD_TAG")
 #undef BOOTSTRAP_METHOD_TAG
-#pragma push_macro("CONSTANT_FLOAT_TAG")
-#undef CONSTANT_FLOAT_TAG
-#pragma push_macro("CONSTANT_METHOD_HANDLE_TAG")
-#undef CONSTANT_METHOD_HANDLE_TAG
 #pragma push_macro("CONSTANT_CLASS_TAG")
 #undef CONSTANT_CLASS_TAG
-#pragma push_macro("CONSTANT_NAME_AND_TYPE_TAG")
-#undef CONSTANT_NAME_AND_TYPE_TAG
-#pragma push_macro("CONSTANT_LONG_TAG")
-#undef CONSTANT_LONG_TAG
-#pragma push_macro("UNINITIALIZED_TYPE_TAG")
-#undef UNINITIALIZED_TYPE_TAG
-#pragma push_macro("CONSTANT_MODULE_TAG")
-#undef CONSTANT_MODULE_TAG
-#pragma push_macro("CONSTANT_INTERFACE_METHODREF_TAG")
-#undef CONSTANT_INTERFACE_METHODREF_TAG
-#pragma push_macro("MERGED_TYPE_TAG")
-#undef MERGED_TYPE_TAG
 #pragma push_macro("CONSTANT_DOUBLE_TAG")
 #undef CONSTANT_DOUBLE_TAG
-#pragma push_macro("CONSTANT_INTEGER_TAG")
-#undef CONSTANT_INTEGER_TAG
-#pragma push_macro("CONSTANT_PACKAGE_TAG")
-#undef CONSTANT_PACKAGE_TAG
-#pragma push_macro("TYPE_TAG")
-#undef TYPE_TAG
 #pragma push_macro("CONSTANT_DYNAMIC_TAG")
 #undef CONSTANT_DYNAMIC_TAG
 #pragma push_macro("CONSTANT_FIELDREF_TAG")
 #undef CONSTANT_FIELDREF_TAG
+#pragma push_macro("CONSTANT_FLOAT_TAG")
+#undef CONSTANT_FLOAT_TAG
+#pragma push_macro("CONSTANT_INTEGER_TAG")
+#undef CONSTANT_INTEGER_TAG
+#pragma push_macro("CONSTANT_INTERFACE_METHODREF_TAG")
+#undef CONSTANT_INTERFACE_METHODREF_TAG
+#pragma push_macro("CONSTANT_INVOKE_DYNAMIC_TAG")
+#undef CONSTANT_INVOKE_DYNAMIC_TAG
+#pragma push_macro("CONSTANT_LONG_TAG")
+#undef CONSTANT_LONG_TAG
 #pragma push_macro("CONSTANT_METHODREF_TAG")
 #undef CONSTANT_METHODREF_TAG
+#pragma push_macro("CONSTANT_METHOD_HANDLE_TAG")
+#undef CONSTANT_METHOD_HANDLE_TAG
+#pragma push_macro("CONSTANT_METHOD_TYPE_TAG")
+#undef CONSTANT_METHOD_TYPE_TAG
+#pragma push_macro("CONSTANT_MODULE_TAG")
+#undef CONSTANT_MODULE_TAG
+#pragma push_macro("CONSTANT_NAME_AND_TYPE_TAG")
+#undef CONSTANT_NAME_AND_TYPE_TAG
+#pragma push_macro("CONSTANT_PACKAGE_TAG")
+#undef CONSTANT_PACKAGE_TAG
+#pragma push_macro("CONSTANT_STRING_TAG")
+#undef CONSTANT_STRING_TAG
+#pragma push_macro("CONSTANT_UTF8_TAG")
+#undef CONSTANT_UTF8_TAG
+#pragma push_macro("MERGED_TYPE_TAG")
+#undef MERGED_TYPE_TAG
+#pragma push_macro("TYPE_TAG")
+#undef TYPE_TAG
+#pragma push_macro("UNINITIALIZED_TYPE_TAG")
+#undef UNINITIALIZED_TYPE_TAG
 
 namespace jdk {
 	namespace internal {
@@ -96,26 +96,26 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("CONSTANT_STRING_TAG")
-#pragma pop_macro("CONSTANT_INVOKE_DYNAMIC_TAG")
-#pragma pop_macro("CONSTANT_UTF8_TAG")
-#pragma pop_macro("CONSTANT_METHOD_TYPE_TAG")
 #pragma pop_macro("BOOTSTRAP_METHOD_TAG")
-#pragma pop_macro("CONSTANT_FLOAT_TAG")
-#pragma pop_macro("CONSTANT_METHOD_HANDLE_TAG")
 #pragma pop_macro("CONSTANT_CLASS_TAG")
-#pragma pop_macro("CONSTANT_NAME_AND_TYPE_TAG")
-#pragma pop_macro("CONSTANT_LONG_TAG")
-#pragma pop_macro("UNINITIALIZED_TYPE_TAG")
-#pragma pop_macro("CONSTANT_MODULE_TAG")
-#pragma pop_macro("CONSTANT_INTERFACE_METHODREF_TAG")
-#pragma pop_macro("MERGED_TYPE_TAG")
 #pragma pop_macro("CONSTANT_DOUBLE_TAG")
-#pragma pop_macro("CONSTANT_INTEGER_TAG")
-#pragma pop_macro("CONSTANT_PACKAGE_TAG")
-#pragma pop_macro("TYPE_TAG")
 #pragma pop_macro("CONSTANT_DYNAMIC_TAG")
 #pragma pop_macro("CONSTANT_FIELDREF_TAG")
+#pragma pop_macro("CONSTANT_FLOAT_TAG")
+#pragma pop_macro("CONSTANT_INTEGER_TAG")
+#pragma pop_macro("CONSTANT_INTERFACE_METHODREF_TAG")
+#pragma pop_macro("CONSTANT_INVOKE_DYNAMIC_TAG")
+#pragma pop_macro("CONSTANT_LONG_TAG")
 #pragma pop_macro("CONSTANT_METHODREF_TAG")
+#pragma pop_macro("CONSTANT_METHOD_HANDLE_TAG")
+#pragma pop_macro("CONSTANT_METHOD_TYPE_TAG")
+#pragma pop_macro("CONSTANT_MODULE_TAG")
+#pragma pop_macro("CONSTANT_NAME_AND_TYPE_TAG")
+#pragma pop_macro("CONSTANT_PACKAGE_TAG")
+#pragma pop_macro("CONSTANT_STRING_TAG")
+#pragma pop_macro("CONSTANT_UTF8_TAG")
+#pragma pop_macro("MERGED_TYPE_TAG")
+#pragma pop_macro("TYPE_TAG")
+#pragma pop_macro("UNINITIALIZED_TYPE_TAG")
 
 #endif // _jdk_internal_org_objectweb_asm$_Symbol_h_

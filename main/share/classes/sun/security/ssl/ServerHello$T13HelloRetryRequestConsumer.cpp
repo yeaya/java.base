@@ -36,15 +36,15 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef MESSAGE_HASH
-#undef PROTOCOL_VERSION
+#undef CH_COOKIE
+#undef CH_KEY_SHARE
+#undef CH_PRE_SHARED_KEY
+#undef CLIENT_HELLO
 #undef HANDSHAKE_FAILURE
 #undef HELLO_RETRY_REQUEST
-#undef CH_PRE_SHARED_KEY
-#undef CH_KEY_SHARE
-#undef CH_COOKIE
+#undef MESSAGE_HASH
+#undef PROTOCOL_VERSION
 #undef TLS12
-#undef CLIENT_HELLO
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

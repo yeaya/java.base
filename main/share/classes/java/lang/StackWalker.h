@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("DEFAULT_WALKER")
-#undef DEFAULT_WALKER
 #pragma push_macro("DEFAULT_EMPTY_OPTION")
 #undef DEFAULT_EMPTY_OPTION
+#pragma push_macro("DEFAULT_WALKER")
+#undef DEFAULT_WALKER
 
 namespace java {
 	namespace lang {
@@ -73,7 +73,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("DEFAULT_WALKER")
 #pragma pop_macro("DEFAULT_EMPTY_OPTION")
+#pragma pop_macro("DEFAULT_WALKER")
 
 #endif // _java_lang_StackWalker_h_

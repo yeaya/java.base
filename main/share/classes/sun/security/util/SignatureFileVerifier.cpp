@@ -53,12 +53,12 @@
 #include <sun/security/util/ManifestDigester.h>
 #include <jcpp.h>
 
-#undef ENGLISH
-#undef MF_MAIN_ATTRS
-#undef TRUE
-#undef FALSE
 #undef ATTR_DIGEST
+#undef ENGLISH
+#undef FALSE
+#undef MF_MAIN_ATTRS
 #undef SIGNATURE_VERSION
+#undef TRUE
 
 using $CodeSignerArray = $Array<::java::security::CodeSigner>;
 using $SignerInfoArray = $Array<::sun::security::pkcs::SignerInfo>;
@@ -247,7 +247,7 @@ bool SignatureFileVerifier::isSigningRelated($String* name$renamed) {
 	bool var$0 = isBlockOrSF(name);
 	if (var$0 || name->equals("MANIFEST.MF"_s)) {
 		return true;
-	} else if ($nc(name)->startsWith("SIG-"_s)) {
+	} else if (name->startsWith("SIG-"_s)) {
 		int32_t extIndex = name->lastIndexOf((int32_t)u'.');
 		if (extIndex != -1) {
 			$var($String, ext, name->substring(extIndex + 1));

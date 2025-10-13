@@ -18,8 +18,8 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef MAX_VALUE
+#undef ORDERED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

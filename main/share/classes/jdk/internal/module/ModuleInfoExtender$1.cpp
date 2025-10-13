@@ -34,9 +34,9 @@
 #include <jcpp.h>
 
 #undef ASM7
-#undef MODULE_TARGET
-#undef MODULE_RESOLUTION
 #undef MODULE_HASHES
+#undef MODULE_RESOLUTION
+#undef MODULE_TARGET
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

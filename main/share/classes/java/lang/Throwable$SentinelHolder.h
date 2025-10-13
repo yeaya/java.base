@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("STACK_TRACE_SENTINEL")
-#undef STACK_TRACE_SENTINEL
 #pragma push_macro("STACK_TRACE_ELEMENT_SENTINEL")
 #undef STACK_TRACE_ELEMENT_SENTINEL
+#pragma push_macro("STACK_TRACE_SENTINEL")
+#undef STACK_TRACE_SENTINEL
 
 namespace java {
 	namespace lang {
@@ -31,7 +31,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("STACK_TRACE_SENTINEL")
 #pragma pop_macro("STACK_TRACE_ELEMENT_SENTINEL")
+#pragma pop_macro("STACK_TRACE_SENTINEL")
 
 #endif // _java_lang_Throwable$SentinelHolder_h_

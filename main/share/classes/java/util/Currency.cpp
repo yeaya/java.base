@@ -57,29 +57,29 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <jcpp.h>
 
+#undef A_TO_Z
+#undef COUNTRY_TYPE_MASK
+#undef COUNTRY_WITHOUT_CURRENCY_ENTRY
+#undef DISPLAY
 #undef DISPLAYNAME
-#undef ROOT
-#undef SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK
-#undef NUMERIC_CODE_SHIFT
-#undef VALID_FORMAT_VERSION
 #undef INSTANCE
 #undef INVALID_COUNTRY_ENTRY
-#undef SIMPLE_CASE_COUNTRY_MASK
-#undef MAX_VALUE
-#undef SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS
-#undef MIN_VALUE
-#undef SPECIAL_CASE_COUNTRY_INDEX_DELTA
-#undef NUMERIC_CODE_MASK
-#undef DISPLAY
-#undef COUNTRY_TYPE_MASK
-#undef SYMBOL
-#undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT
 #undef MAGIC_NUMBER
-#undef A_TO_Z
-#undef SPECIAL_CASE_COUNTRY_MASK
-#undef COUNTRY_WITHOUT_CURRENCY_ENTRY
+#undef MAX_VALUE
+#undef MIN_VALUE
+#undef NUMERIC_CODE_MASK
+#undef NUMERIC_CODE_SHIFT
+#undef ROOT
 #undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK
+#undef SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT
+#undef SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK
+#undef SIMPLE_CASE_COUNTRY_MASK
+#undef SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS
+#undef SPECIAL_CASE_COUNTRY_INDEX_DELTA
 #undef SPECIAL_CASE_COUNTRY_INDEX_MASK
+#undef SPECIAL_CASE_COUNTRY_MASK
+#undef SYMBOL
+#undef VALID_FORMAT_VERSION
 
 using $DataInputStream = ::java::io::DataInputStream;
 using $Serializable = ::java::io::Serializable;
@@ -528,7 +528,6 @@ $Set* Currency::getAvailableCurrencies() {
 						$nc(Currency::available)->add($(getInstance($(sb->toString()), defaultFractionDigits, numericCode)));
 					} else if (((int32_t)(tableEntry & (uint32_t)Currency::COUNTRY_TYPE_MASK)) == Currency::SPECIAL_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && tableEntry != Currency::COUNTRY_WITHOUT_CURRENCY_ENTRY) {
 						int32_t index = $Currency$SpecialCaseEntry::toIndex(tableEntry);
-						$init(Currency);
 						$var($Currency$SpecialCaseEntry, scEntry, $cast($Currency$SpecialCaseEntry, $nc(Currency::specialCasesList)->get(index)));
 						if ($nc(scEntry)->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < $nc(scEntry)->cutOverTime) {
 							$nc(Currency::available)->add($(getInstance(scEntry->oldCurrency, scEntry->oldCurrencyFraction, scEntry->oldCurrencyNumericCode)));

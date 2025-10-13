@@ -29,8 +29,8 @@
 #include <sun/nio/cs/HistoricallyNamedCharset.h>
 #include <jcpp.h>
 
-#undef MIN_BYTE_BUFFER_SIZE
 #undef DEFAULT_BYTE_BUFFER_SIZE
+#undef MIN_BYTE_BUFFER_SIZE
 #undef REPLACE
 
 using $IOException = ::java::io::IOException;

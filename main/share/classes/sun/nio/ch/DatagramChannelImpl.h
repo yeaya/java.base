@@ -8,16 +8,16 @@
 #include <java/nio/channels/DatagramChannel.h>
 #include <sun/nio/ch/SelChImpl.h>
 
+#pragma push_macro("SOCKET")
+#undef SOCKET
 #pragma push_macro("ST_CLOSED")
 #undef ST_CLOSED
 #pragma push_macro("ST_CLOSING")
 #undef ST_CLOSING
-#pragma push_macro("ST_UNCONNECTED")
-#undef ST_UNCONNECTED
-#pragma push_macro("SOCKET")
-#undef SOCKET
 #pragma push_macro("ST_CONNECTED")
 #undef ST_CONNECTED
+#pragma push_macro("ST_UNCONNECTED")
+#undef ST_UNCONNECTED
 
 namespace java {
 	namespace io {
@@ -227,10 +227,10 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("SOCKET")
 #pragma pop_macro("ST_CLOSED")
 #pragma pop_macro("ST_CLOSING")
-#pragma pop_macro("ST_UNCONNECTED")
-#pragma pop_macro("SOCKET")
 #pragma pop_macro("ST_CONNECTED")
+#pragma pop_macro("ST_UNCONNECTED")
 
 #endif // _sun_nio_ch_DatagramChannelImpl_h_

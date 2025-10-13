@@ -20,14 +20,14 @@
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
 
-#undef ONE_HALF
-#undef ZERO
 #undef DOWN
-#undef UNNECESSARY
 #undef HALF_EVEN
 #undef ONE
+#undef ONE_HALF
 #undef ONE_TENTH
 #undef TEN
+#undef UNNECESSARY
+#undef ZERO
 
 using $SquareRootTests = ::SquareRootTests;
 using $SquareRootTests$1 = ::SquareRootTests$1;

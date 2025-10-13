@@ -30,12 +30,12 @@
 #include <sun/security/ssl/SSLRecord.h>
 #include <jcpp.h>
 
-#undef NOT_APPLICABLE
-#undef HANDSHAKE
-#undef APPLICATION_DATA
 #undef ALERT
-#undef NONE
+#undef APPLICATION_DATA
 #undef CLIENT_HELLO
+#undef HANDSHAKE
+#undef NONE
+#undef NOT_APPLICABLE
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -11,17 +11,17 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef KEY_COMPROMISE
-#undef CERTIFICATE_HOLD
-#undef UNSPECIFIED
-#undef PRIVILEGE_WITHDRAWN
-#undef SUPERSEDED
 #undef AA_COMPROMISE
 #undef AFFILIATION_CHANGED
-#undef UNUSED
 #undef CA_COMPROMISE
-#undef REMOVE_FROM_CRL
+#undef CERTIFICATE_HOLD
 #undef CESSATION_OF_OPERATION
+#undef KEY_COMPROMISE
+#undef PRIVILEGE_WITHDRAWN
+#undef REMOVE_FROM_CRL
+#undef SUPERSEDED
+#undef UNSPECIFIED
+#undef UNUSED
 
 using $CRLReasonArray = $Array<::java::security::cert::CRLReason>;
 using $ClassInfo = ::java::lang::ClassInfo;

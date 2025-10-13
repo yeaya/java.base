@@ -40,13 +40,13 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef NETWORK_IF_LO0
-#undef SCOPE_ID_ZERO
 #undef IN6ADDR_ANY_INIT
-#undef SCOPE_ID_LO0
-#undef LOOPBACK_SCOPE_ID
-#undef LOOPBACKIPV6ADDRESS
 #undef LOCALHOSTNAME
+#undef LOOPBACKIPV6ADDRESS
+#undef LOOPBACK_SCOPE_ID
+#undef NETWORK_IF_LO0
+#undef SCOPE_ID_LO0
+#undef SCOPE_ID_ZERO
 
 using $MockE1000g0Inet6Address = ::MockE1000g0Inet6Address;
 using $MockLo0Inet6Address = ::MockLo0Inet6Address;
@@ -646,13 +646,10 @@ void Inet6AddressSerializationTest::assertHostNameEqual($String* expectedHostNam
 			$nc($System::err)->println($$str({"Error checking  HostName, expected:"_s, expectedHostName, ", got :"_s, deserializedHostName}));
 			Inet6AddressSerializationTest::failed = true;
 		}
-	} else if (!$nc(expectedHostName)->equals(deserializedHostName)) {
-		$init($System);
+	} else if (!expectedHostName->equals(deserializedHostName)) {
 		$nc($System::err)->println($$str({"Error checking  HostName, expected:"_s, expectedHostName, ", got :"_s, deserializedHostName}));
-		$init(Inet6AddressSerializationTest);
 		Inet6AddressSerializationTest::failed = true;
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({"HostName equality  HostName, expected:"_s, expectedHostName, ", got :"_s, deserializedHostName}));
 	}
 }
@@ -667,13 +664,10 @@ void Inet6AddressSerializationTest::assertHostAddressEqual($String* expectedHost
 			$nc($System::err)->println($$str({"Error checking  HostAddress, expected: "_s, expectedHostAddress, ", got: "_s, deserializedHostAddress}));
 			Inet6AddressSerializationTest::failed = true;
 		}
-	} else if (!$nc(expectedHostAddress)->equals(deserializedHostAddress)) {
-		$init($System);
+	} else if (!expectedHostAddress->equals(deserializedHostAddress)) {
 		$nc($System::err)->println($$str({"Error checking  HostAddress, expected: "_s, expectedHostAddress, ", got: "_s, deserializedHostAddress}));
-		$init(Inet6AddressSerializationTest);
 		Inet6AddressSerializationTest::failed = true;
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({"HostAddress equality  HostAddress, expected: "_s, expectedHostAddress, ", got: "_s, deserializedHostAddress}));
 	}
 }
@@ -690,13 +684,10 @@ void Inet6AddressSerializationTest::assertAddressEqual($bytes* expectedAddress, 
 			Inet6AddressSerializationTest::failed = true;
 		}
 	} else if (!$Arrays::equals(expectedAddress, deserializedAddress)) {
-		$init($System);
 		$var($String, var$1, $$str({"Error checking  Address, expected: "_s, $($Arrays::toString(expectedAddress)), ", got: "_s}));
 		$nc($System::err)->println($$concat(var$1, $($Arrays::toString(deserializedAddress))));
-		$init(Inet6AddressSerializationTest);
 		Inet6AddressSerializationTest::failed = true;
 	} else {
-		$init($System);
 		$var($String, var$2, $$str({"Address equality  Address, expected: "_s, $($Arrays::toString(expectedAddress)), ", got: "_s}));
 		$nc($System::err)->println($$concat(var$2, $($Arrays::toString(deserializedAddress))));
 	}
@@ -726,13 +717,10 @@ void Inet6AddressSerializationTest::assertNetworkInterfaceNameEqual($String* exp
 				$nc($System::err)->println($$str({"Error checking  NetworkIfName, expected: "_s, expectedNetworkIfName, ", got: "_s, deserializedNetworkIfName}));
 				Inet6AddressSerializationTest::failed = true;
 			}
-		} else if (!$nc(expectedNetworkIfName)->equals(deserializedNetworkIfName)) {
-			$init($System);
+		} else if (!expectedNetworkIfName->equals(deserializedNetworkIfName)) {
 			$nc($System::err)->println($$str({"Error checking  NetworkIfName, expected: "_s, expectedNetworkIfName, ", got: "_s, deserializedNetworkIfName}));
-			$init(Inet6AddressSerializationTest);
 			Inet6AddressSerializationTest::failed = true;
 		} else {
-			$init($System);
 			$nc($System::err)->println($$str({"NetworkIfName equality  NetworkIfName, expected: "_s, expectedNetworkIfName, ", got: "_s, deserializedNetworkIfName}));
 		}
 	} else {
@@ -752,13 +740,10 @@ void Inet6AddressSerializationTest::assertNetworkInterfaceEqual($NetworkInterfac
 			$nc($System::err)->println($$str({"Error checking  NetworkInterface, expected:"_s, expectedNetworkInterface, ", got :"_s, deserializedNetworkInterface}));
 			Inet6AddressSerializationTest::failed = true;
 		}
-	} else if (!$nc(expectedNetworkInterface)->equals(deserializedNetworkInterface)) {
-		$init($System);
+	} else if (!expectedNetworkInterface->equals(deserializedNetworkInterface)) {
 		$nc($System::err)->println($$str({"Error checking  NetworkInterface, expected:"_s, expectedNetworkInterface, ", got :"_s, deserializedNetworkInterface}));
-		$init(Inet6AddressSerializationTest);
 		Inet6AddressSerializationTest::failed = true;
 	} else {
-		$init($System);
 		$nc($System::err)->println($$str({"Network Interface equality  NetworkInterface, expected:"_s, expectedNetworkInterface, ", got :"_s, deserializedNetworkInterface}));
 	}
 }
@@ -772,10 +757,9 @@ void Inet6AddressSerializationTest::equal(Object$* expected, Object$* got) {
 			$nc($System::err)->println($$str({"Error checking  serial data, expected:"_s, expected, ", got :"_s, got}));
 			Inet6AddressSerializationTest::failed = true;
 		}
-	} else if (!$nc($of(expected))->equals(got)) {
+	} else if (!$of(expected)->equals(got)) {
 		$init($System);
 		$nc($System::err)->println($$str({"Error checking  serial data, expected:"_s, expected, ", got :"_s, got}));
-		$init(Inet6AddressSerializationTest);
 		Inet6AddressSerializationTest::failed = true;
 	}
 }

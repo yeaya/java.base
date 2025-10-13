@@ -39,11 +39,11 @@
 
 #include "_java_lang_invoke_VarHandle.h"
 
-#undef SET
-#undef GET
-#undef VFORM_OFFSET
-#undef UNSAFE
 #undef AIOOBE_SUPPLIER
+#undef GET
+#undef SET
+#undef UNSAFE
+#undef VFORM_OFFSET
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $MethodTypeArray = $Array<::java::lang::invoke::MethodType>;

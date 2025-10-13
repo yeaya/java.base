@@ -38,11 +38,11 @@
 #include <sun/nio/ch/SelectorImpl.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef NUM_EPOLLEVENTS
-#undef NANOSECONDS
-#undef MAX_VALUE
 #undef INTERRUPTED
+#undef MAX_VALUE
+#undef MILLISECONDS
+#undef NANOSECONDS
+#undef NUM_EPOLLEVENTS
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $IOException = ::java::io::IOException;
@@ -271,7 +271,7 @@ void EPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
 			$EPoll::ctl(this->epfd, 2, fd, 0);
 			ski->registeredEvents(0);
 		}
-	} else if (!EPollSelectorImpl::$assertionsDisabled && !($nc(ski)->registeredEvents() == 0)) {
+	} else if (!EPollSelectorImpl::$assertionsDisabled && !(ski->registeredEvents() == 0)) {
 		$throwNew($AssertionError);
 	}
 }

@@ -86,75 +86,75 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef GET_COUNTERS
-#undef PRODUCE_BLOCK_INLINING_FORM
-#undef LOOP
-#undef LF_TF
-#undef LF_COLLECTOR
-#undef MH_RECEIVER_OFFSET
-#undef GET_COLLECT_ARGS
-#undef GET_TARGET
-#undef FIELD_UNBOX_RESULT
-#undef SELECT_ALT
-#undef FIELD_COLLECT_ARGS
-#undef GUARD
-#undef BOXED_ARGS
-#undef DONT_INLINE_THRESHOLD
-#undef NFS
-#undef ARG_LIMIT
-#undef TYPE
-#undef GET_UNBOX_RESULT
-#undef MH_LIMIT
-#undef MAX_JVM_ARITY
-#undef FIELD_CASES
-#undef GET_FALLBACK
-#undef LF_GWT
-#undef GET_CLASS
-#undef NF_LIMIT
-#undef CACHE
-#undef ARRAYS
-#undef TABLE_SWITCH
-#undef ARRAY_STORE
-#undef TEST
-#undef COLLECTOR
-#undef GET
-#undef LF_GWC
-#undef OBJECT_ARRAY_SETTER
-#undef FIELD_DEFAULT_CASE
-#undef HANDLES
-#undef CALL_TARGET
-#undef MAX_ARITY
-#undef GET_TEST
-#undef TYPED_ACCESSORS
-#undef SET
-#undef INARG_COUNT
-#undef MAX_ARRAY_SLOTS
-#undef THIS_MH
-#undef CALL_NEW_ARRAY
-#undef UNBOXED_RESULT
-#undef PROFILE_GWT
-#undef IMPL_LOOKUP
-#undef CALL_TEST
-#undef GET_NEW_ARRAY
-#undef PROFILE
 #undef ARG_BASE
-#undef GET_CATCHER
-#undef FAKE_METHOD_HANDLE_INVOKE
-#undef SELECT_ALTERNATIVE
-#undef GET_CLEANUP
+#undef ARG_LIMIT
 #undef ARG_SWITCH_ON
-#undef LF_LOOP
-#undef GET_DEFAULT_CASE
-#undef UNBOX_RESULT
-#undef TRY_FINALLY
-#undef GET_CLAUSE_DATA
-#undef TYPED_COLLECTORS
-#undef GUARD_WITH_CATCH
-#undef PRODUCE_REINVOKER_FORM
-#undef STORE_ELEMENT_BASE
+#undef ARRAYS
+#undef ARRAY_STORE
+#undef BOXED_ARGS
+#undef CACHE
+#undef CALL_NEW_ARRAY
+#undef CALL_TARGET
+#undef CALL_TEST
+#undef COLLECTOR
+#undef DONT_INLINE_THRESHOLD
+#undef FAKE_METHOD_HANDLE_INVOKE
+#undef FIELD_CASES
+#undef FIELD_COLLECT_ARGS
+#undef FIELD_DEFAULT_CASE
+#undef FIELD_UNBOX_RESULT
+#undef GET
 #undef GET_CASES
+#undef GET_CATCHER
+#undef GET_CLASS
+#undef GET_CLAUSE_DATA
+#undef GET_CLEANUP
+#undef GET_COLLECT_ARGS
+#undef GET_COUNTERS
+#undef GET_DEFAULT_CASE
+#undef GET_FALLBACK
+#undef GET_NEW_ARRAY
+#undef GET_TARGET
+#undef GET_TEST
+#undef GET_UNBOX_RESULT
+#undef GUARD
+#undef GUARD_WITH_CATCH
+#undef HANDLES
+#undef IMPL_LOOKUP
+#undef INARG_COUNT
+#undef LF_COLLECTOR
+#undef LF_GWC
+#undef LF_GWT
+#undef LF_LOOP
+#undef LF_TF
+#undef LOOP
+#undef MAX_ARITY
+#undef MAX_ARRAY_SLOTS
+#undef MAX_JVM_ARITY
+#undef MH_LIMIT
+#undef MH_RECEIVER_OFFSET
+#undef NFS
+#undef NF_LIMIT
+#undef OBJECT_ARRAY_SETTER
+#undef PRODUCE_BLOCK_INLINING_FORM
+#undef PRODUCE_REINVOKER_FORM
+#undef PROFILE
+#undef PROFILE_GWT
+#undef SELECT_ALT
+#undef SELECT_ALTERNATIVE
+#undef SET
+#undef STORE_ELEMENT_BASE
 #undef STORE_ELEMENT_LIMIT
+#undef TABLE_SWITCH
+#undef TEST
+#undef THIS_MH
 #undef TRY_CATCH
+#undef TRY_FINALLY
+#undef TYPE
+#undef TYPED_ACCESSORS
+#undef TYPED_COLLECTORS
+#undef UNBOXED_RESULT
+#undef UNBOX_RESULT
 
 using $ConstableArray = $Array<::java::lang::constant::Constable>;
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
@@ -802,12 +802,11 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 	if ($nc(src)->isPrimitive()) {
 		if (src == $Void::TYPE) {
 			return $of($Void::TYPE);
-		} else if ($nc(dst)->isPrimitive()) {
+		} else if (dst->isPrimitive()) {
 			$assign(fn, $ValueConversions::convertPrimitive(src, dst));
 		} else {
 			$Wrapper* wsrc = $Wrapper::forPrimitiveType(src);
 			$assign(fn, $ValueConversions::boxExact(wsrc));
-			$init(MethodHandleImpl);
 			bool var$0 = !MethodHandleImpl::$assertionsDisabled;
 			if (var$0) {
 				var$0 = !($cast($Class, $nc($($nc(fn)->type()))->parameterType(0)) == $nc(wsrc)->primitiveType());
@@ -831,7 +830,7 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 				}
 			}
 		}
-	} else if ($nc(dst)->isPrimitive()) {
+	} else if (dst->isPrimitive()) {
 		$Wrapper* wdst = $Wrapper::forPrimitiveType(dst);
 		if (monobox || src == $nc(wdst)->wrapperType()) {
 			$assign(fn, $ValueConversions::unboxExact(wdst, strict));
@@ -844,7 +843,7 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc($($nc(fn)->type()))->parameterCount() <= 1)) {
 		$throwNew($AssertionError, $of($$str({"pc"_s, $($Arrays::asList($$new($ConstableArray, {
 			$(static_cast<$Constable*>($nc(src)->getSimpleName())),
-			$(static_cast<$Constable*>($nc(dst)->getSimpleName())),
+			$(static_cast<$Constable*>(dst->getSimpleName())),
 			static_cast<$Constable*>(fn)
 		})))})));
 	}

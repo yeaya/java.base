@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SET")
-#undef SET
 #pragma push_macro("GET")
 #undef GET
 #pragma push_macro("LENGTH")
 #undef LENGTH
+#pragma push_macro("SET")
+#undef SET
 
 namespace java {
 	namespace lang {
@@ -48,8 +48,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("SET")
 #pragma pop_macro("GET")
 #pragma pop_macro("LENGTH")
+#pragma pop_macro("SET")
 
 #endif // _java_lang_invoke_MethodHandleImpl$ArrayAccess_h_

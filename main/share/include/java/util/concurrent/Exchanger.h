@@ -7,28 +7,28 @@
 
 #pragma push_macro("AA")
 #undef AA
-#pragma push_macro("TIMED_OUT")
-#undef TIMED_OUT
-#pragma push_macro("SPINS")
-#undef SPINS
-#pragma push_macro("MMASK")
-#undef MMASK
-#pragma push_macro("SLOT")
-#undef SLOT
+#pragma push_macro("ASHIFT")
+#undef ASHIFT
 #pragma push_macro("BOUND")
 #undef BOUND
-#pragma push_macro("SEQ")
-#undef SEQ
-#pragma push_macro("NCPU")
-#undef NCPU
 #pragma push_macro("FULL")
 #undef FULL
 #pragma push_macro("MATCH")
 #undef MATCH
-#pragma push_macro("ASHIFT")
-#undef ASHIFT
+#pragma push_macro("MMASK")
+#undef MMASK
+#pragma push_macro("NCPU")
+#undef NCPU
 #pragma push_macro("NULL_ITEM")
 #undef NULL_ITEM
+#pragma push_macro("SEQ")
+#undef SEQ
+#pragma push_macro("SLOT")
+#undef SLOT
+#pragma push_macro("SPINS")
+#undef SPINS
+#pragma push_macro("TIMED_OUT")
+#undef TIMED_OUT
 
 namespace java {
 	namespace lang {
@@ -83,16 +83,16 @@ public:
 } // java
 
 #pragma pop_macro("AA")
-#pragma pop_macro("TIMED_OUT")
-#pragma pop_macro("SPINS")
-#pragma pop_macro("MMASK")
-#pragma pop_macro("SLOT")
+#pragma pop_macro("ASHIFT")
 #pragma pop_macro("BOUND")
-#pragma pop_macro("SEQ")
-#pragma pop_macro("NCPU")
 #pragma pop_macro("FULL")
 #pragma pop_macro("MATCH")
-#pragma pop_macro("ASHIFT")
+#pragma pop_macro("MMASK")
+#pragma pop_macro("NCPU")
 #pragma pop_macro("NULL_ITEM")
+#pragma pop_macro("SEQ")
+#pragma pop_macro("SLOT")
+#pragma pop_macro("SPINS")
+#pragma pop_macro("TIMED_OUT")
 
 #endif // _java_util_concurrent_Exchanger_h_

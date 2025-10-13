@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/constant/Constable.h>
 
-#pragma push_macro("UPDATE_OFFSET")
-#undef UPDATE_OFFSET
 #pragma push_macro("FORM_OFFSET")
 #undef FORM_OFFSET
+#pragma push_macro("UPDATE_OFFSET")
+#undef UPDATE_OFFSET
 
 namespace java {
 	namespace lang {
@@ -108,7 +108,7 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("UPDATE_OFFSET")
 #pragma pop_macro("FORM_OFFSET")
+#pragma pop_macro("UPDATE_OFFSET")
 
 #endif // _java_lang_invoke_MethodHandle_h_

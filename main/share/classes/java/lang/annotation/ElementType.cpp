@@ -12,17 +12,17 @@
 #include <jcpp.h>
 
 #undef ANNOTATION_TYPE
-#undef MODULE
-#undef LOCAL_VARIABLE
-#undef FIELD
-#undef PACKAGE
-#undef TYPE_PARAMETER
-#undef METHOD
-#undef RECORD_COMPONENT
-#undef TYPE_USE
 #undef CONSTRUCTOR
-#undef TYPE
+#undef FIELD
+#undef LOCAL_VARIABLE
+#undef METHOD
+#undef MODULE
+#undef PACKAGE
 #undef PARAMETER
+#undef RECORD_COMPONENT
+#undef TYPE
+#undef TYPE_PARAMETER
+#undef TYPE_USE
 
 using $ElementTypeArray = $Array<::java::lang::annotation::ElementType>;
 using $ClassInfo = ::java::lang::ClassInfo;

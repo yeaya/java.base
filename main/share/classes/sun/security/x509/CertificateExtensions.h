@@ -8,10 +8,10 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("PARAMS")
-#undef PARAMS
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("PARAMS")
+#undef PARAMS
 
 namespace java {
 	namespace io {
@@ -83,7 +83,7 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("PARAMS")
 #pragma pop_macro("NAME")
+#pragma pop_macro("PARAMS")
 
 #endif // _sun_security_x509_CertificateExtensions_h_

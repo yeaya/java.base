@@ -68,14 +68,14 @@
 #include <sun/security/x509/SerialNumber.h>
 #include <jcpp.h>
 
-#undef DEFAULT_CACHE_SIZE
-#undef MILLISECONDS
-#undef CH_STATUS_REQUEST_V2
-#undef OCSP_MULTI
-#undef OCSP
-#undef DEFAULT_CACHE_LIFETIME
-#undef DEFAULT_CORE_THREADS
 #undef CH_STATUS_REQUEST
+#undef CH_STATUS_REQUEST_V2
+#undef DEFAULT_CACHE_LIFETIME
+#undef DEFAULT_CACHE_SIZE
+#undef DEFAULT_CORE_THREADS
+#undef MILLISECONDS
+#undef OCSP
+#undef OCSP_MULTI
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $CertStatusExtension$CertStatusRequestArray = $Array<::sun::security::ssl::CertStatusExtension$CertStatusRequest>;
@@ -500,7 +500,6 @@ $StatusResponseManager$StaplingParameters* StatusResponseManager::processStaplin
 			$assign(req, $nc(reqItems)->get(ocspIdx));
 			type = $CertStatusExtension$CertStatusRequestType::valueOf($nc(req)->statusType);
 		} else {
-			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 				$SSLLogger::finest("Warning: No suitable request found in the status_request_v2 extension."_s, $$new($ObjectArray, 0));
 			}

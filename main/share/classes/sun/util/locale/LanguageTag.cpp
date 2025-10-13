@@ -29,11 +29,11 @@
 #include <sun/util/locale/StringTokenIterator.h>
 #include <jcpp.h>
 
-#undef UNDETERMINED
-#undef PRIVATEUSE
 #undef LEGACY
+#undef PRIVATEUSE
 #undef PRIVUSE_VARIANT_PREFIX
 #undef SEP
+#undef UNDETERMINED
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -366,9 +366,9 @@ LanguageTag* LanguageTag::parseLocale($BaseLocale* baseLocale, $LocaleExtensions
 	if (isLanguage(language)) {
 		if ($nc(language)->equals("iw"_s)) {
 			$assign(language, "he"_s);
-		} else if ($nc(language)->equals("ji"_s)) {
+		} else if (language->equals("ji"_s)) {
 			$assign(language, "yi"_s);
-		} else if ($nc(language)->equals("in"_s)) {
+		} else if (language->equals("in"_s)) {
 			$assign(language, "id"_s);
 		}
 		$set(tag, language, language);

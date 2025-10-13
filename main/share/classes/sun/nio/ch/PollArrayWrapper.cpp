@@ -12,10 +12,10 @@
 #include <sun/nio/ch/SelectionKeyImpl.h>
 #include <jcpp.h>
 
+#undef EVENT_OFFSET
 #undef FD_OFFSET
 #undef POLLIN
 #undef SIZE_POLLFD
-#undef EVENT_OFFSET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

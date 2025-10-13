@@ -129,7 +129,7 @@ int32_t SSLSocketImpl$AppInputStream::read() {
 int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) {
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "the target buffer is null"_s);
-	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
+	} else if (off < 0 || len < 0 || len > b->length - off) {
 		$throwNew($IndexOutOfBoundsException, $$str({"buffer length: "_s, $$str(b->length), ", offset; "_s, $$str(off), ", bytes to read:"_s, $$str(len)}));
 	} else if (len == 0) {
 		return 0;

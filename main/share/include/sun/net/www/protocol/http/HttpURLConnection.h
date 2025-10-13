@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <java/net/HttpURLConnection.h>
 
-#pragma push_macro("RETRY_MSG2")
-#undef RETRY_MSG2
-#pragma push_macro("RETRY_MSG3")
-#undef RETRY_MSG3
-#pragma push_macro("SET_COOKIE2")
-#undef SET_COOKIE2
+#pragma push_macro("EXCLUDE_HEADERS")
+#undef EXCLUDE_HEADERS
 #pragma push_macro("EXCLUDE_HEADERS2")
 #undef EXCLUDE_HEADERS2
-#pragma push_macro("SET_COOKIE")
-#undef SET_COOKIE
 #pragma push_macro("HTTP_CONNECT")
 #undef HTTP_CONNECT
 #pragma push_macro("RETRY_MSG1")
 #undef RETRY_MSG1
-#pragma push_macro("EXCLUDE_HEADERS")
-#undef EXCLUDE_HEADERS
+#pragma push_macro("RETRY_MSG2")
+#undef RETRY_MSG2
+#pragma push_macro("RETRY_MSG3")
+#undef RETRY_MSG3
+#pragma push_macro("SET_COOKIE")
+#undef SET_COOKIE
+#pragma push_macro("SET_COOKIE2")
+#undef SET_COOKIE2
 
 namespace java {
 	namespace io {
@@ -300,13 +300,13 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("RETRY_MSG2")
-#pragma pop_macro("RETRY_MSG3")
-#pragma pop_macro("SET_COOKIE2")
+#pragma pop_macro("EXCLUDE_HEADERS")
 #pragma pop_macro("EXCLUDE_HEADERS2")
-#pragma pop_macro("SET_COOKIE")
 #pragma pop_macro("HTTP_CONNECT")
 #pragma pop_macro("RETRY_MSG1")
-#pragma pop_macro("EXCLUDE_HEADERS")
+#pragma pop_macro("RETRY_MSG2")
+#pragma pop_macro("RETRY_MSG3")
+#pragma pop_macro("SET_COOKIE")
+#pragma pop_macro("SET_COOKIE2")
 
 #endif // _sun_net_www_protocol_http_HttpURLConnection_h_

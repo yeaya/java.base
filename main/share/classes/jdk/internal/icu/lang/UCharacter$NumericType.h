@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("NUMERIC")
-#undef NUMERIC
-#pragma push_macro("DECIMAL")
-#undef DECIMAL
 #pragma push_macro("COUNT")
 #undef COUNT
-#pragma push_macro("NONE")
-#undef NONE
+#pragma push_macro("DECIMAL")
+#undef DECIMAL
 #pragma push_macro("DIGIT")
 #undef DIGIT
+#pragma push_macro("NONE")
+#undef NONE
+#pragma push_macro("NUMERIC")
+#undef NUMERIC
 
 namespace jdk {
 	namespace internal {
@@ -36,10 +36,10 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("NUMERIC")
-#pragma pop_macro("DECIMAL")
 #pragma pop_macro("COUNT")
-#pragma pop_macro("NONE")
+#pragma pop_macro("DECIMAL")
 #pragma pop_macro("DIGIT")
+#pragma pop_macro("NONE")
+#pragma pop_macro("NUMERIC")
 
 #endif // _jdk_internal_icu_lang_UCharacter$NumericType_h_

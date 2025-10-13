@@ -6,42 +6,42 @@
 #include <java/lang/Array.h>
 #include <java/text/Format$Field.h>
 
-#pragma push_macro("HOUR_OF_DAY0")
-#undef HOUR_OF_DAY0
-#pragma push_macro("DAY_OF_YEAR")
-#undef DAY_OF_YEAR
-#pragma push_macro("MONTH")
-#undef MONTH
-#pragma push_macro("HOUR_OF_DAY1")
-#undef HOUR_OF_DAY1
-#pragma push_macro("DAY_OF_MONTH")
-#undef DAY_OF_MONTH
-#pragma push_macro("WEEK_OF_MONTH")
-#undef WEEK_OF_MONTH
 #pragma push_macro("AM_PM")
 #undef AM_PM
-#pragma push_macro("DAY_OF_WEEK_IN_MONTH")
-#undef DAY_OF_WEEK_IN_MONTH
-#pragma push_macro("TIME_ZONE")
-#undef TIME_ZONE
-#pragma push_macro("YEAR")
-#undef YEAR
-#pragma push_macro("WEEK_OF_YEAR")
-#undef WEEK_OF_YEAR
-#pragma push_macro("ERA")
-#undef ERA
-#pragma push_macro("HOUR1")
-#undef HOUR1
-#pragma push_macro("HOUR0")
-#undef HOUR0
-#pragma push_macro("MINUTE")
-#undef MINUTE
-#pragma push_macro("SECOND")
-#undef SECOND
-#pragma push_macro("MILLISECOND")
-#undef MILLISECOND
+#pragma push_macro("DAY_OF_MONTH")
+#undef DAY_OF_MONTH
 #pragma push_macro("DAY_OF_WEEK")
 #undef DAY_OF_WEEK
+#pragma push_macro("DAY_OF_WEEK_IN_MONTH")
+#undef DAY_OF_WEEK_IN_MONTH
+#pragma push_macro("DAY_OF_YEAR")
+#undef DAY_OF_YEAR
+#pragma push_macro("ERA")
+#undef ERA
+#pragma push_macro("HOUR0")
+#undef HOUR0
+#pragma push_macro("HOUR1")
+#undef HOUR1
+#pragma push_macro("HOUR_OF_DAY0")
+#undef HOUR_OF_DAY0
+#pragma push_macro("HOUR_OF_DAY1")
+#undef HOUR_OF_DAY1
+#pragma push_macro("MILLISECOND")
+#undef MILLISECOND
+#pragma push_macro("MINUTE")
+#undef MINUTE
+#pragma push_macro("MONTH")
+#undef MONTH
+#pragma push_macro("SECOND")
+#undef SECOND
+#pragma push_macro("TIME_ZONE")
+#undef TIME_ZONE
+#pragma push_macro("WEEK_OF_MONTH")
+#undef WEEK_OF_MONTH
+#pragma push_macro("WEEK_OF_YEAR")
+#undef WEEK_OF_YEAR
+#pragma push_macro("YEAR")
+#undef YEAR
 
 namespace java {
 	namespace util {
@@ -87,23 +87,23 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("HOUR_OF_DAY0")
-#pragma pop_macro("DAY_OF_YEAR")
-#pragma pop_macro("MONTH")
-#pragma pop_macro("HOUR_OF_DAY1")
-#pragma pop_macro("DAY_OF_MONTH")
-#pragma pop_macro("WEEK_OF_MONTH")
 #pragma pop_macro("AM_PM")
-#pragma pop_macro("DAY_OF_WEEK_IN_MONTH")
-#pragma pop_macro("TIME_ZONE")
-#pragma pop_macro("YEAR")
-#pragma pop_macro("WEEK_OF_YEAR")
-#pragma pop_macro("ERA")
-#pragma pop_macro("HOUR1")
-#pragma pop_macro("HOUR0")
-#pragma pop_macro("MINUTE")
-#pragma pop_macro("SECOND")
-#pragma pop_macro("MILLISECOND")
+#pragma pop_macro("DAY_OF_MONTH")
 #pragma pop_macro("DAY_OF_WEEK")
+#pragma pop_macro("DAY_OF_WEEK_IN_MONTH")
+#pragma pop_macro("DAY_OF_YEAR")
+#pragma pop_macro("ERA")
+#pragma pop_macro("HOUR0")
+#pragma pop_macro("HOUR1")
+#pragma pop_macro("HOUR_OF_DAY0")
+#pragma pop_macro("HOUR_OF_DAY1")
+#pragma pop_macro("MILLISECOND")
+#pragma pop_macro("MINUTE")
+#pragma pop_macro("MONTH")
+#pragma pop_macro("SECOND")
+#pragma pop_macro("TIME_ZONE")
+#pragma pop_macro("WEEK_OF_MONTH")
+#pragma pop_macro("WEEK_OF_YEAR")
+#pragma pop_macro("YEAR")
 
 #endif // _java_text_DateFormat$Field_h_

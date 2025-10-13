@@ -15,13 +15,13 @@
 #include <java/time/format/TextStyle.h>
 #include <jcpp.h>
 
-#undef EXCEEDS_PAD
-#undef SHORT_STANDALONE
-#undef NARROW_STANDALONE
-#undef FULL_STANDALONE
 #undef ALWAYS
+#undef EXCEEDS_PAD
+#undef FULL_STANDALONE
+#undef NARROW_STANDALONE
 #undef NORMAL
 #undef NOT_NEGATIVE
+#undef SHORT_STANDALONE
 
 using $SignStyleArray = $Array<::java::time::format::SignStyle>;
 using $TextStyleArray = $Array<::java::time::format::TextStyle>;

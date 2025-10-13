@@ -20,22 +20,22 @@
 #include <java/text/RuleBasedCollationKey.h>
 #include <jcpp.h>
 
-#undef NULLORDER
+#undef CANONICAL_DECOMPOSITION
+#undef CHARINDEX
+#undef COLLATIONKEYOFFSET
 #undef CONTRACTCHARINDEX
-#undef UNMAPPED
-#undef EXPANDCHARINDEX
 #undef EQUAL
-#undef SECONDARY
+#undef EXPANDCHARINDEX
+#undef FULL_DECOMPOSITION
 #undef GREATER
 #undef IDENTICAL
-#undef TERTIARY
-#undef NFD
-#undef COLLATIONKEYOFFSET
-#undef CANONICAL_DECOMPOSITION
-#undef FULL_DECOMPOSITION
-#undef CHARINDEX
-#undef NFKD
 #undef LESS
+#undef NFD
+#undef NFKD
+#undef NULLORDER
+#undef SECONDARY
+#undef TERTIARY
+#undef UNMAPPED
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

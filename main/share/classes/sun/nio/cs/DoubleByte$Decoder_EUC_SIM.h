@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <sun/nio/cs/DoubleByte$Decoder.h>
 
-#pragma push_macro("SS3")
-#undef SS3
 #pragma push_macro("SS2")
 #undef SS2
+#pragma push_macro("SS3")
+#undef SS3
 
 namespace java {
 	namespace nio {
@@ -41,7 +41,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("SS3")
 #pragma pop_macro("SS2")
+#pragma pop_macro("SS3")
 
 #endif // _sun_nio_cs_DoubleByte$Decoder_EUC_SIM_h_

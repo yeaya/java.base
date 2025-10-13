@@ -18,12 +18,12 @@
 #include <jcpp.h>
 
 #undef BIG
+#undef BYTE_ORDER_MARK
+#undef LITTLE
+#undef NONE
 #undef OVERFLOW
 #undef REVERSED_MARK
 #undef UNDERFLOW
-#undef LITTLE
-#undef BYTE_ORDER_MARK
-#undef NONE
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

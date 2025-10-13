@@ -8,22 +8,22 @@
 #include <sun/security/x509/CertAttrSet.h>
 #include <sun/security/x509/Extension.h>
 
-#pragma push_macro("SERIAL_NUMBER")
-#undef SERIAL_NUMBER
-#pragma push_macro("TAG_NAMES")
-#undef TAG_NAMES
-#pragma push_macro("IDENT")
-#undef IDENT
 #pragma push_macro("AUTH_NAME")
 #undef AUTH_NAME
+#pragma push_macro("IDENT")
+#undef IDENT
 #pragma push_macro("KEY_ID")
 #undef KEY_ID
-#pragma push_macro("TAG_ID")
-#undef TAG_ID
-#pragma push_macro("TAG_SERIAL_NUM")
-#undef TAG_SERIAL_NUM
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("SERIAL_NUMBER")
+#undef SERIAL_NUMBER
+#pragma push_macro("TAG_ID")
+#undef TAG_ID
+#pragma push_macro("TAG_NAMES")
+#undef TAG_NAMES
+#pragma push_macro("TAG_SERIAL_NUM")
+#undef TAG_SERIAL_NUM
 
 namespace java {
 	namespace io {
@@ -92,13 +92,13 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SERIAL_NUMBER")
-#pragma pop_macro("TAG_NAMES")
-#pragma pop_macro("IDENT")
 #pragma pop_macro("AUTH_NAME")
+#pragma pop_macro("IDENT")
 #pragma pop_macro("KEY_ID")
-#pragma pop_macro("TAG_ID")
-#pragma pop_macro("TAG_SERIAL_NUM")
 #pragma pop_macro("NAME")
+#pragma pop_macro("SERIAL_NUMBER")
+#pragma pop_macro("TAG_ID")
+#pragma pop_macro("TAG_NAMES")
+#pragma pop_macro("TAG_SERIAL_NUM")
 
 #endif // _sun_security_x509_AuthorityKeyIdentifierExtension_h_

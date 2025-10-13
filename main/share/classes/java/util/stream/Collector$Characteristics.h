@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CONCURRENT")
+#undef CONCURRENT
 #pragma push_macro("IDENTITY_FINISH")
 #undef IDENTITY_FINISH
 #pragma push_macro("UNORDERED")
 #undef UNORDERED
-#pragma push_macro("CONCURRENT")
-#undef CONCURRENT
 
 namespace java {
 	namespace util {
@@ -35,8 +35,8 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("CONCURRENT")
 #pragma pop_macro("IDENTITY_FINISH")
 #pragma pop_macro("UNORDERED")
-#pragma pop_macro("CONCURRENT")
 
 #endif // _java_util_stream_Collector$Characteristics_h_

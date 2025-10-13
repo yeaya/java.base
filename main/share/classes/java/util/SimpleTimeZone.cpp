@@ -26,24 +26,24 @@
 #include <sun/util/calendar/Gregorian.h>
 #include <jcpp.h>
 
-#undef DOM_MODE
-#undef JANUARY
-#undef MAX_RULE_NUM
+#undef AD
 #undef BC
 #undef CE
-#undef AD
-#undef SUNDAY
-#undef DOW_GE_DOM_MODE
 #undef DECEMBER
-#undef UTC_TIME
-#undef DOW_LE_DOM_MODE
 #undef DEFAULT_GREGORIAN_CUTOVER
-#undef STANDARD_TIME
-#undef NO_TIMEZONE
-#undef WALL_TIME
-#undef SATURDAY
-#undef ID
+#undef DOM_MODE
+#undef DOW_GE_DOM_MODE
 #undef DOW_IN_MONTH_MODE
+#undef DOW_LE_DOM_MODE
+#undef ID
+#undef JANUARY
+#undef MAX_RULE_NUM
+#undef NO_TIMEZONE
+#undef SATURDAY
+#undef STANDARD_TIME
+#undef SUNDAY
+#undef UTC_TIME
+#undef WALL_TIME
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

@@ -14,8 +14,8 @@
 #include <sun/security/ssl/CipherType.h>
 #include <jcpp.h>
 
-#undef BLOCK_CIPHER
 #undef AEAD_CIPHER
+#undef BLOCK_CIPHER
 
 using $CipherTypeArray = $Array<::sun::security::ssl::CipherType>;
 using $ClassInfo = ::java::lang::ClassInfo;

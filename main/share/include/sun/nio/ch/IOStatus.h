@@ -5,18 +5,18 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("EOF")
+#undef EOF
+#pragma push_macro("INTERRUPTED")
+#undef INTERRUPTED
+#pragma push_macro("THROWN")
+#undef THROWN
 #pragma push_macro("UNAVAILABLE")
 #undef UNAVAILABLE
 #pragma push_macro("UNSUPPORTED")
 #undef UNSUPPORTED
-#pragma push_macro("THROWN")
-#undef THROWN
-#pragma push_macro("EOF")
-#undef EOF
 #pragma push_macro("UNSUPPORTED_CASE")
 #undef UNSUPPORTED_CASE
-#pragma push_macro("INTERRUPTED")
-#undef INTERRUPTED
 
 namespace sun {
 	namespace nio {
@@ -45,11 +45,11 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("EOF")
+#pragma pop_macro("INTERRUPTED")
+#pragma pop_macro("THROWN")
 #pragma pop_macro("UNAVAILABLE")
 #pragma pop_macro("UNSUPPORTED")
-#pragma pop_macro("THROWN")
-#pragma pop_macro("EOF")
 #pragma pop_macro("UNSUPPORTED_CASE")
-#pragma pop_macro("INTERRUPTED")
 
 #endif // _sun_nio_ch_IOStatus_h_

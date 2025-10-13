@@ -45,8 +45,8 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfLong.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
+#undef SUBSIZED
 
 using $LongArray = $Array<::java::lang::Long>;
 using $Serializable = ::java::io::Serializable;

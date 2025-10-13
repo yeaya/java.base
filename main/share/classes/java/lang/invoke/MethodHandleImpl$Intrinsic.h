@@ -8,26 +8,26 @@
 
 #pragma push_macro("ARRAY_LENGTH")
 #undef ARRAY_LENGTH
-#pragma push_macro("IDENTITY")
-#undef IDENTITY
-#pragma push_macro("GUARD_WITH_CATCH")
-#undef GUARD_WITH_CATCH
-#pragma push_macro("ZERO")
-#undef ZERO
-#pragma push_macro("ARRAY_STORE")
-#undef ARRAY_STORE
-#pragma push_macro("TRY_FINALLY")
-#undef TRY_FINALLY
-#pragma push_macro("LOOP")
-#undef LOOP
 #pragma push_macro("ARRAY_LOAD")
 #undef ARRAY_LOAD
+#pragma push_macro("ARRAY_STORE")
+#undef ARRAY_STORE
+#pragma push_macro("GUARD_WITH_CATCH")
+#undef GUARD_WITH_CATCH
+#pragma push_macro("IDENTITY")
+#undef IDENTITY
+#pragma push_macro("LOOP")
+#undef LOOP
 #pragma push_macro("NONE")
 #undef NONE
-#pragma push_macro("TABLE_SWITCH")
-#undef TABLE_SWITCH
 #pragma push_macro("SELECT_ALTERNATIVE")
 #undef SELECT_ALTERNATIVE
+#pragma push_macro("TABLE_SWITCH")
+#undef TABLE_SWITCH
+#pragma push_macro("TRY_FINALLY")
+#undef TRY_FINALLY
+#pragma push_macro("ZERO")
+#undef ZERO
 
 namespace java {
 	namespace lang {
@@ -60,15 +60,15 @@ public:
 } // java
 
 #pragma pop_macro("ARRAY_LENGTH")
-#pragma pop_macro("IDENTITY")
-#pragma pop_macro("GUARD_WITH_CATCH")
-#pragma pop_macro("ZERO")
-#pragma pop_macro("ARRAY_STORE")
-#pragma pop_macro("TRY_FINALLY")
-#pragma pop_macro("LOOP")
 #pragma pop_macro("ARRAY_LOAD")
+#pragma pop_macro("ARRAY_STORE")
+#pragma pop_macro("GUARD_WITH_CATCH")
+#pragma pop_macro("IDENTITY")
+#pragma pop_macro("LOOP")
 #pragma pop_macro("NONE")
-#pragma pop_macro("TABLE_SWITCH")
 #pragma pop_macro("SELECT_ALTERNATIVE")
+#pragma pop_macro("TABLE_SWITCH")
+#pragma pop_macro("TRY_FINALLY")
+#pragma pop_macro("ZERO")
 
 #endif // _java_lang_invoke_MethodHandleImpl$Intrinsic_h_

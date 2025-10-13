@@ -159,7 +159,7 @@ bool KeyStoreUtil::isWindowsKeyStore($String* storetype) {
 $String* KeyStoreUtil::niceStoreTypeName($String* storetype) {
 	if ($nc(storetype)->equalsIgnoreCase("Windows-MY"_s)) {
 		return "Windows-MY"_s;
-	} else if ($nc(storetype)->equalsIgnoreCase("Windows-ROOT"_s)) {
+	} else if (storetype->equalsIgnoreCase("Windows-ROOT"_s)) {
 		return "Windows-ROOT"_s;
 	} else {
 		$init($Locale);
@@ -182,7 +182,7 @@ $KeyStore* KeyStoreUtil::getCacertsKeyStore() {
 $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $ResourceBundle* rb, $Collator* collator) {
 	if (modifier == nullptr) {
 		return $nc(arg)->toCharArray();
-	} else if ($nc(collator)->compare(modifier, "env"_s) == 0) {
+	} else if (collator->compare(modifier, "env"_s) == 0) {
 		$var($String, value, $System::getenv(arg));
 		if (value == nullptr) {
 			$nc($System::err)->println($$str({$($nc(rb)->getString("Cannot.find.environment.variable."_s)), arg}));
@@ -190,7 +190,7 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 		} else {
 			return $nc(value)->toCharArray();
 		}
-	} else if ($nc(collator)->compare(modifier, "file"_s) == 0) {
+	} else if (collator->compare(modifier, "file"_s) == 0) {
 		try {
 			$var($URL, url, nullptr);
 			try {
@@ -340,7 +340,7 @@ void KeyStoreUtil::loadProviderByClass($String* provClass, $String* arg, $ClassL
 	if ($nc(provClass)->equals("sun.security.pkcs11.SunPKCS11"_s)) {
 		loadProviderByName("SunPKCS11"_s, arg);
 		return;
-	} else if ($nc(provClass)->equals("sun.security.mscapi.SunMSCAPI"_s)) {
+	} else if (provClass->equals("sun.security.mscapi.SunMSCAPI"_s)) {
 		loadProviderByName("SunMSCAPI"_s, arg);
 		return;
 	}

@@ -21,8 +21,8 @@
 #include <jcpp.h>
 
 #undef FORM
-#undef UNSAFE
 #undef TYPE
+#undef UNSAFE
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

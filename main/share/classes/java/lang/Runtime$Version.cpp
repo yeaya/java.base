@@ -38,12 +38,12 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef VSTR_PATTERN
+#undef BUILD_GROUP
 #undef OPT_GROUP
 #undef PLUS_GROUP
-#undef VNUM_GROUP
-#undef BUILD_GROUP
 #undef PRE_GROUP
+#undef VNUM_GROUP
+#undef VSTR_PATTERN
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $Serializable = ::java::io::Serializable;
@@ -296,8 +296,8 @@ Runtime$Version* Runtime$Version::parse($String* s) {
 				$throwNew($IllegalArgumentException, $$str({"\'+\' found with neither build or optional components: \'"_s, s, "\'"_s}));
 			}
 		} else {
-			bool var$4 = $nc(optional)->isPresent();
-			if (var$4 && !$nc(pre)->isPresent()) {
+			bool var$4 = optional->isPresent();
+			if (var$4 && !pre->isPresent()) {
 				$throwNew($IllegalArgumentException, $$str({"optional component must be preceded by a pre-release component or \'+\': \'"_s, s, "\'"_s}));
 			}
 		}
@@ -460,7 +460,7 @@ $String* Runtime$Version::toString() {
 			sb->append("-"_s)->append($cast($String, $($nc(this->optional$)->get())));
 		}
 	} else if ($nc(this->optional$)->isPresent()) {
-		$nc(sb)->append($nc(this->pre$)->isPresent() ? "-"_s : "+-"_s);
+		sb->append($nc(this->pre$)->isPresent() ? "-"_s : "+-"_s);
 		sb->append($cast($String, $($nc(this->optional$)->get())));
 	}
 	return sb->toString();

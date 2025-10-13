@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <sun/util/PreHashedMap.h>
 
+#pragma push_macro("MASK")
+#undef MASK
+#pragma push_macro("ROWS")
+#undef ROWS
 #pragma push_macro("SHIFT")
 #undef SHIFT
 #pragma push_macro("SIZE")
 #undef SIZE
-#pragma push_macro("ROWS")
-#undef ROWS
-#pragma push_macro("MASK")
-#undef MASK
 
 namespace sun {
 	namespace nio {
@@ -36,9 +36,9 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("MASK")
+#pragma pop_macro("ROWS")
 #pragma pop_macro("SHIFT")
 #pragma pop_macro("SIZE")
-#pragma pop_macro("ROWS")
-#pragma pop_macro("MASK")
 
 #endif // _sun_nio_cs_StandardCharsets$Aliases_h_

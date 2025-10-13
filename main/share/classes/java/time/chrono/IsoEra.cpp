@@ -12,8 +12,8 @@
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
 
-#undef CE
 #undef BCE
+#undef CE
 
 using $IsoEraArray = $Array<::java::time::chrono::IsoEra>;
 using $ClassInfo = ::java::lang::ClassInfo;

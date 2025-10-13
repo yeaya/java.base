@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("DISABLED")
-#undef DISABLED
 #pragma push_macro("ALL_HOSTS")
 #undef ALL_HOSTS
+#pragma push_macro("DISABLED")
+#undef DISABLED
 #pragma push_macro("TRUSTED_HOSTS")
 #undef TRUSTED_HOSTS
 
@@ -41,8 +41,8 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("DISABLED")
 #pragma pop_macro("ALL_HOSTS")
+#pragma pop_macro("DISABLED")
 #pragma pop_macro("TRUSTED_HOSTS")
 
 #endif // _sun_net_www_protocol_http_ntlm_NTLMAuthentication$TransparentAuth_h_

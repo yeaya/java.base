@@ -45,9 +45,9 @@
 #include <jcpp.h>
 
 #undef CAPACITY
-#undef RUN_TIME_SECONDS
-#undef MIN_THREADS
 #undef MAX_THREADS
+#undef MIN_THREADS
+#undef RUN_TIME_SECONDS
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;

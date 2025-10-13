@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("MEDIUM")
-#undef MEDIUM
 #pragma push_macro("FULL")
 #undef FULL
 #pragma push_macro("LONG")
 #undef LONG
+#pragma push_macro("MEDIUM")
+#undef MEDIUM
 #pragma push_macro("SHORT")
 #undef SHORT
 
@@ -38,9 +38,9 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("MEDIUM")
 #pragma pop_macro("FULL")
 #pragma pop_macro("LONG")
+#pragma pop_macro("MEDIUM")
 #pragma pop_macro("SHORT")
 
 #endif // _java_time_format_FormatStyle_h_

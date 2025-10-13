@@ -49,12 +49,12 @@
 #include <java/util/concurrent/locks/LockSupport.h>
 #include <jcpp.h>
 
-#undef DONE
-#undef STATUS
-#undef AUX
 #undef ABNORMAL
-#undef SMASK
+#undef AUX
+#undef DONE
 #undef MAX_VALUE
+#undef SMASK
+#undef STATUS
 #undef THROWN
 #undef TYPE
 #undef UNCOMPENSATE
@@ -548,7 +548,7 @@ $Throwable* ForkJoinTask::getThrowableException() {
 	$var($ForkJoinTask$Aux, a, nullptr);
 	if (($assign(a, this->aux)) == nullptr) {
 		$assign(ex, nullptr);
-	} else if (($assign(ex, $nc(a)->ex)) != nullptr && a->thread != $Thread::currentThread()) {
+	} else if (($assign(ex, a->ex)) != nullptr && a->thread != $Thread::currentThread()) {
 		try {
 			$var($Constructor, noArgCtor, nullptr);
 			$var($Constructor, oneArgCtor, nullptr);
@@ -671,7 +671,7 @@ void ForkJoinTask::invokeAll(ForkJoinTask* t1, ForkJoinTask* t2) {
 	if (((int32_t)(s1 & (uint32_t)ForkJoinTask::ABNORMAL)) != 0) {
 		cancelIgnoringExceptions(t2);
 		$nc(t1)->reportException(s1);
-	} else if (((int32_t)((s2 = $nc(t2)->awaitDone(nullptr, false, false, false, 0)) & (uint32_t)ForkJoinTask::ABNORMAL)) != 0) {
+	} else if (((int32_t)((s2 = t2->awaitDone(nullptr, false, false, false, 0)) & (uint32_t)ForkJoinTask::ABNORMAL)) != 0) {
 		t2->reportException(s2);
 	}
 }
@@ -1012,7 +1012,7 @@ ForkJoinTask* ForkJoinTask::adaptInterruptible($Callable* callable) {
 void ForkJoinTask::writeObject($ObjectOutputStream* s) {
 	$var($ForkJoinTask$Aux, a, nullptr);
 	$nc(s)->defaultWriteObject();
-	s->writeObject(($assign(a, this->aux)) == nullptr ? ($Object*)nullptr : $of($nc(a)->ex));
+	s->writeObject(($assign(a, this->aux)) == nullptr ? ($Object*)nullptr : $of(a->ex));
 }
 
 void ForkJoinTask::readObject($ObjectInputStream* s) {

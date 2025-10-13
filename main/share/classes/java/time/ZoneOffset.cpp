@@ -35,14 +35,14 @@
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <jcpp.h>
 
-#undef MIN
-#undef UTC
-#undef MAX
-#undef OFFSET_SECONDS
 #undef ID_CACHE
-#undef ZONE_OFFSET_TYPE
-#undef SECONDS_CACHE
+#undef MAX
 #undef MAX_SECONDS
+#undef MIN
+#undef OFFSET_SECONDS
+#undef SECONDS_CACHE
+#undef UTC
+#undef ZONE_OFFSET_TYPE
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

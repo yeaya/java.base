@@ -34,17 +34,17 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef D
-#undef KIND
-#undef DO_CASTS
 #undef BITS
-#undef NUMERIC_TYPE_WIDENING_ORDER
 #undef CLASS
+#undef D
+#undef DO_CASTS
+#undef KIND
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef TYPE
 #undef N
 #undef NAME
+#undef NUMERIC_TYPE_WIDENING_ORDER
+#undef TYPE
 
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;

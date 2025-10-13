@@ -18,10 +18,10 @@
 #include <jdk/internal/logger/DefaultLoggerFinder.h>
 #include <jcpp.h>
 
-#undef JUL_WITH_CONFIG
 #undef CUSTOM
-#undef NONE
 #undef JUL_DEFAULT
+#undef JUL_WITH_CONFIG
+#undef NONE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;

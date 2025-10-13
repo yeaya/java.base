@@ -95,28 +95,28 @@
 #include <sun/launcher/LauncherHelper$StdArg.h>
 #include <jcpp.h>
 
-#undef LM_JAR
+#undef ADD_EXPORTS
+#undef ADD_OPENS
+#undef DISPLAY
 #undef FORMAT
+#undef INDENT
+#undef JAVAFX_APPLICATION_CLASS_NAME
+#undef JAVAFX_APPLICATION_MARKER
+#undef JAVAFX_FXHELPER_CLASS_NAME_SUFFIX
+#undef LAUNCHER_AGENT_CLASS
+#undef LM_CLASS
+#undef LM_JAR
+#undef LM_MODULE
 #undef LM_SOURCE
+#undef LM_UNKNOWN
+#undef LOCALE_SETTINGS
+#undef MAIN_CLASS
 #undef NFC
 #undef NFD
-#undef JAVAFX_APPLICATION_CLASS_NAME
-#undef LM_UNKNOWN
-#undef INDENT
-#undef LOCALE_SETTINGS
-#undef LM_MODULE
-#undef RB
-#undef MAIN_CLASS
 #undef PROP_SETTINGS
-#undef DISPLAY
-#undef VM_SETTINGS
-#undef LM_CLASS
-#undef JAVAFX_FXHELPER_CLASS_NAME_SUFFIX
-#undef ADD_EXPORTS
-#undef LAUNCHER_AGENT_CLASS
-#undef ADD_OPENS
+#undef RB
 #undef TYPE
-#undef JAVAFX_APPLICATION_MARKER
+#undef VM_SETTINGS
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $Closeable = ::java::io::Closeable;

@@ -24,13 +24,13 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef READ
-#undef READ_BUF_OFF
-#undef READ_BUF
-#undef SKIP
-#undef GET_FD
 #undef CLOSE
 #undef GET_CHANNEL
+#undef GET_FD
+#undef READ
+#undef READ_BUF
+#undef READ_BUF_OFF
+#undef SKIP
 
 using $OpsAfterClose4FileInputStream$1 = ::OpsAfterClose4FileInputStream$1;
 using $OpsAfterClose4FileInputStream$2 = ::OpsAfterClose4FileInputStream$2;

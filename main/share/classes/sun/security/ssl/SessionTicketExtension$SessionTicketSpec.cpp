@@ -40,11 +40,11 @@
 #include <jcpp.h>
 
 #undef BYTES
-#undef GCM_TAG_LEN
-#undef ENGLISH
-#undef ENCRYPT_MODE
-#undef DECRYPT_MODE
 #undef DECODE_ERROR
+#undef DECRYPT_MODE
+#undef ENCRYPT_MODE
+#undef ENGLISH
+#undef GCM_TAG_LEN
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

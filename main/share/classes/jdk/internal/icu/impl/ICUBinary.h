@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("HEADER_AUTHENTICATION_FAILED_")
-#undef HEADER_AUTHENTICATION_FAILED_
-#pragma push_macro("CHAR_SIZE_")
-#undef CHAR_SIZE_
-#pragma push_macro("CHAR_SET_")
-#undef CHAR_SET_
-#pragma push_macro("MAGIC1")
-#undef MAGIC1
 #pragma push_macro("BIG_ENDIAN_")
 #undef BIG_ENDIAN_
+#pragma push_macro("CHAR_SET_")
+#undef CHAR_SET_
+#pragma push_macro("CHAR_SIZE_")
+#undef CHAR_SIZE_
+#pragma push_macro("HEADER_AUTHENTICATION_FAILED_")
+#undef HEADER_AUTHENTICATION_FAILED_
+#pragma push_macro("MAGIC1")
+#undef MAGIC1
 #pragma push_macro("MAGIC2")
 #undef MAGIC2
 #pragma push_macro("MAGIC_NUMBER_AUTHENTICATION_FAILED_")
@@ -84,11 +84,11 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("HEADER_AUTHENTICATION_FAILED_")
-#pragma pop_macro("CHAR_SIZE_")
-#pragma pop_macro("CHAR_SET_")
-#pragma pop_macro("MAGIC1")
 #pragma pop_macro("BIG_ENDIAN_")
+#pragma pop_macro("CHAR_SET_")
+#pragma pop_macro("CHAR_SIZE_")
+#pragma pop_macro("HEADER_AUTHENTICATION_FAILED_")
+#pragma pop_macro("MAGIC1")
 #pragma pop_macro("MAGIC2")
 #pragma pop_macro("MAGIC_NUMBER_AUTHENTICATION_FAILED_")
 

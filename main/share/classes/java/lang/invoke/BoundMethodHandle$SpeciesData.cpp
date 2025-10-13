@@ -29,11 +29,11 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef TN_COPY_NO_EXTEND
-#undef MH_AND_LF
 #undef ARG_TYPE_LIMIT
-#undef SPECIALIZER
 #undef BMH_TRANSFORMS
+#undef MH_AND_LF
+#undef SPECIALIZER
+#undef TN_COPY_NO_EXTEND
 
 using $BoundMethodHandle$SpeciesDataArray = $Array<::java::lang::invoke::BoundMethodHandle$SpeciesData>;
 using $AssertionError = ::java::lang::AssertionError;
@@ -198,11 +198,11 @@ bool BoundMethodHandle$SpeciesData::verifyTHAargs($MemberName* transform, int32_
 				$throwNew($AssertionError);
 			}
 			$LambdaForm$BasicType* type = $LambdaForm$BasicType::basicType((int8_t)whichtm);
-			bool var$5 = !BoundMethodHandle$SpeciesData::$assertionsDisabled;
-			if (var$5) {
-				var$5 = !($nc($($nc(transform)->getParameterTypes()))->get(MH_AND_LF) == type->basicTypeClass());
+			bool var$4 = !BoundMethodHandle$SpeciesData::$assertionsDisabled;
+			if (var$4) {
+				var$4 = !($nc($($nc(transform)->getParameterTypes()))->get(MH_AND_LF) == type->basicTypeClass());
 			}
-			if (var$5) {
+			if (var$4) {
 				$throwNew($AssertionError);
 			}
 		} else {

@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/util/zip/Checksum.h>
 
-#pragma push_macro("REVERSED_CRC32C_POLY")
-#undef REVERSED_CRC32C_POLY
 #pragma push_macro("CRC32C")
 #undef CRC32C
 #pragma push_macro("CRC32C_POLY")
 #undef CRC32C_POLY
+#pragma push_macro("REVERSED_CRC32C_POLY")
+#undef REVERSED_CRC32C_POLY
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
 
@@ -66,9 +66,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("REVERSED_CRC32C_POLY")
 #pragma pop_macro("CRC32C")
 #pragma pop_macro("CRC32C_POLY")
+#pragma pop_macro("REVERSED_CRC32C_POLY")
 #pragma pop_macro("UNSAFE")
 
 #endif // _java_util_zip_CRC32C_h_

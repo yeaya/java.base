@@ -37,22 +37,22 @@
 #include <jcpp.h>
 
 #undef ALL
-#undef HIGH
+#undef BACK_UTF16_CONTAINED
+#undef BACK_UTF16_NOT_CONTAINED
 #undef FWD_UTF16_CONTAINED
-#undef NOT_CONTAINED
+#undef FWD_UTF16_NOT_CONTAINED
+#undef GROW_EXTRA
+#undef HIGH
+#undef INCLUSION
 #undef INSTANCE
+#undef LOW
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef START_EXTRA
-#undef SRC_PROPSVEC
-#undef GROW_EXTRA
-#undef FWD_UTF16_NOT_CONTAINED
-#undef BACK_UTF16_CONTAINED
-#undef LOW
+#undef NOT_CONTAINED
 #undef NO_VERSION
+#undef SRC_PROPSVEC
+#undef START_EXTRA
 #undef WITH_COUNT
-#undef INCLUSION
-#undef BACK_UTF16_NOT_CONTAINED
 
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
@@ -485,10 +485,10 @@ UnicodeSet* UnicodeSet::add($ints* other, int32_t otherLen, int32_t polarity) {
 					polarity ^= 1;
 				} else if (b < a) {
 					if (k > 0 && b <= $nc(this->buffer)->get(k - 1)) {
-						b = max($nc(other)->get(j), $nc(this->buffer)->get(--k));
+						b = max(other->get(j), $nc(this->buffer)->get(--k));
 					} else {
 						$nc(this->buffer)->set(k++, b);
-						b = $nc(other)->get(j);
+						b = other->get(j);
 					}
 					++j;
 					polarity ^= 2;
@@ -505,7 +505,7 @@ UnicodeSet* UnicodeSet::add($ints* other, int32_t otherLen, int32_t polarity) {
 					}
 					++i;
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;
@@ -538,7 +538,7 @@ UnicodeSet* UnicodeSet::add($ints* other, int32_t otherLen, int32_t polarity) {
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
 				} else if (b < a) {
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				} else {
 					if (a == UnicodeSet::HIGH) {
@@ -547,7 +547,7 @@ UnicodeSet* UnicodeSet::add($ints* other, int32_t otherLen, int32_t polarity) {
 					}
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;
@@ -568,7 +568,7 @@ UnicodeSet* UnicodeSet::add($ints* other, int32_t otherLen, int32_t polarity) {
 					}
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;
@@ -602,7 +602,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
 				} else if (b < a) {
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				} else {
 					if (a == UnicodeSet::HIGH) {
@@ -612,7 +612,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					$nc(this->buffer)->set(k++, a);
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;
@@ -625,7 +625,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					polarity ^= 1;
 				} else if (b < a) {
 					$nc(this->buffer)->set(k++, b);
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				} else {
 					if (a == UnicodeSet::HIGH) {
@@ -635,7 +635,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					$nc(this->buffer)->set(k++, a);
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;
@@ -647,7 +647,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					polarity ^= 1;
 				} else if (b < a) {
 					$nc(this->buffer)->set(k++, b);
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				} else {
 					if (a == UnicodeSet::HIGH) {
@@ -656,7 +656,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					}
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;
@@ -677,7 +677,7 @@ UnicodeSet* UnicodeSet::retain($ints* other, int32_t otherLen, int32_t polarity)
 					}
 					a = $nc(this->list)->get(i++);
 					polarity ^= 1;
-					b = $nc(other)->get(j++);
+					b = other->get(j++);
 					polarity ^= 2;
 				}
 				break;

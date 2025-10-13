@@ -34,14 +34,14 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef V_TYPE_NUM
+#undef BMH
+#undef BMH_TRANSFORMS
 #undef IMPL_LOOKUP
 #undef SPECIES_DATA_ACCESSOR
 #undef TN_COPY_NO_EXTEND
-#undef TYPE_LIMIT
-#undef BMH
-#undef BMH_TRANSFORMS
 #undef TYPE
+#undef TYPE_LIMIT
+#undef V_TYPE_NUM
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -109,25 +109,25 @@
 #include <sun/reflect/misc/ReflectUtil.h>
 #include <jcpp.h>
 
-#undef VOLATILE
-#undef SYNCHRONIZED
-#undef STRICT
-#undef NATIVE
-#undef SC_ENUM
-#undef SC_BLOCK_DATA
-#undef NO_FIELDS
-#undef FINAL
-#undef PROTOCOL_VERSION_1
 #undef ABSTRACT
-#undef STATIC
-#undef PRIVATE
-#undef SC_SERIALIZABLE
-#undef SC_EXTERNALIZABLE
+#undef FINAL
 #undef INTERFACE
-#undef PUBLIC
+#undef NATIVE
+#undef NO_FIELDS
+#undef PRIVATE
 #undef PROTECTED
-#undef TRANSIENT
+#undef PROTOCOL_VERSION_1
+#undef PUBLIC
+#undef SC_BLOCK_DATA
+#undef SC_ENUM
+#undef SC_EXTERNALIZABLE
+#undef SC_SERIALIZABLE
 #undef SC_WRITE_METHOD
+#undef STATIC
+#undef STRICT
+#undef SYNCHRONIZED
+#undef TRANSIENT
+#undef VOLATILE
 
 using $ObjectStreamClass$ClassDataSlotArray = $Array<::java::io::ObjectStreamClass$ClassDataSlot>;
 using $ObjectStreamClass$MemberSignatureArray = $Array<::java::io::ObjectStreamClass$MemberSignature>;
@@ -1573,11 +1573,10 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 	}
 	if (serialPersistentFields == nullptr) {
 		return nullptr;
-	} else if ($nc(serialPersistentFields)->length == 0) {
-		$init(ObjectStreamClass);
+	} else if (serialPersistentFields->length == 0) {
 		return ObjectStreamClass::NO_FIELDS;
 	}
-	$var($ObjectStreamFieldArray, boundFields, $new($ObjectStreamFieldArray, $nc(serialPersistentFields)->length));
+	$var($ObjectStreamFieldArray, boundFields, $new($ObjectStreamFieldArray, serialPersistentFields->length));
 	$var($Set, fieldNames, $new($HashSet, serialPersistentFields->length));
 	for (int32_t i = 0; i < serialPersistentFields->length; ++i) {
 		$var($ObjectStreamField, spf, serialPersistentFields->get(i));
@@ -1780,7 +1779,6 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 			$assign(entry, th);
 		}
 		$nc(future)->set(entry);
-		$init($ObjectStreamClass$Caches);
 		$nc($ObjectStreamClass$Caches::reflectors)->put(key, $$new($SoftReference, entry));
 	}
 	if ($instanceOf($ObjectStreamClass$FieldReflector, entry)) {

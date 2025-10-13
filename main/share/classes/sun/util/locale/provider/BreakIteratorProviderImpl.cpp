@@ -28,8 +28,8 @@
 
 #undef CHARACTER_INDEX
 #undef LINE_INDEX
-#undef WORD_INDEX
 #undef SENTENCE_INDEX
+#undef WORD_INDEX
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;

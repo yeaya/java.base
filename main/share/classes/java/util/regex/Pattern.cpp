@@ -117,37 +117,37 @@
 
 #undef ALL
 #undef ALL_FLAGS
-#undef INDEPENDENT
-#undef COMMENTS
-#undef NFC
-#undef MAX_VALUE
-#undef NFD
-#undef N
-#undef NONNULL
-#undef MIN_SUPPLEMENTARY_CODE_POINT
-#undef MAX_LOW_SURROGATE
-#undef ORDERED
-#undef CASE_INSENSITIVE
-#undef LAZY
-#undef MIN_HIGH_SURROGATE
-#undef UNIXDOT
-#undef NONE
 #undef BOTH
-#undef LITERAL
-#undef ENGLISH
-#undef UNICODE_CHARACTER_CLASS
 #undef CANON_EQ
-#undef NON_SPACING_MARK
+#undef CASE_INSENSITIVE
+#undef COMMENTS
 #undef DOT
-#undef INSTANCE
-#undef MAX_REPS
-#undef UNIX_LINES
-#undef GREEDY
 #undef DOTALL
-#undef UNICODE_CASE
-#undef POSSESSIVE
-#undef MULTILINE
+#undef ENGLISH
+#undef GREEDY
+#undef INDEPENDENT
+#undef INSTANCE
+#undef LAZY
+#undef LITERAL
 #undef MAX_CODE_POINT
+#undef MAX_LOW_SURROGATE
+#undef MAX_REPS
+#undef MAX_VALUE
+#undef MIN_HIGH_SURROGATE
+#undef MIN_SUPPLEMENTARY_CODE_POINT
+#undef MULTILINE
+#undef N
+#undef NFC
+#undef NFD
+#undef NONE
+#undef NONNULL
+#undef NON_SPACING_MARK
+#undef ORDERED
+#undef POSSESSIVE
+#undef UNICODE_CASE
+#undef UNICODE_CHARACTER_CLASS
+#undef UNIXDOT
+#undef UNIX_LINES
 
 using $Pattern$GroupHeadArray = $Array<::java::util::regex::Pattern$GroupHead>;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -1087,10 +1087,10 @@ $StringArray* Pattern::split($CharSequence* input, int32_t limit) {
 			$var($String, match, $nc($($nc(input)->subSequence(index, m->start())))->toString());
 			matchList->add(match);
 			index = m->end();
-		} else if ($nc(matchList)->size() == limit - 1) {
+		} else if (matchList->size() == limit - 1) {
 			$var($String, match, $nc($($nc(input)->subSequence(index, input->length())))->toString());
 			matchList->add(match);
-			index = $nc(m)->end();
+			index = m->end();
 		}
 	}
 	if (index == 0) {
@@ -1260,7 +1260,7 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 		bool var$1 = !seq->equals(nfc);
 		if (var$1 && !$nc(nfd)->equals(nfc)) {
 			$nc(dst)->append($$str({"(?:"_s, seq, "|"_s, nfd, "|"_s, nfc, ")"_s}));
-		} else if (!$nc(seq)->equals(nfd)) {
+		} else if (!seq->equals(nfd)) {
 			$nc(dst)->append($$str({"(?:"_s, seq, "|"_s, nfd, ")"_s}));
 		} else {
 			$nc(dst)->append(seq);
@@ -1424,22 +1424,22 @@ void Pattern::RemoveQEQuoting() {
 			newtemp->set(j++, c);
 		} else if ($ASCII::isDigit(c)) {
 			if (beginQuote) {
-				$nc(newtemp)->set(j++, u'\\');
+				newtemp->set(j++, u'\\');
 				newtemp->set(j++, u'x');
 				newtemp->set(j++, u'3');
 			}
-			$nc(newtemp)->set(j++, c);
+			newtemp->set(j++, c);
 		} else if (c != u'\\') {
 			if (inQuote) {
-				$nc(newtemp)->set(j++, u'\\');
+				newtemp->set(j++, u'\\');
 			}
-			$nc(newtemp)->set(j++, c);
+			newtemp->set(j++, c);
 		} else if (inQuote) {
 			if ($nc(this->temp)->get(i) == u'E') {
 				++i;
 				inQuote = false;
 			} else {
-				$nc(newtemp)->set(j++, u'\\');
+				newtemp->set(j++, u'\\');
 				newtemp->set(j++, u'\\');
 			}
 		} else if ($nc(this->temp)->get(i) == u'Q') {
@@ -1448,7 +1448,7 @@ void Pattern::RemoveQEQuoting() {
 			beginQuote = true;
 			continue;
 		} else {
-			$nc(newtemp)->set(j++, c);
+			newtemp->set(j++, c);
 			if (i != pLen) {
 				newtemp->set(j++, $nc(this->temp)->get(i++));
 			}
@@ -2726,7 +2726,7 @@ $Pattern$CharPredicate* Pattern::family(bool singleLetter, bool isComplement) {
 	} else {
 		if (name->startsWith("In"_s)) {
 			$assign(p, $CharPredicates::forUnicodeBlock($(name->substring(2))));
-		} else if ($nc(name)->startsWith("Is"_s)) {
+		} else if (name->startsWith("Is"_s)) {
 			$var($String, shortName, name->substring(2));
 			$assign(p, $CharPredicates::forUnicodeProperty(shortName, has(Pattern::CASE_INSENSITIVE)));
 			if (p == nullptr) {

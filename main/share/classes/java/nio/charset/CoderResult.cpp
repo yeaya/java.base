@@ -28,14 +28,14 @@
 #include <java/util/function/Function.h>
 #include <jcpp.h>
 
-#undef CR_UNMAPPABLE
-#undef CR_MALFORMED
-#undef OVERFLOW
-#undef CR_UNDERFLOW
-#undef UNDERFLOW
-#undef INSTANCE
 #undef CR_ERROR_MIN
+#undef CR_MALFORMED
 #undef CR_OVERFLOW
+#undef CR_UNDERFLOW
+#undef CR_UNMAPPABLE
+#undef INSTANCE
+#undef OVERFLOW
+#undef UNDERFLOW
 
 using $CoderResultArray = $Array<::java::nio::charset::CoderResult>;
 using $Serializable = ::java::io::Serializable;

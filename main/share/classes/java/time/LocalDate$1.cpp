@@ -15,27 +15,27 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
-#undef DAY_OF_MONTH
-#undef DECADES
-#undef MILLENNIA
-#undef DAYS
-#undef PROLEPTIC_MONTH
-#undef MONTHS
-#undef YEARS
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
 #undef ALIGNED_WEEK_OF_MONTH
-#undef MONTH_OF_YEAR
-#undef YEAR
-#undef WEEKS
+#undef ALIGNED_WEEK_OF_YEAR
+#undef CENTURIES
+#undef DAYS
+#undef DAY_OF_MONTH
+#undef DAY_OF_WEEK
+#undef DAY_OF_YEAR
+#undef DECADES
 #undef EPOCH_DAY
 #undef ERA
-#undef CENTURIES
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef ALIGNED_WEEK_OF_YEAR
-#undef DAY_OF_WEEK
-#undef YEAR_OF_ERA
 #undef ERAS
+#undef MILLENNIA
+#undef MONTHS
+#undef MONTH_OF_YEAR
+#undef PROLEPTIC_MONTH
+#undef WEEKS
+#undef YEAR
+#undef YEARS
+#undef YEAR_OF_ERA
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;

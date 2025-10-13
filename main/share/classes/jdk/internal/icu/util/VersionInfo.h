@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("MAP_")
-#undef MAP_
 #pragma push_macro("ICU_DATA_VERSION_PATH")
 #undef ICU_DATA_VERSION_PATH
 #pragma push_macro("INVALID_VERSION_NUMBER_")
 #undef INVALID_VERSION_NUMBER_
+#pragma push_macro("MAP_")
+#undef MAP_
 
 namespace java {
 	namespace util {
@@ -43,8 +43,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("MAP_")
 #pragma pop_macro("ICU_DATA_VERSION_PATH")
 #pragma pop_macro("INVALID_VERSION_NUMBER_")
+#pragma pop_macro("MAP_")
 
 #endif // _jdk_internal_icu_util_VersionInfo_h_

@@ -22,9 +22,9 @@
 #include <java/util/concurrent/locks/LockSupport.h>
 #include <jcpp.h>
 
+#undef SMATCH
 #undef SNEXT
 #undef SWAITER
-#undef SMATCH
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

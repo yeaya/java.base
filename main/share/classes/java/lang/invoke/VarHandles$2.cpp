@@ -15,11 +15,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SET
-#undef GET_AND_UPDATE
-#undef GET
 #undef COMPARE_AND_EXCHANGE
 #undef COMPARE_AND_SET
+#undef GET
+#undef GET_AND_UPDATE
+#undef SET
 
 using $VarHandle$AccessTypeArray = $Array<::java::lang::invoke::VarHandle$AccessType>;
 using $ClassInfo = ::java::lang::ClassInfo;

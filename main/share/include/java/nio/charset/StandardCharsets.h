@@ -9,10 +9,10 @@
 #undef US_ASCII
 #pragma push_macro("UTF_16")
 #undef UTF_16
-#pragma push_macro("UTF_16LE")
-#undef UTF_16LE
 #pragma push_macro("UTF_16BE")
 #undef UTF_16BE
+#pragma push_macro("UTF_16LE")
+#undef UTF_16LE
 #pragma push_macro("UTF_8")
 #undef UTF_8
 
@@ -47,8 +47,8 @@ public:
 
 #pragma pop_macro("US_ASCII")
 #pragma pop_macro("UTF_16")
-#pragma pop_macro("UTF_16LE")
 #pragma pop_macro("UTF_16BE")
+#pragma pop_macro("UTF_16LE")
 #pragma pop_macro("UTF_8")
 
 #endif // _java_nio_charset_StandardCharsets_h_

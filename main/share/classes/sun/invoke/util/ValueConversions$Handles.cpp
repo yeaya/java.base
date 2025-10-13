@@ -23,11 +23,11 @@
 #include <sun/invoke/util/ValueConversions.h>
 #include <jcpp.h>
 
+#undef CAST_REFERENCE
+#undef EMPTY
+#undef IGNORE
 #undef IMPL_LOOKUP
 #undef THIS_CLASS
-#undef CAST_REFERENCE
-#undef IGNORE
-#undef EMPTY
 #undef TYPE
 
 using $ClassInfo = ::java::lang::ClassInfo;

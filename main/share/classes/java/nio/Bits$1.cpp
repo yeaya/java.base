@@ -12,8 +12,8 @@
 #include <java/util/concurrent/atomic/AtomicLong.h>
 #include <jcpp.h>
 
-#undef RESERVED_MEMORY
 #undef COUNT
+#undef RESERVED_MEMORY
 #undef TOTAL_CAPACITY
 
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -35,8 +35,8 @@
 #include <java/util/function/UnaryOperator.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef IMMUTABLE
+#undef ORDERED
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

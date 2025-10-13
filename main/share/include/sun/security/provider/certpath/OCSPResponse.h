@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("CERT_STATUS_UNKNOWN")
-#undef CERT_STATUS_UNKNOWN
-#pragma push_macro("CERT_STATUS_REVOKED")
-#undef CERT_STATUS_REVOKED
-#pragma push_macro("OCSP_BASIC_RESPONSE_OID")
-#undef OCSP_BASIC_RESPONSE_OID
 #pragma push_macro("CERT_STATUS_GOOD")
 #undef CERT_STATUS_GOOD
-#pragma push_macro("NAME_TAG")
-#undef NAME_TAG
-#pragma push_macro("MAX_CLOCK_SKEW")
-#undef MAX_CLOCK_SKEW
+#pragma push_macro("CERT_STATUS_REVOKED")
+#undef CERT_STATUS_REVOKED
+#pragma push_macro("CERT_STATUS_UNKNOWN")
+#undef CERT_STATUS_UNKNOWN
 #pragma push_macro("DEFAULT_MAX_CLOCK_SKEW")
 #undef DEFAULT_MAX_CLOCK_SKEW
 #pragma push_macro("KEY_TAG")
 #undef KEY_TAG
+#pragma push_macro("MAX_CLOCK_SKEW")
+#undef MAX_CLOCK_SKEW
+#pragma push_macro("NAME_TAG")
+#undef NAME_TAG
+#pragma push_macro("OCSP_BASIC_RESPONSE_OID")
+#undef OCSP_BASIC_RESPONSE_OID
 
 namespace java {
 	namespace security {
@@ -119,13 +119,13 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("CERT_STATUS_UNKNOWN")
-#pragma pop_macro("CERT_STATUS_REVOKED")
-#pragma pop_macro("OCSP_BASIC_RESPONSE_OID")
 #pragma pop_macro("CERT_STATUS_GOOD")
-#pragma pop_macro("NAME_TAG")
-#pragma pop_macro("MAX_CLOCK_SKEW")
+#pragma pop_macro("CERT_STATUS_REVOKED")
+#pragma pop_macro("CERT_STATUS_UNKNOWN")
 #pragma pop_macro("DEFAULT_MAX_CLOCK_SKEW")
 #pragma pop_macro("KEY_TAG")
+#pragma pop_macro("MAX_CLOCK_SKEW")
+#pragma pop_macro("NAME_TAG")
+#pragma pop_macro("OCSP_BASIC_RESPONSE_OID")
 
 #endif // _sun_security_provider_certpath_OCSPResponse_h_

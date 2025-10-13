@@ -36,8 +36,8 @@
 #include <jcpp.h>
 
 #undef ALG_NAME
-#undef UTF_8
 #undef ALG_NAME_WILDCARD
+#undef UTF_8
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $CryptoPermissionArray = $Array<::javax::crypto::CryptoPermission>;
@@ -249,15 +249,15 @@ $CryptoPermissionArray* CryptoPermissions::getMinimum(int32_t maxKeySize, $Permi
 		$var($CryptoPermission, cp, $cast($CryptoPermission, enum_->nextElement()));
 		if ($nc(cp)->getMaxKeySize() <= maxKeySize) {
 			permVector->addElement(cp);
-		} else if ($nc(cp)->getCheckParam()) {
+		} else if (cp->getCheckParam()) {
 			$var($String, var$0, cp->getAlgorithm());
 			int32_t var$1 = maxKeySize;
 			$var($AlgorithmParameterSpec, var$2, cp->getAlgorithmParameterSpec());
-			$nc(permVector)->addElement($$new($CryptoPermission, var$0, var$1, var$2, $(cp->getExemptionMechanism())));
+			permVector->addElement($$new($CryptoPermission, var$0, var$1, var$2, $(cp->getExemptionMechanism())));
 		} else {
 			$var($String, var$3, cp->getAlgorithm());
 			int32_t var$4 = maxKeySize;
-			$nc(permVector)->addElement($$new($CryptoPermission, var$3, var$4, $(cp->getExemptionMechanism())));
+			permVector->addElement($$new($CryptoPermission, var$3, var$4, $(cp->getExemptionMechanism())));
 		}
 	}
 	$var($CryptoPermissionArray, ret, $new($CryptoPermissionArray, permVector->size()));

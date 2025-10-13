@@ -14,8 +14,8 @@
 #include <sun/security/x509/GeneralNameInterface.h>
 #include <jcpp.h>
 
-#undef NAME_X400
 #undef NAME_DIFF_TYPE
+#undef NAME_X400
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -85,7 +85,7 @@ int32_t X400Address::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_X400) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_X400) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$throwNew($UnsupportedOperationException, "Narrowing, widening, and match are not supported for X400Address."_s);

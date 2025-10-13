@@ -23,8 +23,8 @@
 #include <jcpp.h>
 
 #undef QITEM
-#undef QWAITER
 #undef QNEXT
+#undef QWAITER
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

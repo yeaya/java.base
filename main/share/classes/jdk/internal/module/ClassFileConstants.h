@@ -7,40 +7,40 @@
 
 #pragma push_macro("ACC_MANDATED")
 #undef ACC_MANDATED
-#pragma push_macro("WARN_INCUBATING")
-#undef WARN_INCUBATING
-#pragma push_macro("SOURCE_FILE")
-#undef SOURCE_FILE
-#pragma push_macro("MODULE_TARGET")
-#undef MODULE_TARGET
 #pragma push_macro("ACC_MODULE")
 #undef ACC_MODULE
-#pragma push_macro("MODULE_RESOLUTION")
-#undef MODULE_RESOLUTION
-#pragma push_macro("MODULE_HASHES")
-#undef MODULE_HASHES
 #pragma push_macro("ACC_OPEN")
 #undef ACC_OPEN
-#pragma push_macro("DO_NOT_RESOLVE_BY_DEFAULT")
-#undef DO_NOT_RESOLVE_BY_DEFAULT
-#pragma push_macro("ACC_SYNTHETIC")
-#undef ACC_SYNTHETIC
-#pragma push_macro("MODULE")
-#undef MODULE
 #pragma push_macro("ACC_STATIC_PHASE")
 #undef ACC_STATIC_PHASE
-#pragma push_macro("SDE")
-#undef SDE
+#pragma push_macro("ACC_SYNTHETIC")
+#undef ACC_SYNTHETIC
+#pragma push_macro("ACC_TRANSITIVE")
+#undef ACC_TRANSITIVE
+#pragma push_macro("DO_NOT_RESOLVE_BY_DEFAULT")
+#undef DO_NOT_RESOLVE_BY_DEFAULT
+#pragma push_macro("MODULE")
+#undef MODULE
+#pragma push_macro("MODULE_HASHES")
+#undef MODULE_HASHES
 #pragma push_macro("MODULE_MAIN_CLASS")
 #undef MODULE_MAIN_CLASS
 #pragma push_macro("MODULE_PACKAGES")
 #undef MODULE_PACKAGES
+#pragma push_macro("MODULE_RESOLUTION")
+#undef MODULE_RESOLUTION
+#pragma push_macro("MODULE_TARGET")
+#undef MODULE_TARGET
+#pragma push_macro("SDE")
+#undef SDE
+#pragma push_macro("SOURCE_FILE")
+#undef SOURCE_FILE
 #pragma push_macro("WARN_DEPRECATED")
 #undef WARN_DEPRECATED
 #pragma push_macro("WARN_DEPRECATED_FOR_REMOVAL")
 #undef WARN_DEPRECATED_FOR_REMOVAL
-#pragma push_macro("ACC_TRANSITIVE")
-#undef ACC_TRANSITIVE
+#pragma push_macro("WARN_INCUBATING")
+#undef WARN_INCUBATING
 
 namespace jdk {
 	namespace internal {
@@ -76,22 +76,22 @@ public:
 } // jdk
 
 #pragma pop_macro("ACC_MANDATED")
-#pragma pop_macro("WARN_INCUBATING")
-#pragma pop_macro("SOURCE_FILE")
-#pragma pop_macro("MODULE_TARGET")
 #pragma pop_macro("ACC_MODULE")
-#pragma pop_macro("MODULE_RESOLUTION")
-#pragma pop_macro("MODULE_HASHES")
 #pragma pop_macro("ACC_OPEN")
-#pragma pop_macro("DO_NOT_RESOLVE_BY_DEFAULT")
-#pragma pop_macro("ACC_SYNTHETIC")
-#pragma pop_macro("MODULE")
 #pragma pop_macro("ACC_STATIC_PHASE")
-#pragma pop_macro("SDE")
+#pragma pop_macro("ACC_SYNTHETIC")
+#pragma pop_macro("ACC_TRANSITIVE")
+#pragma pop_macro("DO_NOT_RESOLVE_BY_DEFAULT")
+#pragma pop_macro("MODULE")
+#pragma pop_macro("MODULE_HASHES")
 #pragma pop_macro("MODULE_MAIN_CLASS")
 #pragma pop_macro("MODULE_PACKAGES")
+#pragma pop_macro("MODULE_RESOLUTION")
+#pragma pop_macro("MODULE_TARGET")
+#pragma pop_macro("SDE")
+#pragma pop_macro("SOURCE_FILE")
 #pragma pop_macro("WARN_DEPRECATED")
 #pragma pop_macro("WARN_DEPRECATED_FOR_REMOVAL")
-#pragma pop_macro("ACC_TRANSITIVE")
+#pragma pop_macro("WARN_INCUBATING")
 
 #endif // _jdk_internal_module_ClassFileConstants_h_

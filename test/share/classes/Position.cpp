@@ -28,8 +28,8 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-#undef READ
 #undef APPEND
+#undef READ
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;

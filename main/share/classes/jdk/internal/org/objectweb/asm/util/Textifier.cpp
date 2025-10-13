@@ -45,86 +45,86 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceSignatureVisitor.h>
 #include <jcpp.h>
 
-#undef F_NEW
-#undef ACC_PROTECTED
-#undef INSTANCEOF
-#undef NEW
-#undef ACC_ENUM
-#undef CLASS_SUFFIX
-#undef RECORD
-#undef FIELD_DESCRIPTOR
-#undef ACC_VOLATILE
-#undef TYPES
-#undef INTERNAL_NAME
-#undef FIELD_SIGNATURE
-#undef F_CHOP
-#undef F_SAME1
-#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
-#undef ACC_STATIC_PHASE
-#undef ACC_BRIDGE
-#undef H_INVOKEINTERFACE
-#undef METHOD_TYPE_PARAMETER
-#undef METHOD_DESCRIPTOR
-#undef H_GETFIELD
-#undef ACC_SUPER
-#undef CLASS_TYPE_PARAMETER
-#undef EXCEPTION_PARAMETER
-#undef METHOD_INVOCATION_TYPE_ARGUMENT
-#undef OPCODES
-#undef CAST
-#undef ACC_VARARGS
-#undef ASM8
-#undef METHOD_REFERENCE
-#undef FIELD
-#undef F_FULL
-#undef ACC_RECORD
-#undef METHOD_RECEIVER
-#undef ACC_SYNTHETIC
-#undef DEPRECATED
-#undef METHOD_SIGNATURE
-#undef INVISIBLE
-#undef ACC_STRICT
-#undef CLASS_EXTENDS
-#undef METHOD
-#undef ACC_PUBLIC
-#undef THROWS
-#undef ACC_TRANSIENT
-#undef H_INVOKESPECIAL
-#undef METHOD_FORMAL_PARAMETER
-#undef METHOD_TYPE_PARAMETER_BOUND
-#undef ACC_MANDATED
-#undef H_PUTSTATIC
-#undef ACC_STATIC
 #undef ACC_ABSTRACT
+#undef ACC_ANNOTATION
+#undef ACC_BRIDGE
 #undef ACC_DEPRECATED
-#undef LOCAL_VARIABLE
+#undef ACC_ENUM
+#undef ACC_FINAL
+#undef ACC_INTERFACE
+#undef ACC_MANDATED
 #undef ACC_MODULE
-#undef H_GETSTATIC
-#undef F_APPEND
+#undef ACC_NATIVE
 #undef ACC_OPEN
 #undef ACC_PRIVATE
-#undef ACC_FINAL
-#undef H_PUTFIELD
-#undef CLASS_TYPE_PARAMETER_BOUND
-#undef USAGE
-#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
-#undef ACC_INTERFACE
-#undef CONSTRUCTOR_REFERENCE
-#undef ACC_TRANSITIVE
-#undef NEWARRAY
-#undef RESOURCE_VARIABLE
+#undef ACC_PROTECTED
+#undef ACC_PUBLIC
+#undef ACC_RECORD
+#undef ACC_STATIC
+#undef ACC_STATIC_PHASE
+#undef ACC_STRICT
+#undef ACC_SUPER
 #undef ACC_SYNCHRONIZED
-#undef F_SAME
-#undef H_NEWINVOKESPECIAL
-#undef H_INVOKEVIRTUAL
-#undef HANDLE_DESCRIPTOR
+#undef ACC_SYNTHETIC
+#undef ACC_TRANSIENT
+#undef ACC_TRANSITIVE
+#undef ACC_VARARGS
+#undef ACC_VOLATILE
+#undef ASM8
+#undef CAST
+#undef CLASS_EXTENDS
 #undef CLASS_SIGNATURE
-#undef METHOD_RETURN
-#undef ACC_NATIVE
-#undef METHOD_REFERENCE_TYPE_ARGUMENT
+#undef CLASS_SUFFIX
+#undef CLASS_TYPE_PARAMETER
+#undef CLASS_TYPE_PARAMETER_BOUND
+#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
+#undef CONSTRUCTOR_REFERENCE
+#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
+#undef DEPRECATED
+#undef EXCEPTION_PARAMETER
+#undef FIELD
+#undef FIELD_DESCRIPTOR
+#undef FIELD_SIGNATURE
 #undef FRAME_TYPES
+#undef F_APPEND
+#undef F_CHOP
+#undef F_FULL
+#undef F_NEW
+#undef F_SAME
+#undef F_SAME1
+#undef HANDLE_DESCRIPTOR
+#undef H_GETFIELD
+#undef H_GETSTATIC
+#undef H_INVOKEINTERFACE
+#undef H_INVOKESPECIAL
 #undef H_INVOKESTATIC
-#undef ACC_ANNOTATION
+#undef H_INVOKEVIRTUAL
+#undef H_NEWINVOKESPECIAL
+#undef H_PUTFIELD
+#undef H_PUTSTATIC
+#undef INSTANCEOF
+#undef INTERNAL_NAME
+#undef INVISIBLE
+#undef LOCAL_VARIABLE
+#undef METHOD
+#undef METHOD_DESCRIPTOR
+#undef METHOD_FORMAL_PARAMETER
+#undef METHOD_INVOCATION_TYPE_ARGUMENT
+#undef METHOD_RECEIVER
+#undef METHOD_REFERENCE
+#undef METHOD_REFERENCE_TYPE_ARGUMENT
+#undef METHOD_RETURN
+#undef METHOD_SIGNATURE
+#undef METHOD_TYPE_PARAMETER
+#undef METHOD_TYPE_PARAMETER_BOUND
+#undef NEW
+#undef NEWARRAY
+#undef OPCODES
+#undef RECORD
+#undef RESOURCE_VARIABLE
+#undef THROWS
+#undef TYPES
+#undef USAGE
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
@@ -692,7 +692,7 @@ void Textifier::visit($String* name, Object$* value) {
 		visitLong($nc(($cast($Long, value)))->longValue());
 	} else if ($instanceOf($Double, value)) {
 		visitDouble($nc(($cast($Double, value)))->doubleValue());
-	} else if ($nc($of(value))->getClass()->isArray()) {
+	} else if ($of(value)->getClass()->isArray()) {
 		$nc(this->stringBuilder)->append(u'{');
 		if ($instanceOf($bytes, value)) {
 			$var($bytes, byteArray, $cast($bytes, value));
@@ -702,43 +702,43 @@ void Textifier::visit($String* name, Object$* value) {
 			}
 		} else if ($instanceOf($booleans, value)) {
 			$var($booleans, booleanArray, $cast($booleans, value));
-			for (int32_t i = 0; i < $nc(booleanArray)->length; ++i) {
+			for (int32_t i = 0; i < booleanArray->length; ++i) {
 				maybeAppendComma(i);
 				visitBoolean(booleanArray->get(i));
 			}
 		} else if ($instanceOf($shorts, value)) {
 			$var($shorts, shortArray, $cast($shorts, value));
-			for (int32_t i = 0; i < $nc(shortArray)->length; ++i) {
+			for (int32_t i = 0; i < shortArray->length; ++i) {
 				maybeAppendComma(i);
 				visitShort(shortArray->get(i));
 			}
 		} else if ($instanceOf($chars, value)) {
 			$var($chars, charArray, $cast($chars, value));
-			for (int32_t i = 0; i < $nc(charArray)->length; ++i) {
+			for (int32_t i = 0; i < charArray->length; ++i) {
 				maybeAppendComma(i);
 				visitChar(charArray->get(i));
 			}
 		} else if ($instanceOf($ints, value)) {
 			$var($ints, intArray, $cast($ints, value));
-			for (int32_t i = 0; i < $nc(intArray)->length; ++i) {
+			for (int32_t i = 0; i < intArray->length; ++i) {
 				maybeAppendComma(i);
 				visitInt(intArray->get(i));
 			}
 		} else if ($instanceOf($longs, value)) {
 			$var($longs, longArray, $cast($longs, value));
-			for (int32_t i = 0; i < $nc(longArray)->length; ++i) {
+			for (int32_t i = 0; i < longArray->length; ++i) {
 				maybeAppendComma(i);
 				visitLong(longArray->get(i));
 			}
 		} else if ($instanceOf($floats, value)) {
 			$var($floats, floatArray, $cast($floats, value));
-			for (int32_t i = 0; i < $nc(floatArray)->length; ++i) {
+			for (int32_t i = 0; i < floatArray->length; ++i) {
 				maybeAppendComma(i);
 				visitFloat(floatArray->get(i));
 			}
 		} else if ($instanceOf($doubles, value)) {
 			$var($doubles, doubleArray, $cast($doubles, value));
-			for (int32_t i = 0; i < $nc(doubleArray)->length; ++i) {
+			for (int32_t i = 0; i < doubleArray->length; ++i) {
 				maybeAppendComma(i);
 				visitDouble(doubleArray->get(i));
 			}
@@ -785,7 +785,7 @@ void Textifier::visitString($String* value) {
 }
 
 void Textifier::visitType($Type* value) {
-	$nc(this->stringBuilder)->append($($nc(value)->getClassName()))->append(Textifier::CLASS_SUFFIX);
+	$nc(this->stringBuilder)->append($(value->getClassName()))->append(Textifier::CLASS_SUFFIX);
 }
 
 void Textifier::visitEnum($String* name, $String* descriptor, $String* value) {
@@ -1552,7 +1552,7 @@ void Textifier::appendFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
 			} else {
 				appendDescriptor(Textifier::INTERNAL_NAME, descriptor);
 			}
-		} else if ($instanceOf($Integer, $nc(frameTypes)->get(i))) {
+		} else if ($instanceOf($Integer, frameTypes->get(i))) {
 			$nc(this->stringBuilder)->append($cast($String, $($nc(Textifier::FRAME_TYPES)->get($nc(($cast($Integer, frameTypes->get(i))))->intValue()))));
 		} else {
 			appendLabel($cast($Label, frameTypes->get(i)));

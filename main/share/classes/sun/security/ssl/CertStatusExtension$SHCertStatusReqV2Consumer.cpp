@@ -26,10 +26,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CH_STATUS_REQUEST_V2
-#undef SH_STATUS_REQUEST_V2
 #undef CERTIFICATE_STATUS
+#undef CH_STATUS_REQUEST_V2
 #undef DEFAULT
+#undef SH_STATUS_REQUEST_V2
 #undef UNEXPECTED_MESSAGE
 
 using $Byte = ::java::lang::Byte;

@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("BITS_8")
-#undef BITS_8
-#pragma push_macro("BITS_32")
-#undef BITS_32
 #pragma push_macro("BITS_16")
 #undef BITS_16
+#pragma push_macro("BITS_32")
+#undef BITS_32
+#pragma push_macro("BITS_8")
+#undef BITS_8
 
 namespace jdk {
 	namespace internal {
@@ -37,8 +37,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("BITS_8")
-#pragma pop_macro("BITS_32")
 #pragma pop_macro("BITS_16")
+#pragma pop_macro("BITS_32")
+#pragma pop_macro("BITS_8")
 
 #endif // _jdk_internal_icu_util_CodePointTrie$ValueWidth_h_

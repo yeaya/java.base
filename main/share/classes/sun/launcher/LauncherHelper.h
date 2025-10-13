@@ -5,38 +5,38 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("LM_JAR")
-#undef LM_JAR
-#pragma push_macro("LM_SOURCE")
-#undef LM_SOURCE
-#pragma push_macro("JAVAFX_APPLICATION_CLASS_NAME")
-#undef JAVAFX_APPLICATION_CLASS_NAME
-#pragma push_macro("LM_UNKNOWN")
-#undef LM_UNKNOWN
+#pragma push_macro("ADD_EXPORTS")
+#undef ADD_EXPORTS
+#pragma push_macro("ADD_OPENS")
+#undef ADD_OPENS
 #pragma push_macro("INDENT")
 #undef INDENT
-#pragma push_macro("LOCALE_SETTINGS")
-#undef LOCALE_SETTINGS
+#pragma push_macro("JAVAFX_APPLICATION_CLASS_NAME")
+#undef JAVAFX_APPLICATION_CLASS_NAME
+#pragma push_macro("JAVAFX_APPLICATION_MARKER")
+#undef JAVAFX_APPLICATION_MARKER
+#pragma push_macro("JAVAFX_FXHELPER_CLASS_NAME_SUFFIX")
+#undef JAVAFX_FXHELPER_CLASS_NAME_SUFFIX
+#pragma push_macro("LAUNCHER_AGENT_CLASS")
+#undef LAUNCHER_AGENT_CLASS
+#pragma push_macro("LM_CLASS")
+#undef LM_CLASS
+#pragma push_macro("LM_JAR")
+#undef LM_JAR
 #pragma push_macro("LM_MODULE")
 #undef LM_MODULE
+#pragma push_macro("LM_SOURCE")
+#undef LM_SOURCE
+#pragma push_macro("LM_UNKNOWN")
+#undef LM_UNKNOWN
+#pragma push_macro("LOCALE_SETTINGS")
+#undef LOCALE_SETTINGS
 #pragma push_macro("MAIN_CLASS")
 #undef MAIN_CLASS
 #pragma push_macro("PROP_SETTINGS")
 #undef PROP_SETTINGS
 #pragma push_macro("VM_SETTINGS")
 #undef VM_SETTINGS
-#pragma push_macro("LM_CLASS")
-#undef LM_CLASS
-#pragma push_macro("JAVAFX_FXHELPER_CLASS_NAME_SUFFIX")
-#undef JAVAFX_FXHELPER_CLASS_NAME_SUFFIX
-#pragma push_macro("ADD_EXPORTS")
-#undef ADD_EXPORTS
-#pragma push_macro("LAUNCHER_AGENT_CLASS")
-#undef LAUNCHER_AGENT_CLASS
-#pragma push_macro("ADD_OPENS")
-#undef ADD_OPENS
-#pragma push_macro("JAVAFX_APPLICATION_MARKER")
-#undef JAVAFX_APPLICATION_MARKER
 
 namespace java {
 	namespace io {
@@ -164,21 +164,21 @@ public:
 	} // launcher
 } // sun
 
-#pragma pop_macro("LM_JAR")
-#pragma pop_macro("LM_SOURCE")
-#pragma pop_macro("JAVAFX_APPLICATION_CLASS_NAME")
-#pragma pop_macro("LM_UNKNOWN")
+#pragma pop_macro("ADD_EXPORTS")
+#pragma pop_macro("ADD_OPENS")
 #pragma pop_macro("INDENT")
-#pragma pop_macro("LOCALE_SETTINGS")
+#pragma pop_macro("JAVAFX_APPLICATION_CLASS_NAME")
+#pragma pop_macro("JAVAFX_APPLICATION_MARKER")
+#pragma pop_macro("JAVAFX_FXHELPER_CLASS_NAME_SUFFIX")
+#pragma pop_macro("LAUNCHER_AGENT_CLASS")
+#pragma pop_macro("LM_CLASS")
+#pragma pop_macro("LM_JAR")
 #pragma pop_macro("LM_MODULE")
+#pragma pop_macro("LM_SOURCE")
+#pragma pop_macro("LM_UNKNOWN")
+#pragma pop_macro("LOCALE_SETTINGS")
 #pragma pop_macro("MAIN_CLASS")
 #pragma pop_macro("PROP_SETTINGS")
 #pragma pop_macro("VM_SETTINGS")
-#pragma pop_macro("LM_CLASS")
-#pragma pop_macro("JAVAFX_FXHELPER_CLASS_NAME_SUFFIX")
-#pragma pop_macro("ADD_EXPORTS")
-#pragma pop_macro("LAUNCHER_AGENT_CLASS")
-#pragma pop_macro("ADD_OPENS")
-#pragma pop_macro("JAVAFX_APPLICATION_MARKER")
 
 #endif // _sun_launcher_LauncherHelper_h_

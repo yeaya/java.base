@@ -20,16 +20,16 @@
 #include <jcpp.h>
 
 #undef ARRAY_LENGTH
-#undef GETTER_INDEX
-#undef SET
+#undef ARRAY_LOAD
 #undef ARRAY_STORE
+#undef GET
+#undef GETTER_INDEX
+#undef LENGTH
+#undef LENGTH_INDEX
 #undef OBJECT_ARRAY_GETTER
 #undef OBJECT_ARRAY_LENGTH
-#undef GET
-#undef LENGTH
-#undef ARRAY_LOAD
 #undef OBJECT_ARRAY_SETTER
-#undef LENGTH_INDEX
+#undef SET
 #undef SETTER_INDEX
 
 using $MethodHandleImpl$ArrayAccessArray = $Array<::java::lang::invoke::MethodHandleImpl$ArrayAccess>;

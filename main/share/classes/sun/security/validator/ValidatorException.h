@@ -5,22 +5,22 @@
 
 #include <java/security/cert/CertificateException.h>
 
-#pragma push_macro("T_NO_TRUST_ANCHOR")
-#undef T_NO_TRUST_ANCHOR
-#pragma push_macro("T_CERT_EXPIRED")
-#undef T_CERT_EXPIRED
 #pragma push_macro("T_ALGORITHM_DISABLED")
 #undef T_ALGORITHM_DISABLED
-#pragma push_macro("T_EE_EXTENSIONS")
-#undef T_EE_EXTENSIONS
 #pragma push_macro("T_CA_EXTENSIONS")
 #undef T_CA_EXTENSIONS
+#pragma push_macro("T_CERT_EXPIRED")
+#undef T_CERT_EXPIRED
+#pragma push_macro("T_EE_EXTENSIONS")
+#undef T_EE_EXTENSIONS
 #pragma push_macro("T_NAME_CHAINING")
 #undef T_NAME_CHAINING
-#pragma push_macro("T_UNTRUSTED_CERT")
-#undef T_UNTRUSTED_CERT
+#pragma push_macro("T_NO_TRUST_ANCHOR")
+#undef T_NO_TRUST_ANCHOR
 #pragma push_macro("T_SIGNATURE_ERROR")
 #undef T_SIGNATURE_ERROR
+#pragma push_macro("T_UNTRUSTED_CERT")
+#undef T_UNTRUSTED_CERT
 
 namespace java {
 	namespace lang {
@@ -72,13 +72,13 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("T_NO_TRUST_ANCHOR")
-#pragma pop_macro("T_CERT_EXPIRED")
 #pragma pop_macro("T_ALGORITHM_DISABLED")
-#pragma pop_macro("T_EE_EXTENSIONS")
 #pragma pop_macro("T_CA_EXTENSIONS")
+#pragma pop_macro("T_CERT_EXPIRED")
+#pragma pop_macro("T_EE_EXTENSIONS")
 #pragma pop_macro("T_NAME_CHAINING")
-#pragma pop_macro("T_UNTRUSTED_CERT")
+#pragma pop_macro("T_NO_TRUST_ANCHOR")
 #pragma pop_macro("T_SIGNATURE_ERROR")
+#pragma pop_macro("T_UNTRUSTED_CERT")
 
 #endif // _sun_security_validator_ValidatorException_h_

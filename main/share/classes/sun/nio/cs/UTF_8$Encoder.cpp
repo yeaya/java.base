@@ -194,7 +194,7 @@ $CoderResult* UTF_8$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst
 			}
 			int32_t uc = $nc(this->sgp)->parse(c, src);
 			if (uc < 0) {
-				$nc(src)->position(mark);
+				src->position(mark);
 				return $nc(this->sgp)->error();
 			}
 			if ($nc(dst)->remaining() < 4) {

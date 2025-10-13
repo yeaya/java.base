@@ -14,12 +14,12 @@
 #include <java/time/temporal/ChronoField.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
 #undef ALIGNED_WEEK_OF_MONTH
-#undef YEAR
 #undef DAY_OF_MONTH
+#undef DAY_OF_YEAR
 #undef ERA
 #undef PROLEPTIC_MONTH
+#undef YEAR
 #undef YEAR_OF_ERA
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;

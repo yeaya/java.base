@@ -25,10 +25,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef I_TYPE_NUM
-#undef F_TYPE_NUM
 #undef BMH_SPECIES
 #undef D_TYPE_NUM
+#undef F_TYPE_NUM
+#undef I_TYPE_NUM
 #undef J_TYPE_NUM
 
 using $ClassInfo = ::java::lang::ClassInfo;

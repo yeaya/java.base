@@ -5,12 +5,12 @@
 
 #include <java/io/Externalizable.h>
 
-#pragma push_macro("ZRULES")
-#undef ZRULES
 #pragma push_macro("ZOT")
 #undef ZOT
 #pragma push_macro("ZOTRULE")
 #undef ZOTRULE
+#pragma push_macro("ZRULES")
+#undef ZRULES
 
 namespace java {
 	namespace io {
@@ -60,8 +60,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("ZRULES")
 #pragma pop_macro("ZOT")
 #pragma pop_macro("ZOTRULE")
+#pragma pop_macro("ZRULES")
 
 #endif // _java_time_zone_Ser_h_

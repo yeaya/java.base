@@ -24,9 +24,9 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
+#undef ALL_BIGINTEGER_CANDIDATES
 #undef MAX_EXPONENT
 #undef ONE
-#undef ALL_BIGINTEGER_CANDIDATES
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $BigIntegerArray = $Array<::java::math::BigInteger>;

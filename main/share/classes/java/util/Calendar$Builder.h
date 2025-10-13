@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("WEEK_YEAR")
-#undef WEEK_YEAR
 #pragma push_macro("NFIELDS")
 #undef NFIELDS
+#pragma push_macro("WEEK_YEAR")
+#undef WEEK_YEAR
 
 namespace java {
 	namespace util {
@@ -63,7 +63,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("WEEK_YEAR")
 #pragma pop_macro("NFIELDS")
+#pragma pop_macro("WEEK_YEAR")
 
 #endif // _java_util_Calendar$Builder_h_

@@ -99,14 +99,14 @@
 #include <jcpp.h>
 
 #undef ALL
-#undef NOT_DISTINCT
-#undef NOT_SIZED
-#undef NOT_ORDERED
-#undef ENABLED
-#undef NOT_SORTED
-#undef DOUBLE_VALUE
 #undef ANY
+#undef DOUBLE_VALUE
+#undef ENABLED
 #undef NONE
+#undef NOT_DISTINCT
+#undef NOT_ORDERED
+#undef NOT_SIZED
+#undef NOT_SORTED
 
 using $DoubleArray = $Array<::java::lang::Double>;
 using $Serializable = ::java::io::Serializable;

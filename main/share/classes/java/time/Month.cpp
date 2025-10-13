@@ -34,22 +34,22 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef JANUARY
-#undef JUNE
-#undef ENUMS
-#undef MAY
-#undef OCTOBER
+#undef APRIL
+#undef AUGUST
 #undef DECEMBER
+#undef ENUMS
 #undef FEBRUARY
 #undef INSTANCE
-#undef SEPTEMBER
-#undef NOVEMBER
+#undef JANUARY
+#undef JULY
+#undef JUNE
+#undef MARCH
+#undef MAY
 #undef MONTHS
 #undef MONTH_OF_YEAR
-#undef MARCH
-#undef AUGUST
-#undef JULY
-#undef APRIL
+#undef NOVEMBER
+#undef OCTOBER
+#undef SEPTEMBER
 
 using $MonthArray = $Array<::java::time::Month>;
 using $ClassInfo = ::java::lang::ClassInfo;

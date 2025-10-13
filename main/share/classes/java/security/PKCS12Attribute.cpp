@@ -223,20 +223,20 @@ void PKCS12Attribute::parse($bytes* encoded) {
 	for (int32_t i = 0; i < attrValueSet->length; ++i) {
 		if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_OctetString) {
 			values->set(i, $($Debug::toString($($nc(attrValueSet->get(i))->getOctetString()))));
-		} else if (($assign(printableString, $nc($nc(attrValueSet)->get(i))->getAsString())) != nullptr) {
-			$nc(values)->set(i, printableString);
-		} else if ($nc($nc(attrValueSet)->get(i))->tag == $DerValue::tag_ObjectId) {
-			$nc(values)->set(i, $($nc($($nc(attrValueSet->get(i))->getOID()))->toString()));
-		} else if ($nc($nc(attrValueSet)->get(i))->tag == $DerValue::tag_GeneralizedTime) {
-			$nc(values)->set(i, $($nc($($nc(attrValueSet->get(i))->getGeneralizedTime()))->toString()));
-		} else if ($nc($nc(attrValueSet)->get(i))->tag == $DerValue::tag_UtcTime) {
-			$nc(values)->set(i, $($nc($($nc(attrValueSet->get(i))->getUTCTime()))->toString()));
-		} else if ($nc($nc(attrValueSet)->get(i))->tag == $DerValue::tag_Integer) {
-			$nc(values)->set(i, $($nc($($nc(attrValueSet->get(i))->getBigInteger()))->toString()));
-		} else if ($nc($nc(attrValueSet)->get(i))->tag == $DerValue::tag_Boolean) {
-			$nc(values)->set(i, $($String::valueOf($nc(attrValueSet->get(i))->getBoolean())));
+		} else if (($assign(printableString, $nc(attrValueSet->get(i))->getAsString())) != nullptr) {
+			values->set(i, printableString);
+		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_ObjectId) {
+			values->set(i, $($nc($($nc(attrValueSet->get(i))->getOID()))->toString()));
+		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_GeneralizedTime) {
+			values->set(i, $($nc($($nc(attrValueSet->get(i))->getGeneralizedTime()))->toString()));
+		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_UtcTime) {
+			values->set(i, $($nc($($nc(attrValueSet->get(i))->getUTCTime()))->toString()));
+		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_Integer) {
+			values->set(i, $($nc($($nc(attrValueSet->get(i))->getBigInteger()))->toString()));
+		} else if ($nc(attrValueSet->get(i))->tag == $DerValue::tag_Boolean) {
+			values->set(i, $($String::valueOf($nc(attrValueSet->get(i))->getBoolean())));
 		} else {
-			$nc(values)->set(i, $($Debug::toString($($nc(attrValueSet->get(i))->getDataBytes()))));
+			values->set(i, $($Debug::toString($($nc(attrValueSet->get(i))->getDataBytes()))));
 		}
 	}
 	$set(this, name, $nc(type)->toString());

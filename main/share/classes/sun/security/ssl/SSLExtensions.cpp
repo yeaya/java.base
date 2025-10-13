@@ -42,10 +42,10 @@
 #include <jcpp.h>
 
 #undef CH_SUPPORTED_GROUPS
-#undef UNSUPPORTED_EXTENSION
+#undef DECODE_ERROR
 #undef ENGLISH
 #undef SERVER_HELLO
-#undef DECODE_ERROR
+#undef UNSUPPORTED_EXTENSION
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;

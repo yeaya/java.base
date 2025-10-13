@@ -21,8 +21,8 @@
 
 #undef CASE_INSENSITIVE_ORDER
 #undef CHAR_VALUE_LIMIT
-#undef TEST_SIZE
 #undef STRING_SIZE
+#undef TEST_SIZE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

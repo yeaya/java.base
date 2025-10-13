@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/security/SecureRandomSpi.h>
 
-#pragma push_macro("NAME_URANDOM")
-#undef NAME_URANDOM
-#pragma push_macro("NAME_RANDOM")
-#undef NAME_RANDOM
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("NAME_RANDOM")
+#undef NAME_RANDOM
+#pragma push_macro("NAME_URANDOM")
+#undef NAME_URANDOM
 
 namespace java {
 	namespace net {
@@ -61,8 +61,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NAME_URANDOM")
-#pragma pop_macro("NAME_RANDOM")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("NAME_RANDOM")
+#pragma pop_macro("NAME_URANDOM")
 
 #endif // _sun_security_provider_NativePRNG_h_

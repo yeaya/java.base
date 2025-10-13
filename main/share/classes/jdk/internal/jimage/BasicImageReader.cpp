@@ -54,16 +54,16 @@
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider.h>
 #include <jcpp.h>
 
-#undef MAP_ALL
-#undef READ
-#undef USE_JVM_MAP
-#undef IS_64_BIT
 #undef BIG_ENDIAN
+#undef IS_64_BIT
 #undef MAGIC
 #undef MAJOR_VERSION
-#undef MINOR_VERSION
+#undef MAP_ALL
 #undef MAX_VALUE
+#undef MINOR_VERSION
+#undef READ
 #undef READ_ONLY
+#undef USE_JVM_MAP
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
@@ -390,7 +390,7 @@ void BasicImageReader::init$($Path* path, $ByteOrder* byteOrder) {
 		} else {
 			$throwNew($IOException, $$str({"\""_s, this->name, "\" is not an image file"_s}));
 		}
-	} else if ($nc(headerBuffer)->capacity() < headerSize) {
+	} else if (headerBuffer->capacity() < headerSize) {
 		$throwNew($IOException, $$str({"\""_s, this->name, "\" is not an image file"_s}));
 	}
 	$set(this, header, readHeader($(intBuffer(headerBuffer, 0, headerSize))));

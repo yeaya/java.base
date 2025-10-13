@@ -91,7 +91,7 @@ void RandomCookie::init$($HandshakeContext* context) {
 				$assign(protection, RandomCookie::t11Protection);
 			}
 		}
-	} else if ($nc(context)->maximumActiveProtocol->useTLS12PlusSpec()) {
+	} else if (context->maximumActiveProtocol->useTLS12PlusSpec()) {
 		if (!$nc(context->negotiatedProtocol)->useTLS12PlusSpec()) {
 			$assign(protection, RandomCookie::t11Protection);
 		}
@@ -125,7 +125,7 @@ bool RandomCookie::isVersionDowngrade($HandshakeContext* context) {
 			bool var$0 = isT12Downgrade();
 			return var$0 || isT11Downgrade();
 		}
-	} else if ($nc(context)->maximumActiveProtocol->useTLS12PlusSpec()) {
+	} else if (context->maximumActiveProtocol->useTLS12PlusSpec()) {
 		if (!$nc(context->negotiatedProtocol)->useTLS12PlusSpec()) {
 			return isT11Downgrade();
 		}

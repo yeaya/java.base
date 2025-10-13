@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("NUM_EXCEPTIONS")
-#undef NUM_EXCEPTIONS
 #pragma push_macro("NUM_CHANNELS")
 #undef NUM_CHANNELS
+#pragma push_macro("NUM_EXCEPTIONS")
+#undef NUM_EXCEPTIONS
 
 class $export GetClosedChannel : public ::java::lang::Object {
 	$class(GetClosedChannel, 0, ::java::lang::Object)
@@ -21,7 +21,7 @@ public:
 	static const int32_t NUM_EXCEPTIONS = 6; // 2 * NUM_CHANNELS
 };
 
-#pragma pop_macro("NUM_EXCEPTIONS")
 #pragma pop_macro("NUM_CHANNELS")
+#pragma pop_macro("NUM_EXCEPTIONS")
 
 #endif // _GetClosedChannel_h_

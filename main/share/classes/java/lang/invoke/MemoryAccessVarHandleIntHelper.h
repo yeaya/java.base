@@ -6,16 +6,16 @@
 #include <java/lang/Integer.h>
 #include <java/lang/invoke/MemoryAccessVarHandleBase.h>
 
-#pragma push_macro("BYTES")
-#undef BYTES
 #pragma push_macro("BE")
 #undef BE
-#pragma push_macro("VM_ALIGN")
-#undef VM_ALIGN
+#pragma push_macro("BYTES")
+#undef BYTES
 #pragma push_macro("FORM")
 #undef FORM
 #pragma push_macro("SCOPED_MEMORY_ACCESS")
 #undef SCOPED_MEMORY_ACCESS
+#pragma push_macro("VM_ALIGN")
+#undef VM_ALIGN
 
 namespace java {
 	namespace lang {
@@ -137,10 +137,10 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("BYTES")
 #pragma pop_macro("BE")
-#pragma pop_macro("VM_ALIGN")
+#pragma pop_macro("BYTES")
 #pragma pop_macro("FORM")
 #pragma pop_macro("SCOPED_MEMORY_ACCESS")
+#pragma pop_macro("VM_ALIGN")
 
 #endif // _java_lang_invoke_MemoryAccessVarHandleIntHelper_h_

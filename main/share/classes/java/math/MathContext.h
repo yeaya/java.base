@@ -5,20 +5,20 @@
 
 #include <java/io/Serializable.h>
 
-#pragma push_macro("DEFAULT_DIGITS")
-#undef DEFAULT_DIGITS
 #pragma push_macro("DECIMAL128")
 #undef DECIMAL128
-#pragma push_macro("DECIMAL64")
-#undef DECIMAL64
-#pragma push_macro("MIN_DIGITS")
-#undef MIN_DIGITS
 #pragma push_macro("DECIMAL32")
 #undef DECIMAL32
-#pragma push_macro("UNLIMITED")
-#undef UNLIMITED
+#pragma push_macro("DECIMAL64")
+#undef DECIMAL64
+#pragma push_macro("DEFAULT_DIGITS")
+#undef DEFAULT_DIGITS
 #pragma push_macro("DEFAULT_ROUNDINGMODE")
 #undef DEFAULT_ROUNDINGMODE
+#pragma push_macro("MIN_DIGITS")
+#undef MIN_DIGITS
+#pragma push_macro("UNLIMITED")
+#undef UNLIMITED
 
 namespace java {
 	namespace io {
@@ -62,12 +62,12 @@ public:
 	} // math
 } // java
 
-#pragma pop_macro("DEFAULT_DIGITS")
 #pragma pop_macro("DECIMAL128")
-#pragma pop_macro("DECIMAL64")
-#pragma pop_macro("MIN_DIGITS")
 #pragma pop_macro("DECIMAL32")
-#pragma pop_macro("UNLIMITED")
+#pragma pop_macro("DECIMAL64")
+#pragma pop_macro("DEFAULT_DIGITS")
 #pragma pop_macro("DEFAULT_ROUNDINGMODE")
+#pragma pop_macro("MIN_DIGITS")
+#pragma pop_macro("UNLIMITED")
 
 #endif // _java_math_MathContext_h_

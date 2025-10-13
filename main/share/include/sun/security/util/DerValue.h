@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TAG_UNIVERSAL")
-#undef TAG_UNIVERSAL
 #pragma push_macro("TAG_APPLICATION")
 #undef TAG_APPLICATION
 #pragma push_macro("TAG_CONTEXT")
 #undef TAG_CONTEXT
 #pragma push_macro("TAG_PRIVATE")
 #undef TAG_PRIVATE
+#pragma push_macro("TAG_UNIVERSAL")
+#undef TAG_UNIVERSAL
 
 namespace java {
 	namespace io {
@@ -154,9 +154,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TAG_UNIVERSAL")
 #pragma pop_macro("TAG_APPLICATION")
 #pragma pop_macro("TAG_CONTEXT")
 #pragma pop_macro("TAG_PRIVATE")
+#pragma pop_macro("TAG_UNIVERSAL")
 
 #endif // _sun_security_util_DerValue_h_

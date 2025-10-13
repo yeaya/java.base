@@ -6,24 +6,24 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("RETURN")
-#undef RETURN
-#pragma push_macro("SUPER")
-#undef SUPER
-#pragma push_macro("SIMPLE_TYPE")
-#undef SIMPLE_TYPE
 #pragma push_macro("BOUND")
 #undef BOUND
-#pragma push_macro("END")
-#undef END
-#pragma push_macro("PARAM")
-#undef PARAM
-#pragma push_macro("EMPTY")
-#undef EMPTY
-#pragma push_macro("FORMAL")
-#undef FORMAL
 #pragma push_macro("CLASS_TYPE")
 #undef CLASS_TYPE
+#pragma push_macro("EMPTY")
+#undef EMPTY
+#pragma push_macro("END")
+#undef END
+#pragma push_macro("FORMAL")
+#undef FORMAL
+#pragma push_macro("PARAM")
+#undef PARAM
+#pragma push_macro("RETURN")
+#undef RETURN
+#pragma push_macro("SIMPLE_TYPE")
+#undef SIMPLE_TYPE
+#pragma push_macro("SUPER")
+#undef SUPER
 
 namespace jdk {
 	namespace internal {
@@ -59,14 +59,14 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("RETURN")
-#pragma pop_macro("SUPER")
-#pragma pop_macro("SIMPLE_TYPE")
 #pragma pop_macro("BOUND")
-#pragma pop_macro("END")
-#pragma pop_macro("PARAM")
-#pragma pop_macro("EMPTY")
-#pragma pop_macro("FORMAL")
 #pragma pop_macro("CLASS_TYPE")
+#pragma pop_macro("EMPTY")
+#pragma pop_macro("END")
+#pragma pop_macro("FORMAL")
+#pragma pop_macro("PARAM")
+#pragma pop_macro("RETURN")
+#pragma pop_macro("SIMPLE_TYPE")
+#pragma pop_macro("SUPER")
 
 #endif // _jdk_internal_org_objectweb_asm$_util_CheckSignatureAdapter$State_h_

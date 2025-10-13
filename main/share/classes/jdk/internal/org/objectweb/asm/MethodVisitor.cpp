@@ -22,17 +22,17 @@
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
 #include <jcpp.h>
 
-#undef ASM7
-#undef ASM8
-#undef SOURCE_DEPRECATED
+#undef ASM4
 #undef ASM5
 #undef ASM6
-#undef INVOKEINTERFACE
-#undef ASM4
+#undef ASM7
+#undef ASM8
 #undef ASM9_EXPERIMENTAL
-#undef SOURCE_MASK
+#undef INVOKEINTERFACE
 #undef METHOD
 #undef REQUIRES_ASM5
+#undef SOURCE_DEPRECATED
+#undef SOURCE_MASK
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -39,15 +39,15 @@
 #include <sun/invoke/util/ValueConversions.h>
 #include <jcpp.h>
 
-#undef I_TYPE_NUM
+#undef BMH_SPECIES
+#undef D_TYPE_NUM
+#undef FIELD_COUNT_THRESHOLD
+#undef FORM_EXPRESSION_THRESHOLD
 #undef F_TYPE_NUM
+#undef I_TYPE_NUM
+#undef J_TYPE_NUM
 #undef LF_REBIND
 #undef SPECIALIZER
-#undef BMH_SPECIES
-#undef FORM_EXPRESSION_THRESHOLD
-#undef FIELD_COUNT_THRESHOLD
-#undef D_TYPE_NUM
-#undef J_TYPE_NUM
 
 using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
 using $AssertionError = ::java::lang::AssertionError;

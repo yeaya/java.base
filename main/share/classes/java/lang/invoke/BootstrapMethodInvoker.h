@@ -7,12 +7,12 @@
 
 #pragma push_macro("LMF_ALT_MT")
 #undef LMF_ALT_MT
-#pragma push_macro("SCF_MT")
-#undef SCF_MT
 #pragma push_macro("LMF_CONDY_MT")
 #undef LMF_CONDY_MT
 #pragma push_macro("LMF_INDY_MT")
 #undef LMF_INDY_MT
+#pragma push_macro("SCF_MT")
+#undef SCF_MT
 
 namespace java {
 	namespace lang {
@@ -55,8 +55,8 @@ public:
 } // java
 
 #pragma pop_macro("LMF_ALT_MT")
-#pragma pop_macro("SCF_MT")
 #pragma pop_macro("LMF_CONDY_MT")
 #pragma pop_macro("LMF_INDY_MT")
+#pragma pop_macro("SCF_MT")
 
 #endif // _java_lang_invoke_BootstrapMethodInvoker_h_

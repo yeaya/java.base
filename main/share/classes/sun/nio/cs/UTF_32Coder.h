@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("BOM_LITTLE")
-#undef BOM_LITTLE
 #pragma push_macro("BIG")
 #undef BIG
 #pragma push_macro("BOM_BIG")
 #undef BOM_BIG
+#pragma push_macro("BOM_LITTLE")
+#undef BOM_LITTLE
 #pragma push_macro("LITTLE")
 #undef LITTLE
 #pragma push_macro("NONE")
@@ -36,9 +36,9 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("BOM_LITTLE")
 #pragma pop_macro("BIG")
 #pragma pop_macro("BOM_BIG")
+#pragma pop_macro("BOM_LITTLE")
 #pragma pop_macro("LITTLE")
 #pragma pop_macro("NONE")
 

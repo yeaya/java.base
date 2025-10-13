@@ -37,16 +37,16 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef YEARS_DIFFERENCE
-#undef TARGET_LANGUAGE
-#undef ERA_NARROW_NAMES
-#undef FALLBACK_LANGUAGE
 #undef BE
-#undef YEAR
-#undef ERA_SHORT_NAMES
-#undef INSTANCE
 #undef ERA_FULL_NAMES
+#undef ERA_NARROW_NAMES
+#undef ERA_SHORT_NAMES
+#undef FALLBACK_LANGUAGE
+#undef INSTANCE
 #undef PROLEPTIC_MONTH
+#undef TARGET_LANGUAGE
+#undef YEAR
+#undef YEARS_DIFFERENCE
 
 using $ThaiBuddhistEraArray = $Array<::java::time::chrono::ThaiBuddhistEra>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;

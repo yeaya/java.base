@@ -21,9 +21,9 @@
 #include <sun/security/x509/SerialNumber.h>
 #include <jcpp.h>
 
-#undef NUMBER
 #undef IDENT
 #undef NAME
+#undef NUMBER
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

@@ -6,42 +6,42 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/icu/util/VersionInfo.h>
 
-#pragma push_macro("IX_JG_LIMIT2")
-#undef IX_JG_LIMIT2
-#pragma push_macro("JT_MASK")
-#undef JT_MASK
-#pragma push_macro("MIRROR_INDEX_SHIFT")
-#undef MIRROR_INDEX_SHIFT
-#pragma push_macro("INSTANCE")
-#undef INSTANCE
-#pragma push_macro("FMT")
-#undef FMT
-#pragma push_macro("IX_MIRROR_LENGTH")
-#undef IX_MIRROR_LENGTH
-#pragma push_macro("CLASS_MASK")
-#undef CLASS_MASK
-#pragma push_macro("ESC_MIRROR_DELTA")
-#undef ESC_MIRROR_DELTA
-#pragma push_macro("IX_JG_START2")
-#undef IX_JG_START2
-#pragma push_macro("MIRROR_DELTA_SHIFT")
-#undef MIRROR_DELTA_SHIFT
 #pragma push_macro("BPT_MASK")
 #undef BPT_MASK
-#pragma push_macro("IX_JG_START")
-#undef IX_JG_START
+#pragma push_macro("BPT_SHIFT")
+#undef BPT_SHIFT
+#pragma push_macro("CLASS_MASK")
+#undef CLASS_MASK
+#pragma push_macro("DATA_FILE_NAME")
+#undef DATA_FILE_NAME
+#pragma push_macro("ESC_MIRROR_DELTA")
+#undef ESC_MIRROR_DELTA
+#pragma push_macro("FMT")
+#undef FMT
+#pragma push_macro("INSTANCE")
+#undef INSTANCE
 #pragma push_macro("IX_JG_LIMIT")
 #undef IX_JG_LIMIT
+#pragma push_macro("IX_JG_LIMIT2")
+#undef IX_JG_LIMIT2
+#pragma push_macro("IX_JG_START")
+#undef IX_JG_START
+#pragma push_macro("IX_JG_START2")
+#undef IX_JG_START2
+#pragma push_macro("IX_MIRROR_LENGTH")
+#undef IX_MIRROR_LENGTH
 #pragma push_macro("IX_TOP")
 #undef IX_TOP
 #pragma push_macro("IX_TRIE_SIZE")
 #undef IX_TRIE_SIZE
-#pragma push_macro("BPT_SHIFT")
-#undef BPT_SHIFT
-#pragma push_macro("DATA_FILE_NAME")
-#undef DATA_FILE_NAME
+#pragma push_macro("JT_MASK")
+#undef JT_MASK
 #pragma push_macro("JT_SHIFT")
 #undef JT_SHIFT
+#pragma push_macro("MIRROR_DELTA_SHIFT")
+#undef MIRROR_DELTA_SHIFT
+#pragma push_macro("MIRROR_INDEX_SHIFT")
+#undef MIRROR_INDEX_SHIFT
 
 namespace java {
 	namespace nio {
@@ -111,23 +111,23 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("IX_JG_LIMIT2")
-#pragma pop_macro("JT_MASK")
-#pragma pop_macro("MIRROR_INDEX_SHIFT")
-#pragma pop_macro("INSTANCE")
-#pragma pop_macro("FMT")
-#pragma pop_macro("IX_MIRROR_LENGTH")
-#pragma pop_macro("CLASS_MASK")
-#pragma pop_macro("ESC_MIRROR_DELTA")
-#pragma pop_macro("IX_JG_START2")
-#pragma pop_macro("MIRROR_DELTA_SHIFT")
 #pragma pop_macro("BPT_MASK")
-#pragma pop_macro("IX_JG_START")
+#pragma pop_macro("BPT_SHIFT")
+#pragma pop_macro("CLASS_MASK")
+#pragma pop_macro("DATA_FILE_NAME")
+#pragma pop_macro("ESC_MIRROR_DELTA")
+#pragma pop_macro("FMT")
+#pragma pop_macro("INSTANCE")
 #pragma pop_macro("IX_JG_LIMIT")
+#pragma pop_macro("IX_JG_LIMIT2")
+#pragma pop_macro("IX_JG_START")
+#pragma pop_macro("IX_JG_START2")
+#pragma pop_macro("IX_MIRROR_LENGTH")
 #pragma pop_macro("IX_TOP")
 #pragma pop_macro("IX_TRIE_SIZE")
-#pragma pop_macro("BPT_SHIFT")
-#pragma pop_macro("DATA_FILE_NAME")
+#pragma pop_macro("JT_MASK")
 #pragma pop_macro("JT_SHIFT")
+#pragma pop_macro("MIRROR_DELTA_SHIFT")
+#pragma pop_macro("MIRROR_INDEX_SHIFT")
 
 #endif // _jdk_internal_icu_impl_UBiDiProps_h_

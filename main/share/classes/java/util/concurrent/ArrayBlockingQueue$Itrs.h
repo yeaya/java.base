@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("SHORT_SWEEP_PROBES")
-#undef SHORT_SWEEP_PROBES
 #pragma push_macro("LONG_SWEEP_PROBES")
 #undef LONG_SWEEP_PROBES
+#pragma push_macro("SHORT_SWEEP_PROBES")
+#undef SHORT_SWEEP_PROBES
 
 namespace java {
 	namespace util {
@@ -47,7 +47,7 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SHORT_SWEEP_PROBES")
 #pragma pop_macro("LONG_SWEEP_PROBES")
+#pragma pop_macro("SHORT_SWEEP_PROBES")
 
 #endif // _java_util_concurrent_ArrayBlockingQueue$Itrs_h_

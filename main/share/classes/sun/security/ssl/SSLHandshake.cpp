@@ -41,34 +41,34 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
 #undef CERTIFICATE
-#undef KEY_UPDATE
-#undef FINISHED
-#undef PROTOCOLS_OF_12
-#undef SERVER_HELLO_DONE
-#undef MESSAGE_HASH
-#undef PROTOCOLS_OF_13
-#undef ENCRYPTED_EXTENSIONS
-#undef CLIENT_KEY_EXCHANGE
-#undef HELLO_REQUEST
-#undef SERVER_HELLO
-#undef PROTOCOLS_OF_30
-#undef END_OF_EARLY_DATA
+#undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_STATUS
+#undef CERTIFICATE_URL
+#undef CERTIFICATE_VERIFY
+#undef CLIENT_HELLO
+#undef CLIENT_KEY_EXCHANGE
+#undef ENCRYPTED_EXTENSIONS
+#undef END_OF_EARLY_DATA
+#undef FINISHED
+#undef HELLO_REQUEST
+#undef HELLO_RETRY_REQUEST
+#undef HELLO_VERIFY_REQUEST
+#undef KEY_UPDATE
+#undef MESSAGE_HASH
 #undef NEW_SESSION_TICKET
 #undef NONE
-#undef SUPPLEMENTAL_DATA
-#undef CLIENT_HELLO
-#undef CERTIFICATE_REQUEST
 #undef NOT_APPLICABLE
-#undef CERTIFICATE_VERIFY
-#undef HELLO_RETRY_REQUEST
-#undef SERVER_KEY_EXCHANGE
-#undef PROTOCOLS_TO_13
-#undef CERTIFICATE_URL
-#undef PROTOCOLS_TO_12
+#undef PROTOCOLS_OF_12
+#undef PROTOCOLS_OF_13
+#undef PROTOCOLS_OF_30
 #undef PROTOCOLS_TO_11
+#undef PROTOCOLS_TO_12
+#undef PROTOCOLS_TO_13
+#undef SERVER_HELLO
+#undef SERVER_HELLO_DONE
+#undef SERVER_KEY_EXCHANGE
+#undef SUPPLEMENTAL_DATA
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
@@ -434,7 +434,7 @@ void SSLHandshake::kickstart($HandshakeContext* context) {
 			$init($ClientHello);
 			$nc($ClientHello::kickstartProducer)->produce(context);
 		}
-	} else if ($nc($nc($nc(context)->conContext)->protocolVersion)->useTLS13PlusSpec()) {
+	} else if ($nc($nc(context->conContext)->protocolVersion)->useTLS13PlusSpec()) {
 		$init($KeyUpdate);
 		$nc($KeyUpdate::kickstartProducer)->produce(context);
 	} else {

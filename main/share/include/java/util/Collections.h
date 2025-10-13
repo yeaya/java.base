@@ -7,26 +7,26 @@
 
 #pragma push_macro("BINARYSEARCH_THRESHOLD")
 #undef BINARYSEARCH_THRESHOLD
-#pragma push_macro("FILL_THRESHOLD")
-#undef FILL_THRESHOLD
-#pragma push_macro("EMPTY_MAP")
-#undef EMPTY_MAP
-#pragma push_macro("ROTATE_THRESHOLD")
-#undef ROTATE_THRESHOLD
-#pragma push_macro("REVERSE_THRESHOLD")
-#undef REVERSE_THRESHOLD
-#pragma push_macro("EMPTY_SET")
-#undef EMPTY_SET
-#pragma push_macro("EMPTY_LIST")
-#undef EMPTY_LIST
 #pragma push_macro("COPY_THRESHOLD")
 #undef COPY_THRESHOLD
+#pragma push_macro("EMPTY_LIST")
+#undef EMPTY_LIST
+#pragma push_macro("EMPTY_MAP")
+#undef EMPTY_MAP
+#pragma push_macro("EMPTY_SET")
+#undef EMPTY_SET
+#pragma push_macro("FILL_THRESHOLD")
+#undef FILL_THRESHOLD
 #pragma push_macro("INDEXOFSUBLIST_THRESHOLD")
 #undef INDEXOFSUBLIST_THRESHOLD
-#pragma push_macro("SHUFFLE_THRESHOLD")
-#undef SHUFFLE_THRESHOLD
 #pragma push_macro("REPLACEALL_THRESHOLD")
 #undef REPLACEALL_THRESHOLD
+#pragma push_macro("REVERSE_THRESHOLD")
+#undef REVERSE_THRESHOLD
+#pragma push_macro("ROTATE_THRESHOLD")
+#undef ROTATE_THRESHOLD
+#pragma push_macro("SHUFFLE_THRESHOLD")
+#undef SHUFFLE_THRESHOLD
 
 namespace java {
 	namespace util {
@@ -157,15 +157,15 @@ public:
 } // java
 
 #pragma pop_macro("BINARYSEARCH_THRESHOLD")
-#pragma pop_macro("FILL_THRESHOLD")
-#pragma pop_macro("EMPTY_MAP")
-#pragma pop_macro("ROTATE_THRESHOLD")
-#pragma pop_macro("REVERSE_THRESHOLD")
-#pragma pop_macro("EMPTY_SET")
-#pragma pop_macro("EMPTY_LIST")
 #pragma pop_macro("COPY_THRESHOLD")
+#pragma pop_macro("EMPTY_LIST")
+#pragma pop_macro("EMPTY_MAP")
+#pragma pop_macro("EMPTY_SET")
+#pragma pop_macro("FILL_THRESHOLD")
 #pragma pop_macro("INDEXOFSUBLIST_THRESHOLD")
-#pragma pop_macro("SHUFFLE_THRESHOLD")
 #pragma pop_macro("REPLACEALL_THRESHOLD")
+#pragma pop_macro("REVERSE_THRESHOLD")
+#pragma pop_macro("ROTATE_THRESHOLD")
+#pragma pop_macro("SHUFFLE_THRESHOLD")
 
 #endif // _java_util_Collections_h_

@@ -22,19 +22,19 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef GOLDEN_RATIO_32
-#undef GOLDEN_RATIO_64
-#undef UA
-#undef POSITIVE_INFINITY
-#undef BAD_FLOATING_BOUND
+#undef BAD_BOUND
 #undef BAD_DISTANCE
+#undef BAD_FLOATING_BOUND
 #undef BAD_RANGE
 #undef BAD_SIZE
-#undef BAD_BOUND
-#undef X
-#undef Y
+#undef GOLDEN_RATIO_32
+#undef GOLDEN_RATIO_64
+#undef POSITIVE_INFINITY
 #undef SILVER_RATIO_32
 #undef SILVER_RATIO_64
+#undef UA
+#undef X
+#undef Y
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -288,12 +288,12 @@ int64_t RandomSupport::boundedNextLong($RandomGenerator* rng, int64_t origin, in
 		if (((int64_t)(n & (uint64_t)m)) == (int64_t)0) {
 			r = ((int64_t)(r & (uint64_t)m)) + origin;
 		} else if (n > (int64_t)0) {
-			for (int64_t u = (int64_t)((uint64_t)r >> 1); u + m - (r = $mod(u, n)) < (int64_t)0; u = (int64_t)((uint64_t)$nc(rng)->nextLong() >> 1)) {
+			for (int64_t u = (int64_t)((uint64_t)r >> 1); u + m - (r = $mod(u, n)) < (int64_t)0; u = (int64_t)((uint64_t)rng->nextLong() >> 1)) {
 			}
 			r += origin;
 		} else {
 			while (r < origin || r >= bound) {
-				r = $nc(rng)->nextLong();
+				r = rng->nextLong();
 			}
 		}
 	}
@@ -322,12 +322,12 @@ int32_t RandomSupport::boundedNextInt($RandomGenerator* rng, int32_t origin, int
 		if (((int32_t)(n & (uint32_t)m)) == 0) {
 			r = ((int32_t)(r & (uint32_t)m)) + origin;
 		} else if (n > 0) {
-			for (int32_t u = (int32_t)((uint32_t)r >> 1); u + m - (r = $mod(u, n)) < 0; u = (int32_t)((uint32_t)$nc(rng)->nextInt() >> 1)) {
+			for (int32_t u = (int32_t)((uint32_t)r >> 1); u + m - (r = $mod(u, n)) < 0; u = (int32_t)((uint32_t)rng->nextInt() >> 1)) {
 			}
 			r += origin;
 		} else {
 			while (r < origin || r >= bound) {
-				r = $nc(rng)->nextInt();
+				r = rng->nextInt();
 			}
 		}
 	}
@@ -529,13 +529,11 @@ double RandomSupport::computeNextGaussian($RandomGenerator* rng) {
 		}
 	} else if (j == 0) {
 		do {
-			$init($RandomSupport$DoubleZigguratTables);
 			x = ($div(1.0, $RandomSupport$DoubleZigguratTables::normalX0)) * computeNextExponential(rng);
 		} while (computeNextExponential(rng) < 0.5 * x * x);
-		$init($RandomSupport$DoubleZigguratTables);
 		x += $RandomSupport$DoubleZigguratTables::normalX0;
 	} else if (j < $RandomSupport$DoubleZigguratTables::normalInflectionIndex) {
-		for (;; U1 = ((int64_t)((uint64_t)$nc(rng)->nextLong() >> 1))) {
+		for (;; U1 = ((int64_t)((uint64_t)rng->nextLong() >> 1))) {
 			int64_t U2 = ((int64_t)((uint64_t)rng->nextLong() >> 1));
 			x = ($nc(X)->get(j) * 9.223372036854776E18) + ((X->get(j - 1) - X->get(j)) * (double)U1);
 			int64_t Udiff = U2 - U1;
@@ -553,7 +551,7 @@ double RandomSupport::computeNextGaussian($RandomGenerator* rng) {
 			}
 		}
 	} else {
-		for (;; U1 = ((int64_t)((uint64_t)$nc(rng)->nextLong() >> 1))) {
+		for (;; U1 = ((int64_t)((uint64_t)rng->nextLong() >> 1))) {
 			int64_t U2 = ((int64_t)((uint64_t)rng->nextLong() >> 1));
 			x = ($nc(X)->get(j) * 9.223372036854776E18) + ((X->get(j - 1) - X->get(j)) * (double)U1);
 			int64_t Udiff = U2 - U1;

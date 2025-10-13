@@ -210,7 +210,7 @@ $String* Handler::parseContextSpec($URL* url, $String* spec) {
 		int32_t lastSlash = $nc(ctxFile)->lastIndexOf((int32_t)u'/');
 		if (lastSlash == -1) {
 			$throwNew($NullPointerException, $$str({"malformed context url:"_s, url}));
-		} else if (lastSlash < $nc(ctxFile)->length() - 1) {
+		} else if (lastSlash < ctxFile->length() - 1) {
 			$assign(ctxFile, ctxFile->substring(0, lastSlash + 1));
 		}
 	}

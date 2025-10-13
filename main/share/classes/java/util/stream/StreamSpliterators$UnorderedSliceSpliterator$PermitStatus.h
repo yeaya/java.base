@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NO_MORE")
-#undef NO_MORE
 #pragma push_macro("MAYBE_MORE")
 #undef MAYBE_MORE
+#pragma push_macro("NO_MORE")
+#undef NO_MORE
 #pragma push_macro("UNLIMITED")
 #undef UNLIMITED
 
@@ -35,8 +35,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("NO_MORE")
 #pragma pop_macro("MAYBE_MORE")
+#pragma pop_macro("NO_MORE")
 #pragma pop_macro("UNLIMITED")
 
 #endif // _java_util_stream_StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_h_

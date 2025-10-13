@@ -48,8 +48,8 @@
 #include <jcpp.h>
 
 #undef ILLEGAL_PARAMETER
-#undef INTERNAL_ERROR
 #undef INSUFFICIENT_SECURITY
+#undef INTERNAL_ERROR
 #undef UNEXPECTED_MESSAGE
 
 using $Serializable = ::java::io::Serializable;

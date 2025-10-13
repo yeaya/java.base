@@ -15,23 +15,23 @@
 #include <java/time/temporal/TemporalUnit.h>
 #include <jcpp.h>
 
-#undef FOREVER
-#undef MICROS
-#undef SECONDS
-#undef DECADES
-#undef MILLENNIA
-#undef DAYS
-#undef MILLIS
-#undef MAX_VALUE
-#undef HALF_DAYS
-#undef MONTHS
-#undef YEARS
-#undef HOURS
-#undef WEEKS
-#undef NANOS
 #undef CENTURIES
-#undef MINUTES
+#undef DAYS
+#undef DECADES
 #undef ERAS
+#undef FOREVER
+#undef HALF_DAYS
+#undef HOURS
+#undef MAX_VALUE
+#undef MICROS
+#undef MILLENNIA
+#undef MILLIS
+#undef MINUTES
+#undef MONTHS
+#undef NANOS
+#undef SECONDS
+#undef WEEKS
+#undef YEARS
 
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;

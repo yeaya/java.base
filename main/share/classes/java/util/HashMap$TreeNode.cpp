@@ -146,18 +146,18 @@ HashMap$TreeNode* HashMap$TreeNode::find(int32_t h, Object$* k, $Class* kc) {
 		} else if (ph < h) {
 			$assign(p, pr);
 		} else {
-			bool var$3 = $equals($assign(pk, $nc(p)->key), k);
-			if (var$3 || (k != nullptr && $of(k)->equals(pk))) {
+			bool var$1 = $equals($assign(pk, p->key), k);
+			if (var$1 || (k != nullptr && $of(k)->equals(pk))) {
 				return p;
 			} else if (pl == nullptr) {
 				$assign(p, pr);
 			} else if (pr == nullptr) {
 				$assign(p, pl);
 			} else {
-				bool var$5 = (kc != nullptr || (kc = $HashMap::comparableClassFor(k)) != nullptr);
-				if (var$5 && (dir = $HashMap::compareComparables(kc, k, pk)) != 0) {
+				bool var$3 = (kc != nullptr || (kc = $HashMap::comparableClassFor(k)) != nullptr);
+				if (var$3 && (dir = $HashMap::compareComparables(kc, k, pk)) != 0) {
 					$assign(p, (dir < 0) ? pl : pr);
-				} else if (($assign(q, $nc(pr)->find(h, k, kc))) != nullptr) {
+				} else if (($assign(q, pr->find(h, k, kc))) != nullptr) {
 					return q;
 				} else {
 					$assign(p, pl);
@@ -266,23 +266,23 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 			} else if (ph < h) {
 				dir = 1;
 			} else {
-				bool var$9 = $equals($assign(pk, $nc(p)->key), k);
-				if (var$9 || (k != nullptr && $of(k)->equals(pk))) {
+				bool var$1 = $equals($assign(pk, p->key), k);
+				if (var$1 || (k != nullptr && $of(k)->equals(pk))) {
 					return p;
 				} else {
-					bool var$14 = (kc == nullptr && (kc = $HashMap::comparableClassFor(k)) == nullptr);
-					if (var$14 || (dir = $HashMap::compareComparables(kc, k, pk)) == 0) {
+					bool var$3 = (kc == nullptr && (kc = $HashMap::comparableClassFor(k)) == nullptr);
+					if (var$3 || (dir = $HashMap::compareComparables(kc, k, pk)) == 0) {
 						if (!searched) {
 							$var(HashMap$TreeNode, q, nullptr);
 							$var(HashMap$TreeNode, ch, nullptr);
 							searched = true;
-							bool var$16 = ($assign(ch, $nc(p)->left)) != nullptr;
-							bool var$15 = (var$16 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr);
-							if (!var$15) {
-								bool var$17 = ($assign(ch, $nc(p)->right)) != nullptr;
-								var$15 = (var$17 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr);
+							bool var$5 = ($assign(ch, p->left)) != nullptr;
+							bool var$4 = (var$5 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr);
+							if (!var$4) {
+								bool var$6 = ($assign(ch, p->right)) != nullptr;
+								var$4 = (var$6 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr);
 							}
-							if (var$15) {
+							if (var$4) {
 								return q;
 							}
 						}
@@ -389,7 +389,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 		}
 		if (($assignField(s, parent, pp)) == nullptr) {
 			$assign(root, s);
-		} else if (p == $nc(pp)->left) {
+		} else if (p == pp->left) {
 			$set(pp, left, s);
 		} else {
 			$set(pp, right, s);
@@ -410,7 +410,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 		$var(HashMap$TreeNode, pp, $assignField($nc(replacement), parent, p->parent));
 		if (pp == nullptr) {
 			$nc(($assign(root, replacement)))->red = false;
-		} else if (p == $nc(pp)->left) {
+		} else if (p == pp->left) {
 			$set(pp, left, replacement);
 		} else {
 			$set(pp, right, replacement);
@@ -424,7 +424,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 		if (pp != nullptr) {
 			if (p == pp->left) {
 				$set(pp, left, nullptr);
-			} else if (p == $nc(pp)->right) {
+			} else if (p == pp->right) {
 				$set(pp, right, nullptr);
 			}
 		}
@@ -501,7 +501,7 @@ HashMap$TreeNode* HashMap$TreeNode::rotateLeft(HashMap$TreeNode* root$renamed, H
 		}
 		if (($assign(pp, ($assignField($nc(r), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, r)))->red = false;
-		} else if ($nc(pp)->left == p) {
+		} else if (pp->left == p) {
 			$set(pp, left, r);
 		} else {
 			$set(pp, right, r);
@@ -524,7 +524,7 @@ HashMap$TreeNode* HashMap$TreeNode::rotateRight(HashMap$TreeNode* root$renamed, 
 		}
 		if (($assign(pp, ($assignField($nc(l), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, l)))->red = false;
-		} else if ($nc(pp)->right == p) {
+		} else if (pp->right == p) {
 			$set(pp, right, l);
 		} else {
 			$set(pp, left, l);
@@ -549,18 +549,18 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 			if (($assign(xp, x->parent)) == nullptr) {
 				x->red = false;
 				return x;
-			} else if (!$nc(xp)->red || ($assign(xpp, $nc(xp)->parent)) == nullptr) {
+			} else if (!xp->red || ($assign(xpp, xp->parent)) == nullptr) {
 				return root;
 			}
 			if (xp == ($assign(xppl, $nc(xpp)->left))) {
 				bool var$0 = ($assign(xppr, xpp->right)) != nullptr;
 				if (var$0 && $nc(xppr)->red) {
 					xppr->red = false;
-					$nc(xp)->red = false;
+					xp->red = false;
 					xpp->red = true;
 					$assign(x, xpp);
 				} else {
-					if (x == $nc(xp)->right) {
+					if (x == xp->right) {
 						$assign(root, rotateLeft(root, $assign(x, xp)));
 						$assign(xpp, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->parent);
 					}
@@ -574,13 +574,13 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 				}
 			} else if (xppl != nullptr && xppl->red) {
 				xppl->red = false;
-				$nc(xp)->red = false;
-				$nc(xpp)->red = true;
+				xp->red = false;
+				xpp->red = true;
 				$assign(x, xpp);
 			} else {
-				if (x == $nc(xp)->left) {
+				if (x == xp->left) {
 					$assign(root, rotateRight(root, $assign(x, xp)));
-					$assign(xpp, ($assign(xp, $nc(x)->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->parent);
+					$assign(xpp, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->parent);
 				}
 				if (xp != nullptr) {
 					xp->red = false;
@@ -605,19 +605,19 @@ HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renam
 		for (;;) {
 			if (x == nullptr || x == root) {
 				return root;
-			} else if (($assign(xp, $nc(x)->parent)) == nullptr) {
+			} else if (($assign(xp, x->parent)) == nullptr) {
 				x->red = false;
 				return x;
-			} else if ($nc(x)->red) {
+			} else if (x->red) {
 				x->red = false;
 				return root;
-			} else if (($assign(xpl, $nc(xp)->left)) == x) {
+			} else if (($assign(xpl, xp->left)) == x) {
 				bool var$0 = ($assign(xpr, xp->right)) != nullptr;
 				if (var$0 && $nc(xpr)->red) {
 					xpr->red = false;
 					xp->red = true;
 					$assign(root, rotateLeft(root, xp));
-					$assign(xpr, ($assign(xp, $nc(x)->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->right);
+					$assign(xpr, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->right);
 				}
 				if (xpr == nullptr) {
 					$assign(x, xp);
@@ -634,7 +634,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renam
 							}
 							xpr->red = true;
 							$assign(root, rotateRight(root, xpr));
-							$assign(xpr, ($assign(xp, $nc(x)->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->right);
+							$assign(xpr, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->right);
 						}
 						if (xpr != nullptr) {
 							xpr->red = (xp == nullptr) ? false : xp->red;
@@ -654,7 +654,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renam
 					xpl->red = false;
 					xp->red = true;
 					$assign(root, rotateRight(root, xp));
-					$assign(xpl, ($assign(xp, $nc(x)->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->left);
+					$assign(xpl, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->left);
 				}
 				if (xpl == nullptr) {
 					$assign(x, xp);
@@ -671,7 +671,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renam
 							}
 							xpl->red = true;
 							$assign(root, rotateLeft(root, xpl));
-							$assign(xpl, ($assign(xp, $nc(x)->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->left);
+							$assign(xpl, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->left);
 						}
 						if (xpl != nullptr) {
 							xpl->red = (xp == nullptr) ? false : xp->red;

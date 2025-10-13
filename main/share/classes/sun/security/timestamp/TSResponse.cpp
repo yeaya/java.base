@@ -21,20 +21,20 @@
 #include <sun/security/util/DerValue.h>
 #include <jcpp.h>
 
-#undef BAD_REQUEST
-#undef TIME_NOT_AVAILABLE
-#undef SYSTEM_FAILURE
-#undef BAD_ALG
-#undef REVOCATION_WARNING
-#undef REJECTION
-#undef BAD_DATA_FORMAT
-#undef REVOCATION_NOTIFICATION
-#undef GRANTED_WITH_MODS
-#undef WAITING
-#undef UNACCEPTED_POLICY
-#undef UNACCEPTED_EXTENSION
-#undef GRANTED
 #undef ADD_INFO_NOT_AVAILABLE
+#undef BAD_ALG
+#undef BAD_DATA_FORMAT
+#undef BAD_REQUEST
+#undef GRANTED
+#undef GRANTED_WITH_MODS
+#undef REJECTION
+#undef REVOCATION_NOTIFICATION
+#undef REVOCATION_WARNING
+#undef SYSTEM_FAILURE
+#undef TIME_NOT_AVAILABLE
+#undef UNACCEPTED_EXTENSION
+#undef UNACCEPTED_POLICY
+#undef WAITING
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $IOException = ::java::io::IOException;

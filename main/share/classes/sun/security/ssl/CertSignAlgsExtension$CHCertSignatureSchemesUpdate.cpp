@@ -28,9 +28,9 @@
 #include <sun/security/ssl/SignatureScheme.h>
 #include <jcpp.h>
 
+#undef CERTIFICATE
 #undef CERTIFICATE_REQUEST
 #undef CERTIFICATE_VERIFY
-#undef CERTIFICATE
 #undef CH_SIGNATURE_ALGORITHMS_CERT
 #undef CLIENT_AUTH_NONE
 

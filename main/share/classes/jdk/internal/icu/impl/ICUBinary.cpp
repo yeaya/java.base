@@ -31,13 +31,13 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
 #include <jcpp.h>
 
-#undef HEADER_AUTHENTICATION_FAILED_
 #undef BIG_ENDIAN
-#undef CHAR_SIZE_
+#undef BIG_ENDIAN_
 #undef CHAR_SET_
+#undef CHAR_SIZE_
+#undef HEADER_AUTHENTICATION_FAILED_
 #undef LITTLE_ENDIAN
 #undef MAGIC1
-#undef BIG_ENDIAN_
 #undef MAGIC2
 #undef MAGIC_NUMBER_AUTHENTICATION_FAILED_
 

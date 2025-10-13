@@ -8,38 +8,38 @@
 #include <java/lang/Enum.h>
 #include <java/time/temporal/TemporalUnit.h>
 
-#pragma push_macro("FOREVER")
-#undef FOREVER
-#pragma push_macro("MICROS")
-#undef MICROS
-#pragma push_macro("SECONDS")
-#undef SECONDS
-#pragma push_macro("DECADES")
-#undef DECADES
-#pragma push_macro("MILLENNIA")
-#undef MILLENNIA
-#pragma push_macro("DAYS")
-#undef DAYS
-#pragma push_macro("MILLIS")
-#undef MILLIS
-#pragma push_macro("HALF_DAYS")
-#undef HALF_DAYS
-#pragma push_macro("MONTHS")
-#undef MONTHS
-#pragma push_macro("YEARS")
-#undef YEARS
-#pragma push_macro("HOURS")
-#undef HOURS
-#pragma push_macro("WEEKS")
-#undef WEEKS
-#pragma push_macro("NANOS")
-#undef NANOS
 #pragma push_macro("CENTURIES")
 #undef CENTURIES
-#pragma push_macro("MINUTES")
-#undef MINUTES
+#pragma push_macro("DAYS")
+#undef DAYS
+#pragma push_macro("DECADES")
+#undef DECADES
 #pragma push_macro("ERAS")
 #undef ERAS
+#pragma push_macro("FOREVER")
+#undef FOREVER
+#pragma push_macro("HALF_DAYS")
+#undef HALF_DAYS
+#pragma push_macro("HOURS")
+#undef HOURS
+#pragma push_macro("MICROS")
+#undef MICROS
+#pragma push_macro("MILLENNIA")
+#undef MILLENNIA
+#pragma push_macro("MILLIS")
+#undef MILLIS
+#pragma push_macro("MINUTES")
+#undef MINUTES
+#pragma push_macro("MONTHS")
+#undef MONTHS
+#pragma push_macro("NANOS")
+#undef NANOS
+#pragma push_macro("SECONDS")
+#undef SECONDS
+#pragma push_macro("WEEKS")
+#undef WEEKS
+#pragma push_macro("YEARS")
+#undef YEARS
 
 namespace java {
 	namespace time {
@@ -104,21 +104,21 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("FOREVER")
-#pragma pop_macro("MICROS")
-#pragma pop_macro("SECONDS")
-#pragma pop_macro("DECADES")
-#pragma pop_macro("MILLENNIA")
-#pragma pop_macro("DAYS")
-#pragma pop_macro("MILLIS")
-#pragma pop_macro("HALF_DAYS")
-#pragma pop_macro("MONTHS")
-#pragma pop_macro("YEARS")
-#pragma pop_macro("HOURS")
-#pragma pop_macro("WEEKS")
-#pragma pop_macro("NANOS")
 #pragma pop_macro("CENTURIES")
-#pragma pop_macro("MINUTES")
+#pragma pop_macro("DAYS")
+#pragma pop_macro("DECADES")
 #pragma pop_macro("ERAS")
+#pragma pop_macro("FOREVER")
+#pragma pop_macro("HALF_DAYS")
+#pragma pop_macro("HOURS")
+#pragma pop_macro("MICROS")
+#pragma pop_macro("MILLENNIA")
+#pragma pop_macro("MILLIS")
+#pragma pop_macro("MINUTES")
+#pragma pop_macro("MONTHS")
+#pragma pop_macro("NANOS")
+#pragma pop_macro("SECONDS")
+#pragma pop_macro("WEEKS")
+#pragma pop_macro("YEARS")
 
 #endif // _java_time_temporal_ChronoUnit_h_

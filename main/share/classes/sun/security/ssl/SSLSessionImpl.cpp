@@ -81,15 +81,15 @@
 #include <jcpp.h>
 
 #undef BYTES
-#undef ZERO
-#undef SH_EXTENDED_MASTER_SECRET
+#undef CH_EXTENDED_MASTER_SECRET
+#undef C_NULL
 #undef DSA_SHA1
 #undef ECDSA_SHA1
-#undef ONE
-#undef C_NULL
 #undef NONE
+#undef ONE
 #undef RSA_PKCS1_SHA1
-#undef CH_EXTENDED_MASTER_SECRET
+#undef SH_EXTENDED_MASTER_SECRET
+#undef ZERO
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
@@ -763,7 +763,7 @@ $bytes* SSLSessionImpl::write() {
 			}
 		}
 	} else if (this->preSharedKey != nullptr) {
-		$nc(hos)->putInt8(2);
+		hos->putInt8(2);
 		hos->putInt8($nc($($nc(this->preSharedKey)->getAlgorithm()))->length());
 		hos->write($($nc($($nc(this->preSharedKey)->getAlgorithm()))->getBytes()));
 		$assign(b, $nc(this->preSharedKey)->getEncoded());
@@ -772,7 +772,7 @@ $bytes* SSLSessionImpl::write() {
 		hos->putInt32($nc(this->pskIdentity)->length);
 		hos->writeBytes(this->pskIdentity);
 	} else {
-		$nc(hos)->putInt8(0);
+		hos->putInt8(0);
 	}
 	return hos->toByteArray();
 }

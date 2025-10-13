@@ -5,10 +5,10 @@
 
 #include <sun/util/resources/Bundles$Strategy.h>
 
-#pragma push_macro("JAVA_BASE_LOCALES")
-#undef JAVA_BASE_LOCALES
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("JAVA_BASE_LOCALES")
+#undef JAVA_BASE_LOCALES
 
 namespace java {
 	namespace util {
@@ -40,7 +40,7 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("JAVA_BASE_LOCALES")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("JAVA_BASE_LOCALES")
 
 #endif // _sun_util_resources_LocaleData$LocaleDataStrategy_h_

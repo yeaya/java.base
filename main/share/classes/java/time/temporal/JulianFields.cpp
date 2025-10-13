@@ -13,10 +13,10 @@
 #include <java/time/temporal/TemporalField.h>
 #include <jcpp.h>
 
-#undef RATA_DIE
-#undef JULIAN_DAY_OFFSET
 #undef JULIAN_DAY
+#undef JULIAN_DAY_OFFSET
 #undef MODIFIED_JULIAN_DAY
+#undef RATA_DIE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

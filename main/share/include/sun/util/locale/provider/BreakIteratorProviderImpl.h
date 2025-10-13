@@ -12,10 +12,10 @@
 #undef CHARACTER_INDEX
 #pragma push_macro("LINE_INDEX")
 #undef LINE_INDEX
-#pragma push_macro("WORD_INDEX")
-#undef WORD_INDEX
 #pragma push_macro("SENTENCE_INDEX")
 #undef SENTENCE_INDEX
+#pragma push_macro("WORD_INDEX")
+#undef WORD_INDEX
 
 namespace java {
 	namespace text {
@@ -77,7 +77,7 @@ public:
 
 #pragma pop_macro("CHARACTER_INDEX")
 #pragma pop_macro("LINE_INDEX")
-#pragma pop_macro("WORD_INDEX")
 #pragma pop_macro("SENTENCE_INDEX")
+#pragma pop_macro("WORD_INDEX")
 
 #endif // _sun_util_locale_provider_BreakIteratorProviderImpl_h_

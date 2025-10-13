@@ -15,8 +15,8 @@
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
-#undef DIGIT_TENS
 #undef DIGIT_ONES
+#undef DIGIT_TENS
 #undef MAX_VALUE
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;

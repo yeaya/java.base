@@ -5,14 +5,14 @@
 
 #include <sun/security/x509/CertAttrSet.h>
 
-#pragma push_macro("NOT_AFTER")
-#undef NOT_AFTER
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("NOT_BEFORE")
-#undef NOT_BEFORE
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("NOT_AFTER")
+#undef NOT_AFTER
+#pragma push_macro("NOT_BEFORE")
+#undef NOT_BEFORE
 
 namespace java {
 	namespace io {
@@ -70,9 +70,9 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NOT_AFTER")
 #pragma pop_macro("IDENT")
-#pragma pop_macro("NOT_BEFORE")
 #pragma pop_macro("NAME")
+#pragma pop_macro("NOT_AFTER")
+#pragma pop_macro("NOT_BEFORE")
 
 #endif // _sun_security_x509_CertificateValidity_h_

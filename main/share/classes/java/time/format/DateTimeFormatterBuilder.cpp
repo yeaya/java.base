@@ -78,47 +78,47 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <jcpp.h>
 
-#undef EXCEEDS_PAD
-#undef DAY_OF_YEAR
-#undef CLOCK_HOUR_OF_AMPM
-#undef FIELD_MAP
-#undef QUARTER_OF_YEAR
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
-#undef FORMAT
-#undef DAY_OF_MONTH
-#undef MODIFIED_JULIAN_DAY
-#undef NARROW_STANDALONE
-#undef SECOND_OF_MINUTE
-#undef PATTERNS
-#undef FULL_STANDALONE
-#undef NARROW
-#undef NANO_OF_DAY
-#undef CLOCK_HOUR_OF_DAY
-#undef LENIENT
-#undef BASE_DATE
-#undef YEAR
-#undef HOUR_OF_DAY
-#undef QUERY_REGION_ONLY
-#undef MILLI_OF_DAY
-#undef SMART
-#undef INSENSITIVE
-#undef YEAR_OF_ERA
-#undef STANDARD
-#undef STRICT
 #undef AMPM_OF_DAY
-#undef SHORT_STANDALONE
-#undef SENSITIVE
-#undef NANO_OF_SECOND
-#undef FULL
-#undef SHORT
-#undef MONTH_OF_YEAR
-#undef INSTANCE_ID_Z
-#undef ERA
-#undef HOUR_OF_AMPM
-#undef MINUTE_OF_HOUR
+#undef BASE_DATE
+#undef CLOCK_HOUR_OF_AMPM
+#undef CLOCK_HOUR_OF_DAY
+#undef DAY_OF_MONTH
 #undef DAY_OF_WEEK
+#undef DAY_OF_YEAR
+#undef ERA
+#undef EXCEEDS_PAD
+#undef FIELD_MAP
+#undef FORMAT
+#undef FULL
+#undef FULL_STANDALONE
+#undef HOUR_OF_AMPM
+#undef HOUR_OF_DAY
+#undef INSENSITIVE
+#undef INSTANCE_ID_Z
+#undef LENIENT
+#undef MILLI_OF_DAY
+#undef MINUTE_OF_HOUR
+#undef MODIFIED_JULIAN_DAY
+#undef MONTH_OF_YEAR
+#undef NANO_OF_DAY
+#undef NANO_OF_SECOND
+#undef NARROW
+#undef NARROW_STANDALONE
 #undef NORMAL
 #undef NOT_NEGATIVE
+#undef PATTERNS
+#undef QUARTER_OF_YEAR
+#undef QUERY_REGION_ONLY
+#undef SECOND_OF_MINUTE
+#undef SENSITIVE
+#undef SHORT
+#undef SHORT_STANDALONE
+#undef SMART
+#undef STANDARD
+#undef STRICT
+#undef YEAR
+#undef YEAR_OF_ERA
 
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
@@ -832,7 +832,7 @@ void DateTimeFormatterBuilder::parsePattern($String* pattern) {
 			--pos;
 		} else if (cur == u'\'') {
 			int32_t start = pos++;
-			for (; pos < $nc(pattern)->length(); ++pos) {
+			for (; pos < pattern->length(); ++pos) {
 				if (pattern->charAt(pos) == u'\'') {
 					bool var$2 = pos + 1 < pattern->length();
 					if (var$2 && pattern->charAt(pos + 1) == u'\'') {
@@ -842,10 +842,10 @@ void DateTimeFormatterBuilder::parsePattern($String* pattern) {
 					}
 				}
 			}
-			if (pos >= $nc(pattern)->length()) {
+			if (pos >= pattern->length()) {
 				$throwNew($IllegalArgumentException, $$str({"Pattern ends with an incomplete string literal: "_s, pattern}));
 			}
-			$var($String, str, $nc(pattern)->substring(start + 1, pos));
+			$var($String, str, pattern->substring(start + 1, pos));
 			if (str->isEmpty()) {
 				appendLiteral(u'\'');
 			} else {

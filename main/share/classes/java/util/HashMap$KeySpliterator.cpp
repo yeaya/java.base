@@ -17,8 +17,8 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef SIZED
 #undef DISTINCT
+#undef SIZED
 
 using $HashMap$NodeArray = $Array<::java::util::HashMap$Node>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -70,24 +70,24 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-#undef WRAP_MODE
-#undef S_MAYBE
-#undef ENGLISH
-#undef S_YES
-#undef I_PARAMSPEC
-#undef PUBLIC_KEY
-#undef PRIVATE_KEY
-#undef SECRET_KEY
-#undef INSTANCE
-#undef S_NO
 #undef ATTR_MODE
-#undef UNWRAP_MODE
-#undef I_CERT
-#undef ENCRYPT_MODE
-#undef I_KEY
 #undef ATTR_PAD
 #undef DECRYPT_MODE
+#undef ENCRYPT_MODE
+#undef ENGLISH
+#undef INSTANCE
+#undef I_CERT
+#undef I_KEY
 #undef I_PARAMS
+#undef I_PARAMSPEC
+#undef PRIVATE_KEY
+#undef PUBLIC_KEY
+#undef SECRET_KEY
+#undef S_MAYBE
+#undef S_NO
+#undef S_YES
+#undef UNWRAP_MODE
+#undef WRAP_MODE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

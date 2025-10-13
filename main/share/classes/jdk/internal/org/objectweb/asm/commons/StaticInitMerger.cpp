@@ -13,11 +13,11 @@
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jcpp.h>
 
-#undef INVOKESTATIC
-#undef RETURN
+#undef ACC_PRIVATE
 #undef ACC_STATIC
 #undef ASM8
-#undef ACC_PRIVATE
+#undef INVOKESTATIC
+#undef RETURN
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -12,14 +12,14 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NAME_CHAINING
-#undef UNRECOGNIZED_CRIT_EXT
-#undef PATH_TOO_LONG
-#undef INVALID_POLICY
 #undef INVALID_KEY_USAGE
 #undef INVALID_NAME
+#undef INVALID_POLICY
+#undef NAME_CHAINING
 #undef NOT_CA_CERT
 #undef NO_TRUST_ANCHOR
+#undef PATH_TOO_LONG
+#undef UNRECOGNIZED_CRIT_EXT
 
 using $PKIXReasonArray = $Array<::java::security::cert::PKIXReason>;
 using $ClassInfo = ::java::lang::ClassInfo;

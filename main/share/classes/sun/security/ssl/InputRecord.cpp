@@ -26,8 +26,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef TLS10
 #undef HANDSHAKE
+#undef TLS10
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $PlaintextArray = $Array<::sun::security::ssl::Plaintext>;

@@ -20,8 +20,8 @@
 
 #undef PACKAGE_CLASS_IN_PKG_A
 #undef PACKAGE_CLASS_IN_PKG_B
-#undef PUBLIC_SUPERCLASS_IN_PKG_A
 #undef PUBLIC_SUBCLASS_IN_PKG_B
+#undef PUBLIC_SUPERCLASS_IN_PKG_A
 
 using $ClassSupplierArray = $Array<::util::ClassSupplier>;
 using $ClassInfo = ::java::lang::ClassInfo;

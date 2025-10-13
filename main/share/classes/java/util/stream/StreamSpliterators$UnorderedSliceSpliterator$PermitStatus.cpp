@@ -14,8 +14,8 @@
 #include <java/util/stream/StreamSpliterators.h>
 #include <jcpp.h>
 
-#undef NO_MORE
 #undef MAYBE_MORE
+#undef NO_MORE
 #undef UNLIMITED
 
 using $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray = $Array<::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator$PermitStatus>;

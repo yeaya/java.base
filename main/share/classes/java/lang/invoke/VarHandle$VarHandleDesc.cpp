@@ -26,9 +26,9 @@
 #include <jcpp.h>
 
 #undef ARRAY
-#undef STATIC_FIELD
 #undef DEFAULT_NAME
 #undef FIELD
+#undef STATIC_FIELD
 
 using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $ClassInfo = ::java::lang::ClassInfo;

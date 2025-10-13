@@ -34,12 +34,12 @@
 #include <sun/security/rsa/RSACore.h>
 #include <jcpp.h>
 
-#undef PAD_OAEP_MGF1
 #undef EM
-#undef PAD_BLOCKTYPE_2
 #undef M
 #undef PAD_BLOCKTYPE_1
+#undef PAD_BLOCKTYPE_2
 #undef PAD_NONE
+#undef PAD_OAEP_MGF1
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

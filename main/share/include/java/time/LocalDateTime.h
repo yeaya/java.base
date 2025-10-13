@@ -7,10 +7,10 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/ChronoLocalDateTime.h>
 
-#pragma push_macro("MIN")
-#undef MIN
 #pragma push_macro("MAX")
 #undef MAX
+#pragma push_macro("MIN")
+#undef MIN
 
 namespace java {
 	namespace io {
@@ -172,7 +172,7 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("MIN")
 #pragma pop_macro("MAX")
+#pragma pop_macro("MIN")
 
 #endif // _java_time_LocalDateTime_h_

@@ -69,15 +69,15 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef SOCKET_CONNECT_ACCEPT_ACTION
-#undef SEALED
-#undef SPECIFICATION_VERSION
 #undef FILE_READ_ACTION
-#undef SPECIFICATION_VENDOR
-#undef SPECIFICATION_TITLE
-#undef IMPLEMENTATION_VERSION
 #undef IMPLEMENTATION_TITLE
 #undef IMPLEMENTATION_VENDOR
+#undef IMPLEMENTATION_VERSION
+#undef SEALED
+#undef SOCKET_CONNECT_ACCEPT_ACTION
+#undef SPECIFICATION_TITLE
+#undef SPECIFICATION_VENDOR
+#undef SPECIFICATION_VERSION
 
 using $URLArray = $Array<::java::net::URL>;
 using $CodeSignerArray = $Array<::java::security::CodeSigner>;
@@ -537,7 +537,7 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 			$init($SecurityConstants);
 			$assign(p, $new($FilePermission, path, $SecurityConstants::FILE_READ_ACTION));
 		}
-	} else if ((p == nullptr) && ($nc($($nc(url)->getProtocol()))->equals("file"_s))) {
+	} else if ((p == nullptr) && ($nc($(url->getProtocol()))->equals("file"_s))) {
 		$init($File);
 		$var($String, path, $nc($(url->getFile()))->replace(u'/', $File::separatorChar));
 		$assign(path, $ParseUtil::decode(path));

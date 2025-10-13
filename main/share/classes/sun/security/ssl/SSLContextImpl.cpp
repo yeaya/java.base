@@ -66,9 +66,9 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef KEY_AGREEMENT
-#undef INSTANCE
 #undef DEFAULT
+#undef INSTANCE
+#undef KEY_AGREEMENT
 
 using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;

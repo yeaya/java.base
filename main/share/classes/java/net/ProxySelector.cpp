@@ -22,8 +22,8 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef SET_PROXYSELECTOR_PERMISSION
 #undef GET_PROXYSELECTOR_PERMISSION
+#undef SET_PROXYSELECTOR_PERMISSION
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

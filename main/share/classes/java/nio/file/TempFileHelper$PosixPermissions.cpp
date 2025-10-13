@@ -18,9 +18,9 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
+#undef OWNER_EXECUTE
 #undef OWNER_READ
 #undef OWNER_WRITE
-#undef OWNER_EXECUTE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

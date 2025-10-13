@@ -70,9 +70,9 @@
 #include <java/util/stream/WhileOps$UnorderedWhileSpliterator.h>
 #include <jcpp.h>
 
-#undef ORDERED
 #undef IMMUTABLE
 #undef MAX_VALUE
+#undef ORDERED
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

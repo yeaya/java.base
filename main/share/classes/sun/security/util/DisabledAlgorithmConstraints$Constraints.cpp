@@ -45,8 +45,8 @@
 #include <sun/security/util/NamedCurve.h>
 #include <jcpp.h>
 
-#undef ENGLISH
 #undef DENY_AFTER_PATTERN
+#undef ENGLISH
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -189,8 +189,7 @@ void DisabledAlgorithmConstraints$Constraints::init$($String* propertyName, $Lis
 								$var($String, var$1, algorithm);
 								$var($DisabledAlgorithmConstraints$Constraint$Operator, var$2, $DisabledAlgorithmConstraints$Constraint$Operator::of($(tokens->nextToken())));
 								$assign(c, $new($DisabledAlgorithmConstraints$KeySizeConstraint, var$1, var$2, $Integer::parseInt($(tokens->nextToken()))));
-							} else if ($nc(entry)->equalsIgnoreCase("jdkCA"_s)) {
-								$init($DisabledAlgorithmConstraints);
+							} else if (entry->equalsIgnoreCase("jdkCA"_s)) {
 								if ($DisabledAlgorithmConstraints::debug != nullptr) {
 									$nc($DisabledAlgorithmConstraints::debug)->println("Constraints set to jdkCA."_s);
 								}
@@ -203,7 +202,6 @@ void DisabledAlgorithmConstraints$Constraints::init$($String* propertyName, $Lis
 								bool var$4 = entry->startsWith("denyAfter"_s);
 								$init($DisabledAlgorithmConstraints$Constraints$Holder);
 								if (var$4 && $nc(($assign(matcher, $nc($DisabledAlgorithmConstraints$Constraints$Holder::DENY_AFTER_PATTERN)->matcher(entry))))->matches()) {
-									$init($DisabledAlgorithmConstraints);
 									if ($DisabledAlgorithmConstraints::debug != nullptr) {
 										$nc($DisabledAlgorithmConstraints::debug)->println("Constraints set to denyAfter"_s);
 									}
@@ -215,10 +213,9 @@ void DisabledAlgorithmConstraints$Constraints::init$($String* propertyName, $Lis
 									int32_t day = $Integer::parseInt($($nc(matcher)->group(3)));
 									$assign(c, $new($DisabledAlgorithmConstraints$DenyAfterConstraint, algorithm, year, month, day));
 									denyAfterLimit = true;
-								} else if ($nc(entry)->startsWith("usage"_s)) {
+								} else if (entry->startsWith("usage"_s)) {
 									$var($StringArray, s, $(($(entry->substring(5)))->trim())->split(" "_s));
 									$assign(c, $new($DisabledAlgorithmConstraints$UsageConstraint, algorithm, s));
-									$init($DisabledAlgorithmConstraints);
 									if ($DisabledAlgorithmConstraints::debug != nullptr) {
 										$nc($DisabledAlgorithmConstraints::debug)->println($$str({"Constraints usage length is "_s, $$str(s->length)}));
 									}

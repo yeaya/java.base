@@ -30,8 +30,8 @@
 #include <sun/security/util/ObjectIdentifier$HugeOidNotSupportedByOldJDK.h>
 #include <jcpp.h>
 
-#undef MAX_VALUE
 #undef MAXIMUM_OID_SIZE
+#undef MAX_VALUE
 #undef TWO
 
 using $IOException = ::java::io::IOException;
@@ -330,10 +330,10 @@ $ints* ObjectIdentifier::toIntArray() {
 					} else {
 						result->set(which++, second->intValue());
 					}
-				} else if ($nc(big)->compareTo($($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))) == 1) {
+				} else if (big->compareTo($($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))) == 1) {
 					return nullptr;
 				} else {
-					$nc(result)->set(which++, big->intValue());
+					result->set(which++, big->intValue());
 				}
 			} else {
 				int32_t retval = 0;

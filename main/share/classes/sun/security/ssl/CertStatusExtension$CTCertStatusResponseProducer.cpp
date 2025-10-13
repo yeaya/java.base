@@ -37,8 +37,8 @@
 #include <jcpp.h>
 
 #undef BAD_CERTIFICATE
-#undef OCSP
 #undef BAD_CERT_STATUS_RESPONSE
+#undef OCSP
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;

@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("OPENER")
-#undef OPENER
-#pragma push_macro("JAVA_HOME")
-#undef JAVA_HOME
 #pragma push_macro("BOOT_MODULES_JIMAGE")
 #undef BOOT_MODULES_JIMAGE
+#pragma push_macro("JAVA_HOME")
+#undef JAVA_HOME
+#pragma push_macro("OPENER")
+#undef OPENER
 
 namespace java {
 	namespace nio {
@@ -60,8 +60,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("OPENER")
-#pragma pop_macro("JAVA_HOME")
 #pragma pop_macro("BOOT_MODULES_JIMAGE")
+#pragma pop_macro("JAVA_HOME")
+#pragma pop_macro("OPENER")
 
 #endif // _jdk_internal_jimage_ImageReaderFactory_h_

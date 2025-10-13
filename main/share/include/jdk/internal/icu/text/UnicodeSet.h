@@ -9,16 +9,16 @@
 #undef GROW_EXTRA
 #pragma push_macro("HIGH")
 #undef HIGH
-#pragma push_macro("LOW")
-#undef LOW
-#pragma push_macro("NO_VERSION")
-#undef NO_VERSION
 #pragma push_macro("INCLUSION")
 #undef INCLUSION
+#pragma push_macro("LOW")
+#undef LOW
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
 #pragma push_macro("MIN_VALUE")
 #undef MIN_VALUE
+#pragma push_macro("NO_VERSION")
+#undef NO_VERSION
 #pragma push_macro("START_EXTRA")
 #undef START_EXTRA
 
@@ -140,11 +140,11 @@ public:
 
 #pragma pop_macro("GROW_EXTRA")
 #pragma pop_macro("HIGH")
-#pragma pop_macro("LOW")
-#pragma pop_macro("NO_VERSION")
 #pragma pop_macro("INCLUSION")
+#pragma pop_macro("LOW")
 #pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MIN_VALUE")
+#pragma pop_macro("NO_VERSION")
 #pragma pop_macro("START_EXTRA")
 
 #endif // _jdk_internal_icu_text_UnicodeSet_h_

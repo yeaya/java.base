@@ -19,8 +19,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef SERVER_HELLO_DONE
 #undef ILLEGAL_PARAMETER
+#undef SERVER_HELLO_DONE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

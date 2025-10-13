@@ -43,8 +43,8 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef MAX_CACHED_BUFFER_SIZE
 #undef IOV_MAX
+#undef MAX_CACHED_BUFFER_SIZE
 #undef MAX_VALUE
 #undef TEMP_BUF_POOL_SIZE
 
@@ -227,7 +227,7 @@ $ByteBuffer* Util::getTemporaryAlignedDirectBuffer(int32_t size, int32_t alignme
 		if (buf->alignmentOffset(0, alignment) == 0) {
 			return buf;
 		}
-	} else if (!$nc(cache)->isEmpty()) {
+	} else if (!cache->isEmpty()) {
 		$assign(buf, cache->removeFirst());
 		free(buf);
 	}

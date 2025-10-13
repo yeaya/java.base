@@ -5,42 +5,42 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("OFFSET_SIN4_PORT")
-#undef OFFSET_SIN4_PORT
-#pragma push_macro("SIZEOF_SOCKADDR6")
-#undef SIZEOF_SOCKADDR6
-#pragma push_macro("SIZEOF_SOCKADDR4")
-#undef SIZEOF_SOCKADDR4
-#pragma push_macro("OFFSET_SIN6_FLOWINFO")
-#undef OFFSET_SIN6_FLOWINFO
-#pragma push_macro("SIZEOF_FAMILY")
-#undef SIZEOF_FAMILY
-#pragma push_macro("AF_INET")
-#undef AF_INET
-#pragma push_macro("AFINET6")
-#undef AFINET6
-#pragma push_macro("AF_INET6")
-#undef AF_INET6
-#pragma push_macro("SIZEOF_SOCKETADDRESS")
-#undef SIZEOF_SOCKETADDRESS
-#pragma push_macro("JNINA")
-#undef JNINA
-#pragma push_macro("OFFSET_SIN6_SCOPE_ID")
-#undef OFFSET_SIN6_SCOPE_ID
-#pragma push_macro("OFFSET_SIN6_PORT")
-#undef OFFSET_SIN6_PORT
-#pragma push_macro("ARRAY_BASE_OFFSET")
-#undef ARRAY_BASE_OFFSET
-#pragma push_macro("OFFSET_SIN4_ADDR")
-#undef OFFSET_SIN4_ADDR
-#pragma push_macro("OFFSET_FAMILY")
-#undef OFFSET_FAMILY
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
-#pragma push_macro("OFFSET_SIN6_ADDR")
-#undef OFFSET_SIN6_ADDR
 #pragma push_macro("AFINET")
 #undef AFINET
+#pragma push_macro("AFINET6")
+#undef AFINET6
+#pragma push_macro("AF_INET")
+#undef AF_INET
+#pragma push_macro("AF_INET6")
+#undef AF_INET6
+#pragma push_macro("ARRAY_BASE_OFFSET")
+#undef ARRAY_BASE_OFFSET
+#pragma push_macro("JNINA")
+#undef JNINA
+#pragma push_macro("OFFSET_FAMILY")
+#undef OFFSET_FAMILY
+#pragma push_macro("OFFSET_SIN4_ADDR")
+#undef OFFSET_SIN4_ADDR
+#pragma push_macro("OFFSET_SIN4_PORT")
+#undef OFFSET_SIN4_PORT
+#pragma push_macro("OFFSET_SIN6_ADDR")
+#undef OFFSET_SIN6_ADDR
+#pragma push_macro("OFFSET_SIN6_FLOWINFO")
+#undef OFFSET_SIN6_FLOWINFO
+#pragma push_macro("OFFSET_SIN6_PORT")
+#undef OFFSET_SIN6_PORT
+#pragma push_macro("OFFSET_SIN6_SCOPE_ID")
+#undef OFFSET_SIN6_SCOPE_ID
+#pragma push_macro("SIZEOF_FAMILY")
+#undef SIZEOF_FAMILY
+#pragma push_macro("SIZEOF_SOCKADDR4")
+#undef SIZEOF_SOCKADDR4
+#pragma push_macro("SIZEOF_SOCKADDR6")
+#undef SIZEOF_SOCKADDR6
+#pragma push_macro("SIZEOF_SOCKETADDRESS")
+#undef SIZEOF_SOCKETADDRESS
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace java {
 	namespace net {
@@ -127,23 +127,23 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("OFFSET_SIN4_PORT")
-#pragma pop_macro("SIZEOF_SOCKADDR6")
-#pragma pop_macro("SIZEOF_SOCKADDR4")
-#pragma pop_macro("OFFSET_SIN6_FLOWINFO")
-#pragma pop_macro("SIZEOF_FAMILY")
-#pragma pop_macro("AF_INET")
-#pragma pop_macro("AFINET6")
-#pragma pop_macro("AF_INET6")
-#pragma pop_macro("SIZEOF_SOCKETADDRESS")
-#pragma pop_macro("JNINA")
-#pragma pop_macro("OFFSET_SIN6_SCOPE_ID")
-#pragma pop_macro("OFFSET_SIN6_PORT")
-#pragma pop_macro("ARRAY_BASE_OFFSET")
-#pragma pop_macro("OFFSET_SIN4_ADDR")
-#pragma pop_macro("OFFSET_FAMILY")
-#pragma pop_macro("UNSAFE")
-#pragma pop_macro("OFFSET_SIN6_ADDR")
 #pragma pop_macro("AFINET")
+#pragma pop_macro("AFINET6")
+#pragma pop_macro("AF_INET")
+#pragma pop_macro("AF_INET6")
+#pragma pop_macro("ARRAY_BASE_OFFSET")
+#pragma pop_macro("JNINA")
+#pragma pop_macro("OFFSET_FAMILY")
+#pragma pop_macro("OFFSET_SIN4_ADDR")
+#pragma pop_macro("OFFSET_SIN4_PORT")
+#pragma pop_macro("OFFSET_SIN6_ADDR")
+#pragma pop_macro("OFFSET_SIN6_FLOWINFO")
+#pragma pop_macro("OFFSET_SIN6_PORT")
+#pragma pop_macro("OFFSET_SIN6_SCOPE_ID")
+#pragma pop_macro("SIZEOF_FAMILY")
+#pragma pop_macro("SIZEOF_SOCKADDR4")
+#pragma pop_macro("SIZEOF_SOCKADDR6")
+#pragma pop_macro("SIZEOF_SOCKETADDRESS")
+#pragma pop_macro("UNSAFE")
 
 #endif // _sun_nio_ch_NativeSocketAddress_h_

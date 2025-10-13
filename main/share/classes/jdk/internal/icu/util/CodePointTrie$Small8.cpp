@@ -17,8 +17,8 @@
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
-#undef SMALL
 #undef BITS_8
+#undef SMALL
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

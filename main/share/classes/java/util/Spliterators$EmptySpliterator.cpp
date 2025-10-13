@@ -12,8 +12,8 @@
 #include <java/util/Spliterators.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

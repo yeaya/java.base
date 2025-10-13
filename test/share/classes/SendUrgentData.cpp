@@ -94,7 +94,7 @@ void SendUrgentData::main($StringArray* args) {
 		$init($System);
 		$nc($System::out)->println($($of(serverThread->getAddress())));
 		$($Thread::currentThread())->suspend();
-	} else if ($nc(args)->length > 0 && $nc(args->get(0))->equals("-client"_s)) {
+	} else if (args->length > 0 && $nc(args->get(0))->equals("-client"_s)) {
 		$assign(host, args->get(1));
 		port = $Integer::parseInt(args->get(2));
 		if (args->length > 3) {
@@ -102,7 +102,7 @@ void SendUrgentData::main($StringArray* args) {
 		}
 	} else {
 		$assign(host, "localhost"_s);
-		port = $nc($($nc(serverThread)->getAddress()))->getPort();
+		port = $nc($(serverThread->getAddress()))->getPort();
 		if (args->length > 0) {
 			inline$ = $nc(args->get(0))->equals("-inline"_s);
 		}
@@ -160,8 +160,8 @@ void SendUrgentData::main($StringArray* args) {
 										if (!$nc($(ex->getMessage()))->equals("No buffer space available"_s)) {
 											$throwNew($RuntimeException, "Unexpected message"_s, ex);
 										}
-									} else if ($nc(osName)->contains("windows"_s)) {
-										if (!$nc($($nc(ex)->getMessage()))->equals("Socket buffer full"_s)) {
+									} else if (osName->contains("windows"_s)) {
+										if (!$nc($(ex->getMessage()))->equals("Socket buffer full"_s)) {
 											$throwNew($RuntimeException, "Unexpected message"_s, ex);
 										}
 									} else {

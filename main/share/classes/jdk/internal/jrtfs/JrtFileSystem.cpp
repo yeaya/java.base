@@ -78,8 +78,8 @@
 #include <jdk/internal/jrtfs/SystemImage.h>
 #include <jcpp.h>
 
-#undef NOFOLLOW_LINKS
 #undef APPEND
+#undef NOFOLLOW_LINKS
 #undef WRITE
 
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
@@ -460,7 +460,7 @@ $PathMatcher* JrtFileSystem::getPathMatcher($String* syntaxAndInput) {
 	$var($String, expr, nullptr);
 	if (syntax->equalsIgnoreCase("glob"_s)) {
 		$assign(expr, $JrtUtils::toRegexPattern(input));
-	} else if ($nc(syntax)->equalsIgnoreCase("regex"_s)) {
+	} else if (syntax->equalsIgnoreCase("regex"_s)) {
 		$assign(expr, input);
 	} else {
 		$throwNew($UnsupportedOperationException, $$str({"Syntax \'"_s, syntax, "\' not recognized"_s}));

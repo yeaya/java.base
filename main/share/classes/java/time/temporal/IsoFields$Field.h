@@ -8,16 +8,16 @@
 #include <java/lang/Enum.h>
 #include <java/time/temporal/TemporalField.h>
 
-#pragma push_macro("QUARTER_OF_YEAR")
-#undef QUARTER_OF_YEAR
-#pragma push_macro("QUARTER_DAYS")
-#undef QUARTER_DAYS
 #pragma push_macro("DAY_OF_QUARTER")
 #undef DAY_OF_QUARTER
-#pragma push_macro("WEEK_OF_WEEK_BASED_YEAR")
-#undef WEEK_OF_WEEK_BASED_YEAR
+#pragma push_macro("QUARTER_DAYS")
+#undef QUARTER_DAYS
+#pragma push_macro("QUARTER_OF_YEAR")
+#undef QUARTER_OF_YEAR
 #pragma push_macro("WEEK_BASED_YEAR")
 #undef WEEK_BASED_YEAR
+#pragma push_macro("WEEK_OF_WEEK_BASED_YEAR")
+#undef WEEK_OF_WEEK_BASED_YEAR
 
 namespace java {
 	namespace time {
@@ -71,10 +71,10 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("QUARTER_OF_YEAR")
-#pragma pop_macro("QUARTER_DAYS")
 #pragma pop_macro("DAY_OF_QUARTER")
-#pragma pop_macro("WEEK_OF_WEEK_BASED_YEAR")
+#pragma pop_macro("QUARTER_DAYS")
+#pragma pop_macro("QUARTER_OF_YEAR")
 #pragma pop_macro("WEEK_BASED_YEAR")
+#pragma pop_macro("WEEK_OF_WEEK_BASED_YEAR")
 
 #endif // _java_time_temporal_IsoFields$Field_h_

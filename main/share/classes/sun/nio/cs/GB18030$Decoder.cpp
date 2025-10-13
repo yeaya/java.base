@@ -152,7 +152,7 @@ $CoderResult* GB18030$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* ds
 						return$5 = true;
 						goto $finally;
 					}
-					byte2 = (int32_t)($nc(sa)->get(sp + 1) & (uint32_t)255);
+					byte2 = (int32_t)(sa->get(sp + 1) & (uint32_t)255);
 					inputSize = 2;
 					if (byte2 < 48) {
 						$assign(var$6, $CoderResult::malformedForLength(1));
@@ -166,7 +166,7 @@ $CoderResult* GB18030$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* ds
 							return$5 = true;
 							goto $finally;
 						}
-						byte3 = (int32_t)($nc(sa)->get(sp + 2) & (uint32_t)255);
+						byte3 = (int32_t)(sa->get(sp + 2) & (uint32_t)255);
 						if (byte3 < 129 || byte3 > 254) {
 							$assign(var$6, $CoderResult::malformedForLength(3));
 							return$5 = true;
@@ -290,13 +290,13 @@ $CoderResult* GB18030$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* d
 					return$1 = true;
 					goto $finally;
 				} else {
-					if ($nc(src)->remaining() < 1) {
+					if (src->remaining() < 1) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::UNDERFLOW);
 						return$1 = true;
 						goto $finally;
 					}
-					byte2 = (int32_t)($nc(src)->get() & (uint32_t)255);
+					byte2 = (int32_t)(src->get() & (uint32_t)255);
 					inputSize = 2;
 					if (byte2 < 48) {
 						$assign(var$2, $CoderResult::malformedForLength(1));
@@ -304,13 +304,13 @@ $CoderResult* GB18030$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* d
 						goto $finally;
 					} else if (byte2 >= 48 && byte2 <= 57) {
 						this->currentState = 3;
-						if ($nc(src)->remaining() < 2) {
+						if (src->remaining() < 2) {
 							$init($CoderResult);
 							$assign(var$2, $CoderResult::UNDERFLOW);
 							return$1 = true;
 							goto $finally;
 						}
-						byte3 = (int32_t)($nc(src)->get() & (uint32_t)255);
+						byte3 = (int32_t)(src->get() & (uint32_t)255);
 						if (byte3 < 129 || byte3 > 254) {
 							$assign(var$2, $CoderResult::malformedForLength(3));
 							return$1 = true;

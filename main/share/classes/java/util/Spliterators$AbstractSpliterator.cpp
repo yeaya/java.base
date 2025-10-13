@@ -17,11 +17,11 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
-#undef SIZED
 #undef BATCH_UNIT
-#undef MAX_VALUE
 #undef MAX_BATCH
+#undef MAX_VALUE
+#undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

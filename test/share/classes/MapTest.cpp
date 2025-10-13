@@ -38,14 +38,14 @@
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-#undef READ
-#undef CHARS_PER_LINE
-#undef BLOCK_SIZE
 #undef BLOCK_COUNT
+#undef BLOCK_SIZE
+#undef CHARS_PER_LINE
 #undef MAX_VALUE
+#undef PRIVATE
+#undef READ
 #undef READ_ONLY
 #undef READ_WRITE
-#undef PRIVATE
 #undef WRITE
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

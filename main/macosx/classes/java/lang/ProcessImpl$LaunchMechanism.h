@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("POSIX_SPAWN")
-#undef POSIX_SPAWN
 #pragma push_macro("FORK")
 #undef FORK
+#pragma push_macro("POSIX_SPAWN")
+#undef POSIX_SPAWN
 #pragma push_macro("VFORK")
 #undef VFORK
 
@@ -33,8 +33,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("POSIX_SPAWN")
 #pragma pop_macro("FORK")
+#pragma pop_macro("POSIX_SPAWN")
 #pragma pop_macro("VFORK")
 
 #endif // _java_lang_ProcessImpl$LaunchMechanism_h_

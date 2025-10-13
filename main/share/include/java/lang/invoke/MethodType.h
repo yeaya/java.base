@@ -13,12 +13,12 @@
 #undef MAX_JVM_ARITY
 #pragma push_macro("MAX_MH_ARITY")
 #undef MAX_MH_ARITY
-#pragma push_macro("NO_PTYPES")
-#undef NO_PTYPES
-#pragma push_macro("METHOD_HANDLE_ARRAY")
-#undef METHOD_HANDLE_ARRAY
 #pragma push_macro("MAX_MH_INVOKER_ARITY")
 #undef MAX_MH_INVOKER_ARITY
+#pragma push_macro("METHOD_HANDLE_ARRAY")
+#undef METHOD_HANDLE_ARRAY
+#pragma push_macro("NO_PTYPES")
+#undef NO_PTYPES
 
 namespace java {
 	namespace io {
@@ -165,8 +165,8 @@ public:
 
 #pragma pop_macro("MAX_JVM_ARITY")
 #pragma pop_macro("MAX_MH_ARITY")
-#pragma pop_macro("NO_PTYPES")
-#pragma pop_macro("METHOD_HANDLE_ARRAY")
 #pragma pop_macro("MAX_MH_INVOKER_ARITY")
+#pragma pop_macro("METHOD_HANDLE_ARRAY")
+#pragma pop_macro("NO_PTYPES")
 
 #endif // _java_lang_invoke_MethodType_h_

@@ -62,16 +62,16 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
+#undef GET_CLASSLOADER_PERMISSION
 #undef MAX_JVM_ARITY
 #undef MAX_MH_ARITY
-#undef WRAP
-#undef NO_PTYPES
+#undef MAX_MH_INVOKER_ARITY
 #undef METHOD_HANDLE_ARRAY
-#undef GET_CLASSLOADER_PERMISSION
+#undef NO_PTYPES
+#undef TYPE
 #undef UNSAFE
 #undef UNWRAP
-#undef TYPE
-#undef MAX_MH_INVOKER_ARITY
+#undef WRAP
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ClassDescArray = $Array<::java::lang::constant::ClassDesc>;
@@ -959,7 +959,7 @@ bool MethodType::explicitCastEquivalentToAsType($Class* src, $Class* dst) {
 	}
 	if ($nc(src)->isPrimitive()) {
 		return canConvert(src, dst);
-	} else if ($nc(dst)->isPrimitive()) {
+	} else if (dst->isPrimitive()) {
 		return false;
 	} else {
 		bool var$0 = !dst->isInterface();
@@ -993,13 +993,13 @@ bool MethodType::canConvert($Class* src, $Class* dst) {
 		} else {
 			return dst->isAssignableFrom($nc(sw)->wrapperType());
 		}
-	} else if ($nc(dst)->isPrimitive()) {
+	} else if (dst->isPrimitive()) {
 		$init($Void);
 		if (dst == $Void::TYPE) {
 			return true;
 		}
 		$Wrapper* dw = $Wrapper::forPrimitiveType(dst);
-		if ($nc(src)->isAssignableFrom($nc(dw)->wrapperType())) {
+		if (src->isAssignableFrom($nc(dw)->wrapperType())) {
 			return true;
 		}
 		bool var$0 = $Wrapper::isWrapperType(src);

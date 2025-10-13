@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/security/MessageDigestSpi.h>
 
-#pragma push_macro("IN_PROGRESS")
-#undef IN_PROGRESS
 #pragma push_macro("INITIAL")
 #undef INITIAL
+#pragma push_macro("IN_PROGRESS")
+#undef IN_PROGRESS
 
 namespace java {
 	namespace nio {
@@ -68,7 +68,7 @@ public:
 	} // security
 } // java
 
-#pragma pop_macro("IN_PROGRESS")
 #pragma pop_macro("INITIAL")
+#pragma pop_macro("IN_PROGRESS")
 
 #endif // _java_security_MessageDigest_h_

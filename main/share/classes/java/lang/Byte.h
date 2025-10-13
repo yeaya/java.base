@@ -10,12 +10,12 @@
 
 #pragma push_macro("BYTES")
 #undef BYTES
-#pragma push_macro("SIZE")
-#undef SIZE
 #pragma push_macro("MAX_VALUE")
 #undef MAX_VALUE
 #pragma push_macro("MIN_VALUE")
 #undef MIN_VALUE
+#pragma push_macro("SIZE")
+#undef SIZE
 #pragma push_macro("TYPE")
 #undef TYPE
 
@@ -74,9 +74,9 @@ public:
 } // java
 
 #pragma pop_macro("BYTES")
-#pragma pop_macro("SIZE")
 #pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("MIN_VALUE")
+#pragma pop_macro("SIZE")
 #pragma pop_macro("TYPE")
 
 #endif // _java_lang_Byte_h_

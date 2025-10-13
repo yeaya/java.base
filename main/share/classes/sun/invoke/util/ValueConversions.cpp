@@ -33,27 +33,27 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef FLOAT
-#undef BOX_CONVERSIONS
-#undef ONE_INT
-#undef CONVERT_PRIMITIVE_FUNCTIONS
-#undef CHAR
-#undef IGNORE
-#undef CAST_REFERENCE
-#undef INT
 #undef BOOLEAN
-#undef SHORT
-#undef IMPL_LOOKUP
-#undef ZERO_INT
-#undef THIS_CLASS
-#undef UNBOX_CONVERSIONS
+#undef BOX_CONVERSIONS
 #undef BYTE
+#undef CAST_REFERENCE
+#undef CHAR
+#undef CONSTANT_FUNCTIONS
+#undef CONVERT_PRIMITIVE_FUNCTIONS
 #undef COUNT
 #undef DOUBLE
-#undef CONSTANT_FUNCTIONS
-#undef TYPE
 #undef EMPTY
+#undef FLOAT
+#undef IGNORE
+#undef IMPL_LOOKUP
+#undef INT
 #undef LONG
+#undef ONE_INT
+#undef SHORT
+#undef THIS_CLASS
+#undef TYPE
+#undef UNBOX_CONVERSIONS
+#undef ZERO_INT
 
 using $ValueConversions$WrapperCacheArray = $Array<::sun::invoke::util::ValueConversions$WrapperCache>;
 using $AssertionError = ::java::lang::AssertionError;
@@ -453,7 +453,6 @@ $Number* ValueConversions::primitiveConversion($Wrapper* wrap, Object$* x, bool 
 	if ($instanceOf($Number, x)) {
 		$assign(res, $cast($Number, x));
 	} else if ($instanceOf($Boolean, x)) {
-		$init(ValueConversions);
 		$assign(res, ($nc(($cast($Boolean, x)))->booleanValue() ? ValueConversions::ONE_INT : ValueConversions::ZERO_INT));
 	} else if ($instanceOf($Character, x)) {
 		$assign(res, $Integer::valueOf((int32_t)$nc(($cast($Character, x)))->charValue()));

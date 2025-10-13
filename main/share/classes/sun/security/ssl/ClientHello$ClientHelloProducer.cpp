@@ -38,11 +38,11 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef HELLO_VERIFY_REQUEST
-#undef SERVER_HELLO
-#undef HANDSHAKE_FAILURE
 #undef CHANGE_CIPHER_SPEC
+#undef HANDSHAKE_FAILURE
+#undef HELLO_VERIFY_REQUEST
 #undef NONE
+#undef SERVER_HELLO
 
 using $IOException = ::java::io::IOException;
 using $Byte = ::java::lang::Byte;

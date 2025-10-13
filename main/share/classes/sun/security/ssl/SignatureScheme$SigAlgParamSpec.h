@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("RSA_PSS_SHA512")
-#undef RSA_PSS_SHA512
-#pragma push_macro("RSA_PSS_SHA384")
-#undef RSA_PSS_SHA384
 #pragma push_macro("RSA_PSS_SHA256")
 #undef RSA_PSS_SHA256
+#pragma push_macro("RSA_PSS_SHA384")
+#undef RSA_PSS_SHA384
+#pragma push_macro("RSA_PSS_SHA512")
+#undef RSA_PSS_SHA512
 
 namespace java {
 	namespace security {
@@ -51,8 +51,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("RSA_PSS_SHA512")
-#pragma pop_macro("RSA_PSS_SHA384")
 #pragma pop_macro("RSA_PSS_SHA256")
+#pragma pop_macro("RSA_PSS_SHA384")
+#pragma pop_macro("RSA_PSS_SHA512")
 
 #endif // _sun_security_ssl_SignatureScheme$SigAlgParamSpec_h_

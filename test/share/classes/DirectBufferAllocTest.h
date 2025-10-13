@@ -7,12 +7,12 @@
 
 #pragma push_macro("CAPACITY")
 #undef CAPACITY
-#pragma push_macro("RUN_TIME_SECONDS")
-#undef RUN_TIME_SECONDS
-#pragma push_macro("MIN_THREADS")
-#undef MIN_THREADS
 #pragma push_macro("MAX_THREADS")
 #undef MAX_THREADS
+#pragma push_macro("MIN_THREADS")
+#undef MIN_THREADS
+#pragma push_macro("RUN_TIME_SECONDS")
+#undef RUN_TIME_SECONDS
 
 namespace java {
 	namespace lang {
@@ -42,8 +42,8 @@ public:
 };
 
 #pragma pop_macro("CAPACITY")
-#pragma pop_macro("RUN_TIME_SECONDS")
-#pragma pop_macro("MIN_THREADS")
 #pragma pop_macro("MAX_THREADS")
+#pragma pop_macro("MIN_THREADS")
+#pragma pop_macro("RUN_TIME_SECONDS")
 
 #endif // _DirectBufferAllocTest_h_

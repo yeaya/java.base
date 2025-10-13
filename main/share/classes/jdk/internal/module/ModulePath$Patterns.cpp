@@ -12,11 +12,11 @@
 #include <jdk/internal/module/ModulePath.h>
 #include <jcpp.h>
 
+#undef DASH_VERSION
 #undef LEADING_DOTS
 #undef NON_ALPHANUM
-#undef TRAILING_DOTS
-#undef DASH_VERSION
 #undef REPEATING_DOTS
+#undef TRAILING_DOTS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

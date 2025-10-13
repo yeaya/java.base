@@ -77,15 +77,15 @@
 #include <java/util/function/Supplier.h>
 #include <jcpp.h>
 
-#undef NIL
-#undef STACK
-#undef USE_COMMON_POOL
-#undef ASYNC_POOL
 #undef ASYNC
-#undef NEXT
+#undef ASYNC_POOL
 #undef NESTED
-#undef SYNC
+#undef NEXT
+#undef NIL
 #undef RESULT
+#undef STACK
+#undef SYNC
+#undef USE_COMMON_POOL
 
 using $CompletableFutureArray = $Array<::java::util::concurrent::CompletableFuture>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -438,7 +438,7 @@ $Object* CompletableFuture::encodeThrowable($Throwable* x$renamed, Object$* r) {
 	$var($Throwable, x, x$renamed);
 	if (!($instanceOf($CompletionException, x))) {
 		$assign(x, $new($CompletionException, x));
-	} else if ($instanceOf($CompletableFuture$AltResult, r) && x == $nc(($cast($CompletableFuture$AltResult, r)))->ex) {
+	} else if ($instanceOf($CompletableFuture$AltResult, r) && x == ($cast($CompletableFuture$AltResult, r))->ex) {
 		return $of(r);
 	}
 	return $of($new($CompletableFuture$AltResult, x));
@@ -552,7 +552,7 @@ void CompletableFuture::cleanStack() {
 	for (bool unlinked = false;;) {
 		if (p == nullptr) {
 			return;
-		} else if ($nc(p)->isLive()) {
+		} else if (p->isLive()) {
 			if (unlinked) {
 				return;
 			} else {
@@ -568,7 +568,7 @@ void CompletableFuture::cleanStack() {
 		}
 	}
 	{
-		$var($CompletableFuture$Completion, q, $nc(p)->next);
+		$var($CompletableFuture$Completion, q, p->next);
 		for (; q != nullptr;) {
 			$var($CompletableFuture$Completion, s, q->next);
 			if (q->isLive()) {
@@ -968,7 +968,7 @@ void CompletableFuture::bipush(CompletableFuture* b, $CompletableFuture$BiComple
 				if ($nc(b)->result == nullptr) {
 					b->unipush($$new($CompletableFuture$CoCompletion, c));
 				} else if (this->result != nullptr) {
-					$nc(c)->tryFire(CompletableFuture::SYNC);
+					c->tryFire(CompletableFuture::SYNC);
 				}
 				return;
 			}
@@ -1293,7 +1293,7 @@ $Object* CompletableFuture::waitingGet(bool interruptible) {
 			}
 		} else if (!queued) {
 			queued = tryPushStack(q);
-		} else if (interruptible && $nc(q)->interrupted) {
+		} else if (interruptible && q->interrupted) {
 			$set(q, thread, nullptr);
 			cleanStack();
 			return $of(nullptr);

@@ -21,8 +21,8 @@
 #include <jcpp.h>
 
 #undef DN_NAME
-#undef IDENT
 #undef DN_PRINCIPAL
+#undef IDENT
 #undef NAME
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -132,7 +132,7 @@ void CertificateSubjectName::set($String* name, Object$* obj) {
 $Object* CertificateSubjectName::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateSubjectName::DN_NAME)) {
 		return $of((this->dnName));
-	} else if ($nc(name)->equalsIgnoreCase(CertificateSubjectName::DN_PRINCIPAL)) {
+	} else if (name->equalsIgnoreCase(CertificateSubjectName::DN_PRINCIPAL)) {
 		if ((this->dnPrincipal == nullptr) && (this->dnName != nullptr)) {
 			$set(this, dnPrincipal, $nc(this->dnName)->asX500Principal());
 		}

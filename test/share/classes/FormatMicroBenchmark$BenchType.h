@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("FRACTIONAL_BENCH")
-#undef FRACTIONAL_BENCH
-#pragma push_macro("INTEGER_BENCH")
-#undef INTEGER_BENCH
-#pragma push_macro("TIE_BENCH")
-#undef TIE_BENCH
-#pragma push_macro("SMALL_INTEGRAL_BENCH")
-#undef SMALL_INTEGRAL_BENCH
-#pragma push_macro("FAIR_SIMPLE_BENCH")
-#undef FAIR_SIMPLE_BENCH
-#pragma push_macro("FRACTIONAL_ALL_NINES_BENCH")
-#undef FRACTIONAL_ALL_NINES_BENCH
 #pragma push_macro("ALL_NINES_BENCH")
 #undef ALL_NINES_BENCH
 #pragma push_macro("FAIR_BENCH")
 #undef FAIR_BENCH
+#pragma push_macro("FAIR_SIMPLE_BENCH")
+#undef FAIR_SIMPLE_BENCH
+#pragma push_macro("FRACTIONAL_ALL_NINES_BENCH")
+#undef FRACTIONAL_ALL_NINES_BENCH
+#pragma push_macro("FRACTIONAL_BENCH")
+#undef FRACTIONAL_BENCH
+#pragma push_macro("INTEGER_BENCH")
+#undef INTEGER_BENCH
+#pragma push_macro("SMALL_INTEGRAL_BENCH")
+#undef SMALL_INTEGRAL_BENCH
+#pragma push_macro("TIE_BENCH")
+#undef TIE_BENCH
 
 namespace java {
 	namespace text {
@@ -50,13 +50,13 @@ public:
 	$String* name$ = nullptr;
 };
 
-#pragma pop_macro("FRACTIONAL_BENCH")
-#pragma pop_macro("INTEGER_BENCH")
-#pragma pop_macro("TIE_BENCH")
-#pragma pop_macro("SMALL_INTEGRAL_BENCH")
-#pragma pop_macro("FAIR_SIMPLE_BENCH")
-#pragma pop_macro("FRACTIONAL_ALL_NINES_BENCH")
 #pragma pop_macro("ALL_NINES_BENCH")
 #pragma pop_macro("FAIR_BENCH")
+#pragma pop_macro("FAIR_SIMPLE_BENCH")
+#pragma pop_macro("FRACTIONAL_ALL_NINES_BENCH")
+#pragma pop_macro("FRACTIONAL_BENCH")
+#pragma pop_macro("INTEGER_BENCH")
+#pragma pop_macro("SMALL_INTEGRAL_BENCH")
+#pragma pop_macro("TIE_BENCH")
 
 #endif // _FormatMicroBenchmark$BenchType_h_

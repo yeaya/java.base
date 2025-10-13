@@ -52,37 +52,37 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef COMPUTE_MAXS
-#undef LF_EX_LINKER
-#undef ACC_PRIVATE
-#undef DIRECT_INVOKE_VIRTUAL
-#undef BMH_SPECIES_PREFIX
-#undef INVOKERS_HOLDER
-#undef AF_LIMIT
 #undef ACC_FINAL
-#undef INVOKERS_HOLDER_CLASS_NAME
-#undef DELEGATING_HOLDER
-#undef INVOKER_SUPER_NAME
-#undef DIRECT_NEW_INVOKE_SPECIAL
-#undef DIRECT_INVOKE_SPECIAL
-#undef DIRECT_HOLDER
-#undef LF_GEN_INVOKER
+#undef ACC_PRIVATE
 #undef ACC_SUPER
-#undef DMH_METHOD_TYPE_MAP
 #undef AF_GETFIELD
+#undef AF_LIMIT
+#undef BASIC_FORMS_HOLDER
+#undef BMH_SPECIES_PREFIX
 #undef COMPUTE_FRAMES
+#undef COMPUTE_MAXS
+#undef DELEGATING_HOLDER
+#undef DIRECT_HOLDER
 #undef DIRECT_INVOKE_INTERFACE
-#undef DIRECT_INVOKE_STATIC_INIT
-#undef DIRECT_INVOKE_STATIC
-#undef LF_EX_INVOKER
-#undef SPECIALIZER
+#undef DIRECT_INVOKE_SPECIAL
 #undef DIRECT_INVOKE_SPECIAL_IFC
-#undef LF_DELEGATE
+#undef DIRECT_INVOKE_STATIC
+#undef DIRECT_INVOKE_STATIC_INIT
+#undef DIRECT_INVOKE_VIRTUAL
+#undef DIRECT_NEW_INVOKE_SPECIAL
+#undef DMH_METHOD_TYPE_MAP
 #undef GENERIC
+#undef INVOKERS_HOLDER
+#undef INVOKERS_HOLDER_CLASS_NAME
+#undef INVOKER_SUPER_NAME
+#undef LF_DELEGATE
+#undef LF_EX_INVOKER
+#undef LF_EX_LINKER
+#undef LF_GEN_INVOKER
 #undef LF_GEN_LINKER
 #undef LF_REBIND
+#undef SPECIALIZER
 #undef VOID
-#undef BASIC_FORMS_HOLDER
 
 using $LambdaForm$BasicTypeArray = $Array<::java::lang::invoke::LambdaForm$BasicType>;
 using $LambdaFormArray = $Array<::java::lang::invoke::LambdaForm>;
@@ -533,9 +533,8 @@ void GenerateJLIClassesHelper::lambda$generateHolderClasses$1($GenerateJLIClasse
 						} else {
 							$nc(builder)->addInvokerType(methodType);
 						}
-					} else if ($nc($nc(parts)->get(1))->contains("DirectMethodHandle"_s)) {
+					} else if ($nc(parts->get(1))->contains("DirectMethodHandle"_s)) {
 						$var($String, dmh, parts->get(2));
-						$init(GenerateJLIClassesHelper);
 						if ($nc(GenerateJLIClassesHelper::DMH_METHOD_TYPE_MAP)->containsKey(dmh)) {
 							$nc(builder)->addDMHMethodType(dmh, methodType);
 						}

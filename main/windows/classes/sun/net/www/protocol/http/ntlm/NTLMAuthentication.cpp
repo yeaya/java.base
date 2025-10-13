@@ -32,11 +32,11 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef DISABLED
-#undef SERVER_AUTHENTICATION
-#undef NTLM
 #undef ALL_HOSTS
+#undef DISABLED
+#undef NTLM
 #undef PROXY_AUTHENTICATION
+#undef SERVER_AUTHENTICATION
 #undef TRUSTED_HOSTS
 
 using $IOException = ::java::io::IOException;

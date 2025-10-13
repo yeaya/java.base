@@ -48,11 +48,11 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter.h>
 #include <jcpp.h>
 
+#undef FORMAT_DEFAULT
+#undef INFO
+#undef JA_JP_JP
 #undef NULL_LIST
 #undef TH_TH_TH
-#undef FORMAT_DEFAULT
-#undef JA_JP_JP
-#undef INFO
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $Boolean = ::java::lang::Boolean;

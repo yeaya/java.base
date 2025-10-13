@@ -109,7 +109,7 @@ $SSLParameters* SSLSocket::getSSLParameters() {
 	if (getNeedClientAuth()) {
 		params->setNeedClientAuth(true);
 	} else if (getWantClientAuth()) {
-		$nc(params)->setWantClientAuth(true);
+		params->setWantClientAuth(true);
 	}
 	return params;
 }
@@ -126,7 +126,7 @@ void SSLSocket::setSSLParameters($SSLParameters* params) {
 	}
 	if (params->getNeedClientAuth()) {
 		setNeedClientAuth(true);
-	} else if ($nc(params)->getWantClientAuth()) {
+	} else if (params->getWantClientAuth()) {
 		setWantClientAuth(true);
 	} else {
 		setWantClientAuth(false);

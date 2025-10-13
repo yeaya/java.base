@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("STE_WALKER")
-#undef STE_WALKER
 #pragma push_macro("DEFAULT_WALKER")
 #undef DEFAULT_WALKER
 #pragma push_macro("GOLDEN_CLASS_NAMES")
 #undef GOLDEN_CLASS_NAMES
 #pragma push_macro("GOLDEN_METHOD_NAMES")
 #undef GOLDEN_METHOD_NAMES
+#pragma push_macro("STE_WALKER")
+#undef STE_WALKER
 
 namespace java {
 	namespace lang {
@@ -58,9 +58,9 @@ public:
 	static ::java::util::List* GOLDEN_METHOD_NAMES;
 };
 
-#pragma pop_macro("STE_WALKER")
 #pragma pop_macro("DEFAULT_WALKER")
 #pragma pop_macro("GOLDEN_CLASS_NAMES")
 #pragma pop_macro("GOLDEN_METHOD_NAMES")
+#pragma pop_macro("STE_WALKER")
 
 #endif // _StackStreamTest$G_h_

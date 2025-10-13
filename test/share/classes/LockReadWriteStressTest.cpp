@@ -18,8 +18,8 @@
 #include <java/util/concurrent/Future.h>
 #include <jcpp.h>
 
-#undef READ
 #undef CREATE
+#undef READ
 #undef WRITE
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

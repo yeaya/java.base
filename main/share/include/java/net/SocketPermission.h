@@ -6,26 +6,26 @@
 #include <java/lang/Array.h>
 #include <java/security/Permission.h>
 
-#pragma push_macro("ALL")
-#undef ALL
 #pragma push_macro("ACCEPT")
 #undef ACCEPT
-#pragma push_macro("PRIV_PORT_MAX")
-#undef PRIV_PORT_MAX
-#pragma push_macro("PORT_MAX")
-#undef PORT_MAX
-#pragma push_macro("PORT_MIN")
-#undef PORT_MIN
-#pragma push_macro("RESOLVE")
-#undef RESOLVE
+#pragma push_macro("ALL")
+#undef ALL
 #pragma push_macro("CONNECT")
 #undef CONNECT
+#pragma push_macro("DEF_EPH_LOW")
+#undef DEF_EPH_LOW
 #pragma push_macro("LISTEN")
 #undef LISTEN
 #pragma push_macro("NONE")
 #undef NONE
-#pragma push_macro("DEF_EPH_LOW")
-#undef DEF_EPH_LOW
+#pragma push_macro("PORT_MAX")
+#undef PORT_MAX
+#pragma push_macro("PORT_MIN")
+#undef PORT_MIN
+#pragma push_macro("PRIV_PORT_MAX")
+#undef PRIV_PORT_MAX
+#pragma push_macro("RESOLVE")
+#undef RESOLVE
 
 namespace java {
 	namespace io {
@@ -121,15 +121,15 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("ALL")
 #pragma pop_macro("ACCEPT")
-#pragma pop_macro("PRIV_PORT_MAX")
-#pragma pop_macro("PORT_MAX")
-#pragma pop_macro("PORT_MIN")
-#pragma pop_macro("RESOLVE")
+#pragma pop_macro("ALL")
 #pragma pop_macro("CONNECT")
+#pragma pop_macro("DEF_EPH_LOW")
 #pragma pop_macro("LISTEN")
 #pragma pop_macro("NONE")
-#pragma pop_macro("DEF_EPH_LOW")
+#pragma pop_macro("PORT_MAX")
+#pragma pop_macro("PORT_MIN")
+#pragma pop_macro("PRIV_PORT_MAX")
+#pragma pop_macro("RESOLVE")
 
 #endif // _java_net_SocketPermission_h_

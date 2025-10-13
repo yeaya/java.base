@@ -27,12 +27,12 @@
 #include <sun/nio/fs/AbstractWatchService.h>
 #include <jcpp.h>
 
+#undef ENTRY_MODIFY
+#undef MAX_EVENT_LIST_SIZE
+#undef OVERFLOW
+#undef OVERFLOW_EVENT
 #undef READY
 #undef SIGNALLED
-#undef MAX_EVENT_LIST_SIZE
-#undef OVERFLOW_EVENT
-#undef OVERFLOW
-#undef ENTRY_MODIFY
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

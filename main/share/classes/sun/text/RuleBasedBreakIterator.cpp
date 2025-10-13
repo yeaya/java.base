@@ -29,14 +29,14 @@
 #include <sun/text/SupplementaryCharacterData.h>
 #include <jcpp.h>
 
-#undef MIN_SUPPLEMENTARY_CODE_POINT
+#undef BMP_INDICES_LENGTH
 #undef DONE
-#undef START_STATE
+#undef IGNORE
 #undef LABEL
 #undef LABEL_LENGTH
-#undef IGNORE
+#undef MIN_SUPPLEMENTARY_CODE_POINT
+#undef START_STATE
 #undef STOP_STATE
-#undef BMP_INDICES_LENGTH
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;

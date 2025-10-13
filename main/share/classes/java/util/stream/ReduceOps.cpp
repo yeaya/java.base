@@ -41,10 +41,10 @@
 #include <java/util/stream/TerminalOp.h>
 #include <jcpp.h>
 
+#undef DOUBLE_VALUE
 #undef INT_VALUE
 #undef LONG_VALUE
 #undef REFERENCE
-#undef DOUBLE_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

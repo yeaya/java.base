@@ -22,8 +22,8 @@
 #undef SUPPORTS_BIRTHTIME
 #undef SUPPORTS_FUTIMENS
 #undef SUPPORTS_FUTIMES
-#undef SUPPORTS_OPENAT
 #undef SUPPORTS_LUTIMES
+#undef SUPPORTS_OPENAT
 #undef SUPPORTS_XATTR
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -225,11 +225,11 @@ $NativeBuffer* UnixNativeDispatcher::copyToNativeBuffer($UnixPath* path) {
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBufferFromCache(size));
 	if (buffer == nullptr) {
 		$assign(buffer, $NativeBuffers::allocNativeBuffer(size));
-	} else if ($equals($nc(buffer)->owner(), path)) {
+	} else if ($equals(buffer->owner(), path)) {
 		return buffer;
 	}
 	$NativeBuffers::copyCStringToNativeBuffer(cstr, buffer);
-	$nc(buffer)->setOwner(path);
+	buffer->setOwner(path);
 	return buffer;
 }
 

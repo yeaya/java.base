@@ -35,8 +35,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef TESTS
 #undef LOOKUP
+#undef TESTS
 #undef TYPE
 
 using $DummyFieldHolder = ::DummyFieldHolder;

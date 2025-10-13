@@ -29,8 +29,8 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef URL_DEV_URANDOM
 #undef URL_DEV_RANDOM
+#undef URL_DEV_URANDOM
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -173,7 +173,7 @@ void clinit$SeedGenerator($Class* class$) {
 					$nc(SeedGenerator::debug)->println($$str({"Failed to use operating system seed generator: "_s, $(e->toString())}));
 				}
 			}
-		} else if (!$nc(egdSource)->isEmpty()) {
+		} else if (!egdSource->isEmpty()) {
 			try {
 				$assignStatic(SeedGenerator::instance, $new($SeedGenerator$URLSeedGenerator, egdSource));
 				if (SeedGenerator::debug != nullptr) {

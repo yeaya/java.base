@@ -143,8 +143,7 @@ void GetAnnotatedSuperclass::testReturnsEmptyAT() {
 					++GetAnnotatedSuperclass::failed;
 					$init($System);
 					$nc($System::out)->println($$str({toTest, ".getAnnotatedSuperclass() returns \'null\' should  be non-null"_s}));
-				} else if ($nc($($nc(res)->getAnnotations()))->length != 0) {
-					$init(GetAnnotatedSuperclass);
+				} else if ($nc($(res->getAnnotations()))->length != 0) {
 					++GetAnnotatedSuperclass::failed;
 					$init($System);
 					$var($String, var$1, $$str({toTest, ".getAnnotatedSuperclass() returns: "_s}));

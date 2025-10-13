@@ -6,24 +6,24 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ")
-#undef READ
 #pragma push_macro("AVAILABLE")
 #undef AVAILABLE
-#pragma push_macro("MARK_SUPPORTED")
-#undef MARK_SUPPORTED
-#pragma push_macro("READ_BUF_OFF")
-#undef READ_BUF_OFF
-#pragma push_macro("READ_BUF")
-#undef READ_BUF
-#pragma push_macro("SKIP")
-#undef SKIP
-#pragma push_macro("RESET")
-#undef RESET
 #pragma push_macro("CLOSE")
 #undef CLOSE
 #pragma push_macro("MARK")
 #undef MARK
+#pragma push_macro("MARK_SUPPORTED")
+#undef MARK_SUPPORTED
+#pragma push_macro("READ")
+#undef READ
+#pragma push_macro("READ_BUF")
+#undef READ_BUF
+#pragma push_macro("READ_BUF_OFF")
+#undef READ_BUF_OFF
+#pragma push_macro("RESET")
+#undef RESET
+#pragma push_macro("SKIP")
+#undef SKIP
 
 namespace java {
 	namespace io {
@@ -58,14 +58,14 @@ public:
 	static $Array<OpsAfterClose4InputStream>* $VALUES;
 };
 
-#pragma pop_macro("READ")
 #pragma pop_macro("AVAILABLE")
-#pragma pop_macro("MARK_SUPPORTED")
-#pragma pop_macro("READ_BUF_OFF")
-#pragma pop_macro("READ_BUF")
-#pragma pop_macro("SKIP")
-#pragma pop_macro("RESET")
 #pragma pop_macro("CLOSE")
 #pragma pop_macro("MARK")
+#pragma pop_macro("MARK_SUPPORTED")
+#pragma pop_macro("READ")
+#pragma pop_macro("READ_BUF")
+#pragma pop_macro("READ_BUF_OFF")
+#pragma pop_macro("RESET")
+#pragma pop_macro("SKIP")
 
 #endif // _OpsAfterClose4InputStream_h_

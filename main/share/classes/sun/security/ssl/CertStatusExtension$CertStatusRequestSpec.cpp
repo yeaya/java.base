@@ -27,10 +27,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef OCSP
-#undef EMPTY_OCSP
-#undef DEFAULT
 #undef DECODE_ERROR
+#undef DEFAULT
+#undef EMPTY_OCSP
+#undef OCSP
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

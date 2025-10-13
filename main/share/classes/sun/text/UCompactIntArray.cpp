@@ -11,14 +11,14 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef PLANEMASK
+#undef BLOCKCOUNT
+#undef BLOCKMASK
+#undef BLOCKSHIFT
 #undef CODEPOINTMASK
 #undef INDEXCOUNT
 #undef INDEXSHIFT
-#undef BLOCKSHIFT
 #undef PLANECOUNT
-#undef BLOCKMASK
-#undef BLOCKCOUNT
+#undef PLANEMASK
 #undef PLANESHIFT
 #undef UNICODECOUNT
 

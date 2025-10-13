@@ -428,7 +428,7 @@ $MethodArray* MethodHandleProxies::getSingleNameMethods($Class* intfc) {
 				$var($String, mname, $nc(m)->getName());
 				if (uniqueName == nullptr) {
 					$assign(uniqueName, mname);
-				} else if (!$nc(uniqueName)->equals(mname)) {
+				} else if (!uniqueName->equals(mname)) {
 					return nullptr;
 				}
 				methods->add(m);
@@ -450,7 +450,7 @@ bool MethodHandleProxies::hasDefaultMethods($Class* intfc) {
 	$init(MethodHandleProxies);
 	$beforeCallerSensitive();
 	{
-		$var($MethodArray, arr$, $nc(intfc)->getMethods());
+		$var($MethodArray, arr$, intfc->getMethods());
 		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {

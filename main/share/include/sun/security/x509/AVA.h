@@ -5,12 +5,12 @@
 
 #include <sun/security/util/DerEncoder.h>
 
-#pragma push_macro("PRESERVE_OLD_DC_ENCODING")
-#undef PRESERVE_OLD_DC_ENCODING
 #pragma push_macro("AVA")
 #undef AVA
 #pragma push_macro("DEFAULT")
 #undef DEFAULT
+#pragma push_macro("PRESERVE_OLD_DC_ENCODING")
+#undef PRESERVE_OLD_DC_ENCODING
 
 namespace java {
 	namespace io {
@@ -99,8 +99,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("PRESERVE_OLD_DC_ENCODING")
 #pragma pop_macro("AVA")
 #pragma pop_macro("DEFAULT")
+#pragma pop_macro("PRESERVE_OLD_DC_ENCODING")
 
 #endif // _sun_security_x509_AVA_h_

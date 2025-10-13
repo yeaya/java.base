@@ -499,7 +499,7 @@ $ImageReader$Node* RuntimeImageReader::handlePackages($String* name, $RuntimeIma
 		visitLocation(loc, static_cast<$RuntimeImageReader$LocationVisitor*>($$new(RuntimeImageReader$$Lambda$lambda$handlePackages$2$3, this)));
 		$nc(this->packagesDir)->setCompleted(true);
 		$assign(n, this->packagesDir);
-	} else if ($nc(loc)->children != nullptr && $nc(loc->children)->length != 0) {
+	} else if (loc->children != nullptr && $nc(loc->children)->length != 0) {
 		$var($String, pkgName, getBaseExt(loc));
 		$var($ImageReader$Directory, pkgDir, newDirectory(this->packagesDir, $$str({$($nc(this->packagesDir)->getName()), "/"_s, pkgName})));
 		visitPackageLocation(loc);

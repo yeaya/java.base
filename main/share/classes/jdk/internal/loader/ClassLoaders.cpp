@@ -33,10 +33,10 @@
 #include <jdk/internal/module/ServicesCatalog.h>
 #include <jcpp.h>
 
-#undef PLATFORM_LOADER
+#undef APP_LOADER
 #undef BOOT_LOADER
 #undef JLA
-#undef APP_LOADER
+#undef PLATFORM_LOADER
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $File = ::java::io::File;

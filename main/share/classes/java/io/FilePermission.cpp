@@ -38,23 +38,23 @@
 #include <sun/security/util/SecurityConstants.h>
 #include <jcpp.h>
 
-#undef FILE_EXECUTE_ACTION
 #undef ALL
-#undef FILE_READ_ACTION
-#undef RECURSIVE_CHAR
-#undef FILE_WRITE_ACTION
-#undef READLINK
-#undef FILE_DELETE_ACTION
-#undef FILE_READLINK_ACTION
 #undef DASH_PATH
-#undef WRITE
-#undef READ
-#undef EXECUTE
 #undef DELETE
 #undef DOTDOT_PATH
-#undef NONE
 #undef EMPTY_PATH
+#undef EXECUTE
+#undef FILE_DELETE_ACTION
+#undef FILE_EXECUTE_ACTION
+#undef FILE_READLINK_ACTION
+#undef FILE_READ_ACTION
+#undef FILE_WRITE_ACTION
+#undef NONE
+#undef READ
+#undef READLINK
+#undef RECURSIVE_CHAR
 #undef WILD_CHAR
+#undef WRITE
 
 using $File = ::java::io::File;
 using $FilePermission$1 = ::java::io::FilePermission$1;
@@ -357,7 +357,7 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 				bool var$2 = (var$3 > $nc(this->cpath)->length());
 				return (var$2 && $nc(that->cpath)->startsWith(this->cpath));
 			}
-		} else if ($nc(that)->directory) {
+		} else if (that->directory) {
 			if (that->recursive) {
 				return false;
 			} else {
@@ -373,7 +373,7 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 				return var$4 && $nc(this->cpath)->regionMatches(0, that->cpath, 0, last + 1);
 			}
 		}
-	} else if ($nc(that)->directory) {
+	} else if (that->directory) {
 		return false;
 	} else {
 		return ($nc(this->cpath)->equals(that->cpath));
@@ -397,7 +397,7 @@ int32_t FilePermission::containsPath($Path* p1, $Path* p2) {
 			}
 		}
 	} else {
-		if ($nc(p2)->equals(FilePermission::EMPTY_PATH)) {
+		if (p2->equals(FilePermission::EMPTY_PATH)) {
 			int32_t c1 = p1->getNameCount();
 			if (!$nc($(p1->getName(c1 - 1)))->equals(FilePermission::DOTDOT_PATH)) {
 				return -1;
@@ -406,7 +406,7 @@ int32_t FilePermission::containsPath($Path* p1, $Path* p2) {
 		}
 	}
 	int32_t c1 = $nc(p1)->getNameCount();
-	int32_t c2 = $nc(p2)->getNameCount();
+	int32_t c2 = p2->getNameCount();
 	int32_t n = $Math::min(c1, c2);
 	int32_t i = 0;
 	while (i < n) {
@@ -519,16 +519,16 @@ int32_t FilePermission::getMask($String* actions) {
 		if (i >= 3 && (a->get(i - 3) == u'r' || a->get(i - 3) == u'R') && (a->get(i - 2) == u'e' || a->get(i - 2) == u'E') && (a->get(i - 1) == u'a' || a->get(i - 1) == u'A') && (a->get(i) == u'd' || a->get(i) == u'D')) {
 			matchlen = 4;
 			mask |= FilePermission::READ;
-		} else if (i >= 4 && ($nc(a)->get(i - 4) == u'w' || $nc(a)->get(i - 4) == u'W') && (a->get(i - 3) == u'r' || $nc(a)->get(i - 3) == u'R') && (a->get(i - 2) == u'i' || $nc(a)->get(i - 2) == u'I') && (a->get(i - 1) == u't' || $nc(a)->get(i - 1) == u'T') && (a->get(i) == u'e' || $nc(a)->get(i) == u'E')) {
+		} else if (i >= 4 && (a->get(i - 4) == u'w' || a->get(i - 4) == u'W') && (a->get(i - 3) == u'r' || a->get(i - 3) == u'R') && (a->get(i - 2) == u'i' || a->get(i - 2) == u'I') && (a->get(i - 1) == u't' || a->get(i - 1) == u'T') && (a->get(i) == u'e' || a->get(i) == u'E')) {
 			matchlen = 5;
 			mask |= FilePermission::WRITE;
-		} else if (i >= 6 && ($nc(a)->get(i - 6) == u'e' || $nc(a)->get(i - 6) == u'E') && (a->get(i - 5) == u'x' || $nc(a)->get(i - 5) == u'X') && (a->get(i - 4) == u'e' || $nc(a)->get(i - 4) == u'E') && (a->get(i - 3) == u'c' || $nc(a)->get(i - 3) == u'C') && (a->get(i - 2) == u'u' || $nc(a)->get(i - 2) == u'U') && (a->get(i - 1) == u't' || $nc(a)->get(i - 1) == u'T') && (a->get(i) == u'e' || $nc(a)->get(i) == u'E')) {
+		} else if (i >= 6 && (a->get(i - 6) == u'e' || a->get(i - 6) == u'E') && (a->get(i - 5) == u'x' || a->get(i - 5) == u'X') && (a->get(i - 4) == u'e' || a->get(i - 4) == u'E') && (a->get(i - 3) == u'c' || a->get(i - 3) == u'C') && (a->get(i - 2) == u'u' || a->get(i - 2) == u'U') && (a->get(i - 1) == u't' || a->get(i - 1) == u'T') && (a->get(i) == u'e' || a->get(i) == u'E')) {
 			matchlen = 7;
 			mask |= FilePermission::EXECUTE;
-		} else if (i >= 5 && ($nc(a)->get(i - 5) == u'd' || $nc(a)->get(i - 5) == u'D') && (a->get(i - 4) == u'e' || $nc(a)->get(i - 4) == u'E') && (a->get(i - 3) == u'l' || $nc(a)->get(i - 3) == u'L') && (a->get(i - 2) == u'e' || $nc(a)->get(i - 2) == u'E') && (a->get(i - 1) == u't' || $nc(a)->get(i - 1) == u'T') && (a->get(i) == u'e' || $nc(a)->get(i) == u'E')) {
+		} else if (i >= 5 && (a->get(i - 5) == u'd' || a->get(i - 5) == u'D') && (a->get(i - 4) == u'e' || a->get(i - 4) == u'E') && (a->get(i - 3) == u'l' || a->get(i - 3) == u'L') && (a->get(i - 2) == u'e' || a->get(i - 2) == u'E') && (a->get(i - 1) == u't' || a->get(i - 1) == u'T') && (a->get(i) == u'e' || a->get(i) == u'E')) {
 			matchlen = 6;
 			mask |= FilePermission::DELETE;
-		} else if (i >= 7 && ($nc(a)->get(i - 7) == u'r' || $nc(a)->get(i - 7) == u'R') && (a->get(i - 6) == u'e' || $nc(a)->get(i - 6) == u'E') && (a->get(i - 5) == u'a' || $nc(a)->get(i - 5) == u'A') && (a->get(i - 4) == u'd' || $nc(a)->get(i - 4) == u'D') && (a->get(i - 3) == u'l' || $nc(a)->get(i - 3) == u'L') && (a->get(i - 2) == u'i' || $nc(a)->get(i - 2) == u'I') && (a->get(i - 1) == u'n' || $nc(a)->get(i - 1) == u'N') && (a->get(i) == u'k' || $nc(a)->get(i) == u'K')) {
+		} else if (i >= 7 && (a->get(i - 7) == u'r' || a->get(i - 7) == u'R') && (a->get(i - 6) == u'e' || a->get(i - 6) == u'E') && (a->get(i - 5) == u'a' || a->get(i - 5) == u'A') && (a->get(i - 4) == u'd' || a->get(i - 4) == u'D') && (a->get(i - 3) == u'l' || a->get(i - 3) == u'L') && (a->get(i - 2) == u'i' || a->get(i - 2) == u'I') && (a->get(i - 1) == u'n' || a->get(i - 1) == u'N') && (a->get(i) == u'k' || a->get(i) == u'K')) {
 			matchlen = 8;
 			mask |= FilePermission::READLINK;
 		} else {

@@ -27,8 +27,8 @@
 #include <sun/nio/cs/Unicode.h>
 #include <jcpp.h>
 
-#undef PERF_MODE_RO
 #undef INSTANCE
+#undef PERF_MODE_RO
 #undef PERF_MODE_RW
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -131,7 +131,7 @@ Perf* Perf::getPerf() {
 $ByteBuffer* Perf::attach(int32_t lvmid, $String* mode) {
 	if ($nc(mode)->compareTo("r"_s) == 0) {
 		return attachImpl(nullptr, lvmid, Perf::PERF_MODE_RO);
-	} else if ($nc(mode)->compareTo("rw"_s) == 0) {
+	} else if (mode->compareTo("rw"_s) == 0) {
 		return attachImpl(nullptr, lvmid, Perf::PERF_MODE_RW);
 	} else {
 		$throwNew($IllegalArgumentException, "unknown mode"_s);
@@ -141,7 +141,7 @@ $ByteBuffer* Perf::attach(int32_t lvmid, $String* mode) {
 $ByteBuffer* Perf::attach($String* user, int32_t lvmid, $String* mode) {
 	if ($nc(mode)->compareTo("r"_s) == 0) {
 		return attachImpl(user, lvmid, Perf::PERF_MODE_RO);
-	} else if ($nc(mode)->compareTo("rw"_s) == 0) {
+	} else if (mode->compareTo("rw"_s) == 0) {
 		return attachImpl(user, lvmid, Perf::PERF_MODE_RW);
 	} else {
 		$throwNew($IllegalArgumentException, "unknown mode"_s);

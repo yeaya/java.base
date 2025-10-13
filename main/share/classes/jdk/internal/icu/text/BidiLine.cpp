@@ -17,17 +17,17 @@
 #include <jdk/internal/icu/text/BidiRun.h>
 #include <jcpp.h>
 
+#undef B
+#undef DIRECTION_LEFT_TO_RIGHT
+#undef DIRECTION_RIGHT_TO_LEFT
+#undef LRM_AFTER
+#undef LRM_BEFORE
+#undef MAP_NOWHERE
 #undef MASK_WS
 #undef MAX_EXPLICIT_LEVEL
-#undef MAP_NOWHERE
-#undef B
 #undef MIXED
-#undef RLM_BEFORE
-#undef LRM_AFTER
 #undef RLM_AFTER
-#undef LRM_BEFORE
-#undef DIRECTION_RIGHT_TO_LEFT
-#undef DIRECTION_LEFT_TO_RIGHT
+#undef RLM_BEFORE
 
 using $BidiBase$PointArray = $Array<::jdk::internal::icu::text::BidiBase$Point>;
 using $BidiRunArray = $Array<::jdk::internal::icu::text::BidiRun>;
@@ -128,10 +128,10 @@ $Bidi* BidiLine::setLine($BidiBase* paraBidi, $Bidi* newBidi, $BidiBase* lineBid
 		lineBidi->direction = paraBidi->direction;
 		if (paraBidi->trailingWSStart <= start) {
 			lineBidi->trailingWSStart = 0;
-		} else if ($nc(paraBidi)->trailingWSStart < limit) {
-			$nc(lineBidi)->trailingWSStart = paraBidi->trailingWSStart - start;
+		} else if (paraBidi->trailingWSStart < limit) {
+			lineBidi->trailingWSStart = paraBidi->trailingWSStart - start;
 		} else {
-			$nc(lineBidi)->trailingWSStart = length;
+			lineBidi->trailingWSStart = length;
 		}
 	} else {
 		$var($bytes, levels, lineBidi->levels);
@@ -151,8 +151,8 @@ $Bidi* BidiLine::setLine($BidiBase* paraBidi, $Bidi* newBidi, $BidiBase* lineBid
 					if (i == trailingWSStart) {
 						lineBidi->direction = level;
 						break;
-					} else if (((int32_t)($nc(levels)->get(i) & (uint32_t)1)) != level) {
-						$nc(lineBidi)->direction = $BidiBase::MIXED;
+					} else if (((int32_t)(levels->get(i) & (uint32_t)1)) != level) {
+						lineBidi->direction = $BidiBase::MIXED;
 						break;
 					}
 				}
@@ -553,7 +553,7 @@ $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
 				--markFound;
 			}
 		}
-	} else if ($nc(bidiBase)->controlCount > 0) {
+	} else if (bidiBase->controlCount > 0) {
 		int32_t runCount = bidiBase->runCount;
 		int32_t logicalEnd = 0;
 		int32_t insertRemove = 0;
@@ -577,7 +577,7 @@ $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
 			if (insertRemove == 0) {
 				visualLimit = $nc(runs->get(i))->limit;
 				for (j = visualStart; j < visualLimit; ++j) {
-					$nc(indexMap)->set(k++, indexMap->get(j));
+					indexMap->set(k++, indexMap->get(j));
 				}
 				continue;
 			}
@@ -588,7 +588,7 @@ $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
 				m = evenRun ? logicalStart + j : logicalEnd - j;
 				uchar = $nc(bidiBase->text)->get(m);
 				if (!$BidiBase::IsBidiControlChar(uchar)) {
-					$nc(indexMap)->set(k++, m);
+					indexMap->set(k++, m);
 				}
 			}
 		}

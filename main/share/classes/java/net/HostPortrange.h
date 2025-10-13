@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("PORT_MAX")
-#undef PORT_MAX
-#pragma push_macro("HTTPS_PORT")
-#undef HTTPS_PORT
-#pragma push_macro("PORT_MIN")
-#undef PORT_MIN
 #pragma push_macro("CASE_DIFF")
 #undef CASE_DIFF
+#pragma push_macro("HTTPS_PORT")
+#undef HTTPS_PORT
 #pragma push_macro("HTTP_PORT")
 #undef HTTP_PORT
 #pragma push_macro("NO_PORT")
 #undef NO_PORT
+#pragma push_macro("PORT_MAX")
+#undef PORT_MAX
+#pragma push_macro("PORT_MIN")
+#undef PORT_MIN
 
 namespace java {
 	namespace net {
@@ -56,11 +56,11 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("PORT_MAX")
-#pragma pop_macro("HTTPS_PORT")
-#pragma pop_macro("PORT_MIN")
 #pragma pop_macro("CASE_DIFF")
+#pragma pop_macro("HTTPS_PORT")
 #pragma pop_macro("HTTP_PORT")
 #pragma pop_macro("NO_PORT")
+#pragma pop_macro("PORT_MAX")
+#pragma pop_macro("PORT_MIN")
 
 #endif // _java_net_HostPortrange_h_

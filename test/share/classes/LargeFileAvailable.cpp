@@ -28,9 +28,9 @@
 #include <jcpp.h>
 
 #undef CREATE_NEW
-#undef SPARSE
-#undef NANOSECONDS
 #undef MAX_VALUE
+#undef NANOSECONDS
+#undef SPARSE
 #undef WRITE
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;

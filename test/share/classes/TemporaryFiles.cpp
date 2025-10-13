@@ -28,10 +28,10 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef READ
+#undef OWNER_EXECUTE
 #undef OWNER_READ
 #undef OWNER_WRITE
-#undef OWNER_EXECUTE
+#undef READ
 #undef WRITE
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;

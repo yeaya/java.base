@@ -7,12 +7,12 @@
 
 #pragma push_macro("LOCKSTATE")
 #undef LOCKSTATE
-#pragma push_macro("WRITER")
-#undef WRITER
 #pragma push_macro("READER")
 #undef READER
 #pragma push_macro("WAITER")
 #undef WAITER
+#pragma push_macro("WRITER")
+#undef WRITER
 
 namespace java {
 	namespace lang {
@@ -64,8 +64,8 @@ public:
 } // java
 
 #pragma pop_macro("LOCKSTATE")
-#pragma pop_macro("WRITER")
 #pragma pop_macro("READER")
 #pragma pop_macro("WAITER")
+#pragma pop_macro("WRITER")
 
 #endif // _java_util_concurrent_ConcurrentHashMap$TreeBin_h_

@@ -28,17 +28,17 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef STRICT
-#undef LENIENT
-#undef QUARTER_YEARS
-#undef MONTH_OF_YEAR
-#undef QUARTER_OF_YEAR
-#undef YEAR
-#undef QUARTER_DAYS
 #undef DAYS
-#undef INSTANCE
 #undef DAY_OF_QUARTER
+#undef DAY_OF_YEAR
+#undef INSTANCE
+#undef LENIENT
+#undef MONTH_OF_YEAR
+#undef QUARTER_DAYS
+#undef QUARTER_OF_YEAR
+#undef QUARTER_YEARS
+#undef STRICT
+#undef YEAR
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

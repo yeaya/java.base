@@ -33,15 +33,15 @@
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
 
-#undef RSA
-#undef MGF1
 #undef DSA
-#undef ENGLISH
-#undef RSASSA_PSS
-#undef MD2
-#undef SHA_1
 #undef EC
+#undef ENGLISH
+#undef MD2
 #undef MD5
+#undef MGF1
+#undef RSA
+#undef RSASSA_PSS
+#undef SHA_1
 
 using $ProviderArray = $Array<::java::security::Provider>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

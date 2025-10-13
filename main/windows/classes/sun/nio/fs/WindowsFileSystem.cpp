@@ -54,11 +54,11 @@
 #include <jcpp.h>
 
 #undef ABSOLUTE
-#undef UNICODE_CASE
-#undef REGEX_SYNTAX
 #undef CASE_INSENSITIVE
-#undef UNC
 #undef GLOB_SYNTAX
+#undef REGEX_SYNTAX
+#undef UNC
+#undef UNICODE_CASE
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
@@ -302,7 +302,7 @@ $PathMatcher* WindowsFileSystem::getPathMatcher($String* syntaxAndInput) {
 	$var($String, expr, nullptr);
 	if (syntax->equalsIgnoreCase(WindowsFileSystem::GLOB_SYNTAX)) {
 		$assign(expr, $Globs::toWindowsRegexPattern(input));
-	} else if ($nc(syntax)->equalsIgnoreCase(WindowsFileSystem::REGEX_SYNTAX)) {
+	} else if (syntax->equalsIgnoreCase(WindowsFileSystem::REGEX_SYNTAX)) {
 		$assign(expr, input);
 	} else {
 		$throwNew($UnsupportedOperationException, $$str({"Syntax \'"_s, syntax, "\' not recognized"_s}));

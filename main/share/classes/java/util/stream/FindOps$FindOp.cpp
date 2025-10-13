@@ -21,9 +21,9 @@
 #include <java/util/stream/TerminalSink.h>
 #include <jcpp.h>
 
+#undef IS_SHORT_CIRCUIT
 #undef NOT_ORDERED
 #undef ORDERED
-#undef IS_SHORT_CIRCUIT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

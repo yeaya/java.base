@@ -19,8 +19,8 @@
 #include <sun/util/calendar/Era.h>
 #include <jcpp.h>
 
-#undef TIME_UNDEFINED
 #undef FIELD_UNDEFINED
+#undef TIME_UNDEFINED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -467,11 +467,11 @@ $String* CalendarDate::toString() {
 			sign = u'-';
 		}
 		offset /= 0x0000EA60;
-		$nc(sb)->append(sign);
+		sb->append(sign);
 		$CalendarUtils::sprintf0d(sb, offset / 60, 2);
 		$CalendarUtils::sprintf0d(sb, offset % 60, 2);
 	} else {
-		$nc(sb)->append(" local time"_s);
+		sb->append(" local time"_s);
 	}
 	return sb->toString();
 }

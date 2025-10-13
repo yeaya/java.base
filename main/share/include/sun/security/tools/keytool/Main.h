@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("P12KEYSTORE")
-#undef P12KEYSTORE
+#pragma push_macro("CRLF")
+#undef CRLF
 #pragma push_macro("DISABLED_CHECK")
 #undef DISABLED_CHECK
 #pragma push_macro("LEGACY_CHECK")
 #undef LEGACY_CHECK
-#pragma push_macro("CRLF")
-#undef CRLF
 #pragma push_macro("NONE")
 #undef NONE
 #pragma push_macro("P11KEYSTORE")
 #undef P11KEYSTORE
+#pragma push_macro("P12KEYSTORE")
+#undef P12KEYSTORE
 #pragma push_macro("SIG_PRIMITIVE_SET")
 #undef SIG_PRIMITIVE_SET
 
@@ -284,12 +284,12 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("P12KEYSTORE")
+#pragma pop_macro("CRLF")
 #pragma pop_macro("DISABLED_CHECK")
 #pragma pop_macro("LEGACY_CHECK")
-#pragma pop_macro("CRLF")
 #pragma pop_macro("NONE")
 #pragma pop_macro("P11KEYSTORE")
+#pragma pop_macro("P12KEYSTORE")
 #pragma pop_macro("SIG_PRIMITIVE_SET")
 
 #endif // _sun_security_tools_keytool_Main_h_

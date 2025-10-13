@@ -31,12 +31,12 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CHANGE_CIPHER_SPEC
-#undef HANDSHAKE
-#undef APPLICATION_DATA
 #undef ALERT
-#undef NONE
+#undef APPLICATION_DATA
+#undef CHANGE_CIPHER_SPEC
 #undef CLIENT_HELLO
+#undef HANDSHAKE
+#undef NONE
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

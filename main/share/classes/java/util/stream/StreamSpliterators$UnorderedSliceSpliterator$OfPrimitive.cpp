@@ -15,8 +15,8 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator.h>
 #include <jcpp.h>
 
-#undef NO_MORE
 #undef MAYBE_MORE
+#undef NO_MORE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

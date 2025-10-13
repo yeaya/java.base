@@ -7,14 +7,14 @@
 #include <java/io/Serializable.h>
 #include <java/time/chrono/ChronoLocalDate.h>
 
-#pragma push_macro("MIN")
-#undef MIN
-#pragma push_macro("MAX")
-#undef MAX
-#pragma push_macro("EPOCH")
-#undef EPOCH
 #pragma push_macro("DAYS_PER_CYCLE")
 #undef DAYS_PER_CYCLE
+#pragma push_macro("EPOCH")
+#undef EPOCH
+#pragma push_macro("MAX")
+#undef MAX
+#pragma push_macro("MIN")
+#undef MIN
 
 namespace java {
 	namespace io {
@@ -190,9 +190,9 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("MIN")
-#pragma pop_macro("MAX")
-#pragma pop_macro("EPOCH")
 #pragma pop_macro("DAYS_PER_CYCLE")
+#pragma pop_macro("EPOCH")
+#pragma pop_macro("MAX")
+#pragma pop_macro("MIN")
 
 #endif // _java_time_LocalDate_h_

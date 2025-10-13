@@ -11,29 +11,29 @@
 #include <java/util/Formatter.h>
 #include <jcpp.h>
 
-#undef LINE_SEPARATOR
-#undef HEXADECIMAL_FLOAT_UPPER
-#undef DECIMAL_INTEGER
-#undef BOOLEAN_UPPER
-#undef STRING_UPPER
-#undef DATE_TIME_UPPER
-#undef HASHCODE_UPPER
-#undef SCIENTIFIC_UPPER
-#undef GENERAL
-#undef HEXADECIMAL_FLOAT
 #undef BOOLEAN
-#undef SCIENTIFIC
-#undef PERCENT_SIGN
-#undef HEXADECIMAL_INTEGER
-#undef OCTAL_INTEGER
-#undef GENERAL_UPPER
-#undef STRING
-#undef HASHCODE
+#undef BOOLEAN_UPPER
 #undef CHARACTER
 #undef CHARACTER_UPPER
 #undef DATE_TIME
-#undef HEXADECIMAL_INTEGER_UPPER
+#undef DATE_TIME_UPPER
 #undef DECIMAL_FLOAT
+#undef DECIMAL_INTEGER
+#undef GENERAL
+#undef GENERAL_UPPER
+#undef HASHCODE
+#undef HASHCODE_UPPER
+#undef HEXADECIMAL_FLOAT
+#undef HEXADECIMAL_FLOAT_UPPER
+#undef HEXADECIMAL_INTEGER
+#undef HEXADECIMAL_INTEGER_UPPER
+#undef LINE_SEPARATOR
+#undef OCTAL_INTEGER
+#undef PERCENT_SIGN
+#undef SCIENTIFIC
+#undef SCIENTIFIC_UPPER
+#undef STRING
+#undef STRING_UPPER
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

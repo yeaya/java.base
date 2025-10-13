@@ -22,14 +22,14 @@
 #include <sun/security/ssl/X509Authentication$X509PossessionGenerator.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef RSA
-#undef RSA_OR_PSS
-#undef DSA
 #undef CERTIFICATE
-#undef RSASSA_PSS
+#undef CERTIFICATE_REQUEST
+#undef DSA
 #undef EC
 #undef EDDSA
+#undef RSA
+#undef RSASSA_PSS
+#undef RSA_OR_PSS
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

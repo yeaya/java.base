@@ -70,18 +70,18 @@
 #include <sun/security/x509/X509CertImpl.h>
 #include <jcpp.h>
 
-#undef CERT_STATUS_UNKNOWN
-#undef CERT_STATUS_REVOKED
-#undef SUCCESSFUL
 #undef BY_KEY
-#undef UNDETERMINED_REVOCATION_STATUS
-#undef OCSP_BASIC_RESPONSE_OID
-#undef CERT_STATUS_GOOD
-#undef NAME_TAG
-#undef MAX_CLOCK_SKEW
 #undef BY_NAME
+#undef CERT_STATUS_GOOD
+#undef CERT_STATUS_REVOKED
+#undef CERT_STATUS_UNKNOWN
 #undef DEFAULT_MAX_CLOCK_SKEW
 #undef KEY_TAG
+#undef MAX_CLOCK_SKEW
+#undef NAME_TAG
+#undef OCSP_BASIC_RESPONSE_OID
+#undef SUCCESSFUL
+#undef UNDETERMINED_REVOCATION_STATUS
 
 using $CRLReasonArray = $Array<::java::security::cert::CRLReason>;
 using $OCSPResponse$ResponseStatusArray = $Array<::sun::security::provider::certpath::OCSPResponse$ResponseStatus>;

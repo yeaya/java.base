@@ -10,10 +10,10 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef TH_TH_TH
 #undef JA_JP_JP
-#undef TH_TH
 #undef NO_NO_NY
+#undef TH_TH
+#undef TH_TH_TH
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -5,10 +5,10 @@
 
 #include <sun/nio/cs/Unicode.h>
 
-#pragma push_macro("UTF_8")
-#undef UTF_8
 #pragma push_macro("INSTANCE")
 #undef INSTANCE
+#pragma push_macro("UTF_8")
+#undef UTF_8
 
 namespace java {
 	namespace nio {
@@ -46,7 +46,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("UTF_8")
 #pragma pop_macro("INSTANCE")
+#pragma pop_macro("UTF_8")
 
 #endif // _sun_nio_cs_UTF_8_h_

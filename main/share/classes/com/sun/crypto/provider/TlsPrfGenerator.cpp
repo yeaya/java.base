@@ -32,15 +32,15 @@
 #include <sun/security/internal/spec/TlsPrfParameterSpec.h>
 #include <jcpp.h>
 
-#undef MSG
-#undef LABEL_MASTER_SECRET
+#undef LABEL_CLIENT_WRITE_KEY
 #undef LABEL_EXTENDED_MASTER_SECRET
+#undef LABEL_IV_BLOCK
+#undef LABEL_KEY_EXPANSION
+#undef LABEL_MASTER_SECRET
+#undef LABEL_SERVER_WRITE_KEY
+#undef MSG
 #undef SSL3_CONST
 #undef UTF_8
-#undef LABEL_KEY_EXPANSION
-#undef LABEL_IV_BLOCK
-#undef LABEL_CLIENT_WRITE_KEY
-#undef LABEL_SERVER_WRITE_KEY
 
 using $byteArray2 = $Array<int8_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;

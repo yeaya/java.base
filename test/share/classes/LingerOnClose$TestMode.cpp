@@ -13,9 +13,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NON_BLOCKING_AND_REGISTERED
-#undef NON_BLOCKING
 #undef BLOCKING
+#undef NON_BLOCKING
+#undef NON_BLOCKING_AND_REGISTERED
 
 using $LingerOnClose = ::LingerOnClose;
 using $LingerOnClose$TestModeArray = $Array<LingerOnClose$TestMode>;

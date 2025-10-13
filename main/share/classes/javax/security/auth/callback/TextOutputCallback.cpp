@@ -11,8 +11,8 @@
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
-#undef INFORMATION
 #undef ERROR
+#undef INFORMATION
 #undef WARNING
 
 using $Serializable = ::java::io::Serializable;

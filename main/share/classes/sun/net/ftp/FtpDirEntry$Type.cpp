@@ -14,10 +14,10 @@
 #include <jcpp.h>
 
 #undef CDIR
-#undef PDIR
-#undef LINK
-#undef FILE
 #undef DIR
+#undef FILE
+#undef LINK
+#undef PDIR
 
 using $FtpDirEntry$TypeArray = $Array<::sun::net::ftp::FtpDirEntry$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -20,9 +20,9 @@
 #include <java/time/temporal/ValueRange.h>
 #include <jcpp.h>
 
-#undef YEARS
-#undef QUARTER_YEARS
 #undef MONTH_OF_YEAR
+#undef QUARTER_YEARS
+#undef YEARS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

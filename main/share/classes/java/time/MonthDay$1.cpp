@@ -14,8 +14,8 @@
 #include <java/time/temporal/ChronoField.h>
 #include <jcpp.h>
 
-#undef MONTH_OF_YEAR
 #undef DAY_OF_MONTH
+#undef MONTH_OF_YEAR
 
 using $ChronoFieldArray = $Array<::java::time::temporal::ChronoField>;
 using $ClassInfo = ::java::lang::ClassInfo;

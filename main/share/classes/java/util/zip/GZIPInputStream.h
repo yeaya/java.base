@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/util/zip/InflaterInputStream.h>
 
-#pragma push_macro("FTEXT")
-#undef FTEXT
-#pragma push_macro("FEXTRA")
-#undef FEXTRA
-#pragma push_macro("GZIP_MAGIC")
-#undef GZIP_MAGIC
 #pragma push_macro("FCOMMENT")
 #undef FCOMMENT
+#pragma push_macro("FEXTRA")
+#undef FEXTRA
 #pragma push_macro("FHCRC")
 #undef FHCRC
 #pragma push_macro("FNAME")
 #undef FNAME
+#pragma push_macro("FTEXT")
+#undef FTEXT
+#pragma push_macro("GZIP_MAGIC")
+#undef GZIP_MAGIC
 
 namespace java {
 	namespace io {
@@ -68,11 +68,11 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("FTEXT")
-#pragma pop_macro("FEXTRA")
-#pragma pop_macro("GZIP_MAGIC")
 #pragma pop_macro("FCOMMENT")
+#pragma pop_macro("FEXTRA")
 #pragma pop_macro("FHCRC")
 #pragma pop_macro("FNAME")
+#pragma pop_macro("FTEXT")
+#pragma pop_macro("GZIP_MAGIC")
 
 #endif // _java_util_zip_GZIPInputStream_h_

@@ -27,11 +27,11 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef LATIN1
-#undef UTF16
-#undef UNSAFE
 #undef COMPACT_STRINGS
+#undef LATIN1
 #undef TYPE
+#undef UNSAFE
+#undef UTF16
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Byte = ::java::lang::Byte;

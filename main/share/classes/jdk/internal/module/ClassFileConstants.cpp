@@ -10,23 +10,23 @@
 #include <jcpp.h>
 
 #undef ACC_MANDATED
-#undef WARN_INCUBATING
-#undef SOURCE_FILE
-#undef MODULE_TARGET
 #undef ACC_MODULE
-#undef MODULE_RESOLUTION
-#undef MODULE_HASHES
 #undef ACC_OPEN
-#undef DO_NOT_RESOLVE_BY_DEFAULT
-#undef ACC_SYNTHETIC
-#undef MODULE
 #undef ACC_STATIC_PHASE
-#undef SDE
+#undef ACC_SYNTHETIC
+#undef ACC_TRANSITIVE
+#undef DO_NOT_RESOLVE_BY_DEFAULT
+#undef MODULE
+#undef MODULE_HASHES
 #undef MODULE_MAIN_CLASS
 #undef MODULE_PACKAGES
+#undef MODULE_RESOLUTION
+#undef MODULE_TARGET
+#undef SDE
+#undef SOURCE_FILE
 #undef WARN_DEPRECATED
 #undef WARN_DEPRECATED_FOR_REMOVAL
-#undef ACC_TRANSITIVE
+#undef WARN_INCUBATING
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

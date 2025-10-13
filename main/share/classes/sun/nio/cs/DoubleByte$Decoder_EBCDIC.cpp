@@ -21,10 +21,10 @@
 
 #undef DBCS
 #undef OVERFLOW
-#undef SI
 #undef SBCS
-#undef UNDERFLOW
+#undef SI
 #undef SO
+#undef UNDERFLOW
 
 using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -158,7 +158,7 @@ $CoderResult* DoubleByte$Decoder_EBCDIC::decodeArrayLoop($ByteBuffer* src, $Char
 							return$5 = true;
 							goto $finally;
 						}
-						int32_t b2 = (int32_t)($nc(sa)->get(sp + 1) & (uint32_t)255);
+						int32_t b2 = (int32_t)(sa->get(sp + 1) & (uint32_t)255);
 						if (b2 < this->b2Min || b2 > this->b2Max || (c = $nc($nc(this->b2c)->get(b1))->get(b2 - this->b2Min)) == (char16_t)0xFFFD) {
 							if (!isDoubleByte(b1, b2)) {
 								$assign(var$6, $CoderResult::malformedForLength(2));
@@ -237,13 +237,13 @@ $CoderResult* DoubleByte$Decoder_EBCDIC::decodeBufferLoop($ByteBuffer* src, $Cha
 							goto $finally;
 						}
 					} else {
-						if ($nc(src)->remaining() < 1) {
+						if (src->remaining() < 1) {
 							$init($CoderResult);
 							$assign(var$2, $CoderResult::UNDERFLOW);
 							return$1 = true;
 							goto $finally;
 						}
-						int32_t b2 = (int32_t)($nc(src)->get() & (uint32_t)255);
+						int32_t b2 = (int32_t)(src->get() & (uint32_t)255);
 						if (b2 < this->b2Min || b2 > this->b2Max || (c = $nc($nc(this->b2c)->get(b1))->get(b2 - this->b2Min)) == (char16_t)0xFFFD) {
 							if (!isDoubleByte(b1, b2)) {
 								$assign(var$2, $CoderResult::malformedForLength(2));
@@ -314,7 +314,7 @@ int32_t DoubleByte$Decoder_EBCDIC::decode($bytes* src, int32_t sp, int32_t len, 
 			} else if (sl == sp) {
 				c = repl;
 			} else {
-				int32_t b2 = (int32_t)($nc(src)->get(sp++) & (uint32_t)255);
+				int32_t b2 = (int32_t)(src->get(sp++) & (uint32_t)255);
 				if (b2 < this->b2Min || b2 > this->b2Max || (c = $nc($nc(this->b2c)->get(b1))->get(b2 - this->b2Min)) == (char16_t)0xFFFD) {
 					c = repl;
 				}

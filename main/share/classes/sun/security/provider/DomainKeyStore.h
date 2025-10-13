@@ -6,20 +6,20 @@
 #include <java/lang/Array.h>
 #include <java/security/KeyStoreSpi.h>
 
-#pragma push_macro("KEYSTORE_TYPE")
-#undef KEYSTORE_TYPE
 #pragma push_macro("DEFAULT_KEYSTORE_TYPE")
 #undef DEFAULT_KEYSTORE_TYPE
-#pragma push_macro("ENTRY_NAME_SEPARATOR")
-#undef ENTRY_NAME_SEPARATOR
-#pragma push_macro("KEYSTORE_URI")
-#undef KEYSTORE_URI
-#pragma push_macro("KEYSTORE_PASSWORD_ENV")
-#undef KEYSTORE_PASSWORD_ENV
 #pragma push_macro("DEFAULT_STREAM_PREFIX")
 #undef DEFAULT_STREAM_PREFIX
+#pragma push_macro("ENTRY_NAME_SEPARATOR")
+#undef ENTRY_NAME_SEPARATOR
+#pragma push_macro("KEYSTORE_PASSWORD_ENV")
+#undef KEYSTORE_PASSWORD_ENV
 #pragma push_macro("KEYSTORE_PROVIDER_NAME")
 #undef KEYSTORE_PROVIDER_NAME
+#pragma push_macro("KEYSTORE_TYPE")
+#undef KEYSTORE_TYPE
+#pragma push_macro("KEYSTORE_URI")
+#undef KEYSTORE_URI
 #pragma push_macro("REGEX_META")
 #undef REGEX_META
 
@@ -107,13 +107,13 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("KEYSTORE_TYPE")
 #pragma pop_macro("DEFAULT_KEYSTORE_TYPE")
-#pragma pop_macro("ENTRY_NAME_SEPARATOR")
-#pragma pop_macro("KEYSTORE_URI")
-#pragma pop_macro("KEYSTORE_PASSWORD_ENV")
 #pragma pop_macro("DEFAULT_STREAM_PREFIX")
+#pragma pop_macro("ENTRY_NAME_SEPARATOR")
+#pragma pop_macro("KEYSTORE_PASSWORD_ENV")
 #pragma pop_macro("KEYSTORE_PROVIDER_NAME")
+#pragma pop_macro("KEYSTORE_TYPE")
+#pragma pop_macro("KEYSTORE_URI")
 #pragma pop_macro("REGEX_META")
 
 #endif // _sun_security_provider_DomainKeyStore_h_

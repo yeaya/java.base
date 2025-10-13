@@ -48,8 +48,8 @@
 #include <jcpp.h>
 
 #undef FORMAT
-#undef ZERO_SENTINEL
 #undef US
+#undef ZERO_SENTINEL
 
 using $BufferedWriter = ::java::io::BufferedWriter;
 using $Closeable = ::java::io::Closeable;

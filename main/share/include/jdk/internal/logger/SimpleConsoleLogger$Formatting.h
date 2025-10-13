@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SIMPLE_CONSOLE_LOGGER_FORMAT")
-#undef SIMPLE_CONSOLE_LOGGER_FORMAT
+#pragma push_macro("DEFAULT_FORMAT")
+#undef DEFAULT_FORMAT
 #pragma push_macro("DEFAULT_FORMAT_PROP_KEY")
 #undef DEFAULT_FORMAT_PROP_KEY
 #pragma push_macro("JUL_FORMAT_PROP_KEY")
 #undef JUL_FORMAT_PROP_KEY
-#pragma push_macro("DEFAULT_FORMAT")
-#undef DEFAULT_FORMAT
+#pragma push_macro("SIMPLE_CONSOLE_LOGGER_FORMAT")
+#undef SIMPLE_CONSOLE_LOGGER_FORMAT
 
 namespace java {
 	namespace lang {
@@ -50,9 +50,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SIMPLE_CONSOLE_LOGGER_FORMAT")
+#pragma pop_macro("DEFAULT_FORMAT")
 #pragma pop_macro("DEFAULT_FORMAT_PROP_KEY")
 #pragma pop_macro("JUL_FORMAT_PROP_KEY")
-#pragma pop_macro("DEFAULT_FORMAT")
+#pragma pop_macro("SIMPLE_CONSOLE_LOGGER_FORMAT")
 
 #endif // _jdk_internal_logger_SimpleConsoleLogger$Formatting_h_

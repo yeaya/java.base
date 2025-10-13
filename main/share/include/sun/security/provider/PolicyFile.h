@@ -8,18 +8,18 @@
 
 #pragma push_macro("DEFAULT_CACHE_SIZE")
 #undef DEFAULT_CACHE_SIZE
-#pragma push_macro("POLICY")
-#undef POLICY
-#pragma push_macro("PARAMS2")
-#undef PARAMS2
-#pragma push_macro("PARAMS1")
-#undef PARAMS1
 #pragma push_macro("PARAMS0")
 #undef PARAMS0
-#pragma push_macro("SELF")
-#undef SELF
+#pragma push_macro("PARAMS1")
+#undef PARAMS1
+#pragma push_macro("PARAMS2")
+#undef PARAMS2
+#pragma push_macro("POLICY")
+#undef POLICY
 #pragma push_macro("POLICY_URL")
 #undef POLICY_URL
+#pragma push_macro("SELF")
+#undef SELF
 #pragma push_macro("X500PRINCIPAL")
 #undef X500PRINCIPAL
 
@@ -150,12 +150,12 @@ public:
 } // sun
 
 #pragma pop_macro("DEFAULT_CACHE_SIZE")
-#pragma pop_macro("POLICY")
-#pragma pop_macro("PARAMS2")
-#pragma pop_macro("PARAMS1")
 #pragma pop_macro("PARAMS0")
-#pragma pop_macro("SELF")
+#pragma pop_macro("PARAMS1")
+#pragma pop_macro("PARAMS2")
+#pragma pop_macro("POLICY")
 #pragma pop_macro("POLICY_URL")
+#pragma pop_macro("SELF")
 #pragma pop_macro("X500PRINCIPAL")
 
 #endif // _sun_security_provider_PolicyFile_h_

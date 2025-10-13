@@ -31,21 +31,21 @@
 #include <tck/java/time/chrono/CopticDate$1.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef DOM_RANGE_NONLEAP
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
+#undef ALIGNED_WEEK_OF_MONTH
+#undef ALIGNED_WEEK_OF_YEAR
 #undef DAY_OF_MONTH
+#undef DAY_OF_WEEK
+#undef DAY_OF_YEAR
 #undef DOM_RANGE
+#undef DOM_RANGE_LEAP
+#undef DOM_RANGE_NONLEAP
+#undef EPOCH_DAY_DIFFERENCE
 #undef INSTANCE
 #undef MAX_VALUE
-#undef MOY_RANGE
-#undef EPOCH_DAY_DIFFERENCE
 #undef MONTH_OF_YEAR
-#undef ALIGNED_WEEK_OF_MONTH
-#undef DOM_RANGE_LEAP
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef ALIGNED_WEEK_OF_YEAR
-#undef DAY_OF_WEEK
+#undef MOY_RANGE
 #undef YEAR_OF_ERA
 
 using $Serializable = ::java::io::Serializable;
@@ -436,7 +436,7 @@ $ChronoPeriod* CopticDate::until($ChronoLocalDate* endDate) {
 		days = (int32_t)(var$0 - $nc(calcDate)->toEpochDay());
 	} else if (totalMonths < 0 && days > 0) {
 		++totalMonths;
-		days -= $nc(end)->lengthOfMonth();
+		days -= end->lengthOfMonth();
 	}
 	int64_t years = totalMonths / 13;
 	int32_t months = (int32_t)(totalMonths % 13);

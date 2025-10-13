@@ -46,14 +46,14 @@
 #include <sun/security/x509/X500Name.h>
 #include <jcpp.h>
 
-#undef PRESERVE_OLD_DC_ENCODING
-#undef EMAIL_ADDRESS_OID
-#undef UTF_8
-#undef NFKD
-#undef DOMAIN_COMPONENT_OID
 #undef AVA
 #undef DEFAULT
+#undef DOMAIN_COMPONENT_OID
+#undef EMAIL_ADDRESS_OID
+#undef NFKD
+#undef PRESERVE_OLD_DC_ENCODING
 #undef US
+#undef UTF_8
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -485,7 +485,7 @@ bool AVA::trailingSpace($Reader* in) {
 			} else if (nextChar == u' ') {
 				continue;
 			} else if (nextChar == u'\\') {
-				int32_t followingChar = $nc(in)->read();
+				int32_t followingChar = in->read();
 				if (followingChar != u' ') {
 					trailing = false;
 					break;
@@ -599,13 +599,13 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 				}
 				sbuffer->append(c);
 			} else if (c == u'\0') {
-				$nc(sbuffer)->append("\\00"_s);
+				sbuffer->append("\\00"_s);
 			} else if (AVA::debug != nullptr && $Debug::isOn("ava"_s)) {
 				$init($StandardCharsets);
 				$var($bytes, valueBytes, $nc($($Character::toString(c)))->getBytes($StandardCharsets::UTF_8));
 				$nc($($nc($($nc($($HexFormat::of()))->withPrefix("\\"_s)))->withUpperCase()))->formatHex(sbuffer, valueBytes);
 			} else {
-				$nc(sbuffer)->append(c);
+				sbuffer->append(c);
 			}
 		}
 		$var($chars, chars, $nc($(sbuffer->toString()))->toCharArray());
@@ -674,7 +674,7 @@ $String* AVA::toRFC2253CanonicalString() {
 					sbuffer->append(c);
 				} else if (previousWhite == false) {
 					previousWhite = true;
-					$nc(sbuffer)->append(c);
+					sbuffer->append(c);
 				} else {
 					continue;
 				}
@@ -685,7 +685,7 @@ $String* AVA::toRFC2253CanonicalString() {
 				$nc($($nc($($nc($($HexFormat::of()))->withPrefix("\\"_s)))->withUpperCase()))->formatHex(sbuffer, valueBytes);
 			} else {
 				previousWhite = false;
-				$nc(sbuffer)->append(c);
+				sbuffer->append(c);
 			}
 		}
 		typeAndValue->append($($nc($(sbuffer->toString()))->trim()));
@@ -788,7 +788,7 @@ $String* AVA::toKeywordValueString($String* keyword) {
 					$nc($($nc($($nc($($HexFormat::of()))->withPrefix("\\"_s)))->withUpperCase()))->formatHex(sbuffer, valueBytes);
 				} else {
 					previousWhite = false;
-					$nc(sbuffer)->append(c);
+					sbuffer->append(c);
 				}
 			}
 			if (sbuffer->length() > 0) {

@@ -25,8 +25,8 @@
 #include <java/nio/file/StandardOpenOption.h>
 #include <jcpp.h>
 
-#undef READ
 #undef MAX_VALUE
+#undef READ
 #undef WRITE
 
 using $FileLockSub = ::FileLockSub;
@@ -150,7 +150,7 @@ void FileLockConstructor::main($StringArray* args) {
 							++failures;
 						} else if (!preconditionsHold && !exceptionThrown) {
 							$init($System);
-							$nc($System::err)->println($$str({"FileLock constructor did not throw IAE for position "_s, $$str($nc($nc(posAndSize)->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for FileChannel variant"_s}));
+							$nc($System::err)->println($$str({"FileLock constructor did not throw IAE for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for FileChannel variant"_s}));
 							++failures;
 						}
 					}
@@ -209,7 +209,7 @@ void FileLockConstructor::main($StringArray* args) {
 							++failures;
 						} else if (!preconditionsHold && !exceptionThrown) {
 							$init($System);
-							$nc($System::err)->println($$str({"FileLock constructor did not throw IAE for position "_s, $$str($nc($nc(posAndSize)->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for AsynchronousFileChannel variant"_s}));
+							$nc($System::err)->println($$str({"FileLock constructor did not throw IAE for position "_s, $$str($nc(posAndSize->get(i))->get(0)), " and size "_s, $$str($nc(posAndSize->get(i))->get(1)), " for AsynchronousFileChannel variant"_s}));
 							++failures;
 						}
 					}

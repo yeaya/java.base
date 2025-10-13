@@ -16,9 +16,9 @@
 #include <java/util/stream/Tripwire.h>
 #include <jcpp.h>
 
-#undef MAX_ARRAY_SIZE
 #undef BAD_SIZE
 #undef ENABLED
+#undef MAX_ARRAY_SIZE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

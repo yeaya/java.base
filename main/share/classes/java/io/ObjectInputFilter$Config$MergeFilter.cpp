@@ -17,8 +17,8 @@
 #include <jcpp.h>
 
 #undef ALLOWED
-#undef UNDECIDED
 #undef REJECTED
+#undef UNDECIDED
 
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$Config = ::java::io::ObjectInputFilter$Config;

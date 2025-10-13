@@ -31,10 +31,10 @@
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef DH_OID
 #undef PKCS8_VERSION
 #undef PRIVATE
+#undef ZERO
 
 using $DHPublicKey = ::com::sun::crypto::provider::DHPublicKey;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;

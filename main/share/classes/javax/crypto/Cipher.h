@@ -5,38 +5,38 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("WRAP_MODE")
-#undef WRAP_MODE
-#pragma push_macro("S_MAYBE")
-#undef S_MAYBE
-#pragma push_macro("S_YES")
-#undef S_YES
-#pragma push_macro("I_PARAMSPEC")
-#undef I_PARAMSPEC
-#pragma push_macro("PUBLIC_KEY")
-#undef PUBLIC_KEY
-#pragma push_macro("PRIVATE_KEY")
-#undef PRIVATE_KEY
-#pragma push_macro("SECRET_KEY")
-#undef SECRET_KEY
-#pragma push_macro("S_NO")
-#undef S_NO
 #pragma push_macro("ATTR_MODE")
 #undef ATTR_MODE
-#pragma push_macro("UNWRAP_MODE")
-#undef UNWRAP_MODE
-#pragma push_macro("I_CERT")
-#undef I_CERT
-#pragma push_macro("ENCRYPT_MODE")
-#undef ENCRYPT_MODE
-#pragma push_macro("I_KEY")
-#undef I_KEY
 #pragma push_macro("ATTR_PAD")
 #undef ATTR_PAD
 #pragma push_macro("DECRYPT_MODE")
 #undef DECRYPT_MODE
+#pragma push_macro("ENCRYPT_MODE")
+#undef ENCRYPT_MODE
+#pragma push_macro("I_CERT")
+#undef I_CERT
+#pragma push_macro("I_KEY")
+#undef I_KEY
 #pragma push_macro("I_PARAMS")
 #undef I_PARAMS
+#pragma push_macro("I_PARAMSPEC")
+#undef I_PARAMSPEC
+#pragma push_macro("PRIVATE_KEY")
+#undef PRIVATE_KEY
+#pragma push_macro("PUBLIC_KEY")
+#undef PUBLIC_KEY
+#pragma push_macro("SECRET_KEY")
+#undef SECRET_KEY
+#pragma push_macro("S_MAYBE")
+#undef S_MAYBE
+#pragma push_macro("S_NO")
+#undef S_NO
+#pragma push_macro("S_YES")
+#undef S_YES
+#pragma push_macro("UNWRAP_MODE")
+#undef UNWRAP_MODE
+#pragma push_macro("WRAP_MODE")
+#undef WRAP_MODE
 
 namespace java {
 	namespace nio {
@@ -189,21 +189,21 @@ public:
 	} // crypto
 } // javax
 
-#pragma pop_macro("WRAP_MODE")
-#pragma pop_macro("S_MAYBE")
-#pragma pop_macro("S_YES")
-#pragma pop_macro("I_PARAMSPEC")
-#pragma pop_macro("PUBLIC_KEY")
-#pragma pop_macro("PRIVATE_KEY")
-#pragma pop_macro("SECRET_KEY")
-#pragma pop_macro("S_NO")
 #pragma pop_macro("ATTR_MODE")
-#pragma pop_macro("UNWRAP_MODE")
-#pragma pop_macro("I_CERT")
-#pragma pop_macro("ENCRYPT_MODE")
-#pragma pop_macro("I_KEY")
 #pragma pop_macro("ATTR_PAD")
 #pragma pop_macro("DECRYPT_MODE")
+#pragma pop_macro("ENCRYPT_MODE")
+#pragma pop_macro("I_CERT")
+#pragma pop_macro("I_KEY")
 #pragma pop_macro("I_PARAMS")
+#pragma pop_macro("I_PARAMSPEC")
+#pragma pop_macro("PRIVATE_KEY")
+#pragma pop_macro("PUBLIC_KEY")
+#pragma pop_macro("SECRET_KEY")
+#pragma pop_macro("S_MAYBE")
+#pragma pop_macro("S_NO")
+#pragma pop_macro("S_YES")
+#pragma pop_macro("UNWRAP_MODE")
+#pragma pop_macro("WRAP_MODE")
 
 #endif // _javax_crypto_Cipher_h_

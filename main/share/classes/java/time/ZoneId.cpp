@@ -45,10 +45,10 @@
 #include <java/util/TimeZone.h>
 #include <jcpp.h>
 
-#undef UTC
-#undef ZONE_REGION_TYPE
 #undef EPOCH
 #undef SHORT_IDS
+#undef UTC
+#undef ZONE_REGION_TYPE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $DataOutput = ::java::io::DataOutput;
@@ -207,7 +207,7 @@ ZoneId* ZoneId::of($String* zoneId, bool checkAvailable) {
 		bool var$3 = zoneId->startsWith("UTC"_s);
 		if (var$3 || zoneId->startsWith("GMT"_s)) {
 			return ofWithPrefix(zoneId, 3, checkAvailable);
-		} else if ($nc(zoneId)->startsWith("UT"_s)) {
+		} else if (zoneId->startsWith("UT"_s)) {
 			return ofWithPrefix(zoneId, 2, checkAvailable);
 		}
 	}
@@ -216,7 +216,7 @@ ZoneId* ZoneId::of($String* zoneId, bool checkAvailable) {
 
 ZoneId* ZoneId::ofWithPrefix($String* zoneId, int32_t prefixLength, bool checkAvailable) {
 	$init(ZoneId);
-	$var($String, prefix, $nc(zoneId)->substring(0, prefixLength));
+	$var($String, prefix, zoneId->substring(0, prefixLength));
 	if (zoneId->length() == prefixLength) {
 		$init($ZoneOffset);
 		return ofOffset(prefix, $ZoneOffset::UTC);

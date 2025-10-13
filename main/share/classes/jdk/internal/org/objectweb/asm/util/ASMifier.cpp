@@ -42,55 +42,55 @@
 #include <jdk/internal/org/objectweb/asm/util/Printer.h>
 #include <jcpp.h>
 
-#undef F_NEW
-#undef ACC_PROTECTED
-#undef ACC_ENUM
 #undef ACCESS_CLASS
+#undef ACCESS_FIELD
+#undef ACCESS_INNER
+#undef ACCESS_MODULE
+#undef ACC_ABSTRACT
+#undef ACC_ANNOTATION
+#undef ACC_BRIDGE
+#undef ACC_DEPRECATED
+#undef ACC_ENUM
+#undef ACC_FINAL
+#undef ACC_INTERFACE
+#undef ACC_MANDATED
+#undef ACC_MODULE
+#undef ACC_NATIVE
+#undef ACC_PRIVATE
+#undef ACC_PROTECTED
+#undef ACC_PUBLIC
+#undef ACC_RECORD
+#undef ACC_STATIC
+#undef ACC_STATIC_PHASE
+#undef ACC_STRICT
+#undef ACC_SUPER
+#undef ACC_SYNCHRONIZED
+#undef ACC_SYNTHETIC
+#undef ACC_TRANSIENT
+#undef ACC_TRANSITIVE
+#undef ACC_VARARGS
 #undef ACC_VOLATILE
 #undef ANNOTATION_VISITOR
-#undef TYPES
-#undef VISIT_END
-#undef F_CHOP
-#undef F_SAME1
-#undef ACC_STATIC_PHASE
-#undef ACC_BRIDGE
-#undef ACCESS_INNER
-#undef HANDLE_TAG
-#undef CLASS_VERSIONS
-#undef ACC_SUPER
-#undef OPCODES
-#undef ACC_VARARGS
-#undef ASM8
-#undef F_FULL
-#undef ACC_RECORD
-#undef ACC_SYNTHETIC
-#undef ACC_STRICT
-#undef END_ARRAY
-#undef ACC_PUBLIC
-#undef ACC_TRANSIENT
-#undef ACC_MANDATED
-#undef NEW_OBJECT_ARRAY
-#undef ACC_STATIC
-#undef ACC_ABSTRACT
-#undef ACC_DEPRECATED
-#undef ACC_MODULE
-#undef F_APPEND
-#undef ACC_PRIVATE
-#undef ACCESS_MODULE
 #undef ANNOTATION_VISITOR0
-#undef ACC_FINAL
-#undef USAGE
-#undef ACC_INTERFACE
-#undef ACCESS_FIELD
-#undef ACC_TRANSITIVE
+#undef ASM8
+#undef CLASS_VERSIONS
 #undef COMMA
-#undef NEWARRAY
-#undef ACC_SYNCHRONIZED
-#undef F_SAME
+#undef END_ARRAY
 #undef END_PARAMETERS
-#undef ACC_NATIVE
 #undef FRAME_TYPES
-#undef ACC_ANNOTATION
+#undef F_APPEND
+#undef F_CHOP
+#undef F_FULL
+#undef F_NEW
+#undef F_SAME
+#undef F_SAME1
+#undef HANDLE_TAG
+#undef NEWARRAY
+#undef NEW_OBJECT_ARRAY
+#undef OPCODES
+#undef TYPES
+#undef USAGE
+#undef VISIT_END
 
 using $LabelArray = $Array<::jdk::internal::org::objectweb::asm$::Label>;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
@@ -1403,7 +1403,7 @@ void ASMifier::appendFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
 		}
 		if ($instanceOf($String, $nc(frameTypes)->get(i))) {
 			appendConstant(frameTypes->get(i));
-		} else if ($instanceOf($Integer, $nc(frameTypes)->get(i))) {
+		} else if ($instanceOf($Integer, frameTypes->get(i))) {
 			$nc(this->stringBuilder)->append($cast($String, $($nc(ASMifier::FRAME_TYPES)->get($nc(($cast($Integer, frameTypes->get(i))))->intValue()))));
 		} else {
 			appendLabel($cast($Label, frameTypes->get(i)));

@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("BA_REGULAR")
-#undef BA_REGULAR
-#pragma push_macro("BA_EXISTS")
-#undef BA_EXISTS
-#pragma push_macro("ACCESS_WRITE")
-#undef ACCESS_WRITE
-#pragma push_macro("BA_HIDDEN")
-#undef BA_HIDDEN
-#pragma push_macro("BA_DIRECTORY")
-#undef BA_DIRECTORY
 #pragma push_macro("ACCESS_EXECUTE")
 #undef ACCESS_EXECUTE
-#pragma push_macro("SPACE_TOTAL")
-#undef SPACE_TOTAL
 #pragma push_macro("ACCESS_READ")
 #undef ACCESS_READ
-#pragma push_macro("SPACE_USABLE")
-#undef SPACE_USABLE
+#pragma push_macro("ACCESS_WRITE")
+#undef ACCESS_WRITE
+#pragma push_macro("BA_DIRECTORY")
+#undef BA_DIRECTORY
+#pragma push_macro("BA_EXISTS")
+#undef BA_EXISTS
+#pragma push_macro("BA_HIDDEN")
+#undef BA_HIDDEN
+#pragma push_macro("BA_REGULAR")
+#undef BA_REGULAR
 #pragma push_macro("SPACE_FREE")
 #undef SPACE_FREE
+#pragma push_macro("SPACE_TOTAL")
+#undef SPACE_TOTAL
+#pragma push_macro("SPACE_USABLE")
+#undef SPACE_USABLE
 
 namespace java {
 	namespace io {
@@ -87,15 +87,15 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("BA_REGULAR")
-#pragma pop_macro("BA_EXISTS")
-#pragma pop_macro("ACCESS_WRITE")
-#pragma pop_macro("BA_HIDDEN")
-#pragma pop_macro("BA_DIRECTORY")
 #pragma pop_macro("ACCESS_EXECUTE")
-#pragma pop_macro("SPACE_TOTAL")
 #pragma pop_macro("ACCESS_READ")
-#pragma pop_macro("SPACE_USABLE")
+#pragma pop_macro("ACCESS_WRITE")
+#pragma pop_macro("BA_DIRECTORY")
+#pragma pop_macro("BA_EXISTS")
+#pragma pop_macro("BA_HIDDEN")
+#pragma pop_macro("BA_REGULAR")
 #pragma pop_macro("SPACE_FREE")
+#pragma pop_macro("SPACE_TOTAL")
+#pragma pop_macro("SPACE_USABLE")
 
 #endif // _java_io_FileSystem_h_

@@ -14,10 +14,10 @@
 #include <jdk/internal/math/FormattedFloatingDecimal.h>
 #include <jcpp.h>
 
-#undef SCIENTIFIC
 #undef COMPATIBLE
-#undef GENERAL
 #undef DECIMAL_FLOAT
+#undef GENERAL
+#undef SCIENTIFIC
 
 using $FormattedFloatingDecimal$FormArray = $Array<::jdk::internal::math::FormattedFloatingDecimal$Form>;
 using $ClassInfo = ::java::lang::ClassInfo;

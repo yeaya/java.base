@@ -5,20 +5,20 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("LOCAL_TIME")
-#undef LOCAL_TIME
 #pragma push_macro("CHRONO")
 #undef CHRONO
-#pragma push_macro("ZONE_ID")
-#undef ZONE_ID
-#pragma push_macro("ZONE")
-#undef ZONE
 #pragma push_macro("LOCAL_DATE")
 #undef LOCAL_DATE
+#pragma push_macro("LOCAL_TIME")
+#undef LOCAL_TIME
 #pragma push_macro("OFFSET")
 #undef OFFSET
 #pragma push_macro("PRECISION")
 #undef PRECISION
+#pragma push_macro("ZONE")
+#undef ZONE
+#pragma push_macro("ZONE_ID")
+#undef ZONE_ID
 
 namespace java {
 	namespace time {
@@ -57,12 +57,12 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("LOCAL_TIME")
 #pragma pop_macro("CHRONO")
-#pragma pop_macro("ZONE_ID")
-#pragma pop_macro("ZONE")
 #pragma pop_macro("LOCAL_DATE")
+#pragma pop_macro("LOCAL_TIME")
 #pragma pop_macro("OFFSET")
 #pragma pop_macro("PRECISION")
+#pragma pop_macro("ZONE")
+#pragma pop_macro("ZONE_ID")
 
 #endif // _java_time_temporal_TemporalQueries_h_

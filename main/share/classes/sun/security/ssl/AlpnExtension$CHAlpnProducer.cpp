@@ -30,8 +30,8 @@
 
 #undef CH_ALPN
 #undef ILLEGAL_PARAMETER
-#undef MAX_AP_LIST_LENGTH
 #undef MAX_AP_LENGTH
+#undef MAX_AP_LIST_LENGTH
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

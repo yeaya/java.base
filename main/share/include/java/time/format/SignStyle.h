@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("ALWAYS")
+#undef ALWAYS
 #pragma push_macro("EXCEEDS_PAD")
 #undef EXCEEDS_PAD
 #pragma push_macro("NEVER")
 #undef NEVER
-#pragma push_macro("ALWAYS")
-#undef ALWAYS
 #pragma push_macro("NORMAL")
 #undef NORMAL
 #pragma push_macro("NOT_NEGATIVE")
@@ -42,9 +42,9 @@ public:
 	} // time
 } // java
 
+#pragma pop_macro("ALWAYS")
 #pragma pop_macro("EXCEEDS_PAD")
 #pragma pop_macro("NEVER")
-#pragma pop_macro("ALWAYS")
 #pragma pop_macro("NORMAL")
 #pragma pop_macro("NOT_NEGATIVE")
 

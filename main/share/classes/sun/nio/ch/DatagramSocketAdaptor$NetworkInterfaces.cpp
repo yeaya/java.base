@@ -29,8 +29,8 @@
 #include <sun/nio/ch/DatagramSocketAdaptor.h>
 #include <jcpp.h>
 
-#undef GET_DEFAULT
 #undef CONSTRUCTOR
+#undef GET_DEFAULT
 #undef TYPE
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;

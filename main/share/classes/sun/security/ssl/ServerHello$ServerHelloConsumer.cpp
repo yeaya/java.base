@@ -36,11 +36,11 @@
 #include <jcpp.h>
 
 #undef HELLO_VERIFY_REQUEST
-#undef SERVER_HELLO
-#undef PROTOCOL_VERSION
-#undef SH_SUPPORTED_VERSIONS
-#undef ILLEGAL_PARAMETER
 #undef HRR_SUPPORTED_VERSIONS
+#undef ILLEGAL_PARAMETER
+#undef PROTOCOL_VERSION
+#undef SERVER_HELLO
+#undef SH_SUPPORTED_VERSIONS
 #undef UNEXPECTED_MESSAGE
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
@@ -208,11 +208,11 @@ void ServerHello$ServerHelloConsumer::onServerHello($ClientHandshakeContext* chc
 			$init($ServerHello);
 			$nc($ServerHello::d12HandshakeConsumer)->consume(chc, serverHello);
 		}
-	} else if ($nc(serverVersion)->useTLS13PlusSpec()) {
+	} else if (serverVersion->useTLS13PlusSpec()) {
 		$init($ServerHello);
 		$nc($ServerHello::t13HandshakeConsumer)->consume(chc, serverHello);
 	} else {
-		$nc($nc(chc)->handshakePossessions)->clear();
+		$nc(chc->handshakePossessions)->clear();
 		$init($ServerHello);
 		$nc($ServerHello::t12HandshakeConsumer)->consume(chc, serverHello);
 	}

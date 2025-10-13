@@ -46,13 +46,13 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef BYTES
-#undef JNI_COPY_TO_ARRAY_THRESHOLD
 #undef ARRAY_BASE_OFFSET
+#undef BYTES
+#undef JNI_COPY_FROM_ARRAY_THRESHOLD
+#undef JNI_COPY_TO_ARRAY_THRESHOLD
+#undef SCOPED_MEMORY_ACCESS
 #undef SPLITERATOR_CHARACTERISTICS
 #undef UNSAFE
-#undef SCOPED_MEMORY_ACCESS
-#undef JNI_COPY_FROM_ARRAY_THRESHOLD
 
 using $Serializable = ::java::io::Serializable;
 using $Appendable = ::java::lang::Appendable;

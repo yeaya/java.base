@@ -278,7 +278,7 @@ $bytes* FileInputStream::readNBytes(int32_t len) {
 			if (b == -1) {
 				break;
 			}
-			$nc(buf)->set(nread++, b);
+			buf->set(nread++, b);
 			--remaining;
 		}
 	} while (n >= 0 && remaining > 0);

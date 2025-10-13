@@ -5,24 +5,24 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_")
-#undef HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_
-#pragma push_macro("INDEX_STAGE_1_SHIFT_")
-#undef INDEX_STAGE_1_SHIFT_
-#pragma push_macro("HEADER_SIGNATURE_")
-#undef HEADER_SIGNATURE_
-#pragma push_macro("HEADER_OPTIONS_SHIFT_MASK_")
-#undef HEADER_OPTIONS_SHIFT_MASK_
-#pragma push_macro("INDEX_STAGE_3_MASK_")
-#undef INDEX_STAGE_3_MASK_
-#pragma push_macro("HEADER_OPTIONS_DATA_IS_32_BIT_")
-#undef HEADER_OPTIONS_DATA_IS_32_BIT_
-#pragma push_macro("INDEX_STAGE_2_SHIFT_")
-#undef INDEX_STAGE_2_SHIFT_
-#pragma push_macro("HEADER_OPTIONS_INDEX_SHIFT_")
-#undef HEADER_OPTIONS_INDEX_SHIFT_
 #pragma push_macro("DATA_BLOCK_LENGTH")
 #undef DATA_BLOCK_LENGTH
+#pragma push_macro("HEADER_OPTIONS_DATA_IS_32_BIT_")
+#undef HEADER_OPTIONS_DATA_IS_32_BIT_
+#pragma push_macro("HEADER_OPTIONS_INDEX_SHIFT_")
+#undef HEADER_OPTIONS_INDEX_SHIFT_
+#pragma push_macro("HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_")
+#undef HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_
+#pragma push_macro("HEADER_OPTIONS_SHIFT_MASK_")
+#undef HEADER_OPTIONS_SHIFT_MASK_
+#pragma push_macro("HEADER_SIGNATURE_")
+#undef HEADER_SIGNATURE_
+#pragma push_macro("INDEX_STAGE_1_SHIFT_")
+#undef INDEX_STAGE_1_SHIFT_
+#pragma push_macro("INDEX_STAGE_2_SHIFT_")
+#undef INDEX_STAGE_2_SHIFT_
+#pragma push_macro("INDEX_STAGE_3_MASK_")
+#undef INDEX_STAGE_3_MASK_
 #pragma push_macro("LEAD_INDEX_OFFSET_")
 #undef LEAD_INDEX_OFFSET_
 #pragma push_macro("SURROGATE_MASK_")
@@ -85,15 +85,15 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_")
-#pragma pop_macro("INDEX_STAGE_1_SHIFT_")
-#pragma pop_macro("HEADER_SIGNATURE_")
-#pragma pop_macro("HEADER_OPTIONS_SHIFT_MASK_")
-#pragma pop_macro("INDEX_STAGE_3_MASK_")
-#pragma pop_macro("HEADER_OPTIONS_DATA_IS_32_BIT_")
-#pragma pop_macro("INDEX_STAGE_2_SHIFT_")
-#pragma pop_macro("HEADER_OPTIONS_INDEX_SHIFT_")
 #pragma pop_macro("DATA_BLOCK_LENGTH")
+#pragma pop_macro("HEADER_OPTIONS_DATA_IS_32_BIT_")
+#pragma pop_macro("HEADER_OPTIONS_INDEX_SHIFT_")
+#pragma pop_macro("HEADER_OPTIONS_LATIN1_IS_LINEAR_MASK_")
+#pragma pop_macro("HEADER_OPTIONS_SHIFT_MASK_")
+#pragma pop_macro("HEADER_SIGNATURE_")
+#pragma pop_macro("INDEX_STAGE_1_SHIFT_")
+#pragma pop_macro("INDEX_STAGE_2_SHIFT_")
+#pragma pop_macro("INDEX_STAGE_3_MASK_")
 #pragma pop_macro("LEAD_INDEX_OFFSET_")
 #pragma pop_macro("SURROGATE_MASK_")
 

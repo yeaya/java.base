@@ -15,8 +15,8 @@
 
 #undef ONLY_CRLS
 #undef ONLY_OCSP
-#undef PREFER_OCSP
 #undef PREFER_CRLS
+#undef PREFER_OCSP
 
 using $RevocationChecker$ModeArray = $Array<::sun::security::provider::certpath::RevocationChecker$Mode>;
 using $ClassInfo = ::java::lang::ClassInfo;

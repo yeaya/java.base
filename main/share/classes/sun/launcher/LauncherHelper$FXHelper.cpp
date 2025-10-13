@@ -23,12 +23,12 @@
 #include <sun/launcher/LauncherHelper.h>
 #include <jcpp.h>
 
-#undef JAVAFX_LAUNCH_MODE_MODULE
 #undef JAVAFX_GRAPHICS_MODULE_NAME
-#undef JAVAFX_LAUNCH_MODE_CLASS
 #undef JAVAFX_LAUNCHER_CLASS_NAME
-#undef TYPE
+#undef JAVAFX_LAUNCH_MODE_CLASS
 #undef JAVAFX_LAUNCH_MODE_JAR
+#undef JAVAFX_LAUNCH_MODE_MODULE
+#undef TYPE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

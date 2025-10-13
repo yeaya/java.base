@@ -5,34 +5,34 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("GRAPH")
-#undef GRAPH
-#pragma push_macro("WORD")
-#undef WORD
-#pragma push_macro("ALPHA")
-#undef ALPHA
-#pragma push_macro("UNDER")
-#undef UNDER
-#pragma push_macro("ASCII")
-#undef ASCII
 #pragma push_macro("ALNUM")
 #undef ALNUM
-#pragma push_macro("DIGIT")
-#undef DIGIT
-#pragma push_macro("SPACE")
-#undef SPACE
-#pragma push_macro("UPPER")
-#undef UPPER
+#pragma push_macro("ALPHA")
+#undef ALPHA
+#pragma push_macro("ASCII")
+#undef ASCII
 #pragma push_macro("BLANK")
 #undef BLANK
+#pragma push_macro("CNTRL")
+#undef CNTRL
+#pragma push_macro("DIGIT")
+#undef DIGIT
+#pragma push_macro("GRAPH")
+#undef GRAPH
+#pragma push_macro("HEX")
+#undef HEX
 #pragma push_macro("LOWER")
 #undef LOWER
 #pragma push_macro("PUNCT")
 #undef PUNCT
-#pragma push_macro("CNTRL")
-#undef CNTRL
-#pragma push_macro("HEX")
-#undef HEX
+#pragma push_macro("SPACE")
+#undef SPACE
+#pragma push_macro("UNDER")
+#undef UNDER
+#pragma push_macro("UPPER")
+#undef UPPER
+#pragma push_macro("WORD")
+#undef WORD
 #pragma push_macro("XDIGIT")
 #undef XDIGIT
 
@@ -86,20 +86,20 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("GRAPH")
-#pragma pop_macro("WORD")
-#pragma pop_macro("ALPHA")
-#pragma pop_macro("UNDER")
-#pragma pop_macro("ASCII")
 #pragma pop_macro("ALNUM")
-#pragma pop_macro("DIGIT")
-#pragma pop_macro("SPACE")
-#pragma pop_macro("UPPER")
+#pragma pop_macro("ALPHA")
+#pragma pop_macro("ASCII")
 #pragma pop_macro("BLANK")
+#pragma pop_macro("CNTRL")
+#pragma pop_macro("DIGIT")
+#pragma pop_macro("GRAPH")
+#pragma pop_macro("HEX")
 #pragma pop_macro("LOWER")
 #pragma pop_macro("PUNCT")
-#pragma pop_macro("CNTRL")
-#pragma pop_macro("HEX")
+#pragma pop_macro("SPACE")
+#pragma pop_macro("UNDER")
+#pragma pop_macro("UPPER")
+#pragma pop_macro("WORD")
 #pragma pop_macro("XDIGIT")
 
 #endif // _java_util_regex_ASCII_h_

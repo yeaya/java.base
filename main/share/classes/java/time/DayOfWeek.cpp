@@ -28,16 +28,16 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef WEDNESDAY
-#undef MONDAY
-#undef THURSDAY
-#undef ENUMS
-#undef SUNDAY
-#undef TUESDAY
-#undef FRIDAY
-#undef SATURDAY
 #undef DAYS
 #undef DAY_OF_WEEK
+#undef ENUMS
+#undef FRIDAY
+#undef MONDAY
+#undef SATURDAY
+#undef SUNDAY
+#undef THURSDAY
+#undef TUESDAY
+#undef WEDNESDAY
 
 using $DayOfWeekArray = $Array<::java::time::DayOfWeek>;
 using $ClassInfo = ::java::lang::ClassInfo;

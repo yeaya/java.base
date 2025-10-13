@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SECONDS_PER_DAY")
-#undef SECONDS_PER_DAY
 #pragma push_macro("CURRT")
 #undef CURRT
-#pragma push_macro("LASTYEAR")
-#undef LASTYEAR
-#pragma push_macro("OFFSET_MASK")
-#undef OFFSET_MASK
-#pragma push_macro("TRANSITION_NSHIFT")
-#undef TRANSITION_NSHIFT
 #pragma push_macro("DAYS_PER_CYCLE")
 #undef DAYS_PER_CYCLE
 #pragma push_macro("DST_MASK")
 #undef DST_MASK
 #pragma push_macro("DST_NSHIFT")
 #undef DST_NSHIFT
+#pragma push_macro("LASTYEAR")
+#undef LASTYEAR
+#pragma push_macro("OFFSET_MASK")
+#undef OFFSET_MASK
+#pragma push_macro("SECONDS_PER_DAY")
+#undef SECONDS_PER_DAY
+#pragma push_macro("TRANSITION_NSHIFT")
+#undef TRANSITION_NSHIFT
 #pragma push_macro("USE_OLDMAPPING")
 #undef USE_OLDMAPPING
 
@@ -100,14 +100,14 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("SECONDS_PER_DAY")
 #pragma pop_macro("CURRT")
-#pragma pop_macro("LASTYEAR")
-#pragma pop_macro("OFFSET_MASK")
-#pragma pop_macro("TRANSITION_NSHIFT")
 #pragma pop_macro("DAYS_PER_CYCLE")
 #pragma pop_macro("DST_MASK")
 #pragma pop_macro("DST_NSHIFT")
+#pragma pop_macro("LASTYEAR")
+#pragma pop_macro("OFFSET_MASK")
+#pragma pop_macro("SECONDS_PER_DAY")
+#pragma pop_macro("TRANSITION_NSHIFT")
 #pragma pop_macro("USE_OLDMAPPING")
 
 #endif // _sun_util_calendar_ZoneInfoFile_h_

@@ -64,9 +64,9 @@
 #include <jcpp.h>
 
 #undef CLASS_PATH
+#undef DEBUG_CP_URL_CHECK
 #undef DISABLE_CP_URL_CHECK
 #undef DISABLE_JAR_CHECKING
-#undef DEBUG_CP_URL_CHECK
 #undef JAVA_VERSION
 #undef OPEN_READ
 
@@ -457,7 +457,7 @@ $URLArray* URLClassPath$JarLoader::parseClassPath($URL* base, $String* value) {
 	}
 	if (i == 0) {
 		$assign(urls, nullptr);
-	} else if (i != $nc(urls)->length) {
+	} else if (i != urls->length) {
 		$assign(urls, $fcast($URLArray, $Arrays::copyOf(urls, i)));
 	}
 	return urls;

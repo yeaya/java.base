@@ -32,12 +32,12 @@
 #include <sun/nio/ch/DirectBuffer.h>
 #include <jcpp.h>
 
-#undef BIG_ENDIAN
 #undef ARRAY_BASE_OFFSET
+#undef BIG_ENDIAN
 #undef LITTLE_ENDIAN
+#undef SCOPED_MEMORY_ACCESS
 #undef UNALIGNED
 #undef UNSAFE
-#undef SCOPED_MEMORY_ACCESS
 
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;

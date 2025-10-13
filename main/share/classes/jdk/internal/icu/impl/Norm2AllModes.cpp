@@ -19,8 +19,8 @@
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
 
-#undef NOOP_NORMALIZER2
 #undef INSTANCE
+#undef NOOP_NORMALIZER2
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

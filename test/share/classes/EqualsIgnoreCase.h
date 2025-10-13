@@ -7,16 +7,16 @@
 
 #pragma push_macro("CAPITAL_GREEK_THETA")
 #undef CAPITAL_GREEK_THETA
-#pragma push_macro("SMALL_I")
-#undef SMALL_I
+#pragma push_macro("CAPITAL_I")
+#undef CAPITAL_I
 #pragma push_macro("CAPITAL_I_WITH_DOT")
 #undef CAPITAL_I_WITH_DOT
 #pragma push_macro("LOWER_GREEK_THETA")
 #undef LOWER_GREEK_THETA
-#pragma push_macro("CAPITAL_I")
-#undef CAPITAL_I
 #pragma push_macro("SMALL_DOTLESS_I")
 #undef SMALL_DOTLESS_I
+#pragma push_macro("SMALL_I")
+#undef SMALL_I
 
 class $export EqualsIgnoreCase : public ::java::lang::Object {
 	$class(EqualsIgnoreCase, 0, ::java::lang::Object)
@@ -35,10 +35,10 @@ public:
 };
 
 #pragma pop_macro("CAPITAL_GREEK_THETA")
-#pragma pop_macro("SMALL_I")
+#pragma pop_macro("CAPITAL_I")
 #pragma pop_macro("CAPITAL_I_WITH_DOT")
 #pragma pop_macro("LOWER_GREEK_THETA")
-#pragma pop_macro("CAPITAL_I")
 #pragma pop_macro("SMALL_DOTLESS_I")
+#pragma pop_macro("SMALL_I")
 
 #endif // _EqualsIgnoreCase_h_

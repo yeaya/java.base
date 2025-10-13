@@ -29,10 +29,10 @@
 #include <jcpp.h>
 
 #undef INVOKER_METHOD_TYPE
-#undef MH_NF_INV
-#undef TRACE_INTERPRETER
-#undef NONE
 #undef MAX_MH_INVOKER_ARITY
+#undef MH_NF_INV
+#undef NONE
+#undef TRACE_INTERPRETER
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

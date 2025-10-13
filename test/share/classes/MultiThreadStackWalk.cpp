@@ -189,7 +189,7 @@ void MultiThreadStackWalk::main($StringArray* args) {
 		$nc(threads->get(i))->join();
 		if (failed == nullptr) {
 			$assign(failed, $nc(threads->get(i))->failed);
-		} else if ($nc($nc(threads)->get(i))->failed == nullptr) {
+		} else if ($nc(threads->get(i))->failed == nullptr) {
 			$nc(failed)->addSuppressed($nc(threads->get(i))->failed);
 		}
 	}

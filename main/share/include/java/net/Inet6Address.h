@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/net/InetAddress.h>
 
-#pragma push_macro("INADDRSZ")
-#undef INADDRSZ
-#pragma push_macro("UNSAFE")
-#undef UNSAFE
-#pragma push_macro("INT16SZ")
-#undef INT16SZ
 #pragma push_macro("FIELDS_OFFSET")
 #undef FIELDS_OFFSET
+#pragma push_macro("INADDRSZ")
+#undef INADDRSZ
+#pragma push_macro("INT16SZ")
+#undef INT16SZ
+#pragma push_macro("UNSAFE")
+#undef UNSAFE
 
 namespace java {
 	namespace io {
@@ -91,9 +91,9 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("INADDRSZ")
-#pragma pop_macro("UNSAFE")
-#pragma pop_macro("INT16SZ")
 #pragma pop_macro("FIELDS_OFFSET")
+#pragma pop_macro("INADDRSZ")
+#pragma pop_macro("INT16SZ")
+#pragma pop_macro("UNSAFE")
 
 #endif // _java_net_Inet6Address_h_

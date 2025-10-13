@@ -13,9 +13,9 @@
 #include <sun/security/provider/NativePRNG.h>
 #include <jcpp.h>
 
+#undef BLOCKING
 #undef MIXED
 #undef NONBLOCKING
-#undef BLOCKING
 
 using $NativePRNG$VariantArray = $Array<::sun::security::provider::NativePRNG$Variant>;
 using $ClassInfo = ::java::lang::ClassInfo;

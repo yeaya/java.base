@@ -14,8 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SYNTHETIC
 #undef MANDATED
+#undef SYNTHETIC
 
 using $ModuleDescriptor$Opens$ModifierArray = $Array<::java::lang::module::ModuleDescriptor$Opens$Modifier>;
 using $ClassInfo = ::java::lang::ClassInfo;

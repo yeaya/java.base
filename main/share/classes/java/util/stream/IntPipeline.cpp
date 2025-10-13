@@ -98,15 +98,15 @@
 #include <java/util/stream/WhileOps.h>
 #include <jcpp.h>
 
-#undef INT_VALUE
 #undef ALL
-#undef NOT_DISTINCT
-#undef NOT_SIZED
-#undef NOT_ORDERED
-#undef ENABLED
-#undef NOT_SORTED
 #undef ANY
+#undef ENABLED
+#undef INT_VALUE
 #undef NONE
+#undef NOT_DISTINCT
+#undef NOT_ORDERED
+#undef NOT_SIZED
+#undef NOT_SORTED
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $Serializable = ::java::io::Serializable;

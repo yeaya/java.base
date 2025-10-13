@@ -16,19 +16,19 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-#undef TT_EOL
-#undef NEED_CHAR
-#undef CT_DIGIT
-#undef LINENO
-#undef TT_WORD
-#undef SKIP_LF
-#undef CT_WHITESPACE
-#undef TT_NUMBER
-#undef CT_QUOTE
-#undef TT_NOTHING
 #undef CT_ALPHA
-#undef TT_EOF
 #undef CT_COMMENT
+#undef CT_DIGIT
+#undef CT_QUOTE
+#undef CT_WHITESPACE
+#undef LINENO
+#undef NEED_CHAR
+#undef SKIP_LF
+#undef TT_EOF
+#undef TT_EOL
+#undef TT_NOTHING
+#undef TT_NUMBER
+#undef TT_WORD
 
 using $InputStream = ::java::io::InputStream;
 using $Reader = ::java::io::Reader;
@@ -465,7 +465,7 @@ int32_t StreamTokenizer::nextToken() {
 			}
 			this->peekc = c;
 			return nextToken();
-		} else if (((int32_t)($nc(ct)->get(u'/') & (uint32_t)(int32_t)StreamTokenizer::CT_COMMENT)) != 0) {
+		} else if (((int32_t)(ct->get(u'/') & (uint32_t)(int32_t)StreamTokenizer::CT_COMMENT)) != 0) {
 			while ((c = read()) != u'\n' && c != u'\r' && c >= 0) {
 			}
 			this->peekc = c;

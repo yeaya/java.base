@@ -5,20 +5,20 @@
 
 #include <java/lang/Double.h>
 
-#pragma push_macro("SIGN_BIT_MASK")
-#undef SIGN_BIT_MASK
-#pragma push_macro("EXP_BIT_MASK")
-#undef EXP_BIT_MASK
-#pragma push_macro("SIGNIF_BIT_MASK")
-#undef SIGNIF_BIT_MASK
 #pragma push_macro("EXP_BIAS")
 #undef EXP_BIAS
+#pragma push_macro("EXP_BIT_MASK")
+#undef EXP_BIT_MASK
+#pragma push_macro("MIN_EXPONENT")
+#undef MIN_EXPONENT
 #pragma push_macro("MIN_SUB_EXPONENT")
 #undef MIN_SUB_EXPONENT
 #pragma push_macro("SIGNIFICAND_WIDTH")
 #undef SIGNIFICAND_WIDTH
-#pragma push_macro("MIN_EXPONENT")
-#undef MIN_EXPONENT
+#pragma push_macro("SIGNIF_BIT_MASK")
+#undef SIGNIF_BIT_MASK
+#pragma push_macro("SIGN_BIT_MASK")
+#undef SIGN_BIT_MASK
 
 namespace java {
 	namespace lang {
@@ -41,12 +41,12 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("SIGN_BIT_MASK")
-#pragma pop_macro("EXP_BIT_MASK")
-#pragma pop_macro("SIGNIF_BIT_MASK")
 #pragma pop_macro("EXP_BIAS")
+#pragma pop_macro("EXP_BIT_MASK")
+#pragma pop_macro("MIN_EXPONENT")
 #pragma pop_macro("MIN_SUB_EXPONENT")
 #pragma pop_macro("SIGNIFICAND_WIDTH")
-#pragma pop_macro("MIN_EXPONENT")
+#pragma pop_macro("SIGNIF_BIT_MASK")
+#pragma pop_macro("SIGN_BIT_MASK")
 
 #endif // _java_lang_Math2_DoubleConsts_h_

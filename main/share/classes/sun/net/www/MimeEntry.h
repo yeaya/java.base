@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
 
-#pragma push_macro("SAVE_TO_FILE")
-#undef SAVE_TO_FILE
 #pragma push_macro("LAUNCH_APPLICATION")
 #undef LAUNCH_APPLICATION
 #pragma push_macro("LOAD_INTO_BROWSER")
 #undef LOAD_INTO_BROWSER
+#pragma push_macro("SAVE_TO_FILE")
+#undef SAVE_TO_FILE
 #pragma push_macro("UNKNOWN")
 #undef UNKNOWN
 
@@ -66,9 +66,9 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("SAVE_TO_FILE")
 #pragma pop_macro("LAUNCH_APPLICATION")
 #pragma pop_macro("LOAD_INTO_BROWSER")
+#pragma pop_macro("SAVE_TO_FILE")
 #pragma pop_macro("UNKNOWN")
 
 #endif // _sun_net_www_MimeEntry_h_

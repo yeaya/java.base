@@ -261,11 +261,11 @@ int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 		if (c < 128 && c != 0) {
 			bytearr->set(count++, (int8_t)c);
 		} else if (c >= 2048) {
-			$nc(bytearr)->set(count++, (int8_t)(224 | ((int32_t)((c >> 12) & (uint32_t)15))));
+			bytearr->set(count++, (int8_t)(224 | ((int32_t)((c >> 12) & (uint32_t)15))));
 			bytearr->set(count++, (int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
 			bytearr->set(count++, (int8_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))));
 		} else {
-			$nc(bytearr)->set(count++, (int8_t)(192 | ((int32_t)((c >> 6) & (uint32_t)31))));
+			bytearr->set(count++, (int8_t)(192 | ((int32_t)((c >> 6) & (uint32_t)31))));
 			bytearr->set(count++, (int8_t)(128 | ((int32_t)((c >> 0) & (uint32_t)63))));
 		}
 	}

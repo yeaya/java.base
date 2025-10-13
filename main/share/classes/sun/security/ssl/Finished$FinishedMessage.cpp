@@ -34,12 +34,12 @@
 #include <sun/security/util/HexDumpEncoder.h>
 #include <jcpp.h>
 
-#undef SSL30
-#undef ENGLISH
-#undef DECRYPT_ERROR
-#undef ILLEGAL_PARAMETER
-#undef FINISHED
 #undef DECODE_ERROR
+#undef DECRYPT_ERROR
+#undef ENGLISH
+#undef FINISHED
+#undef ILLEGAL_PARAMETER
+#undef SSL30
 
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
@@ -135,27 +135,27 @@ void Finished$FinishedMessage::init$($HandshakeContext* context, $ByteBuffer* m)
 	$init($ProtocolVersion);
 	if ($nc(context)->negotiatedProtocol == $ProtocolVersion::SSL30) {
 		verifyDataLen = 36;
-	} else if ($nc($nc(context)->negotiatedProtocol)->useTLS13PlusSpec()) {
+	} else if ($nc(context->negotiatedProtocol)->useTLS13PlusSpec()) {
 		verifyDataLen = $nc(context->negotiatedCipherSuite)->hashAlg->hashLength;
 	}
 	if ($nc(m)->remaining() != verifyDataLen) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Inappropriate finished message: need "_s, $$str(verifyDataLen), " but remaining "_s, $$str(m->remaining()), " bytes verify_data"_s}))));
+		$throw($($nc(context->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Inappropriate finished message: need "_s, $$str(verifyDataLen), " but remaining "_s, $$str(m->remaining()), " bytes verify_data"_s}))));
 	}
 	$set(this, verifyData, $new($bytes, verifyDataLen));
 	$nc(m)->get(this->verifyData);
-	$Finished$VerifyDataScheme* vd = $Finished$VerifyDataScheme::valueOf($nc(context)->negotiatedProtocol);
+	$Finished$VerifyDataScheme* vd = $Finished$VerifyDataScheme::valueOf(context->negotiatedProtocol);
 	$var($bytes, myVerifyData, nullptr);
 	try {
 		$assign(myVerifyData, $nc(vd)->createVerifyData(context, true));
 	} catch ($IOException&) {
 		$var($IOException, ioe, $catch());
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
+		$throw($($nc(context->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
 	}
 	if (!$MessageDigest::isEqual(myVerifyData, this->verifyData)) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::DECRYPT_ERROR, "The Finished message cannot be verified."_s)));
+		$throw($($nc(context->conContext)->fatal($Alert::DECRYPT_ERROR, "The Finished message cannot be verified."_s)));
 	}
 }
 

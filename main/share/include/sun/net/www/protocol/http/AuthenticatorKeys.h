@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("IDS")
-#undef IDS
 #pragma push_macro("DEFAULT")
 #undef DEFAULT
+#pragma push_macro("IDS")
+#undef IDS
 
 namespace java {
 	namespace net {
@@ -61,7 +61,7 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("IDS")
 #pragma pop_macro("DEFAULT")
+#pragma pop_macro("IDS")
 
 #endif // _sun_net_www_protocol_http_AuthenticatorKeys_h_

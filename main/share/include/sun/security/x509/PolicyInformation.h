@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("QUALIFIERS")
-#undef QUALIFIERS
 #pragma push_macro("ID")
 #undef ID
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("QUALIFIERS")
+#undef QUALIFIERS
 
 namespace java {
 	namespace util {
@@ -66,8 +66,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("QUALIFIERS")
 #pragma pop_macro("ID")
 #pragma pop_macro("NAME")
+#pragma pop_macro("QUALIFIERS")
 
 #endif // _sun_security_x509_PolicyInformation_h_

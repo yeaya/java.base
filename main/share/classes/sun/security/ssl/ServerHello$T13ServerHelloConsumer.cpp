@@ -55,17 +55,17 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CERTIFICATE_REQUEST
-#undef ENCRYPTED_EXTENSIONS
-#undef CERTIFICATE_VERIFY
-#undef PROTOCOL_VERSION
-#undef SERVER_HELLO
 #undef CERTIFICATE
+#undef CERTIFICATE_REQUEST
+#undef CERTIFICATE_VERIFY
+#undef CHANGE_CIPHER_SPEC
+#undef ENCRYPTED_EXTENSIONS
+#undef FINISHED
 #undef HANDSHAKE_FAILURE
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
-#undef CHANGE_CIPHER_SPEC
-#undef FINISHED
+#undef PROTOCOL_VERSION
+#undef SERVER_HELLO
 #undef TLS12
 
 using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;

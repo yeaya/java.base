@@ -14,10 +14,10 @@
 #include <sun/security/provider/certpath/OCSPResponse.h>
 #include <jcpp.h>
 
-#undef TRY_LATER
-#undef SUCCESSFUL
-#undef UNAUTHORIZED
 #undef INTERNAL_ERROR
+#undef SUCCESSFUL
+#undef TRY_LATER
+#undef UNAUTHORIZED
 
 using $OCSPResponse$ResponseStatusArray = $Array<::sun::security::provider::certpath::OCSPResponse$ResponseStatus>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -12,11 +12,11 @@
 #include <jdk/internal/misc/VM.h>
 #include <jcpp.h>
 
+#undef FALSE
 #undef SEM_FAILCRITICALERRORS
+#undef SEM_NOALIGNMENTFAULTEXCEPT
 #undef SEM_NOGPFAULTERRORBOX
 #undef SEM_NOOPENFILEERRORBOX
-#undef FALSE
-#undef SEM_NOALIGNMENTFAULTEXCEPT
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

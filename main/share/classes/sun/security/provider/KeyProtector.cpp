@@ -27,8 +27,8 @@
 #include <jcpp.h>
 
 #undef DIGEST_ALG
-#undef SALT_LEN
 #undef DIGEST_LEN
+#undef SALT_LEN
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

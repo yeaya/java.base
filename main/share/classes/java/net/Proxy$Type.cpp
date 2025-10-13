@@ -13,9 +13,9 @@
 #include <java/net/Proxy.h>
 #include <jcpp.h>
 
-#undef SOCKS
-#undef HTTP
 #undef DIRECT
+#undef HTTP
+#undef SOCKS
 
 using $Proxy$TypeArray = $Array<::java::net::Proxy$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;

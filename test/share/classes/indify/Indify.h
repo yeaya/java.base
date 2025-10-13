@@ -9,16 +9,16 @@
 #undef INSTRUCTION_CONSTANTS
 #pragma push_macro("INSTRUCTION_FORMATS")
 #undef INSTRUCTION_FORMATS
-#pragma push_macro("INSTRUCTION_NAMES")
-#undef INSTRUCTION_NAMES
 #pragma push_macro("INSTRUCTION_INFO")
 #undef INSTRUCTION_INFO
+#pragma push_macro("INSTRUCTION_NAMES")
+#undef INSTRUCTION_NAMES
 #pragma push_macro("INSTRUCTION_POPS")
 #undef INSTRUCTION_POPS
-#pragma push_macro("WIDE_SIGNATURE")
-#undef WIDE_SIGNATURE
 #pragma push_macro("OBJ_SIGNATURE")
 #undef OBJ_SIGNATURE
+#pragma push_macro("WIDE_SIGNATURE")
+#undef WIDE_SIGNATURE
 
 namespace indify {
 	class Indify$Member;
@@ -169,10 +169,10 @@ public:
 
 #pragma pop_macro("INSTRUCTION_CONSTANTS")
 #pragma pop_macro("INSTRUCTION_FORMATS")
-#pragma pop_macro("INSTRUCTION_NAMES")
 #pragma pop_macro("INSTRUCTION_INFO")
+#pragma pop_macro("INSTRUCTION_NAMES")
 #pragma pop_macro("INSTRUCTION_POPS")
-#pragma pop_macro("WIDE_SIGNATURE")
 #pragma pop_macro("OBJ_SIGNATURE")
+#pragma pop_macro("WIDE_SIGNATURE")
 
 #endif // _indify_Indify_h_

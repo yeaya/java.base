@@ -16,16 +16,16 @@
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
 
-#undef HANGUL_END
-#undef JAMO_T_COUNT
-#undef JAMO_T_BASE
-#undef JAMO_L_BASE
 #undef HANGUL_BASE
-#undef JAMO_V_COUNT
 #undef HANGUL_COUNT
+#undef HANGUL_END
 #undef HANGUL_LIMIT
+#undef JAMO_L_BASE
 #undef JAMO_L_COUNT
+#undef JAMO_T_BASE
+#undef JAMO_T_COUNT
 #undef JAMO_V_BASE
+#undef JAMO_V_COUNT
 
 using $IOException = ::java::io::IOException;
 using $Appendable = ::java::lang::Appendable;

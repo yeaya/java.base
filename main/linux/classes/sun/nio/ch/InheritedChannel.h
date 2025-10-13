@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("SOCK_STREAM")
-#undef SOCK_STREAM
-#pragma push_macro("O_RDWR")
-#undef O_RDWR
-#pragma push_macro("O_RDONLY")
-#undef O_RDONLY
-#pragma push_macro("AF_UNIX")
-#undef AF_UNIX
-#pragma push_macro("UNKNOWN")
-#undef UNKNOWN
 #pragma push_macro("AF_INET")
 #undef AF_INET
-#pragma push_macro("SOCK_DGRAM")
-#undef SOCK_DGRAM
-#pragma push_macro("AF_UNKNOWN")
-#undef AF_UNKNOWN
-#pragma push_macro("O_WRONLY")
-#undef O_WRONLY
 #pragma push_macro("AF_INET6")
 #undef AF_INET6
+#pragma push_macro("AF_UNIX")
+#undef AF_UNIX
+#pragma push_macro("AF_UNKNOWN")
+#undef AF_UNKNOWN
+#pragma push_macro("O_RDONLY")
+#undef O_RDONLY
+#pragma push_macro("O_RDWR")
+#undef O_RDWR
+#pragma push_macro("O_WRONLY")
+#undef O_WRONLY
+#pragma push_macro("SOCK_DGRAM")
+#undef SOCK_DGRAM
+#pragma push_macro("SOCK_STREAM")
+#undef SOCK_STREAM
+#pragma push_macro("UNKNOWN")
+#undef UNKNOWN
 
 namespace java {
 	namespace net {
@@ -88,15 +88,15 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("SOCK_STREAM")
-#pragma pop_macro("O_RDWR")
-#pragma pop_macro("O_RDONLY")
-#pragma pop_macro("AF_UNIX")
-#pragma pop_macro("UNKNOWN")
 #pragma pop_macro("AF_INET")
-#pragma pop_macro("SOCK_DGRAM")
-#pragma pop_macro("AF_UNKNOWN")
-#pragma pop_macro("O_WRONLY")
 #pragma pop_macro("AF_INET6")
+#pragma pop_macro("AF_UNIX")
+#pragma pop_macro("AF_UNKNOWN")
+#pragma pop_macro("O_RDONLY")
+#pragma pop_macro("O_RDWR")
+#pragma pop_macro("O_WRONLY")
+#pragma pop_macro("SOCK_DGRAM")
+#pragma pop_macro("SOCK_STREAM")
+#pragma pop_macro("UNKNOWN")
 
 #endif // _sun_nio_ch_InheritedChannel_h_

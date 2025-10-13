@@ -20,17 +20,17 @@
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
-#undef VERSION_BUILD
-#undef VERSION_PRE
-#undef VERSION_OPT
-#undef VERSION_NUMBER
-#undef VENDOR_URL
-#undef VENDOR_URL_VM_BUG
-#undef VERSION_SPECIFICATION
-#undef VENDOR
-#undef VENDOR_VERSION
 #undef CLASSFILE_MAJOR_MINOR
+#undef VENDOR
+#undef VENDOR_URL
 #undef VENDOR_URL_BUG
+#undef VENDOR_URL_VM_BUG
+#undef VENDOR_VERSION
+#undef VERSION_BUILD
+#undef VERSION_NUMBER
+#undef VERSION_OPT
+#undef VERSION_PRE
+#undef VERSION_SPECIFICATION
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $PrintStream = ::java::io::PrintStream;

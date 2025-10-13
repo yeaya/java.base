@@ -40,15 +40,15 @@
 #include <sun/util/calendar/Gregorian.h>
 #include <jcpp.h>
 
-#undef TAG_UNIVERSAL
-#undef US_ASCII
-#undef TAG_APPLICATION
-#undef UTF_16BE
-#undef UTF_8
-#undef TAG_CONTEXT
-#undef TAG_PRIVATE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef TAG_APPLICATION
+#undef TAG_CONTEXT
+#undef TAG_PRIVATE
+#undef TAG_UNIVERSAL
+#undef US_ASCII
+#undef UTF_16BE
+#undef UTF_8
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

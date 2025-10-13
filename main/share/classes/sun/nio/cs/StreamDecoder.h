@@ -6,10 +6,10 @@
 #include <java/io/Reader.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIN_BYTE_BUFFER_SIZE")
-#undef MIN_BYTE_BUFFER_SIZE
 #pragma push_macro("DEFAULT_BYTE_BUFFER_SIZE")
 #undef DEFAULT_BYTE_BUFFER_SIZE
+#pragma push_macro("MIN_BYTE_BUFFER_SIZE")
+#undef MIN_BYTE_BUFFER_SIZE
 
 namespace java {
 	namespace io {
@@ -84,7 +84,7 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("MIN_BYTE_BUFFER_SIZE")
 #pragma pop_macro("DEFAULT_BYTE_BUFFER_SIZE")
+#pragma pop_macro("MIN_BYTE_BUFFER_SIZE")
 
 #endif // _sun_nio_cs_StreamDecoder_h_

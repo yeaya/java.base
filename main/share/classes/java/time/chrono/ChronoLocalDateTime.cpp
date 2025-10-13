@@ -40,8 +40,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef FOREVER
 #undef EPOCH_DAY
+#undef FOREVER
 #undef NANOS
 #undef NANO_OF_DAY
 

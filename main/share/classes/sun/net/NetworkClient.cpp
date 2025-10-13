@@ -35,11 +35,11 @@
 #include <sun/net/NetworkClient$3.h>
 #include <jcpp.h>
 
-#undef NO_PROXY
 #undef DEFAULT_CONNECT_TIMEOUT
 #undef DEFAULT_READ_TIMEOUT
-#undef SOCKS
 #undef DIRECT
+#undef NO_PROXY
+#undef SOCKS
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;

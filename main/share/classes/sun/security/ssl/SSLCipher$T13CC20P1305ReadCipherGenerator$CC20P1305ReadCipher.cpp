@@ -37,8 +37,8 @@
 #include <jcpp.h>
 
 #undef CHANGE_CIPHER_SPEC
-#undef NONE
 #undef DECRYPT_MODE
+#undef NONE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

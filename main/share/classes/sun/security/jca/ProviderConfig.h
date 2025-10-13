@@ -7,10 +7,10 @@
 
 #pragma push_macro("MAX_LOAD_TRIES")
 #undef MAX_LOAD_TRIES
-#pragma push_macro("P11_SOL_NAME")
-#undef P11_SOL_NAME
 #pragma push_macro("P11_SOL_ARG")
 #undef P11_SOL_ARG
+#pragma push_macro("P11_SOL_NAME")
+#undef P11_SOL_NAME
 
 namespace java {
 	namespace security {
@@ -63,7 +63,7 @@ public:
 } // sun
 
 #pragma pop_macro("MAX_LOAD_TRIES")
-#pragma pop_macro("P11_SOL_NAME")
 #pragma pop_macro("P11_SOL_ARG")
+#pragma pop_macro("P11_SOL_NAME")
 
 #endif // _sun_security_jca_ProviderConfig_h_

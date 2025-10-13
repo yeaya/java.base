@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("NETWORK_IF_LO0")
-#undef NETWORK_IF_LO0
-#pragma push_macro("SCOPE_ID_ZERO")
-#undef SCOPE_ID_ZERO
 #pragma push_macro("IN6ADDR_ANY_INIT")
 #undef IN6ADDR_ANY_INIT
-#pragma push_macro("SCOPE_ID_LO0")
-#undef SCOPE_ID_LO0
-#pragma push_macro("LOOPBACK_SCOPE_ID")
-#undef LOOPBACK_SCOPE_ID
-#pragma push_macro("LOOPBACKIPV6ADDRESS")
-#undef LOOPBACKIPV6ADDRESS
 #pragma push_macro("LOCALHOSTNAME")
 #undef LOCALHOSTNAME
+#pragma push_macro("LOOPBACKIPV6ADDRESS")
+#undef LOOPBACKIPV6ADDRESS
+#pragma push_macro("LOOPBACK_SCOPE_ID")
+#undef LOOPBACK_SCOPE_ID
+#pragma push_macro("NETWORK_IF_LO0")
+#undef NETWORK_IF_LO0
+#pragma push_macro("SCOPE_ID_LO0")
+#undef SCOPE_ID_LO0
+#pragma push_macro("SCOPE_ID_ZERO")
+#undef SCOPE_ID_ZERO
 
 namespace java {
 	namespace io {
@@ -82,12 +82,12 @@ public:
 	static $bytes* SerialData_ifname_lo0;
 };
 
-#pragma pop_macro("NETWORK_IF_LO0")
-#pragma pop_macro("SCOPE_ID_ZERO")
 #pragma pop_macro("IN6ADDR_ANY_INIT")
-#pragma pop_macro("SCOPE_ID_LO0")
-#pragma pop_macro("LOOPBACK_SCOPE_ID")
-#pragma pop_macro("LOOPBACKIPV6ADDRESS")
 #pragma pop_macro("LOCALHOSTNAME")
+#pragma pop_macro("LOOPBACKIPV6ADDRESS")
+#pragma pop_macro("LOOPBACK_SCOPE_ID")
+#pragma pop_macro("NETWORK_IF_LO0")
+#pragma pop_macro("SCOPE_ID_LO0")
+#pragma pop_macro("SCOPE_ID_ZERO")
 
 #endif // _Inet6AddressSerializationTest_h_

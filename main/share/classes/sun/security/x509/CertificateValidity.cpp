@@ -20,10 +20,10 @@
 #include <sun/security/x509/AttributeNameEnumeration.h>
 #include <jcpp.h>
 
-#undef NOT_AFTER
 #undef IDENT
-#undef NOT_BEFORE
 #undef NAME
+#undef NOT_AFTER
+#undef NOT_BEFORE
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -120,14 +120,14 @@ void CertificateValidity::construct($DerValue* derVal) {
 	}
 	if ($nc($nc(seq)->get(0))->tag == $DerValue::tag_UtcTime) {
 		$set(this, notBefore, $nc($nc(derVal)->data$)->getUTCTime());
-	} else if ($nc($nc(seq)->get(0))->tag == $DerValue::tag_GeneralizedTime) {
+	} else if ($nc(seq->get(0))->tag == $DerValue::tag_GeneralizedTime) {
 		$set(this, notBefore, $nc($nc(derVal)->data$)->getGeneralizedTime());
 	} else {
 		$throwNew($IOException, "Invalid encoding for CertificateValidity"_s);
 	}
-	if ($nc($nc(seq)->get(1))->tag == $DerValue::tag_UtcTime) {
+	if ($nc(seq->get(1))->tag == $DerValue::tag_UtcTime) {
 		$set(this, notAfter, $nc($nc(derVal)->data$)->getUTCTime());
-	} else if ($nc($nc(seq)->get(1))->tag == $DerValue::tag_GeneralizedTime) {
+	} else if ($nc(seq->get(1))->tag == $DerValue::tag_GeneralizedTime) {
 		$set(this, notAfter, $nc($nc(derVal)->data$)->getGeneralizedTime());
 	} else {
 		$throwNew($IOException, "Invalid encoding for CertificateValidity"_s);
@@ -180,7 +180,7 @@ void CertificateValidity::set($String* name, Object$* obj) {
 	}
 	if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_BEFORE)) {
 		$set(this, notBefore, $cast($Date, obj));
-	} else if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
+	} else if (name->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
 		$set(this, notAfter, $cast($Date, obj));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet: CertificateValidity."_s);
@@ -190,7 +190,7 @@ void CertificateValidity::set($String* name, Object$* obj) {
 $Object* CertificateValidity::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_BEFORE)) {
 		return $of((getNotBefore()));
-	} else if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
+	} else if (name->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
 		return $of((getNotAfter()));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet: CertificateValidity."_s);
@@ -200,7 +200,7 @@ $Object* CertificateValidity::get($String* name) {
 void CertificateValidity::delete$($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_BEFORE)) {
 		$set(this, notBefore, nullptr);
-	} else if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
+	} else if (name->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
 		$set(this, notAfter, nullptr);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet: CertificateValidity."_s);

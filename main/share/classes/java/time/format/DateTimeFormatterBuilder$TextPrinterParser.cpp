@@ -34,9 +34,9 @@
 #include <jcpp.h>
 
 #undef ERA
+#undef FULL
 #undef INSTANCE
 #undef NORMAL
-#undef FULL
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

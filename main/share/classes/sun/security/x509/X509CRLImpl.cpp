@@ -77,9 +77,9 @@
 #include <sun/security/x509/X509CRLImpl$X509IssuerSerial.h>
 #include <jcpp.h>
 
-#undef NUMBER
 #undef ISSUER
 #undef KEY_ID
+#undef NUMBER
 
 using $X509CRLEntryArray = $Array<::java::security::cert::X509CRLEntry>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
@@ -980,7 +980,7 @@ void X509CRLImpl::parse($DerValue* val) {
 	if (nextByte == $DerValue::tag_UtcTime) {
 		$set(this, thisUpdate, derStrm->getUTCTime());
 	} else if (nextByte == $DerValue::tag_GeneralizedTime) {
-		$set(this, thisUpdate, $nc(derStrm)->getGeneralizedTime());
+		$set(this, thisUpdate, derStrm->getGeneralizedTime());
 	} else {
 		$throwNew($CRLException, $$str({"Invalid encoding for thisUpdate (tag="_s, $$str(nextByte), ")"_s}));
 	}
@@ -991,7 +991,7 @@ void X509CRLImpl::parse($DerValue* val) {
 	if (nextByte == $DerValue::tag_UtcTime) {
 		$set(this, nextUpdate, derStrm->getUTCTime());
 	} else if (nextByte == $DerValue::tag_GeneralizedTime) {
-		$set(this, nextUpdate, $nc(derStrm)->getGeneralizedTime());
+		$set(this, nextUpdate, derStrm->getGeneralizedTime());
 	}
 	if (derStrm->available() == 0) {
 		return;

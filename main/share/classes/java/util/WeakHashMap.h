@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/util/AbstractMap.h>
 
-#pragma push_macro("DEFAULT_LOAD_FACTOR")
-#undef DEFAULT_LOAD_FACTOR
 #pragma push_macro("DEFAULT_INITIAL_CAPACITY")
 #undef DEFAULT_INITIAL_CAPACITY
+#pragma push_macro("DEFAULT_LOAD_FACTOR")
+#undef DEFAULT_LOAD_FACTOR
 #pragma push_macro("MAXIMUM_CAPACITY")
 #undef MAXIMUM_CAPACITY
 #pragma push_macro("NULL_KEY")
@@ -94,8 +94,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("DEFAULT_LOAD_FACTOR")
 #pragma pop_macro("DEFAULT_INITIAL_CAPACITY")
+#pragma pop_macro("DEFAULT_LOAD_FACTOR")
 #pragma pop_macro("MAXIMUM_CAPACITY")
 #pragma pop_macro("NULL_KEY")
 

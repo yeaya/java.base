@@ -6,46 +6,46 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ_BYTE")
-#undef READ_BYTE
-#pragma push_macro("READ_INT")
-#undef READ_INT
-#pragma push_macro("READ_BUF_OFF")
-#undef READ_BUF_OFF
-#pragma push_macro("SKIP_BYTES")
-#undef SKIP_BYTES
-#pragma push_macro("READ_BUF")
-#undef READ_BUF
-#pragma push_macro("READ_CHAR")
-#undef READ_CHAR
-#pragma push_macro("RESET")
-#undef RESET
-#pragma push_macro("CLOSE")
-#undef CLOSE
-#pragma push_macro("READ_FULLY")
-#undef READ_FULLY
-#pragma push_macro("READ_DOUBLE")
-#undef READ_DOUBLE
-#pragma push_macro("MARK")
-#undef MARK
-#pragma push_macro("READ_SHORT")
-#undef READ_SHORT
-#pragma push_macro("READ")
-#undef READ
 #pragma push_macro("AVAILABLE")
 #undef AVAILABLE
+#pragma push_macro("CLOSE")
+#undef CLOSE
+#pragma push_macro("MARK")
+#undef MARK
 #pragma push_macro("MARK_SUPPORTED")
 #undef MARK_SUPPORTED
+#pragma push_macro("READ")
+#undef READ
+#pragma push_macro("READ_BUF")
+#undef READ_BUF
+#pragma push_macro("READ_BUF_OFF")
+#undef READ_BUF_OFF
+#pragma push_macro("READ_BYTE")
+#undef READ_BYTE
+#pragma push_macro("READ_CHAR")
+#undef READ_CHAR
+#pragma push_macro("READ_DOUBLE")
+#undef READ_DOUBLE
 #pragma push_macro("READ_FLOAT")
 #undef READ_FLOAT
+#pragma push_macro("READ_FULLY")
+#undef READ_FULLY
 #pragma push_macro("READ_FULLY_BUF")
 #undef READ_FULLY_BUF
-#pragma push_macro("SKIP")
-#undef SKIP
-#pragma push_macro("READ_UTF")
-#undef READ_UTF
+#pragma push_macro("READ_INT")
+#undef READ_INT
 #pragma push_macro("READ_LONG")
 #undef READ_LONG
+#pragma push_macro("READ_SHORT")
+#undef READ_SHORT
+#pragma push_macro("READ_UTF")
+#undef READ_UTF
+#pragma push_macro("RESET")
+#undef RESET
+#pragma push_macro("SKIP")
+#undef SKIP
+#pragma push_macro("SKIP_BYTES")
+#undef SKIP_BYTES
 
 namespace java {
 	namespace io {
@@ -89,25 +89,25 @@ public:
 	static $Array<OpsAfterClose4DataInputStream>* $VALUES;
 };
 
-#pragma pop_macro("READ_BYTE")
-#pragma pop_macro("READ_INT")
-#pragma pop_macro("READ_BUF_OFF")
-#pragma pop_macro("SKIP_BYTES")
-#pragma pop_macro("READ_BUF")
-#pragma pop_macro("READ_CHAR")
-#pragma pop_macro("RESET")
-#pragma pop_macro("CLOSE")
-#pragma pop_macro("READ_FULLY")
-#pragma pop_macro("READ_DOUBLE")
-#pragma pop_macro("MARK")
-#pragma pop_macro("READ_SHORT")
-#pragma pop_macro("READ")
 #pragma pop_macro("AVAILABLE")
+#pragma pop_macro("CLOSE")
+#pragma pop_macro("MARK")
 #pragma pop_macro("MARK_SUPPORTED")
+#pragma pop_macro("READ")
+#pragma pop_macro("READ_BUF")
+#pragma pop_macro("READ_BUF_OFF")
+#pragma pop_macro("READ_BYTE")
+#pragma pop_macro("READ_CHAR")
+#pragma pop_macro("READ_DOUBLE")
 #pragma pop_macro("READ_FLOAT")
+#pragma pop_macro("READ_FULLY")
 #pragma pop_macro("READ_FULLY_BUF")
-#pragma pop_macro("SKIP")
-#pragma pop_macro("READ_UTF")
+#pragma pop_macro("READ_INT")
 #pragma pop_macro("READ_LONG")
+#pragma pop_macro("READ_SHORT")
+#pragma pop_macro("READ_UTF")
+#pragma pop_macro("RESET")
+#pragma pop_macro("SKIP")
+#pragma pop_macro("SKIP_BYTES")
 
 #endif // _OpsAfterClose4DataInputStream_h_

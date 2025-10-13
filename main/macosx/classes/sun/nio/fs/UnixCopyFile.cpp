@@ -48,14 +48,14 @@
 #include <jcpp.h>
 
 #undef EEXIST
-#undef O_RDONLY
+#undef EISDIR
+#undef ENOTEMPTY
+#undef EXDEV
 #undef MICROSECONDS
 #undef O_CREAT
 #undef O_EXCL
-#undef EXDEV
-#undef EISDIR
+#undef O_RDONLY
 #undef O_WRONLY
-#undef ENOTEMPTY
 
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
 using $IOException = ::java::io::IOException;
@@ -579,15 +579,15 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	if ($nc(sourceAttrs)->isDirectory()) {
 		ensureEmptyDir(source);
 		copyDirectory(source, sourceAttrs, target, flags);
-	} else if ($nc(sourceAttrs)->isSymbolicLink()) {
+	} else if (sourceAttrs->isSymbolicLink()) {
 		copyLink(source, sourceAttrs, target, flags);
-	} else if ($nc(sourceAttrs)->isDevice()) {
+	} else if (sourceAttrs->isDevice()) {
 		copySpecial(source, sourceAttrs, target, flags);
 	} else {
 		copyFile(source, sourceAttrs, target, flags, 0);
 	}
 	try {
-		if ($nc(sourceAttrs)->isDirectory()) {
+		if (sourceAttrs->isDirectory()) {
 			$UnixNativeDispatcher::rmdir(source);
 		} else {
 			$UnixNativeDispatcher::unlink(source);
@@ -595,7 +595,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	} catch ($UnixException&) {
 		$var($UnixException, x, $catch());
 		try {
-			if ($nc(sourceAttrs)->isDirectory()) {
+			if (sourceAttrs->isDirectory()) {
 				$UnixNativeDispatcher::rmdir(target);
 			} else {
 				$UnixNativeDispatcher::unlink(target);
@@ -603,7 +603,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 		} catch ($UnixException&) {
 			$catch();
 		}
-		bool var$5 = $nc(sourceAttrs)->isDirectory();
+		bool var$5 = sourceAttrs->isDirectory();
 		if (var$5) {
 			$init($UnixConstants);
 			bool var$6 = x->errno$() == $UnixConstants::EEXIST;

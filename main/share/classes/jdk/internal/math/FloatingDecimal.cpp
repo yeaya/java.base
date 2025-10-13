@@ -34,49 +34,49 @@
 #include <jdk/internal/math/FloatingDecimal$PreparedASCIIToBinaryBuffer.h>
 #include <jcpp.h>
 
-#undef SIGN_BIT_MASK
-#undef EXP_BIT_MASK
-#undef SINGLE_MIN_DECIMAL_EXPONENT
-#undef B2AC_NOT_A_NUMBER
-#undef NAN_LENGTH
-#undef EXP_ONE
-#undef B2AC_NEGATIVE_INFINITY
-#undef EXP_BIAS
-#undef B2AC_POSITIVE_INFINITY
-#undef MAX_VALUE
-#undef VALUE
-#undef SINGLE_MAX_DECIMAL_EXPONENT
-#undef MIN_SUB_EXPONENT
-#undef SIGNIFICAND_WIDTH
-#undef B2AC_POSITIVE_ZERO
-#undef A2BC_POSITIVE_ZERO
-#undef NEGATIVE_INFINITY
-#undef INFINITY_LENGTH
-#undef B2AC_NEGATIVE_ZERO
-#undef A2BC_NEGATIVE_ZERO
-#undef SINGLE_FRACT_HOB
-#undef MIN_EXPONENT
-#undef BIG_DECIMAL_EXPONENT
-#undef INT_DECIMAL_DIGITS
-#undef MAX_NDIGITS
-#undef SINGLE_MAX_DECIMAL_DIGITS
-#undef MIN_SMALL_BIN_EXP
-#undef A2BC_POSITIVE_INFINITY
-#undef MAX_DECIMAL_EXPONENT
-#undef SINGLE_EXP_SHIFT
 #undef A2BC_NEGATIVE_INFINITY
-#undef FRACT_HOB
-#undef POSITIVE_INFINITY
-#undef NAN_REP
-#undef MAX_EXPONENT
+#undef A2BC_NEGATIVE_ZERO
 #undef A2BC_NOT_A_NUMBER
-#undef SIGNIF_BIT_MASK
-#undef SINGLE_MAX_NDIGITS
+#undef A2BC_POSITIVE_INFINITY
+#undef A2BC_POSITIVE_ZERO
+#undef B2AC_NEGATIVE_INFINITY
+#undef B2AC_NEGATIVE_ZERO
+#undef B2AC_NOT_A_NUMBER
+#undef B2AC_POSITIVE_INFINITY
+#undef B2AC_POSITIVE_ZERO
+#undef BIG_DECIMAL_EXPONENT
+#undef EXP_BIAS
+#undef EXP_BIT_MASK
+#undef EXP_ONE
 #undef EXP_SHIFT
-#undef MAX_SMALL_BIN_EXP
-#undef MAX_DECIMAL_DIGITS
+#undef FRACT_HOB
+#undef INFINITY_LENGTH
 #undef INFINITY_REP
+#undef INT_DECIMAL_DIGITS
+#undef MAX_DECIMAL_DIGITS
+#undef MAX_DECIMAL_EXPONENT
+#undef MAX_EXPONENT
+#undef MAX_NDIGITS
+#undef MAX_SMALL_BIN_EXP
+#undef MAX_VALUE
 #undef MIN_DECIMAL_EXPONENT
+#undef MIN_EXPONENT
+#undef MIN_SMALL_BIN_EXP
+#undef MIN_SUB_EXPONENT
+#undef NAN_LENGTH
+#undef NAN_REP
+#undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
+#undef SIGNIFICAND_WIDTH
+#undef SIGNIF_BIT_MASK
+#undef SIGN_BIT_MASK
+#undef SINGLE_EXP_SHIFT
+#undef SINGLE_FRACT_HOB
+#undef SINGLE_MAX_DECIMAL_DIGITS
+#undef SINGLE_MAX_DECIMAL_EXPONENT
+#undef SINGLE_MAX_NDIGITS
+#undef SINGLE_MIN_DECIMAL_EXPONENT
+#undef VALUE
 
 using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -360,15 +360,14 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 				parseNumber$break = true;
 				break;
 			} else if (c == u'I') {
-				$init(FloatingDecimal);
-				if ((len - i) == FloatingDecimal::INFINITY_LENGTH && $nc(in)->indexOf(FloatingDecimal::INFINITY_REP, i) == i) {
+				if ((len - i) == FloatingDecimal::INFINITY_LENGTH && in->indexOf(FloatingDecimal::INFINITY_REP, i) == i) {
 					return isNegative ? FloatingDecimal::A2BC_NEGATIVE_INFINITY : FloatingDecimal::A2BC_POSITIVE_INFINITY;
 				}
 				parseNumber$break = true;
 				break;
 			} else if (c == u'0') {
 				if (len > i + 1) {
-					char16_t ch = $nc(in)->charAt(i + 1);
+					char16_t ch = in->charAt(i + 1);
 					if (ch == u'x' || ch == u'X') {
 						return parseHexString(in);
 					}
@@ -407,7 +406,7 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 					digits->set(nDigits++, c);
 					nTrailZero = 0;
 				} else if (c == u'0') {
-					$nc(digits)->set(nDigits++, c);
+					digits->set(nDigits++, c);
 					++nTrailZero;
 				} else if (c == u'.') {
 					if (decSeen) {
@@ -643,7 +642,6 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 		} else if (exponent < $FloatConsts::MIN_SUB_EXPONENT - 1) {
 		} else {
 			int32_t threshShift = (int32_t)(($DoubleConsts::SIGNIFICAND_WIDTH - 2 + $FloatConsts::MIN_SUB_EXPONENT) - exponent);
-			$init(FloatingDecimal);
 			if (!FloatingDecimal::$assertionsDisabled && !(threshShift >= $DoubleConsts::SIGNIFICAND_WIDTH - $FloatConsts::SIGNIFICAND_WIDTH)) {
 				$throwNew($AssertionError);
 			}
@@ -664,13 +662,11 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 			if (exponent <= $Double::MAX_EXPONENT && exponent >= $Double::MIN_EXPONENT) {
 				significand = ((int64_t)(($sl(exponent + (int64_t)$DoubleConsts::EXP_BIAS, $DoubleConsts::SIGNIFICAND_WIDTH - 1)) & (uint64_t)$DoubleConsts::EXP_BIT_MASK)) | ((int64_t)($DoubleConsts::SIGNIF_BIT_MASK & (uint64_t)significand));
 			} else if (exponent < ($DoubleConsts::MIN_SUB_EXPONENT - 1)) {
-				$init(FloatingDecimal);
 				return isNegative ? FloatingDecimal::A2BC_NEGATIVE_ZERO : FloatingDecimal::A2BC_POSITIVE_ZERO;
 			} else {
 				sticky = sticky || round;
 				round = false;
 				int32_t bitsDiscarded = 53 - ((int32_t)exponent - $DoubleConsts::MIN_SUB_EXPONENT + 1);
-				$init(FloatingDecimal);
 				if (!FloatingDecimal::$assertionsDisabled && !(bitsDiscarded >= 1 && bitsDiscarded <= 53)) {
 					$throwNew($AssertionError);
 				}

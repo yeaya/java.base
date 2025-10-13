@@ -20,8 +20,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef LAST
 #undef FIRST
+#undef LAST
 #undef MAX_CODE_POINT
 
 using $intArray2 = $Array<int32_t, 2>;

@@ -24,14 +24,14 @@
 #include <java/time/temporal/TemporalField.h>
 #include <jcpp.h>
 
-#undef ZERO
+#undef ALWAYS
 #undef EXCEEDS_PAD
 #undef EXCEED_POINTS
 #undef MIN_VALUE
-#undef TEN
-#undef ALWAYS
 #undef NORMAL
 #undef NOT_NEGATIVE
+#undef TEN
+#undef ZERO
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -212,7 +212,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 		}
 		positive = true;
 		++position;
-	} else if (sign == $nc($($nc(context)->getDecimalStyle()))->getNegativeSign()) {
+	} else if (sign == $nc($(context->getDecimalStyle()))->getNegativeSign()) {
 		if (this->signStyle->parse(false, context->isStrict(), this->minWidth == this->maxWidth) == false) {
 			return ~position;
 		}
@@ -224,13 +224,13 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 			return ~position;
 		}
 	}
-	bool var$0 = $nc(context)->isStrict();
+	bool var$0 = context->isStrict();
 	int32_t effMinWidth = (var$0 || isFixedWidth(context) ? this->minWidth : 1);
 	int32_t minEndPos = position + effMinWidth;
 	if (minEndPos > length) {
 		return ~position;
 	}
-	bool var$2 = $nc(context)->isStrict();
+	bool var$2 = context->isStrict();
 	int32_t var$1 = (var$2 || isFixedWidth(context) ? this->maxWidth : 9);
 	int32_t effMaxWidth = var$1 + $Math::max(this->subsequentWidth, 0);
 	int64_t total = 0;
@@ -240,7 +240,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 		int32_t maxEndPos = $Math::min(pos + effMaxWidth, length);
 		while (pos < maxEndPos) {
 			char16_t ch = text->charAt(pos++);
-			int32_t digit = $nc($($nc(context)->getDecimalStyle()))->convertToDigit(ch);
+			int32_t digit = $nc($(context->getDecimalStyle()))->convertToDigit(ch);
 			if (digit < 0) {
 				--pos;
 				if (pos < minEndPos) {
@@ -272,19 +272,19 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 		if (totalBig != nullptr) {
 			$init($BigInteger);
 			bool var$3 = totalBig->equals($BigInteger::ZERO);
-			if (var$3 && $nc(context)->isStrict()) {
+			if (var$3 && context->isStrict()) {
 				return ~(position - 1);
 			}
 			$assign(totalBig, totalBig->negate());
 		} else {
-			if (total == 0 && $nc(context)->isStrict()) {
+			if (total == 0 && context->isStrict()) {
 				return ~(position - 1);
 			}
 			total = -total;
 		}
 	} else {
 		$init($SignStyle);
-		if (this->signStyle == $SignStyle::EXCEEDS_PAD && $nc(context)->isStrict()) {
+		if (this->signStyle == $SignStyle::EXCEEDS_PAD && context->isStrict()) {
 			int32_t parseLen = pos - position;
 			if (positive) {
 				if (parseLen <= this->minWidth) {
@@ -307,7 +307,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContex
 }
 
 int32_t DateTimeFormatterBuilder$NumberPrinterParser::setValue($DateTimeParseContext* context, int64_t value, int32_t errorPos, int32_t successPos) {
-	return $nc(context)->setParsedField(this->field, value, errorPos, successPos);
+	return context->setParsedField(this->field, value, errorPos, successPos);
 }
 
 $String* DateTimeFormatterBuilder$NumberPrinterParser::toString() {

@@ -14,11 +14,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef OTHER
-#undef STRIPPED
 #undef ARRAY
 #undef EQUAL
+#undef OTHER
 #undef POSTFIX
+#undef STRIPPED
 
 using $TestObjectMethods = ::TestObjectMethods;
 using $TestObjectMethods$Relation = ::TestObjectMethods$Relation;

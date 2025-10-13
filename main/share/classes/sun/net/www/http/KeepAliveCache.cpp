@@ -35,8 +35,8 @@
 #include <sun/security/action/GetIntegerAction.h>
 #include <jcpp.h>
 
-#undef MAX_CONNECTIONS
 #undef LIFETIME
+#undef MAX_CONNECTIONS
 
 using $NotSerializableException = ::java::io::NotSerializableException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;

@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("BAD_FLOATING_BOUND")
-#undef BAD_FLOATING_BOUND
+#pragma push_macro("BAD_BOUND")
+#undef BAD_BOUND
 #pragma push_macro("BAD_DISTANCE")
 #undef BAD_DISTANCE
+#pragma push_macro("BAD_FLOATING_BOUND")
+#undef BAD_FLOATING_BOUND
 #pragma push_macro("BAD_RANGE")
 #undef BAD_RANGE
 #pragma push_macro("BAD_SIZE")
 #undef BAD_SIZE
-#pragma push_macro("BAD_BOUND")
-#undef BAD_BOUND
 #pragma push_macro("GOLDEN_RATIO_32")
 #undef GOLDEN_RATIO_32
 #pragma push_macro("GOLDEN_RATIO_64")
@@ -87,11 +87,11 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("BAD_FLOATING_BOUND")
+#pragma pop_macro("BAD_BOUND")
 #pragma pop_macro("BAD_DISTANCE")
+#pragma pop_macro("BAD_FLOATING_BOUND")
 #pragma pop_macro("BAD_RANGE")
 #pragma pop_macro("BAD_SIZE")
-#pragma pop_macro("BAD_BOUND")
 #pragma pop_macro("GOLDEN_RATIO_32")
 #pragma pop_macro("GOLDEN_RATIO_64")
 #pragma pop_macro("SILVER_RATIO_32")

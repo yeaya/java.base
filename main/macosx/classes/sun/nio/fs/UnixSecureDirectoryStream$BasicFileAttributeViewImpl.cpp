@@ -27,9 +27,9 @@
 #include <sun/nio/fs/UnixSecureDirectoryStream.h>
 #include <jcpp.h>
 
-#undef O_RDONLY
 #undef MICROSECONDS
 #undef O_NOFOLLOW
+#undef O_RDONLY
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -8,16 +8,16 @@
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/NamedGroup$NamedGroupScheme.h>
 
-#pragma push_macro("NAMED_GROUP_FFDHE")
-#undef NAMED_GROUP_FFDHE
+#pragma push_macro("NAMED_GROUP_ARBITRARY")
+#undef NAMED_GROUP_ARBITRARY
 #pragma push_macro("NAMED_GROUP_ECDHE")
 #undef NAMED_GROUP_ECDHE
+#pragma push_macro("NAMED_GROUP_FFDHE")
+#undef NAMED_GROUP_FFDHE
 #pragma push_macro("NAMED_GROUP_NONE")
 #undef NAMED_GROUP_NONE
 #pragma push_macro("NAMED_GROUP_XDH")
 #undef NAMED_GROUP_XDH
-#pragma push_macro("NAMED_GROUP_ARBITRARY")
-#undef NAMED_GROUP_ARBITRARY
 
 namespace java {
 	namespace security {
@@ -82,10 +82,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("NAMED_GROUP_FFDHE")
+#pragma pop_macro("NAMED_GROUP_ARBITRARY")
 #pragma pop_macro("NAMED_GROUP_ECDHE")
+#pragma pop_macro("NAMED_GROUP_FFDHE")
 #pragma pop_macro("NAMED_GROUP_NONE")
 #pragma pop_macro("NAMED_GROUP_XDH")
-#pragma pop_macro("NAMED_GROUP_ARBITRARY")
 
 #endif // _sun_security_ssl_NamedGroup$NamedGroupSpec_h_

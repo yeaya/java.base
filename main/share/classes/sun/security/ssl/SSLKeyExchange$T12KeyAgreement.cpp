@@ -38,14 +38,14 @@
 #include <sun/security/ssl/SSLPossessionGenerator.h>
 #include <jcpp.h>
 
-#undef DHE
-#undef RSA
-#undef ECDH
 #undef CLIENT_KEY_EXCHANGE
-#undef ECDHE
+#undef DHE
 #undef DHE_EXPORT
-#undef SERVER_KEY_EXCHANGE
+#undef ECDH
+#undef ECDHE
+#undef RSA
 #undef RSA_EXPORT
+#undef SERVER_KEY_EXCHANGE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $SSLHandshakeArray = $Array<::sun::security::ssl::SSLHandshake>;

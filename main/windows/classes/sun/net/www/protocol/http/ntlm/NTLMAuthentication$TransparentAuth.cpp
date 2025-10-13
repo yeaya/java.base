@@ -13,8 +13,8 @@
 #include <sun/net/www/protocol/http/ntlm/NTLMAuthentication.h>
 #include <jcpp.h>
 
-#undef DISABLED
 #undef ALL_HOSTS
+#undef DISABLED
 #undef TRUSTED_HOSTS
 
 using $NTLMAuthentication$TransparentAuthArray = $Array<::sun::net::www::protocol::http::ntlm::NTLMAuthentication$TransparentAuth>;

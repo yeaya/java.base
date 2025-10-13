@@ -110,7 +110,7 @@ $ObjectArray* AbstractCollection::toArray($ObjectArray* a) {
 		if (!$nc(it)->hasNext()) {
 			if (a == r) {
 				r->set(i, nullptr);
-			} else if ($nc(a)->length < i) {
+			} else if (a->length < i) {
 				return $Arrays::copyOf(r, i);
 			} else {
 				$System::arraycopy(r, 0, a, 0, i);

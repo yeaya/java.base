@@ -25,8 +25,8 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef ENGLISH
 #undef DEBUG
+#undef ENGLISH
 
 using $InputStream = ::java::io::InputStream;
 using $CharSequence = ::java::lang::CharSequence;

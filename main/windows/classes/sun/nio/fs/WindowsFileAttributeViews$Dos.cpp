@@ -28,11 +28,11 @@
 #include <sun/nio/fs/WindowsPath.h>
 #include <jcpp.h>
 
-#undef ATTRIBUTES_NAME
-#undef READONLY_NAME
 #undef ARCHIVE_NAME
-#undef SYSTEM_NAME
+#undef ATTRIBUTES_NAME
 #undef HIDDEN_NAME
+#undef READONLY_NAME
+#undef SYSTEM_NAME
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

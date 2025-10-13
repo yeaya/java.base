@@ -34,14 +34,14 @@
 #include <sun/invoke/util/Wrapper.h>
 #include <jcpp.h>
 
-#undef LMF_ALT_MT
 #undef IMPL_LOOKUP
-#undef MAX_MH_ARITY
-#undef SCF_MT
-#undef NON_SPREAD_ARG_COUNT
+#undef LMF_ALT_MT
 #undef LMF_CONDY_MT
 #undef LMF_INDY_MT
+#undef MAX_MH_ARITY
 #undef MAX_SAFE_SIZE
+#undef NON_SPREAD_ARG_COUNT
+#undef SCF_MT
 #undef TRACE_METHOD_LINKAGE
 
 using $PrintStream = ::java::io::PrintStream;
@@ -167,7 +167,7 @@ $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* boots
 					$assign(result, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type)})));
 				}
 			}
-		} else if (!$nc($of(info))->getClass()->isArray()) {
+		} else if (!$of(info)->getClass()->isArray()) {
 			if (isStringConcatFactoryBSM($($nc(bootstrapMethod)->type()))) {
 				$assign(result, $cast($CallSite, $nc(bootstrapMethod)->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $cast($String, info), $of($$new($ObjectArray, 0))}))));
 			} else {
@@ -194,120 +194,120 @@ $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* boots
 			} else {
 				$var($ObjectArray, argv, $cast($ObjectArray, info));
 				$var($MethodType, bsmType, $nc(bootstrapMethod)->type());
-				if (isLambdaMetafactoryIndyBSM(bsmType) && argv->length == 3) {
+				if (isLambdaMetafactoryIndyBSM(bsmType) && $nc(argv)->length == 3) {
 					$assign(result, $cast($CallSite, bootstrapMethod->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $cast($MethodType, argv->get(0)), $cast($MethodHandle, argv->get(1)), $cast($MethodType, argv->get(2))}))));
-				} else if (isLambdaMetafactoryCondyBSM(bsmType) && $nc(argv)->length == 3) {
-					$assign(result, $nc(bootstrapMethod)->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($Class, type), $cast($MethodType, argv->get(0)), $cast($MethodHandle, argv->get(1)), $cast($MethodType, argv->get(2))})));
-				} else if (isStringConcatFactoryBSM(bsmType) && $nc(argv)->length >= 1) {
+				} else if (isLambdaMetafactoryCondyBSM(bsmType) && argv->length == 3) {
+					$assign(result, bootstrapMethod->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($Class, type), $cast($MethodType, argv->get(0)), $cast($MethodHandle, argv->get(1)), $cast($MethodType, argv->get(2))})));
+				} else if (isStringConcatFactoryBSM(bsmType) && argv->length >= 1) {
 					$var($String, recipe, $cast($String, argv->get(0)));
 					$var($ObjectArray, shiftedArgs, $Arrays::copyOfRange(argv, 1, argv->length));
 					maybeReBoxElements(shiftedArgs);
-					$assign(result, $cast($CallSite, $nc(bootstrapMethod)->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $of(recipe), $of(shiftedArgs)}))));
+					$assign(result, $cast($CallSite, bootstrapMethod->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $of(recipe), $of(shiftedArgs)}))));
 				} else if (isLambdaMetafactoryAltMetafactoryBSM(bsmType)) {
 					maybeReBoxElements(argv);
-					$assign(result, $cast($CallSite, $nc(bootstrapMethod)->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $of(argv)}))));
+					$assign(result, $cast($CallSite, bootstrapMethod->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $of(argv)}))));
 				} else {
 					maybeReBoxElements(argv);
 					{
 						$Class* c = nullptr;
-						bool var$5 = $instanceOf($Class, type);
-						if (var$5) {
+						bool var$2 = $instanceOf($Class, type);
+						if (var$2) {
 							c = $cast($Class, type);
-							var$5 = true;
+							var$2 = true;
 						}
-						if (var$5) {
+						if (var$2) {
 
-							$var($Object, var$6, nullptr)
-							switch ($nc(argv)->length) {
+							$var($Object, var$3, nullptr)
+							switch (argv->length) {
 							case 0:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c)})));
 									break;
 								}
 							case 1:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0)})));
 									break;
 								}
 							case 2:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1)})));
 									break;
 								}
 							case 3:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2)})));
 									break;
 								}
 							case 4:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2), argv->get(3)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2), argv->get(3)})));
 									break;
 								}
 							case 5:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4)})));
 									break;
 								}
 							case 6:
 								{
-									$assign(var$6, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4), argv->get(5)})));
+									$assign(var$3, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(c), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4), argv->get(5)})));
 									break;
 								}
 							default:
 								{
-									$assign(var$6, invokeWithManyArguments(bootstrapMethod, caller, name, type, argv));
+									$assign(var$3, invokeWithManyArguments(bootstrapMethod, caller, name, type, argv));
 									break;
 								}
 							}
-							$assign(result, var$6);
+							$assign(result, var$3);
 						} else {
 							$var($MethodType, mt, $cast($MethodType, type));
 
-							$var($Object, var$7, nullptr)
-							switch ($nc(argv)->length) {
+							$var($Object, var$4, nullptr)
+							switch (argv->length) {
 							case 0:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt)})));
 									break;
 								}
 							case 1:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0)})));
 									break;
 								}
 							case 2:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1)})));
 									break;
 								}
 							case 3:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2)})));
 									break;
 								}
 							case 4:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2), argv->get(3)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2), argv->get(3)})));
 									break;
 								}
 							case 5:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4)})));
 									break;
 								}
 							case 6:
 								{
-									$assign(var$7, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4), argv->get(5)})));
+									$assign(var$4, bootstrapMethod->invoke($$new($ObjectArray, {$of(caller), $of(name), $of(mt), argv->get(0), argv->get(1), argv->get(2), argv->get(3), argv->get(4), argv->get(5)})));
 									break;
 								}
 							default:
 								{
-									$assign(var$7, invokeWithManyArguments(bootstrapMethod, caller, name, type, argv));
+									$assign(var$4, invokeWithManyArguments(bootstrapMethod, caller, name, type, argv));
 									break;
 								}
 							}
-							$assign(result, var$7);
+							$assign(result, var$4);
 						}
 					}
 				}

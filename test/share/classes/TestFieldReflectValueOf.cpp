@@ -24,10 +24,10 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef TRUE
 #undef TYPE
 
 using $Boolean = ::java::lang::Boolean;

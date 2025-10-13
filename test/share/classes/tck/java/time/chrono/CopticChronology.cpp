@@ -25,12 +25,12 @@
 #include <tck/java/time/chrono/CopticEra.h>
 #include <jcpp.h>
 
+#undef AM
+#undef DOM_RANGE
+#undef DOM_RANGE_LEAP
 #undef DOM_RANGE_NONLEAP
 #undef EPOCH_DAY
-#undef DOM_RANGE
 #undef INSTANCE
-#undef DOM_RANGE_LEAP
-#undef AM
 #undef MOY_RANGE
 
 using $CopticEraArray = $Array<::tck::java::time::chrono::CopticEra>;

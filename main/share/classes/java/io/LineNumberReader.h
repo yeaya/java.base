@@ -6,14 +6,14 @@
 #include <java/io/BufferedReader.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("EOL")
-#undef EOL
 #pragma push_macro("CHAR")
 #undef CHAR
-#pragma push_macro("NONE")
-#undef NONE
 #pragma push_macro("EOF")
 #undef EOF
+#pragma push_macro("EOL")
+#undef EOL
+#pragma push_macro("NONE")
+#undef NONE
 
 namespace java {
 	namespace io {
@@ -56,9 +56,9 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("EOL")
 #pragma pop_macro("CHAR")
-#pragma pop_macro("NONE")
 #pragma pop_macro("EOF")
+#pragma pop_macro("EOL")
+#pragma pop_macro("NONE")
 
 #endif // _java_io_LineNumberReader_h_

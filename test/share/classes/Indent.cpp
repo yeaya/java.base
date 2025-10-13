@@ -30,8 +30,8 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef MIDDLES
 #undef ENDS
+#undef MIDDLES
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -223,7 +223,7 @@ void Indent::test1() {
 														$var($String, spaces, " "_s->repeat(adjust));
 														$assign(stream, stream->map(static_cast<$Function*>($$new(Indent$$Lambda$lambda$test1$0, spaces))));
 													} else if (adjust < 0) {
-														$assign(stream, $nc(stream)->map(static_cast<$Function*>($$new(Indent$$Lambda$lambda$test1$1$1, adjust))));
+														$assign(stream, stream->map(static_cast<$Function*>($$new(Indent$$Lambda$lambda$test1$1$1, adjust))));
 													}
 													$var($String, expected, $cast($String, stream->collect($($Collectors::joining("\n"_s, ""_s, "\n"_s)))));
 													if (!$nc(output)->equals(expected)) {

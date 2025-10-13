@@ -46,9 +46,9 @@
 #include <jdk/internal/reflect/CallerSensitive.h>
 #include <jdk/internal/vm/annotation/Hidden.h>
 
-#undef PUBLIC
-#undef BRIDGE
 #undef ABSTRACT
+#undef BRIDGE
+#undef PUBLIC
 #undef STATIC
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;

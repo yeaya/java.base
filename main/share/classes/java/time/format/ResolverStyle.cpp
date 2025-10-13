@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef STRICT
 #undef LENIENT
 #undef SMART
+#undef STRICT
 
 using $ResolverStyleArray = $Array<::java::time::format::ResolverStyle>;
 using $ClassInfo = ::java::lang::ClassInfo;

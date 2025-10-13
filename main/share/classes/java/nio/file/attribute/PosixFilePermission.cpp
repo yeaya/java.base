@@ -11,15 +11,15 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef OWNER_READ
-#undef GROUP_WRITE
-#undef GROUP_READ
-#undef OTHERS_WRITE
-#undef OWNER_WRITE
-#undef OTHERS_READ
-#undef OTHERS_EXECUTE
-#undef OWNER_EXECUTE
 #undef GROUP_EXECUTE
+#undef GROUP_READ
+#undef GROUP_WRITE
+#undef OTHERS_EXECUTE
+#undef OTHERS_READ
+#undef OTHERS_WRITE
+#undef OWNER_EXECUTE
+#undef OWNER_READ
+#undef OWNER_WRITE
 
 using $PosixFilePermissionArray = $Array<::java::nio::file::attribute::PosixFilePermission>;
 using $ClassInfo = ::java::lang::ClassInfo;

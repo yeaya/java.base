@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CLASS")
+#undef CLASS
 #pragma push_macro("RUNTIME")
 #undef RUNTIME
 #pragma push_macro("SOURCE")
 #undef SOURCE
-#pragma push_macro("CLASS")
-#undef CLASS
 
 namespace java {
 	namespace lang {
@@ -35,8 +35,8 @@ public:
 	} // lang
 } // java
 
+#pragma pop_macro("CLASS")
 #pragma pop_macro("RUNTIME")
 #pragma pop_macro("SOURCE")
-#pragma pop_macro("CLASS")
 
 #endif // _java_lang_annotation_RetentionPolicy_h_

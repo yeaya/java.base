@@ -8,16 +8,16 @@
 #include <sun/nio/ch/AsynchronousSocketChannelImpl.h>
 #include <sun/nio/ch/Iocp$OverlappedChannel.h>
 
-#pragma push_macro("OFFSETOF_LEN")
-#undef OFFSETOF_LEN
-#pragma push_macro("SIZEOF_WSABUFARRAY")
-#undef SIZEOF_WSABUFARRAY
 #pragma push_macro("MAX_WSABUF")
 #undef MAX_WSABUF
-#pragma push_macro("SIZEOF_WSABUF")
-#undef SIZEOF_WSABUF
 #pragma push_macro("OFFSETOF_BUF")
 #undef OFFSETOF_BUF
+#pragma push_macro("OFFSETOF_LEN")
+#undef OFFSETOF_LEN
+#pragma push_macro("SIZEOF_WSABUF")
+#undef SIZEOF_WSABUF
+#pragma push_macro("SIZEOF_WSABUFARRAY")
+#undef SIZEOF_WSABUFARRAY
 
 namespace java {
 	namespace net {
@@ -120,10 +120,10 @@ public:
 	} // nio
 } // sun
 
-#pragma pop_macro("OFFSETOF_LEN")
-#pragma pop_macro("SIZEOF_WSABUFARRAY")
 #pragma pop_macro("MAX_WSABUF")
-#pragma pop_macro("SIZEOF_WSABUF")
 #pragma pop_macro("OFFSETOF_BUF")
+#pragma pop_macro("OFFSETOF_LEN")
+#pragma pop_macro("SIZEOF_WSABUF")
+#pragma pop_macro("SIZEOF_WSABUFARRAY")
 
 #endif // _sun_nio_ch_WindowsAsynchronousSocketChannelImpl_h_

@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 
-#pragma push_macro("SUBTRAHEND")
-#undef SUBTRAHEND
-#pragma push_macro("NUM_LIMBS")
-#undef NUM_LIMBS
-#pragma push_macro("MODULUS")
-#undef MODULUS
 #pragma push_macro("AS_LONG_LE")
 #undef AS_LONG_LE
-#pragma push_macro("POWER")
-#undef POWER
 #pragma push_macro("BITS_PER_LIMB")
 #undef BITS_PER_LIMB
+#pragma push_macro("MODULUS")
+#undef MODULUS
+#pragma push_macro("NUM_LIMBS")
+#undef NUM_LIMBS
+#pragma push_macro("POWER")
+#undef POWER
+#pragma push_macro("SUBTRAHEND")
+#undef SUBTRAHEND
 
 namespace java {
 	namespace lang {
@@ -76,11 +76,11 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("SUBTRAHEND")
-#pragma pop_macro("NUM_LIMBS")
-#pragma pop_macro("MODULUS")
 #pragma pop_macro("AS_LONG_LE")
-#pragma pop_macro("POWER")
 #pragma pop_macro("BITS_PER_LIMB")
+#pragma pop_macro("MODULUS")
+#pragma pop_macro("NUM_LIMBS")
+#pragma pop_macro("POWER")
+#pragma pop_macro("SUBTRAHEND")
 
 #endif // _sun_security_util_math_intpoly_IntegerPolynomial1305_h_

@@ -5,28 +5,28 @@
 
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 
+#pragma push_macro("ALL_ACCESS_MODES")
+#undef ALL_ACCESS_MODES
 #pragma push_macro("MODULE")
 #undef MODULE
-#pragma push_macro("PACKAGE")
-#undef PACKAGE
-#pragma push_macro("ORIGINAL")
-#undef ORIGINAL
 #pragma push_macro("MODULE_ALLOWED")
 #undef MODULE_ALLOWED
-#pragma push_macro("UNCONDITIONAL")
-#undef UNCONDITIONAL
+#pragma push_macro("ORIGINAL")
+#undef ORIGINAL
+#pragma push_macro("ORIGINAL_ALLOWED")
+#undef ORIGINAL_ALLOWED
+#pragma push_macro("PACKAGE")
+#undef PACKAGE
+#pragma push_macro("PACKAGE_ALLOWED")
+#undef PACKAGE_ALLOWED
 #pragma push_macro("PACKAGE_ONLY")
 #undef PACKAGE_ONLY
 #pragma push_macro("PROTECTED_OR_PACKAGE_ALLOWED")
 #undef PROTECTED_OR_PACKAGE_ALLOWED
-#pragma push_macro("ALL_ACCESS_MODES")
-#undef ALL_ACCESS_MODES
+#pragma push_macro("UNCONDITIONAL")
+#undef UNCONDITIONAL
 #pragma push_macro("UNCONDITIONAL_ALLOWED")
 #undef UNCONDITIONAL_ALLOWED
-#pragma push_macro("ORIGINAL_ALLOWED")
-#undef ORIGINAL_ALLOWED
-#pragma push_macro("PACKAGE_ALLOWED")
-#undef PACKAGE_ALLOWED
 
 namespace java {
 	namespace lang {
@@ -79,16 +79,16 @@ public:
 	} // invoke
 } // sun
 
+#pragma pop_macro("ALL_ACCESS_MODES")
 #pragma pop_macro("MODULE")
-#pragma pop_macro("PACKAGE")
-#pragma pop_macro("ORIGINAL")
 #pragma pop_macro("MODULE_ALLOWED")
-#pragma pop_macro("UNCONDITIONAL")
+#pragma pop_macro("ORIGINAL")
+#pragma pop_macro("ORIGINAL_ALLOWED")
+#pragma pop_macro("PACKAGE")
+#pragma pop_macro("PACKAGE_ALLOWED")
 #pragma pop_macro("PACKAGE_ONLY")
 #pragma pop_macro("PROTECTED_OR_PACKAGE_ALLOWED")
-#pragma pop_macro("ALL_ACCESS_MODES")
+#pragma pop_macro("UNCONDITIONAL")
 #pragma pop_macro("UNCONDITIONAL_ALLOWED")
-#pragma pop_macro("ORIGINAL_ALLOWED")
-#pragma pop_macro("PACKAGE_ALLOWED")
 
 #endif // _sun_invoke_util_VerifyAccess_h_

@@ -176,7 +176,7 @@ int32_t ScheduledThreadPoolExecutor$ScheduledFutureTask::compareTo($Delayed* oth
 			return -1;
 		} else if (diff > 0) {
 			return 1;
-		} else if (this->sequenceNumber < $nc(x)->sequenceNumber) {
+		} else if (this->sequenceNumber < x->sequenceNumber) {
 			return -1;
 		} else {
 			return 1;

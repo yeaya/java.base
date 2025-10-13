@@ -21,20 +21,20 @@
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
 
-#undef SMALL_10_POW
-#undef SIGN_BIT_MASK
+#undef BIG_10_POW
+#undef EXP_BIAS
 #undef EXP_BIT_MASK
 #undef MAX_SMALL_TEN
-#undef EXP_BIAS
-#undef TINY_10_POW
 #undef MAX_VALUE
 #undef MIN_VALUE
-#undef SINGLE_SMALL_10_POW
-#undef POSITIVE_INFINITY
 #undef NEGATIVE_INFINITY
-#undef BIG_10_POW
+#undef POSITIVE_INFINITY
 #undef SIGNIF_BIT_MASK
+#undef SIGN_BIT_MASK
 #undef SINGLE_MAX_SMALL_TEN
+#undef SINGLE_SMALL_10_POW
+#undef SMALL_10_POW
+#undef TINY_10_POW
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -55,29 +55,29 @@
 #include <sun/security/util/SignatureUtil.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_ECDHE
-#undef RSA_PSS_RSAE_SHA384
-#undef ECDSA_SHA1
-#undef MAX_VALUE
-#undef RSA_PKCS1_SHA1
-#undef SIGNATURE
-#undef RSA_SHA224
-#undef RSA_PSS_PSS_SHA384
+#undef DSA_SHA1
 #undef DSA_SHA224
 #undef DSA_SHA256
-#undef SIGNATURE_PRIMITIVE_SET
+#undef ECDSA_SHA1
 #undef ECDSA_SHA224
-#undef DSA_SHA1
-#undef RSA_PSS_SHA512
-#undef RSA_PSS_PSS_SHA256
-#undef RSA_PSS_PSS_SHA512
-#undef RSA_PSS_RSAE_SHA512
-#undef RSA_PSS_SHA384
+#undef MAX_VALUE
+#undef NAMED_GROUP_ECDHE
+#undef PROTOCOLS_TO_12
 #undef PROTOCOLS_TO_13
 #undef RSA_MD5
-#undef RSA_PSS_SHA256
-#undef PROTOCOLS_TO_12
+#undef RSA_PKCS1_SHA1
+#undef RSA_PSS_PSS_SHA256
+#undef RSA_PSS_PSS_SHA384
+#undef RSA_PSS_PSS_SHA512
 #undef RSA_PSS_RSAE_SHA256
+#undef RSA_PSS_RSAE_SHA384
+#undef RSA_PSS_RSAE_SHA512
+#undef RSA_PSS_SHA256
+#undef RSA_PSS_SHA384
+#undef RSA_PSS_SHA512
+#undef RSA_SHA224
+#undef SIGNATURE
+#undef SIGNATURE_PRIMITIVE_SET
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $SignatureSchemeArray = $Array<::sun::security::ssl::SignatureScheme>;
@@ -479,13 +479,13 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 						$SSLLogger::warning($$str({"Unsupported signature scheme: "_s, $(SignatureScheme::nameOf(ssid))}), $$new($ObjectArray, 0));
 					}
 				} else {
-					bool var$4 = $nc(ss)->isAvailable && $nc(ss->supportedProtocols)->contains(protocolVersion);
+					bool var$4 = ss->isAvailable && $nc(ss->supportedProtocols)->contains(protocolVersion);
 					if (var$4) {
-						bool var$5 = $nc($nc(config)->signatureSchemes)->isEmpty();
-						var$4 = (var$5 || $nc($nc(config)->signatureSchemes)->contains(ss));
+						bool var$5 = $nc(config->signatureSchemes)->isEmpty();
+						var$4 = (var$5 || $nc(config->signatureSchemes)->contains(ss));
 					}
 					bool var$3 = var$4;
-					if (var$3 && $nc(ss)->isPermitted(constraints)) {
+					if (var$3 && ss->isPermitted(constraints)) {
 						supported->add(ss);
 					} else {
 						$init($SSLLogger);
@@ -550,12 +550,12 @@ $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraint
 						if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
 							$SSLLogger::finest($$str({"Ignore the signature algorithm ("_s, ss, "), unsupported EC parameter spec: "_s, params}), $$new($ObjectArray, 0));
 						}
-					} else if ("EC"_s->equals($nc(ss)->keyAlgorithm)) {
-						$var($ECParameterSpec, params, $nc(x509Possession)->getECParameterSpec());
+					} else if ("EC"_s->equals(ss->keyAlgorithm)) {
+						$var($ECParameterSpec, params, x509Possession->getECParameterSpec());
 						if (params != nullptr) {
 							$NamedGroup* keyGroup = $NamedGroup::valueOf(params);
 							if (keyGroup != nullptr && $SupportedGroupsExtension$SupportedGroups::isSupported(keyGroup)) {
-								$var($Signature, signer, $nc(ss)->getSigner(signingKey));
+								$var($Signature, signer, ss->getSigner(signingKey));
 								if (signer != nullptr) {
 									return $new($AbstractMap$SimpleImmutableEntry, ss, signer);
 								}
@@ -566,7 +566,7 @@ $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraint
 							$SSLLogger::finest($$str({"Ignore the legacy signature algorithm ("_s, ss, "), unsupported EC parameter spec: "_s, params}), $$new($ObjectArray, 0));
 						}
 					} else {
-						$var($Signature, signer, $nc(ss)->getSigner(signingKey));
+						$var($Signature, signer, ss->getSigner(signingKey));
 						if (signer != nullptr) {
 							return $new($AbstractMap$SimpleImmutableEntry, ss, signer);
 						}

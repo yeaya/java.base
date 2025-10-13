@@ -11,9 +11,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef CLIENT_AUTH_NONE
 #undef CLIENT_AUTH_REQUESTED
 #undef CLIENT_AUTH_REQUIRED
-#undef CLIENT_AUTH_NONE
 
 using $ClientAuthTypeArray = $Array<::sun::security::ssl::ClientAuthType>;
 using $ClassInfo = ::java::lang::ClassInfo;

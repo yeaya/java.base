@@ -16,8 +16,8 @@
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
 
-#undef JAR_MIME_TYPE
 #undef GIF_MIME_TYPE
+#undef JAR_MIME_TYPE
 
 using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;

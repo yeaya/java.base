@@ -47,10 +47,10 @@
 #include <jcpp.h>
 
 #undef FACTORY_MAP
-#undef ZERO
-#undef ONE
 #undef MAX_VALUE
+#undef ONE
 #undef TYPE
+#undef ZERO
 
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $Serializable = ::java::io::Serializable;
@@ -344,7 +344,7 @@ void RandomGeneratorFactory::getConstructors($Class* randomGeneratorClass) {
 								$var($ClassArray, parameterTypes, $nc(ctorSpecific)->getParameterTypes());
 								if ($nc(parameterTypes)->length == 0) {
 									$assign(tmpCtor, ctorSpecific);
-								} else if ($nc(parameterTypes)->length == 1) {
+								} else if (parameterTypes->length == 1) {
 									$Class* argType = parameterTypes->get(0);
 									$init($Long);
 									if (argType == $Long::TYPE) {

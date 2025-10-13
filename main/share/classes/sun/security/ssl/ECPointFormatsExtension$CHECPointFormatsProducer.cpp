@@ -21,9 +21,9 @@
 #include <sun/security/ssl/SSLLogger.h>
 #include <jcpp.h>
 
-#undef NAMED_GROUP_ECDHE
 #undef CH_EC_POINT_FORMATS
 #undef DEFAULT
+#undef NAMED_GROUP_ECDHE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -43,11 +43,11 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
-#undef MAX_LISTXATTR_BUF_SIZE
-#undef ERANGE
-#undef USER_NAMESPACE
 #undef ARRAY_BYTE_BASE_OFFSET
+#undef ERANGE
+#undef MAX_LISTXATTR_BUF_SIZE
 #undef MIN_LISTXATTR_BUF_SIZE
+#undef USER_NAMESPACE
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;

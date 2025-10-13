@@ -18,8 +18,8 @@
 #include <sun/security/ssl/ServerHandshakeContext.h>
 #include <jcpp.h>
 
-#undef SH_EXTENDED_MASTER_SECRET
 #undef NOMINAL
+#undef SH_EXTENDED_MASTER_SECRET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

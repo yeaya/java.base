@@ -45,27 +45,27 @@
 #include <sun/util/spi/CalendarProvider.h>
 #include <jcpp.h>
 
-#undef NF_CURRENCY
-#undef DN_LOCALE_LANGUAGE
-#undef NF_PERCENT
-#undef DN_CURRENCY_NAME
-#undef DN_LOCALE_REGION
 #undef CAL_JAPAN
-#undef CD_FIRSTDAYOFWEEK
 #undef CAT_DISPLAY
-#undef NF_INTEGER
-#undef DN_LOCALE_SCRIPT
+#undef CAT_FORMAT
+#undef CD_FIRSTDAYOFWEEK
+#undef CD_FIRSTWEEKOFYEAR
+#undef DN_CURRENCY_NAME
 #undef DN_CURRENCY_SYMBOL
-#undef TH_TH_TH
-#undef NF_NUMBER
+#undef DN_LOCALE_LANGUAGE
+#undef DN_LOCALE_REGION
+#undef DN_LOCALE_SCRIPT
+#undef DN_LOCALE_VARIANT
+#undef FORMAT_DEFAULT
 #undef JAPAN
 #undef JA_JP_JP
-#undef FORMAT_DEFAULT
+#undef NF_CURRENCY
+#undef NF_INTEGER
 #undef NF_MAX
-#undef CAT_FORMAT
-#undef DN_LOCALE_VARIANT
+#undef NF_NUMBER
+#undef NF_PERCENT
 #undef TH_TH
-#undef CD_FIRSTWEEKOFYEAR
+#undef TH_TH_TH
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -383,7 +383,7 @@ bool HostLocaleProviderAdapterImpl::isSupportedNativeDigitLocale($Locale* locale
 	if ($nc(HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains(base)) {
 		if (numtype == nullptr || $nc(numtype)->equals("latn"_s)) {
 			return true;
-		} else if ($nc($($nc(locale)->getLanguage()))->equals("th"_s)) {
+		} else if ($nc($(locale->getLanguage()))->equals("th"_s)) {
 			bool var$0 = "thai"_s->equals(numtype);
 			return var$0 && isNativeDigit($(locale->toLanguageTag()));
 		}

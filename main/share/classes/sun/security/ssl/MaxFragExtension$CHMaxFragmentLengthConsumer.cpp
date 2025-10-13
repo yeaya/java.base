@@ -26,8 +26,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef ILLEGAL_PARAMETER
 #undef CH_MAX_FRAGMENT_LENGTH
+#undef ILLEGAL_PARAMETER
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

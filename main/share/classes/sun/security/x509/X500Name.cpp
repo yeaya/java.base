@@ -41,19 +41,19 @@
 #include <sun/security/x509/X500Name$1.h>
 #include <jcpp.h>
 
-#undef GENERATIONQUALIFIER_OID
-#undef NAME_NARROWS
-#undef SURNAME_OID
-#undef NAME_WIDENS
-#undef INITIALS_OID
-#undef NAME_MATCH
-#undef GIVENNAME_OID
-#undef DOMAIN_COMPONENT_OID
-#undef NAME_SAME_TYPE
-#undef NAME_DIFF_TYPE
-#undef SERIALNUMBER_OID
 #undef DNQUALIFIER_OID
+#undef DOMAIN_COMPONENT_OID
+#undef GENERATIONQUALIFIER_OID
+#undef GIVENNAME_OID
+#undef INITIALS_OID
+#undef NAME_DIFF_TYPE
 #undef NAME_DIRECTORY
+#undef NAME_MATCH
+#undef NAME_NARROWS
+#undef NAME_SAME_TYPE
+#undef NAME_WIDENS
+#undef SERIALNUMBER_OID
+#undef SURNAME_OID
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $AVAArray = $Array<::sun::security::x509::AVA>;
@@ -269,7 +269,7 @@ void X500Name::init$($String* dname, $String* format) {
 	}
 	if ($nc(format)->equalsIgnoreCase("RFC2253"_s)) {
 		parseRFC2253DN(dname);
-	} else if ($nc(format)->equalsIgnoreCase("DEFAULT"_s)) {
+	} else if (format->equalsIgnoreCase("DEFAULT"_s)) {
 		parseDN(dname, $($Collections::emptyMap()));
 	} else {
 		$throwNew($IOException, $$str({"Unsupported format "_s, format}));
@@ -719,12 +719,12 @@ bool X500Name::escaped(int32_t rdnEnd, int32_t searchOffset, $String* dnString) 
 	if (rdnEnd == 1 && $nc(dnString)->charAt(rdnEnd - 1) == u'\\') {
 		return true;
 	} else {
-		bool var$3 = rdnEnd > 1 && dnString->charAt(rdnEnd - 1) == u'\\';
-		if (var$3 && dnString->charAt(rdnEnd - 2) != u'\\') {
+		bool var$1 = rdnEnd > 1 && dnString->charAt(rdnEnd - 1) == u'\\';
+		if (var$1 && dnString->charAt(rdnEnd - 2) != u'\\') {
 			return true;
 		} else {
-			bool var$5 = rdnEnd > 1 && dnString->charAt(rdnEnd - 1) == u'\\';
-			if (var$5 && dnString->charAt(rdnEnd - 2) == u'\\') {
+			bool var$3 = rdnEnd > 1 && dnString->charAt(rdnEnd - 1) == u'\\';
+			if (var$3 && dnString->charAt(rdnEnd - 2) == u'\\') {
 				int32_t count = 0;
 				--rdnEnd;
 				while (rdnEnd >= searchOffset) {
@@ -775,17 +775,17 @@ int32_t X500Name::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_DIRECTORY) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_DIRECTORY) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$var(X500Name, inputX500, $cast(X500Name, inputName));
 		if (inputX500->equals(this)) {
 			constraintType = $GeneralNameInterface::NAME_MATCH;
-		} else if ($nc($nc(inputX500)->names)->length == 0) {
+		} else if ($nc(inputX500->names)->length == 0) {
 			constraintType = $GeneralNameInterface::NAME_WIDENS;
 		} else if ($nc(this->names)->length == 0) {
 			constraintType = $GeneralNameInterface::NAME_NARROWS;
-		} else if ($nc(inputX500)->isWithinSubtree(this)) {
+		} else if (inputX500->isWithinSubtree(this)) {
 			constraintType = $GeneralNameInterface::NAME_NARROWS;
 		} else if (isWithinSubtree(inputX500)) {
 			constraintType = $GeneralNameInterface::NAME_WIDENS;

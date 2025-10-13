@@ -6,36 +6,36 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("FLOAT")
-#undef FLOAT
-#pragma push_macro("NAMEANDTYPE")
-#undef NAMEANDTYPE
 #pragma push_macro("CLASS")
 #undef CLASS
-#pragma push_macro("METHODHANDLE")
-#undef METHODHANDLE
+#pragma push_macro("DOUBLE")
+#undef DOUBLE
+#pragma push_macro("FIELDREF")
+#undef FIELDREF
+#pragma push_macro("FLOAT")
+#undef FLOAT
+#pragma push_macro("INTEGER")
+#undef INTEGER
+#pragma push_macro("INTERFACEMETHODREF")
+#undef INTERFACEMETHODREF
 #pragma push_macro("INVALID")
 #undef INVALID
 #pragma push_macro("INVOKEDYNAMIC")
 #undef INVOKEDYNAMIC
-#pragma push_macro("UTF8")
-#undef UTF8
-#pragma push_macro("STRING")
-#undef STRING
-#pragma push_macro("METHODREF")
-#undef METHODREF
-#pragma push_macro("INTERFACEMETHODREF")
-#undef INTERFACEMETHODREF
-#pragma push_macro("DOUBLE")
-#undef DOUBLE
-#pragma push_macro("METHODTYPE")
-#undef METHODTYPE
-#pragma push_macro("INTEGER")
-#undef INTEGER
 #pragma push_macro("LONG")
 #undef LONG
-#pragma push_macro("FIELDREF")
-#undef FIELDREF
+#pragma push_macro("METHODHANDLE")
+#undef METHODHANDLE
+#pragma push_macro("METHODREF")
+#undef METHODREF
+#pragma push_macro("METHODTYPE")
+#undef METHODTYPE
+#pragma push_macro("NAMEANDTYPE")
+#undef NAMEANDTYPE
+#pragma push_macro("STRING")
+#undef STRING
+#pragma push_macro("UTF8")
+#undef UTF8
 
 namespace jdk {
 	namespace internal {
@@ -73,20 +73,20 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("FLOAT")
-#pragma pop_macro("NAMEANDTYPE")
 #pragma pop_macro("CLASS")
-#pragma pop_macro("METHODHANDLE")
+#pragma pop_macro("DOUBLE")
+#pragma pop_macro("FIELDREF")
+#pragma pop_macro("FLOAT")
+#pragma pop_macro("INTEGER")
+#pragma pop_macro("INTERFACEMETHODREF")
 #pragma pop_macro("INVALID")
 #pragma pop_macro("INVOKEDYNAMIC")
-#pragma pop_macro("UTF8")
-#pragma pop_macro("STRING")
-#pragma pop_macro("METHODREF")
-#pragma pop_macro("INTERFACEMETHODREF")
-#pragma pop_macro("DOUBLE")
-#pragma pop_macro("METHODTYPE")
-#pragma pop_macro("INTEGER")
 #pragma pop_macro("LONG")
-#pragma pop_macro("FIELDREF")
+#pragma pop_macro("METHODHANDLE")
+#pragma pop_macro("METHODREF")
+#pragma pop_macro("METHODTYPE")
+#pragma pop_macro("NAMEANDTYPE")
+#pragma pop_macro("STRING")
+#pragma pop_macro("UTF8")
 
 #endif // _jdk_internal_reflect_ConstantPool$Tag_h_

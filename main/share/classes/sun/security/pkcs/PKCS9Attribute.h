@@ -6,44 +6,44 @@
 #include <java/lang/Array.h>
 #include <sun/security/util/DerEncoder.h>
 
-#pragma push_macro("EMAIL_ADDRESS_OID")
-#undef EMAIL_ADDRESS_OID
-#pragma push_macro("UNSTRUCTURED_ADDRESS_OID")
-#undef UNSTRUCTURED_ADDRESS_OID
+#pragma push_macro("BYTE_ARRAY_CLASS")
+#undef BYTE_ARRAY_CLASS
+#pragma push_macro("CHALLENGE_PASSWORD_OID")
+#undef CHALLENGE_PASSWORD_OID
 #pragma push_macro("CMS_ALGORITHM_PROTECTION_OID")
 #undef CMS_ALGORITHM_PROTECTION_OID
 #pragma push_macro("CONTENT_TYPE_OID")
 #undef CONTENT_TYPE_OID
-#pragma push_macro("UNSTRUCTURED_NAME_OID")
-#undef UNSTRUCTURED_NAME_OID
-#pragma push_macro("BYTE_ARRAY_CLASS")
-#undef BYTE_ARRAY_CLASS
+#pragma push_macro("COUNTERSIGNATURE_OID")
+#undef COUNTERSIGNATURE_OID
+#pragma push_macro("EMAIL_ADDRESS_OID")
+#undef EMAIL_ADDRESS_OID
+#pragma push_macro("EXTENDED_CERTIFICATE_ATTRIBUTES_OID")
+#undef EXTENDED_CERTIFICATE_ATTRIBUTES_OID
 #pragma push_macro("EXTENSION_REQUEST_OID")
 #undef EXTENSION_REQUEST_OID
-#pragma push_macro("PKCS9_OIDS")
-#undef PKCS9_OIDS
-#pragma push_macro("VALUE_CLASSES")
-#undef VALUE_CLASSES
-#pragma push_macro("SINGLE_VALUED")
-#undef SINGLE_VALUED
-#pragma push_macro("MESSAGE_DIGEST_OID")
-#undef MESSAGE_DIGEST_OID
-#pragma push_macro("SIGNATURE_TIMESTAMP_TOKEN_OID")
-#undef SIGNATURE_TIMESTAMP_TOKEN_OID
-#pragma push_macro("CHALLENGE_PASSWORD_OID")
-#undef CHALLENGE_PASSWORD_OID
 #pragma push_macro("ISSUER_SERIALNUMBER_OID")
 #undef ISSUER_SERIALNUMBER_OID
+#pragma push_macro("MESSAGE_DIGEST_OID")
+#undef MESSAGE_DIGEST_OID
+#pragma push_macro("PKCS9_OIDS")
+#undef PKCS9_OIDS
+#pragma push_macro("PKCS9_VALUE_TAGS")
+#undef PKCS9_VALUE_TAGS
+#pragma push_macro("SIGNATURE_TIMESTAMP_TOKEN_OID")
+#undef SIGNATURE_TIMESTAMP_TOKEN_OID
 #pragma push_macro("SIGNING_CERTIFICATE_OID")
 #undef SIGNING_CERTIFICATE_OID
 #pragma push_macro("SIGNING_TIME_OID")
 #undef SIGNING_TIME_OID
-#pragma push_macro("EXTENDED_CERTIFICATE_ATTRIBUTES_OID")
-#undef EXTENDED_CERTIFICATE_ATTRIBUTES_OID
-#pragma push_macro("COUNTERSIGNATURE_OID")
-#undef COUNTERSIGNATURE_OID
-#pragma push_macro("PKCS9_VALUE_TAGS")
-#undef PKCS9_VALUE_TAGS
+#pragma push_macro("SINGLE_VALUED")
+#undef SINGLE_VALUED
+#pragma push_macro("UNSTRUCTURED_ADDRESS_OID")
+#undef UNSTRUCTURED_ADDRESS_OID
+#pragma push_macro("UNSTRUCTURED_NAME_OID")
+#undef UNSTRUCTURED_NAME_OID
+#pragma push_macro("VALUE_CLASSES")
+#undef VALUE_CLASSES
 
 namespace java {
 	namespace io {
@@ -117,24 +117,24 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("EMAIL_ADDRESS_OID")
-#pragma pop_macro("UNSTRUCTURED_ADDRESS_OID")
+#pragma pop_macro("BYTE_ARRAY_CLASS")
+#pragma pop_macro("CHALLENGE_PASSWORD_OID")
 #pragma pop_macro("CMS_ALGORITHM_PROTECTION_OID")
 #pragma pop_macro("CONTENT_TYPE_OID")
-#pragma pop_macro("UNSTRUCTURED_NAME_OID")
-#pragma pop_macro("BYTE_ARRAY_CLASS")
+#pragma pop_macro("COUNTERSIGNATURE_OID")
+#pragma pop_macro("EMAIL_ADDRESS_OID")
+#pragma pop_macro("EXTENDED_CERTIFICATE_ATTRIBUTES_OID")
 #pragma pop_macro("EXTENSION_REQUEST_OID")
-#pragma pop_macro("PKCS9_OIDS")
-#pragma pop_macro("VALUE_CLASSES")
-#pragma pop_macro("SINGLE_VALUED")
-#pragma pop_macro("MESSAGE_DIGEST_OID")
-#pragma pop_macro("SIGNATURE_TIMESTAMP_TOKEN_OID")
-#pragma pop_macro("CHALLENGE_PASSWORD_OID")
 #pragma pop_macro("ISSUER_SERIALNUMBER_OID")
+#pragma pop_macro("MESSAGE_DIGEST_OID")
+#pragma pop_macro("PKCS9_OIDS")
+#pragma pop_macro("PKCS9_VALUE_TAGS")
+#pragma pop_macro("SIGNATURE_TIMESTAMP_TOKEN_OID")
 #pragma pop_macro("SIGNING_CERTIFICATE_OID")
 #pragma pop_macro("SIGNING_TIME_OID")
-#pragma pop_macro("EXTENDED_CERTIFICATE_ATTRIBUTES_OID")
-#pragma pop_macro("COUNTERSIGNATURE_OID")
-#pragma pop_macro("PKCS9_VALUE_TAGS")
+#pragma pop_macro("SINGLE_VALUED")
+#pragma pop_macro("UNSTRUCTURED_ADDRESS_OID")
+#pragma pop_macro("UNSTRUCTURED_NAME_OID")
+#pragma pop_macro("VALUE_CLASSES")
 
 #endif // _sun_security_pkcs_PKCS9Attribute_h_

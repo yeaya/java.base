@@ -29,8 +29,8 @@
 #include <jcpp.h>
 
 #undef BIGGER_TIMEOUT
-#undef SLEEP_MILLIS
 #undef BIG_TIMEOUT
+#undef SLEEP_MILLIS
 
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;

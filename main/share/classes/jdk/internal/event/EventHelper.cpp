@@ -41,12 +41,12 @@
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jcpp.h>
 
+#undef DEBUG
 #undef JUJA
-#undef SECURITY_LOGGER_NAME
-#undef MIN
 #undef LOGGER_HANDLE
 #undef LOG_LEVEL
-#undef DEBUG
+#undef MIN
+#undef SECURITY_LOGGER_NAME
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;

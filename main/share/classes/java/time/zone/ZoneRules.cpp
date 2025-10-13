@@ -37,14 +37,14 @@
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <jcpp.h>
 
-#undef LAST_CACHED_YEAR
-#undef ZERO
-#undef EMPTY_LASTRULES
-#undef ZRULES
-#undef MAX_VALUE
 #undef DAYS_PER_CYCLE
-#undef EMPTY_LONG_ARRAY
+#undef EMPTY_LASTRULES
 #undef EMPTY_LDT_ARRAY
+#undef EMPTY_LONG_ARRAY
+#undef LAST_CACHED_YEAR
+#undef MAX_VALUE
+#undef ZERO
+#undef ZRULES
 
 using $LocalDateTimeArray = $Array<::java::time::LocalDateTime>;
 using $ZoneOffsetArray = $Array<::java::time::ZoneOffset>;

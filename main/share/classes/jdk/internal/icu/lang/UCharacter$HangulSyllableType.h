@@ -5,18 +5,18 @@
 
 #include <java/lang/Object.h>
 
+#pragma push_macro("COUNT")
+#undef COUNT
+#pragma push_macro("LEADING_JAMO")
+#undef LEADING_JAMO
+#pragma push_macro("LVT_SYLLABLE")
+#undef LVT_SYLLABLE
+#pragma push_macro("LV_SYLLABLE")
+#undef LV_SYLLABLE
 #pragma push_macro("NOT_APPLICABLE")
 #undef NOT_APPLICABLE
 #pragma push_macro("TRAILING_JAMO")
 #undef TRAILING_JAMO
-#pragma push_macro("LV_SYLLABLE")
-#undef LV_SYLLABLE
-#pragma push_macro("LEADING_JAMO")
-#undef LEADING_JAMO
-#pragma push_macro("COUNT")
-#undef COUNT
-#pragma push_macro("LVT_SYLLABLE")
-#undef LVT_SYLLABLE
 #pragma push_macro("VOWEL_JAMO")
 #undef VOWEL_JAMO
 
@@ -42,12 +42,12 @@ public:
 	} // internal
 } // jdk
 
+#pragma pop_macro("COUNT")
+#pragma pop_macro("LEADING_JAMO")
+#pragma pop_macro("LVT_SYLLABLE")
+#pragma pop_macro("LV_SYLLABLE")
 #pragma pop_macro("NOT_APPLICABLE")
 #pragma pop_macro("TRAILING_JAMO")
-#pragma pop_macro("LV_SYLLABLE")
-#pragma pop_macro("LEADING_JAMO")
-#pragma pop_macro("COUNT")
-#pragma pop_macro("LVT_SYLLABLE")
 #pragma pop_macro("VOWEL_JAMO")
 
 #endif // _jdk_internal_icu_lang_UCharacter$HangulSyllableType_h_

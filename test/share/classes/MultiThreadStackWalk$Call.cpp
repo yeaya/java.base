@@ -30,8 +30,8 @@
 #include <java/util/function/Consumer.h>
 #include <jcpp.h>
 
-#undef WALKSTACK
 #undef RETAIN_CLASS_REFERENCE
+#undef WALKSTACK
 
 using $MultiThreadStackWalk = ::MultiThreadStackWalk;
 using $MultiThreadStackWalk$1 = ::MultiThreadStackWalk$1;

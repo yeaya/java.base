@@ -34,11 +34,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef UNWRITEABLE_DIR
 #undef INVALID_PATH
 #undef READABLE_FILE
-#undef WRITEABLE_FILE
 #undef UNREADABLE_FILE
+#undef UNWRITEABLE_DIR
+#undef WRITEABLE_FILE
 
 using $LastErrorString$1 = ::LastErrorString$1;
 using $LastErrorString$10 = ::LastErrorString$10;

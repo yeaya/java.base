@@ -43,16 +43,16 @@
 #include <javax/security/auth/DestroyFailedException.h>
 #include <jcpp.h>
 
+#undef B
 #undef CIPHER_IV
 #undef CIPHER_KEY
-#undef B
 #undef D
-#undef UNWRAP_MODE
-#undef MAC_KEY
-#undef I
-#undef DEFAULT_SALT_LENGTH
-#undef DEFAULT_COUNT
 #undef DECRYPT_MODE
+#undef DEFAULT_COUNT
+#undef DEFAULT_SALT_LENGTH
+#undef I
+#undef MAC_KEY
+#undef UNWRAP_MODE
 
 using $ARCFOURCipher = ::com::sun::crypto::provider::ARCFOURCipher;
 using $CipherCore = ::com::sun::crypto::provider::CipherCore;

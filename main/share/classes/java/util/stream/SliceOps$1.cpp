@@ -30,8 +30,8 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfRef.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

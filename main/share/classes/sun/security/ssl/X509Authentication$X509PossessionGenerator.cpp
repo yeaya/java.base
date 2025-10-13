@@ -165,7 +165,7 @@ $SSLPossession* X509Authentication$X509PossessionGenerator::createClientPossessi
 	$var($String, clientAlias, nullptr);
 	if ($instanceOf($SSLSocketImpl, $nc(chc->conContext)->transport)) {
 		$assign(clientAlias, $nc(km)->chooseClientAlias($$new($StringArray, {keyType}), chc->peerSupportedAuthorities == nullptr ? ($PrincipalArray*)nullptr : $cast($PrincipalArray, $($nc(chc->peerSupportedAuthorities)->clone())), $cast($SSLSocket, $nc(chc->conContext)->transport)));
-	} else if ($instanceOf($SSLEngineImpl, $nc($nc(chc)->conContext)->transport)) {
+	} else if ($instanceOf($SSLEngineImpl, $nc(chc->conContext)->transport)) {
 		$assign(clientAlias, $nc(km)->chooseEngineClientAlias($$new($StringArray, {keyType}), chc->peerSupportedAuthorities == nullptr ? ($PrincipalArray*)nullptr : $cast($PrincipalArray, $($nc(chc->peerSupportedAuthorities)->clone())), $cast($SSLEngine, $nc(chc->conContext)->transport)));
 	}
 	if (clientAlias == nullptr) {
@@ -208,7 +208,7 @@ $SSLPossession* X509Authentication$X509PossessionGenerator::createServerPossessi
 	$var($String, serverAlias, nullptr);
 	if ($instanceOf($SSLSocketImpl, $nc(shc->conContext)->transport)) {
 		$assign(serverAlias, $nc(km)->chooseServerAlias(keyType, shc->peerSupportedAuthorities == nullptr ? ($PrincipalArray*)nullptr : $cast($PrincipalArray, $($nc(shc->peerSupportedAuthorities)->clone())), $cast($SSLSocket, $nc(shc->conContext)->transport)));
-	} else if ($instanceOf($SSLEngineImpl, $nc($nc(shc)->conContext)->transport)) {
+	} else if ($instanceOf($SSLEngineImpl, $nc(shc->conContext)->transport)) {
 		$assign(serverAlias, $nc(km)->chooseEngineServerAlias(keyType, shc->peerSupportedAuthorities == nullptr ? ($PrincipalArray*)nullptr : $cast($PrincipalArray, $($nc(shc->peerSupportedAuthorities)->clone())), $cast($SSLEngine, $nc(shc->conContext)->transport)));
 	}
 	if (serverAlias == nullptr) {

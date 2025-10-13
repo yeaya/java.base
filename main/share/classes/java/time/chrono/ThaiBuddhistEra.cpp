@@ -27,9 +27,9 @@
 #include <jcpp.h>
 
 #undef BE
+#undef BEFORE_BE
 #undef ERA
 #undef INSTANCE
-#undef BEFORE_BE
 
 using $ThaiBuddhistEraArray = $Array<::java::time::chrono::ThaiBuddhistEra>;
 using $ClassInfo = ::java::lang::ClassInfo;

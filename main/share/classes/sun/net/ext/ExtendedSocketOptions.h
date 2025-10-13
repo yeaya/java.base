@@ -5,10 +5,10 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("SOCK_STREAM")
-#undef SOCK_STREAM
 #pragma push_macro("SOCK_DGRAM")
 #undef SOCK_DGRAM
+#pragma push_macro("SOCK_STREAM")
+#undef SOCK_STREAM
 
 namespace java {
 	namespace io {
@@ -64,7 +64,7 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("SOCK_STREAM")
 #pragma pop_macro("SOCK_DGRAM")
+#pragma pop_macro("SOCK_STREAM")
 
 #endif // _sun_net_ext_ExtendedSocketOptions_h_

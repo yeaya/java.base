@@ -7,12 +7,12 @@
 
 #pragma push_macro("INITIAL_CACHE_SIZE")
 #undef INITIAL_CACHE_SIZE
+#pragma push_macro("NONEXISTENT_BUNDLE")
+#undef NONEXISTENT_BUNDLE
 #pragma push_macro("TRACE_ON")
 #undef TRACE_ON
 #pragma push_macro("UNKNOWN_FORMAT")
 #undef UNKNOWN_FORMAT
-#pragma push_macro("NONEXISTENT_BUNDLE")
-#undef NONEXISTENT_BUNDLE
 
 namespace java {
 	namespace lang {
@@ -121,8 +121,8 @@ public:
 } // java
 
 #pragma pop_macro("INITIAL_CACHE_SIZE")
+#pragma pop_macro("NONEXISTENT_BUNDLE")
 #pragma pop_macro("TRACE_ON")
 #pragma pop_macro("UNKNOWN_FORMAT")
-#pragma pop_macro("NONEXISTENT_BUNDLE")
 
 #endif // _java_util_ResourceBundle_h_

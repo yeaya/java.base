@@ -86,18 +86,18 @@
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
 #include <jcpp.h>
 
-#undef FIND_ANY_PATTERN
-#undef SIMPLE_GROUP_INDEX
-#undef FORMAT
-#undef LINE_SEPARATOR_PATTERN
-#undef CASE_INSENSITIVE
-#undef MIN_RADIX
-#undef WHITESPACE_PATTERN
-#undef NON_ASCII_DIGIT
-#undef MAX_RADIX
-#undef BUFFER_SIZE
 #undef BOOLEAN_PATTERN
+#undef BUFFER_SIZE
+#undef CASE_INSENSITIVE
+#undef FIND_ANY_PATTERN
+#undef FORMAT
 #undef LINE_PATTERN
+#undef LINE_SEPARATOR_PATTERN
+#undef MAX_RADIX
+#undef MIN_RADIX
+#undef NON_ASCII_DIGIT
+#undef SIMPLE_GROUP_INDEX
+#undef WHITESPACE_PATTERN
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $Closeable = ::java::io::Closeable;

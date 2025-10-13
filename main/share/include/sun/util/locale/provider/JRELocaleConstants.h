@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("TH_TH_TH")
-#undef TH_TH_TH
 #pragma push_macro("JA_JP_JP")
 #undef JA_JP_JP
-#pragma push_macro("TH_TH")
-#undef TH_TH
 #pragma push_macro("NO_NO_NY")
 #undef NO_NO_NY
+#pragma push_macro("TH_TH")
+#undef TH_TH
+#pragma push_macro("TH_TH_TH")
+#undef TH_TH_TH
 
 namespace java {
 	namespace util {
@@ -41,9 +41,9 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("TH_TH_TH")
 #pragma pop_macro("JA_JP_JP")
-#pragma pop_macro("TH_TH")
 #pragma pop_macro("NO_NO_NY")
+#pragma pop_macro("TH_TH")
+#pragma pop_macro("TH_TH_TH")
 
 #endif // _sun_util_locale_provider_JRELocaleConstants_h_

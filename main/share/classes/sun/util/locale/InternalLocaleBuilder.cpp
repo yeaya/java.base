@@ -33,11 +33,11 @@
 #include <sun/util/locale/UnicodeLocaleExtension.h>
 #include <jcpp.h>
 
-#undef UNDETERMINED
 #undef PRIVATEUSE
-#undef PRIVUSE_VARIANT_PREFIX
 #undef PRIVATEUSE_KEY
+#undef PRIVUSE_VARIANT_PREFIX
 #undef SEP
+#undef UNDETERMINED
 
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
@@ -440,35 +440,35 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 		}
 		$assign(variant, ""_s);
 	} else {
-		bool var$9 = language->equals("th"_s);
-		bool var$8 = var$9 && region->equals("TH"_s);
-		if (var$8 && variant->equals("TH"_s)) {
+		bool var$5 = language->equals("th"_s);
+		bool var$4 = var$5 && region->equals("TH"_s);
+		if (var$4 && variant->equals("TH"_s)) {
 			if (!InternalLocaleBuilder::$assertionsDisabled && !("thai"_s->equals($($nc(localeExtensions)->getUnicodeLocaleType("nu"_s))))) {
 				$throwNew($AssertionError);
 			}
 			$assign(variant, ""_s);
 		} else {
-			bool var$13 = language->equals("no"_s);
-			bool var$12 = var$13 && region->equals("NO"_s);
-			if (var$12 && variant->equals("NY"_s)) {
+			bool var$9 = language->equals("no"_s);
+			bool var$8 = var$9 && region->equals("NO"_s);
+			if (var$8 && variant->equals("NY"_s)) {
 				$assign(language, "nn"_s);
 				$assign(variant, ""_s);
 			}
 		}
 	}
-	bool var$14 = !$nc(language)->isEmpty();
-	if (var$14 && !$LanguageTag::isLanguage(language)) {
+	bool var$10 = !language->isEmpty();
+	if (var$10 && !$LanguageTag::isLanguage(language)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed language: "_s, language}));
 	}
-	bool var$15 = !$nc(script)->isEmpty();
-	if (var$15 && !$LanguageTag::isScript(script)) {
+	bool var$11 = !$nc(script)->isEmpty();
+	if (var$11 && !$LanguageTag::isScript(script)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed script: "_s, script}));
 	}
-	bool var$16 = !$nc(region)->isEmpty();
-	if (var$16 && !$LanguageTag::isRegion(region)) {
+	bool var$12 = !region->isEmpty();
+	if (var$12 && !$LanguageTag::isRegion(region)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed region: "_s, region}));
 	}
-	if (!$nc(variant)->isEmpty()) {
+	if (!variant->isEmpty()) {
 		int32_t errIdx = checkVariants(variant, $BaseLocale::SEP);
 		if (errIdx != -1) {
 			$throwNew($LocaleSyntaxException, $$str({"Ill-formed variant: "_s, variant}), errIdx);
@@ -509,8 +509,8 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 									if (this->ukeywords == nullptr) {
 										$set(this, ukeywords, $new($HashMap, 4));
 									}
-									$var($Object, var$17, $of($new($InternalLocaleBuilder$CaseInsensitiveString, ukey)));
-									$nc(this->ukeywords)->put(var$17, $(ue->getUnicodeLocaleType(ukey)));
+									$var($Object, var$13, $of($new($InternalLocaleBuilder$CaseInsensitiveString, ukey)));
+									$nc(this->ukeywords)->put(var$13, $(ue->getUnicodeLocaleType(ukey)));
 								}
 							}
 						}
@@ -518,8 +518,8 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 						if (this->extensions == nullptr) {
 							$set(this, extensions, $new($HashMap, 4));
 						}
-						$var($Object, var$18, $of($new($InternalLocaleBuilder$CaseInsensitiveChar, $nc(key)->charValue())));
-						$nc(this->extensions)->put(var$18, $($nc(e)->getValue()));
+						$var($Object, var$14, $of($new($InternalLocaleBuilder$CaseInsensitiveChar, $nc(key)->charValue())));
+						$nc(this->extensions)->put(var$14, $($nc(e)->getValue()));
 					}
 				}
 			}
@@ -677,8 +677,8 @@ void InternalLocaleBuilder::setUnicodeLocaleExtension($String* subtags) {
 				}
 				typeEnd = itr->currentEnd();
 			}
-		} else if ($UnicodeLocaleExtension::isKey($($nc(itr)->current()))) {
-			$assign(key, $new($InternalLocaleBuilder$CaseInsensitiveString, $($nc(itr)->current())));
+		} else if ($UnicodeLocaleExtension::isKey($(itr->current()))) {
+			$assign(key, $new($InternalLocaleBuilder$CaseInsensitiveString, $(itr->current())));
 			if (this->ukeywords != nullptr && $nc(this->ukeywords)->containsKey(key)) {
 				$assign(key, nullptr);
 			}

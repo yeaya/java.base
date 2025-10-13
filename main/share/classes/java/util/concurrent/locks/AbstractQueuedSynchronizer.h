@@ -7,18 +7,18 @@
 
 #pragma push_macro("CANCELLED")
 #undef CANCELLED
-#pragma push_macro("HEAD")
-#undef HEAD
-#pragma push_macro("U")
-#undef U
-#pragma push_macro("TAIL")
-#undef TAIL
-#pragma push_macro("WAITING")
-#undef WAITING
-#pragma push_macro("STATE")
-#undef STATE
 #pragma push_macro("COND")
 #undef COND
+#pragma push_macro("HEAD")
+#undef HEAD
+#pragma push_macro("STATE")
+#undef STATE
+#pragma push_macro("TAIL")
+#undef TAIL
+#pragma push_macro("U")
+#undef U
+#pragma push_macro("WAITING")
+#undef WAITING
 
 namespace java {
 	namespace lang {
@@ -117,11 +117,11 @@ public:
 } // java
 
 #pragma pop_macro("CANCELLED")
-#pragma pop_macro("HEAD")
-#pragma pop_macro("U")
-#pragma pop_macro("TAIL")
-#pragma pop_macro("WAITING")
-#pragma pop_macro("STATE")
 #pragma pop_macro("COND")
+#pragma pop_macro("HEAD")
+#pragma pop_macro("STATE")
+#pragma pop_macro("TAIL")
+#pragma pop_macro("U")
+#pragma pop_macro("WAITING")
 
 #endif // _java_util_concurrent_locks_AbstractQueuedSynchronizer_h_

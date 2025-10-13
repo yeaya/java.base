@@ -14,8 +14,8 @@
 #include <jcpp.h>
 
 #undef ALLOWED
-#undef UNDECIDED
 #undef REJECTED
+#undef UNDECIDED
 
 using $ObjectInputFilter$StatusArray = $Array<::java::io::ObjectInputFilter$Status>;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;

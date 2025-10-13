@@ -27,31 +27,31 @@
 #include <sun/security/util/KnownOIDs$9.h>
 #include <jcpp.h>
 
-#undef ECDH
-#undef SHAKE256
-#undef ITUX509_RSA
-#undef OIW_DSA
-#undef OIW_DES_CBC
-#undef SHA_1
-#undef DSA
-#undef PBES2
-#undef OCSP
-#undef RSASSA_PSS
-#undef OAEP
-#undef EC
-#undef RSA
-#undef MGF1
-#undef ENGLISH
-#undef PKCS7
+#undef AES
 #undef ARCFOUR
 #undef CE_CERT_POLICIES_ANY
-#undef PKCS1
-#undef AES
-#undef SHAKE128_LEN
-#undef SHAKE256_LEN
+#undef DSA
+#undef EC
+#undef ECDH
+#undef ENGLISH
+#undef ITUX509_RSA
 #undef MD2
-#undef SHAKE128
 #undef MD5
+#undef MGF1
+#undef OAEP
+#undef OCSP
+#undef OIW_DES_CBC
+#undef OIW_DSA
+#undef PBES2
+#undef PKCS1
+#undef PKCS7
+#undef RSA
+#undef RSASSA_PSS
+#undef SHAKE128
+#undef SHAKE128_LEN
+#undef SHAKE256
+#undef SHAKE256_LEN
+#undef SHA_1
 
 using $KnownOIDsArray = $Array<::sun::security::util::KnownOIDs>;
 using $ClassInfo = ::java::lang::ClassInfo;

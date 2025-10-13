@@ -18,12 +18,12 @@
 #include <sun/util/calendar/ZoneInfo.h>
 #include <jcpp.h>
 
-#undef TIME_UNDEFINED
-#undef SECOND_IN_MILLIS
-#undef EPOCH_OFFSET
-#undef MINUTE_IN_MILLIS
 #undef DAY_IN_MILLIS
+#undef EPOCH_OFFSET
 #undef HOUR_IN_MILLIS
+#undef MINUTE_IN_MILLIS
+#undef SECOND_IN_MILLIS
+#undef TIME_UNDEFINED
 
 using $EraArray = $Array<::sun::util::calendar::Era>;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -215,7 +215,7 @@ int64_t AbstractCalendar::getTime($CalendarDate* date) {
 		} else if ($instanceOf($ZoneInfo, zi)) {
 			zoneOffset = $nc(($cast($ZoneInfo, zi)))->getOffsetsByWall(ms, offsets);
 		} else {
-			zoneOffset = $nc(zi)->getOffset(ms - zi->getRawOffset());
+			zoneOffset = zi->getOffset(ms - zi->getRawOffset());
 		}
 	}
 	ms -= zoneOffset;

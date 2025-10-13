@@ -5,12 +5,12 @@
 
 #include <java/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser.h>
 
-#pragma push_macro("STD")
-#undef STD
-#pragma push_macro("GENERIC")
-#undef GENERIC
 #pragma push_macro("DST")
 #undef DST
+#pragma push_macro("GENERIC")
+#undef GENERIC
+#pragma push_macro("STD")
+#undef STD
 
 namespace java {
 	namespace lang {
@@ -64,8 +64,8 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("STD")
-#pragma pop_macro("GENERIC")
 #pragma pop_macro("DST")
+#pragma pop_macro("GENERIC")
+#pragma pop_macro("STD")
 
 #endif // _java_time_format_DateTimeFormatterBuilder$ZoneTextPrinterParser_h_

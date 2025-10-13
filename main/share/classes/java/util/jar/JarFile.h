@@ -7,40 +7,40 @@
 #include <java/lang/Integer.h>
 #include <java/util/zip/ZipFile.h>
 
+#pragma push_macro("BASE_VERSION")
+#undef BASE_VERSION
+#pragma push_macro("BASE_VERSION_FEATURE")
+#undef BASE_VERSION_FEATURE
+#pragma push_macro("CLASSPATH_CHARS")
+#undef CLASSPATH_CHARS
 #pragma push_macro("CLASSPATH_LASTOCC")
 #undef CLASSPATH_LASTOCC
+#pragma push_macro("CLASSPATH_OPTOSFT")
+#undef CLASSPATH_OPTOSFT
+#pragma push_macro("JUZFA")
+#undef JUZFA
+#pragma push_macro("MANIFEST_NAME")
+#undef MANIFEST_NAME
+#pragma push_macro("MAX_ARRAY_SIZE")
+#undef MAX_ARRAY_SIZE
+#pragma push_macro("MAX_VALUE")
+#undef MAX_VALUE
+#pragma push_macro("META_INF")
+#undef META_INF
+#pragma push_macro("META_INF_VERSIONS")
+#undef META_INF_VERSIONS
+#pragma push_macro("MULTIRELEASE_CHARS")
+#undef MULTIRELEASE_CHARS
+#pragma push_macro("MULTIRELEASE_LASTOCC")
+#undef MULTIRELEASE_LASTOCC
+#pragma push_macro("MULTIRELEASE_OPTOSFT")
+#undef MULTIRELEASE_OPTOSFT
+#pragma push_macro("MULTI_RELEASE_ENABLED")
+#undef MULTI_RELEASE_ENABLED
 #pragma push_macro("MULTI_RELEASE_FORCED")
 #undef MULTI_RELEASE_FORCED
 #pragma push_macro("RUNTIME_VERSION")
 #undef RUNTIME_VERSION
-#pragma push_macro("BASE_VERSION")
-#undef BASE_VERSION
-#pragma push_macro("MULTIRELEASE_OPTOSFT")
-#undef MULTIRELEASE_OPTOSFT
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
-#pragma push_macro("CLASSPATH_OPTOSFT")
-#undef CLASSPATH_OPTOSFT
-#pragma push_macro("META_INF_VERSIONS")
-#undef META_INF_VERSIONS
-#pragma push_macro("JUZFA")
-#undef JUZFA
-#pragma push_macro("MAX_ARRAY_SIZE")
-#undef MAX_ARRAY_SIZE
-#pragma push_macro("MULTIRELEASE_LASTOCC")
-#undef MULTIRELEASE_LASTOCC
-#pragma push_macro("MULTI_RELEASE_ENABLED")
-#undef MULTI_RELEASE_ENABLED
-#pragma push_macro("CLASSPATH_CHARS")
-#undef CLASSPATH_CHARS
-#pragma push_macro("MULTIRELEASE_CHARS")
-#undef MULTIRELEASE_CHARS
-#pragma push_macro("META_INF")
-#undef META_INF
-#pragma push_macro("BASE_VERSION_FEATURE")
-#undef BASE_VERSION_FEATURE
-#pragma push_macro("MANIFEST_NAME")
-#undef MANIFEST_NAME
 
 namespace java {
 	namespace io {
@@ -190,22 +190,22 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("BASE_VERSION")
+#pragma pop_macro("BASE_VERSION_FEATURE")
+#pragma pop_macro("CLASSPATH_CHARS")
 #pragma pop_macro("CLASSPATH_LASTOCC")
+#pragma pop_macro("CLASSPATH_OPTOSFT")
+#pragma pop_macro("JUZFA")
+#pragma pop_macro("MANIFEST_NAME")
+#pragma pop_macro("MAX_ARRAY_SIZE")
+#pragma pop_macro("MAX_VALUE")
+#pragma pop_macro("META_INF")
+#pragma pop_macro("META_INF_VERSIONS")
+#pragma pop_macro("MULTIRELEASE_CHARS")
+#pragma pop_macro("MULTIRELEASE_LASTOCC")
+#pragma pop_macro("MULTIRELEASE_OPTOSFT")
+#pragma pop_macro("MULTI_RELEASE_ENABLED")
 #pragma pop_macro("MULTI_RELEASE_FORCED")
 #pragma pop_macro("RUNTIME_VERSION")
-#pragma pop_macro("BASE_VERSION")
-#pragma pop_macro("MULTIRELEASE_OPTOSFT")
-#pragma pop_macro("MAX_VALUE")
-#pragma pop_macro("CLASSPATH_OPTOSFT")
-#pragma pop_macro("META_INF_VERSIONS")
-#pragma pop_macro("JUZFA")
-#pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MULTIRELEASE_LASTOCC")
-#pragma pop_macro("MULTI_RELEASE_ENABLED")
-#pragma pop_macro("CLASSPATH_CHARS")
-#pragma pop_macro("MULTIRELEASE_CHARS")
-#pragma pop_macro("META_INF")
-#pragma pop_macro("BASE_VERSION_FEATURE")
-#pragma pop_macro("MANIFEST_NAME")
 
 #endif // _java_util_jar_JarFile_h_

@@ -36,9 +36,9 @@
 #include <sun/security/x509/X509Key.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef ONE
 #undef TWO
+#undef ZERO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

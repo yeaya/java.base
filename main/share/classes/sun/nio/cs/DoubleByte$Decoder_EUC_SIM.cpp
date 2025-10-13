@@ -16,8 +16,8 @@
 #include <sun/nio/cs/DoubleByte.h>
 #include <jcpp.h>
 
-#undef SS3
 #undef SS2
+#undef SS3
 #undef UNDERFLOW
 
 using $charArray2 = $Array<char16_t, 2>;

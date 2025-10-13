@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("E_THROWABLE")
-#undef E_THROWABLE
 #pragma push_macro("CREATE_RESERVATION")
 #undef CREATE_RESERVATION
-#pragma push_macro("MH_SIG")
-#undef MH_SIG
-#pragma push_macro("STABLE_SIG")
-#undef STABLE_SIG
+#pragma push_macro("E_THROWABLE")
+#undef E_THROWABLE
 #pragma push_macro("MH")
 #undef MH
+#pragma push_macro("MH_SIG")
+#undef MH_SIG
 #pragma push_macro("STABLE")
 #undef STABLE
+#pragma push_macro("STABLE_SIG")
+#undef STABLE_SIG
 
 namespace java {
 	namespace lang {
@@ -115,11 +115,11 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("E_THROWABLE")
 #pragma pop_macro("CREATE_RESERVATION")
-#pragma pop_macro("MH_SIG")
-#pragma pop_macro("STABLE_SIG")
+#pragma pop_macro("E_THROWABLE")
 #pragma pop_macro("MH")
+#pragma pop_macro("MH_SIG")
 #pragma pop_macro("STABLE")
+#pragma pop_macro("STABLE_SIG")
 
 #endif // _java_lang_invoke_ClassSpecializer_h_

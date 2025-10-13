@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("LOOKUP")
-#undef LOOKUP
 #pragma push_macro("DO_ENUM_SWITCH")
 #undef DO_ENUM_SWITCH
 #pragma push_macro("DO_TYPE_SWITCH")
 #undef DO_TYPE_SWITCH
+#pragma push_macro("LOOKUP")
+#undef LOOKUP
 
 namespace java {
 	namespace lang {
@@ -53,8 +53,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("LOOKUP")
 #pragma pop_macro("DO_ENUM_SWITCH")
 #pragma pop_macro("DO_TYPE_SWITCH")
+#pragma pop_macro("LOOKUP")
 
 #endif // _java_lang_runtime_SwitchBootstraps_h_

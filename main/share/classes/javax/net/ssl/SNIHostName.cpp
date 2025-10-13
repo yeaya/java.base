@@ -30,12 +30,12 @@
 #include <javax/net/ssl/StandardConstants.h>
 #include <jcpp.h>
 
-#undef US_ASCII
 #undef ENGLISH
-#undef UTF_8
-#undef SNI_HOST_NAME
 #undef REPORT
+#undef SNI_HOST_NAME
 #undef USE_STD3_ASCII_RULES
+#undef US_ASCII
+#undef UTF_8
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

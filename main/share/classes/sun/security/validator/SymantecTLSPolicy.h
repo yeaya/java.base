@@ -5,10 +5,10 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("FINGERPRINTS")
-#undef FINGERPRINTS
 #pragma push_macro("EXEMPT_SUBCAS")
 #undef EXEMPT_SUBCAS
+#pragma push_macro("FINGERPRINTS")
+#undef FINGERPRINTS
 
 namespace java {
 	namespace security {
@@ -51,7 +51,7 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("FINGERPRINTS")
 #pragma pop_macro("EXEMPT_SUBCAS")
+#pragma pop_macro("FINGERPRINTS")
 
 #endif // _sun_security_validator_SymantecTLSPolicy_h_

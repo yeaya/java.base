@@ -25,9 +25,9 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
+#undef SCOPED_MEMORY_ACCESS
 #undef SPLITERATOR_CHARACTERISTICS
 #undef UNSAFE
-#undef SCOPED_MEMORY_ACCESS
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

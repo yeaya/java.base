@@ -219,7 +219,7 @@ $String* UnsafeFieldAccessorImpl::getSetMessage($String* attemptedType, $String*
 	$plusAssign(err, $$concat(var$0, " to "));
 	if (!$nc(attemptedValue)->isEmpty()) {
 		$plusAssign(err, $$str({"("_s, attemptedType, ")"_s, attemptedValue}));
-	} else if (!$nc(attemptedType)->isEmpty()) {
+	} else if (!attemptedType->isEmpty()) {
 		$plusAssign(err, attemptedType);
 	} else {
 		$plusAssign(err, "null value"_s);

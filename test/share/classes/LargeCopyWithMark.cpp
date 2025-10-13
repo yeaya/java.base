@@ -18,9 +18,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef BYTES_TO_COPY
 #undef BIS_BUFF_SIZE
 #undef BUFF_SIZE
+#undef BYTES_TO_COPY
 
 using $MyInputStream4LargeCopyWithMark = ::MyInputStream4LargeCopyWithMark;
 using $MyOutputStream4LargeCopyWithMark = ::MyOutputStream4LargeCopyWithMark;

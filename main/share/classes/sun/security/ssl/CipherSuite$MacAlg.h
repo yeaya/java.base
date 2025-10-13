@@ -6,16 +6,16 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("M_SHA")
-#undef M_SHA
-#pragma push_macro("M_SHA384")
-#undef M_SHA384
 #pragma push_macro("M_MD5")
 #undef M_MD5
-#pragma push_macro("M_SHA256")
-#undef M_SHA256
 #pragma push_macro("M_NULL")
 #undef M_NULL
+#pragma push_macro("M_SHA")
+#undef M_SHA
+#pragma push_macro("M_SHA256")
+#undef M_SHA256
+#pragma push_macro("M_SHA384")
+#undef M_SHA384
 
 namespace sun {
 	namespace security {
@@ -46,10 +46,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("M_SHA")
-#pragma pop_macro("M_SHA384")
 #pragma pop_macro("M_MD5")
-#pragma pop_macro("M_SHA256")
 #pragma pop_macro("M_NULL")
+#pragma pop_macro("M_SHA")
+#pragma pop_macro("M_SHA256")
+#pragma pop_macro("M_SHA384")
 
 #endif // _sun_security_ssl_CipherSuite$MacAlg_h_

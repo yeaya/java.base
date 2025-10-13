@@ -47,8 +47,8 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef REGEX_SYNTAX
 #undef GLOB_SYNTAX
+#undef REGEX_SYNTAX
 
 using $PathArray = $Array<::java::nio::file::Path>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
@@ -290,7 +290,7 @@ $PathMatcher* UnixFileSystem::getPathMatcher($String* syntaxAndInput) {
 	$var($String, expr, nullptr);
 	if (syntax->equalsIgnoreCase(UnixFileSystem::GLOB_SYNTAX)) {
 		$assign(expr, $Globs::toUnixRegexPattern(input));
-	} else if ($nc(syntax)->equalsIgnoreCase(UnixFileSystem::REGEX_SYNTAX)) {
+	} else if (syntax->equalsIgnoreCase(UnixFileSystem::REGEX_SYNTAX)) {
 		$assign(expr, input);
 	} else {
 		$throwNew($UnsupportedOperationException, $$str({"Syntax \'"_s, syntax, "\' not recognized"_s}));

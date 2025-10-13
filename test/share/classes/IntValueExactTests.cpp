@@ -22,9 +22,9 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef ONE
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef ONE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $PrintStream = ::java::io::PrintStream;

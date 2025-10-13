@@ -38,8 +38,8 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef INFO
+#undef ROOT
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -213,7 +213,7 @@ $Optional* Currency$CurrencyProperty::getValidEntry($String* ctry, $String* curD
 		$assign(prop, parseProperty(ctry, curData, pattern));
 		if (prop == nullptr || ($nc(prop)->date == nullptr && $nc($($($nc(curData)->chars())->map(static_cast<$IntUnaryOperator*>($$new(Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0)))))->sum() >= 3)) {
 			$assign(prop, nullptr);
-		} else if ($nc(prop)->fraction > 9) {
+		} else if (prop->fraction > 9) {
 			$assign(prop, nullptr);
 		} else {
 			try {

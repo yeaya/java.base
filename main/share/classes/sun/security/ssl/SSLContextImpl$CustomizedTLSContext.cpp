@@ -21,10 +21,10 @@
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <jcpp.h>
 
-#undef TLS11
 #undef TLS10
-#undef TLS13
+#undef TLS11
 #undef TLS12
+#undef TLS13
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;

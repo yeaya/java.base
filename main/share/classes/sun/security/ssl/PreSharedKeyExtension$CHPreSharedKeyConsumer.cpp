@@ -39,11 +39,11 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef ILLEGAL_PARAMETER
 #undef CH_PRE_SHARED_KEY
+#undef ILLEGAL_PARAMETER
+#undef MAX_LENGTH
 #undef PSK_KEY_EXCHANGE_MODES
 #undef SH_PRE_SHARED_KEY
-#undef MAX_LENGTH
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

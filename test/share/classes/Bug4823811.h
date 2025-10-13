@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("JUL")
-#undef JUL
-#pragma push_macro("BC")
-#undef BC
-#pragma push_macro("JUN")
-#undef JUN
-#pragma push_macro("BORDER")
-#undef BORDER
 #pragma push_macro("APR")
 #undef APR
-#pragma push_macro("MAY")
-#undef MAY
+#pragma push_macro("BC")
+#undef BC
+#pragma push_macro("BORDER")
+#undef BORDER
 #pragma push_macro("ERA")
 #undef ERA
+#pragma push_macro("JUL")
+#undef JUL
+#pragma push_macro("JUN")
+#undef JUN
+#pragma push_macro("MAY")
+#undef MAY
 
 namespace java {
 	namespace lang {
@@ -84,12 +84,12 @@ public:
 	static bool verbose;
 };
 
-#pragma pop_macro("JUL")
-#pragma pop_macro("BC")
-#pragma pop_macro("JUN")
-#pragma pop_macro("BORDER")
 #pragma pop_macro("APR")
-#pragma pop_macro("MAY")
+#pragma pop_macro("BC")
+#pragma pop_macro("BORDER")
 #pragma pop_macro("ERA")
+#pragma pop_macro("JUL")
+#pragma pop_macro("JUN")
+#pragma pop_macro("MAY")
 
 #endif // _Bug4823811_h_

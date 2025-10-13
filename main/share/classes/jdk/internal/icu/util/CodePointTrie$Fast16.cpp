@@ -19,8 +19,8 @@
 #include <jdk/internal/icu/util/CodePointTrie.h>
 #include <jcpp.h>
 
-#undef FAST
 #undef BITS_16
+#undef FAST
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

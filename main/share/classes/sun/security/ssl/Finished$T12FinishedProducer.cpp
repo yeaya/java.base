@@ -40,8 +40,8 @@
 #include <jcpp.h>
 
 #undef CHANGE_CIPHER_SPEC
-#undef NEW_SESSION_TICKET
 #undef FINISHED
+#undef NEW_SESSION_TICKET
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -190,7 +190,7 @@ $bytes* Finished$T12FinishedProducer::onProduceFinished($ServerHandshakeContext*
 	} else {
 		if (shc->statelessResumption && $nc(shc->handshakeSession)->isStatelessable()) {
 			$nc(shc->handshakeSession)->setContext($cast($SSLSessionContextImpl, $($nc(shc->sslContext)->engineGetServerSessionContext())));
-		} else if ($nc($nc(shc)->handshakeSession)->isRejoinable()) {
+		} else if ($nc(shc->handshakeSession)->isRejoinable()) {
 			$nc(($cast($SSLSessionContextImpl, $($nc(shc->sslContext)->engineGetServerSessionContext()))))->put(shc->handshakeSession);
 		}
 		$set($nc(shc->conContext), conSession, $nc(shc->handshakeSession)->finish());

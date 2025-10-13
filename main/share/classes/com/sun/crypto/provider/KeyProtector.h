@@ -5,18 +5,18 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MAX_ITERATION_COUNT")
-#undef MAX_ITERATION_COUNT
 #pragma push_macro("DEFAULT_ITERATION_COUNT")
 #undef DEFAULT_ITERATION_COUNT
+#pragma push_macro("DIGEST_LEN")
+#undef DIGEST_LEN
 #pragma push_macro("ITERATION_COUNT")
 #undef ITERATION_COUNT
+#pragma push_macro("MAX_ITERATION_COUNT")
+#undef MAX_ITERATION_COUNT
 #pragma push_macro("MIN_ITERATION_COUNT")
 #undef MIN_ITERATION_COUNT
 #pragma push_macro("SALT_LEN")
 #undef SALT_LEN
-#pragma push_macro("DIGEST_LEN")
-#undef DIGEST_LEN
 
 namespace com {
 	namespace sun {
@@ -68,11 +68,11 @@ public:
 	} // sun
 } // com
 
-#pragma pop_macro("MAX_ITERATION_COUNT")
 #pragma pop_macro("DEFAULT_ITERATION_COUNT")
+#pragma pop_macro("DIGEST_LEN")
 #pragma pop_macro("ITERATION_COUNT")
+#pragma pop_macro("MAX_ITERATION_COUNT")
 #pragma pop_macro("MIN_ITERATION_COUNT")
 #pragma pop_macro("SALT_LEN")
-#pragma pop_macro("DIGEST_LEN")
 
 #endif // _com_sun_crypto_provider_KeyProtector_h_

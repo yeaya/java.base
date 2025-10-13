@@ -114,8 +114,7 @@ void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 					++GetAnnotatedInterfaces::failed;
 					$init($System);
 					$nc($System::out)->println($$str({toTest, ".class.getAnnotatedInterface() returns\'null\' should zero length array"_s}));
-				} else if ($nc(res)->length != 0) {
-					$init(GetAnnotatedInterfaces);
+				} else if (res->length != 0) {
 					++GetAnnotatedInterfaces::failed;
 					$init($System);
 					$var($String, var$1, $$str({toTest, ".class.getAnnotatedInterfaces() returns: "_s}));

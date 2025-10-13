@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MIN_MERGE")
-#undef MIN_MERGE
 #pragma push_macro("INITIAL_TMP_STORAGE_LENGTH")
 #undef INITIAL_TMP_STORAGE_LENGTH
 #pragma push_macro("MIN_GALLOP")
 #undef MIN_GALLOP
+#pragma push_macro("MIN_MERGE")
+#undef MIN_MERGE
 
 namespace java {
 	namespace util {
@@ -58,8 +58,8 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MIN_MERGE")
 #pragma pop_macro("INITIAL_TMP_STORAGE_LENGTH")
 #pragma pop_macro("MIN_GALLOP")
+#pragma pop_macro("MIN_MERGE")
 
 #endif // _java_util_TimSort_h_

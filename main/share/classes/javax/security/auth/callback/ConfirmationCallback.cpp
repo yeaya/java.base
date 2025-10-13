@@ -12,17 +12,17 @@
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
-#undef NO
-#undef YES_NO_OPTION
-#undef YES_NO_CANCEL_OPTION
-#undef YES
-#undef INFORMATION
 #undef CANCEL
-#undef OK_CANCEL_OPTION
 #undef ERROR
-#undef UNSPECIFIED_OPTION
+#undef INFORMATION
+#undef NO
 #undef OK
+#undef OK_CANCEL_OPTION
+#undef UNSPECIFIED_OPTION
 #undef WARNING
+#undef YES
+#undef YES_NO_CANCEL_OPTION
+#undef YES_NO_OPTION
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

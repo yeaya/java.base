@@ -18,11 +18,11 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
+#undef NO_BYTES
+#undef PACKED_BYTE_MASK
 #undef PACKED_BYTE_MAX_LENGTH
 #undef PACKED_BYTE_SIZE
 #undef STRESS_TEST
-#undef NO_BYTES
-#undef PACKED_BYTE_MASK
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

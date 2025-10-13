@@ -25,8 +25,8 @@
 #include <sun/security/util/Password.h>
 #include <jcpp.h>
 
-#undef P11KEYSTORE
 #undef NONE
+#undef P11KEYSTORE
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $File = ::java::io::File;

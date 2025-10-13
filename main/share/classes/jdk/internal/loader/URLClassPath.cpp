@@ -53,14 +53,14 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef JNUA
-#undef DISABLE_CP_URL_CHECK
-#undef USER_AGENT_JAVA_VERSION
-#undef DISABLE_ACC_CHECKING
-#undef DISABLE_JAR_CHECKING
-#undef DEBUG_CP_URL_CHECK
-#undef JAVA_VERSION
 #undef DEBUG
+#undef DEBUG_CP_URL_CHECK
+#undef DISABLE_ACC_CHECKING
+#undef DISABLE_CP_URL_CHECK
+#undef DISABLE_JAR_CHECKING
+#undef JAVA_VERSION
+#undef JNUA
+#undef USER_AGENT_JAVA_VERSION
 
 using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
@@ -461,13 +461,13 @@ void URLClassPath::check($URL* url) {
 				$var($SecurityException, se, $catch());
 				if (($instanceOf($FilePermission, perm)) && $nc($(perm->getActions()))->indexOf("read"_s) != -1) {
 					security->checkRead($(perm->getName()));
-				} else if (($instanceOf($SocketPermission, perm)) && $nc($($nc(perm)->getActions()))->indexOf("connect"_s) != -1) {
+				} else if (($instanceOf($SocketPermission, perm)) && $nc($(perm->getActions()))->indexOf("connect"_s) != -1) {
 					$var($URL, locUrl, url);
 					if ($instanceOf($JarURLConnection, urlConnection)) {
 						$assign(locUrl, $nc(($cast($JarURLConnection, urlConnection)))->getJarFileURL());
 					}
-					$var($String, var$0, $nc(locUrl)->getHost());
-					$nc(security)->checkConnect(var$0, locUrl->getPort());
+					$var($String, var$0, locUrl->getHost());
+					security->checkConnect(var$0, locUrl->getPort());
 				} else {
 					$throw(se);
 				}

@@ -40,8 +40,8 @@
 #include <jcpp.h>
 
 #undef BIND
-#undef MAX_PORT
 #undef CONNECT
+#undef MAX_PORT
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $SdpProvider$ActionArray = $Array<::sun::net::sdp::SdpProvider$Action>;

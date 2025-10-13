@@ -12,8 +12,8 @@
 #include <java/time/DateTimeException.h>
 #include <jcpp.h>
 
-#undef BEFORE_AM
 #undef AM
+#undef BEFORE_AM
 
 using $CopticEraArray = $Array<::tck::java::time::chrono::CopticEra>;
 using $ClassInfo = ::java::lang::ClassInfo;

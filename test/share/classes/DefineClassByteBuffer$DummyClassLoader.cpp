@@ -27,17 +27,17 @@
 #include <java/security/ProtectionDomain.h>
 #include <jcpp.h>
 
-#undef READ_ONLY_ARRAY_BUFFER
-#undef MAPPED_BUFFER
-#undef WRAPPED_BUFFER
-#undef DUP_ARRAY_BUFFER
-#undef MAX_TYPE
-#undef DIRECT_BUFFER
-#undef CLASS_NAME
-#undef READ_ONLY_DIRECT_BUFFER
-#undef READ_ONLY
 #undef ARRAY_BUFFER
+#undef CLASS_NAME
+#undef DIRECT_BUFFER
+#undef DUP_ARRAY_BUFFER
 #undef DUP_DIRECT_BUFFER
+#undef MAPPED_BUFFER
+#undef MAX_TYPE
+#undef READ_ONLY
+#undef READ_ONLY_ARRAY_BUFFER
+#undef READ_ONLY_DIRECT_BUFFER
+#undef WRAPPED_BUFFER
 
 using $DefineClassByteBuffer = ::DefineClassByteBuffer;
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;

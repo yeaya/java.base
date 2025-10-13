@@ -8,12 +8,12 @@
 
 #pragma push_macro("AUTOMATIC")
 #undef AUTOMATIC
-#pragma push_macro("SYNTHETIC")
-#undef SYNTHETIC
 #pragma push_macro("MANDATED")
 #undef MANDATED
 #pragma push_macro("OPEN")
 #undef OPEN
+#pragma push_macro("SYNTHETIC")
+#undef SYNTHETIC
 
 namespace java {
 	namespace lang {
@@ -39,8 +39,8 @@ public:
 } // java
 
 #pragma pop_macro("AUTOMATIC")
-#pragma pop_macro("SYNTHETIC")
 #pragma pop_macro("MANDATED")
 #pragma pop_macro("OPEN")
+#pragma pop_macro("SYNTHETIC")
 
 #endif // _java_lang_module_ModuleDescriptor$Modifier_h_

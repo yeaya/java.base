@@ -46,19 +46,19 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef IP_TOS
-#undef SO_TIMEOUT
-#undef IP_MULTICAST_IF2
-#undef SO_SNDBUF
 #undef IP_MULTICAST_IF
-#undef SO_REUSEADDR
-#undef ST_NOT_CONNECTED
-#undef SO_BINDADDR
+#undef IP_MULTICAST_IF2
 #undef IP_MULTICAST_LOOP
-#undef SO_RCVBUF
-#undef ST_CONNECTED_NO_IMPL
+#undef IP_TOS
+#undef SO_BINDADDR
 #undef SO_BROADCAST
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
+#undef SO_SNDBUF
+#undef SO_TIMEOUT
 #undef ST_CONNECTED
+#undef ST_CONNECTED_NO_IMPL
+#undef ST_NOT_CONNECTED
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $IOException = ::java::io::IOException;
@@ -502,7 +502,7 @@ void NetMulticastSocket::send($DatagramPacket* p) {
 				$throwNew($SocketException, "Can\'t send to port 0"_s);
 			}
 		} else if (packetAddress == nullptr) {
-			$nc(p)->setAddress(this->connectedAddress);
+			p->setAddress(this->connectedAddress);
 			p->setPort(this->connectedPort);
 		} else if ((!$nc(packetAddress)->equals(this->connectedAddress)) || packetPort != this->connectedPort) {
 			$throwNew($IllegalArgumentException, "connected address and packet address differ"_s);
@@ -1040,11 +1040,11 @@ void NetMulticastSocket::send($DatagramPacket* p, int8_t ttl) {
 					}
 				}
 			} else if (packetAddress == nullptr) {
-				$nc(p)->setAddress(this->connectedAddress);
+				p->setAddress(this->connectedAddress);
 				p->setPort(this->connectedPort);
 			} else {
 				bool var$2 = (!$nc(packetAddress)->equals(this->connectedAddress));
-				if (var$2 || $nc(p)->getPort() != this->connectedPort) {
+				if (var$2 || p->getPort() != this->connectedPort) {
 					$throwNew($IllegalArgumentException, "connected address and packet address differ"_s);
 				}
 			}

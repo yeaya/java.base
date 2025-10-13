@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/module/ModuleFinder.h>
 
-#pragma push_macro("SERVICES_PREFIX")
-#undef SERVICES_PREFIX
-#pragma push_macro("MODULE_INFO")
-#undef MODULE_INFO
 #pragma push_macro("AUTOMATIC_MODULE_NAME")
 #undef AUTOMATIC_MODULE_NAME
+#pragma push_macro("MODULE_INFO")
+#undef MODULE_INFO
+#pragma push_macro("SERVICES_PREFIX")
+#undef SERVICES_PREFIX
 
 namespace java {
 	namespace io {
@@ -148,8 +148,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("SERVICES_PREFIX")
-#pragma pop_macro("MODULE_INFO")
 #pragma pop_macro("AUTOMATIC_MODULE_NAME")
+#pragma pop_macro("MODULE_INFO")
+#pragma pop_macro("SERVICES_PREFIX")
 
 #endif // _jdk_internal_module_ModulePath_h_

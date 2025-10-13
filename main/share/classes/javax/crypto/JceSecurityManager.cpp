@@ -33,10 +33,10 @@
 #include <javax/crypto/ProviderVerifier.h>
 #include <jcpp.h>
 
+#undef ALG_NAME_WILDCARD
 #undef CACHE_NULL_MARK
 #undef ENGLISH
 #undef INSTANCE
-#undef ALG_NAME_WILDCARD
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

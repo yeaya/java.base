@@ -27,18 +27,18 @@
 
 #include "_java_util_zip_Deflater.h"
 
-#undef DEFAULT_STRATEGY
-#undef DEFAULT_COMPRESSION
-#undef SYNC_FLUSH
-#undef NO_COMPRESSION
 #undef BEST_COMPRESSION
-#undef HUFFMAN_ONLY
-#undef NO_FLUSH
-#undef DEFLATED
 #undef BEST_SPEED
+#undef DEFAULT_COMPRESSION
+#undef DEFAULT_STRATEGY
+#undef DEFLATED
 #undef FILTERED
-#undef FULL_FLUSH
 #undef FINISH
+#undef FULL_FLUSH
+#undef HUFFMAN_ONLY
+#undef NO_COMPRESSION
+#undef NO_FLUSH
+#undef SYNC_FLUSH
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $AssertionError = ::java::lang::AssertionError;

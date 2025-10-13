@@ -27,17 +27,17 @@
 #include <sun/security/util/Password.h>
 #include <jcpp.h>
 
-#undef NO
-#undef YES_NO_OPTION
-#undef YES_NO_CANCEL_OPTION
-#undef INFORMATION
-#undef YES
 #undef CANCEL
-#undef OK_CANCEL_OPTION
 #undef ERROR
+#undef INFORMATION
+#undef NO
 #undef OK
+#undef OK_CANCEL_OPTION
 #undef UNSPECIFIED_OPTION
 #undef WARNING
+#undef YES
+#undef YES_NO_CANCEL_OPTION
+#undef YES_NO_OPTION
 
 using $CallbackArray = $Array<::javax::security::auth::callback::Callback>;
 using $ConsoleCallbackHandler$1OptionInfoArray = $Array<::sun::security::util::ConsoleCallbackHandler$1OptionInfo>;
@@ -136,7 +136,7 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 				$init($System);
 				$nc($System::err)->println(text);
 			}
-		} else if ($instanceOf($NameCallback, $nc(callbacks)->get(i))) {
+		} else if ($instanceOf($NameCallback, callbacks->get(i))) {
 			$var($NameCallback, nc, $cast($NameCallback, callbacks->get(i)));
 			if ($nc(nc)->getDefaultName() == nullptr) {
 				$init($System);
@@ -154,13 +154,13 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 				$assign(result, $nc(nc)->getDefaultName());
 			}
 			$nc(nc)->setName(result);
-		} else if ($instanceOf($PasswordCallback, $nc(callbacks)->get(i))) {
+		} else if ($instanceOf($PasswordCallback, callbacks->get(i))) {
 			$var($PasswordCallback, pc, $cast($PasswordCallback, callbacks->get(i)));
 			$init($System);
 			$nc($System::err)->print($($nc(pc)->getPrompt()));
 			$nc($System::err)->flush();
 			$nc(pc)->setPassword($($Password::readPassword($System::in, pc->isEchoOn())));
-		} else if ($instanceOf($ConfirmationCallback, $nc(callbacks)->get(i))) {
+		} else if ($instanceOf($ConfirmationCallback, callbacks->get(i))) {
 			$assign(confirmation, $cast($ConfirmationCallback, callbacks->get(i)));
 		} else {
 			$throwNew($UnsupportedCallbackException, callbacks->get(i), "Unrecognized Callback"_s);

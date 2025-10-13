@@ -14,8 +14,8 @@
 #include <sun/security/ssl/SSLKeyExchange.h>
 #include <jcpp.h>
 
-#undef KE
 #undef DHE_EXPORT
+#undef KE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

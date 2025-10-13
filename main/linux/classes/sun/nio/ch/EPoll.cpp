@@ -11,15 +11,15 @@
 #include <sun/nio/ch/IOUtil.h>
 #include <jcpp.h>
 
-#undef OFFSETOF_EVENTS
-#undef SIZEOF_EPOLLEVENT
-#undef EPOLL_CTL_DEL
 #undef EPOLLIN
-#undef EPOLL_CTL_MOD
-#undef EPOLL_CTL_ADD
 #undef EPOLLONESHOT
-#undef OFFSETOF_FD
 #undef EPOLLOUT
+#undef EPOLL_CTL_ADD
+#undef EPOLL_CTL_DEL
+#undef EPOLL_CTL_MOD
+#undef OFFSETOF_EVENTS
+#undef OFFSETOF_FD
+#undef SIZEOF_EPOLLEVENT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

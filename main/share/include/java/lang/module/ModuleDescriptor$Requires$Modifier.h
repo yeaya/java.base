@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("TRANSITIVE")
-#undef TRANSITIVE
-#pragma push_macro("SYNTHETIC")
-#undef SYNTHETIC
 #pragma push_macro("MANDATED")
 #undef MANDATED
 #pragma push_macro("STATIC")
 #undef STATIC
+#pragma push_macro("SYNTHETIC")
+#undef SYNTHETIC
+#pragma push_macro("TRANSITIVE")
+#undef TRANSITIVE
 
 namespace java {
 	namespace lang {
@@ -38,9 +38,9 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("TRANSITIVE")
-#pragma pop_macro("SYNTHETIC")
 #pragma pop_macro("MANDATED")
 #pragma pop_macro("STATIC")
+#pragma pop_macro("SYNTHETIC")
+#pragma pop_macro("TRANSITIVE")
 
 #endif // _java_lang_module_ModuleDescriptor$Requires$Modifier_h_

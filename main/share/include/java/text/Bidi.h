@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("DIRECTION_DEFAULT_RIGHT_TO_LEFT")
-#undef DIRECTION_DEFAULT_RIGHT_TO_LEFT
 #pragma push_macro("DIRECTION_DEFAULT_LEFT_TO_RIGHT")
 #undef DIRECTION_DEFAULT_LEFT_TO_RIGHT
-#pragma push_macro("DIRECTION_RIGHT_TO_LEFT")
-#undef DIRECTION_RIGHT_TO_LEFT
+#pragma push_macro("DIRECTION_DEFAULT_RIGHT_TO_LEFT")
+#undef DIRECTION_DEFAULT_RIGHT_TO_LEFT
 #pragma push_macro("DIRECTION_LEFT_TO_RIGHT")
 #undef DIRECTION_LEFT_TO_RIGHT
+#pragma push_macro("DIRECTION_RIGHT_TO_LEFT")
+#undef DIRECTION_RIGHT_TO_LEFT
 
 namespace java {
 	namespace text {
@@ -64,9 +64,9 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("DIRECTION_DEFAULT_RIGHT_TO_LEFT")
 #pragma pop_macro("DIRECTION_DEFAULT_LEFT_TO_RIGHT")
-#pragma pop_macro("DIRECTION_RIGHT_TO_LEFT")
+#pragma pop_macro("DIRECTION_DEFAULT_RIGHT_TO_LEFT")
 #pragma pop_macro("DIRECTION_LEFT_TO_RIGHT")
+#pragma pop_macro("DIRECTION_RIGHT_TO_LEFT")
 
 #endif // _java_text_Bidi_h_

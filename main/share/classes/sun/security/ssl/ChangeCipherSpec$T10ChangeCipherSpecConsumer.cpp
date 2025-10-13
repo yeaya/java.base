@@ -43,10 +43,10 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef AEAD_CIPHER
+#undef CHANGE_CIPHER_SPEC
 #undef HANDSHAKE_FAILURE
 #undef ILLEGAL_PARAMETER
-#undef CHANGE_CIPHER_SPEC
-#undef AEAD_CIPHER
 #undef UNEXPECTED_MESSAGE
 
 using $Byte = ::java::lang::Byte;

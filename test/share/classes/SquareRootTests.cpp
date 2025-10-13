@@ -22,19 +22,19 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+#undef CEILING
 #undef DECIMAL64
 #undef DOWN
-#undef UNNECESSARY
-#undef ONE
-#undef TWO
 #undef FLOOR
-#undef CEILING
-#undef HALF_EVEN
-#undef UP
-#undef ONE_TENTH
-#undef HALF_UP
 #undef HALF_DOWN
+#undef HALF_EVEN
+#undef HALF_UP
+#undef ONE
+#undef ONE_TENTH
+#undef TWO
 #undef UNLIMITED
+#undef UNNECESSARY
+#undef UP
 
 using $SquareRootTests$BigSquareRoot = ::SquareRootTests$BigSquareRoot;
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;

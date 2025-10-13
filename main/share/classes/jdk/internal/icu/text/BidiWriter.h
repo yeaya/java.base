@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/icu/lang/UCharacter.h>
 
-#pragma push_macro("MASK_R_AL")
-#undef MASK_R_AL
 #pragma push_macro("LRM_CHAR")
 #undef LRM_CHAR
-#pragma push_macro("RIGHT_TO_LEFT_ARABIC")
-#undef RIGHT_TO_LEFT_ARABIC
+#pragma push_macro("MASK_R_AL")
+#undef MASK_R_AL
 #pragma push_macro("RIGHT_TO_LEFT")
 #undef RIGHT_TO_LEFT
+#pragma push_macro("RIGHT_TO_LEFT_ARABIC")
+#undef RIGHT_TO_LEFT_ARABIC
 #pragma push_macro("RLM_CHAR")
 #undef RLM_CHAR
 
@@ -53,10 +53,10 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("MASK_R_AL")
 #pragma pop_macro("LRM_CHAR")
-#pragma pop_macro("RIGHT_TO_LEFT_ARABIC")
+#pragma pop_macro("MASK_R_AL")
 #pragma pop_macro("RIGHT_TO_LEFT")
+#pragma pop_macro("RIGHT_TO_LEFT_ARABIC")
 #pragma pop_macro("RLM_CHAR")
 
 #endif // _jdk_internal_icu_text_BidiWriter_h_

@@ -18,31 +18,31 @@
 #include <sun/util/calendar/CalendarUtils.h>
 #include <jcpp.h>
 
-#undef THURSDAY
-#undef MAY
-#undef DECEMBER
-#undef FRIDAY
-#undef FIELD_UNDEFINED
-#undef FEBRUARY
-#undef WEDNESDAY
-#undef DAYS_IN_MONTH
-#undef SATURDAY
 #undef ACCUMULATED_DAYS_IN_MONTH
-#undef APRIL
-#undef JANUARY
-#undef JUNE
-#undef SUNDAY
-#undef OCTOBER
-#undef TUESDAY
-#undef FIXED_DATES
-#undef SEPTEMBER
-#undef NOVEMBER
-#undef MONDAY
 #undef ACCUMULATED_DAYS_IN_MONTH_LEAP
-#undef BASE_YEAR
-#undef MARCH
+#undef APRIL
 #undef AUGUST
+#undef BASE_YEAR
+#undef DAYS_IN_MONTH
+#undef DECEMBER
+#undef FEBRUARY
+#undef FIELD_UNDEFINED
+#undef FIXED_DATES
+#undef FRIDAY
+#undef JANUARY
 #undef JULY
+#undef JUNE
+#undef MARCH
+#undef MAY
+#undef MONDAY
+#undef NOVEMBER
+#undef OCTOBER
+#undef SATURDAY
+#undef SEPTEMBER
+#undef SUNDAY
+#undef THURSDAY
+#undef TUESDAY
+#undef WEDNESDAY
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -199,7 +199,7 @@ bool BaseCalendar::normalize($CalendarDate* date) {
 		} else if (d > ml && d < (ml + 28)) {
 			d -= ml;
 			++m;
-			$nc(bdate)->setDayOfMonth((int32_t)d);
+			bdate->setDayOfMonth((int32_t)d);
 			if (m > BaseCalendar::DECEMBER) {
 				bdate->setNormalizedYear(y + 1);
 				m = BaseCalendar::JANUARY;
@@ -232,7 +232,7 @@ void BaseCalendar::normalizeMonth($CalendarDate* date) {
 	} else if (month > BaseCalendar::DECEMBER) {
 		year += (int32_t)((month - 1) / 12);
 		month = (month - 1) % 12 + 1;
-		$nc(bdate)->setNormalizedYear(year);
+		bdate->setNormalizedYear(year);
 		bdate->setMonth((int32_t)month);
 	}
 }

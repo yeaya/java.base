@@ -23,12 +23,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef WRITE_BUF
-#undef GET_FD
 #undef CLOSE
-#undef WRITE_BUF_OFF
 #undef GET_CHANNEL
+#undef GET_FD
 #undef WRITE
+#undef WRITE_BUF
+#undef WRITE_BUF_OFF
 
 using $OpsAfterClose4FileOutputStream$1 = ::OpsAfterClose4FileOutputStream$1;
 using $OpsAfterClose4FileOutputStream$2 = ::OpsAfterClose4FileOutputStream$2;

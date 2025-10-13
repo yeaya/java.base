@@ -33,19 +33,19 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef NEXT_MH
-#undef BOUND_REINVOKER
-#undef THIS_DMH
-#undef LF_DELEGATE
-#undef PRE_ACTION
 #undef ARG_BASE
-#undef REINVOKE
-#undef LF_REBIND
-#undef REINVOKER
 #undef ARG_LIMIT
-#undef UNSAFE
-#undef MAX_MH_INVOKER_ARITY
+#undef BOUND_REINVOKER
 #undef DELEGATE
+#undef LF_DELEGATE
+#undef LF_REBIND
+#undef MAX_MH_INVOKER_ARITY
+#undef NEXT_MH
+#undef PRE_ACTION
+#undef REINVOKE
+#undef REINVOKER
+#undef THIS_DMH
+#undef UNSAFE
 
 using $LambdaForm$NameArray = $Array<::java::lang::invoke::LambdaForm$Name>;
 using $AssertionError = ::java::lang::AssertionError;

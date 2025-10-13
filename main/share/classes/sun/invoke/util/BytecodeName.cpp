@@ -16,17 +16,17 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef ESCAPE_C
 #undef DANGEROUS_CHARS
 #undef DANGEROUS_CHARS_A
-#undef NULL_ESCAPE
-#undef DANGEROUS_CHAR_FIRST_INDEX
-#undef REPLACEMENT_CHARS
-#undef SPECIAL_BITMAP
-#undef NULL_ESCAPE_C
-#undef REPLACEMENT_CHARS_A
 #undef DANGEROUS_CHARS_CA
+#undef DANGEROUS_CHAR_FIRST_INDEX
+#undef ESCAPE_C
+#undef NULL_ESCAPE
+#undef NULL_ESCAPE_C
+#undef REPLACEMENT_CHARS
+#undef REPLACEMENT_CHARS_A
 #undef SPECIAL
+#undef SPECIAL_BITMAP
 
 using $CharacterArray = $Array<::java::lang::Character>;
 using $AssertionError = ::java::lang::AssertionError;

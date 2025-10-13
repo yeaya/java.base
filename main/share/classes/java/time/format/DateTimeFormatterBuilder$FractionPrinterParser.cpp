@@ -26,10 +26,10 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef FLOOR
-#undef ONE
 #undef NOT_NEGATIVE
+#undef ONE
+#undef ZERO
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

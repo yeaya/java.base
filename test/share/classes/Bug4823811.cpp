@@ -28,17 +28,17 @@
 #include <java/util/TimeZone.h>
 #include <jcpp.h>
 
-#undef JUL
-#undef JUNE
-#undef BC
-#undef JUN
-#undef BORDER
 #undef APR
-#undef MAY
-#undef ERA
-#undef JULY
-#undef US
 #undef APRIL
+#undef BC
+#undef BORDER
+#undef ERA
+#undef JUL
+#undef JULY
+#undef JUN
+#undef JUNE
+#undef MAY
+#undef US
 
 using $GregorianCalendarArray = $Array<::java::util::GregorianCalendar>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
@@ -377,8 +377,7 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 			$nc($System::err)->print($$str({"  Failed: SimpleDateFormat("_s, locale}));
 			$nc($System::err)->print($$str({", \""_s, pattern, "\").parse(\""_s, given}));
 			$nc($System::err)->println("\") should have thrown ParseException"_s);
-		} else if ($nc($($nc(expectedGC)->getTime()))->equals(d)) {
-			$init(Bug4823811);
+		} else if ($nc($(expectedGC->getTime()))->equals(d)) {
 			if (Bug4823811::verbose) {
 				$init($System);
 				$nc($System::out)->print($$str({"  Passed: SimpleDateFormat("_s, locale}));
@@ -389,7 +388,6 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 				$nc($System::out)->println(")"_s);
 			}
 		} else {
-			$init(Bug4823811);
 			Bug4823811::err = true;
 			$init($System);
 			$nc($System::err)->print($$str({"  Failed: SimpleDateFormat("_s, locale}));
@@ -401,7 +399,7 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 			$nc($System::err)->print($$concat(var$1, $$str($nc(d)->getTime())));
 			$nc($System::err)->println(")"_s);
 			$nc($System::err)->print("      Pattern:  \""_s);
-			$nc($System::err)->print($($nc(($cast($DecimalFormat, $($nc(sdf)->getNumberFormat()))))->toPattern()));
+			$nc($System::err)->print($($nc(($cast($DecimalFormat, $(sdf->getNumberFormat()))))->toPattern()));
 			$nc($System::err)->println("\""_s);
 		}
 	} catch ($ParseException&) {

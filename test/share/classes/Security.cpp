@@ -40,8 +40,8 @@
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
-#undef SE
 #undef IOE
+#undef SE
 #undef UNIX
 
 using $Security$Command = ::Security$Command;

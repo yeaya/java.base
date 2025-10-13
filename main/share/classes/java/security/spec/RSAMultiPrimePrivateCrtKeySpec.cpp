@@ -84,7 +84,7 @@ void RSAMultiPrimePrivateCrtKeySpec::init$($BigInteger* modulus, $BigInteger* pu
 	$set(this, crtCoefficient, $cast($BigInteger, $Objects::requireNonNull($of(crtCoefficient), "the crtCoefficient parameter must be non-null"_s)));
 	if (otherPrimeInfo == nullptr) {
 		$set(this, otherPrimeInfo, nullptr);
-	} else if ($nc(otherPrimeInfo)->length == 0) {
+	} else if (otherPrimeInfo->length == 0) {
 		$throwNew($IllegalArgumentException, "the otherPrimeInfo parameter must not be empty"_s);
 	} else {
 		$set(this, otherPrimeInfo, $cast($RSAOtherPrimeInfoArray, otherPrimeInfo->clone()));

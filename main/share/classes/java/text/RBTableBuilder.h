@@ -5,20 +5,20 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("MAXKEYSIZE")
-#undef MAXKEYSIZE
-#pragma push_macro("SECONDARYORDERINCREMENT")
-#undef SECONDARYORDERINCREMENT
-#pragma push_macro("IGNORABLEMASK")
-#undef IGNORABLEMASK
 #pragma push_macro("CHARINDEX")
 #undef CHARINDEX
-#pragma push_macro("TERTIARYORDERINCREMENT")
-#undef TERTIARYORDERINCREMENT
-#pragma push_macro("PRIMARYORDERINCREMENT")
-#undef PRIMARYORDERINCREMENT
+#pragma push_macro("IGNORABLEMASK")
+#undef IGNORABLEMASK
 #pragma push_macro("INITIALTABLESIZE")
 #undef INITIALTABLESIZE
+#pragma push_macro("MAXKEYSIZE")
+#undef MAXKEYSIZE
+#pragma push_macro("PRIMARYORDERINCREMENT")
+#undef PRIMARYORDERINCREMENT
+#pragma push_macro("SECONDARYORDERINCREMENT")
+#undef SECONDARYORDERINCREMENT
+#pragma push_macro("TERTIARYORDERINCREMENT")
+#undef TERTIARYORDERINCREMENT
 
 namespace java {
 	namespace text {
@@ -85,12 +85,12 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("MAXKEYSIZE")
-#pragma pop_macro("SECONDARYORDERINCREMENT")
-#pragma pop_macro("IGNORABLEMASK")
 #pragma pop_macro("CHARINDEX")
-#pragma pop_macro("TERTIARYORDERINCREMENT")
-#pragma pop_macro("PRIMARYORDERINCREMENT")
+#pragma pop_macro("IGNORABLEMASK")
 #pragma pop_macro("INITIALTABLESIZE")
+#pragma pop_macro("MAXKEYSIZE")
+#pragma pop_macro("PRIMARYORDERINCREMENT")
+#pragma pop_macro("SECONDARYORDERINCREMENT")
+#pragma pop_macro("TERTIARYORDERINCREMENT")
 
 #endif // _java_text_RBTableBuilder_h_

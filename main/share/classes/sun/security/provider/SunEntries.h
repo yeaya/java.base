@@ -5,16 +5,16 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("PROP_RNDSOURCE")
-#undef PROP_RNDSOURCE
-#pragma push_macro("URL_DEV_URANDOM")
-#undef URL_DEV_URANDOM
-#pragma push_macro("PROP_EGD")
-#undef PROP_EGD
 #pragma push_macro("DEF_SECURE_RANDOM_ALGO")
 #undef DEF_SECURE_RANDOM_ALGO
+#pragma push_macro("PROP_EGD")
+#undef PROP_EGD
+#pragma push_macro("PROP_RNDSOURCE")
+#undef PROP_RNDSOURCE
 #pragma push_macro("URL_DEV_RANDOM")
 #undef URL_DEV_RANDOM
+#pragma push_macro("URL_DEV_URANDOM")
+#undef URL_DEV_URANDOM
 
 namespace java {
 	namespace io {
@@ -68,10 +68,10 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("PROP_RNDSOURCE")
-#pragma pop_macro("URL_DEV_URANDOM")
-#pragma pop_macro("PROP_EGD")
 #pragma pop_macro("DEF_SECURE_RANDOM_ALGO")
+#pragma pop_macro("PROP_EGD")
+#pragma pop_macro("PROP_RNDSOURCE")
 #pragma pop_macro("URL_DEV_RANDOM")
+#pragma pop_macro("URL_DEV_URANDOM")
 
 #endif // _sun_security_provider_SunEntries_h_

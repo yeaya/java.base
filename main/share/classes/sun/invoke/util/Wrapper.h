@@ -6,38 +6,38 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("FLOAT")
-#undef FLOAT
-#pragma push_macro("CHAR")
-#undef CHAR
-#pragma push_macro("FROM_CHAR")
-#undef FROM_CHAR
-#pragma push_macro("OBJECT")
-#undef OBJECT
 #pragma push_macro("BOOLEAN")
 #undef BOOLEAN
-#pragma push_macro("INT")
-#undef INT
-#pragma push_macro("SHORT")
-#undef SHORT
+#pragma push_macro("BYTE")
+#undef BYTE
+#pragma push_macro("CHAR")
+#undef CHAR
+#pragma push_macro("COUNT")
+#undef COUNT
+#pragma push_macro("DOUBLE")
+#undef DOUBLE
+#pragma push_macro("DOUBLE_ZERO")
+#undef DOUBLE_ZERO
+#pragma push_macro("FLOAT")
+#undef FLOAT
+#pragma push_macro("FLOAT_ZERO")
+#undef FLOAT_ZERO
+#pragma push_macro("FROM_CHAR")
+#undef FROM_CHAR
 #pragma push_macro("FROM_PRIM")
 #undef FROM_PRIM
 #pragma push_macro("FROM_WRAP")
 #undef FROM_WRAP
-#pragma push_macro("BYTE")
-#undef BYTE
-#pragma push_macro("FLOAT_ZERO")
-#undef FLOAT_ZERO
-#pragma push_macro("COUNT")
-#undef COUNT
-#pragma push_macro("DOUBLE_ZERO")
-#undef DOUBLE_ZERO
-#pragma push_macro("DOUBLE")
-#undef DOUBLE
-#pragma push_macro("VOID")
-#undef VOID
+#pragma push_macro("INT")
+#undef INT
 #pragma push_macro("LONG")
 #undef LONG
+#pragma push_macro("OBJECT")
+#undef OBJECT
+#pragma push_macro("SHORT")
+#undef SHORT
+#pragma push_macro("VOID")
+#undef VOID
 
 namespace java {
 	namespace lang {
@@ -144,21 +144,21 @@ public:
 	} // invoke
 } // sun
 
-#pragma pop_macro("FLOAT")
-#pragma pop_macro("CHAR")
-#pragma pop_macro("FROM_CHAR")
-#pragma pop_macro("OBJECT")
 #pragma pop_macro("BOOLEAN")
-#pragma pop_macro("INT")
-#pragma pop_macro("SHORT")
+#pragma pop_macro("BYTE")
+#pragma pop_macro("CHAR")
+#pragma pop_macro("COUNT")
+#pragma pop_macro("DOUBLE")
+#pragma pop_macro("DOUBLE_ZERO")
+#pragma pop_macro("FLOAT")
+#pragma pop_macro("FLOAT_ZERO")
+#pragma pop_macro("FROM_CHAR")
 #pragma pop_macro("FROM_PRIM")
 #pragma pop_macro("FROM_WRAP")
-#pragma pop_macro("BYTE")
-#pragma pop_macro("FLOAT_ZERO")
-#pragma pop_macro("COUNT")
-#pragma pop_macro("DOUBLE_ZERO")
-#pragma pop_macro("DOUBLE")
-#pragma pop_macro("VOID")
+#pragma pop_macro("INT")
 #pragma pop_macro("LONG")
+#pragma pop_macro("OBJECT")
+#pragma pop_macro("SHORT")
+#pragma pop_macro("VOID")
 
 #endif // _sun_invoke_util_Wrapper_h_

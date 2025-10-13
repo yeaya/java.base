@@ -124,7 +124,7 @@ $HelloCookieManager* HelloCookieManager$Builder::valueOf($ProtocolVersion* proto
 			}
 			return this->d10HelloCookieManager;
 		}
-	} else if ($nc(protocolVersion)->useTLS13PlusSpec()) {
+	} else if (protocolVersion->useTLS13PlusSpec()) {
 		if (this->t13HelloCookieManager != nullptr) {
 			return this->t13HelloCookieManager;
 		}

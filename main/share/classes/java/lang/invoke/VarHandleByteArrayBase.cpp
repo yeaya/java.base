@@ -14,12 +14,12 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef BUFFER_ADDRESS
-#undef BYTE_BUFFER_IS_READ_ONLY
 #undef BE
+#undef BUFFER_ADDRESS
 #undef BUFFER_LIMIT
-#undef UNSAFE
 #undef BYTE_BUFFER_HB
+#undef BYTE_BUFFER_IS_READ_ONLY
+#undef UNSAFE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

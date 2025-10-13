@@ -57,8 +57,8 @@
 #include <jdk/internal/module/ServicesCatalog.h>
 #include <jcpp.h>
 
-#undef JLMA
 #undef JLA
+#undef JLMA
 
 using $PathArray = $Array<::java::nio::file::Path>;
 using $PrintStream = ::java::io::PrintStream;

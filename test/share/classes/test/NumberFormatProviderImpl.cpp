@@ -96,7 +96,7 @@ $NumberFormat* NumberFormatProviderImpl::getPercentInstance($Locale* locale) {
 $NumberFormat* NumberFormatProviderImpl::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* style) {
 	if ($nc(locale)->equals(NumberFormatProviderImpl::QAB)) {
 		return $new($CompactNumberFormat, "#"_s, $($DecimalFormatSymbols::getInstance(locale)), NumberFormatProviderImpl::newPattern, "one:v = 0 and i % 100 = 1;two:v = 0 and i % 100 = 2;few:v = 0 and i % 100 = 3..4 or v != 0;other:"_s);
-	} else if ($nc(locale)->equals(NumberFormatProviderImpl::QAA)) {
+	} else if (locale->equals(NumberFormatProviderImpl::QAA)) {
 		return $new($CompactNumberFormat, "#"_s, $($DecimalFormatSymbols::getInstance(locale)), NumberFormatProviderImpl::oldPattern);
 	} else {
 		$throwNew($RuntimeException, "unsupported locale"_s);

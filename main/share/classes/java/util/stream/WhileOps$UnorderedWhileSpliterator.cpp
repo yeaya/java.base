@@ -14,9 +14,9 @@
 #include <java/util/stream/WhileOps.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
-#undef SIZED
 #undef CANCEL_CHECK_COUNT
+#undef SIZED
+#undef SUBSIZED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

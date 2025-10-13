@@ -14,10 +14,10 @@
 #include <jdk/internal/jimage/ImageStream.h>
 #include <jcpp.h>
 
+#undef HEADER_SLOTS
 #undef MAGIC
 #undef MAJOR_VERSION
 #undef MINOR_VERSION
-#undef HEADER_SLOTS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

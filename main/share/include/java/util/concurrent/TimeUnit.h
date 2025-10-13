@@ -6,32 +6,32 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("DAYS")
+#undef DAYS
+#pragma push_macro("DAY_SCALE")
+#undef DAY_SCALE
+#pragma push_macro("HOURS")
+#undef HOURS
+#pragma push_macro("HOUR_SCALE")
+#undef HOUR_SCALE
+#pragma push_macro("MICROSECONDS")
+#undef MICROSECONDS
+#pragma push_macro("MICRO_SCALE")
+#undef MICRO_SCALE
 #pragma push_macro("MILLISECONDS")
 #undef MILLISECONDS
 #pragma push_macro("MILLI_SCALE")
 #undef MILLI_SCALE
-#pragma push_macro("MINUTE_SCALE")
-#undef MINUTE_SCALE
-#pragma push_macro("MICROSECONDS")
-#undef MICROSECONDS
-#pragma push_macro("SECONDS")
-#undef SECONDS
-#pragma push_macro("NANOSECONDS")
-#undef NANOSECONDS
-#pragma push_macro("DAYS")
-#undef DAYS
-#pragma push_macro("NANO_SCALE")
-#undef NANO_SCALE
-#pragma push_macro("MICRO_SCALE")
-#undef MICRO_SCALE
-#pragma push_macro("HOURS")
-#undef HOURS
-#pragma push_macro("DAY_SCALE")
-#undef DAY_SCALE
-#pragma push_macro("HOUR_SCALE")
-#undef HOUR_SCALE
 #pragma push_macro("MINUTES")
 #undef MINUTES
+#pragma push_macro("MINUTE_SCALE")
+#undef MINUTE_SCALE
+#pragma push_macro("NANOSECONDS")
+#undef NANOSECONDS
+#pragma push_macro("NANO_SCALE")
+#undef NANO_SCALE
+#pragma push_macro("SECONDS")
+#undef SECONDS
 #pragma push_macro("SECOND_SCALE")
 #undef SECOND_SCALE
 
@@ -110,19 +110,19 @@ public:
 	} // util
 } // java
 
+#pragma pop_macro("DAYS")
+#pragma pop_macro("DAY_SCALE")
+#pragma pop_macro("HOURS")
+#pragma pop_macro("HOUR_SCALE")
+#pragma pop_macro("MICROSECONDS")
+#pragma pop_macro("MICRO_SCALE")
 #pragma pop_macro("MILLISECONDS")
 #pragma pop_macro("MILLI_SCALE")
-#pragma pop_macro("MINUTE_SCALE")
-#pragma pop_macro("MICROSECONDS")
-#pragma pop_macro("SECONDS")
-#pragma pop_macro("NANOSECONDS")
-#pragma pop_macro("DAYS")
-#pragma pop_macro("NANO_SCALE")
-#pragma pop_macro("MICRO_SCALE")
-#pragma pop_macro("HOURS")
-#pragma pop_macro("DAY_SCALE")
-#pragma pop_macro("HOUR_SCALE")
 #pragma pop_macro("MINUTES")
+#pragma pop_macro("MINUTE_SCALE")
+#pragma pop_macro("NANOSECONDS")
+#pragma pop_macro("NANO_SCALE")
+#pragma pop_macro("SECONDS")
 #pragma pop_macro("SECOND_SCALE")
 
 #endif // _java_util_concurrent_TimeUnit_h_

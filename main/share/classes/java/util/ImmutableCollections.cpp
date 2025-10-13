@@ -24,14 +24,14 @@
 #include <jdk/internal/misc/CDS.h>
 #include <jcpp.h>
 
-#undef SALT32L
-#undef EMPTY_MAP
-#undef EMPTY_LIST_NULLS
-#undef EMPTY_LIST
-#undef EMPTY_SET
-#undef REVERSE
-#undef EXPAND_FACTOR
 #undef EMPTY
+#undef EMPTY_LIST
+#undef EMPTY_LIST_NULLS
+#undef EMPTY_MAP
+#undef EMPTY_SET
+#undef EXPAND_FACTOR
+#undef REVERSE
+#undef SALT32L
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

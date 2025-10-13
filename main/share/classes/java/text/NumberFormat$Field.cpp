@@ -18,18 +18,18 @@
 #include <jcpp.h>
 
 #undef CURRENCY
-#undef EXPONENT_SIGN
-#undef SUFFIX
-#undef FRACTION
 #undef DECIMAL_SEPARATOR
+#undef EXPONENT
+#undef EXPONENT_SIGN
+#undef EXPONENT_SYMBOL
+#undef FRACTION
 #undef GROUPING_SEPARATOR
+#undef INTEGER
+#undef PERCENT
 #undef PERMILLE
 #undef PREFIX
-#undef PERCENT
-#undef EXPONENT
 #undef SIGN
-#undef INTEGER
-#undef EXPONENT_SYMBOL
+#undef SUFFIX
 
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ClassInfo = ::java::lang::ClassInfo;

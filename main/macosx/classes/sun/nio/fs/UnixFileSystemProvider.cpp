@@ -80,25 +80,25 @@
 #include <jcpp.h>
 
 #undef ALL_PERMISSIONS
+#undef ALL_READWRITE
 #undef EEXIST
-#undef S_IFDIR
-#undef O_NOFOLLOW
-#undef X_OK
+#undef EINVAL
+#undef EISDIR
+#undef EMPTY_PATH
 #undef ENOENT
-#undef W_OK
+#undef ENOTDIR
+#undef ENOTEMPTY
 #undef FILE_READLINK_ACTION
+#undef F_OK
+#undef O_NOFOLLOW
+#undef O_RDONLY
+#undef R_OK
+#undef S_IFDIR
+#undef S_IFMT
 #undef S_IFREG
 #undef USER_DIR
-#undef R_OK
-#undef S_IFMT
-#undef EINVAL
-#undef O_RDONLY
-#undef F_OK
-#undef EISDIR
-#undef ENOTDIR
-#undef ALL_READWRITE
-#undef EMPTY_PATH
-#undef ENOTEMPTY
+#undef W_OK
+#undef X_OK
 
 using $AccessModeArray = $Array<::java::nio::file::AccessMode>;
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;

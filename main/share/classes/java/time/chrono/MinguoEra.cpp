@@ -28,8 +28,8 @@
 
 #undef BEFORE_ROC
 #undef ERA
-#undef ROC
 #undef INSTANCE
+#undef ROC
 
 using $MinguoEraArray = $Array<::java::time::chrono::MinguoEra>;
 using $ClassInfo = ::java::lang::ClassInfo;

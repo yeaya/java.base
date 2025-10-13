@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NTLM")
-#undef NTLM
-#pragma push_macro("NEGOTIATE")
-#undef NEGOTIATE
-#pragma push_macro("DIGEST")
-#undef DIGEST
-#pragma push_macro("UNKNOWN")
-#undef UNKNOWN
-#pragma push_macro("KERBEROS")
-#undef KERBEROS
 #pragma push_macro("BASIC")
 #undef BASIC
+#pragma push_macro("DIGEST")
+#undef DIGEST
+#pragma push_macro("KERBEROS")
+#undef KERBEROS
+#pragma push_macro("NEGOTIATE")
+#undef NEGOTIATE
+#pragma push_macro("NTLM")
+#undef NTLM
+#pragma push_macro("UNKNOWN")
+#undef UNKNOWN
 
 namespace sun {
 	namespace net {
@@ -48,11 +48,11 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("NTLM")
-#pragma pop_macro("NEGOTIATE")
-#pragma pop_macro("DIGEST")
-#pragma pop_macro("UNKNOWN")
-#pragma pop_macro("KERBEROS")
 #pragma pop_macro("BASIC")
+#pragma pop_macro("DIGEST")
+#pragma pop_macro("KERBEROS")
+#pragma pop_macro("NEGOTIATE")
+#pragma pop_macro("NTLM")
+#pragma pop_macro("UNKNOWN")
 
 #endif // _sun_net_www_protocol_http_AuthScheme_h_

@@ -7,10 +7,10 @@
 
 #pragma push_macro("IDENT")
 #undef IDENT
-#pragma push_macro("VERSION")
-#undef VERSION
 #pragma push_macro("NAME")
 #undef NAME
+#pragma push_macro("VERSION")
+#undef VERSION
 
 namespace java {
 	namespace io {
@@ -69,7 +69,7 @@ public:
 } // sun
 
 #pragma pop_macro("IDENT")
-#pragma pop_macro("VERSION")
 #pragma pop_macro("NAME")
+#pragma pop_macro("VERSION")
 
 #endif // _sun_security_x509_CertificateVersion_h_

@@ -29,10 +29,10 @@
 #include <jcpp.h>
 
 #undef FLAG_BRIDGES
-#undef FLAG_SERIALIZABLE
-#undef TYPE
 #undef FLAG_MARKERS
+#undef FLAG_SERIALIZABLE
 #undef PRIVATE
+#undef TYPE
 
 using $MetafactoryArgValidationTest$C = ::MetafactoryArgValidationTest$C;
 using $MetafactoryArgValidationTest$I = ::MetafactoryArgValidationTest$I;

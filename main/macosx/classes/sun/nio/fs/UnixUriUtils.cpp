@@ -27,26 +27,26 @@
 #include <sun/nio/fs/UnixPath.h>
 #include <jcpp.h>
 
-#undef H_PATH
-#undef S_IFDIR
-#undef L_ALPHA
-#undef L_PATH
-#undef L_ALPHANUM
-#undef H_DIGIT
-#undef L_DIGIT
-#undef H_UNRESERVED
-#undef H_PCHAR
-#undef L_MARK
-#undef L_UNRESERVED
-#undef L_PCHAR
-#undef S_IFMT
 #undef H_ALPHA
 #undef H_ALPHANUM
-#undef H_UPALPHA
-#undef L_LOWALPHA
-#undef L_UPALPHA
+#undef H_DIGIT
 #undef H_LOWALPHA
 #undef H_MARK
+#undef H_PATH
+#undef H_PCHAR
+#undef H_UNRESERVED
+#undef H_UPALPHA
+#undef L_ALPHA
+#undef L_ALPHANUM
+#undef L_DIGIT
+#undef L_LOWALPHA
+#undef L_MARK
+#undef L_PATH
+#undef L_PCHAR
+#undef L_UNRESERVED
+#undef L_UPALPHA
+#undef S_IFDIR
+#undef S_IFMT
 
 using $File = ::java::io::File;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;

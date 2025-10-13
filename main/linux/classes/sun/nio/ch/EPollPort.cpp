@@ -28,9 +28,9 @@
 #include <sun/nio/ch/ThreadPool.h>
 #include <jcpp.h>
 
+#undef ENOENT
 #undef EXECUTE_TASK_OR_SHUTDOWN
 #undef MAX_EPOLL_EVENTS
-#undef ENOENT
 #undef NEED_TO_POLL
 
 using $IOException = ::java::io::IOException;

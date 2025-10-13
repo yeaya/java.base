@@ -26,9 +26,9 @@
 #include <sun/security/util/MemoryCache$SoftCacheEntry.h>
 #include <jcpp.h>
 
-#undef MAX_VALUE
-#undef LOAD_FACTOR
 #undef DEBUG
+#undef LOAD_FACTOR
+#undef MAX_VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -168,7 +168,7 @@ void MemoryCache::expungeExpiredEntries() {
 			if ($nc(entry)->isValid(time) == false) {
 				t->remove();
 				++cnt;
-			} else if (this->nextExpirationTime > $nc(entry)->getExpirationTime()) {
+			} else if (this->nextExpirationTime > entry->getExpirationTime()) {
 				this->nextExpirationTime = entry->getExpirationTime();
 			}
 		}

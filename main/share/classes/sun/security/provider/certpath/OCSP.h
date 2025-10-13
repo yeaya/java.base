@@ -5,12 +5,12 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("OCSP")
-#undef OCSP
-#pragma push_macro("DEFAULT_CONNECT_TIMEOUT")
-#undef DEFAULT_CONNECT_TIMEOUT
 #pragma push_macro("CONNECT_TIMEOUT")
 #undef CONNECT_TIMEOUT
+#pragma push_macro("DEFAULT_CONNECT_TIMEOUT")
+#undef DEFAULT_CONNECT_TIMEOUT
+#pragma push_macro("OCSP")
+#undef OCSP
 
 namespace java {
 	namespace net {
@@ -85,8 +85,8 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("OCSP")
-#pragma pop_macro("DEFAULT_CONNECT_TIMEOUT")
 #pragma pop_macro("CONNECT_TIMEOUT")
+#pragma pop_macro("DEFAULT_CONNECT_TIMEOUT")
+#pragma pop_macro("OCSP")
 
 #endif // _sun_security_provider_certpath_OCSP_h_

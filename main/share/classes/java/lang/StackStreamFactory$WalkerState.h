@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NEW")
-#undef NEW
 #pragma push_macro("CLOSED")
 #undef CLOSED
+#pragma push_macro("NEW")
+#undef NEW
 #pragma push_macro("OPEN")
 #undef OPEN
 
@@ -33,8 +33,8 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("NEW")
 #pragma pop_macro("CLOSED")
+#pragma pop_macro("NEW")
 #pragma pop_macro("OPEN")
 
 #endif // _java_lang_StackStreamFactory$WalkerState_h_

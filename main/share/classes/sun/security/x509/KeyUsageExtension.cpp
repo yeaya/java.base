@@ -23,17 +23,17 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef DATA_ENCIPHERMENT
 #undef CRL_SIGN
-#undef KEY_AGREEMENT
+#undef DATA_ENCIPHERMENT
 #undef DECIPHER_ONLY
-#undef IDENT
 #undef DIGITAL_SIGNATURE
 #undef ENCIPHER_ONLY
-#undef KEY_ENCIPHERMENT
-#undef NON_REPUDIATION
+#undef IDENT
+#undef KEY_AGREEMENT
 #undef KEY_CERTSIGN
+#undef KEY_ENCIPHERMENT
 #undef NAME
+#undef NON_REPUDIATION
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -217,21 +217,21 @@ void KeyUsageExtension::set($String* name, Object$* obj) {
 	bool val = $nc(($cast($Boolean, obj)))->booleanValue();
 	if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
 		set(0, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
 		set(1, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_ENCIPHERMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_ENCIPHERMENT)) {
 		set(2, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DATA_ENCIPHERMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::DATA_ENCIPHERMENT)) {
 		set(3, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_AGREEMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_AGREEMENT)) {
 		set(4, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_CERTSIGN)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_CERTSIGN)) {
 		set(5, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::CRL_SIGN)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::CRL_SIGN)) {
 		set(6, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::ENCIPHER_ONLY)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::ENCIPHER_ONLY)) {
 		set(7, val);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DECIPHER_ONLY)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::DECIPHER_ONLY)) {
 		set(8, val);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:KeyUsage."_s);
@@ -240,23 +240,23 @@ void KeyUsageExtension::set($String* name, Object$* obj) {
 }
 
 $Object* KeyUsageExtension::get($String* name) {
-	if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
+	if (name->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
 		return $of($Boolean::valueOf(isSet(0)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
 		return $of($Boolean::valueOf(isSet(1)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_ENCIPHERMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_ENCIPHERMENT)) {
 		return $of($Boolean::valueOf(isSet(2)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DATA_ENCIPHERMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::DATA_ENCIPHERMENT)) {
 		return $of($Boolean::valueOf(isSet(3)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_AGREEMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_AGREEMENT)) {
 		return $of($Boolean::valueOf(isSet(4)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_CERTSIGN)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_CERTSIGN)) {
 		return $of($Boolean::valueOf(isSet(5)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::CRL_SIGN)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::CRL_SIGN)) {
 		return $of($Boolean::valueOf(isSet(6)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::ENCIPHER_ONLY)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::ENCIPHER_ONLY)) {
 		return $of($Boolean::valueOf(isSet(7)));
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DECIPHER_ONLY)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::DECIPHER_ONLY)) {
 		return $of($Boolean::valueOf(isSet(8)));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:KeyUsage."_s);
@@ -264,23 +264,23 @@ $Object* KeyUsageExtension::get($String* name) {
 }
 
 void KeyUsageExtension::delete$($String* name) {
-	if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
+	if (name->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
 		set(0, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
 		set(1, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_ENCIPHERMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_ENCIPHERMENT)) {
 		set(2, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DATA_ENCIPHERMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::DATA_ENCIPHERMENT)) {
 		set(3, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_AGREEMENT)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_AGREEMENT)) {
 		set(4, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::KEY_CERTSIGN)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::KEY_CERTSIGN)) {
 		set(5, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::CRL_SIGN)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::CRL_SIGN)) {
 		set(6, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::ENCIPHER_ONLY)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::ENCIPHER_ONLY)) {
 		set(7, false);
-	} else if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DECIPHER_ONLY)) {
+	} else if (name->equalsIgnoreCase(KeyUsageExtension::DECIPHER_ONLY)) {
 		set(8, false);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:KeyUsage."_s);

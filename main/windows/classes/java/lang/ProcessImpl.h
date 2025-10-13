@@ -6,24 +6,24 @@
 #include <java/lang/Array.h>
 #include <java/lang/Process.h>
 
-#pragma push_macro("VERIFICATION_CMD_BAT")
-#undef VERIFICATION_CMD_BAT
 #pragma push_macro("BACKSLASH")
 #undef BACKSLASH
-#pragma push_macro("VERIFICATION_WIN32")
-#undef VERIFICATION_WIN32
-#pragma push_macro("SUPPORTS_NORMAL_TERMINATION")
-#undef SUPPORTS_NORMAL_TERMINATION
-#pragma push_macro("VERIFICATION_LEGACY")
-#undef VERIFICATION_LEGACY
-#pragma push_macro("ESCAPE_VERIFICATION")
-#undef ESCAPE_VERIFICATION
-#pragma push_macro("VERIFICATION_WIN32_SAFE")
-#undef VERIFICATION_WIN32_SAFE
-#pragma push_macro("STILL_ACTIVE")
-#undef STILL_ACTIVE
 #pragma push_macro("DOUBLEQUOTE")
 #undef DOUBLEQUOTE
+#pragma push_macro("ESCAPE_VERIFICATION")
+#undef ESCAPE_VERIFICATION
+#pragma push_macro("STILL_ACTIVE")
+#undef STILL_ACTIVE
+#pragma push_macro("SUPPORTS_NORMAL_TERMINATION")
+#undef SUPPORTS_NORMAL_TERMINATION
+#pragma push_macro("VERIFICATION_CMD_BAT")
+#undef VERIFICATION_CMD_BAT
+#pragma push_macro("VERIFICATION_LEGACY")
+#undef VERIFICATION_LEGACY
+#pragma push_macro("VERIFICATION_WIN32")
+#undef VERIFICATION_WIN32
+#pragma push_macro("VERIFICATION_WIN32_SAFE")
+#undef VERIFICATION_WIN32_SAFE
 
 namespace java {
 	namespace io {
@@ -128,14 +128,14 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("VERIFICATION_CMD_BAT")
 #pragma pop_macro("BACKSLASH")
-#pragma pop_macro("VERIFICATION_WIN32")
-#pragma pop_macro("SUPPORTS_NORMAL_TERMINATION")
-#pragma pop_macro("VERIFICATION_LEGACY")
-#pragma pop_macro("ESCAPE_VERIFICATION")
-#pragma pop_macro("VERIFICATION_WIN32_SAFE")
-#pragma pop_macro("STILL_ACTIVE")
 #pragma pop_macro("DOUBLEQUOTE")
+#pragma pop_macro("ESCAPE_VERIFICATION")
+#pragma pop_macro("STILL_ACTIVE")
+#pragma pop_macro("SUPPORTS_NORMAL_TERMINATION")
+#pragma pop_macro("VERIFICATION_CMD_BAT")
+#pragma pop_macro("VERIFICATION_LEGACY")
+#pragma pop_macro("VERIFICATION_WIN32")
+#pragma pop_macro("VERIFICATION_WIN32_SAFE")
 
 #endif // _java_lang_ProcessImpl_h_

@@ -40,8 +40,8 @@
 
 #undef END_DIRECTORY
 #undef ENTRY
-#undef START_DIRECTORY
 #undef NOFOLLOW_LINKS
+#undef START_DIRECTORY
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Closeable = ::java::io::Closeable;

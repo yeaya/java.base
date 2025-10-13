@@ -15,27 +15,27 @@
 #include <sun/security/ssl/SSLCipher.h>
 #include <jcpp.h>
 
-#undef K_ECDHE_ECDSA
-#undef K_NULL
-#undef K_RSA
-#undef B_AES_256
-#undef B_AES_256_GCM
-#undef B_AES_128_GCM
-#undef K_DH_DSS
-#undef K_DH_ANON
-#undef K_DHE_DSS
-#undef K_DH_RSA
 #undef B_3DES
 #undef B_AES_128
-#undef K_ECDHE_RSA
-#undef K_ECDH_ANON
-#undef K_DHE_RSA
-#undef B_NULL
+#undef B_AES_128_GCM
+#undef B_AES_256
+#undef B_AES_256_GCM
 #undef B_DES
 #undef B_DES_40
+#undef B_NULL
+#undef K_DHE_DSS
+#undef K_DHE_RSA
+#undef K_DH_ANON
+#undef K_DH_DSS
+#undef K_DH_RSA
+#undef K_ECDHE_ECDSA
+#undef K_ECDHE_RSA
+#undef K_ECDH_ANON
 #undef K_ECDH_ECDSA
-#undef K_RSA_EXPORT
 #undef K_ECDH_RSA
+#undef K_NULL
+#undef K_RSA
+#undef K_RSA_EXPORT
 
 using $CipherSuite$KeyExchangeArray = $Array<::sun::security::ssl::CipherSuite$KeyExchange>;
 using $SSLCipherArray = $Array<::sun::security::ssl::SSLCipher>;

@@ -21,8 +21,8 @@
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jcpp.h>
 
-#undef V_TYPE
 #undef TYPE
+#undef V_TYPE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

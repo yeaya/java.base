@@ -19,8 +19,8 @@
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
-#undef TRUE
 #undef FALSE
+#undef TRUE
 #undef TYPE
 
 using $Serializable = ::java::io::Serializable;

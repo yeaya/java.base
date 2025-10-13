@@ -37,8 +37,8 @@
 #include "StackWalk.h"
 #include <java/lang/Machine.h>
 
-#undef WILDCARD
 #undef ALL_MEMBERS
+#undef WILDCARD
 
 using $FieldArray = $Array<::java::lang::reflect::Field>;
 using $MemberArray = $Array<::java::lang::reflect::Member>;

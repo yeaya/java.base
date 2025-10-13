@@ -8,14 +8,14 @@
 
 #pragma push_macro("C")
 #undef C
-#pragma push_macro("S")
-#undef S
-#pragma push_macro("X")
-#undef X
 #pragma push_macro("MD2")
 #undef MD2
 #pragma push_macro("PADDING")
 #undef PADDING
+#pragma push_macro("S")
+#undef S
+#pragma push_macro("X")
+#undef X
 
 namespace sun {
 	namespace security {
@@ -43,9 +43,9 @@ public:
 } // sun
 
 #pragma pop_macro("C")
-#pragma pop_macro("S")
-#pragma pop_macro("X")
 #pragma pop_macro("MD2")
 #pragma pop_macro("PADDING")
+#pragma pop_macro("S")
+#pragma pop_macro("X")
 
 #endif // _sun_security_provider_MD2_h_

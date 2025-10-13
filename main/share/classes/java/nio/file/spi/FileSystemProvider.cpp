@@ -62,11 +62,11 @@
 #include <sun/nio/ch/FileChannelImpl.h>
 #include <jcpp.h>
 
+#undef APPEND
+#undef CREATE
 #undef DEFAULT_OPEN_OPTIONS
 #undef READ
 #undef TRUNCATE_EXISTING
-#undef CREATE
-#undef APPEND
 #undef WRITE
 
 using $AccessModeArray = $Array<::java::nio::file::AccessMode>;

@@ -48,36 +48,36 @@
 #include <sun/reflect/annotation/TypeAnnotation.h>
 #include <jcpp.h>
 
-#undef INSTANCEOF
-#undef NEW
-#undef LOCAL_VARIABLE
-#undef RUNTIME
 #undef BASE_LOCATION
-#undef STATIC
-#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
-#undef CLASS_TYPE_PARAMETER_BOUND
-#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
-#undef CONSTRUCTOR_REFERENCE
-#undef METHOD_TYPE_PARAMETER
+#undef CAST
+#undef CLASS_EXTENDS
 #undef CLASS_IMPLEMENTS
 #undef CLASS_TYPE_PARAMETER
-#undef EXCEPTION_PARAMETER
-#undef TYPE
-#undef METHOD_INVOCATION_TYPE_ARGUMENT
-#undef CAST
-#undef RESOURCE_VARIABLE
-#undef METHOD_REFERENCE
-#undef FIELD
-#undef METHOD_RECEIVER
+#undef CLASS_TYPE_PARAMETER_BOUND
+#undef CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT
+#undef CONSTRUCTOR_REFERENCE
+#undef CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT
 #undef EMPTY_ANNOTATED_TYPE
-#undef EMPTY_TYPE_ANNOTATION_ARRAY
 #undef EMPTY_ANNOTATED_TYPE_ARRAY
-#undef METHOD_RETURN
-#undef CLASS_EXTENDS
-#undef METHOD_REFERENCE_TYPE_ARGUMENT
-#undef THROWS
+#undef EMPTY_TYPE_ANNOTATION_ARRAY
+#undef EXCEPTION_PARAMETER
+#undef FIELD
+#undef INSTANCEOF
+#undef LOCAL_VARIABLE
 #undef METHOD_FORMAL_PARAMETER
+#undef METHOD_INVOCATION_TYPE_ARGUMENT
+#undef METHOD_RECEIVER
+#undef METHOD_REFERENCE
+#undef METHOD_REFERENCE_TYPE_ARGUMENT
+#undef METHOD_RETURN
+#undef METHOD_TYPE_PARAMETER
 #undef METHOD_TYPE_PARAMETER_BOUND
+#undef NEW
+#undef RESOURCE_VARIABLE
+#undef RUNTIME
+#undef STATIC
+#undef THROWS
+#undef TYPE
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
@@ -411,7 +411,6 @@ $TypeAnnotationArray* TypeAnnotationParser::parseAllTypeAnnotations($AnnotatedEl
 		container = $nc(($cast($Executable, decl)))->getDeclaringClass();
 		$assign(rawBytes, $nc(javaLangAccess)->getRawExecutableTypeAnnotations($cast($Executable, decl)));
 	} else {
-		$init(TypeAnnotationParser);
 		return TypeAnnotationParser::EMPTY_TYPE_ANNOTATION_ARRAY;
 	}
 	return parseTypeAnnotations(rawBytes, $($nc(javaLangAccess)->getConstantPool(container)), decl, container);

@@ -17,8 +17,8 @@
 #include <jcpp.h>
 
 #undef U
-#undef VM_SUPPORTS_LONG_CAS
 #undef VALUE
+#undef VM_SUPPORTS_LONG_CAS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

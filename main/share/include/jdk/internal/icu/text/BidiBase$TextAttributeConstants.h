@@ -5,12 +5,12 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("RUN_DIRECTION")
-#undef RUN_DIRECTION
-#pragma push_macro("NUMERIC_SHAPING")
-#undef NUMERIC_SHAPING
 #pragma push_macro("BIDI_EMBEDDING")
 #undef BIDI_EMBEDDING
+#pragma push_macro("NUMERIC_SHAPING")
+#undef NUMERIC_SHAPING
+#pragma push_macro("RUN_DIRECTION")
+#undef RUN_DIRECTION
 #pragma push_macro("RUN_DIRECTION_LTR")
 #undef RUN_DIRECTION_LTR
 
@@ -55,9 +55,9 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("RUN_DIRECTION")
-#pragma pop_macro("NUMERIC_SHAPING")
 #pragma pop_macro("BIDI_EMBEDDING")
+#pragma pop_macro("NUMERIC_SHAPING")
+#pragma pop_macro("RUN_DIRECTION")
 #pragma pop_macro("RUN_DIRECTION_LTR")
 
 #endif // _jdk_internal_icu_text_BidiBase$TextAttributeConstants_h_

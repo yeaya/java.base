@@ -35,14 +35,14 @@
 #include <java/util/concurrent/ThreadLocalRandom.h>
 #include <jcpp.h>
 
+#undef BASE
+#undef BLOCKED
+#undef INNOCUOUS_ACC
 #undef QA
 #undef SOURCE
-#undef BLOCKED
-#undef WAITING
 #undef TIMED_WAITING
 #undef TYPE
-#undef BASE
-#undef INNOCUOUS_ACC
+#undef WAITING
 
 using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
 using $ForkJoinTaskArray = $Array<::java::util::concurrent::ForkJoinTask>;
@@ -507,7 +507,7 @@ int32_t ForkJoinPool$WorkQueue::helpComplete($ForkJoinTask* task, bool owned, in
 						$Thread::yield();
 					}
 					break;
-				} else if (($assign(f, $nc(f)->completer)) == nullptr) {
+				} else if (($assign(f, f->completer)) == nullptr) {
 					break;
 				}
 			}

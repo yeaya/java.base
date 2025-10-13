@@ -48,29 +48,29 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef STRICT
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
-#undef CHRONOS_BY_ID
-#undef DAY_OF_MONTH
-#undef DAYS
-#undef INSTANCE
-#undef PROLEPTIC_MONTH
-#undef MONTHS
-#undef LENIENT
-#undef MONTH_OF_YEAR
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
 #undef ALIGNED_WEEK_OF_MONTH
-#undef YEAR
+#undef ALIGNED_WEEK_OF_YEAR
+#undef CHRONOS_BY_ID
+#undef CHRONOS_BY_TYPE
 #undef CHRONO_TYPE
+#undef DAYS
+#undef DAY_OF_MONTH
+#undef DAY_OF_WEEK
+#undef DAY_OF_YEAR
 #undef EPOCH_DAY
 #undef ERA
-#undef WEEKS
-#undef ALIGNED_WEEK_OF_YEAR
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef DAY_OF_WEEK
+#undef INSTANCE
+#undef LENIENT
+#undef MONTHS
+#undef MONTH_OF_YEAR
+#undef PROLEPTIC_MONTH
 #undef SMART
+#undef STRICT
+#undef WEEKS
+#undef YEAR
 #undef YEAR_OF_ERA
-#undef CHRONOS_BY_TYPE
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
@@ -414,17 +414,17 @@ $ChronoLocalDate* AbstractChronology::resolveYearOfEra($Map* fieldValues, $Resol
 
 $ChronoLocalDate* AbstractChronology::resolveYMD($Map* fieldValues, $ResolverStyle* resolverStyle) {
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), (int64_t)1);
+		int64_t months = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
 		return $nc($($nc($(date(y, 1, 1)))->plus(months, $ChronoUnit::MONTHS)))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
+	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
 	$var($ValueRange, domRange, range($ChronoField::DAY_OF_MONTH));
-	int32_t dom = $nc(domRange)->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), $ChronoField::DAY_OF_MONTH);
+	int32_t dom = $nc(domRange)->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_MONTH)))))->longValue(), $ChronoField::DAY_OF_MONTH);
 	if (resolverStyle == $ResolverStyle::SMART) {
 		try {
 			return date(y, moy, dom);
@@ -438,31 +438,31 @@ $ChronoLocalDate* AbstractChronology::resolveYMD($Map* fieldValues, $ResolverSty
 
 $ChronoLocalDate* AbstractChronology::resolveYD($Map* fieldValues, $ResolverStyle* resolverStyle) {
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_YEAR)))))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
 		return $nc($(dateYearDay(y, 1)))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t doy = $nc($(range($ChronoField::DAY_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_YEAR)))))->longValue(), $ChronoField::DAY_OF_YEAR);
+	int32_t doy = $nc($(range($ChronoField::DAY_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_YEAR)))))->longValue(), $ChronoField::DAY_OF_YEAR);
 	return dateYearDay(y, doy);
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMAA($Map* fieldValues, $ResolverStyle* resolverStyle) {
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))))->longValue(), (int64_t)1);
+		int64_t months = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
 		return $nc($($nc($($nc($(this->date(y, 1, 1)))->plus(months, $ChronoUnit::MONTHS)))->plus(weeks, $ChronoUnit::WEEKS)))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_MONTH)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
-	int32_t ad = $nc($(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH);
+	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
+	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_MONTH)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
+	int32_t ad = $nc($(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH)))))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH);
 	$init($ChronoUnit);
 	$var($ChronoLocalDate, date, $nc($(this->date(y, moy, 1)))->plus((aw - 1) * 7 + (ad - 1), $ChronoUnit::DAYS));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::MONTH_OF_YEAR) != moy) {
@@ -473,17 +473,17 @@ $ChronoLocalDate* AbstractChronology::resolveYMAA($Map* fieldValues, $ResolverSt
 
 $ChronoLocalDate* AbstractChronology::resolveYMAD($Map* fieldValues, $ResolverStyle* resolverStyle) {
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t months = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), (int64_t)1);
-		int64_t dow = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), (int64_t)1);
+		int64_t months = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), (int64_t)1);
+		int64_t dow = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), (int64_t)1);
 		return resolveAligned($(this->date(y, 1, 1)), months, weeks, dow);
 	}
-	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_MONTH)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
-	int32_t dow = $nc($(range($ChronoField::DAY_OF_WEEK)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), $ChronoField::DAY_OF_WEEK);
+	int32_t moy = $nc($(range($ChronoField::MONTH_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::MONTH_OF_YEAR)))))->longValue(), $ChronoField::MONTH_OF_YEAR);
+	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_MONTH)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_MONTH)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_MONTH);
+	int32_t dow = $nc($(range($ChronoField::DAY_OF_WEEK)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), $ChronoField::DAY_OF_WEEK);
 	$init($ChronoUnit);
 	$var($ChronoLocalDate, date, $nc($($nc($(this->date(y, moy, 1)))->plus((aw - 1) * 7, $ChronoUnit::DAYS)))->with($($TemporalAdjusters::nextOrSame($($DayOfWeek::of(dow))))));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::MONTH_OF_YEAR) != moy) {
@@ -494,16 +494,16 @@ $ChronoLocalDate* AbstractChronology::resolveYMAD($Map* fieldValues, $ResolverSt
 
 $ChronoLocalDate* AbstractChronology::resolveYAA($Map* fieldValues, $ResolverStyle* resolverStyle) {
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t days = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t days = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))))->longValue(), (int64_t)1);
 		$init($ChronoUnit);
 		return $nc($($nc($(dateYearDay(y, 1)))->plus(weeks, $ChronoUnit::WEEKS)))->plus(days, $ChronoUnit::DAYS);
 	}
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
-	int32_t ad = $nc($(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR);
+	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
+	int32_t ad = $nc($(range($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR)))))->longValue(), $ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR);
 	$init($ChronoUnit);
 	$var($ChronoLocalDate, date, $nc($(dateYearDay(y, 1)))->plus((aw - 1) * 7 + (ad - 1), $ChronoUnit::DAYS));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::YEAR) != y) {
@@ -514,15 +514,15 @@ $ChronoLocalDate* AbstractChronology::resolveYAA($Map* fieldValues, $ResolverSty
 
 $ChronoLocalDate* AbstractChronology::resolveYAD($Map* fieldValues, $ResolverStyle* resolverStyle) {
 	$init($ChronoField);
-	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
+	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), (int64_t)1);
-		int64_t dow = $Math::subtractExact($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), (int64_t)1);
+		int64_t weeks = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), (int64_t)1);
+		int64_t dow = $Math::subtractExact($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), (int64_t)1);
 		return resolveAligned($(dateYearDay(y, 1)), 0, weeks, dow);
 	}
-	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
-	int32_t dow = $nc($(range($ChronoField::DAY_OF_WEEK)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), $ChronoField::DAY_OF_WEEK);
+	int32_t aw = $nc($(range($ChronoField::ALIGNED_WEEK_OF_YEAR)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::ALIGNED_WEEK_OF_YEAR)))))->longValue(), $ChronoField::ALIGNED_WEEK_OF_YEAR);
+	int32_t dow = $nc($(range($ChronoField::DAY_OF_WEEK)))->checkValidIntValue($nc(($cast($Long, $(fieldValues->remove($ChronoField::DAY_OF_WEEK)))))->longValue(), $ChronoField::DAY_OF_WEEK);
 	$init($ChronoUnit);
 	$var($ChronoLocalDate, date, $nc($($nc($(dateYearDay(y, 1)))->plus((aw - 1) * 7, $ChronoUnit::DAYS)))->with($($TemporalAdjusters::nextOrSame($($DayOfWeek::of(dow))))));
 	if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->get($ChronoField::YEAR) != y) {
@@ -538,7 +538,6 @@ $ChronoLocalDate* AbstractChronology::resolveAligned($ChronoLocalDate* base, int
 		$assign(date, $nc(date)->plus((dow - 1) / 7, $ChronoUnit::WEEKS));
 		dow = ((dow - 1) % 7) + 1;
 	} else if (dow < 1) {
-		$init($ChronoUnit);
 		$assign(date, $nc(date)->plus($Math::subtractExact(dow, (int64_t)7) / 7, $ChronoUnit::WEEKS));
 		dow = ((dow + 6) % 7) + 1;
 	}
@@ -546,7 +545,7 @@ $ChronoLocalDate* AbstractChronology::resolveAligned($ChronoLocalDate* base, int
 }
 
 void AbstractChronology::addFieldValue($Map* fieldValues, $ChronoField* field, int64_t value) {
-	$var($Long, old, $cast($Long, $nc(fieldValues)->get(field)));
+	$var($Long, old, $cast($Long, fieldValues->get(field)));
 	if (old != nullptr && old->longValue() != value) {
 		$throwNew($DateTimeException, $$str({"Conflict found: "_s, field, " "_s, old, " differs from "_s, field, " "_s, $$str(value)}));
 	}

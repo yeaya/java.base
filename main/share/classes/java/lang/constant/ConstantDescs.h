@@ -5,38 +5,38 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("BSM_VARHANDLE_FIELD")
-#undef BSM_VARHANDLE_FIELD
-#pragma push_macro("CONDY_BOOTSTRAP_ARGS")
-#undef CONDY_BOOTSTRAP_ARGS
-#pragma push_macro("BSM_VARHANDLE_ARRAY")
-#undef BSM_VARHANDLE_ARRAY
-#pragma push_macro("NULL")
-#undef NULL
-#pragma push_macro("BSM_VARHANDLE_STATIC_FIELD")
-#undef BSM_VARHANDLE_STATIC_FIELD
-#pragma push_macro("INDY_BOOTSTRAP_ARGS")
-#undef INDY_BOOTSTRAP_ARGS
-#pragma push_macro("BSM_NULL_CONSTANT")
-#undef BSM_NULL_CONSTANT
-#pragma push_macro("TRUE")
-#undef TRUE
-#pragma push_macro("MHD_METHODHANDLE_ASTYPE")
-#undef MHD_METHODHANDLE_ASTYPE
-#pragma push_macro("BSM_PRIMITIVE_CLASS")
-#undef BSM_PRIMITIVE_CLASS
 #pragma push_macro("BSM_ENUM_CONSTANT")
 #undef BSM_ENUM_CONSTANT
 #pragma push_macro("BSM_EXPLICIT_CAST")
 #undef BSM_EXPLICIT_CAST
-#pragma push_macro("DEFAULT_NAME")
-#undef DEFAULT_NAME
-#pragma push_macro("BSM_INVOKE")
-#undef BSM_INVOKE
-#pragma push_macro("FALSE")
-#undef FALSE
 #pragma push_macro("BSM_GET_STATIC_FINAL")
 #undef BSM_GET_STATIC_FINAL
+#pragma push_macro("BSM_INVOKE")
+#undef BSM_INVOKE
+#pragma push_macro("BSM_NULL_CONSTANT")
+#undef BSM_NULL_CONSTANT
+#pragma push_macro("BSM_PRIMITIVE_CLASS")
+#undef BSM_PRIMITIVE_CLASS
+#pragma push_macro("BSM_VARHANDLE_ARRAY")
+#undef BSM_VARHANDLE_ARRAY
+#pragma push_macro("BSM_VARHANDLE_FIELD")
+#undef BSM_VARHANDLE_FIELD
+#pragma push_macro("BSM_VARHANDLE_STATIC_FIELD")
+#undef BSM_VARHANDLE_STATIC_FIELD
+#pragma push_macro("CONDY_BOOTSTRAP_ARGS")
+#undef CONDY_BOOTSTRAP_ARGS
+#pragma push_macro("DEFAULT_NAME")
+#undef DEFAULT_NAME
+#pragma push_macro("FALSE")
+#undef FALSE
+#pragma push_macro("INDY_BOOTSTRAP_ARGS")
+#undef INDY_BOOTSTRAP_ARGS
+#pragma push_macro("MHD_METHODHANDLE_ASTYPE")
+#undef MHD_METHODHANDLE_ASTYPE
+#pragma push_macro("NULL")
+#undef NULL
+#pragma push_macro("TRUE")
+#undef TRUE
 
 namespace java {
 	namespace lang {
@@ -128,21 +128,21 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("BSM_VARHANDLE_FIELD")
-#pragma pop_macro("CONDY_BOOTSTRAP_ARGS")
-#pragma pop_macro("BSM_VARHANDLE_ARRAY")
-#pragma pop_macro("NULL")
-#pragma pop_macro("BSM_VARHANDLE_STATIC_FIELD")
-#pragma pop_macro("INDY_BOOTSTRAP_ARGS")
-#pragma pop_macro("BSM_NULL_CONSTANT")
-#pragma pop_macro("TRUE")
-#pragma pop_macro("MHD_METHODHANDLE_ASTYPE")
-#pragma pop_macro("BSM_PRIMITIVE_CLASS")
 #pragma pop_macro("BSM_ENUM_CONSTANT")
 #pragma pop_macro("BSM_EXPLICIT_CAST")
-#pragma pop_macro("DEFAULT_NAME")
-#pragma pop_macro("BSM_INVOKE")
-#pragma pop_macro("FALSE")
 #pragma pop_macro("BSM_GET_STATIC_FINAL")
+#pragma pop_macro("BSM_INVOKE")
+#pragma pop_macro("BSM_NULL_CONSTANT")
+#pragma pop_macro("BSM_PRIMITIVE_CLASS")
+#pragma pop_macro("BSM_VARHANDLE_ARRAY")
+#pragma pop_macro("BSM_VARHANDLE_FIELD")
+#pragma pop_macro("BSM_VARHANDLE_STATIC_FIELD")
+#pragma pop_macro("CONDY_BOOTSTRAP_ARGS")
+#pragma pop_macro("DEFAULT_NAME")
+#pragma pop_macro("FALSE")
+#pragma pop_macro("INDY_BOOTSTRAP_ARGS")
+#pragma pop_macro("MHD_METHODHANDLE_ASTYPE")
+#pragma pop_macro("NULL")
+#pragma pop_macro("TRUE")
 
 #endif // _java_lang_constant_ConstantDescs_h_

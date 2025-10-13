@@ -17,8 +17,8 @@
 #include <java/util/Vector.h>
 #include <jcpp.h>
 
-#undef NUM_BLOCKS
 #undef BLOCK_SIZE
+#undef NUM_BLOCKS
 
 using $SoftReferenceArray = $Array<::java::lang::ref::SoftReference>;
 using $PrintStream = ::java::io::PrintStream;

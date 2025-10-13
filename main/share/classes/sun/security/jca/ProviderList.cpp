@@ -35,9 +35,9 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
+#undef EMPTY
 #undef EMPTY_PROVIDER
 #undef PC0
-#undef EMPTY
 
 using $ProviderArray = $Array<::java::security::Provider>;
 using $ProviderConfigArray = $Array<::sun::security::jca::ProviderConfig>;

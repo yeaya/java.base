@@ -44,8 +44,8 @@
 #include <sun/security/ssl/SupportedGroupsExtension$SupportedGroups.h>
 #include <jcpp.h>
 
-#undef HELLO_RETRY_REQUEST
 #undef CH_KEY_SHARE
+#undef HELLO_RETRY_REQUEST
 
 using $Serializable = ::java::io::Serializable;
 using $Byte = ::java::lang::Byte;

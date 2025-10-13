@@ -35,8 +35,8 @@
 #include <sun/nio/fs/AbstractFileSystemProvider.h>
 #include <jcpp.h>
 
-#undef UNNAMED
 #undef MAX_VALUE
+#undef UNNAMED
 
 using $FileDescriptor = ::java::io::FileDescriptor;
 using $ClassInfo = ::java::lang::ClassInfo;

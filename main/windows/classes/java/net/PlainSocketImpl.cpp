@@ -29,18 +29,18 @@
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-#undef SO_LINGER
-#undef SO_BINDADDR
-#undef SO_RCVBUF
 #undef IP_TOS
-#undef SO_TIMEOUT
+#undef SO_BINDADDR
 #undef SO_KEEPALIVE
-#undef SO_SNDBUF
-#undef WOULDBLOCK
-#undef SO_REUSEADDR
+#undef SO_LINGER
 #undef SO_OOBINLINE
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
 #undef SO_REUSEPORT
+#undef SO_SNDBUF
+#undef SO_TIMEOUT
 #undef TCP_NODELAY
+#undef WOULDBLOCK
 
 using $InetSocketAddressArray = $Array<::java::net::InetSocketAddress>;
 using $FileDescriptor = ::java::io::FileDescriptor;

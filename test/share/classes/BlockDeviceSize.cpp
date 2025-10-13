@@ -23,9 +23,9 @@
 #include <java/nio/file/StandardOpenOption.h>
 #include <jcpp.h>
 
-#undef READ
-#undef BLK_PATH
 #undef BLK_FNAME
+#undef BLK_PATH
+#undef READ
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $PrintStream = ::java::io::PrintStream;

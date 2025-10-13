@@ -33,30 +33,30 @@
 #include <sun/invoke/util/Wrapper$Format.h>
 #include <jcpp.h>
 
-#undef FLOAT
-#undef SLOT_MASK
-#undef CHAR
-#undef FROM_CHAR
-#undef OBJECT
 #undef BOOLEAN
-#undef INT
-#undef SHORT
-#undef FROM_PRIM
-#undef FROM_WRAP
-#undef NUM_MASK
-#undef SIGNED
 #undef BYTE
-#undef FLOAT_ZERO
-#undef SIZE_MASK
-#undef SLOT_SHIFT
+#undef CHAR
 #undef COUNT
+#undef DOUBLE
 #undef DOUBLE_ZERO
 #undef FALSE
-#undef DOUBLE
-#undef VOID
-#undef TYPE
-#undef SIZE_SHIFT
+#undef FLOAT
+#undef FLOAT_ZERO
+#undef FROM_CHAR
+#undef FROM_PRIM
+#undef FROM_WRAP
+#undef INT
 #undef LONG
+#undef NUM_MASK
+#undef OBJECT
+#undef SHORT
+#undef SIGNED
+#undef SIZE_MASK
+#undef SIZE_SHIFT
+#undef SLOT_MASK
+#undef SLOT_SHIFT
+#undef TYPE
+#undef VOID
 
 using $WrapperArray = $Array<::sun::invoke::util::Wrapper>;
 using $AssertionError = ::java::lang::AssertionError;
@@ -411,14 +411,12 @@ bool Wrapper::checkConvertibleFrom() {
 									if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
 										$throwNew($AssertionError);
 									}
-								} else if ($nc(x)->isSigned()) {
-									if ($nc(w)->compareTo(static_cast<$Enum*>(x)) < 0) {
-										$init(Wrapper);
+								} else if (x->isSigned()) {
+									if (w->compareTo(static_cast<$Enum*>(x)) < 0) {
 										if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
 											$throwNew($AssertionError);
 										}
 									} else {
-										$init(Wrapper);
 										if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
 											$throwNew($AssertionError);
 										}
@@ -443,14 +441,12 @@ bool Wrapper::checkConvertibleFrom() {
 									if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
 										$throwNew($AssertionError);
 									}
-								} else if ($nc(x)->isFloating()) {
-									if ($nc(w)->compareTo(static_cast<$Enum*>(x)) < 0) {
-										$init(Wrapper);
+								} else if (x->isFloating()) {
+									if (w->compareTo(static_cast<$Enum*>(x)) < 0) {
 										if (!Wrapper::$assertionsDisabled && !(!w->isConvertibleFrom(x))) {
 											$throwNew($AssertionError);
 										}
 									} else {
-										$init(Wrapper);
 										if (!Wrapper::$assertionsDisabled && !(w->isConvertibleFrom(x))) {
 											$throwNew($AssertionError);
 										}
@@ -592,7 +588,7 @@ Wrapper* Wrapper::forWrapperType($Class* type) {
 	}
 	{
 		$var($WrapperArray, arr$, values());
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			Wrapper* x = arr$->get(i$);
@@ -621,7 +617,7 @@ Wrapper* Wrapper::forBasicType(char16_t type) {
 	}
 	{
 		$var($WrapperArray, arr$, values());
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			Wrapper* x = arr$->get(i$);
@@ -683,7 +679,7 @@ $Class* Wrapper::wrapperType($Class* exampleType) {
 		return exampleType;
 	} else {
 		$load($Object);
-		if (exampleType == this->primitiveType$ || this->wrapperType$ == $Object::class$ || $nc(exampleType)->isInterface()) {
+		if (exampleType == this->primitiveType$ || this->wrapperType$ == $Object::class$ || exampleType->isInterface()) {
 			return forceType(this->wrapperType$, exampleType);
 		}
 	}
@@ -1024,7 +1020,7 @@ void clinit$Wrapper($Class* class$) {
 	{
 		{
 			$var($WrapperArray, arr$, Wrapper::values());
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				Wrapper* w = arr$->get(i$);

@@ -7,12 +7,12 @@
 
 #pragma push_macro("LOOP_ITERS")
 #undef LOOP_ITERS
+#pragma push_macro("MAIN_ITERS")
+#undef MAIN_ITERS
 #pragma push_macro("PREMATURE_FINALIZATION")
 #undef PREMATURE_FINALIZATION
 #pragma push_macro("WARMUP_LOOP_ITERS")
 #undef WARMUP_LOOP_ITERS
-#pragma push_macro("MAIN_ITERS")
-#undef MAIN_ITERS
 
 class $export ReachabilityFenceTest : public ::java::lang::Object {
 	$class(ReachabilityFenceTest, 0, ::java::lang::Object)
@@ -29,8 +29,8 @@ public:
 };
 
 #pragma pop_macro("LOOP_ITERS")
+#pragma pop_macro("MAIN_ITERS")
 #pragma pop_macro("PREMATURE_FINALIZATION")
 #pragma pop_macro("WARMUP_LOOP_ITERS")
-#pragma pop_macro("MAIN_ITERS")
 
 #endif // _ReachabilityFenceTest_h_

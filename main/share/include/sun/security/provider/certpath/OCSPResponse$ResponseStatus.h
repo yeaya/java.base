@@ -6,18 +6,18 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("TRY_LATER")
-#undef TRY_LATER
-#pragma push_macro("SUCCESSFUL")
-#undef SUCCESSFUL
-#pragma push_macro("UNAUTHORIZED")
-#undef UNAUTHORIZED
+#pragma push_macro("INTERNAL_ERROR")
+#undef INTERNAL_ERROR
 #pragma push_macro("MALFORMED_REQUEST")
 #undef MALFORMED_REQUEST
 #pragma push_macro("SIG_REQUIRED")
 #undef SIG_REQUIRED
-#pragma push_macro("INTERNAL_ERROR")
-#undef INTERNAL_ERROR
+#pragma push_macro("SUCCESSFUL")
+#undef SUCCESSFUL
+#pragma push_macro("TRY_LATER")
+#undef TRY_LATER
+#pragma push_macro("UNAUTHORIZED")
+#undef UNAUTHORIZED
 #pragma push_macro("UNUSED")
 #undef UNUSED
 
@@ -49,12 +49,12 @@ public:
 	} // security
 } // sun
 
-#pragma pop_macro("TRY_LATER")
-#pragma pop_macro("SUCCESSFUL")
-#pragma pop_macro("UNAUTHORIZED")
+#pragma pop_macro("INTERNAL_ERROR")
 #pragma pop_macro("MALFORMED_REQUEST")
 #pragma pop_macro("SIG_REQUIRED")
-#pragma pop_macro("INTERNAL_ERROR")
+#pragma pop_macro("SUCCESSFUL")
+#pragma pop_macro("TRY_LATER")
+#pragma pop_macro("UNAUTHORIZED")
 #pragma pop_macro("UNUSED")
 
 #endif // _sun_security_provider_certpath_OCSPResponse$ResponseStatus_h_

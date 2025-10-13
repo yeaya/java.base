@@ -22,8 +22,8 @@
 #include <jcpp.h>
 
 #undef CLOSE_MESSAGE
-#undef SAME_MESSAGE
 #undef FLUSH_MESSAGE
+#undef SAME_MESSAGE
 
 using $SuppressedException$OutputStreamFailsWithException = ::SuppressedException$OutputStreamFailsWithException;
 using $ThrowableArray = $Array<::java::lang::Throwable>;
@@ -176,20 +176,17 @@ void SuppressedException::test() {
 						$nc($System::err)->println("\nExpected suppressed exception not present"_s);
 						e->printStackTrace();
 						++failures;
-					} else if ($nc(suppressed)->length != 1) {
-						$init($System);
+					} else if (suppressed->length != 1) {
 						$nc($System::err)->println("\nUnexpected number of suppressed exceptions"_s);
-						$nc(e)->printStackTrace();
+						e->printStackTrace();
 						++failures;
-					} else if (!($instanceOf($IOException, $nc(suppressed)->get(0)))) {
-						$init($System);
+					} else if (!($instanceOf($IOException, suppressed->get(0)))) {
 						$nc($System::err)->println("\nSuppressed exception is not an IOException"_s);
-						$nc(e)->printStackTrace();
+						e->printStackTrace();
 						++failures;
-					} else if (!$nc($($nc($nc(suppressed)->get(0))->getMessage()))->equals(SuppressedException::FLUSH_MESSAGE)) {
-						$init($System);
+					} else if (!$nc($($nc(suppressed->get(0))->getMessage()))->equals(SuppressedException::FLUSH_MESSAGE)) {
 						$nc($System::err)->println("\nIOException with unexpected message thrown"_s);
-						$nc(e)->printStackTrace();
+						e->printStackTrace();
 						++failures;
 					}
 				}

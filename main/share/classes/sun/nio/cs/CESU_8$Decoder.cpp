@@ -24,10 +24,10 @@
 #include <sun/nio/cs/CESU_8.h>
 #include <jcpp.h>
 
-#undef OVERFLOW
-#undef UNDERFLOW
-#undef REPLACE
 #undef JLA
+#undef OVERFLOW
+#undef REPLACE
+#undef UNDERFLOW
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -257,7 +257,7 @@ $CoderResult* CESU_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 			if (sl - sp < 2 || dp >= dl) {
 				return xflow(src, sp, sl, dst, dp, 2);
 			}
-			int32_t b2 = $nc(sa)->get(sp + 1);
+			int32_t b2 = sa->get(sp + 1);
 			if (isNotContinuation(b2)) {
 				return malformedForLength(src, sp, dst, dp, 1);
 			}
@@ -266,12 +266,12 @@ $CoderResult* CESU_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 		} else if ((b1 >> 4) == -2) {
 			int32_t srcRemaining = sl - sp;
 			if (srcRemaining < 3 || dp >= dl) {
-				if (srcRemaining > 1 && isMalformed3_2(b1, $nc(sa)->get(sp + 1))) {
+				if (srcRemaining > 1 && isMalformed3_2(b1, sa->get(sp + 1))) {
 					return malformedForLength(src, sp, dst, dp, 1);
 				}
 				return xflow(src, sp, sl, dst, dp, 3);
 			}
-			int32_t b2 = $nc(sa)->get(sp + 1);
+			int32_t b2 = sa->get(sp + 1);
 			int32_t b3 = sa->get(sp + 2);
 			if (isMalformed3(b1, b2, b3)) {
 				return malformed(src, sp, dst, dp, 3);
@@ -300,7 +300,7 @@ $CoderResult* CESU_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* ds
 			if (limit - mark < 2 || $nc(dst)->remaining() < 1) {
 				return xflow(src, mark, 2);
 			}
-			int32_t b2 = $nc(src)->get();
+			int32_t b2 = src->get();
 			if (isNotContinuation(b2)) {
 				return malformedForLength(src, mark, 1);
 			}
@@ -309,12 +309,12 @@ $CoderResult* CESU_8$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* ds
 		} else if ((b1 >> 4) == -2) {
 			int32_t srcRemaining = limit - mark;
 			if (srcRemaining < 3 || $nc(dst)->remaining() < 1) {
-				if (srcRemaining > 1 && isMalformed3_2(b1, $nc(src)->get())) {
+				if (srcRemaining > 1 && isMalformed3_2(b1, src->get())) {
 					return malformedForLength(src, mark, 1);
 				}
 				return xflow(src, mark, 3);
 			}
-			int32_t b2 = $nc(src)->get();
+			int32_t b2 = src->get();
 			int32_t b3 = src->get();
 			if (isMalformed3(b1, b2, b3)) {
 				return malformed(src, mark, 3);
@@ -361,7 +361,7 @@ int32_t CESU_8$Decoder::decode($bytes* sa, int32_t sp, int32_t len, $chars* da) 
 			$nc(da)->set(dp++, (char16_t)b1);
 		} else if ((b1 >> 5) == -2 && ((int32_t)(b1 & (uint32_t)30)) != 0) {
 			if (sp < sl) {
-				int32_t b2 = $nc(sa)->get(sp++);
+				int32_t b2 = sa->get(sp++);
 				if (isNotContinuation(b2)) {
 					$init($CodingErrorAction);
 					if (malformedInputAction() != $CodingErrorAction::REPLACE) {
@@ -382,7 +382,7 @@ int32_t CESU_8$Decoder::decode($bytes* sa, int32_t sp, int32_t len, $chars* da) 
 			return dp;
 		} else if ((b1 >> 4) == -2) {
 			if (sp + 1 < sl) {
-				int32_t b2 = $nc(sa)->get(sp++);
+				int32_t b2 = sa->get(sp++);
 				int32_t b3 = sa->get(sp++);
 				if (isMalformed3(b1, b2, b3)) {
 					$init($CodingErrorAction);
@@ -402,7 +402,7 @@ int32_t CESU_8$Decoder::decode($bytes* sa, int32_t sp, int32_t len, $chars* da) 
 			if (malformedInputAction() != $CodingErrorAction::REPLACE) {
 				return -1;
 			}
-			if (sp < sl && isMalformed3_2(b1, $nc(sa)->get(sp))) {
+			if (sp < sl && isMalformed3_2(b1, sa->get(sp))) {
 				$nc(da)->set(dp++, $nc($(replacement()))->charAt(0));
 				continue;
 			}

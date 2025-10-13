@@ -43,26 +43,26 @@
 #include <sun/util/calendar/ZoneInfoFile$ZoneOffsetTransitionRule.h>
 #include <jcpp.h>
 
-#undef SECONDS_PER_DAY
-#undef THURSDAY
-#undef ROOT
-#undef SUNDAY
-#undef TUESDAY
+#undef CURRT
+#undef DAYS_PER_CYCLE
+#undef DST_MASK
+#undef DST_NSHIFT
 #undef FRIDAY
 #undef LASTYEAR
-#undef TRANSITION_NSHIFT
-#undef DST_MASK
-#undef UTC_TIME
-#undef WEDNESDAY
 #undef MONDAY
-#undef STANDARD_TIME
-#undef WALL_TIME
-#undef SATURDAY
-#undef CURRT
 #undef OFFSET_MASK
-#undef DAYS_PER_CYCLE
-#undef DST_NSHIFT
+#undef ROOT
+#undef SATURDAY
+#undef SECONDS_PER_DAY
+#undef STANDARD_TIME
+#undef SUNDAY
+#undef THURSDAY
+#undef TRANSITION_NSHIFT
+#undef TUESDAY
 #undef USE_OLDMAPPING
+#undef UTC_TIME
+#undef WALL_TIME
+#undef WEDNESDAY
 
 using $ZoneInfoFile$ZoneOffsetTransitionRuleArray = $Array<::sun::util::calendar::ZoneInfoFile$ZoneOffsetTransitionRule>;
 using $byteArray2 = $Array<int8_t, 2>;
@@ -572,8 +572,8 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 				if (!var$3) {
 					bool var$4 = dom >= 24;
 					if (var$4) {
-						bool var$5 = $nc(zoneId)->equals("Asia/Gaza"_s);
-						var$4 = !(var$5 || $nc(zoneId)->equals("Asia/Hebron"_s));
+						bool var$5 = zoneId->equals("Asia/Gaza"_s);
+						var$4 = !(var$5 || zoneId->equals("Asia/Hebron"_s));
 					}
 					var$3 = var$4;
 				}
@@ -598,8 +598,8 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 				if (!var$9) {
 					bool var$10 = dom >= 24;
 					if (var$10) {
-						bool var$11 = $nc(zoneId)->equals("Asia/Gaza"_s);
-						var$10 = !(var$11 || $nc(zoneId)->equals("Asia/Hebron"_s));
+						bool var$11 = zoneId->equals("Asia/Gaza"_s);
+						var$10 = !(var$11 || zoneId->equals("Asia/Hebron"_s));
 					}
 					var$9 = var$10;
 				}
@@ -614,15 +614,15 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 			params->set(8, endRule->secondOfDay * 1000);
 			params->set(9, $nc(ZoneInfoFile::toSTZTime)->get(endRule->timeDefinition));
 			dstSavings = (startRule->offsetAfter - startRule->offsetBefore) * 1000;
-			if (params->get(2) == 6 && params->get(3) == 0 && ($nc(zoneId)->equals("Asia/Amman"_s))) {
+			if (params->get(2) == 6 && params->get(3) == 0 && (zoneId->equals("Asia/Amman"_s))) {
 				params->set(2, 5);
 				params->set(3, 0x05265C00);
 			}
-			if (params->get(2) == 7 && params->get(3) == 0 && ($nc(zoneId)->equals("Asia/Amman"_s))) {
+			if (params->get(2) == 7 && params->get(3) == 0 && (zoneId->equals("Asia/Amman"_s))) {
 				params->set(2, 6);
 				params->set(3, 0x05265C00);
 			}
-			if (params->get(7) == 6 && params->get(8) == 0 && ($nc(zoneId)->equals("Africa/Cairo"_s))) {
+			if (params->get(7) == 6 && params->get(8) == 0 && (zoneId->equals("Africa/Cairo"_s))) {
 				params->set(7, 5);
 				params->set(8, 0x05265C00);
 			}
@@ -633,8 +633,8 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 				if (offsetIndex == nOffsets) {
 					++nOffsets;
 				}
-				$nc(transitions)->set(nTrans++, $sl(trans * 1000, ZoneInfoFile::TRANSITION_NSHIFT) | ((int64_t)(offsetIndex & (uint64_t)ZoneInfoFile::OFFSET_MASK)));
-			} else if ($nc(savingsInstantTransitions)->length > 2) {
+				transitions->set(nTrans++, $sl(trans * 1000, ZoneInfoFile::TRANSITION_NSHIFT) | ((int64_t)(offsetIndex & (uint64_t)ZoneInfoFile::OFFSET_MASK)));
+			} else if (savingsInstantTransitions->length > 2) {
 				int32_t m = savingsInstantTransitions->length;
 				int64_t startTrans = savingsInstantTransitions->get(m - 2);
 				int32_t startOffset = $nc(wallOffsets)->get(m - 2 + 1);

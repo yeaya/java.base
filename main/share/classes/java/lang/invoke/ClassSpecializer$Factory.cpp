@@ -57,27 +57,27 @@
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jcpp.h>
 
-#undef COMPUTE_MAXS
+#undef ACC_PPP
+#undef AFTER_THIS
 #undef COMPUTE_FRAMES
+#undef COMPUTE_MAXS
 #undef E_THROWABLE
-#undef TMODS
-#undef SPECIES_DATA
-#undef TRANSFORM_MODS
-#undef TTYPE
+#undef IMPL_LOOKUP
+#undef IN_HEAP
+#undef L_TYPE
+#undef NOT_ACC_PUBLIC
 #undef NO_THIS
-#undef TRANSFORM_TYPES
+#undef SPECIES_DATA
 #undef SPECIES_DATA_MODS
 #undef SPECIES_DATA_NAME
-#undef IMPL_LOOKUP
 #undef SPECIES_DATA_SIG
-#undef ACC_PPP
-#undef NOT_ACC_PUBLIC
-#undef TRANSFORM_NAMES
-#undef IN_HEAP
+#undef TMODS
 #undef TNAME
+#undef TRANSFORM_MODS
+#undef TRANSFORM_NAMES
+#undef TRANSFORM_TYPES
+#undef TTYPE
 #undef UNSAFE
-#undef AFTER_THIS
-#undef L_TYPE
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $LambdaForm$NamedFunctionArray = $Array<::java::lang::invoke::LambdaForm$NamedFunction>;

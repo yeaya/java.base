@@ -6,26 +6,26 @@
 #include <java/lang/Array.h>
 #include <java/lang/ClassLoader.h>
 
-#pragma push_macro("READ_ONLY_ARRAY_BUFFER")
-#undef READ_ONLY_ARRAY_BUFFER
-#pragma push_macro("MAPPED_BUFFER")
-#undef MAPPED_BUFFER
-#pragma push_macro("WRAPPED_BUFFER")
-#undef WRAPPED_BUFFER
-#pragma push_macro("DUP_ARRAY_BUFFER")
-#undef DUP_ARRAY_BUFFER
-#pragma push_macro("MAX_TYPE")
-#undef MAX_TYPE
-#pragma push_macro("DIRECT_BUFFER")
-#undef DIRECT_BUFFER
-#pragma push_macro("CLASS_NAME")
-#undef CLASS_NAME
-#pragma push_macro("READ_ONLY_DIRECT_BUFFER")
-#undef READ_ONLY_DIRECT_BUFFER
 #pragma push_macro("ARRAY_BUFFER")
 #undef ARRAY_BUFFER
+#pragma push_macro("CLASS_NAME")
+#undef CLASS_NAME
+#pragma push_macro("DIRECT_BUFFER")
+#undef DIRECT_BUFFER
+#pragma push_macro("DUP_ARRAY_BUFFER")
+#undef DUP_ARRAY_BUFFER
 #pragma push_macro("DUP_DIRECT_BUFFER")
 #undef DUP_DIRECT_BUFFER
+#pragma push_macro("MAPPED_BUFFER")
+#undef MAPPED_BUFFER
+#pragma push_macro("MAX_TYPE")
+#undef MAX_TYPE
+#pragma push_macro("READ_ONLY_ARRAY_BUFFER")
+#undef READ_ONLY_ARRAY_BUFFER
+#pragma push_macro("READ_ONLY_DIRECT_BUFFER")
+#undef READ_ONLY_DIRECT_BUFFER
+#pragma push_macro("WRAPPED_BUFFER")
+#undef WRAPPED_BUFFER
 
 namespace java {
 	namespace nio {
@@ -57,15 +57,15 @@ public:
 	static $Array<::java::nio::ByteBuffer>* buffers;
 };
 
-#pragma pop_macro("READ_ONLY_ARRAY_BUFFER")
-#pragma pop_macro("MAPPED_BUFFER")
-#pragma pop_macro("WRAPPED_BUFFER")
-#pragma pop_macro("DUP_ARRAY_BUFFER")
-#pragma pop_macro("MAX_TYPE")
-#pragma pop_macro("DIRECT_BUFFER")
-#pragma pop_macro("CLASS_NAME")
-#pragma pop_macro("READ_ONLY_DIRECT_BUFFER")
 #pragma pop_macro("ARRAY_BUFFER")
+#pragma pop_macro("CLASS_NAME")
+#pragma pop_macro("DIRECT_BUFFER")
+#pragma pop_macro("DUP_ARRAY_BUFFER")
 #pragma pop_macro("DUP_DIRECT_BUFFER")
+#pragma pop_macro("MAPPED_BUFFER")
+#pragma pop_macro("MAX_TYPE")
+#pragma pop_macro("READ_ONLY_ARRAY_BUFFER")
+#pragma pop_macro("READ_ONLY_DIRECT_BUFFER")
+#pragma pop_macro("WRAPPED_BUFFER")
 
 #endif // _DefineClassByteBuffer$DummyClassLoader_h_

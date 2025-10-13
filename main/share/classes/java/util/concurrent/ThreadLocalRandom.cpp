@@ -35,21 +35,21 @@
 #include <jdk/internal/util/random/RandomSupport.h>
 #include <jcpp.h>
 
-#undef INHERITEDACCESSCONTROLCONTEXT
-#undef INHERITABLETHREADLOCALS
-#undef THREADLOCALS
-#undef PROXY
-#undef SEEDER_INCREMENT
-#undef SECONDARY
-#undef BAD_RANGE
-#undef U
-#undef BAD_SIZE
-#undef SEED
 #undef BAD_BOUND
-#undef PROBE_INCREMENT
+#undef BAD_RANGE
+#undef BAD_SIZE
 #undef GOLDEN_GAMMA
+#undef INHERITABLETHREADLOCALS
+#undef INHERITEDACCESSCONTROLCONTEXT
 #undef PROBE
+#undef PROBE_INCREMENT
+#undef PROXY
+#undef SECONDARY
+#undef SEED
+#undef SEEDER_INCREMENT
+#undef THREADLOCALS
 #undef TYPE
+#undef U
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;

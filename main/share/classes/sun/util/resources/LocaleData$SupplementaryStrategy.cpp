@@ -18,10 +18,10 @@
 #include <sun/util/resources/LocaleData.h>
 #include <jcpp.h>
 
-#undef ROOT
 #undef ENGLISH
-#undef JAVA_BASE_LOCALES
 #undef INSTANCE
+#undef JAVA_BASE_LOCALES
+#undef ROOT
 #undef US
 
 using $LocaleArray = $Array<::java::util::Locale>;

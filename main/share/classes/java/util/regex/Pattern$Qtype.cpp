@@ -13,9 +13,9 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef LAZY
-#undef INDEPENDENT
 #undef GREEDY
+#undef INDEPENDENT
+#undef LAZY
 #undef POSSESSIVE
 
 using $Pattern$QtypeArray = $Array<::java::util::regex::Pattern$Qtype>;

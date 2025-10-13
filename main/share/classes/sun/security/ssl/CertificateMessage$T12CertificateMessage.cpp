@@ -45,8 +45,8 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef ENGLISH
 #undef CERTIFICATE
+#undef ENGLISH
 #undef ILLEGAL_PARAMETER
 #undef INTERNAL_ERROR
 

@@ -34,8 +34,8 @@
 #include <java/nio/file/StandardOpenOption.h>
 #include <jcpp.h>
 
-#undef CREATE
 #undef APPEND
+#undef CREATE
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $OutputStream = ::java::io::OutputStream;

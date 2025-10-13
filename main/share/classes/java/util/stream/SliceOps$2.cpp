@@ -44,8 +44,8 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfInt.h>
 #include <jcpp.h>
 
-#undef SUBSIZED
 #undef ORDERED
+#undef SUBSIZED
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $Serializable = ::java::io::Serializable;

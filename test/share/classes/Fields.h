@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("NON_FINAL")
-#undef NON_FINAL
-#pragma push_macro("STATIC_NON_FINAL")
-#undef STATIC_NON_FINAL
-#pragma push_macro("STATIC_FINAL")
-#undef STATIC_FINAL
 #pragma push_macro("FINAL")
 #undef FINAL
+#pragma push_macro("NON_FINAL")
+#undef NON_FINAL
+#pragma push_macro("STATIC_FINAL")
+#undef STATIC_FINAL
+#pragma push_macro("STATIC_NON_FINAL")
+#undef STATIC_NON_FINAL
 
 class $export Fields : public ::java::lang::Object {
 	$class(Fields, 0, ::java::lang::Object)
@@ -26,9 +26,9 @@ public:
 	$Object* NON_FINAL = nullptr;
 };
 
-#pragma pop_macro("NON_FINAL")
-#pragma pop_macro("STATIC_NON_FINAL")
-#pragma pop_macro("STATIC_FINAL")
 #pragma pop_macro("FINAL")
+#pragma pop_macro("NON_FINAL")
+#pragma pop_macro("STATIC_FINAL")
+#pragma pop_macro("STATIC_NON_FINAL")
 
 #endif // _Fields_h_

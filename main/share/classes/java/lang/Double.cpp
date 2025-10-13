@@ -21,17 +21,17 @@
 
 #include <cmath>
 
-#undef POSITIVE_INFINITY
 #undef BYTES
 #undef MAX_EXPONENT
-#undef NEGATIVE_INFINITY
-#undef MIN_NORMAL
-#undef SIZE
-#undef SIGNIF_BIT_MASK
 #undef MAX_VALUE
-#undef MIN_VALUE
-#undef TYPE
 #undef MIN_EXPONENT
+#undef MIN_NORMAL
+#undef MIN_VALUE
+#undef NEGATIVE_INFINITY
+#undef POSITIVE_INFINITY
+#undef SIGNIF_BIT_MASK
+#undef SIZE
+#undef TYPE
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

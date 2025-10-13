@@ -50,28 +50,28 @@
 #include <sun/util/spi/CalendarProvider.h>
 #include <jcpp.h>
 
-#undef NF_CURRENCY
-#undef DN_LOCALE_LANGUAGE
-#undef NF_PERCENT
-#undef DN_TZ_LONG_STANDARD
-#undef CD_MINIMALDAYSINFIRSTWEEK
-#undef DN_LOCALE_REGION
-#undef DN_TZ_SHORT_DST
-#undef CD_FIRSTDAYOFWEEK
 #undef CAT_DISPLAY
-#undef NF_INTEGER
-#undef DN_LOCALE_SCRIPT
-#undef DN_TZ_LONG_DST
-#undef DN_CURRENCY_SYMBOL
-#undef DN_TZ_SHORT_STANDARD
-#undef NF_NUMBER
-#undef JA_JP_JP
-#undef JAPAN
-#undef FORMAT_DEFAULT
-#undef DN_CURRENCY_CODE
-#undef NF_MAX
 #undef CAT_FORMAT
+#undef CD_FIRSTDAYOFWEEK
+#undef CD_MINIMALDAYSINFIRSTWEEK
+#undef DN_CURRENCY_CODE
+#undef DN_CURRENCY_SYMBOL
+#undef DN_LOCALE_LANGUAGE
+#undef DN_LOCALE_REGION
+#undef DN_LOCALE_SCRIPT
 #undef DN_LOCALE_VARIANT
+#undef DN_TZ_LONG_DST
+#undef DN_TZ_LONG_STANDARD
+#undef DN_TZ_SHORT_DST
+#undef DN_TZ_SHORT_STANDARD
+#undef FORMAT_DEFAULT
+#undef JAPAN
+#undef JA_JP_JP
+#undef NF_CURRENCY
+#undef NF_INTEGER
+#undef NF_MAX
+#undef NF_NUMBER
+#undef NF_PERCENT
 
 using $LocaleArray = $Array<::java::util::Locale>;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;

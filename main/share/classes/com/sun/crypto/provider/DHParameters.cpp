@@ -23,8 +23,8 @@
 #include <sun/security/util/DerValue.h>
 #include <jcpp.h>
 
-#undef ZERO
 #undef LINE_SEP
+#undef ZERO
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

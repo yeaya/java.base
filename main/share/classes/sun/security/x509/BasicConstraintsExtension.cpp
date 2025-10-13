@@ -23,10 +23,10 @@
 #include <jcpp.h>
 
 #undef IDENT
-#undef PATH_LEN
 #undef IS_CA
 #undef MAX_VALUE
 #undef NAME
+#undef PATH_LEN
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -211,7 +211,7 @@ void BasicConstraintsExtension::set($String* name, Object$* obj) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
 		this->ca = $nc(($cast($Boolean, obj)))->booleanValue();
-	} else if ($nc(name)->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
+	} else if (name->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
 		if (!($instanceOf($Integer, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Integer."_s);
 		}
@@ -225,7 +225,7 @@ void BasicConstraintsExtension::set($String* name, Object$* obj) {
 $Object* BasicConstraintsExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(BasicConstraintsExtension::IS_CA)) {
 		return $of(($Boolean::valueOf(this->ca)));
-	} else if ($nc(name)->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
+	} else if (name->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
 		return $of(($Integer::valueOf(this->pathLen)));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:BasicConstraints."_s);
@@ -235,7 +235,7 @@ $Object* BasicConstraintsExtension::get($String* name) {
 void BasicConstraintsExtension::delete$($String* name) {
 	if ($nc(name)->equalsIgnoreCase(BasicConstraintsExtension::IS_CA)) {
 		this->ca = false;
-	} else if ($nc(name)->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
+	} else if (name->equalsIgnoreCase(BasicConstraintsExtension::PATH_LEN)) {
 		this->pathLen = -1;
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:BasicConstraints."_s);

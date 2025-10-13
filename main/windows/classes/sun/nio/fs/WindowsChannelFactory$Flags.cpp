@@ -22,12 +22,12 @@
 #include <sun/nio/fs/WindowsChannelFactory.h>
 #include <jcpp.h>
 
-#undef OPEN_REPARSE_POINT
-#undef NOSHARE_DELETE
-#undef NOSHARE_WRITE
-#undef NOSHARE_READ
-#undef NOFOLLOW_LINKS
 #undef DIRECT
+#undef NOFOLLOW_LINKS
+#undef NOSHARE_DELETE
+#undef NOSHARE_READ
+#undef NOSHARE_WRITE
+#undef OPEN_REPARSE_POINT
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

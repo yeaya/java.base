@@ -48,17 +48,17 @@
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-#undef YEARS
-#undef MONTHS
-#undef ZERO
-#undef PATTERN
-#undef PERIOD_TYPE
 #undef CASE_INSENSITIVE
 #undef DAYS
 #undef INSTANCE
 #undef MAX_VALUE
-#undef SUPPORTED_UNITS
 #undef MIN_VALUE
+#undef MONTHS
+#undef PATTERN
+#undef PERIOD_TYPE
+#undef SUPPORTED_UNITS
+#undef YEARS
+#undef ZERO
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

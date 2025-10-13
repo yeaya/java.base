@@ -50,10 +50,10 @@
 #include <jcpp.h>
 
 #undef AES_BLOCK_SIZE
-#undef WRAP_MODE
-#undef ENCRYPT_MODE
-#undef DEFAULT_SALT_LENGTH
 #undef DEFAULT_COUNT
+#undef DEFAULT_SALT_LENGTH
+#undef ENCRYPT_MODE
+#undef WRAP_MODE
 
 using $AESConstants = ::com::sun::crypto::provider::AESConstants;
 using $AESCrypt = ::com::sun::crypto::provider::AESCrypt;

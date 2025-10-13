@@ -66,12 +66,12 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef OFFSET_SECONDS
 #undef INSTANT_SECONDS
-#undef NANO_OF_SECOND
 #undef ISO_ZONED_DATE_TIME
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef NANO_OF_SECOND
+#undef OFFSET_SECONDS
 #undef ZONE_DATE_TIME_TYPE
 
 using $DataInput = ::java::io::DataInput;
@@ -353,11 +353,11 @@ ZonedDateTime* ZonedDateTime::ofLocal($LocalDateTime* localDateTime$renamed, $Zo
 	$var($ZoneOffset, offset, nullptr);
 	if ($nc(validOffsets)->size() == 1) {
 		$assign(offset, $cast($ZoneOffset, validOffsets->get(0)));
-	} else if ($nc(validOffsets)->size() == 0) {
-		$var($ZoneOffsetTransition, trans, $nc(rules)->getTransition(localDateTime));
+	} else if (validOffsets->size() == 0) {
+		$var($ZoneOffsetTransition, trans, rules->getTransition(localDateTime));
 		$assign(localDateTime, $nc(localDateTime)->plusSeconds($nc($($nc(trans)->getDuration()))->getSeconds()));
 		$assign(offset, $nc(trans)->getOffsetAfter());
-	} else if (preferredOffset != nullptr && $nc(validOffsets)->contains(preferredOffset)) {
+	} else if (preferredOffset != nullptr && validOffsets->contains(preferredOffset)) {
 		$assign(offset, preferredOffset);
 	} else {
 		$assign(offset, $cast($ZoneOffset, $Objects::requireNonNull($cast($ZoneOffset, $(validOffsets->get(0))), "offset"_s)));
@@ -665,24 +665,24 @@ ZonedDateTime* ZonedDateTime::with($TemporalAdjuster* adjuster) {
 		} else if ($instanceOf($LocalDateTime, adjuster)) {
 			return resolveLocal($cast($LocalDateTime, adjuster));
 		} else {
-			bool var$7 = $instanceOf($OffsetDateTime, adjuster);
-			if (var$7) {
+			bool var$1 = $instanceOf($OffsetDateTime, adjuster);
+			if (var$1) {
 				$assign(odt, $cast($OffsetDateTime, adjuster));
-				var$7 = true;
+				var$1 = true;
 			}
-			if (var$7) {
-				$var($LocalDateTime, var$8, $nc(odt)->toLocalDateTime());
-				$var($ZoneId, var$9, this->zone);
-				return ofLocal(var$8, var$9, $(odt->getOffset()));
+			if (var$1) {
+				$var($LocalDateTime, var$2, $nc(odt)->toLocalDateTime());
+				$var($ZoneId, var$3, this->zone);
+				return ofLocal(var$2, var$3, $(odt->getOffset()));
 			} else {
-				bool var$12 = $instanceOf($Instant, adjuster);
-				if (var$12) {
+				bool var$5 = $instanceOf($Instant, adjuster);
+				if (var$5) {
 					$assign(instant, $cast($Instant, adjuster));
-					var$12 = true;
+					var$5 = true;
 				}
-				if (var$12) {
-					int64_t var$13 = $nc(instant)->getEpochSecond();
-					return create(var$13, instant->getNano(), this->zone);
+				if (var$5) {
+					int64_t var$6 = $nc(instant)->getEpochSecond();
+					return create(var$6, instant->getNano(), this->zone);
 				} else if ($instanceOf($ZoneOffset, adjuster)) {
 					return resolveOffset($cast($ZoneOffset, adjuster));
 				}

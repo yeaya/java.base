@@ -28,8 +28,8 @@
 #undef CHARACTER_INDEX
 #undef DONE
 #undef LINE_INDEX
-#undef WORD_INDEX
 #undef SENTENCE_INDEX
+#undef WORD_INDEX
 
 using $SoftReferenceArray = $Array<::java::lang::ref::SoftReference>;
 using $LocaleArray = $Array<::java::util::Locale>;

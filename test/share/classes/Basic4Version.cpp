@@ -40,13 +40,13 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
+#undef IAE
+#undef MAX_VALUE
+#undef NFE
 #undef NPE
-#undef TOO_BIG_STR
 #undef ONE
 #undef TOO_BIG
-#undef MAX_VALUE
-#undef IAE
-#undef NFE
+#undef TOO_BIG_STR
 
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;

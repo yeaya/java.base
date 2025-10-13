@@ -12,8 +12,8 @@
 #include <sun/security/util/SecurityProviderConstants.h>
 #include <jcpp.h>
 
-#undef RSA
 #undef DEF_RSA_KEY_SIZE
+#undef RSA
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

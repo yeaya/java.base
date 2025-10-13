@@ -9,16 +9,16 @@
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAdjuster.h>
 
+#pragma push_macro("EPOCH")
+#undef EPOCH
+#pragma push_macro("MAX")
+#undef MAX
 #pragma push_macro("MAX_SECOND")
 #undef MAX_SECOND
 #pragma push_macro("MIN")
 #undef MIN
 #pragma push_macro("MIN_SECOND")
 #undef MIN_SECOND
-#pragma push_macro("MAX")
-#undef MAX
-#pragma push_macro("EPOCH")
-#undef EPOCH
 
 namespace java {
 	namespace io {
@@ -126,10 +126,10 @@ public:
 	} // time
 } // java
 
+#pragma pop_macro("EPOCH")
+#pragma pop_macro("MAX")
 #pragma pop_macro("MAX_SECOND")
 #pragma pop_macro("MIN")
 #pragma pop_macro("MIN_SECOND")
-#pragma pop_macro("MAX")
-#pragma pop_macro("EPOCH")
 
 #endif // _java_time_Instant_h_

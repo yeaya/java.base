@@ -20,24 +20,24 @@
 #include <java/util/concurrent/TimeUnit$1.h>
 #include <jcpp.h>
 
+#undef DAYS
+#undef DAY_SCALE
+#undef HOURS
+#undef HOUR_SCALE
+#undef MAX_VALUE
+#undef MICROS
+#undef MICROSECONDS
+#undef MICRO_SCALE
+#undef MILLIS
 #undef MILLISECONDS
 #undef MILLI_SCALE
-#undef MINUTE_SCALE
-#undef MICROSECONDS
-#undef MICROS
-#undef SECONDS
-#undef NANOSECONDS
-#undef DAYS
-#undef NANO_SCALE
-#undef MAX_VALUE
-#undef MILLIS
-#undef MIN_VALUE
-#undef MICRO_SCALE
-#undef HOURS
-#undef DAY_SCALE
-#undef NANOS
-#undef HOUR_SCALE
 #undef MINUTES
+#undef MINUTE_SCALE
+#undef MIN_VALUE
+#undef NANOS
+#undef NANOSECONDS
+#undef NANO_SCALE
+#undef SECONDS
 #undef SECOND_SCALE
 
 using $TimeUnitArray = $Array<::java::util::concurrent::TimeUnit>;

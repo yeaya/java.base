@@ -21,8 +21,8 @@
 #include <sun/security/util/HexDumpEncoder.h>
 #include <jcpp.h>
 
-#undef LINE_SEP
 #undef EKB_TABLE
+#undef LINE_SEP
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

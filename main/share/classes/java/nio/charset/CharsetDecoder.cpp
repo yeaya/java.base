@@ -23,15 +23,15 @@
 #include <java/nio/charset/CodingErrorAction.h>
 #include <jcpp.h>
 
-#undef ST_END
-#undef OVERFLOW
-#undef ST_CODING
-#undef ST_FLUSHED
-#undef UNDERFLOW
-#undef REPORT
-#undef ST_RESET
-#undef REPLACE
 #undef IGNORE
+#undef OVERFLOW
+#undef REPLACE
+#undef REPORT
+#undef ST_CODING
+#undef ST_END
+#undef ST_FLUSHED
+#undef ST_RESET
+#undef UNDERFLOW
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -236,10 +236,10 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 		$var($CodingErrorAction, action, nullptr);
 		if ($nc(cr)->isMalformed()) {
 			$assign(action, this->malformedInputAction$);
-		} else if ($nc(cr)->isUnmappable()) {
+		} else if (cr->isUnmappable()) {
 			$assign(action, this->unmappableCharacterAction$);
 		} else if (!CharsetDecoder::$assertionsDisabled) {
-			$throwNew($AssertionError, $($of($nc(cr)->toString())));
+			$throwNew($AssertionError, $($of(cr->toString())));
 		}
 		$init($CodingErrorAction);
 		if (action == $CodingErrorAction::REPORT) {
@@ -254,7 +254,7 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 		}
 		if ((action == $CodingErrorAction::IGNORE) || (action == $CodingErrorAction::REPLACE)) {
 			int32_t var$1 = in->position();
-			$nc(in)->position(var$1 + $nc(cr)->length());
+			$nc(in)->position(var$1 + cr->length());
 			continue;
 		}
 		if (!CharsetDecoder::$assertionsDisabled) {

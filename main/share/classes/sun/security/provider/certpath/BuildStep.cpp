@@ -13,11 +13,11 @@
 #include <sun/security/provider/certpath/Vertex.h>
 #include <jcpp.h>
 
-#undef POSSIBLE
-#undef FOLLOW
-#undef SUCCEED
 #undef BACK
 #undef FAIL
+#undef FOLLOW
+#undef POSSIBLE
+#undef SUCCEED
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

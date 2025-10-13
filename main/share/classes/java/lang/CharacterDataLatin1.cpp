@@ -15,10 +15,10 @@
 
 #undef A
 #undef B
-#undef MIN_RADIX
 #undef DIGITS
 #undef ERROR
 #undef MAX_RADIX
+#undef MIN_RADIX
 
 using $Character = ::java::lang::Character;
 using $CharacterData = ::java::lang::CharacterData;

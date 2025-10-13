@@ -14,10 +14,10 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <jcpp.h>
 
-#undef NANOS
 #undef MICROS
-#undef SECONDS
 #undef MILLIS
+#undef NANOS
+#undef SECONDS
 
 using $ChronoUnitArray = $Array<::java::time::temporal::ChronoUnit>;
 using $ClassInfo = ::java::lang::ClassInfo;

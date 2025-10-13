@@ -20,11 +20,11 @@
 #include <jcpp.h>
 
 #undef BIG
+#undef BYTE_ORDER_MARK
+#undef LITTLE
 #undef OVERFLOW
 #undef REVERSED_MARK
 #undef UNDERFLOW
-#undef LITTLE
-#undef BYTE_ORDER_MARK
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

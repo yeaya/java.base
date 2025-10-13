@@ -6,14 +6,14 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("SPLITERATOR")
-#undef SPLITERATOR
 #pragma push_macro("OP")
 #undef OP
-#pragma push_macro("TERMINAL_OP")
-#undef TERMINAL_OP
+#pragma push_macro("SPLITERATOR")
+#undef SPLITERATOR
 #pragma push_macro("STREAM")
 #undef STREAM
+#pragma push_macro("TERMINAL_OP")
+#undef TERMINAL_OP
 #pragma push_macro("UPSTREAM_TERMINAL_OP")
 #undef UPSTREAM_TERMINAL_OP
 
@@ -41,10 +41,10 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("SPLITERATOR")
 #pragma pop_macro("OP")
-#pragma pop_macro("TERMINAL_OP")
+#pragma pop_macro("SPLITERATOR")
 #pragma pop_macro("STREAM")
+#pragma pop_macro("TERMINAL_OP")
 #pragma pop_macro("UPSTREAM_TERMINAL_OP")
 
 #endif // _java_util_stream_StreamOpFlag$Type_h_

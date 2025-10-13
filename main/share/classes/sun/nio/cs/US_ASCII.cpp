@@ -17,8 +17,8 @@
 #include <sun/nio/cs/US_ASCII$Encoder.h>
 #include <jcpp.h>
 
-#undef US_ASCII
 #undef INSTANCE
+#undef US_ASCII
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

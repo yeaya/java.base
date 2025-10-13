@@ -26,9 +26,9 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-#undef A_STRING_VAL
 #undef A_STRING_BUFFER_VAL
 #undef A_STRING_BUILDER_VAL
+#undef A_STRING_VAL
 #undef NON_EMPTY_VAL
 
 using $PrintStream = ::java::io::PrintStream;

@@ -5,18 +5,18 @@
 
 #include <java/util/Spliterator.h>
 
-#pragma push_macro("SUBSIZED")
-#undef SUBSIZED
 #pragma push_macro("ORDERED")
 #undef ORDERED
+#pragma push_macro("SCOPED_MEMORY_ACCESS")
+#undef SCOPED_MEMORY_ACCESS
 #pragma push_macro("SIZED")
 #undef SIZED
 #pragma push_macro("SPLITERATOR_CHARACTERISTICS")
 #undef SPLITERATOR_CHARACTERISTICS
+#pragma push_macro("SUBSIZED")
+#undef SUBSIZED
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
-#pragma push_macro("SCOPED_MEMORY_ACCESS")
-#undef SCOPED_MEMORY_ACCESS
 
 namespace java {
 	namespace lang {
@@ -101,11 +101,11 @@ public:
 	} // nio
 } // java
 
-#pragma pop_macro("SUBSIZED")
 #pragma pop_macro("ORDERED")
+#pragma pop_macro("SCOPED_MEMORY_ACCESS")
 #pragma pop_macro("SIZED")
 #pragma pop_macro("SPLITERATOR_CHARACTERISTICS")
+#pragma pop_macro("SUBSIZED")
 #pragma pop_macro("UNSAFE")
-#pragma pop_macro("SCOPED_MEMORY_ACCESS")
 
 #endif // _java_nio_Buffer_h_

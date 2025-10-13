@@ -21,8 +21,8 @@
 #include <java/nio/channels/SocketChannel.h>
 #include <jcpp.h>
 
-#undef OP_CONNECT
 #undef CHANNELS_PER_THREAD
+#undef OP_CONNECT
 #undef TEST_ITERATIONS
 
 using $HelperSlowToDie$1 = ::HelperSlowToDie$1;

@@ -52,16 +52,16 @@
 #include <javax/crypto/spec/RC2ParameterSpec.h>
 #include <jcpp.h>
 
-#undef CFB_MODE
 #undef CBC_MODE
-#undef ENGLISH
-#undef UNWRAP_MODE
+#undef CFB_MODE
 #undef CTR_MODE
-#undef OFB_MODE
 #undef CTS_MODE
 #undef DECRYPT_MODE
-#undef PCBC_MODE
 #undef ECB_MODE
+#undef ENGLISH
+#undef OFB_MODE
+#undef PCBC_MODE
+#undef UNWRAP_MODE
 
 using $CipherBlockChaining = ::com::sun::crypto::provider::CipherBlockChaining;
 using $CipherFeedback = ::com::sun::crypto::provider::CipherFeedback;
@@ -206,25 +206,25 @@ void CipherCore::setMode($String* mode) {
 	if (modeUpperCase->equals("CBC"_s)) {
 		this->cipherMode = CipherCore::CBC_MODE;
 		$set(this, cipher, $new($CipherBlockChaining, rawImpl));
-	} else if ($nc(modeUpperCase)->equals("CTS"_s)) {
+	} else if (modeUpperCase->equals("CTS"_s)) {
 		this->cipherMode = CipherCore::CTS_MODE;
 		$set(this, cipher, $new($CipherTextStealing, rawImpl));
 		this->minBytes = this->blockSize + 1;
 		$set(this, padding, nullptr);
-	} else if ($nc(modeUpperCase)->equals("CTR"_s)) {
+	} else if (modeUpperCase->equals("CTR"_s)) {
 		this->cipherMode = CipherCore::CTR_MODE;
 		$set(this, cipher, $new($CounterMode, rawImpl));
 		this->unitBytes = 1;
 		$set(this, padding, nullptr);
-	} else if ($nc(modeUpperCase)->startsWith("CFB"_s)) {
+	} else if (modeUpperCase->startsWith("CFB"_s)) {
 		this->cipherMode = CipherCore::CFB_MODE;
 		this->unitBytes = getNumOfUnit(mode, "CFB"_s->length(), this->blockSize);
 		$set(this, cipher, $new($CipherFeedback, rawImpl, this->unitBytes));
-	} else if ($nc(modeUpperCase)->startsWith("OFB"_s)) {
+	} else if (modeUpperCase->startsWith("OFB"_s)) {
 		this->cipherMode = CipherCore::OFB_MODE;
 		this->unitBytes = getNumOfUnit(mode, "OFB"_s->length(), this->blockSize);
 		$set(this, cipher, $new($OutputFeedback, rawImpl, this->unitBytes));
-	} else if ($nc(modeUpperCase)->equals("PCBC"_s)) {
+	} else if (modeUpperCase->equals("PCBC"_s)) {
 		this->cipherMode = CipherCore::PCBC_MODE;
 		$set(this, cipher, $new($PCBC, rawImpl));
 	} else {
@@ -257,9 +257,9 @@ void CipherCore::setPadding($String* paddingScheme) {
 	}
 	if ($nc(paddingScheme)->equalsIgnoreCase("NoPadding"_s)) {
 		$set(this, padding, nullptr);
-	} else if ($nc(paddingScheme)->equalsIgnoreCase("ISO10126Padding"_s)) {
+	} else if (paddingScheme->equalsIgnoreCase("ISO10126Padding"_s)) {
 		$set(this, padding, $new($ISO10126Padding, this->blockSize));
-	} else if ($nc(paddingScheme)->equalsIgnoreCase("PKCS5Padding"_s)) {
+	} else if (paddingScheme->equalsIgnoreCase("PKCS5Padding"_s)) {
 		$set(this, padding, $new($PKCS5Padding, this->blockSize));
 	} else {
 		$throwNew($NoSuchPaddingException, $$str({"Padding: "_s, paddingScheme, " not implemented"_s}));

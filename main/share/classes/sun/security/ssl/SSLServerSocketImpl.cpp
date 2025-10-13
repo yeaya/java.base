@@ -27,9 +27,9 @@
 #include <sun/security/ssl/SSLSocketImpl.h>
 #include <jcpp.h>
 
+#undef CLIENT_AUTH_NONE
 #undef CLIENT_AUTH_REQUESTED
 #undef CLIENT_AUTH_REQUIRED
-#undef CLIENT_AUTH_NONE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -25,11 +25,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef WRITE_BUF
+#undef WRITE_BUF_OFF
 #undef WRITE_INT
 #undef WRITE_STR
-#undef WRITE_BUF
 #undef WRITE_STR_OFF
-#undef WRITE_BUF_OFF
 
 using $OpsAfterClose4PrintWriter$1 = ::OpsAfterClose4PrintWriter$1;
 using $OpsAfterClose4PrintWriter$2 = ::OpsAfterClose4PrintWriter$2;

@@ -21,15 +21,15 @@
 #include <sun/nio/fs/Util.h>
 #include <jcpp.h>
 
-#undef LAST_MODIFIED_TIME_NAME
-#undef IS_DIRECTORY_NAME
-#undef IS_REGULAR_FILE_NAME
-#undef LAST_ACCESS_TIME_NAME
-#undef IS_SYMBOLIC_LINK_NAME
 #undef CREATION_TIME_NAME
 #undef FILE_KEY_NAME
-#undef SIZE_NAME
+#undef IS_DIRECTORY_NAME
 #undef IS_OTHER_NAME
+#undef IS_REGULAR_FILE_NAME
+#undef IS_SYMBOLIC_LINK_NAME
+#undef LAST_ACCESS_TIME_NAME
+#undef LAST_MODIFIED_TIME_NAME
+#undef SIZE_NAME
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

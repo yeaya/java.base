@@ -38,9 +38,9 @@
 #include <java/util/Spliterators$LongIteratorSpliterator.h>
 #include <jcpp.h>
 
-#undef EMPTY_LONG_SPLITERATOR
-#undef EMPTY_INT_SPLITERATOR
 #undef EMPTY_DOUBLE_SPLITERATOR
+#undef EMPTY_INT_SPLITERATOR
+#undef EMPTY_LONG_SPLITERATOR
 #undef EMPTY_SPLITERATOR
 
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;

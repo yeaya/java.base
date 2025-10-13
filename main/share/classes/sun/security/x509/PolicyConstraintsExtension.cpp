@@ -24,13 +24,13 @@
 #include <jcpp.h>
 
 #undef IDENT
-#undef TAG_REQUIRE
-#undef TAG_INHIBIT
-#undef TAG_CONTEXT
-#undef TRUE
 #undef INHIBIT
 #undef NAME
 #undef REQUIRE
+#undef TAG_CONTEXT
+#undef TAG_INHIBIT
+#undef TAG_REQUIRE
+#undef TRUE
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -234,7 +234,7 @@ void PolicyConstraintsExtension::set($String* name, Object$* obj) {
 	}
 	if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::REQUIRE)) {
 		this->require = $nc(($cast($Integer, obj)))->intValue();
-	} else if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
+	} else if (name->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
 		this->inhibit = $nc(($cast($Integer, obj)))->intValue();
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:PolicyConstraints."_s}));
@@ -245,7 +245,7 @@ void PolicyConstraintsExtension::set($String* name, Object$* obj) {
 $Object* PolicyConstraintsExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::REQUIRE)) {
 		return $of($Integer::valueOf(this->require));
-	} else if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
+	} else if (name->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
 		return $of($Integer::valueOf(this->inhibit));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:PolicyConstraints."_s);
@@ -255,7 +255,7 @@ $Object* PolicyConstraintsExtension::get($String* name) {
 void PolicyConstraintsExtension::delete$($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::REQUIRE)) {
 		this->require = -1;
-	} else if ($nc(name)->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
+	} else if (name->equalsIgnoreCase(PolicyConstraintsExtension::INHIBIT)) {
 		this->inhibit = -1;
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:PolicyConstraints."_s);

@@ -10,16 +10,16 @@
 #undef CAUSE_CAPTION
 #pragma push_macro("EMPTY_THROWABLE_ARRAY")
 #undef EMPTY_THROWABLE_ARRAY
-#pragma push_macro("SELF_SUPPRESSION_MESSAGE")
-#undef SELF_SUPPRESSION_MESSAGE
-#pragma push_macro("UNASSIGNED_STACK")
-#undef UNASSIGNED_STACK
 #pragma push_macro("NULL_CAUSE_MESSAGE")
 #undef NULL_CAUSE_MESSAGE
+#pragma push_macro("SELF_SUPPRESSION_MESSAGE")
+#undef SELF_SUPPRESSION_MESSAGE
 #pragma push_macro("SUPPRESSED_CAPTION")
 #undef SUPPRESSED_CAPTION
 #pragma push_macro("SUPPRESSED_SENTINEL")
 #undef SUPPRESSED_SENTINEL
+#pragma push_macro("UNASSIGNED_STACK")
+#undef UNASSIGNED_STACK
 
 namespace java {
 	namespace io {
@@ -101,10 +101,10 @@ public:
 
 #pragma pop_macro("CAUSE_CAPTION")
 #pragma pop_macro("EMPTY_THROWABLE_ARRAY")
-#pragma pop_macro("SELF_SUPPRESSION_MESSAGE")
-#pragma pop_macro("UNASSIGNED_STACK")
 #pragma pop_macro("NULL_CAUSE_MESSAGE")
+#pragma pop_macro("SELF_SUPPRESSION_MESSAGE")
 #pragma pop_macro("SUPPRESSED_CAPTION")
 #pragma pop_macro("SUPPRESSED_SENTINEL")
+#pragma pop_macro("UNASSIGNED_STACK")
 
 #endif // _java_lang_Throwable_h_

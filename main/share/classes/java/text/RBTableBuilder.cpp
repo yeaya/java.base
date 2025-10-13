@@ -24,22 +24,22 @@
 #include <sun/text/UCompactIntArray.h>
 #include <jcpp.h>
 
-#undef MAXKEYSIZE
-#undef SECONDARYDIFFERENCEONLY
-#undef DONE
-#undef CONTRACTCHARINDEX
-#undef UNMAPPED
-#undef EXPANDCHARINDEX
-#undef SECONDARY
-#undef PRIMARY
-#undef TERTIARYORDERINCREMENT
-#undef PRIMARYORDERMASK
-#undef TERTIARY
-#undef SECONDARYORDERINCREMENT
-#undef IGNORABLEMASK
 #undef CHARINDEX
-#undef PRIMARYORDERINCREMENT
+#undef CONTRACTCHARINDEX
+#undef DONE
+#undef EXPANDCHARINDEX
+#undef IGNORABLEMASK
 #undef INITIALTABLESIZE
+#undef MAXKEYSIZE
+#undef PRIMARY
+#undef PRIMARYORDERINCREMENT
+#undef PRIMARYORDERMASK
+#undef SECONDARY
+#undef SECONDARYDIFFERENCEONLY
+#undef SECONDARYORDERINCREMENT
+#undef TERTIARY
+#undef TERTIARYORDERINCREMENT
+#undef UNMAPPED
 
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -169,7 +169,7 @@ void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
 			$assign(expChars, entry->getExtension());
 			if (!$nc(expChars)->isEmpty()) {
 				addExpandOrder(groupChars, expChars, order);
-			} else if ($nc(groupChars)->length() > 1) {
+			} else if (groupChars->length() > 1) {
 				char16_t ch = groupChars->charAt(0);
 				bool var$0 = $Character::isHighSurrogate(ch);
 				if (var$0 && groupChars->length() == 2) {
@@ -201,7 +201,7 @@ void RBTableBuilder::addComposedChars() {
 					addOrder(c, order);
 				}
 				continue;
-			} else if ($nc(s)->length() == 2) {
+			} else if (s->length() == 2) {
 				char16_t ch0 = s->charAt(0);
 				if ($Character::isHighSurrogate(ch0)) {
 					int32_t order = getCharOrder(s->codePointAt(0));
@@ -216,7 +216,7 @@ void RBTableBuilder::addComposedChars() {
 				addOrder(c, contractOrder);
 			} else {
 				bool allThere = true;
-				for (int32_t i = 0; i < $nc(s)->length(); ++i) {
+				for (int32_t i = 0; i < s->length(); ++i) {
 					if (getCharOrder(s->charAt(i)) == $RBCollationTables::UNMAPPED) {
 						allThere = false;
 						break;

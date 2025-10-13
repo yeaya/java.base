@@ -22,10 +22,10 @@
 #include <jcpp.h>
 
 #undef EINVAL
+#undef ELOOP
 #undef ENXIO
 #undef MICROSECONDS
 #undef NANOSECONDS
-#undef ELOOP
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

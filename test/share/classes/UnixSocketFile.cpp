@@ -36,10 +36,10 @@
 #include <java/nio/file/attribute/FileTime.h>
 #include <jcpp.h>
 
-#undef TEST_SUB_DIR
 #undef CMD_BASE
 #undef ENTRY_CREATE
 #undef SOCKET_FILE_NAME
+#undef TEST_SUB_DIR
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $WatchEvent$KindArray = $Array<::java::nio::file::WatchEvent$Kind>;

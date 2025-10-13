@@ -47,13 +47,13 @@
 #include <sun/security/util/PropertyExpander.h>
 #include <jcpp.h>
 
-#undef WILDCARD_NAME
 #undef ENGLISH
-#undef WILDCARD_CLASS
-#undef TT_NUMBER
 #undef REPLACE_NAME
-#undef TT_WORD
 #undef TT_EOF
+#undef TT_NUMBER
+#undef TT_WORD
+#undef WILDCARD_CLASS
+#undef WILDCARD_NAME
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $BufferedWriter = ::java::io::BufferedWriter;
@@ -427,11 +427,11 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 			$set(e, codeBase, match("quoted string"_s));
 			peekAndMatch(","_s);
 		} else if (peekAndMatch("SignedBy"_s)) {
-			if ($nc(e)->signedBy != nullptr) {
+			if (e->signedBy != nullptr) {
 				int32_t var$1 = $nc(this->st)->lineno();
 				$throwNew($PolicyParser$ParsingException, var$1, $($LocalizedMessage::getNonlocalized("multiple.SignedBy.expressions"_s, $$new($ObjectArray, 0))));
 			}
-			$set($nc(e), signedBy, match("quoted string"_s));
+			$set(e, signedBy, match("quoted string"_s));
 			$var($StringTokenizer, aliases, $new($StringTokenizer, e->signedBy, ","_s, true));
 			int32_t actr = 0;
 			int32_t cctr = 0;
@@ -439,7 +439,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 				$var($String, alias, $nc($(aliases->nextToken()))->trim());
 				if (alias->equals(","_s)) {
 					++cctr;
-				} else if (!$nc(alias)->isEmpty()) {
+				} else if (!alias->isEmpty()) {
 					++actr;
 				}
 			}
@@ -706,10 +706,10 @@ $String* PolicyParser::match($String* expect) {
 			{
 				if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
 					this->lookahead = $nc(this->st)->nextToken();
-				} else if ($nc(expect)->equalsIgnoreCase("permission type"_s)) {
+				} else if (expect->equalsIgnoreCase("permission type"_s)) {
 					$assign(value, $nc(this->st)->sval);
 					this->lookahead = $nc(this->st)->nextToken();
-				} else if ($nc(expect)->equalsIgnoreCase("principal type"_s)) {
+				} else if (expect->equalsIgnoreCase("principal type"_s)) {
 					$assign(value, $nc(this->st)->sval);
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
@@ -726,13 +726,13 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'\"':
 			{
-				if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
+				if (expect->equalsIgnoreCase("quoted string"_s)) {
 					$assign(value, $nc(this->st)->sval);
 					this->lookahead = $nc(this->st)->nextToken();
-				} else if ($nc(expect)->equalsIgnoreCase("permission type"_s)) {
+				} else if (expect->equalsIgnoreCase("permission type"_s)) {
 					$assign(value, $nc(this->st)->sval);
 					this->lookahead = $nc(this->st)->nextToken();
-				} else if ($nc(expect)->equalsIgnoreCase("principal type"_s)) {
+				} else if (expect->equalsIgnoreCase("principal type"_s)) {
 					$assign(value, $nc(this->st)->sval);
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
@@ -742,7 +742,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u',':
 			{
-				if ($nc(expect)->equalsIgnoreCase(","_s)) {
+				if (expect->equalsIgnoreCase(","_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ","_s);
@@ -751,7 +751,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'{':
 			{
-				if ($nc(expect)->equalsIgnoreCase("{"_s)) {
+				if (expect->equalsIgnoreCase("{"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "{"_s);
@@ -760,7 +760,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'}':
 			{
-				if ($nc(expect)->equalsIgnoreCase("}"_s)) {
+				if (expect->equalsIgnoreCase("}"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "}"_s);
@@ -769,7 +769,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u';':
 			{
-				if ($nc(expect)->equalsIgnoreCase(";"_s)) {
+				if (expect->equalsIgnoreCase(";"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ";"_s);
@@ -778,7 +778,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'*':
 			{
-				if ($nc(expect)->equalsIgnoreCase("*"_s)) {
+				if (expect->equalsIgnoreCase("*"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "*"_s);
@@ -787,7 +787,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'=':
 			{
-				if ($nc(expect)->equalsIgnoreCase("="_s)) {
+				if (expect->equalsIgnoreCase("="_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "="_s);

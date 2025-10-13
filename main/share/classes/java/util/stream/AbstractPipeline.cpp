@@ -35,17 +35,17 @@
 #include <java/util/stream/TerminalOp.h>
 #include <jcpp.h>
 
-#undef MSG_CONSUMED
-#undef SHORT_CIRCUIT
-#undef OP_MASK
-#undef NOT_SIZED
-#undef IS_SIZED
-#undef SIZE_ADJUSTING
-#undef ORDERED
 #undef INITIAL_OPS_VALUE
-#undef SIZED
-#undef MSG_STREAM_LINKED
 #undef IS_SHORT_CIRCUIT
+#undef IS_SIZED
+#undef MSG_CONSUMED
+#undef MSG_STREAM_LINKED
+#undef NOT_SIZED
+#undef OP_MASK
+#undef ORDERED
+#undef SHORT_CIRCUIT
+#undef SIZED
+#undef SIZE_ADJUSTING
 #undef STREAM_MASK
 
 using $Serializable = ::java::io::Serializable;

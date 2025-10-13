@@ -14,11 +14,11 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef LOW_WATER_FACTOR
-#undef HIGH_WATER_FACTOR
 #undef DELETED
-#undef MAX_UNUSED
 #undef EMPTY
+#undef HIGH_WATER_FACTOR
+#undef LOW_WATER_FACTOR
+#undef MAX_UNUSED
 #undef PRIMES
 
 using $PrintStream = ::java::io::PrintStream;

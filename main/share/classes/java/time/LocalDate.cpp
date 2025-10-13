@@ -70,30 +70,30 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef CE
 #undef ALIGNED_DAY_OF_WEEK_IN_MONTH
-#undef MAX
-#undef DAY_OF_MONTH
-#undef BCE
-#undef MIDNIGHT
-#undef INSTANCE
-#undef FEBRUARY
-#undef MAX_VALUE
-#undef PROLEPTIC_MONTH
-#undef MIN_VALUE
-#undef LOCAL_DATE_TYPE
-#undef MIN
-#undef MONTH_OF_YEAR
+#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
 #undef ALIGNED_WEEK_OF_MONTH
-#undef YEAR
+#undef ALIGNED_WEEK_OF_YEAR
+#undef BCE
+#undef CE
+#undef DAYS_PER_CYCLE
+#undef DAY_OF_MONTH
+#undef DAY_OF_YEAR
+#undef EPOCH
 #undef EPOCH_DAY
 #undef ERA
-#undef EPOCH
+#undef FEBRUARY
+#undef INSTANCE
 #undef ISO_LOCAL_DATE
-#undef ALIGNED_DAY_OF_WEEK_IN_YEAR
-#undef ALIGNED_WEEK_OF_YEAR
-#undef DAYS_PER_CYCLE
+#undef LOCAL_DATE_TYPE
+#undef MAX
+#undef MAX_VALUE
+#undef MIDNIGHT
+#undef MIN
+#undef MIN_VALUE
+#undef MONTH_OF_YEAR
+#undef PROLEPTIC_MONTH
+#undef YEAR
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
@@ -1187,7 +1187,7 @@ $ChronoPeriod* LocalDate::until($ChronoLocalDate* endDateExclusive) {
 		days = (int32_t)(var$1 - $nc(calcDate)->toEpochDay());
 	} else if (totalMonths < 0 && days > 0) {
 		++totalMonths;
-		days -= $nc(end)->lengthOfMonth();
+		days -= end->lengthOfMonth();
 	}
 	int64_t years = totalMonths / 12;
 	int32_t months = (int32_t)(totalMonths % 12);

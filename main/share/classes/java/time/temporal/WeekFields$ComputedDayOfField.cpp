@@ -34,23 +34,23 @@
 #include <sun/util/locale/provider/LocaleResources.h>
 #include <jcpp.h>
 
-#undef FOREVER
-#undef DAY_OF_YEAR
-#undef STRICT
-#undef DAY_OF_MONTH
 #undef DAYS
-#undef WEEK_OF_MONTH_RANGE
-#undef WEEK_BASED_YEARS
-#undef WEEK_OF_YEAR_RANGE
-#undef MONTHS
-#undef YEARS
-#undef WEEK_OF_WEEK_BASED_YEAR_RANGE
-#undef LENIENT
-#undef MONTH_OF_YEAR
-#undef YEAR
-#undef WEEKS
+#undef DAY_OF_MONTH
 #undef DAY_OF_WEEK
 #undef DAY_OF_WEEK_RANGE
+#undef DAY_OF_YEAR
+#undef FOREVER
+#undef LENIENT
+#undef MONTHS
+#undef MONTH_OF_YEAR
+#undef STRICT
+#undef WEEKS
+#undef WEEK_BASED_YEARS
+#undef WEEK_OF_MONTH_RANGE
+#undef WEEK_OF_WEEK_BASED_YEAR_RANGE
+#undef WEEK_OF_YEAR_RANGE
+#undef YEAR
+#undef YEARS
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -303,8 +303,7 @@ int32_t WeekFields$ComputedDayOfField::localizedWeekOfWeekBasedYear($TemporalAcc
 		$assign(date, $nc(date)->minus(doy, $ChronoUnit::DAYS));
 		return localizedWeekOfWeekBasedYear(date);
 	} else if (week > 50) {
-		$init($ChronoField);
-		$var($ValueRange, dayRange, $nc(temporal)->range($ChronoField::DAY_OF_YEAR));
+		$var($ValueRange, dayRange, temporal->range($ChronoField::DAY_OF_YEAR));
 		int32_t yearLen = (int32_t)$nc(dayRange)->getMaximum();
 		int32_t newYearWeek = computeWeek(offset, yearLen + $nc(this->weekDef)->getMinimalDaysInFirstWeek());
 		if (week >= newYearWeek) {

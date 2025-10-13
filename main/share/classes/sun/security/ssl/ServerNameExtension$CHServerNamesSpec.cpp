@@ -43,11 +43,11 @@
 #include <sun/security/ssl/Utilities.h>
 #include <jcpp.h>
 
-#undef NAME_HEADER_LENGTH
-#undef UTF_8
-#undef ILLEGAL_PARAMETER
-#undef SNI_HOST_NAME
 #undef DECODE_ERROR
+#undef ILLEGAL_PARAMETER
+#undef NAME_HEADER_LENGTH
+#undef SNI_HOST_NAME
+#undef UTF_8
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

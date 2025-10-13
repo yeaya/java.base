@@ -8,10 +8,10 @@
 
 #pragma push_macro("ALLOWED")
 #undef ALLOWED
-#pragma push_macro("UNDECIDED")
-#undef UNDECIDED
 #pragma push_macro("REJECTED")
 #undef REJECTED
+#pragma push_macro("UNDECIDED")
+#undef UNDECIDED
 
 namespace java {
 	namespace io {
@@ -34,7 +34,7 @@ public:
 } // java
 
 #pragma pop_macro("ALLOWED")
-#pragma pop_macro("UNDECIDED")
 #pragma pop_macro("REJECTED")
+#pragma pop_macro("UNDECIDED")
 
 #endif // _java_io_ObjectInputFilter$Status_h_

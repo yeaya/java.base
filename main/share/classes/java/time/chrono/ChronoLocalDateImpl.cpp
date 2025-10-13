@@ -31,11 +31,11 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef MONTH_OF_YEAR
-#undef ERA
 #undef DAY_OF_MONTH
+#undef ERA
 #undef MAX_VALUE
 #undef MIN_VALUE
+#undef MONTH_OF_YEAR
 #undef PROLEPTIC_MONTH
 #undef YEAR_OF_ERA
 

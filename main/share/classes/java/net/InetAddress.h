@@ -6,16 +6,16 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("PREFER_IPV6_VALUE")
-#undef PREFER_IPV6_VALUE
+#pragma push_macro("FIELDS_OFFSET")
+#undef FIELDS_OFFSET
 #pragma push_macro("PREFER_IPV4_VALUE")
 #undef PREFER_IPV4_VALUE
+#pragma push_macro("PREFER_IPV6_VALUE")
+#undef PREFER_IPV6_VALUE
 #pragma push_macro("PREFER_SYSTEM_VALUE")
 #undef PREFER_SYSTEM_VALUE
 #pragma push_macro("UNSAFE")
 #undef UNSAFE
-#pragma push_macro("FIELDS_OFFSET")
-#undef FIELDS_OFFSET
 
 namespace java {
 	namespace io {
@@ -126,10 +126,10 @@ public:
 	} // net
 } // java
 
-#pragma pop_macro("PREFER_IPV6_VALUE")
+#pragma pop_macro("FIELDS_OFFSET")
 #pragma pop_macro("PREFER_IPV4_VALUE")
+#pragma pop_macro("PREFER_IPV6_VALUE")
 #pragma pop_macro("PREFER_SYSTEM_VALUE")
 #pragma pop_macro("UNSAFE")
-#pragma pop_macro("FIELDS_OFFSET")
 
 #endif // _java_net_InetAddress_h_

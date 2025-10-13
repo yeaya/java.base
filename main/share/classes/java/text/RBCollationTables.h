@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("TERTIARYORDERMASK")
-#undef TERTIARYORDERMASK
-#pragma push_macro("SECONDARYDIFFERENCEONLY")
-#undef SECONDARYDIFFERENCEONLY
-#pragma push_macro("PRIMARYORDERSHIFT")
-#undef PRIMARYORDERSHIFT
 #pragma push_macro("CONTRACTCHARINDEX")
 #undef CONTRACTCHARINDEX
-#pragma push_macro("UNMAPPED")
-#undef UNMAPPED
 #pragma push_macro("EXPANDCHARINDEX")
 #undef EXPANDCHARINDEX
-#pragma push_macro("SECONDARYORDERSHIFT")
-#undef SECONDARYORDERSHIFT
 #pragma push_macro("PRIMARYDIFFERENCEONLY")
 #undef PRIMARYDIFFERENCEONLY
-#pragma push_macro("SECONDARYORDERMASK")
-#undef SECONDARYORDERMASK
 #pragma push_macro("PRIMARYORDERMASK")
 #undef PRIMARYORDERMASK
+#pragma push_macro("PRIMARYORDERSHIFT")
+#undef PRIMARYORDERSHIFT
+#pragma push_macro("SECONDARYDIFFERENCEONLY")
+#undef SECONDARYDIFFERENCEONLY
+#pragma push_macro("SECONDARYORDERMASK")
+#undef SECONDARYORDERMASK
+#pragma push_macro("SECONDARYORDERSHIFT")
+#undef SECONDARYORDERSHIFT
+#pragma push_macro("TERTIARYORDERMASK")
+#undef TERTIARYORDERMASK
+#pragma push_macro("UNMAPPED")
+#undef UNMAPPED
 
 namespace java {
 	namespace lang {
@@ -88,15 +88,15 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("TERTIARYORDERMASK")
-#pragma pop_macro("SECONDARYDIFFERENCEONLY")
-#pragma pop_macro("PRIMARYORDERSHIFT")
 #pragma pop_macro("CONTRACTCHARINDEX")
-#pragma pop_macro("UNMAPPED")
 #pragma pop_macro("EXPANDCHARINDEX")
-#pragma pop_macro("SECONDARYORDERSHIFT")
 #pragma pop_macro("PRIMARYDIFFERENCEONLY")
-#pragma pop_macro("SECONDARYORDERMASK")
 #pragma pop_macro("PRIMARYORDERMASK")
+#pragma pop_macro("PRIMARYORDERSHIFT")
+#pragma pop_macro("SECONDARYDIFFERENCEONLY")
+#pragma pop_macro("SECONDARYORDERMASK")
+#pragma pop_macro("SECONDARYORDERSHIFT")
+#pragma pop_macro("TERTIARYORDERMASK")
+#pragma pop_macro("UNMAPPED")
 
 #endif // _java_text_RBCollationTables_h_

@@ -5,14 +5,14 @@
 
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
 
-#pragma push_macro("MAX_COUNT")
-#undef MAX_COUNT
-#pragma push_macro("SHARED_UNIT")
-#undef SHARED_UNIT
-#pragma push_macro("SHARED_SHIFT")
-#undef SHARED_SHIFT
 #pragma push_macro("EXCLUSIVE_MASK")
 #undef EXCLUSIVE_MASK
+#pragma push_macro("MAX_COUNT")
+#undef MAX_COUNT
+#pragma push_macro("SHARED_SHIFT")
+#undef SHARED_SHIFT
+#pragma push_macro("SHARED_UNIT")
+#undef SHARED_UNIT
 
 namespace java {
 	namespace io {
@@ -84,9 +84,9 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("MAX_COUNT")
-#pragma pop_macro("SHARED_UNIT")
-#pragma pop_macro("SHARED_SHIFT")
 #pragma pop_macro("EXCLUSIVE_MASK")
+#pragma pop_macro("MAX_COUNT")
+#pragma pop_macro("SHARED_SHIFT")
+#pragma pop_macro("SHARED_UNIT")
 
 #endif // _java_util_concurrent_locks_ReentrantReadWriteLock$Sync_h_

@@ -24,8 +24,8 @@
 
 #undef SSL30
 #undef TLS10
-#undef TLS13
 #undef TLS12
+#undef TLS13
 
 using $SSLTrafficKeyDerivationArray = $Array<::sun::security::ssl::SSLTrafficKeyDerivation>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -9,12 +9,12 @@
 #include <java/io/DataOutput.h>
 #include <java/lang/Array.h>
 
-#pragma push_macro("O_RDWR")
-#undef O_RDWR
 #pragma push_macro("O_DSYNC")
 #undef O_DSYNC
 #pragma push_macro("O_RDONLY")
 #undef O_RDONLY
+#pragma push_macro("O_RDWR")
+#undef O_RDWR
 #pragma push_macro("O_SYNC")
 #undef O_SYNC
 #pragma push_macro("O_TEMPORARY")
@@ -113,9 +113,9 @@ public:
 	} // io
 } // java
 
-#pragma pop_macro("O_RDWR")
 #pragma pop_macro("O_DSYNC")
 #pragma pop_macro("O_RDONLY")
+#pragma pop_macro("O_RDWR")
 #pragma pop_macro("O_SYNC")
 #pragma pop_macro("O_TEMPORARY")
 

@@ -20,8 +20,8 @@
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
 
-#undef TRIPWIRE_PROPERTY
 #undef ENABLED
+#undef TRIPWIRE_PROPERTY
 
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;

@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <java/text/Format.h>
 
-#pragma push_macro("NUMBERSTYLE")
-#undef NUMBERSTYLE
-#pragma push_macro("PERCENTSTYLE")
-#undef PERCENTSTYLE
+#pragma push_macro("COMPACTSTYLE")
+#undef COMPACTSTYLE
 #pragma push_macro("CURRENCYSTYLE")
 #undef CURRENCYSTYLE
 #pragma push_macro("FRACTION_FIELD")
 #undef FRACTION_FIELD
-#pragma push_macro("SCIENTIFICSTYLE")
-#undef SCIENTIFICSTYLE
-#pragma push_macro("COMPACTSTYLE")
-#undef COMPACTSTYLE
 #pragma push_macro("INTEGERSTYLE")
 #undef INTEGERSTYLE
 #pragma push_macro("INTEGER_FIELD")
 #undef INTEGER_FIELD
+#pragma push_macro("NUMBERSTYLE")
+#undef NUMBERSTYLE
+#pragma push_macro("PERCENTSTYLE")
+#undef PERCENTSTYLE
+#pragma push_macro("SCIENTIFICSTYLE")
+#undef SCIENTIFICSTYLE
 
 namespace java {
 	namespace io {
@@ -146,13 +146,13 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("NUMBERSTYLE")
-#pragma pop_macro("PERCENTSTYLE")
+#pragma pop_macro("COMPACTSTYLE")
 #pragma pop_macro("CURRENCYSTYLE")
 #pragma pop_macro("FRACTION_FIELD")
-#pragma pop_macro("SCIENTIFICSTYLE")
-#pragma pop_macro("COMPACTSTYLE")
 #pragma pop_macro("INTEGERSTYLE")
 #pragma pop_macro("INTEGER_FIELD")
+#pragma pop_macro("NUMBERSTYLE")
+#pragma pop_macro("PERCENTSTYLE")
+#pragma pop_macro("SCIENTIFICSTYLE")
 
 #endif // _java_text_NumberFormat_h_

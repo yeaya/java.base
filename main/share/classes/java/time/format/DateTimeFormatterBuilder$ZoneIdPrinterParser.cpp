@@ -32,10 +32,10 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-#undef INSTANCE_ID_ZERO
 #undef INSTANCE_ID_Z
-#undef UTC
+#undef INSTANCE_ID_ZERO
 #undef OFFSET_SECONDS
+#undef UTC
 
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -164,7 +164,7 @@ int32_t DateTimeFormatterBuilder$ZoneIdPrinterParser::parse($DateTimeParseContex
 		$init($DateTimeFormatterBuilder$OffsetIdPrinterParser);
 		return parseOffsetBased(context, text, position, position, $DateTimeFormatterBuilder$OffsetIdPrinterParser::INSTANCE_ID_Z);
 	} else if (length >= position + 2) {
-		char16_t nextNextChar = $nc(text)->charAt(position + 1);
+		char16_t nextNextChar = text->charAt(position + 1);
 		bool var$0 = $nc(context)->charEquals(nextChar, u'U');
 		if (var$0 && context->charEquals(nextNextChar, u'T')) {
 			if (length >= position + 3 && context->charEquals(text->charAt(position + 2), u'C')) {

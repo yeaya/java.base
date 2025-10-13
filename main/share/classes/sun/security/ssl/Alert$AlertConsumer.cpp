@@ -27,15 +27,15 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
-#undef CLIENT_AUTH_REQUESTED
-#undef CERTIFICATE_VERIFY
 #undef CERTIFICATE
-#undef HANDSHAKE_FAILURE
+#undef CERTIFICATE_VERIFY
+#undef CLIENT_AUTH_REQUESTED
 #undef CLOSE_NOTIFY
+#undef HANDSHAKE_FAILURE
 #undef NO_CERTIFICATE
+#undef UNEXPECTED_MESSAGE
 #undef USER_CANCELED
 #undef WARNING
-#undef UNEXPECTED_MESSAGE
 
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -110,8 +110,7 @@ void Alert$AlertConsumer::consume($ConnectionContext* context, $ByteBuffer* m) {
 		tc->closeInbound();
 		if (tc->peerUserCanceled) {
 			tc->closeOutbound();
-		} else if ($nc(tc)->handshakeContext != nullptr) {
-			$init($Alert);
+		} else if (tc->handshakeContext != nullptr) {
 			$throw($(tc->fatal($Alert::UNEXPECTED_MESSAGE, "Received close_notify during handshake"_s)));
 		}
 	} else {

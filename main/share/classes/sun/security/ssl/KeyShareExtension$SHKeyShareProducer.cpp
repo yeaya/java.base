@@ -34,8 +34,8 @@
 #include <sun/security/ssl/ServerHandshakeContext.h>
 #include <jcpp.h>
 
-#undef SH_KEY_SHARE
 #undef CH_KEY_SHARE
+#undef SH_KEY_SHARE
 
 using $Map$EntryArray = $Array<::java::util::Map$Entry>;
 using $SSLPossessionArray = $Array<::sun::security::ssl::SSLPossession>;

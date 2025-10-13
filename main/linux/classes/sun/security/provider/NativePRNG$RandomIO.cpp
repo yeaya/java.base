@@ -28,14 +28,14 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef MIN_BUFFER_SIZE
-#undef REQ_LIMIT_INC
-#undef MAX_BUFFER_TIME
-#undef MAX_BUFFER_SIZE
-#undef REQ_LIMIT_DEC
-#undef LOCK_SET_SEED
-#undef LOCK_GET_SEED
 #undef LOCK_GET_BYTES
+#undef LOCK_GET_SEED
+#undef LOCK_SET_SEED
+#undef MAX_BUFFER_SIZE
+#undef MAX_BUFFER_TIME
+#undef MIN_BUFFER_SIZE
+#undef REQ_LIMIT_DEC
+#undef REQ_LIMIT_INC
 
 using $EOFException = ::java::io::EOFException;
 using $File = ::java::io::File;

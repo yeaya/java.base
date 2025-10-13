@@ -5,6 +5,16 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("NULL_DESCRIPTOR")
+#undef NULL_DESCRIPTOR
+#pragma push_macro("OFFSETOF_ACCESS_MASK")
+#undef OFFSETOF_ACCESS_MASK
+#pragma push_macro("OFFSETOF_FLAGS")
+#undef OFFSETOF_FLAGS
+#pragma push_macro("OFFSETOF_SID")
+#undef OFFSETOF_SID
+#pragma push_macro("OFFSETOF_TYPE")
+#undef OFFSETOF_TYPE
 #pragma push_macro("SIZEOF_ACCESS_ALLOWED_ACE")
 #undef SIZEOF_ACCESS_ALLOWED_ACE
 #pragma push_macro("SIZEOF_ACCESS_DENIED_ACE")
@@ -13,16 +23,6 @@
 #undef SIZEOF_ACL
 #pragma push_macro("SIZEOF_SECURITY_DESCRIPTOR")
 #undef SIZEOF_SECURITY_DESCRIPTOR
-#pragma push_macro("OFFSETOF_ACCESS_MASK")
-#undef OFFSETOF_ACCESS_MASK
-#pragma push_macro("NULL_DESCRIPTOR")
-#undef NULL_DESCRIPTOR
-#pragma push_macro("OFFSETOF_FLAGS")
-#undef OFFSETOF_FLAGS
-#pragma push_macro("OFFSETOF_SID")
-#undef OFFSETOF_SID
-#pragma push_macro("OFFSETOF_TYPE")
-#undef OFFSETOF_TYPE
 
 namespace java {
 	namespace nio {
@@ -90,14 +90,14 @@ public:
 	} // nio
 } // sun
 
+#pragma pop_macro("NULL_DESCRIPTOR")
+#pragma pop_macro("OFFSETOF_ACCESS_MASK")
+#pragma pop_macro("OFFSETOF_FLAGS")
+#pragma pop_macro("OFFSETOF_SID")
+#pragma pop_macro("OFFSETOF_TYPE")
 #pragma pop_macro("SIZEOF_ACCESS_ALLOWED_ACE")
 #pragma pop_macro("SIZEOF_ACCESS_DENIED_ACE")
 #pragma pop_macro("SIZEOF_ACL")
 #pragma pop_macro("SIZEOF_SECURITY_DESCRIPTOR")
-#pragma pop_macro("OFFSETOF_ACCESS_MASK")
-#pragma pop_macro("NULL_DESCRIPTOR")
-#pragma pop_macro("OFFSETOF_FLAGS")
-#pragma pop_macro("OFFSETOF_SID")
-#pragma pop_macro("OFFSETOF_TYPE")
 
 #endif // _sun_nio_fs_WindowsSecurityDescriptor_h_

@@ -5,14 +5,14 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("HTTP_URL1A")
-#undef HTTP_URL1A
-#pragma push_macro("HTTP_URL1B")
-#undef HTTP_URL1B
 #pragma push_macro("FILE_URL1A")
 #undef FILE_URL1A
 #pragma push_macro("FILE_URL1B")
 #undef FILE_URL1B
+#pragma push_macro("HTTP_URL1A")
+#undef HTTP_URL1A
+#pragma push_macro("HTTP_URL1B")
+#undef HTTP_URL1B
 
 class $export Equals : public ::java::lang::Object {
 	$class(Equals, 0, ::java::lang::Object)
@@ -29,9 +29,9 @@ public:
 	static $String* FILE_URL1B;
 };
 
-#pragma pop_macro("HTTP_URL1A")
-#pragma pop_macro("HTTP_URL1B")
 #pragma pop_macro("FILE_URL1A")
 #pragma pop_macro("FILE_URL1B")
+#pragma pop_macro("HTTP_URL1A")
+#pragma pop_macro("HTTP_URL1B")
 
 #endif // _Equals_h_

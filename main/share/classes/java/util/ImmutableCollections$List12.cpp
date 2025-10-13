@@ -183,7 +183,7 @@ int32_t ImmutableCollections$List12::lastIndexOf(Object$* o) {
 	$init($ImmutableCollections);
 	if (!$equals(this->e1, $ImmutableCollections::EMPTY) && $of(o)->equals(this->e1)) {
 		return 1;
-	} else if ($nc($of(o))->equals(this->e0)) {
+	} else if ($of(o)->equals(this->e0)) {
 		return 0;
 	} else {
 		return -1;

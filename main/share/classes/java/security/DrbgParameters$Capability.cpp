@@ -14,10 +14,10 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-#undef RESEED_ONLY
-#undef ROOT
 #undef NONE
 #undef PR_AND_RESEED
+#undef RESEED_ONLY
+#undef ROOT
 
 using $DrbgParameters$CapabilityArray = $Array<::java::security::DrbgParameters$Capability>;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -17,14 +17,14 @@
 #include <java/text/NumberFormat.h>
 #include <jcpp.h>
 
-#undef FRACTIONAL_BENCH
-#undef INTEGER_BENCH
-#undef TIE_BENCH
-#undef SMALL_INTEGRAL_BENCH
-#undef FAIR_SIMPLE_BENCH
-#undef FRACTIONAL_ALL_NINES_BENCH
 #undef ALL_NINES_BENCH
 #undef FAIR_BENCH
+#undef FAIR_SIMPLE_BENCH
+#undef FRACTIONAL_ALL_NINES_BENCH
+#undef FRACTIONAL_BENCH
+#undef INTEGER_BENCH
+#undef SMALL_INTEGRAL_BENCH
+#undef TIE_BENCH
 
 using $FormatMicroBenchmark = ::FormatMicroBenchmark;
 using $FormatMicroBenchmark$1 = ::FormatMicroBenchmark$1;

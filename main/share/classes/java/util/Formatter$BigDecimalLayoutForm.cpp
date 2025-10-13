@@ -13,8 +13,8 @@
 #include <java/util/Formatter.h>
 #include <jcpp.h>
 
-#undef SCIENTIFIC
 #undef DECIMAL_FLOAT
+#undef SCIENTIFIC
 
 using $Formatter$BigDecimalLayoutFormArray = $Array<::java::util::Formatter$BigDecimalLayoutForm>;
 using $ClassInfo = ::java::lang::ClassInfo;

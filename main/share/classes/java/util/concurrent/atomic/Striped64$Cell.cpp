@@ -21,8 +21,8 @@
 #include <java/util/concurrent/atomic/Striped64.h>
 #include <jcpp.h>
 
-#undef VALUE
 #undef TYPE
+#undef VALUE
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

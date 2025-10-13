@@ -5,38 +5,38 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("NF_CURRENCY")
-#undef NF_CURRENCY
-#pragma push_macro("DN_LOCALE_LANGUAGE")
-#undef DN_LOCALE_LANGUAGE
-#pragma push_macro("NF_PERCENT")
-#undef NF_PERCENT
-#pragma push_macro("DN_CURRENCY_NAME")
-#undef DN_CURRENCY_NAME
-#pragma push_macro("DN_LOCALE_REGION")
-#undef DN_LOCALE_REGION
 #pragma push_macro("CAL_JAPAN")
 #undef CAL_JAPAN
-#pragma push_macro("CD_FIRSTDAYOFWEEK")
-#undef CD_FIRSTDAYOFWEEK
 #pragma push_macro("CAT_DISPLAY")
 #undef CAT_DISPLAY
-#pragma push_macro("NF_INTEGER")
-#undef NF_INTEGER
-#pragma push_macro("DN_LOCALE_SCRIPT")
-#undef DN_LOCALE_SCRIPT
-#pragma push_macro("DN_CURRENCY_SYMBOL")
-#undef DN_CURRENCY_SYMBOL
-#pragma push_macro("NF_NUMBER")
-#undef NF_NUMBER
-#pragma push_macro("NF_MAX")
-#undef NF_MAX
 #pragma push_macro("CAT_FORMAT")
 #undef CAT_FORMAT
-#pragma push_macro("DN_LOCALE_VARIANT")
-#undef DN_LOCALE_VARIANT
+#pragma push_macro("CD_FIRSTDAYOFWEEK")
+#undef CD_FIRSTDAYOFWEEK
 #pragma push_macro("CD_FIRSTWEEKOFYEAR")
 #undef CD_FIRSTWEEKOFYEAR
+#pragma push_macro("DN_CURRENCY_NAME")
+#undef DN_CURRENCY_NAME
+#pragma push_macro("DN_CURRENCY_SYMBOL")
+#undef DN_CURRENCY_SYMBOL
+#pragma push_macro("DN_LOCALE_LANGUAGE")
+#undef DN_LOCALE_LANGUAGE
+#pragma push_macro("DN_LOCALE_REGION")
+#undef DN_LOCALE_REGION
+#pragma push_macro("DN_LOCALE_SCRIPT")
+#undef DN_LOCALE_SCRIPT
+#pragma push_macro("DN_LOCALE_VARIANT")
+#undef DN_LOCALE_VARIANT
+#pragma push_macro("NF_CURRENCY")
+#undef NF_CURRENCY
+#pragma push_macro("NF_INTEGER")
+#undef NF_INTEGER
+#pragma push_macro("NF_MAX")
+#undef NF_MAX
+#pragma push_macro("NF_NUMBER")
+#undef NF_NUMBER
+#pragma push_macro("NF_PERCENT")
+#undef NF_PERCENT
 
 namespace java {
 	namespace text {
@@ -174,21 +174,21 @@ public:
 	} // util
 } // sun
 
-#pragma pop_macro("NF_CURRENCY")
-#pragma pop_macro("DN_LOCALE_LANGUAGE")
-#pragma pop_macro("NF_PERCENT")
-#pragma pop_macro("DN_CURRENCY_NAME")
-#pragma pop_macro("DN_LOCALE_REGION")
 #pragma pop_macro("CAL_JAPAN")
-#pragma pop_macro("CD_FIRSTDAYOFWEEK")
 #pragma pop_macro("CAT_DISPLAY")
-#pragma pop_macro("NF_INTEGER")
-#pragma pop_macro("DN_LOCALE_SCRIPT")
-#pragma pop_macro("DN_CURRENCY_SYMBOL")
-#pragma pop_macro("NF_NUMBER")
-#pragma pop_macro("NF_MAX")
 #pragma pop_macro("CAT_FORMAT")
-#pragma pop_macro("DN_LOCALE_VARIANT")
+#pragma pop_macro("CD_FIRSTDAYOFWEEK")
 #pragma pop_macro("CD_FIRSTWEEKOFYEAR")
+#pragma pop_macro("DN_CURRENCY_NAME")
+#pragma pop_macro("DN_CURRENCY_SYMBOL")
+#pragma pop_macro("DN_LOCALE_LANGUAGE")
+#pragma pop_macro("DN_LOCALE_REGION")
+#pragma pop_macro("DN_LOCALE_SCRIPT")
+#pragma pop_macro("DN_LOCALE_VARIANT")
+#pragma pop_macro("NF_CURRENCY")
+#pragma pop_macro("NF_INTEGER")
+#pragma pop_macro("NF_MAX")
+#pragma pop_macro("NF_NUMBER")
+#pragma pop_macro("NF_PERCENT")
 
 #endif // _sun_util_locale_provider_HostLocaleProviderAdapterImpl_h_

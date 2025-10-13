@@ -56,23 +56,23 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-#undef PARSER
-#undef EXCEEDS_PAD
+#undef CENTURIES
 #undef DECADES
-#undef MILLENNIA
+#undef ERA
+#undef ERAS
+#undef EXCEEDS_PAD
 #undef INSTANCE
 #undef MAX_VALUE
-#undef PROLEPTIC_MONTH
+#undef MILLENNIA
 #undef MIN_VALUE
-#undef YEAR_MONTH_TYPE
 #undef MONTHS
-#undef YEARS
 #undef MONTH_OF_YEAR
+#undef PARSER
+#undef PROLEPTIC_MONTH
 #undef YEAR
-#undef ERA
-#undef CENTURIES
+#undef YEARS
+#undef YEAR_MONTH_TYPE
 #undef YEAR_OF_ERA
-#undef ERAS
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;

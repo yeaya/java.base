@@ -18,8 +18,8 @@
 #include <limits>
 
 #undef MIN_NORMAL
-#undef TWO_PLUS_600
 #undef TWO_MINUS_600
+#undef TWO_PLUS_600
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

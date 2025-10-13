@@ -10,14 +10,14 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NETWORK_IF_LO0
-#undef SCOPE_ID_ZERO
-#undef LO0HOSTADDRESS
 #undef BARE_LO0HOSTADDRESS
-#undef SCOPE_ID_LO0
+#undef LO0HOSTADDRESS
 #undef LO0HOSTADDRESS_WITHINDEX
-#undef LOOPBACKIPV6ADDRESS
 #undef LOCALHOSTNAME
+#undef LOOPBACKIPV6ADDRESS
+#undef NETWORK_IF_LO0
+#undef SCOPE_ID_LO0
+#undef SCOPE_ID_ZERO
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

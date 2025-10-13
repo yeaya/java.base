@@ -30,11 +30,11 @@
 #include <sun/security/ssl/TransportContext.h>
 #include <jcpp.h>
 
+#undef APPLICATION_DATA
+#undef CLIENT_HELLO
 #undef HANDSHAKE_MESSAGE_KEY_UPDATE
 #undef KEY_UPDATE
-#undef APPLICATION_DATA
 #undef TLS12
-#undef CLIENT_HELLO
 
 using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -449,7 +449,7 @@ int64_t OutputRecord::encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t conte
 		} else {
 			return d10Encrypt(encCipher, contentType, destination, headerOffset, dstLim, headerSize, protocolVersion);
 		}
-	} else if ($nc(protocolVersion)->useTLS13PlusSpec()) {
+	} else if (protocolVersion->useTLS13PlusSpec()) {
 		return t13Encrypt(encCipher, contentType, destination, headerOffset, dstLim, headerSize, protocolVersion);
 	} else {
 		return t10Encrypt(encCipher, contentType, destination, headerOffset, dstLim, headerSize, protocolVersion);
@@ -502,7 +502,7 @@ int64_t OutputRecord::t13Encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t co
 		pv = $ProtocolVersion::TLS12;
 		$init($ContentType);
 		contentType = $ContentType::APPLICATION_DATA->id;
-	} else if ($nc(protocolVersion)->useTLS13PlusSpec()) {
+	} else if (protocolVersion->useTLS13PlusSpec()) {
 		$init($ProtocolVersion);
 		pv = $ProtocolVersion::TLS12;
 	}

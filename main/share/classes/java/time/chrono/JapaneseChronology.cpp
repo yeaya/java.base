@@ -55,23 +55,23 @@
 #include <sun/util/calendar/LocalGregorianCalendar.h>
 #include <jcpp.h>
 
-#undef DAY_OF_YEAR
-#undef STRICT
-#undef DAY_OF_MONTH
-#undef JCAL
 #undef DAYS
+#undef DAY_OF_MONTH
+#undef DAY_OF_YEAR
+#undef ERA
 #undef INSTANCE
-#undef MAX_VALUE
-#undef MIN_VALUE
-#undef MEIJI_6_ISODATE
-#undef MEIJI
-#undef MONTHS
+#undef JCAL
 #undef LENIENT
 #undef LOCALE
+#undef MAX_VALUE
+#undef MEIJI
+#undef MEIJI_6_ISODATE
+#undef MIN_VALUE
+#undef MONTHS
 #undef MONTH_OF_YEAR
-#undef YEAR
-#undef ERA
 #undef SMART
+#undef STRICT
+#undef YEAR
 #undef YEAR_OF_ERA
 
 using $JapaneseEraArray = $Array<::java::time::chrono::JapaneseEra>;

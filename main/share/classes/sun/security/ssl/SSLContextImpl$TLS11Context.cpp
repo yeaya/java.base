@@ -15,8 +15,8 @@
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <jcpp.h>
 
-#undef TLS11
 #undef TLS10
+#undef TLS11
 
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;

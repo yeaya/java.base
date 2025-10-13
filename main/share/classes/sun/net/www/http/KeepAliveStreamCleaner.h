@@ -7,12 +7,12 @@
 #include <java/lang/Runnable.h>
 #include <java/util/LinkedList.h>
 
+#pragma push_macro("MAX_CAPACITY")
+#undef MAX_CAPACITY
 #pragma push_macro("MAX_DATA_REMAINING")
 #undef MAX_DATA_REMAINING
 #pragma push_macro("MAX_RETRIES")
 #undef MAX_RETRIES
-#pragma push_macro("MAX_CAPACITY")
-#undef MAX_CAPACITY
 #pragma push_macro("TIMEOUT")
 #undef TIMEOUT
 
@@ -73,9 +73,9 @@ public:
 	} // net
 } // sun
 
+#pragma pop_macro("MAX_CAPACITY")
 #pragma pop_macro("MAX_DATA_REMAINING")
 #pragma pop_macro("MAX_RETRIES")
-#pragma pop_macro("MAX_CAPACITY")
 #pragma pop_macro("TIMEOUT")
 
 #endif // _sun_net_www_http_KeepAliveStreamCleaner_h_

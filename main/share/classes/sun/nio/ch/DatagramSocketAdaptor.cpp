@@ -64,16 +64,16 @@
 #include <sun/nio/ch/Util.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
-#undef IP_MULTICAST_LOOP
-#undef SO_RCVBUF
-#undef IP_TOS
-#undef SO_SNDBUF
 #undef IP_MULTICAST_IF
-#undef SO_BROADCAST
-#undef NO_DELEGATE
-#undef SO_REUSEADDR
+#undef IP_MULTICAST_LOOP
 #undef IP_MULTICAST_TTL
+#undef IP_TOS
+#undef MILLISECONDS
+#undef NO_DELEGATE
+#undef SO_BROADCAST
+#undef SO_RCVBUF
+#undef SO_REUSEADDR
+#undef SO_SNDBUF
 
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $IOException = ::java::io::IOException;

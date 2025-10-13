@@ -14,9 +14,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef SET
 #undef GET
 #undef LENGTH
+#undef SET
 
 using $MethodHandleImpl$ArrayAccessArray = $Array<::java::lang::invoke::MethodHandleImpl$ArrayAccess>;
 using $ClassInfo = ::java::lang::ClassInfo;

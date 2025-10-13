@@ -5,42 +5,42 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("JVM_SIGNATURE_SHORT")
-#undef JVM_SIGNATURE_SHORT
-#pragma push_macro("JVM_SIGNATURE_CLASS")
-#undef JVM_SIGNATURE_CLASS
-#pragma push_macro("JVM_SIGNATURE_VOID")
-#undef JVM_SIGNATURE_VOID
-#pragma push_macro("JVM_SIGNATURE_ENDFUNC")
-#undef JVM_SIGNATURE_ENDFUNC
-#pragma push_macro("JVM_SIGNATURE_ARRAY")
-#undef JVM_SIGNATURE_ARRAY
-#pragma push_macro("EMPTY_CONSTANTDESC")
-#undef EMPTY_CONSTANTDESC
-#pragma push_macro("JVM_SIGNATURE_ENDCLASS")
-#undef JVM_SIGNATURE_ENDCLASS
-#pragma push_macro("JVM_SIGNATURE_CHAR")
-#undef JVM_SIGNATURE_CHAR
 #pragma push_macro("EMPTY_CONSTABLE")
 #undef EMPTY_CONSTABLE
-#pragma push_macro("JVM_SIGNATURE_DOUBLE")
-#undef JVM_SIGNATURE_DOUBLE
-#pragma push_macro("JVM_SIGNATURE_ENUM")
-#undef JVM_SIGNATURE_ENUM
-#pragma push_macro("MAX_ARRAY_TYPE_DESC_DIMENSIONS")
-#undef MAX_ARRAY_TYPE_DESC_DIMENSIONS
-#pragma push_macro("JVM_SIGNATURE_FLOAT")
-#undef JVM_SIGNATURE_FLOAT
-#pragma push_macro("JVM_SIGNATURE_INT")
-#undef JVM_SIGNATURE_INT
-#pragma push_macro("JVM_SIGNATURE_BYTE")
-#undef JVM_SIGNATURE_BYTE
-#pragma push_macro("JVM_SIGNATURE_LONG")
-#undef JVM_SIGNATURE_LONG
-#pragma push_macro("JVM_SIGNATURE_FUNC")
-#undef JVM_SIGNATURE_FUNC
+#pragma push_macro("EMPTY_CONSTANTDESC")
+#undef EMPTY_CONSTANTDESC
+#pragma push_macro("JVM_SIGNATURE_ARRAY")
+#undef JVM_SIGNATURE_ARRAY
 #pragma push_macro("JVM_SIGNATURE_BOOLEAN")
 #undef JVM_SIGNATURE_BOOLEAN
+#pragma push_macro("JVM_SIGNATURE_BYTE")
+#undef JVM_SIGNATURE_BYTE
+#pragma push_macro("JVM_SIGNATURE_CHAR")
+#undef JVM_SIGNATURE_CHAR
+#pragma push_macro("JVM_SIGNATURE_CLASS")
+#undef JVM_SIGNATURE_CLASS
+#pragma push_macro("JVM_SIGNATURE_DOUBLE")
+#undef JVM_SIGNATURE_DOUBLE
+#pragma push_macro("JVM_SIGNATURE_ENDCLASS")
+#undef JVM_SIGNATURE_ENDCLASS
+#pragma push_macro("JVM_SIGNATURE_ENDFUNC")
+#undef JVM_SIGNATURE_ENDFUNC
+#pragma push_macro("JVM_SIGNATURE_ENUM")
+#undef JVM_SIGNATURE_ENUM
+#pragma push_macro("JVM_SIGNATURE_FLOAT")
+#undef JVM_SIGNATURE_FLOAT
+#pragma push_macro("JVM_SIGNATURE_FUNC")
+#undef JVM_SIGNATURE_FUNC
+#pragma push_macro("JVM_SIGNATURE_INT")
+#undef JVM_SIGNATURE_INT
+#pragma push_macro("JVM_SIGNATURE_LONG")
+#undef JVM_SIGNATURE_LONG
+#pragma push_macro("JVM_SIGNATURE_SHORT")
+#undef JVM_SIGNATURE_SHORT
+#pragma push_macro("JVM_SIGNATURE_VOID")
+#undef JVM_SIGNATURE_VOID
+#pragma push_macro("MAX_ARRAY_TYPE_DESC_DIMENSIONS")
+#undef MAX_ARRAY_TYPE_DESC_DIMENSIONS
 
 namespace java {
 	namespace lang {
@@ -103,23 +103,23 @@ public:
 	} // lang
 } // java
 
-#pragma pop_macro("JVM_SIGNATURE_SHORT")
-#pragma pop_macro("JVM_SIGNATURE_CLASS")
-#pragma pop_macro("JVM_SIGNATURE_VOID")
-#pragma pop_macro("JVM_SIGNATURE_ENDFUNC")
-#pragma pop_macro("JVM_SIGNATURE_ARRAY")
-#pragma pop_macro("EMPTY_CONSTANTDESC")
-#pragma pop_macro("JVM_SIGNATURE_ENDCLASS")
-#pragma pop_macro("JVM_SIGNATURE_CHAR")
 #pragma pop_macro("EMPTY_CONSTABLE")
-#pragma pop_macro("JVM_SIGNATURE_DOUBLE")
-#pragma pop_macro("JVM_SIGNATURE_ENUM")
-#pragma pop_macro("MAX_ARRAY_TYPE_DESC_DIMENSIONS")
-#pragma pop_macro("JVM_SIGNATURE_FLOAT")
-#pragma pop_macro("JVM_SIGNATURE_INT")
-#pragma pop_macro("JVM_SIGNATURE_BYTE")
-#pragma pop_macro("JVM_SIGNATURE_LONG")
-#pragma pop_macro("JVM_SIGNATURE_FUNC")
+#pragma pop_macro("EMPTY_CONSTANTDESC")
+#pragma pop_macro("JVM_SIGNATURE_ARRAY")
 #pragma pop_macro("JVM_SIGNATURE_BOOLEAN")
+#pragma pop_macro("JVM_SIGNATURE_BYTE")
+#pragma pop_macro("JVM_SIGNATURE_CHAR")
+#pragma pop_macro("JVM_SIGNATURE_CLASS")
+#pragma pop_macro("JVM_SIGNATURE_DOUBLE")
+#pragma pop_macro("JVM_SIGNATURE_ENDCLASS")
+#pragma pop_macro("JVM_SIGNATURE_ENDFUNC")
+#pragma pop_macro("JVM_SIGNATURE_ENUM")
+#pragma pop_macro("JVM_SIGNATURE_FLOAT")
+#pragma pop_macro("JVM_SIGNATURE_FUNC")
+#pragma pop_macro("JVM_SIGNATURE_INT")
+#pragma pop_macro("JVM_SIGNATURE_LONG")
+#pragma pop_macro("JVM_SIGNATURE_SHORT")
+#pragma pop_macro("JVM_SIGNATURE_VOID")
+#pragma pop_macro("MAX_ARRAY_TYPE_DESC_DIMENSIONS")
 
 #endif // _java_lang_constant_ConstantUtils_h_

@@ -14,8 +14,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef NUM_BLOCKS
 #undef BLOCK_SIZE
+#undef NUM_BLOCKS
 
 using $Bash$TestReference = ::Bash$TestReference;
 using $PrintStream = ::java::io::PrintStream;

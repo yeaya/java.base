@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("JNUA")
-#undef JNUA
-#pragma push_macro("DISABLE_CP_URL_CHECK")
-#undef DISABLE_CP_URL_CHECK
-#pragma push_macro("USER_AGENT_JAVA_VERSION")
-#undef USER_AGENT_JAVA_VERSION
-#pragma push_macro("DISABLE_ACC_CHECKING")
-#undef DISABLE_ACC_CHECKING
-#pragma push_macro("DISABLE_JAR_CHECKING")
-#undef DISABLE_JAR_CHECKING
-#pragma push_macro("DEBUG_CP_URL_CHECK")
-#undef DEBUG_CP_URL_CHECK
-#pragma push_macro("JAVA_VERSION")
-#undef JAVA_VERSION
 #pragma push_macro("DEBUG")
 #undef DEBUG
+#pragma push_macro("DEBUG_CP_URL_CHECK")
+#undef DEBUG_CP_URL_CHECK
+#pragma push_macro("DISABLE_ACC_CHECKING")
+#undef DISABLE_ACC_CHECKING
+#pragma push_macro("DISABLE_CP_URL_CHECK")
+#undef DISABLE_CP_URL_CHECK
+#pragma push_macro("DISABLE_JAR_CHECKING")
+#undef DISABLE_JAR_CHECKING
+#pragma push_macro("JAVA_VERSION")
+#undef JAVA_VERSION
+#pragma push_macro("JNUA")
+#undef JNUA
+#pragma push_macro("USER_AGENT_JAVA_VERSION")
+#undef USER_AGENT_JAVA_VERSION
 
 namespace java {
 	namespace net {
@@ -108,13 +108,13 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("JNUA")
-#pragma pop_macro("DISABLE_CP_URL_CHECK")
-#pragma pop_macro("USER_AGENT_JAVA_VERSION")
-#pragma pop_macro("DISABLE_ACC_CHECKING")
-#pragma pop_macro("DISABLE_JAR_CHECKING")
-#pragma pop_macro("DEBUG_CP_URL_CHECK")
-#pragma pop_macro("JAVA_VERSION")
 #pragma pop_macro("DEBUG")
+#pragma pop_macro("DEBUG_CP_URL_CHECK")
+#pragma pop_macro("DISABLE_ACC_CHECKING")
+#pragma pop_macro("DISABLE_CP_URL_CHECK")
+#pragma pop_macro("DISABLE_JAR_CHECKING")
+#pragma pop_macro("JAVA_VERSION")
+#pragma pop_macro("JNUA")
+#pragma pop_macro("USER_AGENT_JAVA_VERSION")
 
 #endif // _jdk_internal_loader_URLClassPath_h_

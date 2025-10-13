@@ -5,14 +5,14 @@
 
 #include <java/lang/Object.h>
 
-#pragma push_macro("RATA_DIE")
-#undef RATA_DIE
-#pragma push_macro("JULIAN_DAY_OFFSET")
-#undef JULIAN_DAY_OFFSET
 #pragma push_macro("JULIAN_DAY")
 #undef JULIAN_DAY
+#pragma push_macro("JULIAN_DAY_OFFSET")
+#undef JULIAN_DAY_OFFSET
 #pragma push_macro("MODIFIED_JULIAN_DAY")
 #undef MODIFIED_JULIAN_DAY
+#pragma push_macro("RATA_DIE")
+#undef RATA_DIE
 
 namespace java {
 	namespace time {
@@ -41,9 +41,9 @@ public:
 	} // time
 } // java
 
-#pragma pop_macro("RATA_DIE")
-#pragma pop_macro("JULIAN_DAY_OFFSET")
 #pragma pop_macro("JULIAN_DAY")
+#pragma pop_macro("JULIAN_DAY_OFFSET")
 #pragma pop_macro("MODIFIED_JULIAN_DAY")
+#pragma pop_macro("RATA_DIE")
 
 #endif // _java_time_temporal_JulianFields_h_

@@ -8,26 +8,26 @@
 #include <java/lang/Cloneable.h>
 #include <java/util/Comparator.h>
 
-#pragma push_macro("FULL_DECOMPOSITION")
-#undef FULL_DECOMPOSITION
+#pragma push_macro("CANONICAL_DECOMPOSITION")
+#undef CANONICAL_DECOMPOSITION
 #pragma push_macro("EQUAL")
 #undef EQUAL
-#pragma push_macro("SECONDARY")
-#undef SECONDARY
-#pragma push_macro("IDENTICAL")
-#undef IDENTICAL
+#pragma push_macro("FULL_DECOMPOSITION")
+#undef FULL_DECOMPOSITION
 #pragma push_macro("GREATER")
 #undef GREATER
-#pragma push_macro("PRIMARY")
-#undef PRIMARY
+#pragma push_macro("IDENTICAL")
+#undef IDENTICAL
 #pragma push_macro("LESS")
 #undef LESS
 #pragma push_macro("NO_DECOMPOSITION")
 #undef NO_DECOMPOSITION
+#pragma push_macro("PRIMARY")
+#undef PRIMARY
+#pragma push_macro("SECONDARY")
+#undef SECONDARY
 #pragma push_macro("TERTIARY")
 #undef TERTIARY
-#pragma push_macro("CANONICAL_DECOMPOSITION")
-#undef CANONICAL_DECOMPOSITION
 
 namespace java {
 	namespace text {
@@ -90,15 +90,15 @@ public:
 	} // text
 } // java
 
-#pragma pop_macro("FULL_DECOMPOSITION")
+#pragma pop_macro("CANONICAL_DECOMPOSITION")
 #pragma pop_macro("EQUAL")
-#pragma pop_macro("SECONDARY")
-#pragma pop_macro("IDENTICAL")
+#pragma pop_macro("FULL_DECOMPOSITION")
 #pragma pop_macro("GREATER")
-#pragma pop_macro("PRIMARY")
+#pragma pop_macro("IDENTICAL")
 #pragma pop_macro("LESS")
 #pragma pop_macro("NO_DECOMPOSITION")
+#pragma pop_macro("PRIMARY")
+#pragma pop_macro("SECONDARY")
 #pragma pop_macro("TERTIARY")
-#pragma pop_macro("CANONICAL_DECOMPOSITION")
 
 #endif // _java_text_Collator_h_

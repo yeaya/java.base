@@ -13,18 +13,18 @@
 #include <sun/reflect/annotation/TypeAnnotation.h>
 #include <jcpp.h>
 
-#undef METHOD_RETURN
 #undef CLASS_EXTENDS
+#undef CLASS_IMPLEMENTS
+#undef CLASS_TYPE_PARAMETER
 #undef CLASS_TYPE_PARAMETER_BOUND
 #undef FIELD
-#undef METHOD_TYPE_PARAMETER
-#undef THROWS
-#undef RECORD_COMPONENT
-#undef CLASS_IMPLEMENTS
-#undef METHOD_RECEIVER
 #undef METHOD_FORMAL_PARAMETER
-#undef CLASS_TYPE_PARAMETER
+#undef METHOD_RECEIVER
+#undef METHOD_RETURN
+#undef METHOD_TYPE_PARAMETER
 #undef METHOD_TYPE_PARAMETER_BOUND
+#undef RECORD_COMPONENT
+#undef THROWS
 
 using $TypeAnnotation$TypeAnnotationTargetArray = $Array<::sun::reflect::annotation::TypeAnnotation$TypeAnnotationTarget>;
 using $ClassInfo = ::java::lang::ClassInfo;

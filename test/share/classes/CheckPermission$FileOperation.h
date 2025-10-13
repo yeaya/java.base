@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("READ")
-#undef READ
-#pragma push_macro("EXEC")
-#undef EXEC
 #pragma push_macro("DELETE")
 #undef DELETE
+#pragma push_macro("EXEC")
+#undef EXEC
+#pragma push_macro("READ")
+#undef READ
 #pragma push_macro("WRITE")
 #undef WRITE
 
@@ -30,9 +30,9 @@ public:
 	static $Array<CheckPermission$FileOperation>* $VALUES;
 };
 
-#pragma pop_macro("READ")
-#pragma pop_macro("EXEC")
 #pragma pop_macro("DELETE")
+#pragma pop_macro("EXEC")
+#pragma pop_macro("READ")
 #pragma pop_macro("WRITE")
 
 #endif // _CheckPermission$FileOperation_h_

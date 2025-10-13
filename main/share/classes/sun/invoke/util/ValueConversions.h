@@ -5,22 +5,22 @@
 
 #include <java/lang/Array.h>
 
+#pragma push_macro("BOX_CONVERSIONS")
+#undef BOX_CONVERSIONS
+#pragma push_macro("CONSTANT_FUNCTIONS")
+#undef CONSTANT_FUNCTIONS
+#pragma push_macro("CONVERT_PRIMITIVE_FUNCTIONS")
+#undef CONVERT_PRIMITIVE_FUNCTIONS
 #pragma push_macro("IMPL_LOOKUP")
 #undef IMPL_LOOKUP
-#pragma push_macro("ZERO_INT")
-#undef ZERO_INT
+#pragma push_macro("ONE_INT")
+#undef ONE_INT
 #pragma push_macro("THIS_CLASS")
 #undef THIS_CLASS
 #pragma push_macro("UNBOX_CONVERSIONS")
 #undef UNBOX_CONVERSIONS
-#pragma push_macro("BOX_CONVERSIONS")
-#undef BOX_CONVERSIONS
-#pragma push_macro("ONE_INT")
-#undef ONE_INT
-#pragma push_macro("CONVERT_PRIMITIVE_FUNCTIONS")
-#undef CONVERT_PRIMITIVE_FUNCTIONS
-#pragma push_macro("CONSTANT_FUNCTIONS")
-#undef CONSTANT_FUNCTIONS
+#pragma push_macro("ZERO_INT")
+#undef ZERO_INT
 
 namespace java {
 	namespace lang {
@@ -187,13 +187,13 @@ public:
 	} // invoke
 } // sun
 
+#pragma pop_macro("BOX_CONVERSIONS")
+#pragma pop_macro("CONSTANT_FUNCTIONS")
+#pragma pop_macro("CONVERT_PRIMITIVE_FUNCTIONS")
 #pragma pop_macro("IMPL_LOOKUP")
-#pragma pop_macro("ZERO_INT")
+#pragma pop_macro("ONE_INT")
 #pragma pop_macro("THIS_CLASS")
 #pragma pop_macro("UNBOX_CONVERSIONS")
-#pragma pop_macro("BOX_CONVERSIONS")
-#pragma pop_macro("ONE_INT")
-#pragma pop_macro("CONVERT_PRIMITIVE_FUNCTIONS")
-#pragma pop_macro("CONSTANT_FUNCTIONS")
+#pragma pop_macro("ZERO_INT")
 
 #endif // _sun_invoke_util_ValueConversions_h_

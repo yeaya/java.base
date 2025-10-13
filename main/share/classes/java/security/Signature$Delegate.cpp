@@ -41,12 +41,12 @@
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
 
-#undef I_PRIV_PARAM_SR
-#undef I_PUB
-#undef S_PARAM
 #undef I_PRIV
+#undef I_PRIV_PARAM_SR
 #undef I_PRIV_SR
+#undef I_PUB
 #undef I_PUB_PARAM
+#undef S_PARAM
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

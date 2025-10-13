@@ -9,22 +9,22 @@
 #undef ALTERNATE
 #pragma push_macro("GROUP")
 #undef GROUP
-#pragma push_macro("LEFT_JUSTIFY")
-#undef LEFT_JUSTIFY
-#pragma push_macro("PARENTHESES")
-#undef PARENTHESES
 #pragma push_macro("LEADING_SPACE")
 #undef LEADING_SPACE
-#pragma push_macro("ZERO_PAD")
-#undef ZERO_PAD
-#pragma push_macro("UPPERCASE")
-#undef UPPERCASE
+#pragma push_macro("LEFT_JUSTIFY")
+#undef LEFT_JUSTIFY
 #pragma push_macro("NONE")
 #undef NONE
-#pragma push_macro("PREVIOUS")
-#undef PREVIOUS
+#pragma push_macro("PARENTHESES")
+#undef PARENTHESES
 #pragma push_macro("PLUS")
 #undef PLUS
+#pragma push_macro("PREVIOUS")
+#undef PREVIOUS
+#pragma push_macro("UPPERCASE")
+#undef UPPERCASE
+#pragma push_macro("ZERO_PAD")
+#undef ZERO_PAD
 
 namespace java {
 	namespace util {
@@ -61,13 +61,13 @@ public:
 
 #pragma pop_macro("ALTERNATE")
 #pragma pop_macro("GROUP")
-#pragma pop_macro("LEFT_JUSTIFY")
-#pragma pop_macro("PARENTHESES")
 #pragma pop_macro("LEADING_SPACE")
-#pragma pop_macro("ZERO_PAD")
-#pragma pop_macro("UPPERCASE")
+#pragma pop_macro("LEFT_JUSTIFY")
 #pragma pop_macro("NONE")
-#pragma pop_macro("PREVIOUS")
+#pragma pop_macro("PARENTHESES")
 #pragma pop_macro("PLUS")
+#pragma pop_macro("PREVIOUS")
+#pragma pop_macro("UPPERCASE")
+#pragma pop_macro("ZERO_PAD")
 
 #endif // _java_util_Formatter$Flags_h_

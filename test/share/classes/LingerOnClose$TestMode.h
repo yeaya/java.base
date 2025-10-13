@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("NON_BLOCKING_AND_REGISTERED")
-#undef NON_BLOCKING_AND_REGISTERED
-#pragma push_macro("NON_BLOCKING")
-#undef NON_BLOCKING
 #pragma push_macro("BLOCKING")
 #undef BLOCKING
+#pragma push_macro("NON_BLOCKING")
+#undef NON_BLOCKING
+#pragma push_macro("NON_BLOCKING_AND_REGISTERED")
+#undef NON_BLOCKING_AND_REGISTERED
 
 class LingerOnClose$TestMode : public ::java::lang::Enum {
 	$class(LingerOnClose$TestMode, 0, ::java::lang::Enum)
@@ -27,8 +27,8 @@ public:
 	static $Array<LingerOnClose$TestMode>* $VALUES;
 };
 
-#pragma pop_macro("NON_BLOCKING_AND_REGISTERED")
-#pragma pop_macro("NON_BLOCKING")
 #pragma pop_macro("BLOCKING")
+#pragma pop_macro("NON_BLOCKING")
+#pragma pop_macro("NON_BLOCKING_AND_REGISTERED")
 
 #endif // _LingerOnClose$TestMode_h_

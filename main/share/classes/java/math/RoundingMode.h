@@ -6,22 +6,22 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
+#pragma push_macro("CEILING")
+#undef CEILING
 #pragma push_macro("DOWN")
 #undef DOWN
 #pragma push_macro("FLOOR")
 #undef FLOOR
-#pragma push_macro("UNNECESSARY")
-#undef UNNECESSARY
-#pragma push_macro("CEILING")
-#undef CEILING
-#pragma push_macro("HALF_EVEN")
-#undef HALF_EVEN
-#pragma push_macro("UP")
-#undef UP
-#pragma push_macro("HALF_UP")
-#undef HALF_UP
 #pragma push_macro("HALF_DOWN")
 #undef HALF_DOWN
+#pragma push_macro("HALF_EVEN")
+#undef HALF_EVEN
+#pragma push_macro("HALF_UP")
+#undef HALF_UP
+#pragma push_macro("UNNECESSARY")
+#undef UNNECESSARY
+#pragma push_macro("UP")
+#undef UP
 
 namespace java {
 	namespace math {
@@ -50,13 +50,13 @@ public:
 	} // math
 } // java
 
+#pragma pop_macro("CEILING")
 #pragma pop_macro("DOWN")
 #pragma pop_macro("FLOOR")
-#pragma pop_macro("UNNECESSARY")
-#pragma pop_macro("CEILING")
-#pragma pop_macro("HALF_EVEN")
-#pragma pop_macro("UP")
-#pragma pop_macro("HALF_UP")
 #pragma pop_macro("HALF_DOWN")
+#pragma pop_macro("HALF_EVEN")
+#pragma pop_macro("HALF_UP")
+#pragma pop_macro("UNNECESSARY")
+#pragma pop_macro("UP")
 
 #endif // _java_math_RoundingMode_h_

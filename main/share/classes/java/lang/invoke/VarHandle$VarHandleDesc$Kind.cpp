@@ -20,12 +20,12 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-#undef BSM_VARHANDLE_FIELD
-#undef BSM_VARHANDLE_ARRAY
 #undef ARRAY
-#undef STATIC_FIELD
+#undef BSM_VARHANDLE_ARRAY
+#undef BSM_VARHANDLE_FIELD
 #undef BSM_VARHANDLE_STATIC_FIELD
 #undef FIELD
+#undef STATIC_FIELD
 
 using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $VarHandle$VarHandleDesc$KindArray = $Array<::java::lang::invoke::VarHandle$VarHandleDesc$Kind>;

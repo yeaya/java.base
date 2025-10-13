@@ -13,9 +13,9 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+#undef FAIL
 #undef PASS
 #undef TOP_ONLY
-#undef FAIL
 
 using $WalkWithSecurity = ::WalkWithSecurity;
 using $WalkWithSecurity$ExpectedResultArray = $Array<WalkWithSecurity$ExpectedResult>;

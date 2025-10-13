@@ -6,12 +6,12 @@
 #include <java/lang/Array.h>
 #include <java/lang/Enum.h>
 
-#pragma push_macro("EBCDIC")
-#undef EBCDIC
-#pragma push_macro("BINARY")
-#undef BINARY
 #pragma push_macro("ASCII")
 #undef ASCII
+#pragma push_macro("BINARY")
+#undef BINARY
+#pragma push_macro("EBCDIC")
+#undef EBCDIC
 
 namespace sun {
 	namespace net {
@@ -35,8 +35,8 @@ public:
 	} // net
 } // sun
 
-#pragma pop_macro("EBCDIC")
-#pragma pop_macro("BINARY")
 #pragma pop_macro("ASCII")
+#pragma pop_macro("BINARY")
+#pragma pop_macro("EBCDIC")
 
 #endif // _sun_net_ftp_FtpClient$TransferType_h_

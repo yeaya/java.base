@@ -32,9 +32,9 @@
 #include <java/util/concurrent/Callable.h>
 #include <jcpp.h>
 
-#undef TAG_CONST
-#undef TAG_ARG
 #undef LIMIT
+#undef TAG_ARG
+#undef TAG_CONST
 #undef TYPE
 
 using $BooleanArray = $Array<::java::lang::Boolean>;

@@ -22,9 +22,9 @@
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <jcpp.h>
 
+#undef NEGATIVE_SKIP
 #undef SIZE
 #undef SKIP
-#undef NEGATIVE_SKIP
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;

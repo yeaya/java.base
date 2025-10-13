@@ -51,10 +51,10 @@
 #include <sun/security/util/IOUtils.h>
 #include <jcpp.h>
 
-#undef VERSION_2
-#undef VERSION_1
-#undef UTF_8
 #undef MAGIC
+#undef UTF_8
+#undef VERSION_1
+#undef VERSION_2
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
@@ -506,7 +506,7 @@ void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
 			} else if (tag == 2) {
 				++trustedKeyCount;
 				$var($JavaKeyStore$TrustedCertEntry, entry, $new($JavaKeyStore$TrustedCertEntry));
-				$assign(alias, $nc(dis)->readUTF());
+				$assign(alias, dis->readUTF());
 				$set(entry, date, $new($Date, dis->readLong()));
 				if (xVersion == 2) {
 					$var($String, certType, dis->readUTF());

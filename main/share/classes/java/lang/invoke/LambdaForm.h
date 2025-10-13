@@ -7,24 +7,24 @@
 
 #pragma push_macro("COMPILE_THRESHOLD")
 #undef COMPILE_THRESHOLD
-#pragma push_macro("INTERNED_ARGUMENT_LIMIT")
-#undef INTERNED_ARGUMENT_LIMIT
-#pragma push_macro("INTERNED_ARGUMENTS")
-#undef INTERNED_ARGUMENTS
-#pragma push_macro("LAST_RESULT")
-#undef LAST_RESULT
 #pragma push_macro("DEBUG_NAMES")
 #undef DEBUG_NAMES
+#pragma push_macro("DEBUG_NAME_COUNTERS")
+#undef DEBUG_NAME_COUNTERS
+#pragma push_macro("IMPL_NAMES")
+#undef IMPL_NAMES
+#pragma push_macro("INTERNED_ARGUMENTS")
+#undef INTERNED_ARGUMENTS
+#pragma push_macro("INTERNED_ARGUMENT_LIMIT")
+#undef INTERNED_ARGUMENT_LIMIT
+#pragma push_macro("LAST_RESULT")
+#undef LAST_RESULT
+#pragma push_macro("LF_FAILED")
+#undef LF_FAILED
 #pragma push_macro("TRACE_INTERPRETER")
 #undef TRACE_INTERPRETER
 #pragma push_macro("VOID_RESULT")
 #undef VOID_RESULT
-#pragma push_macro("IMPL_NAMES")
-#undef IMPL_NAMES
-#pragma push_macro("LF_FAILED")
-#undef LF_FAILED
-#pragma push_macro("DEBUG_NAME_COUNTERS")
-#undef DEBUG_NAME_COUNTERS
 
 namespace java {
 	namespace lang {
@@ -177,14 +177,14 @@ public:
 } // java
 
 #pragma pop_macro("COMPILE_THRESHOLD")
-#pragma pop_macro("INTERNED_ARGUMENT_LIMIT")
-#pragma pop_macro("INTERNED_ARGUMENTS")
-#pragma pop_macro("LAST_RESULT")
 #pragma pop_macro("DEBUG_NAMES")
+#pragma pop_macro("DEBUG_NAME_COUNTERS")
+#pragma pop_macro("IMPL_NAMES")
+#pragma pop_macro("INTERNED_ARGUMENTS")
+#pragma pop_macro("INTERNED_ARGUMENT_LIMIT")
+#pragma pop_macro("LAST_RESULT")
+#pragma pop_macro("LF_FAILED")
 #pragma pop_macro("TRACE_INTERPRETER")
 #pragma pop_macro("VOID_RESULT")
-#pragma pop_macro("IMPL_NAMES")
-#pragma pop_macro("LF_FAILED")
-#pragma pop_macro("DEBUG_NAME_COUNTERS")
 
 #endif // _java_lang_invoke_LambdaForm_h_

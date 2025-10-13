@@ -26,10 +26,10 @@
 #include <sun/net/www/http/KeepAliveStreamCleaner$2.h>
 #include <jcpp.h>
 
-#undef MILLISECONDS
+#undef MAX_CAPACITY
 #undef MAX_DATA_REMAINING
 #undef MAX_RETRIES
-#undef MAX_CAPACITY
+#undef MILLISECONDS
 #undef TIMEOUT
 
 using $IOException = ::java::io::IOException;

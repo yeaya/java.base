@@ -6,10 +6,10 @@
 #include <java/lang/Array.h>
 #include <jdk/internal/reflect/AccessorGenerator.h>
 
-#pragma push_macro("NUM_METHODS")
-#undef NUM_METHODS
 #pragma push_macro("NUM_BASE_CPOOL_ENTRIES")
 #undef NUM_BASE_CPOOL_ENTRIES
+#pragma push_macro("NUM_METHODS")
+#undef NUM_METHODS
 #pragma push_macro("NUM_SERIALIZATION_CPOOL_ENTRIES")
 #undef NUM_SERIALIZATION_CPOOL_ENTRIES
 
@@ -64,8 +64,8 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("NUM_METHODS")
 #pragma pop_macro("NUM_BASE_CPOOL_ENTRIES")
+#pragma pop_macro("NUM_METHODS")
 #pragma pop_macro("NUM_SERIALIZATION_CPOOL_ENTRIES")
 
 #endif // _jdk_internal_reflect_MethodAccessorGenerator_h_

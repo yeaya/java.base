@@ -15,17 +15,17 @@
 #include <java/net/StandardSocketOptions$StdSocketOption.h>
 #include <jcpp.h>
 
-#undef SO_LINGER
-#undef IP_MULTICAST_LOOP
-#undef SO_RCVBUF
-#undef IP_TOS
-#undef SO_KEEPALIVE
-#undef SO_SNDBUF
 #undef IP_MULTICAST_IF
+#undef IP_MULTICAST_LOOP
+#undef IP_MULTICAST_TTL
+#undef IP_TOS
 #undef SO_BROADCAST
+#undef SO_KEEPALIVE
+#undef SO_LINGER
+#undef SO_RCVBUF
 #undef SO_REUSEADDR
 #undef SO_REUSEPORT
-#undef IP_MULTICAST_TTL
+#undef SO_SNDBUF
 #undef TCP_NODELAY
 
 using $Boolean = ::java::lang::Boolean;

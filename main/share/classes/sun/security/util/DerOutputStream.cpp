@@ -28,10 +28,10 @@
 #include <sun/security/util/ObjectIdentifier.h>
 #include <jcpp.h>
 
+#undef US
 #undef US_ASCII
 #undef UTF_16BE
 #undef UTF_8
-#undef US
 
 using $DerEncoderArray = $Array<::sun::security::util::DerEncoder>;
 using $DerOutputStreamArray = $Array<::sun::security::util::DerOutputStream>;
@@ -236,7 +236,7 @@ void DerOutputStream::putIntegerContents(int32_t i) {
 				break;
 			}
 		}
-	} else if ($nc(bytes)->get(0) == 0) {
+	} else if (bytes->get(0) == 0) {
 		for (int32_t j = 0; j < 3; ++j) {
 			if ((bytes->get(j) == 0) && (((int32_t)(bytes->get(j + 1) & (uint32_t)128)) == 0)) {
 				++start;

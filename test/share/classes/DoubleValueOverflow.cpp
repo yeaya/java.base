@@ -17,8 +17,8 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-#undef POSITIVE_INFINITY
 #undef MAX_VALUE
+#undef POSITIVE_INFINITY
 
 using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;

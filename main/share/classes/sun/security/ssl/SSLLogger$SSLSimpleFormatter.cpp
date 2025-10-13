@@ -64,11 +64,11 @@
 #include <sun/security/x509/X509CertInfo.h>
 #include <jcpp.h>
 
-#undef PATTERN
-#undef EXTENSIONS
 #undef ENGLISH
+#undef EXTENSIONS
 #undef INFO
 #undef NAME
+#undef PATTERN
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -358,18 +358,18 @@ $String* SSLLogger$SSLSimpleFormatter::formatParameters($ObjectArray* parameters
 				if ($instanceOf($Throwable, parameter)) {
 					builder->append($(formatThrowable($cast($Throwable, parameter))));
 				} else if ($instanceOf($Certificate, parameter)) {
-					$nc(builder)->append($(formatCertificate($cast($Certificate, parameter))));
+					builder->append($(formatCertificate($cast($Certificate, parameter))));
 				} else if ($instanceOf($ByteArrayInputStream, parameter)) {
-					$nc(builder)->append($(formatByteArrayInputStream($cast($ByteArrayInputStream, parameter))));
+					builder->append($(formatByteArrayInputStream($cast($ByteArrayInputStream, parameter))));
 				} else if ($instanceOf($ByteBuffer, parameter)) {
-					$nc(builder)->append($(formatByteBuffer($cast($ByteBuffer, parameter))));
+					builder->append($(formatByteBuffer($cast($ByteBuffer, parameter))));
 				} else if ($instanceOf($bytes, parameter)) {
-					$nc(builder)->append($(formatByteArrayInputStream($$new($ByteArrayInputStream, $cast($bytes, parameter)))));
+					builder->append($(formatByteArrayInputStream($$new($ByteArrayInputStream, $cast($bytes, parameter)))));
 				} else if ($instanceOf($Map$Entry, parameter)) {
 					$var($Map$Entry, mapParameter, $cast($Map$Entry, parameter));
-					$nc(builder)->append($(formatMapEntry(mapParameter)));
+					builder->append($(formatMapEntry(mapParameter)));
 				} else {
-					$nc(builder)->append($(formatObject(parameter)));
+					builder->append($(formatObject(parameter)));
 				}
 			}
 		}
@@ -566,7 +566,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatMapEntry($Map$Entry* entry) {
 		builder->append($$str({"\""_s, key, "\": [\n"_s}));
 		{
 			$var($StringArray, arr$, strings);
-			int32_t len$ = $nc(arr$)->length;
+			int32_t len$ = arr$->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$var($String, string, arr$->get(i$));

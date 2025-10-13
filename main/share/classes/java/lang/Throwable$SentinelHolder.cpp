@@ -15,8 +15,8 @@
 #include <jcpp.h>
 
 #undef MIN_VALUE
-#undef STACK_TRACE_SENTINEL
 #undef STACK_TRACE_ELEMENT_SENTINEL
+#undef STACK_TRACE_SENTINEL
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $ClassInfo = ::java::lang::ClassInfo;

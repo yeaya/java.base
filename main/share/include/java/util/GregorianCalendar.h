@@ -6,40 +6,40 @@
 #include <java/lang/Array.h>
 #include <java/util/Calendar.h>
 
-#pragma push_macro("ONE_HOUR")
-#undef ONE_HOUR
-#pragma push_macro("BC")
-#undef BC
-#pragma push_macro("CE")
-#undef CE
 #pragma push_macro("AD")
 #undef AD
-#pragma push_macro("LEAP_MONTH_LENGTH")
-#undef LEAP_MONTH_LENGTH
+#pragma push_macro("BC")
+#undef BC
 #pragma push_macro("BCE")
 #undef BCE
-#pragma push_macro("ONE_WEEK")
-#undef ONE_WEEK
+#pragma push_macro("CE")
+#undef CE
 #pragma push_macro("DEFAULT_GREGORIAN_CUTOVER")
 #undef DEFAULT_GREGORIAN_CUTOVER
-#pragma push_macro("MIN_VALUES")
-#undef MIN_VALUES
 #pragma push_macro("EPOCH_OFFSET")
 #undef EPOCH_OFFSET
-#pragma push_macro("MONTH_LENGTH")
-#undef MONTH_LENGTH
-#pragma push_macro("MAX_VALUES")
-#undef MAX_VALUES
-#pragma push_macro("ONE_DAY")
-#undef ONE_DAY
 #pragma push_macro("EPOCH_YEAR")
 #undef EPOCH_YEAR
-#pragma push_macro("ONE_SECOND")
-#undef ONE_SECOND
-#pragma push_macro("ONE_MINUTE")
-#undef ONE_MINUTE
+#pragma push_macro("LEAP_MONTH_LENGTH")
+#undef LEAP_MONTH_LENGTH
 #pragma push_macro("LEAST_MAX_VALUES")
 #undef LEAST_MAX_VALUES
+#pragma push_macro("MAX_VALUES")
+#undef MAX_VALUES
+#pragma push_macro("MIN_VALUES")
+#undef MIN_VALUES
+#pragma push_macro("MONTH_LENGTH")
+#undef MONTH_LENGTH
+#pragma push_macro("ONE_DAY")
+#undef ONE_DAY
+#pragma push_macro("ONE_HOUR")
+#undef ONE_HOUR
+#pragma push_macro("ONE_MINUTE")
+#undef ONE_MINUTE
+#pragma push_macro("ONE_SECOND")
+#undef ONE_SECOND
+#pragma push_macro("ONE_WEEK")
+#undef ONE_WEEK
 
 namespace java {
 	namespace io {
@@ -173,22 +173,22 @@ public:
 	} // util
 } // java
 
-#pragma pop_macro("ONE_HOUR")
-#pragma pop_macro("BC")
-#pragma pop_macro("CE")
 #pragma pop_macro("AD")
-#pragma pop_macro("LEAP_MONTH_LENGTH")
+#pragma pop_macro("BC")
 #pragma pop_macro("BCE")
-#pragma pop_macro("ONE_WEEK")
+#pragma pop_macro("CE")
 #pragma pop_macro("DEFAULT_GREGORIAN_CUTOVER")
-#pragma pop_macro("MIN_VALUES")
 #pragma pop_macro("EPOCH_OFFSET")
-#pragma pop_macro("MONTH_LENGTH")
-#pragma pop_macro("MAX_VALUES")
-#pragma pop_macro("ONE_DAY")
 #pragma pop_macro("EPOCH_YEAR")
-#pragma pop_macro("ONE_SECOND")
-#pragma pop_macro("ONE_MINUTE")
+#pragma pop_macro("LEAP_MONTH_LENGTH")
 #pragma pop_macro("LEAST_MAX_VALUES")
+#pragma pop_macro("MAX_VALUES")
+#pragma pop_macro("MIN_VALUES")
+#pragma pop_macro("MONTH_LENGTH")
+#pragma pop_macro("ONE_DAY")
+#pragma pop_macro("ONE_HOUR")
+#pragma pop_macro("ONE_MINUTE")
+#pragma pop_macro("ONE_SECOND")
+#pragma pop_macro("ONE_WEEK")
 
 #endif // _java_util_GregorianCalendar_h_

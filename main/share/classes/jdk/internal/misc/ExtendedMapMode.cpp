@@ -24,10 +24,10 @@
 #include <java/security/PrivilegedExceptionAction.h>
 #include <jcpp.h>
 
-#undef READ_WRITE_SYNC
 #undef MAP_MODE_CONSTRUCTOR
-#undef TYPE
 #undef READ_ONLY_SYNC
+#undef READ_WRITE_SYNC
+#undef TYPE
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

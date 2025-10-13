@@ -54,12 +54,12 @@
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
-#undef RSA_SIGNATURE
-#undef UNINITIALIZED
-#undef TRUE
-#undef VERIFY
-#undef SIGN
 #undef RSA_CIPHER
+#undef RSA_SIGNATURE
+#undef SIGN
+#undef TRUE
+#undef UNINITIALIZED
+#undef VERIFY
 
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

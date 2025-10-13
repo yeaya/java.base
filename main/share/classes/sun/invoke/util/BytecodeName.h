@@ -5,26 +5,26 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("ESCAPE_C")
-#undef ESCAPE_C
 #pragma push_macro("DANGEROUS_CHARS")
 #undef DANGEROUS_CHARS
 #pragma push_macro("DANGEROUS_CHARS_A")
 #undef DANGEROUS_CHARS_A
-#pragma push_macro("NULL_ESCAPE")
-#undef NULL_ESCAPE
-#pragma push_macro("DANGEROUS_CHAR_FIRST_INDEX")
-#undef DANGEROUS_CHAR_FIRST_INDEX
-#pragma push_macro("REPLACEMENT_CHARS")
-#undef REPLACEMENT_CHARS
-#pragma push_macro("SPECIAL_BITMAP")
-#undef SPECIAL_BITMAP
-#pragma push_macro("NULL_ESCAPE_C")
-#undef NULL_ESCAPE_C
-#pragma push_macro("REPLACEMENT_CHARS_A")
-#undef REPLACEMENT_CHARS_A
 #pragma push_macro("DANGEROUS_CHARS_CA")
 #undef DANGEROUS_CHARS_CA
+#pragma push_macro("DANGEROUS_CHAR_FIRST_INDEX")
+#undef DANGEROUS_CHAR_FIRST_INDEX
+#pragma push_macro("ESCAPE_C")
+#undef ESCAPE_C
+#pragma push_macro("NULL_ESCAPE")
+#undef NULL_ESCAPE
+#pragma push_macro("NULL_ESCAPE_C")
+#undef NULL_ESCAPE_C
+#pragma push_macro("REPLACEMENT_CHARS")
+#undef REPLACEMENT_CHARS
+#pragma push_macro("REPLACEMENT_CHARS_A")
+#undef REPLACEMENT_CHARS_A
+#pragma push_macro("SPECIAL_BITMAP")
+#undef SPECIAL_BITMAP
 
 namespace java {
 	namespace lang {
@@ -78,15 +78,15 @@ public:
 	} // invoke
 } // sun
 
-#pragma pop_macro("ESCAPE_C")
 #pragma pop_macro("DANGEROUS_CHARS")
 #pragma pop_macro("DANGEROUS_CHARS_A")
-#pragma pop_macro("NULL_ESCAPE")
-#pragma pop_macro("DANGEROUS_CHAR_FIRST_INDEX")
-#pragma pop_macro("REPLACEMENT_CHARS")
-#pragma pop_macro("SPECIAL_BITMAP")
-#pragma pop_macro("NULL_ESCAPE_C")
-#pragma pop_macro("REPLACEMENT_CHARS_A")
 #pragma pop_macro("DANGEROUS_CHARS_CA")
+#pragma pop_macro("DANGEROUS_CHAR_FIRST_INDEX")
+#pragma pop_macro("ESCAPE_C")
+#pragma pop_macro("NULL_ESCAPE")
+#pragma pop_macro("NULL_ESCAPE_C")
+#pragma pop_macro("REPLACEMENT_CHARS")
+#pragma pop_macro("REPLACEMENT_CHARS_A")
+#pragma pop_macro("SPECIAL_BITMAP")
 
 #endif // _sun_invoke_util_BytecodeName_h_

@@ -41,13 +41,13 @@
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
 
-#undef BIG_ENDIAN
-#undef JNI_COPY_TO_ARRAY_THRESHOLD
 #undef ARRAY_BASE_OFFSET
-#undef LITTLE_ENDIAN
-#undef UNSAFE
-#undef SCOPED_MEMORY_ACCESS
+#undef BIG_ENDIAN
 #undef JNI_COPY_FROM_ARRAY_THRESHOLD
+#undef JNI_COPY_TO_ARRAY_THRESHOLD
+#undef LITTLE_ENDIAN
+#undef SCOPED_MEMORY_ACCESS
+#undef UNSAFE
 
 using $AssertionError = ::java::lang::AssertionError;
 using $Byte = ::java::lang::Byte;

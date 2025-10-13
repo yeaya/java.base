@@ -14,14 +14,14 @@
 #include <jdk/internal/icu/impl/Trie2.h>
 #include <jcpp.h>
 
-#undef UTRIE2_INDEX_1_OFFSET
 #undef UTRIE2_DATA_MASK
+#undef UTRIE2_INDEX_1_OFFSET
+#undef UTRIE2_INDEX_2_MASK
 #undef UTRIE2_INDEX_SHIFT
+#undef UTRIE2_LSCP_INDEX_2_OFFSET
 #undef UTRIE2_OMITTED_BMP_INDEX_1_LENGTH
 #undef UTRIE2_SHIFT_1
 #undef UTRIE2_SHIFT_2
-#undef UTRIE2_INDEX_2_MASK
-#undef UTRIE2_LSCP_INDEX_2_OFFSET
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

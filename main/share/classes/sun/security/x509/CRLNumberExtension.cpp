@@ -23,9 +23,9 @@
 #include <sun/security/x509/PKIXExtensions.h>
 #include <jcpp.h>
 
-#undef NUMBER
 #undef LABEL
 #undef NAME
+#undef NUMBER
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

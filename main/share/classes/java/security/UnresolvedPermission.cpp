@@ -34,9 +34,9 @@
 #include <sun/security/util/IOUtils.h>
 #include <jcpp.h>
 
-#undef PARAMS2
-#undef PARAMS1
 #undef PARAMS0
+#undef PARAMS1
+#undef PARAMS2
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;

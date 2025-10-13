@@ -5,16 +5,16 @@
 
 #include <java/lang/Array.h>
 
-#pragma push_macro("CPU_CTRL")
-#undef CPU_CTRL
+#pragma push_macro("BLKIO_CTRL")
+#undef BLKIO_CTRL
 #pragma push_macro("CPUACCT_CTRL")
 #undef CPUACCT_CTRL
 #pragma push_macro("CPUSET_CTRL")
 #undef CPUSET_CTRL
+#pragma push_macro("CPU_CTRL")
+#undef CPU_CTRL
 #pragma push_macro("MEMORY_CTRL")
 #undef MEMORY_CTRL
-#pragma push_macro("BLKIO_CTRL")
-#undef BLKIO_CTRL
 #pragma push_macro("MOUNTINFO_PATTERN")
 #undef MOUNTINFO_PATTERN
 
@@ -70,11 +70,11 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("CPU_CTRL")
+#pragma pop_macro("BLKIO_CTRL")
 #pragma pop_macro("CPUACCT_CTRL")
 #pragma pop_macro("CPUSET_CTRL")
+#pragma pop_macro("CPU_CTRL")
 #pragma pop_macro("MEMORY_CTRL")
-#pragma pop_macro("BLKIO_CTRL")
 #pragma pop_macro("MOUNTINFO_PATTERN")
 
 #endif // _jdk_internal_platform_CgroupSubsystemFactory_h_
