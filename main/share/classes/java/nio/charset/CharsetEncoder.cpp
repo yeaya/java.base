@@ -288,7 +288,7 @@ $CoderResult* CharsetEncoder::encode($CharBuffer* in, $ByteBuffer* out, bool end
 		}
 		if ((action == $CodingErrorAction::IGNORE) || (action == $CodingErrorAction::REPLACE)) {
 			int32_t var$0 = in->position();
-			$nc(in)->position(var$0 + cr->length());
+			$nc(in)->position(var$0 + $nc(cr)->length());
 			continue;
 		}
 		if (!CharsetEncoder::$assertionsDisabled) {

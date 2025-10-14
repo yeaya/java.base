@@ -238,7 +238,7 @@ void MethodUtil::addMethod($Map* sigs, $Method* method) {
 	$var($MethodUtil$Signature, signature, $new($MethodUtil$Signature, method));
 	if (!$nc(sigs)->containsKey(signature)) {
 		sigs->put(signature, method);
-	} else if (!$nc(method->getDeclaringClass())->isInterface()) {
+	} else if (!$nc($nc(method)->getDeclaringClass())->isInterface()) {
 		$var($Method, old, $cast($Method, sigs->get(signature)));
 		if ($nc($nc(old)->getDeclaringClass())->isInterface()) {
 			sigs->put(signature, method);

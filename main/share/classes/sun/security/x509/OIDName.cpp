@@ -120,7 +120,7 @@ int32_t OIDName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (inputName->getType() != $GeneralNameInterface::NAME_OID) {
+	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_OID) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else if (this->equals($cast(OIDName, inputName))) {
 		constraintType = $GeneralNameInterface::NAME_MATCH;

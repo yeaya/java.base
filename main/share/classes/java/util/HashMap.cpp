@@ -589,7 +589,7 @@ $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, b
 		}
 		if (var$2) {
 			$assign(node, p);
-		} else if (($assign(e, p->next)) != nullptr) {
+		} else if (($assign(e, $nc(p)->next)) != nullptr) {
 			if ($instanceOf($HashMap$TreeNode, p)) {
 				$assign(node, $nc(($cast($HashMap$TreeNode, p)))->getTreeNode(hash, key));
 			} else {
@@ -618,7 +618,7 @@ $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, b
 			} else if (node == p) {
 				tab->set(index, $nc(node)->next);
 			} else {
-				$set(p, next, $nc(node)->next);
+				$set($nc(p), next, $nc(node)->next);
 			}
 			++this->modCount;
 			--this->size$;

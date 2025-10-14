@@ -181,12 +181,12 @@ void DTLSInputRecord$DTLSReassembler::queueUpHandshake($DTLSInputRecord$Handshak
 		isMinimalFlightMessage = true;
 	}
 	$init($SSLHandshake);
-	if (isMinimalFlightMessage && (hsf->fragmentOffset == 0) && (hsf->handshakeType != $SSLHandshake::FINISHED->id)) {
+	if (isMinimalFlightMessage && ($nc(hsf)->fragmentOffset == 0) && (hsf->handshakeType != $SSLHandshake::FINISHED->id)) {
 		$nc(this->handshakeFlight)->handshakeType = hsf->handshakeType;
 		$nc(this->handshakeFlight)->flightEpoch = hsf->recordEpoch;
 		$nc(this->handshakeFlight)->minMessageSeq = hsf->messageSeq;
 	}
-	if (hsf->handshakeType == $SSLHandshake::FINISHED->id) {
+	if ($nc(hsf)->handshakeType == $SSLHandshake::FINISHED->id) {
 		$nc(this->handshakeFlight)->maxMessageSeq = hsf->messageSeq;
 		$nc(this->handshakeFlight)->maxRecordEpoch = hsf->recordEpoch;
 		$nc(this->handshakeFlight)->maxRecordSeq = hsf->recordSeq;
@@ -205,19 +205,19 @@ void DTLSInputRecord$DTLSReassembler::queueUpHandshake($DTLSInputRecord$Handshak
 		}
 	}
 	bool fragmented = false;
-	if ((hsf->fragmentOffset) != 0 || (hsf->fragmentLength != hsf->messageLength)) {
+	if (($nc(hsf)->fragmentOffset) != 0 || ($nc(hsf)->fragmentLength != hsf->messageLength)) {
 		fragmented = true;
 	}
-	$var($List, holes, $cast($List, $nc($nc(this->handshakeFlight)->holesMap)->get($($Byte::valueOf(hsf->handshakeType)))));
+	$var($List, holes, $cast($List, $nc($nc(this->handshakeFlight)->holesMap)->get($($Byte::valueOf($nc(hsf)->handshakeType)))));
 	if (holes == nullptr) {
 		if (!fragmented) {
 			$assign(holes, $Collections::emptyList());
 		} else {
 			$assign(holes, $new($LinkedList));
-			holes->add($$new($DTLSInputRecord$HoleDescriptor, 0, hsf->messageLength));
+			holes->add($$new($DTLSInputRecord$HoleDescriptor, 0, $nc(hsf)->messageLength));
 		}
-		$nc($nc(this->handshakeFlight)->holesMap)->put($($Byte::valueOf(hsf->handshakeType)), holes);
-	} else if (holes->isEmpty()) {
+		$nc($nc(this->handshakeFlight)->holesMap)->put($($Byte::valueOf($nc(hsf)->handshakeType)), holes);
+	} else if ($nc(holes)->isEmpty()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("verbose"_s)) {
 			$SSLLogger::fine("Have got the full message, discard it."_s, $$new($ObjectArray, 0));
@@ -225,8 +225,8 @@ void DTLSInputRecord$DTLSReassembler::queueUpHandshake($DTLSInputRecord$Handshak
 		return;
 	}
 	if (fragmented) {
-		int32_t fragmentLimit = hsf->fragmentOffset + hsf->fragmentLength;
-		for (int32_t i = 0; i < holes->size(); ++i) {
+		int32_t fragmentLimit = $nc(hsf)->fragmentOffset + hsf->fragmentLength;
+		for (int32_t i = 0; i < $nc(holes)->size(); ++i) {
 			$var($DTLSInputRecord$HoleDescriptor, hole, $cast($DTLSInputRecord$HoleDescriptor, holes->get(i)));
 			if (($nc(hole)->limit <= hsf->fragmentOffset) || ($nc(hole)->offset >= fragmentLimit)) {
 				continue;
@@ -248,7 +248,7 @@ void DTLSInputRecord$DTLSReassembler::queueUpHandshake($DTLSInputRecord$Handshak
 			break;
 		}
 	}
-	if (hsf->handshakeType == $SSLHandshake::FINISHED->id) {
+	if ($nc(hsf)->handshakeType == $SSLHandshake::FINISHED->id) {
 		$nc(this->bufferedFragments)->add(hsf);
 	} else {
 		bufferFragment(hsf);
@@ -325,7 +325,7 @@ void DTLSInputRecord$DTLSReassembler::cleanUpRetransmit($DTLSInputRecord$RecordF
 			}
 			if (!isOld && ($instanceOf($DTLSInputRecord$HandshakeFragment, frag))) {
 				$var($DTLSInputRecord$HandshakeFragment, hsf, $cast($DTLSInputRecord$HandshakeFragment, frag));
-				isOld = (hsf->messageSeq <= $nc(this->precedingFlight)->maxMessageSeq);
+				isOld = ($nc(hsf)->messageSeq <= $nc(this->precedingFlight)->maxMessageSeq);
 			}
 			if (isOld) {
 				it->remove();
@@ -708,7 +708,7 @@ bool DTLSInputRecord$DTLSReassembler::hasFinishedMessage($Set* fragments) {
 
 bool DTLSInputRecord$DTLSReassembler::needClientVerify($Set* fragments) {
 	{
-		$var($Iterator, i$, fragments->iterator());
+		$var($Iterator, i$, $nc(fragments)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DTLSInputRecord$RecordFragment, rFrag, $cast($DTLSInputRecord$RecordFragment, i$->next()));
 			{
@@ -738,7 +738,7 @@ bool DTLSInputRecord$DTLSReassembler::hasCompleted(int8_t handshakeType) {
 
 bool DTLSInputRecord$DTLSReassembler::hasCompleted($Set* fragments, int32_t presentMsgSeq, int32_t endMsgSeq) {
 	{
-		$var($Iterator, i$, fragments->iterator());
+		$var($Iterator, i$, $nc(fragments)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DTLSInputRecord$RecordFragment, rFrag, $cast($DTLSInputRecord$RecordFragment, i$->next()));
 			{

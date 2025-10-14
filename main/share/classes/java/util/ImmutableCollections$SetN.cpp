@@ -190,7 +190,7 @@ int32_t ImmutableCollections$SetN::probe(Object$* pe) {
 		$var($Object0, ee, $nc(this->elements)->get(idx));
 		if (ee == nullptr) {
 			return -idx - 1;
-		} else if ($of(pe)->equals(ee)) {
+		} else if ($nc($of(pe))->equals(ee)) {
 			return idx;
 		} else if (++idx == $nc(this->elements)->length) {
 			idx = 0;

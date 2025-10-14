@@ -1620,7 +1620,7 @@ $Number* CompactNumberFormat::generateParseResult($Number* number, bool gotDoubl
 			gotDouble = ((doubleResult != (double)longResult) || (doubleResult == 0.0 && 1 / doubleResult < 0.0));
 			return gotDouble ? static_cast<$Number*>($Double::valueOf(doubleResult)) : static_cast<$Number*>($Long::valueOf(longResult));
 		}
-	} else if (cnfMultiplier->longValue() != (int64_t)1) {
+	} else if ($nc(cnfMultiplier)->longValue() != (int64_t)1) {
 		$var($Number, result, nullptr);
 		if (($instanceOf($Long, cnfMultiplier)) && !gotLongMin) {
 			int64_t longMultiplier = $nc(($cast($Long, cnfMultiplier)))->longValue();

@@ -194,7 +194,7 @@ void Basic::main($StringArray* args) {
 				if ($nc(unit)->compareTo(static_cast<$Enum*>($TimeUnit::SECONDS)) < 0) {
 					eqTime(value, unit, instant);
 				} else {
-					if (!instant->equals($Instant::MIN)) {
+					if (!$nc(instant)->equals($Instant::MIN)) {
 						$throwNew($RuntimeException, "should overflow to MIN"_s);
 					}
 				}
@@ -204,7 +204,7 @@ void Basic::main($StringArray* args) {
 				if ($nc(unit)->compareTo(static_cast<$Enum*>($TimeUnit::SECONDS)) < 0) {
 					eqTime(value, unit, instant);
 				} else {
-					if (!instant->equals($Instant::MAX)) {
+					if (!$nc(instant)->equals($Instant::MAX)) {
 						$throwNew($RuntimeException, "should overflow to MAX"_s);
 					}
 				}

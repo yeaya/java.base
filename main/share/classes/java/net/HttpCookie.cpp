@@ -673,7 +673,7 @@ $List* HttpCookie::splitMultiCookies($String* header) {
 	int32_t quoteCount = 0;
 	int32_t p = 0;
 	int32_t q = 0;
-	for (p = 0, q = 0; p < header->length(); ++p) {
+	for (p = 0, q = 0; p < $nc(header)->length(); ++p) {
 		char16_t c = header->charAt(p);
 		if (c == u'\"') {
 			++quoteCount;
@@ -683,7 +683,7 @@ $List* HttpCookie::splitMultiCookies($String* header) {
 			q = p + 1;
 		}
 	}
-	cookies->add($(header->substring(q)));
+	cookies->add($($nc(header)->substring(q)));
 	return cookies;
 }
 

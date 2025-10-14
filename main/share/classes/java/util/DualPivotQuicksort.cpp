@@ -507,7 +507,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $ints*
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if (a->get(last - 1) > a->get(last)) {
+		} else if ($nc(a)->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}
@@ -958,7 +958,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $longs
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if (a->get(last - 1) > a->get(last)) {
+		} else if ($nc(a)->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}
@@ -1853,7 +1853,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $float
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if (a->get(last - 1) > a->get(last)) {
+		} else if ($nc(a)->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}
@@ -2329,7 +2329,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $doubl
 			}
 			$assign(run, $new($ints, (int32_t)(((size >> 10) | 127) & (uint32_t)1023)));
 			run->set(0, low);
-		} else if (a->get(last - 1) > a->get(last)) {
+		} else if ($nc(a)->get(last - 1) > a->get(last)) {
 			if (count > $sr(k - low, DualPivotQuicksort::MIN_FIRST_RUNS_FACTOR)) {
 				return false;
 			}

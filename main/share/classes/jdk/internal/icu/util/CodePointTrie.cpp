@@ -379,7 +379,7 @@ CodePointTrie* CodePointTrie::fromBinary($CodePointTrie$Type* type$renamed, $Cod
 			}
 			$var($chars, index, $ICUBinary::getChars(bytes, indexLength, 0));
 			$init($CodePointTrie$1);
-			switch ($nc($CodePointTrie$1::$SwitchMap$jdk$internal$icu$util$CodePointTrie$ValueWidth)->get((valueWidth)->ordinal())) {
+			switch ($nc($CodePointTrie$1::$SwitchMap$jdk$internal$icu$util$CodePointTrie$ValueWidth)->get($nc((valueWidth))->ordinal())) {
 			case 1:
 				{
 					{

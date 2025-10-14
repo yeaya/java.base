@@ -390,7 +390,7 @@ void BasicImageReader::init$($Path* path, $ByteOrder* byteOrder) {
 		} else {
 			$throwNew($IOException, $$str({"\""_s, this->name, "\" is not an image file"_s}));
 		}
-	} else if (headerBuffer->capacity() < headerSize) {
+	} else if ($nc(headerBuffer)->capacity() < headerSize) {
 		$throwNew($IOException, $$str({"\""_s, this->name, "\" is not an image file"_s}));
 	}
 	$set(this, header, readHeader($(intBuffer(headerBuffer, 0, headerSize))));

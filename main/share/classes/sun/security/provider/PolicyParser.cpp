@@ -726,7 +726,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'\"':
 			{
-				if (expect->equalsIgnoreCase("quoted string"_s)) {
+				if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
 					$assign(value, $nc(this->st)->sval);
 					this->lookahead = $nc(this->st)->nextToken();
 				} else if (expect->equalsIgnoreCase("permission type"_s)) {
@@ -742,7 +742,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u',':
 			{
-				if (expect->equalsIgnoreCase(","_s)) {
+				if ($nc(expect)->equalsIgnoreCase(","_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ","_s);
@@ -751,7 +751,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'{':
 			{
-				if (expect->equalsIgnoreCase("{"_s)) {
+				if ($nc(expect)->equalsIgnoreCase("{"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "{"_s);
@@ -760,7 +760,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'}':
 			{
-				if (expect->equalsIgnoreCase("}"_s)) {
+				if ($nc(expect)->equalsIgnoreCase("}"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "}"_s);
@@ -769,7 +769,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u';':
 			{
-				if (expect->equalsIgnoreCase(";"_s)) {
+				if ($nc(expect)->equalsIgnoreCase(";"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ";"_s);
@@ -778,7 +778,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'*':
 			{
-				if (expect->equalsIgnoreCase("*"_s)) {
+				if ($nc(expect)->equalsIgnoreCase("*"_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "*"_s);
@@ -787,7 +787,7 @@ $String* PolicyParser::match($String* expect) {
 			}
 		case u'=':
 			{
-				if (expect->equalsIgnoreCase("="_s)) {
+				if ($nc(expect)->equalsIgnoreCase("="_s)) {
 					this->lookahead = $nc(this->st)->nextToken();
 				} else {
 					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "="_s);

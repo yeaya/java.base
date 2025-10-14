@@ -319,7 +319,7 @@ void ExactArithTests::checkResult($String* message, int64_t x, int64_t y, int64_
 	$var($BigInteger, resultBig, $BigInteger::valueOf(result));
 	if (!inLongRange(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected an arithmetic exception: "_s}));
-	} else if (!resultBig->equals(expected)) {
+	} else if (!$nc(resultBig)->equals(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected "_s, expected}));
 	}
 }

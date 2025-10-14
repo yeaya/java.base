@@ -121,7 +121,7 @@ $ClassValue$Entry* ClassValue$ClassValueMap::startEntry($ClassValue* classValue)
 			$assign(e, $nc(v)->promise());
 			put(classValue->identity, e);
 			return e;
-		} else if (e->isPromise()) {
+		} else if ($nc(e)->isPromise()) {
 			if (e->version() != v) {
 				$assign(e, $nc(v)->promise());
 				put(classValue->identity, e);
@@ -152,7 +152,7 @@ $ClassValue$Entry* ClassValue$ClassValueMap::finishEntry($ClassValue* classValue
 		} else {
 			bool var$1 = e0 != nullptr && e0->isPromise();
 			if (var$1) {
-				var$1 = e0->version() == e->version();
+				var$1 = e0->version() == $nc(e)->version();
 			}
 			if (var$1) {
 				$var($ClassValue$Version, v, $nc(classValue)->version());
@@ -174,7 +174,7 @@ void ClassValue$ClassValueMap::removeEntry($ClassValue* classValue) {
 	$synchronized(this) {
 		$var($ClassValue$Entry, e, $cast($ClassValue$Entry, remove($nc(classValue)->identity)));
 		if (e == nullptr) {
-		} else if (e->isPromise()) {
+		} else if ($nc(e)->isPromise()) {
 			put($nc(classValue)->identity, e);
 		} else {
 			$nc(classValue)->bumpVersion();
@@ -405,7 +405,7 @@ $ClassValue$Entry* ClassValue$ClassValueMap::placeInCache($ClassValue$EntryArray
 $ClassValue$Entry* ClassValue$ClassValueMap::overwrittenEntry($ClassValue$Entry* e2) {
 	if (e2 == nullptr) {
 		this->cacheLoad += 1;
-	} else if (e2->isLive()) {
+	} else if ($nc(e2)->isLive()) {
 		return e2;
 	}
 	return nullptr;

@@ -109,7 +109,7 @@ int32_t DTLSInputRecord$RecordFragment::compareTo(DTLSInputRecord$RecordFragment
 			}
 		}
 	} else {
-		if (o->contentType == $ContentType::CHANGE_CIPHER_SPEC->id) {
+		if ($nc(o)->contentType == $ContentType::CHANGE_CIPHER_SPEC->id) {
 			if ((this->recordEpoch == o->recordEpoch) && (this->contentType == $ContentType::HANDSHAKE->id)) {
 				return -1;
 			} else {
@@ -117,7 +117,7 @@ int32_t DTLSInputRecord$RecordFragment::compareTo(DTLSInputRecord$RecordFragment
 			}
 		}
 	}
-	return compareToSequence(o->recordEpoch, o->recordSeq);
+	return compareToSequence($nc(o)->recordEpoch, o->recordSeq);
 }
 
 int32_t DTLSInputRecord$RecordFragment::compareToSequence(int32_t epoch, int64_t seq) {

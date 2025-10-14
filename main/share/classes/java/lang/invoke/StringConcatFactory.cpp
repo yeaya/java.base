@@ -418,7 +418,7 @@ $MethodHandle* StringConcatFactory::generateMHInlineCopy($MethodType* mt, $List*
 			}
 		}
 	}
-	$var($ClassArray, ptypes, $fcast($ClassArray, $nc($(mt->erase()))->parameterArray()));
+	$var($ClassArray, ptypes, $fcast($ClassArray, $nc($($nc(mt)->erase()))->parameterArray()));
 	$var($MethodHandleArray, filters, nullptr);
 	for (int32_t i = 0; i < $nc(ptypes)->length; ++i) {
 		$var($MethodHandle, filter, stringifierFor(ptypes->get(i)));

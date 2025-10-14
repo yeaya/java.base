@@ -216,7 +216,7 @@ ZoneId* ZoneId::of($String* zoneId, bool checkAvailable) {
 
 ZoneId* ZoneId::ofWithPrefix($String* zoneId, int32_t prefixLength, bool checkAvailable) {
 	$init(ZoneId);
-	$var($String, prefix, zoneId->substring(0, prefixLength));
+	$var($String, prefix, $nc(zoneId)->substring(0, prefixLength));
 	if (zoneId->length() == prefixLength) {
 		$init($ZoneOffset);
 		return ofOffset(prefix, $ZoneOffset::UTC);

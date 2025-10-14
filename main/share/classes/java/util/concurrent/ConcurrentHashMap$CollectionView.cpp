@@ -244,7 +244,7 @@ bool ConcurrentHashMap$CollectionView::removeAll($Collection* c) {
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	if (($assign(t, $nc(this->map)->table)) == nullptr) {
 		return false;
-	} else if ($instanceOf($Set, c) && c->size() > t->length) {
+	} else if ($instanceOf($Set, c) && $nc(c)->size() > $nc(t)->length) {
 		{
 			$var($Iterator, it, iterator());
 			for (; $nc(it)->hasNext();) {

@@ -547,7 +547,7 @@ bool Hashtable::equals(Object$* o) {
 							if (!(var$2 && t->containsKey(key))) {
 								return false;
 							}
-						} else if (!$of(value)->equals($($nc(t)->get(key)))) {
+						} else if (!$nc($of(value))->equals($($nc(t)->get(key)))) {
 							return false;
 						}
 					}

@@ -210,7 +210,7 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 		}
 	} else {
 		$load($MultiThreadStackWalk$Call);
-		if (count <= 0 && sfi->getDeclaringClass() != $MultiThreadStackWalk$Call::class$) {
+		if (count <= 0 && $nc(sfi)->getDeclaringClass() != $MultiThreadStackWalk$Call::class$) {
 			$throwNew($RuntimeException, $$str({"Expected Call at "_s, $$str(count), ", found "_s, sfi->getDeclaringClass()}));
 		} else {
 			$load($MultiThreadStackWalk$Test);

@@ -676,11 +676,11 @@ $String* ConcurrentLinkedQueue::toString() {
 				if (($assign(item, p->item)) != nullptr) {
 					if (a == nullptr) {
 						$assign(a, $new($StringArray, 4));
-					} else if (size == a->length) {
+					} else if (size == $nc(a)->length) {
 						$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
 					}
 					$var($String, s, $nc($of(item))->toString());
-					a->set(size++, s);
+					$nc(a)->set(size++, s);
 					charLength += $nc(s)->length();
 				}
 				$var($ConcurrentLinkedQueue$Node, var$0, p);
@@ -713,10 +713,10 @@ $ObjectArray* ConcurrentLinkedQueue::toArrayInternal($ObjectArray* a) {
 				if (($assign(item, p->item)) != nullptr) {
 					if (x == nullptr) {
 						$assign(x, $new($ObjectArray, 4));
-					} else if (size == x->length) {
+					} else if (size == $nc(x)->length) {
 						$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 					}
-					x->set(size++, item);
+					$nc(x)->set(size++, item);
 				}
 				$var($ConcurrentLinkedQueue$Node, var$0, p);
 				if (var$0 == ($assign(p, p->next))) {

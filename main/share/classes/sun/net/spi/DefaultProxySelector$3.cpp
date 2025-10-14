@@ -137,7 +137,7 @@ $Object* DefaultProxySelector$3::run() {
 							$set($nc(this->val$nprop), hostsSource, nullptr);
 							$set($nc(this->val$nprop), pattern, nullptr);
 						}
-					} else if (!nphosts->isEmpty()) {
+					} else if (!$nc(nphosts)->isEmpty()) {
 						$init($DefaultProxySelector$NonProxyInfo);
 						$plusAssign(nphosts, $$str({"|"_s, $DefaultProxySelector$NonProxyInfo::defStringVal}));
 					}

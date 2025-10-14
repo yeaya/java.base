@@ -367,7 +367,7 @@ $ChronoLocalDate* IsoChronology::resolveYearOfEra($Map* fieldValues, $ResolverSt
 			} else {
 				addFieldValue(fieldValues, $ChronoField::YEAR, (year == nullptr || $nc(year)->longValue() > 0 ? yoeLong->longValue() : $Math::subtractExact((int64_t)1, yoeLong->longValue())));
 			}
-		} else if (era->longValue() == (int64_t)1) {
+		} else if ($nc(era)->longValue() == (int64_t)1) {
 			addFieldValue(fieldValues, $ChronoField::YEAR, yoeLong->longValue());
 		} else if (era->longValue() == (int64_t)0) {
 			addFieldValue(fieldValues, $ChronoField::YEAR, $Math::subtractExact((int64_t)1, yoeLong->longValue()));

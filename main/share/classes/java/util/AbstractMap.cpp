@@ -263,7 +263,7 @@ bool AbstractMap::equals(Object$* o) {
 						if (!(var$2 && m->containsKey(key))) {
 							return false;
 						}
-					} else if (!$of(value)->equals($($nc(m)->get(key)))) {
+					} else if (!$nc($of(value))->equals($($nc(m)->get(key)))) {
 						return false;
 					}
 				}

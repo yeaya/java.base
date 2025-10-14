@@ -304,7 +304,7 @@ $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $
 				}
 			}
 		}
-	} else if (sigalg->equalsIgnoreCase("RSASSA-PSS"_s)) {
+	} else if ($nc(sigalg)->equalsIgnoreCase("RSASSA-PSS"_s)) {
 		try {
 			$load($PSSParameterSpec);
 			$assign(digAlgID, $AlgorithmId::get($($nc(($cast($PSSParameterSpec, $($nc($($nc(signer)->getParameters()))->getParameterSpec($PSSParameterSpec::class$)))))->getDigestAlgorithm())));

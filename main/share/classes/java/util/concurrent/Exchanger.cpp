@@ -258,7 +258,7 @@ $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
 			} else if (this->arena != nullptr) {
 				return $of(nullptr);
 			} else {
-				$set(p, item, item);
+				$set($nc(p), item, item);
 				if ($nc(Exchanger::SLOT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $of(p)}))) {
 					break;
 				}
@@ -266,7 +266,7 @@ $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
 			}
 		}
 	}
-	int32_t h = p->hash;
+	int32_t h = $nc(p)->hash;
 	int64_t end = timed ? $System::nanoTime() + ns : (int64_t)0;
 	int32_t spins = (Exchanger::NCPU > 1) ? Exchanger::SPINS : 1;
 	$var($Object, v, nullptr);

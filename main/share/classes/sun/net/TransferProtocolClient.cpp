@@ -112,7 +112,7 @@ int32_t TransferProtocolClient::readServerResponse() {
 				break;
 			}
 		} else {
-			bool var$3 = response->length() >= 4;
+			bool var$3 = $nc(response)->length() >= 4;
 			if (var$3 && response->charAt(3) == u'-') {
 				continuingCode = code;
 				continue;

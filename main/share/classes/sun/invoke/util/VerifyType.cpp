@@ -205,7 +205,7 @@ int32_t VerifyType::canPassUnchecked($Class* src, $Class* dst) {
 		} else {
 			return 0;
 		}
-	} else if (src->isPrimitive()) {
+	} else if ($nc(src)->isPrimitive()) {
 		return 0;
 	}
 	if (isNullReferenceConversion(src, dst)) {

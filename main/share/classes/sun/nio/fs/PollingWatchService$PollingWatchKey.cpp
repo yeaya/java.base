@@ -285,7 +285,7 @@ void PollingWatchService$PollingWatchKey::poll() {
 				$assign(var$0, $catch());
 			} /*finally*/ {
 				try {
-					stream->close();
+					$nc(stream)->close();
 				} catch ($IOException&) {
 					$catch();
 				}

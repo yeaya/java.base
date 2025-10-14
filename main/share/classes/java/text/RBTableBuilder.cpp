@@ -169,7 +169,7 @@ void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
 			$assign(expChars, entry->getExtension());
 			if (!$nc(expChars)->isEmpty()) {
 				addExpandOrder(groupChars, expChars, order);
-			} else if (groupChars->length() > 1) {
+			} else if ($nc(groupChars)->length() > 1) {
 				char16_t ch = groupChars->charAt(0);
 				bool var$0 = $Character::isHighSurrogate(ch);
 				if (var$0 && groupChars->length() == 2) {
@@ -216,7 +216,7 @@ void RBTableBuilder::addComposedChars() {
 				addOrder(c, contractOrder);
 			} else {
 				bool allThere = true;
-				for (int32_t i = 0; i < s->length(); ++i) {
+				for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 					if (getCharOrder(s->charAt(i)) == $RBCollationTables::UNMAPPED) {
 						allThere = false;
 						break;

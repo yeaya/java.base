@@ -587,7 +587,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 		copyFile(source, sourceAttrs, target, flags, 0);
 	}
 	try {
-		if (sourceAttrs->isDirectory()) {
+		if ($nc(sourceAttrs)->isDirectory()) {
 			$UnixNativeDispatcher::rmdir(source);
 		} else {
 			$UnixNativeDispatcher::unlink(source);
@@ -595,7 +595,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 	} catch ($UnixException&) {
 		$var($UnixException, x, $catch());
 		try {
-			if (sourceAttrs->isDirectory()) {
+			if ($nc(sourceAttrs)->isDirectory()) {
 				$UnixNativeDispatcher::rmdir(target);
 			} else {
 				$UnixNativeDispatcher::unlink(target);
@@ -603,7 +603,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 		} catch ($UnixException&) {
 			$catch();
 		}
-		bool var$5 = sourceAttrs->isDirectory();
+		bool var$5 = $nc(sourceAttrs)->isDirectory();
 		if (var$5) {
 			$init($UnixConstants);
 			bool var$6 = x->errno$() == $UnixConstants::EEXIST;

@@ -252,7 +252,7 @@ void SubmissionPublisher::subscribe($Flow$Subscriber* subscriber) {
 						} else {
 							$set($nc(pred), next, next);
 						}
-					} else if ($of(subscriber)->equals(b->subscriber)) {
+					} else if ($nc($of(subscriber))->equals(b->subscriber)) {
 						b->onError($$new($IllegalStateException, "Duplicate subscribe"_s));
 						break;
 					} else {
@@ -601,7 +601,7 @@ bool SubmissionPublisher::isSubscribed($Flow$Subscriber* subscriber) {
 							} else {
 								$set($nc(pred), next, next);
 							}
-						} else if (subscribed = $of(subscriber)->equals(b->subscriber)) {
+						} else if (subscribed = $nc($of(subscriber))->equals(b->subscriber)) {
 							break;
 						} else {
 							$assign(pred, b);

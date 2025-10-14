@@ -310,7 +310,7 @@ $String* WindowsPath::getAbsolutePath() {
 		$var($String, defaultDirectory, $nc($($cast($WindowsFileSystem, getFileSystem())))->defaultDirectory());
 		if (remaining->isEmpty()) {
 			return defaultDirectory;
-		} else if (defaultDirectory->endsWith("\\"_s)) {
+		} else if ($nc(defaultDirectory)->endsWith("\\"_s)) {
 			return $str({defaultDirectory, remaining});
 		} else {
 			return $str({defaultDirectory, "\\"_s, remaining});

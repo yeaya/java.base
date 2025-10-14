@@ -661,7 +661,7 @@ void GeneratorAdapter::swap($Type* prev, $Type* type) {
 			dupX2();
 			pop();
 		}
-	} else if (prev->getSize() == 1) {
+	} else if ($nc(prev)->getSize() == 1) {
 		dup2X1();
 		pop2();
 	} else {
@@ -1031,7 +1031,7 @@ void GeneratorAdapter::putField($Type* owner, $String* name, $Type* type) {
 }
 
 void GeneratorAdapter::invokeInsn(int32_t opcode, $Type* type, $Method* method, bool isInterface) {
-	$var($String, owner, type->getSort() == $Type::ARRAY ? type->getDescriptor() : type->getInternalName());
+	$var($String, owner, $nc(type)->getSort() == $Type::ARRAY ? $nc(type)->getDescriptor() : type->getInternalName());
 	int32_t var$0 = opcode;
 	$var($String, var$1, owner);
 	$var($String, var$2, $nc(method)->getName());
@@ -1059,7 +1059,7 @@ void GeneratorAdapter::invokeDynamic($String* name, $String* descriptor, $Handle
 }
 
 void GeneratorAdapter::typeInsn(int32_t opcode, $Type* type) {
-	$nc(this->mv)->visitTypeInsn(opcode, $(type->getInternalName()));
+	$nc(this->mv)->visitTypeInsn(opcode, $($nc(type)->getInternalName()));
 }
 
 void GeneratorAdapter::newInstance($Type* type) {
@@ -1087,7 +1087,7 @@ void GeneratorAdapter::throwException($Type* type, $String* message) {
 }
 
 void GeneratorAdapter::checkCast($Type* type) {
-	if (!type->equals(GeneratorAdapter::OBJECT_TYPE)) {
+	if (!$nc(type)->equals(GeneratorAdapter::OBJECT_TYPE)) {
 		typeInsn($Opcodes::CHECKCAST, type);
 	}
 }

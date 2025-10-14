@@ -548,7 +548,7 @@ $Throwable* ForkJoinTask::getThrowableException() {
 	$var($ForkJoinTask$Aux, a, nullptr);
 	if (($assign(a, this->aux)) == nullptr) {
 		$assign(ex, nullptr);
-	} else if (($assign(ex, a->ex)) != nullptr && a->thread != $Thread::currentThread()) {
+	} else if (($assign(ex, $nc(a)->ex)) != nullptr && a->thread != $Thread::currentThread()) {
 		try {
 			$var($Constructor, noArgCtor, nullptr);
 			$var($Constructor, oneArgCtor, nullptr);
@@ -1012,7 +1012,7 @@ ForkJoinTask* ForkJoinTask::adaptInterruptible($Callable* callable) {
 void ForkJoinTask::writeObject($ObjectOutputStream* s) {
 	$var($ForkJoinTask$Aux, a, nullptr);
 	$nc(s)->defaultWriteObject();
-	s->writeObject(($assign(a, this->aux)) == nullptr ? ($Object*)nullptr : $of(a->ex));
+	s->writeObject(($assign(a, this->aux)) == nullptr ? ($Object*)nullptr : $of($nc(a)->ex));
 }
 
 void ForkJoinTask::readObject($ObjectInputStream* s) {

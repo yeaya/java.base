@@ -104,7 +104,7 @@ void MacData::init$($String* algName, $bytes* digest, $bytes* salt, int32_t iter
 	$set(this, digestAlgorithmParams, algid->getParameters());
 	if (digest == nullptr) {
 		$throwNew($NullPointerException, "the digest parameter must be non-null"_s);
-	} else if (digest->length == 0) {
+	} else if ($nc(digest)->length == 0) {
 		$throwNew($IllegalArgumentException, "the digest parameter must not be empty"_s);
 	} else {
 		$set(this, digest, $cast($bytes, digest->clone()));
@@ -124,7 +124,7 @@ void MacData::init$($AlgorithmParameters* algParams, $bytes* digest, $bytes* sal
 	$set(this, digestAlgorithmParams, algid->getParameters());
 	if (digest == nullptr) {
 		$throwNew($NullPointerException, "the digest parameter must be non-null"_s);
-	} else if (digest->length == 0) {
+	} else if ($nc(digest)->length == 0) {
 		$throwNew($IllegalArgumentException, "the digest parameter must not be empty"_s);
 	} else {
 		$set(this, digest, $cast($bytes, digest->clone()));

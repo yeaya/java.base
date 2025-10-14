@@ -743,7 +743,7 @@ void clinit$InetAddress($Class* class$) {
 		$var($String, str, $GetPropertyAction::privilegedGetProperty("java.net.preferIPv6Addresses"_s));
 		if (str == nullptr) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV4_VALUE;
-		} else if (str->equalsIgnoreCase("true"_s)) {
+		} else if ($nc(str)->equalsIgnoreCase("true"_s)) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV6_VALUE;
 		} else if (str->equalsIgnoreCase("false"_s)) {
 			InetAddress::preferIPv6Address = InetAddress::PREFER_IPV4_VALUE;

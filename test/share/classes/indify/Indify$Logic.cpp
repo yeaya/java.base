@@ -1272,7 +1272,7 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 						$nc(args)->clear();
 						args->add(con);
 						continue;
-					} else if (type->endsWith(")V"_s)) {
+					} else if ($nc(type)->endsWith(")V"_s)) {
 						$nc(args)->clear();
 						continue;
 					}

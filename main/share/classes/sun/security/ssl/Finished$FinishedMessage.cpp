@@ -140,22 +140,22 @@ void Finished$FinishedMessage::init$($HandshakeContext* context, $ByteBuffer* m)
 	}
 	if ($nc(m)->remaining() != verifyDataLen) {
 		$init($Alert);
-		$throw($($nc(context->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Inappropriate finished message: need "_s, $$str(verifyDataLen), " but remaining "_s, $$str(m->remaining()), " bytes verify_data"_s}))));
+		$throw($($nc($nc(context)->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Inappropriate finished message: need "_s, $$str(verifyDataLen), " but remaining "_s, $$str(m->remaining()), " bytes verify_data"_s}))));
 	}
 	$set(this, verifyData, $new($bytes, verifyDataLen));
 	$nc(m)->get(this->verifyData);
-	$Finished$VerifyDataScheme* vd = $Finished$VerifyDataScheme::valueOf(context->negotiatedProtocol);
+	$Finished$VerifyDataScheme* vd = $Finished$VerifyDataScheme::valueOf($nc(context)->negotiatedProtocol);
 	$var($bytes, myVerifyData, nullptr);
 	try {
 		$assign(myVerifyData, $nc(vd)->createVerifyData(context, true));
 	} catch ($IOException&) {
 		$var($IOException, ioe, $catch());
 		$init($Alert);
-		$throw($($nc(context->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
+		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
 	}
 	if (!$MessageDigest::isEqual(myVerifyData, this->verifyData)) {
 		$init($Alert);
-		$throw($($nc(context->conContext)->fatal($Alert::DECRYPT_ERROR, "The Finished message cannot be verified."_s)));
+		$throw($($nc($nc(context)->conContext)->fatal($Alert::DECRYPT_ERROR, "The Finished message cannot be verified."_s)));
 	}
 }
 

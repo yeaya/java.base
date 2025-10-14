@@ -1094,7 +1094,7 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 		$var($LambdaForm$Name, n2, names2->get(skip + i));
 		if (n2 == nullptr) {
 			names2->set(skip + i, $assign(n2, $new($LambdaForm$Name, types->get(i))));
-		} else if (!LambdaFormEditor::$assertionsDisabled && !(n2->type$ == types->get(i))) {
+		} else if (!LambdaFormEditor::$assertionsDisabled && !($nc(n2)->type$ == types->get(i))) {
 			$throwNew($AssertionError);
 		}
 		for (int32_t k = arity2; k < names2->length; ++k) {

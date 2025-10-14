@@ -393,7 +393,7 @@ $List* ProxyGenerator::computeUniqueCatchList($ClassArray* exceptions) {
 					if ($nc(ex2)->isAssignableFrom(ex)) {
 						nextException$continue = true;
 						break;
-					} else if (ex->isAssignableFrom(ex2)) {
+					} else if ($nc(ex)->isAssignableFrom(ex2)) {
 						uniqueList->remove(j);
 					} else {
 						++j;

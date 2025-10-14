@@ -66,7 +66,7 @@ void App::main($StringArray* args) {
 			{
 				if (expected == nullptr) {
 					$assign(expected, s);
-				} else if (s->equals("-"_s)) {
+				} else if ($nc(s)->equals("-"_s)) {
 					f = false;
 				} else if (f) {
 					try {

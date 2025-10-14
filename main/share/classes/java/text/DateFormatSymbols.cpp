@@ -449,7 +449,7 @@ void DateFormatSymbols::initializeData($Locale* locale) {
 		} else if (resource->containsKey("short.Eras"_s)) {
 			$set(dfs, eras, resource->getStringArray("short.Eras"_s));
 		}
-		$set(dfs, months, resource->getStringArray("MonthNames"_s));
+		$set(dfs, months, $nc(resource)->getStringArray("MonthNames"_s));
 		$set(dfs, shortMonths, resource->getStringArray("MonthAbbreviations"_s));
 		$set(dfs, ampms, resource->getStringArray("AmPmMarkers"_s));
 		if ($nc(dfs->ampms)->length > 2) {

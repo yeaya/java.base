@@ -67,21 +67,21 @@ void TestReceiverTypeOwnerType::main($StringArray* args) {
 	$var($AnnotatedType, nested, $nc($($Class::forName($$str({$(TestReceiverTypeOwnerType::class$->getTypeName()), "$Nested"_s}))->getMethod("method"_s, $$new($ClassArray, 0))))->getAnnotatedReceiverType());
 	if (!($instanceOf($AnnotatedParameterizedType, nested))) {
 		$throwNew($AssertionError);
-	} else if (!($instanceOf($AnnotatedParameterizedType, $(nested->getAnnotatedOwnerType())))) {
+	} else if (!($instanceOf($AnnotatedParameterizedType, $($nc(nested)->getAnnotatedOwnerType())))) {
 		$throwNew($AssertionError);
 	}
 	$load($TestReceiverTypeOwnerType$Inner);
 	$var($AnnotatedType, inner, $nc($($TestReceiverTypeOwnerType$Inner::class$->getMethod("method"_s, $$new($ClassArray, 0))))->getAnnotatedReceiverType());
 	if ($instanceOf($AnnotatedParameterizedType, inner)) {
 		$throwNew($AssertionError);
-	} else if ($instanceOf($AnnotatedParameterizedType, $(inner->getAnnotatedOwnerType()))) {
+	} else if ($instanceOf($AnnotatedParameterizedType, $($nc(inner)->getAnnotatedOwnerType()))) {
 		$throwNew($AssertionError);
 	}
 	$load($TestReceiverTypeOwnerType$GenericInner);
 	$var($AnnotatedType, nestedInner, $nc($($TestReceiverTypeOwnerType$GenericInner::class$->getMethod("method"_s, $$new($ClassArray, 0))))->getAnnotatedReceiverType());
 	if (!($instanceOf($AnnotatedParameterizedType, nestedInner))) {
 		$throwNew($AssertionError);
-	} else if ($instanceOf($AnnotatedParameterizedType, $(nestedInner->getAnnotatedOwnerType()))) {
+	} else if ($instanceOf($AnnotatedParameterizedType, $($nc(nestedInner)->getAnnotatedOwnerType()))) {
 		$throwNew($AssertionError);
 	}
 }

@@ -296,8 +296,8 @@ Runtime$Version* Runtime$Version::parse($String* s) {
 				$throwNew($IllegalArgumentException, $$str({"\'+\' found with neither build or optional components: \'"_s, s, "\'"_s}));
 			}
 		} else {
-			bool var$4 = optional->isPresent();
-			if (var$4 && !pre->isPresent()) {
+			bool var$4 = $nc(optional)->isPresent();
+			if (var$4 && !$nc(pre)->isPresent()) {
 				$throwNew($IllegalArgumentException, $$str({"optional component must be preceded by a pre-release component or \'+\': \'"_s, s, "\'"_s}));
 			}
 		}

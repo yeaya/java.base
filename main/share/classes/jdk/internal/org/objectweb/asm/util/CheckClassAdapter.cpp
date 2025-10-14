@@ -324,7 +324,7 @@ void CheckClassAdapter::visit(int32_t version, int32_t access, $String* name, $S
 		if (superName != nullptr) {
 			$throwNew($IllegalArgumentException, "The super class name of the Object class must be \'null\'"_s);
 		}
-	} else if (name->endsWith("module-info"_s)) {
+	} else if ($nc(name)->endsWith("module-info"_s)) {
 		if (superName != nullptr) {
 			$throwNew($IllegalArgumentException, "The super class name of a module-info class must be \'null\'"_s);
 		}

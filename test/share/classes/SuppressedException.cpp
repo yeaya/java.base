@@ -176,7 +176,7 @@ void SuppressedException::test() {
 						$nc($System::err)->println("\nExpected suppressed exception not present"_s);
 						e->printStackTrace();
 						++failures;
-					} else if (suppressed->length != 1) {
+					} else if ($nc(suppressed)->length != 1) {
 						$nc($System::err)->println("\nUnexpected number of suppressed exceptions"_s);
 						e->printStackTrace();
 						++failures;

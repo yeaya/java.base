@@ -296,7 +296,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 			$var($GeneralNames, crlIssuers, point->getCRLIssuer());
 			if (crlIssuers == nullptr) {
 				$assign(fullName, getFullNames($cast($X500Name, $($nc(certImpl)->getIssuerDN())), relativeName));
-			} else if (crlIssuers->size() != 1) {
+			} else if ($nc(crlIssuers)->size() != 1) {
 				return $Collections::emptySet();
 			} else {
 				$assign(fullName, getFullNames($cast($X500Name, $($nc($(crlIssuers->get(0)))->getName())), relativeName));
@@ -479,7 +479,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 		} else {
 			indirectCRL = true;
 		}
-	} else if (crlIssuer->equals(certIssuer) == false) {
+	} else if ($nc(crlIssuer)->equals(certIssuer) == false) {
 		if (DistributionPointFetcher::debug != nullptr) {
 			$nc(DistributionPointFetcher::debug)->println($$str({"crl issuer does not equal cert issuer.\ncrl issuer: "_s, crlIssuer, "\ncert issuer: "_s, certIssuer}));
 		}
@@ -491,7 +491,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 			if (issues(certImpl, crlImpl, provider)) {
 				$assign(prevKey, certImpl->getPublicKey());
 			}
-		} else if (!certAKID->equals(crlAKID)) {
+		} else if (!$nc(certAKID)->equals(crlAKID)) {
 			if (issues(certImpl, crlImpl, provider)) {
 				$assign(prevKey, certImpl->getPublicKey());
 			} else {
@@ -651,7 +651,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 	}
 	if (indirectCRL) {
 		$var($X509CertSelector, certSel, $new($X509CertSelector));
-		certSel->setSubject($(crlIssuer->asX500Principal()));
+		certSel->setSubject($($nc(crlIssuer)->asX500Principal()));
 		$var($booleans, crlSign, $new($booleans, {
 			false,
 			false,

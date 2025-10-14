@@ -383,7 +383,7 @@ bool HostLocaleProviderAdapterImpl::isSupportedNativeDigitLocale($Locale* locale
 	if ($nc(HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains(base)) {
 		if (numtype == nullptr || $nc(numtype)->equals("latn"_s)) {
 			return true;
-		} else if ($nc($(locale->getLanguage()))->equals("th"_s)) {
+		} else if ($nc($($nc(locale)->getLanguage()))->equals("th"_s)) {
 			bool var$0 = "thai"_s->equals(numtype);
 			return var$0 && isNativeDigit($(locale->toLanguageTag()));
 		}

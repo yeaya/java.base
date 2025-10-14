@@ -505,18 +505,18 @@ bool NetworkInterface::equals(Object$* obj) {
 		if (!$nc(this->name)->equals($nc(that)->name)) {
 			return false;
 		}
-	} else if (that->name != nullptr) {
+	} else if ($nc(that)->name != nullptr) {
 		return false;
 	}
 	if (this->addrs == nullptr) {
-		return that->addrs == nullptr;
-	} else if (that->addrs == nullptr) {
+		return $nc(that)->addrs == nullptr;
+	} else if ($nc(that)->addrs == nullptr) {
 		return false;
 	}
-	if ($nc(this->addrs)->length != $nc(that->addrs)->length) {
+	if ($nc(this->addrs)->length != $nc($nc(that)->addrs)->length) {
 		return false;
 	}
-	$var($InetAddressArray, thatAddrs, that->addrs);
+	$var($InetAddressArray, thatAddrs, $nc(that)->addrs);
 	int32_t count = $nc(thatAddrs)->length;
 	for (int32_t i = 0; i < count; ++i) {
 		bool found = false;

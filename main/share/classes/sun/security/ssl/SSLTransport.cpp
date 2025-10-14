@@ -175,7 +175,7 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 					$assign(plainText, $Plaintext::PLAINTEXT_NULL);
 				} else {
 					$init($ContentType);
-					if (plainText->contentType == $ContentType::APPLICATION_DATA->id) {
+					if ($nc(plainText)->contentType == $ContentType::APPLICATION_DATA->id) {
 						if (!$nc(context)->isNegotiated) {
 							$init($SSLLogger);
 							if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,verbose"_s)) {

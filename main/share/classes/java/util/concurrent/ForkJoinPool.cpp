@@ -577,7 +577,7 @@ void ForkJoinPool::signalWork() {
 			}
 		} else if (($assign(qs, this->queues)) == nullptr) {
 			break;
-		} else if (qs->length <= (i = (int32_t)(sp & (uint32_t)ForkJoinPool::SMASK))) {
+		} else if ($nc(qs)->length <= (i = (int32_t)(sp & (uint32_t)ForkJoinPool::SMASK))) {
 			break;
 		} else if (($assign(v, qs->get(i))) == nullptr) {
 			break;
@@ -1190,7 +1190,7 @@ $ForkJoinPool$WorkQueue* ForkJoinPool::submissionQueue() {
 				}
 				lock->unlock();
 			}
-		} else if (!q->tryLock()) {
+		} else if (!$nc(q)->tryLock()) {
 			id = (r = $ThreadLocalRandom::advanceProbe(r)) << 1;
 		} else {
 			return q;
@@ -1202,7 +1202,7 @@ void ForkJoinPool::externalPush($ForkJoinTask* task) {
 	$var($ForkJoinPool$WorkQueue, q, nullptr);
 	if (($assign(q, submissionQueue())) == nullptr) {
 		$throwNew($RejectedExecutionException);
-	} else if (q->lockedPush(task)) {
+	} else if ($nc(q)->lockedPush(task)) {
 		signalWork();
 	}
 }
@@ -1429,7 +1429,7 @@ ForkJoinPool* ForkJoinPool::commonPool() {
 
 $Object* ForkJoinPool::invoke($ForkJoinTask* task) {
 	externalSubmit(task);
-	return $of(task->joinForPoolInvoke(this));
+	return $of($nc(task)->joinForPoolInvoke(this));
 }
 
 void ForkJoinPool::execute($ForkJoinTask* task) {

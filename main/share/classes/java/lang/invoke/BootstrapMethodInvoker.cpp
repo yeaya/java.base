@@ -167,7 +167,7 @@ $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* boots
 					$assign(result, $nc(bootstrapMethod)->invoke($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type)})));
 				}
 			}
-		} else if (!$of(info)->getClass()->isArray()) {
+		} else if (!$nc($of(info))->getClass()->isArray()) {
 			if (isStringConcatFactoryBSM($($nc(bootstrapMethod)->type()))) {
 				$assign(result, $cast($CallSite, $nc(bootstrapMethod)->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $cast($String, info), $of($$new($ObjectArray, 0))}))));
 			} else {
@@ -194,7 +194,7 @@ $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* boots
 			} else {
 				$var($ObjectArray, argv, $cast($ObjectArray, info));
 				$var($MethodType, bsmType, $nc(bootstrapMethod)->type());
-				if (isLambdaMetafactoryIndyBSM(bsmType) && $nc(argv)->length == 3) {
+				if (isLambdaMetafactoryIndyBSM(bsmType) && argv->length == 3) {
 					$assign(result, $cast($CallSite, bootstrapMethod->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($MethodType, type), $cast($MethodType, argv->get(0)), $cast($MethodHandle, argv->get(1)), $cast($MethodType, argv->get(2))}))));
 				} else if (isLambdaMetafactoryCondyBSM(bsmType) && argv->length == 3) {
 					$assign(result, bootstrapMethod->invokeExact($$new($ObjectArray, {$of(caller), $of(name), $cast($Class, type), $cast($MethodType, argv->get(0)), $cast($MethodHandle, argv->get(1)), $cast($MethodType, argv->get(2))})));

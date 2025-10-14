@@ -262,13 +262,13 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (inputName->getType() != $GeneralNameInterface::NAME_IP) {
+	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_IP) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (($cast(IPAddressName, inputName))->equals(this)) {
+	} else if ($nc(($cast(IPAddressName, inputName)))->equals(this)) {
 		constraintType = $GeneralNameInterface::NAME_MATCH;
 	} else {
 		$var(IPAddressName, otherName, $cast(IPAddressName, inputName));
-		$var($bytes, otherAddress, $nc(otherName)->address);
+		$var($bytes, otherAddress, otherName->address);
 		if ($nc(otherAddress)->length == 4 && $nc(this->address)->length == 4) {
 			constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 		} else if ((otherAddress->length == 8 && $nc(this->address)->length == 8) || (otherAddress->length == 32 && $nc(this->address)->length == 32)) {

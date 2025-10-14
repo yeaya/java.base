@@ -300,7 +300,7 @@ int32_t AbstractQueuedSynchronizer::acquire($AbstractQueuedSynchronizer$Node* no
 		} else if (first && spins != 0) {
 			--spins;
 			$Thread::onSpinWait();
-		} else if (node->status == 0) {
+		} else if ($nc(node)->status == 0) {
 			node->status = AbstractQueuedSynchronizer::WAITING;
 		} else {
 			int64_t nanos = 0;

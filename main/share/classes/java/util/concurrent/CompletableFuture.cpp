@@ -438,7 +438,7 @@ $Object* CompletableFuture::encodeThrowable($Throwable* x$renamed, Object$* r) {
 	$var($Throwable, x, x$renamed);
 	if (!($instanceOf($CompletionException, x))) {
 		$assign(x, $new($CompletionException, x));
-	} else if ($instanceOf($CompletableFuture$AltResult, r) && x == ($cast($CompletableFuture$AltResult, r))->ex) {
+	} else if ($instanceOf($CompletableFuture$AltResult, r) && x == $nc(($cast($CompletableFuture$AltResult, r)))->ex) {
 		return $of(r);
 	}
 	return $of($new($CompletableFuture$AltResult, x));
@@ -552,7 +552,7 @@ void CompletableFuture::cleanStack() {
 	for (bool unlinked = false;;) {
 		if (p == nullptr) {
 			return;
-		} else if (p->isLive()) {
+		} else if ($nc(p)->isLive()) {
 			if (unlinked) {
 				return;
 			} else {
@@ -568,7 +568,7 @@ void CompletableFuture::cleanStack() {
 		}
 	}
 	{
-		$var($CompletableFuture$Completion, q, p->next);
+		$var($CompletableFuture$Completion, q, $nc(p)->next);
 		for (; q != nullptr;) {
 			$var($CompletableFuture$Completion, s, q->next);
 			if (q->isLive()) {
@@ -1293,7 +1293,7 @@ $Object* CompletableFuture::waitingGet(bool interruptible) {
 			}
 		} else if (!queued) {
 			queued = tryPushStack(q);
-		} else if (interruptible && q->interrupted) {
+		} else if (interruptible && $nc(q)->interrupted) {
 			$set(q, thread, nullptr);
 			cleanStack();
 			return $of(nullptr);

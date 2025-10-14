@@ -324,8 +324,8 @@ bool URLStreamHandler::hostsEqual($URL* u1, $URL* u2) {
 	if (a1 != nullptr && a2 != nullptr) {
 		return a1->equals(a2);
 	} else {
-		bool var$1 = u1->getHost() != nullptr;
-		if (var$1 && u2->getHost() != nullptr) {
+		bool var$1 = $nc(u1)->getHost() != nullptr;
+		if (var$1 && $nc(u2)->getHost() != nullptr) {
 			return $nc($(u1->getHost()))->equalsIgnoreCase($(u2->getHost()));
 		} else {
 			bool var$2 = u1->getHost() == nullptr;
@@ -353,7 +353,7 @@ void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host, int32_t
 			$throwNew($IllegalArgumentException, s);
 		}
 	}
-	u->set($(u->getProtocol()), host, port, authority, userInfo, path, query, ref);
+	$nc(u)->set($(u->getProtocol()), host, port, authority, userInfo, path, query, ref);
 }
 
 void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host$renamed, int32_t port, $String* file, $String* ref) {

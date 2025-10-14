@@ -634,7 +634,7 @@ void ObjectOutputStream::writeObject0(Object$* obj$renamed, bool unshared) {
 			}
 			if ($instanceOf($String, obj)) {
 				writeString($cast($String, obj), unshared);
-			} else if (cl->isArray()) {
+			} else if ($nc(cl)->isArray()) {
 				writeArray(obj, desc, unshared);
 			} else if ($instanceOf($Enum, obj)) {
 				writeEnum($cast($Enum, obj), desc, unshared);
@@ -682,7 +682,7 @@ void ObjectOutputStream::writeClassDesc($ObjectStreamClass* desc, bool unshared)
 		writeNull();
 	} else if (!unshared && (handle = $nc(this->handles)->lookup(desc)) != -1) {
 		writeHandle(handle);
-	} else if (desc->isProxy()) {
+	} else if ($nc(desc)->isProxy()) {
 		writeProxyDesc(desc, unshared);
 	} else {
 		writeNonProxyDesc(desc, unshared);
@@ -699,7 +699,7 @@ void ObjectOutputStream::writeProxyDesc($ObjectStreamClass* desc, bool unshared)
 	$nc(this->bout)->writeByte($ObjectStreamConstants::TC_PROXYCLASSDESC);
 	$nc(this->handles)->assign(unshared ? ($Object*)nullptr : $of(desc));
 	$Class* cl = $nc(desc)->forClass();
-	$var($ClassArray, ifaces, cl->getInterfaces());
+	$var($ClassArray, ifaces, $nc(cl)->getInterfaces());
 	$nc(this->bout)->writeInt(ifaces->length);
 	for (int32_t i = 0; i < ifaces->length; ++i) {
 		$nc(this->bout)->writeUTF($($nc(ifaces->get(i))->getName()));

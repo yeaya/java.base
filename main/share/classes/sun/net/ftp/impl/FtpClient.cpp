@@ -779,7 +779,7 @@ int32_t FtpClient::readServerResponse() {
 				break;
 			}
 		} else {
-			bool var$3 = response->length() >= 4;
+			bool var$3 = $nc(response)->length() >= 4;
 			if (var$3 && response->charAt(3) == u'-') {
 				continuingCode = code;
 				continue;
@@ -955,7 +955,7 @@ $InetSocketAddress* FtpClient::validatePasvAddress(int32_t port, $String* s, $In
 		return $new($InetSocketAddress, s, port);
 	} else {
 		bool var$1 = address->isLoopbackAddress();
-		if (var$1 && s->startsWith("127."_s)) {
+		if (var$1 && $nc(s)->startsWith("127."_s)) {
 			return $new($InetSocketAddress, s, port);
 		} else if (address->isLoopbackAddress()) {
 			if ($nc($($nc($(privilegedLocalHost()))->getHostAddress()))->equals(s)) {
@@ -975,7 +975,7 @@ $InetSocketAddress* FtpClient::validatePasvAddress(int32_t port, $String* s, $In
 	bool var$2 = $IPAddressUtil::isIPv4LiteralAddress(hostName);
 	if (!(var$2 || $IPAddressUtil::isIPv6LiteralAddress(hostName))) {
 		$var($InetAddressArray, names, privilegedGetAllByName(hostName));
-		$var($String, resAddress, $cast($String, $nc($($nc($($nc($($nc($($Arrays::stream(names)))->map(static_cast<$Function*>($$new(FtpClient$$Lambda$getHostAddress$2)))))->filter(static_cast<$Predicate*>($$new(FtpClient$$Lambda$equalsIgnoreCase$3, static_cast<$String*>(s))))))->findFirst()))->orElse(nullptr)));
+		$var($String, resAddress, $cast($String, $nc($($nc($($nc($($nc($($Arrays::stream(names)))->map(static_cast<$Function*>($$new(FtpClient$$Lambda$getHostAddress$2)))))->filter(static_cast<$Predicate*>($$new(FtpClient$$Lambda$equalsIgnoreCase$3, static_cast<$String*>($nc(s)))))))->findFirst()))->orElse(nullptr)));
 		if (resAddress != nullptr) {
 			return $new($InetSocketAddress, s, port);
 		}
@@ -1198,18 +1198,18 @@ $Socket* FtpClient::doConnect($InetSocketAddress* dest, int32_t timeout) {
 		$assign(s, $new($Socket));
 	}
 	if (timeout >= 0) {
-		s->connect(dest, timeout);
+		$nc(s)->connect(dest, timeout);
 	} else if (this->connectTimeout >= 0) {
-		s->connect(dest, this->connectTimeout);
+		$nc(s)->connect(dest, this->connectTimeout);
 	} else if (FtpClient::defaultConnectTimeout > 0) {
-		s->connect(dest, FtpClient::defaultConnectTimeout);
+		$nc(s)->connect(dest, FtpClient::defaultConnectTimeout);
 	} else {
-		s->connect(dest);
+		$nc(s)->connect(dest);
 	}
 	if (this->readTimeout >= 0) {
-		s->setSoTimeout(this->readTimeout);
+		$nc(s)->setSoTimeout(this->readTimeout);
 	} else if (FtpClient::defaultSoTimeout > 0) {
-		s->setSoTimeout(FtpClient::defaultSoTimeout);
+		$nc(s)->setSoTimeout(FtpClient::defaultSoTimeout);
 	}
 	return s;
 }
@@ -1391,7 +1391,7 @@ $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
 		issueCommandCheck($$str({"RETR "_s, name}));
 		getTransferSize();
 		{
-			$var($InputStream, remote, createInputStream($(s->getInputStream())));
+			$var($InputStream, remote, createInputStream($($nc(s)->getInputStream())));
 			{
 				$var($Throwable, var$1, nullptr);
 				try {
@@ -1425,7 +1425,7 @@ $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
 		$var($Socket, s, openDataConnection($$str({"RETR "_s, name})));
 		getTransferSize();
 		{
-			$var($InputStream, remote, createInputStream($(s->getInputStream())));
+			$var($InputStream, remote, createInputStream($($nc(s)->getInputStream())));
 			{
 				$var($Throwable, var$2, nullptr);
 				try {
@@ -1480,14 +1480,14 @@ $InputStream* FtpClient::getFileStream($String* name) {
 		}
 		issueCommandCheck($$str({"RETR "_s, name}));
 		getTransferSize();
-		return createInputStream($(s->getInputStream()));
+		return createInputStream($($nc(s)->getInputStream()));
 	}
 	$assign(s, openDataConnection($$str({"RETR "_s, name})));
 	if (s == nullptr) {
 		return nullptr;
 	}
 	getTransferSize();
-	return createInputStream($(s->getInputStream()));
+	return createInputStream($($nc(s)->getInputStream()));
 }
 
 $OutputStream* FtpClient::putFileStream($String* name, bool unique) {
@@ -1498,7 +1498,7 @@ $OutputStream* FtpClient::putFileStream($String* name, bool unique) {
 	}
 	$init($FtpClient$TransferType);
 	bool bm = (this->type == $FtpClient$TransferType::BINARY);
-	return $new($TelnetOutputStream, $(s->getOutputStream()), bm);
+	return $new($TelnetOutputStream, $($nc(s)->getOutputStream()), bm);
 }
 
 $FtpClient* FtpClient::putFile($String* name, $InputStream* local, bool unique) {
@@ -1507,7 +1507,7 @@ $FtpClient* FtpClient::putFile($String* name, $InputStream* local, bool unique) 
 	if (this->type == $FtpClient$TransferType::BINARY) {
 		$var($Socket, s, openDataConnection($$str({cmd, name})));
 		{
-			$var($OutputStream, remote, createOutputStream($(s->getOutputStream())));
+			$var($OutputStream, remote, createOutputStream($($nc(s)->getOutputStream())));
 			{
 				$var($Throwable, var$0, nullptr);
 				try {
@@ -1544,7 +1544,7 @@ $FtpClient* FtpClient::putFile($String* name, $InputStream* local, bool unique) 
 $FtpClient* FtpClient::appendFile($String* name, $InputStream* local) {
 	$var($Socket, s, openDataConnection($$str({"APPE "_s, name})));
 	{
-		$var($OutputStream, remote, createOutputStream($(s->getOutputStream())));
+		$var($OutputStream, remote, createOutputStream($($nc(s)->getOutputStream())));
 		{
 			$var($Throwable, var$0, nullptr);
 			try {
@@ -1619,7 +1619,7 @@ $List* FtpClient::getFeatures() {
 	$var($Vector, resp, getResponseStrings());
 	for (int32_t i = 1; i < $nc(resp)->size() - 1; ++i) {
 		$var($String, s, $cast($String, resp->get(i)));
-		features->add($(s->substring(1, s->length() - 1)));
+		features->add($($nc(s)->substring(1, s->length() - 1)));
 	}
 	return features;
 }
@@ -1704,7 +1704,7 @@ int64_t FtpClient::getSize($String* path) {
 	$init($FtpReplyCode);
 	if (this->lastReplyCode == $FtpReplyCode::FILE_STATUS) {
 		$var($String, s, getResponseString());
-		$assign(s, s->substring(4, s->length() - 1));
+		$assign(s, $nc(s)->substring(4, s->length() - 1));
 		return $Long::parseLong(s);
 	}
 	return -1;
@@ -1715,7 +1715,7 @@ $Date* FtpClient::getLastModified($String* path) {
 	$init($FtpReplyCode);
 	if (this->lastReplyCode == $FtpReplyCode::FILE_STATUS) {
 		$var($String, s, getResponseString());
-		return parseRfc3659TimeValue($(s->substring(4, s->length() - 1)));
+		return parseRfc3659TimeValue($($nc(s)->substring(4, s->length() - 1)));
 	}
 	return nullptr;
 }
@@ -1765,7 +1765,7 @@ bool FtpClient::sendSecurityData($bytes* buf) {
 
 $bytes* FtpClient::getSecurityData() {
 	$var($String, s, getLastResponseString());
-	if ($(s->substring(4, 9))->equalsIgnoreCase("ADAT="_s)) {
+	if ($($nc(s)->substring(4, 9))->equalsIgnoreCase("ADAT="_s)) {
 		return $nc($($Base64::getMimeDecoder()))->decode($(s->substring(9, s->length() - 1)));
 	}
 	return nullptr;

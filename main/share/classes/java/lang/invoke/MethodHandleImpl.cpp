@@ -802,7 +802,7 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 	if ($nc(src)->isPrimitive()) {
 		if (src == $Void::TYPE) {
 			return $of($Void::TYPE);
-		} else if (dst->isPrimitive()) {
+		} else if ($nc(dst)->isPrimitive()) {
 			$assign(fn, $ValueConversions::convertPrimitive(src, dst));
 		} else {
 			$Wrapper* wsrc = $Wrapper::forPrimitiveType(src);
@@ -830,7 +830,7 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 				}
 			}
 		}
-	} else if (dst->isPrimitive()) {
+	} else if ($nc(dst)->isPrimitive()) {
 		$Wrapper* wdst = $Wrapper::forPrimitiveType(dst);
 		if (monobox || src == $nc(wdst)->wrapperType()) {
 			$assign(fn, $ValueConversions::unboxExact(wdst, strict));
@@ -843,7 +843,7 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc($($nc(fn)->type()))->parameterCount() <= 1)) {
 		$throwNew($AssertionError, $of($$str({"pc"_s, $($Arrays::asList($$new($ConstableArray, {
 			$(static_cast<$Constable*>($nc(src)->getSimpleName())),
-			$(static_cast<$Constable*>(dst->getSimpleName())),
+			$(static_cast<$Constable*>($nc(dst)->getSimpleName())),
 			static_cast<$Constable*>(fn)
 		})))})));
 	}

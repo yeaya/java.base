@@ -392,9 +392,9 @@ int32_t ProtocolVersion::compare(ProtocolVersion* that) {
 		return 1;
 	}
 	if (this->isDTLS) {
-		return that->id - this->id;
+		return $nc(that)->id - this->id;
 	} else {
-		return this->id - that->id;
+		return this->id - $nc(that)->id;
 	}
 }
 
@@ -438,7 +438,7 @@ ProtocolVersion* ProtocolVersion::selectedFrom($List* listedVersions, int32_t su
 					if (pv->id > suggestedVersion && pv->id < $nc(selectedVersion)->id) {
 						selectedVersion = pv;
 					}
-				} else if (pv->id < suggestedVersion && pv->id > selectedVersion->id) {
+				} else if (pv->id < suggestedVersion && pv->id > $nc(selectedVersion)->id) {
 					selectedVersion = pv;
 				}
 			}

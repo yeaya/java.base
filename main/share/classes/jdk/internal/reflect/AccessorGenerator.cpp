@@ -724,7 +724,7 @@ int16_t AccessorGenerator::unboxingMethodForPrimitiveType($Class* primType) {
 bool AccessorGenerator::isPrimitive($Class* c) {
 	$init(AccessorGenerator);
 	$init($Void);
-	return (c->isPrimitive() && c != $Void::TYPE);
+	return ($nc(c)->isPrimitive() && c != $Void::TYPE);
 }
 
 int32_t AccessorGenerator::typeSizeInStackSlots($Class* c) {

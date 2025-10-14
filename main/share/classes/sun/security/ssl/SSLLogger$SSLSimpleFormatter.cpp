@@ -566,7 +566,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatMapEntry($Map$Entry* entry) {
 		builder->append($$str({"\""_s, key, "\": [\n"_s}));
 		{
 			$var($StringArray, arr$, strings);
-			int32_t len$ = arr$->length;
+			int32_t len$ = $nc(arr$)->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				$var($String, string, arr$->get(i$));

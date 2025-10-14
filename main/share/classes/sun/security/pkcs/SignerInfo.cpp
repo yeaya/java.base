@@ -535,7 +535,7 @@ $String* SignerInfo::makeSigAlg($AlgorithmId* digAlgId, $AlgorithmId* encAlgId, 
 						}
 					} else {
 						$init($SignatureUtil$EdDSADigestAlgHolder);
-						if (!digAlgId->equals($SignatureUtil$EdDSADigestAlgHolder::shake256$512)) {
+						if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::shake256$512)) {
 							$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
 						}
 					}

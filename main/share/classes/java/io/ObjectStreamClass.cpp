@@ -1573,10 +1573,10 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 	}
 	if (serialPersistentFields == nullptr) {
 		return nullptr;
-	} else if (serialPersistentFields->length == 0) {
+	} else if ($nc(serialPersistentFields)->length == 0) {
 		return ObjectStreamClass::NO_FIELDS;
 	}
-	$var($ObjectStreamFieldArray, boundFields, $new($ObjectStreamFieldArray, serialPersistentFields->length));
+	$var($ObjectStreamFieldArray, boundFields, $new($ObjectStreamFieldArray, $nc(serialPersistentFields)->length));
 	$var($Set, fieldNames, $new($HashSet, serialPersistentFields->length));
 	for (int32_t i = 0; i < serialPersistentFields->length; ++i) {
 		$var($ObjectStreamField, spf, serialPersistentFields->get(i));

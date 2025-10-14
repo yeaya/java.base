@@ -1934,7 +1934,7 @@ $X509Certificate* PKCS12KeyStore::findMatchedCertificate($PKCS12KeyStore$Private
 					if ($nc($nc(entry)->alias)->equalsIgnoreCase($nc(ce)->alias)) {
 						return $nc(ce)->cert;
 					}
-				} else if ($nc(entry->alias)->equalsIgnoreCase($nc(ce)->alias)) {
+				} else if ($nc($nc(entry)->alias)->equalsIgnoreCase($nc(ce)->alias)) {
 					$assign(aliasMatch, ce);
 				}
 			}

@@ -133,7 +133,7 @@ bool Locale$LanguageRange::isSubtagIllFormed($String* subtag, bool isFirstSubtag
 	} else if (subtag->equals("*"_s)) {
 		return false;
 	}
-	$var($chars, charArray, subtag->toCharArray());
+	$var($chars, charArray, $nc(subtag)->toCharArray());
 	if (isFirstSubtag) {
 		{
 			$var($chars, arr$, charArray);

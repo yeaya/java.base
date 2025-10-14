@@ -118,7 +118,7 @@ void ServicesCatalog::addProviders($String* service, $ServicesCatalog$ServicePro
 		if (prev != nullptr) {
 			prev->addAll(list);
 		}
-	} else if (providers->length == 1) {
+	} else if ($nc(providers)->length == 1) {
 		$nc(list)->add(providers->get(0));
 	} else {
 		$nc(list)->addAll($($Arrays::asList(providers)));

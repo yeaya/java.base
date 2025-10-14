@@ -1084,7 +1084,7 @@ $TreeMap$Entry* TreeMap::successor($TreeMap$Entry* t) {
 	$init(TreeMap);
 	if (t == nullptr) {
 		return nullptr;
-	} else if (t->right != nullptr) {
+	} else if ($nc(t)->right != nullptr) {
 		$var($TreeMap$Entry, p, t->right);
 		while ($nc(p)->left != nullptr) {
 			$assign(p, p->left);
@@ -1105,7 +1105,7 @@ $TreeMap$Entry* TreeMap::predecessor($TreeMap$Entry* t) {
 	$init(TreeMap);
 	if (t == nullptr) {
 		return nullptr;
-	} else if (t->left != nullptr) {
+	} else if ($nc(t)->left != nullptr) {
 		$var($TreeMap$Entry, p, t->left);
 		while ($nc(p)->right != nullptr) {
 			$assign(p, p->right);

@@ -747,7 +747,7 @@ $Permission* PolicyFile::getKnownPermission($Class* claz, $String* name, $String
 $Principal* PolicyFile::getKnownPrincipal($Class* claz, $String* name) {
 	$init(PolicyFile);
 	$load($X500Principal);
-	if ($of(claz)->equals($X500Principal::class$)) {
+	if ($nc($of(claz))->equals($X500Principal::class$)) {
 		return $new($X500Principal, name);
 	} else {
 		return nullptr;
@@ -896,7 +896,7 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 			$nc(PolicyFile::debug)->println("evaluation (codesource/principals) passed"_s);
 		}
 		return;
-	} else if (principals == nullptr || principals->length == 0) {
+	} else if (principals == nullptr || $nc(principals)->length == 0) {
 		if (PolicyFile::debug != nullptr) {
 			$nc(PolicyFile::debug)->println("evaluation (principals) failed"_s);
 		}

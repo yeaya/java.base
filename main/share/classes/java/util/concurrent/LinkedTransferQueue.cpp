@@ -422,7 +422,7 @@ void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $L
 		$var($LinkedTransferQueue$Node, q, nullptr);
 		if (($assign(q, $nc(p)->next)) == nullptr) {
 			break;
-		} else if (!q->isMatched()) {
+		} else if (!$nc(q)->isMatched()) {
 			$assign(p, q);
 			break;
 		} else {
@@ -628,11 +628,11 @@ $String* LinkedTransferQueue::toString() {
 					if (item != nullptr) {
 						if (a == nullptr) {
 							$assign(a, $new($StringArray, 4));
-						} else if (size == a->length) {
+						} else if (size == $nc(a)->length) {
 							$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
 						}
 						$var($String, s, $of(item)->toString());
-						a->set(size++, s);
+						$nc(a)->set(size++, s);
 						charLength += $nc(s)->length();
 					}
 				} else if (item == nullptr) {
@@ -669,10 +669,10 @@ $ObjectArray* LinkedTransferQueue::toArrayInternal($ObjectArray* a) {
 					if (item != nullptr) {
 						if (x == nullptr) {
 							$assign(x, $new($ObjectArray, 4));
-						} else if (size == x->length) {
+						} else if (size == $nc(x)->length) {
 							$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 						}
-						x->set(size++, item);
+						$nc(x)->set(size++, item);
 					}
 				} else if (item == nullptr) {
 					break;

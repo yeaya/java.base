@@ -507,7 +507,7 @@ int32_t ForkJoinPool$WorkQueue::helpComplete($ForkJoinTask* task, bool owned, in
 						$Thread::yield();
 					}
 					break;
-				} else if (($assign(f, f->completer)) == nullptr) {
+				} else if (($assign(f, $nc(f)->completer)) == nullptr) {
 					break;
 				}
 			}

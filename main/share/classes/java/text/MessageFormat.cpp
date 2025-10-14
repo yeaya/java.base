@@ -371,12 +371,12 @@ $String* MessageFormat::toPattern() {
 			int32_t index = 0;
 			for (index = MessageFormat::MODIFIER_DEFAULT; index < $nc(MessageFormat::DATE_TIME_MODIFIERS)->length; ++index) {
 				$var($DateFormat, df, $DateFormat::getDateInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(index), this->locale));
-				if ($of(fmt)->equals(df)) {
+				if ($nc($of(fmt))->equals(df)) {
 					result->append(",date"_s);
 					break;
 				}
 				$assign(df, $DateFormat::getTimeInstance($nc(MessageFormat::DATE_TIME_MODIFIERS)->get(index), this->locale));
-				if ($of(fmt)->equals(df)) {
+				if ($nc($of(fmt))->equals(df)) {
 					result->append(",time"_s);
 					break;
 				}

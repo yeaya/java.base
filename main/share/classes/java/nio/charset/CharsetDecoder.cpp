@@ -254,7 +254,7 @@ $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool end
 		}
 		if ((action == $CodingErrorAction::IGNORE) || (action == $CodingErrorAction::REPLACE)) {
 			int32_t var$1 = in->position();
-			$nc(in)->position(var$1 + cr->length());
+			$nc(in)->position(var$1 + $nc(cr)->length());
 			continue;
 		}
 		if (!CharsetDecoder::$assertionsDisabled) {

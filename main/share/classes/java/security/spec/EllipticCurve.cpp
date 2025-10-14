@@ -69,7 +69,7 @@ void EllipticCurve::checkValidity($ECField* field, $BigInteger* c, $String* cNam
 		$var($BigInteger, p, $nc(($cast($ECFieldFp, field)))->getP());
 		if ($nc(p)->compareTo(c) != 1) {
 			$throwNew($IllegalArgumentException, $$str({cName, " is too large"_s}));
-		} else if (c->signum() < 0) {
+		} else if ($nc(c)->signum() < 0) {
 			$throwNew($IllegalArgumentException, $$str({cName, " is negative"_s}));
 		}
 	} else if ($instanceOf($ECFieldF2m, field)) {

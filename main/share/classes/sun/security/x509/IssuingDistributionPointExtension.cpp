@@ -289,7 +289,7 @@ void IssuingDistributionPointExtension::set($String* name, Object$* obj) {
 }
 
 $Object* IssuingDistributionPointExtension::get($String* name) {
-	if (name->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
+	if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
 		return $of(this->distributionPoint);
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
 		return $of($Boolean::valueOf(this->isIndirectCRL));
@@ -307,7 +307,7 @@ $Object* IssuingDistributionPointExtension::get($String* name) {
 }
 
 void IssuingDistributionPointExtension::delete$($String* name) {
-	if (name->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
+	if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
 		$set(this, distributionPoint, nullptr);
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
 		this->isIndirectCRL = false;

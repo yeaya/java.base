@@ -190,16 +190,16 @@ $DomainName$Match* DomainName$Rules$RuleSet::match($String* domain) {
 
 $LinkedList* DomainName$Rules$RuleSet::split($String* rule) {
 	$init(DomainName$Rules$RuleSet);
-	$var($StringArray, labels, rule->split("\\."_s));
+	$var($StringArray, labels, $nc(rule)->split("\\."_s));
 	return $new($LinkedList, $($Arrays::asList(labels)));
 }
 
 int32_t DomainName$Rules$RuleSet::numLabels($String* rule) {
 	$init(DomainName$Rules$RuleSet);
-	if (rule->isEmpty()) {
+	if ($nc(rule)->isEmpty()) {
 		return 0;
 	}
-	int32_t len = rule->length();
+	int32_t len = $nc(rule)->length();
 	int32_t count = 0;
 	int32_t index = 0;
 	while (index < len) {
@@ -219,7 +219,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::matchNormal($String* domain, $Domai
 		return nullptr;
 	}
 	$var($String, substring, $nc(domain)->substring(index));
-	if ($nc(rule->domain)->equals(substring)) {
+	if ($nc($nc(rule)->domain)->equals(substring)) {
 		return $new($DomainName$CommonMatch, domain, rule, index);
 	}
 	return nullptr;
@@ -229,7 +229,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::matchWildcard($String* domain, $Dom
 	int32_t index = labels(domain, this->numLabels$ - 1);
 	if (index > 0) {
 		$var($String, substring, $nc(domain)->substring(index));
-		if ($nc(rule->domain)->equals(substring)) {
+		if ($nc($nc(rule)->domain)->equals(substring)) {
 			return $new($DomainName$CommonMatch, domain, rule, labels(domain, this->numLabels$));
 		}
 	}
@@ -242,7 +242,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::matchException($String* domain, $Do
 		return nullptr;
 	}
 	$var($String, substring, $nc(domain)->substring(index));
-	if ($nc(rule->domain)->equals(substring)) {
+	if ($nc($nc(rule)->domain)->equals(substring)) {
 		return $new($DomainName$CommonMatch, domain, rule, labels(domain, this->numLabels$ - 1));
 	}
 	return nullptr;
@@ -257,7 +257,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::matchOther($String* domain, $Domain
 	}
 	bool found = true;
 	for (int32_t i = 0; i < this->numLabels$; ++i) {
-		$var($String, ruleLabel, $cast($String, $nc(otherRule->labels)->get(i)));
+		$var($String, ruleLabel, $cast($String, $nc($nc(otherRule)->labels)->get(i)));
 		$var($String, targetLabel, $cast($String, target->get(i + diff)));
 		bool var$0 = $nc(ruleLabel)->charAt(0) != u'*';
 		if (var$0 && !ruleLabel->equalsIgnoreCase(targetLabel)) {

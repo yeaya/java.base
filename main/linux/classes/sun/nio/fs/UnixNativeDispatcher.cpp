@@ -225,11 +225,11 @@ $NativeBuffer* UnixNativeDispatcher::copyToNativeBuffer($UnixPath* path) {
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBufferFromCache(size));
 	if (buffer == nullptr) {
 		$assign(buffer, $NativeBuffers::allocNativeBuffer(size));
-	} else if ($equals(buffer->owner(), path)) {
+	} else if ($equals($nc(buffer)->owner(), path)) {
 		return buffer;
 	}
 	$NativeBuffers::copyCStringToNativeBuffer(cstr, buffer);
-	buffer->setOwner(path);
+	$nc(buffer)->setOwner(path);
 	return buffer;
 }
 

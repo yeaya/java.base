@@ -288,7 +288,7 @@ $List* LocaleMatcher::filterBasic($List* priorityList, $Collection* tags$renamed
 	$var($List, nonZeroRanges, nullptr);
 	$var($List, zeroRanges, nullptr);
 	if (splitIndex != -1) {
-		$assign(nonZeroRanges, priorityList->subList(0, splitIndex));
+		$assign(nonZeroRanges, $nc(priorityList)->subList(0, splitIndex));
 		$assign(zeroRanges, priorityList->subList(splitIndex, priorityList->size()));
 	} else {
 		$assign(nonZeroRanges, priorityList);
@@ -397,7 +397,7 @@ $List* LocaleMatcher::filterExtended($List* priorityList, $Collection* tags$rena
 	$var($List, nonZeroRanges, nullptr);
 	$var($List, zeroRanges, nullptr);
 	if (splitIndex != -1) {
-		$assign(nonZeroRanges, priorityList->subList(0, splitIndex));
+		$assign(nonZeroRanges, $nc(priorityList)->subList(0, splitIndex));
 		$assign(zeroRanges, priorityList->subList(splitIndex, priorityList->size()));
 	} else {
 		$assign(nonZeroRanges, priorityList);
@@ -516,7 +516,7 @@ int32_t LocaleMatcher::matchFilterExtendedSubtags($StringArray* rangeSubtags, $S
 }
 
 $Locale* LocaleMatcher::lookup($List* priorityList, $Collection* locales) {
-	bool var$0 = priorityList->isEmpty();
+	bool var$0 = $nc(priorityList)->isEmpty();
 	if (var$0 || $nc(locales)->isEmpty()) {
 		return nullptr;
 	}
@@ -539,7 +539,7 @@ $Locale* LocaleMatcher::lookup($List* priorityList, $Collection* locales) {
 }
 
 $String* LocaleMatcher::lookupTag($List* priorityList, $Collection* tags) {
-	bool var$0 = priorityList->isEmpty();
+	bool var$0 = $nc(priorityList)->isEmpty();
 	if (var$0 || $nc(tags)->isEmpty()) {
 		return nullptr;
 	}
@@ -547,7 +547,7 @@ $String* LocaleMatcher::lookupTag($List* priorityList, $Collection* tags) {
 	$var($List, nonZeroRanges, nullptr);
 	$var($List, zeroRanges, nullptr);
 	if (splitIndex != -1) {
-		$assign(nonZeroRanges, priorityList->subList(0, splitIndex));
+		$assign(nonZeroRanges, $nc(priorityList)->subList(0, splitIndex));
 		$assign(zeroRanges, priorityList->subList(splitIndex, priorityList->size()));
 	} else {
 		$assign(nonZeroRanges, priorityList);
@@ -625,7 +625,7 @@ $String* LocaleMatcher::truncateRange($String* rangeForRegex$renamed) {
 }
 
 int32_t LocaleMatcher::splitRanges($List* priorityList) {
-	int32_t size = priorityList->size();
+	int32_t size = $nc(priorityList)->size();
 	for (int32_t index = 0; index < size; ++index) {
 		$var($Locale$LanguageRange, range, $cast($Locale$LanguageRange, priorityList->get(index)));
 		if ($nc(range)->getWeight() == 0) {
@@ -799,7 +799,7 @@ int32_t LocaleMatcher::getExtentionKeyIndex($String* s) {
 }
 
 $List* LocaleMatcher::mapEquivalents($List* priorityList, $Map* map) {
-	if (priorityList->isEmpty()) {
+	if ($nc(priorityList)->isEmpty()) {
 		return $new($ArrayList);
 	}
 	if (map == nullptr || $nc(map)->isEmpty()) {
@@ -818,7 +818,7 @@ $List* LocaleMatcher::mapEquivalents($List* priorityList, $Map* map) {
 	}
 	$var($List, list, $new($ArrayList));
 	{
-		$var($Iterator, i$, priorityList->iterator());
+		$var($Iterator, i$, $nc(priorityList)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Locale$LanguageRange, lr, $cast($Locale$LanguageRange, i$->next()));
 			{

@@ -959,7 +959,7 @@ bool MethodType::explicitCastEquivalentToAsType($Class* src, $Class* dst) {
 	}
 	if ($nc(src)->isPrimitive()) {
 		return canConvert(src, dst);
-	} else if (dst->isPrimitive()) {
+	} else if ($nc(dst)->isPrimitive()) {
 		return false;
 	} else {
 		bool var$0 = !dst->isInterface();
@@ -993,7 +993,7 @@ bool MethodType::canConvert($Class* src, $Class* dst) {
 		} else {
 			return dst->isAssignableFrom($nc(sw)->wrapperType());
 		}
-	} else if (dst->isPrimitive()) {
+	} else if ($nc(dst)->isPrimitive()) {
 		$init($Void);
 		if (dst == $Void::TYPE) {
 			return true;

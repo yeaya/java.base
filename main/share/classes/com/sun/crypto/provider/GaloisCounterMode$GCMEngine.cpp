@@ -297,7 +297,7 @@ $ByteBuffer* GaloisCounterMode$GCMEngine::overlapDetection($ByteBuffer* src, $By
 			return dst;
 		}
 	}
-	$var($ByteBuffer, tmp, dst->duplicate());
+	$var($ByteBuffer, tmp, $nc(dst)->duplicate());
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(dst->remaining()));
 	$nc(tmp)->limit(dst->limit());
 	tmp->position(dst->position());

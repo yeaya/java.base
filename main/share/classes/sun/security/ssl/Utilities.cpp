@@ -156,7 +156,7 @@ bool Utilities::getBooleanProperty($String* propName, bool defaultValue) {
 	$var($String, b, $GetPropertyAction::privilegedGetProperty(propName));
 	if (b == nullptr) {
 		return defaultValue;
-	} else if (b->equalsIgnoreCase("false"_s)) {
+	} else if ($nc(b)->equalsIgnoreCase("false"_s)) {
 		return false;
 	} else if (b->equalsIgnoreCase("true"_s)) {
 		return true;

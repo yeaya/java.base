@@ -517,7 +517,7 @@ bool LambdaForm::namesOK(int32_t arity, $LambdaForm$NameArray* names) {
 				$throwNew($AssertionError, $of($$str({n, " is not param at "_s, $$str(i)})));
 			}
 		} else {
-			if (!LambdaForm::$assertionsDisabled && !(!n->isParam())) {
+			if (!LambdaForm::$assertionsDisabled && !(!$nc(n)->isParam())) {
 				$throwNew($AssertionError, $of($$str({n, " is param at "_s, $$str(i)})));
 			}
 		}

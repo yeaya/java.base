@@ -258,13 +258,13 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 			if (p == nullptr) {
 				$set(this, first, ($assignField(this, root, $new($ConcurrentHashMap$TreeNode, h, k, v, nullptr, nullptr))));
 				break;
-			} else if ((ph = p->hash) > h) {
+			} else if ((ph = $nc(p)->hash) > h) {
 				dir = -1;
 			} else if (ph < h) {
 				dir = 1;
 			} else {
 				bool var$1 = $equals($assign(pk, p->key), k);
-				if (var$1 || (pk != nullptr && $of(k)->equals(pk))) {
+				if (var$1 || (pk != nullptr && $nc($of(k))->equals(pk))) {
 					return p;
 				} else {
 					bool var$3 = (kc == nullptr && (kc = $ConcurrentHashMap::comparableClassFor(k)) == nullptr);
@@ -288,7 +288,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 				}
 			}
 			$var($ConcurrentHashMap$TreeNode, xp, p);
-			if (($assign(p, (dir <= 0) ? p->left : p->right)) == nullptr) {
+			if (($assign(p, (dir <= 0) ? $nc(p)->left : p->right)) == nullptr) {
 				$var($ConcurrentHashMap$TreeNode, x, nullptr);
 				$var($ConcurrentHashMap$TreeNode, f, this->first);
 				$set(this, first, ($assign(x, $new($ConcurrentHashMap$TreeNode, h, k, v, f, xp))));
@@ -329,7 +329,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 }
 
 bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
-	$var($ConcurrentHashMap$TreeNode, next, $cast($ConcurrentHashMap$TreeNode, p->next));
+	$var($ConcurrentHashMap$TreeNode, next, $cast($ConcurrentHashMap$TreeNode, $nc(p)->next));
 	$var($ConcurrentHashMap$TreeNode, pred, p->prev);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
 	$var($ConcurrentHashMap$TreeNode, rl, nullptr);
@@ -394,7 +394,7 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 				}
 				if (($assignField(s, parent, pp)) == nullptr) {
 					$assign(r, s);
-				} else if (p == pp->left) {
+				} else if (p == $nc(pp)->left) {
 					$set(pp, left, s);
 				} else {
 					$set(pp, right, s);
@@ -415,7 +415,7 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 				$var($ConcurrentHashMap$TreeNode, pp, $assignField($nc(replacement), parent, p->parent));
 				if (pp == nullptr) {
 					$assign(r, replacement);
-				} else if (p == pp->left) {
+				} else if (p == $nc(pp)->left) {
 					$set(pp, left, replacement);
 				} else {
 					$set(pp, right, replacement);
@@ -461,7 +461,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateLeft($ConcurrentHa
 		}
 		if (($assign(pp, ($assignField($nc(r), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, r)))->red = false;
-		} else if (pp->left == p) {
+		} else if ($nc(pp)->left == p) {
 			$set(pp, left, r);
 		} else {
 			$set(pp, right, r);
@@ -484,7 +484,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateRight($ConcurrentH
 		}
 		if (($assign(pp, ($assignField($nc(l), parent, p->parent)))) == nullptr) {
 			$nc(($assign(root, l)))->red = false;
-		} else if (pp->right == p) {
+		} else if ($nc(pp)->right == p) {
 			$set(pp, right, l);
 		} else {
 			$set(pp, left, l);
@@ -509,18 +509,18 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 			if (($assign(xp, x->parent)) == nullptr) {
 				x->red = false;
 				return x;
-			} else if (!xp->red || ($assign(xpp, xp->parent)) == nullptr) {
+			} else if (!$nc(xp)->red || ($assign(xpp, $nc(xp)->parent)) == nullptr) {
 				return root;
 			}
 			if (xp == ($assign(xppl, $nc(xpp)->left))) {
 				bool var$0 = ($assign(xppr, xpp->right)) != nullptr;
 				if (var$0 && $nc(xppr)->red) {
 					xppr->red = false;
-					xp->red = false;
+					$nc(xp)->red = false;
 					xpp->red = true;
 					$assign(x, xpp);
 				} else {
-					if (x == xp->right) {
+					if (x == $nc(xp)->right) {
 						$assign(root, rotateLeft(root, $assign(x, xp)));
 						$assign(xpp, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->parent);
 					}
@@ -534,11 +534,11 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 				}
 			} else if (xppl != nullptr && xppl->red) {
 				xppl->red = false;
-				xp->red = false;
+				$nc(xp)->red = false;
 				xpp->red = true;
 				$assign(x, xpp);
 			} else {
-				if (x == xp->left) {
+				if (x == $nc(xp)->left) {
 					$assign(root, rotateRight(root, $assign(x, xp)));
 					$assign(xpp, ($assign(xp, x->parent)) == nullptr ? ($ConcurrentHashMap$TreeNode*)nullptr : xp->parent);
 				}
@@ -565,13 +565,13 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceDeletion($Concurr
 		for (;;) {
 			if (x == nullptr || x == root) {
 				return root;
-			} else if (($assign(xp, x->parent)) == nullptr) {
+			} else if (($assign(xp, $nc(x)->parent)) == nullptr) {
 				x->red = false;
 				return x;
 			} else if (x->red) {
 				x->red = false;
 				return root;
-			} else if (($assign(xpl, xp->left)) == x) {
+			} else if (($assign(xpl, $nc(xp)->left)) == x) {
 				bool var$0 = ($assign(xpr, xp->right)) != nullptr;
 				if (var$0 && $nc(xpr)->red) {
 					xpr->red = false;

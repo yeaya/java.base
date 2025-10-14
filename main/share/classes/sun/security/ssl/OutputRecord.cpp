@@ -502,7 +502,7 @@ int64_t OutputRecord::t13Encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t co
 		pv = $ProtocolVersion::TLS12;
 		$init($ContentType);
 		contentType = $ContentType::APPLICATION_DATA->id;
-	} else if (protocolVersion->useTLS13PlusSpec()) {
+	} else if ($nc(protocolVersion)->useTLS13PlusSpec()) {
 		$init($ProtocolVersion);
 		pv = $ProtocolVersion::TLS12;
 	}

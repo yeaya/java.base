@@ -247,14 +247,14 @@ int32_t ModuleDescriptor$Version::compareTo(ModuleDescriptor$Version* that) {
 		if (!$nc($nc(that)->pre)->isEmpty()) {
 			return +1;
 		}
-	} else if ($nc(that->pre)->isEmpty()) {
+	} else if ($nc($nc(that)->pre)->isEmpty()) {
 		return -1;
 	}
-	c = compareTokens(this->pre, that->pre);
+	c = compareTokens(this->pre, $nc(that)->pre);
 	if (c != 0) {
 		return c;
 	}
-	return compareTokens(this->build, that->build);
+	return compareTokens(this->build, $nc(that)->build);
 }
 
 bool ModuleDescriptor$Version::equals(Object$* ob) {

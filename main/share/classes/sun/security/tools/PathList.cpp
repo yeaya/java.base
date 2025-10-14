@@ -57,7 +57,7 @@ void PathList::init$() {
 $String* PathList::appendPath($String* pathTo, $String* pathFrom) {
 	if (pathTo == nullptr || $nc(pathTo)->isEmpty()) {
 		return pathFrom;
-	} else if (pathFrom == nullptr || pathFrom->isEmpty()) {
+	} else if (pathFrom == nullptr || $nc(pathFrom)->isEmpty()) {
 		return pathTo;
 	} else {
 		$init($File);

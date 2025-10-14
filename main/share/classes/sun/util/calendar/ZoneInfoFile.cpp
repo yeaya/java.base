@@ -572,8 +572,8 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 				if (!var$3) {
 					bool var$4 = dom >= 24;
 					if (var$4) {
-						bool var$5 = zoneId->equals("Asia/Gaza"_s);
-						var$4 = !(var$5 || zoneId->equals("Asia/Hebron"_s));
+						bool var$5 = $nc(zoneId)->equals("Asia/Gaza"_s);
+						var$4 = !(var$5 || $nc(zoneId)->equals("Asia/Hebron"_s));
 					}
 					var$3 = var$4;
 				}
@@ -598,8 +598,8 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 				if (!var$9) {
 					bool var$10 = dom >= 24;
 					if (var$10) {
-						bool var$11 = zoneId->equals("Asia/Gaza"_s);
-						var$10 = !(var$11 || zoneId->equals("Asia/Hebron"_s));
+						bool var$11 = $nc(zoneId)->equals("Asia/Gaza"_s);
+						var$10 = !(var$11 || $nc(zoneId)->equals("Asia/Hebron"_s));
 					}
 					var$9 = var$10;
 				}
@@ -614,15 +614,15 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransition
 			params->set(8, endRule->secondOfDay * 1000);
 			params->set(9, $nc(ZoneInfoFile::toSTZTime)->get(endRule->timeDefinition));
 			dstSavings = (startRule->offsetAfter - startRule->offsetBefore) * 1000;
-			if (params->get(2) == 6 && params->get(3) == 0 && (zoneId->equals("Asia/Amman"_s))) {
+			if (params->get(2) == 6 && params->get(3) == 0 && ($nc(zoneId)->equals("Asia/Amman"_s))) {
 				params->set(2, 5);
 				params->set(3, 0x05265C00);
 			}
-			if (params->get(2) == 7 && params->get(3) == 0 && (zoneId->equals("Asia/Amman"_s))) {
+			if (params->get(2) == 7 && params->get(3) == 0 && ($nc(zoneId)->equals("Asia/Amman"_s))) {
 				params->set(2, 6);
 				params->set(3, 0x05265C00);
 			}
-			if (params->get(7) == 6 && params->get(8) == 0 && (zoneId->equals("Africa/Cairo"_s))) {
+			if (params->get(7) == 6 && params->get(8) == 0 && ($nc(zoneId)->equals("Africa/Cairo"_s))) {
 				params->set(7, 5);
 				params->set(8, 0x05265C00);
 			}

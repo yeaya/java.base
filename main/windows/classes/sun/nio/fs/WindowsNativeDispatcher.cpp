@@ -1459,14 +1459,14 @@ $NativeBuffer* WindowsNativeDispatcher::asNativeBuffer($String* s) {
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBufferFromCache(sizeInBytes));
 	if (buffer == nullptr) {
 		$assign(buffer, $NativeBuffers::allocNativeBuffer(sizeInBytes));
-	} else if ($equals(buffer->owner(), s)) {
+	} else if ($equals($nc(buffer)->owner(), s)) {
 		return buffer;
 	}
 	$var($chars, chars, s->toCharArray());
 	$init($Unsafe);
-	$nc(WindowsNativeDispatcher::unsafe)->copyMemory(chars, $Unsafe::ARRAY_CHAR_BASE_OFFSET, nullptr, buffer->address(), (int64_t)stringLengthInBytes);
-	$nc(WindowsNativeDispatcher::unsafe)->putChar(buffer->address() + stringLengthInBytes, (char16_t)0);
-	buffer->setOwner(s);
+	$nc(WindowsNativeDispatcher::unsafe)->copyMemory(chars, $Unsafe::ARRAY_CHAR_BASE_OFFSET, nullptr, $nc(buffer)->address(), (int64_t)stringLengthInBytes);
+	$nc(WindowsNativeDispatcher::unsafe)->putChar($nc(buffer)->address() + stringLengthInBytes, (char16_t)0);
+	$nc(buffer)->setOwner(s);
 	return buffer;
 }
 

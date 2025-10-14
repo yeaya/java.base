@@ -197,7 +197,7 @@ int32_t Base64$Decoder::decodedOutLength($bytes* src, int32_t sp, int32_t sl) {
 			}
 		}
 		len -= n;
-	} else if (src->get(sl - 1) == u'=') {
+	} else if ($nc(src)->get(sl - 1) == u'=') {
 		++paddings;
 		if (src->get(sl - 2) == u'=') {
 			++paddings;

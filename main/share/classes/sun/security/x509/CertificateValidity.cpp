@@ -125,7 +125,7 @@ void CertificateValidity::construct($DerValue* derVal) {
 	} else {
 		$throwNew($IOException, "Invalid encoding for CertificateValidity"_s);
 	}
-	if ($nc(seq->get(1))->tag == $DerValue::tag_UtcTime) {
+	if ($nc($nc(seq)->get(1))->tag == $DerValue::tag_UtcTime) {
 		$set(this, notAfter, $nc($nc(derVal)->data$)->getUTCTime());
 	} else if ($nc(seq->get(1))->tag == $DerValue::tag_GeneralizedTime) {
 		$set(this, notAfter, $nc($nc(derVal)->data$)->getGeneralizedTime());

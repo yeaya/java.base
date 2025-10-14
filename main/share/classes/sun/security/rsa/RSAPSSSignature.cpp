@@ -174,7 +174,7 @@ bool RSAPSSSignature::isDigestEqual($String* stdAlg, $String* givenAlg$renamed) 
 	}
 	if ($nc(givenAlg)->indexOf("-"_s) != -1) {
 		return $nc(stdAlg)->equalsIgnoreCase(givenAlg);
-	} else if (stdAlg->equals("SHA-1"_s)) {
+	} else if ($nc(stdAlg)->equals("SHA-1"_s)) {
 		bool var$0 = givenAlg->equalsIgnoreCase("SHA"_s);
 		return (var$0 || givenAlg->equalsIgnoreCase("SHA1"_s));
 	} else {

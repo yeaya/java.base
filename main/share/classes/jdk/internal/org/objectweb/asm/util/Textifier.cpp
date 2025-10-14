@@ -692,7 +692,7 @@ void Textifier::visit($String* name, Object$* value) {
 		visitLong($nc(($cast($Long, value)))->longValue());
 	} else if ($instanceOf($Double, value)) {
 		visitDouble($nc(($cast($Double, value)))->doubleValue());
-	} else if ($of(value)->getClass()->isArray()) {
+	} else if ($nc($of(value))->getClass()->isArray()) {
 		$nc(this->stringBuilder)->append(u'{');
 		if ($instanceOf($bytes, value)) {
 			$var($bytes, byteArray, $cast($bytes, value));
@@ -785,7 +785,7 @@ void Textifier::visitString($String* value) {
 }
 
 void Textifier::visitType($Type* value) {
-	$nc(this->stringBuilder)->append($(value->getClassName()))->append(Textifier::CLASS_SUFFIX);
+	$nc(this->stringBuilder)->append($($nc(value)->getClassName()))->append(Textifier::CLASS_SUFFIX);
 }
 
 void Textifier::visitEnum($String* name, $String* descriptor, $String* value) {

@@ -1355,7 +1355,7 @@ bool MethodWriter::canCopyMethodAttributes($ClassReader* source, bool hasSynthet
 		if (this->numberOfExceptions != 0) {
 			return false;
 		}
-	} else if (source->readUnsignedShort(exceptionsOffset) == this->numberOfExceptions) {
+	} else if ($nc(source)->readUnsignedShort(exceptionsOffset) == this->numberOfExceptions) {
 		int32_t currentExceptionOffset = exceptionsOffset + 2;
 		for (int32_t i = 0; i < this->numberOfExceptions; ++i) {
 			if (source->readUnsignedShort(currentExceptionOffset) != $nc(this->exceptionIndexTable)->get(i)) {

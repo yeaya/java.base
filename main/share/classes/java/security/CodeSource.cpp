@@ -214,7 +214,7 @@ bool CodeSource::matchCerts(CodeSource* that, bool strict) {
 		} else {
 			return true;
 		}
-	} else if (this->signers != nullptr && that->signers != nullptr) {
+	} else if (this->signers != nullptr && $nc(that)->signers != nullptr) {
 		if (strict && $nc(this->signers)->length != $nc(that->signers)->length) {
 			return false;
 		}
@@ -256,18 +256,18 @@ bool CodeSource::matchLocation(CodeSource* that) {
 	if (this->location == nullptr) {
 		return true;
 	}
-	if ((that == nullptr) || (that->location == nullptr)) {
+	if ((that == nullptr) || ($nc(that)->location == nullptr)) {
 		return false;
 	}
-	if ($nc(this->location)->equals(that->location)) {
+	if ($nc(this->location)->equals($nc(that)->location)) {
 		return true;
 	}
-	if (!$nc($($nc(this->location)->getProtocol()))->equalsIgnoreCase($($nc(that->location)->getProtocol()))) {
+	if (!$nc($($nc(this->location)->getProtocol()))->equalsIgnoreCase($($nc($nc(that)->location)->getProtocol()))) {
 		return false;
 	}
 	int32_t thisPort = $nc(this->location)->getPort();
 	if (thisPort != -1) {
-		int32_t thatPort = $nc(that->location)->getPort();
+		int32_t thatPort = $nc($nc(that)->location)->getPort();
 		int32_t port = thatPort != -1 ? thatPort : $nc(that->location)->getDefaultPort();
 		if (thisPort != port) {
 			return false;
@@ -275,11 +275,11 @@ bool CodeSource::matchLocation(CodeSource* that) {
 	}
 	if ($nc($($nc(this->location)->getFile()))->endsWith("/-"_s)) {
 		$var($String, thisPath, $nc($($nc(this->location)->getFile()))->substring(0, $nc($($nc(this->location)->getFile()))->length() - 1));
-		if (!$nc($($nc(that->location)->getFile()))->startsWith(thisPath)) {
+		if (!$nc($($nc($nc(that)->location)->getFile()))->startsWith(thisPath)) {
 			return false;
 		}
 	} else if ($nc($($nc(this->location)->getFile()))->endsWith("/*"_s)) {
-		int32_t last = $nc($($nc(that->location)->getFile()))->lastIndexOf((int32_t)u'/');
+		int32_t last = $nc($($nc($nc(that)->location)->getFile()))->lastIndexOf((int32_t)u'/');
 		if (last == -1) {
 			return false;
 		}
@@ -289,17 +289,17 @@ bool CodeSource::matchLocation(CodeSource* that) {
 			return false;
 		}
 	} else {
-		bool var$1 = (!$nc($($nc(that->location)->getFile()))->equals($($nc(this->location)->getFile())));
+		bool var$1 = (!$nc($($nc($nc(that)->location)->getFile()))->equals($($nc(this->location)->getFile())));
 		if (var$1 && (!$nc($($nc(that->location)->getFile()))->equals($$str({$($nc(this->location)->getFile()), "/"_s})))) {
 			return false;
 		}
 	}
 	bool var$2 = $nc(this->location)->getRef() != nullptr;
-	if (var$2 && !$nc($($nc(this->location)->getRef()))->equals($($nc(that->location)->getRef()))) {
+	if (var$2 && !$nc($($nc(this->location)->getRef()))->equals($($nc($nc(that)->location)->getRef()))) {
 		return false;
 	}
 	$var($String, thisHost, $nc(this->location)->getHost());
-	$var($String, thatHost, $nc(that->location)->getHost());
+	$var($String, thatHost, $nc($nc(that)->location)->getHost());
 	if (thisHost != nullptr) {
 		bool var$4 = ""_s->equals(thisHost);
 		bool var$3 = (var$4 || "localhost"_s->equals(thisHost));

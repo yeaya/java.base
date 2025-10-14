@@ -162,7 +162,7 @@ int32_t DNSName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (inputName->getType() != $GeneralNameInterface::NAME_DNS) {
+	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_DNS) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$init($Locale);

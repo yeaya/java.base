@@ -133,7 +133,7 @@ void EncryptedPrivateKeyInfo::init$($String* algName, $bytes* encryptedData) {
 	$set(this, algid, $AlgorithmId::get(algName));
 	if (encryptedData == nullptr) {
 		$throwNew($NullPointerException, "the encryptedData parameter must be non-null"_s);
-	} else if (encryptedData->length == 0) {
+	} else if ($nc(encryptedData)->length == 0) {
 		$throwNew($IllegalArgumentException, "the encryptedData parameter must not be empty"_s);
 	} else {
 		$set(this, encryptedData, $cast($bytes, encryptedData->clone()));
@@ -149,7 +149,7 @@ void EncryptedPrivateKeyInfo::init$($AlgorithmParameters* algParams, $bytes* enc
 	$set(this, algid, $AlgorithmId::get(algParams));
 	if (encryptedData == nullptr) {
 		$throwNew($NullPointerException, "encryptedData must be non-null"_s);
-	} else if (encryptedData->length == 0) {
+	} else if ($nc(encryptedData)->length == 0) {
 		$throwNew($IllegalArgumentException, "the encryptedData parameter must not be empty"_s);
 	} else {
 		$set(this, encryptedData, $cast($bytes, encryptedData->clone()));

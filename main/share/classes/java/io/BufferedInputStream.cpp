@@ -120,7 +120,7 @@ void BufferedInputStream::fill() {
 	$var($bytes, buffer, getBufIfOpen());
 	if (this->markpos < 0) {
 		this->pos = 0;
-	} else if (this->pos >= buffer->length) {
+	} else if (this->pos >= $nc(buffer)->length) {
 		if (this->markpos > 0) {
 			int32_t sz = this->pos - this->markpos;
 			$System::arraycopy(buffer, this->markpos, buffer, 0, sz);
@@ -143,7 +143,7 @@ void BufferedInputStream::fill() {
 		}
 	}
 	this->count = this->pos;
-	int32_t n = $nc($(getInIfOpen()))->read(buffer, this->pos, buffer->length - this->pos);
+	int32_t n = $nc($(getInIfOpen()))->read(buffer, this->pos, $nc(buffer)->length - this->pos);
 	if (n > 0) {
 		this->count = n + this->pos;
 	}

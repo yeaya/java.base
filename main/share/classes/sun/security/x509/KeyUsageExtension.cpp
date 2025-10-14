@@ -240,7 +240,7 @@ void KeyUsageExtension::set($String* name, Object$* obj) {
 }
 
 $Object* KeyUsageExtension::get($String* name) {
-	if (name->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
+	if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
 		return $of($Boolean::valueOf(isSet(0)));
 	} else if (name->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
 		return $of($Boolean::valueOf(isSet(1)));
@@ -264,7 +264,7 @@ $Object* KeyUsageExtension::get($String* name) {
 }
 
 void KeyUsageExtension::delete$($String* name) {
-	if (name->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
+	if ($nc(name)->equalsIgnoreCase(KeyUsageExtension::DIGITAL_SIGNATURE)) {
 		set(0, false);
 	} else if (name->equalsIgnoreCase(KeyUsageExtension::NON_REPUDIATION)) {
 		set(1, false);

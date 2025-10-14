@@ -456,7 +456,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 			}
 		}
 	}
-	bool var$10 = !language->isEmpty();
+	bool var$10 = !$nc(language)->isEmpty();
 	if (var$10 && !$LanguageTag::isLanguage(language)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed language: "_s, language}));
 	}
@@ -464,11 +464,11 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $Loca
 	if (var$11 && !$LanguageTag::isScript(script)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed script: "_s, script}));
 	}
-	bool var$12 = !region->isEmpty();
+	bool var$12 = !$nc(region)->isEmpty();
 	if (var$12 && !$LanguageTag::isRegion(region)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed region: "_s, region}));
 	}
-	if (!variant->isEmpty()) {
+	if (!$nc(variant)->isEmpty()) {
 		int32_t errIdx = checkVariants(variant, $BaseLocale::SEP);
 		if (errIdx != -1) {
 			$throwNew($LocaleSyntaxException, $$str({"Ill-formed variant: "_s, variant}), errIdx);

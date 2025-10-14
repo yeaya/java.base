@@ -775,7 +775,7 @@ int32_t X500Name::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (inputName->getType() != $GeneralNameInterface::NAME_DIRECTORY) {
+	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_DIRECTORY) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$var(X500Name, inputX500, $cast(X500Name, inputName));

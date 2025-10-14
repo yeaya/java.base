@@ -256,7 +256,7 @@ int32_t ReentrantReadWriteLock$Sync::tryAcquireShared(int32_t unused) {
 			} else if (rh->count == 0) {
 				$nc(this->readHolds)->set(rh);
 			}
-			++rh->count;
+			++$nc(rh)->count;
 		}
 		return 1;
 	}
@@ -306,7 +306,7 @@ int32_t ReentrantReadWriteLock$Sync::fullTryAcquireShared($Thread* current) {
 				} else if (rh->count == 0) {
 					$nc(this->readHolds)->set(rh);
 				}
-				++rh->count;
+				++$nc(rh)->count;
 				$set(this, cachedHoldCounter, rh);
 			}
 			return 1;
@@ -358,7 +358,7 @@ bool ReentrantReadWriteLock$Sync::tryReadLock() {
 				} else if (rh->count == 0) {
 					$nc(this->readHolds)->set(rh);
 				}
-				++rh->count;
+				++$nc(rh)->count;
 			}
 			return true;
 		}

@@ -560,7 +560,7 @@ void JapaneseImperialCalendar::roll(int32_t field, int32_t amount) {
 								set($Calendar::DAY_OF_MONTH, transition->getDayOfMonth());
 							}
 						}
-					} else if (n == max && (transition->getMonth() - 1 == n)) {
+					} else if (n == max && ($nc(transition)->getMonth() - 1 == n)) {
 						int32_t dom = transition->getDayOfMonth();
 						if ($nc(this->jdate)->getDayOfMonth() >= dom) {
 							set($Calendar::DAY_OF_MONTH, dom - 1);
@@ -1154,14 +1154,14 @@ int32_t JapaneseImperialCalendar::getActualMaximum(int32_t field) {
 					}
 					$init($TimeZone);
 					$var($CalendarDate, d, $nc(JapaneseImperialCalendar::gcal)->newCalendarDate($TimeZone::NO_TIMEZONE));
-					$nc(d)->setDate(date->getNormalizedYear(), $BaseCalendar::JANUARY, 1);
+					$nc(d)->setDate($nc(date)->getNormalizedYear(), $BaseCalendar::JANUARY, 1);
 					int32_t dayOfWeek = $nc(JapaneseImperialCalendar::gcal)->getDayOfWeek(d);
 					dayOfWeek -= getFirstDayOfWeek();
 					if (dayOfWeek < 0) {
 						dayOfWeek += 7;
 					}
 					int32_t magic = dayOfWeek + getMinimalDaysInFirstWeek() - 1;
-					if ((magic == 6) || (date->isLeapYear() && (magic == 5 || magic == 12))) {
+					if ((magic == 6) || ($nc(date)->isLeapYear() && (magic == 5 || magic == 12))) {
 						var$0 = 53;
 						break;
 					}
@@ -1850,13 +1850,13 @@ void JapaneseImperialCalendar::pinDayOfMonth($LocalGregorianCalendar$Date* date)
 		int32_t monthLength = $nc(JapaneseImperialCalendar::jcal)->getMonthLength(realDate);
 		if (dom > monthLength) {
 			realDate->setDayOfMonth(monthLength);
-		} else if (dom < d->getDayOfMonth()) {
+		} else if (dom < $nc(d)->getDayOfMonth()) {
 			realDate->setDayOfMonth(d->getDayOfMonth());
 		} else {
 			realDate->setDayOfMonth(dom);
 		}
 		int32_t var$1 = realDate->getDayOfMonth();
-		bool var$0 = var$1 == d->getDayOfMonth();
+		bool var$0 = var$1 == $nc(d)->getDayOfMonth();
 		if (var$0 && tod < d->getTimeOfDay()) {
 			realDate->setDayOfMonth($Math::min(dom + 1, monthLength));
 		}

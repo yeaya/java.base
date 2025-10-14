@@ -152,7 +152,7 @@ void JarIndex::addToList($String* key, $String* value, $HashMap* t) {
 		$assign(list, $new($LinkedList));
 		list->add(value);
 		t->put(key, list);
-	} else if (!list->contains(value)) {
+	} else if (!$nc(list)->contains(value)) {
 		list->add(value);
 	}
 }

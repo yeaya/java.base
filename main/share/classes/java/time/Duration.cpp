@@ -791,7 +791,7 @@ Duration* Duration::truncatedTo($TemporalUnit* unit) {
 			return this;
 		}
 	}
-	$var(Duration, unitDur, unit->getDuration());
+	$var(Duration, unitDur, $nc(unit)->getDuration());
 	if ($nc(unitDur)->getSeconds() > $LocalTime::SECONDS_PER_DAY) {
 		$throwNew($UnsupportedTemporalTypeException, "Unit is too large to be used for truncation"_s);
 	}

@@ -94,7 +94,7 @@ $AlgorithmParameterSpec* RSAUtil::checkParamsAgainstType($RSAUtil$KeyType* type,
 	$Class* expCls = $nc(type)->paramSpecCls;
 	if (expCls == nullptr) {
 		$throwNew($ProviderException, $$str({"null params expected for "_s, type->keyAlgo}));
-	} else if (!expCls->isInstance(paramSpec)) {
+	} else if (!$nc(expCls)->isInstance(paramSpec)) {
 		$throwNew($ProviderException, $$str({expCls, " expected for "_s, type->keyAlgo}));
 	}
 	return paramSpec;

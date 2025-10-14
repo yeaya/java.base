@@ -235,7 +235,7 @@ void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec)
 	$var($bytes, keyValue, $nc(key)->getEncoded());
 	if (keyValue == nullptr) {
 		$throwNew($InvalidKeyException, "Key encoding must not be null"_s);
-	} else if (this->keySize != -1 && keyValue->length != this->keySize) {
+	} else if (this->keySize != -1 && $nc(keyValue)->length != this->keySize) {
 		$Arrays::fill(keyValue, (int8_t)0);
 		$throwNew($InvalidKeyException, $$str({"The key must be "_s, $$str(this->keySize), " bytes"_s}));
 	}

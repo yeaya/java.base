@@ -182,7 +182,7 @@ $KeyStore* KeyStoreUtil::getCacertsKeyStore() {
 $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $ResourceBundle* rb, $Collator* collator) {
 	if (modifier == nullptr) {
 		return $nc(arg)->toCharArray();
-	} else if (collator->compare(modifier, "env"_s) == 0) {
+	} else if ($nc(collator)->compare(modifier, "env"_s) == 0) {
 		$var($String, value, $System::getenv(arg));
 		if (value == nullptr) {
 			$nc($System::err)->println($$str({$($nc(rb)->getString("Cannot.find.environment.variable."_s)), arg}));

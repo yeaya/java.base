@@ -377,7 +377,7 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 			$nc($System::err)->print($$str({"  Failed: SimpleDateFormat("_s, locale}));
 			$nc($System::err)->print($$str({", \""_s, pattern, "\").parse(\""_s, given}));
 			$nc($System::err)->println("\") should have thrown ParseException"_s);
-		} else if ($nc($(expectedGC->getTime()))->equals(d)) {
+		} else if ($nc($($nc(expectedGC)->getTime()))->equals(d)) {
 			if (Bug4823811::verbose) {
 				$init($System);
 				$nc($System::out)->print($$str({"  Passed: SimpleDateFormat("_s, locale}));

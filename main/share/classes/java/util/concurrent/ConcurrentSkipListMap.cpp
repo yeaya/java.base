@@ -400,7 +400,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findNode(Object$* key) {
 			if (($assign(n, $nc(b)->next)) == nullptr) {
 				outer$break = true;
 				break;
-			} else if (($assign(k, n->key)) == nullptr) {
+			} else if (($assign(k, $nc(n)->key)) == nullptr) {
 				break;
 			} else if (($assign(v, n->val)) == nullptr) {
 				unlinkNode(b, n);
@@ -540,7 +540,7 @@ $Object* ConcurrentSkipListMap::doPut(Object$* key, Object$* value, bool onlyIfA
 						cpr(cmp, key, key);
 					}
 					c = -1;
-				} else if (($assign(k, n->key)) == nullptr) {
+				} else if (($assign(k, $nc(n)->key)) == nullptr) {
 					break;
 				} else if (($assign(v, n->val)) == nullptr) {
 					unlinkNode(b, n);
@@ -651,7 +651,7 @@ $Object* ConcurrentSkipListMap::doRemove(Object$* key, Object$* value) {
 			if (($assign(n, $nc(b)->next)) == nullptr) {
 				outer$break = true;
 				break;
-			} else if (($assign(k, n->key)) == nullptr) {
+			} else if (($assign(k, $nc(n)->key)) == nullptr) {
 				break;
 			} else if (($assign(v, n->val)) == nullptr) {
 				unlinkNode(b, n);
@@ -700,7 +700,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findFirst() {
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			if (n->val == nullptr) {
+			if ($nc(n)->val == nullptr) {
 				unlinkNode(b, n);
 			} else {
 				return n;
@@ -716,7 +716,7 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findFirstEntry() {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			if (($assign(v, n->val)) == nullptr) {
+			if (($assign(v, $nc(n)->val)) == nullptr) {
 				unlinkNode(b, n);
 			} else {
 				return $new($AbstractMap$SimpleImmutableEntry, n->key, v);
@@ -732,9 +732,9 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::doRemoveFirstEntry() {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			bool var$0 = ($assign(v, n->val)) == nullptr;
+			bool var$0 = ($assign(v, $nc(n)->val)) == nullptr;
 			if (var$0 || $nc(ConcurrentSkipListMap::VAL)->compareAndSet($$new($ObjectArray, {$of(n), v, ($Object*)nullptr}))) {
-				$var($Object, k, n->key);
+				$var($Object, k, $nc(n)->key);
 				unlinkNode(b, n);
 				if (v != nullptr) {
 					tryReduceLevel();
@@ -788,7 +788,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findLast() {
 					} else {
 						return b;
 					}
-				} else if (n->key == nullptr) {
+				} else if ($nc(n)->key == nullptr) {
 					break;
 				} else if (n->val == nullptr) {
 					unlinkNode(b, n);
@@ -811,7 +811,7 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findLastEntry() {
 		if (($assign(n, findLast())) == nullptr) {
 			return nullptr;
 		}
-		if (($assign(v, n->val)) != nullptr) {
+		if (($assign(v, $nc(n)->val)) != nullptr) {
 			return $new($AbstractMap$SimpleImmutableEntry, n->key, v);
 		}
 	}
@@ -859,7 +859,7 @@ $Map$Entry* ConcurrentSkipListMap::doRemoveLastEntry() {
 					} else {
 						break;
 					}
-				} else if (($assign(k, n->key)) == nullptr) {
+				} else if (($assign(k, $nc(n)->key)) == nullptr) {
 					break;
 				} else if (($assign(v, n->val)) == nullptr) {
 					unlinkNode(b, n);
@@ -902,7 +902,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findNear(Object$* key, int32
 					$assign(result, (((int32_t)(rel & (uint32_t)ConcurrentSkipListMap::LT)) != 0 && b->key != nullptr) ? b : ($ConcurrentSkipListMap$Node*)nullptr);
 					outer$break = true;
 					break;
-				} else if (($assign(k, n->key)) == nullptr) {
+				} else if (($assign(k, $nc(n)->key)) == nullptr) {
 					break;
 				} else if (n->val == nullptr) {
 					unlinkNode(b, n);
@@ -936,7 +936,7 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findNearEntry(Object$*
 		if (($assign(n, findNear(key, rel, cmp))) == nullptr) {
 			return nullptr;
 		}
-		if (($assign(v, n->val)) != nullptr) {
+		if (($assign(v, $nc(n)->val)) != nullptr) {
 			return $new($AbstractMap$SimpleImmutableEntry, n->key, v);
 		}
 	}
@@ -1029,7 +1029,7 @@ void ConcurrentSkipListMap::writeObject($ObjectOutputStream* s) {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			if (($assign(v, n->val)) != nullptr) {
+			if (($assign(v, $nc(n)->val)) != nullptr) {
 				s->writeObject(n->key);
 				s->writeObject(v);
 			}
@@ -1118,7 +1118,7 @@ bool ConcurrentSkipListMap::containsValue(Object$* value) {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			bool var$0 = ($assign(v, n->val)) != nullptr;
+			bool var$0 = ($assign(v, $nc(n)->val)) != nullptr;
 			if (var$0 && $nc($of(value))->equals(v)) {
 				return true;
 			} else {
@@ -1155,7 +1155,7 @@ void ConcurrentSkipListMap::clear() {
 				$var($ConcurrentSkipListMap$Node, n, nullptr);
 				$var($Object, v, nullptr);
 				while (($assign(n, $nc(b)->next)) != nullptr) {
-					bool var$0 = ($assign(v, n->val)) != nullptr;
+					bool var$0 = ($assign(v, $nc(n)->val)) != nullptr;
 					if (var$0 && $nc(ConcurrentSkipListMap::VAL)->compareAndSet($$new($ObjectArray, {$of(n), v, ($Object*)nullptr}))) {
 						--count;
 						$assign(v, nullptr);
@@ -1195,7 +1195,7 @@ $Object* ConcurrentSkipListMap::computeIfPresent(Object$* key, $BiFunction* rema
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	$var($Object, v, nullptr);
 	while (($assign(n, findNode(key))) != nullptr) {
-		if (($assign(v, n->val)) != nullptr) {
+		if (($assign(v, $nc(n)->val)) != nullptr) {
 			$var($Object, r, $nc(remappingFunction)->apply(key, v));
 			if (r != nullptr) {
 				if ($nc(ConcurrentSkipListMap::VAL)->compareAndSet($$new($ObjectArray, {$of(n), v, r}))) {
@@ -1224,7 +1224,7 @@ $Object* ConcurrentSkipListMap::compute(Object$* key, $BiFunction* remappingFunc
 			if (doPut(key, r, true) == nullptr) {
 				return $of(r);
 			}
-		} else if (($assign(v, n->val)) != nullptr) {
+		} else if (($assign(v, $nc(n)->val)) != nullptr) {
 			if (($assign(r, $nc(remappingFunction)->apply(key, v))) != nullptr) {
 				if ($nc(ConcurrentSkipListMap::VAL)->compareAndSet($$new($ObjectArray, {$of(n), v, r}))) {
 					return $of(r);
@@ -1249,7 +1249,7 @@ $Object* ConcurrentSkipListMap::merge(Object$* key, Object$* value, $BiFunction*
 			if (doPut(key, value, true) == nullptr) {
 				return $of(value);
 			}
-		} else if (($assign(v, n->val)) != nullptr) {
+		} else if (($assign(v, $nc(n)->val)) != nullptr) {
 			if (($assign(r, $nc(remappingFunction)->apply(v, value))) != nullptr) {
 				if ($nc(ConcurrentSkipListMap::VAL)->compareAndSet($$new($ObjectArray, {$of(n), v, r}))) {
 					return $of(r);
@@ -1323,7 +1323,7 @@ bool ConcurrentSkipListMap::equals(Object$* o) {
 				while (($assign(n, $nc(b)->next)) != nullptr) {
 					$var($Object, k, nullptr);
 					$var($Object, v, nullptr);
-					if (($assign(v, n->val)) != nullptr && ($assign(k, n->key)) != nullptr) {
+					if (($assign(v, $nc(n)->val)) != nullptr && ($assign(k, n->key)) != nullptr) {
 						if (!$nc(it)->hasNext()) {
 							return false;
 						}
@@ -1367,7 +1367,7 @@ bool ConcurrentSkipListMap::equals(Object$* o) {
 				$var($Object, v, nullptr);
 				$var($Object, mv, nullptr);
 				while (($assign(n, $nc(b)->next)) != nullptr) {
-					bool var$1 = ($assign(v, n->val)) != nullptr && ($assign(k, n->key)) != nullptr;
+					bool var$1 = ($assign(v, $nc(n)->val)) != nullptr && ($assign(k, n->key)) != nullptr;
 					if (var$1) {
 						bool var$2 = ($assign(mv, m->get(k))) == nullptr;
 						var$1 = (var$2 || !$nc($of(mv))->equals(v));
@@ -1414,7 +1414,7 @@ bool ConcurrentSkipListMap::replace(Object$* key, Object$* oldValue, Object$* ne
 		if (($assign(n, findNode(key))) == nullptr) {
 			return false;
 		}
-		if (($assign(v, n->val)) != nullptr) {
+		if (($assign(v, $nc(n)->val)) != nullptr) {
 			if (!$nc($of(oldValue))->equals(v)) {
 				return false;
 			}
@@ -1435,7 +1435,7 @@ $Object* ConcurrentSkipListMap::replace(Object$* key, Object$* value) {
 		if (($assign(n, findNode(key))) == nullptr) {
 			return $of(nullptr);
 		}
-		bool var$0 = ($assign(v, n->val)) != nullptr;
+		bool var$0 = ($assign(v, $nc(n)->val)) != nullptr;
 		if (var$0 && $nc(ConcurrentSkipListMap::VAL)->compareAndSet($$new($ObjectArray, {$of(n), v, value}))) {
 			return $of(v);
 		}
@@ -1451,7 +1451,7 @@ $Object* ConcurrentSkipListMap::firstKey() {
 	if (n == nullptr) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of(n->key);
+	return $of($nc(n)->key);
 }
 
 $Object* ConcurrentSkipListMap::lastKey() {
@@ -1459,7 +1459,7 @@ $Object* ConcurrentSkipListMap::lastKey() {
 	if (n == nullptr) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of(n->key);
+	return $of($nc(n)->key);
 }
 
 $NavigableMap* ConcurrentSkipListMap::subMap(Object$* fromKey, bool fromInclusive, Object$* toKey, bool toInclusive) {
@@ -1501,7 +1501,7 @@ $Map$Entry* ConcurrentSkipListMap::lowerEntry(Object$* key) {
 
 $Object* ConcurrentSkipListMap::lowerKey(Object$* key) {
 	$var($ConcurrentSkipListMap$Node, n, findNear(key, ConcurrentSkipListMap::LT, this->comparator$));
-	return $of((n == nullptr) ? ($Object*)nullptr : n->key);
+	return $of((n == nullptr) ? ($Object*)nullptr : $nc(n)->key);
 }
 
 $Map$Entry* ConcurrentSkipListMap::floorEntry(Object$* key) {
@@ -1510,7 +1510,7 @@ $Map$Entry* ConcurrentSkipListMap::floorEntry(Object$* key) {
 
 $Object* ConcurrentSkipListMap::floorKey(Object$* key) {
 	$var($ConcurrentSkipListMap$Node, n, findNear(key, ConcurrentSkipListMap::LT | ConcurrentSkipListMap::EQ, this->comparator$));
-	return $of((n == nullptr) ? ($Object*)nullptr : n->key);
+	return $of((n == nullptr) ? ($Object*)nullptr : $nc(n)->key);
 }
 
 $Map$Entry* ConcurrentSkipListMap::ceilingEntry(Object$* key) {
@@ -1519,7 +1519,7 @@ $Map$Entry* ConcurrentSkipListMap::ceilingEntry(Object$* key) {
 
 $Object* ConcurrentSkipListMap::ceilingKey(Object$* key) {
 	$var($ConcurrentSkipListMap$Node, n, findNear(key, ConcurrentSkipListMap::GT | ConcurrentSkipListMap::EQ, this->comparator$));
-	return $of((n == nullptr) ? ($Object*)nullptr : n->key);
+	return $of((n == nullptr) ? ($Object*)nullptr : $nc(n)->key);
 }
 
 $Map$Entry* ConcurrentSkipListMap::higherEntry(Object$* key) {
@@ -1528,7 +1528,7 @@ $Map$Entry* ConcurrentSkipListMap::higherEntry(Object$* key) {
 
 $Object* ConcurrentSkipListMap::higherKey(Object$* key) {
 	$var($ConcurrentSkipListMap$Node, n, findNear(key, ConcurrentSkipListMap::GT, this->comparator$));
-	return $of((n == nullptr) ? ($Object*)nullptr : n->key);
+	return $of((n == nullptr) ? ($Object*)nullptr : $nc(n)->key);
 }
 
 $Map$Entry* ConcurrentSkipListMap::firstEntry() {
@@ -1569,7 +1569,7 @@ void ConcurrentSkipListMap::forEach($BiConsumer* action) {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			if (($assign(v, n->val)) != nullptr) {
+			if (($assign(v, $nc(n)->val)) != nullptr) {
 				$nc(action)->accept(n->key, v);
 			}
 			$assign(b, n);
@@ -1586,7 +1586,7 @@ void ConcurrentSkipListMap::replaceAll($BiFunction* function) {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			while (($assign(v, n->val)) != nullptr) {
+			while (($assign(v, $nc(n)->val)) != nullptr) {
 				$var($Object, r, $nc(function)->apply(n->key, v));
 				if (r == nullptr) {
 					$throwNew($NullPointerException);
@@ -1610,7 +1610,7 @@ bool ConcurrentSkipListMap::removeEntryIf($Predicate* function) {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			if (($assign(v, n->val)) != nullptr) {
+			if (($assign(v, $nc(n)->val)) != nullptr) {
 				$var($Object, k, n->key);
 				$var($Map$Entry, e, $new($AbstractMap$SimpleImmutableEntry, k, v));
 				bool var$0 = $nc(function)->test(e);
@@ -1634,7 +1634,7 @@ bool ConcurrentSkipListMap::removeValueIf($Predicate* function) {
 	$var($Object, v, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
 		while (($assign(n, $nc(b)->next)) != nullptr) {
-			bool var$1 = ($assign(v, n->val)) != nullptr;
+			bool var$1 = ($assign(v, $nc(n)->val)) != nullptr;
 			bool var$0 = var$1 && $nc(function)->test(v);
 			if (var$0 && remove(n->key, v)) {
 				removed = true;

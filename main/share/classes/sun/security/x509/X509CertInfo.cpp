@@ -347,7 +347,7 @@ bool X509CertInfo::equals(X509CertInfo* other) {
 		return (false);
 	}
 	for (int32_t i = 0; i < $nc(this->rawCertInfo)->length; ++i) {
-		if ($nc(this->rawCertInfo)->get(i) != $nc(other->rawCertInfo)->get(i)) {
+		if ($nc(this->rawCertInfo)->get(i) != $nc($nc(other)->rawCertInfo)->get(i)) {
 			return (false);
 		}
 	}
@@ -848,7 +848,7 @@ void X509CertInfo::verifyCert($X500Name* subject, $CertificateExtensions* extens
 		}
 		if (names == nullptr || $nc(names)->isEmpty()) {
 			$throwNew($CertificateParsingException, "X.509 Certificate is incomplete: subject field is empty, and SubjectAlternativeName extension is empty"_s);
-		} else if (subjectAltNameExt->isCritical() == false) {
+		} else if ($nc(subjectAltNameExt)->isCritical() == false) {
 			$throwNew($CertificateParsingException, "X.509 Certificate is incomplete: SubjectAlternativeName extension MUST be marked critical when subject field is empty"_s);
 		}
 	}

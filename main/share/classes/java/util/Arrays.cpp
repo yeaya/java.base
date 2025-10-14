@@ -2112,7 +2112,7 @@ int32_t Arrays::deepHashCode($ObjectArray* a) {
 				$Class* cl = nullptr;
 				if (element == nullptr) {
 					elementHash = 0;
-				} else if ((cl = $of(element)->getClass()->getComponentType()) == nullptr) {
+				} else if ((cl = $nc($of(element))->getClass()->getComponentType()) == nullptr) {
 					elementHash = $of(element)->hashCode();
 				} else if ($instanceOf($ObjectArray, element)) {
 					elementHash = deepHashCode($cast($ObjectArray, element));

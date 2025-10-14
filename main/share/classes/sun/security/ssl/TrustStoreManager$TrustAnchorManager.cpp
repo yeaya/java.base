@@ -170,7 +170,7 @@ $Set* TrustStoreManager$TrustAnchorManager::getTrustedCerts($TrustStoreManager$T
 				} else {
 					$set(this, descriptor, descriptor);
 				}
-			} else if (descriptor->equals(temporaryDesc)) {
+			} else if ($nc(descriptor)->equals(temporaryDesc)) {
 				$assign(ks, $cast($KeyStore, $nc(this->ksRef)->get()));
 			} else {
 				$set(this, descriptor, descriptor);

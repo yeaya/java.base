@@ -1007,7 +1007,7 @@ void AbstractStringBuilder::appendChars($String* s, int32_t off, int32_t end) {
 				}
 			}
 		}
-	} else if (s->isLatin1()) {
+	} else if ($nc(s)->isLatin1()) {
 		$StringUTF16::putCharsSB(this->value, this->count, static_cast<$CharSequence*>(s), off, end);
 	} else {
 		$System::arraycopy($(s->value()), off << (int8_t)1, this->value, this->count << (int8_t)1, (end - off) << (int8_t)1);

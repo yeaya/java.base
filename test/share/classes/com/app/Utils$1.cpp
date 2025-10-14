@@ -134,7 +134,7 @@ $String* Utils$1::getClassLoaderName($Class* c) {
 	$var($String, name, ""_s);
 	if (loader == nullptr) {
 		$assign(name, "boot"_s);
-	} else if (loader->getName() != nullptr) {
+	} else if ($nc(loader)->getName() != nullptr) {
 		$assign(name, loader->getName());
 	}
 	return name;

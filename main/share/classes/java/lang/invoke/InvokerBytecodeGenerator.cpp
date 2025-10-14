@@ -1237,7 +1237,7 @@ bool InvokerBytecodeGenerator::assertStaticType($Class* cls, $LambdaForm$Name* n
 	$Class* aclass = $nc(this->localClasses)->get(local);
 	if (aclass != nullptr && (aclass == cls || $nc(cls)->isAssignableFrom(aclass))) {
 		return true;
-	} else if (aclass == nullptr || aclass->isAssignableFrom(cls)) {
+	} else if (aclass == nullptr || $nc(aclass)->isAssignableFrom(cls)) {
 		$nc(this->localClasses)->set(local, cls);
 	}
 	return false;
@@ -1349,13 +1349,13 @@ $String* InvokerBytecodeGenerator::getInternalName($Class* c) {
 		}
 	}
 	if (!InvokerBytecodeGenerator::$assertionsDisabled && !($VerifyAccess::isTypeVisible(c, $Object::class$))) {
-		$throwNew($AssertionError, $($of(c->getName())));
+		$throwNew($AssertionError, $($of($nc(c)->getName())));
 	}
 	if (c == this->lastClass) {
 		return this->lastInternalName;
 	}
 	$set(this, lastClass, c);
-	return $assignField(this, lastInternalName, $nc($(c->getName()))->replace(u'.', u'/'));
+	return $assignField(this, lastInternalName, $nc($($nc(c)->getName()))->replace(u'.', u'/'));
 }
 
 $MemberName* InvokerBytecodeGenerator::resolveFrom($String* name, $MethodType* type, $Class* holder) {
@@ -2340,7 +2340,7 @@ void InvokerBytecodeGenerator::emitPrimCast($Wrapper* from, $Wrapper* to) {
 	}
 	if ($nc(from)->isSubwordOrInt()) {
 		emitI2X(to);
-	} else if (to->isSubwordOrInt()) {
+	} else if ($nc(to)->isSubwordOrInt()) {
 		emitX2I(from);
 		if (to->bitWidth() < 32) {
 			emitI2X(to);

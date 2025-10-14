@@ -281,7 +281,7 @@ $SSLHandshakeArray* SSLKeyExchange::getRelatedHandshakers($HandshakeContext* han
 	$var($SSLHandshakeArray, kaHandshakes, $nc(this->keyAgreement)->getRelatedHandshakers(handshakeContext));
 	if (auHandshakes == nullptr || $nc(auHandshakes)->length == 0) {
 		return kaHandshakes;
-	} else if (kaHandshakes == nullptr || kaHandshakes->length == 0) {
+	} else if (kaHandshakes == nullptr || $nc(kaHandshakes)->length == 0) {
 		return auHandshakes;
 	} else {
 		$var($SSLHandshakeArray, producers, $fcast($SSLHandshakeArray, $Arrays::copyOf(auHandshakes, auHandshakes->length + kaHandshakes->length)));
@@ -309,7 +309,7 @@ $Map$EntryArray* SSLKeyExchange::getHandshakeProducers($HandshakeContext* handsh
 	$var($Map$EntryArray, kaProducers, $nc(this->keyAgreement)->getHandshakeProducers(handshakeContext));
 	if (auProducers == nullptr || $nc(auProducers)->length == 0) {
 		return kaProducers;
-	} else if (kaProducers == nullptr || kaProducers->length == 0) {
+	} else if (kaProducers == nullptr || $nc(kaProducers)->length == 0) {
 		return auProducers;
 	} else {
 		$var($Map$EntryArray, producers, $fcast($Map$EntryArray, $Arrays::copyOf(auProducers, auProducers->length + kaProducers->length)));
@@ -337,7 +337,7 @@ $Map$EntryArray* SSLKeyExchange::getHandshakeConsumers($HandshakeContext* handsh
 	$var($Map$EntryArray, kaConsumers, $nc(this->keyAgreement)->getHandshakeConsumers(handshakeContext));
 	if (auConsumers == nullptr || $nc(auConsumers)->length == 0) {
 		return kaConsumers;
-	} else if (kaConsumers == nullptr || kaConsumers->length == 0) {
+	} else if (kaConsumers == nullptr || $nc(kaConsumers)->length == 0) {
 		return auConsumers;
 	} else {
 		$var($Map$EntryArray, producers, $fcast($Map$EntryArray, $Arrays::copyOf(auConsumers, auConsumers->length + kaConsumers->length)));

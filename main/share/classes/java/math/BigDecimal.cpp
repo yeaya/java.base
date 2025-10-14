@@ -557,7 +557,7 @@ void BigDecimal::init$($chars* in, int32_t offset, int32_t len, $MathContext* mc
 		int32_t idx = 0;
 		if (isCompact) {
 			for (; len > 0; ++offset, --len) {
-				c = in->get(offset);
+				c = $nc(in)->get(offset);
 				if (c == u'0') {
 					if (prec == 0) {
 						prec = 1;
@@ -630,7 +630,7 @@ void BigDecimal::init$($chars* in, int32_t offset, int32_t len, $MathContext* mc
 		} else {
 			$var($chars, coeff, $new($chars, len));
 			for (; len > 0; ++offset, --len) {
-				c = in->get(offset);
+				c = $nc(in)->get(offset);
 				if ((c >= u'0' && c <= u'9') || $Character::isDigit(c)) {
 					if (c == u'0' || $Character::digit(c, 10) == 0) {
 						if (prec == 0) {
@@ -1072,7 +1072,7 @@ BigDecimal* BigDecimal::add(BigDecimal* augend) {
 		} else {
 			return add(this->intCompact, this->scale$, augend->intVal, augend->scale$);
 		}
-	} else if (augend->intCompact != BigDecimal::INFLATED) {
+	} else if ($nc(augend)->intCompact != BigDecimal::INFLATED) {
 		return add(augend->intCompact, augend->scale$, this->intVal, this->scale$);
 	} else {
 		return add(this->intVal, this->scale$, augend->intVal, augend->scale$);
@@ -1154,7 +1154,7 @@ BigDecimal* BigDecimal::subtract(BigDecimal* subtrahend) {
 		} else {
 			return add(this->intCompact, this->scale$, $($nc(subtrahend->intVal)->negate()), subtrahend->scale$);
 		}
-	} else if (subtrahend->intCompact != BigDecimal::INFLATED) {
+	} else if ($nc(subtrahend)->intCompact != BigDecimal::INFLATED) {
 		return add(-subtrahend->intCompact, subtrahend->scale$, this->intVal, this->scale$);
 	} else {
 		return add(this->intVal, this->scale$, $($nc(subtrahend->intVal)->negate()), subtrahend->scale$);
@@ -1176,7 +1176,7 @@ BigDecimal* BigDecimal::multiply(BigDecimal* multiplicand) {
 		} else {
 			return multiply(this->intCompact, multiplicand->intVal, productScale);
 		}
-	} else if (multiplicand->intCompact != BigDecimal::INFLATED) {
+	} else if ($nc(multiplicand)->intCompact != BigDecimal::INFLATED) {
 		return multiply(multiplicand->intCompact, this->intVal, productScale);
 	} else {
 		return multiply(this->intVal, multiplicand->intVal, productScale);
@@ -1194,7 +1194,7 @@ BigDecimal* BigDecimal::multiply(BigDecimal* multiplicand, $MathContext* mc) {
 		} else {
 			return multiplyAndRound(this->intCompact, multiplicand->intVal, productScale, mc);
 		}
-	} else if (multiplicand->intCompact != BigDecimal::INFLATED) {
+	} else if ($nc(multiplicand)->intCompact != BigDecimal::INFLATED) {
 		return multiplyAndRound(multiplicand->intCompact, this->intVal, productScale, mc);
 	} else {
 		return multiplyAndRound(this->intVal, multiplicand->intVal, productScale, mc);
@@ -1211,7 +1211,7 @@ BigDecimal* BigDecimal::divide(BigDecimal* divisor, int32_t scale, int32_t round
 		} else {
 			return divide(this->intCompact, this->scale$, divisor->intVal, divisor->scale$, scale, roundingMode);
 		}
-	} else if (divisor->intCompact != BigDecimal::INFLATED) {
+	} else if ($nc(divisor)->intCompact != BigDecimal::INFLATED) {
 		return divide(this->intVal, this->scale$, divisor->intCompact, divisor->scale$, scale, roundingMode);
 	} else {
 		return divide(this->intVal, this->scale$, divisor->intVal, divisor->scale$, scale, roundingMode);
@@ -1332,7 +1332,7 @@ BigDecimal* BigDecimal::divideToIntegralValue(BigDecimal* divisor, $MathContext*
 		$assign(result, result->setScale(0, $RoundingMode::DOWN));
 	}
 	int32_t precisionDiff = 0;
-	bool var$0 = (preferredScale > result->scale());
+	bool var$0 = (preferredScale > $nc(result)->scale());
 	if (var$0 && (precisionDiff = $nc(mc)->precision - result->precision()) > 0) {
 		int32_t var$1 = result->scale();
 		return result->setScale(var$1 + $Math::min(precisionDiff, preferredScale - result->scale$));

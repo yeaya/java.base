@@ -205,7 +205,7 @@ void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncon
 				wasUncontended = true;
 			} else {
 				int64_t var$6 = v = c->value;
-				if (c->cas(var$6, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
+				if ($nc(c)->cas(var$6, (fn == nullptr) ? v + x : $nc(fn)->applyAsLong(v, x))) {
 					break;
 				} else if (n >= Striped64::NCPU || this->cells != cs) {
 					collide = false;
@@ -325,7 +325,7 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 				wasUncontended = true;
 			} else {
 				int64_t var$6 = v = c->value;
-				if (c->cas(var$6, apply(fn, v, x))) {
+				if ($nc(c)->cas(var$6, apply(fn, v, x))) {
 					break;
 				} else if (n >= Striped64::NCPU || this->cells != cs) {
 					collide = false;

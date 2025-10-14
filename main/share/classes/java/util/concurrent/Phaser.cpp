@@ -573,7 +573,7 @@ int32_t Phaser::internalAwaitAdvance(int32_t phase, $Phaser$QNode* node$renamed)
 			} else {
 				$Thread::onSpinWait();
 			}
-		} else if (node->isReleasable()) {
+		} else if ($nc(node)->isReleasable()) {
 			break;
 		} else if (!queued) {
 			$var($AtomicReference, head, ((int32_t)(phase & (uint32_t)1)) == 0 ? this->evenQ : this->oddQ);

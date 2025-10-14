@@ -40,25 +40,6 @@ jobs:
       working-directory: ${{github.workspace}}/build/test
       run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-macos.txt -VV
 
-  build-all:
-    runs-on: macos-15-intel
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: install libffi
-      run: brew install libffi
-
-    - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-
-    - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5 --target install
-
-    - name: TestAll
-      working-directory: ${{github.workspace}}/build/test
-      run: ulimit -n 65535; ${{github.workspace}}/build/test/java.base-test
-
   build-debug:
     runs-on: macos-15-intel
 

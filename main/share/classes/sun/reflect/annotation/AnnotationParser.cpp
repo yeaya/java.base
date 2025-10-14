@@ -570,7 +570,7 @@ $Object* AnnotationParser::parseMemberValue($Class* memberType, $ByteBuffer* buf
 	}
 	if (result == nullptr) {
 		$assign(result, $new($AnnotationTypeMismatchExceptionProxy, $Proxy::isProxyClass(memberType) ? $($nc($($nc(memberType)->getInterfaces())->get(0))->getName()) : $(memberType->getName())));
-	} else if (!($instanceOf($ExceptionProxy, result)) && !memberType->isInstance(result)) {
+	} else if (!($instanceOf($ExceptionProxy, result)) && !$nc(memberType)->isInstance(result)) {
 		if ($instanceOf($Annotation, result)) {
 			$assign(result, $new($AnnotationTypeMismatchExceptionProxy, $($nc($of(result))->toString())));
 		} else {

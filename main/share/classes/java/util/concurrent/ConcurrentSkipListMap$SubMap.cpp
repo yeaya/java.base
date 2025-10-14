@@ -355,7 +355,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::lowestEntry() {
 		bool var$0 = ($assign(n, loNode(cmp))) == nullptr;
 		if (var$0 || !isBeforeEnd(n, cmp)) {
 			return nullptr;
-		} else if (($assign(v, n->val)) != nullptr) {
+		} else if (($assign(v, $nc(n)->val)) != nullptr) {
 			return $new($AbstractMap$SimpleImmutableEntry, n->key, v);
 		}
 	}
@@ -369,7 +369,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::highestEntry() {
 		bool var$0 = ($assign(n, hiNode(cmp))) == nullptr;
 		if (var$0 || !inBounds($nc(n)->key, cmp)) {
 			return nullptr;
-		} else if (($assign(v, n->val)) != nullptr) {
+		} else if (($assign(v, $nc(n)->val)) != nullptr) {
 			return $new($AbstractMap$SimpleImmutableEntry, n->key, v);
 		}
 	}

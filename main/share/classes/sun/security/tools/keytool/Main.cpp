@@ -4169,7 +4169,7 @@ $CertificateArray* Main::validateReply($String* alias, $Certificate* userCert, $
 		if ("NO"_s->equals(reply)) {
 			return nullptr;
 		}
-	} else if (!$equals(root->snd, topCert)) {
+	} else if (!$equals($nc(root)->snd, topCert)) {
 		$var($CertificateArray, tmpCerts, $new($CertificateArray, replyCerts->length + 1));
 		$System::arraycopy(replyCerts, 0, tmpCerts, 0, replyCerts->length);
 		tmpCerts->set(tmpCerts->length - 1, $cast($Certificate, root->snd));
@@ -4297,7 +4297,7 @@ void Main::keystorecerts2Hashtable($KeyStore* ks, $Hashtable* hash) {
 				if (vec == nullptr) {
 					$assign(vec, $new($Vector));
 					vec->addElement(pair);
-				} else if (!vec->contains(pair)) {
+				} else if (!$nc(vec)->contains(pair)) {
 					vec->addElement(pair);
 				}
 				hash->put(subjectDN, vec);

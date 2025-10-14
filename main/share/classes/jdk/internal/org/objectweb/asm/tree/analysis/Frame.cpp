@@ -926,7 +926,7 @@ void Frame::executeInvokeInsn($AbstractInsnNode* insn, $String* methodDescriptor
 	for (int32_t i = $nc($($Type::getArgumentTypes(methodDescriptor)))->length; i > 0; --i) {
 		valueList->add(0, $(pop()));
 	}
-	bool var$0 = insn->getOpcode() != $Opcodes::INVOKESTATIC;
+	bool var$0 = $nc(insn)->getOpcode() != $Opcodes::INVOKESTATIC;
 	if (var$0 && insn->getOpcode() != $Opcodes::INVOKEDYNAMIC) {
 		valueList->add(0, $(pop()));
 	}

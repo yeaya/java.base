@@ -434,7 +434,7 @@ void SSLHandshake::kickstart($HandshakeContext* context) {
 			$init($ClientHello);
 			$nc($ClientHello::kickstartProducer)->produce(context);
 		}
-	} else if ($nc($nc(context->conContext)->protocolVersion)->useTLS13PlusSpec()) {
+	} else if ($nc($nc($nc(context)->conContext)->protocolVersion)->useTLS13PlusSpec()) {
 		$init($KeyUpdate);
 		$nc($KeyUpdate::kickstartProducer)->produce(context);
 	} else {

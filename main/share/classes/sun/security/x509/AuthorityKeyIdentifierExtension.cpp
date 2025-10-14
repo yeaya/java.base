@@ -276,7 +276,7 @@ void AuthorityKeyIdentifierExtension::set($String* name, Object$* obj) {
 }
 
 $Object* AuthorityKeyIdentifierExtension::get($String* name) {
-	if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
+	if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
 		return $of((this->id));
 	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
 		return $of((this->names));
@@ -288,7 +288,7 @@ $Object* AuthorityKeyIdentifierExtension::get($String* name) {
 }
 
 void AuthorityKeyIdentifierExtension::delete$($String* name) {
-	if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
+	if ($nc(name)->equalsIgnoreCase(AuthorityKeyIdentifierExtension::KEY_ID)) {
 		$set(this, id, nullptr);
 	} else if (name->equalsIgnoreCase(AuthorityKeyIdentifierExtension::AUTH_NAME)) {
 		$set(this, names, nullptr);

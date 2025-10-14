@@ -113,7 +113,7 @@ void JarConstraintsParameters::init$($CodeSignerArray* signers) {
 						$var($Date, timestampDate, $nc(timestamp)->getTimestamp());
 						if (latestTimestamp == nullptr) {
 							$assign(latestTimestamp, timestampDate);
-						} else if (latestTimestamp->before(timestampDate)) {
+						} else if ($nc(latestTimestamp)->before(timestampDate)) {
 							$assign(latestTimestamp, timestampDate);
 						}
 					}

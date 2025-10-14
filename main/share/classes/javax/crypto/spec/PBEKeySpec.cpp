@@ -82,7 +82,7 @@ void PBEKeySpec::init$($chars* password, $bytes* salt, int32_t iterationCount, i
 	}
 	if (salt == nullptr) {
 		$throwNew($NullPointerException, "the salt parameter must be non-null"_s);
-	} else if (salt->length == 0) {
+	} else if ($nc(salt)->length == 0) {
 		$throwNew($IllegalArgumentException, "the salt parameter must not be empty"_s);
 	} else {
 		$set(this, salt, $cast($bytes, salt->clone()));
@@ -108,7 +108,7 @@ void PBEKeySpec::init$($chars* password, $bytes* salt, int32_t iterationCount) {
 	}
 	if (salt == nullptr) {
 		$throwNew($NullPointerException, "the salt parameter must be non-null"_s);
-	} else if (salt->length == 0) {
+	} else if ($nc(salt)->length == 0) {
 		$throwNew($IllegalArgumentException, "the salt parameter must not be empty"_s);
 	} else {
 		$set(this, salt, $cast($bytes, salt->clone()));

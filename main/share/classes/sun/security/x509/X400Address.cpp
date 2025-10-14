@@ -85,7 +85,7 @@ int32_t X400Address::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (inputName->getType() != $GeneralNameInterface::NAME_X400) {
+	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_X400) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$throwNew($UnsupportedOperationException, "Narrowing, widening, and match are not supported for X400Address."_s);

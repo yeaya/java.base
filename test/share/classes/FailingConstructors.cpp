@@ -153,7 +153,7 @@ void FailingConstructors::check(bool exists, $File* file) {
 	$init(FailingConstructors);
 	if (exists) {
 		verifyContents(file);
-	} else if (file->exists()) {
+	} else if ($nc(file)->exists()) {
 		fail($$str({file, " should not have been created"_s}));
 	}
 }

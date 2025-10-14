@@ -311,7 +311,7 @@ bool AbstractValidatingLambdaMetafactory::isAdaptableTo($Class* fromType, $Class
 		} else {
 			return toType->isAssignableFrom($nc(wfrom)->wrapperType());
 		}
-	} else if (toType->isPrimitive()) {
+	} else if ($nc(toType)->isPrimitive()) {
 		$Wrapper* wfrom = nullptr;
 		bool var$0 = $Wrapper::isWrapperType(fromType);
 		if (var$0 && $nc($nc((wfrom = $Wrapper::forWrapperType(fromType)))->primitiveType())->isPrimitive()) {

@@ -217,7 +217,7 @@ int32_t URIName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if (inputName->getType() != $GeneralNameInterface::NAME_URI) {
+	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_URI) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$var($String, otherHost, $nc(($cast(URIName, inputName)))->getHost());

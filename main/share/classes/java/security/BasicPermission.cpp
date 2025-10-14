@@ -115,7 +115,7 @@ bool BasicPermission::implies($Permission* p) {
 			bool var$1 = (var$2 > $nc(this->path)->length());
 			return var$1 && $nc(that->path)->startsWith(this->path);
 		}
-	} else if (that->wildcard) {
+	} else if ($nc(that)->wildcard) {
 		return false;
 	} else {
 		return $nc(this->path)->equals(that->path);

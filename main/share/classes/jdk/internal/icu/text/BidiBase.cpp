@@ -1022,7 +1022,7 @@ int8_t BidiBase::bracketProcessClosing($BidiBase$BracketData* bd, int32_t openId
 		pLastIsoRun->limit = (int16_t)openIdx;
 		return BidiBase::ON;
 	}
-	$nc(this->dirProps)->set(pOpening->position, newProp);
+	$nc(this->dirProps)->set($nc(pOpening)->position, newProp);
 	$nc(this->dirProps)->set(position, newProp);
 	fixN0c(bd, openIdx, pOpening->position, newProp);
 	if (stable) {

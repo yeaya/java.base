@@ -845,7 +845,7 @@ void Indify::indifyTree($File* f, $File* dest) {
 		$nc($System::err)->println($$str({"reading directory: "_s, f}));
 	}
 	{
-		$var($FileArray, arr$, f->listFiles(static_cast<$FilenameFilter*>($$new($Indify$1, this))));
+		$var($FileArray, arr$, $nc(f)->listFiles(static_cast<$FilenameFilter*>($$new($Indify$1, this))));
 		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
@@ -870,10 +870,10 @@ $DataInputStream* Indify::openInput($File* f) {
 }
 
 $DataOutputStream* Indify::openOutput($File* f) {
-	if (!this->overwrite && f->exists()) {
+	if (!this->overwrite && $nc(f)->exists()) {
 		$throwNew($IOException, $$str({"file already exists: "_s, f}));
 	}
-	ensureDirectory($(f->getParentFile()));
+	ensureDirectory($($nc(f)->getParentFile()));
 	return $new($DataOutputStream, $$new($BufferedOutputStream, $$new($FileOutputStream, f)));
 }
 
@@ -925,7 +925,7 @@ $Object* Indify::readInput($DataInputStream* in, $Class* dataClass) {
 			}
 		}
 	}
-	return $of(dataClass->cast(data));
+	return $of($nc(dataClass)->cast(data));
 }
 
 $Object* Indify::readInput($bytes* bytes, $Class* dataClass) {

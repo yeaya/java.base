@@ -816,12 +816,12 @@ void X509CertImpl::set($String* name, Object$* obj) {
 	}
 	$var($X509AttributeName, attr, $new($X509AttributeName, name));
 	$var($String, id, attr->getPrefix());
-	if (!(id->equalsIgnoreCase(X509CertImpl::NAME))) {
+	if (!($nc(id)->equalsIgnoreCase(X509CertImpl::NAME))) {
 		$throwNew($CertificateException, $$str({"Invalid root of attribute name, expected ["_s, X509CertImpl::NAME, "], received "_s, id}));
 	}
 	$assign(attr, $new($X509AttributeName, $(attr->getSuffix())));
 	$assign(id, attr->getPrefix());
-	if (id->equalsIgnoreCase(X509CertImpl::INFO)) {
+	if ($nc(id)->equalsIgnoreCase(X509CertImpl::INFO)) {
 		if (attr->getSuffix() == nullptr) {
 			if (!($instanceOf($X509CertInfo, obj))) {
 				$throwNew($CertificateException, "Attribute value should be of type X509CertInfo."_s);
@@ -843,12 +843,12 @@ void X509CertImpl::delete$($String* name) {
 	}
 	$var($X509AttributeName, attr, $new($X509AttributeName, name));
 	$var($String, id, attr->getPrefix());
-	if (!(id->equalsIgnoreCase(X509CertImpl::NAME))) {
+	if (!($nc(id)->equalsIgnoreCase(X509CertImpl::NAME))) {
 		$throwNew($CertificateException, $$str({"Invalid root of attribute name, expected ["_s, X509CertImpl::NAME, "], received "_s, id}));
 	}
 	$assign(attr, $new($X509AttributeName, $(attr->getSuffix())));
 	$assign(id, attr->getPrefix());
-	if (id->equalsIgnoreCase(X509CertImpl::INFO)) {
+	if ($nc(id)->equalsIgnoreCase(X509CertImpl::INFO)) {
 		if (attr->getSuffix() != nullptr) {
 			$set(this, info, nullptr);
 		} else {
@@ -1081,7 +1081,7 @@ $booleans* X509CertImpl::getIssuerUniqueID() {
 		if (id == nullptr) {
 			return nullptr;
 		} else {
-			return (id->getId());
+			return ($nc(id)->getId());
 		}
 	} catch ($Exception&) {
 		$var($Exception, e, $catch());
@@ -1100,7 +1100,7 @@ $booleans* X509CertImpl::getSubjectUniqueID() {
 		if (id == nullptr) {
 			return nullptr;
 		} else {
-			return (id->getId());
+			return ($nc(id)->getId());
 		}
 	} catch ($Exception&) {
 		$var($Exception, e, $catch());

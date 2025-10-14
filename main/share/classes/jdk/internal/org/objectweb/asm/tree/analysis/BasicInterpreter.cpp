@@ -465,7 +465,7 @@ $BasicValue* BasicInterpreter::copyOperation($AbstractInsnNode* insn, $BasicValu
 }
 
 $BasicValue* BasicInterpreter::unaryOperation($AbstractInsnNode* insn, $BasicValue* value) {
-	switch (insn->getOpcode()) {
+	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::INEG:
 		{}
 	case $Opcodes::IINC:
@@ -634,7 +634,7 @@ $BasicValue* BasicInterpreter::unaryOperation($AbstractInsnNode* insn, $BasicVal
 }
 
 $BasicValue* BasicInterpreter::binaryOperation($AbstractInsnNode* insn, $BasicValue* value1, $BasicValue* value2) {
-	switch (insn->getOpcode()) {
+	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::IALOAD:
 		{}
 	case $Opcodes::BALOAD:
@@ -775,7 +775,7 @@ $BasicValue* BasicInterpreter::ternaryOperation($AbstractInsnNode* insn, $BasicV
 }
 
 $1Value* BasicInterpreter::naryOperation($AbstractInsnNode* insn, $List* values) {
-	int32_t opcode = insn->getOpcode();
+	int32_t opcode = $nc(insn)->getOpcode();
 	if (opcode == $Opcodes::MULTIANEWARRAY) {
 		return newValue($($Type::getType($nc(($cast($MultiANewArrayInsnNode, insn)))->desc)));
 	} else if (opcode == $Opcodes::INVOKEDYNAMIC) {

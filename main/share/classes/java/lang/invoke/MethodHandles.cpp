@@ -2242,8 +2242,8 @@ void MethodHandles::whileLoopChecks($MethodHandle* init, $MethodHandle* pred, $M
 	$init($Void);
 	if (returnType == $Void::TYPE) {
 	} else {
-		bool var$1 = innerList->size() == 0;
-		if (var$1 || !$equals(innerList->get(0), returnType)) {
+		bool var$1 = $nc(innerList)->size() == 0;
+		if (var$1 || !$equals($nc(innerList)->get(0), returnType)) {
 			$var($MethodType, expected, bodyType->insertParameterTypes(0, $$new($ClassArray, {returnType})));
 			$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 		} else {
@@ -2342,7 +2342,7 @@ void MethodHandles::countedLoopChecks($MethodHandle* start, $MethodHandle* end, 
 			$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 		}
 	}
-	$var($List, outerList, innerList->subList(vsize + 1, innerList->size()));
+	$var($List, outerList, $nc(innerList)->subList(vsize + 1, innerList->size()));
 	if ($nc(outerList)->isEmpty()) {
 		$assign(outerList, $nc($(end->type()))->parameterList());
 		$assign(innerList, $nc($(bodyType->insertParameterTypes(vsize + 1, outerList)))->parameterList());
@@ -2438,7 +2438,7 @@ $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle
 		$var($MethodType, expected, bodyType->insertParameterTypes(vsize, $$new($ClassArray, {$Object::class$})));
 		$throw($(misMatchedTypes("body function"_s, bodyType, expected)));
 	}
-	$var($List, externalParamList, internalParamList->subList(vsize + 1, internalParamList->size()));
+	$var($List, externalParamList, $nc(internalParamList)->subList(vsize + 1, internalParamList->size()));
 	$Class* iterableType = nullptr;
 	if (iterator != nullptr) {
 		if ($nc(externalParamList)->isEmpty()) {
@@ -2453,7 +2453,7 @@ $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle
 			$var($MethodType, expected, $MethodType::methodType($($cast($Class, itype->returnType())), externalParamList));
 			$throw($(misMatchedTypes("iterator parameters"_s, itype, expected)));
 		}
-	} else if (externalParamList->isEmpty()) {
+	} else if ($nc(externalParamList)->isEmpty()) {
 		$load($Iterable);
 		$assign(externalParamList, $Arrays::asList($$new($ClassArray, {$Iterable::class$})));
 		iterableType = $Iterable::class$;

@@ -283,7 +283,7 @@ int32_t SwitchBootstraps::doTypeSwitch(Object$* target, int32_t startIndex, $Obj
 							}
 						}
 					}
-				} else if ($of(label)->equals(target)) {
+				} else if ($nc($of(label))->equals(target)) {
 					return i;
 				}
 			}

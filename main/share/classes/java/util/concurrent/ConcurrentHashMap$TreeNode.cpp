@@ -100,7 +100,7 @@ ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeNode::findTreeNode(int32_t h, 
 					bool var$3 = (kc != nullptr || (kc = $ConcurrentHashMap::comparableClassFor(k)) != nullptr);
 					if (var$3 && (dir = $ConcurrentHashMap::compareComparables(kc, k, pk)) != 0) {
 						$assign(p, (dir < 0) ? pl : pr);
-					} else if (($assign(q, pr->findTreeNode(h, k, kc))) != nullptr) {
+					} else if (($assign(q, $nc(pr)->findTreeNode(h, k, kc))) != nullptr) {
 						return q;
 					} else {
 						$assign(p, pl);

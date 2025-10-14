@@ -136,7 +136,7 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 		$var($SynchronousQueue$TransferQueue$QNode, m, nullptr);
 		$var($SynchronousQueue$TransferQueue$QNode, tn, nullptr);
 		if (t == nullptr || h == nullptr) {
-		} else if (h == t || t->isData == isData) {
+		} else if (h == t || $nc(t)->isData == isData) {
 			if (t != this->tail) {
 			} else if (($assign(tn, t->next)) != nullptr) {
 				advanceTail(t, tn);
@@ -180,9 +180,9 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 					}
 				}
 				if (stat == 1) {
-					s->forgetWaiter();
+					$nc(s)->forgetWaiter();
 				}
-				if (!s->isOffList()) {
+				if (!$nc(s)->isOffList()) {
 					advanceHead(t, s);
 					if (item != nullptr) {
 						$set(s, item, s);
@@ -190,7 +190,7 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 				}
 				return $of((item != nullptr) ? item : $of(e));
 			}
-		} else if (($assign(m, h->next)) != nullptr && t == this->tail && h == this->head) {
+		} else if (($assign(m, $nc(h)->next)) != nullptr && t == this->tail && h == this->head) {
 			$var($Thread, waiter, nullptr);
 			$var($Object, x, $nc(m)->item);
 			bool fulfilled = ((isData == (x == nullptr)) && !$equals(x, m) && m->casItem(x, e));
@@ -218,7 +218,7 @@ void SynchronousQueue$TransferQueue::clean($SynchronousQueue$TransferQueue$QNode
 		if (t == h) {
 			return;
 		}
-		$var($SynchronousQueue$TransferQueue$QNode, tn, t->next);
+		$var($SynchronousQueue$TransferQueue$QNode, tn, $nc(t)->next);
 		if (t != this->tail) {
 			continue;
 		}

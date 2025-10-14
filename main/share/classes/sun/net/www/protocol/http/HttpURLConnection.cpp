@@ -1114,7 +1114,7 @@ bool HttpURLConnection::hostsEqual($URL* u1, $URL* u2) {
 		return h2 == nullptr;
 	} else if (h2 == nullptr) {
 		return false;
-	} else if (h1->equalsIgnoreCase(h2)) {
+	} else if ($nc(h1)->equalsIgnoreCase(h2)) {
 		return true;
 	}
 	$var($booleans, result, $new($booleans, {false}));

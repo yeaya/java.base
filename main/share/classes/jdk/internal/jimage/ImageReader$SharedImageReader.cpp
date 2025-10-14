@@ -263,11 +263,11 @@ $ImageReader* ImageReader$SharedImageReader::open($Path* imagePath, $ByteOrder* 
 		if (reader == nullptr) {
 			$assign(reader, $new(ImageReader$SharedImageReader, imagePath, byteOrder));
 			$nc(ImageReader$SharedImageReader::OPEN_FILES)->put(imagePath, reader);
-		} else if (reader->getByteOrder() != byteOrder) {
+		} else if ($nc(reader)->getByteOrder() != byteOrder) {
 			$throwNew($IOException, $$str({"\""_s, $(reader->getName()), "\" is not an image file"_s}));
 		}
 		$var($ImageReader, image, $new($ImageReader, reader));
-		$nc(reader->openers)->add(image);
+		$nc($nc(reader)->openers)->add(image);
 		return image;
 	}
 }

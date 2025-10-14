@@ -116,7 +116,7 @@ void RenegoInfoExtension$CHRenegotiationInfoConsumer::consume($ConnectionContext
 		$throw($($nc(shc->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, "Invalid renegotiation_info extension data: incorrect verify data in ClientHello"_s)));
 	}
 	$init($RenegoInfoExtension$RenegotiationInfoSpec);
-	$nc(shc->handshakeExtensions)->put($SSLExtension::CH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
+	$nc($nc(shc)->handshakeExtensions)->put($SSLExtension::CH_RENEGOTIATION_INFO, $RenegoInfoExtension$RenegotiationInfoSpec::NOMINAL);
 }
 
 RenegoInfoExtension$CHRenegotiationInfoConsumer::RenegoInfoExtension$CHRenegotiationInfoConsumer() {

@@ -219,11 +219,11 @@ int32_t GHASH::update($ByteBuffer* ct, int32_t inLen) {
 	int32_t to_process = inLen;
 	$var($bytes, in, $new($bytes, $Math::min(GHASH::MAX_LEN, inLen)));
 	while (to_process > GHASH::MAX_LEN) {
-		ct->get(in, 0, GHASH::MAX_LEN);
+		$nc(ct)->get(in, 0, GHASH::MAX_LEN);
 		update(in, 0, GHASH::MAX_LEN);
 		to_process -= GHASH::MAX_LEN;
 	}
-	ct->get(in, 0, to_process);
+	$nc(ct)->get(in, 0, to_process);
 	update(in, 0, to_process);
 	return inLen;
 }

@@ -109,10 +109,10 @@ void BasicPermissionCollection::add($Permission* permission) {
 	}
 	if (this->permClass == nullptr) {
 		$set(this, permClass, $nc($of(basicPermission))->getClass());
-	} else if ($of(basicPermission)->getClass() != this->permClass) {
+	} else if ($nc($of(basicPermission))->getClass() != this->permClass) {
 		$throwNew($IllegalArgumentException, $$str({"invalid permission: "_s, permission}));
 	}
-	$var($String, canonName, basicPermission->getCanonicalName());
+	$var($String, canonName, $nc(basicPermission)->getCanonicalName());
 	$nc(this->perms)->put(canonName, permission);
 	if (!this->all_allowed) {
 		if ($nc(canonName)->equals("*"_s)) {

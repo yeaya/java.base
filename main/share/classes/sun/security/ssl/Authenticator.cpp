@@ -142,7 +142,7 @@ Authenticator* Authenticator::valueOf($ProtocolVersion* protocolVersion) {
 }
 
 Authenticator* Authenticator::valueOf($ProtocolVersion* protocolVersion, $CipherSuite$MacAlg* macAlg, $SecretKey* key) {
-	if (protocolVersion->isDTLS) {
+	if ($nc(protocolVersion)->isDTLS) {
 		if (protocolVersion->useTLS13PlusSpec()) {
 			$throwNew($RuntimeException, "No MacAlg used in DTLS 1.3"_s);
 		} else {

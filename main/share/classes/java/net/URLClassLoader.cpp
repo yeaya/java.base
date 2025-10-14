@@ -537,7 +537,7 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 			$init($SecurityConstants);
 			$assign(p, $new($FilePermission, path, $SecurityConstants::FILE_READ_ACTION));
 		}
-	} else if ((p == nullptr) && ($nc($(url->getProtocol()))->equals("file"_s))) {
+	} else if ((p == nullptr) && ($nc($($nc(url)->getProtocol()))->equals("file"_s))) {
 		$init($File);
 		$var($String, path, $nc($(url->getFile()))->replace(u'/', $File::separatorChar));
 		$assign(path, $ParseUtil::decode(path));

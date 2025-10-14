@@ -375,7 +375,7 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 						stdHandles->set(0, $nc(ProcessImpl::fdAccess)->getHandle($(f0->getFD())));
 					}
 				}
-				if (redirects->get(1) == $ProcessBuilder$Redirect::PIPE) {
+				if ($nc(redirects)->get(1) == $ProcessBuilder$Redirect::PIPE) {
 					stdHandles->set(1, -1);
 				} else {
 					if (redirects->get(1) == $ProcessBuilder$Redirect::INHERIT) {
@@ -390,7 +390,7 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 						stdHandles->set(1, $nc(ProcessImpl::fdAccess)->getHandle($($nc(f1)->getFD())));
 					}
 				}
-				if (redirects->get(2) == $ProcessBuilder$Redirect::PIPE) {
+				if ($nc(redirects)->get(2) == $ProcessBuilder$Redirect::PIPE) {
 					stdHandles->set(2, -1);
 				} else {
 					if (redirects->get(2) == $ProcessBuilder$Redirect::INHERIT) {

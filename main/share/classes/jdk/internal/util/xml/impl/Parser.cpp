@@ -2764,7 +2764,7 @@ void Parser::setinp($InputSource* is) {
 		panic(Parser::FAULT);
 	}
 	$set($nc(this->mInp), src, reader);
-	$set($nc(this->mInp), pubid, is->getPublicId());
+	$set($nc(this->mInp), pubid, $nc(is)->getPublicId());
 	$set($nc(this->mInp), sysid, is->getSystemId());
 }
 

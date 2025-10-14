@@ -575,7 +575,7 @@ bool URI::equals(Object$* ob) {
 		if (!equal(this->authority, $nc(that)->authority)) {
 			return false;
 		}
-	} else if (this->authority != that->authority) {
+	} else if (this->authority != $nc(that)->authority) {
 		return false;
 	}
 	return true;
@@ -619,10 +619,10 @@ int32_t URI::compareTo(URI* that) {
 			return compare(this->fragment, that->fragment);
 		}
 		return +1;
-	} else if (that->isOpaque()) {
+	} else if ($nc(that)->isOpaque()) {
 		return -1;
 	}
-	if ((this->host != nullptr) && (that->host != nullptr)) {
+	if ((this->host != nullptr) && ($nc(that)->host != nullptr)) {
 		if ((c = compare(this->userInfo, that->userInfo)) != 0) {
 			return c;
 		}
@@ -635,13 +635,13 @@ int32_t URI::compareTo(URI* that) {
 	} else if ((c = compare(this->authority, that->authority)) != 0) {
 		return c;
 	}
-	if ((c = compare(this->path, that->path)) != 0) {
+	if ((c = compare(this->path, $nc(that)->path)) != 0) {
 		return c;
 	}
-	if ((c = compare(this->query, that->query)) != 0) {
+	if ((c = compare(this->query, $nc(that)->query)) != 0) {
 		return c;
 	}
-	return compare(this->fragment, that->fragment);
+	return compare(this->fragment, $nc(that)->fragment);
 }
 
 $String* URI::toString() {

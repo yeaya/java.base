@@ -357,7 +357,7 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 				bool var$2 = (var$3 > $nc(this->cpath)->length());
 				return (var$2 && $nc(that->cpath)->startsWith(this->cpath));
 			}
-		} else if (that->directory) {
+		} else if ($nc(that)->directory) {
 			if (that->recursive) {
 				return false;
 			} else {
@@ -373,7 +373,7 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 				return var$4 && $nc(this->cpath)->regionMatches(0, that->cpath, 0, last + 1);
 			}
 		}
-	} else if (that->directory) {
+	} else if ($nc(that)->directory) {
 		return false;
 	} else {
 		return ($nc(this->cpath)->equals(that->cpath));
@@ -397,7 +397,7 @@ int32_t FilePermission::containsPath($Path* p1, $Path* p2) {
 			}
 		}
 	} else {
-		if (p2->equals(FilePermission::EMPTY_PATH)) {
+		if ($nc(p2)->equals(FilePermission::EMPTY_PATH)) {
 			int32_t c1 = p1->getNameCount();
 			if (!$nc($(p1->getName(c1 - 1)))->equals(FilePermission::DOTDOT_PATH)) {
 				return -1;
@@ -406,7 +406,7 @@ int32_t FilePermission::containsPath($Path* p1, $Path* p2) {
 		}
 	}
 	int32_t c1 = $nc(p1)->getNameCount();
-	int32_t c2 = p2->getNameCount();
+	int32_t c2 = $nc(p2)->getNameCount();
 	int32_t n = $Math::min(c1, c2);
 	int32_t i = 0;
 	while (i < n) {

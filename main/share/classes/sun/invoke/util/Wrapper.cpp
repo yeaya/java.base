@@ -588,7 +588,7 @@ Wrapper* Wrapper::forWrapperType($Class* type) {
 	}
 	{
 		$var($WrapperArray, arr$, values());
-		int32_t len$ = arr$->length;
+		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			Wrapper* x = arr$->get(i$);
@@ -617,7 +617,7 @@ Wrapper* Wrapper::forBasicType(char16_t type) {
 	}
 	{
 		$var($WrapperArray, arr$, values());
-		int32_t len$ = arr$->length;
+		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			Wrapper* x = arr$->get(i$);
@@ -679,7 +679,7 @@ $Class* Wrapper::wrapperType($Class* exampleType) {
 		return exampleType;
 	} else {
 		$load($Object);
-		if (exampleType == this->primitiveType$ || this->wrapperType$ == $Object::class$ || exampleType->isInterface()) {
+		if (exampleType == this->primitiveType$ || this->wrapperType$ == $Object::class$ || $nc(exampleType)->isInterface()) {
 			return forceType(this->wrapperType$, exampleType);
 		}
 	}
@@ -1020,7 +1020,7 @@ void clinit$Wrapper($Class* class$) {
 	{
 		{
 			$var($WrapperArray, arr$, Wrapper::values());
-			int32_t len$ = arr$->length;
+			int32_t len$ = $nc(arr$)->length;
 			int32_t i$ = 0;
 			for (; i$ < len$; ++i$) {
 				Wrapper* w = arr$->get(i$);

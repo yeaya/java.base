@@ -350,7 +350,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 				$nc(newInstructions)->add(static_cast<$AbstractInsnNode*>(clonedLabelNode));
 				$assign(previousLabelNode, clonedLabelNode);
 			}
-		} else if (instantiation->findOwner(i) == instantiation) {
+		} else if ($nc(instantiation)->findOwner(i) == instantiation) {
 			if (insnNode->getOpcode() == $Opcodes::RET) {
 				$var($LabelNode, retLabel, nullptr);
 				{
@@ -384,7 +384,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 		for (; $nc(i$)->hasNext();) {
 			$var($TryCatchBlockNode, tryCatchBlockNode, $cast($TryCatchBlockNode, i$->next()));
 			{
-				$var($LabelNode, start, instantiation->getClonedLabel($nc(tryCatchBlockNode)->start));
+				$var($LabelNode, start, $nc(instantiation)->getClonedLabel($nc(tryCatchBlockNode)->start));
 				$var($LabelNode, end, instantiation->getClonedLabel($nc(tryCatchBlockNode)->end));
 				if (start != end) {
 					$var($LabelNode, handler, instantiation->getClonedLabelForJumpInsn($nc(tryCatchBlockNode)->handler));
@@ -401,7 +401,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 		for (; $nc(i$)->hasNext();) {
 			$var($LocalVariableNode, localVariableNode, $cast($LocalVariableNode, i$->next()));
 			{
-				$var($LabelNode, start, instantiation->getClonedLabel($nc(localVariableNode)->start));
+				$var($LabelNode, start, $nc(instantiation)->getClonedLabel($nc(localVariableNode)->start));
 				$var($LabelNode, end, instantiation->getClonedLabel($nc(localVariableNode)->end));
 				if (start != end) {
 					$nc(newLocalVariables)->add($$new($LocalVariableNode, $nc(localVariableNode)->name, localVariableNode->desc, localVariableNode->signature, start, end, localVariableNode->index));

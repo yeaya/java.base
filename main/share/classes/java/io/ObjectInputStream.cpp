@@ -1434,7 +1434,7 @@ $Object* ObjectInputStream::readArray(bool unshared) {
 			$load($Object);
 			readObject0($Object::class$, false);
 		}
-	} else if (ccl->isPrimitive()) {
+	} else if ($nc(ccl)->isPrimitive()) {
 		$init($Integer);
 		if (ccl == $Integer::TYPE) {
 			$nc(this->bin)->readInts($cast($ints, array), 0, len);
@@ -1672,7 +1672,7 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 		if ($nc(slots->get(i))->hasData) {
 			if (obj == nullptr || $nc(this->handles)->lookupException(this->passHandle) != nullptr) {
 				$new($ObjectInputStream$FieldValues, this, slotDesc, true);
-			} else if (slotDesc->hasReadObjectMethod()) {
+			} else if ($nc(slotDesc)->hasReadObjectMethod()) {
 				$var($ThreadDeath, t, nullptr);
 				bool reset = false;
 				$var($SerialCallbackContext, oldContext, this->curContext);
@@ -1724,13 +1724,13 @@ void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
 					values->defaultSetFieldValues(obj);
 				}
 			}
-			if (slotDesc->hasWriteObjectData()) {
+			if ($nc(slotDesc)->hasWriteObjectData()) {
 				skipCustomData();
 			} else {
 				$nc(this->bin)->setBlockDataMode(false);
 			}
 		} else {
-			bool var$3 = obj != nullptr && slotDesc->hasReadObjectNoDataMethod();
+			bool var$3 = obj != nullptr && $nc(slotDesc)->hasReadObjectNoDataMethod();
 			if (var$3 && $nc(this->handles)->lookupException(this->passHandle) == nullptr) {
 				slotDesc->invokeReadObjectNoData(obj);
 			}

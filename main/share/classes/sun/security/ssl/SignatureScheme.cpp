@@ -479,13 +479,13 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 						$SSLLogger::warning($$str({"Unsupported signature scheme: "_s, $(SignatureScheme::nameOf(ssid))}), $$new($ObjectArray, 0));
 					}
 				} else {
-					bool var$4 = ss->isAvailable && $nc(ss->supportedProtocols)->contains(protocolVersion);
+					bool var$4 = $nc(ss)->isAvailable && $nc(ss->supportedProtocols)->contains(protocolVersion);
 					if (var$4) {
-						bool var$5 = $nc(config->signatureSchemes)->isEmpty();
-						var$4 = (var$5 || $nc(config->signatureSchemes)->contains(ss));
+						bool var$5 = $nc($nc(config)->signatureSchemes)->isEmpty();
+						var$4 = (var$5 || $nc($nc(config)->signatureSchemes)->contains(ss));
 					}
 					bool var$3 = var$4;
-					if (var$3 && ss->isPermitted(constraints)) {
+					if (var$3 && $nc(ss)->isPermitted(constraints)) {
 						supported->add(ss);
 					} else {
 						$init($SSLLogger);
