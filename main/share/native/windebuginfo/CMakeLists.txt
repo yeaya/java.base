@@ -18,4 +18,6 @@ target_link_libraries(windebuginfo
 	Dbghelp
 )
 
-install(TARGETS windebuginfo DESTINATION "${JCPP_HOME}/bin")
+if(INSTALL_TO_REPO)
+	install(TARGETS windebuginfo DESTINATION "${JCPP_HOME}/bin")
+endif()

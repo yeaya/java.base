@@ -17,4 +17,6 @@ target_link_libraries(dependenciesinfo
 	zlibstatic
 )
 
-install(TARGETS dependenciesinfo DESTINATION "${JCPP_HOME}/bin")
+if(INSTALL_TO_REPO)
+#	install(TARGETS dependenciesinfo DESTINATION "${JCPP_HOME}/bin")
+endif()
