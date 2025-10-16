@@ -22,7 +22,7 @@ elseif(JCPP_OS STREQUAL "windows")
 		windows/jdk_util_md.h
 		windows/locale_str.h
 		windows/gdefs_md.h
-	DESTINATION "include"
+	DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 )
 endif()
 
@@ -37,7 +37,7 @@ if(IS_UNIX)
 		unix/jdk_util_md.h
 		unix/locale_str.h
 		unix/gdefs_md.h
-		DESTINATION "include"
+		DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 	)
 endif()
 
@@ -56,5 +56,5 @@ install(FILES
 	jdk_util.h
 	gdefs.h
 	sizecalc.h
-	DESTINATION "include"
+	DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 )

@@ -353,33 +353,33 @@ endif()
 
 install(
 	DIRECTORY "share/include/"
-	DESTINATION "include"
+	DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 )
 
 if(JCPP_OS MATCHES "linux")
 	install(
 		DIRECTORY "linux/include/"
-		DESTINATION "include"
+		DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 	)
 endif()
 
 if(JCPP_OS MATCHES "macosx")
 	install(
 		DIRECTORY "macosx/include/"
-		DESTINATION "include"
+		DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 	)
 endif()
 
 if(JCPP_OS MATCHES "windows")
 	install(
 		DIRECTORY "windows/include/"
-		DESTINATION "include"
+		DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 	)
 endif()
 
 if(INSTALL_TO_REPO)
 	install(
 		FILES "share/dependencies.txt"
-		DESTINATION "."
+		DESTINATION "${JCPP_INSTALL_DIR}"
 	)
 endif()
