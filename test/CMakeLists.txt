@@ -164,7 +164,7 @@ endif()
 
 jcpp_enable_bigobj(${JCPP_PROJECT_FULL_NAME}-test)
 
-install(TARGETS ${JCPP_PROJECT_FULL_NAME}-test DESTINATION "${JCPP_BIN_INSTALL_PATH}")
+install(TARGETS ${JCPP_PROJECT_FULL_NAME}-test DESTINATION "${JCPP_INSTALL_BIN_DIR}")
 
 add_test(NAME ActionSpace COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> ActionSpace)
 add_test(NAME AdaptServerSocket COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> AdaptServerSocket)

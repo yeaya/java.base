@@ -294,9 +294,9 @@ if(BUILD_STATIC_LIB)
 	jcpp_enable_bigobj(${JCPP_PROJECT_NAME}_static)
 
 	install(TARGETS ${JCPP_PROJECT_NAME}_static
-		LIBRARY DESTINATION "${JCPP_LIB_INSTALL_PATH}"
-		ARCHIVE DESTINATION "${JCPP_LIB_INSTALL_PATH}"
-		RUNTIME DESTINATION "${JCPP_BIN_INSTALL_PATH}"
+		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 	)
 endif()
 
@@ -345,41 +345,41 @@ endif()
 	jcpp_enable_debug_info(${JCPP_PROJECT_NAME}_shared)
 
 	install(TARGETS ${JCPP_PROJECT_NAME}_shared
-		LIBRARY DESTINATION "${JCPP_LIB_INSTALL_PATH}"
-		ARCHIVE DESTINATION "${JCPP_LIB_INSTALL_PATH}"
-		RUNTIME DESTINATION "${JCPP_BIN_INSTALL_PATH}"
+		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 	)
 endif()
 
 install(
-	DIRECTORY "share/include"
-	DESTINATION "${JCPP_INSTALL_PATH}"
+	DIRECTORY "share/include/"
+	DESTINATION "include"
 )
 
 if(JCPP_OS MATCHES "linux")
 	install(
-		DIRECTORY "linux/include"
-		DESTINATION "${JCPP_INSTALL_PATH}"
+		DIRECTORY "linux/include/"
+		DESTINATION "include"
 	)
 endif()
 
 if(JCPP_OS MATCHES "macosx")
 	install(
-		DIRECTORY "macosx/include"
-		DESTINATION "${JCPP_INSTALL_PATH}"
+		DIRECTORY "macosx/include/"
+		DESTINATION "include"
 	)
 endif()
 
 if(JCPP_OS MATCHES "windows")
 	install(
-		DIRECTORY "windows/include"
-		DESTINATION "${JCPP_INSTALL_PATH}"
+		DIRECTORY "windows/include/"
+		DESTINATION "include"
 	)
 endif()
 
 if(INSTALL_TO_REPO)
 	install(
 		FILES "share/dependencies.txt"
-		DESTINATION "${JCPP_INSTALL_PATH}"
+		DESTINATION "."
 	)
 endif()
