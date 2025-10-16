@@ -17,11 +17,27 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/install
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
+    - name: Package
+      run: cpack
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base
+        path: ${{github.workspace}}/build/libjdk*.zip
+
     - name: Test
       working-directory: ${{github.workspace}}/build/test
       run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-linux.txt -VV
+
+  test:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/download-artifact@v5
+      with:
+        name: java.base
