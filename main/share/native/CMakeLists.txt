@@ -168,18 +168,18 @@ install(FILES
 	zlib/zlib.h
 	${CMAKE_CURRENT_BINARY_DIR}/zlib/zconf.h
 	java_lang_Integer.h
-	DESTINATION "${JCPP_INSTALL_PATH}/include"
+	DESTINATION "include"
 )
 
 if(JCPP_OS STREQUAL "windows")
 	install(FILES
 		core/windows/include/jvm_md.h
-		DESTINATION "${JCPP_INSTALL_PATH}/include"
+		DESTINATION "include"
 	)
 else()
 	install(FILES
 		core/unix/include/jvm_md.h
-		DESTINATION "${JCPP_INSTALL_PATH}/include"
+		DESTINATION "include"
 	)
 endif()
 
