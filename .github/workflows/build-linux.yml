@@ -22,9 +22,6 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
 
-    - name: Package
-      run: cpack
-
     - uses: actions/upload-artifact@v4
       with:
         name: java.base
