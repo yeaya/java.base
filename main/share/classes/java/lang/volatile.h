@@ -188,15 +188,11 @@ public:
 	}
 	template<typename V>
 	inline bool operator ==(V v) {
-		bool ret = value == v;
-		$loadfence();
-		return ret;
+		return get() == v;
 	}
 	template<typename V>
 	inline bool operator !=(V v) {
-		bool ret = value != v;
-		$loadfence();
-		return ret;
+		return get() != v;
 	}
 	inline T operator ->() {
 		T ret = value;

@@ -25,7 +25,7 @@ jobs:
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
-   - name: Package source
+    - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4

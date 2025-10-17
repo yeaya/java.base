@@ -616,7 +616,7 @@ $ObjectStreamFieldArray* String::serialPersistentFields = nullptr;
 $Comparator* String::CASE_INSENSITIVE_ORDER = nullptr;
 
 void String::init$() {
-	$set(this, value$, $new<$bytes>(0));
+	$set(this, value$, $new($bytes, 0));
 	coder$ = LATIN1;
 }
 
@@ -2962,7 +2962,7 @@ $bytes* String::utf8Bytes() {
 	} else {
 		$assign(bytes, getBytes("UTF-8"_s));
 	}
-	$var($bytes, ret, $new<$bytes>(bytes->length + 1));
+	$var($bytes, ret, $new($bytes, bytes->length + 1));
 	ret->setArray(0, bytes, 0, bytes->length);
 	return ret;
 }
@@ -3023,6 +3023,11 @@ String* String::constValueOf(const ::std::initializer_list<int32_t>& codePoints)
 	return ConstStringManager::constValueOf(codePoints);
 }
 
+String* String::constValueOf(const ::std::initializer_list<Object$*>& objects) {
+	$var(String, s, valueOf(objects));
+	return ConstStringManager::intern(s);
+}
+
 String* String::valueOf(::std::nullptr_t) {
 	return "null"_s;
 }
@@ -3039,6 +3044,14 @@ String* String::valueOf(const char* s) {
 	}
 }
 
+String* String::valueOf(const char* s, int32_t length) {
+	if (s != nullptr) {
+		return ObjectManagerInternal::allocString((int8_t*)s, Integer::min(strlen(s), length), LATIN1);
+	} else {
+		return "null"_s;
+	}
+}
+
 String* String::valueOf(const char16_t* s) {
 	if (s == nullptr) {
 		return "null"_s;
@@ -3049,9 +3062,9 @@ String* String::valueOf(const char16_t* s) {
 	if (length == 0) {
 		return ""_s;
 	}
-	$var($chars, ca, $new<$chars>(length));
+	$var($chars, ca, $new($chars, length));
 	ca->setRegion(0, length, s);
-	return $new<String>(ca);
+	return $new(String, ca);
 }
 
 String* String::valueOf(const char16_t* s, int32_t length) {
@@ -3061,39 +3074,28 @@ String* String::valueOf(const char16_t* s, int32_t length) {
 	if (s == nullptr) {
 		return "null"_s;
 	}
-	$var($chars, ca, $new<$chars>(length));
+	$var($chars, ca, $new($chars, length));
 	ca->setRegion(0, length, s);
-	return $new<String>(ca);
+	return $new(String, ca);
 }
 
 String* String::valueOf(const ::std::initializer_list<int32_t>& codePoints) {
-	$var($ints, ia, $new<$ints>(codePoints));
-	return $new<String>(ia, 0, ia->length);
+	$var($ints, ia, $new($ints, codePoints));
+	return $new(String, ia, 0, ia->length);
 }
 
 String* String::valueOf(const ::std::initializer_list<Object$*>& objects) {
-	$var(StringBuilder, sb, $new<StringBuilder>());
+	$var(StringBuilder, sb, $new(StringBuilder));
 	::std::initializer_list<Object$*>::iterator it = objects.begin();
 	while (it != objects.end()) {
 		Object* obj = (Object*)*it;
 		if (obj != nullptr) {
-			$var(String, objStr, obj->toString());
-			sb->append(objStr);
-		} else {
-			sb->append("null"_s);
-		}
-		++it;
-	}
-	return sb->toString();
-}
-
-String* String::valueOf(const ::std::initializer_list<String*>& strings) {
-	$var(StringBuilder, sb, $new<StringBuilder>());
-	::std::initializer_list<String*>::iterator it = strings.begin();
-	while (it != strings.end()) {
-		String* s = *it;
-		if (s != nullptr) {
-			sb->append(s);
+			String* s = $fcast(String, class$->castOrNull(obj));
+			if (s != nullptr) {
+				sb->append(s);
+			} else {
+				sb->append(obj);
+			}
 		} else {
 			sb->append("null"_s);
 		}

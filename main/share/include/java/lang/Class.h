@@ -370,6 +370,7 @@ public:
 	static $Object* cast0(Class* clazz, Object0* inst);
 	$Object* cast(Object0* inst);
 	$Object* cast(::std::nullptr_t);
+	$Object* castOrNull(Object$* inst);
 	static $Object* sure(Class* clazz, Object$* inst);
 	static $Object* sure(Class* clazz, Object0* inst);
 	$ClassArray* getPrimaryBaseClasses();

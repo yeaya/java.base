@@ -312,14 +312,15 @@ public:
 	static String* constValueOf(const char16_t* s);
 	static String* constValueOf(const char16_t* s, int32_t length);
 	static String* constValueOf(const ::std::initializer_list<int32_t>& codePoints);
+	static String* constValueOf(const ::std::initializer_list<Object$*>& objects);
 	static String* valueOf(::std::nullptr_t);
 	static String* valueOf(String* s);
 	static String* valueOf(const char* s);
+	static String* valueOf(const char* s, int32_t length);
 	static String* valueOf(const char16_t* s);
 	static String* valueOf(const char16_t* s, int32_t length);
 	static String* valueOf(const ::std::initializer_list<int32_t>& codePoints);
 	static String* valueOf(const ::std::initializer_list<Object$*>& objects);
-	static String* valueOf(const ::std::initializer_list<String*>& strings);
 
 	static String* concat(Object$* left, Object$* right);
 	static String* concat(::std::nullptr_t, ::std::nullptr_t);

@@ -4490,6 +4490,45 @@ $Object* Class::cast0(Class* clazz, Object0* obj) {
 	$throwNew($ClassCastException, $ref(clazz->toString()));
 }
 
+$Object* Class::castOrNull(Object$* inst) {
+	if (inst == nullptr) {
+		return nullptr;
+	}
+	Object0* obj = ((Object*)inst)->toObject0$();
+	ObjectHead* oh = toOh(obj);
+	Class* objClass = oh->clazz;
+	if (objClass == this) {
+		return obj;
+	}
+	if (this->componentType$ != nullptr) {
+		Class* srcType = objClass;
+		Class* dstType = this;
+		if (srcType != dstType && dstType != Object::class$) {
+			for (int32_t i = 0; i < 255; i++) {
+				if (dstType->componentType$ != nullptr) {
+					if (srcType->componentType$ == nullptr) {
+						return nullptr;
+					}
+					dstType = dstType->componentType$;
+					srcType = srcType->componentType$;
+				} else {
+					break;
+				}
+			}
+			if (srcType != dstType && dstType != Object::class$ && srcType->calcCastOffset(dstType) < 0) {
+				return nullptr;
+			}
+		}
+		return obj;
+	}
+	int8_t* address = (int8_t*)(void*)obj;
+	int32_t offset = objClass->calcCastOffset(this);
+	if (offset >= 0) {
+		return (Object*)(void*)(address + offset);
+	}
+	return nullptr;
+}
+
 $Object* Class::sure(Class* clazz, Object$* inst) {
 	return $nullcheck(cast0(clazz, inst));
 }
