@@ -1,19 +1,19 @@
 set(FFI_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
-if(JCPP_OS STREQUAL "windows" AND JCPP_CPU STREQUAL "aarch64")
+if(JCPP_OS STREQUAL "windows" AND JCPP_ARCH STREQUAL "aarch64")
 	set(TARGET ARM_WIN64)
 	enable_language(ASM_MASM)
-elseif(JCPP_OS STREQUAL "windows" AND JCPP_CPU STREQUAL "x86")
+elseif(JCPP_OS STREQUAL "windows" AND JCPP_ARCH STREQUAL "x86_64")
 	set(TARGET X86_WIN64)
 	enable_language(ASM_MASM)
-elseif(JCPP_CPU STREQUAL "aarch64")
+elseif(JCPP_ARCH STREQUAL "aarch64")
 	set(TARGET ARM64)
 	enable_language(ASM)
-elseif(JCPP_CPU STREQUAL "x86")
+elseif(JCPP_ARCH STREQUAL "x86_64")
 	set(TARGET X86_64)
 	enable_language(ASM)
 else()
-	message(FATAL_ERROR "Unsupport target: ${JCPP_OS}_${JCPP_CPU}")
+	message(FATAL_ERROR "Unsupport target: ${JCPP_OS}_${JCPP_ARCH}")
 endif()
 
 if("${TARGET}" STREQUAL "X86_64")
@@ -26,7 +26,7 @@ set(FFI_EXEC_TRAMPOLINE_TABLE 0)
 configure_file(${FFI_ROOT}/include/ffi.h.in ${CMAKE_CURRENT_BINARY_DIR}/include/ffi.h)
 file(COPY ${FFI_ROOT}/fficonfig.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-if(JCPP_CPU STREQUAL "aarch64")
+if(JCPP_ARCH STREQUAL "aarch64")
 	file(COPY ${FFI_ROOT}/src/aarch64/ffitarget.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include)
 else()
 	file(COPY ${FFI_ROOT}/src/x86/ffitarget.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include)
@@ -48,7 +48,7 @@ set(FFI_SOURCES
 	${FFI_ROOT}/src/types.c
 	${FFI_ROOT}/src/tramp.c)
 
-if(JCPP_CPU STREQUAL "aarch64")
+if(JCPP_ARCH STREQUAL "aarch64")
 	set(FFI_SOURCES
 		${FFI_SOURCES}
 		${FFI_ROOT}/src/aarch64/ffi.c)
@@ -105,7 +105,7 @@ macro(add_assembly ASMFILE)
 	endif()
 endmacro()
 
-if(JCPP_CPU STREQUAL "x86")
+if(JCPP_ARCH STREQUAL "x86_64")
 	if(JCPP_OS STREQUAL "windows")
 		if(MSVC)
 			add_assembly(${FFI_ROOT}/src/x86/win64_intel.S)

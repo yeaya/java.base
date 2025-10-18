@@ -5,12 +5,12 @@ if(JCPP_OS STREQUAL "linux")
 		"linux"
 	)
 	aux_source_directory("linux" SRCS)
-elseif(JCPP_OS STREQUAL "macosx")
+elseif(JCPP_OS STREQUAL "macos")
 	set(IS_UNIX 1)
 	include_directories(
-		"macosx"
+		"macos"
 	)
-	aux_source_directory("macosx" SRCS)
+	aux_source_directory("macos" SRCS)
 elseif(JCPP_OS STREQUAL "windows")
 	include_directories(
 		"windows"

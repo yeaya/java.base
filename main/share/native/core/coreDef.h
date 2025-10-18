@@ -39,7 +39,7 @@ const int ThreadStackSize = 1024;
 #if defined(LINUX) || defined(_ALLBSD_SOURCE)
 	#ifndef __OpenBSD__
 		#ifndef _XOPEN_SOURCE
-			#define _XOPEN_SOURCE 600 // for macosx
+			#define _XOPEN_SOURCE 600 // for macos
 		#endif
 	#endif
 	#include <pthread.h>

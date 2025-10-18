@@ -15,9 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      path: src
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/install
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
@@ -30,12 +31,17 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
+        name: java.base-source
+        path: ${{github.workspace}}/java.base-17.35.tar.gz
+
+    - uses: actions/upload-artifact@v4
+      with:
         name: java.base
-        path: ${{github.workspace}}/java.base*.tar.gz
+        path: ${{github.workspace}}/java.base-17.35-linux-x86_64.tar.gz
 
     - name: Test
       working-directory: ${{github.workspace}}/build/test
-      run: ctest -C Release --exclude-from-file ${{github.workspace}}/.github/workflows/ctestexclude-linux.txt -VV
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux.txt -VV
 
   test:
     needs: build

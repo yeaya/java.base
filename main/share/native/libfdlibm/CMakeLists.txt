@@ -3,7 +3,7 @@ file(GLOB HEADERS *.h *.hpp)
 source_group("Include" FILES ${HEADERS})
 add_library(libfdlibm OBJECT "${SRCS}" "${HEADERS}")
 
-if(JCPP_CPU STREQUAL "x86" OR JCPP_CPU STREQUAL "aarch64")
+if(JCPP_ARCH STREQUAL "x86_64" OR JCPP_ARCH STREQUAL "aarch64")
     target_compile_definitions(libfdlibm PUBLIC
         -D_LITTLE_ENDIAN
     )

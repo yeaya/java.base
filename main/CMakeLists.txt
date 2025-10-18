@@ -12,9 +12,9 @@ if(JCPP_OS MATCHES "linux")
 	include_directories("linux/native")
 endif()
 
-if(JCPP_OS MATCHES "macosx")
-	include_directories("macosx/classes")
-	include_directories("macosx/native")
+if(JCPP_OS MATCHES "macos")
+	include_directories("macos/classes")
+	include_directories("macos/native")
 endif()
 
 if(JCPP_OS MATCHES "windows")
@@ -30,9 +30,9 @@ if(JCPP_OS MATCHES "linux")
 	add_subdirectory("linux/native")
 endif()
 
-if(JCPP_OS MATCHES "macosx")
-	add_subdirectory("macosx/classes")
-	add_subdirectory("macosx/native")
+if(JCPP_OS MATCHES "macos")
+	add_subdirectory("macos/classes")
+	add_subdirectory("macos/native")
 endif()
 
 if(JCPP_OS MATCHES "windows")
@@ -220,44 +220,44 @@ if(JCPP_OS MATCHES "linux")
 		"$<TARGET_OBJECTS:linux-classes.java.lang>"
 		"$<TARGET_OBJECTS:linux-classes.java.net>"
 		"$<TARGET_OBJECTS:linux-classes.java.nio.file>"
-		"$<TARGET_OBJECTS:linux-classes.jdk.internal._62>"
-		"$<TARGET_OBJECTS:linux-classes.jdk.internal._63>"
-		"$<TARGET_OBJECTS:linux-classes.jdk.internal._64>"
-		"$<TARGET_OBJECTS:linux-classes.jdk.internal._65>"
-		"$<TARGET_OBJECTS:linux-classes.jdk.internal._66>"
+		"$<TARGET_OBJECTS:linux-classes.jdk.internal._52>"
+		"$<TARGET_OBJECTS:linux-classes.jdk.internal._53>"
+		"$<TARGET_OBJECTS:linux-classes.jdk.internal._54>"
+		"$<TARGET_OBJECTS:linux-classes.jdk.internal._55>"
+		"$<TARGET_OBJECTS:linux-classes.jdk.internal._56>"
 		"$<TARGET_OBJECTS:linux-classes.sun.net>"
 		"$<TARGET_OBJECTS:linux-classes.sun.net.dns>"
 		"$<TARGET_OBJECTS:linux-classes.sun.net.sdp>"
-		"$<TARGET_OBJECTS:linux-classes.sun.net.www.p_68>"
-		"$<TARGET_OBJECTS:linux-classes.sun.net.www.p_70>"
-		"$<TARGET_OBJECTS:linux-classes.sun.net.www.p_71>"
+		"$<TARGET_OBJECTS:linux-classes.sun.net.www.p_58>"
+		"$<TARGET_OBJECTS:linux-classes.sun.net.www.p_60>"
+		"$<TARGET_OBJECTS:linux-classes.sun.net.www.p_61>"
 		"$<TARGET_OBJECTS:linux-classes.sun.nio.ch>"
 		"$<TARGET_OBJECTS:linux-classes.sun.nio.fs>"
-		"$<TARGET_OBJECTS:linux-classes.sun.security._72>"
+		"$<TARGET_OBJECTS:linux-classes.sun.security._62>"
 	)
 endif()
 
-if(JCPP_OS MATCHES "macosx")
+if(JCPP_OS MATCHES "macos")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:macosx-classes>"
-		"$<TARGET_OBJECTS:macosx-classes.apple.security>"
-		"$<TARGET_OBJECTS:macosx-classes.java.io>"
-		"$<TARGET_OBJECTS:macosx-classes.java.lang>"
-		"$<TARGET_OBJECTS:macosx-classes.java.net>"
-		"$<TARGET_OBJECTS:macosx-classes.java.nio.file>"
-		"$<TARGET_OBJECTS:macosx-classes.jdk.internal_52>"
-		"$<TARGET_OBJECTS:macosx-classes.jdk.internal_53>"
-		"$<TARGET_OBJECTS:macosx-classes.jdk.internal_54>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.net>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.net.dns>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.net.sdp>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.net.www._56>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.net.www._58>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.net.www._59>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.nio.ch>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.nio.fs>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.security_60>"
-		"$<TARGET_OBJECTS:macosx-classes.sun.util.loc_61>"
+		"$<TARGET_OBJECTS:macos-classes>"
+		"$<TARGET_OBJECTS:macos-classes.apple.security>"
+		"$<TARGET_OBJECTS:macos-classes.java.io>"
+		"$<TARGET_OBJECTS:macos-classes.java.lang>"
+		"$<TARGET_OBJECTS:macos-classes.java.net>"
+		"$<TARGET_OBJECTS:macos-classes.java.nio.file>"
+		"$<TARGET_OBJECTS:macos-classes.jdk.internal._63>"
+		"$<TARGET_OBJECTS:macos-classes.jdk.internal._64>"
+		"$<TARGET_OBJECTS:macos-classes.jdk.internal._65>"
+		"$<TARGET_OBJECTS:macos-classes.sun.net>"
+		"$<TARGET_OBJECTS:macos-classes.sun.net.dns>"
+		"$<TARGET_OBJECTS:macos-classes.sun.net.sdp>"
+		"$<TARGET_OBJECTS:macos-classes.sun.net.www.p_67>"
+		"$<TARGET_OBJECTS:macos-classes.sun.net.www.p_69>"
+		"$<TARGET_OBJECTS:macos-classes.sun.net.www.p_70>"
+		"$<TARGET_OBJECTS:macos-classes.sun.nio.ch>"
+		"$<TARGET_OBJECTS:macos-classes.sun.nio.fs>"
+		"$<TARGET_OBJECTS:macos-classes.sun.security._71>"
+		"$<TARGET_OBJECTS:macos-classes.sun.util.loca_72>"
 	)
 endif()
 
@@ -308,7 +308,7 @@ if(BUILD_SHARED_LIB)
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES VERSION ${JCPP_PROJECT_VERSION} SOVERSION 1)
 if(JCPP_OS MATCHES "linux")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES INSTALL_RPATH "\\\$ORIGIN;\\\$ORIGIN/../lib")
-elseif(JCPP_OS MATCHES "macosx")
+elseif(JCPP_OS MATCHES "macos")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES INSTALL_RPATH ".;../lib")
 endif()
 
@@ -318,7 +318,7 @@ endif()
 		)
 	endif()
 
-	if(JCPP_OS MATCHES "macosx")
+	if(JCPP_OS MATCHES "macos")
 		set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS}
 			"-framework CoreFoundation"
 			"-framework Foundation"
@@ -342,7 +342,7 @@ endif()
 
 	jcpp_enable_bigobj(${JCPP_PROJECT_NAME}_shared)
 
-	jcpp_enable_debug_info(${JCPP_PROJECT_NAME}_shared)
+	jcpp_encode_symbol(${JCPP_PROJECT_NAME}_shared)
 
 	install(TARGETS ${JCPP_PROJECT_NAME}_shared
 		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
@@ -363,9 +363,9 @@ if(JCPP_OS MATCHES "linux")
 	)
 endif()
 
-if(JCPP_OS MATCHES "macosx")
+if(JCPP_OS MATCHES "macos")
 	install(
-		DIRECTORY "macosx/include/"
+		DIRECTORY "macos/include/"
 		DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 	)
 endif()

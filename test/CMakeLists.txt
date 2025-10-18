@@ -11,8 +11,8 @@ if(JCPP_OS MATCHES "linux")
 	include_directories("../main/linux/include")
 endif()
 
-if(JCPP_OS MATCHES "macosx")
-	include_directories("../main/macosx/include")
+if(JCPP_OS MATCHES "macos")
+	include_directories("../main/macos/include")
 endif()
 
 if(JCPP_OS MATCHES "windows")
@@ -26,8 +26,8 @@ if(JCPP_OS MATCHES "linux")
 	aux_source_directory("linux" source_SRCS)
 endif()
 
-if(JCPP_OS MATCHES "macosx")
-	aux_source_directory("macosx" source_SRCS)
+if(JCPP_OS MATCHES "macos")
+	aux_source_directory("macos" source_SRCS)
 endif()
 
 if(JCPP_OS MATCHES "windows")
@@ -119,11 +119,11 @@ add_executable(${JCPP_PROJECT_FULL_NAME}-test "${local_object}" "${source_SRCS}"
 SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}-test")
 if(JCPP_OS MATCHES "linux")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES INSTALL_RPATH "\\\$ORIGIN;\\\$ORIGIN/../lib")
-elseif(JCPP_OS MATCHES "macosx")
+elseif(JCPP_OS MATCHES "macos")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES INSTALL_RPATH ".;../lib")
 endif()
 
-jcpp_enable_debug_info(${JCPP_PROJECT_FULL_NAME}-test)
+jcpp_encode_symbol(${JCPP_PROJECT_FULL_NAME}-test)
 
 if(BUILD_SHARED_LIB)
 	target_link_libraries(${JCPP_PROJECT_FULL_NAME}-test
@@ -890,7 +890,7 @@ if(JCPP_OS MATCHES "linux")
 	add_test(NAME textToNumericFormat COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> textToNumericFormat)
 endif()
 
-if(JCPP_OS MATCHES "macosx")
+if(JCPP_OS MATCHES "macos")
 	add_test(NAME B6427403 COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> B6427403)
 	add_test(NAME BigReadWrite COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> BigReadWrite)
 	add_test(NAME DeleteInterference COMMAND $<TARGET_FILE:${JCPP_PROJECT_FULL_NAME}-test> DeleteInterference)

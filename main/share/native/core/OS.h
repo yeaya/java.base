@@ -27,7 +27,7 @@
 #if defined(LINUX) || defined(AIX)
 	#include "UnixSemaphore.h"
 #elif defined(__APPLE__)
-	#include "MacosxSemaphore.h"
+	#include "MacosSemaphore.h"
 #elif defined(_WINDOWS)
 	#include "WindowsSemaphore.h"
 #endif

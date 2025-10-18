@@ -21,13 +21,13 @@ if(LIBFFI_LIB_PATH AND LIBFFI_INCLUDE_PATH)
 	include_directories(${LIBFFI_INCLUDE_PATH})
 	set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS} 	${LIBFFI_LIB_PATH} PARENT_SCOPE)
 else()
-	# TODO libffi build with cmake for macosx
+	# TODO libffi build with cmake for macos
 	if(JCPP_OS STREQUAL "windows" OR JCPP_OS STREQUAL "linux")
 		add_subdirectory(libffi)
 		set(local_object_native ${local_object_native} $<TARGET_OBJECTS:libffi>)
 		include_directories(${CMAKE_CURRENT_BINARY_DIR}/libffi/include)
 	else()
-		if(JCPP_OS STREQUAL "macosx")
+		if(JCPP_OS STREQUAL "macos")
 			if(EXISTS "/opt/homebrew/opt/libffi")
 				include_directories("/opt/homebrew/opt/libffi/include")
 				set(JCPP_EXT_LIBS ${JCPP_EXT_LIBS} "/opt/homebrew/opt/libffi/lib/libffi.a" PARENT_SCOPE)
@@ -86,23 +86,23 @@ if(JCPP_OS STREQUAL "linux")
 		-D_LARGEFILE64_SOURCE
 		-DINCLUDE_SUFFIX_OS=_linux
 	)
-elseif(JCPP_OS STREQUAL "macosx")
+elseif(JCPP_OS STREQUAL "macos")
 	include_directories(
 		"libjava/unix"
-		"libjava/macosx"
+		"libjava/macos"
 		"libnet/unix"
-		"libnet/macosx"
+		"libnet/macos"
 		"libnio/unix/ch"
 		"core/unix"
 		"core/unix/include"
-		"core/macosx"
+		"core/macos"
 	)
 	aux_source_directory("core/unix" native_SRCS)
-	aux_source_directory("core/macosx" native_SRCS)
+	aux_source_directory("core/macos" native_SRCS)
 	add_definitions(
 		-D_ALLBSD_SOURCE
 		-DMACOSX
-		-DINCLUDE_SUFFIX_OS=_macosx
+		-DINCLUDE_SUFFIX_OS=_macos
 	)
 elseif(JCPP_OS STREQUAL "windows")
 	include_directories(
@@ -125,7 +125,7 @@ elseif(JCPP_OS STREQUAL "windows")
 		-DNOMINMAX
 		-DINCLUDE_SUFFIX_OS=_windows
 	)
-	add_subdirectory(windebuginfo)
+	add_subdirectory(encodesymbol)
 endif()
 
 add_subdirectory(libfdlibm)
@@ -146,14 +146,12 @@ add_library(native OBJECT  "${native_SRCS}" "${native_HEADERS}")
 
 set(local_object ${local_object_native} $<TARGET_OBJECTS:native> PARENT_SCOPE)
 
-if(JCPP_CPU MATCHES "x86")
+if(JCPP_ARCH MATCHES "x86_64")
 	target_compile_definitions(native PUBLIC
 		-DAMD64
-#		-DINCLUDE_SUFFIX_CPU=_x86
 	)
-elseif(JCPP_CPU MATCHES "aarch64")
+elseif(JCPP_ARCH MATCHES "aarch64")
 	target_compile_definitions(native PUBLIC
-#		-DINCLUDE_SUFFIX_CPU=_aarch64
 		-DAARCH64
 	)
 endif()
