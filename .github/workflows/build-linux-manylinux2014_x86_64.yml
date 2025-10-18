@@ -15,8 +15,7 @@ jobs:
     container: quay.io/pypa/manylinux2014_x86_64
 
     steps:
-    - run: |
-      git clone --recursive https://github/libjdk/java.base
+    - run: git clone --recursive https://github/libjdk/java.base
 
     - name: Set up GCC
       uses: egor-tensin/setup-gcc@v1
