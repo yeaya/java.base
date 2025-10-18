@@ -15,7 +15,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      path: src
+      with:
+        path: src
 
     - name: Configure CMake
       run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
