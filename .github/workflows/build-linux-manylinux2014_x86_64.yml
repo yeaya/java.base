@@ -1,0 +1,62 @@
+name: Build on ubuntu-22.04
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    container: quay.io/pypa/manylinux2014_x86_64
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        path: src
+
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: 9
+        platform: x64
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 5
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base-source
+        path: ${{github.workspace}}/java.base-17.35.tar.gz
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: java.base
+        path: ${{github.workspace}}/java.base-17.35-linux-x86_64.tar.gz
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build/test
+      run: ctest --test-dir ${{github.workspace}}/build -C Release --exclude-from-file ${{github.workspace}}/src/.github/workflows/ctestexclude-linux.txt -VV
+
+  test:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/download-artifact@v5
+      with:
+        name: java.base
