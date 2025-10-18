@@ -15,7 +15,7 @@ jobs:
     container: quay.io/pypa/manylinux_2_28_x86_64
 
     steps:
-    - run: git clone --recursive ${{github.repositoryUrl}} ${{github.workspace}}/src
+    - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
     - uses: lukka/get-cmake@latest
 
