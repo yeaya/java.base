@@ -1,6 +1,9 @@
 # libjdk - Java Base Library
 
-[libjdk](https://github.com/libjdk/libjdk) is a C++ implementation of the Java Development Kit (JDK) base library, providing core Java functionality through native C++ code. This project implements the essential Java classes and APIs that form the foundation of the Java platform.
+![License](https://img.shields.io/badge/license-GPL%20v2%20with%20Classpath%20Exception-green.svg)
+![Platforms](https://img.shields.io/badge/platforms-Windows%20|%20Linux%20|%20macOS-lightgrey.svg)
+
+[**libjdk**](https://github.com/libjdk/libjdk) is a comprehensive C++ implementation of the Java Development Kit (JDK), providing native C++ libraries that mirror the functionality of Java's core libraries and modules. While it provides Java-like APIs, it runs as native C++ code without requiring a Java Virtual Machine.
 
 ## Overview
 
@@ -18,7 +21,6 @@ This project provides a complete C++ implementation of Java's core functionality
 
 - ✅ **Cross-platform Support**: Windows, Linux, and macOS
 - ✅ **CMake Build System**: Modern, portable build configuration
-- ✅ **Shared/Static Libraries**: Flexible linking options
 - ✅ **Comprehensive Testing**: Extensive test suite included
 - ✅ **OpenJDK Compatible**: Based on OpenJDK 17.35
 - ✅ **GPL Licensed**: Free software with Classpath exception
@@ -61,16 +63,16 @@ This project includes several third-party libraries with appropriate licensing:
 #include <jcpp.h>
 
 int main() {
-	$System::init();
-	try {
-		$System::out->println("Hello, libjdk!"_s);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
-		e->printStackTrace();
+    $System::init();
+    try {
+        $System::out->println("Hello, libjdk!"_s);
+    } catch ($Throwable&) {
+        $var($Throwable, e, $catch());
+        e->printStackTrace();
         return 1;
-	}
-	$System::deinit();
-	return 0;
+    }
+    $System::deinit();
+    return 0;
 }
 ```
 
