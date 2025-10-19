@@ -92,7 +92,3 @@ This project is licensed under the GNU General Public License v2 with the Classp
 ## Legal Notices
 
 This project includes code from various open source projects. See the [legal/](legal/) directory for detailed licensing information for each component.
-
----
-
-**Note**: This is a C++ implementation of Java core functionality. While it provides Java-like APIs, it runs as native C++ code without requiring a Java Virtual Machine.
