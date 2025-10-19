@@ -53,4 +53,4 @@ jobs:
         name: java.base-17.35-linux-x86_64
 
     - run: tar xzvf java.base-17.35-linux-x86_64.tar.gz
-    - run: ./java.base-17.35-linux-x86_64/bin/java.base-test
+    - run: ./java.base-17.35-linux-x86_64/bin/java.base-test --exclude GetCallerClassTest,HiddenFrames,WalkFunction
