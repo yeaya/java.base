@@ -314,6 +314,7 @@ void ArrayList$SubList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* ArrayList$SubList::outOfBoundsMsg(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 

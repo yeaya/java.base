@@ -231,6 +231,7 @@ ReflectionFactory* ReflectionFactory::getReflectionFactory() {
 
 $Method* ReflectionFactory::findMethodForReflection($Method* method) {
 	$init(ReflectionFactory);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, altName, $str({"reflected$"_s, $($nc(method)->getName())}));
 	try {
@@ -243,6 +244,7 @@ $Method* ReflectionFactory::findMethodForReflection($Method* method) {
 }
 
 $FieldAccessor* ReflectionFactory::newFieldAccessor($Field* field$renamed, bool override$) {
+	$useLocalCurrentObjectStackCache();
 	$var($Field, field, field$renamed);
 	checkInitted();
 	$var($Field, root, $cast($Field, $nc(this->langReflectAccess)->getRoot(field)));
@@ -279,6 +281,7 @@ $MethodAccessor* ReflectionFactory::newMethodAccessor($Method* method0) {
 }
 
 $ConstructorAccessor* ReflectionFactory::newConstructorAccessor($Constructor* c$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Constructor, c, c$renamed);
 	checkInitted();
 	$Class* declaringClass = $nc(c)->getDeclaringClass();
@@ -350,6 +353,7 @@ $Object* ReflectionFactory::newInstance($Constructor* ctor, $ObjectArray* args, 
 }
 
 $Constructor* ReflectionFactory::newConstructorForExternalization($Class* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Externalizable);
 	if (!$Externalizable::class$->isAssignableFrom(cl)) {
@@ -376,6 +380,7 @@ $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl, $Con
 }
 
 bool ReflectionFactory::superHasAccessibleConstructor($Class* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* superCl = $nc(cl)->getSuperclass();
 	$load($Serializable);
@@ -425,6 +430,7 @@ bool ReflectionFactory::superHasAccessibleConstructor($Class* cl) {
 }
 
 $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* initCl = cl;
 	$load($Serializable);
@@ -450,6 +456,7 @@ $Constructor* ReflectionFactory::newConstructorForSerialization($Class* cl) {
 }
 
 $Constructor* ReflectionFactory::generateConstructor($Class* cl, $Constructor* constructorToCall) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* var$0 = cl;
 	$var($ClassArray, var$1, $nc(constructorToCall)->getParameterTypes());
@@ -485,6 +492,7 @@ $MethodHandle* ReflectionFactory::writeObjectForSerialization($Class* cl) {
 }
 
 $MethodHandle* ReflectionFactory::findReadWriteObjectForSerialization($Class* cl, $String* methodName, $Class* streamClass) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Serializable);
 	if (!$Serializable::class$->isAssignableFrom(cl)) {
@@ -520,6 +528,7 @@ $MethodHandle* ReflectionFactory::readResolveForSerialization($Class* cl) {
 }
 
 $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Serializable);
 	if (!$Serializable::class$->isAssignableFrom(cl)) {
@@ -562,6 +571,7 @@ $MethodHandle* ReflectionFactory::getReplaceResolveForSerialization($Class* cl, 
 }
 
 bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, m, ReflectionFactory::hasStaticInitializerMethod);
 	if (m == nullptr) {
@@ -590,6 +600,7 @@ bool ReflectionFactory::hasStaticInitializerForSerialization($Class* cl) {
 }
 
 $Constructor* ReflectionFactory::newOptionalDataExceptionForSerialization() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($OptionalDataException);
@@ -611,6 +622,7 @@ int32_t ReflectionFactory::inflationThreshold() {
 
 void ReflectionFactory::checkInitted() {
 	$init(ReflectionFactory);
+	$useLocalCurrentObjectStackCache();
 	if (ReflectionFactory::initted) {
 		return;
 	}

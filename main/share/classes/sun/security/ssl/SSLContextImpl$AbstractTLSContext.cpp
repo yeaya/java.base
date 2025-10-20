@@ -122,6 +122,7 @@ bool SSLContextImpl$AbstractTLSContext::isDTLS() {
 }
 
 void clinit$SSLContextImpl$AbstractTLSContext($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 			$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$AbstractTLSContext::supportedProtocols, $Arrays::asList($$new($ProtocolVersionArray, {

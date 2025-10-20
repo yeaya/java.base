@@ -150,6 +150,7 @@ bool MethodHandleStatics::debugEnabled() {
 
 void MethodHandleStatics::traceLambdaForm($String* name, $MethodType* type, $Class* holder, $MemberName* resolvedMember) {
 	$init(MethodHandleStatics);
+	$useLocalCurrentObjectStackCache();
 	if (MethodHandleStatics::TRACE_RESOLVE) {
 		$init($System);
 		$var($String, var$1, $$str({"[LF_RESOLVE] "_s, $($nc(holder)->getName()), " "_s, name, " "_s}));
@@ -247,6 +248,7 @@ $String* MethodHandleStatics::message($String* message$renamed, Object$* obj, Ob
 
 void MethodHandleStatics::rangeCheck2(int32_t start, int32_t end, int32_t size) {
 	$init(MethodHandleStatics);
+	$useLocalCurrentObjectStackCache();
 	if (0 > start || start > end || end > size) {
 		$throwNew($IndexOutOfBoundsException, $$str({$$str(start), ".."_s, $$str(end)}));
 	}
@@ -261,6 +263,7 @@ int32_t MethodHandleStatics::rangeCheck1(int32_t index, int32_t size) {
 }
 
 void clinit$MethodHandleStatics($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MethodHandleStatics::UNSAFE, $Unsafe::getUnsafe());
 	{
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());

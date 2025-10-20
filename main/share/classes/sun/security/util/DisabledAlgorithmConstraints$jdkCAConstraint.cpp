@@ -74,6 +74,7 @@ void DisabledAlgorithmConstraints$jdkCAConstraint::init$($String* algo) {
 }
 
 void DisabledAlgorithmConstraints$jdkCAConstraint::permits($ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	$init($DisabledAlgorithmConstraints);
 	if ($DisabledAlgorithmConstraints::debug != nullptr) {
 		$nc($DisabledAlgorithmConstraints::debug)->println($$str({"jdkCAConstraints.permits(): "_s, this->algorithm}));

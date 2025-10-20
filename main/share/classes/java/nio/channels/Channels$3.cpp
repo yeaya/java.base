@@ -110,6 +110,7 @@ void Channels$3::write(int32_t b) {
 
 void Channels$3::write($bytes* bs, int32_t off, int32_t len) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if ((off < 0) || (off > $nc(bs)->length) || (len < 0) || ((off + len) > $nc(bs)->length) || ((off + len) < 0)) {
 			$throwNew($IndexOutOfBoundsException);
 		} else if (len == 0) {

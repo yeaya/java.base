@@ -123,6 +123,7 @@ void KeyStoreSpi::engineLoad($KeyStore$LoadStoreParameter* param) {
 }
 
 void KeyStoreSpi::engineLoad($InputStream* stream, $KeyStore$LoadStoreParameter* param) {
+	$useLocalCurrentObjectStackCache();
 	if (param == nullptr) {
 		engineLoad(($InputStream*)nullptr, ($chars*)nullptr);
 		return;
@@ -153,6 +154,7 @@ void KeyStoreSpi::engineLoad($InputStream* stream, $KeyStore$LoadStoreParameter*
 }
 
 $KeyStore$Entry* KeyStoreSpi::engineGetEntry($String* alias, $KeyStore$ProtectionParameter* protParam) {
+	$useLocalCurrentObjectStackCache();
 	if (!engineContainsAlias(alias)) {
 		return nullptr;
 	}
@@ -185,6 +187,7 @@ $KeyStore$Entry* KeyStoreSpi::engineGetEntry($String* alias, $KeyStore$Protectio
 }
 
 void KeyStoreSpi::engineSetEntry($String* alias, $KeyStore$Entry* entry, $KeyStore$ProtectionParameter* protParam) {
+	$useLocalCurrentObjectStackCache();
 	if (protParam != nullptr && !($instanceOf($KeyStore$PasswordProtection, protParam))) {
 		$throwNew($KeyStoreException, "unsupported protection parameter"_s);
 	}

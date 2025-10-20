@@ -92,6 +92,7 @@ void StaticFieldsOnInterface::main($StringArray* args) {
 
 void StaticFieldsOnInterface::assertOneField($Class* c) {
 	$load(StaticFieldsOnInterface);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t nfs = $nc($($nc(c)->getFields()))->length;
 	if (nfs != 1) {

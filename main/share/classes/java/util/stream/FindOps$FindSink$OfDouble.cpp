@@ -248,6 +248,7 @@ void FindOps$FindSink$OfDouble::accept($Double* value) {
 }
 
 void clinit$FindOps$FindSink$OfDouble($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamShape);
 	$var($StreamShape, var$0, $StreamShape::DOUBLE_VALUE);
 	$var($Object, var$1, $of($OptionalDouble::empty()));

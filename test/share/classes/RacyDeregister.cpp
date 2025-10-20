@@ -105,6 +105,7 @@ void RacyDeregister::init$() {
 
 void RacyDeregister::main($StringArray* args) {
 	$init(RacyDeregister);
+	$useLocalCurrentObjectStackCache();
 	RacyDeregister::t0 = $System::currentTimeMillis();
 	$var($InetAddress, addr, $InetAddress::getByName(nullptr));
 	$var($ServerSocketChannel, sc, $ServerSocketChannel::open());

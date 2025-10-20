@@ -415,6 +415,7 @@ void DatagramSocket::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* ne
 
 bool DatagramSocket::usePlainDatagramSocketImpl() {
 	$init(DatagramSocket);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(DatagramSocket$$Lambda$lambda$usePlainDatagramSocketImpl$0)));
 	$var($String, s, $cast($String, $AccessController::doPrivileged(pa)));
@@ -428,6 +429,7 @@ bool DatagramSocket::usePlainDatagramSocketImpl() {
 
 $SocketException* DatagramSocket::toSocketException($IOException* e) {
 	$init(DatagramSocket);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($SocketException, e)) {
 		return $cast($SocketException, e);
 	}
@@ -442,6 +444,7 @@ $SocketException* DatagramSocket::toSocketException($IOException* e) {
 
 DatagramSocket* DatagramSocket::createDelegate($SocketAddress* bindaddr, $Class* type) {
 	$init(DatagramSocket);
+	$useLocalCurrentObjectStackCache();
 	if (bindaddr == DatagramSocket::NO_DELEGATE) {
 		return nullptr;
 	}

@@ -77,6 +77,7 @@ void OutOfBand4Selector::init$() {
 }
 
 void OutOfBand4Selector::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, nullptr);
 	$var($SocketChannel, sc, nullptr);
 	$var($Selector, sel, nullptr);
@@ -126,6 +127,7 @@ void OutOfBand4Selector::main($StringArray* args) {
 }
 
 void OutOfBand4Selector::test($Socket* s, bool urgentExpected, int32_t bytesBefore, int32_t bytesAfter, $Selector* sel) {
+	$useLocalCurrentObjectStackCache();
 	int32_t bytesExpected = 0;
 	if (bytesBefore > 0) {
 		$nc($($nc(s)->getOutputStream()))->write($$new($bytes, bytesBefore));

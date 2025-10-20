@@ -91,6 +91,7 @@ void FailingConstructors::init$() {
 
 void FailingConstructors::realMain($StringArray* args) {
 	$init(FailingConstructors);
+	$useLocalCurrentObjectStackCache();
 	test(false, $$new($File, FailingConstructors::fileName));
 	$var($File, file, $File::createTempFile(FailingConstructors::fileName, nullptr));
 	$nc(file)->deleteOnExit();
@@ -103,6 +104,7 @@ void FailingConstructors::realMain($StringArray* args) {
 
 void FailingConstructors::test(bool exists, $File* file) {
 	$init(FailingConstructors);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$new($PrintWriter, file, FailingConstructors::UNSUPPORTED_CHARSET);
 		fail();
@@ -160,6 +162,7 @@ void FailingConstructors::check(bool exists, $File* file) {
 
 void FailingConstructors::verifyContents($File* file) {
 	$init(FailingConstructors);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($FileInputStream, fis, $new($FileInputStream, file));
 		{
@@ -231,6 +234,7 @@ void FailingConstructors::unexpected($Throwable* t) {
 
 void FailingConstructors::main($StringArray* args) {
 	$init(FailingConstructors);
+	$useLocalCurrentObjectStackCache();
 	try {
 		realMain(args);
 	} catch ($Throwable&) {

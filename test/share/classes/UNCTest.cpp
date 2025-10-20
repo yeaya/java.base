@@ -39,6 +39,7 @@ void UNCTest::init$() {
 }
 
 void UNCTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $new($URL, $nc(args)->get(0)));
 	$var($URLConnection, conn, url->openConnection());
 	$nc(conn)->setRequestProperty("User-Agent"_s, "Java"_s);

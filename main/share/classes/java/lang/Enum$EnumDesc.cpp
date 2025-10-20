@@ -70,6 +70,7 @@ $Object* allocate$Enum$EnumDesc($Class* clazz) {
 }
 
 void Enum$EnumDesc::init$($ClassDesc* constantClass, $String* constantName) {
+	$useLocalCurrentObjectStackCache();
 	$init($ConstantDescs);
 	$var($DirectMethodHandleDesc, var$0, $ConstantDescs::BSM_ENUM_CONSTANT);
 	$var($String, var$1, $cast($String, $Objects::requireNonNull(constantName)));
@@ -82,11 +83,13 @@ Enum$EnumDesc* Enum$EnumDesc::of($ClassDesc* enumClass, $String* constantName) {
 }
 
 $Object* Enum$EnumDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$Class* var$0 = $cast($Class, $nc($(constantType()))->resolveConstantDesc(lookup));
 	return $of($Enum::valueOf(var$0, $(constantName())));
 }
 
 $String* Enum$EnumDesc::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("EnumDesc[%s.%s]"_s, $$new($ObjectArray, {
 		$($of($nc($(constantType()))->displayName())),
 		$($of(constantName()))

@@ -49,6 +49,7 @@ void Create::init$() {
 }
 
 void Create::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, fileName, createFileName(Create::length));
 	$var($File, file, $new($File, fileName));
 	try {

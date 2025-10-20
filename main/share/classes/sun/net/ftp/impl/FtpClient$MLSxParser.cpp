@@ -69,6 +69,7 @@ void FtpClient$MLSxParser::init$() {
 }
 
 $FtpDirEntry* FtpClient$MLSxParser::parseLine($String* line$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, line, line$renamed);
 	$var($String, name, nullptr);
 	int32_t i = $nc(line)->lastIndexOf((int32_t)u';');

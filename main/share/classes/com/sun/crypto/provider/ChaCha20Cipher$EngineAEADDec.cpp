@@ -116,6 +116,7 @@ int32_t ChaCha20Cipher$EngineAEADDec::doUpdate($bytes* in, int32_t inOff, int32_
 }
 
 int32_t ChaCha20Cipher$EngineAEADDec::doFinal($bytes* in, int32_t inOff, int32_t inLen, $bytes* out, int32_t outOff) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, ctPlusTag, nullptr);
 	int32_t ctPlusTagLen = 0;
 	if ($nc(this->cipherBuf)->size() == 0 && inOff == 0) {

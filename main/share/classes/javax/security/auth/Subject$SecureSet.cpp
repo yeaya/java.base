@@ -204,6 +204,7 @@ $Iterator* Subject$SecureSet::iterator() {
 }
 
 bool Subject$SecureSet::add(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(o, $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	if ($nc(this->subject)->isReadOnly()) {
 		$throwNew($IllegalStateException, $($ResourcesMgr::getString("Subject.is.read.only"_s)));
@@ -252,6 +253,7 @@ bool Subject$SecureSet::add(Object$* o) {
 }
 
 bool Subject$SecureSet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(o, $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	$var($Iterator, e, iterator());
@@ -271,6 +273,7 @@ bool Subject$SecureSet::remove(Object$* o) {
 }
 
 bool Subject$SecureSet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(o, $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	$var($Iterator, e, iterator());
@@ -294,6 +297,7 @@ bool Subject$SecureSet::contains(Object$* o) {
 }
 
 bool Subject$SecureSet::addAll($Collection* c$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, c, c$renamed);
 	bool result = false;
 	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
@@ -310,6 +314,7 @@ bool Subject$SecureSet::addAll($Collection* c$renamed) {
 }
 
 bool Subject$SecureSet::removeAll($Collection* c$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, c, c$renamed);
 	$beforeCallerSensitive();
 	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
@@ -335,6 +340,7 @@ bool Subject$SecureSet::removeAll($Collection* c$renamed) {
 }
 
 bool Subject$SecureSet::containsAll($Collection* c$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, c, c$renamed);
 	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
 	{
@@ -352,6 +358,7 @@ bool Subject$SecureSet::containsAll($Collection* c$renamed) {
 }
 
 bool Subject$SecureSet::retainAll($Collection* c$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, c, c$renamed);
 	$beforeCallerSensitive();
 	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
@@ -373,6 +380,7 @@ bool Subject$SecureSet::retainAll($Collection* c$renamed) {
 }
 
 void Subject$SecureSet::clear() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Iterator, e, iterator());
 	while ($nc(e)->hasNext()) {
@@ -407,6 +415,7 @@ $ObjectArray* Subject$SecureSet::toArray($ObjectArray* a) {
 }
 
 bool Subject$SecureSet::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -431,6 +440,7 @@ bool Subject$SecureSet::equals(Object$* o) {
 }
 
 int32_t Subject$SecureSet::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($Iterator, i, iterator());
 	while ($nc(i)->hasNext()) {
@@ -443,6 +453,7 @@ int32_t Subject$SecureSet::hashCode() {
 }
 
 void Subject$SecureSet::writeObject($ObjectOutputStream* oos) {
+	$useLocalCurrentObjectStackCache();
 	if (this->which == $Subject::PRIV_CREDENTIAL_SET) {
 		$var($Iterator, i, iterator());
 		while ($nc(i)->hasNext()) {
@@ -457,6 +468,7 @@ void Subject$SecureSet::writeObject($ObjectOutputStream* oos) {
 }
 
 void Subject$SecureSet::readObject($ObjectInputStream* ois) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(ois)->readFields());
 	$set(this, subject, $cast($Subject, $nc(fields)->get("this$0"_s, ($Object*)nullptr)));
 	this->which = fields->get("which"_s, 0);
@@ -465,6 +477,7 @@ void Subject$SecureSet::readObject($ObjectInputStream* ois) {
 }
 
 void clinit$Subject$SecureSet($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($Subject);
 		$load($LinkedList);
 		$init($Integer);

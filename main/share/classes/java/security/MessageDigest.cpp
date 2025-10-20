@@ -131,6 +131,7 @@ void MessageDigest::init$($String* algorithm, $Provider* p) {
 
 MessageDigest* MessageDigest::getInstance($String* algorithm) {
 	$init(MessageDigest);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	$var(MessageDigest, md, nullptr);
 	$load($MessageDigestSpi);
@@ -158,6 +159,7 @@ MessageDigest* MessageDigest::getInstance($String* algorithm) {
 
 MessageDigest* MessageDigest::getInstance($String* algorithm, $String* provider) {
 	$init(MessageDigest);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -185,6 +187,7 @@ MessageDigest* MessageDigest::getInstance($String* algorithm, $String* provider)
 
 MessageDigest* MessageDigest::getInstance($String* algorithm, $Provider* provider) {
 	$init(MessageDigest);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -269,6 +272,7 @@ $String* MessageDigest::getProviderName() {
 }
 
 $String* MessageDigest::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($PrintStream, p, $new($PrintStream, static_cast<$OutputStream*>(baos)));
 	p->print($$str({this->algorithm, " Message Digest from "_s, $(getProviderName()), ", "_s}));
@@ -320,6 +324,7 @@ $String* MessageDigest::getAlgorithm() {
 }
 
 int32_t MessageDigest::getDigestLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t digestLen = engineGetDigestLength();
 	if (digestLen == 0) {
 		try {

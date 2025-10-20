@@ -135,6 +135,7 @@ void ForkJoinTask$AdaptedInterruptibleCallable::setRawResult(Object$* v) {
 }
 
 bool ForkJoinTask$AdaptedInterruptibleCallable::exec() {
+	$useLocalCurrentObjectStackCache();
 	$Thread::interrupted();
 	$set(this, runner, $Thread::currentThread());
 	{

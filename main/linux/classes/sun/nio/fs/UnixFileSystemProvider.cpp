@@ -268,6 +268,7 @@ $String* UnixFileSystemProvider::getScheme() {
 }
 
 void UnixFileSystemProvider::checkUri($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, "URI does not match this provider"_s);
 	}
@@ -374,6 +375,7 @@ $DynamicFileAttributeView* UnixFileSystemProvider::getFileAttributeView($Path* o
 }
 
 $FileChannel* UnixFileSystemProvider::newFileChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, checkPath(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
@@ -388,6 +390,7 @@ $FileChannel* UnixFileSystemProvider::newFileChannel($Path* obj, $Set* options, 
 }
 
 $AsynchronousFileChannel* UnixFileSystemProvider::newAsynchronousFileChannel($Path* obj, $Set* options, $ExecutorService* executor, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, checkPath(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
@@ -403,6 +406,7 @@ $AsynchronousFileChannel* UnixFileSystemProvider::newAsynchronousFileChannel($Pa
 }
 
 $SeekableByteChannel* UnixFileSystemProvider::newByteChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
@@ -417,6 +421,7 @@ $SeekableByteChannel* UnixFileSystemProvider::newByteChannel($Path* obj, $Set* o
 }
 
 bool UnixFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$nc(file)->checkDelete();
 	$var($UnixFileAttributes, attrs, nullptr);
@@ -449,16 +454,19 @@ bool UnixFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 }
 
 void UnixFileSystemProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, var$0, $UnixPath::toUnixPath(source));
 	$UnixCopyFile::copy(var$0, $($UnixPath::toUnixPath(target)), options);
 }
 
 void UnixFileSystemProvider::move($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, var$0, $UnixPath::toUnixPath(source));
 	$UnixCopyFile::move(var$0, $($UnixPath::toUnixPath(target)), options);
 }
 
 void UnixFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	bool e = false;
 	bool r = false;
@@ -528,6 +536,7 @@ void UnixFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
 }
 
 bool UnixFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file1, $UnixPath::toUnixPath(obj1));
 	if ($nc(file1)->equals(obj2)) {
 		return true;
@@ -561,6 +570,7 @@ bool UnixFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 }
 
 bool UnixFileSystemProvider::isHidden($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$nc(file)->checkRead();
 	$var($UnixPath, name, file->getFileName());
@@ -577,6 +587,7 @@ bool UnixFileSystemProvider::isHidden($Path* obj) {
 }
 
 $FileStore* UnixFileSystemProvider::getFileStore($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, $UnixPath::toUnixPath(obj));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -587,6 +598,7 @@ $FileStore* UnixFileSystemProvider::getFileStore($Path* obj) {
 }
 
 void UnixFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, dir, $UnixPath::toUnixPath(obj));
 	$nc(dir)->checkWrite();
 	$init($UnixFileModeAttribute);
@@ -604,6 +616,7 @@ void UnixFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* at
 }
 
 $DirectoryStream* UnixFileSystemProvider::newDirectoryStream($Path* obj, $DirectoryStream$Filter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, dir, $UnixPath::toUnixPath(obj));
 	$nc(dir)->checkRead();
 	if (filter == nullptr) {
@@ -646,6 +659,7 @@ $DirectoryStream* UnixFileSystemProvider::newDirectoryStream($Path* obj, $Direct
 }
 
 void UnixFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, link, $UnixPath::toUnixPath(obj1));
 	$var($UnixPath, target, $UnixPath::toUnixPath(obj2));
 	if ($nc(attrs)->length > 0) {
@@ -666,6 +680,7 @@ void UnixFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileA
 }
 
 void UnixFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, link, $UnixPath::toUnixPath(obj1));
 	$var($UnixPath, existing, $UnixPath::toUnixPath(obj2));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -683,6 +698,7 @@ void UnixFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
 }
 
 $Path* UnixFileSystemProvider::readSymbolicLink($Path* obj1) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, link, $UnixPath::toUnixPath(obj1));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {

@@ -55,12 +55,14 @@ void EnsureCapacity::main($StringArray* args) {
 }
 
 void EnsureCapacity::checkCapacity(int32_t before, int32_t after) {
+	$useLocalCurrentObjectStackCache();
 	if (before != after) {
 		$throwNew($RuntimeException, $$str({"capacity is expected to be unchanged: before="_s, $$str(before), " after="_s, $$str(after)}));
 	}
 }
 
 void EnsureCapacity::testStringBuilder() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "abc"_s));
 	int32_t cap = sb->capacity();
 	sb->ensureCapacity($Integer::MIN_VALUE);
@@ -80,6 +82,7 @@ void EnsureCapacity::testStringBuilder() {
 }
 
 void EnsureCapacity::testStringBuffer() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer, "abc"_s));
 	int32_t cap = sb->capacity();
 	sb->ensureCapacity($Integer::MIN_VALUE);

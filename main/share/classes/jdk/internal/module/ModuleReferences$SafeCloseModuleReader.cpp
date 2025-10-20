@@ -88,6 +88,7 @@ void ModuleReferences$SafeCloseModuleReader::init$() {
 }
 
 $Optional* ModuleReferences$SafeCloseModuleReader::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -117,6 +118,7 @@ $Optional* ModuleReferences$SafeCloseModuleReader::find($String* name) {
 }
 
 $Optional* ModuleReferences$SafeCloseModuleReader::open($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -146,6 +148,7 @@ $Optional* ModuleReferences$SafeCloseModuleReader::open($String* name) {
 }
 
 $Stream* ModuleReferences$SafeCloseModuleReader::list() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);

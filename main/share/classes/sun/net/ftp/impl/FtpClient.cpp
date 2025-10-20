@@ -615,6 +615,7 @@ $DateTimeFormatter* FtpClient::RFC3659_DATETIME_FORMAT = nullptr;
 
 bool FtpClient::isASCIISuperset($String* encoding) {
 	$init(FtpClient);
+	$useLocalCurrentObjectStackCache();
 	$var($String, chkS, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.!~*\'();/?:@&=+$,"_s);
 	$var($bytes, chkB, $new($bytes, {
 		(int8_t)48,
@@ -704,6 +705,7 @@ bool FtpClient::isASCIISuperset($String* encoding) {
 }
 
 void FtpClient::getTransferSize() {
+	$useLocalCurrentObjectStackCache();
 	this->lastTransSize = -1;
 	$var($String, response, getLastResponseString());
 	if (FtpClient::transPat == nullptr) {
@@ -728,6 +730,7 @@ void FtpClient::getTransferName() {
 }
 
 int32_t FtpClient::readServerResponse() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, replyBuf, $new($StringBuilder, 32));
 	int32_t c = 0;
 	int32_t continuingCode = -1;
@@ -824,6 +827,7 @@ bool FtpClient::readReply() {
 }
 
 bool FtpClient::issueCommand($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	if (!isConnected()) {
 		$throwNew($IllegalStateException, "Not connected"_s);
 	}
@@ -844,6 +848,7 @@ bool FtpClient::issueCommand($String* cmd) {
 }
 
 void FtpClient::issueCommandCheck($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	if (!issueCommand(cmd)) {
 		$var($String, var$0, $str({cmd, ":"_s, $(getResponseString())}));
 		$throwNew($FtpProtocolException, var$0, $(getLastReplyCode()));
@@ -851,6 +856,7 @@ void FtpClient::issueCommandCheck($String* cmd) {
 }
 
 $Socket* FtpClient::openPassiveDataConnection($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, serverAnswer, nullptr);
 	int32_t port = 0;
@@ -947,6 +953,7 @@ $Socket* FtpClient::openPassiveDataConnection($String* cmd) {
 }
 
 $InetSocketAddress* FtpClient::validatePasvAddress(int32_t port, $String* s, $InetAddress* address) {
+	$useLocalCurrentObjectStackCache();
 	if (address == nullptr) {
 		return $InetSocketAddress::createUnresolved($($nc(this->serverAddr)->getHostName()), port);
 	}
@@ -985,6 +992,7 @@ $InetSocketAddress* FtpClient::validatePasvAddress(int32_t port, $String* s, $In
 
 $InetAddress* FtpClient::privilegedLocalHost() {
 	$init(FtpClient);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, action, static_cast<$PrivilegedExceptionAction*>($new(FtpClient$$Lambda$getLocalHost$4)));
 	try {
@@ -1001,6 +1009,7 @@ $InetAddress* FtpClient::privilegedLocalHost() {
 
 $InetAddressArray* FtpClient::privilegedGetAllByName($String* hostName) {
 	$init(FtpClient);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pAction, static_cast<$PrivilegedExceptionAction*>($new(FtpClient$$Lambda$lambda$privilegedGetAllByName$2$5, hostName)));
 	try {
@@ -1016,6 +1025,7 @@ $InetAddressArray* FtpClient::privilegedGetAllByName($String* hostName) {
 }
 
 $Socket* FtpClient::openDataConnection($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, clientSocket, nullptr);
 	{
 		try {
@@ -1168,6 +1178,7 @@ $Proxy* FtpClient::getProxy() {
 }
 
 void FtpClient::tryConnect($InetSocketAddress* dest, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	if (isConnected()) {
 		disconnect();
 	}
@@ -1182,6 +1193,7 @@ void FtpClient::tryConnect($InetSocketAddress* dest, int32_t timeout) {
 }
 
 $Socket* FtpClient::doConnect($InetSocketAddress* dest, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Socket, s, nullptr);
 	if (this->proxy != nullptr) {
@@ -1242,6 +1254,7 @@ $FtpClient* FtpClient::connect($SocketAddress* dest) {
 }
 
 $FtpClient* FtpClient::connect($SocketAddress* dest, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($InetSocketAddress, dest))) {
 		$throwNew($IllegalArgumentException, "Wrong address type"_s);
 	}
@@ -1255,6 +1268,7 @@ $FtpClient* FtpClient::connect($SocketAddress* dest, int32_t timeout) {
 }
 
 void FtpClient::tryLogin($String* user, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck($$str({"USER "_s, user}));
 	$init($FtpReplyCode);
 	if (this->lastReplyCode == $FtpReplyCode::NEED_PASSWORD) {
@@ -1265,6 +1279,7 @@ void FtpClient::tryLogin($String* user, $chars* password) {
 }
 
 $FtpClient* FtpClient::login($String* user, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	if (!isConnected()) {
 		$init($FtpReplyCode);
 		$throwNew($FtpProtocolException, "Not connected yet"_s, $FtpReplyCode::BAD_SEQUENCE);
@@ -1291,6 +1306,7 @@ $FtpClient* FtpClient::login($String* user, $chars* password) {
 }
 
 $FtpClient* FtpClient::login($String* user, $chars* password, $String* account) {
+	$useLocalCurrentObjectStackCache();
 	if (!isConnected()) {
 		$init($FtpReplyCode);
 		$throwNew($FtpProtocolException, "Not connected yet"_s, $FtpReplyCode::BAD_SEQUENCE);
@@ -1373,6 +1389,7 @@ $FtpClient* FtpClient::setRestartOffset(int64_t offset) {
 }
 
 $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
+	$useLocalCurrentObjectStackCache();
 	if (this->restartOffset > 0) {
 		$var($Socket, s, nullptr);
 		{
@@ -1460,6 +1477,7 @@ $FtpClient* FtpClient::getFile($String* name, $OutputStream* local) {
 }
 
 $InputStream* FtpClient::getFileStream($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, nullptr);
 	if (this->restartOffset > 0) {
 		{
@@ -1491,6 +1509,7 @@ $InputStream* FtpClient::getFileStream($String* name) {
 }
 
 $OutputStream* FtpClient::putFileStream($String* name, bool unique) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cmd, unique ? "STOU "_s : "STOR "_s);
 	$var($Socket, s, openDataConnection($$str({cmd, name})));
 	if (s == nullptr) {
@@ -1502,6 +1521,7 @@ $OutputStream* FtpClient::putFileStream($String* name, bool unique) {
 }
 
 $FtpClient* FtpClient::putFile($String* name, $InputStream* local, bool unique) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cmd, unique ? "STOU "_s : "STOR "_s);
 	$init($FtpClient$TransferType);
 	if (this->type == $FtpClient$TransferType::BINARY) {
@@ -1542,6 +1562,7 @@ $FtpClient* FtpClient::putFile($String* name, $InputStream* local, bool unique) 
 }
 
 $FtpClient* FtpClient::appendFile($String* name, $InputStream* local) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, openDataConnection($$str({"APPE "_s, name})));
 	{
 		$var($OutputStream, remote, createOutputStream($($nc(s)->getOutputStream())));
@@ -1578,6 +1599,7 @@ $FtpClient* FtpClient::appendFile($String* name, $InputStream* local) {
 }
 
 $FtpClient* FtpClient::rename($String* from, $String* to) {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck($$str({"RNFR "_s, from}));
 	issueCommandCheck($$str({"RNTO "_s, to}));
 	return this;
@@ -1604,6 +1626,7 @@ $FtpClient* FtpClient::noop() {
 }
 
 $String* FtpClient::getStatus($String* name) {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck((name == nullptr ? "STAT"_s : $$str({"STAT "_s, name})));
 	$var($Vector, resp, getResponseStrings());
 	$var($StringBuilder, sb, $new($StringBuilder));
@@ -1614,6 +1637,7 @@ $String* FtpClient::getStatus($String* name) {
 }
 
 $List* FtpClient::getFeatures() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, features, $new($ArrayList));
 	issueCommandCheck("FEAT"_s);
 	$var($Vector, resp, getResponseStrings());
@@ -1630,6 +1654,7 @@ $FtpClient* FtpClient::abort() {
 }
 
 $FtpClient* FtpClient::completePending() {
+	$useLocalCurrentObjectStackCache();
 	while (this->replyPending) {
 		this->replyPending = false;
 		if (!readReply()) {
@@ -1640,6 +1665,7 @@ $FtpClient* FtpClient::completePending() {
 }
 
 $FtpClient* FtpClient::reInit() {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck("REIN"_s);
 	this->loggedIn = false;
 	if (this->useCrypto) {
@@ -1679,6 +1705,7 @@ $FtpClient* FtpClient::setType($FtpClient$TransferType* type) {
 }
 
 $InputStream* FtpClient::list($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, nullptr);
 	$assign(s, openDataConnection(path == nullptr ? "LIST"_s : $$str({"LIST "_s, path})));
 	if (s != nullptr) {
@@ -1688,6 +1715,7 @@ $InputStream* FtpClient::list($String* path) {
 }
 
 $InputStream* FtpClient::nameList($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, nullptr);
 	$assign(s, openDataConnection(path == nullptr ? "NLST"_s : $$str({"NLST "_s, path})));
 	if (s != nullptr) {
@@ -1697,6 +1725,7 @@ $InputStream* FtpClient::nameList($String* path) {
 }
 
 int64_t FtpClient::getSize($String* path) {
+	$useLocalCurrentObjectStackCache();
 	if (path == nullptr || $nc(path)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "path can\'t be null or empty"_s);
 	}
@@ -1711,6 +1740,7 @@ int64_t FtpClient::getSize($String* path) {
 }
 
 $Date* FtpClient::getLastModified($String* path) {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck($$str({"MDTM "_s, path}));
 	$init($FtpReplyCode);
 	if (this->lastReplyCode == $FtpReplyCode::FILE_STATUS) {
@@ -1722,6 +1752,7 @@ $Date* FtpClient::getLastModified($String* path) {
 
 $Date* FtpClient::parseRfc3659TimeValue($String* s) {
 	$init(FtpClient);
+	$useLocalCurrentObjectStackCache();
 	$var($Date, result, nullptr);
 	try {
 		$var($ZonedDateTime, d, $ZonedDateTime::parse(s, FtpClient::RFC3659_DATETIME_FORMAT));
@@ -1738,6 +1769,7 @@ $FtpClient* FtpClient::setDirParser($FtpDirParser* p) {
 }
 
 $Iterator* FtpClient::listFiles($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, nullptr);
 	$var($BufferedReader, sin, nullptr);
 	try {
@@ -1759,11 +1791,13 @@ $Iterator* FtpClient::listFiles($String* path) {
 }
 
 bool FtpClient::sendSecurityData($bytes* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $nc($($Base64::getMimeEncoder()))->encodeToString(buf));
 	return issueCommand($$str({"ADAT "_s, s}));
 }
 
 $bytes* FtpClient::getSecurityData() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, getLastResponseString());
 	if ($($nc(s)->substring(4, 9))->equalsIgnoreCase("ADAT="_s)) {
 		return $nc($($Base64::getMimeDecoder()))->decode($(s->substring(9, s->length() - 1)));
@@ -1784,6 +1818,7 @@ $FtpReplyCode* FtpClient::getLastReplyCode() {
 }
 
 $String* FtpClient::getLastResponseString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (this->serverResponse != nullptr) {
 		{
@@ -1810,6 +1845,7 @@ $String* FtpClient::getLastFileName() {
 }
 
 $FtpClient* FtpClient::startSecureSession() {
+	$useLocalCurrentObjectStackCache();
 	if (!isConnected()) {
 		$init($FtpReplyCode);
 		$throwNew($FtpProtocolException, "Not connected yet"_s, $FtpReplyCode::BAD_SEQUENCE);
@@ -1853,6 +1889,7 @@ $FtpClient* FtpClient::startSecureSession() {
 }
 
 $FtpClient* FtpClient::endSecureSession() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->useCrypto) {
 		return this;
 	}
@@ -1872,6 +1909,7 @@ $FtpClient* FtpClient::endSecureSession() {
 }
 
 $FtpClient* FtpClient::allocate(int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck($$str({"ALLO "_s, $$str(size)}));
 	return this;
 }
@@ -1888,6 +1926,7 @@ $String* FtpClient::getSystem() {
 }
 
 $String* FtpClient::getHelp($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	issueCommandCheck($$str({"HELP "_s, cmd}));
 	$var($Vector, resp, getResponseStrings());
 	if ($nc(resp)->size() == 1) {
@@ -1919,6 +1958,7 @@ $Socket* FtpClient::lambda$openPassiveDataConnection$0() {
 }
 
 void clinit$FtpClient($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(FtpClient::ERROR_MSG, "Address should be the same as originating server"_s);
 	$beforeCallerSensitive();
 	$assignStatic(FtpClient::logger, $PlatformLogger::getLogger("sun.net.ftp.FtpClient"_s));

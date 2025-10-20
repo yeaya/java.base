@@ -222,6 +222,7 @@ LambdaFormEditor* LambdaFormEditor::lambdaFormEditor($LambdaForm* lambdaForm) {
 }
 
 $LambdaForm* LambdaFormEditor::getInCache($LambdaFormEditor$TransformKey* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, c, $nc(this->lambdaForm)->transformCache);
 	$var($LambdaFormEditor$Transform, k, nullptr);
 	{
@@ -263,6 +264,7 @@ $LambdaForm* LambdaFormEditor::getInCache($LambdaFormEditor$TransformKey* key) {
 }
 
 $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $LambdaForm* form) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormEditor$Transform, transform, $nc(key)->withResult(form));
 	for (int32_t pass = 0;; ++pass) {
 		$var($Object, c, $nc(this->lambdaForm)->transformCache);
@@ -382,6 +384,7 @@ $BoundMethodHandle$SpeciesData* LambdaFormEditor::newSpeciesData($LambdaForm$Bas
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentL($BoundMethodHandle* mh, int32_t pos, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -397,6 +400,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentL($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentI($BoundMethodHandle* mh, int32_t pos, int32_t value) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -412,6 +416,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentI($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentJ($BoundMethodHandle* mh, int32_t pos, int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -427,6 +432,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentJ($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentF($BoundMethodHandle* mh, int32_t pos, float value) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -442,6 +448,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentF($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentD($BoundMethodHandle* mh, int32_t pos, double value) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -457,6 +464,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentD($BoundMethodHandle* mh, int3
 }
 
 $MethodType* LambdaFormEditor::bindArgumentType($BoundMethodHandle* mh, int32_t pos, $LambdaForm$BasicType* bt) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc($nc(mh)->form)->uncustomize() == this->lambdaForm)) {
 		$throwNew($AssertionError);
 	}
@@ -470,6 +478,7 @@ $MethodType* LambdaFormEditor::bindArgumentType($BoundMethodHandle* mh, int32_t 
 }
 
 $LambdaForm* LambdaFormEditor::bindArgumentForm(int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::BIND_ARG, pos));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -510,6 +519,7 @@ $LambdaForm* LambdaFormEditor::bindArgumentForm(int32_t pos) {
 }
 
 $LambdaForm* LambdaFormEditor::addArgumentForm(int32_t pos, $LambdaForm$BasicType* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::ADD_ARG, pos, $nc(type)->ordinal()));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -529,6 +539,7 @@ $LambdaForm* LambdaFormEditor::addArgumentForm(int32_t pos, $LambdaForm$BasicTyp
 }
 
 $LambdaForm* LambdaFormEditor::dupArgumentForm(int32_t srcPos, int32_t dstPos) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::DUP_ARG, srcPos, dstPos));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -551,6 +562,7 @@ $LambdaForm* LambdaFormEditor::dupArgumentForm(int32_t srcPos, int32_t dstPos) {
 }
 
 $LambdaForm* LambdaFormEditor::spreadArgumentsForm(int32_t pos, $Class* arrayType, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	$Class* elementType = $nc(arrayType)->getComponentType();
 	$Class* erasedArrayType = arrayType;
 	if (!$nc(elementType)->isPrimitive()) {
@@ -608,6 +620,7 @@ $LambdaForm* LambdaFormEditor::spreadArgumentsForm(int32_t pos, $Class* arrayTyp
 }
 
 $LambdaForm* LambdaFormEditor::collectArgumentsForm(int32_t pos, $MethodType* collectorType) {
+	$useLocalCurrentObjectStackCache();
 	int32_t collectorArity = $nc(collectorType)->parameterCount();
 	$init($Void);
 	bool dropResult = ($cast($Class, collectorType->returnType()) == $Void::TYPE);
@@ -632,6 +645,7 @@ $LambdaForm* LambdaFormEditor::collectArgumentsForm(int32_t pos, $MethodType* co
 }
 
 $LambdaForm* LambdaFormEditor::filterArgumentForm(int32_t pos, $LambdaForm$BasicType* newType) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::FILTER_ARG, pos, $nc(newType)->ordinal()));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -651,6 +665,7 @@ $LambdaForm* LambdaFormEditor::filterArgumentForm(int32_t pos, $LambdaForm$Basic
 }
 
 $LambdaForm* LambdaFormEditor::filterRepeatedArgumentForm($LambdaForm$BasicType* newType, $ints* argPositions) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc(argPositions)->length > 1)) {
 		$throwNew($AssertionError);
 	}
@@ -690,6 +705,7 @@ bool LambdaFormEditor::formParametersMatch($LambdaForm* form, $LambdaForm$BasicT
 }
 
 $LambdaForm* LambdaFormEditor::makeRepeatedFilterForm($MethodType* combinerType, $ints* positions) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		bool var$2 = $nc(combinerType)->parameterCount() == 1;
@@ -746,6 +762,7 @@ $LambdaForm* LambdaFormEditor::makeRepeatedFilterForm($MethodType* combinerType,
 }
 
 $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodType* combinerType, bool keepArguments, bool dropResult) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
@@ -814,6 +831,7 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 }
 
 $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodType* combinerType, $ints* argPositions, bool keepArguments, bool dropResult) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
@@ -894,6 +912,7 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 }
 
 $LambdaForm* LambdaFormEditor::filterReturnForm($LambdaForm$BasicType* newType, bool constantZero) {
+	$useLocalCurrentObjectStackCache();
 	int8_t kind = (constantZero ? LambdaFormEditor::FILTER_RETURN_TO_ZERO : LambdaFormEditor::FILTER_RETURN);
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(kind, $nc(newType)->ordinal()));
 	$var($LambdaForm, form, getInCache(key));
@@ -948,6 +967,7 @@ $LambdaForm* LambdaFormEditor::filterReturnForm($LambdaForm$BasicType* newType, 
 }
 
 $LambdaForm* LambdaFormEditor::collectReturnValueForm($MethodType* combinerType) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
@@ -990,6 +1010,7 @@ $LambdaForm* LambdaFormEditor::collectReturnValueForm($MethodType* combinerType)
 }
 
 $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResult, $MethodType* combinerType) {
+	$useLocalCurrentObjectStackCache();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
 	int8_t kind = (dropResult ? LambdaFormEditor::FOLD_ARGS_TO_VOID : LambdaFormEditor::FOLD_ARGS);
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(kind, foldPos, combinerArity));
@@ -1005,6 +1026,7 @@ $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResul
 }
 
 $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResult, $MethodType* combinerType, $ints* argPositions) {
+	$useLocalCurrentObjectStackCache();
 	int8_t kind = (dropResult ? LambdaFormEditor::FOLD_SELECT_ARGS_TO_VOID : LambdaFormEditor::FOLD_SELECT_ARGS);
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(kind, foldPos, argPositions));
 	$var($LambdaForm, form, getInCache(key));
@@ -1019,6 +1041,7 @@ $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResul
 }
 
 $LambdaForm* LambdaFormEditor::filterArgumentsForm(int32_t filterPos, $MethodType* combinerType, $ints* argPositions) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::FILTER_SELECT_ARGS, filterPos, argPositions));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -1032,6 +1055,7 @@ $LambdaForm* LambdaFormEditor::filterArgumentsForm(int32_t filterPos, $MethodTyp
 }
 
 $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormEditor::$assertionsDisabled && !(skip == 1)) {
 		$throwNew($AssertionError);
 	}
@@ -1121,6 +1145,7 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 }
 
 $LambdaForm* LambdaFormEditor::noteLoopLocalTypesForm(int32_t pos, $LambdaForm$BasicTypeArray* localTypes) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc(this->lambdaForm)->isLoop(pos))) {
 		$throwNew($AssertionError);
 	}

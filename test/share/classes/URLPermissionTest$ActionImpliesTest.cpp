@@ -85,6 +85,7 @@ void URLPermissionTest$ActionImpliesTest::init$($String* ur11, $String* url2, $S
 }
 
 bool URLPermissionTest$ActionImpliesTest::execute() {
+	$useLocalCurrentObjectStackCache();
 	$var($URLPermission, p1, $new($URLPermission, this->url1, this->arg1));
 	$var($URLPermission, p2, $new($URLPermission, this->url2, this->arg2));
 	bool result = p1->implies(p2);

@@ -47,6 +47,7 @@ void B6296240::init$() {
 }
 
 void B6296240::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, malformedIPv4s, $new($StringArray, {"192.168.1.220..."_s}));
 	$var($BitSet, expectedExceptions, $new($BitSet, malformedIPv4s->length));
 	expectedExceptions->clear();

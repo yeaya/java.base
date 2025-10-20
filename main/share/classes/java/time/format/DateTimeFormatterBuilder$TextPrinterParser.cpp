@@ -120,6 +120,7 @@ void DateTimeFormatterBuilder$TextPrinterParser::init$($TemporalField* field, $T
 }
 
 bool DateTimeFormatterBuilder$TextPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($Long, value, $nc(context)->getValue(this->field));
 	if (value == nullptr) {
 		return false;
@@ -147,6 +148,7 @@ bool DateTimeFormatterBuilder$TextPrinterParser::format($DateTimePrintContext* c
 }
 
 int32_t DateTimeFormatterBuilder$TextPrinterParser::parse($DateTimeParseContext* context, $CharSequence* parseText, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(parseText)->length();
 	if (position < 0 || position > length) {
 		$throwNew($IndexOutOfBoundsException);

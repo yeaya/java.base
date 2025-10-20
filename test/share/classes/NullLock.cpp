@@ -62,6 +62,7 @@ void NullLock::main($StringArray* argv) {
 }
 
 bool NullLock::testBufferedReader() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InputStreamReader, isr, nullptr);
 		$var($BufferedReader, br, $new($BufferedReader, isr));
@@ -73,6 +74,7 @@ bool NullLock::testBufferedReader() {
 }
 
 bool NullLock::testBufferedWriter() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($OutputStreamWriter, isr, nullptr);
 		$var($BufferedWriter, br, $new($BufferedWriter, isr));

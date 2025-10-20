@@ -134,6 +134,7 @@ void Indify$Code::readFrom($DataInputStream* in) {
 }
 
 void Indify$Code::writeTo($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$Indify::writeOutputs(out, $$new($ObjectArray, {
 		$($of($Short::valueOf(this->stacks))),
 		$($of($Short::valueOf(this->locals))),

@@ -69,6 +69,7 @@ void One$3::init$($bytes* in, $String* expect) {
 }
 
 void One$3::read() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		$var($chars, cb, $new($chars, 2));
 		int32_t n = 0;

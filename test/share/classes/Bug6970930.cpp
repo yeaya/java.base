@@ -72,6 +72,7 @@ void Bug6970930::main($StringArray* args) {
 
 void Bug6970930::test1($String* s1, $String* s2) {
 	$init(Bug6970930);
+	$useLocalCurrentObjectStackCache();
 	$var($RuleBasedCollator, col, nullptr);
 	try {
 		$assign(col, $new($RuleBasedCollator, "< a < b"_s));

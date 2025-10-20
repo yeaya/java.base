@@ -91,6 +91,7 @@ $Object* allocate$PostHandshakeContext($Class* clazz) {
 }
 
 void PostHandshakeContext::init$($TransportContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$HandshakeContext::init$(context);
 	if (!$nc(this->negotiatedProtocol)->useTLS13PlusSpec()) {
 		$init($Alert);
@@ -114,6 +115,7 @@ void PostHandshakeContext::kickstart() {
 }
 
 void PostHandshakeContext::dispatch(int8_t handshakeType, $ByteBuffer* fragment) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLConsumer, consumer, $cast($SSLConsumer, $nc(this->handshakeConsumers)->get($($Byte::valueOf(handshakeType)))));
 	if (consumer == nullptr) {
 		$init($Alert);

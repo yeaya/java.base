@@ -84,6 +84,7 @@ void PublicMethods$Key::init$($Method* method) {
 
 bool PublicMethods$Key::matches($Method* method, $String* name, $ClassArray* ptypes) {
 	$init(PublicMethods$Key);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc($($nc(method)->getName()))->equals(name);
 	return var$0 && $Arrays::equals($($nc(PublicMethods$Key::reflectionFactory)->getExecutableSharedParameterTypes(method)), ptypes);
 }

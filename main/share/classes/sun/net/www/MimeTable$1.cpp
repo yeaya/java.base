@@ -67,6 +67,7 @@ void MimeTable$1::init$() {
 }
 
 $Object* MimeTable$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($MimeTable);
 	$assignStatic($MimeTable::tempFileTemplate, $System::getProperty("content.types.temp.file.template"_s, "/tmp/%s"_s));
 	$assignStatic($MimeTable::mailcapLocations, $new($StringArray, {

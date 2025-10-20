@@ -101,6 +101,7 @@ void PolicyFile$5::init$($PolicyFile* this$0, $PolicyFile$PolicyInfo* val$newInf
 }
 
 $Object* PolicyFile$5::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyFile$PolicyEntry, pe, $new($PolicyFile$PolicyEntry, $$new($CodeSource, ($URL*)nullptr, ($CertificateArray*)nullptr)));
 	$init($SecurityConstants);
 	pe->add($SecurityConstants::LOCAL_LISTEN_PERMISSION);

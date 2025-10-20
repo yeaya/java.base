@@ -148,6 +148,7 @@ void Node$OfDouble::forEach($Consumer* consumer) {
 }
 
 void Node$OfDouble::copyInto($DoubleArray* boxed, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	$init($Tripwire);
 	if ($Tripwire::ENABLED) {
 		$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfDouble.copyInto(Double[], int)"_s);
@@ -159,6 +160,7 @@ void Node$OfDouble::copyInto($DoubleArray* boxed, int32_t offset) {
 }
 
 Node$OfDouble* Node$OfDouble::truncate(int64_t from, int64_t to, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (from == 0 && to == count()) {
 		return this;
 	}

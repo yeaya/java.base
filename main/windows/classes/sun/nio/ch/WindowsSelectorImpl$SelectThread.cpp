@@ -94,6 +94,7 @@ bool WindowsSelectorImpl$SelectThread::isZombie() {
 }
 
 void WindowsSelectorImpl$SelectThread::run() {
+	$useLocalCurrentObjectStackCache();
 	while (true) {
 		if ($nc(this->this$0->startLock)->waitForStart(this)) {
 			$nc(this->subSelector)->freeFDSetBuffer();

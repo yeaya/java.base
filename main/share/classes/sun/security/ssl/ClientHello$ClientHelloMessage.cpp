@@ -175,6 +175,7 @@ void ClientHello$ClientHelloMessage::init$($HandshakeContext* handshakeContext, 
 
 void ClientHello$ClientHelloMessage::readPartial($TransportContext* tc, $ByteBuffer* m) {
 	$init(ClientHello$ClientHelloMessage);
+	$useLocalCurrentObjectStackCache();
 	bool isDTLS = $nc($nc(tc)->sslContext)->isDTLS();
 	$Record::getInt16(m);
 	$new($RandomCookie, m);
@@ -206,6 +207,7 @@ void ClientHello$ClientHelloMessage::readPartial($TransportContext* tc, $ByteBuf
 }
 
 void ClientHello$ClientHelloMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m, $SSLExtensionArray* supportedExtensions) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	this->isDTLS = $nc($nc(handshakeContext)->sslContext)->isDTLS();
 	int32_t var$0 = (((int32_t)($nc(m)->get() & (uint32_t)255)) << 8);
@@ -252,6 +254,7 @@ void ClientHello$ClientHelloMessage::setHelloCookie($bytes* cookie) {
 }
 
 $bytes* ClientHello$ClientHelloMessage::getHelloCookieBytes() {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	try {
 		hos->putInt8((int8_t)((int32_t)(((int32_t)((uint32_t)this->clientVersion >> 8)) & (uint32_t)255)));
@@ -268,6 +271,7 @@ $bytes* ClientHello$ClientHelloMessage::getHelloCookieBytes() {
 }
 
 $bytes* ClientHello$ClientHelloMessage::getHeaderBytes() {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	try {
 		hos->putInt8((int8_t)((int32_t)(((int32_t)((uint32_t)this->clientVersion >> 8)) & (uint32_t)255)));
@@ -284,6 +288,7 @@ $bytes* ClientHello$ClientHelloMessage::getHeaderBytes() {
 
 $ints* ClientHello$ClientHelloMessage::getCipherSuiteIds($List* cipherSuites) {
 	$init(ClientHello$ClientHelloMessage);
+	$useLocalCurrentObjectStackCache();
 	if (cipherSuites != nullptr) {
 		$var($ints, ids, $new($ints, cipherSuites->size()));
 		int32_t i = 0;
@@ -303,6 +308,7 @@ $ints* ClientHello$ClientHelloMessage::getCipherSuiteIds($List* cipherSuites) {
 
 $List* ClientHello$ClientHelloMessage::getCipherSuites($ints* ids) {
 	$init(ClientHello$ClientHelloMessage);
+	$useLocalCurrentObjectStackCache();
 	$var($List, cipherSuites, $new($LinkedList));
 	{
 		$var($ints, arr$, ids);
@@ -322,6 +328,7 @@ $List* ClientHello$ClientHelloMessage::getCipherSuites($ints* ids) {
 }
 
 $List* ClientHello$ClientHelloMessage::getCipherSuiteNames() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, names, $new($LinkedList));
 	{
 		$var($ints, arr$, this->cipherSuiteIds);
@@ -340,6 +347,7 @@ $List* ClientHello$ClientHelloMessage::getCipherSuiteNames() {
 }
 
 $bytes* ClientHello$ClientHelloMessage::getEncodedCipherSuites() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $new($bytes, $nc(this->cipherSuiteIds)->length << 1));
 	int32_t i = 0;
 	{
@@ -373,6 +381,7 @@ void ClientHello$ClientHelloMessage::send($HandshakeOutStream* hos) {
 }
 
 void ClientHello$ClientHelloMessage::sendCore($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(hos)->putInt8((int8_t)((int32_t)((uint32_t)this->clientVersion >> 8)));
 	hos->putInt8((int8_t)this->clientVersion);
 	hos->write($nc(this->clientRandom)->randomBytes, 0, 32);
@@ -385,6 +394,7 @@ void ClientHello$ClientHelloMessage::sendCore($HandshakeOutStream* hos) {
 }
 
 $String* ClientHello$ClientHelloMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->isDTLS) {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ClientHello\": \'{\'\n  \"client version\"      : \"{0}\",\n  \"random\"              : \"{1}\",\n  \"session id\"          : \"{2}\",\n  \"cookie\"              : \"{3}\",\n  \"cipher suites\"       : \"{4}\",\n  \"compression methods\" : \"{5}\",\n  \"extensions\"          : [\n{6}\n  ]\n\'}\'"_s, $Locale::ENGLISH));

@@ -90,6 +90,7 @@ void Append::main($StringArray* args) {
 
 void Append::test($Class* c, bool io) {
 	$init(Append);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$init($Character);

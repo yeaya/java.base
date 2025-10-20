@@ -43,6 +43,7 @@ void URLDecoderArgs::init$() {
 }
 
 void URLDecoderArgs::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s1, $URLDecoder::decode("Hello World"_s, ($String*)nullptr));
 	} catch ($UnsupportedEncodingException&) {

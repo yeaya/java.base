@@ -239,6 +239,7 @@ void SocksSocketImpl::init$($SocketImpl* delegate) {
 }
 
 void SocksSocketImpl::init$($Proxy* proxy, $SocketImpl* delegate) {
+	$useLocalCurrentObjectStackCache();
 	$DelegatingSocketImpl::init$(delegate);
 	$set(this, server, nullptr);
 	this->serverPort = $SocksConsts::DEFAULT_PORT;
@@ -272,6 +273,7 @@ bool SocksSocketImpl::useV4($Proxy* proxy) {
 
 void SocksSocketImpl::privilegedConnect($String* host, int32_t port, int32_t timeout) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		try {
 			$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SocksSocketImpl$1, this, host, port, timeout)));
@@ -299,6 +301,7 @@ int32_t SocksSocketImpl::remainingMillis(int64_t deadlineMillis) {
 }
 
 int32_t SocksSocketImpl::readSocksReply($InputStream* in, $bytes* data, int64_t deadlineMillis) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(data)->length;
 	int32_t received = 0;
 	int32_t originalTimeout = $nc(($cast($Integer, $(getOption($SocketOptions::SO_TIMEOUT)))))->intValue();
@@ -333,6 +336,7 @@ int32_t SocksSocketImpl::readSocksReply($InputStream* in, $bytes* data, int64_t 
 }
 
 bool SocksSocketImpl::authenticate(int8_t method, $InputStream* in, $BufferedOutputStream* out, int64_t deadlineMillis) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (method == $SocksConsts::NO_AUTH) {
 		return true;
@@ -375,6 +379,7 @@ bool SocksSocketImpl::authenticate(int8_t method, $InputStream* in, $BufferedOut
 }
 
 void SocksSocketImpl::connectV4($InputStream* in, $OutputStream* out, $InetSocketAddress* endpoint, int64_t deadlineMillis) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($Inet4Address, $($nc(endpoint)->getAddress())))) {
 		$throwNew($SocketException, "SOCKS V4 requires IPv4 only addresses"_s);
 	}
@@ -445,6 +450,7 @@ void SocksSocketImpl::connect($InetAddress* address, int32_t port) {
 }
 
 void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int64_t deadlineMillis = 0;
 	if (timeout == 0) {

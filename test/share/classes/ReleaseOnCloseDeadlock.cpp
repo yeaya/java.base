@@ -103,6 +103,7 @@ void ReleaseOnCloseDeadlock::init$() {
 }
 
 void ReleaseOnCloseDeadlock::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	{
@@ -123,6 +124,7 @@ void ReleaseOnCloseDeadlock::main($StringArray* args) {
 }
 
 void ReleaseOnCloseDeadlock::test($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileLockArray, locks, $new($FileLockArray, ReleaseOnCloseDeadlock::LOCK_COUNT));
 		$init($StandardOpenOption);
 	$var($FileChannel, fc, $FileChannel::open(file, $$new($OpenOptionArray, {
@@ -152,6 +154,7 @@ void ReleaseOnCloseDeadlock::test($Path* file) {
 }
 
 void ReleaseOnCloseDeadlock::tryToDeadlock($Channel* channel, $FileLockArray* locks) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, closer, $new($Thread, static_cast<$Runnable*>($$new($ReleaseOnCloseDeadlock$1, channel))));
 	closer->start();
 	for (int32_t i = 0; i < $nc(locks)->length; ++i) {

@@ -163,6 +163,7 @@ void MD5::implCompressCheck($bytes* buf, int32_t ofs) {
 }
 
 void MD5::implCompress0($bytes* buf, int32_t ofs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t a = $nc(this->state)->get(0);
 	int32_t b = $nc(this->state)->get(1);
 	int32_t c = $nc(this->state)->get(2);

@@ -130,6 +130,7 @@ void CLDRTimeZoneNameProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set
 }
 
 $StringArray* CLDRTimeZoneNameProviderImpl::getDisplayNameArray($String* id, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, namesSuper, $TimeZoneNameProviderImpl::getDisplayNameArray(id, locale));
 	if (namesSuper == nullptr) {
 		$assign(namesSuper, $TimeZoneNameProviderImpl::getDisplayNameArray($cast($String, $($nc($($TimeZoneNameUtility::canonicalTZID(id)))->orElse(id))), locale));
@@ -203,6 +204,7 @@ void CLDRTimeZoneNameProviderImpl::deriveFallbackNames($StringArray* names, $Loc
 }
 
 void CLDRTimeZoneNameProviderImpl::deriveFallbackName($StringArray* names, int32_t index, $Locale* locale, bool noDST) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, id, $nc(names)->get(CLDRTimeZoneNameProviderImpl::INDEX_TZID));
 	if (exists(names, index)) {
 		if ($nc(names->get(index))->equals(CLDRTimeZoneNameProviderImpl::NO_INHERITANCE_MARKER)) {
@@ -359,6 +361,7 @@ bool CLDRTimeZoneNameProviderImpl::typeFallback($StringArray* names, int32_t ind
 }
 
 bool CLDRTimeZoneNameProviderImpl::regionFormatFallback($StringArray* names, int32_t index, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, id, $nc(names)->get(CLDRTimeZoneNameProviderImpl::INDEX_TZID));
 	$init($LocaleProviderAdapter$Type);
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR)))->getLocaleResources(l));
@@ -399,6 +402,7 @@ bool CLDRTimeZoneNameProviderImpl::regionFormatFallback($StringArray* names, int
 }
 
 $String* CLDRTimeZoneNameProviderImpl::toGMTFormat($String* id, bool daylight, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, tz, $ZoneInfoFile::getZoneInfo(id));
 	int32_t var$0 = $nc(tz)->getRawOffset();
 	int32_t offset = (var$0 + (daylight ? tz->getDSTSavings() : 0)) / 0x0000EA60;
@@ -425,6 +429,7 @@ $String* CLDRTimeZoneNameProviderImpl::toGMTFormat($String* id, bool daylight, $
 }
 
 $Locale* CLDRTimeZoneNameProviderImpl::mapChineseLocale($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(locale)->getLanguage() == "zh"_s) {
 		{
 			$var($String, s11534$, locale->getScript());

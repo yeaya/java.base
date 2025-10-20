@@ -110,6 +110,7 @@ $Object* allocate$OCSPResponse$SingleResponse($Class* clazz) {
 }
 
 void OCSPResponse$SingleResponse::init$($DerValue* der) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(der)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Bad ASN.1 encoding in SingleResponse"_s);
 	}
@@ -230,6 +231,7 @@ $Map* OCSPResponse$SingleResponse::getSingleExtensions() {
 }
 
 $String* OCSPResponse$SingleResponse::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("SingleResponse:\n"_s);
 	sb->append($of(this->certId));

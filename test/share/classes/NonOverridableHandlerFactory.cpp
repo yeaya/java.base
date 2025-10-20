@@ -72,6 +72,7 @@ $URLStreamHandler* NonOverridableHandlerFactory::createURLStreamHandler($String*
 
 void NonOverridableHandlerFactory::main($StringArray* args) {
 	$init(NonOverridableHandlerFactory);
+	$useLocalCurrentObjectStackCache();
 	$URL::setURLStreamHandlerFactory($$new(NonOverridableHandlerFactory));
 	{
 		$var($StringArray, arr$, $new($StringArray, {

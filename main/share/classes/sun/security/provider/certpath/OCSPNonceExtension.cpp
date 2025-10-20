@@ -76,6 +76,7 @@ void OCSPNonceExtension::init$(int32_t length) {
 }
 
 void OCSPNonceExtension::init$(bool isCritical, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, nonceData, nullptr);
 	$init($PKIXExtensions);
@@ -115,6 +116,7 @@ $bytes* OCSPNonceExtension::getNonceValue() {
 }
 
 $String* OCSPNonceExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append(OCSPNonceExtension::EXTENSION_NAME)->append(": "_s);
 	sb->append((this->nonceData == nullptr) ? ""_s : $($Debug::toString(this->nonceData)));

@@ -69,6 +69,7 @@ void Terminator::init$() {
 
 void Terminator::setup() {
 	$init(Terminator);
+	$useLocalCurrentObjectStackCache();
 	if (Terminator::handler != nullptr) {
 		return;
 	}

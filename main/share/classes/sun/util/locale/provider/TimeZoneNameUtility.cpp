@@ -123,6 +123,7 @@ $Map* TimeZoneNameUtility::cachedDisplayNames = nullptr;
 
 $StringArray2* TimeZoneNameUtility::getZoneStrings($Locale* locale) {
 	$init(TimeZoneNameUtility);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray2, zones, nullptr);
 	$var($SoftReference, data, $cast($SoftReference, $nc(TimeZoneNameUtility::cachedZoneData)->get(locale)));
 	if (data == nullptr || (($assign(zones, $cast($StringArray2, $nc(data)->get()))) == nullptr)) {
@@ -135,6 +136,7 @@ $StringArray2* TimeZoneNameUtility::getZoneStrings($Locale* locale) {
 
 $StringArray2* TimeZoneNameUtility::loadZoneStrings($Locale* locale) {
 	$init(TimeZoneNameUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($TimeZoneNameProvider);
 	$var($LocaleProviderAdapter, adapter, $LocaleProviderAdapter::getAdapter($TimeZoneNameProvider::class$, locale));
 	$var($TimeZoneNameProvider, provider, $nc(adapter)->getTimeZoneNameProvider());
@@ -204,6 +206,7 @@ $Optional* TimeZoneNameUtility::canonicalTZID($String* id) {
 
 $StringArray* TimeZoneNameUtility::retrieveDisplayNamesImpl($String* id, $Locale* locale) {
 	$init(TimeZoneNameUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($TimeZoneNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($TimeZoneNameProvider::class$));
 	$var($StringArray, names, nullptr);

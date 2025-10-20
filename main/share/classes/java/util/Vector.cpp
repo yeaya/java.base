@@ -300,6 +300,7 @@ void Vector::finalize() {
 }
 
 void Vector::init$(int32_t initialCapacity, int32_t capacityIncrement) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractList::init$();
 	if (initialCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal Capacity: "_s, $$str(initialCapacity)}));
@@ -441,6 +442,7 @@ int32_t Vector::lastIndexOf(Object$* o) {
 
 int32_t Vector::lastIndexOf(Object$* o, int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index >= this->elementCount) {
 			$throwNew($IndexOutOfBoundsException, $$str({$$str(index), " >= "_s, $$str(this->elementCount)}));
 		}
@@ -463,6 +465,7 @@ int32_t Vector::lastIndexOf(Object$* o, int32_t index) {
 
 $Object* Vector::elementAt(int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index >= this->elementCount) {
 			$throwNew($ArrayIndexOutOfBoundsException, $$str({$$str(index), " >= "_s, $$str(this->elementCount)}));
 		}
@@ -490,6 +493,7 @@ $Object* Vector::lastElement() {
 
 void Vector::setElementAt(Object$* obj, int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index >= this->elementCount) {
 			$throwNew($ArrayIndexOutOfBoundsException, $$str({$$str(index), " >= "_s, $$str(this->elementCount)}));
 		}
@@ -499,6 +503,7 @@ void Vector::setElementAt(Object$* obj, int32_t index) {
 
 void Vector::removeElementAt(int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index >= this->elementCount) {
 			$throwNew($ArrayIndexOutOfBoundsException, $$str({$$str(index), " >= "_s, $$str(this->elementCount)}));
 		} else if (index < 0) {
@@ -516,6 +521,7 @@ void Vector::removeElementAt(int32_t index) {
 
 void Vector::insertElementAt(Object$* obj, int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index > this->elementCount) {
 			$throwNew($ArrayIndexOutOfBoundsException, $$str({$$str(index), " > "_s, $$str(this->elementCount)}));
 		}
@@ -566,6 +572,7 @@ void Vector::removeAllElements() {
 
 $Object* Vector::clone() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		try {
 			$var(Vector, v, $cast(Vector, $AbstractList::clone()));
 			$set($nc(v), elementData$, $Arrays::copyOf(this->elementData$, this->elementCount));
@@ -679,6 +686,7 @@ bool Vector::containsAll($Collection* c) {
 }
 
 bool Vector::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, $nc(c)->toArray());
 	++this->modCount;
 	int32_t numNew = $nc(a)->length;
@@ -729,6 +737,7 @@ bool Vector::isClear($longs* bits, int32_t i) {
 
 bool Vector::bulkRemove($Predicate* filter) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		int32_t expectedModCount = this->modCount;
 		$var($ObjectArray, es, this->elementData$);
 		int32_t end = this->elementCount;
@@ -769,6 +778,7 @@ bool Vector::bulkRemove($Predicate* filter) {
 
 bool Vector::addAll(int32_t index, $Collection* c) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index < 0 || index > this->elementCount) {
 			$throwNew($ArrayIndexOutOfBoundsException, index);
 		}
@@ -836,6 +846,7 @@ void Vector::shiftTailOverGap($ObjectArray* es, int32_t lo, int32_t hi) {
 }
 
 void Vector::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	int32_t count = $nc(gfields)->get("elementCount"_s, 0);
 	$var($ObjectArray, data, $cast($ObjectArray, gfields->get("elementData"_s, ($Object*)nullptr)));
@@ -847,6 +858,7 @@ void Vector::readObject($ObjectInputStream* in) {
 }
 
 void Vector::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 	$var($ObjectArray, data, nullptr);
 	$synchronized(this) {
@@ -860,6 +872,7 @@ void Vector::writeObject($ObjectOutputStream* s) {
 
 $ListIterator* Vector::listIterator(int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (index < 0 || index > this->elementCount) {
 			$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 		}
@@ -881,6 +894,7 @@ $Iterator* Vector::iterator() {
 
 void Vector::forEach($Consumer* action) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(action);
 		int32_t expectedModCount = this->modCount;
 		$var($ObjectArray, es, this->elementData$);
@@ -896,6 +910,7 @@ void Vector::forEach($Consumer* action) {
 
 void Vector::replaceAll($UnaryOperator* operator$) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(operator$);
 		int32_t expectedModCount = this->modCount;
 		$var($ObjectArray, es, this->elementData$);

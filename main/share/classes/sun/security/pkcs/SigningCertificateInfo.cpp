@@ -62,6 +62,7 @@ void SigningCertificateInfo::init$($bytes* ber) {
 }
 
 $String* SigningCertificateInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n"_s);
 	for (int32_t i = 0; i < $nc(this->certId)->length; ++i) {
@@ -72,6 +73,7 @@ $String* SigningCertificateInfo::toString() {
 }
 
 void SigningCertificateInfo::parse($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, derValue, $new($DerValue, bytes));
 	if (derValue->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Bad encoding for signingCertificate"_s);

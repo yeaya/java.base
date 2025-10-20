@@ -85,6 +85,7 @@ void PKIXCertPathChecker::check($Certificate* cert) {
 }
 
 $Object* PKIXCertPathChecker::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($CertPathChecker::clone());
 	} catch ($CloneNotSupportedException&) {

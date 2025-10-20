@@ -184,6 +184,7 @@ void VM::init$() {
 
 void VM::initLevel(int32_t value) {
 	$init(VM);
+	$useLocalCurrentObjectStackCache();
 	$synchronized(VM::lock) {
 		if (value <= VM::initLevel$ || value > VM::SYSTEM_SHUTDOWN) {
 			$throwNew($InternalError, $$str({"Bad level: "_s, $$str(value)}));
@@ -283,6 +284,7 @@ $Map* VM::getSavedProperties() {
 
 void VM::saveProperties($Map* props) {
 	$init(VM);
+	$useLocalCurrentObjectStackCache();
 	if (initLevel() != 0) {
 		$throwNew($IllegalStateException, "Wrong init level"_s);
 	}

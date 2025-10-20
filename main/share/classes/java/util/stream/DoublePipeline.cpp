@@ -1126,6 +1126,7 @@ $Spliterator* DoublePipeline::lazySpliterator($Supplier* supplier) {
 }
 
 bool DoublePipeline::forEachWithCancel($Spliterator* spliterator, $Sink* sink) {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterator$OfDouble, spl, adapt(spliterator));
 	$var($DoubleConsumer, adaptedSink, adapt(sink));
 	bool cancelled = false;
@@ -1252,6 +1253,7 @@ $DoubleStream* DoublePipeline::sorted() {
 }
 
 $DoubleStream* DoublePipeline::distinct() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(boxed()))->distinct()))->mapToDouble(static_cast<$ToDoubleFunction*>($$new(DoublePipeline$$Lambda$lambda$distinct$0$2)));
 }
 
@@ -1264,6 +1266,7 @@ void DoublePipeline::forEachOrdered($DoubleConsumer* consumer) {
 }
 
 double DoublePipeline::sum() {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(DoublePipeline$$Lambda$lambda$sum$1$3)));
 	$var($ObjDoubleConsumer, var$1, static_cast<$ObjDoubleConsumer*>($new(DoublePipeline$$Lambda$lambda$sum$2$4)));
 	$var($doubles, summation, $cast($doubles, collect(var$0, var$1, static_cast<$BiConsumer*>($$new(DoublePipeline$$Lambda$lambda$sum$3$5)))));
@@ -1279,6 +1282,7 @@ $OptionalDouble* DoublePipeline::max() {
 }
 
 $OptionalDouble* DoublePipeline::average() {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(DoublePipeline$$Lambda$lambda$average$4$8)));
 	$var($ObjDoubleConsumer, var$1, static_cast<$ObjDoubleConsumer*>($new(DoublePipeline$$Lambda$lambda$average$5$9)));
 	$var($doubles, avg, $cast($doubles, collect(var$0, var$1, static_cast<$BiConsumer*>($$new(DoublePipeline$$Lambda$lambda$average$6$10)))));
@@ -1286,16 +1290,19 @@ $OptionalDouble* DoublePipeline::average() {
 }
 
 int64_t DoublePipeline::count() {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Long, $(evaluate($($ReduceOps::makeDoubleCounting()))))))->longValue();
 }
 
 $DoubleSummaryStatistics* DoublePipeline::summaryStatistics() {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(DoublePipeline$$Lambda$DoubleSummaryStatistics$11)));
 	$var($ObjDoubleConsumer, var$1, static_cast<$ObjDoubleConsumer*>($new(DoublePipeline$$Lambda$accept$12)));
 	return $cast($DoubleSummaryStatistics, collect(var$0, var$1, static_cast<$BiConsumer*>($$new(DoublePipeline$$Lambda$combine$13))));
 }
 
 double DoublePipeline::reduce(double identity, $DoubleBinaryOperator* op) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Double, $(evaluate($($ReduceOps::makeDouble(identity, op)))))))->doubleValue();
 }
 
@@ -1304,22 +1311,26 @@ $OptionalDouble* DoublePipeline::reduce($DoubleBinaryOperator* op) {
 }
 
 $Object* DoublePipeline::collect($Supplier* supplier, $ObjDoubleConsumer* accumulator, $BiConsumer* combiner) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(combiner);
 	$var($BinaryOperator, operator$, static_cast<$BinaryOperator*>($new(DoublePipeline$$Lambda$lambda$collect$7$14, combiner)));
 	return $of(evaluate($($ReduceOps::makeDouble(supplier, accumulator, operator$))));
 }
 
 bool DoublePipeline::anyMatch($DoublePredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeDouble(predicate, $MatchOps$MatchKind::ANY)))))))->booleanValue();
 }
 
 bool DoublePipeline::allMatch($DoublePredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeDouble(predicate, $MatchOps$MatchKind::ALL)))))))->booleanValue();
 }
 
 bool DoublePipeline::noneMatch($DoublePredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeDouble(predicate, $MatchOps$MatchKind::NONE)))))))->booleanValue();
 }
@@ -1333,6 +1344,7 @@ $OptionalDouble* DoublePipeline::findAny() {
 }
 
 $doubles* DoublePipeline::toArray() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($doubles, $nc($($Nodes::flattenDouble($cast($Node$OfDouble, $(evaluateToArrayNode(static_cast<$IntFunction*>($$new(DoublePipeline$$Lambda$lambda$toArray$8$15))))))))->asPrimitiveArray());
 }
 

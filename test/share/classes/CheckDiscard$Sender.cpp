@@ -90,6 +90,7 @@ $Exception* CheckDiscard$Sender::getException() {
 }
 
 void CheckDiscard$Sender::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, b, "Hello"_s->getBytes());
 		$var($DatagramPacket, p, $new($DatagramPacket, b, b->length));

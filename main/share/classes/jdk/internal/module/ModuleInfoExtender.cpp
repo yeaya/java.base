@@ -153,6 +153,7 @@ void ModuleInfoExtender::write($OutputStream* out) {
 }
 
 $bytes* ModuleInfoExtender::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassWriter, cw, $new($ClassWriter, $ClassWriter::COMPUTE_MAXS + $ClassWriter::COMPUTE_FRAMES));
 	$var($ClassReader, cr, $new($ClassReader, this->in));
 	$var($ClassVisitor, cv, $new($ModuleInfoExtender$1, this, $Opcodes::ASM7, cw));

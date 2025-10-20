@@ -185,6 +185,7 @@ $String* MimeEntry::getImageFileName() {
 
 void MimeEntry::setImageFileName($String* filename) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($File, file, $new($File, filename));
 		if (file->getParent() == nullptr) {
 			$set(this, imageFileName, $System::getProperty($$str({"java.net.ftp.imagepath."_s, filename})));
@@ -224,6 +225,7 @@ $String* MimeEntry::getExtensionsAsList() {
 
 void MimeEntry::setExtensions($String* extensionString) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($StringTokenizer, extTokens, $new($StringTokenizer, extensionString, ","_s));
 		int32_t numExts = extTokens->countTokens();
 		$var($StringArray, extensionStrings, $new($StringArray, numExts));
@@ -260,6 +262,7 @@ $Object* MimeEntry::clone() {
 
 $String* MimeEntry::toProperty() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($StringJoiner, sj, $new($StringJoiner, "; "_s));
 		int32_t action = getAction();
 		if (action != MimeEntry::UNKNOWN) {
@@ -286,6 +289,7 @@ $String* MimeEntry::toProperty() {
 }
 
 $String* MimeEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"MimeEntry[contentType="_s, this->typeName, ", image="_s, this->imageFileName, ", action="_s, $$str(this->action), ", command="_s, this->command, ", extensions="_s, $(getExtensionsAsList()), "]"_s});
 }
 

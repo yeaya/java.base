@@ -90,6 +90,7 @@ void Locale$Builder::init$() {
 }
 
 Locale$Builder* Locale$Builder::setLocale($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setLocale($nc(locale)->baseLocale, locale->localeExtensions);
 	} catch ($LocaleSyntaxException&) {
@@ -101,6 +102,7 @@ Locale$Builder* Locale$Builder::setLocale($Locale* locale) {
 }
 
 Locale$Builder* Locale$Builder::setLanguageTag($String* languageTag) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParseStatus, sts, $new($ParseStatus));
 	$var($LanguageTag, tag, $LanguageTag::parse(languageTag, sts));
 	if (sts->isError()) {
@@ -112,6 +114,7 @@ Locale$Builder* Locale$Builder::setLanguageTag($String* languageTag) {
 }
 
 Locale$Builder* Locale$Builder::setLanguage($String* language) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setLanguage(language);
 	} catch ($LocaleSyntaxException&) {
@@ -123,6 +126,7 @@ Locale$Builder* Locale$Builder::setLanguage($String* language) {
 }
 
 Locale$Builder* Locale$Builder::setScript($String* script) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setScript(script);
 	} catch ($LocaleSyntaxException&) {
@@ -134,6 +138,7 @@ Locale$Builder* Locale$Builder::setScript($String* script) {
 }
 
 Locale$Builder* Locale$Builder::setRegion($String* region) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setRegion(region);
 	} catch ($LocaleSyntaxException&) {
@@ -145,6 +150,7 @@ Locale$Builder* Locale$Builder::setRegion($String* region) {
 }
 
 Locale$Builder* Locale$Builder::setVariant($String* variant) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setVariant(variant);
 	} catch ($LocaleSyntaxException&) {
@@ -156,6 +162,7 @@ Locale$Builder* Locale$Builder::setVariant($String* variant) {
 }
 
 Locale$Builder* Locale$Builder::setExtension(char16_t key, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setExtension(key, value);
 	} catch ($LocaleSyntaxException&) {
@@ -167,6 +174,7 @@ Locale$Builder* Locale$Builder::setExtension(char16_t key, $String* value) {
 }
 
 Locale$Builder* Locale$Builder::setUnicodeLocaleKeyword($String* key, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->setUnicodeLocaleKeyword(key, type);
 	} catch ($LocaleSyntaxException&) {
@@ -178,6 +186,7 @@ Locale$Builder* Locale$Builder::setUnicodeLocaleKeyword($String* key, $String* t
 }
 
 Locale$Builder* Locale$Builder::addUnicodeLocaleAttribute($String* attribute) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->localeBuilder)->addUnicodeLocaleAttribute(attribute);
 	} catch ($LocaleSyntaxException&) {
@@ -189,6 +198,7 @@ Locale$Builder* Locale$Builder::addUnicodeLocaleAttribute($String* attribute) {
 }
 
 Locale$Builder* Locale$Builder::removeUnicodeLocaleAttribute($String* attribute) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(attribute);
 	try {
 		$nc(this->localeBuilder)->removeUnicodeLocaleAttribute(attribute);
@@ -211,6 +221,7 @@ Locale$Builder* Locale$Builder::clearExtensions() {
 }
 
 $Locale* Locale$Builder::build() {
+	$useLocalCurrentObjectStackCache();
 	$var($BaseLocale, baseloc, $nc(this->localeBuilder)->getBaseLocale());
 	$var($LocaleExtensions, extensions, $nc(this->localeBuilder)->getLocaleExtensions());
 	if (extensions == nullptr && !$nc($($nc(baseloc)->getVariant()))->isEmpty()) {

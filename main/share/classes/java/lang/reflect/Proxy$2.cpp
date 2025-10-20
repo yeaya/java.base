@@ -87,6 +87,7 @@ void Proxy$2::init$($Class* val$proxyClass, $MethodHandles$Lookup* val$caller) {
 }
 
 $Object* Proxy$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($MethodHandles$Lookup);

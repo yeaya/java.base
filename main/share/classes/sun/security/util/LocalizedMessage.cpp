@@ -80,6 +80,7 @@ $String* LocalizedMessage::formatNonlocalized($ObjectArray* arguments) {
 
 $String* LocalizedMessage::getNonlocalized($String* key, $ObjectArray* arguments) {
 	$init(LocalizedMessage);
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, $nc(LocalizedMessage::RESOURCES)->getString(key));
 	if (arguments == nullptr || $nc(arguments)->length == 0) {
 		return value;
@@ -110,6 +111,7 @@ $String* LocalizedMessage::getNonlocalized($String* key, $ObjectArray* arguments
 
 $String* LocalizedMessage::getLocalized($String* key, $ObjectArray* arguments) {
 	$init(LocalizedMessage);
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, $ResourcesMgr::getString(key));
 	if (arguments == nullptr) {
 		return value;

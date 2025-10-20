@@ -280,6 +280,7 @@ ThreadPool* ThreadPool::getDefault() {
 
 ThreadPool* ThreadPool::createDefault() {
 	$init(ThreadPool);
+	$useLocalCurrentObjectStackCache();
 	int32_t initialSize = getDefaultThreadPoolInitialSize();
 	if (initialSize < 0) {
 		initialSize = $nc($($Runtime::getRuntime()))->availableProcessors();
@@ -323,6 +324,7 @@ ThreadPool* ThreadPool::wrap($ExecutorService* executor, int32_t initialSize) {
 
 int32_t ThreadPool::getDefaultThreadPoolInitialSize() {
 	$init(ThreadPool);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, propValue, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, ThreadPool::DEFAULT_THREAD_POOL_INITIAL_SIZE)))));
 	if (propValue != nullptr) {
@@ -338,6 +340,7 @@ int32_t ThreadPool::getDefaultThreadPoolInitialSize() {
 
 $ThreadFactory* ThreadPool::getDefaultThreadPoolThreadFactory() {
 	$init(ThreadPool);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, propValue, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, ThreadPool::DEFAULT_THREAD_POOL_THREAD_FACTORY)))));
 	if (propValue != nullptr) {

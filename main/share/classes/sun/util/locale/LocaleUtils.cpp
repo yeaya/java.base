@@ -86,6 +86,7 @@ bool LocaleUtils::caseIgnoreMatch($String* s1, $String* s2) {
 }
 
 int32_t LocaleUtils::caseIgnoreCompare($String* s1, $String* s2) {
+	$useLocalCurrentObjectStackCache();
 	if (s1 == s2) {
 		return 0;
 	}

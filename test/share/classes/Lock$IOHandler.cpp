@@ -71,6 +71,7 @@ void Lock$IOHandler::init$($InputStream* in) {
 
 void Lock$IOHandler::handle($InputStream* in) {
 	$init(Lock$IOHandler);
+	$useLocalCurrentObjectStackCache();
 	$var(Lock$IOHandler, handler, $new(Lock$IOHandler, in));
 	$var($Thread, thr, $new($Thread, static_cast<$Runnable*>(handler)));
 	thr->setDaemon(true);

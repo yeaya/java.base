@@ -324,6 +324,7 @@ int32_t ProcessImpl::STILL_ACTIVE = 0;
 
 $FileOutputStream* ProcessImpl::newFileOutputStream($File* f, bool append) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (append) {
 		$var($String, path, $nc(f)->getPath());
@@ -342,6 +343,7 @@ $FileOutputStream* ProcessImpl::newFileOutputStream($File* f, bool append) {
 
 $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String* dir, $ProcessBuilder$RedirectArray* redirects, bool redirectErrorStream) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, envblock, $ProcessEnvironment::toEnvironmentBlock(environment));
 	$var($FileInputStream, f0, nullptr);
 	$var($FileOutputStream, f1, nullptr);
@@ -467,6 +469,7 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 
 $StringArray* ProcessImpl::getTokensFromCommand($String* command) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, matchList, $new($ArrayList, 8));
 	$init($ProcessImpl$LazyPattern);
 	$var($Matcher, regexMatcher, $nc($ProcessImpl$LazyPattern::PATTERN)->matcher(command));
@@ -478,6 +481,7 @@ $StringArray* ProcessImpl::getTokensFromCommand($String* command) {
 
 $String* ProcessImpl::createCommandLine(int32_t verificationType, $String* executablePath, $StringArray* cmd) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, cmdbuf, $new($StringBuilder, 80));
 	cmdbuf->append(executablePath);
 	for (int32_t i = 1; i < $nc(cmd)->length; ++i) {
@@ -528,6 +532,7 @@ $String* ProcessImpl::unQuote($String* str) {
 
 bool ProcessImpl::needsEscaping(int32_t verificationType, $String* arg) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(arg)->isEmpty()) {
 		return true;
 	}
@@ -567,6 +572,7 @@ bool ProcessImpl::needsEscaping(int32_t verificationType, $String* arg) {
 
 $String* ProcessImpl::getExecutablePath($String* path) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, unQuote(path));
 	if ($nc(name)->indexOf((int32_t)ProcessImpl::DOUBLEQUOTE) >= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Executable name has embedded quote, split the arguments: "_s, name}));
@@ -576,6 +582,7 @@ $String* ProcessImpl::getExecutablePath($String* path) {
 }
 
 bool ProcessImpl::isExe($String* executablePath) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, executablePath));
 	$init($Locale);
 	$var($String, upName, $nc($(file->getName()))->toUpperCase($Locale::ROOT));
@@ -606,6 +613,7 @@ int32_t ProcessImpl::countLeadingBackslash(int32_t verificationType, $CharSequen
 }
 
 void ProcessImpl::init$($StringArray* cmd$renamed, $String* envblock, $String* path, $longs* stdHandles, bool forceNullOutputStream, bool redirectErrorStream) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, cmd, cmd$renamed);
 	$beforeCallerSensitive();
 	$Process::init$();
@@ -742,10 +750,12 @@ void ProcessImpl::destroy() {
 }
 
 $CompletableFuture* ProcessImpl::onExit() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($CompletableFuture, $nc($($ProcessHandleImpl::completion(pid(), false)))->handleAsync(static_cast<$BiFunction*>($$new(ProcessImpl$$Lambda$lambda$onExit$1$1, this))));
 }
 
 $ProcessHandle* ProcessImpl::toHandle() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -796,6 +806,7 @@ bool ProcessImpl::isProcessAlive(int64_t handle) {
 }
 
 $String* ProcessImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t exitCode = getExitCodeProcess(this->handle);
 	return $$new($StringBuilder, "Process[pid="_s)->append(pid())->append(", exitValue="_s)->append(exitCode == ProcessImpl::STILL_ACTIVE ? $of("\"not exited\""_s) : $($of($Integer::valueOf(exitCode))))->append("]"_s)->toString();
 }
@@ -837,6 +848,7 @@ void ProcessImpl::lambda$new$0(int64_t local_handle) {
 }
 
 void clinit$ProcessImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ProcessImpl::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 	$assignStatic(ProcessImpl::ESCAPE_VERIFICATION, $new($charArray2, {
 		$$new($chars, {

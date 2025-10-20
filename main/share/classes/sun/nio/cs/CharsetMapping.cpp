@@ -340,6 +340,7 @@ void CharsetMapping::readDOUBLEBYTE2() {
 }
 
 void CharsetMapping::readCOMPOSITE() {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, map, readCharArray());
 	int32_t mLen = $nc(map)->length / 3;
 	$set(this, b2cComp, $new($CharsetMapping$EntryArray, mLen));

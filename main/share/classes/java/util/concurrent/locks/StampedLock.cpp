@@ -582,6 +582,7 @@ int32_t StampedLock::getReadLockCount() {
 }
 
 $String* StampedLock::toString() {
+	$useLocalCurrentObjectStackCache();
 	int64_t s = this->state;
 	$var($String, var$0, $($Serializable::toString()));
 	return $concat(var$0, (((int64_t)(s & (uint64_t)StampedLock::ABITS)) == (int64_t)0 ? "[Unlocked]"_s : ((int64_t)(s & (uint64_t)StampedLock::WBIT)) != (int64_t)0 ? "[Write-locked]"_s : $$str({"[Read-locks:"_s, $$str(getReadLockCount(s)), "]"_s})));
@@ -705,6 +706,7 @@ void StampedLock::tryInitializeHead() {
 }
 
 int64_t StampedLock::acquireWrite(bool interruptible, bool timed, int64_t time) {
+	$useLocalCurrentObjectStackCache();
 	int8_t spins = (int8_t)0;
 	int8_t postSpins = (int8_t)0;
 	bool interrupted = false;
@@ -779,6 +781,7 @@ int64_t StampedLock::acquireWrite(bool interruptible, bool timed, int64_t time) 
 }
 
 int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
+	$useLocalCurrentObjectStackCache();
 	bool interrupted = false;
 	$var($StampedLock$ReaderNode, node, nullptr);
 	for (;;) {
@@ -900,6 +903,7 @@ int64_t StampedLock::acquireRead(bool interruptible, bool timed, int64_t time) {
 }
 
 void StampedLock::cleanQueue() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		{
 			$var($StampedLock$Node, q, this->tail);
@@ -939,6 +943,7 @@ void StampedLock::cleanQueue() {
 }
 
 void StampedLock::unlinkCowaiter($StampedLock$ReaderNode* node, $StampedLock$ReaderNode* leader) {
+	$useLocalCurrentObjectStackCache();
 	if (leader != nullptr) {
 		while (leader->prev != nullptr && leader->status >= 0) {
 			{

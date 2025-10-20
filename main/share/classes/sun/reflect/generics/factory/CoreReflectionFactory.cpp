@@ -178,6 +178,7 @@ $TypeVariable* CoreReflectionFactory::findTypeVariable($String* name) {
 }
 
 $Type* CoreReflectionFactory::makeNamedType($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $Class::forName(name, false, $(getDeclsLoader()));

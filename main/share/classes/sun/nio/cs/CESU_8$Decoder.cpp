@@ -234,6 +234,7 @@ $CoderResult* CESU_8$Decoder::xflow($Buffer* src, int32_t mark, int32_t nb) {
 }
 
 $CoderResult* CESU_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -348,6 +349,7 @@ $ByteBuffer* CESU_8$Decoder::getByteBuffer($ByteBuffer* bb$renamed, $bytes* ba, 
 }
 
 int32_t CESU_8$Decoder::decode($bytes* sa, int32_t sp, int32_t len, $chars* da) {
+	$useLocalCurrentObjectStackCache();
 	int32_t sl = sp + len;
 	int32_t dp = 0;
 	int32_t dlASCII = $Math::min(len, $nc(da)->length);

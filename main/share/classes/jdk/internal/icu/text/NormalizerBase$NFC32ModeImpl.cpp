@@ -75,6 +75,7 @@ void NormalizerBase$NFC32ModeImpl::init$() {
 }
 
 void clinit$NormalizerBase$NFC32ModeImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($NormalizerBase$Unicode32);
 	$assignStatic(NormalizerBase$NFC32ModeImpl::INSTANCE, $new($NormalizerBase$ModeImpl, $$new($FilteredNormalizer2, $($Normalizer2::getNFCInstance()), $NormalizerBase$Unicode32::INSTANCE)));
 }

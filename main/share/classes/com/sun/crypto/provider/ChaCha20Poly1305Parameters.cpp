@@ -129,6 +129,7 @@ $bytes* ChaCha20Poly1305Parameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* ChaCha20Poly1305Parameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({LINE_SEP, "nonce:"_s, LINE_SEP, "["_s, $(encoder->encodeBuffer(this->nonce)), "]"_s})));

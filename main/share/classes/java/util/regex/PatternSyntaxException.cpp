@@ -71,6 +71,7 @@ $String* PatternSyntaxException::getPattern() {
 }
 
 $String* PatternSyntaxException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(this->desc);
 	if (this->index >= 0) {

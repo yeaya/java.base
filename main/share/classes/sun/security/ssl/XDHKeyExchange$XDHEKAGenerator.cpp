@@ -90,6 +90,7 @@ void XDHKeyExchange$XDHEKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* XDHKeyExchange$XDHEKAGenerator::createKeyDerivation($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($XDHKeyExchange$XDHEPossession, xdhePossession, nullptr);
 	$var($XDHKeyExchange$XDHECredentials, xdheCredentials, nullptr);
 	{

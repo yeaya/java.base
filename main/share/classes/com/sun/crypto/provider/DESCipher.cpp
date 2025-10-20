@@ -141,6 +141,7 @@ int32_t DESCipher::engineDoFinal($bytes* input, int32_t inputOffset, int32_t inp
 }
 
 int32_t DESCipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if ($nc(encoded)->length != 8) {

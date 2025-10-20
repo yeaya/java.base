@@ -54,6 +54,7 @@ void TestObj::init$($String* str, $PrintWriter* writer) {
 
 void TestObj::test() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		try {
 			int64_t t = $Math::round($Math::random() * 10);
 			$($Thread::currentThread())->sleep(t);

@@ -183,6 +183,7 @@ bool Attributes::containsKey(Object$* name) {
 }
 
 void Attributes::putAll($Map* attr) {
+	$useLocalCurrentObjectStackCache();
 	if (!Attributes::class$->isInstance(attr)) {
 		$throwNew($ClassCastException);
 	}
@@ -233,6 +234,7 @@ $Object* Attributes::clone() {
 }
 
 void Attributes::write($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buffer, $new($StringBuilder, 72));
 	{
 		$var($Iterator, i$, $nc($(entrySet()))->iterator());
@@ -251,6 +253,7 @@ void Attributes::write($DataOutputStream* out) {
 }
 
 void Attributes::writeMain($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buffer, $new($StringBuilder, 72));
 	$init($Attributes$Name);
 	$var($String, vername, $nc($Attributes$Name::MANIFEST_VERSION)->toString());
@@ -291,6 +294,7 @@ void Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf) {
 }
 
 int32_t Attributes::read($Manifest$FastInputStream* is, $bytes* lbuf, $String* filename, int32_t lineNumber) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	$var($String, value, nullptr);
 	$var($bytes, lastline, nullptr);

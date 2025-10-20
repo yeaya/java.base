@@ -140,6 +140,7 @@ $SerializationConstructorAccessorImpl* MethodAccessorGenerator::generateSerializ
 }
 
 $MagicAccessorImpl* MethodAccessorGenerator::generate($Class* declaringClass, $String* name, $ClassArray* parameterTypes, $Class* returnType, $ClassArray* checkedExceptions, int32_t modifiers, bool isConstructor, bool forSerialization, $Class* serializationTargetClass) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ByteVector, vec, $ByteVectorFactory::create());
 	$set(this, asm$, $new($ClassFileAssembler, vec));
@@ -238,6 +239,7 @@ $MagicAccessorImpl* MethodAccessorGenerator::generate($Class* declaringClass, $S
 }
 
 void MethodAccessorGenerator::emitInvoke() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->parameterTypes)->length > 0x0000FFFF) {
 		$throwNew($InternalError, "Can\'t handle more than 65535 parameters"_s);
 	}
@@ -435,6 +437,7 @@ bool MethodAccessorGenerator::isInterface() {
 }
 
 $String* MethodAccessorGenerator::buildInternalSignature() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("("_s);
 	for (int32_t i = 0; i < $nc(this->parameterTypes)->length; ++i) {
@@ -449,6 +452,7 @@ $String* MethodAccessorGenerator::generateName(bool isConstructor, bool forSeria
 	$load(MethodAccessorGenerator);
 	$synchronized(class$) {
 		$init(MethodAccessorGenerator);
+		$useLocalCurrentObjectStackCache();
 		if (isConstructor) {
 			if (forSerialization) {
 				int32_t num = ++MethodAccessorGenerator::serializationConstructorSymnum;

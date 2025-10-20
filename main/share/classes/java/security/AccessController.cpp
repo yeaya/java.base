@@ -227,6 +227,7 @@ $Object* AccessController::doPrivileged($PrivilegedAction* action) {
 
 $Object* AccessController::doPrivilegedWithCombiner($PrivilegedAction* action) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, acc, getStackAccessControlContext());
 	if (acc == nullptr) {
 		return $of(AccessController::doPrivileged(action));
@@ -245,6 +246,7 @@ $Object* AccessController::doPrivileged($PrivilegedAction* action, $AccessContro
 
 $Object* AccessController::doPrivileged($PrivilegedAction* action, $AccessControlContext* context, $PermissionArray* perms) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, parent, getContext());
 	if (perms == nullptr) {
 		$throwNew($NullPointerException, "null permissions parameter"_s);
@@ -256,6 +258,7 @@ $Object* AccessController::doPrivileged($PrivilegedAction* action, $AccessContro
 
 $Object* AccessController::doPrivilegedWithCombiner($PrivilegedAction* action, $AccessControlContext* context, $PermissionArray* perms) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, parent, getContext());
 	$var($DomainCombiner, dc, $nc(parent)->getCombiner());
 	if (dc == nullptr && context != nullptr) {
@@ -270,6 +273,7 @@ $Object* AccessController::doPrivilegedWithCombiner($PrivilegedAction* action, $
 
 $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, context, nullptr);
 	$Class* caller = $Reflection::getCallerClass();
 	try {
@@ -286,6 +290,7 @@ $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action) {
 
 $Object* AccessController::doPrivilegedWithCombiner($PrivilegedExceptionAction* action) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, acc, getStackAccessControlContext());
 	if (acc == nullptr) {
 		return $of(AccessController::doPrivileged(action));
@@ -324,6 +329,7 @@ $ProtectionDomain* AccessController::getProtectionDomain($Class* caller) {
 
 $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action, $AccessControlContext* context$renamed) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, context, context$renamed);
 	$Class* caller = $Reflection::getCallerClass();
 	$assign(context, checkContext(context, caller));
@@ -403,6 +409,7 @@ $PrivilegedActionException* AccessController::wrapException($Exception* e) {
 
 $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action, $AccessControlContext* context, $PermissionArray* perms) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, parent, getContext());
 	if (perms == nullptr) {
 		$throwNew($NullPointerException, "null permissions parameter"_s);
@@ -414,6 +421,7 @@ $Object* AccessController::doPrivileged($PrivilegedExceptionAction* action, $Acc
 
 $Object* AccessController::doPrivilegedWithCombiner($PrivilegedExceptionAction* action, $AccessControlContext* context, $PermissionArray* perms) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, parent, getContext());
 	$var($DomainCombiner, dc, $nc(parent)->getCombiner());
 	if (dc == nullptr && context != nullptr) {
@@ -446,6 +454,7 @@ $AccessControlContext* AccessController::getContext() {
 
 void AccessController::checkPermission($Permission* perm) {
 	$init(AccessController);
+	$useLocalCurrentObjectStackCache();
 	if (perm == nullptr) {
 		$throwNew($NullPointerException, "permission can\'t be null"_s);
 	}

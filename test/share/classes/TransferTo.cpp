@@ -167,6 +167,7 @@ void TransferTo::main($StringArray* args) {
 }
 
 void TransferTo::ifOutIsNullThenNpeIsThrown() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($InputStream, in, input($$new($bytes, 0)));
 		{
@@ -287,6 +288,7 @@ void TransferTo::ifOutIsNullThenNpeIsThrown() {
 }
 
 void TransferTo::ifExceptionInInputNeitherStreamIsClosed() {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, var$0, input(0, $$new($bytes, {
 		(int8_t)1,
 		(int8_t)2,
@@ -308,6 +310,7 @@ void TransferTo::ifExceptionInInputNeitherStreamIsClosed() {
 }
 
 void TransferTo::ifExceptionInOutputNeitherStreamIsClosed() {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, var$0, input($$new($bytes, {
 		(int8_t)1,
 		(int8_t)2,
@@ -329,6 +332,7 @@ void TransferTo::ifExceptionInOutputNeitherStreamIsClosed() {
 }
 
 void TransferTo::transferToThenCheckIfAnyClosed($InputStream* input, $OutputStream* output) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($TransferTo$CloseLoggingInputStream, in, $new($TransferTo$CloseLoggingInputStream, input));
 		{
@@ -396,6 +400,7 @@ void TransferTo::transferToThenCheckIfAnyClosed($InputStream* input, $OutputStre
 }
 
 void TransferTo::onReturnNeitherStreamIsClosed() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($TransferTo$CloseLoggingInputStream, in, $new($TransferTo$CloseLoggingInputStream, $(input($$new($bytes, {
 			(int8_t)1,
@@ -458,6 +463,7 @@ void TransferTo::onReturnNeitherStreamIsClosed() {
 }
 
 void TransferTo::onReturnInputIsAtEnd() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($InputStream, in, input($$new($bytes, {
 			(int8_t)1,
@@ -527,12 +533,14 @@ void TransferTo::onReturnInputIsAtEnd() {
 }
 
 void TransferTo::contents() {
+	$useLocalCurrentObjectStackCache();
 	checkTransferredContents($$new($bytes, 0));
 	checkTransferredContents($(createRandomBytes(1024, 4096)));
 	checkTransferredContents($(createRandomBytes(16384, 16384)));
 }
 
 void TransferTo::checkTransferredContents($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($InputStream, in, input(bytes));
 		{
@@ -598,6 +606,7 @@ void TransferTo::checkTransferredContents($bytes* bytes) {
 }
 
 $bytes* TransferTo::createRandomBytes(int32_t min, int32_t maxRandomAdditive) {
+	$useLocalCurrentObjectStackCache();
 	$var($Random, rnd, $new($Random));
 	$var($bytes, bytes, $new($bytes, min + rnd->nextInt(maxRandomAdditive)));
 	rnd->nextBytes(bytes);
@@ -626,6 +635,7 @@ void TransferTo::assertThrowsNPE($TransferTo$Thrower* thrower, $String* message)
 }
 
 void TransferTo::assertThrows($TransferTo$Thrower* thrower, $Class* throwable, $String* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, thrown, nullptr);
 	try {
 		$nc(thrower)->run();

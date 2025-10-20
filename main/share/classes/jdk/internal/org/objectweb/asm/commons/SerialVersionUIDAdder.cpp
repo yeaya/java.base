@@ -172,6 +172,7 @@ void SerialVersionUIDAdder::visit(int32_t version, int32_t access, $String* name
 }
 
 $MethodVisitor* SerialVersionUIDAdder::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	if (this->computeSvuid) {
 		if ($nc(SerialVersionUIDAdder::CLINIT)->equals(name)) {
 			this->hasStaticInitializer = true;
@@ -210,6 +211,7 @@ void SerialVersionUIDAdder::visitInnerClass($String* innerClassName, $String* ou
 }
 
 void SerialVersionUIDAdder::visitEnd() {
+	$useLocalCurrentObjectStackCache();
 	if (this->computeSvuid && !this->hasSvuid) {
 		try {
 			addSVUID(computeSVUID());
@@ -226,6 +228,7 @@ bool SerialVersionUIDAdder::hasSVUID() {
 }
 
 void SerialVersionUIDAdder::addSVUID(int64_t svuid) {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldVisitor, fieldVisitor, $ClassVisitor::visitField($Opcodes::ACC_FINAL + $Opcodes::ACC_STATIC, "serialVersionUID"_s, "J"_s, nullptr, $($Long::valueOf(svuid))));
 	if (fieldVisitor != nullptr) {
 		fieldVisitor->visitEnd();
@@ -233,6 +236,7 @@ void SerialVersionUIDAdder::addSVUID(int64_t svuid) {
 }
 
 int64_t SerialVersionUIDAdder::computeSVUID() {
+	$useLocalCurrentObjectStackCache();
 	int64_t svuid = 0;
 	{
 		$var($ByteArrayOutputStream, byteArrayOutputStream, $new($ByteArrayOutputStream));
@@ -319,6 +323,7 @@ int64_t SerialVersionUIDAdder::computeSVUID() {
 }
 
 $bytes* SerialVersionUIDAdder::computeSHAdigest($bytes* value) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($MessageDigest::getInstance("SHA"_s)))->digest(value);
 	} catch ($NoSuchAlgorithmException&) {
@@ -330,6 +335,7 @@ $bytes* SerialVersionUIDAdder::computeSHAdigest($bytes* value) {
 
 void SerialVersionUIDAdder::writeItems($Collection* itemCollection, $DataOutput* dataOutputStream, bool dotted) {
 	$init(SerialVersionUIDAdder);
+	$useLocalCurrentObjectStackCache();
 	$var($SerialVersionUIDAdder$ItemArray, items, $fcast($SerialVersionUIDAdder$ItemArray, $nc(itemCollection)->toArray($$new($SerialVersionUIDAdder$ItemArray, 0))));
 	$Arrays::sort(items);
 	{

@@ -89,6 +89,7 @@ void FileInputStreamPool::init$() {
 
 $InputStream* FileInputStreamPool::getInputStream($File* file) {
 	$init(FileInputStreamPool);
+	$useLocalCurrentObjectStackCache();
 	$var($FileInputStreamPool$StreamRef, oldRref, nullptr);
 	while (($assign(oldRref, $cast($FileInputStreamPool$StreamRef, $nc(FileInputStreamPool::refQueue)->poll()))) != nullptr) {
 		$nc(FileInputStreamPool::pool)->remove($nc(oldRref)->file, oldRref);

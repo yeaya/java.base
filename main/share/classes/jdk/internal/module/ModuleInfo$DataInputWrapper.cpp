@@ -97,6 +97,7 @@ void ModuleInfo$DataInputWrapper::readFully($bytes* b) {
 }
 
 void ModuleInfo$DataInputWrapper::readFully($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->bb)->get(b, off, len);
 	} catch ($BufferUnderflowException&) {
@@ -112,6 +113,7 @@ int32_t ModuleInfo$DataInputWrapper::skipBytes(int32_t n) {
 }
 
 bool ModuleInfo$DataInputWrapper::readBoolean() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t ch = $nc(this->bb)->get();
 		return (ch != 0);
@@ -123,6 +125,7 @@ bool ModuleInfo$DataInputWrapper::readBoolean() {
 }
 
 int8_t ModuleInfo$DataInputWrapper::readByte() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->get();
 	} catch ($BufferUnderflowException&) {
@@ -133,6 +136,7 @@ int8_t ModuleInfo$DataInputWrapper::readByte() {
 }
 
 int32_t ModuleInfo$DataInputWrapper::readUnsignedByte() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return (int32_t)(((int32_t)$nc(this->bb)->get()) & (uint32_t)255);
 	} catch ($BufferUnderflowException&) {
@@ -143,6 +147,7 @@ int32_t ModuleInfo$DataInputWrapper::readUnsignedByte() {
 }
 
 int16_t ModuleInfo$DataInputWrapper::readShort() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getShort();
 	} catch ($BufferUnderflowException&) {
@@ -153,6 +158,7 @@ int16_t ModuleInfo$DataInputWrapper::readShort() {
 }
 
 int32_t ModuleInfo$DataInputWrapper::readUnsignedShort() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return (int32_t)(((int32_t)$nc(this->bb)->getShort()) & (uint32_t)0x0000FFFF);
 	} catch ($BufferUnderflowException&) {
@@ -163,6 +169,7 @@ int32_t ModuleInfo$DataInputWrapper::readUnsignedShort() {
 }
 
 char16_t ModuleInfo$DataInputWrapper::readChar() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getChar();
 	} catch ($BufferUnderflowException&) {
@@ -173,6 +180,7 @@ char16_t ModuleInfo$DataInputWrapper::readChar() {
 }
 
 int32_t ModuleInfo$DataInputWrapper::readInt() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getInt();
 	} catch ($BufferUnderflowException&) {
@@ -183,6 +191,7 @@ int32_t ModuleInfo$DataInputWrapper::readInt() {
 }
 
 int64_t ModuleInfo$DataInputWrapper::readLong() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getLong();
 	} catch ($BufferUnderflowException&) {
@@ -193,6 +202,7 @@ int64_t ModuleInfo$DataInputWrapper::readLong() {
 }
 
 float ModuleInfo$DataInputWrapper::readFloat() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getFloat();
 	} catch ($BufferUnderflowException&) {
@@ -203,6 +213,7 @@ float ModuleInfo$DataInputWrapper::readFloat() {
 }
 
 double ModuleInfo$DataInputWrapper::readDouble() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->bb)->getDouble();
 	} catch ($BufferUnderflowException&) {

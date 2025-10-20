@@ -39,6 +39,7 @@ void CheckProvider::init$() {
 }
 
 void CheckProvider::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$Class* c = $nc($of($($AsynchronousChannelProvider::provider())))->getClass();
 	$var($String, expected, $nc(args)->get(0));
 	$var($String, actual, $nc(c)->getName());

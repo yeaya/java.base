@@ -139,6 +139,7 @@ void UBiDiProps::init$() {
 }
 
 void UBiDiProps::readData($ByteBuffer* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$ICUBinary::readHeader(bytes, UBiDiProps::FMT, static_cast<$ICUBinary$Authenticate*>($$new($UBiDiProps$IsAcceptable)));
 	int32_t i = 0;
 	int32_t count = 0;
@@ -268,6 +269,7 @@ int32_t UBiDiProps::getMirrorIndex(int32_t m) {
 }
 
 void clinit$UBiDiProps($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($VersionInfo);
 	$assignStatic(UBiDiProps::DATA_FILE_NAME, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/ubidi.icu"_s}));
 	{

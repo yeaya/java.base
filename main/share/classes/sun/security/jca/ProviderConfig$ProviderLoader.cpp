@@ -108,6 +108,7 @@ void ProviderConfig$ProviderLoader::init$() {
 }
 
 $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProviderConfig);
 	if ($ProviderConfig::debug != nullptr) {
 		$nc($ProviderConfig::debug)->println($$str({"Attempt to load "_s, pn, " using SL"_s}));
@@ -160,6 +161,7 @@ $Provider* ProviderConfig$ProviderLoader::load($String* pn) {
 }
 
 $Provider* ProviderConfig$ProviderLoader::legacyLoad($String* classname) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($ProviderConfig);
 	if ($ProviderConfig::debug != nullptr) {

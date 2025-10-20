@@ -388,6 +388,7 @@ void AbstractPlainSocketImpl::create(bool stream) {
 }
 
 void AbstractPlainSocketImpl::connect($String* host, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	bool connected = false;
 	{
 		$var($Throwable, var$0, nullptr);
@@ -419,6 +420,7 @@ void AbstractPlainSocketImpl::connect($String* host, int32_t port) {
 }
 
 void AbstractPlainSocketImpl::connect($InetAddress* address$renamed, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, address, address$renamed);
 	$set(this, address, address);
 	this->port = port;
@@ -437,6 +439,7 @@ void AbstractPlainSocketImpl::connect($InetAddress* address$renamed, int32_t por
 }
 
 void AbstractPlainSocketImpl::connect($SocketAddress* address, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	bool connected = false;
 	{
 		$var($Throwable, var$0, nullptr);
@@ -488,6 +491,7 @@ void AbstractPlainSocketImpl::connectToAddress($InetAddress* address, int32_t po
 }
 
 void AbstractPlainSocketImpl::setOption(int32_t opt, Object$* val) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosedOrPending()) {
 		$throwNew($SocketException, "Socket Closed"_s);
 	}
@@ -592,6 +596,7 @@ void AbstractPlainSocketImpl::setOption(int32_t opt, Object$* val) {
 }
 
 $Object* AbstractPlainSocketImpl::getOption(int32_t opt) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosedOrPending()) {
 		$throwNew($SocketException, "Socket Closed"_s);
 	}
@@ -674,6 +679,7 @@ $Object* AbstractPlainSocketImpl::getOption(int32_t opt) {
 
 $Set* AbstractPlainSocketImpl::clientSocketOptions() {
 	$init(AbstractPlainSocketImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, options, $new($HashSet));
 	$init($StandardSocketOptions);
 	options->add($StandardSocketOptions::SO_KEEPALIVE);
@@ -692,6 +698,7 @@ $Set* AbstractPlainSocketImpl::clientSocketOptions() {
 
 $Set* AbstractPlainSocketImpl::serverSocketOptions() {
 	$init(AbstractPlainSocketImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, options, $new($HashSet));
 	$init($StandardSocketOptions);
 	options->add($StandardSocketOptions::SO_RCVBUF);
@@ -713,6 +720,7 @@ $Set* AbstractPlainSocketImpl::supportedOptions() {
 }
 
 void AbstractPlainSocketImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -776,6 +784,7 @@ void AbstractPlainSocketImpl::setOption($SocketOption* name, Object$* value) {
 }
 
 $Object* AbstractPlainSocketImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -830,6 +839,7 @@ $Object* AbstractPlainSocketImpl::getOption($SocketOption* name) {
 
 void AbstractPlainSocketImpl::doConnect($InetAddress* address, int32_t port, int32_t timeout) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$synchronized(this->fdLock) {
 			if (!this->closePending && !this->isBound) {
 				$NetHooks::beforeTcpConnect(this->fd, address, port);
@@ -906,6 +916,7 @@ void AbstractPlainSocketImpl::accept($SocketImpl* si) {
 
 $InputStream* AbstractPlainSocketImpl::getInputStream() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$synchronized(this->fdLock) {
 			if (isClosedOrPending()) {
@@ -934,6 +945,7 @@ void AbstractPlainSocketImpl::setInputStream($SocketInputStream* in) {
 
 $OutputStream* AbstractPlainSocketImpl::getOutputStream() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$synchronized(this->fdLock) {
 			if (isClosedOrPending()) {

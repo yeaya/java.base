@@ -527,6 +527,7 @@ void ClassReader::init$($bytes* classFileBuffer, int32_t classFileOffset, int32_
 }
 
 void ClassReader::init$($bytes* classFileBuffer, int32_t classFileOffset, bool checkClassVersion) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, classFileBuffer, classFileBuffer);
 	$set(this, b, classFileBuffer);
 	if (checkClassVersion && readShort(classFileOffset + 6) > $Opcodes::V17) {
@@ -624,10 +625,12 @@ void ClassReader::init$($InputStream* inputStream) {
 }
 
 void ClassReader::init$($String* className) {
+	$useLocalCurrentObjectStackCache();
 	ClassReader::init$($(readStream($($ClassLoader::getSystemResourceAsStream($$str({$($nc(className)->replace(u'.', u'/')), ".class"_s}))), true)));
 }
 
 $bytes* ClassReader::readStream($InputStream* inputStream, bool close) {
+	$useLocalCurrentObjectStackCache();
 	if (inputStream == nullptr) {
 		$throwNew($IOException, "Class not found"_s);
 	}
@@ -706,6 +709,7 @@ $String* ClassReader::getSuperName() {
 }
 
 $StringArray* ClassReader::getInterfaces() {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = this->header + 6;
 	int32_t interfacesCount = readUnsignedShort(currentOffset);
 	$var($StringArray, interfaces, $new($StringArray, interfacesCount));
@@ -724,6 +728,7 @@ void ClassReader::accept($ClassVisitor* classVisitor, int32_t parsingOptions) {
 }
 
 void ClassReader::accept($ClassVisitor* classVisitor, $AttributeArray* attributePrototypes, int32_t parsingOptions) {
+	$useLocalCurrentObjectStackCache();
 	$var($Context, context, $new($Context));
 	$set(context, attributePrototypes, attributePrototypes);
 	context->parsingOptions = parsingOptions;
@@ -954,6 +959,7 @@ void ClassReader::accept($ClassVisitor* classVisitor, $AttributeArray* attribute
 }
 
 void ClassReader::readModuleAttributes($ClassVisitor* classVisitor, $Context* context, int32_t moduleOffset, int32_t modulePackagesOffset, $String* moduleMainClass) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, buffer, $nc(context)->charBuffer);
 	int32_t currentOffset = moduleOffset;
 	$var($String, moduleName, readModule(currentOffset, buffer));
@@ -1041,6 +1047,7 @@ void ClassReader::readModuleAttributes($ClassVisitor* classVisitor, $Context* co
 }
 
 int32_t ClassReader::readRecordComponent($ClassVisitor* classVisitor, $Context* context, int32_t recordComponentOffset) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = recordComponentOffset;
 	$var($String, name, readUTF8(currentOffset, charBuffer));
@@ -1137,6 +1144,7 @@ int32_t ClassReader::readRecordComponent($ClassVisitor* classVisitor, $Context* 
 }
 
 int32_t ClassReader::readField($ClassVisitor* classVisitor, $Context* context, int32_t fieldInfoOffset) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = fieldInfoOffset;
 	int32_t accessFlags = readUnsignedShort(currentOffset);
@@ -1248,6 +1256,7 @@ int32_t ClassReader::readField($ClassVisitor* classVisitor, $Context* context, i
 }
 
 int32_t ClassReader::readMethod($ClassVisitor* classVisitor, $Context* context, int32_t methodInfoOffset) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = methodInfoOffset;
 	context->currentMethodAccessFlags = readUnsignedShort(currentOffset);
@@ -1427,6 +1436,7 @@ int32_t ClassReader::readMethod($ClassVisitor* classVisitor, $Context* context, 
 }
 
 void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int32_t codeOffset) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = codeOffset;
 	$var($bytes, classBuffer, this->classFileBuffer);
 	$var($chars, charBuffer, $nc(context)->charBuffer);
@@ -2853,6 +2863,7 @@ void ClassReader::createDebugLabel(int32_t bytecodeOffset, $LabelArray* labels) 
 }
 
 $ints* ClassReader::readTypeAnnotations($MethodVisitor* methodVisitor, $Context* context, int32_t runtimeTypeAnnotationsOffset, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	int32_t currentOffset = runtimeTypeAnnotationsOffset;
 	$var($ints, typeAnnotationsOffsets, $new($ints, readUnsignedShort(currentOffset)));
@@ -2953,6 +2964,7 @@ int32_t ClassReader::getTypeAnnotationBytecodeOffset($ints* typeAnnotationOffset
 }
 
 int32_t ClassReader::readTypeAnnotationTarget($Context* context, int32_t typeAnnotationOffset) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = typeAnnotationOffset;
 	int32_t targetType = readInt(typeAnnotationOffset);
 	{
@@ -3052,6 +3064,7 @@ int32_t ClassReader::readTypeAnnotationTarget($Context* context, int32_t typeAnn
 }
 
 void ClassReader::readParameterAnnotations($MethodVisitor* methodVisitor, $Context* context, int32_t runtimeParameterAnnotationsOffset, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = runtimeParameterAnnotationsOffset;
 	int32_t numParameters = (int32_t)($nc(this->classFileBuffer)->get(currentOffset++) & (uint32_t)255);
 	$nc(methodVisitor)->visitAnnotableParameterCount(numParameters, visible);
@@ -3068,6 +3081,7 @@ void ClassReader::readParameterAnnotations($MethodVisitor* methodVisitor, $Conte
 }
 
 int32_t ClassReader::readElementValues($AnnotationVisitor* annotationVisitor, int32_t annotationOffset, bool named, $chars* charBuffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = annotationOffset;
 	int32_t numElementValuePairs = readUnsignedShort(currentOffset);
 	currentOffset += 2;
@@ -3088,6 +3102,7 @@ int32_t ClassReader::readElementValues($AnnotationVisitor* annotationVisitor, in
 }
 
 int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int32_t elementValueOffset, $String* elementName, $chars* charBuffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = elementValueOffset;
 	if (annotationVisitor == nullptr) {
 		switch ((int32_t)($nc(this->classFileBuffer)->get(currentOffset) & (uint32_t)255)) {
@@ -3290,6 +3305,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 }
 
 void ClassReader::computeImplicitFrame($Context* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, methodDescriptor, $nc(context)->currentMethodDescriptor);
 	$var($ObjectArray, locals, context->currentFrameLocalTypes);
 	int32_t numLocal = 0;
@@ -3369,6 +3385,7 @@ void ClassReader::computeImplicitFrame($Context* context) {
 }
 
 int32_t ClassReader::readStackMapFrame(int32_t stackMapFrameOffset, bool compressed, bool expand, $Context* context) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = stackMapFrameOffset;
 	$var($chars, charBuffer, $nc(context)->charBuffer);
 	$var($LabelArray, labels, context->currentMethodLabels);
@@ -3439,6 +3456,7 @@ int32_t ClassReader::readStackMapFrame(int32_t stackMapFrameOffset, bool compres
 }
 
 int32_t ClassReader::readVerificationTypeInfo(int32_t verificationTypeInfoOffset, $ObjectArray* frame, int32_t index, $chars* charBuffer, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = verificationTypeInfoOffset;
 	int32_t tag = (int32_t)($nc(this->classFileBuffer)->get(currentOffset++) & (uint32_t)255);
 	switch (tag) {
@@ -3528,6 +3546,7 @@ int32_t ClassReader::getFirstAttributeOffset() {
 }
 
 $ints* ClassReader::readBootstrapMethodsAttribute(int32_t maxStringLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, charBuffer, $new($chars, maxStringLength));
 	int32_t currentAttributeOffset = getFirstAttributeOffset();
 	$var($ints, currentBootstrapMethodOffsets, nullptr);
@@ -3551,6 +3570,7 @@ $ints* ClassReader::readBootstrapMethodsAttribute(int32_t maxStringLength) {
 }
 
 $Attribute* ClassReader::readAttribute($AttributeArray* attributePrototypes, $String* type, int32_t offset, int32_t length, $chars* charBuffer, int32_t codeAttributeOffset, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($AttributeArray, arr$, attributePrototypes);
 		int32_t len$ = $nc(arr$)->length;
@@ -3613,6 +3633,7 @@ $String* ClassReader::readUTF8(int32_t offset, $chars* charBuffer) {
 }
 
 $String* ClassReader::readUtf(int32_t constantPoolEntryIndex, $chars* charBuffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, $nc(this->constantUtf8Values)->get(constantPoolEntryIndex));
 	if (value != nullptr) {
 		return value;
@@ -3657,6 +3678,7 @@ $String* ClassReader::readPackage(int32_t offset, $chars* charBuffer) {
 }
 
 $ConstantDynamic* ClassReader::readConstantDynamic(int32_t constantPoolEntryIndex, $chars* charBuffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConstantDynamic, constantDynamic, $nc(this->constantDynamicValues)->get(constantPoolEntryIndex));
 	if (constantDynamic != nullptr) {
 		return constantDynamic;
@@ -3677,6 +3699,7 @@ $ConstantDynamic* ClassReader::readConstantDynamic(int32_t constantPoolEntryInde
 }
 
 $Object* ClassReader::readConst(int32_t constantPoolEntryIndex, $chars* charBuffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cpInfoOffset = $nc(this->cpInfoOffsets)->get(constantPoolEntryIndex);
 	{
 		int32_t referenceKind = 0;

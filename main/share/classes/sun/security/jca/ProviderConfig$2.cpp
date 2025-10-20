@@ -77,6 +77,7 @@ void ProviderConfig$2::init$($ProviderConfig* this$0) {
 }
 
 $Object* ProviderConfig$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = $Class::forName("apple.security.AppleProvider"_s);

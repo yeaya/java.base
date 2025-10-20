@@ -93,6 +93,7 @@ void UnixCopyFile$Flags::init$() {
 }
 
 UnixCopyFile$Flags* UnixCopyFile$Flags::fromCopyOptions($CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var(UnixCopyFile$Flags, flags, $new(UnixCopyFile$Flags));
 	flags->followLinks = true;
 	{
@@ -135,6 +136,7 @@ UnixCopyFile$Flags* UnixCopyFile$Flags::fromCopyOptions($CopyOptionArray* option
 }
 
 UnixCopyFile$Flags* UnixCopyFile$Flags::fromMoveOptions($CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var(UnixCopyFile$Flags, flags, $new(UnixCopyFile$Flags));
 	{
 		$var($CopyOptionArray, arr$, options);

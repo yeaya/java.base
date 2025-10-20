@@ -347,6 +347,7 @@ $AnnotationVisitor* CheckMethodAdapter::visitAnnotation($String* descriptor, boo
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::METHOD_TYPE_PARAMETER && sort != $TypeReference::METHOD_TYPE_PARAMETER_BOUND && sort != $TypeReference::METHOD_RETURN && sort != $TypeReference::METHOD_RECEIVER && sort != $TypeReference::METHOD_FORMAL_PARAMETER && sort != $TypeReference::THROWS) {
@@ -398,6 +399,7 @@ void CheckMethodAdapter::visitCode() {
 }
 
 void CheckMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
+	$useLocalCurrentObjectStackCache();
 	if (this->insnCount == this->lastFrameInsnIndex) {
 		$throwNew($IllegalStateException, "At most one frame can be visited at a given code location."_s);
 	}
@@ -479,6 +481,7 @@ void CheckMethodAdapter::visitInsn(int32_t opcode) {
 }
 
 void CheckMethodAdapter::visitIntInsn(int32_t opcode, int32_t operand) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	$init($CheckMethodAdapter$Method);
@@ -574,6 +577,7 @@ void CheckMethodAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner
 }
 
 void CheckMethodAdapter::visitInvokeDynamicInsn($String* name, $String* descriptor, $Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	checkMethodIdentifier(this->version, name, "name"_s);
@@ -637,6 +641,7 @@ void CheckMethodAdapter::visitIincInsn(int32_t var, int32_t increment) {
 }
 
 void CheckMethodAdapter::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	if (max < min) {
@@ -655,6 +660,7 @@ void CheckMethodAdapter::visitTableSwitchInsn(int32_t min, int32_t max, $Label* 
 }
 
 void CheckMethodAdapter::visitLookupSwitchInsn($Label* dflt, $ints* keys, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitMaxsNotCalled();
 	checkVisitCodeCalled();
 	checkLabel(dflt, false, "default label"_s);
@@ -671,6 +677,7 @@ void CheckMethodAdapter::visitLookupSwitchInsn($Label* dflt, $ints* keys, $Label
 }
 
 void CheckMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_t numDimensions) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	checkDescriptor(this->version, descriptor, false);
@@ -688,6 +695,7 @@ void CheckMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_t nu
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
@@ -719,6 +727,7 @@ void CheckMethodAdapter::visitTryCatchBlock($Label* start, $Label* end, $Label* 
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
@@ -731,6 +740,7 @@ $AnnotationVisitor* CheckMethodAdapter::visitTryCatchAnnotation(int32_t typeRef,
 }
 
 void CheckMethodAdapter::visitLocalVariable($String* name, $String* descriptor, $String* signature, $Label* start, $Label* end, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	checkUnqualifiedName(this->version, name, "name"_s);
@@ -750,6 +760,7 @@ void CheckMethodAdapter::visitLocalVariable($String* name, $String* descriptor, 
 }
 
 $AnnotationVisitor* CheckMethodAdapter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
@@ -783,6 +794,7 @@ void CheckMethodAdapter::visitLineNumber(int32_t line, $Label* start) {
 }
 
 void CheckMethodAdapter::visitMaxs(int32_t maxStack, int32_t maxLocals) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitCodeCalled();
 	checkVisitMaxsNotCalled();
 	this->visitMaxCalled = true;
@@ -853,6 +865,7 @@ void CheckMethodAdapter::checkFrameValue(Object$* value) {
 
 void CheckMethodAdapter::checkOpcodeMethod(int32_t opcode, $CheckMethodAdapter$Method* method) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (opcode < $Opcodes::NOP || opcode > $Opcodes::IFNONNULL || $nc(CheckMethodAdapter::OPCODE_METHODS)->get(opcode) != method) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid opcode: "_s, $$str(opcode)}));
 	}
@@ -860,6 +873,7 @@ void CheckMethodAdapter::checkOpcodeMethod(int32_t opcode, $CheckMethodAdapter$M
 
 void CheckMethodAdapter::checkSignedByte(int32_t value, $String* message) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (value < $Byte::MIN_VALUE || value > $Byte::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({message, " (must be a signed byte): "_s, $$str(value)}));
 	}
@@ -867,6 +881,7 @@ void CheckMethodAdapter::checkSignedByte(int32_t value, $String* message) {
 
 void CheckMethodAdapter::checkSignedShort(int32_t value, $String* message) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (value < $Short::MIN_VALUE || value > $Short::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({message, " (must be a signed short): "_s, $$str(value)}));
 	}
@@ -874,6 +889,7 @@ void CheckMethodAdapter::checkSignedShort(int32_t value, $String* message) {
 
 void CheckMethodAdapter::checkUnsignedShort(int32_t value, $String* message) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (value < 0 || value > 0x0000FFFF) {
 		$throwNew($IllegalArgumentException, $$str({message, " (must be an unsigned short): "_s, $$str(value)}));
 	}
@@ -887,6 +903,7 @@ void CheckMethodAdapter::checkConstant(Object$* value) {
 }
 
 void CheckMethodAdapter::checkLdcConstant(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Type, value)) {
 		int32_t sort = $nc(($cast($Type, value)))->getSort();
 		if (sort != $Type::OBJECT && sort != $Type::ARRAY && sort != $Type::METHOD) {
@@ -941,6 +958,7 @@ void CheckMethodAdapter::checkUnqualifiedName(int32_t version, $String* name, $S
 
 void CheckMethodAdapter::checkIdentifier(int32_t version, $String* name, int32_t startPos, int32_t endPos, $String* message) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr || (endPos == -1 ? $nc(name)->length() <= startPos : endPos <= startPos)) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, CheckMethodAdapter::MUST_NOT_BE_NULL_OR_EMPTY}));
 	}
@@ -962,6 +980,7 @@ void CheckMethodAdapter::checkIdentifier(int32_t version, $String* name, int32_t
 
 void CheckMethodAdapter::checkMethodIdentifier(int32_t version, $String* name, $String* message) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr || $nc(name)->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, CheckMethodAdapter::MUST_NOT_BE_NULL_OR_EMPTY}));
 	}
@@ -994,6 +1013,7 @@ void CheckMethodAdapter::checkInternalName(int32_t version, $String* name, $Stri
 
 void CheckMethodAdapter::checkInternalClassName(int32_t version, $String* name, $String* message) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t startIndex = 0;
 		int32_t slashIndex = 0;
@@ -1018,6 +1038,7 @@ void CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor, b
 
 int32_t CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor, int32_t startPos, bool canBeVoid) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (descriptor == nullptr || startPos >= $nc(descriptor)->length()) {
 		$throwNew($IllegalArgumentException, "Invalid type descriptor (must not be null or empty)"_s);
 	}
@@ -1093,6 +1114,7 @@ int32_t CheckMethodAdapter::checkDescriptor(int32_t version, $String* descriptor
 
 void CheckMethodAdapter::checkMethodDescriptor(int32_t version, $String* descriptor) {
 	$init(CheckMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (descriptor == nullptr || $nc(descriptor)->length() == 0) {
 		$throwNew($IllegalArgumentException, "Invalid method descriptor (must not be null or empty)"_s);
 	}
@@ -1118,6 +1140,7 @@ void CheckMethodAdapter::checkMethodDescriptor(int32_t version, $String* descrip
 }
 
 void CheckMethodAdapter::checkLabel($Label* label, bool checkVisited, $String* message) {
+	$useLocalCurrentObjectStackCache();
 	if (label == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({CheckMethodAdapter::INVALID, message, " (must not be null)"_s}));
 	}

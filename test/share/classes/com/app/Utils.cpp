@@ -74,6 +74,7 @@ void Utils::init$() {
 }
 
 void Utils::verify($Class* caller, $String* loaderName, $String* methodname, $String* filename) {
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElementArray, stes, $($Thread::currentThread())->getStackTrace());
 		$load(Utils);
 	$var($StackWalker$StackFrameArray, frames, $new($StackWalker$StackFrameArray, {
@@ -90,6 +91,7 @@ $StackWalker$StackFrame* Utils::makeStackFrame($Class* c, $String* methodname, $
 
 void Utils::checkFrame($String* loaderName, $StackWalker$StackFrame* frame, $StackTraceElement* ste) {
 	$load(Utils);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$var($String, var$0, $$str({"checking "_s, $($nc(ste)->toString()), " expected: "_s}));

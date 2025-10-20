@@ -131,6 +131,7 @@ $AnnotatedType* AnnotatedTypeFactory::buildAnnotatedType($Type* type, $TypeAnnot
 
 $TypeAnnotation$LocationInfo* AnnotatedTypeFactory::nestingForType($Type* type, $TypeAnnotation$LocationInfo* addTo) {
 	$init(AnnotatedTypeFactory);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (isArray(type)) {
 		return addTo;

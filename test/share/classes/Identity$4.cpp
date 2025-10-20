@@ -92,6 +92,7 @@ void Identity$4::init$($AtomicInteger* val$writeCount, int32_t val$groupCount, $
 }
 
 void Identity$4::completed($Integer* bytesWritten, $Integer* groupId) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bytesWritten)->intValue() != 1) {
 		$Identity::fail("Expected 1 byte to be written"_s);
 	}

@@ -43,6 +43,7 @@ void BreakIteratorRules::init$() {
 }
 
 $ObjectArray2* BreakIteratorRules::getContents() {
+	$useLocalCurrentObjectStackCache();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("CharacterBreakRules"_s),

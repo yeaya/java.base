@@ -53,6 +53,7 @@ void Cast::init$() {
 
 void Cast::main($StringArray* argv) {
 	$load(Cast);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Cast$Foo);
 	$var($Object, o, $Cast$Foo::class$->newInstance());

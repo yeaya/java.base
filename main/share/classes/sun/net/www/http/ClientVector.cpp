@@ -78,6 +78,7 @@ void ClientVector::init$(int32_t nap) {
 }
 
 $HttpClient* ClientVector::get() {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -118,6 +119,7 @@ $HttpClient* ClientVector::get() {
 }
 
 void ClientVector::put($HttpClient* h) {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -140,6 +142,7 @@ void ClientVector::put($HttpClient* h) {
 }
 
 bool ClientVector::remove($HttpClient* h) {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);

@@ -243,6 +243,7 @@ void StackWalker::init$($EnumSet* options, int32_t estimateDepth, $StackWalker$E
 
 void StackWalker::checkPermission($Set* options) {
 	$init(StackWalker);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(options);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -269,6 +270,7 @@ $Object* StackWalker::walk($Function* function) {
 }
 
 void StackWalker::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$nc($($StackStreamFactory::makeStackTraverser(this, static_cast<$Function*>($$new(StackWalker$$Lambda$lambda$forEach$0, action)))))->walk();
 }

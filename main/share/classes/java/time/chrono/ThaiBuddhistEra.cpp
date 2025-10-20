@@ -144,6 +144,7 @@ void ThaiBuddhistEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 ThaiBuddhistEra* ThaiBuddhistEra::of(int32_t thaiBuddhistEra) {
 	$init(ThaiBuddhistEra);
+	$useLocalCurrentObjectStackCache();
 	switch (thaiBuddhistEra) {
 	case 0:
 		{
@@ -165,6 +166,7 @@ int32_t ThaiBuddhistEra::getValue() {
 }
 
 $String* ThaiBuddhistEra::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$init($ThaiBuddhistChronology);
 	return $nc($($nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::ERA), style)))->toFormatter(locale)))->withChronology($ThaiBuddhistChronology::INSTANCE)))->format(this == ThaiBuddhistEra::BE ? $(static_cast<$TemporalAccessor*>($ThaiBuddhistDate::of(1, 1, 1))) : $(static_cast<$TemporalAccessor*>($ThaiBuddhistDate::of(0, 1, 1))));

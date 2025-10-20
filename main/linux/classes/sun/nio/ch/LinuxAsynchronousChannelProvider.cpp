@@ -79,6 +79,7 @@ $Object* allocate$LinuxAsynchronousChannelProvider($Class* clazz) {
 $volatile($EPollPort*) LinuxAsynchronousChannelProvider::defaultPort = nullptr;
 
 $EPollPort* LinuxAsynchronousChannelProvider::defaultEventPort() {
+	$useLocalCurrentObjectStackCache();
 	if (LinuxAsynchronousChannelProvider::defaultPort == nullptr) {
 		$synchronized(LinuxAsynchronousChannelProvider::class$) {
 			if (LinuxAsynchronousChannelProvider::defaultPort == nullptr) {
@@ -94,10 +95,12 @@ void LinuxAsynchronousChannelProvider::init$() {
 }
 
 $AsynchronousChannelGroup* LinuxAsynchronousChannelProvider::openAsynchronousChannelGroup(int32_t nThreads, $ThreadFactory* factory) {
+	$useLocalCurrentObjectStackCache();
 	return $$new($EPollPort, this, $($ThreadPool::create(nThreads, factory)))->start();
 }
 
 $AsynchronousChannelGroup* LinuxAsynchronousChannelProvider::openAsynchronousChannelGroup($ExecutorService* executor, int32_t initialSize) {
+	$useLocalCurrentObjectStackCache();
 	return $$new($EPollPort, this, $($ThreadPool::wrap(executor, initialSize)))->start();
 }
 

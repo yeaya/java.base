@@ -86,6 +86,7 @@ void ObjectOutputStream$DebugTraceInfoStack::push($String* entry) {
 }
 
 $String* ObjectOutputStream$DebugTraceInfoStack::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringJoiner, sj, $new($StringJoiner, "\n"_s));
 	for (int32_t i = $nc(this->stack)->size() - 1; i >= 0; --i) {
 		sj->add($cast($CharSequence, $($nc(this->stack)->get(i))));

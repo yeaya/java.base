@@ -68,6 +68,7 @@ $Object* allocate$Norm2AllModes$Norm2AllModesSingleton($Class* clazz) {
 }
 
 void Norm2AllModes$Norm2AllModesSingleton::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($VersionInfo);
 		$var($String, DATA_FILE_NAME, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/"_s, name, ".nrm"_s}));

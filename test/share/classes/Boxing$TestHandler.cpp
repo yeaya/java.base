@@ -83,6 +83,7 @@ void Boxing$TestHandler::init$($Boxing* this$0) {
 }
 
 $Object* Boxing$TestHandler::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(method)->getName()))->equals("m"_s)) {
 		$throwNew($AssertionError);
 	}

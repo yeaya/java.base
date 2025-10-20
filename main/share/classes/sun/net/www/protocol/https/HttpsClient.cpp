@@ -223,6 +223,7 @@ int32_t HttpsClient::getDefaultPort() {
 }
 
 $StringArray* HttpsClient::getCipherSuites() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, ciphers, nullptr);
 	$var($String, cipherString, $GetPropertyAction::privilegedGetProperty("https.cipherSuites"_s));
 	if (cipherString == nullptr || $nc(cipherString)->isEmpty()) {
@@ -243,6 +244,7 @@ $StringArray* HttpsClient::getCipherSuites() {
 }
 
 $StringArray* HttpsClient::getProtocols() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, protocols, nullptr);
 	$var($String, protocolString, $GetPropertyAction::privilegedGetProperty("https.protocols"_s));
 	if (protocolString == nullptr || $nc(protocolString)->isEmpty()) {
@@ -283,6 +285,7 @@ void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $String* proxyHost, in
 }
 
 void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $Proxy* proxy, int32_t connectTimeout) {
+	$useLocalCurrentObjectStackCache();
 	$HttpClient::init$();
 	$var($PlatformLogger, logger, $1HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
@@ -329,6 +332,7 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 
 $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $Proxy* p$renamed, bool useCache, int32_t connectTimeout, $1HttpURLConnection* httpuc) {
 	$init(HttpsClient);
+	$useLocalCurrentObjectStackCache();
 	$var($Proxy, p, p$renamed);
 	if (p == nullptr) {
 		$init($Proxy);
@@ -440,6 +444,7 @@ $SSLSocketFactory* HttpsClient::getSSLSocketFactory() {
 }
 
 $Socket* HttpsClient::createSocket() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->sslSocketFactory)->createSocket();
 	} catch ($SocketException&) {
@@ -461,6 +466,7 @@ bool HttpsClient::needsTunneling() {
 }
 
 void HttpsClient::afterConnect() {
+	$useLocalCurrentObjectStackCache();
 	if (!isCachedConnection()) {
 		$var($SSLSocket, s, nullptr);
 		$var($SSLSocketFactory, factory, this->sslSocketFactory);
@@ -537,6 +543,7 @@ void HttpsClient::afterConnect() {
 }
 
 void HttpsClient::checkURLSpoofing($HostnameVerifier* hostnameVerifier) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, $nc(this->url)->getHost());
 	bool var$0 = host != nullptr && host->startsWith("["_s);
 	if (var$0 && host->endsWith("]"_s)) {
@@ -603,6 +610,7 @@ $CertificateArray* HttpsClient::getServerCertificates() {
 }
 
 $Principal* HttpsClient::getPeerPrincipal() {
+	$useLocalCurrentObjectStackCache();
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getPeerPrincipal());
@@ -615,6 +623,7 @@ $Principal* HttpsClient::getPeerPrincipal() {
 }
 
 $Principal* HttpsClient::getLocalPrincipal() {
+	$useLocalCurrentObjectStackCache();
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getLocalPrincipal());

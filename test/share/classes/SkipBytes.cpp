@@ -44,6 +44,7 @@ void SkipBytes::init$() {
 }
 
 void SkipBytes::doTest($RandomAccessFile* raf, int32_t start, int32_t num_to_skip) {
+	$useLocalCurrentObjectStackCache();
 	$nc(raf)->seek(start);
 	int64_t cur_ptr = raf->getFilePointer();
 	int32_t length = (int32_t)raf->length();
@@ -77,6 +78,7 @@ void SkipBytes::doTest($RandomAccessFile* raf, int32_t start, int32_t num_to_ski
 }
 
 void SkipBytes::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, "input.txt"_s, "rw"_s));
 	{
 		$var($Throwable, var$0, nullptr);

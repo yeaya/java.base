@@ -141,6 +141,7 @@ void HijrahEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 HijrahEra* HijrahEra::of(int32_t hijrahEra) {
 	$init(HijrahEra);
+	$useLocalCurrentObjectStackCache();
 	if (hijrahEra == 1) {
 		return HijrahEra::AH;
 	} else {
@@ -161,6 +162,7 @@ $ValueRange* HijrahEra::range($TemporalField* field) {
 }
 
 $String* HijrahEra::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$init($HijrahChronology);
 	return $nc($($nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::ERA), style)))->toFormatter(locale)))->withChronology($HijrahChronology::INSTANCE)))->format($($HijrahDate::now()));

@@ -75,6 +75,7 @@ void ByteArrayAccess$BE::init$() {
 }
 
 void clinit$ByteArrayAccess$BE($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$load($ints);
 	$init($ByteOrder);
 	$assignStatic(ByteArrayAccess$BE::INT_ARRAY, $nc($($MethodHandles::byteArrayViewVarHandle($getClass($ints), $ByteOrder::BIG_ENDIAN)))->withInvokeExactBehavior());

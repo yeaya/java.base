@@ -181,6 +181,7 @@ $PlatformLogger$Level* SimpleConsoleLogger::DEFAULT_PLATFORM_LEVEL = nullptr;
 
 $System$Logger$Level* SimpleConsoleLogger::getDefaultLevel() {
 	$init(SimpleConsoleLogger);
+	$useLocalCurrentObjectStackCache();
 	$var($String, levelName, $GetPropertyAction::privilegedGetProperty("jdk.system.logger.level"_s, "INFO"_s));
 	try {
 		return $System$Logger$Level::valueOf(levelName);
@@ -224,6 +225,7 @@ bool SimpleConsoleLogger::isLoggable($System$Logger$Level* level) {
 }
 
 void SimpleConsoleLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, $String* key$renamed, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, key$renamed);
 	if (isLoggable(level)) {
 		if (bundle != nullptr) {
@@ -235,6 +237,7 @@ void SimpleConsoleLogger::log($System$Logger$Level* level, $ResourceBundle* bund
 }
 
 void SimpleConsoleLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, $String* format$renamed, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, format, format$renamed);
 	if (isLoggable(level)) {
 		if (bundle != nullptr) {
@@ -262,6 +265,7 @@ bool SimpleConsoleLogger::isEnabled() {
 }
 
 void SimpleConsoleLogger::log($PlatformLogger$Level* level, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo());
 		publish(var$0, $(logLevel(level)), msg);
@@ -269,6 +273,7 @@ void SimpleConsoleLogger::log($PlatformLogger$Level* level, $String* msg) {
 }
 
 void SimpleConsoleLogger::log($PlatformLogger$Level* level, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo());
 		publish(var$0, $(logLevel(level)), msg, thrown);
@@ -276,6 +281,7 @@ void SimpleConsoleLogger::log($PlatformLogger$Level* level, $String* msg, $Throw
 }
 
 void SimpleConsoleLogger::log($PlatformLogger$Level* level, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo());
 		publish(var$0, $(logLevel(level)), msg, params);
@@ -308,6 +314,7 @@ $PrintStream* SimpleConsoleLogger::outputStream() {
 }
 
 $String* SimpleConsoleLogger::getCallerInfo() {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, frame, $$new($SimpleConsoleLogger$CallerFinder)->get());
 	if ($nc(frame)->isPresent()) {
 		$var($String, var$0, $$str({$($nc(($cast($StackWalker$StackFrame, $(frame->get()))))->getClassName()), " "_s}));
@@ -328,6 +335,7 @@ $String* SimpleConsoleLogger::getCallerInfo($String* sourceClassName, $String* s
 }
 
 $String* SimpleConsoleLogger::toString($Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, throwable, ""_s);
 	if (thrown != nullptr) {
 		$var($StringWriter, sw, $new($StringWriter));
@@ -342,6 +350,7 @@ $String* SimpleConsoleLogger::toString($Throwable* thrown) {
 
 $String* SimpleConsoleLogger::format($Enum* level, $String* msg, $Throwable* thrown, $String* callerInfo) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ZonedDateTime, zdt, $ZonedDateTime::now());
 		$var($String, throwable, toString(thrown));
 		$var($String, var$0, getSimpleFormatString());
@@ -357,14 +366,17 @@ $String* SimpleConsoleLogger::format($Enum* level, $String* msg, $Throwable* thr
 }
 
 void SimpleConsoleLogger::publish($String* callerInfo, $Enum* level, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	$nc($(outputStream()))->print($(format(level, msg, nullptr, callerInfo)));
 }
 
 void SimpleConsoleLogger::publish($String* callerInfo, $Enum* level, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$nc($(outputStream()))->print($(format(level, msg, thrown, callerInfo)));
 }
 
 void SimpleConsoleLogger::publish($String* callerInfo, $Enum* level, $String* msg$renamed, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, msg$renamed);
 	$assign(msg, params == nullptr || $nc(params)->length == 0 ? msg : $SimpleConsoleLogger$Formatting::formatMessage(msg, params));
 	$nc($(outputStream()))->print($(format(level, msg, nullptr, callerInfo)));
@@ -376,6 +388,7 @@ SimpleConsoleLogger* SimpleConsoleLogger::makeSimpleLogger($String* name) {
 }
 
 void SimpleConsoleLogger::log($PlatformLogger$Level* level, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo());
 		$var($Enum, var$1, logLevel(level));
@@ -384,6 +397,7 @@ void SimpleConsoleLogger::log($PlatformLogger$Level* level, $Supplier* msgSuppli
 }
 
 void SimpleConsoleLogger::log($PlatformLogger$Level* level, $Throwable* thrown, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo());
 		$var($Enum, var$1, logLevel(level));
@@ -392,6 +406,7 @@ void SimpleConsoleLogger::log($PlatformLogger$Level* level, $Throwable* thrown, 
 }
 
 void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
 		publish(var$0, $(logLevel(level)), msg);
@@ -399,6 +414,7 @@ void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClas
 }
 
 void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
 		$var($Enum, var$1, logLevel(level));
@@ -407,6 +423,7 @@ void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClas
 }
 
 void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
 		publish(var$0, $(logLevel(level)), msg, params);
@@ -414,6 +431,7 @@ void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClas
 }
 
 void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
 		publish(var$0, $(logLevel(level)), msg, thrown);
@@ -421,6 +439,7 @@ void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClas
 }
 
 void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Throwable* thrown, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
 		$var($Enum, var$1, logLevel(level));
@@ -429,6 +448,7 @@ void SimpleConsoleLogger::logp($PlatformLogger$Level* level, $String* sourceClas
 }
 
 void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $ResourceBundle* bundle, $String* key, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, msg, bundle == nullptr ? key : getString(bundle, key));
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
@@ -437,6 +457,7 @@ void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $String* sourceCla
 }
 
 void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $ResourceBundle* bundle, $String* key, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, msg, bundle == nullptr ? key : getString(bundle, key));
 		$var($String, var$0, getCallerInfo(sourceClass, sourceMethod));
@@ -445,6 +466,7 @@ void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $String* sourceCla
 }
 
 void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* key, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, msg, bundle == nullptr ? key : getString(bundle, key));
 		$var($String, var$0, getCallerInfo());
@@ -453,6 +475,7 @@ void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* b
 }
 
 void SimpleConsoleLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* key, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		$var($String, msg, bundle == nullptr ? key : getString(bundle, key));
 		$var($String, var$0, getCallerInfo());

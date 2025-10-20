@@ -52,6 +52,7 @@ void FileNotFoundException::init$($String* s) {
 }
 
 void FileNotFoundException::init$($String* path, $String* reason) {
+	$useLocalCurrentObjectStackCache();
 	$IOException::init$($$str({path, ((reason == nullptr) ? ""_s : $$str({" ("_s, reason, ")"_s}))}));
 }
 

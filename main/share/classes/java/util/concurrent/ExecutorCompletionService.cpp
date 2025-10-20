@@ -124,6 +124,7 @@ void ExecutorCompletionService::init$($Executor* executor, $BlockingQueue* compl
 }
 
 $Future* ExecutorCompletionService::submit($Callable* task) {
+	$useLocalCurrentObjectStackCache();
 	if (task == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -133,6 +134,7 @@ $Future* ExecutorCompletionService::submit($Callable* task) {
 }
 
 $Future* ExecutorCompletionService::submit($Runnable* task, Object$* result) {
+	$useLocalCurrentObjectStackCache();
 	if (task == nullptr) {
 		$throwNew($NullPointerException);
 	}

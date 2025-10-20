@@ -106,6 +106,7 @@ void Utilities::init$() {
 
 $List* Utilities::addToSNIServerNameList($List* serverNames, $String* hostname) {
 	$init(Utilities);
+	$useLocalCurrentObjectStackCache();
 	$var($SNIHostName, sniHostName, rawToSNIHostName(hostname));
 	if (sniHostName == nullptr) {
 		return serverNames;
@@ -133,6 +134,7 @@ $List* Utilities::addToSNIServerNameList($List* serverNames, $String* hostname) 
 
 $SNIHostName* Utilities::rawToSNIHostName($String* hostname) {
 	$init(Utilities);
+	$useLocalCurrentObjectStackCache();
 	$var($SNIHostName, sniHostName, nullptr);
 	bool var$2 = hostname != nullptr && hostname->indexOf((int32_t)u'.') > 0;
 	bool var$1 = var$2 && !hostname->endsWith("."_s);
@@ -153,6 +155,7 @@ $SNIHostName* Utilities::rawToSNIHostName($String* hostname) {
 
 bool Utilities::getBooleanProperty($String* propName, bool defaultValue) {
 	$init(Utilities);
+	$useLocalCurrentObjectStackCache();
 	$var($String, b, $GetPropertyAction::privilegedGetProperty(propName));
 	if (b == nullptr) {
 		return defaultValue;
@@ -172,6 +175,7 @@ $String* Utilities::indent($String* source) {
 
 $String* Utilities::indent($String* source, $String* prefix) {
 	$init(Utilities);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (source == nullptr) {
 		builder->append("\n"_s)->append(prefix)->append("<blank message>"_s);
@@ -230,6 +234,7 @@ $String* Utilities::toHexString(int64_t lv) {
 
 $bytes* Utilities::toByteArray($BigInteger* bi) {
 	$init(Utilities);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $nc(bi)->toByteArray());
 	if (($nc(b)->length > 1) && (b->get(0) == 0)) {
 		int32_t n = b->length - 1;

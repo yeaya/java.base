@@ -109,6 +109,7 @@ $Object* PreHashedMap::get(Object$* k) {
 }
 
 $Object* PreHashedMap::put($String* k, Object$* v) {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = (int32_t)(($sr($nc(k)->hashCode(), this->shift)) & (uint32_t)this->mask);
 	$var($ObjectArray, a, $cast($ObjectArray, $nc(this->ht)->get(h)));
 	if (a == nullptr) {

@@ -140,16 +140,19 @@ $NavigableMap* TreeMap$AscendingSubMap::descendingMap() {
 }
 
 $Iterator* TreeMap$AscendingSubMap::keyIterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, var$0, absLowest());
 	return $new($TreeMap$NavigableSubMap$SubMapKeyIterator, this, var$0, $(absHighFence()));
 }
 
 $Spliterator* TreeMap$AscendingSubMap::keySpliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, var$0, absLowest());
 	return $new($TreeMap$NavigableSubMap$SubMapKeyIterator, this, var$0, $(absHighFence()));
 }
 
 $Iterator* TreeMap$AscendingSubMap::descendingKeyIterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, var$0, absHighest());
 	return $new($TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, this, var$0, $(absLowFence()));
 }

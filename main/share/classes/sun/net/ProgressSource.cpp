@@ -186,6 +186,7 @@ $Object* ProgressSource::clone() {
 }
 
 $String* ProgressSource::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$($of(this)->getClass()->getName()), "[url="_s, this->url, ", method="_s, this->method, ", state="_s, this->state, ", content-type="_s, this->contentType, ", progress="_s, $$str(this->progress), ", expected="_s, $$str(this->expected), "]"_s});
 }
 

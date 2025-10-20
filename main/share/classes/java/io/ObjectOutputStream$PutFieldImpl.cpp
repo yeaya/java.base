@@ -179,6 +179,7 @@ void ObjectOutputStream$PutFieldImpl::write($ObjectOutput* out) {
 }
 
 void ObjectOutputStream$PutFieldImpl::writeFields() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(this->this$0->bout)->write(this->primVals, 0, $nc(this->primVals)->length, false);
 	$var($ObjectStreamFieldArray, fields, $nc(this->desc)->getFields(false));
@@ -211,6 +212,7 @@ void ObjectOutputStream$PutFieldImpl::writeFields() {
 }
 
 int32_t ObjectOutputStream$PutFieldImpl::getFieldOffset($String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamField, field, $nc(this->desc)->getField(name, type));
 	if (field == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"no such field "_s, name, " with type "_s, type}));

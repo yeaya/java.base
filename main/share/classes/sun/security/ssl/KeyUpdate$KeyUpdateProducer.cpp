@@ -115,6 +115,7 @@ void KeyUpdate$KeyUpdateProducer::init$() {
 }
 
 $bytes* KeyUpdate$KeyUpdateProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($PostHandshakeContext, hc, $cast($PostHandshakeContext, context));
 	$var($KeyUpdate$KeyUpdateMessage, km, $cast($KeyUpdate$KeyUpdateMessage, message));
 	$init($SSLLogger);

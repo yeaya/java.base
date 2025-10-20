@@ -109,6 +109,7 @@ int64_t SSLEngineResult::sequenceNumber() {
 }
 
 $String* SSLEngineResult::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"Status = "_s, this->status, " HandshakeStatus = "_s, this->handshakeStatus, "\nbytesConsumed = "_s, $$str(this->bytesConsumed$), " bytesProduced = "_s, $$str(this->bytesProduced$)}));
 	return ($concat(var$0, (this->sequenceNumber$ == -1 ? ""_s : $$str({" sequenceNumber = "_s, $($Long::toUnsignedString(this->sequenceNumber$))}))));
 }

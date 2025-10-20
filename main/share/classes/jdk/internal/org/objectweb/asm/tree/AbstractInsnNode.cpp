@@ -131,6 +131,7 @@ AbstractInsnNode* AbstractInsnNode::getNext() {
 }
 
 void AbstractInsnNode::acceptAnnotations($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	if (this->visibleTypeAnnotations != nullptr) {
 		{
 			int32_t i = 0;
@@ -158,6 +159,7 @@ $LabelNode* AbstractInsnNode::clone($LabelNode* label, $Map* clonedLabels) {
 }
 
 $LabelNodeArray* AbstractInsnNode::clone($List* labels, $Map* clonedLabels) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelNodeArray, clones, $new($LabelNodeArray, $nc(labels)->size()));
 	{
 		int32_t i = 0;
@@ -170,6 +172,7 @@ $LabelNodeArray* AbstractInsnNode::clone($List* labels, $Map* clonedLabels) {
 }
 
 AbstractInsnNode* AbstractInsnNode::cloneAnnotations(AbstractInsnNode* insnNode) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(insnNode)->visibleTypeAnnotations != nullptr) {
 		$set(this, visibleTypeAnnotations, $new($ArrayList));
 		{

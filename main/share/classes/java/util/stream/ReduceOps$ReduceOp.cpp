@@ -89,10 +89,12 @@ $StreamShape* ReduceOps$ReduceOp::inputShape() {
 }
 
 $Object* ReduceOps$ReduceOp::evaluateSequential($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	return $of($nc(($cast($ReduceOps$AccumulatingSink, $($nc(helper)->wrapAndCopyInto($(makeSink()), spliterator)))))->get());
 }
 
 $Object* ReduceOps$ReduceOp::evaluateParallel($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	return $of($nc(($cast($ReduceOps$AccumulatingSink, $($$new($ReduceOps$ReduceTask, this, helper, spliterator)->invoke()))))->get());
 }
 

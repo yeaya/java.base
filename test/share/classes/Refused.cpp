@@ -89,6 +89,7 @@ void Refused::main($StringArray* args) {
 
 void Refused::setup() {
 	$init(Refused);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Refused::client, $DatagramChannel::open());
 	$assignStatic(Refused::server, $DatagramChannel::open());
 	$nc($($nc(Refused::client)->socket()))->bind(($SocketAddress*)nullptr);

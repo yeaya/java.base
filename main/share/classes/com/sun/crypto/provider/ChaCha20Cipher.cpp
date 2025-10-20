@@ -260,6 +260,7 @@ $bytes* ChaCha20Cipher::engineGetIV() {
 }
 
 $AlgorithmParameters* ChaCha20Cipher::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->mode == ChaCha20Cipher::MODE_AEAD) {
 		$var($bytes, nonceData, (this->initialized || this->nonce != nullptr) ? this->nonce : createRandomNonce(nullptr));
@@ -288,6 +289,7 @@ void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random
 }
 
 void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (params == nullptr) {
 		engineInit(opmode, key, random);
 		return;
@@ -329,6 +331,7 @@ void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSp
 }
 
 void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (params == nullptr) {
 		engineInit(opmode, key, random);
 		return;
@@ -410,6 +413,7 @@ void ChaCha20Cipher::engineUpdateAAD($ByteBuffer* src) {
 
 $bytes* ChaCha20Cipher::createRandomNonce($SecureRandom* random) {
 	$init(ChaCha20Cipher);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, newNonce, $new($bytes, 12));
 	$var($SecureRandom, rand, (random != nullptr) ? random : $new($SecureRandom));
 	$nc(rand)->nextBytes(newNonce);
@@ -456,6 +460,7 @@ void ChaCha20Cipher::checkKeyAndNonce($bytes* newKeyBytes, $bytes* newNonce) {
 
 $bytes* ChaCha20Cipher::getEncodedKey($Key* key) {
 	$init(ChaCha20Cipher);
+	$useLocalCurrentObjectStackCache();
 	if ("RAW"_s->equals($($nc(key)->getFormat())) == false) {
 		$throwNew($InvalidKeyException, "Key encoding format must be RAW"_s);
 	}
@@ -470,6 +475,7 @@ $bytes* ChaCha20Cipher::getEncodedKey($Key* key) {
 }
 
 $bytes* ChaCha20Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, $new($bytes, $nc(this->engine)->getOutputSize(inLen, false)));
 	try {
 		$nc(this->engine)->doUpdate(in, inOfs, inLen, out, 0);
@@ -495,6 +501,7 @@ int32_t ChaCha20Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen, $
 }
 
 $bytes* ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, output, $new($bytes, $nc(this->engine)->getOutputSize(inLen, true)));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -521,6 +528,7 @@ $bytes* ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) 
 }
 
 int32_t ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t bytesUpdated = 0;
 	{
 		$var($Throwable, var$0, nullptr);
@@ -580,6 +588,7 @@ void ChaCha20Cipher::generateKeystream() {
 
 void ChaCha20Cipher::chaCha20Block($ints* initState, int64_t counter, $bytes* result) {
 	$init(ChaCha20Cipher);
+	$useLocalCurrentObjectStackCache();
 	int32_t ws00 = ChaCha20Cipher::STATE_CONST_0;
 	int32_t ws01 = ChaCha20Cipher::STATE_CONST_1;
 	int32_t ws02 = ChaCha20Cipher::STATE_CONST_2;
@@ -704,6 +713,7 @@ void ChaCha20Cipher::chaCha20Transform($bytes* in, int32_t inOff, int32_t inLen,
 
 void ChaCha20Cipher::xor$($bytes* in1, int32_t off1, $bytes* in2, int32_t off2, $bytes* out, int32_t outOff, int32_t len) {
 	$init(ChaCha20Cipher);
+	$useLocalCurrentObjectStackCache();
 	while (len >= 8) {
 		int64_t v1 = $longValue($nc(ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(in1), $$of(off1)})));
 		int64_t v2 = $longValue($nc(ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(in2), $$of(off2)})));
@@ -723,6 +733,7 @@ void ChaCha20Cipher::xor$($bytes* in1, int32_t off1, $bytes* in2, int32_t off2, 
 }
 
 void ChaCha20Cipher::initAuthenticator() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, authenticator, $new($Poly1305));
 	$var($bytes, serializedKey, $new($bytes, ChaCha20Cipher::KEYSTREAM_SIZE));
 	chaCha20Block(this->startState, 0, serializedKey);
@@ -756,6 +767,7 @@ void ChaCha20Cipher::authPad16(int64_t dataLen) {
 }
 
 void ChaCha20Cipher::authWriteLengths(int64_t aLen, int64_t dLen, $bytes* buf) {
+	$useLocalCurrentObjectStackCache();
 	$nc(ChaCha20Cipher::asLongLittleEndian)->set($$new($ObjectArray, {$of(buf), $$of(0), $$of(aLen)}));
 	$nc(ChaCha20Cipher::asLongLittleEndian)->set($$new($ObjectArray, {$of(buf), $$of($Long::BYTES), $$of(dLen)}));
 }

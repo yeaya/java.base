@@ -77,6 +77,7 @@ void WindowsSelectorImpl$StartLock::startThreads() {
 
 bool WindowsSelectorImpl$StartLock::waitForStart($WindowsSelectorImpl$SelectThread* thread) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		while (true) {
 			while (this->runsCounter == $nc(thread)->lastRun) {
 				try {

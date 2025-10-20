@@ -274,6 +274,7 @@ void Properties::load($InputStream* inStream) {
 }
 
 void Properties::load0($Properties$LineReader* lr) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, outBuffer, $new($StringBuilder));
 	int32_t limit = 0;
 	int32_t keyLen = 0;
@@ -430,6 +431,7 @@ $String* Properties::loadConvert($chars* in, int32_t off, int32_t len, $StringBu
 }
 
 $String* Properties::saveConvert($String* theString, bool escapeSpace, bool escapeUnicode) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(theString)->length();
 	int32_t bufLen = len * 2;
 	if (bufLen < 0) {
@@ -509,6 +511,7 @@ $String* Properties::saveConvert($String* theString, bool escapeSpace, bool esca
 
 void Properties::writeComments($BufferedWriter* bw, $String* comments) {
 	$init(Properties);
+	$useLocalCurrentObjectStackCache();
 	$var($HexFormat, hex, $nc($($HexFormat::of()))->withUpperCase());
 	$nc(bw)->write("#"_s);
 	int32_t len = $nc(comments)->length();
@@ -560,11 +563,13 @@ void Properties::store($Writer* writer, $String* comments) {
 }
 
 void Properties::store($OutputStream* out, $String* comments) {
+	$useLocalCurrentObjectStackCache();
 	$init($ISO_8859_1);
 	store0($$new($BufferedWriter, $$new($OutputStreamWriter, out, static_cast<$Charset*>($ISO_8859_1::INSTANCE))), comments, true);
 }
 
 void Properties::store0($BufferedWriter* bw, $String* comments, bool escUnicode) {
+	$useLocalCurrentObjectStackCache();
 	if (comments != nullptr) {
 		writeComments(bw, comments);
 	}
@@ -604,6 +609,7 @@ void Properties::storeToXML($OutputStream* os, $String* comment) {
 }
 
 void Properties::storeToXML($OutputStream* os, $String* comment, $String* encoding) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(os);
 	$Objects::requireNonNull(encoding);
 	try {
@@ -626,6 +632,7 @@ void Properties::storeToXML($OutputStream* os, $String* comment, $Charset* chars
 }
 
 $String* Properties::getProperty($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, oval, $nc(this->map)->get(key));
 	$var($String, sval, ($instanceOf($String, oval)) ? $cast($String, oval) : ($String*)nullptr);
 	$var(Properties, defaults, nullptr);
@@ -644,12 +651,14 @@ $Enumeration* Properties::propertyNames() {
 }
 
 $Set* Properties::stringPropertyNames() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, h, $new($HashMap));
 	enumerateStringProperties(h);
 	return $Collections::unmodifiableSet($(h->keySet()));
 }
 
 void Properties::list($PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->println("-- listing properties --"_s);
 	$var($Map, h, $new($HashMap));
 	enumerate(h);
@@ -670,6 +679,7 @@ void Properties::list($PrintStream* out) {
 }
 
 void Properties::list($PrintWriter* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->println("-- listing properties --"_s);
 	$var($Map, h, $new($HashMap));
 	enumerate(h);
@@ -690,6 +700,7 @@ void Properties::list($PrintWriter* out) {
 }
 
 void Properties::enumerate($Map* h) {
+	$useLocalCurrentObjectStackCache();
 	if (this->defaults != nullptr) {
 		$nc(this->defaults)->enumerate(h);
 	}
@@ -706,6 +717,7 @@ void Properties::enumerate($Map* h) {
 }
 
 void Properties::enumerateStringProperties($Map* h) {
+	$useLocalCurrentObjectStackCache();
 	if (this->defaults != nullptr) {
 		$nc(this->defaults)->enumerateStringProperties(h);
 	}
@@ -795,6 +807,7 @@ $Collection* Properties::values() {
 }
 
 $Set* Properties::entrySet() {
+	$useLocalCurrentObjectStackCache();
 	return $Collections::synchronizedSet($$new($Properties$EntrySet, $($nc(this->map)->entrySet())), this);
 }
 
@@ -886,6 +899,7 @@ $Object* Properties::clone() {
 }
 
 void Properties::writeHashtable($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, map, this->map);
 	$var($List, entryStack, $new($ArrayList, $nc(map)->size() * 2));
 	{
@@ -915,6 +929,7 @@ void Properties::writeHashtable($ObjectOutputStream* s) {
 }
 
 void Properties::readHashtable($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	int32_t origlength = s->readInt();
 	int32_t elements = s->readInt();

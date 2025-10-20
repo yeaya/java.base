@@ -92,6 +92,7 @@ void HashMap$TreeNode::init$(int32_t hash, Object$* key, Object$* val, $HashMap$
 }
 
 HashMap$TreeNode* HashMap$TreeNode::root() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(HashMap$TreeNode, r, this);
 		$var(HashMap$TreeNode, p, nullptr);
@@ -106,6 +107,7 @@ HashMap$TreeNode* HashMap$TreeNode::root() {
 
 void HashMap$TreeNode::moveRootToFront($HashMap$NodeArray* tab, HashMap$TreeNode* root) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	if (root != nullptr && tab != nullptr && (n = tab->length) > 0) {
 		int32_t index = (int32_t)((n - 1) & (uint32_t)root->hash);
@@ -133,6 +135,7 @@ void HashMap$TreeNode::moveRootToFront($HashMap$NodeArray* tab, HashMap$TreeNode
 }
 
 HashMap$TreeNode* HashMap$TreeNode::find(int32_t h, Object$* k, $Class* kc) {
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, p, this);
 	do {
 		int32_t ph = 0;
@@ -174,6 +177,7 @@ HashMap$TreeNode* HashMap$TreeNode::getTreeNode(int32_t h, Object$* k) {
 
 int32_t HashMap$TreeNode::tieBreakOrder(Object$* a, Object$* b) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	int32_t d = 0;
 	if (a == nullptr || b == nullptr || (d = $nc($($nc($of(a))->getClass()->getName()))->compareTo($($nc($of(b))->getClass()->getName()))) == 0) {
 		int32_t var$0 = $System::identityHashCode(a);
@@ -183,6 +187,7 @@ int32_t HashMap$TreeNode::tieBreakOrder(Object$* a, Object$* b) {
 }
 
 void HashMap$TreeNode::treeify($HashMap$NodeArray* tab) {
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, root, nullptr);
 	{
 		$var(HashMap$TreeNode, x, this);
@@ -234,6 +239,7 @@ void HashMap$TreeNode::treeify($HashMap$NodeArray* tab) {
 }
 
 $HashMap$Node* HashMap$TreeNode::untreeify($HashMap* map) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$Node, hd, nullptr);
 	$var($HashMap$Node, tl, nullptr);
 	{
@@ -252,6 +258,7 @@ $HashMap$Node* HashMap$TreeNode::untreeify($HashMap* map) {
 }
 
 HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray* tab, int32_t h, Object$* k, Object$* v) {
+	$useLocalCurrentObjectStackCache();
 	$Class* kc = nullptr;
 	bool searched = false;
 	$var(HashMap$TreeNode, root, (this->parent != nullptr) ? this->root() : this);
@@ -312,6 +319,7 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 }
 
 void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bool movable) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	if (tab == nullptr || (n = $nc(tab)->length) == 0) {
 		return;
@@ -435,6 +443,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 }
 
 void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t index, int32_t bit) {
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, b, this);
 	$var(HashMap$TreeNode, loHead, nullptr);
 	$var(HashMap$TreeNode, loTail, nullptr);
@@ -491,6 +500,7 @@ void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t ind
 
 HashMap$TreeNode* HashMap$TreeNode::rotateLeft(HashMap$TreeNode* root$renamed, HashMap$TreeNode* p) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, r, nullptr);
 	$var(HashMap$TreeNode, pp, nullptr);
@@ -514,6 +524,7 @@ HashMap$TreeNode* HashMap$TreeNode::rotateLeft(HashMap$TreeNode* root$renamed, H
 
 HashMap$TreeNode* HashMap$TreeNode::rotateRight(HashMap$TreeNode* root$renamed, HashMap$TreeNode* p) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, l, nullptr);
 	$var(HashMap$TreeNode, pp, nullptr);
@@ -537,6 +548,7 @@ HashMap$TreeNode* HashMap$TreeNode::rotateRight(HashMap$TreeNode* root$renamed, 
 
 HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$renamed, HashMap$TreeNode* x$renamed) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, x, x$renamed);
 	$nc(x)->red = true;
@@ -596,6 +608,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 
 HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renamed, HashMap$TreeNode* x$renamed) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, x, x$renamed);
 	{
@@ -693,6 +706,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renam
 
 bool HashMap$TreeNode::checkInvariants(HashMap$TreeNode* t) {
 	$init(HashMap$TreeNode);
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap$TreeNode, tp, $nc(t)->parent);
 	$var(HashMap$TreeNode, tl, t->left);
 	$var(HashMap$TreeNode, tr, t->right);

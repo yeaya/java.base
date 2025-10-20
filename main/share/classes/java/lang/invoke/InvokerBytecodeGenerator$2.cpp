@@ -144,6 +144,7 @@ $ints* InvokerBytecodeGenerator$2::$SwitchMap$sun$invoke$util$Wrapper = nullptr;
 $ints* InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$LambdaForm$BasicType = nullptr;
 
 void clinit$InvokerBytecodeGenerator$2($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(InvokerBytecodeGenerator$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$Intrinsic, $new($ints, $($MethodHandleImpl$Intrinsic::values())->length));
 	{
 		try {

@@ -257,6 +257,7 @@ void DefaultRoots::init$() {
 }
 
 $Set* DefaultRoots::compute($ModuleFinder* finder1, $ModuleFinder* finder2) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($Set, $nc($($nc($($nc($($nc($($nc($($nc($($nc(finder1)->findAll()))->stream()))->filter(static_cast<$Predicate*>($$new(DefaultRoots$$Lambda$lambda$compute$0)))))->map(static_cast<$Function*>($$new(DefaultRoots$$Lambda$descriptor$1)))))->filter(static_cast<$Predicate*>($$new(DefaultRoots$$Lambda$lambda$compute$1$2, finder2)))))->map(static_cast<$Function*>($$new(DefaultRoots$$Lambda$name$3)))))->collect($($Collectors::toSet())));
 }
 
@@ -265,6 +266,7 @@ $Set* DefaultRoots::compute($ModuleFinder* finder) {
 }
 
 bool DefaultRoots::exportsAPI($ModuleDescriptor* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc($($nc($($nc(descriptor)->exports()))->stream()))->filter(static_cast<$Predicate*>($$new(DefaultRoots$$Lambda$lambda$exportsAPI$2$4)))))->findAny()))->isPresent();
 }
 
@@ -273,6 +275,7 @@ bool DefaultRoots::lambda$exportsAPI$2($ModuleDescriptor$Exports* e) {
 }
 
 bool DefaultRoots::lambda$compute$1($ModuleFinder* finder2, $ModuleDescriptor* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc($($nc(finder2)->find($($nc(descriptor)->name()))))->isPresent();
 	return var$0 && exportsAPI(descriptor);
 }

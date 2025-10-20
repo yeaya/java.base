@@ -157,6 +157,7 @@ $Object* allocate$Nodes$CollectorTask$OfDouble($Class* clazz) {
 }
 
 void Nodes$CollectorTask$OfDouble::init$($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipelineHelper, var$0, helper);
 	$var($Spliterator, var$1, spliterator);
 	$var($LongFunction, var$2, static_cast<$LongFunction*>($new(Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder)));

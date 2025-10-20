@@ -68,6 +68,7 @@ void LongValueExactTests::init$() {
 }
 
 void LongValueExactTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += longValueExactSuccessful();
 	failures += longValueExactExceptional();
@@ -81,6 +82,7 @@ int64_t LongValueExactTests::simpleLongValueExact($BigDecimal* bd) {
 }
 
 int32_t LongValueExactTests::longValueExactSuccessful() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 		$var($Object, var$0, $of($new($BigDecimal, "9223372036854775807"_s)));
 		$var($Object, var$1, $of($new($BigDecimal, "9223372036854775807.0"_s)));
@@ -137,6 +139,7 @@ int32_t LongValueExactTests::longValueExactSuccessful() {
 }
 
 int32_t LongValueExactTests::longValueExactExceptional() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($Object, var$0, $of($new($BigDecimal, "9223372036854775808"_s)));
 	$var($Object, var$1, $of($new($BigDecimal, "9223372036854775808.0"_s)));

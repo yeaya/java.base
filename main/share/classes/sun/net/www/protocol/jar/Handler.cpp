@@ -91,6 +91,7 @@ int32_t Handler::indexOfBangSlash($String* spec) {
 }
 
 bool Handler::sameFile($URL* u1, $URL* u2) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc($($nc(u1)->getProtocol()))->equals("jar"_s);
 	if (var$0 || !$nc($($nc(u2)->getProtocol()))->equals("jar"_s)) {
 		return false;
@@ -123,6 +124,7 @@ bool Handler::sameFile($URL* u1, $URL* u2) {
 }
 
 int32_t Handler::hashCode($URL* u) {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($String, protocol, $nc(u)->getProtocol());
 	if (protocol != nullptr) {
@@ -156,6 +158,7 @@ $String* Handler::checkNestedProtocol($String* spec) {
 }
 
 void Handler::parseURL($URL* url, $String* spec$renamed, int32_t start, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, spec, spec$renamed);
 	$var($String, file, nullptr);
 	$var($String, ref, nullptr);
@@ -184,6 +187,7 @@ void Handler::parseURL($URL* url, $String* spec$renamed, int32_t start, int32_t 
 }
 
 $String* Handler::parseAbsoluteSpec($String* spec) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	if ((index = indexOfBangSlash(spec)) == -1) {
 		$throwNew($NullPointerException, "no !/ in spec"_s);
@@ -199,6 +203,7 @@ $String* Handler::parseAbsoluteSpec($String* spec) {
 }
 
 $String* Handler::parseContextSpec($URL* url, $String* spec) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ctxFile, $nc(url)->getFile());
 	if ($nc(spec)->startsWith("/"_s)) {
 		int32_t bangSlash = indexOfBangSlash(ctxFile);
@@ -219,6 +224,7 @@ $String* Handler::parseContextSpec($URL* url, $String* spec) {
 
 $String* Handler::canonicalizeString($String* file, int32_t off) {
 	$init(Handler);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(file)->length();
 	bool var$0 = off >= len;
 	if (!var$0) {
@@ -236,6 +242,7 @@ $String* Handler::canonicalizeString($String* file, int32_t off) {
 
 $String* Handler::doCanonicalize($String* file$renamed) {
 	$init(Handler);
+	$useLocalCurrentObjectStackCache();
 	$var($String, file, file$renamed);
 	int32_t i = 0;
 	int32_t lim = 0;

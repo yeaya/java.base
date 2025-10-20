@@ -101,6 +101,7 @@ void CgroupInfo::setCgroupPath($String* cgroupPath) {
 }
 
 CgroupInfo* CgroupInfo::fromCgroupsLine($String* line) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, tokens, $nc(line)->split("\\s+"_s));
 	if (tokens->length != 4) {
 		return nullptr;

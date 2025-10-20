@@ -79,6 +79,7 @@ bool Class$EnclosingMethodInfo::$assertionsDisabled = false;
 
 void Class$EnclosingMethodInfo::validate($ObjectArray* enclosingInfo) {
 	$init(Class$EnclosingMethodInfo);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(enclosingInfo)->length != 3) {
 		$throwNew($InternalError, "Malformed enclosing method information"_s);
 	}

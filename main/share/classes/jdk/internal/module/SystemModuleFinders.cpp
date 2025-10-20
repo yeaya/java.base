@@ -246,6 +246,7 @@ $SystemModules* SystemModuleFinders::allSystemModules() {
 
 $SystemModules* SystemModuleFinders::systemModules($String* initialModule) {
 	$init(SystemModuleFinders);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (SystemModuleFinders::USE_FAST_PATH) {
 		if (initialModule == nullptr) {
@@ -271,6 +272,7 @@ $SystemModules* SystemModuleFinders::systemModules($String* initialModule) {
 
 $ModuleFinder* SystemModuleFinders::of($SystemModules* systemModules) {
 	$init(SystemModuleFinders);
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptorArray, descriptors, $nc(systemModules)->moduleDescriptors());
 	$var($ModuleTargetArray, targets, systemModules->moduleTargets());
 	$var($ModuleHashesArray, recordedHashes, systemModules->moduleHashes());
@@ -302,6 +304,7 @@ $ModuleFinder* SystemModuleFinders::ofSystem() {
 
 $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 	$init(SystemModuleFinders);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, nameToAttributes, $new($HashMap));
 	$var($Map, nameToHash, $new($HashMap));
 	$var($ImageReader, reader, $SystemModuleFinders$SystemImage::reader());
@@ -355,6 +358,7 @@ $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 
 $ModuleReference* SystemModuleFinders::toModuleReference($ModuleDescriptor* descriptor, $ModuleTarget* target, $ModuleHashes* recordedHashes, $ModuleHashes$HashSupplier* hasher, $ModuleResolution* mres) {
 	$init(SystemModuleFinders);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mn, $nc(descriptor)->name());
 	$var($URI, uri, $nc(SystemModuleFinders::JNUA)->create("jrt"_s, $("/"_s->concat(mn))));
 	$var($Supplier, readerSupplier, $new($SystemModuleFinders$2, mn, uri));
@@ -365,6 +369,7 @@ $ModuleReference* SystemModuleFinders::toModuleReference($ModuleDescriptor* desc
 
 $Map* SystemModuleFinders::generateNameToHash($ModuleHashesArray* recordedHashes) {
 	$init(SystemModuleFinders);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, nameToHash, nullptr);
 	bool secondSeen = false;
 	{

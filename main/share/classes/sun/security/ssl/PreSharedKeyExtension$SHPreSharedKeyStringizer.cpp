@@ -63,6 +63,7 @@ void PreSharedKeyExtension$SHPreSharedKeyStringizer::init$() {
 }
 
 $String* PreSharedKeyExtension$SHPreSharedKeyStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($PreSharedKeyExtension$SHPreSharedKeySpec, hc, buffer))->toString();
 	} catch ($Exception&) {

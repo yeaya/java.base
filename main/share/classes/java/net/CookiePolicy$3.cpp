@@ -64,6 +64,7 @@ void CookiePolicy$3::init$() {
 }
 
 bool CookiePolicy$3::shouldAccept($URI* uri, $HttpCookie* cookie) {
+	$useLocalCurrentObjectStackCache();
 	if (uri == nullptr || cookie == nullptr) {
 		return false;
 	}

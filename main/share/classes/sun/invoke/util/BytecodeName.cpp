@@ -111,6 +111,7 @@ void BytecodeName::init$() {
 
 $String* BytecodeName::toBytecodeName($String* s) {
 	$init(BytecodeName);
+	$useLocalCurrentObjectStackCache();
 	$var($String, bn, mangle(s));
 	if (!BytecodeName::$assertionsDisabled && !($equals($of(bn), s) || looksMangled(bn))) {
 		$throwNew($AssertionError, $of(bn));
@@ -123,6 +124,7 @@ $String* BytecodeName::toBytecodeName($String* s) {
 
 $String* BytecodeName::toSourceName($String* s) {
 	$init(BytecodeName);
+	$useLocalCurrentObjectStackCache();
 	checkSafeBytecodeName(s);
 	$var($String, sn, s);
 	if (looksMangled(s)) {
@@ -136,6 +138,7 @@ $String* BytecodeName::toSourceName($String* s) {
 
 $ObjectArray* BytecodeName::parseBytecodeName($String* s) {
 	$init(BytecodeName);
+	$useLocalCurrentObjectStackCache();
 	int32_t slen = $nc(s)->length();
 	$var($ObjectArray, res, nullptr);
 	for (int32_t pass = 0; pass <= 1; ++pass) {
@@ -180,6 +183,7 @@ $ObjectArray* BytecodeName::parseBytecodeName($String* s) {
 
 $String* BytecodeName::unparseBytecodeName($ObjectArray* components$renamed) {
 	$init(BytecodeName);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, components, components$renamed);
 	$var($ObjectArray, components0, components);
 	for (int32_t i = 0; i < $nc(components)->length; ++i) {
@@ -202,6 +206,7 @@ $String* BytecodeName::unparseBytecodeName($ObjectArray* components$renamed) {
 
 $String* BytecodeName::appendAll($ObjectArray* components) {
 	$init(BytecodeName);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(components)->length <= 1) {
 		if (components->length == 1) {
 			return $String::valueOf(components->get(0));
@@ -241,6 +246,7 @@ $String* BytecodeName::appendAll($ObjectArray* components) {
 
 $String* BytecodeName::toDisplayName($String* s) {
 	$init(BytecodeName);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, components, parseBytecodeName(s));
 	for (int32_t i = 0; i < $nc(components)->length; ++i) {
 		if (!($instanceOf($String, components->get(i)))) {
@@ -464,6 +470,7 @@ int32_t BytecodeName::lastIndexOfDangerousChar($String* s, int32_t from) {
 }
 
 void clinit$BytecodeName($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(BytecodeName::DANGEROUS_CHARS, "\\/.;:$[]<>"_s);
 	$assignStatic(BytecodeName::REPLACEMENT_CHARS, "-|,?!%{}^_"_s);
 	BytecodeName::$assertionsDisabled = !BytecodeName::class$->desiredAssertionStatus();

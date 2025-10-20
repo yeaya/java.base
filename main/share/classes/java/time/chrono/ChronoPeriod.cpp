@@ -82,6 +82,7 @@ ChronoPeriod* ChronoPeriod::between($ChronoLocalDate* startDateInclusive, $Chron
 }
 
 bool ChronoPeriod::isZero() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(getUnits()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -97,6 +98,7 @@ bool ChronoPeriod::isZero() {
 }
 
 bool ChronoPeriod::isNegative() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(getUnits()))->iterator());
 		for (; $nc(i$)->hasNext();) {

@@ -56,6 +56,7 @@ void OpenSync::init$() {
 
 void OpenSync::main($StringArray* args) {
 	$init(OpenSync);
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("OpenSync"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($StringArray, badModes, $new($StringArray, {

@@ -112,6 +112,7 @@ $Object* allocate$ModuleInfo$ConstantPool($Class* clazz) {
 }
 
 void ModuleInfo$ConstantPool::init$($DataInput* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = $nc(in)->readUnsignedShort();
 	$set(this, pool, $new($ModuleInfo$ConstantPool$EntryArray, count));
 	for (int32_t i = 1; i < count; ++i) {
@@ -209,6 +210,7 @@ void ModuleInfo$ConstantPool::init$($DataInput* in) {
 }
 
 $String* ModuleInfo$ConstantPool::getClassName(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	checkIndex(index);
 	$var($ModuleInfo$ConstantPool$Entry, e, $nc(this->pool)->get(index));
 	if ($nc(e)->tag != ModuleInfo$ConstantPool::CONSTANT_Class) {
@@ -220,6 +222,7 @@ $String* ModuleInfo$ConstantPool::getClassName(int32_t index) {
 }
 
 $String* ModuleInfo$ConstantPool::getPackageName(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	checkIndex(index);
 	$var($ModuleInfo$ConstantPool$Entry, e, $nc(this->pool)->get(index));
 	if ($nc(e)->tag != ModuleInfo$ConstantPool::CONSTANT_Package) {
@@ -231,6 +234,7 @@ $String* ModuleInfo$ConstantPool::getPackageName(int32_t index) {
 }
 
 $String* ModuleInfo$ConstantPool::getModuleName(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	checkIndex(index);
 	$var($ModuleInfo$ConstantPool$Entry, e, $nc(this->pool)->get(index));
 	if ($nc(e)->tag != ModuleInfo$ConstantPool::CONSTANT_Module) {
@@ -241,6 +245,7 @@ $String* ModuleInfo$ConstantPool::getModuleName(int32_t index) {
 }
 
 $String* ModuleInfo$ConstantPool::getUtf8(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	checkIndex(index);
 	$var($ModuleInfo$ConstantPool$Entry, e, $nc(this->pool)->get(index));
 	if ($nc(e)->tag != ModuleInfo$ConstantPool::CONSTANT_Utf8) {
@@ -256,6 +261,7 @@ void ModuleInfo$ConstantPool::checkIndex(int32_t index) {
 }
 
 void ModuleInfo$ConstantPool::checkUnqualifiedName($String* what, int32_t index, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(value)->length();
 	if (len == 0) {
 		$throw($($ModuleInfo::invalidModuleDescriptor($$str({what, " at entry "_s, $$str(index), " has zero length"_s}))));
@@ -269,6 +275,7 @@ void ModuleInfo$ConstantPool::checkUnqualifiedName($String* what, int32_t index,
 }
 
 $String* ModuleInfo$ConstantPool::decodeModuleName(int32_t index, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(value)->length();
 	if (len == 0) {
 		$throw($($ModuleInfo::invalidModuleDescriptor($$str({"CONSTANT_Module at entry "_s, $$str(index), " is zero length"_s}))));
@@ -288,6 +295,7 @@ $String* ModuleInfo$ConstantPool::decodeModuleName(int32_t index, $String* value
 }
 
 $String* ModuleInfo$ConstantPool::decodeModuleName(int32_t index, int32_t i, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	int32_t j = 0;
 	while (j < i) {

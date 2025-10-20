@@ -75,6 +75,7 @@ void LoginContext$2::init$($LoginContext* this$0) {
 }
 
 $Object* LoginContext$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $($Thread::currentThread())->getContextClassLoader());
 	if (loader == nullptr) {

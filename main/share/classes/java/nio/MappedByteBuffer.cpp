@@ -140,6 +140,7 @@ bool MappedByteBuffer::isLoaded() {
 }
 
 MappedByteBuffer* MappedByteBuffer::load() {
+	$useLocalCurrentObjectStackCache();
 	if (this->fd == nullptr) {
 		return this;
 	}

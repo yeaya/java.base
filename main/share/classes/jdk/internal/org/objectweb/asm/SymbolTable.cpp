@@ -201,6 +201,7 @@ void SymbolTable::init$($ClassWriter* classWriter) {
 }
 
 void SymbolTable::init$($ClassWriter* classWriter, $ClassReader* classReader) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, classWriter, classWriter);
 	$set(this, sourceClassReader, classReader);
 	$var($bytes, inputBytes, $nc(classReader)->classFileBuffer);
@@ -311,6 +312,7 @@ void SymbolTable::init$($ClassWriter* classWriter, $ClassReader* classReader) {
 }
 
 void SymbolTable::copyBootstrapMethods($ClassReader* classReader, $chars* charBuffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, inputBytes, $nc(classReader)->classFileBuffer);
 	int32_t currentAttributeOffset = classReader->getFirstAttributeOffset();
 	for (int32_t i = classReader->readUnsignedShort(currentAttributeOffset - 2); i > 0; --i) {
@@ -386,6 +388,7 @@ int32_t SymbolTable::computeBootstrapMethodsSize() {
 }
 
 void SymbolTable::putBootstrapMethods($ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	if (this->bootstrapMethods != nullptr) {
 		$init($Constants);
 		$nc($($nc($($nc($($nc(output)->putShort(addConstantUtf8($Constants::BOOTSTRAP_METHODS))))->putInt($nc(this->bootstrapMethods)->length + 2)))->putShort(this->bootstrapMethodCount)))->putByteArray($nc(this->bootstrapMethods)->data, 0, $nc(this->bootstrapMethods)->length);
@@ -397,6 +400,7 @@ $SymbolTable$Entry* SymbolTable::get(int32_t hashCode) {
 }
 
 $SymbolTable$Entry* SymbolTable::put($SymbolTable$Entry* entry) {
+	$useLocalCurrentObjectStackCache();
 	if (this->entryCount > ($nc(this->entries)->length * 3) / 4) {
 		int32_t currentCapacity = $nc(this->entries)->length;
 		int32_t newCapacity = currentCapacity * 2 + 1;
@@ -427,6 +431,7 @@ void SymbolTable::add($SymbolTable$Entry* entry) {
 }
 
 $Symbol* SymbolTable::addConstant(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Integer, value)) {
 		return addConstantInteger($nc(($cast($Integer, value)))->intValue());
 	} else if ($instanceOf($Byte, value)) {
@@ -487,6 +492,7 @@ $Symbol* SymbolTable::addConstantMethodref($String* owner, $String* name, $Strin
 }
 
 $SymbolTable$Entry* SymbolTable::addConstantMemberReference(int32_t tag, $String* owner, $String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash(tag, owner, name, descriptor);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -520,6 +526,7 @@ $Symbol* SymbolTable::addConstantFloat(float value) {
 }
 
 $Symbol* SymbolTable::addConstantIntegerOrFloat(int32_t tag, int32_t value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash(tag, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -545,6 +552,7 @@ $Symbol* SymbolTable::addConstantDouble(double value) {
 }
 
 $Symbol* SymbolTable::addConstantLongOrDouble(int32_t tag, int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash(tag, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -564,6 +572,7 @@ void SymbolTable::addConstantLongOrDouble(int32_t index, int32_t tag, int64_t va
 }
 
 int32_t SymbolTable::addConstantNameAndType($String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t tag = $Symbol::CONSTANT_NAME_AND_TYPE_TAG;
 	int32_t hashCode = hash(tag, name, descriptor);
 	$var($SymbolTable$Entry, entry, get(hashCode));
@@ -586,6 +595,7 @@ void SymbolTable::addConstantNameAndType(int32_t index, $String* name, $String* 
 }
 
 int32_t SymbolTable::addConstantUtf8($String* value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash($Symbol::CONSTANT_UTF8_TAG, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -603,6 +613,7 @@ void SymbolTable::addConstantUtf8(int32_t index, $String* value) {
 }
 
 $Symbol* SymbolTable::addConstantMethodHandle(int32_t referenceKind, $String* owner, $String* name, $String* descriptor, bool isInterface) {
+	$useLocalCurrentObjectStackCache();
 	int32_t tag = $Symbol::CONSTANT_METHOD_HANDLE_TAG;
 	int32_t hashCode = hash(tag, owner, name, descriptor, referenceKind);
 	$var($SymbolTable$Entry, entry, get(hashCode));
@@ -643,6 +654,7 @@ $Symbol* SymbolTable::addConstantInvokeDynamic($String* name, $String* descripto
 }
 
 $Symbol* SymbolTable::addConstantDynamicOrInvokeDynamicReference(int32_t tag, $String* name, $String* descriptor, int32_t bootstrapMethodIndex) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash(tag, name, descriptor, bootstrapMethodIndex);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -670,6 +682,7 @@ $Symbol* SymbolTable::addConstantPackage($String* packageName) {
 }
 
 $Symbol* SymbolTable::addConstantUtf8Reference(int32_t tag, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash(tag, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -687,6 +700,7 @@ void SymbolTable::addConstantUtf8Reference(int32_t index, int32_t tag, $String* 
 }
 
 $Symbol* SymbolTable::addBootstrapMethod($Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteVector, bootstrapMethodsAttribute, this->bootstrapMethods);
 	if (bootstrapMethodsAttribute == nullptr) {
 		$assign(bootstrapMethodsAttribute, ($assignField(this, bootstrapMethods, $new($ByteVector))));
@@ -724,6 +738,7 @@ $Symbol* SymbolTable::addBootstrapMethod($Handle* bootstrapMethodHandle, $Object
 }
 
 $Symbol* SymbolTable::addBootstrapMethod(int32_t offset, int32_t length, int32_t hashCode) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, bootstrapMethodsData, $nc(this->bootstrapMethods)->data);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -751,6 +766,7 @@ $Symbol* SymbolTable::getType(int32_t typeIndex) {
 }
 
 int32_t SymbolTable::addType($String* value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash($Symbol::TYPE_TAG, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -763,6 +779,7 @@ int32_t SymbolTable::addType($String* value) {
 }
 
 int32_t SymbolTable::addUninitializedType($String* value, int32_t bytecodeOffset) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = hash($Symbol::UNINITIALIZED_TYPE_TAG, value, bytecodeOffset);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -775,6 +792,7 @@ int32_t SymbolTable::addUninitializedType($String* value, int32_t bytecodeOffset
 }
 
 int32_t SymbolTable::addMergedType(int32_t typeTableIndex1, int32_t typeTableIndex2) {
+	$useLocalCurrentObjectStackCache();
 	int64_t data = typeTableIndex1 < typeTableIndex2 ? typeTableIndex1 | (((int64_t)typeTableIndex2) << 32) : typeTableIndex2 | (((int64_t)typeTableIndex1) << 32);
 	int32_t hashCode = hash($Symbol::MERGED_TYPE_TAG, typeTableIndex1 + typeTableIndex2);
 	$var($SymbolTable$Entry, entry, get(hashCode));
@@ -792,6 +810,7 @@ int32_t SymbolTable::addMergedType(int32_t typeTableIndex1, int32_t typeTableInd
 }
 
 int32_t SymbolTable::addTypeInternal($SymbolTable$Entry* entry) {
+	$useLocalCurrentObjectStackCache();
 	if (this->typeTable == nullptr) {
 		$set(this, typeTable, $new($SymbolTable$EntryArray, 16));
 	}

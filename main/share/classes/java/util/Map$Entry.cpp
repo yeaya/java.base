@@ -268,6 +268,7 @@ $Comparator* Map$Entry::comparingByValue($Comparator* cmp) {
 }
 
 Map$Entry* Map$Entry::copyOf(Map$Entry* e) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(e);
 	if ($instanceOf($KeyValueHolder, e)) {
 		return e;
@@ -278,6 +279,7 @@ Map$Entry* Map$Entry::copyOf(Map$Entry* e) {
 }
 
 $Object* Map$Entry::$deserializeLambda$($SerializedLambda* lambda) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s21596$, $nc(lambda)->getImplMethodName());
 		int32_t tmp21596$ = -1;
@@ -366,20 +368,24 @@ $Object* Map$Entry::$deserializeLambda$($SerializedLambda* lambda) {
 }
 
 int32_t Map$Entry::lambda$comparingByValue$827a17d5$1($Comparator* cmp, Map$Entry* c1, Map$Entry* c2) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(c1)->getValue());
 	return $nc(cmp)->compare(var$0, $($nc(c2)->getValue()));
 }
 
 int32_t Map$Entry::lambda$comparingByKey$6d558cbf$1($Comparator* cmp, Map$Entry* c1, Map$Entry* c2) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(c1)->getKey());
 	return $nc(cmp)->compare(var$0, $($nc(c2)->getKey()));
 }
 
 int32_t Map$Entry::lambda$comparingByValue$1065357e$1(Map$Entry* c1, Map$Entry* c2) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Comparable, $($nc(c1)->getValue()))))->compareTo($($nc(c2)->getValue()));
 }
 
 int32_t Map$Entry::lambda$comparingByKey$bbdbfea9$1(Map$Entry* c1, Map$Entry* c2) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Comparable, $($nc(c1)->getKey()))))->compareTo($($nc(c2)->getKey()));
 }
 

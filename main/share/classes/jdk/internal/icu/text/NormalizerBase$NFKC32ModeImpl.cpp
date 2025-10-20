@@ -75,6 +75,7 @@ void NormalizerBase$NFKC32ModeImpl::init$() {
 }
 
 void clinit$NormalizerBase$NFKC32ModeImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($NormalizerBase$Unicode32);
 	$assignStatic(NormalizerBase$NFKC32ModeImpl::INSTANCE, $new($NormalizerBase$ModeImpl, $$new($FilteredNormalizer2, $($Normalizer2::getNFKCInstance()), $NormalizerBase$Unicode32::INSTANCE)));
 }

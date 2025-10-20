@@ -89,6 +89,7 @@ void SupportedGroupsExtension$CHSupportedGroupsConsumer::init$() {
 }
 
 void SupportedGroupsExtension$CHSupportedGroupsConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_SUPPORTED_GROUPS)) {

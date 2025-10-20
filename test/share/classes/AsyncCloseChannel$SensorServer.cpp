@@ -67,6 +67,7 @@ void AsyncCloseChannel$SensorServer::init$() {
 }
 
 void AsyncCloseChannel$SensorServer::runEx() {
+	$useLocalCurrentObjectStackCache();
 	$init($AsyncCloseChannel);
 	while ($AsyncCloseChannel::keepGoing) {
 		try {

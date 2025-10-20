@@ -507,6 +507,7 @@ void System::setErr($PrintStream* err) {
 
 $Console* System::console() {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($Console, c, nullptr);
 	if (($assign(c, System::cons)) == nullptr) {
 		$synchronized(System::class$) {
@@ -525,6 +526,7 @@ $Channel* System::inheritedChannel() {
 
 void System::checkIO() {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setIO"_s));
@@ -545,6 +547,7 @@ void System::setErr0($PrintStream* err) {
 
 $URL* System::codeSource($Class* clazz) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(System$$Lambda$getProtectionDomain, static_cast<$Class*>($nc(clazz)))));
 	$var($CodeSource, cs, $nc(($cast($ProtectionDomain, $($AccessController::doPrivileged(pa)))))->getCodeSource());
@@ -553,6 +556,7 @@ $URL* System::codeSource($Class* clazz) {
 
 void System::setSecurityManager($SecurityManager* sm) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	if (allowSecurityManager()) {
 		$Class* callerClass = $Reflection::getCallerClass();
 		$init($System$CallersHolder);
@@ -597,6 +601,7 @@ void System::setSecurityManager0($SecurityManager* s) {
 	$load(System);
 	$synchronized(class$) {
 		$init(System);
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$var($SecurityManager, sm, getSecurityManager());
 		if (sm != nullptr) {
@@ -741,6 +746,7 @@ $String* System::lineSeparator() {
 
 void System::setProperties($Properties* props$renamed) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, props, props$renamed);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -776,6 +782,7 @@ $String* System::getProperty($String* key, $String* def) {
 
 $String* System::setProperty($String* key, $String* value) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -787,6 +794,7 @@ $String* System::setProperty($String* key, $String* value) {
 
 $String* System::clearProperty($String* key) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	checkKey(key);
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
@@ -807,6 +815,7 @@ void System::checkKey($String* key) {
 
 $String* System::getenv($String* name) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, $$str({"getenv."_s, name})));
@@ -816,6 +825,7 @@ $String* System::getenv($String* name) {
 
 $Map* System::getenv() {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getenv.*"_s));
@@ -835,6 +845,7 @@ $System$Logger* System::getLogger($String* name) {
 
 $System$Logger* System::getLogger($String* name, $ResourceBundle* bundle) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle, rb, $cast($ResourceBundle, $Objects::requireNonNull(bundle)));
 	$Objects::requireNonNull(name);
 	$Class* caller = $Reflection::getCallerClass();
@@ -886,6 +897,7 @@ $String* System::mapLibraryName($String* libname) {
 
 $PrintStream* System::newPrintStream($FileOutputStream* fos, $String* enc) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	if (enc != nullptr) {
 		try {
 			return $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, fos, 128)), true, enc);
@@ -898,6 +910,7 @@ $PrintStream* System::newPrintStream($FileOutputStream* fos, $String* enc) {
 
 void System::logInitException(bool printToStderr, bool printStackTrace, $String* msg, $Throwable* e) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	if ($VM::initLevel() < 1) {
 		$throwNew($InternalError, "system classes not initialized"_s);
 	}
@@ -929,6 +942,7 @@ void System::logInitException(bool printToStderr, bool printStackTrace, $String*
 
 $Properties* System::createProperties($Map* initialProps) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, properties, $new($Properties, $nc(initialProps)->size()));
 	{
 		$var($Iterator, i$, $nc($($nc(initialProps)->entrySet()))->iterator());
@@ -1003,6 +1017,7 @@ $Properties* System::createProperties($Map* initialProps) {
 
 void System::initPhase1() {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	setJavaLangAccess();
 	$var($Map, tempProps, $SystemProps::initProperties());
 	$VersionProps::init(tempProps);
@@ -1026,6 +1041,7 @@ void System::initPhase1() {
 
 int32_t System::initPhase2(bool printToStderr, bool printStackTrace) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$assignStatic(System::bootLayer, $ModuleBootstrap::boot());
 	} catch ($Exception&) {
@@ -1043,6 +1059,7 @@ int32_t System::initPhase2(bool printToStderr, bool printStackTrace) {
 
 void System::initPhase3() {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($StringConcatFactory);
 	$nc($($Unsafe::getUnsafe()))->ensureClassInitialized($StringConcatFactory::class$);
@@ -1146,6 +1163,7 @@ void System::setJavaLangAccess() {
 
 $System$Logger* System::lambda$getLogger$0($String* name, $ResourceBundle* rb, $Class* caller) {
 	$init(System);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($System$LoggerFinder::accessProvider()))->getLocalizedLogger(name, rb, $($nc(caller)->getModule()));
 }
 

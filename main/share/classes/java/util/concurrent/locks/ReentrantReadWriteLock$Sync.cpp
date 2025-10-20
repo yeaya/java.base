@@ -199,6 +199,7 @@ bool ReentrantReadWriteLock$Sync::tryAcquire(int32_t acquires) {
 }
 
 bool ReentrantReadWriteLock$Sync::tryReleaseShared(int32_t unused) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, current, $Thread::currentThread());
 	if (this->firstReader == current) {
 		if (this->firstReaderHoldCount == 1) {
@@ -235,6 +236,7 @@ $IllegalMonitorStateException* ReentrantReadWriteLock$Sync::unmatchedUnlockExcep
 }
 
 int32_t ReentrantReadWriteLock$Sync::tryAcquireShared(int32_t unused) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, current, $Thread::currentThread());
 	int32_t c = getState();
 	bool var$0 = exclusiveCount(c) != 0;
@@ -334,6 +336,7 @@ bool ReentrantReadWriteLock$Sync::tryWriteLock() {
 }
 
 bool ReentrantReadWriteLock$Sync::tryReadLock() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, current, $Thread::currentThread());
 	for (;;) {
 		int32_t c = getState();
@@ -390,6 +393,7 @@ int32_t ReentrantReadWriteLock$Sync::getWriteHoldCount() {
 }
 
 int32_t ReentrantReadWriteLock$Sync::getReadHoldCount() {
+	$useLocalCurrentObjectStackCache();
 	if (getReadLockCount() == 0) {
 		return 0;
 	}

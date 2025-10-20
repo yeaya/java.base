@@ -92,6 +92,7 @@ void URLClassLoader$3::init$($URLClassLoader* this$0, $Enumeration* val$e) {
 }
 
 bool URLClassLoader$3::next() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->url != nullptr) {
 		return true;

@@ -104,6 +104,7 @@ void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::init$($UnixSecureDire
 }
 
 int32_t UnixSecureDirectoryStream$BasicFileAttributeViewImpl::open() {
+	$useLocalCurrentObjectStackCache();
 	$init($UnixConstants);
 	int32_t oflags = $UnixConstants::O_RDONLY;
 	if (!this->followLinks) {
@@ -120,6 +121,7 @@ int32_t UnixSecureDirectoryStream$BasicFileAttributeViewImpl::open() {
 }
 
 void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::checkWriteAccess() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		if (this->file == nullptr) {
@@ -135,6 +137,7 @@ $String* UnixSecureDirectoryStream$BasicFileAttributeViewImpl::name() {
 }
 
 $BasicFileAttributes* UnixSecureDirectoryStream$BasicFileAttributeViewImpl::readAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->this$0->ds)->readLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -176,6 +179,7 @@ $BasicFileAttributes* UnixSecureDirectoryStream$BasicFileAttributeViewImpl::read
 }
 
 void UnixSecureDirectoryStream$BasicFileAttributeViewImpl::setTimes($FileTime* lastModifiedTime$renamed, $FileTime* lastAccessTime$renamed, $FileTime* createTime) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, lastModifiedTime, lastModifiedTime$renamed);
 	$var($FileTime, lastAccessTime, lastAccessTime$renamed);
 	checkWriteAccess();

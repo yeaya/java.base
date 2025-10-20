@@ -75,6 +75,7 @@ $Object* allocate$ConcurrentLinkedQueue$Itr($Class* clazz) {
 }
 
 void ConcurrentLinkedQueue$Itr::init$($ConcurrentLinkedQueue* this$0) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -108,6 +109,7 @@ bool ConcurrentLinkedQueue$Itr::hasNext() {
 }
 
 $Object* ConcurrentLinkedQueue$Itr::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue$Node, pred, this->nextNode);
 	if (pred == nullptr) {
 		$throwNew($NoSuchElementException);

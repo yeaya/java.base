@@ -65,6 +65,7 @@ void LargeCopyWithMark::init$() {
 
 void LargeCopyWithMark::main($StringArray* args) {
 	$init(LargeCopyWithMark);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buff, $new($bytes, LargeCopyWithMark::BUFF_SIZE));
 	{
 		$var($InputStream, myis, $new($MyInputStream4LargeCopyWithMark, LargeCopyWithMark::BYTES_TO_COPY));

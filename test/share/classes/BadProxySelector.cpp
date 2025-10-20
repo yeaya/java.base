@@ -64,6 +64,7 @@ void BadProxySelector::init$() {
 }
 
 void BadProxySelector::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$ProxySelector::setDefault($$new($BadProxySelector$HTTPProxySelector));
 	{
 		$var($ServerSocket, ss, $new($ServerSocket, 0, 0, $($InetAddress::getLocalHost())));

@@ -103,6 +103,7 @@ $Object* allocate$CharacterName($Class* clazz) {
 $SoftReference* CharacterName::refCharName = nullptr;
 
 void CharacterName::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($DataInputStream, dis, $new($DataInputStream, $$new($InflaterInputStream, $cast($InputStream, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CharacterName$1, this))))))));
@@ -210,6 +211,7 @@ int32_t CharacterName::getCp(int32_t idx) {
 }
 
 CharacterName* CharacterName::getInstance() {
+	$useLocalCurrentObjectStackCache();
 	$init(CharacterName);
 	$var($SoftReference, ref, CharacterName::refCharName);
 	$var(CharacterName, cname, nullptr);

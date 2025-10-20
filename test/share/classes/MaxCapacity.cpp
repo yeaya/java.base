@@ -53,6 +53,7 @@ void MaxCapacity::init$() {
 }
 
 void MaxCapacity::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int64_t maxHeap = $nc($($Runtime::getRuntime()))->maxMemory();
 	if (maxHeap < (int64_t)3 * $Integer::MAX_VALUE) {
 		$init($System);

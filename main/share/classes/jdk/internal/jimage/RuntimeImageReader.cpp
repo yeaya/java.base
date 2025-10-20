@@ -387,6 +387,7 @@ $ImageReader$Node* RuntimeImageReader::findNode($String* name) {
 }
 
 $bytes* RuntimeImageReader::getResource($ImageReader$Node* node) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if ($instanceOf($RuntimeImageReader$Resource, node)) {
 		$var($RuntimeImageReader$Resource, rs, $cast($RuntimeImageReader$Resource, node));
@@ -411,6 +412,7 @@ $RuntimeImageLocation* RuntimeImageReader::findLocation($String* name) {
 }
 
 $StringArray* RuntimeImageReader::getModuleNames() {
+	$useLocalCurrentObjectStackCache();
 	requireOpen();
 	int32_t off = "/modules/"_s->length();
 	return $fcast($StringArray, $nc($($nc($($nc($($nc($($nc($(findNode0("/modules"_s)))->getChildren()))->stream()))->map(static_cast<$Function*>($$new(RuntimeImageReader$$Lambda$getNameString)))))->map(static_cast<$Function*>($$new(RuntimeImageReader$$Lambda$lambda$getModuleNames$0$1, off)))))->toArray(static_cast<$IntFunction*>($$new(RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2))));
@@ -430,6 +432,7 @@ $RuntimeImageLocation* RuntimeImageReader::findLocation0($String* name) {
 
 $ImageReader$Node* RuntimeImageReader::buildNode($String* name) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ImageReader$Node, n, nullptr);
 		bool isPackages = $nc(name)->startsWith("/packages"_s);
 		bool isModules = !isPackages && name->startsWith("/modules"_s);
@@ -470,6 +473,7 @@ $ImageReader$Directory* RuntimeImageReader::buildRootDirectory() {
 }
 
 void RuntimeImageReader::visitLocation($RuntimeImageLocation* loc, $RuntimeImageReader$LocationVisitor* visitor) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(loc)->children != nullptr) {
 		for (int32_t i = 0; i < $nc(loc->children)->length; ++i) {
 			$var($RuntimeImageLocation, pkgLoc, findLocation0($nc(loc->children)->get(i)));
@@ -479,6 +483,7 @@ void RuntimeImageReader::visitLocation($RuntimeImageLocation* loc, $RuntimeImage
 }
 
 void RuntimeImageReader::visitPackageLocation($RuntimeImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pkgName, getBaseExt(loc));
 	if ($nc(loc)->children != nullptr) {
 		for (int32_t i = 0; i < $nc(loc->children)->length; ++i) {
@@ -494,6 +499,7 @@ void RuntimeImageReader::visitPackageLocation($RuntimeImageLocation* loc) {
 }
 
 $ImageReader$Node* RuntimeImageReader::handlePackages($String* name, $RuntimeImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, n, nullptr);
 	if ($nc(name)->equals("/packages"_s)) {
 		visitLocation(loc, static_cast<$RuntimeImageReader$LocationVisitor*>($$new(RuntimeImageReader$$Lambda$lambda$handlePackages$2$3, this)));
@@ -520,6 +526,7 @@ $ImageReader$Node* RuntimeImageReader::handlePackages($String* name, $RuntimeIma
 }
 
 $ImageReader$Node* RuntimeImageReader::handleModuleLink($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, ret, nullptr);
 	$var($String, radical, "/packages/"_s);
 	$var($String, path, name);
@@ -548,6 +555,7 @@ $ImageReader$Node* RuntimeImageReader::handleModuleLink($String* name) {
 }
 
 $ImageReader$Node* RuntimeImageReader::handleModulesSubTree($String* name, $RuntimeImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, n, nullptr);
 	if (!RuntimeImageReader::$assertionsDisabled && !($nc(name)->equals($($nc(loc)->getFullName())))) {
 		$throwNew($AssertionError);
@@ -560,6 +568,7 @@ $ImageReader$Node* RuntimeImageReader::handleModulesSubTree($String* name, $Runt
 }
 
 $ImageReader$Node* RuntimeImageReader::handleResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, n, nullptr);
 	if (!$nc(name)->startsWith("/modules/"_s)) {
 		return nullptr;
@@ -583,6 +592,7 @@ $ImageReader$Node* RuntimeImageReader::handleResource($String* name) {
 }
 
 $String* RuntimeImageReader::getBaseExt($RuntimeImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, base, $nc(loc)->getBase());
 	$var($String, ext, loc->getExtension());
 	if (ext != nullptr && !ext->isEmpty()) {
@@ -612,24 +622,28 @@ $BasicFileAttributes* RuntimeImageReader::imageFileAttributes() {
 }
 
 $ImageReader$Directory* RuntimeImageReader::newDirectory($ImageReader$Directory* parent, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Directory, dir, $ImageReader$Directory::create(parent, name, $(imageFileAttributes())));
 	$nc(this->nodes)->put($($nc(dir)->getName()), dir);
 	return dir;
 }
 
 $RuntimeImageReader$Resource* RuntimeImageReader::newResource($ImageReader$Directory* parent, $RuntimeImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($RuntimeImageReader$Resource, res, $RuntimeImageReader$Resource::create(parent, loc, $(imageFileAttributes())));
 	$nc(this->nodes)->put($($nc(res)->getName()), res);
 	return res;
 }
 
 $ImageReader$LinkNode* RuntimeImageReader::newLinkNode($ImageReader$Directory* dir, $String* name, $ImageReader$Node* link) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$LinkNode, linkNode, $ImageReader$LinkNode::create(dir, name, link));
 	$nc(this->nodes)->put($($nc(linkNode)->getName()), linkNode);
 	return linkNode;
 }
 
 $ImageReader$Directory* RuntimeImageReader::makeDirectories($String* parent) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Directory, last, this->rootDir);
 	for (int32_t offset = $nc(parent)->indexOf((int32_t)u'/', 1); offset != -1; offset = parent->indexOf((int32_t)u'/', offset + 1)) {
 		$var($String, dir, parent->substring(0, offset));
@@ -651,6 +665,7 @@ $bytes* RuntimeImageReader::getResource0($RuntimeImageReader$Resource* resource)
 }
 
 void RuntimeImageReader::lambda$handleModulesSubTree$3($ImageReader$Directory* dir, $RuntimeImageLocation* childloc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $nc(childloc)->getFullName());
 	if ($nc(path)->startsWith("/modules"_s)) {
 		makeDirectories(path);

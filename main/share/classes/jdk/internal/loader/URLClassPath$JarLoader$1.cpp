@@ -93,6 +93,7 @@ void URLClassPath$JarLoader$1::init$($URLClassPath$JarLoader* this$0) {
 }
 
 $Object* URLClassPath$JarLoader$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($URLClassPath);
 	if ($URLClassPath::DEBUG) {
 		$init($System);

@@ -76,6 +76,7 @@ void Policy$2::init$($String* val$policyProvider) {
 }
 
 $Object* Policy$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($ClassLoader, scl, $ClassLoader::getSystemClassLoader());

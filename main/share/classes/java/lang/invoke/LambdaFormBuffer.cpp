@@ -164,6 +164,7 @@ void LambdaFormBuffer::setNames($LambdaForm$NameArray* names2) {
 }
 
 bool LambdaFormBuffer::verifyArity() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < this->arity && i < this->firstChange; ++i) {
 		if (!LambdaFormBuffer::$assertionsDisabled && !($nc($nc(this->names)->get(i))->isParam())) {
 			$throwNew($AssertionError, $of($$str({"#"_s, $$str(i), "="_s, $nc(this->names)->get(i)})));
@@ -193,6 +194,7 @@ bool LambdaFormBuffer::verifyArity() {
 }
 
 bool LambdaFormBuffer::verifyFirstChange() {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(inTrans())) {
 		$throwNew($AssertionError);
 	}
@@ -315,6 +317,7 @@ void LambdaFormBuffer::noteDuplicate(int32_t pos1, int32_t pos2) {
 }
 
 void LambdaFormBuffer::clearDuplicatesAndNulls() {
+	$useLocalCurrentObjectStackCache();
 	if (this->dups != nullptr) {
 		if (!LambdaFormBuffer::$assertionsDisabled && !(ownedCount() >= 1)) {
 			$throwNew($AssertionError);
@@ -354,6 +357,7 @@ void LambdaFormBuffer::clearDuplicatesAndNulls() {
 }
 
 void LambdaFormBuffer::startEdit() {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(verifyArity())) {
 		$throwNew($AssertionError);
 	}
@@ -423,6 +427,7 @@ void LambdaFormBuffer::setResult($LambdaForm$Name* name) {
 }
 
 $LambdaForm* LambdaFormBuffer::endEdit() {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(verifyFirstChange())) {
 		$throwNew($AssertionError);
 	}
@@ -476,6 +481,7 @@ $LambdaForm$NameArray* LambdaFormBuffer::copyNamesInto($LambdaForm$NameArray* bu
 }
 
 LambdaFormBuffer* LambdaFormBuffer::replaceFunctions($List* oldFns, $List* newFns, $ObjectArray* forArguments) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaFormBuffer::$assertionsDisabled && !(inTrans())) {
 		$throwNew($AssertionError);
 	}

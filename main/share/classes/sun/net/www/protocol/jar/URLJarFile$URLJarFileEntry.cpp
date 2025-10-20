@@ -84,6 +84,7 @@ void URLJarFile$URLJarFileEntry::init$($URLJarFile* this$0, $JarEntry* je) {
 }
 
 $Attributes* URLJarFile$URLJarFileEntry::getAttributes() {
+	$useLocalCurrentObjectStackCache();
 	if (this->this$0->isSuperMan()) {
 		$var($Map, e, this->this$0->superEntries);
 		if (e != nullptr) {

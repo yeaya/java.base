@@ -120,6 +120,7 @@ int32_t ConstantDynamic::hashCode() {
 }
 
 $String* ConstantDynamic::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({this->name, " : "_s, this->descriptor, $$str(u' '), this->bootstrapMethod, $$str(u' ')}));
 	return $concat(var$0, $($Arrays::toString(this->bootstrapMethodArguments)));
 }

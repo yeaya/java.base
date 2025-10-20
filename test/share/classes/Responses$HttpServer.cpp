@@ -96,6 +96,7 @@ $Object* allocate$Responses$HttpServer($Class* clazz) {
 }
 
 void Responses$HttpServer::init$() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 		$set(this, ss, $new($ServerSocket));
@@ -111,6 +112,7 @@ int32_t Responses$HttpServer::port() {
 }
 
 $String* Responses$HttpServer::authority() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, address, $nc(this->ss)->getInetAddress());
 	$var($String, hostaddr, $nc(address)->isAnyLocalAddress() ? "localhost"_s : $nc(address)->getHostAddress());
 	if ($nc(hostaddr)->indexOf((int32_t)u':') > -1) {
@@ -125,6 +127,7 @@ void Responses$HttpServer::shutdown() {
 }
 
 void Responses$HttpServer::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray2, tests, $Responses::getTests());
 	try {
 		while (!this->shutdown$) {

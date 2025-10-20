@@ -90,6 +90,7 @@ $String* URLDecoder::decode($String* s) {
 
 $String* URLDecoder::decode($String* s, $String* enc) {
 	$init(URLDecoder);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(enc)->isEmpty()) {
 		$throwNew($UnsupportedEncodingException, "URLDecoder: empty string enc parameter"_s);
 	}
@@ -108,6 +109,7 @@ $String* URLDecoder::decode($String* s, $String* enc) {
 
 $String* URLDecoder::decode($String* s, $Charset* charset) {
 	$init(URLDecoder);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charset), "Charset"_s);
 	bool needToChange = false;
 	int32_t numChars = $nc(s)->length();

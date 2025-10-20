@@ -137,6 +137,7 @@ void Reader::init$(Object$* lock) {
 }
 
 int32_t Reader::read($CharBuffer* target) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(target)->isReadOnly()) {
 		$throwNew($ReadOnlyBufferException);
 	}

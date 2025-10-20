@@ -148,6 +148,7 @@ void Node$OfInt::forEach($Consumer* consumer) {
 }
 
 void Node$OfInt::copyInto($IntegerArray* boxed, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	$init($Tripwire);
 	if ($Tripwire::ENABLED) {
 		$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfInt.copyInto(Integer[], int)"_s);
@@ -159,6 +160,7 @@ void Node$OfInt::copyInto($IntegerArray* boxed, int32_t offset) {
 }
 
 Node$OfInt* Node$OfInt::truncate(int64_t from, int64_t to, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (from == 0 && to == count()) {
 		return this;
 	}

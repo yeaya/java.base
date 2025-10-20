@@ -107,6 +107,7 @@ void DHKeyExchange$DHEKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* DHKeyExchange$DHEKAGenerator::createKeyDerivation($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
 	$var($DHKeyExchange$DHECredentials, dheCredentials, nullptr);
 	{

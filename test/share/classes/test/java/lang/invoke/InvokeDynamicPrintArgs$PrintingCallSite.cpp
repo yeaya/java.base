@@ -100,6 +100,7 @@ void InvokeDynamicPrintArgs$PrintingCallSite::init$($MethodHandles$Lookup* calle
 }
 
 $MethodHandle* InvokeDynamicPrintArgs$PrintingCallSite::createTarget() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc($($nc($($MethodHandles::lookup()))->bind(this, "runTarget"_s, $($MethodType::genericMethodType(0, true)))))->asType($(type()));
@@ -111,6 +112,7 @@ $MethodHandle* InvokeDynamicPrintArgs$PrintingCallSite::createTarget() {
 }
 
 $Object* InvokeDynamicPrintArgs$PrintingCallSite::runTarget($ObjectArray* dynamicArgs) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, bsmInfo, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($$new($ObjectArray, {
 		$of(this->caller),
 		$of(this->name),
@@ -123,6 +125,7 @@ $Object* InvokeDynamicPrintArgs$PrintingCallSite::runTarget($ObjectArray* dynami
 
 $MethodHandle* InvokeDynamicPrintArgs$PrintingCallSite::MH_createTarget() {
 	$init(InvokeDynamicPrintArgs$PrintingCallSite);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$InvokeDynamicPrintArgs::shouldNotCallThis();
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();

@@ -68,6 +68,7 @@ void SignatureTest::g($SignatureTest$Inner1* x) {
 
 void SignatureTest::main($StringArray* args) {
 	$load(SignatureTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = SignatureTest::class$;
 	{

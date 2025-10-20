@@ -79,6 +79,7 @@ void Net$2::init$($NetworkInterface* val$interf) {
 }
 
 $Object* Net$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, addrs, $nc(this->val$interf)->getInetAddresses());
 	while ($nc(addrs)->hasMoreElements()) {
 		$var($InetAddress, addr, $cast($InetAddress, addrs->nextElement()));

@@ -305,6 +305,7 @@ void ConcurrentLinkedQueue::init$() {
 }
 
 void ConcurrentLinkedQueue::init$($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractQueue::init$();
 	$var($ConcurrentLinkedQueue$Node, h, nullptr);
 	$var($ConcurrentLinkedQueue$Node, t, nullptr);
@@ -334,12 +335,14 @@ bool ConcurrentLinkedQueue::add(Object$* e) {
 }
 
 void ConcurrentLinkedQueue::updateHead($ConcurrentLinkedQueue$Node* h, $ConcurrentLinkedQueue$Node* p) {
+	$useLocalCurrentObjectStackCache();
 	if (h != p && $nc(ConcurrentLinkedQueue::HEAD)->compareAndSet($$new($ObjectArray, {$of(this), $of(h), $of(p)}))) {
 		$nc(ConcurrentLinkedQueue::NEXT)->setRelease($$new($ObjectArray, {$of(h), $of(h)}));
 	}
 }
 
 $ConcurrentLinkedQueue$Node* ConcurrentLinkedQueue::succ($ConcurrentLinkedQueue$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue$Node, p, p$renamed);
 	$var($ConcurrentLinkedQueue$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->next))) {
@@ -349,6 +352,7 @@ $ConcurrentLinkedQueue$Node* ConcurrentLinkedQueue::succ($ConcurrentLinkedQueue$
 }
 
 bool ConcurrentLinkedQueue::tryCasSuccessor($ConcurrentLinkedQueue$Node* pred, $ConcurrentLinkedQueue$Node* c, $ConcurrentLinkedQueue$Node* p) {
+	$useLocalCurrentObjectStackCache();
 	if (pred != nullptr) {
 		return $nc(ConcurrentLinkedQueue::NEXT)->compareAndSet($$new($ObjectArray, {$of(pred), $of(c), $of(p)}));
 	}
@@ -360,6 +364,7 @@ bool ConcurrentLinkedQueue::tryCasSuccessor($ConcurrentLinkedQueue$Node* pred, $
 }
 
 $ConcurrentLinkedQueue$Node* ConcurrentLinkedQueue::skipDeadNodes($ConcurrentLinkedQueue$Node* pred, $ConcurrentLinkedQueue$Node* c, $ConcurrentLinkedQueue$Node* p, $ConcurrentLinkedQueue$Node* q$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue$Node, q, q$renamed);
 	if (q == nullptr) {
 		if (c == p) {
@@ -372,6 +377,7 @@ $ConcurrentLinkedQueue$Node* ConcurrentLinkedQueue::skipDeadNodes($ConcurrentLin
 }
 
 bool ConcurrentLinkedQueue::offer(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue$Node, newNode, $new($ConcurrentLinkedQueue$Node, $Objects::requireNonNull(e)));
 	{
 		$var($ConcurrentLinkedQueue$Node, t, this->tail);
@@ -401,6 +407,7 @@ bool ConcurrentLinkedQueue::offer(Object$* e) {
 }
 
 $Object* ConcurrentLinkedQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		{
@@ -432,6 +439,7 @@ $Object* ConcurrentLinkedQueue::poll() {
 }
 
 $Object* ConcurrentLinkedQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		{
@@ -457,6 +465,7 @@ $Object* ConcurrentLinkedQueue::peek() {
 }
 
 $ConcurrentLinkedQueue$Node* ConcurrentLinkedQueue::first() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		{
@@ -486,6 +495,7 @@ bool ConcurrentLinkedQueue::isEmpty() {
 }
 
 int32_t ConcurrentLinkedQueue::size() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		int32_t count = 0;
@@ -513,6 +523,7 @@ int32_t ConcurrentLinkedQueue::size() {
 }
 
 bool ConcurrentLinkedQueue::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -561,6 +572,7 @@ bool ConcurrentLinkedQueue::contains(Object$* o) {
 }
 
 bool ConcurrentLinkedQueue::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -611,6 +623,7 @@ bool ConcurrentLinkedQueue::remove(Object$* o) {
 }
 
 bool ConcurrentLinkedQueue::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -664,6 +677,7 @@ bool ConcurrentLinkedQueue::addAll($Collection* c) {
 }
 
 $String* ConcurrentLinkedQueue::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, a, nullptr);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -702,6 +716,7 @@ $String* ConcurrentLinkedQueue::toString() {
 }
 
 $ObjectArray* ConcurrentLinkedQueue::toArrayInternal($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, x, a);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -758,6 +773,7 @@ $Iterator* ConcurrentLinkedQueue::iterator() {
 }
 
 void ConcurrentLinkedQueue::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	{
 		$var($ConcurrentLinkedQueue$Node, p, first());
@@ -772,6 +788,7 @@ void ConcurrentLinkedQueue::writeObject($ObjectOutputStream* s) {
 }
 
 void ConcurrentLinkedQueue::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$var($ConcurrentLinkedQueue$Node, h, nullptr);
 	$var($ConcurrentLinkedQueue$Node, t, nullptr);
@@ -817,6 +834,7 @@ void ConcurrentLinkedQueue::clear() {
 }
 
 bool ConcurrentLinkedQueue::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	bool removed = false;
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -865,6 +883,7 @@ bool ConcurrentLinkedQueue::bulkRemove($Predicate* filter) {
 }
 
 void ConcurrentLinkedQueue::forEachFrom($Consumer* action, $ConcurrentLinkedQueue$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue$Node, p, p$renamed);
 	{
 		$var($ConcurrentLinkedQueue$Node, pred, nullptr);
@@ -918,6 +937,7 @@ bool ConcurrentLinkedQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$ConcurrentLinkedQueue($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

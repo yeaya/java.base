@@ -69,6 +69,7 @@ void X500Name$1::init$() {
 }
 
 $Object* X500Name$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($X500Principal);
 	$Class* pClass = $X500Principal::class$;

@@ -94,6 +94,7 @@ void Indify$Loader::init$($Indify* this$0, $ClassLoader* parent) {
 }
 
 $Class* Indify$Loader::loadClass($String* name, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, findClassInPath(name));
 	if (f != nullptr) {
 		try {
@@ -120,6 +121,7 @@ $Class* Indify$Loader::loadClass($String* name, bool resolve) {
 }
 
 $File* Indify$Loader::findClassInPath($String* name) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, this->this$0->classpath);
 		int32_t len$ = $nc(arr$)->length;
@@ -139,6 +141,7 @@ $File* Indify$Loader::findClassInPath($String* name) {
 }
 
 $Class* Indify$Loader::findClass($String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, findClassInPath(name));
 		if (f != nullptr) {
@@ -156,6 +159,7 @@ $Class* Indify$Loader::findClass($String* name) {
 }
 
 $Class* Indify$Loader::transformAndLoadClass($File* f) {
+	$useLocalCurrentObjectStackCache();
 	if (this->this$0->verbose) {
 		$init($System);
 		$nc($System::err)->println($$str({"Loading class from "_s, f}));

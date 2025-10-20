@@ -1064,12 +1064,14 @@ int32_t Pattern::flags() {
 
 bool Pattern::matches($String* regex, $CharSequence* input) {
 	$init(Pattern);
+	$useLocalCurrentObjectStackCache();
 	$var(Pattern, p, Pattern::compile(regex));
 	$var($Matcher, m, $nc(p)->matcher(input));
 	return $nc(m)->matches();
 }
 
 $StringArray* Pattern::split($CharSequence* input, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	bool matchLimited = limit > 0;
 	$var($ArrayList, matchList, $new($ArrayList));
@@ -1145,6 +1147,7 @@ void Pattern::readObject($ObjectInputStream* s) {
 }
 
 void Pattern::init$($String* p, int32_t f) {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(f & (uint32_t)~Pattern::ALL_FLAGS)) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown flag 0x"_s, $($Integer::toHexString(f))}));
 	}
@@ -1213,6 +1216,7 @@ $String* Pattern::normalize($String* pattern) {
 
 void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBuilder* dst) {
 	$init(Pattern);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(src)->length();
 	int32_t off0 = off;
 	while (off < limit && $ASCII::isAscii(src->charAt(off))) {
@@ -1270,12 +1274,14 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 
 void Pattern::normalizeClazz($String* src, int32_t off, int32_t limit, $StringBuilder* dst) {
 	$init(Pattern);
+	$useLocalCurrentObjectStackCache();
 	$init($Normalizer$Form);
 	$nc(dst)->append($($1Normalizer::normalize($($nc(src)->substring(off, limit)), $Normalizer$Form::NFC)));
 }
 
 void Pattern::produceEquivalentAlternation($String* src, $Set* dst) {
 	$init(Pattern);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = countChars(src, 0, 1);
 	if ($nc(src)->length() == len) {
 		$nc(dst)->add(src);
@@ -1296,6 +1302,7 @@ void Pattern::produceEquivalentAlternation($String* src, $Set* dst) {
 
 $StringArray* Pattern::producePermutations($String* input) {
 	$init(Pattern);
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(input)->length();
 	if (var$0 == countChars(input, 0, 1)) {
 		return $new($StringArray, {input});
@@ -1377,6 +1384,7 @@ int32_t Pattern::getClass(int32_t c) {
 
 $String* Pattern::composeOneStep($String* input) {
 	$init(Pattern);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = countChars(input, 0, 2);
 	$var($String, firstTwoCharacters, $nc(input)->substring(0, len));
 	$init($Normalizer$Form);
@@ -1390,6 +1398,7 @@ $String* Pattern::composeOneStep($String* input) {
 }
 
 void Pattern::RemoveQEQuoting() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pLen = this->patternLength;
 	int32_t i = 0;
 	while (i < pLen - 1) {
@@ -1460,6 +1469,7 @@ void Pattern::RemoveQEQuoting() {
 }
 
 void Pattern::compile() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = has(Pattern::CANON_EQ);
 	if (var$0 && !has(Pattern::LITERAL)) {
 		$set(this, normalizedPattern, normalize(this->pattern$));
@@ -1676,6 +1686,7 @@ bool Pattern::isSupplementary(int32_t ch) {
 }
 
 $Pattern$Node* Pattern::expr($Pattern$Node* end) {
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern$Node, prev, nullptr);
 	$var($Pattern$Node, firstTail, nullptr);
 	$var($Pattern$Branch, branch, nullptr);
@@ -1715,6 +1726,7 @@ $Pattern$Node* Pattern::expr($Pattern$Node* end) {
 }
 
 $Pattern$Node* Pattern::sequence($Pattern$Node* end) {
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern$Node, head, nullptr);
 	$var($Pattern$Node, tail, nullptr);
 	$var($Pattern$Node, node, nullptr);
@@ -1862,6 +1874,7 @@ $Pattern$Node* Pattern::sequence($Pattern$Node* end) {
 }
 
 $Pattern$Node* Pattern::atom() {
+	$useLocalCurrentObjectStackCache();
 	int32_t first = 0;
 	int32_t prev = -1;
 	bool hasSupplementary = false;
@@ -2027,6 +2040,7 @@ $Pattern$Node* Pattern::ref(int32_t refNum) {
 }
 
 int32_t Pattern::escape(bool inclass, bool create, bool isrange) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ch = skip();
 	{
 		$var($String, name, nullptr)
@@ -2405,6 +2419,7 @@ int32_t Pattern::escape(bool inclass, bool create, bool isrange) {
 }
 
 $Pattern$CharPredicate* Pattern::clazz(bool consume) {
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern$CharPredicate, prev, nullptr);
 	$var($Pattern$CharPredicate, curr, nullptr);
 	$var($Pattern$BitClass, bits, $new($Pattern$BitClass));
@@ -2557,6 +2572,7 @@ $Pattern$CharPredicate* Pattern::single(int32_t ch) {
 }
 
 $Pattern$CharPredicate* Pattern::range($Pattern$BitClass* bits) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ch = peek();
 	if (ch == u'\\') {
 		ch = nextEscaped();
@@ -2614,6 +2630,7 @@ $Pattern$CharPredicate* Pattern::range($Pattern$BitClass* bits) {
 }
 
 $Pattern$CharPredicate* Pattern::family(bool singleLetter, bool isComplement) {
+	$useLocalCurrentObjectStackCache();
 	next();
 	$var($String, name, nullptr);
 	$var($Pattern$CharPredicate, p, nullptr);
@@ -2767,6 +2784,7 @@ $Pattern$CharProperty* Pattern::newCharProperty($Pattern$CharPredicate* p) {
 }
 
 $String* Pattern::groupname(int32_t ch) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (!$ASCII::isAlpha(ch)) {
 		$throw($(error("capturing group name does not start with a Latin letter"_s)));
@@ -2781,6 +2799,7 @@ $String* Pattern::groupname(int32_t ch) {
 }
 
 $Pattern$Node* Pattern::group0() {
+	$useLocalCurrentObjectStackCache();
 	bool capturingGroup = false;
 	$var($Pattern$Node, head, nullptr);
 	$var($Pattern$Node, tail, nullptr);
@@ -3132,6 +3151,7 @@ $Pattern$Node* Pattern::curly($Pattern$Node* prev, int32_t cmin) {
 }
 
 $Pattern$Node* Pattern::closure($Pattern$Node* prev) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ch = peek();
 	switch (ch) {
 	case u'?':
@@ -3220,6 +3240,7 @@ int32_t Pattern::o() {
 }
 
 int32_t Pattern::x() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = read();
 	if ($ASCII::isHexDigit(n)) {
 		int32_t m = read();
@@ -3252,6 +3273,7 @@ void Pattern::setcursor(int32_t pos) {
 }
 
 int32_t Pattern::uxxxx() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	for (int32_t i = 0; i < 4; ++i) {
 		int32_t ch = read();
@@ -3280,6 +3302,7 @@ int32_t Pattern::u() {
 }
 
 int32_t Pattern::N() {
+	$useLocalCurrentObjectStackCache();
 	if (read() == u'{') {
 		int32_t i = this->cursor$;
 		while (read() != u'}') {
@@ -3467,6 +3490,7 @@ $Predicate* Pattern::asMatchPredicate() {
 }
 
 $Stream* Pattern::splitAsStream($CharSequence* input) {
+	$useLocalCurrentObjectStackCache();
 	{
 	}
 	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>($$new($Pattern$1MatcherIterator, this, input)), $Spliterator::ORDERED | $Spliterator::NONNULL)), false);

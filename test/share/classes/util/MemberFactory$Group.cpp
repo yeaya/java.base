@@ -190,6 +190,7 @@ $EnumSet* MemberFactory$Group::asSet($MemberFactory$GroupArray* groups) {
 }
 
 void clinit$MemberFactory$Group($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MemberFactory$Group::ALL, $new(MemberFactory$Group, "ALL"_s, 0, $($MemberFactory::values())));
 	$assignStatic(MemberFactory$Group::PRIVATE_MEMBERS, $new(MemberFactory$Group, "PRIVATE_MEMBERS"_s, 1, $$new($MemberFactoryArray, {
 		$MemberFactory::PRIVATE_INSTANCE_FIELD,

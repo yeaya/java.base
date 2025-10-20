@@ -46,6 +46,7 @@ void Bug8032446::init$() {
 }
 
 void Bug8032446::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool err = false;
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0x00010860; i <= 0x00010876; ++i) {

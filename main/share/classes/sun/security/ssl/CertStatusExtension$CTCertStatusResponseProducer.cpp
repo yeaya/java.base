@@ -110,6 +110,7 @@ void CertStatusExtension$CTCertStatusResponseProducer::init$() {
 }
 
 $bytes* CertStatusExtension$CTCertStatusResponseProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($bytes, producedData, nullptr);
 	if ($nc(shc)->stapleParams == nullptr) {

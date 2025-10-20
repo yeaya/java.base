@@ -100,6 +100,7 @@ void AtomicAppend::init$() {
 
 $FileChannel* AtomicAppend::newFileChannel($File* file) {
 	$init(AtomicAppend);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(AtomicAppend::rand)->nextBoolean()) {
 		return $$new($FileOutputStream, file, true)->getChannel();
 	} else {
@@ -110,6 +111,7 @@ $FileChannel* AtomicAppend::newFileChannel($File* file) {
 
 $OutputStream* AtomicAppend::newOutputStream($File* file) {
 	$init(AtomicAppend);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(AtomicAppend::rand)->nextBoolean()) {
 		return $new($FileOutputStream, file, true);
 	} else {
@@ -120,6 +122,7 @@ $OutputStream* AtomicAppend::newOutputStream($File* file) {
 
 void AtomicAppend::write($FileChannel* fc, int32_t b) {
 	$init(AtomicAppend);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(1));
 	$nc(buf)->put((int8_t)b);
 	buf->flip();
@@ -134,6 +137,7 @@ void AtomicAppend::write($FileChannel* fc, int32_t b) {
 
 void AtomicAppend::main($StringArray* args) {
 	$init(AtomicAppend);
+	$useLocalCurrentObjectStackCache();
 	int32_t nThreads = 16;
 	int32_t writes = 1000;
 	$var($File, file, $File::createTempFile("foo"_s, nullptr));

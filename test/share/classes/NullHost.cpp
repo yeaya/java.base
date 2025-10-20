@@ -60,6 +60,7 @@ void NullHost::main($StringArray* args) {
 }
 
 void NullHost::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($NullHost$Server, s, $new($NullHost$Server, this));
 	int32_t port = s->getPort();
 	s->start();

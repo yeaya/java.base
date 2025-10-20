@@ -62,6 +62,7 @@ $Object* allocate$CheckDiscard($Class* clazz) {
 }
 
 void CheckDiscard::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, s, $new($DatagramSocket));
 	$var($CheckDiscard$Sender, s1, $new($CheckDiscard$Sender, this, s->getLocalPort()));
 	$var($CheckDiscard$Sender, s2, $new($CheckDiscard$Sender, this, s->getLocalPort()));

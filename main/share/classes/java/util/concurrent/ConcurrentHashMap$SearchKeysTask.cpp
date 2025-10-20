@@ -85,6 +85,7 @@ $Object* ConcurrentHashMap$SearchKeysTask::getRawResult() {
 }
 
 void ConcurrentHashMap$SearchKeysTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Function, searchFunction, nullptr);
 	$var($AtomicReference, result, nullptr);
 	if (($assign(searchFunction, this->searchFunction)) != nullptr && ($assign(result, this->result)) != nullptr) {

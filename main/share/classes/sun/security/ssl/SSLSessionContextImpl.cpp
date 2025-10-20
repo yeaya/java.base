@@ -131,6 +131,7 @@ bool SSLSessionContextImpl::statelessEnabled() {
 }
 
 $SSLSession* SSLSessionContextImpl::getSession($bytes* sessionId) {
+	$useLocalCurrentObjectStackCache();
 	if (sessionId == nullptr) {
 		$throwNew($NullPointerException, "session id cannot be null"_s);
 	}
@@ -189,6 +190,7 @@ $SSLSessionImpl* SSLSessionContextImpl::pull($bytes* id) {
 }
 
 $SSLSessionImpl* SSLSessionContextImpl::get($String* hostname, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	if (hostname == nullptr && port == -1) {
 		return nullptr;
 	}
@@ -201,11 +203,13 @@ $SSLSessionImpl* SSLSessionContextImpl::get($String* hostname, int32_t port) {
 
 $String* SSLSessionContextImpl::getKey($String* hostname, int32_t port) {
 	$init(SSLSessionContextImpl);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	return $nc(($$str({hostname, ":"_s, $$str(port)})))->toLowerCase($Locale::ENGLISH);
 }
 
 void SSLSessionContextImpl::put($SSLSessionImpl* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->sessionCache)->put($($nc(s)->getSessionId()), s);
 	bool var$0 = ($nc(s)->getPeerHost() != nullptr);
 	if (var$0 && (s->getPeerPort() != -1)) {
@@ -216,6 +220,7 @@ void SSLSessionContextImpl::put($SSLSessionImpl* s) {
 }
 
 void SSLSessionContextImpl::remove($SessionId* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLSessionImpl, s, $cast($SSLSessionImpl, $nc(this->sessionCache)->get(key)));
 	if (s != nullptr) {
 		$nc(this->sessionCache)->remove(key);
@@ -225,6 +230,7 @@ void SSLSessionContextImpl::remove($SessionId* key) {
 }
 
 int32_t SSLSessionContextImpl::getDefaults(bool server) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, st, nullptr);
 		if (server) {

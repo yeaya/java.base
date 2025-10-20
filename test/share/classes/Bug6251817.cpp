@@ -48,6 +48,7 @@ void Bug6251817::init$() {
 }
 
 void Bug6251817::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, "zzzz"_s, $Locale::US));
 	sdf->setTimeZone($($TimeZone::getTimeZone("Australia/Lord_Howe"_s)));

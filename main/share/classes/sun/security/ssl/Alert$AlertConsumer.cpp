@@ -97,6 +97,7 @@ void Alert$AlertConsumer::init$() {
 }
 
 void Alert$AlertConsumer::consume($ConnectionContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$var($TransportContext, tc, $cast($TransportContext, context));
 	$var($Alert$AlertMessage, am, $new($Alert$AlertMessage, tc, m));
 	$init($SSLLogger);

@@ -80,6 +80,7 @@ void AsynchronousChannelGroupImpl$2::init$($AsynchronousChannelGroupImpl* this$0
 }
 
 $Object* AsynchronousChannelGroupImpl$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc($($ThreadPool::defaultThreadFactory()))->newThread(this->val$task)))->start();
 	return $of(nullptr);
 }

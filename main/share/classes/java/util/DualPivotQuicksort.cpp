@@ -171,6 +171,7 @@ int32_t DualPivotQuicksort::getDepth(int32_t parallelism, int32_t size) {
 }
 
 void DualPivotQuicksort::sort($ints* a, int32_t parallelism, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = high - low;
 	if (parallelism > 1 && size > DualPivotQuicksort::MIN_PARALLEL_SORT_SIZE) {
 		int32_t depth = getDepth(parallelism, size >> 12);
@@ -414,6 +415,7 @@ void DualPivotQuicksort::insertionSort($ints* a, int32_t low, int32_t high) {
 }
 
 void DualPivotQuicksort::heapSort($ints* a, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t k = (int32_t)((uint32_t)(low + high) >> 1); k > low;) {
 		$var($ints, var$0, a);
 		int32_t var$1 = --k;
@@ -444,6 +446,7 @@ void DualPivotQuicksort::pushDown($ints* a, int32_t p, int32_t value, int32_t lo
 }
 
 bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $ints* a, int32_t low, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, run, nullptr);
 	int32_t high = low + size;
 	int32_t count = 1;
@@ -534,6 +537,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $ints*
 }
 
 $ints* DualPivotQuicksort::mergeRuns($ints* a, $ints* b, int32_t offset, int32_t aim, bool parallel, $ints* run, int32_t lo, int32_t hi) {
+	$useLocalCurrentObjectStackCache();
 	if (hi - lo == 1) {
 		if (aim >= 0) {
 			return a;
@@ -622,6 +626,7 @@ void DualPivotQuicksort::mergeParts($DualPivotQuicksort$Merger* merger, $ints* d
 }
 
 void DualPivotQuicksort::sort($longs* a, int32_t parallelism, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = high - low;
 	if (parallelism > 1 && size > DualPivotQuicksort::MIN_PARALLEL_SORT_SIZE) {
 		int32_t depth = getDepth(parallelism, size >> 12);
@@ -865,6 +870,7 @@ void DualPivotQuicksort::insertionSort($longs* a, int32_t low, int32_t high) {
 }
 
 void DualPivotQuicksort::heapSort($longs* a, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t k = (int32_t)((uint32_t)(low + high) >> 1); k > low;) {
 		$var($longs, var$0, a);
 		int32_t var$1 = --k;
@@ -895,6 +901,7 @@ void DualPivotQuicksort::pushDown($longs* a, int32_t p, int64_t value, int32_t l
 }
 
 bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $longs* a, int32_t low, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, run, nullptr);
 	int32_t high = low + size;
 	int32_t count = 1;
@@ -985,6 +992,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $longs
 }
 
 $longs* DualPivotQuicksort::mergeRuns($longs* a, $longs* b, int32_t offset, int32_t aim, bool parallel, $ints* run, int32_t lo, int32_t hi) {
+	$useLocalCurrentObjectStackCache();
 	if (hi - lo == 1) {
 		if (aim >= 0) {
 			return a;
@@ -1492,6 +1500,7 @@ void DualPivotQuicksort::countingSort($shorts* a, int32_t low, int32_t high) {
 }
 
 void DualPivotQuicksort::sort($floats* a, int32_t parallelism, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numNegativeZero = 0;
 	for (int32_t k = high; k > low;) {
 		float ak = $nc(a)->get(--k);
@@ -1760,6 +1769,7 @@ void DualPivotQuicksort::insertionSort($floats* a, int32_t low, int32_t high) {
 }
 
 void DualPivotQuicksort::heapSort($floats* a, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t k = (int32_t)((uint32_t)(low + high) >> 1); k > low;) {
 		$var($floats, var$0, a);
 		int32_t var$1 = --k;
@@ -1790,6 +1800,7 @@ void DualPivotQuicksort::pushDown($floats* a, int32_t p, float value, int32_t lo
 }
 
 bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $floats* a, int32_t low, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, run, nullptr);
 	int32_t high = low + size;
 	int32_t count = 1;
@@ -1880,6 +1891,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $float
 }
 
 $floats* DualPivotQuicksort::mergeRuns($floats* a, $floats* b, int32_t offset, int32_t aim, bool parallel, $ints* run, int32_t lo, int32_t hi) {
+	$useLocalCurrentObjectStackCache();
 	if (hi - lo == 1) {
 		if (aim >= 0) {
 			return a;
@@ -1968,6 +1980,7 @@ void DualPivotQuicksort::mergeParts($DualPivotQuicksort$Merger* merger, $floats*
 }
 
 void DualPivotQuicksort::sort($doubles* a, int32_t parallelism, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numNegativeZero = 0;
 	for (int32_t k = high; k > low;) {
 		double ak = $nc(a)->get(--k);
@@ -2236,6 +2249,7 @@ void DualPivotQuicksort::insertionSort($doubles* a, int32_t low, int32_t high) {
 }
 
 void DualPivotQuicksort::heapSort($doubles* a, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t k = (int32_t)((uint32_t)(low + high) >> 1); k > low;) {
 		$var($doubles, var$0, a);
 		int32_t var$1 = --k;
@@ -2266,6 +2280,7 @@ void DualPivotQuicksort::pushDown($doubles* a, int32_t p, double value, int32_t 
 }
 
 bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $doubles* a, int32_t low, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, run, nullptr);
 	int32_t high = low + size;
 	int32_t count = 1;
@@ -2356,6 +2371,7 @@ bool DualPivotQuicksort::tryMergeRuns($DualPivotQuicksort$Sorter* sorter, $doubl
 }
 
 $doubles* DualPivotQuicksort::mergeRuns($doubles* a, $doubles* b, int32_t offset, int32_t aim, bool parallel, $ints* run, int32_t lo, int32_t hi) {
+	$useLocalCurrentObjectStackCache();
 	if (hi - lo == 1) {
 		if (aim >= 0) {
 			return a;

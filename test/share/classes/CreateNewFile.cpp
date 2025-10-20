@@ -45,6 +45,7 @@ void CreateNewFile::init$() {
 }
 
 void CreateNewFile::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.CreateNewFile"_s));
 	bool var$0 = f->exists();
 	if (var$0 && !f->delete$()) {
@@ -71,6 +72,7 @@ void CreateNewFile::main($StringArray* args) {
 }
 
 void CreateNewFile::testCreateExistingDir() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, tmpFile, $new($File, "hugo"_s));
 	bool var$0 = tmpFile->exists();
 	if (var$0 && !tmpFile->delete$()) {

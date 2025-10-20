@@ -66,6 +66,7 @@ void AnnotationTypeRuntimeAssumptionTest$TestTask::init$() {
 }
 
 void AnnotationTypeRuntimeAssumptionTest$TestTask::run() {
+	$useLocalCurrentObjectStackCache();
 	$load($AnnotationTypeRuntimeAssumptionTest$AnnA_v1);
 	$var($AnnotationTypeRuntimeAssumptionTest$AnnA_v1, ann1, $cast($AnnotationTypeRuntimeAssumptionTest$AnnA_v1, AnnotationTypeRuntimeAssumptionTest$TestTask::class$->getDeclaredAnnotation($AnnotationTypeRuntimeAssumptionTest$AnnA_v1::class$)));
 	if (ann1 != nullptr) {

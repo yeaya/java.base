@@ -53,6 +53,7 @@ void StringConstructor::init$() {
 }
 
 void StringConstructor::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	constructWithoutError("0"_s, 0);
 	constructWithoutError("000000000000000000"_s, 0);
 	constructWithoutError("1"_s, 1);
@@ -84,6 +85,7 @@ void StringConstructor::main($StringArray* argv) {
 }
 
 void StringConstructor::constructWithError($String* badString) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigInteger, bi, $new($BigInteger, badString));
 		$throwNew($RuntimeException, $$str({badString, " accepted"_s}));
@@ -93,6 +95,7 @@ void StringConstructor::constructWithError($String* badString) {
 }
 
 void StringConstructor::constructWithoutError($String* goodString, int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, bi, $new($BigInteger, goodString));
 	if (bi->longValue() != value) {
 		$init($System);

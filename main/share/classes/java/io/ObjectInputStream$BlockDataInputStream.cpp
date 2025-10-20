@@ -215,6 +215,7 @@ void ObjectInputStream$BlockDataInputStream::skipBlockData() {
 }
 
 int32_t ObjectInputStream$BlockDataInputStream::readBlockHeader(bool canBlock) {
+	$useLocalCurrentObjectStackCache();
 	if (this->this$0->defaultDataEnd) {
 		return -1;
 	}
@@ -762,6 +763,7 @@ $String* ObjectInputStream$BlockDataInputStream::readUTFBody(int64_t utflen) {
 }
 
 int64_t ObjectInputStream$BlockDataInputStream::readUTFSpan($StringBuilder* sbuf, int64_t utflen) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cpos = 0;
 	int32_t start = this->pos;
 	int32_t avail = $Math::min(this->end - this->pos, ObjectInputStream$BlockDataInputStream::CHAR_BUF_SIZE);

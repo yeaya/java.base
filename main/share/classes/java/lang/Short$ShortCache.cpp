@@ -67,6 +67,7 @@ void Short$ShortCache::init$() {
 }
 
 void clinit$Short$ShortCache($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		int32_t size = -(-128) + 127 + 1;
 		$CDS::initializeFromArchive(Short$ShortCache::class$);

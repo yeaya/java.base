@@ -104,6 +104,7 @@ void FilePermissionCollection::init$() {
 }
 
 void FilePermissionCollection::add($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($FilePermission, fp, nullptr);
 	bool var$0 = $instanceOf($FilePermission, permission);
 	if (var$0) {
@@ -122,6 +123,7 @@ void FilePermissionCollection::add($Permission* permission) {
 }
 
 bool FilePermissionCollection::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($FilePermission, fperm, nullptr);
 	bool var$0 = $instanceOf($FilePermission, permission);
 	if (var$0) {
@@ -159,6 +161,7 @@ $Enumeration* FilePermissionCollection::elements() {
 }
 
 void FilePermissionCollection::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, permissions, $new($Vector, $($nc(this->perms)->values())));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
 	$nc(pfields)->put("permissions"_s, $of(permissions));
@@ -166,6 +169,7 @@ void FilePermissionCollection::writeObject($ObjectOutputStream* out) {
 }
 
 void FilePermissionCollection::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size()));

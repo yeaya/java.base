@@ -72,6 +72,7 @@ int32_t Util::fdVal($FileDescriptor* fdObj) {
 }
 
 int32_t Util::getFD($SocketChannel* sc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Object, fdObj, get("sun.nio.ch.SocketChannelImpl"_s, "fd"_s, sc));
 		return fdVal($cast($FileDescriptor, fdObj));
@@ -84,6 +85,7 @@ int32_t Util::getFD($SocketChannel* sc) {
 }
 
 int32_t Util::getFD($ServerSocketChannel* ssc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Object, fdObj, get("sun.nio.ch.ServerSocketChannelImpl"_s, "fd"_s, ssc));
 		return fdVal($cast($FileDescriptor, fdObj));
@@ -96,6 +98,7 @@ int32_t Util::getFD($ServerSocketChannel* ssc) {
 }
 
 int32_t Util::getFD($DatagramChannel* dc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Object, fdObj, get("sun.nio.ch.DatagramChannelImpl"_s, "fd"_s, dc));
 		return fdVal($cast($FileDescriptor, fdObj));

@@ -88,6 +88,7 @@ $Object* allocate$ParallelProbes($Class* clazz) {
 }
 
 void ParallelProbes::init$(int32_t numThreads) {
+	$useLocalCurrentObjectStackCache();
 	this->numThreads = 0;
 	$init($System);
 	$nc($System::out)->println($$str({"Using <"_s, $$str(numThreads), "> threads."_s}));
@@ -96,6 +97,7 @@ void ParallelProbes::init$(int32_t numThreads) {
 }
 
 $Path* ParallelProbes::createTmpFile() {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, dir, $Paths::get($($System::getProperty("test.dir"_s, "."_s)), $$new($StringArray, 0)));
 	$var($Path, p, $Files::createTempFile(dir, "prefix"_s, ".json"_s, $$new($FileAttributeArray, 0)));
 	$Files::write(p, $("{\"test\"}"_s->getBytes()), $$new($OpenOptionArray, 0));
@@ -109,6 +111,7 @@ $Runnable* ParallelProbes::createRunnable($Path* p) {
 }
 
 void ParallelProbes::start() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < this->numThreads; ++i) {
 		$var($Path, p, createTmpFile());
 		$var($Runnable, r, createRunnable(p));
@@ -119,6 +122,7 @@ void ParallelProbes::start() {
 }
 
 void ParallelProbes::join() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->threads)->iterator());
 		for (; $nc(i$)->hasNext();) {

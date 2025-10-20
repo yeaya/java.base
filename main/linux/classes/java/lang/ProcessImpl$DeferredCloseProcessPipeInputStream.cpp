@@ -92,6 +92,7 @@ $Object* allocate$ProcessImpl$DeferredCloseProcessPipeInputStream($Class* clazz)
 }
 
 void ProcessImpl$DeferredCloseProcessPipeInputStream::init$(int32_t fd) {
+	$useLocalCurrentObjectStackCache();
 	$BufferedInputStream::init$($$new($Process$PipeInputStream, $($ProcessImpl::newFileDescriptor(fd))));
 	$set(this, closeLock, $new($Object));
 	this->useCount = 0;
@@ -99,6 +100,7 @@ void ProcessImpl$DeferredCloseProcessPipeInputStream::init$(int32_t fd) {
 }
 
 $InputStream* ProcessImpl$DeferredCloseProcessPipeInputStream::drainInputStream($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	int32_t j = 0;
 	$var($bytes, a, nullptr);
@@ -124,6 +126,7 @@ $InputStream* ProcessImpl$DeferredCloseProcessPipeInputStream::drainInputStream(
 
 void ProcessImpl$DeferredCloseProcessPipeInputStream::processExited() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		try {
 			$var($InputStream, in, this->in);
 			if (in != nullptr) {

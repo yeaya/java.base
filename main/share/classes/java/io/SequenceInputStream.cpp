@@ -135,6 +135,7 @@ int32_t SequenceInputStream::read($bytes* b, int32_t off, int32_t len) {
 }
 
 void SequenceInputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	$var($IOException, ioe, nullptr);
 	while (this->in != nullptr) {
 		try {

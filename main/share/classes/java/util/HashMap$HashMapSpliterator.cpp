@@ -75,6 +75,7 @@ void HashMap$HashMapSpliterator::init$($HashMap* m, int32_t origin, int32_t fenc
 }
 
 int32_t HashMap$HashMapSpliterator::getFence() {
+	$useLocalCurrentObjectStackCache();
 	int32_t hi = 0;
 	if ((hi = this->fence) < 0) {
 		$var($HashMap, m, this->map);

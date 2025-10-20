@@ -95,6 +95,7 @@ void CertificateFactory::init$($CertificateFactorySpi* certFacSpi, $Provider* pr
 }
 
 CertificateFactory* CertificateFactory::getInstance($String* type) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertificateFactorySpi);
@@ -108,6 +109,7 @@ CertificateFactory* CertificateFactory::getInstance($String* type) {
 }
 
 CertificateFactory* CertificateFactory::getInstance($String* type, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertificateFactorySpi);
@@ -121,6 +123,7 @@ CertificateFactory* CertificateFactory::getInstance($String* type, $String* prov
 }
 
 CertificateFactory* CertificateFactory::getInstance($String* type, $Provider* provider) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertificateFactorySpi);

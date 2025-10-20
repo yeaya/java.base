@@ -147,6 +147,7 @@ void LastErrorString::init$() {
 
 void LastErrorString::go() {
 	$init(LastErrorString);
+	$useLocalCurrentObjectStackCache();
 	$$new($LastErrorString$1, "File.createNewFile"_s)->go();
 	$$new($LastErrorString$2, "File.getCanonicalpath"_s)->go();
 	$$new($LastErrorString$3, "FileInputStream(file)"_s)->go();
@@ -175,6 +176,7 @@ void LastErrorString::main($StringArray* args) {
 }
 
 void clinit$LastErrorString($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($File);
 		if ($File::separatorChar == u'/') {

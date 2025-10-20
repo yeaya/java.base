@@ -69,6 +69,7 @@ $Object* SubjectDomainCombiner$WeakKeyValueMap::getValue(Object$* key) {
 }
 
 $Object* SubjectDomainCombiner$WeakKeyValueMap::putValue(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($WeakReference, wr, $cast($WeakReference, $WeakHashMap::put(key, $$new($WeakReference, value))));
 	if (wr != nullptr) {
 		return $of(wr->get());

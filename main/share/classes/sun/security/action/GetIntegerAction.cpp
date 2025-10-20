@@ -86,6 +86,7 @@ $Integer* GetIntegerAction::privilegedGetProperty($String* theProp) {
 
 $Integer* GetIntegerAction::privilegedGetProperty($String* theProp, int32_t defaultVal) {
 	$init(GetIntegerAction);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Integer, value, nullptr);
 	if ($System::getSecurityManager() == nullptr) {

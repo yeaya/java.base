@@ -97,6 +97,7 @@ void TranslateEscapes::test4() {
 }
 
 void TranslateEscapes::verifyEscape($String* string, char16_t ch) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, escapes, $str({"\\"_s, string}));
 	if ($($nc(escapes)->translateEscapes())->charAt(0) != ch) {
 		$init($System);
@@ -109,6 +110,7 @@ void TranslateEscapes::verifyEscape($String* string, char16_t ch) {
 }
 
 void TranslateEscapes::verifyOctalEscape($String* string, int32_t octal) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, escapes, $str({"\\"_s, string}));
 	if ($($nc(escapes)->translateEscapes())->charAt(0) != octal) {
 		$init($System);
@@ -121,6 +123,7 @@ void TranslateEscapes::verifyOctalEscape($String* string, int32_t octal) {
 }
 
 void TranslateEscapes::exceptionThrown($String* string) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, escapes, $str({"\\"_s, string}));
 	try {
 		$nc(escapes)->translateEscapes();
@@ -133,6 +136,7 @@ void TranslateEscapes::exceptionThrown($String* string) {
 }
 
 void TranslateEscapes::verifyLineTerminator($String* string) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, escapes, $str({"\\"_s, string}));
 	if (!$($nc(escapes)->translateEscapes())->isEmpty()) {
 		$init($System);

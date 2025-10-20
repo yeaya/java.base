@@ -71,6 +71,7 @@ void MethodType$ConcurrentWeakInternSet$WeakEntry::init$(Object$* key, $Referenc
 }
 
 bool MethodType$ConcurrentWeakInternSet$WeakEntry::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, mine, get());
 	if ($instanceOf(MethodType$ConcurrentWeakInternSet$WeakEntry, obj)) {
 		$var($Object, that, $nc(($cast(MethodType$ConcurrentWeakInternSet$WeakEntry, obj)))->get());

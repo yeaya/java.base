@@ -72,6 +72,7 @@ $Object* allocate$Transfers$UserSource($Class* clazz) {
 }
 
 void Transfers$UserSource::init$(int32_t size, int64_t seed) {
+	$useLocalCurrentObjectStackCache();
 	$Transfers$Source::init$(size, seed, "UserChannel"_s);
 	$var($bytes, bytes, $new($bytes, size + 1));
 	$var($Random, r, $new($Random, seed));
@@ -85,6 +86,7 @@ $ReadableByteChannel* Transfers$UserSource::channel() {
 }
 
 void Transfers$UserSource::verify() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->src)->remaining() != 1) {
 		$throwNew($Transfers$Failure, $$str({"Source has "_s, $$str($nc(this->src)->remaining()), " bytes remaining (expected 1)"_s}));
 	}

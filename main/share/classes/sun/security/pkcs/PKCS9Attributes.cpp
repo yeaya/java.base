@@ -119,6 +119,7 @@ void PKCS9Attributes::init$($DerInputStream* in, bool ignoreUnsupportedAttribute
 }
 
 void PKCS9Attributes::init$($PKCS9AttributeArray* attribs) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, attributes, $new($Hashtable, 3));
 	this->ignoreUnsupportedAttributes = false;
 	$var($ObjectIdentifier, oid, nullptr);
@@ -134,6 +135,7 @@ void PKCS9Attributes::init$($PKCS9AttributeArray* attribs) {
 }
 
 $bytes* PKCS9Attributes::decode($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, $nc(in)->getDerValue());
 	$var($bytes, derEncoding, $nc(val)->toByteArray());
 	$nc(derEncoding)->set(0, $DerValue::tag_SetOf);
@@ -172,6 +174,7 @@ void PKCS9Attributes::encode(int8_t tag, $OutputStream* out) {
 }
 
 $bytes* PKCS9Attributes::generateDerEncoding() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($ObjectArray, attribVals, $nc($($nc(this->attributes)->values()))->toArray());
 	out->putOrderedSetOf($DerValue::tag_SetOf, $(castToDerEncoder(attribVals)));
@@ -191,6 +194,7 @@ $PKCS9Attribute* PKCS9Attributes::getAttribute($String* name) {
 }
 
 $PKCS9AttributeArray* PKCS9Attributes::getAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$var($PKCS9AttributeArray, attribs, $new($PKCS9AttributeArray, $nc(this->attributes)->size()));
 	$var($ObjectIdentifier, oid, nullptr);
 	int32_t j = 0;
@@ -205,6 +209,7 @@ $PKCS9AttributeArray* PKCS9Attributes::getAttributes() {
 }
 
 $Object* PKCS9Attributes::getAttributeValue($ObjectIdentifier* oid) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Object, value, $nc($(getAttribute(oid)))->getValue());
 		return $of(value);
@@ -216,6 +221,7 @@ $Object* PKCS9Attributes::getAttributeValue($ObjectIdentifier* oid) {
 }
 
 $Object* PKCS9Attributes::getAttributeValue($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectIdentifier, oid, $PKCS9Attribute::getOID(name));
 	if (oid == nullptr) {
 		$throwNew($IOException, $$str({"Attribute name "_s, name, " not recognized or not supported."_s}));
@@ -224,6 +230,7 @@ $Object* PKCS9Attributes::getAttributeValue($String* name) {
 }
 
 $String* PKCS9Attributes::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 200));
 	sb->append("PKCS9 Attributes: [\n\t"_s);
 	$var($ObjectIdentifier, oid, nullptr);

@@ -72,6 +72,7 @@ void Bug6513074::init$() {
 
 void Bug6513074::main($StringArray* args) {
 	$init(Bug6513074);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	if ($nc($($nc(defaultLocale)->getLanguage()))->equals("th"_s)) {
 		$Locale::setDefault($Locale::JAPAN);
@@ -104,6 +105,7 @@ void Bug6513074::test6513074() {
 
 void Bug6513074::testBreakIterator($BreakIterator* bi, $String* type, $String* source, $String* expected, $String* description) {
 	$init(Bug6513074);
+	$useLocalCurrentObjectStackCache();
 	$nc(bi)->setText(source);
 	int32_t start = bi->first();
 	int32_t end = bi->next();
@@ -122,6 +124,7 @@ void Bug6513074::testBreakIterator($BreakIterator* bi, $String* type, $String* s
 
 $String* Bug6513074::toString($String* s) {
 	$init(Bug6513074);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		sb->append($$str({"  0x"_s, $($Integer::toHexString(s->charAt(i)))}));

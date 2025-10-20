@@ -74,6 +74,7 @@ $Object* allocate$SunX509KeyManagerImpl$X509Credentials($Class* clazz) {
 }
 
 void SunX509KeyManagerImpl$X509Credentials::init$($PrivateKey* privateKey, $X509CertificateArray* certificates) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, privateKey, privateKey);
 	$set(this, certificates, certificates);
 	$set(this, issuerX500Principals, $new($HashSet, $nc(certificates)->length));

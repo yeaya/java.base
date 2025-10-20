@@ -130,6 +130,7 @@ $Type* RecordComponent::getGenericType() {
 }
 
 $FieldRepository* RecordComponent::getGenericInfo() {
+	$useLocalCurrentObjectStackCache();
 	if (this->genericInfo == nullptr) {
 		$var($String, var$0, getGenericSignature());
 		$set(this, genericInfo, $FieldRepository::make(var$0, $(getFactory())));
@@ -143,6 +144,7 @@ $GenericsFactory* RecordComponent::getFactory() {
 }
 
 $AnnotatedType* RecordComponent::getAnnotatedType() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, this->typeAnnotations);
 	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringRecord()));
 	$Class* var$2 = getDeclaringRecord();
@@ -155,11 +157,13 @@ $Method* RecordComponent::getAccessor() {
 }
 
 $Annotation* RecordComponent::getAnnotation($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	return $cast($Annotation, annotationClass->cast($($nc($(declaredAnnotations()))->get(annotationClass))));
 }
 
 $Map* RecordComponent::declaredAnnotations() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, declAnnos, nullptr);
 	if (($assign(declAnnos, this->declaredAnnotations$)) == nullptr) {
 		$synchronized(this) {
@@ -188,6 +192,7 @@ $AnnotationArray* RecordComponent::getDeclaredAnnotations() {
 }
 
 $String* RecordComponent::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc(getType())->getTypeName()), " "_s}));
 	return ($concat(var$0, $(getName())));
 }

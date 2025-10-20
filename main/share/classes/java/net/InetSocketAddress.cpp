@@ -112,6 +112,7 @@ int64_t InetSocketAddress::FIELDS_OFFSET = 0;
 
 int32_t InetSocketAddress::checkPort(int32_t port) {
 	$init(InetSocketAddress);
+	$useLocalCurrentObjectStackCache();
 	if (port < 0 || port > 0x0000FFFF) {
 		$throwNew($IllegalArgumentException, $$str({"port out of range:"_s, $$str(port)}));
 	}
@@ -137,6 +138,7 @@ void InetSocketAddress::init$($InetAddress* addr, int32_t port) {
 }
 
 void InetSocketAddress::init$($String* hostname, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$SocketAddress::init$();
 	checkHost(hostname);
 	$var($InetAddress, addr, nullptr);
@@ -170,6 +172,7 @@ void InetSocketAddress::writeObject($ObjectOutputStream* out) {
 }
 
 void InetSocketAddress::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, oisFields, $nc(in)->readFields());
 	$var($String, oisHostname, $cast($String, $nc(oisFields)->get("hostname"_s, ($Object*)nullptr)));
 	$var($InetAddress, oisAddr, $cast($InetAddress, oisFields->get("addr"_s, ($Object*)nullptr)));
@@ -230,6 +233,7 @@ int32_t InetSocketAddress::hashCode() {
 }
 
 void clinit$InetSocketAddress($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($String);
 		$load($InetAddress);
 		$init($Integer);

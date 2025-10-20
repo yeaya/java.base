@@ -82,6 +82,7 @@ void SetTimesNanos::init$() {
 
 void SetTimesNanos::main($StringArray* args) {
 	$init(SetTimesNanos);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!SetTimesNanos::IS_WINDOWS) {
 		$Class* unixNativeDispatcherClass = $Class::forName("sun.nio.fs.UnixNativeDispatcher"_s);
@@ -117,6 +118,7 @@ void SetTimesNanos::main($StringArray* args) {
 
 void SetTimesNanos::testNanos($Path* path) {
 	$init(SetTimesNanos);
+	$useLocalCurrentObjectStackCache();
 	int64_t timeNanos = (int64_t)1483261261 * (int64_t)1000000000 + (int64_t)123456789;
 	$init($TimeUnit);
 	$var($FileTime, pathTime, $FileTime::from(timeNanos, $TimeUnit::NANOSECONDS));

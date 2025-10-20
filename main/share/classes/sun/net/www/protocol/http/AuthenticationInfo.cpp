@@ -292,6 +292,7 @@ bool AuthenticationInfo::useAuthCache() {
 
 AuthenticationInfo* AuthenticationInfo::requestAuthentication($String* key, $Function* cache) {
 	$init(AuthenticationInfo);
+	$useLocalCurrentObjectStackCache();
 	$var(AuthenticationInfo, cached, $cast(AuthenticationInfo, $nc(cache)->apply(key)));
 	if (cached != nullptr || !AuthenticationInfo::serializeAuth) {
 		return cached;
@@ -348,6 +349,7 @@ AuthenticationInfo* AuthenticationInfo::requestAuthentication($String* key, $Fun
 
 void AuthenticationInfo::requestCompleted($String* key) {
 	$init(AuthenticationInfo);
+	$useLocalCurrentObjectStackCache();
 	$nc(AuthenticationInfo::requestLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -394,6 +396,7 @@ $Object* AuthenticationInfo::clone() {
 }
 
 void AuthenticationInfo::init$(char16_t type, $AuthScheme* authScheme, $URL* url, $String* realm, $String* authenticatorKey) {
+	$useLocalCurrentObjectStackCache();
 	$AuthCacheValue::init$();
 	this->type = type;
 	$set(this, authScheme, authScheme);
@@ -434,6 +437,7 @@ $String* AuthenticationInfo::reducePath($String* urlPath) {
 
 AuthenticationInfo* AuthenticationInfo::getServerAuth($URL* url, $String* authenticatorKey) {
 	$init(AuthenticationInfo);
+	$useLocalCurrentObjectStackCache();
 	int32_t port = $nc(url)->getPort();
 	if (port == -1) {
 		port = url->getDefaultPort();
@@ -449,6 +453,7 @@ AuthenticationInfo* AuthenticationInfo::getServerAuth($URL* url, $String* authen
 
 $String* AuthenticationInfo::getServerAuthKey($URL* url, $String* realm, $AuthScheme* scheme, $String* authenticatorKey) {
 	$init(AuthenticationInfo);
+	$useLocalCurrentObjectStackCache();
 	int32_t port = $nc(url)->getPort();
 	if (port == -1) {
 		port = url->getDefaultPort();
@@ -492,6 +497,7 @@ AuthenticationInfo* AuthenticationInfo::getAuth($String* key, $URL* url) {
 
 AuthenticationInfo* AuthenticationInfo::getProxyAuth($String* host, int32_t port, $String* authenticatorKey) {
 	$init(AuthenticationInfo);
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $str({$$str(AuthenticationInfo::PROXY_AUTHENTICATION), "::"_s, $($nc(host)->toLowerCase()), ":"_s, $$str(port), ";auth="_s, authenticatorKey}));
 	$init($AuthCacheValue);
 	$var(AuthenticationInfo, result, $cast(AuthenticationInfo, $nc($AuthCacheValue::cache)->get(key, nullptr)));
@@ -500,6 +506,7 @@ AuthenticationInfo* AuthenticationInfo::getProxyAuth($String* host, int32_t port
 
 $String* AuthenticationInfo::getProxyAuthKey($String* host, int32_t port, $String* realm, $AuthScheme* scheme, $String* authenticatorKey) {
 	$init(AuthenticationInfo);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$6, $$str({$$str(AuthenticationInfo::PROXY_AUTHENTICATION), ":"_s, scheme, "::"_s}));
 	$var($String, var$5, $$concat(var$6, $($nc(host)->toLowerCase())));
 	$var($String, var$4, $$concat(var$5, ":"));
@@ -526,6 +533,7 @@ AuthenticationInfo* AuthenticationInfo::getProxyAuth($String* key) {
 }
 
 void AuthenticationInfo::addToCache() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, cacheKey(true));
 	if (useAuthCache()) {
 		$init($AuthCacheValue);
@@ -546,6 +554,7 @@ void AuthenticationInfo::endAuthRequest($String* key) {
 }
 
 void AuthenticationInfo::removeFromCache() {
+	$useLocalCurrentObjectStackCache();
 	$init($AuthCacheValue);
 	$nc($AuthCacheValue::cache)->remove($(cacheKey(true)), this);
 	if (supportsPreemptiveAuthorization()) {
@@ -562,6 +571,7 @@ $String* AuthenticationInfo::getHeaderName() {
 }
 
 $String* AuthenticationInfo::cacheKey(bool includeRealm) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, authenticatorKey, getAuthenticatorKey());
 	if (includeRealm) {
 		return $str({$$str(this->type), ":"_s, this->authScheme, ":"_s, this->protocol, ":"_s, this->host, ":"_s, $$str(this->port), ":"_s, this->realm, ";auth="_s, authenticatorKey});
@@ -593,6 +603,7 @@ void AuthenticationInfo::writeObject($ObjectOutputStream* s) {
 }
 
 void clinit$AuthenticationInfo($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	AuthenticationInfo::$assertionsDisabled = !AuthenticationInfo::class$->desiredAssertionStatus();
 	{

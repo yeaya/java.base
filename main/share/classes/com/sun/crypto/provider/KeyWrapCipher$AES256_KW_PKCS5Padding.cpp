@@ -59,6 +59,7 @@ $Object* allocate$KeyWrapCipher$AES256_KW_PKCS5Padding($Class* clazz) {
 }
 
 void KeyWrapCipher$AES256_KW_PKCS5Padding::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($FeedbackCipher, var$0, static_cast<$FeedbackCipher*>($new($AESKeyWrap)));
 	$KeyWrapCipher::init$(var$0, $$new($PKCS5Padding, 16), 32);
 }

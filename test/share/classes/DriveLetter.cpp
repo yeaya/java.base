@@ -56,6 +56,7 @@ void DriveLetter::init$() {
 }
 
 void DriveLetter::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, os, $System::getProperty("os.name"_s));
 	if (!$nc(os)->startsWith("Windows"_s)) {
 		$nc($System::out)->println("This is Windows specific test"_s);

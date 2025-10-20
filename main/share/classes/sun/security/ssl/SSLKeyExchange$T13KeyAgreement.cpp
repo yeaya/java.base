@@ -103,6 +103,7 @@ $SSLKeyDerivation* SSLKeyExchange$T13KeyAgreement::createKeyDerivation($Handshak
 }
 
 void clinit$SSLKeyExchange$T13KeyAgreement($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLKeyExchange$T13KeyAgreement::supportedKeyShares, $new($HashMap));
 	{
 		{

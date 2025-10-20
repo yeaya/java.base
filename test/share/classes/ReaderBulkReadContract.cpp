@@ -449,6 +449,7 @@ void ReaderBulkReadContract::main($StringArray* args) {
 }
 
 void ReaderBulkReadContract::test() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, args, this->args());
 	while ($nc(args)->hasNext()) {
 		$var($ObjectArray, a, $cast($ObjectArray, args->next()));
@@ -473,6 +474,7 @@ void ReaderBulkReadContract::test() {
 }
 
 $Iterator* ReaderBulkReadContract::args() {
+	$useLocalCurrentObjectStackCache();
 	$var($IntegerArray, lens, $new($IntegerArray, {
 		$($Integer::valueOf($Integer::MIN_VALUE)),
 		$($Integer::valueOf(-5)),
@@ -575,6 +577,7 @@ $Iterator* ReaderBulkReadContract::args() {
 }
 
 void ReaderBulkReadContract::read($Reader* r, int32_t size, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($IndexOutOfBoundsException, ex, nullptr);
 	try {
 		$nc(r)->read($$new($chars, size), off, len);
@@ -597,6 +600,7 @@ void ReaderBulkReadContract::read($Reader* r, int32_t size, int32_t off, int32_t
 }
 
 $PipedReader* ReaderBulkReadContract::newPipedReader($String* contents) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($PipedWriter, w, $new($PipedWriter));
 		{
@@ -640,6 +644,7 @@ $PipedReader* ReaderBulkReadContract::newPipedReader($String* contents) {
 }
 
 $FileReader* ReaderBulkReadContract::newFileReader($String* contents) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $cast($File, $nc(this->cache)->computeIfAbsent(contents, static_cast<$Function*>($$new(ReaderBulkReadContract$$Lambda$createTempFileWithContents$8)))));
 		return $new($FileReader, f);
@@ -651,6 +656,7 @@ $FileReader* ReaderBulkReadContract::newFileReader($String* contents) {
 }
 
 $File* ReaderBulkReadContract::createTempFileWithContents($String* contents) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, testDir, $new($File, $($System::getProperty("test.dir"_s, "."_s))));
 		$var($File, file, $File::createTempFile("ReaderContract"_s, ""_s, testDir));
@@ -706,6 +712,7 @@ $Reader* ReaderBulkReadContract::lambda$args$4($String* s) {
 }
 
 $Reader* ReaderBulkReadContract::lambda$args$3($String* s) {
+	$useLocalCurrentObjectStackCache();
 	return $new($InputStreamReader, $$new($ByteArrayInputStream, $($nc(s)->getBytes())));
 }
 

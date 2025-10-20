@@ -74,6 +74,7 @@ void Equals::main($StringArray* args) {
 
 void Equals::anchors() {
 	$init(Equals);
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url1, nullptr);
 	$var($URL, url2, nullptr);
 	$assign(url1, $new($URL, nullptr, "http://JavaSoft/Test#bar"_s));
@@ -91,6 +92,7 @@ void Equals::anchors() {
 
 void Equals::jarURLs() {
 	$init(Equals);
+	$useLocalCurrentObjectStackCache();
 	int32_t failed = 0;
 	failed = compareJarURLS(Equals::HTTP_URL1A, Equals::HTTP_URL1A, "!/abc"_s, "!/abc"_s, true);
 	failed = compareJarURLS(Equals::HTTP_URL1A, Equals::HTTP_URL1B, "!/abc"_s, "!/abc"_s, true);
@@ -110,6 +112,7 @@ void Equals::jarURLs() {
 
 int32_t Equals::compareJarURLS($String* urlStr1, $String* urlStr2, $String* entry1, $String* entry2, bool expectEqual) {
 	$init(Equals);
+	$useLocalCurrentObjectStackCache();
 	int32_t failed = 0;
 	$var($URL, url1, $new($URL, urlStr1));
 	$var($URL, url2, $new($URL, urlStr2));

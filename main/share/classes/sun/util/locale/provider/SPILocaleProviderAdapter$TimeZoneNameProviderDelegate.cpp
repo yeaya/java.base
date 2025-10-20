@@ -125,6 +125,7 @@ bool SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::isSupportedLocale($L
 }
 
 $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getDisplayName($String* ID, bool daylight, int32_t style, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($TimeZoneNameProvider, tznp, $cast($TimeZoneNameProvider, getImpl(locale)));
@@ -132,6 +133,7 @@ $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getDisplayName($
 }
 
 $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getGenericDisplayName($String* ID, int32_t style, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($TimeZoneNameProvider, tznp, $cast($TimeZoneNameProvider, getImpl(locale)));

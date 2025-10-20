@@ -161,6 +161,7 @@ void CertificateMessage$T13CertificateConsumer::init$() {
 }
 
 void CertificateMessage$T13CertificateConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)));
@@ -181,6 +182,7 @@ void CertificateMessage$T13CertificateConsumer::consume($ConnectionContext* cont
 }
 
 void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ServerHandshakeContext* shc, $CertificateMessage$T13CertificateMessage* certificateMessage) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(certificateMessage)->certEntries == nullptr || $nc($nc(certificateMessage)->certEntries)->isEmpty()) {
 		$init($SSLHandshake);
 		$nc($nc(shc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)));
@@ -198,6 +200,7 @@ void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ServerHand
 }
 
 void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ClientHandshakeContext* chc, $CertificateMessage$T13CertificateMessage* certificateMessage) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(certificateMessage)->certEntries == nullptr || $nc($nc(certificateMessage)->certEntries)->isEmpty()) {
 		$init($Alert);
 		$throw($($nc($nc(chc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Empty server certificate chain"_s)));
@@ -220,6 +223,7 @@ void CertificateMessage$T13CertificateConsumer::onConsumeCertificate($ClientHand
 
 $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCerts($ServerHandshakeContext* shc, $List* certEntries) {
 	$init(CertificateMessage$T13CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertificateArray, certs, $new($X509CertificateArray, $nc(certEntries)->size()));
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
@@ -315,6 +319,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkClientCer
 
 $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCerts($ClientHandshakeContext* chc, $List* certEntries) {
 	$init(CertificateMessage$T13CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertificateArray, certs, $new($X509CertificateArray, $nc(certEntries)->size()));
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
@@ -357,6 +362,7 @@ $X509CertificateArray* CertificateMessage$T13CertificateConsumer::checkServerCer
 
 $Alert* CertificateMessage$T13CertificateConsumer::getCertificateAlert($ClientHandshakeContext* chc, $CertificateException* cexc) {
 	$init(CertificateMessage$T13CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$init($Alert);
 	$Alert* alert = $Alert::CERTIFICATE_UNKNOWN;
 	$var($Throwable, baseCause, $nc(cexc)->getCause());

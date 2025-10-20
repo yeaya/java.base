@@ -156,6 +156,7 @@ void ISO_8859_1$Encoder::encodeISOArrayCheck($chars* sa, int32_t sp, $bytes* da,
 }
 
 $CoderResult* ISO_8859_1$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -220,6 +221,7 @@ $CoderResult* ISO_8859_1$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 }
 
 $CoderResult* ISO_8859_1$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

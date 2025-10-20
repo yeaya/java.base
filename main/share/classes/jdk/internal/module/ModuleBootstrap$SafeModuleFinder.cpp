@@ -136,6 +136,7 @@ void ModuleBootstrap$SafeModuleFinder::init$($ModuleFinder* finder) {
 }
 
 $Optional* ModuleBootstrap$SafeModuleFinder::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($Map, nameToModule, this->nameToModule);
 	if (nameToModule == nullptr) {

@@ -234,6 +234,7 @@ $String* CgroupSubsystemController::getStringValue(CgroupSubsystemController* co
 
 int64_t CgroupSubsystemController::getLongValueMatchingLine(CgroupSubsystemController* controller, $String* param, $String* match, $Function* conversion, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
+	$useLocalCurrentObjectStackCache();
 	int64_t retval = defaultRetval;
 	if (controller == nullptr) {
 		return retval;
@@ -261,6 +262,7 @@ int64_t CgroupSubsystemController::getLongValueMatchingLine(CgroupSubsystemContr
 
 int64_t CgroupSubsystemController::getLongValue(CgroupSubsystemController* controller, $String* param, $Function* conversion, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
+	$useLocalCurrentObjectStackCache();
 	$var($String, strval, getStringValue(controller, param));
 	if (strval == nullptr) {
 		return defaultRetval;
@@ -280,6 +282,7 @@ double CgroupSubsystemController::getDoubleValue(CgroupSubsystemController* cont
 
 int64_t CgroupSubsystemController::getLongEntry(CgroupSubsystemController* controller, $String* param, $String* entryname, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
+	$useLocalCurrentObjectStackCache();
 	if (controller == nullptr) {
 		return defaultRetval;
 	}
@@ -333,6 +336,7 @@ int64_t CgroupSubsystemController::getLongEntry(CgroupSubsystemController* contr
 
 $ints* CgroupSubsystemController::stringRangeToIntArray($String* range) {
 	$init(CgroupSubsystemController);
+	$useLocalCurrentObjectStackCache();
 	if (range == nullptr || $nc(CgroupSubsystemController::EMPTY_STR)->equals(range)) {
 		return nullptr;
 	}
@@ -378,6 +382,7 @@ $ints* CgroupSubsystemController::stringRangeToIntArray($String* range) {
 
 int64_t CgroupSubsystemController::convertStringToLong($String* strval, int64_t overflowRetval, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
+	$useLocalCurrentObjectStackCache();
 	int64_t retval = defaultRetval;
 	if (strval == nullptr) {
 		return retval;

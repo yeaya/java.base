@@ -175,6 +175,7 @@ $volatile($Properties*) UnixFileStore::props = nullptr;
 
 int64_t UnixFileStore::devFor($UnixPath* file) {
 	$init(UnixFileStore);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($UnixFileAttributes::get(file, true)))->dev();
 	} catch ($UnixException&) {
@@ -235,6 +236,7 @@ $UnixFileStoreAttributes* UnixFileStore::readAttributes() {
 }
 
 int64_t UnixFileStore::getTotalSpace() {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixFileStoreAttributes, attrs, readAttributes());
 	try {
 		int64_t var$0 = $nc(attrs)->blockSize();
@@ -247,6 +249,7 @@ int64_t UnixFileStore::getTotalSpace() {
 }
 
 int64_t UnixFileStore::getUsableSpace() {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixFileStoreAttributes, attrs, readAttributes());
 	try {
 		int64_t var$0 = $nc(attrs)->blockSize();
@@ -259,6 +262,7 @@ int64_t UnixFileStore::getUsableSpace() {
 }
 
 int64_t UnixFileStore::getUnallocatedSpace() {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixFileStoreAttributes, attrs, readAttributes());
 	try {
 		int64_t var$0 = $nc(attrs)->blockSize();
@@ -296,6 +300,7 @@ $Object* UnixFileStore::getAttribute($String* attribute) {
 }
 
 bool UnixFileStore::isExtendedAttributesEnabled($UnixPath* path) {
+	$useLocalCurrentObjectStackCache();
 	if (!$UnixNativeDispatcher::xattrSupported()) {
 		return false;
 	}
@@ -371,6 +376,7 @@ bool UnixFileStore::supportsFileAttributeView($String* name) {
 }
 
 bool UnixFileStore::equals(Object$* ob) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(ob, this)) {
 		return true;
 	}
@@ -392,6 +398,7 @@ int32_t UnixFileStore::hashCode() {
 }
 
 $String* UnixFileStore::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, $($Util::toString($($nc(this->entry$$)->dir())))));
 	sb->append(" ("_s);
 	sb->append($($nc(this->entry$$)->name()));
@@ -400,6 +407,7 @@ $String* UnixFileStore::toString() {
 }
 
 $UnixFileStore$FeatureStatus* UnixFileStore::checkIfFeaturePresent($String* feature) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (UnixFileStore::props == nullptr) {
 		$synchronized(UnixFileStore::loadLock) {
@@ -440,6 +448,7 @@ $UnixFileStore$FeatureStatus* UnixFileStore::checkIfFeaturePresent($String* feat
 
 $Properties* UnixFileStore::loadProperties() {
 	$init(UnixFileStore);
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, result, $new($Properties));
 	$var($String, fstypes, $str({$($StaticProperty::javaHome()), "/lib/fstypes.properties"_s}));
 	$var($Path, file, $Path::of(fstypes, $$new($StringArray, 0)));

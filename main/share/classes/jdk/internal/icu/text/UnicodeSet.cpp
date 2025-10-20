@@ -220,6 +220,7 @@ int32_t UnicodeSet::size() {
 }
 
 UnicodeSet* UnicodeSet::add_unchecked(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	if (start < UnicodeSet::MIN_VALUE || start > UnicodeSet::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid code point U+"_s, $($Utility::hex(start, 6))}));
 	}
@@ -240,6 +241,7 @@ UnicodeSet* UnicodeSet::add(int32_t c) {
 }
 
 UnicodeSet* UnicodeSet::add_unchecked(int32_t c) {
+	$useLocalCurrentObjectStackCache();
 	if (c < UnicodeSet::MIN_VALUE || c > UnicodeSet::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid code point U+"_s, $($Utility::hex(c, 6))}));
 	}
@@ -307,6 +309,7 @@ int32_t UnicodeSet::getSingleCP($CharSequence* s) {
 }
 
 UnicodeSet* UnicodeSet::complement(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	checkFrozen();
 	if (start < UnicodeSet::MIN_VALUE || start > UnicodeSet::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid code point U+"_s, $($Utility::hex(start, 6))}));
@@ -321,6 +324,7 @@ UnicodeSet* UnicodeSet::complement(int32_t start, int32_t end) {
 }
 
 bool UnicodeSet::contains(int32_t c) {
+	$useLocalCurrentObjectStackCache();
 	if (c < UnicodeSet::MIN_VALUE || c > UnicodeSet::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid code point U+"_s, $($Utility::hex(c, 6))}));
 	}
@@ -384,6 +388,7 @@ int32_t UnicodeSet::getRangeEnd(int32_t index) {
 }
 
 UnicodeSet* UnicodeSet::applyPattern($String* pattern, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	if ("[:age=3.2:]"_s->equals(pattern)) {
 		checkFrozen();
 		$var($VersionInfo, version, $VersionInfo::getInstance("3.2"_s));
@@ -704,6 +709,7 @@ UnicodeSet* UnicodeSet::getInclusions(int32_t src) {
 	$load(UnicodeSet);
 	$synchronized(class$) {
 		$init(UnicodeSet);
+		$useLocalCurrentObjectStackCache();
 		if (src != $UCharacterProperty::SRC_PROPSVEC) {
 			$throwNew($IllegalStateException, $$str({"UnicodeSet.getInclusions(unknown src "_s, $$str(src), ")"_s}));
 		}
@@ -747,6 +753,7 @@ bool UnicodeSet::isFrozen() {
 }
 
 UnicodeSet* UnicodeSet::freeze() {
+	$useLocalCurrentObjectStackCache();
 	if (!isFrozen()) {
 		$set(this, buffer, nullptr);
 		if ($nc(this->list)->length > (this->len + UnicodeSet::GROW_EXTRA)) {
@@ -772,6 +779,7 @@ int32_t UnicodeSet::span($CharSequence* s, $UnicodeSet$SpanCondition* spanCondit
 }
 
 int32_t UnicodeSet::span($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition* spanCondition) {
+	$useLocalCurrentObjectStackCache();
 	int32_t end = $nc(s)->length();
 	if (start < 0) {
 		start = 0;
@@ -795,6 +803,7 @@ int32_t UnicodeSet::span($CharSequence* s, int32_t start, $UnicodeSet$SpanCondit
 }
 
 int32_t UnicodeSet::spanAndCount($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition* spanCondition, $OutputInt* outCount) {
+	$useLocalCurrentObjectStackCache();
 	if (outCount == nullptr) {
 		$throwNew($IllegalArgumentException, "outCount must not be null"_s);
 	}
@@ -840,6 +849,7 @@ int32_t UnicodeSet::spanCodePointsAndCount($CharSequence* s, int32_t start, $Uni
 }
 
 int32_t UnicodeSet::spanBack($CharSequence* s, int32_t fromIndex, $UnicodeSet$SpanCondition* spanCondition) {
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex <= 0) {
 		return 0;
 	}

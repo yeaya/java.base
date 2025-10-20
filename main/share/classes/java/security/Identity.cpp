@@ -177,6 +177,7 @@ void Identity::addCertificate($Certificate* certificate) {
 }
 
 bool Identity::keyEquals($PublicKey* aKey, $PublicKey* anotherKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, aKeyFormat, $nc(aKey)->getFormat());
 	$var($String, anotherKeyFormat, $nc(anotherKey)->getFormat());
 	if ((aKeyFormat == nullptr) ^ (anotherKeyFormat == nullptr)) {
@@ -209,6 +210,7 @@ $CertificateArray* Identity::certificates() {
 }
 
 bool Identity::equals(Object$* identity) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(identity, this)) {
 		return true;
 	}
@@ -242,6 +244,7 @@ bool Identity::identityEquals(Identity* identity) {
 }
 
 $String* Identity::fullName() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, parsable, this->name);
 	if (this->scope != nullptr) {
 		$plusAssign(parsable, $$str({"."_s, $($nc(this->scope)->getName())}));
@@ -250,6 +253,7 @@ $String* Identity::fullName() {
 }
 
 $String* Identity::toString() {
+	$useLocalCurrentObjectStackCache();
 	check("printIdentity"_s);
 	$var($String, printable, this->name);
 	if (this->scope != nullptr) {
@@ -259,6 +263,7 @@ $String* Identity::toString() {
 }
 
 $String* Identity::toString(bool detailed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, out, toString());
 	if (detailed) {
 		$plusAssign(out, "\n"_s);
@@ -284,6 +289,7 @@ $String* Identity::printKeys() {
 }
 
 $String* Identity::printCertificates() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, out, ""_s);
 	if (this->certificates$ == nullptr) {
 		return "\tno certificates"_s;

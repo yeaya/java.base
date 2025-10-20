@@ -217,6 +217,7 @@ $ChronoLocalDate* IsoChronology::date($TemporalAccessor* temporal) {
 }
 
 int64_t IsoChronology::epochSecond(int32_t prolepticYear, int32_t month, int32_t dayOfMonth, int32_t hour, int32_t minute, int32_t second, $ZoneOffset* zoneOffset) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$ChronoField::YEAR->checkValidValue(prolepticYear);
 	$ChronoField::MONTH_OF_YEAR->checkValidValue(month);
@@ -348,6 +349,7 @@ void IsoChronology::resolveProlepticMonth($Map* fieldValues, $ResolverStyle* res
 }
 
 $ChronoLocalDate* IsoChronology::resolveYearOfEra($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, yoeLong, $cast($Long, $nc(fieldValues)->remove($ChronoField::YEAR_OF_ERA)));
 	if (yoeLong != nullptr) {
@@ -383,6 +385,7 @@ $ChronoLocalDate* IsoChronology::resolveYearOfEra($Map* fieldValues, $ResolverSt
 }
 
 $ChronoLocalDate* IsoChronology::resolveYMD($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $ChronoField::YEAR->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue());
 	$init($ResolverStyle);

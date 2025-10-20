@@ -142,6 +142,7 @@ bool Permissions::implies($Permission* permission) {
 }
 
 $Enumeration* Permissions::elements() {
+	$useLocalCurrentObjectStackCache();
 	return $new($PermissionsEnumerator, $($nc($($nc(this->permsMap)->values()))->iterator()));
 }
 
@@ -154,6 +155,7 @@ $PermissionCollection* Permissions::getPermissionCollection($Permission* p, bool
 }
 
 $PermissionCollection* Permissions::createPermissionCollection($Permission* p, bool createEmpty) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->permsMap) {
 		$Class* c = $nc($of(p))->getClass();
 		$var($PermissionCollection, pc, $cast($PermissionCollection, $nc(this->permsMap)->get(c)));
@@ -178,6 +180,7 @@ $PermissionCollection* Permissions::createPermissionCollection($Permission* p, b
 }
 
 $PermissionCollection* Permissions::getUnresolvedPermissions($Permission* p) {
+	$useLocalCurrentObjectStackCache();
 	$load($UnresolvedPermission);
 	$var($UnresolvedPermissionCollection, uc, $cast($UnresolvedPermissionCollection, $nc(this->permsMap)->get($UnresolvedPermission::class$)));
 	if (uc == nullptr) {
@@ -225,6 +228,7 @@ $PermissionCollection* Permissions::getUnresolvedPermissions($Permission* p) {
 }
 
 void Permissions::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, perms, $new($Hashtable, $nc(this->permsMap)->size() * 2));
 	perms->putAll(static_cast<$Map*>(static_cast<$AbstractMap*>(this->permsMap)));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
@@ -234,6 +238,7 @@ void Permissions::writeObject($ObjectOutputStream* out) {
 }
 
 void Permissions::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	$set(this, allPermission, $cast($PermissionCollection, $nc(gfields)->get("allPermission"_s, ($Object*)nullptr)));
 	$var($Hashtable, perms, $cast($Hashtable, gfields->get("perms"_s, ($Object*)nullptr)));
@@ -263,6 +268,7 @@ void Permissions::readObject($ObjectInputStream* in) {
 }
 
 void clinit$Permissions($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($Hashtable);
 		$load($PermissionCollection);
 	$assignStatic(Permissions::serialPersistentFields, $new($ObjectStreamFieldArray, {

@@ -77,6 +77,7 @@ void CreateFileTree::init$() {
 
 bool CreateFileTree::supportsLinks($Path* dir) {
 	$init(CreateFileTree);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, link, $nc(dir)->resolve("testlink"_s));
 	$var($Path, target, dir->resolve("testtarget"_s));
 	try {
@@ -95,6 +96,7 @@ bool CreateFileTree::supportsLinks($Path* dir) {
 
 $Path* CreateFileTree::create() {
 	$init(CreateFileTree);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, top, $Files::createTempDirectory("tree"_s, $$new($FileAttributeArray, 0)));
 	$var($List, dirs, $new($ArrayList));
 	$var($Queue, queue, $new($ArrayDeque));

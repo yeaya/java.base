@@ -48,6 +48,7 @@ void ListNull::init$() {
 }
 
 void ListNull::go($String* what, $ObjectArray* fs) {
+	$useLocalCurrentObjectStackCache();
 	if (fs == nullptr) {
 		$throwNew($Exception, $$str({what, " returned null"_s}));
 	}
@@ -59,6 +60,7 @@ void ListNull::go($String* what, $ObjectArray* fs) {
 }
 
 void ListNull::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, d, $new($File, "."_s));
 	go("list()"_s, $(d->list()));
 	go("listFiles()"_s, $(d->listFiles()));

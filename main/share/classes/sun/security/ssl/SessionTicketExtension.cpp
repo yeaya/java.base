@@ -114,6 +114,7 @@ void SessionTicketExtension::init$() {
 }
 
 void clinit$SessionTicketExtension($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SessionTicketExtension::chNetworkProducer, $new($SessionTicketExtension$T12CHSessionTicketProducer));
 	$assignStatic(SessionTicketExtension::chOnLoadConsumer, $new($SessionTicketExtension$T12CHSessionTicketConsumer));
 	$assignStatic(SessionTicketExtension::shNetworkProducer, $new($SessionTicketExtension$T12SHSessionTicketProducer));

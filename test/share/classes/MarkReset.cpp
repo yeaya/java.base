@@ -50,6 +50,7 @@ void MarkReset::init$() {
 }
 
 void MarkReset::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharArrayReader, car, $new($CharArrayReader, $$new($chars, 32)));
 	$var($PushbackReader, pb, $new($PushbackReader, car));
 	bool markResult = testMark(pb);

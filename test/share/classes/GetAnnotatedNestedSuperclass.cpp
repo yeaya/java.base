@@ -70,6 +70,7 @@ void GetAnnotatedNestedSuperclass::init$() {
 }
 
 void GetAnnotatedNestedSuperclass::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$load($GetAnnotatedNestedSuperclass$Y);
 	$var($AnnotatedType, x, $GetAnnotatedNestedSuperclass$Y::class$->getAnnotatedSuperclass());
 	assertEquals($($Arrays::toString($($nc(x)->getAnnotations()))), "[@GetAnnotatedNestedSuperclass$A()]"_s);

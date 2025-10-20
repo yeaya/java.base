@@ -45,6 +45,7 @@ void Unresolved::init$() {
 }
 
 void Unresolved::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, remAddr, $InetSocketAddress::createUnresolved("foo.bar"_s, 161));
 	try {
 		$var($bytes, var$0, "Hellooo!"_s->getBytes());

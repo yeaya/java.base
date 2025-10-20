@@ -127,6 +127,7 @@ $SynchronousQueue$TransferStack$SNode* SynchronousQueue$TransferStack::snode($Sy
 }
 
 $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$var($SynchronousQueue$TransferStack$SNode, s, nullptr);
 	int32_t mode = (e == nullptr) ? SynchronousQueue$TransferStack::REQUEST : SynchronousQueue$TransferStack::DATA;
 	for (;;) {
@@ -218,6 +219,7 @@ $Object* SynchronousQueue$TransferStack::transfer(Object$* e, bool timed, int64_
 }
 
 void SynchronousQueue$TransferStack::clean($SynchronousQueue$TransferStack$SNode* s) {
+	$useLocalCurrentObjectStackCache();
 	$set($nc(s), item, nullptr);
 	s->forgetWaiter();
 	$var($SynchronousQueue$TransferStack$SNode, past, s->next);
@@ -246,6 +248,7 @@ void SynchronousQueue$TransferStack::clean($SynchronousQueue$TransferStack$SNode
 }
 
 void clinit$SynchronousQueue$TransferStack($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

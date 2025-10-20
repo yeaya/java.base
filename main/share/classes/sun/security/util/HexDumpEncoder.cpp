@@ -196,6 +196,7 @@ void HexDumpEncoder::encode($InputStream* inStream, $OutputStream* outStream) {
 }
 
 $String* HexDumpEncoder::encode($bytes* aBuffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream));
 	$var($ByteArrayInputStream, inStream, $new($ByteArrayInputStream, aBuffer));
 	try {
@@ -210,6 +211,7 @@ $String* HexDumpEncoder::encode($bytes* aBuffer) {
 }
 
 $bytes* HexDumpEncoder::getBytes($ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buf, nullptr);
 	if ($nc(bb)->hasArray()) {
 		$var($bytes, tmp, $cast($bytes, bb->array()));
@@ -262,6 +264,7 @@ void HexDumpEncoder::encodeBuffer($bytes* aBuffer, $OutputStream* aStream) {
 }
 
 $String* HexDumpEncoder::encodeBuffer($bytes* aBuffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream));
 	$var($ByteArrayInputStream, inStream, $new($ByteArrayInputStream, aBuffer));
 	try {

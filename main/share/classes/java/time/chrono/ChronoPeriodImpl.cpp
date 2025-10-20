@@ -177,6 +177,7 @@ bool ChronoPeriodImpl::isNegative() {
 }
 
 $ChronoPeriod* ChronoPeriodImpl::plus($TemporalAmount* amountToAdd) {
+	$useLocalCurrentObjectStackCache();
 	$var(ChronoPeriodImpl, amount, validateAmount(amountToAdd));
 	$var($Chronology, var$0, this->chrono);
 	int32_t var$1 = $Math::addExact(this->years, $nc(amount)->years);
@@ -185,6 +186,7 @@ $ChronoPeriod* ChronoPeriodImpl::plus($TemporalAmount* amountToAdd) {
 }
 
 $ChronoPeriod* ChronoPeriodImpl::minus($TemporalAmount* amountToSubtract) {
+	$useLocalCurrentObjectStackCache();
 	$var(ChronoPeriodImpl, amount, validateAmount(amountToSubtract));
 	$var($Chronology, var$0, this->chrono);
 	int32_t var$1 = $Math::subtractExact(this->years, $nc(amount)->years);
@@ -193,6 +195,7 @@ $ChronoPeriod* ChronoPeriodImpl::minus($TemporalAmount* amountToSubtract) {
 }
 
 ChronoPeriodImpl* ChronoPeriodImpl::validateAmount($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(amount), "amount"_s);
 	$var(ChronoPeriodImpl, period, nullptr);
 	bool var$0 = $instanceOf(ChronoPeriodImpl, amount);
@@ -304,6 +307,7 @@ $Temporal* ChronoPeriodImpl::subtractFrom($Temporal* temporal$renamed) {
 }
 
 void ChronoPeriodImpl::validateChrono($TemporalAccessor* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(temporal), "temporal"_s);
 	$var($Chronology, temporalChrono, $cast($Chronology, $nc(temporal)->query($($TemporalQueries::chronology()))));
 	if (temporalChrono != nullptr && $nc(this->chrono)->equals(temporalChrono) == false) {
@@ -336,6 +340,7 @@ int32_t ChronoPeriodImpl::hashCode() {
 }
 
 $String* ChronoPeriodImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (isZero()) {
 		return $str({$($nc($(getChronology()))->toString()), " P0D"_s});
 	} else {
@@ -371,6 +376,7 @@ void ChronoPeriodImpl::writeExternal($DataOutput* out) {
 
 ChronoPeriodImpl* ChronoPeriodImpl::readExternal($DataInput* in) {
 	$init(ChronoPeriodImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, chrono, $Chronology::of($($nc(in)->readUTF())));
 	int32_t years = $nc(in)->readInt();
 	int32_t months = in->readInt();

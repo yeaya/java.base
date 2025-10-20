@@ -114,6 +114,7 @@ void ServerHello$T13HelloRetryRequestProducer::init$() {
 }
 
 $bytes* ServerHello$T13HelloRetryRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$CipherSuite* cipherSuite = $ServerHello$T13ServerHelloProducer::chooseCipherSuite(shc, clientHello);

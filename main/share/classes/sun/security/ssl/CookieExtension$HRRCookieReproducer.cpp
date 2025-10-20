@@ -80,6 +80,7 @@ void CookieExtension$HRRCookieReproducer::init$() {
 }
 
 $bytes* CookieExtension$HRRCookieReproducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::HRR_COOKIE)) {

@@ -81,6 +81,7 @@ void EarlyTimeout::init$() {
 
 void EarlyTimeout::main($StringArray* args) {
 	$init(EarlyTimeout);
+	$useLocalCurrentObjectStackCache();
 	$var($EarlyTimeoutArray, threads, $new($EarlyTimeoutArray, EarlyTimeout::THREADS_COUNT));
 	for (int32_t i = 0; i < EarlyTimeout::THREADS_COUNT; ++i) {
 		threads->set(i, $$new(EarlyTimeout));

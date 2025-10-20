@@ -139,6 +139,7 @@ bool SimpleConsoleLogger$Formatting::isFilteredFrame($StackWalker$StackFrame* st
 
 $String* SimpleConsoleLogger$Formatting::getSimpleFormat($String* key, $Function* defaultPropertyGetter) {
 	$init(SimpleConsoleLogger$Formatting);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc(SimpleConsoleLogger$Formatting::DEFAULT_FORMAT_PROP_KEY)->equals(key);
 	if (var$0 && !$nc(SimpleConsoleLogger$Formatting::JUL_FORMAT_PROP_KEY)->equals(key)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid property name: "_s, key}));

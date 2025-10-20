@@ -142,6 +142,7 @@ void UnixUriUtils::init$() {
 
 $Path* UnixUriUtils::fromUri($UnixFileSystem* fs, $URI* uri) {
 	$init(UnixUriUtils);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
 	}
@@ -205,6 +206,7 @@ $Path* UnixUriUtils::fromUri($UnixFileSystem* fs, $URI* uri) {
 
 $URI* UnixUriUtils::toUri($UnixPath* up) {
 	$init(UnixUriUtils);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, path, $nc($($nc(up)->toAbsolutePath()))->asByteArray());
 	$var($StringBuilder, sb, $new($StringBuilder, "file:///"_s));
 	if (!UnixUriUtils::$assertionsDisabled && !($nc(path)->get(0) == u'/')) {

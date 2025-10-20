@@ -88,6 +88,7 @@ bool PrivateCredentialPermission$CredOwner::implies(Object$* obj) {
 }
 
 $String* PrivateCredentialPermission$CredOwner::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageFormat, form, $new($MessageFormat, $($ResourcesMgr::getString("CredOwner.Principal.Class.class.Principal.Name.name"_s))));
 	$var($ObjectArray, source, $new($ObjectArray, {
 		$of(this->principalClass),

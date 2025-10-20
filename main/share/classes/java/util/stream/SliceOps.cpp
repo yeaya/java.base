@@ -165,6 +165,7 @@ int64_t SliceOps::calcSliceFence(int64_t skip, int64_t limit) {
 
 $Spliterator* SliceOps::sliceSpliterator($StreamShape* shape, $Spliterator* s, int64_t skip, int64_t limit) {
 	$init(SliceOps);
+	$useLocalCurrentObjectStackCache();
 	if (!SliceOps::$assertionsDisabled && !$nc(s)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$throwNew($AssertionError);
 	}
@@ -204,6 +205,7 @@ $Spliterator* SliceOps::sliceSpliterator($StreamShape* shape, $Spliterator* s, i
 
 $Stream* SliceOps::makeRef($AbstractPipeline* upstream, int64_t skip, int64_t limit) {
 	$init(SliceOps);
+	$useLocalCurrentObjectStackCache();
 	if (skip < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Skip must be non-negative: "_s, $$str(skip)}));
 	}
@@ -214,6 +216,7 @@ $Stream* SliceOps::makeRef($AbstractPipeline* upstream, int64_t skip, int64_t li
 
 $IntStream* SliceOps::makeInt($AbstractPipeline* upstream, int64_t skip, int64_t limit) {
 	$init(SliceOps);
+	$useLocalCurrentObjectStackCache();
 	if (skip < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Skip must be non-negative: "_s, $$str(skip)}));
 	}
@@ -224,6 +227,7 @@ $IntStream* SliceOps::makeInt($AbstractPipeline* upstream, int64_t skip, int64_t
 
 $LongStream* SliceOps::makeLong($AbstractPipeline* upstream, int64_t skip, int64_t limit) {
 	$init(SliceOps);
+	$useLocalCurrentObjectStackCache();
 	if (skip < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Skip must be non-negative: "_s, $$str(skip)}));
 	}
@@ -234,6 +238,7 @@ $LongStream* SliceOps::makeLong($AbstractPipeline* upstream, int64_t skip, int64
 
 $DoubleStream* SliceOps::makeDouble($AbstractPipeline* upstream, int64_t skip, int64_t limit) {
 	$init(SliceOps);
+	$useLocalCurrentObjectStackCache();
 	if (skip < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Skip must be non-negative: "_s, $$str(skip)}));
 	}

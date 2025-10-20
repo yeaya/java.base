@@ -130,6 +130,7 @@ $String* DigestAuthentication$Parameters::getCnonce() {
 
 void DigestAuthentication$Parameters::setNewCnonce() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($bytes, bb, $new($bytes, DigestAuthentication$Parameters::cnoncelen / 2));
 		$var($chars, cc, $new($chars, DigestAuthentication$Parameters::cnoncelen));
 		$nc(DigestAuthentication$Parameters::random)->nextBytes(bb);
@@ -146,6 +147,7 @@ void DigestAuthentication$Parameters::setNewCnonce() {
 
 void DigestAuthentication$Parameters::setQop($String* qop) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (qop != nullptr) {
 			$var($StringArray, items, qop->split(","_s));
 			{

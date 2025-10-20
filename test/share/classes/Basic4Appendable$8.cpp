@@ -81,6 +81,7 @@ void Basic4Appendable$8::init($Appendable* cb, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$8::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->cb)->limit($nc(this->cb)->position())))->rewind();
 	$Basic4Appendable::ck($$str({"CharBuffer.append("_s, this->csn, ")"_s}), this->exp, $($nc(this->cb)->toString()));
 }

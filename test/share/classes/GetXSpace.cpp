@@ -189,6 +189,7 @@ void GetXSpace::fail($String* p) {
 
 void GetXSpace::fail($String* p, int64_t exp, $String* cmp, int64_t got) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $String::format("\'%s\': %d %s %d"_s, $$new($ObjectArray, {
 		$of(p),
 		$($of($Long::valueOf(exp))),
@@ -203,6 +204,7 @@ void GetXSpace::fail($String* p, int64_t exp, $String* cmp, int64_t got) {
 
 void GetXSpace::fail($String* p, $Class* ex) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $String::format("\'%s\': expected %s - FAILED%n"_s, $$new($ObjectArray, {
 		$of(p),
 		$($of($nc(ex)->getName()))
@@ -222,6 +224,7 @@ void GetXSpace::setFirst($String* s) {
 
 $ArrayList* GetXSpace::space($String* f) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, al, $new($ArrayList));
 	$var($String, cmd, $str({"df -k -P"_s, (f == nullptr ? ""_s : $$str({" "_s, f}))}));
 	$var($StringBuilder, sb, $new($StringBuilder));
@@ -288,6 +291,7 @@ $ArrayList* GetXSpace::space($String* f) {
 
 void GetXSpace::tryCatch($GetXSpace$Space* s) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->format("%s:%n"_s, $$new($ObjectArray, {$($of($nc(s)->name()))}));
 	$var($File, f, $new($File, $($nc(s)->name())));
@@ -335,6 +339,7 @@ void GetXSpace::tryCatch($GetXSpace$Space* s) {
 
 void GetXSpace::compare($GetXSpace$Space* s) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($nc(s)->name())));
 	int64_t ts = f->getTotalSpace();
 	int64_t fs = f->getFreeSpace();
@@ -395,6 +400,7 @@ void GetXSpace::compare($GetXSpace$Space* s) {
 
 void GetXSpace::compareZeroNonExist() {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, nullptr);
 	while (true) {
 		$assign(f, $new($File, $$str({GetXSpace::FILE_PREFIX, $$str($Math::random())})));
@@ -419,6 +425,7 @@ void GetXSpace::compareZeroNonExist() {
 
 void GetXSpace::compareZeroExist() {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $File::createTempFile("tmp"_s, nullptr, $$new($File, "."_s)));
 		$var($longs, s, $new($longs, {
@@ -442,6 +449,7 @@ void GetXSpace::compareZeroExist() {
 
 int32_t GetXSpace::testFile($Path* dir) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$var($String, dirName, $nc(dir)->toString());
 	$init($System);
 	$nc($System::out)->format("--- Testing %s%n"_s, $$new($ObjectArray, {$of(dirName)}));
@@ -467,6 +475,7 @@ int32_t GetXSpace::testFile($Path* dir) {
 
 int32_t GetXSpace::testDF() {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("--- Testing df"_s);
@@ -535,6 +544,7 @@ void GetXSpace::allow($Path* path) {
 
 void GetXSpace::main($StringArray* args) {
 	$init(GetXSpace);
+	$useLocalCurrentObjectStackCache();
 	int32_t failedTests = testDF();
 	reset();
 	$var($Path, tmpDir, $Files::createTempDirectory(nullptr, $$new($FileAttributeArray, 0)));
@@ -552,6 +562,7 @@ void GetXSpace::main($StringArray* args) {
 }
 
 void clinit$GetXSpace($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(GetXSpace::sma, $new($SecurityManagerArray, {
 		($SecurityManager*)nullptr,
 		static_cast<$SecurityManager*>($$new($GetXSpace$Allow)),

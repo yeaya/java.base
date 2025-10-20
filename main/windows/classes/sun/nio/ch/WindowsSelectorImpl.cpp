@@ -185,6 +185,7 @@ int32_t WindowsSelectorImpl::dependsArch(int32_t value32, int32_t value64) {
 }
 
 void WindowsSelectorImpl::init$($SelectorProvider* sp) {
+	$useLocalCurrentObjectStackCache();
 	$SelectorImpl::init$(sp);
 	$set(this, channelArray, $new($SelectionKeyImplArray, this->INIT_CAP));
 	this->totalChannels = 1;
@@ -213,6 +214,7 @@ void WindowsSelectorImpl::ensureOpen() {
 }
 
 int32_t WindowsSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	if (!WindowsSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -256,6 +258,7 @@ int32_t WindowsSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 }
 
 void WindowsSelectorImpl::processUpdateQueue() {
+	$useLocalCurrentObjectStackCache();
 	if (!WindowsSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -290,6 +293,7 @@ void WindowsSelectorImpl::processUpdateQueue() {
 }
 
 void WindowsSelectorImpl::adjustThreadsCount() {
+	$useLocalCurrentObjectStackCache();
 	if (this->threadsCount > $nc(this->threads)->size()) {
 		for (int32_t i = $nc(this->threads)->size(); i < this->threadsCount; ++i) {
 			$var($WindowsSelectorImpl$SelectThread, newThread, $new($WindowsSelectorImpl$SelectThread, this, i));
@@ -331,6 +335,7 @@ void WindowsSelectorImpl::resetWakeupSocket0(int32_t wakeupSourceFd) {
 }
 
 int32_t WindowsSelectorImpl::updateSelectedKeys($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	++this->updateCount;
 	int32_t numKeysUpdated = 0;
 	numKeysUpdated += $nc(this->subSelector)->processSelectedKeys(this->updateCount, action);
@@ -347,6 +352,7 @@ int32_t WindowsSelectorImpl::updateSelectedKeys($Consumer* action) {
 }
 
 void WindowsSelectorImpl::implClose() {
+	$useLocalCurrentObjectStackCache();
 	if (!WindowsSelectorImpl::$assertionsDisabled && ! !isOpen()) {
 		$throwNew($AssertionError);
 	}

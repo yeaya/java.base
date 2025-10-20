@@ -88,6 +88,7 @@ void CertificateVerify$S30CertificateVerifyConsumer::init$() {
 }
 
 void CertificateVerify$S30CertificateVerifyConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(shc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)));

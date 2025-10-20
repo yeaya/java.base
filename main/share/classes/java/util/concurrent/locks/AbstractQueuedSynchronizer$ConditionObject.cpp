@@ -142,6 +142,7 @@ void AbstractQueuedSynchronizer$ConditionObject::init$($AbstractQueuedSynchroniz
 }
 
 void AbstractQueuedSynchronizer$ConditionObject::doSignal($AbstractQueuedSynchronizer$ConditionNode* first$renamed, bool all) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractQueuedSynchronizer$ConditionNode, first, first$renamed);
 	while (first != nullptr) {
 		$var($AbstractQueuedSynchronizer$ConditionNode, next, first->nextWaiter);
@@ -203,6 +204,7 @@ bool AbstractQueuedSynchronizer$ConditionObject::canReacquire($AbstractQueuedSyn
 }
 
 void AbstractQueuedSynchronizer$ConditionObject::unlinkCancelledWaiters($AbstractQueuedSynchronizer$ConditionNode* node) {
+	$useLocalCurrentObjectStackCache();
 	if (node == nullptr || $nc(node)->nextWaiter != nullptr || node == this->lastWaiter) {
 		$var($AbstractQueuedSynchronizer$ConditionNode, w, this->firstWaiter);
 		$var($AbstractQueuedSynchronizer$ConditionNode, trail, nullptr);
@@ -227,6 +229,7 @@ void AbstractQueuedSynchronizer$ConditionObject::unlinkCancelledWaiters($Abstrac
 }
 
 void AbstractQueuedSynchronizer$ConditionObject::awaitUninterruptibly() {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractQueuedSynchronizer$ConditionNode, node, $new($AbstractQueuedSynchronizer$ConditionNode));
 	int32_t savedState = enableWait(node);
 	$LockSupport::setCurrentBlocker(this);
@@ -262,6 +265,7 @@ void AbstractQueuedSynchronizer$ConditionObject::awaitUninterruptibly() {
 }
 
 void AbstractQueuedSynchronizer$ConditionObject::await() {
+	$useLocalCurrentObjectStackCache();
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
 	}
@@ -307,6 +311,7 @@ void AbstractQueuedSynchronizer$ConditionObject::await() {
 }
 
 int64_t AbstractQueuedSynchronizer$ConditionObject::awaitNanos(int64_t nanosTimeout) {
+	$useLocalCurrentObjectStackCache();
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
 	}
@@ -341,6 +346,7 @@ int64_t AbstractQueuedSynchronizer$ConditionObject::awaitNanos(int64_t nanosTime
 }
 
 bool AbstractQueuedSynchronizer$ConditionObject::awaitUntil($Date* deadline) {
+	$useLocalCurrentObjectStackCache();
 	int64_t abstime = $nc(deadline)->getTime();
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
@@ -373,6 +379,7 @@ bool AbstractQueuedSynchronizer$ConditionObject::awaitUntil($Date* deadline) {
 }
 
 bool AbstractQueuedSynchronizer$ConditionObject::await(int64_t time, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanosTimeout = $nc(unit)->toNanos(time);
 	if ($Thread::interrupted()) {
 		$throwNew($InterruptedException);
@@ -442,6 +449,7 @@ int32_t AbstractQueuedSynchronizer$ConditionObject::getWaitQueueLength() {
 }
 
 $Collection* AbstractQueuedSynchronizer$ConditionObject::getWaitingThreads() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->this$0->isHeldExclusively()) {
 		$throwNew($IllegalMonitorStateException);
 	}

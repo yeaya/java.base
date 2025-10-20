@@ -137,6 +137,7 @@ $MethodHandle* MetafactoryArgValidationTest$C::putStaticMH() {
 
 $MethodHandle* MetafactoryArgValidationTest$C::invokeVirtualMH() {
 	$init(MetafactoryArgValidationTest$C);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($Void);
 		return $nc(MetafactoryArgValidationTest$C::lookup)->findVirtual(MetafactoryArgValidationTest$C::class$, "im"_s, $($MetafactoryArgValidationTest::mt($Void::TYPE, $$new($ClassArray, 0))));
@@ -149,6 +150,7 @@ $MethodHandle* MetafactoryArgValidationTest$C::invokeVirtualMH() {
 
 $MethodHandle* MetafactoryArgValidationTest$C::invokeStaticMH() {
 	$init(MetafactoryArgValidationTest$C);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($Void);
 		return $nc(MetafactoryArgValidationTest$C::lookup)->findStatic(MetafactoryArgValidationTest$C::class$, "sm"_s, $($MetafactoryArgValidationTest::mt($Void::TYPE, $$new($ClassArray, 0))));
@@ -161,6 +163,7 @@ $MethodHandle* MetafactoryArgValidationTest$C::invokeStaticMH() {
 
 $MethodHandle* MetafactoryArgValidationTest$C::invokeSpecialMH() {
 	$init(MetafactoryArgValidationTest$C);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($Object);
 		$load($String);
@@ -174,6 +177,7 @@ $MethodHandle* MetafactoryArgValidationTest$C::invokeSpecialMH() {
 
 $MethodHandle* MetafactoryArgValidationTest$C::newInvokeSpecialMH() {
 	$init(MetafactoryArgValidationTest$C);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($Void);
 		return $nc(MetafactoryArgValidationTest$C::lookup)->findConstructor(MetafactoryArgValidationTest$C::class$, $($MetafactoryArgValidationTest::mt($Void::TYPE, $$new($ClassArray, 0))));
@@ -186,6 +190,7 @@ $MethodHandle* MetafactoryArgValidationTest$C::newInvokeSpecialMH() {
 
 $MethodHandle* MetafactoryArgValidationTest$C::invokeInterfaceMH() {
 	$init(MetafactoryArgValidationTest$C);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($Runnable);
 		$init($Void);

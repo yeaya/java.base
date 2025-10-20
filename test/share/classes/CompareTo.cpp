@@ -41,6 +41,7 @@ void CompareTo::init$() {
 }
 
 void CompareTo::testWin32() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f1, $new($File, "a"_s));
 	$var($File, f2, $new($File, "B"_s));
 	if (!(f1->compareTo(f2) < 0)) {
@@ -49,6 +50,7 @@ void CompareTo::testWin32() {
 }
 
 void CompareTo::testUnix() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f1, $new($File, "a"_s));
 	$var($File, f2, $new($File, "B"_s));
 	if (!(f1->compareTo(f2) > 0)) {

@@ -84,11 +84,13 @@ void ParseFloat::init$() {
 
 void ParseFloat::fail($String* val, float n) {
 	$init(ParseFloat);
+	$useLocalCurrentObjectStackCache();
 	$throwNew($RuntimeException, $$str({"Float.parseFloat failed. String:"_s, val, " Result:"_s, $$str(n)}));
 }
 
 void ParseFloat::check($String* val) {
 	$init(ParseFloat);
+	$useLocalCurrentObjectStackCache();
 	float n = $Float::parseFloat(val);
 	bool isNegativeN = n < 0 || n == 0 && 1 / n < 0;
 	float na = $Math::abs(n);
@@ -181,6 +183,7 @@ void ParseFloat::check($String* val, float expected) {
 
 void ParseFloat::rudimentaryTest() {
 	$init(ParseFloat);
+	$useLocalCurrentObjectStackCache();
 	$init($Float);
 	check($$new($String, $$str({""_s, $$str($Float::MIN_VALUE)})), $Float::MIN_VALUE);
 	check($$new($String, $$str({""_s, $$str($Float::MAX_VALUE)})), $Float::MAX_VALUE);
@@ -203,6 +206,7 @@ void ParseFloat::rudimentaryTest() {
 
 void ParseFloat::testParsing($StringArray* input, bool exceptionalInput) {
 	$init(ParseFloat);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(input)->length; ++i) {
 		double d = 0.0;
 		try {
@@ -223,6 +227,7 @@ void ParseFloat::testParsing($StringArray* input, bool exceptionalInput) {
 
 void ParseFloat::testPowers() {
 	$init(ParseFloat);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = -149; i <= +127; ++i) {
 		float f = $Math::scalb(1.0f, i);
 		$var($BigDecimal, f_BD, $new($BigDecimal, (double)f));
@@ -246,6 +251,7 @@ void ParseFloat::main($StringArray* args) {
 }
 
 void clinit$ParseFloat($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ParseFloat::HALF, $BigDecimal::valueOf(0.5));
 	$assignStatic(ParseFloat::badStrings, $new($StringArray, {
 		""_s,

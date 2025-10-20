@@ -213,6 +213,7 @@ Calendar$Builder* Calendar$Builder::setLenient(bool lenient) {
 }
 
 Calendar$Builder* Calendar$Builder::setCalendarType($String* type$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, type$renamed);
 	if ($nc(type)->equals("gregorian"_s)) {
 		$assign(type, "gregory"_s);
@@ -248,6 +249,7 @@ Calendar$Builder* Calendar$Builder::setWeekDefinition(int32_t firstDayOfWeek, in
 }
 
 $Calendar* Calendar$Builder::build() {
+	$useLocalCurrentObjectStackCache();
 	if (this->locale == nullptr) {
 		$set(this, locale, $Locale::getDefault());
 	}

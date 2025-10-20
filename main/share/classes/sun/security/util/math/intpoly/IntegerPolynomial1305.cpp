@@ -152,6 +152,7 @@ void IntegerPolynomial1305::encode(int64_t high, int64_t low, int8_t highByte, $
 }
 
 void IntegerPolynomial1305::encode($bytes* v, int32_t offset, int32_t length, int8_t highByte, $longs* result) {
+	$useLocalCurrentObjectStackCache();
 	if (length == 16) {
 		int64_t low = $longValue($nc(IntegerPolynomial1305::AS_LONG_LE)->get($$new($ObjectArray, {$of(v), $$of(offset)})));
 		int64_t high = $longValue($nc(IntegerPolynomial1305::AS_LONG_LE)->get($$new($ObjectArray, {$of(v), $$of((offset + 8))})));
@@ -200,6 +201,7 @@ void IntegerPolynomial1305::reduce($longs* limbs) {
 }
 
 void clinit$IntegerPolynomial1305($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($IntegerPolynomial);
 	$assignStatic(IntegerPolynomial1305::MODULUS, $nc($($nc($IntegerPolynomial::TWO)->pow(IntegerPolynomial1305::POWER)))->subtract($($BigInteger::valueOf((int64_t)IntegerPolynomial1305::SUBTRAHEND))));
 	$load($longs);

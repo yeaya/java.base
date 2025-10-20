@@ -157,6 +157,7 @@ void CertAndKeyGen::setRandom($SecureRandom* generator) {
 }
 
 void CertAndKeyGen::generate($String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->prng == nullptr) {
 			$set(this, prng, $new($SecureRandom));
@@ -179,6 +180,7 @@ void CertAndKeyGen::generate($String* name) {
 }
 
 void CertAndKeyGen::generate(int32_t keyBits) {
+	$useLocalCurrentObjectStackCache();
 	if (keyBits != -1) {
 		try {
 			if (this->prng == nullptr) {
@@ -194,6 +196,7 @@ void CertAndKeyGen::generate(int32_t keyBits) {
 }
 
 void CertAndKeyGen::generateInternal() {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyPair, pair, $nc(this->keyGen)->generateKeyPair());
 	$set(this, publicKey, $nc(pair)->getPublic());
 	$set(this, privateKey, pair->getPrivate());
@@ -235,6 +238,7 @@ $X509Certificate* CertAndKeyGen::getSelfCertificate($X500Name* myname, $Date* fi
 }
 
 $X509Certificate* CertAndKeyGen::getSelfCertificate($X500Name* myname, $Date* firstDate, int64_t validity, $CertificateExtensions* ext) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertImpl, cert, nullptr);
 	$var($Date, lastDate, nullptr);
 	try {

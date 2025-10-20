@@ -69,6 +69,7 @@ $Object* allocate$InvocationHandler($Class* clazz) {
 }
 
 $Object* InvocationHandler::invokeDefault(Object$* proxy, $Method* method, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(proxy);
 	$Objects::requireNonNull(method);
 	if (!$Proxy::isProxyClass($of(proxy)->getClass())) {

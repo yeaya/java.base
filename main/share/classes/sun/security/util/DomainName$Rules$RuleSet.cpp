@@ -122,6 +122,7 @@ void DomainName$Rules$RuleSet::init$(int32_t n) {
 }
 
 void DomainName$Rules$RuleSet::addRule(int32_t auth, $String* rule) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(rule)->startsWith("!"_s)) {
 		$init($DomainName$Rule$Type);
 		$nc(this->rules)->add($$new($DomainName$Rule, $(rule->substring(1)), $DomainName$Rule$Type::EXCEPTION, $nc(DomainName$Rules$RuleSet::AUTHS)->get(auth)));
@@ -141,6 +142,7 @@ void DomainName$Rules$RuleSet::addRule(int32_t auth, $String* rule) {
 }
 
 $DomainName$Match* DomainName$Rules$RuleSet::match($String* domain) {
+	$useLocalCurrentObjectStackCache();
 	$var($DomainName$Match, match, nullptr);
 	{
 		$var($Iterator, i$, $nc(this->rules)->iterator());
@@ -190,6 +192,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::match($String* domain) {
 
 $LinkedList* DomainName$Rules$RuleSet::split($String* rule) {
 	$init(DomainName$Rules$RuleSet);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, labels, $nc(rule)->split("\\."_s));
 	return $new($LinkedList, $($Arrays::asList(labels)));
 }
@@ -249,6 +252,7 @@ $DomainName$Match* DomainName$Rules$RuleSet::matchException($String* domain, $Do
 }
 
 $DomainName$Match* DomainName$Rules$RuleSet::matchOther($String* domain, $DomainName$Rule* rule) {
+	$useLocalCurrentObjectStackCache();
 	$var($DomainName$OtherRule, otherRule, $cast($DomainName$OtherRule, rule));
 	$var($LinkedList, target, split(domain));
 	int32_t diff = $nc(target)->size() - this->numLabels$;

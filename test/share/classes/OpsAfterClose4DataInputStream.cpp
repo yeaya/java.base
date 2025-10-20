@@ -248,6 +248,7 @@ void OpsAfterClose4DataInputStream::init$($String* $enum$name, int32_t $enum$ord
 
 void OpsAfterClose4DataInputStream::main($StringArray* args) {
 	$init(OpsAfterClose4DataInputStream);
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "f.txt"_s));
 	f->createNewFile();
@@ -285,6 +286,7 @@ void OpsAfterClose4DataInputStream::main($StringArray* args) {
 
 bool OpsAfterClose4DataInputStream::testDataInputStream($DataInputStream* is) {
 	$init(OpsAfterClose4DataInputStream);
+	$useLocalCurrentObjectStackCache();
 	$nc(is)->close();
 	bool failed = false;
 	bool result = false;

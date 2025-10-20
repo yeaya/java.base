@@ -45,6 +45,7 @@ void Decoder::init$() {
 }
 
 void Decoder::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool passed = true;
 	$var($String, enc, "UTF-16"_s);
 	$var($StringArray, strings, $new($StringArray, {
@@ -77,6 +78,7 @@ void Decoder::main($StringArray* args) {
 }
 
 void Decoder::printString($String* s) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		$init($System);
 		$nc($System::out)->print($$str({$$str((int32_t)s->charAt(i)), " "_s}));

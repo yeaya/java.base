@@ -83,6 +83,7 @@ $Object* allocate$NonPublicProxyClass$NewInstancePolicy($Class* clazz) {
 }
 
 void NonPublicProxyClass$NewInstancePolicy::init$(bool grant) {
+	$useLocalCurrentObjectStackCache();
 	$Policy::init$();
 	$set(this, permissions, $new($Permissions));
 	this->grant = grant;
@@ -109,6 +110,7 @@ bool NonPublicProxyClass$NewInstancePolicy::implies($ProtectionDomain* domain, $
 }
 
 $String* NonPublicProxyClass$NewInstancePolicy::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "policy: "_s));
 	$var($Enumeration, perms, $nc(this->permissions)->elements());
 	while ($nc(perms)->hasMoreElements()) {

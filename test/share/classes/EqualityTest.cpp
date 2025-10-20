@@ -69,6 +69,7 @@ void EqualityTest::init$() {
 
 void EqualityTest::main($StringArray* args) {
 	$load(EqualityTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestAnnotation);
 	$var($TestAnnotation, annotation, $cast($TestAnnotation, EqualityTest::class$->getAnnotation($TestAnnotation::class$)));

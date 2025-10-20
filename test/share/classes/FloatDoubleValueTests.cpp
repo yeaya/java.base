@@ -69,6 +69,7 @@ void FloatDoubleValueTests::init$() {
 }
 
 void FloatDoubleValueTests::testDoubleValue0(int64_t i, $BigDecimal* bd) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(bd)->doubleValue() != i;
 	if (var$0 || $nc(bd)->longValue() != i) {
 		$throwNew($RuntimeException, $$str({"Unexpected equality failure for "_s, $$str(i), "\t"_s, bd}));
@@ -76,6 +77,7 @@ void FloatDoubleValueTests::testDoubleValue0(int64_t i, $BigDecimal* bd) {
 }
 
 void FloatDoubleValueTests::testFloatValue0(int64_t i, $BigDecimal* bd) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(bd)->floatValue() != i;
 	if (var$0 || $nc(bd)->longValue() != i) {
 		$throwNew($RuntimeException, $$str({"Unexpected equality failure for "_s, $$str(i), "\t"_s, bd}));
@@ -83,6 +85,7 @@ void FloatDoubleValueTests::testFloatValue0(int64_t i, $BigDecimal* bd) {
 }
 
 void FloatDoubleValueTests::checkFloat($BigDecimal* bd, float f) {
+	$useLocalCurrentObjectStackCache();
 	float fbd = $nc(bd)->floatValue();
 	if (f != fbd) {
 		$var($String, message, $String::format("Bad conversion:got %g (%a)\texpected %g (%a)"_s, $$new($ObjectArray, {
@@ -96,6 +99,7 @@ void FloatDoubleValueTests::checkFloat($BigDecimal* bd, float f) {
 }
 
 void FloatDoubleValueTests::checkDouble($BigDecimal* bd, double d) {
+	$useLocalCurrentObjectStackCache();
 	double dbd = $nc(bd)->doubleValue();
 	if (d != dbd) {
 		$var($String, message, $String::format("Bad conversion:got %g (%a)\texpected %g (%a)"_s, $$new($ObjectArray, {
@@ -109,6 +113,7 @@ void FloatDoubleValueTests::checkDouble($BigDecimal* bd, double d) {
 }
 
 void FloatDoubleValueTests::testFloatDoubleValue() {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, longValues, $new($longs, {
 		$Long::MIN_VALUE,
 		(int64_t)0,
@@ -140,6 +145,7 @@ void FloatDoubleValueTests::testFloatDoubleValue() {
 }
 
 void FloatDoubleValueTests::testDoubleValue() {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, longValues, $new($longs, {
 		(int64_t)($Integer::MAX_VALUE - 1),
 		(int64_t)$Integer::MAX_VALUE,
@@ -178,6 +184,7 @@ void FloatDoubleValueTests::testDoubleValue() {
 }
 
 void FloatDoubleValueTests::testFloatValue() {
+	$useLocalCurrentObjectStackCache();
 	for (int64_t i = FloatDoubleValueTests::maxFltLong; i <= $Integer::MAX_VALUE; ++i) {
 		$var($BigDecimal, bd1, $new($BigDecimal, i));
 		$var($BigDecimal, bd2, $new($BigDecimal, -i));
@@ -189,6 +196,7 @@ void FloatDoubleValueTests::testFloatValue() {
 }
 
 void FloatDoubleValueTests::testFloatValue1() {
+	$useLocalCurrentObjectStackCache();
 	checkFloat($$new($BigDecimal, "85070591730234615847396907784232501249"_s), 8.507059E37f);
 	checkFloat($$new($BigDecimal, "7784232501249e12"_s), 7.7842326E24f);
 	checkFloat($$new($BigDecimal, "907784232501249e-12"_s), 907.78424f);
@@ -197,6 +205,7 @@ void FloatDoubleValueTests::testFloatValue1() {
 }
 
 void FloatDoubleValueTests::testDoubleValue1() {
+	$useLocalCurrentObjectStackCache();
 	checkDouble($$new($BigDecimal, "85070591730234615847396907784232501249"_s), 8.507059173023462E37);
 	checkDouble($$new($BigDecimal, "7784232501249e12"_s), 7.784232501249E24);
 	checkDouble($$new($BigDecimal, "907784232501249e-12"_s), 907.784232501249);

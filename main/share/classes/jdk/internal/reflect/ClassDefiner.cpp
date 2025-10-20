@@ -78,6 +78,7 @@ void ClassDefiner::init$() {
 
 $Class* ClassDefiner::defineClass($String* name, $bytes* bytes, int32_t off, int32_t len, $ClassLoader* parentClassLoader) {
 	$init(ClassDefiner);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, newLoader, $cast($ClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ClassDefiner$1, parentClassLoader)))));
 	return $nc(ClassDefiner::JLA)->defineClass(newLoader, name, bytes, nullptr, "__ClassDefiner__"_s);

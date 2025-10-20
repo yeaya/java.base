@@ -109,6 +109,7 @@ void CurveDB::init$() {
 
 $NamedCurve* CurveDB::lookup($String* name) {
 	$init(CurveDB);
+	$useLocalCurrentObjectStackCache();
 	$var($NamedCurve, spec, $cast($NamedCurve, $nc(CurveDB::oidMap)->get(name)));
 	if (spec != nullptr) {
 		return spec;
@@ -124,6 +125,7 @@ $NamedCurve* CurveDB::lookup(int32_t length) {
 
 $NamedCurve* CurveDB::lookup($ECParameterSpec* params) {
 	$init(CurveDB);
+	$useLocalCurrentObjectStackCache();
 	if (($instanceOf($NamedCurve, params)) || (params == nullptr)) {
 		return $cast($NamedCurve, params);
 	}
@@ -152,6 +154,7 @@ $BigInteger* CurveDB::bi($String* s) {
 
 void CurveDB::add($KnownOIDs* o, int32_t type, $String* sfield, $String* a, $String* b, $String* x, $String* y, $String* n, int32_t h) {
 	$init(CurveDB);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, p, bi(sfield));
 	$var($ECField, field, nullptr);
 	if ((type == CurveDB::P) || (type == CurveDB::PD)) {

@@ -79,6 +79,7 @@ void RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::init$($HandshakeContext* 
 }
 
 $SecretKey* RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$SSLMasterKeyDerivation* mskd = $SSLMasterKeyDerivation::valueOf($nc(this->context)->negotiatedProtocol);
 	if (mskd == nullptr) {
 		$throwNew($SSLHandshakeException, $$str({"No expected master key derivation for protocol: "_s, $nc($nc(this->context)->negotiatedProtocol)->name$}));

@@ -109,12 +109,14 @@ void Vertex::setThrowable($Throwable* throwable) {
 }
 
 $String* Vertex::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $(certToString()));
 	$var($String, var$0, $$concat(var$1, $(throwableToString())));
 	return $concat(var$0, $(indexToString()));
 }
 
 $String* Vertex::certToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($X509CertImpl, x509Cert, nullptr);
 	try {
@@ -187,6 +189,7 @@ $String* Vertex::certToString() {
 }
 
 $String* Vertex::throwableToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "Exception:  "_s));
 	if (this->throwable != nullptr) {
 		sb->append($($nc(this->throwable)->toString()));

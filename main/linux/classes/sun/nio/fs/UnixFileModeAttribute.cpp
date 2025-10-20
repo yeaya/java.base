@@ -172,6 +172,7 @@ int32_t UnixFileModeAttribute::toUnixMode($Set* perms) {
 
 int32_t UnixFileModeAttribute::toUnixMode(int32_t defaultMode, $FileAttributeArray* attrs) {
 	$init(UnixFileModeAttribute);
+	$useLocalCurrentObjectStackCache();
 	int32_t mode = defaultMode;
 	{
 		$var($FileAttributeArray, arr$, attrs);

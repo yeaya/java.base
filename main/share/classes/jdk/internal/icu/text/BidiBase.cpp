@@ -581,6 +581,7 @@ void BidiBase::verifyValidParaOrLine() {
 }
 
 void BidiBase::verifyRange(int32_t index, int32_t start, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	if (index < start || index >= limit) {
 		$throwNew($IllegalArgumentException, $$str({"Value "_s, $$str(index), " is out of range "_s, $$str(start), " to "_s, $$str(limit)}));
 	}
@@ -615,6 +616,7 @@ void BidiBase::init$(int32_t maxLength, int32_t maxRunCount) {
 }
 
 $Object* BidiBase::getMemory($String* label, Object$* array, $Class* arrayClass, bool mayAllocate, int32_t sizeNeeded) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $1Array::getLength(array);
 	if (sizeNeeded == len) {
 		return $of(array);
@@ -681,6 +683,7 @@ bool BidiBase::isInverse() {
 }
 
 void BidiBase::checkParaCount() {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, saveLimits, nullptr);
 	$var($bytes, saveLevels, nullptr);
 	int32_t count = this->paraCount;
@@ -702,6 +705,7 @@ void BidiBase::checkParaCount() {
 }
 
 void BidiBase::getDirProps() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t i0 = 0;
 	int32_t i1 = 0;
@@ -920,6 +924,7 @@ void BidiBase::bracketProcessBoundary($BidiBase$BracketData* bd, int32_t lastCcP
 }
 
 void BidiBase::bracketProcessLRI_RLI($BidiBase$BracketData* bd, int8_t level) {
+	$useLocalCurrentObjectStackCache();
 	$var($BidiBase$IsoRun, pLastIsoRun, $nc($nc(bd)->isoRuns)->get(bd->isoRunLast));
 	int16_t lastLimit = 0;
 	$nc(pLastIsoRun)->lastBase = BidiBase::ON;
@@ -943,6 +948,7 @@ void BidiBase::bracketProcessPDI($BidiBase$BracketData* bd) {
 }
 
 void BidiBase::bracketAddOpening($BidiBase$BracketData* bd, char16_t match, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	$var($BidiBase$IsoRun, pLastIsoRun, $nc($nc(bd)->isoRuns)->get(bd->isoRunLast));
 	$var($BidiBase$Opening, pOpening, nullptr);
 	if ($nc(pLastIsoRun)->limit >= $nc(bd->openings)->length) {
@@ -970,6 +976,7 @@ void BidiBase::bracketAddOpening($BidiBase$BracketData* bd, char16_t match, int3
 }
 
 void BidiBase::fixN0c($BidiBase$BracketData* bd, int32_t openingIndex, int32_t newPropPosition, int8_t newProp) {
+	$useLocalCurrentObjectStackCache();
 	$var($BidiBase$IsoRun, pLastIsoRun, $nc($nc(bd)->isoRuns)->get(bd->isoRunLast));
 	$var($BidiBase$Opening, qOpening, nullptr);
 	int32_t k = 0;
@@ -1000,6 +1007,7 @@ void BidiBase::fixN0c($BidiBase$BracketData* bd, int32_t openingIndex, int32_t n
 }
 
 int8_t BidiBase::bracketProcessClosing($BidiBase$BracketData* bd, int32_t openIdx, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	$var($BidiBase$IsoRun, pLastIsoRun, $nc($nc(bd)->isoRuns)->get(bd->isoRunLast));
 	$var($BidiBase$Opening, pOpening, nullptr);
 	$var($BidiBase$Opening, qOpening, nullptr);
@@ -1173,6 +1181,7 @@ int8_t BidiBase::directionFromFlags() {
 }
 
 int8_t BidiBase::resolveExplicitLevels() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int8_t dirProp = 0;
 	int8_t level = GetParaLevelAt(0);
@@ -1415,6 +1424,7 @@ int8_t BidiBase::resolveExplicitLevels() {
 }
 
 int8_t BidiBase::checkExplicitLevels() {
+	$useLocalCurrentObjectStackCache();
 	int8_t dirProp = 0;
 	int32_t i = 0;
 	int32_t isolateCount = 0;
@@ -1482,6 +1492,7 @@ int16_t BidiBase::GetAction(int8_t cell) {
 }
 
 void BidiBase::addPoint(int32_t pos, int32_t flag) {
+	$useLocalCurrentObjectStackCache();
 	$var($BidiBase$Point, point, $new($BidiBase$Point));
 	int32_t len = $nc($nc(this->insertPoints)->points)->length;
 	if (len == 0) {
@@ -1518,6 +1529,7 @@ void BidiBase::setLevelsOutsideIsolates(int32_t start, int32_t limit, int8_t lev
 }
 
 void BidiBase::processPropertySeq($BidiBase$LevState* levState, int16_t _prop, int32_t start, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	int8_t cell = 0;
 	$var($byteArray2, impTab, $nc(levState)->impTab);
 	$var($shorts, impAct, levState->impAct);
@@ -1708,6 +1720,7 @@ void BidiBase::processPropertySeq($BidiBase$LevState* levState, int16_t _prop, i
 }
 
 void BidiBase::resolveImplicitLevels(int32_t start, int32_t limit, int16_t sor, int16_t eor) {
+	$useLocalCurrentObjectStackCache();
 	int8_t dirProp = 0;
 	$var($BidiBase$LevState, levState, $new($BidiBase$LevState));
 	int32_t i = 0;
@@ -1889,6 +1902,7 @@ int32_t BidiBase::Bidi_Abs(int32_t x) {
 }
 
 void BidiBase::setParaRunsOnly($chars* parmText, int8_t parmParaLevel) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, visualMap, nullptr);
 	$var($String, visualText, nullptr);
 	int32_t saveLength = 0;
@@ -2031,6 +2045,7 @@ void BidiBase::setParaRunsOnly($chars* parmText, int8_t parmParaLevel) {
 }
 
 void BidiBase::setPara($String* text, int8_t paraLevel, $bytes* embeddingLevels) {
+	$useLocalCurrentObjectStackCache();
 	if (text == nullptr) {
 		setPara($$new($chars, 0), paraLevel, embeddingLevels);
 	} else {
@@ -2246,6 +2261,7 @@ void BidiBase::setPara($chars* chars$renamed, int8_t paraLevel, $bytes* embeddin
 }
 
 void BidiBase::setPara($AttributedCharacterIterator* paragraph) {
+	$useLocalCurrentObjectStackCache();
 	int8_t paraLvl = 0;
 	char16_t ch = $nc(paragraph)->first();
 	$init($BidiBase$TextAttributeConstants);
@@ -2364,6 +2380,7 @@ $ints* BidiBase::reorderVisual($bytes* levels) {
 }
 
 void BidiBase::init$($chars* text, int32_t textStart, $bytes* embeddings, int32_t embStart, int32_t paragraphLength, int32_t flags) {
+	$useLocalCurrentObjectStackCache();
 	BidiBase::init$(0, 0);
 	int8_t paraLvl = 0;
 	switch (flags) {
@@ -2491,6 +2508,7 @@ int32_t BidiBase::getRunLimit(int32_t run) {
 
 bool BidiBase::requiresBidi($chars* text, int32_t start, int32_t limit) {
 	$init(BidiBase);
+	$useLocalCurrentObjectStackCache();
 	int32_t RTLMask = (((($sl(1, BidiBase::R) | $sl(1, BidiBase::AL)) | $sl(1, BidiBase::RLE)) | $sl(1, BidiBase::RLO)) | $sl(1, BidiBase::AN));
 	if (0 > start || start > limit || limit > $nc(text)->length) {
 		$throwNew($IllegalArgumentException, $$str({"Value start "_s, $$str(start), " is out of range 0 to "_s, $$str(limit), ", or limit "_s, $$str(limit), " is beyond the text length "_s, $$str(text->length)}));
@@ -2510,6 +2528,7 @@ bool BidiBase::requiresBidi($chars* text, int32_t start, int32_t limit) {
 
 void BidiBase::reorderVisually($bytes* levels, int32_t levelStart, $ObjectArray* objects, int32_t objectStart, int32_t count) {
 	$init(BidiBase);
+	$useLocalCurrentObjectStackCache();
 	if (0 > levelStart || $nc(levels)->length <= levelStart) {
 		$throwNew($IllegalArgumentException, $$str({"Value levelStart "_s, $$str(levelStart), " is out of range 0 to "_s, $$str((levels->length - 1))}));
 	}
@@ -2538,6 +2557,7 @@ $String* BidiBase::writeReordered(int32_t options) {
 }
 
 $String* BidiBase::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder, $($of(this)->getClass()->getName())));
 	buf->append("[dir: "_s);
 	buf->append((int32_t)this->direction);
@@ -2568,6 +2588,7 @@ $String* BidiBase::toString() {
 }
 
 void clinit$BidiBase($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	BidiBase::FOUND_L = (int8_t)BidiBase::DirPropFlag(BidiBase::L);
 	BidiBase::FOUND_R = (int8_t)BidiBase::DirPropFlag(BidiBase::R);
 	BidiBase::DirPropFlagMultiRuns = BidiBase::DirPropFlag((int8_t)31);

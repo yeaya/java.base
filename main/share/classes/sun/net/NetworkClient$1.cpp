@@ -76,6 +76,7 @@ void NetworkClient$1::init$($ints* val$vals, $StringArray* val$encs) {
 }
 
 $Object* NetworkClient$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->val$vals)->set(0, $nc($($Integer::getInteger("sun.net.client.defaultReadTimeout"_s, 0)))->intValue());
 	$nc(this->val$vals)->set(1, $nc($($Integer::getInteger("sun.net.client.defaultConnectTimeout"_s, 0)))->intValue());
 	$nc(this->val$encs)->set(0, $($System::getProperty("file.encoding"_s, "ISO8859_1"_s)));

@@ -102,6 +102,7 @@ void AlpnExtension$AlpnSpec::init$($StringArray* applicationProtocols) {
 }
 
 void AlpnExtension$AlpnSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid application_layer_protocol_negotiation: insufficient data (length="_s, $$str(buffer->remaining()), ")"_s}))))));

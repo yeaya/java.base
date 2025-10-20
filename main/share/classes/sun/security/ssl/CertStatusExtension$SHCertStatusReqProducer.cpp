@@ -77,6 +77,7 @@ void CertStatusExtension$SHCertStatusReqProducer::init$() {
 }
 
 $bytes* CertStatusExtension$SHCertStatusReqProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (($nc(shc)->stapleParams == nullptr) || ($nc($nc(shc)->stapleParams)->statusRespExt != $SSLExtension::CH_STATUS_REQUEST)) {

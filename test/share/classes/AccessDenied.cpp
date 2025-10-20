@@ -42,6 +42,7 @@ void AccessDenied::init$() {
 }
 
 void AccessDenied::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, dir, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "hugo"_s));
 	dir->deleteOnExit();
 	if (!dir->mkdir()) {

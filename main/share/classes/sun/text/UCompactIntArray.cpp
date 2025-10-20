@@ -113,6 +113,7 @@ void UCompactIntArray::setElementAt(int32_t index, int32_t value) {
 }
 
 void UCompactIntArray::compact() {
+	$useLocalCurrentObjectStackCache();
 	if (this->isCompact) {
 		return;
 	}
@@ -149,6 +150,7 @@ void UCompactIntArray::compact() {
 }
 
 void UCompactIntArray::expand() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	if (this->isCompact) {
 		$var($ints, tempArray, nullptr);
@@ -172,6 +174,7 @@ void UCompactIntArray::expand() {
 }
 
 void UCompactIntArray::initPlane(int32_t plane) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->values)->set(plane, $$new($ints, UCompactIntArray::UNICODECOUNT));
 	$nc(this->indices)->set(plane, $$new($shorts, UCompactIntArray::INDEXCOUNT));
 	$nc(this->blockTouched)->set(plane, $$new($booleans, UCompactIntArray::INDEXCOUNT));

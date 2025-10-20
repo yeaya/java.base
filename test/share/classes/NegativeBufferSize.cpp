@@ -41,6 +41,7 @@ void NegativeBufferSize::init$() {
 }
 
 void NegativeBufferSize::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MyStringWriter, s, $new($MyStringWriter, -1));
 	} catch ($IllegalArgumentException&) {

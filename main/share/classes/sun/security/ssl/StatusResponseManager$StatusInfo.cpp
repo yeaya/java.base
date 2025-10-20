@@ -80,6 +80,7 @@ $Object* allocate$StatusResponseManager$StatusInfo($Class* clazz) {
 }
 
 void StatusResponseManager$StatusInfo::init$($StatusResponseManager* this$0, $X509Certificate* subjectCert, $X509Certificate* issuerCert) {
+	$useLocalCurrentObjectStackCache();
 	StatusResponseManager$StatusInfo::init$(this$0, subjectCert, $$new($CertId, issuerCert, $$new($SerialNumber, $($nc(subjectCert)->getSerialNumber()))));
 }
 
@@ -100,6 +101,7 @@ void StatusResponseManager$StatusInfo::init$($StatusResponseManager* this$0, Sta
 }
 
 $String* StatusResponseManager$StatusInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "StatusInfo:"_s));
 	sb->append("\n\tCert: "_s)->append($($of($nc(this->cert)->getSubjectX500Principal())));
 	sb->append("\n\tSerial: "_s)->append($($of($nc(this->cert)->getSerialNumber())));

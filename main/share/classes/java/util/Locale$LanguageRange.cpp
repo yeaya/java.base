@@ -96,6 +96,7 @@ void Locale$LanguageRange::init$($String* range) {
 }
 
 void Locale$LanguageRange::init$($String* range$renamed, double weight) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, range, range$renamed);
 	if (range == nullptr) {
 		$throwNew($NullPointerException);
@@ -127,6 +128,7 @@ void Locale$LanguageRange::init$($String* range$renamed, double weight) {
 
 bool Locale$LanguageRange::isSubtagIllFormed($String* subtag, bool isFirstSubtag) {
 	$init(Locale$LanguageRange);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(subtag)->isEmpty();
 	if (var$0 || $nc(subtag)->length() > 8) {
 		return true;

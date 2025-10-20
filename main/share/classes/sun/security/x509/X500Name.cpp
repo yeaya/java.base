@@ -264,6 +264,7 @@ void X500Name::init$($String* dname, $Map* keywordMap) {
 }
 
 void X500Name::init$($String* dname, $String* format) {
+	$useLocalCurrentObjectStackCache();
 	if (dname == nullptr) {
 		$throwNew($NullPointerException, "Name must not be null"_s);
 	}
@@ -277,6 +278,7 @@ void X500Name::init$($String* dname, $String* format) {
 }
 
 void X500Name::init$($String* commonName, $String* organizationUnit, $String* organizationName, $String* country) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, names, $new($RDNArray, 4));
 	$nc(this->names)->set(3, $$new($RDN, 1));
 	$nc($nc($nc(this->names)->get(3))->assertion)->set(0, $$new($AVA, X500Name::commonName_oid, $$new($DerValue, commonName)));
@@ -289,6 +291,7 @@ void X500Name::init$($String* commonName, $String* organizationUnit, $String* or
 }
 
 void X500Name::init$($String* commonName, $String* organizationUnit, $String* organizationName, $String* localityName, $String* stateName, $String* country) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, names, $new($RDNArray, 6));
 	$nc(this->names)->set(5, $$new($RDN, 1));
 	$nc($nc($nc(this->names)->get(5))->assertion)->set(0, $$new($AVA, X500Name::commonName_oid, $$new($DerValue, commonName)));
@@ -331,6 +334,7 @@ void X500Name::init$($bytes* name) {
 }
 
 $List* X500Name::rdns() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, this->rdnList);
 	if (list == nullptr) {
 		$assign(list, $Collections::unmodifiableList($($Arrays::asList(this->names))));
@@ -344,6 +348,7 @@ int32_t X500Name::size() {
 }
 
 $List* X500Name::allAvas() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, this->allAvaList);
 	if (list == nullptr) {
 		$assign(list, $new($ArrayList));
@@ -375,6 +380,7 @@ int32_t X500Name::hashCode() {
 }
 
 bool X500Name::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -402,6 +408,7 @@ bool X500Name::equals(Object$* obj) {
 }
 
 $String* X500Name::getString($DerValue* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (attribute == nullptr) {
 		return nullptr;
 	}
@@ -522,6 +529,7 @@ $String* X500Name::getRFC2253Name($Map* oidMap) {
 }
 
 $String* X500Name::generateRFC2253DN($Map* oidMap) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->names)->length == 0) {
 		return ""_s;
 	}
@@ -533,6 +541,7 @@ $String* X500Name::generateRFC2253DN($Map* oidMap) {
 }
 
 $String* X500Name::getRFC2253CanonicalName() {
+	$useLocalCurrentObjectStackCache();
 	if (this->canonicalDn != nullptr) {
 		return this->canonicalDn;
 	}
@@ -553,6 +562,7 @@ $String* X500Name::getName() {
 }
 
 $DerValue* X500Name::findAttribute($ObjectIdentifier* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (this->names != nullptr) {
 		for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
 			$var($DerValue, value, $nc($nc(this->names)->get(i))->findAttribute(attribute));
@@ -565,6 +575,7 @@ $DerValue* X500Name::findAttribute($ObjectIdentifier* attribute) {
 }
 
 $DerValue* X500Name::findMostSpecificAttribute($ObjectIdentifier* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (this->names != nullptr) {
 		for (int32_t i = $nc(this->names)->length - 1; i >= 0; --i) {
 			$var($DerValue, value, $nc($nc(this->names)->get(i))->findAttribute(attribute));
@@ -577,6 +588,7 @@ $DerValue* X500Name::findMostSpecificAttribute($ObjectIdentifier* attribute) {
 }
 
 void X500Name::parseDER($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValueArray, nameseq, nullptr);
 	$var($bytes, derBytes, $nc(in)->toByteArray());
 	try {
@@ -614,6 +626,7 @@ void X500Name::encode($DerOutputStream* out) {
 }
 
 $bytes* X500Name::getEncodedInternal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encoded == nullptr) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -631,6 +644,7 @@ $bytes* X500Name::getEncoded() {
 }
 
 void X500Name::parseDN($String* input, $Map* keywordMap) {
+	$useLocalCurrentObjectStackCache();
 	if (input == nullptr || $nc(input)->isEmpty()) {
 		$set(this, names, $new($RDNArray, 0));
 		return;
@@ -672,6 +686,7 @@ void X500Name::parseDN($String* input, $Map* keywordMap) {
 }
 
 void X500Name::parseRFC2253DN($String* dnString) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(dnString)->isEmpty()) {
 		$set(this, names, $new($RDNArray, 0));
 		return;
@@ -742,6 +757,7 @@ bool X500Name::escaped(int32_t rdnEnd, int32_t searchOffset, $String* dnString) 
 }
 
 void X500Name::generateDN() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->names)->length == 1) {
 		$set(this, dn, $nc($nc(this->names)->get(0))->toString());
 		return;
@@ -758,6 +774,7 @@ void X500Name::generateDN() {
 }
 
 $String* X500Name::generateRFC1779DN($Map* oidMap) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->names)->length == 1) {
 		return $nc($nc(this->names)->get(0))->toRFC1779String(oidMap);
 	}
@@ -825,6 +842,7 @@ int32_t X500Name::subtreeDepth() {
 }
 
 X500Name* X500Name::commonAncestor(X500Name* other) {
+	$useLocalCurrentObjectStackCache();
 	if (other == nullptr) {
 		return nullptr;
 	}
@@ -859,6 +877,7 @@ X500Name* X500Name::commonAncestor(X500Name* other) {
 }
 
 $X500Principal* X500Name::asX500Principal() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->x500Principal == nullptr) {
 		try {
@@ -874,6 +893,7 @@ $X500Principal* X500Name::asX500Principal() {
 
 X500Name* X500Name::asX500Name($X500Principal* p) {
 	$init(X500Name);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var(X500Name, name, $cast(X500Name, $nc(X500Name::principalField)->get(p)));
@@ -887,6 +907,7 @@ X500Name* X500Name::asX500Name($X500Principal* p) {
 }
 
 void clinit$X500Name($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($KnownOIDs);
 	$assignStatic(X500Name::commonName_oid, $ObjectIdentifier::of($KnownOIDs::CommonName));

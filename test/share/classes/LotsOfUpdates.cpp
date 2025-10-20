@@ -44,6 +44,7 @@ void LotsOfUpdates::init$() {
 }
 
 void LotsOfUpdates::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$var($SocketChannel, sc, $SocketChannel::open());
 	$nc(sc)->configureBlocking(false);

@@ -90,6 +90,7 @@ void EmptyBuffer::main($StringArray* args) {
 
 void EmptyBuffer::test() {
 	$init(EmptyBuffer);
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	$var($InetAddress, localHost, $InetAddress::getLocalHost());
 	$nc(dc)->bind($$new($InetSocketAddress, localHost, 0));

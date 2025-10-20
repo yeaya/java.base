@@ -91,6 +91,7 @@ $Object* allocate$StackStreamFactory$FrameBuffer($Class* clazz) {
 }
 
 void StackStreamFactory$FrameBuffer::init$(int32_t initialBatchSize) {
+	$useLocalCurrentObjectStackCache();
 	if (initialBatchSize < 8) {
 		$throwNew($IllegalArgumentException, $$str({$$str(initialBatchSize), " < minimum batch size: "_s, $$str(8)}));
 	}
@@ -126,6 +127,7 @@ bool StackStreamFactory$FrameBuffer::isActive() {
 }
 
 $Class* StackStreamFactory$FrameBuffer::next() {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		$throwNew($NoSuchElementException, $$str({"origin="_s, $$str(this->origin), " fence="_s, $$str(this->fence)}));
 	}
@@ -146,6 +148,7 @@ $Class* StackStreamFactory$FrameBuffer::next() {
 }
 
 $Class* StackStreamFactory$FrameBuffer::get() {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		$throwNew($NoSuchElementException, $$str({"origin="_s, $$str(this->origin), " fence="_s, $$str(this->fence)}));
 	}
@@ -157,6 +160,7 @@ int32_t StackStreamFactory$FrameBuffer::getIndex() {
 }
 
 void StackStreamFactory$FrameBuffer::setBatch(int32_t depth, int32_t startIndex, int32_t endIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (startIndex <= 0 || endIndex <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"startIndex="_s, $$str(startIndex), " endIndex="_s, $$str(endIndex)}));
 	}
@@ -183,6 +187,7 @@ void StackStreamFactory$FrameBuffer::setBatch(int32_t depth, int32_t startIndex,
 }
 
 void StackStreamFactory$FrameBuffer::check(int32_t skipFrames) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = skipFrames + StackStreamFactory$FrameBuffer::START_POS;
 	if (this->origin != index) {
 		$throwNew($IllegalStateException, $$str({"origin "_s, $$str(this->origin), " != "_s, $$str(index)}));

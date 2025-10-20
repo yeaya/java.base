@@ -193,6 +193,7 @@ $Era* JapaneseEra::getPrivateEra() {
 
 JapaneseEra* JapaneseEra::of(int32_t japaneseEra) {
 	$init(JapaneseEra);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = ordinal(japaneseEra);
 	if (i < 0 || i >= $nc(JapaneseEra::KNOWN_ERAS)->length) {
 		$throwNew($DateTimeException, $$str({"Invalid era: "_s, $$str(japaneseEra)}));
@@ -202,6 +203,7 @@ JapaneseEra* JapaneseEra::of(int32_t japaneseEra) {
 
 JapaneseEra* JapaneseEra::valueOf($String* japaneseEra) {
 	$init(JapaneseEra);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(japaneseEra), "japaneseEra"_s);
 	{
 		$var($JapaneseEraArray, arr$, JapaneseEra::KNOWN_ERAS);
@@ -225,6 +227,7 @@ $JapaneseEraArray* JapaneseEra::values() {
 }
 
 $String* JapaneseEra::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (getValue() > JapaneseEra::N_ERA_CONSTANTS - JapaneseEra::ERA_OFFSET) {
 		$Objects::requireNonNull($of(locale), "locale"_s);
 		$init($TextStyle);
@@ -238,6 +241,7 @@ $String* JapaneseEra::getDisplayName($TextStyle* style, $Locale* locale) {
 
 JapaneseEra* JapaneseEra::from($LocalDate* date) {
 	$init(JapaneseEra);
+	$useLocalCurrentObjectStackCache();
 	$init($JapaneseDate);
 	if ($nc(date)->isBefore($JapaneseDate::MEIJI_6_ISODATE)) {
 		$throwNew($DateTimeException, "JapaneseDate before Meiji 6 are not supported"_s);
@@ -263,6 +267,7 @@ JapaneseEra* JapaneseEra::toJapaneseEra($Era* privateEra) {
 
 $Era* JapaneseEra::privateEraFrom($LocalDate* isoDate) {
 	$init(JapaneseEra);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = $nc(JapaneseEra::KNOWN_ERAS)->length - 1; i > 0; --i) {
 		$var(JapaneseEra, era, $nc(JapaneseEra::KNOWN_ERAS)->get(i));
 		if ($nc(isoDate)->compareTo(static_cast<$ChronoLocalDate*>($nc(era)->since)) >= 0) {
@@ -321,6 +326,7 @@ JapaneseEra* JapaneseEra::readExternal($DataInput* in) {
 }
 
 void clinit$JapaneseEra($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JapaneseEra::MEIJI, $new(JapaneseEra, -1, $($LocalDate::of(1868, 1, 1))));
 	$assignStatic(JapaneseEra::TAISHO, $new(JapaneseEra, 0, $($LocalDate::of(1912, 7, 30))));
 	$assignStatic(JapaneseEra::SHOWA, $new(JapaneseEra, 1, $($LocalDate::of(1926, 12, 25))));

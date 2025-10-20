@@ -229,6 +229,7 @@ FloatBuffer* FloatBuffer::get(int32_t index, $floats* dst) {
 }
 
 FloatBuffer* FloatBuffer::getArray(int32_t index, $floats* dst, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (((int64_t)length << 2) > $Bits::JNI_COPY_TO_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 2);
 		int64_t dstOffset = FloatBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 2);
@@ -300,6 +301,7 @@ FloatBuffer* FloatBuffer::put(int32_t index, FloatBuffer* src, int32_t offset, i
 }
 
 void FloatBuffer::putBuffer(int32_t pos, FloatBuffer* src, int32_t srcPos, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, srcBase, $nc(src)->base());
 	if (!FloatBuffer::$assertionsDisabled && !(srcBase != nullptr || src->isDirect())) {
 		$throwNew($AssertionError);
@@ -368,6 +370,7 @@ FloatBuffer* FloatBuffer::put(int32_t index, $floats* src) {
 }
 
 FloatBuffer* FloatBuffer::putArray(int32_t index, $floats* src, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (((int64_t)length << 2) > $Bits::JNI_COPY_FROM_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 2);
 		int64_t srcOffset = FloatBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 2);
@@ -470,6 +473,7 @@ FloatBuffer* FloatBuffer::rewind() {
 }
 
 $String* FloatBuffer::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append("[pos="_s);

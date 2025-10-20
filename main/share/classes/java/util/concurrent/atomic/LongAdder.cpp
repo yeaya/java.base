@@ -88,6 +88,7 @@ void LongAdder::init$() {
 }
 
 void LongAdder::add(int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -122,6 +123,7 @@ void LongAdder::decrement() {
 }
 
 int64_t LongAdder::sum() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	int64_t sum = this->base;
 	if (cs != nullptr) {
@@ -141,6 +143,7 @@ int64_t LongAdder::sum() {
 }
 
 void LongAdder::reset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = 0;
 	if (cs != nullptr) {
@@ -159,6 +162,7 @@ void LongAdder::reset() {
 }
 
 int64_t LongAdder::sumThenReset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	int64_t sum = getAndSetBase(0);
 	if (cs != nullptr) {

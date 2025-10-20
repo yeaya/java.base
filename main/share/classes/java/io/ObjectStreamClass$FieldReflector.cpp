@@ -101,6 +101,7 @@ $Object* allocate$ObjectStreamClass$FieldReflector($Class* clazz) {
 $Unsafe* ObjectStreamClass$FieldReflector::unsafe = nullptr;
 
 void ObjectStreamClass$FieldReflector::init$($ObjectStreamFieldArray* fields) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, fields, fields);
 	int32_t nfields = $nc(fields)->length;
 	$set(this, readKeys, $new($longs, nfields));
@@ -245,6 +246,7 @@ void ObjectStreamClass$FieldReflector::setPrimFieldValues(Object$* obj, $bytes* 
 }
 
 void ObjectStreamClass$FieldReflector::getObjFieldValues(Object$* obj, $ObjectArray* vals) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -277,6 +279,7 @@ void ObjectStreamClass$FieldReflector::setObjFieldValues(Object$* obj, $ObjectAr
 }
 
 void ObjectStreamClass$FieldReflector::setObjFieldValues(Object$* obj, $ObjectArray* vals, bool dryRun) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		$throwNew($NullPointerException);
 	}

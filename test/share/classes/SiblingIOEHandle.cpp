@@ -121,6 +121,7 @@ void SiblingIOEHandle::init$() {
 
 $StringArray* SiblingIOEHandle::getCommandArray($String* processName) {
 	$init(SiblingIOEHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, cmdArray, $new($StringArray, {
 		SiblingIOEHandle::JAVA_EXE,
 		"-cp"_s,
@@ -170,6 +171,7 @@ void SiblingIOEHandle::waitAbit() {
 
 bool SiblingIOEHandle::waitBarrier($CyclicBarrier* barrier) {
 	$init(SiblingIOEHandle);
+	$useLocalCurrentObjectStackCache();
 	while (true) {
 		try {
 			$nc(barrier)->await();
@@ -188,6 +190,7 @@ bool SiblingIOEHandle::waitBarrier($CyclicBarrier* barrier) {
 
 void SiblingIOEHandle::performA(bool fileOut) {
 	$init(SiblingIOEHandle);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(SiblingIOEHandle::stopC)->delete$();
 		$init($SiblingIOEHandle$APP);

@@ -120,6 +120,7 @@ void CRC32::update($bytes* b, int32_t off, int32_t len) {
 }
 
 void CRC32::update($ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(buffer)->position();
 	int32_t limit = buffer->limit();
 	if (!CRC32::$assertionsDisabled && !(pos <= limit)) {

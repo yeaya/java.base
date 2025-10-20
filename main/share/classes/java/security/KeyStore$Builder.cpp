@@ -104,6 +104,7 @@ KeyStore$Builder* KeyStore$Builder::newInstance($KeyStore* keyStore, $KeyStore$P
 }
 
 KeyStore$Builder* KeyStore$Builder::newInstance($String* type, $Provider* provider, $File* file, $KeyStore$ProtectionParameter* protection) {
+	$useLocalCurrentObjectStackCache();
 	if ((type == nullptr) || (file == nullptr) || (protection == nullptr)) {
 		$throwNew($NullPointerException);
 	}

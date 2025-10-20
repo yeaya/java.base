@@ -289,6 +289,7 @@ void MethodNode::visitAnnotableParameterCount(int32_t parameterCount, bool visib
 }
 
 $AnnotationVisitor* MethodNode::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationNode, annotation, $new($AnnotationNode, descriptor));
 	if (visible) {
 		if (this->visibleParameterAnnotations == nullptr) {
@@ -314,6 +315,7 @@ void MethodNode::visitCode() {
 }
 
 void MethodNode::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = type;
 	int32_t var$1 = numLocal;
 	$var($ObjectArray, var$2, local == nullptr ? ($ObjectArray*)nullptr : getLabelNodes(local));
@@ -355,6 +357,7 @@ void MethodNode::visitInvokeDynamicInsn($String* name, $String* descriptor, $Han
 }
 
 void MethodNode::visitJumpInsn(int32_t opcode, $Label* label) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->instructions)->add(static_cast<$AbstractInsnNode*>($$new($JumpInsnNode, opcode, $(getLabelNode(label)))));
 }
 
@@ -371,6 +374,7 @@ void MethodNode::visitIincInsn(int32_t var, int32_t increment) {
 }
 
 void MethodNode::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = min;
 	int32_t var$1 = max;
 	$var($LabelNode, var$2, getLabelNode(dflt));
@@ -378,6 +382,7 @@ void MethodNode::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $L
 }
 
 void MethodNode::visitLookupSwitchInsn($Label* dflt, $ints* keys, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelNode, var$0, getLabelNode(dflt));
 	$var($ints, var$1, keys);
 	$nc(this->instructions)->add(static_cast<$AbstractInsnNode*>($$new($LookupSwitchInsnNode, var$0, var$1, $(getLabelNodes(labels)))));
@@ -388,6 +393,7 @@ void MethodNode::visitMultiANewArrayInsn($String* descriptor, int32_t numDimensi
 }
 
 $AnnotationVisitor* MethodNode::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractInsnNode, currentInsn, $nc(this->instructions)->getLast());
 	while ($nc(currentInsn)->getOpcode() == -1) {
 		$assign(currentInsn, currentInsn->getPrevious());
@@ -402,6 +408,7 @@ $AnnotationVisitor* MethodNode::visitInsnAnnotation(int32_t typeRef, $TypePath* 
 }
 
 void MethodNode::visitTryCatchBlock($Label* start, $Label* end, $Label* handler, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelNode, var$0, getLabelNode(start));
 	$var($LabelNode, var$1, getLabelNode(end));
 	$var($TryCatchBlockNode, tryCatchBlock, $new($TryCatchBlockNode, var$0, var$1, $(getLabelNode(handler)), type));
@@ -409,6 +416,7 @@ void MethodNode::visitTryCatchBlock($Label* start, $Label* end, $Label* handler,
 }
 
 $AnnotationVisitor* MethodNode::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($TryCatchBlockNode, tryCatchBlock, $cast($TryCatchBlockNode, $nc(this->tryCatchBlocks)->get(((int32_t)(typeRef & (uint32_t)0x00FFFF00)) >> 8)));
 	$var($TypeAnnotationNode, typeAnnotation, $new($TypeAnnotationNode, typeRef, typePath, descriptor));
 	if (visible) {
@@ -420,6 +428,7 @@ $AnnotationVisitor* MethodNode::visitTryCatchAnnotation(int32_t typeRef, $TypePa
 }
 
 void MethodNode::visitLocalVariable($String* name, $String* descriptor, $String* signature, $Label* start, $Label* end, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, name);
 	$var($String, var$1, descriptor);
 	$var($String, var$2, signature);
@@ -429,6 +438,7 @@ void MethodNode::visitLocalVariable($String* name, $String* descriptor, $String*
 }
 
 $AnnotationVisitor* MethodNode::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = typeRef;
 	$var($TypePath, var$1, typePath);
 	$var($LabelNodeArray, var$2, getLabelNodes(start));
@@ -442,6 +452,7 @@ $AnnotationVisitor* MethodNode::visitLocalVariableAnnotation(int32_t typeRef, $T
 }
 
 void MethodNode::visitLineNumber(int32_t line, $Label* start) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->instructions)->add(static_cast<$AbstractInsnNode*>($$new($LineNumberNode, line, $(getLabelNode(start)))));
 }
 
@@ -461,6 +472,7 @@ $LabelNode* MethodNode::getLabelNode($Label* label) {
 }
 
 $LabelNodeArray* MethodNode::getLabelNodes($LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelNodeArray, labelNodes, $new($LabelNodeArray, $nc(labels)->length));
 	{
 		int32_t i = 0;
@@ -473,6 +485,7 @@ $LabelNodeArray* MethodNode::getLabelNodes($LabelArray* labels) {
 }
 
 $ObjectArray* MethodNode::getLabelNodes($ObjectArray* objects) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, labelNodes, $new($ObjectArray, $nc(objects)->length));
 	{
 		int32_t i = 0;
@@ -489,6 +502,7 @@ $ObjectArray* MethodNode::getLabelNodes($ObjectArray* objects) {
 }
 
 void MethodNode::check(int32_t api) {
+	$useLocalCurrentObjectStackCache();
 	if (api == $Opcodes::ASM4) {
 		if (this->parameters != nullptr && !$nc(this->parameters)->isEmpty()) {
 			$throwNew($UnsupportedClassVersionException);
@@ -551,6 +565,7 @@ void MethodNode::check(int32_t api) {
 }
 
 void MethodNode::accept($ClassVisitor* classVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, exceptionsArray, this->exceptions == nullptr ? ($StringArray*)nullptr : $fcast($StringArray, $nc(this->exceptions)->toArray($$new($StringArray, 0))));
 	$var($MethodVisitor, methodVisitor, $nc(classVisitor)->visitMethod(this->access, this->name, this->desc, this->signature, exceptionsArray));
 	if (methodVisitor != nullptr) {
@@ -559,6 +574,7 @@ void MethodNode::accept($ClassVisitor* classVisitor) {
 }
 
 void MethodNode::accept($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	if (this->parameters != nullptr) {
 		{
 			int32_t i = 0;

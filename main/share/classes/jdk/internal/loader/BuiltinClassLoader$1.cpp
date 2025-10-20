@@ -89,6 +89,7 @@ void BuiltinClassLoader$1::init$($BuiltinClassLoader* this$0, $List* val$checked
 }
 
 bool BuiltinClassLoader$1::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	if (this->next != nullptr) {
 		return true;
 	} else if ($nc(this->iterator)->hasNext()) {

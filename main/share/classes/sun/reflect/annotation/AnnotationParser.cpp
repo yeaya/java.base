@@ -386,6 +386,7 @@ void AnnotationParser::init$() {
 
 $Map* AnnotationParser::parseAnnotations($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	if (rawAnnotations == nullptr) {
 		return $Collections::emptyMap();
 	}
@@ -403,6 +404,7 @@ $Map* AnnotationParser::parseAnnotations($bytes* rawAnnotations, $ConstantPool* 
 
 $Map* AnnotationParser::parseSelectAnnotations($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container, $ClassArray* selectAnnotationClasses) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	if (rawAnnotations == nullptr) {
 		return $Collections::emptyMap();
 	}
@@ -420,6 +422,7 @@ $Map* AnnotationParser::parseSelectAnnotations($bytes* rawAnnotations, $Constant
 
 $Map* AnnotationParser::parseAnnotations2($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container, $ClassArray* selectAnnotationClasses) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, result, $new($LinkedHashMap));
 	$var($ByteBuffer, buf, $ByteBuffer::wrap(rawAnnotations));
 	int32_t numAnnotations = (int32_t)($nc(buf)->getShort() & (uint32_t)0x0000FFFF);
@@ -439,6 +442,7 @@ $Map* AnnotationParser::parseAnnotations2($bytes* rawAnnotations, $ConstantPool*
 
 $AnnotationArray2* AnnotationParser::parseParameterAnnotations($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return parseParameterAnnotations2(rawAnnotations, constPool, container);
 	} catch ($BufferUnderflowException&) {
@@ -453,6 +457,7 @@ $AnnotationArray2* AnnotationParser::parseParameterAnnotations($bytes* rawAnnota
 
 $AnnotationArray2* AnnotationParser::parseParameterAnnotations2($bytes* rawAnnotations, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, buf, $ByteBuffer::wrap(rawAnnotations));
 	int32_t numParameters = (int32_t)($nc(buf)->get() & (uint32_t)255);
 	$var($AnnotationArray2, result, $new($AnnotationArray2, numParameters));
@@ -481,6 +486,7 @@ $Annotation* AnnotationParser::parseAnnotation($ByteBuffer* buf, $ConstantPool* 
 
 $Annotation* AnnotationParser::parseAnnotation2($ByteBuffer* buf, $ConstantPool* constPool, $Class* container, bool exceptionOnMissingAnnotationClass, $ClassArray* selectAnnotationClasses) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t typeIndex = (int32_t)($nc(buf)->getShort() & (uint32_t)0x0000FFFF);
 	$Class* annotationClass = nullptr;
 	$var($String, sig, "[unknown]"_s);
@@ -542,6 +548,7 @@ $Annotation* AnnotationParser::annotationForMap($Class* type, $Map* memberValues
 
 $Object* AnnotationParser::parseMemberValue($Class* memberType, $ByteBuffer* buf, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, nullptr);
 	int32_t tag = $nc(buf)->get();
 	switch (tag) {
@@ -582,6 +589,7 @@ $Object* AnnotationParser::parseMemberValue($Class* memberType, $ByteBuffer* buf
 
 $Object* AnnotationParser::parseConst(int32_t tag, $ByteBuffer* buf, $ConstantPool* constPool) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t constIndex = (int32_t)($nc(buf)->getShort() & (uint32_t)0x0000FFFF);
 	switch (tag) {
 	case u'B':
@@ -629,6 +637,7 @@ $Object* AnnotationParser::parseConst(int32_t tag, $ByteBuffer* buf, $ConstantPo
 
 $Object* AnnotationParser::parseClassValue($ByteBuffer* buf, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t classIndex = (int32_t)($nc(buf)->getShort() & (uint32_t)0x0000FFFF);
 	try {
 		$var($String, sig, $nc(constPool)->getUTF8At(classIndex));
@@ -646,6 +655,7 @@ $Object* AnnotationParser::parseClassValue($ByteBuffer* buf, $ConstantPool* cons
 
 $Class* AnnotationParser::parseSig($String* sig, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(sig)->equals("V"_s)) {
 		$init($Void);
 		return $Void::TYPE;
@@ -661,6 +671,7 @@ $Class* AnnotationParser::parseSig($String* sig, $Class* container) {
 
 $Class* AnnotationParser::toClass($Type* o) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($GenericArrayType, o)) {
 		return $of($($1Array::newInstance(toClass($($nc(($cast($GenericArrayType, o)))->getGenericComponentType())), 0)))->getClass();
 	}
@@ -669,6 +680,7 @@ $Class* AnnotationParser::toClass($Type* o) {
 
 $Object* AnnotationParser::parseEnumValue($Class* enumType, $ByteBuffer* buf, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t typeNameIndex = (int32_t)($nc(buf)->getShort() & (uint32_t)0x0000FFFF);
 	$var($String, typeName, $nc(constPool)->getUTF8At(typeNameIndex));
 	int32_t constNameIndex = (int32_t)(buf->getShort() & (uint32_t)0x0000FFFF);
@@ -892,6 +904,7 @@ $Object* AnnotationParser::parseBooleanArray(int32_t length, $ByteBuffer* buf, $
 
 $Object* AnnotationParser::parseStringArray(int32_t length, $ByteBuffer* buf, $ConstantPool* constPool) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, result, $new($StringArray, length));
 	bool typeMismatch = false;
 	int32_t tag = 0;
@@ -910,11 +923,13 @@ $Object* AnnotationParser::parseStringArray(int32_t length, $ByteBuffer* buf, $C
 
 $Object* AnnotationParser::parseClassArray(int32_t length, $ByteBuffer* buf, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	return $of(parseArrayElements($$new($ClassArray, length), buf, u'c', static_cast<$Supplier*>($$new(AnnotationParser$$Lambda$lambda$parseClassArray$0, buf, constPool, container))));
 }
 
 $Object* AnnotationParser::parseEnumArray(int32_t length, $Class* enumType, $ByteBuffer* buf, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, var$0, $cast($ObjectArray, $1Array::newInstance(enumType, length)));
 	$var($ByteBuffer, var$1, buf);
 	return $of(parseArrayElements(var$0, var$1, u'e', static_cast<$Supplier*>($$new(AnnotationParser$$Lambda$lambda$parseEnumArray$1$1, enumType, buf, constPool, container))));
@@ -922,6 +937,7 @@ $Object* AnnotationParser::parseEnumArray(int32_t length, $Class* enumType, $Byt
 
 $Object* AnnotationParser::parseAnnotationArray(int32_t length, $Class* annotationType, $ByteBuffer* buf, $ConstantPool* constPool, $Class* container) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, var$0, $cast($ObjectArray, $1Array::newInstance(annotationType, length)));
 	$var($ByteBuffer, var$1, buf);
 	return $of(parseArrayElements(var$0, var$1, u'@', static_cast<$Supplier*>($$new(AnnotationParser$$Lambda$lambda$parseAnnotationArray$2$2, buf, constPool, container))));
@@ -929,6 +945,7 @@ $Object* AnnotationParser::parseAnnotationArray(int32_t length, $Class* annotati
 
 $Object* AnnotationParser::parseArrayElements($ObjectArray* result, $ByteBuffer* buf, int32_t expectedTag, $Supplier* parseElement) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, exceptionProxy, nullptr);
 	for (int32_t i = 0; i < $nc(result)->length; ++i) {
 		int32_t tag = $nc(buf)->get();
@@ -963,6 +980,7 @@ $Object* AnnotationParser::parseUnknownArray(int32_t length, $ByteBuffer* buf) {
 
 $ExceptionProxy* AnnotationParser::exceptionProxy(int32_t tag) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	return $new($AnnotationTypeMismatchExceptionProxy, $$str({"Array with component tag: "_s, (tag == 0 ? static_cast<$Serializable*>("0"_s) : $(static_cast<$Serializable*>($Character::valueOf((char16_t)tag))))}));
 }
 
@@ -1019,6 +1037,7 @@ void AnnotationParser::skipArray($ByteBuffer* buf) {
 
 bool AnnotationParser::contains($ObjectArray* array, Object$* element) {
 	$init(AnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ObjectArray, arr$, array);
 		int32_t len$ = $nc(arr$)->length;

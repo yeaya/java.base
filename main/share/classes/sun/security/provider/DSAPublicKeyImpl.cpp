@@ -64,6 +64,7 @@ void DSAPublicKeyImpl::init$($bytes* encoded) {
 }
 
 $Object* DSAPublicKeyImpl::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PUBLIC);
 	$var($String, var$1, getAlgorithm());

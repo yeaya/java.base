@@ -79,6 +79,7 @@ void RandomCookie::init$($SecureRandom* generator) {
 }
 
 void RandomCookie::init$($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, randomBytes, $new($bytes, 32));
 	$var($SecureRandom, generator, $nc($nc(context)->sslContext)->getSecureRandom());
 	$nc(generator)->nextBytes(this->randomBytes);

@@ -60,6 +60,7 @@ void StaticInterfaceMethodInWayOfDefault$TestTask::init$() {
 }
 
 $Object* StaticInterfaceMethodInWayOfDefault$TestTask::call() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($StaticInterfaceMethodInWayOfDefault$C_v1);

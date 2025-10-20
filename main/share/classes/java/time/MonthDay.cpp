@@ -239,6 +239,7 @@ MonthDay* MonthDay::now($ZoneId* zone) {
 
 MonthDay* MonthDay::now($Clock* clock) {
 	$init(MonthDay);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, now, $LocalDate::now(clock));
 	$var($Month, var$0, $nc(now)->getMonth());
 	return MonthDay::of(var$0, now->getDayOfMonth());
@@ -246,6 +247,7 @@ MonthDay* MonthDay::now($Clock* clock) {
 
 MonthDay* MonthDay::of($Month* month, int32_t dayOfMonth) {
 	$init(MonthDay);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(month), "month"_s);
 	$init($ChronoField);
 	$ChronoField::DAY_OF_MONTH->checkValidValue(dayOfMonth);
@@ -262,6 +264,7 @@ MonthDay* MonthDay::of(int32_t month, int32_t dayOfMonth) {
 
 MonthDay* MonthDay::from($TemporalAccessor* temporal$renamed) {
 	$init(MonthDay);
+	$useLocalCurrentObjectStackCache();
 	$var($TemporalAccessor, temporal, temporal$renamed);
 	if ($instanceOf(MonthDay, temporal)) {
 		return $cast(MonthDay, temporal);
@@ -307,6 +310,7 @@ bool MonthDay::isSupported($TemporalField* field) {
 }
 
 $ValueRange* MonthDay::range($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	if ($equals(field, $ChronoField::MONTH_OF_YEAR)) {
 		return field->range();
@@ -394,6 +398,7 @@ $Object* MonthDay::query($TemporalQuery* query) {
 }
 
 $Temporal* MonthDay::adjustInto($Temporal* temporal$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Temporal, temporal, temporal$renamed);
 	$init($IsoChronology);
 	if ($nc($($Chronology::from(temporal)))->equals($IsoChronology::INSTANCE) == false) {
@@ -477,6 +482,7 @@ int32_t MonthDay::compareTo(Object$* other) {
 }
 
 void clinit$MonthDay($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$assignStatic(MonthDay::PARSER, $nc($($nc($($nc($($nc($($$new($DateTimeFormatterBuilder)->appendLiteral("--"_s)))->appendValue($ChronoField::MONTH_OF_YEAR, 2)))->appendLiteral(u'-')))->appendValue($ChronoField::DAY_OF_MONTH, 2)))->toFormatter());
 }

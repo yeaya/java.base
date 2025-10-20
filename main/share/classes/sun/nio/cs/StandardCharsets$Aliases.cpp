@@ -73,6 +73,7 @@ void StandardCharsets$Aliases::init$() {
 }
 
 void StandardCharsets$Aliases::init($ObjectArray* ht) {
+	$useLocalCurrentObjectStackCache();
 	$nc(ht)->set(1, $$new($ObjectArray, {
 		$of("csisolatin0"_s),
 		$of("iso-8859-15"_s)

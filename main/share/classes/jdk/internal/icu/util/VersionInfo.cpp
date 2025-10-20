@@ -75,6 +75,7 @@ $String* VersionInfo::INVALID_VERSION_NUMBER_ = nullptr;
 
 VersionInfo* VersionInfo::getInstance($String* version) {
 	$init(VersionInfo);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(version)->length();
 	$var($ints, array, $new($ints, {
 		0,
@@ -111,6 +112,7 @@ VersionInfo* VersionInfo::getInstance($String* version) {
 
 VersionInfo* VersionInfo::getInstance(int32_t major, int32_t minor, int32_t milli, int32_t micro) {
 	$init(VersionInfo);
+	$useLocalCurrentObjectStackCache();
 	if (major < 0 || major > 255 || minor < 0 || minor > 255 || milli < 0 || milli > 255 || micro < 0 || micro > 255) {
 		$throwNew($IllegalArgumentException, VersionInfo::INVALID_VERSION_NUMBER_);
 	}

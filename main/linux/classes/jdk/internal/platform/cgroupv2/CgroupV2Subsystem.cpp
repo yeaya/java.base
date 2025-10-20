@@ -309,6 +309,7 @@ int64_t CgroupV2Subsystem::getLongVal($String* file) {
 
 $CgroupSubsystem* CgroupV2Subsystem::getInstance($CgroupInfo* anyController) {
 	$init(CgroupV2Subsystem);
+	$useLocalCurrentObjectStackCache();
 	if (CgroupV2Subsystem::INSTANCE == nullptr) {
 		$var($String, var$0, $nc(anyController)->getMountPoint());
 		$var($CgroupSubsystemController, unified, $new($CgroupV2SubsystemController, var$0, $(anyController->getCgroupPath())));
@@ -366,6 +367,7 @@ int64_t CgroupV2Subsystem::getCpuQuota() {
 }
 
 int64_t CgroupV2Subsystem::getFromCpuMax(int32_t tokenIdx) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cpuMaxRaw, $CgroupSubsystemController::getStringValue(this->unified, "cpu.max"_s));
 	if (cpuMaxRaw == nullptr) {
 		return $CgroupSubsystem::LONG_RETVAL_UNLIMITED;
@@ -512,6 +514,7 @@ int64_t CgroupV2Subsystem::getBlkIOServiced() {
 }
 
 int64_t CgroupV2Subsystem::sumTokensIOStat($Function* mapFunc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Long, $($nc($($nc($($CgroupUtil::readFilePrivileged($($Paths::get($($nc(this->unified)->path()), $$new($StringArray, {"io.stat"_s}))))))->map(mapFunc)))->collect($($Collectors::summingLong(static_cast<$ToLongFunction*>($$new(CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3)))))))))->longValue();
 	} catch ($UncheckedIOException&) {
@@ -554,6 +557,7 @@ $Long* CgroupV2Subsystem::lineToRBytesAndWBytesIO($String* line) {
 
 $Long* CgroupV2Subsystem::ioStatLineToLong($String* line, $StringArray* matchNames) {
 	$init(CgroupV2Subsystem);
+	$useLocalCurrentObjectStackCache();
 	if (line == nullptr || $nc($of(CgroupV2Subsystem::EMPTY_STR))->equals(line)) {
 		return $Long::valueOf((int64_t)0);
 	}

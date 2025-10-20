@@ -73,6 +73,7 @@ void LongTransferTest$MyJob::init$($ServerSocket* server) {
 }
 
 void LongTransferTest$MyJob::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Socket, s, $nc(this->server)->accept());
 		$init($System);

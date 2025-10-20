@@ -89,6 +89,7 @@ bool ForkJoinTask$Aux::casNext(ForkJoinTask$Aux* c, ForkJoinTask$Aux* v) {
 }
 
 void clinit$ForkJoinTask$Aux($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

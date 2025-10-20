@@ -93,6 +93,7 @@ bool ForkJoinTask$RunnableExecuteAction::exec() {
 }
 
 int32_t ForkJoinTask$RunnableExecuteAction::trySetException($Throwable* ex) {
+	$useLocalCurrentObjectStackCache();
 	int32_t s = 0;
 	$var($Thread, t, nullptr);
 	$var($Thread$UncaughtExceptionHandler, h, nullptr);

@@ -117,6 +117,7 @@ void SwapMicroBenchmark::init$() {
 }
 
 void SwapMicroBenchmark::collectAllGarbage() {
+	$useLocalCurrentObjectStackCache();
 	$var($CountDownLatch, drained, $new($CountDownLatch, 1));
 	try {
 		$System::gc();
@@ -148,6 +149,7 @@ $longs* SwapMicroBenchmark::time0($SwapMicroBenchmark$JobArray* jobs) {
 }
 
 void SwapMicroBenchmark::time($SwapMicroBenchmark$JobArray* jobs) {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, warmup, time0(jobs));
 	$var($longs, nanoss, time0(jobs));
 	$var($longs, milliss, $new($longs, $nc(jobs)->length));
@@ -191,6 +193,7 @@ void SwapMicroBenchmark::time($SwapMicroBenchmark$JobArray* jobs) {
 }
 
 $String* SwapMicroBenchmark::keywordValue($StringArray* args, $String* keyword) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, args);
 		int32_t len$ = $nc(arr$)->length;
@@ -216,6 +219,7 @@ $Pattern* SwapMicroBenchmark::patternArg($StringArray* args, $String* keyword) {
 }
 
 $SwapMicroBenchmark$JobArray* SwapMicroBenchmark::filter($Pattern* filter, $SwapMicroBenchmark$JobArray* jobs) {
+	$useLocalCurrentObjectStackCache();
 	if (filter == nullptr) {
 		return jobs;
 	}
@@ -245,6 +249,7 @@ void SwapMicroBenchmark::deoptimize(int32_t sum) {
 }
 
 void SwapMicroBenchmark::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t iterations = intArg(args, "iterations"_s, 2);
 	int32_t size = intArg(args, "size"_s, 512);
 	$var($Pattern, filter, patternArg(args, "filter"_s));

@@ -71,6 +71,7 @@ void OversynchronizedTest::run() {
 
 void OversynchronizedTest::main($StringArray* args) {
 	$init(OversynchronizedTest);
+	$useLocalCurrentObjectStackCache();
 	$nc(OversynchronizedTest::writer)->println(($Object*)nullptr);
 	int32_t num = 5;
 	$var($OversynchronizedTestArray, t, $new($OversynchronizedTestArray, num));

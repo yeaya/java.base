@@ -101,6 +101,7 @@ $bytes* NamedGroup$FFDHEScheme::encodePossessionPublicKey($NamedGroupPossession*
 }
 
 $SSLCredentials* NamedGroup$FFDHEScheme::decodeCredentials($NamedGroup* ng, $bytes* encoded, $AlgorithmConstraints* constraints, $NamedGroup$ExceptionSupplier* onConstraintFail) {
+	$useLocalCurrentObjectStackCache();
 	$var($DHKeyExchange$DHECredentials, result, $DHKeyExchange$DHECredentials::valueOf(ng, encoded));
 	checkConstraints($($nc(result)->getPublicKey()), constraints, onConstraintFail);
 	return result;

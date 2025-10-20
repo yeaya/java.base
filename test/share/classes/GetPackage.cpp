@@ -43,6 +43,7 @@ void GetPackage::init$() {
 }
 
 void GetPackage::main($StringArray* arg) {
+	$useLocalCurrentObjectStackCache();
 	$var($TestClassLoader, parent, $new($TestClassLoader));
 	$var($TestClassLoader, child, $new($TestClassLoader, parent));
 	child->defineEmptyPackage("foo"_s);

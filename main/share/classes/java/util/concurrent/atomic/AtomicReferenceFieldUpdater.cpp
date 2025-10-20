@@ -91,6 +91,7 @@ $Object* AtomicReferenceFieldUpdater::getAndSet(Object$* obj, Object$* newValue)
 }
 
 $Object* AtomicReferenceFieldUpdater::getAndUpdate(Object$* obj, $UnaryOperator* updateFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, nullptr);
 	$var($Object, next, nullptr);
 	do {
@@ -101,6 +102,7 @@ $Object* AtomicReferenceFieldUpdater::getAndUpdate(Object$* obj, $UnaryOperator*
 }
 
 $Object* AtomicReferenceFieldUpdater::updateAndGet(Object$* obj, $UnaryOperator* updateFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, nullptr);
 	$var($Object, next, nullptr);
 	do {
@@ -111,6 +113,7 @@ $Object* AtomicReferenceFieldUpdater::updateAndGet(Object$* obj, $UnaryOperator*
 }
 
 $Object* AtomicReferenceFieldUpdater::getAndAccumulate(Object$* obj, Object$* x, $BinaryOperator* accumulatorFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, nullptr);
 	$var($Object, next, nullptr);
 	do {
@@ -121,6 +124,7 @@ $Object* AtomicReferenceFieldUpdater::getAndAccumulate(Object$* obj, Object$* x,
 }
 
 $Object* AtomicReferenceFieldUpdater::accumulateAndGet(Object$* obj, Object$* x, $BinaryOperator* accumulatorFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, nullptr);
 	$var($Object, next, nullptr);
 	do {

@@ -41,6 +41,7 @@ void RegionMatches::init$() {
 }
 
 void RegionMatches::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s1, "abc"_s);
 	$var($String, s2, "def"_s);
 	if (!s1->regionMatches(0, s2, 0, $Integer::MIN_VALUE)) {

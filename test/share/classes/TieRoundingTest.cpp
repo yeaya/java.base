@@ -79,6 +79,7 @@ void TieRoundingTest::init$() {
 
 void TieRoundingTest::formatOutputTestDouble($NumberFormat* nf, double doubleToTest, $String* tiePosition, $String* inputDigits, $String* expectedOutput) {
 	$init(TieRoundingTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t mfd = $nc(nf)->getMaximumFractionDigits();
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(doubleToTest));
@@ -114,6 +115,7 @@ void TieRoundingTest::formatOutputTestDouble($NumberFormat* nf, double doubleToT
 
 void TieRoundingTest::formatOutputTestLong($NumberFormat* nf, int64_t longToTest, $String* tiePosition, $String* inputDigits, $String* expectedOutput) {
 	$init(TieRoundingTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t mfd = $nc(nf)->getMaximumFractionDigits();
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(longToTest));
@@ -145,6 +147,7 @@ void TieRoundingTest::formatOutputTestLong($NumberFormat* nf, int64_t longToTest
 
 void TieRoundingTest::formatOutputTestObject($NumberFormat* nf, Object$* someNumber, $String* tiePosition, $String* inputDigits, $String* expectedOutput) {
 	$init(TieRoundingTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t mfd = $nc(nf)->getMaximumFractionDigits();
 	$RoundingMode* rm = nf->getRoundingMode();
 	$var($String, result, nf->format(someNumber));
@@ -177,6 +180,7 @@ void TieRoundingTest::formatOutputTestObject($NumberFormat* nf, Object$* someNum
 
 void TieRoundingTest::main($StringArray* args) {
 	$init(TieRoundingTest);
+	$useLocalCurrentObjectStackCache();
 		$init($RoundingMode);
 	$var($RoundingModeArray, roundingModes, $new($RoundingModeArray, {
 		$RoundingMode::HALF_DOWN,

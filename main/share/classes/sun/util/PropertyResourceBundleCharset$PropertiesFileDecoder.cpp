@@ -85,6 +85,7 @@ $Object* allocate$PropertyResourceBundleCharset$PropertiesFileDecoder($Class* cl
 bool PropertyResourceBundleCharset$PropertiesFileDecoder::$assertionsDisabled = false;
 
 void PropertyResourceBundleCharset$PropertiesFileDecoder::init$($PropertyResourceBundleCharset* this$0, $Charset* cs, float averageCharsPerByte, float maxCharsPerByte) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$CharsetDecoder::init$(cs, averageCharsPerByte, maxCharsPerByte);
 	$init($UTF_8);

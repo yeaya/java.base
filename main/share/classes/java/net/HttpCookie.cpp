@@ -259,6 +259,7 @@ $List* HttpCookie::parse($String* header) {
 
 $List* HttpCookie::parse($String* header$renamed, bool retainHeader) {
 	$init(HttpCookie);
+	$useLocalCurrentObjectStackCache();
 	$var($String, header, header$renamed);
 	int32_t version = guessCookieVersion(header);
 	if (startsWithIgnoreCase(header, HttpCookie::SET_COOKIE2)) {
@@ -406,6 +407,7 @@ void HttpCookie::setHttpOnly(bool httpOnly) {
 
 bool HttpCookie::domainMatches($String* domain, $String* host) {
 	$init(HttpCookie);
+	$useLocalCurrentObjectStackCache();
 	if (domain == nullptr || host == nullptr) {
 		return false;
 	}
@@ -446,6 +448,7 @@ $String* HttpCookie::toString() {
 }
 
 bool HttpCookie::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -473,6 +476,7 @@ bool HttpCookie::equals(Object$* obj) {
 }
 
 int32_t HttpCookie::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h1 = $($nc(this->name)->toLowerCase())->hashCode();
 	int32_t h2 = (this->domain != nullptr) ? $($nc(this->domain)->toLowerCase())->hashCode() : 0;
 	int32_t h3 = (this->path != nullptr) ? $nc(this->path)->hashCode() : 0;
@@ -480,6 +484,7 @@ int32_t HttpCookie::hashCode() {
 }
 
 $Object* HttpCookie::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($Cloneable::clone());
 	} catch ($CloneNotSupportedException&) {
@@ -507,6 +512,7 @@ bool HttpCookie::isToken($String* value) {
 
 HttpCookie* HttpCookie::parseInternal($String* header, bool retainHeader) {
 	$init(HttpCookie);
+	$useLocalCurrentObjectStackCache();
 	$var(HttpCookie, cookie, nullptr);
 	$var($String, namevaluePair, nullptr);
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, header, ";"_s));
@@ -547,6 +553,7 @@ HttpCookie* HttpCookie::parseInternal($String* header, bool retainHeader) {
 
 void HttpCookie::assignAttribute(HttpCookie* cookie, $String* attrName, $String* attrValue$renamed) {
 	$init(HttpCookie);
+	$useLocalCurrentObjectStackCache();
 	$var($String, attrValue, attrValue$renamed);
 	$assign(attrValue, stripOffSurroundingQuote(attrValue));
 	$var($HttpCookie$CookieAttributeAssignor, assignor, $cast($HttpCookie$CookieAttributeAssignor, $nc(HttpCookie::assignors)->get($($nc(attrName)->toLowerCase()))));
@@ -561,11 +568,13 @@ $String* HttpCookie::header() {
 }
 
 $String* HttpCookie::toNetscapeHeaderString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$(getName()), "="_s}));
 	return $concat(var$0, $(getValue()));
 }
 
 $String* HttpCookie::toRFC2965HeaderString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(getName()))->append("=\""_s)->append($(getValue()))->append(u'\"');
 	if (getPath() != nullptr) {
@@ -581,6 +590,7 @@ $String* HttpCookie::toRFC2965HeaderString() {
 }
 
 int64_t HttpCookie::expiryDate2DeltaSeconds($String* dateString) {
+	$useLocalCurrentObjectStackCache();
 	$var($Calendar, cal, $new($GregorianCalendar, HttpCookie::GMT));
 	for (int32_t i = 0; i < $nc(HttpCookie::COOKIE_DATE_FORMATS)->length; ++i) {
 		$init($Locale);
@@ -669,6 +679,7 @@ bool HttpCookie::startsWithIgnoreCase($String* s, $String* start) {
 
 $List* HttpCookie::splitMultiCookies($String* header) {
 	$init(HttpCookie);
+	$useLocalCurrentObjectStackCache();
 	$var($List, cookies, $new($ArrayList));
 	int32_t quoteCount = 0;
 	int32_t p = 0;
@@ -688,6 +699,7 @@ $List* HttpCookie::splitMultiCookies($String* header) {
 }
 
 void clinit$HttpCookie($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(HttpCookie::SET_COOKIE, "set-cookie:"_s);
 	$assignStatic(HttpCookie::SET_COOKIE2, "set-cookie2:"_s);
 	$assignStatic(HttpCookie::tspecials, ",; "_s);

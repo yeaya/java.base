@@ -74,6 +74,7 @@ void ToString::init$() {
 
 void ToString::main($StringArray* args) {
 	$init(ToString);
+	$useLocalCurrentObjectStackCache();
 	bool b = false;
 	$var($Boolean, B, $new($Boolean, b));
 	if (!$nc($(B->toString()))->equals($($Boolean::toString(b)))) {

@@ -84,6 +84,7 @@ void Test7157574::init$() {
 
 void Test7157574::main($StringArray* av) {
 	$load(Test7157574);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Test7157574$Sub);
 	$init($Void);
@@ -114,6 +115,7 @@ void Test7157574::main($StringArray* av) {
 }
 
 void Test7157574::testConcrete($Test7157574$Sub* s, $MethodHandle* m1, $MethodHandle* m2, $MethodHandle* f2, $MethodHandle* f2s, $MethodHandle* chc, $MethodHandle* ihc) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->f2 = 0;
 	$nc(m1)->invokeExact($$new($ObjectArray, {$of(s)}));
 	$var($Object, var$0, $of($Integer::valueOf(-1)));
@@ -134,6 +136,7 @@ void Test7157574::testConcrete($Test7157574$Sub* s, $MethodHandle* m1, $MethodHa
 }
 
 void Test7157574::assertEquals(Object$* expect, Object$* observe) {
+	$useLocalCurrentObjectStackCache();
 	if ($Objects::equals(expect, observe)) {
 		return;
 	}

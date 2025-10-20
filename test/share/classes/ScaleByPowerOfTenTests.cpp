@@ -43,6 +43,7 @@ void ScaleByPowerOfTenTests::init$() {
 }
 
 void ScaleByPowerOfTenTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = -10; i < 10; ++i) {
 		$init($BigDecimal);
 		$var($BigDecimal, bd, $nc($BigDecimal::ONE)->scaleByPowerOfTen(i));

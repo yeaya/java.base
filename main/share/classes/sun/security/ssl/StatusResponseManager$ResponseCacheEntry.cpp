@@ -82,6 +82,7 @@ $Object* allocate$StatusResponseManager$ResponseCacheEntry($Class* clazz) {
 }
 
 void StatusResponseManager$ResponseCacheEntry::init$($bytes* responseBytes, $CertId* cid) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(responseBytes), "Non-null responseBytes required"_s);
 	$Objects::requireNonNull($of(cid), "Non-null Cert ID required"_s);
 	$set(this, ocspBytes, $cast($bytes, $nc(responseBytes)->clone()));

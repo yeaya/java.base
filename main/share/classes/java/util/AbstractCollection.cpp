@@ -73,6 +73,7 @@ bool AbstractCollection::isEmpty() {
 }
 
 bool AbstractCollection::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, it, iterator());
 	if (o == nullptr) {
 		while ($nc(it)->hasNext()) {
@@ -91,6 +92,7 @@ bool AbstractCollection::contains(Object$* o) {
 }
 
 $ObjectArray* AbstractCollection::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, r, $new($ObjectArray, size()));
 	$var($Iterator, it, iterator());
 	for (int32_t i = 0; i < r->length; ++i) {
@@ -103,6 +105,7 @@ $ObjectArray* AbstractCollection::toArray() {
 }
 
 $ObjectArray* AbstractCollection::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = this->size();
 	$var($ObjectArray, r, $nc(a)->length >= size ? a : $cast($ObjectArray, $1Array::newInstance($nc($of(a))->getClass()->getComponentType(), size)));
 	$var($Iterator, it, iterator());
@@ -127,6 +130,7 @@ $ObjectArray* AbstractCollection::toArray($ObjectArray* a) {
 
 $ObjectArray* AbstractCollection::finishToArray($ObjectArray* r$renamed, $Iterator* it) {
 	$init(AbstractCollection);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, r, r$renamed);
 	int32_t len = $nc(r)->length;
 	int32_t i = len;
@@ -146,6 +150,7 @@ bool AbstractCollection::add(Object$* e) {
 }
 
 bool AbstractCollection::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, it, iterator());
 	if (o == nullptr) {
 		while ($nc(it)->hasNext()) {
@@ -166,6 +171,7 @@ bool AbstractCollection::remove(Object$* o) {
 }
 
 bool AbstractCollection::containsAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -179,6 +185,7 @@ bool AbstractCollection::containsAll($Collection* c) {
 }
 
 bool AbstractCollection::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	bool modified = false;
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
@@ -193,6 +200,7 @@ bool AbstractCollection::addAll($Collection* c) {
 }
 
 bool AbstractCollection::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	$var($Iterator, it, iterator());
@@ -206,6 +214,7 @@ bool AbstractCollection::removeAll($Collection* c) {
 }
 
 bool AbstractCollection::retainAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	$var($Iterator, it, iterator());
@@ -227,6 +236,7 @@ void AbstractCollection::clear() {
 }
 
 $String* AbstractCollection::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, it, iterator());
 	if (!$nc(it)->hasNext()) {
 		return "[]"_s;

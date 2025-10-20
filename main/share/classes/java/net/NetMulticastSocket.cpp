@@ -270,6 +270,7 @@ void NetMulticastSocket::init$($DatagramSocketImpl* impl) {
 
 void NetMulticastSocket::connectInternal($InetAddress* address, int32_t port) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (port < 0 || port > 0x0000FFFF) {
 			$throwNew($IllegalArgumentException, $$str({"connect: "_s, $$str(port)}));
 		}
@@ -321,6 +322,7 @@ void NetMulticastSocket::connectInternal($InetAddress* address, int32_t port) {
 
 bool NetMulticastSocket::checkOldImpl($DatagramSocketImpl* impl) {
 	$init(NetMulticastSocket);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($NetMulticastSocket$1, impl)));
@@ -346,6 +348,7 @@ $DatagramSocketImpl* NetMulticastSocket::getImpl() {
 
 void NetMulticastSocket::bind($SocketAddress* addr$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($SocketAddress, addr, addr$renamed);
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
@@ -406,6 +409,7 @@ void NetMulticastSocket::connect($InetAddress* address, int32_t port) {
 }
 
 void NetMulticastSocket::connect($SocketAddress* addr) {
+	$useLocalCurrentObjectStackCache();
 	if (addr == nullptr) {
 		$throwNew($IllegalArgumentException, "Address can\'t be null"_s);
 	}
@@ -476,6 +480,7 @@ $SocketAddress* NetMulticastSocket::getLocalSocketAddress() {
 }
 
 void NetMulticastSocket::send($DatagramPacket* p) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(p) {
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
@@ -516,6 +521,7 @@ void NetMulticastSocket::send($DatagramPacket* p) {
 
 void NetMulticastSocket::receive($DatagramPacket* p) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$synchronized(p) {
 			if (!isBound()) {
 				bind($$new($InetSocketAddress, 0));
@@ -592,6 +598,7 @@ bool NetMulticastSocket::checkFiltering($DatagramPacket* p) {
 }
 
 $InetAddress* NetMulticastSocket::getLocalAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		return nullptr;
 	}
@@ -613,6 +620,7 @@ $InetAddress* NetMulticastSocket::getLocalAddress() {
 }
 
 int32_t NetMulticastSocket::getLocalPort() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		return -1;
 	}
@@ -627,6 +635,7 @@ int32_t NetMulticastSocket::getLocalPort() {
 
 void NetMulticastSocket::setSoTimeout(int32_t timeout) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -639,6 +648,7 @@ void NetMulticastSocket::setSoTimeout(int32_t timeout) {
 
 int32_t NetMulticastSocket::getSoTimeout() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -656,6 +666,7 @@ int32_t NetMulticastSocket::getSoTimeout() {
 
 void NetMulticastSocket::setSendBufferSize(int32_t size) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!(size > 0)) {
 			$throwNew($IllegalArgumentException, "negative send size"_s);
 		}
@@ -668,6 +679,7 @@ void NetMulticastSocket::setSendBufferSize(int32_t size) {
 
 int32_t NetMulticastSocket::getSendBufferSize() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -682,6 +694,7 @@ int32_t NetMulticastSocket::getSendBufferSize() {
 
 void NetMulticastSocket::setReceiveBufferSize(int32_t size) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (size <= 0) {
 			$throwNew($IllegalArgumentException, "invalid receive size"_s);
 		}
@@ -694,6 +707,7 @@ void NetMulticastSocket::setReceiveBufferSize(int32_t size) {
 
 int32_t NetMulticastSocket::getReceiveBufferSize() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -708,6 +722,7 @@ int32_t NetMulticastSocket::getReceiveBufferSize() {
 
 void NetMulticastSocket::setReuseAddress(bool on) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -721,6 +736,7 @@ void NetMulticastSocket::setReuseAddress(bool on) {
 
 bool NetMulticastSocket::getReuseAddress() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -731,6 +747,7 @@ bool NetMulticastSocket::getReuseAddress() {
 
 void NetMulticastSocket::setBroadcast(bool on) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -740,6 +757,7 @@ void NetMulticastSocket::setBroadcast(bool on) {
 
 bool NetMulticastSocket::getBroadcast() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -749,6 +767,7 @@ bool NetMulticastSocket::getBroadcast() {
 
 void NetMulticastSocket::setTrafficClass(int32_t tc) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (tc < 0 || tc > 255) {
 			$throwNew($IllegalArgumentException, "tc is not in range 0 -- 255"_s);
 		}
@@ -768,6 +787,7 @@ void NetMulticastSocket::setTrafficClass(int32_t tc) {
 
 int32_t NetMulticastSocket::getTrafficClass() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -809,6 +829,7 @@ $Object* NetMulticastSocket::getOption($SocketOption* name) {
 }
 
 $Set* NetMulticastSocket::supportedOptions() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, options, this->options);
 	if (options != nullptr) {
 		return options;
@@ -861,6 +882,7 @@ int32_t NetMulticastSocket::getTimeToLive() {
 }
 
 void NetMulticastSocket::joinGroup($InetAddress* mcastaddr) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -880,6 +902,7 @@ void NetMulticastSocket::joinGroup($InetAddress* mcastaddr) {
 }
 
 void NetMulticastSocket::leaveGroup($InetAddress* mcastaddr) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -895,6 +918,7 @@ void NetMulticastSocket::leaveGroup($InetAddress* mcastaddr) {
 }
 
 void NetMulticastSocket::joinGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -922,6 +946,7 @@ void NetMulticastSocket::joinGroup($SocketAddress* mcastaddr, $NetworkInterface*
 }
 
 void NetMulticastSocket::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -961,6 +986,7 @@ void NetMulticastSocket::setInterface($InetAddress* inf) {
 }
 
 $InetAddress* NetMulticastSocket::getInterface() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -1000,6 +1026,7 @@ void NetMulticastSocket::setNetworkInterface($NetworkInterface* netIf) {
 }
 
 $NetworkInterface* NetMulticastSocket::getNetworkInterface() {
+	$useLocalCurrentObjectStackCache();
 	$var($NetworkInterface, ni, $cast($NetworkInterface, $nc($(getImpl()))->getOption($SocketOptions::IP_MULTICAST_IF2)));
 	if (ni == nullptr) {
 		$var($InetAddressArray, addrs, $new($InetAddressArray, 1));
@@ -1011,14 +1038,17 @@ $NetworkInterface* NetMulticastSocket::getNetworkInterface() {
 }
 
 void NetMulticastSocket::setLoopbackMode(bool disable) {
+	$useLocalCurrentObjectStackCache();
 	$nc($(getImpl()))->setOption($SocketOptions::IP_MULTICAST_LOOP, $($Boolean::valueOf(disable)));
 }
 
 bool NetMulticastSocket::getLoopbackMode() {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Boolean, $($nc($(getImpl()))->getOption($SocketOptions::IP_MULTICAST_LOOP)))))->booleanValue();
 }
 
 void NetMulticastSocket::send($DatagramPacket* p, int8_t ttl) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}

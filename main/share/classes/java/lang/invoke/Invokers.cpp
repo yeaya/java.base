@@ -343,6 +343,7 @@ $MethodHandle* Invokers::genericInvoker() {
 }
 
 $MethodHandle* Invokers::basicInvoker() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, invoker, cachedInvoker(Invokers::INV_BASIC));
 	if (invoker != nullptr) {
 		return invoker;
@@ -408,6 +409,7 @@ $MethodHandle* Invokers::setCachedVHInvoker(bool isExact, $VarHandle$AccessMode*
 }
 
 $MethodHandle* Invokers::makeExactOrGeneralInvoker(bool isExact) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, this->targetType);
 	$var($MethodType, invokerType, $nc(mtype)->invokerType());
 	int32_t which = (isExact ? $MethodTypeForm::LF_EX_INVOKER : $MethodTypeForm::LF_GEN_INVOKER);
@@ -423,6 +425,7 @@ $MethodHandle* Invokers::makeExactOrGeneralInvoker(bool isExact) {
 }
 
 $MethodHandle* Invokers::makeVarHandleMethodInvoker($VarHandle$AccessMode* ak, bool isExact) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, this->targetType);
 	$load($VarHandle);
 	$var($MethodType, invokerType, $nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {$VarHandle::class$})));
@@ -449,6 +452,7 @@ void Invokers::maybeCompileToBytecode($MethodHandle* invoker) {
 
 $MemberName* Invokers::invokeBasicMethod($MethodType* basicType) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	if (!Invokers::$assertionsDisabled && !(basicType == $nc(basicType)->basicType())) {
 		$throwNew($AssertionError);
 	}
@@ -464,6 +468,7 @@ $MemberName* Invokers::invokeBasicMethod($MethodType* basicType) {
 }
 
 bool Invokers::checkInvoker($MethodHandle* invoker) {
+	$useLocalCurrentObjectStackCache();
 	if (!Invokers::$assertionsDisabled && !($nc($($nc(this->targetType)->invokerType()))->equals($($of($nc(invoker)->type()))))) {
 		$throwNew($AssertionError, $($of($Arrays::asList($$new($ConstableArray, {
 			static_cast<$Constable*>(this->targetType),
@@ -486,6 +491,7 @@ bool Invokers::checkInvoker($MethodHandle* invoker) {
 }
 
 bool Invokers::checkVarHandleInvoker($MethodHandle* invoker) {
+	$useLocalCurrentObjectStackCache();
 	$load($VarHandle);
 	$var($MethodType, invokerType, $nc(this->targetType)->insertParameterTypes(0, $$new($ClassArray, {$VarHandle::class$})));
 	if (!Invokers::$assertionsDisabled && !($nc(invokerType)->equals($($of($nc(invoker)->type()))))) {
@@ -510,6 +516,7 @@ bool Invokers::checkVarHandleInvoker($MethodHandle* invoker) {
 }
 
 $MethodHandle* Invokers::spreadInvoker(int32_t leadingArgCount) {
+	$useLocalCurrentObjectStackCache();
 	int32_t spreadArgCount = $nc(this->targetType)->parameterCount() - leadingArgCount;
 	$var($MethodType, postSpreadType, this->targetType);
 	$Class* argArrayType = impliedRestargType(postSpreadType, leadingArgCount);
@@ -528,6 +535,7 @@ $MethodHandle* Invokers::spreadInvoker(int32_t leadingArgCount) {
 
 $Class* Invokers::impliedRestargType($MethodType* restargType, int32_t fromPos) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(restargType)->isGeneric()) {
 		$load($ObjectArray);
 		return $getClass($ObjectArray);
@@ -557,6 +565,7 @@ $String* Invokers::toString() {
 
 $MemberName* Invokers::methodHandleInvokeLinkerMethod($String* name, $MethodType* mtype, $ObjectArray* appendixResult) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s11780$, name);
 	int32_t tmp11780$ = -1;
 	switch ($nc(s11780$)->hashCode()) {
@@ -606,6 +615,7 @@ $MemberName* Invokers::methodHandleInvokeLinkerMethod($String* name, $MethodType
 
 $LambdaForm* Invokers::invokeHandleForm($MethodType* mtype$renamed, bool customized, int32_t which) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, mtype$renamed);
 	bool isCached = false;
 	if (!customized) {
@@ -737,6 +747,7 @@ $LambdaForm* Invokers::invokeHandleForm($MethodType* mtype$renamed, bool customi
 
 $MemberName* Invokers::varHandleInvokeLinkerMethod($MethodType* mtype) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(mtype)->parameterSlotCount() > $MethodType::MAX_MH_ARITY - Invokers::MH_LINKER_ARG_APPENDED) {
 		$throw($($MethodHandleStatics::newInternalError($$str({"Unsupported parameter slot count "_s, $$str(mtype->parameterSlotCount())}))));
 	}
@@ -746,6 +757,7 @@ $MemberName* Invokers::varHandleInvokeLinkerMethod($MethodType* mtype) {
 
 $LambdaForm* Invokers::varHandleMethodGenericLinkerHandleForm($MethodType* mtype$renamed) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, mtype$renamed);
 	$assign(mtype, $nc(mtype)->basicType());
 	int32_t which = $MethodTypeForm::LF_VH_GEN_LINKER;
@@ -800,6 +812,7 @@ $LambdaForm* Invokers::varHandleMethodGenericLinkerHandleForm($MethodType* mtype
 
 $LambdaForm* Invokers::varHandleMethodInvokerHandleForm($MethodType* mtype$renamed, bool isExact) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, mtype$renamed);
 	$assign(mtype, $nc(mtype)->basicType());
 	int32_t which = (isExact ? $MethodTypeForm::LF_VH_EX_INVOKER : $MethodTypeForm::LF_VH_GEN_INVOKER);
@@ -862,6 +875,7 @@ $LambdaForm* Invokers::varHandleMethodInvokerHandleForm($MethodType* mtype$renam
 
 $MethodHandle* Invokers::checkVarHandleGenericType($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(handle)->hasInvokeExactBehavior();
 	if (var$0 && handle->accessModeType($nc(ad)->type) != $nc(ad)->symbolicMethodTypeExact) {
 		$throwNew($WrongMethodTypeException, $$str({"expected "_s, $(handle->accessModeType(ad->type)), " but found "_s, ad->symbolicMethodTypeExact}));
@@ -875,6 +889,7 @@ $MethodHandle* Invokers::checkVarHandleGenericType($VarHandle* handle, $VarHandl
 
 $MethodHandle* Invokers::checkVarHandleExactType($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, $nc(handle)->getMethodHandle($nc(ad)->mode));
 	$var($MethodType, mt, $nc(mh)->type());
 	if (mt != $nc(ad)->symbolicMethodTypeInvoker) {
@@ -890,6 +905,7 @@ $WrongMethodTypeException* Invokers::newWrongMethodTypeException($MethodType* ac
 
 void Invokers::checkExactType($MethodHandle* mh, $MethodType* expected) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, actual, $nc(mh)->type());
 	if (actual != expected) {
 		$throw($(newWrongMethodTypeException(expected, actual)));
@@ -920,6 +936,7 @@ $MemberName* Invokers::linkToTargetMethod($MethodType* mtype) {
 
 $LambdaForm* Invokers::callSiteForm($MethodType* mtype$renamed, bool skipCallSite) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, mtype$renamed);
 	$assign(mtype, $nc(mtype)->basicType());
 	int32_t which = (skipCallSite ? $MethodTypeForm::LF_MH_LINKER : $MethodTypeForm::LF_CS_LINKER);
@@ -984,6 +1001,7 @@ void Invokers::maybeCustomize($MethodHandle* mh) {
 
 $LambdaForm$NamedFunction* Invokers::getFunction(int8_t func) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NamedFunction, nf, $nc(Invokers::NFS)->get(func));
 	if (nf != nullptr) {
 		return nf;
@@ -997,6 +1015,7 @@ $LambdaForm$NamedFunction* Invokers::getFunction(int8_t func) {
 
 $LambdaForm$NamedFunction* Invokers::createFunction(int8_t func) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	try {
 
 		$var($LambdaForm$NamedFunction, var$0, nullptr)
@@ -1067,6 +1086,7 @@ $LambdaForm$NamedFunction* Invokers::createFunction(int8_t func) {
 
 $LambdaForm$NamedFunction* Invokers::getNamedFunction($String* name, $MethodType* type) {
 	$init(Invokers);
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, member, $new($MemberName, Invokers::class$, name, type, (int8_t)6));
 	$load($NoSuchMethodException);
 	return $new($LambdaForm$NamedFunction, $($nc($($MemberName::getFactory()))->resolveOrFail((int8_t)6, member, Invokers::class$, -1, $NoSuchMethodException::class$)));

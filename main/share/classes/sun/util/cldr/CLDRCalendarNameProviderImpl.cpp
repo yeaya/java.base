@@ -52,6 +52,7 @@ void CLDRCalendarNameProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set
 }
 
 bool CLDRCalendarNameProviderImpl::isSupportedLocale($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$init($Locale);
 	if ($nc($Locale::ROOT)->equals(locale)) {

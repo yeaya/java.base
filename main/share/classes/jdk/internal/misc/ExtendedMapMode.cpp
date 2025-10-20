@@ -116,6 +116,7 @@ $FileChannel$MapMode* ExtendedMapMode::READ_WRITE_SYNC = nullptr;
 
 $FileChannel$MapMode* ExtendedMapMode::newMapMode($String* name) {
 	$init(ExtendedMapMode);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($FileChannel$MapMode, $nc(ExtendedMapMode::MAP_MODE_CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name)})));
 	} catch ($Throwable&) {
@@ -136,6 +137,7 @@ $MethodHandles$Lookup* ExtendedMapMode::lambda$static$0() {
 }
 
 void clinit$ExtendedMapMode($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

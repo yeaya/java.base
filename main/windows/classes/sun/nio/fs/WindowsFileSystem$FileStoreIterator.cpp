@@ -92,6 +92,7 @@ void WindowsFileSystem$FileStoreIterator::init$($WindowsFileSystem* this$0) {
 }
 
 $FileStore* WindowsFileSystem$FileStoreIterator::readNext() {
+	$useLocalCurrentObjectStackCache();
 	if (!WindowsFileSystem$FileStoreIterator::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

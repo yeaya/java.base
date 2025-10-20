@@ -67,6 +67,7 @@ $String* FileURLMapper::getPath() {
 }
 
 bool FileURLMapper::exists() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, getPath());
 	if (s == nullptr) {
 		return false;

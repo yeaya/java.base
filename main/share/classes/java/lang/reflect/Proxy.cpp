@@ -392,6 +392,7 @@ $Class* Proxy::getProxyClass($ClassLoader* loader, $ClassArray* interfaces) {
 
 $Constructor* Proxy::getProxyConstructor($Class* caller, $ClassLoader* loader, $ClassArray* interfaces) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(interfaces)->length == 1) {
 		$Class* intf = interfaces->get(0);
 		if (caller != nullptr) {
@@ -410,6 +411,7 @@ $Constructor* Proxy::getProxyConstructor($Class* caller, $ClassLoader* loader, $
 
 void Proxy::checkProxyAccess($Class* caller, $ClassLoader* loader, $ClassArray* interfaces) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -432,6 +434,7 @@ $Object* Proxy::newProxyInstance($ClassLoader* loader, $ClassArray* interfaces, 
 
 $Object* Proxy::newProxyInstance($Class* caller, $Constructor* cons, $InvocationHandler* h) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		if (caller != nullptr) {
@@ -458,6 +461,7 @@ $Object* Proxy::newProxyInstance($Class* caller, $Constructor* cons, $Invocation
 
 void Proxy::checkNewProxyPermission($Class* caller, $Class* proxyClass) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -488,6 +492,7 @@ bool Proxy::isProxyClass($Class* cl) {
 
 $InvocationHandler* Proxy::getInvocationHandler(Object$* proxy) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	if (!isProxyClass($nc($of(proxy))->getClass())) {
 		$throwNew($IllegalArgumentException, "not a proxy instance"_s);
 	}
@@ -514,6 +519,7 @@ $ConcurrentHashMap* Proxy::defaultMethodMap($Class* proxyClass) {
 
 $MethodHandle* Proxy::defaultMethodHandle($Class* proxyClass, $Method* method) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ConcurrentHashMap, methods, defaultMethodMap(proxyClass));
 	$var($MethodHandle, superMH, $cast($MethodHandle, $nc(methods)->get(method)));
@@ -554,6 +560,7 @@ $MethodHandle* Proxy::defaultMethodHandle($Class* proxyClass, $Method* method) {
 
 $Class* Proxy::findProxyInterfaceOrElseThrow($Class* proxyClass, $Method* method) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* declaringClass = $nc(method)->getDeclaringClass();
 	if (!$nc(declaringClass)->isInterface()) {
@@ -626,6 +633,7 @@ $MethodHandles$Lookup* Proxy::proxyClassLookup($MethodHandles$Lookup* caller, $C
 
 bool Proxy::lambda$defaultMethodHandle$2($MethodHandle* dmh, $MethodType* type, $Class* proxyClass) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(dmh)->asType($($nc(type)->insertParameterTypes(0, $$new($ClassArray, {proxyClass}))));
 		return true;
@@ -638,11 +646,13 @@ bool Proxy::lambda$defaultMethodHandle$2($MethodHandle* dmh, $MethodType* type, 
 
 $Constructor* Proxy::lambda$getProxyConstructor$1($ClassLoader* ld, $AbstractClassLoaderValue$Sub* clv) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	return $$new($Proxy$ProxyBuilder, ld, $cast($List, $($nc(clv)->key())))->build();
 }
 
 $Constructor* Proxy::lambda$getProxyConstructor$0($ClassLoader* ld, $AbstractClassLoaderValue$Sub* clv) {
 	$init(Proxy);
+	$useLocalCurrentObjectStackCache();
 	return $$new($Proxy$ProxyBuilder, ld, $cast($Class, $($nc(clv)->key())))->build();
 }
 

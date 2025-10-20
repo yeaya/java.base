@@ -99,6 +99,7 @@ $Object* KeyValueHolder::setValue(Object$* value) {
 }
 
 bool KeyValueHolder::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {

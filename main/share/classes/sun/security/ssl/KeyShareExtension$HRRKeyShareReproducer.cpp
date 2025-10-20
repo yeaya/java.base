@@ -87,6 +87,7 @@ void KeyShareExtension$HRRKeyShareReproducer::init$() {
 }
 
 $bytes* KeyShareExtension$HRRKeyShareReproducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::HRR_KEY_SHARE)) {

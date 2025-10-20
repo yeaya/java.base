@@ -133,6 +133,7 @@ void CipherOutputStream::flush() {
 }
 
 void CipherOutputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}

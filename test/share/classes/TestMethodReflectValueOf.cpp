@@ -76,6 +76,7 @@ void TestMethodReflectValueOf::init$() {
 }
 
 void TestMethodReflectValueOf::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool checkIdentity = $Boolean::getBoolean("sun.reflect.noInflation"_s);
 	testMethod($Boolean::TYPE, $Boolean::FALSE, checkIdentity);
 	testMethod($Boolean::TYPE, $Boolean::TRUE, checkIdentity);
@@ -103,6 +104,7 @@ void TestMethodReflectValueOf::main($StringArray* args) {
 
 void TestMethodReflectValueOf::testMethod($Class* primType, Object$* wrappedValue, bool checkIdentity) {
 	$load(TestMethodReflectValueOf);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, methodName, $str({$($nc(primType)->getName()), "Method"_s}));
 	try {

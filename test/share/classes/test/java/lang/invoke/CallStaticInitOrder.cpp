@@ -163,6 +163,7 @@ int32_t CallStaticInitOrder::tick($String* event) {
 	$load(CallStaticInitOrder);
 	$synchronized(class$) {
 		$init(CallStaticInitOrder);
+		$useLocalCurrentObjectStackCache();
 		int32_t n = ++CallStaticInitOrder::TICK;
 		$init($System);
 		$nc($System::out)->println($$str({"event #"_s, $$str(n), " = "_s, event}));
@@ -172,6 +173,7 @@ int32_t CallStaticInitOrder::tick($String* event) {
 
 $MethodHandle* CallStaticInitOrder::MH_foo() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($CallStaticInitOrder$Init1);
 	$init($Integer);
@@ -180,6 +182,7 @@ $MethodHandle* CallStaticInitOrder::MH_foo() {
 
 $MethodHandle* CallStaticInitOrder::MH_baz() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($CallStaticInitOrder$Init3);
 	$init($Integer);
@@ -196,6 +199,7 @@ void CallStaticInitOrder::main($StringArray* av) {
 
 void CallStaticInitOrder::assertEquals(int32_t expected, int32_t actual) {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	if (expected != actual) {
 		$var($Throwable, loser, $new($AssertionError, $of($$str({"expected: "_s, $$str(expected), ", actual: "_s, $$str(actual)}))));
 		if (CallStaticInitOrder::LAST_LOSER != nullptr) {
@@ -208,6 +212,7 @@ void CallStaticInitOrder::assertEquals(int32_t expected, int32_t actual) {
 
 void CallStaticInitOrder::testInit() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"runFoo = "_s, $$str(runFoo())}));
 	$nc($System::out)->println($$str({"runBar = "_s, $$str(runBar())}));
@@ -226,6 +231,7 @@ void CallStaticInitOrder::testInit() {
 
 int32_t CallStaticInitOrder::runFoo() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	assertEquals(CallStaticInitOrder::Init1Tick, 0);
 	int32_t t1 = tick("runFoo"_s);
 	int32_t t2 = $intValue($nc($(INDY_foo()))->invokeExact($$new($ObjectArray, 0)));
@@ -238,6 +244,7 @@ int32_t CallStaticInitOrder::runFoo() {
 
 $MethodHandle* CallStaticInitOrder::INDY_foo() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -248,6 +255,7 @@ $MethodHandle* CallStaticInitOrder::INDY_foo() {
 
 int32_t CallStaticInitOrder::runBar() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	assertEquals(CallStaticInitOrder::Init2Tick, 0);
 	int32_t t1 = tick("runBar"_s);
 	int32_t t2 = $intValue($nc($(INDY_bar()))->invokeExact($$new($ObjectArray, 0)));
@@ -260,6 +268,7 @@ int32_t CallStaticInitOrder::runBar() {
 
 $MethodHandle* CallStaticInitOrder::INDY_bar() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -270,6 +279,7 @@ $MethodHandle* CallStaticInitOrder::INDY_bar() {
 
 int32_t CallStaticInitOrder::runBaz() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	assertEquals(CallStaticInitOrder::Init3Tick, 0);
 	int32_t t1 = tick("runBaz"_s);
 	int32_t t2 = $intValue($nc($(INDY_baz()))->invokeExact($$new($ObjectArray, 0)));
@@ -282,6 +292,7 @@ int32_t CallStaticInitOrder::runBaz() {
 
 $MethodHandle* CallStaticInitOrder::INDY_baz() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -292,6 +303,7 @@ $MethodHandle* CallStaticInitOrder::INDY_baz() {
 
 int32_t CallStaticInitOrder::runBat() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	assertEquals(CallStaticInitOrder::Init4Tick, 0);
 	int32_t t1 = tick("runBat"_s);
 	int32_t t2 = $intValue($nc($(INDY_bat()))->invokeExact($$new($ObjectArray, 0)));
@@ -304,6 +316,7 @@ int32_t CallStaticInitOrder::runBat() {
 
 $MethodHandle* CallStaticInitOrder::INDY_bat() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -314,6 +327,7 @@ $MethodHandle* CallStaticInitOrder::INDY_bat() {
 
 int32_t CallStaticInitOrder::runBang() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	assertEquals(CallStaticInitOrder::Init5Tick, 0);
 	int32_t t1 = tick("runBang"_s);
 	int32_t t2 = $intValue($nc($(INDY_bang()))->invokeExact($$new($ObjectArray, 0)));
@@ -326,6 +340,7 @@ int32_t CallStaticInitOrder::runBang() {
 
 $MethodHandle* CallStaticInitOrder::INDY_bang() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -336,6 +351,7 @@ $MethodHandle* CallStaticInitOrder::INDY_bang() {
 
 int32_t CallStaticInitOrder::runPong() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	assertEquals(CallStaticInitOrder::Init6Tick, 0);
 	int32_t t1 = tick("runPong"_s);
 	int32_t t2 = $intValue($nc($(INDY_pong()))->invokeExact($$new($ObjectArray, 0)));
@@ -348,6 +364,7 @@ int32_t CallStaticInitOrder::runPong() {
 
 $MethodHandle* CallStaticInitOrder::INDY_pong() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -358,6 +375,7 @@ $MethodHandle* CallStaticInitOrder::INDY_pong() {
 
 $CallSite* CallStaticInitOrder::bsm($MethodHandles$Lookup* caller, $String* name, $MethodType* type) {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"bsm "_s, name, type}));
 	$var($CallSite, res, nullptr);
@@ -453,6 +471,7 @@ $CallSite* CallStaticInitOrder::bsm($MethodHandles$Lookup* caller, $String* name
 
 $MethodHandle* CallStaticInitOrder::MH_bsm() {
 	$init(CallStaticInitOrder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
@@ -472,6 +491,7 @@ void CallStaticInitOrder::shouldNotCallThis() {
 }
 
 void clinit$CallStaticInitOrder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

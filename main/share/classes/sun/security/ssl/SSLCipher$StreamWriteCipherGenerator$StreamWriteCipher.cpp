@@ -109,6 +109,7 @@ void SSLCipher$StreamWriteCipherGenerator$StreamWriteCipher::init$($Authenticato
 }
 
 int32_t SSLCipher$StreamWriteCipherGenerator$StreamWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {
 		$SSLCipher::addMac(signer, bb, contentType);

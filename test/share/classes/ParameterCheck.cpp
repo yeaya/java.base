@@ -75,6 +75,7 @@ void ParameterCheck::init$() {
 
 void ParameterCheck::doTest($String* method) {
 	$init(ParameterCheck);
+	$useLocalCurrentObjectStackCache();
 	$var($File, fn, $new($File, "x.ParameterCheck"_s));
 	$var($RandomAccessFile, raf, nullptr);
 	{
@@ -163,6 +164,7 @@ void ParameterCheck::doTest($String* method) {
 
 void ParameterCheck::printErr($String* method, int32_t numGood, int32_t i, $String* expStr) {
 	$init(ParameterCheck);
+	$useLocalCurrentObjectStackCache();
 	++ParameterCheck::numBad;
 	$init($System);
 	$nc($System::err)->println($$str({"\nNumber passed so far = "_s, $$str(numGood), "\nUnexpected "_s, expStr}));
@@ -175,6 +177,7 @@ void ParameterCheck::printErr($String* method, int32_t numGood, int32_t i, $Stri
 
 void ParameterCheck::main($StringArray* argv) {
 	$init(ParameterCheck);
+	$useLocalCurrentObjectStackCache();
 	doTest("read"_s);
 	doTest("readFully"_s);
 	doTest("write"_s);

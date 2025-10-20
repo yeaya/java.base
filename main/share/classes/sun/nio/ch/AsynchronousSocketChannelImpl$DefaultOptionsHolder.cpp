@@ -91,6 +91,7 @@ void AsynchronousSocketChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* AsynchronousSocketChannelImpl$DefaultOptionsHolder::defaultOptions() {
 	$init(AsynchronousSocketChannelImpl$DefaultOptionsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet, 5));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_SNDBUF);

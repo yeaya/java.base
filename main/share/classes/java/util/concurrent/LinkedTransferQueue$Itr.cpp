@@ -77,6 +77,7 @@ $Object* allocate$LinkedTransferQueue$Itr($Class* clazz) {
 }
 
 void LinkedTransferQueue$Itr::advance($LinkedTransferQueue$Node* pred$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, pred, pred$renamed);
 	{
 		$var($LinkedTransferQueue$Node, p, (pred == nullptr) ? $cast($LinkedTransferQueue$Node, this->this$0->head) : $cast($LinkedTransferQueue$Node, $nc(pred)->next));
@@ -125,6 +126,7 @@ bool LinkedTransferQueue$Itr::hasNext() {
 }
 
 $Object* LinkedTransferQueue$Itr::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, p, nullptr);
 	if (($assign(p, this->nextNode)) == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -135,6 +137,7 @@ $Object* LinkedTransferQueue$Itr::next() {
 }
 
 void LinkedTransferQueue$Itr::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($LinkedTransferQueue$Node, q, nullptr);
 	{
@@ -149,6 +152,7 @@ void LinkedTransferQueue$Itr::forEachRemaining($Consumer* action) {
 }
 
 void LinkedTransferQueue$Itr::remove() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, lastRet, this->lastRet);
 	if (lastRet == nullptr) {
 		$throwNew($IllegalStateException);

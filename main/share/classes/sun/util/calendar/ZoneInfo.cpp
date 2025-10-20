@@ -266,6 +266,7 @@ int32_t ZoneInfo::getTransitionIndex(int64_t date, int32_t type) {
 }
 
 int32_t ZoneInfo::getOffset(int32_t era, int32_t year, int32_t month, int32_t day, int32_t dayOfWeek, int32_t milliseconds) {
+	$useLocalCurrentObjectStackCache();
 	if (milliseconds < 0 || milliseconds >= $AbstractCalendar::DAY_IN_MILLIS) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -373,6 +374,7 @@ int32_t ZoneInfo::getDSTSavings() {
 }
 
 $String* ZoneInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[id=\""_s}));
 	$var($String, var$10, $$concat(var$11, $(getID())));
 	$var($String, var$9, $$concat(var$10, "\",offset="));
@@ -413,6 +415,7 @@ $SimpleTimeZone* ZoneInfo::getLastRule() {
 }
 
 $SimpleTimeZone* ZoneInfo::getLastRuleInstance() {
+	$useLocalCurrentObjectStackCache();
 	if (this->simpleTimeZoneParams == nullptr) {
 		return nullptr;
 	}
@@ -435,6 +438,7 @@ int32_t ZoneInfo::hashCode() {
 }
 
 bool ZoneInfo::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}

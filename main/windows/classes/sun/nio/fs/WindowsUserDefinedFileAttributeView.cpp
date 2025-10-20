@@ -130,6 +130,7 @@ void WindowsUserDefinedFileAttributeView::init$($WindowsPath* file, bool followL
 }
 
 $List* WindowsUserDefinedFileAttributeView::listUsingStreamEnumeration() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList));
 	try {
 		$var($WindowsNativeDispatcher$FirstStream, first, $WindowsNativeDispatcher::FindFirstStream($($nc(this->file)->getPathForWin32Calls())));
@@ -172,6 +173,7 @@ $List* WindowsUserDefinedFileAttributeView::list() {
 }
 
 int32_t WindowsUserDefinedFileAttributeView::size($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -217,6 +219,7 @@ int32_t WindowsUserDefinedFileAttributeView::size($String* name) {
 }
 
 int32_t WindowsUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -270,6 +273,7 @@ int32_t WindowsUserDefinedFileAttributeView::read($String* name, $ByteBuffer* ds
 }
 
 int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), false, true);
 	}
@@ -347,6 +351,7 @@ int32_t WindowsUserDefinedFileAttributeView::write($String* name, $ByteBuffer* s
 }
 
 void WindowsUserDefinedFileAttributeView::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), false, true);
 	}

@@ -190,6 +190,7 @@ void AVA::init$($Reader* in, int32_t format) {
 }
 
 void AVA::init$($Reader* in, int32_t format, $Map* keywordMap) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, temp, $new($StringBuilder));
 	int32_t c = 0;
 	while (true) {
@@ -233,6 +234,7 @@ $DerValue* AVA::getDerValue() {
 }
 
 $String* AVA::getValueString() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s, $nc(this->value)->getAsString());
 		if (s == nullptr) {
@@ -248,6 +250,7 @@ $String* AVA::getValueString() {
 
 $DerValue* AVA::parseHexString($Reader* in, int32_t format) {
 	$init(AVA);
+	$useLocalCurrentObjectStackCache();
 	int32_t c = 0;
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	int8_t b = (int8_t)0;
@@ -281,6 +284,7 @@ $DerValue* AVA::parseHexString($Reader* in, int32_t format) {
 }
 
 $DerValue* AVA::parseQuotedString($Reader* in, $StringBuilder* temp) {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = readChar(in, "Quoted string did not end in quote"_s);
 	$var($List, embeddedHex, $new($ArrayList));
 	bool isPrintableString = true;
@@ -331,6 +335,7 @@ $DerValue* AVA::parseQuotedString($Reader* in, $StringBuilder* temp) {
 }
 
 $DerValue* AVA::parseString($Reader* in, int32_t c, int32_t format, $StringBuilder* temp) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, embeddedHex, $new($ArrayList));
 	bool isPrintableString = true;
 	bool escape = false;
@@ -430,6 +435,7 @@ $Byte* AVA::getEmbeddedHexPair(int32_t c1, $Reader* in) {
 
 $String* AVA::getEmbeddedHexString($List* hexList) {
 	$init(AVA);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(hexList)->size();
 	$var($bytes, hexBytes, $new($bytes, n));
 	for (int32_t i = 0; i < n; ++i) {
@@ -501,6 +507,7 @@ bool AVA::trailingSpace($Reader* in) {
 }
 
 void AVA::init$($DerValue* derval) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(derval)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "AVA not a sequence"_s);
 	}
@@ -516,6 +523,7 @@ void AVA::init$($DerInputStream* in) {
 }
 
 bool AVA::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -535,6 +543,7 @@ void AVA::encode($DerOutputStream* out) {
 }
 
 void AVA::derEncode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$var($DerOutputStream, tmp2, $new($DerOutputStream));
 	tmp->putOID(this->oid);
@@ -548,6 +557,7 @@ $String* AVA::toKeyword(int32_t format, $Map* oidMap) {
 }
 
 $String* AVA::toString() {
+	$useLocalCurrentObjectStackCache();
 	return toKeywordValueString($(toKeyword(AVA::DEFAULT, $($Collections::emptyMap()))));
 }
 
@@ -564,6 +574,7 @@ $String* AVA::toRFC2253String() {
 }
 
 $String* AVA::toRFC2253String($Map* oidMap) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, typeAndValue, $new($StringBuilder, 100));
 	typeAndValue->append($(toKeyword(AVA::RFC2253, oidMap)));
 	typeAndValue->append(u'=');
@@ -635,6 +646,7 @@ $String* AVA::toRFC2253String($Map* oidMap) {
 }
 
 $String* AVA::toRFC2253CanonicalString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, typeAndValue, $new($StringBuilder, 40));
 	typeAndValue->append($(toKeyword(AVA::RFC2253, $($Collections::emptyMap()))));
 	typeAndValue->append(u'=');
@@ -741,6 +753,7 @@ bool AVA::hasRFC2253Keyword() {
 }
 
 $String* AVA::toKeywordValueString($String* keyword) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, retval, $new($StringBuilder, 40));
 	retval->append(keyword);
 	retval->append(u'=');

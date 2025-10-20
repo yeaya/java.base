@@ -176,6 +176,7 @@ void SealedObjectForKeyProtector::init$($SealedObject* so) {
 }
 
 $AlgorithmParameters* SealedObjectForKeyProtector::getParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->encodedParams != nullptr) {
 		try {
@@ -193,6 +194,7 @@ $AlgorithmParameters* SealedObjectForKeyProtector::getParameters() {
 }
 
 $Key* SealedObjectForKeyProtector::getKey($Cipher* c, int32_t maxLength) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($ObjectInputStream, ois, $nc($($SharedSecrets::getJavaxCryptoSealedObjectAccess()))->getExtObjectInputStream(this, c));

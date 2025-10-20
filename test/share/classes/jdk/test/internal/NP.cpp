@@ -38,6 +38,7 @@ $Object* allocate$NP($Class* clazz) {
 }
 
 int32_t NP::m() {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($UnsupportedOperationException, $$str({"non-public interface: "_s, $(NP::class$->getName())}));
 	$shouldNotReachHere();
 }

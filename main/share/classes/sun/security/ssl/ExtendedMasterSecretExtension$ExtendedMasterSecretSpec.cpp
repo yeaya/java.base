@@ -89,6 +89,7 @@ void ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::init$() {
 }
 
 void ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->hasRemaining()) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid extended_master_secret extension data: not empty"_s)))));

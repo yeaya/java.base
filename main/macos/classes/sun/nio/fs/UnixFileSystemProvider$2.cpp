@@ -79,6 +79,7 @@ void UnixFileSystemProvider$2::init$($UnixFileSystemProvider* this$0, $AbstractF
 }
 
 $String* UnixFileSystemProvider$2::implProbeContentType($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($AbstractFileTypeDetectorArray, arr$, this->val$detectors);
 		int32_t len$ = $nc(arr$)->length;

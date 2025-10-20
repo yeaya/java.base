@@ -43,6 +43,7 @@ void TestIncompleteAnnotationExceptionNPE::init$() {
 }
 
 void TestIncompleteAnnotationExceptionNPE::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	$load($Annotation);
 	$Class* annotationType = $Annotation::class$;

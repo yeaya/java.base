@@ -43,6 +43,7 @@ void launcher_zh_CN::init$() {
 }
 
 $ObjectArray2* launcher_zh_CN::getContents() {
+	$useLocalCurrentObjectStackCache();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("java.launcher.X.macosx.usage"_s),

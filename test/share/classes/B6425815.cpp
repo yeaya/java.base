@@ -48,6 +48,7 @@ void B6425815::init$() {
 }
 
 void B6425815::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, ia, nullptr);
 	$var($MulticastSocket, ms, nullptr);
 	try {

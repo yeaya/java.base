@@ -95,6 +95,7 @@ $Provider* Providers::getSunProvider() {
 
 $Object* Providers::startJarVerification() {
 	$init(Providers);
+	$useLocalCurrentObjectStackCache();
 	$var($ProviderList, currentList, getProviderList());
 	$var($ProviderList, jarList, $nc(currentList)->getJarList(Providers::jarVerificationProviders));
 	if ($nc(jarList)->getProvider("SUN"_s) == nullptr) {
@@ -142,6 +143,7 @@ void Providers::clearCachedValues() {
 
 $ProviderList* Providers::getFullProviderList() {
 	$init(Providers);
+	$useLocalCurrentObjectStackCache();
 	$var($ProviderList, list, nullptr);
 	$synchronized(Providers::class$) {
 		$assign(list, getThreadProviderList());
@@ -190,6 +192,7 @@ $ProviderList* Providers::beginThreadProviderList($ProviderList* list) {
 	$load(Providers);
 	$synchronized(class$) {
 		$init(Providers);
+		$useLocalCurrentObjectStackCache();
 		$init($ProviderList);
 		if ($ProviderList::debug != nullptr) {
 			$nc($ProviderList::debug)->println($$str({"ThreadLocal providers: "_s, list}));

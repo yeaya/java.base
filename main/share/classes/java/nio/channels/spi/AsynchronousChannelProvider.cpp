@@ -78,6 +78,7 @@ $Object* allocate$AsynchronousChannelProvider($Class* clazz) {
 }
 
 $Void* AsynchronousChannelProvider::checkPermission() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "asynchronousChannelProvider"_s));

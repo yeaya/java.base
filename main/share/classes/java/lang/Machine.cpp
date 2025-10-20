@@ -44,7 +44,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/Thread.h>
 #include <java/lang/ThreadGroup.h>
-//#include <java/lang/Shutdown.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/SoftReference.h>
@@ -96,6 +95,7 @@
 #include <java/lang/ObjectManagerInternal.h>
 #include <java/lang/ConstStringManager.h>
 #include <java/lang/Logger.h>
+#include <java.base.h>
 #include "Platform.h"
 #include <string.h>
 
@@ -431,9 +431,13 @@ void Machine::init1() {
 	log_debug("Machine::init1 enter\n");
 	LibItem* baseLib = findLibByName(JAVA_BASE_LIB_NAME);
 	if (baseLib == nullptr) {
-		printf("can not find " JAVA_BASE_LIB_NAME);
-		log_error("can not find " JAVA_BASE_LIB_NAME);
-		exit(1);
+		java$base::init();
+		baseLib = findLibByName(JAVA_BASE_LIB_NAME);
+		if (baseLib == nullptr) {
+			printf("can not find %s lib" JAVA_BASE_LIB_NAME);
+			log_error("can not find %s lib" JAVA_BASE_LIB_NAME);
+			exit(1);
+		}
 	}
 
 	if (pendingClasses == nullptr) {

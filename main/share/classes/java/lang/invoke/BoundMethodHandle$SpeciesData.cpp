@@ -122,6 +122,7 @@ void BoundMethodHandle$SpeciesData::init$($BoundMethodHandle$Specializer* outer,
 }
 
 $String* BoundMethodHandle$SpeciesData::deriveClassName() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, typeString, deriveTypeString());
 	if ($nc(typeString)->isEmpty()) {
 		$load($SimpleMethodHandle);
@@ -132,6 +133,7 @@ $String* BoundMethodHandle$SpeciesData::deriveClassName() {
 }
 
 $List* BoundMethodHandle$SpeciesData::deriveFieldTypes($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, types, $new($ArrayList, $nc(key)->length()));
 	for (int32_t i = 0; i < $nc(key)->length(); ++i) {
 		types->add($nc($($LambdaForm$BasicType::basicType(key->charAt(i))))->basicTypeClass());
@@ -144,6 +146,7 @@ $String* BoundMethodHandle$SpeciesData::deriveTypeString() {
 }
 
 $MethodHandle* BoundMethodHandle$SpeciesData::deriveTransformHelper($MemberName* transform, int32_t whichtm) {
+	$useLocalCurrentObjectStackCache();
 	$init($BoundMethodHandle$Specializer);
 	if (whichtm == $BoundMethodHandle$Specializer::TN_COPY_NO_EXTEND) {
 		return factory();
@@ -166,6 +169,7 @@ $List* BoundMethodHandle$SpeciesData::deriveTransformHelperArguments($MemberName
 }
 
 bool BoundMethodHandle$SpeciesData::verifyTHAargs($MemberName* transform, int32_t whichtm, $List* args, $List* fields) {
+	$useLocalCurrentObjectStackCache();
 	$init($BoundMethodHandle$Specializer);
 	if (!BoundMethodHandle$SpeciesData::$assertionsDisabled && !($equals(transform, $nc($BoundMethodHandle$Specializer::BMH_TRANSFORMS)->get(whichtm)))) {
 		$throwNew($AssertionError);
@@ -213,6 +217,7 @@ bool BoundMethodHandle$SpeciesData::verifyTHAargs($MemberName* transform, int32_
 }
 
 BoundMethodHandle$SpeciesData* BoundMethodHandle$SpeciesData::extendWith(int8_t typeNum) {
+	$useLocalCurrentObjectStackCache();
 	$var(BoundMethodHandle$SpeciesData, sd, $nc(this->extensions)->get(typeNum));
 	if (sd != nullptr) {
 		return sd;

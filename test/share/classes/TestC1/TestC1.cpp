@@ -107,6 +107,7 @@ void TestC1::testSuperInterfaces() {
 
 void TestC1::testTypeParameters() {
 	$init(TestC1);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestC1::cls)->getTypeParameters());
@@ -126,6 +127,7 @@ void TestC1::testTypeParameters() {
 
 void TestC1::testMethods() {
 	$init(TestC1);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing methods"_s);
@@ -249,6 +251,7 @@ void TestC1::testMethods() {
 
 void TestC1::testFields() {
 	$init(TestC1);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing fields"_s);
@@ -309,6 +312,7 @@ void TestC1::testFields() {
 
 void TestC1::testConstructor() {
 	$init(TestC1);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing constructors"_s);

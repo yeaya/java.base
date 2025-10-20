@@ -173,6 +173,7 @@ bool Bits::unaligned() {
 
 void Bits::reserveMemory(int64_t size, int64_t cap) {
 	$init(Bits);
+	$useLocalCurrentObjectStackCache();
 	if (!Bits::MEMORY_LIMIT_SET && $VM::initLevel() >= 1) {
 		Bits::MAX_MEMORY = $VM::maxDirectMemory();
 		Bits::MEMORY_LIMIT_SET = true;

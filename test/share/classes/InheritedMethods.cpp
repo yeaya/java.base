@@ -58,6 +58,7 @@ void InheritedMethods::main($StringArray* args) {
 }
 
 void InheritedMethods::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($InheritedMethods$Foo);
 	$Class* c = $InheritedMethods$Foo::class$;

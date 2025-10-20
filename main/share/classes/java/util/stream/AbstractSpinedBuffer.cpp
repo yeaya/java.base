@@ -70,6 +70,7 @@ void AbstractSpinedBuffer::init$() {
 }
 
 void AbstractSpinedBuffer::init$(int32_t initialCapacity) {
+	$useLocalCurrentObjectStackCache();
 	if (initialCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal Capacity: "_s, $$str(initialCapacity)}));
 	}

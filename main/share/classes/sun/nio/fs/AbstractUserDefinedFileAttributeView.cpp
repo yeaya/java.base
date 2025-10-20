@@ -110,6 +110,7 @@ void AbstractUserDefinedFileAttributeView::init$() {
 }
 
 void AbstractUserDefinedFileAttributeView::checkAccess($String* file, bool checkRead, bool checkWrite) {
+	$useLocalCurrentObjectStackCache();
 	if (!AbstractUserDefinedFileAttributeView::$assertionsDisabled && !(checkRead || checkWrite)) {
 		$throwNew($AssertionError);
 	}
@@ -140,6 +141,7 @@ void AbstractUserDefinedFileAttributeView::setAttribute($String* attribute, Obje
 }
 
 $Map* AbstractUserDefinedFileAttributeView::readAttributes($StringArray* attributes) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, names, $new($ArrayList));
 	{
 		$var($StringArray, arr$, attributes);

@@ -140,6 +140,7 @@ void MembershipRegistry::init$() {
 }
 
 $MembershipKey* MembershipRegistry::checkMembership($InetAddress* group, $NetworkInterface* interf, $InetAddress* source) {
+	$useLocalCurrentObjectStackCache();
 	if (this->groups != nullptr) {
 		$var($List, keys, $cast($List, $nc(this->groups)->get(group)));
 		if (keys != nullptr) {
@@ -171,6 +172,7 @@ $MembershipKey* MembershipRegistry::checkMembership($InetAddress* group, $Networ
 }
 
 void MembershipRegistry::add($MembershipKeyImpl* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, group, $nc(key)->group());
 	$var($List, keys, nullptr);
 	if (this->groups == nullptr) {
@@ -187,6 +189,7 @@ void MembershipRegistry::add($MembershipKeyImpl* key) {
 }
 
 void MembershipRegistry::remove($MembershipKeyImpl* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, group, $nc(key)->group());
 	$var($List, keys, $cast($List, $nc(this->groups)->get(group)));
 	if (keys != nullptr) {
@@ -204,6 +207,7 @@ void MembershipRegistry::remove($MembershipKeyImpl* key) {
 }
 
 void MembershipRegistry::forEach($MembershipRegistry$ThrowingConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (this->groups != nullptr) {
 		{
 			$var($Iterator, i$, $nc($($nc(this->groups)->values()))->iterator());

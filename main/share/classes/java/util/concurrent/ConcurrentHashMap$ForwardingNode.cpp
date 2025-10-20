@@ -68,6 +68,7 @@ void ConcurrentHashMap$ForwardingNode::init$($ConcurrentHashMap$NodeArray* tab) 
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$ForwardingNode::find(int32_t h, Object$* k) {
+	$useLocalCurrentObjectStackCache();
 	bool outer$continue = false;
 	{
 		$var($ConcurrentHashMap$NodeArray, tab, this->nextTable);

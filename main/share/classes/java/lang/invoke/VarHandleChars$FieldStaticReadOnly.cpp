@@ -139,6 +139,7 @@ VarHandleChars$FieldStaticReadOnly* VarHandleChars$FieldStaticReadOnly::withInvo
 }
 
 $Optional* VarHandleChars$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Character);
 	$var($Optional, fieldTypeRef, $nc($Character::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

@@ -69,6 +69,7 @@ void MS950$EncodeHolder::init$() {
 }
 
 void clinit$MS950$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MS950$EncodeHolder::c2b, $new($chars, 31488));
 	$assignStatic(MS950$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

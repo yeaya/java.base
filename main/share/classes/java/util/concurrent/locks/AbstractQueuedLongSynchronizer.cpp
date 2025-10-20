@@ -182,6 +182,7 @@ void AbstractQueuedLongSynchronizer::tryInitializeHead() {
 }
 
 void AbstractQueuedLongSynchronizer::enqueue($AbstractQueuedLongSynchronizer$Node* node) {
+	$useLocalCurrentObjectStackCache();
 	if (node != nullptr) {
 		for (;;) {
 			$var($AbstractQueuedLongSynchronizer$Node, t, this->tail);
@@ -233,6 +234,7 @@ void AbstractQueuedLongSynchronizer::signalNextIfShared($AbstractQueuedLongSynch
 }
 
 int32_t AbstractQueuedLongSynchronizer::acquire($AbstractQueuedLongSynchronizer$Node* node$renamed, int64_t arg, bool shared, bool interruptible, bool timed, int64_t time) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractQueuedLongSynchronizer$Node, node, node$renamed);
 	$var($Thread, current, $Thread::currentThread());
 	int8_t spins = (int8_t)0;
@@ -322,6 +324,7 @@ int32_t AbstractQueuedLongSynchronizer::acquire($AbstractQueuedLongSynchronizer$
 }
 
 void AbstractQueuedLongSynchronizer::cleanQueue() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		{
 			$var($AbstractQueuedLongSynchronizer$Node, q, this->tail);
@@ -492,6 +495,7 @@ bool AbstractQueuedLongSynchronizer::releaseShared(int64_t arg) {
 }
 
 bool AbstractQueuedLongSynchronizer::hasQueuedThreads() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($AbstractQueuedLongSynchronizer$Node, p, this->tail);
 		$var($AbstractQueuedLongSynchronizer$Node, h, this->head);
@@ -509,6 +513,7 @@ bool AbstractQueuedLongSynchronizer::hasContended() {
 }
 
 $Thread* AbstractQueuedLongSynchronizer::getFirstQueuedThread() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, first, nullptr);
 	$var($Thread, w, nullptr);
 	$var($AbstractQueuedLongSynchronizer$Node, h, nullptr);
@@ -549,6 +554,7 @@ bool AbstractQueuedLongSynchronizer::isQueued($Thread* thread) {
 }
 
 bool AbstractQueuedLongSynchronizer::apparentlyFirstQueuedIsExclusive() {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractQueuedLongSynchronizer$Node, h, nullptr);
 	$var($AbstractQueuedLongSynchronizer$Node, s, nullptr);
 	bool var$2 = ($assign(h, this->head)) != nullptr;
@@ -558,6 +564,7 @@ bool AbstractQueuedLongSynchronizer::apparentlyFirstQueuedIsExclusive() {
 }
 
 bool AbstractQueuedLongSynchronizer::hasQueuedPredecessors() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, first, nullptr);
 	$var($AbstractQueuedLongSynchronizer$Node, h, nullptr);
 	$var($AbstractQueuedLongSynchronizer$Node, s, nullptr);
@@ -587,6 +594,7 @@ int32_t AbstractQueuedLongSynchronizer::getQueueLength() {
 }
 
 $Collection* AbstractQueuedLongSynchronizer::getQueuedThreads() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, list, $new($ArrayList));
 	{
 		$var($AbstractQueuedLongSynchronizer$Node, p, this->tail);
@@ -601,6 +609,7 @@ $Collection* AbstractQueuedLongSynchronizer::getQueuedThreads() {
 }
 
 $Collection* AbstractQueuedLongSynchronizer::getExclusiveQueuedThreads() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, list, $new($ArrayList));
 	{
 		$var($AbstractQueuedLongSynchronizer$Node, p, this->tail);
@@ -617,6 +626,7 @@ $Collection* AbstractQueuedLongSynchronizer::getExclusiveQueuedThreads() {
 }
 
 $Collection* AbstractQueuedLongSynchronizer::getSharedQueuedThreads() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, list, $new($ArrayList));
 	{
 		$var($AbstractQueuedLongSynchronizer$Node, p, this->tail);
@@ -633,6 +643,7 @@ $Collection* AbstractQueuedLongSynchronizer::getSharedQueuedThreads() {
 }
 
 $String* AbstractQueuedLongSynchronizer::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({$($AbstractOwnableSynchronizer::toString()), "[State = "_s}));
 	$var($String, var$2, $$concat(var$3, $$str(getState())));
 	$var($String, var$1, $$concat(var$2, ", "));

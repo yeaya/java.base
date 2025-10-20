@@ -131,7 +131,7 @@ namespace java {
 #define JCPP_OBJECT_VAR_STACK_DUAL_STACK
 //#define JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS
 //#define JCPP_OBJECT_STACK_OFFSET_MODE
-class ObjectStack {
+class $export ObjectStack {
 public:
 #ifdef JCPP_OBJECT_STACK_OFFSET_MODE
 	void init(void** varStack, Object** refStack) {
@@ -243,8 +243,28 @@ public:
 	}
 };
 
+class ObjectStackCache {
+public:
+	inline static ObjectStack*& currentObjectStack() {
+		thread_local ObjectStack* objectStack = nullptr;
+		return objectStack;
+	}
+};
+
+#define $setObjectStackCache() ::java::lang::ObjectStackCache::currentObjectStack() = ::java::lang::ObjectStack::currentObjectStack()
+
+#ifdef JCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE
+	#define $getCurrentObjectStatck() ::java::lang::ObjectStackCache::currentObjectStack()
+	#define $onLibThreadStart(event) $setObjectStackCache()
+#else
+	#define $getCurrentObjectStatck() ::java::lang::ObjectStack::currentObjectStack()
+	#define $onLibThreadStart(event)
+#endif
+
 class $export ObjectManager {
 public:
+	static void attachCurrentThread();
+	static void detachCurrentThread();
 	static ObjectStack* getCurrentObjectStack();
 	static void* langObjectToObject0Address;
 	static inline void* getToObject0Address(const Object$* obj) {
@@ -340,24 +360,6 @@ public:
 
 	static void setObjectArrayClass(ObjectArray* array, Class* clazz);
 
-	//static Object* assignLocal(Object*& var, Object* value);
-	//static Object* assignLocal(Object*& var, Object0* value);
-	//static Object* assignLocal(Object0*& var, Object0* value);
-	//static Object* assignLocal(Object*& var, ::std::nullptr_t);
-	//static Object* assignLocal(Object0*& var, ::std::nullptr_t);
-	/*
-#ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
-	static Object*& pushLocalVar(Object$* value);
-#elif defined(JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS)
-	static void pushLocalVar(Object** addr);
-#else
-	static Object*& pushLocalVar(Object$* value);
-#endif
-	static void popLocalVar();
-
-	static void pushLocalRef(Object$* obj);
-	static void popLocalRef();
-	*/
 	// for JNI
 	static void prepareNative();
 	static void finishNative();
@@ -431,35 +433,54 @@ inline ::java::lang::MagicRef<T> makeMagicRef(const $volatile(T)& t) {
 }
 
 #ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
-template<typename T>
+template<typename T, typename S = int32_t>
 class ObjectVar {
 public:
-	inline ObjectVar(T* value) {
-		var = &ObjectStack::currentObjectStack()->pushLocalVar(value);
+	inline ObjectVar(T* value, int32_t) {
+		var = &$getCurrentObjectStatck()->pushLocalVar(value);
 	}
-	inline void assign(T* value) {
+	inline T* assign(T* value) {
 		*var = (Object*)(void*)value;
+		return value;
 	}
 	inline ~ObjectVar() {
-		ObjectStack::currentObjectStack()->popLocalVar((void**)var);
+		$getCurrentObjectStatck()->popLocalVar((void**)var);
 	}
 	Object** volatile var;
 };
+template<typename T>
+class ObjectVar<T, ObjectStack*> {
+public:
+	inline ObjectVar(T* value, ObjectStack* s) {
+		var = &s->pushLocalVar(value);
+		objectStack = s;
+	}
+	inline T* assign(T* value) {
+		*var = (Object*)(void*)value;
+		return value;
+	}
+	inline ~ObjectVar() {
+		objectStack->popLocalVar((void**)var);
+	}
+	Object** volatile var;
+	ObjectStack* objectStack;
+};
+#define $ref(...) ::java::lang::makeRef($localCurrentObjectStackCache, __VA_ARGS__).t
+#define $var(type, name, ...) \
+			type* name = $tryCast<type>(__VA_ARGS__); \
+			::java::lang::ObjectVar<type, decltype($localCurrentObjectStackCache)> name##$objvar(name, $localCurrentObjectStackCache);
+#define $auto(name, ...) \
+			auto name = __VA_ARGS__; \
+			::java::lang::ObjectVar<decltype(*name), decltype($localCurrentObjectStackCache)> name##$objvar(name, $localCurrentObjectStackCache);
 #elif defined(JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS)
 template<typename T>
 class ObjectVar {
 public:
 	inline ObjectVar(Object** addr) {
-		//ObjectManager::pushLocalVar(addr);
-	   //ObjectManager::getCurrentObjectStack()->pushLocalVar(addr);
-		ObjectStack::currentObjectStack()->pushLocalVar(addr);
-		//currentObjectStack->pushLocalVar(addr);
+		$getCurrentObjectStatck()->pushLocalVar(addr);
 	}
 	inline ~ObjectVar() {
-		//ObjectManager::popLocalVar();
-	   //ObjectManager::getCurrentObjectStack()->popLocalVar();
-		ObjectStack::currentObjectStack()->popLocalVar();
-		//currentObjectStack->popLocalVar();
+		$getCurrentObjectStatck()->popLocalVar();
 	}
 };
 #else
@@ -467,24 +488,15 @@ template<typename T>
 class ObjectVar {
 public:
 	//inline ObjectVar() {}
-	//inline ObjectVar(T* value) {
-	//	 //ObjectManager::pushLocalVar(addr);
-	//	//ObjectManager::getCurrentObjectStack()->pushLocalVar(addr);
-	//	ObjectStack::currentObjectStack()->pushLocalVar(value);
-	//	//currentObjectStack->pushLocalVar(addr);
-	//}
 	inline Object*& pushLocalVal(T* value) {
-		return ObjectStack::currentObjectStack()->pushLocalVar(value);
+		return $getCurrentObjectStatck()->pushLocalVar(value);
 	}
 	inline ~ObjectVar() {
-		 //ObjectManager::popLocalVar();
-		//ObjectManager::getCurrentObjectStack()->popLocalVar();
-		ObjectStack::currentObjectStack()->popLocalVar();
-		//currentObjectStack->popLocalVar();
+		$getCurrentObjectStatck()->popLocalVar();
 	}
 };
 #endif
-template<typename T>
+template<typename T, typename S = int32_t>
 class Ref {
 public:
 	Ref(const Ref&) = delete;
@@ -492,32 +504,48 @@ public:
 		this->t = ref.t;
 		ref.t = nullptr;
 	}
-	inline Ref(T* t) : t(t) {
+	inline Ref(T* t, int32_t) : t(t) {
 		if (t != nullptr) {
-			//ObjectManager::pushLocalRef($of(t));
-			//ObjectManager::getCurrentObjectStack()->pushLocalRef($of(t));
-			ObjectStack::currentObjectStack()->pushLocalRef($of(t));
-			//	currentObjectStack->pushLocalRef($of(t));
+			$getCurrentObjectStatck()->pushLocalRef($of(t));
 		}
 	}
 	inline ~Ref() {
 		if (t != nullptr) {
-			//ObjectManager::popLocalRef();
-			//ObjectManager::getCurrentObjectStack()->popLocalRef();
-			ObjectStack::currentObjectStack()->popLocalRef();
-			//	currentObjectStack->popLocalRef();
+			$getCurrentObjectStatck()->popLocalRef();
 		}
 	}
 	T* t;
 };
+template<typename T>
+class Ref<T, ObjectStack*> {
+public:
+	Ref(const Ref&) = delete;
+	inline Ref(Ref&& ref) {
+		this->t = ref.t;
+		this->objectStack = ref.objectStack;
+		ref.t = nullptr;
+	}
+	inline Ref(T* t, ObjectStack* s) : t(t), objectStack(s) {
+		if (t != nullptr) {
+			s->pushLocalRef($of(t));
+		}
+	}
+	inline ~Ref() {
+		if (t != nullptr) {
+			objectStack->popLocalRef();
+		}
+	}
+	T* t;
+	ObjectStack* objectStack;
+};
 
-template<typename T>
-inline ::java::lang::Ref<T> makeRef(T* t) {
-	return ::java::lang::Ref<T>(t);
+template<typename T, typename S>
+inline ::java::lang::Ref<T, S> makeRef(S s, T* t) {
+	return ::java::lang::Ref<T, S>(t, s);
 }
-template<typename T>
-inline ::java::lang::Ref<T> makeRef(const $volatile(T)& t) {
-	return ::java::lang::Ref<T>(t.get());
+template<typename T, typename S>
+inline ::java::lang::Ref<T, S> makeRef(S s, const $volatile(T)& t) {
+	return ::java::lang::Ref<T, S>(t.get(), s);
 }
 
 template<typename T>
@@ -544,13 +572,24 @@ public:
 	}
 };
 
+template<typename T>
+void attachCurrentThread() {
+	::java::lang::ObjectManager::attachCurrentThread();
+}
+
+template<typename T>
+void detachCurrentThread() {
+	::java::lang::ObjectManager::detachCurrentThread();
+}
+
 	} // lang
 } // java
 
-#ifdef _WIN32
-	#define $setCurrentObjectStack() ::java::lang::ObjectStack::currentObjectStack() = ::java::lang::ObjectManager::getCurrentObjectStack() 
-#else
-	#define $setCurrentObjectStack()
-#endif
+// 0: default is disable
+const int32_t $localCurrentObjectStackCache = 0;
+#define $useLocalCurrentObjectStackCache() ::java::lang::ObjectStack* $localCurrentObjectStackCache = $getCurrentObjectStatck()
+
+#define $attachCurrentThread() ::java::lang::attachCurrentThread<void>()
+#define $detachCurrentThread() ::java::lang::detachCurrentThread<void>()
 
 #endif // _java_lang_ObjectManager_h_

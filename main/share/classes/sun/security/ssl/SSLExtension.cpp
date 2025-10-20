@@ -638,6 +638,7 @@ $String* SSLExtension::toString() {
 }
 
 $String* SSLExtension::toString($HandshakeContext* handshakeContext, $ByteBuffer* byteBuffer) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"{0} ({1})\": \'{\'\n{2}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($String, extData, nullptr);
@@ -657,6 +658,7 @@ $String* SSLExtension::toString($HandshakeContext* handshakeContext, $ByteBuffer
 
 $Collection* SSLExtension::getDisabledExtensions($String* propertyName) {
 	$init(SSLExtension);
+	$useLocalCurrentObjectStackCache();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propertyName));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {

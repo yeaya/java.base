@@ -110,6 +110,7 @@ $Object* allocate$HelloVerifyRequest$HelloVerifyRequestMessage($Class* clazz) {
 }
 
 void HelloVerifyRequest$HelloVerifyRequestMessage::init$($HandshakeContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
@@ -120,6 +121,7 @@ void HelloVerifyRequest$HelloVerifyRequestMessage::init$($HandshakeContext* cont
 }
 
 void HelloVerifyRequest$HelloVerifyRequestMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	if ($nc(m)->remaining() < 3) {
@@ -148,6 +150,7 @@ void HelloVerifyRequest$HelloVerifyRequestMessage::send($HandshakeOutStream* hos
 }
 
 $String* HelloVerifyRequest$HelloVerifyRequestMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"HelloVerifyRequest\": \'{\'\n  \"server version\"      : \"{0}\",\n  \"cookie\"              : \"{1}\",\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {

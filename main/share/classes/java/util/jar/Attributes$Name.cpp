@@ -237,6 +237,7 @@ void Attributes$Name::addName($Map* names, Attributes$Name* name) {
 }
 
 void clinit$Attributes$Name($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$CDS::initializeFromArchive(Attributes$Name::class$);
 		if (Attributes$Name::KNOWN_NAMES == nullptr) {

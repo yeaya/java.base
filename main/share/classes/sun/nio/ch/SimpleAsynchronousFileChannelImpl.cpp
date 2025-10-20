@@ -159,6 +159,7 @@ $AsynchronousFileChannel* SimpleAsynchronousFileChannelImpl::open($FileDescripto
 }
 
 void SimpleAsynchronousFileChannelImpl::close() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->fdObj) {
 		if (this->closed) {
 			return;
@@ -175,6 +176,7 @@ void SimpleAsynchronousFileChannelImpl::close() {
 }
 
 int64_t SimpleAsynchronousFileChannelImpl::size() {
+	$useLocalCurrentObjectStackCache();
 	int32_t ti = $nc(this->threads)->add();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -224,6 +226,7 @@ int64_t SimpleAsynchronousFileChannelImpl::size() {
 }
 
 $AsynchronousFileChannel* SimpleAsynchronousFileChannelImpl::truncate(int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (size < (int64_t)0) {
 		$throwNew($IllegalArgumentException, "Negative size"_s);
 	}
@@ -284,6 +287,7 @@ $AsynchronousFileChannel* SimpleAsynchronousFileChannelImpl::truncate(int64_t si
 }
 
 void SimpleAsynchronousFileChannelImpl::force(bool metaData) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ti = $nc(this->threads)->add();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -317,6 +321,7 @@ void SimpleAsynchronousFileChannelImpl::force(bool metaData) {
 }
 
 $Future* SimpleAsynchronousFileChannelImpl::implLock(int64_t position, int64_t size, bool shared, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (shared && !this->reading) {
 		$throwNew($NonReadableChannelException);
 	}
@@ -355,6 +360,7 @@ $Future* SimpleAsynchronousFileChannelImpl::implLock(int64_t position, int64_t s
 }
 
 $FileLock* SimpleAsynchronousFileChannelImpl::tryLock(int64_t position, int64_t size, bool shared) {
+	$useLocalCurrentObjectStackCache();
 	if (shared && !this->reading) {
 		$throwNew($NonReadableChannelException);
 	}
@@ -418,6 +424,7 @@ void SimpleAsynchronousFileChannelImpl::implRelease($FileLockImpl* fli) {
 }
 
 $Future* SimpleAsynchronousFileChannelImpl::implRead($ByteBuffer* dst, int64_t position, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (position < 0) {
 		$throwNew($IllegalArgumentException, "Negative position"_s);
 	}
@@ -443,6 +450,7 @@ $Future* SimpleAsynchronousFileChannelImpl::implRead($ByteBuffer* dst, int64_t p
 }
 
 $Future* SimpleAsynchronousFileChannelImpl::implWrite($ByteBuffer* src, int64_t position, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (position < 0) {
 		$throwNew($IllegalArgumentException, "Negative position"_s);
 	}

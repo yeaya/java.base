@@ -103,6 +103,7 @@ void ServerNameExtension$CHServerNameConsumer::init$() {
 }
 
 void ServerNameExtension$CHServerNameConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_SERVER_NAME)) {
@@ -148,6 +149,7 @@ void ServerNameExtension$CHServerNameConsumer::consume($ConnectionContext* conte
 
 $SNIServerName* ServerNameExtension$CHServerNameConsumer::chooseSni($Collection* matchers, $List* sniNames) {
 	$init(ServerNameExtension$CHServerNameConsumer);
+	$useLocalCurrentObjectStackCache();
 	if (sniNames != nullptr && !sniNames->isEmpty()) {
 		{
 			$var($Iterator, i$, $nc(matchers)->iterator());

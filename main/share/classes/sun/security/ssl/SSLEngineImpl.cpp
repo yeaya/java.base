@@ -275,6 +275,7 @@ void SSLEngineImpl::init$($SSLContextImpl* sslContext) {
 }
 
 void SSLEngineImpl::init$($SSLContextImpl* sslContext, $String* host, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$SSLEngine::init$(host, port);
 	$set(this, engineLock, $new($ReentrantLock));
 	$set(this, sslContext, sslContext);
@@ -294,6 +295,7 @@ void SSLEngineImpl::init$($SSLContextImpl* sslContext, $String* host, int32_t po
 }
 
 void SSLEngineImpl::beginHandshake() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -328,6 +330,7 @@ $SSLEngineResult* SSLEngineImpl::wrap($ByteBufferArray* appData, int32_t offset,
 }
 
 $SSLEngineResult* SSLEngineImpl::wrap($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -370,6 +373,7 @@ $SSLEngineResult* SSLEngineImpl::wrap($ByteBufferArray* srcs, int32_t srcsOffset
 }
 
 $SSLEngineResult* SSLEngineImpl::writeRecord($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->conContext)->needHandshakeFinishedStatus) {
 		$nc(this->conContext)->needHandshakeFinishedStatus = false;
 		$init($SSLEngineResult$Status);
@@ -453,6 +457,7 @@ $SSLEngineResult* SSLEngineImpl::writeRecord($ByteBufferArray* srcs, int32_t src
 }
 
 $Ciphertext* SSLEngineImpl::encode($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($Ciphertext, ciphertext, nullptr);
 	try {
 		$assign(ciphertext, $nc($nc(this->conContext)->outputRecord)->encode(srcs, srcsOffset, srcsLength, dsts, dstsOffset, dstsLength));
@@ -524,6 +529,7 @@ $SSLEngineResult$HandshakeStatus* SSLEngineImpl::tryKeyUpdate($SSLEngineResult$H
 }
 
 $SSLEngineResult$HandshakeStatus* SSLEngineImpl::tryNewSessionTicket($SSLEngineResult$HandshakeStatus* currentHandshakeStatus) {
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = ($nc(this->conContext)->handshakeContext == nullptr) && $nc($nc(this->conContext)->protocolVersion)->useTLS13PlusSpec();
 	bool var$0 = var$1 && !$nc(this->conContext)->isOutboundClosed();
 	if (var$0 && !$nc(this->conContext)->isInboundClosed() && !$nc(this->conContext)->isBroken) {
@@ -541,6 +547,7 @@ $SSLEngineResult$HandshakeStatus* SSLEngineImpl::tryNewSessionTicket($SSLEngineR
 
 void SSLEngineImpl::checkParams($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
 	$init(SSLEngineImpl);
+	$useLocalCurrentObjectStackCache();
 	if ((srcs == nullptr) || (dsts == nullptr)) {
 		$throwNew($IllegalArgumentException, "source or destination buffer is null"_s);
 	}
@@ -570,6 +577,7 @@ $SSLEngineResult* SSLEngineImpl::unwrap($ByteBuffer* src, $ByteBufferArray* dsts
 }
 
 $SSLEngineResult* SSLEngineImpl::unwrap($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -612,6 +620,7 @@ $SSLEngineResult* SSLEngineImpl::unwrap($ByteBufferArray* srcs, int32_t srcsOffs
 }
 
 $SSLEngineResult* SSLEngineImpl::readRecord($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	if (isInboundDone()) {
 		$init($SSLEngineResult$Status);
 		return $new($SSLEngineResult, $SSLEngineResult$Status::CLOSED, $($nc(this->conContext)->getHandshakeStatus()), 0, 0);
@@ -760,6 +769,7 @@ $Plaintext* SSLEngineImpl::decode($ByteBufferArray* srcs, int32_t srcsOffset, in
 }
 
 $Runnable* SSLEngineImpl::getDelegatedTask() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -788,6 +798,7 @@ $Runnable* SSLEngineImpl::getDelegatedTask() {
 }
 
 void SSLEngineImpl::closeInbound() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -846,6 +857,7 @@ bool SSLEngineImpl::isInboundDone() {
 }
 
 void SSLEngineImpl::closeOutbound() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -904,6 +916,7 @@ $StringArray* SSLEngineImpl::getSupportedCipherSuites() {
 }
 
 $StringArray* SSLEngineImpl::getEnabledCipherSuites() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -950,6 +963,7 @@ $StringArray* SSLEngineImpl::getSupportedProtocols() {
 }
 
 $StringArray* SSLEngineImpl::getEnabledProtocols() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -995,6 +1009,7 @@ void SSLEngineImpl::setEnabledProtocols($StringArray* protocols) {
 }
 
 $SSLSession* SSLEngineImpl::getSession() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1020,6 +1035,7 @@ $SSLSession* SSLEngineImpl::getSession() {
 }
 
 $SSLSession* SSLEngineImpl::getHandshakeSession() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1045,6 +1061,7 @@ $SSLSession* SSLEngineImpl::getHandshakeSession() {
 }
 
 $SSLEngineResult$HandshakeStatus* SSLEngineImpl::getHandshakeStatus() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1242,6 +1259,7 @@ bool SSLEngineImpl::getEnableSessionCreation() {
 }
 
 $SSLParameters* SSLEngineImpl::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1287,6 +1305,7 @@ void SSLEngineImpl::setSSLParameters($SSLParameters* params) {
 }
 
 $String* SSLEngineImpl::getApplicationProtocol() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1312,6 +1331,7 @@ $String* SSLEngineImpl::getApplicationProtocol() {
 }
 
 $String* SSLEngineImpl::getHandshakeApplicationProtocol() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1354,6 +1374,7 @@ void SSLEngineImpl::setHandshakeApplicationProtocolSelector($BiFunction* selecto
 }
 
 $BiFunction* SSLEngineImpl::getHandshakeApplicationProtocolSelector() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->engineLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1383,6 +1404,7 @@ bool SSLEngineImpl::useDelegatedTask() {
 }
 
 $String* SSLEngineImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({"SSLEngine[hostname="_s, $(getPeerHost()), ", port="_s}));
 	$var($String, var$2, $$concat(var$3, $$str(getPeerPort())));
 	$var($String, var$1, $$concat(var$2, ", "));
@@ -1391,6 +1413,7 @@ $String* SSLEngineImpl::toString() {
 }
 
 void SSLEngineImpl::checkTaskThrown() {
+	$useLocalCurrentObjectStackCache();
 	$var($Exception, exc, nullptr);
 	$nc(this->engineLock)->lock();
 	{
@@ -1434,6 +1457,7 @@ void SSLEngineImpl::checkTaskThrown() {
 
 $SSLException* SSLEngineImpl::getTaskThrown($Exception* taskThrown) {
 	$init(SSLEngineImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, $nc(taskThrown)->getMessage());
 	if (msg == nullptr) {
 		$assign(msg, "Delegated task threw Exception or Error"_s);

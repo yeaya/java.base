@@ -95,6 +95,7 @@ void ServerHello$T13HelloRetryRequestReproducer::init$() {
 }
 
 $bytes* ServerHello$T13HelloRetryRequestReproducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$CipherSuite* cipherSuite = $nc(shc)->negotiatedCipherSuite;

@@ -175,6 +175,7 @@ int32_t AESKeyWrapPadded::encryptFinal($bytes* pt, int32_t dummy1, int32_t ptLen
 }
 
 int32_t AESKeyWrapPadded::decryptFinal($bytes* ct, int32_t dummy1, int32_t ctLen, $bytes* dummy2, int32_t dummy3) {
+	$useLocalCurrentObjectStackCache();
 	if (ctLen < 16 || ctLen % 8 != 0) {
 		$throwNew($IllegalBlockSizeException, "data should be at least 16 bytes and multiples of 8"_s);
 	}

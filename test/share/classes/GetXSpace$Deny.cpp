@@ -60,6 +60,7 @@ void GetXSpace$Deny::init$() {
 }
 
 void GetXSpace$Deny::checkPermission($Permission* p) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(p)->implies($$new($RuntimePermission, "setSecurityManager"_s));
 	if (var$0 || $nc(p)->implies($$new($RuntimePermission, "getProtectionDomain"_s))) {
 		return;
@@ -68,6 +69,7 @@ void GetXSpace$Deny::checkPermission($Permission* p) {
 }
 
 void GetXSpace$Deny::checkPermission($Permission* p, Object$* context) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(p)->implies($$new($RuntimePermission, "setSecurityManager"_s));
 	if (var$0 || $nc(p)->implies($$new($RuntimePermission, "getProtectionDomain"_s))) {
 		return;

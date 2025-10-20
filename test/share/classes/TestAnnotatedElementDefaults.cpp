@@ -94,6 +94,7 @@ void TestAnnotatedElementDefaults::init$() {
 }
 
 void TestAnnotatedElementDefaults::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	{
 		$var($Iterator, i$, $nc($(elementsToTest()))->iterator());
@@ -125,6 +126,7 @@ void TestAnnotatedElementDefaults::main($StringArray* args) {
 
 $List* TestAnnotatedElementDefaults::elementsToTest() {
 	$load(TestAnnotatedElementDefaults);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, annotatedElements, $new($ArrayList));
 	$load($TestClass1SuperB);
@@ -177,6 +179,7 @@ $List* TestAnnotatedElementDefaults::annotationsToTest() {
 }
 
 int32_t TestAnnotatedElementDefaults::testNullHandling($AnnotatedElementDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	try {
 		$var($Object, result, $nc(delegate)->getDeclaredAnnotationsByType(nullptr));

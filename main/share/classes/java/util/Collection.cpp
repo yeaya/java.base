@@ -84,6 +84,7 @@ $ObjectArray* Collection::toArray($IntFunction* generator) {
 }
 
 bool Collection::removeIf($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(filter);
 	bool removed = false;
 	$var($Iterator, each, iterator());

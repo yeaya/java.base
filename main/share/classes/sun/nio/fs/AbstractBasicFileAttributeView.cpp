@@ -142,6 +142,7 @@ $String* AbstractBasicFileAttributeView::name() {
 }
 
 void AbstractBasicFileAttributeView::setAttribute($String* attribute, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(attribute)->equals(AbstractBasicFileAttributeView::LAST_MODIFIED_TIME_NAME)) {
 		setTimes($cast($FileTime, value), nullptr, nullptr);
 		return;
@@ -158,6 +159,7 @@ void AbstractBasicFileAttributeView::setAttribute($String* attribute, Object$* v
 }
 
 void AbstractBasicFileAttributeView::addRequestedBasicAttributes($BasicFileAttributes* attrs, $AbstractBasicFileAttributeView$AttributesBuilder* builder) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(builder)->match(AbstractBasicFileAttributeView::SIZE_NAME)) {
 		builder->add(AbstractBasicFileAttributeView::SIZE_NAME, $($Long::valueOf($nc(attrs)->size())));
 	}
@@ -188,6 +190,7 @@ void AbstractBasicFileAttributeView::addRequestedBasicAttributes($BasicFileAttri
 }
 
 $Map* AbstractBasicFileAttributeView::readAttributes($StringArray* requested) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(AbstractBasicFileAttributeView::basicAttributeNames, requested));
 	addRequestedBasicAttributes($(readAttributes()), builder);
 	return $nc(builder)->unmodifiableMap();

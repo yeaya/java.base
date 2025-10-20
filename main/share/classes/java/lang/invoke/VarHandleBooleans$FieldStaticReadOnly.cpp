@@ -139,6 +139,7 @@ VarHandleBooleans$FieldStaticReadOnly* VarHandleBooleans$FieldStaticReadOnly::wi
 }
 
 $Optional* VarHandleBooleans$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	$var($Optional, fieldTypeRef, $nc($Boolean::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

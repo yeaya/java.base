@@ -90,6 +90,7 @@ void PSSParameters::init$() {
 }
 
 void PSSParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($PSSParameterSpec, paramSpec))) {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
@@ -106,6 +107,7 @@ void PSSParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void PSSParameters::engineInit($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$init($PSSParameterSpec);
 	$var($String, mdName, $nc($PSSParameterSpec::DEFAULT)->getDigestAlgorithm());
 	$var($MGF1ParameterSpec, mgfSpec, $cast($MGF1ParameterSpec, $nc($PSSParameterSpec::DEFAULT)->getMGFParameters()));
@@ -336,6 +338,7 @@ $String* PSSParameters::engineToString() {
 
 $bytes* PSSParameters::getEncoded($PSSParameterSpec* spec) {
 	$init(PSSParameters);
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, mgfSpec, $nc(spec)->getMGFParameters());
 	if (!($instanceOf($MGF1ParameterSpec, mgfSpec))) {
 		$throwNew($IOException, $$str({"Cannot encode "_s, mgfSpec}));

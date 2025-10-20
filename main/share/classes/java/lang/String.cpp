@@ -689,6 +689,7 @@ void String::init$($bytes* bytes, int32_t offset, int32_t length, String* charse
 }
 
 void String::init$($bytes* bytes$renamed, int32_t offset, int32_t length, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, bytes, bytes$renamed);
 	$Objects::requireNonNull(charset);
 	checkBoundsOffCount(offset, length, $nc(bytes)->length);
@@ -847,6 +848,7 @@ void String::init$($bytes* bytes$renamed, int32_t offset, int32_t length, $Chars
 
 String* String::newStringUTF8NoRepl($bytes* bytes, int32_t offset, int32_t length) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	checkBoundsOffCount(offset, length, $nc(bytes)->length);
 	if (length == 0) {
 		return ""_s;
@@ -900,6 +902,7 @@ String* String::newStringUTF8NoRepl($bytes* bytes, int32_t offset, int32_t lengt
 
 String* String::newStringNoRepl($bytes* src, $Charset* cs) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return newStringNoRepl1(src, cs);
 	} catch ($IllegalArgumentException&) {
@@ -923,6 +926,7 @@ String* String::newStringNoRepl($bytes* src, $Charset* cs) {
 
 String* String::newStringNoRepl1($bytes* src$renamed, $Charset* cs) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, src, src$renamed);
 	int32_t len = $nc(src)->length;
 	if (len == 0) {
@@ -996,6 +1000,7 @@ int32_t String::scale(int32_t len, float expansionFactor) {
 
 $Charset* String::lookupCharset(String* csn) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(csn);
 	try {
 		return $Charset::forName(csn);
@@ -1028,6 +1033,7 @@ $bytes* String::encode($Charset* cs, int8_t coder, $bytes* val) {
 
 $bytes* String::encodeWithEncoder($Charset* cs, int8_t coder, $bytes* val, bool doReplace) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$var($CharsetEncoder, ce, $nc(cs)->newEncoder());
 	int32_t len = $sr($nc(val)->length, coder);
 	int32_t en = scale(len, $nc(ce)->maxBytesPerChar());
@@ -1103,6 +1109,7 @@ bool String::isASCII($bytes* src) {
 
 $bytes* String::getBytesNoRepl(String* s, $Charset* cs) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return getBytesNoRepl1(s, cs);
 	} catch ($IllegalArgumentException&) {
@@ -1149,6 +1156,7 @@ $bytes* String::getBytesNoRepl1(String* s, $Charset* cs) {
 
 $bytes* String::encodeASCII(int8_t coder, $bytes* val) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (coder == String::LATIN1) {
 		$var($bytes, dst, $Arrays::copyOf(val, $nc(val)->length));
 		for (int32_t i = 0; i < dst->length; ++i) {
@@ -1387,6 +1395,7 @@ int32_t String::decodeUTF8_UTF16($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 
 int32_t String::decodeWithDecoder($CharsetDecoder* cd, $chars* dst, $bytes* src, int32_t offset, int32_t length) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::wrap(src, offset, length));
 	$var($CharBuffer, cb, $CharBuffer::wrap(dst, 0, $nc(dst)->length));
 	try {
@@ -1427,6 +1436,7 @@ int32_t String::malformed4($bytes* src, int32_t sp) {
 
 void String::throwMalformed(int32_t off, int32_t nb) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$var(String, msg, $str({"malformed input off : "_s, $$str(off), ", length : "_s, $$str(nb)}));
 	$throwNew($IllegalArgumentException, msg, $$new($MalformedInputException, nb));
 }
@@ -1442,6 +1452,7 @@ void String::throwMalformed($bytes* val) {
 
 void String::throwUnmappable(int32_t off) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$var(String, msg, $str({"malformed input off : "_s, $$str(off), ", length : 1"_s}));
 	$throwNew($IllegalArgumentException, msg, $$new($UnmappableCharacterException, 1));
 }
@@ -1457,6 +1468,7 @@ void String::throwUnmappable($bytes* val) {
 
 $bytes* String::encodeUTF8(int8_t coder, $bytes* val, bool doReplace) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (coder == String::UTF16) {
 		return encodeUTF8_UTF16(val, doReplace);
 	}
@@ -1676,6 +1688,7 @@ bool String::contentEquals($StringBuffer* sb) {
 }
 
 bool String::nonSyncContentEquals($AbstractStringBuilder* sb) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = length();
 	if (len != $nc(sb)->length()) {
 		return false;
@@ -1746,6 +1759,7 @@ bool String::equalsIgnoreCase(String* anotherString) {
 }
 
 int32_t String::compareTo(String* anotherString) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, v1, this->value$);
 	$var($bytes, v2, $nc(anotherString)->value$);
 	int8_t coder = this->coder();
@@ -1760,6 +1774,7 @@ int32_t String::compareToIgnoreCase(String* str) {
 }
 
 bool String::regionMatches(int32_t toffset, String* other, int32_t ooffset, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, tv, this->value$);
 	$var($bytes, ov, $nc(other)->value$);
 	bool var$0 = (ooffset < 0) || (toffset < 0) || (toffset > (int64_t)length() - len);
@@ -1797,6 +1812,7 @@ bool String::regionMatches(int32_t toffset, String* other, int32_t ooffset, int3
 }
 
 bool String::regionMatches(bool ignoreCase, int32_t toffset, String* other, int32_t ooffset, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (!ignoreCase) {
 		return regionMatches(toffset, other, ooffset, len);
 	}
@@ -1814,6 +1830,7 @@ bool String::regionMatches(bool ignoreCase, int32_t toffset, String* other, int3
 }
 
 bool String::startsWith(String* prefix, int32_t toffset) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = toffset < 0;
 	if (!var$0) {
 		int32_t var$1 = toffset;
@@ -2011,14 +2028,17 @@ bool String::contains($CharSequence* s) {
 }
 
 String* String::replaceFirst(String* regex, String* replacement) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($Pattern::compile(regex)))->matcher(this)))->replaceFirst(replacement);
 }
 
 String* String::replaceAll(String* regex, String* replacement) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($Pattern::compile(regex)))->matcher(this)))->replaceAll(replacement);
 }
 
 String* String::replace($CharSequence* target, $CharSequence* replacement) {
+	$useLocalCurrentObjectStackCache();
 	$var(String, trgtStr, $nc(target)->toString());
 	$var(String, replStr, $nc(replacement)->toString());
 	int32_t thisLen = length();
@@ -2055,6 +2075,7 @@ String* String::replace($CharSequence* target, $CharSequence* replacement) {
 }
 
 $StringArray* String::split(String* regex, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	char16_t ch = (char16_t)0;
 	bool var$2 = $nc(regex)->length() == 1;
 	bool var$1 = (var$2 && ".$|()[{^?*+\\"_s->indexOf((int32_t)(ch = regex->charAt(0))) == -1);
@@ -2104,6 +2125,7 @@ $StringArray* String::split(String* regex) {
 
 String* String::join($CharSequence* delimiter, $CharSequenceArray* elements) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$var(String, delim, $nc(delimiter)->toString());
 	$var($StringArray, elems, $new($StringArray, $nc(elements)->length));
 	for (int32_t i = 0; i < elements->length; ++i) {
@@ -2114,6 +2136,7 @@ String* String::join($CharSequence* delimiter, $CharSequenceArray* elements) {
 
 String* String::join(String* prefix, String* suffix, String* delimiter, $StringArray* elements, int32_t size) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	int8_t var$0 = $nc(prefix)->coder();
 	int32_t icoder = var$0 | $nc(suffix)->coder();
 	int64_t var$1 = (int64_t)prefix->length();
@@ -2158,6 +2181,7 @@ String* String::join(String* prefix, String* suffix, String* delimiter, $StringA
 
 String* String::join($CharSequence* delimiter, $Iterable* elements) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(delimiter);
 	$Objects::requireNonNull(elements);
 	$var(String, delim, delimiter->toString());
@@ -2224,6 +2248,7 @@ $Stream* String::lines() {
 }
 
 String* String::indent(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		return ""_s;
 	}
@@ -2248,6 +2273,7 @@ int32_t String::lastIndexOfNonWhitespace() {
 }
 
 String* String::stripIndent() {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = this->length();
 	if (length == 0) {
 		return ""_s;
@@ -2261,6 +2287,7 @@ String* String::stripIndent() {
 
 int32_t String::outdent($List* lines) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	int32_t outdent = $Integer::MAX_VALUE;
 	{
 		$var($Iterator, i$, $nc(lines)->iterator());
@@ -2282,6 +2309,7 @@ int32_t String::outdent($List* lines) {
 }
 
 String* String::translateEscapes() {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		return ""_s;
 	}
@@ -2402,10 +2430,12 @@ String* String::toString() {
 }
 
 $IntStream* String::chars() {
+	$useLocalCurrentObjectStackCache();
 	return $StreamSupport::intStream(isLatin1() ? static_cast<$Spliterator$OfInt*>($$new($StringLatin1$CharsSpliterator, this->value$, $Spliterator::IMMUTABLE)) : static_cast<$Spliterator$OfInt*>($$new($StringUTF16$CharsSpliterator, this->value$, $Spliterator::IMMUTABLE)), false);
 }
 
 $IntStream* String::codePoints() {
+	$useLocalCurrentObjectStackCache();
 	return $StreamSupport::intStream(isLatin1() ? static_cast<$Spliterator$OfInt*>($$new($StringLatin1$CharsSpliterator, this->value$, $Spliterator::IMMUTABLE)) : static_cast<$Spliterator$OfInt*>($$new($StringUTF16$CodePointsSpliterator, this->value$, $Spliterator::IMMUTABLE)), false);
 }
 
@@ -2415,15 +2445,18 @@ $chars* String::toCharArray() {
 
 String* String::format(String* format, $ObjectArray* args) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($$new($Formatter)->format(format, args)))->toString();
 }
 
 String* String::format($Locale* l, String* format, $ObjectArray* args) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($$new($Formatter, l)->format(format, args)))->toString();
 }
 
 String* String::formatted($ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($$new($Formatter)->format(this, args)))->toString();
 }
 
@@ -2459,6 +2492,7 @@ String* String::valueOf(bool b) {
 
 String* String::valueOf(char16_t c) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (String::COMPACT_STRINGS && $StringLatin1::canEncode(c)) {
 		return $new(String, $($StringLatin1::toBytes(c)), String::LATIN1);
 	}
@@ -2490,6 +2524,7 @@ String* String::intern() {
 }
 
 String* String::repeat(int32_t count) {
+	$useLocalCurrentObjectStackCache();
 	if (count < 0) {
 		$throwNew($IllegalArgumentException, $$str({"count is negative: "_s, $$str(count)}));
 	}
@@ -2554,6 +2589,7 @@ void String::init$($chars* value, int32_t off, int32_t len, $Void* sig) {
 }
 
 void String::init$($AbstractStringBuilder* asb, $Void* sig) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, val, $nc(asb)->getValue());
 	int32_t length = asb->length();
 	if (asb->isLatin1()) {
@@ -2592,6 +2628,7 @@ bool String::isLatin1() {
 
 void String::checkIndex(int32_t index, int32_t length) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (index < 0 || index >= length) {
 		$throwNew($StringIndexOutOfBoundsException, $$str({"index "_s, $$str(index), ", length "_s, $$str(length)}));
 	}
@@ -2599,6 +2636,7 @@ void String::checkIndex(int32_t index, int32_t length) {
 
 void String::checkOffset(int32_t offset, int32_t length) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (offset < 0 || offset > length) {
 		$throwNew($StringIndexOutOfBoundsException, $$str({"offset "_s, $$str(offset), ", length "_s, $$str(length)}));
 	}
@@ -2606,6 +2644,7 @@ void String::checkOffset(int32_t offset, int32_t length) {
 
 void String::checkBoundsOffCount(int32_t offset, int32_t count, int32_t length) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (offset < 0 || count < 0 || offset > length - count) {
 		$throwNew($StringIndexOutOfBoundsException, $$str({"offset "_s, $$str(offset), ", count "_s, $$str(count), ", length "_s, $$str(length)}));
 	}
@@ -2613,6 +2652,7 @@ void String::checkBoundsOffCount(int32_t offset, int32_t count, int32_t length) 
 
 void String::checkBoundsBeginEnd(int32_t begin, int32_t end, int32_t length) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (begin < 0 || begin > end || end > length) {
 		$throwNew($StringIndexOutOfBoundsException, $$str({"begin "_s, $$str(begin), ", end "_s, $$str(end), ", length "_s, $$str(length)}));
 	}
@@ -2620,6 +2660,7 @@ void String::checkBoundsBeginEnd(int32_t begin, int32_t end, int32_t length) {
 
 String* String::valueOfCodePoint(int32_t codePoint) {
 	$init(String);
+	$useLocalCurrentObjectStackCache();
 	if (String::COMPACT_STRINGS && $StringLatin1::canEncode(codePoint)) {
 		return $new(String, $($StringLatin1::toBytes((char16_t)codePoint)), String::LATIN1);
 	} else if ($Character::isBmpCodePoint(codePoint)) {

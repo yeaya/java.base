@@ -81,6 +81,7 @@ void Basic4Appendable$7::init($Appendable* ps, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$7::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($Basic4Appendable);
 	$Basic4Appendable::ck($$str({"PrintStream.append("_s, this->csn, ")"_s}), this->exp, $($nc($Basic4Appendable::gos)->toString()));
 }

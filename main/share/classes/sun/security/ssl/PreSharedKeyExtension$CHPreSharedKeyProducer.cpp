@@ -106,6 +106,7 @@ void PreSharedKeyExtension$CHPreSharedKeyProducer::init$() {
 }
 
 $bytes* PreSharedKeyExtension$CHPreSharedKeyProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	if (!$nc(chc)->isResumption || $nc(chc)->resumingSession == nullptr) {
 		$init($SSLLogger);
@@ -165,6 +166,7 @@ $bytes* PreSharedKeyExtension$CHPreSharedKeyProducer::produce($ConnectionContext
 }
 
 $PreSharedKeyExtension$CHPreSharedKeySpec* PreSharedKeyExtension$CHPreSharedKeyProducer::createPskPrototype(int32_t hashLength, $List* identities) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, binders, $new($ArrayList));
 	$var($bytes, binderProto, $new($bytes, hashLength));
 	int32_t i = $nc(identities)->size();

@@ -193,6 +193,7 @@ void LotsOfCloses::init$() {
 
 void LotsOfCloses::main($StringArray* args) {
 	$init(LotsOfCloses);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, dir, $Files::createTempDirectory("tmp"_s, $$new($FileAttributeArray, 0)));
 	$var($ExecutorService, pool, $Executors::newCachedThreadPool());
 	{
@@ -215,6 +216,7 @@ void LotsOfCloses::main($StringArray* args) {
 
 void LotsOfCloses::test($Path* dir, $ExecutorService* pool) {
 	$init(LotsOfCloses);
+	$useLocalCurrentObjectStackCache();
 	$var($WatchService, watcher, $nc($($FileSystems::getDefault()))->newWatchService());
 	$init($StandardWatchEventKinds);
 	$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {$StandardWatchEventKinds::ENTRY_CREATE}));
@@ -243,6 +245,7 @@ $Callable* LotsOfCloses::newRegisterTask($WatchService* watcher, $Path* dir) {
 
 $Boolean* LotsOfCloses::lambda$newRegisterTask$1($Path* dir, $WatchService* watcher) {
 	$init(LotsOfCloses);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardWatchEventKinds);
 		$nc(dir)->register$(watcher, $$new($WatchEvent$KindArray, {$StandardWatchEventKinds::ENTRY_DELETE}));

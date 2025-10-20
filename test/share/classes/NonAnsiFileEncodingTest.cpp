@@ -42,6 +42,7 @@ void NonAnsiFileEncodingTest::init$() {
 }
 
 void NonAnsiFileEncodingTest::main($StringArray* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, OS, $System::getProperty("os.name"_s));
 	$var($String, lang, $System::getProperty("user.language"_s));
 	$var($String, fileenc, $System::getProperty("file.encoding"_s));

@@ -55,6 +55,7 @@ void ImplicitStringConcatArgCount::init$() {
 
 void ImplicitStringConcatArgCount::main($StringArray* args) {
 	$init(ImplicitStringConcatArgCount);
+	$useLocalCurrentObjectStackCache();
 	test("fo"_s, $$str({ImplicitStringConcatArgCount::s, ImplicitStringConcatArgCount::s1}));
 	test("foo"_s, $$str({ImplicitStringConcatArgCount::s, ImplicitStringConcatArgCount::s1, ImplicitStringConcatArgCount::s2}));
 	test("foo7"_s, $$str({ImplicitStringConcatArgCount::s, ImplicitStringConcatArgCount::s1, ImplicitStringConcatArgCount::s2, $$str(ImplicitStringConcatArgCount::i)}));
@@ -69,6 +70,7 @@ void ImplicitStringConcatArgCount::main($StringArray* args) {
 
 void ImplicitStringConcatArgCount::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcatArgCount);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);

@@ -370,6 +370,7 @@ CharBuffer* CharBuffer::get(int32_t index, $chars* dst) {
 }
 
 CharBuffer* CharBuffer::getArray(int32_t index, $chars* dst, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (isAddressable() && ((int64_t)length << 1) > $Bits::JNI_COPY_TO_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 1);
 		int64_t dstOffset = CharBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 1);
@@ -441,6 +442,7 @@ CharBuffer* CharBuffer::put(int32_t index, CharBuffer* src, int32_t offset, int3
 }
 
 void CharBuffer::putBuffer(int32_t pos, CharBuffer* src, int32_t srcPos, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, srcBase, $nc(src)->base());
 	if (src->isAddressable()) {
 		$var($Object, base, this->base());
@@ -521,6 +523,7 @@ CharBuffer* CharBuffer::put(int32_t index, $chars* src) {
 }
 
 CharBuffer* CharBuffer::putArray(int32_t index, $chars* src, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (isAddressable() && ((int64_t)length << 1) > $Bits::JNI_COPY_FROM_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 1);
 		int64_t srcOffset = CharBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 1);
@@ -733,6 +736,7 @@ $Appendable* CharBuffer::append($CharSequence* csq) {
 }
 
 $Appendable* CharBuffer::append($CharSequence* csq, int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, cs, csq == nullptr ? static_cast<$CharSequence*>("null"_s) : csq);
 	return put($($nc($($nc(cs)->subSequence(start, end)))->toString()));
 }

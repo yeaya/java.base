@@ -96,6 +96,7 @@ $ZoneId* Clock$OffsetClock::getZone() {
 }
 
 $Clock* Clock$OffsetClock::withZone($ZoneId* zone) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(zone)->equals($($nc(this->baseClock)->getZone()))) {
 		return this;
 	}

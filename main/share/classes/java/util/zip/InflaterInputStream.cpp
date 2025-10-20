@@ -126,6 +126,7 @@ int32_t InflaterInputStream::read() {
 }
 
 int32_t InflaterInputStream::read($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException);

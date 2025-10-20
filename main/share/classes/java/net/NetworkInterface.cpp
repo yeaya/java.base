@@ -204,6 +204,7 @@ $Stream* NetworkInterface::inetAddresses() {
 }
 
 $InetAddressArray* NetworkInterface::getCheckedInetAddresses() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddressArray, local_addrs, $new($InetAddressArray, $nc(this->addrs)->length));
 	bool trusted = true;
 	$var($SecurityManager, sec, $System::getSecurityManager());
@@ -230,6 +231,7 @@ $InetAddressArray* NetworkInterface::getCheckedInetAddresses() {
 }
 
 $List* NetworkInterface::getInterfaceAddresses() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, lst, $new($ArrayList, 1));
 	if (this->bindings != nullptr) {
 		$var($SecurityManager, sec, $System::getSecurityManager());
@@ -285,6 +287,7 @@ NetworkInterface* NetworkInterface::getByIndex(int32_t index) {
 
 NetworkInterface* NetworkInterface::getByInetAddress($InetAddress* addr) {
 	$init(NetworkInterface);
+	$useLocalCurrentObjectStackCache();
 	if (addr == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -399,6 +402,7 @@ bool NetworkInterface::supportsMulticast() {
 }
 
 $bytes* NetworkInterface::getHardwareAddress() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sec, $System::getSecurityManager());
 	if (sec != nullptr) {
 		try {
@@ -492,6 +496,7 @@ int32_t NetworkInterface::getMTU0($String* name, int32_t ind) {
 }
 
 bool NetworkInterface::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(NetworkInterface, that, nullptr);
 	bool var$0 = $instanceOf(NetworkInterface, obj);
 	if (var$0) {
@@ -538,6 +543,7 @@ int32_t NetworkInterface::hashCode() {
 }
 
 $String* NetworkInterface::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, "name:"_s);
 	$plusAssign(result, this->name == nullptr ? "null"_s : this->name);
 	if (this->displayName != nullptr) {

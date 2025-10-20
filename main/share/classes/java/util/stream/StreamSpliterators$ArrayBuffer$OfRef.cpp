@@ -97,6 +97,7 @@ void StreamSpliterators$ArrayBuffer$OfRef::accept(Object$* t) {
 }
 
 void StreamSpliterators$ArrayBuffer$OfRef::forEach($Consumer* action, int64_t fence) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < fence; ++i) {
 		$var($Object, t, $nc(this->array)->get(i));
 		$nc(action)->accept(t);

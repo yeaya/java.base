@@ -125,6 +125,7 @@ $Object* allocate$PKIX$ValidatorParams($Class* clazz) {
 }
 
 void PKIX$ValidatorParams::init$($CertPath* cp, $PKIXParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	PKIX$ValidatorParams::init$(params);
 	bool var$0 = !$nc($($nc(cp)->getType()))->equals("X.509"_s);
 	if (var$0 && !$nc($(cp->getType()))->equals("X509"_s)) {
@@ -134,6 +135,7 @@ void PKIX$ValidatorParams::init$($CertPath* cp, $PKIXParameters* params) {
 }
 
 void PKIX$ValidatorParams::init$($PKIXParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$init($Validator);
 	$set(this, variant$, $Validator::VAR_GENERIC);
 	if ($instanceOf($PKIXExtendedParameters, params)) {
@@ -164,6 +166,7 @@ void PKIX$ValidatorParams::setCertPath($CertPath* cp) {
 }
 
 $List* PKIX$ValidatorParams::certificates() {
+	$useLocalCurrentObjectStackCache();
 	if (this->certs == nullptr) {
 		if (this->certPath$ == nullptr) {
 			$set(this, certs, $Collections::emptyList());

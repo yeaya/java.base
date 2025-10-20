@@ -130,6 +130,7 @@ Formatter$Flags* Formatter$Flags::remove(Formatter$Flags* f) {
 
 Formatter$Flags* Formatter$Flags::parse($String* s, int32_t start, int32_t end) {
 	$init(Formatter$Flags);
+	$useLocalCurrentObjectStackCache();
 	$var(Formatter$Flags, f, $new(Formatter$Flags, 0));
 	for (int32_t i = start; i < end; ++i) {
 		char16_t c = $nc(s)->charAt(i);
@@ -144,6 +145,7 @@ Formatter$Flags* Formatter$Flags::parse($String* s, int32_t start, int32_t end) 
 
 Formatter$Flags* Formatter$Flags::parse(char16_t c) {
 	$init(Formatter$Flags);
+	$useLocalCurrentObjectStackCache();
 
 	$var(Formatter$Flags, var$0, nullptr)
 	switch (c) {

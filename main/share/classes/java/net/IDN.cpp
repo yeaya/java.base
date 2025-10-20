@@ -119,6 +119,7 @@ $StringPrep* IDN::namePrep = nullptr;
 
 $String* IDN::toASCII($String* input, int32_t flag) {
 	$init(IDN);
+	$useLocalCurrentObjectStackCache();
 	int32_t p = 0;
 	int32_t q = 0;
 	$var($StringBuilder, out, $new($StringBuilder));
@@ -143,6 +144,7 @@ $String* IDN::toASCII($String* input) {
 
 $String* IDN::toUnicode($String* input, int32_t flag) {
 	$init(IDN);
+	$useLocalCurrentObjectStackCache();
 	int32_t p = 0;
 	int32_t q = 0;
 	$var($StringBuilder, out, $new($StringBuilder));
@@ -170,6 +172,7 @@ void IDN::init$() {
 
 $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 	$init(IDN);
+	$useLocalCurrentObjectStackCache();
 	bool isASCII = isAllASCII(label);
 	$var($StringBuffer, dest, nullptr);
 	if (!isASCII) {
@@ -223,6 +226,7 @@ $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 
 $String* IDN::toUnicodeInternal($String* label, int32_t flag) {
 	$init(IDN);
+	$useLocalCurrentObjectStackCache();
 	$var($booleans, caseFlags, nullptr);
 	$var($StringBuffer, dest, nullptr);
 	bool isASCII = isAllASCII(label);
@@ -325,6 +329,7 @@ $StringBuffer* IDN::toASCIILower($StringBuffer* input) {
 }
 
 void clinit$IDN($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(IDN::ACE_PREFIX, "xn--"_s);
 	$beforeCallerSensitive();
 	$var($String, IDN_PROFILE, "/sun/net/idn/uidna.spp"_s);

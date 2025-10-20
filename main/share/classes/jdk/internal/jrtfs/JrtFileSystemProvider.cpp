@@ -210,6 +210,7 @@ $String* JrtFileSystemProvider::getScheme() {
 }
 
 void JrtFileSystemProvider::checkPermission() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($RuntimePermission, perm, $new($RuntimePermission, "accessSystemModules"_s));
@@ -218,6 +219,7 @@ void JrtFileSystemProvider::checkPermission() {
 }
 
 void JrtFileSystemProvider::checkUri($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, "URI does not match this provider"_s);
 	}
@@ -250,6 +252,7 @@ $FileSystem* JrtFileSystemProvider::newFileSystem($URI* uri, $Map* env) {
 }
 
 $FileSystem* JrtFileSystemProvider::newFileSystem($String* targetHome, $URI* uri, $Map* env) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(targetHome);
 	$var($Path, jrtfs, $nc($($FileSystems::getDefault()))->getPath(targetHome, $$new($StringArray, {
@@ -281,6 +284,7 @@ $FileSystem* JrtFileSystemProvider::newFileSystem($String* targetHome, $URI* uri
 
 $URLClassLoader* JrtFileSystemProvider::newJrtFsLoader($Path* jrtfs) {
 	$init(JrtFileSystemProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($URL, url, nullptr);
 	try {
@@ -294,6 +298,7 @@ $URLClassLoader* JrtFileSystemProvider::newJrtFsLoader($Path* jrtfs) {
 }
 
 $Path* JrtFileSystemProvider::getPath($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	checkPermission();
 	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, "URI does not match this provider"_s);
@@ -316,6 +321,7 @@ $Path* JrtFileSystemProvider::getPath($URI* uri) {
 }
 
 $FileSystem* JrtFileSystemProvider::getTheFileSystem() {
+	$useLocalCurrentObjectStackCache();
 	checkPermission();
 	$var($FileSystem, fs, this->theFileSystem);
 	if (fs == nullptr) {
@@ -358,6 +364,7 @@ $Path* JrtFileSystemProvider::readSymbolicLink($Path* link) {
 }
 
 void JrtFileSystemProvider::copy($Path* src, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$nc($(toJrtPath(src)))->copy($(toJrtPath(target)), options);
 }
 
@@ -386,6 +393,7 @@ bool JrtFileSystemProvider::isSameFile($Path* path, $Path* other) {
 }
 
 void JrtFileSystemProvider::move($Path* src, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$nc($(toJrtPath(src)))->move($(toJrtPath(target)), options);
 }
 

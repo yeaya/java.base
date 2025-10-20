@@ -86,6 +86,7 @@ void OpenStream::testUnc() {
 
 void OpenStream::checkThrows($String* url) {
 	$init(OpenStream);
+	$useLocalCurrentObjectStackCache();
 	$var($URL, u, $new($URL, url));
 	try {
 		$init($Proxy);

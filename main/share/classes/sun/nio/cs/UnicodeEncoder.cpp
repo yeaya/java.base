@@ -78,6 +78,7 @@ $Object* allocate$UnicodeEncoder($Class* clazz) {
 }
 
 void UnicodeEncoder::init$($Charset* cs, int32_t bo, bool m) {
+	$useLocalCurrentObjectStackCache();
 	$CharsetEncoder::init$(cs, 2.0f, m ? 4.0f : 2.0f, ((bo == UnicodeEncoder::BIG) ? $$new($bytes, {
 		(int8_t)255,
 		(int8_t)253
@@ -101,6 +102,7 @@ void UnicodeEncoder::put(char16_t c, $ByteBuffer* dst) {
 }
 
 $CoderResult* UnicodeEncoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	if (this->needsMark && src->hasRemaining()) {
 		if ($nc(dst)->remaining() < 2) {

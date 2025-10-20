@@ -98,6 +98,7 @@ void NetProperties::init$() {
 
 void NetProperties::loadDefaultProperties() {
 	$init(NetProperties);
+	$useLocalCurrentObjectStackCache();
 	$var($String, fname, $StaticProperty::javaHome());
 	if (fname == nullptr) {
 		$throwNew($Error, "Can\'t find java.home ??"_s);
@@ -130,6 +131,7 @@ $String* NetProperties::get($String* key) {
 
 $Integer* NetProperties::getInteger($String* key, int32_t defval) {
 	$init(NetProperties);
+	$useLocalCurrentObjectStackCache();
 	$var($String, val, nullptr);
 	try {
 		$assign(val, $System::getProperty(key, $($nc(NetProperties::props)->getProperty(key))));
@@ -150,6 +152,7 @@ $Integer* NetProperties::getInteger($String* key, int32_t defval) {
 
 $Boolean* NetProperties::getBoolean($String* key) {
 	$init(NetProperties);
+	$useLocalCurrentObjectStackCache();
 	$var($String, val, nullptr);
 	try {
 		$assign(val, $System::getProperty(key, $($nc(NetProperties::props)->getProperty(key))));

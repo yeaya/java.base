@@ -225,6 +225,7 @@ bool BaseSSLSocketImpl::isOutputShutdown() {
 }
 
 void BaseSSLSocketImpl::finalize() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

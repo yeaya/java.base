@@ -126,6 +126,7 @@ $StringArray* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0(int32_
 }
 
 void clinit$CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::INSTANCE, $fcast($StringArray, $nc($($nc($($Arrays::stream($($ZoneInfoFile::getZoneIds()))))->sorted()))->toArray(static_cast<$IntFunction*>($$new(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0)))));
 }
 

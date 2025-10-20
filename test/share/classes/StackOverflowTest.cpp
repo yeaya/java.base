@@ -43,6 +43,7 @@ void StackOverflowTest::init$() {
 }
 
 void StackOverflowTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Selector, sel, $Selector::open());
 		{

@@ -198,6 +198,7 @@ $BufferedReader* Process::inputReader() {
 }
 
 $BufferedReader* Process::inputReader($Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charset), "charset"_s);
 	$synchronized(this) {
 		if (this->inputReader$ == nullptr) {
@@ -215,6 +216,7 @@ $BufferedReader* Process::errorReader() {
 }
 
 $BufferedReader* Process::errorReader($Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charset), "charset"_s);
 	$synchronized(this) {
 		if (this->errorReader$ == nullptr) {
@@ -232,6 +234,7 @@ $BufferedWriter* Process::outputWriter() {
 }
 
 $BufferedWriter* Process::outputWriter($Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charset), "charset"_s);
 	$synchronized(this) {
 		if (this->outputWriter$ == nullptr) {
@@ -297,6 +300,7 @@ $CompletableFuture* Process::onExit() {
 }
 
 Process* Process::waitForInternal() {
+	$useLocalCurrentObjectStackCache();
 	bool interrupted = false;
 	while (true) {
 		try {

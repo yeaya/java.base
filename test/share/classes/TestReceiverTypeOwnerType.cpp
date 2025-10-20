@@ -63,6 +63,7 @@ void TestReceiverTypeOwnerType::init$() {
 
 void TestReceiverTypeOwnerType::main($StringArray* args) {
 	$load(TestReceiverTypeOwnerType);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($AnnotatedType, nested, $nc($($Class::forName($$str({$(TestReceiverTypeOwnerType::class$->getTypeName()), "$Nested"_s}))->getMethod("method"_s, $$new($ClassArray, 0))))->getAnnotatedReceiverType());
 	if (!($instanceOf($AnnotatedParameterizedType, nested))) {

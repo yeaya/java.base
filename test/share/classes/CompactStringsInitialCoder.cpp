@@ -57,6 +57,7 @@ void CompactStringsInitialCoder::init$() {
 
 void CompactStringsInitialCoder::main($StringArray* args) {
 	$init(CompactStringsInitialCoder);
+	$useLocalCurrentObjectStackCache();
 	test("B"_s, $$str({""_s, $$str(u'B')}));
 	test(u"\u4242"_s, $$str({""_s, $$str((char16_t)0x4242)}));
 	test("B"_s, $$str({""_s, $$str(CompactStringsInitialCoder::charLatin1)}));
@@ -79,6 +80,7 @@ void CompactStringsInitialCoder::main($StringArray* args) {
 
 void CompactStringsInitialCoder::test($String* expected, $String* actual) {
 	$init(CompactStringsInitialCoder);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);

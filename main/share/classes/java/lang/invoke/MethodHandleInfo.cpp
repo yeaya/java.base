@@ -89,6 +89,7 @@ bool MethodHandleInfo::isVarArgs() {
 }
 
 $String* MethodHandleInfo::referenceKindToString(int32_t referenceKind) {
+	$useLocalCurrentObjectStackCache();
 	if (!$MethodHandleNatives::refKindIsValid(referenceKind)) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("invalid reference kind"_s, $($Integer::valueOf(referenceKind)))));
 	}
@@ -96,6 +97,7 @@ $String* MethodHandleInfo::referenceKindToString(int32_t referenceKind) {
 }
 
 $String* MethodHandleInfo::toString(int32_t kind, $Class* defc, $String* name, $MethodType* type) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
 	return $String::format("%s %s.%s:%s"_s, $$new($ObjectArray, {

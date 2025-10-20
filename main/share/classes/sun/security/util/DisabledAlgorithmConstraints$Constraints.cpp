@@ -132,6 +132,7 @@ $Object* allocate$DisabledAlgorithmConstraints$Constraints($Class* clazz) {
 }
 
 void DisabledAlgorithmConstraints$Constraints::init$($String* propertyName, $List* constraintArray) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, constraintsMap, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc(constraintArray)->iterator());
@@ -243,6 +244,7 @@ $List* DisabledAlgorithmConstraints$Constraints::getConstraints($String* algorit
 }
 
 bool DisabledAlgorithmConstraints$Constraints::permits($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, getConstraints($($nc(key)->getAlgorithm())));
 	if (list == nullptr) {
 		return true;
@@ -266,6 +268,7 @@ bool DisabledAlgorithmConstraints$Constraints::permits($Key* key) {
 }
 
 bool DisabledAlgorithmConstraints$Constraints::permits($String* algorithm, $AlgorithmParameters* aps) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, getConstraints(algorithm));
 	if (list == nullptr) {
 		return true;
@@ -289,6 +292,7 @@ bool DisabledAlgorithmConstraints$Constraints::permits($String* algorithm, $Algo
 }
 
 void DisabledAlgorithmConstraints$Constraints::permits($String* algorithm, $ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	$init($DisabledAlgorithmConstraints);
 	if ($DisabledAlgorithmConstraints::debug != nullptr) {
 		$nc($DisabledAlgorithmConstraints::debug)->println($$str({"Constraints.permits(): "_s, algorithm, ", "_s, $($nc($of(cp))->toString())}));

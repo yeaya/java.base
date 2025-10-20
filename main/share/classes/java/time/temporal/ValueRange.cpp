@@ -169,6 +169,7 @@ int32_t ValueRange::checkValidIntValue(int64_t value, $TemporalField* field) {
 }
 
 $String* ValueRange::genInvalidFieldMessage($TemporalField* field, int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	if (field != nullptr) {
 		return $str({"Invalid value for "_s, field, " (valid values "_s, this, "): "_s, $$str(value)});
 	} else {

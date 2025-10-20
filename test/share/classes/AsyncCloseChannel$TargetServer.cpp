@@ -67,6 +67,7 @@ void AsyncCloseChannel$TargetServer::init$() {
 }
 
 void AsyncCloseChannel$TargetServer::runEx() {
+	$useLocalCurrentObjectStackCache();
 	$init($AsyncCloseChannel);
 	while ($AsyncCloseChannel::keepGoing) {
 		try {

@@ -75,6 +75,7 @@ $String* ProcessEnvironment$ExternalData::toString() {
 }
 
 bool ProcessEnvironment$ExternalData::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $instanceOf(ProcessEnvironment$ExternalData, o);
 	if (var$0) {
 		$var($bytes, var$1, getBytes());

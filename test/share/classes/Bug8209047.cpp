@@ -162,6 +162,7 @@ void Bug8209047::init$() {
 }
 
 void Bug8209047::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Integer::valueOf($DateFormat::FULL)));
 	$var($Object, var$1, $of($Integer::valueOf($DateFormat::LONG)));
 	$var($Object, var$2, $of($Integer::valueOf($DateFormat::MEDIUM)));
@@ -174,6 +175,7 @@ void Bug8209047::lambda$main$1($Set* styles, $Locale* locale) {
 }
 
 void Bug8209047::lambda$main$0($Locale* locale, $Integer* style) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$DateFormat::getDateInstance($nc(style)->intValue(), locale);
 		$DateFormat::getTimeInstance($nc(style)->intValue(), locale);

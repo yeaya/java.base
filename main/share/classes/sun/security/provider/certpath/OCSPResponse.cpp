@@ -232,6 +232,7 @@ $CRLReasonArray* OCSPResponse::values = nullptr;
 
 int32_t OCSPResponse::initializeClockSkew() {
 	$init(OCSPResponse);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Integer, tmp, $cast($Integer, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "com.sun.security.ocsp.clockSkew"_s)))));
 	if (tmp == nullptr || $nc(tmp)->intValue() < 0) {
@@ -241,6 +242,7 @@ int32_t OCSPResponse::initializeClockSkew() {
 }
 
 void OCSPResponse::init$($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, signerCert, nullptr);
 	$set(this, producedAtDate, nullptr);
 	if (OCSPResponse::dump) {
@@ -383,6 +385,7 @@ void OCSPResponse::init$($bytes* bytes) {
 }
 
 void OCSPResponse::verify($List* certIds, $OCSPResponse$IssuerInfo* issuerInfo, $X509Certificate* responderCert, $Date* date, $bytes* nonce, $String* variant) {
+	$useLocalCurrentObjectStackCache();
 	$init($OCSPResponse$1);
 	switch ($nc($OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)->get((this->responseStatus)->ordinal())) {
 	case 1:
@@ -581,6 +584,7 @@ $OCSPResponse$ResponseStatus* OCSPResponse::getResponseStatus() {
 }
 
 bool OCSPResponse::verifySignature($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Signature, respSignature, $Signature::getInstance($($nc(this->sigAlgId)->getName())));
 		$nc(respSignature)->initVerify($($nc(cert)->getPublicKey()));
@@ -626,6 +630,7 @@ $ResponderId* OCSPResponse::getResponderId() {
 }
 
 $String* OCSPResponse::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("OCSP Response:\n"_s);
 	sb->append("Response Status: "_s)->append($of(this->responseStatus))->append("\n"_s);
@@ -660,6 +665,7 @@ $String* OCSPResponse::toString() {
 
 $Map* OCSPResponse::parseExtensions($DerValue* derVal) {
 	$init(OCSPResponse);
+	$useLocalCurrentObjectStackCache();
 	$var($DerValueArray, extDer, $nc($nc(derVal)->data$)->getSequence(3));
 	$var($Map, extMap, $new($HashMap, $nc(extDer)->length));
 	{

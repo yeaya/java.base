@@ -267,6 +267,7 @@ void DerValue::init$(int8_t stringTag, $String* value) {
 }
 
 $bytes* DerValue::string2bytes(int8_t stringTag, $String* value) {
+	$useLocalCurrentObjectStackCache();
 
 	$var($Charset, var$0, nullptr)
 	switch (stringTag) {
@@ -331,6 +332,7 @@ void DerValue::init$($bytes* encoding) {
 }
 
 void DerValue::init$($bytes* buf$renamed, int32_t offset, int32_t len, bool allowBER, bool allowMore) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buf, buf$renamed);
 	if (len < 2) {
 		$throwNew($IOException, "Too short"_s);
@@ -453,6 +455,7 @@ int8_t DerValue::getTag() {
 }
 
 bool DerValue::getBoolean() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != DerValue::tag_Boolean) {
 		$throwNew($IOException, $$str({"DerValue.getBoolean, not a BOOLEAN "_s, $$str(this->tag)}));
 	}
@@ -464,6 +467,7 @@ bool DerValue::getBoolean() {
 }
 
 $ObjectIdentifier* DerValue::getOID() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != DerValue::tag_ObjectId) {
 		$throwNew($IOException, $$str({"DerValue.getOID, not an OID "_s, $$str(this->tag)}));
 	}
@@ -472,6 +476,7 @@ $ObjectIdentifier* DerValue::getOID() {
 }
 
 $bytes* DerValue::getOctetString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != DerValue::tag_OctetString && !isConstructed(DerValue::tag_OctetString)) {
 		$throwNew($IOException, $$str({"DerValue.getOctetString, not an Octet String: "_s, $$str(this->tag)}));
 	}
@@ -496,6 +501,7 @@ int32_t DerValue::getInteger() {
 }
 
 int32_t DerValue::getIntegerInternal(int8_t expectedTag) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, getBigIntegerInternal(expectedTag, false));
 	if ($nc(result)->compareTo($($BigInteger::valueOf((int64_t)$Integer::MIN_VALUE))) < 0) {
 		$throwNew($IOException, "Integer below minimum valid value"_s);
@@ -515,6 +521,7 @@ $BigInteger* DerValue::getPositiveBigInteger() {
 }
 
 $BigInteger* DerValue::getBigIntegerInternal(int8_t expectedTag, bool makePositive) {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != expectedTag) {
 		$throwNew($IOException, $$str({"DerValue.getBigIntegerInternal, not expected "_s, $$str(this->tag)}));
 	}
@@ -589,6 +596,7 @@ $String* DerValue::getAsString() {
 }
 
 $bytes* DerValue::getBitString(bool tagImplicit) {
+	$useLocalCurrentObjectStackCache();
 	if (!tagImplicit) {
 		if (this->tag != DerValue::tag_BitString) {
 			$throwNew($IOException, $$str({"DerValue.getBitString, not a bit string "_s, $$str(this->tag)}));
@@ -610,6 +618,7 @@ $bytes* DerValue::getBitString(bool tagImplicit) {
 }
 
 $BitArray* DerValue::getUnalignedBitString(bool tagImplicit) {
+	$useLocalCurrentObjectStackCache();
 	if (!tagImplicit) {
 		if (this->tag != DerValue::tag_BitString) {
 			$throwNew($IOException, $$str({"DerValue.getBitString, not a bit string "_s, $$str(this->tag)}));
@@ -636,6 +645,7 @@ $bytes* DerValue::getDataBytes() {
 }
 
 $String* DerValue::readStringInternal(int8_t expectedTag, $Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != expectedTag) {
 		$throwNew($IOException, $$str({"Incorrect string type "_s, $$str(this->tag), " is not "_s, $$str(expectedTag)}));
 	}
@@ -678,6 +688,7 @@ $String* DerValue::getUniversalString() {
 }
 
 void DerValue::getNull() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != DerValue::tag_Null) {
 		$throwNew($IOException, $$str({"DerValue.getNull, not NULL: "_s, $$str(this->tag)}));
 	}
@@ -687,6 +698,7 @@ void DerValue::getNull() {
 }
 
 $Date* DerValue::getTimeInternal(bool generalized) {
+	$useLocalCurrentObjectStackCache();
 	int32_t year = 0;
 	int32_t month = 0;
 	int32_t day = 0;
@@ -835,6 +847,7 @@ int32_t DerValue::toDigit(int8_t b, $String* type) {
 }
 
 $Date* DerValue::getUTCTime() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != DerValue::tag_UtcTime) {
 		$throwNew($IOException, $$str({"DerValue.getUTCTime, not a UtcTime: "_s, $$str(this->tag)}));
 	}
@@ -846,6 +859,7 @@ $Date* DerValue::getUTCTime() {
 }
 
 $Date* DerValue::getGeneralizedTime() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag != DerValue::tag_GeneralizedTime) {
 		$throwNew($IOException, $$str({"DerValue.getGeneralizedTime, not a GeneralizedTime: "_s, $$str(this->tag)}));
 	}
@@ -874,6 +888,7 @@ bool DerValue::equals(Object$* o) {
 }
 
 $String* DerValue::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("DerValue(%02x, %s, %d, %d)"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf((int32_t)(255 & (uint32_t)(int32_t)this->tag)))),
 		$of(this->buffer),
@@ -883,6 +898,7 @@ $String* DerValue::toString() {
 }
 
 $bytes* DerValue::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->data$)->pos = $nc(this->data$)->start;
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	out->write((int32_t)this->tag);
@@ -894,6 +910,7 @@ $bytes* DerValue::toByteArray() {
 }
 
 $DerInputStream* DerValue::toDerInputStream() {
+	$useLocalCurrentObjectStackCache();
 	if (this->tag == DerValue::tag_Sequence || this->tag == DerValue::tag_Set) {
 		return this->data$;
 	}
@@ -971,6 +988,7 @@ int32_t DerValue::hashCode() {
 }
 
 $DerValueArray* DerValue::subs(int8_t expectedTag, int32_t startLen) {
+	$useLocalCurrentObjectStackCache();
 	if (expectedTag != 0 && expectedTag != this->tag) {
 		$throwNew($IOException, "Not the correct tag"_s);
 	}

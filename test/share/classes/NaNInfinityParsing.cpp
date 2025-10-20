@@ -58,6 +58,7 @@ void NaNInfinityParsing::init$() {
 
 void NaNInfinityParsing::main($StringArray* argv) {
 	$init(NaNInfinityParsing);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	double d = 0.0;
 	for (i = 0; i < $nc(NaNInfinityParsing::NaNStrings)->length; ++i) {

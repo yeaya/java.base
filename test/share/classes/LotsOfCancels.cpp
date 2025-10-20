@@ -107,6 +107,7 @@ void LotsOfCancels::main($StringArray* args) {
 }
 
 void LotsOfCancels::log($String* msg) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({$(getLogPrefix()), msg}));
 }
@@ -121,6 +122,7 @@ int64_t LotsOfCancels::durationMillis(int64_t startNanos) {
 }
 
 void LotsOfCancels::runTest(int32_t initCount, int32_t massCount, int32_t maxSelectTime) {
+	$useLocalCurrentObjectStackCache();
 	$init(LotsOfCancels);
 	LotsOfCancels::testStartTime = $System::nanoTime();
 	$var($InetSocketAddress, address, $new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), 7359));
@@ -166,6 +168,7 @@ void LotsOfCancels::runTest(int32_t initCount, int32_t massCount, int32_t maxSel
 }
 
 $List* LotsOfCancels::acceptAndAddAll($Selector* selector, $ServerSocketChannel* server, int32_t expected) {
+	$useLocalCurrentObjectStackCache();
 	int32_t retryCount = 0;
 	int32_t acceptCount = 0;
 	$var($List, channels, $new($ArrayList));
@@ -200,6 +203,7 @@ $List* LotsOfCancels::acceptAndAddAll($Selector* selector, $ServerSocketChannel*
 }
 
 void LotsOfCancels::closeAll($List* channels) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(channels)->iterator());
 		for (; $nc(i$)->hasNext();) {

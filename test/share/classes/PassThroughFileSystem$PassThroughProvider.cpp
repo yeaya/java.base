@@ -157,6 +157,7 @@ void PassThroughFileSystem$PassThroughProvider::checkUri($URI* uri) {
 }
 
 $FileSystem* PassThroughFileSystem$PassThroughProvider::newFileSystem($URI* uri, $Map* env) {
+	$useLocalCurrentObjectStackCache();
 	checkUri(uri);
 	$synchronized(PassThroughFileSystem$PassThroughProvider::class$) {
 		if (PassThroughFileSystem$PassThroughProvider::delegate != nullptr) {
@@ -178,6 +179,7 @@ $FileSystem* PassThroughFileSystem$PassThroughProvider::getFileSystem($URI* uri)
 }
 
 $Path* PassThroughFileSystem$PassThroughProvider::getPath($URI* uri$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, uri$renamed);
 	checkScheme(uri);
 	if (PassThroughFileSystem$PassThroughProvider::delegate == nullptr) {
@@ -209,26 +211,31 @@ void PassThroughFileSystem$PassThroughProvider::delete$($Path* file) {
 }
 
 void PassThroughFileSystem$PassThroughProvider::createSymbolicLink($Path* link, $Path* target, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(link));
 	$Files::createSymbolicLink(var$0, $($PassThroughFileSystem::unwrap(target)), attrs);
 }
 
 void PassThroughFileSystem$PassThroughProvider::createLink($Path* link, $Path* existing) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(link));
 	$Files::createLink(var$0, $($PassThroughFileSystem::unwrap(existing)));
 }
 
 $Path* PassThroughFileSystem$PassThroughProvider::readSymbolicLink($Path* link) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, target, $Files::readSymbolicLink($($PassThroughFileSystem::unwrap(link))));
 	return $new($PassThroughFileSystem$PassThroughPath, PassThroughFileSystem$PassThroughProvider::delegate, target);
 }
 
 void PassThroughFileSystem$PassThroughProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(source));
 	$Files::copy(var$0, $($PassThroughFileSystem::unwrap(target)), options);
 }
 
 void PassThroughFileSystem$PassThroughProvider::move($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(source));
 	$Files::move(var$0, $($PassThroughFileSystem::unwrap(target)), options);
 }
@@ -238,6 +245,7 @@ $DirectoryStream* PassThroughFileSystem$PassThroughProvider::wrap($DirectoryStre
 }
 
 $DirectoryStream* PassThroughFileSystem$PassThroughProvider::newDirectoryStream($Path* dir, $DirectoryStream$Filter* filter) {
+	$useLocalCurrentObjectStackCache();
 	return wrap($($Files::newDirectoryStream($($PassThroughFileSystem::unwrap(dir)), filter)));
 }
 
@@ -258,11 +266,13 @@ $FileStore* PassThroughFileSystem$PassThroughProvider::getFileStore($Path* file)
 }
 
 bool PassThroughFileSystem$PassThroughProvider::isSameFile($Path* file, $Path* other) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, var$0, $PassThroughFileSystem::unwrap(file));
 	return $Files::isSameFile(var$0, $($PassThroughFileSystem::unwrap(other)));
 }
 
 void PassThroughFileSystem$PassThroughProvider::checkAccess($Path* file, $AccessModeArray* modes) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(modes)->length == 0) {
 		if ($Files::exists($($PassThroughFileSystem::unwrap(file)), $$new($LinkOptionArray, 0))) {
 			return;

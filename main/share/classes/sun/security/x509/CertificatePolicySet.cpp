@@ -67,6 +67,7 @@ void CertificatePolicySet::init$($Vector* ids) {
 }
 
 void CertificatePolicySet::init$($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, ids, $new($Vector));
 	$var($DerValueArray, seq, $nc(in)->getSequence(5));
 	for (int32_t i = 0; i < $nc(seq)->length; ++i) {
@@ -76,11 +77,13 @@ void CertificatePolicySet::init$($DerInputStream* in) {
 }
 
 $String* CertificatePolicySet::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({"CertificatePolicySet:[\n"_s, $($nc(this->ids)->toString()), "]\n"_s}));
 	return (s);
 }
 
 void CertificatePolicySet::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	for (int32_t i = 0; i < $nc(this->ids)->size(); ++i) {
 		$nc(($cast($CertificatePolicyId, $($nc(this->ids)->elementAt(i)))))->encode(tmp);

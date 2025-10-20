@@ -87,6 +87,7 @@ void MaxFragExtension$EEMaxFragmentLengthConsumer::init$() {
 }
 
 void MaxFragExtension$EEMaxFragmentLengthConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($MaxFragExtension$MaxFragLenSpec, requestedSpec, $cast($MaxFragExtension$MaxFragLenSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_MAX_FRAGMENT_LENGTH)));

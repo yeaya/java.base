@@ -120,6 +120,7 @@ $TrustAnchor* OCSPResponse$IssuerInfo::getAnchor() {
 }
 
 $String* OCSPResponse$IssuerInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("Issuer Info:\n"_s);
 	sb->append("Name: "_s)->append($($nc(this->name)->toString()))->append("\n"_s);

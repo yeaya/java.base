@@ -162,6 +162,7 @@ $List* LocaleServiceProviderPool::NULL_LIST = nullptr;
 
 LocaleServiceProviderPool* LocaleServiceProviderPool::getPool($Class* providerClass) {
 	$init(LocaleServiceProviderPool);
+	$useLocalCurrentObjectStackCache();
 	$var(LocaleServiceProviderPool, pool, $cast(LocaleServiceProviderPool, $nc(LocaleServiceProviderPool::poolOfPools)->get(providerClass)));
 	if (pool == nullptr) {
 		$var(LocaleServiceProviderPool, newPool, $new(LocaleServiceProviderPool, providerClass));
@@ -186,6 +187,7 @@ $LocaleArray* LocaleServiceProviderPool::getAllAvailableLocales() {
 }
 
 $LocaleArray* LocaleServiceProviderPool::getAvailableLocales() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, locList, $new($HashSet));
 	locList->addAll($(getAvailableLocaleSet()));
 	locList->addAll($($Arrays::asList($($nc($($LocaleProviderAdapter::forJRE()))->getAvailableLocales()))));
@@ -196,6 +198,7 @@ $LocaleArray* LocaleServiceProviderPool::getAvailableLocales() {
 
 $Set* LocaleServiceProviderPool::getAvailableLocaleSet() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->availableLocales == nullptr) {
 			$set(this, availableLocales, $new($HashSet));
 			{
@@ -242,6 +245,7 @@ $Object* LocaleServiceProviderPool::getLocalizedObject($LocaleServiceProviderPoo
 }
 
 $Object* LocaleServiceProviderPool::getLocalizedObjectImpl($LocaleServiceProviderPool$LocalizedObjectGetter* getter, $Locale* locale, bool isObjectProvider, $String* key, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
@@ -275,6 +279,7 @@ $Object* LocaleServiceProviderPool::getLocalizedObjectImpl($LocaleServiceProvide
 }
 
 $List* LocaleServiceProviderPool::findProviders($Locale* locale, bool isObjectProvider) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, providersList, $cast($List, $nc(this->providersCache)->get(locale)));
 	if (providersList == nullptr) {
 		{
@@ -319,6 +324,7 @@ $List* LocaleServiceProviderPool::getLookupLocales($Locale* locale) {
 
 $Locale* LocaleServiceProviderPool::getLookupLocale($Locale* locale) {
 	$init(LocaleServiceProviderPool);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Locale, lookupLocale, locale);
 	bool var$1 = $nc(locale)->hasExtensions();

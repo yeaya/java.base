@@ -40,6 +40,7 @@ $Object* allocate$ApplicationProxy($Class* clazz) {
 }
 
 void ApplicationProxy::init$($Proxy* proxy) {
+	$useLocalCurrentObjectStackCache();
 	$var($Proxy$Type, var$0, $nc(proxy)->type());
 	$Proxy::init$(var$0, $(proxy->address()));
 }

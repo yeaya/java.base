@@ -47,6 +47,7 @@ void PublicConstructor::main($StringArray* args) {
 }
 
 void PublicConstructor::testConstructor() {
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElement, ste, $new($StackTraceElement, "com.acme.Widget"_s, "frobnicate"_s, "Widget.java"_s, 42));
 	bool var$2 = $nc($(ste->getClassName()))->equals("com.acme.Widget"_s);
 	bool var$1 = var$2 && $nc($(ste->getFileName()))->equals("Widget.java"_s);
@@ -66,6 +67,7 @@ void PublicConstructor::testConstructor() {
 }
 
 void PublicConstructor::testConstructorWithModule() {
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElement, ste, $new($StackTraceElement, "app"_s, "jdk.module"_s, "9.0"_s, "com.acme.Widget"_s, "frobnicate"_s, "Widget.java"_s, 42));
 	bool var$5 = $nc($(ste->getClassName()))->equals("com.acme.Widget"_s);
 	bool var$4 = var$5 && $nc($(ste->getModuleName()))->equals("jdk.module"_s);

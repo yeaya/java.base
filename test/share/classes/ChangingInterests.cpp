@@ -116,6 +116,7 @@ $String* ChangingInterests::toOpsString(int32_t ops) {
 
 void ChangingInterests::makeReadable($SocketChannel* out, $SocketChannel* in) {
 	$init(ChangingInterests);
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->write($($ByteBuffer::wrap($$new($bytes, 2))));
 	$var($ByteBuffer, oneByte, $ByteBuffer::wrap($$new($bytes, 1)));
 	do {
@@ -145,6 +146,7 @@ void ChangingInterests::drain($SocketChannel* sc) {
 
 void ChangingInterests::testChange($SelectionKey* key, int32_t from, int32_t to) {
 	$init(ChangingInterests);
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $nc(key)->selector());
 	assertTrue($nc($($nc(sel)->keys()))->size() == 1, "Only one channel should be registered"_s);
 	key->interestOps(from);
@@ -185,6 +187,7 @@ void ChangingInterests::testChange($SelectionKey* key, int32_t from, int32_t to)
 
 void ChangingInterests::testForSpin($Selector* sel) {
 	$init(ChangingInterests);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("Test for spin..."_s);
 	int64_t start = $System::currentTimeMillis();
@@ -200,6 +203,7 @@ void ChangingInterests::testForSpin($Selector* sel) {
 
 void ChangingInterests::main($StringArray* args) {
 	$init(ChangingInterests);
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($ServerSocketChannel, ssc, $cast($ServerSocketChannel, $nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	$var($SocketChannel, sc, $SocketChannel::open());

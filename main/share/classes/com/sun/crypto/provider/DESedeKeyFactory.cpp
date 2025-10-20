@@ -63,6 +63,7 @@ void DESedeKeyFactory::init$() {
 }
 
 $SecretKey* DESedeKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, encoded, nullptr);
 		if ($instanceOf($DESedeKeySpec, keySpec)) {
@@ -100,6 +101,7 @@ $SecretKey* DESedeKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* DESedeKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool var$0 = ($instanceOf($SecretKey, key)) && ($nc($($nc(key)->getAlgorithm()))->equalsIgnoreCase("DESede"_s));
 		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {
@@ -142,6 +144,7 @@ $KeySpec* DESedeKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
 }
 
 $SecretKey* DESedeKeyFactory::engineTranslateKey($SecretKey* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool var$0 = (key != nullptr) && ($nc($(key->getAlgorithm()))->equalsIgnoreCase("DESede"_s));
 		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {

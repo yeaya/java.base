@@ -216,6 +216,7 @@ void WalkFunction::init$() {
 
 void WalkFunction::main($StringArray* args) {
 	$init(WalkFunction);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	testFunctions();
 	testWildcards();
@@ -225,6 +226,7 @@ void WalkFunction::main($StringArray* args) {
 
 void WalkFunction::testFunctions() {
 	$init(WalkFunction);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(WalkFunction::walker)->walk(static_cast<$Function*>($$new(WalkFunction$$Lambda$count)));
 	try {
@@ -247,6 +249,7 @@ $Optional* WalkFunction::reduce($Stream* stream) {
 
 void WalkFunction::testWildcards() {
 	$init(WalkFunction);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Function, f1, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
 	$var($Function, f2, static_cast<$Function*>($new(WalkFunction$$Lambda$function$3)));
@@ -279,6 +282,7 @@ $Function* WalkFunction::counter() {
 
 $StackWalker$StackFrame* WalkFunction::lambda$reduce$0($StackWalker$StackFrame* r, $StackWalker$StackFrame* f) {
 	$init(WalkFunction);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(r)->getClassName()))->compareTo($($nc(f)->getClassName())) > 0 ? f : r;
 }
 

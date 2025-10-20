@@ -59,6 +59,7 @@ $Object* allocate$ESSCertId($Class* clazz) {
 $volatile($HexDumpEncoder*) ESSCertId::hexDumper = nullptr;
 
 void ESSCertId::init$($DerValue* certId) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, certHash, $nc($($nc($nc(certId)->data$)->getDerValue()))->toByteArray());
 	if ($nc(certId->data$)->available() > 0) {
 		$var($DerValue, issuerSerial, $nc(certId->data$)->getDerValue());
@@ -68,6 +69,7 @@ void ESSCertId::init$($DerValue* certId) {
 }
 
 $String* ESSCertId::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n\tCertificate hash (SHA-1):\n"_s);
 	if (ESSCertId::hexDumper == nullptr) {

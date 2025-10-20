@@ -65,6 +65,7 @@ void X509CRLEntry::init$() {
 }
 
 bool X509CRLEntry::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -90,6 +91,7 @@ bool X509CRLEntry::equals(Object$* other) {
 }
 
 int32_t X509CRLEntry::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	try {
 		$var($bytes, entryData, this->getEncoded());

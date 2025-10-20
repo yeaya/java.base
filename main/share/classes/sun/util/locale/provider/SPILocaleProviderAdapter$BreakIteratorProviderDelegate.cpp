@@ -127,6 +127,7 @@ bool SPILocaleProviderAdapter$BreakIteratorProviderDelegate::isSupportedLocale($
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getWordInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -134,6 +135,7 @@ $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getWordI
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getLineInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -141,6 +143,7 @@ $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getLineI
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getCharacterInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -148,6 +151,7 @@ $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getChara
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getSentenceInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));

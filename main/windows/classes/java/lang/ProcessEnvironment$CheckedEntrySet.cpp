@@ -97,6 +97,7 @@ $Iterator* ProcessEnvironment$CheckedEntrySet::iterator() {
 
 $Map$Entry* ProcessEnvironment$CheckedEntrySet::checkedEntry(Object$* o) {
 	$init(ProcessEnvironment$CheckedEntrySet);
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, $cast($Map$Entry, o));
 	$ProcessEnvironment::nonNullString($($nc(e)->getKey()));
 	$ProcessEnvironment::nonNullString($($nc(e)->getValue()));

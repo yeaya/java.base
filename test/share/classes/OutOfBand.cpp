@@ -100,6 +100,7 @@ void OutOfBand::init$() {
 
 void OutOfBand::main($StringArray* args) {
 	$init(OutOfBand);
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, nullptr);
 	$var($SocketChannel, sc1, nullptr);
 	$var($SocketChannel, sc2, nullptr);
@@ -136,6 +137,7 @@ void OutOfBand::main($StringArray* args) {
 
 void OutOfBand::test1($SocketChannel* client, $SocketChannel* server) {
 	$init(OutOfBand);
+	$useLocalCurrentObjectStackCache();
 	if (!OutOfBand::$assertionsDisabled && !$nc($($nc(server)->socket()))->getOOBInline()) {
 		$throwNew($AssertionError);
 	}
@@ -157,6 +159,7 @@ void OutOfBand::test1($SocketChannel* client, $SocketChannel* server) {
 
 void OutOfBand::test2($SocketChannel* client, $SocketChannel* server) {
 	$init(OutOfBand);
+	$useLocalCurrentObjectStackCache();
 	if (!OutOfBand::$assertionsDisabled && !$nc($($nc(server)->socket()))->getOOBInline()) {
 		$throwNew($AssertionError);
 	}
@@ -182,6 +185,7 @@ void OutOfBand::test2($SocketChannel* client, $SocketChannel* server) {
 
 void OutOfBand::test3($SocketChannel* client, $SocketChannel* server) {
 	$init(OutOfBand);
+	$useLocalCurrentObjectStackCache();
 	int32_t STOP = $nc(OutOfBand::rand)->nextInt(256);
 	if (!OutOfBand::$assertionsDisabled && !$nc($($nc(server)->socket()))->getOOBInline()) {
 		$throwNew($AssertionError);

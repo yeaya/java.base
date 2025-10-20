@@ -80,6 +80,7 @@ void P521OrderField::init$() {
 
 $BigInteger* P521OrderField::evaluateModulus() {
 	$init(P521OrderField);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(521));
 	$assign(result, $nc(result)->add($($BigInteger::valueOf((int64_t)0x01386409))));
 	$assign(result, result->add($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(28)))->multiply($($BigInteger::valueOf((int64_t)0x06FB71E9))))));

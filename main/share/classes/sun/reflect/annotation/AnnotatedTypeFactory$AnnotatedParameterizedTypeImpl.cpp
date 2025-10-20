@@ -204,6 +204,7 @@ void AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::init$($ParameterizedTy
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getAnnotatedActualTypeArguments() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, arguments, $nc($(getParameterizedType()))->getActualTypeArguments());
 	$var($AnnotatedTypeArray, res, $new($AnnotatedTypeArray, $nc(arguments)->length));
 	$init($AnnotatedTypeFactory);
@@ -233,6 +234,7 @@ $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getAnn
 }
 
 $AnnotatedType* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getAnnotatedOwnerType() {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, owner, $nc($(getParameterizedType()))->getOwnerType());
 	if (owner == nullptr) {
 		return nullptr;
@@ -268,6 +270,7 @@ $ParameterizedType* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getPara
 }
 
 $String* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(annotationsToString($(getAnnotations()), false)));
 	$var($Type, t, $nc($(getParameterizedType()))->getRawType());
@@ -280,6 +283,7 @@ $String* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::toString() {
 }
 
 bool AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($AnnotatedParameterizedType, o)) {
 		$var($AnnotatedParameterizedType, that, $cast($AnnotatedParameterizedType, o));
 		bool var$0 = equalsTypeAndAnnotations(that);

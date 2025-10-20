@@ -65,6 +65,7 @@ $Object* allocate$PKCS12KeyStore$RetryWithZero($Class* clazz) {
 }
 
 $Object* PKCS12KeyStore$RetryWithZero::run(PKCS12KeyStore$RetryWithZero* f, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($nc(f)->tryOnce(password));
 	} catch ($Exception&) {

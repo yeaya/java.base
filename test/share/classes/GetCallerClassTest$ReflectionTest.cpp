@@ -114,6 +114,7 @@ void GetCallerClassTest$ReflectionTest::run() {
 }
 
 void GetCallerClassTest$ReflectionTest::callMethodHandle() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::publicLookup());
 	try {
 		$load($GetCallerClassTest);
@@ -126,6 +127,7 @@ void GetCallerClassTest$ReflectionTest::callMethodHandle() {
 }
 
 void GetCallerClassTest$ReflectionTest::callMethodHandleRefl() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::publicLookup());
 	try {
 		$load($GetCallerClassTest);
@@ -138,6 +140,7 @@ void GetCallerClassTest$ReflectionTest::callMethodHandleRefl() {
 }
 
 void GetCallerClassTest$ReflectionTest::callMethodInvoke() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($GetCallerClassTest);
@@ -167,6 +170,7 @@ void GetCallerClassTest$ReflectionTest::callMethodInvoke() {
 }
 
 void GetCallerClassTest$ReflectionTest::callMethodInvokeRefl() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($GetCallerClassTest);

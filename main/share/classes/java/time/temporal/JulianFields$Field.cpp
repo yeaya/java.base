@@ -209,6 +209,7 @@ int64_t JulianFields$Field::getFrom($TemporalAccessor* temporal) {
 }
 
 $Temporal* JulianFields$Field::adjustInto($Temporal* temporal, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($(range()))->isValidValue(newValue) == false) {
 		$throwNew($DateTimeException, $$str({"Invalid value: "_s, this->name$, " "_s, $$str(newValue)}));
 	}
@@ -217,6 +218,7 @@ $Temporal* JulianFields$Field::adjustInto($Temporal* temporal, int64_t newValue)
 }
 
 $TemporalAccessor* JulianFields$Field::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	int64_t value = $nc(($cast($Long, $($nc(fieldValues)->remove(this)))))->longValue();
 	$var($Chronology, chrono, $Chronology::from(partialTemporal));
 	$init($ResolverStyle);

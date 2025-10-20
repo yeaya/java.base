@@ -119,6 +119,7 @@ int32_t FilteredNormalizer2::getCombiningClass(int32_t c) {
 }
 
 bool FilteredNormalizer2::isNormalized($CharSequence* s) {
+	$useLocalCurrentObjectStackCache();
 	$init($UnicodeSet$SpanCondition);
 	$UnicodeSet$SpanCondition* spanCondition = $UnicodeSet$SpanCondition::SIMPLE;
 	for (int32_t prevSpanLimit = 0; prevSpanLimit < $nc(s)->length();) {
@@ -137,6 +138,7 @@ bool FilteredNormalizer2::isNormalized($CharSequence* s) {
 }
 
 int32_t FilteredNormalizer2::spanQuickCheckYes($CharSequence* s) {
+	$useLocalCurrentObjectStackCache();
 	$init($UnicodeSet$SpanCondition);
 	$UnicodeSet$SpanCondition* spanCondition = $UnicodeSet$SpanCondition::SIMPLE;
 	for (int32_t prevSpanLimit = 0; prevSpanLimit < $nc(s)->length();) {
@@ -161,6 +163,7 @@ bool FilteredNormalizer2::hasBoundaryBefore(int32_t c) {
 }
 
 $Appendable* FilteredNormalizer2::normalize($CharSequence* src, $Appendable* dest, $UnicodeSet$SpanCondition* spanCondition$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnicodeSet$SpanCondition, spanCondition, spanCondition$renamed);
 	$var($StringBuilder, tempDest, $new($StringBuilder));
 	try {
@@ -189,6 +192,7 @@ $Appendable* FilteredNormalizer2::normalize($CharSequence* src, $Appendable* des
 }
 
 $StringBuilder* FilteredNormalizer2::normalizeSecondAndAppend($StringBuilder* first, $CharSequence* second, bool doNormalize) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(first, second)) {
 		$throwNew($IllegalArgumentException);
 	}

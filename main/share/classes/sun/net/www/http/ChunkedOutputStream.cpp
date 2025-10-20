@@ -113,6 +113,7 @@ int32_t ChunkedOutputStream::getHeaderSize(int32_t size) {
 
 $bytes* ChunkedOutputStream::getHeader(int32_t size) {
 	$init(ChunkedOutputStream);
+	$useLocalCurrentObjectStackCache();
 	$var($String, hexStr, $Integer::toHexString(size));
 	$init($US_ASCII);
 	$var($bytes, hexBytes, $nc(hexStr)->getBytes(static_cast<$Charset*>($US_ASCII::INSTANCE)));
@@ -157,6 +158,7 @@ void ChunkedOutputStream::init$($PrintStream* o, int32_t size) {
 }
 
 void ChunkedOutputStream::flush(bool flushAll) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spaceInCurrentChunk == 0) {
 		$nc(this->out)->write(this->buf, 0, this->preferredChunkGrossSize);
 		$nc(this->out)->flush();
@@ -244,6 +246,7 @@ void ChunkedOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void ChunkedOutputStream::write(int32_t _b) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->writeLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);

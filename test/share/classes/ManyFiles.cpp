@@ -66,6 +66,7 @@ void ManyFiles::init$() {
 
 void ManyFiles::main($StringArray* args) {
 	$init(ManyFiles);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if ($nc(osName)->startsWith("Linux"_s)) {
 		return;

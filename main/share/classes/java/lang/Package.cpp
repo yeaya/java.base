@@ -278,6 +278,7 @@ bool Package::isSealed() {
 }
 
 bool Package::isSealed($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(url);
 	$var($URL, sealBase, nullptr);
 	$init($Package$VersionInfo);
@@ -295,6 +296,7 @@ bool Package::isSealed($URL* url) {
 }
 
 bool Package::isCompatibleWith($String* desired) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->versionInfo)->specVersion == nullptr || $nc($nc(this->versionInfo)->specVersion)->length() < 1) {
 		$throwNew($NumberFormatException, "Empty version string"_s);
 	}
@@ -336,6 +338,7 @@ Package* Package::getPackage($String* name) {
 
 $PackageArray* Package::getPackages() {
 	$init(Package);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, $ClassLoader::getClassLoader($Reflection::getCallerClass()));
 	return cl != nullptr ? $nc(cl)->getPackages() : $fcast($PackageArray, $nc($($BootLoader::packages()))->toArray(static_cast<$IntFunction*>($$new(Package$$Lambda$lambda$getPackages$0))));
 }
@@ -345,6 +348,7 @@ int32_t Package::hashCode() {
 }
 
 $String* Package::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, spec, $nc(this->versionInfo)->specTitle);
 	$var($String, ver, $nc(this->versionInfo)->specVersion);
 	if (spec != nullptr && !spec->isEmpty()) {
@@ -361,6 +365,7 @@ $String* Package::toString() {
 }
 
 $Class* Package::getPackageInfo() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->packageInfo == nullptr) {
 		$var($String, cn, $str({$(packageName()), ".package-info"_s}));
@@ -414,6 +419,7 @@ $AnnotationArray* Package::getDeclaredAnnotations() {
 }
 
 void Package::init$($String* name, $String* spectitle, $String* specversion, $String* specvendor, $String* impltitle, $String* implversion, $String* implvendor, $URL* sealbase, $ClassLoader* loader) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $cast($String, $Objects::requireNonNull(name)));
 	$NamedPackage::init$(var$0, loader != nullptr ? $($nc(loader)->getUnnamedModule()) : $($BootLoader::getUnnamedModule()));
 	$set(this, versionInfo, $Package$VersionInfo::getInstance(spectitle, specversion, specvendor, impltitle, implversion, implvendor, sealbase));

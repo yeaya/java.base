@@ -177,6 +177,7 @@ $Object* allocate$ServerSocketAdaptor($Class* clazz) {
 
 $ServerSocket* ServerSocketAdaptor::create($ServerSocketChannelImpl* ssc) {
 	$init(ServerSocketAdaptor);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(ServerSocketAdaptor$$Lambda$lambda$create$0, ssc)));
 	try {
@@ -198,6 +199,7 @@ void ServerSocketAdaptor::bind($SocketAddress* local) {
 }
 
 void ServerSocketAdaptor::bind($SocketAddress* local$renamed, int32_t backlog) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, local, local$renamed);
 	if (local == nullptr) {
 		$assign(local, $new($InetSocketAddress, 0));
@@ -211,6 +213,7 @@ void ServerSocketAdaptor::bind($SocketAddress* local$renamed, int32_t backlog) {
 }
 
 $InetAddress* ServerSocketAdaptor::getInetAddress() {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, local, $nc(this->ssc)->localAddress());
 	if (local == nullptr) {
 		return nullptr;
@@ -229,6 +232,7 @@ int32_t ServerSocketAdaptor::getLocalPort() {
 }
 
 $Socket* ServerSocketAdaptor::accept() {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc, nullptr);
 	try {
 		int32_t timeout = this->timeout;
@@ -283,6 +287,7 @@ int32_t ServerSocketAdaptor::getSoTimeout() {
 }
 
 void ServerSocketAdaptor::setReuseAddress(bool on) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardSocketOptions);
 		$nc(this->ssc)->setOption($StandardSocketOptions::SO_REUSEADDR, $($Boolean::valueOf(on)));
@@ -293,6 +298,7 @@ void ServerSocketAdaptor::setReuseAddress(bool on) {
 }
 
 bool ServerSocketAdaptor::getReuseAddress() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardSocketOptions);
 		return $nc(($cast($Boolean, $($nc(this->ssc)->getOption($StandardSocketOptions::SO_REUSEADDR)))))->booleanValue();
@@ -305,6 +311,7 @@ bool ServerSocketAdaptor::getReuseAddress() {
 }
 
 $String* ServerSocketAdaptor::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (!isBound()) {
 		return "ServerSocket[unbound]"_s;
 	}
@@ -314,6 +321,7 @@ $String* ServerSocketAdaptor::toString() {
 }
 
 void ServerSocketAdaptor::setReceiveBufferSize(int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (size <= 0) {
 		$throwNew($IllegalArgumentException, "size cannot be 0 or negative"_s);
 	}
@@ -327,6 +335,7 @@ void ServerSocketAdaptor::setReceiveBufferSize(int32_t size) {
 }
 
 int32_t ServerSocketAdaptor::getReceiveBufferSize() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardSocketOptions);
 		return $nc(($cast($Integer, $($nc(this->ssc)->getOption($StandardSocketOptions::SO_RCVBUF)))))->intValue();

@@ -170,6 +170,7 @@ void AbstractSelector::end() {
 }
 
 void clinit$AbstractSelector($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

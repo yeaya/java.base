@@ -95,6 +95,7 @@ void TestC2::main($StringArray* args) {
 
 void TestC2::testSuperclass() {
 	$init(TestC2);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("testing superclass"_s);
 	$var($Type, sc, $nc(TestC2::cls)->getGenericSuperclass());
@@ -160,6 +161,7 @@ void TestC2::testSuperclass() {
 
 void TestC2::testSuperInterfaces() {
 	$init(TestC2);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("testing superinterfaces"_s);
 	$var($TypeArray, sis, $nc(TestC2::cls)->getGenericInterfaces());
@@ -256,6 +258,7 @@ void TestC2::testSuperInterfaces() {
 
 void TestC2::testTypeParameters() {
 	$init(TestC2);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestC2::cls)->getTypeParameters());
@@ -291,6 +294,7 @@ void TestC2::testTypeParameters() {
 
 void TestC2::testMethods() {
 	$init(TestC2);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing methods"_s);
@@ -438,6 +442,7 @@ void TestC2::testMethods() {
 
 void TestC2::testFields() {
 	$init(TestC2);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing fields"_s);
@@ -490,6 +495,7 @@ void TestC2::testFields() {
 
 void TestC2::testConstructors() {
 	$init(TestC2);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing constructors"_s);

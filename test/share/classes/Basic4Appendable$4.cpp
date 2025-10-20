@@ -91,6 +91,7 @@ void Basic4Appendable$4::init($Appendable* osw, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$4::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($Basic4Appendable);
 	$Basic4Appendable::ck($$str({"OutputStreamWriter.append("_s, this->csn, ")"_s}), this->exp, $($nc($Basic4Appendable::gos)->toString()));
 }

@@ -292,12 +292,14 @@ int64_t StringConcatFactory::INITIAL_CODER = 0;
 
 $CallSite* StringConcatFactory::makeConcat($MethodHandles$Lookup* lookup, $String* name, $MethodType* concatType) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($String, recipe, "\u0001"_s->repeat($nc(concatType)->parameterCount()));
 	return makeConcatWithConstants(lookup, name, concatType, recipe, $$new($ObjectArray, 0));
 }
 
 $CallSite* StringConcatFactory::makeConcatWithConstants($MethodHandles$Lookup* lookup, $String* name, $MethodType* concatType, $String* recipe, $ObjectArray* constants) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(lookup), "Lookup is null"_s);
 	$Objects::requireNonNull($of(name), "Name is null"_s);
 	$Objects::requireNonNull($of(concatType), "Concat type is null"_s);
@@ -338,6 +340,7 @@ $CallSite* StringConcatFactory::makeConcatWithConstants($MethodHandles$Lookup* l
 
 $List* StringConcatFactory::parseRecipe($MethodType* concatType, $String* recipe, $ObjectArray* constants) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(recipe), "Recipe is null"_s);
 	$var($List, elements, $new($ArrayList));
 	int32_t cCount = 0;
@@ -375,16 +378,19 @@ $List* StringConcatFactory::parseRecipe($MethodType* concatType, $String* recipe
 
 $StringConcatException* StringConcatFactory::argumentMismatch($MethodType* concatType, int32_t oCount) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	return $new($StringConcatException, $$str({"Mismatched number of concat arguments: recipe wants "_s, $$str(oCount), " arguments, but signature provides "_s, $$str($nc(concatType)->parameterCount())}));
 }
 
 $StringConcatException* StringConcatFactory::constantMismatch($ObjectArray* constants, int32_t cCount) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	return $new($StringConcatException, $$str({"Mismatched number of concat constants: recipe wants "_s, $$str(cCount), " constants, but only "_s, $$str($nc(constants)->length), " are passed"_s}));
 }
 
 $MethodHandle* StringConcatFactory::generateMHInlineCopy($MethodType* mt, $List* elements) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(elements)->size() == 1) {
 		$var($String, s0, $cast($String, elements->get(0)));
 		if (s0 == nullptr) {
@@ -500,6 +506,7 @@ $MethodHandle* StringConcatFactory::generateMHInlineCopy($MethodType* mt, $List*
 
 $MethodHandle* StringConcatFactory::prepender($String* prefix, $Class* cl) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	if (prefix == nullptr) {
 		return $cast($MethodHandle, $nc(StringConcatFactory::NULL_PREPENDERS)->computeIfAbsent(cl, StringConcatFactory::NULL_PREPEND));
 	}
@@ -513,6 +520,7 @@ $MethodHandle* StringConcatFactory::mixer($Class* cl) {
 
 $MethodHandle* StringConcatFactory::simpleConcat() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::SIMPLE_CONCAT);
 	if (mh == nullptr) {
 		$load($String);
@@ -525,6 +533,7 @@ $MethodHandle* StringConcatFactory::simpleConcat() {
 
 $MethodHandle* StringConcatFactory::newString() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::NEW_STRING);
 	if (mh == nullptr) {
 		$load($String);
@@ -538,6 +547,7 @@ $MethodHandle* StringConcatFactory::newString() {
 
 $MethodHandle* StringConcatFactory::newArrayWithSuffix($String* suffix) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::NEW_ARRAY_SUFFIX);
 	if (mh == nullptr) {
 		$load($bytes);
@@ -551,6 +561,7 @@ $MethodHandle* StringConcatFactory::newArrayWithSuffix($String* suffix) {
 
 $MethodHandle* StringConcatFactory::newArray() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::NEW_ARRAY);
 	if (mh == nullptr) {
 		$load($bytes);
@@ -562,6 +573,7 @@ $MethodHandle* StringConcatFactory::newArray() {
 
 $MethodHandle* StringConcatFactory::objectStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::OBJECT_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -573,6 +585,7 @@ $MethodHandle* StringConcatFactory::objectStringifier() {
 
 $MethodHandle* StringConcatFactory::floatStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::FLOAT_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -584,6 +597,7 @@ $MethodHandle* StringConcatFactory::floatStringifier() {
 
 $MethodHandle* StringConcatFactory::doubleStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::DOUBLE_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -595,6 +609,7 @@ $MethodHandle* StringConcatFactory::doubleStringifier() {
 
 $MethodHandle* StringConcatFactory::intStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::INT_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -606,6 +621,7 @@ $MethodHandle* StringConcatFactory::intStringifier() {
 
 $MethodHandle* StringConcatFactory::longStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::LONG_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -617,6 +633,7 @@ $MethodHandle* StringConcatFactory::longStringifier() {
 
 $MethodHandle* StringConcatFactory::charStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::CHAR_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -628,6 +645,7 @@ $MethodHandle* StringConcatFactory::charStringifier() {
 
 $MethodHandle* StringConcatFactory::booleanStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::BOOLEAN_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -639,6 +657,7 @@ $MethodHandle* StringConcatFactory::booleanStringifier() {
 
 $MethodHandle* StringConcatFactory::newStringifier() {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, StringConcatFactory::NEW_STRINGIFIER);
 	if (mh == nullptr) {
 		$load($String);
@@ -710,6 +729,7 @@ $MethodHandle* StringConcatFactory::stringifierFor($Class* t) {
 
 $MethodHandle* StringConcatFactory::lookupStatic($MethodHandles$Lookup* lookup, $Class* refc, $String* name, $Class* rtype, $ClassArray* ptypes) {
 	$init(StringConcatFactory);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(lookup)->findStatic(refc, name, $($MethodType::methodType(rtype, ptypes)));
 	} catch ($NoSuchMethodException&) {

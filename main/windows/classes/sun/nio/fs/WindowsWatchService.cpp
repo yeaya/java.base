@@ -85,6 +85,7 @@ $Object* allocate$WindowsWatchService($Class* clazz) {
 }
 
 void WindowsWatchService::init$($WindowsFileSystem* fs) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractWatchService::init$();
 	int64_t port = 0;
 	try {

@@ -51,6 +51,7 @@ $Object* allocate$UnixTest($Class* clazz) {
 }
 
 void UnixTest::init$($File* script) {
+	$useLocalCurrentObjectStackCache();
 	$ProcessTest::init$();
 	$nc(script)->deleteOnExit();
 	createScript(script);
@@ -61,6 +62,7 @@ void UnixTest::init$($File* script) {
 }
 
 void UnixTest::createScript($File* processTrapScript) {
+	$useLocalCurrentObjectStackCache();
 	$nc(processTrapScript)->deleteOnExit();
 	{
 		$var($FileWriter, fstream, $new($FileWriter, processTrapScript));

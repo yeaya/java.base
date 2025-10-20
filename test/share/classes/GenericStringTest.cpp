@@ -64,6 +64,7 @@ void GenericStringTest::init$() {
 
 void GenericStringTest::main($StringArray* argv) {
 	$load(GenericStringTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	{

@@ -205,6 +205,7 @@ int32_t Collections$CopiesList::lastIndexOf(Object$* o) {
 }
 
 $Object* Collections$CopiesList::get(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (index < 0 || index >= this->n) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->n)}));
 	}
@@ -237,6 +238,7 @@ $ObjectArray* Collections$CopiesList::toArray($ObjectArray* a$renamed) {
 }
 
 $List* Collections$CopiesList::subList(int32_t fromIndex, int32_t toIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex = "_s, $$str(fromIndex)}));
 	}
@@ -267,6 +269,7 @@ int32_t Collections$CopiesList::hashCode() {
 }
 
 bool Collections$CopiesList::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -304,10 +307,12 @@ bool Collections$CopiesList::equals(Object$* o) {
 }
 
 $Stream* Collections$CopiesList::stream() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($IntStream::range(0, this->n)))->mapToObj(static_cast<$IntFunction*>($$new(Collections$CopiesList$$Lambda$lambda$stream$0, this)));
 }
 
 $Stream* Collections$CopiesList::parallelStream() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($IntStream::range(0, this->n)))->parallel()))->mapToObj(static_cast<$IntFunction*>($$new(Collections$CopiesList$$Lambda$lambda$stream$0, this)));
 }
 

@@ -149,6 +149,7 @@ void DateTimeFormatterBuilder$ChronoPrinterParser::init$($TextStyle* textStyle) 
 }
 
 bool DateTimeFormatterBuilder$ChronoPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, chrono, $cast($Chronology, $nc(context)->getValue($($TemporalQueries::chronology()))));
 	if (chrono == nullptr) {
 		return false;
@@ -162,6 +163,7 @@ bool DateTimeFormatterBuilder$ChronoPrinterParser::format($DateTimePrintContext*
 }
 
 int32_t DateTimeFormatterBuilder$ChronoPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	if (position < 0 || position > $nc(text)->length()) {
 		$throwNew($IndexOutOfBoundsException);
 	}
@@ -195,6 +197,7 @@ int32_t DateTimeFormatterBuilder$ChronoPrinterParser::parse($DateTimeParseContex
 }
 
 $String* DateTimeFormatterBuilder$ChronoPrinterParser::getChronologyName($Chronology* chrono, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $str({"calendarname."_s, $($nc(chrono)->getCalendarType())}));
 	$var($String, name, $cast($String, $DateTimeTextProvider::getLocalizedResource(key, locale)));
 	return $cast($String, $Objects::requireNonNullElseGet(name, static_cast<$Supplier*>($$new(DateTimeFormatterBuilder$ChronoPrinterParser$$Lambda$lambda$getChronologyName$0, chrono))));

@@ -160,6 +160,7 @@ void TestGenericReturnTypeToString::init$() {
 
 void TestGenericReturnTypeToString::main($StringArray* args) {
 	$load(TestGenericReturnTypeToString);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool hasFailures = false;
 	{

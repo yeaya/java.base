@@ -70,6 +70,7 @@ void SendSize::init$() {
 }
 
 void SendSize::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, serverSocket, $new($DatagramSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0))));
 	$var($Thread, server, $new($SendSize$ServerThread, serverSocket));
 	server->start();

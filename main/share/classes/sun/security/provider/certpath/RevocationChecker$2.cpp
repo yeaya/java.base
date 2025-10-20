@@ -83,6 +83,7 @@ $ints* RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$Revocation
 $ints* RevocationChecker$2::$SwitchMap$java$security$cert$PKIXRevocationChecker$Option = nullptr;
 
 void clinit$RevocationChecker$2($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(RevocationChecker$2::$SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode, $new($ints, $($RevocationChecker$Mode::values())->length));
 	{
 		try {

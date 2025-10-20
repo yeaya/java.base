@@ -76,6 +76,7 @@ void SSLEngineImpl$DelegatedTask$DelegatedAction::init$($HandshakeContext* conte
 }
 
 $Object* SSLEngineImpl$DelegatedTask$DelegatedAction::run() {
+	$useLocalCurrentObjectStackCache();
 	while (!$nc($nc(this->context)->delegatedActions)->isEmpty()) {
 		$var($Map$Entry, me, $cast($Map$Entry, $nc($nc(this->context)->delegatedActions)->poll()));
 		if (me != nullptr) {

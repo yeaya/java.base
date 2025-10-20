@@ -184,6 +184,7 @@ void CertificateMessage$T12CertificateConsumer::init$() {
 }
 
 void CertificateMessage$T12CertificateConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)));
@@ -204,6 +205,7 @@ void CertificateMessage$T12CertificateConsumer::consume($ConnectionContext* cont
 }
 
 void CertificateMessage$T12CertificateConsumer::onCertificate($ServerHandshakeContext* shc, $CertificateMessage$T12CertificateMessage* certificateMessage) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, encodedCerts, $nc(certificateMessage)->encodedCertChain);
 	if (encodedCerts == nullptr || $nc(encodedCerts)->isEmpty()) {
 		$init($SSLHandshake);
@@ -240,6 +242,7 @@ void CertificateMessage$T12CertificateConsumer::onCertificate($ServerHandshakeCo
 }
 
 void CertificateMessage$T12CertificateConsumer::onCertificate($ClientHandshakeContext* chc, $CertificateMessage$T12CertificateMessage* certificateMessage) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, encodedCerts, $nc(certificateMessage)->encodedCertChain);
 	if (encodedCerts == nullptr || $nc(encodedCerts)->isEmpty()) {
 		$init($Alert);
@@ -282,6 +285,7 @@ void CertificateMessage$T12CertificateConsumer::onCertificate($ClientHandshakeCo
 
 bool CertificateMessage$T12CertificateConsumer::isIdentityEquivalent($X509Certificate* thisCert, $X509Certificate* prevCert) {
 	$init(CertificateMessage$T12CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(thisCert)->equals(prevCert)) {
 		return true;
 	}
@@ -329,6 +333,7 @@ bool CertificateMessage$T12CertificateConsumer::isIdentityEquivalent($X509Certif
 
 $Collection* CertificateMessage$T12CertificateConsumer::getSubjectAltNames($Collection* subjectAltNames, int32_t type) {
 	$init(CertificateMessage$T12CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, subAltDnsNames, nullptr);
 	{
 		$var($Iterator, i$, $nc(subjectAltNames)->iterator());
@@ -353,6 +358,7 @@ $Collection* CertificateMessage$T12CertificateConsumer::getSubjectAltNames($Coll
 
 bool CertificateMessage$T12CertificateConsumer::isEquivalent($Collection* thisSubAltNames, $Collection* prevSubAltNames) {
 	$init(CertificateMessage$T12CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(thisSubAltNames)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -377,6 +383,7 @@ bool CertificateMessage$T12CertificateConsumer::isEquivalent($Collection* thisSu
 
 void CertificateMessage$T12CertificateConsumer::checkServerCerts($ClientHandshakeContext* chc, $X509CertificateArray* certs) {
 	$init(CertificateMessage$T12CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$var($X509TrustManager, tm, $nc($nc(chc)->sslContext)->getX509TrustManager());
 	$var($String, keyExchangeString, nullptr);
 	$init($CipherSuite$KeyExchange);
@@ -406,6 +413,7 @@ void CertificateMessage$T12CertificateConsumer::checkServerCerts($ClientHandshak
 
 void CertificateMessage$T12CertificateConsumer::checkClientCerts($ServerHandshakeContext* shc, $X509CertificateArray* certs) {
 	$init(CertificateMessage$T12CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$var($X509TrustManager, tm, $nc($nc(shc)->sslContext)->getX509TrustManager());
 	$var($PublicKey, key, $nc($nc(certs)->get(0))->getPublicKey());
 	$var($String, keyAlgorithm, $nc(key)->getAlgorithm());
@@ -482,6 +490,7 @@ void CertificateMessage$T12CertificateConsumer::checkClientCerts($ServerHandshak
 
 $Alert* CertificateMessage$T12CertificateConsumer::getCertificateAlert($ClientHandshakeContext* chc, $CertificateException* cexc) {
 	$init(CertificateMessage$T12CertificateConsumer);
+	$useLocalCurrentObjectStackCache();
 	$init($Alert);
 	$Alert* alert = $Alert::CERTIFICATE_UNKNOWN;
 	$var($Throwable, baseCause, $nc(cexc)->getCause());

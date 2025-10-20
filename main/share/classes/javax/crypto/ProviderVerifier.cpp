@@ -107,6 +107,7 @@ void ProviderVerifier::init$($URL* jarURL, $Provider* provider, bool savePerms) 
 }
 
 void ProviderVerifier::verify() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!this->savePerms) {
 		return;

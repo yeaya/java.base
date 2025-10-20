@@ -45,6 +45,7 @@ void BufferSize::init$() {
 }
 
 void BufferSize::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, sc, $ServerSocketChannel::open());
 	try {
 		$nc($($nc(sc)->socket()))->setReceiveBufferSize(-1);

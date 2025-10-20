@@ -81,6 +81,7 @@ void Basic4Appendable$10::init($Appendable* sb, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$10::run() {
+	$useLocalCurrentObjectStackCache();
 	$Basic4Appendable::ck($$str({"StringBuilder.append("_s, this->csn, ")"_s}), this->exp, $($nc(this->sb)->toString()));
 }
 

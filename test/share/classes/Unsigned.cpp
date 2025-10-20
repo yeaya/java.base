@@ -96,6 +96,7 @@ void Unsigned::init$() {
 
 void Unsigned::main($StringArray* args) {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	errors += testRoundtrip();
 	errors += testByteToUnsignedLong();
@@ -111,6 +112,7 @@ void Unsigned::main($StringArray* args) {
 
 int32_t Unsigned::testRoundtrip() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	$var($longs, data, $new($longs, {
 		(int64_t)-1,
@@ -147,6 +149,7 @@ int32_t Unsigned::testRoundtrip() {
 
 int32_t Unsigned::testByteToUnsignedLong() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	for (int32_t i = $Byte::MIN_VALUE; i <= $Byte::MAX_VALUE; ++i) {
 		int8_t datum = (int8_t)i;
@@ -165,6 +168,7 @@ int32_t Unsigned::testByteToUnsignedLong() {
 
 int32_t Unsigned::testShortToUnsignedLong() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	for (int32_t i = $Short::MIN_VALUE; i <= $Short::MAX_VALUE; ++i) {
 		int16_t datum = (int16_t)i;
@@ -183,6 +187,7 @@ int32_t Unsigned::testShortToUnsignedLong() {
 
 int32_t Unsigned::testUnsignedCompare() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	$var($longs, data, $new($longs, {
 		(int64_t)0,
@@ -260,6 +265,7 @@ int32_t Unsigned::testUnsignedCompare() {
 
 int32_t Unsigned::compUnsigned(int64_t x, int64_t y) {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, big_x, toUnsignedBigInt(x));
 	$var($BigInteger, big_y, toUnsignedBigInt(y));
 	return $nc(big_x)->compareTo(big_y);
@@ -267,6 +273,7 @@ int32_t Unsigned::compUnsigned(int64_t x, int64_t y) {
 
 $BigInteger* Unsigned::toUnsignedBigInt(int64_t x) {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	if (x >= 0) {
 		return $BigInteger::valueOf(x);
 	} else {
@@ -279,6 +286,7 @@ $BigInteger* Unsigned::toUnsignedBigInt(int64_t x) {
 
 int32_t Unsigned::testToStringUnsigned() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	$var($longs, data, $new($longs, {
 		(int64_t)0,
@@ -357,6 +365,7 @@ int32_t Unsigned::testToStringUnsigned() {
 
 int32_t Unsigned::testParseUnsignedLong() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	int64_t maxUnsignedInt = $Integer::toUnsignedLong(-1);
 		$init($BigInteger);
@@ -459,6 +468,7 @@ int32_t Unsigned::testParseUnsignedLong() {
 
 int32_t Unsigned::testUnsignedOverflow($String* s, int32_t radix, bool exception) {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	int64_t result = 0;
 	try {
@@ -489,6 +499,7 @@ int32_t Unsigned::testUnsignedOverflow($String* s, int32_t radix, bool exception
 
 int32_t Unsigned::testDivideAndRemainder() {
 	$init(Unsigned);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	int64_t TWO_31 = $sl((int64_t)1, $Integer::SIZE - 1);
 	int64_t TWO_32 = $sl((int64_t)1, $Integer::SIZE);

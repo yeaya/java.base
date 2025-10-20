@@ -193,6 +193,7 @@ void ARCFOURCipher::init(int32_t opmode, $Key* key) {
 
 $bytes* ARCFOURCipher::getEncodedKey($Key* key) {
 	$init(ARCFOURCipher);
+	$useLocalCurrentObjectStackCache();
 	$var($String, keyAlg, $nc(key)->getAlgorithm());
 	bool var$0 = !$nc(keyAlg)->equals("RC4"_s);
 	if (var$0 && !keyAlg->equals("ARCFOUR"_s)) {
@@ -236,6 +237,7 @@ int32_t ARCFOURCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $
 }
 
 $bytes* ARCFOURCipher::engineWrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	if ((encoded == nullptr) || ($nc(encoded)->length == 0)) {
 		$throwNew($InvalidKeyException, "Could not obtain encoded key"_s);
@@ -264,6 +266,7 @@ $bytes* ARCFOURCipher::engineWrap($Key* key) {
 }
 
 $Key* ARCFOURCipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t type) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);

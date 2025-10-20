@@ -95,6 +95,7 @@ $LocaleArray* HostLocaleProviderAdapterImpl$3::getAvailableLocales() {
 }
 
 bool HostLocaleProviderAdapterImpl$3::isSupportedLocale($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, base, $nc(locale)->stripExtensions());
 	$init($HostLocaleProviderAdapterImpl);
 	if ($nc($HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains(base)) {
@@ -104,6 +105,7 @@ bool HostLocaleProviderAdapterImpl$3::isSupportedLocale($Locale* locale) {
 }
 
 $DateFormatSymbols* HostLocaleProviderAdapterImpl$3::getInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, dateFormatSymbols, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatSymbolsMap)->get(locale)));

@@ -103,6 +103,7 @@ $Object* allocate$EncryptedPrivateKeyInfo($Class* clazz) {
 }
 
 void EncryptedPrivateKeyInfo::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, encoded, nullptr);
 	if (encoded == nullptr) {
 		$throwNew($NullPointerException, "the encoded parameter must be non-null"_s);
@@ -170,6 +171,7 @@ $bytes* EncryptedPrivateKeyInfo::getEncryptedData() {
 }
 
 $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Cipher* cipher) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, nullptr);
 	try {
 		$assign(encoded, $nc(cipher)->doFinal(this->encryptedData));
@@ -188,6 +190,7 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Cipher* cipher) {
 }
 
 $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpecImpl($Key* decryptKey, $Provider* provider) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, nullptr);
 	$var($Cipher, c, nullptr);
 	try {
@@ -220,6 +223,7 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Key* decryptKey) {
 }
 
 $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Key* decryptKey, $String* providerName) {
+	$useLocalCurrentObjectStackCache();
 	if (decryptKey == nullptr) {
 		$throwNew($NullPointerException, "decryptKey is null"_s);
 	}
@@ -244,6 +248,7 @@ $PKCS8EncodedKeySpec* EncryptedPrivateKeyInfo::getKeySpec($Key* decryptKey, $Pro
 }
 
 $bytes* EncryptedPrivateKeyInfo::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encoded == nullptr) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -262,6 +267,7 @@ void EncryptedPrivateKeyInfo::checkTag($DerValue* val, int8_t tag, $String* valN
 }
 
 void EncryptedPrivateKeyInfo::checkPKCS8Encoding($bytes* encodedKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, in, $new($DerInputStream, encodedKey));
 	$var($DerValueArray, values, in->getSequence(3));
 	switch ($nc(values)->length) {

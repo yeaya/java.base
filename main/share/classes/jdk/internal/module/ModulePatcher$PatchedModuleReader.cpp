@@ -131,6 +131,7 @@ $Object* allocate$ModulePatcher$PatchedModuleReader($Class* clazz) {
 bool ModulePatcher$PatchedModuleReader::$assertionsDisabled = false;
 
 void ModulePatcher$PatchedModuleReader::init$($List* patches, $ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, finders, $new($ArrayList));
 	bool initialized = false;
 	{
@@ -173,6 +174,7 @@ void ModulePatcher$PatchedModuleReader::init$($List* patches, $ModuleReference* 
 
 void ModulePatcher$PatchedModuleReader::closeAll($List* finders) {
 	$init(ModulePatcher$PatchedModuleReader);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(finders)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -190,6 +192,7 @@ void ModulePatcher$PatchedModuleReader::closeAll($List* finders) {
 
 $URL* ModulePatcher$PatchedModuleReader::codeSourceURL($ModuleReference* mref) {
 	$init(ModulePatcher$PatchedModuleReader);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Optional, ouri, $nc(mref)->location());
 		if ($nc(ouri)->isPresent()) {
@@ -215,6 +218,7 @@ $ModuleReader* ModulePatcher$PatchedModuleReader::delegate() {
 }
 
 $Resource* ModulePatcher$PatchedModuleReader::findResourceInPatch($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(name)->equals("module-info.class"_s)) {
 		{
 			$var($Iterator, i$, $nc(this->finders)->iterator());
@@ -233,6 +237,7 @@ $Resource* ModulePatcher$PatchedModuleReader::findResourceInPatch($String* name)
 }
 
 $Resource* ModulePatcher$PatchedModuleReader::findResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Resource, r, findResourceInPatch(name));
 	if (r != nullptr) {
 		return r;
@@ -245,6 +250,7 @@ $Resource* ModulePatcher$PatchedModuleReader::findResource($String* name) {
 }
 
 $Optional* ModulePatcher$PatchedModuleReader::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Resource, r, findResourceInPatch(name));
 	if (r != nullptr) {
 		$var($URI, uri, $URI::create($($nc($(r->getURL()))->toString())));
@@ -255,6 +261,7 @@ $Optional* ModulePatcher$PatchedModuleReader::find($String* name) {
 }
 
 $Optional* ModulePatcher$PatchedModuleReader::open($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Resource, r, findResourceInPatch(name));
 	if (r != nullptr) {
 		return $Optional::of($(r->getInputStream()));
@@ -264,6 +271,7 @@ $Optional* ModulePatcher$PatchedModuleReader::open($String* name) {
 }
 
 $Optional* ModulePatcher$PatchedModuleReader::read($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Resource, r, findResourceInPatch(name));
 	if (r != nullptr) {
 		$var($ByteBuffer, bb, r->getByteBuffer());
@@ -277,6 +285,7 @@ $Optional* ModulePatcher$PatchedModuleReader::read($String* name) {
 }
 
 void ModulePatcher$PatchedModuleReader::release($ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bb)->isDirect()) {
 		try {
 			$nc($(delegate()))->release(bb);
@@ -288,6 +297,7 @@ void ModulePatcher$PatchedModuleReader::release($ByteBuffer* bb) {
 }
 
 $Stream* ModulePatcher$PatchedModuleReader::list() {
+	$useLocalCurrentObjectStackCache();
 	$var($Stream, s, $nc($(delegate()))->list());
 	{
 		$var($Iterator, i$, $nc(this->finders)->iterator());

@@ -50,6 +50,7 @@ void NameTooLong::init$() {
 }
 
 void NameTooLong::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray2, prefixSuffix, $new($StringArray2, {
 		$$new($StringArray, {
 			"1234567890123456789012345678901234567xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx89012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"_s,

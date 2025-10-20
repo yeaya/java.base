@@ -121,6 +121,7 @@ void JulianCalendar$Date::setNormalizedYear(int32_t year) {
 }
 
 $String* JulianCalendar$Date::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, time, $BaseCalendar$Date::toString());
 	$assign(time, $nc(time)->substring(time->indexOf((int32_t)u'T')));
 	$var($StringBuffer, sb, $new($StringBuffer));

@@ -123,6 +123,7 @@ $String* PolicyMappingsExtension::NAME = nullptr;
 $String* PolicyMappingsExtension::MAP = nullptr;
 
 void PolicyMappingsExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->maps == nullptr || $nc(this->maps)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -160,6 +161,7 @@ void PolicyMappingsExtension::init$() {
 }
 
 void PolicyMappingsExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::PolicyMappings_Id);
@@ -178,6 +180,7 @@ void PolicyMappingsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* PolicyMappingsExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->maps == nullptr) {
 		return ""_s;
 	}
@@ -188,6 +191,7 @@ $String* PolicyMappingsExtension::toString() {
 }
 
 void PolicyMappingsExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

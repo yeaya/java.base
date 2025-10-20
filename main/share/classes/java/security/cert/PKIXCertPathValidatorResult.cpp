@@ -90,6 +90,7 @@ $PublicKey* PKIXCertPathValidatorResult::getPublicKey() {
 }
 
 $Object* PKIXCertPathValidatorResult::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($CertPathValidatorResult::clone());
 	} catch ($CloneNotSupportedException&) {
@@ -100,6 +101,7 @@ $Object* PKIXCertPathValidatorResult::clone() {
 }
 
 $String* PKIXCertPathValidatorResult::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("PKIXCertPathValidatorResult: [\n"_s);
 	sb->append($$str({"  Trust Anchor: "_s, $($nc(this->trustAnchor)->toString()), "\n"_s}));

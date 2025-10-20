@@ -92,6 +92,7 @@ void ParallelListResourceBundle$KeySet$1::init$($ParallelListResourceBundle$KeyS
 }
 
 bool ParallelListResourceBundle$KeySet$1::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->itr)->hasNext()) {
 		return true;
 	}

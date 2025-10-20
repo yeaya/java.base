@@ -178,6 +178,7 @@ void ConcurrentHashMap$EntrySetView::init$($ConcurrentHashMap* map) {
 }
 
 bool ConcurrentHashMap$EntrySetView::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, nullptr);
 	$var($Object, v, nullptr);
 	$var($Object, r, nullptr);
@@ -189,6 +190,7 @@ bool ConcurrentHashMap$EntrySetView::contains(Object$* o) {
 }
 
 bool ConcurrentHashMap$EntrySetView::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, nullptr);
 	$var($Object, v, nullptr);
 	$var($Map$Entry, e, nullptr);
@@ -198,6 +200,7 @@ bool ConcurrentHashMap$EntrySetView::remove(Object$* o) {
 }
 
 $Iterator* ConcurrentHashMap$EntrySetView::iterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, m, this->map);
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	int32_t f = ($assign(t, $nc(m)->table)) == nullptr ? 0 : $nc(t)->length;
@@ -205,11 +208,13 @@ $Iterator* ConcurrentHashMap$EntrySetView::iterator() {
 }
 
 bool ConcurrentHashMap$EntrySetView::add($Map$Entry* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(e)->getKey());
 	return $nc(this->map)->putVal(var$0, $(e->getValue()), false) == nullptr;
 }
 
 bool ConcurrentHashMap$EntrySetView::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	bool added = false;
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
@@ -230,6 +235,7 @@ bool ConcurrentHashMap$EntrySetView::removeIf($Predicate* filter) {
 }
 
 int32_t ConcurrentHashMap$EntrySetView::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	if (($assign(t, $nc(this->map)->table)) != nullptr) {
@@ -259,6 +265,7 @@ bool ConcurrentHashMap$EntrySetView::equals(Object$* o) {
 }
 
 $Spliterator* ConcurrentHashMap$EntrySetView::spliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	$var($ConcurrentHashMap, m, this->map);
 	int64_t n = $nc(m)->sumCount();
@@ -267,6 +274,7 @@ $Spliterator* ConcurrentHashMap$EntrySetView::spliterator() {
 }
 
 void ConcurrentHashMap$EntrySetView::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

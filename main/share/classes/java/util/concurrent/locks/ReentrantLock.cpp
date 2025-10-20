@@ -219,6 +219,7 @@ $Collection* ReentrantLock::getWaitingThreads($Condition* condition) {
 }
 
 $String* ReentrantLock::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, o, $nc(this->sync)->getOwner());
 	$var($String, var$0, $($Lock::toString()));
 	return $concat(var$0, ((o == nullptr) ? "[Unlocked]"_s : $$str({"[Locked by thread "_s, $($nc(o)->getName()), "]"_s})));

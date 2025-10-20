@@ -406,6 +406,7 @@ void MethodType::setForm($MethodTypeForm* f) {
 
 int32_t MethodType::checkPtypes($ClassArray* ptypes) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	int32_t slots = 0;
 	{
 		$var($ClassArray, arr$, ptypes);
@@ -433,6 +434,7 @@ int32_t MethodType::checkPtypes($ClassArray* ptypes) {
 
 void MethodType::checkSlotCount(int32_t count) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(count & (uint32_t)MethodType::MAX_JVM_ARITY)) != count) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"bad parameter count "_s, $$str(count)}))));
 	}
@@ -440,6 +442,7 @@ void MethodType::checkSlotCount(int32_t count) {
 
 $IndexOutOfBoundsException* MethodType::newIndexOutOfBoundsException(Object$* num$renamed) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, num, num$renamed);
 	if ($instanceOf($Integer, num)) {
 		$assign(num, $str({"bad index: "_s, num}));
@@ -489,6 +492,7 @@ MethodType* MethodType::methodType($Class* rtype, MethodType* ptypes) {
 
 MethodType* MethodType::makeImpl($Class* rtype, $ClassArray* ptypes$renamed, bool trusted) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, ptypes, ptypes$renamed);
 	if ($nc(ptypes)->length == 0) {
 		$assign(ptypes, MethodType::NO_PTYPES);
@@ -514,6 +518,7 @@ MethodType* MethodType::makeImpl($Class* rtype, $ClassArray* ptypes$renamed, boo
 
 MethodType* MethodType::genericMethodType(int32_t objectArgCount, bool finalArray) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	$var(MethodType, mt, nullptr);
 	checkSlotCount(objectArgCount);
 	int32_t ivarargs = (!finalArray ? 0 : 1);
@@ -553,6 +558,7 @@ MethodType* MethodType::changeParameterType(int32_t num, $Class* nptype) {
 }
 
 MethodType* MethodType::insertParameterTypes(int32_t num, $ClassArray* ptypesToInsert) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(this->ptypes$)->length;
 	if (num < 0 || num > len) {
 		$throw($(newIndexOutOfBoundsException($($Integer::valueOf(num)))));
@@ -587,6 +593,7 @@ MethodType* MethodType::appendParameterTypes($List* ptypesToInsert) {
 }
 
 MethodType* MethodType::replaceParameterTypes(int32_t start, int32_t end, $ClassArray* ptypesToInsert) {
+	$useLocalCurrentObjectStackCache();
 	if (start == end) {
 		return insertParameterTypes(start, ptypesToInsert);
 	}
@@ -602,6 +609,7 @@ MethodType* MethodType::replaceParameterTypes(int32_t start, int32_t end, $Class
 }
 
 MethodType* MethodType::asSpreaderType($Class* arrayType, int32_t pos, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	if (!MethodType::$assertionsDisabled && !(parameterCount() >= arrayLength)) {
 		$throwNew($AssertionError);
 	}
@@ -646,6 +654,7 @@ $Class* MethodType::leadingReferenceParameter() {
 }
 
 MethodType* MethodType::asCollectorType($Class* arrayType, int32_t pos, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	if (!MethodType::$assertionsDisabled && !(parameterCount() >= 1)) {
 		$throwNew($AssertionError);
 	}
@@ -681,6 +690,7 @@ MethodType* MethodType::asCollectorType($Class* arrayType, int32_t pos, int32_t 
 }
 
 $TypeDescriptor$OfMethod* MethodType::dropParameterTypes(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(this->ptypes$)->length;
 	if (!(0 <= start && start <= end && end <= len)) {
 		$throw($(newIndexOutOfBoundsException($$str({"start="_s, $$str(start), " end="_s, $$str(end)}))));
@@ -795,6 +805,7 @@ $TypeDescriptor$OfField* MethodType::returnType() {
 }
 
 $List* MethodType::parameterList() {
+	$useLocalCurrentObjectStackCache();
 	return $Collections::unmodifiableList($($Arrays::asList($cast($ClassArray, $($nc(this->ptypes$)->clone())))));
 }
 
@@ -843,6 +854,7 @@ int32_t MethodType::hashCode() {
 }
 
 $String* MethodType::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s, "("_s, $$str({")"_s, $($nc(this->rtype$)->getSimpleName())})));
 	for (int32_t i = 0; i < $nc(this->ptypes$)->length; ++i) {
 		sj->add($($nc($nc(this->ptypes$)->get(i))->getSimpleName()));
@@ -851,6 +863,7 @@ $String* MethodType::toString() {
 }
 
 bool MethodType::effectivelyIdenticalParameters(int32_t skipPos, $List* fullList) {
+	$useLocalCurrentObjectStackCache();
 	int32_t myLen = $nc(this->ptypes$)->length;
 	int32_t fullLen = $nc(fullList)->size();
 	if (skipPos > myLen || myLen - skipPos > fullLen) {
@@ -869,6 +882,7 @@ bool MethodType::effectivelyIdenticalParameters(int32_t skipPos, $List* fullList
 }
 
 bool MethodType::isViewableAs(MethodType* newType, bool keepInterfaces) {
+	$useLocalCurrentObjectStackCache();
 	$Class* var$0 = $cast($Class, returnType());
 	if (!$VerifyType::isNullConversion(var$0, $($cast($Class, $nc(newType)->returnType())), keepInterfaces)) {
 		return false;
@@ -893,6 +907,7 @@ bool MethodType::isViewableAs(MethodType* newType, bool keepInterfaces) {
 }
 
 bool MethodType::isConvertibleTo(MethodType* newType) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodTypeForm, oldForm, this->form());
 	$var($MethodTypeForm, newForm, $nc(newType)->form());
 	if (oldForm == newForm) {
@@ -928,6 +943,7 @@ bool MethodType::isConvertibleTo(MethodType* newType) {
 }
 
 bool MethodType::explicitCastEquivalentToAsType(MethodType* newType) {
+	$useLocalCurrentObjectStackCache();
 	if (this == newType) {
 		return true;
 	}
@@ -978,6 +994,7 @@ bool MethodType::canConvertParameters($ClassArray* srcTypes, $ClassArray* dstTyp
 
 bool MethodType::canConvert($Class* src, $Class* dst) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	$load($Object);
 	if (src == dst || src == $Object::class$ || dst == $Object::class$) {
 		return true;
@@ -1027,6 +1044,7 @@ $Invokers* MethodType::invokers() {
 
 MethodType* MethodType::fromMethodDescriptorString($String* descriptor, $ClassLoader* loader) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (loader == nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
@@ -1040,6 +1058,7 @@ MethodType* MethodType::fromMethodDescriptorString($String* descriptor, $ClassLo
 
 MethodType* MethodType::fromDescriptor($String* descriptor, $ClassLoader* loader) {
 	$init(MethodType);
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = !$nc(descriptor)->startsWith("("_s);
 	bool var$0 = var$1 || $nc(descriptor)->indexOf((int32_t)u')') < 0;
 	if (var$0 || $nc(descriptor)->indexOf((int32_t)u'.') >= 0) {
@@ -1070,6 +1089,7 @@ $String* MethodType::toFieldDescriptorString($Class* cls) {
 }
 
 $Optional* MethodType::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ClassDesc, var$0, $cast($ClassDesc, $nc($($nc($($cast($Class, returnType())))->describeConstable()))->orElseThrow()));
 		return $Optional::of($($MethodTypeDesc::of(var$0, $fcast($ClassDescArray, $($nc($($nc($($Stream::of($(parameterArray()))))->map(static_cast<$Function*>($$new(MethodType$$Lambda$lambda$describeConstable$0)))))->toArray(static_cast<$IntFunction*>($$new(MethodType$$Lambda$lambda$describeConstable$1$1))))))));
@@ -1081,12 +1101,14 @@ $Optional* MethodType::describeConstable() {
 }
 
 void MethodType::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	s->writeObject($(returnType()));
 	s->writeObject($(parameterArray()));
 }
 
 void MethodType::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleStatics);
 	$init($MethodType$OffsetHolder);
 	$init($Void);

@@ -236,6 +236,7 @@ $Object* PParser::parseValue(int32_t lookAhead) {
 }
 
 $Object* PParser::parseArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, array, $new($ArrayList));
 	int32_t token = 0;
 	while ((token = getToken()) != PParser::CLOSE_ARRAY) {
@@ -250,6 +251,7 @@ $Object* PParser::parseArray() {
 }
 
 $Map* PParser::parsePair() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, ht, $new($HashMap, 11));
 	int32_t token = 0;
 	while ((token = getToken()) != PParser::CLOSE_PAIR) {
@@ -386,10 +388,12 @@ int32_t PParser::getToken(bool wantsWS, bool inString) {
 }
 
 void PParser::error($String* errorString) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($RuntimeException, $$str({errorString, " at line "_s, $$str(this->lineNumber), " column "_s, $$str(this->column)}));
 }
 
 void PParser::dump(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($String, o)) {
 		$init($System);
 		$nc($System::out)->print(o);
@@ -406,6 +410,7 @@ void PParser::dump(Object$* o) {
 }
 
 void PParser::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length == 0) {
 		$init($System);
 		$nc($System::out)->println("need filename"_s);

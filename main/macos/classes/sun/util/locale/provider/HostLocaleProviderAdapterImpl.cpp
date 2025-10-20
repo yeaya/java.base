@@ -273,6 +273,7 @@ void HostLocaleProviderAdapterImpl::init$() {
 
 $Locale* HostLocaleProviderAdapterImpl::convertMacOSXLocaleToJavaLocale($String* macosxloc) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, tmp, $nc(macosxloc)->split("@"_s));
 	$var($String, langTag, $nc(tmp->get(0))->replace(u'_', u'-'));
 	if (tmp->length > 1) {
@@ -404,6 +405,7 @@ $LocaleArray* HostLocaleProviderAdapterImpl::getSupportedCalendarLocales() {
 
 bool HostLocaleProviderAdapterImpl::isSupportedCalendarLocale($Locale* locale) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, base, locale);
 	bool var$0 = $nc(base)->hasExtensions();
 	if (var$0 || $nc(base)->getVariant() != ""_s) {
@@ -428,6 +430,7 @@ bool HostLocaleProviderAdapterImpl::isJapaneseCalendar() {
 
 $Locale* HostLocaleProviderAdapterImpl::getCalendarLocale($Locale* locale) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, nativeCalType, $nc($(getCalendarID($($nc(locale)->toLanguageTag()))))->replaceFirst("gregorian"_s, "gregory"_s));
 	if ($nc($($Calendar::getAvailableCalendarTypes()))->contains(nativeCalType)) {
 		return $nc($($nc($($$new($Locale$Builder)->setLocale(locale)))->setUnicodeLocaleKeyword("ca"_s, nativeCalType)))->build();
@@ -438,6 +441,7 @@ $Locale* HostLocaleProviderAdapterImpl::getCalendarLocale($Locale* locale) {
 
 $String* HostLocaleProviderAdapterImpl::translateDateFormatLetters($String* calendarType, $String* cldrFormat) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, pattern, cldrFormat);
 	int32_t length = $nc(pattern)->length();
 	bool inQuote = false;
@@ -829,6 +833,7 @@ $String* HostLocaleProviderAdapterImpl::getTimeZoneDisplayString($String* langTa
 }
 
 void clinit$HostLocaleProviderAdapterImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(HostLocaleProviderAdapterImpl::dateFormatPatternsMap, $new($ConcurrentHashMap, 2));
 	$assignStatic(HostLocaleProviderAdapterImpl::numberFormatPatternsMap, $new($ConcurrentHashMap, 2));
 	$assignStatic(HostLocaleProviderAdapterImpl::dateFormatSymbolsMap, $new($ConcurrentHashMap, 2));

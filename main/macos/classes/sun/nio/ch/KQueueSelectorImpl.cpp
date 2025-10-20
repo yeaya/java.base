@@ -194,6 +194,7 @@ int32_t KQueueSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 }
 
 void KQueueSelectorImpl::processUpdateQueue() {
+	$useLocalCurrentObjectStackCache();
 	if (!KQueueSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -240,6 +241,7 @@ void KQueueSelectorImpl::processUpdateQueue() {
 }
 
 int32_t KQueueSelectorImpl::processEvents(int32_t numEntries, $Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (!KQueueSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

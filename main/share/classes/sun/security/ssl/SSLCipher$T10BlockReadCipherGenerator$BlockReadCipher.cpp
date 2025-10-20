@@ -115,6 +115,7 @@ void SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::init$($Authenticator
 }
 
 $Plaintext* SSLCipher$T10BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	$var($BadPaddingException, reservedBPE, nullptr);
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	int32_t cipheredLength = $nc(bb)->remaining();

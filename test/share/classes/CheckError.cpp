@@ -56,6 +56,7 @@ void CheckError::init$() {
 }
 
 void CheckError::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool passTest1 = false;
 	$var($File, file, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "junkie.out"_s));
 	$var($FileWriter, fw, $new($FileWriter, file));

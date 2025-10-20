@@ -111,6 +111,7 @@ void Bug5047314::testThai2() {
 }
 
 void clinit$Bug5047314($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Bug5047314::colLao, $Collator::getInstance($$new($Locale, "lo"_s)));
 	$assignStatic(Bug5047314::colThai, $Collator::getInstance($$new($Locale, "th"_s)));
 	$assignStatic(Bug5047314::textLao, $new($StringArray, {

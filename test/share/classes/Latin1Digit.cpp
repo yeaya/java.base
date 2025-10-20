@@ -58,6 +58,7 @@ void Latin1Digit::main($StringArray* args) {
 }
 
 void Latin1Digit::test(int32_t ch, int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	int32_t d1 = $Character::digit(ch, radix);
 	int32_t d2 = canonicalDigit(ch, radix);
 	if (d1 != d2) {

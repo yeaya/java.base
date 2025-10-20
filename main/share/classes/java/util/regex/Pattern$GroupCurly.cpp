@@ -94,6 +94,7 @@ void Pattern$GroupCurly::init$($Pattern$Node* node, int32_t cmin, int32_t cmax, 
 }
 
 bool Pattern$GroupCurly::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, groups, $nc(matcher)->groups);
 	$var($ints, locals, matcher->locals);
 	int32_t save0 = $nc(locals)->get(this->localIndex);

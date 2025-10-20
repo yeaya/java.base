@@ -84,6 +84,7 @@ void CertPath$CertPathRep::init$($String* type, $bytes* data) {
 }
 
 $Object* CertPath$CertPathRep::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance(this->type));
 		return $of($nc(cf)->generateCertPath(static_cast<$InputStream*>($$new($ByteArrayInputStream, this->data))));

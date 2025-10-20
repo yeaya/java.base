@@ -46,6 +46,7 @@ $File* ClassLoaderHelper::mapAlternativeName($File* lib) {
 }
 
 $StringArray* ClassLoaderHelper::parsePath($String* ldPath$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ldPath, ldPath$renamed);
 	int32_t ldLen = $nc(ldPath)->length();
 	$init($File);

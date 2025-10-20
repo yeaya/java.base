@@ -72,6 +72,7 @@ $Object* allocate$GeneralNames($Class* clazz) {
 }
 
 void GeneralNames::init$($DerValue* derVal) {
+	$useLocalCurrentObjectStackCache();
 	GeneralNames::init$();
 	if ($nc(derVal)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding for GeneralNames."_s);
@@ -119,6 +120,7 @@ $List* GeneralNames::names() {
 }
 
 void GeneralNames::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		return;
 	}

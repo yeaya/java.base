@@ -449,6 +449,7 @@ void ModuleHashesBuilder$Graph::reverse($Consumer* action) {
 }
 
 ModuleHashesBuilder$Graph* ModuleHashesBuilder$Graph::transpose() {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleHashesBuilder$Graph$Builder, builder, $new($ModuleHashesBuilder$Graph$Builder));
 	$nc(this->nodes$)->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$Graph$$Lambda$addNode, static_cast<$ModuleHashesBuilder$Graph$Builder*>(builder))));
 	$nc($($nc(this->edges$)->keySet()))->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$1$1, this, builder)));
@@ -460,6 +461,7 @@ $Set* ModuleHashesBuilder$Graph::dfs(Object$* root) {
 }
 
 $Set* ModuleHashesBuilder$Graph::dfs($Set* roots) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayDeque, todo, $new($ArrayDeque, static_cast<$Collection*>(roots)));
 	$var($Set, visited, $new($HashSet));
 	$var($Object, u, nullptr);
@@ -473,11 +475,13 @@ $Set* ModuleHashesBuilder$Graph::dfs($Set* roots) {
 }
 
 void ModuleHashesBuilder$Graph::printGraph($PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->println($$str({"graph for "_s, this->nodes$}));
 	$nc(this->nodes$)->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$4$4, this, out)));
 }
 
 void ModuleHashesBuilder$Graph::lambda$printGraph$4($PrintStream* out, Object$* u) {
+	$useLocalCurrentObjectStackCache();
 	$nc($(adjacentNodes(u)))->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$Graph$$Lambda$lambda$printGraph$3$5, out, u)));
 }
 
@@ -493,6 +497,7 @@ bool ModuleHashesBuilder$Graph::lambda$dfs$2($Set* visited, Object$* v) {
 }
 
 void ModuleHashesBuilder$Graph::lambda$transpose$1($ModuleHashesBuilder$Graph$Builder* builder, Object$* u) {
+	$useLocalCurrentObjectStackCache();
 	$nc(($cast($Set, $($nc(this->edges$)->get(u)))))->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$Graph$$Lambda$lambda$transpose$0$6, builder, u)));
 }
 

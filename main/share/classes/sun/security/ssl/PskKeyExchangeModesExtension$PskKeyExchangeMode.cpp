@@ -120,6 +120,7 @@ PskKeyExchangeModesExtension$PskKeyExchangeMode* PskKeyExchangeModesExtension$Ps
 
 $String* PskKeyExchangeModesExtension$PskKeyExchangeMode::nameOf(int8_t id) {
 	$init(PskKeyExchangeModesExtension$PskKeyExchangeMode);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($PskKeyExchangeModesExtension$PskKeyExchangeModeArray, arr$, PskKeyExchangeModesExtension$PskKeyExchangeMode::values());
 		int32_t len$ = $nc(arr$)->length;

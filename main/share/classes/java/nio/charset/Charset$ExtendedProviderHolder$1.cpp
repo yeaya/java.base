@@ -74,6 +74,7 @@ void Charset$ExtendedProviderHolder$1::init$() {
 }
 
 $Object* Charset$ExtendedProviderHolder$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($CharsetProviderArray, cps, $new($CharsetProviderArray, 1));
 	int32_t n = 0;

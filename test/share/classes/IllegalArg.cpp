@@ -46,6 +46,7 @@ void IllegalArg::init$() {
 }
 
 void IllegalArg::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, illegalNames, $new($StringArray, {
 		"com..net"_s,
 		"com.."_s,

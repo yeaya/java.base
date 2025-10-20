@@ -87,6 +87,7 @@ $List* BytecodeDescriptor::parseMethod($String* bytecodeSignature, $ClassLoader*
 }
 
 $List* BytecodeDescriptor::parseMethod($String* bytecodeSignature, int32_t start, int32_t end, $ClassLoader* loader) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, bytecodeSignature);
 	$var($ints, i, $new($ints, {start}));
 	$var($ArrayList, ptypes, $new($ArrayList));
@@ -118,6 +119,7 @@ void BytecodeDescriptor::parseError($String* str, $String* msg) {
 
 $Class* BytecodeDescriptor::parseSig($String* str, $ints* i, int32_t end, $ClassLoader* loader) {
 	$load(BytecodeDescriptor);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(i)->get(0) == end) {
 		return nullptr;
@@ -177,6 +179,7 @@ $String* BytecodeDescriptor::unparse(Object$* type) {
 }
 
 $String* BytecodeDescriptor::unparseMethod($Class* rtype, $List* ptypes) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'(');
 	{
@@ -192,6 +195,7 @@ $String* BytecodeDescriptor::unparseMethod($Class* rtype, $List* ptypes) {
 }
 
 $String* BytecodeDescriptor::unparseMethod($Class* rtype, $ClassArray* ptypes) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'(');
 	{
@@ -209,6 +213,7 @@ $String* BytecodeDescriptor::unparseMethod($Class* rtype, $ClassArray* ptypes) {
 }
 
 void BytecodeDescriptor::unparseSig($Class* t, $StringBuilder* sb) {
+	$useLocalCurrentObjectStackCache();
 	char16_t c = $nc($($Wrapper::forBasicType(t)))->basicTypeChar();
 	if (c != u'L') {
 		$nc(sb)->append(c);

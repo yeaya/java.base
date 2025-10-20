@@ -80,6 +80,7 @@ void StressNativeSignal$ServerSocketThread::init$($StressNativeSignal* this$0) {
 }
 
 void StressNativeSignal$ServerSocketThread::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, socket, $new($ServerSocket, 1122));
 		$var($Socket, client, $nc(this->socket)->accept());

@@ -87,6 +87,7 @@ $Object* OpenListResourceBundle::handleGetObject($String* key) {
 }
 
 $Enumeration* OpenListResourceBundle::getKeys() {
+	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle, parentBundle, this->parent);
 	$var($Set, var$0, handleKeySet());
 	return $new($ResourceBundleEnumeration, var$0, (parentBundle != nullptr) ? $($nc(parentBundle)->getKeys()) : ($Enumeration*)nullptr);
@@ -98,6 +99,7 @@ $Set* OpenListResourceBundle::handleKeySet() {
 }
 
 $Set* OpenListResourceBundle::keySet() {
+	$useLocalCurrentObjectStackCache();
 	if (this->keyset != nullptr) {
 		return this->keyset;
 	}
@@ -121,6 +123,7 @@ void OpenListResourceBundle::loadLookupTablesIfNecessary() {
 }
 
 void OpenListResourceBundle::loadLookup() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray2, contents, getContents());
 	$var($Map, temp, createMap($nc(contents)->length));
 	for (int32_t i = 0; i < $nc(contents)->length; ++i) {

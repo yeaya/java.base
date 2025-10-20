@@ -92,6 +92,7 @@ void DHParameterGenerator::init$() {
 
 void DHParameterGenerator::checkKeySize(int32_t keysize) {
 	$init(DHParameterGenerator);
+	$useLocalCurrentObjectStackCache();
 	bool supported = ((keysize == 2048) || (keysize == 3072) || ((keysize >= 512) && (keysize <= 1024) && (((int32_t)(keysize & (uint32_t)63)) == 0)));
 	if (!supported) {
 		$throwNew($InvalidParameterException, $$str({"DH key size must be multiple of 64 and range from 512 to 1024 (inclusive), or 2048, 3072. The specific key size "_s, $$str(keysize), " is not supported"_s}));
@@ -105,6 +106,7 @@ void DHParameterGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 void DHParameterGenerator::engineInit($AlgorithmParameterSpec* genParamSpec, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($DHGenParameterSpec, genParamSpec))) {
 		$throwNew($InvalidAlgorithmParameterException, "Inappropriate parameter type"_s);
 	}
@@ -124,6 +126,7 @@ void DHParameterGenerator::engineInit($AlgorithmParameterSpec* genParamSpec, $Se
 }
 
 $AlgorithmParameters* DHParameterGenerator::engineGenerateParameters() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}

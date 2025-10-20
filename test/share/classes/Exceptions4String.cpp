@@ -297,6 +297,7 @@ void Exceptions4String::init$() {
 
 void Exceptions4String::fail($Class* ex, $String* s) {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	Exceptions4String::ok = false;
 	$init($System);
 	$nc($System::err)->println($$str({"expected "_s, $($nc(ex)->getName()), " for "_s, s, " - FAILED"_s}));
@@ -310,6 +311,7 @@ void Exceptions4String::pass($String* s) {
 
 void Exceptions4String::tryCatch($String* s, $Class* ex, $Runnable* thunk) {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		$nc(thunk)->run();
@@ -337,6 +339,7 @@ void Exceptions4String::noArgs() {
 
 void Exceptions4String::string() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(String original)"_s);
 	tryCatch("  \"foo\""_s, nullptr, $$new($Exceptions4String$2));
@@ -346,6 +349,7 @@ void Exceptions4String::string() {
 
 void Exceptions4String::charArray() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(char value[])"_s);
 	tryCatch("  char [] = \"Duke says \"Hi!\"\""_s, nullptr, $$new($Exceptions4String$4));
@@ -355,6 +359,7 @@ void Exceptions4String::charArray() {
 
 void Exceptions4String::charArrayOffCount() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(char value[], int offset, int count)"_s);
 	tryCatch("  c, 0, 3"_s, nullptr, $$new($Exceptions4String$6));
@@ -369,6 +374,7 @@ void Exceptions4String::charArrayOffCount() {
 
 void Exceptions4String::byteArrayHiOffCount() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte ascii[], int hibyte, int offset, int count)"_s);
 	tryCatch("  b, 0, 0, b.length"_s, nullptr, $$new($Exceptions4String$12));
@@ -384,6 +390,7 @@ void Exceptions4String::byteArrayHiOffCount() {
 
 void Exceptions4String::byteArrayHi() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte ascii[], int hibyte)"_s);
 	tryCatch("  b, 0"_s, nullptr, $$new($Exceptions4String$19));
@@ -393,6 +400,7 @@ void Exceptions4String::byteArrayHi() {
 
 void Exceptions4String::byteArrayOffLengthCharset0($String* s, $Class* ex, $bytes* b, int32_t off, int32_t len, Object$* cs) {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		if ($instanceOf($String, cs)) {
@@ -417,6 +425,7 @@ void Exceptions4String::byteArrayOffLengthCharset0($String* s, $Class* ex, $byte
 
 void Exceptions4String::byteArrayOffLengthCharsetName() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte bytes[], int offset, int length, String charsetName)"_s);
 	$nc($System::out)->println("  throws UnsupportedEncodingException"_s);
@@ -436,6 +445,7 @@ void Exceptions4String::byteArrayOffLengthCharsetName() {
 
 void Exceptions4String::byteArrayOffLengthCharset() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte bytes[], int offset, int length, Charset charset)"_s);
 	$var($Charset, cs, $Charset::forName("UTF-16BE"_s));
@@ -452,6 +462,7 @@ void Exceptions4String::byteArrayOffLengthCharset() {
 
 void Exceptions4String::byteArrayCharset0($String* s, $Class* ex, $bytes* b, Object$* cs) {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		if ($instanceOf($String, cs)) {
@@ -476,6 +487,7 @@ void Exceptions4String::byteArrayCharset0($String* s, $Class* ex, $bytes* b, Obj
 
 void Exceptions4String::byteArrayCharsetName() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte bytes[], String charsetName)"_s);
 	$nc($System::out)->println("  throws UnsupportedEncodingException"_s);
@@ -491,6 +503,7 @@ void Exceptions4String::byteArrayCharsetName() {
 
 void Exceptions4String::byteArrayCharset() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte bytes[], Charset charset)"_s);
 	$var($Charset, cs, $Charset::forName("ISO-8859-1"_s));
@@ -503,6 +516,7 @@ void Exceptions4String::byteArrayCharset() {
 
 void Exceptions4String::byteArrayOffLength() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte bytes[], int offset, int length)"_s);
 	tryCatch("  b, 0, b.length"_s, nullptr, $$new($Exceptions4String$21));
@@ -517,6 +531,7 @@ void Exceptions4String::byteArrayOffLength() {
 
 void Exceptions4String::byteArray() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(byte bytes[])"_s);
 	tryCatch("  b"_s, nullptr, $$new($Exceptions4String$27));
@@ -526,6 +541,7 @@ void Exceptions4String::byteArray() {
 
 void Exceptions4String::stringBuffer() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("String(StringBuffer buffer)"_s);
 	tryCatch("  \"bar\""_s, nullptr, $$new($Exceptions4String$29));
@@ -543,6 +559,7 @@ void Exceptions4String::getChars() {
 
 void Exceptions4String::getBytes() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("getChars.(int srcBegin, int srcEnd, char dst[],  int dstBegin"_s);
 	$load($NullPointerException);
@@ -579,6 +596,7 @@ void Exceptions4String::compareToIgnoreCase() {
 
 void Exceptions4String::regionMatches() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("regionMatches(int toffset, String other, int ooffset, int len)"_s);
 	$load($NullPointerException);
@@ -589,6 +607,7 @@ void Exceptions4String::regionMatches() {
 
 void Exceptions4String::startsWith() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("startsWith(String prefix, int toffset)"_s);
 	$load($NullPointerException);
@@ -607,6 +626,7 @@ void Exceptions4String::endsWith() {
 
 void Exceptions4String::indexOf() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("indexOf(String str)"_s);
 	$load($NullPointerException);
@@ -617,6 +637,7 @@ void Exceptions4String::indexOf() {
 
 void Exceptions4String::lastIndexOf() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("lastIndexOf(String str)"_s);
 	$load($NullPointerException);
@@ -643,6 +664,7 @@ void Exceptions4String::matches() {
 
 void Exceptions4String::replaceFirst() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("replaceFirst(String regex, String replacement)"_s);
 	$load($NullPointerException);
@@ -652,6 +674,7 @@ void Exceptions4String::replaceFirst() {
 
 void Exceptions4String::replaceAll() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("replaceAll(String regex, String replacement)"_s);
 	$load($NullPointerException);
@@ -661,6 +684,7 @@ void Exceptions4String::replaceAll() {
 
 void Exceptions4String::split() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("split(String regex, int limit)"_s);
 	$load($NullPointerException);
@@ -687,6 +711,7 @@ void Exceptions4String::toUpperCase() {
 
 void Exceptions4String::valueOf() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("valueOf(Object obj)"_s);
 	tryCatch("  null"_s, nullptr, $$new($Exceptions4String$57));
@@ -699,6 +724,7 @@ void Exceptions4String::valueOf() {
 
 void Exceptions4String::copyValueOf() {
 	$init(Exceptions4String);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("copyValueOf(char data[], int offset, int count)"_s);
 	$load($NullPointerException);

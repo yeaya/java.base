@@ -116,6 +116,7 @@ $ByteBuffer* Buffer$1::newDirectByteBuffer(int64_t addr, int32_t cap, Object$* o
 }
 
 $ByteBuffer* Buffer$1::newMappedByteBuffer($UnmapperProxy* unmapperProxy, int64_t address, int32_t cap, Object$* obj, $MemorySegmentProxy* segment) {
+	$useLocalCurrentObjectStackCache();
 	int64_t var$0 = address;
 	int32_t var$1 = cap;
 	$var($Object, var$2, obj);

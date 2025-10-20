@@ -106,6 +106,7 @@ $Object* allocate$PrivateCredentialPermission($Class* clazz) {
 $PrivateCredentialPermission$CredOwnerArray* PrivateCredentialPermission::EMPTY_PRINCIPALS = nullptr;
 
 void PrivateCredentialPermission::init$($String* credentialClass, $Set* principals) {
+	$useLocalCurrentObjectStackCache();
 	$Permission::init$(credentialClass);
 	this->testing = false;
 	$set(this, credentialClass, credentialClass);
@@ -186,6 +187,7 @@ $PermissionCollection* PrivateCredentialPermission::newPermissionCollection() {
 }
 
 void PrivateCredentialPermission::init($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr || $($nc(name)->trim())->isEmpty()) {
 		$throwNew($IllegalArgumentException, "invalid empty name"_s);
 	}
@@ -302,6 +304,7 @@ bool PrivateCredentialPermission::impliesPrincipalSet($PrivateCredentialPermissi
 }
 
 void PrivateCredentialPermission::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	bool var$0 = $nc($(getName()))->indexOf((int32_t)u' ') == -1;
 	if (var$0 && $nc($(getName()))->indexOf((int32_t)u'\"') == -1) {

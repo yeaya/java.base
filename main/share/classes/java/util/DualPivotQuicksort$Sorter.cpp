@@ -84,6 +84,7 @@ void DualPivotQuicksort$Sorter::init$($CountedCompleter* parent, Object$* a, Obj
 }
 
 void DualPivotQuicksort$Sorter::compute() {
+	$useLocalCurrentObjectStackCache();
 	if (this->depth < 0) {
 		setPendingCount(2);
 		int32_t half = this->size >> 1;
@@ -112,6 +113,7 @@ void DualPivotQuicksort$Sorter::onCompletion($CountedCompleter* caller) {
 }
 
 void DualPivotQuicksort$Sorter::forkSorter(int32_t depth, int32_t low, int32_t high) {
+	$useLocalCurrentObjectStackCache();
 	addToPendingCount(1);
 	$var($Object, a, this->a);
 	$$new(DualPivotQuicksort$Sorter, this, a, this->b, low, high - low, this->offset, depth)->fork();

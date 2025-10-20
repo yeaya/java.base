@@ -138,6 +138,7 @@ void SSLSocketOutputRecord::init$($HandshakeHash* handshakeHash, $TransportConte
 }
 
 void SSLSocketOutputRecord::encodeAlert(int8_t level, int8_t description) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -182,6 +183,7 @@ void SSLSocketOutputRecord::encodeAlert(int8_t level, int8_t description) {
 }
 
 void SSLSocketOutputRecord::encodeHandshake($bytes* source, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -269,6 +271,7 @@ void SSLSocketOutputRecord::encodeHandshake($bytes* source, int32_t offset, int3
 }
 
 void SSLSocketOutputRecord::encodeChangeCipherSpec() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -307,6 +310,7 @@ void SSLSocketOutputRecord::encodeChangeCipherSpec() {
 }
 
 void SSLSocketOutputRecord::flush() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -345,6 +349,7 @@ void SSLSocketOutputRecord::flush() {
 }
 
 void SSLSocketOutputRecord::deliver($bytes* source, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);

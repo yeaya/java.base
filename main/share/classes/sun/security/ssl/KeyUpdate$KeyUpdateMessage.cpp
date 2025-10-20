@@ -101,6 +101,7 @@ void KeyUpdate$KeyUpdateMessage::init$($PostHandshakeContext* context, $KeyUpdat
 }
 
 void KeyUpdate$KeyUpdateMessage::init$($PostHandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	if ($nc(m)->remaining() != 1) {
 		$init($Alert);
@@ -128,6 +129,7 @@ void KeyUpdate$KeyUpdateMessage::send($HandshakeOutStream* s) {
 }
 
 $String* KeyUpdate$KeyUpdateMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"KeyUpdate\": \'{\'\n  \"request_update\": {0}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {$of(this->status->name$)}));

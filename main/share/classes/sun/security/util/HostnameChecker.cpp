@@ -228,6 +228,7 @@ void HostnameChecker::init$(int8_t checkType) {
 
 HostnameChecker* HostnameChecker::getInstance(int8_t checkType) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	if (checkType == HostnameChecker::TYPE_TLS) {
 		return HostnameChecker::INSTANCE_TLS;
 	} else if (checkType == HostnameChecker::TYPE_LDAP) {
@@ -263,6 +264,7 @@ bool HostnameChecker::isIpAddress($String* name) {
 
 void HostnameChecker::matchIP($String* expectedIP, $X509Certificate* cert) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, subjAltNames, $nc(cert)->getSubjectAlternativeNames());
 	if (subjAltNames == nullptr) {
 		$throwNew($CertificateException, "No subject alternative names present"_s);
@@ -295,6 +297,7 @@ void HostnameChecker::matchIP($String* expectedIP, $X509Certificate* cert) {
 }
 
 void HostnameChecker::matchDNS($String* expectedName, $X509Certificate* cert, bool chainsToPublicCA) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SNIHostName, sni, $new($SNIHostName, expectedName));
 	} catch ($IllegalArgumentException&) {
@@ -346,6 +349,7 @@ void HostnameChecker::matchDNS($String* expectedName, $X509Certificate* cert, bo
 
 $X500Name* HostnameChecker::getSubjectX500Name($X509Certificate* cert) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Principal, subjectDN, $nc(cert)->getSubjectDN());
 		if ($instanceOf($X500Name, subjectDN)) {
@@ -362,6 +366,7 @@ $X500Name* HostnameChecker::getSubjectX500Name($X509Certificate* cert) {
 }
 
 bool HostnameChecker::isMatched($String* name$renamed, $String* template$$renamed, bool chainsToPublicCA) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, template$, template$$renamed);
 	$var($String, name, name$renamed);
 	try {
@@ -395,6 +400,7 @@ bool HostnameChecker::isMatched($String* name$renamed, $String* template$$rename
 
 bool HostnameChecker::hasIllegalWildcard($String* template$, bool chainsToPublicCA) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(template$)->equals("*"_s);
 	if (var$0 || $nc(template$)->equals("*."_s)) {
 		$init($SSLLogger);
@@ -436,6 +442,7 @@ bool HostnameChecker::hasIllegalWildcard($String* template$, bool chainsToPublic
 
 bool HostnameChecker::matchAllWildcards($String* name$renamed, $String* template$$renamed) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($String, template$, template$$renamed);
 	$var($String, name, name$renamed);
 	$init($Locale);
@@ -458,6 +465,7 @@ bool HostnameChecker::matchAllWildcards($String* name$renamed, $String* template
 
 bool HostnameChecker::matchLeftmostWildcard($String* name$renamed, $String* template$$renamed) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($String, template$, template$$renamed);
 	$var($String, name, name$renamed);
 	$init($Locale);
@@ -481,6 +489,7 @@ bool HostnameChecker::matchLeftmostWildcard($String* name$renamed, $String* temp
 
 bool HostnameChecker::matchWildCards($String* name$renamed, $String* template$) {
 	$init(HostnameChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	int32_t wildcardIdx = $nc(template$)->indexOf("*"_s);
 	if (wildcardIdx == -1) {

@@ -51,6 +51,7 @@ void TruncateRAF::init$() {
 }
 
 void TruncateRAF::checkState($RandomAccessFile* raf, $FileChannel* fch, int64_t expectedOffset, int64_t expectedLength) {
+	$useLocalCurrentObjectStackCache();
 	int64_t rafLength = $nc(raf)->length();
 	int64_t rafOffset = raf->getFilePointer();
 	int64_t fchLength = $nc(fch)->size();
@@ -70,6 +71,7 @@ void TruncateRAF::checkState($RandomAccessFile* raf, $FileChannel* fch, int64_t 
 }
 
 void TruncateRAF::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, "tmp"_s));
 	{
 		$var($RandomAccessFile, raf, $new($RandomAccessFile, file, "rw"_s));

@@ -66,6 +66,7 @@ void URLPermissionTest$CreateTest::init$($String* arg) {
 }
 
 bool URLPermissionTest$CreateTest::execute() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URLPermission, p, $new($URLPermission, this->arg));
 		return true;

@@ -190,6 +190,7 @@ int32_t OptionalInt::hashCode() {
 }
 
 $String* OptionalInt::toString() {
+	$useLocalCurrentObjectStackCache();
 	return this->isPresent$ ? $String::format("OptionalInt[%s]"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->value)))})) : "OptionalInt.empty"_s;
 }
 

@@ -86,6 +86,7 @@ void HttpURLConnection$4::init$($String* val$h1, $String* val$h2, $booleans* val
 }
 
 $Object* HttpURLConnection$4::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InetAddress, a1, $InetAddress::getByName(this->val$h1));
 		$var($InetAddress, a2, $InetAddress::getByName(this->val$h2));

@@ -55,6 +55,7 @@ void WakeupAfterClose::init$() {
 }
 
 void WakeupAfterClose::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$var($Runnable, r, $new($WakeupAfterClose$1, sel));
 	$var($Thread, t, $new($Thread, r));

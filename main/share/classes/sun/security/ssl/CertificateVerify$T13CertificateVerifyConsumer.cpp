@@ -76,6 +76,7 @@ void CertificateVerify$T13CertificateVerifyConsumer::init$() {
 }
 
 void CertificateVerify$T13CertificateVerifyConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)));

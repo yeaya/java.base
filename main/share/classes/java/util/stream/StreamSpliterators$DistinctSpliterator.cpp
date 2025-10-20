@@ -190,6 +190,7 @@ $Object* StreamSpliterators$DistinctSpliterator::mapNull(Object$* t) {
 }
 
 bool StreamSpliterators$DistinctSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(this->s)->tryAdvance(this)) {
 		$init($Boolean);
 		if ($nc(this->seen)->putIfAbsent($(mapNull(this->tmpSlot)), $Boolean::TRUE) == nullptr) {

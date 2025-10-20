@@ -43,6 +43,7 @@ void NotConnected::init$() {
 }
 
 void NotConnected::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedInputStream, i, $new($PipedInputStream));
 	$var($PipedOutputStream, o, $new($PipedOutputStream));
 	bool readPassed = false;

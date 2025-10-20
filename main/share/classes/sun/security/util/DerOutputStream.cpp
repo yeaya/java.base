@@ -310,6 +310,7 @@ void DerOutputStream::putOrderedSet(int8_t tag, $DerEncoderArray* set) {
 }
 
 void DerOutputStream::putOrderedSet(int8_t tag, $DerEncoderArray* set, $Comparator* order) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStreamArray, streams, $new($DerOutputStreamArray, $nc(set)->length));
 	for (int32_t i = 0; i < set->length; ++i) {
 		streams->set(i, $$new(DerOutputStream));
@@ -373,6 +374,7 @@ void DerOutputStream::putGeneralizedTime($Date* d) {
 }
 
 void DerOutputStream::putTime($Date* d, int8_t tag) {
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, tz, $TimeZone::getTimeZone("GMT"_s));
 	$var($String, pattern, nullptr);
 	if (tag == $DerValue::tag_UtcTime) {

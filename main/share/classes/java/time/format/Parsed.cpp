@@ -186,6 +186,7 @@ bool Parsed::isSupported($TemporalField* field) {
 }
 
 int64_t Parsed::getLong($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(field), "field"_s);
 	$var($Long, value, $cast($Long, $nc(this->fieldValues)->get(field)));
 	if (value != nullptr) {
@@ -245,6 +246,7 @@ $TemporalAccessor* Parsed::resolve($ResolverStyle* resolverStyle, $Set* resolver
 }
 
 void Parsed::resolveFields() {
+	$useLocalCurrentObjectStackCache();
 	resolveInstantFields();
 	resolveDateFields();
 	resolveTimeFields();
@@ -332,6 +334,7 @@ void Parsed::resolveFields() {
 }
 
 void Parsed::updateCheckConflict($TemporalField* targetField, $TemporalField* changeField, $Long* changeValue) {
+	$useLocalCurrentObjectStackCache();
 	$var($Long, old, $cast($Long, $nc(this->fieldValues)->put(changeField, changeValue)));
 	bool var$0 = old != nullptr;
 	if (var$0) {
@@ -344,6 +347,7 @@ void Parsed::updateCheckConflict($TemporalField* targetField, $TemporalField* ch
 }
 
 void Parsed::resolveInstantFields() {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	if ($nc(this->fieldValues)->containsKey($ChronoField::INSTANT_SECONDS)) {
 		if (this->zone != nullptr) {
@@ -359,6 +363,7 @@ void Parsed::resolveInstantFields() {
 }
 
 void Parsed::resolveInstantFields0($ZoneId* selectedZone) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Instant, instant, $Instant::ofEpochSecond($nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::INSTANT_SECONDS)))))->longValue()));
 	$var($ChronoZonedDateTime, zdt, $nc(this->chrono)->zonedDateTime(instant, selectedZone));
@@ -371,6 +376,7 @@ void Parsed::resolveDateFields() {
 }
 
 void Parsed::updateCheckConflict($ChronoLocalDate* cld) {
+	$useLocalCurrentObjectStackCache();
 	if (this->date != nullptr) {
 		if (cld != nullptr && $nc(this->date)->equals(cld) == false) {
 			$throwNew($DateTimeException, $$str({"Conflict found: Fields resolved to two different dates: "_s, this->date, " "_s, cld}));
@@ -384,6 +390,7 @@ void Parsed::updateCheckConflict($ChronoLocalDate* cld) {
 }
 
 void Parsed::resolveTimeFields() {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	if ($nc(this->fieldValues)->containsKey($ChronoField::CLOCK_HOUR_OF_DAY)) {
 		int64_t ch = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::CLOCK_HOUR_OF_DAY)))))->longValue();
@@ -510,6 +517,7 @@ void Parsed::resolveTimeFields() {
 }
 
 void Parsed::resolveTimeLenient() {
+	$useLocalCurrentObjectStackCache();
 	if (this->time == nullptr) {
 		$init($ChronoField);
 		if ($nc(this->fieldValues)->containsKey($ChronoField::MILLI_OF_SECOND)) {
@@ -593,6 +601,7 @@ void Parsed::resolveTimeLenient() {
 }
 
 void Parsed::resolveTime(int64_t hod, int64_t moh, int64_t som, int64_t nos) {
+	$useLocalCurrentObjectStackCache();
 	$init($ResolverStyle);
 	if (this->resolverStyle == $ResolverStyle::LENIENT) {
 		int64_t totalNanos = $Math::multiplyExact(hod, (int64_t)0x0000034630B8A000);
@@ -628,6 +637,7 @@ void Parsed::resolvePeriod() {
 }
 
 void Parsed::resolveFractional() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = this->time == nullptr;
 	if (var$0) {
 		$init($ChronoField);
@@ -650,6 +660,7 @@ void Parsed::resolveFractional() {
 }
 
 void Parsed::resolveInstant() {
+	$useLocalCurrentObjectStackCache();
 	if (this->date != nullptr && this->time != nullptr) {
 		$init($ChronoField);
 		$var($Long, offsetSecs, $cast($Long, $nc(this->fieldValues)->get($ChronoField::OFFSET_SECONDS)));
@@ -665,6 +676,7 @@ void Parsed::resolveInstant() {
 }
 
 void Parsed::updateCheckConflict($LocalTime* timeToSet, $Period* periodToSet) {
+	$useLocalCurrentObjectStackCache();
 	if (this->time != nullptr) {
 		if ($nc(this->time)->equals(timeToSet) == false) {
 			$throwNew($DateTimeException, $$str({"Conflict found: Fields resolved to different times: "_s, this->time, " "_s, timeToSet}));
@@ -695,6 +707,7 @@ void Parsed::crossCheck() {
 }
 
 void Parsed::crossCheck($TemporalAccessor* target) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, it, $nc($($nc(this->fieldValues)->entrySet()))->iterator());
 		for (; $nc(it)->hasNext();) {

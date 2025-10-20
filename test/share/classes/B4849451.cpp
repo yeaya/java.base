@@ -39,6 +39,7 @@ void B4849451::init$() {
 }
 
 void B4849451::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, addr1, $InetSocketAddress::createUnresolved("unresolveable"_s, 10));
 	$var($InetSocketAddress, addr2, $InetSocketAddress::createUnresolved("UNRESOLVEABLE"_s, 10));
 	if (!($nc(addr1)->equals(addr2))) {

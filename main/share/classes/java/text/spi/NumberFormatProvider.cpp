@@ -53,6 +53,7 @@ void NumberFormatProvider::init$() {
 }
 
 $NumberFormat* NumberFormatProvider::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* formatStyle) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($UnsupportedOperationException, $$str({"The "_s, $($of(this)->getClass()->getName()), " should override this method to return compact number format instance of "_s, locale, " locale and "_s, formatStyle, " style."_s}));
 	$shouldNotReachHere();
 }

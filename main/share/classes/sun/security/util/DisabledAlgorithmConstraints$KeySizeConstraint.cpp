@@ -155,6 +155,7 @@ void DisabledAlgorithmConstraints$KeySizeConstraint::init$($String* algo, $Disab
 }
 
 void DisabledAlgorithmConstraints$KeySizeConstraint::permits($ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(cp)->getKeys()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -186,6 +187,7 @@ bool DisabledAlgorithmConstraints$KeySizeConstraint::permits($Key* key) {
 }
 
 bool DisabledAlgorithmConstraints$KeySizeConstraint::permits($AlgorithmParameters* parameters) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, paramAlg, $nc(parameters)->getAlgorithm());
 	if (!$nc(this->algorithm)->equalsIgnoreCase($(parameters->getAlgorithm()))) {
 		$var($Collection, aliases, $AlgorithmDecomposer::getAliases(this->algorithm));

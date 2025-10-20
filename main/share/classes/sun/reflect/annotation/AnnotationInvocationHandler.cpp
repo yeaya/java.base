@@ -445,6 +445,7 @@ void AnnotationInvocationHandler::finalize() {
 bool AnnotationInvocationHandler::$assertionsDisabled = false;
 
 void AnnotationInvocationHandler::init$($Class* type, $Map* memberValues) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, superInterfaces, $nc(type)->getInterfaces());
 	$load($Annotation);
 	if (!type->isAnnotation() || superInterfaces->length != 1 || superInterfaces->get(0) != $Annotation::class$) {
@@ -455,6 +456,7 @@ void AnnotationInvocationHandler::init$($Class* type, $Map* memberValues) {
 }
 
 $Object* AnnotationInvocationHandler::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, member, $nc(method)->getName());
 	int32_t parameterCount = method->getParameterCount();
 	$load($Object);
@@ -486,6 +488,7 @@ $Object* AnnotationInvocationHandler::invoke(Object$* proxy, $Method* method, $O
 }
 
 $Object* AnnotationInvocationHandler::cloneArray(Object$* array) {
+	$useLocalCurrentObjectStackCache();
 	$Class* type = $nc($of(array))->getClass();
 	$load($bytes);
 	if (type == $getClass($bytes)) {
@@ -532,6 +535,7 @@ $Object* AnnotationInvocationHandler::cloneArray(Object$* array) {
 }
 
 $String* AnnotationInvocationHandler::toStringImpl() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, result, $new($StringBuilder, 128));
 	result->append(u'@');
 	result->append($($nc(this->type)->getName()));
@@ -565,6 +569,7 @@ $String* AnnotationInvocationHandler::toStringImpl() {
 
 $String* AnnotationInvocationHandler::memberValueToString(Object$* value) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$Class* type = $nc($of(value))->getClass();
 	if (!$nc(type)->isArray()) {
 		$load($Class);
@@ -661,6 +666,7 @@ $String* AnnotationInvocationHandler::memberValueToString(Object$* value) {
 
 $String* AnnotationInvocationHandler::toSourceString($Class* clazz) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$Class* finalComponent = clazz;
 	$var($StringBuilder, arrayBrackets, $new($StringBuilder));
 	while ($nc(finalComponent)->isArray()) {
@@ -696,6 +702,7 @@ $String* AnnotationInvocationHandler::toSourceString(double d) {
 
 $String* AnnotationInvocationHandler::toSourceString(char16_t c) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 4));
 	sb->append(u'\'');
 	sb->append($(quote(c)));
@@ -704,6 +711,7 @@ $String* AnnotationInvocationHandler::toSourceString(char16_t c) {
 
 $String* AnnotationInvocationHandler::quote(char16_t ch) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	switch (ch) {
 	case u'\b':
 		{
@@ -751,6 +759,7 @@ bool AnnotationInvocationHandler::isPrintableAscii(char16_t ch) {
 
 $String* AnnotationInvocationHandler::toSourceString(int8_t b) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	return $String::format("(byte)0x%02x"_s, $$new($ObjectArray, {$($of($Byte::valueOf(b)))}));
 }
 
@@ -761,6 +770,7 @@ $String* AnnotationInvocationHandler::toSourceString(int64_t ell) {
 
 $String* AnnotationInvocationHandler::toSourceString($String* s) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'\"');
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
@@ -772,6 +782,7 @@ $String* AnnotationInvocationHandler::toSourceString($String* s) {
 
 $Stream* AnnotationInvocationHandler::convert($bytes* values) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $nc(values)->length));
 	{
 		$var($bytes, arr$, values);
@@ -787,6 +798,7 @@ $Stream* AnnotationInvocationHandler::convert($bytes* values) {
 
 $Stream* AnnotationInvocationHandler::convert($chars* values) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $nc(values)->length));
 	{
 		$var($chars, arr$, values);
@@ -802,6 +814,7 @@ $Stream* AnnotationInvocationHandler::convert($chars* values) {
 
 $Stream* AnnotationInvocationHandler::convert($floats* values) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $nc(values)->length));
 	{
 		$var($floats, arr$, values);
@@ -819,6 +832,7 @@ $Stream* AnnotationInvocationHandler::convert($floats* values) {
 
 $Stream* AnnotationInvocationHandler::convert($shorts* values) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $nc(values)->length));
 	{
 		$var($shorts, arr$, values);
@@ -834,6 +848,7 @@ $Stream* AnnotationInvocationHandler::convert($shorts* values) {
 
 $Stream* AnnotationInvocationHandler::convert($booleans* values) {
 	$init(AnnotationInvocationHandler);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $nc(values)->length));
 	{
 		$var($booleans, arr$, values);
@@ -853,6 +868,7 @@ $String* AnnotationInvocationHandler::stringStreamToString($Stream* stream) {
 }
 
 $Boolean* AnnotationInvocationHandler::equalsImpl(Object$* proxy, Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($equals(o, proxy)) {
 		return $Boolean::valueOf(true);
@@ -969,6 +985,7 @@ $MethodArray* AnnotationInvocationHandler::computeMemberMethods() {
 }
 
 void AnnotationInvocationHandler::validateAnnotationMethods($MethodArray* memberMethods) {
+	$useLocalCurrentObjectStackCache();
 	bool valid = true;
 	$var($Method, currentMethod, nullptr);
 	{
@@ -1025,6 +1042,7 @@ void AnnotationInvocationHandler::validateAnnotationMethods($MethodArray* member
 }
 
 int32_t AnnotationInvocationHandler::hashCodeImpl() {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = 0;
 	{
 		$var($Iterator, i$, $nc($($nc(this->memberValues)->entrySet()))->iterator());
@@ -1081,6 +1099,7 @@ int32_t AnnotationInvocationHandler::memberValueHashCode(Object$* value) {
 }
 
 void AnnotationInvocationHandler::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$Class* t = $cast($Class, $nc(fields)->get("type"_s, ($Object*)nullptr));
 	$var($Map, streamVals, $cast($Map, fields->get("memberValues"_s, ($Object*)nullptr)));

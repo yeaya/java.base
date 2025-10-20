@@ -280,6 +280,7 @@ void DirectBufferAllocTest::init$() {
 }
 
 void DirectBufferAllocTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t runTimeSeconds = DirectBufferAllocTest::RUN_TIME_SECONDS;
 	int32_t threads = $Math::max($Math::min($nc($($Runtime::getRuntime()))->availableProcessors() * 2, DirectBufferAllocTest::MAX_THREADS), DirectBufferAllocTest::MIN_THREADS);
 	int32_t capacity = DirectBufferAllocTest::CAPACITY;
@@ -399,6 +400,7 @@ $Callable* DirectBufferAllocTest::lambda$main$1(int32_t pbs, int32_t cap, int32_
 }
 
 $Void* DirectBufferAllocTest::lambda$main$0(int32_t pbs, int32_t cap, int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	int64_t t0 = $System::nanoTime();
 	bool loop$break = false;
 	while (true) {

@@ -109,12 +109,14 @@ $MethodTypeDesc* AsTypeMethodHandleDesc::invocationType() {
 }
 
 $Object* AsTypeMethodHandleDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handle, $cast($MethodHandle, $nc(this->underlying)->resolveConstantDesc(lookup)));
 	$var($MethodType, methodType, $cast($MethodType, $nc(this->type)->resolveConstantDesc(lookup)));
 	return $of($nc(handle)->asType(methodType));
 }
 
 $String* AsTypeMethodHandleDesc::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("%s.asType%s"_s, $$new($ObjectArray, {
 		$($of($nc($of(this->underlying))->toString())),
 		$($of($nc(this->type)->displayDescriptor()))

@@ -64,6 +64,7 @@ void MaxFragExtension$MaxFragLenStringizer::init$() {
 }
 
 $String* MaxFragExtension$MaxFragLenStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($MaxFragExtension$MaxFragLenSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

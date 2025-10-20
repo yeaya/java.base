@@ -123,6 +123,7 @@ void NewSessionTicket$T12NewSessionTicketMessage::send($HandshakeOutStream* hos)
 }
 
 $String* NewSessionTicket$T12NewSessionTicketMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"NewSessionTicket\": \'{\'\n  \"ticket_lifetime\"      : \"{0}\",\n  \"ticket\"               : \'{\'\n{1}\n  \'}\'\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

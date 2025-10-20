@@ -86,6 +86,7 @@ $URLConnection* Handler::openConnection($URL* url) {
 
 $URLConnection* Handler::openConnection($URL* url, $Proxy* p) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($String, path, nullptr);
 		$var($String, file, $nc(url)->getFile());
 		$var($String, host, url->getHost());
@@ -127,6 +128,7 @@ $URLConnection* Handler::createFileURLConnection($URL* url, $File* file) {
 }
 
 bool Handler::hostsEqual($URL* u1, $URL* u2) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s1, $nc(u1)->getHost());
 	$var($String, s2, $nc(u2)->getHost());
 	bool var$0 = "localhost"_s->equalsIgnoreCase(s1);

@@ -63,6 +63,7 @@ $URLConnection* Handler::openConnection($URL* u) {
 }
 
 void Handler::parseURL($URL* u, $String* spec, int32_t start, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, protocol, $nc(u)->getProtocol());
 	$var($String, host, ""_s);
 	int32_t port = u->getPort();

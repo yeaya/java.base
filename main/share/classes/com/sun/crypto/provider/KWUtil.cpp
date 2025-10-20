@@ -68,6 +68,7 @@ void KWUtil::init$() {
 
 int32_t KWUtil::W($bytes* icvIn, $bytes* in, int32_t inLen, $SymmetricCipher* cipher) {
 	$init(KWUtil);
+	$useLocalCurrentObjectStackCache();
 	if (!KWUtil::$assertionsDisabled && !((inLen >= KWUtil::MIN_INPUTLEN) && (($mod(inLen, KWUtil::SEMI_BLKSIZE)) == 0))) {
 		$throwNew($AssertionError, ($of($$str({"Invalid data length for W: "_s, $$str(inLen)}))));
 	}
@@ -98,6 +99,7 @@ int32_t KWUtil::W($bytes* icvIn, $bytes* in, int32_t inLen, $SymmetricCipher* ci
 
 int32_t KWUtil::W_INV($bytes* in, int32_t inLen, $bytes* icvOut, $SymmetricCipher* cipher) {
 	$init(KWUtil);
+	$useLocalCurrentObjectStackCache();
 	if (!KWUtil::$assertionsDisabled && !((inLen >= KWUtil::MIN_INPUTLEN) && (($mod(inLen, KWUtil::SEMI_BLKSIZE)) == 0))) {
 		$throwNew($AssertionError, ($of($$str({"Invalid data length for W_INV: "_s, $$str(inLen)}))));
 	}

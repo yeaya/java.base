@@ -38,6 +38,7 @@ void CompareIC::init$() {
 }
 
 void CompareIC::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, test1, "Tess"_s);
 	$var($String, test2, "Test"_s);
 	$var($String, test3, "Tesu"_s);

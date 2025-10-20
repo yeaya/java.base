@@ -111,6 +111,7 @@ void MessageDigest$Delegate::finalize() {
 
 MessageDigest$Delegate* MessageDigest$Delegate::of($MessageDigestSpi* digestSpi, $String* algo, $Provider* p) {
 	$init(MessageDigest$Delegate);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(digestSpi);
 	bool isCloneable = ($instanceOf($Cloneable, digestSpi));
 	bool var$0 = isCloneable && $nc($($nc(p)->getName()))->startsWith("SunPKCS11"_s);
@@ -131,6 +132,7 @@ void MessageDigest$Delegate::init$($MessageDigestSpi* digestSpi, $String* algori
 }
 
 $Object* MessageDigest$Delegate::clone() {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Cloneable, this)) {
 		$var($MessageDigest, that, $new($MessageDigest$Delegate$CloneableDelegate, $cast($MessageDigestSpi, $($nc(this->digestSpi)->clone())), $nc((static_cast<$MessageDigest*>(this)))->algorithm, $nc((static_cast<$MessageDigest*>(this)))->provider));
 		that->state = $nc((static_cast<$MessageDigest*>(this)))->state;

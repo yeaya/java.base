@@ -77,6 +77,7 @@ void ModuleHashesAttribute::init$() {
 }
 
 $Attribute* ModuleHashesAttribute::read($ClassReader* classReader, int32_t offset, int32_t length, $chars* charBuffer, int32_t codeAttributeOffset, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentOffset = offset;
 	$var($String, hashAlgorithm, $nc(classReader)->readUTF8(currentOffset, charBuffer));
 	currentOffset += 2;
@@ -101,6 +102,7 @@ $Attribute* ModuleHashesAttribute::read($ClassReader* classReader, int32_t offse
 }
 
 $ByteVector* ModuleHashesAttribute::write($ClassWriter* classWriter, $bytes* code, int32_t codeLength, int32_t maxStack, int32_t maxLocals) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteVector, byteVector, $new($ByteVector));
 	byteVector->putShort($nc(classWriter)->newUTF8(this->algorithm));
 	if (this->modules == nullptr) {

@@ -90,6 +90,7 @@ void NewSessionTicket$T13NewSessionTicketConsumer::init$() {
 }
 
 void NewSessionTicket$T13NewSessionTicketConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$var($NewSessionTicket$NewSessionTicketMessage, nstm, $new($NewSessionTicket$T13NewSessionTicketMessage, hc, message));
 	$init($SSLLogger);

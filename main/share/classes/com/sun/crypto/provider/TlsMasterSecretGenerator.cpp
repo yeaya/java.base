@@ -116,6 +116,7 @@ void TlsMasterSecretGenerator::engineInit($SecureRandom* random) {
 }
 
 void TlsMasterSecretGenerator::engineInit($AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($TlsMasterSecretParameterSpec, params) == false) {
 		$throwNew($InvalidAlgorithmParameterException, TlsMasterSecretGenerator::MSG);
 	}
@@ -135,6 +136,7 @@ void TlsMasterSecretGenerator::engineInit(int32_t keysize, $SecureRandom* random
 }
 
 $SecretKey* TlsMasterSecretGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsMasterSecretGenerator must be initialized"_s);
 	}

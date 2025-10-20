@@ -51,6 +51,7 @@ void ConfigureBlocking::init$() {
 }
 
 void ConfigureBlocking::main($StringArray* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($SelectableChannelArray, channels, nullptr);
 	$assign(channels, $new($SelectableChannelArray, {
 		$(static_cast<$SelectableChannel*>($DatagramChannel::open())),

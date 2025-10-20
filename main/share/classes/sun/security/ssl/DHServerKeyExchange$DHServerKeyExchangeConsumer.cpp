@@ -119,6 +119,7 @@ void DHServerKeyExchange$DHServerKeyExchangeConsumer::init$() {
 }
 
 void DHServerKeyExchange$DHServerKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($DHServerKeyExchange$DHServerKeyExchangeMessage, skem, $new($DHServerKeyExchange$DHServerKeyExchangeMessage, chc, message));
 	$init($SSLLogger);

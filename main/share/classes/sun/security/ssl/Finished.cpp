@@ -106,6 +106,7 @@ void Finished::init$() {
 
 void Finished::recordEvent($SSLSessionImpl* session) {
 	$init(Finished);
+	$useLocalCurrentObjectStackCache();
 	$var($TLSHandshakeEvent, event, $new($TLSHandshakeEvent));
 	bool var$0 = event->shouldCommit();
 	if (var$0 || $EventHelper::isLoggingSecurity()) {

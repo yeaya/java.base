@@ -107,6 +107,7 @@ $Object* allocate$LinuxWatchService($Class* clazz) {
 $Unsafe* LinuxWatchService::unsafe = nullptr;
 
 void LinuxWatchService::init$($UnixFileSystem* fs) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractWatchService::init$();
 	int32_t ifd = -1;
 	try {

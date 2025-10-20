@@ -64,6 +64,7 @@ void TIFFContentGuesser::init$() {
 
 void TIFFContentGuesser::main($StringArray* args) {
 	$init(TIFFContentGuesser);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($InputStream, stream, $new($ByteArrayInputStream, TIFFContentGuesser::LITTLE_ENDIAN_MAGIC));
 	$var($String, contentType, $URLConnection::guessContentTypeFromStream(stream));

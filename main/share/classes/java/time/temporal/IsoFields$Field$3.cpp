@@ -124,6 +124,7 @@ void IsoFields$Field$3::init$($String* $enum$name, int32_t $enum$ordinal) {
 }
 
 $String* IsoFields$Field$3::getDisplayName($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(locale), "locale"_s);
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
 	$var($ResourceBundle, rb, $nc(lr)->getJavaTimeFormatData());
@@ -171,6 +172,7 @@ $Temporal* IsoFields$Field$3::adjustInto($Temporal* temporal, int64_t newValue) 
 }
 
 $TemporalAccessor* IsoFields$Field$3::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($IsoFields$Field);
 	$var($Long, wbyLong, $cast($Long, $nc(fieldValues)->get($IsoFields$Field::WEEK_BASED_YEAR)));
 	$init($ChronoField);

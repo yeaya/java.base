@@ -63,6 +63,7 @@ void Bug7003643::init$() {
 
 void Bug7003643::main($StringArray* args) {
 	$init(Bug7003643);
+	$useLocalCurrentObjectStackCache();
 	$var($Random, rand, $new($Random));
 	int32_t count = 0;
 	int32_t max = $cast(int32_t, ($Math::pow((double)$nc(Bug7003643::elements)->length, (double)Bug7003643::N) / 0.52));

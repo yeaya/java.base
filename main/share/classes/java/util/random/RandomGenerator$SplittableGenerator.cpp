@@ -126,10 +126,12 @@ $Stream* RandomGenerator$SplittableGenerator::splits() {
 }
 
 $Stream* RandomGenerator$SplittableGenerator::rngs() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(this->splits()))->map(static_cast<$Function*>($$new(RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0)));
 }
 
 $Stream* RandomGenerator$SplittableGenerator::rngs(int64_t streamSize) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(this->splits(streamSize)))->map(static_cast<$Function*>($$new(RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0)));
 }
 

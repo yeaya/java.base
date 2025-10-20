@@ -48,6 +48,7 @@ void SubNetworkInterfaceTest::init$() {
 }
 
 void SubNetworkInterfaceTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, nets, $NetworkInterface::getNetworkInterfaces());
 	{
 		$var($Iterator, i$, $nc($($Collections::list(nets)))->iterator());
@@ -61,6 +62,7 @@ void SubNetworkInterfaceTest::main($StringArray* args) {
 }
 
 void SubNetworkInterfaceTest::doReverseLookup($NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($Collections::list($($nc(netIf)->getSubInterfaces()))))->iterator());
 		for (; $nc(i$)->hasNext();) {

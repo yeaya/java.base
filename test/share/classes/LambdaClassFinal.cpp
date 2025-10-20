@@ -159,6 +159,7 @@ void LambdaClassFinal::main($StringArray* args) {
 }
 
 void LambdaClassFinal::test() {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaClassFinal$I, lam, static_cast<$LambdaClassFinal$I*>($new(LambdaClassFinal$$Lambda$lambda$test$0)));
 	assertTrue(((int32_t)($nc($of(lam))->getClass()->getModifiers() & (uint32_t)$Modifier::FINAL)) != 0);
 	$var($LambdaClassFinal$Iser, slam, static_cast<$LambdaClassFinal$Iser*>($new(LambdaClassFinal$$Lambda$lambda$test$e8a97009$1$1)));
@@ -166,6 +167,7 @@ void LambdaClassFinal::test() {
 }
 
 $Object* LambdaClassFinal::$deserializeLambda$($SerializedLambda* lambda) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s1214$, $nc(lambda)->getImplMethodName());
 		int32_t tmp1214$ = -1;

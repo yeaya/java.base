@@ -172,6 +172,7 @@ void SDFTCKZoneNamesTest::init$() {
 }
 
 $StringBuffer* SDFTCKZoneNamesTest::myFormat($Date* date, $SimpleDateFormat* sdf) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pattern, $nc(sdf)->toPattern());
 	$var($StringBuffer, toAppendTo, $new($StringBuffer, ""_s));
 	bool inQuote = false;
@@ -226,6 +227,7 @@ $StringBuffer* SDFTCKZoneNamesTest::myFormat($Date* date, $SimpleDateFormat* sdf
 }
 
 $String* SDFTCKZoneNamesTest::subFormat(char16_t ch, int32_t count, $Date* date, $SimpleDateFormat* sdf) {
+	$useLocalCurrentObjectStackCache();
 	int32_t value = 0;
 	int32_t patternCharIndex = -1;
 	int32_t maxIntCount = 10;
@@ -415,6 +417,7 @@ int32_t SDFTCKZoneNamesTest::getZoneIndex($String* ID, $DateFormatSymbols* dfs) 
 }
 
 void SDFTCKZoneNamesTest::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	$var(SDFTCKZoneNamesTest, test, $new(SDFTCKZoneNamesTest));
 	{
@@ -447,6 +450,7 @@ void SDFTCKZoneNamesTest::main($StringArray* argv) {
 }
 
 void SDFTCKZoneNamesTest::SimpleDateFormat0062() {
+	$useLocalCurrentObjectStackCache();
 	bool passed = true;
 	$var($StringArray, patterns, $new($StringArray, {
 		"\'s0mething\'z mm::hh,yyyy zz"_s,

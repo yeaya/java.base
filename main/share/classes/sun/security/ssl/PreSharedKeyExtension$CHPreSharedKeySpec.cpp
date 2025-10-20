@@ -118,6 +118,7 @@ void PreSharedKeyExtension$CHPreSharedKeySpec::init$($List* identities, $List* b
 }
 
 void PreSharedKeyExtension$CHPreSharedKeySpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->remaining() < 44) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid pre_shared_key extension: insufficient data (length="_s, $$str(m->remaining()), ")"_s}))))));
@@ -163,6 +164,7 @@ void PreSharedKeyExtension$CHPreSharedKeySpec::init$($HandshakeContext* hc, $Byt
 }
 
 int32_t PreSharedKeyExtension$CHPreSharedKeySpec::getIdsEncodedLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t idEncodedLength = 0;
 	{
 		$var($Iterator, i$, $nc(this->identities)->iterator());
@@ -177,6 +179,7 @@ int32_t PreSharedKeyExtension$CHPreSharedKeySpec::getIdsEncodedLength() {
 }
 
 int32_t PreSharedKeyExtension$CHPreSharedKeySpec::getBindersEncodedLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t binderEncodedLength = 0;
 	{
 		$var($Iterator, i$, $nc(this->binders)->iterator());
@@ -191,6 +194,7 @@ int32_t PreSharedKeyExtension$CHPreSharedKeySpec::getBindersEncodedLength() {
 }
 
 $bytes* PreSharedKeyExtension$CHPreSharedKeySpec::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	int32_t idsEncodedLength = getIdsEncodedLength();
 	int32_t bindersEncodedLength = getBindersEncodedLength();
 	int32_t encodedLength = 4 + idsEncodedLength + bindersEncodedLength;
@@ -220,6 +224,7 @@ $bytes* PreSharedKeyExtension$CHPreSharedKeySpec::getEncoded() {
 }
 
 $String* PreSharedKeyExtension$CHPreSharedKeySpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"PreSharedKey\": \'{\'\n  \"identities\": \'{\'\n{0}\n  \'}\'  \"binders\": \"{1}\",\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
@@ -230,6 +235,7 @@ $String* PreSharedKeyExtension$CHPreSharedKeySpec::toString() {
 }
 
 $String* PreSharedKeyExtension$CHPreSharedKeySpec::identitiesString() {
+	$useLocalCurrentObjectStackCache();
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($StringBuilder, result, $new($StringBuilder));
 	{
@@ -245,6 +251,7 @@ $String* PreSharedKeyExtension$CHPreSharedKeySpec::identitiesString() {
 }
 
 $String* PreSharedKeyExtension$CHPreSharedKeySpec::bindersString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, result, $new($StringBuilder));
 	{
 		$var($Iterator, i$, $nc(this->binders)->iterator());

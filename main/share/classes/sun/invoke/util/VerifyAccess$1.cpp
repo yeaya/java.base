@@ -80,6 +80,7 @@ void VerifyAccess$1::init$($String* val$name, $ClassLoader* val$refcLoader) {
 }
 
 $Object* VerifyAccess$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($Class::forName(this->val$name, false, this->val$refcLoader));

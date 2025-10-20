@@ -76,6 +76,7 @@ $Object* allocate$SunRsaSign($Class* clazz) {
 }
 
 void SunRsaSign::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("SunRsaSign"_s, $SecurityConstants::PROVIDER_VER, "Sun RSA signature provider"_s);
@@ -89,6 +90,7 @@ void SunRsaSign::init$() {
 }
 
 void SunRsaSign::putEntries($Iterator* i) {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(i)->hasNext()) {
 		putService($cast($Provider$Service, $(i->next())));
 	}

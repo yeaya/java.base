@@ -180,6 +180,7 @@ $1Value* SourceInterpreter::newValue($Type* type) {
 }
 
 $1Value* SourceInterpreter::newOperation($AbstractInsnNode* insn) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 0;
 	{
 		$var($Object, value, nullptr)
@@ -312,6 +313,7 @@ $SourceValue* SourceInterpreter::ternaryOperation($AbstractInsnNode* insn, $Sour
 }
 
 $1Value* SourceInterpreter::naryOperation($AbstractInsnNode* insn, $List* values) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 0;
 	int32_t opcode = $nc(insn)->getOpcode();
 	if (opcode == $Opcodes::MULTIANEWARRAY) {
@@ -328,6 +330,7 @@ void SourceInterpreter::returnOperation($AbstractInsnNode* insn, $SourceValue* v
 }
 
 $SourceValue* SourceInterpreter::merge($SourceValue* value1, $SourceValue* value2) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($SmallSet, $nc(value1)->insns) && $instanceOf($SmallSet, $nc(value2)->insns)) {
 		$var($Set, setUnion, $nc(($cast($SmallSet, value1->insns)))->union$($cast($SmallSet, value2->insns)));
 		if (setUnion == value1->insns && value1->size == value2->size) {

@@ -114,6 +114,7 @@ void ClassValue::init$() {
 }
 
 $Object* ClassValue::get($Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassValue$EntryArray, cache, nullptr);
 	$var($ClassValue$Entry, e, $ClassValue$ClassValueMap::probeHomeLocation($assign(cache, getCacheCarefully(type)), this));
 	if (match(e)) {
@@ -134,6 +135,7 @@ void ClassValue::put($Class* type, Object$* value) {
 
 $ClassValue$EntryArray* ClassValue::getCacheCarefully($Class* type) {
 	$init(ClassValue);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassValue$ClassValueMap, map, $nc(type)->classValueMap);
 	if (map == nullptr) {
 		return ClassValue::EMPTY_CACHE;
@@ -155,6 +157,7 @@ $ClassValue$Entry* ClassValue::castEntry($ClassValue$Entry* e) {
 }
 
 $Object* ClassValue::getFromHashMap($Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassValue$ClassValueMap, map, getMap(type));
 	for (;;) {
 		$var($ClassValue$Entry, e, $nc(map)->startEntry(this));

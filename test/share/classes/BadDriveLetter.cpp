@@ -40,6 +40,7 @@ void BadDriveLetter::init$() {
 }
 
 void BadDriveLetter::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($($$new($File, ".:"_s)->getAbsolutePath()));
 }

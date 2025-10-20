@@ -224,6 +224,7 @@ void Deflater::setDictionary($bytes* dictionary) {
 }
 
 void Deflater::setDictionary($ByteBuffer* dictionary) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->zsRef) {
 		int32_t position = $nc(dictionary)->position();
 		int32_t remaining = $Math::max(dictionary->limit() - position, 0);
@@ -319,6 +320,7 @@ int32_t Deflater::deflate($ByteBuffer* output) {
 }
 
 int32_t Deflater::deflate($bytes* output, int32_t off, int32_t len, int32_t flush) {
+	$useLocalCurrentObjectStackCache();
 	if (off < 0 || len < 0 || off > $nc(output)->length - len) {
 		$throwNew($ArrayIndexOutOfBoundsException);
 	}
@@ -386,6 +388,7 @@ int32_t Deflater::deflate($bytes* output, int32_t off, int32_t len, int32_t flus
 }
 
 int32_t Deflater::deflate($ByteBuffer* output, int32_t flush) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(output)->isReadOnly()) {
 		$throwNew($ReadOnlyBufferException);
 	}

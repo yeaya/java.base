@@ -135,6 +135,7 @@ $MultiThreadStackWalk$Call$WalkType* MultiThreadStackWalk$Call::getWalkType() {
 }
 
 void MultiThreadStackWalk$Call::walk($MultiThreadStackWalk$Env* env) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$MultiThreadStackWalk$Call$WalkType* walktype = getWalkType();
 	$init($System);

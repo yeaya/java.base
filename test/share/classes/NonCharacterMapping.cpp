@@ -56,6 +56,7 @@ void NonCharacterMapping::init$() {
 
 void NonCharacterMapping::main($StringArray* args) {
 	$init(NonCharacterMapping);
+	$useLocalCurrentObjectStackCache();
 	if ($Character::toLowerCase((char16_t)0xFFFF) != (char16_t)0xFFFF) {
 		$throwNew($RuntimeException);
 	}

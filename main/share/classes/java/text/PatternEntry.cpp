@@ -122,6 +122,7 @@ $String* PatternEntry::getChars() {
 }
 
 void PatternEntry::addToBuffer($StringBuffer* toAddTo, bool showExtension, bool showWhiteSpace, PatternEntry* lastEntry) {
+	$useLocalCurrentObjectStackCache();
 	if (showWhiteSpace && $nc(toAddTo)->length() > 0) {
 		if (this->strength == $Collator::PRIMARY || lastEntry != nullptr) {
 			toAddTo->append(u'\n');

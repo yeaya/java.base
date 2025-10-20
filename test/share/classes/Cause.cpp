@@ -40,6 +40,7 @@ void Cause::init$() {
 }
 
 void Cause::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Exception, e, $new($Exception));
 	$var($AssertionError, ae, $new($AssertionError, $of(e)));
 	if (!$equals(ae->getCause(), e)) {

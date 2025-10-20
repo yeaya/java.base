@@ -94,6 +94,7 @@ void RSAServerKeyExchange$RSAServerKeyExchangeProducer::init$() {
 }
 
 $bytes* RSAServerKeyExchange$RSAServerKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($RSAKeyExchange$EphemeralRSAPossession, rsaPossession, nullptr);
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);

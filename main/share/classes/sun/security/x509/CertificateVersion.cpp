@@ -116,6 +116,7 @@ void CertificateVersion::init$() {
 }
 
 void CertificateVersion::init$(int32_t version) {
+	$useLocalCurrentObjectStackCache();
 	this->version = CertificateVersion::V1;
 	if (version == CertificateVersion::V1 || version == CertificateVersion::V2 || version == CertificateVersion::V3) {
 		this->version = version;
@@ -149,6 +150,7 @@ $String* CertificateVersion::toString() {
 }
 
 void CertificateVersion::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->version == CertificateVersion::V1) {
 		return;
 	}

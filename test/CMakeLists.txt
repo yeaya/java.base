@@ -3,6 +3,8 @@
 jcpp_add_dependencies(
 )
 
+add_definitions(-DJCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE)
+
 include_directories("share/classes")
 include_directories("share/native")
 include_directories("../main/share/include")

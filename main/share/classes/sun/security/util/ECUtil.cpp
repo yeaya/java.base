@@ -136,6 +136,7 @@ $Object* allocate$ECUtil($Class* clazz) {
 }
 
 $bytes* ECUtil::sArray($BigInteger* s, $ECParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, arr, $nc(s)->toByteArray());
 	$ArrayUtil::reverse(arr);
 	int32_t byteLength = ($nc($($nc(params)->getOrder()))->bitLength() + 7) / 8;
@@ -146,6 +147,7 @@ $bytes* ECUtil::sArray($BigInteger* s, $ECParameterSpec* params) {
 }
 
 $ECPoint* ECUtil::decodePoint($bytes* data, $EllipticCurve* curve) {
+	$useLocalCurrentObjectStackCache();
 	if (($nc(data)->length == 0) || ($nc(data)->get(0) != 4)) {
 		$throwNew($IOException, "Only uncompressed point format supported"_s);
 	}
@@ -160,6 +162,7 @@ $ECPoint* ECUtil::decodePoint($bytes* data, $EllipticCurve* curve) {
 }
 
 $bytes* ECUtil::encodePoint($ECPoint* point, $EllipticCurve* curve) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = ($nc($($nc(curve)->getField()))->getFieldSize() + 7) >> 3;
 	$var($bytes, xb, trimZeroes($($nc($($nc(point)->getAffineX()))->toByteArray())));
 	$var($bytes, yb, trimZeroes($($nc($($nc(point)->getAffineY()))->toByteArray())));
@@ -185,6 +188,7 @@ $bytes* ECUtil::trimZeroes($bytes* b) {
 }
 
 $KeyFactory* ECUtil::getKeyFactory() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $KeyFactory::getInstance("EC"_s, "SunEC"_s);
 	} catch ($NoSuchAlgorithmException&) {
@@ -198,12 +202,14 @@ $KeyFactory* ECUtil::getKeyFactory() {
 }
 
 $ECPublicKey* ECUtil::decodeX509ECPublicKey($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyFactory, keyFactory, getKeyFactory());
 	$var($X509EncodedKeySpec, keySpec, $new($X509EncodedKeySpec, encoded));
 	return $cast($ECPublicKey, $nc(keyFactory)->generatePublic(keySpec));
 }
 
 $bytes* ECUtil::x509EncodeECPublicKey($ECPoint* w, $ECParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyFactory, keyFactory, getKeyFactory());
 	$var($ECPublicKeySpec, keySpec, $new($ECPublicKeySpec, w, params));
 	$var($Key, key, $nc(keyFactory)->generatePublic(keySpec));
@@ -211,6 +217,7 @@ $bytes* ECUtil::x509EncodeECPublicKey($ECPoint* w, $ECParameterSpec* params) {
 }
 
 $ECPrivateKey* ECUtil::decodePKCS8ECPrivateKey($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyFactory, keyFactory, getKeyFactory());
 	$var($PKCS8EncodedKeySpec, keySpec, $new($PKCS8EncodedKeySpec, encoded));
 	{
@@ -237,6 +244,7 @@ $ECPrivateKey* ECUtil::decodePKCS8ECPrivateKey($bytes* encoded) {
 }
 
 $ECPrivateKey* ECUtil::generateECPrivateKey($BigInteger* s, $ECParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyFactory, keyFactory, getKeyFactory());
 	$var($ECPrivateKeySpec, keySpec, $new($ECPrivateKeySpec, s, params));
 	return $cast($ECPrivateKey, $nc(keyFactory)->generatePrivate(keySpec));
@@ -256,6 +264,7 @@ $AlgorithmParameters* ECUtil::getECParameters($Provider* p) {
 }
 
 $bytes* ECUtil::encodeECParameterSpec($Provider* p, $ECParameterSpec* spec) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>(spec));
@@ -273,6 +282,7 @@ $bytes* ECUtil::encodeECParameterSpec($Provider* p, $ECParameterSpec* spec) {
 }
 
 $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $ECParameterSpec* spec) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>(spec));
@@ -286,6 +296,7 @@ $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $ECParameterSpec* spe
 }
 
 $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $bytes* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	$nc(parameters)->init(params);
 	try {
@@ -299,6 +310,7 @@ $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $bytes* params) {
 }
 
 $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>($$new($ECGenParameterSpec, name)));
@@ -312,6 +324,7 @@ $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, $String* name) {
 }
 
 $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, int32_t keySize) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
 		$nc(parameters)->init(static_cast<$AlgorithmParameterSpec*>($$new($ECKeySizeParameterSpec, keySize)));
@@ -325,6 +338,7 @@ $ECParameterSpec* ECUtil::getECParameterSpec($Provider* p, int32_t keySize) {
 }
 
 $String* ECUtil::getCurveName($Provider* p, $ECParameterSpec* spec) {
+	$useLocalCurrentObjectStackCache();
 	$var($ECGenParameterSpec, nameSpec, nullptr);
 	$var($AlgorithmParameters, parameters, getECParameters(p));
 	try {
@@ -342,6 +356,7 @@ $String* ECUtil::getCurveName($Provider* p, $ECParameterSpec* spec) {
 }
 
 bool ECUtil::equals($ECParameterSpec* spec1, $ECParameterSpec* spec2) {
+	$useLocalCurrentObjectStackCache();
 	if (spec1 == spec2) {
 		return true;
 	}
@@ -356,6 +371,7 @@ bool ECUtil::equals($ECParameterSpec* spec1, $ECParameterSpec* spec2) {
 }
 
 $bytes* ECUtil::encodeSignature($bytes* signature) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(signature)->length >> 1;
 		$var($bytes, bytes, $new($bytes, n));
@@ -376,6 +392,7 @@ $bytes* ECUtil::encodeSignature($bytes* signature) {
 }
 
 $bytes* ECUtil::decodeSignature($bytes* sig) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, sig, 0, $nc(sig)->length, false));
 		$var($DerValueArray, values, in->getSequence(2));

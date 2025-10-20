@@ -68,6 +68,7 @@ void MultiThreadedSystemProxies::init$() {
 }
 
 void MultiThreadedSystemProxies::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$System::setProperty("java.net.useSystemProxies"_s, "true"_s);
 	$var($ProxySelector, ps, $ProxySelector::getDefault());
 	$var($URI, uri, $new($URI, "http://ubuntu.com"_s));

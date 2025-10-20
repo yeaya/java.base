@@ -96,6 +96,7 @@ void AVAKeyword::init$($String* keyword, $ObjectIdentifier* oid, bool rfc1779Com
 }
 
 bool AVAKeyword::isCompliant(int32_t standard) {
+	$useLocalCurrentObjectStackCache();
 	switch (standard) {
 	case $AVA::RFC1779:
 		{
@@ -118,6 +119,7 @@ bool AVAKeyword::isCompliant(int32_t standard) {
 
 $ObjectIdentifier* AVAKeyword::getOID($String* keyword$renamed, int32_t standard, $Map* extraKeywordMap) {
 	$init(AVAKeyword);
+	$useLocalCurrentObjectStackCache();
 	$var($String, keyword, keyword$renamed);
 	$init($Locale);
 	$assign(keyword, $nc(keyword)->toUpperCase($Locale::ENGLISH));
@@ -161,6 +163,7 @@ $String* AVAKeyword::getKeyword($ObjectIdentifier* oid, int32_t standard) {
 
 $String* AVAKeyword::getKeyword($ObjectIdentifier* oid, int32_t standard, $Map* extraOidMap) {
 	$init(AVAKeyword);
+	$useLocalCurrentObjectStackCache();
 	$var($String, oidString, $nc(oid)->toString());
 	$var($String, keywordString, $cast($String, $nc(extraOidMap)->get(oidString)));
 	if (keywordString == nullptr) {

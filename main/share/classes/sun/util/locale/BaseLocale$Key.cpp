@@ -91,6 +91,7 @@ int32_t BaseLocale$Key::hashCode() {
 }
 
 int32_t BaseLocale$Key::hashCode($BaseLocale* locale) {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($String, lang, $nc(locale)->getLanguage());
 	int32_t len = $nc(lang)->length();
@@ -120,6 +121,7 @@ $BaseLocale* BaseLocale$Key::getBaseLocale() {
 }
 
 bool BaseLocale$Key::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -151,6 +153,7 @@ bool BaseLocale$Key::equals(Object$* obj) {
 
 BaseLocale$Key* BaseLocale$Key::normalize(BaseLocale$Key* key) {
 	$init(BaseLocale$Key);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(key)->normalized) {
 		return key;
 	}

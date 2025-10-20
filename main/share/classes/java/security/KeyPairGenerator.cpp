@@ -114,6 +114,7 @@ $String* KeyPairGenerator::getAlgorithm() {
 
 KeyPairGenerator* KeyPairGenerator::getInstance($GetInstance$Instance* instance, $String* algorithm) {
 	$init(KeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var(KeyPairGenerator, kpg, nullptr);
 	if ($instanceOf(KeyPairGenerator, $nc(instance)->impl)) {
 		$assign(kpg, $cast(KeyPairGenerator, instance->impl));
@@ -130,6 +131,7 @@ KeyPairGenerator* KeyPairGenerator::getInstance($GetInstance$Instance* instance,
 
 KeyPairGenerator* KeyPairGenerator::getInstance($String* algorithm) {
 	$init(KeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	$var($List, list, $GetInstance::getServices("KeyPairGenerator"_s, algorithm));
 	$var($Iterator, t, $nc(list)->iterator());

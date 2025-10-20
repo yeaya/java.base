@@ -100,12 +100,14 @@ bool HostLocaleProviderAdapterImpl$3::isSupportedLocale($Locale* locale) {
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$3::getCurrencyInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, getNumberPatterns(locale));
 	$var($String, var$0, $cast($String, $nc(patterns)->get(1)));
 	return $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale)));
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$3::getIntegerInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, getNumberPatterns(locale));
 	$var($String, var$0, $cast($String, $nc(patterns)->get(3)));
 	$var($DecimalFormat, format, $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale))));
@@ -113,18 +115,21 @@ $NumberFormat* HostLocaleProviderAdapterImpl$3::getIntegerInstance($Locale* loca
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$3::getNumberInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, getNumberPatterns(locale));
 	$var($String, var$0, $cast($String, $nc(patterns)->get(0)));
 	return $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale)));
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$3::getPercentInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, getNumberPatterns(locale));
 	$var($String, var$0, $cast($String, $nc(patterns)->get(2)));
 	return $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale)));
 }
 
 $AtomicReferenceArray* HostLocaleProviderAdapterImpl$3::getNumberPatterns($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::numberFormatCache)->get(locale)));

@@ -242,6 +242,7 @@ bool ObjectMethods::eq(bool a, bool b) {
 
 $MethodHandle* ObjectMethods::equalator($Class* clazz) {
 	$init(ObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	return ($nc(clazz)->isPrimitive() ? $cast($MethodHandle, $nc(ObjectMethods::primitiveEquals)->get(clazz)) : $nc(ObjectMethods::OBJECTS_EQUALS)->asType($($MethodType::methodType($Boolean::TYPE, clazz, $$new($ClassArray, {clazz})))));
 }
@@ -260,6 +261,7 @@ $MethodHandle* ObjectMethods::stringifier($Class* clazz) {
 
 $MethodHandle* ObjectMethods::makeEquals($Class* receiverClass, $List* getters) {
 	$init(ObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	$var($MethodType, rr, $MethodType::methodType($Boolean::TYPE, receiverClass, $$new($ClassArray, {receiverClass})));
 	$load($Object);
@@ -297,6 +299,7 @@ $MethodHandle* ObjectMethods::makeEquals($Class* receiverClass, $List* getters) 
 
 $MethodHandle* ObjectMethods::makeHashCode($Class* receiverClass, $List* getters) {
 	$init(ObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, accumulator, $MethodHandles::dropArguments(ObjectMethods::ZERO, 0, $$new($ClassArray, {receiverClass})));
 	{
 		$var($Iterator, i$, $nc(getters)->iterator());
@@ -321,6 +324,7 @@ $MethodHandle* ObjectMethods::makeHashCode($Class* receiverClass, $List* getters
 
 $MethodHandle* ObjectMethods::makeToString($Class* receiverClass, $List* getters, $List* names) {
 	$init(ObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !ObjectMethods::$assertionsDisabled;
 	if (var$0) {
 		int32_t var$1 = $nc(getters)->size();
@@ -360,6 +364,7 @@ $MethodHandle* ObjectMethods::makeToString($Class* receiverClass, $List* getters
 
 $Object* ObjectMethods::bootstrap($MethodHandles$Lookup* lookup, $String* methodName, $TypeDescriptor* type, $Class* recordClass, $String* names, $MethodHandleArray* getters) {
 	$init(ObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, methodType, nullptr);
 	if ($instanceOf($MethodType, type)) {
 		$assign(methodType, $cast($MethodType, type));
@@ -448,6 +453,7 @@ $Object* ObjectMethods::bootstrap($MethodHandles$Lookup* lookup, $String* method
 }
 
 void clinit$ObjectMethods($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	ObjectMethods::$assertionsDisabled = !ObjectMethods::class$->desiredAssertionStatus();
 	$load($MethodType);

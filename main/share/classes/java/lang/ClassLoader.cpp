@@ -555,6 +555,7 @@ void ClassLoader::addClass($Class* c) {
 }
 
 $NamedPackage* ClassLoader::getNamedPackage($String* pn, $Module* m) {
+	$useLocalCurrentObjectStackCache();
 	$var($NamedPackage, p, $cast($NamedPackage, $nc(this->packages$)->get(pn)));
 	if (p == nullptr) {
 		$assign(p, $new($NamedPackage, pn, m));
@@ -610,6 +611,7 @@ void ClassLoader::init$($Void* unused, $String* name, ClassLoader* parent) {
 
 $String* ClassLoader::nameAndId(ClassLoader* ld) {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($String, nid, $nc(ld)->getName() != nullptr ? $str({"\'"_s, $($nc(ld)->getName()), "\'"_s}) : $of(ld)->getClass()->getName());
 	if (!($instanceOf($BuiltinClassLoader, ld))) {
 		$var($String, id, $Integer::toHexString($System::identityHashCode(ld)));
@@ -627,6 +629,7 @@ void ClassLoader::init$(ClassLoader* parent) {
 }
 
 void ClassLoader::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Void, var$0, checkCreateClassLoader());
 	ClassLoader::init$(var$0, nullptr, $(getSystemClassLoader()));
@@ -645,6 +648,7 @@ $Class* ClassLoader::loadClass($String* name) {
 }
 
 $Class* ClassLoader::loadClass($String* name, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(getClassLoadingLock(name)) {
 		$Class* c = findLoadedClass(name);
 		if (c == nullptr) {
@@ -688,6 +692,7 @@ $Class* ClassLoader::loadClass($Module* module, $String* name) {
 }
 
 $Object* ClassLoader::getClassLoadingLock($String* className) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, lock, this);
 	if (this->parallelLockMap != nullptr) {
 		$var($Object, newLock, $new($Object));
@@ -700,6 +705,7 @@ $Object* ClassLoader::getClassLoadingLock($String* className) {
 }
 
 void ClassLoader::checkPackageAccess($Class* cls, $ProtectionDomain* pd) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -750,6 +756,7 @@ $Class* ClassLoader::defineClass($String* name, $bytes* b, int32_t off, int32_t 
 }
 
 $ProtectionDomain* ClassLoader::preDefineClass($String* name, $ProtectionDomain* pd$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomain, pd, pd$renamed);
 	if (!checkName(name)) {
 		$throwNew($NoClassDefFoundError, $$str({"IllegalName: "_s, name}));
@@ -768,6 +775,7 @@ $ProtectionDomain* ClassLoader::preDefineClass($String* name, $ProtectionDomain*
 }
 
 $String* ClassLoader::defineClassSourceLocation($ProtectionDomain* pd) {
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSource, cs, $nc(pd)->getCodeSource());
 	$var($String, source, nullptr);
 	if (cs != nullptr && cs->getLocation() != nullptr) {
@@ -777,6 +785,7 @@ $String* ClassLoader::defineClassSourceLocation($ProtectionDomain* pd) {
 }
 
 void ClassLoader::postDefineClass($Class* c, $ProtectionDomain* pd) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(c)->getPackageName());
 	getNamedPackage(var$0, $(c->getModule()));
 	if ($nc(pd)->getCodeSource() != nullptr) {
@@ -788,6 +797,7 @@ void ClassLoader::postDefineClass($Class* c, $ProtectionDomain* pd) {
 }
 
 $Class* ClassLoader::defineClass($String* name, $bytes* b, int32_t off, int32_t len, $ProtectionDomain* protectionDomain$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomain, protectionDomain, protectionDomain$renamed);
 	$assign(protectionDomain, preDefineClass(name, protectionDomain));
 	$var($String, source, defineClassSourceLocation(protectionDomain));
@@ -797,6 +807,7 @@ $Class* ClassLoader::defineClass($String* name, $bytes* b, int32_t off, int32_t 
 }
 
 $Class* ClassLoader::defineClass($String* name, $ByteBuffer* b, $ProtectionDomain* protectionDomain$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomain, protectionDomain, protectionDomain$renamed);
 	int32_t len = $nc(b)->remaining();
 	if (!b->isDirect()) {
@@ -843,6 +854,7 @@ bool ClassLoader::checkName($String* name) {
 }
 
 void ClassLoader::checkCerts($String* name, $CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $nc(name)->lastIndexOf((int32_t)u'.');
 	$var($String, pname, (i == -1) ? ""_s : name->substring(0, i));
 	$var($CertificateArray, certs, nullptr);
@@ -857,6 +869,7 @@ void ClassLoader::checkCerts($String* name, $CodeSource* cs) {
 }
 
 bool ClassLoader::compareCerts($CertificateArray* pcerts, $CertificateArray* certs) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(certs)->length == 0) {
 		return $nc(pcerts)->length == 0;
 	}
@@ -984,6 +997,7 @@ $URL* ClassLoader::getResource($String* name) {
 }
 
 $Enumeration* ClassLoader::getResources($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($EnumerationArray, tmp, $new($EnumerationArray, 2));
 	if (this->parent != nullptr) {
@@ -1033,6 +1047,7 @@ $Enumeration* ClassLoader::getSystemResources($String* name) {
 }
 
 $InputStream* ClassLoader::getResourceAsStream($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($URL, url, getResource(name));
 	try {
@@ -1046,6 +1061,7 @@ $InputStream* ClassLoader::getResourceAsStream($String* name) {
 
 $InputStream* ClassLoader::getSystemResourceAsStream($String* name) {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, getSystemResource(name));
 	try {
 		return url != nullptr ? $nc(url)->openStream() : ($InputStream*)nullptr;
@@ -1073,6 +1089,7 @@ $Module* ClassLoader::getUnnamedModule() {
 
 ClassLoader* ClassLoader::getPlatformClassLoader() {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	$var(ClassLoader, loader, getBuiltinPlatformClassLoader());
 	if (sm != nullptr) {
@@ -1083,6 +1100,7 @@ ClassLoader* ClassLoader::getPlatformClassLoader() {
 
 ClassLoader* ClassLoader::getSystemClassLoader() {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, msg, nullptr)
 		$var($SecurityManager, sm, nullptr)
@@ -1129,6 +1147,7 @@ ClassLoader* ClassLoader::initSystemClassLoader() {
 	$load(ClassLoader);
 	$synchronized(class$) {
 		$init(ClassLoader);
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		if ($VM::initLevel() != 3) {
 			$throwNew($InternalError, $$str({"system class loader cannot be set at initLevel "_s, $$str($VM::initLevel())}));
@@ -1195,6 +1214,7 @@ ClassLoader* ClassLoader::getClassLoader($Class* caller) {
 
 void ClassLoader::checkClassLoaderPermission(ClassLoader* cl, $Class* caller) {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var(ClassLoader, ccl, getClassLoader(caller));
@@ -1206,6 +1226,7 @@ void ClassLoader::checkClassLoaderPermission(ClassLoader* cl, $Class* caller) {
 }
 
 $Package* ClassLoader::definePackage($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(c)->isPrimitive();
 	if (var$0 || $nc(c)->isArray()) {
 		return nullptr;
@@ -1215,6 +1236,7 @@ $Package* ClassLoader::definePackage($Class* c) {
 }
 
 $Package* ClassLoader::definePackage($String* name, $Module* m) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(name)->isEmpty();
 	if (var$0 && $nc(m)->isNamed()) {
 		$throwNew($InternalError, $$str({"unnamed package in  "_s, m}));
@@ -1227,6 +1249,7 @@ $Package* ClassLoader::definePackage($String* name, $Module* m) {
 }
 
 $Package* ClassLoader::toPackage($String* name, $NamedPackage* p, $Module* m) {
+	$useLocalCurrentObjectStackCache();
 	if (p == nullptr) {
 		return $NamedPackage::toPackage(name, m);
 	}
@@ -1247,6 +1270,7 @@ $Package* ClassLoader::definePackage($String* name, $String* specTitle, $String*
 }
 
 $Package* ClassLoader::getDefinedPackage($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(name), "name cannot be null"_s);
 	$var($NamedPackage, p, $cast($NamedPackage, $nc(this->packages$)->get(name)));
 	if (p == nullptr) {
@@ -1256,6 +1280,7 @@ $Package* ClassLoader::getDefinedPackage($String* name) {
 }
 
 $PackageArray* ClassLoader::getDefinedPackages() {
+	$useLocalCurrentObjectStackCache();
 	return $fcast($PackageArray, $nc($(packages()))->toArray(static_cast<$IntFunction*>($$new(ClassLoader$$Lambda$lambda$getDefinedPackages$2$2))));
 }
 
@@ -1272,6 +1297,7 @@ $Package* ClassLoader::getPackage($String* name) {
 }
 
 $PackageArray* ClassLoader::getPackages() {
+	$useLocalCurrentObjectStackCache();
 	$var($Stream, pkgs, packages());
 	$var(ClassLoader, ld, this->parent);
 	while (ld != nullptr) {
@@ -1282,6 +1308,7 @@ $PackageArray* ClassLoader::getPackages() {
 }
 
 $Stream* ClassLoader::packages() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc(this->packages$)->values()))->stream()))->map(static_cast<$Function*>($$new(ClassLoader$$Lambda$lambda$packages$4$3, this)));
 }
 
@@ -1291,6 +1318,7 @@ $String* ClassLoader::findLibrary($String* libname) {
 
 $NativeLibrary* ClassLoader::loadLibrary($Class* fromClass, $File* file) {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var(ClassLoader, loader, (fromClass == nullptr) ? (ClassLoader*)nullptr : $nc(fromClass)->getClassLoader());
 	$var($NativeLibraries, libs, loader != nullptr ? $nc(loader)->libraries : $BootLoader::getNativeLibraries());
@@ -1303,6 +1331,7 @@ $NativeLibrary* ClassLoader::loadLibrary($Class* fromClass, $File* file) {
 
 $NativeLibrary* ClassLoader::loadLibrary($Class* fromClass, $String* name) {
 	$init(ClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var(ClassLoader, loader, (fromClass == nullptr) ? (ClassLoader*)nullptr : $nc(fromClass)->getClassLoader());
 	if (loader == nullptr) {
@@ -1377,6 +1406,7 @@ void ClassLoader::clearAssertionStatus() {
 }
 
 bool ClassLoader::desiredAssertionStatus($String* className$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, className, className$renamed);
 	$synchronized(this->assertionLock) {
 		$var($Boolean, result, $cast($Boolean, $nc(this->classAssertionStatus)->get(className)));
@@ -1403,6 +1433,7 @@ bool ClassLoader::desiredAssertionStatus($String* className$renamed) {
 }
 
 void ClassLoader::initializeJavaAssertionMaps() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, classAssertionStatus, $new($HashMap));
 	$set(this, packageAssertionStatus, $new($HashMap));
 	$var($AssertionStatusDirectives, directives, retrieveDirectives());
@@ -1448,6 +1479,7 @@ void ClassLoader::resetArchivedStates() {
 }
 
 $Package* ClassLoader::lambda$packages$4($NamedPackage* p) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(p)->packageName());
 	return definePackage(var$0, $(p->module()));
 }
@@ -1462,6 +1494,7 @@ $NamedPackage* ClassLoader::lambda$definePackage$1($Module* m, $String* n, $Name
 }
 
 $Spliterator* ClassLoader::lambda$resources$0($String* name, int32_t characteristics) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $Spliterators::spliteratorUnknownSize($($nc($(getResources(name)))->asIterator()), characteristics);
 	} catch ($IOException&) {

@@ -77,6 +77,7 @@ void Streams$1::init$($Runnable* val$a, $Runnable* val$b) {
 }
 
 void Streams$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->val$a)->run();
 	} catch ($Throwable&) {

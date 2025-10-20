@@ -90,6 +90,7 @@ $Object* allocate$PolicyFile$SelfPermission($Class* clazz) {
 }
 
 void PolicyFile$SelfPermission::init$($String* type, $String* name, $String* actions, $CertificateArray* certs) {
+	$useLocalCurrentObjectStackCache();
 	$Permission::init$(type);
 	if (type == nullptr) {
 		$throwNew($NullPointerException, $($LocalizedMessage::getNonlocalized("type.can.t.be.null"_s, $$new($ObjectArray, 0))));

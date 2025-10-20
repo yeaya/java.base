@@ -64,6 +64,7 @@ void StringsAndBounds::g(Object$* a) {
 
 void StringsAndBounds::scanner($Class* clazz) {
 	$load(StringsAndBounds);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println($$str({"\n\nScanning "_s, $($nc(clazz)->getName())}));

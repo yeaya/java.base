@@ -77,6 +77,7 @@ void AnnotationToStringTest::init$() {
 }
 
 void AnnotationToStringTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$load($AnnotationToStringTest$PrimHost);
 	$load($ExpectedString);
@@ -105,6 +106,7 @@ int32_t AnnotationToStringTest::check($String* expected, $String* actual) {
 
 int32_t AnnotationToStringTest::classyTest() {
 	$load(AnnotationToStringTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	{
@@ -130,6 +132,7 @@ int32_t AnnotationToStringTest::classyTest() {
 
 int32_t AnnotationToStringTest::arrayAnnotationTest() {
 	$load(AnnotationToStringTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	{

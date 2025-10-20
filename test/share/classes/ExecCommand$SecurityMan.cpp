@@ -68,6 +68,7 @@ $String* ExecCommand$SecurityMan::unquote($String* str) {
 }
 
 void ExecCommand$SecurityMan::checkExec($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ncmd, ($$new($File, $(unquote(cmd))))->getPath());
 	bool var$3 = $nc(ncmd)->equals(".\\Program"_s);
 	bool var$2 = var$3 || $nc(ncmd)->equals("\".\\Program"_s);

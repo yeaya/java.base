@@ -114,6 +114,7 @@ int32_t Base64$DecInputStream::eof($bytes* b, int32_t off, int32_t pos, int32_t 
 }
 
 int32_t Base64$DecInputStream::padding($bytes* b, int32_t off, int32_t pos, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	if (this->wpos >= 18 || this->wpos == 12 && $nc(this->is)->read() != u'=') {
 		$throwNew($IOException, $$str({"Illegal base64 ending sequence:"_s, $$str(this->wpos)}));
 	}
@@ -122,6 +123,7 @@ int32_t Base64$DecInputStream::padding($bytes* b, int32_t off, int32_t pos, int3
 }
 
 int32_t Base64$DecInputStream::read($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		$throwNew($IOException, "Stream is closed"_s);
 	}

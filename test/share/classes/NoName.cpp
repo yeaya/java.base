@@ -81,6 +81,7 @@ void NoName::main($StringArray* args) {
 }
 
 void NoName::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* cls = this->noName;
 	$init($System);

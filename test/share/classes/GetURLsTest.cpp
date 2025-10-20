@@ -75,6 +75,7 @@ void GetURLsTest::init$() {
 
 void GetURLsTest::main($StringArray* args) {
 	$init(GetURLsTest);
+	$useLocalCurrentObjectStackCache();
 	$var($File, testJars, $new($File, GetURLsTest::TEST_DIR, "jars"_s));
 	$var($GetURLsTest$MyURLClassLoader, ucl, $new($GetURLsTest$MyURLClassLoader, $$new($URLArray, {$($$new($File, "."_s)->toURL())})));
 	p("initial urls = "_s, $(ucl->getURLs()));
@@ -90,6 +91,7 @@ void GetURLsTest::main($StringArray* args) {
 
 void GetURLsTest::p($String* s, $URLArray* urls) {
 	$init(GetURLsTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->print(s);
 	if ($nc(urls)->length > 0) {

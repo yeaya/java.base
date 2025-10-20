@@ -166,6 +166,7 @@ void CRLNumberExtension::init$($ObjectIdentifier* extensionId, $Boolean* critica
 }
 
 void CRLNumberExtension::set($String* name, Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(CRLNumberExtension::NUMBER)) {
 		if (!($instanceOf($BigInteger, obj))) {
 			$throwNew($IOException, "Attribute must be of type BigInteger."_s);
@@ -178,6 +179,7 @@ void CRLNumberExtension::set($String* name, Object$* obj) {
 }
 
 $Object* CRLNumberExtension::get($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(CRLNumberExtension::NUMBER)) {
 		return $of(this->crlNumber);
 	} else {
@@ -186,6 +188,7 @@ $Object* CRLNumberExtension::get($String* name) {
 }
 
 void CRLNumberExtension::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(CRLNumberExtension::NUMBER)) {
 		$set(this, crlNumber, nullptr);
 	} else {
@@ -195,6 +198,7 @@ void CRLNumberExtension::delete$($String* name) {
 }
 
 $String* CRLNumberExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append(this->extensionLabel)->append(": "_s);
 	if (this->crlNumber != nullptr) {
@@ -211,6 +215,7 @@ void CRLNumberExtension::encode($OutputStream* out) {
 }
 
 void CRLNumberExtension::encode($OutputStream* out, $ObjectIdentifier* extensionId, bool isCritical) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$set(this, extensionId, extensionId);

@@ -81,6 +81,7 @@ void HugeCapacity::init$() {
 
 void HugeCapacity::main($StringArray* args) {
 	$init(HugeCapacity);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length == 0) {
 		$throwNew($IllegalArgumentException, "Need the argument"_s);
 	}
@@ -96,6 +97,7 @@ void HugeCapacity::main($StringArray* args) {
 
 void HugeCapacity::testLatin1(bool isCompact) {
 	$init(HugeCapacity);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t divisor = isCompact ? 2 : 4;
 		$var($StringBuilder, sb, $new($StringBuilder));
@@ -110,6 +112,7 @@ void HugeCapacity::testLatin1(bool isCompact) {
 
 void HugeCapacity::testUtf16() {
 	$init(HugeCapacity);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append((char16_t)0x42B);
@@ -124,6 +127,7 @@ void HugeCapacity::testUtf16() {
 
 void HugeCapacity::testHugeInitialString() {
 	$init(HugeCapacity);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, str, "Z"_s->repeat($Integer::MAX_VALUE - 8));
 		$var($StringBuilder, sb, $new($StringBuilder, str));
@@ -138,6 +142,7 @@ void HugeCapacity::testHugeInitialString() {
 
 void HugeCapacity::testHugeInitialCharSequence() {
 	$init(HugeCapacity);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($CharSequence, seq, $new($HugeCapacity$MyHugeCharSeq));
 		$var($StringBuilder, sb, $new($StringBuilder, seq));

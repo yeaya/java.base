@@ -114,6 +114,7 @@ void ClassAttributesTest::init$() {
 }
 
 int32_t ClassAttributesTest::test($Class* clazz, bool anonymous, bool local, bool member) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(clazz)->isAnonymousClass() != anonymous) {
 		$init($System);
 		$nc($System::err)->println($$str({"Unexpected isAnonymousClass value for "_s, $(clazz->getName()), " expected: "_s, $$str(anonymous), " got: "_s, $$str((!anonymous))}));
@@ -133,6 +134,7 @@ int32_t ClassAttributesTest::test($Class* clazz, bool anonymous, bool local, boo
 }
 
 void ClassAttributesTest::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	{
 	}

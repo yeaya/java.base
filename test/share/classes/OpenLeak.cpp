@@ -51,6 +51,7 @@ void OpenLeak::init$() {
 
 void OpenLeak::main($StringArray* args) {
 	$load(OpenLeak);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($InetSocketAddress, isa, $new($InetSocketAddress, lh, 12345));

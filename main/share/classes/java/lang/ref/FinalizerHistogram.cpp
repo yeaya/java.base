@@ -204,6 +204,7 @@ void FinalizerHistogram::init$() {
 }
 
 $FinalizerHistogram$EntryArray* FinalizerHistogram::getFinalizerHistogram() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, countMap, $new($HashMap));
 	$var($ReferenceQueue, queue, $Finalizer::getQueue());
 	$nc(queue)->forEach(static_cast<$Consumer*>($$new(FinalizerHistogram$$Lambda$lambda$getFinalizerHistogram$0, countMap)));
@@ -213,6 +214,7 @@ $FinalizerHistogram$EntryArray* FinalizerHistogram::getFinalizerHistogram() {
 }
 
 void FinalizerHistogram::lambda$getFinalizerHistogram$0($Map* countMap, $Reference* r) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, referent, $nc(r)->get());
 	if (referent != nullptr) {
 		$var($Object, var$0, $of($of(referent)->getClass()->getName()));

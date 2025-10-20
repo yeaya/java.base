@@ -83,6 +83,7 @@ int32_t X509KeyManagerImpl$EntryStatus::compareTo(X509KeyManagerImpl$EntryStatus
 }
 
 $String* X509KeyManagerImpl$EntryStatus::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({this->alias, " (verified: "_s, this->checkResult, ")"_s}));
 	if (this->builderIndex == 0) {
 		return s;

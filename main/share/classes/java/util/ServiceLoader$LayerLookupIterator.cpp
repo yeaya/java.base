@@ -111,12 +111,14 @@ void ServiceLoader$LayerLookupIterator::init$($ServiceLoader* this$0) {
 }
 
 $Iterator* ServiceLoader$LayerLookupIterator::providers($ModuleLayer* layer) {
+	$useLocalCurrentObjectStackCache();
 	$init($ServiceLoader);
 	$var($ServicesCatalog, catalog, $nc($ServiceLoader::LANG_ACCESS)->getServicesCatalog(layer));
 	return $nc($($nc(catalog)->findServices(this->this$0->serviceName)))->iterator();
 }
 
 bool ServiceLoader$LayerLookupIterator::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	while (this->nextProvider == nullptr && this->nextError == nullptr) {
 		while (this->iterator == nullptr || !$nc(this->iterator)->hasNext()) {
 			if ($nc(this->stack)->isEmpty()) {
@@ -145,6 +147,7 @@ bool ServiceLoader$LayerLookupIterator::hasNext() {
 }
 
 $Object* ServiceLoader$LayerLookupIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	if (!hasNext()) {
 		$throwNew($NoSuchElementException);
 	}

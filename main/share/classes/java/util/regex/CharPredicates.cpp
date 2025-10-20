@@ -1551,6 +1551,7 @@ $Pattern$CharPredicate* CharPredicates::PUNCTUATION() {
 }
 
 $Pattern$CharPredicate* CharPredicates::HEX_DIGIT() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(DIGIT()))->union$(static_cast<$Pattern$CharPredicate*>($$new(CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10)));
 }
 
@@ -1563,6 +1564,7 @@ $Pattern$CharPredicate* CharPredicates::NONCHARACTER_CODE_POINT() {
 }
 
 $Pattern$CharPredicate* CharPredicates::ALNUM() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(ALPHABETIC()))->union$($(DIGIT()));
 }
 
@@ -1575,6 +1577,7 @@ $Pattern$CharPredicate* CharPredicates::GRAPH() {
 }
 
 $Pattern$CharPredicate* CharPredicates::PRINT() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(GRAPH()))->union$($(BLANK()))))->and$($($nc($(CONTROL()))->negate()));
 }
 
@@ -1583,11 +1586,13 @@ $Pattern$CharPredicate* CharPredicates::JOIN_CONTROL() {
 }
 
 $Pattern$CharPredicate* CharPredicates::WORD() {
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern$CharPredicate, var$0, static_cast<$Pattern$CharPredicate*>($new(CharPredicates$$Lambda$lambda$WORD$9$16)));
 	return $nc($(ALPHABETIC()))->union$(var$0, $(JOIN_CONTROL()));
 }
 
 $Pattern$CharPredicate* CharPredicates::getPosixPredicate($String* name, bool caseIns) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s5959$, name);
 	int32_t tmp5959$ = -1;
 	switch ($nc(s5959$)->hashCode()) {
@@ -1763,6 +1768,7 @@ $Pattern$CharPredicate* CharPredicates::getPosixPredicate($String* name, bool ca
 }
 
 $Pattern$CharPredicate* CharPredicates::getUnicodePredicate($String* name, bool caseIns) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s6838$, name);
 	int32_t tmp6838$ = -1;
 	switch ($nc(s6838$)->hashCode()) {
@@ -2005,6 +2011,7 @@ $Pattern$CharPredicate* CharPredicates::getUnicodePredicate($String* name, bool 
 }
 
 $Pattern$CharPredicate* CharPredicates::forUnicodeProperty($String* propName$renamed, bool caseIns) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, propName, propName$renamed);
 	$init($Locale);
 	$assign(propName, $nc(propName)->toUpperCase($Locale::ROOT));
@@ -2043,6 +2050,7 @@ $Pattern$CharPredicate* CharPredicates::forUnicodeBlock($String* name) {
 }
 
 $Pattern$CharPredicate* CharPredicates::forProperty($String* name, bool caseIns) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s9767$, name);
 	int32_t tmp9767$ = -1;
 	switch ($nc(s9767$)->hashCode()) {

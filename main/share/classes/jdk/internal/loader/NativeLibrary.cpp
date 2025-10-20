@@ -38,6 +38,7 @@ $Object* allocate$NativeLibrary($Class* clazz) {
 }
 
 int64_t NativeLibrary::lookup($String* name) {
+	$useLocalCurrentObjectStackCache();
 	int64_t addr = find(name);
 	if (0 == addr) {
 		$throwNew($NoSuchMethodException, $$str({"Cannot find symbol "_s, name, " in library "_s, $(this->name())}));

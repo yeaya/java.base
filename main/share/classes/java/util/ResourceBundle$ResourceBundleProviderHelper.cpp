@@ -269,6 +269,7 @@ void ResourceBundle$ResourceBundleProviderHelper::init$() {
 
 $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::newResourceBundle($Class* bundleClass) {
 	$load(ResourceBundle$ResourceBundleProviderHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Constructor, ctor, $nc(bundleClass)->getConstructor($$new($ClassArray, 0)));
@@ -298,6 +299,7 @@ $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::newResourceBundle(
 
 $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::loadResourceBundle($Module* callerModule, $Module* module, $String* baseName, $Locale* locale) {
 	$load(ResourceBundle$ResourceBundleProviderHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($ResourceBundle$Control);
 	$var($String, bundleName, $nc($ResourceBundle$Control::INSTANCE)->toBundleName(baseName, locale));
@@ -353,6 +355,7 @@ bool ResourceBundle$ResourceBundleProviderHelper::isAccessible($Module* callerMo
 
 $ResourceBundle* ResourceBundle$ResourceBundleProviderHelper::loadPropertyResourceBundle($Module* callerModule, $Module* module, $String* baseName, $Locale* locale) {
 	$load(ResourceBundle$ResourceBundleProviderHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($ResourceBundle$Control);
 	$var($String, bundleName, $nc($ResourceBundle$Control::INSTANCE)->toBundleName(baseName, locale));
@@ -414,6 +417,7 @@ $String* ResourceBundle$ResourceBundleProviderHelper::toPackageName($String* bun
 
 $InputStream* ResourceBundle$ResourceBundleProviderHelper::lambda$loadPropertyResourceBundle$2($String* bundleName, $Module* module, $Module* callerModule) {
 	$load(ResourceBundle$ResourceBundleProviderHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$init($ResourceBundle$Control);

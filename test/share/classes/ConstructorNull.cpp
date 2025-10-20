@@ -48,6 +48,7 @@ void ConstructorNull::init$() {
 }
 
 void ConstructorNull::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, $new($bytes, {
 		(int8_t)10,
 		(int8_t)20

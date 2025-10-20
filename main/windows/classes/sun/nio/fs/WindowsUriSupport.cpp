@@ -72,6 +72,7 @@ void WindowsUriSupport::init$() {
 
 $URI* WindowsUriSupport::toUri($String* path, bool isUnc, bool addSlash) {
 	$init(WindowsUriSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($String, uriHost, nullptr);
 	$var($String, uriPath, nullptr);
 	if (isUnc) {
@@ -112,6 +113,7 @@ $URI* WindowsUriSupport::toUri($String* path, bool isUnc, bool addSlash) {
 
 $URI* WindowsUriSupport::toUri($WindowsPath* path$renamed) {
 	$init(WindowsUriSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, path, path$renamed);
 	$assign(path, $nc(path)->toAbsolutePath());
 	$var($String, s, path->toString());
@@ -131,6 +133,7 @@ $URI* WindowsUriSupport::toUri($WindowsPath* path$renamed) {
 
 $WindowsPath* WindowsUriSupport::fromUri($WindowsFileSystem* fs, $URI* uri) {
 	$init(WindowsUriSupport);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
 	}

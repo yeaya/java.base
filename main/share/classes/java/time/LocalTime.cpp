@@ -325,6 +325,7 @@ LocalTime* LocalTime::now($ZoneId* zone) {
 
 LocalTime* LocalTime::now($Clock* clock) {
 	$init(LocalTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(clock), "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	return ofInstant(now, $(clock->getZone()));
@@ -365,6 +366,7 @@ LocalTime* LocalTime::of(int32_t hour, int32_t minute, int32_t second, int32_t n
 
 LocalTime* LocalTime::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(LocalTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(instant), "instant"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
 	$var($ZoneOffset, offset, $nc($($nc(zone)->getRules()))->getOffset(instant));
@@ -400,6 +402,7 @@ LocalTime* LocalTime::ofNanoOfDay(int64_t nanoOfDay) {
 
 LocalTime* LocalTime::from($TemporalAccessor* temporal) {
 	$init(LocalTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(temporal), "temporal"_s);
 	$var(LocalTime, time, $cast(LocalTime, $nc(temporal)->query($($TemporalQueries::localTime()))));
 	if (time == nullptr) {
@@ -851,6 +854,7 @@ $Temporal* LocalTime::adjustInto($Temporal* temporal) {
 }
 
 int64_t LocalTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(LocalTime, end, LocalTime::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -981,6 +985,7 @@ int32_t LocalTime::hashCode() {
 }
 
 $String* LocalTime::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder, 18));
 	int32_t hourValue = this->hour;
 	int32_t minuteValue = this->minute;
@@ -1062,6 +1067,7 @@ int32_t LocalTime::compareTo(Object$* other) {
 }
 
 void clinit$LocalTime($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LocalTime::HOURS, $new($LocalTimeArray, 24));
 	{
 		for (int32_t i = 0; i < $nc(LocalTime::HOURS)->length; ++i) {

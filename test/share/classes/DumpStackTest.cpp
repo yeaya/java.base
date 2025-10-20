@@ -214,6 +214,7 @@ void DumpStackTest::main($StringArray* args) {
 }
 
 void DumpStackTest::test() {
+	$useLocalCurrentObjectStackCache();
 		$load($Thread);
 		$load(DumpStackTest);
 		$load($Method);
@@ -232,6 +233,7 @@ void DumpStackTest::test() {
 }
 
 void DumpStackTest::getStackTrace($DumpStackTest$CallFrameArray* callStack) {
+	$useLocalCurrentObjectStackCache();
 	$load(DumpStackTest);
 	$nc(callStack)->set(0, $$new($DumpStackTest$CallFrame, DumpStackTest::class$, "getStackTrace"_s));
 	try {
@@ -258,6 +260,7 @@ void DumpStackTest::testLambda() {
 }
 
 void DumpStackTest::consumeLambda() {
+	$useLocalCurrentObjectStackCache();
 		$load($Thread);
 		$load(DumpStackTest);
 		$load($Method);
@@ -279,6 +282,7 @@ void DumpStackTest::consumeLambda() {
 
 void DumpStackTest::testMethodInvoke() {
 	$load(DumpStackTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, m, DumpStackTest::class$->getDeclaredMethod("methodInvoke"_s, $$new($ClassArray, 0)));
@@ -290,6 +294,7 @@ void DumpStackTest::testMethodInvoke() {
 }
 
 void DumpStackTest::methodInvoke() {
+	$useLocalCurrentObjectStackCache();
 		$load($Thread);
 		$load(DumpStackTest);
 		$load($Method);
@@ -314,6 +319,7 @@ void DumpStackTest::methodInvoke() {
 
 void DumpStackTest::testMethodHandle() {
 	$load(DumpStackTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	try {
@@ -327,6 +333,7 @@ void DumpStackTest::testMethodHandle() {
 }
 
 void DumpStackTest::methodHandle() {
+	$useLocalCurrentObjectStackCache();
 		$load($Thread);
 		$load(DumpStackTest);
 		$load($Method);
@@ -346,6 +353,7 @@ void DumpStackTest::methodHandle() {
 }
 
 void DumpStackTest::assertStackTrace($StackTraceElementArray* actual, $DumpStackTest$CallFrameArray* expected) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("--- Actual ---"_s);
 	$nc($($Arrays::stream(actual)))->forEach(static_cast<$Consumer*>($$new(DumpStackTest$$Lambda$lambda$assertStackTrace$1$1)));
@@ -364,6 +372,7 @@ void DumpStackTest::assertStackTrace($StackTraceElementArray* actual, $DumpStack
 }
 
 void DumpStackTest::assertEquals($StackTraceElement* actual, $DumpStackTest$CallFrame* expected, int32_t idx) {
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = !$nc($($nc(actual)->getClassName()))->equals($($nc(expected)->getClassName()));
 	bool var$0 = var$1 || !$nc($($nc(actual)->getFileName()))->equals($($nc(expected)->getFileName()));
 	if (var$0 || !$nc($($nc(actual)->getMethodName()))->equals($($nc(expected)->getMethodName()))) {

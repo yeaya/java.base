@@ -140,6 +140,7 @@ void ClientHello$ClientHelloKickstartProducer::init$() {
 }
 
 $bytes* ClientHello$ClientHelloKickstartProducer::produce($ConnectionContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeProducers)->remove($($Byte::valueOf($SSLHandshake::CLIENT_HELLO->id)));

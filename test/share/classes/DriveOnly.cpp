@@ -44,6 +44,7 @@ void DriveOnly::init$() {
 }
 
 void DriveOnly::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar != u'\\') {
 		return;

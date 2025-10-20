@@ -127,6 +127,7 @@ bool SPILocaleProviderAdapter$LocaleNameProviderDelegate::isSupportedLocale($Loc
 }
 
 $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayLanguage($String* languageCode, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleNameProvider, lnp, $cast($LocaleNameProvider, getImpl(locale)));
@@ -134,6 +135,7 @@ $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayLanguage
 }
 
 $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayScript($String* scriptCode, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleNameProvider, lnp, $cast($LocaleNameProvider, getImpl(locale)));
@@ -141,6 +143,7 @@ $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayScript($
 }
 
 $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayCountry($String* countryCode, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleNameProvider, lnp, $cast($LocaleNameProvider, getImpl(locale)));
@@ -148,6 +151,7 @@ $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayCountry(
 }
 
 $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayVariant($String* variant, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleNameProvider, lnp, $cast($LocaleNameProvider, getImpl(locale)));
@@ -155,6 +159,7 @@ $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayVariant(
 }
 
 $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayUnicodeExtensionKey($String* key, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleNameProvider, lnp, $cast($LocaleNameProvider, getImpl(locale)));
@@ -162,6 +167,7 @@ $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayUnicodeE
 }
 
 $String* SPILocaleProviderAdapter$LocaleNameProviderDelegate::getDisplayUnicodeExtensionType($String* extType, $String* key, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleNameProvider, lnp, $cast($LocaleNameProvider, getImpl(locale)));

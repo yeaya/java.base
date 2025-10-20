@@ -366,6 +366,7 @@ int32_t JrtPath::getNameCount() {
 }
 
 JrtPath* JrtPath::getName(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	if (index < 0 || index >= $nc(this->offsets)->length) {
 		$throwNew($IllegalArgumentException, $$str({"index: "_s, $$str(index), ", offsets length: "_s, $$str($nc(this->offsets)->length)}));
@@ -381,6 +382,7 @@ JrtPath* JrtPath::getName(int32_t index) {
 }
 
 JrtPath* JrtPath::subpath(int32_t beginIndex, int32_t endIndex) {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	if (beginIndex < 0 || endIndex > $nc(this->offsets)->length || beginIndex >= endIndex) {
 		$throwNew($IllegalArgumentException, $$str({"beginIndex: "_s, $$str(beginIndex), ", endIndex: "_s, $$str(endIndex), ", offsets length: "_s, $$str($nc(this->offsets)->length)}));
@@ -407,6 +409,7 @@ JrtPath* JrtPath::toAbsolutePath() {
 }
 
 $URI* JrtPath::toUri() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, p, $nc($(toAbsolutePath()))->path);
 	bool var$0 = !$nc(p)->startsWith("/modules"_s);
 	if (var$0 || $nc(p)->contains(".."_s)) {
@@ -449,6 +452,7 @@ bool JrtPath::equalsNameAt(JrtPath* other, int32_t index) {
 }
 
 JrtPath* JrtPath::relativize($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	$var(JrtPath, o, checkPath(other));
 	if ($nc(o)->equals(this)) {
 		return $new(JrtPath, this->jrtfs, ""_s, true);
@@ -514,6 +518,7 @@ bool JrtPath::isAbsolute() {
 }
 
 JrtPath* JrtPath::resolve($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	$var(JrtPath, o, checkPath(other));
 	bool var$0 = $nc(this->path)->isEmpty();
 	if (var$0 || $nc(o)->isAbsolute()) {
@@ -539,6 +544,7 @@ $Path* JrtPath::resolveSibling($Path* other) {
 }
 
 bool JrtPath::startsWith($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(JrtPath, $Objects::requireNonNull(other)))) {
 		return false;
 	}
@@ -560,6 +566,7 @@ bool JrtPath::startsWith($Path* other) {
 }
 
 bool JrtPath::endsWith($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(JrtPath, $Objects::requireNonNull(other)))) {
 		return false;
 	}
@@ -591,18 +598,22 @@ bool JrtPath::endsWith($Path* other) {
 }
 
 JrtPath* JrtPath::resolve($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return resolve($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
 }
 
 $Path* JrtPath::resolveSibling($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return resolveSibling($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
 }
 
 bool JrtPath::startsWith($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return startsWith($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
 }
 
 bool JrtPath::endsWith($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return endsWith($($nc($($cast($JrtFileSystem, getFileSystem())))->getPath(other, $$new($StringArray, 0))));
 }
 
@@ -657,6 +668,7 @@ void JrtPath::initOffsets() {
 }
 
 $String* JrtPath::getResolvedPath() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, r, this->resolved);
 	if (r == nullptr) {
 		if (isAbsolute()) {
@@ -734,6 +746,7 @@ $String* JrtPath::getResolved() {
 }
 
 $String* JrtPath::resolvePath() {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(this->path)->length();
 	$var($chars, to, $new($chars, length));
 	int32_t nc = getNameCount();
@@ -837,6 +850,7 @@ void JrtPath::createDirectory($FileAttributeArray* attrs) {
 }
 
 $InputStream* JrtPath::newInputStream($OpenOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(options)->length > 0) {
 		{
 			$var($OpenOptionArray, arr$, options);
@@ -869,6 +883,7 @@ void JrtPath::deleteIfExists() {
 }
 
 $JrtFileAttributes* JrtPath::getAttributes($LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($JrtFileAttributes, zfas, $nc(this->jrtfs)->getFileAttributes(this, options));
 	if (zfas == nullptr) {
 		$throwNew($NoSuchFileException, $(toString()));
@@ -896,6 +911,7 @@ $FileStore* JrtPath::getFileStore() {
 }
 
 bool JrtPath::isSameFile($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other) || this->equals(other)) {
 		return true;
 	}
@@ -922,6 +938,7 @@ $FileChannel* JrtPath::newFileChannel($Set* options, $FileAttributeArray* attrs)
 }
 
 void JrtPath::checkAccess($AccessModeArray* modes) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(modes)->length == 0) {
 		$nc(this->jrtfs)->checkNode(this);
 	} else {
@@ -1001,6 +1018,7 @@ void JrtPath::copy(JrtPath* target, $CopyOptionArray* options) {
 }
 
 void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	bool replaceExisting = false;
 	bool copyAttrs = false;
 	{
@@ -1125,6 +1143,7 @@ void JrtPath::copyToTarget(JrtPath* target, $CopyOptionArray* options) {
 
 $URI* JrtPath::toUri($String* str) {
 	$init(JrtPath);
+	$useLocalCurrentObjectStackCache();
 	$var($chars, path, $nc(str)->toCharArray());
 	if (!JrtPath::$assertionsDisabled && !(path->get(0) == u'/')) {
 		$throwNew($AssertionError);

@@ -116,6 +116,7 @@ void PrintPattern::init$() {
 
 void PrintPattern::print($Pattern$Node* node, $String* text, int32_t depth) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(PrintPattern::ids)->containsKey(node)) {
 		$nc(PrintPattern::ids)->put(node, $($Integer::valueOf($nc(PrintPattern::ids)->size())));
 	}
@@ -134,6 +135,7 @@ void PrintPattern::print($Pattern$Node* node, $String* text, int32_t depth) {
 
 void PrintPattern::print($String* s, int32_t depth) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->printf($$str({"       %"_s, (depth == 0 ? static_cast<$Serializable*>(""_s) : $(static_cast<$Serializable*>($Integer::valueOf(depth << 1)))), "s<%s>%n"_s}), $$new($ObjectArray, {
 		$of(""_s),
@@ -143,6 +145,7 @@ void PrintPattern::print($String* s, int32_t depth) {
 
 $String* PrintPattern::toStringCPS($ints* cps) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, $nc(cps)->length));
 	{
 		$var($ints, arr$, cps);
@@ -158,11 +161,13 @@ $String* PrintPattern::toStringCPS($ints* cps) {
 
 $String* PrintPattern::toStringCP(int32_t cp) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	return ($ASCII::isPrint(cp) ? $str({""_s, $$str((char16_t)cp)}) : $str({"\\u"_s, $($Integer::toString(cp, 16))}));
 }
 
 $String* PrintPattern::toStringRange(int32_t min, int32_t max) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	if (max == $Pattern::MAX_REPS) {
 		if (min == 0) {
 			return " * "_s;
@@ -266,6 +271,7 @@ $String* PrintPattern::toString($Pattern$Node* node) {
 
 void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern$Node, node, node$renamed);
 	++depth;
 	while (node != nullptr) {
@@ -412,6 +418,7 @@ void PrintPattern::walk($Pattern$Node* node$renamed, int32_t depth) {
 
 void PrintPattern::main($StringArray* args) {
 	$init(PrintPattern);
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern, p, $Pattern::compile($nc(args)->get(0)));
 	$init($System);
 	$nc($System::out)->println($$str({"   Pattern: "_s, p}));
@@ -419,6 +426,7 @@ void PrintPattern::main($StringArray* args) {
 }
 
 void clinit$PrintPattern($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(PrintPattern::ids, $new($HashMap));
 	{
 		$assignStatic(PrintPattern::pmap, $new($HashMap));

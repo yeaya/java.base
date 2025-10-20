@@ -53,6 +53,7 @@ void Test8009222::init$() {
 
 void Test8009222::main($StringArray* args) {
 	$load(Test8009222);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Intf);
 	$init($Integer);

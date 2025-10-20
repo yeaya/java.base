@@ -179,6 +179,7 @@ void Signature$Delegate::init$($Provider$Service* service, $Iterator* iterator, 
 }
 
 $Object* Signature$Delegate::clone() {
+	$useLocalCurrentObjectStackCache();
 	chooseFirstProvider();
 	if ($instanceOf($Cloneable, this->sigSpi)) {
 		$var($Signature, that, $new($Signature$Delegate$CloneableDelegate, $cast($SignatureSpi, $($nc(this->sigSpi)->clone())), $nc((static_cast<$Signature*>(this)))->algorithm));
@@ -191,6 +192,7 @@ $Object* Signature$Delegate::clone() {
 
 $SignatureSpi* Signature$Delegate::newInstance($Provider$Service* s) {
 	$init(Signature$Delegate);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(s)->getType()))->equals("Cipher"_s)) {
 		try {
 			$var($Cipher, c, $Cipher::getInstance("RSA/ECB/PKCS1Padding"_s, $(s->getProvider())));
@@ -209,6 +211,7 @@ $SignatureSpi* Signature$Delegate::newInstance($Provider$Service* s) {
 }
 
 void Signature$Delegate::chooseFirstProvider() {
+	$useLocalCurrentObjectStackCache();
 	if (this->sigSpi != nullptr) {
 		return;
 	}
@@ -259,6 +262,7 @@ void Signature$Delegate::chooseFirstProvider() {
 }
 
 void Signature$Delegate::chooseProvider(int32_t type, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if (this->sigSpi != nullptr) {
 			return;
@@ -308,6 +312,7 @@ void Signature$Delegate::chooseProvider(int32_t type, $Key* key, $AlgorithmParam
 }
 
 void Signature$Delegate::tryOperation($SignatureSpi* spi, int32_t type, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	switch (type) {
 	case Signature$Delegate::I_PUB:
 		{

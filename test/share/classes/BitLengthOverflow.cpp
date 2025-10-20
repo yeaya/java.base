@@ -51,6 +51,7 @@ void BitLengthOverflow::init$() {
 }
 
 void BitLengthOverflow::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($BigInteger);
 		$var($BigInteger, x, $nc($BigInteger::ONE)->shiftLeft($Integer::MAX_VALUE));

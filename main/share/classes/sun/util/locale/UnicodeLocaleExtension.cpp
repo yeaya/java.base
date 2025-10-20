@@ -97,6 +97,7 @@ void UnicodeLocaleExtension::init$($String* key, $String* value) {
 }
 
 void UnicodeLocaleExtension::init$($SortedSet* attributes, $SortedMap* keywords) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$(UnicodeLocaleExtension::SINGLETON);
 	if (attributes != nullptr) {
 		$set(this, attributes, attributes);

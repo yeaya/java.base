@@ -162,6 +162,7 @@ void WindowsSecurityDescriptor::init$() {
 }
 
 void WindowsSecurityDescriptor::init$($List* acl$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, acl, acl$renamed);
 	bool initialized = false;
 	$assign(acl, $new($ArrayList, static_cast<$Collection*>(acl)));
@@ -231,6 +232,7 @@ void WindowsSecurityDescriptor::init$($List* acl$renamed) {
 }
 
 void WindowsSecurityDescriptor::release() {
+	$useLocalCurrentObjectStackCache();
 	if (this->sdBuffer != nullptr) {
 		$nc(this->sdBuffer)->release();
 	}
@@ -256,6 +258,7 @@ int64_t WindowsSecurityDescriptor::address() {
 
 $AclEntry* WindowsSecurityDescriptor::decode(int64_t aceAddress) {
 	$init(WindowsSecurityDescriptor);
+	$useLocalCurrentObjectStackCache();
 	int8_t aceType = $nc(WindowsSecurityDescriptor::unsafe)->getByte(aceAddress + WindowsSecurityDescriptor::OFFSETOF_TYPE);
 	if (aceType != (int8_t)0 && aceType != (int8_t)1) {
 		return nullptr;
@@ -353,6 +356,7 @@ $AclEntry* WindowsSecurityDescriptor::decode(int64_t aceAddress) {
 
 void WindowsSecurityDescriptor::encode($AclEntry* ace, int64_t sidAddress, int64_t aclAddress) {
 	$init(WindowsSecurityDescriptor);
+	$useLocalCurrentObjectStackCache();
 	$init($AclEntryType);
 	bool var$0 = $nc(ace)->type() != $AclEntryType::ALLOW;
 	if (var$0 && ace->type() != $AclEntryType::DENY) {
@@ -433,6 +437,7 @@ WindowsSecurityDescriptor* WindowsSecurityDescriptor::create($List* acl) {
 
 WindowsSecurityDescriptor* WindowsSecurityDescriptor::fromAttribute($FileAttributeArray* attrs) {
 	$init(WindowsSecurityDescriptor);
+	$useLocalCurrentObjectStackCache();
 	$var(WindowsSecurityDescriptor, sd, WindowsSecurityDescriptor::NULL_DESCRIPTOR);
 	{
 		$var($FileAttributeArray, arr$, attrs);
@@ -461,6 +466,7 @@ WindowsSecurityDescriptor* WindowsSecurityDescriptor::fromAttribute($FileAttribu
 
 $List* WindowsSecurityDescriptor::getAcl(int64_t pSecurityDescriptor) {
 	$init(WindowsSecurityDescriptor);
+	$useLocalCurrentObjectStackCache();
 	int64_t aclAddress = $WindowsNativeDispatcher::GetSecurityDescriptorDacl(pSecurityDescriptor);
 	int32_t aceCount = 0;
 	if (aclAddress == (int64_t)0) {

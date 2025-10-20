@@ -121,6 +121,7 @@ int32_t GaloisCounterMode$GCMEncrypt::getOutputSize(int32_t inLen, bool isFinal)
 }
 
 $bytes* GaloisCounterMode$GCMEncrypt::doUpdate($bytes* in, int32_t inOff, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	this->this$0->checkReInit();
 	$var($bytes, output, $new($bytes, getOutputSize(inLen, false)));
 	try {
@@ -133,6 +134,7 @@ $bytes* GaloisCounterMode$GCMEncrypt::doUpdate($bytes* in, int32_t inOff, int32_
 }
 
 int32_t GaloisCounterMode$GCMEncrypt::doUpdate($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out$renamed, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, out$renamed);
 	this->this$0->checkReInit();
 	int32_t len = 0;
@@ -172,6 +174,7 @@ int32_t GaloisCounterMode$GCMEncrypt::doUpdate($bytes* in, int32_t inOfs, int32_
 }
 
 int32_t GaloisCounterMode$GCMEncrypt::doUpdate($ByteBuffer* src, $ByteBuffer* dst$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, dst, dst$renamed);
 	this->this$0->checkReInit();
 	int32_t bLen = getBufferedLength();
@@ -212,6 +215,7 @@ int32_t GaloisCounterMode$GCMEncrypt::doUpdate($ByteBuffer* src, $ByteBuffer* ds
 }
 
 int32_t GaloisCounterMode$GCMEncrypt::doFinal($bytes* in$renamed, int32_t inOfs, int32_t inLen, $bytes* out$renamed, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, in, in$renamed);
 	$var($bytes, out, out$renamed);
 	this->this$0->checkReInit();
@@ -276,6 +280,7 @@ int32_t GaloisCounterMode$GCMEncrypt::doFinal($bytes* in$renamed, int32_t inOfs,
 }
 
 int32_t GaloisCounterMode$GCMEncrypt::doFinal($ByteBuffer* src, $ByteBuffer* dst$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, dst, dst$renamed);
 	this->this$0->checkReInit();
 	$assign(dst, overlapDetection(src, dst));

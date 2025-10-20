@@ -89,6 +89,7 @@ void Currency$SpecialCaseEntry::init$($String* currencyCode, int32_t fraction, i
 }
 
 int32_t Currency$SpecialCaseEntry::indexOf($String* code, int32_t fraction, int32_t numeric) {
+	$useLocalCurrentObjectStackCache();
 	$init($Currency);
 	int32_t size = $nc($Currency::specialCasesList)->size();
 	for (int32_t index = 0; index < size; ++index) {
@@ -101,6 +102,7 @@ int32_t Currency$SpecialCaseEntry::indexOf($String* code, int32_t fraction, int3
 }
 
 $ints* Currency$SpecialCaseEntry::findEntry($String* code) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, fractionAndNumericCode, nullptr);
 	$init($Currency);
 	int32_t size = $nc($Currency::specialCasesList)->size();
@@ -126,6 +128,7 @@ $ints* Currency$SpecialCaseEntry::findEntry($String* code) {
 }
 
 int32_t Currency$SpecialCaseEntry::currencyCodeIndex($String* code) {
+	$useLocalCurrentObjectStackCache();
 	$init($Currency);
 	int32_t size = $nc($Currency::specialCasesList)->size();
 	for (int32_t index = 0; index < size; ++index) {

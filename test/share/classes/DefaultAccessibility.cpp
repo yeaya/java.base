@@ -55,6 +55,7 @@ void DefaultAccessibility::init$() {
 
 void DefaultAccessibility::main($StringArray* args) {
 	$init(DefaultAccessibility);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* daClass = $of(($$new(DefaultAccessibility)))->getClass();
 	int32_t elementCount = 0;

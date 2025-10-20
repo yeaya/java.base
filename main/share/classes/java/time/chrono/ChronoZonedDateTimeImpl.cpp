@@ -153,6 +153,7 @@ void ChronoZonedDateTimeImpl::finalize() {
 
 $ChronoZonedDateTime* ChronoZonedDateTimeImpl::ofBest($ChronoLocalDateTimeImpl* localDateTime$renamed, $ZoneId* zone, $ZoneOffset* preferredOffset) {
 	$init(ChronoZonedDateTimeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ChronoLocalDateTimeImpl, localDateTime, localDateTime$renamed);
 	$Objects::requireNonNull($of(localDateTime), "localDateTime"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
@@ -180,6 +181,7 @@ $ChronoZonedDateTime* ChronoZonedDateTimeImpl::ofBest($ChronoLocalDateTimeImpl* 
 
 ChronoZonedDateTimeImpl* ChronoZonedDateTimeImpl::ofInstant($Chronology* chrono, $Instant* instant, $ZoneId* zone) {
 	$init(ChronoZonedDateTimeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneRules, rules, $nc(zone)->getRules());
 	$var($ZoneOffset, offset, $nc(rules)->getOffset(instant));
 	$Objects::requireNonNull($of(offset), "offset"_s);
@@ -195,6 +197,7 @@ ChronoZonedDateTimeImpl* ChronoZonedDateTimeImpl::create($Instant* instant, $Zon
 
 ChronoZonedDateTimeImpl* ChronoZonedDateTimeImpl::ensureValid($Chronology* chrono, $Temporal* temporal) {
 	$init(ChronoZonedDateTimeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var(ChronoZonedDateTimeImpl, other, $cast(ChronoZonedDateTimeImpl, temporal));
 	if ($nc(chrono)->equals($($nc(other)->getChronology())) == false) {
 		$var($String, var$0, $$str({"Chronology mismatch, required: "_s, $(chrono->getId()), ", actual: "_s}));
@@ -214,6 +217,7 @@ $ZoneOffset* ChronoZonedDateTimeImpl::getOffset() {
 }
 
 $ChronoZonedDateTime* ChronoZonedDateTimeImpl::withEarlierOffsetAtOverlap() {
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneOffsetTransition, trans, $nc($($nc($(getZone()))->getRules()))->getTransition($($LocalDateTime::from(this))));
 	if (trans != nullptr && trans->isOverlap()) {
 		$var($ZoneOffset, earlierOffset, trans->getOffsetBefore());
@@ -225,6 +229,7 @@ $ChronoZonedDateTime* ChronoZonedDateTimeImpl::withEarlierOffsetAtOverlap() {
 }
 
 $ChronoZonedDateTime* ChronoZonedDateTimeImpl::withLaterOffsetAtOverlap() {
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneOffsetTransition, trans, $nc($($nc($(getZone()))->getRules()))->getTransition($($LocalDateTime::from(this))));
 	if (trans != nullptr) {
 		$var($ZoneOffset, offset, trans->getOffsetAfter());
@@ -257,6 +262,7 @@ bool ChronoZonedDateTimeImpl::isSupported($TemporalField* field) {
 }
 
 $ChronoZonedDateTime* ChronoZonedDateTimeImpl::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -288,6 +294,7 @@ $ChronoZonedDateTime* ChronoZonedDateTimeImpl::with($TemporalField* field, int64
 }
 
 $ChronoZonedDateTime* ChronoZonedDateTimeImpl::plus(int64_t amountToAdd, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoUnit, unit)) {
 		return with($($nc(this->dateTime)->plus(amountToAdd, unit)));
 	}
@@ -296,6 +303,7 @@ $ChronoZonedDateTime* ChronoZonedDateTimeImpl::plus(int64_t amountToAdd, $Tempor
 }
 
 int64_t ChronoZonedDateTimeImpl::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(endExclusive), "endExclusive"_s);
 	$var($ChronoZonedDateTime, end, $nc($(getChronology()))->zonedDateTime(endExclusive));
 	if ($instanceOf($ChronoUnit, unit)) {
@@ -322,6 +330,7 @@ void ChronoZonedDateTimeImpl::writeExternal($ObjectOutput* out) {
 
 $ChronoZonedDateTime* ChronoZonedDateTimeImpl::readExternal($ObjectInput* in) {
 	$init(ChronoZonedDateTimeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ChronoLocalDateTime, dateTime, $cast($ChronoLocalDateTime, $nc(in)->readObject()));
 	$var($ZoneOffset, offset, $cast($ZoneOffset, in->readObject()));
 	$var($ZoneId, zone, $cast($ZoneId, in->readObject()));
@@ -339,12 +348,14 @@ bool ChronoZonedDateTimeImpl::equals(Object$* obj) {
 }
 
 int32_t ChronoZonedDateTimeImpl::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$1 = $nc($(toLocalDateTime()))->hashCode();
 	int32_t var$0 = var$1 ^ $nc($(getOffset()))->hashCode();
 	return var$0 ^ $Integer::rotateLeft($nc($(getZone()))->hashCode(), 3);
 }
 
 $String* ChronoZonedDateTimeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $($nc($(toLocalDateTime()))->toString()));
 	$var($String, str, $concat(var$0, $($nc($(getOffset()))->toString())));
 	if (!$equals(getOffset(), getZone())) {

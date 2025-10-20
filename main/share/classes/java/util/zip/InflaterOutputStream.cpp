@@ -125,6 +125,7 @@ void InflaterOutputStream::close() {
 }
 
 void InflaterOutputStream::flush() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (!$nc(this->inf)->finished()) {
 		try {
@@ -168,6 +169,7 @@ void InflaterOutputStream::write(int32_t b) {
 }
 
 void InflaterOutputStream::write($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "Null buffer for read"_s);

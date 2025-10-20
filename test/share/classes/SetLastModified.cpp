@@ -61,6 +61,7 @@ void SetLastModified::init$() {
 }
 
 void SetLastModified::ck($File* f, int64_t nt, int64_t rt) {
+	$useLocalCurrentObjectStackCache();
 	if (rt == nt) {
 		return;
 	}
@@ -78,6 +79,7 @@ void SetLastModified::ck($File* f, int64_t nt, int64_t rt) {
 }
 
 void SetLastModified::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, d, $new($File, $($System::getProperty("test.dir"_s, "."_s))));
 	$var($File, d2, $new($File, d, "x.SetLastModified.dir"_s));
 	$var($File, f, $new($File, d2, "x.SetLastModified"_s));

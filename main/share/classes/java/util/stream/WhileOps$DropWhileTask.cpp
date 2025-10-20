@@ -125,6 +125,7 @@ WhileOps$DropWhileTask* WhileOps$DropWhileTask::makeChild($Spliterator* splitera
 }
 
 $Object* WhileOps$DropWhileTask::doLeaf() {
+	$useLocalCurrentObjectStackCache();
 	bool isChild = !isRoot();
 	$init($StreamOpFlag);
 	int64_t sizeIfKnown = isChild && this->isOrdered && $StreamOpFlag::SIZED->isPreserved($nc(this->op)->sourceOrOpFlags) ? $nc(this->op)->exactOutputSizeIfKnown(this->spliterator) : (int64_t)-1;
@@ -139,6 +140,7 @@ $Object* WhileOps$DropWhileTask::doLeaf() {
 }
 
 void WhileOps$DropWhileTask::onCompletion($CountedCompleter* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (!isLeaf()) {
 		if (this->isOrdered) {
 			this->index = $nc(($cast(WhileOps$DropWhileTask, this->leftChild)))->index;
@@ -154,6 +156,7 @@ void WhileOps$DropWhileTask::onCompletion($CountedCompleter* caller) {
 }
 
 $Node* WhileOps$DropWhileTask::merge() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(($cast(WhileOps$DropWhileTask, this->leftChild)))->thisNodeSize == 0) {
 		return $cast($Node, $nc(($cast(WhileOps$DropWhileTask, this->rightChild)))->getLocalResult());
 	} else if ($nc(($cast(WhileOps$DropWhileTask, this->rightChild)))->thisNodeSize == 0) {

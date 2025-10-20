@@ -89,6 +89,7 @@ void PreSharedKeyExtension$SHPreSharedKeyConsumer::init$() {
 }
 
 void PreSharedKeyExtension$SHPreSharedKeyConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->handshakeExtensions)->containsKey($SSLExtension::CH_PRE_SHARED_KEY)) {

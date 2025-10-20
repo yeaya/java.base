@@ -259,6 +259,7 @@ int32_t HijrahDate::lengthOfYear() {
 }
 
 $ValueRange* HijrahDate::range($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		if (isSupported(field)) {
 			$ChronoField* f = $cast($ChronoField, field);
@@ -351,6 +352,7 @@ int64_t HijrahDate::getProlepticMonth() {
 }
 
 HijrahDate* HijrahDate::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -532,6 +534,7 @@ $ChronoLocalDateTime* HijrahDate::atTime($LocalTime* localTime) {
 }
 
 $ChronoPeriod* HijrahDate::until($ChronoLocalDate* endDate) {
+	$useLocalCurrentObjectStackCache();
 	$var(HijrahDate, end, $cast(HijrahDate, $nc($($cast($HijrahChronology, getChronology())))->date(endDate)));
 	int64_t totalMonths = ($nc(end)->prolepticYear - this->prolepticYear) * 12 + (end->monthOfYear - this->monthOfYear);
 	int32_t days = end->dayOfMonth - this->dayOfMonth;
@@ -550,6 +553,7 @@ $ChronoPeriod* HijrahDate::until($ChronoLocalDate* endDate) {
 }
 
 bool HijrahDate::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -567,6 +571,7 @@ bool HijrahDate::equals(Object$* obj) {
 }
 
 int32_t HijrahDate::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t yearValue = this->prolepticYear;
 	int32_t monthValue = this->monthOfYear;
 	int32_t dayValue = this->dayOfMonth;

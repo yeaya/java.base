@@ -181,6 +181,7 @@ void AsynchronousServerSocketChannelImpl::end() {
 }
 
 void AsynchronousServerSocketChannelImpl::close() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->closeLock)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -226,6 +227,7 @@ void AsynchronousServerSocketChannelImpl::onCancel($PendingFuture* task) {
 }
 
 $AsynchronousServerSocketChannel* AsynchronousServerSocketChannelImpl::bind($SocketAddress* local, int32_t backlog) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, (local == nullptr) ? $new($InetSocketAddress, 0) : $Net::checkAddress(local));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -268,6 +270,7 @@ $SocketAddress* AsynchronousServerSocketChannelImpl::getLocalAddress() {
 }
 
 $NetworkChannel* AsynchronousServerSocketChannelImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -306,6 +309,7 @@ $NetworkChannel* AsynchronousServerSocketChannelImpl::setOption($SocketOption* n
 }
 
 $Object* AsynchronousServerSocketChannelImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -348,6 +352,7 @@ $Set* AsynchronousServerSocketChannelImpl::supportedOptions() {
 }
 
 $String* AsynchronousServerSocketChannelImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append(u'[');

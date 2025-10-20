@@ -75,6 +75,7 @@ void ReuseAddressTest::init$() {
 }
 
 $String* ReuseAddressTest::getInfo($DatagramSocket* soc) {
+	$useLocalCurrentObjectStackCache();
 	if (soc == nullptr) {
 		return nullptr;
 	}
@@ -91,6 +92,7 @@ $String* ReuseAddressTest::getInfo($DatagramSocket* soc) {
 }
 
 $InetSocketAddress* ReuseAddressTest::createSocketAddress(int32_t testMcastPort) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, localAddress, $InetAddress::getLocalHost());
 	$var($InetSocketAddress, localSocketAddress, $new($InetSocketAddress, localAddress, testMcastPort));
 	return localSocketAddress;
@@ -110,6 +112,7 @@ void ReuseAddressTest::main($StringArray* argv) {
 }
 
 void ReuseAddressTest::DatagramSocket0029() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0029"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
@@ -146,6 +149,7 @@ void ReuseAddressTest::DatagramSocket0029() {
 }
 
 void ReuseAddressTest::DatagramSocket0030() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0030"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
@@ -220,6 +224,7 @@ void ReuseAddressTest::DatagramSocket0030() {
 }
 
 void ReuseAddressTest::DatagramSocket0031() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0031"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
@@ -277,6 +282,7 @@ void ReuseAddressTest::DatagramSocket0031() {
 }
 
 void ReuseAddressTest::DatagramSocket0032() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0032"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setReuseAddress(boolean on) throws SocketException"_s}));
@@ -347,6 +353,7 @@ void ReuseAddressTest::DatagramSocket0032() {
 }
 
 void ReuseAddressTest::DatagramSocket2028() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket2028"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public int getTrafficClass() throws SocketException"_s}));
@@ -383,6 +390,7 @@ void ReuseAddressTest::DatagramSocket2028() {
 }
 
 void ReuseAddressTest::DatagramSocket2029() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket2029"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setTrafficClass(int tc) throws SocketException"_s}));
@@ -430,6 +438,7 @@ void ReuseAddressTest::DatagramSocket2029() {
 }
 
 void ReuseAddressTest::DatagramSocket2030() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket2030"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setTrafficClass(int tc) throws SocketException"_s}));
@@ -455,6 +464,7 @@ void ReuseAddressTest::DatagramSocket2030() {
 }
 
 void ReuseAddressTest::DatagramSocket0034() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0034"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setBroadcast(boolean on) throws SocketException"_s}));
@@ -491,6 +501,7 @@ void ReuseAddressTest::DatagramSocket0034() {
 }
 
 void ReuseAddressTest::DatagramSocket0035() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, testCaseID, "DatagramSocket0035"_s);
 	$init($System);
 	$nc($System::out)->println($$str({" >> "_s, testCaseID, ": public void setBroadcast(boolean on) throws SocketException"_s}));

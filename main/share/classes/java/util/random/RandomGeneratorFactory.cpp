@@ -302,6 +302,7 @@ bool RandomGeneratorFactory::isSubclass($Class* category, $ServiceLoader$Provide
 }
 
 $ServiceLoader$Provider* RandomGeneratorFactory::findProvider($String* name, $Class* category) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, fm, getFactoryMap());
 	$var($ServiceLoader$Provider, provider, $cast($ServiceLoader$Provider, $nc(fm)->get(name)));
 	if (provider == nullptr) {
@@ -313,6 +314,7 @@ $ServiceLoader$Provider* RandomGeneratorFactory::findProvider($String* name, $Cl
 }
 
 $RandomGenerator* RandomGeneratorFactory::of($String* name, $Class* category) {
+	$useLocalCurrentObjectStackCache();
 	$var($RandomGenerator, uncheckedRandomGenerator, $cast($RandomGenerator, $nc($(findProvider(name, category)))->get()));
 	return uncheckedRandomGenerator;
 }
@@ -323,6 +325,7 @@ RandomGeneratorFactory* RandomGeneratorFactory::factoryOf($String* name, $Class*
 }
 
 void RandomGeneratorFactory::getConstructors($Class* randomGeneratorClass) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->ctor == nullptr) {
 		$synchronized(this->provider) {
@@ -390,6 +393,7 @@ RandomGeneratorFactory* RandomGeneratorFactory::getDefault() {
 }
 
 $Stream* RandomGeneratorFactory::all() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, fm, getFactoryMap());
 	return $nc($($nc($($nc($($nc(fm)->values()))->stream()))->filter(static_cast<$Predicate*>($$new(RandomGeneratorFactory$$Lambda$lambda$all$0$1)))))->map(static_cast<$Function*>($$new(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2)));
 }
@@ -414,6 +418,7 @@ int32_t RandomGeneratorFactory::equidistribution() {
 }
 
 $BigInteger* RandomGeneratorFactory::period() {
+	$useLocalCurrentObjectStackCache();
 	$var($RandomSupport$RandomGeneratorProperties, properties, getProperties());
 	int32_t i = $nc(properties)->i();
 	int32_t j = properties->j();
@@ -470,6 +475,7 @@ bool RandomGeneratorFactory::isDeprecated() {
 }
 
 $RandomGenerator* RandomGeneratorFactory::create() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		ensureConstructors();
@@ -482,6 +488,7 @@ $RandomGenerator* RandomGeneratorFactory::create() {
 }
 
 $RandomGenerator* RandomGeneratorFactory::create(int64_t seed) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		ensureConstructors();
@@ -494,6 +501,7 @@ $RandomGenerator* RandomGeneratorFactory::create(int64_t seed) {
 }
 
 $RandomGenerator* RandomGeneratorFactory::create($bytes* seed) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull($of(seed), "seed must not be null"_s);
 	try {

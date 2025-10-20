@@ -124,6 +124,7 @@ void CheckModuleAdapter::visitPackage($String* packaze) {
 }
 
 void CheckModuleAdapter::visitRequire($String* module, int32_t access, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	$CheckClassAdapter::checkFullyQualifiedName($Opcodes::V9, module, "required module"_s);
 	$nc(this->requiredModules)->checkNameNotAlreadyDeclared(module);
@@ -135,6 +136,7 @@ void CheckModuleAdapter::visitRequire($String* module, int32_t access, $String* 
 }
 
 void CheckModuleAdapter::visitExport($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	$CheckMethodAdapter::checkInternalName($Opcodes::V9, packaze, "package name"_s);
 	$nc(this->exportedPackages)->checkNameNotAlreadyDeclared(packaze);
@@ -156,6 +158,7 @@ void CheckModuleAdapter::visitExport($String* packaze, int32_t access, $StringAr
 }
 
 void CheckModuleAdapter::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	if (this->isOpen) {
 		$throwNew($UnsupportedOperationException, "An open module can not use open directive"_s);
@@ -187,6 +190,7 @@ void CheckModuleAdapter::visitUse($String* service) {
 }
 
 void CheckModuleAdapter::visitProvide($String* service, $StringArray* providers) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	$CheckMethodAdapter::checkInternalName($Opcodes::V9, service, "service"_s);
 	$nc(this->providedServices)->checkNameNotAlreadyDeclared(service);

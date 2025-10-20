@@ -53,6 +53,7 @@ void DoubleValueOverflow::init$() {
 }
 
 void DoubleValueOverflow::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigInteger, x, $nc($($BigInteger::valueOf((int64_t)2)))->shiftLeft($Integer::MAX_VALUE));
 		$init($Double);

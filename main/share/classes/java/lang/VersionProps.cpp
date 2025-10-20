@@ -140,6 +140,7 @@ void VersionProps::init($Map* props) {
 
 int32_t VersionProps::parseVersionNumber($String* version, int32_t prevIndex, int32_t index) {
 	$init(VersionProps);
+	$useLocalCurrentObjectStackCache();
 	if (index - prevIndex > 1 && $Character::digit($nc(version)->charAt(prevIndex), 10) <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Leading zeros not supported ("_s, $($nc(version)->substring(prevIndex, index)), ")"_s}));
 	}
@@ -148,6 +149,7 @@ int32_t VersionProps::parseVersionNumber($String* version, int32_t prevIndex, in
 
 $List* VersionProps::parseVersionNumbers($String* version) {
 	$init(VersionProps);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 0;
 	int32_t prevIndex = 0;
 	do {
@@ -213,6 +215,7 @@ void VersionProps::println(bool err) {
 
 void VersionProps::print(bool err, bool newln) {
 	$init(VersionProps);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($PrintStream, ps, err ? $System::err : $System::out);
 	if (err) {

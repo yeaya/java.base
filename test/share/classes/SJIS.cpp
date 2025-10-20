@@ -63,6 +63,7 @@ void SJIS::touch($File* f) {
 }
 
 void SJIS::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar != u'\\') {
 		return;

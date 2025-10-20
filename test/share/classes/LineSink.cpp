@@ -74,6 +74,7 @@ void LineSink::init$($InputStream* us, $BufferedReader* ts, $PrintWriter* log) {
 }
 
 $String* LineSink::readUTFLine() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	try {
 		$assign(s, $nc(this->ui)->readUTF());
@@ -85,6 +86,7 @@ $String* LineSink::readUTFLine() {
 }
 
 void LineSink::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		for (int32_t ln = 0; ln < this->count; ++ln) {
 			$var($String, us, readUTFLine());

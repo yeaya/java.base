@@ -102,6 +102,7 @@ void IPAddressName::init$($bytes* address) {
 }
 
 void IPAddressName::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr || $nc(name)->isEmpty()) {
 		$throwNew($IOException, "IPAddress cannot be null or empty"_s);
 	}
@@ -120,6 +121,7 @@ void IPAddressName::init$($String* name) {
 }
 
 void IPAddressName::parseIPv4($String* name) {
+	$useLocalCurrentObjectStackCache();
 	int32_t slashNdx = $nc(name)->indexOf((int32_t)u'/');
 	if (slashNdx == -1) {
 		$set(this, address, $nc($($InetAddress::getByName(name)))->getAddress());
@@ -133,6 +135,7 @@ void IPAddressName::parseIPv4($String* name) {
 }
 
 void IPAddressName::parseIPv6($String* name) {
+	$useLocalCurrentObjectStackCache();
 	int32_t slashNdx = $nc(name)->indexOf((int32_t)u'/');
 	if (slashNdx == -1) {
 		$set(this, address, $nc($($InetAddress::getByName(name)))->getAddress());
@@ -164,6 +167,7 @@ void IPAddressName::encode($DerOutputStream* out) {
 }
 
 $String* IPAddressName::toString() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $str({"IPAddress: "_s, $(getName())});
 	} catch ($IOException&) {
@@ -175,6 +179,7 @@ $String* IPAddressName::toString() {
 }
 
 $String* IPAddressName::getName() {
+	$useLocalCurrentObjectStackCache();
 	if (this->name != nullptr) {
 		return this->name;
 	}
@@ -219,6 +224,7 @@ $bytes* IPAddressName::getBytes() {
 }
 
 bool IPAddressName::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -259,6 +265,7 @@ int32_t IPAddressName::hashCode() {
 }
 
 int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
+	$useLocalCurrentObjectStackCache();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;

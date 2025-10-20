@@ -51,6 +51,7 @@ void SocketGrowth::init$() {
 }
 
 void SocketGrowth::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, loopbackAddress, $InetAddress::getLoopbackAddress());
 	{
 		$var($ServerSocket, ss, $new($ServerSocket, 0, 0, loopbackAddress));

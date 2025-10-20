@@ -229,6 +229,7 @@ $Collection* ReentrantReadWriteLock::getWaitingThreads($Condition* condition) {
 }
 
 $String* ReentrantReadWriteLock::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = $nc(this->sync)->getCount();
 	int32_t w = $ReentrantReadWriteLock$Sync::exclusiveCount(c);
 	int32_t r = $ReentrantReadWriteLock$Sync::sharedCount(c);

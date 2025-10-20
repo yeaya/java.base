@@ -67,6 +67,7 @@ void OpsAfterClose4RandomAccessFile$5::init$($String* $enum$name, int32_t $enum$
 }
 
 bool OpsAfterClose4RandomAccessFile$5::check($RandomAccessFile* r) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(r)->getFilePointer();
 	} catch ($IOException&) {

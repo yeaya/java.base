@@ -126,6 +126,7 @@ VarHandle$VarHandleDesc* VarHandle$VarHandleDesc::ofStaticField($ClassDesc* decl
 
 VarHandle$VarHandleDesc* VarHandle$VarHandleDesc::ofArray($ClassDesc* arrayClass) {
 	$init(VarHandle$VarHandleDesc);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(arrayClass);
 	if (!arrayClass->isArray()) {
 		$throwNew($IllegalArgumentException, $$str({"Array class argument not an array: "_s, arrayClass}));
@@ -140,6 +141,7 @@ $ClassDesc* VarHandle$VarHandleDesc::varType() {
 }
 
 $Object* VarHandle$VarHandleDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$init($VarHandle$2);
 
 	$var($VarHandle, var$0, nullptr)
@@ -172,6 +174,7 @@ $Object* VarHandle$VarHandleDesc::resolveConstantDesc($MethodHandles$Lookup* loo
 }
 
 $String* VarHandle$VarHandleDesc::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($VarHandle$2);
 
 	$var($String, var$0, nullptr)

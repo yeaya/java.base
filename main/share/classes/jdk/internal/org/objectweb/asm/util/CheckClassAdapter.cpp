@@ -307,6 +307,7 @@ void CheckClassAdapter::init$(int32_t api, $ClassVisitor* classVisitor, bool che
 }
 
 void CheckClassAdapter::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
+	$useLocalCurrentObjectStackCache();
 	if (this->visitCalled) {
 		$throwNew($IllegalStateException, "visit must be called only once"_s);
 	}
@@ -356,6 +357,7 @@ void CheckClassAdapter::visitSource($String* file, $String* debug) {
 }
 
 $ModuleVisitor* CheckClassAdapter::visitModule($String* name, int32_t access, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	checkState();
 	if (this->visitModuleCalled) {
 		$throwNew($IllegalStateException, "visitModule can be called only once."_s);
@@ -382,6 +384,7 @@ void CheckClassAdapter::visitNestHost($String* nestHost) {
 }
 
 void CheckClassAdapter::visitNestMember($String* nestMember) {
+	$useLocalCurrentObjectStackCache();
 	checkState();
 	$CheckMethodAdapter::checkInternalName(this->version, nestMember, "nestMember"_s);
 	if (this->visitNestHostCalled) {
@@ -467,6 +470,7 @@ $FieldVisitor* CheckClassAdapter::visitField(int32_t access, $String* name, $Str
 }
 
 $MethodVisitor* CheckClassAdapter::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	checkState();
 	checkAccess(access, (((((((((((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PRIVATE) | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_STATIC) | $Opcodes::ACC_FINAL) | $Opcodes::ACC_SYNCHRONIZED) | $Opcodes::ACC_BRIDGE) | $Opcodes::ACC_VARARGS) | $Opcodes::ACC_NATIVE) | $Opcodes::ACC_ABSTRACT) | $Opcodes::ACC_STRICT) | $Opcodes::ACC_SYNTHETIC) | $Opcodes::ACC_MANDATED) | $Opcodes::ACC_DEPRECATED);
 	bool var$0 = !"<init>"_s->equals(name);
@@ -499,6 +503,7 @@ $AnnotationVisitor* CheckClassAdapter::visitAnnotation($String* descriptor, bool
 }
 
 $AnnotationVisitor* CheckClassAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkState();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::CLASS_TYPE_PARAMETER && sort != $TypeReference::CLASS_TYPE_PARAMETER_BOUND && sort != $TypeReference::CLASS_EXTENDS) {
@@ -534,6 +539,7 @@ void CheckClassAdapter::checkState() {
 
 void CheckClassAdapter::checkAccess(int32_t access, int32_t possibleAccess) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(access & (uint32_t)~possibleAccess)) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid access flags: "_s, $$str(access)}));
 	}
@@ -548,6 +554,7 @@ void CheckClassAdapter::checkAccess(int32_t access, int32_t possibleAccess) {
 
 void CheckClassAdapter::checkFullyQualifiedName(int32_t version, $String* name, $String* source) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t startIndex = 0;
 		int32_t dotIndex = 0;
@@ -564,6 +571,7 @@ void CheckClassAdapter::checkFullyQualifiedName(int32_t version, $String* name, 
 
 void CheckClassAdapter::checkClassSignature($String* signature) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = 0;
 	if (getChar(signature, 0) == u'<') {
 		pos = checkTypeParameters(signature, pos);
@@ -579,6 +587,7 @@ void CheckClassAdapter::checkClassSignature($String* signature) {
 
 void CheckClassAdapter::checkMethodSignature($String* signature) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = 0;
 	if (getChar(signature, 0) == u'<') {
 		pos = checkTypeParameters(signature, pos);
@@ -608,6 +617,7 @@ void CheckClassAdapter::checkMethodSignature($String* signature) {
 
 void CheckClassAdapter::checkFieldSignature($String* signature) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = checkReferenceTypeSignature(signature, 0);
 	if (pos != $nc(signature)->length()) {
 		$throwNew($IllegalArgumentException, $$str({signature, CheckClassAdapter::ERROR_AT, $$str(pos)}));
@@ -739,6 +749,7 @@ int32_t CheckClassAdapter::checkJavaTypeSignature($String* signature, int32_t st
 
 int32_t CheckClassAdapter::checkSignatureIdentifier($String* signature, int32_t startPos) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = startPos;
 	while (true) {
 		bool var$0 = pos < $nc(signature)->length();
@@ -757,6 +768,7 @@ int32_t CheckClassAdapter::checkSignatureIdentifier($String* signature, int32_t 
 
 int32_t CheckClassAdapter::checkChar(char16_t c, $String* signature, int32_t pos) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	if (getChar(signature, pos) == c) {
 		return pos + 1;
 	}
@@ -770,6 +782,7 @@ char16_t CheckClassAdapter::getChar($String* string, int32_t pos) {
 
 void CheckClassAdapter::checkTypeRef(int32_t typeRef) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = 0;
 	switch ((int32_t)((uint32_t)typeRef >> 24)) {
 	case $TypeReference::CLASS_TYPE_PARAMETER:
@@ -855,6 +868,7 @@ void CheckClassAdapter::main($StringArray* args) {
 
 void CheckClassAdapter::main($StringArray* args, $PrintWriter* logger) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length != 1) {
 		$nc(logger)->println(CheckClassAdapter::USAGE);
 		return;
@@ -876,6 +890,7 @@ void CheckClassAdapter::verify($ClassReader* classReader, bool printResults, $Pr
 
 void CheckClassAdapter::verify($ClassReader* classReader, $ClassLoader* loader, bool printResults, $PrintWriter* printWriter) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassNode, classNode, $new($ClassNode));
 	$nc(classReader)->accept($$new($CheckClassAdapter$1, $Opcodes::ASM9_EXPERIMENTAL, classNode, false), $ClassReader::SKIP_DEBUG);
 	$var($Type, syperType, classNode->superName == nullptr ? ($Type*)nullptr : $Type::getObjectType(classNode->superName));
@@ -917,6 +932,7 @@ void CheckClassAdapter::verify($ClassReader* classReader, $ClassLoader* loader, 
 
 void CheckClassAdapter::printAnalyzerResult($MethodNode* method, $Analyzer* analyzer, $PrintWriter* printWriter) {
 	$init(CheckClassAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($Textifier, textifier, $new($Textifier));
 	$var($TraceMethodVisitor, traceMethodVisitor, $new($TraceMethodVisitor, textifier));
 	$nc(printWriter)->println($$str({$nc(method)->name, method->desc}));

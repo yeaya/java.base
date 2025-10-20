@@ -54,6 +54,7 @@ void EnqueueNullRef::test($ReferenceQueue* q, $Reference* r) {
 }
 
 void EnqueueNullRef::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReferenceQueue, q, $new($ReferenceQueue));
 	test(q, $$new($WeakReference, nullptr, q));
 	test(q, $$new($SoftReference, nullptr, q));

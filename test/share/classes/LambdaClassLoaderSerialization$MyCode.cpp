@@ -135,6 +135,7 @@ void LambdaClassLoaderSerialization$MyCode::init$() {
 }
 
 $bytes* LambdaClassLoaderSerialization$MyCode::serialize(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, baos, nullptr);
 	try {
 		$var($ObjectOutputStream, oos, $new($ObjectOutputStream, ($assign(baos, $new($ByteArrayOutputStream)))));
@@ -170,6 +171,7 @@ $bytes* LambdaClassLoaderSerialization$MyCode::serialize(Object$* o) {
 }
 
 $Object* LambdaClassLoaderSerialization$MyCode::deserialize($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ObjectInputStream, ois, $new($ObjectInputStream, $$new($ByteArrayInputStream, bytes)));
 		{
@@ -214,6 +216,7 @@ $Object* LambdaClassLoaderSerialization$MyCode::deserialize($bytes* bytes) {
 }
 
 void LambdaClassLoaderSerialization$MyCode::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"                this: "_s, this}));
 	$var($LambdaClassLoaderSerialization$SerializableRunnable, deSerializedThis, $cast($LambdaClassLoaderSerialization$SerializableRunnable, deserialize($(serialize(this)))));
@@ -226,6 +229,7 @@ void LambdaClassLoaderSerialization$MyCode::run() {
 
 $Object* LambdaClassLoaderSerialization$MyCode::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(LambdaClassLoaderSerialization$MyCode);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s1583$, $nc(lambda)->getImplMethodName());
 		int32_t tmp1583$ = -1;

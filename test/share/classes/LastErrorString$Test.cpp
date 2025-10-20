@@ -64,6 +64,7 @@ void LastErrorString$Test::init$($String* name) {
 }
 
 void LastErrorString$Test::go() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		this->run();
 	} catch ($IOException&) {

@@ -156,6 +156,7 @@ void FileURLConnection::init$($URL* u, $File* file) {
 }
 
 void FileURLConnection::connect() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->connected) {
 		try {
 			$set(this, filename, $nc(this->file)->toString());
@@ -183,6 +184,7 @@ void FileURLConnection::connect() {
 }
 
 void FileURLConnection::initializeHeaders() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		connect();
 		this->exists = $nc(this->file)->exists();
@@ -258,6 +260,7 @@ int64_t FileURLConnection::getLastModified() {
 
 $InputStream* FileURLConnection::getInputStream() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		int32_t iconHeight = 0;
 		int32_t iconWidth = 0;
 		connect();
@@ -284,6 +287,7 @@ $InputStream* FileURLConnection::getInputStream() {
 }
 
 $Permission* FileURLConnection::getPermission() {
+	$useLocalCurrentObjectStackCache();
 	if (this->permission == nullptr) {
 		$var($String, decodedPath, $ParseUtil::decode($($nc(this->url)->getPath())));
 		$init($File);

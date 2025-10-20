@@ -127,6 +127,7 @@ void BuilderForwarding::executeTestMethods() {
 }
 
 void BuilderForwarding::appendCharSequence() {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, aString, BuilderForwarding::A_STRING_VAL);
 	$var($CharSequence, aStringBuilder, $new($StringBuilder, BuilderForwarding::A_STRING_BUILDER_VAL));
 	$var($CharSequence, aStringBuffer, $new($StringBuffer, BuilderForwarding::A_STRING_BUFFER_VAL));
@@ -139,6 +140,7 @@ void BuilderForwarding::appendCharSequence() {
 }
 
 void BuilderForwarding::indexOfString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	try {
 		sb->indexOf(nullptr);
@@ -155,6 +157,7 @@ void BuilderForwarding::indexOfString() {
 }
 
 void BuilderForwarding::indexOfStringint() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	try {
 		sb->indexOf(nullptr, 1);
@@ -173,6 +176,7 @@ void BuilderForwarding::indexOfStringint() {
 }
 
 void BuilderForwarding::indexOfStringIntNull() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	try {
 		sb->indexOf(nullptr, 1);
@@ -186,6 +190,7 @@ void BuilderForwarding::indexOfStringIntNull() {
 }
 
 void BuilderForwarding::indexOfStringNull() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	try {
 		sb->indexOf(nullptr);
@@ -199,18 +204,21 @@ void BuilderForwarding::indexOfStringNull() {
 }
 
 void BuilderForwarding::insertintboolean() {
+	$useLocalCurrentObjectStackCache();
 	bool b = true;
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	assertEquals($($nc(sb->insert(2, b))->toString()), "01true2345"_s);
 }
 
 void BuilderForwarding::insertintchar() {
+	$useLocalCurrentObjectStackCache();
 	char16_t c = u'C';
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	assertEquals($($nc(sb->insert(2, c))->toString()), "01C2345"_s);
 }
 
 void BuilderForwarding::insertintCharSequence() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, initString, "012345"_s);
 	$var($CharSequence, aString, BuilderForwarding::A_STRING_VAL);
 	$var($CharSequence, aStringBuilder, $new($StringBuilder, BuilderForwarding::A_STRING_BUILDER_VAL));
@@ -230,30 +238,35 @@ void BuilderForwarding::insertintCharSequence() {
 }
 
 void BuilderForwarding::insertintdouble() {
+	$useLocalCurrentObjectStackCache();
 	double d = 99.0;
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	assertEquals($($nc(sb->insert(2, d))->toString()), "0199.02345"_s);
 }
 
 void BuilderForwarding::insertintfloat() {
+	$useLocalCurrentObjectStackCache();
 	float f = 99.0f;
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	assertEquals($($nc(sb->insert(2, f))->toString()), "0199.02345"_s);
 }
 
 void BuilderForwarding::insertintint() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 99;
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	assertEquals($($nc(sb->insert(2, i))->toString()), "01992345"_s);
 }
 
 void BuilderForwarding::insertintlong() {
+	$useLocalCurrentObjectStackCache();
 	int64_t l = 99;
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	assertEquals($($nc(sb->insert(2, l))->toString()), "01992345"_s);
 }
 
 void BuilderForwarding::insertintObject() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "012345"_s));
 	$var($List, ls, $new($ArrayList));
 	ls->add("A"_s);
@@ -272,6 +285,7 @@ void BuilderForwarding::insertintObject() {
 }
 
 void BuilderForwarding::lastIndexOfString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, xyz, "xyz"_s);
 	$var($String, xyz3, "xyzxyzxyz"_s);
 	$var($StringBuilder, sb, $new($StringBuilder, xyz3));
@@ -294,6 +308,7 @@ void BuilderForwarding::assertEquals($String* actual, $String* expected) {
 }
 
 void BuilderForwarding::assertEquals(int32_t actual, int32_t expected) {
+	$useLocalCurrentObjectStackCache();
 	if (actual != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed: actual = \'"_s, $$str(actual), "\', expected = \'"_s, $$str(expected), "\'"_s}));
 	}

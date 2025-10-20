@@ -196,6 +196,7 @@ $Object* allocate$FtpURLConnection($Class* clazz) {
 
 $URL* FtpURLConnection::checkURL($URL* u) {
 	$init(FtpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	if (u != nullptr) {
 		if ($nc($(u->toExternalForm()))->indexOf((int32_t)u'\n') > -1) {
 			$var($Exception, mfue, $new($MalformedURLException, "Illegal character in URL"_s));
@@ -215,6 +216,7 @@ void FtpURLConnection::init$($URL* url) {
 }
 
 void FtpURLConnection::init$($URL* url, $Proxy* p) {
+	$useLocalCurrentObjectStackCache();
 	$1URLConnection::init$($(checkURL(url)));
 	$set(this, http, nullptr);
 	$set(this, is, nullptr);
@@ -252,6 +254,7 @@ void FtpURLConnection::setTimeouts() {
 
 void FtpURLConnection::connect() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		if (this->connected) {
 			return;
@@ -366,6 +369,7 @@ void FtpURLConnection::connect() {
 }
 
 void FtpURLConnection::decodePath($String* path$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, path$renamed);
 	int32_t i = $nc(path)->indexOf(";type="_s);
 	if (i >= 0) {
@@ -410,6 +414,7 @@ void FtpURLConnection::decodePath($String* path$renamed) {
 }
 
 void FtpURLConnection::cd($String* path) {
+	$useLocalCurrentObjectStackCache();
 	if (path == nullptr || $nc(path)->isEmpty()) {
 		return;
 	}
@@ -424,6 +429,7 @@ void FtpURLConnection::cd($String* path) {
 }
 
 $InputStream* FtpURLConnection::getInputStream() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->connected) {
 		connect();
 	}
@@ -536,6 +542,7 @@ $InputStream* FtpURLConnection::getInputStream() {
 }
 
 $OutputStream* FtpURLConnection::getOutputStream() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->connected) {
 		connect();
 	}
@@ -576,6 +583,7 @@ $String* FtpURLConnection::guessContentTypeFromFilename($String* fname) {
 }
 
 $Permission* FtpURLConnection::getPermission() {
+	$useLocalCurrentObjectStackCache();
 	if (this->permission == nullptr) {
 		int32_t urlport = $nc(this->url)->getPort();
 		urlport = urlport < 0 ? $FtpClient::defaultPort() : urlport;

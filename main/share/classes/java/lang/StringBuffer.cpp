@@ -568,6 +568,7 @@ $String* StringBuffer::toString() {
 
 void StringBuffer::writeObject($ObjectOutputStream* s) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 		$var($chars, val, $new($chars, capacity()));
 		if (isLatin1()) {
@@ -583,6 +584,7 @@ void StringBuffer::writeObject($ObjectOutputStream* s) {
 }
 
 void StringBuffer::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($chars, val, $cast($chars, $nc(fields)->get("value"_s, ($Object*)nullptr)));
 	initBytes(val, 0, $nc(val)->length);
@@ -608,6 +610,7 @@ int32_t StringBuffer::compareTo(Object$* another) {
 }
 
 void clinit$StringBuffer($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($chars);
 		$init($Integer);
 		$init($Boolean);

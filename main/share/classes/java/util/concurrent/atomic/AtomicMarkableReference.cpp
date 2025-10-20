@@ -106,6 +106,7 @@ bool AtomicMarkableReference::weakCompareAndSet(Object$* expectedReference, Obje
 }
 
 bool AtomicMarkableReference::compareAndSet(Object$* expectedReference, Object$* newReference, bool expectedMark, bool newMark) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicMarkableReference$Pair, current, this->pair);
 	return $equals(expectedReference, $nc(current)->reference) && expectedMark == current->mark && (($equals(newReference, current->reference) && newMark == current->mark) || casPair(current, $($AtomicMarkableReference$Pair::of(newReference, newMark))));
 }
@@ -118,6 +119,7 @@ void AtomicMarkableReference::set(Object$* newReference, bool newMark) {
 }
 
 bool AtomicMarkableReference::attemptMark(Object$* expectedReference, bool newMark) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicMarkableReference$Pair, current, this->pair);
 	return $equals(expectedReference, $nc(current)->reference) && (newMark == current->mark || casPair(current, $($AtomicMarkableReference$Pair::of(expectedReference, newMark))));
 }
@@ -127,6 +129,7 @@ bool AtomicMarkableReference::casPair($AtomicMarkableReference$Pair* cmp, $Atomi
 }
 
 void clinit$AtomicMarkableReference($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

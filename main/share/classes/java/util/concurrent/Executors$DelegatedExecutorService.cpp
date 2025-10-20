@@ -113,6 +113,7 @@ void Executors$DelegatedExecutorService::shutdown() {
 }
 
 $List* Executors$DelegatedExecutorService::shutdownNow() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($List, var$2, nullptr);
@@ -209,6 +210,7 @@ bool Executors$DelegatedExecutorService::awaitTermination(int64_t timeout, $Time
 }
 
 $Future* Executors$DelegatedExecutorService::submit($Runnable* task) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($Future, var$2, nullptr);
@@ -233,6 +235,7 @@ $Future* Executors$DelegatedExecutorService::submit($Runnable* task) {
 }
 
 $Future* Executors$DelegatedExecutorService::submit($Callable* task) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($Future, var$2, nullptr);
@@ -257,6 +260,7 @@ $Future* Executors$DelegatedExecutorService::submit($Callable* task) {
 }
 
 $Future* Executors$DelegatedExecutorService::submit($Runnable* task, Object$* result) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($Future, var$2, nullptr);
@@ -281,6 +285,7 @@ $Future* Executors$DelegatedExecutorService::submit($Runnable* task, Object$* re
 }
 
 $List* Executors$DelegatedExecutorService::invokeAll($Collection* tasks) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($List, var$2, nullptr);
@@ -305,6 +310,7 @@ $List* Executors$DelegatedExecutorService::invokeAll($Collection* tasks) {
 }
 
 $List* Executors$DelegatedExecutorService::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($List, var$2, nullptr);
@@ -329,6 +335,7 @@ $List* Executors$DelegatedExecutorService::invokeAll($Collection* tasks, int64_t
 }
 
 $Object* Executors$DelegatedExecutorService::invokeAny($Collection* tasks) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($Object, var$2, nullptr);
@@ -353,6 +360,7 @@ $Object* Executors$DelegatedExecutorService::invokeAny($Collection* tasks) {
 }
 
 $Object* Executors$DelegatedExecutorService::invokeAny($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($Object, var$2, nullptr);

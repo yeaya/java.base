@@ -78,6 +78,7 @@ void FdLibm$Pow::init$() {
 }
 
 double FdLibm$Pow::compute(double x, double y) {
+	$useLocalCurrentObjectStackCache();
 	double z = 0.0;
 	double r = 0.0;
 	double s = 0.0;

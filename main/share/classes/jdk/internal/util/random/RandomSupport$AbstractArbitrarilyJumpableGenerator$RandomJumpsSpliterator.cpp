@@ -117,6 +117,7 @@ void RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator::
 }
 
 $Spliterator* RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	int64_t i = this->index;
 	int64_t delta = $Long::highestOneBit((this->fence - i) - 1);
 	int64_t m = i + delta;
@@ -141,6 +142,7 @@ bool RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator::
 }
 
 void RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomJumpsSpliterator::forEachRemaining($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(consumer);
 	int64_t i = this->index;
 	int64_t f = this->fence;

@@ -160,6 +160,7 @@ $Object* WeakPairMap::putIfAbsent(Object$* k1, Object$* k2, Object$* v) {
 }
 
 $Object* WeakPairMap::computeIfAbsent(Object$* k1, Object$* k2, $BiFunction* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	expungeStaleAssociations();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -192,6 +193,7 @@ $Collection* WeakPairMap::values() {
 }
 
 void WeakPairMap::expungeStaleAssociations() {
+	$useLocalCurrentObjectStackCache();
 	$var($WeakPairMap$WeakRefPeer, peer, nullptr);
 	while (($assign(peer, $cast($WeakPairMap$WeakRefPeer, $nc(this->queue)->poll()))) != nullptr) {
 		$nc(this->map)->remove($($nc(peer)->weakPair()));
@@ -199,6 +201,7 @@ void WeakPairMap::expungeStaleAssociations() {
 }
 
 $Object* WeakPairMap::lambda$computeIfAbsent$0($BiFunction* mappingFunction, $WeakPairMap$Pair* pair) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(pair)->first());
 	return $of($nc(mappingFunction)->apply(var$0, $(pair->second())));
 }

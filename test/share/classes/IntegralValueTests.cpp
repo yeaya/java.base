@@ -82,6 +82,7 @@ void IntegralValueTests::init$() {
 
 void IntegralValueTests::main($StringArray* args) {
 	$init(IntegralValueTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = integralValuesTest(IntegralValueTests::INT_VALUES, true);
 	int32_t failures = var$0 + integralValuesTest(IntegralValueTests::LONG_VALUES, false);
 	if (failures != 0) {
@@ -91,6 +92,7 @@ void IntegralValueTests::main($StringArray* args) {
 
 int32_t IntegralValueTests::integralValuesTest($Map* v, bool isInt) {
 	$init(IntegralValueTests);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->format("Testing %s%n"_s, $$new($ObjectArray, {isInt ? $of("Integer"_s) : $of("Long"_s)}));
 	int32_t failures = 0;
@@ -129,6 +131,7 @@ int32_t IntegralValueTests::integralValuesTest($Map* v, bool isInt) {
 
 int32_t IntegralValueTests::reportError($BigDecimal* bd, $Number* expected, int64_t longValue, bool isInt) {
 	$init(IntegralValueTests);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->format("For %s, scale=%d, expected %d, actual %d, simple %d%n"_s, $$new($ObjectArray, {
 		$($of($nc(bd)->toString())),
@@ -151,6 +154,7 @@ int32_t IntegralValueTests::simpleIntValue($BigDecimal* bd) {
 }
 
 void clinit$IntegralValueTests($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$var($Object, var$0, $of($new($BigDecimal, "2147483647"_s)));
 		$var($Object, var$1, $of($new($BigDecimal, "2147483647.0"_s)));
 		$var($Object, var$2, $of($new($BigDecimal, "2147483647.00"_s)));

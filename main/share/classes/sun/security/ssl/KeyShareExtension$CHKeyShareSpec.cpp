@@ -113,6 +113,7 @@ void KeyShareExtension$CHKeyShareSpec::init$($List* clientShares) {
 }
 
 void KeyShareExtension$CHKeyShareSpec::init$($HandshakeContext* handshakeContext, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid key_share extension: insufficient data (length="_s, $$str(buffer->remaining()), ")"_s}))))));
@@ -136,6 +137,7 @@ void KeyShareExtension$CHKeyShareSpec::init$($HandshakeContext* handshakeContext
 }
 
 $String* KeyShareExtension$CHKeyShareSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"client_shares\": \'[\'{0}\n\']\'"_s, $Locale::ENGLISH));
 	$var($StringBuilder, builder, $new($StringBuilder, 512));

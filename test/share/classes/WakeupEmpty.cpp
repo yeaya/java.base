@@ -64,6 +64,7 @@ void WakeupEmpty::init$() {
 }
 
 void WakeupEmpty::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$var($Thread, thread, $new($WakeupEmpty$1, sel));
 	thread->start();

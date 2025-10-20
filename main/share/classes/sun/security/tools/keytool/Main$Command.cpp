@@ -232,6 +232,7 @@ Main$Command* Main$Command::valueOf($String* name) {
 }
 
 void Main$Command::init$($String* $enum$name, int32_t $enum$ordinal, $String* d, $Main$OptionArray* o) {
+	$useLocalCurrentObjectStackCache();
 	$Enum::init$($enum$name, $enum$ordinal);
 	$set(this, description, d);
 	$set(this, options, o);
@@ -272,6 +273,7 @@ Main$Command* Main$Command::getCommand($String* cmd) {
 }
 
 void clinit$Main$Command($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$init($Main$Option);
 	$assignStatic(Main$Command::CERTREQ, $new(Main$Command, "CERTREQ"_s, 0, "Generates.a.certificate.request"_s, $$new($Main$OptionArray, {
 		$Main$Option::ALIAS,

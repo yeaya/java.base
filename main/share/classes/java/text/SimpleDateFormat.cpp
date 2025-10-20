@@ -272,6 +272,7 @@ $DateFormat$FieldArray* SimpleDateFormat::PATTERN_INDEX_TO_DATE_FORMAT_FIELD_ID 
 $ints* SimpleDateFormat::REST_OF_STYLES = nullptr;
 
 void SimpleDateFormat::init$() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	SimpleDateFormat::init$(""_s, $($Locale::getDefault($Locale$Category::FORMAT)));
 	applyPatternImpl($($nc($($nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources(this->locale)))->getDateTimePattern($DateFormat::SHORT, $DateFormat::SHORT, this->calendar)));
@@ -338,6 +339,7 @@ void SimpleDateFormat::initializeCalendar($Locale* loc) {
 }
 
 $chars* SimpleDateFormat::compile($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(pattern)->length();
 	bool inQuote = false;
 	$var($StringBuilder, compiledCode, $new($StringBuilder, length * 2));
@@ -463,6 +465,7 @@ $chars* SimpleDateFormat::compile($String* pattern) {
 
 void SimpleDateFormat::encode(int32_t tag, int32_t length, $StringBuilder* buffer) {
 	$init(SimpleDateFormat);
+	$useLocalCurrentObjectStackCache();
 	if (tag == 21 && length >= 4) {
 		$throwNew($IllegalArgumentException, $$str({"invalid ISO 8601 format: length="_s, $$str(length)}));
 	}
@@ -533,6 +536,7 @@ $StringBuffer* SimpleDateFormat::format($Date* date, $StringBuffer* toAppendTo, 
 }
 
 $AttributedCharacterIterator* SimpleDateFormat::formatToCharacterIterator(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	$var($CharacterIteratorFieldDelegate, delegate, $new($CharacterIteratorFieldDelegate));
 	if ($instanceOf($Date, obj)) {
@@ -548,6 +552,7 @@ $AttributedCharacterIterator* SimpleDateFormat::formatToCharacterIterator(Object
 }
 
 void SimpleDateFormat::subFormat(int32_t patternCharIndex, int32_t count, $Format$FieldDelegate* delegate, $StringBuffer* buffer, bool useDateFormatSymbols) {
+	$useLocalCurrentObjectStackCache();
 	int32_t maxIntCount = $Integer::MAX_VALUE;
 	$var($String, current, nullptr);
 	int32_t beginOffset = $nc(buffer)->length();
@@ -817,6 +822,7 @@ void SimpleDateFormat::zeroPaddingNumber(int32_t value, int32_t minDigits, int32
 }
 
 $Date* SimpleDateFormat::parse($String* text, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	checkNegativeNumberExpression();
 	int32_t start = $nc(pos)->index;
 	int32_t oldStart = start;
@@ -970,6 +976,7 @@ int32_t SimpleDateFormat::matchString($String* text, int32_t start, int32_t fiel
 }
 
 int32_t SimpleDateFormat::matchString($String* text, int32_t start, int32_t field, $Map* data, $CalendarBuilder* calb) {
+	$useLocalCurrentObjectStackCache();
 	if (data != nullptr) {
 		if ($instanceOf($SortedMap, data)) {
 			{
@@ -1010,6 +1017,7 @@ int32_t SimpleDateFormat::matchString($String* text, int32_t start, int32_t fiel
 }
 
 int32_t SimpleDateFormat::matchZoneString($String* text, int32_t start, $StringArray* zoneNames) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 1; i <= 4; ++i) {
 		$var($String, zoneName, $nc(zoneNames)->get(i));
 		if ($nc(zoneName)->isEmpty()) {
@@ -1033,6 +1041,7 @@ bool SimpleDateFormat::matchDSTString($String* text, int32_t start, int32_t zone
 }
 
 int32_t SimpleDateFormat::subParseZoneString($String* text, int32_t start, $CalendarBuilder* calb) {
+	$useLocalCurrentObjectStackCache();
 	bool useSameName = false;
 	$var($TimeZone, currentTimeZone, getTimeZone());
 	int32_t zoneIndex = $nc(this->formatData)->getZoneIndex($($nc(currentTimeZone)->getID()));
@@ -1088,6 +1097,7 @@ int32_t SimpleDateFormat::subParseZoneString($String* text, int32_t start, $Cale
 }
 
 int32_t SimpleDateFormat::subParseNumericZone($String* text, int32_t start, int32_t sign, int32_t count, bool colon, $CalendarBuilder* calb) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = start;
 	bool parse$break = false;
 	for (;;) {
@@ -1155,6 +1165,7 @@ bool SimpleDateFormat::isDigit(char16_t c) {
 }
 
 int32_t SimpleDateFormat::subParse($String* text, int32_t start, int32_t patternCharIndex, int32_t count, bool obeyCount, $booleans* ambiguousYear, $ParsePosition* origPos, bool useFollowingMinusSignAsDelimiter, $CalendarBuilder* calb) {
+	$useLocalCurrentObjectStackCache();
 	$var($Number, number, nullptr);
 	int32_t value = 0;
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
@@ -1511,6 +1522,7 @@ bool SimpleDateFormat::useDateFormatSymbols() {
 }
 
 $String* SimpleDateFormat::translatePattern($String* pattern, $String* from, $String* to) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, result, $new($StringBuilder));
 	bool inQuote = false;
 	for (int32_t i = 0; i < $nc(pattern)->length(); ++i) {
@@ -1558,6 +1570,7 @@ void SimpleDateFormat::applyPatternImpl($String* pattern) {
 }
 
 void SimpleDateFormat::applyLocalizedPattern($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	$init($DateFormatSymbols);
 	$var($String, p, translatePattern(pattern, $($nc(this->formatData)->getLocalPatternChars()), $DateFormatSymbols::patternChars));
 	$set(this, compiledPattern, compile(p));
@@ -1593,6 +1606,7 @@ bool SimpleDateFormat::equals(Object$* obj) {
 }
 
 $Map* SimpleDateFormat::getDisplayNamesMap(int32_t field, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, $nc(this->calendar)->getDisplayNames(field, $Calendar::SHORT_FORMAT, locale));
 	{
 		$var($ints, arr$, SimpleDateFormat::REST_OF_STYLES);
@@ -1612,6 +1626,7 @@ $Map* SimpleDateFormat::getDisplayNamesMap(int32_t field, $Locale* locale) {
 }
 
 $Map* SimpleDateFormat::getDisplayContextNamesMap(int32_t field, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, $nc(this->calendar)->getDisplayNames(field, this->forceStandaloneForm ? $Calendar::SHORT_STANDALONE : $Calendar::SHORT_FORMAT, locale));
 	$var($Map, m, $nc(this->calendar)->getDisplayNames(field, this->forceStandaloneForm ? $Calendar::LONG_STANDALONE : $Calendar::LONG_FORMAT, locale));
 	if (m != nullptr) {
@@ -1621,6 +1636,7 @@ $Map* SimpleDateFormat::getDisplayContextNamesMap(int32_t field, $Locale* locale
 }
 
 void SimpleDateFormat::readObject($ObjectInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$nc(stream)->defaultReadObject();
 	try {
 		$set(this, compiledPattern, compile(this->pattern));
@@ -1646,6 +1662,7 @@ void SimpleDateFormat::readObject($ObjectInputStream* stream) {
 }
 
 void SimpleDateFormat::checkNegativeNumberExpression() {
+	$useLocalCurrentObjectStackCache();
 	if (($instanceOf($DecimalFormat, this->numberFormat)) && !$nc(this->numberFormat)->equals(this->originalNumberFormat)) {
 		$var($String, numberPattern, $nc(($cast($DecimalFormat, this->numberFormat)))->toPattern());
 		if (!$nc(numberPattern)->equals(this->originalNumberPattern)) {

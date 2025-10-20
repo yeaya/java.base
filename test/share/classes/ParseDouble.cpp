@@ -93,11 +93,13 @@ void ParseDouble::init$() {
 
 void ParseDouble::fail($String* val, double n) {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	$throwNew($RuntimeException, $$str({"Double.parseDouble failed. String:"_s, val, " Result:"_s, $$str(n)}));
 }
 
 void ParseDouble::check($String* val) {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	double n = $Double::parseDouble(val);
 	bool isNegativeN = n < 0 || n == 0 && 1 / n < 0;
 	double na = $Math::abs(n);
@@ -190,6 +192,7 @@ void ParseDouble::check($String* val, double expected) {
 
 void ParseDouble::rudimentaryTest() {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	$init($Double);
 	check($$new($String, $$str({""_s, $$str($Double::MIN_VALUE)})), $Double::MIN_VALUE);
 	check($$new($String, $$str({""_s, $$str($Double::MAX_VALUE)})), $Double::MAX_VALUE);
@@ -203,6 +206,7 @@ void ParseDouble::rudimentaryTest() {
 
 void ParseDouble::testParsing($StringArray* input, bool exceptionalInput) {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(input)->length; ++i) {
 		double d = 0.0;
 		try {
@@ -223,6 +227,7 @@ void ParseDouble::testParsing($StringArray* input, bool exceptionalInput) {
 
 void ParseDouble::testRegex($StringArray* input, bool exceptionalInput) {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	$var($String, Digits, "(\\p{Digit}+)"_s);
 	$var($String, HexDigits, "(\\p{XDigit}+)"_s);
 	$var($String, Exp, $str({"[eE][+-]?"_s, Digits}));
@@ -239,6 +244,7 @@ void ParseDouble::testRegex($StringArray* input, bool exceptionalInput) {
 
 void ParseDouble::testSubnormalPowers() {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($BigDecimal, TWO, $BigDecimal::valueOf((int64_t)2));
 	$init($Double);
@@ -297,6 +303,7 @@ void ParseDouble::testSubnormalPowers() {
 
 void ParseDouble::testPowers() {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = -1074; i <= +1023; ++i) {
 		double d = $Math::scalb(1.0, i);
 		$var($BigDecimal, d_BD, $new($BigDecimal, d));
@@ -311,6 +318,7 @@ void ParseDouble::testPowers() {
 
 void ParseDouble::testStrictness() {
 	$init(ParseDouble);
+	$useLocalCurrentObjectStackCache();
 	double expected = 6.63123685E-316;
 	bool failed = false;
 	double conversion = 0.0;
@@ -352,6 +360,7 @@ void ParseDouble::main($StringArray* args) {
 }
 
 void clinit$ParseDouble($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ParseDouble::HALF, $BigDecimal::valueOf(0.5));
 	$assignStatic(ParseDouble::badStrings, $new($StringArray, {
 		""_s,

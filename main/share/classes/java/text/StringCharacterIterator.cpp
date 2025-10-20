@@ -198,6 +198,7 @@ int32_t StringCharacterIterator::hashCode() {
 }
 
 $Object* StringCharacterIterator::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(StringCharacterIterator, other, $cast(StringCharacterIterator, $CharacterIterator::clone()));
 		return $of(other);

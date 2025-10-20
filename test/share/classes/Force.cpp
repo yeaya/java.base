@@ -53,6 +53,7 @@ void Force::main($StringArray* args) {
 }
 
 void Force::writeAfterForce() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, srcData, $new($bytes, 20));
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
@@ -65,6 +66,7 @@ void Force::writeAfterForce() {
 }
 
 void Force::forceReadableOnly() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $File::createTempFile("blah"_s, nullptr));
 	$nc(f)->deleteOnExit();
 	$var($FileInputStream, fis, $new($FileInputStream, f));

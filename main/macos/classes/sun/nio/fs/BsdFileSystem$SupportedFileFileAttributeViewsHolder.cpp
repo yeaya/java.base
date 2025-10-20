@@ -78,6 +78,7 @@ void BsdFileSystem$SupportedFileFileAttributeViewsHolder::init$() {
 
 $Set* BsdFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews() {
 	$init(BsdFileSystem$SupportedFileFileAttributeViewsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, result, $new($HashSet));
 	result->addAll($($UnixFileSystem::standardFileAttributeViews()));
 	result->add("user"_s);

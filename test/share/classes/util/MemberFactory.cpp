@@ -238,6 +238,7 @@ $EnumSet* MemberFactory::asSet($MemberFactoryArray* members) {
 
 $EnumSet* MemberFactory::membersToGroupsOrNull($EnumSet* members) {
 	$init(MemberFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($EnumSet, mSet, $cast($EnumSet, $nc(members)->clone()));
 	$load($MemberFactory$Group);
 	$var($EnumSet, gSet, $EnumSet::allOf($MemberFactory$Group::class$));
@@ -255,6 +256,7 @@ $EnumSet* MemberFactory::membersToGroupsOrNull($EnumSet* members) {
 
 $EnumSet* MemberFactory::groupsToMembers($EnumSet* groups) {
 	$init(MemberFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($EnumSet, mSet, $EnumSet::noneOf(MemberFactory::class$));
 	{
 		$var($Iterator, i$, $nc(groups)->iterator());
@@ -273,6 +275,7 @@ $Object* MemberFactory::apply(Object$* declaringClass) {
 }
 
 void clinit$MemberFactory($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($MemberFactory$Kind);
 	$assignStatic(MemberFactory::PRIVATE_INSTANCE_FIELD, $new(MemberFactory, "PRIVATE_INSTANCE_FIELD"_s, 0, $MemberFactory$Kind::FIELD, "privateInstance"_s, $$new($ClassArray, 0)));
 	$assignStatic(MemberFactory::PACKAGE_INSTANCE_FIELD, $new(MemberFactory, "PACKAGE_INSTANCE_FIELD"_s, 1, $MemberFactory$Kind::FIELD, "packageInstance"_s, $$new($ClassArray, 0)));

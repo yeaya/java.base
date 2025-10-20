@@ -75,6 +75,7 @@ void AddressNotSet::main($StringArray* args) {
 }
 
 void AddressNotSet::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($DatagramSocket, ss, this->serversock);
 		{
@@ -193,6 +194,7 @@ void AddressNotSet::run() {
 }
 
 void AddressNotSet::test($DatagramSocket* sock) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Testing with "_s, $nc($of(sock))->getClass()}));
 	$var($InetAddress, addr, this->loopbackAddress);
@@ -244,6 +246,7 @@ void AddressNotSet::test($DatagramSocket* sock) {
 }
 
 void AddressNotSet::testTTL($MulticastSocket* sock) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Testing deprecated send TTL with "_s, $nc($of(sock))->getClass()}));
 	int8_t ttl = (int8_t)100;

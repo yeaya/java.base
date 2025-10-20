@@ -101,6 +101,7 @@ $bytes* NamedGroup$ECDHEScheme::encodePossessionPublicKey($NamedGroupPossession*
 }
 
 $SSLCredentials* NamedGroup$ECDHEScheme::decodeCredentials($NamedGroup* ng, $bytes* encoded, $AlgorithmConstraints* constraints, $NamedGroup$ExceptionSupplier* onConstraintFail) {
+	$useLocalCurrentObjectStackCache();
 	$var($ECDHKeyExchange$ECDHECredentials, result, $ECDHKeyExchange$ECDHECredentials::valueOf(ng, encoded));
 	checkConstraints($($nc(result)->getPublicKey()), constraints, onConstraintFail);
 	return result;

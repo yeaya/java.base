@@ -320,6 +320,7 @@ int64_t VarHandleByteArrayAsDoubles$ByteBufferHandle::address($ByteBuffer* bb, i
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::get($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -334,6 +335,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::get($VarHandle* ob, Object$
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::set($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -348,6 +350,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::set($VarHandle* ob, Object$* 
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getVolatile($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -360,6 +363,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getVolatile($VarHandle* ob,
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::setVolatile($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -373,6 +377,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::setVolatile($VarHandle* ob, O
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAcquire($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -385,6 +390,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAcquire($VarHandle* ob, 
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::setRelease($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -398,6 +404,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::setRelease($VarHandle* ob, Ob
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getOpaque($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -410,6 +417,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getOpaque($VarHandle* ob, O
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::setOpaque($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -423,6 +431,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::setOpaque($VarHandle* ob, Obj
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndSet($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -437,6 +446,7 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndSet($VarHandle* ob,
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchange($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -451,6 +461,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchange($VarHand
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeAcquire($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -465,6 +476,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeAcquire($
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeRelease($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -479,6 +491,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeRelease($
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetPlain($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -493,6 +506,7 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetPlain($VarHa
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSet($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -507,6 +521,7 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSet($VarHandle*
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetAcquire($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -521,6 +536,7 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetAcquire($Var
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetRelease($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -535,6 +551,7 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetRelease($Var
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSet($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -548,6 +565,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSet($VarHandle* ob, O
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetAcquire($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -561,6 +579,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetAcquire($VarHandle
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetRelease($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);

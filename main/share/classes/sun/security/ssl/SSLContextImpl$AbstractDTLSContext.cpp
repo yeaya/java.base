@@ -101,6 +101,7 @@ $SSLParameters* SSLContextImpl$AbstractDTLSContext::engineGetDefaultSSLParameter
 }
 
 $SSLParameters* SSLContextImpl$AbstractDTLSContext::engineGetSupportedSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLEngine, engine, createSSLEngineImpl());
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setCipherSuites($($nc(engine)->getSupportedCipherSuites()));
@@ -137,6 +138,7 @@ bool SSLContextImpl$AbstractDTLSContext::isDTLS() {
 }
 
 void clinit$SSLContextImpl$AbstractDTLSContext($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 			$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$AbstractDTLSContext::supportedProtocols, $Arrays::asList($$new($ProtocolVersionArray, {

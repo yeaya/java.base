@@ -108,6 +108,7 @@ void Reflect::setAccessible($AccessibleObject* ao) {
 
 $Constructor* Reflect::lookupConstructor($String* className, $ClassArray* paramTypes) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);
@@ -126,6 +127,7 @@ $Constructor* Reflect::lookupConstructor($String* className, $ClassArray* paramT
 
 $Object* Reflect::invoke($Constructor* c, $ObjectArray* args) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(c)->newInstance(args));
@@ -144,6 +146,7 @@ $Object* Reflect::invoke($Constructor* c, $ObjectArray* args) {
 
 $Method* Reflect::lookupMethod($String* className, $String* methodName, $ClassArray* paramTypes) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);
@@ -162,6 +165,7 @@ $Method* Reflect::lookupMethod($String* className, $String* methodName, $ClassAr
 
 $Object* Reflect::invoke($Method* m, Object$* ob, $ObjectArray* args) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(m)->invoke(ob, args));
@@ -177,6 +181,7 @@ $Object* Reflect::invoke($Method* m, Object$* ob, $ObjectArray* args) {
 
 $Object* Reflect::invokeIO($Method* m, Object$* ob, $ObjectArray* args) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(m)->invoke(ob, args));
@@ -196,6 +201,7 @@ $Object* Reflect::invokeIO($Method* m, Object$* ob, $ObjectArray* args) {
 
 $Field* Reflect::lookupField($String* className, $String* fieldName) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);

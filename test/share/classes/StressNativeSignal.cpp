@@ -77,6 +77,7 @@ void StressNativeSignal::init$() {
 }
 
 void StressNativeSignal::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var(StressNativeSignal, test, $new(StressNativeSignal));
 	try {
 		$Thread::sleep(3000);
@@ -89,6 +90,7 @@ void StressNativeSignal::main($StringArray* args) {
 }
 
 void StressNativeSignal::shutdown() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->udpThread)->terminate();
 	try {
 		$nc(this->udpThread)->join();

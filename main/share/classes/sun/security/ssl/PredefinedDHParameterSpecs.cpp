@@ -126,6 +126,7 @@ void PredefinedDHParameterSpecs::init$() {
 }
 
 void clinit$PredefinedDHParameterSpecs($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(PredefinedDHParameterSpecs::PROPERTY_NAME, "jdk.tls.server.defaultDHEParameters"_s);
 	$beforeCallerSensitive();
 	$assignStatic(PredefinedDHParameterSpecs::p512, $new($BigInteger, "D87780E15FF50B4ABBE89870188B049406B5BEA98AB23A0241D88EA75B7755E669C08093D3F0CA7FC3A5A25CF067DCB9A43DD89D1D90921C6328884461E0B6D3"_s, 16));

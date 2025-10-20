@@ -99,6 +99,7 @@ void ClassRestrictions::init$() {
 
 void ClassRestrictions::main($StringArray* args) {
 	$init(ClassRestrictions);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println("\nTest of restrictions on parameters to Proxy.getProxyClass\n"_s);

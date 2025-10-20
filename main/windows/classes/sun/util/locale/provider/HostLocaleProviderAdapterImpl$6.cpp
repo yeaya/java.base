@@ -93,6 +93,7 @@ bool HostLocaleProviderAdapterImpl$6::isSupportedLocale($Locale* locale) {
 }
 
 $String* HostLocaleProviderAdapterImpl$6::getDisplayName($String* calendarType, int32_t field, int32_t value, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag());
 	$var($StringArray, names, $HostLocaleProviderAdapterImpl::getCalendarDisplayStrings(var$0, $HostLocaleProviderAdapterImpl::getCalendarIDFromLDMLType(calendarType), field, style));
 	if (field == $Calendar::DAY_OF_WEEK) {
@@ -106,6 +107,7 @@ $String* HostLocaleProviderAdapterImpl$6::getDisplayName($String* calendarType, 
 }
 
 $Map* HostLocaleProviderAdapterImpl$6::getDisplayNames($String* calendarType, int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, nullptr);
 	$var($String, var$0, $nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag());
 	$var($StringArray, names, $HostLocaleProviderAdapterImpl::getCalendarDisplayStrings(var$0, $HostLocaleProviderAdapterImpl::getCalendarIDFromLDMLType(calendarType), field, style));

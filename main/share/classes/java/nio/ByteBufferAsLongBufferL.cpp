@@ -147,6 +147,7 @@ int64_t ByteBufferAsLongBufferL::byteOffset(int64_t i) {
 }
 
 int64_t ByteBufferAsLongBufferL::get() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -155,6 +156,7 @@ int64_t ByteBufferAsLongBufferL::get() {
 }
 
 int64_t ByteBufferAsLongBufferL::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -163,6 +165,7 @@ int64_t ByteBufferAsLongBufferL::get(int32_t i) {
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::put(int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	int64_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -172,6 +175,7 @@ $LongBuffer* ByteBufferAsLongBufferL::put(int64_t x) {
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::put(int32_t i, int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	int64_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -181,6 +185,7 @@ $LongBuffer* ByteBufferAsLongBufferL::put(int32_t i, int64_t x) {
 }
 
 $LongBuffer* ByteBufferAsLongBufferL::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!ByteBufferAsLongBufferL::$assertionsDisabled && !(pos <= lim)) {

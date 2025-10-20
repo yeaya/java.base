@@ -77,6 +77,7 @@ void HandshakeHash$CloneableHash::update($bytes* input, int32_t offset, int32_t 
 }
 
 $bytes* HandshakeHash$CloneableHash::digest() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($MessageDigest, $($nc(this->md)->clone()))))->digest();
 	} catch ($CloneNotSupportedException&) {

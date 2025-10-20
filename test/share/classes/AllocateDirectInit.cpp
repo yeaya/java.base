@@ -46,6 +46,7 @@ void AllocateDirectInit::init$() {
 }
 
 void AllocateDirectInit::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1024; ++i) {
 		$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(1024));
 		{
@@ -66,6 +67,7 @@ void AllocateDirectInit::main($StringArray* args) {
 }
 
 void AllocateDirectInit::printByteBuffer($ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->print("byte ["_s);
 	{

@@ -129,6 +129,7 @@ $StackTraceElement* Utils$1::toStackTraceElement() {
 }
 
 $String* Utils$1::getClassLoaderName($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $nc(c)->getClassLoader());
 	$var($String, name, ""_s);
@@ -141,6 +142,7 @@ $String* Utils$1::getClassLoaderName($Class* c) {
 }
 
 $String* Utils$1::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, mid, getClassLoaderName(this->val$c));
 	$var($Module, module, $nc(this->val$c)->getModule());
 	if ($nc(module)->isNamed()) {

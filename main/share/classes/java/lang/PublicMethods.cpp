@@ -80,6 +80,7 @@ void PublicMethods::init$() {
 }
 
 void PublicMethods::merge($Method* method) {
+	$useLocalCurrentObjectStackCache();
 	$var($PublicMethods$Key, key, $new($PublicMethods$Key, method));
 	$var($PublicMethods$MethodList, existing, $cast($PublicMethods$MethodList, $nc(this->map)->get(key)));
 	int32_t xLen = existing == nullptr ? 0 : $nc(existing)->length();
@@ -91,6 +92,7 @@ void PublicMethods::merge($Method* method) {
 }
 
 $MethodArray* PublicMethods::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, array, $new($MethodArray, this->methodCount));
 	int32_t i = 0;
 	{

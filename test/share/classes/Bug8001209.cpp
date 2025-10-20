@@ -50,6 +50,7 @@ void Bug8001209::init$() {
 }
 
 void Bug8001209::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool err = false;
 	$var($doubles, limits, $new($doubles, {
 		(double)1,

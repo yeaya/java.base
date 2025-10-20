@@ -763,6 +763,7 @@ void StandardCharsets::init$() {
 }
 
 $String* StandardCharsets::canonicalize($String* csn) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, acn, $cast($String, $nc($(aliasMap()))->get(csn)));
 	return (acn != nullptr) ? acn : csn;
 }
@@ -829,6 +830,7 @@ $String* StandardCharsets::toLower($String* s) {
 }
 
 $Charset* StandardCharsets::lookup($String* charsetName) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, csn, nullptr);
 	if ($nc(charsetName)->equals("UTF-8"_s)) {
@@ -879,6 +881,7 @@ $Charset* StandardCharsets::charsetForName($String* charsetName) {
 }
 
 $Iterator* StandardCharsets::charsets() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, charsetNames, nullptr);
 	$synchronized(this) {
 		$assign(charsetNames, $nc($(classMap()))->keySet());

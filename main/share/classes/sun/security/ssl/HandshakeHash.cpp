@@ -132,6 +132,7 @@ void HandshakeHash::init$() {
 }
 
 void HandshakeHash::determine($ProtocolVersion* protocolVersion, $CipherSuite* cipherSuite) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($HandshakeHash$CacheOnlyHash, this->transcriptHash))) {
 		$throwNew($IllegalStateException, "Not expected instance of transcript hash"_s);
 	}
@@ -168,6 +169,7 @@ void HandshakeHash::receive($bytes* input) {
 }
 
 void HandshakeHash::receive($ByteBuffer* input, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(input)->hasArray()) {
 		int32_t var$0 = input->position();
 		int32_t from = var$0 + input->arrayOffset();
@@ -205,6 +207,7 @@ void HandshakeHash::deliver($bytes* input, int32_t offset, int32_t length) {
 }
 
 void HandshakeHash::deliver($ByteBuffer* input) {
+	$useLocalCurrentObjectStackCache();
 	update();
 	if ($nc(input)->hasArray()) {
 		$var($bytes, var$0, $cast($bytes, input->array()));
@@ -243,6 +246,7 @@ void HandshakeHash::consume() {
 }
 
 void HandshakeHash::update() {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(this->reserves)->size() != 0) {
 		$var($bytes, holder, $cast($bytes, $nc(this->reserves)->remove()));
 		$nc(this->transcriptHash)->update(holder, 0, $nc(holder)->length);

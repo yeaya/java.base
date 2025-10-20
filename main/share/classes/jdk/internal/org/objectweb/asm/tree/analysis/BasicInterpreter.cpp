@@ -351,6 +351,7 @@ $1Value* BasicInterpreter::newValue($Type* type) {
 }
 
 $1Value* BasicInterpreter::newOperation($AbstractInsnNode* insn) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Object, value, nullptr)
 		switch ($nc(insn)->getOpcode()) {
@@ -465,6 +466,7 @@ $BasicValue* BasicInterpreter::copyOperation($AbstractInsnNode* insn, $BasicValu
 }
 
 $BasicValue* BasicInterpreter::unaryOperation($AbstractInsnNode* insn, $BasicValue* value) {
+	$useLocalCurrentObjectStackCache();
 	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::INEG:
 		{}
@@ -775,6 +777,7 @@ $BasicValue* BasicInterpreter::ternaryOperation($AbstractInsnNode* insn, $BasicV
 }
 
 $1Value* BasicInterpreter::naryOperation($AbstractInsnNode* insn, $List* values) {
+	$useLocalCurrentObjectStackCache();
 	int32_t opcode = $nc(insn)->getOpcode();
 	if (opcode == $Opcodes::MULTIANEWARRAY) {
 		return newValue($($Type::getType($nc(($cast($MultiANewArrayInsnNode, insn)))->desc)));

@@ -164,12 +164,14 @@ void CertificateIssuerExtension::delete$($String* name) {
 }
 
 $String* CertificateIssuerExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($Extension::toString()), "Certificate Issuer [\n"_s}));
 	$var($String, var$0, $$concat(var$1, $($String::valueOf($of(this->names)))));
 	return $concat(var$0, "]\n");
 }
 
 void CertificateIssuerExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

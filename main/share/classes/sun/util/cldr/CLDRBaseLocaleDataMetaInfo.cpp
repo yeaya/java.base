@@ -107,6 +107,7 @@ $Map* CLDRBaseLocaleDataMetaInfo::parentLocales() {
 }
 
 void clinit$CLDRBaseLocaleDataMetaInfo($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(CLDRBaseLocaleDataMetaInfo::resourceNameToLocales, $new($HashMap));
 	$assignStatic(CLDRBaseLocaleDataMetaInfo::parentLocalesMap, $new($HashMap));
 	$assignStatic(CLDRBaseLocaleDataMetaInfo::languageAliasMap, $new($HashMap));

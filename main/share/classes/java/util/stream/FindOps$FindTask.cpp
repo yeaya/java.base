@@ -112,6 +112,7 @@ void FindOps$FindTask::foundResult(Object$* answer) {
 }
 
 $Object* FindOps$FindTask::doLeaf() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, $nc(($cast($TerminalSink, $($nc(this->helper)->wrapAndCopyInto($cast($TerminalSink, $($nc($nc(this->op)->sinkSupplier)->get())), this->spliterator)))))->get());
 	if (!this->mustFindFirst) {
 		if (result != nullptr) {
@@ -127,6 +128,7 @@ $Object* FindOps$FindTask::doLeaf() {
 }
 
 void FindOps$FindTask::onCompletion($CountedCompleter* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (this->mustFindFirst) {
 		{
 			$var(FindOps$FindTask, child, $cast(FindOps$FindTask, this->leftChild));

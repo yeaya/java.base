@@ -108,6 +108,7 @@ void OAEPParameters::init$() {
 }
 
 void OAEPParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($OAEPParameterSpec, paramSpec))) {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
@@ -131,6 +132,7 @@ void OAEPParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void OAEPParameters::engineInit($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, der, $new($DerInputStream, encoded));
 	$set(this, mdName, "SHA-1"_s);
 	$init($MGF1ParameterSpec);
@@ -189,6 +191,7 @@ void OAEPParameters::engineInit($bytes* encoded, $String* decodingMethod) {
 }
 
 $AlgorithmParameterSpec* OAEPParameters::engineGetParameterSpec($Class* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	$load($OAEPParameterSpec);
 	if ($OAEPParameterSpec::class$->isAssignableFrom(paramSpec)) {
 		return $cast($AlgorithmParameterSpec, $nc(paramSpec)->cast($$new($OAEPParameterSpec, this->mdName, "MGF1"_s, this->mgfSpec, $$new($PSource$PSpecified, this->p))));
@@ -198,6 +201,7 @@ $AlgorithmParameterSpec* OAEPParameters::engineGetParameterSpec($Class* paramSpe
 }
 
 $bytes* OAEPParameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$var($DerOutputStream, tmp2, nullptr);
 	$var($DerOutputStream, tmp3, nullptr);
@@ -243,6 +247,7 @@ $bytes* OAEPParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* OAEPParameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($$str({"MD: "_s, this->mdName, "\n"_s}));
 	sb->append($$str({"MGF: MGF1"_s, $($nc(this->mgfSpec)->getDigestAlgorithm()), "\n"_s}));

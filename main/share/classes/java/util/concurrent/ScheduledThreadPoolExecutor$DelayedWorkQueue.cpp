@@ -244,6 +244,7 @@ void ScheduledThreadPoolExecutor$DelayedWorkQueue::setIndex($RunnableScheduledFu
 }
 
 void ScheduledThreadPoolExecutor$DelayedWorkQueue::siftUp(int32_t k, $RunnableScheduledFuture* key) {
+	$useLocalCurrentObjectStackCache();
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
 		$var($RunnableScheduledFuture, e, $nc(this->queue)->get(parent));
@@ -259,6 +260,7 @@ void ScheduledThreadPoolExecutor$DelayedWorkQueue::siftUp(int32_t k, $RunnableSc
 }
 
 void ScheduledThreadPoolExecutor$DelayedWorkQueue::siftDown(int32_t k, $RunnableScheduledFuture* key) {
+	$useLocalCurrentObjectStackCache();
 	int32_t half = (int32_t)((uint32_t)this->size$ >> 1);
 	while (k < half) {
 		int32_t child = (k << 1) + 1;
@@ -306,6 +308,7 @@ int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::indexOf(Object$* x) {
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::contains(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -332,6 +335,7 @@ bool ScheduledThreadPoolExecutor$DelayedWorkQueue::contains(Object$* x) {
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::remove(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -374,6 +378,7 @@ bool ScheduledThreadPoolExecutor$DelayedWorkQueue::remove(Object$* x) {
 }
 
 int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::size() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -408,6 +413,7 @@ int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::remainingCapacity() {
 }
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -434,6 +440,7 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::peek() {
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::offer($Runnable* x) {
+	$useLocalCurrentObjectStackCache();
 	if (x == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -494,6 +501,7 @@ $RunnableScheduledFuture* ScheduledThreadPoolExecutor$DelayedWorkQueue::finishPo
 }
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -522,6 +530,7 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll() {
 }
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::take() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
 	{
@@ -584,6 +593,7 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::take() {
 }
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -658,6 +668,7 @@ $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::poll(int64_t timeout, $Ti
 }
 
 void ScheduledThreadPoolExecutor$DelayedWorkQueue::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -687,6 +698,7 @@ int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::drainTo($Collection* c) {
 }
 
 int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::drainTo($Collection* c, int32_t maxElements) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -736,6 +748,7 @@ int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::drainTo($Collection* c, in
 }
 
 $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -763,6 +776,7 @@ $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray() {
 }
 
 $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -798,6 +812,7 @@ $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray($ObjectArray
 }
 
 $Iterator* ScheduledThreadPoolExecutor$DelayedWorkQueue::iterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{

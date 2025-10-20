@@ -149,6 +149,7 @@ int64_t ByteBufferAsFloatBufferB::byteOffset(int64_t i) {
 }
 
 float ByteBufferAsFloatBufferB::get() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -157,6 +158,7 @@ float ByteBufferAsFloatBufferB::get() {
 }
 
 float ByteBufferAsFloatBufferB::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -165,6 +167,7 @@ float ByteBufferAsFloatBufferB::get(int32_t i) {
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::put(float x) {
+	$useLocalCurrentObjectStackCache();
 	int32_t y = $Float::floatToRawIntBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -174,6 +177,7 @@ $FloatBuffer* ByteBufferAsFloatBufferB::put(float x) {
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::put(int32_t i, float x) {
+	$useLocalCurrentObjectStackCache();
 	int32_t y = $Float::floatToRawIntBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -183,6 +187,7 @@ $FloatBuffer* ByteBufferAsFloatBufferB::put(int32_t i, float x) {
 }
 
 $FloatBuffer* ByteBufferAsFloatBufferB::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!ByteBufferAsFloatBufferB::$assertionsDisabled && !(pos <= lim)) {

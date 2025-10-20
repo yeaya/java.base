@@ -106,6 +106,7 @@ void Nulls::npeExpected() {
 }
 
 void Nulls::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($FileVisitOption);
 		$var($Set, var$0, static_cast<$Set*>($EnumSet::noneOf($FileVisitOption::class$)));

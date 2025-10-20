@@ -190,6 +190,7 @@ GenerateJLIClassesHelper$HolderClassBuilder* GenerateJLIClassesHelper$HolderClas
 }
 
 $Map* GenerateJLIClassesHelper$HolderClassBuilder::build() {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	{
 		$var($Iterator, i$, $nc($($nc(this->dmhMethods)->values()))->iterator());
@@ -291,6 +292,7 @@ $Map* GenerateJLIClassesHelper$HolderClassBuilder::build() {
 
 $MethodType* GenerateJLIClassesHelper$HolderClassBuilder::asMethodType($String* basicSignatureString) {
 	$init(GenerateJLIClassesHelper$HolderClassBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, parts, $nc(basicSignatureString)->split("_"_s));
 	if (!GenerateJLIClassesHelper$HolderClassBuilder::$assertionsDisabled && !(parts->length == 2)) {
 		$throwNew($AssertionError);
@@ -362,6 +364,7 @@ $String* GenerateJLIClassesHelper$HolderClassBuilder::expandSignature($String* s
 
 void GenerateJLIClassesHelper$HolderClassBuilder::requireBasicType(char16_t c) {
 	$init(GenerateJLIClassesHelper$HolderClassBuilder);
+	$useLocalCurrentObjectStackCache();
 	if (!$LambdaForm$BasicType::isArgBasicTypeChar(c)) {
 		$throwNew($RuntimeException, $$str({"Character "_s, $$str(c), " must correspond to a basic field type: LIJFD"_s}));
 	}
@@ -369,6 +372,7 @@ void GenerateJLIClassesHelper$HolderClassBuilder::requireBasicType(char16_t c) {
 
 $Class* GenerateJLIClassesHelper$HolderClassBuilder::simpleType(char16_t c) {
 	$init(GenerateJLIClassesHelper$HolderClassBuilder);
+	$useLocalCurrentObjectStackCache();
 	if ($LambdaForm$BasicType::isBasicTypeChar(c)) {
 		return $nc($($LambdaForm$BasicType::basicType(c)))->basicTypeClass();
 	}
@@ -392,6 +396,7 @@ $Class* GenerateJLIClassesHelper$HolderClassBuilder::simpleType(char16_t c) {
 
 void GenerateJLIClassesHelper$HolderClassBuilder::lambda$build$0($Map* result, $String* types) {
 	$init(GenerateJLIClassesHelper$HolderClassBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, $GenerateJLIClassesHelper::generateConcreteBMHClassBytes(types));
 	$var($Object, var$0, $cast($String, $nc(entry)->getKey()));
 	$nc(result)->put(var$0, $cast($bytes, $(entry->getValue())));

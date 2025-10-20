@@ -195,6 +195,7 @@ $Pattern* Formatter::fsPattern = nullptr;
 
 $Charset* Formatter::toCharset($String* csn) {
 	$init(Formatter);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csn), "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
@@ -223,16 +224,19 @@ void Formatter::init$($Locale* l, $Appendable* a) {
 }
 
 void Formatter::init$($Charset* charset, $Locale* l, $File* file) {
+	$useLocalCurrentObjectStackCache();
 	Formatter::init$(l, static_cast<$Appendable*>($$new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>($$new($FileOutputStream, file)), charset))));
 }
 
 void Formatter::init$() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	$var($Locale, var$0, $Locale::getDefault($Locale$Category::FORMAT));
 	Formatter::init$(var$0, static_cast<$Appendable*>($$new($StringBuilder)));
 }
 
 void Formatter::init$($Appendable* a) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	$var($Locale, var$0, $Locale::getDefault($Locale$Category::FORMAT));
 	Formatter::init$(var$0, $(nonNullAppendable(a)));
@@ -247,6 +251,7 @@ void Formatter::init$($Appendable* a, $Locale* l) {
 }
 
 void Formatter::init$($String* fileName) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	$var($Locale, var$0, $Locale::getDefault($Locale$Category::FORMAT));
 	Formatter::init$(var$0, static_cast<$Appendable*>($$new($BufferedWriter, $$new($OutputStreamWriter, $$new($FileOutputStream, fileName)))));
@@ -258,18 +263,21 @@ void Formatter::init$($String* fileName, $String* csn) {
 }
 
 void Formatter::init$($String* fileName, $String* csn, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, toCharset(csn));
 	$var($Locale, var$1, l);
 	Formatter::init$(var$0, var$1, $$new($File, fileName));
 }
 
 void Formatter::init$($String* fileName, $Charset* charset, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, $cast($Charset, $Objects::requireNonNull($of(charset), "charset"_s)));
 	$var($Locale, var$1, l);
 	Formatter::init$(var$0, var$1, $$new($File, fileName));
 }
 
 void Formatter::init$($File* file) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	$var($Locale, var$0, $Locale::getDefault($Locale$Category::FORMAT));
 	Formatter::init$(var$0, static_cast<$Appendable*>($$new($BufferedWriter, $$new($OutputStreamWriter, $$new($FileOutputStream, file)))));
@@ -295,6 +303,7 @@ void Formatter::init$($PrintStream* ps) {
 }
 
 void Formatter::init$($OutputStream* os) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	$var($Locale, var$0, $Locale::getDefault($Locale$Category::FORMAT));
 	Formatter::init$(var$0, static_cast<$Appendable*>($$new($BufferedWriter, $$new($OutputStreamWriter, os))));
@@ -306,10 +315,12 @@ void Formatter::init$($OutputStream* os, $String* csn) {
 }
 
 void Formatter::init$($OutputStream* os, $String* csn, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	Formatter::init$(l, static_cast<$Appendable*>($$new($BufferedWriter, $$new($OutputStreamWriter, os, csn))));
 }
 
 void Formatter::init$($OutputStream* os, $Charset* charset, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	Formatter::init$(l, static_cast<$Appendable*>($$new($BufferedWriter, $$new($OutputStreamWriter, os, charset))));
 }
 
@@ -356,6 +367,7 @@ void Formatter::flush() {
 }
 
 void Formatter::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->a == nullptr) {
 		return;
 	}
@@ -396,6 +408,7 @@ Formatter* Formatter::format($String* format, $ObjectArray* args) {
 }
 
 Formatter* Formatter::format($Locale* l, $String* format, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	int32_t last = -1;
 	int32_t lasto = -1;
@@ -453,6 +466,7 @@ Formatter* Formatter::format($Locale* l, $String* format, $ObjectArray* args) {
 }
 
 $List* Formatter::parse($String* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, al, $new($ArrayList));
 	int32_t i = 0;
 	int32_t max = $nc(s)->length();

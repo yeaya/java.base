@@ -124,6 +124,7 @@ void StreamDecoder::ensureOpen() {
 
 StreamDecoder* StreamDecoder::forInputStreamReader($InputStream* in, Object$* lock, $String* charsetName) {
 	$init(StreamDecoder);
+	$useLocalCurrentObjectStackCache();
 	$var($String, csn, charsetName);
 	if (csn == nullptr) {
 		$assign(csn, $nc($($Charset::defaultCharset()))->name());
@@ -266,6 +267,7 @@ bool StreamDecoder::isOpen() {
 }
 
 void StreamDecoder::init$($InputStream* in, Object$* lock, $Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	$init($CodingErrorAction);
 	StreamDecoder::init$(in, lock, $($nc($($nc($($nc(cs)->newDecoder()))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)));
 }
@@ -293,6 +295,7 @@ void StreamDecoder::init$($ReadableByteChannel* ch, $CharsetDecoder* dec, int32_
 }
 
 int32_t StreamDecoder::readBytes() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->bb)->compact();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -348,6 +351,7 @@ int32_t StreamDecoder::readBytes() {
 }
 
 int32_t StreamDecoder::implRead($chars* cbuf, int32_t off, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	if (!StreamDecoder::$assertionsDisabled && !(end - off > 1)) {
 		$throwNew($AssertionError);
 	}

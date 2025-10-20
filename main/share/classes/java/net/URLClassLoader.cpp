@@ -281,6 +281,7 @@ void URLClassLoader::init$($String* name, $URLArray* urls, $ClassLoader* parent,
 }
 
 $InputStream* URLClassLoader::getResourceAsStream($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($URL, url, getResource(name));
 	try {
@@ -318,6 +319,7 @@ $InputStream* URLClassLoader::getResourceAsStream($String* name) {
 }
 
 void URLClassLoader::close() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPermission($$new($RuntimePermission, "closeClassLoader"_s));
@@ -366,6 +368,7 @@ $URLArray* URLClassLoader::getURLs() {
 }
 
 $Class* URLClassLoader::findClass($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* result = nullptr;
 	try {
@@ -381,6 +384,7 @@ $Class* URLClassLoader::findClass($String* name) {
 }
 
 $Package* URLClassLoader::getAndVerifyPackage($String* pkgname, $Manifest* man, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($Package, pkg, getDefinedPackage(pkgname));
 	if (pkg != nullptr) {
 		if (pkg->isSealed()) {
@@ -395,6 +399,7 @@ $Package* URLClassLoader::getAndVerifyPackage($String* pkgname, $Manifest* man, 
 }
 
 $Class* URLClassLoader::defineClass($String* name, $Resource* res) {
+	$useLocalCurrentObjectStackCache();
 	int64_t t0 = $System::nanoTime();
 	int32_t i = $nc(name)->lastIndexOf((int32_t)u'.');
 	$var($URL, url, $nc(res)->getCodeSourceURL());
@@ -432,6 +437,7 @@ $Class* URLClassLoader::defineClass($String* name, $Resource* res) {
 }
 
 $Package* URLClassLoader::definePackage($String* name, $Manifest* man, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, specTitle, nullptr);
 	$var($String, specVersion, nullptr);
 	$var($String, specVendor, nullptr);
@@ -489,6 +495,7 @@ $Package* URLClassLoader::definePackage($String* name, $Manifest* man, $URL* url
 }
 
 bool URLClassLoader::isSealed($String* name, $Manifest* man) {
+	$useLocalCurrentObjectStackCache();
 	$var($Attributes, attr, $nc($($SharedSecrets::javaUtilJarAccess()))->getTrustedAttributes(man, $($($nc(name)->replace(u'.', u'/'))->concat("/"_s))));
 	$var($String, sealed, nullptr);
 	if (attr != nullptr) {
@@ -505,6 +512,7 @@ bool URLClassLoader::isSealed($String* name, $Manifest* man) {
 }
 
 $URL* URLClassLoader::findResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($URL, url, $cast($URL, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$2, this, name)), this->acc)));
 	return url != nullptr ? $URLClassPath::checkURL(url) : ($URL*)nullptr;
@@ -516,6 +524,7 @@ $Enumeration* URLClassLoader::findResources($String* name) {
 }
 
 $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PermissionCollection, perms, $SecureClassLoader::getPermissions(codesource));
 	$var($URL, url, $nc(codesource)->getLocation());
@@ -570,6 +579,7 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 
 URLClassLoader* URLClassLoader::newInstance($URLArray* urls, $ClassLoader* parent) {
 	$init(URLClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($AccessControlContext, acc, $AccessController::getContext());
 	$var(URLClassLoader, ucl, $cast(URLClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$5, urls, parent, acc)))));
@@ -578,6 +588,7 @@ URLClassLoader* URLClassLoader::newInstance($URLArray* urls, $ClassLoader* paren
 
 URLClassLoader* URLClassLoader::newInstance($URLArray* urls) {
 	$init(URLClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($AccessControlContext, acc, $AccessController::getContext());
 	$var(URLClassLoader, ucl, $cast(URLClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$6, urls, acc)))));

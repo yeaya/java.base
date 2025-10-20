@@ -82,6 +82,7 @@ void OpRead::init$() {
 
 void OpRead::test() {
 	$init(OpRead);
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, nullptr);
 	$var($SocketChannel, sc, nullptr);
 	$var($SocketChannel, peer, nullptr);

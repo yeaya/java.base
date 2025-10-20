@@ -100,6 +100,7 @@ void FinalizeOverride::init$() {
 
 void FinalizeOverride::main($StringArray* argvs) {
 	$init(FinalizeOverride);
+	$useLocalCurrentObjectStackCache();
 	patchPrivateFinalize();
 	test($$new($FinalizeOverride$Base, 10), 10);
 	test($$new($FinalizeOverride$Subclass, 20), 0);
@@ -111,6 +112,7 @@ void FinalizeOverride::main($StringArray* argvs) {
 
 void FinalizeOverride::test(Object$* o$renamed, int32_t expected) {
 	$init(FinalizeOverride);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, o, o$renamed);
 	int32_t count = $nc(FinalizeOverride::finalizedCount)->get();
 	int32_t sum = $nc(FinalizeOverride::finalizedSum)->get();
@@ -139,6 +141,7 @@ void FinalizeOverride::test(Object$* o$renamed, int32_t expected) {
 
 void FinalizeOverride::patchPrivateFinalize() {
 	$init(FinalizeOverride);
+	$useLocalCurrentObjectStackCache();
 	$var($String, testClasses, $System::getProperty("test.classes"_s, "."_s));
 	$var($Path, p, $Paths::get(testClasses, $$new($StringArray, {"FinalizeOverride$PrivateFinalize.class"_s})));
 	$var($bytes, bytes, $Files::readAllBytes(p));

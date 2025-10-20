@@ -76,6 +76,7 @@ void Lock$LockWorkerMirror::init$($SocketChannel* sc) {
 }
 
 void Lock$LockWorkerMirror::sendCommand($String* cmd$renamed, $StringArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cmd, cmd$renamed);
 	{
 		$var($StringArray, arr$, params);
@@ -118,6 +119,7 @@ Lock$LockWorkerMirror* Lock$LockWorkerMirror::lock() {
 }
 
 Lock$LockWorkerMirror* Lock$LockWorkerMirror::lock(int64_t position, int64_t size, bool shared) {
+	$useLocalCurrentObjectStackCache();
 	sendCommand("lock"_s, $$new($StringArray, {$$str({$$str(position), ","_s, $$str(size), ","_s, $$str(shared)})}));
 	return this;
 }

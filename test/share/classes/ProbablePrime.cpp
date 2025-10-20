@@ -43,6 +43,7 @@ void ProbablePrime::init$() {
 }
 
 void ProbablePrime::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, num, $new($BigInteger, "4"_s));
 	$var($ints, certainties, $new($ints, {
 		-1,

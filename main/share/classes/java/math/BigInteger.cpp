@@ -490,6 +490,7 @@ void BigInteger::init$($ints* val) {
 }
 
 void BigInteger::init$(int32_t signum, $bytes* magnitude, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	if (signum < -1 || signum > 1) {
 		$throw($$new($NumberFormatException, "Invalid signum value"_s));
@@ -514,6 +515,7 @@ void BigInteger::init$(int32_t signum, $bytes* magnitude) {
 }
 
 void BigInteger::init$(int32_t signum, $ints* magnitude) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	$set(this, mag, stripLeadingZeroInts(magnitude));
 	if (signum < -1 || signum > 1) {
@@ -533,6 +535,7 @@ void BigInteger::init$(int32_t signum, $ints* magnitude) {
 }
 
 void BigInteger::init$($String* val, int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	int32_t cursor = 0;
 	int32_t numDigits = 0;
@@ -605,6 +608,7 @@ void BigInteger::init$($String* val, int32_t radix) {
 }
 
 void BigInteger::init$($chars* val, int32_t sign, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	int32_t cursor = 0;
 	int32_t numDigits = 0;
@@ -649,6 +653,7 @@ void BigInteger::init$($chars* val, int32_t sign, int32_t len) {
 }
 
 int32_t BigInteger::parseInt($chars* source, int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $Character::digit($nc(source)->get(start++), 10);
 	if (result == -1) {
 		$throwNew($NumberFormatException, $$new($String, source));
@@ -690,6 +695,7 @@ void BigInteger::init$($String* val) {
 }
 
 void BigInteger::init$(int32_t numBits, $Random* rnd) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	$var($bytes, magnitude, randomBits(numBits, rnd));
 	{
@@ -751,6 +757,7 @@ BigInteger* BigInteger::probablePrime(int32_t bitLength, $Random* rnd) {
 
 BigInteger* BigInteger::smallPrime(int32_t bitLength, int32_t certainty, $Random* rnd) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	int32_t magLen = (int32_t)((uint32_t)(bitLength + 31) >> 5);
 	$var($ints, temp, $new($ints, magLen));
 	int32_t highBit = $sl(1, (int32_t)((bitLength + 31) & (uint32_t)31));
@@ -781,6 +788,7 @@ BigInteger* BigInteger::smallPrime(int32_t bitLength, int32_t certainty, $Random
 
 BigInteger* BigInteger::largePrime(int32_t bitLength, int32_t certainty, $Random* rnd) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var(BigInteger, p, nullptr);
 	$assign(p, $$new(BigInteger, bitLength, rnd)->setBit(bitLength - 1));
 	(*$nc($nc(p)->mag))[$nc(p->mag)->length - 1] &= (uint32_t)-2;
@@ -800,6 +808,7 @@ BigInteger* BigInteger::largePrime(int32_t bitLength, int32_t certainty, $Random
 }
 
 BigInteger* BigInteger::nextProbablePrime() {
+	$useLocalCurrentObjectStackCache();
 	if (this->signum$ < 0) {
 		$throwNew($ArithmeticException, $$str({"start < 0: "_s, this}));
 	}
@@ -876,6 +885,7 @@ bool BigInteger::primeToCertainty(int32_t certainty, $Random* random) {
 }
 
 bool BigInteger::passesLucasLehmer() {
+	$useLocalCurrentObjectStackCache();
 	$var(BigInteger, thisPlusOne, this->add(BigInteger::ONE));
 	int32_t d = 5;
 	while (jacobiSymbol(d, this) != -1) {
@@ -887,6 +897,7 @@ bool BigInteger::passesLucasLehmer() {
 
 int32_t BigInteger::jacobiSymbol(int32_t p, BigInteger* n) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (p == 0) {
 		return 0;
 	}
@@ -944,6 +955,7 @@ int32_t BigInteger::jacobiSymbol(int32_t p, BigInteger* n) {
 
 BigInteger* BigInteger::lucasLehmerSequence(int32_t z, BigInteger* k, BigInteger* n) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var(BigInteger, d, BigInteger::valueOf((int64_t)z));
 	$var(BigInteger, u, BigInteger::ONE);
 	$var(BigInteger, u2, nullptr);
@@ -977,6 +989,7 @@ BigInteger* BigInteger::lucasLehmerSequence(int32_t z, BigInteger* k, BigInteger
 }
 
 bool BigInteger::passesMillerRabin(int32_t iterations, $Random* rnd$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Random, rnd, rnd$renamed);
 	$var(BigInteger, thisMinusOne, this->subtract(BigInteger::ONE));
 	$var(BigInteger, m, thisMinusOne);
@@ -1078,6 +1091,7 @@ BigInteger* BigInteger::valueOf($ints* val) {
 }
 
 BigInteger* BigInteger::add(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->signum$ == 0) {
 		return this;
 	}
@@ -1097,6 +1111,7 @@ BigInteger* BigInteger::add(BigInteger* val) {
 }
 
 BigInteger* BigInteger::add(int64_t val) {
+	$useLocalCurrentObjectStackCache();
 	if (val == 0) {
 		return this;
 	}
@@ -1117,6 +1132,7 @@ BigInteger* BigInteger::add(int64_t val) {
 
 $ints* BigInteger::add($ints* x, int64_t val) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, y, nullptr);
 	int64_t sum = 0;
 	int32_t xIndex = $nc(x)->length;
@@ -1159,6 +1175,7 @@ $ints* BigInteger::add($ints* x, int64_t val) {
 
 $ints* BigInteger::add($ints* x$renamed, $ints* y$renamed) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, x, x$renamed);
 	$var($ints, y, y$renamed);
 	if ($nc(x)->length < $nc(y)->length) {
@@ -1199,6 +1216,7 @@ $ints* BigInteger::add($ints* x$renamed, $ints* y$renamed) {
 
 $ints* BigInteger::subtract(int64_t val, $ints* little) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	int32_t highWord = (int32_t)((int64_t)((uint64_t)val >> 32));
 	if (highWord == 0) {
 		$var($ints, result, $new($ints, 1));
@@ -1254,6 +1272,7 @@ $ints* BigInteger::subtract($ints* big, int64_t val) {
 }
 
 BigInteger* BigInteger::subtract(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->signum$ == 0) {
 		return this;
 	}
@@ -1333,6 +1352,7 @@ BigInteger* BigInteger::multiply(BigInteger* val, bool isRecursion) {
 
 BigInteger* BigInteger::multiplyByInt($ints* x, int32_t y, int32_t sign) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	if ($Integer::bitCount(y) == 1) {
 		return $new(BigInteger, $(shiftLeft(x, $Integer::numberOfTrailingZeros(y))), sign);
 	}
@@ -1355,6 +1375,7 @@ BigInteger* BigInteger::multiplyByInt($ints* x, int32_t y, int32_t sign) {
 }
 
 BigInteger* BigInteger::multiply(int64_t v) {
+	$useLocalCurrentObjectStackCache();
 	if (v == 0 || this->signum$ == 0) {
 		return BigInteger::ZERO;
 	}
@@ -1449,6 +1470,7 @@ void BigInteger::multiplyToLenCheck($ints* array, int32_t length) {
 
 BigInteger* BigInteger::multiplyKaratsuba(BigInteger* x, BigInteger* y) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	int32_t xlen = $nc($nc(x)->mag)->length;
 	int32_t ylen = $nc($nc(y)->mag)->length;
 	int32_t half = ($Math::max(xlen, ylen) + 1) / 2;
@@ -1469,6 +1491,7 @@ BigInteger* BigInteger::multiplyKaratsuba(BigInteger* x, BigInteger* y) {
 
 BigInteger* BigInteger::multiplyToomCook3(BigInteger* a, BigInteger* b) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	int32_t alen = $nc($nc(a)->mag)->length;
 	int32_t blen = $nc($nc(b)->mag)->length;
 	int32_t largest = $Math::max(alen, blen);
@@ -1522,6 +1545,7 @@ BigInteger* BigInteger::multiplyToomCook3(BigInteger* a, BigInteger* b) {
 }
 
 BigInteger* BigInteger::getToomSlice(int32_t lowerSize, int32_t upperSize, int32_t slice, int32_t fullsize) {
+	$useLocalCurrentObjectStackCache();
 	int32_t start = 0;
 	int32_t end = 0;
 	int32_t sliceSize = 0;
@@ -1584,6 +1608,7 @@ BigInteger* BigInteger::exactDivideBy3() {
 }
 
 BigInteger* BigInteger::getLower(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(this->mag)->length;
 	if (len <= n) {
 		return abs();
@@ -1594,6 +1619,7 @@ BigInteger* BigInteger::getLower(int32_t n) {
 }
 
 BigInteger* BigInteger::getUpper(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(this->mag)->length;
 	if (len <= n) {
 		return BigInteger::ZERO;
@@ -1609,6 +1635,7 @@ BigInteger* BigInteger::square() {
 }
 
 BigInteger* BigInteger::square(bool isRecursion) {
+	$useLocalCurrentObjectStackCache();
 	if (this->signum$ == 0) {
 		return BigInteger::ZERO;
 	}
@@ -1641,6 +1668,7 @@ $ints* BigInteger::squareToLen($ints* x, int32_t len, $ints* z$renamed) {
 
 void BigInteger::implSquareToLenChecks($ints* x, int32_t len, $ints* z, int32_t zlen) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (len < 1) {
 		$throwNew($IllegalArgumentException, $$str({"invalid input length: "_s, $$str(len)}));
 	}
@@ -1687,6 +1715,7 @@ $ints* BigInteger::implSquareToLen($ints* x, int32_t len, $ints* z, int32_t zlen
 }
 
 BigInteger* BigInteger::squareKaratsuba() {
+	$useLocalCurrentObjectStackCache();
 	int32_t half = ($nc(this->mag)->length + 1) / 2;
 	$var(BigInteger, xl, getLower(half));
 	$var(BigInteger, xh, getUpper(half));
@@ -1696,6 +1725,7 @@ BigInteger* BigInteger::squareKaratsuba() {
 }
 
 BigInteger* BigInteger::squareToomCook3() {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(this->mag)->length;
 	int32_t k = (len + 2) / 3;
 	int32_t r = len - 2 * k;
@@ -1741,6 +1771,7 @@ BigInteger* BigInteger::divide(BigInteger* val) {
 }
 
 BigInteger* BigInteger::divideKnuth(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($MutableBigInteger, q, $new($MutableBigInteger));
 	$var($MutableBigInteger, a, $new($MutableBigInteger, this->mag));
 	$var($MutableBigInteger, b, $new($MutableBigInteger, $nc(val)->mag));
@@ -1757,6 +1788,7 @@ $BigIntegerArray* BigInteger::divideAndRemainder(BigInteger* val) {
 }
 
 $BigIntegerArray* BigInteger::divideAndRemainderKnuth(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigIntegerArray, result, $new($BigIntegerArray, 2));
 	$var($MutableBigInteger, q, $new($MutableBigInteger));
 	$var($MutableBigInteger, a, $new($MutableBigInteger, this->mag));
@@ -1776,6 +1808,7 @@ BigInteger* BigInteger::remainder(BigInteger* val) {
 }
 
 BigInteger* BigInteger::remainderKnuth(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($MutableBigInteger, q, $new($MutableBigInteger));
 	$var($MutableBigInteger, a, $new($MutableBigInteger, this->mag));
 	$var($MutableBigInteger, b, $new($MutableBigInteger, $nc(val)->mag));
@@ -1791,6 +1824,7 @@ BigInteger* BigInteger::remainderBurnikelZiegler(BigInteger* val) {
 }
 
 $BigIntegerArray* BigInteger::divideAndRemainderBurnikelZiegler(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($MutableBigInteger, q, $new($MutableBigInteger));
 	$var($MutableBigInteger, r, $$new($MutableBigInteger, this)->divideAndRemainderBurnikelZiegler($$new($MutableBigInteger, val), q));
 	$var(BigInteger, qBigInt, q->isZero() ? BigInteger::ZERO : q->toBigInteger(this->signum$ * $nc(val)->signum$));
@@ -1802,6 +1836,7 @@ $BigIntegerArray* BigInteger::divideAndRemainderBurnikelZiegler(BigInteger* val)
 }
 
 BigInteger* BigInteger::pow(int32_t exponent) {
+	$useLocalCurrentObjectStackCache();
 	if (exponent < 0) {
 		$throwNew($ArithmeticException, "Negative exponent"_s);
 	}
@@ -1885,6 +1920,7 @@ BigInteger* BigInteger::pow(int32_t exponent) {
 }
 
 BigInteger* BigInteger::sqrt() {
+	$useLocalCurrentObjectStackCache();
 	if (this->signum$ < 0) {
 		$throwNew($ArithmeticException, "Negative BigInteger"_s);
 	}
@@ -1892,6 +1928,7 @@ BigInteger* BigInteger::sqrt() {
 }
 
 $BigIntegerArray* BigInteger::sqrtAndRemainder() {
+	$useLocalCurrentObjectStackCache();
 	$var(BigInteger, s, sqrt());
 	$var(BigInteger, r, this->subtract($($nc(s)->square())));
 	if (!BigInteger::$assertionsDisabled && !($nc(r)->compareTo(BigInteger::ZERO) >= 0)) {
@@ -1904,6 +1941,7 @@ $BigIntegerArray* BigInteger::sqrtAndRemainder() {
 }
 
 BigInteger* BigInteger::gcd(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->signum$ == 0) {
 		return this->abs();
 	} else if (this->signum$ == 0) {
@@ -1922,6 +1960,7 @@ int32_t BigInteger::bitLengthForInt(int32_t n) {
 
 $ints* BigInteger::leftShift($ints* a, int32_t len, int32_t n) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	int32_t nInts = (int32_t)((uint32_t)n >> 5);
 	int32_t nBits = (int32_t)(n & (uint32_t)31);
 	int32_t bitsInHighWord = bitLengthForInt($nc(a)->get(0));
@@ -1987,6 +2026,7 @@ BigInteger* BigInteger::mod(BigInteger* m) {
 }
 
 BigInteger* BigInteger::modPow(BigInteger* exponent$renamed, BigInteger* m) {
+	$useLocalCurrentObjectStackCache();
 	$var(BigInteger, exponent, exponent$renamed);
 	if ($nc(m)->signum$ <= 0) {
 		$throwNew($ArithmeticException, "BigInteger: modulus not positive"_s);
@@ -2038,6 +2078,7 @@ BigInteger* BigInteger::modPow(BigInteger* exponent$renamed, BigInteger* m) {
 
 $ints* BigInteger::montgomeryMultiply($ints* a, $ints* b, $ints* n, int32_t len, int64_t inv, $ints* product$renamed) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, product, product$renamed);
 	implMontgomeryMultiplyChecks(a, b, n, len, product);
 	if (len > BigInteger::MONTGOMERY_INTRINSIC_THRESHOLD) {
@@ -2050,6 +2091,7 @@ $ints* BigInteger::montgomeryMultiply($ints* a, $ints* b, $ints* n, int32_t len,
 
 $ints* BigInteger::montgomerySquare($ints* a, $ints* n, int32_t len, int64_t inv, $ints* product$renamed) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, product, product$renamed);
 	implMontgomeryMultiplyChecks(a, a, n, len, product);
 	if (len > BigInteger::MONTGOMERY_INTRINSIC_THRESHOLD) {
@@ -2062,6 +2104,7 @@ $ints* BigInteger::montgomerySquare($ints* a, $ints* n, int32_t len, int64_t inv
 
 void BigInteger::implMontgomeryMultiplyChecks($ints* a, $ints* b, $ints* n, int32_t len, $ints* product) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (len % 2 != 0) {
 		$throwNew($IllegalArgumentException, $$str({"input array length must be even: "_s, $$str(len)}));
 	}
@@ -2097,6 +2140,7 @@ $ints* BigInteger::implMontgomerySquare($ints* a, $ints* n, int32_t len, int64_t
 }
 
 BigInteger* BigInteger::oddModPow(BigInteger* y, BigInteger* z) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(y)->equals(BigInteger::ONE)) {
 		return this;
 	}
@@ -2275,6 +2319,7 @@ int32_t BigInteger::mulAdd($ints* out, $ints* in, int32_t offset, int32_t len, i
 
 void BigInteger::implMulAddCheck($ints* out, $ints* in, int32_t offset, int32_t len, int32_t k) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (len > $nc(in)->length) {
 		$throwNew($IllegalArgumentException, $$str({"input length is out of bound: "_s, $$str(len), " > "_s, $$str(in->length)}));
 	}
@@ -2324,6 +2369,7 @@ int32_t BigInteger::addOne($ints* a, int32_t offset, int32_t mlen, int32_t carry
 }
 
 BigInteger* BigInteger::modPow2(BigInteger* exponent, int32_t p) {
+	$useLocalCurrentObjectStackCache();
 	$var(BigInteger, result, BigInteger::ONE);
 	$var(BigInteger, baseToPow2, this->mod2(p));
 	int32_t expOffset = 0;
@@ -2356,6 +2402,7 @@ BigInteger* BigInteger::mod2(int32_t p) {
 }
 
 BigInteger* BigInteger::modInverse(BigInteger* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->signum$ != 1) {
 		$throwNew($ArithmeticException, "BigInteger: modulus not positive"_s);
 	}
@@ -2706,6 +2753,7 @@ int32_t BigInteger::compareTo(BigInteger* val) {
 }
 
 int32_t BigInteger::compareMagnitude(BigInteger* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, m1, this->mag);
 	int32_t len1 = $nc(m1)->length;
 	$var($ints, m2, $nc(val)->mag);
@@ -2771,6 +2819,7 @@ int32_t BigInteger::compareMagnitude(int64_t val) {
 }
 
 bool BigInteger::equals(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(x, this)) {
 		return true;
 	}
@@ -2817,6 +2866,7 @@ int32_t BigInteger::hashCode() {
 }
 
 $String* BigInteger::toString(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if (this->signum$ == 0) {
 		return "0"_s;
 	}
@@ -2846,6 +2896,7 @@ void BigInteger::padWithZeros($StringBuilder* buf, int32_t numZeros) {
 }
 
 void BigInteger::smallToString(int32_t radix, $StringBuilder* buf, int32_t digits) {
+	$useLocalCurrentObjectStackCache();
 	if (!BigInteger::$assertionsDisabled && !(this->signum$ >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -2883,6 +2934,7 @@ void BigInteger::smallToString(int32_t radix, $StringBuilder* buf, int32_t digit
 
 void BigInteger::toString(BigInteger* u, $StringBuilder* sb, int32_t radix, int32_t digits) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (!BigInteger::$assertionsDisabled && !($nc(u)->signum() >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -2902,6 +2954,7 @@ void BigInteger::toString(BigInteger* u, $StringBuilder* sb, int32_t radix, int3
 
 BigInteger* BigInteger::getRadixConversionCache(int32_t radix, int32_t exponent) {
 	$init(BigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var($BigIntegerArray, cacheLine, $nc(BigInteger::powerCache)->get(radix));
 	if (exponent < $nc(cacheLine)->length) {
 		return cacheLine->get(exponent);
@@ -3159,6 +3212,7 @@ int32_t BigInteger::firstNonzeroIntNum() {
 }
 
 void BigInteger::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	int32_t sign = $nc(fields)->get("signum"_s, -2);
 	$var($bytes, magnitude, $cast($bytes, fields->get("magnitude"_s, ($Object*)nullptr)));
@@ -3190,6 +3244,7 @@ void BigInteger::readObject($ObjectInputStream* s) {
 }
 
 void BigInteger::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 	$nc(fields)->put("signum"_s, this->signum$);
 	fields->put("magnitude"_s, $($of(magSerializedForm())));
@@ -3265,6 +3320,7 @@ int32_t BigInteger::compareTo(Object$* val) {
 }
 
 void clinit$BigInteger($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	BigInteger::$assertionsDisabled = !BigInteger::class$->desiredAssertionStatus();
 	$assignStatic(BigInteger::bitsPerDigit, $new($longs, {
 		(int64_t)0,

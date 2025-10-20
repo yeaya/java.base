@@ -135,6 +135,7 @@ ExplodedImage$PathNode* ExplodedImage$PathNode::resolveLink(bool recursive) {
 }
 
 $bytes* ExplodedImage$PathNode::getContent() {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($(getFileAttributes()))->isRegularFile()) {
 		$throwNew($FileSystemException, $$str({$(getName()), " is not file"_s}));
 	}
@@ -142,6 +143,7 @@ $bytes* ExplodedImage$PathNode::getContent() {
 }
 
 $List* ExplodedImage$PathNode::getChildren() {
+	$useLocalCurrentObjectStackCache();
 	if (!isDirectory()) {
 		$throwNew($IllegalArgumentException, $$str({"not a directory: "_s, $(getNameString())}));
 	}

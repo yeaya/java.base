@@ -72,6 +72,7 @@ void Certificate::init$() {
 }
 
 bool Certificate::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -98,6 +99,7 @@ bool Certificate::equals(Object$* other) {
 }
 
 int32_t Certificate::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	try {
 		$var($bytes, certData, this->getEncoded());

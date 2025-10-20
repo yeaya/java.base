@@ -71,6 +71,7 @@ void DomainName$Rules$1::init$() {
 }
 
 $Object* DomainName$Rules$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("java.home"_s)), "lib/security/public_suffix_list.dat"_s));
 	try {
 		return $of($new($FileInputStream, f));

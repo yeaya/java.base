@@ -317,6 +317,7 @@ int64_t VarHandleByteArrayAsFloats$ArrayHandle::address($bytes* ba, int32_t inde
 
 float VarHandleByteArrayAsFloats$ArrayHandle::get($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -327,6 +328,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::get($VarHandle* ob, Object$* oba, 
 
 void VarHandleByteArrayAsFloats$ArrayHandle::set($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -338,6 +340,7 @@ void VarHandleByteArrayAsFloats$ArrayHandle::set($VarHandle* ob, Object$* oba, i
 
 float VarHandleByteArrayAsFloats$ArrayHandle::getVolatile($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -346,6 +349,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::getVolatile($VarHandle* ob, Object
 
 void VarHandleByteArrayAsFloats$ArrayHandle::setVolatile($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -356,6 +360,7 @@ void VarHandleByteArrayAsFloats$ArrayHandle::setVolatile($VarHandle* ob, Object$
 
 float VarHandleByteArrayAsFloats$ArrayHandle::getAcquire($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -364,6 +369,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::getAcquire($VarHandle* ob, Object$
 
 void VarHandleByteArrayAsFloats$ArrayHandle::setRelease($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -374,6 +380,7 @@ void VarHandleByteArrayAsFloats$ArrayHandle::setRelease($VarHandle* ob, Object$*
 
 float VarHandleByteArrayAsFloats$ArrayHandle::getOpaque($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -382,6 +389,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::getOpaque($VarHandle* ob, Object$*
 
 void VarHandleByteArrayAsFloats$ArrayHandle::setOpaque($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -392,6 +400,7 @@ void VarHandleByteArrayAsFloats$ArrayHandle::setOpaque($VarHandle* ob, Object$* 
 
 bool VarHandleByteArrayAsFloats$ArrayHandle::compareAndSet($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -403,6 +412,7 @@ bool VarHandleByteArrayAsFloats$ArrayHandle::compareAndSet($VarHandle* ob, Objec
 
 float VarHandleByteArrayAsFloats$ArrayHandle::compareAndExchange($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -414,6 +424,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::compareAndExchange($VarHandle* ob,
 
 float VarHandleByteArrayAsFloats$ArrayHandle::compareAndExchangeAcquire($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -425,6 +436,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::compareAndExchangeAcquire($VarHand
 
 float VarHandleByteArrayAsFloats$ArrayHandle::compareAndExchangeRelease($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -436,6 +448,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::compareAndExchangeRelease($VarHand
 
 bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSetPlain($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -447,6 +460,7 @@ bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSetPlain($VarHandle* 
 
 bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSet($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -458,6 +472,7 @@ bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSet($VarHandle* ob, O
 
 bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSetAcquire($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -469,6 +484,7 @@ bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSetAcquire($VarHandle
 
 bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSetRelease($VarHandle* ob, Object$* oba, int32_t index, float expected, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -480,6 +496,7 @@ bool VarHandleByteArrayAsFloats$ArrayHandle::weakCompareAndSetRelease($VarHandle
 
 float VarHandleByteArrayAsFloats$ArrayHandle::getAndSet($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -490,6 +507,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::getAndSet($VarHandle* ob, Object$*
 
 float VarHandleByteArrayAsFloats$ArrayHandle::getAndSetAcquire($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -500,6 +518,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::getAndSetAcquire($VarHandle* ob, O
 
 float VarHandleByteArrayAsFloats$ArrayHandle::getAndSetRelease($VarHandle* ob, Object$* oba, int32_t index, float value) {
 	$init(VarHandleByteArrayAsFloats$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsFloats$ArrayHandle, handle, $cast(VarHandleByteArrayAsFloats$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -509,6 +528,7 @@ float VarHandleByteArrayAsFloats$ArrayHandle::getAndSetRelease($VarHandle* ob, O
 }
 
 void clinit$VarHandleByteArrayAsFloats$ArrayHandle($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(VarHandleByteArrayAsFloats$ArrayHandle::OOBEF, $Preconditions::outOfBoundsExceptionFormatter(static_cast<$Function*>($$new(VarHandleByteArrayAsFloats$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException))));
 	$load($bytes);
 	$init($Float);

@@ -61,6 +61,7 @@ void ReadToLimit::init$() {
 }
 
 void ReadToLimit::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	initTestFile(blah);
@@ -83,6 +84,7 @@ void ReadToLimit::main($StringArray* args) {
 }
 
 void ReadToLimit::initTestFile($File* blah) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
 	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>(fos), "8859_1"_s)));
 	for (int32_t i = 0; i < 4; ++i) {

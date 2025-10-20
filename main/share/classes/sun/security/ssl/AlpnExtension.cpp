@@ -168,6 +168,7 @@ $String* AlpnExtension::lambda$static$0() {
 }
 
 void clinit$AlpnExtension($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(AlpnExtension::chNetworkProducer, $new($AlpnExtension$CHAlpnProducer));
 	$assignStatic(AlpnExtension::chOnLoadConsumer, $new($AlpnExtension$CHAlpnConsumer));

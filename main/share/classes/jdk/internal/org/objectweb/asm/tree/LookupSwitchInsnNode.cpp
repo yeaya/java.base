@@ -86,6 +86,7 @@ int32_t LookupSwitchInsnNode::getType() {
 }
 
 void LookupSwitchInsnNode::accept($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, keysArray, $new($ints, $nc(this->keys)->size()));
 	{
 		int32_t i = 0;
@@ -107,6 +108,7 @@ void LookupSwitchInsnNode::accept($MethodVisitor* methodVisitor) {
 }
 
 $AbstractInsnNode* LookupSwitchInsnNode::clone($Map* clonedLabels) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelNode, var$0, $AbstractInsnNode::clone(this->dflt, clonedLabels));
 	$var(LookupSwitchInsnNode, clone, $new(LookupSwitchInsnNode, var$0, nullptr, $($AbstractInsnNode::clone(this->labels, clonedLabels))));
 	$nc(clone->keys)->addAll(this->keys);

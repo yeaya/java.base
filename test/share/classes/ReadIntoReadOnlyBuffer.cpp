@@ -60,6 +60,7 @@ void ReadIntoReadOnlyBuffer::init$() {
 
 void ReadIntoReadOnlyBuffer::main($StringArray* args) {
 	$init(ReadIntoReadOnlyBuffer);
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, buf, $nc($($CharBuffer::allocate(8)))->asReadOnlyBuffer());
 	$var($StringReader, r, $new($StringReader, ReadIntoReadOnlyBuffer::THE_STRING));
 	read(r, buf);
@@ -70,6 +71,7 @@ void ReadIntoReadOnlyBuffer::main($StringArray* args) {
 
 void ReadIntoReadOnlyBuffer::read($Reader* r, $CharBuffer* b) {
 	$init(ReadIntoReadOnlyBuffer);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(r)->read(b);
 		$throwNew($RuntimeException, "ReadOnlyBufferException expected"_s);

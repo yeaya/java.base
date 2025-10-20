@@ -89,6 +89,7 @@ $Class* StackStreamFactory$CallerClassFinder$ClassBuffer::at(int32_t index) {
 }
 
 void StackStreamFactory$CallerClassFinder$ClassBuffer::resize(int32_t startIndex, int32_t elements) {
+	$useLocalCurrentObjectStackCache();
 	if (!isActive()) {
 		$throwNew($IllegalStateException, "inactive frame buffer can\'t be resized"_s);
 	}

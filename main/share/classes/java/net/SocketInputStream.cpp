@@ -111,6 +111,7 @@ int32_t SocketInputStream::read($bytes* b, int32_t off, int32_t length) {
 }
 
 int32_t SocketInputStream::read($bytes* b, int32_t off, int32_t length, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	if (this->eof) {
 		return -1;

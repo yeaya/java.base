@@ -90,6 +90,7 @@ void CloseTimeoutChannel$AcceptorThread::init$($ServerSocketChannel* listener) {
 }
 
 void CloseTimeoutChannel$AcceptorThread::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

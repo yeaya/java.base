@@ -104,6 +104,7 @@ bool SessionId::equals(Object$* obj) {
 }
 
 void SessionId::checkLength(int32_t protocolVersion) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->sessionId)->length > SessionId::MAX_LENGTH) {
 		$throwNew($SSLProtocolException, $$str({"Invalid session ID length ("_s, $$str($nc(this->sessionId)->length), " bytes)"_s}));
 	}

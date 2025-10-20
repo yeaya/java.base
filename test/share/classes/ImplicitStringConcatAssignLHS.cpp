@@ -74,6 +74,7 @@ void ImplicitStringConcatAssignLHS::init$() {
 }
 
 void ImplicitStringConcatAssignLHS::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init(ImplicitStringConcatAssignLHS);
 		ImplicitStringConcatAssignLHS::x = 0;
@@ -158,6 +159,7 @@ void ImplicitStringConcatAssignLHS::main($StringArray* args) {
 }
 
 void ImplicitStringConcatAssignLHS::check(int32_t expected, $String* label) {
+	$useLocalCurrentObjectStackCache();
 	$init(ImplicitStringConcatAssignLHS);
 	if (ImplicitStringConcatAssignLHS::x != expected) {
 		$var($StringBuilder, sb, $new($StringBuilder));

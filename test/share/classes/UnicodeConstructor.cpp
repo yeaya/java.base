@@ -44,6 +44,7 @@ void UnicodeConstructor::init$() {
 }
 
 void UnicodeConstructor::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigInteger, b1, $new($BigInteger, u"\uff10"_s));
 		$init($System);

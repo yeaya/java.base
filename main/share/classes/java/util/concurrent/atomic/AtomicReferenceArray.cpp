@@ -214,6 +214,7 @@ bool AtomicReferenceArray::weakCompareAndSetPlain(int32_t i, Object$* expectedVa
 }
 
 $Object* AtomicReferenceArray::getAndUpdate(int32_t i, $UnaryOperator* updateFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get(i));
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -229,6 +230,7 @@ $Object* AtomicReferenceArray::getAndUpdate(int32_t i, $UnaryOperator* updateFun
 }
 
 $Object* AtomicReferenceArray::updateAndGet(int32_t i, $UnaryOperator* updateFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get(i));
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -244,6 +246,7 @@ $Object* AtomicReferenceArray::updateAndGet(int32_t i, $UnaryOperator* updateFun
 }
 
 $Object* AtomicReferenceArray::getAndAccumulate(int32_t i, Object$* x, $BinaryOperator* accumulatorFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get(i));
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -259,6 +262,7 @@ $Object* AtomicReferenceArray::getAndAccumulate(int32_t i, Object$* x, $BinaryOp
 }
 
 $Object* AtomicReferenceArray::accumulateAndGet(int32_t i, Object$* x, $BinaryOperator* accumulatorFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get(i));
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -274,6 +278,7 @@ $Object* AtomicReferenceArray::accumulateAndGet(int32_t i, Object$* x, $BinaryOp
 }
 
 $String* AtomicReferenceArray::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t iMax = $nc(this->array)->length - 1;
 	if (iMax == -1) {
 		return "[]"_s;
@@ -290,6 +295,7 @@ $String* AtomicReferenceArray::toString() {
 }
 
 void AtomicReferenceArray::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, a, $nc($($nc(s)->readFields()))->get("array"_s, ($Object*)nullptr));
 	if (a == nullptr || !$nc($of(a))->getClass()->isArray()) {
@@ -358,6 +364,7 @@ bool AtomicReferenceArray::weakCompareAndSetRelease(int32_t i, Object$* expected
 
 $Field* AtomicReferenceArray::lambda$readObject$0() {
 	$init(AtomicReferenceArray);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, AtomicReferenceArray::class$->getDeclaredField("array"_s));

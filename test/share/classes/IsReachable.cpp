@@ -43,6 +43,7 @@ void IsReachable::init$() {
 }
 
 void IsReachable::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InetAddress, addr, $InetAddress::getByName("localhost"_s));
 		if (!$nc(addr)->isReachable(10000)) {

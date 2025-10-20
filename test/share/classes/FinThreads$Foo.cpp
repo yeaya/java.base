@@ -68,6 +68,7 @@ $Object* allocate$FinThreads$Foo($Class* clazz) {
 }
 
 void FinThreads$Foo::create(bool catchFinalizer) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new($FinThreads$Foo$1, catchFinalizer))));
 	t->start();
 	t->join();

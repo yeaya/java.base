@@ -201,6 +201,7 @@ $Reader* Channels::newReader($ReadableByteChannel* ch, $CharsetDecoder* dec, int
 }
 
 $Reader* Channels::newReader($ReadableByteChannel* ch, $String* csName) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csName), "csName"_s);
 	return newReader(ch, $($nc($($Charset::forName(csName)))->newDecoder()), -1);
 }
@@ -216,6 +217,7 @@ $Writer* Channels::newWriter($WritableByteChannel* ch, $CharsetEncoder* enc, int
 }
 
 $Writer* Channels::newWriter($WritableByteChannel* ch, $String* csName) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csName), "csName"_s);
 	return newWriter(ch, $($nc($($Charset::forName(csName)))->newEncoder()), -1);
 }

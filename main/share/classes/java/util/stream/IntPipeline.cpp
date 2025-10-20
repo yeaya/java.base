@@ -1069,6 +1069,7 @@ $Spliterator* IntPipeline::lazySpliterator($Supplier* supplier) {
 }
 
 bool IntPipeline::forEachWithCancel($Spliterator* spliterator, $Sink* sink) {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterator$OfInt, spl, adapt(spliterator));
 	$var($IntConsumer, adaptedSink, adapt(sink));
 	bool cancelled = false;
@@ -1204,6 +1205,7 @@ $IntStream* IntPipeline::sorted() {
 }
 
 $IntStream* IntPipeline::distinct() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(boxed()))->distinct()))->mapToInt(static_cast<$ToIntFunction*>($$new(IntPipeline$$Lambda$lambda$distinct$0$2)));
 }
 
@@ -1228,10 +1230,12 @@ $OptionalInt* IntPipeline::max() {
 }
 
 int64_t IntPipeline::count() {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Long, $(evaluate($($ReduceOps::makeIntCounting()))))))->longValue();
 }
 
 $OptionalDouble* IntPipeline::average() {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(IntPipeline$$Lambda$lambda$average$1$6)));
 	$var($ObjIntConsumer, var$1, static_cast<$ObjIntConsumer*>($new(IntPipeline$$Lambda$lambda$average$2$7)));
 	$var($longs, avg, $cast($longs, collect(var$0, var$1, static_cast<$BiConsumer*>($$new(IntPipeline$$Lambda$lambda$average$3$8)))));
@@ -1239,12 +1243,14 @@ $OptionalDouble* IntPipeline::average() {
 }
 
 $IntSummaryStatistics* IntPipeline::summaryStatistics() {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(IntPipeline$$Lambda$IntSummaryStatistics$9)));
 	$var($ObjIntConsumer, var$1, static_cast<$ObjIntConsumer*>($new(IntPipeline$$Lambda$accept$10)));
 	return $cast($IntSummaryStatistics, collect(var$0, var$1, static_cast<$BiConsumer*>($$new(IntPipeline$$Lambda$combine$11))));
 }
 
 int32_t IntPipeline::reduce(int32_t identity, $IntBinaryOperator* op) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Integer, $(evaluate($($ReduceOps::makeInt(identity, op)))))))->intValue();
 }
 
@@ -1253,22 +1259,26 @@ $OptionalInt* IntPipeline::reduce($IntBinaryOperator* op) {
 }
 
 $Object* IntPipeline::collect($Supplier* supplier, $ObjIntConsumer* accumulator, $BiConsumer* combiner) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(combiner);
 	$var($BinaryOperator, operator$, static_cast<$BinaryOperator*>($new(IntPipeline$$Lambda$lambda$collect$4$12, combiner)));
 	return $of(evaluate($($ReduceOps::makeInt(supplier, accumulator, operator$))));
 }
 
 bool IntPipeline::anyMatch($IntPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeInt(predicate, $MatchOps$MatchKind::ANY)))))))->booleanValue();
 }
 
 bool IntPipeline::allMatch($IntPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeInt(predicate, $MatchOps$MatchKind::ALL)))))))->booleanValue();
 }
 
 bool IntPipeline::noneMatch($IntPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeInt(predicate, $MatchOps$MatchKind::NONE)))))))->booleanValue();
 }
@@ -1282,6 +1292,7 @@ $OptionalInt* IntPipeline::findAny() {
 }
 
 $ints* IntPipeline::toArray() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($ints, $nc($($Nodes::flattenInt($cast($Node$OfInt, $(evaluateToArrayNode(static_cast<$IntFunction*>($$new(IntPipeline$$Lambda$lambda$toArray$5$13))))))))->asPrimitiveArray());
 }
 

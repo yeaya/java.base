@@ -80,6 +80,7 @@ $Object* allocate$ZoneRegion($Class* clazz) {
 
 ZoneRegion* ZoneRegion::ofId($String* zoneId, bool checkAvailable) {
 	$init(ZoneRegion);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(zoneId), "zoneId"_s);
 	checkName(zoneId);
 	$var($ZoneRules, rules, nullptr);
@@ -96,6 +97,7 @@ ZoneRegion* ZoneRegion::ofId($String* zoneId, bool checkAvailable) {
 
 void ZoneRegion::checkName($String* zoneId) {
 	$init(ZoneRegion);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(zoneId)->length();
 	if (n < 2) {
 		$throwNew($DateTimeException, $$str({"Invalid ID for region-based ZoneId, invalid format: "_s, zoneId}));

@@ -81,6 +81,7 @@ void WriteParams::init$() {
 
 void WriteParams::test($Writer* wtr) {
 	$init(WriteParams);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t j = 0;
 	int32_t k = 0;
@@ -117,6 +118,7 @@ void WriteParams::test($Writer* wtr) {
 
 void WriteParams::main($StringArray* args) {
 	$init(WriteParams);
+	$useLocalCurrentObjectStackCache();
 	$var($StringWriter, sw, $new($StringWriter));
 	test(sw);
 	test($$new($BufferedWriter, sw));

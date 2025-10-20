@@ -155,6 +155,7 @@ int32_t CountedCompleter::decrementPendingCountUnlessZero() {
 }
 
 CountedCompleter* CountedCompleter::getRoot() {
+	$useLocalCurrentObjectStackCache();
 	$var(CountedCompleter, a, this);
 	$var(CountedCompleter, p, nullptr);
 	while (($assign(p, $nc(a)->completer)) != nullptr) {
@@ -164,6 +165,7 @@ CountedCompleter* CountedCompleter::getRoot() {
 }
 
 void CountedCompleter::tryComplete() {
+	$useLocalCurrentObjectStackCache();
 	$var(CountedCompleter, a, this);
 	$var(CountedCompleter, s, a);
 	for (int32_t c = 0;;) {
@@ -180,6 +182,7 @@ void CountedCompleter::tryComplete() {
 }
 
 void CountedCompleter::propagateCompletion() {
+	$useLocalCurrentObjectStackCache();
 	$var(CountedCompleter, a, this);
 	$var(CountedCompleter, s, nullptr);
 	for (int32_t c = 0;;) {
@@ -225,6 +228,7 @@ CountedCompleter* CountedCompleter::nextComplete() {
 }
 
 void CountedCompleter::quietlyCompleteRoot() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(CountedCompleter, a, this);
 		$var(CountedCompleter, p, nullptr);
@@ -239,6 +243,7 @@ void CountedCompleter::quietlyCompleteRoot() {
 }
 
 void CountedCompleter::helpComplete(int32_t maxTasks) {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinPool$WorkQueue, q, nullptr);
 	$var($Thread, t, nullptr);
 	bool owned = false;
@@ -253,6 +258,7 @@ void CountedCompleter::helpComplete(int32_t maxTasks) {
 }
 
 int32_t CountedCompleter::trySetException($Throwable* ex) {
+	$useLocalCurrentObjectStackCache();
 	$var(CountedCompleter, a, this);
 	$var(CountedCompleter, p, a);
 	bool var$0 = false;
@@ -276,6 +282,7 @@ void CountedCompleter::setRawResult(Object$* t) {
 }
 
 void clinit$CountedCompleter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

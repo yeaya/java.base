@@ -45,6 +45,7 @@ void InternalNameServiceWithNoHostsFileTest::init$() {
 }
 
 void InternalNameServiceWithNoHostsFileTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, testAddress, nullptr);
 	try {
 		$assign(testAddress, $InetAddress::getByName("host.sample-domain"_s));

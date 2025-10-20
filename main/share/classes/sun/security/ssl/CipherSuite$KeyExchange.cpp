@@ -193,6 +193,7 @@ $String* CipherSuite$KeyExchange::toString() {
 }
 
 void clinit$CipherSuite$KeyExchange($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($NamedGroup$NamedGroupSpec);
 	$assignStatic(CipherSuite$KeyExchange::K_NULL, $new(CipherSuite$KeyExchange, "K_NULL"_s, 0, "NULL"_s, false, true, $$new($NamedGroup$NamedGroupSpecArray, {$NamedGroup$NamedGroupSpec::NAMED_GROUP_NONE})));
 	$assignStatic(CipherSuite$KeyExchange::K_RSA, $new(CipherSuite$KeyExchange, "K_RSA"_s, 1, "RSA"_s, true, false, $$new($NamedGroup$NamedGroupSpecArray, {$NamedGroup$NamedGroupSpec::NAMED_GROUP_NONE})));

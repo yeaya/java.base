@@ -109,6 +109,7 @@ $Object* allocate$LazyLoggers$LazyLoggerAccessor($Class* clazz) {
 bool LazyLoggers$LazyLoggerAccessor::$assertionsDisabled = false;
 
 void LazyLoggers$LazyLoggerAccessor::init$($String* name, $LazyLoggers$LazyLoggerFactories* factories, $Module* module) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $cast($String, $Objects::requireNonNull(name)));
 	$var($LazyLoggers$LazyLoggerFactories, var$1, $cast($LazyLoggers$LazyLoggerFactories, $Objects::requireNonNull(factories)));
 	LazyLoggers$LazyLoggerAccessor::init$(var$0, var$1, $cast($Module, $Objects::requireNonNull(module)), nullptr);
@@ -143,6 +144,7 @@ $System$Logger* LazyLoggers$LazyLoggerAccessor::wrapped() {
 }
 
 $PlatformLogger$Bridge* LazyLoggers$LazyLoggerAccessor::platform() {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platform, this->p);
 	if (platform != nullptr) {
 		return platform;
@@ -166,6 +168,7 @@ $PlatformLogger$Bridge* LazyLoggers$LazyLoggerAccessor::platform() {
 }
 
 void LazyLoggers$LazyLoggerAccessor::release($SimpleConsoleLogger* temporary, bool replace) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$ConfigurableBridge$LoggerConfiguration, conf, $PlatformLogger$ConfigurableBridge::getLoggerConfiguration(temporary));
 	$PlatformLogger$Level* level = conf != nullptr ? $nc(conf)->getPlatformLevel() : ($PlatformLogger$Level*)nullptr;
 	$synchronized(this) {

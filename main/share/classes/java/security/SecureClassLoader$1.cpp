@@ -91,6 +91,7 @@ void SecureClassLoader$1::init$($SecureClassLoader* this$0, $CodeSource* val$cs)
 }
 
 $ProtectionDomain* SecureClassLoader$1::apply($SecureClassLoader$CodeSourceKey* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($PermissionCollection, perms, this->this$0->getPermissions(this->val$cs));
 	$var($ProtectionDomain, pd, $new($ProtectionDomain, this->val$cs, perms, this->this$0, nullptr));
 	$init($SecureClassLoader$DebugHolder);

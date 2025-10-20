@@ -111,11 +111,13 @@ void ModuleWriter::visitPackage($String* packaze) {
 }
 
 void ModuleWriter::visitRequire($String* module, int32_t access, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc($($nc(this->requires)->putShort($nc($($nc(this->symbolTable)->addConstantModule(module)))->index)))->putShort(access)))->putShort(version == nullptr ? 0 : $nc(this->symbolTable)->addConstantUtf8(version));
 	++this->requiresCount;
 }
 
 void ModuleWriter::visitExport($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->exports)->putShort($nc($($nc(this->symbolTable)->addConstantPackage(packaze)))->index)))->putShort(access);
 	if (modules == nullptr) {
 		$nc(this->exports)->putShort(0);
@@ -137,6 +139,7 @@ void ModuleWriter::visitExport($String* packaze, int32_t access, $StringArray* m
 }
 
 void ModuleWriter::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->opens)->putShort($nc($($nc(this->symbolTable)->addConstantPackage(packaze)))->index)))->putShort(access);
 	if (modules == nullptr) {
 		$nc(this->opens)->putShort(0);
@@ -163,6 +166,7 @@ void ModuleWriter::visitUse($String* service) {
 }
 
 void ModuleWriter::visitProvide($String* service, $StringArray* providers) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->provides)->putShort($nc($($nc(this->symbolTable)->addConstantClass(service)))->index);
 	$nc(this->provides)->putShort($nc(providers)->length);
 	{
@@ -202,6 +206,7 @@ int32_t ModuleWriter::computeAttributesSize() {
 }
 
 void ModuleWriter::putAttributes($ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	int32_t moduleAttributeLength = 16 + $nc(this->requires)->length + $nc(this->exports)->length + $nc(this->opens)->length + $nc(this->usesIndex)->length + $nc(this->provides)->length;
 	$init($Constants);
 	$nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc($($nc(output)->putShort($nc(this->symbolTable)->addConstantUtf8($Constants::MODULE))))->putInt(moduleAttributeLength)))->putShort(this->moduleNameIndex)))->putShort(this->moduleFlags)))->putShort(this->moduleVersionIndex)))->putShort(this->requiresCount)))->putByteArray($nc(this->requires)->data, 0, $nc(this->requires)->length)))->putShort(this->exportsCount)))->putByteArray($nc(this->exports)->data, 0, $nc(this->exports)->length)))->putShort(this->opensCount)))->putByteArray($nc(this->opens)->data, 0, $nc(this->opens)->length)))->putShort(this->usesCount)))->putByteArray($nc(this->usesIndex)->data, 0, $nc(this->usesIndex)->length)))->putShort(this->providesCount)))->putByteArray($nc(this->provides)->data, 0, $nc(this->provides)->length);

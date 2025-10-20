@@ -71,6 +71,7 @@ void PreSharedKeyExtension$SHPreSharedKeyProducer::init$() {
 }
 
 $bytes* PreSharedKeyExtension$SHPreSharedKeyProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($PreSharedKeyExtension$SHPreSharedKeySpec, psk, $cast($PreSharedKeyExtension$SHPreSharedKeySpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::SH_PRE_SHARED_KEY)));

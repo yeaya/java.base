@@ -161,6 +161,7 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::init$($WindowsAsynchronousSo
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::prepareBuffers() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, scopeHandleReleasers, $IOUtil::acquireScopes(this->bufs));
 	$set(this, shadow, $new($ByteBufferArray, this->numBufs));
 	int64_t address = this->this$0->readBufferArray;
@@ -189,6 +190,7 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::prepareBuffers() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::updateBuffers(int32_t bytesRead) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < this->numBufs; ++i) {
 		$var($ByteBuffer, nextBuffer, $nc(this->shadow)->get(i));
 		int32_t pos = $nc(nextBuffer)->position();
@@ -238,6 +240,7 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::releaseBuffers() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::run() {
+	$useLocalCurrentObjectStackCache();
 	int64_t overlapped = 0;
 	bool prepared = false;
 	bool pending = false;
@@ -301,6 +304,7 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::run() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::completed(int32_t bytesTransferred, bool canInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	if (bytesTransferred == 0) {
 		bytesTransferred = -1;
 	} else {

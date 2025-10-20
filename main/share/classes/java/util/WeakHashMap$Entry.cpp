@@ -106,6 +106,7 @@ $Object* WeakHashMap$Entry::setValue(Object$* newValue) {
 }
 
 bool WeakHashMap$Entry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -128,6 +129,7 @@ bool WeakHashMap$Entry::equals(Object$* o) {
 }
 
 int32_t WeakHashMap$Entry::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, getKey());
 	$var($Object, v, getValue());
 	int32_t var$0 = $Objects::hashCode(k);
@@ -135,6 +137,7 @@ int32_t WeakHashMap$Entry::hashCode() {
 }
 
 $String* WeakHashMap$Entry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$(getKey()), "="_s}));
 	return $concat(var$0, $(getValue()));
 }

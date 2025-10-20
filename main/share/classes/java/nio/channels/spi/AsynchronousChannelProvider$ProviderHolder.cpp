@@ -106,6 +106,7 @@ $AsynchronousChannelProvider* AsynchronousChannelProvider$ProviderHolder::load()
 
 $AsynchronousChannelProvider* AsynchronousChannelProvider$ProviderHolder::loadProviderFromProperty() {
 	$init(AsynchronousChannelProvider$ProviderHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cn, $System::getProperty("java.nio.channels.spi.AsynchronousChannelProvider"_s));
 	if (cn == nullptr) {
@@ -132,6 +133,7 @@ $AsynchronousChannelProvider* AsynchronousChannelProvider$ProviderHolder::loadPr
 
 $AsynchronousChannelProvider* AsynchronousChannelProvider$ProviderHolder::loadProviderAsService() {
 	$init(AsynchronousChannelProvider$ProviderHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($AsynchronousChannelProvider);
 	$var($ServiceLoader, sl, $ServiceLoader::load($AsynchronousChannelProvider::class$, $($ClassLoader::getSystemClassLoader())));

@@ -87,6 +87,7 @@ void Charset$3::init$() {
 }
 
 $Object* Charset$3::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($String);
 	$var($TreeMap, m, $new($TreeMap, $String::CASE_INSENSITIVE_ORDER));
 	$init($Charset);

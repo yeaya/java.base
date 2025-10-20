@@ -78,6 +78,7 @@ void CertStatusExtension$CHCertStatusReqV2Producer::init$() {
 }
 
 $bytes* CertStatusExtension$CHCertStatusReqV2Producer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	if (!$nc($nc(chc)->sslContext)->isStaplingEnabled(true)) {
 		return nullptr;

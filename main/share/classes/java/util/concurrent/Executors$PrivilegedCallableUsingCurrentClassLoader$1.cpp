@@ -78,6 +78,7 @@ void Executors$PrivilegedCallableUsingCurrentClassLoader$1::init$($Executors$Pri
 }
 
 $Object* Executors$PrivilegedCallableUsingCurrentClassLoader$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ClassLoader, cl, t->getContextClassLoader());

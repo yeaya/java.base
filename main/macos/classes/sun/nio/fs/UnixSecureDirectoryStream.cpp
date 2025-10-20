@@ -157,6 +157,7 @@ void UnixSecureDirectoryStream::init$($UnixPath* dir, int64_t dp, int32_t dfd, $
 }
 
 void UnixSecureDirectoryStream::close() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->ds)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -190,6 +191,7 @@ $UnixPath* UnixSecureDirectoryStream::getName($Path* obj) {
 }
 
 $SecureDirectoryStream* UnixSecureDirectoryStream::newDirectoryStream($Path* obj, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, getName(obj));
 	$var($UnixPath, child, $nc($($nc(this->ds)->directory()))->resolve(static_cast<$Path*>(file)));
 	bool followLinks = $Util::followLinks(options);
@@ -251,6 +253,7 @@ $SecureDirectoryStream* UnixSecureDirectoryStream::newDirectoryStream($Path* obj
 }
 
 $SeekableByteChannel* UnixSecureDirectoryStream::newByteChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, getName(obj));
 	$init($UnixFileModeAttribute);
 	int32_t mode = $UnixFileModeAttribute::toUnixMode($UnixFileModeAttribute::ALL_READWRITE, attrs);
@@ -287,6 +290,7 @@ $SeekableByteChannel* UnixSecureDirectoryStream::newByteChannel($Path* obj, $Set
 }
 
 void UnixSecureDirectoryStream::implDelete($Path* obj, bool haveFlags, int32_t flags) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, file, getName(obj));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -344,6 +348,7 @@ void UnixSecureDirectoryStream::deleteDirectory($Path* dir) {
 }
 
 void UnixSecureDirectoryStream::move($Path* fromObj, $SecureDirectoryStream* dir, $Path* toObj) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, from, getName(fromObj));
 	$var($UnixPath, to, getName(toObj));
 	if (dir == nullptr) {

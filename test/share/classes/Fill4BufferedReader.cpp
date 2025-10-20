@@ -60,6 +60,7 @@ void Fill4BufferedReader::init$() {
 }
 
 void Fill4BufferedReader::go(int32_t shortFall) {
+	$useLocalCurrentObjectStackCache();
 	$var($Reader, r, $new($BufferedReader, $$new($Fill4BufferedReader$Source, shortFall), 10));
 	$var($chars, cbuf, $new($chars, 8));
 	int32_t n1 = r->read(cbuf);

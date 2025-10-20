@@ -88,6 +88,7 @@ void Alert$AlertMessage::init$($TransportContext* context, $ByteBuffer* m) {
 }
 
 $String* Alert$AlertMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"Alert\": \'{\'\n  \"level\"      : \"{0}\",\n  \"description\": \"{1}\"\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {

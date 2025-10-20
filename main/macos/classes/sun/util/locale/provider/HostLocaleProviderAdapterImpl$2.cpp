@@ -95,21 +95,25 @@ bool HostLocaleProviderAdapterImpl$2::isSupportedLocale($Locale* locale) {
 }
 
 $DateFormat* HostLocaleProviderAdapterImpl$2::getDateInstance(int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getDateTimePattern(style, -1, locale));
 	return $new($SimpleDateFormat, var$0, $($HostLocaleProviderAdapterImpl::getCalendarLocale(locale)));
 }
 
 $DateFormat* HostLocaleProviderAdapterImpl$2::getTimeInstance(int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getDateTimePattern(-1, style, locale));
 	return $new($SimpleDateFormat, var$0, $($HostLocaleProviderAdapterImpl::getCalendarLocale(locale)));
 }
 
 $DateFormat* HostLocaleProviderAdapterImpl$2::getDateTimeInstance(int32_t dateStyle, int32_t timeStyle, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getDateTimePattern(dateStyle, timeStyle, locale));
 	return $new($SimpleDateFormat, var$0, $($HostLocaleProviderAdapterImpl::getCalendarLocale(locale)));
 }
 
 $String* HostLocaleProviderAdapterImpl$2::getDateTimePattern(int32_t dateStyle, int32_t timeStyle, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, dateFormatPatterns, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatPatternsMap)->get(locale)));

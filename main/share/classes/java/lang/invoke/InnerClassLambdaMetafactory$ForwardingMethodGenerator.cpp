@@ -80,6 +80,7 @@ void InnerClassLambdaMetafactory$ForwardingMethodGenerator::init$($InnerClassLam
 }
 
 void InnerClassLambdaMetafactory$ForwardingMethodGenerator::generate($MethodType* methodType) {
+	$useLocalCurrentObjectStackCache();
 	visitCode();
 	if (this->this$0->implKind == $MethodHandleInfo::REF_newInvokeSpecial) {
 		visitTypeInsn(187, this->this$0->implMethodClassName);
@@ -116,6 +117,7 @@ void InnerClassLambdaMetafactory$ForwardingMethodGenerator::generate($MethodType
 }
 
 void InnerClassLambdaMetafactory$ForwardingMethodGenerator::convertArgumentTypes($MethodType* samType) {
+	$useLocalCurrentObjectStackCache();
 	int32_t lvIndex = 0;
 	int32_t samParametersLength = $nc(samType)->parameterCount();
 	int32_t captureArity = $nc(this->this$0->factoryType)->parameterCount();
@@ -130,6 +132,7 @@ void InnerClassLambdaMetafactory$ForwardingMethodGenerator::convertArgumentTypes
 }
 
 int32_t InnerClassLambdaMetafactory$ForwardingMethodGenerator::invocationOpcode() {
+	$useLocalCurrentObjectStackCache();
 
 	int32_t var$0 = 0;
 	switch (this->this$0->implKind) {

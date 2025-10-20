@@ -121,6 +121,7 @@ $Collection* CertStore::getCRLs($CRLSelector* selector) {
 
 CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params) {
 	$init(CertStore);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertStoreSpi);
@@ -145,6 +146,7 @@ CertStore* CertStore::handleException($NoSuchAlgorithmException* e) {
 
 CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params, $String* provider) {
 	$init(CertStore);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertStoreSpi);
@@ -159,6 +161,7 @@ CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params, $
 
 CertStore* CertStore::getInstance($String* type, $CertStoreParameters* params, $Provider* provider) {
 	$init(CertStore);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$load($CertStoreSpi);
@@ -185,6 +188,7 @@ $Provider* CertStore::getProvider() {
 
 $String* CertStore::getDefaultType() {
 	$init(CertStore);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cstype, nullptr);
 	$assign(cstype, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CertStore$1)))));

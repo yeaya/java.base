@@ -89,6 +89,7 @@ void AdaptServerSocket$1::init$(int32_t val$dally, int32_t val$port) {
 }
 
 void AdaptServerSocket$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Socket, so, $new($Socket));
 		{

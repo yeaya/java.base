@@ -89,6 +89,7 @@ void TestReceiverTypeParameterizedMethod::main($StringArray* args) {
 
 void TestReceiverTypeParameterizedMethod::doAssert($Class* c) {
 	$load(TestReceiverTypeParameterizedMethod);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, method, $nc(c)->getDeclaredMethod("m"_s, $$new($ClassArray, 0)));
 	$var($AnnotatedType, receiverType, $nc(method)->getAnnotatedReceiverType());

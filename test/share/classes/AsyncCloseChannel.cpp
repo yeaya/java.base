@@ -97,6 +97,7 @@ void AsyncCloseChannel::init$() {
 
 void AsyncCloseChannel::main($StringArray* args) {
 	$init(AsyncCloseChannel);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s)) {
 		$init($System);
 		$nc($System::err)->println("WARNING: Still does not work on Windows!"_s);

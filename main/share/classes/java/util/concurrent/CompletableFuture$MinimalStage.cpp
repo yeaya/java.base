@@ -234,6 +234,7 @@ $CompletableFuture* CompletableFuture$MinimalStage::completeOnTimeout(Object$* v
 }
 
 $CompletableFuture* CompletableFuture$MinimalStage::toCompletableFuture() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, nullptr);
 	if (($assign(r, this->result)) != nullptr) {
 		return $new($CompletableFuture, $(encodeRelay(r)));

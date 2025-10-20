@@ -203,6 +203,7 @@ void CoderResult::init$(int32_t type, int32_t length) {
 }
 
 $String* CoderResult::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, nm, $nc(CoderResult::names)->get(this->type));
 	return isError() ? $str({nm, "["_s, $$str(this->length$), "]"_s}) : nm;
 }
@@ -236,6 +237,7 @@ int32_t CoderResult::length() {
 
 CoderResult* CoderResult::malformedForLength(int32_t length) {
 	$init(CoderResult);
+	$useLocalCurrentObjectStackCache();
 	if (length <= 0) {
 		$throwNew($IllegalArgumentException, "Non-positive length"_s);
 	}
@@ -249,6 +251,7 @@ CoderResult* CoderResult::malformedForLength(int32_t length) {
 
 CoderResult* CoderResult::unmappableForLength(int32_t length) {
 	$init(CoderResult);
+	$useLocalCurrentObjectStackCache();
 	if (length <= 0) {
 		$throwNew($IllegalArgumentException, "Non-positive length"_s);
 	}
@@ -298,6 +301,7 @@ CoderResult* CoderResult::lambda$malformedForLength$0($Integer* n) {
 }
 
 void clinit$CoderResult($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	CoderResult::$assertionsDisabled = !CoderResult::class$->desiredAssertionStatus();
 	$assignStatic(CoderResult::names, $new($StringArray, {
 		"UNDERFLOW"_s,

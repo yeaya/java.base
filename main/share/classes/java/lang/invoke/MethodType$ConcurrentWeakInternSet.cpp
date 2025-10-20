@@ -80,6 +80,7 @@ void MethodType$ConcurrentWeakInternSet::init$() {
 }
 
 $Object* MethodType$ConcurrentWeakInternSet::get(Object$* elem) {
+	$useLocalCurrentObjectStackCache();
 	if (elem == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -95,6 +96,7 @@ $Object* MethodType$ConcurrentWeakInternSet::get(Object$* elem) {
 }
 
 $Object* MethodType$ConcurrentWeakInternSet::add(Object$* elem) {
+	$useLocalCurrentObjectStackCache();
 	if (elem == nullptr) {
 		$throwNew($NullPointerException);
 	}

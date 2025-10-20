@@ -98,6 +98,7 @@ void DynamicConstantDescTest$InvokeOfCanonical::init$($CountDownLatch* latch) {
 }
 
 $Object* DynamicConstantDescTest$InvokeOfCanonical::call() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println($$str({$($($Thread::currentThread())->getName()), " calling  DynamicConstantDesc.ofCanonical()"_s}));
@@ -124,6 +125,7 @@ $Object* DynamicConstantDescTest$InvokeOfCanonical::call() {
 
 $DirectMethodHandleDesc* DynamicConstantDescTest$InvokeOfCanonical::boostrapMethodForEnumConstant() {
 	$init(DynamicConstantDescTest$InvokeOfCanonical);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassDescArray, args, $new($ClassDescArray, {
 		$($nc($($ClassDesc::of("java.lang.invoke.MethodHandles"_s)))->nested("Lookup"_s)),
 		$($ClassDesc::of("java.lang.String"_s)),

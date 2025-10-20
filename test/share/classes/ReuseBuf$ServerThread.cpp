@@ -70,6 +70,7 @@ $Object* allocate$ReuseBuf$ServerThread($Class* clazz) {
 }
 
 void ReuseBuf$ServerThread::init$() {
+	$useLocalCurrentObjectStackCache();
 	$Thread::init$();
 	try {
 		$var($InetAddress, local, $InetAddress::getLocalHost());
@@ -84,6 +85,7 @@ void ReuseBuf$ServerThread::init$() {
 }
 
 void ReuseBuf$ServerThread::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $new($bytes, 100));
 	$var($DatagramPacket, dp, $new($DatagramPacket, b, b->length));
 	while (true) {

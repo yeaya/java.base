@@ -84,6 +84,7 @@ void HelperSlowToDie::init$() {
 }
 
 void HelperSlowToDie::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s)) {
 		$init($System);
 		$nc($System::out)->println("Test skipped as it verifies a Windows specific bug"_s);

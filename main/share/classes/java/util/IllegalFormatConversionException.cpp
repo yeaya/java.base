@@ -69,6 +69,7 @@ $Class* IllegalFormatConversionException::getArgumentClass() {
 }
 
 $String* IllegalFormatConversionException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("%c != %s"_s, $$new($ObjectArray, {
 		$($of($Character::valueOf(this->c))),
 		$($of($nc(this->arg)->getName()))

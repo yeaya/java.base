@@ -283,6 +283,7 @@ $BasicValue* BasicVerifier::copyOperation($AbstractInsnNode* insn, $BasicValue* 
 }
 
 $BasicValue* BasicVerifier::unaryOperation($AbstractInsnNode* insn, $BasicValue* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicValue, expected, nullptr);
 	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::INEG:
@@ -419,6 +420,7 @@ $BasicValue* BasicVerifier::unaryOperation($AbstractInsnNode* insn, $BasicValue*
 }
 
 $BasicValue* BasicVerifier::binaryOperation($AbstractInsnNode* insn, $BasicValue* value1, $BasicValue* value2) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicValue, expected1, nullptr);
 	$var($BasicValue, expected2, nullptr);
 	{
@@ -636,6 +638,7 @@ $BasicValue* BasicVerifier::binaryOperation($AbstractInsnNode* insn, $BasicValue
 }
 
 $BasicValue* BasicVerifier::ternaryOperation($AbstractInsnNode* insn, $BasicValue* value1, $BasicValue* value2, $BasicValue* value3) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicValue, expected1, nullptr);
 	$var($BasicValue, expected3, nullptr);
 	switch ($nc(insn)->getOpcode()) {
@@ -718,6 +721,7 @@ $BasicValue* BasicVerifier::ternaryOperation($AbstractInsnNode* insn, $BasicValu
 }
 
 $1Value* BasicVerifier::naryOperation($AbstractInsnNode* insn, $List* values) {
+	$useLocalCurrentObjectStackCache();
 	int32_t opcode = $nc(insn)->getOpcode();
 	if (opcode == $Opcodes::MULTIANEWARRAY) {
 		{

@@ -47,6 +47,7 @@ void ModInvTime::init$() {
 }
 
 void ModInvTime::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, prime, $new($BigInteger, "39402006196394479212279040100143613805079739270465446667946905279627659399113263569398956308152294913554433653942643"_s));
 	$var($BigInteger, s, $new($BigInteger, "9552729729729327851382626410162104591956625415831952158766936536163093322096473638446154604799898109762512409920799"_s));
 	$init($System);
@@ -65,6 +66,7 @@ void ModInvTime::main($StringArray* args) {
 }
 
 void ModInvTime::check($BigInteger* val, $BigInteger* mod, $BigInteger* inv) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, r, $nc($($nc(inv)->multiply(val)))->remainder(mod));
 	if ($nc(r)->signum() == -1) {
 		$assign(r, r->add(mod));

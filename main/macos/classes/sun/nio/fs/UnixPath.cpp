@@ -162,6 +162,7 @@ void UnixPath::init$($UnixFileSystem* fs, $bytes* path) {
 }
 
 void UnixPath::init$($UnixFileSystem* fs, $String* input) {
+	$useLocalCurrentObjectStackCache();
 	UnixPath::init$(fs, $(encode(fs, $(normalizeAndCheck(input)))));
 }
 
@@ -192,6 +193,7 @@ void UnixPath::checkNotNul($String* input, char16_t c) {
 
 $String* UnixPath::normalize($String* input, int32_t len, int32_t off) {
 	$init(UnixPath);
+	$useLocalCurrentObjectStackCache();
 	if (len == 0) {
 		return input;
 	}
@@ -221,6 +223,7 @@ $String* UnixPath::normalize($String* input, int32_t len, int32_t off) {
 
 $bytes* UnixPath::encode($UnixFileSystem* fs, $String* input$renamed) {
 	$init(UnixPath);
+	$useLocalCurrentObjectStackCache();
 	$var($String, input, input$renamed);
 	$assign(input, $nc(fs)->normalizeNativePath(input));
 	try {
@@ -237,6 +240,7 @@ $bytes* UnixPath::asByteArray() {
 }
 
 $bytes* UnixPath::getByteArrayForSysCalls() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($cast($UnixFileSystem, getFileSystem())))->needToResolveAgainstDefaultDirectory()) {
 		return resolve($($nc($($cast($UnixFileSystem, getFileSystem())))->defaultDirectory()), this->path);
 	} else if (!isEmpty()) {
@@ -252,6 +256,7 @@ $String* UnixPath::getPathForExceptionMessage() {
 }
 
 $String* UnixPath::getPathForPermissionCheck() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($cast($UnixFileSystem, getFileSystem())))->needToResolveAgainstDefaultDirectory()) {
 		return $Util::toString($(getByteArrayForSysCalls()));
 	} else {
@@ -316,10 +321,12 @@ bool UnixPath::isEmpty() {
 }
 
 UnixPath* UnixPath::emptyPath() {
+	$useLocalCurrentObjectStackCache();
 	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), $$new($bytes, 0));
 }
 
 bool UnixPath::hasDotOrDotDot() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = getNameCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($bytes, bytes, $nc($(getName(i)))->path);
@@ -346,6 +353,7 @@ UnixPath* UnixPath::getRoot() {
 }
 
 UnixPath* UnixPath::getFileName() {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	int32_t count = $nc(this->offsets)->length;
 	if (count == 0) {
@@ -362,6 +370,7 @@ UnixPath* UnixPath::getFileName() {
 }
 
 UnixPath* UnixPath::getParent() {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	int32_t count = $nc(this->offsets)->length;
 	if (count == 0) {
@@ -382,6 +391,7 @@ int32_t UnixPath::getNameCount() {
 }
 
 UnixPath* UnixPath::getName(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	if (index < 0) {
 		$throwNew($IllegalArgumentException);
@@ -402,6 +412,7 @@ UnixPath* UnixPath::getName(int32_t index) {
 }
 
 UnixPath* UnixPath::subpath(int32_t beginIndex, int32_t endIndex) {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	if (beginIndex < 0) {
 		$throwNew($IllegalArgumentException);
@@ -456,6 +467,7 @@ $bytes* UnixPath::resolve($bytes* base, $bytes* child) {
 }
 
 UnixPath* UnixPath::resolve($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, other, $nc($(toUnixPath(obj)))->path);
 	if ($nc(other)->length > 0 && other->get(0) == u'/') {
 		return ($cast(UnixPath, obj));
@@ -465,10 +477,12 @@ UnixPath* UnixPath::resolve($Path* obj) {
 }
 
 UnixPath* UnixPath::resolve($bytes* other) {
+	$useLocalCurrentObjectStackCache();
 	return resolve(static_cast<$Path*>($$new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), other)));
 }
 
 UnixPath* UnixPath::relativize($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(UnixPath, child, toUnixPath(obj));
 	if ($nc(child)->equals(this)) {
 		return emptyPath();
@@ -545,6 +559,7 @@ UnixPath* UnixPath::relativize($Path* obj) {
 }
 
 UnixPath* UnixPath::normalize() {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = getNameCount();
 	if (count == 0 || isEmpty()) {
 		return this;
@@ -644,6 +659,7 @@ UnixPath* UnixPath::normalize() {
 }
 
 bool UnixPath::startsWith($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(UnixPath, $Objects::requireNonNull(other)))) {
 		return false;
 	}
@@ -732,6 +748,7 @@ bool UnixPath::endsWith($Path* other) {
 }
 
 int32_t UnixPath::compareTo($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len1 = $nc(this->path)->length;
 	int32_t len2 = $nc($nc(($cast(UnixPath, other)))->path)->length;
 	int32_t n = $Math::min(len1, len2);
@@ -795,6 +812,7 @@ int32_t UnixPath::openForAttributeAccess(bool followLinks) {
 }
 
 void UnixPath::checkRead() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkRead($(getPathForPermissionCheck()));
@@ -802,6 +820,7 @@ void UnixPath::checkRead() {
 }
 
 void UnixPath::checkWrite() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkWrite($(getPathForPermissionCheck()));
@@ -809,6 +828,7 @@ void UnixPath::checkWrite() {
 }
 
 void UnixPath::checkDelete() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkDelete($(getPathForPermissionCheck()));
@@ -816,6 +836,7 @@ void UnixPath::checkDelete() {
 }
 
 UnixPath* UnixPath::toAbsolutePath() {
+	$useLocalCurrentObjectStackCache();
 	if (isAbsolute()) {
 		return this;
 	}
@@ -828,6 +849,7 @@ UnixPath* UnixPath::toAbsolutePath() {
 }
 
 $Path* UnixPath::toRealPath($LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	checkRead();
 	$var(UnixPath, absolute, toAbsolutePath());
 	if ($Util::followLinks(options)) {

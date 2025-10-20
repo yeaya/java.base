@@ -96,6 +96,7 @@ bool XMLWriter::canEncode(char16_t ch) {
 }
 
 void XMLWriter::write($String* s) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->_writer)->write($($nc(s)->toCharArray()));
 	} catch ($IOException&) {
@@ -150,6 +151,7 @@ void XMLWriter::close() {
 }
 
 void XMLWriter::nl() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, lineEnd, $System::lineSeparator());
 	try {
 		$nc(this->_writer)->write(lineEnd);
@@ -160,6 +162,7 @@ void XMLWriter::nl() {
 }
 
 $Writer* XMLWriter::getWriter($OutputStream* output, $String* encoding, $Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	if (cs != nullptr) {
 		return ($new($OutputStreamWriter, static_cast<$OutputStream*>($$new($BufferedOutputStream, output)), cs));
 	}

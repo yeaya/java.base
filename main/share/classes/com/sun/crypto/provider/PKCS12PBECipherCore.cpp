@@ -175,6 +175,7 @@ $bytes* PKCS12PBECipherCore::derive($chars* chars, $bytes* salt, int32_t ic, int
 }
 
 $bytes* PKCS12PBECipherCore::derive($chars* chars$renamed, $bytes* salt, int32_t ic, int32_t n, int32_t type, $String* hashAlgo, int32_t blockLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, chars, chars$renamed);
 	int32_t length = $nc(chars)->length * 2;
 	if (length == 2 && chars->get(0) == 0) {
@@ -272,6 +273,7 @@ void PKCS12PBECipherCore::concat($bytes* src, $bytes* dst, int32_t start, int32_
 }
 
 void PKCS12PBECipherCore::init$($String* symmCipherAlg, int32_t defKeySize) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, algo, nullptr);
 	$set(this, pbeAlgo, nullptr);
 	$set(this, salt, nullptr);
@@ -329,6 +331,7 @@ $bytes* PKCS12PBECipherCore::implGetIV() {
 }
 
 $AlgorithmParameters* PKCS12PBECipherCore::implGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->salt == nullptr) {
 		$set(this, salt, $new($bytes, PKCS12PBECipherCore::DEFAULT_SALT_LENGTH));
@@ -354,6 +357,7 @@ void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParamete
 }
 
 void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random, $CipherSpi* cipherImpl) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwdChars, nullptr);
 	$set(this, salt, nullptr);
 	this->iCount = 0;
@@ -461,6 +465,7 @@ void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParamete
 }
 
 void PKCS12PBECipherCore::implInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random, $CipherSpi* cipherImpl) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, paramSpec, nullptr);
 	if (params != nullptr) {
 		try {

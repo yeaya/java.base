@@ -54,6 +54,7 @@ void Close::init$() {
 }
 
 $SelectionKey* Close::open() {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc, $SocketChannel::open());
 	$var($Selector, sel, $Selector::open());
 	$nc(sc)->configureBlocking(false);
@@ -75,6 +76,7 @@ void Close::testSocketClose() {
 }
 
 void Close::testChannelClose() {
+	$useLocalCurrentObjectStackCache();
 	$var($SelectionKey, sk, open());
 	{
 		$var($Throwable, var$0, nullptr);

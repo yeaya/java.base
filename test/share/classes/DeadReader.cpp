@@ -47,6 +47,7 @@ void DeadReader::init$() {
 }
 
 void DeadReader::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedOutputStream, os, $new($PipedOutputStream));
 	$var($PipedInputStream, is, $new($PipedInputStream));
 	is->connect(os);

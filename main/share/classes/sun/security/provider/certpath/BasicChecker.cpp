@@ -126,6 +126,7 @@ $Object* allocate$BasicChecker($Class* clazz) {
 $Debug* BasicChecker::debug = nullptr;
 
 void BasicChecker::init$($TrustAnchor* anchor, $Date* date, $String* sigProvider, bool sigOnly) {
+	$useLocalCurrentObjectStackCache();
 	$PKIXCertPathChecker::init$();
 	if ($nc(anchor)->getTrustedCert() != nullptr) {
 		$set(this, trustedPubKey, $nc($(anchor->getTrustedCert()))->getPublicKey());
@@ -171,6 +172,7 @@ void BasicChecker::check($Certificate* cert, $Collection* unresolvedCritExts) {
 }
 
 void BasicChecker::verifySignature($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "signature"_s);
 	if (BasicChecker::debug != nullptr) {
 		$nc(BasicChecker::debug)->println($$str({"---checking "_s, msg, "..."_s}));
@@ -191,6 +193,7 @@ void BasicChecker::verifySignature($X509Certificate* cert) {
 }
 
 void BasicChecker::verifyValidity($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "validity"_s);
 	if (BasicChecker::debug != nullptr) {
 		$nc(BasicChecker::debug)->println($$str({"---checking "_s, msg, ":"_s, $($nc(this->date)->toString()), "..."_s}));
@@ -212,6 +215,7 @@ void BasicChecker::verifyValidity($X509Certificate* cert) {
 }
 
 void BasicChecker::verifyNameChaining($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->prevSubject != nullptr) {
 		$var($String, msg, "subject/issuer name chaining"_s);
 		if (BasicChecker::debug != nullptr) {
@@ -233,6 +237,7 @@ void BasicChecker::verifyNameChaining($X509Certificate* cert) {
 }
 
 void BasicChecker::updateState($X509Certificate* currCert) {
+	$useLocalCurrentObjectStackCache();
 	$var($PublicKey, cKey, $nc(currCert)->getPublicKey());
 	if (BasicChecker::debug != nullptr) {
 		$var($String, var$2, $$str({"BasicChecker.updateState issuer: "_s, $($nc($(currCert->getIssuerX500Principal()))->toString()), "; subject: "_s}));
@@ -252,6 +257,7 @@ void BasicChecker::updateState($X509Certificate* currCert) {
 
 $PublicKey* BasicChecker::makeInheritedParamsKey($PublicKey* keyValueKey, $PublicKey* keyParamsKey) {
 	$init(BasicChecker);
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($DSAPublicKey, keyValueKey)) || !($instanceOf($DSAPublicKey, keyParamsKey))) {
 		$throwNew($CertPathValidatorException, "Input key is not appropriate type for inheriting parameters"_s);
 	}

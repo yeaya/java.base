@@ -95,6 +95,7 @@ MatchOps$MatchTask* MatchOps$MatchTask::makeChild($Spliterator* spliterator) {
 }
 
 $Object* MatchOps$MatchTask::doLeaf() {
+	$useLocalCurrentObjectStackCache();
 	bool b = $nc(($cast($MatchOps$BooleanTerminalSink, $($nc(this->helper)->wrapAndCopyInto($cast($MatchOps$BooleanTerminalSink, $($nc($nc(this->op)->sinkSupplier)->get())), this->spliterator)))))->getAndClearState();
 	if (b == $nc(this->op)->matchKind->shortCircuitResult) {
 		shortCircuit($($Boolean::valueOf(b)));

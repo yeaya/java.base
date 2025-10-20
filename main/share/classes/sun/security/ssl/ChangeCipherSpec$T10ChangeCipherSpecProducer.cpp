@@ -117,6 +117,7 @@ void ChangeCipherSpec$T10ChangeCipherSpecProducer::init$() {
 }
 
 $bytes* ChangeCipherSpec$T10ChangeCipherSpecProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$var($SSLKeyDerivation, kd, $nc(hc)->handshakeKeyDerivation);
 	if (!($instanceOf($SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation, kd))) {

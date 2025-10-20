@@ -862,6 +862,7 @@ double Math::min(double a, double b) {
 
 double Math::fma(double a, double b, double c) {
 	$init(Math);
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = $Double::isNaN(a);
 	bool var$0 = var$1 || $Double::isNaN(b);
 	if (var$0 || $Double::isNaN(c)) {
@@ -905,6 +906,7 @@ double Math::fma(double a, double b, double c) {
 
 float Math::fma(float a, float b, float c) {
 	$init(Math);
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = $Float::isFinite(a);
 	bool var$0 = var$1 && $Float::isFinite(b);
 	if (var$0 && $Float::isFinite(c)) {

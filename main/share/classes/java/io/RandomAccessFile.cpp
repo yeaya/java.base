@@ -217,6 +217,7 @@ void RandomAccessFile::init$($File* file, $String* mode) {
 }
 
 void RandomAccessFile::init$($File* file, $String* mode, bool openAndDelete) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, closeLock, $new($Object));
 	$var($String, name, file != nullptr ? $nc(file)->getPath() : ($String*)nullptr);
 	int32_t imode = -1;
@@ -269,6 +270,7 @@ $FileDescriptor* RandomAccessFile::getFD() {
 }
 
 $FileChannel* RandomAccessFile::getChannel() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileChannel, fc, this->channel);
 	if (fc == nullptr) {
 		$synchronized(this) {
@@ -420,6 +422,7 @@ void RandomAccessFile::setLength(int64_t newLength) {
 }
 
 void RandomAccessFile::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}
@@ -605,6 +608,7 @@ void RandomAccessFile::writeBytes($String* s) {
 }
 
 void RandomAccessFile::writeChars($String* s) {
+	$useLocalCurrentObjectStackCache();
 	int32_t clen = $nc(s)->length();
 	int32_t blen = 2 * clen;
 	$var($bytes, b, $new($bytes, blen));

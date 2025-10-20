@@ -328,6 +328,7 @@ void AdviceAdapter::visitLabel($Label* label) {
 }
 
 void AdviceAdapter::visitInsn(int32_t opcode) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		int32_t stackSize = 0;
 		switch (opcode) {
@@ -646,6 +647,7 @@ void AdviceAdapter::visitInsn(int32_t opcode) {
 }
 
 void AdviceAdapter::visitVarInsn(int32_t opcode, int32_t var) {
+	$useLocalCurrentObjectStackCache();
 	$GeneratorAdapter::visitVarInsn(opcode, var);
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		switch (opcode) {
@@ -699,6 +701,7 @@ void AdviceAdapter::visitVarInsn(int32_t opcode, int32_t var) {
 }
 
 void AdviceAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$GeneratorAdapter::visitFieldInsn(opcode, owner, name, descriptor);
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		char16_t firstDescriptorChar = $nc(descriptor)->charAt(0);
@@ -789,6 +792,7 @@ void AdviceAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $St
 }
 
 void AdviceAdapter::doVisitMethodInsn(int32_t opcode, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isConstructor && !this->superClassConstructorCalled) {
 		{
 			$var($TypeArray, arr$, $Type::getArgumentTypes(descriptor));
@@ -927,6 +931,7 @@ void AdviceAdapter::visitTryCatchBlock($Label* start, $Label* end, $Label* handl
 }
 
 void AdviceAdapter::addForwardJumps($Label* dflt, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	addForwardJump(dflt);
 	{
 		$var($LabelArray, arr$, labels);

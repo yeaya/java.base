@@ -154,6 +154,7 @@ $Object* allocate$SealedObject($Class* clazz) {
 }
 
 void SealedObject::init$($Serializable* object, $Cipher* c) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, encryptedContent, nullptr);
 	$set(this, sealAlg, nullptr);
 	$set(this, paramsAlg, nullptr);
@@ -220,6 +221,7 @@ $String* SealedObject::getAlgorithm() {
 }
 
 $Object* SealedObject::getObject($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException, "key is null"_s);
 	}
@@ -239,6 +241,7 @@ $Object* SealedObject::getObject($Key* key) {
 }
 
 $Object* SealedObject::getObject($Cipher* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInput, a, getExtObjectInputStream(c));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -265,6 +268,7 @@ $Object* SealedObject::getObject($Cipher* c) {
 }
 
 $Object* SealedObject::getObject($Key* key, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException, "key is null"_s);
 	}
@@ -284,6 +288,7 @@ $Object* SealedObject::getObject($Key* key, $String* provider) {
 }
 
 $Object* SealedObject::unseal($Key* key, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->encodedParams != nullptr) {
 		try {
@@ -366,6 +371,7 @@ void SealedObject::readObject($ObjectInputStream* s) {
 }
 
 $ObjectInputStream* SealedObject::getExtObjectInputStream($Cipher* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, content, $nc(c)->doFinal(this->encryptedContent));
 	$var($ByteArrayInputStream, b, $new($ByteArrayInputStream, content));
 	return $new($extObjectInputStream, b);

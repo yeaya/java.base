@@ -126,6 +126,7 @@ void X509Authentication$X509PossessionGenerator::init$($StringArray* keyTypes) {
 }
 
 $SSLPossession* X509Authentication$X509PossessionGenerator::createPossession($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(context)->sslConfig)->isClientMode) {
 		{
 			$var($StringArray, arr$, this->keyTypes);
@@ -161,6 +162,7 @@ $SSLPossession* X509Authentication$X509PossessionGenerator::createPossession($Ha
 }
 
 $SSLPossession* X509Authentication$X509PossessionGenerator::createClientPossession($ClientHandshakeContext* chc, $String* keyType) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509ExtendedKeyManager, km, $nc($nc(chc)->sslContext)->getX509KeyManager());
 	$var($String, clientAlias, nullptr);
 	if ($instanceOf($SSLSocketImpl, $nc(chc->conContext)->transport)) {
@@ -204,6 +206,7 @@ $SSLPossession* X509Authentication$X509PossessionGenerator::createClientPossessi
 }
 
 $SSLPossession* X509Authentication$X509PossessionGenerator::createServerPossession($ServerHandshakeContext* shc, $String* keyType) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509ExtendedKeyManager, km, $nc($nc(shc)->sslContext)->getX509KeyManager());
 	$var($String, serverAlias, nullptr);
 	if ($instanceOf($SSLSocketImpl, $nc(shc->conContext)->transport)) {

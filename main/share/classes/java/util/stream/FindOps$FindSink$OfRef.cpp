@@ -172,6 +172,7 @@ $Object* FindOps$FindSink$OfRef::get() {
 }
 
 void clinit$FindOps$FindSink$OfRef($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamShape);
 	$var($StreamShape, var$0, $StreamShape::REFERENCE);
 	$var($Object, var$1, $of($Optional::empty()));

@@ -195,6 +195,7 @@ void X509CRLEntryImpl::init$($BigInteger* num, $Date* date, $CRLExtensions* crlE
 }
 
 void X509CRLEntryImpl::init$($bytes* revokedCert) {
+	$useLocalCurrentObjectStackCache();
 	$X509CRLEntry::init$();
 	$set(this, serialNumber, nullptr);
 	$set(this, revocationDate, nullptr);
@@ -210,6 +211,7 @@ void X509CRLEntryImpl::init$($bytes* revokedCert) {
 }
 
 void X509CRLEntryImpl::init$($DerValue* derValue) {
+	$useLocalCurrentObjectStackCache();
 	$X509CRLEntry::init$();
 	$set(this, serialNumber, nullptr);
 	$set(this, revocationDate, nullptr);
@@ -229,6 +231,7 @@ bool X509CRLEntryImpl::hasExtensions() {
 }
 
 void X509CRLEntryImpl::encode($DerOutputStream* outStrm) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->revokedCert == nullptr) {
 			$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -284,6 +287,7 @@ $Date* X509CRLEntryImpl::getRevocationDate() {
 }
 
 $CRLReason* X509CRLEntryImpl::getRevocationReason() {
+	$useLocalCurrentObjectStackCache();
 	$init($PKIXExtensions);
 	$var($Extension, ext, getExtension($PKIXExtensions::ReasonCode_Id));
 	if (ext == nullptr) {
@@ -295,6 +299,7 @@ $CRLReason* X509CRLEntryImpl::getRevocationReason() {
 
 $CRLReason* X509CRLEntryImpl::getRevocationReason($X509CRLEntry* crlEntry) {
 	$init(X509CRLEntryImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(crlEntry)->getExtensionValue($($KnownOIDs::ReasonCode->value())));
@@ -314,6 +319,7 @@ $CRLReason* X509CRLEntryImpl::getRevocationReason($X509CRLEntry* crlEntry) {
 }
 
 $Integer* X509CRLEntryImpl::getReasonCode() {
+	$useLocalCurrentObjectStackCache();
 	$init($PKIXExtensions);
 	$var($Object, obj, getExtension($PKIXExtensions::ReasonCode_Id));
 	if (obj == nullptr) {
@@ -325,6 +331,7 @@ $Integer* X509CRLEntryImpl::getReasonCode() {
 }
 
 $String* X509CRLEntryImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($of(this->serialNumber))->append("  On: "_s)->append($of(this->revocationDate));
 	if (this->certIssuer != nullptr) {
@@ -369,6 +376,7 @@ bool X509CRLEntryImpl::hasUnsupportedCriticalExtension() {
 }
 
 $Set* X509CRLEntryImpl::getCriticalExtensionOIDs() {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -388,6 +396,7 @@ $Set* X509CRLEntryImpl::getCriticalExtensionOIDs() {
 }
 
 $Set* X509CRLEntryImpl::getNonCriticalExtensionOIDs() {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -407,6 +416,7 @@ $Set* X509CRLEntryImpl::getNonCriticalExtensionOIDs() {
 }
 
 $bytes* X509CRLEntryImpl::getExtensionValue($String* oid) {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -456,6 +466,7 @@ $Extension* X509CRLEntryImpl::getExtension($ObjectIdentifier* oid) {
 }
 
 void X509CRLEntryImpl::parse($DerValue* derVal) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(derVal)->tag != $DerValue::tag_Sequence) {
 		$throwNew($CRLException, "Invalid encoded RevokedCertificate, starting sequence tag missing."_s);
 	}
@@ -495,6 +506,7 @@ $CertificateIssuerExtension* X509CRLEntryImpl::getCertificateIssuerExtension() {
 }
 
 $Map* X509CRLEntryImpl::getExtensions() {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return $Collections::emptyMap();
 	}
@@ -513,6 +525,7 @@ $Map* X509CRLEntryImpl::getExtensions() {
 }
 
 int32_t X509CRLEntryImpl::compareTo(X509CRLEntryImpl* that) {
+	$useLocalCurrentObjectStackCache();
 	int32_t compSerial = $nc($(getSerialNumber()))->compareTo($($nc(that)->getSerialNumber()));
 	if (compSerial != 0) {
 		return compSerial;

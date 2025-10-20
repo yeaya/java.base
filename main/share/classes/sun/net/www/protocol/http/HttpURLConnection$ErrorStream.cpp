@@ -93,6 +93,7 @@ void HttpURLConnection$ErrorStream::init$($ByteBuffer* buf, $InputStream* is) {
 
 $InputStream* HttpURLConnection$ErrorStream::getErrorStream($InputStream* is, int64_t cl, $HttpClient* http) {
 	$init(HttpURLConnection$ErrorStream);
+	$useLocalCurrentObjectStackCache();
 	if (cl == 0) {
 		return nullptr;
 	}

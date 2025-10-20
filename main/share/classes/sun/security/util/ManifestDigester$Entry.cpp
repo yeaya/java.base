@@ -139,10 +139,12 @@ ManifestDigester$Entry* ManifestDigester$Entry::addSection($ManifestDigester$Sec
 }
 
 bool ManifestDigester$Entry::isProperlyDelimited() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(this->sections)->stream()))->allMatch(static_cast<$Predicate*>($$new(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited)));
 }
 
 void ManifestDigester$Entry::reproduceRaw($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->sections)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -155,6 +157,7 @@ void ManifestDigester$Entry::reproduceRaw($OutputStream* out) {
 }
 
 $bytes* ManifestDigester$Entry::digest($MessageDigest* md) {
+	$useLocalCurrentObjectStackCache();
 	$nc(md)->reset();
 	{
 		$var($Iterator, i$, $nc(this->sections)->iterator());
@@ -173,6 +176,7 @@ $bytes* ManifestDigester$Entry::digest($MessageDigest* md) {
 }
 
 $bytes* ManifestDigester$Entry::digestWorkaround($MessageDigest* md) {
+	$useLocalCurrentObjectStackCache();
 	$nc(md)->reset();
 	{
 		$var($Iterator, i$, $nc(this->sections)->iterator());

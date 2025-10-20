@@ -260,6 +260,7 @@ void TreeSet::clear() {
 }
 
 bool TreeSet::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($TreeMap, map, nullptr);
 		bool var$1 = $nc(this->m)->size() == 0;
@@ -348,6 +349,7 @@ $Object* TreeSet::pollLast() {
 }
 
 $Object* TreeSet::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(TreeSet, clone, nullptr);
 	try {
 		$assign(clone, $cast(TreeSet, $AbstractSet::clone()));
@@ -360,6 +362,7 @@ $Object* TreeSet::clone() {
 }
 
 void TreeSet::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	s->writeObject($($nc(this->m)->comparator()));
 	s->writeInt($nc(this->m)->size());
@@ -373,6 +376,7 @@ void TreeSet::writeObject($ObjectOutputStream* s) {
 }
 
 void TreeSet::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$var($Comparator, c, $cast($Comparator, s->readObject()));
 	$var($TreeMap, tm, $new($TreeMap, c));

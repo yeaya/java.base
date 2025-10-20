@@ -219,6 +219,7 @@ CgroupV1Subsystem* CgroupV1Subsystem::getInstance($Map* infos) {
 
 CgroupV1Subsystem* CgroupV1Subsystem::initSubSystem($Map* infos) {
 	$init(CgroupV1Subsystem);
+	$useLocalCurrentObjectStackCache();
 	$var(CgroupV1Subsystem, subsystem, $new(CgroupV1Subsystem));
 	bool anyActiveControllers = false;
 	{
@@ -402,6 +403,7 @@ int64_t CgroupV1Subsystem::getCpuUsage() {
 }
 
 $longs* CgroupV1Subsystem::getPerCpuUsage() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, usagelist, $CgroupSubsystemController::getStringValue(this->cpuacct, "cpuacct.usage_percpu"_s));
 	if (usagelist == nullptr) {
 		return nullptr;

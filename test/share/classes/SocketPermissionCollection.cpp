@@ -54,6 +54,7 @@ void SocketPermissionCollection::init$() {
 }
 
 void SocketPermissionCollection::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t testFail = 0;
 	$var($SocketPermission, perm, $new($SocketPermission, "www.example.com"_s, "connect"_s));
 	$var($PermissionCollection, perms, perm->newPermissionCollection());

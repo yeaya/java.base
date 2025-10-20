@@ -81,6 +81,7 @@ void HashCodeTest::init$() {
 }
 
 void HashCodeTest::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, classes, $new($ArrayList));
 	$var($Set, typeVariables, $new($HashSet));
 	$load($Class);

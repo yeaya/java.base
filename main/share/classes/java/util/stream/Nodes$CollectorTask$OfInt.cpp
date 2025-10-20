@@ -157,6 +157,7 @@ $Object* allocate$Nodes$CollectorTask$OfInt($Class* clazz) {
 }
 
 void Nodes$CollectorTask$OfInt::init$($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipelineHelper, var$0, helper);
 	$var($Spliterator, var$1, spliterator);
 	$var($LongFunction, var$2, static_cast<$LongFunction*>($new(Nodes$CollectorTask$OfInt$$Lambda$intBuilder)));

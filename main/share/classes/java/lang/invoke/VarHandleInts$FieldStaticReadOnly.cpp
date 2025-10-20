@@ -139,6 +139,7 @@ VarHandleInts$FieldStaticReadOnly* VarHandleInts$FieldStaticReadOnly::withInvoke
 }
 
 $Optional* VarHandleInts$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Integer);
 	$var($Optional, fieldTypeRef, $nc($Integer::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

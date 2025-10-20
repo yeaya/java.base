@@ -54,6 +54,7 @@ void TestUndefinedNumeric::init$() {
 
 void TestUndefinedNumeric::main($StringArray* args) {
 	$init(TestUndefinedNumeric);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t ch = 0; ch <= 0x0000FFFF; ++ch) {
 		bool var$0 = !$Character::isDefined((char16_t)ch);
 		if (var$0 && $Character::getNumericValue((char16_t)ch) != -1) {

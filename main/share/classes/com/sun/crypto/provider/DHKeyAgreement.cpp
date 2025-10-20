@@ -140,6 +140,7 @@ void DHKeyAgreement::engineInit($Key* key, $SecureRandom* random) {
 }
 
 void DHKeyAgreement::engineInit($Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	this->generateSecret = false;
 	$set(this, init_p, nullptr);
 	$set(this, init_g, nullptr);
@@ -172,6 +173,7 @@ void DHKeyAgreement::engineInit($Key* key, $AlgorithmParameterSpec* params, $Sec
 }
 
 $Key* DHKeyAgreement::engineDoPhase($Key* key, bool lastPhase) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($1DHPublicKey, key))) {
 		$throwNew($InvalidKeyException, "Diffie-Hellman public key expected"_s);
 	}
@@ -211,6 +213,7 @@ $bytes* DHKeyAgreement::engineGenerateSecret() {
 }
 
 int32_t DHKeyAgreement::engineGenerateSecret($bytes* sharedSecret, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	if (this->generateSecret == false) {
 		$throwNew($IllegalStateException, "Key agreement has not been completed yet"_s);
 	}
@@ -242,6 +245,7 @@ int32_t DHKeyAgreement::engineGenerateSecret($bytes* sharedSecret, int32_t offse
 }
 
 $SecretKey* DHKeyAgreement::engineGenerateSecret($String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	if (algorithm == nullptr) {
 		$throwNew($NoSuchAlgorithmException, "null algorithm"_s);
 	}

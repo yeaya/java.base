@@ -83,6 +83,7 @@ void Bug6683975::init$() {
 
 void Bug6683975::test(int32_t style) {
 	$init(Bug6683975);
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormat, df_th, $DateFormat::getDateTimeInstance(style, style, Bug6683975::th));
 	$var($DateFormat, df_th_TH, $DateFormat::getDateTimeInstance(style, style, Bug6683975::th_TH));
 	$var($String, str_th, $nc(($cast($SimpleDateFormat, df_th)))->toPattern());
@@ -115,6 +116,7 @@ void Bug6683975::test(int32_t style) {
 
 void Bug6683975::main($StringArray* args) {
 	$init(Bug6683975);
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, timezone, $TimeZone::getDefault());
 	$var($Locale, locale, $Locale::getDefault());
 	$TimeZone::setDefault($($TimeZone::getTimeZone("US/Pacific"_s)));

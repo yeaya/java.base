@@ -76,6 +76,7 @@ void GetResource::init$() {
 }
 
 void GetResource::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->t1)->start();
 	$nc(this->t2)->start();
 	try {

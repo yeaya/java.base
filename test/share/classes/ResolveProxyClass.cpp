@@ -62,6 +62,7 @@ void ResolveProxyClass::init$() {
 
 void ResolveProxyClass::main($StringArray* args) {
 	$load(ResolveProxyClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println("\nRegression test for bug 4258644\n"_s);

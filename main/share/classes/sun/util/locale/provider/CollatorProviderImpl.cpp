@@ -119,6 +119,7 @@ bool CollatorProviderImpl::isSupportedLocale($Locale* locale) {
 }
 
 $Collator* CollatorProviderImpl::getInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}

@@ -93,6 +93,7 @@ $Object* ConcurrentHashMap$MapReduceMappingsToIntTask::getRawResult() {
 }
 
 void ConcurrentHashMap$MapReduceMappingsToIntTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($ToIntBiFunction, transformer, nullptr);
 	$var($IntBinaryOperator, reducer, nullptr);
 	if (($assign(transformer, this->transformer)) != nullptr && ($assign(reducer, this->reducer)) != nullptr) {

@@ -76,6 +76,7 @@ void SSLContextSpi::init$() {
 }
 
 $SSLSocket* SSLContextSpi::getDefaultSocket() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SSLSocketFactory, factory, engineGetSocketFactory());
 		return $cast($SSLSocket, $nc(factory)->createSocket());
@@ -92,6 +93,7 @@ $SSLParameters* SSLContextSpi::engineGetDefaultSSLParameters() {
 }
 
 $SSLParameters* SSLContextSpi::engineGetSupportedSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLSocket, socket, getDefaultSocket());
 	$var($SSLParameters, params, $nc(socket)->getSSLParameters());
 	$nc(params)->setCipherSuites($(socket->getSupportedCipherSuites()));

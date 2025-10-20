@@ -65,6 +65,7 @@ void Basic4ref$2::init$() {
 }
 
 void Basic4ref$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($Basic4ref);
 	$nc($Basic4ref::keep)->addElement($$new($PhantomReference, $$new($Object), $Basic4ref::q2));
 }

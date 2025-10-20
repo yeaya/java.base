@@ -109,6 +109,7 @@ bool SynchronousQueue$TransferStack$SNode::casNext(SynchronousQueue$TransferStac
 }
 
 bool SynchronousQueue$TransferStack$SNode::tryMatch(SynchronousQueue$TransferStack$SNode* s) {
+	$useLocalCurrentObjectStackCache();
 	$var(SynchronousQueue$TransferStack$SNode, m, nullptr);
 	$var($Thread, w, nullptr);
 	if (($assign(m, this->match)) == nullptr) {
@@ -148,6 +149,7 @@ void SynchronousQueue$TransferStack$SNode::forgetWaiter() {
 }
 
 void clinit$SynchronousQueue$TransferStack$SNode($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

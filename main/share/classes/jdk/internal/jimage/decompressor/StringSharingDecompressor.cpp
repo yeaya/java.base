@@ -117,6 +117,7 @@ $ints* StringSharingDecompressor::getSizes() {
 
 $bytes* StringSharingDecompressor::normalize($ResourceDecompressor$StringsProvider* provider, $bytes* transformed, int32_t offset) {
 	$init(StringSharingDecompressor);
+	$useLocalCurrentObjectStackCache();
 	$var($DataInputStream, stream, $new($DataInputStream, $$new($ByteArrayInputStream, transformed, offset, $nc(transformed)->length - offset)));
 	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream, $nc(transformed)->length));
 	$var($DataOutputStream, out, $new($DataOutputStream, outStream));
@@ -186,6 +187,7 @@ $bytes* StringSharingDecompressor::normalize($ResourceDecompressor$StringsProvid
 
 $String* StringSharingDecompressor::reconstruct($ResourceDecompressor$StringsProvider* reader, $DataInputStream* cr) {
 	$init(StringSharingDecompressor);
+	$useLocalCurrentObjectStackCache();
 	int32_t descIndex = $CompressIndexes::readInt(cr);
 	$var($String, desc, $nc(reader)->getString(descIndex));
 	$var($bytes, encodedDesc, getEncoded(desc));
@@ -238,6 +240,7 @@ $String* StringSharingDecompressor::reconstruct($ResourceDecompressor$StringsPro
 
 $bytes* StringSharingDecompressor::getEncoded($String* pre) {
 	$init(StringSharingDecompressor);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, resultStream, $new($ByteArrayOutputStream));
 	$var($DataOutputStream, resultOut, $new($DataOutputStream, resultStream));
 	resultOut->writeUTF(pre);
@@ -256,6 +259,7 @@ $ByteBuffer* StringSharingDecompressor::safeAdd($ByteBuffer* current, int8_t b) 
 
 $ByteBuffer* StringSharingDecompressor::safeAdd($ByteBuffer* current$renamed, $bytes* bytes) {
 	$init(StringSharingDecompressor);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, current, current$renamed);
 	if ($nc(current)->remaining() < $nc(bytes)->length) {
 		$var($ByteBuffer, newBuffer, $ByteBuffer::allocate((current->capacity() + bytes->length) * 2));

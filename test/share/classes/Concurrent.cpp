@@ -58,6 +58,7 @@ $Object* allocate$Concurrent($Class* clazz) {
 }
 
 void Concurrent::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, b, $new($bytes, 512));
 		$var($DatagramPacket, p, $new($DatagramPacket, b, b->length));
@@ -83,6 +84,7 @@ void Concurrent::run() {
 }
 
 void Concurrent::init$($InetAddress* ia, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println(""_s);
 	$nc($System::out)->println("***"_s);
@@ -115,6 +117,7 @@ void Concurrent::init$($InetAddress* ia, int32_t port) {
 
 void Concurrent::main($StringArray* args) {
 	$init(Concurrent);
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, ia, nullptr);
 	int32_t port = 0;
 	if ($nc(args)->length >= 2) {

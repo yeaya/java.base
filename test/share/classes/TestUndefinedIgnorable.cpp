@@ -54,6 +54,7 @@ void TestUndefinedIgnorable::init$() {
 
 void TestUndefinedIgnorable::main($StringArray* args) {
 	$init(TestUndefinedIgnorable);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t ch = 0; ch <= TestUndefinedIgnorable::endValue; ++ch) {
 		bool var$0 = !$Character::isDefined((char16_t)ch);
 		if (var$0 && $Character::isIdentifierIgnorable((char16_t)ch)) {

@@ -69,6 +69,7 @@ void StartOOMTest::init$() {
 }
 
 void StartOOMTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Runnable, r, $new($StartOOMTest$SleepRunnable));
 	$var($ThreadGroup, tg, $new($ThreadGroup, "buggy"_s));
 	$var($List, threads, $new($ArrayList));

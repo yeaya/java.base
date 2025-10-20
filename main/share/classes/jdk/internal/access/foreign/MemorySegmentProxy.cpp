@@ -64,6 +64,7 @@ void MemorySegmentProxy::init$() {
 }
 
 int64_t MemorySegmentProxy::addOffsets(int64_t op1, int64_t op2, MemorySegmentProxy* segmentProxy) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(segmentProxy)->isSmall()) {
 		if (op1 > $Integer::MAX_VALUE || op2 > $Integer::MAX_VALUE || op1 < $Integer::MIN_VALUE || op2 < $Integer::MIN_VALUE) {
 			$throw($(overflowException($Integer::MIN_VALUE, $Integer::MAX_VALUE)));
@@ -88,6 +89,7 @@ int64_t MemorySegmentProxy::addOffsets(int64_t op1, int64_t op2, MemorySegmentPr
 }
 
 int64_t MemorySegmentProxy::multiplyOffsets(int64_t op1, int64_t op2, MemorySegmentProxy* segmentProxy) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(segmentProxy)->isSmall()) {
 		if (op1 > $Integer::MAX_VALUE || op2 > $Integer::MAX_VALUE || op1 < $Integer::MIN_VALUE || op2 < $Integer::MIN_VALUE) {
 			$throw($(overflowException($Integer::MIN_VALUE, $Integer::MAX_VALUE)));
@@ -112,6 +114,7 @@ int64_t MemorySegmentProxy::multiplyOffsets(int64_t op1, int64_t op2, MemorySegm
 }
 
 $IndexOutOfBoundsException* MemorySegmentProxy::overflowException(int64_t min, int64_t max) {
+	$useLocalCurrentObjectStackCache();
 	return $new($IndexOutOfBoundsException, $($String::format("Overflow occurred during offset computation ; offset exceeded range { %d .. %d }"_s, $$new($ObjectArray, {
 		$($of($Long::valueOf(min))),
 		$($of($Long::valueOf(max)))

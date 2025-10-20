@@ -248,6 +248,7 @@ $CharBuffer* HeapCharBuffer::put($String* src, int32_t start, int32_t end) {
 }
 
 $CharBuffer* HeapCharBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapCharBuffer::$assertionsDisabled && !(pos <= lim)) {

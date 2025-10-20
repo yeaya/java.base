@@ -117,6 +117,7 @@ $HttpCallerInfo* AuthenticationHeader::getHttpCallerInfo() {
 }
 
 void AuthenticationHeader::parse($Set* disabledSchemes) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, iter, $nc(this->rsp)->multiValueIterator(this->hdrname));
 	while ($nc(iter)->hasNext()) {
 		$var($String, raw, $cast($String, iter->next()));

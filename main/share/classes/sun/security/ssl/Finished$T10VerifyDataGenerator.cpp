@@ -87,6 +87,7 @@ void Finished$T10VerifyDataGenerator::init$() {
 }
 
 $bytes* Finished$T10VerifyDataGenerator::createVerifyData($HandshakeContext* context, bool isValidation) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeHash, handshakeHash, $nc(context)->handshakeHash);
 	$var($SecretKey, masterSecretKey, $nc(context->handshakeSession)->getMasterSecret());
 	bool useClientLabel = ($nc(context->sslConfig)->isClientMode && !isValidation) || (!$nc(context->sslConfig)->isClientMode && isValidation);

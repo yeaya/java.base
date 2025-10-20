@@ -51,6 +51,7 @@ void RoundingTests::init$() {
 }
 
 int32_t RoundingTests::roundingTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, bd1, $BigDecimal::valueOf(11, $Integer::MIN_VALUE));
 	$var($BigDecimal, bd2, nullptr);
@@ -71,6 +72,7 @@ int32_t RoundingTests::roundingTests() {
 }
 
 void RoundingTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += roundingTests();
 	if (failures > 0) {

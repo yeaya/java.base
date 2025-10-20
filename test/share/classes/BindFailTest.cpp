@@ -39,6 +39,7 @@ void BindFailTest::init$() {
 }
 
 void BindFailTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, s, $new($DatagramSocket));
 	int32_t port = s->getLocalPort();
 	for (int32_t i = 0; i < 32000; ++i) {

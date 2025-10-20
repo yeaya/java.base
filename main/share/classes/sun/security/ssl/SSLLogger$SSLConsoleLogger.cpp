@@ -106,6 +106,7 @@ bool SSLLogger$SSLConsoleLogger::isLoggable($System$Logger$Level* level) {
 }
 
 void SSLLogger$SSLConsoleLogger::log($System$Logger$Level* level, $ResourceBundle* rb, $String* message, $Throwable* thrwbl) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		try {
 			$var($String, formatted, $SSLLogger$SSLSimpleFormatter::format(this, level, message, $$new($ObjectArray, {$of(thrwbl)})));
@@ -119,6 +120,7 @@ void SSLLogger$SSLConsoleLogger::log($System$Logger$Level* level, $ResourceBundl
 }
 
 void SSLLogger$SSLConsoleLogger::log($System$Logger$Level* level, $ResourceBundle* rb, $String* message, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (isLoggable(level)) {
 		try {
 			$var($String, formatted, $SSLLogger$SSLSimpleFormatter::format(this, level, message, params));

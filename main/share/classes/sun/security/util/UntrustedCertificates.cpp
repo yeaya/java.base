@@ -86,6 +86,7 @@ $String* UntrustedCertificates::algorithm = nullptr;
 
 bool UntrustedCertificates::isUntrusted($X509Certificate* cert) {
 	$init(UntrustedCertificates);
+	$useLocalCurrentObjectStackCache();
 	if (UntrustedCertificates::algorithm == nullptr) {
 		return false;
 	}
@@ -107,6 +108,7 @@ void UntrustedCertificates::init$() {
 }
 
 void clinit$UntrustedCertificates($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(UntrustedCertificates::ALGORITHM_KEY, "Algorithm"_s);
 	$beforeCallerSensitive();
 	$assignStatic(UntrustedCertificates::debug, $Debug::getInstance("certpath"_s));

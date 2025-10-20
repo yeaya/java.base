@@ -75,6 +75,7 @@ void ContentEquals::main($StringArray* args) {
 
 void ContentEquals::testStringBuffer() {
 	$init(ContentEquals);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < ContentEquals::ITERATIONS; ++i) {
 		int32_t length = $nc(ContentEquals::rnd)->nextInt(ContentEquals::STR_LEN) + 1;
 		$var($StringBuffer, testStringBuffer, $new($StringBuffer));
@@ -94,6 +95,7 @@ void ContentEquals::testStringBuffer() {
 
 void ContentEquals::testStringBuilder() {
 	$init(ContentEquals);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < ContentEquals::ITERATIONS; ++i) {
 		int32_t length = $nc(ContentEquals::rnd)->nextInt(ContentEquals::STR_LEN) + 1;
 		$var($StringBuilder, testStringBuilder, $new($StringBuilder));
@@ -113,6 +115,7 @@ void ContentEquals::testStringBuilder() {
 
 void ContentEquals::testString() {
 	$init(ContentEquals);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < ContentEquals::ITERATIONS; ++i) {
 		int32_t length = $nc(ContentEquals::rnd)->nextInt(ContentEquals::STR_LEN) + 1;
 		$var($StringBuilder, testStringBuilder, $new($StringBuilder));
@@ -132,6 +135,7 @@ void ContentEquals::testString() {
 
 void ContentEquals::testCharSequence() {
 	$init(ContentEquals);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < ContentEquals::ITERATIONS; ++i) {
 		int32_t length = $nc(ContentEquals::rnd)->nextInt(ContentEquals::STR_LEN) + 1;
 		$var($StringBuilder, testStringBuilder, $new($StringBuilder));

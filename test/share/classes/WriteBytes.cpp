@@ -50,6 +50,7 @@ void WriteBytes::init$() {
 }
 
 void WriteBytes::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($OutputStream, out, $new($BufferedOutputStream, baos, 512));
 	$var($PrintStream, ps, $new($PrintStream, out, false));

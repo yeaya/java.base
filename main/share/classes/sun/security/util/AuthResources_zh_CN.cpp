@@ -56,6 +56,7 @@ $ObjectArray2* AuthResources_zh_CN::getContents() {
 }
 
 void clinit$AuthResources_zh_CN($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(AuthResources_zh_CN::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.value"_s),

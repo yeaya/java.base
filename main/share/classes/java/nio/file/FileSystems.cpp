@@ -99,6 +99,7 @@ $FileSystem* FileSystems::getDefault() {
 }
 
 $FileSystem* FileSystems::getFileSystem($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, scheme, $nc(uri)->getScheme());
 	if (scheme == nullptr) {
 		$throwNew($IllegalArgumentException, $(uri->toString()));
@@ -123,6 +124,7 @@ $FileSystem* FileSystems::newFileSystem($URI* uri, $Map* env) {
 
 $FileSystem* FileSystems::newFileSystem($URI* uri, $Map* env, $ClassLoader* loader) {
 	$load(FileSystems);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, scheme, $nc(uri)->getScheme());
 	{
@@ -177,6 +179,7 @@ $FileSystem* FileSystems::newFileSystem($Path* path) {
 
 $FileSystem* FileSystems::newFileSystem($Path* path, $Map* env, $ClassLoader* loader) {
 	$load(FileSystems);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (path == nullptr) {
 		$throwNew($NullPointerException);

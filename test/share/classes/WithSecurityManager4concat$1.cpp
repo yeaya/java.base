@@ -63,6 +63,7 @@ void WithSecurityManager4concat$1::init$() {
 }
 
 void WithSecurityManager4concat$1::checkPermission($Permission* perm) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, abc, "abc"_s);
 	int32_t ival = $nc(perm)->hashCode();
 	$var($String, full, $str({abc, "abc"_s}));

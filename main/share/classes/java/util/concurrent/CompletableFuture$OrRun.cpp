@@ -75,6 +75,7 @@ void CompletableFuture$OrRun::init$($Executor* executor, $CompletableFuture* dep
 }
 
 $CompletableFuture* CompletableFuture$OrRun::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);

@@ -248,6 +248,7 @@ void FindOps$FindSink$OfLong::accept($Long* value) {
 }
 
 void clinit$FindOps$FindSink$OfLong($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamShape);
 	$var($StreamShape, var$0, $StreamShape::LONG_VALUE);
 	$var($Object, var$1, $of($OptionalLong::empty()));

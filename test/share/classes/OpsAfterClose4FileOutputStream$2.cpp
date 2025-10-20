@@ -68,6 +68,7 @@ void OpsAfterClose4FileOutputStream$2::init$($String* $enum$name, int32_t $enum$
 }
 
 bool OpsAfterClose4FileOutputStream$2::check($FileOutputStream* r) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, buf, $new($bytes, 2));
 		$nc(r)->write(buf);

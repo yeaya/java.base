@@ -160,6 +160,7 @@ void VarForm::init$($Class* value, $ClassArray* coordinates) {
 }
 
 void VarForm::initMethodTypes($Class* value, $ClassArray* coordinates$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, coordinates, coordinates$renamed);
 	$Class* erasedValue = $MethodTypeForm::canonicalize(value, $MethodTypeForm::ERASE);
 	$var($ClassArray, erasedCoordinates, $MethodTypeForm::canonicalizeAll(coordinates, $MethodTypeForm::ERASE));
@@ -205,6 +206,7 @@ $MemberName* VarForm::getMemberNameOrNull(int32_t mode) {
 }
 
 $MemberName* VarForm::resolveMemberName(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$VarHandle$AccessMode* value = $($VarHandle$AccessMode::values())->get(mode);
 	$var($String, methodName, $nc(value)->methodName());
 	$load($VarHandle);
@@ -214,6 +216,7 @@ $MemberName* VarForm::resolveMemberName(int32_t mode) {
 }
 
 $MethodTypeArray* VarForm::getMethodType_V_init() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodTypeArray, table, $new($MethodTypeArray, $($VarHandle$AccessType::values())->length));
 	for (int32_t i = 0; i < $nc(this->methodType_table)->length; ++i) {
 		$var($MethodType, mt, $nc(this->methodType_table)->get(i));

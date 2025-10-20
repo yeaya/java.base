@@ -294,6 +294,7 @@ int64_t FileTime::toExcessNanos(int64_t days) {
 }
 
 int32_t FileTime::compareTo(FileTime* other) {
+	$useLocalCurrentObjectStackCache();
 	if (this->unit != nullptr && this->unit == $nc(other)->unit) {
 		return $Long::compare(this->value, other->value);
 	} else {
@@ -331,6 +332,7 @@ $StringBuilder* FileTime::append($StringBuilder* sb, int32_t w, int32_t d) {
 }
 
 $String* FileTime::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->valueAsString == nullptr) {
 		int64_t secs = 0;
 		int32_t nanos = 0;

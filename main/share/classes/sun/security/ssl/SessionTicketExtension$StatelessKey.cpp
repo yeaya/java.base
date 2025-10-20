@@ -78,6 +78,7 @@ $Object* allocate$SessionTicketExtension$StatelessKey($Class* clazz) {
 }
 
 void SessionTicketExtension$StatelessKey::init$($HandshakeContext* hc, int32_t newNum) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, k, nullptr);
 	try {
 		$var($KeyGenerator, kg, $KeyGenerator::getInstance("AES"_s));

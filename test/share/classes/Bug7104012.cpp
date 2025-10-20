@@ -57,6 +57,7 @@ void Bug7104012::init$() {
 }
 
 void Bug7104012::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool err = false;
 	$var($List, data, $new($ArrayList));
 	data->add($cstr({0xDB40}));

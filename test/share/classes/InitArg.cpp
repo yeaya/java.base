@@ -49,6 +49,7 @@ void InitArg::init$() {
 
 void InitArg::main($StringArray* args) {
 	$init(InitArg);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("x123"_s, false, $(InitArg::class$->getClassLoader()));
 	if (InitArg::x123Initialized) {

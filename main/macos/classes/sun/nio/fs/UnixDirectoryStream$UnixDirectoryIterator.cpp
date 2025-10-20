@@ -107,6 +107,7 @@ bool UnixDirectoryStream$UnixDirectoryIterator::isSelfOrParent($bytes* nameAsByt
 }
 
 $Path* UnixDirectoryStream$UnixDirectoryIterator::readNextEntry() {
+	$useLocalCurrentObjectStackCache();
 	if (!UnixDirectoryStream$UnixDirectoryIterator::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

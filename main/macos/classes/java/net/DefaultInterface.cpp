@@ -122,6 +122,7 @@ $NetworkInterface* DefaultInterface::getDefault() {
 
 $NetworkInterface* DefaultInterface::chooseDefaultInterface() {
 	$init(DefaultInterface);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Enumeration, nifs, nullptr);
 	try {

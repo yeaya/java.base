@@ -168,6 +168,7 @@ $bytes* RSAPSSSignature::EIGHT_BYTES_OF_ZEROS = nullptr;
 $Hashtable* RSAPSSSignature::DIGEST_LENGTHS = nullptr;
 
 bool RSAPSSSignature::isDigestEqual($String* stdAlg, $String* givenAlg$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, givenAlg, givenAlg$renamed);
 	if (stdAlg == nullptr || givenAlg == nullptr) {
 		return false;
@@ -222,6 +223,7 @@ void RSAPSSSignature::engineInitSign($PrivateKey* privateKey, $SecureRandom* ran
 
 bool RSAPSSSignature::isCompatible($AlgorithmParameterSpec* keyParams, $PSSParameterSpec* sigParams) {
 	$init(RSAPSSSignature);
+	$useLocalCurrentObjectStackCache();
 	if (keyParams == nullptr) {
 		return true;
 	}
@@ -256,6 +258,7 @@ bool RSAPSSSignature::isCompatible($AlgorithmParameterSpec* keyParams, $PSSParam
 }
 
 $RSAKey* RSAPSSSignature::isValid($RSAKey* rsaKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, keyParams, $nc(rsaKey)->getParams());
 	if (!isCompatible($(rsaKey->getParams()), this->sigParams)) {
 		$throwNew($InvalidKeyException, "Key contains incompatible PSS parameter values"_s);
@@ -280,6 +283,7 @@ $RSAKey* RSAPSSSignature::isValid($RSAKey* rsaKey) {
 }
 
 $PSSParameterSpec* RSAPSSSignature::validateSigParams($AlgorithmParameterSpec* p) {
+	$useLocalCurrentObjectStackCache();
 	if (p == nullptr) {
 		$throwNew($InvalidAlgorithmParameterException, "Parameters cannot be null"_s);
 	}
@@ -338,6 +342,7 @@ void RSAPSSSignature::ensureInit() {
 
 void RSAPSSSignature::checkKeyLength($RSAKey* key, int32_t digestLen, int32_t saltLen) {
 	$init(RSAPSSSignature);
+	$useLocalCurrentObjectStackCache();
 	if (key != nullptr) {
 		int32_t keyLength = (getKeyLengthInBits(key) + 7) >> 3;
 		int32_t minLength = $Math::addExact($Math::addExact(digestLen, saltLen), 2);
@@ -372,6 +377,7 @@ void RSAPSSSignature::engineUpdate($bytes* b, int32_t off, int32_t len) {
 }
 
 void RSAPSSSignature::engineUpdate($ByteBuffer* b) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		ensureInit();
 	} catch ($SignatureException&) {
@@ -383,6 +389,7 @@ void RSAPSSSignature::engineUpdate($ByteBuffer* b) {
 }
 
 $bytes* RSAPSSSignature::engineSign() {
+	$useLocalCurrentObjectStackCache();
 	ensureInit();
 	$var($bytes, mHash, getDigestValue());
 	try {
@@ -400,6 +407,7 @@ $bytes* RSAPSSSignature::engineSign() {
 }
 
 bool RSAPSSSignature::engineVerify($bytes* sigBytes) {
+	$useLocalCurrentObjectStackCache();
 	ensureInit();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -448,6 +456,7 @@ int32_t RSAPSSSignature::getKeyLengthInBits($RSAKey* k) {
 }
 
 $bytes* RSAPSSSignature::encodeSignature($bytes* mHash) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, mgfParams, $nc(this->sigParams)->getMGFParameters());
 	$var($String, mgfDigestAlgo, nullptr);
 	if (mgfParams != nullptr) {
@@ -494,6 +503,7 @@ $bytes* RSAPSSSignature::encodeSignature($bytes* mHash) {
 }
 
 bool RSAPSSSignature::decodeSignature($bytes* mHash, $bytes* em) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hLen = $nc(mHash)->length;
 	int32_t sLen = $nc(this->sigParams)->getSaltLength();
 	int32_t emBits = getKeyLengthInBits(this->pubKey) - 1;
@@ -560,6 +570,7 @@ void RSAPSSSignature::engineSetParameter($String* param, Object$* value) {
 }
 
 void RSAPSSSignature::engineSetParameter($AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, sigParams, validateSigParams(params));
 	if (!this->digestReset) {
 		$throwNew($ProviderException, "Cannot set parameters during operations"_s);
@@ -581,6 +592,7 @@ $Object* RSAPSSSignature::engineGetParameter($String* param) {
 }
 
 $AlgorithmParameters* RSAPSSSignature::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, ap, nullptr);
 	if (this->sigParams != nullptr) {
 		try {
@@ -595,6 +607,7 @@ $AlgorithmParameters* RSAPSSSignature::engineGetParameters() {
 }
 
 void clinit$RSAPSSSignature($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(RSAPSSSignature::EIGHT_BYTES_OF_ZEROS, $new($bytes, 8));
 	$assignStatic(RSAPSSSignature::DIGEST_LENGTHS, $new($Hashtable));
 	{

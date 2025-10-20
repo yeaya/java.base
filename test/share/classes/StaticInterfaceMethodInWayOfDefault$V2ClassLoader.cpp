@@ -83,6 +83,7 @@ $Class* StaticInterfaceMethodInWayOfDefault$V2ClassLoader::loadClass($String* na
 }
 
 $Class* StaticInterfaceMethodInWayOfDefault$V2ClassLoader::findClass($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->endsWith("_v1"_s)) {
 		$var($String, altName, $str({$(name->substring(0, name->length() - 3)), "_v2"_s}));
 		$var($String, altPath, $($nc(altName)->replace(u'.', u'/'))->concat(".class"_s));

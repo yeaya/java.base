@@ -76,6 +76,7 @@ $Object* allocate$PortUnreachable($Class* clazz) {
 bool PortUnreachable::$assertionsDisabled = false;
 
 void PortUnreachable::serverSend() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, addr, $InetAddress::getLocalHost());
 	$Thread::sleep(1000);
 	$var($bytes, b, "A late msg"_s->getBytes());
@@ -90,6 +91,7 @@ void PortUnreachable::serverSend() {
 }
 
 $DatagramSocket* PortUnreachable::recreateServerSocket(int32_t serverPort) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, serverSocket, nullptr);
 	int32_t retryCount = 0;
 	int64_t sleeptime = 0;
@@ -154,6 +156,7 @@ $String* PortUnreachable::attempt(int32_t retry) {
 }
 
 $String* PortUnreachable::sleeptime(int64_t millis) {
+	$useLocalCurrentObjectStackCache();
 	if (millis == 0) {
 		return "no sleep"_s;
 	}
@@ -174,11 +177,13 @@ $String* PortUnreachable::sleeptime(int64_t millis) {
 }
 
 void PortUnreachable::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, clientSock, $new($DatagramSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0))));
 	this->clientPort = $nc(this->clientSock)->getLocalPort();
 }
 
 void PortUnreachable::execute() {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, sock2, $new($DatagramSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0))));
 	this->serverPort = sock2->getLocalPort();
 	$var($InetAddress, addr, $InetAddress::getLocalHost());
@@ -200,6 +205,7 @@ void PortUnreachable::execute() {
 
 void PortUnreachable::main($StringArray* args) {
 	$init(PortUnreachable);
+	$useLocalCurrentObjectStackCache();
 	int32_t catchCount = 0;
 	while (true) {
 		try {

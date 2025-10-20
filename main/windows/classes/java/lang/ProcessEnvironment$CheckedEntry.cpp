@@ -82,6 +82,7 @@ $String* ProcessEnvironment$CheckedEntry::setValue($String* value) {
 }
 
 $String* ProcessEnvironment$CheckedEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($cast($String, getKey())), "="_s}));
 	return $concat(var$0, $($cast($String, getValue())));
 }

@@ -100,6 +100,7 @@ void UpdateInterference::init$() {
 }
 
 void UpdateInterference::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, root, $Files::createTempDirectory("test"_s, $$new($FileAttributeArray, 0)));
 	$var($Path, foo, $nc(root)->resolve("foo"_s));
 	$var($Path, bar, root->resolve("bar"_s));

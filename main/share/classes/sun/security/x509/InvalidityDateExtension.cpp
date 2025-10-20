@@ -176,11 +176,13 @@ void InvalidityDateExtension::delete$($String* name) {
 }
 
 $String* InvalidityDateExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($Extension::toString()), "    Invalidity Date: "_s}));
 	return $concat(var$0, $($String::valueOf($of(this->date))));
 }
 
 void InvalidityDateExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -204,6 +206,7 @@ $String* InvalidityDateExtension::getName() {
 
 InvalidityDateExtension* InvalidityDateExtension::toImpl($1Extension* ext) {
 	$init(InvalidityDateExtension);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(InvalidityDateExtension, ext)) {
 		return $cast(InvalidityDateExtension, ext);
 	} else {

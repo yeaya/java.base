@@ -251,6 +251,7 @@ int64_t VarHandleByteArrayAsShorts$ArrayHandle::address($bytes* ba, int32_t inde
 
 int16_t VarHandleByteArrayAsShorts$ArrayHandle::get($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -260,6 +261,7 @@ int16_t VarHandleByteArrayAsShorts$ArrayHandle::get($VarHandle* ob, Object$* oba
 
 void VarHandleByteArrayAsShorts$ArrayHandle::set($VarHandle* ob, Object$* oba, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -269,6 +271,7 @@ void VarHandleByteArrayAsShorts$ArrayHandle::set($VarHandle* ob, Object$* oba, i
 
 int16_t VarHandleByteArrayAsShorts$ArrayHandle::getVolatile($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -277,6 +280,7 @@ int16_t VarHandleByteArrayAsShorts$ArrayHandle::getVolatile($VarHandle* ob, Obje
 
 void VarHandleByteArrayAsShorts$ArrayHandle::setVolatile($VarHandle* ob, Object$* oba, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -287,6 +291,7 @@ void VarHandleByteArrayAsShorts$ArrayHandle::setVolatile($VarHandle* ob, Object$
 
 int16_t VarHandleByteArrayAsShorts$ArrayHandle::getAcquire($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -295,6 +300,7 @@ int16_t VarHandleByteArrayAsShorts$ArrayHandle::getAcquire($VarHandle* ob, Objec
 
 void VarHandleByteArrayAsShorts$ArrayHandle::setRelease($VarHandle* ob, Object$* oba, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -305,6 +311,7 @@ void VarHandleByteArrayAsShorts$ArrayHandle::setRelease($VarHandle* ob, Object$*
 
 int16_t VarHandleByteArrayAsShorts$ArrayHandle::getOpaque($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -313,6 +320,7 @@ int16_t VarHandleByteArrayAsShorts$ArrayHandle::getOpaque($VarHandle* ob, Object
 
 void VarHandleByteArrayAsShorts$ArrayHandle::setOpaque($VarHandle* ob, Object$* oba, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsShorts$ArrayHandle, handle, $cast(VarHandleByteArrayAsShorts$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -322,6 +330,7 @@ void VarHandleByteArrayAsShorts$ArrayHandle::setOpaque($VarHandle* ob, Object$* 
 }
 
 void clinit$VarHandleByteArrayAsShorts$ArrayHandle($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(VarHandleByteArrayAsShorts$ArrayHandle::OOBEF, $Preconditions::outOfBoundsExceptionFormatter(static_cast<$Function*>($$new(VarHandleByteArrayAsShorts$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException))));
 	$load($bytes);
 	$init($Short);

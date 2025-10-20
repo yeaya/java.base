@@ -606,6 +606,7 @@ $Object* allocate$Loader($Class* clazz) {
 bool Loader::$assertionsDisabled = false;
 
 void Loader::init$($ResolvedModule* resolvedModule, $LoaderPool* pool, $ClassLoader* parent) {
+	$useLocalCurrentObjectStackCache();
 	$SecureClassLoader::init$($$str({"Loader-"_s, $($nc(resolvedModule)->name())}), parent);
 	$set(this, remotePackageToLoader, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
 	$set(this, moduleToReader, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
@@ -623,6 +624,7 @@ void Loader::init$($ResolvedModule* resolvedModule, $LoaderPool* pool, $ClassLoa
 }
 
 void Loader::init$($Collection* modules, $ClassLoader* parent) {
+	$useLocalCurrentObjectStackCache();
 	$SecureClassLoader::init$(parent);
 	$set(this, remotePackageToLoader, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
 	$set(this, moduleToReader, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
@@ -648,6 +650,7 @@ void Loader::init$($Collection* modules, $ClassLoader* parent) {
 }
 
 Loader* Loader::initRemotePackageMap($Configuration* cf, $List* parentModuleLayers) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(this->nameToModule)->keySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -720,6 +723,7 @@ Loader* Loader::initRemotePackageMap($Configuration* cf, $List* parentModuleLaye
 }
 
 void Loader::remotePackage($String* pn, $ClassLoader* loader) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, l, $cast($ClassLoader, $nc(this->remotePackageToLoader)->putIfAbsent(pn, loader)));
 	if (l != nullptr && l != loader) {
 		$throwNew($IllegalStateException, $$str({"Package "_s, pn, " cannot be imported from multiple loaders"_s}));
@@ -727,6 +731,7 @@ void Loader::remotePackage($String* pn, $ClassLoader* loader) {
 }
 
 $Optional* Loader::findModuleLayer($ModuleLayer* parent, $Configuration* cf) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc($($SharedSecrets::getJavaLangAccess()))->layers(parent)))->filter(static_cast<$Predicate*>($$new(Loader$$Lambda$lambda$findModuleLayer$5$6, cf)))))->findAny();
 }
 
@@ -735,6 +740,7 @@ $LoaderPool* Loader::pool() {
 }
 
 $URL* Loader::findResource($String* mn, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ModuleReference, mref, (mn != nullptr) ? $cast($ModuleReference, $nc(this->nameToModule)->get(mn)) : ($ModuleReference*)nullptr);
 	if (mref == nullptr) {
@@ -760,6 +766,7 @@ $URL* Loader::findResource($String* mn, $String* name) {
 }
 
 $URL* Loader::findResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pn, $Resources::toPackageName(name));
 	$var($Loader$LoadedModule, module, $cast($Loader$LoadedModule, $nc(this->localPackageToModule)->get(pn)));
 	if (module != nullptr) {
@@ -816,6 +823,7 @@ $URL* Loader::getResource($String* name) {
 }
 
 $Enumeration* Loader::getResources($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($List, urls, findResourcesAsList(name));
 	$var($Enumeration, e, nullptr);
@@ -828,6 +836,7 @@ $Enumeration* Loader::getResources($String* name) {
 }
 
 $List* Loader::findResourcesAsList($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pn, $Resources::toPackageName(name));
 	$var($Loader$LoadedModule, module, $cast($Loader$LoadedModule, $nc(this->localPackageToModule)->get(pn)));
 	if (module != nullptr) {
@@ -874,6 +883,7 @@ $Class* Loader::findClass($String* cn) {
 }
 
 $Class* Loader::findClass($String* mn, $String* cn) {
+	$useLocalCurrentObjectStackCache();
 	$Class* c = nullptr;
 	$var($Loader$LoadedModule, loadedModule, findLoadedModule(cn));
 	if (loadedModule != nullptr && $nc($(loadedModule->name()))->equals(mn)) {
@@ -883,6 +893,7 @@ $Class* Loader::findClass($String* mn, $String* cn) {
 }
 
 $Class* Loader::loadClass($String* cn, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($String, pn, packageName(cn));
@@ -926,6 +937,7 @@ $Class* Loader::findClassInModuleOrNull($Loader$LoadedModule* loadedModule, $Str
 }
 
 $Class* Loader::defineClass($String* cn, $Loader$LoadedModule* loadedModule) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleReader, reader, moduleReaderFor($($nc(loadedModule)->mref())));
 	try {
 		$var($String, rn, $($nc(cn)->replace(u'.', u'/'))->concat(".class"_s));
@@ -961,6 +973,7 @@ $Class* Loader::defineClass($String* cn, $Loader$LoadedModule* loadedModule) {
 }
 
 $PermissionCollection* Loader::getPermissions($CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($PermissionCollection, perms, $SecureClassLoader::getPermissions(cs));
 	$var($URL, url, $nc(cs)->getLocation());
 	if (url == nullptr) {
@@ -1010,6 +1023,7 @@ $ModuleReader* Loader::createModuleReader($ModuleReference* mref) {
 }
 
 bool Loader::isOpen($ModuleReference* mref, $String* pn) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(mref)->descriptor());
 	bool var$0 = $nc(descriptor)->isOpen();
 	if (var$0 || $nc(descriptor)->isAutomatic()) {
@@ -1059,6 +1073,7 @@ $Optional* Loader::lambda$initRemotePackageMap$2($ResolvedModule* other, $Module
 
 void Loader::lambda$new$1($ModuleReference* mref, $Map* localPackageToModule, $String* pn) {
 	$init(Loader);
+	$useLocalCurrentObjectStackCache();
 	$var($Loader$LoadedModule, lm, $new($Loader$LoadedModule, mref));
 	if ($nc(localPackageToModule)->put(pn, lm) != nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Package "_s, pn, " in more than one module"_s}));

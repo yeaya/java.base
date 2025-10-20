@@ -79,6 +79,7 @@ int64_t UnixMountEntry::dev() {
 }
 
 bool UnixMountEntry::hasOption($String* requested) {
+	$useLocalCurrentObjectStackCache();
 	if (this->optionsAsString == nullptr) {
 		$set(this, optionsAsString, $Util::toString(this->opts));
 	}

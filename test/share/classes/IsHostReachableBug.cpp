@@ -48,6 +48,7 @@ void IsHostReachableBug::init$() {
 }
 
 void IsHostReachableBug::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostName, "fec0::1:a00:20ff:feed:b08d"_s);
 	$var($BufferedReader, in, nullptr);
 	$var($FileWriter, fw, nullptr);

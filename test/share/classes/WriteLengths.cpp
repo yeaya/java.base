@@ -60,6 +60,7 @@ void WriteLengths::init$() {
 
 void WriteLengths::go(int32_t len, $String* enc) {
 	$init(WriteLengths);
+	$useLocalCurrentObjectStackCache();
 	$nc(WriteLengths::bos)->reset();
 	$var($OutputStreamWriter, osw, $new($OutputStreamWriter, static_cast<$OutputStream*>(WriteLengths::bos), enc));
 	$var($chars, cs, $new($chars, len));

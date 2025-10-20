@@ -95,6 +95,7 @@ void String$CaseInsensitiveComparator::init$() {
 }
 
 int32_t String$CaseInsensitiveComparator::compare($String* s1, $String* s2) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, v1, $nc(s1)->value$);
 	$var($bytes, v2, $nc(s2)->value$);
 	int8_t coder = s1->coder();

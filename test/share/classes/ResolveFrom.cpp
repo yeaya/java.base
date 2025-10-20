@@ -53,6 +53,7 @@ void ResolveFrom::init$() {
 }
 
 void ResolveFrom::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$load(ResolveFrom);
 	int32_t m = ResolveFrom::class$->getModifiers();
 	$init($System);

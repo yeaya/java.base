@@ -96,6 +96,7 @@ $MethodHandle* DirectMethodHandle$Interface::viewAsType($MethodType* newType, bo
 }
 
 $Object* DirectMethodHandle$Interface::checkReceiver(Object$* recv) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->refc)->isInstance(recv)) {
 		$var($String, msg, $String::format("Receiver class %s does not implement the requested interface %s"_s, $$new($ObjectArray, {
 			$($of($nc($of(recv))->getClass()->getName())),

@@ -134,6 +134,7 @@ void RSAKeyPairGenerator::init$($RSAUtil$KeyType* type, int32_t defKeySize) {
 }
 
 void RSAKeyPairGenerator::initialize(int32_t keySize, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($RSAKeyGenParameterSpec);
 		initialize(static_cast<$AlgorithmParameterSpec*>($$new($RSAKeyGenParameterSpec, keySize, $RSAKeyGenParameterSpec::F4)), random);
@@ -144,6 +145,7 @@ void RSAKeyPairGenerator::initialize(int32_t keySize, $SecureRandom* random) {
 }
 
 void RSAKeyPairGenerator::initialize($AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($RSAKeyGenParameterSpec, params) == false) {
 		$throwNew($InvalidAlgorithmParameterException, "Params must be instance of RSAKeyGenParameterSpec"_s);
 	}
@@ -188,6 +190,7 @@ void RSAKeyPairGenerator::initialize($AlgorithmParameterSpec* params, $SecureRan
 }
 
 $KeyPair* RSAKeyPairGenerator::generateKeyPair() {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, e, this->publicExponent);
 	$init($BigInteger);
 	$var($BigInteger, minValue, this->useNew ? getSqrt(this->keySize) : $BigInteger::ZERO);
@@ -235,6 +238,7 @@ $KeyPair* RSAKeyPairGenerator::generateKeyPair() {
 
 $BigInteger* RSAKeyPairGenerator::getSqrt(int32_t keySize) {
 	$init(RSAKeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, sqrt, nullptr);
 	switch (keySize) {
 	case 2048:
@@ -263,6 +267,7 @@ $BigInteger* RSAKeyPairGenerator::getSqrt(int32_t keySize) {
 
 bool RSAKeyPairGenerator::isRelativePrime($BigInteger* e, $BigInteger* bi) {
 	$init(RSAKeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	$init($RSAKeyGenParameterSpec);
 	bool var$0 = $nc(e)->compareTo($RSAKeyGenParameterSpec::F4) == 0;
 	if (var$0 || $nc(e)->compareTo($RSAKeyGenParameterSpec::F0) == 0) {
@@ -274,6 +279,7 @@ bool RSAKeyPairGenerator::isRelativePrime($BigInteger* e, $BigInteger* bi) {
 
 $KeyPair* RSAKeyPairGenerator::createKeyPair($RSAUtil$KeyType* type, $AlgorithmParameterSpec* keyParams, $BigInteger* n, $BigInteger* e, $BigInteger* p, $BigInteger* q) {
 	$init(RSAKeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	$init($BigInteger);
 	$var($BigInteger, p1, $nc(p)->subtract($BigInteger::ONE));
 	$var($BigInteger, q1, $nc(q)->subtract($BigInteger::ONE));
@@ -299,6 +305,7 @@ $KeyPair* RSAKeyPairGenerator::createKeyPair($RSAUtil$KeyType* type, $AlgorithmP
 }
 
 void clinit$RSAKeyPairGenerator($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($BigInteger);
 		$assignStatic(RSAKeyPairGenerator::SQRT_2048, $nc($($nc($BigInteger::TWO)->pow(2047)))->sqrt());

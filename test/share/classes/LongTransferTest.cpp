@@ -86,6 +86,7 @@ void LongTransferTest::init$() {
 }
 
 void LongTransferTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("LongTransferTest-main: Test to transfer bytes with a size bigger than Integer.MAX_VALUE."_s);
 	$nc($System::out)->println("LongTransferTest-main: Test at first the private method transferFromFileChannel with files..."_s);

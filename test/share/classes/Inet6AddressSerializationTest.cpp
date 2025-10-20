@@ -160,6 +160,7 @@ void Inet6AddressSerializationTest::init$() {
 
 void Inet6AddressSerializationTest::main($StringArray* args) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length != 0) {
 		if ($nc(args->get(0))->equals("generate-loopback"_s)) {
 			$init($System);
@@ -174,6 +175,7 @@ void Inet6AddressSerializationTest::main($StringArray* args) {
 
 void Inet6AddressSerializationTest::runTests() {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, thisHostIPV6Address, nullptr);
 	int32_t scope_id = Inet6AddressSerializationTest::LOOPBACK_SCOPE_ID;
 	$init($System);
@@ -197,6 +199,7 @@ void Inet6AddressSerializationTest::runTests() {
 
 $bytes* Inet6AddressSerializationTest::getThisHostIPV6Address($String* hostName) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddressArray, thisHostIPAddresses, nullptr);
 	try {
 		$assign(thisHostIPAddresses, $InetAddress::getAllByName($($nc($($InetAddress::getLocalHost()))->getHostName())));
@@ -227,6 +230,7 @@ $bytes* Inet6AddressSerializationTest::getThisHostIPV6Address($String* hostName)
 
 void Inet6AddressSerializationTest::testAllNetworkInterfaces() {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("\n testAllNetworkInterfaces: \n "_s);
 	{
@@ -259,6 +263,7 @@ void Inet6AddressSerializationTest::testAllNetworkInterfaces() {
 
 void Inet6AddressSerializationTest::displayExpectedInet6Address($Inet6Address* expectedInet6Address) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, expectedHostName, $nc(expectedInet6Address)->getHostName());
 	$var($bytes, expectedAddress, expectedInet6Address->getAddress());
 	$var($String, expectedHostAddress, expectedInet6Address->getHostAddress());
@@ -275,6 +280,7 @@ void Inet6AddressSerializationTest::displayExpectedInet6Address($Inet6Address* e
 
 void Inet6AddressSerializationTest::testInet6AddressSerialization($Inet6Address* expectedInet6Address, $bytes* serializedAddress) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("\n testInet6AddressSerialization:  enter \n"_s);
 	$var($bytes, serialData, serializedAddress != nullptr ? serializedAddress : generateSerializedInet6AddressData(expectedInet6Address, nullptr, false));
@@ -349,6 +355,7 @@ void Inet6AddressSerializationTest::testInet6AddressSerialization($Inet6Address*
 
 void Inet6AddressSerializationTest::testSerializedE1000gInet6Address() {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("\n testSerializedE1000gInet6Address:  enter \n"_s);
 	bool testWithNetIf = true;
@@ -480,6 +487,7 @@ void Inet6AddressSerializationTest::testSerializedE1000gInet6Address() {
 
 void Inet6AddressSerializationTest::testSerializedLo0Inet6Address() {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("\n testSerializedLo0Inet6Address:  enter \n"_s);
 	bool testWithNetIf = true;
@@ -611,6 +619,7 @@ void Inet6AddressSerializationTest::testSerializedLo0Inet6Address() {
 
 $List* Inet6AddressSerializationTest::getAllInet6Addresses() {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, inet6Addresses, $new($ArrayList));
 	{
 		$var($Enumeration, e, $NetworkInterface::getNetworkInterfaces());
@@ -638,6 +647,7 @@ $List* Inet6AddressSerializationTest::getAllInet6Addresses() {
 
 void Inet6AddressSerializationTest::assertHostNameEqual($String* expectedHostName, $String* deserializedHostName) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Inet6AddressSerializationTest.assertHostNameEqual:"_s);
 	if (expectedHostName == nullptr) {
@@ -656,6 +666,7 @@ void Inet6AddressSerializationTest::assertHostNameEqual($String* expectedHostNam
 
 void Inet6AddressSerializationTest::assertHostAddressEqual($String* expectedHostAddress, $String* deserializedHostAddress) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Inet6AddressSerializationTest.assertHostAddressEqual:"_s);
 	if (expectedHostAddress == nullptr) {
@@ -674,6 +685,7 @@ void Inet6AddressSerializationTest::assertHostAddressEqual($String* expectedHost
 
 void Inet6AddressSerializationTest::assertAddressEqual($bytes* expectedAddress, $bytes* deserializedAddress) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Inet6AddressSerializationTest.assertAddressEqual:"_s);
 	if (expectedAddress == nullptr) {
@@ -695,6 +707,7 @@ void Inet6AddressSerializationTest::assertAddressEqual($bytes* expectedAddress, 
 
 void Inet6AddressSerializationTest::assertScopeIdEqual(int32_t expectedScopeId, int32_t deserializedScopeId) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Inet6AddressSerializationTest.assertScopeIdEqual:"_s);
 	if (expectedScopeId != deserializedScopeId) {
@@ -707,6 +720,7 @@ void Inet6AddressSerializationTest::assertScopeIdEqual(int32_t expectedScopeId, 
 
 void Inet6AddressSerializationTest::assertNetworkInterfaceNameEqual($String* expectedNetworkIfName, $NetworkInterface* deserializedNetworkInterface) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	if (deserializedNetworkInterface != nullptr) {
 		$var($String, deserializedNetworkIfName, deserializedNetworkInterface->getName());
 		$init($System);
@@ -731,6 +745,7 @@ void Inet6AddressSerializationTest::assertNetworkInterfaceNameEqual($String* exp
 
 void Inet6AddressSerializationTest::assertNetworkInterfaceEqual($NetworkInterface* expectedNetworkInterface, $NetworkInterface* deserializedNetworkInterface) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Inet6AddressSerializationTest.assertNetworkInterfaceEqual:"_s);
 	if (expectedNetworkInterface == nullptr) {
@@ -750,6 +765,7 @@ void Inet6AddressSerializationTest::assertNetworkInterfaceEqual($NetworkInterfac
 
 void Inet6AddressSerializationTest::equal(Object$* expected, Object$* got) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	if (expected == nullptr) {
 		if (got == nullptr) {
 		} else {
@@ -766,6 +782,7 @@ void Inet6AddressSerializationTest::equal(Object$* expected, Object$* got) {
 
 $bytes* Inet6AddressSerializationTest::generateSerializedInet6AddressData($Inet6Address* addr, $PrintStream* out, bool outputToFile) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	{
 		$var($ObjectOutputStream, oos, $new($ObjectOutputStream, bos));
@@ -817,6 +834,7 @@ $bytes* Inet6AddressSerializationTest::generateSerializedInet6AddressData($Inet6
 
 $String* Inet6AddressSerializationTest::getIfName($Inet6Address* inet6Addr) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, ifname, nullptr);
 	if ($nc(inet6Addr)->getScopedInterface() != nullptr) {
 		$assign(ifname, $str({"_ifname_"_s, $($nc($(inet6Addr->getScopedInterface()))->getName())}));
@@ -828,6 +846,7 @@ $String* Inet6AddressSerializationTest::getIfName($Inet6Address* inet6Addr) {
 
 void Inet6AddressSerializationTest::generateAllInet6AddressSerializedData() {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($List, inet6Addresses, nullptr);
 	try {
 		$assign(inet6Addresses, getAllInet6Addresses());
@@ -850,6 +869,7 @@ void Inet6AddressSerializationTest::generateAllInet6AddressSerializedData() {
 
 void Inet6AddressSerializationTest::serializeInet6AddressToFile($Inet6Address* inet6Addr) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fOut, nullptr);
 	$var($String, inet6AddressOutputFilename, nullptr);
 	$assign(inet6AddressOutputFilename, createOutputFileName(inet6Addr));
@@ -890,6 +910,7 @@ void Inet6AddressSerializationTest::serializeInet6AddressToFile($Inet6Address* i
 
 $String* Inet6AddressSerializationTest::createOutputFileName($Inet6Address* inet6Addr) {
 	$init(Inet6AddressSerializationTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, inet6AddressOutputFilename, nullptr);
 	if ($nc(inet6Addr)->getScopedInterface() != nullptr) {
 		$assign(inet6AddressOutputFilename, $str({"IPV6Address_"_s, $($nc($(inet6Addr->getScopedInterface()))->getName()), ".out"_s}));

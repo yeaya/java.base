@@ -54,6 +54,7 @@ void TestUndefinedIdentifierStartPart::init$() {
 
 void TestUndefinedIdentifierStartPart::main($StringArray* args) {
 	$init(TestUndefinedIdentifierStartPart);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t ch = 0; ch <= TestUndefinedIdentifierStartPart::endValue; ++ch) {
 		bool var$0 = !$Character::isDefined((char16_t)ch);
 		if (var$0) {

@@ -100,6 +100,7 @@ void NTLMAuthSequence::init$($String* username, $String* password, $String* ntdo
 }
 
 $String* NTLMAuthSequence::getAuthHeader($String* token) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, input, nullptr);
 	if (!NTLMAuthSequence::$assertionsDisabled && ! !$nc(this->status)->sequenceComplete) {
 		$throwNew($AssertionError);

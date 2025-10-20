@@ -110,6 +110,7 @@ $Set* TestParameterizedType::genericMethod9() {
 
 $List* TestParameterizedType::createTypes() {
 	$load(TestParameterizedType);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, typeList, $new($ArrayList, 3));
 	$var($StringArray, methodNames, $new($StringArray, {
@@ -140,6 +141,7 @@ $List* TestParameterizedType::createTypes() {
 }
 
 bool TestParameterizedType::testReflexes($List* typeList) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(typeList)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -160,6 +162,7 @@ bool TestParameterizedType::testReflexes($List* typeList) {
 }
 
 void TestParameterizedType::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($List, take1, createTypes());
 	$var($List, take2, createTypes());

@@ -228,6 +228,7 @@ void ClassWriter::init$($ClassReader* classReader, int32_t flags) {
 }
 
 void ClassWriter::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
+	$useLocalCurrentObjectStackCache();
 	this->version = version;
 	this->accessFlags = access;
 	this->thisClass = $nc(this->symbolTable)->setMajorVersionAndClassName((int32_t)(version & (uint32_t)0x0000FFFF), name);
@@ -257,6 +258,7 @@ void ClassWriter::visitSource($String* file, $String* debug) {
 }
 
 $ModuleVisitor* ClassWriter::visitModule($String* name, int32_t access, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$var($SymbolTable, var$0, this->symbolTable);
 	int32_t var$1 = $nc($($nc(this->symbolTable)->addConstantModule(name)))->index;
 	int32_t var$2 = access;
@@ -312,6 +314,7 @@ void ClassWriter::visitPermittedSubclassExperimental($String* permittedSubclass)
 }
 
 void ClassWriter::visitInnerClass($String* name, $String* outerName, $String* innerName, int32_t access) {
+	$useLocalCurrentObjectStackCache();
 	if (this->innerClasses == nullptr) {
 		$set(this, innerClasses, $new($ByteVector));
 	}
@@ -360,6 +363,7 @@ void ClassWriter::visitEnd() {
 }
 
 $bytes* ClassWriter::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 24 + 2 * this->interfaceCount;
 	int32_t fieldsCount = 0;
 	$var($FieldWriter, fieldWriter, this->firstField);
@@ -579,6 +583,7 @@ $bytes* ClassWriter::toByteArray() {
 }
 
 $bytes* ClassWriter::replaceAsmInstructions($bytes* classFile, bool hasFrames) {
+	$useLocalCurrentObjectStackCache();
 	$var($AttributeArray, attributes, getAttributePrototypes());
 	$set(this, firstField, nullptr);
 	$set(this, lastField, nullptr);
@@ -603,6 +608,7 @@ $bytes* ClassWriter::replaceAsmInstructions($bytes* classFile, bool hasFrames) {
 }
 
 $AttributeArray* ClassWriter::getAttributePrototypes() {
+	$useLocalCurrentObjectStackCache();
 	$var($Attribute$Set, attributePrototypes, $new($Attribute$Set));
 	attributePrototypes->addAttributes(this->firstAttribute);
 	$var($FieldWriter, fieldWriter, this->firstField);
@@ -676,6 +682,7 @@ int32_t ClassWriter::newNameType($String* name, $String* descriptor) {
 }
 
 $String* ClassWriter::getCommonSuperClass($String* type1, $String* type2) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, classLoader, getClassLoader());
 	$Class* class1 = nullptr;

@@ -195,6 +195,7 @@ void ImmutableCollections$List12::readObject($ObjectInputStream* in) {
 }
 
 $Object* ImmutableCollections$List12::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($ImmutableCollections);
 	if ($equals(this->e1, $ImmutableCollections::EMPTY)) {
 		return $of($new($CollSer, $CollSer::IMM_LIST, $$new($ObjectArray, {this->e0})));

@@ -110,6 +110,7 @@ void TypeCheckMicroBenchmark::init$() {
 }
 
 void TypeCheckMicroBenchmark::collectAllGarbage() {
+	$useLocalCurrentObjectStackCache();
 	$var($CountDownLatch, drained, $new($CountDownLatch, 1));
 	try {
 		$System::gc();
@@ -141,6 +142,7 @@ $longs* TypeCheckMicroBenchmark::time0($TypeCheckMicroBenchmark$JobArray* jobs) 
 }
 
 void TypeCheckMicroBenchmark::time($TypeCheckMicroBenchmark$JobArray* jobs) {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, warmup, time0(jobs));
 	$var($longs, nanoss, time0(jobs));
 	$var($longs, milliss, $new($longs, $nc(jobs)->length));
@@ -184,6 +186,7 @@ void TypeCheckMicroBenchmark::time($TypeCheckMicroBenchmark$JobArray* jobs) {
 }
 
 $String* TypeCheckMicroBenchmark::keywordValue($StringArray* args, $String* keyword) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, args);
 		int32_t len$ = $nc(arr$)->length;
@@ -209,6 +212,7 @@ $Pattern* TypeCheckMicroBenchmark::patternArg($StringArray* args, $String* keywo
 }
 
 $TypeCheckMicroBenchmark$JobArray* TypeCheckMicroBenchmark::filter($Pattern* filter, $TypeCheckMicroBenchmark$JobArray* jobs) {
+	$useLocalCurrentObjectStackCache();
 	if (filter == nullptr) {
 		return jobs;
 	}
@@ -231,6 +235,7 @@ $TypeCheckMicroBenchmark$JobArray* TypeCheckMicroBenchmark::filter($Pattern* fil
 }
 
 void TypeCheckMicroBenchmark::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t iterations = intArg(args, "iterations"_s, 30000);
 	int32_t size = intArg(args, "size"_s, 1000);
 	$var($Pattern, filter, patternArg(args, "filter"_s));

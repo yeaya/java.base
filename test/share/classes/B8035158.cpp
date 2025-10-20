@@ -88,6 +88,7 @@ void B8035158::init$() {
 }
 
 void B8035158::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(emptyNonProxiesHosts()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -112,6 +113,7 @@ void B8035158::main($StringArray* args) {
 }
 
 $Collection* B8035158::emptyNonProxiesHosts() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, tests, $new($LinkedList));
 	$var($StringArray, loopbacks, $new($StringArray, {
 		"localhost"_s,
@@ -145,6 +147,7 @@ $Collection* B8035158::emptyNonProxiesHosts() {
 }
 
 $Collection* B8035158::nonEmptyNonProxiesHosts() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, tests, $new($LinkedList));
 	$var($StringArray, nonProxyHosts, $new($StringArray, {
 		"google.com"_s,
@@ -203,6 +206,7 @@ $Collection* B8035158::nonEmptyNonProxiesHosts() {
 }
 
 $Collection* B8035158::misc() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, t, $new($LinkedList));
 	t->add($$new($B8035158$TestCase, "oracle.com"_s, "http://137.254.16.101"_s, true));
 	t->add($$new($B8035158$TestCase, "google.com"_s, "http://74.125.200.101"_s, true));
@@ -263,6 +267,7 @@ $Collection* B8035158::misc() {
 }
 
 $Object* B8035158::withSystemPropertiesSet($Map* localProperties, $Callable* code) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, backup, $new($HashMap));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -294,6 +299,7 @@ $Object* B8035158::withSystemPropertiesSet($Map* localProperties, $Callable* cod
 }
 
 void B8035158::backupAndSetProperties($Map* localProperties, $Map* oldProperties) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(localProperties)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -308,6 +314,7 @@ void B8035158::backupAndSetProperties($Map* localProperties, $Map* oldProperties
 }
 
 void B8035158::restoreProperties($Map* oldProperties) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(oldProperties)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {

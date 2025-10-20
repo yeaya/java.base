@@ -154,6 +154,7 @@ $bytes* AbstractDrbg$SeederHolder::lambda$static$0($HashDrbg* first, int32_t ent
 }
 
 void clinit$AbstractDrbg$SeederHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($AbstractDrbg);
 		$assignStatic(AbstractDrbg$SeederHolder::prseeder, $AbstractDrbg::defaultES);

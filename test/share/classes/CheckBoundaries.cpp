@@ -45,6 +45,7 @@ void CheckBoundaries::init$() {
 }
 
 void CheckBoundaries::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool exception = false;
 	try {
 		int32_t offset = $Integer::MAX_VALUE;

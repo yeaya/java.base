@@ -75,6 +75,7 @@ void Configuration$2::init$($String* val$finalClass) {
 }
 
 $Object* Configuration$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Configuration);
 	$Class* implClass = $Class::forName(this->val$finalClass, false, $($($Thread::currentThread())->getContextClassLoader()))->asSubclass($Configuration::class$);

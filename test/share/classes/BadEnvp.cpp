@@ -45,6 +45,7 @@ void BadEnvp::init$() {
 }
 
 void BadEnvp::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime, r, $Runtime::getRuntime());
 	$var($File, dir, $new($File, "."_s));
 	$var($StringArray, envpWithNull, $new($StringArray, {

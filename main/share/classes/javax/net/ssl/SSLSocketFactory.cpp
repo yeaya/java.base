@@ -101,6 +101,7 @@ void SSLSocketFactory::init$() {
 
 $SocketFactory* SSLSocketFactory::getDefault() {
 	$init(SSLSocketFactory);
+	$useLocalCurrentObjectStackCache();
 	$init($SSLSocketFactory$DefaultFactoryHolder);
 	if ($SSLSocketFactory$DefaultFactoryHolder::defaultFactory != nullptr) {
 		return $SSLSocketFactory$DefaultFactoryHolder::defaultFactory;
@@ -129,6 +130,7 @@ $Socket* SSLSocketFactory::createSocket($Socket* s, $InputStream* consumed, bool
 }
 
 void clinit$SSLSocketFactory($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Locale);
 		$var($String, s, $nc($($GetPropertyAction::privilegedGetProperty("javax.net.debug"_s, ""_s)))->toLowerCase($Locale::ENGLISH));

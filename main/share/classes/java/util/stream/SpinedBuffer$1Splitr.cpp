@@ -127,6 +127,7 @@ bool SpinedBuffer$1Splitr::tryAdvance($Consumer* consumer) {
 }
 
 void SpinedBuffer$1Splitr::forEachRemaining($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(consumer);
 	if (this->splSpineIndex < this->lastSpineIndex || (this->splSpineIndex == this->lastSpineIndex && this->splElementIndex < this->lastSpineElementFence)) {
 		int32_t i = this->splElementIndex;
@@ -148,6 +149,7 @@ void SpinedBuffer$1Splitr::forEachRemaining($Consumer* consumer) {
 }
 
 $Spliterator* SpinedBuffer$1Splitr::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->splSpineIndex < this->lastSpineIndex) {
 		$var($Spliterator, ret, $new(SpinedBuffer$1Splitr, this->this$0, this->splSpineIndex, this->lastSpineIndex - 1, this->splElementIndex, $nc($nc(this->this$0->spine)->get(this->lastSpineIndex - 1))->length));
 		this->splSpineIndex = this->lastSpineIndex;

@@ -103,6 +103,7 @@ $NamedGroup* XDHKeyExchange$XDHECredentials::getNamedGroup() {
 
 XDHKeyExchange$XDHECredentials* XDHKeyExchange$XDHECredentials::valueOf($NamedGroup* namedGroup, $bytes* encodedPoint) {
 	$init(XDHKeyExchange$XDHECredentials);
+	$useLocalCurrentObjectStackCache();
 	$init($NamedGroup$NamedGroupSpec);
 	if ($nc(namedGroup)->spec != $NamedGroup$NamedGroupSpec::NAMED_GROUP_XDH) {
 		$throwNew($RuntimeException, "Credentials decoding:  Not XDH named group"_s);

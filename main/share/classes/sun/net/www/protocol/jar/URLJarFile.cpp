@@ -141,6 +141,7 @@ $JarFile* URLJarFile::getJarFile($URL* url) {
 
 $JarFile* URLJarFile::getJarFile($URL* url, $URLJarFile$URLJarFileCloseController* closeController) {
 	$init(URLJarFile);
+	$useLocalCurrentObjectStackCache();
 	if (isFileURL(url)) {
 		$var($Runtime$Version, version, "runtime"_s->equals($($nc(url)->getRef())) ? $JarFile::runtimeVersion() : $JarFile::baseVersion());
 		return $new(URLJarFile, url, closeController, version);
@@ -166,6 +167,7 @@ void URLJarFile::init$($File* file, $URLJarFile$URLJarFileCloseController* close
 }
 
 void URLJarFile::init$($URL* url, $URLJarFile$URLJarFileCloseController* closeController, $Runtime$Version* version) {
+	$useLocalCurrentObjectStackCache();
 	$JarFile::init$($$new($File, $($ParseUtil::decode($($nc(url)->getFile())))), true, $ZipFile::OPEN_READ, version);
 	$set(this, closeController, nullptr);
 	$set(this, closeController, closeController);
@@ -173,6 +175,7 @@ void URLJarFile::init$($URL* url, $URLJarFile$URLJarFileCloseController* closeCo
 
 bool URLJarFile::isFileURL($URL* url) {
 	$init(URLJarFile);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(url)->getProtocol()))->equalsIgnoreCase("file"_s)) {
 		$var($String, host, url->getHost());
 		bool var$1 = host == nullptr || $nc(host)->isEmpty();
@@ -185,6 +188,7 @@ bool URLJarFile::isFileURL($URL* url) {
 }
 
 $ZipEntry* URLJarFile::getEntry($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ZipEntry, ze, $JarFile::getEntry(name));
 	if (ze != nullptr) {
 		if ($instanceOf($JarEntry, ze)) {
@@ -198,6 +202,7 @@ $ZipEntry* URLJarFile::getEntry($String* name) {
 }
 
 $Manifest* URLJarFile::getManifest() {
+	$useLocalCurrentObjectStackCache();
 	if (!isSuperMan()) {
 		return nullptr;
 	}
@@ -244,6 +249,7 @@ bool URLJarFile::isSuperMan() {
 
 $JarFile* URLJarFile::retrieve($URL* url, $URLJarFile$URLJarFileCloseController* closeController) {
 	$init(URLJarFile);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (URLJarFile::callback != nullptr) {
 		return $nc(URLJarFile::callback)->retrieve(url);

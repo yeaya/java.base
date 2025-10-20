@@ -64,6 +64,7 @@ void URLEncodeDecode::init$() {
 
 void URLEncodeDecode::main($StringArray* args) {
 	$init(URLEncodeDecode);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Constructed the string: "_s, URLEncodeDecode::str}));
 	$nc($System::out)->println($$str({"The Unicode bytes are: "_s, $(getHexBytes(URLEncodeDecode::str))}));
@@ -73,6 +74,7 @@ void URLEncodeDecode::main($StringArray* args) {
 
 void URLEncodeDecode::test($String* enc, $String* correctEncoded) {
 	$init(URLEncodeDecode);
+	$useLocalCurrentObjectStackCache();
 	$var($String, encoded, nullptr);
 	$var($String, outStr, nullptr);
 	if (enc == nullptr) {
@@ -108,6 +110,7 @@ void URLEncodeDecode::test($String* enc, $String* correctEncoded) {
 
 $String* URLEncodeDecode::getHexBytes($String* s) {
 	$init(URLEncodeDecode);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		int32_t a = s->charAt(i);

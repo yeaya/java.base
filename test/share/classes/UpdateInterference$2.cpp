@@ -96,6 +96,7 @@ void UpdateInterference$2::init$($Path* val$baz, $WatchService* val$watcher) {
 }
 
 void UpdateInterference$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($WatchKeyArray, bazKeys, $new($WatchKeyArray, 32));
 	$init($UpdateInterference);
 	while (!$UpdateInterference::stop) {

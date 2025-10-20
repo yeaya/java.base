@@ -422,6 +422,7 @@ $SocketAddress* SocketChannelImpl::getRemoteAddress() {
 }
 
 $NetworkChannel* SocketChannelImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -448,6 +449,7 @@ $NetworkChannel* SocketChannelImpl::setOption($SocketOption* name, Object$* valu
 }
 
 $Object* SocketChannelImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -504,6 +506,7 @@ void SocketChannelImpl::throwConnectionReset() {
 }
 
 int32_t SocketChannelImpl::read($ByteBuffer* buf) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(buf);
 	$nc(this->readLock)->lock();
 	{
@@ -586,6 +589,7 @@ int32_t SocketChannelImpl::read($ByteBuffer* buf) {
 }
 
 int64_t SocketChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(offset, length, $nc(dsts)->length);
 	$nc(this->readLock)->lock();
 	{
@@ -693,6 +697,7 @@ void SocketChannelImpl::endWrite(bool blocking, bool completed) {
 }
 
 int32_t SocketChannelImpl::write($ByteBuffer* buf) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(buf);
 	$nc(this->writeLock)->lock();
 	{
@@ -752,6 +757,7 @@ int32_t SocketChannelImpl::write($ByteBuffer* buf) {
 }
 
 int64_t SocketChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(offset, length, $nc(srcs)->length);
 	$nc(this->writeLock)->lock();
 	{
@@ -811,6 +817,7 @@ int64_t SocketChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t
 }
 
 int32_t SocketChannelImpl::sendOutOfBandData(int8_t b) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->writeLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -862,6 +869,7 @@ int32_t SocketChannelImpl::sendOutOfBandData(int8_t b) {
 }
 
 void SocketChannelImpl::implConfigureBlocking(bool block) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -938,6 +946,7 @@ $SocketAddress* SocketChannelImpl::remoteAddress() {
 }
 
 $NetworkChannel* SocketChannelImpl::bind($SocketAddress* local) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -982,6 +991,7 @@ $NetworkChannel* SocketChannelImpl::bind($SocketAddress* local) {
 }
 
 $SocketAddress* SocketChannelImpl::unixBind($SocketAddress* local) {
+	$useLocalCurrentObjectStackCache();
 	$UnixDomainSockets::checkPermission();
 	if (local == nullptr) {
 		return $UnixDomainSockets::UNNAMED;
@@ -997,6 +1007,7 @@ $SocketAddress* SocketChannelImpl::unixBind($SocketAddress* local) {
 }
 
 $SocketAddress* SocketChannelImpl::netBind($SocketAddress* local) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, nullptr);
 	if (local == nullptr) {
 		$assign(isa, $new($InetSocketAddress, $($Net::anyLocalAddress(this->family)), 0));
@@ -1026,6 +1037,7 @@ bool SocketChannelImpl::isConnectionPending() {
 }
 
 void SocketChannelImpl::beginConnect(bool blocking, $SocketAddress* sa) {
+	$useLocalCurrentObjectStackCache();
 	if (blocking) {
 		begin();
 	}
@@ -1072,6 +1084,7 @@ void SocketChannelImpl::endConnect(bool blocking, bool completed) {
 }
 
 $SocketAddress* SocketChannelImpl::checkRemote($SocketAddress* sa) {
+	$useLocalCurrentObjectStackCache();
 	if (isUnixSocket()) {
 		$UnixDomainSockets::checkPermission();
 		return $UnixDomainSockets::checkAddress(sa);
@@ -1101,6 +1114,7 @@ $SocketAddress* SocketChannelImpl::checkRemote($SocketAddress* sa) {
 }
 
 bool SocketChannelImpl::connect($SocketAddress* remote) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, sa, checkRemote(remote));
 	try {
 		$nc(this->readLock)->lock();
@@ -1219,6 +1233,7 @@ void SocketChannelImpl::endFinishConnect(bool blocking, bool completed) {
 }
 
 bool SocketChannelImpl::finishConnect() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->readLock)->lock();
 		{
@@ -1344,6 +1359,7 @@ void SocketChannelImpl::implCloseBlockingMode() {
 }
 
 void SocketChannelImpl::implCloseNonBlockingMode() {
+	$useLocalCurrentObjectStackCache();
 	bool connected = false;
 	$synchronized(this->stateLock) {
 		if (!SocketChannelImpl::$assertionsDisabled && !(this->state < SocketChannelImpl::ST_CLOSING)) {
@@ -1455,6 +1471,7 @@ bool SocketChannelImpl::finishTimedConnect(int64_t nanos) {
 }
 
 void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, sa, checkRemote(remote));
 	try {
 		$nc(this->readLock)->lock();
@@ -1528,6 +1545,7 @@ void SocketChannelImpl::blockingConnect($SocketAddress* remote, int64_t nanos) {
 }
 
 int32_t SocketChannelImpl::tryRead($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, dst, $Util::getTemporaryDirectBuffer(len));
 	if (!SocketChannelImpl::$assertionsDisabled && !($nc(dst)->position() == 0)) {
 		$throwNew($AssertionError);
@@ -1575,6 +1593,7 @@ int32_t SocketChannelImpl::timedRead($bytes* b, int32_t off, int32_t len, int64_
 }
 
 int32_t SocketChannelImpl::blockingRead($bytes* b, int32_t off, int32_t len, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(off, len, $nc(b)->length);
 	if (len == 0) {
 		return 0;
@@ -1680,6 +1699,7 @@ int32_t SocketChannelImpl::blockingRead($bytes* b, int32_t off, int32_t len, int
 }
 
 int32_t SocketChannelImpl::tryWrite($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, src, $Util::getTemporaryDirectBuffer(len));
 	if (!SocketChannelImpl::$assertionsDisabled && !($nc(src)->position() == 0)) {
 		$throwNew($AssertionError);
@@ -1709,6 +1729,7 @@ int32_t SocketChannelImpl::tryWrite($bytes* b, int32_t off, int32_t len) {
 }
 
 void SocketChannelImpl::blockingWriteFully($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(off, len, $nc(b)->length);
 	if (len == 0) {
 		return;
@@ -1837,6 +1858,7 @@ int32_t SocketChannelImpl::getFDVal() {
 }
 
 $String* SocketChannelImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($nc($of(this)->getClass()->getSuperclass())->getName()));
 	sb->append(u'[');

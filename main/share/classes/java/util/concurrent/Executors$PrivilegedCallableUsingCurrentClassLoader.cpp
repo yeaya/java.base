@@ -94,6 +94,7 @@ $Object* allocate$Executors$PrivilegedCallableUsingCurrentClassLoader($Class* cl
 }
 
 void Executors$PrivilegedCallableUsingCurrentClassLoader::init$($Callable* task) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -107,6 +108,7 @@ void Executors$PrivilegedCallableUsingCurrentClassLoader::init$($Callable* task)
 }
 
 $Object* Executors$PrivilegedCallableUsingCurrentClassLoader::call() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Executors$PrivilegedCallableUsingCurrentClassLoader$1, this)), this->acc));

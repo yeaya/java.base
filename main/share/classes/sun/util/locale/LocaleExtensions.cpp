@@ -118,6 +118,7 @@ void LocaleExtensions::init$($String* id, $Character* key, $Extension* value) {
 }
 
 void LocaleExtensions::init$($Map* extensions, $Set* uattributes, $Map* ukeywords) {
+	$useLocalCurrentObjectStackCache();
 	bool hasExtension = !$LocaleUtils::isEmpty(extensions);
 	bool hasUAttributes = !$LocaleUtils::isEmpty(uattributes);
 	bool hasUKeywords = !$LocaleUtils::isEmpty(ukeywords);
@@ -200,6 +201,7 @@ $Extension* LocaleExtensions::getExtension($Character* key) {
 }
 
 $String* LocaleExtensions::getExtensionValue($Character* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($LocaleUtils::toLower($nc(key)->charValue()))))));
 	if (ext == nullptr) {
 		return nullptr;
@@ -208,6 +210,7 @@ $String* LocaleExtensions::getExtensionValue($Character* key) {
 }
 
 $Set* LocaleExtensions::getUnicodeLocaleAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($UnicodeLocaleExtension::SINGLETON)))));
 	if (ext == nullptr) {
 		return $Collections::emptySet();
@@ -219,6 +222,7 @@ $Set* LocaleExtensions::getUnicodeLocaleAttributes() {
 }
 
 $Set* LocaleExtensions::getUnicodeLocaleKeys() {
+	$useLocalCurrentObjectStackCache();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($UnicodeLocaleExtension::SINGLETON)))));
 	if (ext == nullptr) {
 		return $Collections::emptySet();
@@ -230,6 +234,7 @@ $Set* LocaleExtensions::getUnicodeLocaleKeys() {
 }
 
 $String* LocaleExtensions::getUnicodeLocaleType($String* unicodeLocaleKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($UnicodeLocaleExtension::SINGLETON)))));
 	if (ext == nullptr) {
 		return nullptr;
@@ -257,6 +262,7 @@ bool LocaleExtensions::isValidUnicodeLocaleKey($String* ukey) {
 
 $String* LocaleExtensions::toID($SortedMap* map) {
 	$init(LocaleExtensions);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($Extension, privuse, nullptr);
 	{
@@ -311,6 +317,7 @@ bool LocaleExtensions::equals(Object$* other) {
 }
 
 void clinit$LocaleExtensions($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	LocaleExtensions::$assertionsDisabled = !LocaleExtensions::class$->desiredAssertionStatus();
 	$init($UnicodeLocaleExtension);
 	$assignStatic(LocaleExtensions::CALENDAR_JAPANESE, $new(LocaleExtensions, "u-ca-japanese"_s, $($Character::valueOf($UnicodeLocaleExtension::SINGLETON)), static_cast<$Extension*>($UnicodeLocaleExtension::CA_JAPANESE)));

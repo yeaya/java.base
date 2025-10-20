@@ -76,6 +76,7 @@ void RacyRegister::init$() {
 }
 
 void RacyRegister::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ExecutorService, pool, $Executors::newFixedThreadPool(1));
 	{
 		$var($Throwable, var$0, nullptr);

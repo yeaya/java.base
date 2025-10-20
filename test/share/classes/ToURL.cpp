@@ -42,6 +42,7 @@ void ToURL::init$() {
 }
 
 void ToURL::go($String* fn) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, fn));
 	$var($URL, u, f->toURL());
 	$var($String, ufn, $nc(u)->getFile());

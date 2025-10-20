@@ -321,6 +321,7 @@ void CgroupSubsystemFactory::init$() {
 
 $CgroupMetrics* CgroupSubsystemFactory::create() {
 	$init(CgroupSubsystemFactory);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Optional, optResult, nullptr);
 	try {
@@ -359,6 +360,7 @@ $CgroupMetrics* CgroupSubsystemFactory::create() {
 
 $Optional* CgroupSubsystemFactory::determineType($String* mountInfo, $String* cgroups, $String* selfCgroup) {
 	$init(CgroupSubsystemFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, infos, $new($HashMap));
 	$var($List, lines, $CgroupUtil::readAllLinesPrivileged($($Paths::get(cgroups, $$new($StringArray, 0)))));
 	{
@@ -513,6 +515,7 @@ $Optional* CgroupSubsystemFactory::determineType($String* mountInfo, $String* cg
 
 void CgroupSubsystemFactory::setCgroupV2Path($Map* infos, $StringArray* tokens) {
 	$init(CgroupSubsystemFactory);
+	$useLocalCurrentObjectStackCache();
 	int32_t hierarchyId = $Integer::parseInt($nc(tokens)->get(0));
 	$var($String, cgroupPath, $nc(tokens)->get(2));
 	{
@@ -531,6 +534,7 @@ void CgroupSubsystemFactory::setCgroupV2Path($Map* infos, $StringArray* tokens) 
 
 void CgroupSubsystemFactory::setCgroupV1Path($Map* infos, $StringArray* tokens) {
 	$init(CgroupSubsystemFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($String, controllerName, $nc(tokens)->get(1));
 	$var($String, cgroupPath, tokens->get(2));
 	if (controllerName != nullptr && cgroupPath != nullptr) {
@@ -613,6 +617,7 @@ void CgroupSubsystemFactory::setCgroupV1Path($Map* infos, $StringArray* tokens) 
 
 bool CgroupSubsystemFactory::amendCgroupInfos($String* mntInfoLine, $Map* infos, bool isCgroupsV2) {
 	$init(CgroupSubsystemFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($Matcher, lineMatcher, $nc(CgroupSubsystemFactory::MOUNTINFO_PATTERN)->matcher($($nc(mntInfoLine)->trim())));
 	bool cgroupv1ControllerFound = false;
 	bool cgroupv2ControllerFound = false;

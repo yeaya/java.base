@@ -110,6 +110,7 @@ void LauncherHelper$FXHelper::init$() {
 
 void LauncherHelper$FXHelper::setFXLaunchParameters($String* what, int32_t mode) {
 	$init(LauncherHelper$FXHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Optional, om, $nc($($ModuleLayer::boot()))->findModule(LauncherHelper$FXHelper::JAVAFX_GRAPHICS_MODULE_NAME));
 	if (!$nc(om)->isPresent()) {

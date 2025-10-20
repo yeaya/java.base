@@ -244,6 +244,7 @@ void LinkedList::init$($Collection* c) {
 }
 
 void LinkedList::linkFirst(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList$Node, f, this->first);
 	$var($LinkedList$Node, newNode, $new($LinkedList$Node, nullptr, e, f));
 	$set(this, first, newNode);
@@ -257,6 +258,7 @@ void LinkedList::linkFirst(Object$* e) {
 }
 
 void LinkedList::linkLast(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList$Node, l, this->last);
 	$var($LinkedList$Node, newNode, $new($LinkedList$Node, l, e, nullptr));
 	$set(this, last, newNode);
@@ -270,6 +272,7 @@ void LinkedList::linkLast(Object$* e) {
 }
 
 void LinkedList::linkBefore(Object$* e, $LinkedList$Node* succ) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList$Node, pred, $nc(succ)->prev);
 	$var($LinkedList$Node, newNode, $new($LinkedList$Node, pred, e, succ));
 	$set(succ, prev, newNode);
@@ -283,6 +286,7 @@ void LinkedList::linkBefore(Object$* e, $LinkedList$Node* succ) {
 }
 
 $Object* LinkedList::unlinkFirst($LinkedList$Node* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, element, $nc(f)->item);
 	$var($LinkedList$Node, next, f->next);
 	$set(f, item, nullptr);
@@ -299,6 +303,7 @@ $Object* LinkedList::unlinkFirst($LinkedList$Node* f) {
 }
 
 $Object* LinkedList::unlinkLast($LinkedList$Node* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, element, $nc(l)->item);
 	$var($LinkedList$Node, prev, l->prev);
 	$set(l, item, nullptr);
@@ -315,6 +320,7 @@ $Object* LinkedList::unlinkLast($LinkedList$Node* l) {
 }
 
 $Object* LinkedList::unlink($LinkedList$Node* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, element, $nc(x)->item);
 	$var($LinkedList$Node, next, x->next);
 	$var($LinkedList$Node, prev, x->prev);
@@ -390,6 +396,7 @@ bool LinkedList::add(Object$* e) {
 }
 
 bool LinkedList::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		{
 			$var($LinkedList$Node, x, this->first);
@@ -419,6 +426,7 @@ bool LinkedList::addAll($Collection* c) {
 }
 
 bool LinkedList::addAll(int32_t index, $Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	checkPositionIndex(index);
 	$var($ObjectArray, a, $nc(c)->toArray());
 	int32_t numNew = $nc(a)->length;
@@ -464,6 +472,7 @@ bool LinkedList::addAll(int32_t index, $Collection* c) {
 }
 
 void LinkedList::clear() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($LinkedList$Node, x, this->first);
 		for (; x != nullptr;) {
@@ -485,6 +494,7 @@ $Object* LinkedList::get(int32_t index) {
 }
 
 $Object* LinkedList::set(int32_t index, Object$* element) {
+	$useLocalCurrentObjectStackCache();
 	checkElementIndex(index);
 	$var($LinkedList$Node, x, node(index));
 	$var($Object, oldVal, $nc(x)->item);
@@ -515,6 +525,7 @@ bool LinkedList::isPositionIndex(int32_t index) {
 }
 
 $String* LinkedList::outOfBoundsMsg(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 
@@ -531,6 +542,7 @@ void LinkedList::checkPositionIndex(int32_t index) {
 }
 
 $LinkedList$Node* LinkedList::node(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (index < (this->size$ >> 1)) {
 		$var($LinkedList$Node, x, this->first);
 		for (int32_t i = 0; i < index; ++i) {
@@ -547,6 +559,7 @@ $LinkedList$Node* LinkedList::node(int32_t index) {
 }
 
 int32_t LinkedList::indexOf(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	if (o == nullptr) {
 		{
@@ -573,6 +586,7 @@ int32_t LinkedList::indexOf(Object$* o) {
 }
 
 int32_t LinkedList::lastIndexOf(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = this->size$;
 	if (o == nullptr) {
 		{
@@ -663,6 +677,7 @@ bool LinkedList::removeFirstOccurrence(Object$* o) {
 }
 
 bool LinkedList::removeLastOccurrence(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		{
 			$var($LinkedList$Node, x, this->last);
@@ -707,6 +722,7 @@ LinkedList* LinkedList::superClone() {
 }
 
 $Object* LinkedList::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(LinkedList, clone, superClone());
 	$set($nc(clone), first, ($assignField(clone, last, nullptr)));
 	clone->size$ = 0;
@@ -721,6 +737,7 @@ $Object* LinkedList::clone() {
 }
 
 $ObjectArray* LinkedList::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, result, $new($ObjectArray, this->size$));
 	int32_t i = 0;
 	{
@@ -733,6 +750,7 @@ $ObjectArray* LinkedList::toArray() {
 }
 
 $ObjectArray* LinkedList::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	if ($nc(a)->length < this->size$) {
 		$assign(a, $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), this->size$)));
@@ -763,6 +781,7 @@ void LinkedList::writeObject($ObjectOutputStream* s) {
 }
 
 void LinkedList::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	int32_t size = s->readInt();
 	for (int32_t i = 0; i < size; ++i) {

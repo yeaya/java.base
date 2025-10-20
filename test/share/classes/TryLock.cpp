@@ -73,6 +73,7 @@ void TryLock::main($StringArray* args) {
 }
 
 void TryLock::test1(bool shared, bool trylock) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $File::createTempFile("test1"_s, nullptr));
 	$var($FileInputStream, fis, $new($FileInputStream, testFile));
 	$var($FileChannel, fc, fis->getChannel());
@@ -111,6 +112,7 @@ void TryLock::test1(bool shared, bool trylock) {
 }
 
 void TryLock::test2(bool shared, bool trylock) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $File::createTempFile("test2"_s, nullptr));
 	$var($FileOutputStream, fis, $new($FileOutputStream, testFile));
 	$var($FileChannel, fc, fis->getChannel());
@@ -149,6 +151,7 @@ void TryLock::test2(bool shared, bool trylock) {
 }
 
 void TryLock::test3(bool shared, bool trylock) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $File::createTempFile("test3"_s, nullptr));
 	$var($RandomAccessFile, fis, $new($RandomAccessFile, testFile, "rw"_s));
 	$var($FileChannel, fc, fis->getChannel());

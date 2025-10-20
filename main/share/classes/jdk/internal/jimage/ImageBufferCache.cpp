@@ -108,6 +108,7 @@ $ByteBuffer* ImageBufferCache::allocateBuffer(int64_t size) {
 
 $ByteBuffer* ImageBufferCache::getBuffer(int64_t size) {
 	$init(ImageBufferCache);
+	$useLocalCurrentObjectStackCache();
 	if (size < 0 || $Integer::MAX_VALUE < size) {
 		$throwNew($IndexOutOfBoundsException, "size"_s);
 	}
@@ -138,6 +139,7 @@ $ByteBuffer* ImageBufferCache::getBuffer(int64_t size) {
 
 void ImageBufferCache::releaseBuffer($ByteBuffer* buffer) {
 	$init(ImageBufferCache);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->capacity() > ImageBufferCache::LARGE_BUFFER) {
 		return;
 	}
@@ -155,6 +157,7 @@ void ImageBufferCache::releaseBuffer($ByteBuffer* buffer) {
 
 $Map$Entry* ImageBufferCache::newCacheEntry($ByteBuffer* bb) {
 	$init(ImageBufferCache);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($new($WeakReference, bb)));
 	return $new($AbstractMap$SimpleEntry, var$0, $($Integer::valueOf($nc(bb)->capacity())));
 }

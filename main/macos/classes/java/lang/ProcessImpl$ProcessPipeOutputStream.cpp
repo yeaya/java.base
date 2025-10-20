@@ -66,6 +66,7 @@ $Object* allocate$ProcessImpl$ProcessPipeOutputStream($Class* clazz) {
 }
 
 void ProcessImpl$ProcessPipeOutputStream::init$(int32_t fd) {
+	$useLocalCurrentObjectStackCache();
 	$BufferedOutputStream::init$($$new($FileOutputStream, $($ProcessImpl::newFileDescriptor(fd))));
 }
 

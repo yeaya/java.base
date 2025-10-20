@@ -56,6 +56,7 @@ void B6827999::init$() {
 }
 
 void B6827999::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URLArray, urls, $new($URLArray, {$$new($URL, "http://foobar.jar"_s)}));
 	$var($B6827999$MyURLClassLoader, ucl, $new($B6827999$MyURLClassLoader, urls));
 	ucl->addURL($$new($URL, "http://foo/bar.jar"_s));

@@ -96,6 +96,7 @@ void ConcurrentHashMap$BulkTask::init$(ConcurrentHashMap$BulkTask* par, int32_t 
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$BulkTask::advance() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$Node, e, nullptr);
 	if (($assign(e, this->next)) != nullptr) {
 		$assign(e, $nc(e)->next);
@@ -147,6 +148,7 @@ void ConcurrentHashMap$BulkTask::pushState($ConcurrentHashMap$NodeArray* t, int3
 }
 
 void ConcurrentHashMap$BulkTask::recoverState(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TableStack, s, nullptr);
 	int32_t len = 0;
 	while (true) {

@@ -57,6 +57,7 @@ void LocaleEquivalentMaps::init$() {
 }
 
 void clinit$LocaleEquivalentMaps($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(LocaleEquivalentMaps::singleEquivMap, $new($HashMap, 817));
 		$assignStatic(LocaleEquivalentMaps::multiEquivsMap, $new($HashMap, 143));

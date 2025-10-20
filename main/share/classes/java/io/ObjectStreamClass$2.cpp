@@ -98,6 +98,7 @@ void ObjectStreamClass$2::init$($ObjectStreamClass* this$0, $Class* val$cl) {
 }
 
 $Object* ObjectStreamClass$2::run() {
+	$useLocalCurrentObjectStackCache();
 	if (this->this$0->isEnum$) {
 		$set(this->this$0, suid, $Long::valueOf((int64_t)0));
 		$init($ObjectStreamClass);

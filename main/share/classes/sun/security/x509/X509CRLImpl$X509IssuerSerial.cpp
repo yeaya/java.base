@@ -78,6 +78,7 @@ void X509CRLImpl$X509IssuerSerial::init$($X500Principal* issuer, $BigInteger* se
 }
 
 void X509CRLImpl$X509IssuerSerial::init$($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, var$0, $nc(cert)->getIssuerX500Principal());
 	X509CRLImpl$X509IssuerSerial::init$(var$0, $(cert->getSerialNumber()));
 }
@@ -91,6 +92,7 @@ $BigInteger* X509CRLImpl$X509IssuerSerial::getSerial() {
 }
 
 bool X509CRLImpl$X509IssuerSerial::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -119,6 +121,7 @@ int32_t X509CRLImpl$X509IssuerSerial::hashCode() {
 }
 
 int32_t X509CRLImpl$X509IssuerSerial::compareTo(X509CRLImpl$X509IssuerSerial* another) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cissuer = $nc($($nc(this->issuer)->toString()))->compareTo($($nc($nc(another)->issuer)->toString()));
 	if (cissuer != 0) {
 		return cissuer;

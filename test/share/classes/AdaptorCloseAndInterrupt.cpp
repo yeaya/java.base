@@ -161,6 +161,7 @@ void AdaptorCloseAndInterrupt::init$($DatagramChannel* listener) {
 
 void AdaptorCloseAndInterrupt::main($StringArray* args) {
 	$init(AdaptorCloseAndInterrupt);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -248,6 +249,7 @@ void AdaptorCloseAndInterrupt::main($StringArray* args) {
 }
 
 void AdaptorCloseAndInterrupt::scReadAsyncClose() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -277,6 +279,7 @@ void AdaptorCloseAndInterrupt::scReadAsyncClose() {
 }
 
 void AdaptorCloseAndInterrupt::scReadAsyncInterrupt() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -307,6 +310,7 @@ void AdaptorCloseAndInterrupt::scReadAsyncInterrupt() {
 }
 
 void AdaptorCloseAndInterrupt::dcReceiveAsyncClose(int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	$nc(dc)->connect($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), this->port));
 	$nc($(dc->socket()))->setSoTimeout(timeout);
@@ -325,6 +329,7 @@ void AdaptorCloseAndInterrupt::dcReceiveAsyncClose(int32_t timeout) {
 }
 
 void AdaptorCloseAndInterrupt::dcReceiveAsyncInterrupt(int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	$nc(dc)->connect($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), this->port));
 	$nc($(dc->socket()))->setSoTimeout(timeout);
@@ -350,6 +355,7 @@ void AdaptorCloseAndInterrupt::dcReceiveAsyncInterrupt(int32_t timeout) {
 }
 
 void AdaptorCloseAndInterrupt::ssAcceptAsyncClose() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	$nc($($nc(ssc)->socket()))->bind(nullptr);
 	$nc($(ssc->socket()))->setSoTimeout(30 * 1000);
@@ -368,6 +374,7 @@ void AdaptorCloseAndInterrupt::ssAcceptAsyncClose() {
 }
 
 void AdaptorCloseAndInterrupt::ssAcceptAsyncInterrupt() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	$nc($($nc(ssc)->socket()))->bind(nullptr);
 	$nc($(ssc->socket()))->setSoTimeout(30 * 1000);
@@ -387,12 +394,14 @@ void AdaptorCloseAndInterrupt::ssAcceptAsyncInterrupt() {
 }
 
 void AdaptorCloseAndInterrupt::doAsyncClose($AbstractSelectableChannel* sc) {
+	$useLocalCurrentObjectStackCache();
 	$var($Callable, var$0, static_cast<$Callable*>($new($AdaptorCloseAndInterrupt$1, this, sc)));
 	$init($TimeUnit);
 	$nc(AdaptorCloseAndInterrupt::pool)->schedule(var$0, (int64_t)$$new($Random)->nextInt(1000), $TimeUnit::MILLISECONDS);
 }
 
 void AdaptorCloseAndInterrupt::doAsyncInterrupt() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, current, $Thread::currentThread());
 	$var($Callable, var$0, static_cast<$Callable*>($new($AdaptorCloseAndInterrupt$2, this, current)));
 	$init($TimeUnit);

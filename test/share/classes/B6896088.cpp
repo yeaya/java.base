@@ -64,6 +64,7 @@ void B6896088::init$() {
 
 void B6896088::main($StringArray* args) {
 	$init(B6896088);
+	$useLocalCurrentObjectStackCache();
 	$var($String, dir, $System::getProperty("test.classes"_s));
 	$var($File, jarf, $new($File, dir, "foo.jar"_s));
 	$var($FileOutputStream, fos, $new($FileOutputStream, jarf));

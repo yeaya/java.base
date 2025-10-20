@@ -231,6 +231,7 @@ void AlgorithmId::init$($ObjectIdentifier* oid, $DerValue* params) {
 }
 
 void AlgorithmId::decodeParams() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, algidName, getName());
 	try {
 		$set(this, algParams, $AlgorithmParameters::getInstance(algidName));
@@ -247,6 +248,7 @@ void AlgorithmId::encode($DerOutputStream* out) {
 }
 
 void AlgorithmId::derEncode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	bytes->putOID(this->algid);
@@ -284,6 +286,7 @@ $ObjectIdentifier* AlgorithmId::getOID() {
 }
 
 $String* AlgorithmId::getName() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, oidStr, $nc(this->algid)->toString());
 	$KnownOIDs* o = $KnownOIDs::findMatch(oidStr);
 	if (o == $KnownOIDs::SpecifiedSHA2withECDSA) {
@@ -314,6 +317,7 @@ $AlgorithmParameters* AlgorithmId::getParameters() {
 }
 
 $bytes* AlgorithmId::getEncodedParams() {
+	$useLocalCurrentObjectStackCache();
 	$init($KnownOIDs);
 	return (this->encodedParams == nullptr || $nc($($nc(this->algid)->toString()))->equals($($KnownOIDs::SpecifiedSHA2withECDSA->value()))) ? ($bytes*)nullptr : $cast($bytes, $nc(this->encodedParams)->clone());
 }
@@ -357,12 +361,14 @@ $String* AlgorithmId::paramsToString() {
 }
 
 $String* AlgorithmId::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $(getName()));
 	return $concat(var$0, $(paramsToString()));
 }
 
 AlgorithmId* AlgorithmId::parse($DerValue* val) {
 	$init(AlgorithmId);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "algid parse error, not a sequence"_s);
 	}
@@ -394,6 +400,7 @@ AlgorithmId* AlgorithmId::getAlgorithmId($String* algname) {
 
 AlgorithmId* AlgorithmId::get($String* algname) {
 	$init(AlgorithmId);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectIdentifier, oid, nullptr);
 	try {
 		$assign(oid, algOID(algname));
@@ -409,6 +416,7 @@ AlgorithmId* AlgorithmId::get($String* algname) {
 
 AlgorithmId* AlgorithmId::get($AlgorithmParameters* algparams) {
 	$init(AlgorithmId);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectIdentifier, oid, nullptr);
 	$var($String, algname, $nc(algparams)->getAlgorithm());
 	try {
@@ -425,6 +433,7 @@ AlgorithmId* AlgorithmId::get($AlgorithmParameters* algparams) {
 
 $ObjectIdentifier* AlgorithmId::algOID($String* name$renamed) {
 	$init(AlgorithmId);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	if ($nc(name)->startsWith("OID."_s)) {
 		$assign(name, name->substring("OID."_s->length()));
@@ -466,6 +475,7 @@ $Map* AlgorithmId::aliasOidsTable() {
 
 bool AlgorithmId::isKnownProvider($Provider* p) {
 	$init(AlgorithmId);
+	$useLocalCurrentObjectStackCache();
 	$var($String, pn, $nc(p)->getName());
 	$var($String, mn, $nc($($of(p)->getClass()->getModule()))->getName());
 	if (pn != nullptr && mn != nullptr) {
@@ -499,6 +509,7 @@ bool AlgorithmId::isKnownProvider($Provider* p) {
 
 $ConcurrentHashMap* AlgorithmId::collectOIDAliases() {
 	$init(AlgorithmId);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, t, $new($ConcurrentHashMap));
 	{
 		$var($ProviderArray, arr$, $Security::getProviders());

@@ -84,6 +84,7 @@ void Sharing$OpenClose::init$($FileDescriptor* filedescriptor, $CountDownLatch* 
 }
 
 void Sharing$OpenClose::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

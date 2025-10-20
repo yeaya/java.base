@@ -50,6 +50,7 @@ void NullStackTrace::init$() {
 }
 
 void NullStackTrace::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < NullStackTrace::TIMES; ++i) {
 		$var($Thread, t, $new($Thread));
 		t->start();

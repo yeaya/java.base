@@ -223,6 +223,7 @@ $SSLHandshakeArray* SSLKeyExchange$T12KeyAgreement::getRelatedHandshakers($Hands
 }
 
 $Map$EntryArray* SSLKeyExchange$T12KeyAgreement::getHandshakeProducers($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(handshakeContext)->negotiatedProtocol)->useTLS13PlusSpec()) {
 		return ($new($Map$EntryArray, 0));
 	}
@@ -287,6 +288,7 @@ $Map$EntryArray* SSLKeyExchange$T12KeyAgreement::getHandshakeProducers($Handshak
 }
 
 $Map$EntryArray* SSLKeyExchange$T12KeyAgreement::getHandshakeConsumers($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(handshakeContext)->negotiatedProtocol)->useTLS13PlusSpec()) {
 		return ($new($Map$EntryArray, 0));
 	}

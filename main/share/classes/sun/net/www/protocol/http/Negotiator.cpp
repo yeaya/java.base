@@ -67,6 +67,7 @@ void Negotiator::init$() {
 
 Negotiator* Negotiator::getNegotiator($HttpCallerInfo* hci) {
 	$load(Negotiator);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = nullptr;
 	$var($Constructor, c, nullptr);
@@ -105,6 +106,7 @@ Negotiator* Negotiator::getNegotiator($HttpCallerInfo* hci) {
 }
 
 void Negotiator::finest($Exception* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {

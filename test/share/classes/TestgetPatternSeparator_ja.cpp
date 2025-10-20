@@ -47,6 +47,7 @@ void TestgetPatternSeparator_ja::init$() {
 }
 
 void TestgetPatternSeparator_ja::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($DecimalFormat, df, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::JAPAN)));
 	$var($DecimalFormatSymbols, dfs, $nc(df)->getDecimalFormatSymbols());

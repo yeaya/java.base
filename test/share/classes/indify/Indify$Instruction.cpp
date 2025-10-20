@@ -154,6 +154,7 @@ $String* Indify$Instruction::toString() {
 }
 
 void Indify$Instruction::computeLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t cases = 0;
 	switch (this->bc) {
 	case 196:

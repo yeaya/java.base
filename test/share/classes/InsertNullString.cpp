@@ -41,6 +41,7 @@ void InsertNullString::init$() {
 }
 
 void InsertNullString::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, s, $new($StringBuffer, "FOOBAR"_s));
 	try {
 		$var($String, nullstr, nullptr);

@@ -86,6 +86,7 @@ void DomainName$CommonMatch::init$($String* domain, $DomainName$Rule* rule, int3
 }
 
 $RegisteredDomain* DomainName$CommonMatch::registeredDomain() {
+	$useLocalCurrentObjectStackCache();
 	if (this->publicSuffix == 0) {
 		return nullptr;
 	}

@@ -48,6 +48,7 @@ void B4923906::init$() {
 }
 
 void B4923906::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, e, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(e)->hasMoreElements()) {
 		$var($NetworkInterface, ifc, $cast($NetworkInterface, e->nextElement()));

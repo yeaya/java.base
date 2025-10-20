@@ -207,6 +207,7 @@ void Currency$CurrencyProperty::init$($String* country, $String* currencyCode, i
 }
 
 $Optional* Currency$CurrencyProperty::getValidEntry($String* ctry, $String* curData, $Pattern* pattern) {
+	$useLocalCurrentObjectStackCache();
 	$var(Currency$CurrencyProperty, prop, nullptr);
 	if ($nc(ctry)->length() != 2) {
 	} else {
@@ -233,6 +234,7 @@ $Optional* Currency$CurrencyProperty::getValidEntry($String* ctry, $String* curD
 }
 
 Currency$CurrencyProperty* Currency$CurrencyProperty::parseProperty($String* ctry, $String* curData, $Pattern* pattern) {
+	$useLocalCurrentObjectStackCache();
 	$var($Matcher, m, $nc(pattern)->matcher(curData));
 	if (!$nc(m)->find()) {
 		return nullptr;
@@ -246,12 +248,14 @@ Currency$CurrencyProperty* Currency$CurrencyProperty::parseProperty($String* ctr
 }
 
 bool Currency$CurrencyProperty::containsInconsistentInstances($List* list) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numCode = $nc(($cast(Currency$CurrencyProperty, $($nc(list)->get(0)))))->numericCode;
 	int32_t fractionDigit = $nc(($cast(Currency$CurrencyProperty, $(list->get(0)))))->fraction;
 	return $nc($(list->stream()))->anyMatch(static_cast<$Predicate*>($$new(Currency$CurrencyProperty$$Lambda$lambda$containsInconsistentInstances$1$1, numCode, fractionDigit)));
 }
 
 bool Currency$CurrencyProperty::isPastCutoverDate($String* s) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($SimpleDateFormat, format, $new($SimpleDateFormat, "yyyy-MM-dd\'T\'HH:mm:ss"_s, $Locale::ROOT));
 	format->setTimeZone($($TimeZone::getTimeZone("UTC"_s)));

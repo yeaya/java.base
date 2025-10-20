@@ -124,6 +124,7 @@ $String* PolicyConstraintsExtension::REQUIRE = nullptr;
 $String* PolicyConstraintsExtension::INHIBIT = nullptr;
 
 void PolicyConstraintsExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->require == -1 && this->inhibit == -1) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -162,6 +163,7 @@ void PolicyConstraintsExtension::init$($Boolean* critical, int32_t require, int3
 }
 
 void PolicyConstraintsExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	this->require = -1;
 	this->inhibit = -1;
@@ -199,6 +201,7 @@ void PolicyConstraintsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* PolicyConstraintsExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("PolicyConstraints: ["_s)->append("  Require: "_s);
 	if (this->require == -1) {
@@ -217,6 +220,7 @@ $String* PolicyConstraintsExtension::toString() {
 }
 
 void PolicyConstraintsExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

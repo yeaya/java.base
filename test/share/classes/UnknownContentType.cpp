@@ -43,6 +43,7 @@ void UnknownContentType::init$() {
 }
 
 void UnknownContentType::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, tmp, $File::createTempFile("bug4975103"_s, nullptr));
 	$nc(tmp)->deleteOnExit();
 	$var($URL, url, tmp->toURL());

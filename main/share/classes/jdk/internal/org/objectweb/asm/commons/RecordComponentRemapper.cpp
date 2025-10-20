@@ -71,11 +71,13 @@ void RecordComponentRemapper::init$(int32_t api, $RecordComponentVisitor* record
 }
 
 $AnnotationVisitor* RecordComponentRemapper::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $RecordComponentVisitor::visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
 
 $AnnotationVisitor* RecordComponentRemapper::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $RecordComponentVisitor::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }

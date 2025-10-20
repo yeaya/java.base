@@ -64,6 +64,7 @@ void ImplicitStringConcatOrder::init$() {
 
 void ImplicitStringConcatOrder::main($StringArray* args) {
 	$init(ImplicitStringConcatOrder);
+	$useLocalCurrentObjectStackCache();
 	test("foo123bar"_s, $$str({"foo"_s, ImplicitStringConcatOrder::c, ImplicitStringConcatOrder::c, ImplicitStringConcatOrder::c, "bar"_s}));
 	test("bazxyz456abc"_s, $$str({"baz"_s, ($$str({"xyz"_s, ImplicitStringConcatOrder::c, ImplicitStringConcatOrder::c})), ImplicitStringConcatOrder::c, "abc"_s}));
 	$var($String, var$1, $$str({"caf"_s, ImplicitStringConcatOrder::c}));
@@ -73,6 +74,7 @@ void ImplicitStringConcatOrder::main($StringArray* args) {
 
 void ImplicitStringConcatOrder::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcatOrder);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);

@@ -345,6 +345,7 @@ void PolicyFile::init$($URL* url) {
 }
 
 void PolicyFile::init($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, numCacheStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$1, this)))));
 	int32_t numCaches = 0;
@@ -364,6 +365,7 @@ void PolicyFile::init($URL* url) {
 }
 
 void PolicyFile::initPolicyFile($PolicyFile$PolicyInfo* newInfo, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$2, this, newInfo)));
 	if (url != nullptr) {
@@ -380,6 +382,7 @@ void PolicyFile::initPolicyFile($PolicyFile$PolicyInfo* newInfo, $URL* url) {
 }
 
 bool PolicyFile::initPolicyFile($String* propname, $String* urlname, $PolicyFile$PolicyInfo* newInfo) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool loadedPolicy = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$4, this, propname, newInfo, urlname)))))))->booleanValue();
 	return loadedPolicy;
@@ -436,6 +439,7 @@ void PolicyFile::initDefaultPolicy($PolicyFile$PolicyInfo* newInfo) {
 }
 
 bool PolicyFile::init($URL* policy, $PolicyFile$PolicyInfo* newInfo) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(PolicyFile::badPolicyURLs)->contains(policy)) {
 		if (PolicyFile::debug != nullptr) {
 			$nc(PolicyFile::debug)->println($$str({"skipping bad policy file: "_s, policy}));
@@ -537,6 +541,7 @@ void PolicyFile::initStaticPolicy($PolicyFile$PolicyInfo* newInfo) {
 }
 
 $CodeSource* PolicyFile::getCodeSource($PolicyParser$GrantEntry* ge, $KeyStore* keyStore, $PolicyFile$PolicyInfo* newInfo) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateArray, certs, nullptr);
 	if ($nc(ge)->signedBy != nullptr) {
 		$assign(certs, getCertificates(keyStore, ge->signedBy, newInfo));
@@ -557,6 +562,7 @@ $CodeSource* PolicyFile::getCodeSource($PolicyParser$GrantEntry* ge, $KeyStore* 
 }
 
 void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore, $PolicyFile$PolicyInfo* newInfo) {
+	$useLocalCurrentObjectStackCache();
 	if (PolicyFile::debug != nullptr) {
 		$nc(PolicyFile::debug)->println("Adding policy entry: "_s);
 		$nc(PolicyFile::debug)->println($$str({"  signedBy "_s, $nc(ge)->signedBy}));
@@ -654,6 +660,7 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 
 $Permission* PolicyFile::getInstance($String* type, $String* name, $String* actions) {
 	$init(PolicyFile);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* pc = $Class::forName(type, false, nullptr);
 	$var($Permission, answer, getKnownPermission(pc, name, actions));
@@ -755,6 +762,7 @@ $Principal* PolicyFile::getKnownPrincipal($Class* claz, $String* name) {
 }
 
 $CertificateArray* PolicyFile::getCertificates($KeyStore* keyStore, $String* aliases, $PolicyFile$PolicyInfo* newInfo) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, vcerts, nullptr);
 	$var($StringTokenizer, st, $new($StringTokenizer, aliases, ","_s));
 	int32_t n = 0;
@@ -797,6 +805,7 @@ void PolicyFile::refresh() {
 }
 
 bool PolicyFile::implies($ProtectionDomain* pd, $Permission* p) {
+	$useLocalCurrentObjectStackCache();
 	$var($JavaSecurityAccess$ProtectionDomainCache, pdMap, $nc(this->policyInfo)->getPdMapping());
 	$var($PermissionCollection, pc, $nc(pdMap)->get(pd));
 	if (pc != nullptr) {
@@ -811,6 +820,7 @@ bool PolicyFile::implies($ProtectionDomain* pd, $Permission* p) {
 }
 
 $PermissionCollection* PolicyFile::getPermissions($ProtectionDomain* domain) {
+	$useLocalCurrentObjectStackCache();
 	$var($Permissions, perms, $new($Permissions));
 	if (domain == nullptr) {
 		return perms;
@@ -833,6 +843,7 @@ $PermissionCollection* PolicyFile::getPermissions($CodeSource* codesource) {
 }
 
 $PermissionCollection* PolicyFile::getPermissions($Permissions* perms, $ProtectionDomain* pd) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (PolicyFile::debug != nullptr) {
 		$nc(PolicyFile::debug)->println($$str({"getPermissions:\n\t"_s, $(printPD(pd))}));
@@ -846,6 +857,7 @@ $PermissionCollection* PolicyFile::getPermissions($Permissions* perms, $Protecti
 }
 
 $PermissionCollection* PolicyFile::getPermissions($Permissions* perms, $CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (cs == nullptr) {
 		return perms;
@@ -855,6 +867,7 @@ $PermissionCollection* PolicyFile::getPermissions($Permissions* perms, $CodeSour
 }
 
 $Permissions* PolicyFile::getPermissions($Permissions* perms, $CodeSource* cs, $PrincipalArray* principals) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($nc(this->policyInfo)->policyEntries)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -868,6 +881,7 @@ $Permissions* PolicyFile::getPermissions($Permissions* perms, $CodeSource* cs, $
 }
 
 void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $PrincipalArray* principals, $PolicyFile$PolicyEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (PolicyFile::debug != nullptr) {
 		$nc(PolicyFile::debug)->println($$str({"evaluate codesources:\n\tPolicy CodeSource: "_s, $($nc(entry)->getCodeSource()), "\n\tActive CodeSource: "_s, cs}));
@@ -966,6 +980,7 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 
 bool PolicyFile::wildcardPrincipalNameImplies($String* principalClass, $PrincipalArray* principals) {
 	$init(PolicyFile);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($PrincipalArray, arr$, principals);
 		int32_t len$ = $nc(arr$)->length;
@@ -983,6 +998,7 @@ bool PolicyFile::wildcardPrincipalNameImplies($String* principalClass, $Principa
 }
 
 void PolicyFile::addPerms($Permissions* perms, $PrincipalArray* accPs, $PolicyFile$PolicyEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc($nc(entry)->permissions)->size(); ++i) {
 		$var($Permission, p, $cast($Permission, $nc(entry->permissions)->get(i)));
 		if (PolicyFile::debug != nullptr) {
@@ -997,6 +1013,7 @@ void PolicyFile::addPerms($Permissions* perms, $PrincipalArray* accPs, $PolicyFi
 }
 
 void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $PrincipalArray* pdp, $Permissions* perms) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (entryPs == nullptr || $nc(entryPs)->isEmpty()) {
 		if (PolicyFile::debug != nullptr) {
@@ -1092,6 +1109,7 @@ void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $Pri
 }
 
 $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $PrincipalArray* pdp) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc(pe)->isWildcardClass();
 	if (var$0 && !pe->isWildcardName()) {
 		$var($StringArray2, info, $new($StringArray2, 1, 2));
@@ -1133,6 +1151,7 @@ $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $P
 }
 
 $CertificateArray* PolicyFile::getSignerCertificates($CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateArray, certs, nullptr);
 	if (($assign(certs, $nc(cs)->getCertificates())) == nullptr) {
 		return nullptr;
@@ -1169,6 +1188,7 @@ $CertificateArray* PolicyFile::getSignerCertificates($CodeSource* cs) {
 }
 
 $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSignerCerts) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, nullptr);
 	$var($CodeSource, canonCs, cs);
 	$var($URL, u, $nc(cs)->getLocation());
@@ -1223,6 +1243,7 @@ $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSigne
 
 $String* PolicyFile::canonPath($String* path$renamed) {
 	$init(PolicyFile);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, path$renamed);
 	if ($nc(path)->endsWith("*"_s)) {
 		$assign(path, $str({$(path->substring(0, path->length() - 1)), "-"_s}));
@@ -1234,6 +1255,7 @@ $String* PolicyFile::canonPath($String* path$renamed) {
 }
 
 $String* PolicyFile::printPD($ProtectionDomain* pd) {
+	$useLocalCurrentObjectStackCache();
 	$var($PrincipalArray, principals, $nc(pd)->getPrincipals());
 	$var($String, pals, "<no principals>"_s);
 	if (principals != nullptr && principals->length > 0) {
@@ -1257,6 +1279,7 @@ $String* PolicyFile::printPD($ProtectionDomain* pd) {
 }
 
 bool PolicyFile::replacePrincipals($List* principals, $KeyStore* keystore) {
+	$useLocalCurrentObjectStackCache();
 	if (principals == nullptr || $nc(principals)->isEmpty() || keystore == nullptr) {
 		return true;
 	}
@@ -1283,6 +1306,7 @@ bool PolicyFile::replacePrincipals($List* principals, $KeyStore* keystore) {
 }
 
 void PolicyFile::expandPermissionName($PolicyParser$PermissionEntry* pe, $KeyStore* keystore) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(pe)->name == nullptr || $nc($nc(pe)->name)->indexOf("${{"_s, 0) == -1) {
 		return;
 	}
@@ -1332,6 +1356,7 @@ void PolicyFile::expandPermissionName($PolicyParser$PermissionEntry* pe, $KeySto
 }
 
 $String* PolicyFile::getDN($String* alias, $KeyStore* keystore) {
+	$useLocalCurrentObjectStackCache();
 	$var($Certificate, cert, nullptr);
 	try {
 		$assign(cert, $nc(keystore)->getCertificate(alias));

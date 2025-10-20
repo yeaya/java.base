@@ -136,6 +136,7 @@ void Nodes$SizedCollectorTask::init$($Spliterator* spliterator, $PipelineHelper*
 }
 
 void Nodes$SizedCollectorTask::init$(Nodes$SizedCollectorTask* parent, $Spliterator* spliterator, int64_t offset, int64_t length, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	$CountedCompleter::init$(parent);
 	if (!Nodes$SizedCollectorTask::$assertionsDisabled && !$nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$throwNew($AssertionError);
@@ -156,6 +157,7 @@ void Nodes$SizedCollectorTask::init$(Nodes$SizedCollectorTask* parent, $Splitera
 }
 
 void Nodes$SizedCollectorTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var(Nodes$SizedCollectorTask, task, this);
 	$var($Spliterator, rightSplit, this->spliterator);
 	$var($Spliterator, leftSplit, nullptr);

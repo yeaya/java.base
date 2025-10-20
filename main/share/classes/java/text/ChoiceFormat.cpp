@@ -89,6 +89,7 @@ $Object* allocate$ChoiceFormat($Class* clazz) {
 }
 
 void ChoiceFormat::applyPattern($String* newPattern) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBufferArray, segments, $new($StringBufferArray, 2));
 	for (int32_t i = 0; i < segments->length; ++i) {
 		segments->set(i, $$new($StringBuffer));
@@ -164,6 +165,7 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 }
 
 $String* ChoiceFormat::toPattern() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, result, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(this->choiceLimits)->length; ++i) {
 		if (i != 0) {
@@ -261,6 +263,7 @@ $StringBuffer* ChoiceFormat::format(double number, $StringBuffer* toAppendTo, $F
 }
 
 $Number* ChoiceFormat::parse($String* text, $ParsePosition* status) {
+	$useLocalCurrentObjectStackCache();
 	int32_t start = $nc(status)->index;
 	int32_t furthest = start;
 	$init($Double);

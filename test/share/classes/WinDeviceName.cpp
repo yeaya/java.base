@@ -54,6 +54,7 @@ void WinDeviceName::init$() {
 
 void WinDeviceName::main($StringArray* args) {
 	$init(WinDeviceName);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;

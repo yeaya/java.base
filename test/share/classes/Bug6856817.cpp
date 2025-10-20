@@ -82,6 +82,7 @@ void Bug6856817::init$() {
 
 void Bug6856817::main($StringArray* args) {
 	$init(Bug6856817);
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, charBuffer, $CharBuffer::allocate(Bug6856817::BUF_SIZE));
 	$var($File, file, $new($File, "temp.txt"_s));
 	file->deleteOnExit();
@@ -132,6 +133,7 @@ void Bug6856817::main($StringArray* args) {
 
 void Bug6856817::checkFileContent($CharBuffer* charBuffer, $File* file, $String* expectedValue) {
 	$init(Bug6856817);
+	$useLocalCurrentObjectStackCache();
 	$var($OutputStreamWriter, writer, nullptr);
 	$var($FileReader, reader, nullptr);
 	int32_t position = 0;

@@ -61,6 +61,7 @@ void Bug8072099::init$() {
 
 void Bug8072099::main($StringArray* args) {
 	$init(Bug8072099);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	{
 		$var($Throwable, var$0, nullptr);
@@ -91,6 +92,7 @@ void Bug8072099::main($StringArray* args) {
 
 void Bug8072099::parseDateTimeInput($SimpleDateFormat* format, $String* inputString) {
 	$init(Bug8072099);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(format)->parse(inputString);
 	} catch ($ParseException&) {
@@ -100,6 +102,7 @@ void Bug8072099::parseDateTimeInput($SimpleDateFormat* format, $String* inputStr
 }
 
 void clinit$Bug8072099($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Bug8072099::shouldPass, $new($StringArray2, {
 		$$new($StringArray, {
 			"ha"_s,

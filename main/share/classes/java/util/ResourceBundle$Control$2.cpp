@@ -85,6 +85,7 @@ void ResourceBundle$Control$2::init$($ResourceBundle$Control* this$0, $ClassLoad
 }
 
 $Object* ResourceBundle$Control$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $nc(this->val$loader)->getResource(this->val$resourceName));
 	if (url == nullptr) {
 		return $of(nullptr);

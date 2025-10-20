@@ -206,6 +206,7 @@ void RSASignature::engineInitSign($PrivateKey* privateKey, $SecureRandom* random
 }
 
 void RSASignature::initCommon($RSAKey* rsaKey, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($RSAUtil$KeyType);
 		$RSAUtil::checkParamsAgainstType($RSAUtil$KeyType::RSA, $($nc(rsaKey)->getParams()));
@@ -255,6 +256,7 @@ void RSASignature::engineUpdate($ByteBuffer* b) {
 }
 
 $bytes* RSASignature::engineSign() {
+	$useLocalCurrentObjectStackCache();
 	if (this->privateKey == nullptr) {
 		$throwNew($SignatureException, "Missing private key"_s);
 	}
@@ -275,6 +277,7 @@ $bytes* RSASignature::engineSign() {
 }
 
 bool RSASignature::engineVerify($bytes* sigBytes) {
+	$useLocalCurrentObjectStackCache();
 	if (this->publicKey == nullptr) {
 		$throwNew($SignatureException, "Missing public key"_s);
 	}
@@ -320,6 +323,7 @@ bool RSASignature::engineVerify($bytes* sigBytes) {
 
 $bytes* RSASignature::encodeSignature($ObjectIdentifier* oid, $bytes* digest) {
 	$init(RSASignature);
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$$new($AlgorithmId, oid)->encode(out);
 	out->putOctetString(digest);
@@ -329,6 +333,7 @@ $bytes* RSASignature::encodeSignature($ObjectIdentifier* oid, $bytes* digest) {
 
 $bytes* RSASignature::decodeSignature($ObjectIdentifier* oid, $bytes* sig) {
 	$init(RSASignature);
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, in, $new($DerInputStream, sig, 0, $nc(sig)->length, false));
 	$var($DerValueArray, values, in->getSequence(2));
 	if (($nc(values)->length != 2) || (in->available() != 0)) {

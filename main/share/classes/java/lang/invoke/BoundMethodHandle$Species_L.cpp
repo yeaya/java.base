@@ -128,6 +128,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWith($MethodType* mt, $Lamb
 }
 
 $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendL($MethodType* mt, $LambdaForm* lf, Object$* narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::L_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, narg})));
@@ -139,6 +140,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendL($MethodType* mt
 }
 
 $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendI($MethodType* mt, $LambdaForm* lf, int32_t narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::I_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
@@ -150,6 +152,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendI($MethodType* mt
 }
 
 $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendJ($MethodType* mt, $LambdaForm* lf, int64_t narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::J_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
@@ -161,6 +164,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendJ($MethodType* mt
 }
 
 $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendF($MethodType* mt, $LambdaForm* lf, float narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::F_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));
@@ -172,6 +176,7 @@ $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendF($MethodType* mt
 }
 
 $BoundMethodHandle* BoundMethodHandle$Species_L::copyWithExtendD($MethodType* mt, $LambdaForm* lf, double narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(BoundMethodHandle$Species_L::BMH_SPECIES)->extendWith($LambdaForm$BasicType::D_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), this->argL0, $$of(narg)})));

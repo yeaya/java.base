@@ -51,6 +51,7 @@ void GetAnnotatedTypeTest::meth(Object$* param) {
 
 void GetAnnotatedTypeTest::main($StringArray* args) {
 	$load(GetAnnotatedTypeTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Object);
 	if (!$equals($nc($($nc($nc($($nc($(GetAnnotatedTypeTest::class$->getMethod("meth"_s, $$new($ClassArray, {$Object::class$}))))->getParameters()))->get(0))->getAnnotatedType()))->getType(), $Object::class$)) {

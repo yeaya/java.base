@@ -132,6 +132,7 @@ $String* X509CertPath::PKIPATH_ENCODING = nullptr;
 $Collection* X509CertPath::encodingList = nullptr;
 
 void X509CertPath::init$($List* certs) {
+	$useLocalCurrentObjectStackCache();
 	$CertPath::init$("X.509"_s);
 	{
 		$var($Iterator, i$, $nc(certs)->iterator());
@@ -193,6 +194,7 @@ void X509CertPath::init$($InputStream* is, $String* encoding) {
 
 $List* X509CertPath::parsePKIPATH($InputStream* is) {
 	$init(X509CertPath);
+	$useLocalCurrentObjectStackCache();
 	$var($List, certList, nullptr);
 	$var($CertificateFactory, certFac, nullptr);
 	if (is == nullptr) {
@@ -219,6 +221,7 @@ $List* X509CertPath::parsePKIPATH($InputStream* is) {
 
 $List* X509CertPath::parsePKCS7($InputStream* is$renamed) {
 	$init(X509CertPath);
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, is, is$renamed);
 	$var($List, certList, nullptr);
 	if (is == nullptr) {
@@ -244,6 +247,7 @@ $List* X509CertPath::parsePKCS7($InputStream* is$renamed) {
 
 $bytes* X509CertPath::readAllBytes($InputStream* is) {
 	$init(X509CertPath);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buffer, $new($bytes, 8192));
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream, 2048));
 	int32_t n = 0;
@@ -258,6 +262,7 @@ $bytes* X509CertPath::getEncoded() {
 }
 
 $bytes* X509CertPath::encodePKIPATH() {
+	$useLocalCurrentObjectStackCache();
 	$var($ListIterator, li, $nc(this->certs)->listIterator($nc(this->certs)->size()));
 	try {
 		$var($DerOutputStream, bytes, $new($DerOutputStream));
@@ -281,6 +286,7 @@ $bytes* X509CertPath::encodePKIPATH() {
 }
 
 $bytes* X509CertPath::encodePKCS7() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmIdArray, var$0, $new($AlgorithmIdArray, 0));
 	$init($ContentInfo);
 	$var($ContentInfo, var$1, $new($ContentInfo, $ContentInfo::DATA_OID, ($DerValue*)nullptr));

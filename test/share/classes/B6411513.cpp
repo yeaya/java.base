@@ -55,6 +55,7 @@ void B6411513::init$() {
 }
 
 void B6411513::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, nics, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(nics)->hasMoreElements()) {
 		$var($NetworkInterface, nic, $cast($NetworkInterface, nics->nextElement()));
@@ -77,6 +78,7 @@ void B6411513::main($StringArray* args) {
 }
 
 void B6411513::testConnectedUDP($InetAddress* addr) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DatagramSocket, s, $new($DatagramSocket, 0, addr));
 		$var($DatagramSocket, ss, $new($DatagramSocket, 0, addr));

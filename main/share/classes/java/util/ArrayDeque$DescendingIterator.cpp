@@ -77,6 +77,7 @@ void ArrayDeque$DescendingIterator::init$($ArrayDeque* this$0) {
 }
 
 $Object* ArrayDeque$DescendingIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	if (this->remaining <= 0) {
 		$throwNew($NoSuchElementException);
 	}
@@ -94,6 +95,7 @@ void ArrayDeque$DescendingIterator::postDelete(bool leftShifted) {
 }
 
 void ArrayDeque$DescendingIterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t r = 0;
 	if ((r = this->remaining) <= 0) {

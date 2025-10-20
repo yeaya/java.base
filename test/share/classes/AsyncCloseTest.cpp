@@ -70,6 +70,7 @@ AsyncCloseTest* AsyncCloseTest::passed() {
 
 AsyncCloseTest* AsyncCloseTest::failed($String* r) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		this->passed$ = false;
 		$nc(this->reason)->append($($String::format("%n - %s"_s, $$new($ObjectArray, {$of(r)}))));
 		return this;

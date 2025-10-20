@@ -113,6 +113,7 @@ $String* UnixDomainSocketsUtil::getTempDir() {
 }
 
 $String* UnixDomainSocketsUtil::lambda$getTempDir$0() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $NetProperties::get("jdk.net.unixdomain.tmpdir"_s));
 	if (s != nullptr) {
 		return s;

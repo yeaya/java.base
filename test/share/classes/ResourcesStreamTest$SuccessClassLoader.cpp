@@ -63,6 +63,7 @@ void ResourcesStreamTest$SuccessClassLoader::init$() {
 }
 
 $Enumeration* ResourcesStreamTest$SuccessClassLoader::getResources($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $new($URL, "file:/somefile"_s));
 	return $Collections::enumeration($($Collections::singleton(url)));
 }

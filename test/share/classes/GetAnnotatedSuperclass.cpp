@@ -109,6 +109,7 @@ void GetAnnotatedSuperclass::main($StringArray* args) {
 
 void GetAnnotatedSuperclass::testReturnsNull() {
 	$init(GetAnnotatedSuperclass);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ClassArray, arr$, GetAnnotatedSuperclass::nullTestData);
 		int32_t len$ = $nc(arr$)->length;
@@ -130,6 +131,7 @@ void GetAnnotatedSuperclass::testReturnsNull() {
 
 void GetAnnotatedSuperclass::testReturnsEmptyAT() {
 	$init(GetAnnotatedSuperclass);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ClassArray, arr$, GetAnnotatedSuperclass::nonNullTestData);
 		int32_t len$ = $nc(arr$)->length;
@@ -156,6 +158,7 @@ void GetAnnotatedSuperclass::testReturnsEmptyAT() {
 }
 
 void clinit$GetAnnotatedSuperclass($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($Object);
 		$load($GetAnnotatedSuperclass$If);
 		$load($ObjectArray);

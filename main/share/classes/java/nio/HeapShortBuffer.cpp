@@ -218,6 +218,7 @@ $ShortBuffer* HeapShortBuffer::put(int32_t index, $shorts* src, int32_t offset, 
 }
 
 $ShortBuffer* HeapShortBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapShortBuffer::$assertionsDisabled && !(pos <= lim)) {

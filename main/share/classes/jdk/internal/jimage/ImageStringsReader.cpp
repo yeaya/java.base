@@ -179,6 +179,7 @@ int32_t ImageStringsReader::charsFromMUTF8Length($bytes* bytes, int32_t offset, 
 
 void ImageStringsReader::charsFromMUTF8($chars* chars, $bytes* bytes, int32_t offset, int32_t count) {
 	$init(ImageStringsReader);
+	$useLocalCurrentObjectStackCache();
 	int32_t j = 0;
 	for (int32_t i = offset; i < offset + count; ++i) {
 		int8_t ch = $nc(bytes)->get(i);
@@ -207,6 +208,7 @@ void ImageStringsReader::charsFromMUTF8($chars* chars, $bytes* bytes, int32_t of
 
 $String* ImageStringsReader::stringFromMUTF8($bytes* bytes, int32_t offset, int32_t count) {
 	$init(ImageStringsReader);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = charsFromMUTF8Length(bytes, offset, count);
 	$var($chars, chars, $new($chars, length));
 	try {
@@ -244,6 +246,7 @@ int32_t ImageStringsReader::charsFromByteBufferLength($ByteBuffer* buffer, int32
 
 void ImageStringsReader::charsFromByteBuffer($chars* chars, $ByteBuffer* buffer, int32_t offset) {
 	$init(ImageStringsReader);
+	$useLocalCurrentObjectStackCache();
 	int32_t j = 0;
 	int32_t limit = $nc(buffer)->limit();
 	while (offset < limit) {
@@ -279,6 +282,7 @@ $String* ImageStringsReader::stringFromByteBuffer($ByteBuffer* buffer) {
 
 $String* ImageStringsReader::stringFromByteBuffer($ByteBuffer* buffer, int32_t offset) {
 	$init(ImageStringsReader);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = charsFromByteBufferLength(buffer, offset);
 	if (length > 0) {
 		$var($bytes, asciiBytes, $new($bytes, length));

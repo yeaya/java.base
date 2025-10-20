@@ -166,6 +166,7 @@ void BootLoader$PackageHelper::init$() {
 
 $Package* BootLoader$PackageHelper::definePackage($String* name, $String* location) {
 	$init(BootLoader$PackageHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, module, findModule(location));
 	if (module != nullptr) {
 		if ($nc(name)->isEmpty()) {
@@ -180,6 +181,7 @@ $Package* BootLoader$PackageHelper::definePackage($String* name, $String* locati
 
 $Module* BootLoader$PackageHelper::findModule($String* location) {
 	$init(BootLoader$PackageHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mn, nullptr);
 	if ($nc(location)->startsWith("jrt:/"_s)) {
 		$assign(mn, location->substring(5, location->length()));

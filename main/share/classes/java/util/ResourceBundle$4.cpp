@@ -100,6 +100,7 @@ void ResourceBundle$4::init$($ServiceLoader* val$providers, $ResourceBundle$Cach
 }
 
 $Object* ResourceBundle$4::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, itr, $nc(this->val$providers)->iterator());
 		for (; $nc(itr)->hasNext();) {

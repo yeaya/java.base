@@ -115,6 +115,7 @@ $Object* ResolverConfigurationImpl::lock = nullptr;
 int64_t ResolverConfigurationImpl::lastRefresh = 0;
 
 $LinkedList* ResolverConfigurationImpl::resolvconf($String* keyword, int32_t maxperkeyword, int32_t maxkeywords) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList, ll, $new($LinkedList));
 	try {
 		$var($BufferedReader, in, $new($BufferedReader, $$new($FileReader, "/etc/resolv.conf"_s)));
@@ -187,6 +188,7 @@ void ResolverConfigurationImpl::loadConfig() {
 }
 
 $LinkedList* ResolverConfigurationImpl::getSearchList() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($LinkedList, sl, nullptr);
 	$assign(sl, $cast($LinkedList, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ResolverConfigurationImpl$2, this)))));

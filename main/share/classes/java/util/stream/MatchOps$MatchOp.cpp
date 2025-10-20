@@ -104,6 +104,7 @@ $StreamShape* MatchOps$MatchOp::inputShape() {
 }
 
 $Object* MatchOps$MatchOp::evaluateSequential($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	return $of($Boolean::valueOf($nc(($cast($MatchOps$BooleanTerminalSink, $($nc(helper)->wrapAndCopyInto($cast($MatchOps$BooleanTerminalSink, $($nc(this->sinkSupplier)->get())), spliterator)))))->getAndClearState()));
 }
 

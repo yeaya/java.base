@@ -188,6 +188,7 @@ void FilePermission::init$($String* name, FilePermission* input, $Path* npath, $
 
 $Path* FilePermission::altPath($Path* in) {
 	$init(FilePermission);
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (!$nc(in)->isAbsolute()) {
 			return $nc($($nc(FilePermission::here)->resolve(in)))->normalize();
@@ -202,6 +203,7 @@ $Path* FilePermission::altPath($Path* in) {
 }
 
 void FilePermission::init(int32_t mask) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (((int32_t)(mask & (uint32_t)FilePermission::ALL)) != mask) {
 		$throwNew($IllegalArgumentException, "invalid actions mask"_s);
@@ -382,6 +384,7 @@ bool FilePermission::impliesIgnoreMask(FilePermission* that) {
 
 int32_t FilePermission::containsPath($Path* p1, $Path* p2) {
 	$init(FilePermission);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($nc(p1)->getRoot()));
 	if (!$Objects::equals(var$0, $($nc(p2)->getRoot()))) {
 		return -1;
@@ -450,6 +453,7 @@ bool FilePermission::equals(Object$* obj) {
 }
 
 int32_t FilePermission::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	$init($FilePermCompat);
 	if ($FilePermCompat::nb) {
 		return $Objects::hash($$new($ObjectArray, {
@@ -468,6 +472,7 @@ int32_t FilePermission::hashCode() {
 
 int32_t FilePermission::getMask($String* actions) {
 	$init(FilePermission);
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = FilePermission::NONE;
 	if (actions == nullptr) {
 		return mask;
@@ -618,6 +623,7 @@ FilePermission* FilePermission::withNewActions(int32_t effective) {
 }
 
 void clinit$FilePermission($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(FilePermission::builtInFS, $DefaultFileSystemProvider::theFileSystem());
 	$assignStatic(FilePermission::here, $nc(FilePermission::builtInFS)->getPath($($GetPropertyAction::privilegedGetProperty("user.dir"_s)), $$new($StringArray, 0)));
 	$assignStatic(FilePermission::EMPTY_PATH, $nc(FilePermission::builtInFS)->getPath(""_s, $$new($StringArray, 0)));

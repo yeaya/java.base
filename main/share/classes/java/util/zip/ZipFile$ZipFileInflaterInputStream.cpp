@@ -99,6 +99,7 @@ void ZipFile$ZipFileInflaterInputStream::init$($ZipFile* this$0, $ZipFile$ZipFil
 }
 
 void ZipFile$ZipFileInflaterInputStream::init$($ZipFile* this$0, $ZipFile$ZipFileInputStream* zfin, $ZipFile$CleanableResource* res, $Inflater* inf, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$InflaterInputStream::init$(zfin, inf, size);
 	this->eof = false;

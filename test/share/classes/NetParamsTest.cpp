@@ -51,6 +51,7 @@ void NetParamsTest::init$() {
 }
 
 void NetParamsTest::printIF($NetworkInterface* netif) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({$($nc(netif)->getName()), " : "_s}));
 	$nc($System::out)->println($$str({"\tStatus: "_s, ($nc(netif)->isUp() ? " UP"_s : "DOWN"_s)}));
@@ -99,6 +100,7 @@ void NetParamsTest::printIF($NetworkInterface* netif) {
 }
 
 void NetParamsTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, ifs, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(ifs)->hasMoreElements()) {
 		$var($NetworkInterface, netif, $cast($NetworkInterface, ifs->nextElement()));

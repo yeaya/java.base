@@ -61,6 +61,7 @@ $Comparator* AVAComparator::getInstance() {
 }
 
 int32_t AVAComparator::compare($AVA* a1, $AVA* a2) {
+	$useLocalCurrentObjectStackCache();
 	bool a1Has2253 = $nc(a1)->hasRFC2253Keyword();
 	bool a2Has2253 = $nc(a2)->hasRFC2253Keyword();
 	if (a1Has2253 == a2Has2253) {

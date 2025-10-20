@@ -88,6 +88,7 @@ void Properties$LineReader::init$($Reader* reader) {
 }
 
 int32_t Properties$LineReader::readLine() {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = 0;
 	int32_t off = this->inOff;
 	int32_t limit = this->inLimit;

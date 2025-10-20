@@ -56,6 +56,7 @@ void RememberAppend::init$() {
 
 void RememberAppend::main($StringArray* args) {
 	$init(RememberAppend);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $File::createTempFile("tmp.file"_s, nullptr));
 	$nc(f)->deleteOnExit();
 	{

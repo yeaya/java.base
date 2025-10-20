@@ -255,6 +255,7 @@ void ParserSAX::parse($String* systemId) {
 }
 
 void ParserSAX::parse($InputSource* is) {
+	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$throwNew($IllegalArgumentException, ""_s);
 	}
@@ -286,6 +287,7 @@ void ParserSAX::parse($InputStream* src, $DefaultHandler* handler) {
 }
 
 void ParserSAX::parse($InputSource* is, $DefaultHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if ((is == nullptr) || (handler == nullptr)) {
 		$throwNew($IllegalArgumentException, ""_s);
 	}
@@ -314,6 +316,7 @@ void ParserSAX::parse($InputSource* is, $DefaultHandler* handler) {
 }
 
 void ParserSAX::parse() {
+	$useLocalCurrentObjectStackCache();
 	init();
 	{
 		$var($Throwable, var$0, nullptr);

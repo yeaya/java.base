@@ -63,6 +63,7 @@ $BigDecimal* NegateTests::absThenRound($BigDecimal* bd, $MathContext* mc) {
 }
 
 int32_t NegateTests::negateTest($BigDecimalArray2* testCases, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	{
 		$var($BigDecimalArray2, arr$, testCases);
@@ -99,6 +100,7 @@ int32_t NegateTests::negateTest($BigDecimalArray2* testCases, $MathContext* mc) 
 }
 
 int32_t NegateTests::negateTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, testCasesCeiling, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -127,6 +129,7 @@ int32_t NegateTests::negateTests() {
 }
 
 void NegateTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += negateTests();
 	if (failures > 0) {

@@ -330,6 +330,7 @@ void FileExtensionAndMap::init$() {
 
 void FileExtensionAndMap::main($StringArray* args) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length > 2) {
 		$throwNew($IllegalArgumentException, "Arguments: [true|false [targetFolder]]"_s);
 	}
@@ -361,6 +362,7 @@ void FileExtensionAndMap::main($StringArray* args) {
 
 void FileExtensionAndMap::testFileCopy($Path* source, $Path* target) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	$init($StandardCopyOption);
 	$Files::copy(source, target, $$new($CopyOptionArray, {static_cast<$CopyOption*>($StandardCopyOption::REPLACE_EXISTING)}));
 	$init($System);
@@ -369,6 +371,7 @@ void FileExtensionAndMap::testFileCopy($Path* source, $Path* target) {
 
 void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	$var($Semaphore, concurrencySemaphore, $new($Semaphore, 5));
 	int64_t fileSize = (int64_t)3 * (int64_t)1024 * (int64_t)1024 * (int64_t)1024;
 	int32_t blockSize = 10 * 1024 * 1024;
@@ -493,6 +496,7 @@ void FileExtensionAndMap::testCreateBigFile($Path* segmentFile) {
 
 void FileExtensionAndMap::writeTemplateData($String* fileName, $FileChannel* fc, int64_t startPosition, int32_t blockSize, $Semaphore* concurrencySemaphore) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -523,6 +527,7 @@ void FileExtensionAndMap::writeTemplateData($String* fileName, $FileChannel* fc,
 
 void FileExtensionAndMap::lambda$writeTemplateData$4($MappedByteBuffer* mappedByteBuffer, $bytes* EMPTY_RECORD, $String* fileName, int64_t startPosition, int32_t recordIndex) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(mappedByteBuffer)->position((recordIndex * $nc(EMPTY_RECORD)->length));
 		mappedByteBuffer->put(EMPTY_RECORD, 0, $nc(EMPTY_RECORD)->length);
@@ -541,11 +546,13 @@ void FileExtensionAndMap::lambda$testCreateBigFile$2($String* fileName, $FileCha
 
 void FileExtensionAndMap::lambda$main$1($String* targetFolder) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc($($IntStream::range(0, 20)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(FileExtensionAndMap$$Lambda$lambda$main$0$3, targetFolder)));
 }
 
 void FileExtensionAndMap::lambda$main$0($String* targetFolder, int32_t index) {
 	$init(FileExtensionAndMap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, fileName, $str({"testBigFile_"_s, $$str(index), ".dat"_s}));
 	$var($Path, source, nullptr);
 	$var($Path, target, nullptr);

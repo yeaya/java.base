@@ -91,6 +91,7 @@ void ServerNameExtension$EEServerNameConsumer::init$() {
 }
 
 void ServerNameExtension$EEServerNameConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($ServerNameExtension$CHServerNamesSpec, spec, $cast($ServerNameExtension$CHServerNamesSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_SERVER_NAME)));

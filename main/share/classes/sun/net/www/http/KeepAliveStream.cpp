@@ -138,6 +138,7 @@ void KeepAliveStream::init$($InputStream* is, $ProgressSource* pi, int64_t expec
 }
 
 void KeepAliveStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->queuedForCleanup) {
 		return;
 	}
@@ -214,6 +215,7 @@ void KeepAliveStream::reset() {
 }
 
 bool KeepAliveStream::hurry() {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -263,6 +265,7 @@ bool KeepAliveStream::hurry() {
 
 void KeepAliveStream::queueForCleanup($KeepAliveCleanerEntry* kace) {
 	$init(KeepAliveStream);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(KeepAliveStream::queue)->lock();
 	{

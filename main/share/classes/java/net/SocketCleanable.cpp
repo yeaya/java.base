@@ -78,6 +78,7 @@ void SocketCleanable::cleanupClose0(int32_t fd) {
 
 void SocketCleanable::register$($FileDescriptor* fdo, bool stream) {
 	$init(SocketCleanable);
+	$useLocalCurrentObjectStackCache();
 	if (fdo != nullptr && fdo->valid()) {
 		int32_t fd = $nc(SocketCleanable::fdAccess)->get(fdo);
 		$nc(SocketCleanable::fdAccess)->registerCleanup(fdo, $$new(SocketCleanable, fdo, $($CleanerFactory::cleaner()), fd, stream));
@@ -98,6 +99,7 @@ void SocketCleanable::init$($FileDescriptor* obj, $Cleaner* cleaner, int32_t fd,
 }
 
 void SocketCleanable::performCleanup() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

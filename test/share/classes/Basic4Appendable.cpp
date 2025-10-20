@@ -177,6 +177,7 @@ void Basic4Appendable::init$() {
 
 $File* Basic4Appendable::newFile() {
 	$init(Basic4Appendable);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, nullptr);
 	try {
 		$assign(f, $File::createTempFile("append"_s, ".txt"_s));
@@ -205,6 +206,7 @@ void Basic4Appendable::fail($Throwable* ex) {
 
 void Basic4Appendable::fail($String* fs, $Throwable* ex) {
 	$init(Basic4Appendable);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({"\'"_s, fs, "\': "_s, $($nc($of(ex))->getClass()->getName()), " not thrown"_s}));
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, ex);
@@ -216,6 +218,7 @@ void Basic4Appendable::fail($String* fs, $Throwable* ex) {
 
 void Basic4Appendable::fail($String* fs, $String* exp, $String* got) {
 	$init(Basic4Appendable);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({"\'"_s, fs, "\': Expected \'"_s, exp, "\', got \'"_s, got, "\'"_s}));
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, $new($RuntimeException, s));
@@ -236,6 +239,7 @@ void Basic4Appendable::ck($String* s, $String* exp, $String* got) {
 
 void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRunnable* thunk) {
 	$init(Basic4Appendable);
+	$useLocalCurrentObjectStackCache();
 	$var($Appendable, a, a$renamed);
 	$var($intArray2, sp, $new($intArray2, {
 		$$new($ints, {
@@ -326,6 +330,7 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 
 void Basic4Appendable::main($StringArray* args) {
 	$init(Basic4Appendable);
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, cb, $nc($($CharBuffer::allocate(128)))->put(Basic4Appendable::s));
 	$nc($($nc(cb)->limit($nc(Basic4Appendable::s)->length())))->rewind();
 	$var($CharBuffer, dcb, $nc($($nc($($ByteBuffer::allocateDirect(128)))->asCharBuffer()))->put(Basic4Appendable::s));

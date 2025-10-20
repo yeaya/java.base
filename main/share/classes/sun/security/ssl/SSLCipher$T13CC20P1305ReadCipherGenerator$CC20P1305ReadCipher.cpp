@@ -127,6 +127,7 @@ void SSLCipher$T13CC20P1305ReadCipherGenerator$CC20P1305ReadCipher::init$($Authe
 }
 
 $Plaintext* SSLCipher$T13CC20P1305ReadCipherGenerator$CC20P1305ReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	$init($ContentType);
 	if (contentType == $ContentType::CHANGE_CIPHER_SPEC->id) {
 		$init($ProtocolVersion);

@@ -148,6 +148,7 @@ void UnixDomainSockets::checkPermission() {
 
 $UnixDomainSocketAddress* UnixDomainSockets::getRevealedLocalAddress($SocketAddress* sa) {
 	$init(UnixDomainSockets);
+	$useLocalCurrentObjectStackCache();
 	$var($UnixDomainSocketAddress, addr, $cast($UnixDomainSocketAddress, sa));
 	try {
 		checkPermission();
@@ -160,6 +161,7 @@ $UnixDomainSocketAddress* UnixDomainSockets::getRevealedLocalAddress($SocketAddr
 
 $UnixDomainSocketAddress* UnixDomainSockets::localAddress($FileDescriptor* fd) {
 	$init(UnixDomainSockets);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, localAddress0(fd));
 	$var($String, path, $new($String, var$0, $($UnixDomainSocketsUtil::getCharset())));
 	return $UnixDomainSocketAddress::of(path);
@@ -192,6 +194,7 @@ $UnixDomainSocketAddress* UnixDomainSockets::checkAddress($SocketAddress* sa) {
 
 $bytes* UnixDomainSockets::getPathBytes($Path* path) {
 	$init(UnixDomainSockets);
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystemProvider, provider, $nc($($FileSystems::getDefault()))->provider());
 	return $nc(($cast($AbstractFileSystemProvider, provider)))->getSunPathForSocketFile(path);
 }
@@ -223,6 +226,7 @@ $Random* UnixDomainSockets::getRandom() {
 
 $UnixDomainSocketAddress* UnixDomainSockets::generateTempName() {
 	$init(UnixDomainSockets);
+	$useLocalCurrentObjectStackCache();
 	$var($String, dir, UnixDomainSockets::tempDir);
 	if (dir == nullptr) {
 		$throwNew($BindException, "Could not locate temporary directory for sockets"_s);
@@ -250,6 +254,7 @@ int32_t UnixDomainSockets::connect($FileDescriptor* fd, $Path* path) {
 
 int32_t UnixDomainSockets::accept($FileDescriptor* fd, $FileDescriptor* newfd, $StringArray* paths) {
 	$init(UnixDomainSockets);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $new($ObjectArray, 1));
 	int32_t n = accept0(fd, newfd, array);
 	if (n > 0) {

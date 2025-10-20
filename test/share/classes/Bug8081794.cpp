@@ -50,6 +50,7 @@ void Bug8081794::init$() {
 }
 
 void Bug8081794::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, date, "13 Jan 2005 21:45:34 ABC"_s);
 	$var($String, format, "dd MMM yyyy HH:mm:ss z"_s);
 	$var($ParsePosition, pp, $new($ParsePosition, 0));

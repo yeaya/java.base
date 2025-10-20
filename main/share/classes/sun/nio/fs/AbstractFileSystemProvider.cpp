@@ -73,6 +73,7 @@ void AbstractFileSystemProvider::init$() {
 
 $StringArray* AbstractFileSystemProvider::split($String* attribute) {
 	$init(AbstractFileSystemProvider);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, s, $new($StringArray, 2));
 	int32_t pos = $nc(attribute)->indexOf((int32_t)u':');
 	if (pos == -1) {
@@ -86,6 +87,7 @@ $StringArray* AbstractFileSystemProvider::split($String* attribute) {
 }
 
 void AbstractFileSystemProvider::setAttribute($Path* file, $String* attribute, Object$* value, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, s, split(attribute));
 	if ($nc($nc(s)->get(0))->isEmpty()) {
 		$throwNew($IllegalArgumentException, attribute);
@@ -98,6 +100,7 @@ void AbstractFileSystemProvider::setAttribute($Path* file, $String* attribute, O
 }
 
 $Map* AbstractFileSystemProvider::readAttributes($Path* file, $String* attributes, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, s, split(attributes));
 	if ($nc($nc(s)->get(0))->isEmpty()) {
 		$throwNew($IllegalArgumentException, attributes);
@@ -118,6 +121,7 @@ bool AbstractFileSystemProvider::deleteIfExists($Path* file) {
 }
 
 bool AbstractFileSystemProvider::isDirectory($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($BasicFileAttributes);
 		return $nc($(readAttributes(file, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0))))->isDirectory();
@@ -129,6 +133,7 @@ bool AbstractFileSystemProvider::isDirectory($Path* file) {
 }
 
 bool AbstractFileSystemProvider::isRegularFile($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($BasicFileAttributes);
 		return $nc($(readAttributes(file, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0))))->isRegularFile();
@@ -140,6 +145,7 @@ bool AbstractFileSystemProvider::isRegularFile($Path* file) {
 }
 
 bool AbstractFileSystemProvider::exists($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkAccess(file, $$new($AccessModeArray, 0));
 		return true;

@@ -59,6 +59,7 @@ void FindClassSecurityManager::init$() {
 
 void FindClassSecurityManager::main($StringArray* args) {
 	$init(FindClassSecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!FindClassSecurityManager::$assertionsDisabled && !(nullptr != $System::getSecurityManager())) {
 		$throwNew($AssertionError);

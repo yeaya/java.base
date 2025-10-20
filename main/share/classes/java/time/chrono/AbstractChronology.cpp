@@ -183,6 +183,7 @@ $Chronology* AbstractChronology::registerChrono($Chronology* chrono) {
 
 $Chronology* AbstractChronology::registerChrono($Chronology* chrono, $String* id) {
 	$init(AbstractChronology);
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, prev, $cast($Chronology, $nc(AbstractChronology::CHRONOS_BY_ID)->putIfAbsent(id, chrono)));
 	if (prev == nullptr) {
 		$var($String, type, $nc(chrono)->getCalendarType());
@@ -195,6 +196,7 @@ $Chronology* AbstractChronology::registerChrono($Chronology* chrono, $String* id
 
 bool AbstractChronology::initCache() {
 	$init(AbstractChronology);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(AbstractChronology::CHRONOS_BY_ID)->get("ISO"_s) == nullptr) {
 		$init($HijrahChronology);
@@ -229,6 +231,7 @@ bool AbstractChronology::initCache() {
 
 $Chronology* AbstractChronology::ofLocale($Locale* locale) {
 	$init(AbstractChronology);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull($of(locale), "locale"_s);
 	$var($String, type, $nc(locale)->getUnicodeLocaleType("ca"_s));
@@ -261,6 +264,7 @@ $Chronology* AbstractChronology::ofLocale($Locale* locale) {
 
 $Chronology* AbstractChronology::of($String* id) {
 	$init(AbstractChronology);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull($of(id), "id"_s);
 	do {
@@ -297,6 +301,7 @@ $Chronology* AbstractChronology::of0($String* id) {
 
 $Set* AbstractChronology::getAvailableChronologies() {
 	$init(AbstractChronology);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	initCache();
 	$var($HashSet, chronos, $new($HashSet, $($nc(AbstractChronology::CHRONOS_BY_ID)->values())));
@@ -318,6 +323,7 @@ void AbstractChronology::init$() {
 }
 
 $ChronoLocalDate* AbstractChronology::resolveDate($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	if ($nc(fieldValues)->containsKey($ChronoField::EPOCH_DAY)) {
 		return dateEpochDay($nc(($cast($Long, $(fieldValues->remove($ChronoField::EPOCH_DAY)))))->longValue());
@@ -357,6 +363,7 @@ $ChronoLocalDate* AbstractChronology::resolveDate($Map* fieldValues, $ResolverSt
 }
 
 void AbstractChronology::resolveProlepticMonth($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, pMonth, $cast($Long, $nc(fieldValues)->remove($ChronoField::PROLEPTIC_MONTH)));
 	if (pMonth != nullptr) {
@@ -371,6 +378,7 @@ void AbstractChronology::resolveProlepticMonth($Map* fieldValues, $ResolverStyle
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYearOfEra($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, yoeLong, $cast($Long, $nc(fieldValues)->remove($ChronoField::YEAR_OF_ERA)));
 	if (yoeLong != nullptr) {
@@ -413,6 +421,7 @@ $ChronoLocalDate* AbstractChronology::resolveYearOfEra($Map* fieldValues, $Resol
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMD($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
@@ -437,6 +446,7 @@ $ChronoLocalDate* AbstractChronology::resolveYMD($Map* fieldValues, $ResolverSty
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYD($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
@@ -450,6 +460,7 @@ $ChronoLocalDate* AbstractChronology::resolveYD($Map* fieldValues, $ResolverStyl
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMAA($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
@@ -472,6 +483,7 @@ $ChronoLocalDate* AbstractChronology::resolveYMAA($Map* fieldValues, $ResolverSt
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYMAD($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
@@ -493,6 +505,7 @@ $ChronoLocalDate* AbstractChronology::resolveYMAD($Map* fieldValues, $ResolverSt
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYAA($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
@@ -513,6 +526,7 @@ $ChronoLocalDate* AbstractChronology::resolveYAA($Map* fieldValues, $ResolverSty
 }
 
 $ChronoLocalDate* AbstractChronology::resolveYAD($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int32_t y = $nc($(range($ChronoField::YEAR)))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->remove($ChronoField::YEAR)))))->longValue(), $ChronoField::YEAR);
 	$init($ResolverStyle);
@@ -532,6 +546,7 @@ $ChronoLocalDate* AbstractChronology::resolveYAD($Map* fieldValues, $ResolverSty
 }
 
 $ChronoLocalDate* AbstractChronology::resolveAligned($ChronoLocalDate* base, int64_t months, int64_t weeks, int64_t dow) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoUnit);
 	$var($ChronoLocalDate, date, $nc($($nc(base)->plus(months, $ChronoUnit::MONTHS)))->plus(weeks, $ChronoUnit::WEEKS));
 	if (dow > 7) {
@@ -545,6 +560,7 @@ $ChronoLocalDate* AbstractChronology::resolveAligned($ChronoLocalDate* base, int
 }
 
 void AbstractChronology::addFieldValue($Map* fieldValues, $ChronoField* field, int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Long, old, $cast($Long, $nc(fieldValues)->get(field)));
 	if (old != nullptr && old->longValue() != value) {
 		$throwNew($DateTimeException, $$str({"Conflict found: "_s, field, " "_s, old, " differs from "_s, field, " "_s, $$str(value)}));
@@ -553,6 +569,7 @@ void AbstractChronology::addFieldValue($Map* fieldValues, $ChronoField* field, i
 }
 
 int32_t AbstractChronology::compareTo($Chronology* other) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(getId()))->compareTo($($nc(other)->getId()));
 }
 

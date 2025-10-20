@@ -81,6 +81,7 @@ void MethodTypeDescImpl$1::init$($MethodTypeDescImpl* this$0, $MethodHandles$Loo
 }
 
 $Object* MethodTypeDescImpl$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, var$0, this->this$0->descriptorString());
 	return $of($MethodType::fromMethodDescriptorString(var$0, $($nc($nc(this->val$lookup)->lookupClass())->getClassLoader())));

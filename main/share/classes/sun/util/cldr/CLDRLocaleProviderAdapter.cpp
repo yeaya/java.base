@@ -314,6 +314,7 @@ $volatile($Map*) CLDRLocaleProviderAdapter::langAliasesMap = nullptr;
 $Map* CLDRLocaleProviderAdapter::langAliasesCache = nullptr;
 
 void CLDRLocaleProviderAdapter::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$JRELocaleProviderAdapter::init$();
 	$var($LocaleDataMetaInfo, nbmi, nullptr);
@@ -336,6 +337,7 @@ $BreakIteratorProvider* CLDRLocaleProviderAdapter::getBreakIteratorProvider() {
 }
 
 $CalendarDataProvider* CLDRLocaleProviderAdapter::getCalendarDataProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->calendarDataProvider == nullptr) {
 		$var($CalendarDataProvider, provider, $cast($CalendarDataProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$1$1, this)))));
@@ -349,6 +351,7 @@ $CalendarDataProvider* CLDRLocaleProviderAdapter::getCalendarDataProvider() {
 }
 
 $CalendarNameProvider* CLDRLocaleProviderAdapter::getCalendarNameProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->calendarNameProvider == nullptr) {
 		$var($CalendarNameProvider, provider, $cast($CalendarNameProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CLDRLocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$2$2, this)))));
@@ -366,6 +369,7 @@ $CollatorProvider* CLDRLocaleProviderAdapter::getCollatorProvider() {
 }
 
 $TimeZoneNameProvider* CLDRLocaleProviderAdapter::getTimeZoneNameProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->timeZoneNameProvider == nullptr) {
 		$var($TimeZoneNameProvider, provider, $cast($TimeZoneNameProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CLDRLocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$3$3, this)))));
@@ -379,6 +383,7 @@ $TimeZoneNameProvider* CLDRLocaleProviderAdapter::getTimeZoneNameProvider() {
 }
 
 $LocaleArray* CLDRLocaleProviderAdapter::getAvailableLocales() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, all, createLanguageTagSet("AvailableLocales"_s));
 	$var($LocaleArray, locs, $new($LocaleArray, $nc(all)->size()));
 	int32_t index = 0;
@@ -396,6 +401,7 @@ $LocaleArray* CLDRLocaleProviderAdapter::getAvailableLocales() {
 
 $Locale* CLDRLocaleProviderAdapter::applyAliases($Locale* loc) {
 	$init(CLDRLocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(CLDRLocaleProviderAdapter::langAliasesMap)->isEmpty()) {
 		$assignStatic(CLDRLocaleProviderAdapter::langAliasesMap, $nc(CLDRLocaleProviderAdapter::baseMetaInfo)->getLanguageAliasMap());
 	}
@@ -411,6 +417,7 @@ $Locale* CLDRLocaleProviderAdapter::applyAliases($Locale* loc) {
 }
 
 $Set* CLDRLocaleProviderAdapter::createLanguageTagSet($String* category$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, category, category$renamed);
 	$assign(category, "AvailableLocales"_s);
 	$var($String, supportedLocaleString, $nc(CLDRLocaleProviderAdapter::baseMetaInfo)->availableLanguageTags(category));
@@ -437,11 +444,13 @@ $Set* CLDRLocaleProviderAdapter::createLanguageTagSet($String* category$renamed)
 }
 
 $List* CLDRLocaleProviderAdapter::getCandidateLocales($String* baseName, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, candidates, $JRELocaleProviderAdapter::getCandidateLocales(baseName, $(applyAliases(locale))));
 	return applyParentLocales(baseName, candidates);
 }
 
 $List* CLDRLocaleProviderAdapter::applyParentLocales($String* baseName, $List* candidates) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(candidates)->size(); ++i) {
 		$var($Locale, l, $cast($Locale, candidates->get(i)));
 		$init($Locale);
@@ -462,6 +471,7 @@ $List* CLDRLocaleProviderAdapter::applyParentLocales($String* baseName, $List* c
 
 $Locale* CLDRLocaleProviderAdapter::getParentLocale($Locale* locale) {
 	$init(CLDRLocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, parent, $cast($Locale, $nc(CLDRLocaleProviderAdapter::parentLocalesMap)->get(locale)));
 	if (parent == nullptr) {
 		$var($String, tag, $nc(locale)->toLanguageTag());
@@ -490,6 +500,7 @@ $Locale* CLDRLocaleProviderAdapter::getParentLocale($Locale* locale) {
 
 $Locale* CLDRLocaleProviderAdapter::getEquivalentLoc($Locale* locale) {
 	$init(CLDRLocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s10815$, $nc(locale)->toString());
 	int32_t tmp10815$ = -1;
 	switch ($nc(s10815$)->hashCode()) {
@@ -528,6 +539,7 @@ $Locale* CLDRLocaleProviderAdapter::getEquivalentLoc($Locale* locale) {
 }
 
 bool CLDRLocaleProviderAdapter::isSupportedProviderLocale($Locale* locale, $Set* langtags) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	bool var$1 = $nc($Locale::ROOT)->equals(locale);
 	bool var$0 = var$1 || $nc(langtags)->contains($($nc($($nc(locale)->stripExtensions()))->toLanguageTag()));
@@ -535,26 +547,31 @@ bool CLDRLocaleProviderAdapter::isSupportedProviderLocale($Locale* locale, $Set*
 }
 
 $Optional* CLDRLocaleProviderAdapter::canonicalTZID($String* id) {
+	$useLocalCurrentObjectStackCache();
 	return $Optional::ofNullable($cast($String, $($nc($($nc(CLDRLocaleProviderAdapter::baseMetaInfo)->tzCanonicalIDs()))->get(id))));
 }
 
 $TimeZoneNameProvider* CLDRLocaleProviderAdapter::lambda$getTimeZoneNameProvider$3() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CLDRTimeZoneNameProviderImpl, var$0, $(getLanguageTagSet("TimeZoneNames"_s)));
 }
 
 $CalendarNameProvider* CLDRLocaleProviderAdapter::lambda$getCalendarNameProvider$2() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CLDRCalendarNameProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $CalendarDataProvider* CLDRLocaleProviderAdapter::lambda$getCalendarDataProvider$1() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CLDRCalendarDataProviderImpl, var$0, $(getLanguageTagSet("CalendarData"_s)));
 }
 
 $LocaleDataMetaInfo* CLDRLocaleProviderAdapter::lambda$new$0() {
 	$init(CLDRLocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$load($LocaleDataMetaInfo);

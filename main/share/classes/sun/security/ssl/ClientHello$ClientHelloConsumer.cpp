@@ -120,6 +120,7 @@ void ClientHello$ClientHelloConsumer::init$() {
 }
 
 void ClientHello$ClientHelloConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(shc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CLIENT_HELLO->id)));
@@ -138,6 +139,7 @@ void ClientHello$ClientHelloConsumer::consume($ConnectionContext* context, $Byte
 }
 
 void ClientHello$ClientHelloConsumer::onClientHello($ServerHandshakeContext* context, $ClientHello$ClientHelloMessage* clientHello) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLExtension);
 	$var($SSLExtensionArray, extTypes, $new($SSLExtensionArray, {$SSLExtension::CH_SUPPORTED_VERSIONS}));
 	$nc($nc(clientHello)->extensions)->consumeOnLoad(context, extTypes);
@@ -171,6 +173,7 @@ void ClientHello$ClientHelloConsumer::onClientHello($ServerHandshakeContext* con
 }
 
 $ProtocolVersion* ClientHello$ClientHelloConsumer::negotiateProtocol($ServerHandshakeContext* context, int32_t clientHelloVersion) {
+	$useLocalCurrentObjectStackCache();
 	int32_t chv = clientHelloVersion;
 	if ($nc($nc(context)->sslContext)->isDTLS()) {
 		$init($ProtocolVersion);
@@ -192,6 +195,7 @@ $ProtocolVersion* ClientHello$ClientHelloConsumer::negotiateProtocol($ServerHand
 }
 
 $ProtocolVersion* ClientHello$ClientHelloConsumer::negotiateProtocol($ServerHandshakeContext* context, $ints* clientSupportedVersions) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($nc(context)->activeProtocols)->iterator());
 		for (; $nc(i$)->hasNext();) {

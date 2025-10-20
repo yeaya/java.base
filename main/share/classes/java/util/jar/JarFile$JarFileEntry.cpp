@@ -104,6 +104,7 @@ void JarFile$JarFileEntry::init$($JarFile* this$0, $String* name, $ZipEntry* vze
 }
 
 $Attributes* JarFile$JarFileEntry::getAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$var($Manifest, man, this->this$0->getManifest());
 	if (man != nullptr) {
 		return man->getAttributes($($JarEntry::getName()));
@@ -113,6 +114,7 @@ $Attributes* JarFile$JarFileEntry::getAttributes() {
 }
 
 $CertificateArray* JarFile$JarFileEntry::getCertificates() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		this->this$0->maybeInstantiateVerifier();
 	} catch ($IOException&) {
@@ -126,6 +128,7 @@ $CertificateArray* JarFile$JarFileEntry::getCertificates() {
 }
 
 $CodeSignerArray* JarFile$JarFileEntry::getCodeSigners() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		this->this$0->maybeInstantiateVerifier();
 	} catch ($IOException&) {

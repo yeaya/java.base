@@ -191,6 +191,7 @@ void SSLParameters::setEndpointIdentificationAlgorithm($String* algorithm) {
 }
 
 void SSLParameters::setServerNames($List* serverNames) {
+	$useLocalCurrentObjectStackCache();
 	if (serverNames != nullptr) {
 		if (!serverNames->isEmpty()) {
 			$set(this, sniNames, $new($LinkedHashMap, serverNames->size()));
@@ -214,6 +215,7 @@ void SSLParameters::setServerNames($List* serverNames) {
 }
 
 $List* SSLParameters::getServerNames() {
+	$useLocalCurrentObjectStackCache();
 	if (this->sniNames != nullptr) {
 		if (!$nc(this->sniNames)->isEmpty()) {
 			return $Collections::unmodifiableList($$new($ArrayList, $($nc(this->sniNames)->values())));
@@ -225,6 +227,7 @@ $List* SSLParameters::getServerNames() {
 }
 
 void SSLParameters::setSNIMatchers($Collection* matchers) {
+	$useLocalCurrentObjectStackCache();
 	if (matchers != nullptr) {
 		if (!matchers->isEmpty()) {
 			$set(this, sniMatchers, $new($HashMap, matchers->size()));
@@ -248,6 +251,7 @@ void SSLParameters::setSNIMatchers($Collection* matchers) {
 }
 
 $Collection* SSLParameters::getSNIMatchers() {
+	$useLocalCurrentObjectStackCache();
 	if (this->sniMatchers != nullptr) {
 		if (!$nc(this->sniMatchers)->isEmpty()) {
 			return $Collections::unmodifiableList($$new($ArrayList, $($nc(this->sniMatchers)->values())));
@@ -290,6 +294,7 @@ $StringArray* SSLParameters::getApplicationProtocols() {
 }
 
 void SSLParameters::setApplicationProtocols($StringArray* protocols) {
+	$useLocalCurrentObjectStackCache();
 	if (protocols == nullptr) {
 		$throwNew($IllegalArgumentException, "protocols was null"_s);
 	}

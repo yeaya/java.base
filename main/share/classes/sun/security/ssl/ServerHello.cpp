@@ -137,6 +137,7 @@ void ServerHello::init$() {
 
 void ServerHello::setUpPskKD($HandshakeContext* hc, $SecretKey* psk) {
 	$init(ServerHello);
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 		$SSLLogger::fine("Using PSK to derive early secret"_s, $$new($ObjectArray, 0));

@@ -182,6 +182,7 @@ void ServerHello$T12ServerHelloProducer::init$() {
 }
 
 $bytes* ServerHello$T12ServerHelloProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	if (!$nc(shc)->isResumption || $nc(shc)->resumingSession == nullptr) {
@@ -282,6 +283,7 @@ $bytes* ServerHello$T12ServerHelloProducer::produce($ConnectionContext* context,
 
 $ServerHello$T12ServerHelloProducer$KeyExchangeProperties* ServerHello$T12ServerHelloProducer::chooseCipherSuite($ServerHandshakeContext* shc, $ClientHello$ClientHelloMessage* clientHello) {
 	$init(ServerHello$T12ServerHelloProducer);
+	$useLocalCurrentObjectStackCache();
 	$var($List, preferred, nullptr);
 	$var($List, proposed, nullptr);
 	if ($nc($nc(shc)->sslConfig)->preferLocalCipherSuites) {

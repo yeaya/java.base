@@ -132,6 +132,7 @@ void ProxyGenerator$ProxyMethod::init$($Method* method, $String* sig, $ClassArra
 }
 
 void ProxyGenerator$ProxyMethod::init$($Method* method, $String* methodFieldName) {
+	$useLocalCurrentObjectStackCache();
 	$var($Method, var$0, method);
 	$var($String, var$1, $nc(method)->toShortSignature());
 	$var($ClassArray, var$2, method->getParameterTypes());
@@ -141,6 +142,7 @@ void ProxyGenerator$ProxyMethod::init$($Method* method, $String* methodFieldName
 }
 
 void ProxyGenerator$ProxyMethod::generateMethod($ClassWriter* cw, $String* className) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mt, $MethodType::methodType(this->returnType, this->parameterTypes));
 	$var($String, desc, $nc(mt)->toMethodDescriptorString());
 	int32_t accessFlags = 1 | 16;
@@ -249,6 +251,7 @@ void ProxyGenerator$ProxyMethod::codeWrapArgument($MethodVisitor* mv, $Class* ty
 }
 
 void ProxyGenerator$ProxyMethod::codeUnwrapReturnValue($MethodVisitor* mv, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(type)->isPrimitive()) {
 		$var($ProxyGenerator$PrimitiveTypeInfo, prim, $ProxyGenerator$PrimitiveTypeInfo::get(type));
 		$nc(mv)->visitTypeInsn(192, $nc(prim)->wrapperClassName);
@@ -285,6 +288,7 @@ void ProxyGenerator$ProxyMethod::codeUnwrapReturnValue($MethodVisitor* mv, $Clas
 }
 
 void ProxyGenerator$ProxyMethod::codeFieldInitialization($MethodVisitor* mv, $String* className) {
+	$useLocalCurrentObjectStackCache();
 	codeClassForName(mv, this->fromClass);
 	$nc(mv)->visitLdcInsn($($nc(this->method)->getName()));
 	emitIconstInsn(mv, $nc(this->parameterTypes)->length);

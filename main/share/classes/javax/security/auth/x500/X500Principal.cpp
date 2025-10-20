@@ -119,6 +119,7 @@ void X500Principal::init$($String* name) {
 }
 
 void X500Principal::init$($String* name, $Map* keywordMap) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($NullPointerException, $($ResourcesMgr::getString("provided.null.name"_s)));
 	}
@@ -136,6 +137,7 @@ void X500Principal::init$($String* name, $Map* keywordMap) {
 }
 
 void X500Principal::init$($bytes* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, thisX500Name, $new($X500Name, name));
 	} catch ($Exception&) {
@@ -147,6 +149,7 @@ void X500Principal::init$($bytes* name) {
 }
 
 void X500Principal::init$($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$throwNew($NullPointerException, "provided null input stream"_s);
 	}

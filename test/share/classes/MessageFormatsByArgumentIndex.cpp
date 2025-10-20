@@ -59,6 +59,7 @@ void MessageFormatsByArgumentIndex::init$() {
 
 void MessageFormatsByArgumentIndex::main($StringArray* args) {
 	$init(MessageFormatsByArgumentIndex);
+	$useLocalCurrentObjectStackCache();
 	$var($FormatArray, subformats, nullptr);
 	$var($MessageFormat, format, $new($MessageFormat, $$str({"{3, choice,"_s, MessageFormatsByArgumentIndex::choicePattern, "}, {2}, {0}"_s})));
 	$assign(subformats, format->getFormatsByArgumentIndex());
@@ -109,6 +110,7 @@ void MessageFormatsByArgumentIndex::checkPattern($String* actual, $String* expec
 
 void MessageFormatsByArgumentIndex::checkSubformatLength($FormatArray* subformats, int32_t expected) {
 	$init(MessageFormatsByArgumentIndex);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(subformats)->length != expected) {
 		$throwNew($RuntimeException, $$str({"unexpected subformat length:\n expected: "_s, $$str(expected), "\n   actual: "_s, $$str(subformats->length)}));
 	}
@@ -116,6 +118,7 @@ void MessageFormatsByArgumentIndex::checkSubformatLength($FormatArray* subformat
 
 void MessageFormatsByArgumentIndex::checkSubformat($FormatArray* subformats, int32_t index, $Format* expected) {
 	$init(MessageFormatsByArgumentIndex);
+	$useLocalCurrentObjectStackCache();
 	$var($Format, subformat, $nc(subformats)->get(index));
 	if (subformat == expected) {
 		return;

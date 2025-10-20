@@ -94,6 +94,7 @@ $PermissionCollection* Permission::newPermissionCollection() {
 }
 
 $String* Permission::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, actions, getActions());
 	if (actions == nullptr || $nc(actions)->isEmpty()) {
 		return $str({"(\""_s, $($of(this)->getClass()->getName()), "\" \""_s, this->name, "\")"_s});

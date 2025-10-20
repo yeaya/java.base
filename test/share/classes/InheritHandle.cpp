@@ -63,6 +63,7 @@ void InheritHandle::init$() {
 }
 
 void InheritHandle::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t port = 0;
 	{
 		$var($DatagramSocket, sock, $new($DatagramSocket, 0));

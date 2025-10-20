@@ -136,6 +136,7 @@ $String* NetworkClient::encoding = nullptr;
 
 bool NetworkClient::isASCIISuperset($String* encoding) {
 	$init(NetworkClient);
+	$useLocalCurrentObjectStackCache();
 	$var($String, chkS, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.!~*\'();/?:@&=+$,"_s);
 	$var($bytes, chkB, $new($bytes, {
 		(int8_t)48,
@@ -225,6 +226,7 @@ bool NetworkClient::isASCIISuperset($String* encoding) {
 }
 
 void NetworkClient::openServer($String* server, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serverSocket != nullptr) {
 		closeServer();
 	}
@@ -239,6 +241,7 @@ void NetworkClient::openServer($String* server, int32_t port) {
 }
 
 $Socket* NetworkClient::doConnect($String* server, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Socket, s, nullptr);
 	if (this->proxy != nullptr) {
@@ -342,6 +345,7 @@ int32_t NetworkClient::getReadTimeout() {
 }
 
 void clinit$NetworkClient($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($ints, vals, $new($ints, {

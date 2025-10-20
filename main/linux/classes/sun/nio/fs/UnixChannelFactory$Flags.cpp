@@ -99,6 +99,7 @@ void UnixChannelFactory$Flags::init$() {
 }
 
 UnixChannelFactory$Flags* UnixChannelFactory$Flags::toFlags($Set* options) {
+	$useLocalCurrentObjectStackCache();
 	$var(UnixChannelFactory$Flags, flags, $new(UnixChannelFactory$Flags));
 	{
 		$var($Iterator, i$, $nc(options)->iterator());

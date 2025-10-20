@@ -86,6 +86,7 @@ void DoubleAdder::init$() {
 }
 
 void DoubleAdder::add(double x) {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -112,6 +113,7 @@ void DoubleAdder::add(double x) {
 }
 
 double DoubleAdder::sum() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	double sum = $Double::longBitsToDouble(this->base);
 	if (cs != nullptr) {
@@ -131,6 +133,7 @@ double DoubleAdder::sum() {
 }
 
 void DoubleAdder::reset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = 0;
 	if (cs != nullptr) {
@@ -149,6 +152,7 @@ void DoubleAdder::reset() {
 }
 
 double DoubleAdder::sumThenReset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	double sum = $Double::longBitsToDouble(getAndSetBase(0));
 	if (cs != nullptr) {

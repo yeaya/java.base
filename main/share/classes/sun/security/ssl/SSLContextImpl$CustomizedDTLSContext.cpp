@@ -99,6 +99,7 @@ $IllegalArgumentException* SSLContextImpl$CustomizedDTLSContext::reservedExcepti
 
 $List* SSLContextImpl$CustomizedDTLSContext::customizedProtocols(bool client, $List* customized) {
 	$init(SSLContextImpl$CustomizedDTLSContext);
+	$useLocalCurrentObjectStackCache();
 	$var($List, refactored, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(customized)->iterator());

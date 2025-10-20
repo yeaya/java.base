@@ -80,6 +80,7 @@ $Object* allocate$Sun($Class* clazz) {
 $String* Sun::INFO = nullptr;
 
 void Sun::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("SUN"_s, $SecurityConstants::PROVIDER_VER, Sun::INFO);
@@ -93,6 +94,7 @@ void Sun::init$() {
 }
 
 void Sun::putEntries($Iterator* i) {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(i)->hasNext()) {
 		putService($cast($Provider$Service, $(i->next())));
 	}

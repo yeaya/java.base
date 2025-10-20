@@ -78,6 +78,7 @@ void Files$FileTypeDetectors$2::init$() {
 }
 
 $Object* Files$FileTypeDetectors$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, list, $new($ArrayList));
 	$load($FileTypeDetector);

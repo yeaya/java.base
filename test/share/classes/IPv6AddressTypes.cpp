@@ -42,6 +42,7 @@ void IPv6AddressTypes::init$() {
 }
 
 void IPv6AddressTypes::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, goodlinklocal, $new($StringArray, {
 		"fe80::a00:20ff:feae:45c9"_s,
 		"fe80::"_s,

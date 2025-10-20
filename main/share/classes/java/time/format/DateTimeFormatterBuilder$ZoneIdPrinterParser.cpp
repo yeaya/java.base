@@ -122,6 +122,7 @@ void DateTimeFormatterBuilder$ZoneIdPrinterParser::init$($TemporalQuery* query, 
 }
 
 bool DateTimeFormatterBuilder$ZoneIdPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneId, zone, $cast($ZoneId, $nc(context)->getValue(this->query)));
 	if (zone == nullptr) {
 		return false;
@@ -131,6 +132,7 @@ bool DateTimeFormatterBuilder$ZoneIdPrinterParser::format($DateTimePrintContext*
 }
 
 $DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$ZoneIdPrinterParser::getTree($DateTimeParseContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, regionIds, $ZoneRulesProvider::getAvailableZoneIds());
 	int32_t regionIdsSize = $nc(regionIds)->size();
 	$var($Map$Entry, cached, $nc(context)->isCaseSensitive() ? $cast($Map$Entry, DateTimeFormatterBuilder$ZoneIdPrinterParser::cachedPrefixTree) : $cast($Map$Entry, DateTimeFormatterBuilder$ZoneIdPrinterParser::cachedPrefixTreeCI));
@@ -152,6 +154,7 @@ $DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$ZoneIdPrinterPars
 }
 
 int32_t DateTimeFormatterBuilder$ZoneIdPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(text)->length();
 	if (position > length) {
 		$throwNew($IndexOutOfBoundsException);
@@ -205,6 +208,7 @@ int32_t DateTimeFormatterBuilder$ZoneIdPrinterParser::parse($DateTimeParseContex
 }
 
 int32_t DateTimeFormatterBuilder$ZoneIdPrinterParser::parseOffsetBased($DateTimeParseContext* context, $CharSequence* text, int32_t prefixPos, int32_t position, $DateTimeFormatterBuilder$OffsetIdPrinterParser* parser) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, $nc($($nc($($nc(text)->subSequence(prefixPos, position)))->toString()))->toUpperCase());
 	if (position >= text->length()) {
 		$nc(context)->setParsed($($ZoneId::of(prefix)));

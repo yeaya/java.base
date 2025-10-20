@@ -85,6 +85,7 @@ $Set* AnchorCertificates::certIssuers = nullptr;
 
 bool AnchorCertificates::contains($X509Certificate* cert) {
 	$init(AnchorCertificates);
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $X509CertImpl::getFingerprint(AnchorCertificates::HASH, cert));
 	bool result = $nc(AnchorCertificates::certs)->contains(key);
 	if (result && AnchorCertificates::debug != nullptr) {
@@ -102,6 +103,7 @@ void AnchorCertificates::init$() {
 }
 
 void clinit$AnchorCertificates($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(AnchorCertificates::HASH, "SHA-256"_s);
 	$beforeCallerSensitive();
 	$assignStatic(AnchorCertificates::debug, $Debug::getInstance("certpath"_s));

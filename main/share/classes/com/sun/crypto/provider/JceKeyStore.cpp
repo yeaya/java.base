@@ -253,6 +253,7 @@ void JceKeyStore::init$() {
 }
 
 $Key* JceKeyStore::engineGetKey($String* alias, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($Key, key, nullptr);
 	$init($Locale);
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -278,6 +279,7 @@ $Key* JceKeyStore::engineGetKey($String* alias, $chars* password) {
 }
 
 $CertificateArray* JceKeyStore::engineGetCertificateChain($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateArray, chain, nullptr);
 	$init($Locale);
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -288,6 +290,7 @@ $CertificateArray* JceKeyStore::engineGetCertificateChain($String* alias) {
 }
 
 $Certificate* JceKeyStore::engineGetCertificate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Certificate, cert, nullptr);
 	$init($Locale);
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -302,6 +305,7 @@ $Certificate* JceKeyStore::engineGetCertificate($String* alias) {
 }
 
 $Date* JceKeyStore::engineGetCreationDate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Date, date, nullptr);
 	$init($Locale);
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -318,6 +322,7 @@ $Date* JceKeyStore::engineGetCreationDate($String* alias) {
 }
 
 void JceKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		try {
 			$var($KeyProtector, keyProtector, $new($KeyProtector, password));
@@ -348,6 +353,7 @@ void JceKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password,
 }
 
 void JceKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		$var($JceKeyStore$PrivateKeyEntry, entry, $new($JceKeyStore$PrivateKeyEntry));
 		$set(entry, date, $new($Date));
@@ -363,6 +369,7 @@ void JceKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArr
 }
 
 void JceKeyStore::engineSetCertificateEntry($String* alias, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		$init($Locale);
 		$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -401,6 +408,7 @@ int32_t JceKeyStore::engineSize() {
 }
 
 bool JceKeyStore::engineIsKeyEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	bool isKey = false;
 	$init($Locale);
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -411,6 +419,7 @@ bool JceKeyStore::engineIsKeyEntry($String* alias) {
 }
 
 bool JceKeyStore::engineIsCertificateEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	bool isCert = false;
 	$init($Locale);
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH))));
@@ -421,6 +430,7 @@ bool JceKeyStore::engineIsCertificateEntry($String* alias) {
 }
 
 $String* JceKeyStore::engineGetCertificateAlias($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($Certificate, certElem, nullptr);
 	$var($Enumeration, e, $nc(this->entries)->keys());
 	while ($nc(e)->hasMoreElements()) {
@@ -441,6 +451,7 @@ $String* JceKeyStore::engineGetCertificateAlias($Certificate* cert) {
 }
 
 void JceKeyStore::engineStore($OutputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		if (password == nullptr) {
 			$throwNew($IllegalArgumentException, "password can\'t be null"_s);
@@ -515,6 +526,7 @@ void JceKeyStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 void JceKeyStore::engineLoad($InputStream* stream$renamed, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, stream, stream$renamed);
 	$beforeCallerSensitive();
 	$synchronized(this->entries) {
@@ -651,6 +663,7 @@ void JceKeyStore::engineLoad($InputStream* stream$renamed, $chars* password) {
 }
 
 $MessageDigest* JceKeyStore::getPreKeyedHash($chars* password) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t j = 0;
 	$var($MessageDigest, md, $MessageDigest::getInstance("SHA"_s));

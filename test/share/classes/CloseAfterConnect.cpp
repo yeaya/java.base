@@ -71,6 +71,7 @@ void CloseAfterConnect::init$() {
 }
 
 void CloseAfterConnect::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	$nc($($nc(ssc)->socket()))->bind($$new($InetSocketAddress, 0));
 	$var($InetAddress, lh, $InetAddress::getLocalHost());

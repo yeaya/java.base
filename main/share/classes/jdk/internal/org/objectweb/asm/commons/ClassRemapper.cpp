@@ -117,6 +117,7 @@ void ClassRemapper::init$(int32_t api, $ClassVisitor* classVisitor, $Remapper* r
 }
 
 void ClassRemapper::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, className, name);
 	int32_t var$0 = version;
 	int32_t var$1 = access;
@@ -127,21 +128,25 @@ void ClassRemapper::visit(int32_t version, int32_t access, $String* name, $Strin
 }
 
 $ModuleVisitor* ClassRemapper::visitModule($String* name, int32_t flags, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleVisitor, moduleVisitor, $ClassVisitor::visitModule($($nc(this->remapper)->mapModuleName(name)), flags, version));
 	return moduleVisitor == nullptr ? ($ModuleVisitor*)nullptr : createModuleRemapper(moduleVisitor);
 }
 
 $AnnotationVisitor* ClassRemapper::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $ClassVisitor::visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
 
 $AnnotationVisitor* ClassRemapper::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $ClassVisitor::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : createAnnotationRemapper(annotationVisitor);
 }
 
 void ClassRemapper::visitAttribute($Attribute* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ModuleHashesAttribute, attribute)) {
 		$var($ModuleHashesAttribute, moduleHashesAttribute, $cast($ModuleHashesAttribute, attribute));
 		$var($List, modules, $nc(moduleHashesAttribute)->modules);
@@ -153,6 +158,7 @@ void ClassRemapper::visitAttribute($Attribute* attribute) {
 }
 
 $RecordComponentVisitor* ClassRemapper::visitRecordComponent($String* name, $String* descriptor, $String* signature) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(this->remapper)->mapRecordComponentName(this->className, name, descriptor));
 	$var($String, var$1, $nc(this->remapper)->mapDesc(descriptor));
 	$var($RecordComponentVisitor, recordComponentVisitor, $ClassVisitor::visitRecordComponent(var$0, var$1, $($nc(this->remapper)->mapSignature(signature, true))));
@@ -160,6 +166,7 @@ $RecordComponentVisitor* ClassRemapper::visitRecordComponent($String* name, $Str
 }
 
 $FieldVisitor* ClassRemapper::visitField(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = access;
 	$var($String, var$1, $nc(this->remapper)->mapFieldName(this->className, name, descriptor));
 	$var($String, var$2, $nc(this->remapper)->mapDesc(descriptor));
@@ -169,6 +176,7 @@ $FieldVisitor* ClassRemapper::visitField(int32_t access, $String* name, $String*
 }
 
 $MethodVisitor* ClassRemapper::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, remappedDescriptor, $nc(this->remapper)->mapMethodDesc(descriptor));
 	int32_t var$0 = access;
 	$var($String, var$1, $nc(this->remapper)->mapMethodName(this->className, name, descriptor));
@@ -179,12 +187,14 @@ $MethodVisitor* ClassRemapper::visitMethod(int32_t access, $String* name, $Strin
 }
 
 void ClassRemapper::visitInnerClass($String* name, $String* outerName, $String* innerName, int32_t access) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(this->remapper)->mapType(name));
 	$var($String, var$1, outerName == nullptr ? ($String*)nullptr : $nc(this->remapper)->mapType(outerName));
 	$ClassVisitor::visitInnerClass(var$0, var$1, innerName == nullptr ? ($String*)nullptr : $($nc(this->remapper)->mapInnerClassName(name, outerName, innerName)), access);
 }
 
 void ClassRemapper::visitOuterClass($String* owner, $String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(this->remapper)->mapType(owner));
 	$var($String, var$1, name == nullptr ? ($String*)nullptr : $nc(this->remapper)->mapMethodName(owner, name, descriptor));
 	$ClassVisitor::visitOuterClass(var$0, var$1, descriptor == nullptr ? ($String*)nullptr : $($nc(this->remapper)->mapMethodDesc(descriptor)));

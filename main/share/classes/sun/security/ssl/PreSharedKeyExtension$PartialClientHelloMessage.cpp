@@ -108,6 +108,7 @@ int32_t PreSharedKeyExtension$PartialClientHelloMessage::messageLength() {
 }
 
 void PreSharedKeyExtension$PartialClientHelloMessage::send($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->msg)->sendCore(hos);
 	int32_t extsLen = $nc($nc(this->msg)->extensions)->length();
 	$init($SSLExtension);

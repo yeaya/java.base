@@ -65,6 +65,7 @@ void ModPowPowersof2::init$() {
 }
 
 void ModPowPowersof2::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, command, $new($StringArray, 4));
 	int32_t n = 0;
 	$init($File);

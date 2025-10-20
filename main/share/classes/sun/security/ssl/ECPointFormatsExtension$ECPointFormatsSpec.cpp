@@ -105,6 +105,7 @@ void ECPointFormatsExtension$ECPointFormatsSpec::init$($bytes* formats) {
 }
 
 void ECPointFormatsExtension$ECPointFormatsSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(m)->hasRemaining()) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid ec_point_formats extension: insufficient data"_s)))));
@@ -131,6 +132,7 @@ bool ECPointFormatsExtension$ECPointFormatsSpec::hasUncompressedFormat() {
 }
 
 $String* ECPointFormatsExtension$ECPointFormatsSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"formats\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
 	if (this->formats == nullptr || $nc(this->formats)->length == 0) {

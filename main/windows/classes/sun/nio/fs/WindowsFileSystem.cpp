@@ -212,6 +212,7 @@ void WindowsFileSystem::close() {
 }
 
 $Iterable* WindowsFileSystem::getRootDirectories() {
+	$useLocalCurrentObjectStackCache();
 	int32_t drives = 0;
 	try {
 		drives = $WindowsNativeDispatcher::GetLogicalDrives();
@@ -242,6 +243,7 @@ $Iterable* WindowsFileSystem::getRootDirectories() {
 }
 
 $Iterable* WindowsFileSystem::getFileStores() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		try {
@@ -259,6 +261,7 @@ $Set* WindowsFileSystem::supportedFileAttributeViews() {
 }
 
 $Path* WindowsFileSystem::getPath($String* first, $StringArray* more) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(first);
 	$var($String, path, nullptr);
 	if ($nc(more)->length == 0) {
@@ -293,6 +296,7 @@ $UserPrincipalLookupService* WindowsFileSystem::getUserPrincipalLookupService() 
 }
 
 $PathMatcher* WindowsFileSystem::getPathMatcher($String* syntaxAndInput) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(syntaxAndInput)->indexOf((int32_t)u':');
 	if (pos <= 0 || pos == syntaxAndInput->length()) {
 		$throwNew($IllegalArgumentException);
@@ -316,6 +320,7 @@ $WatchService* WindowsFileSystem::newWatchService() {
 }
 
 void clinit$WindowsFileSystem($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(WindowsFileSystem::GLOB_SYNTAX, "glob"_s);
 	$assignStatic(WindowsFileSystem::REGEX_SYNTAX, "regex"_s);
 	$assignStatic(WindowsFileSystem::supportedFileAttributeViews$, $Collections::unmodifiableSet($$new($HashSet, $(static_cast<$Collection*>($Arrays::asList($$new($StringArray, {

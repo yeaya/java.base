@@ -171,6 +171,7 @@ Iocp* Iocp::start() {
 }
 
 void Iocp::implClose() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		if (this->closed) {
 			return;
@@ -193,6 +194,7 @@ void Iocp::implClose() {
 }
 
 bool Iocp::isEmpty() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->keyToChannelLock)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -227,6 +229,7 @@ void Iocp::detachForeignChannel(Object$* key) {
 }
 
 void Iocp::closeAllChannels() {
+	$useLocalCurrentObjectStackCache();
 	int32_t MAX_BATCH_SIZE = 32;
 	$var($Iocp$OverlappedChannelArray, channels, $new($Iocp$OverlappedChannelArray, MAX_BATCH_SIZE));
 	int32_t count = 0;
@@ -294,6 +297,7 @@ void Iocp::shutdownHandlerTasks() {
 }
 
 int32_t Iocp::associate($Iocp$OverlappedChannel* ch, int64_t handle) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->keyToChannelLock)->writeLock()))->lock();
 	int32_t key = 0;
 	{
@@ -322,6 +326,7 @@ int32_t Iocp::associate($Iocp$OverlappedChannel* ch, int64_t handle) {
 }
 
 void Iocp::disassociate(int32_t key) {
+	$useLocalCurrentObjectStackCache();
 	bool checkForShutdown = false;
 	$nc($($nc(this->keyToChannelLock)->writeLock()))->lock();
 	{
@@ -366,6 +371,7 @@ void Iocp::checkIfStale(int64_t ov) {
 
 $IOException* Iocp::translateErrorToIOException(int32_t error) {
 	$init(Iocp);
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, getErrorMessage(error));
 	if (msg == nullptr) {
 		$assign(msg, $str({"Unknown error: 0x0"_s, $($Integer::toHexString(error))}));

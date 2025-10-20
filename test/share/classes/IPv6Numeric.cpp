@@ -43,6 +43,7 @@ void IPv6Numeric::init$() {
 }
 
 void IPv6Numeric::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InetAddress, addr, $InetAddress::getByName(":"_s));
 	} catch ($UnknownHostException&) {

@@ -304,6 +304,7 @@ void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t 
 }
 
 void SignatureScheme::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, $String* algorithm, $String* keyAlgorithm, $SignatureScheme$SigAlgParamSpec* signAlgParams, $NamedGroup* namedGroup, int32_t minimalKeySize, $ProtocolVersionArray* supportedProtocols, $ProtocolVersionArray* handshakeSupportedProtocols) {
+	$useLocalCurrentObjectStackCache();
 	$Enum::init$($enum$name, $enum$ordinal);
 	this->id = id;
 	$set(this, name$, name);
@@ -362,6 +363,7 @@ SignatureScheme* SignatureScheme::valueOf(int32_t id) {
 
 $String* SignatureScheme::nameOf(int32_t id) {
 	$init(SignatureScheme);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SignatureSchemeArray, arr$, SignatureScheme::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -414,6 +416,7 @@ bool SignatureScheme::isPermitted($AlgorithmConstraints* constraints) {
 
 $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $AlgorithmConstraints* constraints, $List* activeProtocols) {
 	$init(SignatureScheme);
+	$useLocalCurrentObjectStackCache();
 	$var($List, supported, $new($LinkedList));
 	$var($List, schemesToCheck, $nc($nc(config)->signatureSchemes)->isEmpty() ? $Arrays::asList($(SignatureScheme::values())) : $nc(config)->signatureSchemes);
 	{
@@ -464,6 +467,7 @@ $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $Algor
 
 $List* SignatureScheme::getSupportedAlgorithms($SSLConfiguration* config, $AlgorithmConstraints* constraints, $ProtocolVersion* protocolVersion, $ints* algorithmIds) {
 	$init(SignatureScheme);
+	$useLocalCurrentObjectStackCache();
 	$var($List, supported, $new($LinkedList));
 	{
 		$var($ints, arr$, algorithmIds);
@@ -520,6 +524,7 @@ SignatureScheme* SignatureScheme::getPreferableAlgorithm($AlgorithmConstraints* 
 
 $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraints* constraints, $List* schemes, $X509Authentication$X509Possession* x509Possession, $ProtocolVersion* version) {
 	$init(SignatureScheme);
+	$useLocalCurrentObjectStackCache();
 	$var($PrivateKey, signingKey, $nc(x509Possession)->popPrivateKey);
 	$var($String, keyAlgorithm, $nc(signingKey)->getAlgorithm());
 	int32_t keySize = 0;
@@ -580,6 +585,7 @@ $Map$Entry* SignatureScheme::getSignerOfPreferableAlgorithm($AlgorithmConstraint
 
 $StringArray* SignatureScheme::getAlgorithmNames($Collection* schemes) {
 	$init(SignatureScheme);
+	$useLocalCurrentObjectStackCache();
 	if (schemes != nullptr) {
 		$var($ArrayList, names, $new($ArrayList, schemes->size()));
 		{
@@ -606,6 +612,7 @@ $Signature* SignatureScheme::getVerifier($PublicKey* publicKey) {
 }
 
 $Signature* SignatureScheme::getSigner($PrivateKey* privateKey) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->isAvailable) {
 		return nullptr;
 	}

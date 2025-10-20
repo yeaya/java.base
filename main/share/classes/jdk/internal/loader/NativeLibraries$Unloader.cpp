@@ -95,6 +95,7 @@ void NativeLibraries$Unloader::init$($String* name, int64_t handle, bool isBuilt
 }
 
 void NativeLibraries$Unloader::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($NativeLibraries);
 	$synchronized($NativeLibraries::loadedLibraryNames) {
 		if (!$nc($NativeLibraries::loadedLibraryNames)->remove(this->name)) {

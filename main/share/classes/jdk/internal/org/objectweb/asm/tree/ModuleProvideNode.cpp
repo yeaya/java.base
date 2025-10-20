@@ -56,6 +56,7 @@ void ModuleProvideNode::init$($String* service, $List* providers) {
 }
 
 void ModuleProvideNode::accept($ModuleVisitor* moduleVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$nc(moduleVisitor)->visitProvide(this->service, $fcast($StringArray, $($nc(this->providers)->toArray($$new($StringArray, 0)))));
 }
 

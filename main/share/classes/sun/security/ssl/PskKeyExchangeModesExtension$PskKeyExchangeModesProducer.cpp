@@ -76,6 +76,7 @@ void PskKeyExchangeModesExtension$PskKeyExchangeModesProducer::init$() {
 }
 
 $bytes* PskKeyExchangeModesExtension$PskKeyExchangeModesProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::PSK_KEY_EXCHANGE_MODES)) {

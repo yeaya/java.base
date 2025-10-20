@@ -81,6 +81,7 @@ void RenegoInfoExtension$CHRenegotiationInfoAbsence::init$() {
 }
 
 void RenegoInfoExtension$CHRenegotiationInfoAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	if (!$nc($nc(shc)->conContext)->isNegotiated) {

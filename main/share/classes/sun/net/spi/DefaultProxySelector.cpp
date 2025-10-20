@@ -185,11 +185,13 @@ void DefaultProxySelector::init$() {
 
 int32_t DefaultProxySelector::socksProxyVersion() {
 	$init(DefaultProxySelector);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultProxySelector$2)))))))->intValue();
 }
 
 $List* DefaultProxySelector::select($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (uri == nullptr) {
 		$throwNew($IllegalArgumentException, "URI can\'t be null."_s);
@@ -287,6 +289,7 @@ bool DefaultProxySelector::shouldNotUseProxyFor($Pattern* pattern, $String* urlh
 
 $Pattern* DefaultProxySelector::toPattern($String* mask) {
 	$init(DefaultProxySelector);
+	$useLocalCurrentObjectStackCache();
 	bool disjunctionEmpty = true;
 	$var($StringJoiner, joiner, $new($StringJoiner, "|"_s));
 	{
@@ -310,6 +313,7 @@ $Pattern* DefaultProxySelector::toPattern($String* mask) {
 
 $String* DefaultProxySelector::disjunctToRegex($String* disjunct) {
 	$init(DefaultProxySelector);
+	$useLocalCurrentObjectStackCache();
 	$var($String, regex, nullptr);
 	if ($nc(disjunct)->equals("*"_s)) {
 		$assign(regex, ".*"_s);
@@ -329,6 +333,7 @@ $String* DefaultProxySelector::disjunctToRegex($String* disjunct) {
 }
 
 void clinit$DefaultProxySelector($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DefaultProxySelector::SOCKS_PROXY_VERSION, "socksProxyVersion"_s);
 	$beforeCallerSensitive();
 	$assignStatic(DefaultProxySelector::props, $new($StringArray2, {

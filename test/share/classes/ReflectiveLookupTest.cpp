@@ -54,6 +54,7 @@ void ReflectiveLookupTest::init$() {
 
 void ReflectiveLookupTest::main($StringArray* args) {
 	$load(ReflectiveLookupTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, lookup1, $MethodHandles::lookup());
 	$Class* var$0 = lookup1->lookupClass();

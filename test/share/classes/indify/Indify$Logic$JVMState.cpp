@@ -113,6 +113,7 @@ $List* Indify$Logic$JVMState::args(int32_t argsize) {
 }
 
 bool Indify$Logic$JVMState::stackMotion(int32_t bc) {
+	$useLocalCurrentObjectStackCache();
 	switch (bc) {
 	case 87:
 		{

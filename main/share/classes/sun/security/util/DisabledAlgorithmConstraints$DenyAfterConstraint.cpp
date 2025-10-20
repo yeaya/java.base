@@ -98,6 +98,7 @@ $Object* allocate$DisabledAlgorithmConstraints$DenyAfterConstraint($Class* clazz
 $SimpleDateFormat* DisabledAlgorithmConstraints$DenyAfterConstraint::dateFormat = nullptr;
 
 void DisabledAlgorithmConstraints$DenyAfterConstraint::init$($String* algo, int32_t year, int32_t month, int32_t day) {
+	$useLocalCurrentObjectStackCache();
 	$DisabledAlgorithmConstraints$Constraint::init$();
 	$var($Calendar, c, nullptr);
 	$set(this, algorithm, algo);
@@ -125,6 +126,7 @@ void DisabledAlgorithmConstraints$DenyAfterConstraint::init$($String* algo, int3
 }
 
 void DisabledAlgorithmConstraints$DenyAfterConstraint::permits($ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	$var($Date, currentDate, nullptr);
 	$var($String, errmsg, nullptr);
 	if ($nc(cp)->getDate() != nullptr) {
@@ -144,6 +146,7 @@ void DisabledAlgorithmConstraints$DenyAfterConstraint::permits($ConstraintsParam
 }
 
 bool DisabledAlgorithmConstraints$DenyAfterConstraint::permits($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if (next(key)) {
 		return true;
 	}

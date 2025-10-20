@@ -77,6 +77,7 @@ void TestParameterAnnotations::init$() {
 
 int32_t TestParameterAnnotations::visitCtorParameterAnnotations($Class* clazz) {
 	$load(TestParameterAnnotations);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
 	{
@@ -107,6 +108,7 @@ int32_t TestParameterAnnotations::visitCtorParameterAnnotations($Class* clazz) {
 }
 
 void TestParameterAnnotations::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	{
 	}

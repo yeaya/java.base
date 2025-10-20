@@ -92,6 +92,7 @@ void SerialNumber::init$($InputStream* in) {
 }
 
 $String* SerialNumber::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"SerialNumber: ["_s, $($Debug::toHexString(this->serialNum)), $$str(u']')});
 }
 

@@ -176,6 +176,7 @@ void MultiThreadStackWalk$Env::init$(MultiThreadStackWalk$Env* orig, int64_t sta
 }
 
 void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool var$0 = $nc(this->frameCounter)->get() == 0;
 	if (var$0 && $MultiThreadStackWalk::isStreamPipeline($nc(sfi)->getDeclaringClass())) {
@@ -246,6 +247,7 @@ void MultiThreadStackWalk$Env::consume($StackWalker$StackFrame* sfi) {
 }
 
 void MultiThreadStackWalk$Env::lambda$consume$0($StackWalker$StackFrame* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElement, st, $nc(x)->toStackTraceElement());
 	$var($StringBuilder, b, $new($StringBuilder));
 	$var($String, var$0, nullptr);

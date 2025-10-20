@@ -209,6 +209,7 @@ VarHandleFloats$FieldInstanceReadWrite* VarHandleFloats$FieldInstanceReadWrite::
 
 void VarHandleFloats$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -216,6 +217,7 @@ void VarHandleFloats$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder
 
 void VarHandleFloats$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloatVolatile($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -223,6 +225,7 @@ void VarHandleFloats$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$
 
 void VarHandleFloats$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloatOpaque($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -230,6 +233,7 @@ void VarHandleFloats$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* 
 
 void VarHandleFloats$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -237,6 +241,7 @@ void VarHandleFloats$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$*
 
 bool VarHandleFloats$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -244,6 +249,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Objec
 
 float VarHandleFloats$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -251,6 +257,7 @@ float VarHandleFloats$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob,
 
 float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -258,6 +265,7 @@ float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHand
 
 float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeRelease($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -265,6 +273,7 @@ float VarHandleFloats$FieldInstanceReadWrite::compareAndExchangeRelease($VarHand
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloatPlain($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -272,6 +281,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* 
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -279,6 +289,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, O
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -286,6 +297,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle
 
 bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle* ob, Object$* holder, float expected, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -293,6 +305,7 @@ bool VarHandleFloats$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -300,6 +313,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$*
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -307,6 +321,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, O
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -314,6 +329,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, O
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndAdd($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddFloat($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -321,6 +337,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndAdd($VarHandle* ob, Object$*
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndAddAcquire($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddFloatAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -328,6 +345,7 @@ float VarHandleFloats$FieldInstanceReadWrite::getAndAddAcquire($VarHandle* ob, O
 
 float VarHandleFloats$FieldInstanceReadWrite::getAndAddRelease($VarHandle* ob, Object$* holder, float value) {
 	$init(VarHandleFloats$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleFloats$FieldInstanceReadWrite, handle, $cast(VarHandleFloats$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddFloatRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);

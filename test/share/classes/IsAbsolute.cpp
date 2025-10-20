@@ -45,6 +45,7 @@ void IsAbsolute::init$() {
 }
 
 void IsAbsolute::ck($String* path, bool ans) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, path));
 	bool x = f->isAbsolute();
 	if (x != ans) {

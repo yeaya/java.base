@@ -66,6 +66,7 @@ void Constructors::init$() {
 }
 
 void Constructors::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -109,6 +110,7 @@ void Constructors::main($StringArray* args) {
 
 void Constructors::testPipe() {
 	$init(Constructors);
+	$useLocalCurrentObjectStackCache();
 	$var(Constructors, reader, $new(Constructors));
 	reader->start();
 	{

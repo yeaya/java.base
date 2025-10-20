@@ -255,6 +255,7 @@ $Map* Provider::knownEngines = nullptr;
 
 double Provider::parseVersionStr($String* s$renamed) {
 	$init(Provider);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, s$renamed);
 	try {
 		int32_t firstDotIdx = $nc(s)->indexOf((int32_t)u'.');
@@ -338,6 +339,7 @@ $String* Provider::toString() {
 
 void Provider::clear() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"clearProviderProperties."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Remove "_s, this->name, " provider properties"_s}));
@@ -348,6 +350,7 @@ void Provider::clear() {
 
 void Provider::load($InputStream* inStream) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Load "_s, this->name, " provider properties"_s}));
@@ -360,6 +363,7 @@ void Provider::load($InputStream* inStream) {
 
 void Provider::putAll($Map* t) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Put all "_s, this->name, " provider properties"_s}));
@@ -397,6 +401,7 @@ $Collection* Provider::values() {
 
 $Object* Provider::put(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Set "_s, this->name, " provider property ["_s, key, "/"_s, value, "]"_s}));
@@ -407,6 +412,7 @@ $Object* Provider::put(Object$* key, Object$* value) {
 
 $Object* Provider::putIfAbsent(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Set "_s, this->name, " provider property ["_s, key, "/"_s, value, "]"_s}));
@@ -417,6 +423,7 @@ $Object* Provider::putIfAbsent(Object$* key, Object$* value) {
 
 $Object* Provider::remove(Object$* key) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"removeProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Remove "_s, this->name, " provider property "_s, key}));
@@ -427,6 +434,7 @@ $Object* Provider::remove(Object$* key) {
 
 bool Provider::remove(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"removeProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Remove "_s, this->name, " provider property "_s, key}));
@@ -437,6 +445,7 @@ bool Provider::remove(Object$* key, Object$* value) {
 
 bool Provider::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Replace "_s, this->name, " provider property "_s, key}));
@@ -447,6 +456,7 @@ bool Provider::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 
 $Object* Provider::replace(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"Replace "_s, this->name, " provider property "_s, key}));
@@ -457,6 +467,7 @@ $Object* Provider::replace(Object$* key, Object$* value) {
 
 void Provider::replaceAll($BiFunction* function) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
 			$nc(Provider::debug)->println($$str({"ReplaceAll "_s, this->name, " provider property "_s}));
@@ -467,6 +478,7 @@ void Provider::replaceAll($BiFunction* function) {
 
 $Object* Provider::compute(Object$* key, $BiFunction* remappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		check($$str({"removeProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
@@ -478,6 +490,7 @@ $Object* Provider::compute(Object$* key, $BiFunction* remappingFunction) {
 
 $Object* Provider::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		check($$str({"removeProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
@@ -489,6 +502,7 @@ $Object* Provider::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 
 $Object* Provider::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		check($$str({"removeProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
@@ -500,6 +514,7 @@ $Object* Provider::computeIfPresent(Object$* key, $BiFunction* remappingFunction
 
 $Object* Provider::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		check($$str({"putProviderProperty."_s, this->name}));
 		check($$str({"removeProviderProperty."_s, this->name}));
 		if (Provider::debug != nullptr) {
@@ -558,6 +573,7 @@ void Provider::check($String* directive) {
 }
 
 void Provider::putId() {
+	$useLocalCurrentObjectStackCache();
 	$Properties::put("Provider.id name"_s, $($String::valueOf($of(this->name))));
 	$Properties::put("Provider.id version"_s, $($String::valueOf($of(this->versionStr))));
 	$Properties::put("Provider.id info"_s, $($String::valueOf($of(this->info))));
@@ -565,6 +581,7 @@ void Provider::putId() {
 }
 
 void Provider::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, copy, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($($Properties::entrySet()))->iterator());
@@ -602,6 +619,7 @@ bool Provider::checkLegacy(Object$* key) {
 }
 
 void Provider::implPutAll($Map* t) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(t)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -741,6 +759,7 @@ void Provider::implClear() {
 }
 
 void Provider::ensureLegacyParsed() {
+	$useLocalCurrentObjectStackCache();
 	if (this->legacyChanged == false || (this->legacyStrings == nullptr)) {
 		return;
 	}
@@ -765,6 +784,7 @@ void Provider::ensureLegacyParsed() {
 }
 
 void Provider::removeInvalidServices($Map* map) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, t, $nc($($nc(map)->entrySet()))->iterator());
 		for (; $nc(t)->hasNext();) {
@@ -778,6 +798,7 @@ void Provider::removeInvalidServices($Map* map) {
 
 $StringArray* Provider::getTypeAndAlgorithm($String* key) {
 	$init(Provider);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $nc(key)->indexOf((int32_t)u'.');
 	if (i < 1) {
 		if (Provider::debug != nullptr) {
@@ -794,6 +815,7 @@ $StringArray* Provider::getTypeAndAlgorithm($String* key) {
 }
 
 void Provider::parseLegacyPut($String* name, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	if ($($nc(name)->toLowerCase($Locale::ENGLISH))->startsWith(Provider::ALIAS_PREFIX_LOWER)) {
 		$var($String, stdAlg, value);
@@ -854,6 +876,7 @@ void Provider::parseLegacyPut($String* name, $String* value) {
 }
 
 $Provider$Service* Provider::getService($String* type, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	checkInitialized();
 	$var($Provider$ServiceKey, key, Provider::previousKey);
 	if ($nc(key)->matches(type, algorithm) == false) {
@@ -877,6 +900,7 @@ $Provider$Service* Provider::getService($String* type, $String* algorithm) {
 
 $Set* Provider::getServices() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		checkInitialized();
 		if (this->legacyChanged || this->servicesChanged) {
 			$set(this, serviceSet, nullptr);
@@ -898,6 +922,7 @@ $Set* Provider::getServices() {
 }
 
 void Provider::putService($Provider$Service* s) {
+	$useLocalCurrentObjectStackCache();
 	check($$str({"putProviderProperty."_s, this->name}));
 	if (Provider::debug != nullptr) {
 		$nc(Provider::debug)->println($$str({this->name, ".putService(): "_s, s}));
@@ -948,6 +973,7 @@ void Provider::updateSecureRandomEntries(bool doAdd, $String* s) {
 
 $Provider$Service* Provider::getDefaultSecureRandomService() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		checkInitialized();
 		if (this->legacyChanged) {
 			$set(this, prngAlgos, nullptr);
@@ -961,6 +987,7 @@ $Provider$Service* Provider::getDefaultSecureRandomService() {
 }
 
 void Provider::putPropertyStrings($Provider$Service* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, $nc(s)->getType());
 	$var($String, algorithm, s->getAlgorithm());
 	$Properties::put($$str({type, "."_s, algorithm}), $(s->getClassName()));
@@ -986,6 +1013,7 @@ void Provider::putPropertyStrings($Provider$Service* s) {
 }
 
 void Provider::removePropertyStrings($Provider$Service* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, $nc(s)->getType());
 	$var($String, algorithm, s->getAlgorithm());
 	$Properties::remove($$str({type, "."_s, algorithm}));
@@ -1011,6 +1039,7 @@ void Provider::removePropertyStrings($Provider$Service* s) {
 }
 
 void Provider::removeService($Provider$Service* s) {
+	$useLocalCurrentObjectStackCache();
 	check($$str({"removeProviderProperty."_s, this->name}));
 	if (Provider::debug != nullptr) {
 		$nc(Provider::debug)->println($$str({this->name, ".removeService(): "_s, s}));
@@ -1022,6 +1051,7 @@ void Provider::removeService($Provider$Service* s) {
 }
 
 void Provider::implRemoveService($Provider$Service* s) {
+	$useLocalCurrentObjectStackCache();
 	if ((s == nullptr) || $nc(this->serviceMap)->isEmpty()) {
 		return;
 	}
@@ -1053,6 +1083,7 @@ void Provider::implRemoveService($Provider$Service* s) {
 
 void Provider::addEngine($String* name, bool sp, $String* paramName) {
 	$init(Provider);
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$EngineDescription, ed, $new($Provider$EngineDescription, name, sp, paramName));
 	$init($Locale);
 	$nc(Provider::knownEngines)->put($($nc(name)->toLowerCase($Locale::ENGLISH)), ed);
@@ -1061,6 +1092,7 @@ void Provider::addEngine($String* name, bool sp, $String* paramName) {
 
 $String* Provider::getEngineName($String* s) {
 	$init(Provider);
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$EngineDescription, e, $cast($Provider$EngineDescription, $nc(Provider::knownEngines)->get(s)));
 	if (e == nullptr) {
 		$init($Locale);

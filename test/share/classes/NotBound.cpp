@@ -79,11 +79,13 @@ void NotBound::checkBound($DatagramChannel* dc) {
 }
 
 void NotBound::wakeupWhenBound($DatagramChannel* dc) {
+	$useLocalCurrentObjectStackCache();
 	$var($Runnable, wakeupTask, $new($NotBound$1, dc));
 	$$new($Thread, wakeupTask)->start();
 }
 
 void NotBound::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc, nullptr);
 	$assign(dc, $DatagramChannel::open());
 	{

@@ -135,6 +135,7 @@ void ServerNameExtension$CHServerNamesSpec::init$($List* serverNames) {
 }
 
 void ServerNameExtension$CHServerNamesSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid server_name extension: insufficient data"_s)))));
@@ -184,6 +185,7 @@ void ServerNameExtension$CHServerNamesSpec::init$($HandshakeContext* hc, $ByteBu
 }
 
 $String* ServerNameExtension$CHServerNamesSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->serverNames == nullptr || $nc(this->serverNames)->isEmpty()) {
 		return "<no server name indicator specified>"_s;
 	} else {

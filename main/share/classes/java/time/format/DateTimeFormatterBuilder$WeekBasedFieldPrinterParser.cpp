@@ -120,14 +120,17 @@ DateTimeFormatterBuilder$WeekBasedFieldPrinterParser* DateTimeFormatterBuilder$W
 }
 
 bool DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(printerParser($($nc(context)->getLocale()))))->format(context, buf);
 }
 
 int32_t DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(printerParser($($nc(context)->getLocale()))))->parse(context, text, position);
 }
 
 $DateTimeFormatterBuilder$DateTimePrinterParser* DateTimeFormatterBuilder$WeekBasedFieldPrinterParser::printerParser($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($WeekFields, weekDef, $WeekFields::of(locale));
 	$var($TemporalField, field, nullptr);
 	switch (this->chr) {

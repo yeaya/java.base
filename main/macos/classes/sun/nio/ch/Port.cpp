@@ -114,6 +114,7 @@ void Port::init$($AsynchronousChannelProvider* provider, $ThreadPool* pool) {
 }
 
 void Port::register$(int32_t fd, $Port$PollableChannel* ch) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->fdToChannelLock)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -137,6 +138,7 @@ void Port::preUnregister(int32_t fd) {
 }
 
 void Port::unregister(int32_t fd) {
+	$useLocalCurrentObjectStackCache();
 	bool checkForShutdown = false;
 	preUnregister(fd);
 	$nc($($nc(this->fdToChannelLock)->writeLock()))->lock();
@@ -166,6 +168,7 @@ void Port::unregister(int32_t fd) {
 }
 
 bool Port::isEmpty() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->fdToChannelLock)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -201,6 +204,7 @@ void Port::detachForeignChannel(Object$* key) {
 }
 
 void Port::closeAllChannels() {
+	$useLocalCurrentObjectStackCache();
 	int32_t MAX_BATCH_SIZE = 128;
 	$var($Port$PollableChannelArray, channels, $new($Port$PollableChannelArray, MAX_BATCH_SIZE));
 	int32_t count = 0;

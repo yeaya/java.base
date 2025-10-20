@@ -120,6 +120,7 @@ void DHKeyAgreement$AllowKDF::init$() {
 
 bool DHKeyAgreement$AllowKDF::getValue() {
 	$init(DHKeyAgreement$AllowKDF);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0)))))))->booleanValue();
 }

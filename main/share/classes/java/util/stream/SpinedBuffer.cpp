@@ -211,6 +211,7 @@ void SpinedBuffer::inflateSpine() {
 }
 
 void SpinedBuffer::ensureCapacity(int64_t targetSize) {
+	$useLocalCurrentObjectStackCache();
 	int64_t capacity = this->capacity();
 	if (targetSize > capacity) {
 		inflateSpine();
@@ -233,6 +234,7 @@ void SpinedBuffer::increaseCapacity() {
 }
 
 $Object* SpinedBuffer::get(int64_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spineIndex == 0) {
 		if (index < this->elementIndex) {
 			return $of($nc(this->curChunk)->get((int32_t)index));
@@ -302,6 +304,7 @@ $Iterator* SpinedBuffer::iterator() {
 }
 
 void SpinedBuffer::forEach($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t j = 0; j < this->spineIndex; ++j) {
 		{
 			$var($ObjectArray, arr$, $nc(this->spine)->get(j));
@@ -332,6 +335,7 @@ void SpinedBuffer::accept(Object$* e) {
 }
 
 $String* SpinedBuffer::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList));
 	forEach(static_cast<$Consumer*>($$new(SpinedBuffer$$Lambda$add, static_cast<$List*>(list))));
 	return $str({"SpinedBuffer:"_s, $($of(list)->toString())});

@@ -75,6 +75,7 @@ $Object* allocate$Reference$ReferenceHandler($Class* clazz) {
 
 void Reference$ReferenceHandler::ensureClassInitialized($Class* clazz) {
 	$init(Reference$ReferenceHandler);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($String, var$0, $nc(clazz)->getName());

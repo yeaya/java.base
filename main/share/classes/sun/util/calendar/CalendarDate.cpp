@@ -446,6 +446,7 @@ $Object* CalendarDate::clone() {
 }
 
 $String* CalendarDate::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$nc($($CalendarUtils::sprintf0d(sb, this->year, 4)))->append(u'-');
 	$nc($($CalendarUtils::sprintf0d(sb, this->month, 2)))->append(u'-');

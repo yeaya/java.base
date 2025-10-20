@@ -68,6 +68,7 @@ void OpsAfterClose4DataInputStream$4::init$($String* $enum$name, int32_t $enum$o
 }
 
 bool OpsAfterClose4DataInputStream$4::check($DataInputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t avail = $nc(is)->available();
 		$init($System);

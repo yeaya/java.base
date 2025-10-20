@@ -166,6 +166,7 @@ $bytes* TlsPrfGenerator::concat($bytes* b1, $bytes* b2) {
 
 $byteArray2* TlsPrfGenerator::genConst() {
 	$init(TlsPrfGenerator);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 10;
 	$var($byteArray2, arr, $new($byteArray2, n));
 	for (int32_t i = 0; i < n; ++i) {
@@ -185,6 +186,7 @@ void TlsPrfGenerator::engineInit($SecureRandom* random) {
 }
 
 void TlsPrfGenerator::engineInit($AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($TlsPrfParameterSpec, params) == false) {
 		$throwNew($InvalidAlgorithmParameterException, TlsPrfGenerator::MSG);
 	}
@@ -200,6 +202,7 @@ void TlsPrfGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* TlsPrfGenerator::engineGenerateKey0(bool tls12) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsPrfGenerator must be initialized"_s);
 	}
@@ -281,6 +284,7 @@ $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret, $bytes* labelBytes, $bytes* 
 
 $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret$renamed, $bytes* labelBytes, $bytes* seed, int32_t outputLength, $MessageDigest* mdPRF, int32_t mdPRFLen, int32_t mdPRFBlockSize) {
 	$init(TlsPrfGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, secret, secret$renamed);
 	if (secret == nullptr) {
 		$assign(secret, TlsPrfGenerator::B0);
@@ -315,6 +319,7 @@ $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret$renamed, $bytes* labelBytes, 
 
 $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret, $bytes* labelBytes, $bytes* seed, int32_t outputLength) {
 	$init(TlsPrfGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
 	$var($MessageDigest, sha, $MessageDigest::getInstance("SHA1"_s));
 	return doTLS10PRF(secret, labelBytes, seed, outputLength, md5, sha);
@@ -322,6 +327,7 @@ $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret, $bytes* labelBytes, $bytes* 
 
 $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret$renamed, $bytes* labelBytes, $bytes* seed, int32_t outputLength, $MessageDigest* md5, $MessageDigest* sha) {
 	$init(TlsPrfGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, secret, secret$renamed);
 	if (secret == nullptr) {
 		$assign(secret, TlsPrfGenerator::B0);
@@ -366,6 +372,7 @@ $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret$renamed, $bytes* labelBytes, 
 
 void TlsPrfGenerator::expand($MessageDigest* digest, int32_t hmacSize, $bytes* secret, int32_t secOff, int32_t secLen, $bytes* label, $bytes* seed, $bytes* output, $bytes* pad1, $bytes* pad2) {
 	$init(TlsPrfGenerator);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < secLen; ++i) {
 		(*$nc(pad1))[i] ^= $nc(secret)->get(i + secOff);
 		(*$nc(pad2))[i] ^= secret->get(i + secOff);

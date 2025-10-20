@@ -77,6 +77,7 @@ bool ConcurrentSkipListMap$Iter::hasNext() {
 }
 
 void ConcurrentSkipListMap$Iter::advance($ConcurrentSkipListMap$Node* b$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, b, b$renamed);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	$var($Object, v, nullptr);
@@ -96,6 +97,7 @@ void ConcurrentSkipListMap$Iter::advance($ConcurrentSkipListMap$Node* b$renamed)
 }
 
 void ConcurrentSkipListMap$Iter::remove() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	$var($Object, k, nullptr);
 	bool var$0 = ($assign(n, this->lastReturned)) == nullptr;

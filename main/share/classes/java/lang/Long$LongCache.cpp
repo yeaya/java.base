@@ -67,6 +67,7 @@ void Long$LongCache::init$() {
 }
 
 void clinit$Long$LongCache($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		int32_t size = -(-128) + 127 + 1;
 		$CDS::initializeFromArchive(Long$LongCache::class$);

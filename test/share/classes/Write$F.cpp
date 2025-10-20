@@ -58,6 +58,7 @@ void Write$F::init$($OutputStream* o) {
 }
 
 void Write$F::write(int32_t b) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({"Ignoring write of "_s, $$str(b)}));
 }

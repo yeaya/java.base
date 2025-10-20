@@ -61,6 +61,7 @@ void MapWithSecurityManager::init$() {
 
 void MapWithSecurityManager::main($StringArray* args) {
 	$load(MapWithSecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Path, tempFile, $Files::createTempFile("test"_s, "test"_s, $$new($FileAttributeArray, 0)));
 	{

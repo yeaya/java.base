@@ -95,6 +95,7 @@ $InputStream* Resource::cachedInputStream() {
 }
 
 $bytes* Resource::getBytes() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, nullptr);
 	$var($InputStream, in, cachedInputStream());
 	bool isInterrupted = $Thread::interrupted();

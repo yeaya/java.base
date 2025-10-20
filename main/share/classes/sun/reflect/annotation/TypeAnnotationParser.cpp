@@ -197,6 +197,7 @@ void TypeAnnotationParser::init$() {
 
 $AnnotatedType* TypeAnnotationParser::buildAnnotatedType($bytes* rawAnnotations, $ConstantPool* cp, $AnnotatedElement* decl, $Class* container, $Type* type, $TypeAnnotation$TypeAnnotationTarget* filter) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($TypeAnnotationArray, tas, parseTypeAnnotations(rawAnnotations, cp, decl, container));
 	$var($List, l, $new($ArrayList, $nc(tas)->length));
 	{
@@ -220,6 +221,7 @@ $AnnotatedType* TypeAnnotationParser::buildAnnotatedType($bytes* rawAnnotations,
 
 $AnnotatedTypeArray* TypeAnnotationParser::buildAnnotatedTypes($bytes* rawAnnotations, $ConstantPool* cp, $AnnotatedElement* decl, $Class* container, $TypeArray* types, $TypeAnnotation$TypeAnnotationTarget* filter) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(types)->length;
 	$var($AnnotatedTypeArray, result, $new($AnnotatedTypeArray, size));
 	$init($AnnotatedTypeFactory);
@@ -306,6 +308,7 @@ $AnnotatedTypeArray* TypeAnnotationParser::buildAnnotatedInterfaces($bytes* rawA
 
 $AnnotationArray* TypeAnnotationParser::parseTypeVariableAnnotations($GenericDeclaration* genericDecl, int32_t typeVarIndex) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedElement, decl, nullptr);
 	$TypeAnnotation$TypeAnnotationTarget* predicate = nullptr;
 	if ($instanceOf($Class, genericDecl)) {
@@ -341,6 +344,7 @@ $AnnotatedTypeArray* TypeAnnotationParser::parseAnnotatedBounds($TypeArray* boun
 
 $AnnotatedTypeArray* TypeAnnotationParser::parseAnnotatedBounds($TypeArray* bounds, $GenericDeclaration* decl, int32_t typeVarIndex, $TypeAnnotation$LocationInfo* loc) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($List, candidates, fetchBounds(decl));
 	if (bounds != nullptr) {
 		int32_t startIndex = 0;
@@ -385,6 +389,7 @@ $AnnotatedTypeArray* TypeAnnotationParser::parseAnnotatedBounds($TypeArray* boun
 
 $List* TypeAnnotationParser::fetchBounds($GenericDeclaration* decl) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedElement, boundsDecl, nullptr);
 	$TypeAnnotation$TypeAnnotationTarget* target = nullptr;
 	if ($instanceOf($Class, decl)) {
@@ -401,6 +406,7 @@ $List* TypeAnnotationParser::fetchBounds($GenericDeclaration* decl) {
 
 $TypeAnnotationArray* TypeAnnotationParser::parseAllTypeAnnotations($AnnotatedElement* decl) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$Class* container = nullptr;
 	$var($bytes, rawBytes, nullptr);
 	$var($JavaLangAccess, javaLangAccess, $SharedSecrets::getJavaLangAccess());
@@ -418,6 +424,7 @@ $TypeAnnotationArray* TypeAnnotationParser::parseAllTypeAnnotations($AnnotatedEl
 
 $TypeAnnotationArray* TypeAnnotationParser::parseTypeAnnotations($bytes* rawAnnotations, $ConstantPool* cp, $AnnotatedElement* baseDecl, $Class* container) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	if (rawAnnotations == nullptr) {
 		return TypeAnnotationParser::EMPTY_TYPE_ANNOTATION_ARRAY;
 	}
@@ -435,6 +442,7 @@ $TypeAnnotationArray* TypeAnnotationParser::parseTypeAnnotations($bytes* rawAnno
 
 $Map* TypeAnnotationParser::mapTypeAnnotations($TypeAnnotationArray* typeAnnos) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, result, $new($LinkedHashMap));
 	{
 		$var($TypeAnnotationArray, arr$, typeAnnos);
@@ -461,6 +469,7 @@ $Map* TypeAnnotationParser::mapTypeAnnotations($TypeAnnotationArray* typeAnnos) 
 
 $TypeAnnotation* TypeAnnotationParser::parseTypeAnnotation($ByteBuffer* buf, $ConstantPool* cp, $AnnotatedElement* baseDecl, $Class* container) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($TypeAnnotation$TypeAnnotationTargetInfo, ti, parseTargetInfo(buf));
 		$var($TypeAnnotation$LocationInfo, locationInfo, $TypeAnnotation$LocationInfo::parseLocationInfo(buf));
@@ -481,6 +490,7 @@ $TypeAnnotation* TypeAnnotationParser::parseTypeAnnotation($ByteBuffer* buf, $Co
 
 $TypeAnnotation$TypeAnnotationTargetInfo* TypeAnnotationParser::parseTargetInfo($ByteBuffer* buf) {
 	$init(TypeAnnotationParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t posCode = (int32_t)($nc(buf)->get() & (uint32_t)255);
 	{
 		int16_t length = 0;

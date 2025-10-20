@@ -90,6 +90,7 @@ $Object* allocate$DateTimeTextProvider$LocaleStore($Class* clazz) {
 }
 
 void DateTimeTextProvider$LocaleStore::init$($Map* valueTextMap) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, valueTextMap, valueTextMap);
 	$var($Map, map, $new($HashMap));
 	$var($List, allList, $new($ArrayList));
@@ -127,6 +128,7 @@ void DateTimeTextProvider$LocaleStore::init$($Map* valueTextMap) {
 }
 
 $String* DateTimeTextProvider$LocaleStore::getText(int64_t value, $TextStyle* style) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, $cast($Map, $nc(this->valueTextMap)->get(style)));
 	return map != nullptr ? $cast($String, $nc(map)->get($($Long::valueOf(value)))) : ($String*)nullptr;
 }

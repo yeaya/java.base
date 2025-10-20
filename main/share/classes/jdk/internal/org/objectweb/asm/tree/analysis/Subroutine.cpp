@@ -75,6 +75,7 @@ void Subroutine::init$(Subroutine* subroutine) {
 }
 
 bool Subroutine::merge(Subroutine* subroutine) {
+	$useLocalCurrentObjectStackCache();
 	bool changed = false;
 	for (int32_t i = 0; i < $nc(this->localsUsed)->length; ++i) {
 		if ($nc($nc(subroutine)->localsUsed)->get(i) && !$nc(this->localsUsed)->get(i)) {

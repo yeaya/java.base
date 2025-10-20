@@ -71,6 +71,7 @@ void AccessController$AccHolder::init$() {
 }
 
 void clinit$AccessController$AccHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(AccessController$AccHolder::innocuousAcc, $new($AccessControlContext, $$new($ProtectionDomainArray, {$$new($ProtectionDomain, nullptr, nullptr)})));
 }
 

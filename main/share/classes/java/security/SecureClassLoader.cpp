@@ -114,6 +114,7 @@ $PermissionCollection* SecureClassLoader::getPermissions($CodeSource* codesource
 }
 
 $ProtectionDomain* SecureClassLoader::getProtectionDomain($CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	if (cs == nullptr) {
 		return nullptr;
 	}

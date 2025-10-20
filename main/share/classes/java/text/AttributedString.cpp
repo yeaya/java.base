@@ -129,6 +129,7 @@ $Object* allocate$AttributedString($Class* clazz) {
 }
 
 void AttributedString::init$($AttributedCharacterIteratorArray* iterators) {
+	$useLocalCurrentObjectStackCache();
 	if (iterators == nullptr) {
 		$throwNew($NullPointerException, "Iterators must not be null"_s);
 	}
@@ -171,6 +172,7 @@ void AttributedString::init$($String* text) {
 }
 
 void AttributedString::init$($String* text, $Map* attributes) {
+	$useLocalCurrentObjectStackCache();
 	if (text == nullptr || attributes == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -208,6 +210,7 @@ void AttributedString::init$($AttributedCharacterIterator* text, int32_t beginIn
 }
 
 void AttributedString::init$($AttributedCharacterIterator* text, int32_t beginIndex, int32_t endIndex, $AttributedCharacterIterator$AttributeArray* attributes) {
+	$useLocalCurrentObjectStackCache();
 	if (text == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -296,6 +299,7 @@ void AttributedString::addAttribute($AttributedCharacterIterator$Attribute* attr
 }
 
 void AttributedString::addAttributes($Map* attributes, int32_t beginIndex, int32_t endIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (attributes == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -333,6 +337,7 @@ void AttributedString::addAttributeImpl($AttributedCharacterIterator$Attribute* 
 }
 
 void AttributedString::createRunAttributeDataVectors() {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, newRunStarts, $new($ints, AttributedString::INITIAL_CAPACITY));
 	$var($VectorArray, newRunAttributes, $new($VectorArray, AttributedString::INITIAL_CAPACITY));
 	$var($VectorArray, newRunAttributeValues, $new($VectorArray, AttributedString::INITIAL_CAPACITY));
@@ -347,6 +352,7 @@ int32_t AttributedString::ensureRunBreak(int32_t offset) {
 }
 
 int32_t AttributedString::ensureRunBreak(int32_t offset, bool copyAttrs) {
+	$useLocalCurrentObjectStackCache();
 	if (offset == length()) {
 		return this->runCount;
 	}
@@ -392,6 +398,7 @@ int32_t AttributedString::ensureRunBreak(int32_t offset, bool copyAttrs) {
 }
 
 void AttributedString::addAttributeRunData($AttributedCharacterIterator$Attribute* attribute, Object$* value, int32_t beginRunIndex, int32_t endRunIndex) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = beginRunIndex; i < endRunIndex; ++i) {
 		int32_t keyValueIndex = -1;
 		if ($nc(this->runAttributes)->get(i) == nullptr) {
@@ -440,6 +447,7 @@ char16_t AttributedString::charAt(int32_t index) {
 
 $Object* AttributedString::getAttribute($AttributedCharacterIterator$Attribute* attribute, int32_t runIndex) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Vector, currentRunAttributes, $nc(this->runAttributes)->get(runIndex));
 		$var($Vector, currentRunAttributeValues, $nc(this->runAttributeValues)->get(runIndex));
 		if (currentRunAttributes == nullptr) {
@@ -455,6 +463,7 @@ $Object* AttributedString::getAttribute($AttributedCharacterIterator$Attribute* 
 }
 
 $Object* AttributedString::getAttributeCheckRange($AttributedCharacterIterator$Attribute* attribute, int32_t runIndex, int32_t beginIndex, int32_t endIndex) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, value, getAttribute(attribute, runIndex));
 	if ($instanceOf($Annotation, value)) {
 		if (beginIndex > 0) {
@@ -485,6 +494,7 @@ $Object* AttributedString::getAttributeCheckRange($AttributedCharacterIterator$A
 }
 
 bool AttributedString::attributeValuesMatch($Set* attributes, int32_t runIndex1, int32_t runIndex2) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, iterator, $nc(attributes)->iterator());
 	while ($nc(iterator)->hasNext()) {
 		$var($AttributedCharacterIterator$Attribute, key, $cast($AttributedCharacterIterator$Attribute, iterator->next()));
@@ -514,6 +524,7 @@ void AttributedString::appendContents($StringBuffer* buf, $CharacterIterator* it
 }
 
 void AttributedString::setAttributes($Map* attrs, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	if (this->runCount == 0) {
 		createRunAttributeDataVectors();
 	}

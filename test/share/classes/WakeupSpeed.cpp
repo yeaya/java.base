@@ -41,6 +41,7 @@ void WakeupSpeed::init$() {
 }
 
 void WakeupSpeed::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t waitTime = 4000;
 	$var($Selector, selector, $Selector::open());
 	{

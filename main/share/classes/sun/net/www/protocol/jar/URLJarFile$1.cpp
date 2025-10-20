@@ -110,6 +110,7 @@ void URLJarFile$1::init$($InputStream* val$in, $URLJarFile$URLJarFileCloseContro
 }
 
 $Object* URLJarFile$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, tmpFile, $Files::createTempFile("jar_cache"_s, nullptr, $$new($FileAttributeArray, 0)));
 	try {
 		$init($StandardCopyOption);

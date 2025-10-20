@@ -113,6 +113,7 @@ void Format::init$() {
 }
 
 $String* Format::format(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, obj);
 	$var($StringBuffer, var$1, $new($StringBuffer));
 	return $nc($(format(var$0, var$1, $$new($FieldPosition, 0))))->toString();
@@ -123,6 +124,7 @@ $AttributedCharacterIterator* Format::formatToCharacterIterator(Object$* obj) {
 }
 
 $Object* Format::parseObject($String* source) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$var($Object, result, parseObject(source, pos));
 	if (pos->index == 0) {

@@ -65,6 +65,7 @@ void DateTimeTextProvider$1::init$() {
 }
 
 int32_t DateTimeTextProvider$1::compare($Map$Entry* obj1, $Map$Entry* obj2) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(($cast($String, $($nc(obj2)->getKey()))))->length();
 	return var$0 - $nc(($cast($String, $($nc(obj1)->getKey()))))->length();
 }

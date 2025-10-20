@@ -104,6 +104,7 @@ void RenegoInfoExtension$RenegotiationInfoSpec::init$($bytes* renegotiatedConnec
 }
 
 void RenegoInfoExtension$RenegotiationInfoSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc(m)->hasRemaining();
 	if (var$0 || $nc(m)->remaining() < 1) {
 		$init($Alert);
@@ -113,6 +114,7 @@ void RenegoInfoExtension$RenegotiationInfoSpec::init$($HandshakeContext* hc, $By
 }
 
 $String* RenegoInfoExtension$RenegotiationInfoSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"renegotiated connection\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
 	if ($nc(this->renegotiatedConnection)->length == 0) {

@@ -127,6 +127,7 @@ $Condition* ReentrantReadWriteLock$ReadLock::newCondition() {
 }
 
 $String* ReentrantReadWriteLock$ReadLock::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t r = $nc(this->sync)->getReadLockCount();
 	return $str({$($Lock::toString()), "[Read locks = "_s, $$str(r), "]"_s});
 }

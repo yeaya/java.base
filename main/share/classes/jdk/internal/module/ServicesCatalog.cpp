@@ -111,6 +111,7 @@ ServicesCatalog* ServicesCatalog::create() {
 }
 
 void ServicesCatalog::addProviders($String* service, $ServicesCatalog$ServiceProviderArray* providers) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $cast($List, $nc(this->map)->get(service)));
 	if (list == nullptr) {
 		$assign(list, $new($CopyOnWriteArrayList, providers));
@@ -126,6 +127,7 @@ void ServicesCatalog::addProviders($String* service, $ServicesCatalog$ServicePro
 }
 
 void ServicesCatalog::register$($Module* module) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(module)->getDescriptor());
 	{
 		$var($Iterator, i$, $nc($($nc(descriptor)->provides()))->iterator());
@@ -146,6 +148,7 @@ void ServicesCatalog::register$($Module* module) {
 }
 
 void ServicesCatalog::addProvider($Module* module, $Class* service, $Class* impl) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(service)->getName());
 	addProviders(var$0, $$new($ServicesCatalog$ServiceProviderArray, {$$new($ServicesCatalog$ServiceProvider, module, $($nc(impl)->getName()))}));
 }
@@ -161,6 +164,7 @@ ServicesCatalog* ServicesCatalog::getServicesCatalogOrNull($ClassLoader* loader)
 
 ServicesCatalog* ServicesCatalog::getServicesCatalog($ClassLoader* loader) {
 	$init(ServicesCatalog);
+	$useLocalCurrentObjectStackCache();
 	$var(ServicesCatalog, catalog, $cast(ServicesCatalog, $nc(ServicesCatalog::CLV)->get(loader)));
 	if (catalog == nullptr) {
 		$assign(catalog, create());

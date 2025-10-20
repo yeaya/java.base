@@ -2613,6 +2613,7 @@ bool Unsafe::is32BitClean(int64_t value) {
 }
 
 void Unsafe::checkSize(int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (Unsafe::ADDRESS_SIZE == 4) {
 		if (!is32BitClean(size)) {
 			$throw($(invalidInput()));
@@ -2631,6 +2632,7 @@ void Unsafe::checkNativeAddress(int64_t address) {
 }
 
 void Unsafe::checkOffset(Object$* o, int64_t offset) {
+	$useLocalCurrentObjectStackCache();
 	if (Unsafe::ADDRESS_SIZE == 4) {
 		if (!is32BitClean(offset)) {
 			$throw($(invalidInput()));
@@ -2671,6 +2673,7 @@ int64_t Unsafe::alignToHeapWordSize(int64_t bytes) {
 }
 
 int64_t Unsafe::allocateMemory(int64_t bytes) {
+	$useLocalCurrentObjectStackCache();
 	bytes = alignToHeapWordSize(bytes);
 	allocateMemoryChecks(bytes);
 	if (bytes == 0) {
@@ -2688,6 +2691,7 @@ void Unsafe::allocateMemoryChecks(int64_t bytes) {
 }
 
 int64_t Unsafe::reallocateMemory(int64_t address, int64_t bytes) {
+	$useLocalCurrentObjectStackCache();
 	bytes = alignToHeapWordSize(bytes);
 	reallocateMemoryChecks(address, bytes);
 	if (bytes == 0) {
@@ -2750,6 +2754,7 @@ void Unsafe::copySwapMemory(Object$* srcBase, int64_t srcOffset, Object$* destBa
 }
 
 void Unsafe::copySwapMemoryChecks(Object$* srcBase, int64_t srcOffset, Object$* destBase, int64_t destOffset, int64_t bytes, int64_t elemSize) {
+	$useLocalCurrentObjectStackCache();
 	checkSize(bytes);
 	if (elemSize != 2 && elemSize != 4 && elemSize != 8) {
 		$throw($(invalidInput()));
@@ -4910,6 +4915,7 @@ int32_t Unsafe::getLoadAverage0($doubles* loadavg, int32_t nelems) {
 }
 
 void Unsafe::invokeCleaner($ByteBuffer* directBuffer) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(directBuffer)->isDirect()) {
 		$throwNew($IllegalArgumentException, "buffer is non-direct"_s);
 	}

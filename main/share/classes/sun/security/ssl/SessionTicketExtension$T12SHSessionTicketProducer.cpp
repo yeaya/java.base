@@ -98,6 +98,7 @@ void SessionTicketExtension$T12SHSessionTicketProducer::init$() {
 }
 
 $bytes* SessionTicketExtension$T12SHSessionTicketProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if (!$nc(shc)->statelessResumption) {
 		return nullptr;

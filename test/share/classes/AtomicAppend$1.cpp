@@ -81,6 +81,7 @@ void AtomicAppend$1::init$($File* val$file) {
 }
 
 void AtomicAppend$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($AtomicAppend);
 		if ($nc($AtomicAppend::rand)->nextBoolean()) {

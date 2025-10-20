@@ -76,6 +76,7 @@ void TestUtil::init$() {
 }
 
 $Path* TestUtil::createTemporaryDirectory($String* where) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, dir, $nc($($FileSystems::getDefault()))->getPath(where, $$new($StringArray, 0)));
 	return $Files::createTempDirectory(dir, "name"_s, $$new($FileAttributeArray, 0));
 }
@@ -89,6 +90,7 @@ void TestUtil::removeAll($Path* dir) {
 }
 
 void TestUtil::deleteUnchecked($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$(file);
 	} catch ($IOException&) {
@@ -102,6 +104,7 @@ void TestUtil::deleteUnchecked($Path* file) {
 }
 
 $Path* TestUtil::createDirectoryWithLongPath($Path* dir$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, dir, dir$renamed);
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < 240; ++i) {
@@ -116,6 +119,7 @@ $Path* TestUtil::createDirectoryWithLongPath($Path* dir$renamed) {
 }
 
 bool TestUtil::supportsLinks($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, link, $nc(dir)->resolve("testlink"_s));
 	$var($Path, target, dir->resolve("testtarget"_s));
 	try {

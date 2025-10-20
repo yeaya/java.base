@@ -69,6 +69,7 @@ void GBK$EncodeHolder::init$() {
 }
 
 void clinit$GBK$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(GBK$EncodeHolder::c2b, $new($chars, 28672));
 	$assignStatic(GBK$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

@@ -338,6 +338,7 @@ $LocaleArray* HostLocaleProviderAdapterImpl::getSupportedCalendarLocales() {
 
 bool HostLocaleProviderAdapterImpl::isSupportedCalendarLocale($Locale* locale) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, base, stripVariantAndExtensions(locale));
 	if (!$nc(HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains(base)) {
 		return false;
@@ -370,6 +371,7 @@ $LocaleArray* HostLocaleProviderAdapterImpl::getSupportedNativeDigitLocales() {
 
 bool HostLocaleProviderAdapterImpl::isSupportedNativeDigitLocale($Locale* locale) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$init($JRELocaleConstants);
 	if ($nc($JRELocaleConstants::TH_TH_TH)->equals(locale)) {
 		return isNativeDigit("th-TH"_s);
@@ -393,6 +395,7 @@ bool HostLocaleProviderAdapterImpl::isSupportedNativeDigitLocale($Locale* locale
 
 $Locale* HostLocaleProviderAdapterImpl::removeExtensions($Locale* src) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($$new($Locale$Builder)->setLocale(src)))->clearExtensions()))->build();
 }
 
@@ -403,6 +406,7 @@ bool HostLocaleProviderAdapterImpl::isJapaneseCalendar() {
 
 $Locale* HostLocaleProviderAdapterImpl::stripVariantAndExtensions($Locale* locale$renamed) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	bool var$0 = $nc(locale)->hasExtensions();
 	if (var$0 || $nc(locale)->getVariant() != ""_s) {
@@ -413,6 +417,7 @@ $Locale* HostLocaleProviderAdapterImpl::stripVariantAndExtensions($Locale* local
 
 $Locale* HostLocaleProviderAdapterImpl::getCalendarLocale($Locale* locale) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	int32_t calid = getCalendarID($($nc($(stripVariantAndExtensions(locale)))->toLanguageTag()));
 	if (calid > 0 && calid < $nc(HostLocaleProviderAdapterImpl::calIDToLDML)->length) {
 		$var($Locale$Builder, lb, $new($Locale$Builder));
@@ -440,6 +445,7 @@ int32_t HostLocaleProviderAdapterImpl::getCalendarIDFromLDMLType($String* ldmlTy
 
 $Locale* HostLocaleProviderAdapterImpl::getNumberLocale($Locale* src) {
 	$init(HostLocaleProviderAdapterImpl);
+	$useLocalCurrentObjectStackCache();
 	$init($JRELocaleConstants);
 	if ($nc($JRELocaleConstants::TH_TH)->equals(src)) {
 		if (isNativeDigit("th-TH"_s)) {
@@ -686,6 +692,7 @@ $String* HostLocaleProviderAdapterImpl::getDisplayString($String* langTag, int32
 }
 
 void clinit$HostLocaleProviderAdapterImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(HostLocaleProviderAdapterImpl::calIDToLDML, $new($StringArray, {
 		""_s,
 		"gregory"_s,

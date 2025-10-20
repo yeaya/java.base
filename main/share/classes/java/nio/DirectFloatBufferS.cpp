@@ -184,6 +184,7 @@ $FloatBuffer* DirectFloatBufferS::asReadOnlyBuffer() {
 }
 
 int64_t DirectFloatBufferS::address() {
+	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -204,6 +205,7 @@ int64_t DirectFloatBufferS::ix(int32_t i) {
 }
 
 float DirectFloatBufferS::get() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		float var$2 = 0.0;
@@ -230,6 +232,7 @@ float DirectFloatBufferS::get() {
 }
 
 float DirectFloatBufferS::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		float var$2 = 0.0;
@@ -256,6 +259,7 @@ float DirectFloatBufferS::get(int32_t i) {
 }
 
 $FloatBuffer* DirectFloatBufferS::put(float x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -276,6 +280,7 @@ $FloatBuffer* DirectFloatBufferS::put(float x) {
 }
 
 $FloatBuffer* DirectFloatBufferS::put(int32_t i, float x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -296,6 +301,7 @@ $FloatBuffer* DirectFloatBufferS::put(int32_t i, float x) {
 }
 
 $FloatBuffer* DirectFloatBufferS::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!DirectFloatBufferS::$assertionsDisabled && !(pos <= lim)) {

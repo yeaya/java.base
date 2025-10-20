@@ -84,6 +84,7 @@ $ints* Instant$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 $ints* Instant$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
 void clinit$Instant$1($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Instant$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {

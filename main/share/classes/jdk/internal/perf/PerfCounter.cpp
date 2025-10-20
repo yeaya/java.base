@@ -94,6 +94,7 @@ $Object* allocate$PerfCounter($Class* clazz) {
 $Perf* PerfCounter::perf = nullptr;
 
 void PerfCounter::init$($String* name, int32_t type) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, name, name);
 	$var($ByteBuffer, bb, $nc(PerfCounter::perf)->createLong(name, type, PerfCounter::U_None, 0));
 	$nc(bb)->order($($ByteOrder::nativeOrder()));

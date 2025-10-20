@@ -144,6 +144,7 @@ $Object* AtomicReference::getAndSet(Object$* newValue) {
 }
 
 $Object* AtomicReference::getAndUpdate($UnaryOperator* updateFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get());
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -159,6 +160,7 @@ $Object* AtomicReference::getAndUpdate($UnaryOperator* updateFunction) {
 }
 
 $Object* AtomicReference::updateAndGet($UnaryOperator* updateFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get());
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -174,6 +176,7 @@ $Object* AtomicReference::updateAndGet($UnaryOperator* updateFunction) {
 }
 
 $Object* AtomicReference::getAndAccumulate(Object$* x, $BinaryOperator* accumulatorFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get());
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -189,6 +192,7 @@ $Object* AtomicReference::getAndAccumulate(Object$* x, $BinaryOperator* accumula
 }
 
 $Object* AtomicReference::accumulateAndGet(Object$* x, $BinaryOperator* accumulatorFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, prev, get());
 	$var($Object, next, nullptr);
 	for (bool haveNext = false;;) {
@@ -256,6 +260,7 @@ bool AtomicReference::weakCompareAndSetRelease(Object$* expectedValue, Object$* 
 }
 
 void clinit$AtomicReference($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

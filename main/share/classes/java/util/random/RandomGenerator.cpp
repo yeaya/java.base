@@ -407,10 +407,12 @@ bool RandomGenerator::isDeprecated() {
 }
 
 $DoubleStream* RandomGenerator::doubles() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($DoubleStream::generate(static_cast<$DoubleSupplier*>($$new(RandomGenerator$$Lambda$nextDouble, this)))))->sequential();
 }
 
 $DoubleStream* RandomGenerator::doubles(double randomNumberOrigin, double randomNumberBound) {
+	$useLocalCurrentObjectStackCache();
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
 	return $nc($($DoubleStream::generate(static_cast<$DoubleSupplier*>($$new(RandomGenerator$$Lambda$lambda$doubles$0$1, this, randomNumberOrigin, randomNumberBound)))))->sequential();
 }
@@ -427,10 +429,12 @@ $DoubleStream* RandomGenerator::doubles(int64_t streamSize, double randomNumberO
 }
 
 $IntStream* RandomGenerator::ints() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($IntStream::generate(static_cast<$IntSupplier*>($$new(RandomGenerator$$Lambda$nextInt$2, this)))))->sequential();
 }
 
 $IntStream* RandomGenerator::ints(int32_t randomNumberOrigin, int32_t randomNumberBound) {
+	$useLocalCurrentObjectStackCache();
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
 	return $nc($($IntStream::generate(static_cast<$IntSupplier*>($$new(RandomGenerator$$Lambda$lambda$ints$1$3, this, randomNumberOrigin, randomNumberBound)))))->sequential();
 }
@@ -447,10 +451,12 @@ $IntStream* RandomGenerator::ints(int64_t streamSize, int32_t randomNumberOrigin
 }
 
 $LongStream* RandomGenerator::longs() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($LongStream::generate(static_cast<$LongSupplier*>($$new(RandomGenerator$$Lambda$nextLong$4, this)))))->sequential();
 }
 
 $LongStream* RandomGenerator::longs(int64_t randomNumberOrigin, int64_t randomNumberBound) {
+	$useLocalCurrentObjectStackCache();
 	$RandomSupport::checkRange(randomNumberOrigin, randomNumberBound);
 	return $nc($($LongStream::generate(static_cast<$LongSupplier*>($$new(RandomGenerator$$Lambda$lambda$longs$2$5, this, randomNumberOrigin, randomNumberBound)))))->sequential();
 }

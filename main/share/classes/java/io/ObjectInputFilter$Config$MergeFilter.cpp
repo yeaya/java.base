@@ -79,6 +79,7 @@ void ObjectInputFilter$Config$MergeFilter::init$($ObjectInputFilter* first, $Obj
 }
 
 $ObjectInputFilter$Status* ObjectInputFilter$Config$MergeFilter::checkInput($ObjectInputFilter$FilterInfo* info) {
+	$useLocalCurrentObjectStackCache();
 	$ObjectInputFilter$Status* firstStatus = $cast($ObjectInputFilter$Status, $Objects::requireNonNull($($of($nc(this->first)->checkInput(info))), "status"_s));
 	$init($ObjectInputFilter$Status);
 	if ($ObjectInputFilter$Status::REJECTED->equals(firstStatus)) {

@@ -51,6 +51,7 @@ void NoSender::init$() {
 }
 
 void NoSender::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	$nc($($nc(dc)->socket()))->bind($$new($InetSocketAddress, 0));
 	dc->configureBlocking(false);

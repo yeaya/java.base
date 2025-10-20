@@ -84,6 +84,7 @@ bool BreakDictionary::$assertionsDisabled = false;
 int32_t BreakDictionary::supportedVersion = 0;
 
 void BreakDictionary::init$($String* dictionaryName, $bytes* dictionaryData) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, columnMap, nullptr);
 	$set(this, supplementaryCharColumnMap, nullptr);
 	$set(this, table, nullptr);
@@ -103,6 +104,7 @@ void BreakDictionary::init$($String* dictionaryName, $bytes* dictionaryData) {
 }
 
 void BreakDictionary::setupDictionary($String* dictionaryName, $bytes* dictionaryData) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::wrap(dictionaryData));
 	int32_t version = $nc(bb)->getInt();
 	if (version != BreakDictionary::supportedVersion) {

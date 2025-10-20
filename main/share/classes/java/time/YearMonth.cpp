@@ -279,6 +279,7 @@ YearMonth* YearMonth::now($ZoneId* zone) {
 
 YearMonth* YearMonth::now($Clock* clock) {
 	$init(YearMonth);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, now, $LocalDate::now(clock));
 	int32_t var$0 = $nc(now)->getYear();
 	return YearMonth::of(var$0, $(now->getMonth()));
@@ -300,6 +301,7 @@ YearMonth* YearMonth::of(int32_t year, int32_t month) {
 
 YearMonth* YearMonth::from($TemporalAccessor* temporal$renamed) {
 	$init(YearMonth);
+	$useLocalCurrentObjectStackCache();
 	$var($TemporalAccessor, temporal, temporal$renamed);
 	if ($instanceOf(YearMonth, temporal)) {
 		return $cast(YearMonth, temporal);
@@ -603,6 +605,7 @@ $Temporal* YearMonth::adjustInto($Temporal* temporal) {
 }
 
 int64_t YearMonth::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(YearMonth, end, YearMonth::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -737,6 +740,7 @@ int32_t YearMonth::compareTo(Object$* other) {
 }
 
 void clinit$YearMonth($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$init($SignStyle);
 	$assignStatic(YearMonth::PARSER, $nc($($nc($($nc($($$new($DateTimeFormatterBuilder)->appendValue($ChronoField::YEAR, 4, 10, $SignStyle::EXCEEDS_PAD)))->appendLiteral(u'-')))->appendValue($ChronoField::MONTH_OF_YEAR, 2)))->toFormatter());

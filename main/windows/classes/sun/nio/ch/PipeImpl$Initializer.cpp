@@ -90,6 +90,7 @@ void PipeImpl$Initializer::init$($SelectorProvider* sp) {
 }
 
 $Object* PipeImpl$Initializer::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($PipeImpl$Initializer$LoopbackConnector, connector, $new($PipeImpl$Initializer$LoopbackConnector, this));
 	connector->run();
 	if ($instanceOf($ClosedByInterruptException, this->ioe)) {

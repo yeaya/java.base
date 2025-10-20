@@ -105,6 +105,7 @@ void GeneralName::init$($DerValue* encName) {
 }
 
 void GeneralName::init$($DerValue* encName, bool nameConstraint) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, name, nullptr);
 	int16_t tag = (int8_t)((int32_t)($nc(encName)->tag & (uint32_t)31));
 	switch (tag) {
@@ -226,6 +227,7 @@ $String* GeneralName::toString() {
 }
 
 bool GeneralName::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}

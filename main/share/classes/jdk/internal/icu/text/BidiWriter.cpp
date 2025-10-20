@@ -93,6 +93,7 @@ bool BidiWriter::IsCombining(int32_t type) {
 }
 
 $String* BidiWriter::doWriteForward($String* src, int32_t options) {
+	$useLocalCurrentObjectStackCache();
 	switch ((int32_t)(options & (uint32_t)($BidiBase::REMOVE_BIDI_CONTROLS | $BidiBase::DO_MIRRORING))) {
 	case 0:
 		{
@@ -153,6 +154,7 @@ $String* BidiWriter::doWriteForward($chars* text, int32_t start, int32_t limit, 
 }
 
 $String* BidiWriter::writeReverse($String* src, int32_t options) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, dest, $new($StringBuffer, $nc(src)->length()));
 	{
 		int32_t srcLength = 0;
@@ -217,6 +219,7 @@ $String* BidiWriter::doWriteReverse($chars* text, int32_t start, int32_t limit, 
 }
 
 $String* BidiWriter::writeReordered($BidiBase* bidi, int32_t options) {
+	$useLocalCurrentObjectStackCache();
 	int32_t run = 0;
 	int32_t runCount = 0;
 	$var($StringBuilder, dest, nullptr);

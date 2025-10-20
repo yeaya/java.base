@@ -128,6 +128,7 @@ int32_t FrameNode::getType() {
 }
 
 void FrameNode::accept($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	switch (this->type) {
 	case $Opcodes::F_NEW:
 		{}
@@ -170,6 +171,7 @@ void FrameNode::accept($MethodVisitor* methodVisitor) {
 }
 
 $AbstractInsnNode* FrameNode::clone($Map* clonedLabels) {
+	$useLocalCurrentObjectStackCache();
 	$var(FrameNode, clone, $new(FrameNode));
 	clone->type = this->type;
 	if (this->local != nullptr) {
@@ -205,6 +207,7 @@ $AbstractInsnNode* FrameNode::clone($Map* clonedLabels) {
 
 $ObjectArray* FrameNode::asArray($List* list) {
 	$init(FrameNode);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $new($ObjectArray, $nc(list)->size()));
 	{
 		int32_t i = 0;

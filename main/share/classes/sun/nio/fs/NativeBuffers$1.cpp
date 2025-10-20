@@ -70,6 +70,7 @@ void NativeBuffers$1::init$() {
 }
 
 void NativeBuffers$1::threadTerminated($NativeBufferArray* buffers) {
+	$useLocalCurrentObjectStackCache();
 	if (buffers != nullptr) {
 		for (int32_t i = 0; i < 3; ++i) {
 			$var($NativeBuffer, buffer, buffers->get(i));

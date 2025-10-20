@@ -67,6 +67,7 @@ void PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence::init$() {
 }
 
 void PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc(shc)->isResumption) {
 		shc->isResumption = false;

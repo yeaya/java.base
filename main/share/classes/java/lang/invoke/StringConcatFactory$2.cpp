@@ -75,6 +75,7 @@ void StringConcatFactory$2::init$() {
 }
 
 $MethodHandle* StringConcatFactory$2::apply($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$init($StringConcatFactory);
 	return $MethodHandles::insertArguments($cast($MethodHandle, $($nc($StringConcatFactory::PREPENDERS)->computeIfAbsent(c, $StringConcatFactory::PREPEND))), 3, $$new($ObjectArray, {($String*)nullptr}));
 }

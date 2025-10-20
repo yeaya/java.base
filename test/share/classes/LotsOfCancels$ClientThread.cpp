@@ -103,6 +103,7 @@ void LotsOfCancels$ClientThread::run() {
 }
 
 void LotsOfCancels$ClientThread::handleClients() {
+	$useLocalCurrentObjectStackCache();
 	int32_t selectCount = 0;
 	while (true) {
 		int32_t createdCount = 0;

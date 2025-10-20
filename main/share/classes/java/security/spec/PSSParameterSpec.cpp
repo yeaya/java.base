@@ -77,6 +77,7 @@ void PSSParameterSpec::init$() {
 }
 
 void PSSParameterSpec::init$($String* mdName, $String* mgfName, $AlgorithmParameterSpec* mgfSpec, int32_t saltLen, int32_t trailerField) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(mdName), "digest algorithm is null"_s);
 	$Objects::requireNonNull($of(mgfName), "mask generation function algorithm is null"_s);
 	if (saltLen < 0) {
@@ -118,6 +119,7 @@ int32_t PSSParameterSpec::getTrailerField() {
 }
 
 $String* PSSParameterSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "PSSParameterSpec["_s));
 	sb->append($$str({"hashAlgorithm="_s, this->mdName, ", "_s}))->append($$str({"maskGenAlgorithm="_s, this->mgfSpec, ", "_s}))->append($$str({"saltLength="_s, $$str(this->saltLen), ", "_s}))->append($$str({"trailerField="_s, $$str(this->trailerField)}))->append(u']');
 	return sb->toString();

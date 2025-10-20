@@ -327,6 +327,7 @@ $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConver
 
 $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($String* in$renamed) {
 	$init(FloatingDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($String, in, in$renamed);
 	bool isNegative = false;
 	bool signSeen = false;
@@ -509,6 +510,7 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 
 $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String* s) {
 	$init(FloatingDecimal);
+	$useLocalCurrentObjectStackCache();
 	$init($FloatingDecimal$HexFloatPattern);
 	$var($Matcher, m, $nc($FloatingDecimal$HexFloatPattern::VALUE)->matcher(s));
 	bool validInput = $nc(m)->matches();
@@ -704,6 +706,7 @@ $String* FloatingDecimal::stripLeadingZeros($String* s) {
 
 int32_t FloatingDecimal::getHexDigit($String* s, int32_t position) {
 	$init(FloatingDecimal);
+	$useLocalCurrentObjectStackCache();
 	int32_t value = $Character::digit($nc(s)->charAt(position), 16);
 	if (value <= -1 || value >= 16) {
 		$throwNew($AssertionError, $of($$str({"Unexpected failure of digit conversion of "_s, $$str($nc(s)->charAt(position))})));
@@ -712,6 +715,7 @@ int32_t FloatingDecimal::getHexDigit($String* s, int32_t position) {
 }
 
 void clinit$FloatingDecimal($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(FloatingDecimal::INFINITY_REP, "Infinity"_s);
 	$assignStatic(FloatingDecimal::NAN_REP, "NaN"_s);
 	FloatingDecimal::$assertionsDisabled = !FloatingDecimal::class$->desiredAssertionStatus();

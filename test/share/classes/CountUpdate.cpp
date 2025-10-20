@@ -46,6 +46,7 @@ void CountUpdate::init$() {
 }
 
 void CountUpdate::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferBreaker, breaker, $new($BufferBreaker));
 	$var($BufferedInputStream, in, $new($BufferedInputStream, breaker, 1000));
 	$var($bytes, b, $new($bytes, 100));

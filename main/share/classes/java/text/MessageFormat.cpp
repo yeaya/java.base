@@ -252,6 +252,7 @@ $Locale* MessageFormat::getLocale() {
 }
 
 void MessageFormat::applyPattern($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilderArray, segments, $new($StringBuilderArray, 4));
 	segments->set(MessageFormat::SEG_RAW, $$new($StringBuilder));
 	int32_t part = MessageFormat::SEG_RAW;
@@ -344,6 +345,7 @@ void MessageFormat::applyPattern($String* pattern) {
 }
 
 $String* MessageFormat::toPattern() {
+	$useLocalCurrentObjectStackCache();
 	int32_t lastOffset = 0;
 	$var($StringBuilder, result, $new($StringBuilder));
 	for (int32_t i = 0; i <= this->maxOffset; ++i) {
@@ -466,6 +468,7 @@ $StringBuffer* MessageFormat::format(Object$* arguments, $StringBuffer* result, 
 }
 
 $AttributedCharacterIterator* MessageFormat::formatToCharacterIterator(Object$* arguments) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, result, $new($StringBuffer));
 	$var($ArrayList, iterators, $new($ArrayList));
 	if (arguments == nullptr) {
@@ -479,6 +482,7 @@ $AttributedCharacterIterator* MessageFormat::formatToCharacterIterator(Object$* 
 }
 
 $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	if (source == nullptr) {
 		$var($ObjectArray, empty, $new($ObjectArray, 0));
 		return empty;
@@ -541,6 +545,7 @@ $ObjectArray* MessageFormat::parse($String* source, $ParsePosition* pos) {
 }
 
 $ObjectArray* MessageFormat::parse($String* source) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$var($ObjectArray, result, parse(source, pos));
 	if (pos->index == 0) {
@@ -554,6 +559,7 @@ $Object* MessageFormat::parseObject($String* source, $ParsePosition* pos) {
 }
 
 $Object* MessageFormat::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(MessageFormat, other, $cast(MessageFormat, $Format::clone()));
 	$set($nc(other), formats, $cast($FormatArray, $nc(this->formats)->clone()));
 	for (int32_t i = 0; i < $nc(this->formats)->length; ++i) {
@@ -590,6 +596,7 @@ int32_t MessageFormat::hashCode() {
 }
 
 $StringBuffer* MessageFormat::subformat($ObjectArray* arguments, $StringBuffer* result, $FieldPosition* fp, $List* characterIterators) {
+	$useLocalCurrentObjectStackCache();
 	int32_t lastOffset = 0;
 	int32_t last = $nc(result)->length();
 	for (int32_t i = 0; i <= this->maxOffset; ++i) {
@@ -682,6 +689,7 @@ void MessageFormat::append($StringBuffer* result, $CharacterIterator* iterator) 
 }
 
 void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBuilderArray* textSegments) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, segments, $new($StringArray, $nc(textSegments)->length));
 	for (int32_t i = 0; i < textSegments->length; ++i) {
 		$var($StringBuilder, oneseg, textSegments->get(i));
@@ -806,6 +814,7 @@ void MessageFormat::makeFormat(int32_t position, int32_t offsetNumber, $StringBu
 
 int32_t MessageFormat::findKeyword($String* s, $StringArray* list) {
 	$init(MessageFormat);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(list)->length; ++i) {
 		if ($nc(s)->equals(list->get(i))) {
 			return i;

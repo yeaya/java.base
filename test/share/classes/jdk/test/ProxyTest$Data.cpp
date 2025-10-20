@@ -84,6 +84,7 @@ void ProxyTest$Data::init$($ClassLoader* loader, $ClassArray* interfaces) {
 }
 
 $String* ProxyTest$Data::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, expected, this->module != nullptr ? ($nc(this->module)->isNamed() ? $nc(this->module)->getName() : "unnamed"_s) : "dynamic"_s);
 	return $String::format("%2d: Expected: %s %s loader: %s"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(this->testcase))),

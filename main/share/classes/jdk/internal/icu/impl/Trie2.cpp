@@ -147,6 +147,7 @@ void Trie2::init$() {
 
 Trie2* Trie2::createFromSerialized($ByteBuffer* bytes) {
 	$init(Trie2);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteOrder, outerByteOrder, $nc(bytes)->order());
 	{
 		$var($Throwable, var$0, nullptr);

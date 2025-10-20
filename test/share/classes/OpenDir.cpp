@@ -45,6 +45,7 @@ void OpenDir::init$() {
 }
 
 void OpenDir::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileInputStream, fs, nullptr);
 	try {
 		$assign(fs, $new($FileInputStream, "."_s));

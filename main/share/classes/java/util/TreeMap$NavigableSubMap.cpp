@@ -459,6 +459,7 @@ $Map$Entry* TreeMap$NavigableSubMap::lastEntry() {
 }
 
 $Map$Entry* TreeMap$NavigableSubMap::pollFirstEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, e, subLowest());
 	$var($Map$Entry, result, $TreeMap::exportEntry(e));
 	if (e != nullptr) {
@@ -468,6 +469,7 @@ $Map$Entry* TreeMap$NavigableSubMap::pollFirstEntry() {
 }
 
 $Map$Entry* TreeMap$NavigableSubMap::pollLastEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, e, subHighest());
 	$var($Map$Entry, result, $TreeMap::exportEntry(e));
 	if (e != nullptr) {

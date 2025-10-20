@@ -79,6 +79,7 @@ void SelectFdsLimit::prepareTestEnv() {
 
 void SelectFdsLimit::openFiles(int32_t fn, $File* f) {
 	$init(SelectFdsLimit);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SelectFdsLimit::testFIS, $new($FileInputStreamArray, SelectFdsLimit::FDTOOPEN));
 	for (;;) {
 		if (0 == fn) {
@@ -91,6 +92,7 @@ void SelectFdsLimit::openFiles(int32_t fn, $File* f) {
 
 void SelectFdsLimit::main($StringArray* args) {
 	$init(SelectFdsLimit);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($System::getProperty("os.name"_s)))->contains("OS X"_s)) {
 		return;
 	}

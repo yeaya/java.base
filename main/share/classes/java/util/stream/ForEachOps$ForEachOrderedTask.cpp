@@ -165,6 +165,7 @@ void ForEachOps$ForEachOrderedTask::compute() {
 
 void ForEachOps$ForEachOrderedTask::doCompute(ForEachOps$ForEachOrderedTask* task$renamed) {
 	$init(ForEachOps$ForEachOrderedTask);
+	$useLocalCurrentObjectStackCache();
 	$var(ForEachOps$ForEachOrderedTask, task, task$renamed);
 	$var($Spliterator, rightSplit, $nc(task)->spliterator);
 	$var($Spliterator, leftSplit, nullptr);

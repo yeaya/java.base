@@ -111,6 +111,7 @@ $Spliterator* WeakHashMap$ValueSpliterator::trySplit() {
 }
 
 void WeakHashMap$ValueSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -148,6 +149,7 @@ void WeakHashMap$ValueSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool WeakHashMap$ValueSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

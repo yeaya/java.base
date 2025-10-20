@@ -159,6 +159,7 @@ void NTLMAuthentication::init$(bool isProxy, $URL* url, $PasswordAuthentication*
 }
 
 void NTLMAuthentication::init($PasswordAuthentication* pw) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, pw, pw);
 	if (pw != nullptr) {
 		$var($String, s, pw->getUserName());
@@ -256,6 +257,7 @@ bool NTLMAuthentication::isAuthorizationStale($String* header) {
 }
 
 bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
+	$useLocalCurrentObjectStackCache();
 	if (!NTLMAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -280,6 +282,7 @@ bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, 
 }
 
 void clinit$NTLMAuthentication($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	NTLMAuthentication::$assertionsDisabled = !NTLMAuthentication::class$->desiredAssertionStatus();
 	$assignStatic(NTLMAuthentication::NTLMAuthCallback, $NTLMAuthenticationCallback::getNTLMAuthenticationCallback());

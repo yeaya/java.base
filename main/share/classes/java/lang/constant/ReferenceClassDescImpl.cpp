@@ -58,6 +58,7 @@ $Object* allocate$ReferenceClassDescImpl($Class* clazz) {
 }
 
 void ReferenceClassDescImpl::init$($String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(descriptor);
 	int32_t len = $ConstantUtils::skipOverFieldSignature(descriptor, 0, descriptor->length(), false);
 	if (len == 0 || len == 1 || len != descriptor->length()) {
@@ -71,6 +72,7 @@ $String* ReferenceClassDescImpl::descriptorString() {
 }
 
 $Object* ReferenceClassDescImpl::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassDesc, c, this);
 	int32_t depth = $ConstantUtils::arrayDepth($(descriptorString()));
 	for (int32_t i = 0; i < depth; ++i) {
@@ -88,6 +90,7 @@ $Object* ReferenceClassDescImpl::resolveConstantDesc($MethodHandles$Lookup* look
 }
 
 bool ReferenceClassDescImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -107,6 +110,7 @@ int32_t ReferenceClassDescImpl::hashCode() {
 }
 
 $String* ReferenceClassDescImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("ClassDesc[%s]"_s, $$new($ObjectArray, {$($of(displayName()))}));
 }
 

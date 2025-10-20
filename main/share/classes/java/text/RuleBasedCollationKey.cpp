@@ -79,6 +79,7 @@ int32_t RuleBasedCollationKey::hashCode() {
 }
 
 $bytes* RuleBasedCollationKey::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, src, $nc(this->key)->toCharArray());
 	$var($bytes, dest, $new($bytes, 2 * src->length));
 	int32_t j = 0;

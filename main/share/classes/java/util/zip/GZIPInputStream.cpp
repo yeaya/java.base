@@ -190,6 +190,7 @@ int32_t GZIPInputStream::readHeader($InputStream* this_in) {
 }
 
 bool GZIPInputStream::readTrailer() {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, in, this->in);
 	int32_t n = $nc(this->inf)->getRemaining();
 	if (n > 0) {
@@ -233,6 +234,7 @@ int32_t GZIPInputStream::readUShort($InputStream* in) {
 }
 
 int32_t GZIPInputStream::readUByte($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t b = $nc(in)->read();
 	if (b == -1) {
 		$throwNew($EOFException);

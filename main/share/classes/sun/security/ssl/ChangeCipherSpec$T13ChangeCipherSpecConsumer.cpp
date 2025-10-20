@@ -80,6 +80,7 @@ void ChangeCipherSpec$T13ChangeCipherSpecConsumer::init$() {
 }
 
 void ChangeCipherSpec$T13ChangeCipherSpecConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($TransportContext, tc, $cast($TransportContext, context));
 	$init($ContentType);
 	$nc($nc(tc)->consumers)->remove($($Byte::valueOf($ContentType::CHANGE_CIPHER_SPEC->id)));

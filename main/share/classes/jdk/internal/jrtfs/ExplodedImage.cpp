@@ -238,6 +238,7 @@ $String* ExplodedImage::PACKAGES = nullptr;
 int32_t ExplodedImage::PACKAGES_LEN = 0;
 
 void ExplodedImage::init$($Path* modulesDir) {
+	$useLocalCurrentObjectStackCache();
 	$SystemImage::init$();
 	$set(this, nodes, $Collections::synchronizedMap($$new($HashMap)));
 	$set(this, defaultFS, $FileSystems::getDefault());
@@ -258,6 +259,7 @@ $bytes* ExplodedImage::getResource($ImageReader$Node* node) {
 
 $ImageReader$Node* ExplodedImage::findNode($String* str) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ImageReader$Node, node, findModulesNode(str));
 		if (node != nullptr) {
 			return node;
@@ -281,6 +283,7 @@ $ImageReader$Node* ExplodedImage::findNode($String* str) {
 }
 
 $ImageReader$Node* ExplodedImage::findModulesNode($String* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($ExplodedImage$PathNode, node, $cast($ExplodedImage$PathNode, $nc(this->nodes)->get(str)));
 	if (node != nullptr) {
 		return node;
@@ -307,6 +310,7 @@ $ImageReader$Node* ExplodedImage::findModulesNode($String* str) {
 }
 
 $Path* ExplodedImage::underlyingPath($String* str$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, str$renamed);
 	if ($nc(str)->startsWith(ExplodedImage::MODULES)) {
 		$assign(str, frontSlashToNativeSlash($(str->substring("/modules"_s->length()))));
@@ -329,6 +333,7 @@ $String* ExplodedImage::slashesToDots($String* str) {
 }
 
 void ExplodedImage::initNodes() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, packageToModules, $new($HashMap));
 	{
 		$init($SystemImage);
@@ -413,6 +418,7 @@ void ExplodedImage::initNodes() {
 }
 
 void ExplodedImage::lambda$initNodes$1($Path* module, $Map* packageToModules, $String* moduleName, $Path* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, p, p$renamed);
 	$assign(p, $nc(module)->relativize(p));
 	$var($String, pkgName, slashesToDots($($nc(p)->toString())));

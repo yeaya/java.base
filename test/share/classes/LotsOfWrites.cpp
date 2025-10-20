@@ -75,6 +75,7 @@ void LotsOfWrites::init$() {
 
 void LotsOfWrites::main($StringArray* args) {
 	$init(LotsOfWrites);
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 20 + $nc(LotsOfWrites::rand)->nextInt(16);
 	$var($LotsOfWrites$WriterArray, writers, $new($LotsOfWrites$WriterArray, count));
 	$var($CountDownLatch, latch, $new($CountDownLatch, count));

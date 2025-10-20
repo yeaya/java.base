@@ -107,6 +107,7 @@ $Date* CertificateValidity::getNotAfter() {
 }
 
 void CertificateValidity::construct($DerValue* derVal) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(derVal)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoded CertificateValidity, starting sequence tag missing."_s);
 	}
@@ -155,6 +156,7 @@ $String* CertificateValidity::toString() {
 }
 
 void CertificateValidity::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->notBefore == nullptr || this->notAfter == nullptr) {
 		$throwNew($IOException, "CertAttrSet:CertificateValidity: null values to encode.\n"_s);
 	}
@@ -224,6 +226,7 @@ void CertificateValidity::valid() {
 }
 
 void CertificateValidity::valid($Date* now) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->notBefore)->after(now)) {
 		$throwNew($CertificateNotYetValidException, $$str({"NotBefore: "_s, $($nc(this->notBefore)->toString())}));
 	}

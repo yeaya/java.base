@@ -73,6 +73,7 @@ void EnqueuePollRace$WeakRef::init$() {
 }
 
 void EnqueuePollRace$WeakRef::run() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < this->iterations; ++i) {
 		$set(this, queue, $new($ReferenceQueue));
 		for (int32_t j = 0; j < $nc(this->refs)->length; ++j) {

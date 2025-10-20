@@ -151,6 +151,7 @@ $String* Mac::getAlgorithm() {
 
 Mac* Mac::getInstance($String* algorithm) {
 	$init(Mac);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	$var($List, services, $GetInstance::getServices("Mac"_s, algorithm));
 	$var($Iterator, t, $nc(services)->iterator());
@@ -181,6 +182,7 @@ Mac* Mac::getInstance($String* algorithm, $Provider* provider) {
 }
 
 void Mac::chooseFirstProvider() {
+	$useLocalCurrentObjectStackCache();
 	if ((this->spi != nullptr) || (this->serviceIterator == nullptr)) {
 		return;
 	}
@@ -234,6 +236,7 @@ void Mac::chooseFirstProvider() {
 }
 
 void Mac::chooseProvider($Key* key, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if (this->spi != nullptr) {
 			$nc(this->spi)->engineInit(key, params);
@@ -298,6 +301,7 @@ $String* Mac::getProviderName() {
 }
 
 void Mac::init($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->spi != nullptr) {
 			$nc(this->spi)->engineInit(key, nullptr);
@@ -315,6 +319,7 @@ void Mac::init($Key* key) {
 }
 
 void Mac::init($Key* key, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spi != nullptr) {
 		$nc(this->spi)->engineInit(key, params);
 	} else {

@@ -116,6 +116,7 @@ $Object* allocate$Finished$FinishedMessage($Class* clazz) {
 }
 
 void Finished$FinishedMessage::init$($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$Finished$VerifyDataScheme* vds = $Finished$VerifyDataScheme::valueOf($nc(context)->negotiatedProtocol);
 	$var($bytes, vd, nullptr);
@@ -130,6 +131,7 @@ void Finished$FinishedMessage::init$($HandshakeContext* context) {
 }
 
 void Finished$FinishedMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	int32_t verifyDataLen = 12;
 	$init($ProtocolVersion);
@@ -173,6 +175,7 @@ void Finished$FinishedMessage::send($HandshakeOutStream* hos) {
 }
 
 $String* Finished$FinishedMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"Finished\": \'{\'\n  \"verify data\": \'{\'\n{0}\n  \'}\'\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

@@ -118,6 +118,7 @@ void IOVecWrapper::init$(int32_t size) {
 
 IOVecWrapper* IOVecWrapper::get(int32_t size) {
 	$init(IOVecWrapper);
+	$useLocalCurrentObjectStackCache();
 	$var(IOVecWrapper, wrapper, $cast(IOVecWrapper, $nc(IOVecWrapper::cached)->get()));
 	if (wrapper != nullptr && wrapper->size < size) {
 		$nc(wrapper->vecArray)->free();

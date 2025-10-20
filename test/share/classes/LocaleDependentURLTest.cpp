@@ -40,6 +40,7 @@ void LocaleDependentURLTest::init$() {
 }
 
 void LocaleDependentURLTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
 		int32_t len$ = $nc(arr$)->length;

@@ -121,6 +121,7 @@ void UnixChannelFactory::init$() {
 
 $FileChannel* UnixChannelFactory::newFileChannel(int32_t dfd, $UnixPath* path, $String* pathForPermissionCheck, $Set* options, int32_t mode) {
 	$init(UnixChannelFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($UnixChannelFactory$Flags, flags, $UnixChannelFactory$Flags::toFlags(options));
 	if (!$nc(flags)->read && !flags->write) {
 		if (flags->append) {
@@ -146,6 +147,7 @@ $FileChannel* UnixChannelFactory::newFileChannel($UnixPath* path, $Set* options,
 
 $AsynchronousFileChannel* UnixChannelFactory::newAsynchronousFileChannel($UnixPath* path, $Set* options, int32_t mode, $ThreadPool* pool) {
 	$init(UnixChannelFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($UnixChannelFactory$Flags, flags, $UnixChannelFactory$Flags::toFlags(options));
 	if (!$nc(flags)->read && !flags->write) {
 		flags->read = true;
@@ -159,6 +161,7 @@ $AsynchronousFileChannel* UnixChannelFactory::newAsynchronousFileChannel($UnixPa
 
 $FileDescriptor* UnixChannelFactory::open(int32_t dfd, $UnixPath* path, $String* pathForPermissionCheck$renamed, $UnixChannelFactory$Flags* flags, int32_t mode) {
 	$init(UnixChannelFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($String, pathForPermissionCheck, pathForPermissionCheck$renamed);
 	int32_t oflags = 0;
 	if ($nc(flags)->read && flags->write) {

@@ -148,6 +148,7 @@ int32_t SelectionKeyImpl::interestOps() {
 }
 
 $SelectionKey* SelectionKeyImpl::interestOps(int32_t ops) {
+	$useLocalCurrentObjectStackCache();
 	ensureValid();
 	if (((int32_t)(ops & (uint32_t)~$nc($(channel()))->validOps())) != 0) {
 		$throwNew($IllegalArgumentException);
@@ -160,6 +161,7 @@ $SelectionKey* SelectionKeyImpl::interestOps(int32_t ops) {
 }
 
 int32_t SelectionKeyImpl::interestOpsOr(int32_t ops) {
+	$useLocalCurrentObjectStackCache();
 	ensureValid();
 	if (((int32_t)(ops & (uint32_t)~$nc($(channel()))->validOps())) != 0) {
 		$throwNew($IllegalArgumentException);

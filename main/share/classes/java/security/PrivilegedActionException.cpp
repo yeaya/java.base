@@ -75,12 +75,14 @@ $Exception* PrivilegedActionException::getException() {
 }
 
 $String* PrivilegedActionException::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $of(this)->getClass()->getName());
 	$var($Throwable, cause, $Exception::getCause());
 	return (cause != nullptr) ? ($str({s, ": "_s, $($nc(cause)->toString())})) : s;
 }
 
 void PrivilegedActionException::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($Exception, exception, $cast($Exception, $nc(fields)->get("exception"_s, ($Object*)nullptr)));
 	if (exception != nullptr) {
@@ -89,6 +91,7 @@ void PrivilegedActionException::readObject($ObjectInputStream* s) {
 }
 
 void PrivilegedActionException::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
 	$nc(fields)->put("exception"_s, $($of($Exception::getCause())));
 	out->writeFields();

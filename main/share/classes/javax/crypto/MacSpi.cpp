@@ -60,6 +60,7 @@ void MacSpi::init$() {
 }
 
 void MacSpi::engineUpdate($ByteBuffer* input) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(input)->hasRemaining() == false) {
 		return;
 	}

@@ -93,6 +93,7 @@ bool HostLocaleProviderAdapterImpl$7::isSupportedLocale($Locale* locale) {
 }
 
 $String* HostLocaleProviderAdapterImpl$7::getDisplayName($String* calendarType, int32_t field, int32_t value, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, $HostLocaleProviderAdapterImpl::getCalendarDisplayStrings($($nc(locale)->toLanguageTag()), field, style));
 	if (names != nullptr && value >= 0 && value < names->length) {
 		return names->get(value);
@@ -102,6 +103,7 @@ $String* HostLocaleProviderAdapterImpl$7::getDisplayName($String* calendarType, 
 }
 
 $Map* HostLocaleProviderAdapterImpl$7::getDisplayNames($String* calendarType, int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, nullptr);
 	$var($StringArray, names, $HostLocaleProviderAdapterImpl::getCalendarDisplayStrings($($nc(locale)->toLanguageTag()), field, style));
 	if (names != nullptr) {

@@ -215,6 +215,7 @@ void AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::init$($WildcardType* type, 
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedUpperBounds() {
+	$useLocalCurrentObjectStackCache();
 	if (!hasUpperBounds()) {
 		$load($Object);
 		$init($TypeAnnotation$LocationInfo);
@@ -225,6 +226,7 @@ $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotate
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedLowerBounds() {
+	$useLocalCurrentObjectStackCache();
 	if (this->hasUpperBounds$) {
 		return $new($AnnotatedTypeArray, 0);
 	}
@@ -236,6 +238,7 @@ $AnnotatedType* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedOwne
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotatedBounds($TypeArray* bounds) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedTypeArray, res, $new($AnnotatedTypeArray, $nc(bounds)->length));
 	$init($AnnotatedTypeFactory);
 	$Arrays::fill(res, $of($AnnotatedTypeFactory::EMPTY_ANNOTATED_TYPE));
@@ -272,6 +275,7 @@ bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::hasUpperBounds() {
 }
 
 $String* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(annotationsToString($(getAnnotations()), false)));
 	sb->append("?"_s);
@@ -297,6 +301,7 @@ $String* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::toString() {
 }
 
 bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($AnnotatedWildcardType, o)) {
 		$var($AnnotatedWildcardType, that, $cast($AnnotatedWildcardType, o));
 		bool var$1 = equalsTypeAndAnnotations(that);
@@ -316,6 +321,7 @@ bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::equals(Object$* o) {
 }
 
 int32_t AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$1 = baseHashCode();
 	int32_t var$0 = var$1 ^ $Objects::hash($(getAnnotatedLowerBounds()));
 	return var$0 ^ $Objects::hash($(getAnnotatedUpperBounds()));

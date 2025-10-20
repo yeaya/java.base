@@ -117,6 +117,7 @@ $Object* allocate$IntlTest($Class* clazz) {
 $String* IntlTest::SPACES = nullptr;
 
 void IntlTest::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$set(this, testMethods, $new($LinkedHashMap));
 	$var($MethodArray, methods, $of(this)->getClass()->getDeclaredMethods());
@@ -145,6 +146,7 @@ void IntlTest::init$() {
 }
 
 void IntlTest::run($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$set(this, log$, $new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
@@ -348,6 +350,7 @@ void IntlTest::writeTestResult(int32_t count) {
 
 $String* IntlTest::toHexString($String* s) {
 	$init(IntlTest);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, " "_s));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		sb->append($($Integer::toHexString(s->charAt(i))));
@@ -365,6 +368,7 @@ void IntlTest::indent(int32_t distance) {
 }
 
 void IntlTest::usage() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({$($of(this)->getClass()->getName()), ": [-verbose] [-nothrow] [-exitcode] [-prompt] [test names]"_s}));
 	$nc($System::out)->println("  Available test names:"_s);

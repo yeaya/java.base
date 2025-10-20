@@ -109,6 +109,7 @@ void DateTimeFormatterBuilder$InstantPrinterParser::init$(int32_t fractionalDigi
 }
 
 bool DateTimeFormatterBuilder$InstantPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, inSecs, $nc(context)->getValue(static_cast<$TemporalField*>($ChronoField::INSTANT_SECONDS)));
 	$var($Long, inNanos, nullptr);
@@ -169,6 +170,7 @@ bool DateTimeFormatterBuilder$InstantPrinterParser::format($DateTimePrintContext
 }
 
 int32_t DateTimeFormatterBuilder$InstantPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	int32_t minDigits = (this->fractionalDigits < 0 ? 0 : this->fractionalDigits);
 	int32_t maxDigits = (this->fractionalDigits < 0 ? 9 : this->fractionalDigits);
 	$init($DateTimeFormatter);

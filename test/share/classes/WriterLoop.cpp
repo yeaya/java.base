@@ -60,6 +60,7 @@ void WriterLoop::init$() {
 }
 
 void WriterLoop::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -87,6 +88,7 @@ void WriterLoop::run() {
 
 void WriterLoop::main($StringArray* args) {
 	$init(WriterLoop);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(WriterLoop::in, $new($PipedInputStream));
 	$assignStatic(WriterLoop::out, $new($PipedOutputStream, WriterLoop::in));
 	$var(WriterLoop, writer, $new(WriterLoop));

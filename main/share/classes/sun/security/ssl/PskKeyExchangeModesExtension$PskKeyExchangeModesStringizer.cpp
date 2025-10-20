@@ -64,6 +64,7 @@ void PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer::init$() {
 }
 
 $String* PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

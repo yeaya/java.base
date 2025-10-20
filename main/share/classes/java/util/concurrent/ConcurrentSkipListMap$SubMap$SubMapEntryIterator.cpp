@@ -77,6 +77,7 @@ void ConcurrentSkipListMap$SubMap$SubMapEntryIterator::init$($ConcurrentSkipList
 }
 
 $Object* ConcurrentSkipListMap$SubMap$SubMapEntryIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, n, this->$ConcurrentSkipListMap$SubMap$SubMapIter::next$);
 	$var($Object, v, this->nextValue);
 	advance();

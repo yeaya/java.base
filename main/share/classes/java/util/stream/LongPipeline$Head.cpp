@@ -101,6 +101,7 @@ $Sink* LongPipeline$Head::opWrapSink(int32_t flags, $Sink* sink) {
 }
 
 void LongPipeline$Head::forEach($LongConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (!isParallel()) {
 		$nc($($LongPipeline::adapt($(sourceStageSpliterator()))))->forEachRemaining(action);
 	} else {
@@ -109,6 +110,7 @@ void LongPipeline$Head::forEach($LongConsumer* action) {
 }
 
 void LongPipeline$Head::forEachOrdered($LongConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (!isParallel()) {
 		$nc($($LongPipeline::adapt($(sourceStageSpliterator()))))->forEachRemaining(action);
 	} else {

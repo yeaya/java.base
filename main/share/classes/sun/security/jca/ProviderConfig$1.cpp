@@ -79,6 +79,7 @@ void ProviderConfig$1::init$($ProviderConfig* this$0) {
 }
 
 $Object* ProviderConfig$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, "/usr/lib/libpkcs11.so"_s));
 	if (file->exists() == false) {
 		$init($Boolean);

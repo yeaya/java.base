@@ -37,6 +37,7 @@ void MemoryLeak::init$() {
 }
 
 void MemoryLeak::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 0x0010C8E0; ++i) {
 		$var($ThreadLocal, t, $new($ThreadLocal));
 		t->set($$new($Object));

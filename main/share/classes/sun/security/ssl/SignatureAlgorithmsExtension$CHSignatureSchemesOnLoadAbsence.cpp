@@ -74,6 +74,7 @@ void SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence::init$() {
 }
 
 void SignatureAlgorithmsExtension$CHSignatureSchemesOnLoadAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc($nc(shc)->negotiatedProtocol)->useTLS13PlusSpec()) {
 		$init($Alert);

@@ -70,6 +70,7 @@ void CompletableFuture$CoCompletion::init$($CompletableFuture$BiCompletion* base
 }
 
 $CompletableFuture* CompletableFuture$CoCompletion::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture$BiCompletion, c, nullptr);
 	$var($CompletableFuture, d, nullptr);
 	bool var$0 = ($assign(c, this->base)) == nullptr;

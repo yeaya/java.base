@@ -56,6 +56,7 @@ void UTF16::init$() {
 
 void UTF16::go($String* cs) {
 	$init(UTF16);
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, is, $new($ByteArrayInputStream, UTF16::array));
 	$var($Reader, r, $new($InputStreamReader, is, "UTF-16LE"_s));
 	r->read();

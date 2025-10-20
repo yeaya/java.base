@@ -69,6 +69,7 @@ void InetAddressCachePolicy$2::init$() {
 }
 
 $Object* InetAddressCachePolicy$2::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, tmpString, $Security::getProperty("networkaddress.cache.negative.ttl"_s));
 		if (tmpString != nullptr) {

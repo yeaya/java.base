@@ -140,6 +140,7 @@ int32_t FieldWriter::computeFieldInfoSize() {
 }
 
 void FieldWriter::putFieldInfo($ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	bool useSyntheticAttribute = $nc(this->symbolTable)->getMajorVersion() < $Opcodes::V1_5;
 	int32_t mask = useSyntheticAttribute ? $Opcodes::ACC_SYNTHETIC : 0;
 	$nc($($nc($($nc(output)->putShort((int32_t)(this->accessFlags & (uint32_t)~mask))))->putShort(this->nameIndex)))->putShort(this->descriptorIndex);

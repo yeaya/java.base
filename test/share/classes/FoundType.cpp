@@ -52,6 +52,7 @@ void FoundType::init$() {
 
 void FoundType::main($StringArray* args) {
 	$init(FoundType);
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationTypeMismatchException, ex, $new($AnnotationTypeMismatchException, nullptr, FoundType::TYPE));
 	if (!$nc(FoundType::TYPE)->equals($(ex->foundType()))) {
 		$throwNew($Error);

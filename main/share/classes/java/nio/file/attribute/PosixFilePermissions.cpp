@@ -110,6 +110,7 @@ void PosixFilePermissions::writeBits($StringBuilder* sb, bool r, bool w, bool x)
 }
 
 $String* PosixFilePermissions::toString($Set* perms) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 9));
 	$var($StringBuilder, var$0, sb);
 	$init($PosixFilePermission);
@@ -195,6 +196,7 @@ $Set* PosixFilePermissions::fromString($String* perms) {
 }
 
 $FileAttribute* PosixFilePermissions::asFileAttribute($Set* perms$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, perms, perms$renamed);
 	$assign(perms, $new($HashSet, static_cast<$Collection*>(perms)));
 	{

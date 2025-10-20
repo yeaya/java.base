@@ -43,6 +43,7 @@ void StrippingZerosTest::init$() {
 }
 
 void StrippingZerosTest::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 			$init($BigDecimal);
 	$var($BigDecimalArray2, testCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {

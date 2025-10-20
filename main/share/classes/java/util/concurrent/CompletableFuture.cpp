@@ -402,6 +402,7 @@ bool CompletableFuture::internalComplete(Object$* r) {
 }
 
 bool CompletableFuture::tryPushStack($CompletableFuture$Completion* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture$Completion, h, this->stack);
 	$nc(CompletableFuture::NEXT)->set($$new($ObjectArray, {$of(c), $of(h)}));
 	return $nc(CompletableFuture::STACK)->compareAndSet($$new($ObjectArray, {$of(this), $of(h), $of(c)}));
@@ -430,6 +431,7 @@ $CompletableFuture$AltResult* CompletableFuture::encodeThrowable($Throwable* x) 
 }
 
 bool CompletableFuture::completeThrowable($Throwable* x) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $($of(encodeThrowable(x)))}));
 }
 
@@ -445,6 +447,7 @@ $Object* CompletableFuture::encodeThrowable($Throwable* x$renamed, Object$* r) {
 }
 
 bool CompletableFuture::completeThrowable($Throwable* x, Object$* r) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $(encodeThrowable(x, r))}));
 }
 
@@ -454,6 +457,7 @@ $Object* CompletableFuture::encodeOutcome(Object$* t, $Throwable* x) {
 
 $Object* CompletableFuture::encodeRelay(Object$* r$renamed) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, r$renamed);
 	$var($Throwable, x, nullptr);
 	bool var$0 = $instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr;
@@ -464,11 +468,13 @@ $Object* CompletableFuture::encodeRelay(Object$* r$renamed) {
 }
 
 bool CompletableFuture::completeRelay(Object$* r) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(CompletableFuture::RESULT)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $(encodeRelay(r))}));
 }
 
 $Object* CompletableFuture::reportGet(Object$* r) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	if (r == nullptr) {
 		$throwNew($InterruptedException);
 	}
@@ -519,6 +525,7 @@ $Executor* CompletableFuture::screenExecutor($Executor* e) {
 }
 
 void CompletableFuture::postComplete() {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, f, this);
 	$var($CompletableFuture$Completion, h, nullptr);
 	while (true) {
@@ -548,6 +555,7 @@ void CompletableFuture::postComplete() {
 }
 
 void CompletableFuture::cleanStack() {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture$Completion, p, this->stack);
 	for (bool unlinked = false;;) {
 		if (p == nullptr) {
@@ -584,6 +592,7 @@ void CompletableFuture::cleanStack() {
 }
 
 void CompletableFuture::unipush($CompletableFuture$Completion* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c != nullptr) {
 		while (!tryPushStack(c)) {
 			if (this->result != nullptr) {
@@ -618,6 +627,7 @@ CompletableFuture* CompletableFuture::postFire(CompletableFuture* a, int32_t mod
 }
 
 CompletableFuture* CompletableFuture::uniApplyStage($Executor* e, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -631,6 +641,7 @@ CompletableFuture* CompletableFuture::uniApplyStage($Executor* e, $Function* f) 
 }
 
 CompletableFuture* CompletableFuture::uniApplyNow(Object$* r$renamed, $Executor* e, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, r$renamed);
 	$var($Throwable, x, nullptr);
 	$var(CompletableFuture, d, newIncompleteFuture());
@@ -656,6 +667,7 @@ CompletableFuture* CompletableFuture::uniApplyNow(Object$* r$renamed, $Executor*
 }
 
 CompletableFuture* CompletableFuture::uniAcceptStage($Executor* e, $Consumer* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -669,6 +681,7 @@ CompletableFuture* CompletableFuture::uniAcceptStage($Executor* e, $Consumer* f)
 }
 
 CompletableFuture* CompletableFuture::uniAcceptNow(Object$* r$renamed, $Executor* e, $Consumer* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, r$renamed);
 	$var($Throwable, x, nullptr);
 	$var(CompletableFuture, d, newIncompleteFuture());
@@ -695,6 +708,7 @@ CompletableFuture* CompletableFuture::uniAcceptNow(Object$* r$renamed, $Executor
 }
 
 CompletableFuture* CompletableFuture::uniRunStage($Executor* e, $Runnable* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -708,6 +722,7 @@ CompletableFuture* CompletableFuture::uniRunStage($Executor* e, $Runnable* f) {
 }
 
 CompletableFuture* CompletableFuture::uniRunNow(Object$* r, $Executor* e, $Runnable* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, x, nullptr);
 	$var(CompletableFuture, d, newIncompleteFuture());
 	if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
@@ -729,6 +744,7 @@ CompletableFuture* CompletableFuture::uniRunNow(Object$* r, $Executor* e, $Runna
 }
 
 bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $CompletableFuture$UniWhenComplete* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, t, nullptr);
 	$var($Throwable, x, nullptr);
 	if (this->result == nullptr) {
@@ -762,6 +778,7 @@ bool CompletableFuture::uniWhenComplete(Object$* r, $BiConsumer* f, $Completable
 }
 
 CompletableFuture* CompletableFuture::uniWhenCompleteStage($Executor* e, $BiConsumer* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -783,6 +800,7 @@ CompletableFuture* CompletableFuture::uniWhenCompleteStage($Executor* e, $BiCons
 }
 
 bool CompletableFuture::uniHandle(Object$* r, $BiFunction* f, $CompletableFuture$UniHandle* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, s, nullptr);
 	$var($Throwable, x, nullptr);
 	if (this->result == nullptr) {
@@ -808,6 +826,7 @@ bool CompletableFuture::uniHandle(Object$* r, $BiFunction* f, $CompletableFuture
 }
 
 CompletableFuture* CompletableFuture::uniHandleStage($Executor* e, $BiFunction* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -829,6 +848,7 @@ CompletableFuture* CompletableFuture::uniHandleStage($Executor* e, $BiFunction* 
 }
 
 bool CompletableFuture::uniExceptionally(Object$* r, $Function* f, $CompletableFuture$UniExceptionally* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, x, nullptr);
 	if (this->result == nullptr) {
 		try {
@@ -849,6 +869,7 @@ bool CompletableFuture::uniExceptionally(Object$* r, $Function* f, $CompletableF
 }
 
 CompletableFuture* CompletableFuture::uniExceptionallyStage($Executor* e, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -870,6 +891,7 @@ CompletableFuture* CompletableFuture::uniExceptionallyStage($Executor* e, $Funct
 }
 
 CompletableFuture* CompletableFuture::uniComposeExceptionallyStage($Executor* e, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -903,6 +925,7 @@ CompletableFuture* CompletableFuture::uniComposeExceptionallyStage($Executor* e,
 
 CompletableFuture* CompletableFuture::uniCopyStage(CompletableFuture* src) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, nullptr);
 	$var(CompletableFuture, d, $nc(src)->newIncompleteFuture());
 	if (($assign(r, src->result)) != nullptr) {
@@ -914,6 +937,7 @@ CompletableFuture* CompletableFuture::uniCopyStage(CompletableFuture* src) {
 }
 
 $CompletableFuture$MinimalStage* CompletableFuture::uniAsMinimalStage() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, nullptr);
 	if (($assign(r, this->result)) != nullptr) {
 		return $new($CompletableFuture$MinimalStage, $(encodeRelay(r)));
@@ -924,6 +948,7 @@ $CompletableFuture$MinimalStage* CompletableFuture::uniAsMinimalStage() {
 }
 
 CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -962,6 +987,7 @@ CompletableFuture* CompletableFuture::uniComposeStage($Executor* e, $Function* f
 }
 
 void CompletableFuture::bipush(CompletableFuture* b, $CompletableFuture$BiCompletion* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c != nullptr) {
 		while (this->result == nullptr) {
 			if (tryPushStack(c)) {
@@ -991,6 +1017,7 @@ CompletableFuture* CompletableFuture::postFire(CompletableFuture* a, Completable
 }
 
 bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunction* f, $CompletableFuture$BiApply* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, r$renamed);
 	$var($Object, s, s$renamed);
 	$var($Throwable, x, nullptr);
@@ -1031,6 +1058,7 @@ bool CompletableFuture::biApply(Object$* r$renamed, Object$* s$renamed, $BiFunct
 }
 
 CompletableFuture* CompletableFuture::biApplyStage($Executor* e, $CompletionStage* o, $BiFunction* f) {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, b, nullptr);
 	$var($Object, r, nullptr);
 	$var($Object, s, nullptr);
@@ -1054,6 +1082,7 @@ CompletableFuture* CompletableFuture::biApplyStage($Executor* e, $CompletionStag
 }
 
 bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiConsumer* f, $CompletableFuture$BiAccept* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, r$renamed);
 	$var($Object, s, s$renamed);
 	$var($Throwable, x, nullptr);
@@ -1095,6 +1124,7 @@ bool CompletableFuture::biAccept(Object$* r$renamed, Object$* s$renamed, $BiCons
 }
 
 CompletableFuture* CompletableFuture::biAcceptStage($Executor* e, $CompletionStage* o, $BiConsumer* f) {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, b, nullptr);
 	$var($Object, r, nullptr);
 	$var($Object, s, nullptr);
@@ -1118,6 +1148,7 @@ CompletableFuture* CompletableFuture::biAcceptStage($Executor* e, $CompletionSta
 }
 
 bool CompletableFuture::biRun(Object$* r, Object$* s, $Runnable* f, $CompletableFuture$BiRun* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, x, nullptr);
 	$var($Object, z, nullptr);
 	if (this->result == nullptr) {
@@ -1141,6 +1172,7 @@ bool CompletableFuture::biRun(Object$* r, Object$* s, $Runnable* f, $Completable
 }
 
 CompletableFuture* CompletableFuture::biRunStage($Executor* e, $CompletionStage* o, $Runnable* f) {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, b, nullptr);
 	$var($Object, r, nullptr);
 	$var($Object, s, nullptr);
@@ -1165,6 +1197,7 @@ CompletableFuture* CompletableFuture::biRunStage($Executor* e, $CompletionStage*
 
 CompletableFuture* CompletableFuture::andTree($CompletableFutureArray* cfs, int32_t lo, int32_t hi) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, d, $new(CompletableFuture));
 	if (lo > hi) {
 		$set(d, result, CompletableFuture::NIL);
@@ -1195,6 +1228,7 @@ CompletableFuture* CompletableFuture::andTree($CompletableFutureArray* cfs, int3
 }
 
 void CompletableFuture::orpush(CompletableFuture* b, $CompletableFuture$BiCompletion* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c != nullptr) {
 		while (!tryPushStack(c)) {
 			if (this->result != nullptr) {
@@ -1211,6 +1245,7 @@ void CompletableFuture::orpush(CompletableFuture* b, $CompletableFuture$BiComple
 }
 
 CompletableFuture* CompletableFuture::orApplyStage($Executor* e, $CompletionStage* o, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, b, nullptr);
 	if (f == nullptr || ($assign(b, $nc(o)->toCompletableFuture())) == nullptr) {
 		$throwNew($NullPointerException);
@@ -1227,6 +1262,7 @@ CompletableFuture* CompletableFuture::orApplyStage($Executor* e, $CompletionStag
 }
 
 CompletableFuture* CompletableFuture::orAcceptStage($Executor* e, $CompletionStage* o, $Consumer* f) {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, b, nullptr);
 	if (f == nullptr || ($assign(b, $nc(o)->toCompletableFuture())) == nullptr) {
 		$throwNew($NullPointerException);
@@ -1243,6 +1279,7 @@ CompletableFuture* CompletableFuture::orAcceptStage($Executor* e, $CompletionSta
 }
 
 CompletableFuture* CompletableFuture::orRunStage($Executor* e, $CompletionStage* o, $Runnable* f) {
+	$useLocalCurrentObjectStackCache();
 	$var(CompletableFuture, b, nullptr);
 	if (f == nullptr || ($assign(b, $nc(o)->toCompletableFuture())) == nullptr) {
 		$throwNew($NullPointerException);
@@ -1260,6 +1297,7 @@ CompletableFuture* CompletableFuture::orRunStage($Executor* e, $CompletionStage*
 
 CompletableFuture* CompletableFuture::asyncSupplyStage($Executor* e, $Supplier* f) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1270,6 +1308,7 @@ CompletableFuture* CompletableFuture::asyncSupplyStage($Executor* e, $Supplier* 
 
 CompletableFuture* CompletableFuture::asyncRunStage($Executor* e, $Runnable* f) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1279,6 +1318,7 @@ CompletableFuture* CompletableFuture::asyncRunStage($Executor* e, $Runnable* f) 
 }
 
 $Object* CompletableFuture::waitingGet(bool interruptible) {
+	$useLocalCurrentObjectStackCache();
 	if (interruptible && $Thread::interrupted()) {
 		return $of(nullptr);
 	}
@@ -1317,6 +1357,7 @@ $Object* CompletableFuture::waitingGet(bool interruptible) {
 }
 
 $Object* CompletableFuture::timedGet(int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	int64_t d = $System::nanoTime() + nanos;
 	int64_t deadline = (d == (int64_t)0) ? (int64_t)1 : d;
 	bool interrupted = false;
@@ -1627,6 +1668,7 @@ CompletableFuture* CompletableFuture::allOf($CompletableFutureArray* cfs) {
 
 CompletableFuture* CompletableFuture::anyOf($CompletableFutureArray* cfs$renamed) {
 	$init(CompletableFuture);
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFutureArray, cfs, cfs$renamed);
 	int32_t n = 0;
 	$var($Object, r, nullptr);
@@ -1674,6 +1716,7 @@ CompletableFuture* CompletableFuture::anyOf($CompletableFutureArray* cfs$renamed
 }
 
 bool CompletableFuture::cancel(bool mayInterruptIfRunning) {
+	$useLocalCurrentObjectStackCache();
 	bool cancelled = (this->result == nullptr) && internalComplete($$new($CompletableFuture$AltResult, $$new($CancellationException)));
 	postComplete();
 	return cancelled || isCancelled();
@@ -1716,6 +1759,7 @@ int32_t CompletableFuture::getNumberOfDependents() {
 }
 
 $String* CompletableFuture::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r, this->result);
 	int32_t count = 0;
 	{
@@ -1757,6 +1801,7 @@ CompletableFuture* CompletableFuture::completeAsync($Supplier* supplier) {
 }
 
 CompletableFuture* CompletableFuture::orTimeout(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1767,6 +1812,7 @@ CompletableFuture* CompletableFuture::orTimeout(int64_t timeout, $TimeUnit* unit
 }
 
 CompletableFuture* CompletableFuture::completeOnTimeout(Object$* value, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1814,6 +1860,7 @@ $CompletionStage* CompletableFuture::failedStage($Throwable* ex) {
 }
 
 void clinit$CompletableFuture($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(CompletableFuture::NIL, $new($CompletableFuture$AltResult, nullptr));
 	CompletableFuture::USE_COMMON_POOL = ($ForkJoinPool::getCommonPoolParallelism() > 1);

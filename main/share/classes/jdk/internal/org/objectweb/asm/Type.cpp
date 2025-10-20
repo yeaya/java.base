@@ -305,6 +305,7 @@ $TypeArray* Type::getArgumentTypes() {
 
 $TypeArray* Type::getArgumentTypes($String* methodDescriptor) {
 	$init(Type);
+	$useLocalCurrentObjectStackCache();
 	int32_t numArgumentTypes = 0;
 	int32_t currentOffset = 1;
 	while ($nc(methodDescriptor)->charAt(currentOffset) != u')') {
@@ -336,6 +337,7 @@ $TypeArray* Type::getArgumentTypes($String* methodDescriptor) {
 
 $TypeArray* Type::getArgumentTypes($Method* method) {
 	$init(Type);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, classes, $nc(method)->getParameterTypes());
 	$var($TypeArray, types, $new($TypeArray, $nc(classes)->length));
 	for (int32_t i = classes->length - 1; i >= 0; --i) {
@@ -434,6 +436,7 @@ Type* Type::getTypeInternal($String* descriptorBuffer, int32_t descriptorBegin, 
 }
 
 $String* Type::getClassName() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringBuilder, stringBuilder, nullptr)
 		switch (this->sort) {
@@ -505,6 +508,7 @@ $String* Type::getInternalName($Class* clazz) {
 }
 
 $String* Type::getDescriptor() {
+	$useLocalCurrentObjectStackCache();
 	if (this->sort == Type::OBJECT) {
 		return $nc(this->valueBuffer)->substring(this->valueBegin - 1, this->valueEnd + 1);
 	} else if (this->sort == Type::INTERNAL) {
@@ -523,6 +527,7 @@ $String* Type::getDescriptor($Class* clazz) {
 
 $String* Type::getConstructorDescriptor($Constructor* constructor) {
 	$init(Type);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, stringBuilder, $new($StringBuilder));
 	stringBuilder->append(u'(');
 	$var($ClassArray, parameters, $nc(constructor)->getParameterTypes());
@@ -542,6 +547,7 @@ $String* Type::getConstructorDescriptor($Constructor* constructor) {
 
 $String* Type::getMethodDescriptor(Type* returnType, $TypeArray* argumentTypes) {
 	$init(Type);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, stringBuilder, $new($StringBuilder));
 	stringBuilder->append(u'(');
 	{
@@ -562,6 +568,7 @@ $String* Type::getMethodDescriptor(Type* returnType, $TypeArray* argumentTypes) 
 
 $String* Type::getMethodDescriptor($Method* method) {
 	$init(Type);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, stringBuilder, $new($StringBuilder));
 	stringBuilder->append(u'(');
 	$var($ClassArray, parameters, $nc(method)->getParameterTypes());

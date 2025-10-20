@@ -173,6 +173,7 @@ $String* CodeSource::getLocationNoFragString() {
 }
 
 $CertificateArray* CodeSource::getCertificates() {
+	$useLocalCurrentObjectStackCache();
 	if (this->certs != nullptr) {
 		return $cast($CertificateArray, $nc(this->certs)->clone());
 	} else if (this->signers != nullptr) {
@@ -253,6 +254,7 @@ bool CodeSource::matchCerts(CodeSource* that, bool strict) {
 }
 
 bool CodeSource::matchLocation(CodeSource* that) {
+	$useLocalCurrentObjectStackCache();
 	if (this->location == nullptr) {
 		return true;
 	}
@@ -327,6 +329,7 @@ bool CodeSource::matchLocation(CodeSource* that) {
 }
 
 $String* CodeSource::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("("_s);
 	sb->append($of(this->location));
@@ -346,6 +349,7 @@ $String* CodeSource::toString() {
 }
 
 void CodeSource::writeObject($ObjectOutputStream* oos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(oos)->defaultWriteObject();
 	if (this->certs == nullptr || $nc(this->certs)->length == 0) {
 		oos->writeInt(0);
@@ -370,6 +374,7 @@ void CodeSource::writeObject($ObjectOutputStream* oos) {
 }
 
 void CodeSource::readObject($ObjectInputStream* ois) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateFactory, cf, nullptr);
 	$var($Hashtable, cfs, nullptr);
 	$var($List, certList, nullptr);
@@ -418,6 +423,7 @@ void CodeSource::readObject($ObjectInputStream* ois) {
 }
 
 $CodeSignerArray* CodeSource::convertCertArrayToSignerArray($CertificateArray* certs) {
+	$useLocalCurrentObjectStackCache();
 	if (certs == nullptr) {
 		return nullptr;
 	}

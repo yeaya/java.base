@@ -99,6 +99,7 @@ $CodeSource* PolicyFile$PolicyEntry::getCodeSource() {
 }
 
 $String* PolicyFile$PolicyEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($ResourcesMgr::getString("LPARAM"_s)));
 	sb->append($($of(getCodeSource())));

@@ -87,6 +87,7 @@ void Util$BufferCache::init$() {
 }
 
 $ByteBuffer* Util$BufferCache::get(int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (!Util$BufferCache::$assertionsDisabled && ! !$Util::isBufferTooLarge(size)) {
 		$throwNew($AssertionError);
 	}

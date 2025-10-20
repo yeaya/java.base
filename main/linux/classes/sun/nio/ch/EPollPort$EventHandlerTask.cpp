@@ -110,6 +110,7 @@ void EPollPort$EventHandlerTask::init$($EPollPort* this$0) {
 }
 
 $EPollPort$Event* EPollPort$EventHandlerTask::poll() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($EPollPort$Event, var$2, nullptr);
@@ -188,6 +189,7 @@ $EPollPort$Event* EPollPort$EventHandlerTask::poll() {
 }
 
 void EPollPort$EventHandlerTask::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Invoker$GroupAndInvokeCount, myGroupAndInvokeCount, $Invoker::getGroupAndInvokeCount());
 	bool isPooledThread = (myGroupAndInvokeCount != nullptr);
 	bool replaceMe = false;

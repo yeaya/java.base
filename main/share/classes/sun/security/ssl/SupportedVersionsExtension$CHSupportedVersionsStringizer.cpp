@@ -64,6 +64,7 @@ void SupportedVersionsExtension$CHSupportedVersionsStringizer::init$() {
 }
 
 $String* SupportedVersionsExtension$CHSupportedVersionsStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($SupportedVersionsExtension$CHSupportedVersionsSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

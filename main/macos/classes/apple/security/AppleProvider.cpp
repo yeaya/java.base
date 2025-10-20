@@ -76,6 +76,7 @@ void AppleProvider::access$000(AppleProvider* x0, $Provider$Service* x1) {
 }
 
 void AppleProvider::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("Apple"_s, $SecurityConstants::PROVIDER_VER, AppleProvider::info);

@@ -98,6 +98,7 @@ $Object* Pattern$1MatcherIterator::next() {
 }
 
 bool Pattern$1MatcherIterator::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	if (this->matcher == nullptr) {
 		$set(this, matcher, this->this$0->matcher(this->val$input));
 		this->emptyElementCount = $nc(this->val$input)->length() == 0 ? 1 : 0;

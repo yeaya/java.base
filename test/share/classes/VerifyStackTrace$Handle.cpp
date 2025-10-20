@@ -93,6 +93,7 @@ void VerifyStackTrace$Handle::execute($Runnable* run) {
 }
 
 void VerifyStackTrace$Handle::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	$var($MethodHandle, handle, nullptr);

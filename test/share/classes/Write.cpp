@@ -63,6 +63,7 @@ void Write::main($StringArray* args) {
 }
 
 void Write::test1() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBufferArray, dsts, $new($ByteBufferArray, 4));
 	for (int32_t i = 0; i < 4; ++i) {
 		dsts->set(i, $($ByteBuffer::allocateDirect(10)));
@@ -87,6 +88,7 @@ void Write::test1() {
 }
 
 void Write::test2() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $File::createTempFile("test2"_s, nullptr));
 	$nc(testFile)->delete$();
 	$var($ByteBufferArray, srcs, $new($ByteBufferArray, 4));
@@ -149,6 +151,7 @@ void Write::test2() {
 }
 
 void Write::test3() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $File::createTempFile("test1"_s, nullptr));
 	$nc(testFile)->deleteOnExit();
 	$var($ByteBuffer, dst, $ByteBuffer::allocate(10));

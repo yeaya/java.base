@@ -188,6 +188,7 @@ VarHandleReferences$FieldInstanceReadWrite* VarHandleReferences$FieldInstanceRea
 
 void VarHandleReferences$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -197,6 +198,7 @@ void VarHandleReferences$FieldInstanceReadWrite::set($VarHandle* ob, Object$* ho
 
 void VarHandleReferences$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -206,6 +208,7 @@ void VarHandleReferences$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Obj
 
 void VarHandleReferences$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -215,6 +218,7 @@ void VarHandleReferences$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Objec
 
 void VarHandleReferences$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -224,6 +228,7 @@ void VarHandleReferences$FieldInstanceReadWrite::setRelease($VarHandle* ob, Obje
 
 bool VarHandleReferences$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -234,6 +239,7 @@ bool VarHandleReferences$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, O
 
 $Object* VarHandleReferences$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -244,6 +250,7 @@ $Object* VarHandleReferences$FieldInstanceReadWrite::compareAndExchange($VarHand
 
 $Object* VarHandleReferences$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -254,6 +261,7 @@ $Object* VarHandleReferences$FieldInstanceReadWrite::compareAndExchangeAcquire($
 
 $Object* VarHandleReferences$FieldInstanceReadWrite::compareAndExchangeRelease($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -264,6 +272,7 @@ $Object* VarHandleReferences$FieldInstanceReadWrite::compareAndExchangeRelease($
 
 bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -274,6 +283,7 @@ bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHand
 
 bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -284,6 +294,7 @@ bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* o
 
 bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -294,6 +305,7 @@ bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHa
 
 bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle* ob, Object$* holder, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -304,6 +316,7 @@ bool VarHandleReferences$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHa
 
 $Object* VarHandleReferences$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -313,6 +326,7 @@ $Object* VarHandleReferences$FieldInstanceReadWrite::getAndSet($VarHandle* ob, O
 
 $Object* VarHandleReferences$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));
@@ -322,6 +336,7 @@ $Object* VarHandleReferences$FieldInstanceReadWrite::getAndSetAcquire($VarHandle
 
 $Object* VarHandleReferences$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, Object$* holder, Object$* value) {
 	$init(VarHandleReferences$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$FieldInstanceReadWrite, handle, $cast(VarHandleReferences$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$var($Object, var$0, $Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))));

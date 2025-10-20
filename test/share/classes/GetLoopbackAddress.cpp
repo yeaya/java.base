@@ -54,6 +54,7 @@ void GetLoopbackAddress::init$() {
 
 void GetLoopbackAddress::main($StringArray* args) {
 	$init(GetLoopbackAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, addr, $InetAddress::getLoopbackAddress());
 	bool var$0 = $nc(addr)->equals(GetLoopbackAddress::IPv4Loopback);
 	if (!(var$0 || $nc(addr)->equals(GetLoopbackAddress::IPv6Loopback))) {
@@ -82,6 +83,7 @@ void GetLoopbackAddress::main($StringArray* args) {
 }
 
 void clinit$GetLoopbackAddress($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		try {
 			$assignStatic(GetLoopbackAddress::IPv4Loopback, $InetAddress::getByAddress($$new($bytes, {

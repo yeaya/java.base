@@ -128,6 +128,7 @@ void PipeImpl::init$($SelectorProvider* sp) {
 }
 
 void PipeImpl::init$($SelectorProvider* sp, bool buffering) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Pipe::init$();
 	$var($PipeImpl$Initializer, initializer, $new($PipeImpl$Initializer, sp));
@@ -156,6 +157,7 @@ $Pipe$SinkChannel* PipeImpl::sink() {
 
 $ServerSocketChannel* PipeImpl::createListener() {
 	$init(PipeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, listener, nullptr);
 	if (!PipeImpl::noUnixDomainSockets) {
 		try {

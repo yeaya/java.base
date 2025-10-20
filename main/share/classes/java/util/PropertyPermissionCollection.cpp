@@ -110,6 +110,7 @@ void PropertyPermissionCollection::init$() {
 }
 
 void PropertyPermissionCollection::add($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($PropertyPermission, pp, nullptr);
 	bool var$0 = $instanceOf($PropertyPermission, permission);
 	if (var$0) {
@@ -132,6 +133,7 @@ void PropertyPermissionCollection::add($Permission* permission) {
 }
 
 bool PropertyPermissionCollection::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($PropertyPermission, pp, nullptr);
 	bool var$0 = $instanceOf($PropertyPermission, permission);
 	if (var$0) {
@@ -183,6 +185,7 @@ $Enumeration* PropertyPermissionCollection::elements() {
 }
 
 void PropertyPermissionCollection::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, permissions, $new($Hashtable, $nc(this->perms)->size() * 2));
 	permissions->putAll(static_cast<$Map*>(static_cast<$AbstractMap*>(this->perms)));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
@@ -192,6 +195,7 @@ void PropertyPermissionCollection::writeObject($ObjectOutputStream* out) {
 }
 
 void PropertyPermissionCollection::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	this->all_allowed = $nc(gfields)->get("all_allowed"_s, false);
 	$var($Hashtable, permissions, $cast($Hashtable, gfields->get("permissions"_s, ($Object*)nullptr)));
@@ -200,6 +204,7 @@ void PropertyPermissionCollection::readObject($ObjectInputStream* in) {
 }
 
 void clinit$PropertyPermissionCollection($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($Hashtable);
 		$init($Boolean);
 	$assignStatic(PropertyPermissionCollection::serialPersistentFields, $new($ObjectStreamFieldArray, {

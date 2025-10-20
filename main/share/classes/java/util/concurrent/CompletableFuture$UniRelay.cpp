@@ -60,6 +60,7 @@ void CompletableFuture$UniRelay::init$($CompletableFuture* dep, $CompletableFutu
 }
 
 $CompletableFuture* CompletableFuture$UniRelay::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($Object, r, nullptr);

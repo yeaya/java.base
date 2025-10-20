@@ -58,6 +58,7 @@ void SBBasher::init$() {
 
 void SBBasher::main($StringArray* args) {
 	$init(SBBasher);
+	$useLocalCurrentObjectStackCache();
 	$var(SBBasher, basher, $new(SBBasher));
 	for (int32_t iterations = 0; iterations < 100; ++iterations) {
 		$var($String, testString, basher->generateTestString());
@@ -100,6 +101,7 @@ $String* SBBasher::generateTestString() {
 }
 
 bool SBBasher::Test1($String* before) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, bashed, $new($StringBuffer, before));
 	$var($String, slice, nullptr);
 	for (int32_t i = 0; i < 100; ++i) {
@@ -121,6 +123,7 @@ bool SBBasher::Test1($String* before) {
 }
 
 bool SBBasher::Test2($String* before) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, bashed, $new($StringBuffer, before));
 	$var($String, slice, nullptr);
 	for (int32_t i = 0; i < 100; ++i) {
@@ -149,6 +152,7 @@ bool SBBasher::Test2($String* before) {
 }
 
 bool SBBasher::Test3($String* before) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, bashed1, $new($StringBuffer, before));
 	$var($StringBuffer, bashed2, $new($StringBuffer, before));
 	int32_t startIndex = getRandomIndex(0, bashed1->length());

@@ -60,6 +60,7 @@ void ObjectStreamClass$DeserializationConstructorsCache$Key::init$() {
 }
 
 int32_t ObjectStreamClass$DeserializationConstructorsCache$Key::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = length();
 	int32_t h = 0;
 	for (int32_t i = 0; i < n; ++i) {
@@ -72,6 +73,7 @@ int32_t ObjectStreamClass$DeserializationConstructorsCache$Key::hashCode() {
 }
 
 bool ObjectStreamClass$DeserializationConstructorsCache$Key::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(ObjectStreamClass$DeserializationConstructorsCache$Key, other, nullptr);
 	bool var$0 = $instanceOf(ObjectStreamClass$DeserializationConstructorsCache$Key, obj);
 	if (var$0) {

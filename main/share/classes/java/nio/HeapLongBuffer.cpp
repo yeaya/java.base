@@ -218,6 +218,7 @@ $LongBuffer* HeapLongBuffer::put(int32_t index, $longs* src, int32_t offset, int
 }
 
 $LongBuffer* HeapLongBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapLongBuffer::$assertionsDisabled && !(pos <= lim)) {

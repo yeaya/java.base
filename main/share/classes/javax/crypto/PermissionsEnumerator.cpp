@@ -81,6 +81,7 @@ $Object* PermissionsEnumerator::nextElement() {
 }
 
 $Enumeration* PermissionsEnumerator::getNextEnumWithMore() {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(this->perms)->hasMoreElements()) {
 		$var($PermissionCollection, pc, $cast($PermissionCollection, $nc(this->perms)->nextElement()));
 		$var($Enumeration, next, $nc(pc)->elements());

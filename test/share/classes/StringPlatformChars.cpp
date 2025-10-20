@@ -66,6 +66,7 @@ void StringPlatformChars::init$() {
 
 void StringPlatformChars::main($StringArray* args) {
 	$init(StringPlatformChars);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println($$str({"sun.jnu.encoding: "_s, StringPlatformChars::JNU_ENCODING}));
@@ -96,6 +97,7 @@ void StringPlatformChars::main($StringArray* args) {
 
 void StringPlatformChars::testString($String* s) {
 	$init(StringPlatformChars);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, nativeBytes, getBytes(s));
 	$var($bytes, stringBytes, $nc(s)->getBytes(StringPlatformChars::JNU_ENCODING));
 	if (!$Arrays::equals(nativeBytes, stringBytes)) {

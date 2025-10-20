@@ -119,6 +119,7 @@ $BoundMethodHandle* SimpleMethodHandle::copyWithExtendL($MethodType* mt, $Lambda
 }
 
 $BoundMethodHandle* SimpleMethodHandle::copyWithExtendI($MethodType* mt, $LambdaForm* lf, int32_t narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(SimpleMethodHandle::BMH_SPECIES)->extendWith($LambdaForm$BasicType::I_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), $$of(narg)})));
@@ -130,6 +131,7 @@ $BoundMethodHandle* SimpleMethodHandle::copyWithExtendI($MethodType* mt, $Lambda
 }
 
 $BoundMethodHandle* SimpleMethodHandle::copyWithExtendJ($MethodType* mt, $LambdaForm* lf, int64_t narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(SimpleMethodHandle::BMH_SPECIES)->extendWith($LambdaForm$BasicType::J_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), $$of(narg)})));
@@ -141,6 +143,7 @@ $BoundMethodHandle* SimpleMethodHandle::copyWithExtendJ($MethodType* mt, $Lambda
 }
 
 $BoundMethodHandle* SimpleMethodHandle::copyWithExtendF($MethodType* mt, $LambdaForm* lf, float narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(SimpleMethodHandle::BMH_SPECIES)->extendWith($LambdaForm$BasicType::F_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), $$of(narg)})));
@@ -152,6 +155,7 @@ $BoundMethodHandle* SimpleMethodHandle::copyWithExtendF($MethodType* mt, $Lambda
 }
 
 $BoundMethodHandle* SimpleMethodHandle::copyWithExtendD($MethodType* mt, $LambdaForm* lf, double narg) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($LambdaForm$BasicType);
 		return $cast($BoundMethodHandle, $nc($($nc($($nc(SimpleMethodHandle::BMH_SPECIES)->extendWith($LambdaForm$BasicType::D_TYPE_NUM)))->factory()))->invokeBasic($$new($ObjectArray, {$of(mt), $of(lf), $$of(narg)})));

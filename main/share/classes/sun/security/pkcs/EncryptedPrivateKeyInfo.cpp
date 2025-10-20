@@ -64,6 +64,7 @@ $Object* allocate$EncryptedPrivateKeyInfo($Class* clazz) {
 }
 
 void EncryptedPrivateKeyInfo::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	if (encoded == nullptr) {
 		$throwNew($IllegalArgumentException, "encoding must not be null"_s);
 	}
@@ -99,6 +100,7 @@ $bytes* EncryptedPrivateKeyInfo::getEncryptedData() {
 }
 
 $bytes* EncryptedPrivateKeyInfo::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encoded != nullptr) {
 		return $cast($bytes, $nc(this->encoded)->clone());
 	}
@@ -112,6 +114,7 @@ $bytes* EncryptedPrivateKeyInfo::getEncoded() {
 }
 
 bool EncryptedPrivateKeyInfo::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}

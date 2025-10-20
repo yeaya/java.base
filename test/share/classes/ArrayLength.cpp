@@ -46,6 +46,7 @@ void ArrayLength::init$() {
 
 void ArrayLength::main($StringArray* args) {
 	$load(ArrayLength);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failed = 0;
 	try {

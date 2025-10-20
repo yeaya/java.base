@@ -102,6 +102,7 @@ int32_t AttributeEntry::hashCode() {
 }
 
 $String* AttributeEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc(this->key)->toString()), "="_s}));
 	return $concat(var$0, $($nc($of(this->value))->toString()));
 }

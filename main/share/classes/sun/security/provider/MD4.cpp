@@ -186,6 +186,7 @@ int32_t MD4::HH(int32_t a, int32_t b, int32_t c, int32_t d, int32_t x, int32_t s
 }
 
 void MD4::implCompress($bytes* buf, int32_t ofs) {
+	$useLocalCurrentObjectStackCache();
 	$init($ByteArrayAccess$LE);
 	int32_t x0 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of(ofs)})));
 	int32_t x1 = $intValue($nc($ByteArrayAccess$LE::INT_ARRAY)->get($$new($ObjectArray, {$of(buf), $$of((ofs + 4))})));
@@ -262,6 +263,7 @@ void MD4::implCompress($bytes* buf, int32_t ofs) {
 }
 
 void clinit$MD4($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$init($SecurityConstants);

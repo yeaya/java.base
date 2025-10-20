@@ -442,19 +442,23 @@ void ModuleLayer::init$($Configuration* cf, $List* parents, $Function* clf) {
 }
 
 ModuleLayer* ModuleLayer::defineModulesWithOneLoader($Configuration* cf, $ClassLoader* parentLoader) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(defineModulesWithOneLoader(cf, $($List::of($of(this))), parentLoader)))->layer();
 }
 
 ModuleLayer* ModuleLayer::defineModulesWithManyLoaders($Configuration* cf, $ClassLoader* parentLoader) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(defineModulesWithManyLoaders(cf, $($List::of($of(this))), parentLoader)))->layer();
 }
 
 ModuleLayer* ModuleLayer::defineModules($Configuration* cf, $Function* clf) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(defineModules(cf, $($List::of($of(this))), clf)))->layer();
 }
 
 $ModuleLayer$Controller* ModuleLayer::defineModulesWithOneLoader($Configuration* cf, $List* parentLayers, $ClassLoader* parentLoader) {
 	$init(ModuleLayer);
+	$useLocalCurrentObjectStackCache();
 	$var($List, parents, $List::copyOf(parentLayers));
 	checkConfiguration(cf, parents);
 	checkCreateClassLoaderPermission();
@@ -476,6 +480,7 @@ $ModuleLayer$Controller* ModuleLayer::defineModulesWithOneLoader($Configuration*
 
 $ModuleLayer$Controller* ModuleLayer::defineModulesWithManyLoaders($Configuration* cf, $List* parentLayers, $ClassLoader* parentLoader) {
 	$init(ModuleLayer);
+	$useLocalCurrentObjectStackCache();
 	$var($List, parents, $List::copyOf(parentLayers));
 	checkConfiguration(cf, parents);
 	checkCreateClassLoaderPermission();
@@ -496,6 +501,7 @@ $ModuleLayer$Controller* ModuleLayer::defineModulesWithManyLoaders($Configuratio
 
 $ModuleLayer$Controller* ModuleLayer::defineModules($Configuration* cf, $List* parentLayers, $Function* clf) {
 	$init(ModuleLayer);
+	$useLocalCurrentObjectStackCache();
 	$var($List, parents, $List::copyOf(parentLayers));
 	checkConfiguration(cf, parents);
 	$Objects::requireNonNull(clf);
@@ -518,6 +524,7 @@ $ModuleLayer$Controller* ModuleLayer::defineModules($Configuration* cf, $List* p
 
 void ModuleLayer::checkConfiguration($Configuration* cf, $List* parentLayers) {
 	$init(ModuleLayer);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(cf);
 	$var($List, parentConfigurations, cf->parents());
 	int32_t var$0 = $nc(parentLayers)->size();
@@ -559,6 +566,7 @@ void ModuleLayer::checkGetClassLoaderPermission() {
 
 void ModuleLayer::checkForDuplicatePkgs($Configuration* cf, $Function* clf) {
 	$init(ModuleLayer);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, loaderToPackages, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
@@ -600,6 +608,7 @@ $List* ModuleLayer::parents() {
 }
 
 $Stream* ModuleLayer::layers() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, allLayers, this->allLayers);
 	if (allLayers != nullptr) {
 		return allLayers->stream();
@@ -624,6 +633,7 @@ $Stream* ModuleLayer::layers() {
 }
 
 $Set* ModuleLayer::modules() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, modules, this->modules$);
 	if (modules == nullptr) {
 		$set(this, modules$, ($assign(modules, $Set::copyOf($($nc(this->nameToModule)->values())))));
@@ -632,6 +642,7 @@ $Set* ModuleLayer::modules() {
 }
 
 $Optional* ModuleLayer::findModule($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (this == ModuleLayer::EMPTY_LAYER) {
 		return $Optional::empty();
@@ -644,6 +655,7 @@ $Optional* ModuleLayer::findModule($String* name) {
 }
 
 $ClassLoader* ModuleLayer::findLoader($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, om, findModule(name));
 	if ($nc(om)->isPresent()) {
 		return $nc(($cast($Module, $(om->get()))))->getClassLoader();
@@ -653,6 +665,7 @@ $ClassLoader* ModuleLayer::findLoader($String* name) {
 }
 
 $String* ModuleLayer::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($String, $nc($($nc($($nc($(modules()))->stream()))->map(static_cast<$Function*>($$new(ModuleLayer$$Lambda$getName$5)))))->collect($($Collectors::joining(", "_s))));
 }
 
@@ -668,6 +681,7 @@ ModuleLayer* ModuleLayer::boot() {
 }
 
 $ServicesCatalog* ModuleLayer::getServicesCatalog() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServicesCatalog, servicesCatalog, this->servicesCatalog);
 	if (servicesCatalog != nullptr) {
 		return servicesCatalog;
@@ -692,6 +706,7 @@ $ServicesCatalog* ModuleLayer::getServicesCatalog() {
 }
 
 void ModuleLayer::bindToLoader($ClassLoader* loader) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $cast($List, $nc(ModuleLayer::CLV)->get(loader)));
 	if (list == nullptr) {
 		$assign(list, $new($CopyOnWriteArrayList));
@@ -729,6 +744,7 @@ $ClassLoader* ModuleLayer::lambda$defineModulesWithOneLoader$0($Loader* loader, 
 }
 
 void clinit$ModuleLayer($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$CDS::initializeFromArchive(ModuleLayer::class$);
 		if (ModuleLayer::EMPTY_LAYER == nullptr) {

@@ -101,6 +101,7 @@ void ConstantBootstraps::init$() {
 }
 
 $Object* ConstantBootstraps::makeConstant($MethodHandle* bootstrapMethod, $String* name, $Class* type, Object$* info, $Class* callerClass) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mt, $nc(bootstrapMethod)->type());
 	bool var$0 = $nc(mt)->parameterCount() < 2;
 	$load($MethodHandles$Lookup);
@@ -111,6 +112,7 @@ $Object* ConstantBootstraps::makeConstant($MethodHandle* bootstrapMethod, $Strin
 }
 
 $Object* ConstantBootstraps::nullConstant($MethodHandles$Lookup* lookup, $String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(($cast($Class, $Objects::requireNonNull(type))))->isPrimitive()) {
 		$throwNew($IllegalArgumentException, $($String::format("not reference: %s"_s, $$new($ObjectArray, {$of(type)}))));
 	}
@@ -118,6 +120,7 @@ $Object* ConstantBootstraps::nullConstant($MethodHandles$Lookup* lookup, $String
 }
 
 $Class* ConstantBootstraps::primitiveClass($MethodHandles$Lookup* lookup, $String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
 	$load($Class);
@@ -139,6 +142,7 @@ $Enum* ConstantBootstraps::enumConstant($MethodHandles$Lookup* lookup, $String* 
 }
 
 $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lookup);
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
@@ -176,6 +180,7 @@ $Object* ConstantBootstraps::getStaticFinal($MethodHandles$Lookup* lookup, $Stri
 }
 
 $Object* ConstantBootstraps::invoke($MethodHandles$Lookup* lookup, $String* name, $Class* type, $MethodHandle* handle$renamed, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handle, handle$renamed);
 	$Objects::requireNonNull(type);
 	$Objects::requireNonNull(handle);
@@ -187,6 +192,7 @@ $Object* ConstantBootstraps::invoke($MethodHandles$Lookup* lookup, $String* name
 }
 
 $VarHandle* ConstantBootstraps::fieldVarHandle($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass, $Class* fieldType) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lookup);
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
@@ -206,6 +212,7 @@ $VarHandle* ConstantBootstraps::fieldVarHandle($MethodHandles$Lookup* lookup, $S
 }
 
 $VarHandle* ConstantBootstraps::staticFieldVarHandle($MethodHandles$Lookup* lookup, $String* name, $Class* type, $Class* declaringClass, $Class* fieldType) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lookup);
 	$Objects::requireNonNull(name);
 	$Objects::requireNonNull(type);
@@ -236,6 +243,7 @@ $VarHandle* ConstantBootstraps::arrayVarHandle($MethodHandles$Lookup* lookup, $S
 }
 
 $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String* name, $Class* dstType, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$init($Void);
 	if (dstType == $Void::TYPE) {
 		$throwNew($ClassCastException, "Can not convert to void"_s);
@@ -263,6 +271,7 @@ $Object* ConstantBootstraps::explicitCast($MethodHandles$Lookup* lookup, $String
 }
 
 $Class* ConstantBootstraps::validateClassAccess($MethodHandles$Lookup* lookup, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(lookup)->accessClass(type);
 		return type;

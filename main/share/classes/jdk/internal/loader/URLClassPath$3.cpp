@@ -88,6 +88,7 @@ void URLClassPath$3::init$($URLClassPath* this$0, $URL* val$url) {
 }
 
 $Object* URLClassPath$3::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, protocol, $nc(this->val$url)->getProtocol());
 	$var($String, file, $nc(this->val$url)->getFile());
 	if (file != nullptr && file->endsWith("/"_s)) {

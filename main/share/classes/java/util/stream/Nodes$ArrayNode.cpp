@@ -121,6 +121,7 @@ void Nodes$ArrayNode::forEach($Consumer* consumer) {
 }
 
 $String* Nodes$ArrayNode::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("ArrayNode[%d][%s]"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
 		$($of($Arrays::toString(this->array)))

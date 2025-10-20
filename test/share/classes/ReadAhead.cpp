@@ -87,11 +87,13 @@ void ReadAhead::test($StreamTokenizer* st) {
 }
 
 void ReadAhead::test($ReadAhead$StreamTokenizerMaker* stm) {
+	$useLocalCurrentObjectStackCache();
 	test($($nc(stm)->create("foo\nx"_s, 4)));
 	test($($nc(stm)->create("foo\r\nx"_s, 4)));
 }
 
 void ReadAhead::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	test(static_cast<$ReadAhead$StreamTokenizerMaker*>($$new($ReadAhead$1)));
 	test(static_cast<$ReadAhead$StreamTokenizerMaker*>($$new($ReadAhead$2)));
 }

@@ -108,6 +108,7 @@ $Object* ConcurrentHashMap$Node::setValue(Object$* value) {
 }
 
 bool ConcurrentHashMap$Node::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, nullptr);
 	$var($Object, v, nullptr);
 	$var($Object, u, nullptr);
@@ -123,6 +124,7 @@ bool ConcurrentHashMap$Node::equals(Object$* o) {
 }
 
 ConcurrentHashMap$Node* ConcurrentHashMap$Node::find(int32_t h, Object$* k) {
+	$useLocalCurrentObjectStackCache();
 	$var(ConcurrentHashMap$Node, e, this);
 	if (k != nullptr) {
 		do {

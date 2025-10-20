@@ -141,6 +141,7 @@ $Future* AbstractExecutorService::submit($Callable* task) {
 }
 
 $Object* AbstractExecutorService::doInvokeAny($Collection* tasks, bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	if (tasks == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -231,6 +232,7 @@ $Object* AbstractExecutorService::invokeAny($Collection* tasks, int64_t timeout,
 }
 
 $List* AbstractExecutorService::invokeAll($Collection* tasks) {
+	$useLocalCurrentObjectStackCache();
 	if (tasks == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -273,6 +275,7 @@ $List* AbstractExecutorService::invokeAll($Collection* tasks) {
 }
 
 $List* AbstractExecutorService::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (tasks == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -339,6 +342,7 @@ void AbstractExecutorService::cancelAll($ArrayList* futures) {
 
 void AbstractExecutorService::cancelAll($ArrayList* futures, int32_t j) {
 	$init(AbstractExecutorService);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t size = $nc(futures)->size(); j < size; ++j) {
 		$nc(($cast($Future, $(futures->get(j)))))->cancel(true);
 	}

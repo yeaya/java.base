@@ -89,6 +89,7 @@ $Object* ConcurrentHashMap$MapReduceEntriesTask::getRawResult() {
 }
 
 void ConcurrentHashMap$MapReduceEntriesTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Function, transformer, nullptr);
 	$var($BiFunction, reducer, nullptr);
 	if (($assign(transformer, this->transformer)) != nullptr && ($assign(reducer, this->reducer)) != nullptr) {

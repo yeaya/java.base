@@ -132,6 +132,7 @@ void Destroy::main($StringArray* args) {
 }
 
 void Destroy::testDestroyChild() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, root, $new($ThreadGroup, "root"_s));
 	$var($ThreadGroup, parent, $new($ThreadGroup, root, "parent"_s));
 	$var($ThreadGroup, child1, $new($ThreadGroup, parent, "child1"_s));

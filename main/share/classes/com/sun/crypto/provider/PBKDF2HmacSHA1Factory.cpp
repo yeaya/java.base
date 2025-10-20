@@ -77,6 +77,7 @@ $SecretKey* PBKDF2HmacSHA1Factory::engineGenerateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* PBKDF2HmacSHA1Factory::engineGetKeySpec($SecretKey* key, $Class* keySpecCl) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($PBEKey, key)) {
 		$load($PBEKeySpec);
 		if ((keySpecCl != nullptr) && $PBEKeySpec::class$->isAssignableFrom(keySpecCl)) {
@@ -118,6 +119,7 @@ $KeySpec* PBKDF2HmacSHA1Factory::engineGetKeySpec($SecretKey* key, $Class* keySp
 }
 
 $SecretKey* PBKDF2HmacSHA1Factory::engineTranslateKey($SecretKey* key) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = (key != nullptr) && ($nc($(key->getAlgorithm()))->equalsIgnoreCase("PBKDF2WithHmacSHA1"_s));
 	if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {
 		if ($instanceOf($PBKDF2KeyImpl, key)) {

@@ -122,6 +122,7 @@ void ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::send($HandshakeOutStrea
 }
 
 $String* ECDHClientKeyExchange$ECDHClientKeyExchangeMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ECDH ClientKeyExchange\": \'{\'\n  \"ecdh public\": \'{\'\n{0}\n  \'}\',\n\'}\'"_s, $Locale::ENGLISH));
 	if (this->encodedPoint == nullptr || $nc(this->encodedPoint)->length == 0) {

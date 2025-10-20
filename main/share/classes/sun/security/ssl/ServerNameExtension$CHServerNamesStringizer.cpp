@@ -64,6 +64,7 @@ void ServerNameExtension$CHServerNamesStringizer::init$() {
 }
 
 $String* ServerNameExtension$CHServerNamesStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($ServerNameExtension$CHServerNamesSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

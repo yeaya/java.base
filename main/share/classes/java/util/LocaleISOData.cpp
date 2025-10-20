@@ -54,6 +54,7 @@ $StringArray* LocaleISOData::ISO3166_3 = nullptr;
 
 $Set* LocaleISOData::computeISO3166_1Alpha3Countries() {
 	$init(LocaleISOData);
+	$useLocalCurrentObjectStackCache();
 	int32_t tableLength = $nc(LocaleISOData::isoCountryTable)->length();
 	$var($StringArray, isoTable, $new($StringArray, tableLength / 5));
 	{

@@ -86,6 +86,7 @@ $Object* allocate$PropertyResourceBundle($Class* clazz) {
 $String* PropertyResourceBundle::encoding = nullptr;
 
 void PropertyResourceBundle::init$($InputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$init($ISO_8859_1);
 	PropertyResourceBundle::init$(static_cast<$Reader*>($$new($InputStreamReader, stream, "ISO-8859-1"_s->equals(PropertyResourceBundle::encoding) ? $($nc($ISO_8859_1::INSTANCE)->newDecoder()) : $($$new($PropertyResourceBundleCharset, "UTF-8"_s->equals(PropertyResourceBundle::encoding))->newDecoder()))));
 }
@@ -105,6 +106,7 @@ $Object* PropertyResourceBundle::handleGetObject($String* key) {
 }
 
 $Enumeration* PropertyResourceBundle::getKeys() {
+	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle, parent, this->parent);
 	$var($Set, var$0, $nc(this->lookup)->keySet());
 	return $new($ResourceBundleEnumeration, var$0, (parent != nullptr) ? $($nc(parent)->getKeys()) : ($Enumeration*)nullptr);

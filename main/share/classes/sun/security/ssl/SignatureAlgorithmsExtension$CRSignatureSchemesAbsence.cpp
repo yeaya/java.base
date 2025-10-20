@@ -72,6 +72,7 @@ void SignatureAlgorithmsExtension$CRSignatureSchemesAbsence::init$() {
 }
 
 void SignatureAlgorithmsExtension$CRSignatureSchemesAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($Alert);
 	$throw($($nc($nc(chc)->conContext)->fatal($Alert::MISSING_EXTENSION, "No mandatory signature_algorithms extension in the received CertificateRequest handshake message"_s)));

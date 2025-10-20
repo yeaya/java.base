@@ -108,6 +108,7 @@ void DateTimeFormatter$ClassicFormat::init$($DateTimeFormatter* formatter, $Temp
 }
 
 $StringBuffer* DateTimeFormatter$ClassicFormat::format(Object$* obj, $StringBuffer* toAppendTo, $FieldPosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(obj, "obj"_s);
 	$Objects::requireNonNull($of(toAppendTo), "toAppendTo"_s);
 	$Objects::requireNonNull($of(pos), "pos"_s);
@@ -126,6 +127,7 @@ $StringBuffer* DateTimeFormatter$ClassicFormat::format(Object$* obj, $StringBuff
 }
 
 $Object* DateTimeFormatter$ClassicFormat::parseObject($String* text) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	try {
 		if (this->parseType == nullptr) {
@@ -144,6 +146,7 @@ $Object* DateTimeFormatter$ClassicFormat::parseObject($String* text) {
 }
 
 $Object* DateTimeFormatter$ClassicFormat::parseObject($String* text, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$var($DateTimeParseContext, context, nullptr);
 	try {

@@ -81,11 +81,13 @@ void RemappingFieldAdapter::init$(int32_t api, $FieldVisitor* fieldVisitor, $Rem
 }
 
 $AnnotationVisitor* RemappingFieldAdapter::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $nc(this->fv)->visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingFieldAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $FieldVisitor::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }

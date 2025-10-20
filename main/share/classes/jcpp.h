@@ -343,16 +343,16 @@ inline To* $tryCast(const ::java::lang::Throwable* ex) {
 			volatile ::java::lang::MagicObjectVar name##$objvar(name##$init); \
 			decltype(name##$init)& name = (decltype(name##$init)&)name##$objvar.obj;
 #else
-	#define $ref(...) ::java::lang::makeRef(__VA_ARGS__).t
+	//#define $ref(...) ::java::lang::makeRef(__VA_ARGS__).t
 	// #define $ref(x) ((decltype(x))(void*)::java::lang::Ref($of(x)).t)
 
 	#ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
-		#define $var(type, name, ...) \
-				type* name = $tryCast<type>(__VA_ARGS__); \
-				::java::lang::ObjectVar name##$objvar(name);
-		#define $auto(name, ...) \
-				auto name = __VA_ARGS__; \
-				::java::lang::ObjectVar name##$objvar(name);
+	//	#define $var(type, name, ...) \
+	//			type* name = $tryCast<type>(__VA_ARGS__); \
+	//			::java::lang::ObjectVar name##$objvar(name, $currentStackCache);
+	//	#define $auto(name, ...) \
+	//			auto name = __VA_ARGS__; \
+	//			::java::lang::ObjectVar name##$objvar(name, $currentStackCache);
 	#elif defined(JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS)
 		#define $var(type, name, ...) \
 				type* name = $tryCast<type>(__VA_ARGS__); \
@@ -1110,65 +1110,69 @@ inline Type* $assignStatic0($volatile(Type*)& field, Value value) {
 #ifdef JCPP_OBJECT_VAR_STACK_DUAL_STACK
 #define $assignLocalVar(var, x) var.assign(x)
 #else
-#define $assignLocalVar(var, x)
+#define $assignLocalVar(var, x) (x)
 #endif
 
-template<typename Type, typename Value, $enable_if(!$is_object0(Type))>
-inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, Value value) {
-	Type* v = $tryCast<Type>(value);
-	$assignLocalVar(var, v);
-	return v;
-}
-template<typename Type, typename Value, $enable_if($is_object0(Type))>
-inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, Value value) {
-	Type* v = $tryCast<Type>(value);
-	$assignLocalVar(var, v);
-	return v;
-}
+//template<typename Type, typename Value, $enable_if(!$is_object0(Type))>
+//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, Value value) {
+//	Type* v = $tryCast<Type>(value);
+//	$assignLocalVar(var, v);
+//	return v;
+//}
+//template<typename Type, typename Value, $enable_if($is_object0(Type))>
+//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, Value value) {
+//	Type* v = $tryCast<Type>(value);
+//	$assignLocalVar(var, v);
+//	return v;
+//}
+//
+//template<typename Type, $enable_if(!$is_object0(Type))>
+//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, ::std::nullptr_t value) {
+//	$assignLocalVar(var, nullptr);
+//	return nullptr;
+//}
+//template<typename Type, $enable_if($is_object0(Type))>
+//inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, ::std::nullptr_t value) {
+//	$assignLocalVar(var, nullptr);
+//	return nullptr;
+//}
 
-template<typename Type, $enable_if(!$is_object0(Type))>
-inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, ::std::nullptr_t value) {
-	$assignLocalVar(var, nullptr);
-	return nullptr;
-}
-template<typename Type, $enable_if($is_object0(Type))>
-inline Type* $assignLocal0(::java::lang::ObjectVar<Type>& var, ::std::nullptr_t value) {
-	$assignLocalVar(var, nullptr);
-	return nullptr;
-}
-
-#define $assignLocal(var, ...) (var = $assignLocal0(var##$objvar, __VA_ARGS__))
+//#define $assignLocal(var, ...) (var = $assignLocal0(var##$objvar, __VA_ARGS__))
+#define $assignLocal(var, ...) (var = $assignLocalVar(var##$objvar, $tryCast<::std::decay<decltype(*var)>::type>(__VA_ARGS__)))
+//#define $assignLocal(var, ...) res$objvar.assign($tryCast<::std::decay<decltype(*res)>::type>(String::concat(oldField, value)));
 #define $assign(var, ...) $assignLocal(var, __VA_ARGS__)
 
-template<typename T, $enable_if($is_base_of(::java::lang::Object, T))>
-inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, T* value) {
-	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, $$tostr(value)));
-	$assignLocalVar(var, res);
-	return res;
-}
+//template<typename T, $enable_if($is_base_of(::java::lang::Object, T))>
+//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, T* value) {
+//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, $$tostr(value)));
+//	$assignLocalVar(var, res);
+//	return res;
+//}
+//
+//template<typename T, $enable_if(!$is_base_of(::java::lang::Object, T))>
+//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, T value) {
+//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, $$str(value)));
+//	$assignLocalVar(var, res);
+//	return res;
+//}
+//
+//template<typename T>
+//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, ::java::lang::String* value) {
+//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, value));
+//	$assignLocalVar(var, res);
+//	return res;
+//}
+//
+//template<typename T>
+//inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, ::std::nullptr_t) {
+//	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, "null"_s));
+//	$assignLocalVar(var, res);
+//	return res;
+//}
 
-template<typename T, $enable_if(!$is_base_of(::java::lang::Object, T))>
-inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, T value) {
-	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, $$str(value)));
-	$assignLocalVar(var, res);
-	return res;
-}
-
-template<typename T>
-inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, ::java::lang::String* value) {
-	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, value));
-	$assignLocalVar(var, res);
-	return res;
-}
-
-template<typename T>
-inline ::java::lang::String* $plusAssignLocal0(::java::lang::ObjectVar<::java::lang::String>& var, ::java::lang::String* varValue, ::std::nullptr_t) {
-	$var(::java::lang::String, res, ::java::lang::String::concat(varValue, "null"_s));
-	$assignLocalVar(var, res);
-	return res;
-}
-
-#define $plusAssignLocal(var, ...) (var = $plusAssignLocal0(var##$objvar, var, __VA_ARGS__))
+//#define $plusAssignLocal(var, ...) (var = $plusAssignLocal0(var##$objvar, var, __VA_ARGS__))
+//#define $plusAssignLocal(var, ...) $assignLocalVar(var = $(::java::lang::String::concat(varValue, __VA_ARGS__)))
+#define $plusAssignLocal(var, ...) (var = $assignLocalVar(var##$objvar, $tryCast<::std::decay<decltype(*var)>::type>(::java::lang::String::concat(var, $$str(__VA_ARGS__)))))
 #define $plusAssign(var, ...) $plusAssignLocal(var, __VA_ARGS__)
 
 template<typename T, $enable_if($is_base_of(::java::lang::Object, T))>

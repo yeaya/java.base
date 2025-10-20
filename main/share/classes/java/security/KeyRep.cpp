@@ -112,6 +112,7 @@ void KeyRep::init$($KeyRep$Type* type, $String* algorithm, $String* format, $byt
 }
 
 $Object* KeyRep::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($KeyRep$Type);
 		if (this->type == $KeyRep$Type::SECRET && $nc(KeyRep::RAW)->equals(this->format)) {

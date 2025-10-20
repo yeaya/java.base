@@ -100,6 +100,7 @@ $Object* allocate$ArrayBlockingQueue$Itr($Class* clazz) {
 }
 
 void ArrayBlockingQueue$Itr::init$($ArrayBlockingQueue* this$0) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	this->lastRet = ArrayBlockingQueue$Itr::NONE;
 	$var($ReentrantLock, lock, this$0->lock);
@@ -202,6 +203,7 @@ bool ArrayBlockingQueue$Itr::hasNext() {
 }
 
 void ArrayBlockingQueue$Itr::noNext() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
 	{
@@ -226,6 +228,7 @@ void ArrayBlockingQueue$Itr::noNext() {
 }
 
 $Object* ArrayBlockingQueue$Itr::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, e, this->nextItem);
 	if (e == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -263,6 +266,7 @@ $Object* ArrayBlockingQueue$Itr::next() {
 }
 
 void ArrayBlockingQueue$Itr::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
@@ -315,6 +319,7 @@ void ArrayBlockingQueue$Itr::forEachRemaining($Consumer* action) {
 }
 
 void ArrayBlockingQueue$Itr::remove() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->this$0->lock);
 	$nc(lock)->lock();
 	{

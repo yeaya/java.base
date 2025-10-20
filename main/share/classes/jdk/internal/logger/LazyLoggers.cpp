@@ -208,6 +208,7 @@ void LazyLoggers::init$() {
 
 $System$LoggerFinder* LazyLoggers::accessLoggerFinder() {
 	$init(LazyLoggers);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($System$LoggerFinder, prov, LazyLoggers::provider);
 	if (prov == nullptr) {
@@ -220,6 +221,7 @@ $System$LoggerFinder* LazyLoggers::accessLoggerFinder() {
 
 $System$Logger* LazyLoggers::getLoggerFromFinder($String* name, $Module* module) {
 	$init(LazyLoggers);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr) {

@@ -122,6 +122,7 @@ void DSAKeyPairGenerator::init$(int32_t defaultKeySize) {
 
 void DSAKeyPairGenerator::checkStrength(int32_t sizeP, int32_t sizeQ) {
 	$init(DSAKeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	if ((sizeP >= 512) && (sizeP <= 1024) && (sizeP % 64 == 0) && sizeQ == 160) {
 	} else if (sizeP == 2048 && (sizeQ == 224 || sizeQ == 256)) {
 	} else if (sizeP == 3072 && sizeQ == 256) {
@@ -152,6 +153,7 @@ void DSAKeyPairGenerator::init(int32_t modlen, $SecureRandom* random, bool force
 }
 
 void DSAKeyPairGenerator::init($DSAParameterSpec* params, $SecureRandom* random, bool forceNew) {
+	$useLocalCurrentObjectStackCache();
 	int32_t sizeP = $nc($($nc(params)->getP()))->bitLength();
 	int32_t sizeQ = $nc($(params->getQ()))->bitLength();
 	checkStrength(sizeP, sizeQ);
@@ -163,6 +165,7 @@ void DSAKeyPairGenerator::init($DSAParameterSpec* params, $SecureRandom* random,
 }
 
 $KeyPair* DSAKeyPairGenerator::generateKeyPair() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $JCAUtil::getSecureRandom());
 	}
@@ -186,6 +189,7 @@ $KeyPair* DSAKeyPairGenerator::generateKeyPair() {
 }
 
 $KeyPair* DSAKeyPairGenerator::generateKeyPair($BigInteger* p, $BigInteger* q, $BigInteger* g, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, x, generateX(random, q));
 	$var($BigInteger, y, generateY(x, p, g));
 	try {
@@ -202,6 +206,7 @@ $KeyPair* DSAKeyPairGenerator::generateKeyPair($BigInteger* p, $BigInteger* q, $
 }
 
 $BigInteger* DSAKeyPairGenerator::generateX($SecureRandom* random, $BigInteger* q) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, x, nullptr);
 	$var($bytes, temp, $new($bytes, this->qlen));
 	while (true) {

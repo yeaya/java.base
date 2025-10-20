@@ -113,6 +113,7 @@ void LinuxFileSystem::copyNonPosixAttributes(int32_t ofd, int32_t nfd) {
 }
 
 $List* LinuxFileSystem::getMountEntries($String* fstab) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, entries, $new($ArrayList));
 	try {
 		$var($bytes, var$0, $Util::toBytes(fstab));

@@ -118,6 +118,7 @@ $Debug* KeyGenerator::pdebug = nullptr;
 bool KeyGenerator::skipDebug = false;
 
 void KeyGenerator::init$($KeyGeneratorSpi* keyGenSpi, $Provider* provider, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lock, $new($Object));
 	$set(this, spi, keyGenSpi);
 	$set(this, provider, provider);
@@ -128,6 +129,7 @@ void KeyGenerator::init$($KeyGeneratorSpi* keyGenSpi, $Provider* provider, $Stri
 }
 
 void KeyGenerator::init$($String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lock, $new($Object));
 	$set(this, algorithm, algorithm);
 	$var($List, list, $GetInstance::getServices("KeyGenerator"_s, algorithm));
@@ -179,6 +181,7 @@ $Provider* KeyGenerator::getProvider() {
 }
 
 $KeyGeneratorSpi* KeyGenerator::nextSpi($KeyGeneratorSpi* oldSpi, bool reinit) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if ((oldSpi != nullptr) && (oldSpi != this->spi)) {
 			return this->spi;
@@ -228,6 +231,7 @@ void KeyGenerator::disableFailover() {
 }
 
 void KeyGenerator::init($SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->engineInit(random);
 		return;
@@ -258,6 +262,7 @@ void KeyGenerator::init($AlgorithmParameterSpec* params) {
 }
 
 void KeyGenerator::init($AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->engineInit(params, random);
 		return;
@@ -294,6 +299,7 @@ void KeyGenerator::init(int32_t keysize) {
 }
 
 void KeyGenerator::init(int32_t keysize, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->engineInit(keysize, random);
 		return;
@@ -320,6 +326,7 @@ void KeyGenerator::init(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* KeyGenerator::generateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGenerateKey();
 	}

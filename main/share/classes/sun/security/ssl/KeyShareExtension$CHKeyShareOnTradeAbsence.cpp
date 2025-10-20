@@ -79,6 +79,7 @@ void KeyShareExtension$CHKeyShareOnTradeAbsence::init$() {
 }
 
 void KeyShareExtension$CHKeyShareOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	bool var$0 = $nc($nc(shc)->negotiatedProtocol)->useTLS13PlusSpec();
 	$init($SSLExtension);

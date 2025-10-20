@@ -82,6 +82,7 @@ void Integer$IntegerCache::init$() {
 }
 
 void clinit$Integer$IntegerCache($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$load($Integer);
 	Integer$IntegerCache::$assertionsDisabled = !$Integer::class$->desiredAssertionStatus();
 	{

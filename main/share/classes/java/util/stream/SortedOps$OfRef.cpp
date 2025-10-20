@@ -135,6 +135,7 @@ $Sink* SortedOps$OfRef::opWrapSink(int32_t flags, $Sink* sink) {
 }
 
 $Node* SortedOps$OfRef::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::SORTED->isKnown($nc(helper)->getStreamAndOpFlags()) && this->isNaturalSort) {
 		return $nc(helper)->evaluate(spliterator, false, generator);

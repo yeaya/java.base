@@ -94,6 +94,7 @@ $ZoneId* Clock$TickClock::getZone() {
 }
 
 $Clock* Clock$TickClock::withZone($ZoneId* zone) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(zone)->equals($($nc(this->baseClock)->getZone()))) {
 		return this;
 	}
@@ -133,6 +134,7 @@ int32_t Clock$TickClock::hashCode() {
 }
 
 $String* Clock$TickClock::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"TickClock["_s, this->baseClock, ","_s}));
 	$var($String, var$0, $$concat(var$1, $($Duration::ofNanos(this->tickNanos))));
 	return $concat(var$0, "]");

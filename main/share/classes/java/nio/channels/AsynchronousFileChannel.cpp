@@ -100,6 +100,7 @@ void AsynchronousFileChannel::init$() {
 
 AsynchronousFileChannel* AsynchronousFileChannel::open($Path* file, $Set* options, $ExecutorService* executor, $FileAttributeArray* attrs) {
 	$init(AsynchronousFileChannel);
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystemProvider, provider, $nc($($nc(file)->getFileSystem()))->provider());
 	return $nc(provider)->newAsynchronousFileChannel(file, options, executor, attrs);
 }

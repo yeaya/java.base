@@ -355,11 +355,13 @@ bool BasicImageReader::MAP_ALL = false;
 
 bool BasicImageReader::isSystemProperty($String* key, $String* value, $String* def) {
 	$init(BasicImageReader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($BasicImageReader$1, value, key, def)))))))->booleanValue();
 }
 
 void BasicImageReader::init$($Path* path, $ByteOrder* byteOrder) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$set(this, imagePath, $cast($Path, $Objects::requireNonNull(path)));
 	$set(this, byteOrder, $cast($ByteOrder, $Objects::requireNonNull(byteOrder)));
@@ -433,6 +435,7 @@ $ImageHeader* BasicImageReader::getHeader() {
 }
 
 $ImageHeader* BasicImageReader::readHeader($IntBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageHeader, result, $ImageHeader::readFrom(buffer));
 	if ($nc(result)->getMagic() != $ImageHeader::MAGIC) {
 		$throwNew($IOException, $$str({"\""_s, this->name, "\" is not an image file"_s}));
@@ -455,6 +458,7 @@ $ByteBuffer* BasicImageReader::slice($ByteBuffer* buffer, int32_t position, int3
 }
 
 $IntBuffer* BasicImageReader::intBuffer($ByteBuffer* buffer, int32_t offset, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(slice(buffer, offset, size)))->order(this->byteOrder)))->asIntBuffer();
 }
 
@@ -546,6 +550,7 @@ int32_t BasicImageReader::getLocationIndex($String* module, $String* name) {
 }
 
 $StringArray* BasicImageReader::getEntryNames() {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, attributeOffsets, $new($ints, $nc(this->offsets)->capacity()));
 	$nc(this->offsets)->get(attributeOffsets);
 	return $fcast($StringArray, $nc($($nc($($nc($($nc($($IntStream::of(attributeOffsets)))->filter(static_cast<$IntPredicate*>($$new(BasicImageReader$$Lambda$lambda$getEntryNames$0)))))->mapToObj(static_cast<$IntFunction*>($$new(BasicImageReader$$Lambda$lambda$getEntryNames$1$1, this)))))->sorted()))->toArray(static_cast<$IntFunction*>($$new(BasicImageReader$$Lambda$lambda$getEntryNames$2$2))));
@@ -584,6 +589,7 @@ $bytes* BasicImageReader::getBufferBytes($ByteBuffer* buffer) {
 }
 
 $ByteBuffer* BasicImageReader::readBuffer(int64_t offset, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (offset < 0 || $Integer::MAX_VALUE <= offset) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Bad offset: "_s, $$str(offset)}));
 	}
@@ -624,6 +630,7 @@ $bytes* BasicImageReader::getResource($String* name) {
 }
 
 $bytes* BasicImageReader::getResource($ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, buffer, getResourceBuffer(loc));
 	if (buffer != nullptr) {
 		$var($bytes, bytes, getBufferBytes(buffer));
@@ -634,6 +641,7 @@ $bytes* BasicImageReader::getResource($ImageLocation* loc) {
 }
 
 $ByteBuffer* BasicImageReader::getResourceBuffer($ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(loc);
 	int64_t offset = loc->getContentOffset() + this->indexSize;
 	int64_t compressedSize = loc->getCompressedSize();

@@ -129,6 +129,7 @@ void SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher::init$($Authenticator* au
 }
 
 $Plaintext* SSLCipher$T12GcmReadCipherGenerator$GcmReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bb)->remaining() < (this->recordIvSize + this->tagSize)) {
 		$throwNew($BadPaddingException, $$str({"Insufficient buffer remaining for AEAD cipher fragment ("_s, $$str(bb->remaining()), "). Needs to be more than or equal to IV size ("_s, $$str(this->recordIvSize), ") + tag size ("_s, $$str(this->tagSize), ")"_s}));
 	}

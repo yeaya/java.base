@@ -70,6 +70,7 @@ int32_t FinalizeOverride$Base::called() {
 }
 
 void FinalizeOverride$Base::finalize() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Base.finalize() sum += "_s, $$str(called())}));
 	$init($FinalizeOverride);

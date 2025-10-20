@@ -112,6 +112,7 @@ $Object* allocate$ImmutableCollections$MapN($Class* clazz) {
 }
 
 void ImmutableCollections$MapN::init$($ObjectArray* input) {
+	$useLocalCurrentObjectStackCache();
 	$ImmutableCollections$AbstractImmutableMap::init$();
 	if (((int32_t)($nc(input)->length & (uint32_t)1)) != 0) {
 		$throwNew($InternalError, "length is odd"_s);
@@ -140,6 +141,7 @@ bool ImmutableCollections$MapN::containsKey(Object$* o) {
 }
 
 bool ImmutableCollections$MapN::containsValue(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(o);
 	for (int32_t i = 1; i < $nc(this->table)->length; i += 2) {
 		$var($Object0, v, $nc(this->table)->get(i));
@@ -151,6 +153,7 @@ bool ImmutableCollections$MapN::containsValue(Object$* o) {
 }
 
 int32_t ImmutableCollections$MapN::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t hash = 0;
 	for (int32_t i = 0; i < $nc(this->table)->length; i += 2) {
 		$var($Object0, k, $nc(this->table)->get(i));
@@ -188,6 +191,7 @@ $Set* ImmutableCollections$MapN::entrySet() {
 }
 
 int32_t ImmutableCollections$MapN::probe(Object$* pk) {
+	$useLocalCurrentObjectStackCache();
 	int32_t idx = $Math::floorMod($nc($of(pk))->hashCode(), $nc(this->table)->length >> 1) << 1;
 	while (true) {
 		$var($Object, ek, $nc(this->table)->get(idx));

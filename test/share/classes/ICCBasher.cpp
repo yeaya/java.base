@@ -67,6 +67,7 @@ void ICCBasher::init$() {
 }
 
 void ICCBasher::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList, L1, $new($LinkedList));
 	$var($LinkedList, L2, $new($LinkedList));
 	$var($LinkedList, L3, $new($LinkedList));

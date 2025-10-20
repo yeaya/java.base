@@ -116,6 +116,7 @@ void ImplicitStringConcat::init$() {
 
 void ImplicitStringConcat::main($StringArray* args) {
 	$init(ImplicitStringConcat);
+	$useLocalCurrentObjectStackCache();
 	test("footrue"_s, $$str({ImplicitStringConcat::s, $$str(ImplicitStringConcat::b)}));
 	test("foo42"_s, $$str({ImplicitStringConcat::s, $$str(ImplicitStringConcat::by)}));
 	test("foo42"_s, $$str({ImplicitStringConcat::s, $$str(ImplicitStringConcat::sh)}));
@@ -218,6 +219,7 @@ void ImplicitStringConcat::main($StringArray* args) {
 
 void ImplicitStringConcat::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcat);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);

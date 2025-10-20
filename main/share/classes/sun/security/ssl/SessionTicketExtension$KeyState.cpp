@@ -81,6 +81,7 @@ void SessionTicketExtension$KeyState::init$() {
 }
 
 $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getKey($HandshakeContext* hc, int32_t num) {
+	$useLocalCurrentObjectStackCache();
 	$var($SessionTicketExtension$StatelessKey, ssk, $cast($SessionTicketExtension$StatelessKey, $nc($nc($nc(hc)->sslContext)->keyHashMap)->get($($Integer::valueOf(num)))));
 	if (ssk == nullptr || $nc(ssk)->isInvalid(getSessionTimeout(hc))) {
 		return nullptr;
@@ -89,6 +90,7 @@ $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getKey($H
 }
 
 $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getCurrentKey($HandshakeContext* hc) {
+	$useLocalCurrentObjectStackCache();
 	$init($SessionTicketExtension);
 	$var($SessionTicketExtension$StatelessKey, ssk, $cast($SessionTicketExtension$StatelessKey, $nc($nc($nc(hc)->sslContext)->keyHashMap)->get($($Integer::valueOf($SessionTicketExtension::currentKeyID)))));
 	if (ssk != nullptr && !ssk->isExpired()) {
@@ -98,6 +100,7 @@ $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::getCurren
 }
 
 $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::nextKey($HandshakeContext* hc) {
+	$useLocalCurrentObjectStackCache();
 	$var($SessionTicketExtension$StatelessKey, ssk, nullptr);
 	$synchronized($nc($nc(hc)->sslContext)->keyHashMap) {
 		$init($SessionTicketExtension);
@@ -119,6 +122,7 @@ $SessionTicketExtension$StatelessKey* SessionTicketExtension$KeyState::nextKey($
 }
 
 void SessionTicketExtension$KeyState::cleanup($HandshakeContext* hc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t sessionTimeout = getSessionTimeout(hc);
 	$var($SessionTicketExtension$StatelessKey, ks, nullptr);
 	{

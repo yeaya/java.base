@@ -44,6 +44,7 @@ void IDNTest::init$() {
 }
 
 void IDNTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Socket, s, $new($Socket, u"\u67f4\u7530\u82b3\u6a39"_s, 8000));
 	} catch ($UnknownHostException&) {

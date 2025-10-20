@@ -158,6 +158,7 @@ $SelectorProvider* SelectorProvider$Holder::provider() {
 
 $SelectorProvider* SelectorProvider$Holder::loadProviderFromProperty() {
 	$init(SelectorProvider$Holder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cn, $System::getProperty("java.nio.channels.spi.SelectorProvider"_s));
 	if (cn == nullptr) {
@@ -190,6 +191,7 @@ $SelectorProvider* SelectorProvider$Holder::loadProviderFromProperty() {
 
 $SelectorProvider* SelectorProvider$Holder::loadProviderAsService() {
 	$init(SelectorProvider$Holder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($SelectorProvider);
 	$var($ServiceLoader, sl, $ServiceLoader::load($SelectorProvider::class$, $($ClassLoader::getSystemClassLoader())));

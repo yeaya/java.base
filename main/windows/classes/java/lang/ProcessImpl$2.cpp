@@ -103,6 +103,7 @@ void ProcessImpl$2::init$($ProcessImpl* this$0, $longs* val$stdHandles, bool val
 }
 
 $Object* ProcessImpl$2::run() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->val$stdHandles)->get(0) == (int64_t)-1) {
 		$init($ProcessBuilder$NullOutputStream);
 		$set(this->this$0, stdin_stream, $ProcessBuilder$NullOutputStream::INSTANCE);

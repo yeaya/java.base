@@ -46,12 +46,14 @@ void Formatted::main($StringArray* args) {
 }
 
 void Formatted::test1() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, "formatted(Object... args)"_s);
 	$var($String, var$1, "Test this %s"_s->formatted($$new($ObjectArray, {$of("and that"_s)})));
 	check(var$0, var$1, $($String::format("Test this %s"_s, $$new($ObjectArray, {$of("and that"_s)}))));
 }
 
 void Formatted::check($String* test, $String* output, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	if (output != expected && (output == nullptr || !$nc(output)->equals(expected))) {
 		$init($System);
 		$nc($System::err)->println($$str({"Testing "_s, test, ": unexpected result"_s}));

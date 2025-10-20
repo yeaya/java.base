@@ -83,6 +83,7 @@ void ZoneRulesProvider$1::init$($List* val$loaded) {
 }
 
 $Object* ZoneRulesProvider$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, prop, $System::getProperty("java.time.zone.DefaultZoneRulesProvider"_s));
 	if (prop != nullptr) {

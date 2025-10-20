@@ -138,6 +138,7 @@ void ProviderConfig::init$($Provider* provider) {
 }
 
 void ProviderConfig::checkSunPKCS11Solaris() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Boolean, o, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ProviderConfig$1, this)))));
 	$init($Boolean);
@@ -188,6 +189,7 @@ $String* ProviderConfig::toString() {
 }
 
 $Provider* ProviderConfig::getProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Provider, p, this->provider);
 	if (p != nullptr) {

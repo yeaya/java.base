@@ -95,6 +95,7 @@ void ExceedMaxDim::main($StringArray* args) {
 }
 
 void ExceedMaxDim::testImplicitLoader() {
+	$useLocalCurrentObjectStackCache();
 	assertSucceedForName(this->name1, ExceedMaxDim::IMPLICIT_LOADER);
 	assertSucceedForName(this->name254, ExceedMaxDim::IMPLICIT_LOADER);
 	assertSucceedForName(this->name255, ExceedMaxDim::IMPLICIT_LOADER);
@@ -105,6 +106,7 @@ void ExceedMaxDim::testImplicitLoader() {
 }
 
 void ExceedMaxDim::testOtherLoader() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, ExceedMaxDim::class$->getClassLoader());
 	assertSucceedForName(this->name1, cl);
@@ -117,6 +119,7 @@ void ExceedMaxDim::testOtherLoader() {
 }
 
 void ExceedMaxDim::assertFailForName($String* name, $ClassLoader* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = nullptr;
 	try {
@@ -134,6 +137,7 @@ void ExceedMaxDim::assertFailForName($String* name, $ClassLoader* cl) {
 }
 
 void ExceedMaxDim::assertSucceedForName($String* name, $ClassLoader* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = nullptr;
 	try {

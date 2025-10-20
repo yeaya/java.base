@@ -70,6 +70,7 @@ void FasterWriter::run() {
 
 void FasterWriter::main($StringArray* args) {
 	$init(FasterWriter);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(FasterWriter::is, $new($PipedInputStream));
 	$assignStatic(FasterWriter::os, $new($PipedOutputStream, FasterWriter::is));
 	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new(FasterWriter))));

@@ -121,6 +121,7 @@ void StackTraceSerialization::main($StringArray* args) {
 
 void StackTraceSerialization::testWithSetStackTrace() {
 	$init(StackTraceSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElementArray, stackTrace, $new($StackTraceElementArray, {$$new($StackTraceElement, "foo"_s, "bar"_s, "baz"_s, -1)}));
 	$var($Throwable, t, $new($StackTraceSerialization$TestThrowable, true, false));
 	assertEmptyStackTrace(t);
@@ -161,6 +162,7 @@ void StackTraceSerialization::assertEmptyStackTrace($Throwable* t) {
 
 void StackTraceSerialization::testWithFillInStackTrace() {
 	$init(StackTraceSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, original, nullptr);
 	try {
 		a();
@@ -175,6 +177,7 @@ void StackTraceSerialization::testWithFillInStackTrace() {
 
 $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 	$init(StackTraceSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, result, nullptr);
 	try {
 		$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
@@ -290,6 +293,7 @@ $Throwable* StackTraceSerialization::reconstitute($Throwable* t) {
 
 bool StackTraceSerialization::equal($Throwable* t1, $Throwable* t2) {
 	$init(StackTraceSerialization);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = t1 == t2;
 	if (!var$0) {
 		$var($ObjectArray, var$3, $nc(t1)->getStackTrace());
@@ -345,6 +349,7 @@ void StackTraceSerialization::e() {
 
 void StackTraceSerialization::check($StackTraceElement* e, $String* methodName, int32_t n) {
 	$init(StackTraceSerialization);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(e)->getClassName()))->equals(StackTraceSerialization::OUR_CLASS)) {
 		$throwNew($RuntimeException, $$str({"Class: "_s, e}));
 	}

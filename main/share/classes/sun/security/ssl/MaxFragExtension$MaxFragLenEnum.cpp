@@ -126,6 +126,7 @@ MaxFragExtension$MaxFragLenEnum* MaxFragExtension$MaxFragLenEnum::valueOf(int8_t
 
 $String* MaxFragExtension$MaxFragLenEnum::nameOf(int8_t id) {
 	$init(MaxFragExtension$MaxFragLenEnum);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($MaxFragExtension$MaxFragLenEnumArray, arr$, MaxFragExtension$MaxFragLenEnum::values());
 		int32_t len$ = $nc(arr$)->length;

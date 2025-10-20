@@ -84,6 +84,7 @@ void BigFork::touchPages($bytes* chunk) {
 
 void BigFork::showCommittedMemory() {
 	$init(BigFork);
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedReader, r, $new($BufferedReader, $$new($InputStreamReader, $$new($FileInputStream, "/proc/meminfo"_s))));
 	$init($System);
 	$nc($System::out)->println("-------"_s);
@@ -98,6 +99,7 @@ void BigFork::showCommittedMemory() {
 
 void BigFork::main($StringArray* args) {
 	$init(BigFork);
+	$useLocalCurrentObjectStackCache();
 	showCommittedMemory();
 	int32_t chunkSize = 1024 * 1024 * 100;
 	$var($List, chunks, $new($ArrayList, 100));

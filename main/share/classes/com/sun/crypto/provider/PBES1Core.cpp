@@ -132,6 +132,7 @@ $Object* allocate$PBES1Core($Class* clazz) {
 }
 
 void PBES1Core::init$($String* cipherAlg) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, algo, nullptr);
 	$set(this, salt, nullptr);
 	this->iCount = 10;
@@ -169,6 +170,7 @@ $bytes* PBES1Core::getIV() {
 }
 
 $AlgorithmParameters* PBES1Core::getParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->salt == nullptr) {
 		$set(this, salt, $new($bytes, 8));
@@ -190,6 +192,7 @@ $AlgorithmParameters* PBES1Core::getParameters() {
 }
 
 void PBES1Core::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (((opmode == $Cipher::DECRYPT_MODE) || (opmode == $Cipher::UNWRAP_MODE)) && (params == nullptr)) {
 		$throwNew($InvalidAlgorithmParameterException, "Parameters missing"_s);
 	}
@@ -238,6 +241,7 @@ void PBES1Core::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params,
 }
 
 $bytes* PBES1Core::deriveCipherKey($bytes* passwdBytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, nullptr);
 	if ($nc(this->algo)->equals("DES"_s)) {
 		$nc(this->md)->update(passwdBytes);
@@ -291,6 +295,7 @@ $bytes* PBES1Core::deriveCipherKey($bytes* passwdBytes) {
 }
 
 void PBES1Core::init(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($PBEParameterSpec, pbeSpec, nullptr);
 	if (params != nullptr) {
 		try {
@@ -321,6 +326,7 @@ int32_t PBES1Core::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen,
 }
 
 $bytes* PBES1Core::wrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, nullptr);
 	$var($bytes, encodedKey, nullptr);
 	{
@@ -350,6 +356,7 @@ $bytes* PBES1Core::wrap($Key* key) {
 }
 
 $Key* PBES1Core::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, encodedKey, doFinal(wrappedKey, 0, $nc(wrappedKey)->length));
 		{

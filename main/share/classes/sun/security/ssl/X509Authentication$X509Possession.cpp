@@ -86,6 +86,7 @@ void X509Authentication$X509Possession::init$($PrivateKey* popPrivateKey, $X509C
 }
 
 $ECParameterSpec* X509Authentication$X509Possession::getECParameterSpec() {
+	$useLocalCurrentObjectStackCache();
 	if (this->popPrivateKey == nullptr || !"EC"_s->equals($($nc(this->popPrivateKey)->getAlgorithm()))) {
 		return nullptr;
 	}
@@ -101,6 +102,7 @@ $ECParameterSpec* X509Authentication$X509Possession::getECParameterSpec() {
 }
 
 $NamedParameterSpec* X509Authentication$X509Possession::getXECParameterSpec() {
+	$useLocalCurrentObjectStackCache();
 	if (this->popPrivateKey == nullptr || !"XEC"_s->equals($($nc(this->popPrivateKey)->getAlgorithm()))) {
 		return nullptr;
 	}

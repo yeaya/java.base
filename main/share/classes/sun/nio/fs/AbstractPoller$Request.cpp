@@ -93,6 +93,7 @@ void AbstractPoller$Request::release(Object$* result) {
 }
 
 $Object* AbstractPoller$Request::awaitResult() {
+	$useLocalCurrentObjectStackCache();
 	bool interrupted = false;
 	$synchronized(this) {
 		while (!this->completed) {

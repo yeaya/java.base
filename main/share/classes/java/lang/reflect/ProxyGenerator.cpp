@@ -290,6 +290,7 @@ void ProxyGenerator::init$($ClassLoader* loader, $String* className, $List* inte
 
 $bytes* ProxyGenerator::generateProxyClass($ClassLoader* loader, $String* name, $List* interfaces, int32_t accessFlags) {
 	$init(ProxyGenerator);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var(ProxyGenerator, gen, $new(ProxyGenerator, loader, name, interfaces, accessFlags));
 	$var($bytes, classFile, gen->generateClassFile());
@@ -301,6 +302,7 @@ $bytes* ProxyGenerator::generateProxyClass($ClassLoader* loader, $String* name, 
 
 $StringArray* ProxyGenerator::typeNames($List* classes) {
 	$init(ProxyGenerator);
+	$useLocalCurrentObjectStackCache();
 	if (classes == nullptr || $nc(classes)->size() == 0) {
 		return nullptr;
 	}
@@ -314,6 +316,7 @@ $StringArray* ProxyGenerator::typeNames($List* classes) {
 
 void ProxyGenerator::checkReturnTypes($List* methods) {
 	$init(ProxyGenerator);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(methods)->size() < 2) {
 		return;
 	}
@@ -366,6 +369,7 @@ void ProxyGenerator::checkReturnTypes($List* methods) {
 
 $List* ProxyGenerator::computeUniqueCatchList($ClassArray* exceptions) {
 	$init(ProxyGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($List, uniqueList, $new($ArrayList));
 	$load($Error);
 	uniqueList->add($Error::class$);
@@ -428,6 +432,7 @@ int32_t ProxyGenerator::getWordsPerType($Class* type) {
 
 void ProxyGenerator::collectCompatibleTypes($ClassArray* from, $ClassArray* with, $List* list) {
 	$init(ProxyGenerator);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ClassArray, arr$, from);
 		int32_t len$ = $nc(arr$)->length;
@@ -461,6 +466,7 @@ $ClassLoader* ProxyGenerator::getClassLoader() {
 }
 
 $bytes* ProxyGenerator::generateClassFile() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t var$0 = this->accessFlags;
 	$var($String, var$1, dotToSlash(this->className));
@@ -524,6 +530,7 @@ $bytes* ProxyGenerator::generateClassFile() {
 }
 
 void ProxyGenerator::addProxyMethod($Method* m, $Class* fromClass) {
+	$useLocalCurrentObjectStackCache();
 	$Class* returnType = $nc(m)->getReturnType();
 	$var($ClassArray, exceptionTypes, m->getExceptionTypes());
 	$var($String, sig, m->toShortSignature());
@@ -548,6 +555,7 @@ void ProxyGenerator::addProxyMethod($Method* m, $Class* fromClass) {
 }
 
 void ProxyGenerator::addProxyMethod($ProxyGenerator$ProxyMethod* pm) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sig, $nc(pm)->shortSignature);
 	$var($List, sigmethods, $cast($List, $nc(this->proxyMethods)->computeIfAbsent(sig, static_cast<$Function*>($$new(ProxyGenerator$$Lambda$lambda$addProxyMethod$0)))));
 	$nc(sigmethods)->add(pm);
@@ -566,6 +574,7 @@ void ProxyGenerator::generateConstructor() {
 }
 
 void ProxyGenerator::generateStaticInitializer() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodVisitor, mv, visitMethod($Modifier::STATIC, ProxyGenerator::NAME_CLINIT, "()V"_s, nullptr, nullptr));
 	$nc(mv)->visitCode();
 	$var($Label, L_startBlock, $new($Label));
@@ -615,6 +624,7 @@ void ProxyGenerator::generateStaticInitializer() {
 }
 
 void ProxyGenerator::generateLookupAccessor() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodVisitor, mv, visitMethod(2 | 8, ProxyGenerator::NAME_LOOKUP_ACCESSOR, "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandles$Lookup;"_s, nullptr, $$new($StringArray, {ProxyGenerator::JL_ILLEGAL_ACCESS_EX})));
 	$nc(mv)->visitCode();
 	$var($Label, L_illegalAccess, $new($Label));
@@ -645,6 +655,7 @@ $List* ProxyGenerator::lambda$addProxyMethod$0($String* f) {
 }
 
 void clinit$ProxyGenerator($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ProxyGenerator::JL_CLASS, "java/lang/Class"_s);
 	$assignStatic(ProxyGenerator::JL_OBJECT, "java/lang/Object"_s);
 	$assignStatic(ProxyGenerator::JL_THROWABLE, "java/lang/Throwable"_s);

@@ -42,6 +42,7 @@ void ParseURL::init$() {
 }
 
 void ParseURL::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, url, $$new($URL, $$new($URL, "http://cnn.com"_s), "index.html"_s)->toExternalForm());
 	if ($nc(url)->equalsIgnoreCase("http://cnn.com/index.html"_s)) {
 		$init($System);

@@ -86,6 +86,7 @@ $Object* allocate$LookupTest$Server($Class* clazz) {
 $bytes* LookupTest$Server::requestEnd = nullptr;
 
 void LookupTest$Server::init$() {
+	$useLocalCurrentObjectStackCache();
 	$Thread::init$();
 	$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 	$init($LookupTest);
@@ -95,6 +96,7 @@ void LookupTest$Server::init$() {
 }
 
 void LookupTest$Server::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		while (!this->done) {
 			{

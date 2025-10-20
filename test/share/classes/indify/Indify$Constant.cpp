@@ -129,6 +129,7 @@ void Indify$Constant::readFrom($DataInputStream* in) {
 }
 
 void Indify$Constant::writeTo($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$Indify::writeOutputs(out, $$new($ObjectArray, {
 		$($of($Byte::valueOf(this->tag))),
 		this->item
@@ -140,6 +141,7 @@ bool Indify$Constant::equals(Object$* x) {
 }
 
 bool Indify$Constant::equals(Indify$Constant* that) {
+	$useLocalCurrentObjectStackCache();
 	return (this->tag == $nc(that)->tag && $nc($of($(this->itemAsComparable())))->equals($(that->itemAsComparable())));
 }
 
@@ -162,6 +164,7 @@ $Object* Indify$Constant::itemAsComparable() {
 }
 
 $String* Indify$Constant::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, itstr, $String::valueOf($(itemAsComparable())));
 	$var($String, var$1, $$str({$$str(this->index), ":"_s, $(tagName(this->tag))}));
 	$var($String, var$0, $$concat(var$1, (itstr->startsWith("["_s) ? ""_s : "="_s)));

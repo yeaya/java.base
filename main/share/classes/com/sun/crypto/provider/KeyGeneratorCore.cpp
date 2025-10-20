@@ -106,6 +106,7 @@ void KeyGeneratorCore::implInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* KeyGeneratorCore::implGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}

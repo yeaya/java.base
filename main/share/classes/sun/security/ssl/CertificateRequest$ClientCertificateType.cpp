@@ -212,6 +212,7 @@ void CertificateRequest$ClientCertificateType::init$($String* $enum$name, int32_
 
 $String* CertificateRequest$ClientCertificateType::nameOf(int8_t id) {
 	$init(CertificateRequest$ClientCertificateType);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($CertificateRequest$ClientCertificateTypeArray, arr$, CertificateRequest$ClientCertificateType::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -248,6 +249,7 @@ CertificateRequest$ClientCertificateType* CertificateRequest$ClientCertificateTy
 
 $StringArray* CertificateRequest$ClientCertificateType::getKeyTypes($bytes* ids) {
 	$init(CertificateRequest$ClientCertificateType);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, keyTypes, $new($ArrayList, 3));
 	{
 		$var($bytes, arr$, ids);
@@ -274,6 +276,7 @@ void CertificateRequest$ClientCertificateType::lambda$getKeyTypes$0($ArrayList* 
 }
 
 void clinit$CertificateRequest$ClientCertificateType($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(CertificateRequest$ClientCertificateType::RSA_SIGN, $new(CertificateRequest$ClientCertificateType, "RSA_SIGN"_s, 0, (int8_t)1, "rsa_sign"_s, $($List::of($of("RSA"_s))), true));
 	$assignStatic(CertificateRequest$ClientCertificateType::DSS_SIGN, $new(CertificateRequest$ClientCertificateType, "DSS_SIGN"_s, 1, (int8_t)2, "dss_sign"_s, $($List::of($of("DSA"_s))), true));
 	$assignStatic(CertificateRequest$ClientCertificateType::RSA_FIXED_DH, $new(CertificateRequest$ClientCertificateType, "RSA_FIXED_DH"_s, 2, (int8_t)3, "rsa_fixed_dh"_s));

@@ -138,6 +138,7 @@ WeekFields* WeekFields::of($Locale* locale) {
 
 WeekFields* WeekFields::of($DayOfWeek* firstDayOfWeek, int32_t minimalDaysInFirstWeek) {
 	$init(WeekFields);
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $str({$($nc(firstDayOfWeek)->toString()), $$str(minimalDaysInFirstWeek)}));
 	$var(WeekFields, rules, $cast(WeekFields, $nc(WeekFields::CACHE)->get(key)));
 	if (rules == nullptr) {
@@ -173,6 +174,7 @@ void WeekFields::readObject($ObjectInputStream* s) {
 }
 
 $Object* WeekFields::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of(WeekFields::of(this->firstDayOfWeek, this->minimalDays));
 	} catch ($IllegalArgumentException&) {
@@ -226,6 +228,7 @@ int32_t WeekFields::hashCode() {
 }
 
 $String* WeekFields::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"WeekFields["_s, this->firstDayOfWeek, $$str(u','), $$str(this->minimalDays), $$str(u']')});
 }
 

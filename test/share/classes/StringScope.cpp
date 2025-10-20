@@ -45,6 +45,7 @@ void StringScope::init$() {
 }
 
 void StringScope::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, e, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(e)->hasMoreElements()) {
 		$var($NetworkInterface, iface, $cast($NetworkInterface, e->nextElement()));

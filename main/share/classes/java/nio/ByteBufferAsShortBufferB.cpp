@@ -147,6 +147,7 @@ int64_t ByteBufferAsShortBufferB::byteOffset(int64_t i) {
 }
 
 int16_t ByteBufferAsShortBufferB::get() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -155,6 +156,7 @@ int16_t ByteBufferAsShortBufferB::get() {
 }
 
 int16_t ByteBufferAsShortBufferB::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -163,6 +165,7 @@ int16_t ByteBufferAsShortBufferB::get(int32_t i) {
 }
 
 $ShortBuffer* ByteBufferAsShortBufferB::put(int16_t x) {
+	$useLocalCurrentObjectStackCache();
 	int16_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -172,6 +175,7 @@ $ShortBuffer* ByteBufferAsShortBufferB::put(int16_t x) {
 }
 
 $ShortBuffer* ByteBufferAsShortBufferB::put(int32_t i, int16_t x) {
+	$useLocalCurrentObjectStackCache();
 	int16_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -181,6 +185,7 @@ $ShortBuffer* ByteBufferAsShortBufferB::put(int32_t i, int16_t x) {
 }
 
 $ShortBuffer* ByteBufferAsShortBufferB::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!ByteBufferAsShortBufferB::$assertionsDisabled && !(pos <= lim)) {

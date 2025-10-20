@@ -161,6 +161,7 @@ DateFormat$Field* DateFormat$Field::TIME_ZONE = nullptr;
 
 DateFormat$Field* DateFormat$Field::ofCalendarField(int32_t calendarField) {
 	$init(DateFormat$Field);
+	$useLocalCurrentObjectStackCache();
 	if (calendarField < 0 || calendarField >= $nc(DateFormat$Field::calendarToFieldMapping)->length) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown Calendar constant "_s, $$str(calendarField)}));
 	}
@@ -183,6 +184,7 @@ int32_t DateFormat$Field::getCalendarField() {
 }
 
 $Object* DateFormat$Field::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	if ($of(this)->getClass() != DateFormat$Field::class$) {
 		$throwNew($InvalidObjectException, "subclass didn\'t correctly implement readResolve"_s);
 	}

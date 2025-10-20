@@ -138,6 +138,7 @@ void Signature$CipherAdapter::engineUpdate($bytes* b, int32_t off, int32_t len) 
 }
 
 $bytes* Signature$CipherAdapter::engineSign() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->cipher)->doFinal();
 	} catch ($IllegalBlockSizeException&) {
@@ -151,6 +152,7 @@ $bytes* Signature$CipherAdapter::engineSign() {
 }
 
 bool Signature$CipherAdapter::engineVerify($bytes* sigBytes) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, out, $nc(this->cipher)->doFinal(sigBytes));
 		$var($bytes, dataBytes, $nc(this->data)->toByteArray());

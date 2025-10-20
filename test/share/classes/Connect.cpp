@@ -198,6 +198,7 @@ void Connect::main($StringArray* args) {
 
 void Connect::test() {
 	$init(Connect);
+	$useLocalCurrentObjectStackCache();
 	$var($ExecutorService, threadPool, $Executors::newCachedThreadPool());
 	{
 		$var($Throwable, var$0, nullptr);
@@ -264,6 +265,7 @@ void Connect::test() {
 
 void Connect::invoke($ExecutorService* e, $Runnable* reader, $Runnable* writer) {
 	$init(Connect);
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, f1, $CompletableFuture::runAsync(writer, e));
 	$var($CompletableFuture, f2, $CompletableFuture::runAsync(reader, e));
 	wait($$new($CompletableFutureArray, {
@@ -274,6 +276,7 @@ void Connect::invoke($ExecutorService* e, $Runnable* reader, $Runnable* writer) 
 
 void Connect::wait($CompletableFutureArray* futures) {
 	$init(Connect);
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, future, $CompletableFuture::allOf(futures));
 	$nc($($Stream::of(futures)))->forEach(static_cast<$Consumer*>($$new(Connect$$Lambda$lambda$wait$1, future)));
 	$nc(future)->join();
@@ -281,6 +284,7 @@ void Connect::wait($CompletableFutureArray* futures) {
 
 $SocketAddress* Connect::toConnectAddress($SocketAddress* address) {
 	$init(Connect);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($InetSocketAddress, address)) {
 		$var($InetSocketAddress, inet, $cast($InetSocketAddress, address));
 		if ($nc($($nc(inet)->getAddress()))->isAnyLocalAddress()) {

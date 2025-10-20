@@ -46,6 +46,7 @@ void SetMaxPriority::init$() {
 }
 
 void SetMaxPriority::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $new($ThreadGroup, "foo"_s));
 	$var($ThreadGroup, ptg, tg->getParent());
 	int32_t currentMaxPriority = tg->getMaxPriority();

@@ -154,6 +154,7 @@ void Analyzer::init$($Interpreter* interpreter) {
 }
 
 $FrameArray* Analyzer::analyze($String* owner, $MethodNode* method) {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)($nc(method)->access & (uint32_t)($Opcodes::ACC_ABSTRACT | $Opcodes::ACC_NATIVE))) != 0) {
 		$set(this, frames, $new($FrameArray, 0));
 		return this->frames;
@@ -323,6 +324,7 @@ $FrameArray* Analyzer::analyze($String* owner, $MethodNode* method) {
 }
 
 void Analyzer::findSubroutine(int32_t insnIndex, $Subroutine* subroutine, $List* jsrInsns) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, instructionIndicesToProcess, $new($ArrayList));
 	instructionIndicesToProcess->add($($Integer::valueOf(insnIndex)));
 	while (!instructionIndicesToProcess->isEmpty()) {
@@ -404,6 +406,7 @@ void Analyzer::findSubroutine(int32_t insnIndex, $Subroutine* subroutine, $List*
 }
 
 $Frame* Analyzer::computeInitialFrame($String* owner, $MethodNode* method) {
+	$useLocalCurrentObjectStackCache();
 	$var($Frame, frame, newFrame($nc(method)->maxLocals, method->maxStack));
 	int32_t currentLocal = 0;
 	bool isInstanceMethod = ((int32_t)($nc(method)->access & (uint32_t)$Opcodes::ACC_STATIC)) == 0;
@@ -468,6 +471,7 @@ bool Analyzer::newControlFlowExceptionEdge(int32_t insnIndex, $TryCatchBlockNode
 }
 
 void Analyzer::merge(int32_t insnIndex, $Frame* frame, $Subroutine* subroutine) {
+	$useLocalCurrentObjectStackCache();
 	bool changed = false;
 	$var($Frame, oldFrame, $nc(this->frames)->get(insnIndex));
 	if (oldFrame == nullptr) {
@@ -492,6 +496,7 @@ void Analyzer::merge(int32_t insnIndex, $Frame* frame, $Subroutine* subroutine) 
 }
 
 void Analyzer::merge(int32_t insnIndex, $Frame* frameBeforeJsr, $Frame* frameAfterRet, $Subroutine* subroutineBeforeJsr, $booleans* localsUsed) {
+	$useLocalCurrentObjectStackCache();
 	$nc(frameAfterRet)->merge(frameBeforeJsr, localsUsed);
 	bool changed = false;
 	$var($Frame, oldFrame, $nc(this->frames)->get(insnIndex));

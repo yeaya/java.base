@@ -111,6 +111,7 @@ void SecurityProviderConstants::init$() {
 
 $List* SecurityProviderConstants::store($String* stdName, $KnownOIDs* oid, $StringArray* extraAliases) {
 	$init(SecurityProviderConstants);
+	$useLocalCurrentObjectStackCache();
 	$var($List, value, nullptr);
 	if (oid == nullptr && $nc(extraAliases)->length != 0) {
 		$assign(value, $List::of(extraAliases));
@@ -152,6 +153,7 @@ $List* SecurityProviderConstants::store($String* stdName, $KnownOIDs* oid, $Stri
 
 $List* SecurityProviderConstants::getAliases($String* o) {
 	$init(SecurityProviderConstants);
+	$useLocalCurrentObjectStackCache();
 	$var($List, res, $cast($List, $nc(SecurityProviderConstants::aliasesMap)->get(o)));
 	if (res == nullptr) {
 		$KnownOIDs* e = $KnownOIDs::findMatch(o);
@@ -166,6 +168,7 @@ $List* SecurityProviderConstants::getAliases($String* o) {
 
 int32_t SecurityProviderConstants::getDefDSASubprimeSize(int32_t primeSize) {
 	$init(SecurityProviderConstants);
+	$useLocalCurrentObjectStackCache();
 	if (primeSize <= 1024) {
 		return 160;
 	} else if (primeSize == 2048) {
@@ -178,6 +181,7 @@ int32_t SecurityProviderConstants::getDefDSASubprimeSize(int32_t primeSize) {
 }
 
 void clinit$SecurityProviderConstants($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SecurityProviderConstants::KEY_LENGTH_PROP, "jdk.security.defaultKeySize"_s);
 	$assignStatic(SecurityProviderConstants::debug, $Debug::getInstance("jca"_s, "ProviderConfig"_s));
 	{

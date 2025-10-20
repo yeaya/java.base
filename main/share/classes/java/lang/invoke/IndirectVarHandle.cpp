@@ -138,6 +138,7 @@ $VarHandle* IndirectVarHandle::withInvokeBehavior() {
 }
 
 $MethodHandle* IndirectVarHandle::getMethodHandle(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handle, $nc(this->handleMap)->get(mode));
 	if (handle == nullptr) {
 		$var($MethodHandle, targetHandle, $nc(this->target$)->getMethodHandle(mode));

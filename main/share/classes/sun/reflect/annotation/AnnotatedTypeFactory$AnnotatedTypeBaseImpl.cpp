@@ -203,6 +203,7 @@ $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByTy
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations() {
+	$useLocalCurrentObjectStackCache();
 	return $fcast($AnnotationArray, $nc($($nc(this->annotations)->values()))->toArray($$new($AnnotationArray, 0)));
 }
 
@@ -219,6 +220,7 @@ $Type* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType() {
 }
 
 $AnnotatedType* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotatedOwnerType() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!($instanceOf($Class, this->type))) {
 		$throwNew($IllegalStateException, "Can\'t compute owner"_s);
@@ -259,11 +261,13 @@ $AnnotatedType* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotatedOwnerTyp
 }
 
 $String* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $(annotationsToString($(getAnnotations()), false)));
 	return $concat(var$0, (($instanceOf($Class, this->type)) ? $($nc(this->type)->getTypeName()) : $($nc($of(this->type))->toString())));
 }
 
 $String* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::annotationsToString($AnnotationArray* annotations, bool leadingSpace) {
+	$useLocalCurrentObjectStackCache();
 	if (annotations != nullptr && annotations->length > 0) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append($cast($String, $($nc($($nc($($Stream::of(annotations)))->map(static_cast<$Function*>($$new(AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString)))))->collect($($Collectors::joining(" "_s))))));
@@ -279,6 +283,7 @@ $String* AnnotatedTypeFactory$AnnotatedTypeBaseImpl::annotationsToString($Annota
 }
 
 bool AnnotatedTypeFactory$AnnotatedTypeBaseImpl::equalsTypeAndAnnotations($AnnotatedType* that) {
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = $nc($of($(getType())))->equals($($nc(that)->getType()));
 	if (var$1) {
 		$var($ObjectArray, var$2, getAnnotations());
@@ -293,6 +298,7 @@ bool AnnotatedTypeFactory$AnnotatedTypeBaseImpl::equalsTypeAndAnnotations($Annot
 }
 
 int32_t AnnotatedTypeFactory$AnnotatedTypeBaseImpl::baseHashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$1 = $nc($of(this->type))->hashCode();
 	int32_t var$0 = var$1 ^ $Objects::hash($(getAnnotations()));
 	return var$0 ^ $Objects::hash($$new($ObjectArray, {$($of(getAnnotatedOwnerType()))}));

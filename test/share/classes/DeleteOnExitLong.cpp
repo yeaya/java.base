@@ -37,6 +37,7 @@ void DeleteOnExitLong::init$() {
 }
 
 void DeleteOnExitLong::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $$new($File, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa_DeletedOnExitLong"_s)->getCanonicalFile());
 	$nc(file)->createNewFile();
 	file->deleteOnExit();

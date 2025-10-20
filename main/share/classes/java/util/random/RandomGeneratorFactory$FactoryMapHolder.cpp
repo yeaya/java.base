@@ -167,6 +167,7 @@ void RandomGeneratorFactory$FactoryMapHolder::init$() {
 
 $Map* RandomGeneratorFactory$FactoryMapHolder::createFactoryMap() {
 	$init(RandomGeneratorFactory$FactoryMapHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($RandomGenerator);
 	$var($Function, var$0, static_cast<$Function*>($new(RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1)));

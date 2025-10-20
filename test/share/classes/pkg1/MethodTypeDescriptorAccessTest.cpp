@@ -62,6 +62,7 @@ void MethodTypeDescriptorAccessTest::main($StringArray* args) {
 }
 
 void MethodTypeDescriptorAccessTest::test() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, selfLookup, $MethodHandles::lookup());
 	$var($String, descriptorpub, "(Lpkg2/PublicClass;)Lpkg2/PublicClass;"_s);
@@ -77,6 +78,7 @@ void MethodTypeDescriptorAccessTest::test() {
 }
 
 void MethodTypeDescriptorAccessTest::checkValidAccess($MethodTypeDesc* mtd, $MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MethodType, mt, $cast($MethodType, $nc(mtd)->resolveConstantDesc(lookup)));
 	} catch ($ReflectiveOperationException&) {
@@ -86,6 +88,7 @@ void MethodTypeDescriptorAccessTest::checkValidAccess($MethodTypeDesc* mtd, $Met
 }
 
 void MethodTypeDescriptorAccessTest::checkInvalidAccess($MethodTypeDesc* mtd, $MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MethodType, mt, $cast($MethodType, $nc(mtd)->resolveConstantDesc(lookup)));
 		$throwNew($Error, $$str({"resolveConstantDesc() succeeded unexpectedly "_s, mtd}));

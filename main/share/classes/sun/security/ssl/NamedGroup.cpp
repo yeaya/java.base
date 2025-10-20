@@ -294,6 +294,7 @@ NamedGroup* NamedGroup::valueOf($String* name) {
 }
 
 void NamedGroup::init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, $NamedGroup$NamedGroupSpec* namedGroupSpec, $ProtocolVersionArray* supportedProtocols, $AlgorithmParameterSpec* keAlgParamSpec) {
+	$useLocalCurrentObjectStackCache();
 	$Enum::init$($enum$name, $enum$ordinal);
 	this->id = id;
 	$set(this, name$, name);
@@ -400,6 +401,7 @@ NamedGroup* NamedGroup::valueOf($ECParameterSpec* params) {
 
 NamedGroup* NamedGroup::valueOf($DHParameterSpec* params) {
 	$init(NamedGroup);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($NamedGroupArray, arr$, NamedGroup::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -442,6 +444,7 @@ NamedGroup* NamedGroup::nameOf($String* name) {
 
 $String* NamedGroup::nameOf(int32_t id) {
 	$init(NamedGroup);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($NamedGroupArray, arr$, NamedGroup::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -534,6 +537,7 @@ $SSLKeyDerivation* NamedGroup::createKeyDerivation($HandshakeContext* hc) {
 }
 
 void clinit$NamedGroup($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($NamedGroup$NamedGroupSpec);
 	$init($ProtocolVersion);
 	$assignStatic(NamedGroup::SECT163_K1, $new(NamedGroup, "SECT163_K1"_s, 0, 1, "sect163k1"_s, $NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE, $ProtocolVersion::PROTOCOLS_TO_12, $($CurveDB::lookup("sect163k1"_s))));

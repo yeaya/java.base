@@ -321,6 +321,7 @@ void UnicodeSpec::init$(int32_t codePoint) {
 }
 
 $String* UnicodeSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, result, $new($StringBuffer, $(hex6(this->codePoint))));
 	if (getUpperMap() != 0x0000FFFF) {
 		result->append(", upper="_s)->append($(hex6(this->upperMap)));
@@ -336,18 +337,21 @@ $String* UnicodeSpec::toString() {
 
 $String* UnicodeSpec::hex4(int32_t n) {
 	$init(UnicodeSpec);
+	$useLocalCurrentObjectStackCache();
 	$var($String, q, $nc($($Long::toHexString((int32_t)(n & (uint32_t)0x0000FFFF))))->toUpperCase());
 	return $str({$("0000"_s->substring($Math::min(4, q->length()))), q});
 }
 
 $String* UnicodeSpec::hex6(int32_t n) {
 	$init(UnicodeSpec);
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, $nc($($Integer::toHexString((int32_t)(n & (uint32_t)0x00FFFFFF))))->toUpperCase());
 	return $str({$("000000"_s->substring($Math::min(6, str->length()))), str});
 }
 
 UnicodeSpec* UnicodeSpec::parse($String* s) {
 	$init(UnicodeSpec);
+	$useLocalCurrentObjectStackCache();
 	$var(UnicodeSpec, spec, nullptr);
 	$var($StringArray, tokens, nullptr);
 	try {
@@ -531,6 +535,7 @@ int32_t UnicodeSpec::parseTitleMap($String* s) {
 
 $UnicodeSpecArray* UnicodeSpec::readSpecFile($File* file, int32_t plane) {
 	$init(UnicodeSpec);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, list, $new($ArrayList, 3000));
 	$var($UnicodeSpecArray, result, nullptr);
 	int32_t count = 0;
@@ -712,6 +717,7 @@ bool UnicodeSpec::hasTitleMap() {
 
 void UnicodeSpec::main($StringArray* args) {
 	$init(UnicodeSpec);
+	$useLocalCurrentObjectStackCache();
 	$var($UnicodeSpecArray, spec, nullptr);
 	if ($nc(args)->length == 2) {
 		try {
@@ -731,6 +737,7 @@ void UnicodeSpec::main($StringArray* args) {
 }
 
 void clinit$UnicodeSpec($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(UnicodeSpec::generalCategoryList, $new($StringArray2, {
 		$$new($StringArray, {
 			"Cn"_s,

@@ -111,6 +111,7 @@ bool IdentityHashMap$KeySet::remove(Object$* o) {
 }
 
 bool IdentityHashMap$KeySet::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	{
@@ -130,6 +131,7 @@ void IdentityHashMap$KeySet::clear() {
 }
 
 int32_t IdentityHashMap$KeySet::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = 0;
 	{
 		$var($Iterator, i$, this->iterator());
@@ -146,6 +148,7 @@ $ObjectArray* IdentityHashMap$KeySet::toArray() {
 }
 
 $ObjectArray* IdentityHashMap$KeySet::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	int32_t expectedModCount = this->this$0->modCount;
 	int32_t size = this->size();

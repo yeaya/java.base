@@ -87,6 +87,7 @@ $String* AlgorithmParameters::getAlgorithm() {
 }
 
 AlgorithmParameters* AlgorithmParameters::getInstance($String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(algorithm, "AlgorithmParameters"_s, ($String*)nullptr));

@@ -192,6 +192,7 @@ $CharBuffer* DirectCharBufferS::asReadOnlyBuffer() {
 }
 
 int64_t DirectCharBufferS::address() {
+	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -212,6 +213,7 @@ int64_t DirectCharBufferS::ix(int32_t i) {
 }
 
 char16_t DirectCharBufferS::get() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		char16_t var$2 = 0;
@@ -238,6 +240,7 @@ char16_t DirectCharBufferS::get() {
 }
 
 char16_t DirectCharBufferS::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		char16_t var$2 = 0;
@@ -289,6 +292,7 @@ char16_t DirectCharBufferS::getUnchecked(int32_t i) {
 }
 
 $CharBuffer* DirectCharBufferS::put(char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -309,6 +313,7 @@ $CharBuffer* DirectCharBufferS::put(char16_t x) {
 }
 
 $CharBuffer* DirectCharBufferS::put(int32_t i, char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -329,6 +334,7 @@ $CharBuffer* DirectCharBufferS::put(int32_t i, char16_t x) {
 }
 
 $CharBuffer* DirectCharBufferS::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!DirectCharBufferS::$assertionsDisabled && !(pos <= lim)) {
@@ -366,6 +372,7 @@ bool DirectCharBufferS::isReadOnly() {
 }
 
 $String* DirectCharBufferS::toString(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromToIndex(start, end, limit());
 	try {
 		int32_t len = end - start;

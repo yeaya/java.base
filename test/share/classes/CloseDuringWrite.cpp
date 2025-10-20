@@ -115,6 +115,7 @@ void CloseDuringWrite::init$() {
 
 void CloseDuringWrite::main($StringArray* args) {
 	$init(CloseDuringWrite);
+	$useLocalCurrentObjectStackCache();
 	$var($ScheduledExecutorService, pool, $Executors::newSingleThreadScheduledExecutor());
 	{
 		$var($Throwable, var$0, nullptr);

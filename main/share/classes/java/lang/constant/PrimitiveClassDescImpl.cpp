@@ -87,6 +87,7 @@ void PrimitiveClassDescImpl::finalize() {
 }
 
 void PrimitiveClassDescImpl::init$($String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$init($ConstantDescs);
 	$DynamicConstantDesc::init$($ConstantDescs::BSM_PRIMITIVE_CLASS, $cast($String, $Objects::requireNonNull(descriptor)), $ConstantDescs::CD_Class, $$new($ConstantDescArray, 0));
 	bool var$0 = $nc(descriptor)->length() != 1;
@@ -101,10 +102,12 @@ $String* PrimitiveClassDescImpl::descriptorString() {
 }
 
 $Object* PrimitiveClassDescImpl::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	return $of($nc($($Wrapper::forBasicType($nc($(descriptorString()))->charAt(0))))->primitiveType());
 }
 
 $String* PrimitiveClassDescImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("PrimitiveClassDesc[%s]"_s, $$new($ObjectArray, {$($of(displayName()))}));
 }
 

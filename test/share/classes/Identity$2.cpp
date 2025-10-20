@@ -73,6 +73,7 @@ void Identity$2::init$(int32_t val$groupId) {
 }
 
 $Thread* Identity$2::newThread($Runnable* r) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new($Identity$2$1, this, r))));
 	t->setDaemon(true);
 	return t;

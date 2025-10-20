@@ -79,6 +79,7 @@ void SupportedVersionsExtension$HRRSupportedVersionsConsumer::init$() {
 }
 
 void SupportedVersionsExtension$HRRSupportedVersionsConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::HRR_SUPPORTED_VERSIONS)) {

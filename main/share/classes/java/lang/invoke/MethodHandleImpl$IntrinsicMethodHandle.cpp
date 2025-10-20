@@ -107,6 +107,7 @@ $Object* MethodHandleImpl$IntrinsicMethodHandle::internalProperties() {
 }
 
 $MethodHandle* MethodHandleImpl$IntrinsicMethodHandle::asCollector($Class* arrayType, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleImpl$Intrinsic);
 	if (this->intrinsicName$ == $MethodHandleImpl$Intrinsic::IDENTITY) {
 		$var($MethodType, resultType, $nc($(type()))->asCollectorType(arrayType, $nc($(type()))->parameterCount() - 1, arrayLength));

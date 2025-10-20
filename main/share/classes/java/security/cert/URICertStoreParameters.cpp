@@ -71,6 +71,7 @@ $URI* URICertStoreParameters::getURI() {
 }
 
 URICertStoreParameters* URICertStoreParameters::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $new(URICertStoreParameters, this->uri);
 	} catch ($NullPointerException&) {
@@ -88,6 +89,7 @@ int32_t URICertStoreParameters::hashCode() {
 }
 
 bool URICertStoreParameters::equals(Object$* p) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(p, this)) {
 		return true;
 	}

@@ -99,6 +99,7 @@ void Pread::main($StringArray* args) {
 
 void Pread::testNegativePosition() {
 	$init(Pread);
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah1"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
@@ -128,6 +129,7 @@ void Pread::testNegativePosition() {
 
 void Pread::testUnreadableChannel() {
 	$init(Pread);
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah2"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
@@ -156,6 +158,7 @@ void Pread::testUnreadableChannel() {
 
 void Pread::genericTest() {
 	$init(Pread);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->setLength(4);
 	$var($File, blah, $File::createTempFile("blah3"_s, nullptr));
@@ -199,6 +202,7 @@ void Pread::genericTest() {
 
 void Pread::initTestFile($File* blah) {
 	$init(Pread);
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
 	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>(fos), "8859_1"_s)));
 	for (int32_t i = 0; i < 4000; ++i) {

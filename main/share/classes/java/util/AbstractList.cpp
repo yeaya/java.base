@@ -228,6 +228,7 @@ $Object* AbstractList::remove(int32_t index) {
 }
 
 int32_t AbstractList::indexOf(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ListIterator, it, listIterator());
 	if (o == nullptr) {
 		while ($nc(it)->hasNext()) {
@@ -246,6 +247,7 @@ int32_t AbstractList::indexOf(Object$* o) {
 }
 
 int32_t AbstractList::lastIndexOf(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ListIterator, it, listIterator(size()));
 	if (o == nullptr) {
 		while ($nc(it)->hasPrevious()) {
@@ -268,6 +270,7 @@ void AbstractList::clear() {
 }
 
 bool AbstractList::addAll(int32_t index, $Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	rangeCheckForAdd(index);
 	bool modified = false;
 	{
@@ -303,6 +306,7 @@ $List* AbstractList::subList(int32_t fromIndex, int32_t toIndex) {
 
 void AbstractList::subListRangeCheck(int32_t fromIndex, int32_t toIndex, int32_t size) {
 	$init(AbstractList);
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex = "_s, $$str(fromIndex)}));
 	}
@@ -315,6 +319,7 @@ void AbstractList::subListRangeCheck(int32_t fromIndex, int32_t toIndex, int32_t
 }
 
 bool AbstractList::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -341,6 +346,7 @@ bool AbstractList::equals(Object$* o) {
 }
 
 int32_t AbstractList::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = 1;
 	{
 		$var($Iterator, i$, this->iterator());
@@ -371,6 +377,7 @@ void AbstractList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* AbstractList::outOfBoundsMsg(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(size())});
 }
 

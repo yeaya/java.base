@@ -89,6 +89,7 @@ void StressNativeSignal$UDPThread::init$($StressNativeSignal* this$0) {
 }
 
 void StressNativeSignal$UDPThread::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, channel, $DatagramChannel::open());
 		$init($StandardSocketOptions);

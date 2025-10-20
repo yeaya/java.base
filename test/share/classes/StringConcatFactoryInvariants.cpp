@@ -1579,6 +1579,7 @@ void StringConcatFactoryInvariants::init$() {
 
 void StringConcatFactoryInvariants::main($StringArray* args) {
 	$load(StringConcatFactoryInvariants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	$var($String, methodName, "foo"_s);
@@ -1733,6 +1734,7 @@ void StringConcatFactoryInvariants::main($StringArray* args) {
 }
 
 void StringConcatFactoryInvariants::ok($String* msg, $Callable* runnable) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(runnable)->call();
 	} catch ($Throwable&) {
@@ -1743,6 +1745,7 @@ void StringConcatFactoryInvariants::ok($String* msg, $Callable* runnable) {
 }
 
 void StringConcatFactoryInvariants::fail($String* msg, $Callable* runnable) {
+	$useLocalCurrentObjectStackCache();
 	bool expected = false;
 	try {
 		$nc(runnable)->call();
@@ -1759,6 +1762,7 @@ void StringConcatFactoryInvariants::fail($String* msg, $Callable* runnable) {
 }
 
 void StringConcatFactoryInvariants::failNPE($String* msg, $Callable* runnable) {
+	$useLocalCurrentObjectStackCache();
 	bool expected = false;
 	try {
 		$nc(runnable)->call();
@@ -1775,6 +1779,7 @@ void StringConcatFactoryInvariants::failNPE($String* msg, $Callable* runnable) {
 }
 
 void StringConcatFactoryInvariants::test($String* expected, $String* actual) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);
@@ -1786,6 +1791,7 @@ void StringConcatFactoryInvariants::test($String* expected, $String* actual) {
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$39($String* methodName, $MethodType* mtEmpty, $String* recipeEmpty) {
+	$useLocalCurrentObjectStackCache();
 	return $of($StringConcatFactory::makeConcatWithConstants($($MethodHandles::publicLookup()), methodName, mtEmpty, recipeEmpty, $$new($ObjectArray, 0)));
 }
 
@@ -1794,12 +1800,14 @@ $Object* StringConcatFactoryInvariants::lambda$main$38($String* methodName, $Met
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$35($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$load($String);
 	$init($Integer);
 	return $of($StringConcatFactory::makeConcatWithConstants(lookup, methodName, $($MethodType::methodType($String::class$, $Integer::TYPE)), $$str({""_s, $$str(StringConcatFactoryInvariants::TAG_ARG), $$str(StringConcatFactoryInvariants::TAG_CONST)}), $$new($ObjectArray, {($Object*)nullptr})));
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$34($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$load($String);
 	$init($Integer);
 	return $of($StringConcatFactory::makeConcatWithConstants(lookup, methodName, $($MethodType::methodType($String::class$, $Integer::TYPE)), $$str({""_s, $$str(StringConcatFactoryInvariants::TAG_ARG), $$str(StringConcatFactoryInvariants::TAG_CONST)}), $$new($ObjectArray, {$of("foo"_s)})));
@@ -1836,6 +1844,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$21($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$20($MethodHandles$Lookup* lookup, $String* methodName, $String* recipe, $ObjectArray* consts) {
+	$useLocalCurrentObjectStackCache();
 	$load($Serializable);
 	$load($String);
 	$init($Integer);
@@ -1843,6 +1852,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$20($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$19($MethodHandles$Lookup* lookup, $String* methodName, $String* recipe, $ObjectArray* consts) {
+	$useLocalCurrentObjectStackCache();
 	$load($CharSequence);
 	$load($String);
 	$init($Integer);
@@ -1850,6 +1860,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$19($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$18($MethodHandles$Lookup* lookup, $String* methodName, $String* recipe, $ObjectArray* consts) {
+	$useLocalCurrentObjectStackCache();
 	$load($Object);
 	$load($String);
 	$init($Integer);
@@ -1857,6 +1868,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$18($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$17($MethodHandles$Lookup* lookup, $String* methodName, $String* recipe, $ObjectArray* consts) {
+	$useLocalCurrentObjectStackCache();
 	$load($StringBuilder);
 	$load($String);
 	$init($Integer);
@@ -1864,12 +1876,14 @@ $Object* StringConcatFactoryInvariants::lambda$main$17($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$16($MethodHandles$Lookup* lookup, $String* methodName, $String* recipe, $ObjectArray* consts) {
+	$useLocalCurrentObjectStackCache();
 	$init($Integer);
 	$load($String);
 	return $of($StringConcatFactory::makeConcatWithConstants(lookup, methodName, $($MethodType::methodType($Integer::TYPE, $String::class$, $$new($ClassArray, {$Integer::TYPE}))), recipe, consts));
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$15($MethodHandles$Lookup* lookup, $String* methodName, $String* recipe, $ObjectArray* consts) {
+	$useLocalCurrentObjectStackCache();
 	$init($Void);
 	$load($String);
 	$init($Integer);
@@ -1877,6 +1891,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$15($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$14($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$load($Serializable);
 	$load($String);
 	$init($Integer);
@@ -1884,6 +1899,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$14($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$13($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$load($CharSequence);
 	$load($String);
 	$init($Integer);
@@ -1891,6 +1907,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$13($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$12($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$load($Object);
 	$load($String);
 	$init($Integer);
@@ -1898,6 +1915,7 @@ $Object* StringConcatFactoryInvariants::lambda$main$12($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$11($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$load($StringBuilder);
 	$load($String);
 	$init($Integer);
@@ -1905,12 +1923,14 @@ $Object* StringConcatFactoryInvariants::lambda$main$11($MethodHandles$Lookup* lo
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$10($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$init($Integer);
 	$load($String);
 	return $of($StringConcatFactory::makeConcat(lookup, methodName, $($MethodType::methodType($Integer::TYPE, $String::class$, $$new($ClassArray, {$Integer::TYPE})))));
 }
 
 $Object* StringConcatFactoryInvariants::lambda$main$9($MethodHandles$Lookup* lookup, $String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$init($Void);
 	$load($String);
 	$init($Integer);

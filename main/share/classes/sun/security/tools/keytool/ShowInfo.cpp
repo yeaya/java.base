@@ -52,6 +52,7 @@ void ShowInfo::init$() {
 }
 
 void ShowInfo::tls(bool verbose) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLSocket, ssls, $cast($SSLSocket, $nc($($nc($($SSLContext::getDefault()))->getSocketFactory()))->createSocket()));
 	$init($System);
 	$nc($System::out)->println("Enabled Protocols"_s);

@@ -45,6 +45,7 @@ void EmptySet::init$() {
 }
 
 void EmptySet::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, flags, $new($HashSet));
 	$nc($($AclEntry::newBuilder()))->setFlags(flags);
 	$var($Set, perms, $new($HashSet));

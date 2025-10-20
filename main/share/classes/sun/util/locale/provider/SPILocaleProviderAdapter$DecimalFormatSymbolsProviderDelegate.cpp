@@ -124,6 +124,7 @@ bool SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::isSupportedL
 }
 
 $DecimalFormatSymbols* SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::getInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DecimalFormatSymbolsProvider, dfsp, $cast($DecimalFormatSymbolsProvider, getImpl(locale)));

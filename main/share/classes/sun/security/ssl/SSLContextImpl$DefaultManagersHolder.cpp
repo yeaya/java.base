@@ -126,6 +126,7 @@ void SSLContextImpl$DefaultManagersHolder::init$() {
 
 $TrustManagerArray* SSLContextImpl$DefaultManagersHolder::getTrustManagers() {
 	$init(SSLContextImpl$DefaultManagersHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($TrustManagerFactory, tmf, $TrustManagerFactory::getInstance($($TrustManagerFactory::getDefaultAlgorithm())));
 	if ("SunJSSE"_s->equals($($nc($($nc(tmf)->getProvider()))->getName()))) {
 		$nc(tmf)->init(($KeyStore*)nullptr);
@@ -138,6 +139,7 @@ $TrustManagerArray* SSLContextImpl$DefaultManagersHolder::getTrustManagers() {
 
 $KeyManagerArray* SSLContextImpl$DefaultManagersHolder::getKeyManagers() {
 	$init(SSLContextImpl$DefaultManagersHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Map, props, $new($HashMap));
 	$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SSLContextImpl$DefaultManagersHolder$1, props)));
@@ -204,6 +206,7 @@ $KeyManagerArray* SSLContextImpl$DefaultManagersHolder::getKeyManagers() {
 }
 
 void clinit$SSLContextImpl$DefaultManagersHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLContextImpl$DefaultManagersHolder::NONE, "NONE"_s);
 	$assignStatic(SSLContextImpl$DefaultManagersHolder::P11KEYSTORE, "PKCS11"_s);
 	{

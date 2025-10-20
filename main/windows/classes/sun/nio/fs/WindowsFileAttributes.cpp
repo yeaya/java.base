@@ -247,6 +247,7 @@ WindowsFileAttributes* WindowsFileAttributes::fromFindData(int64_t address) {
 
 WindowsFileAttributes* WindowsFileAttributes::readAttributes(int64_t handle) {
 	$init(WindowsFileAttributes);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsFileAttributes::SIZEOF_FILE_INFORMATION));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -295,6 +296,7 @@ WindowsFileAttributes* WindowsFileAttributes::readAttributes(int64_t handle) {
 
 WindowsFileAttributes* WindowsFileAttributes::get($WindowsPath* path, bool followLinks) {
 	$init(WindowsFileAttributes);
+	$useLocalCurrentObjectStackCache();
 	if (!WindowsFileAttributes::ensureAccurateMetadata) {
 		$var($WindowsException, firstException, nullptr);
 		$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsFileAttributes::SIZEOF_FILE_ATTRIBUTE_DATA));

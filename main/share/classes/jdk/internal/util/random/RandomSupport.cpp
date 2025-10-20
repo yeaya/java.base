@@ -393,6 +393,7 @@ float RandomSupport::boundedNextFloat($RandomGenerator* rng, float bound) {
 
 bool RandomSupport::secureRandomSeedRequested() {
 	$init(RandomSupport);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, pp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.util.secureRandomSeed"_s)))));
 	return (pp != nullptr && pp->equalsIgnoreCase("true"_s));
@@ -449,6 +450,7 @@ int32_t RandomSupport::mixLea32(int32_t z) {
 
 double RandomSupport::computeNextExponential($RandomGenerator* rng) {
 	$init(RandomSupport);
+	$useLocalCurrentObjectStackCache();
 	int64_t U1 = $nc(rng)->nextLong();
 	int64_t i = (int64_t)(U1 & (uint64_t)(int64_t)$RandomSupport$DoubleZigguratTables::exponentialLayerMask);
 	if (i < $RandomSupport$DoubleZigguratTables::exponentialNumberOfLayers) {
@@ -494,6 +496,7 @@ double RandomSupport::computeNextExponential($RandomGenerator* rng) {
 
 double RandomSupport::computeNextGaussian($RandomGenerator* rng) {
 	$init(RandomSupport);
+	$useLocalCurrentObjectStackCache();
 	int64_t U1 = $nc(rng)->nextLong();
 	int64_t i = (int64_t)(U1 & (uint64_t)(int64_t)$RandomSupport$DoubleZigguratTables::normalLayerMask);
 	if (i < $RandomSupport$DoubleZigguratTables::normalNumberOfLayers) {

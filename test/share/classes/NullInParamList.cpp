@@ -43,6 +43,7 @@ void NullInParamList::init$() {
 
 void NullInParamList::main($StringArray* args) {
 	$load(NullInParamList);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($ClassArray, ca, $new($ClassArray, {($Class*)nullptr}));

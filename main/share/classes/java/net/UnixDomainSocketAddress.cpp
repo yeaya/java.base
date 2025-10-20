@@ -100,6 +100,7 @@ void UnixDomainSocketAddress::init$($Path* path) {
 
 UnixDomainSocketAddress* UnixDomainSocketAddress::of($String* pathname) {
 	$init(UnixDomainSocketAddress);
+	$useLocalCurrentObjectStackCache();
 	return of($($Path::of(pathname, $$new($StringArray, 0))));
 }
 

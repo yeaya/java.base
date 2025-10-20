@@ -125,6 +125,7 @@ void DoubleSummaryStatistics::init$() {
 }
 
 void DoubleSummaryStatistics::init$(int64_t count, double min, double max, double sum) {
+	$useLocalCurrentObjectStackCache();
 	$init($Double);
 	this->min = $Double::POSITIVE_INFINITY;
 	this->max = $Double::NEGATIVE_INFINITY;
@@ -209,6 +210,7 @@ double DoubleSummaryStatistics::getAverage() {
 }
 
 $String* DoubleSummaryStatistics::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("%s{count=%d, sum=%f, min=%f, average=%f, max=%f}"_s, $$new($ObjectArray, {
 		$($of($of(this)->getClass()->getSimpleName())),
 		$($of($Long::valueOf(getCount()))),

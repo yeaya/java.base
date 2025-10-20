@@ -135,6 +135,7 @@ void ServerHello$T12ServerHelloConsumer::init$() {
 }
 
 void ServerHello$T12ServerHelloConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($ServerHello$ServerHelloMessage, serverHello, $cast($ServerHello$ServerHelloMessage, message));
 	if (!$nc(chc)->isNegotiable($nc(serverHello)->serverVersion)) {

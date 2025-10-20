@@ -79,6 +79,7 @@ void ExactArithTests::init$() {
 
 void ExactArithTests::main($StringArray* args) {
 	$init(ExactArithTests);
+	$useLocalCurrentObjectStackCache();
 	testIntegerExact();
 	testLongExact();
 	testLongIntExact();
@@ -115,6 +116,7 @@ void ExactArithTests::testIntegerExact() {
 
 void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 	$init(ExactArithTests);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t sum = $Math::addExact(x, y);
 		int64_t sum2 = (int64_t)x + (int64_t)y;
@@ -238,6 +240,7 @@ void ExactArithTests::testLongExactTwice(int64_t x, int64_t y) {
 
 void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 	$init(ExactArithTests);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, resultBig, nullptr);
 	$var($BigInteger, xBig, $BigInteger::valueOf(x));
 	$var($BigInteger, yBig, $BigInteger::valueOf(y));
@@ -316,6 +319,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 
 void ExactArithTests::checkResult($String* message, int64_t x, int64_t y, int64_t result, $BigInteger* expected) {
 	$init(ExactArithTests);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, resultBig, $BigInteger::valueOf(result));
 	if (!inLongRange(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected an arithmetic exception: "_s}));
@@ -358,6 +362,7 @@ void ExactArithTests::testLongIntExact() {
 
 void ExactArithTests::testLongIntExact(int64_t x, int32_t y) {
 	$init(ExactArithTests);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, resultBig, nullptr);
 	$var($BigInteger, xBig, $BigInteger::valueOf(x));
 	$var($BigInteger, yBig, $BigInteger::valueOf((int64_t)y));

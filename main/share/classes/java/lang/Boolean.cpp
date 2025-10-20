@@ -198,6 +198,7 @@ bool Boolean::equals(Object$* obj) {
 
 bool Boolean::getBoolean($String* name) {
 	$init(Boolean);
+	$useLocalCurrentObjectStackCache();
 	bool result = false;
 	try {
 		result = parseBoolean($($System::getProperty(name)));

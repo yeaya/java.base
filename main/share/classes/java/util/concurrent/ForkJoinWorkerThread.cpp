@@ -76,6 +76,7 @@ $Object* allocate$ForkJoinWorkerThread($Class* clazz) {
 }
 
 void ForkJoinWorkerThread::init$($ThreadGroup* group, $ForkJoinPool* pool, bool useSystemClassLoader, bool isInnocuous) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Thread::init$(group, nullptr, $($nc(pool)->nextWorkerThreadName()), 0);
 	$var($Thread$UncaughtExceptionHandler, handler, $nc(($assignField(this, pool, pool)))->ueh);
@@ -112,6 +113,7 @@ void ForkJoinWorkerThread::onTermination($Throwable* exception) {
 }
 
 void ForkJoinWorkerThread::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, exception, nullptr);
 	$var($ForkJoinPool, p, this->pool);
 	$var($ForkJoinPool$WorkQueue, w, this->workQueue);

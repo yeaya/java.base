@@ -59,6 +59,7 @@ void TimeZoneLastModified::init$() {
 }
 
 void TimeZoneLastModified::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = test(nullptr);
 	{
 		$var($StringArray, arr$, $TimeZone::getAvailableIDs());
@@ -79,6 +80,7 @@ void TimeZoneLastModified::main($StringArray* args) {
 }
 
 int32_t TimeZoneLastModified::test($String* timeZoneID) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, "test-timezone.txt"_s));
 	int32_t failures = 0;
 	{

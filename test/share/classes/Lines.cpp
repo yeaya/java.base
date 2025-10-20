@@ -88,6 +88,7 @@ void Lines::testLines() {
 }
 
 void Lines::testString($String* string) {
+	$useLocalCurrentObjectStackCache();
 	$var($Stream, lines, $nc(string)->lines());
 	$var($Stream, brLines, $$new($BufferedReader, $$new($StringReader, string))->lines());
 	$var($Iterator, iterator, lines->iterator());

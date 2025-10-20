@@ -88,6 +88,7 @@ void PKCS10Attributes::init$() {
 }
 
 void PKCS10Attributes::init$($PKCS10AttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, map, $new($Hashtable, 3));
 	for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
 		$nc(this->map)->put($($nc($($nc(attrs->get(i))->getAttributeId()))->toString()), attrs->get(i));
@@ -95,6 +96,7 @@ void PKCS10Attributes::init$($PKCS10AttributeArray* attrs) {
 }
 
 void PKCS10Attributes::init$($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, map, $new($Hashtable, 3));
 	$var($DerValueArray, attrs, $nc(in)->getSet(3, true));
 	if (attrs == nullptr) {
@@ -111,6 +113,7 @@ void PKCS10Attributes::encode($OutputStream* out) {
 }
 
 void PKCS10Attributes::derEncode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, allAttrs, $nc(this->map)->values());
 	$var($PKCS10AttributeArray, attribs, $fcast($PKCS10AttributeArray, $nc(allAttrs)->toArray($$new($PKCS10AttributeArray, $nc(this->map)->size()))));
 	$var($DerOutputStream, attrOut, $new($DerOutputStream));
@@ -141,6 +144,7 @@ $Collection* PKCS10Attributes::getAttributes() {
 }
 
 bool PKCS10Attributes::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -178,6 +182,7 @@ int32_t PKCS10Attributes::hashCode() {
 }
 
 $String* PKCS10Attributes::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$$str($nc(this->map)->size()), "\n"_s}));
 	$var($String, s, $concat(var$0, $($nc(this->map)->toString())));
 	return s;

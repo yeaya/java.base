@@ -129,6 +129,7 @@ void SSLCipher$T12GcmWriteCipherGenerator$GcmWriteCipher::init$($Authenticator* 
 }
 
 int32_t SSLCipher$T12GcmWriteCipherGenerator$GcmWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, nonce, $nc(this->authenticator)->sequenceNumber());
 	$var($bytes, iv, $Arrays::copyOf(this->fixedIv, $nc(this->fixedIv)->length + $nc(nonce)->length));
 	$System::arraycopy(nonce, 0, iv, $nc(this->fixedIv)->length, $nc(nonce)->length);

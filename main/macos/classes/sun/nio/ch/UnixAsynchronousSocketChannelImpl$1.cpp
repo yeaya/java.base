@@ -92,6 +92,7 @@ void UnixAsynchronousSocketChannelImpl$1::init$($UnixAsynchronousSocketChannelIm
 }
 
 void UnixAsynchronousSocketChannelImpl$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletionHandler, handler, nullptr);
 	$var($Object, att, nullptr);
 	$var($PendingFuture, future, nullptr);

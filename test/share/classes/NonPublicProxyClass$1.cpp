@@ -66,6 +66,7 @@ void NonPublicProxyClass$1::init$() {
 }
 
 $Object* NonPublicProxyClass$1::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, intfs, $nc($of(proxy))->getClass()->getInterfaces());
 	$init($System);
 	$var($String, var$1, $$str({"Proxy for "_s, $($Arrays::toString(intfs)), " "_s}));

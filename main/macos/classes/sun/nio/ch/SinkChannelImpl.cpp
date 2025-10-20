@@ -346,6 +346,7 @@ void SinkChannelImpl::endWrite(bool blocking, bool completed) {
 }
 
 int32_t SinkChannelImpl::write($ByteBuffer* src) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(src);
 	$nc(this->writeLock)->lock();
 	{
@@ -404,6 +405,7 @@ int32_t SinkChannelImpl::write($ByteBuffer* src) {
 }
 
 int64_t SinkChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(offset, length, $nc(srcs)->length);
 	$nc(this->writeLock)->lock();
 	{

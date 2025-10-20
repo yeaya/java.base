@@ -59,6 +59,7 @@ void bug6271375::init$() {
 }
 
 void bug6271375::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, dfsSrc, $DateFormatSymbols::getInstance());
 	try {
 		$var($FileOutputStream, fos, $new($FileOutputStream, "dfs.ser"_s));

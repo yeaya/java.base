@@ -59,6 +59,7 @@ $String* ZipDecompressor::getName() {
 
 $bytes* ZipDecompressor::decompress($bytes* bytesIn, int32_t offset) {
 	$init(ZipDecompressor);
+	$useLocalCurrentObjectStackCache();
 	$var($Inflater, inflater, $new($Inflater));
 	inflater->setInput(bytesIn, offset, $nc(bytesIn)->length - offset);
 	$var($ByteArrayOutputStream, stream, $new($ByteArrayOutputStream, $nc(bytesIn)->length - offset));

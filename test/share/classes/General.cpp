@@ -107,12 +107,14 @@ void General::init$() {
 
 $String* General::gensym() {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, "x."_s);
 	return $concat(var$0, $$str(++General::gensymCounter));
 }
 
 void General::initTestData(int32_t depth) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($File, parent, $new($File, $$str({General::userDir, $File::separator, General::workSubDir})));
 	if (!parent->mkdir()) {
@@ -134,6 +136,7 @@ void General::initTestData(int32_t depth) {
 
 $String* General::findSomeFile($String* dir, $String* subdir, $StringArray* dl) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(dl)->length; ++i) {
 		$var($File, f, $new($File, subdir, dl->get(i)));
 		$var($File, df, $new($File, dir, $(f->getPath())));
@@ -161,6 +164,7 @@ $String* General::findSomeFile($String* dir, $String* subdir, $StringArray* dl) 
 
 $String* General::findSomeFile($String* dir, bool create) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	$var($File, d, $new($File, dir));
 	$var($StringArray, dl, d->list());
 	if (dl == nullptr) {
@@ -194,6 +198,7 @@ $String* General::findSomeFile($String* dir, bool create) {
 
 $String* General::findSomeDir($String* dir, bool create) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	$var($File, d, $new($File, dir));
 	$var($StringArray, dl, d->list());
 	if (dl == nullptr) {
@@ -221,6 +226,7 @@ $String* General::findSomeDir($String* dir, bool create) {
 
 $String* General::findNon($String* dir) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	$var($File, d, $new($File, dir));
 	$var($StringArray, x, $new($StringArray, {
 		"foo"_s,
@@ -245,6 +251,7 @@ $String* General::findNon($String* dir) {
 
 void General::ensureNon($String* fn) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	if (($$new($File, fn))->exists()) {
 		$throwNew($RuntimeException, $$str({"Test path "_s, fn, " exists"_s}));
 	}
@@ -298,6 +305,7 @@ $String* General::pathConcat($String* a, $String* b) {
 
 void General::check($String* answer, $String* path) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	$var($String, ans, trimTrailingSlashes(answer));
 	if ($nc(path)->length() == 0) {
 		return;
@@ -344,6 +352,7 @@ void General::check($String* answer, $String* path) {
 
 void General::checkSlash(int32_t depth, bool create, $String* ans, $String* ask, $String* slash) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	check(ans, $$str({ask, slash}));
 	$init($File);
 	checkNames(depth, create, $nc(ans)->endsWith($File::separator) ? ans : $$str({ans, $File::separator}), $$str({ask, slash}));
@@ -369,6 +378,7 @@ void General::checkSlashes(int32_t depth, bool create, $String* ans, $String* as
 
 void General::checkNames(int32_t depth, bool create, $String* ans, $String* ask) {
 	$init(General);
+	$useLocalCurrentObjectStackCache();
 	int32_t d = depth - 1;
 	$var($File, f, $new($File, ans));
 	$var($String, n, nullptr);

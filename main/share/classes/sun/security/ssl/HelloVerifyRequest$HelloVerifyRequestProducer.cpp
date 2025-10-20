@@ -85,6 +85,7 @@ void HelloVerifyRequest$HelloVerifyRequestProducer::init$() {
 }
 
 $bytes* HelloVerifyRequest$HelloVerifyRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(shc)->handshakeProducers)->remove($($Byte::valueOf($SSLHandshake::HELLO_VERIFY_REQUEST->id)));

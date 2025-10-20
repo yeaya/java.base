@@ -75,6 +75,7 @@ $Object* allocate$GetXSpace$Space($Class* clazz) {
 }
 
 void GetXSpace$Space::init$($String* total, $String* free, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		this->total$ = $nc($($Long::valueOf(total)))->longValue() * GetXSpace$Space::KSIZE;
 		this->free$ = $nc($($Long::valueOf(free)))->longValue() * GetXSpace$Space::KSIZE;
@@ -102,6 +103,7 @@ bool GetXSpace$Space::woomFree(int64_t freeSpace) {
 }
 
 $String* GetXSpace$Space::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("%s (%d/%d)"_s, $$new($ObjectArray, {
 		$of(this->name$),
 		$($of($Long::valueOf(this->free$))),

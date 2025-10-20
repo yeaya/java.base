@@ -42,6 +42,7 @@ void GetCharsOverLength::init$() {
 }
 
 void GetCharsOverLength::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer, "sample string buffer"_s));
 	$var($chars, dst, $new($chars, 30));
 	bool failed = false;

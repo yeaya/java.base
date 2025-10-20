@@ -205,6 +205,7 @@ void LinuxDosFileAttributeView::setAttribute($String* attribute, Object$* value)
 }
 
 $Map* LinuxDosFileAttributeView::readAttributes($StringArray* attributes) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(LinuxDosFileAttributeView::dosAttributeNames, attributes));
 	$var($DosFileAttributes, attrs, $cast($DosFileAttributes, readAttributes()));
 	addRequestedBasicAttributes(attrs, builder);
@@ -224,6 +225,7 @@ $Map* LinuxDosFileAttributeView::readAttributes($StringArray* attributes) {
 }
 
 $BasicFileAttributes* LinuxDosFileAttributeView::readAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->file)->checkRead();
 	int32_t fd = -1;
 	{
@@ -277,6 +279,7 @@ void LinuxDosFileAttributeView::setSystem(bool value) {
 }
 
 int32_t LinuxDosFileAttributeView::getDosAttribute(int32_t fd) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 24;
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(size));
 	{
@@ -329,6 +332,7 @@ int32_t LinuxDosFileAttributeView::getDosAttribute(int32_t fd) {
 }
 
 void LinuxDosFileAttributeView::updateDosAttribute(int32_t flag, bool enable) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->file)->checkWrite();
 	int32_t fd = -1;
 	{

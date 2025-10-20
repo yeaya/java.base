@@ -140,6 +140,7 @@ void LinkedHashMap::linkNodeLast($LinkedHashMap$Entry* p) {
 }
 
 void LinkedHashMap::transferLinks($LinkedHashMap$Entry* src, $LinkedHashMap$Entry* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashMap$Entry, b, $assignField($nc(dst), before, $nc(src)->before));
 	$var($LinkedHashMap$Entry, a, $assignField(dst, after, src->after));
 	if (b == nullptr) {
@@ -166,6 +167,7 @@ $HashMap$Node* LinkedHashMap::newNode(int32_t hash, Object$* key, Object$* value
 }
 
 $HashMap$Node* LinkedHashMap::replacementNode($HashMap$Node* p, $HashMap$Node* next) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashMap$Entry, q, $cast($LinkedHashMap$Entry, p));
 	$var($LinkedHashMap$Entry, t, $new($LinkedHashMap$Entry, $nc(q)->hash, q->key, q->value, next));
 	transferLinks(q, t);
@@ -179,6 +181,7 @@ $HashMap$TreeNode* LinkedHashMap::newTreeNode(int32_t hash, Object$* key, Object
 }
 
 $HashMap$TreeNode* LinkedHashMap::replacementTreeNode($HashMap$Node* p, $HashMap$Node* next) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashMap$Entry, q, $cast($LinkedHashMap$Entry, p));
 	$var($HashMap$TreeNode, t, $new($HashMap$TreeNode, $nc(q)->hash, q->key, q->value, next));
 	transferLinks(q, t);
@@ -186,6 +189,7 @@ $HashMap$TreeNode* LinkedHashMap::replacementTreeNode($HashMap$Node* p, $HashMap
 }
 
 void LinkedHashMap::afterNodeRemoval($HashMap$Node* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashMap$Entry, p, $cast($LinkedHashMap$Entry, e));
 	$var($LinkedHashMap$Entry, b, $nc(p)->before);
 	$var($LinkedHashMap$Entry, a, p->after);
@@ -203,6 +207,7 @@ void LinkedHashMap::afterNodeRemoval($HashMap$Node* e) {
 }
 
 void LinkedHashMap::afterNodeInsertion(bool evict) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashMap$Entry, first, nullptr);
 	bool var$0 = evict && ($assign(first, this->head)) != nullptr;
 	if (var$0 && removeEldestEntry(first)) {
@@ -212,6 +217,7 @@ void LinkedHashMap::afterNodeInsertion(bool evict) {
 }
 
 void LinkedHashMap::afterNodeAccess($HashMap$Node* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashMap$Entry, last, nullptr);
 	if (this->accessOrder && !$equals($assign(last, this->tail), e)) {
 		$var($LinkedHashMap$Entry, p, $cast($LinkedHashMap$Entry, e));
@@ -276,6 +282,7 @@ void LinkedHashMap::init$(int32_t initialCapacity, float loadFactor, bool access
 }
 
 bool LinkedHashMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($LinkedHashMap$Entry, e, this->head);
 		for (; e != nullptr; $assign(e, $nc(e)->after)) {
@@ -329,6 +336,7 @@ $Set* LinkedHashMap::keySet() {
 }
 
 $ObjectArray* LinkedHashMap::keysToArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, r, a);
 	int32_t idx = 0;
 	{
@@ -341,6 +349,7 @@ $ObjectArray* LinkedHashMap::keysToArray($ObjectArray* a) {
 }
 
 $ObjectArray* LinkedHashMap::valuesToArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, r, a);
 	int32_t idx = 0;
 	{

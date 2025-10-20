@@ -71,6 +71,7 @@ void DumpStackTest$1::run() {
 }
 
 void DumpStackTest$1::c() {
+	$useLocalCurrentObjectStackCache();
 		$load($Thread);
 	$var($DumpStackTest$CallFrameArray, callStack, $new($DumpStackTest$CallFrameArray, {
 		$$new($DumpStackTest$CallFrame, $Thread::class$, "getStackTrace"_s),

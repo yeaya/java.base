@@ -90,6 +90,7 @@ void CloseWhenKeyIdle::init$() {
 
 void CloseWhenKeyIdle::main($StringArray* args) {
 	$init(CloseWhenKeyIdle);
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	$nc($($nc(ssc)->socket()))->bind($$new($InetSocketAddress, 0));
 	$var($InetAddress, var$0, $InetAddress::getLocalHost());

@@ -43,6 +43,7 @@ void FormatData::init$() {
 }
 
 $ObjectArray2* FormatData::getContents() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, julianEras, $new($StringArray, {
 		"BC"_s,
 		"AD"_s

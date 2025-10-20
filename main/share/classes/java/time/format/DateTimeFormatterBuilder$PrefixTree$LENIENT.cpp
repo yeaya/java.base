@@ -75,6 +75,7 @@ bool DateTimeFormatterBuilder$PrefixTree$LENIENT::isLenientChar(char16_t c) {
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::toKey($String* k) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(k)->length(); ++i) {
 		if (isLenientChar(k->charAt(i))) {
 			$var($StringBuilder, sb, $new($StringBuilder, k->length()));
@@ -93,6 +94,7 @@ $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::toKey($String* k) {
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree$LENIENT::match($CharSequence* text, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t off = $nc(pos)->getIndex();
 	int32_t end = $nc(text)->length();
 	int32_t len = $nc(this->key)->length();

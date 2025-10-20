@@ -91,6 +91,7 @@ void URIName::init$($DerValue* derValue) {
 }
 
 void URIName::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, uri, $new($URI, name));
 	} catch ($URISyntaxException&) {
@@ -128,6 +129,7 @@ void URIName::init$($String* name) {
 
 URIName* URIName::nameConstraint($DerValue* value) {
 	$init(URIName);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, nullptr);
 	$var($String, name, $nc(value)->getIA5String());
 	try {
@@ -175,6 +177,7 @@ $String* URIName::toString() {
 }
 
 bool URIName::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -214,6 +217,7 @@ int32_t URIName::hashCode() {
 }
 
 int32_t URIName::constrains($GeneralNameInterface* inputName) {
+	$useLocalCurrentObjectStackCache();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
@@ -249,6 +253,7 @@ int32_t URIName::constrains($GeneralNameInterface* inputName) {
 }
 
 int32_t URIName::subtreeDepth() {
+	$useLocalCurrentObjectStackCache();
 	$var($DNSName, dnsName, nullptr);
 	try {
 		$assign(dnsName, $new($DNSName, this->host));

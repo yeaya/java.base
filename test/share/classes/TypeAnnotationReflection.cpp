@@ -126,6 +126,7 @@ void TypeAnnotationReflection::check(bool b) {
 }
 
 void TypeAnnotationReflection::testSuper() {
+	$useLocalCurrentObjectStackCache();
 	$load($Object);
 	check($Object::class$->getAnnotatedSuperclass() == nullptr);
 	check($nc($($nc($($Class::class$->getAnnotatedSuperclass()))->getAnnotations()))->length == 0);
@@ -143,6 +144,7 @@ void TypeAnnotationReflection::testSuper() {
 }
 
 void TypeAnnotationReflection::testInterfaces() {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedTypeArray, as, nullptr);
 	$load($TestClassArray);
 	$assign(as, $TestClassArray::class$->getAnnotatedInterfaces());
@@ -167,6 +169,7 @@ void TypeAnnotationReflection::testInterfaces() {
 
 void TypeAnnotationReflection::testReturnType() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassArray);
 	$var($Method, m, $TestClassArray::class$->getDeclaredMethod("foo"_s, ($ClassArray*)nullptr));
@@ -179,6 +182,7 @@ void TypeAnnotationReflection::testReturnType() {
 
 void TypeAnnotationReflection::testNested() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassNested);
 	$var($Method, m, $TestClassNested::class$->getDeclaredMethod("foo"_s, ($ClassArray*)nullptr));
@@ -197,6 +201,7 @@ void TypeAnnotationReflection::testNested() {
 
 void TypeAnnotationReflection::testArray() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassArray);
 	$var($Method, m, $TestClassArray::class$->getDeclaredMethod("foo"_s, ($ClassArray*)nullptr));
@@ -224,6 +229,7 @@ void TypeAnnotationReflection::testArray() {
 
 void TypeAnnotationReflection::testRunException() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassException);
 	$var($Method, m, $TestClassException::class$->getDeclaredMethod("foo"_s, ($ClassArray*)nullptr));
@@ -252,6 +258,7 @@ void TypeAnnotationReflection::testRunException() {
 
 void TypeAnnotationReflection::testClassTypeVarBounds() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassTypeVarAndField);
 	$var($Method, m, $TestClassTypeVarAndField::class$->getDeclaredMethod("foo"_s, ($ClassArray*)nullptr));
@@ -276,6 +283,7 @@ void TypeAnnotationReflection::testClassTypeVarBounds() {
 
 void TypeAnnotationReflection::testMethodTypeVarBounds() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassTypeVarAndField);
 	$var($Method, m2, $TestClassTypeVarAndField::class$->getDeclaredMethod("foo2"_s, ($ClassArray*)nullptr));
@@ -299,6 +307,7 @@ void TypeAnnotationReflection::testMethodTypeVarBounds() {
 
 void TypeAnnotationReflection::testFields() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassTypeVarAndField);
 	$var($Field, f1, $TestClassTypeVarAndField::class$->getDeclaredField("field1"_s));
@@ -326,6 +335,7 @@ void TypeAnnotationReflection::testFields() {
 }
 
 void TypeAnnotationReflection::testClassTypeVar() {
+	$useLocalCurrentObjectStackCache();
 	$load($TestClassTypeVarAndField);
 	$var($TypeVariableArray, typeVars, $TestClassTypeVarAndField::class$->getTypeParameters());
 	$var($AnnotationArray, annos, nullptr);
@@ -363,6 +373,7 @@ void TypeAnnotationReflection::testClassTypeVar() {
 
 void TypeAnnotationReflection::testMethodTypeVar() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestClassTypeVarAndField);
 	$var($Method, m2, $TestClassTypeVarAndField::class$->getDeclaredMethod("foo2"_s, ($ClassArray*)nullptr));
@@ -397,6 +408,7 @@ void TypeAnnotationReflection::testMethodTypeVar() {
 }
 
 void TypeAnnotationReflection::testParameterizedType() {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedTypeArray, as, nullptr);
 	$load($TestParameterizedTypeA);
 	$assign(as, $TestParameterizedTypeA::class$->getAnnotatedInterfaces());
@@ -420,6 +432,7 @@ void TypeAnnotationReflection::testParameterizedType() {
 
 void TypeAnnotationReflection::testNestedParameterizedType() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestParameterizedTypeA);
 	$var($Method, m, $TestParameterizedTypeA::class$->getDeclaredMethod("foo2"_s, ($ClassArray*)nullptr));
@@ -458,6 +471,7 @@ void TypeAnnotationReflection::testNestedParameterizedType() {
 
 void TypeAnnotationReflection::testWildcardType() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestWildcardType);
 	$var($Method, m, $TestWildcardType::class$->getDeclaredMethod("foo"_s, ($ClassArray*)nullptr));
@@ -499,6 +513,7 @@ void TypeAnnotationReflection::testWildcardType() {
 
 void TypeAnnotationReflection::testParameterTypes() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Params);
 	$var($Method, m, $Params::class$->getDeclaredMethod("noParams"_s, ($ClassArray*)nullptr));
@@ -558,6 +573,7 @@ void TypeAnnotationReflection::testParameterTypes() {
 
 void TypeAnnotationReflection::testParameterType() {
 	$load(TypeAnnotationReflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Params);
 	$var($Method, m, $Params::class$->getDeclaredMethod("noParams"_s, ($ClassArray*)nullptr));

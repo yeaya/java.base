@@ -45,6 +45,7 @@ void WriteBytesChars::init$() {
 }
 
 void WriteBytesChars::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, towrite, nullptr);
 	$var($chars, buf, $new($chars, 80));
 	$var($bytes, b, $new($bytes, 80));

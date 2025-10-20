@@ -49,6 +49,7 @@ void OpenConnection::init$() {
 
 void OpenConnection::main($StringArray* args) {
 	$load(OpenConnection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::setSecurityManager($$new($SecurityManager));
 	$var($URL, u, $new($URL, "http://foo.bar.baz/"_s));

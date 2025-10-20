@@ -108,6 +108,7 @@ void TrustStoreManager$TrustAnchorManager::init$() {
 }
 
 $KeyStore* TrustStoreManager$TrustAnchorManager::getKeyStore($TrustStoreManager$TrustStoreDescriptor* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($TrustStoreManager$TrustStoreDescriptor, temporaryDesc, this->descriptor);
 	$var($KeyStore, ks, $cast($KeyStore, $nc(this->ksRef)->get()));
 	if ((ks != nullptr) && $nc(descriptor)->equals(temporaryDesc)) {
@@ -148,6 +149,7 @@ $KeyStore* TrustStoreManager$TrustAnchorManager::getKeyStore($TrustStoreManager$
 }
 
 $Set* TrustStoreManager$TrustAnchorManager::getTrustedCerts($TrustStoreManager$TrustStoreDescriptor* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyStore, ks, nullptr);
 	$var($TrustStoreManager$TrustStoreDescriptor, temporaryDesc, this->descriptor);
 	$var($Set, certs, $cast($Set, $nc(this->csRef)->get()));
@@ -209,6 +211,7 @@ $Set* TrustStoreManager$TrustAnchorManager::getTrustedCerts($TrustStoreManager$T
 
 $KeyStore* TrustStoreManager$TrustAnchorManager::loadKeyStore($TrustStoreManager$TrustStoreDescriptor* descriptor) {
 	$load(TrustStoreManager$TrustAnchorManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!"NONE"_s->equals($nc(descriptor)->storeName) && $nc(descriptor)->storeFile == nullptr) {
 		$init($SSLLogger);

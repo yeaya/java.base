@@ -175,6 +175,7 @@ int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, b
 
 int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DirectBuffer, src)) {
 		return writeFromNativeBuffer(fd, src, position, directIO, async, alignment, nd);
 	}
@@ -223,6 +224,7 @@ int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, b
 
 int32_t IOUtil::writeFromNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(bb)->position();
 	int32_t lim = bb->limit();
 	if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
@@ -278,6 +280,7 @@ int64_t IOUtil::write($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offse
 
 int64_t IOUtil::write($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset, int32_t length, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($IOVecWrapper, vec, $IOVecWrapper::get(length));
 	bool completed = false;
 	int32_t iov_len = 0;
@@ -393,6 +396,7 @@ int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bo
 
 int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(dst)->isReadOnly()) {
 		$throwNew($IllegalArgumentException, "Read-only buffer"_s);
 	}
@@ -437,6 +441,7 @@ int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bo
 
 int32_t IOUtil::readIntoNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(bb)->position();
 	int32_t lim = bb->limit();
 	if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
@@ -497,6 +502,7 @@ int64_t IOUtil::read($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset
 
 int64_t IOUtil::read($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset, int32_t length, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($IOVecWrapper, vec, $IOVecWrapper::get(length));
 	bool completed = false;
 	int32_t iov_len = 0;
@@ -607,6 +613,7 @@ $ScopedMemoryAccess$Scope$Handle* IOUtil::acquireScope($ByteBuffer* bb, bool asy
 
 void IOUtil::releaseScope($ScopedMemoryAccess$Scope$Handle* handle) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	if (handle == nullptr) {
 		return;
 	}
@@ -625,6 +632,7 @@ $Runnable* IOUtil::acquireScopes($ByteBufferArray* buffers) {
 
 $Runnable* IOUtil::acquireScopes($ByteBuffer* buf, $ByteBufferArray* buffers) {
 	$init(IOUtil);
+	$useLocalCurrentObjectStackCache();
 	if (buffers == nullptr) {
 		if (!IOUtil::$assertionsDisabled && !(buf != nullptr)) {
 			$throwNew($AssertionError);

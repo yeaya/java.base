@@ -66,6 +66,7 @@ void TypeVariableBoundParameterIndex::init$() {
 }
 
 void TypeVariableBoundParameterIndex::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$load($TypeVariableBoundParameterIndex$Sample);
 	$var($TypeVariableArray, variables, $TypeVariableBoundParameterIndex$Sample::class$->getTypeParameters());
 	for (int32_t i = 0; i < 2; ++i) {

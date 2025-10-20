@@ -103,6 +103,7 @@ bool TreeMap$NavigableSubMap$EntrySetView::isEmpty() {
 }
 
 bool TreeMap$NavigableSubMap$EntrySetView::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -126,6 +127,7 @@ bool TreeMap$NavigableSubMap$EntrySetView::contains(Object$* o) {
 }
 
 bool TreeMap$NavigableSubMap$EntrySetView::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {

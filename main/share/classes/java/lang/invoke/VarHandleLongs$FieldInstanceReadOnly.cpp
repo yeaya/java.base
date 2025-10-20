@@ -146,6 +146,7 @@ $MethodType* VarHandleLongs$FieldInstanceReadOnly::accessModeTypeUncached($VarHa
 }
 
 $Optional* VarHandleLongs$FieldInstanceReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, receiverTypeRef, $nc(this->receiverType)->describeConstable());
 	$init($Long);
 	$var($Optional, fieldTypeRef, $nc($Long::TYPE)->describeConstable());
@@ -161,6 +162,7 @@ $Optional* VarHandleLongs$FieldInstanceReadOnly::describeConstable() {
 
 int64_t VarHandleLongs$FieldInstanceReadOnly::get($VarHandle* ob, Object$* holder) {
 	$init(VarHandleLongs$FieldInstanceReadOnly);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadOnly, handle, $cast(VarHandleLongs$FieldInstanceReadOnly, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset);
@@ -168,6 +170,7 @@ int64_t VarHandleLongs$FieldInstanceReadOnly::get($VarHandle* ob, Object$* holde
 
 int64_t VarHandleLongs$FieldInstanceReadOnly::getVolatile($VarHandle* ob, Object$* holder) {
 	$init(VarHandleLongs$FieldInstanceReadOnly);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadOnly, handle, $cast(VarHandleLongs$FieldInstanceReadOnly, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getLongVolatile($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset);
@@ -175,6 +178,7 @@ int64_t VarHandleLongs$FieldInstanceReadOnly::getVolatile($VarHandle* ob, Object
 
 int64_t VarHandleLongs$FieldInstanceReadOnly::getOpaque($VarHandle* ob, Object$* holder) {
 	$init(VarHandleLongs$FieldInstanceReadOnly);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadOnly, handle, $cast(VarHandleLongs$FieldInstanceReadOnly, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getLongOpaque($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset);
@@ -182,6 +186,7 @@ int64_t VarHandleLongs$FieldInstanceReadOnly::getOpaque($VarHandle* ob, Object$*
 
 int64_t VarHandleLongs$FieldInstanceReadOnly::getAcquire($VarHandle* ob, Object$* holder) {
 	$init(VarHandleLongs$FieldInstanceReadOnly);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadOnly, handle, $cast(VarHandleLongs$FieldInstanceReadOnly, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset);

@@ -198,6 +198,7 @@ bool FileDispatcherImpl::transferToDirectlyNeedsPositionLock() {
 }
 
 int32_t FileDispatcherImpl::setDirectIO($FileDescriptor* fd, $String* path) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = -1;
 	$init($File);
 	$var($String, filePath, $nc(path)->substring(0, path->lastIndexOf($File::separator)));

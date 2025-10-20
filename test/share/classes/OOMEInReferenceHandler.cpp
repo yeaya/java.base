@@ -55,6 +55,7 @@ void OOMEInReferenceHandler::init$() {
 }
 
 $ObjectArray* OOMEInReferenceHandler::fillHeap() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, first, nullptr);
 	$var($ObjectArray, last, nullptr);
 	int32_t size = 1 << 20;
@@ -76,6 +77,7 @@ $ObjectArray* OOMEInReferenceHandler::fillHeap() {
 }
 
 void OOMEInReferenceHandler::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InterruptedException, ie, $new($InterruptedException, "dummy"_s));
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	{

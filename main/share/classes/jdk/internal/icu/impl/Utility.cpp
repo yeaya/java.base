@@ -85,6 +85,7 @@ void Utility::init$() {
 
 $String* Utility::escape($String* s) {
 	$init(Utility);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(s)->length();) {
 		int32_t c = $Character::codePointAt(static_cast<$CharSequence*>(s), i);
@@ -218,6 +219,7 @@ int32_t Utility::unescapeAt($String* s, $ints* offset16) {
 
 $String* Utility::hex(int64_t i, int32_t places) {
 	$init(Utility);
+	$useLocalCurrentObjectStackCache();
 	if (i == $Long::MIN_VALUE) {
 		return "-8000000000000000"_s;
 	}

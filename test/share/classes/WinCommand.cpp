@@ -71,6 +71,7 @@ void WinCommand::fail($String* msg) {
 
 $String* WinCommand::outputOf($StringArray* args) {
 	$init(WinCommand);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($CommandRunner, cr, $new($CommandRunner, args));
 		if (cr->exitValue != 0) {
@@ -90,6 +91,7 @@ $String* WinCommand::outputOf($StringArray* args) {
 
 void WinCommand::checkCD($StringArray* filespecs) {
 	$init(WinCommand);
+	$useLocalCurrentObjectStackCache();
 	$var($String, firstCD, nullptr);
 	{
 		$var($StringArray, arr$, filespecs);
@@ -123,6 +125,7 @@ void WinCommand::checkCD($StringArray* filespecs) {
 
 void WinCommand::checkDir($String* dirname) {
 	$init(WinCommand);
+	$useLocalCurrentObjectStackCache();
 	if (!$$new($File, dirname)->isDirectory()) {
 		fail($($String::format("Not a directory: %s%n"_s, $$new($ObjectArray, {$of(dirname)}))));
 	}
@@ -130,6 +133,7 @@ void WinCommand::checkDir($String* dirname) {
 
 void WinCommand::writeFile($String* filename, $String* contents) {
 	$init(WinCommand);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($FileOutputStream, fos, $new($FileOutputStream, filename));
 		fos->write($($nc(contents)->getBytes()));
@@ -142,6 +146,7 @@ void WinCommand::writeFile($String* filename, $String* contents) {
 
 void WinCommand::main($StringArray* args) {
 	$init(WinCommand);
+	$useLocalCurrentObjectStackCache();
 	$var($File, systemRoot, $System::getenv("SystemRoot"_s) != nullptr ? $new($File, $($System::getenv("SystemRoot"_s))) : $System::getenv("WINDIR"_s) != nullptr ? $new($File, $($System::getenv("WINDIR"_s))) : ($File*)nullptr);
 	if (systemRoot == nullptr || !$nc(systemRoot)->isDirectory()) {
 		return;

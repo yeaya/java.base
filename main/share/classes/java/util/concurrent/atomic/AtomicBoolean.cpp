@@ -192,6 +192,7 @@ bool AtomicBoolean::weakCompareAndSetRelease(bool expectedValue, bool newValue) 
 }
 
 void clinit$AtomicBoolean($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

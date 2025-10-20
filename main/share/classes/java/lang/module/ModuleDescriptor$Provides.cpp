@@ -93,6 +93,7 @@ $List* ModuleDescriptor$Provides::providers() {
 }
 
 int32_t ModuleDescriptor$Provides::compareTo(ModuleDescriptor$Provides* that) {
+	$useLocalCurrentObjectStackCache();
 	if (this == that) {
 		return 0;
 	}

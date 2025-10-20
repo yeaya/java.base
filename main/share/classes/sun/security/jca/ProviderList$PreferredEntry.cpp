@@ -112,6 +112,7 @@ void ProviderList$PreferredEntry::init$($String* t, $String* p) {
 }
 
 bool ProviderList$PreferredEntry::match($String* t, $String* a) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProviderList);
 	if ($ProviderList::debug != nullptr) {
 		$var($String, var$0, $$str({"Config check:  "_s, $(toString()), " == "_s}));

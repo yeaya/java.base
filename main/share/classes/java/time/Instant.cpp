@@ -297,6 +297,7 @@ Instant* Instant::ofEpochMilli(int64_t epochMilli) {
 
 Instant* Instant::from($TemporalAccessor* temporal) {
 	$init(Instant);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(Instant, temporal)) {
 		return $cast(Instant, temporal);
 	}
@@ -357,6 +358,7 @@ $ValueRange* Instant::range($TemporalField* field) {
 }
 
 int32_t Instant::get($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		$init($Instant$1);
 		switch ($nc($Instant$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc(($cast($ChronoField, field)))->ordinal())) {
@@ -595,6 +597,7 @@ $Temporal* Instant::adjustInto($Temporal* temporal) {
 }
 
 int64_t Instant::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(Instant, end, Instant::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;

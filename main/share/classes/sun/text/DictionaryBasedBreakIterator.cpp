@@ -190,6 +190,7 @@ int32_t DictionaryBasedBreakIterator::lookupCategory(int32_t c) {
 }
 
 void DictionaryBasedBreakIterator::divideUpDictionaryRange(int32_t startPos, int32_t endPos) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharacterIterator, text, getText());
 	$nc(text)->setIndex(startPos);
 	int32_t c = getCurrent();

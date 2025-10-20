@@ -77,6 +77,7 @@ $LocaleProviderAdapter$Type* HostLocaleProviderAdapter::getAdapterType() {
 }
 
 $LocaleServiceProvider* HostLocaleProviderAdapter::findInstalledProvider($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($LocaleServiceProvider, $nc($($Class::forName("sun.util.locale.provider.HostLocaleProviderAdapterImpl"_s)->getMethod($$str({"get"_s, $($nc(c)->getSimpleName())}), ($ClassArray*)nullptr)))->invoke(nullptr, ($ObjectArray*)nullptr));

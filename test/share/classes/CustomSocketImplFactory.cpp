@@ -71,6 +71,7 @@ void CustomSocketImplFactory::init$() {
 }
 
 $SocketImpl* CustomSocketImplFactory::createSocketImpl() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SocketImpl, s, $new($CustomSocketImplFactory$CustomSocketImpl, this));
 		$init($System);
@@ -85,6 +86,7 @@ $SocketImpl* CustomSocketImplFactory::createSocketImpl() {
 
 void CustomSocketImplFactory::main($StringArray* args) {
 	$init(CustomSocketImplFactory);
+	$useLocalCurrentObjectStackCache();
 	$Socket::setSocketImplFactory($$new(CustomSocketImplFactory));
 	try {
 		$var($ServerSocket, ss, $new($ServerSocket, 0));

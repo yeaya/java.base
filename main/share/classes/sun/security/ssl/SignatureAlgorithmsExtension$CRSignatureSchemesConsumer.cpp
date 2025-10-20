@@ -85,6 +85,7 @@ void SignatureAlgorithmsExtension$CRSignatureSchemesConsumer::init$() {
 }
 
 void SignatureAlgorithmsExtension$CRSignatureSchemesConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CR_SIGNATURE_ALGORITHMS)) {

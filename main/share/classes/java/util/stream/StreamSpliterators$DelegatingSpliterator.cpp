@@ -118,6 +118,7 @@ int64_t StreamSpliterators$DelegatingSpliterator::getExactSizeIfKnown() {
 }
 
 $String* StreamSpliterators$DelegatingSpliterator::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
 	$var($String, var$0, $$concat(var$1, $(get())));
 	return $concat(var$0, "]");

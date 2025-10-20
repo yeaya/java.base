@@ -113,6 +113,7 @@ void ExecCommand::init$() {
 
 void ExecCommand::deleteOut($String* path) {
 	$init(ExecCommand);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$($($nc($($FileSystems::getDefault()))->getPath(path, $$new($StringArray, 0))));
 	} catch ($IOException&) {
@@ -122,6 +123,7 @@ void ExecCommand::deleteOut($String* path) {
 
 void ExecCommand::checkOut($String* path) {
 	$init(ExecCommand);
+	$useLocalCurrentObjectStackCache();
 	if ($Files::notExists($($nc($($FileSystems::getDefault()))->getPath(path, $$new($StringArray, 0))), $$new($LinkOptionArray, 0))) {
 		$throwNew($FileNotFoundException, path);
 	}
@@ -129,6 +131,7 @@ void ExecCommand::checkOut($String* path) {
 
 void ExecCommand::main($StringArray* _args) {
 	$init(ExecCommand);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s)) {
 		return;
@@ -240,6 +243,7 @@ void ExecCommand::main($StringArray* _args) {
 }
 
 void clinit$ExecCommand($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ExecCommand::TEST_RTE_ARG, $new($StringArray, {
 		"cmd /C dir > dirOut.txt"_s,
 		"cmd /C dir > \".\\Program Files\\dirOut.txt\""_s,

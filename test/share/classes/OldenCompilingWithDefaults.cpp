@@ -57,6 +57,7 @@ void OldenCompilingWithDefaults::init$() {
 
 void OldenCompilingWithDefaults::main($StringArray* args) {
 	$load(OldenCompilingWithDefaults);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = OldenCompilingWithDefaults::class$;
 	$var($Package, pkg, $nc(clazz)->getPackage());

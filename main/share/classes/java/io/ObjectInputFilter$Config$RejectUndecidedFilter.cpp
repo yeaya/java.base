@@ -80,6 +80,7 @@ void ObjectInputFilter$Config$RejectUndecidedFilter::init$($ObjectInputFilter* f
 }
 
 $ObjectInputFilter$Status* ObjectInputFilter$Config$RejectUndecidedFilter::checkInput($ObjectInputFilter$FilterInfo* info) {
+	$useLocalCurrentObjectStackCache();
 	$ObjectInputFilter$Status* status = $cast($ObjectInputFilter$Status, $Objects::requireNonNull($($of($nc(this->filter)->checkInput(info))), "status"_s));
 	$Class* clazz = $nc(info)->serialClass();
 	$init($ObjectInputFilter$Status);

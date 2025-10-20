@@ -52,6 +52,7 @@ void ClearErrorStream::init$($OutputStream* out, bool autoFlush) {
 
 void ClearErrorStream::main($StringArray* args) {
 	$init(ClearErrorStream);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "print-stream.out"_s));
 	f->deleteOnExit();
 	$var(ClearErrorStream, out, $new(ClearErrorStream, $$new($BufferedOutputStream, $$new($FileOutputStream, f)), true));

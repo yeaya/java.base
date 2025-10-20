@@ -210,6 +210,7 @@ float CharsetDecoder::maxCharsPerByte() {
 }
 
 $CoderResult* CharsetDecoder::decode($ByteBuffer* in, $CharBuffer* out, bool endOfInput) {
+	$useLocalCurrentObjectStackCache();
 	int32_t newState = endOfInput ? CharsetDecoder::ST_END : CharsetDecoder::ST_CODING;
 	if ((this->state != CharsetDecoder::ST_RESET) && (this->state != CharsetDecoder::ST_CODING) && !(endOfInput && (this->state == CharsetDecoder::ST_END))) {
 		throwIllegalStateException(this->state, newState);
@@ -293,6 +294,7 @@ void CharsetDecoder::implReset() {
 }
 
 $CharBuffer* CharsetDecoder::decode($ByteBuffer* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(in)->remaining();
 	int32_t n = $cast(int32_t, (var$0 * averageCharsPerByte()));
 	$var($CharBuffer, out, $CharBuffer::allocate(n));

@@ -70,6 +70,7 @@ void ChainedExceptions::init$() {
 
 void ChainedExceptions::main($StringArray* args) {
 	$init(ChainedExceptions);
+	$useLocalCurrentObjectStackCache();
 	try {
 		a();
 	} catch ($HighLevelException&) {
@@ -141,6 +142,7 @@ void ChainedExceptions::e() {
 
 void ChainedExceptions::check($Throwable* t, $StackTraceElement* e, $String* methodName, int32_t n) {
 	$init(ChainedExceptions);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(e)->getClassName()))->equals(ChainedExceptions::OUR_CLASS)) {
 		$throwNew($RuntimeException, $$str({"Class: "_s, e}), t);
 	}

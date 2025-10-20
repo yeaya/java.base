@@ -78,6 +78,7 @@ void SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::init$($Stri
 }
 
 bool SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints::permits($Set* primitives, $String* algorithm$renamed, $AlgorithmParameters* parameters) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, algorithm, algorithm$renamed);
 	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "No algorithm name specified"_s);

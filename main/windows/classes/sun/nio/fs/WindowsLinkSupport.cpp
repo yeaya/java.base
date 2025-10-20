@@ -121,6 +121,7 @@ void WindowsLinkSupport::init$() {
 
 $String* WindowsLinkSupport::readLink($WindowsPath* path) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	int64_t handle = 0;
 	try {
 		handle = $nc(path)->openForReadAttributeAccess(false);
@@ -153,6 +154,7 @@ $String* WindowsLinkSupport::readLink($WindowsPath* path) {
 
 $String* WindowsLinkSupport::getFinalPath($WindowsPath* input) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	int64_t h = 0;
 	try {
 		h = $nc(input)->openForReadAttributeAccess(true);
@@ -192,6 +194,7 @@ $String* WindowsLinkSupport::getFinalPath($WindowsPath* input) {
 
 $String* WindowsLinkSupport::getFinalPath($WindowsPath* input, bool followLinks) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($WindowsFileSystem, fs, $cast($WindowsFileSystem, $nc(input)->getFileSystem()));
 	try {
@@ -236,6 +239,7 @@ $String* WindowsLinkSupport::getFinalPath($WindowsPath* input, bool followLinks)
 
 $String* WindowsLinkSupport::getRealPath($WindowsPath* input, bool resolveLinks) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsFileSystem, fs, $cast($WindowsFileSystem, $nc(input)->getFileSystem()));
 	$var($String, path, nullptr);
 	try {
@@ -319,6 +323,7 @@ $String* WindowsLinkSupport::getRealPath($WindowsPath* input, bool resolveLinks)
 
 $String* WindowsLinkSupport::readLinkImpl(int64_t handle) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 16384;
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(size));
 	{
@@ -374,6 +379,7 @@ $String* WindowsLinkSupport::readLinkImpl(int64_t handle) {
 
 $WindowsPath* WindowsLinkSupport::resolveAllLinks($WindowsPath* path$renamed) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, path, path$renamed);
 	if (!WindowsLinkSupport::$assertionsDisabled && !$nc(path)->isAbsolute()) {
 		$throwNew($AssertionError);
@@ -424,6 +430,7 @@ $WindowsPath* WindowsLinkSupport::resolveAllLinks($WindowsPath* path$renamed) {
 
 $String* WindowsLinkSupport::stripPrefix($String* path$renamed) {
 	$init(WindowsLinkSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, path$renamed);
 	if ($nc(path)->startsWith("\\\\?\\"_s)) {
 		if (path->startsWith("\\\\?\\UNC\\"_s)) {

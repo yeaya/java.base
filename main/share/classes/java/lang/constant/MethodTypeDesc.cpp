@@ -195,6 +195,7 @@ MethodTypeDesc* MethodTypeDesc::of($ClassDesc* returnDesc, $ClassDescArray* para
 }
 
 $String* MethodTypeDesc::descriptorString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("(%s)%s"_s, $$new($ObjectArray, {
 		$($nc($($nc($($Stream::of($(parameterArray()))))->map(static_cast<$Function*>($$new(MethodTypeDesc$$Lambda$descriptorString)))))->collect($($Collectors::joining()))),
 		$($of($nc($($cast($ClassDesc, returnType())))->descriptorString()))
@@ -202,6 +203,7 @@ $String* MethodTypeDesc::descriptorString() {
 }
 
 $String* MethodTypeDesc::displayDescriptor() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("(%s)%s"_s, $$new($ObjectArray, {
 		$($nc($($nc($($Stream::of($(parameterArray()))))->map(static_cast<$Function*>($$new(MethodTypeDesc$$Lambda$displayName$1)))))->collect($($Collectors::joining(","_s)))),
 		$($of($nc($($cast($ClassDesc, returnType())))->displayName()))

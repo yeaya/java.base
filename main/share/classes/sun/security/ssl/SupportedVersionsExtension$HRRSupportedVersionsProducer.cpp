@@ -77,6 +77,7 @@ void SupportedVersionsExtension$HRRSupportedVersionsProducer::init$() {
 }
 
 $bytes* SupportedVersionsExtension$HRRSupportedVersionsProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::HRR_SUPPORTED_VERSIONS)) {

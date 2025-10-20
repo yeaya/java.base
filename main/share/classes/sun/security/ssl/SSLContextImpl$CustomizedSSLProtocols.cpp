@@ -84,6 +84,7 @@ void SSLContextImpl$CustomizedSSLProtocols::init$() {
 
 void SSLContextImpl$CustomizedSSLProtocols::populate($String* propname, $ArrayList* arrayList) {
 	$init(SSLContextImpl$CustomizedSSLProtocols);
+	$useLocalCurrentObjectStackCache();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propname));
 	if (property == nullptr) {
 		return;

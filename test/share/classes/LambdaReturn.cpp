@@ -117,6 +117,7 @@ $MethodType* LambdaReturn::mt($Class* k, $Class* k2) {
 }
 
 void LambdaReturn::amf($List* errs, $MethodHandle* h, $MethodType* mts, $MethodType* mtf, $MethodType* mtb, bool shouldWork) {
+	$useLocalCurrentObjectStackCache();
 	$load($LambdaReturn$I);
 	$var($MethodType, mti, mt($LambdaReturn$I::class$));
 	try {
@@ -143,6 +144,7 @@ void LambdaReturn::amf($List* errs, $MethodHandle* h, $MethodType* mts, $MethodT
 
 void LambdaReturn::main($StringArray* args) {
 	$load(LambdaReturn);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init(LambdaReturn);
 	$assignStatic(LambdaReturn::l, $MethodHandles::lookup());

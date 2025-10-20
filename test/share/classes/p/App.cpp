@@ -53,6 +53,7 @@ void App::init$() {
 
 void App::main($StringArray* args) {
 	$load(App);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool f = true;
 	$var($StringBuilder, sb, $new($StringBuilder));

@@ -164,6 +164,7 @@ $Spliterator* StreamSpliterators$SliceSpliterator$OfRef::makeSpliterator($Splite
 }
 
 bool StreamSpliterators$SliceSpliterator$OfRef::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	if (this->sliceOrigin >= this->fence) {
 		return false;
@@ -180,6 +181,7 @@ bool StreamSpliterators$SliceSpliterator$OfRef::tryAdvance($Consumer* action) {
 }
 
 void StreamSpliterators$SliceSpliterator$OfRef::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	if (this->sliceOrigin >= this->fence) {
 		return;

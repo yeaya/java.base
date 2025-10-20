@@ -131,6 +131,7 @@ $Object* allocate$PollingWatchService$PollingWatchKey($Class* clazz) {
 }
 
 void PollingWatchService$PollingWatchKey::init$($PollingWatchService* this$0, $Path* dir, $PollingWatchService* watcher, Object$* fileKey) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$AbstractWatchKey::init$(dir, watcher);
 	$set(this, fileKey$, fileKey);
@@ -223,6 +224,7 @@ void PollingWatchService$PollingWatchKey::cancel() {
 
 void PollingWatchService$PollingWatchKey::poll() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->valid) {
 			return;
 		}

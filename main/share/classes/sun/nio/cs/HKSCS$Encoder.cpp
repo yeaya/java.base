@@ -135,6 +135,7 @@ bool HKSCS$Encoder::canEncode(char16_t c) {
 }
 
 $CoderResult* HKSCS$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -216,6 +217,7 @@ $CoderResult* HKSCS$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst)
 }
 
 $CoderResult* HKSCS$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -356,6 +358,7 @@ int32_t HKSCS$Encoder::encodeFromUTF16($bytes* src, int32_t sp, int32_t len, $by
 
 void HKSCS$Encoder::initc2b($charArray2* c2b, $StringArray* b2cStr, $String* pua) {
 	$init(HKSCS$Encoder);
+	$useLocalCurrentObjectStackCache();
 	int32_t b2Min = 64;
 	$Arrays::fill(static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$charArray2*>(c2b))), $of(HKSCS$Encoder::C2B_UNMAPPABLE));
 	for (int32_t b1 = 0; b1 < 256; ++b1) {

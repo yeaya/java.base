@@ -113,6 +113,7 @@ void Spliterators$DoubleIteratorSpliterator::init$($PrimitiveIterator$OfDouble* 
 }
 
 $Spliterator$OfDouble* Spliterators$DoubleIteratorSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($PrimitiveIterator$OfDouble, i, this->it);
 	int64_t s = this->est;
 	if (s > 1 && $nc(i)->hasNext()) {

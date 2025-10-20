@@ -136,6 +136,7 @@ bool ConcurrentHashMap$CollectionView::isEmpty() {
 }
 
 $ObjectArray* ConcurrentHashMap$CollectionView::toArray() {
+	$useLocalCurrentObjectStackCache();
 	int64_t sz = $nc(this->map)->mappingCount();
 	if (sz > 0x7FFFFFF7) {
 		$throwNew($OutOfMemoryError, ConcurrentHashMap$CollectionView::OOME_MSG);
@@ -167,6 +168,7 @@ $ObjectArray* ConcurrentHashMap$CollectionView::toArray() {
 }
 
 $ObjectArray* ConcurrentHashMap$CollectionView::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	int64_t sz = $nc(this->map)->mappingCount();
 	if (sz > 0x7FFFFFF7) {
 		$throwNew($OutOfMemoryError, ConcurrentHashMap$CollectionView::OOME_MSG);
@@ -203,6 +205,7 @@ $ObjectArray* ConcurrentHashMap$CollectionView::toArray($ObjectArray* a) {
 }
 
 $String* ConcurrentHashMap$CollectionView::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'[');
 	$var($Iterator, it, iterator());
@@ -220,6 +223,7 @@ $String* ConcurrentHashMap$CollectionView::toString() {
 }
 
 bool ConcurrentHashMap$CollectionView::containsAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if (!$equals(c, this)) {
 		{
 			$var($Iterator, i$, $nc(c)->iterator());
@@ -237,6 +241,7 @@ bool ConcurrentHashMap$CollectionView::containsAll($Collection* c) {
 }
 
 bool ConcurrentHashMap$CollectionView::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -267,6 +272,7 @@ bool ConcurrentHashMap$CollectionView::removeAll($Collection* c) {
 }
 
 bool ConcurrentHashMap$CollectionView::retainAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}

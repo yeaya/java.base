@@ -43,6 +43,7 @@ void ExecEmptyString::init$() {
 }
 
 void ExecEmptyString::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($($Runtime::getRuntime()))->exec(""_s);
 		$throwNew($Exception, "Expected IllegalArgumentException not thrown"_s);

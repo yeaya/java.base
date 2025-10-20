@@ -95,6 +95,7 @@ void CollSer::init$(int32_t t, $ObjectArray* a) {
 }
 
 void CollSer::readObject($ObjectInputStream* ois) {
+	$useLocalCurrentObjectStackCache();
 	$nc(ois)->defaultReadObject();
 	int32_t len = ois->readInt();
 	if (len < 0) {
@@ -118,6 +119,7 @@ void CollSer::writeObject($ObjectOutputStream* oos) {
 }
 
 $Object* CollSer::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->array == nullptr) {
 			$throwNew($InvalidObjectException, "null array"_s);

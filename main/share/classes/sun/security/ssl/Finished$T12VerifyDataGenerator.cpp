@@ -87,6 +87,7 @@ void Finished$T12VerifyDataGenerator::init$() {
 }
 
 $bytes* Finished$T12VerifyDataGenerator::createVerifyData($HandshakeContext* context, bool isValidation) {
+	$useLocalCurrentObjectStackCache();
 	$CipherSuite* cipherSuite = $nc(context)->negotiatedCipherSuite;
 	$var($HandshakeHash, handshakeHash, context->handshakeHash);
 	$var($SecretKey, masterSecretKey, $nc(context->handshakeSession)->getMasterSecret());

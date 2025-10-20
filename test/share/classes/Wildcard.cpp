@@ -41,6 +41,7 @@ void Wildcard::init$() {
 }
 
 void Wildcard::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketPermission, star_All, $new($SocketPermission, "*.blabla.bla"_s, "listen,accept,connect"_s));
 	$var($SocketPermission, www_All, $new($SocketPermission, "bla.blabla.bla"_s, "listen,accept,connect"_s));
 	if (!star_All->implies(www_All)) {

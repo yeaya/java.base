@@ -78,6 +78,7 @@ void Finalizer$2::init$() {
 }
 
 void Finalizer$2::run() {
+	$useLocalCurrentObjectStackCache();
 	if (this->running) {
 		return;
 	}

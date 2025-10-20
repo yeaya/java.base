@@ -205,6 +205,7 @@ $JmodFile$Entry* ModuleReferences$JModModuleReader::getEntry($String* name) {
 }
 
 $Optional* ModuleReferences$JModModuleReader::implFind($String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$var($JmodFile$Entry, je, getEntry(name));
 	if (je != nullptr) {
@@ -221,6 +222,7 @@ $Optional* ModuleReferences$JModModuleReader::implFind($String* name$renamed) {
 }
 
 $Optional* ModuleReferences$JModModuleReader::implOpen($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($JmodFile$Entry, je, getEntry(name));
 	if (je != nullptr) {
 		return $Optional::of($($nc(this->jf)->getInputStream(je)));
@@ -230,6 +232,7 @@ $Optional* ModuleReferences$JModModuleReader::implOpen($String* name) {
 }
 
 $Stream* ModuleReferences$JModModuleReader::implList() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, names, $nc($($nc($($nc($($nc(this->jf)->stream()))->filter(static_cast<$Predicate*>($$new(ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0)))))->map(static_cast<$Function*>($$new(ModuleReferences$JModModuleReader$$Lambda$name$1)))))->toList());
 	return $nc(names)->stream();
 }

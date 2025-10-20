@@ -477,6 +477,7 @@ void ModuleInfoWriter::init$() {
 
 $bytes* ModuleInfoWriter::toModuleInfo($ModuleDescriptor* md, $ModuleResolution* mres, $ModuleTarget* target) {
 	$init(ModuleInfoWriter);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassWriter, cw, $new($ClassWriter, 0));
 	cw->visit($Opcodes::V10, 32768, "module-info"_s, nullptr, nullptr, nullptr);
 	$var($Object, var$0, $of($Integer::valueOf(0)));
@@ -597,6 +598,7 @@ $Integer* ModuleInfoWriter::lambda$toModuleInfo$0($Integer* x, $Integer* y) {
 }
 
 void clinit$ModuleInfoWriter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($ModuleDescriptor$Modifier);
 	$var($Object, var$0, $of($ModuleDescriptor$Modifier::OPEN));
 	$var($Object, var$1, $of($Integer::valueOf(32)));

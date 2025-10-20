@@ -76,6 +76,7 @@ void ConcurrentHashMap$ForEachValueTask::init$($ConcurrentHashMap$BulkTask* p, i
 }
 
 void ConcurrentHashMap$ForEachValueTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Consumer, action, nullptr);
 	if (($assign(action, this->action)) != nullptr) {
 		{

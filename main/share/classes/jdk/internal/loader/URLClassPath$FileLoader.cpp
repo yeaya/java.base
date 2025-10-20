@@ -75,6 +75,7 @@ $Object* allocate$URLClassPath$FileLoader($Class* clazz) {
 }
 
 void URLClassPath$FileLoader::init$($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$URLClassPath$Loader::init$(url);
 	$init($File);
 	$var($String, path, $nc($($nc(url)->getFile()))->replace(u'/', $File::separatorChar));
@@ -91,6 +92,7 @@ $URL* URLClassPath$FileLoader::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath$FileLoader::getResource($String* name, bool check) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	try {
 		$var($URL, normalizedBase, $new($URL, $(getBaseURL()), "."_s));

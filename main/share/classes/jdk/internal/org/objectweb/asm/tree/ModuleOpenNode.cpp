@@ -58,6 +58,7 @@ void ModuleOpenNode::init$($String* packaze, int32_t access, $List* modules) {
 }
 
 void ModuleOpenNode::accept($ModuleVisitor* moduleVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$nc(moduleVisitor)->visitOpen(this->packaze, this->access, this->modules == nullptr ? ($StringArray*)nullptr : $fcast($StringArray, $($nc(this->modules)->toArray($$new($StringArray, 0)))));
 }
 

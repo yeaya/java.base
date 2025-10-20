@@ -88,6 +88,7 @@ $Iterator* TreeMap$EntrySet::iterator() {
 }
 
 bool TreeMap$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -103,6 +104,7 @@ bool TreeMap$EntrySet::contains(Object$* o) {
 }
 
 bool TreeMap$EntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {

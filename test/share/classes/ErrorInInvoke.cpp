@@ -49,6 +49,7 @@ void ErrorInInvoke::run() {
 
 void ErrorInInvoke::main($StringArray* args) {
 	$load(ErrorInInvoke);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, m, nullptr);
 	try {

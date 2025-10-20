@@ -115,6 +115,7 @@ $ClassValue$EntryArray* ClassValue$ClassValueMap::getCache() {
 
 $ClassValue$Entry* ClassValue$ClassValueMap::startEntry($ClassValue* classValue) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ClassValue$Entry, e, $cast($ClassValue$Entry, get($nc(classValue)->identity)));
 		$var($ClassValue$Version, v, $nc(classValue)->version());
 		if (e == nullptr) {
@@ -141,6 +142,7 @@ $ClassValue$Entry* ClassValue$ClassValueMap::startEntry($ClassValue* classValue)
 
 $ClassValue$Entry* ClassValue$ClassValueMap::finishEntry($ClassValue* classValue, $ClassValue$Entry* e$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ClassValue$Entry, e, e$renamed);
 		$var($ClassValue$Entry, e0, $cast($ClassValue$Entry, get($nc(classValue)->identity)));
 		if (e == e0) {
@@ -185,6 +187,7 @@ void ClassValue$ClassValueMap::removeEntry($ClassValue* classValue) {
 
 void ClassValue$ClassValueMap::changeEntry($ClassValue* classValue, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ClassValue$Entry, e0, $cast($ClassValue$Entry, get($nc(classValue)->identity)));
 		$var($ClassValue$Version, version, $nc(classValue)->version());
 		if (e0 != nullptr) {
@@ -214,6 +217,7 @@ $ClassValue$Entry* ClassValue$ClassValueMap::probeHomeLocation($ClassValue$Entry
 
 $ClassValue$Entry* ClassValue$ClassValueMap::probeBackupLocations($ClassValue$EntryArray* cache, $ClassValue* classValue) {
 	$init(ClassValue$ClassValueMap);
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = ($nc(cache)->length - 1);
 	int32_t home = ((int32_t)($nc(classValue)->hashCodeForCache & (uint32_t)mask));
 	$var($ClassValue$Entry, e2, cache->get(home));
@@ -271,6 +275,7 @@ void ClassValue$ClassValueMap::checkCacheLoad() {
 }
 
 void ClassValue$ClassValueMap::reduceCacheLoad() {
+	$useLocalCurrentObjectStackCache();
 	removeStaleEntries();
 	if (this->cacheLoad < this->cacheLoadLimit) {
 		return;
@@ -296,6 +301,7 @@ void ClassValue$ClassValueMap::reduceCacheLoad() {
 }
 
 void ClassValue$ClassValueMap::removeStaleEntries($ClassValue$EntryArray* cache, int32_t begin, int32_t count) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = ($nc(cache)->length - 1);
 	int32_t removed = 0;
 	for (int32_t i = begin; i < begin + count; ++i) {
@@ -316,6 +322,7 @@ void ClassValue$ClassValueMap::removeStaleEntries($ClassValue$EntryArray* cache,
 }
 
 $ClassValue$Entry* ClassValue$ClassValueMap::findReplacement($ClassValue$EntryArray* cache, int32_t home1) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassValue$Entry, replacement, nullptr);
 	int32_t haveReplacement = -1;
 	int32_t replacementPos = 0;
@@ -374,6 +381,7 @@ void ClassValue$ClassValueMap::addToCache($ClassValue$Entry* e) {
 }
 
 void ClassValue$ClassValueMap::addToCache($ClassValue* classValue, $ClassValue$Entry* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassValue$EntryArray, cache, getCache());
 	int32_t mask = ($nc(cache)->length - 1);
 	int32_t home = (int32_t)($nc(classValue)->hashCodeForCache & (uint32_t)mask);

@@ -170,6 +170,7 @@ void Finished$T13FinishedConsumer::consume($ConnectionContext* context, $ByteBuf
 }
 
 void Finished$T13FinishedConsumer::onConsumeFinished($ClientHandshakeContext* chc, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(chc)->isResumption) {
 		$init($SSLHandshake);
 		bool var$0 = $nc(chc->handshakeConsumers)->containsKey($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)));
@@ -256,6 +257,7 @@ void Finished$T13FinishedConsumer::onConsumeFinished($ClientHandshakeContext* ch
 }
 
 void Finished$T13FinishedConsumer::onConsumeFinished($ServerHandshakeContext* shc, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(shc)->isResumption) {
 		$init($SSLHandshake);
 		bool var$0 = $nc(shc->handshakeConsumers)->containsKey($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)));

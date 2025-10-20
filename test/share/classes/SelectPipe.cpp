@@ -74,6 +74,7 @@ void SelectPipe::init$() {
 
 void SelectPipe::main($StringArray* args) {
 	$init(SelectPipe);
+	$useLocalCurrentObjectStackCache();
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
 	$var($Selector, selector, $Selector::open());
 	$var($Pipe, p, $nc(sp)->openPipe());

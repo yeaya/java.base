@@ -112,6 +112,7 @@ $Spliterator* HashMap$KeySpliterator::trySplit() {
 }
 
 void HashMap$KeySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -145,6 +146,7 @@ void HashMap$KeySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool HashMap$KeySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

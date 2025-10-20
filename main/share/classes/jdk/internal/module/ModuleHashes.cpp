@@ -253,6 +253,7 @@ $Map* ModuleHashes::hashes() {
 }
 
 $bytes* ModuleHashes::computeHash($ModuleReader* reader, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance(algorithm));
@@ -271,6 +272,7 @@ $bytes* ModuleHashes::computeHash($ModuleReader* reader, $String* algorithm) {
 }
 
 $bytes* ModuleHashes::computeHash($Supplier* supplier, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ModuleReader, reader, $cast($ModuleReader, $nc(supplier)->get()));
 		{
@@ -316,6 +318,7 @@ $bytes* ModuleHashes::computeHash($Supplier* supplier, $String* algorithm) {
 }
 
 ModuleHashes* ModuleHashes::generate($Set* mrefs, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, nameToHash, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
 	{
 		$var($Iterator, i$, $nc(mrefs)->iterator());
@@ -364,6 +367,7 @@ ModuleHashes* ModuleHashes::generate($Set* mrefs, $String* algorithm) {
 }
 
 int32_t ModuleHashes::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = $nc(this->algorithm$)->hashCode();
 	{
 		$var($Iterator, i$, $nc($($nc(this->nameToHash)->entrySet()))->iterator());
@@ -379,6 +383,7 @@ int32_t ModuleHashes::hashCode() {
 }
 
 bool ModuleHashes::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(ModuleHashes, obj))) {
 		return false;
 	}
@@ -408,6 +413,7 @@ bool ModuleHashes::equals(Object$* obj) {
 }
 
 $String* ModuleHashes::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, this->algorithm$));
 	sb->append(" "_s);
 	$nc($($nc($($nc($($nc(this->nameToHash)->entrySet()))->stream()))->sorted($($Map$Entry::comparingByKey()))))->forEach(static_cast<$Consumer*>($$new(ModuleHashes$$Lambda$lambda$toString$1$1, sb)));
@@ -415,6 +421,7 @@ $String* ModuleHashes::toString() {
 }
 
 void ModuleHashes::lambda$toString$1($StringBuilder* sb, $Map$Entry* e) {
+	$useLocalCurrentObjectStackCache();
 	$nc(sb)->append($cast($String, $($nc(e)->getKey())));
 	sb->append("="_s);
 	$var($bytes, ba, $cast($bytes, $nc(e)->getValue()));
@@ -432,6 +439,7 @@ void ModuleHashes::lambda$toString$1($StringBuilder* sb, $Map$Entry* e) {
 }
 
 void ModuleHashes::lambda$computeHash$0($MessageDigest* md, $ModuleReader* reader, $bytes* buf, $String* rn) {
+	$useLocalCurrentObjectStackCache();
 	$init($StandardCharsets);
 	$nc(md)->update($($nc(rn)->getBytes($StandardCharsets::UTF_8)));
 	try {

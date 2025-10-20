@@ -86,6 +86,7 @@ void CertificateVerify$T13CertificateVerifyProducer::init$() {
 }
 
 $bytes* CertificateVerify$T13CertificateVerifyProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);
 	{
@@ -115,6 +116,7 @@ $bytes* CertificateVerify$T13CertificateVerifyProducer::produce($ConnectionConte
 }
 
 $bytes* CertificateVerify$T13CertificateVerifyProducer::onProduceCertificateVerify($ServerHandshakeContext* shc, $X509Authentication$X509Possession* x509Possession) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateVerify$T13CertificateVerifyMessage, cvm, $new($CertificateVerify$T13CertificateVerifyMessage, static_cast<$HandshakeContext*>(shc), x509Possession));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -126,6 +128,7 @@ $bytes* CertificateVerify$T13CertificateVerifyProducer::onProduceCertificateVeri
 }
 
 $bytes* CertificateVerify$T13CertificateVerifyProducer::onProduceCertificateVerify($ClientHandshakeContext* chc, $X509Authentication$X509Possession* x509Possession) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateVerify$T13CertificateVerifyMessage, cvm, $new($CertificateVerify$T13CertificateVerifyMessage, static_cast<$HandshakeContext*>(chc), x509Possession));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {

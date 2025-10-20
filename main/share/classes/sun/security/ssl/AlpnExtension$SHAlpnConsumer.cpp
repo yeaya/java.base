@@ -87,6 +87,7 @@ void AlpnExtension$SHAlpnConsumer::init$() {
 }
 
 void AlpnExtension$SHAlpnConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($AlpnExtension$AlpnSpec, requestedAlps, $cast($AlpnExtension$AlpnSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_ALPN)));

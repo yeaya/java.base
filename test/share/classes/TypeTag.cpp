@@ -58,6 +58,7 @@ void TypeTag::init$() {
 
 void TypeTag::main($StringArray* args) {
 	$load(TypeTag);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassArray, v, nullptr);
 	$init($Integer);

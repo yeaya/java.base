@@ -125,6 +125,7 @@ int32_t CharacterIteratorWrapper::getText($chars* fillIn, int32_t offset) {
 }
 
 $Object* CharacterIteratorWrapper::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(CharacterIteratorWrapper, result, $cast(CharacterIteratorWrapper, $UCharacterIterator::clone()));
 		$set($nc(result), iterator, $cast($CharacterIterator, $nc(this->iterator)->clone()));

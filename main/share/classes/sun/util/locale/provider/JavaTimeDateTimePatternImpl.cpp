@@ -101,6 +101,7 @@ bool JavaTimeDateTimePatternImpl::isSupportedLocale($Locale* locale) {
 }
 
 $String* JavaTimeDateTimePatternImpl::getJavaTimeDateTimePattern(int32_t timeStyle, int32_t dateStyle, $String* calType, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources(locale));
 	$var($String, pattern, $nc(lr)->getJavaTimeDateTimePattern(timeStyle, dateStyle, calType));
 	return pattern;

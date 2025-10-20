@@ -151,6 +151,7 @@ $MembershipKey* MembershipKeyImpl::unblock($InetAddress* toUnblock) {
 }
 
 $String* MembershipKeyImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 64));
 	sb->append(u'<');
 	sb->append($($nc(this->group$)->getHostAddress()));

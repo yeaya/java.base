@@ -43,6 +43,7 @@ void Set4Field::init$() {
 }
 
 void Set4Field::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($Test4Set4Field, t, $new($Test4Set4Field));
 	if (!t->testPrimitive()) {

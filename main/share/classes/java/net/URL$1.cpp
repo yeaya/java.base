@@ -96,6 +96,7 @@ void URL$1::init$() {
 }
 
 bool URL$1::getNext() {
+	$useLocalCurrentObjectStackCache();
 	while (this->next$ == nullptr) {
 		try {
 			if (!$nc(this->i)->hasNext()) {

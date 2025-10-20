@@ -86,6 +86,7 @@ void GenerifyStackTraces$ThreadOne::C() {
 }
 
 void GenerifyStackTraces$ThreadOne::Done() {
+	$useLocalCurrentObjectStackCache();
 	$GenerifyStackTraces::waitForDump();
 	$var($StackTraceElementArray, stack, getStackTrace());
 	try {

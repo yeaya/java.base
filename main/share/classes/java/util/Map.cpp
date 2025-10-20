@@ -145,6 +145,7 @@ $Object* Map::getOrDefault(Object$* key, Object$* defaultValue) {
 }
 
 void Map::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	{
 		$var($Iterator, i$, $nc($(entrySet()))->iterator());
@@ -167,6 +168,7 @@ void Map::forEach($BiConsumer* action) {
 }
 
 void Map::replaceAll($BiFunction* function) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(function);
 	{
 		$var($Iterator, i$, $nc($(entrySet()))->iterator());
@@ -232,6 +234,7 @@ $Object* Map::replace(Object$* key, Object$* value) {
 }
 
 $Object* Map::computeIfAbsent(Object$* key, $Function* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(mappingFunction);
 	$var($Object, v, nullptr);
 	if (($assign(v, get(key))) == nullptr) {
@@ -245,6 +248,7 @@ $Object* Map::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 }
 
 $Object* Map::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	$var($Object, oldValue, nullptr);
 	if (($assign(oldValue, get(key))) != nullptr) {
@@ -262,6 +266,7 @@ $Object* Map::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
 }
 
 $Object* Map::compute(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	$var($Object, oldValue, get(key));
 	$var($Object, newValue, remappingFunction->apply(key, oldValue));
@@ -279,6 +284,7 @@ $Object* Map::compute(Object$* key, $BiFunction* remappingFunction) {
 }
 
 $Object* Map::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	$Objects::requireNonNull(value);
 	$var($Object, oldValue, get(key));
@@ -454,6 +460,7 @@ Map* Map::of(Object$* k1, Object$* v1, Object$* k2, Object$* v2, Object$* k3, Ob
 }
 
 Map* Map::ofEntries($Map$EntryArray* entries) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(entries)->length == 0) {
 		$init($ImmutableCollections);
 		$var(Map, map, static_cast<Map*>($ImmutableCollections::EMPTY_MAP));
@@ -485,6 +492,7 @@ $Map$Entry* Map::entry(Object$* k, Object$* v) {
 }
 
 Map* Map::copyOf(Map* map) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ImmutableCollections$AbstractImmutableMap, map)) {
 		return map;
 	} else {

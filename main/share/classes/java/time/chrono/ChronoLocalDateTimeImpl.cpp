@@ -183,6 +183,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::of($ChronoLocalDate* date, $Lo
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::ensureValid($Chronology* chrono, $Temporal* temporal) {
 	$init(ChronoLocalDateTimeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var(ChronoLocalDateTimeImpl, other, $cast(ChronoLocalDateTimeImpl, temporal));
 	if ($nc(chrono)->equals($($nc(other)->getChronology())) == false) {
 		$var($String, var$0, $$str({"Chronology mismatch, required: "_s, $(chrono->getId()), ", actual: "_s}));
@@ -199,6 +200,7 @@ void ChronoLocalDateTimeImpl::init$($ChronoLocalDate* date, $LocalTime* time) {
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($Temporal* newDate, $LocalTime* newTime) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this->date, newDate) && this->time == newTime) {
 		return this;
 	}
@@ -276,6 +278,7 @@ int64_t ChronoLocalDateTimeImpl::getLong($TemporalField* field) {
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalAdjuster* adjuster) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoLocalDate, adjuster)) {
 		return with($cast($ChronoLocalDate, adjuster), this->time);
 	} else if ($instanceOf($LocalTime, adjuster)) {
@@ -288,6 +291,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalAdjuster* adjust
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -308,6 +312,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::with($TemporalField* field, in
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plus(int64_t amountToAdd, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoUnit* chronoUnit = nullptr;
 		bool var$0 = $instanceOf($ChronoUnit, unit);
@@ -376,6 +381,7 @@ ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusNanos(int64_t nanos) {
 }
 
 ChronoLocalDateTimeImpl* ChronoLocalDateTimeImpl::plusWithOverflow($ChronoLocalDate* newDate, int64_t hours, int64_t minutes, int64_t seconds, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	if ((((hours | minutes) | seconds) | nanos) == 0) {
 		return with(static_cast<$Temporal*>(newDate), this->time);
 	}
@@ -395,6 +401,7 @@ $ChronoZonedDateTime* ChronoLocalDateTimeImpl::atZone($ZoneId* zone) {
 }
 
 int64_t ChronoLocalDateTimeImpl::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(endExclusive), "endExclusive"_s);
 	$var($ChronoLocalDateTime, end, $nc($(getChronology()))->localDateTime(endExclusive));
 	{
@@ -476,6 +483,7 @@ void ChronoLocalDateTimeImpl::writeExternal($ObjectOutput* out) {
 
 $ChronoLocalDateTime* ChronoLocalDateTimeImpl::readExternal($ObjectInput* in) {
 	$init(ChronoLocalDateTimeImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ChronoLocalDate, date, $cast($ChronoLocalDate, $nc(in)->readObject()));
 	$var($LocalTime, time, $cast($LocalTime, in->readObject()));
 	return $nc(date)->atTime(time);
@@ -492,11 +500,13 @@ bool ChronoLocalDateTimeImpl::equals(Object$* obj) {
 }
 
 int32_t ChronoLocalDateTimeImpl::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($(toLocalDate()))->hashCode();
 	return var$0 ^ $nc($(toLocalTime()))->hashCode();
 }
 
 $String* ChronoLocalDateTimeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc($(toLocalDate()))->toString()), $$str(u'T')}));
 	return $concat(var$0, $($nc($(toLocalTime()))->toString()));
 }

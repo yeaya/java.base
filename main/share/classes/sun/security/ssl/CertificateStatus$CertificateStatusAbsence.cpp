@@ -69,6 +69,7 @@ void CertificateStatus$CertificateStatusAbsence::init$() {
 }
 
 void CertificateStatus$CertificateStatusAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	if ($nc(chc)->staplingActive) {
 		$init($SSLLogger);

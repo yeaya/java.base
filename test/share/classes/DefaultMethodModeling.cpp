@@ -88,6 +88,7 @@ void DefaultMethodModeling::init$() {
 
 void DefaultMethodModeling::main($StringArray* args) {
 	$load(DefaultMethodModeling);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 		$load($SuperC);
@@ -158,6 +159,7 @@ void DefaultMethodModeling::main($StringArray* args) {
 }
 
 int32_t DefaultMethodModeling::testMethod($Method* m) {
+	$useLocalCurrentObjectStackCache();
 	$load($ExpectedModel);
 	$var($ExpectedModel, em, $cast($ExpectedModel, $Objects::requireNonNull($cast($ExpectedModel, $($nc(m)->getAnnotation($ExpectedModel::class$))))));
 	bool failed = false;

@@ -200,6 +200,7 @@ void Hashtable::finalize() {
 }
 
 void Hashtable::init$(int32_t initialCapacity, float loadFactor) {
+	$useLocalCurrentObjectStackCache();
 	$Dictionary::init$();
 	this->modCount = 0;
 	if (initialCapacity < 0) {
@@ -260,6 +261,7 @@ $Enumeration* Hashtable::elements() {
 
 bool Hashtable::contains(Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (value == nullptr) {
 			$throwNew($NullPointerException);
 		}
@@ -284,6 +286,7 @@ bool Hashtable::containsValue(Object$* value) {
 
 bool Hashtable::containsKey(Object$* key) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
 		int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(tab)->length);
@@ -301,6 +304,7 @@ bool Hashtable::containsKey(Object$* key) {
 
 $Object* Hashtable::get(Object$* key) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
 		int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(tab)->length);
@@ -317,6 +321,7 @@ $Object* Hashtable::get(Object$* key) {
 }
 
 void Hashtable::rehash() {
+	$useLocalCurrentObjectStackCache();
 	int32_t oldCapacity = $nc(this->table)->length;
 	$var($Hashtable$EntryArray, oldMap, this->table);
 	int32_t newCapacity = (oldCapacity << 1) + 1;
@@ -345,6 +350,7 @@ void Hashtable::rehash() {
 }
 
 void Hashtable::addEntry(int32_t hash, Object$* key, Object$* value, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable$EntryArray, tab, this->table);
 	if (this->count >= this->threshold) {
 		rehash();
@@ -360,6 +366,7 @@ void Hashtable::addEntry(int32_t hash, Object$* key, Object$* value, int32_t ind
 
 $Object* Hashtable::put(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (value == nullptr) {
 			$throwNew($NullPointerException);
 		}
@@ -381,6 +388,7 @@ $Object* Hashtable::put(Object$* key, Object$* value) {
 
 $Object* Hashtable::remove(Object$* key) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
 		int32_t index = $mod(((int32_t)(hash & (uint32_t)0x7FFFFFFF)), $nc(tab)->length);
@@ -408,6 +416,7 @@ $Object* Hashtable::remove(Object$* key) {
 
 void Hashtable::putAll($Map* t) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		{
 			$var($Iterator, i$, $nc($($nc(t)->entrySet()))->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -432,6 +441,7 @@ void Hashtable::clear() {
 
 $Object* Hashtable::clone() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var(Hashtable, t, cloneHashtable());
 		$set($nc(t), table, $new($Hashtable$EntryArray, $nc(this->table)->length));
 		for (int32_t i = $nc(this->table)->length; i-- > 0;) {
@@ -457,6 +467,7 @@ Hashtable* Hashtable::cloneHashtable() {
 
 $String* Hashtable::toString() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		int32_t max = size() - 1;
 		if (max == -1) {
 			return "{}"_s;
@@ -518,6 +529,7 @@ $Collection* Hashtable::values() {
 
 bool Hashtable::equals(Object$* o) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if ($equals(o, this)) {
 			return true;
 		}
@@ -566,6 +578,7 @@ bool Hashtable::equals(Object$* o) {
 
 int32_t Hashtable::hashCode() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		int32_t h = 0;
 		if (this->count == 0 || this->loadFactor < 0) {
 			return h;
@@ -600,6 +613,7 @@ $Object* Hashtable::getOrDefault(Object$* key, Object$* defaultValue) {
 
 void Hashtable::forEach($BiConsumer* action) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(action);
 		int32_t expectedModCount = this->modCount;
 		$var($Hashtable$EntryArray, tab, this->table);
@@ -625,6 +639,7 @@ void Hashtable::forEach($BiConsumer* action) {
 
 void Hashtable::replaceAll($BiFunction* function) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(function);
 		int32_t expectedModCount = this->modCount;
 		$var($Hashtable$EntryArray, tab, this->table);
@@ -650,6 +665,7 @@ void Hashtable::replaceAll($BiFunction* function) {
 
 $Object* Hashtable::putIfAbsent(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(value);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -671,6 +687,7 @@ $Object* Hashtable::putIfAbsent(Object$* key, Object$* value) {
 
 bool Hashtable::remove(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(value);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -699,6 +716,7 @@ bool Hashtable::remove(Object$* key, Object$* value) {
 
 bool Hashtable::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(oldValue);
 		$Objects::requireNonNull(newValue);
 		$var($Hashtable$EntryArray, tab, this->table);
@@ -721,6 +739,7 @@ bool Hashtable::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 
 $Object* Hashtable::replace(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(value);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -739,6 +758,7 @@ $Object* Hashtable::replace(Object$* key, Object$* value) {
 
 $Object* Hashtable::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(mappingFunction);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -763,6 +783,7 @@ $Object* Hashtable::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 
 $Object* Hashtable::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(remappingFunction);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -798,6 +819,7 @@ $Object* Hashtable::computeIfPresent(Object$* key, $BiFunction* remappingFunctio
 
 $Object* Hashtable::compute(Object$* key, $BiFunction* remappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(remappingFunction);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -841,6 +863,7 @@ $Object* Hashtable::compute(Object$* key, $BiFunction* remappingFunction) {
 
 $Object* Hashtable::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull(remappingFunction);
 		$var($Hashtable$EntryArray, tab, this->table);
 		int32_t hash = $nc($of(key))->hashCode();
@@ -882,6 +905,7 @@ void Hashtable::writeObject($ObjectOutputStream* s) {
 }
 
 void Hashtable::writeHashtable($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable$Entry, entryStack, nullptr);
 	$synchronized(this) {
 		$nc(s)->defaultWriteObject();
@@ -920,6 +944,7 @@ void Hashtable::readObject($ObjectInputStream* s) {
 }
 
 void Hashtable::readHashtable($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	if (this->loadFactor <= 0 || $Float::isNaN(this->loadFactor)) {
 		$throwNew($StreamCorruptedException, $$str({"Illegal Load: "_s, $$str(this->loadFactor)}));
@@ -951,6 +976,7 @@ void Hashtable::readHashtable($ObjectInputStream* s) {
 }
 
 void Hashtable::reconstitutionPut($Hashtable$EntryArray* tab, Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		$throwNew($StreamCorruptedException);
 	}

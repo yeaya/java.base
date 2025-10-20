@@ -156,6 +156,7 @@ $ListIterator* InsnList::iterator(int32_t index) {
 }
 
 $AbstractInsnNodeArray* InsnList::toArray() {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentInsnIndex = 0;
 	$var($AbstractInsnNode, currentInsn, this->firstInsn);
 	$var($AbstractInsnNodeArray, insnNodeArray, $new($AbstractInsnNodeArray, this->size$));
@@ -168,6 +169,7 @@ $AbstractInsnNodeArray* InsnList::toArray() {
 }
 
 void InsnList::set($AbstractInsnNode* oldInsnNode, $AbstractInsnNode* newInsnNode) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractInsnNode, nextInsn, $nc(oldInsnNode)->nextInsn);
 	$set($nc(newInsnNode), nextInsn, nextInsn);
 	if (nextInsn != nullptr) {
@@ -274,6 +276,7 @@ void InsnList::insert($AbstractInsnNode* previousInsn, $AbstractInsnNode* insnNo
 }
 
 void InsnList::insert($AbstractInsnNode* previousInsn, InsnList* insnList) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(insnList)->size$ == 0) {
 		return;
 	}
@@ -309,6 +312,7 @@ void InsnList::insertBefore($AbstractInsnNode* nextInsn, $AbstractInsnNode* insn
 }
 
 void InsnList::insertBefore($AbstractInsnNode* nextInsn, InsnList* insnList) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(insnList)->size$ == 0) {
 		return;
 	}
@@ -329,6 +333,7 @@ void InsnList::insertBefore($AbstractInsnNode* nextInsn, InsnList* insnList) {
 }
 
 void InsnList::remove($AbstractInsnNode* insnNode) {
+	$useLocalCurrentObjectStackCache();
 	--this->size$;
 	$var($AbstractInsnNode, nextInsn, $nc(insnNode)->nextInsn);
 	$var($AbstractInsnNode, previousInsn, insnNode->previousInsn);
@@ -354,6 +359,7 @@ void InsnList::remove($AbstractInsnNode* insnNode) {
 }
 
 void InsnList::removeAll(bool mark) {
+	$useLocalCurrentObjectStackCache();
 	if (mark) {
 		$var($AbstractInsnNode, currentInsn, this->firstInsn);
 		while (currentInsn != nullptr) {

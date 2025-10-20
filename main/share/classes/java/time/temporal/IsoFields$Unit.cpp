@@ -223,6 +223,7 @@ $String* IsoFields$Unit::toString() {
 }
 
 void clinit$IsoFields$Unit($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(IsoFields$Unit::WEEK_BASED_YEARS, $new(IsoFields$Unit, "WEEK_BASED_YEARS"_s, 0, "WeekBasedYears"_s, $($Duration::ofSeconds(31556952))));
 	$assignStatic(IsoFields$Unit::QUARTER_YEARS, $new(IsoFields$Unit, "QUARTER_YEARS"_s, 1, "QuarterYears"_s, $($Duration::ofSeconds((int64_t)31556952 / 4))));
 	$assignStatic(IsoFields$Unit::$VALUES, IsoFields$Unit::$values());

@@ -52,6 +52,7 @@ void BadIPv6Addresses::init$() {
 }
 
 void BadIPv6Addresses::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, badAddresses, $new($StringArray, {
 		"0:1:2:3:4:5:6:7:8"_s,
 		"0:1:2:3:4:5:6"_s,

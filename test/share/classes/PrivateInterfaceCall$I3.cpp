@@ -70,6 +70,7 @@ void PrivateInterfaceCall$I3::invokeInterfaceMH($PrivateInterfaceCall$I2* i) {
 
 void PrivateInterfaceCall$I3::init() {
 	$init(PrivateInterfaceCall$I3);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Void);
 	$var($MethodType, mt, $MethodType::methodType($Void::TYPE));

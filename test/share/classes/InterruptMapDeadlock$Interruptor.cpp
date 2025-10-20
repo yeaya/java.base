@@ -68,6 +68,7 @@ void InterruptMapDeadlock$Interruptor::init$($InterruptMapDeadlock$MapperArray* 
 }
 
 void InterruptMapDeadlock$Interruptor::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->gate)->release($nc(this->mappers)->length);
 	{
 		$var($InterruptMapDeadlock$MapperArray, arr$, this->mappers);

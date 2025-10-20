@@ -151,6 +151,7 @@ $Object* allocate$ModuleReferences$JarModuleReader($Class* clazz) {
 
 $JarFile* ModuleReferences$JarModuleReader::newJarFile($Path* path) {
 	$init(ModuleReferences$JarModuleReader);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, var$0, $new($File, $($nc(path)->toString())));
 		return $new($JarFile, var$0, true, $ZipFile::OPEN_READ, $($JarFile::runtimeVersion()));
@@ -172,6 +173,7 @@ $JarEntry* ModuleReferences$JarModuleReader::getEntry($String* name) {
 }
 
 $Optional* ModuleReferences$JarModuleReader::implFind($String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$var($JarEntry, je, getEntry(name));
 	if (je != nullptr) {
@@ -191,6 +193,7 @@ $Optional* ModuleReferences$JarModuleReader::implFind($String* name$renamed) {
 }
 
 $Optional* ModuleReferences$JarModuleReader::implOpen($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($JarEntry, je, getEntry(name));
 	if (je != nullptr) {
 		return $Optional::of($($nc(this->jf)->getInputStream(je)));
@@ -200,6 +203,7 @@ $Optional* ModuleReferences$JarModuleReader::implOpen($String* name) {
 }
 
 $Stream* ModuleReferences$JarModuleReader::implList() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, names, $nc($($nc($($nc(this->jf)->versionedStream()))->map(static_cast<$Function*>($$new(ModuleReferences$JarModuleReader$$Lambda$getName)))))->toList());
 	return $nc(names)->stream();
 }

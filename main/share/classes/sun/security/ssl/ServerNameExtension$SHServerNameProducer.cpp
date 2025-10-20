@@ -79,6 +79,7 @@ void ServerNameExtension$SHServerNameProducer::init$() {
 }
 
 $bytes* ServerNameExtension$SHServerNameProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($ServerNameExtension$CHServerNamesSpec, spec, $cast($ServerNameExtension$CHServerNamesSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_SERVER_NAME)));

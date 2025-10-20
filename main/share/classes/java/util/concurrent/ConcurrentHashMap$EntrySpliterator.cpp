@@ -122,6 +122,7 @@ $Spliterator* ConcurrentHashMap$EntrySpliterator::trySplit() {
 }
 
 void ConcurrentHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -134,6 +135,7 @@ void ConcurrentHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool ConcurrentHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

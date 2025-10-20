@@ -276,6 +276,7 @@ void ModuleReferences::init$() {
 }
 
 $ModuleReference* ModuleReferences::newModule($ModuleInfo$Attributes* attrs, $URI* uri, $Supplier* supplier, $ModulePatcher* patcher, $ModuleHashes$HashSupplier* hasher) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, var$0, $nc(attrs)->descriptor());
 	$var($URI, var$1, uri);
 	$var($Supplier, var$2, supplier);
@@ -290,6 +291,7 @@ $ModuleReference* ModuleReferences::newModule($ModuleInfo$Attributes* attrs, $UR
 }
 
 $ModuleReference* ModuleReferences::newJarModule($ModuleInfo$Attributes* attrs, $ModulePatcher* patcher, $Path* file) {
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $nc(file)->toUri());
 	$var($Supplier, supplier, static_cast<$Supplier*>($new(ModuleReferences$$Lambda$lambda$newJarModule$0, file, uri)));
 	$var($ModuleHashes$HashSupplier, hasher, static_cast<$ModuleHashes$HashSupplier*>($new(ModuleReferences$$Lambda$lambda$newJarModule$1$1, supplier)));
@@ -297,6 +299,7 @@ $ModuleReference* ModuleReferences::newJarModule($ModuleInfo$Attributes* attrs, 
 }
 
 $ModuleReference* ModuleReferences::newJModModule($ModuleInfo$Attributes* attrs, $Path* file) {
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $nc(file)->toUri());
 	$var($Supplier, supplier, static_cast<$Supplier*>($new(ModuleReferences$$Lambda$lambda$newJModModule$2$2, file, uri)));
 	$var($ModuleHashes$HashSupplier, hasher, static_cast<$ModuleHashes$HashSupplier*>($new(ModuleReferences$$Lambda$lambda$newJarModule$1$1, supplier)));
@@ -304,6 +307,7 @@ $ModuleReference* ModuleReferences::newJModModule($ModuleInfo$Attributes* attrs,
 }
 
 $ModuleReference* ModuleReferences::newExplodedModule($ModuleInfo$Attributes* attrs, $ModulePatcher* patcher, $Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, supplier, static_cast<$Supplier*>($new(ModuleReferences$$Lambda$lambda$newExplodedModule$4$3, dir)));
 	return newModule(attrs, $($nc(dir)->toUri()), supplier, patcher, nullptr);
 }

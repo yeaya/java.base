@@ -49,6 +49,7 @@ void InsertMaxValue::init$() {
 }
 
 void InsertMaxValue::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer, ""_s));
 	$var($StringBuffer, sb1, $new($StringBuffer, "Some test StringBuffer"_s));
 	try {

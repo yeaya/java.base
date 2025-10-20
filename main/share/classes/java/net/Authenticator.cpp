@@ -170,6 +170,7 @@ void Authenticator::setDefault(Authenticator* a) {
 	$load(Authenticator);
 	$synchronized(class$) {
 		$init(Authenticator);
+		$useLocalCurrentObjectStackCache();
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
 			$var($NetPermission, setDefaultPermission, $new($NetPermission, "setDefaultAuthenticator"_s));
@@ -181,6 +182,7 @@ void Authenticator::setDefault(Authenticator* a) {
 
 Authenticator* Authenticator::getDefault() {
 	$init(Authenticator);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($NetPermission, requestPermission, $new($NetPermission, "requestPasswordAuthentication"_s));
@@ -191,6 +193,7 @@ Authenticator* Authenticator::getDefault() {
 
 $PasswordAuthentication* Authenticator::requestPasswordAuthentication($InetAddress* addr, int32_t port, $String* protocol, $String* prompt, $String* scheme) {
 	$init(Authenticator);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($NetPermission, requestPermission, $new($NetPermission, "requestPasswordAuthentication"_s));
@@ -214,6 +217,7 @@ $PasswordAuthentication* Authenticator::requestPasswordAuthentication($InetAddre
 
 $PasswordAuthentication* Authenticator::requestPasswordAuthentication($String* host, $InetAddress* addr, int32_t port, $String* protocol, $String* prompt, $String* scheme) {
 	$init(Authenticator);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($NetPermission, requestPermission, $new($NetPermission, "requestPasswordAuthentication"_s));
@@ -238,6 +242,7 @@ $PasswordAuthentication* Authenticator::requestPasswordAuthentication($String* h
 
 $PasswordAuthentication* Authenticator::requestPasswordAuthentication($String* host, $InetAddress* addr, int32_t port, $String* protocol, $String* prompt, $String* scheme, $URL* url, $Authenticator$RequestorType* reqType) {
 	$init(Authenticator);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($NetPermission, requestPermission, $new($NetPermission, "requestPasswordAuthentication"_s));
@@ -264,6 +269,7 @@ $PasswordAuthentication* Authenticator::requestPasswordAuthentication($String* h
 
 $PasswordAuthentication* Authenticator::requestPasswordAuthentication(Authenticator* authenticator, $String* host, $InetAddress* addr, int32_t port, $String* protocol, $String* prompt, $String* scheme, $URL* url, $Authenticator$RequestorType* reqType) {
 	$init(Authenticator);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($NetPermission, requestPermission, $new($NetPermission, "requestPasswordAuthentication"_s));

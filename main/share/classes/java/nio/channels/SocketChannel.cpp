@@ -155,6 +155,7 @@ SocketChannel* SocketChannel::open($ProtocolFamily* family) {
 
 SocketChannel* SocketChannel::open($SocketAddress* remote) {
 	$init(SocketChannel);
+	$useLocalCurrentObjectStackCache();
 	$var(SocketChannel, sc, nullptr);
 	$Objects::requireNonNull(remote);
 	if ($instanceOf($InetSocketAddress, remote)) {

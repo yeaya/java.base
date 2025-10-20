@@ -203,6 +203,7 @@ $AsynchronousChannelGroupImpl* WindowsAsynchronousServerSocketChannelImpl::group
 }
 
 $Future* WindowsAsynchronousServerSocketChannelImpl::implAccept(Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$var($Throwable, exc, $new($ClosedChannelException));
 		if (handler == nullptr) {

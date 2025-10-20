@@ -61,6 +61,7 @@ $Object* allocate$EncryptedPrivateKeyInfo($Class* clazz) {
 }
 
 void EncryptedPrivateKeyInfo::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, $new($DerValue, encoded));
 	$var($DerValueArray, seq, $new($DerValueArray, 2));
 	seq->set(0, $($nc(val->data$)->getDerValue()));
@@ -94,6 +95,7 @@ $bytes* EncryptedPrivateKeyInfo::getEncryptedData() {
 }
 
 $bytes* EncryptedPrivateKeyInfo::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encoded != nullptr) {
 		return $cast($bytes, $nc(this->encoded)->clone());
 	}

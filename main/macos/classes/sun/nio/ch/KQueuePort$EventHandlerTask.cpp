@@ -114,6 +114,7 @@ void KQueuePort$EventHandlerTask::init$($KQueuePort* this$0) {
 }
 
 $KQueuePort$Event* KQueuePort$EventHandlerTask::poll() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($KQueuePort$Event, var$2, nullptr);
@@ -200,6 +201,7 @@ $KQueuePort$Event* KQueuePort$EventHandlerTask::poll() {
 }
 
 void KQueuePort$EventHandlerTask::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Invoker$GroupAndInvokeCount, myGroupAndInvokeCount, $Invoker::getGroupAndInvokeCount());
 	bool isPooledThread = (myGroupAndInvokeCount != nullptr);
 	bool replaceMe = false;

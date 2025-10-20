@@ -93,6 +93,7 @@ void NativePRNG$1::init$($NativePRNG$Variant* val$v) {
 }
 
 $Object* NativePRNG$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, seedFile, nullptr);
 	$var($File, nextFile, nullptr);
 		$init($NativePRNG$2);

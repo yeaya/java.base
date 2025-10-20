@@ -129,6 +129,7 @@ $Object* allocate$SdpProvider($Class* clazz) {
 }
 
 void SdpProvider::init$() {
+	$useLocalCurrentObjectStackCache();
 	$NetHooks$Provider::init$();
 	$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 	$var($String, file, $nc(props)->getProperty("com.sun.sdp.conf"_s));
@@ -167,6 +168,7 @@ void SdpProvider::init$() {
 
 $ints* SdpProvider::parsePortRange($String* s) {
 	$init(SdpProvider);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(s)->indexOf((int32_t)u'-');
 	try {
 		$var($ints, result, $new($ints, 2));
@@ -196,6 +198,7 @@ $ints* SdpProvider::parsePortRange($String* s) {
 
 void SdpProvider::fail($String* msg, $ObjectArray* args) {
 	$init(SdpProvider);
+	$useLocalCurrentObjectStackCache();
 	$var($Formatter, f, $new($Formatter));
 	f->format(msg, args);
 	$throwNew($RuntimeException, $($nc($of($(f->out())))->toString()));
@@ -203,6 +206,7 @@ void SdpProvider::fail($String* msg, $ObjectArray* args) {
 
 $List* SdpProvider::loadRulesFromFile($String* file) {
 	$init(SdpProvider);
+	$useLocalCurrentObjectStackCache();
 	$var($Scanner, scanner, $new($Scanner, $$new($File, file)));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -312,6 +316,7 @@ $List* SdpProvider::loadRulesFromFile($String* file) {
 }
 
 void SdpProvider::convertTcpToSdpIfMatch($FileDescriptor* fdObj, $SdpProvider$Action* action, $InetAddress* address, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	bool matched = false;
 	{
 		$var($Iterator, i$, $nc(this->rules)->iterator());

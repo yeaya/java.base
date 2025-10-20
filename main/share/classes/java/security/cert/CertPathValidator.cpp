@@ -136,6 +136,7 @@ $CertPathValidatorResult* CertPathValidator::validate($CertPath* certPath, $Cert
 
 $String* CertPathValidator::getDefaultType() {
 	$init(CertPathValidator);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cpvtype, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CertPathValidator$1)))));
 	return (cpvtype == nullptr) ? "PKIX"_s : cpvtype;

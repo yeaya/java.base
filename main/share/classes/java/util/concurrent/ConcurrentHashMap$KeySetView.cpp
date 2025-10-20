@@ -190,6 +190,7 @@ bool ConcurrentHashMap$KeySetView::remove(Object$* o) {
 }
 
 $Iterator* ConcurrentHashMap$KeySetView::iterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	$var($ConcurrentHashMap, m, this->map);
 	int32_t f = ($assign(t, $nc(m)->table)) == nullptr ? 0 : $nc(t)->length;
@@ -205,6 +206,7 @@ bool ConcurrentHashMap$KeySetView::add(Object$* e) {
 }
 
 bool ConcurrentHashMap$KeySetView::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	bool added = false;
 	$var($Object, v, nullptr);
 	if (($assign(v, this->value)) == nullptr) {
@@ -225,6 +227,7 @@ bool ConcurrentHashMap$KeySetView::addAll($Collection* c) {
 }
 
 int32_t ConcurrentHashMap$KeySetView::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	{
 		$var($Iterator, i$, this->iterator());
@@ -251,6 +254,7 @@ bool ConcurrentHashMap$KeySetView::equals(Object$* o) {
 }
 
 $Spliterator* ConcurrentHashMap$KeySetView::spliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	$var($ConcurrentHashMap, m, this->map);
 	int64_t n = $nc(m)->sumCount();
@@ -259,6 +263,7 @@ $Spliterator* ConcurrentHashMap$KeySetView::spliterator() {
 }
 
 void ConcurrentHashMap$KeySetView::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

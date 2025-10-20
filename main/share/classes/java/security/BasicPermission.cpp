@@ -123,6 +123,7 @@ bool BasicPermission::implies($Permission* p) {
 }
 
 bool BasicPermission::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}

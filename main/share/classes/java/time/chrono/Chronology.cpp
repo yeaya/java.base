@@ -172,6 +172,7 @@ $String* Chronology::toString() {
 
 Chronology* Chronology::from($TemporalAccessor* temporal) {
 	$init(Chronology);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(temporal), "temporal"_s);
 	$var(Chronology, obj, $cast(Chronology, $nc(temporal)->query($($TemporalQueries::chronology()))));
 	$init($IsoChronology);
@@ -215,6 +216,7 @@ $ChronoLocalDate* Chronology::dateNow($Clock* clock) {
 }
 
 $ChronoLocalDateTime* Chronology::localDateTime($TemporalAccessor* temporal) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($(date(temporal)))->atTime($($LocalTime::from(temporal)));
 	} catch ($DateTimeException&) {
@@ -225,6 +227,7 @@ $ChronoLocalDateTime* Chronology::localDateTime($TemporalAccessor* temporal) {
 }
 
 $ChronoZonedDateTime* Chronology::zonedDateTime($TemporalAccessor* temporal) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ZoneId, zone, $ZoneId::from(temporal));
 		try {
@@ -247,6 +250,7 @@ $ChronoZonedDateTime* Chronology::zonedDateTime($Instant* instant, $ZoneId* zone
 }
 
 $String* Chronology::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($TemporalAccessor, temporal, $new($Chronology$1, this));
 	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendChronologyText(style)))->toFormatter(locale)))->format(temporal);
 }

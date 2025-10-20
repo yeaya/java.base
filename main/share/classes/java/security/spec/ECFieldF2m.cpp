@@ -70,6 +70,7 @@ void ECFieldF2m::init$(int32_t m) {
 }
 
 void ECFieldF2m::init$(int32_t m, $BigInteger* rp) {
+	$useLocalCurrentObjectStackCache();
 	this->m = m;
 	$set(this, rp, rp);
 	if (m <= 0) {
@@ -90,6 +91,7 @@ void ECFieldF2m::init$(int32_t m, $BigInteger* rp) {
 }
 
 void ECFieldF2m::init$(int32_t m, $ints* ks) {
+	$useLocalCurrentObjectStackCache();
 	this->m = m;
 	$set(this, ks, $cast($ints, $nc(ks)->clone()));
 	if (m <= 0) {

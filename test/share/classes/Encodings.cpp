@@ -72,6 +72,7 @@ bool Encodings::equals($bytes* a, $bytes* b) {
 }
 
 void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, charset, $Charset::forName(enc));
 	if (!($$new($String, bytes, enc)->equals(str))) {
 		$throwNew($Exception, $$str({enc, ": String constructor failed"_s}));
@@ -164,6 +165,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes) {
 }
 
 void Encodings::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	go("US-ASCII"_s, "abc"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',

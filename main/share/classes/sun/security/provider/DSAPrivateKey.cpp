@@ -130,6 +130,7 @@ bool DSAPrivateKey::isDestroyed() {
 }
 
 void DSAPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* q, $BigInteger* g) {
+	$useLocalCurrentObjectStackCache();
 	$PKCS8Key::init$();
 	$set(this, x, x);
 	$set(this, algid, $new($AlgIdDSA, p, q, g));
@@ -146,6 +147,7 @@ void DSAPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* q, $BigIn
 }
 
 void DSAPrivateKey::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$PKCS8Key::init$(encoded);
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
@@ -157,6 +159,7 @@ void DSAPrivateKey::init$($bytes* encoded) {
 }
 
 $DSAParams* DSAPrivateKey::getParams() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($DSAParams, this->algid)) {
 			return $cast($DSAParams, this->algid);

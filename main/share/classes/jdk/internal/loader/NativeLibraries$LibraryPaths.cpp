@@ -72,6 +72,7 @@ void NativeLibraries$LibraryPaths::init$() {
 }
 
 void clinit$NativeLibraries$LibraryPaths($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(NativeLibraries$LibraryPaths::SYS_PATHS, $ClassLoaderHelper::parsePath($($StaticProperty::sunBootLibraryPath())));
 	$assignStatic(NativeLibraries$LibraryPaths::USER_PATHS, $ClassLoaderHelper::parsePath($($StaticProperty::javaLibraryPath())));
 }

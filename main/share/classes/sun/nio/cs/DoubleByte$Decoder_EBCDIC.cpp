@@ -108,6 +108,7 @@ bool DoubleByte$Decoder_EBCDIC::isDoubleByte(int32_t b1, int32_t b2) {
 }
 
 $CoderResult* DoubleByte$Decoder_EBCDIC::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -202,6 +203,7 @@ $CoderResult* DoubleByte$Decoder_EBCDIC::decodeArrayLoop($ByteBuffer* src, $Char
 }
 
 $CoderResult* DoubleByte$Decoder_EBCDIC::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

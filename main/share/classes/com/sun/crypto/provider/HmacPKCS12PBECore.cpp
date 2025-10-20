@@ -95,6 +95,7 @@ void HmacPKCS12PBECore::init$($String* algorithm, int32_t bl) {
 }
 
 void HmacPKCS12PBECore::engineInit($Key* key, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwdChars, nullptr);
 	$var($bytes, salt, nullptr);
 	int32_t iCount = 0;

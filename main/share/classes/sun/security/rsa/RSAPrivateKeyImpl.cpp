@@ -123,6 +123,7 @@ bool RSAPrivateKeyImpl::isDestroyed() {
 }
 
 void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* keyParams, $BigInteger* n, $BigInteger* d) {
+	$useLocalCurrentObjectStackCache();
 	$PKCS8Key::init$();
 	$RSAKeyFactory::checkRSAProviderKeyLengths($nc(n)->bitLength(), nullptr);
 	$set(this, n, n);

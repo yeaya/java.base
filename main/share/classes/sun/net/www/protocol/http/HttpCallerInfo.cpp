@@ -78,6 +78,7 @@ void HttpCallerInfo::init$(HttpCallerInfo* old, $String* scheme) {
 }
 
 void HttpCallerInfo::init$($URL* url, $Authenticator* a) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, url, url);
 	$set(this, prompt, ""_s);
 	$set(this, host, $nc(url)->getHost());

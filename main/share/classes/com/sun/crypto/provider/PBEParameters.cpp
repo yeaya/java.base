@@ -96,6 +96,7 @@ void PBEParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void PBEParameters::engineInit($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerValue, val, $new($DerValue, encoded));
 		if (val->tag != $DerValue::tag_Sequence) {
@@ -127,6 +128,7 @@ $AlgorithmParameterSpec* PBEParameters::engineGetParameterSpec($Class* paramSpec
 }
 
 $bytes* PBEParameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	bytes->putOctetString(this->salt);
@@ -140,6 +142,7 @@ $bytes* PBEParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* PBEParameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($String, saltString, $str({LINE_SEP, "    salt:"_s, LINE_SEP, "["_s}));
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));

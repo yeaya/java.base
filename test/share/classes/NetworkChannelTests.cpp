@@ -90,6 +90,7 @@ void NetworkChannelTests::init$() {
 }
 
 void NetworkChannelTests::bindTests($NetworkChannelTests$ChannelFactory* factory) {
+	$useLocalCurrentObjectStackCache();
 	$var($NetworkChannel, ch, nullptr);
 	$assign(ch, $nc($($nc(factory)->open()))->bind($$new($InetSocketAddress, 0)));
 	try {
@@ -121,6 +122,7 @@ void NetworkChannelTests::bindTests($NetworkChannelTests$ChannelFactory* factory
 }
 
 void NetworkChannelTests::localAddressTests($NetworkChannelTests$ChannelFactory* factory) {
+	$useLocalCurrentObjectStackCache();
 	$var($NetworkChannel, ch, nullptr);
 	$assign(ch, $nc(factory)->open());
 	if ($nc(ch)->getLocalAddress() != nullptr) {
@@ -145,6 +147,7 @@ void NetworkChannelTests::localAddressTests($NetworkChannelTests$ChannelFactory*
 }
 
 void NetworkChannelTests::connectedAddressTests() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $cast($ServerSocketChannel, $nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	$var($InetSocketAddress, local, ($cast($InetSocketAddress, $nc(ssc)->getLocalAddress())));
 	int32_t port = $nc(local)->getPort();
@@ -169,6 +172,7 @@ void NetworkChannelTests::connectedAddressTests() {
 }
 
 void NetworkChannelTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($NetworkChannelTests$ChannelFactory, factory, nullptr);
 	$assign(factory, $new($NetworkChannelTests$1));
 	bindTests(factory);

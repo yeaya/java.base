@@ -81,6 +81,7 @@ void WindowsAsynchronousChannelProvider::init$() {
 }
 
 $Iocp* WindowsAsynchronousChannelProvider::defaultIocp() {
+	$useLocalCurrentObjectStackCache();
 	if (WindowsAsynchronousChannelProvider::defaultIocp$ == nullptr) {
 		$synchronized(WindowsAsynchronousChannelProvider::class$) {
 			if (WindowsAsynchronousChannelProvider::defaultIocp$ == nullptr) {
@@ -92,10 +93,12 @@ $Iocp* WindowsAsynchronousChannelProvider::defaultIocp() {
 }
 
 $AsynchronousChannelGroup* WindowsAsynchronousChannelProvider::openAsynchronousChannelGroup(int32_t nThreads, $ThreadFactory* factory) {
+	$useLocalCurrentObjectStackCache();
 	return $$new($Iocp, this, $($ThreadPool::create(nThreads, factory)))->start();
 }
 
 $AsynchronousChannelGroup* WindowsAsynchronousChannelProvider::openAsynchronousChannelGroup($ExecutorService* executor, int32_t initialSize) {
+	$useLocalCurrentObjectStackCache();
 	return $$new($Iocp, this, $($ThreadPool::wrap(executor, initialSize)))->start();
 }
 

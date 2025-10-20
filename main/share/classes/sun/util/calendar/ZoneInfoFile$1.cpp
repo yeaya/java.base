@@ -86,6 +86,7 @@ void ZoneInfoFile$1::init$() {
 }
 
 $Object* ZoneInfoFile$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$init($File);

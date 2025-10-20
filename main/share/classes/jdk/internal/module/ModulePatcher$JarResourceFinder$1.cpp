@@ -108,6 +108,7 @@ $String* ModulePatcher$JarResourceFinder$1::getName() {
 }
 
 $URL* ModulePatcher$JarResourceFinder$1::getURL() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, encodedPath, $ParseUtil::encodePath(this->val$name, false));
 	try {
 		return $new($URL, $$str({"jar:"_s, this->this$0->csURL, "!/"_s, encodedPath}));
@@ -123,6 +124,7 @@ $URL* ModulePatcher$JarResourceFinder$1::getCodeSourceURL() {
 }
 
 $ByteBuffer* ModulePatcher$JarResourceFinder$1::getByteBuffer() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, bytes, $nc($(getInputStream()))->readAllBytes());
 	return $ByteBuffer::wrap(bytes);
 }

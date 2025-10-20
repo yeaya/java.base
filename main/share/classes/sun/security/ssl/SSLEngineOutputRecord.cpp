@@ -175,6 +175,7 @@ bool SSLEngineOutputRecord::isClosed() {
 }
 
 void SSLEngineOutputRecord::encodeAlert(int8_t level, int8_t description) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -189,6 +190,7 @@ void SSLEngineOutputRecord::encodeAlert(int8_t level, int8_t description) {
 }
 
 void SSLEngineOutputRecord::encodeHandshake($bytes* source, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -237,6 +239,7 @@ void SSLEngineOutputRecord::encodeV2NoCipher() {
 }
 
 $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* srcs$renamed, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBufferArray, srcs, srcs$renamed);
 	if (this->$OutputRecord::isClosed$) {
 		$init($SSLLogger);
@@ -255,6 +258,7 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* srcs$renamed, int32
 }
 
 $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t offset, int32_t length, $ByteBuffer* destination) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(this->writeCipher)->authenticator)->seqNumOverflow()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -343,6 +347,7 @@ $Ciphertext* SSLEngineOutputRecord::encode($ByteBufferArray* sources, int32_t of
 }
 
 $Ciphertext* SSLEngineOutputRecord::acquireCiphertext($ByteBuffer* destination) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isTalkingToV2) {
 		$init($SSLRecord);
 		$nc(destination)->put($SSLRecord::v2NoCipher);

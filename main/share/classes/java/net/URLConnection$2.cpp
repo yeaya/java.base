@@ -89,6 +89,7 @@ void URLConnection$2::init$($URLConnection* this$0, $String* val$contentType) {
 }
 
 $Object* URLConnection$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, $ClassLoader::getSystemClassLoader());
 	$load($ContentHandlerFactory);

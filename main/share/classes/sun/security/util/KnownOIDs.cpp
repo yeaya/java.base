@@ -975,6 +975,7 @@ KnownOIDs* KnownOIDs::valueOf($String* name) {
 
 KnownOIDs* KnownOIDs::findMatch($String* s$renamed) {
 	$init(KnownOIDs);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, s$renamed);
 	$init($Locale);
 	$assign(s, $nc(s)->toUpperCase($Locale::ENGLISH));
@@ -987,6 +988,7 @@ KnownOIDs* KnownOIDs::findMatch($String* s$renamed) {
 
 void KnownOIDs::register$(KnownOIDs* o) {
 	$init(KnownOIDs);
+	$useLocalCurrentObjectStackCache();
 	KnownOIDs* ov = $cast(KnownOIDs, $nc(KnownOIDs::name2enum)->put($nc(o)->oid, o));
 	if (ov != nullptr) {
 		$throwNew($RuntimeException, $$str({"ERROR: Duplicate "_s, $nc(o)->oid, " between "_s, o, " and "_s, ov}));
@@ -1055,6 +1057,7 @@ bool KnownOIDs::registerNames() {
 }
 
 void clinit$KnownOIDs($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(KnownOIDs::CommonName, $new(KnownOIDs, "CommonName"_s, 0, "2.5.4.3"_s));
 	$assignStatic(KnownOIDs::Surname, $new(KnownOIDs, "Surname"_s, 1, "2.5.4.4"_s));
 	$assignStatic(KnownOIDs::SerialNumber, $new(KnownOIDs, "SerialNumber"_s, 2, "2.5.4.5"_s));

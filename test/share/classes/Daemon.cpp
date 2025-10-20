@@ -44,6 +44,7 @@ void Daemon::init$() {
 }
 
 void Daemon::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $new($ThreadGroup, "madbot-threads"_s));
 	$var($Thread, myThread, $new($MadThread, tg, "mad"_s));
 	$var($ThreadGroup, aGroup, $new($ThreadGroup, tg, "ness"_s));

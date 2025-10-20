@@ -178,6 +178,7 @@ $Temporal* IsoFields$Field$1::adjustInto($Temporal* temporal, int64_t newValue) 
 }
 
 $TemporalAccessor* IsoFields$Field$1::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, yearLong, $cast($Long, $nc(fieldValues)->get($ChronoField::YEAR)));
 	$init($IsoFields$Field);

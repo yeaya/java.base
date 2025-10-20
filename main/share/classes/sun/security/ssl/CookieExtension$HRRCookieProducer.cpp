@@ -85,6 +85,7 @@ void CookieExtension$HRRCookieProducer::init$() {
 }
 
 $bytes* CookieExtension$HRRCookieProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ServerHello$ServerHelloMessage, hrrm, $cast($ServerHello$ServerHelloMessage, message));
 	$init($SSLExtension);

@@ -78,6 +78,7 @@ void JumpInsnNode::accept($MethodVisitor* methodVisitor) {
 }
 
 $AbstractInsnNode* JumpInsnNode::clone($Map* clonedLabels) {
+	$useLocalCurrentObjectStackCache();
 	return $$new(JumpInsnNode, this->opcode, $($AbstractInsnNode::clone(this->label, clonedLabels)))->cloneAnnotations(this);
 }
 

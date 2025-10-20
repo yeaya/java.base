@@ -120,6 +120,7 @@ $MethodType* MetafactoryDescriptorTest::mt($Class* ret, $ClassArray* params) {
 
 void MetafactoryDescriptorTest::main($StringArray* args) {
 	$init(MetafactoryDescriptorTest);
+	$useLocalCurrentObjectStackCache();
 		$init($Void);
 		$init($Boolean);
 		$init($Character);
@@ -206,6 +207,7 @@ void MetafactoryDescriptorTest::testBridge(bool correct, $MethodHandle* mh, $Met
 
 void MetafactoryDescriptorTest::tryMetafactory(bool correct, $MethodHandle* mh, $MethodType* instMT, $MethodType* samMT) {
 	$init(MetafactoryDescriptorTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($MetafactoryDescriptorTest$I);
 		$LambdaMetafactory::metafactory(MetafactoryDescriptorTest::lookup, "run"_s, $(mt($MetafactoryDescriptorTest$I::class$, $$new($ClassArray, 0))), samMT, mh, instMT);
@@ -222,6 +224,7 @@ void MetafactoryDescriptorTest::tryMetafactory(bool correct, $MethodHandle* mh, 
 
 void MetafactoryDescriptorTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $MethodType* instMT, $MethodType* samMT, $MethodTypeArray* bridgeMTs) {
 	$init(MetafactoryDescriptorTest);
+	$useLocalCurrentObjectStackCache();
 	bool bridge = $nc(bridgeMTs)->length > 0;
 	$var($ObjectArray, args, $new($ObjectArray, bridge ? 5 + bridgeMTs->length : 4));
 	args->set(0, samMT);

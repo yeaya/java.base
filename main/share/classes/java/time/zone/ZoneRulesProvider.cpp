@@ -148,6 +148,7 @@ $NavigableMap* ZoneRulesProvider::getVersions($String* zoneId) {
 
 ZoneRulesProvider* ZoneRulesProvider::getProvider($String* zoneId) {
 	$init(ZoneRulesProvider);
+	$useLocalCurrentObjectStackCache();
 	$var(ZoneRulesProvider, provider, $cast(ZoneRulesProvider, $nc(ZoneRulesProvider::ZONES)->get(zoneId)));
 	if (provider == nullptr) {
 		if ($nc(ZoneRulesProvider::ZONES)->isEmpty()) {
@@ -169,6 +170,7 @@ void ZoneRulesProvider::registerProvider0(ZoneRulesProvider* provider) {
 	$load(ZoneRulesProvider);
 	$synchronized(class$) {
 		$init(ZoneRulesProvider);
+		$useLocalCurrentObjectStackCache();
 		{
 			$var($Iterator, i$, $nc($($nc(provider)->provideZoneIds()))->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -189,6 +191,7 @@ void ZoneRulesProvider::registerProvider0(ZoneRulesProvider* provider) {
 
 bool ZoneRulesProvider::refresh() {
 	$init(ZoneRulesProvider);
+	$useLocalCurrentObjectStackCache();
 	bool changed = false;
 	{
 		$var($Iterator, i$, $nc(ZoneRulesProvider::PROVIDERS)->iterator());
@@ -210,6 +213,7 @@ bool ZoneRulesProvider::provideRefresh() {
 }
 
 void clinit$ZoneRulesProvider($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(ZoneRulesProvider::PROVIDERS, $new($CopyOnWriteArrayList));
 	$assignStatic(ZoneRulesProvider::ZONES, $new($ConcurrentHashMap, 512, 0.75f, 2));

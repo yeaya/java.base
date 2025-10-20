@@ -230,6 +230,7 @@ $Debug* KeychainStore::debug = nullptr;
 
 void KeychainStore::permissionCheck() {
 	$init(KeychainStore);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sec, $System::getSecurityManager());
 	if (sec != nullptr) {
 		sec->checkPermission($$new($RuntimePermission, "useKeychainStore"_s));
@@ -244,6 +245,7 @@ void KeychainStore::init$() {
 }
 
 $Key* KeychainStore::engineGetKey($String* alias, $chars* password$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, password, password$renamed);
 	permissionCheck();
 	if (password == nullptr || $nc(password)->length == 0) {
@@ -313,6 +315,7 @@ $bytes* KeychainStore::_getEncodedKeyData(int64_t secKeyRef, $chars* password) {
 }
 
 $CertificateArray* KeychainStore::engineGetCertificateChain($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase())));
 	if (entry != nullptr && $instanceOf($KeychainStore$KeyEntry, entry)) {
@@ -327,6 +330,7 @@ $CertificateArray* KeychainStore::engineGetCertificateChain($String* alias) {
 }
 
 $Certificate* KeychainStore::engineGetCertificate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase())));
 	if (entry != nullptr) {
@@ -345,6 +349,7 @@ $Certificate* KeychainStore::engineGetCertificate($String* alias) {
 }
 
 $Date* KeychainStore::engineGetCreationDate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase())));
 	if (entry != nullptr) {
@@ -359,6 +364,7 @@ $Date* KeychainStore::engineGetCreationDate($String* alias) {
 }
 
 void KeychainStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$synchronized(this->entries) {
 		try {
@@ -398,6 +404,7 @@ void KeychainStore::engineSetKeyEntry($String* alias, $Key* key, $chars* passwor
 }
 
 void KeychainStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$synchronized(this->entries) {
 		$var($KeychainStore$KeyEntry, entry, $new($KeychainStore$KeyEntry));
@@ -423,6 +430,7 @@ void KeychainStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateA
 }
 
 void KeychainStore::engineSetCertificateEntry($String* alias, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$synchronized(this->entries) {
 		$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase())));
@@ -457,6 +465,7 @@ void KeychainStore::engineSetCertificateEntry($String* alias, $Certificate* cert
 }
 
 void KeychainStore::engineDeleteEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$synchronized(this->entries) {
 		$var($Object, entry, $nc(this->entries)->remove($($nc(alias)->toLowerCase())));
@@ -480,6 +489,7 @@ int32_t KeychainStore::engineSize() {
 }
 
 bool KeychainStore::engineIsKeyEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase())));
 	if ((entry != nullptr) && ($instanceOf($KeychainStore$KeyEntry, entry))) {
@@ -490,6 +500,7 @@ bool KeychainStore::engineIsKeyEntry($String* alias) {
 }
 
 bool KeychainStore::engineIsCertificateEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$var($Object, entry, $nc(this->entries)->get($($nc(alias)->toLowerCase())));
 	if ((entry != nullptr) && ($instanceOf($KeychainStore$TrustedCertEntry, entry))) {
@@ -500,6 +511,7 @@ bool KeychainStore::engineIsCertificateEntry($String* alias) {
 }
 
 $String* KeychainStore::engineGetCertificateAlias($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$var($Certificate, certElem, nullptr);
 	{
@@ -525,6 +537,7 @@ $String* KeychainStore::engineGetCertificateAlias($Certificate* cert) {
 }
 
 void KeychainStore::engineStore($OutputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	{
 		$var($Enumeration, e, $nc(this->deletedEntries)->keys());
@@ -580,6 +593,7 @@ void KeychainStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 int64_t KeychainStore::addCertificateToKeychain($String* alias, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, certblob, nullptr);
 	int64_t returnValue = 0;
 	try {
@@ -615,6 +629,7 @@ void KeychainStore::_releaseKeychainItemRef(int64_t keychainItemRef) {
 }
 
 void KeychainStore::engineLoad($InputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	permissionCheck();
 	$synchronized(this->entries) {
 		{
@@ -656,6 +671,7 @@ void KeychainStore::_scanKeychain() {
 }
 
 void KeychainStore::createTrustedCertEntry($String* alias$renamed, int64_t keychainItemRef, int64_t creationDate, $bytes* derStream) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	$var($KeychainStore$TrustedCertEntry, tce, $new($KeychainStore$TrustedCertEntry));
 	try {
@@ -685,6 +701,7 @@ void KeychainStore::createTrustedCertEntry($String* alias$renamed, int64_t keych
 }
 
 void KeychainStore::createKeyEntry($String* alias$renamed, int64_t creationDate, int64_t secKeyRef, $longs* secCertificateRefs, $byteArray2* rawCertData) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	$var($KeychainStore$KeyEntry, ke, $new($KeychainStore$KeyEntry));
 	$set(ke, protectedPrivKey, nullptr);
@@ -736,6 +753,7 @@ void KeychainStore::createKeyEntry($String* alias$renamed, int64_t creationDate,
 }
 
 bool KeychainStore::validateChain($CertificateArray* certChain) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(certChain)->length - 1; ++i) {
 		$var($X500Principal, issuerDN, $nc(($cast($X509Certificate, certChain->get(i))))->getIssuerX500Principal());
 		$var($X500Principal, subjectDN, $nc(($cast($X509Certificate, certChain->get(i + 1))))->getSubjectX500Principal());
@@ -747,6 +765,7 @@ bool KeychainStore::validateChain($CertificateArray* certChain) {
 }
 
 $bytes* KeychainStore::fetchPrivateKeyFromBag($bytes* privateKeyInfo) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, returnValue, nullptr);
 	$var($DerValue, val, $new($DerValue, static_cast<$InputStream*>($$new($ByteArrayInputStream, privateKeyInfo))));
 	$var($DerInputStream, s, val->toDerInputStream());
@@ -790,6 +809,7 @@ $bytes* KeychainStore::fetchPrivateKeyFromBag($bytes* privateKeyInfo) {
 }
 
 $bytes* KeychainStore::extractKeyData($DerInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, returnValue, nullptr);
 	$var($DerValueArray, safeBags, $nc(stream)->getSequence(2));
 	int32_t count = $nc(safeBags)->length;
@@ -816,6 +836,7 @@ $bytes* KeychainStore::extractKeyData($DerInputStream* stream) {
 }
 
 $AlgorithmParameters* KeychainStore::getAlgorithmParameters($String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, algParams, nullptr);
 	$var($PBEParameterSpec, paramSpec, $new($PBEParameterSpec, $(getSalt()), KeychainStore::iterationCount));
 	try {
@@ -840,6 +861,7 @@ $bytes* KeychainStore::getSalt() {
 }
 
 $AlgorithmParameters* KeychainStore::parseAlgParameters($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, algParams, nullptr);
 	try {
 		$var($DerValue, params, nullptr);
@@ -865,6 +887,7 @@ $AlgorithmParameters* KeychainStore::parseAlgParameters($DerInputStream* in) {
 }
 
 $SecretKey* KeychainStore::getPBEKey($chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, skey, nullptr);
 	try {
 		$var($PBEKeySpec, keySpec, $new($PBEKeySpec, password));
@@ -880,6 +903,7 @@ $SecretKey* KeychainStore::getPBEKey($chars* password) {
 }
 
 $bytes* KeychainStore::encryptPrivateKey($bytes* data, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, key, nullptr);
 	try {
 		$var($AlgorithmParameters, algParams, getAlgorithmParameters("PBEWithSHA1AndDESede"_s));

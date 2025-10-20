@@ -198,6 +198,7 @@ $String* SignatureParser::markToCurrent() {
 }
 
 $Error* SignatureParser::error($String* errorMsg) {
+	$useLocalCurrentObjectStackCache();
 	return $new($GenericSignatureFormatError, $$str({"Signature Parse error: "_s, errorMsg, "\n\tRemaining input: "_s, $(remainder())}));
 }
 
@@ -228,6 +229,7 @@ $TypeSignature* SignatureParser::parseTypeSig($String* s) {
 }
 
 $ClassSignature* SignatureParser::parseClassSignature() {
+	$useLocalCurrentObjectStackCache();
 	if (!SignatureParser::$assertionsDisabled && !(this->index == 0)) {
 		$throwNew($AssertionError);
 	}
@@ -245,6 +247,7 @@ $FormalTypeParameterArray* SignatureParser::parseZeroOrMoreFormalTypeParameters(
 }
 
 $FormalTypeParameterArray* SignatureParser::parseFormalTypeParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, ftps, $new($ArrayList, 3));
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'<')) {
 		$throwNew($AssertionError);
@@ -264,6 +267,7 @@ $FormalTypeParameterArray* SignatureParser::parseFormalTypeParameters() {
 }
 
 $FormalTypeParameter* SignatureParser::parseFormalTypeParameter() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, id, parseIdentifier());
 	$var($FieldTypeSignatureArray, bs, parseBounds());
 	return $FormalTypeParameter::make(id, bs);
@@ -288,6 +292,7 @@ $FieldTypeSignature* SignatureParser::parseFieldTypeSignature() {
 }
 
 $FieldTypeSignature* SignatureParser::parseFieldTypeSignature(bool allowArrays) {
+	$useLocalCurrentObjectStackCache();
 	switch (current()) {
 	case u'L':
 		{
@@ -313,6 +318,7 @@ $FieldTypeSignature* SignatureParser::parseFieldTypeSignature(bool allowArrays) 
 }
 
 $ClassTypeSignature* SignatureParser::parseClassTypeSignature() {
+	$useLocalCurrentObjectStackCache();
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'L')) {
 		$throwNew($AssertionError);
 	}
@@ -331,6 +337,7 @@ $ClassTypeSignature* SignatureParser::parseClassTypeSignature() {
 }
 
 $SimpleClassTypeSignature* SignatureParser::parsePackageNameAndSimpleClassTypeSignature() {
+	$useLocalCurrentObjectStackCache();
 	mark();
 	skipIdentifier();
 	while (current() == u'/') {
@@ -355,6 +362,7 @@ $SimpleClassTypeSignature* SignatureParser::parsePackageNameAndSimpleClassTypeSi
 }
 
 $SimpleClassTypeSignature* SignatureParser::parseSimpleClassTypeSignature(bool dollar) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, id, parseIdentifier());
 	char16_t c = current();
 	switch (c) {
@@ -376,6 +384,7 @@ $SimpleClassTypeSignature* SignatureParser::parseSimpleClassTypeSignature(bool d
 }
 
 void SignatureParser::parseClassTypeSignatureSuffix($List* scts) {
+	$useLocalCurrentObjectStackCache();
 	while (current() == u'.') {
 		advance();
 		$nc(scts)->add($(parseSimpleClassTypeSignature(true)));
@@ -383,6 +392,7 @@ void SignatureParser::parseClassTypeSignatureSuffix($List* scts) {
 }
 
 $TypeArgumentArray* SignatureParser::parseTypeArguments() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, tas, $new($ArrayList, 3));
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'<')) {
 		$throwNew($AssertionError);
@@ -400,6 +410,7 @@ $TypeArgumentArray* SignatureParser::parseTypeArguments() {
 }
 
 $TypeArgument* SignatureParser::parseTypeArgument() {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldTypeSignatureArray, ub, nullptr);
 	$var($FieldTypeSignatureArray, lb, nullptr);
 	$assign(ub, $new($FieldTypeSignatureArray, 1));
@@ -442,6 +453,7 @@ $TypeArgument* SignatureParser::parseTypeArgument() {
 }
 
 $TypeVariableSignature* SignatureParser::parseTypeVariableSignature() {
+	$useLocalCurrentObjectStackCache();
 	if (!SignatureParser::$assertionsDisabled && !(current() == u'T')) {
 		$throwNew($AssertionError);
 	}
@@ -458,6 +470,7 @@ $TypeVariableSignature* SignatureParser::parseTypeVariableSignature() {
 }
 
 $ArrayTypeSignature* SignatureParser::parseArrayTypeSignature() {
+	$useLocalCurrentObjectStackCache();
 	if (current() != u'[') {
 		$throw($(error("expected array type signature"_s)));
 	}
@@ -547,6 +560,7 @@ $BaseType* SignatureParser::parseBaseType() {
 }
 
 $FieldTypeSignatureArray* SignatureParser::parseBounds() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, fts, $new($ArrayList, 3));
 	if (current() == u':') {
 		advance();
@@ -571,6 +585,7 @@ $FieldTypeSignatureArray* SignatureParser::parseBounds() {
 }
 
 $ClassTypeSignatureArray* SignatureParser::parseSuperInterfaces() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, cts, $new($ArrayList, 5));
 	while (current() == u'L') {
 		cts->add($(parseClassTypeSignature()));
@@ -579,6 +594,7 @@ $ClassTypeSignatureArray* SignatureParser::parseSuperInterfaces() {
 }
 
 $MethodTypeSignature* SignatureParser::parseMethodTypeSignature() {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldTypeSignatureArray, ets, nullptr);
 	if (!SignatureParser::$assertionsDisabled && !(this->index == 0)) {
 		$throwNew($AssertionError);
@@ -590,6 +606,7 @@ $MethodTypeSignature* SignatureParser::parseMethodTypeSignature() {
 }
 
 $TypeSignatureArray* SignatureParser::parseFormalParameters() {
+	$useLocalCurrentObjectStackCache();
 	if (current() != u'(') {
 		$throw($(error("expected \'(\'"_s)));
 	}
@@ -603,6 +620,7 @@ $TypeSignatureArray* SignatureParser::parseFormalParameters() {
 }
 
 $TypeSignatureArray* SignatureParser::parseZeroOrMoreTypeSignatures() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, ts, $new($ArrayList));
 	bool stop = false;
 	while (!stop) {
@@ -653,6 +671,7 @@ $ReturnType* SignatureParser::parseReturnType() {
 }
 
 $FieldTypeSignatureArray* SignatureParser::parseZeroOrMoreThrowsSignatures() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, ets, $new($ArrayList, 3));
 	while (current() == u'^') {
 		ets->add($(parseThrowsSignature()));

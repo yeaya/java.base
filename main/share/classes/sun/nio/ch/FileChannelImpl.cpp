@@ -288,6 +288,7 @@ $volatile(bool) FileChannelImpl::pipeSupported = false;
 $volatile(bool) FileChannelImpl::fileSupported = false;
 
 void FileChannelImpl::init$($FileDescriptor* fd, $String* path, bool readable, bool writable, bool direct, Object$* parent) {
+	$useLocalCurrentObjectStackCache();
 	$FileChannel::init$();
 	$set(this, threads, $new($NativeThreadSet, 2));
 	$set(this, positionLock, $new($Object));
@@ -337,6 +338,7 @@ void FileChannelImpl::endBlocking(bool completed) {
 }
 
 void FileChannelImpl::implCloseChannel() {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->fd)->valid()) {
 		return;
 	}
@@ -616,6 +618,7 @@ int64_t FileChannelImpl::position() {
 }
 
 $SeekableByteChannel* FileChannelImpl::position(int64_t newPosition) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (newPosition < 0) {
 		$throwNew($IllegalArgumentException);
@@ -705,6 +708,7 @@ int64_t FileChannelImpl::size() {
 }
 
 $SeekableByteChannel* FileChannelImpl::truncate(int64_t newSize) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (newSize < 0) {
 		$throwNew($IllegalArgumentException, "Negative size"_s);
@@ -886,6 +890,7 @@ int64_t FileChannelImpl::transferToDirectlyInternal(int64_t position, int32_t ic
 }
 
 int64_t FileChannelImpl::transferToDirectly(int64_t position, int32_t icount, $WritableByteChannel* target) {
+	$useLocalCurrentObjectStackCache();
 	if (!FileChannelImpl::transferSupported) {
 		return $IOStatus::UNSUPPORTED;
 	}
@@ -943,6 +948,7 @@ int64_t FileChannelImpl::transferToDirectly(int64_t position, int32_t icount, $W
 }
 
 int64_t FileChannelImpl::transferToTrustedChannel(int64_t position, int64_t count, $WritableByteChannel* target) {
+	$useLocalCurrentObjectStackCache();
 	bool isSelChImpl = ($instanceOf($SelChImpl, target));
 	if (!(($instanceOf(FileChannelImpl, target)) || isSelChImpl)) {
 		return $IOStatus::UNSUPPORTED;
@@ -1007,6 +1013,7 @@ int64_t FileChannelImpl::transferToTrustedChannel(int64_t position, int64_t coun
 }
 
 int64_t FileChannelImpl::transferToArbitraryChannel(int64_t position, int32_t icount, $WritableByteChannel* target) {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = $Math::min(icount, FileChannelImpl::TRANSFER_SIZE);
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(c));
 	int64_t tw = 0;
@@ -1071,6 +1078,7 @@ int64_t FileChannelImpl::transferTo(int64_t position, int64_t count, $WritableBy
 }
 
 int64_t FileChannelImpl::transferFromFileChannel(FileChannelImpl* src, int64_t position, int64_t count) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(src)->readable) {
 		$throwNew($NonReadableChannelException);
 	}
@@ -1124,6 +1132,7 @@ int64_t FileChannelImpl::transferFromFileChannel(FileChannelImpl* src, int64_t p
 }
 
 int64_t FileChannelImpl::transferFromArbitraryChannel($ReadableByteChannel* src, int64_t position, int64_t count) {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = (int32_t)$Math::min(count, (int64_t)FileChannelImpl::TRANSFER_SIZE);
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(c));
 	int64_t tw = 0;
@@ -1326,6 +1335,7 @@ void FileChannelImpl::unmap($MappedByteBuffer* bb) {
 }
 
 $MappedByteBuffer* FileChannelImpl::map($FileChannel$MapMode* mode, int64_t position, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (size > $Integer::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, "Size exceeds Integer.MAX_VALUE"_s);
 	}
@@ -1353,6 +1363,7 @@ $FileChannelImpl$Unmapper* FileChannelImpl::mapInternal($FileChannel$MapMode* mo
 }
 
 $FileChannelImpl$Unmapper* FileChannelImpl::mapInternal($FileChannel$MapMode* mode, int64_t position, int64_t size, int32_t prot, bool isSync) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (mode == nullptr) {
 		$throwNew($NullPointerException, "Mode is null"_s);
@@ -1554,6 +1565,7 @@ $FileLockTable* FileChannelImpl::fileLockTable() {
 }
 
 $FileLock* FileChannelImpl::lock(int64_t position, int64_t size, bool shared) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (shared && !this->readable) {
 		$throwNew($NonReadableChannelException);
@@ -1618,6 +1630,7 @@ $FileLock* FileChannelImpl::lock(int64_t position, int64_t size, bool shared) {
 }
 
 $FileLock* FileChannelImpl::tryLock(int64_t position, int64_t size, bool shared) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (shared && !this->readable) {
 		$throwNew($NonReadableChannelException);
@@ -1678,6 +1691,7 @@ $FileLock* FileChannelImpl::tryLock(int64_t position, int64_t size, bool shared)
 }
 
 void FileChannelImpl::release($FileLockImpl* fli) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ti = $nc(this->threads)->add();
 	{
 		$var($Throwable, var$0, nullptr);

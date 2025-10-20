@@ -72,6 +72,7 @@ void URLPermissionTest$URLImpliesTest::init$($String* arg1, $String* arg2, bool 
 }
 
 bool URLPermissionTest$URLImpliesTest::execute() {
+	$useLocalCurrentObjectStackCache();
 	$var($URLPermission, p1, $new($URLPermission, this->arg1, "GET:*"_s));
 	$var($URLPermission, p2, $new($URLPermission, this->arg2, "GET:*"_s));
 	bool result = p1->implies(p2);

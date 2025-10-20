@@ -102,6 +102,7 @@ void KeyStore$Builder$FileBuilder::init$($String* type, $Provider* provider, $Fi
 
 $KeyStore* KeyStore$Builder$FileBuilder::getKeyStore() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		if (this->keyStore != nullptr) {
 			return this->keyStore;

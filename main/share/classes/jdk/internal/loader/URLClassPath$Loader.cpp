@@ -103,6 +103,7 @@ $URL* URLClassPath$Loader::getBaseURL() {
 }
 
 $URL* URLClassPath$Loader::findResource($String* name, bool check) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->base, $($ParseUtil::encodePath(name, false))));
@@ -135,6 +136,7 @@ $URL* URLClassPath$Loader::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath$Loader::getResource($String* name, bool check) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->base, $($ParseUtil::encodePath(name, false))));

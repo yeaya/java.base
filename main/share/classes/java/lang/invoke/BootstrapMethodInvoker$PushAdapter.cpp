@@ -91,6 +91,7 @@ void BootstrapMethodInvoker$PushAdapter::init$() {
 
 $Object* BootstrapMethodInvoker$PushAdapter::pushToBootstrapMethod($MethodHandle* pullModeBSM, $MethodHandles$Lookup* lookup, $String* name, Object$* type, $ObjectArray* arguments) {
 	$init(BootstrapMethodInvoker$PushAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($ConstantGroup, cons, $ConstantGroup::makeConstantGroup($($Arrays::asList(arguments))));
 	$var($BootstrapCallInfo, bsci, $BootstrapCallInfo::makeBootstrapCallInfo(pullModeBSM, name, type, cons));
 	$init($MethodHandleStatics);
@@ -102,6 +103,7 @@ $Object* BootstrapMethodInvoker$PushAdapter::pushToBootstrapMethod($MethodHandle
 }
 
 void clinit$BootstrapMethodInvoker$PushAdapter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$Class* THIS_CLASS = BootstrapMethodInvoker$PushAdapter::class$;
 		try {

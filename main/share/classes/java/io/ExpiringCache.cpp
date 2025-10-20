@@ -109,6 +109,7 @@ $String* ExpiringCache::get($String* key) {
 
 void ExpiringCache::put($String* key, $String* val) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (++this->queryCount >= this->queryOverflow) {
 			cleanup();
 		}
@@ -142,6 +143,7 @@ $ExpiringCache$Entry* ExpiringCache::entryFor($String* key) {
 }
 
 void ExpiringCache::cleanup() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, keySet, $nc(this->map)->keySet());
 	$var($StringArray, keys, $new($StringArray, $nc(keySet)->size()));
 	int32_t i = 0;

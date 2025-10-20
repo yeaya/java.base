@@ -137,6 +137,7 @@ void SubjectDomainCombiner::init$($Subject* subject) {
 }
 
 $Subject* SubjectDomainCombiner::getSubject() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($AuthPermission, "getSubjectFromDomainCombiner"_s));
@@ -145,6 +146,7 @@ $Subject* SubjectDomainCombiner::getSubject() {
 }
 
 $ProtectionDomainArray* SubjectDomainCombiner::combine($ProtectionDomainArray* currentDomains$renamed, $ProtectionDomainArray* assignedDomains) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomainArray, currentDomains, currentDomains$renamed);
 	$beforeCallerSensitive();
 	if (SubjectDomainCombiner::debug != nullptr) {
@@ -234,6 +236,7 @@ $ProtectionDomainArray* SubjectDomainCombiner::combine($ProtectionDomainArray* c
 
 $ProtectionDomainArray* SubjectDomainCombiner::optimize($ProtectionDomainArray* domains) {
 	$init(SubjectDomainCombiner);
+	$useLocalCurrentObjectStackCache();
 	if (domains == nullptr || $nc(domains)->length == 0) {
 		return nullptr;
 	}
@@ -261,6 +264,7 @@ $ProtectionDomainArray* SubjectDomainCombiner::optimize($ProtectionDomainArray* 
 
 void SubjectDomainCombiner::printInputDomains($ProtectionDomainArray* currentDomains, $ProtectionDomainArray* assignedDomains) {
 	$init(SubjectDomainCombiner);
+	$useLocalCurrentObjectStackCache();
 	if (currentDomains == nullptr || $nc(currentDomains)->length == 0) {
 		$nc(SubjectDomainCombiner::debug)->println("currentDomains null or 0 length"_s);
 	} else {

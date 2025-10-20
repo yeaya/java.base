@@ -78,6 +78,7 @@ void JceSecurity$2::init$($Class* val$clazz) {
 }
 
 $Object* JceSecurity$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomain, pd, $nc(this->val$clazz)->getProtectionDomain());
 	if (pd != nullptr) {
 		$var($CodeSource, cs, pd->getCodeSource());

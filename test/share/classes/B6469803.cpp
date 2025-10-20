@@ -39,6 +39,7 @@ void B6469803::init$() {
 }
 
 void B6469803::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, addr, $new($InetSocketAddress, "192.168.1.1"_s, 12345));
 	$var($String, s, addr->getHostString());
 	if (!$nc(s)->equals("192.168.1.1"_s)) {

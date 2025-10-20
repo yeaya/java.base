@@ -79,6 +79,7 @@ void TestLayer::init$() {
 
 void TestLayer::main($StringArray* args) {
 	$init(TestLayer);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -109,6 +110,7 @@ void TestLayer::main($StringArray* args) {
 
 $Class* TestLayer::findClass($Module* module, $String* cn) {
 	$init(TestLayer);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName(module, cn);
 	if (c == nullptr) {

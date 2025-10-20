@@ -469,6 +469,7 @@ void URLConnection::setDefaultUseCaches(bool defaultusecaches) {
 
 void URLConnection::setDefaultUseCaches($String* protocol$renamed, bool defaultVal) {
 	$init(URLConnection);
+	$useLocalCurrentObjectStackCache();
 	$var($String, protocol, protocol$renamed);
 	$init($Locale);
 	$assign(protocol, $nc(protocol)->toLowerCase($Locale::US));
@@ -477,6 +478,7 @@ void URLConnection::setDefaultUseCaches($String* protocol$renamed, bool defaultV
 
 bool URLConnection::getDefaultUseCaches($String* protocol) {
 	$init(URLConnection);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($Boolean, protoDefault, $cast($Boolean, $nc(URLConnection::defaultCaching)->get($($nc(protocol)->toLowerCase($Locale::US)))));
 	if (protoDefault != nullptr) {
@@ -549,6 +551,7 @@ void URLConnection::setContentHandlerFactory($ContentHandlerFactory* fac) {
 }
 
 $ContentHandler* URLConnection::getContentHandler() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, contentType, stripOffParameters($(getContentType())));
 	if (contentType == nullptr) {
 		$throwNew($UnknownServiceException, "no content-type"_s);
@@ -596,6 +599,7 @@ $String* URLConnection::stripOffParameters($String* contentType) {
 }
 
 $ContentHandler* URLConnection::lookupContentHandlerClassFor($String* contentType) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, contentHandlerClassName, typeToPackageName(contentType));
 	$var($String, contentHandlerPkgPrefixes, getContentHandlerPkgPrefixes());
@@ -632,6 +636,7 @@ $ContentHandler* URLConnection::lookupContentHandlerViaProvider($String* content
 }
 
 $String* URLConnection::typeToPackageName($String* contentType$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, contentType, contentType$renamed);
 	$assign(contentType, $nc(contentType)->toLowerCase());
 	int32_t len = contentType->length();

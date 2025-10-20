@@ -297,6 +297,7 @@ void Date::init$(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t
 }
 
 void Date::init$(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t min, int32_t sec) {
+	$useLocalCurrentObjectStackCache();
 	int32_t y = year + 1900;
 	if (month >= 12) {
 		y += month / 12;
@@ -331,6 +332,7 @@ $Object* Date::clone() {
 
 int64_t Date::UTC(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_t min, int32_t sec) {
 	$init(Date);
+	$useLocalCurrentObjectStackCache();
 	int32_t y = year + 1900;
 	if (month >= 12) {
 		y += month / 12;
@@ -350,6 +352,7 @@ int64_t Date::UTC(int32_t year, int32_t month, int32_t date, int32_t hrs, int32_
 
 int64_t Date::parse($String* s) {
 	$init(Date);
+	$useLocalCurrentObjectStackCache();
 	int32_t year = $Integer::MIN_VALUE;
 	int32_t mon = -1;
 	int32_t mday = -1;
@@ -681,6 +684,7 @@ int32_t Date::hashCode() {
 }
 
 $String* Date::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($BaseCalendar$Date, date, normalize());
 	$var($StringBuilder, sb, $new($StringBuilder, 28));
 	int32_t index = $nc(date)->getDayOfWeek();
@@ -717,6 +721,7 @@ $String* Date::toLocaleString() {
 }
 
 $String* Date::toGMTString() {
+	$useLocalCurrentObjectStackCache();
 	int64_t t = getTime();
 	$var($BaseCalendar, cal, getCalendarSystem(t));
 	$var($BaseCalendar$Date, date, $cast($BaseCalendar$Date, $nc(cal)->getCalendarDate(getTime(), ($TimeZone*)nullptr)));
@@ -748,6 +753,7 @@ int32_t Date::getTimezoneOffset() {
 }
 
 $BaseCalendar$Date* Date::getCalendarDate() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cdate == nullptr) {
 		$var($BaseCalendar, cal, getCalendarSystem(this->fastTime));
 		$set(this, cdate, $cast($BaseCalendar$Date, $nc(cal)->getCalendarDate(this->fastTime, $($TimeZone::getDefaultRef()))));
@@ -756,6 +762,7 @@ $BaseCalendar$Date* Date::getCalendarDate() {
 }
 
 $BaseCalendar$Date* Date::normalize() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cdate == nullptr) {
 		$var($BaseCalendar, cal, getCalendarSystem(this->fastTime));
 		$set(this, cdate, $cast($BaseCalendar$Date, $nc(cal)->getCalendarDate(this->fastTime, $($TimeZone::getDefaultRef()))));
@@ -774,6 +781,7 @@ $BaseCalendar$Date* Date::normalize() {
 }
 
 $BaseCalendar$Date* Date::normalize($BaseCalendar$Date* date$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($BaseCalendar$Date, date, date$renamed);
 	int32_t y = $nc(date)->getNormalizedYear();
 	int32_t m = date->getMonth();

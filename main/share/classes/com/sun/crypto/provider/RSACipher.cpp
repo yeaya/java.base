@@ -199,6 +199,7 @@ void RSACipher::engineSetMode($String* mode) {
 }
 
 void RSACipher::engineSetPadding($String* paddingName) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(paddingName)->equalsIgnoreCase(RSACipher::PAD_NONE)) {
 		$set(this, paddingType, RSACipher::PAD_NONE);
 	} else if (paddingName->equalsIgnoreCase(RSACipher::PAD_PKCS1)) {
@@ -236,6 +237,7 @@ $bytes* RSACipher::engineGetIV() {
 }
 
 $AlgorithmParameters* RSACipher::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	if (this->spec != nullptr && $instanceOf($OAEPParameterSpec, this->spec)) {
 		try {
 			$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("OAEP"_s, $(static_cast<$Provider*>($SunJCE::getInstance()))));
@@ -254,6 +256,7 @@ $AlgorithmParameters* RSACipher::engineGetParameters() {
 }
 
 void RSACipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		init(opmode, key, random, nullptr);
 	} catch ($InvalidAlgorithmParameterException&) {
@@ -269,6 +272,7 @@ void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 }
 
 void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (params == nullptr) {
 		init(opmode, key, random, nullptr);
 	} else {
@@ -286,6 +290,7 @@ void RSACipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* para
 }
 
 void RSACipher::init(int32_t opmode, $Key* key, $SecureRandom* random, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	bool encrypt = false;
 	switch (opmode) {
 	case $Cipher::ENCRYPT_MODE:
@@ -379,6 +384,7 @@ void RSACipher::update($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 $bytes* RSACipher::doFinal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->bufOfs > $nc(this->buffer)->length) {
 		$throwNew($IllegalBlockSizeException, $$str({"Data must not be longer than "_s, $$str($nc(this->buffer)->length), " bytes"_s}));
 	}
@@ -463,6 +469,7 @@ $bytes* RSACipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 int32_t RSACipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	if (this->outputSize > $nc(out)->length - outOfs) {
 		$throwNew($ShortBufferException, $$str({"Need "_s, $$str(this->outputSize), " bytes for output"_s}));
 	}
@@ -475,6 +482,7 @@ int32_t RSACipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $byte
 }
 
 $bytes* RSACipher::engineWrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	if ((encoded == nullptr) || ($nc(encoded)->length == 0)) {
 		$throwNew($InvalidKeyException, "Could not obtain encoded key"_s);
@@ -510,6 +518,7 @@ $bytes* RSACipher::engineWrap($Key* key) {
 }
 
 $Key* RSACipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t type) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(wrappedKey)->length > $nc(this->buffer)->length) {
 		$throwNew($InvalidKeyException, "Key is too long for unwrapping"_s);
 	}
@@ -563,6 +572,7 @@ $Key* RSACipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t ty
 }
 
 int32_t RSACipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($RSAKey, rsaKey, $RSAKeyFactory::toRSAKey(key));
 	return $nc($($nc(rsaKey)->getModulus()))->bitLength();
 }

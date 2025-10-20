@@ -47,6 +47,7 @@ void NonPublicStaticInitializer::init$() {
 
 void NonPublicStaticInitializer::main($StringArray* args) {
 	$load(NonPublicStaticInitializer);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestedInterface);
 	$var($MethodArray, m, $TestedInterface::class$->getMethods());

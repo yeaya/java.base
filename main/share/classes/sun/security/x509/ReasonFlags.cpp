@@ -144,6 +144,7 @@ void ReasonFlags::init$($BitArray* reasons) {
 }
 
 void ReasonFlags::init$($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, derVal, $nc(in)->getDerValue());
 	$set(this, bitString, $nc($($nc(derVal)->getUnalignedBitString(true)))->toBooleanArray());
 }

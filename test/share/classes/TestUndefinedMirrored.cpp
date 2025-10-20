@@ -54,6 +54,7 @@ void TestUndefinedMirrored::init$() {
 
 void TestUndefinedMirrored::main($StringArray* args) {
 	$init(TestUndefinedMirrored);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t ch = 0; ch <= TestUndefinedMirrored::endValue; ++ch) {
 		bool var$0 = !$Character::isDefined((char16_t)ch);
 		if (var$0 && $Character::isMirrored((char16_t)ch)) {

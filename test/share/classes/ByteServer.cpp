@@ -83,6 +83,7 @@ void ByteServer::closeConnection() {
 }
 
 void ByteServer::write(int32_t count) {
+	$useLocalCurrentObjectStackCache();
 	if (this->s == nullptr) {
 		$throwNew($IllegalStateException, "no connection"_s);
 	}

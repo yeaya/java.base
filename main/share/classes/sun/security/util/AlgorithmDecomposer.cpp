@@ -73,6 +73,7 @@ void AlgorithmDecomposer::init$() {
 
 $Set* AlgorithmDecomposer::decomposeImpl($String* algorithm) {
 	$init(AlgorithmDecomposer);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, elements, $new($HashSet));
 	$var($StringArray, transTokens, $nc(algorithm)->split("/"_s));
 	{

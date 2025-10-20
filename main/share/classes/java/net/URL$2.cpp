@@ -77,6 +77,7 @@ void URL$2::init$($String* val$protocol) {
 }
 
 $Object* URL$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, itr, $URL::providers());
 	while ($nc(itr)->hasNext()) {
 		$var($URLStreamHandlerProvider, f, $cast($URLStreamHandlerProvider, itr->next()));

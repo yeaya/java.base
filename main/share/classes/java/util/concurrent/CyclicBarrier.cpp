@@ -107,6 +107,7 @@ void CyclicBarrier::breakBarrier() {
 }
 
 int32_t CyclicBarrier::dowait(bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -218,6 +219,7 @@ int32_t CyclicBarrier::await(int64_t timeout, $TimeUnit* unit) {
 }
 
 bool CyclicBarrier::isBroken() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -244,6 +246,7 @@ bool CyclicBarrier::isBroken() {
 }
 
 void CyclicBarrier::reset() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -263,6 +266,7 @@ void CyclicBarrier::reset() {
 }
 
 int32_t CyclicBarrier::getNumberWaiting() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{

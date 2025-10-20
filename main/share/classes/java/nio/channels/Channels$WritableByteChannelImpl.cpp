@@ -120,6 +120,7 @@ void Channels$WritableByteChannelImpl::init$($OutputStream* out) {
 }
 
 int32_t Channels$WritableByteChannelImpl::write($ByteBuffer* src) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$throwNew($ClosedChannelException);
 	}

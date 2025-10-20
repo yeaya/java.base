@@ -5660,6 +5660,20 @@ CoreObject* ObjectManagerInternal::getCurrentJavaThread() {
 
 void setCurrentObjectStack(ObjectStack* currentObjectStack) {
 	ObjectStack::currentObjectStack() = currentObjectStack;
+	ObjectStackCache::currentObjectStack() = currentObjectStack;
+}
+
+extern "C" int jni_AttachCurrentThread(void* vm, void** penv, void* _args);
+
+void ObjectManager::attachCurrentThread() {
+	void* env = nullptr;
+	jni_AttachCurrentThread(nullptr, &env, nullptr);
+}
+
+extern "C" int jni_DetachCurrentThread(void* vm);
+
+void ObjectManager::detachCurrentThread() {
+	jni_DetachCurrentThread(nullptr);
 }
 
 ObjectStack* ObjectManager::getCurrentObjectStack() {

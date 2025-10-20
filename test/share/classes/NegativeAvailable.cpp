@@ -66,6 +66,7 @@ void NegativeAvailable::init$() {
 }
 
 void NegativeAvailable::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t SIZE = 10;
 	int32_t SKIP = 5;
 	int32_t NEGATIVE_SKIP = -5;
@@ -144,6 +145,7 @@ void NegativeAvailable::main($StringArray* args) {
 }
 
 int64_t NegativeAvailable::skipBytes($FileInputStream* fis, int32_t toSkip, int64_t space) {
+	$useLocalCurrentObjectStackCache();
 	int64_t skip = $nc(fis)->skip(toSkip);
 	if (skip != toSkip) {
 		$throwNew($RuntimeException, $$str({"skip() returns "_s, $$str(skip), " but expected "_s, $$str(toSkip)}));

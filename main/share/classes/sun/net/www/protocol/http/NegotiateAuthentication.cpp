@@ -132,6 +132,7 @@ $ReentrantLock* NegotiateAuthentication::negotiateLock = nullptr;
 bool NegotiateAuthentication::cacheSPNEGO = false;
 
 void NegotiateAuthentication::init$($HttpCallerInfo* hci) {
+	$useLocalCurrentObjectStackCache();
 	$init($Authenticator$RequestorType);
 	char16_t var$0 = $Authenticator$RequestorType::PROXY == $nc(hci)->authType ? $AuthenticationInfo::PROXY_AUTHENTICATION : $AuthenticationInfo::SERVER_AUTHENTICATION;
 	$init($AuthScheme);
@@ -149,6 +150,7 @@ bool NegotiateAuthentication::supportsPreemptiveAuthorization() {
 
 bool NegotiateAuthentication::isSupported($HttpCallerInfo* hci) {
 	$init(NegotiateAuthentication);
+	$useLocalCurrentObjectStackCache();
 	$nc(NegotiateAuthentication::negotiateLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -198,6 +200,7 @@ bool NegotiateAuthentication::isSupported($HttpCallerInfo* hci) {
 
 $HashMap* NegotiateAuthentication::getCache() {
 	$init(NegotiateAuthentication);
+	$useLocalCurrentObjectStackCache();
 	$nc(NegotiateAuthentication::negotiateLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -241,6 +244,7 @@ bool NegotiateAuthentication::isAuthorizationStale($String* header) {
 }
 
 bool NegotiateAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
+	$useLocalCurrentObjectStackCache();
 	if (!NegotiateAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -262,6 +266,7 @@ bool NegotiateAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser
 }
 
 $bytes* NegotiateAuthentication::firstToken() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, negotiator, nullptr);
 	$var($HashMap, cachedMap, getCache());
 	if (cachedMap != nullptr) {

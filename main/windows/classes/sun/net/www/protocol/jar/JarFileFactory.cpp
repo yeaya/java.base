@@ -131,6 +131,7 @@ $JarFile* JarFileFactory::get($URL* url) {
 }
 
 $JarFile* JarFileFactory::getOrCreate($URL* url, bool useCaches) {
+	$useLocalCurrentObjectStackCache();
 	if (useCaches == false) {
 		return get(url, false);
 	}
@@ -152,6 +153,7 @@ $JarFile* JarFileFactory::getOrCreate($URL* url, bool useCaches) {
 }
 
 bool JarFileFactory::closeIfNotCached($URL* url$renamed, $JarFile* jarFile) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, url$renamed);
 	$assign(url, urlFor(url));
 	$var($JarFile, result, nullptr);
@@ -165,6 +167,7 @@ bool JarFileFactory::closeIfNotCached($URL* url$renamed, $JarFile* jarFile) {
 }
 
 bool JarFileFactory::cacheIfAbsent($URL* url$renamed, $JarFile* jarFile) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, url$renamed);
 	try {
 		$assign(url, urlFor(url));
@@ -185,6 +188,7 @@ bool JarFileFactory::cacheIfAbsent($URL* url$renamed, $JarFile* jarFile) {
 }
 
 $URL* JarFileFactory::urlFor($URL* url$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, url$renamed);
 	if ($nc($($nc(url)->getProtocol()))->equalsIgnoreCase("file"_s)) {
 		$var($String, host, url->getHost());
@@ -197,6 +201,7 @@ $URL* JarFileFactory::urlFor($URL* url$renamed) {
 }
 
 $JarFile* JarFileFactory::get($URL* url$renamed, bool useCaches) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, url$renamed);
 	$assign(url, urlFor(url));
 	$var($JarFile, result, nullptr);
@@ -228,6 +233,7 @@ $JarFile* JarFileFactory::get($URL* url$renamed, bool useCaches) {
 }
 
 void JarFileFactory::close($JarFile* jarFile) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(JarFileFactory::instance) {
 		$var($URL, urlRemoved, $cast($URL, $nc(JarFileFactory::urlCache)->remove(jarFile)));
 		if (urlRemoved != nullptr) {
@@ -237,6 +243,7 @@ void JarFileFactory::close($JarFile* jarFile) {
 }
 
 $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	if (!JarFileFactory::$assertionsDisabled && !$Thread::holdsLock(JarFileFactory::instance)) {
 		$throwNew($AssertionError);
 	}
@@ -266,6 +273,7 @@ $JarFile* JarFileFactory::getCachedJarFile($URL* url) {
 }
 
 $String* JarFileFactory::urlKey($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, urlstr, $URLUtil::urlNoFragString(url));
 	if ("runtime"_s->equals($($nc(url)->getRef()))) {
 		$plusAssign(urlstr, "#runtime"_s);

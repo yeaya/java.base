@@ -37,6 +37,7 @@ void RelativeURL::init$() {
 }
 
 void RelativeURL::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, base, $new($URL, "http"_s, "Layout"_s, -1, "example1.html"_s));
 	$var($URL, derived, $new($URL, base, "Graph.html"_s));
 	$assign(base, $new($URL, "http"_s, "www.sun.com"_s, -1, "index.html"_s));

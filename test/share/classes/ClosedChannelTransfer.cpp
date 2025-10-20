@@ -63,6 +63,7 @@ void ClosedChannelTransfer::init$() {
 }
 
 void ClosedChannelTransfer::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $File::createTempFile("test1"_s, nullptr));
 	$nc(file)->deleteOnExit();
 	$var($FileChannel, channel, ($$new($RandomAccessFile, "aaa"_s, "rw"_s))->getChannel());
@@ -73,6 +74,7 @@ void ClosedChannelTransfer::main($StringArray* args) {
 }
 
 void ClosedChannelTransfer::test1($FileChannel* channel) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayInputStream, istr, $new($ByteArrayInputStream, $$new($bytes, {
 		(int8_t)1,
 		(int8_t)2,
@@ -90,6 +92,7 @@ void ClosedChannelTransfer::test1($FileChannel* channel) {
 }
 
 void ClosedChannelTransfer::test2($FileChannel* channel) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, istr, $new($ByteArrayOutputStream, 4));
 	$var($WritableByteChannel, wbc, $Channels::newChannel(static_cast<$OutputStream*>(istr)));
 	$nc(wbc)->close();

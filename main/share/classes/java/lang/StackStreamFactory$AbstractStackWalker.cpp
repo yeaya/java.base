@@ -138,6 +138,7 @@ int32_t StackStreamFactory$AbstractStackWalker::toStackWalkMode($StackWalker* wa
 }
 
 int32_t StackStreamFactory$AbstractStackWalker::getNextBatchSize() {
+	$useLocalCurrentObjectStackCache();
 	int32_t lastBatchSize = this->depth == 0 ? 0 : $nc(this->frameBuffer)->curBatchFrameCount();
 	int32_t nextBatchSize = batchSize(lastBatchSize);
 	$init($StackStreamFactory);
@@ -149,6 +150,7 @@ int32_t StackStreamFactory$AbstractStackWalker::getNextBatchSize() {
 }
 
 void StackStreamFactory$AbstractStackWalker::checkState($StackStreamFactory$WalkerState* state) {
+	$useLocalCurrentObjectStackCache();
 	if (this->thread != $Thread::currentThread()) {
 		$var($String, var$0, $$str({"Invalid thread walking this stack stream: "_s, $($($Thread::currentThread())->getName()), " "_s}));
 		$throwNew($IllegalStateException, $$concat(var$0, $($nc(this->thread)->getName())));
@@ -183,6 +185,7 @@ void StackStreamFactory$AbstractStackWalker::close() {
 }
 
 $Object* StackStreamFactory$AbstractStackWalker::walk() {
+	$useLocalCurrentObjectStackCache();
 	$init($StackStreamFactory$WalkerState);
 	checkState($StackStreamFactory$WalkerState::NEW);
 	{
@@ -215,6 +218,7 @@ bool StackStreamFactory$AbstractStackWalker::skipReflectionFrames() {
 }
 
 $Class* StackStreamFactory$AbstractStackWalker::peekFrame() {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(this->frameBuffer)->isActive() && this->depth < this->maxDepth) {
 		if ($nc(this->frameBuffer)->isEmpty()) {
 			getNextBatch();
@@ -239,6 +243,7 @@ $Class* StackStreamFactory$AbstractStackWalker::peekFrame() {
 }
 
 $Object* StackStreamFactory$AbstractStackWalker::doStackWalk(int64_t anchor, int32_t skipFrames, int32_t batchSize, int32_t bufStartIndex, int32_t bufEndIndex) {
+	$useLocalCurrentObjectStackCache();
 	$init($StackStreamFactory$WalkerState);
 	checkState($StackStreamFactory$WalkerState::NEW);
 	$nc(this->frameBuffer)->check(skipFrames);
@@ -292,6 +297,7 @@ $Object* StackStreamFactory$AbstractStackWalker::beginStackWalk() {
 }
 
 int32_t StackStreamFactory$AbstractStackWalker::fetchStackFrames(int32_t batchSize) {
+	$useLocalCurrentObjectStackCache();
 	int32_t startIndex = $nc(this->frameBuffer)->startIndex();
 	$nc(this->frameBuffer)->resize(startIndex, batchSize);
 	int32_t endIndex = fetchStackFrames(this->mode, this->anchor, batchSize, startIndex, $($nc(this->frameBuffer)->frames()));

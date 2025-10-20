@@ -85,6 +85,7 @@ void SignatureUtil$EdDSADigestAlgHolder::init$() {
 }
 
 void clinit$SignatureUtil$EdDSADigestAlgHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		try {
 			$init($KnownOIDs);

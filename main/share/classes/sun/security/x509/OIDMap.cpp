@@ -225,6 +225,7 @@ void OIDMap::addInternal($String* name, $ObjectIdentifier* oid, $String* classNa
 
 void OIDMap::addAttribute($String* name, $String* oid, $Class* clazz) {
 	$init(OIDMap);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectIdentifier, objId, nullptr);
 	try {
 		$assign(objId, $ObjectIdentifier::of(oid));

@@ -89,6 +89,7 @@ void ServerNameExtension$SHServerNamesSpec::init$() {
 }
 
 void ServerNameExtension$SHServerNamesSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() != 0) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid ServerHello server_name extension: not empty"_s)))));

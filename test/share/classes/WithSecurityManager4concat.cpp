@@ -65,6 +65,7 @@ void WithSecurityManager4concat::init$() {
 
 void WithSecurityManager4concat::main($StringArray* args) {
 	$load(WithSecurityManager4concat);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($SecurityManager, sm, $new($WithSecurityManager4concat$1));

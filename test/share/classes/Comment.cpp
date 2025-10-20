@@ -51,6 +51,7 @@ void Comment::init$() {
 }
 
 void Comment::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s)), "input.txt"_s));
 	int32_t slashIsCommentStart = 1;
 	int32_t slashSlashComment = 2;

@@ -378,6 +378,7 @@ bool Net::canUseIPv6OptionsWithIPv4LocalAddress() {
 
 $InetSocketAddress* Net::checkAddress($SocketAddress* sa) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	if (sa == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -397,6 +398,7 @@ $InetSocketAddress* Net::checkAddress($SocketAddress* sa) {
 
 $InetSocketAddress* Net::checkAddress($SocketAddress* sa, $ProtocolFamily* family) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, checkAddress(sa));
 	$init($StandardProtocolFamily);
 	if ($equals(family, $StandardProtocolFamily::INET)) {
@@ -418,6 +420,7 @@ $InetSocketAddress* Net::asInetSocketAddress($SocketAddress* sa) {
 
 void Net::translateToSocketException($Exception* x) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($SocketException, x)) {
 		$throw($cast($SocketException, x));
 	}
@@ -467,6 +470,7 @@ void Net::translateException($Exception* x) {
 
 $InetSocketAddress* Net::getRevealedLocalAddress($SocketAddress* sa) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, $cast($InetSocketAddress, sa));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (isa != nullptr && sm != nullptr) {
@@ -482,6 +486,7 @@ $InetSocketAddress* Net::getRevealedLocalAddress($SocketAddress* sa) {
 
 $String* Net::getRevealedLocalAddressAsString($SocketAddress* sa) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, $cast($InetSocketAddress, sa));
 	if ($System::getSecurityManager() == nullptr) {
 		return $nc(isa)->toString();
@@ -540,6 +545,7 @@ int32_t Net::inet4AsInt($InetAddress* ia) {
 
 $InetAddress* Net::inet4FromInt(int32_t address) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, addr, $new($bytes, 4));
 	addr->set(0, (int8_t)((int32_t)(((int32_t)((uint32_t)address >> 24)) & (uint32_t)255)));
 	addr->set(1, (int8_t)((int32_t)(((int32_t)((uint32_t)address >> 16)) & (uint32_t)255)));
@@ -556,6 +562,7 @@ $InetAddress* Net::inet4FromInt(int32_t address) {
 
 $bytes* Net::inet6AsByteArray($InetAddress* ia) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Inet6Address, ia)) {
 		return $nc(ia)->getAddress();
 	}
@@ -580,6 +587,7 @@ void Net::setSocketOption($FileDescriptor* fd, $SocketOption* name, Object$* val
 
 void Net::setSocketOption($FileDescriptor* fd, $ProtocolFamily* family, $SocketOption* name, Object$* value$renamed) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, value, value$renamed);
 	if (value == nullptr) {
 		$throwNew($IllegalArgumentException, "Invalid option value"_s);
@@ -649,6 +657,7 @@ $Object* Net::getSocketOption($FileDescriptor* fd, $SocketOption* name) {
 
 $Object* Net::getSocketOption($FileDescriptor* fd, $ProtocolFamily* family, $SocketOption* name) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$Class* type = $nc(name)->type();
 	if ($nc(Net::extendedOptions)->isOptionSupported(name)) {
 		return $of($nc(Net::extendedOptions)->getOption(fd, name));
@@ -825,6 +834,7 @@ int32_t Net::connect($ProtocolFamily* family, $FileDescriptor* fd, $InetAddress*
 
 int32_t Net::connect($ProtocolFamily* family, $FileDescriptor* fd, $SocketAddress* remote) {
 	$init(Net);
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, $cast($InetSocketAddress, remote));
 	$var($ProtocolFamily, var$0, family);
 	$var($FileDescriptor, var$1, fd);
@@ -1146,6 +1156,7 @@ int16_t Net::pollconnValue() {
 }
 
 void clinit$Net($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Net::$assertionsDisabled = !Net::class$->desiredAssertionStatus();
 	$assignStatic(Net::UNSPEC, $new($Net$1));
 	{

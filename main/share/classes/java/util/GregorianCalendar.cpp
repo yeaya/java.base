@@ -273,6 +273,7 @@ $JulianCalendar* GregorianCalendar::jcal = nullptr;
 $EraArray* GregorianCalendar::jeras = nullptr;
 
 void GregorianCalendar::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, var$0, $TimeZone::getDefaultRef());
 	$init($Locale$Category);
 	GregorianCalendar::init$(var$0, $($Locale::getDefault($Locale$Category::FORMAT)));
@@ -356,6 +357,7 @@ void GregorianCalendar::setGregorianChange($Date* date) {
 }
 
 void GregorianCalendar::setGregorianChange(int64_t cutoverTime) {
+	$useLocalCurrentObjectStackCache();
 	this->gregorianCutover = cutoverTime;
 	this->gregorianCutoverDate = $CalendarUtils::floorDivide(cutoverTime, GregorianCalendar::ONE_DAY) + GregorianCalendar::EPOCH_OFFSET;
 	if (cutoverTime == $Long::MAX_VALUE) {
@@ -573,6 +575,7 @@ void GregorianCalendar::roll(int32_t field, bool up) {
 }
 
 void GregorianCalendar::roll(int32_t field, int32_t amount) {
+	$useLocalCurrentObjectStackCache();
 	if (amount == 0) {
 		return;
 	}
@@ -950,6 +953,7 @@ int32_t GregorianCalendar::getLeastMaximum(int32_t field) {
 }
 
 int32_t GregorianCalendar::getActualMinimum(int32_t field) {
+	$useLocalCurrentObjectStackCache();
 	if (field == $Calendar::DAY_OF_MONTH) {
 		$var(GregorianCalendar, gc, getNormalizedCalendar());
 		int32_t year = $nc($nc(gc)->cdate)->getNormalizedYear();
@@ -963,6 +967,7 @@ int32_t GregorianCalendar::getActualMinimum(int32_t field) {
 }
 
 int32_t GregorianCalendar::getActualMaximum(int32_t field) {
+	$useLocalCurrentObjectStackCache();
 	int32_t fieldsForFixedMax = (((((((($Calendar::ERA_MASK | $Calendar::DAY_OF_WEEK_MASK) | $Calendar::HOUR_MASK) | $Calendar::AM_PM_MASK) | $Calendar::HOUR_OF_DAY_MASK) | $Calendar::MINUTE_MASK) | $Calendar::SECOND_MASK) | $Calendar::MILLISECOND_MASK) | $Calendar::ZONE_OFFSET_MASK) | $Calendar::DST_OFFSET_MASK;
 	if (((int32_t)(fieldsForFixedMax & (uint32_t)($sl(1, field)))) != 0) {
 		return getMaximum(field);
@@ -1256,6 +1261,7 @@ bool GregorianCalendar::isWeekDateSupported() {
 }
 
 int32_t GregorianCalendar::getWeekYear() {
+	$useLocalCurrentObjectStackCache();
 	int32_t year = get($Calendar::YEAR);
 	if (internalGetEra() == GregorianCalendar::BCE) {
 		year = 1 - year;
@@ -1322,6 +1328,7 @@ int32_t GregorianCalendar::getWeekYear() {
 }
 
 void GregorianCalendar::setWeekDate(int32_t weekYear, int32_t weekOfYear, int32_t dayOfWeek) {
+	$useLocalCurrentObjectStackCache();
 	if (dayOfWeek < $Calendar::SUNDAY || dayOfWeek > $Calendar::SATURDAY) {
 		$throwNew($IllegalArgumentException, $$str({"invalid dayOfWeek: "_s, $$str(dayOfWeek)}));
 	}
@@ -1393,6 +1400,7 @@ void GregorianCalendar::computeFields() {
 }
 
 int32_t GregorianCalendar::computeFields(int32_t fieldMask, int32_t tzMask) {
+	$useLocalCurrentObjectStackCache();
 	int32_t zoneOffset = 0;
 	$var($TimeZone, tz, getZone());
 	if (this->zoneOffsets == nullptr) {
@@ -1624,6 +1632,7 @@ int32_t GregorianCalendar::getWeekNumber(int64_t fixedDay1, int64_t fixedDate) {
 }
 
 void GregorianCalendar::computeTime() {
+	$useLocalCurrentObjectStackCache();
 	if (!isLenient()) {
 		if (this->originalFields == nullptr) {
 			$set(this, originalFields, $new($ints, $Calendar::FIELD_COUNT));
@@ -1896,6 +1905,7 @@ int64_t GregorianCalendar::getFixedDateJan1($BaseCalendar$Date* date, int64_t fi
 }
 
 int64_t GregorianCalendar::getFixedDateMonth1($BaseCalendar$Date* date, int64_t fixedDate) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !GregorianCalendar::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(date)->getNormalizedYear() == this->gregorianCutoverYear;
@@ -1931,6 +1941,7 @@ int64_t GregorianCalendar::getFixedDateMonth1($BaseCalendar$Date* date, int64_t 
 }
 
 $BaseCalendar$Date* GregorianCalendar::getCalendarDate(int64_t fd) {
+	$useLocalCurrentObjectStackCache();
 	$var($BaseCalendar, cal, (fd >= this->gregorianCutoverDate) ? static_cast<$BaseCalendar*>(GregorianCalendar::gcal) : getJulianCalendarSystem());
 	$init($TimeZone);
 	$var($BaseCalendar$Date, d, $cast($BaseCalendar$Date, $nc(cal)->newCalendarDate($TimeZone::NO_TIMEZONE)));
@@ -2043,12 +2054,14 @@ void GregorianCalendar::readObject($ObjectInputStream* stream) {
 }
 
 $ZonedDateTime* GregorianCalendar::toZonedDateTime() {
+	$useLocalCurrentObjectStackCache();
 	$var($Instant, var$0, $Instant::ofEpochMilli(getTimeInMillis()));
 	return $ZonedDateTime::ofInstant(var$0, $($nc($(getTimeZone()))->toZoneId()));
 }
 
 GregorianCalendar* GregorianCalendar::from($ZonedDateTime* zdt) {
 	$init(GregorianCalendar);
+	$useLocalCurrentObjectStackCache();
 	$var(GregorianCalendar, cal, $new(GregorianCalendar, $($TimeZone::getTimeZone($($nc(zdt)->getZone())))));
 	cal->setGregorianChange($$new($Date, $Long::MIN_VALUE));
 	cal->setFirstDayOfWeek($Calendar::MONDAY);

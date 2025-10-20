@@ -301,6 +301,7 @@ $Object* allocate$MethodWriter($Class* clazz) {
 $ints* MethodWriter::STACK_SIZE_DELTA = nullptr;
 
 void MethodWriter::init$($SymbolTable* symbolTable, int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions, int32_t compute) {
+	$useLocalCurrentObjectStackCache();
 	$MethodVisitor::init$($Opcodes::ASM8);
 	$set(this, code, $new($ByteVector));
 	$set(this, symbolTable, symbolTable);
@@ -379,6 +380,7 @@ void MethodWriter::visitAnnotableParameterCount(int32_t parameterCount, bool vis
 }
 
 $AnnotationVisitor* MethodWriter::visitParameterAnnotation(int32_t parameter, $String* annotationDescriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	if (visible) {
 		if (this->lastRuntimeVisibleParameterAnnotations == nullptr) {
 			$set(this, lastRuntimeVisibleParameterAnnotations, $new($AnnotationWriterArray, $nc($($Type::getArgumentTypes(this->descriptor)))->length));
@@ -406,6 +408,7 @@ void MethodWriter::visitCode() {
 }
 
 void MethodWriter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
+	$useLocalCurrentObjectStackCache();
 	if (this->compute == MethodWriter::COMPUTE_ALL_FRAMES) {
 		return;
 	}
@@ -566,6 +569,7 @@ void MethodWriter::visitIntInsn(int32_t opcode, int32_t operand) {
 }
 
 void MethodWriter::visitVarInsn(int32_t opcode, int32_t var) {
+	$useLocalCurrentObjectStackCache();
 	this->lastBytecodeOffset = $nc(this->code)->length;
 	if (var < 4 && opcode != $Opcodes::RET) {
 		int32_t optimizedOpcode = 0;
@@ -671,6 +675,7 @@ void MethodWriter::visitFieldInsn(int32_t opcode, $String* owner, $String* name,
 }
 
 void MethodWriter::visitMethodInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor, bool isInterface) {
+	$useLocalCurrentObjectStackCache();
 	this->lastBytecodeOffset = $nc(this->code)->length;
 	$var($Symbol, methodrefSymbol, $nc(this->symbolTable)->addConstantMethodref(owner, name, descriptor, isInterface));
 	if (opcode == $Opcodes::INVOKEINTERFACE) {
@@ -719,6 +724,7 @@ void MethodWriter::visitInvokeDynamicInsn($String* name, $String* descriptor, $H
 }
 
 void MethodWriter::visitJumpInsn(int32_t opcode, $Label* label) {
+	$useLocalCurrentObjectStackCache();
 	this->lastBytecodeOffset = $nc(this->code)->length;
 	int32_t baseOpcode = opcode >= $Constants::GOTO_W ? opcode - $Constants::WIDE_JUMP_OPCODE_DELTA : opcode;
 	bool nextInsnIsJumpTarget = false;
@@ -855,6 +861,7 @@ void MethodWriter::visitLdcInsn(Object$* value) {
 }
 
 void MethodWriter::visitIincInsn(int32_t var, int32_t increment) {
+	$useLocalCurrentObjectStackCache();
 	this->lastBytecodeOffset = $nc(this->code)->length;
 	if ((var > 255) || (increment > 127) || (increment < -128)) {
 		$nc($($nc($($nc(this->code)->putByte($Constants::WIDE)))->put12($Opcodes::IINC, var)))->putShort(increment);
@@ -873,6 +880,7 @@ void MethodWriter::visitIincInsn(int32_t var, int32_t increment) {
 }
 
 void MethodWriter::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	this->lastBytecodeOffset = $nc(this->code)->length;
 	$nc($($nc(this->code)->putByte($Opcodes::TABLESWITCH)))->putByteArray(nullptr, 0, (4 - $nc(this->code)->length % 4) % 4);
 	$nc(dflt)->put(this->code, this->lastBytecodeOffset, true);
@@ -904,6 +912,7 @@ void MethodWriter::visitLookupSwitchInsn($Label* dflt, $ints* keys, $LabelArray*
 }
 
 void MethodWriter::visitSwitchInsn($Label* dflt, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	if (this->currentBasicBlock != nullptr) {
 		if (this->compute == MethodWriter::COMPUTE_ALL_FRAMES) {
 			$nc($nc(this->currentBasicBlock)->frame)->execute($Opcodes::LOOKUPSWITCH, 0, nullptr, nullptr);
@@ -941,6 +950,7 @@ void MethodWriter::visitSwitchInsn($Label* dflt, $LabelArray* labels) {
 }
 
 void MethodWriter::visitMultiANewArrayInsn($String* descriptor, int32_t numDimensions) {
+	$useLocalCurrentObjectStackCache();
 	this->lastBytecodeOffset = $nc(this->code)->length;
 	$var($Symbol, descSymbol, $nc(this->symbolTable)->addConstantClass(descriptor));
 	$nc($($nc(this->code)->put12($Opcodes::MULTIANEWARRAY, $nc(descSymbol)->index)))->putByte(numDimensions);
@@ -962,6 +972,7 @@ $AnnotationVisitor* MethodWriter::visitInsnAnnotation(int32_t typeRef, $TypePath
 }
 
 void MethodWriter::visitTryCatchBlock($Label* start, $Label* end, $Label* handler, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($Handler, newHandler, $new($Handler, start, end, handler, type != nullptr ? $nc($($nc(this->symbolTable)->addConstantClass(type)))->index : 0, type));
 	if (this->firstHandler == nullptr) {
 		$set(this, firstHandler, newHandler);
@@ -980,6 +991,7 @@ $AnnotationVisitor* MethodWriter::visitTryCatchAnnotation(int32_t typeRef, $Type
 }
 
 void MethodWriter::visitLocalVariable($String* name, $String* descriptor, $String* signature, $Label* start, $Label* end, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (signature != nullptr) {
 		if (this->localVariableTypeTable == nullptr) {
 			$set(this, localVariableTypeTable, $new($ByteVector));
@@ -1002,6 +1014,7 @@ void MethodWriter::visitLocalVariable($String* name, $String* descriptor, $Strin
 }
 
 $AnnotationVisitor* MethodWriter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteVector, typeAnnotation, $new($ByteVector));
 	$nc($(typeAnnotation->putByte((int32_t)((uint32_t)typeRef >> 24))))->putShort($nc(start)->length);
 	for (int32_t i = 0; i < $nc(start)->length; ++i) {
@@ -1039,6 +1052,7 @@ void MethodWriter::visitMaxs(int32_t maxStack, int32_t maxLocals) {
 }
 
 void MethodWriter::computeAllFrames() {
+	$useLocalCurrentObjectStackCache();
 	$var($Handler, handler, this->firstHandler);
 	while (handler != nullptr) {
 		$var($String, catchTypeDescriptor, handler->catchTypeDescriptor == nullptr ? "java/lang/Throwable"_s : handler->catchTypeDescriptor);
@@ -1107,6 +1121,7 @@ void MethodWriter::computeAllFrames() {
 }
 
 void MethodWriter::computeMaxStackAndLocal() {
+	$useLocalCurrentObjectStackCache();
 	$var($Handler, handler, this->firstHandler);
 	while (handler != nullptr) {
 		$var($Label, handlerBlock, handler->handlerPc);
@@ -1224,6 +1239,7 @@ void MethodWriter::visitFrameEnd() {
 }
 
 void MethodWriter::putFrame() {
+	$useLocalCurrentObjectStackCache();
 	int32_t numLocal = $nc(this->currentFrame)->get(1);
 	int32_t numStack = $nc(this->currentFrame)->get(2);
 	if ($nc(this->symbolTable)->getMajorVersion() < $Opcodes::V1_6) {
@@ -1334,6 +1350,7 @@ void MethodWriter::putAbstractTypes(int32_t start, int32_t end) {
 }
 
 void MethodWriter::putFrameType(Object$* type) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Integer, type)) {
 		$nc(this->stackMapTableEntries)->putByte($nc(($cast($Integer, type)))->intValue());
 	} else if ($instanceOf($String, type)) {
@@ -1443,6 +1460,7 @@ int32_t MethodWriter::computeMethodInfoSize() {
 }
 
 void MethodWriter::putMethodInfo($ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	bool useSyntheticAttribute = $nc(this->symbolTable)->getMajorVersion() < $Opcodes::V1_5;
 	int32_t mask = useSyntheticAttribute ? $Opcodes::ACC_SYNTHETIC : 0;
 	$nc($($nc($($nc(output)->putShort((int32_t)(this->accessFlags & (uint32_t)~mask))))->putShort(this->nameIndex)))->putShort(this->descriptorIndex);

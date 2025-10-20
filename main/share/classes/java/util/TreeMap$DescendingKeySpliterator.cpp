@@ -104,6 +104,7 @@ void TreeMap$DescendingKeySpliterator::init$($TreeMap* tree, $TreeMap$Entry* ori
 }
 
 $Spliterator* TreeMap$DescendingKeySpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->est < 0) {
 		getEstimate();
 	}
@@ -119,6 +120,7 @@ $Spliterator* TreeMap$DescendingKeySpliterator::trySplit() {
 }
 
 void TreeMap$DescendingKeySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

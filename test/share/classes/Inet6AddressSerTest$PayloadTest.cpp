@@ -69,6 +69,7 @@ void Inet6AddressSerTest$PayloadTest::init$() {
 }
 
 $bytes* Inet6AddressSerTest$PayloadTest::serialize($String* className) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 		{
@@ -148,6 +149,7 @@ $bytes* Inet6AddressSerTest$PayloadTest::serialize($String* className) {
 }
 
 $Object* Inet6AddressSerTest$PayloadTest::deserialize($bytes* buffer) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ObjectInputStream, ois, $new($ObjectInputStream, $$new($ByteArrayInputStream, buffer)));
 		{

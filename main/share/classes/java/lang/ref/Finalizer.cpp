@@ -169,6 +169,7 @@ void Finalizer::runFinalization() {
 }
 
 void clinit$Finalizer($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Finalizer::$assertionsDisabled = !Finalizer::class$->desiredAssertionStatus();
 	$assignStatic(Finalizer::queue, $new($ReferenceQueue));
 	$assignStatic(Finalizer::unfinalized, nullptr);

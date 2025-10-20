@@ -162,6 +162,7 @@ $ObjectArray* Collections$EmptyList::toArray($ObjectArray* a) {
 }
 
 $Object* Collections$EmptyList::get(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index)}));
 	$shouldNotReachHere();
 }

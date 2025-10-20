@@ -181,6 +181,7 @@ $GenericsFactory* Constructor::getFactory() {
 }
 
 $ConstructorRepository* Constructor::getGenericInfo() {
+	$useLocalCurrentObjectStackCache();
 	if (this->genericInfo == nullptr) {
 		$var($String, var$0, getSignature());
 		$set(this, genericInfo, $ConstructorRepository::make(var$0, $(getFactory())));
@@ -318,6 +319,7 @@ void Constructor::specificToStringHeader($StringBuilder* sb) {
 }
 
 $String* Constructor::toShortString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "constructor "_s));
 	sb->append($($nc(getDeclaringClass())->getTypeName()));
 	sb->append(u'(');
@@ -352,6 +354,7 @@ $Object* Constructor::newInstance($ObjectArray* initargs) {
 }
 
 $Object* Constructor::newInstanceWithCaller($ObjectArray* args, bool checkAccess, $Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (checkAccess) {
 		this->checkAccess(caller, this->clazz, this->clazz, this->modifiers);
 	}
@@ -455,6 +458,7 @@ $AnnotatedType* Constructor::getAnnotatedReturnType() {
 }
 
 $AnnotatedType* Constructor::getAnnotatedReceiverType() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* thisDeclClass = getDeclaringClass();
 	$Class* enclosingClass = $nc(thisDeclClass)->getEnclosingClass();

@@ -61,6 +61,7 @@ void ThreadStop::init$() {
 }
 
 void ThreadStop::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadStop$Server, svr, $new($ThreadStop$Server));
 	$var($Thread, thr, $new($Thread, static_cast<$Runnable*>(svr)));
 	thr->start();

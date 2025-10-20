@@ -57,6 +57,7 @@ void Equals2::main($StringArray* args) {
 }
 
 void Equals2::returnType() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $of(this)->getClass();
 	$var($MethodArray, ma, $nc(c)->getMethods());

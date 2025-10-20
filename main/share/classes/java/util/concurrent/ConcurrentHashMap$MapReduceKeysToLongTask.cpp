@@ -93,6 +93,7 @@ $Object* ConcurrentHashMap$MapReduceKeysToLongTask::getRawResult() {
 }
 
 void ConcurrentHashMap$MapReduceKeysToLongTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($ToLongFunction, transformer, nullptr);
 	$var($LongBinaryOperator, reducer, nullptr);
 	if (($assign(transformer, this->transformer)) != nullptr && ($assign(reducer, this->reducer)) != nullptr) {

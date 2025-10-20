@@ -73,6 +73,7 @@ void Basic2$Writer::init$($OutputStream* out) {
 }
 
 void Basic2$Writer::run() {
+	$useLocalCurrentObjectStackCache();
 	this->hash$ = 0;
 	int32_t rem = this->total$;
 	try {

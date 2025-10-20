@@ -129,10 +129,12 @@ void SPIProviderTest::main($StringArray* args) {
 }
 
 void SPIProviderTest::init$() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($Arrays::stream($(testData()))))->forEach(static_cast<$Consumer*>($$new(SPIProviderTest$$Lambda$testSPIProvider)));
 }
 
 $ObjectArray2* SPIProviderTest::testData() {
+	$useLocalCurrentObjectStackCache();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of(SPIProviderTest::QAA),
@@ -269,6 +271,7 @@ $ObjectArray2* SPIProviderTest::testData() {
 
 void SPIProviderTest::testSPIProvider($ObjectArray* args) {
 	$init(SPIProviderTest);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, loc, $cast($Locale, $nc(args)->get(0)));
 	$var($Number, number, $cast($Number, args->get(1)));
 	$var($String, expected, $cast($String, args->get(2)));

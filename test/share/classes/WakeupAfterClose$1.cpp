@@ -77,6 +77,7 @@ void WakeupAfterClose$1::init$($Selector* val$sel) {
 }
 
 void WakeupAfterClose$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->val$sel)->select();
 	} catch ($IOException&) {

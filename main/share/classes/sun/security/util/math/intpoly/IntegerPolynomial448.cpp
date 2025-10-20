@@ -74,6 +74,7 @@ void IntegerPolynomial448::init$() {
 
 $BigInteger* IntegerPolynomial448::evaluateModulus() {
 	$init(IntegerPolynomial448);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(448));
 	$assign(result, $nc(result)->subtract($($nc($($BigInteger::valueOf((int64_t)2)))->pow(224))));
 	$assign(result, result->subtract($($BigInteger::valueOf((int64_t)1))));

@@ -79,6 +79,7 @@ void ResourceDecompressorRepository::registerReaderProvider($ResourceDecompresso
 }
 
 void clinit$ResourceDecompressorRepository($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ResourceDecompressorRepository::factories, $new($HashMap));
 	{
 		ResourceDecompressorRepository::registerReaderProvider($$new($ZipDecompressorFactory));

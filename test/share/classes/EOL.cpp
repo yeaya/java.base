@@ -48,6 +48,7 @@ void EOL::init$() {
 }
 
 void EOL::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Reader, sr, $new($StringReader, "one\rtwo\r\nthree\nfour\r"_s));
 	$var($BufferedReader, br, $new($BufferedReader, sr));
 	for (int32_t i = 0;; ++i) {

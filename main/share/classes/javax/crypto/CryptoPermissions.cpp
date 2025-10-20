@@ -119,6 +119,7 @@ void CryptoPermissions::init$() {
 }
 
 void CryptoPermissions::load($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($CryptoPolicyParser, parser, $new($CryptoPolicyParser));
 	$init($StandardCharsets);
 	parser->read($$new($BufferedReader, $$new($InputStreamReader, in, $StandardCharsets::UTF_8)));
@@ -133,6 +134,7 @@ bool CryptoPermissions::isEmpty() {
 }
 
 void CryptoPermissions::add($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	if (isReadOnly()) {
 		$throwNew($SecurityException, "Attempt to add a Permission to a readonly CryptoPermissions object"_s);
 	}
@@ -147,6 +149,7 @@ void CryptoPermissions::add($Permission* permission) {
 }
 
 bool CryptoPermissions::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($CryptoPermission, permission))) {
 		return false;
 	}
@@ -164,6 +167,7 @@ $Enumeration* CryptoPermissions::elements() {
 }
 
 CryptoPermissions* CryptoPermissions::getMinimum(CryptoPermissions* other) {
+	$useLocalCurrentObjectStackCache();
 	if (other == nullptr) {
 		return nullptr;
 	}
@@ -221,6 +225,7 @@ CryptoPermissions* CryptoPermissions::getMinimum(CryptoPermissions* other) {
 }
 
 $CryptoPermissionArray* CryptoPermissions::getMinimum($PermissionCollection* thisPc, $PermissionCollection* thatPc) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, permVector, $new($Vector, 2));
 	$var($Enumeration, thisPcPermissions, $nc(thisPc)->elements());
 	while ($nc(thisPcPermissions)->hasMoreElements()) {
@@ -243,6 +248,7 @@ $CryptoPermissionArray* CryptoPermissions::getMinimum($PermissionCollection* thi
 }
 
 $CryptoPermissionArray* CryptoPermissions::getMinimum(int32_t maxKeySize, $PermissionCollection* pc) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, permVector, $new($Vector, 1));
 	$var($Enumeration, enum_, $nc(pc)->elements());
 	while ($nc(enum_)->hasMoreElements()) {
@@ -279,6 +285,7 @@ $PermissionCollection* CryptoPermissions::getPermissionCollection($String* alg) 
 }
 
 $PermissionCollection* CryptoPermissions::getPermissionCollection($CryptoPermission* cryptoPerm) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alg, $nc(cryptoPerm)->getAlgorithm());
 	$var($PermissionCollection, pc, $cast($PermissionCollection, $nc(this->perms)->get(alg)));
 	if (pc == nullptr) {
@@ -288,6 +295,7 @@ $PermissionCollection* CryptoPermissions::getPermissionCollection($CryptoPermiss
 }
 
 void CryptoPermissions::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($Hashtable, permTable, ($cast($Hashtable, $nc(fields)->get("perms"_s, ($Object*)nullptr))));
 	if (permTable != nullptr) {
@@ -298,6 +306,7 @@ void CryptoPermissions::readObject($ObjectInputStream* s) {
 }
 
 void CryptoPermissions::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, permTable, $new($Hashtable, static_cast<$Map*>(static_cast<$AbstractMap*>(this->perms))));
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 	$nc(fields)->put("perms"_s, $of(permTable));

@@ -81,6 +81,7 @@ void HandlerLoop$HandlerFactory::init$($String* pkg) {
 }
 
 $URLStreamHandler* HandlerLoop$HandlerFactory::createURLStreamHandler($String* protocol) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, name, $str({this->pkg, "."_s, protocol, ".Handler"_s}));
 	$init($System);

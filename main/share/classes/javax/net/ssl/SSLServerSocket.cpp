@@ -76,6 +76,7 @@ void SSLServerSocket::init$(int32_t port, int32_t backlog, $InetAddress* address
 }
 
 $SSLParameters* SSLServerSocket::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLParameters, parameters, $new($SSLParameters));
 	parameters->setCipherSuites($(getEnabledCipherSuites()));
 	parameters->setProtocols($(getEnabledProtocols()));

@@ -871,6 +871,7 @@ $PerfCounter* ModulePath::scanTime = nullptr;
 $PerfCounter* ModulePath::moduleCount = nullptr;
 
 void ModulePath::init$($Runtime$Version* version, bool isLinkPhase, $ModulePatcher* patcher, $PathArray* entries) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, cachedModules, $new($HashMap));
 	$set(this, releaseVersion, version);
 	this->isLinkPhase = isLinkPhase;
@@ -921,6 +922,7 @@ $Optional* ModulePath::find($String* name) {
 }
 
 $Set* ModulePath::findAll() {
+	$useLocalCurrentObjectStackCache();
 	while (hasNextEntry()) {
 		scanNextEntry();
 	}
@@ -932,6 +934,7 @@ bool ModulePath::hasNextEntry() {
 }
 
 void ModulePath::scanNextEntry() {
+	$useLocalCurrentObjectStackCache();
 	if (hasNextEntry()) {
 		int64_t t0 = $System::nanoTime();
 		$var($Path, entry, $nc(this->entries)->get(this->next));
@@ -955,6 +958,7 @@ void ModulePath::scanNextEntry() {
 }
 
 $Map* ModulePath::scan($Path* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicFileAttributes, attrs, nullptr);
 	try {
 		$load($BasicFileAttributes);
@@ -993,6 +997,7 @@ $Map* ModulePath::scan($Path* entry) {
 }
 
 $Map* ModulePath::scanDirectory($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, nameToReference, $new($HashMap));
 	{
 		$var($DirectoryStream, stream, $Files::newDirectoryStream(dir));
@@ -1054,6 +1059,7 @@ $Map* ModulePath::scanDirectory($Path* dir) {
 }
 
 $ModuleReference* ModulePath::readModule($Path* entry, $BasicFileAttributes* attrs) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(attrs)->isDirectory()) {
 			return readExplodedModule(entry);
@@ -1083,6 +1089,7 @@ $ModuleReference* ModulePath::readModule($Path* entry, $BasicFileAttributes* att
 }
 
 $String* ModulePath::fileName($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $cast($URI, $nc($($nc(mref)->location()))->orElse(nullptr)));
 	if (uri != nullptr) {
 		if ($nc($(uri->getScheme()))->equalsIgnoreCase("file"_s)) {
@@ -1097,10 +1104,12 @@ $String* ModulePath::fileName($ModuleReference* mref) {
 }
 
 $Set* ModulePath::jmodPackages($JmodFile* jf) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($Set, $nc($($nc($($nc($($nc($($nc($($nc(jf)->stream()))->filter(static_cast<$Predicate*>($$new(ModulePath$$Lambda$lambda$jmodPackages$0)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$name$1)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$2, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
 }
 
 $ModuleReference* ModulePath::readJMod($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($JmodFile, jf, $new($JmodFile, file));
 		{
@@ -1172,6 +1181,7 @@ $ModuleReference* ModulePath::readJMod($Path* file) {
 }
 
 $Optional* ModulePath::toServiceName($String* cf) {
+	$useLocalCurrentObjectStackCache();
 	if (!ModulePath::$assertionsDisabled && !$nc(cf)->startsWith(ModulePath::SERVICES_PREFIX)) {
 		$throwNew($AssertionError);
 	}
@@ -1201,6 +1211,7 @@ $String* ModulePath::nextLine($BufferedReader* reader) {
 }
 
 $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
+	$useLocalCurrentObjectStackCache();
 	$var($Manifest, man, $nc(jf)->getManifest());
 	$var($Attributes, attrs, nullptr);
 	$var($String, moduleName, nullptr);
@@ -1328,6 +1339,7 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 
 $String* ModulePath::cleanModuleName($String* mn$renamed) {
 	$init(ModulePath);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mn, mn$renamed);
 	$init($ModulePath$Patterns);
 	$assign(mn, $nc($($nc($ModulePath$Patterns::NON_ALPHANUM)->matcher(mn)))->replaceAll("."_s));
@@ -1344,10 +1356,12 @@ $String* ModulePath::cleanModuleName($String* mn$renamed) {
 }
 
 $Set* ModulePath::jarPackages($JarFile* jf) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($Set, $nc($($nc($($nc($($nc($($nc($($nc(jf)->versionedStream()))->filter(static_cast<$Predicate*>($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$getName$6)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$2, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
 }
 
 $ModuleReference* ModulePath::readJar($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($JarFile, jf, $new($JarFile, $($nc(file)->toFile()), true, $ZipFile::OPEN_READ, this->releaseVersion));
 		{
@@ -1403,6 +1417,7 @@ $ModuleReference* ModulePath::readJar($Path* file) {
 }
 
 $Set* ModulePath::explodedPackages($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($Set, $nc($($nc($($nc($($nc($($Files::find(dir, $Integer::MAX_VALUE, (static_cast<$BiPredicate*>($$new(ModulePath$$Lambda$lambda$explodedPackages$7$11, this))), $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$lambda$explodedPackages$8$12, dir)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$13, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
 	} catch ($IOException&) {
@@ -1413,6 +1428,7 @@ $Set* ModulePath::explodedPackages($Path* dir) {
 }
 
 $ModuleReference* ModulePath::readExplodedModule($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, mi, $nc(dir)->resolve(ModulePath::MODULE_INFO));
 	$var($ModuleInfo$Attributes, attrs, nullptr);
 	try {
@@ -1460,6 +1476,7 @@ $String* ModulePath::packageName($String* cn) {
 }
 
 $Optional* ModulePath::toPackageName($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (!ModulePath::$assertionsDisabled && ! !$nc(name)->endsWith("/"_s)) {
 		$throwNew($AssertionError);
 	}
@@ -1481,6 +1498,7 @@ $Optional* ModulePath::toPackageName($String* name) {
 }
 
 $Optional* ModulePath::toPackageName($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	if (!ModulePath::$assertionsDisabled && !($nc(file)->getRoot() == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -1514,6 +1532,7 @@ bool ModulePath::isHidden($Path* file) {
 }
 
 bool ModulePath::isDefaultFileSystem($Path* path) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc($($nc(path)->getFileSystem()))->provider()))->getScheme()))->equalsIgnoreCase("file"_s);
 }
 

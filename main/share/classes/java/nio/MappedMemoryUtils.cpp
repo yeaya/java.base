@@ -125,6 +125,7 @@ void MappedMemoryUtils::unload(int64_t address, bool isSync, int64_t size) {
 }
 
 void MappedMemoryUtils::force($FileDescriptor* fd, int64_t address, bool isSync, int64_t index, int64_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (isSync) {
 		$nc($($Unsafe::getUnsafe()))->writebackMemory(address + index, length);
 	} else {

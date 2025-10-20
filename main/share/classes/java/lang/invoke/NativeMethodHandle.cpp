@@ -138,6 +138,7 @@ void NativeMethodHandle::init$($MethodType* type, $LambdaForm* form, $MethodHand
 
 $MethodHandle* NativeMethodHandle::make($NativeEntryPoint* nep, $MethodHandle* fallback) {
 	$init(NativeMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $nc(nep)->type());
 	if (!allTypesPrimitive(type)) {
 		$throwNew($IllegalArgumentException, $$str({"Type must only contain primitives: "_s, type}));
@@ -152,6 +153,7 @@ $MethodHandle* NativeMethodHandle::make($NativeEntryPoint* nep, $MethodHandle* f
 
 bool NativeMethodHandle::allTypesPrimitive($MethodType* type) {
 	$init(NativeMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($cast($Class, $nc(type)->returnType())))->isPrimitive()) {
 		return false;
 	}
@@ -173,6 +175,7 @@ bool NativeMethodHandle::allTypesPrimitive($MethodType* type) {
 
 $LambdaForm* NativeMethodHandle::preparedLambdaForm($MethodType* mtype$renamed) {
 	$init(NativeMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, mtype$renamed);
 	int32_t id = $MethodTypeForm::LF_INVNATIVE;
 	$assign(mtype, $nc(mtype)->basicType());
@@ -186,6 +189,7 @@ $LambdaForm* NativeMethodHandle::preparedLambdaForm($MethodType* mtype$renamed) 
 
 $LambdaForm* NativeMethodHandle::makePreparedLambdaForm($MethodType* mtype) {
 	$init(NativeMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$load($MethodHandle);
 	$load($Object);
 	$var($MethodType, linkerType, $nc($($nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {$MethodHandle::class$}))))->appendParameterTypes($$new($ClassArray, {$Object::class$})));

@@ -48,6 +48,7 @@ void Bug7200119::init$() {
 }
 
 void Bug7200119::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, avail, $Arrays::asList($($Collator::getAvailableLocales())));
 	$init($Locale);
 	if (!$nc(avail)->contains($Locale::US)) {

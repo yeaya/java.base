@@ -47,6 +47,7 @@ void B6499348::init$() {
 }
 
 void B6499348::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, $new($Socket));
 	$var($ServerSocket, ss, $new($ServerSocket));
 	$var($DatagramSocket, ds, $new($DatagramSocket, ($SocketAddress*)nullptr));

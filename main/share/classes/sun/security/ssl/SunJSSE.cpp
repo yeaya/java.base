@@ -138,6 +138,7 @@ void SunJSSE::ps($String* type, $String* algo, $String* cn, $List* a, $HashMap* 
 }
 
 void SunJSSE::doRegister() {
+	$useLocalCurrentObjectStackCache();
 	ps("Signature"_s, "MD5andSHA1withRSA"_s, "sun.security.ssl.RSASignature"_s, nullptr, nullptr);
 	ps("KeyManagerFactory"_s, "SunX509"_s, "sun.security.ssl.KeyManagerFactoryImpl$SunX509"_s, nullptr, nullptr);
 	ps("KeyManagerFactory"_s, "NewSunX509"_s, "sun.security.ssl.KeyManagerFactoryImpl$X509"_s, $($List::of($of("PKIX"_s))), nullptr);

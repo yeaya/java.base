@@ -111,6 +111,7 @@ $StringArray* ProxyClassesDumper::REPLACEMENT = nullptr;
 
 ProxyClassesDumper* ProxyClassesDumper::getInstance($String* path$renamed) {
 	$init(ProxyClassesDumper);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, path$renamed);
 	$beforeCallerSensitive();
 	if (nullptr == path) {
@@ -138,6 +139,7 @@ void ProxyClassesDumper::init$($Path* path) {
 
 void ProxyClassesDumper::validateDumpDir($Path* path) {
 	$init(ProxyClassesDumper);
+	$useLocalCurrentObjectStackCache();
 	if (!$Files::exists(path, $$new($LinkOptionArray, 0))) {
 		$throwNew($IllegalArgumentException, $$str({"Directory "_s, path, " does not exist"_s}));
 	} else if (!$Files::isDirectory(path, $$new($LinkOptionArray, 0))) {
@@ -174,6 +176,7 @@ $String* ProxyClassesDumper::encodeForFilename($String* className) {
 }
 
 void ProxyClassesDumper::dumpClass($String* className, $bytes* classBytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, file, nullptr);
 	try {
 		$assign(file, $nc(this->dumpDir)->resolve($$str({$(encodeForFilename(className)), ".class"_s})));

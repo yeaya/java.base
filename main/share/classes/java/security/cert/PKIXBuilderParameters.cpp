@@ -79,6 +79,7 @@ int32_t PKIXBuilderParameters::getMaxPathLength() {
 }
 
 $String* PKIXBuilderParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n"_s);
 	sb->append($($PKIXParameters::toString()));

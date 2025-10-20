@@ -49,6 +49,7 @@ void URLUtil::init$() {
 }
 
 $String* URLUtil::urlNoFragString($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, strForm, $new($StringBuilder));
 	$var($String, protocol, $nc(url)->getProtocol());
 	if (protocol != nullptr) {
@@ -76,6 +77,7 @@ $String* URLUtil::urlNoFragString($URL* url) {
 }
 
 $Permission* URLUtil::getConnectPermission($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, urlStringLowerCase, $nc($($nc(url)->toString()))->toLowerCase());
 	bool var$0 = urlStringLowerCase->startsWith("http:"_s);
 	if (var$0 || urlStringLowerCase->startsWith("https:"_s)) {
@@ -95,6 +97,7 @@ $Permission* URLUtil::getConnectPermission($URL* url) {
 }
 
 $Permission* URLUtil::getURLConnectPermission($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($nc(url)->getProtocol()), "://"_s}));
 	$var($String, var$0, $$concat(var$1, $(url->getAuthority())));
 	$var($String, urlString, $concat(var$0, $(url->getPath())));

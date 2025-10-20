@@ -379,6 +379,7 @@ void ZipFile::init$($File* file) {
 }
 
 void ZipFile::init$($File* file$renamed, int32_t mode, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, file$renamed);
 	if ((((int32_t)(mode & (uint32_t)ZipFile::OPEN_READ)) == 0) || (((int32_t)(mode & (uint32_t)~(ZipFile::OPEN_READ | ZipFile::OPEN_DELETE))) != 0)) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal mode: 0x"_s, $($Integer::toHexString(mode))}));
@@ -432,6 +433,7 @@ $ZipEntry* ZipFile::getEntry($String* name) {
 }
 
 $InputStream* ZipFile::getInputStream($ZipEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(entry), "entry"_s);
 	int32_t pos = 0;
 	$var($ZipFile$ZipFileInputStream, in, nullptr);
@@ -502,6 +504,7 @@ $Enumeration* ZipFile::jarEntries() {
 }
 
 $Stream* ZipFile::stream() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		ensureOpen();
 		return $StreamSupport::stream($$new($ZipFile$EntrySpliterator, this, 0, $nc($nc(this->res)->zsrc)->total, static_cast<$IntFunction*>($$new(ZipFile$$Lambda$lambda$stream$0, this))), false);
@@ -509,6 +512,7 @@ $Stream* ZipFile::stream() {
 }
 
 $String* ZipFile::getEntryName(int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, cen, $nc($nc(this->res)->zsrc)->cen);
 	int32_t nlen = $ZipUtils::CENNAM(cen, pos);
 	$var($ZipCoder, zc, $nc($nc(this->res)->zsrc)->zipCoderForPos(pos));
@@ -516,6 +520,7 @@ $String* ZipFile::getEntryName(int32_t pos) {
 }
 
 $Stream* ZipFile::entryNameStream() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		ensureOpen();
 		return $StreamSupport::stream($$new($ZipFile$EntrySpliterator, this, 0, $nc($nc(this->res)->zsrc)->total, static_cast<$IntFunction*>($$new(ZipFile$$Lambda$getEntryName$1, this))), false);
@@ -523,6 +528,7 @@ $Stream* ZipFile::entryNameStream() {
 }
 
 $Stream* ZipFile::jarStream() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		ensureOpen();
 		return $StreamSupport::stream($$new($ZipFile$EntrySpliterator, this, 0, $nc($nc(this->res)->zsrc)->total, static_cast<$IntFunction*>($$new(ZipFile$$Lambda$lambda$jarStream$1$2, this))), false);
@@ -530,6 +536,7 @@ $Stream* ZipFile::jarStream() {
 }
 
 $ZipEntry* ZipFile::getZipEntry($String* name$renamed, int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$var($bytes, cen, $nc($nc(this->res)->zsrc)->cen);
 	int32_t nlen = $ZipUtils::CENNAM(cen, pos);
@@ -581,6 +588,7 @@ int32_t ZipFile::size() {
 }
 
 void ZipFile::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closeRequested) {
 		return;
 	}
@@ -611,6 +619,7 @@ void ZipFile::ensureOpenOrZipException() {
 }
 
 $List* ZipFile::getManifestAndSignatureRelatedFiles() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		ensureOpen();
 		$var($ZipFile$Source, zsrc, $nc(this->res)->zsrc);
@@ -667,6 +676,7 @@ $ZipEntry* ZipFile::lambda$stream$0(int32_t pos) {
 }
 
 void clinit$ZipFile($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$SharedSecrets::setJavaUtilZipFileAccess($$new($ZipFile$1));
 		ZipFile::isWindows = $nc($($VM::getSavedProperty("os.name"_s)))->contains("Windows"_s);

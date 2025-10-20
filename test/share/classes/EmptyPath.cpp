@@ -45,6 +45,7 @@ void EmptyPath::init$() {
 }
 
 void EmptyPath::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, ""_s));
 	f->mkdir();
 	try {

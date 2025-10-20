@@ -70,6 +70,7 @@ void ZoneName::init$() {
 
 $String* ZoneName::toZid($String* zid$renamed, $Locale* locale) {
 	$init(ZoneName);
+	$useLocalCurrentObjectStackCache();
 	$var($String, zid, zid$renamed);
 	$var($String, mzone, $cast($String, $nc(ZoneName::zidToMzone)->get(zid)));
 	if (mzone == nullptr && $nc(ZoneName::aliases)->containsKey(zid)) {
@@ -96,6 +97,7 @@ $String* ZoneName::toZid($String* zid) {
 }
 
 void clinit$ZoneName($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ZoneName::zidMap, $new($StringArray, {
 		"Africa/Abidjan"_s,
 		"GMT"_s,

@@ -180,6 +180,7 @@ bool PolicyChecker::isForwardCheckingSupported() {
 }
 
 $Set* PolicyChecker::getSupportedExtensions() {
+	$useLocalCurrentObjectStackCache();
 	if (this->supportedExts == nullptr) {
 		$set(this, supportedExts, $new($HashSet, 4));
 		$init($PKIXExtensions);
@@ -193,6 +194,7 @@ $Set* PolicyChecker::getSupportedExtensions() {
 }
 
 void PolicyChecker::check($Certificate* cert, $Collection* unresCritExts) {
+	$useLocalCurrentObjectStackCache();
 	checkPolicy($cast($X509Certificate, cert));
 	if (unresCritExts != nullptr && !unresCritExts->isEmpty()) {
 		$init($PKIXExtensions);
@@ -204,6 +206,7 @@ void PolicyChecker::check($Certificate* cert, $Collection* unresCritExts) {
 }
 
 void PolicyChecker::checkPolicy($X509Certificate* currCert) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "certificate policies"_s);
 	if (PolicyChecker::debug != nullptr) {
 		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.checkPolicy() ---checking "_s, msg, "..."_s}));
@@ -239,6 +242,7 @@ void PolicyChecker::checkPolicy($X509Certificate* currCert) {
 
 int32_t PolicyChecker::mergeExplicitPolicy(int32_t explicitPolicy, $X509CertImpl* currCert, bool finalCert) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	if ((explicitPolicy > 0) && !$X509CertImpl::isSelfIssued(currCert)) {
 		--explicitPolicy;
 	}
@@ -274,6 +278,7 @@ int32_t PolicyChecker::mergeExplicitPolicy(int32_t explicitPolicy, $X509CertImpl
 
 int32_t PolicyChecker::mergePolicyMapping(int32_t policyMapping, $X509CertImpl* currCert) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	if ((policyMapping > 0) && !$X509CertImpl::isSelfIssued(currCert)) {
 		--policyMapping;
 	}
@@ -305,6 +310,7 @@ int32_t PolicyChecker::mergePolicyMapping(int32_t policyMapping, $X509CertImpl* 
 
 int32_t PolicyChecker::mergeInhibitAnyPolicy(int32_t inhibitAnyPolicy, $X509CertImpl* currCert) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	if ((inhibitAnyPolicy > 0) && !$X509CertImpl::isSelfIssued(currCert)) {
 		--inhibitAnyPolicy;
 	}
@@ -337,6 +343,7 @@ int32_t PolicyChecker::mergeInhibitAnyPolicy(int32_t inhibitAnyPolicy, $X509Cert
 
 $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPolicies, int32_t explicitPolicy, int32_t policyMapping, int32_t inhibitAnyPolicy, bool rejectPolicyQualifiers, $PolicyNodeImpl* origRootNode, $X509CertImpl* currCert, bool finalCert) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	bool policiesCritical = false;
 	$var($List, policyInfo, nullptr);
 	$var($PolicyNodeImpl, rootNode, nullptr);
@@ -429,6 +436,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicies(int32_t certIndex, $Set* initPol
 
 $PolicyNodeImpl* PolicyChecker::rewriteLeafNodes(int32_t certIndex, $Set* initPolicies, $PolicyNodeImpl* rootNode$renamed) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyNodeImpl, rootNode, rootNode$renamed);
 	$var($Set, anyNodes, $nc(rootNode)->getPolicyNodesValid(certIndex, PolicyChecker::ANY_POLICY));
 	if ($nc(anyNodes)->isEmpty()) {
@@ -471,6 +479,7 @@ $PolicyNodeImpl* PolicyChecker::rewriteLeafNodes(int32_t certIndex, $Set* initPo
 
 bool PolicyChecker::processParents(int32_t certIndex, bool policiesCritical, bool rejectPolicyQualifiers, $PolicyNodeImpl* rootNode, $String* curPolicy, $Set* pQuals, bool matchAny) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	bool foundMatch = false;
 	if (PolicyChecker::debug != nullptr) {
 		$nc(PolicyChecker::debug)->println($$str({"PolicyChecker.processParents(): matchAny = "_s, $$str(matchAny)}));
@@ -531,6 +540,7 @@ bool PolicyChecker::processParents(int32_t certIndex, bool policiesCritical, boo
 
 $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, int32_t certIndex, int32_t policyMapping, $PolicyNodeImpl* rootNode$renamed, bool policiesCritical, $Set* anyQuals) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyNodeImpl, rootNode, rootNode$renamed);
 	$var($PolicyMappingsExtension, polMappingsExt, $nc(currCert)->getPolicyMappingsExtension());
 	if (polMappingsExt == nullptr) {
@@ -626,6 +636,7 @@ $PolicyNodeImpl* PolicyChecker::processPolicyMappings($X509CertImpl* currCert, i
 
 $PolicyNodeImpl* PolicyChecker::removeInvalidNodes($PolicyNodeImpl* rootNode$renamed, int32_t certIndex, $Set* initPolicies, $CertificatePoliciesExtension* currCertPolicies) {
 	$init(PolicyChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyNodeImpl, rootNode, rootNode$renamed);
 	$var($List, policyInfo, nullptr);
 	try {

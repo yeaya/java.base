@@ -275,6 +275,7 @@ bool HttpURLConnection::getInstanceFollowRedirects() {
 }
 
 void HttpURLConnection::setRequestMethod($String* method) {
+	$useLocalCurrentObjectStackCache();
 	if (this->connected) {
 		$throwNew($ProtocolException, "Can\'t reset method: already connected"_s);
 	}
@@ -298,6 +299,7 @@ $String* HttpURLConnection::getRequestMethod() {
 }
 
 int32_t HttpURLConnection::getResponseCode() {
+	$useLocalCurrentObjectStackCache();
 	if (this->responseCode != -1) {
 		return this->responseCode;
 	}
@@ -359,6 +361,7 @@ int64_t HttpURLConnection::getHeaderFieldDate($String* name, int64_t Default) {
 }
 
 $Permission* HttpURLConnection::getPermission() {
+	$useLocalCurrentObjectStackCache();
 	int32_t port = $nc(this->url)->getPort();
 	port = port < 0 ? 80 : port;
 	$var($String, host, $str({$($nc(this->url)->getHost()), ":"_s, $$str(port)}));

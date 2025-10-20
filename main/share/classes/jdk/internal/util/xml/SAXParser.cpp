@@ -88,6 +88,7 @@ void SAXParser::parse($String* uri, $DefaultHandler* dh) {
 }
 
 void SAXParser::parse($File* f, $DefaultHandler* dh) {
+	$useLocalCurrentObjectStackCache();
 	if (f == nullptr) {
 		$throwNew($IllegalArgumentException, "File cannot be null"_s);
 	}
@@ -110,6 +111,7 @@ void SAXParser::parse($InputSource* is, $DefaultHandler* dh) {
 }
 
 bool SAXParser::isXIncludeAware() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"This parser does not support specification \""_s, $($nc($($of(this)->getClass()->getPackage()))->getSpecificationTitle()), "\" version \""_s}));
 	$var($String, var$0, $$concat(var$1, $($nc($($of(this)->getClass()->getPackage()))->getSpecificationVersion())));
 	$throwNew($UnsupportedOperationException, $$concat(var$0, "\""));

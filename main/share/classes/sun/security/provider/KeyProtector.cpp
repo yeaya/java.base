@@ -92,6 +92,7 @@ void KeyProtector::init$($bytes* passwordBytes) {
 }
 
 $bytes* KeyProtector::protect($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t numRounds = 0;
 	$var($bytes, digest, nullptr);
@@ -156,6 +157,7 @@ $bytes* KeyProtector::protect($Key* key) {
 }
 
 $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	$var($bytes, digest, nullptr);
 	int32_t numRounds = 0;

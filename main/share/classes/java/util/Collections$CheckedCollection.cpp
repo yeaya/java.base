@@ -211,6 +211,7 @@ $ObjectArray* Collections$CheckedCollection::zeroLengthElementArray() {
 }
 
 $Collection* Collections$CheckedCollection::checkedCopyOf($Collection* coll) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, nullptr);
 	try {
 		$var($ObjectArray, z, zeroLengthElementArray());

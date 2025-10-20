@@ -126,6 +126,7 @@ $Optional* ModuleDescriptor$Requires::rawCompiledVersion() {
 }
 
 int32_t ModuleDescriptor$Requires::compareTo(ModuleDescriptor$Requires* that) {
+	$useLocalCurrentObjectStackCache();
 	if (this == that) {
 		return 0;
 	}
@@ -177,6 +178,7 @@ int32_t ModuleDescriptor$Requires::hashCode() {
 }
 
 $String* ModuleDescriptor$Requires::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, what, nullptr);
 	if (this->compiledVersion$ != nullptr) {
 		$assign(what, $str({$(name()), " (@"_s, this->compiledVersion$, ")"_s}));

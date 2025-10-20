@@ -161,6 +161,7 @@ void Runtime::exit(int32_t status) {
 }
 
 void Runtime::addShutdownHook($Thread* hook) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "shutdownHooks"_s));
@@ -169,6 +170,7 @@ void Runtime::addShutdownHook($Thread* hook) {
 }
 
 bool Runtime::removeShutdownHook($Thread* hook) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "shutdownHooks"_s));
@@ -194,6 +196,7 @@ $Process* Runtime::exec($String* command, $StringArray* envp) {
 }
 
 $Process* Runtime::exec($String* command, $StringArray* envp, $File* dir) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(command)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Empty command"_s);
 	}
@@ -214,6 +217,7 @@ $Process* Runtime::exec($StringArray* cmdarray, $StringArray* envp) {
 }
 
 $Process* Runtime::exec($StringArray* cmdarray, $StringArray* envp, $File* dir) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($$new($ProcessBuilder, cmdarray)->environment(envp)))->directory(dir)))->start();
 }
 
@@ -246,6 +250,7 @@ void Runtime::load($String* filename) {
 }
 
 void Runtime::load0($Class* fromClass, $String* filename) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkLink(filename);
@@ -262,6 +267,7 @@ void Runtime::loadLibrary($String* libname) {
 }
 
 void Runtime::loadLibrary0($Class* fromClass, $String* libname) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkLink(libname);
@@ -275,6 +281,7 @@ void Runtime::loadLibrary0($Class* fromClass, $String* libname) {
 
 $Runtime$Version* Runtime::version() {
 	$init(Runtime);
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime$Version, v, Runtime::version$);
 	if (v == nullptr) {
 		$var($List, var$0, $VersionProps::versionNumbers());

@@ -48,6 +48,7 @@ $File* ClassLoaderHelper::mapAlternativeName($File* lib) {
 }
 
 $StringArray* ClassLoaderHelper::parsePath($String* ldPath) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	char16_t ps = $File::pathSeparatorChar;
 	$var($ArrayList, paths, $new($ArrayList));

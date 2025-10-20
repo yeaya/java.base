@@ -52,6 +52,7 @@ void PowTests::init$() {
 }
 
 int32_t PowTests::zeroAndOneTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, testCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -166,6 +167,7 @@ int32_t PowTests::zeroAndOneTests() {
 }
 
 void PowTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += zeroAndOneTests();
 	if (failures > 0) {

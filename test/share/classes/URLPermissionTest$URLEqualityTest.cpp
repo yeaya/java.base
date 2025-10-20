@@ -67,6 +67,7 @@ void URLPermissionTest$URLEqualityTest::init$($String* arg1, $String* arg2, bool
 }
 
 bool URLPermissionTest$URLEqualityTest::execute() {
+	$useLocalCurrentObjectStackCache();
 	$var($URLPermission, p1, $new($URLPermission, this->arg1));
 	$var($URLPermission, p2, $new($URLPermission, this->arg2));
 	bool result = p1->equals(p2);

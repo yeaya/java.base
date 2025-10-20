@@ -150,6 +150,7 @@ bool JsseJce::isEcAvailable() {
 
 int32_t JsseJce::getRSAKeyLength($PublicKey* key) {
 	$init(JsseJce);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, modulus, nullptr);
 	if ($instanceOf($RSAPublicKey, key)) {
 		$assign(modulus, $nc(($cast($RSAPublicKey, key)))->getModulus());
@@ -162,6 +163,7 @@ int32_t JsseJce::getRSAKeyLength($PublicKey* key) {
 
 $RSAPublicKeySpec* JsseJce::getRSAPublicKeySpec($PublicKey* key) {
 	$init(JsseJce);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($RSAPublicKey, key)) {
 		$var($RSAPublicKey, rsaKey, $cast($RSAPublicKey, key));
 		$var($BigInteger, var$0, $nc(rsaKey)->getModulus());

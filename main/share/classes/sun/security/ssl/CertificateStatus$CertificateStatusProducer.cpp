@@ -70,6 +70,7 @@ void CertificateStatus$CertificateStatusProducer::init$() {
 }
 
 $bytes* CertificateStatus$CertificateStatusProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if (!$nc(shc)->staplingActive) {
 		return nullptr;

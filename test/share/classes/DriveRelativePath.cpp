@@ -47,6 +47,7 @@ void DriveRelativePath::fail($String* s) {
 }
 
 void DriveRelativePath::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar != u'\\') {
 		return;

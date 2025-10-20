@@ -105,12 +105,14 @@ $bytes* PBKDF2KeyImpl$1::getEncoded() {
 }
 
 int32_t PBKDF2KeyImpl$1::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $Arrays::hashCode(this->val$password) * 41;
 	$init($Locale);
 	return var$0 + $($nc($($nc(this->val$prf)->getAlgorithm()))->toLowerCase($Locale::ENGLISH))->hashCode();
 }
 
 bool PBKDF2KeyImpl$1::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}

@@ -89,6 +89,7 @@ $Properties* VMSupport::initAgentProperties($Properties* props) {
 
 $bytes* VMSupport::serializePropertiesToByteArray($Properties* p) {
 	$init(VMSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, out, $new($ByteArrayOutputStream, 4096));
 	$var($Properties, props, $new($Properties));
 	$var($Set, keyset, $nc(p)->stringPropertyNames());

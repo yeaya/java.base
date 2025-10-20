@@ -323,6 +323,7 @@ void LocaleResources::init$($ResourceBundleBasedAdapter* adapter, $Locale* local
 }
 
 void LocaleResources::removeEmptyReferences() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, ref, nullptr);
 	while (($assign(ref, $nc(this->referenceQueue)->poll())) != nullptr) {
 		$nc(this->cache)->remove($($nc(($cast($LocaleResources$ResourceReference, ref)))->getCacheKey()));
@@ -330,6 +331,7 @@ void LocaleResources::removeEmptyReferences() {
 }
 
 $Object* LocaleResources::getBreakIteratorInfo($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, biInfo, nullptr);
 	$var($String, cacheKey, $str({LocaleResources::BREAK_ITERATOR_INFO, key}));
 	removeEmptyReferences();
@@ -346,6 +348,7 @@ $bytes* LocaleResources::getBreakIteratorResources($String* key) {
 }
 
 $String* LocaleResources::getCalendarData($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, caldata, ""_s);
 	$var($String, cacheKey, $str({LocaleResources::CALENDAR_DATA, key}));
 	removeEmptyReferences();
@@ -361,6 +364,7 @@ $String* LocaleResources::getCalendarData($String* key) {
 }
 
 $String* LocaleResources::getCollationData() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, "Rule"_s);
 	$var($String, coldata, ""_s);
 	removeEmptyReferences();
@@ -376,6 +380,7 @@ $String* LocaleResources::getCollationData() {
 }
 
 $ObjectArray* LocaleResources::getDecimalFormatSymbolsData() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, dfsdata, nullptr);
 	removeEmptyReferences();
 	$var($LocaleResources$ResourceReference, data, $cast($LocaleResources$ResourceReference, $nc(this->cache)->get(LocaleResources::DECIMAL_FORMAT_SYMBOLS_DATA_CACHEKEY)));
@@ -389,6 +394,7 @@ $ObjectArray* LocaleResources::getDecimalFormatSymbolsData() {
 }
 
 $StringArray* LocaleResources::getNumberStrings($ResourceBundle* rb, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, ret, nullptr);
 	$var($String, key, nullptr);
 	$var($String, numSys, nullptr);
@@ -412,6 +418,7 @@ $StringArray* LocaleResources::getNumberStrings($ResourceBundle* rb, $String* ty
 }
 
 $String* LocaleResources::getCurrencyName($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, currencyName, nullptr);
 	$var($String, cacheKey, $str({LocaleResources::CURRENCY_NAMES, key}));
 	removeEmptyReferences();
@@ -431,6 +438,7 @@ $String* LocaleResources::getCurrencyName($String* key) {
 }
 
 $String* LocaleResources::getLocaleName($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, localeName, nullptr);
 	$var($String, cacheKey, $str({LocaleResources::LOCALE_NAMES, key}));
 	removeEmptyReferences();
@@ -450,6 +458,7 @@ $String* LocaleResources::getLocaleName($String* key) {
 }
 
 $Object* LocaleResources::getTimeZoneNames($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, val, nullptr);
 	$var($String, cacheKey, $str({LocaleResources::TIME_ZONE_NAMES, key}));
 	removeEmptyReferences();
@@ -503,6 +512,7 @@ $Object* LocaleResources::getTimeZoneNames($String* key) {
 }
 
 $Set* LocaleResources::getZoneIDs() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, zoneIDs, nullptr);
 	removeEmptyReferences();
 	$var($LocaleResources$ResourceReference, data, $cast($LocaleResources$ResourceReference, $nc(this->cache)->get(LocaleResources::ZONE_IDS_CACHEKEY)));
@@ -515,6 +525,7 @@ $Set* LocaleResources::getZoneIDs() {
 }
 
 $StringArray2* LocaleResources::getZoneStrings() {
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZoneNamesBundle, rb, $nc(this->localeData)->getTimeZoneNames(this->locale));
 	$var($Set, keyset, getZoneIDs());
 	$var($Set, value, $new($LinkedHashSet));
@@ -539,6 +550,7 @@ $StringArray2* LocaleResources::getZoneStrings() {
 }
 
 $StringArray* LocaleResources::getCalendarNames($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, nullptr);
 	$var($String, cacheKey, $str({LocaleResources::CALENDAR_NAMES, key}));
 	removeEmptyReferences();
@@ -554,6 +566,7 @@ $StringArray* LocaleResources::getCalendarNames($String* key) {
 }
 
 $StringArray* LocaleResources::getJavaTimeNames($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, nullptr);
 	$var($String, cacheKey, $str({LocaleResources::CALENDAR_NAMES, key}));
 	removeEmptyReferences();
@@ -569,6 +582,7 @@ $StringArray* LocaleResources::getJavaTimeNames($String* key) {
 }
 
 $String* LocaleResources::getDateTimePattern(int32_t timeStyle, int32_t dateStyle, $Calendar* cal$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Calendar, cal, cal$renamed);
 	if (cal == nullptr) {
 		$assign(cal, $Calendar::getInstance(this->locale));
@@ -577,6 +591,7 @@ $String* LocaleResources::getDateTimePattern(int32_t timeStyle, int32_t dateStyl
 }
 
 $String* LocaleResources::getJavaTimeDateTimePattern(int32_t timeStyle, int32_t dateStyle, $String* calType$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, calType, calType$renamed);
 	$assign(calType, $CalendarDataUtility::normalizeCalendarType(calType));
 	$var($String, pattern, nullptr);
@@ -588,6 +603,7 @@ $String* LocaleResources::getJavaTimeDateTimePattern(int32_t timeStyle, int32_t 
 }
 
 $String* LocaleResources::getDateTimePattern($String* prefix, int32_t timeStyle, int32_t dateStyle, $String* calType) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pattern, nullptr);
 	$var($String, timePattern, nullptr);
 	$var($String, datePattern, nullptr);
@@ -670,6 +686,7 @@ $String* LocaleResources::getDateTimePattern($String* prefix, int32_t timeStyle,
 }
 
 $StringArray* LocaleResources::getNumberPatterns() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, numberPatterns, nullptr);
 	removeEmptyReferences();
 	$var($LocaleResources$ResourceReference, data, $cast($LocaleResources$ResourceReference, $nc(this->cache)->get(LocaleResources::NUMBER_PATTERNS_CACHEKEY)));
@@ -682,6 +699,7 @@ $StringArray* LocaleResources::getNumberPatterns() {
 }
 
 $StringArray* LocaleResources::getCNPatterns($NumberFormat$Style* formatStyle) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(formatStyle);
 	$var($StringArray, compactNumberPatterns, nullptr);
 	removeEmptyReferences();
@@ -706,6 +724,7 @@ $ResourceBundle* LocaleResources::getJavaTimeFormatData() {
 }
 
 $String* LocaleResources::getDateTimePattern($String* prefix, $String* key, int32_t styleIndex, $String* calendarType) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (prefix != nullptr) {
 		sb->append(prefix);
@@ -744,6 +763,7 @@ $String* LocaleResources::getDateTimePattern($String* prefix, $String* key, int3
 }
 
 $StringArray* LocaleResources::getRules() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, rules, nullptr);
 	removeEmptyReferences();
 	$var($LocaleResources$ResourceReference, data, $cast($LocaleResources$ResourceReference, $nc(this->cache)->get(LocaleResources::RULES_CACHEKEY)));
@@ -772,6 +792,7 @@ void LocaleResources::trace($String* format, $ObjectArray* params) {
 
 void LocaleResources::lambda$getZoneStrings$1($Set* keyset, $TimeZoneNamesBundle* rb, $Set* value, $String* tzid) {
 	$init(LocaleResources);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, val, $new($StringArray, 7));
 	if ($nc(keyset)->contains(tzid)) {
 		$assign(val, $nc(rb)->getStringArray(tzid));
@@ -793,6 +814,7 @@ bool LocaleResources::lambda$getZoneStrings$0($String* i) {
 }
 
 void clinit$LocaleResources($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LocaleResources::BREAK_ITERATOR_INFO, "BII."_s);
 	$assignStatic(LocaleResources::CALENDAR_DATA, "CALD."_s);
 	$assignStatic(LocaleResources::COLLATION_DATA_CACHEKEY, "COLD"_s);

@@ -196,6 +196,7 @@ void SwitchBootstraps::init$() {
 
 $CallSite* SwitchBootstraps::typeSwitch($MethodHandles$Lookup* lookup, $String* invocationName, $MethodType* invocationType, $ObjectArray* labels$renamed) {
 	$init(SwitchBootstraps);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, labels, labels$renamed);
 	bool var$2 = $nc(invocationType)->parameterCount() != 2;
 	$init($Integer);
@@ -227,6 +228,7 @@ void SwitchBootstraps::verifyLabel(Object$* label) {
 
 int32_t SwitchBootstraps::doTypeSwitch(Object$* target, int32_t startIndex, $ObjectArray* labels) {
 	$init(SwitchBootstraps);
+	$useLocalCurrentObjectStackCache();
 	if (target == nullptr) {
 		return -1;
 	}
@@ -294,6 +296,7 @@ int32_t SwitchBootstraps::doTypeSwitch(Object$* target, int32_t startIndex, $Obj
 
 $CallSite* SwitchBootstraps::enumSwitch($MethodHandles$Lookup* lookup, $String* invocationName, $MethodType* invocationType, $ObjectArray* labels$renamed) {
 	$init(SwitchBootstraps);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, labels, labels$renamed);
 	bool var$3 = $nc(invocationType)->parameterCount() != 2;
 	$init($Integer);
@@ -314,6 +317,7 @@ $CallSite* SwitchBootstraps::enumSwitch($MethodHandles$Lookup* lookup, $String* 
 
 $Object* SwitchBootstraps::convertEnumConstants($MethodHandles$Lookup* lookup, $Class* enumClassTemplate, Object$* label) {
 	$init(SwitchBootstraps);
+	$useLocalCurrentObjectStackCache();
 	if (label == nullptr) {
 		$throwNew($IllegalArgumentException, "null label found"_s);
 	}
@@ -343,6 +347,7 @@ $Object* SwitchBootstraps::convertEnumConstants($MethodHandles$Lookup* lookup, $
 
 int32_t SwitchBootstraps::doEnumSwitch($Enum* target, int32_t startIndex, $ObjectArray* labels) {
 	$init(SwitchBootstraps);
+	$useLocalCurrentObjectStackCache();
 	if (target == nullptr) {
 		return -1;
 	}
@@ -374,6 +379,7 @@ $Object* SwitchBootstraps::lambda$enumSwitch$0($MethodHandles$Lookup* lookup, $C
 }
 
 void clinit$SwitchBootstraps($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(SwitchBootstraps::LOOKUP, $MethodHandles::lookup());
 	{

@@ -109,6 +109,7 @@ void ConcurrentHashMap$ValueIterator::init$($ConcurrentHashMap$NodeArray* tab, i
 }
 
 $Object* ConcurrentHashMap$ValueIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$Node, p, nullptr);
 	if (($assign(p, this->$ConcurrentHashMap$Traverser::next)) == nullptr) {
 		$throwNew($NoSuchElementException);

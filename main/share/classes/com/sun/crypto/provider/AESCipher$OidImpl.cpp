@@ -60,6 +60,7 @@ $Object* allocate$AESCipher$OidImpl($Class* clazz) {
 }
 
 void AESCipher$OidImpl::init$(int32_t keySize, $String* mode, $String* padding) {
+	$useLocalCurrentObjectStackCache();
 	$AESCipher::init$(keySize);
 	try {
 		engineSetMode(mode);

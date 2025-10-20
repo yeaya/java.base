@@ -100,6 +100,7 @@ void SecureRandom::init$($bytes* seed) {
 }
 
 void SecureRandom::init($bytes* seed) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, digest, $MessageDigest::getInstance("SHA"_s, "SUN"_s));
 	} catch ($NoSuchProviderException&) {
@@ -163,6 +164,7 @@ void SecureRandom::updateState($bytes* state, $bytes* output) {
 
 void SecureRandom::engineNextBytes($bytes* result) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		int32_t index = 0;
 		int32_t todo = 0;
 		$var($bytes, output, this->remainder);
@@ -199,6 +201,7 @@ void SecureRandom::engineNextBytes($bytes* result) {
 }
 
 void SecureRandom::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	try {
 		$set(this, digest, $MessageDigest::getInstance("SHA"_s, "SUN"_s));

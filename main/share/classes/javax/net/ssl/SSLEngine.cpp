@@ -147,6 +147,7 @@ $SSLSession* SSLEngine::getHandshakeSession() {
 }
 
 $SSLParameters* SSLEngine::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setCipherSuites($(getEnabledCipherSuites()));
 	params->setProtocols($(getEnabledProtocols()));

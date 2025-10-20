@@ -107,6 +107,7 @@ void ReachabilityFenceTest::main($StringArray* args) {
 
 bool ReachabilityFenceTest::nonFenced() {
 	$init(ReachabilityFenceTest);
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicBoolean, finalized, $new($AtomicBoolean));
 	$var($ReachabilityFenceTest$MyFinalizeable, o, $new($ReachabilityFenceTest$MyFinalizeable, finalized));
 	for (int32_t i = 0; i < ReachabilityFenceTest::LOOP_ITERS; ++i) {
@@ -123,6 +124,7 @@ bool ReachabilityFenceTest::nonFenced() {
 
 bool ReachabilityFenceTest::fenced() {
 	$init(ReachabilityFenceTest);
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicBoolean, finalized, $new($AtomicBoolean));
 	$var($ReachabilityFenceTest$MyFinalizeable, o, $new($ReachabilityFenceTest$MyFinalizeable, finalized));
 	for (int32_t i = 0; i < ReachabilityFenceTest::LOOP_ITERS; ++i) {
@@ -158,6 +160,7 @@ bool ReachabilityFenceTest::fenced() {
 }
 
 void clinit$ReachabilityFenceTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	ReachabilityFenceTest::LOOP_ITERS = $nc($($Integer::getInteger("LOOP_ITERS"_s, 0x0000C350)))->intValue();
 	ReachabilityFenceTest::WARMUP_LOOP_ITERS = ReachabilityFenceTest::LOOP_ITERS - $nc($($Integer::getInteger("GC_ITERS"_s, 100)))->intValue();
 	ReachabilityFenceTest::PREMATURE_FINALIZATION = $Boolean::getBoolean("premature"_s);

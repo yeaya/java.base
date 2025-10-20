@@ -183,6 +183,7 @@ int32_t ProcessEnvironment::arrayHash($bytes* x) {
 }
 
 void clinit$ProcessEnvironment($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($byteArray2, environ, ProcessEnvironment::environ());
 		$assignStatic(ProcessEnvironment::theEnvironment, $new($HashMap, $nc(environ)->length / 2 + 3));

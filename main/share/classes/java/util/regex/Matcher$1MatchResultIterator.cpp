@@ -115,6 +115,7 @@ bool Matcher$1MatchResultIterator::hasNext() {
 }
 
 void Matcher$1MatchResultIterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (this->expectedCount >= 0 && this->expectedCount != this->this$0->modCount) {
 		$throwNew($ConcurrentModificationException);
 	}

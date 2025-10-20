@@ -128,6 +128,7 @@ bool SynchronousQueue$TransferQueue::casCleanMe($SynchronousQueue$TransferQueue$
 }
 
 $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$var($SynchronousQueue$TransferQueue$QNode, s, nullptr);
 	bool isData = (e != nullptr);
 	for (;;) {
@@ -206,6 +207,7 @@ $Object* SynchronousQueue$TransferQueue::transfer(Object$* e, bool timed, int64_
 }
 
 void SynchronousQueue$TransferQueue::clean($SynchronousQueue$TransferQueue$QNode* pred, $SynchronousQueue$TransferQueue$QNode* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->forgetWaiter();
 	while ($nc(pred)->next == s) {
 		$var($SynchronousQueue$TransferQueue$QNode, h, this->head);
@@ -255,6 +257,7 @@ void SynchronousQueue$TransferQueue::clean($SynchronousQueue$TransferQueue$QNode
 }
 
 void clinit$SynchronousQueue$TransferQueue($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

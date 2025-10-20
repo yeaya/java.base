@@ -101,6 +101,7 @@ void GetAnnotatedInterfaces::main($StringArray* args) {
 
 void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 	$init(GetAnnotatedInterfaces);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ClassArray, arr$, GetAnnotatedInterfaces::testData);
 		int32_t len$ = $nc(arr$)->length;
@@ -127,6 +128,7 @@ void GetAnnotatedInterfaces::testReturnsZeroLengthArray() {
 }
 
 void clinit$GetAnnotatedInterfaces($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($ObjectArray);
 		$load($ObjectArray2);
 		$load($ObjectArray3);

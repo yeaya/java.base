@@ -185,6 +185,7 @@ void Reflection::ensureMemberAccess($Class* currentClass, $Class* memberClass, $
 
 void Reflection::ensureNativeAccess($Class* currentClass) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, module, $nc(currentClass)->getModule());
 	if (!$nc($($SharedSecrets::getJavaLangAccess()))->isEnableNativeAccess(module)) {
 		$throwNew($IllegalCallerException, $$str({"Illegal native access from: "_s, module}));
@@ -252,6 +253,7 @@ bool Reflection::verifyMemberAccess($Class* currentClass, $Class* memberClass, $
 
 bool Reflection::verifyPublicMemberAccess($Class* memberClass, int32_t modifiers) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, m, $nc(memberClass)->getModule());
 	bool var$1 = $Modifier::isPublic(modifiers);
 	bool var$0 = var$1 && $nc(m)->isExported($(memberClass->getPackageName()));
@@ -260,6 +262,7 @@ bool Reflection::verifyPublicMemberAccess($Class* memberClass, int32_t modifiers
 
 bool Reflection::verifyModuleAccess($Module* currentModule, $Class* memberClass) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, memberModule, $nc(memberClass)->getModule());
 	if (currentModule == memberModule) {
 		return true;
@@ -271,6 +274,7 @@ bool Reflection::verifyModuleAccess($Module* currentModule, $Class* memberClass)
 
 bool Reflection::isSameClassPackage($Class* c1, $Class* c2) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(c1)->getClassLoader() != $nc(c2)->getClassLoader()) {
 		return false;
@@ -308,6 +312,7 @@ void Reflection::registerMethodsToFilter($Class* containingClass, $Set* methodNa
 
 $Map* Reflection::registerFilter($Map* map$renamed, $Class* containingClass, $Set* names) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, map$renamed);
 	if ($nc(map)->get(containingClass) != nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Filter already registered: "_s, containingClass}));
@@ -335,6 +340,7 @@ $MethodArray* Reflection::filterMethods($Class* containingClass, $MethodArray* m
 
 $MemberArray* Reflection::filter($MemberArray* members, $Set* filteredNames) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	if ((filteredNames == nullptr) || ($nc(members)->length == 0)) {
 		return members;
 	}
@@ -392,6 +398,7 @@ bool Reflection::isTrustedFinalField($Field* field) {
 
 $IllegalAccessException* Reflection::newIllegalAccessException($Class* currentClass, $Class* memberClass, $Class* targetClass, int32_t modifiers) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	if (currentClass == nullptr) {
 		return newIllegalAccessException(memberClass, modifiers);
 	}
@@ -422,6 +429,7 @@ $IllegalAccessException* Reflection::newIllegalAccessException($Class* currentCl
 
 $IllegalAccessException* Reflection::newIllegalAccessException($Class* memberClass, int32_t modifiers) {
 	$init(Reflection);
+	$useLocalCurrentObjectStackCache();
 	$var($String, memberSuffix, ""_s);
 	$var($Module, m2, $nc(memberClass)->getModule());
 	if ($nc(m2)->isNamed()) {
@@ -454,6 +462,7 @@ bool Reflection::areNestMates($Class* currentClass, $Class* memberClass) {
 }
 
 void clinit$Reflection($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Reflection::WILDCARD, "*"_s);
 	$assignStatic(Reflection::ALL_MEMBERS, $Set::of($of(Reflection::WILDCARD)));
 	{

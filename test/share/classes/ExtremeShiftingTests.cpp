@@ -47,6 +47,7 @@ void ExtremeShiftingTests::init$() {
 }
 
 void ExtremeShiftingTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($BigInteger);
 	$var($BigInteger, bi, $nc($BigInteger::ONE)->shiftLeft($Integer::MIN_VALUE));
 	if (!$nc(bi)->equals($BigInteger::ZERO)) {

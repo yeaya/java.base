@@ -327,6 +327,7 @@ $String* DecimalFormat::PATTERN_EXPONENT = nullptr;
 $FieldPositionArray* DecimalFormat::EmptyFieldPositionArray = nullptr;
 
 void DecimalFormat::init$() {
+	$useLocalCurrentObjectStackCache();
 	$NumberFormat::init$();
 	$set(this, digitList, $new($DigitList));
 	$set(this, positivePrefix, ""_s);
@@ -428,6 +429,7 @@ $StringBuffer* DecimalFormat::format(Object$* number, $StringBuffer* toAppendTo,
 }
 
 $StringBuffer* DecimalFormat::format(double number, $StringBuffer* result, $FieldPosition* fieldPosition) {
+	$useLocalCurrentObjectStackCache();
 	bool tryFastPath = false;
 	$init($DontCareFieldPosition);
 	if (fieldPosition == $DontCareFieldPosition::INSTANCE) {
@@ -481,6 +483,7 @@ bool DecimalFormat::handleNaN(double number, $StringBuffer* result, $Format$Fiel
 }
 
 bool DecimalFormat::handleInfinity(double number, $StringBuffer* result, $Format$FieldDelegate* delegate, bool isNegative) {
+	$useLocalCurrentObjectStackCache();
 	if ($Double::isInfinite(number)) {
 		if (isNegative) {
 			$init($NumberFormat$Field);
@@ -568,6 +571,7 @@ $StringBuffer* DecimalFormat::format($BigDecimal* number, $StringBuffer* result,
 }
 
 $StringBuffer* DecimalFormat::format($BigDecimal* number$renamed, $StringBuffer* result, $Format$FieldDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigDecimal, number, number$renamed);
 	if (this->multiplier != 1) {
 		$assign(number, $nc(number)->multiply($(getBigDecimalMultiplier())));
@@ -594,6 +598,7 @@ $StringBuffer* DecimalFormat::format($BigInteger* number, $StringBuffer* result,
 }
 
 $StringBuffer* DecimalFormat::format($BigInteger* number$renamed, $StringBuffer* result, $Format$FieldDelegate* delegate, bool formatLong) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, number, number$renamed);
 	if (this->multiplier != 1) {
 		$assign(number, $nc(number)->multiply($(getBigIntegerMultiplier())));
@@ -630,6 +635,7 @@ $StringBuffer* DecimalFormat::format($BigInteger* number$renamed, $StringBuffer*
 }
 
 $AttributedCharacterIterator* DecimalFormat::formatToCharacterIterator(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharacterIteratorFieldDelegate, delegate, $new($CharacterIteratorFieldDelegate));
 	$var($StringBuffer, sb, $new($StringBuffer));
 	if ($instanceOf($Double, obj) || $instanceOf($Float, obj)) {
@@ -956,6 +962,7 @@ void DecimalFormat::setDigitList($Number* number, bool isNegative, int32_t maxDi
 }
 
 $StringBuffer* DecimalFormat::subformat($StringBuffer* result, $Format$FieldDelegate* delegate, bool isNegative, bool isInteger, int32_t maxIntDigits, int32_t minIntDigits, int32_t maxFraDigits, int32_t minFraDigits) {
+	$useLocalCurrentObjectStackCache();
 	if (isNegative) {
 		$init($NumberFormat$Field);
 		append(result, this->negativePrefix, delegate, $(getNegativePrefixFieldPositions()), $NumberFormat$Field::SIGN);
@@ -975,6 +982,7 @@ $StringBuffer* DecimalFormat::subformat($StringBuffer* result, $Format$FieldDele
 }
 
 void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate* delegate, bool isNegative, bool isInteger, int32_t maxIntDigits, int32_t minIntDigits, int32_t maxFraDigits, int32_t minFraDigits) {
+	$useLocalCurrentObjectStackCache();
 	char16_t grouping = this->isCurrencyFormat ? $nc(this->symbols)->getMonetaryGroupingSeparator() : $nc(this->symbols)->getGroupingSeparator();
 	char16_t zero = $nc(this->symbols)->getZeroDigit();
 	int32_t zeroDelta = zero - u'0';
@@ -1119,6 +1127,7 @@ void DecimalFormat::subformatNumber($StringBuffer* result, $Format$FieldDelegate
 }
 
 void DecimalFormat::append($StringBuffer* result, $String* string, $Format$FieldDelegate* delegate, $FieldPositionArray* positions, $Format$Field* signAttribute) {
+	$useLocalCurrentObjectStackCache();
 	int32_t start = $nc(result)->length();
 	if (!$nc(string)->isEmpty()) {
 		result->append(string);
@@ -1142,6 +1151,7 @@ void DecimalFormat::append($StringBuffer* result, $String* string, $Format$Field
 }
 
 $Number* DecimalFormat::parse($String* text, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(pos)->index;
 	$var($String, var$1, $nc(this->symbols)->getNaN());
 	if ($nc(text)->regionMatches(var$0, var$1, 0, $nc($($nc(this->symbols)->getNaN()))->length())) {
@@ -1305,6 +1315,7 @@ bool DecimalFormat::subparse($String* text, $ParsePosition* parsePosition, $Stri
 }
 
 int32_t DecimalFormat::subparseNumber($String* text, int32_t position, $DigitList* digits, bool checkExponent, bool isExponent, $booleans* status) {
+	$useLocalCurrentObjectStackCache();
 	$nc(status)->set(DecimalFormat::STATUS_INFINITE, false);
 	bool var$0 = !isExponent;
 	if (var$0) {
@@ -1519,6 +1530,7 @@ int32_t DecimalFormat::getGroupingSize() {
 }
 
 void DecimalFormat::setGroupingSize(int32_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	if (newValue < 0 || newValue > $Byte::MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"newValue is out of valid range. value: "_s, $$str(newValue)}));
 	}
@@ -1615,6 +1627,7 @@ void DecimalFormat::expandAffixes() {
 }
 
 $String* DecimalFormat::expandAffix($String* pattern, $StringBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$nc(buffer)->setLength(0);
 	for (int32_t i = 0; i < $nc(pattern)->length();) {
 		char16_t c = pattern->charAt(i++);
@@ -1655,6 +1668,7 @@ $String* DecimalFormat::expandAffix($String* pattern, $StringBuffer* buffer) {
 }
 
 $FieldPositionArray* DecimalFormat::expandAffix($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, positions, nullptr);
 	int32_t stringIndex = 0;
 	for (int32_t i = 0; i < $nc(pattern)->length();) {
@@ -1720,6 +1734,7 @@ $FieldPositionArray* DecimalFormat::expandAffix($String* pattern) {
 }
 
 void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affixPattern, $String* expAffix, bool localized) {
+	$useLocalCurrentObjectStackCache();
 	if (affixPattern == nullptr) {
 		appendAffix(buffer, expAffix, localized);
 	} else {
@@ -1768,6 +1783,7 @@ void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affixPattern, $S
 }
 
 void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affix, bool localized) {
+	$useLocalCurrentObjectStackCache();
 	bool needQuote = false;
 	if (localized) {
 		bool var$7 = $nc(affix)->indexOf((int32_t)$nc(this->symbols)->getZeroDigit()) >= 0;
@@ -1810,6 +1826,7 @@ void DecimalFormat::appendAffix($StringBuffer* buffer, $String* affix, bool loca
 }
 
 $String* DecimalFormat::toPattern(bool localized) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, result, $new($StringBuffer));
 	for (int32_t j = 1; j >= 0; --j) {
 		if (j == 1) {
@@ -1867,6 +1884,7 @@ void DecimalFormat::applyLocalizedPattern($String* pattern) {
 }
 
 void DecimalFormat::applyPattern($String* pattern, bool localized) {
+	$useLocalCurrentObjectStackCache();
 	char16_t zeroDigit = DecimalFormat::PATTERN_ZERO_DIGIT;
 	char16_t groupingSeparator = DecimalFormat::PATTERN_GROUPING_SEPARATOR;
 	char16_t decimalSeparator = DecimalFormat::PATTERN_DECIMAL_SEPARATOR;

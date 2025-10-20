@@ -85,6 +85,7 @@ void CertStatusExtension$CTCertStatusResponseConsumer::init$() {
 }
 
 void CertStatusExtension$CTCertStatusResponseConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($CertStatusExtension$CertStatusResponseSpec, spec, $new($CertStatusExtension$CertStatusResponseSpec, chc, buffer));
 	if ($nc($nc(chc)->sslContext)->isStaplingEnabled(true)) {

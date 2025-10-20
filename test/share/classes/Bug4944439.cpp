@@ -70,6 +70,7 @@ void Bug4944439::init$() {
 
 void Bug4944439::main($StringArray* args) {
 	$init(Bug4944439);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLoc, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);
 	$assignStatic(Bug4944439::df, $new($DecimalFormat));
@@ -94,6 +95,7 @@ void Bug4944439::main($StringArray* args) {
 
 void Bug4944439::test(int64_t from, int64_t to) {
 	$init(Bug4944439);
+	$useLocalCurrentObjectStackCache();
 	for (int64_t l = from; l <= to; ++l) {
 		check_Long($$str({$($Long::toString(l)), ".00"_s}));
 	}
@@ -101,6 +103,7 @@ void Bug4944439::test(int64_t from, int64_t to) {
 
 void Bug4944439::check_Long($String* s) {
 	$init(Bug4944439);
+	$useLocalCurrentObjectStackCache();
 	$var($Number, number, $nc(Bug4944439::df)->parse(s));
 	if (!($instanceOf($Long, number))) {
 		Bug4944439::err = true;
@@ -118,6 +121,7 @@ void Bug4944439::check_Long($String* s) {
 
 void Bug4944439::check_Double($String* s) {
 	$init(Bug4944439);
+	$useLocalCurrentObjectStackCache();
 	$var($Number, number, $nc(Bug4944439::df)->parse(s));
 	if (!($instanceOf($Double, number))) {
 		Bug4944439::err = true;

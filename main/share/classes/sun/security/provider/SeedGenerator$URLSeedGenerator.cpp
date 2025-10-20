@@ -88,6 +88,7 @@ void SeedGenerator$URLSeedGenerator::init$($String* egdurl) {
 }
 
 void SeedGenerator$URLSeedGenerator::init() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($URL, device, $new($URL, this->deviceName));
 	try {
@@ -99,6 +100,7 @@ void SeedGenerator$URLSeedGenerator::init() {
 }
 
 void SeedGenerator$URLSeedGenerator::getSeedBytes($bytes* result) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(result)->length;
 	int32_t read = 0;
 	try {

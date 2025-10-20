@@ -72,6 +72,7 @@ void TrustStoreManager$TrustStoreDescriptor$1::init$() {
 }
 
 $Object* TrustStoreManager$TrustStoreDescriptor$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($TrustStoreManager$TrustStoreDescriptor);
 	$var($String, storePropName, $System::getProperty("javax.net.ssl.trustStore"_s, $TrustStoreManager$TrustStoreDescriptor::jsseDefaultStore));
 	$var($String, storePropType, $System::getProperty("javax.net.ssl.trustStoreType"_s, $($KeyStore::getDefaultType())));

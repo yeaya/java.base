@@ -141,6 +141,7 @@ void FormatMicroBenchmark::usage() {
 
 int64_t FormatMicroBenchmark::stabilizeMemory(bool reportConsumedMemory) {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int64_t oneMegabyte = (int64_t)1024 * (int64_t)1024;
 	int64_t refMemory = 0;
 	int64_t initialMemoryLeft = $nc($($Runtime::getRuntime()))->freeMemory();
@@ -179,6 +180,7 @@ double FormatMicroBenchmark::integerThroughputLoad() {
 
 void FormatMicroBenchmark::calculateIntegerThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -218,6 +220,7 @@ double FormatMicroBenchmark::fractionalThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFractionalThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -255,6 +258,7 @@ double FormatMicroBenchmark::smallIntegralThroughputLoad() {
 
 void FormatMicroBenchmark::calculateSmallIntegralThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -297,6 +301,7 @@ double FormatMicroBenchmark::fairSimpleThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFairSimpleThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -360,6 +365,7 @@ double FormatMicroBenchmark::fractionalAllNinesThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFractionalAllNinesThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -379,6 +385,7 @@ void FormatMicroBenchmark::calculateFractionalAllNinesThroughputLoad() {
 
 $String* FormatMicroBenchmark::benchFormatAllNines($NumberFormat* nf, bool isCurrency) {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, ""_s);
 	$var($doubles, decimaAllNines, $new($doubles, {
 		9.9993,
@@ -420,6 +427,7 @@ $String* FormatMicroBenchmark::benchFormatAllNines($NumberFormat* nf, bool isCur
 
 double FormatMicroBenchmark::allNinesThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	$var($doubles, decimaAllNines, $new($doubles, {
 		9.9993,
 		99.9993,
@@ -448,6 +456,7 @@ double FormatMicroBenchmark::allNinesThroughputLoad() {
 
 void FormatMicroBenchmark::calculateAllNinesThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -505,6 +514,7 @@ double FormatMicroBenchmark::fairThroughputLoad() {
 
 void FormatMicroBenchmark::calculateFairThroughputLoad() {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -548,6 +558,7 @@ double FormatMicroBenchmark::tieThroughputLoad(bool isCurrency) {
 
 void FormatMicroBenchmark::calculateTieThroughputLoad(bool isCurrency) {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbRuns = FormatMicroBenchmark::NB_RUNS;
 	int64_t elapsedTime = 0;
 	double foo = 0.0;
@@ -567,6 +578,7 @@ void FormatMicroBenchmark::calculateTieThroughputLoad(bool isCurrency) {
 
 void FormatMicroBenchmark::printPerfResults($longs* times, $String* benchName) {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	int32_t nbBenches = $nc(times)->length;
 	int64_t totalTimeSpent = 0;
 	int64_t meanTimeSpent = 0;
@@ -587,6 +599,7 @@ void FormatMicroBenchmark::printPerfResults($longs* times, $String* benchName) {
 
 void FormatMicroBenchmark::main($StringArray* args) {
 	$init(FormatMicroBenchmark);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length >= 1) {
 		if ($nc(args->get(0))->equals("-help"_s)) {
 			usage();

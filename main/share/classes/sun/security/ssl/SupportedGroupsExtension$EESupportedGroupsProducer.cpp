@@ -128,6 +128,7 @@ void SupportedGroupsExtension$EESupportedGroupsProducer::init$() {
 }
 
 $bytes* SupportedGroupsExtension$EESupportedGroupsProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::EE_SUPPORTED_GROUPS)) {

@@ -135,6 +135,7 @@ $String* AuthorityKeyIdentifierExtension::AUTH_NAME = nullptr;
 $String* AuthorityKeyIdentifierExtension::SERIAL_NUMBER = nullptr;
 
 void AuthorityKeyIdentifierExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->id == nullptr && this->names == nullptr && this->serialNum == nullptr) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -180,6 +181,7 @@ void AuthorityKeyIdentifierExtension::init$($KeyIdentifier* kid, $GeneralNames* 
 }
 
 void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, id, nullptr);
 	$set(this, names, nullptr);
@@ -226,6 +228,7 @@ void AuthorityKeyIdentifierExtension::init$($Boolean* critical, Object$* value) 
 }
 
 $String* AuthorityKeyIdentifierExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("AuthorityKeyIdentifier [\n"_s);
 	if (this->id != nullptr) {
@@ -242,6 +245,7 @@ $String* AuthorityKeyIdentifierExtension::toString() {
 }
 
 void AuthorityKeyIdentifierExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

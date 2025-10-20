@@ -182,6 +182,7 @@ SystemImage* SystemImage::open() {
 
 $String* SystemImage::findHome() {
 	$init(SystemImage);
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSource, cs, $nc($(SystemImage::class$->getProtectionDomain()))->getCodeSource());
 	if (cs == nullptr) {
 		return $System::getProperty("java.home"_s);
@@ -204,6 +205,7 @@ $String* SystemImage::findHome() {
 }
 
 void clinit$SystemImage($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(SystemImage$$Lambda$findHome)));

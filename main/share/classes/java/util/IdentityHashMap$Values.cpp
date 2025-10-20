@@ -119,6 +119,7 @@ $ObjectArray* IdentityHashMap$Values::toArray() {
 }
 
 $ObjectArray* IdentityHashMap$Values::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	int32_t expectedModCount = this->this$0->modCount;
 	int32_t size = this->size();

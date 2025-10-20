@@ -77,6 +77,7 @@ void BlockDeviceSize::init$() {
 
 void BlockDeviceSize::main($StringArray* args) {
 	$init(BlockDeviceSize);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardOpenOption);
 		$var($FileChannel, ch, $FileChannel::open(BlockDeviceSize::BLK_PATH, $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)})));

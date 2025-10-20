@@ -60,6 +60,7 @@ void MemoryAccessVarHandleBase::init$($VarForm* form, bool skipAlignmentMaskChec
 
 $IllegalStateException* MemoryAccessVarHandleBase::newIllegalStateExceptionForMisalignedAccess(int64_t address) {
 	$init(MemoryAccessVarHandleBase);
+	$useLocalCurrentObjectStackCache();
 	return $new($IllegalStateException, $$str({"Misaligned access at address: "_s, $$str(address)}));
 }
 

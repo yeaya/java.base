@@ -86,6 +86,7 @@ void RSAKeyExchange$RSAKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* RSAKeyExchange$RSAKAGenerator::createKeyDerivation($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($RSAKeyExchange$RSAPremasterSecret, premaster, nullptr);
 	if ($instanceOf($ClientHandshakeContext, context)) {
 		{

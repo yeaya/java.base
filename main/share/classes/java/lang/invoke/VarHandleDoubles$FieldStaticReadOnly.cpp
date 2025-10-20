@@ -139,6 +139,7 @@ VarHandleDoubles$FieldStaticReadOnly* VarHandleDoubles$FieldStaticReadOnly::with
 }
 
 $Optional* VarHandleDoubles$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Double);
 	$var($Optional, fieldTypeRef, $nc($Double::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

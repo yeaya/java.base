@@ -121,6 +121,7 @@ void PBMAC1Core::init$($String* kdfAlgo, $String* hashAlgo, int32_t blockLength)
 
 $PBKDF2Core* PBMAC1Core::getKDFImpl($String* algo) {
 	$init(PBMAC1Core);
+	$useLocalCurrentObjectStackCache();
 	$var($PBKDF2Core, kdf, nullptr);
 	{
 		$var($String, s2411$, algo);
@@ -198,6 +199,7 @@ $PBKDF2Core* PBMAC1Core::getKDFImpl($String* algo) {
 }
 
 void PBMAC1Core::engineInit($Key* key, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwdChars, nullptr);
 	$var($bytes, salt, nullptr);
 	int32_t iCount = 0;

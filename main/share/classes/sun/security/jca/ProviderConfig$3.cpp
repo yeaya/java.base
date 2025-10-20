@@ -87,6 +87,7 @@ void ProviderConfig$3::init$($ProviderConfig* this$0) {
 }
 
 $Object* ProviderConfig$3::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($ProviderConfig);
 	if ($ProviderConfig::debug != nullptr) {
 		$nc($ProviderConfig::debug)->println($$str({"Loading provider "_s, this->this$0}));

@@ -101,6 +101,7 @@ void Finished$T13VerifyDataGenerator::init$() {
 }
 
 $bytes* Finished$T13VerifyDataGenerator::createVerifyData($HandshakeContext* context, bool isValidation) {
+	$useLocalCurrentObjectStackCache();
 	$CipherSuite$HashAlg* hashAlg = $nc($nc(context)->negotiatedCipherSuite)->hashAlg;
 	$var($SecretKey, secret, isValidation ? context->baseReadSecret : context->baseWriteSecret);
 	$var($SSLBasicKeyDerivation, kdf, $new($SSLBasicKeyDerivation, secret, $nc(hashAlg)->name$, Finished$T13VerifyDataGenerator::hkdfLabel, Finished$T13VerifyDataGenerator::hkdfContext, hashAlg->hashLength));

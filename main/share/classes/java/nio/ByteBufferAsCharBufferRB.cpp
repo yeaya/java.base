@@ -143,6 +143,7 @@ bool ByteBufferAsCharBufferRB::isReadOnly() {
 }
 
 $String* ByteBufferAsCharBufferRB::toString(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromToIndex(start, end, limit());
 	try {
 		int32_t len = end - start;

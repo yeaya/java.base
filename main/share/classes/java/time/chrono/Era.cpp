@@ -139,6 +139,7 @@ $Temporal* Era::adjustInto($Temporal* temporal) {
 }
 
 $String* Era::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::ERA), style)))->toFormatter(locale)))->format(this);
 }

@@ -318,6 +318,7 @@ $MethodType* MemberName::getMethodOrFieldType() {
 }
 
 $MethodType* MemberName::getMethodType() {
+	$useLocalCurrentObjectStackCache();
 	if (this->type == nullptr) {
 		expandFromVM();
 		if (this->type == nullptr) {
@@ -369,6 +370,7 @@ $MethodType* MemberName::getMethodType() {
 }
 
 $String* MemberName::getMethodDescriptor() {
+	$useLocalCurrentObjectStackCache();
 	if (this->type == nullptr) {
 		expandFromVM();
 		if (this->type == nullptr) {
@@ -387,6 +389,7 @@ $String* MemberName::getMethodDescriptor() {
 }
 
 $MethodType* MemberName::getInvocationType() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, itype, getMethodOrFieldType());
 	bool var$0 = isConstructor();
 	if (var$0 && getReferenceKind() == (int8_t)8) {
@@ -407,6 +410,7 @@ $Class* MemberName::getReturnType() {
 }
 
 $Class* MemberName::getFieldType() {
+	$useLocalCurrentObjectStackCache();
 	if (this->type == nullptr) {
 		expandFromVM();
 		if (this->type == nullptr) {
@@ -532,6 +536,7 @@ bool MemberName::isObjectPublicMethod() {
 }
 
 bool MemberName::referenceKindIsConsistentWith(int32_t originalRefKind) {
+	$useLocalCurrentObjectStackCache();
 	int32_t refKind = getReferenceKind();
 	if (refKind == originalRefKind) {
 		return true;
@@ -581,6 +586,7 @@ bool MemberName::staticIsConsistent() {
 }
 
 bool MemberName::vminfoIsConsistent() {
+	$useLocalCurrentObjectStackCache();
 	int8_t refKind = getReferenceKind();
 	if (!MemberName::$assertionsDisabled && !(isResolved())) {
 		$throwNew($AssertionError);
@@ -841,6 +847,7 @@ void MemberName::init$($Method* m) {
 }
 
 void MemberName::init$($Method* m, bool wantSpecial) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(m);
 	$MethodHandleNatives::init(this, m);
 	if (this->clazz == nullptr) {
@@ -891,6 +898,7 @@ void MemberName::init$($Method* m, bool wantSpecial) {
 }
 
 MemberName* MemberName::asSpecial() {
+	$useLocalCurrentObjectStackCache();
 	switch (getReferenceKind()) {
 	case 7:
 		{
@@ -913,6 +921,7 @@ MemberName* MemberName::asSpecial() {
 }
 
 MemberName* MemberName::asConstructor() {
+	$useLocalCurrentObjectStackCache();
 	switch (getReferenceKind()) {
 	case 7:
 		{
@@ -927,6 +936,7 @@ MemberName* MemberName::asConstructor() {
 }
 
 MemberName* MemberName::asNormalOriginal() {
+	$useLocalCurrentObjectStackCache();
 	int8_t normalVirtual = $nc(this->clazz)->isInterface() ? (int8_t)9 : (int8_t)5;
 	int8_t refKind = getReferenceKind();
 	int8_t newRefKind = refKind;
@@ -1007,6 +1017,7 @@ MemberName* MemberName::asSetter() {
 }
 
 void MemberName::init$($Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* var$0 = $nc(type)->getDeclaringClass();
 	$var($String, var$1, type->getSimpleName());
@@ -1051,6 +1062,7 @@ void MemberName::init$() {
 }
 
 $Object* MemberName::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($cast(MemberName, $Member::clone()));
 	} catch ($CloneNotSupportedException&) {
@@ -1061,6 +1073,7 @@ $Object* MemberName::clone() {
 }
 
 MemberName* MemberName::getDefinition() {
+	$useLocalCurrentObjectStackCache();
 	if (!isResolved()) {
 		$throwNew($IllegalStateException, $$str({"must be resolved: "_s, this}));
 	}
@@ -1080,6 +1093,7 @@ MemberName* MemberName::getDefinition() {
 }
 
 int32_t MemberName::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	return $Objects::hash($$new($ObjectArray, {
 		$of(this->clazz),
 		$of($$new($Byte, getReferenceKind())),
@@ -1093,6 +1107,7 @@ bool MemberName::equals(Object$* that) {
 }
 
 bool MemberName::equals(MemberName* that) {
+	$useLocalCurrentObjectStackCache();
 	if (this == that) {
 		return true;
 	}
@@ -1125,6 +1140,7 @@ void MemberName::init$($Class* defClass, $String* name, $MethodType* type, int8_
 }
 
 void MemberName::init$(int8_t refKind, $Class* defClass, $String* name, Object$* type) {
+	$useLocalCurrentObjectStackCache();
 	int32_t kindFlags = 0;
 	if ($MethodHandleNatives::refKindIsField(refKind)) {
 		kindFlags = MemberName::IS_FIELD;
@@ -1169,6 +1185,7 @@ void MemberName::initResolved(bool isResolved) {
 }
 
 void MemberName::checkForTypeAlias($Class* refc) {
+	$useLocalCurrentObjectStackCache();
 	if (isInvocable()) {
 		$var($MethodType, type, nullptr);
 		if ($instanceOf($MethodType, this->type)) {
@@ -1198,6 +1215,7 @@ void MemberName::checkForTypeAlias($Class* refc) {
 }
 
 $String* MemberName::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (isType()) {
 		return $nc($of(this->type))->toString();
 	}
@@ -1232,6 +1250,7 @@ $String* MemberName::getName(Object$* obj) {
 }
 
 $IllegalAccessException* MemberName::makeAccessException($String* message$renamed, Object$* from$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, from, from$renamed);
 	$var($String, message, message$renamed);
 	$assign(message, $str({message, ": "_s, $(toString())}));
@@ -1281,6 +1300,7 @@ $String* MemberName::message() {
 }
 
 $ReflectiveOperationException* MemberName::makeAccessException() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$(this->message()), ": "_s}));
 	$var($String, message, $concat(var$0, $(toString())));
 	$var($ReflectiveOperationException, ex, nullptr);

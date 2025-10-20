@@ -75,6 +75,7 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$TreeNode::find(int32_t h, Object$* k)
 }
 
 ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeNode::findTreeNode(int32_t h, Object$* k, $Class* kc) {
+	$useLocalCurrentObjectStackCache();
 	if (k != nullptr) {
 		$var(ConcurrentHashMap$TreeNode, p, this);
 		do {

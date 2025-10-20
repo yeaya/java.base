@@ -223,6 +223,7 @@ $Comparator* ChronoZonedDateTime::timeLineOrder() {
 
 ChronoZonedDateTime* ChronoZonedDateTime::from($TemporalAccessor* temporal) {
 	$init(ChronoZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(ChronoZonedDateTime, temporal)) {
 		return $cast(ChronoZonedDateTime, temporal);
 	}
@@ -246,6 +247,7 @@ $ValueRange* ChronoZonedDateTime::range($TemporalField* field) {
 }
 
 int32_t ChronoZonedDateTime::get($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -272,6 +274,7 @@ int32_t ChronoZonedDateTime::get($TemporalField* field) {
 }
 
 int64_t ChronoZonedDateTime::getLong($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -318,21 +321,25 @@ bool ChronoZonedDateTime::isSupported($TemporalUnit* unit) {
 }
 
 ChronoZonedDateTime* ChronoZonedDateTime::with($TemporalAdjuster* adjuster) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoZonedDateTimeImpl::ensureValid(var$0, $($Temporal::with(adjuster)));
 }
 
 ChronoZonedDateTime* ChronoZonedDateTime::plus($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoZonedDateTimeImpl::ensureValid(var$0, $($Temporal::plus(amount)));
 }
 
 ChronoZonedDateTime* ChronoZonedDateTime::minus($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoZonedDateTimeImpl::ensureValid(var$0, $($Temporal::minus(amount)));
 }
 
 ChronoZonedDateTime* ChronoZonedDateTime::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoZonedDateTimeImpl::ensureValid(var$0, $($Temporal::minus(amountToSubtract, unit)));
 }
@@ -365,6 +372,7 @@ $Instant* ChronoZonedDateTime::toInstant() {
 }
 
 int64_t ChronoZonedDateTime::toEpochSecond() {
+	$useLocalCurrentObjectStackCache();
 	int64_t epochDay = $nc($(toLocalDate()))->toEpochDay();
 	int64_t secs = epochDay * 0x00015180 + $nc($(toLocalTime()))->toSecondOfDay();
 	secs -= $nc($(getOffset()))->getTotalSeconds();
@@ -372,6 +380,7 @@ int64_t ChronoZonedDateTime::toEpochSecond() {
 }
 
 int32_t ChronoZonedDateTime::compareTo(ChronoZonedDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t var$0 = toEpochSecond();
 	int32_t cmp = $Long::compare(var$0, $nc(other)->toEpochSecond());
 	if (cmp == 0) {
@@ -391,6 +400,7 @@ int32_t ChronoZonedDateTime::compareTo(ChronoZonedDateTime* other) {
 }
 
 bool ChronoZonedDateTime::isBefore(ChronoZonedDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t thisEpochSec = toEpochSecond();
 	int64_t otherEpochSec = $nc(other)->toEpochSecond();
 	bool var$0 = thisEpochSec < otherEpochSec;
@@ -406,6 +416,7 @@ bool ChronoZonedDateTime::isBefore(ChronoZonedDateTime* other) {
 }
 
 bool ChronoZonedDateTime::isAfter(ChronoZonedDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t thisEpochSec = toEpochSecond();
 	int64_t otherEpochSec = $nc(other)->toEpochSecond();
 	bool var$0 = thisEpochSec > otherEpochSec;
@@ -421,6 +432,7 @@ bool ChronoZonedDateTime::isAfter(ChronoZonedDateTime* other) {
 }
 
 bool ChronoZonedDateTime::isEqual(ChronoZonedDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t var$1 = toEpochSecond();
 	bool var$0 = var$1 == $nc(other)->toEpochSecond();
 	if (var$0) {
@@ -436,6 +448,7 @@ int32_t ChronoZonedDateTime::compareTo(Object$* other) {
 
 $Object* ChronoZonedDateTime::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(ChronoZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s5569$, $nc(lambda)->getImplMethodName());
 		int32_t tmp5569$ = -1;
@@ -468,6 +481,7 @@ $Object* ChronoZonedDateTime::$deserializeLambda$($SerializedLambda* lambda) {
 
 int32_t ChronoZonedDateTime::lambda$timeLineOrder$f56e6d02$1(ChronoZonedDateTime* dateTime1, ChronoZonedDateTime* dateTime2) {
 	$init(ChronoZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	int64_t var$0 = $nc(dateTime1)->toEpochSecond();
 	int32_t cmp = $Long::compare(var$0, $nc(dateTime2)->toEpochSecond());
 	if (cmp == 0) {

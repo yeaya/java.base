@@ -150,6 +150,7 @@ WindowsFileStore* WindowsFileStore::create($String* root, bool ignoreNotReady) {
 
 WindowsFileStore* WindowsFileStore::create($WindowsPath* file) {
 	$init(WindowsFileStore);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, target, $WindowsLinkSupport::getFinalPath(file, true));
 		try {
@@ -349,6 +350,7 @@ int32_t WindowsFileStore::hashCode() {
 }
 
 $String* WindowsFileStore::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, this->displayName));
 	if (sb->length() > 0) {
 		sb->append(" "_s);

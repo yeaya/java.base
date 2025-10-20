@@ -149,6 +149,7 @@ bool Invoker::mayInvokeDirect($Invoker$GroupAndInvokeCount* myGroupAndInvokeCoun
 
 void Invoker::invokeUnchecked($CompletionHandler* handler, Object$* attachment, Object$* value, $Throwable* exc) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	if (exc == nullptr) {
 		$nc(handler)->completed(value, attachment);
 	} else {
@@ -175,6 +176,7 @@ void Invoker::invokeDirect($Invoker$GroupAndInvokeCount* myGroupAndInvokeCount, 
 
 void Invoker::invoke($AsynchronousChannel* channel, $CompletionHandler* handler, Object$* attachment, Object$* result, $Throwable* exc) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	bool invokeDirect = false;
 	bool identityOkay = false;
 	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get()));
@@ -204,6 +206,7 @@ void Invoker::invoke($AsynchronousChannel* channel, $CompletionHandler* handler,
 
 void Invoker::invokeIndirectly($AsynchronousChannel* channel, $CompletionHandler* handler, Object$* attachment, Object$* result, $Throwable* exc) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($($nc(($cast($Groupable, channel)))->group()))->executeOnPooledThread($$new($Invoker$2, handler, attachment, result, exc));
 	} catch ($RejectedExecutionException&) {
@@ -214,6 +217,7 @@ void Invoker::invokeIndirectly($AsynchronousChannel* channel, $CompletionHandler
 
 void Invoker::invokeIndirectly($CompletionHandler* handler, Object$* attachment, Object$* value, $Throwable* exc, $Executor* executor) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(executor)->execute($$new($Invoker$3, handler, attachment, value, exc));
 	} catch ($RejectedExecutionException&) {
@@ -224,6 +228,7 @@ void Invoker::invokeIndirectly($CompletionHandler* handler, Object$* attachment,
 
 void Invoker::invokeOnThreadInThreadPool($Groupable* channel, $Runnable* task) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	bool invokeDirect = false;
 	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get()));
 	$var($AsynchronousChannelGroupImpl, targetGroup, $nc(channel)->group());
@@ -246,6 +251,7 @@ void Invoker::invokeOnThreadInThreadPool($Groupable* channel, $Runnable* task) {
 
 void Invoker::invokeUnchecked($PendingFuture* future) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	if (!Invoker::$assertionsDisabled && !$nc(future)->isDone()) {
 		$throwNew($AssertionError);
 	}
@@ -260,6 +266,7 @@ void Invoker::invokeUnchecked($PendingFuture* future) {
 
 void Invoker::invoke($PendingFuture* future) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	if (!Invoker::$assertionsDisabled && !$nc(future)->isDone()) {
 		$throwNew($AssertionError);
 	}
@@ -275,6 +282,7 @@ void Invoker::invoke($PendingFuture* future) {
 
 void Invoker::invokeIndirectly($PendingFuture* future) {
 	$init(Invoker);
+	$useLocalCurrentObjectStackCache();
 	if (!Invoker::$assertionsDisabled && !$nc(future)->isDone()) {
 		$throwNew($AssertionError);
 	}
@@ -289,6 +297,7 @@ void Invoker::invokeIndirectly($PendingFuture* future) {
 }
 
 void clinit$Invoker($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Invoker::$assertionsDisabled = !Invoker::class$->desiredAssertionStatus();
 	Invoker::maxHandlerInvokeCount = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "sun.nio.ch.maxCompletionHandlersOnStack"_s, 16)))))))->intValue();

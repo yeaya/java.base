@@ -223,6 +223,7 @@ void GaloisCounterMode::init$(int32_t keySize, $SymmetricCipher* embeddedCipher)
 }
 
 void GaloisCounterMode::init(int32_t opmode, $Key* key, $GCMParameterSpec* spec) {
+	$useLocalCurrentObjectStackCache();
 	this->encryption = (opmode == $Cipher::ENCRYPT_MODE) || (opmode == $Cipher::WRAP_MODE);
 	int32_t tagLen = $nc(spec)->getTLen();
 	if (tagLen < 96 || tagLen > 128 || (((int32_t)(tagLen & (uint32_t)7)) != 0)) {
@@ -291,6 +292,7 @@ int32_t GaloisCounterMode::engineGetOutputSize(int32_t inputLen) {
 }
 
 int32_t GaloisCounterMode::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if (!$AESCrypt::isKeySizeValid($nc(encoded)->length)) {
@@ -308,6 +310,7 @@ $bytes* GaloisCounterMode::engineGetIV() {
 
 $bytes* GaloisCounterMode::createIv($SecureRandom* rand$renamed) {
 	$init(GaloisCounterMode);
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandom, rand, rand$renamed);
 	$var($bytes, iv, $new($bytes, GaloisCounterMode::DEFAULT_IV_LEN));
 	if (rand == nullptr) {
@@ -318,6 +321,7 @@ $bytes* GaloisCounterMode::createIv($SecureRandom* rand$renamed) {
 }
 
 $AlgorithmParameters* GaloisCounterMode::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($GCMParameterSpec, spec, nullptr);
 	$assign(spec, $new($GCMParameterSpec, this->tagLenBytes * 8, this->iv == nullptr ? $(createIv(this->random)) : $cast($bytes, $($nc(this->iv)->clone()))));
 	try {
@@ -371,6 +375,7 @@ void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $AlgorithmParamete
 }
 
 void GaloisCounterMode::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($GCMParameterSpec, spec, nullptr);
 	$set(this, engine, nullptr);
 	if (params != nullptr) {
@@ -411,6 +416,7 @@ $bytes* GaloisCounterMode::engineUpdate($bytes* input, int32_t inputOffset, int3
 }
 
 int32_t GaloisCounterMode::engineUpdate($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
+	$useLocalCurrentObjectStackCache();
 	checkInit();
 	$ArrayUtil::nullAndBoundsCheck(input, inputOffset, inputLen);
 	$ArrayUtil::nullAndBoundsCheck(output, outputOffset, $nc(output)->length - outputOffset);
@@ -422,6 +428,7 @@ int32_t GaloisCounterMode::engineUpdate($bytes* input, int32_t inputOffset, int3
 }
 
 int32_t GaloisCounterMode::engineUpdate($ByteBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	checkInit();
 	int32_t len = $nc(this->engine)->getOutputSize($nc(src)->remaining(), false);
 	if (len > $nc(dst)->remaining()) {
@@ -436,6 +443,7 @@ void GaloisCounterMode::engineUpdateAAD($bytes* src, int32_t offset, int32_t len
 }
 
 void GaloisCounterMode::engineUpdateAAD($ByteBuffer* src) {
+	$useLocalCurrentObjectStackCache();
 	checkInit();
 	if ($nc(src)->hasArray()) {
 		int32_t pos = src->position();
@@ -451,6 +459,7 @@ void GaloisCounterMode::engineUpdateAAD($ByteBuffer* src) {
 }
 
 $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOffset, int32_t inputLen) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, input, input$renamed);
 	if (input == nullptr) {
 		$assign(input, GaloisCounterMode::EMPTY_BUF);
@@ -485,6 +494,7 @@ $bytes* GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOff
 }
 
 int32_t GaloisCounterMode::engineDoFinal($bytes* input$renamed, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, input, input$renamed);
 	if (input == nullptr) {
 		$assign(input, GaloisCounterMode::EMPTY_BUF);
@@ -510,6 +520,7 @@ int32_t GaloisCounterMode::engineDoFinal($ByteBuffer* src, $ByteBuffer* dst) {
 }
 
 $bytes* GaloisCounterMode::engineWrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encodedKey, nullptr);
 	checkInit();
 	{
@@ -547,6 +558,7 @@ $bytes* GaloisCounterMode::engineWrap($Key* key) {
 }
 
 $Key* GaloisCounterMode::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
+	$useLocalCurrentObjectStackCache();
 	checkInit();
 	$var($bytes, encodedKey, nullptr);
 	try {
@@ -597,6 +609,7 @@ void GaloisCounterMode::increment32($bytes* value) {
 
 $bytes* GaloisCounterMode::getLengthBlock(int32_t ivLenInBytes) {
 	$init(GaloisCounterMode);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, $new($bytes, 16));
 	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {$of(out), $$of(8), $$of((((int64_t)((int64_t)ivLenInBytes & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 3))}));
 	return out;
@@ -604,6 +617,7 @@ $bytes* GaloisCounterMode::getLengthBlock(int32_t ivLenInBytes) {
 
 $bytes* GaloisCounterMode::getLengthBlock(int32_t aLenInBytes, int32_t cLenInBytes) {
 	$init(GaloisCounterMode);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, $new($bytes, 16));
 	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {$of(out), $$of(0), $$of((((int64_t)((int64_t)aLenInBytes & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 3))}));
 	$nc(GaloisCounterMode::wrapToByteArray)->set($$new($ObjectArray, {$of(out), $$of(8), $$of((((int64_t)((int64_t)cLenInBytes & (uint64_t)(int64_t)0x00000000FFFFFFFF)) << 3))}));
@@ -612,6 +626,7 @@ $bytes* GaloisCounterMode::getLengthBlock(int32_t aLenInBytes, int32_t cLenInByt
 
 $bytes* GaloisCounterMode::expandToOneBlock($bytes* in, int32_t inOfs, int32_t len, int32_t blockSize) {
 	$init(GaloisCounterMode);
+	$useLocalCurrentObjectStackCache();
 	if (len > blockSize) {
 		$throwNew($ProviderException, $$str({"input "_s, $$str(len), " too long"_s}));
 	}
@@ -626,6 +641,7 @@ $bytes* GaloisCounterMode::expandToOneBlock($bytes* in, int32_t inOfs, int32_t l
 
 $bytes* GaloisCounterMode::getJ0($bytes* iv, $bytes* subkeyH, int32_t blockSize) {
 	$init(GaloisCounterMode);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, j0, nullptr);
 	if ($nc(iv)->length == 12) {
 		$assign(j0, expandToOneBlock(iv, 0, iv->length, blockSize));
@@ -647,6 +663,7 @@ $bytes* GaloisCounterMode::getJ0($bytes* iv, $bytes* subkeyH, int32_t blockSize)
 }
 
 void GaloisCounterMode::checkDataLength($ints* lengths) {
+	$useLocalCurrentObjectStackCache();
 	int32_t max = GaloisCounterMode::MAX_BUF_SIZE;
 	{
 		$var($ints, arr$, lengths);

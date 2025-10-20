@@ -52,6 +52,7 @@ int32_t Test::count() {
 }
 
 void Test::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::loadLibrary("nativeLibraryTest"_s);
 	if (count() != 1) {

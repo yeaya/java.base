@@ -128,6 +128,7 @@ void MetafactoryParameterCastTest::main($StringArray* args) {
 }
 
 void MetafactoryParameterCastTest::test() {
+	$useLocalCurrentObjectStackCache();
 	$init($Void);
 	$load($MetafactoryParameterCastTest$A);
 	$var($MethodType, takeA, $MethodType::methodType($Void::TYPE, $MetafactoryParameterCastTest$A::class$));
@@ -184,26 +185,31 @@ void MetafactoryParameterCastTest::test() {
 }
 
 void MetafactoryParameterCastTest::tryASink($CallSite* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($MetafactoryParameterCastTest$ASink, sink, $cast($MetafactoryParameterCastTest$ASink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, 0))));
 	tryASink(sink);
 }
 
 void MetafactoryParameterCastTest::tryCapASink($CallSite* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($MetafactoryParameterCastTest$ASink, sink, $cast($MetafactoryParameterCastTest$ASink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, {$of($$new($MetafactoryParameterCastTest$B))}))));
 	tryASink(sink);
 }
 
 void MetafactoryParameterCastTest::tryBSink($CallSite* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($MetafactoryParameterCastTest$BSink, sink, $cast($MetafactoryParameterCastTest$BSink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, 0))));
 	tryBSink(sink);
 }
 
 void MetafactoryParameterCastTest::tryCapBSink($CallSite* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($MetafactoryParameterCastTest$BSink, sink, $cast($MetafactoryParameterCastTest$BSink, $nc($($nc(cs)->dynamicInvoker()))->invoke($$new($ObjectArray, {$of($$new($MetafactoryParameterCastTest$B))}))));
 	tryBSink(sink);
 }
 
 void MetafactoryParameterCastTest::tryASink($MetafactoryParameterCastTest$ASink* sink) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$C));
 	} catch ($ClassCastException&) {
@@ -226,6 +232,7 @@ void MetafactoryParameterCastTest::tryASink($MetafactoryParameterCastTest$ASink*
 }
 
 void MetafactoryParameterCastTest::tryBSink($MetafactoryParameterCastTest$BSink* sink) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(sink)->take($$new($MetafactoryParameterCastTest$C));
 	} catch ($ClassCastException&) {
@@ -248,6 +255,7 @@ void MetafactoryParameterCastTest::tryBSink($MetafactoryParameterCastTest$BSink*
 }
 
 $String* MetafactoryParameterCastTest::lastMFParams() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$6, $$str({"mh="_s, this->lastMH, ", captured="_s}));
 	$var($String, var$5, $$concat(var$6, $($Arrays::toString(this->lastCaptured))));
 	$var($String, var$4, $$concat(var$5, ", instMT="));
@@ -259,6 +267,7 @@ $String* MetafactoryParameterCastTest::lastMFParams() {
 }
 
 $CallSite* MetafactoryParameterCastTest::invokeMetafactory($MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lastMH, mh);
 	$set(this, lastCaptured, captured);
 	$set(this, lastInstMT, instMT);
@@ -274,6 +283,7 @@ $CallSite* MetafactoryParameterCastTest::invokeMetafactory($MethodHandle* mh, $C
 }
 
 $CallSite* MetafactoryParameterCastTest::invokeAltMetafactory($MethodHandle* mh, $Class* sam, $String* methodName, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT, $MethodTypeArray* bridgeMTs) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lastMH, mh);
 	$set(this, lastCaptured, captured);
 	$set(this, lastInstMT, instMT);

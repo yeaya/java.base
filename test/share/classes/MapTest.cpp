@@ -129,6 +129,7 @@ void MapTest::init$() {
 
 void MapTest::main($StringArray* args) {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MapTest::blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(MapTest::blah)->deleteOnExit();
 	initTestFile(MapTest::blah);
@@ -161,6 +162,7 @@ void MapTest::main($StringArray* args) {
 
 void MapTest::initTestFile($File* blah) {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($StandardCharsets);
 		$var($BufferedWriter, writer, $Files::newBufferedWriter($($nc(blah)->toPath()), $StandardCharsets::ISO_8859_1, $$new($OpenOptionArray, 0)));
@@ -204,6 +206,7 @@ void MapTest::initTestFile($File* blah) {
 
 void MapTest::testZero() {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileInputStream, fis, $new($FileInputStream, MapTest::blah));
 		{
@@ -237,6 +240,7 @@ void MapTest::testZero() {
 
 void MapTest::testRead() {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->setLength(4);
 	for (int32_t x = 0; x < 1000; ++x) {
@@ -287,6 +291,7 @@ void MapTest::testRead() {
 
 void MapTest::testWrite() {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->setLength(4);
 	for (int32_t x = 0; x < 1000; ++x) {
@@ -335,6 +340,7 @@ void MapTest::testWrite() {
 
 void MapTest::testHighOffset() {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->setLength(4);
 	for (int32_t x = 0; x < 1000; ++x) {
@@ -373,6 +379,7 @@ void MapTest::testHighOffset() {
 
 void MapTest::testForce() {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t x = 0; x < 50; ++x) {
 		{
 			$var($RandomAccessFile, raf, $new($RandomAccessFile, MapTest::blah, "rw"_s));
@@ -438,6 +445,7 @@ void MapTest::testForce() {
 
 void MapTest::testExceptions() {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($StandardOpenOption);
 		$var($FileChannel, fc, $FileChannel::open($($nc(MapTest::blah)->toPath()), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)})));
@@ -570,6 +578,7 @@ void MapTest::testExceptions() {
 
 void MapTest::testExceptions($FileChannel* fc) {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	$load($NullPointerException);
 	checkException(fc, nullptr, 0, $nc(fc)->size(), $$new($ClassArray, {$NullPointerException::class$}));
 	$init($FileChannel$MapMode);
@@ -598,6 +607,7 @@ void MapTest::testExceptions($FileChannel* fc) {
 
 void MapTest::checkException($FileChannel* fc, $FileChannel$MapMode* mode, int64_t position, int64_t size, $ClassArray* expected) {
 	$init(MapTest);
+	$useLocalCurrentObjectStackCache();
 	$var($Exception, exc, nullptr);
 	try {
 		$nc(fc)->map(mode, position, size);

@@ -82,6 +82,7 @@ void Executors$PrivilegedCallable::init$($Callable* task) {
 }
 
 $Object* Executors$PrivilegedCallable::call() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Executors$PrivilegedCallable$1, this)), this->acc));

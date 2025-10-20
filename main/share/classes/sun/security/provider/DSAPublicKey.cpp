@@ -120,6 +120,7 @@ void DSAPublicKey::init$() {
 }
 
 void DSAPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* q, $BigInteger* g) {
+	$useLocalCurrentObjectStackCache();
 	$X509Key::init$();
 	$set(this, y, y);
 	$set(this, algid, $new($AlgIdDSA, p, q, g));
@@ -139,6 +140,7 @@ void DSAPublicKey::init$($bytes* encoded) {
 }
 
 $DSAParams* DSAPublicKey::getParams() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($DSAParams, this->algid)) {
 			return $cast($DSAParams, this->algid);
@@ -164,12 +166,14 @@ $BigInteger* DSAPublicKey::getY() {
 }
 
 $String* DSAPublicKey::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"Sun DSA Public Key\n    Parameters:"_s, this->algid, "\n  y:\n"_s}));
 	$var($String, var$0, $$concat(var$1, $($Debug::toHexString(this->y))));
 	return $concat(var$0, "\n");
 }
 
 void DSAPublicKey::parseKeyBits() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, $($nc($(getKey()))->toByteArray())));
 		$set(this, y, in->getBigInteger());

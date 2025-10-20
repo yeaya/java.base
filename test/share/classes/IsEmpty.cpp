@@ -47,6 +47,7 @@ void IsEmpty::init$() {
 
 void IsEmpty::main($StringArray* args) {
 	$init(IsEmpty);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(IsEmpty::tests)->length; ++i) {
 		$var($String, s, $nc(IsEmpty::tests)->get(i));
 		int32_t len = $nc(s)->length();

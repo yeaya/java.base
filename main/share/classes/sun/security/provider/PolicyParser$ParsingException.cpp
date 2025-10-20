@@ -82,6 +82,7 @@ void PolicyParser$ParsingException::init$($String* msg, $LocalizedMessage* local
 }
 
 void PolicyParser$ParsingException::init$(int32_t line, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": "_s, msg}));
 	$set(this, localizedMsg, $new($LocalizedMessage, "line.number.msg"_s));
 	$set(this, source, $new($ObjectArray, {
@@ -91,6 +92,7 @@ void PolicyParser$ParsingException::init$(int32_t line, $String* msg) {
 }
 
 void PolicyParser$ParsingException::init$(int32_t line, $String* expect, $String* actual) {
+	$useLocalCurrentObjectStackCache();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": expected ["_s, expect, "], found ["_s, actual, "]"_s}));
 	$set(this, localizedMsg, $new($LocalizedMessage, "line.number.expected.expect.found.actual."_s));
 	$set(this, source, $new($ObjectArray, {

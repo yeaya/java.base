@@ -67,6 +67,7 @@ void ITLRemoveTest$MyThread::init$() {
 }
 
 void ITLRemoveTest$MyThread::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, child, nullptr);
 	int32_t threadId = 0;
 	try {

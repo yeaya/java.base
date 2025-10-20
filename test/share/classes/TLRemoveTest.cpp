@@ -76,6 +76,7 @@ void TLRemoveTest::init$() {
 
 void TLRemoveTest::main($StringArray* args) {
 	$init(TLRemoveTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t threadCount = 100;
 	$var($ints, removeNode, $new($ints, {
 		10,

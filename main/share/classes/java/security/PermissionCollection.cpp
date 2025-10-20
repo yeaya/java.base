@@ -73,6 +73,7 @@ void PermissionCollection::init$() {
 }
 
 $Stream* PermissionCollection::elementsAsStream() {
+	$useLocalCurrentObjectStackCache();
 	int32_t characteristics = isReadOnly() ? $Spliterator::NONNULL | $Spliterator::IMMUTABLE : $Spliterator::NONNULL;
 	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize($($nc($(elements()))->asIterator()), characteristics)), false);
 }
@@ -86,6 +87,7 @@ bool PermissionCollection::isReadOnly() {
 }
 
 $String* PermissionCollection::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, enum_, elements());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($$str({$($Serializable::toString()), " (\n"_s}));

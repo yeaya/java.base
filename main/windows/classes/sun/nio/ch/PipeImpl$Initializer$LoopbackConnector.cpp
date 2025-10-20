@@ -97,6 +97,7 @@ void PipeImpl$Initializer$LoopbackConnector::init$($PipeImpl$Initializer* this$0
 }
 
 void PipeImpl$Initializer$LoopbackConnector::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, nullptr);
 	$var($SocketChannel, sc1, nullptr);
 	$var($SocketChannel, sc2, nullptr);

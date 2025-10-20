@@ -372,6 +372,7 @@ MethodHandles$Lookup* MethodHandles$Lookup::newLookup($Class* lookupClass, $Clas
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::in($Class* requestedLookupClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(requestedLookupClass);
 	if (requestedLookupClass->isPrimitive()) {
 		$throwNew($IllegalArgumentException, $$str({requestedLookupClass, " is a primitive class"_s}));
@@ -414,6 +415,7 @@ MethodHandles$Lookup* MethodHandles$Lookup::in($Class* requestedLookupClass) {
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::dropLookupMode(int32_t modeToDrop) {
+	$useLocalCurrentObjectStackCache();
 	int32_t oldModes = lookupModes();
 	int32_t newModes = (int32_t)(oldModes & (uint32_t)~((modeToDrop | MethodHandles$Lookup::PROTECTED) | MethodHandles$Lookup::ORIGINAL));
 	switch (modeToDrop) {
@@ -455,6 +457,7 @@ MethodHandles$Lookup* MethodHandles$Lookup::dropLookupMode(int32_t modeToDrop) {
 }
 
 $Class* MethodHandles$Lookup::defineClass($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	ensureDefineClassPermission();
 	if (((int32_t)(lookupModes() & (uint32_t)MethodHandles$Lookup::PACKAGE)) == 0) {
 		$throwNew($IllegalAccessException, "Lookup does not have PACKAGE access"_s);
@@ -463,6 +466,7 @@ $Class* MethodHandles$Lookup::defineClass($bytes* bytes) {
 }
 
 void MethodHandles$Lookup::ensureDefineClassPermission() {
+	$useLocalCurrentObjectStackCache();
 	if (this->allowedModes == MethodHandles$Lookup::TRUSTED) {
 		return;
 	}
@@ -475,6 +479,7 @@ void MethodHandles$Lookup::ensureDefineClassPermission() {
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClass($bytes* bytes, bool initialize, $MethodHandles$Lookup$ClassOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(bytes);
 	$Objects::requireNonNull(options);
 	ensureDefineClassPermission();
@@ -486,6 +491,7 @@ MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClass($bytes* bytes, boo
 }
 
 MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClassWithClassData($bytes* bytes, Object$* classData, bool initialize, $MethodHandles$Lookup$ClassOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(bytes);
 	$Objects::requireNonNull(classData);
 	$Objects::requireNonNull(options);
@@ -498,21 +504,25 @@ MethodHandles$Lookup* MethodHandles$Lookup::defineHiddenClassWithClassData($byte
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeClassDefiner($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup$ClassFile, cf, $MethodHandles$Lookup$ClassFile::newInstance(bytes, $($nc(lookupClass())->getPackageName())));
 	return $new($MethodHandles$Lookup$ClassDefiner, this, cf, 4);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup$ClassFile, cf, $MethodHandles$Lookup$ClassFile::newInstance(bytes, $($nc(lookupClass())->getPackageName())));
 	return makeHiddenClassDefiner(cf, $($Set::of()), false);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner($bytes* bytes, $Set* options, bool accessVmAnnotations) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup$ClassFile, cf, $MethodHandles$Lookup$ClassFile::newInstance(bytes, $($nc(lookupClass())->getPackageName())));
 	return makeHiddenClassDefiner(cf, options, accessVmAnnotations);
 }
 
 $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner($String* name, $bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup$ClassFile, var$0, $MethodHandles$Lookup$ClassFile::newInstanceNoCheck(name, bytes));
 	return makeHiddenClassDefiner(var$0, $($Set::of()), false);
 }
@@ -527,6 +537,7 @@ $MethodHandles$Lookup$ClassDefiner* MethodHandles$Lookup::makeHiddenClassDefiner
 }
 
 $ProtectionDomain* MethodHandles$Lookup::lookupClassProtectionDomain() {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomain, pd, this->cachedProtectionDomain);
 	if (pd == nullptr) {
 		$set(this, cachedProtectionDomain, ($assign(pd, $nc($($SharedSecrets::getJavaLangAccess()))->protectionDomain(this->lookupClass$))));
@@ -536,6 +547,7 @@ $ProtectionDomain* MethodHandles$Lookup::lookupClassProtectionDomain() {
 
 void MethodHandles$Lookup::checkUnprivilegedlookupClass($Class* lookupClass) {
 	$init(MethodHandles$Lookup);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(lookupClass)->getName());
 	if ($nc(name)->startsWith("java.lang.invoke."_s)) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"illegal lookupClass: "_s, lookupClass}))));
@@ -543,6 +555,7 @@ void MethodHandles$Lookup::checkUnprivilegedlookupClass($Class* lookupClass) {
 }
 
 $String* MethodHandles$Lookup::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cname, $nc(this->lookupClass$)->getName());
 	if (this->prevLookupClass != nullptr) {
 		$plusAssign(cname, $$str({"/"_s, $($nc(this->prevLookupClass)->getName())}));
@@ -654,11 +667,13 @@ case$12:
 }
 
 $MethodHandle* MethodHandles$Lookup::findStatic($Class* refc, $String* name, $MethodType* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, method, resolveOrFail((int8_t)6, refc, name, type));
 	return getDirectMethod((int8_t)6, refc, method, $(findBoundCallerLookup(method)));
 }
 
 $MethodHandle* MethodHandles$Lookup::findVirtual($Class* refc, $String* name, $MethodType* type) {
+	$useLocalCurrentObjectStackCache();
 	$load($MethodHandle);
 	if (refc == $MethodHandle::class$) {
 		$var($MethodHandle, mh, findVirtualForMH(name, type));
@@ -693,6 +708,7 @@ $MethodHandle* MethodHandles$Lookup::findVirtualForMH($String* name, $MethodType
 }
 
 $MethodHandle* MethodHandles$Lookup::findVirtualForVH($String* name, $MethodType* type) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $MethodHandles::varHandleInvoker($($VarHandle$AccessMode::valueFromMethodName(name)), type);
 	} catch ($IllegalArgumentException&) {
@@ -703,6 +719,7 @@ $MethodHandle* MethodHandles$Lookup::findVirtualForVH($String* name, $MethodType
 }
 
 $MethodHandle* MethodHandles$Lookup::findConstructor($Class* refc, $MethodType* type) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(refc)->isArray()) {
 		$throwNew($NoSuchMethodException, $$str({"no constructor for array class: "_s, $(refc->getName())}));
 	}
@@ -718,6 +735,7 @@ $Class* MethodHandles$Lookup::findClass($String* targetName) {
 }
 
 $Class* MethodHandles$Lookup::ensureInitialized($Class* targetClass) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(targetClass)->isPrimitive()) {
 		$throwNew($IllegalArgumentException, $$str({targetClass, " is a primitive class"_s}));
 	}
@@ -733,6 +751,7 @@ $Class* MethodHandles$Lookup::ensureInitialized($Class* targetClass) {
 }
 
 $IllegalAccessException* MethodHandles$Lookup::makeAccessException($Class* targetClass) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, message, $str({"access violation: "_s, targetClass}));
 	if (this == $MethodHandles::publicLookup()) {
 		$plusAssign(message, ", from public Lookup"_s);
@@ -757,6 +776,7 @@ $Class* MethodHandles$Lookup::accessClass($Class* targetClass) {
 }
 
 $MethodHandle* MethodHandles$Lookup::findSpecial($Class* refc, $String* name, $MethodType* type, $Class* specialCaller) {
+	$useLocalCurrentObjectStackCache();
 	checkSpecialCaller(specialCaller, refc);
 	$var(MethodHandles$Lookup, specialLookup, this->in(specialCaller));
 	$var($MemberName, method, $nc(specialLookup)->resolveOrFail((int8_t)7, refc, name, type));
@@ -774,6 +794,7 @@ $MethodHandle* MethodHandles$Lookup::findSetter($Class* refc, $String* name, $Cl
 }
 
 $VarHandle* MethodHandles$Lookup::findVarHandle($Class* recv, $String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, getField, resolveOrFail((int8_t)1, recv, name, type));
 	$var($MemberName, putField, resolveOrFail((int8_t)3, recv, name, type));
 	return getFieldVarHandle((int8_t)1, (int8_t)3, recv, getField, putField);
@@ -790,12 +811,14 @@ $MethodHandle* MethodHandles$Lookup::findStaticSetter($Class* refc, $String* nam
 }
 
 $VarHandle* MethodHandles$Lookup::findStaticVarHandle($Class* decl, $String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, getField, resolveOrFail((int8_t)2, decl, name, type));
 	$var($MemberName, putField, resolveOrFail((int8_t)4, decl, name, type));
 	return getFieldVarHandle((int8_t)2, (int8_t)4, decl, getField, putField);
 }
 
 $MethodHandle* MethodHandles$Lookup::bind(Object$* receiver, $String* name, $MethodType* type) {
+	$useLocalCurrentObjectStackCache();
 	$Class* refc = $nc($of(receiver))->getClass();
 	$var($MemberName, method, resolveOrFail((int8_t)7, refc, name, type));
 	$var($MethodHandle, mh, getDirectMethodNoRestrictInvokeSpecial(refc, method, $(findBoundCallerLookup(method))));
@@ -807,6 +830,7 @@ $MethodHandle* MethodHandles$Lookup::bind(Object$* receiver, $String* name, $Met
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflect($Method* m) {
+	$useLocalCurrentObjectStackCache();
 	$load($MethodHandle);
 	if ($nc(m)->getDeclaringClass() == $MethodHandle::class$) {
 		$var($MethodHandle, mh, unreflectForMH(m));
@@ -837,6 +861,7 @@ $MethodHandle* MethodHandles$Lookup::unreflect($Method* m) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectForMH($Method* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($MemberName::isMethodHandleInvokeName($($nc(m)->getName()))) {
 		return $MethodHandleImpl::fakeMethodHandleInvoke($$new($MemberName, m));
 	}
@@ -844,6 +869,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectForMH($Method* m) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectForVH($Method* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($MemberName::isVarHandleMethodInvokeName($($nc(m)->getName()))) {
 		return $MethodHandleImpl::fakeVarHandleInvoke($$new($MemberName, m));
 	}
@@ -851,6 +877,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectForVH($Method* m) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectSpecial($Method* m, $Class* specialCaller) {
+	$useLocalCurrentObjectStackCache();
 	checkSpecialCaller(specialCaller, $nc(m)->getDeclaringClass());
 	$var(MethodHandles$Lookup, specialLookup, this->in(specialCaller));
 	$var($MemberName, method, $new($MemberName, m, true));
@@ -863,6 +890,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectSpecial($Method* m, $Class* specia
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectConstructor($Constructor* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, ctor, $new($MemberName, c));
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(ctor->isConstructor())) {
 		$throwNew($AssertionError);
@@ -880,6 +908,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectSetter($Field* f) {
 }
 
 $MethodHandle* MethodHandles$Lookup::unreflectField($Field* f, bool isSetter) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, field, $new($MemberName, f, isSetter));
 	if (isSetter && field->isFinal()) {
 		if (field->isTrustedFinalField()) {
@@ -896,6 +925,7 @@ $MethodHandle* MethodHandles$Lookup::unreflectField($Field* f, bool isSetter) {
 }
 
 $VarHandle* MethodHandles$Lookup::unreflectVarHandle($Field* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, getField, $new($MemberName, f, false));
 	$var($MemberName, putField, $new($MemberName, f, true));
 	int8_t var$0 = getField->getReferenceKind();
@@ -904,6 +934,7 @@ $VarHandle* MethodHandles$Lookup::unreflectVarHandle($Field* f) {
 }
 
 $MethodHandleInfo* MethodHandles$Lookup::revealDirect($MethodHandle* target) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(target)->isCrackable()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not a direct method handle"_s)));
 	}
@@ -959,6 +990,7 @@ $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $Class* refc, $
 }
 
 $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $MemberName* member) {
+	$useLocalCurrentObjectStackCache();
 	checkSymbolicClass($nc(member)->getDeclaringClass());
 	$Objects::requireNonNull($($nc(member)->getName()));
 	$Objects::requireNonNull($($nc(member)->getType()));
@@ -968,6 +1000,7 @@ $MemberName* MethodHandles$Lookup::resolveOrFail(int8_t refKind, $MemberName* me
 }
 
 $MemberName* MethodHandles$Lookup::resolveOrNull(int8_t refKind, $MemberName* member) {
+	$useLocalCurrentObjectStackCache();
 	if (!isClassAccessible($nc(member)->getDeclaringClass())) {
 		return nullptr;
 	}
@@ -992,6 +1025,7 @@ $MemberName* MethodHandles$Lookup::resolveOrNull(int8_t refKind, $Class* refc, $
 }
 
 void MethodHandles$Lookup::checkSymbolicClass($Class* refc) {
+	$useLocalCurrentObjectStackCache();
 	if (!isClassAccessible(refc)) {
 		$throw($($$new($MemberName, refc)->makeAccessException("symbolic reference class is not accessible"_s, this)));
 	}
@@ -1075,6 +1109,7 @@ void MethodHandles$Lookup::checkSecurityManager($Class* refc, $MemberName* m) {
 }
 
 void MethodHandles$Lookup::checkMethod(int8_t refKind, $Class* refc, $MemberName* m) {
+	$useLocalCurrentObjectStackCache();
 	bool wantStatic = (refKind == (int8_t)6);
 	$var($String, message, nullptr);
 	if ($nc(m)->isConstructor()) {
@@ -1091,6 +1126,7 @@ void MethodHandles$Lookup::checkMethod(int8_t refKind, $Class* refc, $MemberName
 }
 
 void MethodHandles$Lookup::checkField(int8_t refKind, $Class* refc, $MemberName* m) {
+	$useLocalCurrentObjectStackCache();
 	bool wantStatic = !$MethodHandleNatives::refKindHasReceiver(refKind);
 	$var($String, message, nullptr);
 	if (wantStatic != $nc(m)->isStatic()) {
@@ -1103,6 +1139,7 @@ void MethodHandles$Lookup::checkField(int8_t refKind, $Class* refc, $MemberName*
 }
 
 void MethodHandles$Lookup::checkAccess(int8_t refKind, $Class* refc, $MemberName* m) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !MethodHandles$Lookup::$assertionsDisabled;
 	if (var$0) {
 		bool var$2 = $nc(m)->referenceKindIsConsistentWith(refKind);
@@ -1182,6 +1219,7 @@ $String* MethodHandles$Lookup::accessFailedMessage($Class* refc, $MemberName* m)
 }
 
 void MethodHandles$Lookup::checkSpecialCaller($Class* specialCaller, $Class* refc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t allowedModes = this->allowedModes;
 	if (allowedModes == MethodHandles$Lookup::TRUSTED) {
 		return;
@@ -1218,6 +1256,7 @@ bool MethodHandles$Lookup::restrictProtectedReceiver($MemberName* method) {
 }
 
 $MethodHandle* MethodHandles$Lookup::restrictReceiver($MemberName* method, $DirectMethodHandle* mh, $Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (!MethodHandles$Lookup::$assertionsDisabled && !(!$nc(method)->isStatic())) {
 		$throwNew($AssertionError);
 	}
@@ -1257,6 +1296,7 @@ $MethodHandle* MethodHandles$Lookup::getDirectMethodNoSecurityManager(int8_t ref
 }
 
 $MethodHandle* MethodHandles$Lookup::getDirectMethodCommon(int8_t refKind, $Class* refc, $MemberName* method$renamed, bool checkSecurity, bool doRestrict, MethodHandles$Lookup* boundCaller) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, method, method$renamed);
 	checkMethod(refKind, refc, method);
 	if (checkSecurity) {
@@ -1353,6 +1393,7 @@ $VarHandle* MethodHandles$Lookup::getFieldVarHandleNoSecurityManager(int8_t getR
 }
 
 $VarHandle* MethodHandles$Lookup::getFieldVarHandleCommon(int8_t getRefKind, int8_t putRefKind, $Class* refc, $MemberName* getField, $MemberName* putField, bool checkSecurity) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !MethodHandles$Lookup::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(getField)->isStatic();
@@ -1437,6 +1478,7 @@ $MethodHandle* MethodHandles$Lookup::getDirectConstructorCommon($Class* refc, $M
 }
 
 $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $Class* defc, $String* name, Object$* type) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($Class, type) || $instanceOf($MethodType, type))) {
 		$throwNew($InternalError, "unresolved MemberName"_s);
 	}
@@ -1478,6 +1520,7 @@ $MethodHandle* MethodHandles$Lookup::linkMethodHandleConstant(int8_t refKind, $C
 }
 
 bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName* member) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (refKind == (int8_t)7) {
 		return false;
@@ -1520,6 +1563,7 @@ bool MethodHandles$Lookup::canBeCached(int8_t refKind, $Class* defc, $MemberName
 }
 
 $MethodHandle* MethodHandles$Lookup::getDirectMethodForConstant(int8_t refKind, $Class* defc, $MemberName* member) {
+	$useLocalCurrentObjectStackCache();
 	if ($MethodHandleNatives::refKindIsField(refKind)) {
 		return getDirectFieldNoSecurityManager(refKind, defc, member);
 	} else if ($MethodHandleNatives::refKindIsMethod(refKind)) {

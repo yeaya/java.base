@@ -197,6 +197,7 @@ $ProcessImpl$LaunchMechanism* ProcessImpl$Platform::launchMechanism() {
 
 ProcessImpl$Platform* ProcessImpl$Platform::get() {
 	$init(ProcessImpl$Platform);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $GetPropertyAction::privilegedGetProperty("os.name"_s));
 	if ($nc(osName)->equals("Linux"_s)) {
 		return ProcessImpl$Platform::LINUX;
@@ -211,6 +212,7 @@ ProcessImpl$Platform* ProcessImpl$Platform::get() {
 }
 
 $ProcessImpl$LaunchMechanism* ProcessImpl$Platform::lambda$launchMechanism$0() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $System::getProperty("jdk.lang.Process.launchMechanism"_s));
 	$ProcessImpl$LaunchMechanism* lm = nullptr;
 	if (s == nullptr) {
@@ -233,6 +235,7 @@ $ProcessImpl$LaunchMechanism* ProcessImpl$Platform::lambda$launchMechanism$0() {
 }
 
 void clinit$ProcessImpl$Platform($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$init($ProcessImpl$LaunchMechanism);
 	$assignStatic(ProcessImpl$Platform::LINUX, $new(ProcessImpl$Platform, "LINUX"_s, 0, $$new($ProcessImpl$LaunchMechanismArray, {
 		$ProcessImpl$LaunchMechanism::POSIX_SPAWN,

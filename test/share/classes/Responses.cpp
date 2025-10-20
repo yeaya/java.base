@@ -74,6 +74,7 @@ void Responses::init$() {
 }
 
 $ObjectArray2* Responses::getTests() {
+	$useLocalCurrentObjectStackCache();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("HTTP/1.1 200 OK"_s),
@@ -109,6 +110,7 @@ $ObjectArray2* Responses::getTests() {
 }
 
 void Responses::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Responses$HttpServer, svr, $new($Responses$HttpServer));
 	($$new($Thread, static_cast<$Runnable*>(svr)))->start();
 	$var($String, authority, svr->authority());

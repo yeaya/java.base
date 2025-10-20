@@ -53,6 +53,7 @@ void EmptyRead::init$() {
 }
 
 void EmptyRead::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
 	$var($Pipe, p, $nc(sp)->openPipe());
 	$var($Pipe$SinkChannel, sink, $nc(p)->sink());

@@ -174,11 +174,13 @@ void InhibitAnyPolicyExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* InhibitAnyPolicyExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({$($Extension::toString()), "InhibitAnyPolicy: "_s, $$str(this->skipCerts), "\n"_s}));
 	return s;
 }
 
 void InhibitAnyPolicyExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

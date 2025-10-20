@@ -69,6 +69,7 @@ void One$2::init$($bytes* in, $String* expect) {
 }
 
 void One$2::read() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		$var($chars, cb, $new($chars, 1));
 		if ($nc(this->isr)->read(cb) == -1) {

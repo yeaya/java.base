@@ -68,6 +68,7 @@ void WriteAbortedException::init$($String* s, $Exception* ex) {
 }
 
 $String* WriteAbortedException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	if (this->detail == nullptr) {
 		return $ObjectStreamException::getMessage();
 	} else {

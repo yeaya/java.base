@@ -81,6 +81,7 @@ $Object* allocate$RSACore$BlindingParameters($Class* clazz) {
 $BigInteger* RSACore$BlindingParameters::BIG_TWO = nullptr;
 
 void RSACore$BlindingParameters::init$($BigInteger* e, $BigInteger* d, $BigInteger* n) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, u, nullptr);
 	$set(this, v, nullptr);
 	$set(this, e, e);

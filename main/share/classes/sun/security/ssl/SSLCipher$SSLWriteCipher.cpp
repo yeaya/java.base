@@ -100,6 +100,7 @@ void SSLCipher$SSLWriteCipher::init$($Authenticator* authenticator, $ProtocolVer
 }
 
 SSLCipher$SSLWriteCipher* SSLCipher$SSLWriteCipher::nullTlsWriteCipher() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($SSLCipher);
 		$init($ProtocolVersion);
@@ -112,6 +113,7 @@ SSLCipher$SSLWriteCipher* SSLCipher$SSLWriteCipher::nullTlsWriteCipher() {
 }
 
 SSLCipher$SSLWriteCipher* SSLCipher$SSLWriteCipher::nullDTlsWriteCipher() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($SSLCipher);
 		$init($ProtocolVersion);

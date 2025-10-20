@@ -49,6 +49,7 @@ void TestNegativeCodepoint::init$() {
 }
 
 void TestNegativeCodepoint::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, invalidCodePoints, $new($ints, {
 		-1,
 		-(int32_t)u'a',

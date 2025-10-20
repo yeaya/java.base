@@ -227,6 +227,7 @@ void AbstractLoggerWrapper::log($System$Logger$Level* level, $ResourceBundle* bu
 }
 
 bool AbstractLoggerWrapper::isLoggable($PlatformLogger$Level* level) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		return isLoggable($($nc(level)->systemLevel()));
@@ -241,6 +242,7 @@ bool AbstractLoggerWrapper::isEnabled() {
 }
 
 void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), msg);
@@ -250,6 +252,7 @@ void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $String* msg) {
 }
 
 void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), msg, thrown);
@@ -259,6 +262,7 @@ void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $String* msg, $Thr
 }
 
 void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), msg, params);
@@ -268,6 +272,7 @@ void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $String* msg, $Obj
 }
 
 void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), msgSupplier);
@@ -277,6 +282,7 @@ void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $Supplier* msgSupp
 }
 
 void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $Throwable* thrown, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), msgSupplier, thrown);
@@ -286,6 +292,7 @@ void AbstractLoggerWrapper::log($PlatformLogger$Level* level, $Throwable* thrown
 }
 
 void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceClass$renamed, $String* sourceMethod$renamed, $String* msg$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, msg$renamed);
 	$var($String, sourceMethod, sourceMethod$renamed);
 	$var($String, sourceClass, sourceClass$renamed);
@@ -313,6 +320,7 @@ void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceCl
 }
 
 void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		if (sourceClass == nullptr && sourceMethod == nullptr) {
@@ -332,6 +340,7 @@ void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceCl
 }
 
 void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceClass$renamed, $String* sourceMethod$renamed, $String* msg$renamed, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, msg$renamed);
 	$var($String, sourceMethod, sourceMethod$renamed);
 	$var($String, sourceClass, sourceClass$renamed);
@@ -359,6 +368,7 @@ void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceCl
 }
 
 void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceClass$renamed, $String* sourceMethod$renamed, $String* msg$renamed, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, msg$renamed);
 	$var($String, sourceMethod, sourceMethod$renamed);
 	$var($String, sourceClass, sourceClass$renamed);
@@ -386,6 +396,7 @@ void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceCl
 }
 
 void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Throwable* thrown, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		if (sourceClass == nullptr && sourceMethod == nullptr) {
@@ -405,6 +416,7 @@ void AbstractLoggerWrapper::logp($PlatformLogger$Level* level, $String* sourceCl
 }
 
 void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $String* sourceClass$renamed, $String* sourceMethod$renamed, $ResourceBundle* bundle, $String* msg$renamed, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, msg$renamed);
 	$var($String, sourceMethod, sourceMethod$renamed);
 	$var($String, sourceClass, sourceClass$renamed);
@@ -432,6 +444,7 @@ void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $String* sourceC
 }
 
 void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $String* sourceClass$renamed, $String* sourceMethod$renamed, $ResourceBundle* bundle, $String* msg$renamed, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, msg$renamed);
 	$var($String, sourceMethod, sourceMethod$renamed);
 	$var($String, sourceClass, sourceClass$renamed);
@@ -459,6 +472,7 @@ void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $String* sourceC
 }
 
 void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), bundle, msg, thrown);
@@ -468,6 +482,7 @@ void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $ResourceBundle*
 }
 
 void AbstractLoggerWrapper::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger$Bridge, platformProxy, this->platformProxy());
 	if (platformProxy == nullptr) {
 		$nc($(wrapped()))->log($($nc(level)->systemLevel()), bundle, msg, params);
@@ -483,6 +498,7 @@ $PlatformLogger$ConfigurableBridge$LoggerConfiguration* AbstractLoggerWrapper::g
 
 $String* AbstractLoggerWrapper::lambda$logp$0($String* sClass, $String* sMethod, $Supplier* msgSupplier) {
 	$init(AbstractLoggerWrapper);
+	$useLocalCurrentObjectStackCache();
 	return $String::format("[%s %s] %s"_s, $$new($ObjectArray, {
 		$of(sClass),
 		$of(sMethod),

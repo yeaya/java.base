@@ -79,6 +79,7 @@ $Object* allocate$DateTimeFormatterBuilder$CompositePrinterParser($Class* clazz)
 }
 
 void DateTimeFormatterBuilder$CompositePrinterParser::init$($List* printerParsers, bool optional) {
+	$useLocalCurrentObjectStackCache();
 	DateTimeFormatterBuilder$CompositePrinterParser::init$($fcast($DateTimeFormatterBuilder$DateTimePrinterParserArray, $($nc(printerParsers)->toArray($$new($DateTimeFormatterBuilder$DateTimePrinterParserArray, 0)))), optional);
 }
 
@@ -95,6 +96,7 @@ DateTimeFormatterBuilder$CompositePrinterParser* DateTimeFormatterBuilder$Compos
 }
 
 bool DateTimeFormatterBuilder$CompositePrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(buf)->length();
 	if (this->optional) {
 		$nc(context)->startOptional();
@@ -138,6 +140,7 @@ bool DateTimeFormatterBuilder$CompositePrinterParser::format($DateTimePrintConte
 }
 
 int32_t DateTimeFormatterBuilder$CompositePrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	if (this->optional) {
 		$nc(context)->startOptional();
 		int32_t pos = position;
@@ -178,6 +181,7 @@ int32_t DateTimeFormatterBuilder$CompositePrinterParser::parse($DateTimeParseCon
 }
 
 $String* DateTimeFormatterBuilder$CompositePrinterParser::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	if (this->printerParsers != nullptr) {
 		buf->append(this->optional ? "["_s : "("_s);

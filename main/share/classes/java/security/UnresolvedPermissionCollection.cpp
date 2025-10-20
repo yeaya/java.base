@@ -121,6 +121,7 @@ void UnresolvedPermissionCollection::init$() {
 }
 
 void UnresolvedPermissionCollection::add($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnresolvedPermission, unresolvedPermission, nullptr);
 	bool var$0 = $instanceOf($UnresolvedPermission, permission);
 	if (var$0) {
@@ -143,6 +144,7 @@ bool UnresolvedPermissionCollection::implies($Permission* permission) {
 }
 
 $Enumeration* UnresolvedPermissionCollection::elements() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, results, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc($($nc(this->perms)->values()))->iterator());
@@ -157,6 +159,7 @@ $Enumeration* UnresolvedPermissionCollection::elements() {
 }
 
 void UnresolvedPermissionCollection::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, permissions, $new($Hashtable, $nc(this->perms)->size() * 2));
 	$var($Set, set, $nc(this->perms)->entrySet());
 	{
@@ -176,6 +179,7 @@ void UnresolvedPermissionCollection::writeObject($ObjectOutputStream* out) {
 }
 
 void UnresolvedPermissionCollection::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	$var($Hashtable, permissions, $cast($Hashtable, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size() * 2));

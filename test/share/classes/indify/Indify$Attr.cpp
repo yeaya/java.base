@@ -135,6 +135,7 @@ void Indify$Attr::init$() {
 }
 
 void Indify$Attr::init$($Indify$Outer* outer, $String* name, Object$* item) {
+	$useLocalCurrentObjectStackCache();
 	$Indify$InnerOuter::init$();
 	this->size = -1;
 	$load($Indify$ClassFile);
@@ -152,6 +153,7 @@ void Indify$Attr::readFrom($DataInputStream* in) {
 }
 
 void Indify$Attr::writeTo($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->writeShort(this->name);
 	$var($bytes, bytes, nullptr);
 	int32_t trueSize = 0;
@@ -202,6 +204,7 @@ int32_t Indify$Attr::flatten($DataOutputStream* out) {
 }
 
 int32_t Indify$Attr::flatten($ByteArrayOutputStream* buf) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$Indify::writeOutput($$new($DataOutputStream, buf), this->item);
 		return $nc(buf)->size();
@@ -213,6 +216,7 @@ int32_t Indify$Attr::flatten($ByteArrayOutputStream* buf) {
 }
 
 $String* Indify$Attr::nameString() {
+	$useLocalCurrentObjectStackCache();
 	$load($Indify$ClassFile);
 	$var($Indify$ClassFile, cf, $cast($Indify$ClassFile, outer($Indify$ClassFile::class$)));
 	if (cf == nullptr) {
@@ -222,6 +226,7 @@ $String* Indify$Attr::nameString() {
 }
 
 $String* Indify$Attr::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$(nameString()), (this->size < 0 ? "="_s : $$str({"["_s, $$str(this->size), "]="_s})), this->item});
 }
 

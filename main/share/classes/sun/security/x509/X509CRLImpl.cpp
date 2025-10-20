@@ -294,6 +294,7 @@ void X509CRLImpl::init$() {
 }
 
 void X509CRLImpl::init$($bytes* crlData) {
+	$useLocalCurrentObjectStackCache();
 	$X509CRL::init$();
 	$set(this, signedCRL, nullptr);
 	$set(this, signature, nullptr);
@@ -317,6 +318,7 @@ void X509CRLImpl::init$($bytes* crlData) {
 }
 
 void X509CRLImpl::init$($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	$X509CRL::init$();
 	$set(this, signedCRL, nullptr);
 	$set(this, signature, nullptr);
@@ -340,6 +342,7 @@ void X509CRLImpl::init$($DerValue* val) {
 }
 
 void X509CRLImpl::init$($InputStream* inStrm) {
+	$useLocalCurrentObjectStackCache();
 	$X509CRL::init$();
 	$set(this, signedCRL, nullptr);
 	$set(this, signature, nullptr);
@@ -382,6 +385,7 @@ void X509CRLImpl::init$($X500Name* issuer, $Date* thisDate, $Date* nextDate) {
 }
 
 void X509CRLImpl::init$($X500Name* issuer, $Date* thisDate, $Date* nextDate, $X509CRLEntryArray* badCerts) {
+	$useLocalCurrentObjectStackCache();
 	$X509CRL::init$();
 	$set(this, signedCRL, nullptr);
 	$set(this, signature, nullptr);
@@ -440,6 +444,7 @@ $bytes* X509CRLImpl::getEncoded() {
 }
 
 void X509CRLImpl::encodeInfo($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
 		$var($DerOutputStream, rCerts, $new($DerOutputStream));
@@ -494,6 +499,7 @@ void X509CRLImpl::verify($PublicKey* key) {
 
 void X509CRLImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($String, sigProvider, sigProvider$renamed);
 		if (sigProvider == nullptr) {
 			$assign(sigProvider, ""_s);
@@ -537,6 +543,7 @@ void X509CRLImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 
 void X509CRLImpl::verify($PublicKey* key, $Provider* sigProvider) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->signedCRL == nullptr) {
 			$throwNew($CRLException, "Uninitialized CRL"_s);
 		}
@@ -573,6 +580,7 @@ void X509CRLImpl::sign($PrivateKey* key, $String* algorithm) {
 }
 
 void X509CRLImpl::sign($PrivateKey* key, $String* algorithm, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->readOnly) {
 			$throwNew($CRLException, "cannot over-write existing CRL"_s);
@@ -601,6 +609,7 @@ $String* X509CRLImpl::toString() {
 }
 
 $String* X509CRLImpl::toStringWithAlgName($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("X.509 CRL v"_s)->append(this->version + 1)->append(u'\n');
 	if (this->sigAlgId != nullptr) {
@@ -667,6 +676,7 @@ $String* X509CRLImpl::toStringWithAlgName($String* name) {
 }
 
 bool X509CRLImpl::isRevoked($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->revokedMap)->isEmpty() || (!($instanceOf($X509Certificate, cert)))) {
 		return false;
 	}
@@ -702,6 +712,7 @@ $Date* X509CRLImpl::getNextUpdate() {
 }
 
 $X509CRLEntry* X509CRLImpl::getRevokedCertificate($BigInteger* serialNumber) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->revokedMap)->isEmpty()) {
 		return nullptr;
 	}
@@ -772,6 +783,7 @@ $AlgorithmId* X509CRLImpl::getSigAlgId() {
 }
 
 $KeyIdentifier* X509CRLImpl::getAuthKeyId() {
+	$useLocalCurrentObjectStackCache();
 	$var($AuthorityKeyIdentifierExtension, aki, getAuthKeyIdExtension());
 	if (aki != nullptr) {
 		$init($AuthorityKeyIdentifierExtension);
@@ -795,6 +807,7 @@ $CRLNumberExtension* X509CRLImpl::getCRLNumberExtension() {
 }
 
 $BigInteger* X509CRLImpl::getCRLNumber() {
+	$useLocalCurrentObjectStackCache();
 	$var($CRLNumberExtension, numExt, getCRLNumberExtension());
 	if (numExt != nullptr) {
 		$init($CRLNumberExtension);
@@ -812,6 +825,7 @@ $DeltaCRLIndicatorExtension* X509CRLImpl::getDeltaCRLIndicatorExtension() {
 }
 
 $BigInteger* X509CRLImpl::getBaseCRLNumber() {
+	$useLocalCurrentObjectStackCache();
 	$var($DeltaCRLIndicatorExtension, dciExt, getDeltaCRLIndicatorExtension());
 	if (dciExt != nullptr) {
 		$init($DeltaCRLIndicatorExtension);
@@ -842,6 +856,7 @@ bool X509CRLImpl::hasUnsupportedCriticalExtension() {
 }
 
 $Set* X509CRLImpl::getCriticalExtensionOIDs() {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -861,6 +876,7 @@ $Set* X509CRLImpl::getCriticalExtensionOIDs() {
 }
 
 $Set* X509CRLImpl::getNonCriticalExtensionOIDs() {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -880,6 +896,7 @@ $Set* X509CRLImpl::getNonCriticalExtensionOIDs() {
 }
 
 $bytes* X509CRLImpl::getExtensionValue($String* oid) {
+	$useLocalCurrentObjectStackCache();
 	if (this->extensions == nullptr) {
 		return nullptr;
 	}
@@ -929,6 +946,7 @@ $Object* X509CRLImpl::getExtension($ObjectIdentifier* oid) {
 }
 
 void X509CRLImpl::parse($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	if (this->readOnly) {
 		$throwNew($CRLException, "cannot over-write existing CRL"_s);
 	}
@@ -1023,6 +1041,7 @@ void X509CRLImpl::parse($DerValue* val) {
 
 $X500Principal* X509CRLImpl::getIssuerX500Principal($X509CRL* crl) {
 	$init(X509CRLImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, encoded, $nc(crl)->getEncoded());
 		$var($DerInputStream, derIn, $new($DerInputStream, encoded));
@@ -1063,6 +1082,7 @@ X509CRLImpl* X509CRLImpl::toImpl($X509CRL* crl) {
 }
 
 $X500Principal* X509CRLImpl::getCertIssuer($X509CRLEntryImpl* entry, $X500Principal* prevCertIssuer) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateIssuerExtension, ciExt, $nc(entry)->getCertificateIssuerExtension());
 	if (ciExt != nullptr) {
 		$init($CertificateIssuerExtension);

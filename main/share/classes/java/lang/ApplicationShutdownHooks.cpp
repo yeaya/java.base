@@ -116,6 +116,7 @@ bool ApplicationShutdownHooks::remove($Thread* hook) {
 
 void ApplicationShutdownHooks::runHooks() {
 	$init(ApplicationShutdownHooks);
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, threads, nullptr);
 	$synchronized(ApplicationShutdownHooks::class$) {
 		$assign(threads, $nc(ApplicationShutdownHooks::hooks)->keySet());
@@ -149,6 +150,7 @@ void ApplicationShutdownHooks::runHooks() {
 }
 
 void clinit$ApplicationShutdownHooks($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		try {
 			$Shutdown::add(1, false, $$new($ApplicationShutdownHooks$1));

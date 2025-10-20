@@ -47,6 +47,7 @@ void IllegalAccessInInvoke::init$() {
 
 void IllegalAccessInInvoke::main($StringArray* argv) {
 	$load(IllegalAccessInInvoke);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassArray, argTypes, $new($ClassArray, 0));
 	$var($ObjectArray, args, $new($ObjectArray, 0));

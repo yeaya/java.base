@@ -113,6 +113,7 @@ void DHClientKeyExchange$DHClientKeyExchangeProducer::init$() {
 }
 
 $bytes* DHClientKeyExchange$DHClientKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($DHKeyExchange$DHECredentials, dheCredentials, nullptr);
 	{

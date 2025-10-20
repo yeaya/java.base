@@ -134,6 +134,7 @@ void OpsAfterClose4FileOutputStream::init$($String* $enum$name, int32_t $enum$or
 
 void OpsAfterClose4FileOutputStream::main($StringArray* args) {
 	$init(OpsAfterClose4FileOutputStream);
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "f.txt"_s));
 	f->createNewFile();
@@ -146,6 +147,7 @@ void OpsAfterClose4FileOutputStream::main($StringArray* args) {
 
 bool OpsAfterClose4FileOutputStream::testFileOutputStream($FileOutputStream* r) {
 	$init(OpsAfterClose4FileOutputStream);
+	$useLocalCurrentObjectStackCache();
 	$nc(r)->close();
 	bool failed = false;
 	bool result = false;

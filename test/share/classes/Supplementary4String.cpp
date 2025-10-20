@@ -117,6 +117,7 @@ void Supplementary4String::main($StringArray* args) {
 
 void Supplementary4String::test1() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		testCodePoint(Supplementary4String::At, s, 0, $nc($nc(Supplementary4String::golden1)->get(0))->get(i));
@@ -130,6 +131,7 @@ void Supplementary4String::test1() {
 
 void Supplementary4String::test2() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		testCodePoint(Supplementary4String::Before, s, 1, $nc($nc(Supplementary4String::golden2)->get(0))->get(i));
@@ -143,6 +145,7 @@ void Supplementary4String::test2() {
 
 void Supplementary4String::test3() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		testIndexOf(s, $nc($nc(Supplementary4String::golden3)->get(i))->get(0), $nc($nc(Supplementary4String::golden3)->get(i))->get(2));
@@ -157,6 +160,7 @@ void Supplementary4String::test3() {
 
 void Supplementary4String::test4() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		int32_t ch = $nc($nc(Supplementary4String::golden3)->get(i))->get(0);
@@ -177,6 +181,7 @@ void Supplementary4String::test4() {
 
 void Supplementary4String::test5() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		testLastIndexOf(s, $nc($nc(Supplementary4String::golden3)->get(i))->get(0), $nc($nc(Supplementary4String::golden3)->get(i))->get($nc($nc(Supplementary4String::golden3)->get(i))->length - 2));
@@ -191,6 +196,7 @@ void Supplementary4String::test5() {
 
 void Supplementary4String::test6() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		int32_t ch = $nc($nc(Supplementary4String::golden3)->get(i))->get(0);
@@ -212,6 +218,7 @@ void Supplementary4String::test6() {
 
 void Supplementary4String::test7() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4String::input)->get(i));
 		int32_t nCodePoints = 0;
@@ -276,6 +283,7 @@ void Supplementary4String::test7() {
 
 void Supplementary4String::test8() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, str, $nc(Supplementary4String::input)->get(i));
 		int32_t length = $nc(str)->length();
@@ -306,6 +314,7 @@ void Supplementary4String::test8() {
 
 void Supplementary4String::test9() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, str, $nc(Supplementary4String::input)->get(i));
 		int32_t length = $nc(str)->length();
@@ -350,6 +359,7 @@ void Supplementary4String::test9() {
 
 void Supplementary4String::test10() {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	$var($String, header, $cstr({'H', 0xD800, 'e', 0xDFFF, 'a', 0x10FC00, 'd', 'e', 'r', '<'}));
 	for (int32_t i = 0; i < $nc(Supplementary4String::input)->length; ++i) {
 		$var($String, wholeString, $str({header, $nc(Supplementary4String::input)->get(i)}));
@@ -388,12 +398,14 @@ void Supplementary4String::test10() {
 
 void Supplementary4String::testCodePoint(bool isAt, $String* s, int32_t index, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	int32_t c = isAt ? $nc(s)->codePointAt(index) : s->codePointBefore(index);
 	check(c != expected, $$str({"codePoint"_s, (isAt ? "At"_s : "Before"_s), "("_s, $$str(index), ") for <"_s, s, ">"_s}), c, expected);
 }
 
 void Supplementary4String::testCodePoint(bool isAt, $String* s, int32_t index) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionOccurred = false;
 	try {
 		int32_t c = isAt ? $nc(s)->codePointAt(index) : s->codePointBefore(index);
@@ -406,6 +418,7 @@ void Supplementary4String::testCodePoint(bool isAt, $String* s, int32_t index) {
 
 void Supplementary4String::testIndexOf($String* s, int32_t c, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	testIndexOf2(s, c, expected);
 	if ($nc(s)->indexOf(c) != -1) {
 		testIndexOf2($$str({s, $$str((char16_t)c)}), c, expected);
@@ -423,12 +436,14 @@ void Supplementary4String::testIndexOf($String* s, int32_t c, int32_t expected) 
 
 void Supplementary4String::testIndexOf2($String* s, int32_t c, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	int32_t index = $nc(s)->indexOf(c);
 	check(index != expected, $$str({"indexOf("_s, $(toHexString(c)), ") for <"_s, s, ">"_s}), index, expected);
 }
 
 void Supplementary4String::testLastIndexOf($String* s, int32_t c, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	testLastIndexOf2(s, c, expected);
 	if ($nc(s)->lastIndexOf(c) != -1) {
 		testLastIndexOf2($$str({$$str((char16_t)c), s}), c, expected + 1);
@@ -448,12 +463,14 @@ void Supplementary4String::testLastIndexOf($String* s, int32_t c, int32_t expect
 
 void Supplementary4String::testLastIndexOf2($String* s, int32_t c, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	int32_t index = $nc(s)->lastIndexOf(c);
 	check(index != expected, $$str({"lastIndexOf("_s, $(toHexString(c)), ") for <"_s, s, ">"_s}), index, expected);
 }
 
 int32_t Supplementary4String::testIndexOf($String* s, int32_t fromIndex, int32_t c, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	int32_t index = $nc(s)->indexOf(c, fromIndex);
 	check(index != expected, $$str({"indexOf("_s, $(toHexString(c)), ", "_s, $$str(fromIndex), ") for <"_s, s, ">"_s}), index, expected);
 	return index;
@@ -461,6 +478,7 @@ int32_t Supplementary4String::testIndexOf($String* s, int32_t fromIndex, int32_t
 
 int32_t Supplementary4String::testLastIndexOf($String* s, int32_t fromIndex, int32_t c, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	int32_t index = $nc(s)->lastIndexOf(c, fromIndex);
 	check(index != expected, $$str({"lastIndexOf("_s, $(toHexString(c)), ", "_s, $$str(fromIndex), ") for <"_s, s, ">"_s}), index, expected);
 	return index;
@@ -468,6 +486,7 @@ int32_t Supplementary4String::testLastIndexOf($String* s, int32_t fromIndex, int
 
 void Supplementary4String::testNewString($ints* codePoints, int32_t offset, int32_t count, $Class* expectedException) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s, $new($String, codePoints, offset, count));
 	} catch ($Exception&) {
@@ -482,6 +501,7 @@ void Supplementary4String::testNewString($ints* codePoints, int32_t offset, int3
 
 void Supplementary4String::testCodePointCount($String* str, int32_t beginIndex, int32_t endIndex, $Class* expectedException) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(str)->codePointCount(beginIndex, endIndex);
 	} catch ($Exception&) {
@@ -496,6 +516,7 @@ void Supplementary4String::testCodePointCount($String* str, int32_t beginIndex, 
 
 void Supplementary4String::testOffsetByCodePoints($String* str, int32_t index, int32_t offset, $Class* expectedException) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(str)->offsetByCodePoints(index, offset);
 	} catch ($Exception&) {
@@ -517,6 +538,7 @@ void Supplementary4String::check(bool err, $String* msg) {
 
 void Supplementary4String::check(bool err, $String* s, int32_t got, int32_t expected) {
 	$init(Supplementary4String);
+	$useLocalCurrentObjectStackCache();
 	if (err) {
 		$var($String, var$0, $$str({"Error: "_s, s, " returned an unexpected value. got "_s, $(toHexString(got)), ", expected "_s}));
 		$throwNew($RuntimeException, $$concat(var$0, $(toHexString(expected))));
@@ -529,6 +551,7 @@ $String* Supplementary4String::toHexString(int32_t c) {
 }
 
 void clinit$Supplementary4String($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Supplementary4String::input, $new($StringArray, {
 		$cstr({'a', 'b', 'c', 0x10000, 'd', 'e', 'f', 0xD800, 0xD800, 'a', 'b', 0x10000, 'c', 'd', 'e', 'f', 'a', 0xDC00, 'b', 'c', 'd', 'e', 'f'}),
 		$cstr({0xD800, 'd', 'e', 'f', 'g', 0xD800, 'h', 'i', 'j', 0x10000, 'k', 'l', 'm', 0xDC00, 'n', 'o', 'p', 0xDC00, 0xD800, 'r', 't', 0xDC00}),

@@ -161,6 +161,7 @@ void HttpsURLConnectionImpl::init$($URL* u, $Handler* handler) {
 
 $URL* HttpsURLConnectionImpl::checkURL($URL* u) {
 	$init(HttpsURLConnectionImpl);
+	$useLocalCurrentObjectStackCache();
 	if (u != nullptr) {
 		if ($nc($(u->toExternalForm()))->indexOf((int32_t)u'\n') > -1) {
 			$throwNew($MalformedURLException, "Illegal character in URL"_s);

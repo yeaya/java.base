@@ -200,6 +200,7 @@ $CertPathBuilderResult* SunCertPathBuilder::engineBuild($CertPathParameters* par
 }
 
 $PKIXCertPathBuilderResult* SunCertPathBuilder::build() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, adjList, $new($ArrayList));
 	$var($PKIXCertPathBuilderResult, result, buildCertPath(false, adjList));
 	if (result == nullptr) {
@@ -216,6 +217,7 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::build() {
 }
 
 $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCertStores, $List* adjList) {
+	$useLocalCurrentObjectStackCache();
 	this->pathCompleted = false;
 	$set(this, trustAnchor, nullptr);
 	$set(this, finalPublicKey, nullptr);
@@ -262,6 +264,7 @@ $PKIXCertPathBuilderResult* SunCertPathBuilder::buildCertPath(bool searchAllCert
 }
 
 void SunCertPathBuilder::buildForward($List* adjacencyList, $LinkedList* certPathList, bool searchAllCertStores) {
+	$useLocalCurrentObjectStackCache();
 	if (SunCertPathBuilder::debug != nullptr) {
 		$nc(SunCertPathBuilder::debug)->println("SunCertPathBuilder.buildForward()..."_s);
 	}
@@ -276,6 +279,7 @@ void SunCertPathBuilder::buildForward($List* adjacencyList, $LinkedList* certPat
 }
 
 void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardState* currentState, $ForwardBuilder* builder, $List* adjList, $LinkedList* cpList) {
+	$useLocalCurrentObjectStackCache();
 	if (SunCertPathBuilder::debug != nullptr) {
 		$var($String, var$1, $$str({"SunCertPathBuilder.depthFirstSearchForward("_s, dN, ", "_s}));
 		$var($String, var$0, $$concat(var$1, $($nc(currentState)->toString())));
@@ -488,6 +492,7 @@ void SunCertPathBuilder::depthFirstSearchForward($X500Principal* dN, $ForwardSta
 
 $List* SunCertPathBuilder::addVertices($Collection* certs, $List* adjList) {
 	$init(SunCertPathBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($List, l, $cast($List, $nc(adjList)->get(adjList->size() - 1)));
 	{
 		$var($Iterator, i$, $nc(certs)->iterator());

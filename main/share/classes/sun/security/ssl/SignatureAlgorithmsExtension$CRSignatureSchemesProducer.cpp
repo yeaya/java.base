@@ -96,6 +96,7 @@ void SignatureAlgorithmsExtension$CRSignatureSchemesProducer::init$() {
 }
 
 $bytes* SignatureAlgorithmsExtension$CRSignatureSchemesProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CR_SIGNATURE_ALGORITHMS)) {

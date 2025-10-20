@@ -69,6 +69,7 @@ $Object* allocate$SecurityManagerClinit$SimplePolicy($Class* clazz) {
 $Policy* SecurityManagerClinit$SimplePolicy::DEFAULT_POLICY = nullptr;
 
 void SecurityManagerClinit$SimplePolicy::init$($PermissionArray* permissions) {
+	$useLocalCurrentObjectStackCache();
 	$Policy::init$();
 	$set(this, perms, $new($Permissions));
 	{

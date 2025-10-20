@@ -166,6 +166,7 @@ $MethodArray* MethodUtil::getMethods($Class* cls) {
 
 $MethodArray* MethodUtil::getPublicMethods($Class* cls) {
 	$init(MethodUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($System::getSecurityManager() == nullptr) {
 		return $nc(cls)->getMethods();
@@ -196,6 +197,7 @@ void MethodUtil::getInterfaceMethods($Class* cls, $Map* sigs) {
 
 bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 	$init(MethodUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodArray, methods, nullptr);
 	try {
@@ -235,6 +237,7 @@ bool MethodUtil::getInternalPublicMethods($Class* cls, $Map* sigs) {
 
 void MethodUtil::addMethod($Map* sigs, $Method* method) {
 	$init(MethodUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodUtil$Signature, signature, $new($MethodUtil$Signature, method));
 	if (!$nc(sigs)->containsKey(signature)) {
 		sigs->put(signature, method);
@@ -248,6 +251,7 @@ void MethodUtil::addMethod($Map* sigs, $Method* method) {
 
 $Object* MethodUtil::invoke($Method* m, Object$* obj, $ObjectArray* params) {
 	$init(MethodUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(MethodUtil::bounce)->invoke(nullptr, $$new($ObjectArray, {
@@ -278,6 +282,7 @@ $Object* MethodUtil::invoke($Method* m, Object$* obj, $ObjectArray* params) {
 
 $Method* MethodUtil::getTrampoline() {
 	$init(MethodUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($MethodUtil$1))));
@@ -311,6 +316,7 @@ $Class* MethodUtil::loadClass($String* name, bool resolve) {
 }
 
 $Class* MethodUtil::findClass($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!$nc(name)->startsWith(MethodUtil::MISC_PKG)) {
 		$throwNew($ClassNotFoundException, name);
@@ -369,6 +375,7 @@ $Class* MethodUtil::findClass($String* name) {
 }
 
 $Class* MethodUtil::defineClass($String* name, $bytes* b) {
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSource, cs, $new($CodeSource, ($URL*)nullptr, ($CertificateArray*)nullptr));
 	if (!$nc(name)->equals(MethodUtil::TRAMPOLINE)) {
 		$throwNew($IOException, $$str({"MethodUtil: bad name "_s, name}));
@@ -377,6 +384,7 @@ $Class* MethodUtil::defineClass($String* name, $bytes* b) {
 }
 
 $PermissionCollection* MethodUtil::getPermissions($CodeSource* codesource) {
+	$useLocalCurrentObjectStackCache();
 	$var($PermissionCollection, perms, $SecureClassLoader::getPermissions(codesource));
 	$nc(perms)->add($$new($AllPermission));
 	return perms;

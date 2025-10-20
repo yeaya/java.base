@@ -43,6 +43,7 @@ void WhiteSpaceHostTest::init$() {
 }
 
 void WhiteSpaceHostTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hosts, "        localhost;localhost; localhost;localhost1; localhost1; bogus.mil;\u0010localhost"_s);
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, hosts, ";"_s));
 	while (tokenizer->hasMoreTokens()) {

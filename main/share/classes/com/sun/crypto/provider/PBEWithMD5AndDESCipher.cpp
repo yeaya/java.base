@@ -119,6 +119,7 @@ $AlgorithmParameters* PBEWithMD5AndDESCipher::engineGetParameters() {
 }
 
 void PBEWithMD5AndDESCipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		engineInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
 	} catch ($InvalidAlgorithmParameterException&) {

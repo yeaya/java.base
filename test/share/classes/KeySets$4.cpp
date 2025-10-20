@@ -80,6 +80,7 @@ void KeySets$4::init$($Class* xc, $Set* val$s) {
 }
 
 void KeySets$4::go() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, al, $new($ArrayList));
 	al->add($$new($Object));
 	$nc(this->val$s)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(al))));

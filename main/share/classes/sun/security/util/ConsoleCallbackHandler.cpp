@@ -102,6 +102,7 @@ void ConsoleCallbackHandler::init$() {
 }
 
 void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConfirmationCallback, confirmation, nullptr);
 	for (int32_t i = 0; i < $nc(callbacks)->length; ++i) {
 		if ($instanceOf($TextOutputCallback, callbacks->get(i))) {
@@ -172,6 +173,7 @@ void ConsoleCallbackHandler::handle($CallbackArray* callbacks) {
 }
 
 $String* ConsoleCallbackHandler::readLine() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, result, $$new($BufferedReader, $$new($InputStreamReader, $System::in))->readLine());
 	if (result == nullptr) {
@@ -181,6 +183,7 @@ $String* ConsoleCallbackHandler::readLine() {
 }
 
 void ConsoleCallbackHandler::doConfirmation($ConfirmationCallback* confirmation) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, nullptr);
 	int32_t messageType = $nc(confirmation)->getMessageType();
 	switch (messageType) {

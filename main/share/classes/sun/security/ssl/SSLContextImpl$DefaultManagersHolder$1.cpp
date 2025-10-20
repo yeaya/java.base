@@ -77,6 +77,7 @@ void SSLContextImpl$DefaultManagersHolder$1::init$($Map* val$props) {
 }
 
 $Object* SSLContextImpl$DefaultManagersHolder$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->val$props)->put("keyStore"_s, $($System::getProperty("javax.net.ssl.keyStore"_s, ""_s)));
 	$nc(this->val$props)->put("keyStoreType"_s, $($System::getProperty("javax.net.ssl.keyStoreType"_s, $($KeyStore::getDefaultType()))));
 	$nc(this->val$props)->put("keyStoreProvider"_s, $($System::getProperty("javax.net.ssl.keyStoreProvider"_s, ""_s)));

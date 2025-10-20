@@ -134,6 +134,7 @@ void NativePRNG$RandomIO::init$($File* seedFile, $File* nextFile) {
 }
 
 $SecureRandom* NativePRNG$RandomIO::getMixRandom() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandom, r, this->mixRandom);
 	if (r == nullptr) {
 		$synchronized(this->LOCK_GET_BYTES) {
@@ -172,6 +173,7 @@ void NativePRNG$RandomIO::readFully($InputStream* in, $bytes* data) {
 }
 
 $bytes* NativePRNG$RandomIO::implGenerateSeed(int32_t numBytes) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->LOCK_GET_SEED) {
 		try {
 			$var($bytes, b, $new($bytes, numBytes));
@@ -186,6 +188,7 @@ $bytes* NativePRNG$RandomIO::implGenerateSeed(int32_t numBytes) {
 }
 
 void NativePRNG$RandomIO::implSetSeed($bytes* seed) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$synchronized(this->LOCK_SET_SEED) {
 		if (this->seedOutInitialized == false) {
@@ -204,6 +207,7 @@ void NativePRNG$RandomIO::implSetSeed($bytes* seed) {
 }
 
 void NativePRNG$RandomIO::ensureBufferValid() {
+	$useLocalCurrentObjectStackCache();
 	int64_t time = $System::currentTimeMillis();
 	int32_t new_buffer_size = 0;
 	if (this->buffered > 0) {
@@ -241,6 +245,7 @@ void NativePRNG$RandomIO::ensureBufferValid() {
 }
 
 void NativePRNG$RandomIO::implNextBytes($bytes* data) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(getMixRandom()))->engineNextBytes(data);
 		int32_t data_len = $nc(data)->length;

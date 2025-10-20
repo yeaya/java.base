@@ -58,6 +58,7 @@ void Bug6609740::init$() {
 }
 
 void Bug6609740::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	double dNumber = -3456.349347;
 	$var($String, fOutput, "(3,456.35)"_s);
 	$var($StringArray, validCases, $new($StringArray, {
@@ -144,6 +145,7 @@ void Bug6609740::main($StringArray* args) {
 }
 
 void Bug6609740::formatOnPattern($NumberFormat* nf, $String* pattern, double number, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DecimalFormat, nf)) {
 		$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
 	}
@@ -154,6 +156,7 @@ void Bug6609740::formatOnPattern($NumberFormat* nf, $String* pattern, double num
 }
 
 void Bug6609740::parseOnPattern($NumberFormat* nf, $String* pattern, $String* parseString, $Number* expected) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DecimalFormat, nf)) {
 		$nc(($cast($DecimalFormat, nf)))->applyPattern(pattern);
 	}

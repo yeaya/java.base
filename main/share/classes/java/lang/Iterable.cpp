@@ -46,6 +46,7 @@ $Object* allocate$Iterable($Class* clazz) {
 }
 
 void Iterable::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	{
 		$var($Iterator, i$, this->iterator());

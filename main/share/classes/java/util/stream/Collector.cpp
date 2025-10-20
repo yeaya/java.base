@@ -88,6 +88,7 @@ $Object* allocate$Collector($Class* clazz) {
 }
 
 Collector* Collector::of($Supplier* supplier, $BiConsumer* accumulator, $BinaryOperator* combiner, $Collector$CharacteristicsArray* characteristics) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(supplier);
 	$Objects::requireNonNull(accumulator);
 	$Objects::requireNonNull(combiner);

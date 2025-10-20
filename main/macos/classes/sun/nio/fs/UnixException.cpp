@@ -119,6 +119,7 @@ $Throwable* UnixException::fillInStackTrace() {
 }
 
 $IOException* UnixException::translateToIOException($String* file, $String* other) {
+	$useLocalCurrentObjectStackCache();
 	if (this->msg != nullptr) {
 		return $new($IOException, this->msg);
 	}
@@ -139,6 +140,7 @@ $IOException* UnixException::translateToIOException($String* file, $String* othe
 }
 
 void UnixException::rethrowAsIOException($UnixPath* file, $UnixPath* other) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, a, (file == nullptr) ? ($String*)nullptr : $nc(file)->getPathForExceptionMessage());
 	$var($String, b, (other == nullptr) ? ($String*)nullptr : $nc(other)->getPathForExceptionMessage());
 	$var($IOException, x, translateToIOException(a, b));

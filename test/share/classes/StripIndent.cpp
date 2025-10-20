@@ -57,6 +57,7 @@ void StripIndent::test1() {
 }
 
 void StripIndent::verify($String* a, $String* b) {
+	$useLocalCurrentObjectStackCache();
 	if (!$($nc(a)->stripIndent())->equals(b)) {
 		$init($System);
 		$nc($System::err)->format("\"%s\" not equal \"%s\"%n"_s, $$new($ObjectArray, {

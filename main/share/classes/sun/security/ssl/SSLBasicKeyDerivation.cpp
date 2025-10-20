@@ -91,6 +91,7 @@ void SSLBasicKeyDerivation::init$($SecretKey* secret, $String* hashAlg, $bytes* 
 }
 
 $SecretKey* SSLBasicKeyDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($HKDF, hkdf, $new($HKDF, this->hashAlg));
 		return hkdf->expand(this->secret, this->hkdfInfo, $nc(($cast($SSLBasicKeyDerivation$SecretSizeSpec, keySpec)))->length, algorithm);
@@ -103,6 +104,7 @@ $SecretKey* SSLBasicKeyDerivation::deriveKey($String* algorithm, $AlgorithmParam
 
 $bytes* SSLBasicKeyDerivation::createHkdfInfo($bytes* label, $bytes* context, int32_t length) {
 	$init(SSLBasicKeyDerivation);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, info, $new($bytes, 4 + $nc(label)->length + $nc(context)->length));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(info));
 	try {

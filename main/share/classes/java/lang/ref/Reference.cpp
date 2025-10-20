@@ -167,6 +167,7 @@ void Reference::enqueueFromPending() {
 
 void Reference::processPendingReferences() {
 	$init(Reference);
+	$useLocalCurrentObjectStackCache();
 	waitForReferencePendingList();
 	$var(Reference, pendingList, nullptr);
 	$synchronized(Reference::processPendingLock) {
@@ -278,6 +279,7 @@ void Reference::reachabilityFence(Object$* ref) {
 }
 
 void clinit$Reference($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Reference::$assertionsDisabled = !Reference::class$->desiredAssertionStatus();
 	$assignStatic(Reference::processPendingLock, $new($Object));
 	Reference::processPendingActive = false;

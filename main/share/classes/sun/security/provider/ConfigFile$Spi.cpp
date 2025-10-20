@@ -217,6 +217,7 @@ void ConfigFile$Spi::init$($URI* uri) {
 }
 
 void ConfigFile$Spi::init$($Configuration$Parameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$ConfigurationSpi::init$();
 	this->expandProp = true;
@@ -229,6 +230,7 @@ void ConfigFile$Spi::init$($Configuration$Parameters* params) {
 }
 
 void ConfigFile$Spi::init() {
+	$useLocalCurrentObjectStackCache();
 	bool initialized = false;
 	$var($String, expand, $Security::getProperty("policy.expandProperties"_s));
 	if (expand == nullptr) {
@@ -319,6 +321,7 @@ void ConfigFile$Spi::init() {
 }
 
 void ConfigFile$Spi::init($URL* config, $Map* newConfig) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardCharsets);
 		$var($InputStreamReader, isr, $new($InputStreamReader, $(getInputStream(config)), $StandardCharsets::UTF_8));
@@ -356,6 +359,7 @@ void ConfigFile$Spi::init($URL* config, $Map* newConfig) {
 }
 
 $AppConfigurationEntryArray* ConfigFile$Spi::engineGetAppConfigurationEntry($String* applicationName) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, nullptr);
 	$synchronized(this->configuration) {
 		$assign(list, $cast($List, $nc(this->configuration)->get(applicationName)));
@@ -376,6 +380,7 @@ $AppConfigurationEntryArray* ConfigFile$Spi::engineGetAppConfigurationEntry($Str
 
 void ConfigFile$Spi::engineRefresh() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
@@ -408,6 +413,7 @@ void ConfigFile$Spi::readConfig($Reader* reader$renamed, $Map* newConfig) {
 }
 
 void ConfigFile$Spi::parseLoginEntry($Map* newConfig) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, configEntries, $new($LinkedList));
 	$var($String, appName, $nc(this->st)->sval);
 	this->lookahead = nextToken();
@@ -519,6 +525,7 @@ void ConfigFile$Spi::parseLoginEntry($Map* newConfig) {
 }
 
 $String* ConfigFile$Spi::match($String* expect) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, nullptr);
 	switch (this->lookahead) {
 	case $StreamTokenizer::TT_EOF:
@@ -642,6 +649,7 @@ int32_t ConfigFile$Spi::nextToken() {
 }
 
 $InputStream* ConfigFile$Spi::getInputStream($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	if ("file"_s->equalsIgnoreCase($($nc(url)->getProtocol()))) {
 		try {
 			return $nc(url)->openStream();
@@ -662,6 +670,7 @@ $InputStream* ConfigFile$Spi::getInputStream($URL* url) {
 }
 
 $String* ConfigFile$Spi::expand($String* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(value)->isEmpty()) {
 		return value;
 	}
@@ -679,6 +688,7 @@ $String* ConfigFile$Spi::expand($String* value) {
 }
 
 $IOException* ConfigFile$Spi::ioException($String* resourceKey, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageFormat, form, $new($MessageFormat, $($ResourcesMgr::getAuthResourceString(resourceKey))));
 	return $new($IOException, $(form->format(args)));
 }

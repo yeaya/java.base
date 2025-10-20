@@ -238,6 +238,7 @@ int64_t SinkChannelImpl::write($ByteBufferArray* srcs) {
 }
 
 int64_t SinkChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if ((offset < 0) || (length < 0) || (offset > $nc(srcs)->length - length)) {
 		$throwNew($IndexOutOfBoundsException);
 	}

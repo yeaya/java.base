@@ -51,6 +51,7 @@ void Split::init$() {
 }
 
 void Split::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, source, "0123456789"_s);
 	for (int32_t limit = -2; limit < 3; ++limit) {
 		for (int32_t x = 0; x < 10; ++x) {

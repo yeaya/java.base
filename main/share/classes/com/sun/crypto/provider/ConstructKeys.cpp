@@ -93,6 +93,7 @@ void ConstructKeys::init$() {
 }
 
 $PublicKey* ConstructKeys::constructPublicKey($bytes* encodedKey, int32_t ofs, int32_t len, $String* encodedKeyAlgorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($PublicKey, key, nullptr);
 	$var($bytes, keyBytes, (ofs == 0 && $nc(encodedKey)->length == len) ? encodedKey : $Arrays::copyOfRange(encodedKey, ofs, ofs + len));
 	$var($X509EncodedKeySpec, keySpec, $new($X509EncodedKeySpec, keyBytes));
@@ -123,6 +124,7 @@ $PublicKey* ConstructKeys::constructPublicKey($bytes* encodedKey, int32_t ofs, i
 }
 
 $PrivateKey* ConstructKeys::constructPrivateKey($bytes* encodedKey, int32_t ofs, int32_t len, $String* encodedKeyAlgorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($PrivateKey, key, nullptr);
 	$var($bytes, keyBytes, (ofs == 0 && $nc(encodedKey)->length == len) ? encodedKey : $Arrays::copyOfRange(encodedKey, ofs, ofs + len));
 	$var($PKCS8EncodedKeySpec, keySpec, $new($PKCS8EncodedKeySpec, keyBytes));

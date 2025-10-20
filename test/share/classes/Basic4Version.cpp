@@ -176,6 +176,7 @@ void Basic4Version::init$() {
 
 void Basic4Version::main($StringArray* args) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, "9"_s);
 	$var($Integer, var$1, $Integer::valueOf(9));
 	$var($Integer, var$2, $Integer::valueOf(0));
@@ -418,6 +419,7 @@ void Basic4Version::main($StringArray* args) {
 
 void Basic4Version::test($String* s, $Integer* feature, $Integer* interim, $Integer* update, $Integer* patch, $String* pre, $Integer* build, $String* opt) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime$Version, v, testParse(s));
 	testStr($($nc(v)->toString()), s);
 	int32_t var$0 = $nc(v)->feature();
@@ -450,6 +452,7 @@ $Runtime$Version* Basic4Version::testParse($String* s) {
 
 void Basic4Version::testInt(int32_t got, int32_t exp) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	if (got != exp) {
 		$var($String, var$0, "testInt()"_s);
 		$var($String, var$1, $Integer::toString(exp));
@@ -470,6 +473,7 @@ void Basic4Version::testStr($String* got, $String* exp) {
 
 void Basic4Version::tryCatch($String* s, $Class* ex) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		$Runtime$Version::parse(s);
@@ -490,6 +494,7 @@ void Basic4Version::tryCatch($String* s, $Class* ex) {
 
 void Basic4Version::testVersion() {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime$Version, current, $Runtime::version());
 	$var($String, javaVer, $System::getProperty("java.runtime.version"_s));
 	$var($StringArray, jv, $nc(javaVer)->split("\\+"_s));
@@ -515,6 +520,7 @@ void Basic4Version::testVersion() {
 
 void Basic4Version::testVersion($List* vnum, $String* s) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($List, svnum, $new($ArrayList));
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
@@ -544,6 +550,7 @@ void Basic4Version::testVersion($List* vnum, $String* s) {
 
 void Basic4Version::testEHC($String* s0, $String* s1, bool eq, bool eqNO, int32_t cmp, int32_t cmpNO) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime$Version, v0, $Runtime$Version::parse(s0));
 	$var($Runtime$Version, v1, $Runtime$Version::parse(s1));
 	testEquals(v0, v1, eq);
@@ -555,6 +562,7 @@ void Basic4Version::testEHC($String* s0, $String* s1, bool eq, bool eqNO, int32_
 
 void Basic4Version::testEqualsNO($Runtime$Version* v0, $Runtime$Version* v1, bool eq) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	if (eq == $nc(v0)->equalsIgnoreOptional(v1)) {
 		pass();
 	} else {
@@ -566,6 +574,7 @@ void Basic4Version::testEqualsNO($Runtime$Version* v0, $Runtime$Version* v1, boo
 
 void Basic4Version::testEquals($Runtime$Version* v0, $Runtime$Version* v1, bool eq) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	if (eq == $nc(v0)->equals(v1)) {
 		pass();
 	} else {
@@ -577,6 +586,7 @@ void Basic4Version::testEquals($Runtime$Version* v0, $Runtime$Version* v1, bool 
 
 void Basic4Version::testHashCode($Runtime$Version* v0, $Runtime$Version* v1, bool eq) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	int32_t h0 = $nc(v0)->hashCode();
 	int32_t h1 = $nc(v1)->hashCode();
 	if (eq) {
@@ -604,6 +614,7 @@ void Basic4Version::testCompare($Runtime$Version* v0, $Runtime$Version* v1, int3
 
 void Basic4Version::checkCompare($Runtime$Version* v0, $Runtime$Version* v1, int32_t expected, int32_t actual) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $Integer::signum(expected);
 	if (var$0 == $Integer::signum(actual)) {
 		pass();
@@ -624,6 +635,7 @@ void Basic4Version::pass() {
 
 void Basic4Version::fail($String* fs, $Class* ex) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({"\'"_s, fs, "\'"_s}));
 	if (ex != nullptr) {
 		$plusAssign(s, $$str({": "_s, $(ex->getName()), " not thrown"_s}));
@@ -638,6 +650,7 @@ void Basic4Version::fail($String* fs, $Class* ex) {
 
 void Basic4Version::fail($String* t, $String* exp, $String* got) {
 	$init(Basic4Version);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({t, ": Expected \'"_s, exp, "\', got \'"_s, got, "\'"_s}));
 	if (Basic4Version::first == nullptr) {
 		setFirst(s);

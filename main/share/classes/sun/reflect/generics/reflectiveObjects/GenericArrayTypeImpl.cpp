@@ -66,10 +66,12 @@ $Type* GenericArrayTypeImpl::getGenericComponentType() {
 }
 
 $String* GenericArrayTypeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$($nc($(getGenericComponentType()))->getTypeName()), "[]"_s});
 }
 
 bool GenericArrayTypeImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($GenericArrayType, o)) {
 		$var($GenericArrayType, that, $cast($GenericArrayType, o));
 		return $Objects::equals(this->genericComponentType, $($nc(that)->getGenericComponentType()));

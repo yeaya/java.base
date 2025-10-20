@@ -165,6 +165,7 @@ $Void* DefaultLoggerFinder::checkPermission() {
 
 bool DefaultLoggerFinder::isSystem($Module* m) {
 	$init(DefaultLoggerFinder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultLoggerFinder$1, m)))))))->booleanValue();
 }
@@ -181,6 +182,7 @@ $System$Logger* DefaultLoggerFinder::getLocalizedLogger($String* name, $Resource
 }
 
 $System$Logger* DefaultLoggerFinder::demandLoggerFor($String* name, $Module* module) {
+	$useLocalCurrentObjectStackCache();
 	checkPermission();
 	if (isSystem(module)) {
 		$init($DefaultLoggerFinder$SharedLoggers);

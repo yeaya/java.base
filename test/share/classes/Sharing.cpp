@@ -114,6 +114,7 @@ void Sharing::main($StringArray* args) {
 }
 
 void Sharing::TestFinalizer() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileDescriptor, fd, nullptr);
 	$var($File, tempFile, $new($File, "TestFinalizer1.txt"_s));
 	tempFile->deleteOnExit();
@@ -232,6 +233,7 @@ void Sharing::TestFinalizer() {
 }
 
 void Sharing::TestMultipleFD() {
+	$useLocalCurrentObjectStackCache();
 	$var($RandomAccessFile, raf, nullptr);
 	$var($FileOutputStream, fos, nullptr);
 	$var($FileInputStream, fis, nullptr);
@@ -339,6 +341,7 @@ void Sharing::TestMultipleFD() {
 }
 
 void Sharing::TestIsValid() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileDescriptor, fd, nullptr);
 	$var($RandomAccessFile, raf, nullptr);
 	$var($FileOutputStream, fos, nullptr);
@@ -467,6 +470,7 @@ void Sharing::TestIsValid() {
 }
 
 void Sharing::MultiThreadedFD() {
+	$useLocalCurrentObjectStackCache();
 	$var($RandomAccessFile, raf, nullptr);
 	$var($FileDescriptor, fd, nullptr);
 	int32_t numThreads = 2;
@@ -516,6 +520,7 @@ void Sharing::MultiThreadedFD() {
 }
 
 void Sharing::TestCloseAll() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $new($File, "test0"_s));
 	testFile->deleteOnExit();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, testFile, "rw"_s));

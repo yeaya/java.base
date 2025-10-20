@@ -79,6 +79,7 @@ void Exceptions::main($StringArray* args) {
 }
 
 void Exceptions::testFileSystemException() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, thisFile, "source"_s);
 	$var($String, otherFile, "target"_s);
 	$var($String, reason, "Access denied"_s);
@@ -96,6 +97,7 @@ void Exceptions::testFileSystemException() {
 }
 
 void Exceptions::testFileSystemException($String* thisFile, $String* otherFile, $String* reason) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystemException, exc, $new($FileSystemException, thisFile, otherFile, reason));
 	if (!$Objects::equals(thisFile, $(exc->getFile()))) {
 		$throwNew($RuntimeException, "getFile returned unexpected result"_s);
@@ -109,6 +111,7 @@ void Exceptions::testFileSystemException($String* thisFile, $String* otherFile, 
 }
 
 void Exceptions::testDirectoryIteratorException() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$new($DirectoryIteratorException, nullptr);
 		$throwNew($RuntimeException, "NullPointerException expected"_s);
@@ -148,6 +151,7 @@ void Exceptions::hackCause($Throwable* t, $Throwable* cause) {
 }
 
 $bytes* Exceptions::serialize(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, baos));
 	oos->writeObject(o);
@@ -156,6 +160,7 @@ $bytes* Exceptions::serialize(Object$* o) {
 }
 
 $Object* Exceptions::deserialize($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayInputStream, in, $new($ByteArrayInputStream, bytes));
 	$var($ObjectInputStream, ois, $new($ObjectInputStream, in));
 	$var($Object, result, ois->readObject());

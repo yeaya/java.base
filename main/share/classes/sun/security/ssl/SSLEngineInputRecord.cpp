@@ -142,6 +142,7 @@ int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBufferArray* srcs, int3
 }
 
 int32_t SSLEngineInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(packet)->remaining() < 5) {
 		return -1;
 	}
@@ -212,6 +213,7 @@ $PlaintextArray* SSLEngineInputRecord::decode($ByteBuffer* packet) {
 }
 
 $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
+	$useLocalCurrentObjectStackCache();
 	int32_t srcPos = $nc(packet)->position();
 	int32_t srcLim = packet->limit();
 	int8_t contentType = packet->get();
@@ -321,6 +323,7 @@ $PlaintextArray* SSLEngineInputRecord::decodeInputRecord($ByteBuffer* packet) {
 }
 
 $PlaintextArray* SSLEngineInputRecord::handleUnknownRecord($ByteBuffer* packet) {
+	$useLocalCurrentObjectStackCache();
 	int32_t srcPos = $nc(packet)->position();
 	int32_t srcLim = packet->limit();
 	int8_t firstByte = packet->get(srcPos);

@@ -83,6 +83,7 @@ void EncryptedExtensions$EncryptedExtensionsProducer::init$() {
 }
 
 $bytes* EncryptedExtensions$EncryptedExtensionsProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($EncryptedExtensions$EncryptedExtensionsMessage, eem, $new($EncryptedExtensions$EncryptedExtensionsMessage, shc));
 	$init($SSLHandshake);

@@ -177,6 +177,7 @@ $String* NameConstraintsExtension::PERMITTED_SUBTREES = nullptr;
 $String* NameConstraintsExtension::EXCLUDED_SUBTREES = nullptr;
 
 void NameConstraintsExtension::calcMinMax() {
+	$useLocalCurrentObjectStackCache();
 	this->hasMin = false;
 	this->hasMax = false;
 	if (this->excluded != nullptr) {
@@ -205,6 +206,7 @@ void NameConstraintsExtension::calcMinMax() {
 }
 
 void NameConstraintsExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	this->minMaxValid = false;
 	if (this->permitted == nullptr && this->excluded == nullptr) {
 		$set(this, extensionValue, nullptr);
@@ -240,6 +242,7 @@ void NameConstraintsExtension::init$($GeneralSubtrees* permitted, $GeneralSubtre
 }
 
 void NameConstraintsExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, permitted, nullptr);
 	$set(this, excluded, nullptr);
@@ -281,6 +284,7 @@ void NameConstraintsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* NameConstraintsExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("NameConstraints: ["_s);
 	if (this->permitted != nullptr) {
@@ -294,6 +298,7 @@ $String* NameConstraintsExtension::toString() {
 }
 
 void NameConstraintsExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -355,6 +360,7 @@ $String* NameConstraintsExtension::getName() {
 }
 
 void NameConstraintsExtension::merge(NameConstraintsExtension* newConstraints) {
+	$useLocalCurrentObjectStackCache();
 	if (newConstraints == nullptr) {
 		return;
 	}
@@ -384,6 +390,7 @@ void NameConstraintsExtension::merge(NameConstraintsExtension* newConstraints) {
 }
 
 bool NameConstraintsExtension::verify($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	if (cert == nullptr) {
 		$throwNew($IOException, "Certificate is null"_s);
 	}
@@ -466,6 +473,7 @@ bool NameConstraintsExtension::verify($X509Certificate* cert) {
 
 bool NameConstraintsExtension::hasNameType($GeneralNames* names, int32_t type) {
 	$init(NameConstraintsExtension);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(names)->names()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -481,6 +489,7 @@ bool NameConstraintsExtension::hasNameType($GeneralNames* names, int32_t type) {
 }
 
 bool NameConstraintsExtension::verify($GeneralNameInterface* name) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($IOException, "name is null"_s);
 	}
@@ -559,6 +568,7 @@ bool NameConstraintsExtension::verify($GeneralNameInterface* name) {
 }
 
 $Object* NameConstraintsExtension::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(NameConstraintsExtension, newNCE, $cast(NameConstraintsExtension, $Extension::clone()));
 		if (this->permitted != nullptr) {

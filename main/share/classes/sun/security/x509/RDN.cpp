@@ -114,6 +114,7 @@ void RDN::init$($String* name) {
 }
 
 void RDN::init$($String* name, $Map* keywordMap) {
+	$useLocalCurrentObjectStackCache();
 	int32_t quoteCount = 0;
 	int32_t searchOffset = 0;
 	int32_t avaOffset = 0;
@@ -148,6 +149,7 @@ void RDN::init$($String* name, $String* format) {
 }
 
 void RDN::init$($String* name, $String* format, $Map* keywordMap) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(format)->equalsIgnoreCase("RFC2253"_s) == false) {
 		$throwNew($IOException, $$str({"Unsupported format "_s, format}));
 	}
@@ -178,6 +180,7 @@ void RDN::init$($String* name, $String* format, $Map* keywordMap) {
 }
 
 void RDN::init$($DerValue* rdn) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(rdn)->tag != $DerValue::tag_Set) {
 		$throwNew($IOException, "X500 RDN"_s);
 	}
@@ -210,6 +213,7 @@ void RDN::init$($AVAArray* avas) {
 }
 
 $List* RDN::avas() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, this->avaList);
 	if (list == nullptr) {
 		$assign(list, $Collections::unmodifiableList($($Arrays::asList(this->assertion))));
@@ -223,6 +227,7 @@ int32_t RDN::size() {
 }
 
 bool RDN::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -256,6 +261,7 @@ void RDN::encode($DerOutputStream* out) {
 }
 
 $String* RDN::toString() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->assertion)->length == 1) {
 		return $nc($nc(this->assertion)->get(0))->toString();
 	}
@@ -271,6 +277,7 @@ $String* RDN::toRFC1779String() {
 }
 
 $String* RDN::toRFC1779String($Map* oidMap) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->assertion)->length == 1) {
 		return $nc($nc(this->assertion)->get(0))->toRFC1779String(oidMap);
 	}
@@ -290,6 +297,7 @@ $String* RDN::toRFC2253String($Map* oidMap) {
 }
 
 $String* RDN::toRFC2253String(bool canonical) {
+	$useLocalCurrentObjectStackCache();
 	if (canonical == false) {
 		return toRFC2253StringInternal(false, $($Collections::emptyMap()));
 	}
@@ -302,6 +310,7 @@ $String* RDN::toRFC2253String(bool canonical) {
 }
 
 $String* RDN::toRFC2253StringInternal(bool canonical, $Map* oidMap) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->assertion)->length == 1) {
 		return canonical ? $nc($nc(this->assertion)->get(0))->toRFC2253CanonicalString() : $nc($nc(this->assertion)->get(0))->toRFC2253String(oidMap);
 	}

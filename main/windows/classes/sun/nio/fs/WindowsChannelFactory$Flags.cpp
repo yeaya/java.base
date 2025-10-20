@@ -109,6 +109,7 @@ void WindowsChannelFactory$Flags::init$() {
 }
 
 WindowsChannelFactory$Flags* WindowsChannelFactory$Flags::toFlags($Set* options) {
+	$useLocalCurrentObjectStackCache();
 	$var(WindowsChannelFactory$Flags, flags, $new(WindowsChannelFactory$Flags));
 	{
 		$var($Iterator, i$, $nc(options)->iterator());

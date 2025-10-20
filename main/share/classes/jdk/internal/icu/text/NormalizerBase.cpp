@@ -239,6 +239,7 @@ void NormalizerBase::init$($CharacterIterator* iter, $NormalizerBase$Mode* mode)
 }
 
 $Object* NormalizerBase::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(NormalizerBase, copy, $cast(NormalizerBase, $Cloneable::clone()));
 		$set($nc(copy), text, $cast($UCharacterIterator, $nc(this->text)->clone()));
@@ -388,6 +389,7 @@ void NormalizerBase::clearBuffer() {
 }
 
 bool NormalizerBase::nextNormalize() {
+	$useLocalCurrentObjectStackCache();
 	clearBuffer();
 	this->currentIndex = this->nextIndex;
 	$nc(this->text)->setIndex(this->nextIndex);
@@ -409,6 +411,7 @@ bool NormalizerBase::nextNormalize() {
 }
 
 bool NormalizerBase::previousNormalize() {
+	$useLocalCurrentObjectStackCache();
 	clearBuffer();
 	this->nextIndex = this->currentIndex;
 	$nc(this->text)->setIndex(this->currentIndex);

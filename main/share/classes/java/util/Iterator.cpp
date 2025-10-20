@@ -47,6 +47,7 @@ void Iterator::remove() {
 }
 
 void Iterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	while (hasNext()) {
 		action->accept($(next()));

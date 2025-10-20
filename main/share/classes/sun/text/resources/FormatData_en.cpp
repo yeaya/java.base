@@ -43,6 +43,7 @@ void FormatData_en::init$() {
 }
 
 $ObjectArray2* FormatData_en::getContents() {
+	$useLocalCurrentObjectStackCache();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("MonthNarrows"_s),

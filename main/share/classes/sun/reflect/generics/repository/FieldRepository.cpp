@@ -89,6 +89,7 @@ $Type* FieldRepository::getGenericType() {
 }
 
 $Type* FieldRepository::computeGenericType() {
+	$useLocalCurrentObjectStackCache();
 	$var($Reifier, r, getReifier());
 	$nc(($cast($TypeSignature, $(getTree()))))->accept(r);
 	return $cast($Type, $nc(r)->getResult());

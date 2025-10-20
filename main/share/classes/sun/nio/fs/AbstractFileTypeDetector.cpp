@@ -81,6 +81,7 @@ $String* AbstractFileTypeDetector::getExtension($String* name) {
 }
 
 $String* AbstractFileTypeDetector::probeContentType($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	if (file == nullptr) {
 		$throwNew($NullPointerException, "\'file\' is null"_s);
 	}
@@ -97,6 +98,7 @@ $String* AbstractFileTypeDetector::probeContentType($Path* file) {
 
 $String* AbstractFileTypeDetector::parse($String* s) {
 	$init(AbstractFileTypeDetector);
+	$useLocalCurrentObjectStackCache();
 	int32_t slash = $nc(s)->indexOf((int32_t)u'/');
 	int32_t semicolon = s->indexOf((int32_t)u';');
 	if (slash < 0) {

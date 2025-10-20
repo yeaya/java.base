@@ -69,10 +69,12 @@ void SunRsaSignEntries::add($Provider* p, $String* type, $String* algo, $String*
 }
 
 void SunRsaSignEntries::addA($Provider* p, $String* type, $String* algo, $String* cn, $HashMap* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->services)->add($$new($Provider$Service, p, type, algo, cn, $($SecurityProviderConstants::getAliases(algo)), attrs));
 }
 
 void SunRsaSignEntries::init$($Provider* p) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, services, $new($LinkedHashSet, 20, 0.9f));
 	$var($HashMap, attrs, $new($HashMap, 3));
 	attrs->put("SupportedKeyClasses"_s, "java.security.interfaces.RSAPublicKey|java.security.interfaces.RSAPrivateKey"_s);

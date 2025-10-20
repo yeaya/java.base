@@ -44,6 +44,7 @@ void B6463990::init$() {
 }
 
 void B6463990::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool except = false;
 	try {
 		$var($String, s, $URLDecoder::decode("%-1"_s, "iso-8859-1"_s));

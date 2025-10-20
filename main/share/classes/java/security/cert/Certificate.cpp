@@ -99,6 +99,7 @@ $String* Certificate::getType() {
 }
 
 bool Certificate::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -117,6 +118,7 @@ bool Certificate::equals(Object$* other) {
 }
 
 int32_t Certificate::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = this->hash;
 	if (h == -1) {
 		try {
@@ -135,6 +137,7 @@ void Certificate::verify($PublicKey* key, $Provider* sigProvider) {
 }
 
 $Object* Certificate::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($new($Certificate$CertificateRep, this->type, $(getEncoded())));
 	} catch ($CertificateException&) {

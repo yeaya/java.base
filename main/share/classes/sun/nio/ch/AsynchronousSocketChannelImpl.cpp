@@ -276,6 +276,7 @@ void AsynchronousSocketChannelImpl::end() {
 }
 
 void AsynchronousSocketChannelImpl::close() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->closeLock)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -356,6 +357,7 @@ void AsynchronousSocketChannelImpl::connect($SocketAddress* remote, Object$* att
 }
 
 $Future* AsynchronousSocketChannelImpl::read(bool isScatteringRead, $ByteBuffer* dst, $ByteBufferArray* dsts, int64_t timeout, $TimeUnit* unit, Object$* att, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$var($Throwable, e, $new($ClosedChannelException));
 		if (handler == nullptr) {
@@ -433,6 +435,7 @@ void AsynchronousSocketChannelImpl::read($ByteBufferArray* dsts, int32_t offset,
 }
 
 $Future* AsynchronousSocketChannelImpl::write(bool isGatheringWrite, $ByteBuffer* src, $ByteBufferArray* srcs, int64_t timeout, $TimeUnit* unit, Object$* att, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	bool hasDataToWrite = isGatheringWrite || $nc(src)->hasRemaining();
 	bool closed = false;
 	if (isOpen()) {
@@ -499,6 +502,7 @@ void AsynchronousSocketChannelImpl::write($ByteBufferArray* srcs$renamed, int32_
 }
 
 $NetworkChannel* AsynchronousSocketChannelImpl::bind($SocketAddress* local) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -543,6 +547,7 @@ $SocketAddress* AsynchronousSocketChannelImpl::getLocalAddress() {
 }
 
 $NetworkChannel* AsynchronousSocketChannelImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -584,6 +589,7 @@ $NetworkChannel* AsynchronousSocketChannelImpl::setOption($SocketOption* name, O
 }
 
 $Object* AsynchronousSocketChannelImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -685,6 +691,7 @@ $AsynchronousSocketChannel* AsynchronousSocketChannelImpl::shutdownOutput() {
 }
 
 $String* AsynchronousSocketChannelImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append(u'[');

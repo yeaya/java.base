@@ -200,6 +200,7 @@ void KQueuePort::shutdownHandlerTasks() {
 }
 
 void KQueuePort::startPoll(int32_t fd, int32_t events) {
+	$useLocalCurrentObjectStackCache();
 	int32_t err = 0;
 	int32_t flags = (1 | 16);
 	$init($Net);

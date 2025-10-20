@@ -75,6 +75,7 @@ void HugeCapacity4StringBuffer::init$() {
 
 void HugeCapacity4StringBuffer::main($StringArray* args) {
 	$init(HugeCapacity4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	testHugeInitialString();
 	testHugeInitialCharSequence();
 	if (HugeCapacity4StringBuffer::failures > 0) {
@@ -84,6 +85,7 @@ void HugeCapacity4StringBuffer::main($StringArray* args) {
 
 void HugeCapacity4StringBuffer::testHugeInitialString() {
 	$init(HugeCapacity4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, str, "Z"_s->repeat($Integer::MAX_VALUE - 8));
 		$var($StringBuffer, sb, $new($StringBuffer, str));
@@ -98,6 +100,7 @@ void HugeCapacity4StringBuffer::testHugeInitialString() {
 
 void HugeCapacity4StringBuffer::testHugeInitialCharSequence() {
 	$init(HugeCapacity4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($CharSequence, seq, $new($HugeCapacity4StringBuffer$MyHugeCharSeq));
 		$var($StringBuffer, sb, $new($StringBuffer, seq));

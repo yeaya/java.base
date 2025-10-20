@@ -154,6 +154,7 @@ bool RSAPrivateCrtKeyImpl::isDestroyed() {
 
 $RSAPrivateKey* RSAPrivateCrtKeyImpl::newKey($RSAUtil$KeyType* type, $String* format, $bytes* encoded) {
 	$init(RSAPrivateCrtKeyImpl);
+	$useLocalCurrentObjectStackCache();
 	if (encoded == nullptr || $nc(encoded)->length == 0) {
 		$throwNew($InvalidKeyException, "Missing key encoding"_s);
 	}
@@ -242,6 +243,7 @@ $RSAPrivateKey* RSAPrivateCrtKeyImpl::newKey($RSAUtil$KeyType* type, $AlgorithmP
 }
 
 void RSAPrivateCrtKeyImpl::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$PKCS8Key::init$(encoded);
 	parseKeyBits();
 	$RSAKeyFactory::checkRSAProviderKeyLengths($nc(this->n)->bitLength(), this->e);
@@ -256,6 +258,7 @@ void RSAPrivateCrtKeyImpl::init$($bytes* encoded) {
 }
 
 void RSAPrivateCrtKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* keyParams, $BigInteger* n, $BigInteger* e, $BigInteger* d, $BigInteger* p, $BigInteger* q, $BigInteger* pe, $BigInteger* qe, $BigInteger* coeff) {
+	$useLocalCurrentObjectStackCache();
 	$PKCS8Key::init$();
 	$RSAKeyFactory::checkRSAProviderKeyLengths($nc(n)->bitLength(), e);
 	$set(this, n, n);
@@ -355,6 +358,7 @@ $String* RSAPrivateCrtKeyImpl::toString() {
 
 $BigIntegerArray* RSAPrivateCrtKeyImpl::parseASN1($bytes* raw) {
 	$init(RSAPrivateCrtKeyImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, derValue, $new($DerValue, raw));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -394,6 +398,7 @@ $BigIntegerArray* RSAPrivateCrtKeyImpl::parseASN1($bytes* raw) {
 }
 
 void RSAPrivateCrtKeyImpl::parseKeyBits() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigIntegerArray, comps, parseASN1(this->key));
 		$set(this, n, $nc(comps)->get(0));

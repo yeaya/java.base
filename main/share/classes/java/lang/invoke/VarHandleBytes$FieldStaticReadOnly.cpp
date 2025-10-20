@@ -139,6 +139,7 @@ VarHandleBytes$FieldStaticReadOnly* VarHandleBytes$FieldStaticReadOnly::withInvo
 }
 
 $Optional* VarHandleBytes$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Byte);
 	$var($Optional, fieldTypeRef, $nc($Byte::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

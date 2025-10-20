@@ -62,6 +62,7 @@ void SupplementaryCharacterData::init$($ints* table) {
 }
 
 int32_t SupplementaryCharacterData::getValue(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (!SupplementaryCharacterData::$assertionsDisabled && !(index >= $Character::MIN_SUPPLEMENTARY_CODE_POINT && index <= $Character::MAX_CODE_POINT)) {
 		$throwNew($AssertionError, $of($$str({"Invalid code point:"_s, $($Integer::toHexString(index))})));
 	}

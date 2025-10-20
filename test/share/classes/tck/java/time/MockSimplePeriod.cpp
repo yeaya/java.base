@@ -140,6 +140,7 @@ $Temporal* MockSimplePeriod::subtractFrom($Temporal* temporal) {
 }
 
 int32_t MockSimplePeriod::compareTo(MockSimplePeriod* otherPeriod) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($of(this->unit))->equals($($nc(otherPeriod)->getUnit())) == false) {
 		$var($String, var$0, $$str({"Units cannot be compared: "_s, this->unit, " and "_s}));
 		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(otherPeriod)->getUnit())));

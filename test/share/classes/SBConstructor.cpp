@@ -52,6 +52,7 @@ void SBConstructor::init$() {
 
 void SBConstructor::main($StringArray* argvs) {
 	$init(SBConstructor);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		int32_t length = $nc(SBConstructor::rnd)->nextInt(20) + 1;
 		$var($StringBuffer, testStringBuffer, $new($StringBuffer));

@@ -78,6 +78,7 @@ void FtpClient$1::init$($StringArray* val$acceptPasvAddress, $ints* val$vals) {
 }
 
 $Object* FtpClient$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->val$acceptPasvAddress)->set(0, $($System::getProperty("jdk.net.ftp.trustPasvAddress"_s, "false"_s)));
 	$nc(this->val$vals)->set(0, $nc($($Integer::getInteger("sun.net.client.defaultReadTimeout"_s, 0x000493E0)))->intValue());
 	$nc(this->val$vals)->set(1, $nc($($Integer::getInteger("sun.net.client.defaultConnectTimeout"_s, 0x000493E0)))->intValue());

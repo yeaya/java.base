@@ -116,6 +116,7 @@ bool CompletableFuture$AsyncSupply::exec() {
 }
 
 void CompletableFuture$AsyncSupply::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($Supplier, f, nullptr);
 	if (($assign(d, this->dep)) != nullptr && ($assign(f, this->fn)) != nullptr) {

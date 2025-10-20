@@ -150,6 +150,7 @@ void SingleByte$Decoder::init$($Charset* cs, $chars* b2c, bool isASCIICompatible
 }
 
 $CoderResult* SingleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -183,6 +184,7 @@ $CoderResult* SingleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 }
 
 $CoderResult* SingleByte$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

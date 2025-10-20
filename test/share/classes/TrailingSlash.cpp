@@ -73,6 +73,7 @@ void TrailingSlash::check($String* what, $String* fns, bool expected, bool threw
 
 void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 	$init(TrailingSlash);
+	$useLocalCurrentObjectStackCache();
 	bool threw = false;
 	threw = false;
 	try {
@@ -108,6 +109,7 @@ void TrailingSlash::go($String* fns, bool fis, bool raf, bool fos) {
 
 void TrailingSlash::go($String* fn, $String* fns) {
 	$init(TrailingSlash);
+	$useLocalCurrentObjectStackCache();
 	$nc(TrailingSlash::log)->println($$str({"Test case: "_s, fns}));
 	$var($File, f, $new($File, fn));
 	f->delete$();
@@ -128,6 +130,7 @@ void TrailingSlash::go($String* fn, $String* fns) {
 
 void TrailingSlash::main($StringArray* args) {
 	$init(TrailingSlash);
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar != u'/') {
 		return;

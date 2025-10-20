@@ -78,6 +78,7 @@ $Object* Util$1::initialValue() {
 }
 
 void Util$1::threadTerminated($Util$BufferCache* cache) {
+	$useLocalCurrentObjectStackCache();
 	while (!$nc(cache)->isEmpty()) {
 		$var($ByteBuffer, bb, cache->removeFirst());
 		$Util::free(bb);

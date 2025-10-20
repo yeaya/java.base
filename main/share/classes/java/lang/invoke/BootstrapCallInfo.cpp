@@ -51,6 +51,7 @@ $Object* allocate$BootstrapCallInfo($Class* clazz) {
 
 BootstrapCallInfo* BootstrapCallInfo::makeBootstrapCallInfo($MethodHandle* bsm, $String* name, Object$* type, $ConstantGroup* constants) {
 	$init(BootstrapCallInfo);
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractConstantGroup$BSCIWithCache, bsci, $new($AbstractConstantGroup$BSCIWithCache, bsm, name, type, $nc(constants)->size()));
 	$init($AbstractConstantGroup$BSCIWithCache);
 	$var($Object, NP, $AbstractConstantGroup$BSCIWithCache::NOT_PRESENT);

@@ -159,6 +159,7 @@ $String* StringCharBuffer::toString(int32_t start, int32_t end) {
 }
 
 $CharSequence* StringCharBuffer::subSequence(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t pos = position();
 		$var($CharSequence, var$0, this->str);

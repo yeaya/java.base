@@ -95,6 +95,7 @@ void ValueConversions$Handles::init$() {
 }
 
 void clinit$ValueConversions$Handles($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		try {
 			$var($MethodType, idType, $MethodType::genericMethodType(1));

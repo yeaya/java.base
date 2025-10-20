@@ -109,6 +109,7 @@ void PolicyInformation::init$($CertificatePolicyId* policyIdentifier, $Set* poli
 }
 
 void PolicyInformation::init$($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding of PolicyInformation"_s);
 	}
@@ -131,6 +132,7 @@ void PolicyInformation::init$($DerValue* val) {
 }
 
 bool PolicyInformation::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(PolicyInformation, other))) {
 		return false;
 	}
@@ -166,6 +168,7 @@ $Object* PolicyInformation::get($String* name) {
 }
 
 void PolicyInformation::set($String* name, Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(PolicyInformation::ID)) {
 		if ($instanceOf($CertificatePolicyId, obj)) {
 			$set(this, policyIdentifier, $cast($CertificatePolicyId, obj));
@@ -219,6 +222,7 @@ $String* PolicyInformation::toString() {
 }
 
 void PolicyInformation::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->policyIdentifier)->encode(tmp);
 	if (!$nc(this->policyQualifiers)->isEmpty()) {

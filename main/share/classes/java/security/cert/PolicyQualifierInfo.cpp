@@ -61,6 +61,7 @@ $Object* allocate$PolicyQualifierInfo($Class* clazz) {
 }
 
 void PolicyQualifierInfo::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, mEncoded, $cast($bytes, $nc(encoded)->clone()));
 	$var($DerValue, val, $new($DerValue, this->mEncoded));
 	if (val->tag != $DerValue::tag_Sequence) {
@@ -89,6 +90,7 @@ $bytes* PolicyQualifierInfo::getPolicyQualifier() {
 }
 
 $String* PolicyQualifierInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->pqiString != nullptr) {
 		return this->pqiString;
 	}

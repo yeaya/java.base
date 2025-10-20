@@ -143,6 +143,7 @@ void MethodHandleImpl$BindCaller::init$() {
 
 $MethodHandle* MethodHandleImpl$BindCaller::bindCaller($MethodHandle* mh, $Class* hostClass) {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = hostClass == nullptr;
 	if (!var$0) {
 		bool var$2 = $nc(hostClass)->isArray();
@@ -159,6 +160,7 @@ $MethodHandle* MethodHandleImpl$BindCaller::bindCaller($MethodHandle* mh, $Class
 
 $MethodHandle* MethodHandleImpl$BindCaller::makeInjectedInvoker($Class* targetClass) {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, name, $str({$($nc(targetClass)->getName()), "$$InjectedInvoker"_s}));
 		if (targetClass->isHidden()) {
@@ -178,6 +180,7 @@ $MethodHandle* MethodHandleImpl$BindCaller::makeInjectedInvoker($Class* targetCl
 
 $MethodHandle* MethodHandleImpl$BindCaller::prepareForInvoker($MethodHandle* mh$renamed) {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, mh$renamed);
 	$assign(mh, $nc(mh)->asFixedArity());
 	$var($MethodType, mt, mh->type());
@@ -192,6 +195,7 @@ $MethodHandle* MethodHandleImpl$BindCaller::prepareForInvoker($MethodHandle* mh$
 
 $MethodHandle* MethodHandleImpl$BindCaller::restoreToType($MethodHandle* vamh, $MethodHandle* original, $Class* hostClass) {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $nc(original)->type());
 	$load($ObjectArray);
 	$var($MethodHandle, mh, $nc(vamh)->asCollector($getClass($ObjectArray), $nc(type)->parameterCount()));
@@ -203,6 +207,7 @@ $MethodHandle* MethodHandleImpl$BindCaller::restoreToType($MethodHandle* vamh, $
 
 bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class* invokerClass) {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool var$0 = !MethodHandleImpl$BindCaller::$assertionsDisabled;
 	if (var$0) {
@@ -236,6 +241,7 @@ bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class
 
 bool MethodHandleImpl$BindCaller::checkCallerClass($Class* expected) {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	$Class* actual = $Reflection::getCallerClass();
 	if (actual != expected) {
 		$var($String, var$0, $$str({"found "_s, $($nc(actual)->getName()), ", expected "_s}));
@@ -246,6 +252,7 @@ bool MethodHandleImpl$BindCaller::checkCallerClass($Class* expected) {
 
 $bytes* MethodHandleImpl$BindCaller::generateInvokerTemplate() {
 	$init(MethodHandleImpl$BindCaller);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassWriter, cw, $new($ClassWriter, 0));
 	cw->visit(52, 2 | 32, "InjectedInvoker"_s, nullptr, "java/lang/Object"_s, nullptr);
 	$var($MethodVisitor, mv, cw->visitMethod(8, "invoke_V"_s, "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;"_s, nullptr, nullptr));
@@ -261,6 +268,7 @@ $bytes* MethodHandleImpl$BindCaller::generateInvokerTemplate() {
 }
 
 void clinit$MethodHandleImpl$BindCaller($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($MethodHandleImpl);
 	MethodHandleImpl$BindCaller::$assertionsDisabled = !$MethodHandleImpl::class$->desiredAssertionStatus();

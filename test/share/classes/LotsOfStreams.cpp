@@ -68,6 +68,7 @@ void LotsOfStreams::init$() {
 }
 
 void LotsOfStreams::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($InputStream, stream, $new($SequenceInputStream, $$new($LotsOfStreams$LOSEnumeration)));
 		{

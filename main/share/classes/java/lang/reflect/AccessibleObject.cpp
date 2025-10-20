@@ -218,6 +218,7 @@ void AccessibleObject::checkPermission() {
 
 void AccessibleObject::setAccessible($AccessibleObjectArray* array$renamed, bool flag) {
 	$init(AccessibleObject);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessibleObjectArray, array, array$renamed);
 	checkPermission();
 	if (flag) {
@@ -286,6 +287,7 @@ void AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringCl
 }
 
 bool AccessibleObject::checkCanSetAccessible($Class* caller, $Class* declaringClass, bool throwExceptionIfDenied) {
+	$useLocalCurrentObjectStackCache();
 	$load($MethodHandle);
 	if (caller == $MethodHandle::class$) {
 		$throwNew($IllegalCallerException);
@@ -364,6 +366,7 @@ bool AccessibleObject::isAccessible() {
 }
 
 bool AccessibleObject::canAccess(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$load($Member);
 	if (!$Member::class$->isInstance(this)) {
 		return this->override$;
@@ -436,6 +439,7 @@ bool AccessibleObject::isAccessChecked($Class* caller, $Class* targetClass) {
 }
 
 bool AccessibleObject::isAccessChecked($Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, cache, this->accessCheckCache);
 	if ($instanceOf($WeakReference, cache)) {
 		$var($WeakReference, ref, $cast($WeakReference, cache));
@@ -499,6 +503,7 @@ AccessibleObject* AccessibleObject::getRoot() {
 }
 
 void clinit$AccessibleObject($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$SharedSecrets::setJavaLangReflectAccess($$new($ReflectAccess));

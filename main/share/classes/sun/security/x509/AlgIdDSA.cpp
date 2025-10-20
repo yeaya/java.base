@@ -140,6 +140,7 @@ $String* AlgIdDSA::getName() {
 }
 
 void AlgIdDSA::initializeParams() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	out->putInteger(this->p);
 	out->putInteger(this->q);
@@ -150,6 +151,7 @@ void AlgIdDSA::initializeParams() {
 }
 
 void AlgIdDSA::decodeParams() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encodedParams == nullptr) {
 		$throwNew($IOException, "DSA alg params are null"_s);
 	}
@@ -171,6 +173,7 @@ $String* AlgIdDSA::toString() {
 }
 
 $String* AlgIdDSA::paramsToString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encodedParams == nullptr) {
 		return " null\n"_s;
 	} else {

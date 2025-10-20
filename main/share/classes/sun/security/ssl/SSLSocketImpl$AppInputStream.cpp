@@ -127,6 +127,7 @@ int32_t SSLSocketImpl$AppInputStream::read() {
 }
 
 int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "the target buffer is null"_s);
 	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
@@ -225,6 +226,7 @@ int32_t SSLSocketImpl$AppInputStream::read($bytes* b, int32_t off, int32_t len) 
 }
 
 int64_t SSLSocketImpl$AppInputStream::skip(int64_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, skipArray, $new($bytes, 256));
 	int64_t skipped = 0;
 	$nc(this->readLock)->lock();
@@ -253,6 +255,7 @@ int64_t SSLSocketImpl$AppInputStream::skip(int64_t n) {
 }
 
 void SSLSocketImpl$AppInputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 		$SSLLogger::finest("Closing input stream"_s, $$new($ObjectArray, 0));
@@ -268,6 +271,7 @@ void SSLSocketImpl$AppInputStream::close() {
 }
 
 bool SSLSocketImpl$AppInputStream::checkEOF() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->this$0->conContext)->isBroken) {
 		if ($nc(this->this$0->conContext)->closeReason == nullptr) {
 			return true;
@@ -309,6 +313,7 @@ void SSLSocketImpl$AppInputStream::deplete() {
 }
 
 void SSLSocketImpl$AppInputStream::readLockedDeplete() {
+	$useLocalCurrentObjectStackCache();
 	if (this->hasDepleted || $nc(this->this$0->conContext)->isInboundClosed()) {
 		return;
 	}

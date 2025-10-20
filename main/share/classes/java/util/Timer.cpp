@@ -111,10 +111,12 @@ int32_t Timer::serialNumber() {
 }
 
 void Timer::init$() {
+	$useLocalCurrentObjectStackCache();
 	Timer::init$($$str({"Timer-"_s, $$str(serialNumber())}));
 }
 
 void Timer::init$(bool isDaemon) {
+	$useLocalCurrentObjectStackCache();
 	Timer::init$($$str({"Timer-"_s, $$str(serialNumber())}), isDaemon);
 }
 
@@ -123,6 +125,7 @@ void Timer::init$($String* name) {
 }
 
 void Timer::init$($String* name, bool isDaemon) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, queue, $new($TaskQueue));
 	$set(this, thread, $new($TimerThread, this->queue));
 	$var($Timer$ThreadReaper, threadReaper, $new($Timer$ThreadReaper, this->queue, this->thread));
@@ -211,6 +214,7 @@ void Timer::cancel() {
 }
 
 int32_t Timer::purge() {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = 0;
 	$synchronized(this->queue) {
 		for (int32_t i = $nc(this->queue)->size(); i > 0; --i) {

@@ -94,6 +94,7 @@ void SSLSessionContextImpl$SessionCacheVisitor::init$($SSLSessionContextImpl* th
 }
 
 void SSLSessionContextImpl$SessionCacheVisitor::visit($Map* map) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, ids, $new($ArrayList, $nc(map)->size()));
 	{
 		$var($Iterator, i$, $nc($($nc(map)->keySet()))->iterator());

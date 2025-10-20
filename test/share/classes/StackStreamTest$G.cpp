@@ -534,6 +534,7 @@ void StackStreamTest$G::init$() {
 
 void StackStreamTest$G::g() {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("Thread dump"_s);
@@ -570,6 +571,7 @@ void StackStreamTest$G::g() {
 
 void StackStreamTest$G::checkStackTraceElements($List* classNames, $List* methodNames, $List* stes) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(classNames)->size();
 	if (var$0 != $nc(methodNames)->size()) {
 		$throwNew($RuntimeException, "Test error: classNames and methodNames should be same size"_s);
@@ -590,6 +592,7 @@ void StackStreamTest$G::checkStackTraceElements($List* classNames, $List* method
 
 void StackStreamTest$G::dumpSTEInfo($List* classNames, $List* methodNames, $List* stes) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("Observed class, method names:"_s);
 	{
@@ -611,6 +614,7 @@ void StackStreamTest$G::dumpSTEInfo($List* classNames, $List* methodNames, $List
 
 void StackStreamTest$G::firstFrame() {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("first frame()"_s);
@@ -629,11 +633,13 @@ void StackStreamTest$G::firstFrame() {
 
 $Optional* StackStreamTest$G::lambda$firstFrame$7($Stream* s) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$lambda$firstFrame$6$6)))))->findFirst();
 }
 
 bool StackStreamTest$G::lambda$firstFrame$6($StackWalker$StackFrame* e) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$0, $$str({$($nc(e)->getClassName()), " == "_s}));
 	$nc($System::err)->println($$concat(var$0, $$str($nc($(e->getClassName()))->equals("StackStreamTest"_s))));
@@ -642,6 +648,7 @@ bool StackStreamTest$G::lambda$firstFrame$6($StackWalker$StackFrame* e) {
 
 void StackStreamTest$G::lambda$firstFrame$5($StackWalker$StackFrame* e) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$0, $$str({$($nc(e)->getClassName()), ","_s}));
 	$nc($System::out)->println($$concat(var$0, $(e->getMethodName())));
@@ -649,12 +656,14 @@ void StackStreamTest$G::lambda$firstFrame$5($StackWalker$StackFrame* e) {
 
 $List* StackStreamTest$G::lambda$g$4($Stream* s) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$var($Function, var$0, static_cast<$Function*>($new(StackStreamTest$G$$Lambda$toStackTraceElement$8)));
 	return $cast($List, $nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$isTestClass$7)))))->collect($($Collectors::mapping(var$0, $($Collectors::toList())))));
 }
 
 $Object* StackStreamTest$G::lambda$g$3($Stream* s) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(s)->map(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$toStackTraceElement$8)))))->forEach(static_cast<$Consumer*>($$new(StackStreamTest$G$$Lambda$lambda$g$2$9)));
 	return $of(nullptr);
 }
@@ -667,15 +676,18 @@ void StackStreamTest$G::lambda$g$2($StackTraceElement* ste) {
 
 $List* StackStreamTest$G::lambda$g$1($Stream* s) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	return $cast($List, $nc($($nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$isTestClass$7)))))->map(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$getMethodName$10)))))->collect($($Collectors::toList())));
 }
 
 $List* StackStreamTest$G::lambda$g$0($Stream* s) {
 	$init(StackStreamTest$G);
+	$useLocalCurrentObjectStackCache();
 	return $cast($List, $nc($($nc($($nc(s)->filter(static_cast<$Predicate*>($$new(StackStreamTest$G$$Lambda$isTestClass$7)))))->map(static_cast<$Function*>($$new(StackStreamTest$G$$Lambda$getClassName$11)))))->collect($($Collectors::toList())));
 }
 
 void clinit$StackStreamTest$G($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(StackStreamTest$G::STE_WALKER, $StackWalker::getInstance());
 	$assignStatic(StackStreamTest$G::DEFAULT_WALKER, $StackWalker::getInstance());
 	$assignStatic(StackStreamTest$G::GOLDEN_CLASS_NAMES, $Arrays::asList($$new($StringArray, {

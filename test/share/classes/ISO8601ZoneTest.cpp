@@ -81,6 +81,7 @@ void ISO8601ZoneTest::init$() {
 
 void ISO8601ZoneTest::main($StringArray* args) {
 	$init(ISO8601ZoneTest);
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, tz, $TimeZone::getDefault());
 	$var($Locale, loc, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);
@@ -150,6 +151,7 @@ void ISO8601ZoneTest::main($StringArray* args) {
 
 void ISO8601ZoneTest::formatTest($String* fmt, $String* expected) {
 	$init(ISO8601ZoneTest);
+	$useLocalCurrentObjectStackCache();
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 	$var($String, s, sdf->format(ISO8601ZoneTest::TIMESTAMP));
 	if (!$nc(expected)->equals(s)) {
@@ -177,6 +179,7 @@ void ISO8601ZoneTest::formatTest($String* fmt, $String* expected) {
 
 void ISO8601ZoneTest::roundtripTest($String* fmt) {
 	$init(ISO8601ZoneTest);
+	$useLocalCurrentObjectStackCache();
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 	$var($Date, date, $new($Date));
 	int32_t fractionalHour = $nc($(sdf->getTimeZone()))->getOffset(date->getTime());
@@ -194,6 +197,7 @@ void ISO8601ZoneTest::roundtripTest($String* fmt) {
 
 void ISO8601ZoneTest::badDataParsing($String* fmt, $String* text, int32_t expectedErrorIndex) {
 	$init(ISO8601ZoneTest);
+	$useLocalCurrentObjectStackCache();
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 	try {
 		sdf->parse(text);
@@ -211,6 +215,7 @@ void ISO8601ZoneTest::badDataParsing($String* fmt, $String* text, int32_t expect
 
 void ISO8601ZoneTest::badFormat($String* fmt) {
 	$init(ISO8601ZoneTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 		$throwNew($RuntimeException, $$str({"Constructor didn\'t throw an exception: fmt="_s, fmt}));
@@ -227,6 +232,7 @@ void ISO8601ZoneTest::badFormat($String* fmt) {
 }
 
 void clinit$ISO8601ZoneTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ISO8601ZoneTest::TIMESTAMP, $new($Date, (int64_t)0x0000012AE5F11FEC));
 	$assignStatic(ISO8601ZoneTest::formatData, $new($StringArray2, {
 		$$new($StringArray, {

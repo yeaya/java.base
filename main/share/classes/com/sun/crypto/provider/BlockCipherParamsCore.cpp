@@ -82,6 +82,7 @@ void BlockCipherParamsCore::init$(int32_t blksize, $ints* moreSizes) {
 }
 
 void BlockCipherParamsCore::init($AlgorithmParameterSpec* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($IvParameterSpec, paramSpec))) {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
@@ -111,6 +112,7 @@ void BlockCipherParamsCore::init($AlgorithmParameterSpec* paramSpec) {
 }
 
 void BlockCipherParamsCore::init($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, der, $new($DerInputStream, encoded));
 	$var($bytes, tmpIv, der->getOctetString());
 	if (der->available() != 0) {
@@ -151,6 +153,7 @@ $bytes* BlockCipherParamsCore::getEncoded($String* encodingMethod) {
 }
 
 $String* BlockCipherParamsCore::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($String, ivString, $str({LINE_SEP, "    iv:"_s, LINE_SEP, "["_s}));
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));

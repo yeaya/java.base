@@ -124,6 +124,7 @@ bool EPollSelectorImpl::$assertionsDisabled = false;
 int32_t EPollSelectorImpl::NUM_EPOLLEVENTS = 0;
 
 void EPollSelectorImpl::init$($SelectorProvider* sp) {
+	$useLocalCurrentObjectStackCache();
 	$SelectorImpl::init$(sp);
 	$set(this, fdToKey, $new($HashMap));
 	$set(this, updateLock, $new($Object));
@@ -192,6 +193,7 @@ int32_t EPollSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 }
 
 void EPollSelectorImpl::processUpdateQueue() {
+	$useLocalCurrentObjectStackCache();
 	if (!EPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -222,6 +224,7 @@ void EPollSelectorImpl::processUpdateQueue() {
 }
 
 int32_t EPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (!EPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

@@ -175,6 +175,7 @@ bool FutureTask::isDone() {
 }
 
 bool FutureTask::cancel(bool mayInterruptIfRunning) {
+	$useLocalCurrentObjectStackCache();
 	if (!(this->state == FutureTask::NEW && $nc(FutureTask::STATE)->compareAndSet($$new($ObjectArray, {$of(this), $$of(FutureTask::NEW), $$of((mayInterruptIfRunning ? FutureTask::INTERRUPTING : FutureTask::CANCELLED))})))) {
 		return false;
 	}
@@ -235,6 +236,7 @@ void FutureTask::done() {
 }
 
 void FutureTask::set(Object$* v) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(FutureTask::STATE)->compareAndSet($$new($ObjectArray, {$of(this), $$of(FutureTask::NEW), $$of(FutureTask::COMPLETING)}))) {
 		$set(this, outcome, v);
 		$nc(FutureTask::STATE)->setRelease($$new($ObjectArray, {$of(this), $$of(FutureTask::NORMAL)}));
@@ -243,6 +245,7 @@ void FutureTask::set(Object$* v) {
 }
 
 void FutureTask::setException($Throwable* t) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(FutureTask::STATE)->compareAndSet($$new($ObjectArray, {$of(this), $$of(FutureTask::NEW), $$of(FutureTask::COMPLETING)}))) {
 		$set(this, outcome, t);
 		$nc(FutureTask::STATE)->setRelease($$new($ObjectArray, {$of(this), $$of(FutureTask::EXCEPTIONAL)}));
@@ -251,6 +254,7 @@ void FutureTask::setException($Throwable* t) {
 }
 
 void FutureTask::run() {
+	$useLocalCurrentObjectStackCache();
 	if (this->state != FutureTask::NEW || !$nc(FutureTask::RUNNER)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $($of($Thread::currentThread()))}))) {
 		return;
 	}
@@ -290,6 +294,7 @@ void FutureTask::run() {
 }
 
 bool FutureTask::runAndReset() {
+	$useLocalCurrentObjectStackCache();
 	if (this->state != FutureTask::NEW || !$nc(FutureTask::RUNNER)->compareAndSet($$new($ObjectArray, {$of(this), ($Object*)nullptr, $($of($Thread::currentThread()))}))) {
 		return false;
 	}
@@ -333,6 +338,7 @@ void FutureTask::handlePossibleCancellationInterrupt(int32_t s) {
 }
 
 void FutureTask::finishCompletion() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FutureTask$WaitNode, q, nullptr);
 		for (; ($assign(q, this->waiters)) != nullptr;) {
@@ -359,6 +365,7 @@ void FutureTask::finishCompletion() {
 }
 
 int32_t FutureTask::awaitDone(bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	int64_t startTime = 0;
 	$var($FutureTask$WaitNode, q, nullptr);
 	bool queued = false;
@@ -408,6 +415,7 @@ int32_t FutureTask::awaitDone(bool timed, int64_t nanos) {
 }
 
 void FutureTask::removeWaiter($FutureTask$WaitNode* node) {
+	$useLocalCurrentObjectStackCache();
 	if (node != nullptr) {
 		$set(node, thread, nullptr);
 		bool retry$continue = false;
@@ -442,6 +450,7 @@ void FutureTask::removeWaiter($FutureTask$WaitNode* node) {
 }
 
 $String* FutureTask::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, status, nullptr);
 	{
 		$var($Callable, callable, nullptr)
@@ -476,6 +485,7 @@ $String* FutureTask::toString() {
 }
 
 void clinit$FutureTask($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

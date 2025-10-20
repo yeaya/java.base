@@ -83,6 +83,7 @@ void WalkWithSecurity::init$() {
 
 void WalkWithSecurity::main($StringArray* args) {
 	$load(WalkWithSecurity);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, policyFile, $nc(args)->get(0));
 	$WalkWithSecurity$ExpectedResult* expectedResult = $WalkWithSecurity$ExpectedResult::valueOf($($nc(args->get(1))->toUpperCase()));

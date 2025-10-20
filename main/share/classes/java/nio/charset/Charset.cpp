@@ -231,6 +231,7 @@ $Iterator* Charset::providers() {
 
 Charset* Charset::lookupViaProviders($String* charsetName) {
 	$init(Charset);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!$VM::isBooted()) {
 		return nullptr;
@@ -264,6 +265,7 @@ Charset* Charset::lookupViaProviders($String* charsetName) {
 
 Charset* Charset::lookupExtendedCharset($String* charsetName) {
 	$init(Charset);
+	$useLocalCurrentObjectStackCache();
 	if (!$VM::isBooted()) {
 		return nullptr;
 	}
@@ -301,6 +303,7 @@ Charset* Charset::lookup($String* charsetName) {
 
 Charset* Charset::lookup2($String* charsetName) {
 	$init(Charset);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, nullptr);
 	bool var$0 = ($assign(a, Charset::cache2)) != nullptr;
 	if (var$0 && $nc(charsetName)->equals($nc(a)->get(0))) {
@@ -335,6 +338,7 @@ Charset* Charset::forName($String* charsetName) {
 
 void Charset::put($Iterator* i, $Map* m) {
 	$init(Charset);
+	$useLocalCurrentObjectStackCache();
 	while ($nc(i)->hasNext()) {
 		$var(Charset, cs, $cast(Charset, i->next()));
 		if (!$nc(m)->containsKey($($nc(cs)->name()))) {
@@ -351,6 +355,7 @@ $SortedMap* Charset::availableCharsets() {
 
 Charset* Charset::defaultCharset() {
 	$init(Charset);
+	$useLocalCurrentObjectStackCache();
 	if (Charset::defaultCharset$ == nullptr) {
 		$synchronized(Charset::class$) {
 			$var($String, csn, $GetPropertyAction::privilegedGetProperty("file.encoding"_s));
@@ -414,6 +419,7 @@ bool Charset::canEncode() {
 }
 
 $CharBuffer* Charset::decode($ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($CodingErrorAction);
 		return $nc($($nc($($nc($($ThreadLocalCoders::decoderFor(this)))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->decode(bb);
@@ -425,6 +431,7 @@ $CharBuffer* Charset::decode($ByteBuffer* bb) {
 }
 
 $ByteBuffer* Charset::encode($CharBuffer* cb) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($CodingErrorAction);
 		return $nc($($nc($($nc($($ThreadLocalCoders::encoderFor(this)))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)))->encode(cb);
@@ -440,6 +447,7 @@ $ByteBuffer* Charset::encode($String* str) {
 }
 
 int32_t Charset::compareTo(Charset* that) {
+	$useLocalCurrentObjectStackCache();
 	return ($nc($(name()))->compareToIgnoreCase($($nc(that)->name())));
 }
 

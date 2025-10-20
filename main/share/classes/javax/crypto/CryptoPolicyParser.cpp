@@ -115,6 +115,7 @@ void CryptoPolicyParser::init$() {
 }
 
 void CryptoPolicyParser::read($Reader* policy$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Reader, policy, policy$renamed);
 	if (!($instanceOf($BufferedReader, policy))) {
 		$assign(policy, $new($BufferedReader, policy));
@@ -153,6 +154,7 @@ void CryptoPolicyParser::read($Reader* policy$renamed) {
 }
 
 $CryptoPolicyParser$GrantEntry* CryptoPolicyParser::parseGrantEntry($Hashtable* processedPermissions) {
+	$useLocalCurrentObjectStackCache();
 	$var($CryptoPolicyParser$GrantEntry, e, $new($CryptoPolicyParser$GrantEntry));
 	match("grant"_s);
 	match("{"_s);
@@ -170,6 +172,7 @@ $CryptoPolicyParser$GrantEntry* CryptoPolicyParser::parseGrantEntry($Hashtable* 
 }
 
 $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEntry($Hashtable* processedPermissions) {
+	$useLocalCurrentObjectStackCache();
 	$var($CryptoPolicyParser$CryptoPermissionEntry, e, $new($CryptoPolicyParser$CryptoPermissionEntry));
 	match("Permission"_s);
 	$set(e, cryptoPermission, match("permission type"_s));
@@ -233,6 +236,7 @@ $CryptoPolicyParser$CryptoPermissionEntry* CryptoPolicyParser::parsePermissionEn
 
 $AlgorithmParameterSpec* CryptoPolicyParser::getInstance($String* type, $IntegerArray* params) {
 	$load(CryptoPolicyParser);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($AlgorithmParameterSpec, ret, nullptr);
 	try {
@@ -353,6 +357,7 @@ int32_t CryptoPolicyParser::match() {
 }
 
 $String* CryptoPolicyParser::match($String* expect) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, nullptr);
 	switch (this->lookahead) {
 	case $StreamTokenizer::TT_NUMBER:
@@ -446,6 +451,7 @@ $String* CryptoPolicyParser::match($String* expect) {
 }
 
 $CryptoPermissionArray* CryptoPolicyParser::getPermissions() {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, result, $new($Vector));
 	$var($Enumeration, grantEnum, $nc(this->grantEntries)->elements());
 	while ($nc(grantEnum)->hasMoreElements()) {
@@ -469,6 +475,7 @@ $CryptoPermissionArray* CryptoPolicyParser::getPermissions() {
 }
 
 bool CryptoPolicyParser::isConsistent($String* alg, $String* exemptionMechanism, $Hashtable* processedPermissions$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, processedPermissions, processedPermissions$renamed);
 	$var($String, thisExemptionMechanism, exemptionMechanism == nullptr ? "none"_s : exemptionMechanism);
 	if (processedPermissions == nullptr) {

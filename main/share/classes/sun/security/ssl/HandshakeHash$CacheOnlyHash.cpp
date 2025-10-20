@@ -91,6 +91,7 @@ $bytes* HandshakeHash$CacheOnlyHash::archived() {
 }
 
 HandshakeHash$CacheOnlyHash* HandshakeHash$CacheOnlyHash::copy() {
+	$useLocalCurrentObjectStackCache();
 	$var(HandshakeHash$CacheOnlyHash, result, $new(HandshakeHash$CacheOnlyHash));
 	try {
 		$nc(this->baos)->writeTo(result->baos);

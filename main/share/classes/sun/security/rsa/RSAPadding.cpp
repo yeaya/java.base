@@ -135,6 +135,7 @@ RSAPadding* RSAPadding::getInstance(int32_t type, int32_t paddedSize, $SecureRan
 }
 
 void RSAPadding::init$(int32_t type, int32_t paddedSize, $SecureRandom* random, $OAEPParameterSpec* spec) {
+	$useLocalCurrentObjectStackCache();
 	this->type = type;
 	this->paddedSize = paddedSize;
 	$set(this, random, random);
@@ -203,6 +204,7 @@ void RSAPadding::init$(int32_t type, int32_t paddedSize, $SecureRandom* random, 
 
 $bytes* RSAPadding::getInitialHash($MessageDigest* md, $bytes* digestInput) {
 	$init(RSAPadding);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, nullptr);
 	if ((digestInput == nullptr) || ($nc(digestInput)->length == 0)) {
 		$var($String, digestName, $nc(md)->getAlgorithm());
@@ -226,6 +228,7 @@ $bytes* RSAPadding::pad($bytes* data) {
 }
 
 $bytes* RSAPadding::pad($bytes* data, int32_t ofs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len > this->maxDataSize) {
 		$throwNew($BadPaddingException, $$str({"Data must be shorter than "_s, $$str((this->maxDataSize + 1)), " bytes but received "_s, $$str(len), " bytes."_s}));
 	}
@@ -252,6 +255,7 @@ $bytes* RSAPadding::pad($bytes* data, int32_t ofs, int32_t len) {
 }
 
 $bytes* RSAPadding::unpad($bytes* padded) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(padded)->length != this->paddedSize) {
 		$throwNew($BadPaddingException, $$str({"Decryption error.The padded array length ("_s, $$str(padded->length), ") is not the specified padded size ("_s, $$str(this->paddedSize), ")"_s}));
 	}
@@ -278,6 +282,7 @@ $bytes* RSAPadding::unpad($bytes* padded) {
 }
 
 $bytes* RSAPadding::padV15($bytes* data, int32_t ofs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, padded, $new($bytes, this->paddedSize));
 	$System::arraycopy(data, ofs, padded, this->paddedSize - len, len);
 	int32_t psSize = this->paddedSize - 3 - len;
@@ -307,6 +312,7 @@ $bytes* RSAPadding::padV15($bytes* data, int32_t ofs, int32_t len) {
 }
 
 $bytes* RSAPadding::unpadV15($bytes* padded) {
+	$useLocalCurrentObjectStackCache();
 	int32_t k = 0;
 	bool bp = false;
 	if ($nc(padded)->get(k++) != 0) {
@@ -345,6 +351,7 @@ $bytes* RSAPadding::unpadV15($bytes* padded) {
 }
 
 $bytes* RSAPadding::padOAEP($bytes* M, int32_t ofs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $JCAUtil::getSecureRandom());
 	}
@@ -367,6 +374,7 @@ $bytes* RSAPadding::padOAEP($bytes* M, int32_t ofs, int32_t len) {
 }
 
 $bytes* RSAPadding::unpadOAEP($bytes* padded) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, EM, padded);
 	bool bp = false;
 	int32_t hLen = $nc(this->lHash)->length;

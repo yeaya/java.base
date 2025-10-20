@@ -110,6 +110,7 @@ void Indify$Pool::readFrom($DataInputStream* in) {
 }
 
 $Indify$Constant* Indify$Pool::addConstant(int8_t tag, Object$* item) {
+	$useLocalCurrentObjectStackCache();
 	$var($Indify$Constant, con, $new($Indify$Constant, size(), tag, item));
 	int32_t idx = indexOf(con);
 	if (idx >= 0) {
@@ -123,6 +124,7 @@ $Indify$Constant* Indify$Pool::addConstant(int8_t tag, Object$* item) {
 }
 
 void Indify$Pool::readConstant($DataInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	int8_t tag = $nc(in)->readByte();
 	int32_t index = size();
 	$var($Object, arg, nullptr);
@@ -202,6 +204,7 @@ $String* Indify$Pool::getString(int8_t tag, int16_t index) {
 }
 
 $String* Indify$Pool::getString(int16_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, v, $nc($($cast($Indify$Constant, get(index))))->item);
 	if ($instanceOf($Short, v)) {
 		$assign(v, $nc($($nc($($cast($Indify$Constant, get($nc(($cast($Short, v)))->shortValue()))))->checkTag((int8_t)1)))->item);
@@ -210,6 +213,7 @@ $String* Indify$Pool::getString(int16_t index) {
 }
 
 $StringArray* Indify$Pool::getStrings($ShortArray* indexes) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, res, $new($StringArray, $nc(indexes)->length));
 	for (int32_t i = 0; i < indexes->length; ++i) {
 		res->set(i, $(getString($nc(indexes->get(i))->shortValue())));
@@ -218,6 +222,7 @@ $StringArray* Indify$Pool::getStrings($ShortArray* indexes) {
 }
 
 int32_t Indify$Pool::stringIndex($String* name, bool createIfNotFound) {
+	$useLocalCurrentObjectStackCache();
 	$var($Short, x, $cast($Short, $nc(this->strings)->get(name)));
 	if (x != nullptr) {
 		return (char16_t)(int32_t)x->shortValue();
@@ -229,6 +234,7 @@ int32_t Indify$Pool::stringIndex($String* name, bool createIfNotFound) {
 }
 
 $ShortArray* Indify$Pool::getMemberRef(int16_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($ShortArray, cls_nnt, $nc($($cast($Indify$Constant, get(index))))->itemIndexes());
 	$var($ShortArray, name_type, $nc($($cast($Indify$Constant, get($nc($nc(cls_nnt)->get(1))->shortValue()))))->itemIndexes());
 	return $new($ShortArray, {

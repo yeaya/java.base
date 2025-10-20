@@ -182,6 +182,7 @@ void Indify$Logic::init$($Indify* this$0, $Indify$ClassFile* cf) {
 }
 
 bool Indify$Logic::transform() {
+	$useLocalCurrentObjectStackCache();
 	if (!initializeMarks()) {
 		return false;
 	}
@@ -277,6 +278,7 @@ bool Indify$Logic::transform() {
 }
 
 $Indify$Instruction* Indify$Logic::findPop($Indify$Instruction* i$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Indify$Instruction, i, i$renamed);
 	$var($Indify$Pool, pool, $nc(this->cf)->pool);
 	$var($Indify$Logic$JVMState, jvm, $new($Indify$Logic$JVMState, this));
@@ -360,6 +362,7 @@ $Indify$Instruction* Indify$Logic::findPop($Indify$Instruction* i$renamed) {
 }
 
 bool Indify$Logic::findPatternMethods() {
+	$useLocalCurrentObjectStackCache();
 	bool found = false;
 	{
 		$var($chars, arr$, "THI"_s->toCharArray());
@@ -397,6 +400,7 @@ bool Indify$Logic::findPatternMethods() {
 }
 
 void Indify$Logic::reportPatternMethods(bool quietly, bool allowMatchFailure) {
+	$useLocalCurrentObjectStackCache();
 	if (!quietly && !$nc($($nc(this->constants)->keySet()))->isEmpty()) {
 		$init($System);
 		$nc($System::err)->println($$str({"pattern methods removed: "_s, $($nc(this->constants)->keySet())}));
@@ -436,6 +440,7 @@ void Indify$Logic::reportPatternMethods(bool quietly, bool allowMatchFailure) {
 }
 
 bool Indify$Logic::initializeMarks() {
+	$useLocalCurrentObjectStackCache();
 	bool changed = false;
 	for (;;) {
 		bool changed1 = false;
@@ -546,6 +551,7 @@ char16_t Indify$Logic::nameAndTypeMark($ShortArray* n12) {
 }
 
 char16_t Indify$Logic::nameAndTypeMark(int16_t n1, int16_t n2) {
+	$useLocalCurrentObjectStackCache();
 	char16_t mark = $nc(this->poolMarks)->get((char16_t)n1);
 	if (mark == 0) {
 		return (char16_t)0;
@@ -587,6 +593,7 @@ bool Indify$Logic::matchType($String* descr, $String* requiredType) {
 }
 
 void Indify$Logic::removeEmptyJVMSlots($List* args) {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		int32_t i = $nc(args)->indexOf(this->EMPTY_SLOT);
 		bool var$0 = i >= 0 && i + 1 < args->size();
@@ -603,6 +610,7 @@ void Indify$Logic::removeEmptyJVMSlots($List* args) {
 }
 
 $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternMark) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->this$0->verbose) {
 		$init($System);
@@ -1384,6 +1392,7 @@ $Indify$Constant* Indify$Logic::scanPattern($Indify$Method* m, char16_t patternM
 }
 
 void Indify$Logic::flattenVarargs($List* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(args)->size();
 	if (size > 0 && $instanceOf($List, $(args->get(size - 1)))) {
 		$var($List, removedArg, $cast($List, args->remove(size - 1)));
@@ -1396,6 +1405,7 @@ bool Indify$Logic::isConstant(Object$* x, int32_t tag) {
 }
 
 $Indify$Constant* Indify$Logic::makeMethodTypeCon(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	int16_t utfIndex = 0;
 	if ($instanceOf($String, x)) {
 		utfIndex = (int16_t)$nc($($nc($nc(this->cf)->pool)->addConstant((int8_t)1, x)))->index;
@@ -1408,6 +1418,7 @@ $Indify$Constant* Indify$Logic::makeMethodTypeCon(Object$* x) {
 }
 
 $Indify$Constant* Indify$Logic::parseMemberLookup(int8_t refKind, $List* args) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->size() != 4) {
 		return nullptr;
 	}
@@ -1456,6 +1467,7 @@ $Indify$Constant* Indify$Logic::parseMemberLookup(int8_t refKind, $List* args) {
 }
 
 $Indify$Constant* Indify$Logic::makeInvokeDynamicCon($List* args) {
+	$useLocalCurrentObjectStackCache();
 	removeEmptyJVMSlots(args);
 	if ($nc(args)->size() < 4) {
 		return nullptr;
@@ -1572,6 +1584,7 @@ $Indify$Constant* Indify$Logic::makeInvokeDynamicCon($List* args) {
 }
 
 $List* Indify$Logic::bootstrapMethodSpecifiers(bool createIfNotFound) {
+	$useLocalCurrentObjectStackCache();
 	$var($Indify$Attr, bsms, $nc(this->cf)->findAttr("BootstrapMethods"_s));
 	if (bsms == nullptr) {
 		if (!createIfNotFound) {

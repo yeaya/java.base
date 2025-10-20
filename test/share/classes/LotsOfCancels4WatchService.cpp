@@ -203,6 +203,7 @@ void LotsOfCancels4WatchService::init$() {
 }
 
 void LotsOfCancels4WatchService::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ExecutorService, pool, $Executors::newCachedThreadPool());
 	{
 		$var($Throwable, var$0, nullptr);
@@ -236,6 +237,7 @@ void LotsOfCancels4WatchService::main($StringArray* args) {
 }
 
 void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* watcher) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->printf("begin handle %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(id)))}));
 	try {
@@ -274,6 +276,7 @@ void LotsOfCancels4WatchService::handle(int32_t id, $Path* dir, $WatchService* w
 }
 
 void LotsOfCancels4WatchService::poll(int32_t id, $WatchService* watcher) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->printf("begin poll %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(id)))}));
 	try {

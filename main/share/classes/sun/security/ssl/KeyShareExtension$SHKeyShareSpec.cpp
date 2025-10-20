@@ -104,6 +104,7 @@ void KeyShareExtension$SHKeyShareSpec::init$($KeyShareExtension$KeyShareEntry* s
 }
 
 void KeyShareExtension$SHKeyShareSpec::init$($HandshakeContext* handshakeContext, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() < 5) {
 		$init($Alert);
 		$throw($($nc($nc(handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid key_share extension: insufficient data (length="_s, $$str(buffer->remaining()), ")"_s}))))));
@@ -118,6 +119,7 @@ void KeyShareExtension$SHKeyShareSpec::init$($HandshakeContext* handshakeContext
 }
 
 $String* KeyShareExtension$SHKeyShareSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"server_share\": \'{\'\n  \"named group\": {0}\n  \"key_exchange\": \'{\'\n{1}\n  \'}\'\n\'}\',"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

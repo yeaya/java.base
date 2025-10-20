@@ -109,6 +109,7 @@ void Restart::init$() {
 
 void Restart::main($StringArray* args) {
 	$init(Restart);
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $new($ThreadGroup, "test"_s));
 	$var($AtomicInteger, exceptionCount, $new($AtomicInteger, 0));
 	$var($Thread$UncaughtExceptionHandler, ueh, $new($Restart$1, exceptionCount));
@@ -166,6 +167,7 @@ void Restart::main($StringArray* args) {
 
 void Restart::testRestart($AsynchronousChannelGroup* group, int32_t count) {
 	$init(Restart);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($AsynchronousServerSocketChannel, listener, $AsynchronousServerSocketChannel::open(group));
 		{

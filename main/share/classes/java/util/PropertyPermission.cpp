@@ -120,6 +120,7 @@ bool PropertyPermission::implies($Permission* p) {
 }
 
 bool PropertyPermission::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -140,6 +141,7 @@ int32_t PropertyPermission::hashCode() {
 
 int32_t PropertyPermission::getMask($String* actions) {
 	$init(PropertyPermission);
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = PropertyPermission::NONE;
 	if (actions == nullptr) {
 		return mask;

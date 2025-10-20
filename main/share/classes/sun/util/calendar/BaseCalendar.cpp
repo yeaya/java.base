@@ -171,6 +171,7 @@ bool BaseCalendar::validate($CalendarDate* date) {
 }
 
 bool BaseCalendar::normalize($CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(date)->isNormalized()) {
 		return true;
 	}
@@ -246,6 +247,7 @@ int32_t BaseCalendar::getYearLengthInMonths($CalendarDate* date) {
 }
 
 int32_t BaseCalendar::getMonthLength($CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	$var($BaseCalendar$Date, gdate, $cast($BaseCalendar$Date, date));
 	int32_t month = $nc(gdate)->getMonth();
 	if (month < BaseCalendar::JANUARY || month > BaseCalendar::DECEMBER) {
@@ -318,6 +320,7 @@ int64_t BaseCalendar::getFixedDate(int32_t year, int32_t month, int32_t dayOfMon
 }
 
 void BaseCalendar::getCalendarDateFromFixedDate($CalendarDate* date, int64_t fixedDate) {
+	$useLocalCurrentObjectStackCache();
 	$var($BaseCalendar$Date, gdate, $cast($BaseCalendar$Date, date));
 	int32_t year = 0;
 	int64_t jan1 = 0;

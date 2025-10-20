@@ -130,6 +130,7 @@ void ClientHello$T12ClientHelloConsumer::init$() {
 }
 
 void ClientHello$T12ClientHelloConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	if ($nc($nc(shc)->conContext)->isNegotiated) {

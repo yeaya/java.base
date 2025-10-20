@@ -150,6 +150,7 @@ void CallSite::init$($MethodHandle* target) {
 }
 
 void CallSite::init$($MethodType* targetType, $MethodHandle* createTargetHook) {
+	$useLocalCurrentObjectStackCache();
 	CallSite::init$(targetType);
 	$var($ConstantCallSite, selfCCS, $cast($ConstantCallSite, this));
 	$var($MethodHandle, boundTarget, $cast($MethodHandle, $nc(createTargetHook)->invokeWithArguments($$new($ObjectArray, {$of(selfCCS)}))));
@@ -163,6 +164,7 @@ $MethodType* CallSite::type() {
 }
 
 void CallSite::checkTargetChange($MethodHandle* newTarget) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, oldType, $nc(this->target)->type());
 	$var($MethodType, newType, $nc(newTarget)->type());
 	if (newType != oldType) {
@@ -172,10 +174,12 @@ void CallSite::checkTargetChange($MethodHandle* newTarget) {
 
 $WrongMethodTypeException* CallSite::wrongTargetType($MethodHandle* target, $MethodType* type) {
 	$init(CallSite);
+	$useLocalCurrentObjectStackCache();
 	return $new($WrongMethodTypeException, $$str({$($String::valueOf($of(target))), " should be of type "_s, type}));
 }
 
 $MethodHandle* CallSite::makeDynamicInvoker() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, getTarget, $nc($(getTargetHandle()))->bindArgumentL(0, this));
 	$var($MethodHandle, invoker, $MethodHandles::exactInvoker($(this->type())));
 	return $MethodHandles::foldArguments(invoker, getTarget);
@@ -183,6 +187,7 @@ $MethodHandle* CallSite::makeDynamicInvoker() {
 
 $MethodHandle* CallSite::getTargetHandle() {
 	$init(CallSite);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handle, CallSite::GET_TARGET);
 	if (handle != nullptr) {
 		return handle;
@@ -200,6 +205,7 @@ $MethodHandle* CallSite::getTargetHandle() {
 
 $MethodHandle* CallSite::uninitializedCallSiteHandle() {
 	$init(CallSite);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handle, CallSite::THROW_UCS);
 	if (handle != nullptr) {
 		return handle;
@@ -223,6 +229,7 @@ $Object* CallSite::uninitializedCallSite($ObjectArray* ignore) {
 }
 
 $MethodHandle* CallSite::makeUninitializedCallSite($MethodType* targetType) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, basicType, $nc(targetType)->basicType());
 	$var($MethodHandle, invoker, $nc($($nc(basicType)->form()))->cachedMethodHandle($MethodTypeForm::MH_UNINIT_CS));
 	if (invoker == nullptr) {
@@ -263,6 +270,7 @@ void CallSite::setTargetVolatile($MethodHandle* newTarget) {
 
 CallSite* CallSite::makeSite($MethodHandle* bootstrapMethod, $String* name, $MethodType* type, Object$* info, $Class* callerClass) {
 	$init(CallSite);
+	$useLocalCurrentObjectStackCache();
 	$var(CallSite, site, nullptr);
 	try {
 		$var($Object, binding, $BootstrapMethodInvoker::invoke(CallSite::class$, bootstrapMethod, name, type, info, callerClass));

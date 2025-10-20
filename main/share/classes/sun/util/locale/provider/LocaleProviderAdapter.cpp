@@ -202,6 +202,7 @@ void LocaleProviderAdapter::init$() {
 
 LocaleProviderAdapter* LocaleProviderAdapter::forType($LocaleProviderAdapter$Type* type) {
 	$init(LocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 		$init($LocaleProviderAdapter$1);
 	{
@@ -263,6 +264,7 @@ LocaleProviderAdapter* LocaleProviderAdapter::forJRE() {
 
 LocaleProviderAdapter* LocaleProviderAdapter::getResourceBundleBased() {
 	$init(LocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(getAdapterPreference()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -288,6 +290,7 @@ $List* LocaleProviderAdapter::getAdapterPreference() {
 
 LocaleProviderAdapter* LocaleProviderAdapter::getAdapter($Class* providerClass, $Locale* locale) {
 	$init(LocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var(LocaleProviderAdapter, adapter, nullptr);
 	$var($ConcurrentMap, adapterMap, $cast($ConcurrentMap, $nc(LocaleProviderAdapter::adapterCache)->get(providerClass)));
 	if (adapterMap != nullptr) {
@@ -328,6 +331,7 @@ LocaleProviderAdapter* LocaleProviderAdapter::getAdapter($Class* providerClass, 
 
 LocaleProviderAdapter* LocaleProviderAdapter::findAdapter($Class* providerClass, $Locale* locale) {
 	$init(LocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(getAdapterPreference()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -359,6 +363,7 @@ bool LocaleProviderAdapter::isSupportedProviderLocale($Locale* locale, $Set* lan
 
 $LocaleArray* LocaleProviderAdapter::toLocaleArray($Set* tags) {
 	$init(LocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleArray, locs, $new($LocaleArray, $nc(tags)->size() + 1));
 	int32_t index = 0;
 	$init($Locale);
@@ -414,6 +419,7 @@ $LocaleArray* LocaleProviderAdapter::toLocaleArray($Set* tags) {
 }
 
 void clinit$LocaleProviderAdapter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	LocaleProviderAdapter::$assertionsDisabled = !LocaleProviderAdapter::class$->desiredAssertionStatus();
 	$assignStatic(LocaleProviderAdapter::adapterInstances, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));

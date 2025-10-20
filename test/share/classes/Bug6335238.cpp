@@ -95,6 +95,7 @@ bool Bug6335238::err = false;
 
 void Bug6335238::main($StringArray* args) {
 	$init(Bug6335238);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length == 1) {
 		Bug6335238::duration = $Math::max(10, $Integer::parseInt(args->get(0)));
 	}
@@ -134,6 +135,7 @@ void Bug6335238::main($StringArray* args) {
 }
 
 void Bug6335238::init$() {
+	$useLocalCurrentObjectStackCache();
 	Bug6335238::stopped = false;
 	$var($Bug6335238$DateParseThread, d1, $new($Bug6335238$DateParseThread, this));
 	$var($Bug6335238$DateFormatThread, d2, $new($Bug6335238$DateFormatThread, this));

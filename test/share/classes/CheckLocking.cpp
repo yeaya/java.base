@@ -76,6 +76,7 @@ void CheckLocking::run() {
 
 void CheckLocking::doSelect() {
 	$init(CheckLocking);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, thread, $new($Thread, static_cast<$Runnable*>($$new(CheckLocking))));
 	thread->start();
 	$Thread::sleep(1000);
@@ -83,6 +84,7 @@ void CheckLocking::doSelect() {
 
 void CheckLocking::main($StringArray* args) {
 	$init(CheckLocking);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(CheckLocking::selector, $nc($($SelectorProvider::provider()))->openSelector());
 	$var($SocketChannel, sc, $SocketChannel::open());
 	$nc(sc)->configureBlocking(false);

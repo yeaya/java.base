@@ -52,6 +52,7 @@ void ToUpperCase::init$() {
 }
 
 void ToUpperCase::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, turkish, $new($Locale, "tr"_s, "TR"_s));
 	$var($Locale, lt, $new($Locale, "lt"_s));
 	$var($Locale, az, $new($Locale, "az"_s));
@@ -127,6 +128,7 @@ void ToUpperCase::main($StringArray* args) {
 }
 
 void ToUpperCase::test($String* in, $Locale* locale, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	test0(in, locale, expected);
 	{
 		$var($StringArray2, arr$, $new($StringArray2, {
@@ -192,6 +194,7 @@ void ToUpperCase::test($String* in, $Locale* locale, $String* expected) {
 }
 
 void ToUpperCase::test0($String* in, $Locale* locale, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc(in)->toUpperCase(locale));
 	if (!result->equals(expected)) {
 		$init($System);

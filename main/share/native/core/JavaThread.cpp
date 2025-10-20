@@ -418,7 +418,7 @@ void JavaThread::setNativeThreadName($String* name) {
 
 void JavaThread::postRun() {
 	this->exit(false);
-	ObjectManagerInternal::onThreadEnd();
+	//ObjectManagerInternal::onThreadEnd();
 	threadObject = nullptr;
 }
 
@@ -448,6 +448,8 @@ void JavaThread::exit(bool jniDetach) {
 	parkEvent->unpark();
 
 	setThreadStatus(Status::TERMINATED);
+
+	ObjectManagerInternal::onThreadEnd();
 }
 
 inline void JavaThread::setPendingAsyncException(::java::lang::Throwable* e) {

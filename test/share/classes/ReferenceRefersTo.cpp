@@ -53,6 +53,7 @@ void ReferenceRefersTo::fail($String* msg) {
 }
 
 void ReferenceRefersTo::test($Reference* ref, Object$* expectedValue, Object$* unexpectedValue, $String* kind) {
+	$useLocalCurrentObjectStackCache();
 	if ((expectedValue != nullptr) && $nc(ref)->refersTo(nullptr)) {
 		fail($$str({kind, "refers to null"_s}));
 	}
@@ -65,6 +66,7 @@ void ReferenceRefersTo::test($Reference* ref, Object$* expectedValue, Object$* u
 }
 
 void ReferenceRefersTo::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReferenceQueue, queue, $new($ReferenceQueue));
 	$var($Object, obj0, $new($Object));
 	$var($Object, obj1, $new($Object));

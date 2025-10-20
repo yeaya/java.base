@@ -52,6 +52,7 @@ void GrowAfterEOF::init$() {
 }
 
 void GrowAfterEOF::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, input, $new($File, "."_s, "TestEOFInput.txt"_s));
 	$var($RandomAccessFile, rf, $new($RandomAccessFile, input, "rw"_s));
 	{

@@ -230,6 +230,7 @@ void WindowsWatchService$Poller::init$($WindowsFileSystem* fs, $WindowsWatchServ
 }
 
 void WindowsWatchService$Poller::wakeup() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$WindowsNativeDispatcher::PostQueuedCompletionStatus(this->port, 0);
 	} catch ($WindowsException&) {
@@ -239,6 +240,7 @@ void WindowsWatchService$Poller::wakeup() {
 }
 
 $Object* WindowsWatchService$Poller::implRegister($Path* obj, $Set* events, $WatchEvent$ModifierArray* modifiers) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, dir, $cast($WindowsPath, obj));
 	bool watchSubtree = false;
 	{
@@ -383,6 +385,7 @@ void WindowsWatchService$Poller::closeAttachedEvent(int64_t ov) {
 }
 
 void WindowsWatchService$Poller::implCancelKey($WatchKey* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsWatchService$WindowsWatchKey, key, $cast($WindowsWatchService$WindowsWatchKey, obj));
 	if ($nc(key)->isValid()) {
 		$nc(this->fk2key)->remove($(key->fileKey()));
@@ -392,6 +395,7 @@ void WindowsWatchService$Poller::implCancelKey($WatchKey* obj) {
 }
 
 void WindowsWatchService$Poller::implCloseAll() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->ck2key)->values()))->forEach(static_cast<$Consumer*>($$new(WindowsWatchService$Poller$$Lambda$invalidate)));
 	$nc(this->fk2key)->clear();
 	$nc(this->ck2key)->clear();
@@ -427,6 +431,7 @@ $WatchEvent$Kind* WindowsWatchService$Poller::translateActionToEvent(int32_t act
 }
 
 void WindowsWatchService$Poller::processEvents($WindowsWatchService$WindowsWatchKey* key, int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	int64_t address = $nc($($nc(key)->buffer()))->address();
 	int32_t nextOffset = 0;
 	do {
@@ -448,6 +453,7 @@ void WindowsWatchService$Poller::processEvents($WindowsWatchService$WindowsWatch
 }
 
 void WindowsWatchService$Poller::run() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		$var($WindowsNativeDispatcher$CompletionStatus, info, nullptr);
 		try {

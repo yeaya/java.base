@@ -202,6 +202,7 @@ void MethodHandleProxies::init$() {
 
 $Object* MethodHandleProxies::asInterfaceInstance($Class* intfc, $MethodHandle* target) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc(intfc)->isInterface();
 	if (var$0 || !$Modifier::isPublic($nc(intfc)->getModifiers())) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not a public interface"_s, $($nc(intfc)->getName()))));
@@ -289,6 +290,7 @@ $Class* MethodHandleProxies::wrapperInstanceType(Object$* x) {
 
 bool MethodHandleProxies::isObjectMethod($Method* m) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s14004$, $nc(m)->getName());
 	int32_t tmp14004$ = -1;
 	switch ($nc(s14004$)->hashCode()) {
@@ -351,6 +353,7 @@ bool MethodHandleProxies::isObjectMethod($Method* m) {
 
 $Object* MethodHandleProxies::callObjectMethod(Object$* self, $Method* m, $ObjectArray* args) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	if (!MethodHandleProxies::$assertionsDisabled && !(isObjectMethod(m))) {
 		$throwNew($AssertionError, $of(m));
 	}
@@ -409,6 +412,7 @@ $Object* MethodHandleProxies::callObjectMethod(Object$* self, $Method* m, $Objec
 
 $MethodArray* MethodHandleProxies::getSingleNameMethods($Class* intfc) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ArrayList, methods, $new($ArrayList));
 	$var($String, uniqueName, nullptr);
@@ -448,6 +452,7 @@ bool MethodHandleProxies::isDefaultMethod($Method* m) {
 
 bool MethodHandleProxies::hasDefaultMethods($Class* intfc) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($MethodArray, arr$, $nc(intfc)->getMethods());
@@ -468,6 +473,7 @@ bool MethodHandleProxies::hasDefaultMethods($Class* intfc) {
 
 $Object* MethodHandleProxies::callDefaultMethod($ConcurrentHashMap* defaultMethodMap, Object$* self, $Class* intfc, $Method* m, $ObjectArray* args) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !MethodHandleProxies::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = isDefaultMethod(m);
@@ -482,6 +488,7 @@ $Object* MethodHandleProxies::callDefaultMethod($ConcurrentHashMap* defaultMetho
 
 $MethodHandle* MethodHandleProxies::lambda$callDefaultMethod$0($Class* intfc, Object$* self, $Method* mk) {
 	$init(MethodHandleProxies);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($MethodHandles$Lookup);
 		$Class* var$0 = intfc;

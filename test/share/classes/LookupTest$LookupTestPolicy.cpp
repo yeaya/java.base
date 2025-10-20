@@ -80,6 +80,7 @@ $Object* allocate$LookupTest$LookupTestPolicy($Class* clazz) {
 }
 
 void LookupTest$LookupTestPolicy::init$() {
+	$useLocalCurrentObjectStackCache();
 	$Policy::init$();
 	$set(this, perms, $new($Permissions));
 	$nc(this->perms)->add($$new($NetPermission, "setProxySelector"_s));

@@ -304,6 +304,7 @@ VarHandleChars$Array* VarHandleChars$Array::withInvokeBehavior() {
 }
 
 $Optional* VarHandleChars$Array::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$load($chars);
 	$var($Optional, arrayTypeRef, $getClass($chars)->describeConstable());
 	if (!$nc(arrayTypeRef)->isPresent()) {
@@ -321,6 +322,7 @@ $MethodType* VarHandleChars$Array::accessModeTypeUncached($VarHandle$AccessType*
 
 char16_t VarHandleChars$Array::get($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	return $nc(array)->get(index);
@@ -328,6 +330,7 @@ char16_t VarHandleChars$Array::get($VarHandle* ob, Object$* oarray, int32_t inde
 
 void VarHandleChars$Array::set($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$nc(array)->set(index, value);
@@ -335,6 +338,7 @@ void VarHandleChars$Array::set($VarHandle* ob, Object$* oarray, int32_t index, c
 
 char16_t VarHandleChars$Array::getVolatile($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -344,6 +348,7 @@ char16_t VarHandleChars$Array::getVolatile($VarHandle* ob, Object$* oarray, int3
 
 void VarHandleChars$Array::setVolatile($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -353,6 +358,7 @@ void VarHandleChars$Array::setVolatile($VarHandle* ob, Object$* oarray, int32_t 
 
 char16_t VarHandleChars$Array::getOpaque($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -362,6 +368,7 @@ char16_t VarHandleChars$Array::getOpaque($VarHandle* ob, Object$* oarray, int32_
 
 void VarHandleChars$Array::setOpaque($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -371,6 +378,7 @@ void VarHandleChars$Array::setOpaque($VarHandle* ob, Object$* oarray, int32_t in
 
 char16_t VarHandleChars$Array::getAcquire($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -380,6 +388,7 @@ char16_t VarHandleChars$Array::getAcquire($VarHandle* ob, Object$* oarray, int32
 
 void VarHandleChars$Array::setRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -389,6 +398,7 @@ void VarHandleChars$Array::setRelease($VarHandle* ob, Object$* oarray, int32_t i
 
 bool VarHandleChars$Array::compareAndSet($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -398,6 +408,7 @@ bool VarHandleChars$Array::compareAndSet($VarHandle* ob, Object$* oarray, int32_
 
 char16_t VarHandleChars$Array::compareAndExchange($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -407,6 +418,7 @@ char16_t VarHandleChars$Array::compareAndExchange($VarHandle* ob, Object$* oarra
 
 char16_t VarHandleChars$Array::compareAndExchangeAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -416,6 +428,7 @@ char16_t VarHandleChars$Array::compareAndExchangeAcquire($VarHandle* ob, Object$
 
 char16_t VarHandleChars$Array::compareAndExchangeRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -425,6 +438,7 @@ char16_t VarHandleChars$Array::compareAndExchangeRelease($VarHandle* ob, Object$
 
 bool VarHandleChars$Array::weakCompareAndSetPlain($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -434,6 +448,7 @@ bool VarHandleChars$Array::weakCompareAndSetPlain($VarHandle* ob, Object$* oarra
 
 bool VarHandleChars$Array::weakCompareAndSet($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -443,6 +458,7 @@ bool VarHandleChars$Array::weakCompareAndSet($VarHandle* ob, Object$* oarray, in
 
 bool VarHandleChars$Array::weakCompareAndSetAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -452,6 +468,7 @@ bool VarHandleChars$Array::weakCompareAndSetAcquire($VarHandle* ob, Object$* oar
 
 bool VarHandleChars$Array::weakCompareAndSetRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t expected, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -461,6 +478,7 @@ bool VarHandleChars$Array::weakCompareAndSetRelease($VarHandle* ob, Object$* oar
 
 char16_t VarHandleChars$Array::getAndSet($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -470,6 +488,7 @@ char16_t VarHandleChars$Array::getAndSet($VarHandle* ob, Object$* oarray, int32_
 
 char16_t VarHandleChars$Array::getAndSetAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -479,6 +498,7 @@ char16_t VarHandleChars$Array::getAndSetAcquire($VarHandle* ob, Object$* oarray,
 
 char16_t VarHandleChars$Array::getAndSetRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -488,6 +508,7 @@ char16_t VarHandleChars$Array::getAndSetRelease($VarHandle* ob, Object$* oarray,
 
 char16_t VarHandleChars$Array::getAndAdd($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -497,6 +518,7 @@ char16_t VarHandleChars$Array::getAndAdd($VarHandle* ob, Object$* oarray, int32_
 
 char16_t VarHandleChars$Array::getAndAddAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -506,6 +528,7 @@ char16_t VarHandleChars$Array::getAndAddAcquire($VarHandle* ob, Object$* oarray,
 
 char16_t VarHandleChars$Array::getAndAddRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -515,6 +538,7 @@ char16_t VarHandleChars$Array::getAndAddRelease($VarHandle* ob, Object$* oarray,
 
 char16_t VarHandleChars$Array::getAndBitwiseOr($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -524,6 +548,7 @@ char16_t VarHandleChars$Array::getAndBitwiseOr($VarHandle* ob, Object$* oarray, 
 
 char16_t VarHandleChars$Array::getAndBitwiseOrRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -533,6 +558,7 @@ char16_t VarHandleChars$Array::getAndBitwiseOrRelease($VarHandle* ob, Object$* o
 
 char16_t VarHandleChars$Array::getAndBitwiseOrAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -542,6 +568,7 @@ char16_t VarHandleChars$Array::getAndBitwiseOrAcquire($VarHandle* ob, Object$* o
 
 char16_t VarHandleChars$Array::getAndBitwiseAnd($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -551,6 +578,7 @@ char16_t VarHandleChars$Array::getAndBitwiseAnd($VarHandle* ob, Object$* oarray,
 
 char16_t VarHandleChars$Array::getAndBitwiseAndRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -560,6 +588,7 @@ char16_t VarHandleChars$Array::getAndBitwiseAndRelease($VarHandle* ob, Object$* 
 
 char16_t VarHandleChars$Array::getAndBitwiseAndAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -569,6 +598,7 @@ char16_t VarHandleChars$Array::getAndBitwiseAndAcquire($VarHandle* ob, Object$* 
 
 char16_t VarHandleChars$Array::getAndBitwiseXor($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -578,6 +608,7 @@ char16_t VarHandleChars$Array::getAndBitwiseXor($VarHandle* ob, Object$* oarray,
 
 char16_t VarHandleChars$Array::getAndBitwiseXorRelease($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);
@@ -587,6 +618,7 @@ char16_t VarHandleChars$Array::getAndBitwiseXorRelease($VarHandle* ob, Object$* 
 
 char16_t VarHandleChars$Array::getAndBitwiseXorAcquire($VarHandle* ob, Object$* oarray, int32_t index, char16_t value) {
 	$init(VarHandleChars$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleChars$Array, handle, $cast(VarHandleChars$Array, ob));
 	$var($chars, array, $cast($chars, oarray));
 	$init($MethodHandleStatics);

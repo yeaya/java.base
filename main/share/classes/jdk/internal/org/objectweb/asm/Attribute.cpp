@@ -138,6 +138,7 @@ int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable) {
 }
 
 int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable, $bytes* code, int32_t codeLength, int32_t maxStack, int32_t maxLocals) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassWriter, classWriter, $nc(symbolTable)->classWriter);
 	int32_t size = 0;
 	$var(Attribute, attribute, this);
@@ -178,6 +179,7 @@ void Attribute::putAttributes($SymbolTable* symbolTable, $ByteVector* output) {
 }
 
 void Attribute::putAttributes($SymbolTable* symbolTable, $bytes* code, int32_t codeLength, int32_t maxStack, int32_t maxLocals, $ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassWriter, classWriter, $nc(symbolTable)->classWriter);
 	$var(Attribute, attribute, this);
 	while (attribute != nullptr) {
@@ -189,6 +191,7 @@ void Attribute::putAttributes($SymbolTable* symbolTable, $bytes* code, int32_t c
 }
 
 void Attribute::putAttributes($SymbolTable* symbolTable, int32_t accessFlags, int32_t signatureIndex, $ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(accessFlags & (uint32_t)$Opcodes::ACC_SYNTHETIC)) != 0 && $nc(symbolTable)->getMajorVersion() < $Opcodes::V1_5) {
 		$init($Constants);
 		$nc($($nc(output)->putShort(symbolTable->addConstantUtf8($Constants::SYNTHETIC))))->putInt(0);

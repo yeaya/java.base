@@ -220,6 +220,7 @@ void UnixNativeDispatcher::init$() {
 
 $NativeBuffer* UnixNativeDispatcher::copyToNativeBuffer($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, cstr, $nc(path)->getByteArrayForSysCalls());
 	int32_t size = $nc(cstr)->length + 1;
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBufferFromCache(size));
@@ -253,6 +254,7 @@ int32_t UnixNativeDispatcher::dup(int32_t filedes) {
 
 int32_t UnixNativeDispatcher::open($UnixPath* path, int32_t flags, int32_t mode) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -288,6 +290,7 @@ int32_t UnixNativeDispatcher::open0(int64_t pathAddress, int32_t flags, int32_t 
 
 int32_t UnixNativeDispatcher::openat(int32_t dfd, $bytes* path, int32_t flags, int32_t mode) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -353,6 +356,7 @@ int32_t UnixNativeDispatcher::getlinelen(int64_t stream) {
 
 void UnixNativeDispatcher::link($UnixPath* existing, $UnixPath* newfile) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, existingBuffer, copyToNativeBuffer(existing));
 	$var($NativeBuffer, newBuffer, copyToNativeBuffer(newfile));
 	{
@@ -381,6 +385,7 @@ void UnixNativeDispatcher::link0(int64_t existingAddress, int64_t newAddress) {
 
 void UnixNativeDispatcher::unlink($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -406,6 +411,7 @@ void UnixNativeDispatcher::unlink0(int64_t pathAddress) {
 
 void UnixNativeDispatcher::unlinkat(int32_t dfd, $bytes* path, int32_t flag) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -431,6 +437,7 @@ void UnixNativeDispatcher::unlinkat0(int32_t dfd, int64_t pathAddress, int32_t f
 
 void UnixNativeDispatcher::mknod($UnixPath* path, int32_t mode, int64_t dev) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -456,6 +463,7 @@ void UnixNativeDispatcher::mknod0(int64_t pathAddress, int32_t mode, int64_t dev
 
 void UnixNativeDispatcher::rename($UnixPath* from, $UnixPath* to) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, fromBuffer, copyToNativeBuffer(from));
 	$var($NativeBuffer, toBuffer, copyToNativeBuffer(to));
 	{
@@ -484,6 +492,7 @@ void UnixNativeDispatcher::rename0(int64_t fromAddress, int64_t toAddress) {
 
 void UnixNativeDispatcher::renameat(int32_t fromfd, $bytes* from, int32_t tofd, $bytes* to) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, fromBuffer, $NativeBuffers::asNativeBuffer(from));
 	$var($NativeBuffer, toBuffer, $NativeBuffers::asNativeBuffer(to));
 	{
@@ -514,6 +523,7 @@ void UnixNativeDispatcher::renameat0(int32_t fromfd, int64_t fromAddress, int32_
 
 void UnixNativeDispatcher::mkdir($UnixPath* path, int32_t mode) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -539,6 +549,7 @@ void UnixNativeDispatcher::mkdir0(int64_t pathAddress, int32_t mode) {
 
 void UnixNativeDispatcher::rmdir($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -564,6 +575,7 @@ void UnixNativeDispatcher::rmdir0(int64_t pathAddress) {
 
 $bytes* UnixNativeDispatcher::readlink($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -599,6 +611,7 @@ $bytes* UnixNativeDispatcher::readlink0(int64_t pathAddress) {
 
 $bytes* UnixNativeDispatcher::realpath($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -634,6 +647,7 @@ $bytes* UnixNativeDispatcher::realpath0(int64_t pathAddress) {
 
 void UnixNativeDispatcher::symlink($bytes* name1, $UnixPath* name2) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, targetBuffer, $NativeBuffers::asNativeBuffer(name1));
 	$var($NativeBuffer, linkBuffer, copyToNativeBuffer(name2));
 	{
@@ -662,6 +676,7 @@ void UnixNativeDispatcher::symlink0(int64_t name1, int64_t name2) {
 
 void UnixNativeDispatcher::stat($UnixPath* path, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -687,6 +702,7 @@ void UnixNativeDispatcher::stat0(int64_t pathAddress, $UnixFileAttributes* attrs
 
 int32_t UnixNativeDispatcher::stat($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -722,6 +738,7 @@ int32_t UnixNativeDispatcher::stat1(int64_t pathAddress) {
 
 void UnixNativeDispatcher::lstat($UnixPath* path, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -754,6 +771,7 @@ void UnixNativeDispatcher::fstat(int32_t fd, $UnixFileAttributes* attrs) {
 
 void UnixNativeDispatcher::fstatat(int32_t dfd, $bytes* path, int32_t flag, $UnixFileAttributes* attrs) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -779,6 +797,7 @@ void UnixNativeDispatcher::fstatat0(int32_t dfd, int64_t pathAddress, int32_t fl
 
 void UnixNativeDispatcher::chown($UnixPath* path, int32_t uid, int32_t gid) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -804,6 +823,7 @@ void UnixNativeDispatcher::chown0(int64_t pathAddress, int32_t uid, int32_t gid)
 
 void UnixNativeDispatcher::lchown($UnixPath* path, int32_t uid, int32_t gid) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -836,6 +856,7 @@ void UnixNativeDispatcher::fchown(int32_t fd, int32_t uid, int32_t gid) {
 
 void UnixNativeDispatcher::chmod($UnixPath* path, int32_t mode) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -868,6 +889,7 @@ void UnixNativeDispatcher::fchmod(int32_t fd, int32_t mode) {
 
 void UnixNativeDispatcher::utimes($UnixPath* path, int64_t times0, int64_t times1) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -907,6 +929,7 @@ void UnixNativeDispatcher::futimens(int32_t fd, int64_t times0, int64_t times1) 
 
 void UnixNativeDispatcher::lutimes($UnixPath* path, int64_t times0, int64_t times1) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -932,6 +955,7 @@ void UnixNativeDispatcher::lutimes0(int64_t pathAddress, int64_t times0, int64_t
 
 int64_t UnixNativeDispatcher::opendir($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1010,6 +1034,7 @@ int32_t UnixNativeDispatcher::write(int32_t fildes, int64_t buf, int32_t nbyte) 
 
 void UnixNativeDispatcher::access($UnixPath* path, int32_t amode) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1035,6 +1060,7 @@ void UnixNativeDispatcher::access0(int64_t pathAddress, int32_t amode) {
 
 bool UnixNativeDispatcher::exists($UnixPath* path) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1088,6 +1114,7 @@ $bytes* UnixNativeDispatcher::getgrgid(int32_t gid) {
 
 int32_t UnixNativeDispatcher::getpwnam($String* name) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer($($Util::toBytes(name))));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1123,6 +1150,7 @@ int32_t UnixNativeDispatcher::getpwnam0(int64_t nameAddress) {
 
 int32_t UnixNativeDispatcher::getgrnam($String* name) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer($($Util::toBytes(name))));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1158,6 +1186,7 @@ int32_t UnixNativeDispatcher::getgrnam0(int64_t nameAddress) {
 
 void UnixNativeDispatcher::statvfs($UnixPath* path, $UnixFileStoreAttributes* attrs) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1192,6 +1221,7 @@ $bytes* UnixNativeDispatcher::strerror(int32_t errnum) {
 
 int32_t UnixNativeDispatcher::fgetxattr(int32_t filedes, $bytes* name, int64_t valueAddress, int32_t valueLen) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(name));
 		{
@@ -1244,6 +1274,7 @@ int32_t UnixNativeDispatcher::fgetxattr0(int32_t filedes, int64_t nameAddress, i
 
 void UnixNativeDispatcher::fsetxattr(int32_t filedes, $bytes* name, int64_t valueAddress, int32_t valueLen) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(name));
 		{
@@ -1286,6 +1317,7 @@ void UnixNativeDispatcher::fsetxattr0(int32_t filedes, int64_t nameAddress, int6
 
 void UnixNativeDispatcher::fremovexattr(int32_t filedes, $bytes* name) {
 	$init(UnixNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(name));
 		{

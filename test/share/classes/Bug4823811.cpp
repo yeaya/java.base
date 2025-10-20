@@ -156,6 +156,7 @@ void Bug4823811::init$() {
 
 void Bug4823811::main($StringArray* args) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length == 1 && $nc(args->get(0))->equals("-v"_s)) {
 		Bug4823811::verbose = true;
 	}
@@ -198,6 +199,7 @@ void Bug4823811::main($StringArray* args) {
 
 void Bug4823811::testDateFormat1() {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Bug4823811::patterns)->length; ++i) {
 		$init($System);
 		$nc($System::out)->println(Bug4823811::BORDER);
@@ -218,6 +220,7 @@ void Bug4823811::testDateFormat1() {
 
 void Bug4823811::testDateFormat2() {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$var($DecimalFormat, dfEG, $cast($DecimalFormat, $NumberFormat::getInstance(Bug4823811::localeEG)));
 	$var($DecimalFormat, dfUS, $cast($DecimalFormat, $NumberFormat::getInstance(Bug4823811::localeUS)));
 	$var($DecimalFormatSymbols, dfsEG, $nc(dfEG)->getDecimalFormatSymbols());
@@ -250,6 +253,7 @@ void Bug4823811::testDateFormat2() {
 
 void Bug4823811::testDateFormat3() {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$var($DecimalFormat, dfEG, $cast($DecimalFormat, $NumberFormat::getInstance(Bug4823811::localeEG)));
 	$var($DecimalFormat, dfUS, $cast($DecimalFormat, $NumberFormat::getInstance(Bug4823811::localeUS)));
 	$var($DecimalFormatSymbols, dfsEG, $nc(dfEG)->getDecimalFormatSymbols());
@@ -278,6 +282,7 @@ void Bug4823811::testDateFormat3() {
 
 void Bug4823811::testDateFormatFormattingInRTL($String* pattern, int32_t basePattern, int32_t delimiter, $NumberFormat* nf, $Locale* locale, bool useEnglishMonthName) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$Locale::setDefault(locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
 	if (nf != nullptr) {
@@ -294,6 +299,7 @@ void Bug4823811::testDateFormatFormattingInRTL($String* pattern, int32_t basePat
 
 void Bug4823811::testDateFormatFormattingInLTR($String* pattern, int32_t basePattern, int32_t delimiter, $NumberFormat* nf, $Locale* locale, bool useEnglishMonthName) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$Locale::setDefault(locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
 	if (nf != nullptr) {
@@ -310,6 +316,7 @@ void Bug4823811::testDateFormatFormattingInLTR($String* pattern, int32_t basePat
 
 void Bug4823811::testDateFormatFormatting($SimpleDateFormat* sdf, $String* pattern, $GregorianCalendar* givenGC, $String* expected, $String* locale) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$var($Date, given, $nc(givenGC)->getTime());
 	$var($String, str, $nc(sdf)->format(given));
 	if ($nc(expected)->equals(str)) {
@@ -335,6 +342,7 @@ void Bug4823811::testDateFormatFormatting($SimpleDateFormat* sdf, $String* patte
 
 void Bug4823811::testDateFormatParsingInRTL($String* pattern, int32_t basePattern, int32_t delimiter, $NumberFormat* nf, $Locale* locale, bool useEnglishMonthName) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$Locale::setDefault(locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
 	if (nf != nullptr) {
@@ -352,6 +360,7 @@ void Bug4823811::testDateFormatParsingInRTL($String* pattern, int32_t basePatter
 
 void Bug4823811::testDateFormatParsingInLTR($String* pattern, int32_t basePattern, int32_t delimiter, $NumberFormat* nf, $Locale* locale, bool useEnglishMonthName) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$Locale::setDefault(locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern));
 	if (nf != nullptr) {
@@ -369,6 +378,7 @@ void Bug4823811::testDateFormatParsingInLTR($String* pattern, int32_t basePatter
 
 void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern, $String* given, $GregorianCalendar* expectedGC, $String* locale) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Date, d, $nc(sdf)->parse(given));
 		if (expectedGC == nullptr) {
@@ -431,6 +441,7 @@ void Bug4823811::testDateFormatParsing($SimpleDateFormat* sdf, $String* pattern,
 
 void Bug4823811::testNumberFormat() {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$var($NumberFormat, nfEG, $NumberFormat::getInstance(Bug4823811::localeEG));
 	$var($NumberFormat, nfUS, $NumberFormat::getInstance(Bug4823811::localeUS));
 	$init($System);
@@ -452,6 +463,7 @@ void Bug4823811::testNumberFormat() {
 
 void Bug4823811::testNumberFormatFormatting($NumberFormat* nf, int32_t given, $String* expected, $String* locale) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, $nc(nf)->format((int64_t)given));
 	if ($nc(expected)->equals(str)) {
 		if (Bug4823811::verbose) {
@@ -472,6 +484,7 @@ void Bug4823811::testNumberFormatFormatting($NumberFormat* nf, int32_t given, $S
 
 void Bug4823811::testNumberFormatParsing($NumberFormat* nf, $String* given, $Number* expected, $String* locale) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Number, n, $nc(nf)->parse(given));
 		if ($nc($of(n))->equals(expected)) {
@@ -501,6 +514,7 @@ void Bug4823811::testNumberFormatParsing($NumberFormat* nf, $String* given, $Num
 
 void Bug4823811::testNumberFormatParsingCheckException($NumberFormat* nf, $String* given, int32_t expected, $String* locale) {
 	$init(Bug4823811);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Number, n, $nc(nf)->parse(given));
 		Bug4823811::err = true;
@@ -531,6 +545,7 @@ void Bug4823811::testNumberFormatParsingCheckException($NumberFormat* nf, $Strin
 }
 
 void clinit$Bug4823811($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Bug4823811::localeEG, $new($Locale, "ar"_s, "EG"_s));
 	$init($Locale);
 	$assignStatic(Bug4823811::localeUS, $Locale::US);

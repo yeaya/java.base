@@ -73,6 +73,7 @@ void Test4nonJavaNames::init$() {
 
 void Test4nonJavaNames::main($StringArray* args) {
 	$init(Test4nonJavaNames);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, l, $new($Test4nonJavaNames$Loader));
 	$Class* i = $Class::forName(Test4nonJavaNames::CLASS_NAME, false, l);

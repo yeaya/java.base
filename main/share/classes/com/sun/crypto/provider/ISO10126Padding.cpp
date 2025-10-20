@@ -60,6 +60,7 @@ void ISO10126Padding::init$(int32_t blockSize) {
 }
 
 void ISO10126Padding::padWithLen($bytes* in, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (in == nullptr) {
 		return;
 	}

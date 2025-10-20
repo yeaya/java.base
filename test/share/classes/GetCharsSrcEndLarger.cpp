@@ -41,6 +41,7 @@ void GetCharsSrcEndLarger::init$() {
 }
 
 void GetCharsSrcEndLarger::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool exceptionOccurred = false;
 	try {
 		$$new($StringBuffer, "abc"_s)->getChars(1, 0, $$new($chars, 10), 0);

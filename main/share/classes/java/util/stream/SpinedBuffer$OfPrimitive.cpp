@@ -143,6 +143,7 @@ void SpinedBuffer$OfPrimitive::inflateSpine() {
 }
 
 void SpinedBuffer$OfPrimitive::ensureCapacity(int64_t targetSize) {
+	$useLocalCurrentObjectStackCache();
 	int64_t capacity = this->capacity();
 	if (targetSize > capacity) {
 		inflateSpine();
@@ -165,6 +166,7 @@ void SpinedBuffer$OfPrimitive::increaseCapacity() {
 }
 
 int32_t SpinedBuffer$OfPrimitive::chunkFor(int64_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spineIndex == 0) {
 		if (index < this->elementIndex) {
 			return 0;

@@ -85,6 +85,7 @@ void DomainName$OtherMatch::init$($DomainName$Rule* rule, int32_t numLabels, $Li
 }
 
 $RegisteredDomain* DomainName$OtherMatch::registeredDomain() {
+	$useLocalCurrentObjectStackCache();
 	int32_t nlabels = this->numLabels + 1;
 	if (nlabels > $nc(this->target)->size()) {
 		return nullptr;
@@ -99,6 +100,7 @@ $DomainName$Rule$Type* DomainName$OtherMatch::type() {
 }
 
 $String* DomainName$OtherMatch::getSuffixes(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, targetIter, $nc(this->target)->descendingIterator());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	while (n > 0 && $nc(targetIter)->hasNext()) {

@@ -91,6 +91,7 @@ void ServerSocketChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* ServerSocketChannelImpl$DefaultOptionsHolder::defaultInetOptions() {
 	$init(ServerSocketChannelImpl$DefaultOptionsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_RCVBUF);

@@ -39,6 +39,7 @@ void ActionSpace::init$() {
 }
 
 void ActionSpace::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SocketPermission, sp, $new($SocketPermission, "*"_s, "connect , accept"_s));
 	} catch ($Exception&) {

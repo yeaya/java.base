@@ -95,6 +95,7 @@ int64_t LinkedBlockingQueue$LBQSpliterator::estimateSize() {
 }
 
 $Spliterator* LinkedBlockingQueue$LBQSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, h, nullptr);
 	bool var$1 = !this->exhausted;
 	if (var$1) {
@@ -142,6 +143,7 @@ $Spliterator* LinkedBlockingQueue$LBQSpliterator::trySplit() {
 }
 
 bool LinkedBlockingQueue$LBQSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	if (!this->exhausted) {
 		$var($Object, e, nullptr);

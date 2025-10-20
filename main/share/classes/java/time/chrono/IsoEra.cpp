@@ -113,6 +113,7 @@ void IsoEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 IsoEra* IsoEra::of(int32_t isoEra) {
 	$init(IsoEra);
+	$useLocalCurrentObjectStackCache();
 	switch (isoEra) {
 	case 0:
 		{

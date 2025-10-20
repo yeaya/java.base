@@ -65,6 +65,7 @@ $ObjectIdentifier* CertificatePolicyId::getIdentifier() {
 }
 
 $String* CertificatePolicyId::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({"CertificatePolicyId: ["_s, $($nc(this->id)->toString()), "]\n"_s}));
 	return (s);
 }

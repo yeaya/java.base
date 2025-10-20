@@ -243,6 +243,7 @@ void ManySourcesAndTargets::init$() {
 }
 
 void ManySourcesAndTargets::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($InetAddress, lb, $InetAddress::getLoopbackAddress());
 	$var($List, addresses, $cast($List, $nc($($nc($($nc($($nc($($nc($($nc($($Stream::of($$new($InetAddressArray, {
@@ -336,6 +337,7 @@ void ManySourcesAndTargets::main($StringArray* args) {
 }
 
 void ManySourcesAndTargets::testSend(int32_t count, $InetAddress* address, $DatagramChannel* reader) {
+	$useLocalCurrentObjectStackCache();
 	int32_t remotePort = $nc($($nc(reader)->socket()))->getLocalPort();
 	$var($InetSocketAddress, remote, $new($InetSocketAddress, address, remotePort));
 	{
@@ -398,6 +400,7 @@ void ManySourcesAndTargets::testSend(int32_t count, $InetAddress* address, $Data
 }
 
 void ManySourcesAndTargets::testReceive(int32_t count, $DatagramChannel* sender, $InetAddress* address) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, local, $nc(sender)->getLocalAddress());
 	{
 		$var($DatagramChannel, reader, $DatagramChannel::open());
@@ -445,6 +448,7 @@ void ManySourcesAndTargets::testReceive(int32_t count, $DatagramChannel* sender,
 }
 
 $bytes* ManySourcesAndTargets::serialize($SocketAddress* address) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, baos));
 	oos->writeObject(address);
@@ -453,12 +457,14 @@ $bytes* ManySourcesAndTargets::serialize($SocketAddress* address) {
 }
 
 $SocketAddress* ManySourcesAndTargets::deserialize($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
 	$var($ObjectInputStream, ois, $new($ObjectInputStream, bais));
 	return $cast($SocketAddress, ois->readObject());
 }
 
 $Optional* ManySourcesAndTargets::networkInterface($InetAddress* ia) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $Optional::ofNullable($($NetworkInterface::getByInetAddress(ia)));
 	} catch ($SocketException&) {

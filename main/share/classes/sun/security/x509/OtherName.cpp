@@ -105,6 +105,7 @@ void OtherName::init$($ObjectIdentifier* oid, $bytes* value) {
 }
 
 void OtherName::init$($DerValue* derValue) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, nameValue, nullptr);
 	$set(this, gni, nullptr);
 	this->myhash = -1;
@@ -129,6 +130,7 @@ $bytes* OtherName::getNameValue() {
 }
 
 $GeneralNameInterface* OtherName::getGNI($ObjectIdentifier* oid, $bytes* nameValue) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* extClass = $OIDMap::getClass(oid);
@@ -165,6 +167,7 @@ void OtherName::encode($DerOutputStream* out) {
 }
 
 bool OtherName::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}

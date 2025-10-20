@@ -82,6 +82,7 @@ void CopyMoveHelper$CopyOptions::init$() {
 }
 
 CopyMoveHelper$CopyOptions* CopyMoveHelper$CopyOptions::parse($CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var(CopyMoveHelper$CopyOptions, result, $new(CopyMoveHelper$CopyOptions));
 	{
 		$var($CopyOptionArray, arr$, options);

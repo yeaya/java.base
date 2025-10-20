@@ -90,6 +90,7 @@ void AESKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* AESKeyGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKeySpec, aesKey, nullptr);
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());

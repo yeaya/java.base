@@ -237,6 +237,7 @@ void SignerInfo::init$($DerInputStream* derin) {
 }
 
 void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
+	$useLocalCurrentObjectStackCache();
 	this->hasTimestamp = true;
 	$set(this, algorithms, $new($HashMap));
 	$set(this, version, $nc(derin)->getBigInteger());
@@ -272,6 +273,7 @@ void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
 }
 
 void SignerInfo::checkCMSAlgorithmProtection() {
+	$useLocalCurrentObjectStackCache();
 	if (this->authenticatedAttributes == nullptr) {
 		return;
 	}
@@ -302,6 +304,7 @@ void SignerInfo::encode($DerOutputStream* out) {
 }
 
 void SignerInfo::derEncode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, seq, $new($DerOutputStream));
 	seq->putInteger(this->version);
 	$var($DerOutputStream, issuerAndSerialNumber, $new($DerOutputStream));
@@ -327,6 +330,7 @@ $X509Certificate* SignerInfo::getCertificate($PKCS7* block) {
 }
 
 $ArrayList* SignerInfo::getCertificateChain($PKCS7* block) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, userCert, nullptr);
 	$assign(userCert, $nc(block)->getCertificate(this->certificateSerialNumber, this->issuerName));
 	if (userCert == nullptr) {
@@ -369,6 +373,7 @@ $ArrayList* SignerInfo::getCertificateChain($PKCS7* block) {
 }
 
 SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, data$renamed);
 	try {
 		$var($Timestamp, timestamp, nullptr);
@@ -478,6 +483,7 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 
 $String* SignerInfo::makeSigAlg($AlgorithmId* digAlgId, $AlgorithmId* encAlgId, bool directSign) {
 	$init(SignerInfo);
+	$useLocalCurrentObjectStackCache();
 	$var($String, encAlg, $nc(encAlgId)->getName());
 	{
 		$var($String, s20057$, encAlg);
@@ -598,6 +604,7 @@ $PKCS9Attributes* SignerInfo::getUnauthenticatedAttributes() {
 }
 
 $PKCS7* SignerInfo::getTsToken() {
+	$useLocalCurrentObjectStackCache();
 	if (this->unauthenticatedAttributes == nullptr) {
 		return nullptr;
 	}
@@ -610,6 +617,7 @@ $PKCS7* SignerInfo::getTsToken() {
 }
 
 $Timestamp* SignerInfo::getTimestamp() {
+	$useLocalCurrentObjectStackCache();
 	if (this->timestamp != nullptr || !this->hasTimestamp) {
 		return this->timestamp;
 	}
@@ -634,6 +642,7 @@ $Timestamp* SignerInfo::getTimestamp() {
 }
 
 void SignerInfo::verifyTimestamp($TimestampToken* token) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmId, digestAlgId, $nc(token)->getHashAlgorithm());
 	$nc(this->algorithms)->put(digestAlgId, "TimestampToken digestAlgorithm field"_s);
 	$var($MessageDigest, md, $MessageDigest::getInstance($($nc(digestAlgId)->getName())));
@@ -652,6 +661,7 @@ void SignerInfo::verifyTimestamp($TimestampToken* token) {
 }
 
 $String* SignerInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($HexDumpEncoder, hexDump, $new($HexDumpEncoder));
 	$var($String, out, ""_s);
 	$plusAssign(out, $$str({"Signer Info for (issuer): "_s, this->issuerName, "\n"_s}));
@@ -671,6 +681,7 @@ $String* SignerInfo::toString() {
 
 $Set* SignerInfo::verifyAlgorithms($SignerInfoArray* infos, $JarConstraintsParameters* params, $String* name) {
 	$init(SignerInfo);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, algorithms, $new($HashMap));
 	{
 		$var($SignerInfoArray, arr$, infos);

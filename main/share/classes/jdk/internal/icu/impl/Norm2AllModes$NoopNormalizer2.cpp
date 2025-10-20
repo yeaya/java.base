@@ -89,6 +89,7 @@ $StringBuilder* Norm2AllModes$NoopNormalizer2::normalize($CharSequence* src, $St
 }
 
 $Appendable* Norm2AllModes$NoopNormalizer2::normalize($CharSequence* src, $Appendable* dest) {
+	$useLocalCurrentObjectStackCache();
 	if (!$equals(dest, src)) {
 		try {
 			return $nc(dest)->append(src);

@@ -54,6 +54,7 @@ void ClearErrorWriter::init$($Writer* w, bool autoFlush) {
 
 void ClearErrorWriter::main($StringArray* args) {
 	$init(ClearErrorWriter);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "print-writer.out"_s));
 	f->deleteOnExit();
 	$var(ClearErrorWriter, out, $new(ClearErrorWriter, $$new($BufferedWriter, $$new($FileWriter, f)), true));

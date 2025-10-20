@@ -83,6 +83,7 @@ void Race::init$() {
 }
 
 void Race::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ServerSocket, ss, $new($ServerSocket));
 		{

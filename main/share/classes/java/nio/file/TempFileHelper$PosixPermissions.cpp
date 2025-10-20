@@ -82,6 +82,7 @@ void TempFileHelper$PosixPermissions::init$() {
 }
 
 void clinit$TempFileHelper$PosixPermissions($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($PosixFilePermission);
 	$assignStatic(TempFileHelper$PosixPermissions::filePermissions, $PosixFilePermissions::asFileAttribute($($EnumSet::of(static_cast<$Enum*>($PosixFilePermission::OWNER_READ), static_cast<$Enum*>($PosixFilePermission::OWNER_WRITE)))));
 	$assignStatic(TempFileHelper$PosixPermissions::dirPermissions, $PosixFilePermissions::asFileAttribute($($EnumSet::of($PosixFilePermission::OWNER_READ, $PosixFilePermission::OWNER_WRITE, $PosixFilePermission::OWNER_EXECUTE))));

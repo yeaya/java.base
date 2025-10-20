@@ -166,6 +166,7 @@ $Object* allocate$KeyWrapCipher($Class* clazz) {
 }
 
 void KeyWrapCipher::store($bytes* in, int32_t inOfs, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	int32_t remain = $Integer::MAX_VALUE - this->dataIdx;
 	if (inLen > remain) {
 		$throwNew($ProviderException, $$str({"SunJCE provider can only take "_s, $$str(remain), " more bytes"_s}));
@@ -199,6 +200,7 @@ void KeyWrapCipher::init$($FeedbackCipher* cipher, $Padding* padding, int32_t ke
 }
 
 void KeyWrapCipher::engineSetMode($String* mode) {
+	$useLocalCurrentObjectStackCache();
 	if (mode != nullptr && !$nc($($nc(this->cipher)->getFeedback()))->equalsIgnoreCase(mode)) {
 		$throwNew($NoSuchAlgorithmException, $$str({mode, " cannot be used"_s}));
 	}
@@ -244,6 +246,7 @@ $bytes* KeyWrapCipher::engineGetIV() {
 }
 
 void KeyWrapCipher::implInit(int32_t opmode, $Key* key, $bytes* iv, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, keyBytes, $nc(key)->getEncoded());
 	if (keyBytes == nullptr) {
 		$throwNew($InvalidKeyException, "Null key"_s);
@@ -285,6 +288,7 @@ void KeyWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpe
 }
 
 void KeyWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, iv, nullptr);
 	if (params != nullptr) {
 		try {
@@ -331,6 +335,7 @@ void KeyWrapCipher::implUpdate($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 $bytes* KeyWrapCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	int32_t estOutLen = engineGetOutputSize(inLen);
 	$var($bytes, out, $new($bytes, estOutLen));
 	try {
@@ -367,6 +372,7 @@ $bytes* KeyWrapCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 int32_t KeyWrapCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	if (this->opmode != $Cipher::ENCRYPT_MODE && this->opmode != $Cipher::DECRYPT_MODE) {
 		$throwNew($IllegalStateException, "Cipher not initialized for doFinal"_s);
 	}
@@ -469,6 +475,7 @@ int32_t KeyWrapCipher::helperEncrypt($bytes* inBuf, int32_t inLen) {
 }
 
 int32_t KeyWrapCipher::helperDecrypt($bytes* inBuf, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	int32_t outLen = $nc(this->cipher)->decryptFinal(inBuf, 0, inLen, nullptr, 0);
 	if (this->padding != nullptr) {
 		int32_t padIdx = $nc(this->padding)->unpad(inBuf, 0, outLen);
@@ -481,6 +488,7 @@ int32_t KeyWrapCipher::helperDecrypt($bytes* inBuf, int32_t inLen) {
 }
 
 $AlgorithmParameters* KeyWrapCipher::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	$var($bytes, iv, $nc(this->cipher)->getIV());
 	if (iv == nullptr) {
@@ -502,6 +510,7 @@ $AlgorithmParameters* KeyWrapCipher::engineGetParameters() {
 }
 
 int32_t KeyWrapCipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	if (encoded == nullptr) {
 		$throwNew($InvalidKeyException, "Cannot decide key length"_s);
@@ -516,6 +525,7 @@ int32_t KeyWrapCipher::engineGetKeySize($Key* key) {
 }
 
 $bytes* KeyWrapCipher::engineWrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if (this->opmode != $Cipher::WRAP_MODE) {
 		$throwNew($IllegalStateException, "Cipher not initialized for wrap"_s);
 	}
@@ -542,6 +552,7 @@ $bytes* KeyWrapCipher::engineWrap($Key* key) {
 }
 
 $Key* KeyWrapCipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
+	$useLocalCurrentObjectStackCache();
 	if (this->opmode != $Cipher::UNWRAP_MODE) {
 		$throwNew($IllegalStateException, "Cipher not initialized for unwrap"_s);
 	}

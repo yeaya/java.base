@@ -102,6 +102,7 @@ void Exceptions4StringBuffer::init$() {
 
 void Exceptions4StringBuffer::fail($Throwable* ex, $String* s, $Throwable* got) {
 	$init(Exceptions4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	Exceptions4StringBuffer::ok = false;
 	$init($System);
 	$var($String, var$7, $$str({"expected "_s, $($nc($of(ex))->getClass()->getName()), ": "_s}));
@@ -123,6 +124,7 @@ void Exceptions4StringBuffer::pass($String* s) {
 
 void Exceptions4StringBuffer::tryCatch($String* s, $Throwable* ex, $Runnable* thunk) {
 	$init(Exceptions4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		$nc(thunk)->run();
@@ -147,6 +149,7 @@ void Exceptions4StringBuffer::tryCatch($String* s, $Throwable* ex, $Runnable* th
 
 void Exceptions4StringBuffer::main($StringArray* args) {
 	$init(Exceptions4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("StringBuffer()"_s);
 	tryCatch("  no args"_s, nullptr, $$new($Exceptions4StringBuffer$1));

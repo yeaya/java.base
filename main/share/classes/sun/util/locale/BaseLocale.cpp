@@ -147,6 +147,7 @@ $String* BaseLocale::SEP = nullptr;
 bool BaseLocale::OLD_ISO_CODES = false;
 
 void BaseLocale::init$($String* language, $String* script, $String* region, $String* variant, bool normalize) {
+	$useLocalCurrentObjectStackCache();
 	if (normalize) {
 		$set(this, language, $nc($($LocaleUtils::toLowerString(language)))->intern());
 		$set(this, script, $nc($($LocaleUtils::toTitleString(script)))->intern());
@@ -167,6 +168,7 @@ BaseLocale* BaseLocale::createInstance($String* language, $String* region) {
 
 BaseLocale* BaseLocale::getInstance($String* language$renamed, $String* script$renamed, $String* region$renamed, $String* variant$renamed) {
 	$init(BaseLocale);
+	$useLocalCurrentObjectStackCache();
 	$var($String, variant, variant$renamed);
 	$var($String, language, language$renamed);
 	$var($String, region, region$renamed);
@@ -212,6 +214,7 @@ BaseLocale* BaseLocale::getInstance($String* language$renamed, $String* script$r
 
 $String* BaseLocale::convertOldISOCodes($String* language) {
 	$init(BaseLocale);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s6638$, language);
 	int32_t tmp6638$ = -1;
 	switch ($nc(s6638$)->hashCode()) {
@@ -319,6 +322,7 @@ bool BaseLocale::equals(Object$* obj) {
 }
 
 $String* BaseLocale::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringJoiner, sj, $new($StringJoiner, ", "_s));
 	if (!$nc(this->language)->isEmpty()) {
 		sj->add($$str({"language="_s, this->language}));
@@ -350,6 +354,7 @@ int32_t BaseLocale::hashCode() {
 }
 
 void clinit$BaseLocale($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(BaseLocale::SEP, "_"_s);
 	{
 		$CDS::initializeFromArchive(BaseLocale::class$);

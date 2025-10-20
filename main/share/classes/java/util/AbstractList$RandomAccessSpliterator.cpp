@@ -147,6 +147,7 @@ bool AbstractList$RandomAccessSpliterator::tryAdvance($Consumer* action) {
 }
 
 void AbstractList$RandomAccessSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($List, lst, this->list);
 	int32_t hi = getFence();

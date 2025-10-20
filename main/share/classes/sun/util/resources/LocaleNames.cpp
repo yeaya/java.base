@@ -43,6 +43,7 @@ void LocaleNames::init$() {
 }
 
 $ObjectArray2* LocaleNames::getContents() {
+	$useLocalCurrentObjectStackCache();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("%%B"_s),

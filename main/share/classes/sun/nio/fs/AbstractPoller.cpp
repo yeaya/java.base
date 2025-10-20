@@ -132,12 +132,14 @@ void AbstractPoller::init$() {
 }
 
 void AbstractPoller::start() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Runnable, thisRunnable, this);
 	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AbstractPoller$1, this, thisRunnable)));
 }
 
 $WatchKey* AbstractPoller::register$($Path* dir, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers) {
+	$useLocalCurrentObjectStackCache();
 	if (dir == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -176,6 +178,7 @@ $WatchKey* AbstractPoller::register$($Path* dir, $WatchEvent$KindArray* events, 
 }
 
 void AbstractPoller::cancel($WatchKey* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($AbstractPoller$RequestType);
 		invoke($AbstractPoller$RequestType::CANCEL, $$new($ObjectArray, {$of(key)}));
@@ -191,6 +194,7 @@ void AbstractPoller::close() {
 }
 
 $Object* AbstractPoller::invoke($AbstractPoller$RequestType* type, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractPoller$Request, req, $new($AbstractPoller$Request, type, params));
 	$synchronized(this->requestList) {
 		if (this->shutdown) {
@@ -210,6 +214,7 @@ $Object* AbstractPoller::invoke($AbstractPoller$RequestType* type, $ObjectArray*
 }
 
 bool AbstractPoller::processRequests() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->requestList) {
 		$var($AbstractPoller$Request, req, nullptr);
 		while (($assign(req, $cast($AbstractPoller$Request, $nc(this->requestList)->poll()))) != nullptr) {

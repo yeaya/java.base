@@ -87,6 +87,7 @@ void CertSignAlgsExtension$CHCertSignatureSchemesProducer::init$() {
 }
 
 $bytes* CertSignAlgsExtension$CHCertSignatureSchemesProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_SIGNATURE_ALGORITHMS_CERT)) {

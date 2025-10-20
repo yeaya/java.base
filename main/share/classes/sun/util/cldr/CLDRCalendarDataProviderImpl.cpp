@@ -95,6 +95,7 @@ int32_t CLDRCalendarDataProviderImpl::getMinimalDaysInFirstWeek($Locale* locale)
 
 int32_t CLDRCalendarDataProviderImpl::findValue($String* key, $Locale* locale) {
 	$init(CLDRCalendarDataProviderImpl);
+	$useLocalCurrentObjectStackCache();
 	$init($CalendarDataUtility);
 	$var($Map, map, $nc($CalendarDataUtility::FIRST_DAY_OF_WEEK)->equals(key) ? CLDRCalendarDataProviderImpl::firstDay : CLDRCalendarDataProviderImpl::minDays);
 	$var($String, region, $nc(locale)->getCountry());

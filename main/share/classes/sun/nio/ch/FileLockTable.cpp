@@ -111,6 +111,7 @@ void FileLockTable::init$($Channel* channel, $FileDescriptor* fd) {
 }
 
 void FileLockTable::add($FileLock* fl) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 	for (;;) {
 		if (list == nullptr) {
@@ -155,6 +156,7 @@ void FileLockTable::removeKeyIfEmpty($FileKey* fk, $List* list) {
 }
 
 void FileLockTable::remove($FileLock* fl) {
+	$useLocalCurrentObjectStackCache();
 	if (!FileLockTable::$assertionsDisabled && !(fl != nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -182,6 +184,7 @@ void FileLockTable::remove($FileLock* fl) {
 }
 
 $List* FileLockTable::removeAll() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, result, $new($ArrayList));
 	$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 	if (list != nullptr) {
@@ -206,6 +209,7 @@ $List* FileLockTable::removeAll() {
 }
 
 void FileLockTable::replace($FileLock* fromLock, $FileLock* toLock) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $cast($List, $nc(FileLockTable::lockMap)->get(this->fileKey)));
 	if (!FileLockTable::$assertionsDisabled && !(list != nullptr)) {
 		$throwNew($AssertionError);
@@ -226,6 +230,7 @@ void FileLockTable::replace($FileLock* fromLock, $FileLock* toLock) {
 }
 
 void FileLockTable::checkList($List* list, int64_t position, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (!FileLockTable::$assertionsDisabled && !$Thread::holdsLock(list)) {
 		$throwNew($AssertionError);
 	}
@@ -244,6 +249,7 @@ void FileLockTable::checkList($List* list, int64_t position, int64_t size) {
 }
 
 void FileLockTable::removeStaleEntries() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileLockTable$FileLockReference, ref, nullptr);
 	while (($assign(ref, $cast($FileLockTable$FileLockReference, $nc(FileLockTable::queue)->poll()))) != nullptr) {
 		$var($FileKey, fk, $nc(ref)->fileKey());

@@ -120,6 +120,7 @@ $Iterator* ConcurrentSkipListMap$EntrySet::iterator() {
 }
 
 bool ConcurrentSkipListMap$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($Map$Entry, o))) {
 		return false;
 	}
@@ -129,6 +130,7 @@ bool ConcurrentSkipListMap$EntrySet::contains(Object$* o) {
 }
 
 bool ConcurrentSkipListMap$EntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($Map$Entry, o))) {
 		return false;
 	}
@@ -150,6 +152,7 @@ void ConcurrentSkipListMap$EntrySet::clear() {
 }
 
 bool ConcurrentSkipListMap$EntrySet::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -183,6 +186,7 @@ $Spliterator* ConcurrentSkipListMap$EntrySet::spliterator() {
 }
 
 bool ConcurrentSkipListMap$EntrySet::removeIf($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	if (filter == nullptr) {
 		$throwNew($NullPointerException);
 	}

@@ -287,6 +287,7 @@ void Parser::cleanup() {
 }
 
 int32_t Parser::step() {
+	$useLocalCurrentObjectStackCache();
 	this->mEvt = Parser::EV_NULL;
 	int32_t st = 0;
 	while (this->mEvt == Parser::EV_NULL) {
@@ -496,6 +497,7 @@ int32_t Parser::step() {
 }
 
 void Parser::dtd() {
+	$useLocalCurrentObjectStackCache();
 	char16_t ch = 0;
 	$var($String, str, nullptr);
 	$var($String, name, nullptr);
@@ -764,6 +766,7 @@ void Parser::dtdsub() {
 }
 
 void Parser::dtdent() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, nullptr);
 	$var($chars, val, nullptr);
 	$var($Input, inp, nullptr);
@@ -946,6 +949,7 @@ void Parser::dtdelm() {
 }
 
 void Parser::dtdattl() {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, elmqn, nullptr);
 	$var($Pair, elm, nullptr);
 	char16_t ch = 0;
@@ -1040,6 +1044,7 @@ void Parser::dtdattl() {
 }
 
 void Parser::dtdatt($Pair* elm) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, attqn, nullptr);
 	$var($Pair, att, nullptr);
 	char16_t ch = 0;
@@ -1375,6 +1380,7 @@ void Parser::dtdatt($Pair* elm) {
 }
 
 void Parser::dtdnot() {
+	$useLocalCurrentObjectStackCache();
 	wsskip();
 	$var($String, name, this->name(false));
 	wsskip();
@@ -1384,6 +1390,7 @@ void Parser::dtdnot() {
 }
 
 void Parser::attr($Pair* att) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, type, nullptr)
 		$var($String, val, nullptr)
@@ -1611,6 +1618,7 @@ void Parser::comm() {
 }
 
 void Parser::pi() {
+	$useLocalCurrentObjectStackCache();
 	char16_t ch = 0;
 	$var($String, str, nullptr);
 	this->mBuffIdx = -1;
@@ -1703,6 +1711,7 @@ void Parser::pi() {
 }
 
 void Parser::cdat() {
+	$useLocalCurrentObjectStackCache();
 	char16_t ch = 0;
 	this->mBuffIdx = -1;
 	for (int16_t st = (int16_t)0; st >= 0;) {
@@ -1814,6 +1823,7 @@ void Parser::pubsys($Input* inp) {
 }
 
 $Pair* Parser::pubsys(char16_t flag) {
+	$useLocalCurrentObjectStackCache();
 	$var($Pair, ids, pair(nullptr));
 	$var($String, str, name(false));
 	if ("PUBLIC"_s->equals(str) == true) {
@@ -1864,6 +1874,7 @@ $String* Parser::eqstr(char16_t flag) {
 }
 
 $String* Parser::ent(char16_t flag) {
+	$useLocalCurrentObjectStackCache();
 	char16_t ch = 0;
 	int32_t idx = this->mBuffIdx + 1;
 	$var($Input, inp, nullptr);
@@ -2056,6 +2067,7 @@ $String* Parser::ent(char16_t flag) {
 }
 
 void Parser::pent(char16_t flag) {
+	$useLocalCurrentObjectStackCache();
 	char16_t ch = 0;
 	int32_t idx = this->mBuffIdx + 1;
 	$var($Input, inp, nullptr);
@@ -2126,6 +2138,7 @@ bool Parser::isdecl($Pair* name, $String* value) {
 }
 
 $String* Parser::rslv($chars* qname) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Pair, pref, this->mPref);
 		for (; pref != nullptr; $assign(pref, $nc(pref)->next)) {
@@ -2584,6 +2597,7 @@ void Parser::bappend(char16_t ch, char16_t mode) {
 }
 
 void Parser::bappend(char16_t ch) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->mBuff)->set(++this->mBuffIdx, ch);
 	} catch ($Exception&) {
@@ -2720,6 +2734,7 @@ void Parser::eappend(char16_t ch) {
 }
 
 void Parser::setinp($InputSource* is) {
+	$useLocalCurrentObjectStackCache();
 	$var($Reader, reader, nullptr);
 	this->mChIdx = 0;
 	this->mChLen = 0;
@@ -2864,6 +2879,7 @@ $Reader* Parser::utf16($InputStream* is) {
 }
 
 $String* Parser::xml($Reader* reader) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, nullptr);
 	$var($String, enc, "UTF-8"_s);
 	char16_t ch = 0;

@@ -118,6 +118,7 @@ $Sink* SortedOps$OfDouble::opWrapSink(int32_t flags, $Sink* sink) {
 }
 
 $Node* SortedOps$OfDouble::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::SORTED->isKnown($nc(helper)->getStreamAndOpFlags())) {
 		return $nc(helper)->evaluate(spliterator, false, generator);

@@ -145,6 +145,7 @@ $BreakIterator* BreakIteratorProviderImpl::getSentenceInstance($Locale* locale) 
 }
 
 $BreakIterator* BreakIteratorProviderImpl::getBreakInstance($Locale* locale, int32_t type, $String* ruleName, $String* dictionaryName) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(locale);
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forJRE()))->getLocaleResources(locale));
 	$var($StringArray, classNames, $cast($StringArray, $nc(lr)->getBreakIteratorInfo("BreakIteratorClasses"_s)));

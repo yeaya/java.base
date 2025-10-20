@@ -152,6 +152,7 @@ $bytes* RuleBasedBreakIterator::LABEL = nullptr;
 int32_t RuleBasedBreakIterator::LABEL_LENGTH = 0;
 
 void RuleBasedBreakIterator::init$($String* ruleFile, $bytes* ruleData) {
+	$useLocalCurrentObjectStackCache();
 	$BreakIterator::init$();
 	$set(this, charCategoryTable, nullptr);
 	$set(this, supplementaryCharCategoryTable, nullptr);
@@ -176,6 +177,7 @@ void RuleBasedBreakIterator::init$($String* ruleFile, $bytes* ruleData) {
 }
 
 void RuleBasedBreakIterator::setupTables($String* ruleFile, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	int32_t stateTableLength = $nc(bb)->getInt();
 	int32_t backwardsStateTableLength = bb->getInt();
 	int32_t endStatesLength = bb->getInt();
@@ -228,6 +230,7 @@ void RuleBasedBreakIterator::setupTables($String* ruleFile, $ByteBuffer* bb) {
 }
 
 void RuleBasedBreakIterator::validateRuleData($String* ruleFile, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < RuleBasedBreakIterator::LABEL_LENGTH; ++i) {
 		if ($nc(bb)->get() != $nc(RuleBasedBreakIterator::LABEL)->get(i)) {
 			$throwNew($MissingResourceException, "Wrong magic number"_s, ruleFile, ""_s);
@@ -261,6 +264,7 @@ $Object* RuleBasedBreakIterator::clone() {
 }
 
 bool RuleBasedBreakIterator::equals(Object$* that) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (that == nullptr) {
 			return false;
@@ -282,6 +286,7 @@ bool RuleBasedBreakIterator::equals(Object$* that) {
 }
 
 $String* RuleBasedBreakIterator::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"[checksum=0x"_s, $($Long::toHexString(this->checksum)), $$str(u']')});
 }
 

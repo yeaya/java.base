@@ -134,6 +134,7 @@ Collator* Collator::getInstance() {
 
 Collator* Collator::getInstance($Locale* desiredLocale) {
 	$init(Collator);
+	$useLocalCurrentObjectStackCache();
 	$var($SoftReference, ref, $cast($SoftReference, $nc(Collator::cache)->get(desiredLocale)));
 	$var(Collator, result, (ref != nullptr) ? $cast(Collator, $nc(ref)->get()) : (Collator*)nullptr);
 	if (result == nullptr) {

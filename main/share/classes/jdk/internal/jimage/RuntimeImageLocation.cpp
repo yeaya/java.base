@@ -74,6 +74,7 @@ int64_t RuntimeImageLocation::getUncompressedSize() {
 }
 
 $String* RuntimeImageLocation::getFullName(bool modulesPrefix) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (this->module != nullptr) {
 		if (modulesPrefix) {
@@ -100,6 +101,7 @@ $String* RuntimeImageLocation::getModule() {
 }
 
 $String* RuntimeImageLocation::buildName(bool includeModule, bool includeParent, bool includeName) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (includeModule && getModuleOffset() != 0) {
 		builder->append("/modules/"_s);

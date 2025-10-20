@@ -169,6 +169,7 @@ $String* Base64$Encoder::encodeToString($bytes* src) {
 }
 
 $ByteBuffer* Base64$Encoder::encode($ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = encodedOutLength($nc(buffer)->remaining(), true);
 	$var($bytes, dst, $new($bytes, len));
 	int32_t ret = 0;
@@ -220,6 +221,7 @@ void Base64$Encoder::encodeBlock($bytes* src, int32_t sp, int32_t sl, $bytes* ds
 }
 
 int32_t Base64$Encoder::encode0($bytes* src, int32_t off, int32_t end, $bytes* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, base64, this->isURL ? Base64$Encoder::toBase64URL : Base64$Encoder::toBase64);
 	int32_t sp = off;
 	int32_t slen = (end - off) / 3 * 3;

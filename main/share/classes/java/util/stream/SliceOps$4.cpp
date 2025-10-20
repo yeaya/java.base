@@ -196,6 +196,7 @@ $Spliterator$OfDouble* SliceOps$4::unorderedSkipLimitSpliterator($Spliterator$Of
 }
 
 $Spliterator* SliceOps$4::opEvaluateParallelLazy($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size > 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$var($Spliterator$OfDouble, var$0, $cast($Spliterator$OfDouble, helper->wrapSpliterator(spliterator)));
@@ -212,6 +213,7 @@ $Spliterator* SliceOps$4::opEvaluateParallelLazy($PipelineHelper* helper, $Split
 }
 
 $Node* SliceOps$4::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size > 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		$var($Spliterator, s, $SliceOps::sliceSpliterator($(helper->getSourceShape()), spliterator, this->val$skip, this->val$limit));

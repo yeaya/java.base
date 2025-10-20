@@ -228,6 +228,7 @@ LambdaForm$BasicType* LambdaForm$BasicType::basicType(int8_t type) {
 
 LambdaForm$BasicType* LambdaForm$BasicType::basicType(char16_t type) {
 	$init(LambdaForm$BasicType);
+	$useLocalCurrentObjectStackCache();
 
 	$var(LambdaForm$BasicType, var$0, nullptr)
 	switch (type) {
@@ -313,6 +314,7 @@ char16_t LambdaForm$BasicType::basicTypeChar($Class* type) {
 
 $bytes* LambdaForm$BasicType::basicTypesOrd($ClassArray* types) {
 	$init(LambdaForm$BasicType);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, ords, $new($bytes, $nc(types)->length));
 	for (int32_t i = 0; i < ords->length; ++i) {
 		ords->set(i, (int8_t)$nc($(basicType(types->get(i))))->ordinal());

@@ -172,6 +172,7 @@ void ConcurrentSkipListMap$EntrySpliterator::init$($Comparator* comparator, $Con
 }
 
 $Spliterator* ConcurrentSkipListMap$EntrySpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, e, nullptr);
 	$var($Object, ek, nullptr);
 	$var($Comparator, cmp, this->comparator);
@@ -205,6 +206,7 @@ $Spliterator* ConcurrentSkipListMap$EntrySpliterator::trySplit() {
 }
 
 void ConcurrentSkipListMap$EntrySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -226,6 +228,7 @@ void ConcurrentSkipListMap$EntrySpliterator::forEachRemaining($Consumer* action)
 }
 
 bool ConcurrentSkipListMap$EntrySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -264,6 +267,7 @@ $Comparator* ConcurrentSkipListMap$EntrySpliterator::getComparator() {
 
 $Object* ConcurrentSkipListMap$EntrySpliterator::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(ConcurrentSkipListMap$EntrySpliterator);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s124769$, $nc(lambda)->getImplMethodName());
 		int32_t tmp124769$ = -1;
@@ -296,6 +300,7 @@ $Object* ConcurrentSkipListMap$EntrySpliterator::$deserializeLambda$($Serialized
 
 int32_t ConcurrentSkipListMap$EntrySpliterator::lambda$getComparator$d5a01062$1($Map$Entry* e1, $Map$Entry* e2) {
 	$init(ConcurrentSkipListMap$EntrySpliterator);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparable, k1, $cast($Comparable, $nc(e1)->getKey()));
 	return $nc(k1)->compareTo($($nc(e2)->getKey()));
 }

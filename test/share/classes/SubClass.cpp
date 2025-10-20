@@ -61,6 +61,7 @@ void SubClass::init$() {
 }
 
 void SubClass::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringWriter, sw, $new($StringWriter));
 	$var($PrintWriter, pw, $new($SubClass$PW, sw));
 	pw->println("Hello"_s);

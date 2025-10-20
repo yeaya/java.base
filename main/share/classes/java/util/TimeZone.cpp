@@ -223,6 +223,7 @@ $String* TimeZone::getDisplayName(bool daylight, int32_t style) {
 }
 
 $String* TimeZone::getDisplayName(bool daylight, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (style != TimeZone::SHORT && style != TimeZone::LONG) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal style: "_s, $$str(style)}));
 	}
@@ -291,6 +292,7 @@ $ZoneId* TimeZone::toZoneId() {
 }
 
 $ZoneId* TimeZone::toZoneId0() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, id, getID());
 	$var(TimeZone, defaultZone, TimeZone::defaultTimeZone);
 	if (defaultZone != this && defaultZone != nullptr && $nc(id)->equals($(defaultZone->getID()))) {
@@ -379,6 +381,7 @@ TimeZone* TimeZone::setDefaultZone() {
 	$load(TimeZone);
 	$synchronized(class$) {
 		$init(TimeZone);
+		$useLocalCurrentObjectStackCache();
 		$var(TimeZone, tz, nullptr);
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 		$var($String, zoneID, $nc(props)->getProperty("user.timezone"_s));
@@ -414,6 +417,7 @@ TimeZone* TimeZone::setDefaultZone() {
 
 void TimeZone::setDefault(TimeZone* zone) {
 	$init(TimeZone);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($PropertyPermission, "user.timezone"_s, "write"_s));

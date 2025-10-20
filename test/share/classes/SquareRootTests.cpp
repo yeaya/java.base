@@ -116,6 +116,7 @@ void SquareRootTests::init$() {
 
 void SquareRootTests::main($StringArray* args) {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += negativeTests();
 	failures += zeroTests();
@@ -136,6 +137,7 @@ void SquareRootTests::main($StringArray* args) {
 
 int32_t SquareRootTests::negativeTests() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	for (int64_t i = -10; i < 0; ++i) {
 		for (int32_t j = -5; j < 5; ++j) {
@@ -156,6 +158,7 @@ int32_t SquareRootTests::negativeTests() {
 
 int32_t SquareRootTests::zeroTests() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	for (int32_t i = -100; i < 100; ++i) {
 		$var($BigDecimal, expected, $BigDecimal::valueOf(0, i / 2));
@@ -168,6 +171,7 @@ int32_t SquareRootTests::zeroTests() {
 
 int32_t SquareRootTests::oneDigitTests() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($BigDecimal);
 	$var($Object, var$0, $of($BigDecimal::ONE));
@@ -208,6 +212,7 @@ int32_t SquareRootTests::oneDigitTests() {
 
 int32_t SquareRootTests::twoDigitTests() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($RoundingMode);
 	$var($List, modes, $List::of($RoundingMode::UP, $RoundingMode::DOWN, $RoundingMode::CEILING, $RoundingMode::FLOOR, $RoundingMode::HALF_UP, $RoundingMode::HALF_DOWN, $RoundingMode::HALF_EVEN));
@@ -241,6 +246,7 @@ int32_t SquareRootTests::twoDigitTests() {
 
 int32_t SquareRootTests::compareSqrtImplementations($BigDecimal* bd, $MathContext* mc) {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	$var($BigDecimal, var$0, $SquareRootTests$BigSquareRoot::sqrt(bd, mc));
 	$var($BigDecimal, var$1, $nc(bd)->sqrt(mc));
 	return equalNumerically(var$0, var$1, $$str({"sqrt("_s, bd, ") under "_s, mc}));
@@ -248,6 +254,7 @@ int32_t SquareRootTests::compareSqrtImplementations($BigDecimal* bd, $MathContex
 
 int32_t SquareRootTests::evenPowersOfTenTests() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($RoundingMode);
 	$var($MathContext, oneDigitExactly, $new($MathContext, 1, $RoundingMode::UNNECESSARY));
@@ -269,6 +276,7 @@ int32_t SquareRootTests::evenPowersOfTenTests() {
 
 int32_t SquareRootTests::squareRootTwoTests() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, highPrecisionRoot2, $new($BigDecimal, "1.41421356237309504880168872420969807856967187537694807317667973799"_s));
 		$init($RoundingMode);
@@ -304,6 +312,7 @@ int32_t SquareRootTests::squareRootTwoTests() {
 
 int32_t SquareRootTests::lowPrecisionPerfectSquares() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($longArray2, squaresWithOneDigitRoot, $new($longArray2, {
 		$$new($longs, {
@@ -386,6 +395,7 @@ int32_t SquareRootTests::lowPrecisionPerfectSquares() {
 
 int32_t SquareRootTests::almostFourRoundingDown() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, nearFour, $new($BigDecimal, "3.999999999999999999999999999999"_s));
 	for (int32_t i = 1; i < 64; ++i) {
@@ -401,6 +411,7 @@ int32_t SquareRootTests::almostFourRoundingDown() {
 
 int32_t SquareRootTests::almostFourRoundingUp() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, nearFour, $new($BigDecimal, "4.000000000000000000000000000001"_s));
 	for (int32_t i = 1; i < 64; ++i) {
@@ -416,6 +427,7 @@ int32_t SquareRootTests::almostFourRoundingUp() {
 
 int32_t SquareRootTests::nearTen() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, near10, $new($BigDecimal, "9.99999999999999999999"_s));
 	$var($BigDecimal, near10sq, near10->multiply(near10));
@@ -431,6 +443,7 @@ int32_t SquareRootTests::nearTen() {
 
 int32_t SquareRootTests::nearOne() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, near1, $new($BigDecimal, ".999999999999999999999"_s));
 	$var($BigDecimal, near1sq, near1->multiply(near1));
@@ -455,6 +468,7 @@ int32_t SquareRootTests::nearOne() {
 
 int32_t SquareRootTests::halfWay() {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray, halfWayCases, $new($BigDecimalArray, {
 		$$new($BigDecimal, "123456789123456789.5"_s),
@@ -494,6 +508,7 @@ int32_t SquareRootTests::halfWay() {
 
 int32_t SquareRootTests::compare($BigDecimal* a, $BigDecimal* b, bool expected, $String* prefix) {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	bool result = $nc(a)->equals(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
@@ -510,6 +525,7 @@ int32_t SquareRootTests::equalNumerically($BigDecimal* a, $BigDecimal* b, $Strin
 
 int32_t SquareRootTests::compareNumerically($BigDecimal* a, $BigDecimal* b, int32_t expected, $String* prefix) {
 	$init(SquareRootTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $nc(a)->compareTo(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {

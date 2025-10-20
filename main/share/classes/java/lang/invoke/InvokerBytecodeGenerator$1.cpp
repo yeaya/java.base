@@ -93,6 +93,7 @@ void InvokerBytecodeGenerator$1::init$($String* val$className, $bytes* val$class
 }
 
 $Object* InvokerBytecodeGenerator$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, dumpName, $nc(this->val$className)->replace(u'.', u'/'));
 		$init($InvokerBytecodeGenerator);

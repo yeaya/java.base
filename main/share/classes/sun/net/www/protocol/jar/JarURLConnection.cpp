@@ -148,6 +148,7 @@ $Permission* JarURLConnection::getPermission() {
 }
 
 void JarURLConnection::connect() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->connected) {
 		bool useCaches = getUseCaches();
 		$var($String, entryName, this->entryName);
@@ -177,6 +178,7 @@ void JarURLConnection::connect() {
 }
 
 $InputStream* JarURLConnection::getInputStream() {
+	$useLocalCurrentObjectStackCache();
 	connect();
 	$var($InputStream, result, nullptr);
 	if (this->entryName == nullptr) {
@@ -225,6 +227,7 @@ $Object* JarURLConnection::getContent() {
 }
 
 $String* JarURLConnection::getContentType() {
+	$useLocalCurrentObjectStackCache();
 	if (this->contentType == nullptr) {
 		if (this->entryName == nullptr) {
 			$set(this, contentType, "x-java/jar"_s);

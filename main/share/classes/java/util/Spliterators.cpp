@@ -231,6 +231,7 @@ $Spliterator$OfDouble* Spliterators::spliterator($doubles* array, int32_t fromIn
 
 void Spliterators::checkFromToBounds(int32_t arrayLength, int32_t origin, int32_t fence) {
 	$init(Spliterators);
+	$useLocalCurrentObjectStackCache();
 	if (origin > fence) {
 		$throwNew($ArrayIndexOutOfBoundsException, $$str({"origin("_s, $$str(origin), ") > fence("_s, $$str(fence), ")"_s}));
 	}

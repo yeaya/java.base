@@ -67,6 +67,7 @@ void AnnotationVisitor::init$(int32_t api) {
 }
 
 void AnnotationVisitor::init$(int32_t api, AnnotationVisitor* annotationVisitor) {
+	$useLocalCurrentObjectStackCache();
 	if (api != $Opcodes::ASM8 && api != $Opcodes::ASM7 && api != $Opcodes::ASM6 && api != $Opcodes::ASM5 && api != $Opcodes::ASM4 && api != $Opcodes::ASM9_EXPERIMENTAL) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported api "_s, $$str(api)}));
 	}

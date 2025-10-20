@@ -182,6 +182,7 @@ $MethodHandle* DelegatingMethodHandle::copyWith($MethodType* mt, $LambdaForm* lf
 }
 
 $Object* DelegatingMethodHandle::internalProperties() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"\n& Class="_s, $($of(this)->getClass()->getSimpleName()), "\n& Target="_s}));
 	return $of($concat(var$0, $($nc($(getTarget()))->debugString())));
 }
@@ -205,6 +206,7 @@ $LambdaForm* DelegatingMethodHandle::makeReinvokerForm($MethodHandle* target, in
 
 $LambdaForm* DelegatingMethodHandle::makeReinvokerForm($MethodHandle* target, int32_t whichCache, Object$* constraint, bool forceInline, $LambdaForm$NamedFunction* getTargetFn, $LambdaForm$NamedFunction* preActionFn) {
 	$init(DelegatingMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, $nc($($nc(target)->type()))->basicType());
 	$LambdaForm$Kind* kind = whichKind(whichCache);
 	bool customized = (whichCache < 0 || $nc(mtype)->parameterSlotCount() > $MethodType::MAX_MH_INVOKER_ARITY);
@@ -278,6 +280,7 @@ $LambdaForm$Kind* DelegatingMethodHandle::whichKind(int32_t whichCache) {
 }
 
 void clinit$DelegatingMethodHandle($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	DelegatingMethodHandle::$assertionsDisabled = !DelegatingMethodHandle::class$->desiredAssertionStatus();
 	{
 		try {

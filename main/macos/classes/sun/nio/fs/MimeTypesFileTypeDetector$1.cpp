@@ -83,6 +83,7 @@ void MimeTypesFileTypeDetector$1::init$($MimeTypesFileTypeDetector* this$0) {
 }
 
 $Object* MimeTypesFileTypeDetector$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($Files::readAllLines(this->this$0->mimeTypesFile, $($Charset::defaultCharset())));
 	} catch ($IOException&) {

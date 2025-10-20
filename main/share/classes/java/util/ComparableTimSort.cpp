@@ -141,6 +141,7 @@ void ComparableTimSort::sort($ObjectArray* a, int32_t lo, int32_t hi, $ObjectArr
 
 void ComparableTimSort::binarySort($ObjectArray* a, int32_t lo, int32_t hi, int32_t start) {
 	$init(ComparableTimSort);
+	$useLocalCurrentObjectStackCache();
 	if (!ComparableTimSort::$assertionsDisabled && !(lo <= start && start <= hi)) {
 		$throwNew($AssertionError);
 	}
@@ -209,6 +210,7 @@ int32_t ComparableTimSort::countRunAndMakeAscending($ObjectArray* a, int32_t lo,
 
 void ComparableTimSort::reverseRange($ObjectArray* a, int32_t lo, int32_t hi) {
 	$init(ComparableTimSort);
+	$useLocalCurrentObjectStackCache();
 	--hi;
 	while (lo < hi) {
 		$var($Object0, t, $nc(a)->get(lo));
@@ -420,6 +422,7 @@ int32_t ComparableTimSort::gallopRight($Comparable* key, $ObjectArray* a, int32_
 }
 
 void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int32_t len2) {
+	$useLocalCurrentObjectStackCache();
 	if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 0 && base1 + len1 == base2)) {
 		$throwNew($AssertionError);
 	}
@@ -536,6 +539,7 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 }
 
 void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int32_t len2) {
+	$useLocalCurrentObjectStackCache();
 	if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 0 && base1 + len1 == base2)) {
 		$throwNew($AssertionError);
 	}

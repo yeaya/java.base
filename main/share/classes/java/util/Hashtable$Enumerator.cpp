@@ -117,6 +117,7 @@ void Hashtable$Enumerator::init$($Hashtable* this$0, int32_t type, bool iterator
 }
 
 bool Hashtable$Enumerator::hasMoreElements() {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable$Entry, e, this->entry);
 	int32_t i = this->index;
 	$var($Hashtable$EntryArray, t, this->table);
@@ -129,6 +130,7 @@ bool Hashtable$Enumerator::hasMoreElements() {
 }
 
 $Object* Hashtable$Enumerator::nextElement() {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable$Entry, et, this->entry);
 	int32_t i = this->index;
 	$var($Hashtable$EntryArray, t, this->table);
@@ -157,6 +159,7 @@ $Object* Hashtable$Enumerator::next() {
 }
 
 void Hashtable$Enumerator::remove() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->iterator) {
 		$throwNew($UnsupportedOperationException);
 	}

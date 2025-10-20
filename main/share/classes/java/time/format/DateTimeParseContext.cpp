@@ -137,6 +137,7 @@ $DecimalStyle* DateTimeParseContext::getDecimalStyle() {
 }
 
 $Chronology* DateTimeParseContext::getEffectiveChronology() {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, chrono, $nc($(currentParsed()))->chrono);
 	if (chrono == nullptr) {
 		$assign(chrono, $nc(this->formatter)->getChronology());
@@ -221,6 +222,7 @@ void DateTimeParseContext::setStrict(bool strict) {
 }
 
 void DateTimeParseContext::startOptional() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->parsed)->add($($nc($(currentParsed()))->copy()));
 }
 
@@ -252,12 +254,14 @@ $Long* DateTimeParseContext::getParsed($TemporalField* field) {
 }
 
 int32_t DateTimeParseContext::setParsedField($TemporalField* field, int64_t value, int32_t errorPos, int32_t successPos) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(field), "field"_s);
 	$var($Long, old, $cast($Long, $nc($nc($(currentParsed()))->fieldValues)->put(field, $($Long::valueOf(value)))));
 	return (old != nullptr && old->longValue() != value) ? ~errorPos : successPos;
 }
 
 void DateTimeParseContext::setParsed($Chronology* chrono) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(chrono), "chrono"_s);
 	$set($nc($(currentParsed())), chrono, chrono);
 	if (this->chronoListeners != nullptr && !$nc(this->chronoListeners)->isEmpty()) {

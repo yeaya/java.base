@@ -114,6 +114,7 @@ int64_t ShortWrite::computeChecksum($ByteBufferArray* bufs) {
 
 void ShortWrite::test1($ExecutorService* pool, $SocketChannel* source, $SocketChannel* sink, int32_t size) {
 	$init(ShortWrite);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"write(ByteBuffer), size="_s, $$str(size)}));
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(size));
@@ -133,6 +134,7 @@ void ShortWrite::test1($ExecutorService* pool, $SocketChannel* source, $SocketCh
 
 void ShortWrite::testN($ExecutorService* pool, $SocketChannel* source, $SocketChannel* sink, $ints* sizes) {
 	$init(ShortWrite);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->print("write(ByteBuffer[]), sizes="_s);
 	{
@@ -172,6 +174,7 @@ void ShortWrite::testN($ExecutorService* pool, $SocketChannel* source, $SocketCh
 
 void ShortWrite::main($StringArray* args) {
 	$init(ShortWrite);
+	$useLocalCurrentObjectStackCache();
 	$var($ExecutorService, pool, $Executors::newSingleThreadExecutor());
 	{
 		$var($Throwable, var$0, nullptr);

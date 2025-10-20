@@ -176,6 +176,7 @@ int32_t AESCrypt::getBlockSize() {
 }
 
 void AESCrypt::init(bool decrypting, $String* algorithm, $bytes* key) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc(algorithm)->equalsIgnoreCase("AES"_s);
 	if (var$0 && !algorithm->equalsIgnoreCase("Rijndael"_s)) {
 		$throwNew($InvalidKeyException, "Wrong algorithm: AES or Rijndael required"_s);
@@ -405,6 +406,7 @@ void AESCrypt::implDecryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32
 }
 
 void AESCrypt::makeSessionKey($bytes* k) {
+	$useLocalCurrentObjectStackCache();
 	if (k == nullptr) {
 		$throwNew($InvalidKeyException, "Empty key"_s);
 	}
@@ -502,6 +504,7 @@ int32_t AESCrypt::getRounds(int32_t keySize) {
 }
 
 void clinit$AESCrypt($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(AESCrypt::alog, $new($ints, 256));
 	$assignStatic(AESCrypt::log, $new($ints, 256));
 	$assignStatic(AESCrypt::S, $new($bytes, 256));

@@ -164,6 +164,7 @@ $Object* SerializedLambda::getCapturedArg(int32_t i) {
 }
 
 $Object* SerializedLambda::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, deserialize, $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SerializedLambda$1, this)))));
@@ -186,6 +187,7 @@ $Object* SerializedLambda::readResolve() {
 }
 
 $String* SerializedLambda::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, implKind, $MethodHandleInfo::referenceKindToString(this->implMethodKind));
 	return $String::format("SerializedLambda[%s=%s, %s=%s.%s:%s, %s=%s %s.%s:%s, %s=%s, %s=%d]"_s, $$new($ObjectArray, {
 		$of("capturingClass"_s),

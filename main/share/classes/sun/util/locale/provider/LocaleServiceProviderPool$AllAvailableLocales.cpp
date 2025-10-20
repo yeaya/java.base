@@ -76,6 +76,7 @@ void LocaleServiceProviderPool$AllAvailableLocales::init$() {
 }
 
 void clinit$LocaleServiceProviderPool$AllAvailableLocales($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Set, all, $new($HashSet));
 		{

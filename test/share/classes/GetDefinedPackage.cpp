@@ -59,6 +59,7 @@ void GetDefinedPackage::init$() {
 }
 
 void GetDefinedPackage::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($GetDefinedPackage$TestClassLoader, loader, $new($GetDefinedPackage$TestClassLoader));
 	$init($GetDefinedPackage$TestClassLoader);
 	$var($Package, pkg, loader->getDefinedPackage($GetDefinedPackage$TestClassLoader::PKG_NAME));

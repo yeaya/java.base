@@ -123,6 +123,7 @@ $MethodHandle* MethodHandleImpl$CountingWrapper::getTarget() {
 }
 
 $MethodHandle* MethodHandleImpl$CountingWrapper::asTypeUncached($MethodType* newType) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, newTarget, $nc(this->target)->asType(newType));
 	$var($MethodHandle, wrapper, nullptr);
 	if (this->isCounting) {
@@ -154,6 +155,7 @@ bool MethodHandleImpl$CountingWrapper::countDown() {
 
 void MethodHandleImpl$CountingWrapper::maybeStopCounting(Object$* o1) {
 	$init(MethodHandleImpl$CountingWrapper);
+	$useLocalCurrentObjectStackCache();
 	$var(MethodHandleImpl$CountingWrapper, wrapper, $cast(MethodHandleImpl$CountingWrapper, o1));
 	if ($nc(wrapper)->countDown()) {
 		wrapper->updateForm($$new($MethodHandleImpl$CountingWrapper$1, wrapper));
@@ -161,6 +163,7 @@ void MethodHandleImpl$CountingWrapper::maybeStopCounting(Object$* o1) {
 }
 
 void clinit$MethodHandleImpl$CountingWrapper($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$Class* THIS_CLASS = MethodHandleImpl$CountingWrapper::class$;

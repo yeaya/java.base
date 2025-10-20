@@ -76,6 +76,7 @@ void IntegerPolynomialP384::init$() {
 
 $BigInteger* IntegerPolynomialP384::evaluateModulus() {
 	$init(IntegerPolynomialP384);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(384));
 	$assign(result, $nc(result)->subtract($($nc($($BigInteger::valueOf((int64_t)2)))->pow(128))));
 	$assign(result, result->subtract($($nc($($BigInteger::valueOf((int64_t)2)))->pow(96))));

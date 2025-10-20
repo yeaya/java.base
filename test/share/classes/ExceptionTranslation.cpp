@@ -49,6 +49,7 @@ void ExceptionTranslation::init$() {
 }
 
 void ExceptionTranslation::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, iAddr, $new($InetSocketAddress, "nosuchhostname"_s, 5182));
 	try {
 		$var($SocketChannel, channel, $SocketChannel::open());

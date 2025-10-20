@@ -321,6 +321,7 @@ void URI::init$($String* str) {
 }
 
 void URI::init$($String* scheme, $String* userInfo, $String* host, int32_t port, $String* path, $String* query, $String* fragment) {
+	$useLocalCurrentObjectStackCache();
 	this->port = -1;
 	$var($String, s, toString(scheme, nullptr, nullptr, userInfo, host, port, path, query, fragment));
 	checkPath(s, scheme, path);
@@ -328,6 +329,7 @@ void URI::init$($String* scheme, $String* userInfo, $String* host, int32_t port,
 }
 
 void URI::init$($String* scheme, $String* authority, $String* path, $String* query, $String* fragment) {
+	$useLocalCurrentObjectStackCache();
 	this->port = -1;
 	$var($String, s, toString(scheme, nullptr, authority, nullptr, nullptr, -1, path, query, fragment));
 	checkPath(s, scheme, path);
@@ -339,6 +341,7 @@ void URI::init$($String* scheme, $String* host, $String* path, $String* fragment
 }
 
 void URI::init$($String* scheme, $String* ssp, $String* fragment) {
+	$useLocalCurrentObjectStackCache();
 	this->port = -1;
 	$$new($URI$Parser, this, $(toString(scheme, ssp, nullptr, nullptr, nullptr, -1, nullptr, nullptr, fragment)))->parse(false);
 }
@@ -354,6 +357,7 @@ void URI::init$($String* scheme, $String* path) {
 
 bool URI::validSchemeAndPath($String* scheme, $String* path) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(URI, u, $new(URI, $$str({scheme, ":"_s, path})));
 		bool var$0 = $nc(scheme)->equals(u->scheme);
@@ -367,6 +371,7 @@ bool URI::validSchemeAndPath($String* scheme, $String* path) {
 
 URI* URI::create($String* str) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $new(URI, str);
 	} catch ($URISyntaxException&) {
@@ -377,6 +382,7 @@ URI* URI::create($String* str) {
 }
 
 URI* URI::parseServerAuthority() {
+	$useLocalCurrentObjectStackCache();
 	if ((this->host != nullptr) || (this->authority == nullptr)) {
 		return this;
 	}
@@ -417,6 +423,7 @@ bool URI::isOpaque() {
 }
 
 $String* URI::getRawSchemeSpecificPart() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, part, this->schemeSpecificPart);
 	if (part != nullptr) {
 		return part;
@@ -451,6 +458,7 @@ $String* URI::getRawSchemeSpecificPart() {
 }
 
 $String* URI::getSchemeSpecificPart() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, part, this->decodedSchemeSpecificPart);
 	if (part == nullptr) {
 		$set(this, decodedSchemeSpecificPart, ($assign(part, decode($(getRawSchemeSpecificPart())))));
@@ -653,6 +661,7 @@ $String* URI::toString() {
 }
 
 $String* URI::defineString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, this->string);
 	if (s != nullptr) {
 		return s;
@@ -714,6 +723,7 @@ void URI::writeObject($ObjectOutputStream* os) {
 }
 
 void URI::readObject($ObjectInputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	this->port = -1;
 	$nc(is)->defaultReadObject();
 	try {
@@ -906,6 +916,7 @@ void URI::checkPath($String* s, $String* scheme, $String* path) {
 }
 
 void URI::appendAuthority($StringBuilder* sb, $String* authority, $String* userInfo, $String* host, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	if (host != nullptr) {
 		$nc(sb)->append("//"_s);
 		if (userInfo != nullptr) {
@@ -950,6 +961,7 @@ void URI::appendAuthority($StringBuilder* sb, $String* authority, $String* userI
 }
 
 void URI::appendSchemeSpecificPart($StringBuilder* sb, $String* opaquePart, $String* authority, $String* userInfo, $String* host, int32_t port, $String* path, $String* query) {
+	$useLocalCurrentObjectStackCache();
 	if (opaquePart != nullptr) {
 		if (opaquePart->startsWith("//["_s)) {
 			int32_t end = opaquePart->indexOf((int32_t)u']');
@@ -1001,6 +1013,7 @@ $String* URI::toString($String* scheme, $String* opaquePart, $String* authority,
 
 $String* URI::resolvePath($String* base, $String* child, bool absolute) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $nc(base)->lastIndexOf((int32_t)u'/');
 	int32_t cn = $nc(child)->length();
 	$var($String, path, ""_s);
@@ -1022,6 +1035,7 @@ $String* URI::resolvePath($String* base, $String* child, bool absolute) {
 
 URI* URI::resolve(URI* base, URI* child) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(child)->isOpaque();
 	if (var$0 || $nc(base)->isOpaque()) {
 		return child;
@@ -1073,6 +1087,7 @@ URI* URI::resolve(URI* base, URI* child) {
 
 URI* URI::normalize(URI* u) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(u)->isOpaque() || $nc(u)->path == nullptr;
 	if (var$0 || $nc($nc(u)->path)->isEmpty()) {
 		return u;
@@ -1095,6 +1110,7 @@ URI* URI::normalize(URI* u) {
 
 URI* URI::relativize(URI* base, URI* child) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(child)->isOpaque();
 	if (var$0 || $nc(base)->isOpaque()) {
 		return child;
@@ -1312,6 +1328,7 @@ void URI::maybeAddLeadingDot($chars* path, $ints* segs) {
 
 $String* URI::normalize($String* ps) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	int32_t ns = needsNormalization(ps);
 	if (ns < 0) {
 		return ps;
@@ -1351,6 +1368,7 @@ void URI::appendEscape($StringBuilder* sb, int8_t b) {
 
 void URI::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char16_t c) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, nullptr);
 	try {
 		$assign(bb, $nc(encoder)->encode($($CharBuffer::wrap(static_cast<$CharSequence*>($$str({""_s, $$str(c)}))))));
@@ -1372,6 +1390,7 @@ void URI::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char16_t c
 
 $String* URI::quote($String* s, int64_t lowMask, int64_t highMask) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, nullptr);
 	$var($CharsetEncoder, encoder, nullptr);
 	bool allowNonASCII = (((int64_t)(lowMask & (uint64_t)URI::L_ESCAPED)) != 0);
@@ -1413,6 +1432,7 @@ $String* URI::quote($String* s, int64_t lowMask, int64_t highMask) {
 
 $String* URI::encode($String* s) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(s)->length();
 	if (n == 0) {
 		return s;
@@ -1479,6 +1499,7 @@ $String* URI::decode($String* s) {
 
 $String* URI::decode($String* s, bool ignorePercentInBrackets) {
 	$init(URI);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		return s;
 	}

@@ -77,6 +77,7 @@ void RSAKeyExchange$EphemeralRSAPossessionGenerator::init$() {
 }
 
 $SSLPossession* RSAKeyExchange$EphemeralRSAPossessionGenerator::createPossession($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($EphemeralKeyManager, ekm, $nc($nc(context)->sslContext)->getEphemeralKeyManager());
 		$var($KeyPair, kp, $nc(ekm)->getRSAKeyPair(true, $($nc(context->sslContext)->getSecureRandom())));

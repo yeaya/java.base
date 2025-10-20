@@ -50,6 +50,7 @@ void Resources::init$() {
 
 void Resources::main($StringArray* args) {
 	$init(Resources);
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime, rt, $Runtime::getRuntime());
 	$nc(Resources::out)->println($$str({$$str($nc(rt)->freeMemory()), " bytes free"_s}));
 	$nc(Resources::out)->println($$str({$$str($nc(rt)->totalMemory()), "  bytes in use"_s}));

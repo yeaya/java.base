@@ -93,6 +93,7 @@ $ints* LocalDate$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 $ints* LocalDate$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
 void clinit$LocalDate$1($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LocalDate$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {

@@ -102,6 +102,7 @@ $AbstractClassLoaderValue$Sub* AbstractClassLoaderValue::sub(Object$* key) {
 }
 
 $Object* AbstractClassLoaderValue::get($ClassLoader* cl) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, val, $nc($(AbstractClassLoaderValue::map(cl)))->get(this));
 	try {
 		return $of(extractValue(val));
@@ -116,6 +117,7 @@ $Object* AbstractClassLoaderValue::get($ClassLoader* cl) {
 }
 
 $Object* AbstractClassLoaderValue::putIfAbsent($ClassLoader* cl, Object$* v) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, map, AbstractClassLoaderValue::map(cl));
 	$var(AbstractClassLoaderValue, clv, this);
 	while (true) {
@@ -137,6 +139,7 @@ bool AbstractClassLoaderValue::remove($ClassLoader* cl, Object$* v) {
 }
 
 $Object* AbstractClassLoaderValue::computeIfAbsent($ClassLoader* cl, $BiFunction* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, map, AbstractClassLoaderValue::map(cl));
 	$var(AbstractClassLoaderValue, clv, this);
 	$var($AbstractClassLoaderValue$Memoizer, mv, nullptr);
@@ -171,6 +174,7 @@ $Object* AbstractClassLoaderValue::computeIfAbsent($ClassLoader* cl, $BiFunction
 }
 
 void AbstractClassLoaderValue::removeAll($ClassLoader* cl) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, map, AbstractClassLoaderValue::map(cl));
 	{
 		$var($Iterator, i, $nc($($cast($ConcurrentHashMap$KeySetView, $nc(map)->keySet())))->iterator());

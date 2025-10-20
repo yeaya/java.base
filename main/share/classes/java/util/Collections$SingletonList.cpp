@@ -126,6 +126,7 @@ bool Collections$SingletonList::contains(Object$* obj) {
 }
 
 $Object* Collections$SingletonList::get(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (index != 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Size: 1"_s}));
 	}

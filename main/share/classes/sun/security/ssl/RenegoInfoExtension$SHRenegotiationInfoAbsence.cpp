@@ -89,6 +89,7 @@ void RenegoInfoExtension$SHRenegotiationInfoAbsence::init$() {
 }
 
 void RenegoInfoExtension$SHRenegotiationInfoAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($RenegoInfoExtension$RenegotiationInfoSpec, requestedSpec, $cast($RenegoInfoExtension$RenegotiationInfoSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_RENEGOTIATION_INFO)));

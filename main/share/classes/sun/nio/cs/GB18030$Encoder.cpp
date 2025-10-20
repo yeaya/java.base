@@ -110,6 +110,7 @@ void GB18030$Encoder::implReset() {
 }
 
 $CoderResult* GB18030$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -248,6 +249,7 @@ $CoderResult* GB18030$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* ds
 }
 
 $CoderResult* GB18030$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t condensedKey = 0;
 	int32_t hiByte = 0;
 	int32_t loByte = 0;

@@ -57,6 +57,7 @@ void CurrencyCollate::init$() {
 
 void CurrencyCollate::main($StringArray* args) {
 	$init(CurrencyCollate);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, DATA, $new($StringArray, {
 		u"\u20ac"_s,
 		">"_s,

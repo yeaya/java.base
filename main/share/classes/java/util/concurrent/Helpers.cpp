@@ -44,6 +44,7 @@ void Helpers::init$() {
 }
 
 $String* Helpers::collectionToString($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, $nc(c)->toArray());
 	int32_t size = $nc(a)->length;
 	if (size == 0) {
@@ -60,6 +61,7 @@ $String* Helpers::collectionToString($Collection* c) {
 }
 
 $String* Helpers::toString($ObjectArray* a, int32_t size, int32_t charLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, chars, $new($chars, charLength + 2 * size));
 	chars->set(0, u'[');
 	int32_t j = 1;
@@ -78,6 +80,7 @@ $String* Helpers::toString($ObjectArray* a, int32_t size, int32_t charLength) {
 }
 
 $String* Helpers::mapEntryToString(Object$* key, Object$* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, k, nullptr);
 	$var($String, v, nullptr);
 	int32_t klen = 0;

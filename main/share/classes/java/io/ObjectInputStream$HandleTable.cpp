@@ -254,6 +254,7 @@ int32_t ObjectInputStream$HandleTable::size() {
 }
 
 void ObjectInputStream$HandleTable::grow() {
+	$useLocalCurrentObjectStackCache();
 	int32_t newCapacity = ($nc(this->entries)->length << 1) + 1;
 	$var($bytes, newStatus, $new($bytes, newCapacity));
 	$var($ObjectArray, newEntries, $new($ObjectArray, newCapacity));

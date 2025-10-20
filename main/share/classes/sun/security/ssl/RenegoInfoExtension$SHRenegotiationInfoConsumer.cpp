@@ -94,6 +94,7 @@ void RenegoInfoExtension$SHRenegotiationInfoConsumer::init$() {
 }
 
 void RenegoInfoExtension$SHRenegotiationInfoConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($RenegoInfoExtension$RenegotiationInfoSpec, requestedSpec, $cast($RenegoInfoExtension$RenegotiationInfoSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_RENEGOTIATION_INFO)));

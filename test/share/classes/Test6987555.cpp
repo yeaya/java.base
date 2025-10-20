@@ -107,6 +107,7 @@ void Test6987555::testboolean() {
 
 void Test6987555::doboolean(bool x) {
 	$init(Test6987555);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Boolean);
 	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Boolean::TYPE, $Boolean::TYPE))));
@@ -138,6 +139,7 @@ void Test6987555::testbyte() {
 
 void Test6987555::dobyte(int8_t x) {
 	$init(Test6987555);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Byte);
 	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Byte::TYPE, $Byte::TYPE))));
@@ -167,6 +169,7 @@ void Test6987555::testchar() {
 
 void Test6987555::dochar(char16_t x) {
 	$init(Test6987555);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Character);
 	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Character::TYPE, $Character::TYPE))));
@@ -202,6 +205,7 @@ void Test6987555::testshort() {
 
 void Test6987555::doshort(int16_t x) {
 	$init(Test6987555);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Short);
 	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Short::TYPE, $Short::TYPE))));
@@ -237,6 +241,7 @@ void Test6987555::testint() {
 
 void Test6987555::doint(int32_t x) {
 	$init(Test6987555);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Integer);
 	$var($MethodHandle, mh1, $nc($($MethodHandles::lookup()))->findStatic(Test6987555::CLASS, Test6987555::NAME, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE))));

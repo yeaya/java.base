@@ -116,6 +116,7 @@ bool ReferenceQueue::enqueue($Reference* r) {
 }
 
 $Reference* ReferenceQueue::reallyPoll() {
+	$useLocalCurrentObjectStackCache();
 	$var($Reference, r, this->head);
 	if (r != nullptr) {
 		$set(r, queue, ReferenceQueue::NULL);
@@ -173,6 +174,7 @@ $Reference* ReferenceQueue::remove() {
 }
 
 void ReferenceQueue::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Reference, r, this->head);
 		for (; r != nullptr;) {

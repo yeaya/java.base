@@ -66,6 +66,7 @@ void MethodHandleNatives$CallSiteContext::init$() {
 
 MethodHandleNatives$CallSiteContext* MethodHandleNatives$CallSiteContext::make($CallSite* cs) {
 	$init(MethodHandleNatives$CallSiteContext);
+	$useLocalCurrentObjectStackCache();
 	$var(MethodHandleNatives$CallSiteContext, newContext, $new(MethodHandleNatives$CallSiteContext));
 	$nc($($CleanerFactory::cleaner()))->register$(cs, newContext);
 	return newContext;

@@ -180,6 +180,7 @@ void EnumMap::init$(EnumMap* m) {
 }
 
 void EnumMap::init$($Map* m) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractMap::init$();
 	this->size$ = 0;
 	if ($instanceOf(EnumMap, m)) {
@@ -204,6 +205,7 @@ int32_t EnumMap::size() {
 }
 
 bool EnumMap::containsValue(Object$* value$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, value, value$renamed);
 	$assign(value, maskNull(value));
 	{
@@ -235,6 +237,7 @@ $Object* EnumMap::get(Object$* key) {
 }
 
 $Object* EnumMap::put($Enum* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	typeCheck(key);
 	int32_t index = $nc(key)->ordinal();
 	$var($Object0, oldValue, $nc(this->vals)->get(index));
@@ -280,6 +283,7 @@ bool EnumMap::isValidKey(Object$* key) {
 }
 
 void EnumMap::putAll($Map* m) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(EnumMap, em, nullptr);
 		bool var$0 = $instanceOf(EnumMap, m);
@@ -342,6 +346,7 @@ $Set* EnumMap::entrySet() {
 }
 
 bool EnumMap::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -378,6 +383,7 @@ bool EnumMap::equals(Object$* o) {
 }
 
 bool EnumMap::equals(EnumMap* em) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(em)->size$ != this->size$) {
 		return false;
 	}
@@ -410,6 +416,7 @@ int32_t EnumMap::entryHashCode(int32_t index) {
 }
 
 $Object* EnumMap::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(EnumMap, result, nullptr);
 	try {
 		$assign(result, $cast(EnumMap, $AbstractMap::clone()));
@@ -435,6 +442,7 @@ $EnumArray* EnumMap::getKeyUniverse($Class* keyType) {
 }
 
 void EnumMap::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	s->writeInt(this->size$);
 	int32_t entriesToBeWritten = this->size$;
@@ -448,6 +456,7 @@ void EnumMap::writeObject($ObjectOutputStream* s) {
 }
 
 void EnumMap::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$set(this, keyUniverse, getKeyUniverse(this->keyType));
 	$set(this, vals, $new($ObjectArray, $nc(this->keyUniverse)->length));

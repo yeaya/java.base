@@ -128,6 +128,7 @@ void ClassLoaders::init$() {
 
 void ClassLoaders::setArchivedServicesCatalog($ClassLoader* loader) {
 	$init(ClassLoaders);
+	$useLocalCurrentObjectStackCache();
 	$var($ServicesCatalog, catalog, $nc($($ArchivedClassLoaders::get()))->servicesCatalog(loader));
 	$ServicesCatalog::putServicesCatalog(loader, catalog);
 }
@@ -149,6 +150,7 @@ $ClassLoader* ClassLoaders::appClassLoader() {
 
 $URL* ClassLoaders::toFileURL($String* s) {
 	$init(ClassLoaders);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc($($nc($($nc($($Path::of(s, $$new($StringArray, 0))))->toRealPath($$new($LinkOptionArray, 0))))->toFile()))->toURI()))->toURL();
 	} catch ($InvalidPathException&) {
@@ -162,6 +164,7 @@ $URL* ClassLoaders::toFileURL($String* s) {
 }
 
 void clinit$ClassLoaders($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ClassLoaders::JLA, $SharedSecrets::getJavaLangAccess());
 	{
 		$var($ArchivedClassLoaders, archivedClassLoaders, $ArchivedClassLoaders::get());

@@ -78,6 +78,7 @@ void Race$1::init$($Phaser* val$phaser, $InputStream* val$is) {
 }
 
 void Race$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->val$phaser)->arriveAndAwaitAdvance();
 		while ($nc(this->val$is)->read() != -1) {

@@ -80,6 +80,7 @@ void UnixAsynchronousServerSocketChannelImpl$1::init$($UnixAsynchronousServerSoc
 }
 
 $Object* UnixAsynchronousServerSocketChannelImpl$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($String, var$0, $nc($($nc(this->val$remote)->getAddress()))->getHostAddress());

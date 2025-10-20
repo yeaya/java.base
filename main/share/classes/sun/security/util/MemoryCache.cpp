@@ -130,6 +130,7 @@ void MemoryCache::init$(bool soft, int32_t maxSize, int32_t lifetime) {
 }
 
 void MemoryCache::emptyQueue() {
+	$useLocalCurrentObjectStackCache();
 	if (this->queue == nullptr) {
 		return;
 	}
@@ -151,6 +152,7 @@ void MemoryCache::emptyQueue() {
 }
 
 void MemoryCache::expungeExpiredEntries() {
+	$useLocalCurrentObjectStackCache();
 	emptyQueue();
 	if (this->lifetime == 0) {
 		return;
@@ -184,6 +186,7 @@ int32_t MemoryCache::size() {
 
 void MemoryCache::clear() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->queue != nullptr) {
 			{
 				$var($Iterator, i$, $nc($($nc(this->cacheMap)->values()))->iterator());
@@ -203,6 +206,7 @@ void MemoryCache::clear() {
 
 void MemoryCache::put(Object$* key, Object$* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		emptyQueue();
 		int64_t expirationTime = (this->lifetime == 0) ? (int64_t)0 : $System::currentTimeMillis() + this->lifetime;
 		if (expirationTime < this->nextExpirationTime) {
@@ -254,6 +258,7 @@ void MemoryCache::remove(Object$* key) {
 
 $Object* MemoryCache::pull(Object$* key) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		emptyQueue();
 		$var($MemoryCache$CacheEntry, entry, $cast($MemoryCache$CacheEntry, $nc(this->cacheMap)->remove(key)));
 		if (entry == nullptr) {
@@ -272,6 +277,7 @@ $Object* MemoryCache::pull(Object$* key) {
 
 void MemoryCache::setCapacity(int32_t size) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		expungeExpiredEntries();
 		if (size > 0 && $nc(this->cacheMap)->size() > size) {
 			$var($Iterator, t, $nc($($nc(this->cacheMap)->values()))->iterator());
@@ -301,6 +307,7 @@ void MemoryCache::accept($Cache$CacheVisitor* visitor) {
 }
 
 $Map* MemoryCache::getCachedEntries() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, kvmap, $new($HashMap, $nc(this->cacheMap)->size()));
 	{
 		$var($Iterator, i$, $nc($($nc(this->cacheMap)->values()))->iterator());

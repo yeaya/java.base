@@ -125,6 +125,7 @@ $List* BoundMethodHandle$Specializer::BMH_TRANSFORMS = nullptr;
 int32_t BoundMethodHandle$Specializer::TN_COPY_NO_EXTEND = 0;
 
 void BoundMethodHandle$Specializer::init$() {
+	$useLocalCurrentObjectStackCache();
 	$load($BoundMethodHandle);
 	$load($String);
 	$load($BoundMethodHandle$SpeciesData);
@@ -151,6 +152,7 @@ $ClassSpecializer$SpeciesData* BoundMethodHandle$Specializer::newSpeciesData(Obj
 }
 
 void clinit$BoundMethodHandle$Specializer($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$load($BoundMethodHandle);
 	BoundMethodHandle$Specializer::$assertionsDisabled = !$BoundMethodHandle::class$->desiredAssertionStatus();
 	{

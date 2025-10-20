@@ -159,6 +159,7 @@ void TestSynchronization::main($StringArray* args) {
 
 void TestSynchronization::testClass($Class* aClass, bool isSelfTest) {
 	$init(TestSynchronization);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, methods, $Arrays::asList($($nc(aClass)->getDeclaredMethods())));
 	{
@@ -224,6 +225,7 @@ void TestSynchronization::testClass($Class* aClass, bool isSelfTest) {
 
 void TestSynchronization::invokeMethod($Class* aClass, $Method* m, $ObjectArray* args) {
 	$init(TestSynchronization);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Constructor, objConstructor, nullptr);
 	$var($Object, obj, nullptr);
@@ -237,6 +239,7 @@ void TestSynchronization::invokeMethod($Class* aClass, $Method* m, $ObjectArray*
 
 void TestSynchronization::testMethod($Class* aClass, $Method* m) {
 	$init(TestSynchronization);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, pTypes, $nc(m)->getParameterTypes());
 	$var($List, charSequenceArgs, $new($ArrayList));
 	$var($ObjectArray, args, $new($ObjectArray, $nc(pTypes)->length));
@@ -319,6 +322,7 @@ void TestSynchronization::testMethod($Class* aClass, $Method* m) {
 
 bool TestSynchronization::isSynchronized($Method* m, Object$* target, $ObjectArray* args) {
 	$init(TestSynchronization);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new($TestSynchronization$InvokeTask, m, target, args))));
 	$var($Boolean, isSynchronized, nullptr);
 	$synchronized(target) {

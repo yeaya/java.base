@@ -826,6 +826,7 @@ $Object* allocate$ModulePatcher($Class* clazz) {
 $JavaLangModuleAccess* ModulePatcher::JLMA = nullptr;
 
 void ModulePatcher::init$($Map* input) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(input)->isEmpty()) {
 		$set(this, map, $Map::of());
 	} else {
@@ -846,6 +847,7 @@ void ModulePatcher::init$($Map* input) {
 }
 
 $ModuleReference* ModulePatcher::patchIfNeeded($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(mref)->descriptor());
 	$var($String, mn, $nc(descriptor)->name());
 	$var($List, paths, $cast($List, $nc(this->map)->get(mn)));
@@ -942,6 +944,7 @@ $Set* ModulePatcher::patchedModules() {
 
 $String* ModulePatcher::toPackageName($Path* top, $Path* file) {
 	$init(ModulePatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, entry, $nc(top)->relativize(file));
 	$var($Path, parent, $nc(entry)->getParent());
 	if (parent == nullptr) {
@@ -964,6 +967,7 @@ bool ModulePatcher::isHidden($Path* file) {
 
 $String* ModulePatcher::toPackageName($Path* file, $JarEntry* entry) {
 	$init(ModulePatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(entry)->getName());
 	int32_t index = $nc(name)->lastIndexOf("/"_s);
 	if (index == -1) {

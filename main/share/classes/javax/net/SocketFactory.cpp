@@ -80,6 +80,7 @@ SocketFactory* SocketFactory::getDefault() {
 }
 
 $Socket* SocketFactory::createSocket() {
+	$useLocalCurrentObjectStackCache();
 	$var($UnsupportedOperationException, uop, $new($UnsupportedOperationException));
 	$var($SocketException, se, $new($SocketException, "Unconnected sockets not implemented"_s));
 	se->initCause(uop);

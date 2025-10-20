@@ -39,6 +39,7 @@ void Offset::init$() {
 }
 
 void Offset::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b1, $new($bytes, 1024));
 	$var($DatagramPacket, p, $new($DatagramPacket, b1, 512, 512));
 	$var($bytes, b2, $new($bytes, 20));

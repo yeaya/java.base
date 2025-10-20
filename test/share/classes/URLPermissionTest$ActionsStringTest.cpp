@@ -66,6 +66,7 @@ void URLPermissionTest$ActionsStringTest::init$($String* arg, $String* expectedA
 }
 
 bool URLPermissionTest$ActionsStringTest::execute() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, url, "http://www.foo.com/"_s);
 	$var($URLPermission, urlp, $new($URLPermission, url, this->arg));
 	return ($nc(this->expectedActions)->equals($(urlp->getActions())));

@@ -101,6 +101,7 @@ bool ConcurrentHashMap$ValuesView::contains(Object$* o) {
 }
 
 bool ConcurrentHashMap$ValuesView::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o != nullptr) {
 		{
 			$var($Iterator, it, iterator());
@@ -116,6 +117,7 @@ bool ConcurrentHashMap$ValuesView::remove(Object$* o) {
 }
 
 $Iterator* ConcurrentHashMap$ValuesView::iterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap, m, this->map);
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	int32_t f = ($assign(t, $nc(m)->table)) == nullptr ? 0 : $nc(t)->length;
@@ -133,6 +135,7 @@ bool ConcurrentHashMap$ValuesView::addAll($Collection* c) {
 }
 
 bool ConcurrentHashMap$ValuesView::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -154,6 +157,7 @@ bool ConcurrentHashMap$ValuesView::removeIf($Predicate* filter) {
 }
 
 $Spliterator* ConcurrentHashMap$ValuesView::spliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	$var($ConcurrentHashMap, m, this->map);
 	int64_t n = $nc(m)->sumCount();
@@ -162,6 +166,7 @@ $Spliterator* ConcurrentHashMap$ValuesView::spliterator() {
 }
 
 void ConcurrentHashMap$ValuesView::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

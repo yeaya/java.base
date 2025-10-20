@@ -135,6 +135,7 @@ Node* Node::getChild(int32_t i) {
 }
 
 Node* Node::truncate(int64_t from, int64_t to, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (from == 0 && to == count()) {
 		return this;
 	}

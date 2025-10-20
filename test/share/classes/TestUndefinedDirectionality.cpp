@@ -46,6 +46,7 @@ void TestUndefinedDirectionality::init$() {
 }
 
 void TestUndefinedDirectionality::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	for (int32_t ch = 0; ch <= 0x0000FFFF; ++ch) {
 		if (!$Character::isDefined((char16_t)ch)) {

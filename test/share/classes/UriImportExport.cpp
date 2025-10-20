@@ -64,6 +64,7 @@ void UriImportExport::init$() {
 
 void UriImportExport::testPath($String* s) {
 	$init(UriImportExport);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, path, $Paths::get(s, $$new($StringArray, 0)));
 	$nc(UriImportExport::log)->println($of(path));
 	$var($URI, uri, $nc(path)->toUri());
@@ -79,6 +80,7 @@ void UriImportExport::testPath($String* s) {
 
 void UriImportExport::testPath($String* s, $String* expectedUri) {
 	$init(UriImportExport);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, path, $Paths::get(s, $$new($StringArray, 0)));
 	$nc(UriImportExport::log)->println($of(path));
 	$var($URI, uri, $nc(path)->toUri());
@@ -99,6 +101,7 @@ void UriImportExport::testPath($String* s, $String* expectedUri) {
 
 void UriImportExport::testUri($String* s) {
 	$init(UriImportExport);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $URI::create(s));
 	$nc(UriImportExport::log)->println($of(uri));
 	$var($Path, path, $Paths::get(uri));
@@ -114,6 +117,7 @@ void UriImportExport::testUri($String* s) {
 
 void UriImportExport::testBadUri($String* s) {
 	$init(UriImportExport);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $URI::create(s));
 	$nc(UriImportExport::log)->println($of(uri));
 	try {
@@ -129,6 +133,7 @@ void UriImportExport::testBadUri($String* s) {
 
 void UriImportExport::main($StringArray* args) {
 	$init(UriImportExport);
+	$useLocalCurrentObjectStackCache();
 	testBadUri("file:foo"_s);
 	testBadUri("file:/foo?q"_s);
 	testBadUri("file:/foo#f"_s);

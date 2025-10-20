@@ -125,6 +125,7 @@ void MethodHandleImpl$ArrayAccess::init$($String* $enum$name, int32_t $enum$ordi
 
 $String* MethodHandleImpl$ArrayAccess::opName(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleImpl$2);
 
 	$var($String, var$0, nullptr)
@@ -154,6 +155,7 @@ $String* MethodHandleImpl$ArrayAccess::opName(MethodHandleImpl$ArrayAccess* a) {
 
 $MethodHandle* MethodHandleImpl$ArrayAccess::objectAccessor(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleImpl$2);
 
 	$var($MethodHandle, var$0, nullptr)
@@ -215,6 +217,7 @@ int32_t MethodHandleImpl$ArrayAccess::cacheIndex(MethodHandleImpl$ArrayAccess* a
 
 $MethodHandleImpl$Intrinsic* MethodHandleImpl$ArrayAccess::intrinsic(MethodHandleImpl$ArrayAccess* a) {
 	$init(MethodHandleImpl$ArrayAccess);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleImpl$2);
 
 	$var($MethodHandleImpl$Intrinsic, var$0, nullptr)

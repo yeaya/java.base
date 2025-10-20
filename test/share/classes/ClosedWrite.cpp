@@ -46,6 +46,7 @@ void ClosedWrite::init$() {
 }
 
 void ClosedWrite::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedOutputStream, os, $new($PipedOutputStream));
 	$var($PipedInputStream, is, $new($PipedInputStream));
 	os->connect(is);

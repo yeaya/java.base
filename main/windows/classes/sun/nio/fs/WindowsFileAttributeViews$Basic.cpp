@@ -114,6 +114,7 @@ int64_t WindowsFileAttributeViews$Basic::adjustForFatEpoch(int64_t time) {
 }
 
 void WindowsFileAttributeViews$Basic::setFileTimes(int64_t createTime, int64_t lastAccessTime, int64_t lastWriteTime) {
+	$useLocalCurrentObjectStackCache();
 	int64_t handle = -1;
 	try {
 		int32_t flags = 0x02000000;

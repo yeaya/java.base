@@ -494,6 +494,7 @@ $ObjectInputFilter* ObjectInputFilter$Config$Global::createFilter($String* patte
 }
 
 void ObjectInputFilter$Config$Global::init$($String* pattern, bool checkComponentType) {
+	$useLocalCurrentObjectStackCache();
 	bool hasLimits = false;
 	$set(this, pattern, pattern);
 	this->checkComponentType = checkComponentType;
@@ -574,6 +575,7 @@ void ObjectInputFilter$Config$Global::init$($String* pattern, bool checkComponen
 }
 
 bool ObjectInputFilter$Config$Global::parseLimit($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	int32_t eqNdx = $nc(pattern)->indexOf((int32_t)u'=');
 	if (eqNdx < 0) {
 		return false;
@@ -603,6 +605,7 @@ int64_t ObjectInputFilter$Config$Global::parseValue($String* string) {
 }
 
 $ObjectInputFilter$Status* ObjectInputFilter$Config$Global::checkInput($ObjectInputFilter$FilterInfo* filterInfo) {
+	$useLocalCurrentObjectStackCache();
 	bool var$4 = $nc(filterInfo)->references() < 0;
 	bool var$3 = var$4 || $nc(filterInfo)->depth() < 0;
 	bool var$2 = var$3 || $nc(filterInfo)->streamBytes() < 0;
@@ -678,6 +681,7 @@ $ObjectInputFilter$Status* ObjectInputFilter$Config$Global::lambda$checkInput$9(
 
 $ObjectInputFilter$Status* ObjectInputFilter$Config$Global::lambda$new$8($String* moduleName, $Function* patternFilter, $Class* c) {
 	$init(ObjectInputFilter$Config$Global);
+	$useLocalCurrentObjectStackCache();
 	$init($ObjectInputFilter$Status);
 	return $nc(moduleName)->equals($($nc($($nc(c)->getModule()))->getName())) ? $cast($ObjectInputFilter$Status, $nc(patternFilter)->apply(c)) : $ObjectInputFilter$Status::UNDECIDED;
 }

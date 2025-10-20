@@ -83,6 +83,7 @@ void CertStatusExtension$CertStatusResponse::init$(int8_t statusType, $bytes* re
 }
 
 $bytes* CertStatusExtension$CertStatusResponse::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, outData, $new($bytes, $nc(this->encodedResponse)->length + 4));
 	$var($ByteBuffer, buf, $ByteBuffer::wrap(outData));
 	$Record::putInt8(buf, this->statusType);
@@ -91,6 +92,7 @@ $bytes* CertStatusExtension$CertStatusResponse::toByteArray() {
 }
 
 $String* CertStatusExtension$CertStatusResponse::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate status response type\": {0}\n\"encoded certificate status\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

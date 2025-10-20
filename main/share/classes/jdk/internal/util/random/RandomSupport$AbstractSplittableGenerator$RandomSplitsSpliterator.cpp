@@ -139,6 +139,7 @@ bool RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::tryAdvan
 }
 
 void RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::forEachRemaining($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(consumer);
 	int64_t i = this->index;
 	int64_t f = this->fence;

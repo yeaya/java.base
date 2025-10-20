@@ -80,6 +80,7 @@ $bytes* ZipCoder$UTF8ZipCoder::getBytes($String* s) {
 }
 
 int32_t ZipCoder$UTF8ZipCoder::checkedHash($bytes* a, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len == 0) {
 		return 0;
 	}

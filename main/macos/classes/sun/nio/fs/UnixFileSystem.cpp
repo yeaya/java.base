@@ -162,6 +162,7 @@ $String* UnixFileSystem::GLOB_SYNTAX = nullptr;
 $String* UnixFileSystem::REGEX_SYNTAX = nullptr;
 
 void UnixFileSystem::init$($UnixFileSystemProvider* provider, $String* dir) {
+	$useLocalCurrentObjectStackCache();
 	$FileSystem::init$();
 	$set(this, provider$, provider);
 	$set(this, defaultDirectory$, $Util::toBytes($($UnixPath::normalizeAndCheck(dir))));
@@ -234,11 +235,13 @@ void UnixFileSystem::copyNonPosixAttributes(int32_t sfd, int32_t tfd) {
 }
 
 $Iterable* UnixFileSystem::getRootDirectories() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, allowedList, $Collections::unmodifiableList($($Arrays::asList($$new($PathArray, {static_cast<$Path*>(this->rootDirectory$)})))));
 	return $new($UnixFileSystem$1, this, allowedList);
 }
 
 $Iterable* UnixFileSystem::getFileStores() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		try {
@@ -252,6 +255,7 @@ $Iterable* UnixFileSystem::getFileStores() {
 }
 
 $Path* UnixFileSystem::getPath($String* first, $StringArray* more) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(first);
 	$var($String, path, nullptr);
 	if ($nc(more)->length == 0) {
@@ -281,6 +285,7 @@ $Path* UnixFileSystem::getPath($String* first, $StringArray* more) {
 }
 
 $PathMatcher* UnixFileSystem::getPathMatcher($String* syntaxAndInput) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(syntaxAndInput)->indexOf((int32_t)u':');
 	if (pos <= 0 || pos == syntaxAndInput->length()) {
 		$throwNew($IllegalArgumentException);

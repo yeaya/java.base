@@ -116,6 +116,7 @@ void CtrDrbg::init$($SecureRandomParameters* params) {
 
 int32_t CtrDrbg::alg2strength($String* algorithm) {
 	$init(CtrDrbg);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Locale);
 		$var($String, s2192$, $nc(algorithm)->toUpperCase($Locale::ROOT));
@@ -165,6 +166,7 @@ int32_t CtrDrbg::alg2strength($String* algorithm) {
 }
 
 void CtrDrbg::chooseAlgorithmAndStrength() {
+	$useLocalCurrentObjectStackCache();
 	if (this->requestedAlgorithm != nullptr) {
 		$init($Locale);
 		$set(this, algorithm, $nc(this->requestedAlgorithm)->toUpperCase($Locale::ROOT));
@@ -299,6 +301,7 @@ void CtrDrbg::chooseAlgorithmAndStrength() {
 }
 
 void CtrDrbg::initEngine() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, cipher, $Cipher::getInstance(this->cipherAlg, "SunJCE"_s));
 	} catch ($NoSuchProviderException&) {
@@ -338,6 +341,7 @@ void CtrDrbg::initEngine() {
 }
 
 void CtrDrbg::status() {
+	$useLocalCurrentObjectStackCache();
 	$init($AbstractDrbg);
 	if ($AbstractDrbg::debug != nullptr) {
 		$nc($AbstractDrbg::debug)->println($of(this), $$str({"Key = "_s, $($nc($($HexFormat::of()))->formatHex(this->k))}));
@@ -347,6 +351,7 @@ void CtrDrbg::status() {
 }
 
 void CtrDrbg::update($bytes* input) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(input)->length != this->seedLen) {
 		$throwNew($IllegalArgumentException, $$str({"input length not seedLen: "_s, $$str(input->length)}));
 	}
@@ -393,6 +398,7 @@ void CtrDrbg::instantiateAlgorithm($bytes* ei) {
 }
 
 $bytes* CtrDrbg::df($bytes* input) {
+	$useLocalCurrentObjectStackCache();
 	int32_t l = $nc(input)->length;
 	int32_t n = this->seedLen;
 	$var($bytes, ln, $new($bytes, 8));
@@ -446,6 +452,7 @@ $bytes* CtrDrbg::df($bytes* input) {
 }
 
 $bytes* CtrDrbg::bcc($bytes* k, $byteArray2* data) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, chain, $new($bytes, this->blockLen));
 	int32_t n1 = 0;
 	int32_t n2 = 0;
@@ -483,6 +490,7 @@ $bytes* CtrDrbg::bcc($bytes* k, $byteArray2* data) {
 
 void CtrDrbg::reseedAlgorithm($bytes* ei$renamed, $bytes* additionalInput) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($bytes, ei, ei$renamed);
 		if (this->usedf) {
 			if (additionalInput != nullptr) {
@@ -520,6 +528,7 @@ void CtrDrbg::addOne($bytes* data, int32_t len) {
 
 void CtrDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($bytes, additionalInput, additionalInput$renamed);
 		$init($AbstractDrbg);
 		if ($AbstractDrbg::debug != nullptr) {

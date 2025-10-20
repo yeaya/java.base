@@ -110,6 +110,7 @@ void ConcurrentSkipListMap$KeySpliterator::init$($Comparator* comparator, $Concu
 }
 
 $Spliterator* ConcurrentSkipListMap$KeySpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, e, nullptr);
 	$var($Object, ek, nullptr);
 	$var($Comparator, cmp, this->comparator);
@@ -143,6 +144,7 @@ $Spliterator* ConcurrentSkipListMap$KeySpliterator::trySplit() {
 }
 
 void ConcurrentSkipListMap$KeySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -163,6 +165,7 @@ void ConcurrentSkipListMap$KeySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool ConcurrentSkipListMap$KeySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

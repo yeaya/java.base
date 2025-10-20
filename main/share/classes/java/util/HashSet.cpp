@@ -188,6 +188,7 @@ void HashSet::clear() {
 }
 
 $Object* HashSet::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(HashSet, newSet, $cast(HashSet, $AbstractSet::clone()));
 		$set($nc(newSet), map, $cast($HashMap, $nc(this->map)->clone()));
@@ -200,6 +201,7 @@ $Object* HashSet::clone() {
 }
 
 void HashSet::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	s->writeInt($nc(this->map)->capacity());
 	s->writeFloat($nc(this->map)->loadFactor());
@@ -214,6 +216,7 @@ void HashSet::writeObject($ObjectOutputStream* s) {
 }
 
 void HashSet::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	int32_t capacity = s->readInt();
 	if (capacity < 0) {

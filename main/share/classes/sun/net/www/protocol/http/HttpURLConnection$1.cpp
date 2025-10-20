@@ -106,6 +106,7 @@ void HttpURLConnection$1::init$($String* val$host, $URL* val$url, $Authenticator
 }
 
 $Object* HttpURLConnection$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($HttpURLConnection);
 	$init($PlatformLogger$Level);
 	if ($nc($HttpURLConnection::logger)->isLoggable($PlatformLogger$Level::FINEST)) {

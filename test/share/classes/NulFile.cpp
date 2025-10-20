@@ -138,6 +138,7 @@ void NulFile::main($StringArray* args) {
 
 void NulFile::testFile() {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	test($$new($File, $($$new($StringBuilder)->append(NulFile::CHAR_NUL)->toString())));
 	test($$new($File, $($$new($StringBuilder)->append(""_s)->append(NulFile::CHAR_NUL)->toString())));
 	test($$new($File, $($$new($StringBuilder)->append(NulFile::CHAR_NUL)->append(""_s)->toString())));
@@ -145,6 +146,7 @@ void NulFile::testFile() {
 
 void NulFile::testFileInUnix() {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if ($nc(osName)->startsWith("Windows"_s)) {
 		return;
@@ -163,6 +165,7 @@ void NulFile::testFileInUnix() {
 
 void NulFile::testFileInWindows() {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;
@@ -193,6 +196,7 @@ void NulFile::testFileInWindows() {
 
 void NulFile::test($String* name) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(name)->length();
 	for (int32_t i = 0; i <= length; ++i) {
 		$var($StringBuilder, sbName, $new($StringBuilder, name));
@@ -216,6 +220,7 @@ void NulFile::test($String* name) {
 
 void NulFile::testFileInputStream($String* str) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionThrown = false;
 	$var($FileInputStream, is, nullptr);
 	try {
@@ -252,6 +257,7 @@ void NulFile::testFileInputStream($String* str) {
 
 void NulFile::testFileOutputStream($String* str) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionThrown = false;
 	$var($FileOutputStream, os, nullptr);
 	try {
@@ -288,6 +294,7 @@ void NulFile::testFileOutputStream($String* str) {
 
 void NulFile::testRandomAccessFile($String* str) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionThrown = false;
 	$var($RandomAccessFile, raf, nullptr);
 	$var($StringArray, modes, $new($StringArray, {
@@ -346,6 +353,7 @@ void NulFile::test($File* testFile) {
 
 void NulFile::test($File* testFile, bool derived) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionThrown = false;
 	if (testFile == nullptr) {
 		$throwNew($RuntimeException, "test file should not be null."_s);
@@ -589,6 +597,7 @@ void NulFile::test($File* testFile, bool derived) {
 
 void NulFile::testSerialization($File* testFile) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $nc(testFile)->getPath());
 	try {
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
@@ -619,6 +628,7 @@ void NulFile::testSerialization($File* testFile) {
 
 void NulFile::testTempFile() {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, $new($StringArray, {
 		"x"_s,
 		"xx"_s,
@@ -654,6 +664,7 @@ void NulFile::testTempFile() {
 
 void NulFile::testCreateTempFile($String* prefix, $String* suffix, $File* directory) {
 	$init(NulFile);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionThrown = false;
 	bool shortPrefix = ($nc(prefix)->length() < 3);
 	if (shortPrefix) {

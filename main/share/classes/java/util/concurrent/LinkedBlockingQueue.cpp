@@ -321,6 +321,7 @@ void LinkedBlockingQueue::finalize() {
 }
 
 void LinkedBlockingQueue::signalNotEmpty() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, takeLock, this->takeLock);
 	$nc(takeLock)->lock();
 	{
@@ -339,6 +340,7 @@ void LinkedBlockingQueue::signalNotEmpty() {
 }
 
 void LinkedBlockingQueue::signalNotFull() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, putLock, this->putLock);
 	$nc(putLock)->lock();
 	{
@@ -361,6 +363,7 @@ void LinkedBlockingQueue::enqueue($LinkedBlockingQueue$Node* node) {
 }
 
 $Object* LinkedBlockingQueue::dequeue() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, h, this->head);
 	$var($LinkedBlockingQueue$Node, first, $nc(h)->next);
 	$set(h, next, h);
@@ -399,6 +402,7 @@ void LinkedBlockingQueue::init$(int32_t capacity) {
 }
 
 void LinkedBlockingQueue::init$($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	LinkedBlockingQueue::init$($Integer::MAX_VALUE);
 	$var($ReentrantLock, putLock, this->putLock);
 	$nc(putLock)->lock();
@@ -443,6 +447,7 @@ int32_t LinkedBlockingQueue::remainingCapacity() {
 }
 
 void LinkedBlockingQueue::put(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -477,6 +482,7 @@ void LinkedBlockingQueue::put(Object$* e) {
 }
 
 bool LinkedBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -522,6 +528,7 @@ bool LinkedBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
 }
 
 bool LinkedBlockingQueue::offer(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -567,6 +574,7 @@ bool LinkedBlockingQueue::offer(Object$* e) {
 }
 
 $Object* LinkedBlockingQueue::take() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, x, nullptr);
 	int32_t c = 0;
 	$var($AtomicInteger, count, this->count);
@@ -599,6 +607,7 @@ $Object* LinkedBlockingQueue::take() {
 }
 
 $Object* LinkedBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, x, nullptr);
 	int32_t c = 0;
 	int64_t nanos = $nc(unit)->toNanos(timeout);
@@ -642,6 +651,7 @@ $Object* LinkedBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* LinkedBlockingQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicInteger, count, this->count);
 	if ($nc(count)->get() == 0) {
 		return $of(nullptr);
@@ -684,6 +694,7 @@ $Object* LinkedBlockingQueue::poll() {
 }
 
 $Object* LinkedBlockingQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicInteger, count, this->count);
 	if ($nc(count)->get() == 0) {
 		return $of(nullptr);
@@ -725,6 +736,7 @@ void LinkedBlockingQueue::unlink($LinkedBlockingQueue$Node* p, $LinkedBlockingQu
 }
 
 bool LinkedBlockingQueue::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -765,6 +777,7 @@ bool LinkedBlockingQueue::remove(Object$* o) {
 }
 
 bool LinkedBlockingQueue::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -803,6 +816,7 @@ bool LinkedBlockingQueue::contains(Object$* o) {
 }
 
 $ObjectArray* LinkedBlockingQueue::toArray() {
+	$useLocalCurrentObjectStackCache();
 	fullyLock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -837,6 +851,7 @@ $ObjectArray* LinkedBlockingQueue::toArray() {
 }
 
 $ObjectArray* LinkedBlockingQueue::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	fullyLock();
 	{
@@ -881,6 +896,7 @@ $String* LinkedBlockingQueue::toString() {
 }
 
 void LinkedBlockingQueue::clear() {
+	$useLocalCurrentObjectStackCache();
 	fullyLock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -913,6 +929,7 @@ int32_t LinkedBlockingQueue::drainTo($Collection* c) {
 }
 
 int32_t LinkedBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -983,6 +1000,7 @@ int32_t LinkedBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 }
 
 $LinkedBlockingQueue$Node* LinkedBlockingQueue::succ($LinkedBlockingQueue$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, p, p$renamed);
 	$var($LinkedBlockingQueue$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->next))) {
@@ -1005,6 +1023,7 @@ void LinkedBlockingQueue::forEach($Consumer* action) {
 }
 
 void LinkedBlockingQueue::forEachFrom($Consumer* action, $LinkedBlockingQueue$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, p, p$renamed);
 	int32_t batchSize = 64;
 	$var($ObjectArray, es, nullptr);
@@ -1066,6 +1085,7 @@ bool LinkedBlockingQueue::retainAll($Collection* c) {
 }
 
 $LinkedBlockingQueue$Node* LinkedBlockingQueue::findPred($LinkedBlockingQueue$Node* p, $LinkedBlockingQueue$Node* ancestor$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, ancestor, ancestor$renamed);
 	if ($nc(ancestor)->item == nullptr) {
 		$assign(ancestor, this->head);
@@ -1080,6 +1100,7 @@ $LinkedBlockingQueue$Node* LinkedBlockingQueue::findPred($LinkedBlockingQueue$No
 }
 
 bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	bool removed = false;
 	$var($LinkedBlockingQueue$Node, p, nullptr);
 	$var($LinkedBlockingQueue$Node, ancestor, this->head);
@@ -1152,6 +1173,7 @@ bool LinkedBlockingQueue::bulkRemove($Predicate* filter) {
 }
 
 void LinkedBlockingQueue::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	fullyLock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1176,6 +1198,7 @@ void LinkedBlockingQueue::writeObject($ObjectOutputStream* s) {
 }
 
 void LinkedBlockingQueue::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$nc(this->count)->set(0);
 	$set(this, last, ($assignField(this, head, $new($LinkedBlockingQueue$Node, nullptr))));

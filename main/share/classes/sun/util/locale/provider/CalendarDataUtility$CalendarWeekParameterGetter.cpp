@@ -84,6 +84,7 @@ void CalendarDataUtility$CalendarWeekParameterGetter::init$() {
 }
 
 $Integer* CalendarDataUtility$CalendarWeekParameterGetter::getObject($CalendarDataProvider* calendarDataProvider, $Locale* locale, $String* requestID, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (!CalendarDataUtility$CalendarWeekParameterGetter::$assertionsDisabled && !($nc(params)->length == 0)) {
 		$throwNew($AssertionError);
 	}

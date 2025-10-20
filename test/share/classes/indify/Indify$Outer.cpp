@@ -69,6 +69,7 @@ void Indify$Outer::init$() {
 }
 
 void Indify$Outer::linkInners() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(inners()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -100,6 +101,7 @@ $Indify$Attr* Indify$Outer::findAttr($String* name) {
 }
 
 $Indify$Attr* Indify$Outer::findAttr(int32_t name) {
+	$useLocalCurrentObjectStackCache();
 	if (name == 0) {
 		return nullptr;
 	}

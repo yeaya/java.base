@@ -64,6 +64,7 @@ void CookieExtension$CookieStringizer::init$() {
 }
 
 $String* CookieExtension$CookieStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($CookieExtension$CookieSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

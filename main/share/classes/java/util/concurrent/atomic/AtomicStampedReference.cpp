@@ -106,6 +106,7 @@ bool AtomicStampedReference::weakCompareAndSet(Object$* expectedReference, Objec
 }
 
 bool AtomicStampedReference::compareAndSet(Object$* expectedReference, Object$* newReference, int32_t expectedStamp, int32_t newStamp) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicStampedReference$Pair, current, this->pair);
 	return $equals(expectedReference, $nc(current)->reference) && expectedStamp == current->stamp && (($equals(newReference, current->reference) && newStamp == current->stamp) || casPair(current, $($AtomicStampedReference$Pair::of(newReference, newStamp))));
 }
@@ -118,6 +119,7 @@ void AtomicStampedReference::set(Object$* newReference, int32_t newStamp) {
 }
 
 bool AtomicStampedReference::attemptStamp(Object$* expectedReference, int32_t newStamp) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicStampedReference$Pair, current, this->pair);
 	return $equals(expectedReference, $nc(current)->reference) && (newStamp == current->stamp || casPair(current, $($AtomicStampedReference$Pair::of(expectedReference, newStamp))));
 }
@@ -127,6 +129,7 @@ bool AtomicStampedReference::casPair($AtomicStampedReference$Pair* cmp, $AtomicS
 }
 
 void clinit$AtomicStampedReference($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

@@ -119,6 +119,7 @@ void Package::init$() {
 
 void Package::checkAccess($AccessibleObject* accessibleObject, Object$* obj) {
 	$load(Package);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($instanceOf($Field, accessibleObject)) {
 		$var($Field, field, $cast($Field, accessibleObject));

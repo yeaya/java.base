@@ -230,6 +230,7 @@ $Iterator* DateTimeTextProvider::getTextIterator($TemporalField* field, $TextSty
 }
 
 $Iterator* DateTimeTextProvider::getTextIterator($Chronology* chrono, $TemporalField* field, $TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($IsoChronology);
 	if ($equals(chrono, $IsoChronology::INSTANCE) || !($instanceOf($ChronoField, field))) {
 		return getTextIterator(field, style, locale);
@@ -339,6 +340,7 @@ $Iterator* DateTimeTextProvider::getTextIterator($Chronology* chrono, $TemporalF
 }
 
 $Object* DateTimeTextProvider::findStore($TemporalField* field, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, key, createEntry(field, locale));
 	$var($Object, store, $nc(DateTimeTextProvider::CACHE)->get(key));
 	if (store == nullptr) {
@@ -359,6 +361,7 @@ int32_t DateTimeTextProvider::toWeekDay(int32_t calWeekDay) {
 }
 
 $Object* DateTimeTextProvider::createStore($TemporalField* field, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, styleMap, $new($HashMap));
 	$init($ChronoField);
 	if ($equals(field, $ChronoField::ERA)) {
@@ -561,6 +564,7 @@ $Map$Entry* DateTimeTextProvider::createEntry(Object$* text, Object$* field) {
 
 $Object* DateTimeTextProvider::getLocalizedResource($String* key, $Locale* locale) {
 	$init(DateTimeTextProvider);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
 	$var($ResourceBundle, rb, $nc(lr)->getJavaTimeFormatData());
 	return $of($nc(rb)->containsKey(key) ? $nc(rb)->getObject(key) : ($Object*)nullptr);

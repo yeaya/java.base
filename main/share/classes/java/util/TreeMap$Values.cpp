@@ -93,6 +93,7 @@ bool TreeMap$Values::contains(Object$* o) {
 }
 
 bool TreeMap$Values::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($TreeMap$Entry, e, this->this$0->getFirstEntry());
 		for (; e != nullptr; $assign(e, $TreeMap::successor(e))) {

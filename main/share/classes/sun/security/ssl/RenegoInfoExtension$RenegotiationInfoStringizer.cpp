@@ -64,6 +64,7 @@ void RenegoInfoExtension$RenegotiationInfoStringizer::init$() {
 }
 
 $String* RenegoInfoExtension$RenegotiationInfoStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($RenegoInfoExtension$RenegotiationInfoSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

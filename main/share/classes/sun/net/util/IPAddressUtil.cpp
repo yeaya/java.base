@@ -366,6 +366,7 @@ $bytes* IPAddressUtil::textToNumericFormatV4($String* src) {
 
 $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(src)->length() < 2) {
 		return nullptr;
 	}
@@ -511,6 +512,7 @@ bool IPAddressUtil::isIPv4MappedAddress($bytes* addr) {
 
 $InetAddress* IPAddressUtil::toScopedAddress($InetAddress* address) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $instanceOf($Inet6Address, address) && $nc(address)->isLinkLocalAddress();
 	if (var$0 && $nc(($cast($Inet6Address, address)))->getScopeId() == 0) {
 		$var($InetAddress, cached, nullptr);
@@ -528,6 +530,7 @@ $InetAddress* IPAddressUtil::toScopedAddress($InetAddress* address) {
 
 $InetSocketAddress* IPAddressUtil::toScopedAddress($InetSocketAddress* address) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, addr, nullptr);
 	$var($InetAddress, orig, $nc(address)->getAddress());
 	if (($assign(addr, toScopedAddress(orig))) == orig) {
@@ -539,6 +542,7 @@ $InetSocketAddress* IPAddressUtil::toScopedAddress($InetSocketAddress* address) 
 
 $InetAddress* IPAddressUtil::findScopedAddress($InetAddress* address) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, address)));
 	$var($List, result, nullptr);
@@ -622,6 +626,7 @@ int32_t IPAddressUtil::scan($String* s, int64_t lowMask, int64_t highMask, $char
 
 $String* IPAddressUtil::describeChar(char16_t c) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	if (c < 32 || c == 127) {
 		if (c == u'\n') {
 			return "LF"_s;
@@ -648,6 +653,7 @@ $String* IPAddressUtil::checkUserInfo($String* str) {
 
 $String* IPAddressUtil::checkHost($String* str$renamed) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, str$renamed);
 	int32_t index = 0;
 	bool var$0 = $nc(str)->startsWith("["_s);
@@ -684,6 +690,7 @@ $String* IPAddressUtil::checkAuth($String* str) {
 
 $String* IPAddressUtil::checkAuthority($URL* url) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	$var($String, u, nullptr);
 	$var($String, h, nullptr);
@@ -704,6 +711,7 @@ $String* IPAddressUtil::checkAuthority($URL* url) {
 
 $String* IPAddressUtil::checkExternalForm($URL* url) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	if (url == nullptr) {
 		return nullptr;
@@ -732,6 +740,7 @@ $String* IPAddressUtil::checkHostString($String* host) {
 
 $List* IPAddressUtil::lambda$findScopedAddress$2($InetAddress* address) {
 	$init(IPAddressUtil);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc($($NetworkInterface::networkInterfaces()))->flatMap(static_cast<$Function*>($$new(IPAddressUtil$$Lambda$inetAddresses$2)))))->filter(static_cast<$Predicate*>($$new(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, address)))))->toList();
 }
 

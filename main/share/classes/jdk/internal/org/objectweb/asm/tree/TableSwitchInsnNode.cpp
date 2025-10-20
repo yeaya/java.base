@@ -84,6 +84,7 @@ int32_t TableSwitchInsnNode::getType() {
 }
 
 void TableSwitchInsnNode::accept($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelArray, labelsArray, $new($LabelArray, $nc(this->labels)->size()));
 	{
 		int32_t i = 0;
@@ -97,6 +98,7 @@ void TableSwitchInsnNode::accept($MethodVisitor* methodVisitor) {
 }
 
 $AbstractInsnNode* TableSwitchInsnNode::clone($Map* clonedLabels) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = this->min;
 	int32_t var$1 = this->max;
 	$var($LabelNode, var$2, $AbstractInsnNode::clone(this->dflt, clonedLabels));

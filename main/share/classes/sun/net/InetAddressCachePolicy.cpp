@@ -138,6 +138,7 @@ void InetAddressCachePolicy::checkValue(int32_t newPolicy, int32_t oldPolicy) {
 }
 
 void clinit$InetAddressCachePolicy($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(InetAddressCachePolicy::cachePolicyProp, "networkaddress.cache.ttl"_s);
 	$assignStatic(InetAddressCachePolicy::cachePolicyPropFallback, "sun.net.inetaddr.ttl"_s);
 	$assignStatic(InetAddressCachePolicy::negativeCachePolicyProp, "networkaddress.cache.negative.ttl"_s);

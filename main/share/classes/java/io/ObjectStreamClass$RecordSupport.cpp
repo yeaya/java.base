@@ -170,6 +170,7 @@ void ObjectStreamClass$RecordSupport::init$() {
 
 $MethodHandle* ObjectStreamClass$RecordSupport::deserializationCtr($ObjectStreamClass* desc) {
 	$init(ObjectStreamClass$RecordSupport);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandle, mh, $nc(desc)->deserializationCtr);
 	if (mh != nullptr) {
@@ -222,6 +223,7 @@ int32_t ObjectStreamClass$RecordSupport::numberPrimValues($ObjectStreamClass* de
 
 $MethodHandle* ObjectStreamClass$RecordSupport::streamFieldExtractor($String* pName, $Class* pType, $ObjectStreamClass* desc) {
 	$init(ObjectStreamClass$RecordSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamFieldArray, fields, $nc(desc)->getFields(false));
 	for (int32_t i = 0; i < $nc(fields)->length; ++i) {
 		$var($ObjectStreamField, f, fields->get(i));
@@ -264,6 +266,7 @@ $MethodHandle* ObjectStreamClass$RecordSupport::streamFieldExtractor($String* pN
 }
 
 void clinit$ObjectStreamClass$RecordSupport($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($MethodHandles$Lookup, lkp, $MethodHandles::lookup());

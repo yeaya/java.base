@@ -93,6 +93,7 @@ void InterruptDeadlock::init$() {
 }
 
 void InterruptDeadlock::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, file, $Paths::get("data.txt"_s, $$new($StringArray, 0)));
 	{
 			$init($StandardOpenOption);

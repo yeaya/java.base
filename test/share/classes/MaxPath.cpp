@@ -48,6 +48,7 @@ void MaxPath::init$() {
 }
 
 void MaxPath::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;

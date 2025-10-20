@@ -104,6 +104,7 @@ void LingerOnClose::main($StringArray* args) {
 }
 
 void LingerOnClose::test($LingerOnClose$TestMode* mode, int32_t interval) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc, nullptr);
 	$var($SocketChannel, peer, nullptr);
 	$var($Selector, sel, nullptr);

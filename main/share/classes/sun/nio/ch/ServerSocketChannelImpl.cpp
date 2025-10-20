@@ -343,6 +343,7 @@ $SocketAddress* ServerSocketChannelImpl::getLocalAddress() {
 }
 
 $NetworkChannel* ServerSocketChannelImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -365,6 +366,7 @@ $NetworkChannel* ServerSocketChannelImpl::setOption($SocketOption* name, Object$
 }
 
 $Object* ServerSocketChannelImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -408,6 +410,7 @@ $ServerSocketChannel* ServerSocketChannelImpl::bind($SocketAddress* local, int32
 }
 
 $SocketAddress* ServerSocketChannelImpl::unixBind($SocketAddress* local, int32_t backlog) {
+	$useLocalCurrentObjectStackCache();
 	$UnixDomainSockets::checkPermission();
 	if (local == nullptr) {
 		bool bound = false;
@@ -434,6 +437,7 @@ $SocketAddress* ServerSocketChannelImpl::unixBind($SocketAddress* local, int32_t
 }
 
 $SocketAddress* ServerSocketChannelImpl::netBind($SocketAddress* local, int32_t backlog) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, nullptr);
 	if (local == nullptr) {
 		$assign(isa, $new($InetSocketAddress, $($Net::anyLocalAddress(this->family)), 0));
@@ -483,6 +487,7 @@ void ServerSocketChannelImpl::end(bool blocking, bool completed) {
 }
 
 $SocketChannel* ServerSocketChannelImpl::accept() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	$var($FileDescriptor, newfd, $new($FileDescriptor));
 	$var($SocketAddressArray, saa, $new($SocketAddressArray, 1));
@@ -538,6 +543,7 @@ $SocketChannel* ServerSocketChannelImpl::accept() {
 }
 
 int32_t ServerSocketChannelImpl::implAccept($FileDescriptor* fd, $FileDescriptor* newfd, $SocketAddressArray* saa) {
+	$useLocalCurrentObjectStackCache();
 	if (isUnixSocket()) {
 		$UnixDomainSockets::checkPermission();
 		$var($StringArray, pa, $new($StringArray, 1));
@@ -557,6 +563,7 @@ int32_t ServerSocketChannelImpl::implAccept($FileDescriptor* fd, $FileDescriptor
 }
 
 $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	$var($FileDescriptor, newfd, $new($FileDescriptor));
 	$var($SocketAddressArray, saa, $new($SocketAddressArray, 1));
@@ -620,6 +627,7 @@ $SocketChannel* ServerSocketChannelImpl::blockingAccept(int64_t nanos) {
 }
 
 $SocketChannel* ServerSocketChannelImpl::finishAccept($FileDescriptor* newfd, $SocketAddress* sa) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$IOUtil::configureBlocking(newfd, true);
 		if (isNetSocket()) {
@@ -810,6 +818,7 @@ int32_t ServerSocketChannelImpl::getFDVal() {
 }
 
 $String* ServerSocketChannelImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append(u'[');

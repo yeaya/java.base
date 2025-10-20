@@ -63,6 +63,7 @@ void PKIX$CertStoreComparator::init$() {
 }
 
 int32_t PKIX$CertStoreComparator::compare($CertStore* store1, $CertStore* store2) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc($($nc(store1)->getType()))->equals("Collection"_s);
 	if (var$0 || $instanceOf($CollectionCertStoreParameters, $($nc(store1)->getCertStoreParameters()))) {
 		return -1;

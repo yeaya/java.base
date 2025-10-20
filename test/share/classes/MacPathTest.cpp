@@ -78,6 +78,7 @@ void MacPathTest::main($StringArray* args) {
 }
 
 void MacPathTest::removeAll($File* file) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(file)->isDirectory()) {
 		{
 			$var($FileArray, arr$, file->listFiles());
@@ -99,6 +100,7 @@ bool MacPathTest::equal(Object$* x, Object$* y) {
 }
 
 bool MacPathTest::match($File* target, $File* src) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(target)->equals(src)) {
 		$var($String, fname, target->toString());
 		$init($System);
@@ -112,6 +114,7 @@ bool MacPathTest::match($File* target, $File* src) {
 }
 
 void MacPathTest::open_read($String* what, $File* file) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileInputStream, fis, $new($FileInputStream, file));
 		{
@@ -148,6 +151,7 @@ void MacPathTest::open_read($String* what, $File* file) {
 }
 
 void MacPathTest::test($String* testdir, $String* dname, $String* fname_nfc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, fname, nullptr);
 	$init($Normalizer$Form);
 	$var($String, dname_nfd, $Normalizer::normalize(dname, $Normalizer$Form::NFD));

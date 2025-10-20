@@ -71,6 +71,7 @@ void ClosedWriter::run() {
 
 void ClosedWriter::main($StringArray* args) {
 	$init(ClosedWriter);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ClosedWriter::is, $new($PipedInputStream));
 	$assignStatic(ClosedWriter::os, $new($PipedOutputStream));
 	$nc(ClosedWriter::is)->connect(ClosedWriter::os);

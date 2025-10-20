@@ -168,6 +168,7 @@ void DigitList::append(char16_t digit) {
 }
 
 double DigitList::getDouble() {
+	$useLocalCurrentObjectStackCache();
 	if (this->count == 0) {
 		return 0.0;
 	}
@@ -180,6 +181,7 @@ double DigitList::getDouble() {
 }
 
 int64_t DigitList::getLong() {
+	$useLocalCurrentObjectStackCache();
 	if (this->count == 0) {
 		return 0;
 	}
@@ -195,6 +197,7 @@ int64_t DigitList::getLong() {
 }
 
 $BigDecimal* DigitList::getBigDecimal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->count == 0) {
 		if (this->decimalAt == 0) {
 			$init($BigDecimal);
@@ -244,6 +247,7 @@ void DigitList::set(bool isNegative, double source, int32_t maximumFractionDigit
 }
 
 void DigitList::set(bool isNegative, double source, int32_t maximumDigits, bool fixedPoint) {
+	$useLocalCurrentObjectStackCache();
 	$var($FloatingDecimal$BinaryToASCIIConverter, fdConverter, $FloatingDecimal::getBinaryToASCIIConverter(source));
 	bool hasBeenRoundedUp = $nc(fdConverter)->digitsRoundedUp();
 	bool valueExactAsDecimal = fdConverter->decimalDigitsExact();
@@ -518,6 +522,7 @@ int32_t DigitList::hashCode() {
 }
 
 $Object* DigitList::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(DigitList, other, $cast(DigitList, $Cloneable::clone()));
 		$var($chars, newDigits, $new($chars, $nc(this->digits)->length));

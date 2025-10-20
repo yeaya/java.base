@@ -97,6 +97,7 @@ void SPILocaleProviderAdapter$1::init$($SPILocaleProviderAdapter* this$0, $Class
 }
 
 $Object* SPILocaleProviderAdapter$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($LocaleServiceProvider, delegate, nullptr);
 	{

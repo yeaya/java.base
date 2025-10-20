@@ -53,6 +53,7 @@ void toStringTest::init$() {
 }
 
 void toStringTest::testString(int32_t test, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($Modifier::toString(test)))->equals(expected)) {
 		$throwNew($RuntimeException, $$str({$$str(test), " yields incorrect toString result"_s}));
 	}

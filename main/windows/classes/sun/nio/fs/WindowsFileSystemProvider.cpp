@@ -258,6 +258,7 @@ $String* WindowsFileSystemProvider::getScheme() {
 }
 
 void WindowsFileSystemProvider::checkUri($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(uri)->getScheme()))->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, "URI does not match this provider"_s);
 	}
@@ -295,6 +296,7 @@ $Path* WindowsFileSystemProvider::getPath($URI* uri) {
 }
 
 $FileChannel* WindowsFileSystemProvider::newFileChannel($Path* path, $Set* options, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	if (path == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -340,6 +342,7 @@ $FileChannel* WindowsFileSystemProvider::newFileChannel($Path* path, $Set* optio
 }
 
 $AsynchronousFileChannel* WindowsFileSystemProvider::newAsynchronousFileChannel($Path* path, $Set* options, $ExecutorService* executor, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	if (path == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -386,6 +389,7 @@ $AsynchronousFileChannel* WindowsFileSystemProvider::newAsynchronousFileChannel(
 }
 
 $FileAttributeView* WindowsFileSystemProvider::getFileAttributeView($Path* obj, $Class* view, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	if (view == nullptr) {
 		$throwNew($NullPointerException);
@@ -435,6 +439,7 @@ $BasicFileAttributes* WindowsFileSystemProvider::readAttributes($Path* file, $Cl
 }
 
 $DynamicFileAttributeView* WindowsFileSystemProvider::getFileAttributeView($Path* obj, $String* name, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	bool followLinks = $Util::followLinks(options);
 	if ($nc(name)->equals("basic"_s)) {
@@ -456,6 +461,7 @@ $DynamicFileAttributeView* WindowsFileSystemProvider::getFileAttributeView($Path
 }
 
 $SeekableByteChannel* WindowsFileSystemProvider::newByteChannel($Path* obj, $Set* options, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::fromAttribute(attrs));
 	{
@@ -493,6 +499,7 @@ $SeekableByteChannel* WindowsFileSystemProvider::newByteChannel($Path* obj, $Set
 }
 
 bool WindowsFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$nc(file)->checkDelete();
 	$var($WindowsFileAttributes, attrs, nullptr);
@@ -528,17 +535,20 @@ bool WindowsFileSystemProvider::implDelete($Path* obj, bool failIfNotExists) {
 }
 
 void WindowsFileSystemProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, var$0, $WindowsPath::toWindowsPath(source));
 	$WindowsFileCopy::copy(var$0, $($WindowsPath::toWindowsPath(target)), options);
 }
 
 void WindowsFileSystemProvider::move($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, var$0, $WindowsPath::toWindowsPath(source));
 	$WindowsFileCopy::move(var$0, $($WindowsPath::toWindowsPath(target)), options);
 }
 
 bool WindowsFileSystemProvider::hasDesiredAccess($WindowsPath* file, int32_t rights) {
 	$init(WindowsFileSystemProvider);
+	$useLocalCurrentObjectStackCache();
 	bool hasRights = false;
 	$var($String, target, $WindowsLinkSupport::getFinalPath(file, true));
 	$var($NativeBuffer, aclBuffer, $WindowsAclFileAttributeView::getFileSecurity(target, (4 | 1) | 2));
@@ -564,6 +574,7 @@ bool WindowsFileSystemProvider::hasDesiredAccess($WindowsPath* file, int32_t rig
 }
 
 void WindowsFileSystemProvider::checkReadAccess($WindowsPath* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Set, opts, $Collections::emptySet());
 		$var($String, var$0, $nc(file)->getPathForWin32Calls());
@@ -595,6 +606,7 @@ bool WindowsFileSystemProvider::isUnixDomainSocket($WindowsPath* path) {
 }
 
 void WindowsFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	bool r = false;
 	bool w = false;
@@ -672,6 +684,7 @@ void WindowsFileSystemProvider::checkAccess($Path* obj, $AccessModeArray* modes)
 }
 
 bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file1, $WindowsPath::toWindowsPath(obj1));
 	if ($nc(file1)->equals(obj2)) {
 		return true;
@@ -756,6 +769,7 @@ bool WindowsFileSystemProvider::isSameFile($Path* obj1, $Path* obj2) {
 }
 
 bool WindowsFileSystemProvider::isHidden($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$nc(file)->checkRead();
 	$var($WindowsFileAttributes, attrs, nullptr);
@@ -769,6 +783,7 @@ bool WindowsFileSystemProvider::isHidden($Path* obj) {
 }
 
 $FileStore* WindowsFileSystemProvider::getFileStore($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -779,6 +794,7 @@ $FileStore* WindowsFileSystemProvider::getFileStore($Path* obj) {
 }
 
 void WindowsFileSystemProvider::createDirectory($Path* obj, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, dir, $WindowsPath::toWindowsPath(obj));
 	$nc(dir)->checkWrite();
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::fromAttribute(attrs));
@@ -822,6 +838,7 @@ $DirectoryStream* WindowsFileSystemProvider::newDirectoryStream($Path* obj, $Dir
 }
 
 void WindowsFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, link, $WindowsPath::toWindowsPath(obj1));
 	$var($WindowsPath, target, $WindowsPath::toWindowsPath(obj2));
 	if ($nc(attrs)->length > 0) {
@@ -868,6 +885,7 @@ void WindowsFileSystemProvider::createSymbolicLink($Path* obj1, $Path* obj2, $Fi
 }
 
 void WindowsFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, link, $WindowsPath::toWindowsPath(obj1));
 	$var($WindowsPath, existing, $WindowsPath::toWindowsPath(obj2));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -886,6 +904,7 @@ void WindowsFileSystemProvider::createLink($Path* obj1, $Path* obj2) {
 }
 
 $Path* WindowsFileSystemProvider::readSymbolicLink($Path* obj1) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, link, $WindowsPath::toWindowsPath(obj1));
 	$var($WindowsFileSystem, fs, $cast($WindowsFileSystem, $nc(link)->getFileSystem()));
 	$var($SecurityManager, sm, $System::getSecurityManager());
@@ -899,6 +918,7 @@ $Path* WindowsFileSystemProvider::readSymbolicLink($Path* obj1) {
 }
 
 $bytes* WindowsFileSystemProvider::getSunPathForSocketFile($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPath, file, $WindowsPath::toWindowsPath(obj));
 	$var($String, s, $nc(file)->toString());
 	$init($StandardCharsets);

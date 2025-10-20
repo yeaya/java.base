@@ -205,6 +205,7 @@ $Map* Security::spiMap = nullptr;
 
 void Security::initialize() {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Security::props, $new($Properties));
 	bool loadedProps = false;
 	bool overrideAll = false;
@@ -333,6 +334,7 @@ void Security::init$() {
 
 $File* Security::securityPropFile($String* filename) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($String, sep, $File::separator);
 	return $new($File, $$str({$($StaticProperty::javaHome()), sep, "conf"_s, sep, "security"_s, sep, filename}));
@@ -340,6 +342,7 @@ $File* Security::securityPropFile($String* filename) {
 
 $Security$ProviderProperty* Security::getProviderProperty($String* key) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($Security$ProviderProperty, entry, nullptr);
 	$var($List, providers, $nc($($Providers::getProviderList()))->providers());
 	for (int32_t i = 0; i < $nc(providers)->size(); ++i) {
@@ -370,6 +373,7 @@ $Security$ProviderProperty* Security::getProviderProperty($String* key) {
 
 $String* Security::getProviderProperty($String* key, $Provider* provider) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prop, $nc(provider)->getProperty(key));
 	if (prop == nullptr) {
 		{
@@ -388,6 +392,7 @@ $String* Security::getProviderProperty($String* key, $Provider* provider) {
 
 $String* Security::getAlgorithmProperty($String* algName, $String* propName) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($Security$ProviderProperty, entry, getProviderProperty($$str({"Alg."_s, propName, "."_s, algName})));
 	if (entry != nullptr) {
 		return entry->className;
@@ -400,6 +405,7 @@ int32_t Security::insertProviderAt($Provider* provider, int32_t position) {
 	$load(Security);
 	$synchronized(class$) {
 		$init(Security);
+		$useLocalCurrentObjectStackCache();
 		$var($String, providerName, $nc(provider)->getName());
 		checkInsertProvider(providerName);
 		$var($ProviderList, list, $Providers::getFullProviderList());
@@ -421,6 +427,7 @@ void Security::removeProvider($String* name) {
 	$load(Security);
 	$synchronized(class$) {
 		$init(Security);
+		$useLocalCurrentObjectStackCache();
 		check($$str({"removeProvider."_s, name}));
 		$var($ProviderList, list, $Providers::getFullProviderList());
 		$var($ProviderList, newList, $ProviderList::remove(list, name));
@@ -440,6 +447,7 @@ $Provider* Security::getProvider($String* name) {
 
 $ProviderArray* Security::getProviders($String* filter) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, nullptr);
 	$var($String, value, nullptr);
 	int32_t index = $nc(filter)->indexOf((int32_t)u':');
@@ -457,6 +465,7 @@ $ProviderArray* Security::getProviders($String* filter) {
 
 $ProviderArray* Security::getProviders($Map* filter) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($ProviderArray, allProviders, Security::getProviders());
 	$var($Set, keySet, $nc(filter)->keySet());
 	$var($LinkedHashSet, candidates, $new($LinkedHashSet, 5));
@@ -503,6 +512,7 @@ $ProviderArray* Security::getProviders($Map* filter) {
 
 $Class* Security::getSpiClass($String* type) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = $cast($Class, $nc(Security::spiMap)->get(type));
 	if (clazz != nullptr) {
@@ -521,6 +531,7 @@ $Class* Security::getSpiClass($String* type) {
 
 $ObjectArray* Security::getImpl($String* algorithm, $String* type, $String* provider) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	if (provider == nullptr) {
 		return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm)))->toArray();
 	} else {
@@ -530,6 +541,7 @@ $ObjectArray* Security::getImpl($String* algorithm, $String* type, $String* prov
 
 $ObjectArray* Security::getImpl($String* algorithm, $String* type, $String* provider, Object$* params) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	if (provider == nullptr) {
 		return $nc($($GetInstance::getInstance(type, getSpiClass(type), algorithm, params)))->toArray();
 	} else {
@@ -549,6 +561,7 @@ $ObjectArray* Security::getImpl($String* algorithm, $String* type, $Provider* pr
 
 $String* Security::getProperty($String* key) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($SecurityPermission, $$str({"getProperty."_s, key})));
@@ -562,6 +575,7 @@ $String* Security::getProperty($String* key) {
 
 void Security::setProperty($String* key, $String* datum) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	check($$str({"setProperty."_s, key}));
 	$nc(Security::props)->put(key, datum);
 	invalidateSMCache(key);
@@ -593,6 +607,7 @@ void Security::check($String* directive) {
 
 void Security::checkInsertProvider($String* name) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		try {
@@ -612,6 +627,7 @@ void Security::checkInsertProvider($String* name) {
 
 $LinkedHashSet* Security::getAllQualifyingCandidates($String* filterKey, $String* filterValue, $ProviderArray* allProviders) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, filterComponents, getFilterComponents(filterKey, filterValue));
 	$var($String, serviceName, $nc(filterComponents)->get(0));
 	$var($String, algName, filterComponents->get(1));
@@ -632,6 +648,7 @@ $LinkedHashSet* Security::getProvidersNotUsingCache($String* serviceName, $Strin
 
 bool Security::isCriterionSatisfied($Provider* prov, $String* serviceName, $String* algName, $String* attrName, $String* filterValue) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $str({serviceName, $$str(u'.'), algName}));
 	if (attrName != nullptr) {
 		$plusAssign(key, $$str({$$str(u' '), attrName}));
@@ -690,6 +707,7 @@ bool Security::isConstraintSatisfied($String* attribute, $String* value, $String
 
 $StringArray* Security::getFilterComponents($String* filterKey, $String* filterValue) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	int32_t algIndex = $nc(filterKey)->indexOf((int32_t)u'.');
 	if (algIndex < 0) {
 		$throwNew($InvalidParameterException, "Invalid filter"_s);
@@ -727,6 +745,7 @@ $StringArray* Security::getFilterComponents($String* filterKey, $String* filterV
 
 $Set* Security::getAlgorithms($String* serviceName) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = (serviceName == nullptr) || ($nc(serviceName)->isEmpty());
 	if (var$0 || ($nc(serviceName)->endsWith("."_s))) {
 		return $Collections::emptySet();
@@ -751,6 +770,7 @@ $Set* Security::getAlgorithms($String* serviceName) {
 }
 
 void clinit$Security($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(Security::sdebug, $Debug::getInstance("properties"_s));
 	{

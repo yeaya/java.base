@@ -47,6 +47,7 @@ $Object* allocate$IncompleteAnnotationException($Class* clazz) {
 }
 
 void IncompleteAnnotationException::init$($Class* annotationType, $String* elementName) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc(annotationType)->getName()), " missing element "_s}));
 	$RuntimeException::init$($$concat(var$0, $($nc(elementName)->toString())));
 	$set(this, annotationType$, annotationType);

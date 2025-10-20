@@ -68,6 +68,7 @@ $String* StackRecorderUtil$TestFrame::className() {
 }
 
 $String* StackRecorderUtil$TestFrame::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"TestFrame: "_s, $(className()), "."_s, this->methodName, (this->fileName == nullptr ? ""_s : $$str({"("_s, this->fileName, ")"_s}))});
 }
 

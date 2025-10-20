@@ -282,6 +282,7 @@ int32_t URI$Parser::parseHierarchical(int32_t start, int32_t n) {
 }
 
 int32_t URI$Parser::parseAuthority(int32_t start, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	int32_t p = start;
 	int32_t q = p;
 	$var($URISyntaxException, ex, nullptr);
@@ -450,6 +451,7 @@ int32_t URI$Parser::takeIPv4Address(int32_t start, int32_t n, $String* expected)
 }
 
 int32_t URI$Parser::parseIPv4Address(int32_t start, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	int32_t p = 0;
 	try {
 		p = scanIPv4Address(start, n, false);

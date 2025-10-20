@@ -88,6 +88,7 @@ void KeyShareExtension$KeyShareEntry::init$(int32_t namedGroupId, $bytes* keyExc
 }
 
 $bytes* KeyShareExtension$KeyShareEntry::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buffer, $new($bytes, $nc(this->keyExchange)->length + 4));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(buffer));
 	try {
@@ -108,6 +109,7 @@ int32_t KeyShareExtension$KeyShareEntry::getEncodedSize() {
 }
 
 $String* KeyShareExtension$KeyShareEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\n\'{\'\n  \"named group\": {0}\n  \"key_exchange\": \'{\'\n{1}\n  \'}\'\n\'}\',"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

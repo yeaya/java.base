@@ -101,6 +101,7 @@ PriorityQueue$PriorityQueueSpliterator* PriorityQueue$PriorityQueueSpliterator::
 }
 
 void PriorityQueue$PriorityQueueSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

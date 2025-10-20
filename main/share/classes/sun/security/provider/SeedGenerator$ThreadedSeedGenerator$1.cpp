@@ -83,6 +83,7 @@ void SeedGenerator$ThreadedSeedGenerator$1::init$($SeedGenerator$ThreadedSeedGen
 }
 
 $Object* SeedGenerator$ThreadedSeedGenerator$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, parent, nullptr);
 	$var($ThreadGroup, group, $($Thread::currentThread())->getThreadGroup());
 	while (($assign(parent, $nc(group)->getParent())) != nullptr) {

@@ -63,6 +63,7 @@ void ExternalizableBlockData::init$() {
 }
 
 void ExternalizableBlockData::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, oldExternalizableBytes, getFileBytes($$new($File, $($System::getProperty("test.src"_s, "."_s)), "old.ser"_s)));
 	$var($Foo4ExternalizableBlockData, foo, $new($Foo4ExternalizableBlockData, 2989, 0x0000BEEF, "burrito"_s));
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
@@ -87,6 +88,7 @@ void ExternalizableBlockData::main($StringArray* args) {
 }
 
 $bytes* ExternalizableBlockData::getFileBytes($File* file) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileInputStream, fin, $new($FileInputStream, file));
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 	$var($bytes, buf, $new($bytes, 256));

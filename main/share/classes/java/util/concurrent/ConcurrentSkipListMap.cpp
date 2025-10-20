@@ -313,6 +313,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::baseHead() {
 
 void ConcurrentSkipListMap::unlinkNode($ConcurrentSkipListMap$Node* b, $ConcurrentSkipListMap$Node* n) {
 	$init(ConcurrentSkipListMap);
+	$useLocalCurrentObjectStackCache();
 	if (b != nullptr && n != nullptr) {
 		$var($ConcurrentSkipListMap$Node, f, nullptr);
 		$var($ConcurrentSkipListMap$Node, p, nullptr);
@@ -333,6 +334,7 @@ void ConcurrentSkipListMap::unlinkNode($ConcurrentSkipListMap$Node* b, $Concurre
 }
 
 void ConcurrentSkipListMap::addCount(int64_t c) {
+	$useLocalCurrentObjectStackCache();
 	$var($LongAdder, a, nullptr);
 	bool var$0 = false;
 	do {
@@ -342,6 +344,7 @@ void ConcurrentSkipListMap::addCount(int64_t c) {
 }
 
 int64_t ConcurrentSkipListMap::getAdderCount() {
+	$useLocalCurrentObjectStackCache();
 	$var($LongAdder, a, nullptr);
 	int64_t c = 0;
 	bool var$0 = false;
@@ -352,6 +355,7 @@ int64_t ConcurrentSkipListMap::getAdderCount() {
 }
 
 $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findPredecessor(Object$* key, $Comparator* cmp) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, q, nullptr);
 	$VarHandle::acquireFence();
 	if (($assign(q, this->head)) == nullptr || key == nullptr) {
@@ -385,6 +389,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findPredecessor(Object$* key
 }
 
 $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findNode(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -421,6 +426,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findNode(Object$* key) {
 }
 
 $Object* ConcurrentSkipListMap::doGet(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, q, nullptr);
 	$VarHandle::acquireFence();
 	if (key == nullptr) {
@@ -485,6 +491,7 @@ $Object* ConcurrentSkipListMap::doGet(Object$* key) {
 }
 
 $Object* ConcurrentSkipListMap::doPut(Object$* key, Object$* value, bool onlyIfAbsent) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -588,6 +595,7 @@ $Object* ConcurrentSkipListMap::doPut(Object$* key, Object$* value, bool onlyIfA
 
 bool ConcurrentSkipListMap::addIndices($ConcurrentSkipListMap$Index* q$renamed, int32_t skips, $ConcurrentSkipListMap$Index* x, $Comparator* cmp) {
 	$init(ConcurrentSkipListMap);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, q, q$renamed);
 	$var($ConcurrentSkipListMap$Node, z, nullptr);
 	$var($Object, key, nullptr);
@@ -635,6 +643,7 @@ bool ConcurrentSkipListMap::addIndices($ConcurrentSkipListMap$Index* q$renamed, 
 }
 
 $Object* ConcurrentSkipListMap::doRemove(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -681,6 +690,7 @@ $Object* ConcurrentSkipListMap::doRemove(Object$* key, Object$* value) {
 }
 
 void ConcurrentSkipListMap::tryReduceLevel() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, h, nullptr);
 	$var($ConcurrentSkipListMap$Index, d, nullptr);
 	$var($ConcurrentSkipListMap$Index, e, nullptr);
@@ -696,6 +706,7 @@ void ConcurrentSkipListMap::tryReduceLevel() {
 }
 
 $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, b, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	if (($assign(b, baseHead())) != nullptr) {
@@ -711,6 +722,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findFirst() {
 }
 
 $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findFirstEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, b, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	$var($Object, v, nullptr);
@@ -727,6 +739,7 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findFirstEntry() {
 }
 
 $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::doRemoveFirstEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, b, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	$var($Object, v, nullptr);
@@ -749,6 +762,7 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::doRemoveFirstEntry() {
 }
 
 $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findLast() {
+	$useLocalCurrentObjectStackCache();
 	bool outer$break = false;
 	for (;;) {
 		$var($ConcurrentSkipListMap$Index, q, nullptr);
@@ -805,6 +819,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findLast() {
 }
 
 $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findLastEntry() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		$var($ConcurrentSkipListMap$Node, n, nullptr);
 		$var($Object, v, nullptr);
@@ -818,6 +833,7 @@ $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findLastEntry() {
 }
 
 $Map$Entry* ConcurrentSkipListMap::doRemoveLastEntry() {
+	$useLocalCurrentObjectStackCache();
 	bool outer$break = false;
 	for (;;) {
 		$var($ConcurrentSkipListMap$Index, q, nullptr);
@@ -882,6 +898,7 @@ $Map$Entry* ConcurrentSkipListMap::doRemoveLastEntry() {
 }
 
 $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findNear(Object$* key, int32_t rel, $Comparator* cmp) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -930,6 +947,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap::findNear(Object$* key, int32
 }
 
 $AbstractMap$SimpleImmutableEntry* ConcurrentSkipListMap::findNearEntry(Object$* key, int32_t rel, $Comparator* cmp) {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		$var($ConcurrentSkipListMap$Node, n, nullptr);
 		$var($Object, v, nullptr);
@@ -965,6 +983,7 @@ void ConcurrentSkipListMap::init$($SortedMap* m) {
 }
 
 $Object* ConcurrentSkipListMap::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ConcurrentSkipListMap, clone, $cast(ConcurrentSkipListMap, $AbstractMap::clone()));
 		$set($nc(clone), keySet$, nullptr);
@@ -982,6 +1001,7 @@ $Object* ConcurrentSkipListMap::clone() {
 }
 
 void ConcurrentSkipListMap::buildFromSorted($SortedMap* map) {
+	$useLocalCurrentObjectStackCache();
 	if (map == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1023,6 +1043,7 @@ void ConcurrentSkipListMap::buildFromSorted($SortedMap* map) {
 }
 
 void ConcurrentSkipListMap::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	$var($ConcurrentSkipListMap$Node, b, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
@@ -1040,6 +1061,7 @@ void ConcurrentSkipListMap::writeObject($ObjectOutputStream* s) {
 }
 
 void ConcurrentSkipListMap::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$var($ConcurrentSkipListMap$IndexArray, preds, $new($ConcurrentSkipListMap$IndexArray, 64));
 	$var($ConcurrentSkipListMap$Node, bp, $new($ConcurrentSkipListMap$Node, nullptr, nullptr, nullptr));
@@ -1110,6 +1132,7 @@ $Object* ConcurrentSkipListMap::remove(Object$* key) {
 }
 
 bool ConcurrentSkipListMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1139,6 +1162,7 @@ bool ConcurrentSkipListMap::isEmpty() {
 }
 
 void ConcurrentSkipListMap::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, h, nullptr);
 	$var($ConcurrentSkipListMap$Index, r, nullptr);
 	$var($ConcurrentSkipListMap$Index, d, nullptr);
@@ -1175,6 +1199,7 @@ void ConcurrentSkipListMap::clear() {
 }
 
 $Object* ConcurrentSkipListMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || mappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1189,6 +1214,7 @@ $Object* ConcurrentSkipListMap::computeIfAbsent(Object$* key, $Function* mapping
 }
 
 $Object* ConcurrentSkipListMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1210,6 +1236,7 @@ $Object* ConcurrentSkipListMap::computeIfPresent(Object$* key, $BiFunction* rema
 }
 
 $Object* ConcurrentSkipListMap::compute(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1238,6 +1265,7 @@ $Object* ConcurrentSkipListMap::compute(Object$* key, $BiFunction* remappingFunc
 }
 
 $Object* ConcurrentSkipListMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || value == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1306,6 +1334,7 @@ $NavigableSet* ConcurrentSkipListMap::descendingKeySet() {
 }
 
 bool ConcurrentSkipListMap::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -1405,6 +1434,7 @@ bool ConcurrentSkipListMap::remove(Object$* key, Object$* value) {
 }
 
 bool ConcurrentSkipListMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || oldValue == nullptr || newValue == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1426,6 +1456,7 @@ bool ConcurrentSkipListMap::replace(Object$* key, Object$* oldValue, Object$* ne
 }
 
 $Object* ConcurrentSkipListMap::replace(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || value == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1549,6 +1580,7 @@ $Map$Entry* ConcurrentSkipListMap::pollLastEntry() {
 
 $List* ConcurrentSkipListMap::toList($Collection* c) {
 	$init(ConcurrentSkipListMap);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, list, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
@@ -1561,6 +1593,7 @@ $List* ConcurrentSkipListMap::toList($Collection* c) {
 }
 
 void ConcurrentSkipListMap::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1578,6 +1611,7 @@ void ConcurrentSkipListMap::forEach($BiConsumer* action) {
 }
 
 void ConcurrentSkipListMap::replaceAll($BiFunction* function) {
+	$useLocalCurrentObjectStackCache();
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1601,6 +1635,7 @@ void ConcurrentSkipListMap::replaceAll($BiFunction* function) {
 }
 
 bool ConcurrentSkipListMap::removeEntryIf($Predicate* function) {
+	$useLocalCurrentObjectStackCache();
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1625,6 +1660,7 @@ bool ConcurrentSkipListMap::removeEntryIf($Predicate* function) {
 }
 
 bool ConcurrentSkipListMap::removeValueIf($Predicate* function) {
+	$useLocalCurrentObjectStackCache();
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1646,6 +1682,7 @@ bool ConcurrentSkipListMap::removeValueIf($Predicate* function) {
 }
 
 $ConcurrentSkipListMap$KeySpliterator* ConcurrentSkipListMap::keySpliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, h, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	int64_t est = 0;
@@ -1661,6 +1698,7 @@ $ConcurrentSkipListMap$KeySpliterator* ConcurrentSkipListMap::keySpliterator() {
 }
 
 $ConcurrentSkipListMap$ValueSpliterator* ConcurrentSkipListMap::valueSpliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, h, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	int64_t est = 0;
@@ -1676,6 +1714,7 @@ $ConcurrentSkipListMap$ValueSpliterator* ConcurrentSkipListMap::valueSpliterator
 }
 
 $ConcurrentSkipListMap$EntrySpliterator* ConcurrentSkipListMap::entrySpliterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Index, h, nullptr);
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	int64_t est = 0;
@@ -1691,6 +1730,7 @@ $ConcurrentSkipListMap$EntrySpliterator* ConcurrentSkipListMap::entrySpliterator
 }
 
 void clinit$ConcurrentSkipListMap($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

@@ -59,6 +59,7 @@ void ReadFully::init$() {
 }
 
 void ReadFully::testNegativeOffset() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
@@ -118,6 +119,7 @@ void ReadFully::testNegativeOffset() {
 }
 
 void ReadFully::testNegativeLength() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
@@ -177,6 +179,7 @@ void ReadFully::testNegativeLength() {
 }
 
 void ReadFully::testNegativeOffsetZeroLength() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
@@ -236,6 +239,7 @@ void ReadFully::testNegativeOffsetZeroLength() {
 }
 
 void ReadFully::testBigOffsetLength1() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
@@ -295,6 +299,7 @@ void ReadFully::testBigOffsetLength1() {
 }
 
 void ReadFully::testBigOffsetLength2() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
@@ -354,6 +359,7 @@ void ReadFully::testBigOffsetLength2() {
 }
 
 void ReadFully::testBigOffsetLength3() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
@@ -413,6 +419,7 @@ void ReadFully::testBigOffsetLength3() {
 }
 
 void ReadFully::testBigOffsetLength4() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));

@@ -73,6 +73,7 @@ void NullQueue::init$() {
 
 $Thread* NullQueue::findThread($String* name) {
 	$init(NullQueue);
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	{
 		$var($ThreadGroup, tgn, tg);
@@ -100,6 +101,7 @@ void NullQueue::fork($Runnable* proc) {
 
 void NullQueue::main($StringArray* args) {
 	$init(NullQueue);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, refHandler, findThread("Reference Handler"_s));
 	if (refHandler == nullptr) {
 		$throwNew($Exception, "Couldn\'t find Reference-handler thread"_s);

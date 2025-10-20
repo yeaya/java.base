@@ -88,6 +88,7 @@ void DefaultLoggerFinder$SharedLoggers::init$() {
 
 $System$Logger* DefaultLoggerFinder$SharedLoggers::get($Function* loggerSupplier, $String* name) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Reference, ref, $cast($Reference, $nc(this->loggers)->get(name)));
 		$var($System$Logger, w, ref == nullptr ? ($System$Logger*)nullptr : $cast($System$Logger, $nc(ref)->get()));
 		if (w == nullptr) {

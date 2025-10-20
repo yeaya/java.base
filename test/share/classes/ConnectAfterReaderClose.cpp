@@ -43,6 +43,7 @@ void ConnectAfterReaderClose::init$() {
 }
 
 void ConnectAfterReaderClose::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedReader, pr, $new($PipedReader));
 	pr->close();
 	try {

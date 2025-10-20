@@ -61,6 +61,7 @@ void Bug6215962::main($StringArray* args) {
 }
 
 void Bug6215962::testMessageFormat() {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageFormat, mf1, $new($MessageFormat, "{0}"_s, nullptr));
 	$var($MessageFormat, mf2, $new($MessageFormat, "{0}"_s, nullptr));
 	check(mf1, mf2, true);
@@ -88,6 +89,7 @@ void Bug6215962::testMessageFormat() {
 }
 
 void Bug6215962::check($MessageFormat* f1, $MessageFormat* f2, bool expected) {
+	$useLocalCurrentObjectStackCache();
 	bool got = $nc(f1)->equals(f2);
 	if (got != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed for MessageFormat.equals(). Got: "_s, $$str(got), ", Expected: "_s, $$str(expected)}));
@@ -95,6 +97,7 @@ void Bug6215962::check($MessageFormat* f1, $MessageFormat* f2, bool expected) {
 }
 
 void Bug6215962::testChoiceFormat() {
+	$useLocalCurrentObjectStackCache();
 	$var($doubles, limits0, $new($doubles, {
 		(double)0,
 		(double)1,
@@ -141,6 +144,7 @@ void Bug6215962::testChoiceFormat() {
 }
 
 void Bug6215962::check($ChoiceFormat* f1, $ChoiceFormat* f2, bool expected) {
+	$useLocalCurrentObjectStackCache();
 	bool got = $nc(f1)->equals(f2);
 	if (got != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed for ChoiceFormat.equals(). Got: "_s, $$str(got), ", Expected: "_s, $$str(expected)}));
@@ -148,6 +152,7 @@ void Bug6215962::check($ChoiceFormat* f1, $ChoiceFormat* f2, bool expected) {
 }
 
 void Bug6215962::testDateFormatSymbols() {
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, dfs1, $new($DateFormatSymbols));
 	$var($DateFormatSymbols, dfs2, $new($DateFormatSymbols));
 	check(dfs1, dfs2, true);
@@ -175,6 +180,7 @@ void Bug6215962::testDateFormatSymbols() {
 }
 
 void Bug6215962::check($DateFormatSymbols* dfs1, $DateFormatSymbols* dfs2, bool expected) {
+	$useLocalCurrentObjectStackCache();
 	bool got = $nc(dfs1)->equals(dfs2);
 	if (got != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed for DateFormatSymbols.equals(). Got: "_s, $$str(got), ", Expected: "_s, $$str(expected)}));

@@ -75,6 +75,7 @@ void CharacterIteratorFieldDelegate::init$() {
 }
 
 void CharacterIteratorFieldDelegate::formatted($Format$Field* attr, Object$* value, int32_t start, int32_t end, $StringBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if (start != end) {
 		if (start < this->size) {
 			int32_t index = this->size;
@@ -106,6 +107,7 @@ void CharacterIteratorFieldDelegate::formatted(int32_t fieldID, $Format$Field* a
 }
 
 $AttributedCharacterIterator* CharacterIteratorFieldDelegate::getIterator($String* string) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(string)->length() > this->size) {
 		$nc(this->attributedStrings)->add($$new($AttributedString, $(string->substring(this->size))));
 		this->size = string->length();

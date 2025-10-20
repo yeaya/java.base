@@ -54,6 +54,7 @@ $Object* allocate$Bug4404588($Class* clazz) {
 }
 
 void Bug4404588::init$() {
+	$useLocalCurrentObjectStackCache();
 			$init($Character$UnicodeBlock);
 	$set(this, charData, $new($ObjectArray2, {
 		$$new($ObjectArray, {
@@ -73,6 +74,7 @@ void Bug4404588::main($StringArray* args) {
 }
 
 void Bug4404588::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Character, ch, nullptr);
 	$var($Character$UnicodeBlock, block, nullptr);
 	for (int32_t x = 0; x < $nc(this->charData)->length; ++x) {

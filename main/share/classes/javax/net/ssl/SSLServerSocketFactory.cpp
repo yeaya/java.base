@@ -69,6 +69,7 @@ void SSLServerSocketFactory::init$() {
 
 $ServerSocketFactory* SSLServerSocketFactory::getDefault() {
 	$init(SSLServerSocketFactory);
+	$useLocalCurrentObjectStackCache();
 	$init($SSLServerSocketFactory$DefaultFactoryHolder);
 	if ($SSLServerSocketFactory$DefaultFactoryHolder::defaultFactory != nullptr) {
 		return $SSLServerSocketFactory$DefaultFactoryHolder::defaultFactory;

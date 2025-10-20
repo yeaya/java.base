@@ -158,6 +158,7 @@ void ServiceLoader$LazyClassPathLookupIterator::init$($ServiceLoader* this$0) {
 }
 
 int32_t ServiceLoader$LazyClassPathLookupIterator::parseLine($URL* u, $BufferedReader* r, int32_t lc, $Set* names) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ln, $nc(r)->readLine());
 	if (ln == nullptr) {
 		return -1;
@@ -192,6 +193,7 @@ int32_t ServiceLoader$LazyClassPathLookupIterator::parseLine($URL* u, $BufferedR
 }
 
 $Iterator* ServiceLoader$LazyClassPathLookupIterator::parse($URL* u) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, names, $new($LinkedHashSet));
 	try {
 		$var($URLConnection, uc, $nc(u)->openConnection());
@@ -262,6 +264,7 @@ $Iterator* ServiceLoader$LazyClassPathLookupIterator::parse($URL* u) {
 }
 
 $Class* ServiceLoader$LazyClassPathLookupIterator::nextProviderClass() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->configs == nullptr) {
 		try {
@@ -300,6 +303,7 @@ $Class* ServiceLoader$LazyClassPathLookupIterator::nextProviderClass() {
 }
 
 bool ServiceLoader$LazyClassPathLookupIterator::hasNextService() {
+	$useLocalCurrentObjectStackCache();
 	while (this->nextProvider == nullptr && this->nextError == nullptr) {
 		try {
 			$Class* clazz = nextProviderClass();
@@ -326,6 +330,7 @@ bool ServiceLoader$LazyClassPathLookupIterator::hasNextService() {
 }
 
 $ServiceLoader$Provider* ServiceLoader$LazyClassPathLookupIterator::nextService() {
+	$useLocalCurrentObjectStackCache();
 	if (!hasNextService()) {
 		$throwNew($NoSuchElementException);
 	}
@@ -344,6 +349,7 @@ $ServiceLoader$Provider* ServiceLoader$LazyClassPathLookupIterator::nextService(
 }
 
 bool ServiceLoader$LazyClassPathLookupIterator::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->this$0->acc == nullptr) {
 		return hasNextService();

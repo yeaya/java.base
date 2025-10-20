@@ -121,6 +121,7 @@ void KeyUpdate$KeyUpdateConsumer::init$() {
 }
 
 void KeyUpdate$KeyUpdateConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($PostHandshakeContext, hc, $cast($PostHandshakeContext, context));
 	$var($KeyUpdate$KeyUpdateMessage, km, $new($KeyUpdate$KeyUpdateMessage, hc, message));
 	$init($SSLLogger);

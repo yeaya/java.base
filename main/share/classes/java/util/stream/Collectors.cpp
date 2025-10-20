@@ -3526,6 +3526,7 @@ void Collectors::init$() {
 
 $IllegalStateException* Collectors::duplicateKeyException(Object$* k, Object$* u, Object$* v) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	return $new($IllegalStateException, $($String::format("Duplicate key %s (attempted merging values %s and %s)"_s, $$new($ObjectArray, {
 		k,
 		u,
@@ -3550,6 +3551,7 @@ $Function* Collectors::castingIdentity() {
 
 $Collector* Collectors::toCollection($Supplier* collectionFactory) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, collectionFactory);
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$add$3)));
 	return $new($Collectors$CollectorImpl, var$0, var$1, static_cast<$BinaryOperator*>($$new(Collectors$$Lambda$lambda$toCollection$3$4)), Collectors::CH_ID);
@@ -3557,6 +3559,7 @@ $Collector* Collectors::toCollection($Supplier* collectionFactory) {
 
 $Collector* Collectors::toList() {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$ArrayList$5)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$add$6)));
 	return $new($Collectors$CollectorImpl, var$0, var$1, static_cast<$BinaryOperator*>($$new(Collectors$$Lambda$lambda$toList$4$7)), Collectors::CH_ID);
@@ -3564,6 +3567,7 @@ $Collector* Collectors::toList() {
 
 $Collector* Collectors::toUnmodifiableList() {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$ArrayList$5)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$add$6)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$toList$4$7)));
@@ -3572,6 +3576,7 @@ $Collector* Collectors::toUnmodifiableList() {
 
 $Collector* Collectors::toSet() {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$HashSet$9)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$add$10)));
 	return $new($Collectors$CollectorImpl, var$0, var$1, static_cast<$BinaryOperator*>($$new(Collectors$$Lambda$lambda$toSet$7$11)), Collectors::CH_UNORDERED_ID);
@@ -3579,6 +3584,7 @@ $Collector* Collectors::toSet() {
 
 $Collector* Collectors::toUnmodifiableSet() {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$HashSet$9)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$add$10)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$toSet$7$11)));
@@ -3587,6 +3593,7 @@ $Collector* Collectors::toUnmodifiableSet() {
 
 $Collector* Collectors::joining() {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$StringBuilder$13)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$append$14)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$joining$10$15)));
@@ -3600,6 +3607,7 @@ $Collector* Collectors::joining($CharSequence* delimiter) {
 
 $Collector* Collectors::joining($CharSequence* delimiter, $CharSequence* prefix, $CharSequence* suffix) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$joining$11$17, delimiter, prefix, suffix)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$add$18)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$merge$19)));
@@ -3613,6 +3621,7 @@ $BinaryOperator* Collectors::mapMerger($BinaryOperator* mergeFunction) {
 
 $Collector* Collectors::mapping($Function* mapper, $Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($BiConsumer, downstreamAccumulator, $nc(downstream)->accumulator());
 	$var($Supplier, var$0, downstream->supplier());
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$mapping$13$22, downstreamAccumulator, mapper)));
@@ -3623,6 +3632,7 @@ $Collector* Collectors::mapping($Function* mapper, $Collector* downstream) {
 
 $Collector* Collectors::flatMapping($Function* mapper, $Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($BiConsumer, downstreamAccumulator, $nc(downstream)->accumulator());
 	$var($Supplier, var$0, downstream->supplier());
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$flatMapping$15$23, mapper, downstreamAccumulator)));
@@ -3633,6 +3643,7 @@ $Collector* Collectors::flatMapping($Function* mapper, $Collector* downstream) {
 
 $Collector* Collectors::filtering($Predicate* predicate, $Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($BiConsumer, downstreamAccumulator, $nc(downstream)->accumulator());
 	$var($Supplier, var$0, downstream->supplier());
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$filtering$16$24, predicate, downstreamAccumulator)));
@@ -3643,6 +3654,7 @@ $Collector* Collectors::filtering($Predicate* predicate, $Collector* downstream)
 
 $Collector* Collectors::collectingAndThen($Collector* downstream, $Function* finisher) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, characteristics, $nc(downstream)->characteristics());
 	$init($Collector$Characteristics);
 	if ($nc(characteristics)->contains($Collector$Characteristics::IDENTITY_FINISH)) {
@@ -3677,6 +3689,7 @@ $Collector* Collectors::maxBy($Comparator* comparator) {
 
 $Collector* Collectors::summingInt($ToIntFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$summingInt$18$26)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$summingInt$19$27, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$summingInt$20$28)));
@@ -3685,6 +3698,7 @@ $Collector* Collectors::summingInt($ToIntFunction* mapper) {
 
 $Collector* Collectors::summingLong($ToLongFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$summingLong$22$30)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$summingLong$23$31, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$summingLong$24$32)));
@@ -3693,6 +3707,7 @@ $Collector* Collectors::summingLong($ToLongFunction* mapper) {
 
 $Collector* Collectors::summingDouble($ToDoubleFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$summingDouble$26$34)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$summingDouble$27$35, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$summingDouble$28$36)));
@@ -3723,6 +3738,7 @@ double Collectors::computeFinalSum($doubles* summands) {
 
 $Collector* Collectors::averagingInt($ToIntFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$averagingInt$30$38)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$averagingInt$31$39, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$averagingInt$32$40)));
@@ -3731,6 +3747,7 @@ $Collector* Collectors::averagingInt($ToIntFunction* mapper) {
 
 $Collector* Collectors::averagingLong($ToLongFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$averagingInt$30$38)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$averagingLong$35$42, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$averagingInt$32$40)));
@@ -3739,6 +3756,7 @@ $Collector* Collectors::averagingLong($ToLongFunction* mapper) {
 
 $Collector* Collectors::averagingDouble($ToDoubleFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$averagingDouble$38$43)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$averagingDouble$39$44, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$averagingDouble$40$45)));
@@ -3747,6 +3765,7 @@ $Collector* Collectors::averagingDouble($ToDoubleFunction* mapper) {
 
 $Collector* Collectors::reducing(Object$* identity, $BinaryOperator* op) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, boxSupplier(identity));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$reducing$42$47, op)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$reducing$43$48, op)));
@@ -3760,6 +3779,7 @@ $Supplier* Collectors::boxSupplier(Object$* identity) {
 
 $Collector* Collectors::reducing($BinaryOperator* op) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	{
 	}
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$lambda$reducing$46$51, op)));
@@ -3770,6 +3790,7 @@ $Collector* Collectors::reducing($BinaryOperator* op) {
 
 $Collector* Collectors::reducing(Object$* identity, $Function* mapper, $BinaryOperator* op) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, boxSupplier(identity));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$reducing$49$55, op, mapper)));
 	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(Collectors$$Lambda$lambda$reducing$43$48, op)));
@@ -3788,6 +3809,7 @@ $Collector* Collectors::groupingBy($Function* classifier, $Collector* downstream
 
 $Collector* Collectors::groupingBy($Function* classifier, $Supplier* mapFactory, $Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, downstreamSupplier, $nc(downstream)->supplier());
 	$var($BiConsumer, downstreamAccumulator, downstream->accumulator());
 	$var($BiConsumer, accumulator, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$groupingBy$53$57, classifier, downstreamSupplier, downstreamAccumulator)));
@@ -3805,6 +3827,7 @@ $Collector* Collectors::groupingBy($Function* classifier, $Supplier* mapFactory,
 
 $Collector* Collectors::groupingByConcurrent($Function* classifier) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Function, var$0, classifier);
 	$var($Supplier, var$1, static_cast<$Supplier*>($new(Collectors$$Lambda$ConcurrentHashMap$59)));
 	return groupingByConcurrent(var$0, var$1, $(toList()));
@@ -3817,6 +3840,7 @@ $Collector* Collectors::groupingByConcurrent($Function* classifier, $Collector* 
 
 $Collector* Collectors::groupingByConcurrent($Function* classifier, $Supplier* mapFactory, $Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, downstreamSupplier, $nc(downstream)->supplier());
 	$var($BiConsumer, downstreamAccumulator, downstream->accumulator());
 	$var($BinaryOperator, merger, Collectors::mapMerger($(downstream->combiner())));
@@ -3844,6 +3868,7 @@ $Collector* Collectors::partitioningBy($Predicate* predicate) {
 
 $Collector* Collectors::partitioningBy($Predicate* predicate, $Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($BiConsumer, downstreamAccumulator, $nc(downstream)->accumulator());
 	$var($BiConsumer, accumulator, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$partitioningBy$62$63, downstreamAccumulator, predicate)));
 	$var($BinaryOperator, op, downstream->combiner());
@@ -3860,6 +3885,7 @@ $Collector* Collectors::partitioningBy($Predicate* predicate, $Collector* downst
 
 $Collector* Collectors::toMap($Function* keyMapper, $Function* valueMapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$HashMap$56)));
 	$var($BiConsumer, var$1, uniqKeysMapAccumulator(keyMapper, valueMapper));
 	return $new($Collectors$CollectorImpl, var$0, var$1, $(uniqKeysMapMerger()), Collectors::CH_ID);
@@ -3867,6 +3893,7 @@ $Collector* Collectors::toMap($Function* keyMapper, $Function* valueMapper) {
 
 $Collector* Collectors::toUnmodifiableMap($Function* keyMapper, $Function* valueMapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(keyMapper), "keyMapper"_s);
 	$Objects::requireNonNull($of(valueMapper), "valueMapper"_s);
 	$var($Collector, var$0, toMap(keyMapper, valueMapper));
@@ -3880,6 +3907,7 @@ $Collector* Collectors::toMap($Function* keyMapper, $Function* valueMapper, $Bin
 
 $Collector* Collectors::toUnmodifiableMap($Function* keyMapper, $Function* valueMapper, $BinaryOperator* mergeFunction) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(keyMapper), "keyMapper"_s);
 	$Objects::requireNonNull($of(valueMapper), "valueMapper"_s);
 	$Objects::requireNonNull($of(mergeFunction), "mergeFunction"_s);
@@ -3889,12 +3917,14 @@ $Collector* Collectors::toUnmodifiableMap($Function* keyMapper, $Function* value
 
 $Collector* Collectors::toMap($Function* keyMapper, $Function* valueMapper, $BinaryOperator* mergeFunction, $Supplier* mapFactory) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($BiConsumer, accumulator, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$toMap$68$69, keyMapper, valueMapper, mergeFunction)));
 	return $new($Collectors$CollectorImpl, mapFactory, accumulator, $(mapMerger(mergeFunction)), Collectors::CH_ID);
 }
 
 $Collector* Collectors::toConcurrentMap($Function* keyMapper, $Function* valueMapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$ConcurrentHashMap$59)));
 	$var($BiConsumer, var$1, uniqKeysMapAccumulator(keyMapper, valueMapper));
 	return $new($Collectors$CollectorImpl, var$0, var$1, $(uniqKeysMapMerger()), Collectors::CH_CONCURRENT_ID);
@@ -3907,12 +3937,14 @@ $Collector* Collectors::toConcurrentMap($Function* keyMapper, $Function* valueMa
 
 $Collector* Collectors::toConcurrentMap($Function* keyMapper, $Function* valueMapper, $BinaryOperator* mergeFunction, $Supplier* mapFactory) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($BiConsumer, accumulator, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$toConcurrentMap$69$70, keyMapper, valueMapper, mergeFunction)));
 	return $new($Collectors$CollectorImpl, mapFactory, accumulator, $(mapMerger(mergeFunction)), Collectors::CH_CONCURRENT_ID);
 }
 
 $Collector* Collectors::summarizingInt($ToIntFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$IntSummaryStatistics$71)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$summarizingInt$70$72, mapper)));
 	return $new($Collectors$CollectorImpl, var$0, var$1, static_cast<$BinaryOperator*>($$new(Collectors$$Lambda$lambda$summarizingInt$71$73)), Collectors::CH_ID);
@@ -3920,6 +3952,7 @@ $Collector* Collectors::summarizingInt($ToIntFunction* mapper) {
 
 $Collector* Collectors::summarizingLong($ToLongFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$LongSummaryStatistics$74)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$summarizingLong$72$75, mapper)));
 	return $new($Collectors$CollectorImpl, var$0, var$1, static_cast<$BinaryOperator*>($$new(Collectors$$Lambda$lambda$summarizingLong$73$76)), Collectors::CH_ID);
@@ -3927,6 +3960,7 @@ $Collector* Collectors::summarizingLong($ToLongFunction* mapper) {
 
 $Collector* Collectors::summarizingDouble($ToDoubleFunction* mapper) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(Collectors$$Lambda$DoubleSummaryStatistics$77)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(Collectors$$Lambda$lambda$summarizingDouble$74$78, mapper)));
 	return $new($Collectors$CollectorImpl, var$0, var$1, static_cast<$BinaryOperator*>($$new(Collectors$$Lambda$lambda$summarizingDouble$75$79)), Collectors::CH_ID);
@@ -3939,6 +3973,7 @@ $Collector* Collectors::teeing($Collector* downstream1, $Collector* downstream2,
 
 $Collector* Collectors::teeing0($Collector* downstream1, $Collector* downstream2, $BiFunction* merger) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(downstream1), "downstream1"_s);
 	$Objects::requireNonNull($of(downstream2), "downstream2"_s);
 	$Objects::requireNonNull($of(merger), "merger"_s);
@@ -4013,40 +4048,47 @@ void Collectors::lambda$summarizingInt$70($ToIntFunction* mapper, $IntSummarySta
 
 void Collectors::lambda$toConcurrentMap$69($Function* keyMapper, $Function* valueMapper, $BinaryOperator* mergeFunction, $ConcurrentMap* map, Object$* element) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(keyMapper)->apply(element));
 	$nc(map)->merge(var$0, $($nc(valueMapper)->apply(element)), mergeFunction);
 }
 
 void Collectors::lambda$toMap$68($Function* keyMapper, $Function* valueMapper, $BinaryOperator* mergeFunction, $Map* map, Object$* element) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(keyMapper)->apply(element));
 	$nc(map)->merge(var$0, $($nc(valueMapper)->apply(element)), mergeFunction);
 }
 
 $Map* Collectors::lambda$toUnmodifiableMap$67($HashMap* map) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	return $Map::ofEntries($fcast($Map$EntryArray, $($nc($($nc(map)->entrySet()))->toArray($$new($Map$EntryArray, 0)))));
 }
 
 $Map* Collectors::lambda$toUnmodifiableMap$66($Map* map) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	return $Map::ofEntries($fcast($Map$EntryArray, $($nc($($nc(map)->entrySet()))->toArray($$new($Map$EntryArray, 0)))));
 }
 
 $Map* Collectors::lambda$partitioningBy$65($Collector* downstream, $Collectors$Partition* par) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc($($nc(downstream)->finisher()))->apply($nc(par)->forTrue));
 	return $new($Collectors$Partition, var$0, $($nc($(downstream->finisher()))->apply($nc(par)->forFalse)));
 }
 
 $Collectors$Partition* Collectors::lambda$partitioningBy$64($Collector* downstream) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc($($nc(downstream)->supplier()))->get());
 	return $new($Collectors$Partition, var$0, $($nc($(downstream->supplier()))->get()));
 }
 
 $Collectors$Partition* Collectors::lambda$partitioningBy$63($BinaryOperator* op, $Collectors$Partition* left, $Collectors$Partition* right) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(op)->apply($nc(left)->forTrue, $nc(right)->forTrue));
 	return $new($Collectors$Partition, var$0, $(op->apply($nc(left)->forFalse, $nc(right)->forFalse)));
 }
@@ -4058,6 +4100,7 @@ void Collectors::lambda$partitioningBy$62($BiConsumer* downstreamAccumulator, $P
 
 $ConcurrentMap* Collectors::lambda$groupingByConcurrent$61($Function* downstreamFinisher, $ConcurrentMap* intermediate) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$nc(intermediate)->replaceAll(static_cast<$BiFunction*>($$new(Collectors$$Lambda$lambda$groupingBy$54$84, downstreamFinisher)));
 	$var($ConcurrentMap, castResult, intermediate);
 	return castResult;
@@ -4065,6 +4108,7 @@ $ConcurrentMap* Collectors::lambda$groupingByConcurrent$61($Function* downstream
 
 void Collectors::lambda$groupingByConcurrent$59($Function* classifier, $Supplier* downstreamSupplier, $BiConsumer* downstreamAccumulator, $ConcurrentMap* m, Object$* t) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, key, $Objects::requireNonNull($($nc(classifier)->apply(t)), "element cannot be mapped to a null key"_s));
 	$var($Object, resultContainer, $nc(m)->computeIfAbsent(key, static_cast<$Function*>($$new(Collectors$$Lambda$lambda$groupingBy$52$85, downstreamSupplier))));
 	$synchronized(resultContainer) {
@@ -4074,6 +4118,7 @@ void Collectors::lambda$groupingByConcurrent$59($Function* classifier, $Supplier
 
 void Collectors::lambda$groupingByConcurrent$57($Function* classifier, $Supplier* downstreamSupplier, $BiConsumer* downstreamAccumulator, $ConcurrentMap* m, Object$* t) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, key, $Objects::requireNonNull($($nc(classifier)->apply(t)), "element cannot be mapped to a null key"_s));
 	$var($Object, resultContainer, $nc(m)->computeIfAbsent(key, static_cast<$Function*>($$new(Collectors$$Lambda$lambda$groupingBy$52$85, downstreamSupplier))));
 	$nc(downstreamAccumulator)->accept(resultContainer, t);
@@ -4081,6 +4126,7 @@ void Collectors::lambda$groupingByConcurrent$57($Function* classifier, $Supplier
 
 $Map* Collectors::lambda$groupingBy$55($Function* downstreamFinisher, $Map* intermediate) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$nc(intermediate)->replaceAll(static_cast<$BiFunction*>($$new(Collectors$$Lambda$lambda$groupingBy$54$84, downstreamFinisher)));
 	$var($Map, castResult, intermediate);
 	return castResult;
@@ -4093,6 +4139,7 @@ $Object* Collectors::lambda$groupingBy$54($Function* downstreamFinisher, Object$
 
 void Collectors::lambda$groupingBy$53($Function* classifier, $Supplier* downstreamSupplier, $BiConsumer* downstreamAccumulator, $Map* m, Object$* t) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, key, $Objects::requireNonNull($($nc(classifier)->apply(t)), "element cannot be mapped to a null key"_s));
 	$var($Object, container, $nc(m)->computeIfAbsent(key, static_cast<$Function*>($$new(Collectors$$Lambda$lambda$groupingBy$52$85, downstreamSupplier))));
 	$nc(downstreamAccumulator)->accept(container, t);
@@ -4105,6 +4152,7 @@ $Object* Collectors::lambda$groupingBy$52($Supplier* downstreamSupplier, Object$
 
 void Collectors::lambda$reducing$49($BinaryOperator* op, $Function* mapper, $ObjectArray* a, Object$* t) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$nc(a)->set(0, $($nc(op)->apply(a->get(0), $($nc(mapper)->apply(t)))));
 }
 
@@ -4283,6 +4331,7 @@ void Collectors::lambda$filtering$16($Predicate* predicate, $BiConsumer* downstr
 
 void Collectors::lambda$flatMapping$15($Function* mapper, $BiConsumer* downstreamAccumulator, Object$* r, Object$* t) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Stream, result, $cast($Stream, $nc(mapper)->apply(t)));
 		{
@@ -4330,6 +4379,7 @@ void Collectors::lambda$mapping$13($BiConsumer* downstreamAccumulator, $Function
 
 $Map* Collectors::lambda$mapMerger$12($BinaryOperator* mergeFunction, $Map* m1, $Map* m2) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(m2)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -4371,6 +4421,7 @@ $HashSet* Collectors::lambda$toSet$7($HashSet* left, $HashSet* right) {
 
 $List* Collectors::lambda$toUnmodifiableList$6($ArrayList* list) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$load($ArrayList);
 	if ($nc($of(list))->getClass() == $ArrayList::class$) {
 		return $nc($($SharedSecrets::getJavaUtilCollectionAccess()))->listFromTrustedArray($(list->toArray()));
@@ -4398,6 +4449,7 @@ $Object* Collectors::lambda$castingIdentity$2(Object$* i) {
 
 void Collectors::lambda$uniqKeysMapAccumulator$1($Function* keyMapper, $Function* valueMapper, $Map* map, Object$* element) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, $nc(keyMapper)->apply(element));
 	$var($Object, v, $Objects::requireNonNull($($nc(valueMapper)->apply(element))));
 	$var($Object, u, $nc(map)->putIfAbsent(k, v));
@@ -4408,6 +4460,7 @@ void Collectors::lambda$uniqKeysMapAccumulator$1($Function* keyMapper, $Function
 
 $Map* Collectors::lambda$uniqKeysMapMerger$0($Map* m1, $Map* m2) {
 	$init(Collectors);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(m2)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -4426,6 +4479,7 @@ $Map* Collectors::lambda$uniqKeysMapMerger$0($Map* m1, $Map* m2) {
 }
 
 void clinit$Collectors($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($Collector$Characteristics);
 	$assignStatic(Collectors::CH_CONCURRENT_ID, $Collections::unmodifiableSet($($EnumSet::of($Collector$Characteristics::CONCURRENT, $Collector$Characteristics::UNORDERED, $Collector$Characteristics::IDENTITY_FINISH))));
 	$assignStatic(Collectors::CH_CONCURRENT_NOID, $Collections::unmodifiableSet($($EnumSet::of(static_cast<$Enum*>($Collector$Characteristics::CONCURRENT), static_cast<$Enum*>($Collector$Characteristics::UNORDERED)))));

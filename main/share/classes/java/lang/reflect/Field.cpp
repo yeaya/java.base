@@ -297,6 +297,7 @@ $GenericsFactory* Field::getFactory() {
 }
 
 $FieldRepository* Field::getGenericInfo() {
+	$useLocalCurrentObjectStackCache();
 	if (this->genericInfo == nullptr) {
 		$var($String, var$0, getGenericSignature());
 		$set(this, genericInfo, $FieldRepository::make(var$0, $(getFactory())));
@@ -397,11 +398,13 @@ bool Field::equals(Object$* obj) {
 }
 
 int32_t Field::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($($nc(getDeclaringClass())->getName()))->hashCode();
 	return var$0 ^ $nc($(getName()))->hashCode();
 }
 
 $String* Field::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t mod = getModifiers();
 	$var($String, var$4, ((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s}))));
 	$var($String, var$3, $$concat(var$4, $($nc(getType())->getTypeName())));
@@ -412,11 +415,13 @@ $String* Field::toString() {
 }
 
 $String* Field::toShortString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"field "_s, $($nc(getDeclaringClass())->getTypeName()), "."_s}));
 	return $concat(var$0, $(getName()));
 }
 
 $String* Field::toGenericString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t mod = getModifiers();
 	$var($Type, fieldType, getGenericType());
 	$var($String, var$4, ((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s}))));
@@ -624,6 +629,7 @@ bool Field::isTrustedFinal() {
 }
 
 $Annotation* Field::getAnnotation($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	return $cast($Annotation, annotationClass->cast($($nc($(declaredAnnotations()))->get(annotationClass))));
 }
@@ -638,6 +644,7 @@ $AnnotationArray* Field::getDeclaredAnnotations() {
 }
 
 $Map* Field::declaredAnnotations() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, declAnnos, nullptr);
 	if (($assign(declAnnos, this->declaredAnnotations$)) == nullptr) {
 		$synchronized(this) {
@@ -662,6 +669,7 @@ $bytes* Field::getTypeAnnotationBytes0() {
 }
 
 $AnnotatedType* Field::getAnnotatedType() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getTypeAnnotationBytes0());
 	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
 	$Class* var$2 = getDeclaringClass();

@@ -88,6 +88,7 @@ void CookieExtension$CHCookieUpdate::init$() {
 }
 
 void CookieExtension$CHCookieUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$init($SSLExtension);

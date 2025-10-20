@@ -52,6 +52,7 @@ void Plain2::init$() {
 }
 
 $Object* Plain2::getContent($URLConnection* uc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InputStream, is, $nc(uc)->getInputStream());
 		$var($StringBuffer, sb, $new($StringBuffer));

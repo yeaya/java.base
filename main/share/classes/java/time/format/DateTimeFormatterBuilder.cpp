@@ -353,6 +353,7 @@ $Map* DateTimeFormatterBuilder::FIELD_MAP = nullptr;
 
 $String* DateTimeFormatterBuilder::getLocalizedDateTimePattern($FormatStyle* dateStyle, $FormatStyle* timeStyle, $Chronology* chrono, $Locale* locale) {
 	$init(DateTimeFormatterBuilder);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(locale), "locale"_s);
 	$Objects::requireNonNull($of(chrono), "chrono"_s);
 	if (dateStyle == nullptr && timeStyle == nullptr) {
@@ -429,6 +430,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValue($TemporalField* 
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValue($TemporalField* field, int32_t width) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(field), "field"_s);
 	if (width < 1 || width > 19) {
 		$throwNew($IllegalArgumentException, $$str({"The width must be from 1 to 19 inclusive but was "_s, $$str(width)}));
@@ -440,6 +442,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValue($TemporalField* 
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValue($TemporalField* field, int32_t minWidth, int32_t maxWidth, $SignStyle* signStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($SignStyle);
 	if (minWidth == maxWidth && signStyle == $SignStyle::NOT_NEGATIVE) {
 		return appendValue(field, maxWidth);
@@ -476,6 +479,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValueReduced($Temporal
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValue($DateTimeFormatterBuilder$NumberPrinterParser* pp) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->active)->valueParserIndex >= 0) {
 		int32_t activeValueParser = $nc(this->active)->valueParserIndex;
 		$var($DateTimeFormatterBuilder$NumberPrinterParser, basePP, $cast($DateTimeFormatterBuilder$NumberPrinterParser, $nc($nc(this->active)->printerParsers)->get(activeValueParser)));
@@ -496,6 +500,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendValue($DateTimeFormatt
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendFraction($TemporalField* field, int32_t minWidth, int32_t maxWidth, bool decimalPoint) {
+	$useLocalCurrentObjectStackCache();
 	if (minWidth == maxWidth && decimalPoint == false) {
 		appendValue(static_cast<$DateTimeFormatterBuilder$NumberPrinterParser*>($$new($DateTimeFormatterBuilder$FractionPrinterParser, field, minWidth, maxWidth, decimalPoint)));
 	} else {
@@ -510,6 +515,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendText($TemporalField* f
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendText($TemporalField* field, $TextStyle* textStyle) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(field), "field"_s);
 	$Objects::requireNonNull($of(textStyle), "textStyle"_s);
 	appendInternal($$new($DateTimeFormatterBuilder$TextPrinterParser, field, textStyle, $($DateTimeTextProvider::getInstance())));
@@ -517,6 +523,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendText($TemporalField* f
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendText($TemporalField* field, $Map* textLookup) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(field), "field"_s);
 	$Objects::requireNonNull($of(textLookup), "textLookup"_s);
 	$var($Map, copy, $new($LinkedHashMap, textLookup));
@@ -534,6 +541,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendInstant() {
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendInstant(int32_t fractionalDigits) {
+	$useLocalCurrentObjectStackCache();
 	if (fractionalDigits < -1 || fractionalDigits > 9) {
 		$throwNew($IllegalArgumentException, $$str({"The fractional digits must be from -1 to 9 inclusive but was "_s, $$str(fractionalDigits)}));
 	}
@@ -563,6 +571,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendLocalizedOffset($TextS
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendZoneId() {
+	$useLocalCurrentObjectStackCache();
 	appendInternal($$new($DateTimeFormatterBuilder$ZoneIdPrinterParser, $($TemporalQueries::zoneId()), "ZoneId()"_s));
 	return this;
 }
@@ -573,6 +582,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendZoneRegionId() {
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendZoneOrOffsetId() {
+	$useLocalCurrentObjectStackCache();
 	appendInternal($$new($DateTimeFormatterBuilder$ZoneIdPrinterParser, $($TemporalQueries::zone()), "ZoneOrOffsetId()"_s));
 	return this;
 }
@@ -623,6 +633,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendLiteral(char16_t liter
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendLiteral($String* literal) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(literal), "literal"_s);
 	if (!$nc(literal)->isEmpty()) {
 		if (literal->length() == 1) {
@@ -635,6 +646,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendLiteral($String* liter
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendDayPeriodText($TextStyle* style$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($TextStyle, style, style$renamed);
 	$Objects::requireNonNull($of(style), "style"_s);
 	$init($DateTimeFormatterBuilder$2);
@@ -681,6 +693,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::appendPattern($String* patte
 }
 
 void DateTimeFormatterBuilder::parsePattern($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t pos = 0; pos < $nc(pattern)->length(); ++pos) {
 		char16_t cur = pattern->charAt(pos);
 		if ((cur >= u'A' && cur <= u'Z') || (cur >= u'a' && cur <= u'z')) {
@@ -867,6 +880,7 @@ void DateTimeFormatterBuilder::parsePattern($String* pattern) {
 }
 
 void DateTimeFormatterBuilder::parseField(char16_t cur, int32_t count, $TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	bool standalone = false;
 	switch (cur) {
 	case u'u':
@@ -1075,6 +1089,7 @@ DateTimeFormatterBuilder* DateTimeFormatterBuilder::padNext(int32_t padWidth) {
 }
 
 DateTimeFormatterBuilder* DateTimeFormatterBuilder::padNext(int32_t padWidth, char16_t padChar) {
+	$useLocalCurrentObjectStackCache();
 	if (padWidth < 1) {
 		$throwNew($IllegalArgumentException, $$str({"The pad width must be at least one but was "_s, $$str(padWidth)}));
 	}
@@ -1144,11 +1159,13 @@ $DateTimeFormatter* DateTimeFormatterBuilder::toFormatter($Locale* locale, $Reso
 
 $ZoneId* DateTimeFormatterBuilder::lambda$static$0($TemporalAccessor* temporal) {
 	$init(DateTimeFormatterBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneId, zone, $cast($ZoneId, $nc(temporal)->query($($TemporalQueries::zoneId()))));
 	return $instanceOf($ZoneOffset, zone) ? ($ZoneId*)nullptr : zone;
 }
 
 void clinit$DateTimeFormatterBuilder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DateTimeFormatterBuilder::QUERY_REGION_ONLY, static_cast<$TemporalQuery*>($new(DateTimeFormatterBuilder$$Lambda$lambda$static$0)));
 	$assignStatic(DateTimeFormatterBuilder::FIELD_MAP, $new($HashMap));
 	{

@@ -308,6 +308,7 @@ SSLCipher* SSLCipher::valueOf($String* name) {
 }
 
 void SSLCipher::init$($String* $enum$name, int32_t $enum$ordinal, $String* transformation, $CipherType* cipherType, int32_t keySize, int32_t expandedKeySize, int32_t ivSize, int32_t fixedIvSize, bool allowed, bool exportable, $Map$EntryArray* readCipherGenerators, $Map$EntryArray* writeCipherGenerators) {
+	$useLocalCurrentObjectStackCache();
 	$Enum::init$($enum$name, $enum$ordinal);
 	$set(this, transformation, transformation);
 	$var($StringArray, splits, $nc(transformation)->split("/"_s));
@@ -328,6 +329,7 @@ void SSLCipher::init$($String* $enum$name, int32_t $enum$ordinal, $String* trans
 
 bool SSLCipher::isTransformationAvailable($String* transformation) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(transformation)->equals("NULL"_s)) {
 		return true;
 	}
@@ -351,6 +353,7 @@ bool SSLCipher::isTransformationAvailable($String* transformation) {
 }
 
 $SSLCipher$SSLReadCipher* SSLCipher::createReadCipher($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SecretKey* key, $IvParameterSpec* iv, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->readCipherGenerators)->length == 0) {
 		return nullptr;
 	}
@@ -386,6 +389,7 @@ $SSLCipher$SSLReadCipher* SSLCipher::createReadCipher($Authenticator* authentica
 }
 
 $SSLCipher$SSLWriteCipher* SSLCipher::createWriteCipher($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SecretKey* key, $IvParameterSpec* iv, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->writeCipherGenerators)->length == 0) {
 		return nullptr;
 	}
@@ -446,6 +450,7 @@ $String* SSLCipher::toString() {
 
 void SSLCipher::addMac($Authenticator$MAC* signer, $ByteBuffer* destination, int8_t contentType) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {
 		int32_t dstContent = $nc(destination)->position();
 		$var($bytes, hash, signer->compute(contentType, destination, false));
@@ -471,6 +476,7 @@ void SSLCipher::checkStreamMac($Authenticator$MAC* signer, $ByteBuffer* bb, int8
 
 void SSLCipher::checkCBCMac($Authenticator$MAC* signer, $ByteBuffer* bb, int8_t contentType, int32_t cipheredLength, $bytes* sequence) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	$var($BadPaddingException, reservedBPE, nullptr);
 	int32_t tagLen = $nc($($nc(signer)->macAlg()))->size;
 	int32_t pos = $nc(bb)->position();
@@ -498,6 +504,7 @@ void SSLCipher::checkCBCMac($Authenticator$MAC* signer, $ByteBuffer* bb, int8_t 
 
 bool SSLCipher::checkMacTags(int8_t contentType, $ByteBuffer* bb, $Authenticator$MAC* signer, $bytes* sequence, bool isSimulated) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	int32_t tagLen = $nc($($nc(signer)->macAlg()))->size;
 	int32_t position = $nc(bb)->position();
 	int32_t lim = bb->limit();
@@ -536,6 +543,7 @@ bool SSLCipher::checkMacTags(int8_t contentType, $ByteBuffer* bb, $Authenticator
 
 $ints* SSLCipher::compareMacTags($ByteBuffer* bb, $bytes* tag) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, results, $new($ints, {
 		0,
 		0
@@ -560,6 +568,7 @@ $ints* SSLCipher::compareMacTags($ByteBuffer* bb, $bytes* tag) {
 
 int32_t SSLCipher::calculateRemainingLen($Authenticator$MAC* signer, int32_t fullLen, int32_t usedLen) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	int32_t blockLen = $nc($($nc(signer)->macAlg()))->hashBlockSize;
 	int32_t minimalPaddingLen = $nc($(signer->macAlg()))->minimalPaddingSize;
 	fullLen += 13 - (blockLen - minimalPaddingLen);
@@ -593,6 +602,7 @@ int32_t SSLCipher::addPadding($ByteBuffer* bb, int32_t blockSize) {
 
 int32_t SSLCipher::removePadding($ByteBuffer* bb, int32_t tagLen, int32_t blockSize, $ProtocolVersion* protocolVersion) {
 	$init(SSLCipher);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(bb)->remaining();
 	int32_t offset = bb->position();
 	int32_t padOffset = offset + len - 1;
@@ -637,6 +647,7 @@ $ints* SSLCipher::checkPadding($ByteBuffer* bb, int8_t pad) {
 }
 
 void clinit$SSLCipher($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int64_t max = 0x4000000000000000;
 	$var($String, var$0, "B_NULL"_s);

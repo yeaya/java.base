@@ -211,6 +211,7 @@ void InheritedChannel::detachIOStreams() {
 
 $ProtocolFamily* InheritedChannel::protocolFamily($SocketAddress* sa) {
 	$init(InheritedChannel);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($UnixDomainSocketAddress, sa)) {
 		$init($StandardProtocolFamily);
 		return $StandardProtocolFamily::UNIX;
@@ -254,6 +255,7 @@ $ProtocolFamily* InheritedChannel::protocolFamily(int32_t family) {
 
 void InheritedChannel::checkAccess() {
 	$init(InheritedChannel);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "inheritedChannel"_s));
@@ -262,6 +264,7 @@ void InheritedChannel::checkAccess() {
 
 $Channel* InheritedChannel::createChannel() {
 	$init(InheritedChannel);
+	$useLocalCurrentObjectStackCache();
 	int32_t fdVal = dup(0);
 	int32_t st = 0;
 	st = soType0(fdVal);

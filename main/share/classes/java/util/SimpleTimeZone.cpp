@@ -199,6 +199,7 @@ void SimpleTimeZone::init$(int32_t rawOffset, $String* ID, int32_t startMonth, i
 }
 
 void SimpleTimeZone::init$(int32_t rawOffset, $String* ID, int32_t startMonth, int32_t startDay, int32_t startDayOfWeek, int32_t startTime, int32_t startTimeMode, int32_t endMonth, int32_t endDay, int32_t endDayOfWeek, int32_t endTime, int32_t endTimeMode, int32_t dstSavings) {
+	$useLocalCurrentObjectStackCache();
 	$TimeZone::init$();
 	this->useDaylight = false;
 	$set(this, monthLength, SimpleTimeZone::staticMonthLength);
@@ -276,6 +277,7 @@ int32_t SimpleTimeZone::getOffset(int64_t date) {
 }
 
 int32_t SimpleTimeZone::getOffsets(int64_t date, $ints* offsets) {
+	$useLocalCurrentObjectStackCache();
 	int32_t offset = this->rawOffset;
 	bool computeOffset$break = false;
 	for (;;) {
@@ -308,6 +310,7 @@ int32_t SimpleTimeZone::getOffsets(int64_t date, $ints* offsets) {
 }
 
 int32_t SimpleTimeZone::getOffset(int32_t era, int32_t year, int32_t month, int32_t day, int32_t dayOfWeek, int32_t millis) {
+	$useLocalCurrentObjectStackCache();
 	if (era != $GregorianCalendar::AD && era != $GregorianCalendar::BC) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal era "_s, $$str(era)}));
 	}
@@ -450,6 +453,7 @@ void SimpleTimeZone::setRawOffset(int32_t offsetMillis) {
 }
 
 void SimpleTimeZone::setDSTSavings(int32_t millisSavedDuringDST) {
+	$useLocalCurrentObjectStackCache();
 	if (millisSavedDuringDST <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal daylight saving value: "_s, $$str(millisSavedDuringDST)}));
 	}
@@ -481,6 +485,7 @@ int32_t SimpleTimeZone::hashCode() {
 }
 
 bool SimpleTimeZone::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -512,6 +517,7 @@ bool SimpleTimeZone::hasSameRules($TimeZone* other) {
 }
 
 $String* SimpleTimeZone::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$33, $$str({$($of(this)->getClass()->getName()), "[id="_s}));
 	$var($String, var$32, $$concat(var$33, $(getID())));
 	$var($String, var$31, $$concat(var$32, ",offset="));
@@ -559,6 +565,7 @@ void SimpleTimeZone::decodeRules() {
 }
 
 void SimpleTimeZone::decodeStartRule() {
+	$useLocalCurrentObjectStackCache();
 	this->useDaylight = (this->startDay != 0) && (this->endDay != 0);
 	if (this->startDay != 0) {
 		if (this->startMonth < $Calendar::JANUARY || this->startMonth > $Calendar::DECEMBER) {
@@ -596,6 +603,7 @@ void SimpleTimeZone::decodeStartRule() {
 }
 
 void SimpleTimeZone::decodeEndRule() {
+	$useLocalCurrentObjectStackCache();
 	this->useDaylight = (this->startDay != 0) && (this->endDay != 0);
 	if (this->endDay != 0) {
 		if (this->endMonth < $Calendar::JANUARY || this->endMonth > $Calendar::DECEMBER) {
@@ -753,6 +761,7 @@ void SimpleTimeZone::unpackTimes($ints* times) {
 }
 
 void SimpleTimeZone::writeObject($ObjectOutputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, rules, packRules());
 	$var($ints, times, packTimes());
 	makeRulesCompatible();
@@ -765,6 +774,7 @@ void SimpleTimeZone::writeObject($ObjectOutputStream* stream) {
 }
 
 void SimpleTimeZone::readObject($ObjectInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$nc(stream)->defaultReadObject();
 	if (this->serialVersionOnStream < 1) {
 		if (this->startDayOfWeek == 0) {

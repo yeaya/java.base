@@ -64,6 +64,7 @@ void CertificateAuthoritiesExtension$CertificateAuthoritiesStringizer::init$() {
 }
 
 $String* CertificateAuthoritiesExtension$CertificateAuthoritiesStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($CertificateAuthoritiesExtension$CertificateAuthoritiesSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

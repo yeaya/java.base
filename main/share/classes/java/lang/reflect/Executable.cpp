@@ -316,12 +316,14 @@ bool Executable::equalParamTypes($ClassArray* params1, $ClassArray* params2) {
 }
 
 $AnnotationArray2* Executable::parseParameterAnnotations($bytes* parameterAnnotations) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, parameterAnnotations);
 	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
 	return $AnnotationParser::parseParameterAnnotations(var$0, var$1, getDeclaringClass());
 }
 
 void Executable::printModifiersIfNonzero($StringBuilder* sb, int32_t mask, bool isDefault) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mod = (int32_t)(getModifiers() & (uint32_t)mask);
 	if (mod != 0 && !isDefault) {
 		$nc(sb)->append($($Modifier::toString(mod)))->append(u' ');
@@ -341,6 +343,7 @@ void Executable::printModifiersIfNonzero($StringBuilder* sb, int32_t mask, bool 
 }
 
 $String* Executable::sharedToString(int32_t modifierMask, bool isDefault, $ClassArray* parameterTypes, $ClassArray* exceptionTypes) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		printModifiersIfNonzero(sb, modifierMask, isDefault);
@@ -359,6 +362,7 @@ $String* Executable::sharedToString(int32_t modifierMask, bool isDefault, $Class
 
 $String* Executable::typeVarBounds($TypeVariable* typeVar) {
 	$init(Executable);
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, bounds, $nc(typeVar)->getBounds());
 	$load($Object);
 	if ($nc(bounds)->length == 1 && $nc($of(bounds->get(0)))->equals($Object::class$)) {
@@ -370,6 +374,7 @@ $String* Executable::typeVarBounds($TypeVariable* typeVar) {
 }
 
 $String* Executable::sharedToGenericString(int32_t modifierMask, bool isDefault) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		printModifiersIfNonzero(sb, modifierMask, isDefault);
@@ -416,6 +421,7 @@ $TypeArray* Executable::getGenericParameterTypes() {
 }
 
 $TypeArray* Executable::getAllGenericParameterTypes() {
+	$useLocalCurrentObjectStackCache();
 	bool genericInfo = hasGenericInformation();
 	if (!genericInfo) {
 		return $fcast($TypeArray, getParameterTypes());
@@ -449,6 +455,7 @@ $ParameterArray* Executable::getParameters() {
 }
 
 $ParameterArray* Executable::synthesizeAllParams() {
+	$useLocalCurrentObjectStackCache();
 	int32_t realparams = getParameterCount();
 	$var($ParameterArray, out, $new($ParameterArray, realparams));
 	for (int32_t i = 0; i < realparams; ++i) {
@@ -458,6 +465,7 @@ $ParameterArray* Executable::synthesizeAllParams() {
 }
 
 void Executable::verifyParameters($ParameterArray* parameters) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = ($Modifier::FINAL | $Modifier::SYNTHETIC) | $Modifier::MANDATED;
 	if (getParameterCount() != $nc(parameters)->length) {
 		$throwNew($MalformedParametersException, "Wrong number of parameters in MethodParameters attribute"_s);
@@ -489,6 +497,7 @@ void Executable::verifyParameters($ParameterArray* parameters) {
 }
 
 $ParameterArray* Executable::privateGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($ParameterArray, tmp, this->parameters);
 	if (tmp == nullptr) {
 		try {
@@ -530,6 +539,7 @@ $bytes* Executable::getTypeAnnotationBytes() {
 }
 
 $TypeArray* Executable::getGenericExceptionTypes() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, result, nullptr);
 	bool var$0 = hasGenericInformation();
 	if (var$0 && ($nc(($assign(result, $nc($(getGenericInfo()))->getExceptionTypes())))->length > 0)) {
@@ -548,6 +558,7 @@ bool Executable::isSynthetic() {
 }
 
 $AnnotationArray2* Executable::sharedGetParameterAnnotations($ClassArray* parameterTypes, $bytes* parameterAnnotations) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numParameters = $nc(parameterTypes)->length;
 	if (parameterAnnotations == nullptr) {
 		return $new($AnnotationArray2, numParameters, 0);
@@ -565,6 +576,7 @@ $AnnotationArray2* Executable::sharedGetParameterAnnotations($ClassArray* parame
 }
 
 $Annotation* Executable::getAnnotation($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	return $cast($Annotation, annotationClass->cast($($nc($(declaredAnnotations()))->get(annotationClass))));
 }
@@ -579,6 +591,7 @@ $AnnotationArray* Executable::getDeclaredAnnotations() {
 }
 
 $Map* Executable::declaredAnnotations() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, declAnnos, nullptr);
 	if (($assign(declAnnos, this->declaredAnnotations$)) == nullptr) {
 		$synchronized(this) {
@@ -599,6 +612,7 @@ $Map* Executable::declaredAnnotations() {
 }
 
 $AnnotatedType* Executable::getAnnotatedReturnType0($Type* returnType) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getTypeAnnotationBytes0());
 	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
 	$init($TypeAnnotation$TypeAnnotationTarget);
@@ -606,6 +620,7 @@ $AnnotatedType* Executable::getAnnotatedReturnType0($Type* returnType) {
 }
 
 $AnnotatedType* Executable::getAnnotatedReceiverType() {
+	$useLocalCurrentObjectStackCache();
 	if ($Modifier::isStatic(this->getModifiers())) {
 		return nullptr;
 	}
@@ -617,6 +632,7 @@ $AnnotatedType* Executable::getAnnotatedReceiverType() {
 }
 
 $Type* Executable::parameterize($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* ownerClass = $nc(c)->getDeclaringClass();
 	$var($TypeVariableArray, typeVars, c->getTypeParameters());
@@ -636,6 +652,7 @@ $Type* Executable::parameterize($Class* c) {
 }
 
 $AnnotatedTypeArray* Executable::getAnnotatedParameterTypes() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getTypeAnnotationBytes0());
 	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
 	$Class* var$2 = getDeclaringClass();
@@ -644,6 +661,7 @@ $AnnotatedTypeArray* Executable::getAnnotatedParameterTypes() {
 }
 
 $AnnotatedTypeArray* Executable::getAnnotatedExceptionTypes() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getTypeAnnotationBytes0());
 	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
 	$Class* var$2 = getDeclaringClass();

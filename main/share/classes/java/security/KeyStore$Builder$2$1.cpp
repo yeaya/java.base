@@ -91,6 +91,7 @@ void KeyStore$Builder$2$1::init$($KeyStore$Builder$2* this$0) {
 }
 
 $Object* KeyStore$Builder$2$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyStore, ks, nullptr);
 	if (this->this$0->val$provider == nullptr) {
 		$assign(ks, $KeyStore::getInstance(this->this$0->val$type));

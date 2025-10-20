@@ -58,6 +58,7 @@ void RoundingModeTests::init$() {
 }
 
 void RoundingModeTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($RoundingModeArray, arr$, $RoundingMode::values());
 		int32_t len$ = $nc(arr$)->length;

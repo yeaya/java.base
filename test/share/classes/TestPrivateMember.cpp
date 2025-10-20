@@ -58,6 +58,7 @@ $Object* allocate$TestPrivateMember($Class* clazz) {
 
 void TestPrivateMember::main($StringArray* args) {
 	$load(TestPrivateMember);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::setSecurityManager($$new($SecurityManager));
 	$var(TestPrivateMember, t, $new(TestPrivateMember));
@@ -68,6 +69,7 @@ void TestPrivateMember::init$() {
 }
 
 void TestPrivateMember::test() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	$init($Void);

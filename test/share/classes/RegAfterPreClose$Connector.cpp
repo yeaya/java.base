@@ -75,6 +75,7 @@ void RegAfterPreClose$Connector::init$(int32_t port) {
 }
 
 void RegAfterPreClose$Connector::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($RegAfterPreClose);
 	while (!$RegAfterPreClose::done) {
 		try {

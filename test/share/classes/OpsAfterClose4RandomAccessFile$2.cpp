@@ -68,6 +68,7 @@ void OpsAfterClose4RandomAccessFile$2::init$($String* $enum$name, int32_t $enum$
 }
 
 bool OpsAfterClose4RandomAccessFile$2::check($RandomAccessFile* r) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, buf, $new($bytes, 2));
 		int32_t len = 1;

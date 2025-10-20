@@ -69,6 +69,7 @@ void LauncherHelper$StdArg::init$($String* in) {
 }
 
 $String* LauncherHelper$StdArg::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"StdArg{arg="_s, this->arg, ", needsExpansion="_s, $$str(this->needsExpansion), $$str(u'}')});
 }
 

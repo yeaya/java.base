@@ -69,6 +69,7 @@ void SurrogatePairs::main($StringArray* args) {
 
 void SurrogatePairs::test($String* str, $String* correctEncoding) {
 	$init(SurrogatePairs);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Unicode bytes of test string are: "_s, $(getHexBytes(str))}));
 	$var($String, encoded, $URLEncoder::encode(str, "UTF-8"_s));
@@ -90,6 +91,7 @@ void SurrogatePairs::test($String* str, $String* correctEncoding) {
 
 $String* SurrogatePairs::getHexBytes($String* s) {
 	$init(SurrogatePairs);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		int32_t a = s->charAt(i);

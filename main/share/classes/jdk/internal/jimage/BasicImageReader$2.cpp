@@ -87,6 +87,7 @@ void BasicImageReader$2::init$($BasicImageReader* this$0) {
 }
 
 $Object* BasicImageReader$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($BasicImageReader);
 	if ($BasicImageReader::class$->getClassLoader() == nullptr) {

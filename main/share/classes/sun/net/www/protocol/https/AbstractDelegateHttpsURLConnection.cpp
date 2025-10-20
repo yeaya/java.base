@@ -104,6 +104,7 @@ void AbstractDelegateHttpsURLConnection::setNewClient($URL* url) {
 }
 
 void AbstractDelegateHttpsURLConnection::setNewClient($URL* url, bool useCache) {
+	$useLocalCurrentObjectStackCache();
 	int32_t readTimeout = getReadTimeout();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
 	$var($URL, var$1, url);
@@ -127,6 +128,7 @@ void AbstractDelegateHttpsURLConnection::setProxiedClient($URL* url, $String* pr
 }
 
 void AbstractDelegateHttpsURLConnection::proxiedConnect($URL* url, $String* proxyHost, int32_t proxyPort, bool useCache) {
+	$useLocalCurrentObjectStackCache();
 	if (this->connected) {
 		return;
 	}
@@ -166,12 +168,14 @@ void AbstractDelegateHttpsURLConnection::connect() {
 }
 
 $HttpClient* AbstractDelegateHttpsURLConnection::getNewHttpClient($URL* url, $Proxy* p, int32_t connectTimeout) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
 	$var($URL, var$1, url);
 	return $HttpsClient::New(var$0, var$1, $(getHostnameVerifier()), p, true, connectTimeout, static_cast<$HttpURLConnection*>(this));
 }
 
 $HttpClient* AbstractDelegateHttpsURLConnection::getNewHttpClient($URL* url, $Proxy* p, int32_t connectTimeout, bool useCache) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLSocketFactory, var$0, getSSLSocketFactory());
 	$var($URL, var$1, url);
 	return $HttpsClient::New(var$0, var$1, $(getHostnameVerifier()), p, useCache, connectTimeout, static_cast<$HttpURLConnection*>(this));
@@ -189,6 +193,7 @@ $String* AbstractDelegateHttpsURLConnection::getCipherSuite() {
 }
 
 $CertificateArray* AbstractDelegateHttpsURLConnection::getLocalCertificates() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cachedResponse != nullptr) {
 		$var($List, l, $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getLocalCertificateChain());
 		if (l == nullptr) {
@@ -205,6 +210,7 @@ $CertificateArray* AbstractDelegateHttpsURLConnection::getLocalCertificates() {
 }
 
 $CertificateArray* AbstractDelegateHttpsURLConnection::getServerCertificates() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cachedResponse != nullptr) {
 		$var($List, l, $nc(($cast($SecureCacheResponse, this->cachedResponse)))->getServerCertificateChain());
 		if (l == nullptr) {

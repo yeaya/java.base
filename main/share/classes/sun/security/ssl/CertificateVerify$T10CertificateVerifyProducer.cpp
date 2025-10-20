@@ -80,6 +80,7 @@ void CertificateVerify$T10CertificateVerifyProducer::init$() {
 }
 
 $bytes* CertificateVerify$T10CertificateVerifyProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);
 	{

@@ -143,6 +143,7 @@ $AlgorithmParameters* DESedeCipher::engineGetParameters() {
 }
 
 int32_t DESedeCipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if ($nc(encoded)->length != 24) {

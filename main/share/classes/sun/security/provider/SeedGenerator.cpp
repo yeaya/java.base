@@ -112,6 +112,7 @@ void SeedGenerator::generateSeed($bytes* result) {
 
 $bytes* SeedGenerator::getSystemEntropy() {
 	$init(SeedGenerator);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MessageDigest, md, nullptr);
 	try {
@@ -128,6 +129,7 @@ $bytes* SeedGenerator::getSystemEntropy() {
 
 void SeedGenerator::addNetworkAdapterInfo($MessageDigest* md) {
 	$init(SeedGenerator);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Enumeration, ifcs, $NetworkInterface::getNetworkInterfaces());
 		while ($nc(ifcs)->hasMoreElements()) {
@@ -157,6 +159,7 @@ $bytes* SeedGenerator::longToByteArray(int64_t l) {
 }
 
 void clinit$SeedGenerator($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SeedGenerator::debug, $Debug::getInstance("provider"_s));
 	{
 		$var($String, egdSource, $SunEntries::getSeedSource());

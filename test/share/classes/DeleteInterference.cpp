@@ -196,6 +196,7 @@ void DeleteInterference::init$() {
 }
 
 void DeleteInterference::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, testDir, $Paths::get($($System::getProperty("test.dir"_s, "."_s)), $$new($StringArray, 0)));
 	$var($Path, dir, $Files::createTempDirectory(testDir, "DeleteInterference"_s, $$new($FileAttributeArray, 0)));
 	$var($ExecutorService, pool, $Executors::newCachedThreadPool());
@@ -218,6 +219,7 @@ void DeleteInterference::main($StringArray* args) {
 }
 
 void DeleteInterference::openAndCloseWatcher($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystem, fs, $FileSystems::getDefault());
 	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
 		$init($System);
@@ -276,6 +278,7 @@ void DeleteInterference::openAndCloseWatcher($Path* dir) {
 }
 
 void DeleteInterference::deleteAndRecreateDirectory($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < DeleteInterference::ITERATIONS_COUNT; ++i) {
 		$init($System);
 		$nc($System::out)->printf("del %d begin%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(i)))}));
@@ -302,6 +305,7 @@ void DeleteInterference::deleteAndRecreateDirectory($Path* dir) {
 }
 
 void DeleteInterference::deleteFileTree($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($Files::isDirectory(file, $$new($LinkOptionArray, 0))) {
 			{

@@ -146,6 +146,7 @@ ProcessBuilder$Redirect* ProcessBuilder$Redirect::appendTo($File* file) {
 }
 
 bool ProcessBuilder$Redirect::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}

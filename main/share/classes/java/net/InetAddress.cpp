@@ -255,6 +255,7 @@ void InetAddress::init$() {
 }
 
 $Object* InetAddress::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc($(holder()))->getHostName());
 	return $of($new($Inet4Address, var$0, $nc($(holder()))->getAddress()));
 }
@@ -318,6 +319,7 @@ $String* InetAddress::getHostName() {
 }
 
 $String* InetAddress::getHostName(bool check) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($(holder()))->getHostName() == nullptr) {
 		$set($nc($(holder())), hostName, InetAddress::getHostFromNameService(this, check));
 	}
@@ -334,6 +336,7 @@ $String* InetAddress::getCanonicalHostName() {
 
 $String* InetAddress::getHostFromNameService(InetAddress* addr, bool check) {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, nullptr);
 	try {
 		$assign(host, $nc(InetAddress::nameService)->getHostByAddr($($nc(addr)->getAddress())));
@@ -381,6 +384,7 @@ bool InetAddress::equals(Object$* obj) {
 }
 
 $String* InetAddress::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostName, $nc($(holder()))->getHostName());
 	$var($String, var$0, $$str({$($Objects::toString(hostName, ""_s)), "/"_s}));
 	return $concat(var$0, $(getHostAddress()));
@@ -388,6 +392,7 @@ $String* InetAddress::toString() {
 
 $InetAddress$NameService* InetAddress::createNameService() {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostsFileName, $GetPropertyAction::privilegedGetProperty("jdk.net.hosts.file"_s));
 	$var($InetAddress$NameService, theNameService, nullptr);
 	if (hostsFileName != nullptr) {
@@ -400,6 +405,7 @@ $InetAddress$NameService* InetAddress::createNameService() {
 
 InetAddress* InetAddress::getByAddress($String* host$renamed, $bytes* addr) {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	bool var$0 = host != nullptr && !host->isEmpty();
 	if (var$0 && host->charAt(0) == u'[') {
@@ -439,6 +445,7 @@ $InetAddressArray* InetAddress::getAllByName($String* host) {
 
 $InetAddressArray* InetAddress::getAllByName($String* host$renamed, InetAddress* reqAddr) {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	if (host == nullptr || $nc(host)->isEmpty()) {
 		$var($InetAddressArray, ret, $new($InetAddressArray, 1));
@@ -535,6 +542,7 @@ $InetAddressArray* InetAddress::getAllByName0($String* host, bool check) {
 
 $InetAddressArray* InetAddress::getAllByName0($String* host, InetAddress* reqAddr, bool check, bool useCache) {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	if (check) {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
@@ -580,6 +588,7 @@ $InetAddressArray* InetAddress::getAllByName0($String* host, InetAddress* reqAdd
 
 $InetAddressArray* InetAddress::getAddressesFromNameService($String* host, InetAddress* reqAddr) {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddressArray, addresses, nullptr);
 	$var($UnknownHostException, ex, nullptr);
 	try {
@@ -623,6 +632,7 @@ InetAddress* InetAddress::getByAddress($bytes* addr) {
 
 InetAddress* InetAddress::getLocalHost() {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	try {
 		$var($InetAddress$CachedLocalHost, clh, InetAddress::cachedLocalHost);
@@ -672,6 +682,7 @@ InetAddress* InetAddress::anyLocalAddress() {
 
 $InetAddressImpl* InetAddress::loadImpl($String* implName) {
 	$init(InetAddress);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, impl, nullptr);
 	$var($String, prefix, $GetPropertyAction::privilegedGetProperty("impl.prefix"_s, ""_s));
@@ -711,6 +722,7 @@ void InetAddress::readObjectNoData() {
 }
 
 void InetAddress::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($of(this)->getClass()->getClassLoader() != nullptr) {
 		$throwNew($SecurityException, "invalid address type"_s);
@@ -727,6 +739,7 @@ void InetAddress::readObject($ObjectInputStream* s) {
 }
 
 void InetAddress::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($of(this)->getClass()->getClassLoader() != nullptr) {
 		$throwNew($SecurityException, "invalid address type"_s);
@@ -739,6 +752,7 @@ void InetAddress::writeObject($ObjectOutputStream* s) {
 }
 
 void clinit$InetAddress($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, str, $GetPropertyAction::privilegedGetProperty("java.net.preferIPv6Addresses"_s));
 		if (str == nullptr) {

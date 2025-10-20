@@ -296,6 +296,7 @@ void DistinctOps$1::init$($AbstractPipeline* upstream, $StreamShape* inputShape,
 }
 
 $Node* DistinctOps$1::reduce($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, var$0, static_cast<$Supplier*>($new(DistinctOps$1$$Lambda$LinkedHashSet)));
 	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(DistinctOps$1$$Lambda$add$1)));
 	$var($TerminalOp, reduceOp, $ReduceOps::makeRef(var$0, var$1, static_cast<$BiConsumer*>($$new(DistinctOps$1$$Lambda$addAll$2))));
@@ -303,6 +304,7 @@ $Node* DistinctOps$1::reduce($PipelineHelper* helper, $Spliterator* spliterator)
 }
 
 $Node* DistinctOps$1::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::DISTINCT->isKnown($nc(helper)->getStreamAndOpFlags())) {
 		return $nc(helper)->evaluate(spliterator, false, generator);
@@ -325,6 +327,7 @@ $Node* DistinctOps$1::opEvaluateParallel($PipelineHelper* helper, $Spliterator* 
 }
 
 $Spliterator* DistinctOps$1::opEvaluateParallelLazy($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::DISTINCT->isKnown($nc(helper)->getStreamAndOpFlags())) {
 		return $nc(helper)->wrapSpliterator(spliterator);

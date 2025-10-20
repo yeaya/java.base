@@ -120,6 +120,7 @@ void ParameterAnnotations::nop(Object$* foo, Object$* bar) {
 }
 
 void ParameterAnnotations::test($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	test1();
 	$var($Policy, defaultPolicy, $Policy::getPolicy());
@@ -142,6 +143,7 @@ void ParameterAnnotations::test($StringArray* args) {
 }
 
 void ParameterAnnotations::test1() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($MethodArray, arr$, $nc(ParameterAnnotations::thisClass)->getMethods());
@@ -204,6 +206,7 @@ void ParameterAnnotations::equal(Object$* x, Object$* y) {
 
 void ParameterAnnotations::main($StringArray* args) {
 	$init(ParameterAnnotations);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($StringArray);
@@ -215,6 +218,7 @@ void ParameterAnnotations::main($StringArray* args) {
 }
 
 void ParameterAnnotations::instanceMain($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		test(args);
 	} catch ($Throwable&) {

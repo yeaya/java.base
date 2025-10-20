@@ -45,6 +45,7 @@ void bug4097450::init$() {
 }
 
 void bug4097450::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, dstring, $new($StringArray, {
 		"97"_s,
 		"1997"_s,

@@ -86,6 +86,7 @@ $Object* allocate$StackStreamFactory$StackFrameTraverser$StackFrameBuffer($Class
 bool StackStreamFactory$StackFrameTraverser$StackFrameBuffer::$assertionsDisabled = false;
 
 void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::init$($StackStreamFactory$StackFrameTraverser* this$0, int32_t initialBatchSize) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$StackStreamFactory$FrameBuffer::init$(initialBatchSize);
 	$set(this, stackFrames, $new($StackFrameInfoArray, initialBatchSize));
@@ -99,6 +100,7 @@ $ObjectArray* StackStreamFactory$StackFrameTraverser$StackFrameBuffer::frames() 
 }
 
 void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::resize(int32_t startIndex, int32_t elements) {
+	$useLocalCurrentObjectStackCache();
 	if (!isActive()) {
 		$throwNew($IllegalStateException, "inactive frame buffer can\'t be resized"_s);
 	}
@@ -118,6 +120,7 @@ void StackStreamFactory$StackFrameTraverser$StackFrameBuffer::resize(int32_t sta
 }
 
 $Object* StackStreamFactory$StackFrameTraverser$StackFrameBuffer::nextStackFrame() {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		$throwNew($NoSuchElementException, $$str({"origin="_s, $$str(this->origin), " fence="_s, $$str(this->fence)}));
 	}

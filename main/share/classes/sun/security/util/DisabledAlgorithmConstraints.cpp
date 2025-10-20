@@ -176,6 +176,7 @@ void DisabledAlgorithmConstraints::init$($String* propertyName) {
 }
 
 void DisabledAlgorithmConstraints::init$($String* propertyName, $AlgorithmDecomposer* decomposer) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractAlgorithmConstraints::init$(decomposer);
 	$set(this, disabledAlgorithms, getAlgorithms(propertyName));
 	int32_t ecindex = -1;
@@ -234,6 +235,7 @@ void DisabledAlgorithmConstraints::permits($String* algorithm, $AlgorithmParamet
 }
 
 void DisabledAlgorithmConstraints::permits($AlgorithmParameters* ap, $ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Locale);
 		$var($String, s7603$, $nc($($nc(ap)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
@@ -260,6 +262,7 @@ void DisabledAlgorithmConstraints::permits($AlgorithmParameters* ap, $Constraint
 }
 
 void DisabledAlgorithmConstraints::permitsPSSParams($AlgorithmParameters* ap, $ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($PSSParameterSpec);
 		$var($PSSParameterSpec, pssParams, $cast($PSSParameterSpec, $nc(ap)->getParameterSpec($PSSParameterSpec::class$)));
@@ -278,6 +281,7 @@ void DisabledAlgorithmConstraints::permitsPSSParams($AlgorithmParameters* ap, $C
 }
 
 void DisabledAlgorithmConstraints::permits($String* algorithm, $ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(cp)->getKeys()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -303,6 +307,7 @@ void DisabledAlgorithmConstraints::permits($String* algorithm, $ConstraintsParam
 
 $List* DisabledAlgorithmConstraints::getNamedCurveFromKey($Key* key) {
 	$init(DisabledAlgorithmConstraints);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ECKey, key)) {
 		$var($NamedCurve, nc, $CurveDB::lookup($($nc(($cast($ECKey, key)))->getParams())));
 		return (nc == nullptr ? $List::of() : $Arrays::asList($($nc(nc)->getNameAndAliases())));
@@ -314,6 +319,7 @@ $List* DisabledAlgorithmConstraints::getNamedCurveFromKey($Key* key) {
 }
 
 bool DisabledAlgorithmConstraints::checkConstraints($Set* primitives, $String* algorithm, $Key* key, $AlgorithmParameters* parameters) {
+	$useLocalCurrentObjectStackCache();
 	if (primitives == nullptr || $nc(primitives)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "The primitives cannot be null or empty."_s);
 	}

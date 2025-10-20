@@ -132,6 +132,7 @@ void ObjectOutputStream$HandleTable::growSpine() {
 }
 
 void ObjectOutputStream$HandleTable::growEntries() {
+	$useLocalCurrentObjectStackCache();
 	int32_t newLength = ($nc(this->next)->length << 1) + 1;
 	$var($ints, newNext, $new($ints, newLength));
 	$System::arraycopy(this->next, 0, newNext, 0, this->size$);

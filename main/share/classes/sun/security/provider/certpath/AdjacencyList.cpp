@@ -78,6 +78,7 @@ $Iterator* AdjacencyList::iterator() {
 }
 
 bool AdjacencyList::buildList($List* theList, int32_t index, $BuildStep* follow) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, l, $cast($List, $nc(theList)->get(index)));
 	bool allNegOne = true;
 	bool allXcps = true;
@@ -156,6 +157,7 @@ bool AdjacencyList::buildList($List* theList, int32_t index, $BuildStep* follow)
 }
 
 $String* AdjacencyList::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "[\n"_s));
 	int32_t i = 0;
 	{

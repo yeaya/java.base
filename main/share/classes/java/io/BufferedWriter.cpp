@@ -173,6 +173,7 @@ void BufferedWriter::flush() {
 }
 
 void BufferedWriter::close() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if (this->out == nullptr) {
 			return;

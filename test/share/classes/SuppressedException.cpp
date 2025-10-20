@@ -96,6 +96,7 @@ $FilterOutputStream* SuppressedException::createOutputStream($OutputStream* out,
 }
 
 void SuppressedException::test() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($FilterOutputStream, buf, nullptr);
 	$var($booleans, isBuffered, $new($booleans, {

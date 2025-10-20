@@ -158,6 +158,7 @@ void HandshakeHash$S30HandshakeHash::update($bytes* input, int32_t offset, int32
 }
 
 $bytes* HandshakeHash$S30HandshakeHash::digest() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, digest, $new($bytes, 36));
 	$System::arraycopy($($nc(this->md5)->digest()), 0, digest, 0, 16);
 	$System::arraycopy($($nc(this->sha)->digest()), 0, digest, 16, 20);
@@ -175,6 +176,7 @@ $bytes* HandshakeHash$S30HandshakeHash::archived() {
 }
 
 $bytes* HandshakeHash$S30HandshakeHash::digest(bool useClientLabel, $SecretKey* masterSecret) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md5Clone, cloneMd5());
 	$var($MessageDigest, shaClone, cloneSha());
 	if (useClientLabel) {
@@ -193,6 +195,7 @@ $bytes* HandshakeHash$S30HandshakeHash::digest(bool useClientLabel, $SecretKey* 
 }
 
 $bytes* HandshakeHash$S30HandshakeHash::digest($String* algorithm, $SecretKey* masterSecret) {
+	$useLocalCurrentObjectStackCache();
 	if ("RSA"_s->equalsIgnoreCase(algorithm)) {
 		$var($MessageDigest, md5Clone, cloneMd5());
 		$var($MessageDigest, shaClone, cloneSha());
@@ -217,6 +220,7 @@ $bytes* HandshakeHash$S30HandshakeHash::genPad(int32_t b, int32_t count) {
 }
 
 $MessageDigest* HandshakeHash$S30HandshakeHash::cloneMd5() {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md5Clone, nullptr);
 	if ($instanceOf($Cloneable, this->mdMD5)) {
 		try {
@@ -238,6 +242,7 @@ $MessageDigest* HandshakeHash$S30HandshakeHash::cloneMd5() {
 }
 
 $MessageDigest* HandshakeHash$S30HandshakeHash::cloneSha() {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, shaClone, nullptr);
 	if ($instanceOf($Cloneable, this->mdSHA)) {
 		try {
@@ -260,6 +265,7 @@ $MessageDigest* HandshakeHash$S30HandshakeHash::cloneSha() {
 
 void HandshakeHash$S30HandshakeHash::updateDigest($MessageDigest* md, $bytes* pad1, $bytes* pad2, $SecretKey* masterSecret) {
 	$init(HandshakeHash$S30HandshakeHash);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, keyBytes, "RAW"_s->equals($($nc(masterSecret)->getFormat())) ? $nc(masterSecret)->getEncoded() : ($bytes*)nullptr);
 	if (keyBytes != nullptr) {
 		$nc(md)->update(keyBytes);

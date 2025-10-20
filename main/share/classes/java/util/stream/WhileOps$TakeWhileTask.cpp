@@ -120,6 +120,7 @@ $Object* WhileOps$TakeWhileTask::getEmptyResult() {
 }
 
 $Object* WhileOps$TakeWhileTask::doLeaf() {
+	$useLocalCurrentObjectStackCache();
 	$var($Node$Builder, builder, $nc(this->helper)->makeNodeBuilder(-1, this->generator));
 	$var($Sink, s, $nc(this->op)->opWrapSink($nc(this->helper)->getStreamAndOpFlags(), builder));
 	if (this->shortCircuited = $nc(this->helper)->copyIntoWithCancel($($nc(this->helper)->wrapSink(s)), this->spliterator)) {
@@ -151,6 +152,7 @@ void WhileOps$TakeWhileTask::onCompletion($CountedCompleter* caller) {
 }
 
 $Node* WhileOps$TakeWhileTask::merge() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(($cast(WhileOps$TakeWhileTask, this->leftChild)))->thisNodeSize == 0) {
 		return $cast($Node, $nc(($cast(WhileOps$TakeWhileTask, this->rightChild)))->getLocalResult());
 	} else if ($nc(($cast(WhileOps$TakeWhileTask, this->rightChild)))->thisNodeSize == 0) {

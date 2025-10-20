@@ -219,6 +219,7 @@ $Set* AlgorithmChecker::getSupportedExtensions() {
 }
 
 void AlgorithmChecker::check($Certificate* cert, $Collection* unresolvedCritExts) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($X509Certificate, cert)) || this->constraints == nullptr) {
 		return;
 	}
@@ -328,6 +329,7 @@ void AlgorithmChecker::trySetTrustAnchor($TrustAnchor* anchor) {
 
 void AlgorithmChecker::check($PublicKey* key, $X509CRL* crl, $String* variant, $TrustAnchor* anchor) {
 	$init(AlgorithmChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CRLImpl, x509CRLImpl, nullptr);
 	try {
 		$assign(x509CRLImpl, $X509CRLImpl::toImpl(crl));
@@ -341,12 +343,14 @@ void AlgorithmChecker::check($PublicKey* key, $X509CRL* crl, $String* variant, $
 
 void AlgorithmChecker::check($PublicKey* key, $AlgorithmId* algorithmId, $String* variant, $TrustAnchor* anchor) {
 	$init(AlgorithmChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(algorithmId)->getName());
 	$var($AlgorithmParameters, var$1, algorithmId->getParameters());
 	$nc(AlgorithmChecker::certPathDefaultConstraints)->permits(var$0, var$1, static_cast<$ConstraintsParameters*>($$new($CertPathConstraintsParameters, key, variant, anchor)));
 }
 
 void clinit$AlgorithmChecker($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(AlgorithmChecker::debug, $Debug::getInstance("certpath"_s));
 	$init($CryptoPrimitive);
 	$assignStatic(AlgorithmChecker::SIGNATURE_PRIMITIVE_SET, $Collections::unmodifiableSet($($EnumSet::of($CryptoPrimitive::SIGNATURE))));

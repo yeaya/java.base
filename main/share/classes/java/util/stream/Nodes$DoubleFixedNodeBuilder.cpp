@@ -110,6 +110,7 @@ void Nodes$DoubleFixedNodeBuilder::init$(int64_t size) {
 }
 
 $Node$OfDouble* Nodes$DoubleFixedNodeBuilder::build() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Current size %d is less than fixed size %d"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(this->curSize))),
@@ -120,6 +121,7 @@ $Node$OfDouble* Nodes$DoubleFixedNodeBuilder::build() {
 }
 
 void Nodes$DoubleFixedNodeBuilder::begin(int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (size != $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Begin size %d is not equal to fixed size %d"_s, $$new($ObjectArray, {
 			$($of($Long::valueOf(size))),
@@ -130,6 +132,7 @@ void Nodes$DoubleFixedNodeBuilder::begin(int64_t size) {
 }
 
 void Nodes$DoubleFixedNodeBuilder::accept(double i) {
+	$useLocalCurrentObjectStackCache();
 	if (this->curSize < $nc(this->array)->length) {
 		$nc(this->array)->set(this->curSize++, i);
 	} else {
@@ -138,6 +141,7 @@ void Nodes$DoubleFixedNodeBuilder::accept(double i) {
 }
 
 void Nodes$DoubleFixedNodeBuilder::end() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("End size %d is less than fixed size %d"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(this->curSize))),
@@ -147,6 +151,7 @@ void Nodes$DoubleFixedNodeBuilder::end() {
 }
 
 $String* Nodes$DoubleFixedNodeBuilder::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("DoubleFixedNodeBuilder[%d][%s]"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
 		$($of($Arrays::toString(this->array)))

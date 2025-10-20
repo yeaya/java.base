@@ -137,6 +137,7 @@ bool SynchronousQueue$TransferQueue$QNode::isFulfilled() {
 }
 
 bool SynchronousQueue$TransferQueue$QNode::isReleasable() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, x, nullptr);
 	bool var$0 = this->isData == (($assign(x, this->item)) == nullptr);
 	return var$0 || $equals(x, this) || $($Thread::currentThread())->isInterrupted();
@@ -150,6 +151,7 @@ bool SynchronousQueue$TransferQueue$QNode::block() {
 }
 
 void clinit$SynchronousQueue$TransferQueue$QNode($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

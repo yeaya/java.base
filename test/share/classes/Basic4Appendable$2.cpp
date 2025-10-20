@@ -80,6 +80,7 @@ void Basic4Appendable$2::init($Appendable* cw, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$Basic4Appendable::ck($$str({"CharArrayWriter.append("_s, this->csn, ")"_s}), this->exp, $($nc(this->cw)->toString()));
 }
 

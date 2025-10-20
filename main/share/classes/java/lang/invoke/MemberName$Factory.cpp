@@ -118,6 +118,7 @@ void MemberName$Factory::init$() {
 }
 
 $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$* matchType, int32_t matchFlags, $Class* lookupClass) {
+	$useLocalCurrentObjectStackCache();
 	matchFlags &= (uint32_t)MemberName$Factory::ALLOWED_FLAGS;
 	$var($String, matchSig, nullptr);
 	if (matchType != nullptr) {
@@ -184,6 +185,7 @@ $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$*
 }
 
 $MemberName* MemberName$Factory::resolve(int8_t refKind, $MemberName* ref, $Class* lookupClass, int32_t allowedModes, bool speculativeResolve) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, m, $cast($MemberName, $nc(ref)->clone()));
 	if (!MemberName$Factory::$assertionsDisabled && !(refKind == $nc(m)->getReferenceKind())) {
 		$throwNew($AssertionError);
@@ -221,6 +223,7 @@ $MemberName* MemberName$Factory::resolve(int8_t refKind, $MemberName* ref, $Clas
 }
 
 $MemberName* MemberName$Factory::resolveOrFail(int8_t refKind, $MemberName* m, $Class* lookupClass, int32_t allowedModes, $Class* nsmClass) {
+	$useLocalCurrentObjectStackCache();
 	if (!MemberName$Factory::$assertionsDisabled && !(lookupClass != nullptr || allowedModes == -1)) {
 		$throwNew($AssertionError);
 	}
@@ -275,6 +278,7 @@ $List* MemberName$Factory::getNestedTypes($Class* defc, bool searchSupers, $Clas
 
 $MemberNameArray* MemberName$Factory::newMemberBuffer(int32_t length) {
 	$init(MemberName$Factory);
+	$useLocalCurrentObjectStackCache();
 	$var($MemberNameArray, buf, $new($MemberNameArray, length));
 	for (int32_t i = 0; i < length; ++i) {
 		buf->set(i, $$new($MemberName));

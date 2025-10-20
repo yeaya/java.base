@@ -112,6 +112,7 @@ void CheckPermission$LoggingSecurityManager::checkExec($String* file) {
 }
 
 void CheckPermission$LoggingSecurityManager::checkPermission($Permission* perm) {
+	$useLocalCurrentObjectStackCache();
 	$init($CheckPermission);
 	$var($CheckPermission$Checks, checks, $cast($CheckPermission$Checks, $nc($CheckPermission::myChecks)->get()));
 	if (checks != nullptr) {
@@ -120,6 +121,7 @@ void CheckPermission$LoggingSecurityManager::checkPermission($Permission* perm) 
 }
 
 void CheckPermission$LoggingSecurityManager::checkPropertyAccess($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$init($CheckPermission);
 	$var($CheckPermission$Checks, checks, $cast($CheckPermission$Checks, $nc($CheckPermission::myChecks)->get()));
 	if (checks != nullptr) {

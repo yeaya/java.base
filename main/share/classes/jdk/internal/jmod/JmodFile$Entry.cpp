@@ -138,6 +138,7 @@ $Object* allocate$JmodFile$Entry($Class* clazz) {
 $Map* JmodFile$Entry::NAME_TO_SECTION = nullptr;
 
 void JmodFile$Entry::init$($ZipEntry* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(e)->getName());
 	int32_t i = $nc(name)->indexOf((int32_t)u'/');
 	if (i <= 1) {
@@ -181,6 +182,7 @@ $JmodFile$Section* JmodFile$Entry::section($String* name) {
 }
 
 void clinit$JmodFile$Entry($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$var($Function, var$0, static_cast<$Function*>($new(JmodFile$Entry$$Lambda$jmodDir)));
 	$assignStatic(JmodFile$Entry::NAME_TO_SECTION, $cast($Map, $nc($($Arrays::stream($($JmodFile$Section::values()))))->collect($($Collectors::toMap(var$0, $($Function::identity()))))));
 }

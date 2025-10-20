@@ -43,6 +43,7 @@ void RelativeEncoding::init$() {
 }
 
 void RelativeEncoding::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URI, one, $new($URI, "Relative%20with%20spaces"_s));
 		$var($URI, two, ($$new($File, "/tmp/dir with spaces/File with spaces"_s))->toURI());

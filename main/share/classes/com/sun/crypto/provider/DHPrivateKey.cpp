@@ -115,6 +115,7 @@ void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g) {
 }
 
 void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g, int32_t l) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, x, x);
 	$set(this, p, p);
 	$set(this, g, g);
@@ -133,6 +134,7 @@ void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g, int32_t
 }
 
 void DHPrivateKey::init$($bytes* encodedKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -213,6 +215,7 @@ $bytes* DHPrivateKey::getEncoded() {
 }
 
 void DHPrivateKey::encode() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encodedKey == nullptr) {
 		try {
 			$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -253,6 +256,7 @@ $DHParameterSpec* DHPrivateKey::getParams() {
 }
 
 void DHPrivateKey::parseKeyBits() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
 		$set(this, x, in->getBigInteger());
@@ -273,6 +277,7 @@ int32_t DHPrivateKey::hashCode() {
 }
 
 bool DHPrivateKey::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -287,6 +292,7 @@ bool DHPrivateKey::equals(Object$* obj) {
 }
 
 $Object* DHPrivateKey::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	encode();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PRIVATE);

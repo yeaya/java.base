@@ -126,6 +126,7 @@ void Test6991596::main($StringArray* args) {
 
 $MethodHandle* Test6991596::getmh1($Class* ret, $Class* arg) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $nc($($MethodHandles::lookup()))->findStatic(Test6991596::CLASS, Test6991596::NAME, $($MethodType::methodType(ret, arg)));
 }
@@ -153,6 +154,7 @@ void Test6991596::testboolean() {
 
 void Test6991596::doboolean(bool x) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
 		$init($System);
 		$nc($System::out)->println($$str({"boolean="_s, $$str(x)}));
@@ -214,6 +216,7 @@ void Test6991596::testbyte() {
 
 void Test6991596::dobyte(int8_t x) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
 		$init($System);
 		$nc($System::out)->println($$str({"byte="_s, $$str(x)}));
@@ -273,6 +276,7 @@ void Test6991596::testchar() {
 
 void Test6991596::dochar(char16_t x) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
 		$init($System);
 		$nc($System::out)->println($$str({"char="_s, $$str(x)}));
@@ -338,6 +342,7 @@ void Test6991596::testshort() {
 
 void Test6991596::doshort(int16_t x) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
 		$init($System);
 		$nc($System::out)->println($$str({"short="_s, $$str(x)}));
@@ -411,6 +416,7 @@ void Test6991596::testint() {
 
 void Test6991596::doint(int32_t x) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
 		$init($System);
 		$nc($System::out)->println($$str({"int="_s, $$str(x)}));
@@ -497,6 +503,7 @@ void Test6991596::testlong() {
 
 void Test6991596::dolong(int64_t x) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	if (Test6991596::DEBUG) {
 		$init($System);
 		$nc($System::out)->println($$str({"long="_s, $$str(x)}));
@@ -550,6 +557,7 @@ void Test6991596::dolong(int64_t x) {
 
 void Test6991596::check(bool x, bool e, bool a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, z2h(x));
 	$var($String, var$1, z2h(e));
 	p(var$0, var$1, $(z2h(a)));
@@ -563,6 +571,7 @@ void Test6991596::check(bool x, bool e, bool a) {
 
 void Test6991596::check(bool x, int8_t e, int8_t a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, z2h(x));
 	$var($String, var$1, i2h(e));
 	p(var$0, var$1, $(i2h(a)));
@@ -576,6 +585,7 @@ void Test6991596::check(bool x, int8_t e, int8_t a) {
 
 void Test6991596::check(bool x, int32_t e, int32_t a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, z2h(x));
 	$var($String, var$1, i2h(e));
 	p(var$0, var$1, $(i2h(a)));
@@ -589,6 +599,7 @@ void Test6991596::check(bool x, int32_t e, int32_t a) {
 
 void Test6991596::check(int32_t x, bool e, bool a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, i2h(x));
 	$var($String, var$1, z2h(e));
 	p(var$0, var$1, $(z2h(a)));
@@ -602,6 +613,7 @@ void Test6991596::check(int32_t x, bool e, bool a) {
 
 void Test6991596::check(int32_t x, int8_t e, int8_t a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, i2h(x));
 	$var($String, var$1, i2h(e));
 	p(var$0, var$1, $(i2h(a)));
@@ -615,6 +627,7 @@ void Test6991596::check(int32_t x, int8_t e, int8_t a) {
 
 void Test6991596::check(int32_t x, int32_t e, int32_t a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, i2h(x));
 	$var($String, var$1, i2h(e));
 	p(var$0, var$1, $(i2h(a)));
@@ -628,6 +641,7 @@ void Test6991596::check(int32_t x, int32_t e, int32_t a) {
 
 void Test6991596::check(int64_t x, bool e, bool a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, l2h(x));
 	$var($String, var$1, z2h(e));
 	p(var$0, var$1, $(z2h(a)));
@@ -641,6 +655,7 @@ void Test6991596::check(int64_t x, bool e, bool a) {
 
 void Test6991596::check(int64_t x, int8_t e, int8_t a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, l2h(x));
 	$var($String, var$1, i2h(e));
 	p(var$0, var$1, $(i2h(a)));
@@ -654,6 +669,7 @@ void Test6991596::check(int64_t x, int8_t e, int8_t a) {
 
 void Test6991596::check(int64_t x, int32_t e, int32_t a) {
 	$init(Test6991596);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, l2h(x));
 	$var($String, var$1, i2h(e));
 	p(var$0, var$1, $(i2h(a)));

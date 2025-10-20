@@ -99,6 +99,7 @@ void GroupOfOne::init$() {
 }
 
 void GroupOfOne::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, accepted, $new($ArrayList));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -160,6 +161,7 @@ void GroupOfOne::main($StringArray* args) {
 }
 
 void GroupOfOne::test($SocketAddress* sa, bool closeChannel, bool shutdownGroup) {
+	$useLocalCurrentObjectStackCache();
 	$var($AsynchronousChannelGroup, group, $AsynchronousChannelGroup::withFixedThreadPool(1, $$new($GroupOfOne$2)));
 	$var($AsynchronousSocketChannel, ch, $AsynchronousSocketChannel::open(group));
 	{

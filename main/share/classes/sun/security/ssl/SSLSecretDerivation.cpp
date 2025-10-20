@@ -104,6 +104,7 @@ $bytes* SSLSecretDerivation::sha256EmptyDigest = nullptr;
 $bytes* SSLSecretDerivation::sha384EmptyDigest = nullptr;
 
 void SSLSecretDerivation::init$($HandshakeContext* context, $SecretKey* secret) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, secret, secret);
 	$set(this, hashAlg, $nc($nc(context)->negotiatedCipherSuite)->hashAlg);
 	$var($String, hkdfAlg, $str({"HKDF-Expand/Hmac"_s, $($nc(this->hashAlg->name$)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s)))}));
@@ -116,6 +117,7 @@ SSLSecretDerivation* SSLSecretDerivation::forContext($HandshakeContext* context)
 }
 
 $SecretKey* SSLSecretDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$SSLSecretDerivation$SecretSchedule* ks = $SSLSecretDerivation$SecretSchedule::valueOf(algorithm);
 	try {
 		$var($bytes, expandContext, nullptr);
@@ -145,6 +147,7 @@ $SecretKey* SSLSecretDerivation::deriveKey($String* algorithm, $AlgorithmParamet
 
 $bytes* SSLSecretDerivation::createHkdfInfo($bytes* label, $bytes* context, int32_t length) {
 	$init(SSLSecretDerivation);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, info, $new($bytes, 4 + $nc(label)->length + $nc(context)->length));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(info));
 	try {

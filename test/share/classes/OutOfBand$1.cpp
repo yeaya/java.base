@@ -74,6 +74,7 @@ void OutOfBand$1::init$($SocketChannel* val$client) {
 }
 
 void OutOfBand$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		for (int32_t i = 0; i < 256; ++i) {
 			$nc($($nc(this->val$client)->socket()))->sendUrgentData(i);

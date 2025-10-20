@@ -164,6 +164,7 @@ $Object* allocate$JavaRuntimeURLConnection($Class* clazz) {
 $ImageReader* JavaRuntimeURLConnection::reader = nullptr;
 
 void JavaRuntimeURLConnection::init$($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$1URLConnection::init$(url);
 	$var($String, path, $nc(url)->getPath());
 	bool var$0 = $nc(path)->isEmpty();
@@ -198,6 +199,7 @@ $Resource* JavaRuntimeURLConnection::findResource($String* module, $String* name
 
 void JavaRuntimeURLConnection::connect() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			if (this->name == nullptr) {
 				$var($String, s, (this->module == nullptr) ? ""_s : this->module);
@@ -239,6 +241,7 @@ $Permission* JavaRuntimeURLConnection::getPermission() {
 
 $URL* JavaRuntimeURLConnection::toJrtURL($String* module, $String* name) {
 	$init(JavaRuntimeURLConnection);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $new($URL, $$str({"jrt:/"_s, module, "/"_s, name}));
 	} catch ($MalformedURLException&) {
@@ -250,6 +253,7 @@ $URL* JavaRuntimeURLConnection::toJrtURL($String* module, $String* name) {
 
 $URL* JavaRuntimeURLConnection::toJrtURL($String* module) {
 	$init(JavaRuntimeURLConnection);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $new($URL, $$str({"jrt:/"_s, module}));
 	} catch ($MalformedURLException&) {

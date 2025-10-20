@@ -105,6 +105,7 @@ $Object* allocate$SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation($Class* cla
 }
 
 void SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::init$($HandshakeContext* context, $SecretKey* masterSecret) {
+	$useLocalCurrentObjectStackCache();
 	$CipherSuite* cipherSuite = $nc(context)->negotiatedCipherSuite;
 	$ProtocolVersion* protocolVersion = context->negotiatedProtocol;
 	int32_t hashSize = $nc(cipherSuite)->macAlg->size;
@@ -161,6 +162,7 @@ void SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::init$($HandshakeContext
 }
 
 $SecretKey* SSLTrafficKeyDerivation$LegacyTrafficKeyDerivation::getTrafficKey($String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s11334$, algorithm);
 		int32_t tmp11334$ = -1;

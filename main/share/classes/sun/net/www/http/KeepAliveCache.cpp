@@ -150,6 +150,7 @@ int32_t KeepAliveCache::result = 0;
 
 int32_t KeepAliveCache::getMaxConnections() {
 	$init(KeepAliveCache);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (KeepAliveCache::result == -1) {
 		KeepAliveCache::result = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "http.maxConnections"_s, KeepAliveCache::MAX_CONNECTIONS)))))))->intValue();
@@ -167,6 +168,7 @@ void KeepAliveCache::init$() {
 }
 
 void KeepAliveCache::put($URL* url, Object$* obj, $HttpClient* http) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(this->cacheLock)->lock();
 	{
@@ -205,6 +207,7 @@ void KeepAliveCache::put($URL* url, Object$* obj, $HttpClient* http) {
 }
 
 void KeepAliveCache::remove($HttpClient* h, Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->cacheLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -236,6 +239,7 @@ void KeepAliveCache::removeVector($KeepAliveKey* k) {
 }
 
 $HttpClient* KeepAliveCache::get($URL* url, Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->cacheLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -268,6 +272,7 @@ $HttpClient* KeepAliveCache::get($URL* url, Object$* obj) {
 }
 
 void KeepAliveCache::run() {
+	$useLocalCurrentObjectStackCache();
 	do {
 		try {
 			$Thread::sleep(KeepAliveCache::LIFETIME);

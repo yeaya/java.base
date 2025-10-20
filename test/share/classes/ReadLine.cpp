@@ -45,6 +45,7 @@ void ReadLine::init$() {
 }
 
 void ReadLine::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, fn, $new($File, "x.ReadLine"_s));
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, fn, "rw"_s));
 	{

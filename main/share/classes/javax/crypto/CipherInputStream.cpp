@@ -93,6 +93,7 @@ void CipherInputStream::ensureCapacity(int32_t inLen) {
 }
 
 int32_t CipherInputStream::getMoreData() {
+	$useLocalCurrentObjectStackCache();
 	if (this->done) {
 		return -1;
 	}
@@ -213,6 +214,7 @@ int32_t CipherInputStream::available() {
 }
 
 void CipherInputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}

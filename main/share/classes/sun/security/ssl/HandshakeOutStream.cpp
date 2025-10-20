@@ -76,6 +76,7 @@ void HandshakeOutStream::init$($OutputRecord* outputRecord) {
 }
 
 void HandshakeOutStream::complete() {
+	$useLocalCurrentObjectStackCache();
 	if (size() < 4) {
 		$throwNew($RuntimeException, "handshake message is not available"_s);
 	}
@@ -157,6 +158,7 @@ void HandshakeOutStream::putBytes24($bytes* b) {
 
 void HandshakeOutStream::checkOverflow(int32_t length, int32_t limit) {
 	$init(HandshakeOutStream);
+	$useLocalCurrentObjectStackCache();
 	if (length >= limit) {
 		$throwNew($RuntimeException, $$str({"Field length overflow, the field length ("_s, $$str(length), ") should be less than "_s, $$str(limit)}));
 	}

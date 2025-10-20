@@ -50,6 +50,7 @@ void ReadReadLine::main($StringArray* args) {
 }
 
 void ReadReadLine::test($String* s, int32_t good) {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = 0;
 	int32_t line = 0;
 	$var($LineNumberReader, r, $new($LineNumberReader, $$new($StringReader, s), 2));

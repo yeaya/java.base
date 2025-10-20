@@ -92,6 +92,7 @@ void ECDHKeyExchange$ECDHEKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* ECDHKeyExchange$ECDHEKAGenerator::createKeyDerivation($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($ECDHKeyExchange$ECDHEPossession, ecdhePossession, nullptr);
 	$var($ECDHKeyExchange$ECDHECredentials, ecdheCredentials, nullptr);
 	{

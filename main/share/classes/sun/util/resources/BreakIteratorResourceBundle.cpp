@@ -139,6 +139,7 @@ void BreakIteratorResourceBundle::init$() {
 }
 
 $Object* BreakIteratorResourceBundle::handleGetObject($String* key) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(BreakIteratorResourceBundle::NON_DATA_KEYS)->contains(key)) {
 		return $of(nullptr);
 	}
@@ -187,6 +188,7 @@ $Object* BreakIteratorResourceBundle::handleGetObject($String* key) {
 }
 
 $InputStream* BreakIteratorResourceBundle::getResourceAsStream($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, nullptr);
 	$assign(pa, static_cast<$PrivilegedExceptionAction*>($new(BreakIteratorResourceBundle$$Lambda$lambda$getResourceAsStream$0, this, path)));
@@ -205,6 +207,7 @@ $Enumeration* BreakIteratorResourceBundle::getKeys() {
 }
 
 $Set* BreakIteratorResourceBundle::handleKeySet() {
+	$useLocalCurrentObjectStackCache();
 	if (this->keys == nullptr) {
 		$var($ResourceBundle, info, getBreakIteratorInfo());
 		$var($Set, k, $nc(info)->keySet());

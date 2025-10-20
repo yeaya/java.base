@@ -46,6 +46,7 @@ void Release::init$() {
 }
 
 void Release::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fos, $new($FileOutputStream, "testFile.tmp"_s));
 	fos->write($$new($bytes, 128));
 	$var($FileChannel, ch, fos->getChannel());

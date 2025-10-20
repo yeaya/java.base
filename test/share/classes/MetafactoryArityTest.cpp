@@ -110,6 +110,7 @@ void MetafactoryArityTest::init$() {
 
 void MetafactoryArityTest::main($StringArray* args) {
 	$init(MetafactoryArityTest);
+	$useLocalCurrentObjectStackCache();
 	$load($String);
 	$init($Integer);
 	$var($MethodType, unary, $MethodType::methodType($String::class$, $Integer::TYPE));
@@ -173,6 +174,7 @@ void MetafactoryArityTest::main($StringArray* args) {
 
 void MetafactoryArityTest::test(bool correct, $MethodHandle* mh, $MethodType* instMT, $MethodType* samMT) {
 	$init(MetafactoryArityTest);
+	$useLocalCurrentObjectStackCache();
 	tryMetafactory(correct, mh, $$new($ClassArray, 0), instMT, samMT);
 	tryAltMetafactory(correct, mh, $$new($ClassArray, 0), instMT, samMT, $$new($MethodTypeArray, 0));
 }
@@ -195,6 +197,7 @@ void MetafactoryArityTest::testCaptureBridge(bool correct, $MethodHandle* mh, $C
 
 void MetafactoryArityTest::tryMetafactory(bool correct, $MethodHandle* mh, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT) {
 	$init(MetafactoryArityTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($MetafactoryArityTest$I);
 		$LambdaMetafactory::metafactory(MetafactoryArityTest::lookup, "run"_s, $($MethodType::methodType($MetafactoryArityTest$I::class$, captured)), samMT, mh, instMT);
@@ -221,6 +224,7 @@ void MetafactoryArityTest::tryMetafactory(bool correct, $MethodHandle* mh, $Clas
 
 void MetafactoryArityTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $ClassArray* captured, $MethodType* instMT, $MethodType* samMT, $MethodTypeArray* bridgeMTs) {
 	$init(MetafactoryArityTest);
+	$useLocalCurrentObjectStackCache();
 	bool bridge = $nc(bridgeMTs)->length > 0;
 	$var($ObjectArray, args, $new($ObjectArray, bridge ? 5 + bridgeMTs->length : 4));
 	args->set(0, samMT);
@@ -262,6 +266,7 @@ void MetafactoryArityTest::tryAltMetafactory(bool correct, $MethodHandle* mh, $C
 }
 
 void clinit$MetafactoryArityTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(MetafactoryArityTest::lookup, $MethodHandles::lookup());
 	$init($Integer);

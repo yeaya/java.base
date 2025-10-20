@@ -80,6 +80,7 @@ void PrimitiveConversionTests::init$() {
 
 int32_t PrimitiveConversionTests::testDoubleValue() {
 	$init(PrimitiveConversionTests);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("--- testDoubleValue ---"_s);
 	int32_t failures = 0;
@@ -107,6 +108,7 @@ int32_t PrimitiveConversionTests::testDoubleValue() {
 
 int32_t PrimitiveConversionTests::testFloatValue() {
 	$init(PrimitiveConversionTests);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("--- testFloatValue ---"_s);
 	int32_t failures = 0;
@@ -134,6 +136,7 @@ int32_t PrimitiveConversionTests::testFloatValue() {
 
 void PrimitiveConversionTests::main($StringArray* args) {
 	$init(PrimitiveConversionTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = testDoubleValue();
 	failures += testFloatValue();
 	if (failures > 0) {
@@ -142,6 +145,7 @@ void PrimitiveConversionTests::main($StringArray* args) {
 }
 
 void clinit$PrimitiveConversionTests($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($List, samples, $new($ArrayList));
 		{

@@ -80,6 +80,7 @@ void StringConcatFactory$3::init$() {
 }
 
 $MethodHandle* StringConcatFactory$3::apply($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$init($StringConcatFactory);
 	$init($Long);
 	$var($MethodHandle, mix, $nc($StringConcatFactory::JLA)->stringConcatHelper("mix"_s, $($MethodType::methodType($Long::TYPE, $Long::TYPE, $$new($ClassArray, {$Wrapper::asPrimitiveType(c)})))));

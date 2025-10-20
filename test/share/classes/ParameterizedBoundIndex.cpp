@@ -113,6 +113,7 @@ void ParameterizedBoundIndex::init$() {
 
 void ParameterizedBoundIndex::main($StringArray* args) {
 	$load(ParameterizedBoundIndex);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, failed, $new($ArrayList));
 	$load($ParameterizedBoundIndex$TypeClassBound);

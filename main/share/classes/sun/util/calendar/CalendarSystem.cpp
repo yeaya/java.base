@@ -110,6 +110,7 @@ void CalendarSystem::init$() {
 
 void CalendarSystem::initNames() {
 	$init(CalendarSystem);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentMap, nameMap, $new($ConcurrentHashMap));
 	$var($StringBuilder, clName, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(CalendarSystem::namePairs)->length; i += 2) {
@@ -133,6 +134,7 @@ $Gregorian* CalendarSystem::getGregorianCalendar() {
 
 CalendarSystem* CalendarSystem::forName($String* calendarName) {
 	$init(CalendarSystem);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ("gregorian"_s->equals(calendarName)) {
 		return CalendarSystem::GREGORIAN_INSTANCE;

@@ -99,6 +99,7 @@ void PreSharedKeyExtension$SHPreSharedKeySpec::init$(int32_t selectedIdentity) {
 }
 
 void PreSharedKeyExtension$SHPreSharedKeySpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid pre_shared_key extension: insufficient selected_identity (length="_s, $$str(m->remaining()), ")"_s}))))));
@@ -114,6 +115,7 @@ $bytes* PreSharedKeyExtension$SHPreSharedKeySpec::getEncoded() {
 }
 
 $String* PreSharedKeyExtension$SHPreSharedKeySpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"PreSharedKey\": \'{\'\n  \"selected_identity\"      : \"{0}\",\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::byte16HexString(this->selectedIdentity)))}));

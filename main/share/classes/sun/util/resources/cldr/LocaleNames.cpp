@@ -44,6 +44,7 @@ void LocaleNames::init$() {
 }
 
 $ObjectArray2* LocaleNames::getContents() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("DisplayNamePattern"_s),

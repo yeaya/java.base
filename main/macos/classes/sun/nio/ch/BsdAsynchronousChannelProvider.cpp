@@ -79,6 +79,7 @@ $Object* allocate$BsdAsynchronousChannelProvider($Class* clazz) {
 $volatile($KQueuePort*) BsdAsynchronousChannelProvider::defaultPort = nullptr;
 
 $KQueuePort* BsdAsynchronousChannelProvider::defaultEventPort() {
+	$useLocalCurrentObjectStackCache();
 	if (BsdAsynchronousChannelProvider::defaultPort == nullptr) {
 		$synchronized(BsdAsynchronousChannelProvider::class$) {
 			if (BsdAsynchronousChannelProvider::defaultPort == nullptr) {
@@ -94,10 +95,12 @@ void BsdAsynchronousChannelProvider::init$() {
 }
 
 $AsynchronousChannelGroup* BsdAsynchronousChannelProvider::openAsynchronousChannelGroup(int32_t nThreads, $ThreadFactory* factory) {
+	$useLocalCurrentObjectStackCache();
 	return $$new($KQueuePort, this, $($ThreadPool::create(nThreads, factory)))->start();
 }
 
 $AsynchronousChannelGroup* BsdAsynchronousChannelProvider::openAsynchronousChannelGroup($ExecutorService* executor, int32_t initialSize) {
+	$useLocalCurrentObjectStackCache();
 	return $$new($KQueuePort, this, $($ThreadPool::wrap(executor, initialSize)))->start();
 }
 

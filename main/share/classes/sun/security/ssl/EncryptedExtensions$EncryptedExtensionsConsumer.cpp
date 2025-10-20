@@ -85,6 +85,7 @@ void EncryptedExtensions$EncryptedExtensionsConsumer::init$() {
 }
 
 void EncryptedExtensions$EncryptedExtensionsConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::ENCRYPTED_EXTENSIONS->id)));

@@ -53,6 +53,7 @@ void TransferToNonWritable::init$() {
 }
 
 void TransferToNonWritable::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileInputStream, fis, $new($FileInputStream, blah));

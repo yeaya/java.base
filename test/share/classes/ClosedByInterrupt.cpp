@@ -100,6 +100,7 @@ void ClosedByInterrupt::init$() {
 
 void ClosedByInterrupt::main($StringArray* args) {
 	$init(ClosedByInterrupt);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $File::createTempFile("blah"_s, nullptr));
 	$nc(f)->deleteOnExit();
 	$var($bytes, b, $new($bytes, ClosedByInterrupt::K * ClosedByInterrupt::K));
@@ -153,6 +154,7 @@ void ClosedByInterrupt::main($StringArray* args) {
 
 void ClosedByInterrupt::test($File* f, int32_t nThreads) {
 	$init(ClosedByInterrupt);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileChannel, fc, $$new($RandomAccessFile, f, "rwd"_s)->getChannel());
 		{

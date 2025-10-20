@@ -66,6 +66,7 @@ void Checksum::update($bytes* b) {
 }
 
 void Checksum::update($ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(buffer)->position();
 	int32_t limit = buffer->limit();
 	$init($Checksum$1);

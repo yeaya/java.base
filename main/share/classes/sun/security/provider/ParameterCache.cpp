@@ -104,6 +104,7 @@ $DSAParameterSpec* ParameterCache::getDSAParameterSpec(int32_t primeLen, $Secure
 
 $DSAParameterSpec* ParameterCache::getDSAParameterSpec(int32_t primeLen, int32_t subprimeLen, $SecureRandom* random) {
 	$init(ParameterCache);
+	$useLocalCurrentObjectStackCache();
 	$var($DSAParameterSpec, spec, getCachedDSAParameterSpec(primeLen, subprimeLen));
 	if (spec != nullptr) {
 		return spec;
@@ -115,6 +116,7 @@ $DSAParameterSpec* ParameterCache::getDSAParameterSpec(int32_t primeLen, int32_t
 
 $DHParameterSpec* ParameterCache::getDHParameterSpec(int32_t keyLength, $SecureRandom* random) {
 	$init(ParameterCache);
+	$useLocalCurrentObjectStackCache();
 	$var($DHParameterSpec, spec, getCachedDHParameterSpec(keyLength));
 	if (spec != nullptr) {
 		return spec;
@@ -130,6 +132,7 @@ $DHParameterSpec* ParameterCache::getDHParameterSpec(int32_t keyLength, $SecureR
 
 $DSAParameterSpec* ParameterCache::getNewDSAParameterSpec(int32_t primeLen, int32_t subprimeLen, $SecureRandom* random) {
 	$init(ParameterCache);
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterGenerator, gen, $AlgorithmParameterGenerator::getInstance("DSA"_s));
 	if (primeLen < 1024) {
 		$nc(gen)->init(primeLen, random);
@@ -144,6 +147,7 @@ $DSAParameterSpec* ParameterCache::getNewDSAParameterSpec(int32_t primeLen, int3
 }
 
 void clinit$ParameterCache($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(ParameterCache::dhCache, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
 		$assignStatic(ParameterCache::dsaCache, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));

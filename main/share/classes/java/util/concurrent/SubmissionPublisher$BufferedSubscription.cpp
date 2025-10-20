@@ -274,6 +274,7 @@ int32_t SubmissionPublisher$BufferedSubscription::estimateLag() {
 }
 
 int32_t SubmissionPublisher$BufferedSubscription::offer(Object$* item, bool unowned) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, nullptr);
 	int32_t stat = 0;
 	int32_t cap = (($assign(a, this->array)) == nullptr) ? 0 : $nc(a)->length;
@@ -299,6 +300,7 @@ int32_t SubmissionPublisher$BufferedSubscription::offer(Object$* item, bool unow
 }
 
 bool SubmissionPublisher$BufferedSubscription::growAndOffer(Object$* item, $ObjectArray* a, int32_t t) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cap = 0;
 	int32_t newCap = 0;
 	$var($ObjectArray, newArray, nullptr);
@@ -334,6 +336,7 @@ bool SubmissionPublisher$BufferedSubscription::growAndOffer(Object$* item, $Obje
 }
 
 int32_t SubmissionPublisher$BufferedSubscription::retryOffer(Object$* item) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, nullptr);
 	int32_t stat = 0;
 	int32_t t = this->tail;
@@ -359,6 +362,7 @@ int32_t SubmissionPublisher$BufferedSubscription::startOnOffer(int32_t stat) {
 }
 
 void SubmissionPublisher$BufferedSubscription::tryStart() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Executor, e, nullptr);
 		$var($SubmissionPublisher$ConsumerTask, task, $new($SubmissionPublisher$ConsumerTask, this));
@@ -466,6 +470,7 @@ void SubmissionPublisher$BufferedSubscription::consume() {
 }
 
 int32_t SubmissionPublisher$BufferedSubscription::takeItems($Flow$Subscriber* s, int64_t d, int32_t h) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, nullptr);
 	int32_t k = 0;
 	int32_t cap = 0;
@@ -490,6 +495,7 @@ int32_t SubmissionPublisher$BufferedSubscription::takeItems($Flow$Subscriber* s,
 }
 
 bool SubmissionPublisher$BufferedSubscription::consumeNext($Flow$Subscriber* s, Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Object, y, x);
 		if (s != nullptr) {
@@ -581,6 +587,7 @@ void SubmissionPublisher$BufferedSubscription::signalWaiter() {
 }
 
 bool SubmissionPublisher$BufferedSubscription::isReleasable() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, nullptr);
 	int32_t cap = 0;
 	bool var$0 = ((int32_t)(this->ctl & (uint32_t)SubmissionPublisher$BufferedSubscription::CLOSED)) != 0;
@@ -593,6 +600,7 @@ bool SubmissionPublisher$BufferedSubscription::isReleasable() {
 }
 
 void SubmissionPublisher$BufferedSubscription::awaitSpace(int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	if (!isReleasable()) {
 		$ForkJoinPool::helpAsyncBlocker(this->executor, this);
 		if (!isReleasable()) {
@@ -638,6 +646,7 @@ bool SubmissionPublisher$BufferedSubscription::block() {
 }
 
 void clinit$SubmissionPublisher$BufferedSubscription($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

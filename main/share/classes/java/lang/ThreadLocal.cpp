@@ -106,6 +106,7 @@ void ThreadLocal::init$() {
 }
 
 $Object* ThreadLocal::get() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
 	if (map != nullptr) {
@@ -119,12 +120,14 @@ $Object* ThreadLocal::get() {
 }
 
 bool ThreadLocal::isPresent() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
 	return map != nullptr && map->getEntry(this) != nullptr;
 }
 
 $Object* ThreadLocal::setInitialValue() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, value, initialValue());
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
@@ -140,6 +143,7 @@ $Object* ThreadLocal::setInitialValue() {
 }
 
 void ThreadLocal::set(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
 	if (map != nullptr) {
@@ -150,6 +154,7 @@ void ThreadLocal::set(Object$* value) {
 }
 
 void ThreadLocal::remove() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap, m, getMap($($Thread::currentThread())));
 	if (m != nullptr) {
 		m->remove(this);

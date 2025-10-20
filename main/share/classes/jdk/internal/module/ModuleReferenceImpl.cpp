@@ -101,6 +101,7 @@ void ModuleReferenceImpl::init$($ModuleDescriptor* descriptor, $URI* location, $
 }
 
 $ModuleReader* ModuleReferenceImpl::open() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($ModuleReader, $nc(this->readerSupplier)->get());
 	} catch ($UncheckedIOException&) {
@@ -157,6 +158,7 @@ int32_t ModuleReferenceImpl::hashCode() {
 }
 
 bool ModuleReferenceImpl::equals(Object$* ob) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(ModuleReferenceImpl, ob))) {
 		return false;
 	}
@@ -168,6 +170,7 @@ bool ModuleReferenceImpl::equals(Object$* ob) {
 }
 
 $String* ModuleReferenceImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[module "_s);
 	sb->append($($nc($(descriptor()))->name()));

@@ -293,6 +293,7 @@ void NormalizerImpl::init$() {
 }
 
 NormalizerImpl* NormalizerImpl::load($ByteBuffer* bytes) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, dataVersion, $ICUBinary::readHeaderAndDataVersion(bytes, NormalizerImpl::DATA_FORMAT, NormalizerImpl::IS_ACCEPTABLE));
 		int32_t indexesLength = $nc(bytes)->getInt() / 4;
@@ -829,6 +830,7 @@ int32_t NormalizerImpl::composeQuickCheck($CharSequence* s, int32_t src, int32_t
 }
 
 void NormalizerImpl::composeAndAppend($CharSequence* s, bool doCompose, bool onlyContiguous, $NormalizerImpl$ReorderingBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t src = 0;
 	int32_t limit = $nc(s)->length();
 	if (!$nc(buffer)->isEmpty()) {
@@ -1357,6 +1359,7 @@ int32_t NormalizerImpl::findNextFCDBoundary($CharSequence* s, int32_t p, int32_t
 
 int32_t NormalizerImpl::getDecompose($ints* chars, $StringArray* decomps) {
 	$init(NormalizerImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Normalizer2, impl, $Normalizer2::getNFDInstance());
 	int32_t length = 0;
 	int32_t norm16 = 0;
@@ -1386,6 +1389,7 @@ bool NormalizerImpl::needSingleQuotation(char16_t c) {
 
 $String* NormalizerImpl::canonicalDecomposeWithSingleQuotation($String* string) {
 	$init(NormalizerImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Normalizer2, impl, $Normalizer2::getNFDInstance());
 	$var($chars, src, $nc(string)->toCharArray());
 	int32_t srcIndex = 0;
@@ -1551,6 +1555,7 @@ int32_t NormalizerImpl::insertOrdered($chars* source, int32_t start, int32_t cur
 
 int32_t NormalizerImpl::mergeOrdered($chars* source, int32_t start, int32_t current, $chars* data, int32_t next, int32_t limit) {
 	$init(NormalizerImpl);
+	$useLocalCurrentObjectStackCache();
 	int32_t r = 0;
 	int32_t cc = 0;
 	int32_t trailCC = 0;

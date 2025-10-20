@@ -62,6 +62,7 @@ $Object* GetBooleanAction::run() {
 
 bool GetBooleanAction::privilegedGetProperty($String* theProp) {
 	$init(GetBooleanAction);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($System::getSecurityManager() == nullptr) {
 		return $Boolean::getBoolean(theProp);

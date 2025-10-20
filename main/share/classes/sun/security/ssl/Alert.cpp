@@ -266,6 +266,7 @@ Alert* Alert::valueOf(int8_t id) {
 
 $String* Alert::nameOf(int8_t id) {
 	$init(Alert);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($AlertArray, arr$, Alert::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -287,6 +288,7 @@ $SSLException* Alert::createSSLException($String* reason) {
 }
 
 $SSLException* Alert::createSSLException($String* reason$renamed, $Throwable* cause) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, reason, reason$renamed);
 	if (reason == nullptr) {
 		$assign(reason, (cause != nullptr) ? $nc(cause)->getMessage() : ""_s);

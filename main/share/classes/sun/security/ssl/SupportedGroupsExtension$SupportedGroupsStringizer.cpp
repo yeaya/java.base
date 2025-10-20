@@ -64,6 +64,7 @@ void SupportedGroupsExtension$SupportedGroupsStringizer::init$() {
 }
 
 $String* SupportedGroupsExtension$SupportedGroupsStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($SupportedGroupsExtension$SupportedGroupsSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

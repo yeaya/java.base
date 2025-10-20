@@ -54,6 +54,7 @@ $Object* SecureKey::nullObject = nullptr;
 
 $Object* SecureKey::getCurrentSecurityContext() {
 	$init(SecureKey);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	$var($Object, context, nullptr);
 	if (sm != nullptr) {

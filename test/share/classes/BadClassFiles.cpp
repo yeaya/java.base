@@ -117,6 +117,7 @@ void BadClassFiles::main($StringArray* args) {
 }
 
 void BadClassFiles::assertBadParameters($Class* cls) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$init($System);
@@ -138,6 +139,7 @@ void BadClassFiles::assertBadParameters($Class* cls) {
 }
 
 void BadClassFiles::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ClassArray, arr$, this->classes);
 		int32_t len$ = $nc(arr$)->length;

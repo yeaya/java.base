@@ -61,6 +61,7 @@ void AnnotationTypeRuntimeAssumptionTest::init$() {
 
 void AnnotationTypeRuntimeAssumptionTest::main($StringArray* args) {
 	$load(AnnotationTypeRuntimeAssumptionTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, altLoader, $new($AnnotationTypeRuntimeAssumptionTest$AltClassLoader, $(AnnotationTypeRuntimeAssumptionTest::class$->getClassLoader())));
 	$load($AnnotationTypeRuntimeAssumptionTest$TestTask);

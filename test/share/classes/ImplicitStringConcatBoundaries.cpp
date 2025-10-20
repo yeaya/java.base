@@ -174,6 +174,7 @@ void ImplicitStringConcatBoundaries::init$() {
 
 void ImplicitStringConcatBoundaries::main($StringArray* args) {
 	$init(ImplicitStringConcatBoundaries);
+	$useLocalCurrentObjectStackCache();
 	test("foofalse"_s, $$str({"foo"_s, $$str(ImplicitStringConcatBoundaries::BOOL_FALSE_1)}));
 	test("foofalse"_s, $$str({"foo"_s, $$str(ImplicitStringConcatBoundaries::BOOL_FALSE_2)}));
 	test("footrue"_s, $$str({"foo"_s, $$str(ImplicitStringConcatBoundaries::BOOL_TRUE_1)}));
@@ -218,6 +219,7 @@ void ImplicitStringConcatBoundaries::main($StringArray* args) {
 
 void ImplicitStringConcatBoundaries::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcatBoundaries);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);

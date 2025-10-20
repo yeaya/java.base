@@ -292,6 +292,7 @@ int32_t WeekFields$ComputedDayOfField::localizedWeekBasedYear($TemporalAccessor*
 }
 
 int32_t WeekFields$ComputedDayOfField::localizedWeekOfWeekBasedYear($TemporalAccessor* temporal) {
+	$useLocalCurrentObjectStackCache();
 	int32_t dow = localizedDayOfWeek(temporal);
 	$init($ChronoField);
 	int32_t doy = $nc(temporal)->get($ChronoField::DAY_OF_YEAR);
@@ -343,6 +344,7 @@ $Temporal* WeekFields$ComputedDayOfField::adjustInto($Temporal* temporal, int64_
 }
 
 $TemporalAccessor* WeekFields$ComputedDayOfField::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	int64_t value = $nc(($cast($Long, $($nc(fieldValues)->get(this)))))->longValue();
 	int32_t newValue = $Math::toIntExact(value);
 	$init($ChronoUnit);
@@ -382,6 +384,7 @@ $TemporalAccessor* WeekFields$ComputedDayOfField::resolve($Map* fieldValues, $Te
 }
 
 $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWoM($Map* fieldValues, $Chronology* chrono, int32_t year, int64_t month, int64_t wom, int32_t localDow, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$var($ChronoLocalDate, date, nullptr);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
@@ -438,6 +441,7 @@ $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWoY($Map* fieldValues, $
 }
 
 $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWBY($Map* fieldValues, $Chronology* chrono, int32_t localDow, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	int32_t yowby = $nc($($nc($nc(this->weekDef)->weekBasedYear$)->range()))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->get($nc(this->weekDef)->weekBasedYear$)))))->longValue(), $nc(this->weekDef)->weekBasedYear$);
 	$var($ChronoLocalDate, date, nullptr);
 	$init($ResolverStyle);
@@ -463,6 +467,7 @@ $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWBY($Map* fieldValues, $
 }
 
 $String* WeekFields$ComputedDayOfField::getDisplayName($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(locale), "locale"_s);
 	$init($ChronoUnit);
 	if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
@@ -559,6 +564,7 @@ $ValueRange* WeekFields$ComputedDayOfField::rangeByWeek($TemporalAccessor* tempo
 }
 
 $ValueRange* WeekFields$ComputedDayOfField::rangeWeekOfWeekBasedYear($TemporalAccessor* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	if (!$nc(temporal)->isSupported($ChronoField::DAY_OF_YEAR)) {
 		return WeekFields$ComputedDayOfField::WEEK_OF_YEAR_RANGE;

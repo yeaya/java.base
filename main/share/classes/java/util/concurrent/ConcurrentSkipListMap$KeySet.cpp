@@ -278,6 +278,7 @@ $Iterator* ConcurrentSkipListMap$KeySet::iterator() {
 }
 
 bool ConcurrentSkipListMap$KeySet::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}

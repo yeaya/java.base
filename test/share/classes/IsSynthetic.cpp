@@ -68,6 +68,7 @@ void IsSynthetic::init$() {
 }
 
 int32_t IsSynthetic::test($Class* clazz, bool expected) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(clazz)->isSynthetic() == expected) {
 		return 0;
 	} else {
@@ -79,6 +80,7 @@ int32_t IsSynthetic::test($Class* clazz, bool expected) {
 
 void IsSynthetic::main($StringArray* argv) {
 	$load(IsSynthetic);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	{

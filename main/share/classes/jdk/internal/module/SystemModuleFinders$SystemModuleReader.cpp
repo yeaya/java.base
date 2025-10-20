@@ -170,6 +170,7 @@ $Object* allocate$SystemModuleFinders$SystemModuleReader($Class* clazz) {
 
 void SystemModuleFinders$SystemModuleReader::checkPermissionToConnect($URI* uri) {
 	$init(SystemModuleFinders$SystemModuleReader);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		try {
@@ -214,6 +215,7 @@ bool SystemModuleFinders$SystemModuleReader::containsImageLocation($String* name
 }
 
 $Optional* SystemModuleFinders$SystemModuleReader::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (containsImageLocation(name)) {
 		$init($SystemModuleFinders);
 		$var($URI, u, $nc($SystemModuleFinders::JNUA)->create("jrt"_s, $$str({"/"_s, this->module, "/"_s, name})));
@@ -224,10 +226,12 @@ $Optional* SystemModuleFinders$SystemModuleReader::find($String* name) {
 }
 
 $Optional* SystemModuleFinders$SystemModuleReader::open($String* name) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(read(name)))->map(static_cast<$Function*>($$new(SystemModuleFinders$SystemModuleReader$$Lambda$toInputStream, this)));
 }
 
 $InputStream* SystemModuleFinders$SystemModuleReader::toInputStream($ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($InputStream, var$2, nullptr);
@@ -255,6 +259,7 @@ $InputStream* SystemModuleFinders$SystemModuleReader::toInputStream($ByteBuffer*
 }
 
 $Optional* SystemModuleFinders$SystemModuleReader::read($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageLocation, location, findImageLocation(name));
 	if (location != nullptr) {
 		return $Optional::of($($nc($($SystemModuleFinders$SystemImage::reader()))->getResourceBuffer(location)));

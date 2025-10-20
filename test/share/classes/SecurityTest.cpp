@@ -45,6 +45,7 @@ void SecurityTest::init$() {
 }
 
 void SecurityTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $File::createTempFile("foo"_s, nullptr));
 	} catch ($AccessControlException&) {

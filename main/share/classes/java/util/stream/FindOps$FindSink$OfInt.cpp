@@ -248,6 +248,7 @@ void FindOps$FindSink$OfInt::accept($Integer* value) {
 }
 
 void clinit$FindOps$FindSink$OfInt($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamShape);
 	$var($StreamShape, var$0, $StreamShape::INT_VALUE);
 	$var($Object, var$1, $of($OptionalInt::empty()));

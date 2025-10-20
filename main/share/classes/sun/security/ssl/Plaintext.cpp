@@ -80,6 +80,7 @@ void Plaintext::init$(int8_t contentType, int8_t majorVersion, int8_t minorVersi
 }
 
 $String* Plaintext::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"contentType: "_s, $$str(this->contentType), "/majorVersion: "_s, $$str(this->majorVersion), "/minorVersion: "_s, $$str(this->minorVersion), "/recordEpoch: "_s, $$str(this->recordEpoch), "/recordSN: 0x"_s, $($Long::toHexString(this->recordSN)), "/fragment: "_s, this->fragment});
 }
 

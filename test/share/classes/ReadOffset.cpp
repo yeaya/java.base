@@ -56,6 +56,7 @@ void ReadOffset::init$() {
 }
 
 void ReadOffset::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReadableByteChannel, rbc, $new($ReadOffset$1));
 	$var($InputStream, in, $Channels::newInputStream(rbc));
 	$var($bytes, b, $new($bytes, 3));

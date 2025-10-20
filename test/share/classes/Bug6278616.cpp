@@ -63,6 +63,7 @@ void Bug6278616::init$() {
 
 void Bug6278616::main($StringArray* args) {
 	$init(Bug6278616);
+	$useLocalCurrentObjectStackCache();
 	$var($NumberFormat, nf, $NumberFormat::getInstance());
 	for (int32_t j = 0; j < $nc(Bug6278616::ints)->length; ++j) {
 		$var($String, s_i, $nc(nf)->format((int64_t)$nc(Bug6278616::ints)->get(j)));

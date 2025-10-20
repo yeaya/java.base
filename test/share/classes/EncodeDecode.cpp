@@ -39,6 +39,7 @@ void EncodeDecode::init$() {
 }
 
 void EncodeDecode::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, "fds@$"_s);
 	$var($String, encStr, $URLEncoder::encode(str));
 	$var($String, decStr, $URLDecoder::decode(encStr));

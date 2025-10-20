@@ -116,6 +116,7 @@ void TrustManagerFactoryImpl::init$() {
 }
 
 void TrustManagerFactoryImpl::engineInit($KeyStore* ks) {
+	$useLocalCurrentObjectStackCache();
 	if (ks == nullptr) {
 		try {
 			$set(this, trustManager, getInstance($(static_cast<$Collection*>($TrustStoreManager::getTrustedCerts()))));

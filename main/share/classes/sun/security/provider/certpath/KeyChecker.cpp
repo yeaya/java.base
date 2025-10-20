@@ -109,6 +109,7 @@ bool KeyChecker::isForwardCheckingSupported() {
 }
 
 $Set* KeyChecker::getSupportedExtensions() {
+	$useLocalCurrentObjectStackCache();
 	if (this->supportedExts == nullptr) {
 		$set(this, supportedExts, $new($HashSet, 3));
 		$init($PKIXExtensions);
@@ -121,6 +122,7 @@ $Set* KeyChecker::getSupportedExtensions() {
 }
 
 void KeyChecker::check($Certificate* cert, $Collection* unresCritExts) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, currCert, $cast($X509Certificate, cert));
 	--this->remainingCerts;
 	if (this->remainingCerts == 0) {
@@ -140,6 +142,7 @@ void KeyChecker::check($Certificate* cert, $Collection* unresCritExts) {
 
 void KeyChecker::verifyCAKeyUsage($X509Certificate* cert) {
 	$init(KeyChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "CA key usage"_s);
 	if (KeyChecker::debug != nullptr) {
 		$nc(KeyChecker::debug)->println($$str({"KeyChecker.verifyCAKeyUsage() ---checking "_s, msg, "..."_s}));

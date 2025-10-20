@@ -236,6 +236,7 @@ StreamOpFlag* StreamOpFlag::valueOf($String* name) {
 
 $StreamOpFlag$MaskBuilder* StreamOpFlag::set($StreamOpFlag$Type* t) {
 	$init(StreamOpFlag);
+	$useLocalCurrentObjectStackCache();
 	$load($StreamOpFlag$Type);
 	return $$new($StreamOpFlag$MaskBuilder, $$new($EnumMap, $StreamOpFlag$Type::class$))->set(t);
 }
@@ -281,6 +282,7 @@ bool StreamOpFlag::canSet($StreamOpFlag$Type* t) {
 
 int32_t StreamOpFlag::createMask($StreamOpFlag$Type* t) {
 	$init(StreamOpFlag);
+	$useLocalCurrentObjectStackCache();
 	int32_t mask = 0;
 	{
 		$var($StreamOpFlagArray, arr$, StreamOpFlag::values());
@@ -349,6 +351,7 @@ int32_t StreamOpFlag::fromCharacteristics(int32_t characteristics) {
 }
 
 void clinit$StreamOpFlag($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamOpFlag$Type);
 	$assignStatic(StreamOpFlag::DISTINCT, $new(StreamOpFlag, "DISTINCT"_s, 0, 0, $($nc($($nc($(StreamOpFlag::set($StreamOpFlag$Type::SPLITERATOR)))->set($StreamOpFlag$Type::STREAM)))->setAndClear($StreamOpFlag$Type::OP))));
 	$assignStatic(StreamOpFlag::SORTED, $new(StreamOpFlag, "SORTED"_s, 1, 1, $($nc($($nc($(StreamOpFlag::set($StreamOpFlag$Type::SPLITERATOR)))->set($StreamOpFlag$Type::STREAM)))->setAndClear($StreamOpFlag$Type::OP))));

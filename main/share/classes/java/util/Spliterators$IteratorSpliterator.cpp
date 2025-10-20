@@ -117,6 +117,7 @@ void Spliterators$IteratorSpliterator::init$($Iterator* iterator, int32_t charac
 }
 
 $Spliterator* Spliterators$IteratorSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, nullptr);
 	int64_t s = 0;
 	if (($assign(i, this->it)) == nullptr) {

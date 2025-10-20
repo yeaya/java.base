@@ -90,6 +90,7 @@ bool ObjectStreamClass$EntryFuture::set(Object$* entry) {
 
 $Object* ObjectStreamClass$EntryFuture::get() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		bool interrupted = false;
 		while ($equals(this->entry, ObjectStreamClass$EntryFuture::unset)) {

@@ -150,6 +150,7 @@ void UUID::init$(int64_t mostSigBits, int64_t leastSigBits) {
 
 UUID* UUID::randomUUID() {
 	$init(UUID);
+	$useLocalCurrentObjectStackCache();
 	$init($UUID$Holder);
 	$var($SecureRandom, ng, $UUID$Holder::numberGenerator);
 	$var($bytes, randomBytes, $new($bytes, 16));
@@ -163,6 +164,7 @@ UUID* UUID::randomUUID() {
 
 UUID* UUID::nameUUIDFromBytes($bytes* name) {
 	$init(UUID);
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("MD5"_s));

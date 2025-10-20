@@ -103,6 +103,7 @@ $SSLSession* SSLSocket::getHandshakeSession() {
 }
 
 $SSLParameters* SSLSocket::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setCipherSuites($(getEnabledCipherSuites()));
 	params->setProtocols($(getEnabledProtocols()));

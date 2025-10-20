@@ -394,6 +394,7 @@ int32_t Collections::binarySearch($List* list, Object$* key) {
 
 int32_t Collections::indexedBinarySearch($List* list, Object$* key) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t low = 0;
 	int32_t high = $nc(list)->size() - 1;
 	while (low <= high) {
@@ -413,6 +414,7 @@ int32_t Collections::indexedBinarySearch($List* list, Object$* key) {
 
 int32_t Collections::iteratorBinarySearch($List* list, Object$* key) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t low = 0;
 	int32_t high = $nc(list)->size() - 1;
 	$var($ListIterator, i, list->listIterator());
@@ -461,6 +463,7 @@ int32_t Collections::binarySearch($List* list, Object$* key, $Comparator* c) {
 
 int32_t Collections::indexedBinarySearch($List* l, Object$* key, $Comparator* c) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t low = 0;
 	int32_t high = $nc(l)->size() - 1;
 	while (low <= high) {
@@ -480,6 +483,7 @@ int32_t Collections::indexedBinarySearch($List* l, Object$* key, $Comparator* c)
 
 int32_t Collections::iteratorBinarySearch($List* l, Object$* key, $Comparator* c) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t low = 0;
 	int32_t high = $nc(l)->size() - 1;
 	$var($ListIterator, i, l->listIterator());
@@ -500,6 +504,7 @@ int32_t Collections::iteratorBinarySearch($List* l, Object$* key, $Comparator* c
 
 void Collections::reverse($List* list) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(list)->size();
 	if (size < Collections::REVERSE_THRESHOLD || $instanceOf($RandomAccess, list)) {
 		{
@@ -536,6 +541,7 @@ void Collections::shuffle($List* list) {
 
 void Collections::shuffle($List* list, $Random* rnd) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(list)->size();
 	if (size < Collections::SHUFFLE_THRESHOLD || $instanceOf($RandomAccess, list)) {
 		for (int32_t i = size; i > 1; --i) {
@@ -564,6 +570,7 @@ void Collections::shuffle($List* list, $Random* rnd) {
 
 void Collections::swap($List* list, int32_t i, int32_t j) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	$var($List, l, list);
 	$nc(l)->set(i, $(l->set(j, $(l->get(i)))));
 }
@@ -593,6 +600,7 @@ void Collections::fill($List* list, Object$* obj) {
 
 void Collections::copy($List* dest, $List* src) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t srcSize = $nc(src)->size();
 	if (srcSize > $nc(dest)->size()) {
 		$throwNew($IndexOutOfBoundsException, "Source does not fit in dest"_s);
@@ -613,6 +621,7 @@ void Collections::copy($List* dest, $List* src) {
 
 $Object* Collections::min($Collection* coll) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc(coll)->iterator());
 	$var($Object, candidate, $nc(i)->next());
 	while (i->hasNext()) {
@@ -626,6 +635,7 @@ $Object* Collections::min($Collection* coll) {
 
 $Object* Collections::min($Collection* coll, $Comparator* comp) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	if (comp == nullptr) {
 		return $of(min(coll));
 	}
@@ -642,6 +652,7 @@ $Object* Collections::min($Collection* coll, $Comparator* comp) {
 
 $Object* Collections::max($Collection* coll) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc(coll)->iterator());
 	$var($Object, candidate, $nc(i)->next());
 	while (i->hasNext()) {
@@ -655,6 +666,7 @@ $Object* Collections::max($Collection* coll) {
 
 $Object* Collections::max($Collection* coll, $Comparator* comp) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	if (comp == nullptr) {
 		return $of(max(coll));
 	}
@@ -680,6 +692,7 @@ void Collections::rotate($List* list, int32_t distance) {
 
 void Collections::rotate1($List* list, int32_t distance) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(list)->size();
 	if (size == 0) {
 		return;
@@ -711,6 +724,7 @@ void Collections::rotate1($List* list, int32_t distance) {
 
 void Collections::rotate2($List* list, int32_t distance) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(list)->size();
 	if (size == 0) {
 		return;
@@ -729,6 +743,7 @@ void Collections::rotate2($List* list, int32_t distance) {
 
 bool Collections::replaceAll($List* list, Object$* oldVal, Object$* newVal) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	bool result = false;
 	int32_t size = $nc(list)->size();
 	if (size < Collections::REPLACEALL_THRESHOLD || $instanceOf($RandomAccess, list)) {
@@ -770,6 +785,7 @@ bool Collections::replaceAll($List* list, Object$* oldVal, Object$* newVal) {
 
 int32_t Collections::indexOfSubList($List* source, $List* target) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t sourceSize = $nc(source)->size();
 	int32_t targetSize = $nc(target)->size();
 	int32_t maxCandidate = sourceSize - targetSize;
@@ -820,6 +836,7 @@ int32_t Collections::indexOfSubList($List* source, $List* target) {
 
 int32_t Collections::lastIndexOfSubList($List* source, $List* target) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t sourceSize = $nc(source)->size();
 	int32_t targetSize = $nc(target)->size();
 	int32_t maxCandidate = sourceSize - targetSize;
@@ -1136,6 +1153,7 @@ $Map* Collections::singletonMap(Object$* key, Object$* value) {
 
 $List* Collections::nCopies(int32_t n, Object$* o) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	if (n < 0) {
 		$throwNew($IllegalArgumentException, $$str({"List length = "_s, $$str(n)}));
 	}
@@ -1178,6 +1196,7 @@ $Enumeration* Collections::enumeration($Collection* c) {
 
 $ArrayList* Collections::list($Enumeration* e) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, l, $new($ArrayList));
 	while ($nc(e)->hasMoreElements()) {
 		l->add($(e->nextElement()));
@@ -1192,6 +1211,7 @@ bool Collections::eq(Object$* o1, Object$* o2) {
 
 int32_t Collections::frequency($Collection* c, Object$* o) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	int32_t result = 0;
 	if (o == nullptr) {
 		{
@@ -1219,6 +1239,7 @@ int32_t Collections::frequency($Collection* c, Object$* o) {
 
 bool Collections::disjoint($Collection* c1, $Collection* c2) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, contains, c2);
 	$var($Collection, iterate, c1);
 	if ($instanceOf($Set, c1)) {
@@ -1251,6 +1272,7 @@ bool Collections::disjoint($Collection* c1, $Collection* c2) {
 
 bool Collections::addAll($Collection* c, $ObjectArray* elements) {
 	$init(Collections);
+	$useLocalCurrentObjectStackCache();
 	bool result = false;
 	{
 		$var($ObjectArray, arr$, elements);

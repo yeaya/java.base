@@ -55,6 +55,7 @@ void SignatureReader::init$($String* signature) {
 }
 
 void SignatureReader::accept($SignatureVisitor* signatureVistor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, signature, this->signatureValue);
 	int32_t length = $nc(signature)->length();
 	int32_t offset = 0;
@@ -98,6 +99,7 @@ void SignatureReader::acceptType($SignatureVisitor* signatureVisitor) {
 }
 
 int32_t SignatureReader::parseType($String* signature, int32_t startOffset, $SignatureVisitor* signatureVisitor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t offset = startOffset;
 	char16_t currentChar = $nc(signature)->charAt(offset++);
 	{

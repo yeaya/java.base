@@ -149,6 +149,7 @@ void HttpURLConnection$HttpInputStream::ensureOpen() {
 }
 
 int32_t HttpURLConnection$HttpInputStream::read() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	try {
 		$var($bytes, b, $new($bytes, 1));
@@ -223,6 +224,7 @@ int64_t HttpURLConnection$HttpInputStream::skip(int64_t n) {
 }
 
 void HttpURLConnection$HttpInputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}

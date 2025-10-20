@@ -119,6 +119,7 @@ $Object* allocate$SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher($Class* cl
 }
 
 void SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SSLCipher* sslCipher, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$SSLCipher$SSLWriteCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
 	this->tagSize = $nc(sslCipher)->tagSize;
@@ -138,6 +139,7 @@ void SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher::init$($Authenticator* 
 }
 
 int32_t SSLCipher$T13GcmWriteCipherGenerator$GcmWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sn, $nc(this->authenticator)->sequenceNumber());
 	$var($bytes, nonce, $cast($bytes, $nc(this->iv)->clone()));
 	int32_t offset = nonce->length - $nc(sn)->length;

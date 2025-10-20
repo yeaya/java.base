@@ -121,6 +121,7 @@ ImageStream* ImageStream::align(int32_t alignment) {
 }
 
 void ImageStream::ensure(int32_t needs) {
+	$useLocalCurrentObjectStackCache();
 	if (needs < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Bad value: "_s, $$str(needs)}));
 	}
@@ -144,6 +145,7 @@ bool ImageStream::hasBytes(int32_t needs) {
 }
 
 void ImageStream::skip(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	if (n < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"skip value = "_s, $$str(n)}));
 	}

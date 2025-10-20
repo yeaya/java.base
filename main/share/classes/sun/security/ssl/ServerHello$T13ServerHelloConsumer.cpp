@@ -158,6 +158,7 @@ void ServerHello$T13ServerHelloConsumer::init$() {
 }
 
 void ServerHello$T13ServerHelloConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($ServerHello$ServerHelloMessage, serverHello, $cast($ServerHello$ServerHelloMessage, message));
 	$init($ProtocolVersion);

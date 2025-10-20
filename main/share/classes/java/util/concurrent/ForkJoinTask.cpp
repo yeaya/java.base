@@ -261,6 +261,7 @@ bool ForkJoinTask::casAux($ForkJoinTask$Aux* c, $ForkJoinTask$Aux* v) {
 }
 
 void ForkJoinTask::signalWaiters() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ForkJoinTask$Aux, a, nullptr);
 		for (;;) {
@@ -306,6 +307,7 @@ int32_t ForkJoinTask::trySetCancelled() {
 }
 
 int32_t ForkJoinTask::trySetThrown($Throwable* ex) {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinTask$Aux, h, $new($ForkJoinTask$Aux, $($Thread::currentThread()), ex));
 	$var($ForkJoinTask$Aux, p, nullptr);
 	bool installed = false;
@@ -367,6 +369,7 @@ int32_t ForkJoinTask::doExec() {
 }
 
 int32_t ForkJoinTask::awaitDone($ForkJoinPool* pool$renamed, bool ran, bool interruptible, bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinPool, pool, pool$renamed);
 	$var($ForkJoinPool, p, nullptr);
 	bool internal = false;
@@ -543,6 +546,7 @@ void ForkJoinTask::cancelIgnoringExceptions($Future* t) {
 }
 
 $Throwable* ForkJoinTask::getThrowableException() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Throwable, ex, nullptr);
 	$var($ForkJoinTask$Aux, a, nullptr);
@@ -624,6 +628,7 @@ void ForkJoinTask::uncheckedThrow($Throwable* t$renamed) {
 }
 
 ForkJoinTask* ForkJoinTask::fork() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	$var($ForkJoinWorkerThread, w, nullptr);
 	if ($instanceOf($ForkJoinWorkerThread, $assign(t, $Thread::currentThread()))) {
@@ -678,6 +683,7 @@ void ForkJoinTask::invokeAll(ForkJoinTask* t1, ForkJoinTask* t2) {
 
 void ForkJoinTask::invokeAll($ForkJoinTaskArray* tasks) {
 	$init(ForkJoinTask);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, ex, nullptr);
 	int32_t last = $nc(tasks)->length - 1;
 	for (int32_t i = last; i >= 0; --i) {
@@ -722,6 +728,7 @@ void ForkJoinTask::invokeAll($ForkJoinTaskArray* tasks) {
 
 $Collection* ForkJoinTask::invokeAll($Collection* tasks) {
 	$init(ForkJoinTask);
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($RandomAccess, tasks)) || !($instanceOf($List, tasks))) {
 		invokeAll($fcast($ForkJoinTaskArray, $($nc(tasks)->toArray($$new($ForkJoinTaskArray, 0)))));
 		return tasks;
@@ -876,6 +883,7 @@ $Object* ForkJoinTask::getForPoolInvoke($ForkJoinPool* pool, int64_t nanos) {
 
 void ForkJoinTask::helpQuiesce() {
 	$init(ForkJoinTask);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	$var($ForkJoinWorkerThread, w, nullptr);
 	$var($ForkJoinPool, p, nullptr);
@@ -904,6 +912,7 @@ bool ForkJoinTask::inForkJoinPool() {
 }
 
 bool ForkJoinTask::tryUnfork() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	$var($ForkJoinPool$WorkQueue, q, nullptr);
 	bool var$0 = false;
@@ -919,6 +928,7 @@ bool ForkJoinTask::tryUnfork() {
 
 int32_t ForkJoinTask::getQueuedTaskCount() {
 	$init(ForkJoinTask);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	$var($ForkJoinPool$WorkQueue, q, nullptr);
 	if ($instanceOf($ForkJoinWorkerThread, $assign(t, $Thread::currentThread()))) {
@@ -936,6 +946,7 @@ int32_t ForkJoinTask::getSurplusQueuedTaskCount() {
 
 ForkJoinTask* ForkJoinTask::peekNextLocalTask() {
 	$init(ForkJoinTask);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	$var($ForkJoinPool$WorkQueue, q, nullptr);
 	if ($instanceOf($ForkJoinWorkerThread, $assign(t, $Thread::currentThread()))) {
@@ -954,6 +965,7 @@ ForkJoinTask* ForkJoinTask::pollNextLocalTask() {
 
 ForkJoinTask* ForkJoinTask::pollTask() {
 	$init(ForkJoinTask);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	$var($ForkJoinWorkerThread, w, nullptr);
 	return (($instanceOf($ForkJoinWorkerThread, $assign(t, $Thread::currentThread()))) ? $nc($nc(($assign(w, $cast($ForkJoinWorkerThread, t))))->pool)->nextTaskFor($nc(w)->workQueue) : (ForkJoinTask*)nullptr);
@@ -1024,6 +1036,7 @@ void ForkJoinTask::readObject($ObjectInputStream* s) {
 }
 
 void clinit$ForkJoinTask($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

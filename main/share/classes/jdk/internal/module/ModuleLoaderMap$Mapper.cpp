@@ -96,6 +96,7 @@ $Integer* ModuleLoaderMap$Mapper::PLATFORM_LOADER_INDEX = nullptr;
 $Integer* ModuleLoaderMap$Mapper::APP_LOADER_INDEX = nullptr;
 
 void ModuleLoaderMap$Mapper::init$($Configuration* cf) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap, map, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());

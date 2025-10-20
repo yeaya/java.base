@@ -241,6 +241,7 @@ void ScheduledThreadPoolExecutor::reExecutePeriodic($RunnableScheduledFuture* ta
 }
 
 void ScheduledThreadPoolExecutor::onShutdown() {
+	$useLocalCurrentObjectStackCache();
 	$var($BlockingQueue, q, $ThreadPoolExecutor::getQueue());
 	bool keepDelayed = getExecuteExistingDelayedTasksAfterShutdownPolicy();
 	bool keepPeriodic = getContinueExistingPeriodicTasksAfterShutdownPolicy();
@@ -309,6 +310,7 @@ int64_t ScheduledThreadPoolExecutor::triggerTime(int64_t delay) {
 }
 
 int64_t ScheduledThreadPoolExecutor::overflowFree(int64_t delay) {
+	$useLocalCurrentObjectStackCache();
 	$var($Delayed, head, $cast($Delayed, $nc($($ThreadPoolExecutor::getQueue()))->peek()));
 	if (head != nullptr) {
 		$init($TimeUnit);
@@ -321,6 +323,7 @@ int64_t ScheduledThreadPoolExecutor::overflowFree(int64_t delay) {
 }
 
 $ScheduledFuture* ScheduledThreadPoolExecutor::schedule($Runnable* command, int64_t delay, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (command == nullptr || unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -332,6 +335,7 @@ $ScheduledFuture* ScheduledThreadPoolExecutor::schedule($Runnable* command, int6
 }
 
 $ScheduledFuture* ScheduledThreadPoolExecutor::schedule($Callable* callable, int64_t delay, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (callable == nullptr || unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -343,6 +347,7 @@ $ScheduledFuture* ScheduledThreadPoolExecutor::schedule($Callable* callable, int
 }
 
 $ScheduledFuture* ScheduledThreadPoolExecutor::scheduleAtFixedRate($Runnable* command, int64_t initialDelay, int64_t period, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (command == nullptr || unit == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -360,6 +365,7 @@ $ScheduledFuture* ScheduledThreadPoolExecutor::scheduleAtFixedRate($Runnable* co
 }
 
 $ScheduledFuture* ScheduledThreadPoolExecutor::scheduleWithFixedDelay($Runnable* command, int64_t initialDelay, int64_t delay, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (command == nullptr || unit == nullptr) {
 		$throwNew($NullPointerException);
 	}

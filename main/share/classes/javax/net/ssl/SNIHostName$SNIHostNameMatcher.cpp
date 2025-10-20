@@ -87,6 +87,7 @@ void SNIHostName$SNIHostNameMatcher::init$($String* regex) {
 }
 
 bool SNIHostName$SNIHostNameMatcher::matches($SNIServerName* serverName) {
+	$useLocalCurrentObjectStackCache();
 	if (serverName == nullptr) {
 		$throwNew($NullPointerException, "The SNIServerName argument cannot be null"_s);
 	}

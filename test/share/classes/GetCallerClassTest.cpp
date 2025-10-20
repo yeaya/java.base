@@ -228,6 +228,7 @@ void GetCallerClassTest::init$($StackWalker* sw, bool expect) {
 
 void GetCallerClassTest::main($StringArray* args) {
 	$init(GetCallerClassTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(args)->length > 0 && $nc(args->get(0))->equals("sm"_s)) {
 		$var($PermissionCollection, perms, $new($Permissions));
@@ -242,6 +243,7 @@ void GetCallerClassTest::main($StringArray* args) {
 }
 
 void GetCallerClassTest::test() {
+	$useLocalCurrentObjectStackCache();
 	$$new($GetCallerClassTest$TopLevelCaller, this)->run();
 	$$new($GetCallerClassTest$LambdaTest, this)->run();
 	$nc($($$new($GetCallerClassTest$Nested, this)->createNestedCaller()))->run();
@@ -280,6 +282,7 @@ void GetCallerClassTest::staticGetCallerClass($StackWalker* stackWalker, $Class*
 
 void GetCallerClassTest::reflectiveGetCallerClass($StackWalker* stackWalker, $Class* expected, bool expectUOE) {
 	$init(GetCallerClassTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($StackWalker);
@@ -302,6 +305,7 @@ void GetCallerClassTest::reflectiveGetCallerClass($StackWalker* stackWalker, $Cl
 
 void GetCallerClassTest::methodHandleGetCallerClass($StackWalker* stackWalker, $Class* expected, bool expectUOE) {
 	$init(GetCallerClassTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, lookup, $MethodHandles::lookup());
 	try {
@@ -326,6 +330,7 @@ void GetCallerClassTest::methodHandleGetCallerClass($StackWalker* stackWalker, $
 
 void GetCallerClassTest::assertEquals($Class* c, $Class* expected) {
 	$init(GetCallerClassTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (expected != c) {
 		if ($nc(c)->getNestHost() == $nc(expected)->getNestHost()) {

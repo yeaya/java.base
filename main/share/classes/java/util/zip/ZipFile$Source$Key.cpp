@@ -86,6 +86,7 @@ int32_t ZipFile$Source$Key::hashCode() {
 }
 
 bool ZipFile$Source$Key::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(ZipFile$Source$Key, key, nullptr);
 		bool var$0 = $instanceOf(ZipFile$Source$Key, obj);

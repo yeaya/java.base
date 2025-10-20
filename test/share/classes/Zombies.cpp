@@ -70,6 +70,7 @@ void Zombies::init$() {
 
 void Zombies::main($StringArray* args) {
 	$init(Zombies);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$$new($File, "/usr/bin/perl"_s)->canExecute();
 	if (var$0 || !$$new($File, "/bin/ps"_s)->canExecute()) {
 		return;

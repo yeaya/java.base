@@ -209,6 +209,7 @@ $Object* allocate$LocaleMatcher($Class* clazz) {
 }
 
 $List* LocaleMatcher::filter($List* priorityList, $Collection* locales, $Locale$FilteringMode* mode) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(priorityList)->isEmpty();
 	if (var$0 || $nc(locales)->isEmpty()) {
 		return $new($ArrayList);
@@ -238,6 +239,7 @@ $List* LocaleMatcher::filter($List* priorityList, $Collection* locales, $Locale$
 }
 
 $List* LocaleMatcher::filterTags($List* priorityList, $Collection* tags, $Locale$FilteringMode* mode) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(priorityList)->isEmpty();
 	if (var$0 || $nc(tags)->isEmpty()) {
 		return $new($ArrayList);
@@ -283,6 +285,7 @@ $List* LocaleMatcher::filterTags($List* priorityList, $Collection* tags, $Locale
 }
 
 $List* LocaleMatcher::filterBasic($List* priorityList, $Collection* tags$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, tags, tags$renamed);
 	int32_t splitIndex = splitRanges(priorityList);
 	$var($List, nonZeroRanges, nullptr);
@@ -332,6 +335,7 @@ $List* LocaleMatcher::filterBasic($List* priorityList, $Collection* tags$renamed
 }
 
 $Collection* LocaleMatcher::removeTagsMatchingBasicZeroRange($List* zeroRange, $Collection* tags$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, tags, tags$renamed);
 	if ($nc(zeroRange)->isEmpty()) {
 		$assign(tags, removeDuplicates(tags));
@@ -356,16 +360,19 @@ $Collection* LocaleMatcher::removeTagsMatchingBasicZeroRange($List* zeroRange, $
 }
 
 $Collection* LocaleMatcher::removeDuplicates($Collection* tags) {
+	$useLocalCurrentObjectStackCache();
 	$init($String);
 	$var($Set, distinctTags, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, $String::CASE_INSENSITIVE_ORDER))));
 	return $nc($($nc($($nc(tags)->stream()))->filter(static_cast<$Predicate*>($$new(LocaleMatcher$$Lambda$lambda$removeDuplicates$0, distinctTags)))))->toList();
 }
 
 bool LocaleMatcher::caseInsensitiveMatch($List* list, $String* tag) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(list)->stream()))->anyMatch(static_cast<$Predicate*>($$new(LocaleMatcher$$Lambda$lambda$caseInsensitiveMatch$1$1, tag)));
 }
 
 bool LocaleMatcher::shouldIgnoreFilterBasicMatch($List* zeroRange, $String* tag) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(zeroRange)->isEmpty()) {
 		return false;
 	}
@@ -392,6 +399,7 @@ bool LocaleMatcher::shouldIgnoreFilterBasicMatch($List* zeroRange, $String* tag)
 }
 
 $List* LocaleMatcher::filterExtended($List* priorityList, $Collection* tags$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, tags, tags$renamed);
 	int32_t splitIndex = splitRanges(priorityList);
 	$var($List, nonZeroRanges, nullptr);
@@ -442,6 +450,7 @@ $List* LocaleMatcher::filterExtended($List* priorityList, $Collection* tags$rena
 }
 
 $Collection* LocaleMatcher::removeTagsMatchingExtendedZeroRange($List* zeroRange, $Collection* tags$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, tags, tags$renamed);
 	if ($nc(zeroRange)->isEmpty()) {
 		$assign(tags, removeDuplicates(tags));
@@ -466,6 +475,7 @@ $Collection* LocaleMatcher::removeTagsMatchingExtendedZeroRange($List* zeroRange
 }
 
 bool LocaleMatcher::shouldIgnoreFilterExtendedMatch($List* zeroRange, $String* tag) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(zeroRange)->isEmpty()) {
 		return false;
 	}
@@ -516,6 +526,7 @@ int32_t LocaleMatcher::matchFilterExtendedSubtags($StringArray* rangeSubtags, $S
 }
 
 $Locale* LocaleMatcher::lookup($List* priorityList, $Collection* locales) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(priorityList)->isEmpty();
 	if (var$0 || $nc(locales)->isEmpty()) {
 		return nullptr;
@@ -539,6 +550,7 @@ $Locale* LocaleMatcher::lookup($List* priorityList, $Collection* locales) {
 }
 
 $String* LocaleMatcher::lookupTag($List* priorityList, $Collection* tags) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(priorityList)->isEmpty();
 	if (var$0 || $nc(tags)->isEmpty()) {
 		return nullptr;
@@ -587,6 +599,7 @@ $String* LocaleMatcher::lookupTag($List* priorityList, $Collection* tags) {
 }
 
 bool LocaleMatcher::shouldIgnoreLookupMatch($List* zeroRange, $String* tag) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(zeroRange)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -625,6 +638,7 @@ $String* LocaleMatcher::truncateRange($String* rangeForRegex$renamed) {
 }
 
 int32_t LocaleMatcher::splitRanges($List* priorityList) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(priorityList)->size();
 	for (int32_t index = 0; index < size; ++index) {
 		$var($Locale$LanguageRange, range, $cast($Locale$LanguageRange, priorityList->get(index)));
@@ -636,6 +650,7 @@ int32_t LocaleMatcher::splitRanges($List* priorityList) {
 }
 
 $List* LocaleMatcher::parse($String* ranges$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ranges, ranges$renamed);
 	$init($Locale);
 	$assign(ranges, $($nc(ranges)->replace(static_cast<$CharSequence*>(" "_s), static_cast<$CharSequence*>(""_s)))->toLowerCase($Locale::ROOT));
@@ -723,6 +738,7 @@ $List* LocaleMatcher::parse($String* ranges$renamed) {
 }
 
 $String* LocaleMatcher::replaceFirstSubStringMatch($String* range, $String* substr, $String* replacement) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(range)->indexOf(substr);
 	if (pos == -1) {
 		return range;
@@ -733,6 +749,7 @@ $String* LocaleMatcher::replaceFirstSubStringMatch($String* range, $String* subs
 }
 
 $StringArray* LocaleMatcher::getEquivalentsForLanguage($String* range) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, r, range);
 	while (!$nc(r)->isEmpty()) {
 		$init($LocaleEquivalentMaps);
@@ -759,6 +776,7 @@ $StringArray* LocaleMatcher::getEquivalentsForLanguage($String* range) {
 }
 
 $String* LocaleMatcher::getEquivalentForRegionAndVariant($String* range) {
+	$useLocalCurrentObjectStackCache();
 	int32_t extensionKeyIndex = getExtentionKeyIndex(range);
 	{
 		$init($LocaleEquivalentMaps);
@@ -799,6 +817,7 @@ int32_t LocaleMatcher::getExtentionKeyIndex($String* s) {
 }
 
 $List* LocaleMatcher::mapEquivalents($List* priorityList, $Map* map) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(priorityList)->isEmpty()) {
 		return $new($ArrayList);
 	}

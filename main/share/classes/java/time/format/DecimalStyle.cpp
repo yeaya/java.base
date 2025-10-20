@@ -100,6 +100,7 @@ $ConcurrentMap* DecimalStyle::CACHE = nullptr;
 
 $Set* DecimalStyle::getAvailableLocales() {
 	$init(DecimalStyle);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleArray, l, $DecimalFormatSymbols::getAvailableLocales());
 	$var($Set, locales, $new($HashSet, $nc(l)->length));
 	$Collections::addAll(locales, l);
@@ -227,6 +228,7 @@ int32_t DecimalStyle::hashCode() {
 }
 
 $String* DecimalStyle::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"DecimalStyle["_s, $$str(this->zeroDigit), $$str(this->positiveSign), $$str(this->negativeSign), $$str(this->decimalSeparator), "]"_s});
 }
 

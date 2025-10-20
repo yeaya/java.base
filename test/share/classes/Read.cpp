@@ -84,6 +84,7 @@ void Read::init$() {
 
 void Read::main($StringArray* args) {
 	$init(Read);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->setLength(4);
 	$assignStatic(Read::blah, $File::createTempFile("blah"_s, nullptr));
@@ -115,6 +116,7 @@ void Read::main($StringArray* args) {
 
 void Read::initTestFile($File* blah) {
 	$init(Read);
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
 	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>(fos), "8859_1"_s)));
 	for (int32_t i = 0; i < 4000; ++i) {

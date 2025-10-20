@@ -116,6 +116,7 @@ $Spliterator* WeakHashMap$EntrySpliterator::trySplit() {
 }
 
 void WeakHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -154,6 +155,7 @@ void WeakHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool WeakHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

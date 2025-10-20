@@ -84,6 +84,7 @@ void ITLConstructor::main($StringArray* args) {
 
 void ITLConstructor::test(bool inherit) {
 	$init(ITLConstructor);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, x, $new($ints, ITLConstructor::CHILD_THREAD_COUNT));
 	$var($ThreadGroup, var$0, $($Thread::currentThread())->getThreadGroup());
 	$var($Thread, child, $new($Thread, var$0, $$new($ITLConstructor$AnotherRunnable, 0, x, inherit), $$str({"ITLConstructor-thread-"_s, $$str((0))}), 0, inherit));

@@ -201,6 +201,7 @@ void LambdaSerialization::assertTrue(bool cond) {
 
 void LambdaSerialization::main($StringArray* args) {
 	$init(LambdaSerialization);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 		$var($ObjectOutput, out, $new($ObjectOutputStream, baos));
@@ -230,6 +231,7 @@ void LambdaSerialization::write($ObjectOutput* out, $LSI* lamb) {
 
 void LambdaSerialization::readAssert($ObjectInputStream* in, $String* expected) {
 	$init(LambdaSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($LSI, ls, $cast($LSI, $nc(in)->readObject()));
 	$var($String, result, $nc(ls)->convert("X"_s));
 	$init($System);
@@ -239,6 +241,7 @@ void LambdaSerialization::readAssert($ObjectInputStream* in, $String* expected) 
 
 $Object* LambdaSerialization::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(LambdaSerialization);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s1127$, $nc(lambda)->getImplMethodName());
 		int32_t tmp1127$ = -1;

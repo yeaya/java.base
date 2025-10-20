@@ -195,6 +195,7 @@ void IdentityHashMap::init$() {
 }
 
 void IdentityHashMap::init$(int32_t expectedMaxSize) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractMap::init$();
 	if (expectedMaxSize < 0) {
 		$throwNew($IllegalArgumentException, $$str({"expectedMaxSize is negative: "_s, $$str(expectedMaxSize)}));
@@ -236,6 +237,7 @@ int32_t IdentityHashMap::nextKeyIndex(int32_t i, int32_t len) {
 }
 
 $Object* IdentityHashMap::get(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -253,6 +255,7 @@ $Object* IdentityHashMap::get(Object$* key) {
 }
 
 bool IdentityHashMap::containsKey(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -280,6 +283,7 @@ bool IdentityHashMap::containsValue(Object$* value) {
 }
 
 bool IdentityHashMap::containsMapping(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -297,6 +301,7 @@ bool IdentityHashMap::containsMapping(Object$* key, Object$* value) {
 }
 
 $Object* IdentityHashMap::put(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	bool retryAfterResize$continue = false;
 	for (;;) {
@@ -326,6 +331,7 @@ $Object* IdentityHashMap::put(Object$* key, Object$* value) {
 }
 
 bool IdentityHashMap::resize(int32_t newCapacity) {
+	$useLocalCurrentObjectStackCache();
 	int32_t newLength = newCapacity * 2;
 	$var($ObjectArray, oldTable, this->table);
 	int32_t oldLength = $nc(oldTable)->length;
@@ -358,6 +364,7 @@ bool IdentityHashMap::resize(int32_t newCapacity) {
 }
 
 void IdentityHashMap::putAll($Map* m) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(m)->size();
 	if (n == 0) {
 		return;
@@ -376,6 +383,7 @@ void IdentityHashMap::putAll($Map* m) {
 }
 
 $Object* IdentityHashMap::remove(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -399,6 +407,7 @@ $Object* IdentityHashMap::remove(Object$* key) {
 }
 
 bool IdentityHashMap::removeMapping(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -424,6 +433,7 @@ bool IdentityHashMap::removeMapping(Object$* key, Object$* value) {
 }
 
 void IdentityHashMap::closeDeletion(int32_t d) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
 	$var($Object, item, nullptr);
@@ -449,6 +459,7 @@ void IdentityHashMap::clear() {
 }
 
 bool IdentityHashMap::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(IdentityHashMap, m, nullptr);
 		$var($Map, m_1, nullptr);
@@ -489,6 +500,7 @@ bool IdentityHashMap::equals(Object$* o) {
 }
 
 int32_t IdentityHashMap::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = 0;
 	$var($ObjectArray, tab, this->table);
 	for (int32_t i = 0; i < $nc(tab)->length; i += 2) {
@@ -503,6 +515,7 @@ int32_t IdentityHashMap::hashCode() {
 }
 
 $Object* IdentityHashMap::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(IdentityHashMap, m, $cast(IdentityHashMap, $AbstractMap::clone()));
 		$set($nc(m), entrySet$, nullptr);
@@ -543,6 +556,7 @@ $Set* IdentityHashMap::entrySet() {
 }
 
 void IdentityHashMap::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	s->writeInt(this->size$);
 	$var($ObjectArray, tab, this->table);
@@ -556,6 +570,7 @@ void IdentityHashMap::writeObject($ObjectOutputStream* s) {
 }
 
 void IdentityHashMap::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	int32_t size = s->readInt();
 	if (size < 0) {
@@ -573,6 +588,7 @@ void IdentityHashMap::readObject($ObjectInputStream* s) {
 }
 
 void IdentityHashMap::putForCreate(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	$var($ObjectArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -589,6 +605,7 @@ void IdentityHashMap::putForCreate(Object$* key, Object$* value) {
 }
 
 void IdentityHashMap::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, t, this->table);
@@ -604,6 +621,7 @@ void IdentityHashMap::forEach($BiConsumer* action) {
 }
 
 void IdentityHashMap::replaceAll($BiFunction* function) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(function);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, t, this->table);

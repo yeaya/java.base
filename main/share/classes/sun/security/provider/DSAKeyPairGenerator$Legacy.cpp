@@ -115,6 +115,7 @@ void DSAKeyPairGenerator$Legacy::initialize(int32_t modlen, bool genParams, $Sec
 }
 
 void DSAKeyPairGenerator$Legacy::initialize($DSAParams* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (params == nullptr) {
 		$throwNew($InvalidParameterException, "Params must not be null"_s);
 	}

@@ -233,6 +233,7 @@ void ThreadGroup::init$() {
 }
 
 void ThreadGroup::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	ThreadGroup::init$($($($Thread::currentThread())->getThreadGroup()), name);
 }
 
@@ -484,6 +485,7 @@ void ThreadGroup::suspend() {
 }
 
 bool ThreadGroup::stopOrSuspend(bool suspend) {
+	$useLocalCurrentObjectStackCache();
 	bool suicide = false;
 	$var($Thread, us, $Thread::currentThread());
 	int32_t ngroupsSnapshot = 0;
@@ -689,6 +691,7 @@ void ThreadGroup::list($PrintStream* out, int32_t indent) {
 }
 
 void ThreadGroup::uncaughtException($Thread* t, $Throwable* e) {
+	$useLocalCurrentObjectStackCache();
 	if (this->parent != nullptr) {
 		$nc(this->parent)->uncaughtException(t, e);
 	} else {
@@ -708,6 +711,7 @@ bool ThreadGroup::allowThreadSuspension(bool b) {
 }
 
 $String* ThreadGroup::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({$($of(this)->getClass()->getName()), "[name="_s}));
 	$var($String, var$2, $$concat(var$3, $(getName())));
 	$var($String, var$1, $$concat(var$2, ",maxpri="));

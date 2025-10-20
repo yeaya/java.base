@@ -65,6 +65,7 @@ $ValueRange* TemporalAccessor::range($TemporalField* field) {
 }
 
 int32_t TemporalAccessor::get($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	$var($ValueRange, range, this->range(field));
 	if ($nc(range)->isIntValue() == false) {
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Invalid field "_s, field, " for get() method, use getLong() instead"_s}));

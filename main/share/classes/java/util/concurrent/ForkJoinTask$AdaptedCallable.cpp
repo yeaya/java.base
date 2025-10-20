@@ -137,6 +137,7 @@ void ForkJoinTask$AdaptedCallable::setRawResult(Object$* v) {
 }
 
 bool ForkJoinTask$AdaptedCallable::exec() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, result, $nc(this->callable)->call());
 		return true;

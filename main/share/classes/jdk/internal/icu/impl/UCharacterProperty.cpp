@@ -355,6 +355,7 @@ int32_t UCharacterProperty::mergeScriptCodeOrIndex(int32_t scriptX) {
 }
 
 void UCharacterProperty::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, intProp, $new($UCharacterProperty$1, this));
 	$var($ByteBuffer, bytes, $ICUBinary::getRequiredData(UCharacterProperty::DATA_FILE_NAME_));
 	$set(this, m_unicodeVersion_, $ICUBinary::readHeaderAndDataVersion(bytes, UCharacterProperty::DATA_FORMAT, $$new($UCharacterProperty$IsAcceptable)));
@@ -403,6 +404,7 @@ void UCharacterProperty::init$() {
 }
 
 void UCharacterProperty::upropsvec_addPropertyStarts($UnicodeSet* set) {
+	$useLocalCurrentObjectStackCache();
 	if (this->m_additionalColumnsCount_ > 0) {
 		$var($Iterator, trieIterator, $nc(this->m_additionalTrie_)->iterator());
 		$var($Trie2$Range, range, nullptr);
@@ -419,6 +421,7 @@ void UCharacterProperty::upropsvec_addPropertyStarts($UnicodeSet* set) {
 }
 
 void clinit$UCharacterProperty($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($VersionInfo);
 	$assignStatic(UCharacterProperty::DATA_FILE_NAME_, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/uprops.icu"_s}));
 	UCharacterProperty::$assertionsDisabled = !UCharacterProperty::class$->desiredAssertionStatus();

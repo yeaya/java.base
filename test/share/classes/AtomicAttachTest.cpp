@@ -71,6 +71,7 @@ void AtomicAttachTest::init$() {
 }
 
 void AtomicAttachTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, selector, $Selector::open());
 	$var($Pipe, pipe, $Pipe::open());
 	$var($SelectableChannel, channel, $nc($($nc(pipe)->sink()))->configureBlocking(false));

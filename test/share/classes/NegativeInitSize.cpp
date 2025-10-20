@@ -66,6 +66,7 @@ void NegativeInitSize::init$() {
 }
 
 void NegativeInitSize::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream, -1));
 	} catch ($IllegalArgumentException&) {

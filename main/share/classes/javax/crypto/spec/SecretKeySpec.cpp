@@ -159,6 +159,7 @@ int32_t SecretKeySpec::hashCode() {
 }
 
 bool SecretKeySpec::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}

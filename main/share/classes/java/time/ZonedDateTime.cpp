@@ -319,6 +319,7 @@ ZonedDateTime* ZonedDateTime::now($ZoneId* zone) {
 
 ZonedDateTime* ZonedDateTime::now($Clock* clock) {
 	$init(ZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(clock), "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	return ofInstant(now, $(clock->getZone()));
@@ -342,6 +343,7 @@ ZonedDateTime* ZonedDateTime::of(int32_t year, int32_t month, int32_t dayOfMonth
 
 ZonedDateTime* ZonedDateTime::ofLocal($LocalDateTime* localDateTime$renamed, $ZoneId* zone, $ZoneOffset* preferredOffset) {
 	$init(ZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDateTime, localDateTime, localDateTime$renamed);
 	$Objects::requireNonNull($of(localDateTime), "localDateTime"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
@@ -387,6 +389,7 @@ ZonedDateTime* ZonedDateTime::ofInstant($LocalDateTime* localDateTime, $ZoneOffs
 
 ZonedDateTime* ZonedDateTime::create(int64_t epochSecond, int32_t nanoOfSecond, $ZoneId* zone) {
 	$init(ZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneRules, rules, $nc(zone)->getRules());
 	$var($Instant, instant, $Instant::ofEpochSecond(epochSecond, nanoOfSecond));
 	$var($ZoneOffset, offset, $nc(rules)->getOffset(instant));
@@ -396,6 +399,7 @@ ZonedDateTime* ZonedDateTime::create(int64_t epochSecond, int32_t nanoOfSecond, 
 
 ZonedDateTime* ZonedDateTime::ofStrict($LocalDateTime* localDateTime, $ZoneOffset* offset, $ZoneId* zone) {
 	$init(ZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(localDateTime), "localDateTime"_s);
 	$Objects::requireNonNull($of(offset), "offset"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
@@ -423,6 +427,7 @@ ZonedDateTime* ZonedDateTime::ofLenient($LocalDateTime* localDateTime, $ZoneOffs
 
 ZonedDateTime* ZonedDateTime::from($TemporalAccessor* temporal) {
 	$init(ZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(ZonedDateTime, temporal)) {
 		return $cast(ZonedDateTime, temporal);
 	}
@@ -556,6 +561,7 @@ $ZoneOffset* ZonedDateTime::getOffset() {
 }
 
 ZonedDateTime* ZonedDateTime::withEarlierOffsetAtOverlap() {
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneOffsetTransition, trans, $nc($($nc($(getZone()))->getRules()))->getTransition(this->dateTime));
 	if (trans != nullptr && trans->isOverlap()) {
 		$var($ZoneOffset, earlierOffset, trans->getOffsetBefore());
@@ -567,6 +573,7 @@ ZonedDateTime* ZonedDateTime::withEarlierOffsetAtOverlap() {
 }
 
 ZonedDateTime* ZonedDateTime::withLaterOffsetAtOverlap() {
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneOffsetTransition, trans, $nc($($nc($(getZone()))->getRules()))->getTransition($($cast($LocalDateTime, toLocalDateTime()))));
 	if (trans != nullptr) {
 		$var($ZoneOffset, laterOffset, trans->getOffsetAfter());
@@ -655,6 +662,7 @@ int32_t ZonedDateTime::getNano() {
 }
 
 ZonedDateTime* ZonedDateTime::with($TemporalAdjuster* adjuster) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($OffsetDateTime, odt, nullptr);
 		$var($Instant, instant, nullptr);
@@ -693,6 +701,7 @@ ZonedDateTime* ZonedDateTime::with($TemporalAdjuster* adjuster) {
 }
 
 ZonedDateTime* ZonedDateTime::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -759,6 +768,7 @@ ZonedDateTime* ZonedDateTime::truncatedTo($TemporalUnit* unit) {
 }
 
 ZonedDateTime* ZonedDateTime::plus($TemporalAmount* amountToAdd) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Period, periodToAdd, nullptr);
 		bool var$0 = $instanceOf($Period, amountToAdd);
@@ -775,6 +785,7 @@ ZonedDateTime* ZonedDateTime::plus($TemporalAmount* amountToAdd) {
 }
 
 ZonedDateTime* ZonedDateTime::plus(int64_t amountToAdd, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoUnit, unit)) {
 		if ($nc(unit)->isDateBased()) {
 			return resolveLocal($($nc(this->dateTime)->plus(amountToAdd, unit)));
@@ -818,6 +829,7 @@ ZonedDateTime* ZonedDateTime::plusNanos(int64_t nanos) {
 }
 
 ZonedDateTime* ZonedDateTime::minus($TemporalAmount* amountToSubtract) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Period, periodToSubtract, nullptr);
 		bool var$0 = $instanceOf($Period, amountToSubtract);
@@ -877,6 +889,7 @@ $Object* ZonedDateTime::query($TemporalQuery* query) {
 }
 
 int64_t ZonedDateTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(ZonedDateTime, end, ZonedDateTime::from(endExclusive));
 	if ($instanceOf($ChronoUnit, unit)) {
 		$var(ZonedDateTime, start, this);
@@ -927,6 +940,7 @@ int32_t ZonedDateTime::hashCode() {
 }
 
 $String* ZonedDateTime::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $($nc(this->dateTime)->toString()));
 	$var($String, str, $concat(var$0, $($nc(this->offset)->toString())));
 	if (!$equals(this->offset, this->zone)) {
@@ -951,6 +965,7 @@ void ZonedDateTime::writeExternal($DataOutput* out) {
 
 ZonedDateTime* ZonedDateTime::readExternal($ObjectInput* in) {
 	$init(ZonedDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDateTime, dateTime, $LocalDateTime::readExternal(in));
 	$var($ZoneOffset, offset, $ZoneOffset::readExternal(in));
 	$var($ZoneId, zone, $cast($ZoneId, $Ser::read(in)));

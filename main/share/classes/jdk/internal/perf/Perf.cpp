@@ -120,6 +120,7 @@ void Perf::init$() {
 
 Perf* Perf::getPerf() {
 	$init(Perf);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$var($Permission, perm, $new($RuntimePermission, "jdk.internal.perf.Perf.getPerf"_s));
@@ -149,6 +150,7 @@ $ByteBuffer* Perf::attach($String* user, int32_t lvmid, $String* mode) {
 }
 
 $ByteBuffer* Perf::attachImpl($String* user, int32_t lvmid, int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, b, attach(user, lvmid, mode));
 	if (lvmid == 0) {
 		return b;
@@ -174,6 +176,7 @@ $ByteBuffer* Perf::createLong($String* name, int32_t variability, int32_t units,
 }
 
 $ByteBuffer* Perf::createString($String* name, int32_t variability, int32_t units, $String* value, int32_t maxLength) {
+	$useLocalCurrentObjectStackCache();
 	$init($UTF_8);
 	$var($bytes, v, $nc(value)->getBytes(static_cast<$Charset*>($UTF_8::INSTANCE)));
 	$var($bytes, v1, $new($bytes, v->length + 1));
@@ -183,6 +186,7 @@ $ByteBuffer* Perf::createString($String* name, int32_t variability, int32_t unit
 }
 
 $ByteBuffer* Perf::createString($String* name, int32_t variability, int32_t units, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	$init($UTF_8);
 	$var($bytes, v, $nc(value)->getBytes(static_cast<$Charset*>($UTF_8::INSTANCE)));
 	$var($bytes, v1, $new($bytes, v->length + 1));

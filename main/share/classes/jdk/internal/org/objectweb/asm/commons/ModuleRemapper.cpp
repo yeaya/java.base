@@ -82,6 +82,7 @@ void ModuleRemapper::visitRequire($String* module, int32_t access, $String* vers
 }
 
 void ModuleRemapper::visitExport($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, remappedModules, nullptr);
 	if (modules != nullptr) {
 		$assign(remappedModules, $new($StringArray, modules->length));
@@ -93,6 +94,7 @@ void ModuleRemapper::visitExport($String* packaze, int32_t access, $StringArray*
 }
 
 void ModuleRemapper::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, remappedModules, nullptr);
 	if (modules != nullptr) {
 		$assign(remappedModules, $new($StringArray, modules->length));
@@ -108,6 +110,7 @@ void ModuleRemapper::visitUse($String* service) {
 }
 
 void ModuleRemapper::visitProvide($String* service, $StringArray* providers) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, remappedProviders, $new($StringArray, $nc(providers)->length));
 	for (int32_t i = 0; i < providers->length; ++i) {
 		remappedProviders->set(i, $($nc(this->remapper)->mapType(providers->get(i))));

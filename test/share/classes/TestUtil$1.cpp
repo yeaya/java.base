@@ -87,6 +87,7 @@ $FileVisitResult* TestUtil$1::preVisitDirectory($Path* dir, $BasicFileAttributes
 }
 
 $FileVisitResult* TestUtil$1::visitFile($Path* file, $BasicFileAttributes* attrs) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$(file);
 	} catch ($IOException&) {
@@ -102,6 +103,7 @@ $FileVisitResult* TestUtil$1::visitFile($Path* file, $BasicFileAttributes* attrs
 }
 
 $FileVisitResult* TestUtil$1::postVisitDirectory($Path* dir, $IOException* exc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$Files::delete$(dir);
 	} catch ($IOException&) {

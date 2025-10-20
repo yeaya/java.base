@@ -212,6 +212,7 @@ bool JumboEnumSet::containsAll($Collection* c) {
 }
 
 bool JumboEnumSet::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var(JumboEnumSet, es, nullptr);
 	bool var$0 = $instanceOf(JumboEnumSet, c);
 	if (var$0) {

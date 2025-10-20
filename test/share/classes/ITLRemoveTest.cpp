@@ -86,6 +86,7 @@ void ITLRemoveTest::init$() {
 
 void ITLRemoveTest::main($StringArray* args) {
 	$init(ITLRemoveTest);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ITLRemoveTest::x, $new($ints, ITLRemoveTest::threadCount));
 	$assignStatic(ITLRemoveTest::exceptions, $new($ThrowableArray, ITLRemoveTest::threadCount));
 	$var($Thread, progenitor, $new($ITLRemoveTest$MyThread));

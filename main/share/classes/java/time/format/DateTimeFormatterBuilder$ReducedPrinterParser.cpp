@@ -179,6 +179,7 @@ $Object* allocate$DateTimeFormatterBuilder$ReducedPrinterParser($Class* clazz) {
 $LocalDate* DateTimeFormatterBuilder$ReducedPrinterParser::BASE_DATE = nullptr;
 
 void DateTimeFormatterBuilder$ReducedPrinterParser::init$($TemporalField* field, int32_t minWidth, int32_t maxWidth, int32_t baseValue, $ChronoLocalDate* baseDate) {
+	$useLocalCurrentObjectStackCache();
 	DateTimeFormatterBuilder$ReducedPrinterParser::init$(field, minWidth, maxWidth, baseValue, baseDate, 0);
 	if (minWidth < 1 || minWidth > 10) {
 		$throwNew($IllegalArgumentException, $$str({"The minWidth must be from 1 to 10 inclusive but was "_s, $$str(minWidth)}));
@@ -208,6 +209,7 @@ void DateTimeFormatterBuilder$ReducedPrinterParser::init$($TemporalField* field,
 }
 
 int64_t DateTimeFormatterBuilder$ReducedPrinterParser::getValue($DateTimePrintContext* context, int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	int64_t absValue = $Math::abs(value);
 	int32_t baseValue = this->baseValue;
 	if (this->baseDate != nullptr) {
@@ -222,6 +224,7 @@ int64_t DateTimeFormatterBuilder$ReducedPrinterParser::getValue($DateTimePrintCo
 }
 
 int32_t DateTimeFormatterBuilder$ReducedPrinterParser::setValue($DateTimeParseContext* context, int64_t value, int32_t errorPos, int32_t successPos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t baseValue = this->baseValue;
 	if (this->baseDate != nullptr) {
 		$var($Chronology, chrono, $nc(context)->getEffectiveChronology());
@@ -266,6 +269,7 @@ bool DateTimeFormatterBuilder$ReducedPrinterParser::isFixedWidth($DateTimeParseC
 }
 
 $String* DateTimeFormatterBuilder$ReducedPrinterParser::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"ReducedValue("_s, this->field, ","_s, $$str(this->minWidth), ","_s, $$str(this->maxWidth), ","_s}));
 	$var($String, var$0, $$concat(var$1, $($Objects::requireNonNullElse(this->baseDate, $($Integer::valueOf(this->baseValue))))));
 	return $concat(var$0, ")");

@@ -82,6 +82,7 @@ $Type* MethodRepository::getReturnType() {
 }
 
 $Type* MethodRepository::computeReturnType() {
+	$useLocalCurrentObjectStackCache();
 	$var($Reifier, r, getReifier());
 	$nc($($nc(($cast($MethodTypeSignature, $(getTree()))))->getReturnType()))->accept(r);
 	return $cast($Type, $nc(r)->getResult());

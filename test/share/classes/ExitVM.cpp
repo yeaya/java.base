@@ -48,6 +48,7 @@ void ExitVM::init$() {
 }
 
 void ExitVM::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($RuntimePermission, newWildcard, $new($RuntimePermission, "exitVM.*"_s));
 	$var($RuntimePermission, oldWildcard, $new($RuntimePermission, "exitVM"_s));
 	$var($RuntimePermission, other, $new($RuntimePermission, "exitVM.23"_s));

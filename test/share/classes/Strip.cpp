@@ -195,6 +195,7 @@ void Strip::main($StringArray* arg) {
 }
 
 void Strip::testStrip() {
+	$useLocalCurrentObjectStackCache();
 	equal($("   abc   "_s->strip()), "abc"_s);
 	equal($("   abc   "_s->stripLeading()), "abc   "_s);
 	equal($("   abc   "_s->stripTrailing()), "   abc"_s);
@@ -210,6 +211,7 @@ void Strip::testStrip() {
 }
 
 void Strip::testWhitespace() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 64));
 	$nc($($nc($($IntStream::range(1, 0x0000FFFF)))->filter(static_cast<$IntPredicate*>($$new(Strip$$Lambda$lambda$testWhitespace$0)))))->forEach(static_cast<$IntConsumer*>($$new(Strip$$Lambda$lambda$testWhitespace$1$1, sb)));
 	$var($String, whiteSpace, sb->toString());
@@ -220,6 +222,7 @@ void Strip::testWhitespace() {
 }
 
 void Strip::report($String* message, $String* inputTag, $String* input, $String* outputTag, $String* output) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println(message);
 	$nc($System::err)->println();

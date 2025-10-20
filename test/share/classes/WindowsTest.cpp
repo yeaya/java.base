@@ -39,6 +39,7 @@ $Object* allocate$WindowsTest($Class* clazz) {
 }
 
 void WindowsTest::init$() {
+	$useLocalCurrentObjectStackCache();
 	$ProcessTest::init$();
 	$set(this, bldr, $new($ProcessBuilder, $$new($StringArray, {"ftp"_s})));
 	$nc(this->bldr)->redirectErrorStream(true);

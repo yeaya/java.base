@@ -312,6 +312,7 @@ LocalDateTime* LocalDateTime::now($ZoneId* zone) {
 
 LocalDateTime* LocalDateTime::now($Clock* clock) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(clock), "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	$var($ZoneOffset, offset, $nc($($nc($(clock->getZone()))->getRules()))->getOffset(now));
@@ -321,6 +322,7 @@ LocalDateTime* LocalDateTime::now($Clock* clock) {
 
 LocalDateTime* LocalDateTime::of(int32_t year, $Month* month, int32_t dayOfMonth, int32_t hour, int32_t minute) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::of(year, month, dayOfMonth));
 	$var($LocalTime, time, $LocalTime::of(hour, minute));
 	return $new(LocalDateTime, date, time);
@@ -328,6 +330,7 @@ LocalDateTime* LocalDateTime::of(int32_t year, $Month* month, int32_t dayOfMonth
 
 LocalDateTime* LocalDateTime::of(int32_t year, $Month* month, int32_t dayOfMonth, int32_t hour, int32_t minute, int32_t second) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::of(year, month, dayOfMonth));
 	$var($LocalTime, time, $LocalTime::of(hour, minute, second));
 	return $new(LocalDateTime, date, time);
@@ -335,6 +338,7 @@ LocalDateTime* LocalDateTime::of(int32_t year, $Month* month, int32_t dayOfMonth
 
 LocalDateTime* LocalDateTime::of(int32_t year, $Month* month, int32_t dayOfMonth, int32_t hour, int32_t minute, int32_t second, int32_t nanoOfSecond) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::of(year, month, dayOfMonth));
 	$var($LocalTime, time, $LocalTime::of(hour, minute, second, nanoOfSecond));
 	return $new(LocalDateTime, date, time);
@@ -342,6 +346,7 @@ LocalDateTime* LocalDateTime::of(int32_t year, $Month* month, int32_t dayOfMonth
 
 LocalDateTime* LocalDateTime::of(int32_t year, int32_t month, int32_t dayOfMonth, int32_t hour, int32_t minute) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::of(year, month, dayOfMonth));
 	$var($LocalTime, time, $LocalTime::of(hour, minute));
 	return $new(LocalDateTime, date, time);
@@ -349,6 +354,7 @@ LocalDateTime* LocalDateTime::of(int32_t year, int32_t month, int32_t dayOfMonth
 
 LocalDateTime* LocalDateTime::of(int32_t year, int32_t month, int32_t dayOfMonth, int32_t hour, int32_t minute, int32_t second) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::of(year, month, dayOfMonth));
 	$var($LocalTime, time, $LocalTime::of(hour, minute, second));
 	return $new(LocalDateTime, date, time);
@@ -356,6 +362,7 @@ LocalDateTime* LocalDateTime::of(int32_t year, int32_t month, int32_t dayOfMonth
 
 LocalDateTime* LocalDateTime::of(int32_t year, int32_t month, int32_t dayOfMonth, int32_t hour, int32_t minute, int32_t second, int32_t nanoOfSecond) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::of(year, month, dayOfMonth));
 	$var($LocalTime, time, $LocalTime::of(hour, minute, second, nanoOfSecond));
 	return $new(LocalDateTime, date, time);
@@ -370,6 +377,7 @@ LocalDateTime* LocalDateTime::of($LocalDate* date, $LocalTime* time) {
 
 LocalDateTime* LocalDateTime::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(instant), "instant"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
 	$var($ZoneRules, rules, $nc(zone)->getRules());
@@ -380,6 +388,7 @@ LocalDateTime* LocalDateTime::ofInstant($Instant* instant, $ZoneId* zone) {
 
 LocalDateTime* LocalDateTime::ofEpochSecond(int64_t epochSecond, int32_t nanoOfSecond, $ZoneOffset* offset) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(offset), "offset"_s);
 	$init($ChronoField);
 	$ChronoField::NANO_OF_SECOND->checkValidValue(nanoOfSecond);
@@ -393,6 +402,7 @@ LocalDateTime* LocalDateTime::ofEpochSecond(int64_t epochSecond, int32_t nanoOfS
 
 LocalDateTime* LocalDateTime::from($TemporalAccessor* temporal) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(LocalDateTime, temporal)) {
 		return $cast(LocalDateTime, temporal);
 	} else if ($instanceOf($ZonedDateTime, temporal)) {
@@ -561,6 +571,7 @@ LocalDateTime* LocalDateTime::with($TemporalAdjuster* adjuster) {
 }
 
 LocalDateTime* LocalDateTime::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -620,6 +631,7 @@ LocalDateTime* LocalDateTime::truncatedTo($TemporalUnit* unit) {
 }
 
 LocalDateTime* LocalDateTime::plus($TemporalAmount* amountToAdd) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Period, periodToAdd, nullptr);
 		bool var$0 = $instanceOf($Period, amountToAdd);
@@ -636,6 +648,7 @@ LocalDateTime* LocalDateTime::plus($TemporalAmount* amountToAdd) {
 }
 
 LocalDateTime* LocalDateTime::plus(int64_t amountToAdd, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoUnit* chronoUnit = nullptr;
 		bool var$0 = $instanceOf($ChronoUnit, unit);
@@ -718,6 +731,7 @@ LocalDateTime* LocalDateTime::plusNanos(int64_t nanos) {
 }
 
 LocalDateTime* LocalDateTime::minus($TemporalAmount* amountToSubtract) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Period, periodToSubtract, nullptr);
 		bool var$0 = $instanceOf($Period, amountToSubtract);
@@ -770,6 +784,7 @@ LocalDateTime* LocalDateTime::minusNanos(int64_t nanos) {
 }
 
 LocalDateTime* LocalDateTime::plusWithOverflow($LocalDate* newDate, int64_t hours, int64_t minutes, int64_t seconds, int64_t nanos, int32_t sign) {
+	$useLocalCurrentObjectStackCache();
 	if ((((hours | minutes) | seconds) | nanos) == 0) {
 		return with(newDate, this->time);
 	}
@@ -796,6 +811,7 @@ $Temporal* LocalDateTime::adjustInto($Temporal* temporal) {
 }
 
 int64_t LocalDateTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(LocalDateTime, end, LocalDateTime::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -902,6 +918,7 @@ int32_t LocalDateTime::compareTo($ChronoLocalDateTime* other) {
 }
 
 int32_t LocalDateTime::compareTo0(LocalDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cmp = $nc(this->date)->compareTo0($($cast($LocalDate, $nc(other)->toLocalDate())));
 	if (cmp == 0) {
 		cmp = $nc(this->time)->compareTo($($nc(other)->toLocalTime()));
@@ -951,6 +968,7 @@ int32_t LocalDateTime::hashCode() {
 }
 
 $String* LocalDateTime::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc(this->date)->toString()), $$str(u'T')}));
 	return $concat(var$0, $($nc(this->time)->toString()));
 }
@@ -970,6 +988,7 @@ void LocalDateTime::writeExternal($DataOutput* out) {
 
 LocalDateTime* LocalDateTime::readExternal($DataInput* in) {
 	$init(LocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, $LocalDate::readExternal(in));
 	$var($LocalTime, time, $LocalTime::readExternal(in));
 	return LocalDateTime::of(date, time);

@@ -117,6 +117,7 @@ $String* FileOwnerAttributeViewImpl::name() {
 }
 
 void FileOwnerAttributeViewImpl::setAttribute($String* attribute, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(attribute)->equals(FileOwnerAttributeViewImpl::OWNER_NAME)) {
 		setOwner($cast($UserPrincipal, value));
 	} else {
@@ -125,6 +126,7 @@ void FileOwnerAttributeViewImpl::setAttribute($String* attribute, Object$* value
 }
 
 $Map* FileOwnerAttributeViewImpl::readAttributes($StringArray* attributes) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, result, $new($HashMap));
 	{
 		$var($StringArray, arr$, attributes);

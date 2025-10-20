@@ -61,6 +61,7 @@ void LocalSocketAddress::init$() {
 }
 
 void LocalSocketAddress::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, IPv6LoopbackAddr, nullptr);
 	$var($DatagramSocket, soc, nullptr);
 	{

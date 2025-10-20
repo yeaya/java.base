@@ -176,6 +176,7 @@ $Set* ExtendedSocketOptions::options0(int16_t type, bool server) {
 }
 
 void ExtendedSocketOptions::init$($Set* options) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, options$, options);
 	$var($HashSet, datagramOptions, $new($HashSet));
 	$var($HashSet, serverStreamOptions, $new($HashSet));
@@ -209,6 +210,7 @@ void ExtendedSocketOptions::init$($Set* options) {
 
 ExtendedSocketOptions* ExtendedSocketOptions::getInstance() {
 	$load(ExtendedSocketOptions);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init(ExtendedSocketOptions);
 	$var(ExtendedSocketOptions, ext, ExtendedSocketOptions::instance);

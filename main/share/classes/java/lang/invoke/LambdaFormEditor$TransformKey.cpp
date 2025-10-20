@@ -131,6 +131,7 @@ int8_t LambdaFormEditor$TransformKey::bval(int32_t b) {
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t k, int32_t b1) {
 	$init(LambdaFormEditor$TransformKey);
+	$useLocalCurrentObjectStackCache();
 	int8_t b0 = bval(k);
 	if (inRange(b0 | b1)) {
 		return $new(LambdaFormEditor$TransformKey, packedBytes(b0, b1));
@@ -144,6 +145,7 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t k, int32
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t b0, int32_t b1, int32_t b2) {
 	$init(LambdaFormEditor$TransformKey);
+	$useLocalCurrentObjectStackCache();
 	if (inRange((b0 | b1) | b2)) {
 		return $new(LambdaFormEditor$TransformKey, packedBytes(b0, b1, b2));
 	} else {
@@ -157,6 +159,7 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t b0, int3
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t b0, int32_t b1, int32_t b2, int32_t b3) {
 	$init(LambdaFormEditor$TransformKey);
+	$useLocalCurrentObjectStackCache();
 	if (inRange(((b0 | b1) | b2) | b3)) {
 		return $new(LambdaFormEditor$TransformKey, packedBytes(b0, b1, b2, b3));
 	} else {
@@ -200,6 +203,7 @@ LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::of(int8_t kind, in
 
 LambdaFormEditor$TransformKey* LambdaFormEditor$TransformKey::ofBothArrays(int8_t kind, $ints* b123, $bytes* b456) {
 	$init(LambdaFormEditor$TransformKey);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, fullBytes, $new($bytes, 1 + $nc(b123)->length + $nc(b456)->length));
 	int32_t i = 0;
 	fullBytes->set(i++, bval(kind));
@@ -285,6 +289,7 @@ bool LambdaFormEditor$TransformKey::inRange(int32_t bitset) {
 
 $bytes* LambdaFormEditor$TransformKey::fullBytes($ints* byteValues) {
 	$init(LambdaFormEditor$TransformKey);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, bytes, $new($bytes, $nc(byteValues)->length));
 	int32_t i = 0;
 	{
@@ -309,6 +314,7 @@ $LambdaFormEditor$Transform* LambdaFormEditor$TransformKey::withResult($LambdaFo
 }
 
 $String* LambdaFormEditor$TransformKey::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	int64_t bits = this->packedBytes$;
 	if (bits != 0) {

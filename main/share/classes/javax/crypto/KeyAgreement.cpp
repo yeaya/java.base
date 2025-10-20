@@ -144,6 +144,7 @@ $String* KeyAgreement::getAlgorithm() {
 
 KeyAgreement* KeyAgreement::getInstance($String* algorithm) {
 	$init(KeyAgreement);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	$var($List, services, $GetInstance::getServices("KeyAgreement"_s, algorithm));
 	$var($Iterator, t, $nc(services)->iterator());
@@ -174,6 +175,7 @@ KeyAgreement* KeyAgreement::getInstance($String* algorithm, $Provider* provider)
 }
 
 void KeyAgreement::chooseFirstProvider() {
+	$useLocalCurrentObjectStackCache();
 	if (this->spi != nullptr) {
 		return;
 	}
@@ -235,6 +237,7 @@ void KeyAgreement::implInit($KeyAgreementSpi* spi, int32_t type, $Key* key, $Alg
 }
 
 void KeyAgreement::chooseProvider(int32_t initType, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if (this->spi != nullptr) {
 			implInit(this->spi, initType, key, params, random);
@@ -294,6 +297,7 @@ void KeyAgreement::init($Key* key) {
 }
 
 void KeyAgreement::init($Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spi != nullptr) {
 		$nc(this->spi)->engineInit(key, random);
 	} else {
@@ -318,6 +322,7 @@ $String* KeyAgreement::getProviderName() {
 }
 
 void KeyAgreement::init($Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->spi != nullptr) {
 		$nc(this->spi)->engineInit(key, params, random);
 	} else {

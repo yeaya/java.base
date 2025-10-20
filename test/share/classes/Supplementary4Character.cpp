@@ -111,6 +111,7 @@ void Supplementary4Character::init$() {
 }
 
 void Supplementary4Character::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	testConstants();
 	test00();
 	$var($chars, cu, $new($chars, (Supplementary4Character::MAX_SUPPLEMENTARY + 1) * 2));
@@ -132,11 +133,13 @@ void Supplementary4Character::testConstants() {
 }
 
 void Supplementary4Character::constantError($String* name, int32_t value, int32_t expectedValue) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"Character."_s, name, " has a wrong value: got "_s, $(toHexString(value)), ", expected "_s}));
 	$throwNew($RuntimeException, $$concat(var$0, $(toHexString(expectedValue))));
 }
 
 void Supplementary4Character::test00() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t cp = -Supplementary4Character::MAX_SUPPLEMENTARY; cp <= Supplementary4Character::MAX_SUPPLEMENTARY * 2; ++cp) {
 		bool isValid = cp >= 0 && cp <= Supplementary4Character::MAX_SUPPLEMENTARY;
 		if ($Character::isValidCodePoint(cp) != isValid) {
@@ -158,6 +161,7 @@ void Supplementary4Character::test00() {
 }
 
 int32_t Supplementary4Character::test01($chars* cu) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	for (int32_t i = 0; i <= $Character::MAX_VALUE; ++i) {
 		$var($chars, u, $Character::toChars(i));
@@ -223,6 +227,7 @@ int32_t Supplementary4Character::test01($chars* cu) {
 }
 
 void Supplementary4Character::test02($CharSequence* cs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cp = 0;
 	int32_t ch = 0;
 	for (int32_t i = 0; i < $nc(cs)->length(); i += $Character::charCount(ch)) {
@@ -251,6 +256,7 @@ void Supplementary4Character::test02($CharSequence* cs) {
 }
 
 void Supplementary4Character::test03($chars* a) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cp = 0;
 	int32_t ch = 0;
 	for (int32_t i = 0; i < $nc(a)->length; i += $Character::charCount(ch)) {
@@ -297,6 +303,7 @@ void Supplementary4Character::test03($chars* a) {
 }
 
 void Supplementary4Character::test04($String* str) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(str)->length();
 	$var($chars, a, str->toCharArray());
 	for (int32_t i = 0; i <= length; i += 99, length -= 29999) {
@@ -329,6 +336,7 @@ int32_t Supplementary4Character::codePointCount($CharSequence* seq) {
 }
 
 void Supplementary4Character::checkCodePointCount(Object$* data, int32_t n, int32_t expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, getType(data));
 	if (n != expected) {
 		$throwNew($RuntimeException, $$str({"codePointCount("_s, type, "...) returned "_s, $$str(n), ", expected "_s, $$str(expected)}));
@@ -390,6 +398,7 @@ void Supplementary4Character::test05($String* str) {
 }
 
 void Supplementary4Character::test06() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t cp = $Character::MIN_CODE_POINT; cp <= $Character::MAX_CODE_POINT; ++cp) {
 		$var($String, result, $Character::toString(cp));
 		$var($String, expected, $new($String, $($Character::toChars(cp))));
@@ -400,6 +409,7 @@ void Supplementary4Character::test06() {
 }
 
 void Supplementary4Character::checkNewIndex(Object$* data, int32_t offset, int32_t result, int32_t expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, getType(data));
 	$var($String, offsetType, (offset > 0) ? "positive"_s : (offset < 0) ? "negative"_s : "0"_s);
 	if (result != expected) {
@@ -408,6 +418,7 @@ void Supplementary4Character::checkNewIndex(Object$* data, int32_t offset, int32
 }
 
 void Supplementary4Character::testUnpaired() {
+	$useLocalCurrentObjectStackCache();
 	testCodePoint($cstr({0xD800}), $$new($ints, {0x0000D800}));
 	testCodePoint($cstr({0xDC00}), $$new($ints, {0x0000DC00}));
 	testCodePoint($cstr({'a', 0xD800}), $$new($ints, {
@@ -461,6 +472,7 @@ void Supplementary4Character::testUnpaired() {
 }
 
 void Supplementary4Character::testCodePoint($String* str, $ints* codepoints) {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = 0;
 	int32_t j = 0;
 	for (int32_t i = 0; i < $nc(str)->length(); i += $Character::charCount(c)) {
@@ -531,6 +543,7 @@ void Supplementary4Character::testCodePoint($String* str, $ints* codepoints) {
 }
 
 void Supplementary4Character::testExceptions00() {
+	$useLocalCurrentObjectStackCache();
 	$load($IllegalArgumentException);
 	callToChars1(-1, $IllegalArgumentException::class$);
 	callToChars1(Supplementary4Character::MAX_SUPPLEMENTARY + 1, $IllegalArgumentException::class$);
@@ -551,6 +564,7 @@ void Supplementary4Character::testExceptions00() {
 }
 
 void Supplementary4Character::testExceptions01($CharSequence* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, nullSeq, nullptr);
 	$load($NullPointerException);
 	callCodePoint(Supplementary4Character::At, nullSeq, 0, $NullPointerException::class$);
@@ -634,6 +648,7 @@ void Supplementary4Character::testExceptions02($chars* a) {
 }
 
 void Supplementary4Character::callToChars1(int32_t codePoint, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($chars, a, $Character::toChars(codePoint));
 	} catch ($Exception&) {
@@ -647,6 +662,7 @@ void Supplementary4Character::callToChars1(int32_t codePoint, $Class* expectedEx
 }
 
 void Supplementary4Character::callToChars3(int32_t codePoint, $chars* dst, int32_t index, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $Character::toChars(codePoint, dst, index);
 	} catch ($Exception&) {
@@ -660,6 +676,7 @@ void Supplementary4Character::callToChars3(int32_t codePoint, $chars* dst, int32
 }
 
 void Supplementary4Character::callCodePoint(bool isAt, $CharSequence* cs, int32_t index, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t c = isAt ? $Character::codePointAt(cs, index) : $Character::codePointBefore(cs, index);
 	} catch ($Exception&) {
@@ -673,6 +690,7 @@ void Supplementary4Character::callCodePoint(bool isAt, $CharSequence* cs, int32_
 }
 
 void Supplementary4Character::callCodePoint(bool isAt, $chars* a, int32_t index, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t c = isAt ? $Character::codePointAt(a, index) : $Character::codePointBefore(a, index);
 	} catch ($Exception&) {
@@ -686,6 +704,7 @@ void Supplementary4Character::callCodePoint(bool isAt, $chars* a, int32_t index,
 }
 
 void Supplementary4Character::callCodePoint(bool isAt, $chars* a, int32_t index, int32_t limit, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t c = isAt ? $Character::codePointAt(a, index, limit) : $Character::codePointBefore(a, index, limit);
 	} catch ($Exception&) {
@@ -699,6 +718,7 @@ void Supplementary4Character::callCodePoint(bool isAt, $chars* a, int32_t index,
 }
 
 void Supplementary4Character::callCodePointCount(Object$* data, int32_t beginIndex, int32_t endIndex, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, getType(data));
 	try {
 		int32_t n = ($instanceOf($CharSequence, data)) ? $Character::codePointCount($cast($CharSequence, data), beginIndex, endIndex) : $Character::codePointCount($cast($chars, data), beginIndex, endIndex);
@@ -713,6 +733,7 @@ void Supplementary4Character::callCodePointCount(Object$* data, int32_t beginInd
 }
 
 void Supplementary4Character::callOffsetByCodePoints($CharSequence* seq, int32_t index, int32_t offset, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $Character::offsetByCodePoints(seq, index, offset);
 	} catch ($Exception&) {
@@ -726,6 +747,7 @@ void Supplementary4Character::callOffsetByCodePoints($CharSequence* seq, int32_t
 }
 
 void Supplementary4Character::callOffsetByCodePoints($chars* a, int32_t start, int32_t count, int32_t index, int32_t offset, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $Character::offsetByCodePoints(a, start, count, index, offset);
 	} catch ($Exception&) {
@@ -739,6 +761,7 @@ void Supplementary4Character::callOffsetByCodePoints($chars* a, int32_t start, i
 }
 
 void Supplementary4Character::callToString(int32_t codePoint, $Class* expectedException) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s, $Character::toString(codePoint));
 	} catch ($Exception&) {
@@ -760,6 +783,7 @@ $String* Supplementary4Character::toHexString(int32_t c) {
 }
 
 $String* Supplementary4Character::toHexString($String* name, $chars* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
 		if (i > 0) {

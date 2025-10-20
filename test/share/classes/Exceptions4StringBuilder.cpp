@@ -102,6 +102,7 @@ void Exceptions4StringBuilder::init$() {
 
 void Exceptions4StringBuilder::fail($Throwable* ex, $String* s, $Throwable* got) {
 	$init(Exceptions4StringBuilder);
+	$useLocalCurrentObjectStackCache();
 	Exceptions4StringBuilder::ok = false;
 	$init($System);
 	$var($String, var$7, $$str({"expected "_s, $($nc($of(ex))->getClass()->getName()), ": "_s}));
@@ -123,6 +124,7 @@ void Exceptions4StringBuilder::pass($String* s) {
 
 void Exceptions4StringBuilder::tryCatch($String* s, $Throwable* ex, $Runnable* thunk) {
 	$init(Exceptions4StringBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	try {
 		$nc(thunk)->run();
@@ -147,6 +149,7 @@ void Exceptions4StringBuilder::tryCatch($String* s, $Throwable* ex, $Runnable* t
 
 void Exceptions4StringBuilder::main($StringArray* args) {
 	$init(Exceptions4StringBuilder);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("StringBuilder()"_s);
 	tryCatch("  no args"_s, nullptr, $$new($Exceptions4StringBuilder$1));

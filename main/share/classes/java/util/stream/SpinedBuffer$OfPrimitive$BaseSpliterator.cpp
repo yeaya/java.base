@@ -123,6 +123,7 @@ bool SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(Object$* consumer) {
 }
 
 void SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(Object$* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(consumer);
 	if (this->splSpineIndex < this->lastSpineIndex || (this->splSpineIndex == this->lastSpineIndex && this->splElementIndex < this->lastSpineElementFence)) {
 		int32_t i = this->splElementIndex;
@@ -139,6 +140,7 @@ void SpinedBuffer$OfPrimitive$BaseSpliterator::forEachRemaining(Object$* consume
 }
 
 $Spliterator* SpinedBuffer$OfPrimitive$BaseSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->splSpineIndex < this->lastSpineIndex) {
 		$var($Spliterator$OfPrimitive, ret, newSpliterator(this->splSpineIndex, this->lastSpineIndex - 1, this->splElementIndex, this->this$0->arrayLength($nc(this->this$0->spine)->get(this->lastSpineIndex - 1))));
 		this->splSpineIndex = this->lastSpineIndex;

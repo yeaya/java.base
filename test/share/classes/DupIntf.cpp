@@ -88,6 +88,7 @@ void DupIntf::init$() {
 }
 
 void DupIntf::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($SAM, sam, $cast($SAM, $cast($Other, static_cast<$SAM*>($new(DupIntf$$Lambda$lambda$main$0)))));
 	$init($System);
 	$nc($System::out)->println($($nc(sam)->m()));

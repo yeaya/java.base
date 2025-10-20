@@ -83,6 +83,7 @@ void JarFile$1::init$($JarFile* this$0, $Enumeration* val$unfilteredEntries) {
 }
 
 bool JarFile$1::hasMoreElements() {
+	$useLocalCurrentObjectStackCache();
 	if (this->entry != nullptr) {
 		return true;
 	}

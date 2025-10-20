@@ -105,6 +105,7 @@ void MetafactoryArgValidationTest::main($StringArray* args) {
 }
 
 void MetafactoryArgValidationTest::testNPE() {
+	$useLocalCurrentObjectStackCache();
 	$load($MetafactoryArgValidationTest$I);
 	$var($MethodType, toI, mt($MetafactoryArgValidationTest$I::class$, $$new($ClassArray, 0)));
 	$init($Void);
@@ -238,6 +239,7 @@ void MetafactoryArgValidationTest::testNPE() {
 }
 
 void MetafactoryArgValidationTest::testIAE() {
+	$useLocalCurrentObjectStackCache();
 	$load($MetafactoryArgValidationTest$I);
 	$var($MethodType, toI, mt($MetafactoryArgValidationTest$I::class$, $$new($ClassArray, 0)));
 	$init($Void);
@@ -407,6 +409,7 @@ void MetafactoryArgValidationTest::testIAE() {
 }
 
 void MetafactoryArgValidationTest::testLCE() {
+	$useLocalCurrentObjectStackCache();
 	$load($MetafactoryArgValidationTest$I);
 	$var($MethodType, toI, mt($MetafactoryArgValidationTest$I::class$, $$new($ClassArray, 0)));
 	$load($MetafactoryArgValidationTest$C);
@@ -577,6 +580,7 @@ $ObjectArray* MetafactoryArgValidationTest::arr($ObjectArray* args) {
 }
 
 $CallSite* MetafactoryArgValidationTest::mfSucceed($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $MethodType* desc, $MethodHandle* impl, $MethodType* checked) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
 	} catch ($Throwable&) {
@@ -595,6 +599,7 @@ $CallSite* MetafactoryArgValidationTest::mfSucceed($MethodHandles$Lookup* lookup
 }
 
 void MetafactoryArgValidationTest::mfFail($Class* exceptionType, $MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $MethodType* desc, $MethodHandle* impl, $MethodType* checked) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
 	} catch ($Throwable&) {
@@ -627,6 +632,7 @@ void MetafactoryArgValidationTest::mfFail($Class* exceptionType, $MethodHandles$
 }
 
 $CallSite* MetafactoryArgValidationTest::amfSucceed($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::altMetafactory(lookup, name, capType, args);
 	} catch ($Throwable&) {
@@ -643,6 +649,7 @@ $CallSite* MetafactoryArgValidationTest::amfSucceed($MethodHandles$Lookup* looku
 }
 
 void MetafactoryArgValidationTest::amfFail($Class* exceptionType, $MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::altMetafactory(lookup, name, capType, args);
 	} catch ($Throwable&) {

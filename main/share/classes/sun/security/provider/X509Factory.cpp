@@ -169,6 +169,7 @@ void X509Factory::init$() {
 }
 
 $Certificate* X509Factory::engineGenerateCertificate($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$nc(X509Factory::certCache)->clear();
 		$X509CertificatePair::clearCache();
@@ -215,6 +216,7 @@ $X509CertImpl* X509Factory::intern($X509Certificate* c) {
 	$load(X509Factory);
 	$synchronized(class$) {
 		$init(X509Factory);
+		$useLocalCurrentObjectStackCache();
 		if (c == nullptr) {
 			return nullptr;
 		}
@@ -244,6 +246,7 @@ $X509CRLImpl* X509Factory::intern($X509CRL* c) {
 	$load(X509Factory);
 	$synchronized(class$) {
 		$init(X509Factory);
+		$useLocalCurrentObjectStackCache();
 		if (c == nullptr) {
 			return nullptr;
 		}
@@ -291,6 +294,7 @@ void X509Factory::addToCache($Cache* cache, $bytes* encoding, Object$* value) {
 }
 
 $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream) {
+	$useLocalCurrentObjectStackCache();
 	if (inStream == nullptr) {
 		$throwNew($CertificateException, "Missing input stream"_s);
 	}
@@ -309,6 +313,7 @@ $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream) {
 }
 
 $CertPath* X509Factory::engineGenerateCertPath($InputStream* inStream, $String* encoding) {
+	$useLocalCurrentObjectStackCache();
 	if (inStream == nullptr) {
 		$throwNew($CertificateException, "Missing input stream"_s);
 	}
@@ -348,6 +353,7 @@ $Collection* X509Factory::engineGenerateCertificates($InputStream* is) {
 }
 
 $CRL* X509Factory::engineGenerateCRL($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$nc(X509Factory::crlCache)->clear();
 		$throwNew($CRLException, "Missing input stream"_s);
@@ -373,6 +379,7 @@ $CRL* X509Factory::engineGenerateCRL($InputStream* is) {
 }
 
 $Collection* X509Factory::engineGenerateCRLs($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		$throwNew($CRLException, "Missing input stream"_s);
 	}
@@ -386,6 +393,7 @@ $Collection* X509Factory::engineGenerateCRLs($InputStream* is) {
 }
 
 $Collection* X509Factory::parseX509orPKCS7Cert($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	int32_t peekByte = 0;
 	$var($bytes, data, nullptr);
 	$var($PushbackInputStream, pbis, $new($PushbackInputStream, is));
@@ -419,6 +427,7 @@ $Collection* X509Factory::parseX509orPKCS7Cert($InputStream* is) {
 }
 
 $Collection* X509Factory::parseX509orPKCS7CRL($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	int32_t peekByte = 0;
 	$var($bytes, data, nullptr);
 	$var($PushbackInputStream, pbis, $new($PushbackInputStream, is));
@@ -453,6 +462,7 @@ $Collection* X509Factory::parseX509orPKCS7CRL($InputStream* is) {
 
 $bytes* X509Factory::readOneBlock($InputStream* is) {
 	$init(X509Factory);
+	$useLocalCurrentObjectStackCache();
 	int32_t c = $nc(is)->read();
 	if (c == -1) {
 		return nullptr;
@@ -546,6 +556,7 @@ $bytes* X509Factory::readOneBlock($InputStream* is) {
 
 void X509Factory::checkHeaderFooter($String* header, $String* footer) {
 	$init(X509Factory);
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = $nc(header)->length() < 16;
 	bool var$0 = var$1 || !$nc(header)->startsWith("-----BEGIN "_s);
 	if (var$0 || !$nc(header)->endsWith("-----"_s)) {
@@ -647,6 +658,7 @@ int32_t X509Factory::readBERInternal($InputStream* is, $ByteArrayOutputStream* b
 }
 
 void X509Factory::commitEvent($X509CertImpl* info) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertificateEvent, xce, $new($X509CertificateEvent));
 	bool var$0 = xce->shouldCommit();
 	if (var$0 || $EventHelper::isLoggingSecurity()) {

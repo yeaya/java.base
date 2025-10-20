@@ -46,6 +46,7 @@ void NoAction::init$() {
 }
 
 void NoAction::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketPermission, sp, nullptr);
 	try {
 		$assign(sp, $new($SocketPermission, "localhost"_s, ""_s));

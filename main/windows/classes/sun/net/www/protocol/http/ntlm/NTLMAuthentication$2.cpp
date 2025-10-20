@@ -78,6 +78,7 @@ void NTLMAuthentication$2::init$($NTLMAuthentication* this$0) {
 }
 
 $Object* NTLMAuthentication$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, localhost, nullptr);
 	try {
 		$assign(localhost, $nc($($nc($($InetAddress::getLocalHost()))->getHostName()))->toUpperCase());

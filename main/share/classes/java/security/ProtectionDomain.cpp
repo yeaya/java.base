@@ -206,6 +206,7 @@ bool ProtectionDomain::implies($Permission* perm) {
 }
 
 bool ProtectionDomain::impliesWithAltFilePerm($Permission* perm) {
+	$useLocalCurrentObjectStackCache();
 	$init($FilePermCompat);
 	if (!ProtectionDomain::filePermCompatInPD || !$FilePermCompat::compat || $of(this)->getClass() != ProtectionDomain::class$) {
 		return implies(perm);
@@ -246,6 +247,7 @@ bool ProtectionDomain::impliesWithAltFilePerm($Permission* perm) {
 }
 
 $String* ProtectionDomain::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pals, "<no principals>"_s);
 	if (this->principals != nullptr && $nc(this->principals)->length > 0) {
 		$var($StringBuilder, palBuf, $new($StringBuilder, "(principals "_s));
@@ -268,6 +270,7 @@ $String* ProtectionDomain::toString() {
 
 bool ProtectionDomain::seeAllp() {
 	$init(ProtectionDomain);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr) {
@@ -293,6 +296,7 @@ bool ProtectionDomain::seeAllp() {
 }
 
 $PermissionCollection* ProtectionDomain::mergePermissions() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->staticPermissions) {
 		return this->permissions;
@@ -356,6 +360,7 @@ $PermissionCollection* ProtectionDomain::mergePermissions() {
 }
 
 void clinit$ProtectionDomain($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	ProtectionDomain::filePermCompatInPD = "true"_s->equals($($GetPropertyAction::privilegedGetProperty("jdk.security.filePermCompat"_s)));
 	{
 		$SharedSecrets::setJavaSecurityAccess($$new($ProtectionDomain$JavaSecurityAccessImpl));

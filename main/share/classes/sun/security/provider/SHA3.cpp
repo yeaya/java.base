@@ -129,6 +129,7 @@ void SHA3::implCompress0($bytes* b, int32_t ofs) {
 }
 
 void SHA3::implDigest($bytes* out, int32_t ofs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numOfPadding = setPaddingBytes(this->suffix, this->buffer, (int32_t)($mod(this->bytesProcessed, $nc(this->buffer)->length)));
 	if (numOfPadding < 1) {
 		$throwNew($ProviderException, $$str({"Incorrect pad size: "_s, $$str(numOfPadding)}));
@@ -244,6 +245,7 @@ $longs* SHA3::smIota($longs* a, int32_t rndIndex) {
 }
 
 void SHA3::keccak() {
+	$useLocalCurrentObjectStackCache();
 	bytes2Lanes(this->state, this->lanes);
 	for (int32_t ir = 0; ir < SHA3::NR; ++ir) {
 		smIota($(smChi($(smPiRho($(smTheta(this->lanes)))))), ir);

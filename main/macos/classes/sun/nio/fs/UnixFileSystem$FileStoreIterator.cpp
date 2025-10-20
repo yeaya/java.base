@@ -96,6 +96,7 @@ void UnixFileSystem$FileStoreIterator::init$($UnixFileSystem* this$0) {
 }
 
 $FileStore* UnixFileSystem$FileStoreIterator::readNext() {
+	$useLocalCurrentObjectStackCache();
 	if (!UnixFileSystem$FileStoreIterator::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

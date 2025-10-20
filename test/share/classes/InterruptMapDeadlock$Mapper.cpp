@@ -82,6 +82,7 @@ void InterruptMapDeadlock$Mapper::init$($FileChannel* fc, $Semaphore* gate) {
 }
 
 void InterruptMapDeadlock$Mapper::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->gate)->acquireUninterruptibly();
 		$init($FileChannel$MapMode);

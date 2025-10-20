@@ -43,6 +43,7 @@ void ListRoots::init$() {
 }
 
 void ListRoots::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileArray, rs, $File::listRoots());
 	for (int32_t i = 0; i < $nc(rs)->length; ++i) {
 		$init($System);

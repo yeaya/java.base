@@ -133,6 +133,7 @@ void NumberFormat$Field::init$($String* name) {
 }
 
 $Object* NumberFormat$Field::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	if ($of(this)->getClass() != NumberFormat$Field::class$) {
 		$throwNew($InvalidObjectException, "subclass didn\'t correctly implement readResolve"_s);
 	}

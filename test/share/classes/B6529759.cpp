@@ -59,6 +59,7 @@ void B6529759::init$() {
 }
 
 void B6529759::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$new($URL, ($URL*)nullptr, "a:"_s, static_cast<$URLStreamHandler*>($$new($B6529759$a)));
 	} catch ($Exception&) {

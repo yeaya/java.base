@@ -52,6 +52,7 @@ void SecurityExceptions::init$() {
 }
 
 void SecurityExceptions::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool expectException = $Boolean::parseBoolean($nc(args)->get(0));
 	$var($StackWalker, sw, $StackWalker::getInstance());
 	try {

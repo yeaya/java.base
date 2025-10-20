@@ -71,6 +71,7 @@ void SocksServer$ClientHandler$Tunnel::init$($SocksServer$ClientHandler* this$1,
 }
 
 void SocksServer$ClientHandler$Tunnel::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t b = 0;
 	while (true) {
 		try {

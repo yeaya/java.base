@@ -226,6 +226,7 @@ int32_t ParseUtil::firstEncodeIndex($String* path) {
 
 $String* ParseUtil::encodePath($String* path, int32_t index, char16_t sep) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($chars, pathCC, $nc(path)->toCharArray());
 	$var($chars, retCC, $new($chars, pathCC->length * 2 + 16 - index));
 	if (index > 0) {
@@ -280,6 +281,7 @@ int8_t ParseUtil::unescape($String* s, int32_t i) {
 
 $String* ParseUtil::decode($String* s) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(s)->length();
 	if ((n == 0) || (s->indexOf((int32_t)u'%') < 0)) {
 		return s;
@@ -356,6 +358,7 @@ $URL* ParseUtil::fileToEncodedURL($File* file) {
 
 $URI* ParseUtil::toURI($URL* url) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($String, protocol, $nc(url)->getProtocol());
 	$var($String, auth, url->getAuthority());
 	$var($String, path, url->getPath());
@@ -398,6 +401,7 @@ $String* ParseUtil::toString($String* scheme, $String* opaquePart, $String* auth
 
 void ParseUtil::appendSchemeSpecificPart($StringBuilder* sb, $String* opaquePart, $String* authority, $String* userInfo, $String* host, int32_t port, $String* path, $String* query) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	if (opaquePart != nullptr) {
 		if (opaquePart->startsWith("//["_s)) {
 			int32_t end = opaquePart->indexOf((int32_t)u']');
@@ -431,6 +435,7 @@ void ParseUtil::appendSchemeSpecificPart($StringBuilder* sb, $String* opaquePart
 
 void ParseUtil::appendAuthority($StringBuilder* sb, $String* authority, $String* userInfo, $String* host, int32_t port) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	if (host != nullptr) {
 		$nc(sb)->append("//"_s);
 		if (userInfo != nullptr) {
@@ -484,6 +489,7 @@ void ParseUtil::appendFragment($StringBuilder* sb, $String* fragment) {
 
 $String* ParseUtil::quote($String* s, int64_t lowMask, int64_t highMask) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(s)->length();
 	$var($StringBuilder, sb, nullptr);
 	$var($CharsetEncoder, encoder, nullptr);
@@ -537,6 +543,7 @@ bool ParseUtil::isEscaped($String* s, int32_t pos) {
 
 void ParseUtil::appendEncoded($CharsetEncoder* encoder, $StringBuilder* sb, char16_t c) {
 	$init(ParseUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, nullptr);
 	try {
 		$assign(bb, $nc(encoder)->encode($($CharBuffer::wrap(static_cast<$CharSequence*>($$str({""_s, $$str(c)}))))));

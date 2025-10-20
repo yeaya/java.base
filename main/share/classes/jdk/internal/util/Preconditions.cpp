@@ -99,12 +99,14 @@ void Preconditions::init$() {
 }
 
 $RuntimeException* Preconditions::outOfBounds($BiFunction* oobef, $String* checkKind, $NumberArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, largs, $List::of(args));
 	$var($RuntimeException, e, oobef == nullptr ? ($RuntimeException*)nullptr : $cast($RuntimeException, $nc(oobef)->apply(checkKind, largs)));
 	return e == nullptr ? static_cast<$RuntimeException*>($new($IndexOutOfBoundsException, $(outOfBoundsMessage(checkKind, largs)))) : e;
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckIndex($BiFunction* oobe, int32_t index, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	return outOfBounds(oobe, "checkIndex"_s, $$new($NumberArray, {
 		$(static_cast<$Number*>($Integer::valueOf(index))),
 		$(static_cast<$Number*>($Integer::valueOf(length)))
@@ -112,6 +114,7 @@ $RuntimeException* Preconditions::outOfBoundsCheckIndex($BiFunction* oobe, int32
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromToIndex($BiFunction* oobe, int32_t fromIndex, int32_t toIndex, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	return outOfBounds(oobe, "checkFromToIndex"_s, $$new($NumberArray, {
 		$(static_cast<$Number*>($Integer::valueOf(fromIndex))),
 		$(static_cast<$Number*>($Integer::valueOf(toIndex))),
@@ -120,6 +123,7 @@ $RuntimeException* Preconditions::outOfBoundsCheckFromToIndex($BiFunction* oobe,
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromIndexSize($BiFunction* oobe, int32_t fromIndex, int32_t size, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	return outOfBounds(oobe, "checkFromIndexSize"_s, $$new($NumberArray, {
 		$(static_cast<$Number*>($Integer::valueOf(fromIndex))),
 		$(static_cast<$Number*>($Integer::valueOf(size))),
@@ -128,6 +132,7 @@ $RuntimeException* Preconditions::outOfBoundsCheckFromIndexSize($BiFunction* oob
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckIndex($BiFunction* oobe, int64_t index, int64_t length) {
+	$useLocalCurrentObjectStackCache();
 	return outOfBounds(oobe, "checkIndex"_s, $$new($NumberArray, {
 		$(static_cast<$Number*>($Long::valueOf(index))),
 		$(static_cast<$Number*>($Long::valueOf(length)))
@@ -135,6 +140,7 @@ $RuntimeException* Preconditions::outOfBoundsCheckIndex($BiFunction* oobe, int64
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromToIndex($BiFunction* oobe, int64_t fromIndex, int64_t toIndex, int64_t length) {
+	$useLocalCurrentObjectStackCache();
 	return outOfBounds(oobe, "checkFromToIndex"_s, $$new($NumberArray, {
 		$(static_cast<$Number*>($Long::valueOf(fromIndex))),
 		$(static_cast<$Number*>($Long::valueOf(toIndex))),
@@ -143,6 +149,7 @@ $RuntimeException* Preconditions::outOfBoundsCheckFromToIndex($BiFunction* oobe,
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromIndexSize($BiFunction* oobe, int64_t fromIndex, int64_t size, int64_t length) {
+	$useLocalCurrentObjectStackCache();
 	return outOfBounds(oobe, "checkFromIndexSize"_s, $$new($NumberArray, {
 		$(static_cast<$Number*>($Long::valueOf(fromIndex))),
 		$(static_cast<$Number*>($Long::valueOf(size))),
@@ -155,6 +162,7 @@ $BiFunction* Preconditions::outOfBoundsExceptionFormatter($Function* f) {
 }
 
 $String* Preconditions::outOfBoundsMessage($String* checkKind, $List* args) {
+	$useLocalCurrentObjectStackCache();
 	if (checkKind == nullptr && args == nullptr) {
 		return $String::format("Range check failed"_s, $$new($ObjectArray, 0));
 	} else if (checkKind == nullptr) {

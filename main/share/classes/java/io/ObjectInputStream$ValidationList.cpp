@@ -84,6 +84,7 @@ void ObjectInputStream$ValidationList::init$() {
 }
 
 void ObjectInputStream$ValidationList::register$($ObjectInputValidation* obj, int32_t priority) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		$throwNew($InvalidObjectException, "null callback"_s);
 	}
@@ -102,6 +103,7 @@ void ObjectInputStream$ValidationList::register$($ObjectInputValidation* obj, in
 }
 
 void ObjectInputStream$ValidationList::doCallbacks() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		while (this->list != nullptr) {

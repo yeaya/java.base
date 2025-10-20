@@ -58,6 +58,7 @@ void RedirectWithLongFilename::init$() {
 }
 
 void RedirectWithLongFilename::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, tmpDir, $Paths::get($($System::getProperty("java.io.tmpdir"_s)), $$new($StringArray, 0)));
 	$var($File, dir2, nullptr);
 	$var($File, longFileName, nullptr);

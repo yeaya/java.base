@@ -132,6 +132,7 @@ void PKCS10::init$($PublicKey* publicKey, $PKCS10Attributes* attributes) {
 }
 
 void PKCS10::init$($bytes* data$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, data$renamed);
 	$var($DerInputStream, in, nullptr);
 	$var($DerValueArray, seq, nullptr);
@@ -185,6 +186,7 @@ void PKCS10::init$($bytes* data$renamed) {
 }
 
 void PKCS10::encodeAndSign($X500Name* subject, $PrivateKey* key, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, nullptr);
 	$var($DerOutputStream, scratch, nullptr);
 	$var($bytes, certificateRequestInfo, nullptr);
@@ -240,6 +242,7 @@ $bytes* PKCS10::getEncoded() {
 }
 
 void PKCS10::print($PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->encoded == nullptr) {
 		$throwNew($SignatureException, "Cert request was not signed"_s);
 	}
@@ -253,6 +256,7 @@ void PKCS10::print($PrintStream* out) {
 }
 
 $String* PKCS10::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"[PKCS #10 certificate request:\n"_s, $($nc($of(this->subjectPublicKeyInfo))->toString()), " subject: <"_s, this->subject, ">\n attributes: "_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(this->attributeSet)->toString())));
 	return $concat(var$0, "\n]");

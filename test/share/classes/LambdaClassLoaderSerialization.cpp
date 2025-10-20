@@ -57,6 +57,7 @@ void LambdaClassLoaderSerialization::init$() {
 
 void LambdaClassLoaderSerialization::main($StringArray* args) {
 	$load(LambdaClassLoaderSerialization);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, myCl, $new($LambdaClassLoaderSerialization$MyClassLoader, $(LambdaClassLoaderSerialization::class$->getClassLoader())));
 	$Class* myCodeClass = $Class::forName($$str({$(LambdaClassLoaderSerialization::class$->getName()), "$MyCode"_s}), true, myCl);

@@ -164,6 +164,7 @@ void GetLocalAddress::main($StringArray* args) {
 
 void GetLocalAddress::testAllSockets() {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, address, $new($InetSocketAddress, $($InetAddress::getLocalHost()), 0));
 	bindAndAddToMap($$new($DatagramSocket, ($SocketAddress*)nullptr), address);
 	bindAndAddToMap($$new($MulticastSocket, ($SocketAddress*)nullptr), address);
@@ -177,6 +178,7 @@ void GetLocalAddress::testAllSockets() {
 
 void GetLocalAddress::bindAndAddToMap($DatagramSocket* socket, $InetSocketAddress* address) {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	$nc(GetLocalAddress::toClose)->add(socket);
 	testNullAddress(socket, $($nc(socket)->getLocalSocketAddress()), "before bind"_s);
 	testWildcardAddress(socket, $($nc(socket)->getLocalAddress()), "before bind"_s);
@@ -186,12 +188,14 @@ void GetLocalAddress::bindAndAddToMap($DatagramSocket* socket, $InetSocketAddres
 
 void GetLocalAddress::addToMap($DatagramSocket* socket) {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	$nc(GetLocalAddress::toClose)->add(socket);
 	$nc(GetLocalAddress::addressMap)->put(socket, $($nc(($cast($InetSocketAddress, $($nc(socket)->getLocalSocketAddress()))))->getAddress()));
 }
 
 void GetLocalAddress::testSocket() {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(GetLocalAddress::addressMap)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -211,6 +215,7 @@ void GetLocalAddress::testSocket() {
 
 void GetLocalAddress::testAfterClose() {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(GetLocalAddress::addressMap)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -228,6 +233,7 @@ void GetLocalAddress::testAfterClose() {
 
 void GetLocalAddress::checkAddresses($DatagramSocket* socket, $InetAddress* a1, $InetAddress* a2) {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$2, $$str({$nc($of(socket))->getClass(), ": Address1: "_s}));
 	$var($String, var$1, $$concat(var$2, $($nc(a1)->toString())));
@@ -240,6 +246,7 @@ void GetLocalAddress::checkAddresses($DatagramSocket* socket, $InetAddress* a1, 
 
 void GetLocalAddress::testNullAddress($DatagramSocket* socket, Object$* address, $String* when) {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({$nc($of(socket))->getClass(), ": Checking address "_s, when}));
 	if (address != nullptr) {
@@ -250,6 +257,7 @@ void GetLocalAddress::testNullAddress($DatagramSocket* socket, Object$* address,
 
 void GetLocalAddress::testWildcardAddress($DatagramSocket* socket, $InetAddress* address, $String* when) {
 	$init(GetLocalAddress);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({$nc($of(socket))->getClass(), ": Checking address "_s, when}));
 	if (address == nullptr || !$nc(address)->isAnyLocalAddress()) {

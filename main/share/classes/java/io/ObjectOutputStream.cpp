@@ -312,6 +312,7 @@ void ObjectOutputStream::init$() {
 }
 
 void ObjectOutputStream::useProtocolVersion(int32_t version) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->handles)->size() != 0) {
 		$throwNew($IllegalStateException, "stream non-empty"_s);
 	}
@@ -362,6 +363,7 @@ void ObjectOutputStream::writeUnshared(Object$* obj) {
 }
 
 void ObjectOutputStream::defaultWriteObject() {
+	$useLocalCurrentObjectStackCache();
 	$var($SerialCallbackContext, ctx, this->curContext);
 	if (ctx == nullptr) {
 		$throwNew($NotActiveException, "not in call to writeObject"_s);
@@ -374,6 +376,7 @@ void ObjectOutputStream::defaultWriteObject() {
 }
 
 $ObjectOutputStream$PutField* ObjectOutputStream::putFields() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curPut == nullptr) {
 		$var($SerialCallbackContext, ctx, this->curContext);
 		if (ctx == nullptr) {
@@ -532,6 +535,7 @@ void ObjectOutputStream::writeTypeString($String* str) {
 }
 
 void ObjectOutputStream::verifySubclass() {
+	$useLocalCurrentObjectStackCache();
 	$Class* cl = $of(this)->getClass();
 	if (cl == ObjectOutputStream::class$) {
 		return;
@@ -566,6 +570,7 @@ void ObjectOutputStream::clear() {
 }
 
 void ObjectOutputStream::writeObject0(Object$* obj$renamed, bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, obj, obj$renamed);
 	bool oldMode = $nc(this->bout)->setBlockDataMode(false);
 	++this->depth;
@@ -695,6 +700,7 @@ bool ObjectOutputStream::isCustomSubclass() {
 }
 
 void ObjectOutputStream::writeProxyDesc($ObjectStreamClass* desc, bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(this->bout)->writeByte($ObjectStreamConstants::TC_PROXYCLASSDESC);
 	$nc(this->handles)->assign(unshared ? ($Object*)nullptr : $of(desc));
@@ -747,6 +753,7 @@ void ObjectOutputStream::writeString($String* str, bool unshared) {
 }
 
 void ObjectOutputStream::writeArray(Object$* array, $ObjectStreamClass* desc, bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(this->bout)->writeByte($ObjectStreamConstants::TC_ARRAY);
 	writeClassDesc(desc, false);
@@ -855,6 +862,7 @@ void ObjectOutputStream::writeArray(Object$* array, $ObjectStreamClass* desc, bo
 }
 
 void ObjectOutputStream::writeEnum($Enum* en, $ObjectStreamClass* desc, bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc(this->bout)->writeByte($ObjectStreamConstants::TC_ENUM);
 	$var($ObjectStreamClass, sdesc, $nc(desc)->getSuperDesc());
@@ -865,6 +873,7 @@ void ObjectOutputStream::writeEnum($Enum* en, $ObjectStreamClass* desc, bool uns
 }
 
 void ObjectOutputStream::writeOrdinaryObject(Object$* obj, $ObjectStreamClass* desc, bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	if (ObjectOutputStream::extendedDebugInfo) {
 		$var($String, var$1, $$str({(this->depth == 1 ? "root "_s : ""_s), "object (class \""_s, $($nc($of(obj))->getClass()->getName()), "\", "_s}));
 		$var($String, var$0, $$concat(var$1, $($of(obj)->toString())));
@@ -901,6 +910,7 @@ void ObjectOutputStream::writeOrdinaryObject(Object$* obj, $ObjectStreamClass* d
 }
 
 void ObjectOutputStream::writeExternalData($Externalizable* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutFieldImpl, oldPut, this->curPut);
 	$set(this, curPut, nullptr);
 	if (ObjectOutputStream::extendedDebugInfo) {
@@ -935,6 +945,7 @@ void ObjectOutputStream::writeExternalData($Externalizable* obj) {
 }
 
 void ObjectOutputStream::writeRecordData(Object$* obj, $ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	if (!ObjectOutputStream::$assertionsDisabled && !$nc($of(obj))->getClass()->isRecord()) {
 		$throwNew($AssertionError);
 	}
@@ -946,6 +957,7 @@ void ObjectOutputStream::writeRecordData(Object$* obj, $ObjectStreamClass* desc)
 }
 
 void ObjectOutputStream::writeSerialData(Object$* obj, $ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamClass$ClassDataSlotArray, slots, $nc(desc)->getClassDataLayout());
 	for (int32_t i = 0; i < $nc(slots)->length; ++i) {
 		$var($ObjectStreamClass, slotDesc, $nc(slots->get(i))->desc);
@@ -985,6 +997,7 @@ void ObjectOutputStream::writeSerialData(Object$* obj, $ObjectStreamClass* desc)
 }
 
 void ObjectOutputStream::defaultWriteFields(Object$* obj, $ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* cl = $nc(desc)->forClass();
 	if (cl != nullptr && obj != nullptr && !cl->isInstance(obj)) {
@@ -1053,6 +1066,7 @@ void ObjectOutputStream::writeFatalException($IOException* ex) {
 }
 
 void clinit$ObjectOutputStream($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	ObjectOutputStream::$assertionsDisabled = !ObjectOutputStream::class$->desiredAssertionStatus();
 	ObjectOutputStream::extendedDebugInfo = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.io.serialization.extendedDebugInfo"_s)))))))->booleanValue();

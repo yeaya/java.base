@@ -77,11 +77,13 @@ void TraceAnnotationVisitor::visitEnum($String* name, $String* descriptor, $Stri
 }
 
 $AnnotationVisitor* TraceAnnotationVisitor::visitAnnotation($String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->printer)->visitAnnotation(name, descriptor));
 	return $new(TraceAnnotationVisitor, $($AnnotationVisitor::visitAnnotation(name, descriptor)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceAnnotationVisitor::visitArray($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, arrayPrinter, $nc(this->printer)->visitArray(name));
 	return $new(TraceAnnotationVisitor, $($AnnotationVisitor::visitArray(name)), arrayPrinter);
 }

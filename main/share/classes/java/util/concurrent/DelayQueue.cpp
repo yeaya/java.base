@@ -235,6 +235,7 @@ bool DelayQueue::add($Delayed* e) {
 }
 
 bool DelayQueue::offer($Delayed* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -274,6 +275,7 @@ bool DelayQueue::offer($Delayed* e, int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* DelayQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -302,6 +304,7 @@ $Object* DelayQueue::poll() {
 }
 
 $Object* DelayQueue::take() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
 	{
@@ -364,6 +367,7 @@ $Object* DelayQueue::take() {
 }
 
 $Object* DelayQueue::poll(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -438,6 +442,7 @@ $Object* DelayQueue::poll(int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* DelayQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -464,6 +469,7 @@ $Object* DelayQueue::peek() {
 }
 
 int32_t DelayQueue::size() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -494,6 +500,7 @@ int32_t DelayQueue::drainTo($Collection* c) {
 }
 
 int32_t DelayQueue::drainTo($Collection* c, int32_t maxElements) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -543,6 +550,7 @@ int32_t DelayQueue::drainTo($Collection* c, int32_t maxElements) {
 }
 
 void DelayQueue::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -565,6 +573,7 @@ int32_t DelayQueue::remainingCapacity() {
 }
 
 $ObjectArray* DelayQueue::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -591,6 +600,7 @@ $ObjectArray* DelayQueue::toArray() {
 }
 
 $ObjectArray* DelayQueue::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -617,6 +627,7 @@ $ObjectArray* DelayQueue::toArray($ObjectArray* a) {
 }
 
 bool DelayQueue::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -643,6 +654,7 @@ bool DelayQueue::remove(Object$* o) {
 }
 
 void DelayQueue::removeEQ(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{

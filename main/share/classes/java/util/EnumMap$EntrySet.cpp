@@ -92,6 +92,7 @@ $Iterator* EnumMap$EntrySet::iterator() {
 }
 
 bool EnumMap$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -107,6 +108,7 @@ bool EnumMap$EntrySet::contains(Object$* o) {
 }
 
 bool EnumMap$EntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -146,6 +148,7 @@ $ObjectArray* EnumMap$EntrySet::toArray($ObjectArray* a$renamed) {
 }
 
 $ObjectArray* EnumMap$EntrySet::fillEntryArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	int32_t j = 0;
 	for (int32_t i = 0; i < $nc(this->this$0->vals)->length; ++i) {
 		if ($nc(this->this$0->vals)->get(i) != nullptr) {

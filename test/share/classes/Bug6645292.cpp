@@ -53,6 +53,7 @@ void Bug6645292::init$() {
 }
 
 void Bug6645292::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, loc, $Locale::getDefault());
 	$var($TimeZone, zone, $TimeZone::getDefault());
 	{

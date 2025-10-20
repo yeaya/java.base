@@ -58,6 +58,7 @@ void ExceedMaxDim4Array::main($StringArray* args) {
 }
 
 void ExceedMaxDim4Array::newInstanceOne() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, o, getArrayOf256Dimensions());
 	try {
 		$assign(o, $1Array::newInstance($nc($of(o))->getClass(), 1));
@@ -71,6 +72,7 @@ void ExceedMaxDim4Array::newInstanceOne() {
 }
 
 void ExceedMaxDim4Array::newInstanceMulti() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, o, getArrayOf256Dimensions());
 	try {
 		$assign(o, $1Array::newInstance($nc($of(o))->getClass(), $$new($ints, {
@@ -88,6 +90,7 @@ void ExceedMaxDim4Array::newInstanceMulti() {
 }
 
 void ExceedMaxDim4Array::zeroDimension() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($Integer);
 		$1Array::newInstance($Integer::TYPE, $$new($ints, 0));

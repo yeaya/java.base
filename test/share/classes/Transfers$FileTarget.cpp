@@ -88,6 +88,7 @@ $WritableByteChannel* Transfers$FileTarget::channel() {
 }
 
 void Transfers$FileTarget::verify() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->fc)->position() != this->size) {
 		$throwNew($Transfers$Failure, $$str({"Wrong position: "_s, $$str($nc(this->fc)->position()), " (expected "_s, $$str(this->size), ")"_s}));
 	}

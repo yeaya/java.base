@@ -76,6 +76,7 @@ $String* FileSystemException::getReason() {
 }
 
 $String* FileSystemException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	if (this->file == nullptr && this->other == nullptr) {
 		return getReason();
 	}

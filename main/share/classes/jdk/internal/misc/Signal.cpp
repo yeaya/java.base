@@ -133,6 +133,7 @@ $String* Signal::toString() {
 }
 
 void Signal::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(name), "name"_s);
 	if ($nc(name)->startsWith("SIG"_s)) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown signal: "_s, name}));
@@ -148,6 +149,7 @@ $Signal$Handler* Signal::handle(Signal* sig, $Signal$Handler* handler) {
 	$load(Signal);
 	$synchronized(class$) {
 		$init(Signal);
+		$useLocalCurrentObjectStackCache();
 		$Objects::requireNonNull($of(sig), "sig"_s);
 		$Objects::requireNonNull($of(handler), "handler"_s);
 		int64_t newH = ($instanceOf($Signal$NativeHandler, handler)) ? $nc(($cast($Signal$NativeHandler, handler)))->getHandler() : (int64_t)2;
@@ -188,6 +190,7 @@ void Signal::raise(Signal* sig) {
 
 void Signal::dispatch(int32_t number) {
 	$init(Signal);
+	$useLocalCurrentObjectStackCache();
 	$var(Signal, sig, $cast(Signal, $nc(Signal::signals)->get($($Integer::valueOf(number)))));
 	$var($Signal$Handler, handler, $cast($Signal$Handler, $nc(Signal::handlers)->get(sig)));
 	$var($Runnable, runnable, $new($Signal$1, handler, sig));

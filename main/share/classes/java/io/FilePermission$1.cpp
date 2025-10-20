@@ -66,6 +66,7 @@ void FilePermission$1::init$() {
 }
 
 $FilePermission* FilePermission$1::newPermPlusAltPath($FilePermission* input) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(input)->invalid && input->npath2 == nullptr && !input->allFiles) {
 		$var($Path, npath2, $FilePermission::altPath(input->npath));
 		if (npath2 != nullptr) {
@@ -76,6 +77,7 @@ $FilePermission* FilePermission$1::newPermPlusAltPath($FilePermission* input) {
 }
 
 $FilePermission* FilePermission$1::newPermUsingAltPath($FilePermission* input) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(input)->invalid && !input->allFiles) {
 		$var($Path, npath2, $FilePermission::altPath(input->npath));
 		if (npath2 != nullptr) {

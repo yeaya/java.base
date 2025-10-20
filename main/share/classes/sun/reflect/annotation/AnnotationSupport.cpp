@@ -136,6 +136,7 @@ void AnnotationSupport::init$() {
 
 $AnnotationArray* AnnotationSupport::getDirectlyAndIndirectlyPresent($Map* annotations, $Class* annoClass) {
 	$init(AnnotationSupport);
+	$useLocalCurrentObjectStackCache();
 	$var($List, result, $new($ArrayList));
 	$var($Annotation, direct, $cast($Annotation, $nc(annotations)->get(annoClass)));
 	if (direct != nullptr) {
@@ -152,6 +153,7 @@ $AnnotationArray* AnnotationSupport::getDirectlyAndIndirectlyPresent($Map* annot
 
 $AnnotationArray* AnnotationSupport::getIndirectlyPresent($Map* annotations, $Class* annoClass) {
 	$init(AnnotationSupport);
+	$useLocalCurrentObjectStackCache();
 	$load($Repeatable);
 	$var($Repeatable, repeatable, $cast($Repeatable, $nc(annoClass)->getDeclaredAnnotation($Repeatable::class$)));
 	if (repeatable == nullptr) {
@@ -169,6 +171,7 @@ $AnnotationArray* AnnotationSupport::getIndirectlyPresent($Map* annotations, $Cl
 
 bool AnnotationSupport::containerBeforeContainee($Map* annotations, $Class* annoClass) {
 	$init(AnnotationSupport);
+	$useLocalCurrentObjectStackCache();
 	$load($Repeatable);
 	$Class* containerClass = $nc(($cast($Repeatable, $($nc(annoClass)->getDeclaredAnnotation($Repeatable::class$)))))->value();
 	{
@@ -190,6 +193,7 @@ bool AnnotationSupport::containerBeforeContainee($Map* annotations, $Class* anno
 
 $AnnotationArray* AnnotationSupport::getAssociatedAnnotations($Map* declaredAnnotations, $Class* decl, $Class* annoClass) {
 	$init(AnnotationSupport);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(decl);
 	$var($AnnotationArray, result, getDirectlyAndIndirectlyPresent(declaredAnnotations, annoClass));
 	if ($nc($($AnnotationType::getInstance(annoClass)))->isInherited()) {
@@ -204,6 +208,7 @@ $AnnotationArray* AnnotationSupport::getAssociatedAnnotations($Map* declaredAnno
 
 $AnnotationArray* AnnotationSupport::getValueArray($Annotation* container) {
 	$init(AnnotationSupport);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* containerClass = $nc(container)->annotationType();
@@ -269,6 +274,7 @@ $AnnotationFormatError* AnnotationSupport::invalidContainerException($Annotation
 
 void AnnotationSupport::checkTypes($AnnotationArray* annotations, $Annotation* container, $Class* annoClass) {
 	$init(AnnotationSupport);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($AnnotationArray, arr$, annotations);
 		int32_t len$ = $nc(arr$)->length;

@@ -73,6 +73,7 @@ void PublicMethods$MethodList::init$($Method* method) {
 }
 
 PublicMethods$MethodList* PublicMethods$MethodList::filter($MethodArray* methods, $String* name, $ClassArray* ptypes, bool includeStatic) {
+	$useLocalCurrentObjectStackCache();
 	$var(PublicMethods$MethodList, head, nullptr);
 	$var(PublicMethods$MethodList, tail, nullptr);
 	{
@@ -97,6 +98,7 @@ PublicMethods$MethodList* PublicMethods$MethodList::filter($MethodArray* methods
 }
 
 PublicMethods$MethodList* PublicMethods$MethodList::merge(PublicMethods$MethodList* head$renamed, PublicMethods$MethodList* methodList) {
+	$useLocalCurrentObjectStackCache();
 	$var(PublicMethods$MethodList, head, head$renamed);
 	{
 		$var(PublicMethods$MethodList, ml, methodList);
@@ -108,6 +110,7 @@ PublicMethods$MethodList* PublicMethods$MethodList::merge(PublicMethods$MethodLi
 }
 
 PublicMethods$MethodList* PublicMethods$MethodList::merge(PublicMethods$MethodList* head$renamed, $Method* method) {
+	$useLocalCurrentObjectStackCache();
 	$var(PublicMethods$MethodList, head, head$renamed);
 	$Class* dclass = $nc(method)->getDeclaringClass();
 	$Class* rtype = method->getReturnType();
@@ -164,6 +167,7 @@ int32_t PublicMethods$MethodList::length() {
 }
 
 $Method* PublicMethods$MethodList::getMostSpecific() {
+	$useLocalCurrentObjectStackCache();
 	$var($Method, m, this->method);
 	$Class* rt = $nc(m)->getReturnType();
 	{

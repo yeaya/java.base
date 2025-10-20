@@ -105,16 +105,19 @@ void DateTimeFormatterBuilder$LocalizedPrinterParser::init$($FormatStyle* dateSt
 }
 
 bool DateTimeFormatterBuilder$LocalizedPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, chrono, $Chronology::from($($nc(context)->getTemporal())));
 	return $nc($($nc($(formatter($($nc(context)->getLocale()), chrono)))->toPrinterParser(false)))->format(context, buf);
 }
 
 int32_t DateTimeFormatterBuilder$LocalizedPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, chrono, $nc(context)->getEffectiveChronology());
 	return $nc($($nc($(formatter($(context->getLocale()), chrono)))->toPrinterParser(false)))->parse(context, text, position);
 }
 
 $DateTimeFormatter* DateTimeFormatterBuilder$LocalizedPrinterParser::formatter($Locale* locale, $Chronology* chrono) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({$($nc(chrono)->getId()), $$str(u'|')}));
 	$var($String, var$2, $$concat(var$3, $($nc(locale)->toString())));
 	$var($String, var$1, $$concat(var$2, $$str(u'|')));

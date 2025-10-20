@@ -187,6 +187,7 @@ $TerminalOp* ReduceOps::makeRef($BinaryOperator* operator$) {
 }
 
 $TerminalOp* ReduceOps::makeRef($Collector* collector) {
+	$useLocalCurrentObjectStackCache();
 	$var($Supplier, supplier, $nc(($cast($Collector, $Objects::requireNonNull(collector))))->supplier());
 	$var($BiConsumer, accumulator, collector->accumulator());
 	$var($BinaryOperator, combiner, collector->combiner());

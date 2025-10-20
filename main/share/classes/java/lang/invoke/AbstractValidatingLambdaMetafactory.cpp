@@ -87,6 +87,7 @@ $Object* allocate$AbstractValidatingLambdaMetafactory($Class* clazz) {
 }
 
 void AbstractValidatingLambdaMetafactory::init$($MethodHandles$Lookup* caller, $MethodType* factoryType, $String* interfaceMethodName, $MethodType* interfaceMethodType, $MethodHandle* implementation, $MethodType* dynamicMethodType, bool isSerializable, $ClassArray* altInterfaces, $MethodTypeArray* altMethods) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(caller)->hasFullPrivilegeAccess()) {
 		$throwNew($LambdaConversionException, $($String::format("Invalid caller: %s"_s, $$new($ObjectArray, {$($of($nc(caller->lookupClass())->getName()))}))));
 	}
@@ -171,6 +172,7 @@ void AbstractValidatingLambdaMetafactory::init$($MethodHandles$Lookup* caller, $
 }
 
 void AbstractValidatingLambdaMetafactory::validateMetafactoryArgs() {
+	$useLocalCurrentObjectStackCache();
 	int32_t implArity = $nc(this->implMethodType)->parameterCount();
 	int32_t capturedArity = $nc(this->factoryType)->parameterCount();
 	int32_t samArity = $nc(this->interfaceMethodType)->parameterCount();
@@ -276,6 +278,7 @@ void AbstractValidatingLambdaMetafactory::validateMetafactoryArgs() {
 }
 
 void AbstractValidatingLambdaMetafactory::checkDescriptor($MethodType* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(this->dynamicMethodType)->parameterCount(); ++i) {
 		$Class* dynamicParamType = $cast($Class, $nc(this->dynamicMethodType)->parameterType(i));
 		$Class* descriptorParamType = $cast($Class, $nc(descriptor)->parameterType(i));

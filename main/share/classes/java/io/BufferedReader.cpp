@@ -245,6 +245,7 @@ int32_t BufferedReader::read($chars* cbuf, int32_t off, int32_t len) {
 }
 
 $String* BufferedReader::readLine(bool ignoreLF, $booleans* term) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, s, nullptr);
 	int32_t startChar = 0;
 	$synchronized(this->lock) {
@@ -414,6 +415,7 @@ void BufferedReader::close() {
 }
 
 $Stream* BufferedReader::lines() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, iter, $new($BufferedReader$1, this));
 	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize(iter, $Spliterator::ORDERED | $Spliterator::NONNULL)), false);
 }

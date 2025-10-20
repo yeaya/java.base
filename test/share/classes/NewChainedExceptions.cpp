@@ -46,6 +46,7 @@ void NewChainedExceptions::init$() {
 }
 
 void NewChainedExceptions::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, interior, $new($Exception));
 	$var($String, message, "Good heavens!"_s);
 	try {

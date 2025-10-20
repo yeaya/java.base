@@ -215,6 +215,7 @@ void WindowsAsynchronousFileChannelImpl::init$($FileDescriptor* fdObj, bool read
 
 $AsynchronousFileChannel* WindowsAsynchronousFileChannelImpl::open($FileDescriptor* fdo, bool reading, bool writing, $ThreadPool* pool) {
 	$init(WindowsAsynchronousFileChannelImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Iocp, iocp, nullptr);
 	bool isDefaultIocp = false;
 	if (pool == nullptr) {
@@ -242,6 +243,7 @@ $PendingFuture* WindowsAsynchronousFileChannelImpl::getByOverlapped(int64_t over
 }
 
 void WindowsAsynchronousFileChannelImpl::close() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(this->closeLock)->writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -315,6 +317,7 @@ int64_t WindowsAsynchronousFileChannelImpl::size() {
 }
 
 $AsynchronousFileChannel* WindowsAsynchronousFileChannelImpl::truncate(int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (size < 0) {
 		$throwNew($IllegalArgumentException, "Negative size"_s);
 	}
@@ -366,6 +369,7 @@ void WindowsAsynchronousFileChannelImpl::force(bool metaData) {
 }
 
 $Future* WindowsAsynchronousFileChannelImpl::implLock(int64_t position, int64_t size, bool shared, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (shared && !this->reading) {
 		$throwNew($NonReadableChannelException);
 	}
@@ -389,6 +393,7 @@ $Future* WindowsAsynchronousFileChannelImpl::implLock(int64_t position, int64_t 
 }
 
 $FileLock* WindowsAsynchronousFileChannelImpl::tryLock(int64_t position, int64_t size, bool shared) {
+	$useLocalCurrentObjectStackCache();
 	if (shared && !this->reading) {
 		$throwNew($NonReadableChannelException);
 	}
@@ -441,6 +446,7 @@ void WindowsAsynchronousFileChannelImpl::implRelease($FileLockImpl* fli) {
 }
 
 $Future* WindowsAsynchronousFileChannelImpl::implRead($ByteBuffer* dst, int64_t position, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->reading) {
 		$throwNew($NonReadableChannelException);
 	}
@@ -479,6 +485,7 @@ $Future* WindowsAsynchronousFileChannelImpl::implRead($ByteBuffer* dst, int64_t 
 }
 
 $Future* WindowsAsynchronousFileChannelImpl::implWrite($ByteBuffer* src, int64_t position, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->writing) {
 		$throwNew($NonWritableChannelException);
 	}

@@ -85,6 +85,7 @@ void Nodes$ToArrayTask::init$(Nodes$ToArrayTask* parent, $Node* node, int32_t of
 }
 
 void Nodes$ToArrayTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var(Nodes$ToArrayTask, task, this);
 	while (true) {
 		if ($nc($nc(task)->node)->getChildCount() == 0) {

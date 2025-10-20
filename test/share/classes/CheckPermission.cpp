@@ -129,6 +129,7 @@ void CheckPermission::prepare() {
 
 void CheckPermission::assertCheckPermission($Class* type, $String* name) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(($cast($CheckPermission$Checks, $($nc(CheckPermission::myChecks)->get()))))->permissionsChecked()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -146,6 +147,7 @@ void CheckPermission::assertCheckPermission($Class* type, $String* name) {
 
 void CheckPermission::assertCheckPropertyAccess($String* key) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(($cast($CheckPermission$Checks, $($nc(CheckPermission::myChecks)->get()))))->propertiesChecked()))->contains(key)) {
 		$throwNew($RuntimeException, $$str({"Property "_s, key, " not checked"_s}));
 	}
@@ -153,6 +155,7 @@ void CheckPermission::assertCheckPropertyAccess($String* key) {
 
 void CheckPermission::assertChecked($File* file, $List* list) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	if (list != nullptr && !list->isEmpty()) {
 		{
 			$var($Iterator, i$, list->iterator());
@@ -171,6 +174,7 @@ void CheckPermission::assertChecked($File* file, $List* list) {
 
 void CheckPermission::assertNotChecked($File* file, $List* list) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	if (list != nullptr && !list->isEmpty()) {
 		{
 			$var($Iterator, i$, list->iterator());
@@ -188,6 +192,7 @@ void CheckPermission::assertNotChecked($File* file, $List* list) {
 
 void CheckPermission::assertCheckOperation($File* file, $Set* ops) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(ops)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -199,6 +204,7 @@ void CheckPermission::assertCheckOperation($File* file, $Set* ops) {
 
 void CheckPermission::assertNotCheckOperation($File* file, $Set* ops) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(ops)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -216,6 +222,7 @@ void CheckPermission::assertOnlyCheckOperation($File* file, $EnumSet* ops) {
 
 void CheckPermission::setup() {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(CheckPermission::testFile, $new($File, $$str({CheckPermission::CHECK_PERMISSION_TEST, $$str($System::currentTimeMillis())})));
 	if ($nc(CheckPermission::testFile)->exists()) {
 		$nc(CheckPermission::testFile)->delete$();
@@ -229,6 +236,7 @@ void CheckPermission::setup() {
 
 void CheckPermission::main($StringArray* args) {
 	$init(CheckPermission);
+	$useLocalCurrentObjectStackCache();
 	setup();
 	prepare();
 	$nc(CheckPermission::testFile)->canRead();

@@ -83,6 +83,7 @@ void ECPointFormatsExtension$SHECPointFormatsConsumer::init$() {
 }
 
 void ECPointFormatsExtension$SHECPointFormatsConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($ECPointFormatsExtension$ECPointFormatsSpec, requestedSpec, $cast($ECPointFormatsExtension$ECPointFormatsSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_EC_POINT_FORMATS)));

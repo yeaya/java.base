@@ -100,6 +100,7 @@ void DieBeforeComplete::init$() {
 }
 
 void DieBeforeComplete::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $nc($($AsynchronousServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	int32_t port = $nc((($cast($InetSocketAddress, $($nc(listener)->getLocalAddress())))))->getPort();
@@ -148,6 +149,7 @@ void DieBeforeComplete::main($StringArray* args) {
 }
 
 $Future* DieBeforeComplete::initiateAndDie($DieBeforeComplete$Task* task) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReference, result, $new($AtomicReference));
 	$var($Runnable, r, $new($DieBeforeComplete$4, result, task));
 	$var($Thread, t, $new($Thread, r));

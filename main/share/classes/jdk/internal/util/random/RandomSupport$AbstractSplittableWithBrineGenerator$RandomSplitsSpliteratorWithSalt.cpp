@@ -123,6 +123,7 @@ void RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorW
 }
 
 $Spliterator* RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorWithSalt::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	int64_t i = this->index;
 	int64_t m = (int64_t)((uint64_t)(i + this->fence) >> 1);
 	if (m <= i) {
@@ -153,6 +154,7 @@ bool RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorW
 }
 
 void RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorWithSalt::forEachRemaining($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(consumer);
 	int64_t i = this->index;
 	int64_t f = this->fence;

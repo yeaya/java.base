@@ -162,6 +162,7 @@ void Manifest::init$($JarVerifier* jv, $InputStream* is, $String* jarFilename) {
 }
 
 void Manifest::init$(Manifest* man) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, attr, $new($Attributes));
 	$set(this, entries, $new($HashMap));
 	$nc(this->attr)->putAll($($nc(man)->getMainAttributes()));
@@ -182,6 +183,7 @@ $Attributes* Manifest::getAttributes($String* name) {
 }
 
 $Attributes* Manifest::getTrustedAttributes($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Attributes, result, getAttributes(name));
 	if (result != nullptr && this->jv != nullptr && !$nc(this->jv)->isTrustedManifestEntry(name)) {
 		$throwNew($SecurityException, $$str({"Untrusted manifest entry: "_s, name}));
@@ -195,6 +197,7 @@ void Manifest::clear() {
 }
 
 void Manifest::write($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DataOutputStream, dos, $new($DataOutputStream, out));
 	$nc(this->attr)->writeMain(dos);
 	$var($StringBuilder, buffer, $nc(this->entries)->isEmpty() ? ($StringBuilder*)nullptr : $new($StringBuilder, 72));
@@ -252,6 +255,7 @@ void Manifest::println($OutputStream* out) {
 
 $String* Manifest::getErrorPosition($String* filename, int32_t lineNumber) {
 	$init(Manifest);
+	$useLocalCurrentObjectStackCache();
 	$init($SecurityProperties);
 	if (filename == nullptr || !$SecurityProperties::INCLUDE_JAR_NAME_IN_EXCEPTIONS) {
 		return $str({"line "_s, $$str(lineNumber)});
@@ -264,6 +268,7 @@ void Manifest::read($InputStream* is) {
 }
 
 void Manifest::read($InputStream* is, $String* jarFilename) {
+	$useLocalCurrentObjectStackCache();
 	$var($Manifest$FastInputStream, fis, $new($Manifest$FastInputStream, is));
 	$var($bytes, lbuf, $new($bytes, 512));
 	int32_t lineNumber = $nc(this->attr)->read(fis, lbuf, jarFilename, 0);
@@ -339,6 +344,7 @@ int32_t Manifest::toLower(int32_t c) {
 }
 
 bool Manifest::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var(Manifest, m, nullptr);
 	bool var$2 = $instanceOf(Manifest, o);
 	if (var$2) {

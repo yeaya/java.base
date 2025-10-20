@@ -82,6 +82,7 @@ $LocaleArray* HostLocaleProviderAdapterImpl$9::getAvailableLocales() {
 }
 
 bool HostLocaleProviderAdapterImpl$9::isSupportedLocale($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($HostLocaleProviderAdapterImpl);
 	bool var$0 = $nc($HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains($($nc(locale)->stripExtensions()));
 	return var$0 && $nc($($nc(locale)->getLanguage()))->equals($HostLocaleProviderAdapterImpl::nativeDisplayLanguage);
@@ -92,6 +93,7 @@ $String* HostLocaleProviderAdapterImpl$9::getDisplayLanguage($String* languageCo
 }
 
 $String* HostLocaleProviderAdapterImpl$9::getDisplayCountry($String* countryCode, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($HostLocaleProviderAdapterImpl);
 	$var($String, str, $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 4, $$str({$HostLocaleProviderAdapterImpl::nativeDisplayLanguage, "-"_s, countryCode})));
 	if (str != nullptr && str->endsWith($$str({"("_s, countryCode, ")"_s}))) {

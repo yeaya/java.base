@@ -99,6 +99,7 @@ void DivModTests::init$() {
 
 void DivModTests::main($StringArray* args) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	DivModTests::errors = 0;
 	testIntFloorDivMod();
 	testLongFloorDivMod();
@@ -116,6 +117,7 @@ void DivModTests::fail($String* message, $ObjectArray* args) {
 
 void DivModTests::testIntFloorDivMod() {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($new($ArithmeticException)));
 	testIntFloorDivMod(4, 0, var$0, $$new($ArithmeticException));
 	$var($Object, var$1, $of($Integer::valueOf(1)));
@@ -188,6 +190,7 @@ void DivModTests::testIntFloorDivMod(int32_t x, int32_t y, Object$* divExpected,
 
 void DivModTests::testIntFloorDiv(int32_t x, int32_t y, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, doFloorDiv(x, y));
 	if (!resultEquals(result, expected)) {
 		fail("FAIL: Math.floorDiv(%d, %d) = %s; expected %s%n"_s, $$new($ObjectArray, {
@@ -210,6 +213,7 @@ void DivModTests::testIntFloorDiv(int32_t x, int32_t y, Object$* expected) {
 
 void DivModTests::testIntFloorMod(int32_t x, int32_t y, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, doFloorMod(x, y));
 	if (!resultEquals(result, expected)) {
 		fail("FAIL: Math.floorMod(%d, %d) = %s; expected %s%n"_s, $$new($ObjectArray, {
@@ -255,6 +259,7 @@ void DivModTests::testIntFloorMod(int32_t x, int32_t y, Object$* expected) {
 
 void DivModTests::testLongFloorDivMod() {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($new($ArithmeticException)));
 	testLongFloorDivMod(4, 0, var$0, $$new($ArithmeticException));
 	$var($Object, var$1, $of($Long::valueOf((int64_t)1)));
@@ -327,6 +332,7 @@ void DivModTests::testLongFloorDivMod(int64_t x, int64_t y, Object$* divExpected
 
 void DivModTests::testLongFloorDiv(int64_t x, int64_t y, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, doFloorDiv(x, y));
 	if (!resultEquals(result, expected)) {
 		fail("FAIL: long Math.floorDiv(%d, %d) = %s; expected %s%n"_s, $$new($ObjectArray, {
@@ -349,6 +355,7 @@ void DivModTests::testLongFloorDiv(int64_t x, int64_t y, Object$* expected) {
 
 void DivModTests::testLongFloorMod(int64_t x, int64_t y, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, doFloorMod(x, y));
 	if (!resultEquals(result, expected)) {
 		fail("FAIL: long Math.floorMod(%d, %d) = %s; expected %s%n"_s, $$new($ObjectArray, {
@@ -393,6 +400,7 @@ void DivModTests::testLongFloorMod(int64_t x, int64_t y, Object$* expected) {
 
 void DivModTests::testLongIntFloorDivMod() {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($new($ArithmeticException)));
 	testLongIntFloorDivMod(4, 0, var$0, $$new($ArithmeticException));
 	$var($Object, var$1, $of($Long::valueOf((int64_t)1)));
@@ -465,6 +473,7 @@ void DivModTests::testLongIntFloorDivMod(int64_t x, int32_t y, Object$* divExpec
 
 void DivModTests::testLongIntFloorDiv(int64_t x, int32_t y, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, doFloorDiv(x, y));
 	if (!resultEquals(result, expected)) {
 		fail("FAIL: long Math.floorDiv(%d, %d) = %s; expected %s%n"_s, $$new($ObjectArray, {
@@ -487,6 +496,7 @@ void DivModTests::testLongIntFloorDiv(int64_t x, int32_t y, Object$* expected) {
 
 void DivModTests::testLongIntFloorMod(int64_t x, int32_t y, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, doFloorMod(x, y));
 	if (!resultEquals(result, expected)) {
 		fail("FAIL: long Math.floorMod(%d, %d) = %s; expected %s%n"_s, $$new($ObjectArray, {
@@ -663,6 +673,7 @@ $Object* DivModTests::doStrictFloorMod(int64_t x, int64_t y) {
 
 bool DivModTests::resultEquals(Object$* result, Object$* expected) {
 	$init(DivModTests);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($of(result))->getClass() != $nc($of(expected))->getClass()) {
 		fail("FAIL: Result type mismatch, %s; expected: %s%n"_s, $$new($ObjectArray, {
 			$($of($of(result)->getClass()->getName())),

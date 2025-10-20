@@ -77,6 +77,7 @@ void Subject$1::init$($AccessControlContext* val$acc) {
 }
 
 $Object* Subject$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($DomainCombiner, dc, $nc(this->val$acc)->getDomainCombiner());
 	if (!($instanceOf($SubjectDomainCombiner, dc))) {
 		return $of(nullptr);

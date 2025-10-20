@@ -137,6 +137,7 @@ $Object* allocate$WEPollSelectorImpl($Class* clazz) {
 bool WEPollSelectorImpl::$assertionsDisabled = false;
 
 void WEPollSelectorImpl::init$($SelectorProvider* sp) {
+	$useLocalCurrentObjectStackCache();
 	$SelectorImpl::init$(sp);
 	$set(this, fdToKey, $new($HashMap));
 	$set(this, updateLock, $new($Object));
@@ -191,6 +192,7 @@ int32_t WEPollSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 }
 
 void WEPollSelectorImpl::processUpdateQueue() {
+	$useLocalCurrentObjectStackCache();
 	if (!WEPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -224,6 +226,7 @@ void WEPollSelectorImpl::processUpdateQueue() {
 }
 
 int32_t WEPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (!WEPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -253,6 +256,7 @@ int32_t WEPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action)
 }
 
 void WEPollSelectorImpl::implClose() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !WEPollSelectorImpl::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = !isOpen();

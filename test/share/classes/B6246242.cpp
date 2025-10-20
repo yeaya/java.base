@@ -42,6 +42,7 @@ void B6246242::init$() {
 }
 
 void B6246242::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, a, nullptr);
 	try {
 		$assign(a, $InetAddress::getByName("foo.bar"_s));

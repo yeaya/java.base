@@ -55,6 +55,7 @@ void FactoryURLClassLoader::init$($URLArray* urls, $AccessControlContext* acc) {
 }
 
 $Class* FactoryURLClassLoader::loadClass($String* name, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		int32_t i = $nc(name)->lastIndexOf((int32_t)u'.');

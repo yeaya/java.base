@@ -89,6 +89,7 @@ $CertPath* PKIXCertPathBuilderResult::getCertPath() {
 }
 
 $String* PKIXCertPathBuilderResult::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("PKIXCertPathBuilderResult: [\n"_s);
 	sb->append($$str({"  Certification Path: "_s, this->certPath, "\n"_s}));

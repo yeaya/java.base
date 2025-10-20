@@ -80,6 +80,7 @@ void DivideTests::init$() {
 }
 
 $BigDecimal* DivideTests::anotherDivide($BigDecimal* dividend, $BigDecimal* divisor) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(divisor)->signum() == 0) {
 		if ($nc(dividend)->signum() == 0) {
 			$throwNew($ArithmeticException, "Division undefined"_s);
@@ -159,6 +160,7 @@ $BigDecimal* DivideTests::anotherDivide($BigDecimal* dividend, $BigDecimal* divi
 }
 
 int32_t DivideTests::powersOf2and5() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	for (int32_t i = 0; i < 6; ++i) {
 		int32_t powerOf2 = $cast(int32_t, $StrictMath::pow(2.0, (double)i));
@@ -206,6 +208,7 @@ int32_t DivideTests::powersOf2and5() {
 }
 
 int32_t DivideTests::nonTerminating() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($ints, primes, $new($ints, {
 		1,
@@ -238,6 +241,7 @@ int32_t DivideTests::nonTerminating() {
 }
 
 int32_t DivideTests::properScaleTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, testCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -301,6 +305,7 @@ int32_t DivideTests::properScaleTests() {
 }
 
 int32_t DivideTests::trailingZeroTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($RoundingMode);
 	$var($MathContext, mc, $new($MathContext, 3, $RoundingMode::FLOOR));
@@ -336,6 +341,7 @@ int32_t DivideTests::trailingZeroTests() {
 }
 
 int32_t DivideTests::scaledRoundedDivideTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, a, $new($BigDecimal, "31415"_s));
 	$var($BigDecimal, a_minus, a->negate());
@@ -546,6 +552,7 @@ int32_t DivideTests::scaledRoundedDivideTests() {
 }
 
 int32_t DivideTests::divideByOneTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($BigDecimal);
 	$var($BigDecimal, one, $nc($BigDecimal::ONE)->setScale(17));
@@ -616,6 +623,7 @@ int32_t DivideTests::divideByOneTests() {
 }
 
 void DivideTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += powersOf2and5();
 	failures += nonTerminating();

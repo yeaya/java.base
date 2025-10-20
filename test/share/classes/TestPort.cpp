@@ -45,6 +45,7 @@ void TestPort::init$() {
 }
 
 void TestPort::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $new($URL, "http"_s, "server"_s, $Integer::MAX_VALUE, "/path"_s));
 	$assign(url, $new($URL, $$str({"http://server:"_s, $$str($Integer::MAX_VALUE), "/path"_s})));
 	$assign(url, $new($URL, "http://server/path"_s));

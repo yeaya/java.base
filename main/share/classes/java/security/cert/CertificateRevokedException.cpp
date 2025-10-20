@@ -124,6 +124,7 @@ $X500Principal* CertificateRevokedException::getAuthorityName() {
 }
 
 $Date* CertificateRevokedException::getInvalidityDate() {
+	$useLocalCurrentObjectStackCache();
 	$init($KnownOIDs);
 	$var($1Extension, ext, $cast($1Extension, $nc($(getExtensions()))->get($($KnownOIDs::InvalidityDate->value()))));
 	if (ext == nullptr) {
@@ -145,11 +146,13 @@ $Map* CertificateRevokedException::getExtensions() {
 }
 
 $String* CertificateRevokedException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"Certificate has been revoked, reason: "_s, this->reason, ", revocation date: "_s, this->revocationDate, ", authority: "_s, this->authority, ", extension OIDs: "_s}));
 	return $concat(var$0, $($nc(this->extensions)->keySet()));
 }
 
 void CertificateRevokedException::writeObject($ObjectOutputStream* oos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(oos)->defaultWriteObject();
 	oos->writeInt($nc(this->extensions)->size());
 	{
@@ -169,6 +172,7 @@ void CertificateRevokedException::writeObject($ObjectOutputStream* oos) {
 }
 
 void CertificateRevokedException::readObject($ObjectInputStream* ois) {
+	$useLocalCurrentObjectStackCache();
 	$nc(ois)->defaultReadObject();
 	$set(this, revocationDate, $new($Date, $nc(this->revocationDate)->getTime()));
 	int32_t size = ois->readInt();

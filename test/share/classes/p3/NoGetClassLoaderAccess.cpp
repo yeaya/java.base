@@ -73,6 +73,7 @@ void NoGetClassLoaderAccess::init$() {
 
 void NoGetClassLoaderAccess::main($StringArray* args) {
 	$init(NoGetClassLoaderAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ModuleLayer, boot, $ModuleLayer::boot());
 	$System::setSecurityManager($$new($SecurityManager));
@@ -86,6 +87,7 @@ void NoGetClassLoaderAccess::main($StringArray* args) {
 
 $Class* NoGetClassLoaderAccess::findClass($Module* module, $String* cn) {
 	$init(NoGetClassLoaderAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = $Class::forName(module, cn);

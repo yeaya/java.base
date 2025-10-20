@@ -225,6 +225,7 @@ $String* ChronoUnit::toString() {
 }
 
 void clinit$ChronoUnit($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ChronoUnit::NANOS, $new(ChronoUnit, "NANOS"_s, 0, "Nanos"_s, $($Duration::ofNanos(1))));
 	$assignStatic(ChronoUnit::MICROS, $new(ChronoUnit, "MICROS"_s, 1, "Micros"_s, $($Duration::ofNanos(1000))));
 	$assignStatic(ChronoUnit::MILLIS, $new(ChronoUnit, "MILLIS"_s, 2, "Millis"_s, $($Duration::ofNanos(0x000F4240))));

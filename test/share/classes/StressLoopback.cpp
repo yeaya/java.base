@@ -98,6 +98,7 @@ void StressLoopback::init$() {
 
 void StressLoopback::main($StringArray* args) {
 	$init(StressLoopback);
+	$useLocalCurrentObjectStackCache();
 	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $nc($($AsynchronousServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	int32_t port = $nc((($cast($InetSocketAddress, $($nc(listener)->getLocalAddress())))))->getPort();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());

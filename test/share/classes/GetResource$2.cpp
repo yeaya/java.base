@@ -86,6 +86,7 @@ void GetResource$2::init$($GetResource* this$0) {
 }
 
 void GetResource$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("Thread 2 ready"_s);

@@ -62,6 +62,7 @@ void TimeZoneNamesBundle::init$() {
 }
 
 $Object* TimeZoneNamesBundle::handleGetObject($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, val, $OpenListResourceBundle::handleGetObject(key));
 	if ($instanceOf($StringArray, val)) {
 		$var($StringArray, contents, $cast($StringArray, val));

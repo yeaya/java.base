@@ -74,6 +74,7 @@ void SystemProps::init$() {
 
 $Map* SystemProps::initProperties() {
 	$init(SystemProps);
+	$useLocalCurrentObjectStackCache();
 	$var($SystemProps$Raw, raw, $new($SystemProps$Raw));
 	$var($HashMap, props, raw->cmdProperties());
 	$var($String, javaHome, $cast($String, $nc(props)->get("java.home"_s)));
@@ -148,6 +149,7 @@ void SystemProps::putIfAbsent($HashMap* props, $String* key, $String* value) {
 
 void SystemProps::fillI18nProps($HashMap* cmdProps, $String* base, $String* display, $String* format) {
 	$init(SystemProps);
+	$useLocalCurrentObjectStackCache();
 	$var($String, baseValue, $cast($String, $nc(cmdProps)->get(base)));
 	if (baseValue != nullptr) {
 		return;

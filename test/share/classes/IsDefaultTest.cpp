@@ -77,6 +77,7 @@ void IsDefaultTest::init$() {
 
 void IsDefaultTest::main($StringArray* argv) {
 	$load(IsDefaultTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t failures = 0;
 	int32_t visitationCount = 0;

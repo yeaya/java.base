@@ -164,6 +164,7 @@ void TestPlainArrayNotGeneric::main($StringArray* args) {
 
 void TestPlainArrayNotGeneric::checkClass($Class* c) {
 	$init(TestPlainArrayNotGeneric);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodArray, methods, $nc(c)->getMethods());
 	{
@@ -215,6 +216,7 @@ void TestPlainArrayNotGeneric::checkClass($Class* c) {
 
 void TestPlainArrayNotGeneric::check($TypeArray* types, $String* elementKind, $String* what) {
 	$init(TestPlainArrayNotGeneric);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(types)->length; ++i) {
 		$var($Type, t, types->get(i));
 		check(t, $$str({elementKind, " "_s, $$str((i + 1)), " of "_s, what}));
@@ -243,6 +245,7 @@ void TestPlainArrayNotGeneric::check($Type* t, $String* what) {
 
 void TestPlainArrayNotGeneric::check2($Type* t, $String* what) {
 	$init(TestPlainArrayNotGeneric);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ParameterizedType, t)) {
 		$var($ParameterizedType, pt, $cast($ParameterizedType, t));
 		check($($nc(pt)->getActualTypeArguments()), "type argument"_s, what);

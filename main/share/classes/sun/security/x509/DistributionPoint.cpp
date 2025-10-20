@@ -128,6 +128,7 @@ void DistributionPoint::init$($RDN* relativeName, $booleans* reasonFlags, $Gener
 }
 
 void DistributionPoint::init$($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding of DistributionPoint."_s);
 	}
@@ -196,6 +197,7 @@ $GeneralNames* DistributionPoint::getCRLIssuer() {
 }
 
 void DistributionPoint::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	if ((this->fullName != nullptr) || (this->relativeName != nullptr)) {
 		$var($DerOutputStream, distributionPoint, $new($DerOutputStream));
@@ -273,6 +275,7 @@ $String* DistributionPoint::reasonToString(int32_t reason) {
 }
 
 $String* DistributionPoint::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("DistributionPoint:\n     "_s);
 	if (this->fullName != nullptr) {

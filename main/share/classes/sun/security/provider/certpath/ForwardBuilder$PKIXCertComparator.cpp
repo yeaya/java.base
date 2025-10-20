@@ -101,6 +101,7 @@ void ForwardBuilder$PKIXCertComparator::init$($Set* trustedSubjectDNs, $X509Cert
 }
 
 $X509CertSelector* ForwardBuilder$PKIXCertComparator::getSelector($X509CertImpl* previousCert) {
+	$useLocalCurrentObjectStackCache();
 	if (previousCert != nullptr) {
 		$var($AuthorityKeyIdentifierExtension, akidExt, previousCert->getAuthorityKeyIdentifierExtension());
 		if (akidExt != nullptr) {
@@ -116,6 +117,7 @@ $X509CertSelector* ForwardBuilder$PKIXCertComparator::getSelector($X509CertImpl*
 }
 
 int32_t ForwardBuilder$PKIXCertComparator::compare($X509Certificate* oCert1, $X509Certificate* oCert2) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(oCert1)->equals(oCert2)) {
 		return 0;
 	}

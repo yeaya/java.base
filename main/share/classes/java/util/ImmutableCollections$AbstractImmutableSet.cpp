@@ -190,6 +190,7 @@ void ImmutableCollections$AbstractImmutableSet::init$() {
 }
 
 bool ImmutableCollections$AbstractImmutableSet::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	} else if (!($instanceOf($Set, o))) {

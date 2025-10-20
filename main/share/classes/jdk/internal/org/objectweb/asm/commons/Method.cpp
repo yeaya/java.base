@@ -90,6 +90,7 @@ void Method::init$($String* name, $Type* returnType, $TypeArray* argumentTypes) 
 
 Method* Method::getMethod($Method* method) {
 	$init(Method);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(method)->getName());
 	return $new(Method, var$0, $($Type::getMethodDescriptor(method)));
 }
@@ -106,6 +107,7 @@ Method* Method::getMethod($String* method) {
 
 Method* Method::getMethod($String* method, bool defaultPackage) {
 	$init(Method);
+	$useLocalCurrentObjectStackCache();
 	int32_t spaceIndex = $nc(method)->indexOf((int32_t)u' ');
 	int32_t currentArgumentStartIndex = method->indexOf((int32_t)u'(', spaceIndex) + 1;
 	int32_t endIndex = method->indexOf((int32_t)u')', currentArgumentStartIndex);
@@ -134,6 +136,7 @@ Method* Method::getMethod($String* method, bool defaultPackage) {
 
 $String* Method::getDescriptorInternal($String* type, bool defaultPackage) {
 	$init(Method);
+	$useLocalCurrentObjectStackCache();
 	if (""_s->equals(type)) {
 		return type;
 	}

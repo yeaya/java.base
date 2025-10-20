@@ -91,6 +91,7 @@ void ReferenceEnqueuePending::init$() {
 
 void ReferenceEnqueuePending::main($StringArray* argv) {
 	$init(ReferenceEnqueuePending);
+	$useLocalCurrentObjectStackCache();
 	if (ReferenceEnqueuePending::debug) {
 		$init($System);
 		$nc($System::out)->println("Starting the test."_s);
@@ -132,6 +133,7 @@ $ReferenceEnqueuePending$NumberedWeakReference* ReferenceEnqueuePending::waitFor
 
 void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expected) {
 	$init(ReferenceEnqueuePending);
+	$useLocalCurrentObjectStackCache();
 	if (ReferenceEnqueuePending::debug) {
 		$init($System);
 		$nc($System::out)->println("Reading the queue"_s);
@@ -173,6 +175,7 @@ void ReferenceEnqueuePending::checkResult($ReferenceQueue* queue, int32_t expect
 
 void ReferenceEnqueuePending::printMissingElements(int32_t length, int32_t expected) {
 	$init(ReferenceEnqueuePending);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("The following numbers were not found in the reference queue: "_s);
 	int32_t missing = 0;
@@ -199,6 +202,7 @@ void ReferenceEnqueuePending::forceGc(int64_t millis) {
 
 void ReferenceEnqueuePending::sort(int32_t length) {
 	$init(ReferenceEnqueuePending);
+	$useLocalCurrentObjectStackCache();
 	int32_t hold = 0;
 	if (ReferenceEnqueuePending::debug) {
 		$init($System);

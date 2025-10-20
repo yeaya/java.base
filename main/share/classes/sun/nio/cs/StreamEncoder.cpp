@@ -127,6 +127,7 @@ void StreamEncoder::ensureOpen() {
 
 StreamEncoder* StreamEncoder::forOutputStreamWriter($OutputStream* out, Object$* lock, $String* charsetName) {
 	$init(StreamEncoder);
+	$useLocalCurrentObjectStackCache();
 	$var($String, csn, charsetName);
 	if (csn == nullptr) {
 		$assign(csn, $nc($($Charset::defaultCharset()))->name());
@@ -255,6 +256,7 @@ bool StreamEncoder::isOpen() {
 }
 
 void StreamEncoder::init$($OutputStream* out, Object$* lock, $Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	$init($CodingErrorAction);
 	StreamEncoder::init$(out, lock, $($nc($($nc($($nc(cs)->newEncoder()))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)));
 }
@@ -304,6 +306,7 @@ void StreamEncoder::writeBytes() {
 }
 
 void StreamEncoder::flushLeftoverChar($CharBuffer* cb, bool endOfInput) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->haveLeftoverChar && !endOfInput) {
 		return;
 	}
@@ -351,6 +354,7 @@ void StreamEncoder::implWrite($chars* cbuf, int32_t off, int32_t len) {
 }
 
 void StreamEncoder::implWrite($CharBuffer* cb) {
+	$useLocalCurrentObjectStackCache();
 	if (this->haveLeftoverChar) {
 		flushLeftoverChar(cb, false);
 	}
@@ -391,6 +395,7 @@ void StreamEncoder::implFlush() {
 }
 
 void StreamEncoder::implClose() {
+	$useLocalCurrentObjectStackCache();
 	flushLeftoverChar(nullptr, true);
 	try {
 		for (;;) {

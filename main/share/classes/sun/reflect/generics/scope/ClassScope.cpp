@@ -56,6 +56,7 @@ void ClassScope::init$($Class* c) {
 }
 
 $Scope* ClassScope::computeEnclosingScope() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* receiver = $cast($Class, getRecvr());
 	$var($Method, m, $nc(receiver)->getEnclosingMethod());

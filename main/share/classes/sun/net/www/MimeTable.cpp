@@ -178,6 +178,7 @@ $String* MimeTable::getContentTypeFor($String* fileName) {
 
 void MimeTable::add($MimeEntry* m) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$nc(this->entries)->put($($nc(m)->getType()), m);
 		$var($StringArray, exts, $nc(m)->getExtensions());
 		if (exts == nullptr) {
@@ -198,6 +199,7 @@ $MimeEntry* MimeTable::remove($String* type) {
 
 $MimeEntry* MimeTable::remove($MimeEntry* entry) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($StringArray, extensionKeys, $nc(entry)->getExtensions());
 		if (extensionKeys != nullptr) {
 			for (int32_t i = 0; i < extensionKeys->length; ++i) {
@@ -210,6 +212,7 @@ $MimeEntry* MimeTable::remove($MimeEntry* entry) {
 
 $MimeEntry* MimeTable::find($String* type) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($MimeEntry, entry, $cast($MimeEntry, $nc(this->entries)->get(type)));
 		if (entry == nullptr) {
 			$var($Enumeration, e, $nc(this->entries)->elements());
@@ -225,6 +228,7 @@ $MimeEntry* MimeTable::find($String* type) {
 }
 
 $MimeEntry* MimeTable::findByFileName($String* fname$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, fname, fname$renamed);
 	$var($String, ext, ""_s);
 	int32_t i = $nc(fname)->lastIndexOf((int32_t)u'#');
@@ -248,6 +252,7 @@ $MimeEntry* MimeTable::findByExt($String* fileExtension) {
 
 $MimeEntry* MimeTable::findByDescription($String* description) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Enumeration, e, elements());
 		while ($nc(e)->hasMoreElements()) {
 			$var($MimeEntry, entry, $cast($MimeEntry, e->nextElement()));
@@ -271,6 +276,7 @@ $Enumeration* MimeTable::elements() {
 
 void MimeTable::load() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$var($Properties, entries, $new($Properties));
 		$var($File, file, nullptr);
@@ -325,6 +331,7 @@ void MimeTable::load() {
 }
 
 void MimeTable::parse($Properties* entries) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, tempFileTemplate, $cast($String, $nc(entries)->get("temp.file.template"_s)));
 	if (tempFileTemplate != nullptr) {
 		entries->remove("temp.file.template"_s);
@@ -339,6 +346,7 @@ void MimeTable::parse($Properties* entries) {
 }
 
 void MimeTable::parse($String* type, $String* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($MimeEntry, newEntry, $new($MimeEntry, type));
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, attrs, ";"_s));
 	while (tokenizer->hasMoreTokens()) {
@@ -349,6 +357,7 @@ void MimeTable::parse($String* type, $String* attrs) {
 }
 
 void MimeTable::parse($String* pair, $MimeEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	$var($String, value, nullptr);
 	bool gotName = false;
@@ -379,6 +388,7 @@ void MimeTable::fill($MimeEntry* entry, $String* name, $String* value) {
 }
 
 $StringArray* MimeTable::getExtensions($String* list) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, list, ","_s));
 	int32_t n = tokenizer->countTokens();
 	$var($StringArray, extensions, $new($StringArray, n));
@@ -399,6 +409,7 @@ int32_t MimeTable::getActionCode($String* action) {
 }
 
 $Properties* MimeTable::getAsProperties() {
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, properties, $new($Properties));
 	$var($Enumeration, e, elements());
 	while ($nc(e)->hasMoreElements()) {
@@ -410,6 +421,7 @@ $Properties* MimeTable::getAsProperties() {
 }
 
 bool MimeTable::saveAsProperties($File* file) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, os, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);

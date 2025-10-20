@@ -255,6 +255,7 @@ ProtocolVersion* ProtocolVersion::valueOf(int32_t id) {
 
 $String* ProtocolVersion::nameOf(int8_t major, int8_t minor) {
 	$init(ProtocolVersion);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ProtocolVersionArray, arr$, ProtocolVersion::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -311,6 +312,7 @@ bool ProtocolVersion::isNegotiable(int8_t major, int8_t minor, bool isDTLS, bool
 
 $StringArray* ProtocolVersion::toStringArray($List* protocolVersions) {
 	$init(ProtocolVersion);
+	$useLocalCurrentObjectStackCache();
 	if ((protocolVersions != nullptr) && !protocolVersions->isEmpty()) {
 		$var($StringArray, protocolNames, $new($StringArray, protocolVersions->size()));
 		int32_t i = 0;
@@ -330,6 +332,7 @@ $StringArray* ProtocolVersion::toStringArray($List* protocolVersions) {
 
 $StringArray* ProtocolVersion::toStringArray($ints* protocolVersions) {
 	$init(ProtocolVersion);
+	$useLocalCurrentObjectStackCache();
 	if ((protocolVersions != nullptr) && protocolVersions->length != 0) {
 		$var($StringArray, protocolNames, $new($StringArray, protocolVersions->length));
 		int32_t i = 0;
@@ -351,6 +354,7 @@ $StringArray* ProtocolVersion::toStringArray($ints* protocolVersions) {
 
 $List* ProtocolVersion::namesOf($StringArray* protocolNames) {
 	$init(ProtocolVersion);
+	$useLocalCurrentObjectStackCache();
 	if (protocolNames == nullptr || $nc(protocolNames)->length == 0) {
 		return $Collections::emptyList();
 	}

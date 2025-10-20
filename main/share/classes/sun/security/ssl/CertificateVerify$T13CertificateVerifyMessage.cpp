@@ -151,6 +151,7 @@ $bytes* CertificateVerify$T13CertificateVerifyMessage::serverSignHead = nullptr;
 $bytes* CertificateVerify$T13CertificateVerifyMessage::clientSignHead = nullptr;
 
 void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* context, $X509Authentication$X509Possession* x509Possession) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm($nc(context)->algorithmConstraints, context->peerRequestedSignatureSchemes, x509Possession, context->negotiatedProtocol));
 	if (schemeAndSigner == nullptr) {
@@ -181,6 +182,7 @@ void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* con
 }
 
 void CertificateVerify$T13CertificateVerifyMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	if ($nc(m)->remaining() < 4) {
 		$init($Alert);
@@ -264,6 +266,7 @@ void CertificateVerify$T13CertificateVerifyMessage::send($HandshakeOutStream* ho
 }
 
 $String* CertificateVerify$T13CertificateVerifyMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateVerify\": \'{\'\n  \"signature algorithm\": {0}\n  \"signature\": \'{\'\n{1}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

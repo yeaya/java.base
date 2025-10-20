@@ -97,6 +97,7 @@ void Shutdown::init$() {
 
 void Shutdown::add(int32_t slot, bool registerShutdownInProgress, $Runnable* hook) {
 	$init(Shutdown);
+	$useLocalCurrentObjectStackCache();
 	if (slot < 0 || slot >= Shutdown::MAX_SYSTEM_HOOKS) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid slot: "_s, $$str(slot)}));
 	}
@@ -119,6 +120,7 @@ void Shutdown::add(int32_t slot, bool registerShutdownInProgress, $Runnable* hoo
 
 void Shutdown::runHooks() {
 	$init(Shutdown);
+	$useLocalCurrentObjectStackCache();
 	$synchronized(Shutdown::lock) {
 		if ($VM::isShutdown()) {
 			return;

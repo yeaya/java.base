@@ -80,6 +80,7 @@ void KeyIdentifier::init$($DerValue* val) {
 }
 
 void KeyIdentifier::init$($PublicKey* pubKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, algAndKey, $new($DerValue, $($nc(pubKey)->getEncoded())));
 	if (algAndKey->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "PublicKey value is not a valid X.509 public key"_s);
@@ -102,6 +103,7 @@ $bytes* KeyIdentifier::getIdentifier() {
 }
 
 $String* KeyIdentifier::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "KeyIdentifier [\n"_s);
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$plusAssign(s, $(encoder->encodeBuffer(this->octetString)));

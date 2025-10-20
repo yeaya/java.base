@@ -429,6 +429,7 @@ Currency* Currency::getInstance($String* currencyCode) {
 
 Currency* Currency::getInstance($String* currencyCode, int32_t defaultFractionDigits, int32_t numericCode) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$var(Currency, instance, $cast(Currency, $nc(Currency::instances)->get(currencyCode)));
 	if (instance != nullptr) {
 		return instance;
@@ -469,6 +470,7 @@ Currency* Currency::getInstance($String* currencyCode, int32_t defaultFractionDi
 
 Currency* Currency::getInstance($Locale* locale) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$var($String, override$, $nc(locale)->getUnicodeLocaleType("cu"_s));
 	if (override$ != nullptr) {
 		try {
@@ -511,6 +513,7 @@ Currency* Currency::getInstance($Locale* locale) {
 
 $Set* Currency::getAvailableCurrencies() {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$synchronized(Currency::class$) {
 		if (Currency::available == nullptr) {
 			$assignStatic(Currency::available, $new($HashSet, 256));
@@ -562,6 +565,7 @@ $String* Currency::getSymbol() {
 }
 
 $String* Currency::getSymbol($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$load($CurrencyNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CurrencyNameProvider::class$));
@@ -600,6 +604,7 @@ $String* Currency::getDisplayName() {
 }
 
 $String* Currency::getDisplayName($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$load($CurrencyNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CurrencyNameProvider::class$));
 	$init($Currency$CurrencyNameGetter);
@@ -645,6 +650,7 @@ $ints* Currency::readIntArray($DataInputStream* dis, int32_t count) {
 
 $List* Currency::readSpecialCases($DataInputStream* dis, int32_t count) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, count));
 	int64_t cutOverTime = 0;
 	$var($String, oldCurrency, nullptr);
@@ -669,6 +675,7 @@ $List* Currency::readSpecialCases($DataInputStream* dis, int32_t count) {
 
 $List* Currency::readOtherCurrencies($DataInputStream* dis, int32_t count) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, count));
 	$var($String, currencyCode, nullptr);
 	int32_t fraction = 0;
@@ -685,6 +692,7 @@ $List* Currency::readOtherCurrencies($DataInputStream* dis, int32_t count) {
 
 $List* Currency::getValidCurrencyData($Properties* props, $Pattern* pattern) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, keys, $nc(props)->stringPropertyNames());
 	$var($List, propertyEntries, $new($ArrayList));
 	$var($Map, currencyCodeGroup, $cast($Map, $nc($($nc($($nc($($nc(keys)->stream()))->map(static_cast<$Function*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$0, props, pattern)))))->flatMap(static_cast<$Function*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$1$1)))))->collect($($Collectors::groupingBy(static_cast<$Function*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$2$2)))))));
@@ -694,6 +702,7 @@ $List* Currency::getValidCurrencyData($Properties* props, $Pattern* pattern) {
 
 void Currency::replaceCurrencyData($Currency$CurrencyProperty* prop) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$var($String, ctry, $nc(prop)->country);
 	$var($String, code, prop->currencyCode);
 	int32_t numeric = prop->numericCode;
@@ -783,6 +792,7 @@ $Stream* Currency::lambda$getValidCurrencyData$1($Optional* o) {
 
 $Optional* Currency::lambda$getValidCurrencyData$0($Properties* props, $Pattern* pattern, $String* k) {
 	$init(Currency);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($String, var$0, $nc(k)->toUpperCase($Locale::ROOT));
 	return $Currency$CurrencyProperty::getValidEntry(var$0, $($nc($($nc(props)->getProperty(k)))->toUpperCase($Locale::ROOT)), pattern);

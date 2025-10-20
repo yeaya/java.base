@@ -101,6 +101,7 @@ $NamedGroup* DHKeyExchange$DHECredentials::getNamedGroup() {
 
 DHKeyExchange$DHECredentials* DHKeyExchange$DHECredentials::valueOf($NamedGroup* ng, $bytes* encodedPublic) {
 	$init(DHKeyExchange$DHECredentials);
+	$useLocalCurrentObjectStackCache();
 	$init($NamedGroup$NamedGroupSpec);
 	if ($nc(ng)->spec != $NamedGroup$NamedGroupSpec::NAMED_GROUP_FFDHE) {
 		$throwNew($RuntimeException, "Credentials decoding:  Not FFDHE named group"_s);

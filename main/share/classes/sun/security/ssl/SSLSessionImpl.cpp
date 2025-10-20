@@ -338,6 +338,7 @@ void SSLSessionImpl::init$() {
 }
 
 void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite) {
+	$useLocalCurrentObjectStackCache();
 	SSLSessionImpl::init$(hc, cipherSuite, $$new($SessionId, SSLSessionImpl::defaultRejoinable, $($nc($nc(hc)->sslContext)->getSecureRandom())));
 }
 
@@ -346,6 +347,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $Se
 }
 
 void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $SessionId* id, int64_t creationTime) {
+	$useLocalCurrentObjectStackCache();
 	$ExtendedSSLSession::init$();
 	this->lastUsedTime = 0;
 	this->useDefaultPeerSignAlgs = false;
@@ -384,6 +386,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $CipherSuite* cipherSuite, $Se
 }
 
 void SSLSessionImpl::init$(SSLSessionImpl* baseSession, $SessionId* newId) {
+	$useLocalCurrentObjectStackCache();
 	$ExtendedSSLSession::init$();
 	this->lastUsedTime = 0;
 	this->useDefaultPeerSignAlgs = false;
@@ -424,6 +427,7 @@ void SSLSessionImpl::init$(SSLSessionImpl* baseSession, $SessionId* newId) {
 }
 
 void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
+	$useLocalCurrentObjectStackCache();
 	$ExtendedSSLSession::init$();
 	this->lastUsedTime = 0;
 	this->useDefaultPeerSignAlgs = false;
@@ -603,6 +607,7 @@ void SSLSessionImpl::init$($HandshakeContext* hc, $ByteBuffer* buf) {
 }
 
 bool SSLSessionImpl::isStatelessable() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !this->protocolVersion->useTLS13PlusSpec();
 	if (var$0 && $nc($(getMasterSecret()))->getEncoded() == nullptr) {
 		$init($SSLLogger);
@@ -622,6 +627,7 @@ bool SSLSessionImpl::isStatelessable() {
 }
 
 $bytes* SSLSessionImpl::write() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, nullptr);
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, nullptr));
 	hos->putInt16(this->protocolVersion->id);
@@ -822,6 +828,7 @@ $SecretKey* SSLSessionImpl::getResumptionMasterSecret() {
 }
 
 $SecretKey* SSLSessionImpl::getPreSharedKey() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->sessionLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -847,6 +854,7 @@ $SecretKey* SSLSessionImpl::getPreSharedKey() {
 }
 
 $SecretKey* SSLSessionImpl::consumePreSharedKey() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->sessionLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -881,6 +889,7 @@ $String* SSLSessionImpl::getIdentificationProtocol() {
 }
 
 $bytes* SSLSessionImpl::consumePskIdentity() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->sessionLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -999,6 +1008,7 @@ $bytes* SSLSessionImpl::getId() {
 }
 
 $SSLSessionContext* SSLSessionImpl::getSessionContext() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, nullptr);
 	if (($assign(sm, $System::getSecurityManager())) != nullptr) {
 		$nc(sm)->checkPermission($$new($SSLPermission, "getSSLSessionContext"_s));
@@ -1015,6 +1025,7 @@ $CipherSuite* SSLSessionImpl::getSuite() {
 }
 
 void SSLSessionImpl::setSuite($CipherSuite* suite) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, cipherSuite, suite);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("session"_s)) {
@@ -1047,6 +1058,7 @@ int32_t SSLSessionImpl::hashCode() {
 }
 
 bool SSLSessionImpl::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -1077,6 +1089,7 @@ $X509CertificateArray* SSLSessionImpl::getCertificateChain() {
 }
 
 $List* SSLSessionImpl::getStatusResponses() {
+	$useLocalCurrentObjectStackCache();
 	if (this->statusResponses == nullptr || $nc(this->statusResponses)->isEmpty()) {
 		return $Collections::emptyList();
 	} else {
@@ -1146,6 +1159,7 @@ void SSLSessionImpl::setContext($SSLSessionContextImpl* ctx) {
 }
 
 void SSLSessionImpl::invalidate() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->sessionLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1188,6 +1202,7 @@ void SSLSessionImpl::invalidate() {
 }
 
 void SSLSessionImpl::putValue($String* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ((key == nullptr) || (value == nullptr)) {
 		$throwNew($IllegalArgumentException, "arguments can not be null"_s);
 	}
@@ -1217,6 +1232,7 @@ $Object* SSLSessionImpl::getValue($String* key) {
 }
 
 void SSLSessionImpl::removeValue($String* key) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($IllegalArgumentException, "argument can not be null"_s);
 	}
@@ -1233,6 +1249,7 @@ void SSLSessionImpl::removeValue($String* key) {
 }
 
 $StringArray* SSLSessionImpl::getValueNames() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, v, $new($ArrayList));
 	$var($Object, securityCtx, $SecureKey::getCurrentSecurityContext());
 	{
@@ -1456,10 +1473,12 @@ $List* SSLSessionImpl::getRequestedServerNames() {
 }
 
 $String* SSLSessionImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Session("_s, $$str(this->creationTime), "|"_s, $(getCipherSuite()), ")"_s});
 }
 
 void clinit$SSLSessionImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$init($SignatureScheme);
 	$assignStatic(SSLSessionImpl::defaultPeerSupportedSignAlgs, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($$new($SignatureSchemeArray, {
 		$SignatureScheme::RSA_PKCS1_SHA1,

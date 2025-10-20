@@ -63,6 +63,7 @@ $Object* allocate$PKIX$CertStoreTypeException($Class* clazz) {
 }
 
 void PKIX$CertStoreTypeException::init$($String* type, $CertStoreException* cse) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(cse)->getMessage());
 	$CertStoreException::init$(var$0, $(cse->getCause()));
 	$set(this, type, type);

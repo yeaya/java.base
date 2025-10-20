@@ -58,6 +58,7 @@ void TestAnnotatedElement::init$() {
 
 void TestAnnotatedElement::main($StringArray* argv) {
 	$load(TestAnnotatedElement);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
 	$Class* clazz = TestAnnotatedElement::class$;
@@ -71,6 +72,7 @@ void TestAnnotatedElement::main($StringArray* argv) {
 }
 
 int32_t TestAnnotatedElement::testTypeVariable($TypeVariableArray* typeVars) {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	if ($nc(typeVars)->length == 0) {
 		return ++errors;

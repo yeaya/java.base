@@ -111,6 +111,7 @@ $TypeArray* ConstructorRepository::getExceptionTypes() {
 }
 
 $TypeArray* ConstructorRepository::computeParameterTypes() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeSignatureArray, pts, $nc(($cast($MethodTypeSignature, $(getTree()))))->getParameterTypes());
 	int32_t length = $nc(pts)->length;
 	$var($TypeArray, parameterTypes, $new($TypeArray, length));
@@ -123,6 +124,7 @@ $TypeArray* ConstructorRepository::computeParameterTypes() {
 }
 
 $TypeArray* ConstructorRepository::computeExceptionTypes() {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldTypeSignatureArray, ets, $nc(($cast($MethodTypeSignature, $(getTree()))))->getExceptionTypes());
 	int32_t length = $nc(ets)->length;
 	$var($TypeArray, exceptionTypes, $new($TypeArray, length));

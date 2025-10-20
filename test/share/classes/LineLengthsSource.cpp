@@ -66,6 +66,7 @@ void LineLengthsSource::init$($OutputStream* us, $BufferedWriter* ts, $PrintWrit
 }
 
 void LineLengthsSource::flush() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->uo)->flush();
 	$($Thread::currentThread())->yield();
 	$nc(this->to)->flush();
@@ -115,6 +116,7 @@ $String* LineLengthsSource::termName(int32_t t) {
 }
 
 void LineLengthsSource::go(int32_t t) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t ln = 0; ln < 128; ++ln) {
 		$var($String, ts, termString(t));
 		$var($StringBuffer, s, $new($StringBuffer, ln + $nc(ts)->length()));
@@ -130,6 +132,7 @@ void LineLengthsSource::go(int32_t t) {
 }
 
 void LineLengthsSource::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		go(0);
 		go(1);

@@ -96,6 +96,7 @@ int32_t TypeAnnotation$TypeAnnotationTargetInfo::getSecondaryIndex() {
 }
 
 $String* TypeAnnotation$TypeAnnotationTargetInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({""_s, this->target, ": "_s, $$str(this->count), ", "_s, $$str(this->secondaryIndex)});
 }
 

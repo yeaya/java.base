@@ -106,6 +106,7 @@ void EncryptedExtensions$EncryptedExtensionsMessage::init$($HandshakeContext* ha
 }
 
 void EncryptedExtensions$EncryptedExtensionsMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	if ($nc(m)->remaining() < 2) {
 		$init($Alert);
@@ -138,6 +139,7 @@ void EncryptedExtensions$EncryptedExtensionsMessage::send($HandshakeOutStream* h
 }
 
 $String* EncryptedExtensions$EncryptedExtensionsMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"EncryptedExtensions\": [\n{0}\n]"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($($nc(this->extensions)->toString()))))}));

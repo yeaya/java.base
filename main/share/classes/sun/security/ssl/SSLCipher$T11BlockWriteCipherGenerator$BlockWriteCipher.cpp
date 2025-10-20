@@ -107,6 +107,7 @@ $Object* allocate$SSLCipher$T11BlockWriteCipherGenerator$BlockWriteCipher($Class
 }
 
 void SSLCipher$T11BlockWriteCipherGenerator$BlockWriteCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SSLCipher* sslCipher, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params$renamed, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, params, params$renamed);
 	$SSLCipher$SSLWriteCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
@@ -118,6 +119,7 @@ void SSLCipher$T11BlockWriteCipherGenerator$BlockWriteCipher::init$($Authenticat
 }
 
 int32_t SSLCipher$T11BlockWriteCipherGenerator$BlockWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(bb)->position();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {

@@ -152,6 +152,7 @@ void TransferToChannel::transferFileToUserChannel() {
 
 void TransferToChannel::transferFileToTrustedChannel() {
 	$init(TransferToChannel);
+	$useLocalCurrentObjectStackCache();
 	int64_t remainingBytes = $nc(TransferToChannel::in)->size();
 	int64_t size = remainingBytes;
 	$var($FileOutputStream, fos, $new($FileOutputStream, TransferToChannel::outFile));
@@ -169,6 +170,7 @@ void TransferToChannel::transferFileToTrustedChannel() {
 
 void TransferToChannel::generateBigFile($File* file) {
 	$init(TransferToChannel);
+	$useLocalCurrentObjectStackCache();
 	$var($OutputStream, out, $new($BufferedOutputStream, $$new($FileOutputStream, file)));
 	$var($bytes, randomBytes, $new($bytes, 1024));
 	$var($Random, rand, $new($Random, 0));

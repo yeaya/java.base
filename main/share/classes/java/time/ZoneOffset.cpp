@@ -171,6 +171,7 @@ ZoneOffset* ZoneOffset::MAX = nullptr;
 
 ZoneOffset* ZoneOffset::of($String* offsetId$renamed) {
 	$init(ZoneOffset);
+	$useLocalCurrentObjectStackCache();
 	$var($String, offsetId, offsetId$renamed);
 	$Objects::requireNonNull($of(offsetId), "offsetId"_s);
 	$var(ZoneOffset, offset, $cast(ZoneOffset, $nc(ZoneOffset::ID_CACHE)->get(offsetId)));
@@ -239,6 +240,7 @@ ZoneOffset* ZoneOffset::of($String* offsetId$renamed) {
 
 int32_t ZoneOffset::parseNumber($CharSequence* offsetId, int32_t pos, bool precededByColon) {
 	$init(ZoneOffset);
+	$useLocalCurrentObjectStackCache();
 	if (precededByColon && $nc(offsetId)->charAt(pos - 1) != u':') {
 		$throwNew($DateTimeException, $$str({"Invalid ID for ZoneOffset, colon not found when expected: "_s, offsetId}));
 	}
@@ -269,6 +271,7 @@ ZoneOffset* ZoneOffset::ofHoursMinutesSeconds(int32_t hours, int32_t minutes, in
 
 ZoneOffset* ZoneOffset::from($TemporalAccessor* temporal) {
 	$init(ZoneOffset);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(temporal), "temporal"_s);
 	$var(ZoneOffset, offset, $cast(ZoneOffset, $nc(temporal)->query($($TemporalQueries::offset()))));
 	if (offset == nullptr) {
@@ -280,6 +283,7 @@ ZoneOffset* ZoneOffset::from($TemporalAccessor* temporal) {
 
 void ZoneOffset::validate(int32_t hours, int32_t minutes, int32_t seconds) {
 	$init(ZoneOffset);
+	$useLocalCurrentObjectStackCache();
 	if (hours < -18 || hours > 18) {
 		$throwNew($DateTimeException, $$str({"Zone offset hours not in valid range: value "_s, $$str(hours), " is not in the range -18 to 18"_s}));
 	}
@@ -312,6 +316,7 @@ int32_t ZoneOffset::totalSeconds(int32_t hours, int32_t minutes, int32_t seconds
 
 ZoneOffset* ZoneOffset::ofTotalSeconds(int32_t totalSeconds) {
 	$init(ZoneOffset);
+	$useLocalCurrentObjectStackCache();
 	if (totalSeconds < -ZoneOffset::MAX_SECONDS || totalSeconds > ZoneOffset::MAX_SECONDS) {
 		$throwNew($DateTimeException, "Zone offset not in valid range: -18:00 to +18:00"_s);
 	}
@@ -379,6 +384,7 @@ $ValueRange* ZoneOffset::range($TemporalField* field) {
 }
 
 int32_t ZoneOffset::get($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	if ($equals(field, $ChronoField::OFFSET_SECONDS)) {
 		return this->totalSeconds$;

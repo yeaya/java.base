@@ -75,6 +75,7 @@ void JarURLConnection::init$($URL* url) {
 }
 
 void JarURLConnection::parseSpecs($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, spec, $nc(url)->getFile());
 	int32_t separator = $nc(spec)->indexOf("!/"_s);
 	if (separator == -1) {

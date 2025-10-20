@@ -178,6 +178,7 @@ void UnixCopyFile::init$() {
 
 void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, $UnixPath* target, $UnixCopyFile$Flags* flags) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$UnixNativeDispatcher::mkdir(target, $nc(attrs)->mode());
 	} catch ($UnixException&) {
@@ -285,6 +286,7 @@ void UnixCopyFile::copyDirectory($UnixPath* source, $UnixFileAttributes* attrs, 
 
 void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $UnixPath* target, $UnixCopyFile$Flags* flags, int64_t addressToPollForCancel) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	int32_t fi = -1;
 	try {
 		$init($UnixConstants);
@@ -380,6 +382,7 @@ void UnixCopyFile::copyFile($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 
 void UnixCopyFile::copyLink($UnixPath* source, $UnixFileAttributes* attrs, $UnixPath* target, $UnixCopyFile$Flags* flags) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, linktarget, nullptr);
 	try {
 		$assign(linktarget, $UnixNativeDispatcher::readlink(source));
@@ -406,6 +409,7 @@ void UnixCopyFile::copyLink($UnixPath* source, $UnixFileAttributes* attrs, $Unix
 
 void UnixCopyFile::copySpecial($UnixPath* source, $UnixFileAttributes* attrs, $UnixPath* target, $UnixCopyFile$Flags* flags) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($UnixPath, var$0, target);
 		int32_t var$1 = $nc(attrs)->mode();
@@ -464,6 +468,7 @@ void UnixCopyFile::copySpecial($UnixPath* source, $UnixFileAttributes* attrs, $U
 
 void UnixCopyFile::ensureEmptyDir($UnixPath* dir) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int64_t ptr = $UnixNativeDispatcher::opendir(dir);
 		{
@@ -503,6 +508,7 @@ void UnixCopyFile::ensureEmptyDir($UnixPath* dir) {
 
 void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* options) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$nc(source)->checkWrite();
@@ -618,6 +624,7 @@ void UnixCopyFile::move($UnixPath* source, $UnixPath* target, $CopyOptionArray* 
 
 void UnixCopyFile::copy($UnixPath* source, $UnixPath* target, $CopyOptionArray* options) {
 	$init(UnixCopyFile);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$nc(source)->checkRead();

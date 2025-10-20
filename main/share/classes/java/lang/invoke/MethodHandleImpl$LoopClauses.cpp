@@ -83,6 +83,7 @@ void MethodHandleImpl$LoopClauses::init$($MethodHandleArray2* clauses) {
 }
 
 $String* MethodHandleImpl$LoopClauses::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "LoopClauses -- "_s));
 	for (int32_t i = 0; i < 4; ++i) {
 		if (i > 0) {

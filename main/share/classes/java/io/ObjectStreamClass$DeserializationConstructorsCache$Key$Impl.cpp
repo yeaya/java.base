@@ -67,6 +67,7 @@ $Object* allocate$ObjectStreamClass$DeserializationConstructorsCache$Key$Impl($C
 }
 
 void ObjectStreamClass$DeserializationConstructorsCache$Key$Impl::init$($ObjectStreamFieldArray* fields) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$ObjectStreamClass$DeserializationConstructorsCache$Key::init$();
 	$set(this, fieldNames, $new($StringArray, $nc(fields)->length));

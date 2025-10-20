@@ -141,6 +141,7 @@ $Object* allocate$PBEKey($Class* clazz) {
 }
 
 void PBEKey::init$($PBEKeySpec* keySpec, $String* keytype, bool useCleaner) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwd, $nc(keySpec)->getPassword());
 	if (passwd == nullptr) {
 		$assign(passwd, $new($chars, 0));
@@ -179,6 +180,7 @@ $String* PBEKey::getFormat() {
 }
 
 int32_t PBEKey::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	for (int32_t i = 1; i < $nc(this->key)->length; ++i) {
 		retval += $nc(this->key)->get(i) * i;
@@ -188,6 +190,7 @@ int32_t PBEKey::hashCode() {
 }
 
 bool PBEKey::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -217,6 +220,7 @@ void PBEKey::readObject($ObjectInputStream* s) {
 }
 
 $Object* PBEKey::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::SECRET);
 	$var($String, var$1, getAlgorithm());

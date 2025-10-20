@@ -251,6 +251,7 @@ void ClassNode::visitEnd() {
 }
 
 void ClassNode::check(int32_t api) {
+	$useLocalCurrentObjectStackCache();
 	if (api != $Opcodes::ASM9_EXPERIMENTAL && this->permittedSubclassesExperimental != nullptr) {
 		$throwNew($UnsupportedClassVersionException);
 	}
@@ -305,6 +306,7 @@ void ClassNode::check(int32_t api) {
 }
 
 void ClassNode::accept($ClassVisitor* classVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, interfacesArray, $new($StringArray, $nc(this->interfaces)->size()));
 	$nc(this->interfaces)->toArray(interfacesArray);
 	$nc(classVisitor)->visit(this->version, this->access, this->name, this->signature, this->superName, interfacesArray);

@@ -47,6 +47,7 @@ void SpecTests::init$() {
 }
 
 void SpecTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ILE, "java.lang.IllegalArgumentException"_s);
 	$var($String, NPE, "java.lang.NullPointerException"_s);
 	$var($StringArray, names, $new($StringArray, {

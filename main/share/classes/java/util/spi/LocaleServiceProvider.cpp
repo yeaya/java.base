@@ -53,6 +53,7 @@ $Object* allocate$LocaleServiceProvider($Class* clazz) {
 }
 
 $Void* LocaleServiceProvider::checkPermission() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "localeServiceProvider"_s));
@@ -68,6 +69,7 @@ void LocaleServiceProvider::init$() {
 }
 
 bool LocaleServiceProvider::isSupportedLocale($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $nc(locale)->stripExtensions());
 	{

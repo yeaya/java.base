@@ -66,6 +66,7 @@ void HoldsLock::init$() {
 
 void HoldsLock::checkLock(bool value) {
 	$init(HoldsLock);
+	$useLocalCurrentObjectStackCache();
 	if ($Thread::holdsLock(HoldsLock::target) != value) {
 		$throwNew($RuntimeException, $$str({"Should be "_s, $$str(value)}));
 	}

@@ -321,6 +321,7 @@ int64_t StringConcatHelper::prepend(int64_t indexCoder, $bytes* buf, $String* va
 
 $String* StringConcatHelper::newString($bytes* buf, int64_t indexCoder) {
 	$init(StringConcatHelper);
+	$useLocalCurrentObjectStackCache();
 	if (indexCoder == StringConcatHelper::LATIN1) {
 		return $new($String, buf, $String::LATIN1);
 	} else if (indexCoder == StringConcatHelper::UTF16) {
@@ -332,6 +333,7 @@ $String* StringConcatHelper::newString($bytes* buf, int64_t indexCoder) {
 
 $String* StringConcatHelper::simpleConcat(Object$* first, Object$* second) {
 	$init(StringConcatHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s1, stringOf(first));
 	$var($String, s2, stringOf(second));
 	if ($nc(s1)->isEmpty()) {
@@ -386,6 +388,7 @@ int64_t StringConcatHelper::initialCoder() {
 
 $MethodHandle* StringConcatHelper::lookupStatic($String* name, $MethodType* methodType) {
 	$init(StringConcatHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc($($MethodHandles::lookup()))->findStatic(StringConcatHelper::class$, name, methodType);

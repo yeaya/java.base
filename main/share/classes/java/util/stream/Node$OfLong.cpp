@@ -148,6 +148,7 @@ void Node$OfLong::forEach($Consumer* consumer) {
 }
 
 void Node$OfLong::copyInto($LongArray* boxed, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	$init($Tripwire);
 	if ($Tripwire::ENABLED) {
 		$Tripwire::trip($of(this)->getClass(), "{0} calling Node.OfInt.copyInto(Long[], int)"_s);
@@ -159,6 +160,7 @@ void Node$OfLong::copyInto($LongArray* boxed, int32_t offset) {
 }
 
 Node$OfLong* Node$OfLong::truncate(int64_t from, int64_t to, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (from == 0 && to == count()) {
 		return this;
 	}

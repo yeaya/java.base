@@ -42,6 +42,7 @@ void DriveSlash::init$() {
 }
 
 void DriveSlash::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar != u'\\') {
 		return;

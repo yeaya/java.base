@@ -96,6 +96,7 @@ bool ServiceLoader$3::hasNext() {
 }
 
 $Object* ServiceLoader$3::next() {
+	$useLocalCurrentObjectStackCache();
 	checkReloadCount();
 	$var($Object, next, nullptr);
 	if (this->index < $nc(this->this$0->instantiatedProviders)->size()) {

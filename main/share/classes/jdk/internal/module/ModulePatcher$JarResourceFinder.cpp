@@ -131,6 +131,7 @@ $Object* allocate$ModulePatcher$JarResourceFinder($Class* clazz) {
 }
 
 void ModulePatcher$JarResourceFinder::init$($Path* path) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, jf, $new($JarFile, $($nc(path)->toString())));
 	$set(this, csURL, $nc($($nc(path)->toUri()))->toURL());
 }
@@ -148,6 +149,7 @@ $Resource* ModulePatcher$JarResourceFinder::find($String* name) {
 }
 
 $Stream* ModulePatcher$JarResourceFinder::list() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(this->jf)->stream()))->map(static_cast<$Function*>($$new(ModulePatcher$JarResourceFinder$$Lambda$getName)));
 }
 

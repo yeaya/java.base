@@ -60,6 +60,7 @@ void MultipleNumberScriptTest::init$() {
 
 void MultipleNumberScriptTest::main($StringArray* args) {
 	$init(MultipleNumberScriptTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t num = 0x0001E240;
 	for (int32_t i = 0; i < $nc(MultipleNumberScriptTest::locales)->length; ++i) {
 		$var($NumberFormat, nf, $NumberFormat::getIntegerInstance($nc(MultipleNumberScriptTest::locales)->get(i)));
@@ -127,6 +128,7 @@ bool MultipleNumberScriptTest::checkResult($String* formatted, $String* numSyste
 }
 
 void clinit$MultipleNumberScriptTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MultipleNumberScriptTest::locales, $new($LocaleArray, {
 		$$new($Locale, "ar"_s),
 		$$new($Locale, "ar"_s, "EG"_s),

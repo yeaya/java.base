@@ -98,6 +98,7 @@ void AbstractTask::init$(AbstractTask* parent, $Spliterator* spliterator) {
 
 int32_t AbstractTask::getLeafTarget() {
 	$init(AbstractTask);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $Thread::currentThread());
 	if ($instanceOf($ForkJoinWorkerThread, t)) {
 		return $nc($($nc(($cast($ForkJoinWorkerThread, t)))->getPool()))->getParallelism() << 2;
@@ -148,6 +149,7 @@ AbstractTask* AbstractTask::getParent() {
 }
 
 void AbstractTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterator, rs, this->spliterator);
 	$var($Spliterator, ls, nullptr);
 	int64_t sizeEstimate = $nc(rs)->estimateSize();
@@ -184,6 +186,7 @@ void AbstractTask::onCompletion($CountedCompleter* caller) {
 }
 
 bool AbstractTask::isLeftmostNode() {
+	$useLocalCurrentObjectStackCache();
 	$var(AbstractTask, node, this);
 	while (node != nullptr) {
 		$var(AbstractTask, parent, node->getParent());

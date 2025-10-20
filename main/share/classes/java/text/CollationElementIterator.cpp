@@ -146,6 +146,7 @@ void CollationElementIterator::reset() {
 }
 
 int32_t CollationElementIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	if (this->text == nullptr) {
 		return CollationElementIterator::NULLORDER;
 	}
@@ -214,6 +215,7 @@ int32_t CollationElementIterator::next() {
 }
 
 int32_t CollationElementIterator::previous() {
+	$useLocalCurrentObjectStackCache();
 	if (this->text == nullptr) {
 		return CollationElementIterator::NULLORDER;
 	}
@@ -381,6 +383,7 @@ bool CollationElementIterator::isLaoBaseConsonant(int32_t ch) {
 }
 
 $ints* CollationElementIterator::makeReorderedBuffer(int32_t colFirst, int32_t lastValue, $ints* lastExpansion$renamed, bool forward) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, lastExpansion, lastExpansion$renamed);
 	$var($ints, result, nullptr);
 	int32_t firstValue = $nc(this->ordering)->getUnicodeOrder(colFirst);
@@ -426,6 +429,7 @@ bool CollationElementIterator::isIgnorable(int32_t order) {
 }
 
 int32_t CollationElementIterator::nextContractChar(int32_t ch) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, list, $nc(this->ordering)->getContractValues(ch));
 	$var($EntryPair, pair, $cast($EntryPair, $nc(list)->firstElement()));
 	int32_t order = $nc(pair)->value;
@@ -466,6 +470,7 @@ int32_t CollationElementIterator::nextContractChar(int32_t ch) {
 }
 
 int32_t CollationElementIterator::prevContractChar(int32_t ch) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, list, $nc(this->ordering)->getContractValues(ch));
 	$var($EntryPair, pair, $cast($EntryPair, $nc(list)->firstElement()));
 	int32_t order = $nc(pair)->value;

@@ -128,6 +128,7 @@ bool ConstraintsChecker::isForwardCheckingSupported() {
 }
 
 $Set* ConstraintsChecker::getSupportedExtensions() {
+	$useLocalCurrentObjectStackCache();
 	if (this->supportedExts == nullptr) {
 		$set(this, supportedExts, $new($HashSet, 2));
 		$init($PKIXExtensions);
@@ -139,6 +140,7 @@ $Set* ConstraintsChecker::getSupportedExtensions() {
 }
 
 void ConstraintsChecker::check($Certificate* cert, $Collection* unresCritExts) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, currCert, $cast($X509Certificate, cert));
 	++this->i;
 	checkBasicConstraints(currCert);
@@ -151,6 +153,7 @@ void ConstraintsChecker::check($Certificate* cert, $Collection* unresCritExts) {
 }
 
 void ConstraintsChecker::verifyNameConstraints($X509Certificate* currCert) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "name constraints"_s);
 	if (ConstraintsChecker::debug != nullptr) {
 		$nc(ConstraintsChecker::debug)->println($$str({"---checking "_s, msg, "..."_s}));
@@ -178,6 +181,7 @@ void ConstraintsChecker::verifyNameConstraints($X509Certificate* currCert) {
 
 $NameConstraintsExtension* ConstraintsChecker::mergeNameConstraints($X509Certificate* currCert, $NameConstraintsExtension* prevNC) {
 	$init(ConstraintsChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertImpl, currCertImpl, nullptr);
 	try {
 		$assign(currCertImpl, $X509CertImpl::toImpl(currCert));
@@ -214,6 +218,7 @@ $NameConstraintsExtension* ConstraintsChecker::mergeNameConstraints($X509Certifi
 }
 
 void ConstraintsChecker::checkBasicConstraints($X509Certificate* currCert) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "basic constraints"_s);
 	if (ConstraintsChecker::debug != nullptr) {
 		$nc(ConstraintsChecker::debug)->println($$str({"---checking "_s, msg, "..."_s}));

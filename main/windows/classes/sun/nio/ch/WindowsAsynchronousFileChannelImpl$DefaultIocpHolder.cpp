@@ -77,6 +77,7 @@ void WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::init$() {
 
 $Iocp* WindowsAsynchronousFileChannelImpl$DefaultIocpHolder::defaultIocp() {
 	$init(WindowsAsynchronousFileChannelImpl$DefaultIocpHolder);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new($Iocp, nullptr, $($ThreadPool::createDefault()))->start();
 	} catch ($IOException&) {

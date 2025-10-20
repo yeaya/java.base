@@ -507,6 +507,7 @@ $List* PipelineTest::asList($ObjectArray* args) {
 
 void PipelineTest::t1_simplePipeline() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s1, "Now is the time to check!"_s);
 		verify(s1, s1, $(asList($$new($ProcessBuilderArray, {$$new($ProcessBuilder, $$new($StringArray, {"cat"_s}))}))));
@@ -527,6 +528,7 @@ void PipelineTest::t1_simplePipeline() {
 
 void PipelineTest::t2_translatePipeline() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, s2, "Now is the time to check!"_s);
 		$var($String, r2, $(s2->replace(u'e', u'E'))->replace(u'o', u'O'));
@@ -550,6 +552,7 @@ void PipelineTest::t2_translatePipeline() {
 
 void PipelineTest::t3_redirectErrorStream() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, p1err, $new($File, "p1-test.err"_s));
 		$var($File, p2out, $new($File, "p2-test.out"_s));
@@ -572,6 +575,7 @@ void PipelineTest::t3_redirectErrorStream() {
 
 void PipelineTest::t4_failStartPipeline() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($File, p1err, $new($File, "p1-test.err"_s));
 	$var($File, p2out, $new($File, "p2-test.out"_s));
 	$load($IllegalArgumentException);
@@ -592,6 +596,7 @@ void PipelineTest::t4_failStartPipeline() {
 
 void PipelineTest::verify($String* input, $String* expected, $List* builders) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($File, infile, $new($File, "test.in"_s));
 	$var($File, outfile, $new($File, "test.out"_s));
 	setFileContents(infile, input);
@@ -618,6 +623,7 @@ void PipelineTest::waitForAll($List* processes) {
 
 void PipelineTest::print($ProcessBuilder* pb) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	if (pb != nullptr) {
 		$init($System);
 		$nc($System::out)->printf(" pb: %s%n"_s, $$new($ObjectArray, {$of(pb)}));
@@ -627,6 +633,7 @@ void PipelineTest::print($ProcessBuilder* pb) {
 
 void PipelineTest::print($ProcessHandle* p) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->printf("process: pid: %d, info: %s%n"_s, $$new($ObjectArray, {
 		$($of($Long::valueOf($nc(p)->pid()))),
@@ -636,6 +643,7 @@ void PipelineTest::print($ProcessHandle* p) {
 
 void PipelineTest::verifyProcesses($List* processes) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(processes)->size(); ++i) {
 		$var($Process, p, $cast($Process, processes->get(i)));
 		if (i != 0) {
@@ -672,6 +680,7 @@ void PipelineTest::verifyNullStream($InputStream* s, $String* msg) {
 
 void PipelineTest::setFileContents($File* file, $String* contents) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Writer, w, $new($FileWriter, file));
 		w->write(contents);
@@ -684,6 +693,7 @@ void PipelineTest::setFileContents($File* file, $String* contents) {
 
 $String* PipelineTest::fileContents($File* file) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Reader, r, $new($FileReader, file));
 		$var($StringBuilder, sb, $new($StringBuilder));
@@ -716,6 +726,7 @@ void PipelineTest::fail() {
 
 void PipelineTest::fail($String* msg) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println(msg);
 	++PipelineTest::failed;
@@ -758,6 +769,7 @@ void PipelineTest::equal(Object$* x, Object$* y) {
 
 void PipelineTest::main($StringArray* args) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		realMain(args);
 	} catch ($Throwable&) {
@@ -776,6 +788,7 @@ void PipelineTest::main($StringArray* args) {
 
 void PipelineTest::THROWS($Class* k, $PipelineTest$FunArray* fs) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($PipelineTest$FunArray, arr$, fs);
 		int32_t len$ = $nc(arr$)->length;
@@ -814,11 +827,13 @@ void PipelineTest::lambda$t4_failStartPipeline$6($ProcessHandle* p) {
 
 bool PipelineTest::lambda$t4_failStartPipeline$5($ProcessHandle* p) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($String, $($nc($($nc($($nc(p)->info()))->command()))->orElse(""_s)))))->contains("cat"_s);
 }
 
 void PipelineTest::lambda$t4_failStartPipeline$4() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($List, processes, $ProcessBuilder::startPipeline($(asList($$new($ProcessBuilderArray, {
 		$$new($ProcessBuilder, $$new($StringArray, {
 			"cat"_s,
@@ -830,6 +845,7 @@ void PipelineTest::lambda$t4_failStartPipeline$4() {
 
 void PipelineTest::lambda$t4_failStartPipeline$3() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($List, processes, $ProcessBuilder::startPipeline($(asList($$new($ProcessBuilderArray, {
 		($ProcessBuilder*)nullptr,
 		$$new($ProcessBuilder, $$new($StringArray, {
@@ -841,6 +857,7 @@ void PipelineTest::lambda$t4_failStartPipeline$3() {
 
 void PipelineTest::lambda$t4_failStartPipeline$2() {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($List, processes, $ProcessBuilder::startPipeline($(asList($$new($ProcessBuilderArray, {
 		$$new($ProcessBuilder, $$new($StringArray, {
 			"cat"_s,
@@ -852,6 +869,7 @@ void PipelineTest::lambda$t4_failStartPipeline$2() {
 
 void PipelineTest::lambda$t4_failStartPipeline$1($File* p2out) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($List, processes, $ProcessBuilder::startPipeline($(asList($$new($ProcessBuilderArray, {
 		$$new($ProcessBuilder, $$new($StringArray, {
 			"cat"_s,
@@ -863,6 +881,7 @@ void PipelineTest::lambda$t4_failStartPipeline$1($File* p2out) {
 
 void PipelineTest::lambda$t4_failStartPipeline$0($File* p1err) {
 	$init(PipelineTest);
+	$useLocalCurrentObjectStackCache();
 	$var($List, processes, $ProcessBuilder::startPipeline($(asList($$new($ProcessBuilderArray, {
 		$($$new($ProcessBuilder, $$new($StringArray, {
 			"cat"_s,

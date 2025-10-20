@@ -96,6 +96,7 @@ void AbstractCalendar::init$() {
 }
 
 $Era* AbstractCalendar::getEra($String* eraName) {
+	$useLocalCurrentObjectStackCache();
 	if (this->eras != nullptr) {
 		{
 			$var($EraArray, arr$, this->eras);
@@ -124,6 +125,7 @@ $EraArray* AbstractCalendar::getEras() {
 }
 
 void AbstractCalendar::setEra($CalendarDate* date, $String* eraName) {
+	$useLocalCurrentObjectStackCache();
 	if (this->eras == nullptr) {
 		return;
 	}
@@ -156,6 +158,7 @@ $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $TimeZone* zone
 }
 
 $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ms = 0;
 	int32_t zoneOffset = 0;
 	int32_t saving = 0;
@@ -196,6 +199,7 @@ $CalendarDate* AbstractCalendar::getCalendarDate(int64_t millis, $CalendarDate* 
 }
 
 int64_t AbstractCalendar::getTime($CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	int64_t gd = getFixedDate(date);
 	int64_t ms = (gd - AbstractCalendar::EPOCH_OFFSET) * AbstractCalendar::DAY_IN_MILLIS + getTimeOfDay(date);
 	int32_t zoneOffset = 0;

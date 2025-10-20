@@ -83,6 +83,7 @@ void AsyncCloseChannel$TargetClient$1::init$($AsyncCloseChannel$TargetClient* th
 }
 
 void AsyncCloseChannel$TargetClient$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, b, $ByteBuffer::allocate(1));
 	try {
 		for (;;) {

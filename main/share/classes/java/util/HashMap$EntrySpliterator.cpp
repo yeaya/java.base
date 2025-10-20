@@ -113,6 +113,7 @@ $Spliterator* HashMap$EntrySpliterator::trySplit() {
 }
 
 void HashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -146,6 +147,7 @@ void HashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool HashMap$EntrySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

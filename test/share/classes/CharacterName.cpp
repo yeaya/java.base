@@ -47,6 +47,7 @@ void CharacterName::init$() {
 }
 
 void CharacterName::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t cp = 0; cp < $Character::MAX_CODE_POINT; ++cp) {
 		if (!$Character::isValidCodePoint(cp)) {
 			try {

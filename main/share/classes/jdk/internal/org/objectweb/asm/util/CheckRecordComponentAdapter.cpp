@@ -94,6 +94,7 @@ $AnnotationVisitor* CheckRecordComponentAdapter::visitAnnotation($String* descri
 }
 
 $AnnotationVisitor* CheckRecordComponentAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::FIELD) {

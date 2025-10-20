@@ -275,6 +275,7 @@ int32_t Matcher::start() {
 }
 
 int32_t Matcher::start(int32_t group) {
+	$useLocalCurrentObjectStackCache();
 	if (this->first < 0) {
 		$throwNew($IllegalStateException, "No match available"_s);
 	}
@@ -296,6 +297,7 @@ int32_t Matcher::end() {
 }
 
 int32_t Matcher::end(int32_t group) {
+	$useLocalCurrentObjectStackCache();
 	if (this->first < 0) {
 		$throwNew($IllegalStateException, "No match available"_s);
 	}
@@ -314,6 +316,7 @@ $String* Matcher::group() {
 }
 
 $String* Matcher::group(int32_t group) {
+	$useLocalCurrentObjectStackCache();
 	if (this->first < 0) {
 		$throwNew($IllegalStateException, "No match found"_s);
 	}
@@ -416,6 +419,7 @@ Matcher* Matcher::appendReplacement($StringBuilder* sb, $String* replacement) {
 }
 
 $StringBuilder* Matcher::appendExpandedReplacement($String* replacement, $StringBuilder* result) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cursor = 0;
 	while (cursor < $nc(replacement)->length()) {
 		char16_t nextChar = replacement->charAt(cursor);
@@ -527,6 +531,7 @@ $String* Matcher::replaceAll($String* replacement) {
 }
 
 $String* Matcher::replaceAll($Function* replacer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(replacer);
 	reset();
 	bool result = find();
@@ -548,6 +553,7 @@ $String* Matcher::replaceAll($Function* replacer) {
 }
 
 $Stream* Matcher::results() {
+	$useLocalCurrentObjectStackCache();
 	{
 	}
 	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>($$new($Matcher$1MatchResultIterator, this)), $Spliterator::ORDERED | $Spliterator::NONNULL)), false);
@@ -568,6 +574,7 @@ $String* Matcher::replaceFirst($String* replacement) {
 }
 
 $String* Matcher::replaceFirst($Function* replacer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(replacer);
 	reset();
 	if (!find()) {
@@ -627,6 +634,7 @@ Matcher* Matcher::useAnchoringBounds(bool b) {
 }
 
 $String* Matcher::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("java.util.regex.Matcher"_s)->append("[pattern="_s)->append($($of(pattern())))->append(" region="_s)->append(regionStart())->append(u',')->append(regionEnd())->append(" lastmatch="_s);
 	if ((this->first >= 0) && (group() != nullptr)) {
@@ -705,6 +713,7 @@ char16_t Matcher::charAt(int32_t i) {
 }
 
 int32_t Matcher::getMatchedGroupIndex($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(name), "Group name"_s);
 	if (this->first < 0) {
 		$throwNew($IllegalStateException, "No match found"_s);

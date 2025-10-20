@@ -78,6 +78,7 @@ $Object* allocate$ReferenceEnqueue$ExplicitEnqueue($Class* clazz) {
 }
 
 void ReferenceEnqueue$ExplicitEnqueue::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, queue, $new($ReferenceQueue));
 	$set(this, refs, $new($ArrayList));
 	$nc(this->refs)->add($$new($SoftReference, $$new($Object), this->queue));
@@ -86,6 +87,7 @@ void ReferenceEnqueue$ExplicitEnqueue::init$() {
 }
 
 void ReferenceEnqueue$ExplicitEnqueue::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->refs)->iterator());
 		for (; $nc(i$)->hasNext();) {

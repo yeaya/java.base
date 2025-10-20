@@ -57,6 +57,7 @@ $Object* allocate$UnparseableExtension($Class* clazz) {
 }
 
 void UnparseableExtension::init$($Extension* ext, $Throwable* why) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Extension::init$(ext);
 	$set(this, name, ""_s);
@@ -73,6 +74,7 @@ void UnparseableExtension::init$($Extension* ext, $Throwable* why) {
 }
 
 $String* UnparseableExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($Extension::toString()), "Unparseable "_s, this->name, "extension due to\n"_s, this->exceptionDescription, "\n\n"_s}));
 	return $concat(var$0, $($$new($HexDumpEncoder)->encodeBuffer($(getExtensionValue()))));
 }

@@ -137,6 +137,7 @@ int64_t PendingIoCache::add($PendingFuture* result) {
 }
 
 $PendingFuture* PendingIoCache::remove(int64_t overlapped) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		$var($PendingFuture, res, $cast($PendingFuture, $nc(this->pendingIoMap)->remove($($Long::valueOf(overlapped)))));
 		if (res != nullptr) {
@@ -169,6 +170,7 @@ void PendingIoCache::close() {
 }
 
 void PendingIoCache::clearPendingIoMap() {
+	$useLocalCurrentObjectStackCache();
 	if (!PendingIoCache::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

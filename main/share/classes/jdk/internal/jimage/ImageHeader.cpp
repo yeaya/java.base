@@ -107,6 +107,7 @@ int32_t ImageHeader::getHeaderSize() {
 }
 
 ImageHeader* ImageHeader::readFrom($IntBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(buffer);
 	if (buffer->capacity() != ImageHeader::HEADER_SLOTS) {
 		$throwNew($InternalError, $$str({"jimage header not the correct size: "_s, $$str(buffer->capacity())}));

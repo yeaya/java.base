@@ -211,6 +211,7 @@ $Object* allocate$HiddenFrames($Class* clazz) {
 }
 
 void HiddenFrames::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$$new(HiddenFrames)->test();
 	$init($StackWalker$Option);
 	$$new(HiddenFrames, $StackWalker$Option::SHOW_REFLECT_FRAMES)->test();
@@ -237,6 +238,7 @@ void HiddenFrames::test() {
 }
 
 void HiddenFrames::walk() {
+	$useLocalCurrentObjectStackCache();
 	$nc($($Stream::of($($of($Integer::valueOf(0))))))->forEach(static_cast<$Consumer*>($$new(HiddenFrames$$Lambda$lambda$walk$1, this)));
 	if (this->option == nullptr && !$nc(this->lambdas)->isEmpty()) {
 		$throwNew($RuntimeException, "Hidden frames are shown"_s);
@@ -248,6 +250,7 @@ void HiddenFrames::walk() {
 }
 
 void HiddenFrames::walkFromReflection() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, m, HiddenFrames::class$->getDeclaredMethod("walk"_s, $$new($ClassArray, 0)));
 	$nc(m)->invoke(this, $$new($ObjectArray, 0));
@@ -264,6 +267,7 @@ void HiddenFrames::walkFromReflection() {
 }
 
 void HiddenFrames::checkFrame($StackWalker$StackFrame* frame) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cn, $nc(frame)->getClassName());
 	bool var$0 = $nc(cn)->startsWith("java.lang.reflect."_s);
 	if (var$0 || $nc(cn)->startsWith("jdk.internal.reflect."_s)) {

@@ -175,6 +175,7 @@ void IssuerAlternativeNameExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* IssuerAlternativeNameExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("IssuerAlternativeName [\n"_s);
 	if (this->names == nullptr) {
@@ -195,6 +196,7 @@ $String* IssuerAlternativeNameExtension::toString() {
 }
 
 void IssuerAlternativeNameExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

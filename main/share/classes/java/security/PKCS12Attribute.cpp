@@ -103,6 +103,7 @@ $Object* allocate$PKCS12Attribute($Class* clazz) {
 $Pattern* PKCS12Attribute::COLON_SEPARATED_HEX_PAIRS = nullptr;
 
 void PKCS12Attribute::init$($String* name, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	this->hashValue = -1;
 	if (name == nullptr || value == nullptr) {
 		$throwNew($NullPointerException);
@@ -181,6 +182,7 @@ $String* PKCS12Attribute::toString() {
 }
 
 $bytes* PKCS12Attribute::encode($ObjectIdentifier* type, $StringArray* values) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, attribute, $new($DerOutputStream));
 	attribute->putOID(type);
 	$var($DerOutputStream, attrContent, $new($DerOutputStream));
@@ -210,6 +212,7 @@ $bytes* PKCS12Attribute::encode($ObjectIdentifier* type, $StringArray* values) {
 }
 
 void PKCS12Attribute::parse($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, attributeValue, $new($DerInputStream, encoded));
 	$var($DerValueArray, attrSeq, attributeValue->getSequence(2));
 	if ($nc(attrSeq)->length != 2) {

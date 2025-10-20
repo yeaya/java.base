@@ -103,6 +103,7 @@ $Iterator* HashMap$EntrySet::iterator() {
 }
 
 bool HashMap$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -118,6 +119,7 @@ bool HashMap$EntrySet::contains(Object$* o) {
 }
 
 bool HashMap$EntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Map$Entry, e, nullptr);
 		bool var$0 = $instanceOf($Map$Entry, o);
@@ -139,6 +141,7 @@ $Spliterator* HashMap$EntrySet::spliterator() {
 }
 
 void HashMap$EntrySet::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

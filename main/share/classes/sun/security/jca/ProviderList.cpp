@@ -180,6 +180,7 @@ ProviderList* ProviderList::add(ProviderList* providerList, $Provider* p) {
 
 ProviderList* ProviderList::insertAt(ProviderList* providerList, $Provider* p, int32_t position) {
 	$init(ProviderList);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(providerList)->getProvider($($nc(p)->getName())) != nullptr) {
 		return providerList;
 	}
@@ -194,6 +195,7 @@ ProviderList* ProviderList::insertAt(ProviderList* providerList, $Provider* p, i
 
 ProviderList* ProviderList::remove(ProviderList* providerList, $String* name) {
 	$init(ProviderList);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(providerList)->getProvider(name) == nullptr) {
 		return providerList;
 	}
@@ -217,6 +219,7 @@ ProviderList* ProviderList::remove(ProviderList* providerList, $String* name) {
 
 ProviderList* ProviderList::newList($ProviderArray* providers) {
 	$init(ProviderList);
+	$useLocalCurrentObjectStackCache();
 	$var($ProviderConfigArray, configs, $new($ProviderConfigArray, $nc(providers)->length));
 	for (int32_t i = 0; i < providers->length; ++i) {
 		configs->set(i, $$new($ProviderConfig, providers->get(i)));
@@ -231,6 +234,7 @@ void ProviderList::init$($ProviderConfigArray* configs, bool allLoaded) {
 }
 
 void ProviderList::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, userList, $new($ProviderList$3, this));
 	$var($List, configList, $new($ArrayList));
 	$var($String, entry, nullptr);
@@ -290,6 +294,7 @@ void ProviderList::init$() {
 }
 
 ProviderList* ProviderList::getJarList($StringArray* jarProvNames) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, newConfigs, $new($ArrayList));
 	{
 		$var($StringArray, arr$, jarProvNames);
@@ -345,6 +350,7 @@ $Provider* ProviderList::getProvider($String* name) {
 }
 
 int32_t ProviderList::getIndex($String* name) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(this->configs)->length; ++i) {
 		$var($Provider, p, getProvider(i));
 		if ($nc($($nc(p)->getName()))->equals(name)) {
@@ -355,6 +361,7 @@ int32_t ProviderList::getIndex($String* name) {
 }
 
 int32_t ProviderList::loadAll() {
+	$useLocalCurrentObjectStackCache();
 	if (this->allLoaded) {
 		return $nc(this->configs)->length;
 	}
@@ -376,6 +383,7 @@ int32_t ProviderList::loadAll() {
 }
 
 ProviderList* ProviderList::removeInvalid() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = loadAll();
 	if (n == $nc(this->configs)->length) {
 		return this;
@@ -403,6 +411,7 @@ $String* ProviderList::toString() {
 }
 
 $Provider$Service* ProviderList::getService($String* type, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, pList, nullptr);
 	int32_t i = 0;
 	if (ProviderList::preferredPropList != nullptr && ($assign(pList, $nc(ProviderList::preferredPropList)->getAll(type, name))) != nullptr) {
@@ -429,6 +438,7 @@ $List* ProviderList::getServices($String* type, $String* algorithm) {
 }
 
 $List* ProviderList::getServices($String* type, $List* algorithms) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, ids, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(algorithms)->iterator());

@@ -69,6 +69,7 @@ bool KeepAliveKey::equals(Object$* obj) {
 }
 
 int32_t KeepAliveKey::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, $str({this->protocol, this->host, $$str(this->port)}));
 	int32_t var$0 = 0;
 	if (this->obj == nullptr) {

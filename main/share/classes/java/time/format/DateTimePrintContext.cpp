@@ -120,6 +120,7 @@ void DateTimePrintContext::init$($TemporalAccessor* temporal, $DateTimeFormatter
 }
 
 $TemporalAccessor* DateTimePrintContext::adjust($TemporalAccessor* temporal, $DateTimeFormatter* formatter) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, overrideChrono, $nc(formatter)->getChronology());
 	$var($ZoneId, overrideZone, formatter->getZone());
 	if (overrideChrono == nullptr && overrideZone == nullptr) {
@@ -208,6 +209,7 @@ void DateTimePrintContext::endOptional() {
 }
 
 $Object* DateTimePrintContext::getValue($TemporalQuery* query) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, $nc(this->temporal)->query(query));
 	if (result == nullptr && this->optional == 0) {
 		$throwNew($DateTimeException, $$str({"Unable to extract "_s, query, " from temporal "_s, this->temporal}));

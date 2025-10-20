@@ -101,6 +101,7 @@ void ArrayPrefixHelpers$DoubleCumulateTask::init$(ArrayPrefixHelpers$DoubleCumul
 }
 
 void ArrayPrefixHelpers$DoubleCumulateTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($DoubleBinaryOperator, fn, nullptr);
 	$var($doubles, a, nullptr);
 	if (($assign(fn, this->function)) == nullptr || ($assign(a, this->array)) == nullptr) {

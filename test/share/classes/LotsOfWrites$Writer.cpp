@@ -124,6 +124,7 @@ void LotsOfWrites$Writer::done() {
 }
 
 void LotsOfWrites$Writer::init$($File* file, int64_t size, $CountDownLatch* latch) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, file$, file);
 	this->size$ = size;
 	$set(this, latch, latch);

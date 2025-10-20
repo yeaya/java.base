@@ -315,6 +315,7 @@ $BinaryOperator* ObjectInputFilter$Config::getSerialFilterFactorySingleton() {
 
 void ObjectInputFilter$Config::setSerialFilterFactory($BinaryOperator* filterFactory) {
 	$init(ObjectInputFilter$Config);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(filterFactory), "filterFactory"_s);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -353,6 +354,7 @@ $String* ObjectInputFilter$Config::lambda$static$0() {
 }
 
 void clinit$ObjectInputFilter$Config($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ObjectInputFilter$Config::SERIAL_FILTER_PROPNAME, "jdk.serialFilter"_s);
 	$assignStatic(ObjectInputFilter$Config::SERIAL_FILTER_FACTORY_PROPNAME, "jdk.serialFilterFactory"_s);
 	$beforeCallerSensitive();

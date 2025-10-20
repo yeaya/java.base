@@ -106,6 +106,7 @@ void WindowsAclFileAttributeView::init$($WindowsPath* file, bool followLinks) {
 }
 
 void WindowsAclFileAttributeView::checkAccess($WindowsPath* file, bool checkRead, bool checkWrite) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		if (checkRead) {
@@ -120,6 +121,7 @@ void WindowsAclFileAttributeView::checkAccess($WindowsPath* file, bool checkRead
 
 $NativeBuffer* WindowsAclFileAttributeView::getFileSecurity($String* path, int32_t request) {
 	$init(WindowsAclFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 0;
 	try {
 		size = $WindowsNativeDispatcher::GetFileSecurity(path, request, 0, 0);
@@ -151,6 +153,7 @@ $NativeBuffer* WindowsAclFileAttributeView::getFileSecurity($String* path, int32
 }
 
 $UserPrincipal* WindowsAclFileAttributeView::getOwner() {
+	$useLocalCurrentObjectStackCache();
 	checkAccess(this->file, true, false);
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	$var($NativeBuffer, buffer, getFileSecurity(path, 1));
@@ -190,6 +193,7 @@ $UserPrincipal* WindowsAclFileAttributeView::getOwner() {
 }
 
 $List* WindowsAclFileAttributeView::getAcl() {
+	$useLocalCurrentObjectStackCache();
 	checkAccess(this->file, true, false);
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	$var($NativeBuffer, buffer, getFileSecurity(path, 4));
@@ -217,6 +221,7 @@ $List* WindowsAclFileAttributeView::getAcl() {
 }
 
 void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		$throwNew($NullPointerException, "\'owner\' is null"_s);
 	}
@@ -283,6 +288,7 @@ void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
 }
 
 void WindowsAclFileAttributeView::setAcl($List* acl) {
+	$useLocalCurrentObjectStackCache();
 	checkAccess(this->file, false, true);
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::create(acl));

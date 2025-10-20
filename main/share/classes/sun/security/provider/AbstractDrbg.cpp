@@ -199,6 +199,7 @@ void AbstractDrbg::engineNextBytes($bytes* result) {
 }
 
 void AbstractDrbg::engineNextBytes($bytes* result, $SecureRandomParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(result);
 	if (AbstractDrbg::debug != nullptr) {
 		$nc(AbstractDrbg::debug)->println($of(this), "nextBytes"_s);
@@ -234,6 +235,7 @@ void AbstractDrbg::engineNextBytes($bytes* result, $SecureRandomParameters* para
 }
 
 void AbstractDrbg::engineReseed($SecureRandomParameters* params$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandomParameters, params, params$renamed);
 	if (AbstractDrbg::debug != nullptr) {
 		$nc(AbstractDrbg::debug)->println($of(this), "reseed with params"_s);
@@ -291,6 +293,7 @@ $bytes* AbstractDrbg::getEntropyInput(bool isPr) {
 }
 
 $bytes* AbstractDrbg::getEntropyInput(int32_t minEntropy, int32_t minLength, int32_t maxLength, bool pr) {
+	$useLocalCurrentObjectStackCache();
 	if (AbstractDrbg::debug != nullptr) {
 		$nc(AbstractDrbg::debug)->println($of(this), $$str({"getEntropy("_s, $$str(minEntropy), ","_s, $$str(minLength), ","_s, $$str(maxLength), ","_s, $$str(pr), ")"_s}));
 	}
@@ -334,6 +337,7 @@ $SecureRandomParameters* AbstractDrbg::engineGetParameters() {
 }
 
 void AbstractDrbg::configure($SecureRandomParameters* params$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandomParameters, params, params$renamed);
 	if (AbstractDrbg::debug != nullptr) {
 		$nc(AbstractDrbg::debug)->println($of(this), $$str({"configure "_s, this, " with "_s, params}));
@@ -401,6 +405,7 @@ void AbstractDrbg::instantiateIfNecessary($bytes* entropy$renamed) {
 
 int32_t AbstractDrbg::getStandardStrength(int32_t input) {
 	$init(AbstractDrbg);
+	$useLocalCurrentObjectStackCache();
 	if (input <= 112) {
 		return 112;
 	}

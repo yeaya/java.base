@@ -120,6 +120,7 @@ KeyUpdate$KeyUpdateRequest* KeyUpdate$KeyUpdateRequest::valueOf(int8_t id) {
 
 $String* KeyUpdate$KeyUpdateRequest::nameOf(int8_t id) {
 	$init(KeyUpdate$KeyUpdateRequest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($KeyUpdate$KeyUpdateRequestArray, arr$, KeyUpdate$KeyUpdateRequest::values());
 		int32_t len$ = $nc(arr$)->length;

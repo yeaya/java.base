@@ -140,6 +140,7 @@ $Object* allocate$CertificateVerify$T10CertificateVerifyMessage($Class* clazz) {
 }
 
 void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* context, $X509Authentication$X509Possession* x509Possession) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($bytes, temporary, nullptr);
@@ -162,6 +163,7 @@ void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* con
 }
 
 void CertificateVerify$T10CertificateVerifyMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc(m)->remaining() < 2) {
@@ -220,6 +222,7 @@ void CertificateVerify$T10CertificateVerifyMessage::send($HandshakeOutStream* ho
 }
 
 $String* CertificateVerify$T10CertificateVerifyMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateVerify\": \'{\'\n  \"signature\": \'{\'\n{0}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
@@ -229,6 +232,7 @@ $String* CertificateVerify$T10CertificateVerifyMessage::toString() {
 
 $Signature* CertificateVerify$T10CertificateVerifyMessage::getSignature($String* algorithm, $Key* key) {
 	$init(CertificateVerify$T10CertificateVerifyMessage);
+	$useLocalCurrentObjectStackCache();
 	$var($Signature, signer, nullptr);
 	{
 		$var($String, s17443$, algorithm);

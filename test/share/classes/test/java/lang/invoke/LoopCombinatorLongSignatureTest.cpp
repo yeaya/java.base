@@ -97,6 +97,7 @@ void LoopCombinatorLongSignatureTest::main($StringArray* args) {
 
 void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool excessive, bool run) {
 	$init(LoopCombinatorLongSignatureTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t nClauses = LoopCombinatorLongSignatureTest::ARG_LIMIT - loopArgs + (excessive ? 1 : 0);
 	$init($System);
 	$nc($System::out)->print($$str({(excessive ? "(EXCESSIVE)"_s : "(LONG     )"_s), " arguments: "_s, $$str(loopArgs), ", clauses: "_s, $$str(nClauses), " -> "_s}));
@@ -152,6 +153,7 @@ void LoopCombinatorLongSignatureTest::testLongSignature(int32_t loopArgs, bool e
 }
 
 void clinit$LoopCombinatorLongSignatureTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($Integer);
 	$assignStatic(LoopCombinatorLongSignatureTest::INIT, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(0))));
 	$assignStatic(LoopCombinatorLongSignatureTest::STEP, $MethodHandles::identity($Integer::TYPE));

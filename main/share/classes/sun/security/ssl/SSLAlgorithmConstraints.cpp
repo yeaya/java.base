@@ -143,6 +143,7 @@ void SSLAlgorithmConstraints::init$($SSLEngine* engine, $StringArray* supportedA
 
 $AlgorithmConstraints* SSLAlgorithmConstraints::getUserSpecifiedConstraints($SSLEngine* engine) {
 	$init(SSLAlgorithmConstraints);
+	$useLocalCurrentObjectStackCache();
 	if (engine != nullptr) {
 		if ($instanceOf($SSLEngineImpl, engine)) {
 			$var($HandshakeContext, hc, $nc($nc(($cast($SSLEngineImpl, engine)))->conContext)->handshakeContext);
@@ -157,6 +158,7 @@ $AlgorithmConstraints* SSLAlgorithmConstraints::getUserSpecifiedConstraints($SSL
 
 $AlgorithmConstraints* SSLAlgorithmConstraints::getUserSpecifiedConstraints($SSLSocket* socket) {
 	$init(SSLAlgorithmConstraints);
+	$useLocalCurrentObjectStackCache();
 	if (socket != nullptr) {
 		if ($instanceOf($SSLSocketImpl, socket)) {
 			$var($HandshakeContext, hc, $nc($nc(($cast($SSLSocketImpl, socket)))->conContext)->handshakeContext);
@@ -221,6 +223,7 @@ bool SSLAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $Key
 }
 
 void clinit$SSLAlgorithmConstraints($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLAlgorithmConstraints::tlsDisabledAlgConstraints, $new($DisabledAlgorithmConstraints, "jdk.tls.disabledAlgorithms"_s, $$new($SSLAlgorithmDecomposer)));
 	$assignStatic(SSLAlgorithmConstraints::x509DisabledAlgConstraints, $new($DisabledAlgorithmConstraints, "jdk.certpath.disabledAlgorithms"_s, $$new($SSLAlgorithmDecomposer, true)));
 	$assignStatic(SSLAlgorithmConstraints::DEFAULT, $new(SSLAlgorithmConstraints, nullptr));

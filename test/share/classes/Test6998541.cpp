@@ -327,6 +327,7 @@ void Test6998541::init$() {
 
 void Test6998541::main($StringArray* args) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"KIND="_s, Test6998541::KIND, " DO_CASTS="_s, $$str(Test6998541::DO_CASTS), " N="_s, $$str(Test6998541::N)}));
 	doboolean();
@@ -444,6 +445,7 @@ void Test6998541::fail() {
 
 $MethodHandle* Test6998541::mh($Class* ret, $ClassArray* args) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MethodType, mt, $MethodType::methodType(ret, args));
 		$init($Void);
@@ -471,6 +473,7 @@ $MethodHandle* Test6998541::mh($Class* ret, $ClassArray* args) {
 
 bool Test6998541::canDoAsType($Class* src, $Class* dst) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (src == dst) {
 		return true;
 	}
@@ -518,6 +521,7 @@ bool Test6998541::canDoAsType($Class* src, $Class* dst) {
 
 bool Test6998541::canDoAsType($MethodType* mt0, $MethodType* mt1) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$Class* rt0 = $cast($Class, $nc(mt0)->returnType());
 	$Class* rt1 = $cast($Class, $nc(mt1)->returnType());
 	if (!canDoAsType(rt0, rt1)) {
@@ -544,6 +548,7 @@ $MethodHandle* Test6998541::mh_z($Class* ret) {
 
 void Test6998541::boolean2prim(bool x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = x ? 1 : 0;
 	$var($Object, var$0, $of($Boolean::valueOf(x)));
 	assertEquals(var$0, $($Boolean::valueOf($booleanValue($nc(Test6998541::mh_zz)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
@@ -568,6 +573,7 @@ void Test6998541::boolean2prim(bool x) {
 
 void Test6998541::boolean2prim_invalid(bool x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -623,6 +629,7 @@ $MethodHandle* Test6998541::mh_b($Class* ret) {
 
 void Test6998541::byte2prim(int8_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Byte::valueOf(x)));
 	assertEquals(var$0, $($Byte::valueOf($byteValue($nc(Test6998541::mh_bb)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	$var($Object, var$1, $of($Short::valueOf((int16_t)x)));
@@ -647,6 +654,7 @@ void Test6998541::byte2prim(int8_t x) {
 
 void Test6998541::byte2prim_invalid(int8_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -672,6 +680,7 @@ $MethodHandle* Test6998541::mh_c($Class* ret) {
 
 void Test6998541::char2prim(char16_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Character::valueOf(x)));
 	assertEquals(var$0, $($Character::valueOf($charValue($nc(Test6998541::mh_cc)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	$var($Object, var$1, $of($Integer::valueOf((int32_t)x)));
@@ -696,6 +705,7 @@ void Test6998541::char2prim(char16_t x) {
 
 void Test6998541::char2prim_invalid(char16_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -727,6 +737,7 @@ $MethodHandle* Test6998541::mh_s($Class* ret) {
 
 void Test6998541::short2prim(int16_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Short::valueOf(x)));
 	assertEquals(var$0, $($Short::valueOf($shortValue($nc(Test6998541::mh_ss)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	$var($Object, var$1, $of($Integer::valueOf((int32_t)x)));
@@ -751,6 +762,7 @@ void Test6998541::short2prim(int16_t x) {
 
 void Test6998541::short2prim_invalid(int16_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -782,6 +794,7 @@ $MethodHandle* Test6998541::mh_i($Class* ret) {
 
 void Test6998541::int2prim(int32_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Integer::valueOf(x)));
 	assertEquals(var$0, $($Integer::valueOf($intValue($nc(Test6998541::mh_ii)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	$var($Object, var$1, $of($Long::valueOf((int64_t)x)));
@@ -806,6 +819,7 @@ void Test6998541::int2prim(int32_t x) {
 
 void Test6998541::int2prim_invalid(int32_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -843,6 +857,7 @@ $MethodHandle* Test6998541::mh_j($Class* ret) {
 
 void Test6998541::long2prim(int64_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Long::valueOf(x)));
 	assertEquals(var$0, $($Long::valueOf($longValue($nc(Test6998541::mh_jj)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	$var($Object, var$1, $of($Float::valueOf((float)x)));
@@ -867,6 +882,7 @@ void Test6998541::long2prim(int64_t x) {
 
 void Test6998541::long2prim_invalid(int64_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -910,6 +926,7 @@ $MethodHandle* Test6998541::mh_f($Class* ret) {
 
 void Test6998541::float2prim(float x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Float::valueOf(x)));
 	assertEquals(var$0, $($Float::valueOf($floatValue($nc(Test6998541::mh_ff)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	$var($Object, var$1, $of($Double::valueOf((double)x)));
@@ -934,6 +951,7 @@ void Test6998541::float2prim(float x) {
 
 void Test6998541::float2prim_invalid(float x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -983,6 +1001,7 @@ $MethodHandle* Test6998541::mh_d($Class* ret) {
 
 void Test6998541::double2prim(double x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Double::valueOf(x)));
 	assertEquals(var$0, $($Double::valueOf($doubleValue($nc(Test6998541::mh_dd)->invokeExact($$new($ObjectArray, {$$of(x)}))))));
 	if (!Test6998541::DO_CASTS) {
@@ -1007,6 +1026,7 @@ void Test6998541::double2prim(double x) {
 
 void Test6998541::double2prim_invalid(double x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	if (Test6998541::DO_CASTS) {
 		return;
 	}
@@ -1056,6 +1076,7 @@ void Test6998541::double2prim_invalid(double x) {
 
 void Test6998541::void2prim(int32_t i) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Boolean::valueOf(false)));
 	assertEquals(var$0, $($Boolean::valueOf($booleanValue($nc(Test6998541::mh_zv)->invokeExact($$new($ObjectArray, 0))))));
 	$var($Object, var$1, $of($Byte::valueOf((int8_t)0)));
@@ -1086,6 +1107,7 @@ $MethodHandle* Test6998541::mh_v($Class* arg) {
 
 void Test6998541::prim2void(int32_t x) {
 	$init(Test6998541);
+	$useLocalCurrentObjectStackCache();
 	bool z = (((int32_t)(x & (uint32_t)1)) != 0);
 	$nc(Test6998541::mh_vz)->invokeExact($$new($ObjectArray, {$$of(z)}));
 	$nc(Test6998541::mh_vb)->invokeExact($$new($ObjectArray, {$$of((int8_t)x)}));
@@ -1146,6 +1168,7 @@ void Test6998541::identity() {
 }
 
 void clinit$Test6998541($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Test6998541::NAME, "identity"_s);
 	$beforeCallerSensitive();
 	$assignStatic(Test6998541::CLASS, Test6998541::class$);

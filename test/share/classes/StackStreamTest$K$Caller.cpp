@@ -73,6 +73,7 @@ void StackStreamTest$K$Caller::init$($StackStreamTest$K* this$0) {
 }
 
 void StackStreamTest$K$Caller::test() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($StackWalker$Option);
 	$Class* c = $nc($($StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE)))->getCallerClass();

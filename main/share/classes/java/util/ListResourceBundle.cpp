@@ -77,6 +77,7 @@ $Object* ListResourceBundle::handleGetObject($String* key) {
 }
 
 $Enumeration* ListResourceBundle::getKeys() {
+	$useLocalCurrentObjectStackCache();
 	if (this->lookup == nullptr) {
 		loadLookup();
 	}
@@ -94,6 +95,7 @@ $Set* ListResourceBundle::handleKeySet() {
 
 void ListResourceBundle::loadLookup() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->lookup != nullptr) {
 			return;
 		}

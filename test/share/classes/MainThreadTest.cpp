@@ -41,6 +41,7 @@ void MainThreadTest::init$() {
 }
 
 void MainThreadTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	int32_t n = $nc(tg)->activeCount();
 	$var($ThreadArray, ts, $new($ThreadArray, n));

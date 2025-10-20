@@ -76,6 +76,7 @@ void FinThreads::init$() {
 
 void FinThreads::alarm($Thread* sleeper, int64_t delay) {
 	$init(FinThreads);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new($FinThreads$1, delay, sleeper))));
 	t->setDaemon(true);
 	t->start();

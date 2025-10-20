@@ -54,6 +54,7 @@ void AppendStringBuffer::init$() {
 
 void AppendStringBuffer::main($StringArray* args) {
 	$init(AppendStringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(10, 100));
 		$var($StringBuffer, sb2, generateTestBuffer(10, 100));

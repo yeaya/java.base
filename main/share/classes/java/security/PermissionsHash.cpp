@@ -95,6 +95,7 @@ void PermissionsHash::add($Permission* permission) {
 }
 
 bool PermissionsHash::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($Permission, p, $cast($Permission, $nc(this->permsMap)->get(permission)));
 	if (p == nullptr) {
 		{
@@ -119,6 +120,7 @@ $Enumeration* PermissionsHash::elements() {
 }
 
 void PermissionsHash::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, perms, $new($Hashtable, $nc(this->permsMap)->size() * 2));
 	perms->putAll(static_cast<$Map*>(static_cast<$AbstractMap*>(this->permsMap)));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
@@ -127,6 +129,7 @@ void PermissionsHash::writeObject($ObjectOutputStream* out) {
 }
 
 void PermissionsHash::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	$var($Hashtable, perms, $cast($Hashtable, $nc(gfields)->get("perms"_s, ($Object*)nullptr)));
 	$set(this, permsMap, $new($ConcurrentHashMap, $nc(perms)->size() * 2));

@@ -69,6 +69,7 @@ void AuthCacheImpl::setMap($HashMap* map) {
 
 void AuthCacheImpl::put($String* pkey, $AuthCacheValue* value) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($LinkedList, list, $cast($LinkedList, $nc(this->hashtable)->get(pkey)));
 		$var($String, skey, $nc(value)->getPath());
 		if (list == nullptr) {
@@ -88,6 +89,7 @@ void AuthCacheImpl::put($String* pkey, $AuthCacheValue* value) {
 
 $AuthCacheValue* AuthCacheImpl::get($String* pkey, $String* skey) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($AuthenticationInfo, result, nullptr);
 		$var($LinkedList, list, $cast($LinkedList, $nc(this->hashtable)->get(pkey)));
 		if (list == nullptr || $nc(list)->size() == 0) {
@@ -109,6 +111,7 @@ $AuthCacheValue* AuthCacheImpl::get($String* pkey, $String* skey) {
 
 void AuthCacheImpl::remove($String* pkey, $AuthCacheValue* entry) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($LinkedList, list, $cast($LinkedList, $nc(this->hashtable)->get(pkey)));
 		if (list == nullptr) {
 			return;

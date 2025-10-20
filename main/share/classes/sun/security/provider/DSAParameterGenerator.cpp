@@ -102,6 +102,7 @@ void DSAParameterGenerator::init$() {
 }
 
 void DSAParameterGenerator::engineInit(int32_t strength, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ((strength != 2048) && (strength != 3072) && ((strength < 512) || (strength > 1024) || (strength % 64 != 0))) {
 		$throwNew($InvalidParameterException, $$str({"Unexpected strength (size of prime): "_s, $$str(strength), ". Prime size should be 512-1024, 2048, or 3072"_s}));
 	}
@@ -123,6 +124,7 @@ void DSAParameterGenerator::engineInit($AlgorithmParameterSpec* genParamSpec, $S
 }
 
 $AlgorithmParameters* DSAParameterGenerator::engineGenerateParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, algParams, nullptr);
 	try {
 		if (this->random == nullptr) {
@@ -154,6 +156,7 @@ $AlgorithmParameters* DSAParameterGenerator::engineGenerateParameters() {
 
 $BigIntegerArray* DSAParameterGenerator::generatePandQ($SecureRandom* random, int32_t valueL, int32_t valueN, int32_t seedLen) {
 	$init(DSAParameterGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($String, hashAlg, nullptr);
 	if (valueN == 160) {
 		$assign(hashAlg, "SHA"_s);
@@ -232,6 +235,7 @@ $BigIntegerArray* DSAParameterGenerator::generatePandQ($SecureRandom* random, in
 
 $BigInteger* DSAParameterGenerator::generateG($BigInteger* p, $BigInteger* q) {
 	$init(DSAParameterGenerator);
+	$useLocalCurrentObjectStackCache();
 	$init($BigInteger);
 	$var($BigInteger, h, $BigInteger::ONE);
 	$var($BigInteger, pMinusOneOverQ, $nc(($($nc(p)->subtract($BigInteger::ONE))))->divide(q));
@@ -245,6 +249,7 @@ $BigInteger* DSAParameterGenerator::generateG($BigInteger* p, $BigInteger* q) {
 
 $bytes* DSAParameterGenerator::toByteArray($BigInteger* bigInt) {
 	$init(DSAParameterGenerator);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, $nc(bigInt)->toByteArray());
 	if ($nc(result)->get(0) == 0) {
 		$var($bytes, tmp, $new($bytes, result->length - 1));

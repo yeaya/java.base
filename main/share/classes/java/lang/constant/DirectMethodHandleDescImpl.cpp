@@ -106,6 +106,7 @@ $Object* allocate$DirectMethodHandleDescImpl($Class* clazz) {
 }
 
 void DirectMethodHandleDescImpl::init$($DirectMethodHandleDesc$Kind* kind, $ClassDesc* owner, $String* name$renamed, $MethodTypeDesc* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$init($DirectMethodHandleDesc$Kind);
 	if (kind == $DirectMethodHandleDesc$Kind::CONSTRUCTOR) {
@@ -159,6 +160,7 @@ void DirectMethodHandleDescImpl::init$($DirectMethodHandleDesc$Kind* kind, $Clas
 
 void DirectMethodHandleDescImpl::validateFieldType($MethodTypeDesc* type, bool isSetter, bool isVirtual) {
 	$init(DirectMethodHandleDescImpl);
+	$useLocalCurrentObjectStackCache();
 	bool isVoid = $nc($($nc($($cast($ClassDesc, $nc(type)->returnType())))->descriptorString()))->equals("V"_s);
 	int32_t expectedParams = (isSetter ? 1 : 0) + (isVirtual ? 1 : 0);
 	bool var$0 = isVoid != isSetter || type->parameterCount() != expectedParams;
@@ -177,6 +179,7 @@ void DirectMethodHandleDescImpl::validateFieldType($MethodTypeDesc* type, bool i
 
 void DirectMethodHandleDescImpl::validateConstructor($MethodTypeDesc* type) {
 	$init(DirectMethodHandleDescImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc($($cast($ClassDesc, $nc(type)->returnType())))->descriptorString()))->equals("V"_s)) {
 		$throwNew($IllegalArgumentException, $($String::format("Expected type of (T*)V for constructor, found %s"_s, $$new($ObjectArray, {$of(type)}))));
 	}
@@ -207,6 +210,7 @@ $MethodTypeDesc* DirectMethodHandleDescImpl::invocationType() {
 }
 
 $String* DirectMethodHandleDescImpl::lookupDescriptor() {
+	$useLocalCurrentObjectStackCache();
 	$init($DirectMethodHandleDescImpl$1);
 
 	$var($String, var$0, nullptr)
@@ -261,6 +265,7 @@ $String* DirectMethodHandleDescImpl::lookupDescriptor() {
 }
 
 $Object* DirectMethodHandleDescImpl::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$Class* resolvedOwner = $cast($Class, $nc(this->owner$)->resolveConstantDesc(lookup));
 	$var($MethodType, invocationType, $cast($MethodType, $nc($(this->invocationType()))->resolveConstantDesc(lookup)));
 	$init($DirectMethodHandleDescImpl$1);
@@ -352,6 +357,7 @@ int32_t DirectMethodHandleDescImpl::hashCode() {
 }
 
 $String* DirectMethodHandleDescImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("MethodHandleDesc[%s/%s::%s%s]"_s, $$new($ObjectArray, {
 		$of(this->kind$),
 		$($of($nc(this->owner$)->displayName())),

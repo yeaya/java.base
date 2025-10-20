@@ -154,6 +154,7 @@ void DatagramPacket::setAddress($InetAddress* iaddr) {
 
 void DatagramPacket::setPort(int32_t iport) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (iport < 0 || iport > 0x0000FFFF) {
 			$throwNew($IllegalArgumentException, $$str({"Port out of range:"_s, $$str(iport)}));
 		}
@@ -163,6 +164,7 @@ void DatagramPacket::setPort(int32_t iport) {
 
 void DatagramPacket::setSocketAddress($SocketAddress* address) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($InetSocketAddress, addr, nullptr);
 		bool var$0 = $instanceOf($InetSocketAddress, address);
 		if (var$0) {

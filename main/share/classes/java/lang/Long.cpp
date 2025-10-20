@@ -296,6 +296,7 @@ $String* Long::toStringUTF16(int64_t i, int32_t radix) {
 
 $String* Long::toUnsignedString(int64_t i, int32_t radix) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	if (i >= 0) {
 		return toString(i, radix);
 	} else {
@@ -348,6 +349,7 @@ $String* Long::toUnsignedString(int64_t i, int32_t radix) {
 
 $BigInteger* Long::toUnsignedBigInteger(int64_t i) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	if (i >= (int64_t)0) {
 		return $BigInteger::valueOf(i);
 	} else {
@@ -374,6 +376,7 @@ $String* Long::toBinaryString(int64_t i) {
 
 $String* Long::toUnsignedString0(int64_t val, int32_t shift) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	int32_t mag = Long::SIZE - Long::numberOfLeadingZeros(val);
 	int32_t chars = $Math::max(($div((mag + (shift - 1)), shift)), 1);
 	$init($String);
@@ -414,6 +417,7 @@ void Long::formatUnsignedLong0UTF16(int64_t val, int32_t shift, $bytes* buf, int
 
 $String* Long::fastUUID(int64_t lsb, int64_t msb) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	$init($String);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, 36));
@@ -444,6 +448,7 @@ $String* Long::fastUUID(int64_t lsb, int64_t msb) {
 
 $String* Long::toString(int64_t i) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = stringSize(i);
 	$init($String);
 	if ($String::COMPACT_STRINGS) {
@@ -520,6 +525,7 @@ int32_t Long::stringSize(int64_t x) {
 
 int64_t Long::parseLong($String* s, int32_t radix) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
 	}
@@ -568,6 +574,7 @@ int64_t Long::parseLong($String* s, int32_t radix) {
 
 int64_t Long::parseLong($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
 		$throwNew($IndexOutOfBoundsException);
@@ -622,6 +629,7 @@ int64_t Long::parseLong($String* s) {
 
 int64_t Long::parseUnsignedLong($String* s, int32_t radix) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
 	}
@@ -653,6 +661,7 @@ int64_t Long::parseUnsignedLong($String* s, int32_t radix) {
 
 int64_t Long::parseUnsignedLong($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
 		$throwNew($IndexOutOfBoundsException);
@@ -711,6 +720,7 @@ Long* Long::valueOf(int64_t l) {
 
 Long* Long::decode($String* nm) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	int32_t radix = 10;
 	int32_t index = 0;
 	bool negative = false;
@@ -821,6 +831,7 @@ Long* Long::getLong($String* nm, int64_t val) {
 
 Long* Long::getLong($String* nm, Long* val) {
 	$init(Long);
+	$useLocalCurrentObjectStackCache();
 	$var($String, v, nullptr);
 	try {
 		$assign(v, $System::getProperty(nm));

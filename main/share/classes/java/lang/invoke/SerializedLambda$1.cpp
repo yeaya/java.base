@@ -73,6 +73,7 @@ void SerializedLambda$1::init$($SerializedLambda* this$0) {
 }
 
 $Object* SerializedLambda$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($SerializedLambda);
 	$var($Method, m, $nc(this->this$0->capturingClass)->getDeclaredMethod("$deserializeLambda$"_s, $$new($ClassArray, {$SerializedLambda::class$})));

@@ -132,6 +132,7 @@ Cleaner* Cleaner::create(Object$* ob, $Runnable* thunk) {
 }
 
 void Cleaner::clean() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!remove(this)) {
 		return;

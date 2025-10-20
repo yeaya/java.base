@@ -98,6 +98,7 @@ int32_t File$TempDirectory::shortenSubName(int32_t subNameLength, int32_t excess
 
 $File* File$TempDirectory::generateFile($String* prefix$renamed, $String* suffix, $File* dir) {
 	$init(File$TempDirectory);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, prefix$renamed);
 	int64_t n = $nc(File$TempDirectory::random)->nextLong();
 	$var($String, nus, $Long::toUnsignedString(n));

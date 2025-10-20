@@ -73,6 +73,7 @@ void CompletableFuture$UniRun::init$($Executor* executor, $CompletableFuture* de
 }
 
 $CompletableFuture* CompletableFuture$UniRun::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($Object, r, nullptr);

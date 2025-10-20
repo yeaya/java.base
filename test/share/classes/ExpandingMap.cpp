@@ -63,6 +63,7 @@ void ExpandingMap::init$() {
 }
 
 void ExpandingMap::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t initialSize = 20480 * 1024;
 	int32_t maximumMapSize = 16 * 1024 * 1024;
 	int32_t maximumFileSize = 0x11E1A300;

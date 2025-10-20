@@ -118,6 +118,7 @@ SignatureScheme$SigAlgParamSpec* SignatureScheme$SigAlgParamSpec::valueOf($Strin
 }
 
 void SignatureScheme$SigAlgParamSpec::init$($String* $enum$name, int32_t $enum$ordinal, $String* hash, int32_t saltLength) {
+	$useLocalCurrentObjectStackCache();
 	$Enum::init$($enum$name, $enum$ordinal);
 	$var($PSSParameterSpec, pssParamSpec, $new($PSSParameterSpec, hash, "MGF1"_s, $$new($MGF1ParameterSpec, hash), saltLength, 1));
 	$var($AlgorithmParameters, pssParams, nullptr);

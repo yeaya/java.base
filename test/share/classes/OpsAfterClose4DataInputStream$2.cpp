@@ -68,6 +68,7 @@ void OpsAfterClose4DataInputStream$2::init$($String* $enum$name, int32_t $enum$o
 }
 
 bool OpsAfterClose4DataInputStream$2::check($DataInputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, buf, $new($bytes, 2));
 		int32_t read = $nc(is)->read(buf);

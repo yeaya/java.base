@@ -39,6 +39,7 @@ void Substring::init$() {
 }
 
 void Substring::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, buffer, $new($StringBuffer));
 	buffer->append("Guten Morgen!"_s);
 	if ($nc($(buffer->substring(0)))->length() != 13) {

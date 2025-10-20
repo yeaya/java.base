@@ -54,6 +54,7 @@ $Object* allocate$CharsetProvider($Class* clazz) {
 }
 
 $Void* CharsetProvider::checkPermission() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "charsetProvider"_s));

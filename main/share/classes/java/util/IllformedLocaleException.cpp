@@ -56,6 +56,7 @@ void IllformedLocaleException::init$($String* message) {
 }
 
 void IllformedLocaleException::init$($String* message, int32_t errorIndex) {
+	$useLocalCurrentObjectStackCache();
 	$RuntimeException::init$($$str({message, ((errorIndex < 0) ? ""_s : $$str({" [at index "_s, $$str(errorIndex), "]"_s}))}));
 	this->_errIdx = -1;
 	this->_errIdx = errorIndex;

@@ -297,6 +297,7 @@ $ByteBuffer* HeapByteBuffer::put(int32_t index, $bytes* src, int32_t offset, int
 }
 
 $ByteBuffer* HeapByteBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapByteBuffer::$assertionsDisabled && !(pos <= lim)) {
@@ -322,6 +323,7 @@ void HeapByteBuffer::_put(int32_t i, int8_t b) {
 }
 
 char16_t HeapByteBuffer::getChar() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -329,6 +331,7 @@ char16_t HeapByteBuffer::getChar() {
 }
 
 char16_t HeapByteBuffer::getChar(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -336,6 +339,7 @@ char16_t HeapByteBuffer::getChar(int32_t i) {
 }
 
 $ByteBuffer* HeapByteBuffer::putChar(char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -344,6 +348,7 @@ $ByteBuffer* HeapByteBuffer::putChar(char16_t x) {
 }
 
 $ByteBuffer* HeapByteBuffer::putChar(int32_t i, char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -359,6 +364,7 @@ $CharBuffer* HeapByteBuffer::asCharBuffer() {
 }
 
 int16_t HeapByteBuffer::getShort() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -366,6 +372,7 @@ int16_t HeapByteBuffer::getShort() {
 }
 
 int16_t HeapByteBuffer::getShort(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -373,6 +380,7 @@ int16_t HeapByteBuffer::getShort(int32_t i) {
 }
 
 $ByteBuffer* HeapByteBuffer::putShort(int16_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -381,6 +389,7 @@ $ByteBuffer* HeapByteBuffer::putShort(int16_t x) {
 }
 
 $ByteBuffer* HeapByteBuffer::putShort(int32_t i, int16_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -396,6 +405,7 @@ $ShortBuffer* HeapByteBuffer::asShortBuffer() {
 }
 
 int32_t HeapByteBuffer::getInt() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -403,6 +413,7 @@ int32_t HeapByteBuffer::getInt() {
 }
 
 int32_t HeapByteBuffer::getInt(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -410,6 +421,7 @@ int32_t HeapByteBuffer::getInt(int32_t i) {
 }
 
 $ByteBuffer* HeapByteBuffer::putInt(int32_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -418,6 +430,7 @@ $ByteBuffer* HeapByteBuffer::putInt(int32_t x) {
 }
 
 $ByteBuffer* HeapByteBuffer::putInt(int32_t i, int32_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -433,6 +446,7 @@ $IntBuffer* HeapByteBuffer::asIntBuffer() {
 }
 
 int64_t HeapByteBuffer::getLong() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -440,6 +454,7 @@ int64_t HeapByteBuffer::getLong() {
 }
 
 int64_t HeapByteBuffer::getLong(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -447,6 +462,7 @@ int64_t HeapByteBuffer::getLong(int32_t i) {
 }
 
 $ByteBuffer* HeapByteBuffer::putLong(int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -455,6 +471,7 @@ $ByteBuffer* HeapByteBuffer::putLong(int64_t x) {
 }
 
 $ByteBuffer* HeapByteBuffer::putLong(int32_t i, int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -470,6 +487,7 @@ $LongBuffer* HeapByteBuffer::asLongBuffer() {
 }
 
 float HeapByteBuffer::getFloat() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -478,6 +496,7 @@ float HeapByteBuffer::getFloat() {
 }
 
 float HeapByteBuffer::getFloat(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -486,6 +505,7 @@ float HeapByteBuffer::getFloat(int32_t i) {
 }
 
 $ByteBuffer* HeapByteBuffer::putFloat(float x) {
+	$useLocalCurrentObjectStackCache();
 	int32_t y = $Float::floatToRawIntBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -495,6 +515,7 @@ $ByteBuffer* HeapByteBuffer::putFloat(float x) {
 }
 
 $ByteBuffer* HeapByteBuffer::putFloat(int32_t i, float x) {
+	$useLocalCurrentObjectStackCache();
 	int32_t y = $Float::floatToRawIntBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -511,6 +532,7 @@ $FloatBuffer* HeapByteBuffer::asFloatBuffer() {
 }
 
 double HeapByteBuffer::getDouble() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -519,6 +541,7 @@ double HeapByteBuffer::getDouble() {
 }
 
 double HeapByteBuffer::getDouble(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of(this->hb));
@@ -527,6 +550,7 @@ double HeapByteBuffer::getDouble(int32_t i) {
 }
 
 $ByteBuffer* HeapByteBuffer::putDouble(double x) {
+	$useLocalCurrentObjectStackCache();
 	int64_t y = $Double::doubleToRawLongBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -536,6 +560,7 @@ $ByteBuffer* HeapByteBuffer::putDouble(double x) {
 }
 
 $ByteBuffer* HeapByteBuffer::putDouble(int32_t i, double x) {
+	$useLocalCurrentObjectStackCache();
 	int64_t y = $Double::doubleToRawLongBits(x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());

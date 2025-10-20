@@ -90,6 +90,7 @@ int32_t Matcher$ImmutableMatchResult::start() {
 }
 
 int32_t Matcher$ImmutableMatchResult::start(int32_t group) {
+	$useLocalCurrentObjectStackCache();
 	checkMatch();
 	if (group < 0 || group > this->groupCount$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"No group "_s, $$str(group)}));
@@ -103,6 +104,7 @@ int32_t Matcher$ImmutableMatchResult::end() {
 }
 
 int32_t Matcher$ImmutableMatchResult::end(int32_t group) {
+	$useLocalCurrentObjectStackCache();
 	checkMatch();
 	if (group < 0 || group > this->groupCount$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"No group "_s, $$str(group)}));
@@ -120,6 +122,7 @@ $String* Matcher$ImmutableMatchResult::group() {
 }
 
 $String* Matcher$ImmutableMatchResult::group(int32_t group) {
+	$useLocalCurrentObjectStackCache();
 	checkMatch();
 	if (group < 0 || group > this->groupCount$) {
 		$throwNew($IndexOutOfBoundsException, $$str({"No group "_s, $$str(group)}));

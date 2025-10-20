@@ -90,6 +90,7 @@ void ArraysParallelSortHelpers$FJObject$Merger::init$($CountedCompleter* par, $O
 }
 
 void ArraysParallelSortHelpers$FJObject$Merger::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, c, this->comparator);
 	$var($ObjectArray, a, this->a);
 	$var($ObjectArray, w, this->w);

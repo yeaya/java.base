@@ -112,6 +112,7 @@ CertStatusExtension$OCSPStatusRequest* CertStatusExtension$OCSPStatusRequest::EM
 CertStatusExtension$OCSPStatusRequest* CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP_MULTI = nullptr;
 
 void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$CertStatusExtension$CertStatusRequest::init$(statusType, encoded);
 	if (encoded == nullptr || $nc(encoded)->length < 4) {
 		$throwNew($SSLProtocolException, "Invalid OCSP status request: insufficient data"_s);
@@ -164,6 +165,7 @@ void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* enc
 }
 
 $String* CertStatusExtension$OCSPStatusRequest::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate status type\": {0}\n\"OCSP status request\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($MessageFormat, requestFormat, $new($MessageFormat, "\"responder_id\": {0}\n\"request extensions\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
@@ -204,6 +206,7 @@ $String* CertStatusExtension$OCSPStatusRequest::toString() {
 }
 
 void clinit$CertStatusExtension$OCSPStatusRequest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(CertStatusExtension$OCSPStatusRequest, ocspReq, nullptr);
 		$var(CertStatusExtension$OCSPStatusRequest, multiReq, nullptr);

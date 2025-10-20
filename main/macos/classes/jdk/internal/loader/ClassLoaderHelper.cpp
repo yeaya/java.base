@@ -44,6 +44,7 @@ void ClassLoaderHelper::init$() {
 }
 
 $File* ClassLoaderHelper::mapAlternativeName($File* lib) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(lib)->toString());
 	int32_t index = $nc(name)->lastIndexOf((int32_t)u'.');
 	if (index < 0) {
@@ -53,6 +54,7 @@ $File* ClassLoaderHelper::mapAlternativeName($File* lib) {
 }
 
 $StringArray* ClassLoaderHelper::parsePath($String* ldPath) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	char16_t ps = $File::pathSeparatorChar;
 	$var($ArrayList, paths, $new($ArrayList));

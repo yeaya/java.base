@@ -168,6 +168,7 @@ bool ImageReader$Node::isDirectory() {
 }
 
 $List* ImageReader$Node::getChildren() {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($IllegalArgumentException, $$str({"not a directory: "_s, $(getNameString())}));
 	$shouldNotReachHere();
 }
@@ -177,6 +178,7 @@ bool ImageReader$Node::isResource() {
 }
 
 $ImageLocation* ImageReader$Node::getLocation() {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($IllegalArgumentException, $$str({"not a resource: "_s, $(getNameString())}));
 	$shouldNotReachHere();
 }

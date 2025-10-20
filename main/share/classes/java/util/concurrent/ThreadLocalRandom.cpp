@@ -242,6 +242,7 @@ void ThreadLocalRandom::setSeed(int64_t seed) {
 }
 
 int64_t ThreadLocalRandom::nextSeed() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, nullptr);
 	int64_t r = 0;
 	$var($Object, var$0, $of(($assign(t, $Thread::currentThread()))));
@@ -298,6 +299,7 @@ void ThreadLocalRandom::setInheritedAccessControlContext($Thread* thread, $Acces
 }
 
 void ThreadLocalRandom::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
 	$nc(fields)->put("rnd"_s, $nc(ThreadLocalRandom::U)->getLong($($Thread::currentThread()), ThreadLocalRandom::SEED));
 	fields->put("initialized"_s, true);
@@ -421,6 +423,7 @@ $DoubleStream* ThreadLocalRandom::doubles(double randomNumberOrigin, double rand
 }
 
 void clinit$ThreadLocalRandom($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ThreadLocalRandom::BAD_BOUND, "bound must be positive"_s);
 	$assignStatic(ThreadLocalRandom::BAD_RANGE, "bound must be greater than origin"_s);
 	$assignStatic(ThreadLocalRandom::BAD_SIZE, "size must be non-negative"_s);

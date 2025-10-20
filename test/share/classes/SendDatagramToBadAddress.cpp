@@ -82,6 +82,7 @@ void SendDatagramToBadAddress::init$() {
 
 bool SendDatagramToBadAddress::OSsupportsFeature() {
 	$init(SendDatagramToBadAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, p, $System::getProperties());
 	$var($String, v, nullptr);
 	if ($nc($($nc(p)->getProperty("os.name"_s)))->equals("Windows 2000"_s)) {
@@ -114,6 +115,7 @@ void SendDatagramToBadAddress::main($StringArray* args) {
 }
 
 void SendDatagramToBadAddress::run() {
+	$useLocalCurrentObjectStackCache();
 	if (OSsupportsFeature()) {
 		print("running on OS that supports ICMP port unreachable"_s);
 	}
@@ -147,6 +149,7 @@ void SendDatagramToBadAddress::run() {
 }
 
 void SendDatagramToBadAddress::test($DatagramSocket* sock) {
+	$useLocalCurrentObjectStackCache();
 	print($$str({"Testing with "_s, $nc($of(sock))->getClass()}));
 	$var($InetAddress, addr, $InetAddress::getLoopbackAddress());
 	$var($DatagramSocket, serversock, $new($DatagramSocket, 0));

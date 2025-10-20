@@ -70,6 +70,7 @@ void UTF8::init$() {
 
 void UTF8::main($StringArray* args) {
 	$init(UTF8);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
 	$var($Writer, out, $new($OutputStreamWriter, static_cast<$OutputStream*>(bo), "UTF8"_s));
 	out->write(UTF8::test);

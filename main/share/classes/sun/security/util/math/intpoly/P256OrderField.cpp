@@ -79,6 +79,7 @@ void P256OrderField::init$() {
 
 $BigInteger* P256OrderField::evaluateModulus() {
 	$init(P256OrderField);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(256));
 	$assign(result, $nc(result)->add($($BigInteger::valueOf((int64_t)0x00632551))));
 	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(26)))->multiply($($BigInteger::valueOf((int64_t)0x018D4F41))))));

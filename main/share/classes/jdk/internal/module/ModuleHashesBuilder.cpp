@@ -374,6 +374,7 @@ void ModuleHashesBuilder::init$($Configuration* config, $Set* modules) {
 }
 
 $Map* ModuleHashesBuilder::computeHashes($Set* roots) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleHashesBuilder$Graph$Builder, builder, $new($ModuleHashesBuilder$Graph$Builder));
 	$var($Deque, todo, $new($ArrayDeque, $(static_cast<$Collection*>($nc(this->configuration)->modules()))));
 	$var($Set, visited, $new($HashSet));
@@ -404,6 +405,7 @@ $Map* ModuleHashesBuilder::computeHashes($Set* roots) {
 }
 
 void ModuleHashesBuilder::lambda$computeHashes$3($ModuleHashesBuilder$Graph* transposedGraph, $Set* mods, $Map* hashes, $String* mn) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, ns, $cast($Set, $nc($($nc($($nc($($nc(transposedGraph)->dfs($of(mn))))->stream()))->filter(static_cast<$Predicate*>($$new(ModuleHashesBuilder$$Lambda$lambda$computeHashes$1$2, this, mn)))))->collect($($Collectors::toSet()))));
 	$nc(mods)->add(mn);
 	mods->addAll(ns);
@@ -414,6 +416,7 @@ void ModuleHashesBuilder::lambda$computeHashes$3($ModuleHashesBuilder$Graph* tra
 }
 
 $ResolvedModule* ModuleHashesBuilder::lambda$computeHashes$2($String* name) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($ResolvedModule, $nc($($nc(this->configuration)->findModule(name)))->orElseThrow(static_cast<$Supplier*>($$new(ModuleHashesBuilder$$Lambda$InternalError$5))));
 }
 

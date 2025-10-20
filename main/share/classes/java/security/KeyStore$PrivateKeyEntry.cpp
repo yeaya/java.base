@@ -100,6 +100,7 @@ void KeyStore$PrivateKeyEntry::init$($PrivateKey* privateKey, $CertificateArray*
 }
 
 void KeyStore$PrivateKeyEntry::init$($PrivateKey* privateKey, $CertificateArray* chain, $Set* attributes) {
+	$useLocalCurrentObjectStackCache();
 	if (privateKey == nullptr || chain == nullptr || attributes == nullptr) {
 		$throwNew($NullPointerException, "invalid null input"_s);
 	}
@@ -143,6 +144,7 @@ $Set* KeyStore$PrivateKeyEntry::getAttributes() {
 }
 
 $String* KeyStore$PrivateKeyEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($$str({"Private key entry and certificate chain with "_s, $$str($nc(this->chain)->length), " elements:\r\n"_s}));
 	{

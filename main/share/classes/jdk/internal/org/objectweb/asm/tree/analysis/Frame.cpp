@@ -297,6 +297,7 @@ int32_t Frame::getMaxStackSize() {
 }
 
 $1Value* Frame::getLocal(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (index >= this->numLocals) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Trying to get an inexistant local variable "_s, $$str(index)}));
 	}
@@ -304,6 +305,7 @@ $1Value* Frame::getLocal(int32_t index) {
 }
 
 void Frame::setLocal(int32_t index, $1Value* value) {
+	$useLocalCurrentObjectStackCache();
 	if (index >= this->numLocals) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Trying to set an inexistant local variable "_s, $$str(index)}));
 	}
@@ -341,6 +343,7 @@ void Frame::push($1Value* value) {
 }
 
 void Frame::execute($AbstractInsnNode* insn, $Interpreter* interpreter) {
+	$useLocalCurrentObjectStackCache();
 	$var($1Value, value1, nullptr);
 	$var($1Value, value2, nullptr);
 	$var($1Value, value3, nullptr);
@@ -902,6 +905,7 @@ void Frame::execute($AbstractInsnNode* insn, $Interpreter* interpreter) {
 }
 
 bool Frame::executeDupX2($AbstractInsnNode* insn, $1Value* value1, $Interpreter* interpreter) {
+	$useLocalCurrentObjectStackCache();
 	$var($1Value, value2, pop());
 	if ($nc(value2)->getSize() == 1) {
 		$var($1Value, value3, pop());
@@ -922,6 +926,7 @@ bool Frame::executeDupX2($AbstractInsnNode* insn, $1Value* value1, $Interpreter*
 }
 
 void Frame::executeInvokeInsn($AbstractInsnNode* insn, $String* methodDescriptor, $Interpreter* interpreter) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, valueList, $new($ArrayList));
 	for (int32_t i = $nc($($Type::getArgumentTypes(methodDescriptor)))->length; i > 0; --i) {
 		valueList->add(0, $(pop()));
@@ -938,6 +943,7 @@ void Frame::executeInvokeInsn($AbstractInsnNode* insn, $String* methodDescriptor
 }
 
 bool Frame::merge(Frame* frame, $Interpreter* interpreter) {
+	$useLocalCurrentObjectStackCache();
 	if (this->numStack != $nc(frame)->numStack) {
 		$throwNew($AnalyzerException, nullptr, "Incompatible stack heights"_s);
 	}
@@ -964,6 +970,7 @@ bool Frame::merge(Frame* frame, $booleans* localsUsed) {
 }
 
 $String* Frame::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, stringBuilder, $new($StringBuilder));
 	for (int32_t i = 0; i < getLocals(); ++i) {
 		stringBuilder->append($($of(getLocal(i))));

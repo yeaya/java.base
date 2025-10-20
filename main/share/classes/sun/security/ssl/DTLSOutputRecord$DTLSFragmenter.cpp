@@ -185,6 +185,7 @@ void DTLSOutputRecord$DTLSFragmenter::queueUpAlert(int8_t level, int8_t descript
 }
 
 $Ciphertext* DTLSOutputRecord$DTLSFragmenter::acquireCiphertext($ByteBuffer* dstBuf) {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		if (isRetransmittable()) {
 			setRetransmission();
@@ -292,6 +293,7 @@ bool DTLSOutputRecord$DTLSFragmenter::isEmpty() {
 }
 
 bool DTLSOutputRecord$DTLSFragmenter::hasAlert() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->handshakeMemos)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -313,6 +315,7 @@ bool DTLSOutputRecord$DTLSFragmenter::isRetransmittable() {
 }
 
 void DTLSOutputRecord$DTLSFragmenter::setRetransmission() {
+	$useLocalCurrentObjectStackCache();
 	this->acquireIndex = 0;
 	{
 		$var($Iterator, i$, $nc(this->handshakeMemos)->iterator());

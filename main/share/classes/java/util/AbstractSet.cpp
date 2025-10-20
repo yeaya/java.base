@@ -165,6 +165,7 @@ void AbstractSet::init$() {
 }
 
 bool AbstractSet::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -189,6 +190,7 @@ bool AbstractSet::equals(Object$* o) {
 }
 
 int32_t AbstractSet::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($Iterator, i, iterator());
 	while ($nc(i)->hasNext()) {
@@ -201,6 +203,7 @@ int32_t AbstractSet::hashCode() {
 }
 
 bool AbstractSet::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	int32_t var$0 = size();

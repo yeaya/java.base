@@ -50,6 +50,7 @@ void ValueOf4Integer::init$() {
 }
 
 void ValueOf4Integer::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = ValueOf4Integer::TEST_LOW;
 	while (i <= ValueOf4Integer::TEST_HIGH) {
 		if ($nc($($Integer::valueOf(i)))->intValue() != i) {

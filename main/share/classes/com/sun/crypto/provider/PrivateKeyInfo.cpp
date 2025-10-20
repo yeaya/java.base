@@ -65,6 +65,7 @@ $Object* allocate$PrivateKeyInfo($Class* clazz) {
 $BigInteger* PrivateKeyInfo::VERSION = nullptr;
 
 void PrivateKeyInfo::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, $new($DerValue, encoded));
 	{
 		$var($Throwable, var$0, nullptr);

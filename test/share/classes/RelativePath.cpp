@@ -41,6 +41,7 @@ void RelativePath::init$() {
 }
 
 void RelativePath::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, uri1, "http://h/../d1/"_s);
 	$var($String, uri2, "../d/i.htm"_s);
 	$var($String, expected, "http://h/../d/i.htm"_s);

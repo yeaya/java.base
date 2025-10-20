@@ -81,6 +81,7 @@ void Duped::init$() {
 
 void Duped::main($StringArray* args) {
 	$init(Duped);
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($String, var$1, $$str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java -classpath "_s}));
 	$var($String, var$0, $$concat(var$1, $($System::getProperty("java.class.path"_s))));

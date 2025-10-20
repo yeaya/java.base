@@ -131,6 +131,7 @@ void RecordComponentNode::check(int32_t api) {
 }
 
 void RecordComponentNode::accept($ClassVisitor* classVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($RecordComponentVisitor, recordComponentVisitor, $nc(classVisitor)->visitRecordComponent(this->name, this->descriptor, this->signature));
 	if (recordComponentVisitor == nullptr) {
 		return;

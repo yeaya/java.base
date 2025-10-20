@@ -156,6 +156,7 @@ void RSAClientKeyExchange$RSAClientKeyExchangeMessage::send($HandshakeOutStream*
 }
 
 $String* RSAClientKeyExchange$RSAClientKeyExchangeMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"RSA ClientKeyExchange\": \'{\'\n  \"client_version\":  {0}\n  \"encncrypted\": \'{\'\n{1}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

@@ -112,6 +112,7 @@ void PassThroughFileSystem::init$($FileSystemProvider* provider, $FileSystem* de
 
 $FileSystem* PassThroughFileSystem::create() {
 	$init(PassThroughFileSystem);
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystemProvider, provider, $new($PassThroughFileSystem$PassThroughProvider));
 	$var($Map, env, $Collections::emptyMap());
 	$var($URI, uri, $URI::create("pass:///"_s));

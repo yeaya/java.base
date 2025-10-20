@@ -441,6 +441,7 @@ Comparator* Comparator::comparingDouble($ToDoubleFunction* keyExtractor) {
 }
 
 $Object* Comparator::$deserializeLambda$($SerializedLambda* lambda) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s5472$, $nc(lambda)->getImplMethodName());
 		int32_t tmp5472$ = -1;
@@ -582,10 +583,12 @@ int32_t Comparator::lambda$comparingInt$7b0bb60$1($ToIntFunction* keyExtractor, 
 }
 
 int32_t Comparator::lambda$comparing$77a9974f$1($Function* keyExtractor, Object$* c1, Object$* c2) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Comparable, $($nc(keyExtractor)->apply(c1)))))->compareTo($(keyExtractor->apply(c2)));
 }
 
 int32_t Comparator::lambda$comparing$ea9a8b3a$1(Comparator* keyComparator, $Function* keyExtractor, Object$* c1, Object$* c2) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(keyExtractor)->apply(c1));
 	return $nc(keyComparator)->compare(var$0, $(keyExtractor->apply(c2)));
 }

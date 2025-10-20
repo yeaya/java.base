@@ -128,6 +128,7 @@ void ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::init$() {
 }
 
 $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($X509Authentication$X509Credentials, x509Credentials, nullptr);
 	{

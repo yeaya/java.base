@@ -75,6 +75,7 @@ void TestValueExact::main($StringArray* args) {
 }
 
 int32_t TestValueExact::testLongValueExact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 		$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
@@ -124,6 +125,7 @@ int32_t TestValueExact::testLongValueExact() {
 }
 
 int32_t TestValueExact::testIntValueExact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 		$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
@@ -175,6 +177,7 @@ int32_t TestValueExact::testIntValueExact() {
 }
 
 int32_t TestValueExact::testShortValueExact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 		$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {
@@ -230,6 +233,7 @@ int32_t TestValueExact::testShortValueExact() {
 }
 
 int32_t TestValueExact::testByteValueExact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 		$init($BigInteger);
 	$var($BigIntegerArray, inRange, $new($BigIntegerArray, {

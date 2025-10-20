@@ -173,6 +173,7 @@ int32_t NetscapeCertTypeExtension::getPosition($String* name) {
 }
 
 void NetscapeCertTypeExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, os, $new($DerOutputStream));
 	os->putTruncatedUnalignedBitString($$new($BitArray, this->bitString));
 	$set(this, extensionValue, os->toByteArray());
@@ -208,6 +209,7 @@ void NetscapeCertTypeExtension::init$($booleans* bitString) {
 }
 
 void NetscapeCertTypeExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, extensionId, NetscapeCertTypeExtension::NetscapeCertType_Id);
 	this->critical = $nc(critical)->booleanValue();
@@ -242,6 +244,7 @@ void NetscapeCertTypeExtension::delete$($String* name) {
 }
 
 $String* NetscapeCertTypeExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()));
 	sb->append("NetscapeCertType [\n"_s);
@@ -271,6 +274,7 @@ $String* NetscapeCertTypeExtension::toString() {
 }
 
 void NetscapeCertTypeExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$set(this, extensionId, NetscapeCertTypeExtension::NetscapeCertType_Id);
@@ -290,6 +294,7 @@ $String* NetscapeCertTypeExtension::getName() {
 }
 
 $booleans* NetscapeCertTypeExtension::getKeyUsageMappedBits() {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyUsageExtension, keyUsage, $new($KeyUsageExtension));
 	$init($Boolean);
 	$var($Boolean, val, $Boolean::TRUE);
@@ -317,6 +322,7 @@ $booleans* NetscapeCertTypeExtension::getKeyUsageMappedBits() {
 }
 
 void clinit$NetscapeCertTypeExtension($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(NetscapeCertTypeExtension::IDENT, "x509.info.extensions.NetscapeCertType"_s);
 	$assignStatic(NetscapeCertTypeExtension::NAME, "NetscapeCertType"_s);
 	$assignStatic(NetscapeCertTypeExtension::SSL_CLIENT, "ssl_client"_s);

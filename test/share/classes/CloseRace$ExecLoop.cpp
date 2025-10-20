@@ -68,6 +68,7 @@ void CloseRace$ExecLoop::init$() {
 }
 
 void CloseRace$ExecLoop::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($CloseRace);
 	$nc($CloseRace::threadsStarted)->countDown();
 	$var($ProcessBuilder, builder, $new($ProcessBuilder, $$new($StringArray, {"/bin/true"_s})));

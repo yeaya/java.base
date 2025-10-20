@@ -63,6 +63,7 @@ void RangeTests::init$() {
 }
 
 int32_t RangeTests::addTest($BigDecimal* arg1, $BigDecimal* arg2, $BigDecimal* expectedResult) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, result, $nc(arg1)->add(arg2));
 	if (!$nc(result)->equals(expectedResult)) {
@@ -80,6 +81,7 @@ int32_t RangeTests::addTest($BigDecimal* arg1, $BigDecimal* arg2, $BigDecimal* e
 }
 
 int32_t RangeTests::addBoundaryTest() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, var$0, $new($BigDecimal, "85070591730234615847396907784232501249"_s));
 	$var($BigDecimal, var$1, $BigDecimal::valueOf((int64_t)0));
@@ -148,6 +150,7 @@ int32_t RangeTests::addBoundaryTest() {
 }
 
 int32_t RangeTests::testRoundingFromBigInteger($BigInteger* bi, int32_t scale, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, bd1, $new($BigDecimal, bi, scale, mc));
 	$var($BigDecimal, bd2, ($$new($BigDecimal, bi, scale))->round(mc));
@@ -160,6 +163,7 @@ int32_t RangeTests::testRoundingFromBigInteger($BigInteger* bi, int32_t scale, $
 }
 
 int32_t RangeTests::roundingConstructorTest() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($MathContext);
 	failures += testRoundingFromBigInteger($$new($BigInteger, "85070591730234615847396907784232501249"_s), 7, $MathContext::DECIMAL64);
@@ -174,6 +178,7 @@ int32_t RangeTests::roundingConstructorTest() {
 }
 
 int32_t RangeTests::minLongConstructorTest($MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, bd1, $new($BigDecimal, $Long::MIN_VALUE, mc));
 	$var($BigDecimal, bd2, $$new($BigDecimal, $Long::MIN_VALUE)->round(mc));
@@ -196,6 +201,7 @@ int32_t RangeTests::minLongConstructorTest() {
 }
 
 void RangeTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += addBoundaryTest();
 	failures += roundingConstructorTest();

@@ -144,6 +144,7 @@ void SSLEngineOutputRecord$HandshakeFragment::queueUpAlert(int8_t level, int8_t 
 }
 
 $Ciphertext* SSLEngineOutputRecord$HandshakeFragment::acquireCiphertext($ByteBuffer* dstBuf) {
+	$useLocalCurrentObjectStackCache();
 	if (isEmpty()) {
 		return nullptr;
 	}

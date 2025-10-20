@@ -124,6 +124,7 @@ void Nodes$LongArrayNode::forEach($LongConsumer* consumer) {
 }
 
 $String* Nodes$LongArrayNode::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("LongArrayNode[%d][%s]"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
 		$($of($Arrays::toString(this->array)))

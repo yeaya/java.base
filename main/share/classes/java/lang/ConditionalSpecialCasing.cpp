@@ -154,6 +154,7 @@ $chars* ConditionalSpecialCasing::toUpperCaseCharArray($String* src, int32_t ind
 
 $chars* ConditionalSpecialCasing::lookUpTable($String* src, int32_t index, $Locale* locale, bool bLowerCasing) {
 	$init(ConditionalSpecialCasing);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $cast($HashSet, $nc(ConditionalSpecialCasing::entryTable)->get($($Integer::valueOf($nc(src)->codePointAt(index))))));
 	$var($chars, ret, nullptr);
 	if (set != nullptr) {
@@ -365,6 +366,7 @@ bool ConditionalSpecialCasing::isSoftDotted(int32_t ch) {
 }
 
 void clinit$ConditionalSpecialCasing($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ConditionalSpecialCasing::entry, $new($ConditionalSpecialCasing$EntryArray, {
 		$$new($ConditionalSpecialCasing$Entry, 931, $$new($chars, {(char16_t)962}), $$new($chars, {(char16_t)931}), nullptr, ConditionalSpecialCasing::FINAL_CASED),
 		$$new($ConditionalSpecialCasing$Entry, 304, $$new($chars, {

@@ -73,6 +73,7 @@ $Object* allocate$ObjectStreamClass$FieldReflectorKey($Class* clazz) {
 }
 
 void ObjectStreamClass$FieldReflectorKey::init$($Class* cl, $ObjectStreamFieldArray* fields, $ReferenceQueue* queue) {
+	$useLocalCurrentObjectStackCache();
 	$WeakReference::init$(cl, queue);
 	this->nullClass = (cl == nullptr);
 	$set(this, sigs, $new($StringArray, 2 * $nc(fields)->length));

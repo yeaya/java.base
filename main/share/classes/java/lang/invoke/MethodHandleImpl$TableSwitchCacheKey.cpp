@@ -98,6 +98,7 @@ bool MethodHandleImpl$TableSwitchCacheKey::equals(Object$* o) {
 }
 
 int32_t MethodHandleImpl$TableSwitchCacheKey::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	return $Objects::hash($$new($ObjectArray, {
 		$of(this->basicType),
 		$($of($Integer::valueOf(this->numberOfCases)))

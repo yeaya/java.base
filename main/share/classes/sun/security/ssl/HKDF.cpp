@@ -73,6 +73,7 @@ $Object* allocate$HKDF($Class* clazz) {
 }
 
 void HKDF::init$($String* hashAlg) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(hashAlg), "Must provide underlying HKDF Digest algorithm."_s);
 	$var($String, hmacAlg, $str({"Hmac"_s, $($nc(hashAlg)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s)))}));
 	$set(this, hmacObj, $Mac::getInstance(hmacAlg));
@@ -80,6 +81,7 @@ void HKDF::init$($String* hashAlg) {
 }
 
 $SecretKey* HKDF::extract($SecretKey* salt$renamed, $SecretKey* inputKey, $String* keyAlg) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, salt, salt$renamed);
 	if (salt == nullptr) {
 		$assign(salt, $new($SecretKeySpec, $$new($bytes, this->hmacLen), "HKDF-Salt"_s));
@@ -89,6 +91,7 @@ $SecretKey* HKDF::extract($SecretKey* salt$renamed, $SecretKey* inputKey, $Strin
 }
 
 $SecretKey* HKDF::extract($bytes* salt$renamed, $SecretKey* inputKey, $String* keyAlg) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, salt, salt$renamed);
 	if (salt == nullptr) {
 		$assign(salt, $new($bytes, this->hmacLen));
@@ -97,6 +100,7 @@ $SecretKey* HKDF::extract($bytes* salt$renamed, $SecretKey* inputKey, $String* k
 }
 
 $SecretKey* HKDF::expand($SecretKey* pseudoRandKey, $bytes* info$renamed, int32_t outLen, $String* keyAlg) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, info, info$renamed);
 	$var($bytes, kdfOutput, nullptr);
 	$Objects::requireNonNull($of(pseudoRandKey), "A null PRK is not allowed."_s);

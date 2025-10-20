@@ -55,6 +55,7 @@ void Open::init$() {
 }
 
 void Open::test1() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
 			$var($SocketChannel, sc, $SocketChannel::open());
@@ -65,6 +66,7 @@ void Open::test1() {
 }
 
 void Open::test2() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
 			$var($DatagramChannel, sc, $DatagramChannel::open());
@@ -75,6 +77,7 @@ void Open::test2() {
 }
 
 void Open::test3() {
+	$useLocalCurrentObjectStackCache();
 	$var($SelectorProvider, sp, $SelectorProvider::provider());
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
@@ -86,6 +89,7 @@ void Open::test3() {
 }
 
 void Open::test4() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 11000; ++i) {
 		try {
 			$var($ServerSocketChannel, sc, $ServerSocketChannel::open());
@@ -96,6 +100,7 @@ void Open::test4() {
 }
 
 void Open::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
 	$var($Exception, se, $new($SocketException));
 	$var($SelectorProvider, sp, $SelectorProvider::provider());

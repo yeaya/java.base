@@ -44,6 +44,7 @@ $Object* allocate$RecursiveSystemLoader($Class* clazz) {
 
 void RecursiveSystemLoader::main($StringArray* args) {
 	$init(RecursiveSystemLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, sys, $ClassLoader::getSystemClassLoader());
 	if (!($instanceOf(RecursiveSystemLoader, sys))) {

@@ -157,6 +157,7 @@ $Field* HttpConnectSocketImpl::serverSocketField = nullptr;
 $Method* HttpConnectSocketImpl::doTunneling$ = nullptr;
 
 void HttpConnectSocketImpl::init$($Proxy* proxy, $SocketImpl* delegate, $Socket* socket) {
+	$useLocalCurrentObjectStackCache();
 	$DelegatingSocketImpl::init$(delegate);
 	$set(this, optionsMap, $new($HashMap));
 	$set(this, socket, socket);
@@ -183,6 +184,7 @@ void HttpConnectSocketImpl::connect($InetAddress* address, int32_t port) {
 }
 
 void HttpConnectSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, epoint, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, endpoint);
 	if (var$0) {
@@ -245,6 +247,7 @@ void HttpConnectSocketImpl::setOption(int32_t opt, Object$* val) {
 }
 
 $Socket* HttpConnectSocketImpl::privilegedDoTunnel($String* urlString, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($Socket, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($HttpConnectSocketImpl$2, this, urlString, timeout))));
@@ -256,6 +259,7 @@ $Socket* HttpConnectSocketImpl::privilegedDoTunnel($String* urlString, int32_t t
 }
 
 $Socket* HttpConnectSocketImpl::doTunnel($String* urlString, int32_t connectTimeout) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Proxy$Type);
 	$var($Proxy, proxy, $new($Proxy, $Proxy$Type::HTTP, $$new($InetSocketAddress, this->server, this->port)));
@@ -279,6 +283,7 @@ $Socket* HttpConnectSocketImpl::doTunnel($String* urlString, int32_t connectTime
 }
 
 void HttpConnectSocketImpl::doTunneling($HttpURLConnection* conn) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$nc(HttpConnectSocketImpl::doTunneling$)->invoke(conn, $$new($ObjectArray, 0));
@@ -309,6 +314,7 @@ int32_t HttpConnectSocketImpl::getPort() {
 }
 
 void clinit$HttpConnectSocketImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(HttpConnectSocketImpl::httpURLClazzStr, "sun.net.www.protocol.http.HttpURLConnection"_s);
 	$assignStatic(HttpConnectSocketImpl::netClientClazzStr, "sun.net.NetworkClient"_s);
 	$assignStatic(HttpConnectSocketImpl::doTunnelingStr, "doTunneling"_s);

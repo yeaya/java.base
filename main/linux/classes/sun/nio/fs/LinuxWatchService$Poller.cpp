@@ -193,6 +193,7 @@ void LinuxWatchService$Poller::init$($UnixFileSystem* fs, $LinuxWatchService* wa
 }
 
 void LinuxWatchService$Poller::wakeup() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$UnixNativeDispatcher::write($nc(this->socketpair)->get(1), this->address, 1);
 	} catch ($UnixException&) {
@@ -202,6 +203,7 @@ void LinuxWatchService$Poller::wakeup() {
 }
 
 $Object* LinuxWatchService$Poller::implRegister($Path* obj, $Set* events, $WatchEvent$ModifierArray* modifiers) {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixPath, dir, $cast($UnixPath, obj));
 	int32_t mask = 0;
 	{
@@ -289,6 +291,7 @@ $Object* LinuxWatchService$Poller::implRegister($Path* obj, $Set* events, $Watch
 }
 
 void LinuxWatchService$Poller::implCancelKey($WatchKey* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinuxWatchService$LinuxWatchKey, key, $cast($LinuxWatchService$LinuxWatchKey, obj));
 	if ($nc(key)->isValid()) {
 		$nc(this->wdToKey)->remove($($Integer::valueOf(key->descriptor())));
@@ -297,6 +300,7 @@ void LinuxWatchService$Poller::implCancelKey($WatchKey* obj) {
 }
 
 void LinuxWatchService$Poller::implCloseAll() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(this->wdToKey)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -315,6 +319,7 @@ void LinuxWatchService$Poller::implCloseAll() {
 }
 
 void LinuxWatchService$Poller::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		for (;;) {
 			int32_t nReady = 0;
@@ -408,6 +413,7 @@ $WatchEvent$Kind* LinuxWatchService$Poller::maskToEventKind(int32_t mask) {
 }
 
 void LinuxWatchService$Poller::processEvent(int32_t wd, int32_t mask, $UnixPath* name) {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(mask & (uint32_t)LinuxWatchService$Poller::IN_Q_OVERFLOW)) > 0) {
 		{
 			$var($Iterator, i$, $nc($($nc(this->wdToKey)->entrySet()))->iterator());

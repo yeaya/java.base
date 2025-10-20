@@ -74,6 +74,7 @@ void SocketPermission$1::init$($String* val$suffix) {
 }
 
 $Object* SocketPermission$1::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t val = $nc($($Integer::getInteger($$str({"jdk.net.ephemeralPortRange."_s, this->val$suffix}), -1)))->intValue();
 	if (val != -1) {
 		return $of($Integer::valueOf(val));

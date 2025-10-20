@@ -69,6 +69,7 @@ void HashSpread::init$() {
 
 $InetAddress* HashSpread::randomIPv6Adress() {
 	$init(HashSpread);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	for (int32_t i = 0; i < 8; ++i) {
 		if (i > 0) {
@@ -95,6 +96,7 @@ $InetAddress* HashSpread::randomIPv6Adress() {
 
 void HashSpread::main($StringArray* args) {
 	$init(HashSpread);
+	$useLocalCurrentObjectStackCache();
 	int32_t iterations = 10000;
 	if ($nc(args)->length > 0) {
 		iterations = $Integer::parseInt(args->get(0));

@@ -155,6 +155,7 @@ $bytes* Finished$T13FinishedProducer::produce($ConnectionContext* context, $SSLH
 }
 
 $bytes* Finished$T13FinishedProducer::onProduceFinished($ClientHandshakeContext* chc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$nc($nc(chc)->handshakeHash)->update();
 	$var($Finished$FinishedMessage, fm, $new($Finished$FinishedMessage, chc));
 	$init($SSLLogger);
@@ -210,6 +211,7 @@ $bytes* Finished$T13FinishedProducer::onProduceFinished($ClientHandshakeContext*
 }
 
 $bytes* Finished$T13FinishedProducer::onProduceFinished($ServerHandshakeContext* shc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$nc($nc(shc)->handshakeHash)->update();
 	$var($Finished$FinishedMessage, fm, $new($Finished$FinishedMessage, shc));
 	$init($SSLLogger);

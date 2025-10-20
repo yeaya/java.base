@@ -106,6 +106,7 @@ void CalendarDataUtility::init$() {
 
 int32_t CalendarDataUtility::retrieveFirstDayOfWeek($Locale* locale) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(locale)->hasExtensions()) {
 		$var($String, fw, locale->getUnicodeLocaleType("fw"_s));
 		if (fw != nullptr) {
@@ -212,6 +213,7 @@ int32_t CalendarDataUtility::retrieveFirstDayOfWeek($Locale* locale) {
 
 int32_t CalendarDataUtility::retrieveMinimalDaysInFirstWeek($Locale* locale) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($CalendarDataProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CalendarDataProvider::class$));
 	$init($CalendarDataUtility$CalendarWeekParameterGetter);
@@ -228,6 +230,7 @@ int32_t CalendarDataUtility::retrieveMinimalDaysInFirstWeek($Locale* locale) {
 
 $String* CalendarDataUtility::retrieveFieldValueName($String* id, int32_t field, int32_t value, int32_t style, $Locale* locale) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($CalendarNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CalendarNameProvider::class$));
 	$init($CalendarDataUtility$CalendarFieldValueNameGetter);
@@ -244,6 +247,7 @@ $String* CalendarDataUtility::retrieveFieldValueName($String* id, int32_t field,
 
 $String* CalendarDataUtility::retrieveJavaTimeFieldValueName($String* id, int32_t field, int32_t value, int32_t style, $Locale* locale) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($CalendarNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CalendarNameProvider::class$));
 	$var($String, name, nullptr);
@@ -273,6 +277,7 @@ $String* CalendarDataUtility::retrieveJavaTimeFieldValueName($String* id, int32_
 
 $Map* CalendarDataUtility::retrieveFieldValueNames($String* id, int32_t field, int32_t style, $Locale* locale) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($CalendarNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CalendarNameProvider::class$));
 	$init($CalendarDataUtility$CalendarFieldValueNamesMapGetter);
@@ -288,6 +293,7 @@ $Map* CalendarDataUtility::retrieveFieldValueNames($String* id, int32_t field, i
 
 $Map* CalendarDataUtility::retrieveJavaTimeFieldValueNames($String* id, int32_t field, int32_t style, $Locale* locale) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	$load($CalendarNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CalendarNameProvider::class$));
 	$var($Map, map, nullptr);
@@ -315,6 +321,7 @@ $Map* CalendarDataUtility::retrieveJavaTimeFieldValueNames($String* id, int32_t 
 
 $Locale* CalendarDataUtility::findRegionOverride($Locale* l) {
 	$init(CalendarDataUtility);
+	$useLocalCurrentObjectStackCache();
 	$var($String, rg, $nc(l)->getUnicodeLocaleType("rg"_s));
 	$var($Locale, override$, l);
 	if (rg != nullptr && rg->length() == 6) {

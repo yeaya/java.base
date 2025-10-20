@@ -73,6 +73,7 @@ void CompletableFuture$AnyOf::init$($CompletableFuture* dep, $CompletableFuture*
 }
 
 $CompletableFuture* CompletableFuture$AnyOf::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFutureArray, as, nullptr);

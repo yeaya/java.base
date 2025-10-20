@@ -70,6 +70,7 @@ void DHServerKeyExchange$DHServerKeyExchangeProducer::init$() {
 }
 
 $bytes* DHServerKeyExchange$DHServerKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($DHServerKeyExchange$DHServerKeyExchangeMessage, skem, $new($DHServerKeyExchange$DHServerKeyExchangeMessage, shc));
 	$init($SSLLogger);

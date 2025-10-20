@@ -91,6 +91,7 @@ void US_ASCII$Decoder::init$($Charset* cs) {
 }
 
 $CoderResult* US_ASCII$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -116,6 +117,7 @@ $CoderResult* US_ASCII$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* d
 }
 
 $CoderResult* US_ASCII$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

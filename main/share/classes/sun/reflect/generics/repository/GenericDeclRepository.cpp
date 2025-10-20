@@ -79,6 +79,7 @@ $TypeVariableArray* GenericDeclRepository::getTypeParameters() {
 }
 
 $TypeVariableArray* GenericDeclRepository::computeTypeParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($FormalTypeParameterArray, ftps, $nc(($cast($Signature, $(getTree()))))->getFormalTypeParameters());
 	int32_t length = $nc(ftps)->length;
 	$var($TypeVariableArray, typeParameters, $new($TypeVariableArray, length));

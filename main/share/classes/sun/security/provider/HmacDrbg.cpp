@@ -98,6 +98,7 @@ void HmacDrbg::init$($SecureRandomParameters* params) {
 }
 
 void HmacDrbg::status() {
+	$useLocalCurrentObjectStackCache();
 	$init($AbstractDrbg);
 	if ($AbstractDrbg::debug != nullptr) {
 		$nc($AbstractDrbg::debug)->println($of(this), $$str({"V = "_s, $($nc($($HexFormat::of()))->formatHex(this->v))}));
@@ -107,6 +108,7 @@ void HmacDrbg::status() {
 }
 
 void HmacDrbg::update($List* inputs) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->mac)->init($$new($SecretKeySpec, this->k, this->macAlg));
 		$nc(this->mac)->update(this->v);
@@ -146,6 +148,7 @@ void HmacDrbg::update($List* inputs) {
 }
 
 void HmacDrbg::initEngine() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, macAlg, $str({"HmacSHA"_s, $($nc(this->algorithm)->substring(4))}));
 	try {
 		$set(this, mac, $Mac::getInstance(this->macAlg, "SunJCE"_s));
@@ -182,6 +185,7 @@ void HmacDrbg::hashReseedInternal($List* input) {
 
 void HmacDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$init($AbstractDrbg);
 		if ($AbstractDrbg::debug != nullptr) {
 			$nc($AbstractDrbg::debug)->println($of(this), "generateAlgorithm"_s);

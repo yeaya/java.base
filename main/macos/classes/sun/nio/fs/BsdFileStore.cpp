@@ -84,6 +84,7 @@ void BsdFileStore::init$($UnixFileSystem* fs, $UnixMountEntry* entry) {
 }
 
 $UnixMountEntry* BsdFileStore::findMountEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($UnixFileSystem, fs, $cast($UnixFileSystem, $nc($(file()))->getFileSystem()));
 	$var($UnixPath, path, nullptr);
 	try {
@@ -115,6 +116,7 @@ $UnixMountEntry* BsdFileStore::findMountEntry() {
 }
 
 bool BsdFileStore::supportsFileAttributeView($Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$load($UserDefinedFileAttributeView);
 	if (type == $UserDefinedFileAttributeView::class$) {
 		$UnixFileStore$FeatureStatus* status = checkIfFeaturePresent("user_xattr"_s);
@@ -149,6 +151,7 @@ bool BsdFileStore::supportsFileAttributeView($String* name) {
 
 bool BsdFileStore::isOsVersionGte(int32_t requiredMajor, int32_t requiredMinor) {
 	$init(BsdFileStore);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osVersion, $GetPropertyAction::privilegedGetProperty("os.version"_s));
 	$var($StringArray, vers, $Util::split(osVersion, u'.'));
 	int32_t majorVersion = $Integer::parseInt($nc(vers)->get(0));

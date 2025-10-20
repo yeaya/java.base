@@ -40,6 +40,7 @@ void SpecifyHandler::init$() {
 }
 
 void SpecifyHandler::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URLStreamHandler, handler, getFileHandler());
 	$var($URL, url1, $new($URL, "file"_s, ""_s, -1, "/bogus/index.html"_s, handler));
 	$var($URL, url2, $new($URL, ($URL*)nullptr, "file://bogus.index.html"_s, handler));

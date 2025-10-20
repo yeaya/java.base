@@ -46,6 +46,7 @@ $Object* allocate$EnumConstantNotPresentException($Class* clazz) {
 }
 
 void EnumConstantNotPresentException::init$($Class* enumType, $String* constantName) {
+	$useLocalCurrentObjectStackCache();
 	$RuntimeException::init$($$str({$($nc(enumType)->getName()), "."_s, constantName}));
 	$set(this, enumType$, enumType);
 	$set(this, constantName$, constantName);

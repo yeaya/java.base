@@ -49,6 +49,7 @@ void Bind4SocketChannel::init$() {
 }
 
 void Bind4SocketChannel::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc1, $SocketChannel::open());
 	{
 		$var($Throwable, var$0, nullptr);

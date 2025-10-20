@@ -94,6 +94,7 @@ $ints* SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher = nullptr
 $ints* SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange = nullptr;
 
 void clinit$SSLAlgorithmDecomposer$1($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLAlgorithmDecomposer$1::$SwitchMap$sun$security$ssl$SSLCipher, $new($ints, $($SSLCipher::values())->length));
 	{
 		try {

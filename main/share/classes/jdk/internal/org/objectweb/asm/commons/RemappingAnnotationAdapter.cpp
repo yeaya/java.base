@@ -85,6 +85,7 @@ void RemappingAnnotationAdapter::visitEnum($String* name, $String* descriptor, $
 }
 
 $AnnotationVisitor* RemappingAnnotationAdapter::visitAnnotation($String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $nc(this->av)->visitAnnotation(name, $($nc(this->remapper)->mapDesc(descriptor))));
 	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : (annotationVisitor == this->av ? static_cast<$AnnotationVisitor*>(this) : static_cast<$AnnotationVisitor*>($new(RemappingAnnotationAdapter, annotationVisitor, this->remapper)));
 }

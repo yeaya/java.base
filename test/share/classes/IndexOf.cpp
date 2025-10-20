@@ -72,6 +72,7 @@ void IndexOf::main($StringArray* args) {
 
 void IndexOf::report($String* testName, int32_t failCount) {
 	$init(IndexOf);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({testName, ": "_s, (failCount == 0 ? "Passed"_s : $$str({"Failed("_s, $$str(failCount), ")"_s}))}));
 	if (failCount > 0) {
@@ -100,6 +101,7 @@ int32_t IndexOf::getRandomIndex(int32_t constraint1, int32_t constraint2) {
 
 void IndexOf::simpleTest() {
 	$init(IndexOf);
+	$useLocalCurrentObjectStackCache();
 	int32_t failCount = 0;
 	$var($String, sourceString, nullptr);
 	$var($StringBuffer, sourceBuffer, nullptr);
@@ -127,6 +129,7 @@ void IndexOf::simpleTest() {
 
 void IndexOf::compareIndexOfLastIndexOf() {
 	$init(IndexOf);
+	$useLocalCurrentObjectStackCache();
 	int32_t failCount = 0;
 	$var($String, sourceString, nullptr);
 	$var($StringBuffer, sourceBuffer, nullptr);
@@ -162,6 +165,7 @@ void IndexOf::compareIndexOfLastIndexOf() {
 
 void IndexOf::compareStringStringBuffer() {
 	$init(IndexOf);
+	$useLocalCurrentObjectStackCache();
 	int32_t failCount = 0;
 	for (int32_t x = 0; x < 10000; ++x) {
 		$var($String, testString, generateTestString(1, 100));

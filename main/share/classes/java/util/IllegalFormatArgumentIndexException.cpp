@@ -59,6 +59,7 @@ int32_t IllegalFormatArgumentIndexException::getIndex() {
 }
 
 $String* IllegalFormatArgumentIndexException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = getIndex();
 	if (index == $Integer::MIN_VALUE) {
 		return "Format argument index: (not representable as int)"_s;

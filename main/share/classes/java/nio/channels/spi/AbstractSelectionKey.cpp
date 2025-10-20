@@ -87,6 +87,7 @@ void AbstractSelectionKey::invalidate() {
 }
 
 void AbstractSelectionKey::cancel() {
+	$useLocalCurrentObjectStackCache();
 	bool changed = $nc(AbstractSelectionKey::INVALID)->compareAndSet($$new($ObjectArray, {$of(this), $$of(false), $$of(true)}));
 	if (changed) {
 		$var($Selector, sel, selector());
@@ -99,6 +100,7 @@ void AbstractSelectionKey::cancel() {
 }
 
 void clinit$AbstractSelectionKey($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

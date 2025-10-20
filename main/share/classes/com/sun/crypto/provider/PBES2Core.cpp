@@ -172,6 +172,7 @@ $Object* allocate$PBES2Core($Class* clazz) {
 }
 
 void PBES2Core::init$($String* kdfAlgo, $String* cipherAlgo, int32_t keySize) {
+	$useLocalCurrentObjectStackCache();
 	$CipherSpi::init$();
 	this->iCount = PBES2Core::DEFAULT_COUNT;
 	$set(this, salt, nullptr);
@@ -286,6 +287,7 @@ $bytes* PBES2Core::engineGetIV() {
 }
 
 $AlgorithmParameters* PBES2Core::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->salt == nullptr) {
 		$set(this, salt, $new($bytes, PBES2Core::DEFAULT_SALT_LENGTH));
@@ -312,6 +314,7 @@ $AlgorithmParameters* PBES2Core::engineGetParameters() {
 }
 
 void PBES2Core::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		engineInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
 	} catch ($InvalidAlgorithmParameterException&) {
@@ -323,6 +326,7 @@ void PBES2Core::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
 }
 
 void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($InvalidKeyException, "Null key"_s);
 	}
@@ -436,6 +440,7 @@ void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 }
 
 void PBES2Core::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, pbeSpec, nullptr);
 	if (params != nullptr) {
 		try {

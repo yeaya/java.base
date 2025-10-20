@@ -63,6 +63,7 @@ void GenerifyStackTraces$DumpThread::init$() {
 }
 
 void GenerifyStackTraces$DumpThread::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t depth = 2;
 	while (!this->finished) {
 		try {

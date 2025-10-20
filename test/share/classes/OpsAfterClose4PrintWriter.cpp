@@ -132,6 +132,7 @@ void OpsAfterClose4PrintWriter::init$($String* $enum$name, int32_t $enum$ordinal
 
 void OpsAfterClose4PrintWriter::main($StringArray* args) {
 	$init(OpsAfterClose4PrintWriter);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("Testing PrintWriter"_s);
 	bool failed = false;

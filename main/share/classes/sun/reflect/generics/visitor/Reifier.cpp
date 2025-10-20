@@ -157,11 +157,13 @@ $Object* Reifier::getResult() {
 }
 
 void Reifier::visitFormalTypeParameter($FormalTypeParameter* ftp) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(ftp)->getName());
 	$set(this, resultType, $nc($(getFactory()))->makeTypeVariable(var$0, $(ftp->getBounds())));
 }
 
 void Reifier::visitClassTypeSignature($ClassTypeSignature* ct) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, scts, $nc(ct)->getPath());
 	if (!Reifier::$assertionsDisabled && !(!$nc(scts)->isEmpty())) {
 		$throwNew($AssertionError);
@@ -215,21 +217,25 @@ void Reifier::visitClassTypeSignature($ClassTypeSignature* ct) {
 }
 
 void Reifier::visitArrayTypeSignature($ArrayTypeSignature* a) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(a)->getComponentType()))->accept(this);
 	$var($Type, ct, this->resultType);
 	$set(this, resultType, $nc($(getFactory()))->makeArrayType(ct));
 }
 
 void Reifier::visitTypeVariableSignature($TypeVariableSignature* tv) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, resultType, $nc($(getFactory()))->findTypeVariable($($nc(tv)->getIdentifier())));
 }
 
 void Reifier::visitWildcard($Wildcard* w) {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldTypeSignatureArray, var$0, $nc(w)->getUpperBounds());
 	$set(this, resultType, $nc($(getFactory()))->makeWildcard(var$0, $(w->getLowerBounds())));
 }
 
 void Reifier::visitSimpleClassTypeSignature($SimpleClassTypeSignature* sct) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, resultType, $nc($(getFactory()))->makeNamedType($($nc(sct)->getName())));
 }
 

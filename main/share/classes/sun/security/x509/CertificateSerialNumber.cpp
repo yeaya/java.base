@@ -120,6 +120,7 @@ $String* CertificateSerialNumber::toString() {
 }
 
 void CertificateSerialNumber::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->serial)->encode(tmp);
 	$nc(out)->write($(tmp->toByteArray()));
@@ -164,6 +165,7 @@ $String* CertificateSerialNumber::getName() {
 
 CertificateSerialNumber* CertificateSerialNumber::newRandom64bit($Random* rand) {
 	$init(CertificateSerialNumber);
+	$useLocalCurrentObjectStackCache();
 	while (true) {
 		$var($BigInteger, b, $new($BigInteger, 64, rand));
 		if (b->signum() != 0) {

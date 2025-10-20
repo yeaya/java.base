@@ -124,6 +124,7 @@ bool SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate::isSupportedLoca
 }
 
 $DateFormatSymbols* SPILocaleProviderAdapter$DateFormatSymbolsProviderDelegate::getInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatSymbolsProvider, dfsp, $cast($DateFormatSymbolsProvider, getImpl(locale)));

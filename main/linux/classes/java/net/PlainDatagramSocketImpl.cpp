@@ -113,6 +113,7 @@ void PlainDatagramSocketImpl::init$(bool isMulticast) {
 }
 
 void PlainDatagramSocketImpl::socketSetOption(int32_t opt, Object$* val) {
+	$useLocalCurrentObjectStackCache();
 	$init($StandardSocketOptions);
 	if (opt == $SocketOptions::SO_REUSEPORT && !$nc($(supportedOptions()))->contains($StandardSocketOptions::SO_REUSEPORT)) {
 		$throwNew($UnsupportedOperationException, "unsupported option"_s);

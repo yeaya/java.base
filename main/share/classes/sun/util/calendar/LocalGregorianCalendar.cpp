@@ -119,6 +119,7 @@ $EraArray* LocalGregorianCalendar::JAPANESE_ERAS = nullptr;
 
 bool LocalGregorianCalendar::isValidEra($Era* newEra, $EraArray* eras) {
 	$init(LocalGregorianCalendar);
+	$useLocalCurrentObjectStackCache();
 	$var($Era, last, $nc(eras)->get(eras->length - 1));
 	int64_t var$0 = $nc(last)->getSince(nullptr);
 	if (var$0 >= $nc(newEra)->getSince(nullptr)) {
@@ -143,6 +144,7 @@ bool LocalGregorianCalendar::isValidEra($Era* newEra, $EraArray* eras) {
 
 LocalGregorianCalendar* LocalGregorianCalendar::getLocalGregorianCalendar($String* name) {
 	$init(LocalGregorianCalendar);
+	$useLocalCurrentObjectStackCache();
 	if (!"japanese"_s->equals(name)) {
 		return nullptr;
 	}
@@ -164,6 +166,7 @@ LocalGregorianCalendar* LocalGregorianCalendar::getLocalGregorianCalendar($Strin
 
 $Era* LocalGregorianCalendar::parseEraEntry($String* entry) {
 	$init(LocalGregorianCalendar);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, keyValuePairs, $nc(entry)->split(","_s));
 	$var($String, eraName, nullptr);
 	bool localTime = true;
@@ -251,6 +254,7 @@ $Era* LocalGregorianCalendar::parseEraEntry($String* entry) {
 
 $String* LocalGregorianCalendar::convertUnicodeEscape($String* src) {
 	$init(LocalGregorianCalendar);
+	$useLocalCurrentObjectStackCache();
 	$var($Matcher, m, $nc($($Pattern::compile("\\\\u([0-9a-fA-F]{4})"_s)))->matcher(src));
 	$var($StringBuilder, sb, $new($StringBuilder));
 	while ($nc(m)->find()) {
@@ -290,6 +294,7 @@ $CalendarDate* LocalGregorianCalendar::getCalendarDate(int64_t millis, $Calendar
 }
 
 $LocalGregorianCalendar$Date* LocalGregorianCalendar::adjustYear($LocalGregorianCalendar$Date* ldate, int64_t millis, int32_t zoneOffset) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	for (i = $nc(this->eras)->length - 1; i >= 0; --i) {
 		$var($Era, era, $nc(this->eras)->get(i));
@@ -322,6 +327,7 @@ $CalendarDate* LocalGregorianCalendar::newCalendarDate($TimeZone* zone) {
 }
 
 bool LocalGregorianCalendar::validate($CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocalGregorianCalendar$Date, ldate, $cast($LocalGregorianCalendar$Date, date));
 	$var($Era, era, $nc(ldate)->getEra());
 	if (era != nullptr) {
@@ -349,6 +355,7 @@ bool LocalGregorianCalendar::validate($CalendarDate* date) {
 }
 
 bool LocalGregorianCalendar::validateEra($Era* era) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($EraArray, arr$, this->eras);
 		int32_t len$ = $nc(arr$)->length;
@@ -366,6 +373,7 @@ bool LocalGregorianCalendar::validateEra($Era* era) {
 }
 
 bool LocalGregorianCalendar::normalize($CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(date)->isNormalized()) {
 		return true;
 	}
@@ -439,6 +447,7 @@ void LocalGregorianCalendar::normalizeMonth($CalendarDate* date) {
 }
 
 void LocalGregorianCalendar::normalizeYear($CalendarDate* date) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocalGregorianCalendar$Date, ldate, $cast($LocalGregorianCalendar$Date, date));
 	$var($Era, era, $nc(ldate)->getEra());
 	if (era == nullptr || !validateEra(era)) {
@@ -468,6 +477,7 @@ void LocalGregorianCalendar::getCalendarDateFromFixedDate($CalendarDate* date, i
 }
 
 void clinit$LocalGregorianCalendar($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LocalGregorianCalendar::JAPANESE_ERAS, $new($EraArray, {
 		$$new($Era, "Meiji"_s, "M"_s, 0xFFFFFD128EA97C00, true),
 		$$new($Era, "Taisho"_s, "T"_s, 0xFFFFFE5A133A7800, true),

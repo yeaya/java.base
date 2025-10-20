@@ -142,6 +142,7 @@ int32_t RuleBasedBreakIterator$SafeCharIterator::getIndex() {
 }
 
 $Object* RuleBasedBreakIterator$SafeCharIterator::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(RuleBasedBreakIterator$SafeCharIterator, copy, nullptr);
 	try {
 		$assign(copy, $cast(RuleBasedBreakIterator$SafeCharIterator, $CharacterIterator::clone()));

@@ -410,6 +410,7 @@ $LambdaForm$NameArray* LambdaForm::buildNames($LambdaForm$NameArray* formals, $L
 }
 
 void LambdaForm::init$($MethodType* mt) {
+	$useLocalCurrentObjectStackCache();
 	this->invocationCounter = 0;
 	this->arity$ = $nc(mt)->parameterCount();
 	$init($Void);
@@ -437,6 +438,7 @@ void LambdaForm::init$($MethodType* mt) {
 
 $LambdaForm$NameArray* LambdaForm::buildEmptyNames(int32_t arity, $MethodType* mt, bool isVoid) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NameArray, names, arguments(isVoid ? 0 : 1, mt));
 	if (!isVoid) {
 		$var($LambdaForm$Name, zero, $new($LambdaForm$Name, $(constantZero($($LambdaForm$BasicType::basicType($($cast($Class, $nc(mt)->returnType())))))), $$new($ObjectArray, 0)));
@@ -486,6 +488,7 @@ $String* LambdaForm::lambdaName() {
 }
 
 $String* LambdaForm::generateDebugName() {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaForm::$assertionsDisabled && !(debugNames())) {
 		$throwNew($AssertionError);
 	}
@@ -507,6 +510,7 @@ $String* LambdaForm::generateDebugName() {
 
 bool LambdaForm::namesOK(int32_t arity, $LambdaForm$NameArray* names) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(names)->length; ++i) {
 		$var($LambdaForm$Name, n, names->get(i));
 		if (!LambdaForm::$assertionsDisabled && !(n != nullptr)) {
@@ -552,6 +556,7 @@ LambdaForm* LambdaForm::uncustomize() {
 }
 
 int32_t LambdaForm::normalize() {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NameArray, oldNames, nullptr);
 	int32_t maxOutArity = 0;
 	int32_t changesStart = 0;
@@ -603,6 +608,7 @@ int32_t LambdaForm::normalize() {
 }
 
 bool LambdaForm::nameRefsAreLegal() {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaForm::$assertionsDisabled && !(this->arity$ >= 0 && this->arity$ <= $nc(this->names)->length)) {
 		$throwNew($AssertionError);
 	}
@@ -707,6 +713,7 @@ int32_t LambdaForm::expressionCount() {
 }
 
 $MethodType* LambdaForm::methodType() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, ptypes, $new($ClassArray, this->arity$));
 	for (int32_t i = 0; i < this->arity$; ++i) {
 		ptypes->set(i, $nc($(parameterType(i)))->btClass);
@@ -715,6 +722,7 @@ $MethodType* LambdaForm::methodType() {
 }
 
 $String* LambdaForm::basicTypeSignature() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder, arity() + 3));
 	{
 		int32_t i = 0;
@@ -760,6 +768,7 @@ bool LambdaForm::isValidSignature($String* sig) {
 }
 
 bool LambdaForm::isSelectAlternative(int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	if (pos + 1 >= $nc(this->names)->length) {
 		return false;
 	}
@@ -773,6 +782,7 @@ bool LambdaForm::isSelectAlternative(int32_t pos) {
 }
 
 bool LambdaForm::isMatchingIdiom(int32_t pos, $String* idiomName, int32_t nArgs) {
+	$useLocalCurrentObjectStackCache();
 	if (pos + 2 >= $nc(this->names)->length) {
 		return false;
 	}
@@ -798,6 +808,7 @@ bool LambdaForm::isTryFinally(int32_t pos) {
 }
 
 bool LambdaForm::isTableSwitch(int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	if (pos + 2 >= $nc(this->names)->length) {
 		return false;
 	}
@@ -822,6 +833,7 @@ bool LambdaForm::isLoop(int32_t pos) {
 }
 
 void LambdaForm::prepare() {
+	$useLocalCurrentObjectStackCache();
 	if (LambdaForm::COMPILE_THRESHOLD == 0 && !forceInterpretation() && !this->isCompiled) {
 		compileToBytecode();
 	}
@@ -850,6 +862,7 @@ $PerfCounter* LambdaForm::failedCompilationCounter() {
 }
 
 void LambdaForm::compileToBytecode() {
+	$useLocalCurrentObjectStackCache();
 	if (forceInterpretation()) {
 		return;
 	}
@@ -887,6 +900,7 @@ void LambdaForm::compileToBytecode() {
 
 bool LambdaForm::argumentTypesMatch($String* sig, $ObjectArray* av) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	int32_t arity = signatureArity(sig);
 	if (!LambdaForm::$assertionsDisabled && !($nc(av)->length == arity)) {
 		$throwNew($AssertionError, $of($$str({"av.length == arity: av.length="_s, $$str(av->length), ", arity="_s, $$str(arity)})));
@@ -910,6 +924,7 @@ bool LambdaForm::argumentTypesMatch($String* sig, $ObjectArray* av) {
 
 bool LambdaForm::valueMatches($LambdaForm$BasicType* tc$renamed, $Class* type, Object$* x) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$BasicType, tc, tc$renamed);
 	$init($Void);
 	if (type == $Void::TYPE) {
@@ -973,6 +988,7 @@ bool LambdaForm::valueMatches($LambdaForm$BasicType* tc$renamed, $Class* type, O
 
 bool LambdaForm::checkInt($Class* type, Object$* x) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaForm::$assertionsDisabled && !($instanceOf($Integer, x))) {
 		$throwNew($AssertionError);
 	}
@@ -1007,6 +1023,7 @@ bool LambdaForm::forceInterpretation() {
 }
 
 $Object* LambdaForm::interpretWithArguments($ObjectArray* argumentValues) {
+	$useLocalCurrentObjectStackCache();
 	if (LambdaForm::TRACE_INTERPRETER) {
 		return $of(interpretWithArgumentsTracing(argumentValues));
 	}
@@ -1026,6 +1043,7 @@ $Object* LambdaForm::interpretWithArguments($ObjectArray* argumentValues) {
 }
 
 $Object* LambdaForm::interpretName($LambdaForm$Name* name, $ObjectArray* values) {
+	$useLocalCurrentObjectStackCache();
 	if (LambdaForm::TRACE_INTERPRETER) {
 		traceInterpreter("| interpretName"_s, $($nc(name)->debugString()), ($ObjectArray*)nullptr);
 	}
@@ -1055,6 +1073,7 @@ void LambdaForm::checkInvocationCounter() {
 }
 
 $Object* LambdaForm::interpretWithArgumentsTracing($ObjectArray* argumentValues) {
+	$useLocalCurrentObjectStackCache();
 	traceInterpreter("[ interpretWithArguments"_s, this, argumentValues);
 	if (!forceInterpretation() && this->invocationCounter < LambdaForm::COMPILE_THRESHOLD) {
 		int32_t ctr = this->invocationCounter++;
@@ -1084,6 +1103,7 @@ $Object* LambdaForm::interpretWithArgumentsTracing($ObjectArray* argumentValues)
 
 void LambdaForm::traceInterpreter($String* event, Object$* obj, $ObjectArray* args) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	if (LambdaForm::TRACE_INTERPRETER) {
 		$init($System);
 		$var($String, var$0, $$str({"LFI: "_s, event, " "_s, (obj != nullptr ? $of(obj) : $of(""_s))}));
@@ -1097,6 +1117,7 @@ void LambdaForm::traceInterpreter($String* event, Object$* obj) {
 }
 
 bool LambdaForm::arityCheck($ObjectArray* argumentValues) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaForm::$assertionsDisabled && !($nc(argumentValues)->length == this->arity$)) {
 		$throwNew($AssertionError, $of($$str({$$str(this->arity$), "!="_s, $($Arrays::asList(argumentValues)), ".length"_s})));
 	}
@@ -1112,6 +1133,7 @@ bool LambdaForm::arityCheck($ObjectArray* argumentValues) {
 }
 
 bool LambdaForm::resultCheck($ObjectArray* argumentValues, Object$* result) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, $cast($MethodHandle, $nc(argumentValues)->get(0)));
 	$var($MethodType, mt, $nc(mh)->type());
 	bool var$0 = !LambdaForm::$assertionsDisabled;
@@ -1136,6 +1158,7 @@ bool LambdaForm::isEmpty() {
 }
 
 $String* LambdaForm::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, lambdaName, this->lambdaName());
 	$var($StringBuilder, buf, $new($StringBuilder, $$str({lambdaName, "=Lambda("_s})));
 	for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
@@ -1201,6 +1224,7 @@ bool LambdaForm::contains($LambdaForm$Name* name) {
 
 $String* LambdaForm::basicTypeSignature($MethodType* type) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	int32_t params = $nc(type)->parameterCount();
 	$var($chars, sig, $new($chars, params + 2));
 	int32_t sigp = 0;
@@ -1217,6 +1241,7 @@ $String* LambdaForm::basicTypeSignature($MethodType* type) {
 
 $String* LambdaForm::shortenSignature($String* signature) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	int32_t NO_CHAR = -1;
 	int32_t MIN_RUN = 3;
 	int32_t c0 = 0;
@@ -1308,6 +1333,7 @@ $LambdaForm$Name* LambdaForm::internArgument($LambdaForm$Name* n) {
 
 $LambdaForm$NameArray* LambdaForm::arguments(int32_t extra, $MethodType* types) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(types)->parameterCount();
 	$var($LambdaForm$NameArray, names, $new($LambdaForm$NameArray, length + extra));
 	for (int32_t i = 0; i < length; ++i) {
@@ -1362,6 +1388,7 @@ $LambdaForm$NamedFunction* LambdaForm::constantZero($LambdaForm$BasicType* type)
 
 void LambdaForm::createFormsFor($LambdaForm$BasicType* type) {
 	$init(LambdaForm);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleStatics);
 	$load($BoundMethodHandle);
 	$nc($MethodHandleStatics::UNSAFE)->ensureClassInitialized($BoundMethodHandle::class$);
@@ -1494,6 +1521,7 @@ $Object* LambdaForm::zero_L() {
 }
 
 void clinit$LambdaForm($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	LambdaForm::$assertionsDisabled = !LambdaForm::class$->desiredAssertionStatus();
 	{
 		$init($MethodHandleStatics);

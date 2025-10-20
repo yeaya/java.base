@@ -87,6 +87,7 @@ void ConcurrentHashMap$Traverser::init$($ConcurrentHashMap$NodeArray* tab, int32
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$Traverser::advance() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$Node, e, nullptr);
 	if (($assign(e, this->next)) != nullptr) {
 		$assign(e, $nc(e)->next);
@@ -138,6 +139,7 @@ void ConcurrentHashMap$Traverser::pushState($ConcurrentHashMap$NodeArray* t, int
 }
 
 void ConcurrentHashMap$Traverser::recoverState(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TableStack, s, nullptr);
 	int32_t len = 0;
 	while (true) {

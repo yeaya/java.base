@@ -72,6 +72,7 @@ int32_t CollatorUtilities::toLegacyMode($NormalizerBase$Mode* mode) {
 
 $NormalizerBase$Mode* CollatorUtilities::toNormalizerMode(int32_t mode) {
 	$init(CollatorUtilities);
+	$useLocalCurrentObjectStackCache();
 	$var($NormalizerBase$Mode, normalizerMode, nullptr);
 	try {
 		$assign(normalizerMode, $nc(CollatorUtilities::legacyModeMap)->get(mode));

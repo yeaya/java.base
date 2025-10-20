@@ -318,6 +318,7 @@ void Test4URL::checkEmpty($String* s, int32_t prop) {
 }
 
 Test4URL* Test4URL::z() {
+	$useLocalCurrentObjectStackCache();
 	if (!parsed()) {
 		report();
 		return this;
@@ -344,10 +345,12 @@ void Test4URL::header($String* s) {
 
 void Test4URL::show($String* prefix, $MalformedURLException* x) {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	$nc(Test4URL::out)->println($$str({prefix, ": "_s, $($nc(x)->getMessage())}));
 }
 
 void Test4URL::summarize() {
+	$useLocalCurrentObjectStackCache();
 	$nc(Test4URL::out)->println();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	if ($nc(this->input)->length() == 0) {
@@ -381,11 +384,13 @@ void Test4URL::summarize() {
 
 void Test4URL::show($String* n, $String* v) {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	$nc(Test4URL::out)->println($$str({"  "_s, n, $("          = "_s->substring($nc(n)->length())), v}));
 }
 
 void Test4URL::show($URL* u) {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	show("scheme"_s, $($nc(u)->getProtocol()));
 	show("authority"_s, $($nc(u)->getAuthority()));
 	show("userInfo"_s, $($nc(u)->getUserInfo()));
@@ -397,6 +402,7 @@ void Test4URL::show($URL* u) {
 }
 
 void Test4URL::report() {
+	$useLocalCurrentObjectStackCache();
 	summarize();
 	if (this->failed == 0) {
 		return;
@@ -449,6 +455,7 @@ bool Test4URL::hasFtp() {
 
 void Test4URL::rfc2396() {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	header("RFC2396: Basic examples"_s);
 	if (hasFtp()) {
 		$nc($($nc($($nc($($nc($(test("ftp://ftp.is.co.za/rfc/rfc1808.txt"_s)))->s("ftp"_s)))->h("ftp.is.co.za"_s)))->p("/rfc/rfc1808.txt"_s)))->z();
@@ -508,6 +515,7 @@ void Test4URL::rfc2396() {
 
 void Test4URL::ip() {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	header("IP addresses"_s);
 	$nc($($nc($($nc($($nc($($nc($(test("http://1.2.3.4:5"_s)))->s("http"_s)))->h("1.2.3.4"_s)))->n(5)))->p(""_s)))->z();
 	$nc($($nc($($nc($($nc($($nc($(test("http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html"_s)))->s("http"_s)))->h("[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]"_s)))->n(80)))->p("/index.html"_s)))->z();
@@ -547,6 +555,7 @@ void Test4URL::ip() {
 
 void Test4URL::serial() {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	header("Serialization"_s);
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oo, $new($ObjectOutputStream, bo));
@@ -583,6 +592,7 @@ void Test4URL::usage() {
 
 void Test4URL::main($StringArray* args) {
 	$init(Test4URL);
+	$useLocalCurrentObjectStackCache();
 	switch ($nc(args)->length) {
 	case 0:
 		{

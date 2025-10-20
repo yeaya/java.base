@@ -76,6 +76,7 @@ void SecurityManagerClinit::init$() {
 
 void SecurityManagerClinit::main($StringArray* args) {
 	$load(SecurityManagerClinit);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($File);
 	$var($String, javaExe, $str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java"_s}));

@@ -118,6 +118,7 @@ $Object* allocate$SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCiphe
 }
 
 void SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SSLCipher* sslCipher, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$SSLCipher$SSLWriteCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
 	this->tagSize = $nc(sslCipher)->tagSize;
@@ -137,6 +138,7 @@ void SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher::init$($Aut
 }
 
 int32_t SSLCipher$T13CC20P1305WriteCipherGenerator$CC20P1305WriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sn, $nc(this->authenticator)->sequenceNumber());
 	$var($bytes, nonce, $new($bytes, $nc(this->iv)->length));
 	$System::arraycopy(sn, 0, nonce, nonce->length - $nc(sn)->length, sn->length);

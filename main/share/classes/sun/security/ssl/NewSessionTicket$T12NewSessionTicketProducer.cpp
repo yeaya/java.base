@@ -84,6 +84,7 @@ void NewSessionTicket$T12NewSessionTicketProducer::init$() {
 }
 
 $bytes* NewSessionTicket$T12NewSessionTicketProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if (!$nc($nc(shc)->handshakeSession)->isRejoinable()) {
 		return nullptr;

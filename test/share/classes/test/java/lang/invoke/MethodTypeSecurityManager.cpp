@@ -75,6 +75,7 @@ void MethodTypeSecurityManager::init$() {
 
 void MethodTypeSecurityManager::main($StringArray* args) {
 	$init(MethodTypeSecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, platformLoader, $ClassLoader::getPlatformClassLoader());
 	$var($ClassLoader, appLoader, $ClassLoader::getSystemClassLoader());
@@ -92,6 +93,7 @@ void MethodTypeSecurityManager::main($StringArray* args) {
 
 void MethodTypeSecurityManager::throwACC($String* desc, $ClassLoader* loader) {
 	$init(MethodTypeSecurityManager);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$MethodType::fromMethodDescriptorString(desc, loader);
 		$throwNew($RuntimeException, "should never leak JDK internal class"_s);

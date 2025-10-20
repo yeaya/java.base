@@ -130,6 +130,7 @@ bool ArrayList$SubList$2::tryAdvance($Consumer* action) {
 }
 
 void ArrayList$SubList$2::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t i = 0;
 	int32_t hi = 0;

@@ -91,6 +91,7 @@ $Object* allocate$JarConstraintsParameters($Class* clazz) {
 }
 
 void JarConstraintsParameters::init$($CodeSignerArray* signers) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, keys, $new($HashSet));
 	$set(this, certsIssuedByAnchor, $new($HashSet));
 	$var($Date, latestTimestamp, nullptr);
@@ -125,6 +126,7 @@ void JarConstraintsParameters::init$($CodeSignerArray* signers) {
 }
 
 void JarConstraintsParameters::init($CertPath* cp) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, chain, $nc(cp)->getCertificates());
 	if (!$nc(chain)->isEmpty()) {
 		$nc(this->certsIssuedByAnchor)->add($cast($X509Certificate, $(chain->get(chain->size() - 1))));
@@ -138,6 +140,7 @@ $String* JarConstraintsParameters::getVariant() {
 }
 
 bool JarConstraintsParameters::anchorIsJdkCA() {
+	$useLocalCurrentObjectStackCache();
 	if (this->anchorIsJdkCASet) {
 		return this->anchorIsJdkCA$;
 	}
@@ -174,6 +177,7 @@ $String* JarConstraintsParameters::extendedExceptionMsg() {
 }
 
 $String* JarConstraintsParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "[\n"_s));
 	sb->append("\n  Variant: "_s)->append($(getVariant()));
 	sb->append("\n  Certs Issued by Anchor:"_s);

@@ -73,6 +73,7 @@ void Basic2$Reader::init$($InputStream* in) {
 }
 
 void Basic2$Reader::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = 0;
 		do {

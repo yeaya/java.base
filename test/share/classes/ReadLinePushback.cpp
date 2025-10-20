@@ -47,6 +47,7 @@ void ReadLinePushback::init$() {
 }
 
 void ReadLinePushback::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($PushbackInputStream, pis, $new($PushbackInputStream, ($$new($StringBufferInputStream, "\r"_s))));
 	$var($DataInputStream, dis, $new($DataInputStream, pis));
 	$var($String, line, dis->readLine());

@@ -96,6 +96,7 @@ $Iterator* ParallelListResourceBundle$KeySet::iterator() {
 }
 
 int32_t ParallelListResourceBundle$KeySet::size() {
+	$useLocalCurrentObjectStackCache();
 	if (this->parent == nullptr) {
 		return $nc(this->set)->size();
 	}

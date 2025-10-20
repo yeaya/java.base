@@ -76,6 +76,7 @@ void UninitializedParent::init$() {
 
 void UninitializedParent::main($StringArray* args) {
 	$load(UninitializedParent);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::setSecurityManager($$new($SecurityManager));
 	try {

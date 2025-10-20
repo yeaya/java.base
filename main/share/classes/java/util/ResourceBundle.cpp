@@ -451,6 +451,7 @@ $StringArray* ResourceBundle::getStringArray($String* key) {
 }
 
 $Object* ResourceBundle::getObject($String* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, obj, handleGetObject(key));
 	if (obj == nullptr) {
 		if (this->parent != nullptr) {
@@ -491,6 +492,7 @@ void ResourceBundle::setParent(ResourceBundle* parent) {
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$Class* caller = $Reflection::getCallerClass();
 	$var($String, var$0, baseName);
 	$var($Locale, var$1, $Locale::getDefault());
@@ -514,6 +516,7 @@ ResourceBundle* ResourceBundle::getBundle($String* baseName, $Locale* locale) {
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName, $Module* module) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$Class* var$0 = $Reflection::getCallerClass();
 	$var($Module, var$1, module);
 	$var($String, var$2, baseName);
@@ -523,6 +526,7 @@ ResourceBundle* ResourceBundle::getBundle($String* baseName, $Module* module) {
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName, $Locale* targetLocale, $Module* module) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$Class* var$0 = $Reflection::getCallerClass();
 	$var($Module, var$1, module);
 	$var($String, var$2, baseName);
@@ -582,6 +586,7 @@ ResourceBundle* ResourceBundle::getBundleImpl($String* baseName, $Locale* locale
 
 ResourceBundle* ResourceBundle::getBundleImpl($String* baseName, $Locale* locale, $Class* caller, $ClassLoader* loader, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	if (caller == nullptr) {
 		$throwNew($InternalError, "null caller"_s);
 	}
@@ -596,6 +601,7 @@ ResourceBundle* ResourceBundle::getBundleImpl($String* baseName, $Locale* locale
 
 ResourceBundle* ResourceBundle::getBundleFromModule($Class* caller, $Module* module, $String* baseName, $Locale* locale, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(module);
 	$var($Module, callerModule, $nc(caller)->getModule());
 	if (callerModule != module) {
@@ -610,6 +616,7 @@ ResourceBundle* ResourceBundle::getBundleFromModule($Class* caller, $Module* mod
 
 ResourceBundle* ResourceBundle::getBundleImpl($Module* callerModule, $Module* module, $String* baseName, $Locale* locale, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr || control == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -681,6 +688,7 @@ bool ResourceBundle::checkList($List* a) {
 
 ResourceBundle* ResourceBundle::findBundle($Module* callerModule, $Module* module, $ResourceBundle$CacheKey* cacheKey, $List* candidateLocales, $List* formats, int32_t index, $ResourceBundle$Control* control, ResourceBundle* baseBundle) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, targetLocale, $cast($Locale, $nc(candidateLocales)->get(index)));
 	$var(ResourceBundle, parent, nullptr);
 	if (index != candidateLocales->size() - 1) {
@@ -737,6 +745,7 @@ ResourceBundle* ResourceBundle::findBundle($Module* callerModule, $Module* modul
 
 ResourceBundle* ResourceBundle::loadBundle($ResourceBundle$CacheKey* cacheKey, $List* formats, $ResourceBundle$Control* control, $Module* module, $Module* callerModule) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var($String, baseName, $nc(cacheKey)->getName());
 	$var($Locale, targetLocale, cacheKey->getLocale());
 	$var(ResourceBundle, bundle, nullptr);
@@ -819,6 +828,7 @@ ResourceBundle* ResourceBundle::loadBundle($ResourceBundle$CacheKey* cacheKey, $
 
 $ServiceLoader* ResourceBundle::getServiceLoader($Module* module, $String* baseName) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(module)->isNamed()) {
 		return nullptr;
 	}
@@ -837,6 +847,7 @@ $ServiceLoader* ResourceBundle::getServiceLoader($Module* module, $String* baseN
 
 $Class* ResourceBundle::getResourceBundleProviderType($String* baseName, $ClassLoader* loader) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t i = $nc(baseName)->lastIndexOf((int32_t)u'.');
 	if (i <= 0) {
@@ -858,6 +869,7 @@ ResourceBundle* ResourceBundle::loadBundleFromProviders($String* baseName, $Loca
 
 ResourceBundle* ResourceBundle::loadBundle($ResourceBundle$CacheKey* cacheKey, $List* formats, $ResourceBundle$Control* control, bool reload) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, targetLocale, $nc(cacheKey)->getLocale());
 	$var($Module, module, cacheKey->getModule());
 	if (module == nullptr) {
@@ -899,6 +911,7 @@ bool ResourceBundle::isValidBundle(ResourceBundle* bundle) {
 
 bool ResourceBundle::hasValidParentChain(ResourceBundle* bundle$renamed) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var(ResourceBundle, bundle, bundle$renamed);
 	int64_t now = $System::currentTimeMillis();
 	while (bundle != nullptr) {
@@ -919,6 +932,7 @@ bool ResourceBundle::hasValidParentChain(ResourceBundle* bundle$renamed) {
 
 void ResourceBundle::throwMissingResourceException($String* baseName, $Locale* locale, $Throwable* cause$renamed) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, cause, cause$renamed);
 	if ($instanceOf($MissingResourceException, cause)) {
 		$assign(cause, nullptr);
@@ -929,6 +943,7 @@ void ResourceBundle::throwMissingResourceException($String* baseName, $Locale* l
 
 ResourceBundle* ResourceBundle::findBundleInCache($ResourceBundle$CacheKey* cacheKey, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, $nc(ResourceBundle::cacheList)->get(cacheKey)));
 	if (bundleRef == nullptr) {
 		return nullptr;
@@ -990,6 +1005,7 @@ ResourceBundle* ResourceBundle::findBundleInCache($ResourceBundle$CacheKey* cach
 
 ResourceBundle* ResourceBundle::putBundleInCache($ResourceBundle$CacheKey* cacheKey, ResourceBundle* bundle$renamed, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var(ResourceBundle, bundle, bundle$renamed);
 	setExpirationTime(cacheKey, control);
 	if ($nc(cacheKey)->expirationTime != $ResourceBundle$Control::TTL_DONT_CACHE) {
@@ -1013,6 +1029,7 @@ ResourceBundle* ResourceBundle::putBundleInCache($ResourceBundle$CacheKey* cache
 
 void ResourceBundle::setExpirationTime($ResourceBundle$CacheKey* cacheKey, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(cacheKey)->getName());
 	int64_t ttl = $nc(control)->getTimeToLive(var$0, $(cacheKey->getLocale()));
 	if (ttl >= 0) {
@@ -1028,17 +1045,20 @@ void ResourceBundle::setExpirationTime($ResourceBundle$CacheKey* cacheKey, $Reso
 
 void ResourceBundle::clearCache() {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$Class* caller = $Reflection::getCallerClass();
 	$nc($($nc(ResourceBundle::cacheList)->keySet()))->removeIf(static_cast<$Predicate*>($$new(ResourceBundle$$Lambda$lambda$clearCache$0$1, caller)));
 }
 
 void ResourceBundle::clearCache($ClassLoader* loader) {
 	$init(ResourceBundle);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(loader);
 	$nc($($nc(ResourceBundle::cacheList)->keySet()))->removeIf(static_cast<$Predicate*>($$new(ResourceBundle$$Lambda$lambda$clearCache$1$2, loader)));
 }
 
 bool ResourceBundle::containsKey($String* key) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1054,6 +1074,7 @@ bool ResourceBundle::containsKey($String* key) {
 }
 
 $Set* ResourceBundle::keySet() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, keys, $new($HashSet));
 	{
 		$var(ResourceBundle, rb, this);
@@ -1065,6 +1086,7 @@ $Set* ResourceBundle::keySet() {
 }
 
 $Set* ResourceBundle::handleKeySet() {
+	$useLocalCurrentObjectStackCache();
 	if (this->keySet$ == nullptr) {
 		$synchronized(this) {
 			if (this->keySet$ == nullptr) {
@@ -1113,6 +1135,7 @@ bool ResourceBundle::lambda$clearCache$0($Class* caller, $ResourceBundle$CacheKe
 }
 
 void clinit$ResourceBundle($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ResourceBundle::UNKNOWN_FORMAT, ""_s);
 	ResourceBundle::$assertionsDisabled = !ResourceBundle::class$->desiredAssertionStatus();
 	{

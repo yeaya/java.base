@@ -163,6 +163,7 @@ int32_t AttributedString$AttributedStringIterator::hashCode() {
 }
 
 $Object* AttributedString$AttributedStringIterator::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(AttributedString$AttributedStringIterator, other, $cast(AttributedString$AttributedStringIterator, $AttributedCharacterIterator::clone()));
 		return $of(other);
@@ -233,6 +234,7 @@ int32_t AttributedString$AttributedStringIterator::getRunStart() {
 }
 
 int32_t AttributedString$AttributedStringIterator::getRunStart($AttributedCharacterIterator$Attribute* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (this->currentRunStart == this->beginIndex || this->currentRunIndex == -1) {
 		return this->currentRunStart;
 	} else {
@@ -272,6 +274,7 @@ int32_t AttributedString$AttributedStringIterator::getRunLimit() {
 }
 
 int32_t AttributedString$AttributedStringIterator::getRunLimit($AttributedCharacterIterator$Attribute* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (this->currentRunLimit == this->endIndex || this->currentRunIndex == -1) {
 		return this->currentRunLimit;
 	} else {
@@ -314,6 +317,7 @@ $Map* AttributedString$AttributedStringIterator::getAttributes() {
 }
 
 $Set* AttributedString$AttributedStringIterator::getAllAttributeKeys() {
+	$useLocalCurrentObjectStackCache();
 	if (this->this$0->runAttributes == nullptr) {
 		return $new($HashSet);
 	}

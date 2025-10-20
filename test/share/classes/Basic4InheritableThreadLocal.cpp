@@ -74,6 +74,7 @@ void Basic4InheritableThreadLocal::init$() {
 
 void Basic4InheritableThreadLocal::main($StringArray* args) {
 	$init(Basic4InheritableThreadLocal);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Basic4InheritableThreadLocal::x, $new($ints, Basic4InheritableThreadLocal::threadCount));
 	$var($Thread, progenitor, $new($Basic4InheritableThreadLocal$MyThread));
 	progenitor->start();

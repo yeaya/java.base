@@ -131,6 +131,7 @@ void CopyOnWriteArrayList$COWSubListIterator::add(Object$* e) {
 }
 
 void CopyOnWriteArrayList$COWSubListIterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	while (hasNext()) {
 		action->accept($($nc(this->it)->next()));

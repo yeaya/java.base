@@ -68,6 +68,7 @@ void WithSecurityManager4AsynchronousServerSocketChannel::init$() {
 
 void WithSecurityManager4AsynchronousServerSocketChannel::main($StringArray* args) {
 	$load(WithSecurityManager4AsynchronousServerSocketChannel);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool allow = false;
 	$var($String, policy, ($nc($nc(args)->get(0))->equals("allow"_s)) ? "java.policy.allow"_s : "java.policy.deny"_s);

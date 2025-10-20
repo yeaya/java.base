@@ -252,6 +252,7 @@ void PollSelectorImpl::processUpdateQueue() {
 }
 
 int32_t PollSelectorImpl::processEvents($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (!PollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -435,6 +436,7 @@ void PollSelectorImpl::remove($SelectionKeyImpl* ski) {
 }
 
 void PollSelectorImpl::expandIfNeeded() {
+	$useLocalCurrentObjectStackCache();
 	if (this->pollArraySize == this->pollArrayCapacity) {
 		int32_t oldSize = this->pollArrayCapacity * PollSelectorImpl::SIZE_POLLFD;
 		int32_t newCapacity = this->pollArrayCapacity + PollSelectorImpl::INITIAL_CAPACITY;

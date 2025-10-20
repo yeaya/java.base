@@ -73,6 +73,7 @@ void FileLockConstructor::init$() {
 }
 
 void FileLockConstructor::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileLock, fileLock, nullptr);
 	int32_t failures = 0;
 	bool exceptionThrown = false;

@@ -128,6 +128,7 @@ void RC2Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* p
 }
 
 void RC2Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (params != nullptr && $nc($(params->getAlgorithm()))->equals("RC2"_s)) {
 		try {
 			$load($RC2ParameterSpec);
@@ -160,6 +161,7 @@ int32_t RC2Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $byte
 }
 
 int32_t RC2Cipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, keyBytes, $CipherCore::getKeyBytes(key));
 	$Arrays::fill(keyBytes, (int8_t)0);
 	$RC2Crypt::checkKey($($nc(key)->getAlgorithm()), $nc(keyBytes)->length);

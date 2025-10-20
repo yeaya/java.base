@@ -85,6 +85,7 @@ void BootstrapMethodInvoker$PullAdapter::init$() {
 
 $Object* BootstrapMethodInvoker$PullAdapter::pullFromBootstrapMethod($MethodHandle* pushModeBSM, $MethodHandles$Lookup* lookup, $BootstrapCallInfo* bsci) {
 	$init(BootstrapMethodInvoker$PullAdapter);
+	$useLocalCurrentObjectStackCache();
 	int32_t argc = $nc(bsci)->size();
 	{
 		int32_t NON_SPREAD_ARG_COUNT = 0;
@@ -184,6 +185,7 @@ $Object* BootstrapMethodInvoker$PullAdapter::pullFromBootstrapMethod($MethodHand
 }
 
 void clinit$BootstrapMethodInvoker$PullAdapter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$Class* THIS_CLASS = BootstrapMethodInvoker$PullAdapter::class$;
 		try {

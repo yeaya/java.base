@@ -95,6 +95,7 @@ bool ProxyGenerator$PrimitiveTypeInfo::$assertionsDisabled = false;
 $Map* ProxyGenerator$PrimitiveTypeInfo::table = nullptr;
 
 void ProxyGenerator$PrimitiveTypeInfo::init$($Class* primitiveClass, $Class* wrapperClass) {
+	$useLocalCurrentObjectStackCache();
 	if (!ProxyGenerator$PrimitiveTypeInfo::$assertionsDisabled && !$nc(primitiveClass)->isPrimitive()) {
 		$throwNew($AssertionError);
 	}

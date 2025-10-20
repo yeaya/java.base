@@ -106,6 +106,7 @@ void SSLMasterKeyDerivation$LegacyMasterKeyDerivation::init$($HandshakeContext* 
 }
 
 $SecretKey* SSLMasterKeyDerivation$LegacyMasterKeyDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$CipherSuite* cipherSuite = $nc(this->context)->negotiatedCipherSuite;
 	$ProtocolVersion* protocolVersion = $nc(this->context)->negotiatedProtocol;
 	$var($String, masterAlg, nullptr);

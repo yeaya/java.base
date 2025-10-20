@@ -93,6 +93,7 @@ $Object* ConcurrentHashMap$MapReduceValuesToDoubleTask::getRawResult() {
 }
 
 void ConcurrentHashMap$MapReduceValuesToDoubleTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($ToDoubleFunction, transformer, nullptr);
 	$var($DoubleBinaryOperator, reducer, nullptr);
 	if (($assign(transformer, this->transformer)) != nullptr && ($assign(reducer, this->reducer)) != nullptr) {

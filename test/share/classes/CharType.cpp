@@ -60,6 +60,7 @@ void CharType::init$() {
 
 void CharType::main($StringArray* args) {
 	$load(CharType);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($CharType$CharMethod);
 	$var($ClassLoader, var$0, $CharType$CharMethod::class$->getClassLoader());

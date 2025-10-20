@@ -251,6 +251,7 @@ $String* LoginContext::DEFAULT_HANDLER = nullptr;
 $Debug* LoginContext::debug = nullptr;
 
 void LoginContext::init($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr && this->creatorAcc == nullptr) {
@@ -284,6 +285,7 @@ void LoginContext::init($String* name) {
 }
 
 void LoginContext::loadDefaultCallbackHandler() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($ClassLoader, finalLoader, this->contextClassLoader);
@@ -333,6 +335,7 @@ void LoginContext::init$($String* name, $Subject* subject) {
 }
 
 void LoginContext::init$($String* name, $CallbackHandler* callbackHandler) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, subject, nullptr);
 	this->subjectProvided = false;
 	this->loginSucceeded = false;
@@ -351,6 +354,7 @@ void LoginContext::init$($String* name, $CallbackHandler* callbackHandler) {
 }
 
 void LoginContext::init$($String* name, $Subject* subject, $CallbackHandler* callbackHandler) {
+	$useLocalCurrentObjectStackCache();
 	LoginContext::init$(name, subject);
 	if (callbackHandler == nullptr) {
 		$throwNew($LoginException, $($ResourcesMgr::getString("invalid.null.CallbackHandler.provided"_s)));
@@ -388,6 +392,7 @@ void LoginContext::init$($String* name, $Subject* subject, $CallbackHandler* cal
 }
 
 void LoginContext::login() {
+	$useLocalCurrentObjectStackCache();
 	this->loginSucceeded = false;
 	if (this->subject == nullptr) {
 		$set(this, subject, $new($Subject));
@@ -436,6 +441,7 @@ void LoginContext::throwException($LoginException* originalError, $LoginExceptio
 }
 
 void LoginContext::invokePriv($String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($LoginContext$4, this, methodName)), this->creatorAcc);
@@ -446,6 +452,7 @@ void LoginContext::invokePriv($String* methodName) {
 }
 
 void LoginContext::invoke($String* methodName) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	for (int32_t i = this->moduleIndex; i < $nc(this->moduleStack)->length; ++i, ++this->moduleIndex) {
 		try {

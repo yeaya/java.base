@@ -104,6 +104,7 @@ $Object* AbstractMap$SimpleImmutableEntry::setValue(Object$* value) {
 }
 
 bool AbstractMap$SimpleImmutableEntry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {

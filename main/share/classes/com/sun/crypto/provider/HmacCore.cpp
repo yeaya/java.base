@@ -133,6 +133,7 @@ void HmacCore::finalize() {
 }
 
 void HmacCore::init$($String* digestAlgo, int32_t bl) {
+	$useLocalCurrentObjectStackCache();
 	$MacSpi::init$();
 	$var($MessageDigest, md, $MessageDigest::getInstance(digestAlgo));
 	if (!($instanceOf($Cloneable, md))) {
@@ -182,6 +183,7 @@ int32_t HmacCore::engineGetMacLength() {
 }
 
 void HmacCore::engineInit($Key* key, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	if (params != nullptr) {
 		$throwNew($InvalidAlgorithmParameterException, "HMAC does not use parameters"_s);
 	}
@@ -232,6 +234,7 @@ void HmacCore::engineUpdate($ByteBuffer* input) {
 }
 
 $bytes* HmacCore::engineDoFinal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->first == true) {
 		$nc(this->md)->update(this->k_ipad);
 	} else {

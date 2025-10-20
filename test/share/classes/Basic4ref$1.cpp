@@ -64,6 +64,7 @@ void Basic4ref$1::init$() {
 }
 
 void Basic4ref$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$init($Basic4ref);
 	$var($String, var$4, $$str({"References: W "_s, $($nc($Basic4ref::rw)->get()), ", W2 "_s}));

@@ -50,6 +50,7 @@ void Bug4736959::init$() {
 }
 
 void Bug4736959::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($SimpleDateFormat, f, $new($SimpleDateFormat, "a"_s, $Locale::US));
 	$var($Date, d1, f->parse("AM"_s, $$new($ParsePosition, 0)));

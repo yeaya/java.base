@@ -92,6 +92,7 @@ void ServerHelloDone$ServerHelloDoneProducer::init$() {
 }
 
 $bytes* ServerHelloDone$ServerHelloDoneProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ServerHelloDone$ServerHelloDoneMessage, shdm, $new($ServerHelloDone$ServerHelloDoneMessage, shc));
 	$init($SSLLogger);

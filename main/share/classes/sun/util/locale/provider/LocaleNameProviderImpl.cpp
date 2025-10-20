@@ -125,6 +125,7 @@ $String* LocaleNameProviderImpl::getDisplayVariant($String* vrnt, $Locale* local
 }
 
 $String* LocaleNameProviderImpl::getDisplayUnicodeExtensionKey($String* key, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$LocaleNameProvider::getDisplayUnicodeExtensionKey(key, locale);
 	$var($String, rbKey, $str({"key."_s, key}));
 	$var($String, name, getDisplayString(rbKey, locale));
@@ -132,6 +133,7 @@ $String* LocaleNameProviderImpl::getDisplayUnicodeExtensionKey($String* key, $Lo
 }
 
 $String* LocaleNameProviderImpl::getDisplayUnicodeExtensionType($String* extType, $String* key, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$LocaleNameProvider::getDisplayUnicodeExtensionType(extType, key, locale);
 	$var($String, rbKey, $str({"type."_s, key, "."_s, extType}));
 	$var($String, name, getDisplayString(rbKey, locale));
@@ -139,6 +141,7 @@ $String* LocaleNameProviderImpl::getDisplayUnicodeExtensionType($String* extType
 }
 
 $String* LocaleNameProviderImpl::getDisplayString($String* key, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || locale == nullptr) {
 		$throwNew($NullPointerException);
 	}

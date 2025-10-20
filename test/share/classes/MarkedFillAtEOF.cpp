@@ -43,6 +43,7 @@ void MarkedFillAtEOF::init$() {
 }
 
 void MarkedFillAtEOF::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedReader, r, $new($BufferedReader, $$new($StringReader, "12"_s)));
 	int32_t count = 0;
 	r->read();

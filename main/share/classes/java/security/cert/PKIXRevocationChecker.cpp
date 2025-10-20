@@ -138,6 +138,7 @@ $List* PKIXRevocationChecker::getOcspExtensions() {
 }
 
 void PKIXRevocationChecker::setOcspResponses($Map* responses) {
+	$useLocalCurrentObjectStackCache();
 	if (responses == nullptr) {
 		$set(this, ocspResponses, $Collections::emptyMap());
 	} else {
@@ -157,6 +158,7 @@ void PKIXRevocationChecker::setOcspResponses($Map* responses) {
 }
 
 $Map* PKIXRevocationChecker::getOcspResponses() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, copy, $new($HashMap, $nc(this->ocspResponses)->size()));
 	{
 		$var($Iterator, i$, $nc($($nc(this->ocspResponses)->entrySet()))->iterator());
@@ -180,6 +182,7 @@ $Set* PKIXRevocationChecker::getOptions() {
 }
 
 $Object* PKIXRevocationChecker::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(PKIXRevocationChecker, copy, $cast(PKIXRevocationChecker, $PKIXCertPathChecker::clone()));
 	$set($nc(copy), ocspExtensions, $new($ArrayList, static_cast<$Collection*>(this->ocspExtensions)));
 	$set(copy, ocspResponses, $new($HashMap, this->ocspResponses));

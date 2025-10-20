@@ -46,6 +46,7 @@ void getAnnotationTest::init$() {
 
 void getAnnotationTest::main($StringArray* args) {
 	$load(getAnnotationTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("java.lang.annotation.Retention"_s);
 	$load($Retention);

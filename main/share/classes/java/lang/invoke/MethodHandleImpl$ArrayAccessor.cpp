@@ -305,6 +305,7 @@ int32_t MethodHandleImpl$ArrayAccessor::lengthL($ObjectArray* a) {
 
 $String* MethodHandleImpl$ArrayAccessor::name($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
+	$useLocalCurrentObjectStackCache();
 	$Class* elemClass = $nc(arrayClass)->getComponentType();
 	if (elemClass == nullptr) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not an array"_s, arrayClass)));
@@ -315,6 +316,7 @@ $String* MethodHandleImpl$ArrayAccessor::name($Class* arrayClass, $MethodHandleI
 
 $MethodType* MethodHandleImpl$ArrayAccessor::type($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
+	$useLocalCurrentObjectStackCache();
 	$Class* elemClass = $nc(arrayClass)->getComponentType();
 	$Class* arrayArgClass = arrayClass;
 	if (!$nc(elemClass)->isPrimitive()) {
@@ -359,6 +361,7 @@ $MethodType* MethodHandleImpl$ArrayAccessor::type($Class* arrayClass, $MethodHan
 
 $MethodType* MethodHandleImpl$ArrayAccessor::correctType($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
+	$useLocalCurrentObjectStackCache();
 	$Class* elemClass = $nc(arrayClass)->getComponentType();
 	$init($MethodHandleImpl$2);
 
@@ -396,6 +399,7 @@ $MethodType* MethodHandleImpl$ArrayAccessor::correctType($Class* arrayClass, $Me
 
 $MethodHandle* MethodHandleImpl$ArrayAccessor::getAccessor($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, MethodHandleImpl$ArrayAccessor::name(arrayClass, access));
 	$var($MethodType, type, MethodHandleImpl$ArrayAccessor::type(arrayClass, access));
 	try {
@@ -409,6 +413,7 @@ $MethodHandle* MethodHandleImpl$ArrayAccessor::getAccessor($Class* arrayClass, $
 }
 
 void clinit$MethodHandleImpl$ArrayAccessor($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$load($MethodHandleImpl);
 	MethodHandleImpl$ArrayAccessor::$assertionsDisabled = !$MethodHandleImpl::class$->desiredAssertionStatus();
 	$assignStatic(MethodHandleImpl$ArrayAccessor::TYPED_ACCESSORS, $new($MethodHandleImpl$ArrayAccessor$1));

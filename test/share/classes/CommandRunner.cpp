@@ -55,6 +55,7 @@ $Object* allocate$CommandRunner($Class* clazz) {
 $Random* CommandRunner::generator = nullptr;
 
 void CommandRunner::init$($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Process, p, ($nc(CommandRunner::generator)->nextInt(2) == 0) ? $$new($ProcessBuilder, args)->start() : $nc($($Runtime::getRuntime()))->exec(args));
 	$var($StreamDrainer, d1, $new($StreamDrainer, $($nc(p)->getInputStream())));
 	$var($StreamDrainer, d2, $new($StreamDrainer, $($nc(p)->getErrorStream())));

@@ -42,6 +42,7 @@ void exceptionCauseTest::init$() {
 }
 
 void exceptionCauseTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, cause, $new($Throwable, "because"_s));
 	$var($Throwable, par, $new($Throwable, cause));
 	$var($TypeNotPresentException, cnp, $new($TypeNotPresentException, "test"_s, par));

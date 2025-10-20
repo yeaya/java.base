@@ -199,6 +199,7 @@ $Comparator* ChronoLocalDate::timeLineOrder() {
 
 ChronoLocalDate* ChronoLocalDate::from($TemporalAccessor* temporal) {
 	$init(ChronoLocalDate);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(ChronoLocalDate, temporal)) {
 		return $cast(ChronoLocalDate, temporal);
 	}
@@ -239,11 +240,13 @@ bool ChronoLocalDate::isSupported($TemporalUnit* unit) {
 }
 
 ChronoLocalDate* ChronoLocalDate::with($TemporalAdjuster* adjuster) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateImpl::ensureValid(var$0, $($Temporal::with(adjuster)));
 }
 
 ChronoLocalDate* ChronoLocalDate::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 	}
@@ -252,11 +255,13 @@ ChronoLocalDate* ChronoLocalDate::with($TemporalField* field, int64_t newValue) 
 }
 
 ChronoLocalDate* ChronoLocalDate::plus($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateImpl::ensureValid(var$0, $($Temporal::plus(amount)));
 }
 
 ChronoLocalDate* ChronoLocalDate::plus(int64_t amountToAdd, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoUnit, unit)) {
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 	}
@@ -265,11 +270,13 @@ ChronoLocalDate* ChronoLocalDate::plus(int64_t amountToAdd, $TemporalUnit* unit)
 }
 
 ChronoLocalDate* ChronoLocalDate::minus($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateImpl::ensureValid(var$0, $($Temporal::minus(amount)));
 }
 
 ChronoLocalDate* ChronoLocalDate::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateImpl::ensureValid(var$0, $($Temporal::minus(amountToSubtract, unit)));
 }
@@ -310,6 +317,7 @@ int64_t ChronoLocalDate::toEpochDay() {
 }
 
 int32_t ChronoLocalDate::compareTo(ChronoLocalDate* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t var$0 = toEpochDay();
 	int32_t cmp = $Long::compare(var$0, $nc(other)->toEpochDay());
 	if (cmp == 0) {
@@ -339,6 +347,7 @@ int32_t ChronoLocalDate::compareTo(Object$* other) {
 
 $Object* ChronoLocalDate::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(ChronoLocalDate);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s13205$, $nc(lambda)->getImplMethodName());
 		int32_t tmp13205$ = -1;

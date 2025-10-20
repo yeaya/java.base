@@ -52,6 +52,7 @@ void plain::init$() {
 }
 
 $Object* plain::getContent($URLConnection* uc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InputStream, is, $nc(uc)->getInputStream());
 		return $of($new($PlainTextInputStream, $(uc->getInputStream())));

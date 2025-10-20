@@ -114,6 +114,7 @@ $Object* allocate$AtomicLongFieldUpdater$CASUpdater($Class* clazz) {
 $Unsafe* AtomicLongFieldUpdater$CASUpdater::U = nullptr;
 
 void AtomicLongFieldUpdater$CASUpdater::init$($Class* tclass, $String* fieldName, $Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$AtomicLongFieldUpdater::init$();
 	$var($Field, field, nullptr);
@@ -155,6 +156,7 @@ void AtomicLongFieldUpdater$CASUpdater::accessCheck(Object$* obj) {
 }
 
 void AtomicLongFieldUpdater$CASUpdater::throwAccessCheckException(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (this->cclass == this->tclass) {
 		$throwNew($ClassCastException);
 	} else {

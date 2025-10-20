@@ -74,6 +74,7 @@ void CloseRace$OpenLoop::init$() {
 }
 
 void CloseRace$OpenLoop::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($CloseRace);
 	$nc($CloseRace::threadsStarted)->countDown();
 	while (!$Thread::interrupted()) {

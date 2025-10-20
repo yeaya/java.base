@@ -91,6 +91,7 @@ void Loader$1::init$($Loader* this$0, $ModuleReference* val$mref, $String* val$n
 }
 
 $Object* Loader$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, ouri, $nc($(this->this$0->moduleReaderFor(this->val$mref)))->find(this->val$name));
 	if ($nc(ouri)->isPresent()) {
 		try {

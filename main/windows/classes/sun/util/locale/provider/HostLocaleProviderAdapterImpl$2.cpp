@@ -88,6 +88,7 @@ bool HostLocaleProviderAdapterImpl$2::isSupportedLocale($Locale* locale) {
 }
 
 $DateFormatSymbols* HostLocaleProviderAdapterImpl$2::getInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, dfs, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatSymbolsCache)->get(locale)));

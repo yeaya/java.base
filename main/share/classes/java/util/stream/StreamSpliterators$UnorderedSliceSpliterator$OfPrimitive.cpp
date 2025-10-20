@@ -131,6 +131,7 @@ bool StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::tryAdvance(Object
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::forEachRemaining(Object$* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($StreamSpliterators$ArrayBuffer$OfPrimitive, sb, nullptr);
 	$StreamSpliterators$UnorderedSliceSpliterator$PermitStatus* permitStatus = nullptr;

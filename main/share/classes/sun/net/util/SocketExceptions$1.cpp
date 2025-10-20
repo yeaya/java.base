@@ -81,6 +81,7 @@ void SocketExceptions$1::init$($IOException* val$e, $String* val$msg) {
 }
 
 $Object* SocketExceptions$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* clazz = $nc($of(this->val$e))->getClass();

@@ -122,6 +122,7 @@ void SSLServerSocketImpl::init$($SSLContextImpl* sslContext, int32_t port, int32
 }
 
 $StringArray* SSLServerSocketImpl::getEnabledCipherSuites() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->serverSocketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -172,6 +173,7 @@ $StringArray* SSLServerSocketImpl::getSupportedProtocols() {
 }
 
 $StringArray* SSLServerSocketImpl::getEnabledProtocols() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->serverSocketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -397,6 +399,7 @@ bool SSLServerSocketImpl::getEnableSessionCreation() {
 }
 
 $SSLParameters* SSLServerSocketImpl::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->serverSocketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);

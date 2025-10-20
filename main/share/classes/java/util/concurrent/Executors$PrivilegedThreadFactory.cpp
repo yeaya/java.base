@@ -87,6 +87,7 @@ $Object* allocate$Executors$PrivilegedThreadFactory($Class* clazz) {
 }
 
 void Executors$PrivilegedThreadFactory::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Executors$DefaultThreadFactory::init$();
 	$var($SecurityManager, sm, $System::getSecurityManager());

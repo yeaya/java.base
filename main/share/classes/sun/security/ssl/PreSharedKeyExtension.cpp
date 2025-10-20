@@ -210,6 +210,7 @@ void PreSharedKeyExtension::init$() {
 
 bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHello, $ServerHandshakeContext* shc, $SSLSessionImpl* s) {
 	$init(PreSharedKeyExtension);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(s)->isRejoinable();
 	bool result = var$0 && (s->getPreSharedKey() != nullptr);
 	if (result && s->getProtocolVersion() != $nc(shc)->negotiatedProtocol) {
@@ -271,6 +272,7 @@ bool PreSharedKeyExtension::canRejoin($ClientHello$ClientHelloMessage* clientHel
 
 void PreSharedKeyExtension::checkBinder($ServerHandshakeContext* shc, $SSLSessionImpl* session, $HandshakeHash* pskBinderHash, $bytes* binder) {
 	$init(PreSharedKeyExtension);
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, psk, $nc(session)->getPreSharedKey());
 	if (psk == nullptr) {
 		$init($Alert);
@@ -286,6 +288,7 @@ void PreSharedKeyExtension::checkBinder($ServerHandshakeContext* shc, $SSLSessio
 
 $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $SecretKey* binderKey, $SSLSessionImpl* session, $HandshakeHash* pskBinderHash) {
 	$init(PreSharedKeyExtension);
+	$useLocalCurrentObjectStackCache();
 	$var($ProtocolVersion, var$0, $nc(session)->getProtocolVersion());
 	$nc(pskBinderHash)->determine(var$0, $(session->getSuite()));
 	pskBinderHash->update();
@@ -295,6 +298,7 @@ $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $Secret
 
 $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $SecretKey* binderKey, $HandshakeHash* hash, $SSLSessionImpl* session, $HandshakeContext* ctx, $ClientHello$ClientHelloMessage* hello, $PreSharedKeyExtension$CHPreSharedKeySpec* pskPrototype) {
 	$init(PreSharedKeyExtension);
+	$useLocalCurrentObjectStackCache();
 	$var($PreSharedKeyExtension$PartialClientHelloMessage, partialMsg, $new($PreSharedKeyExtension$PartialClientHelloMessage, ctx, hello, pskPrototype));
 	$var($SSLEngineOutputRecord, record, $new($SSLEngineOutputRecord, hash));
 	$var($HandshakeOutStream, hos, $new($HandshakeOutStream, record));
@@ -308,6 +312,7 @@ $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $Secret
 
 $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $SecretKey* binderKey, $SSLSessionImpl* session, $bytes* digest) {
 	$init(PreSharedKeyExtension);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$CipherSuite$HashAlg* hashAlg = $nc($($nc(session)->getSuite()))->hashAlg;
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));
@@ -338,6 +343,7 @@ $bytes* PreSharedKeyExtension::computeBinder($HandshakeContext* context, $Secret
 
 $SecretKey* PreSharedKeyExtension::deriveBinderKey($HandshakeContext* context, $SecretKey* psk, $SSLSessionImpl* session) {
 	$init(PreSharedKeyExtension);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$CipherSuite$HashAlg* hashAlg = $nc($($nc(session)->getSuite()))->hashAlg;
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));

@@ -130,6 +130,7 @@ void TraceClassVisitor::visitSource($String* file, $String* debug) {
 }
 
 $ModuleVisitor* TraceClassVisitor::visitModule($String* name, int32_t flags, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, modulePrinter, $nc(this->p)->visitModule(name, flags, version));
 	return $new($TraceModuleVisitor, $($ClassVisitor::visitModule(name, flags, version)), modulePrinter);
 }
@@ -145,11 +146,13 @@ void TraceClassVisitor::visitOuterClass($String* owner, $String* name, $String* 
 }
 
 $AnnotationVisitor* TraceClassVisitor::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitClassAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($ClassVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceClassVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitClassTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($ClassVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -175,16 +178,19 @@ void TraceClassVisitor::visitInnerClass($String* name, $String* outerName, $Stri
 }
 
 $RecordComponentVisitor* TraceClassVisitor::visitRecordComponent($String* name, $String* descriptor, $String* signature) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, recordComponentPrinter, $nc(this->p)->visitRecordComponent(name, descriptor, signature));
 	return $new($TraceRecordComponentVisitor, $($ClassVisitor::visitRecordComponent(name, descriptor, signature)), recordComponentPrinter);
 }
 
 $FieldVisitor* TraceClassVisitor::visitField(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, fieldPrinter, $nc(this->p)->visitField(access, name, descriptor, signature, value));
 	return $new($TraceFieldVisitor, $($ClassVisitor::visitField(access, name, descriptor, signature, value)), fieldPrinter);
 }
 
 $MethodVisitor* TraceClassVisitor::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, methodPrinter, $nc(this->p)->visitMethod(access, name, descriptor, signature, exceptions));
 	return $new($TraceMethodVisitor, $($ClassVisitor::visitMethod(access, name, descriptor, signature, exceptions)), methodPrinter);
 }

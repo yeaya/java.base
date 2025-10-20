@@ -78,6 +78,7 @@ $AnnotatedElement* AnnotatedElementDelegate::getBase() {
 
 int32_t AnnotatedElementDelegate::testDelegate(AnnotatedElementDelegate* delegate, $Class* annotationClass) {
 	$init(AnnotatedElementDelegate);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($AnnotatedElement, base, $nc(delegate)->getBase());
 	$var($AnnotationArray, var$0, delegate->getDeclaredAnnotationsByType(annotationClass));
@@ -98,6 +99,7 @@ int32_t AnnotatedElementDelegate::testDelegate(AnnotatedElementDelegate* delegat
 
 int32_t AnnotatedElementDelegate::annotationArrayCheck($AnnotationArray* delegate, $AnnotationArray* base, $Class* annotationClass, $String* message) {
 	$init(AnnotatedElementDelegate);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	if (!$Objects::deepEquals(delegate, base)) {
 		failures = 1;

@@ -91,6 +91,7 @@ $Object* TreeMap$Entry::setValue(Object$* value) {
 }
 
 bool TreeMap$Entry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {

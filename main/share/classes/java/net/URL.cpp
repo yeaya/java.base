@@ -260,6 +260,7 @@ void URL::init$($String* protocol, $String* host, $String* file) {
 }
 
 void URL::init$($String* protocol$renamed, $String* host$renamed, int32_t port, $String* file$renamed, $URLStreamHandler* handler$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($URLStreamHandler, handler, handler$renamed);
 	$var($String, protocol, protocol$renamed);
 	$var($String, file, file$renamed);
@@ -327,6 +328,7 @@ void URL::init$(URL* context, $String* spec) {
 }
 
 void URL::init$(URL* context, $String* spec, $URLStreamHandler* handler$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($URLStreamHandler, handler, handler$renamed);
 	this->port = -1;
 	this->hashCode$ = -1;
@@ -420,6 +422,7 @@ void URL::init$(URL* context, $String* spec, $URLStreamHandler* handler$renamed)
 
 URL* URL::fromURI($URI* uri) {
 	$init(URL);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
 	}
@@ -482,6 +485,7 @@ void URL::set($String* protocol, $String* host, int32_t port, $String* authority
 
 $InetAddress* URL::getHostAddress() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->hostAddress != nullptr) {
 			return this->hostAddress;
 		}
@@ -577,6 +581,7 @@ $String* URL::toExternalForm() {
 }
 
 $URI* URL::toURI() {
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $new($URI, $(toString())));
 	if (this->authority != nullptr && isBuiltinStreamHandler(this->handler)) {
 		$var($String, s, $IPAddressUtil::checkAuthority(this));
@@ -592,6 +597,7 @@ $URLConnection* URL::openConnection() {
 }
 
 $URLConnection* URL::openConnection($Proxy* proxy) {
+	$useLocalCurrentObjectStackCache();
 	if (proxy == nullptr) {
 		$throwNew($IllegalArgumentException, "proxy can not be null"_s);
 	}
@@ -641,6 +647,7 @@ void URL::setURLStreamHandlerFactory($URLStreamHandlerFactory* fac) {
 
 $URLStreamHandler* URL::lookupViaProperty($String* protocol) {
 	$init(URL);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, packagePrefixList, $GetPropertyAction::privilegedGetProperty(URL::protocolPathProp));
 	if (packagePrefixList == nullptr) {
@@ -680,6 +687,7 @@ $Iterator* URL::providers() {
 
 $URLStreamHandler* URL::lookupViaProviders($String* protocol) {
 	$init(URL);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(URL::gate)->get() != nullptr) {
 		$throwNew($Error, "Circular loading of URL stream handler providers detected"_s);
@@ -741,6 +749,7 @@ bool URL::isOverrideable($String* protocol) {
 
 $URLStreamHandler* URL::getURLStreamHandler($String* protocol) {
 	$init(URL);
+	$useLocalCurrentObjectStackCache();
 	$var($URLStreamHandler, handler, $cast($URLStreamHandler, $nc(URL::handlers)->get(protocol)));
 	if (handler != nullptr) {
 		return handler;
@@ -791,6 +800,7 @@ void URL::writeObject($ObjectOutputStream* s) {
 
 void URL::readObject($ObjectInputStream* s) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ObjectInputStream$GetField, gf, $nc(s)->readFields());
 		$var($String, protocol, $cast($String, $nc(gf)->get("protocol"_s, ($Object*)nullptr)));
 		if (getURLStreamHandler(protocol) == nullptr) {
@@ -813,6 +823,7 @@ void URL::readObject($ObjectInputStream* s) {
 }
 
 $Object* URL::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	$var($URLStreamHandler, handler, nullptr);
 	$assign(handler, getURLStreamHandler($($nc(this->tempState)->getProtocol())));
 	$var(URL, replacementURL, nullptr);
@@ -825,6 +836,7 @@ $Object* URL::readResolve() {
 }
 
 URL* URL::setDeserializedFields($URLStreamHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$var(URL, replacementURL, nullptr);
 	$var($String, userInfo, nullptr);
 	$var($String, protocol, $nc(this->tempState)->getProtocol());
@@ -877,6 +889,7 @@ URL* URL::setDeserializedFields($URLStreamHandler* handler) {
 }
 
 URL* URL::fabricateNewURL() {
+	$useLocalCurrentObjectStackCache();
 	$var(URL, replacementURL, nullptr);
 	$var($String, urlString, $nc(this->tempState)->reconstituteUrlString());
 	try {
@@ -894,6 +907,7 @@ URL* URL::fabricateNewURL() {
 }
 
 bool URL::isBuiltinStreamHandler($URLStreamHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* handlerClass = $nc($of(handler))->getClass();
 	bool var$0 = isBuiltinStreamHandler($($nc(handlerClass)->getName()));
@@ -924,6 +938,7 @@ void URL::setSerializedHashCode(int32_t hc) {
 }
 
 void clinit$URL($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(URL::BUILTIN_HANDLERS_PREFIX, "sun.net.www.protocol"_s);
 	$assignStatic(URL::protocolPathProp, "java.protocol.handler.pkgs"_s);
 	$assignStatic(URL::defaultFactory, $new($URL$DefaultFactory));

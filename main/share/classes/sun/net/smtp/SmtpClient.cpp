@@ -98,6 +98,7 @@ void SmtpClient::closeServer() {
 }
 
 void SmtpClient::issueCommand($String* cmd, int32_t expect) {
+	$useLocalCurrentObjectStackCache();
 	sendServer(cmd);
 	int32_t reply = 0;
 	while ((reply = readServerResponse()) != expect) {
@@ -108,6 +109,7 @@ void SmtpClient::issueCommand($String* cmd, int32_t expect) {
 }
 
 void SmtpClient::toCanonical($String* s) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(s)->startsWith("<"_s)) {
 		issueCommand($$str({"rcpt to: "_s, s, "\r\n"_s}), 250);
 	} else {
@@ -116,6 +118,7 @@ void SmtpClient::toCanonical($String* s) {
 }
 
 void SmtpClient::to($String* s) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(s)->indexOf((int32_t)u'\n') != -1) {
 		$throwNew($IOException, "Illegal SMTP command"_s, $$new($IllegalArgumentException, "Illegal carriage return"_s));
 	}
@@ -165,6 +168,7 @@ void SmtpClient::to($String* s) {
 }
 
 void SmtpClient::from($String* s) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(s)->indexOf((int32_t)u'\n') != -1) {
 		$throwNew($IOException, "Illegal SMTP command"_s, $$new($IllegalArgumentException, "Illegal carriage return"_s));
 	}
@@ -176,12 +180,14 @@ void SmtpClient::from($String* s) {
 }
 
 void SmtpClient::openServer($String* host) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, mailhost, host);
 	openServer(this->mailhost, SmtpClient::DEFAULT_SMTP_PORT);
 	issueCommand($$str({"helo "_s, $($nc($($InetAddress::getLocalHost()))->getHostName()), "\r\n"_s}), 250);
 }
 
 $PrintStream* SmtpClient::startMessage() {
+	$useLocalCurrentObjectStackCache();
 	issueCommand("data\r\n"_s, 354);
 	try {
 		$set(this, message, $new($SmtpPrintStream, this->serverOutput, this));
@@ -200,6 +206,7 @@ void SmtpClient::closeMessage() {
 }
 
 void SmtpClient::init$($String* host) {
+	$useLocalCurrentObjectStackCache();
 	$TransferProtocolClient::init$();
 	if (host != nullptr) {
 		try {
@@ -235,6 +242,7 @@ void SmtpClient::init$() {
 }
 
 void SmtpClient::init$(int32_t to) {
+	$useLocalCurrentObjectStackCache();
 	$TransferProtocolClient::init$();
 	setConnectTimeout(to);
 	try {

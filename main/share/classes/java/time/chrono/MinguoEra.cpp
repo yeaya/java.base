@@ -144,6 +144,7 @@ void MinguoEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 MinguoEra* MinguoEra::of(int32_t minguoEra) {
 	$init(MinguoEra);
+	$useLocalCurrentObjectStackCache();
 	switch (minguoEra) {
 	case 0:
 		{
@@ -165,6 +166,7 @@ int32_t MinguoEra::getValue() {
 }
 
 $String* MinguoEra::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$init($MinguoChronology);
 	return $nc($($nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::ERA), style)))->toFormatter(locale)))->withChronology($MinguoChronology::INSTANCE)))->format(this == MinguoEra::ROC ? $(static_cast<$TemporalAccessor*>($MinguoDate::of(1, 1, 1))) : $(static_cast<$TemporalAccessor*>($MinguoDate::of(0, 1, 1))));

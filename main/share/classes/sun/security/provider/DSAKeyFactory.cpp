@@ -89,6 +89,7 @@ void DSAKeyFactory::init$() {
 }
 
 $PublicKey* DSAKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($DSAPublicKeySpec, keySpec)) {
 			$var($DSAPublicKeySpec, dsaPubKeySpec, $cast($DSAPublicKeySpec, keySpec));
@@ -109,6 +110,7 @@ $PublicKey* DSAKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
 }
 
 $PrivateKey* DSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($DSAPrivateKeySpec, keySpec)) {
 			$var($DSAPrivateKeySpec, dsaPrivKeySpec, $cast($DSAPrivateKeySpec, keySpec));
@@ -149,6 +151,7 @@ $PrivateKey* DSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 }
 
 $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($DSAParams, params, nullptr);
 	try {
@@ -213,6 +216,7 @@ $KeySpec* DSAKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 }
 
 $Key* DSAKeyFactory::engineTranslateKey($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($1DSAPublicKey, key)) {
 			if ($instanceOf($DSAPublicKey, key)) {

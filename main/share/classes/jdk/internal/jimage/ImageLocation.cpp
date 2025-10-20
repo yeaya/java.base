@@ -115,6 +115,7 @@ $ImageStrings* ImageLocation::getStrings() {
 }
 
 $longs* ImageLocation::decompress($ByteBuffer* bytes, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(bytes);
 	$var($longs, attributes, $new($longs, ImageLocation::ATTRIBUTE_COUNT));
 	int32_t limit = bytes->limit();
@@ -172,6 +173,7 @@ bool ImageLocation::verify($String* name, $longs* attributes, $ImageStrings* str
 }
 
 bool ImageLocation::verify($String* module, $String* name, $ByteBuffer* locations, int32_t locationOffset, $ImageStrings* strings) {
+	$useLocalCurrentObjectStackCache();
 	int32_t moduleOffset = 0;
 	int32_t parentOffset = 0;
 	int32_t baseOffset = 0;
@@ -268,6 +270,7 @@ bool ImageLocation::verifyName($String* module, $String* name, int32_t index, in
 }
 
 int64_t ImageLocation::getAttribute(int32_t kind) {
+	$useLocalCurrentObjectStackCache();
 	if (kind < ImageLocation::ATTRIBUTE_END || ImageLocation::ATTRIBUTE_COUNT <= kind) {
 		$throwNew($InternalError, $$str({"Invalid jimage attribute kind: "_s, $$str(kind)}));
 	}
@@ -275,6 +278,7 @@ int64_t ImageLocation::getAttribute(int32_t kind) {
 }
 
 $String* ImageLocation::getAttributeString(int32_t kind) {
+	$useLocalCurrentObjectStackCache();
 	if (kind < ImageLocation::ATTRIBUTE_END || ImageLocation::ATTRIBUTE_COUNT <= kind) {
 		$throwNew($InternalError, $$str({"Invalid jimage attribute kind: "_s, $$str(kind)}));
 	}
@@ -318,6 +322,7 @@ $String* ImageLocation::getFullName() {
 }
 
 $String* ImageLocation::getFullName(bool modulesPrefix) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (getModuleOffset() != 0) {
 		if (modulesPrefix) {
@@ -340,6 +345,7 @@ $String* ImageLocation::getFullName(bool modulesPrefix) {
 }
 
 $String* ImageLocation::buildName(bool includeModule, bool includeParent, bool includeName) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (includeModule && getModuleOffset() != 0) {
 		builder->append("/modules/"_s);
@@ -375,6 +381,7 @@ int64_t ImageLocation::getUncompressedSize() {
 }
 
 ImageLocation* ImageLocation::readFrom($BasicImageReader* reader, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(reader);
 	$var($longs, attributes, reader->getAttributes(offset));
 	$var($ImageStringsReader, strings, reader->getStrings());

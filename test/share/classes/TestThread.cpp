@@ -97,6 +97,7 @@ int32_t TestThread::finish(int64_t timeout) {
 }
 
 void TestThread::finishAndThrow(int64_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		join(timeout);
 	} catch ($InterruptedException&) {

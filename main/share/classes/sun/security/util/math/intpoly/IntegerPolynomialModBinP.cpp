@@ -87,6 +87,7 @@ $Object* allocate$IntegerPolynomialModBinP($Class* clazz) {
 }
 
 void IntegerPolynomialModBinP::init$(int32_t bitsPerLimb, int32_t numLimbs, int32_t power, $BigInteger* subtrahend$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, subtrahend, subtrahend$renamed);
 	$IntegerPolynomial::init$(bitsPerLimb, numLimbs, 1, $($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(power)))->subtract(subtrahend)));
 	bool negate = false;
@@ -123,6 +124,7 @@ void IntegerPolynomialModBinP::finalCarryReduceLast($longs* limbs) {
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomialModBinP::getElement($bytes* v, int32_t offset, int32_t length, int8_t highByte) {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, result, $new($longs, this->numLimbs));
 	int32_t numHighBits = 32 - $Integer::numberOfLeadingZeros(highByte);
 	int32_t numBits = 8 * length + numHighBits;

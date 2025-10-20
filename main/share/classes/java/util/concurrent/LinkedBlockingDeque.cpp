@@ -387,6 +387,7 @@ bool LinkedBlockingDeque::linkLast($LinkedBlockingDeque$Node* node) {
 }
 
 $Object* LinkedBlockingDeque::unlinkFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, f, this->first);
 	if (f == nullptr) {
 		return $of(nullptr);
@@ -407,6 +408,7 @@ $Object* LinkedBlockingDeque::unlinkFirst() {
 }
 
 $Object* LinkedBlockingDeque::unlinkLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, l, this->last);
 	if (l == nullptr) {
 		return $of(nullptr);
@@ -427,6 +429,7 @@ $Object* LinkedBlockingDeque::unlinkLast() {
 }
 
 void LinkedBlockingDeque::unlink($LinkedBlockingDeque$Node* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, p, $nc(x)->prev);
 	$var($LinkedBlockingDeque$Node, n, x->next);
 	if (p == nullptr) {
@@ -455,6 +458,7 @@ void LinkedBlockingDeque::addLast(Object$* e) {
 }
 
 bool LinkedBlockingDeque::offerFirst(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -485,6 +489,7 @@ bool LinkedBlockingDeque::offerFirst(Object$* e) {
 }
 
 bool LinkedBlockingDeque::offerLast(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -515,6 +520,7 @@ bool LinkedBlockingDeque::offerLast(Object$* e) {
 }
 
 void LinkedBlockingDeque::putFirst(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -539,6 +545,7 @@ void LinkedBlockingDeque::putFirst(Object$* e) {
 }
 
 void LinkedBlockingDeque::putLast(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -563,6 +570,7 @@ void LinkedBlockingDeque::putLast(Object$* e) {
 }
 
 bool LinkedBlockingDeque::offerFirst(Object$* e, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -602,6 +610,7 @@ bool LinkedBlockingDeque::offerFirst(Object$* e, int64_t timeout, $TimeUnit* uni
 }
 
 bool LinkedBlockingDeque::offerLast(Object$* e, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -657,6 +666,7 @@ $Object* LinkedBlockingDeque::removeLast() {
 }
 
 $Object* LinkedBlockingDeque::pollFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -683,6 +693,7 @@ $Object* LinkedBlockingDeque::pollFirst() {
 }
 
 $Object* LinkedBlockingDeque::pollLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -709,6 +720,7 @@ $Object* LinkedBlockingDeque::pollLast() {
 }
 
 $Object* LinkedBlockingDeque::takeFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -739,6 +751,7 @@ $Object* LinkedBlockingDeque::takeFirst() {
 }
 
 $Object* LinkedBlockingDeque::takeLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -769,6 +782,7 @@ $Object* LinkedBlockingDeque::takeLast() {
 }
 
 $Object* LinkedBlockingDeque::pollFirst(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -805,6 +819,7 @@ $Object* LinkedBlockingDeque::pollFirst(int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* LinkedBlockingDeque::pollLast(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -857,6 +872,7 @@ $Object* LinkedBlockingDeque::getLast() {
 }
 
 $Object* LinkedBlockingDeque::peekFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -883,6 +899,7 @@ $Object* LinkedBlockingDeque::peekFirst() {
 }
 
 $Object* LinkedBlockingDeque::peekLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -909,6 +926,7 @@ $Object* LinkedBlockingDeque::peekLast() {
 }
 
 bool LinkedBlockingDeque::removeFirstOccurrence(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -949,6 +967,7 @@ bool LinkedBlockingDeque::removeFirstOccurrence(Object$* o) {
 }
 
 bool LinkedBlockingDeque::removeLastOccurrence(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -1030,6 +1049,7 @@ $Object* LinkedBlockingDeque::peek() {
 }
 
 int32_t LinkedBlockingDeque::remainingCapacity() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1060,6 +1080,7 @@ int32_t LinkedBlockingDeque::drainTo($Collection* c) {
 }
 
 int32_t LinkedBlockingDeque::drainTo($Collection* c, int32_t maxElements) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -1110,6 +1131,7 @@ bool LinkedBlockingDeque::remove(Object$* o) {
 }
 
 int32_t LinkedBlockingDeque::size() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1136,6 +1158,7 @@ int32_t LinkedBlockingDeque::size() {
 }
 
 bool LinkedBlockingDeque::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -1175,6 +1198,7 @@ bool LinkedBlockingDeque::contains(Object$* o) {
 }
 
 bool LinkedBlockingDeque::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -1239,6 +1263,7 @@ bool LinkedBlockingDeque::addAll($Collection* c) {
 }
 
 $ObjectArray* LinkedBlockingDeque::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1273,6 +1298,7 @@ $ObjectArray* LinkedBlockingDeque::toArray() {
 }
 
 $ObjectArray* LinkedBlockingDeque::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -1317,6 +1343,7 @@ $String* LinkedBlockingDeque::toString() {
 }
 
 void LinkedBlockingDeque::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1347,6 +1374,7 @@ void LinkedBlockingDeque::clear() {
 }
 
 $LinkedBlockingDeque$Node* LinkedBlockingDeque::succ($LinkedBlockingDeque$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, p, p$renamed);
 	$var($LinkedBlockingDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->next))) {
@@ -1373,6 +1401,7 @@ void LinkedBlockingDeque::forEach($Consumer* action) {
 }
 
 void LinkedBlockingDeque::forEachFrom($Consumer* action, $LinkedBlockingDeque$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, p, p$renamed);
 	$var($ReentrantLock, lock, this->lock);
 	int32_t batchSize = 64;
@@ -1435,6 +1464,7 @@ bool LinkedBlockingDeque::retainAll($Collection* c) {
 }
 
 bool LinkedBlockingDeque::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	bool removed = false;
 	$var($ReentrantLock, lock, this->lock);
 	$var($LinkedBlockingDeque$Node, p, nullptr);
@@ -1506,6 +1536,7 @@ bool LinkedBlockingDeque::bulkRemove($Predicate* filter) {
 }
 
 void LinkedBlockingDeque::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1531,6 +1562,7 @@ void LinkedBlockingDeque::writeObject($ObjectOutputStream* s) {
 }
 
 void LinkedBlockingDeque::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	this->count = 0;
 	$set(this, first, nullptr);

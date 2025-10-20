@@ -173,6 +173,7 @@ void IssuingDistributionPointExtension::init$($DistributionPointName* distributi
 }
 
 void IssuingDistributionPointExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, distributionPoint, nullptr);
 	$set(this, revocationReasons, nullptr);
@@ -240,6 +241,7 @@ $String* IssuingDistributionPointExtension::getName() {
 }
 
 void IssuingDistributionPointExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -337,6 +339,7 @@ $Enumeration* IssuingDistributionPointExtension::getElements() {
 }
 
 void IssuingDistributionPointExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->distributionPoint == nullptr && this->revocationReasons == nullptr && !this->hasOnlyUserCerts && !this->hasOnlyCACerts && !this->hasOnlyAttributeCerts && !this->isIndirectCRL) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -378,6 +381,7 @@ void IssuingDistributionPointExtension::encodeThis() {
 }
 
 $String* IssuingDistributionPointExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("IssuingDistributionPoint [\n  "_s);
 	if (this->distributionPoint != nullptr) {

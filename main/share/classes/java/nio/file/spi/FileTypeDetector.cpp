@@ -51,6 +51,7 @@ $Object* allocate$FileTypeDetector($Class* clazz) {
 }
 
 $Void* FileTypeDetector::checkPermission() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "fileTypeDetector"_s));

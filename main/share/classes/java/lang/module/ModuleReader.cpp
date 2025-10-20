@@ -58,6 +58,7 @@ $Object* allocate$ModuleReader($Class* clazz) {
 }
 
 $Optional* ModuleReader::open($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, ouri, find(name));
 	if ($nc(ouri)->isPresent()) {
 		return $Optional::of($($nc($($nc(($cast($URI, $(ouri->get()))))->toURL()))->openStream()));
@@ -67,6 +68,7 @@ $Optional* ModuleReader::open($String* name) {
 }
 
 $Optional* ModuleReader::read($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, oin, open(name));
 	if ($nc(oin)->isPresent()) {
 		{

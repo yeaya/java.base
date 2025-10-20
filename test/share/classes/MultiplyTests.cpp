@@ -44,6 +44,7 @@ void MultiplyTests::init$() {
 }
 
 int32_t MultiplyTests::multiplyTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray, bd1, $new($BigDecimalArray, {
 		$$new($BigDecimal, "123456789"_s),
@@ -93,6 +94,7 @@ int32_t MultiplyTests::multiplyTests() {
 }
 
 void MultiplyTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += multiplyTests();
 	if (failures > 0) {

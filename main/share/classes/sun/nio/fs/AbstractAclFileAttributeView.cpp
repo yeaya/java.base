@@ -103,6 +103,7 @@ $String* AbstractAclFileAttributeView::name() {
 }
 
 void AbstractAclFileAttributeView::setAttribute($String* attribute, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(attribute)->equals(AbstractAclFileAttributeView::OWNER_NAME)) {
 		setOwner($cast($UserPrincipal, value));
 		return;
@@ -115,6 +116,7 @@ void AbstractAclFileAttributeView::setAttribute($String* attribute, Object$* val
 }
 
 $Map* AbstractAclFileAttributeView::readAttributes($StringArray* attributes) {
+	$useLocalCurrentObjectStackCache();
 	bool acl = false;
 	bool owner = false;
 	{

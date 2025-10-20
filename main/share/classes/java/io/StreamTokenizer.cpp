@@ -495,6 +495,7 @@ int32_t StreamTokenizer::lineno() {
 }
 
 $String* StreamTokenizer::toString() {
+	$useLocalCurrentObjectStackCache();
 
 	$var($String, var$0, nullptr)
 	switch (this->ttype) {

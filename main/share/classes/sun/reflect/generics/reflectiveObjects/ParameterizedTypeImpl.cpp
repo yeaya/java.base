@@ -82,6 +82,7 @@ void ParameterizedTypeImpl::init$($Class* rawType, $TypeArray* actualTypeArgumen
 }
 
 void ParameterizedTypeImpl::validateConstructorArguments() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeVariableArray, formals, $nc(this->rawType)->getTypeParameters());
 	if ($nc(formals)->length != $nc(this->actualTypeArguments)->length) {
 		$throwNew($MalformedParameterizedTypeException, $($String::format("Mismatch of count of formal and actual type arguments in constructor of %s: %d formal argument(s) %d actual argument(s)"_s, $$new($ObjectArray, {
@@ -112,6 +113,7 @@ $Type* ParameterizedTypeImpl::getOwnerType() {
 }
 
 bool ParameterizedTypeImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ParameterizedType, o)) {
 		$var($ParameterizedType, that, $cast($ParameterizedType, o));
 		if ($equals(this, that)) {
@@ -134,6 +136,7 @@ int32_t ParameterizedTypeImpl::hashCode() {
 }
 
 $String* ParameterizedTypeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (this->ownerType != nullptr) {
 		sb->append($($nc(this->ownerType)->getTypeName()));

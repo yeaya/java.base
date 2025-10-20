@@ -92,6 +92,7 @@ void SortedOps$IntSortingSink::begin(int64_t size) {
 }
 
 void SortedOps$IntSortingSink::end() {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, ints, $cast($ints, $nc(this->b)->asPrimitiveArray()));
 	$Arrays::sort(ints);
 	$nc(this->downstream)->begin($nc(ints)->length);

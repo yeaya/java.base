@@ -110,6 +110,7 @@ $X509CertificateArray* HandshakeCompletedEvent::getPeerCertificateChain() {
 }
 
 $Principal* HandshakeCompletedEvent::getPeerPrincipal() {
+	$useLocalCurrentObjectStackCache();
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getPeerPrincipal());
@@ -122,6 +123,7 @@ $Principal* HandshakeCompletedEvent::getPeerPrincipal() {
 }
 
 $Principal* HandshakeCompletedEvent::getLocalPrincipal() {
+	$useLocalCurrentObjectStackCache();
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getLocalPrincipal());

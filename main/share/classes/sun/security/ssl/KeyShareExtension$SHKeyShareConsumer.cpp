@@ -161,6 +161,7 @@ void KeyShareExtension$SHKeyShareConsumer::init$() {
 }
 
 void KeyShareExtension$SHKeyShareConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	if ($nc(chc)->clientRequestedNamedGroups == nullptr || $nc($nc(chc)->clientRequestedNamedGroups)->isEmpty()) {
 		$init($Alert);

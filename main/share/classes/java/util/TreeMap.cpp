@@ -323,6 +323,7 @@ void TreeMap::init$($Map* m) {
 }
 
 void TreeMap::init$($SortedMap* m) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractMap::init$();
 	this->size$ = 0;
 	this->modCount = 0;
@@ -375,6 +376,7 @@ $Object* TreeMap::lastKey() {
 }
 
 void TreeMap::putAll($Map* map) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mapSize = $nc(map)->size();
 	if (this->size$ == 0 && mapSize != 0 && $instanceOf($SortedMap, map)) {
 		if ($Objects::equals(this->comparator$, $($nc(($cast($SortedMap, map)))->comparator()))) {
@@ -393,6 +395,7 @@ void TreeMap::putAll($Map* map) {
 }
 
 $TreeMap$Entry* TreeMap::getEntry(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	if (this->comparator$ != nullptr) {
 		return getEntryUsingComparator(key);
 	}
@@ -413,6 +416,7 @@ $TreeMap$Entry* TreeMap::getEntry(Object$* key) {
 }
 
 $TreeMap$Entry* TreeMap::getEntryUsingComparator(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, key);
 	$var($Comparator, cpr, this->comparator$);
 	if (cpr != nullptr) {
@@ -432,6 +436,7 @@ $TreeMap$Entry* TreeMap::getEntryUsingComparator(Object$* key) {
 }
 
 $TreeMap$Entry* TreeMap::getCeilingEntry(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, this->root);
 	while (p != nullptr) {
 		int32_t cmp = compare(key, p->key);
@@ -461,6 +466,7 @@ $TreeMap$Entry* TreeMap::getCeilingEntry(Object$* key) {
 }
 
 $TreeMap$Entry* TreeMap::getFloorEntry(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, this->root);
 	while (p != nullptr) {
 		int32_t cmp = compare(key, p->key);
@@ -490,6 +496,7 @@ $TreeMap$Entry* TreeMap::getFloorEntry(Object$* key) {
 }
 
 $TreeMap$Entry* TreeMap::getHigherEntry(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, this->root);
 	while (p != nullptr) {
 		int32_t cmp = compare(key, p->key);
@@ -515,6 +522,7 @@ $TreeMap$Entry* TreeMap::getHigherEntry(Object$* key) {
 }
 
 $TreeMap$Entry* TreeMap::getLowerEntry(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, this->root);
 	while (p != nullptr) {
 		int32_t cmp = compare(key, p->key);
@@ -548,6 +556,7 @@ $Object* TreeMap::putIfAbsent(Object$* key, Object$* value) {
 }
 
 $Object* TreeMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(mappingFunction);
 	$var($Object, newValue, nullptr);
 	$var($TreeMap$Entry, t, this->root);
@@ -615,6 +624,7 @@ $Object* TreeMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction)
 }
 
 $Object* TreeMap::compute(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	$var($Object, newValue, nullptr);
 	$var($TreeMap$Entry, t, this->root);
@@ -666,6 +676,7 @@ $Object* TreeMap::compute(Object$* key, $BiFunction* remappingFunction) {
 }
 
 $Object* TreeMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	$Objects::requireNonNull(value);
 	$var($TreeMap$Entry, t, this->root);
@@ -745,6 +756,7 @@ void TreeMap::addEntryToEmptyMap(Object$* key, Object$* value) {
 }
 
 $Object* TreeMap::put(Object$* key, Object$* value, bool replaceOld) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, t, this->root);
 	if (t == nullptr) {
 		addEntryToEmptyMap(key, value);
@@ -804,6 +816,7 @@ $Object* TreeMap::remapValue($TreeMap$Entry* t, Object$* key, $BiFunction* remap
 }
 
 $Object* TreeMap::mergeValue($TreeMap$Entry* t, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, oldValue, $nc(t)->value);
 	$var($Object, newValue, nullptr);
 	if (t->value == nullptr) {
@@ -825,6 +838,7 @@ $Object* TreeMap::mergeValue($TreeMap$Entry* t, Object$* value, $BiFunction* rem
 }
 
 $Object* TreeMap::remove(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, getEntry(key));
 	if (p == nullptr) {
 		return $of(nullptr);
@@ -841,6 +855,7 @@ void TreeMap::clear() {
 }
 
 $Object* TreeMap::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(TreeMap, clone, nullptr);
 	try {
 		$assign(clone, $cast(TreeMap, $AbstractMap::clone()));
@@ -873,6 +888,7 @@ $Map$Entry* TreeMap::lastEntry() {
 }
 
 $Map$Entry* TreeMap::pollFirstEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, getFirstEntry());
 	$var($Map$Entry, result, exportEntry(p));
 	if (p != nullptr) {
@@ -882,6 +898,7 @@ $Map$Entry* TreeMap::pollFirstEntry() {
 }
 
 $Map$Entry* TreeMap::pollLastEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, getLastEntry());
 	$var($Map$Entry, result, exportEntry(p));
 	if (p != nullptr) {
@@ -988,6 +1005,7 @@ bool TreeMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 }
 
 $Object* TreeMap::replace(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, getEntry(key));
 	if (p != nullptr) {
 		$var($Object, oldValue, p->value);
@@ -1082,6 +1100,7 @@ $TreeMap$Entry* TreeMap::getLastEntry() {
 
 $TreeMap$Entry* TreeMap::successor($TreeMap$Entry* t) {
 	$init(TreeMap);
+	$useLocalCurrentObjectStackCache();
 	if (t == nullptr) {
 		return nullptr;
 	} else if ($nc(t)->right != nullptr) {
@@ -1103,6 +1122,7 @@ $TreeMap$Entry* TreeMap::successor($TreeMap$Entry* t) {
 
 $TreeMap$Entry* TreeMap::predecessor($TreeMap$Entry* t) {
 	$init(TreeMap);
+	$useLocalCurrentObjectStackCache();
 	if (t == nullptr) {
 		return nullptr;
 	} else if ($nc(t)->left != nullptr) {
@@ -1190,6 +1210,7 @@ void TreeMap::rotateRight($TreeMap$Entry* p) {
 }
 
 void TreeMap::fixAfterInsertion($TreeMap$Entry* x$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, x, x$renamed);
 	$nc(x)->color = TreeMap::RED;
 	while (x != nullptr && x != this->root && $nc(x->parent)->color == TreeMap::RED) {
@@ -1231,6 +1252,7 @@ void TreeMap::fixAfterInsertion($TreeMap$Entry* x$renamed) {
 }
 
 void TreeMap::deleteEntry($TreeMap$Entry* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, p, p$renamed);
 	++this->modCount;
 	--this->size$;
@@ -1272,6 +1294,7 @@ void TreeMap::deleteEntry($TreeMap$Entry* p$renamed) {
 }
 
 void TreeMap::fixAfterDeletion($TreeMap$Entry* x$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$Entry, x, x$renamed);
 	while (x != this->root && colorOf(x) == TreeMap::BLACK) {
 		if (x == leftOf($(parentOf(x)))) {
@@ -1330,6 +1353,7 @@ void TreeMap::fixAfterDeletion($TreeMap$Entry* x$renamed) {
 }
 
 void TreeMap::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	s->writeInt(this->size$);
 	{
@@ -1355,6 +1379,7 @@ void TreeMap::readTreeSet(int32_t size, $ObjectInputStream* s, Object$* defaultV
 }
 
 void TreeMap::addAllForTreeSet($SortedSet* set, Object$* defaultVal) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t var$0 = $nc(set)->size();
 		buildFromSorted(var$0, $(set->iterator()), nullptr, defaultVal);
@@ -1371,6 +1396,7 @@ void TreeMap::buildFromSorted(int32_t size, $Iterator* it, $ObjectInputStream* s
 }
 
 $TreeMap$Entry* TreeMap::buildFromSorted(int32_t level, int32_t lo, int32_t hi, int32_t redLevel, $Iterator* it, $ObjectInputStream* str, Object$* defaultVal) {
+	$useLocalCurrentObjectStackCache();
 	if (hi < lo) {
 		return nullptr;
 	}
@@ -1417,6 +1443,7 @@ int32_t TreeMap::computeRedLevel(int32_t size) {
 
 $Spliterator* TreeMap::keySpliteratorFor($NavigableMap* m) {
 	$init(TreeMap);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(TreeMap, m)) {
 		$var(TreeMap, t, $cast(TreeMap, m));
 		return $nc(t)->keySpliterator();

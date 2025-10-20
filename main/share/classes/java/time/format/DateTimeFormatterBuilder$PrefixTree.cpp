@@ -105,6 +105,7 @@ DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$PrefixTree::newTre
 }
 
 DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$PrefixTree::newTree($Set* keys, $DateTimeParseContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var(DateTimeFormatterBuilder$PrefixTree, tree, newTree(context));
 	{
 		$var($Iterator, i$, $nc(keys)->iterator());
@@ -134,6 +135,7 @@ bool DateTimeFormatterBuilder$PrefixTree::add($String* k, $String* v) {
 }
 
 bool DateTimeFormatterBuilder$PrefixTree::add0($String* k$renamed, $String* v) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, k, k$renamed);
 	$assign(k, toKey(k));
 	int32_t prefixLen = prefixLength(k);
@@ -169,6 +171,7 @@ bool DateTimeFormatterBuilder$PrefixTree::add0($String* k$renamed, $String* v) {
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, int32_t off, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	if (!prefixOf(text, off, end)) {
 		return nullptr;
 	}
@@ -189,6 +192,7 @@ $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, int32_t
 }
 
 $String* DateTimeFormatterBuilder$PrefixTree::match($CharSequence* text, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t off = $nc(pos)->getIndex();
 	int32_t end = $nc(text)->length();
 	if (!prefixOf(text, off, end)) {

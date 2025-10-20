@@ -81,6 +81,7 @@ void SkipTest::init$() {
 
 void SkipTest::main($StringArray* args) {
 	$init(SkipTest);
+	$useLocalCurrentObjectStackCache();
 	$var($ProcessBuilder, pb, $new($ProcessBuilder, $$new($StringArray, {
 		SkipTest::javaExe,
 		"-classpath"_s,

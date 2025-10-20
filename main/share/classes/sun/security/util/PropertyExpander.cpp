@@ -69,6 +69,7 @@ $String* PropertyExpander::expand($String* value) {
 }
 
 $String* PropertyExpander::expand($String* value, bool encodeURL) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		return nullptr;
 	}

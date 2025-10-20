@@ -84,6 +84,7 @@ void SeedGenerator$URLSeedGenerator$1::init$($SeedGenerator$URLSeedGenerator* th
 }
 
 $Object* SeedGenerator$URLSeedGenerator$1::run() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(this->val$device)->getProtocol()))->equalsIgnoreCase("file"_s)) {
 		$var($File, deviceFile, $SunEntries::getDeviceFile(this->val$device));
 		return $of($FileInputStreamPool::getInputStream(deviceFile));

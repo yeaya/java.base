@@ -157,6 +157,7 @@ void PollingWatchService::init$() {
 }
 
 $WatchKey* PollingWatchService::register$($Path* path, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Set, eventSet, $new($HashSet, $nc(events)->length));
 	{
@@ -240,6 +241,7 @@ $WatchKey* PollingWatchService::register$($Path* path, $WatchEvent$KindArray* ev
 }
 
 $PollingWatchService$PollingWatchKey* PollingWatchService::doPrivilegedRegister($Path* path, $Set* events, int32_t sensitivityInSeconds) {
+	$useLocalCurrentObjectStackCache();
 	$load($BasicFileAttributes);
 	$var($BasicFileAttributes, attrs, $Files::readAttributes(path, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
 	if (!$nc(attrs)->isDirectory()) {
@@ -269,6 +271,7 @@ $PollingWatchService$PollingWatchKey* PollingWatchService::doPrivilegedRegister(
 }
 
 void PollingWatchService::implClose() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$synchronized(this->map) {
 		{

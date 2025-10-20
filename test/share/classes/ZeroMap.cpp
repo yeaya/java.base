@@ -54,6 +54,7 @@ void ZeroMap::init$() {
 }
 
 void ZeroMap::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Random, random, $new($Random));
 	int64_t filesize = random->nextInt(1024 * 1024);
 	int32_t cut = random->nextInt((int32_t)filesize);

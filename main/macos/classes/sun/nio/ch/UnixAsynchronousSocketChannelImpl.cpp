@@ -384,6 +384,7 @@ void UnixAsynchronousSocketChannelImpl::setConnected() {
 }
 
 void UnixAsynchronousSocketChannelImpl::finishConnect(bool mayInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, e, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -434,6 +435,7 @@ void UnixAsynchronousSocketChannelImpl::finishConnect(bool mayInvokeDirect) {
 }
 
 $Future* UnixAsynchronousSocketChannelImpl::implConnect($SocketAddress* remote, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$var($Throwable, e, $new($ClosedChannelException));
 		if (handler == nullptr) {
@@ -535,6 +537,7 @@ $Future* UnixAsynchronousSocketChannelImpl::implConnect($SocketAddress* remote, 
 }
 
 void UnixAsynchronousSocketChannelImpl::finishRead(bool mayInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = -1;
 	$var($Throwable, exc, nullptr);
 	bool scattering = this->isScatteringRead;
@@ -606,6 +609,7 @@ void UnixAsynchronousSocketChannelImpl::finishRead(bool mayInvokeDirect) {
 }
 
 $Future* UnixAsynchronousSocketChannelImpl::implRead(bool isScatteringRead, $ByteBuffer* dst, $ByteBufferArray* dsts, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$var($Invoker$GroupAndInvokeCount, myGroupAndInvokeCount, nullptr);
 	bool invokeDirect = false;
 	bool attemptRead = false;
@@ -703,6 +707,7 @@ $Future* UnixAsynchronousSocketChannelImpl::implRead(bool isScatteringRead, $Byt
 }
 
 void UnixAsynchronousSocketChannelImpl::finishWrite(bool mayInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = -1;
 	$var($Throwable, exc, nullptr);
 	bool gathering = this->isGatheringWrite;
@@ -771,6 +776,7 @@ void UnixAsynchronousSocketChannelImpl::finishWrite(bool mayInvokeDirect) {
 }
 
 $Future* UnixAsynchronousSocketChannelImpl::implWrite(bool isGatheringWrite, $ByteBuffer* src, $ByteBufferArray* srcs, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$var($Invoker$GroupAndInvokeCount, myGroupAndInvokeCount, $Invoker::getGroupAndInvokeCount());
 	bool invokeDirect = $Invoker::mayInvokeDirect(myGroupAndInvokeCount, this->port);
 	bool attemptWrite = (handler == nullptr) || invokeDirect || !$nc(this->port)->isFixedThreadPool();

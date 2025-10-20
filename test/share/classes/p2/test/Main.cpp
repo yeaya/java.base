@@ -52,6 +52,7 @@ void Main::init$() {
 
 void Main::main($StringArray* args) {
 	$load(Main);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ModuleLayer, boot, $ModuleLayer::boot());
 	$var($Module, m1, $cast($Module, $nc($($nc(boot)->findModule("m1"_s)))->get()));
@@ -72,6 +73,7 @@ void Main::main($StringArray* args) {
 
 $Class* Main::findClass($Module* module, $String* cn) {
 	$load(Main);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName(module, cn);
 	if (c == nullptr) {

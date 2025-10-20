@@ -279,12 +279,14 @@ DoubleStream* DoubleStream::mapMulti($DoubleStream$DoubleMapMultiConsumer* mappe
 }
 
 DoubleStream* DoubleStream::takeWhile($DoublePredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator$OfDouble, var$0, $as($Spliterator$OfDouble, $new($WhileOps$UnorderedWhileSpliterator$OfDouble$Taking, $($cast($Spliterator$OfDouble, spliterator())), true, predicate)));
 	return $cast(DoubleStream, $nc($($StreamSupport::doubleStream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(DoubleStream$$Lambda$close$1, this))));
 }
 
 DoubleStream* DoubleStream::dropWhile($DoublePredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator$OfDouble, var$0, $as($Spliterator$OfDouble, $new($WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping, $($cast($Spliterator$OfDouble, spliterator())), true, predicate)));
 	return $cast(DoubleStream, $nc($($StreamSupport::doubleStream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(DoubleStream$$Lambda$close$1, this))));
@@ -333,6 +335,7 @@ DoubleStream* DoubleStream::generate($DoubleSupplier* s) {
 
 DoubleStream* DoubleStream::concat(DoubleStream* a, DoubleStream* b) {
 	$init(DoubleStream);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(a);
 	$Objects::requireNonNull(b);
 	$var($Spliterator$OfDouble, var$0, $cast($Spliterator$OfDouble, a->spliterator()));
@@ -344,6 +347,7 @@ DoubleStream* DoubleStream::concat(DoubleStream* a, DoubleStream* b) {
 
 DoubleStream* DoubleStream::lambda$mapMulti$0($DoubleStream$DoubleMapMultiConsumer* mapper, double e) {
 	$init(DoubleStream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfDouble, buffer, $new($SpinedBuffer$OfDouble));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::doubleStream($($cast($Spliterator$OfDouble, buffer->spliterator())), false);

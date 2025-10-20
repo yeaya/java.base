@@ -147,6 +147,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doUpdate($bytes* in, int32_t inOfs, int32_
 }
 
 int32_t GaloisCounterMode$GCMDecrypt::doUpdate($ByteBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	processAAD();
 	if ($nc(src)->remaining() > 0) {
 		if (src->hasArray()) {
@@ -171,6 +172,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doUpdate($ByteBuffer* src, $ByteBuffer* ds
 }
 
 int32_t GaloisCounterMode$GCMDecrypt::doFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out$renamed, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, out$renamed);
 	$var($GHASH, save, nullptr);
 	int32_t len = inLen + getBufferedLength();
@@ -211,6 +213,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doFinal($bytes* in, int32_t inOfs, int32_t
 }
 
 int32_t GaloisCounterMode$GCMDecrypt::doFinal($ByteBuffer* src, $ByteBuffer* dst$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, dst, dst$renamed);
 	$var($GHASH, save, nullptr);
 	$var($ByteBuffer, tag, nullptr);
@@ -277,6 +280,7 @@ int32_t GaloisCounterMode$GCMDecrypt::doFinal($ByteBuffer* src, $ByteBuffer* dst
 }
 
 int32_t GaloisCounterMode$GCMDecrypt::decryptBlocks($GCM* op, $bytes* in$renamed, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, in, in$renamed);
 	$var($bytes, buffer, nullptr);
 	$var($bytes, block, nullptr);

@@ -114,6 +114,7 @@ $String* CertPathConstraintsParameters::extendedExceptionMsg() {
 }
 
 $String* CertPathConstraintsParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "[\n"_s));
 	sb->append("\n  Variant: "_s)->append(this->variant);
 	if (this->anchor != nullptr) {

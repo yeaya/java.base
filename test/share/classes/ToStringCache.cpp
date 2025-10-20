@@ -52,6 +52,7 @@ void ToStringCache::init$() {
 }
 
 void ToStringCache::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, original, "The original String"_s);
 	$var($StringBuffer, sb, $new($StringBuffer, original));
 	$var($String, a, sb->toString());

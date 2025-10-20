@@ -101,6 +101,7 @@ $Object* allocate$SystemModuleFinders$ModuleContentSpliterator($Class* clazz) {
 bool SystemModuleFinders$ModuleContentSpliterator::$assertionsDisabled = false;
 
 void SystemModuleFinders$ModuleContentSpliterator::init$($String* module) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, moduleRoot, $str({"/modules/"_s, module}));
 	$set(this, stack, $new($ArrayDeque));
 	$var($ImageReader$Node, dir, $nc($($SystemModuleFinders$SystemImage::reader()))->findNode(this->moduleRoot));
@@ -112,6 +113,7 @@ void SystemModuleFinders$ModuleContentSpliterator::init$($String* module) {
 }
 
 $String* SystemModuleFinders$ModuleContentSpliterator::next() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		while ($nc(this->iterator)->hasNext()) {
 			$var($ImageReader$Node, node, $cast($ImageReader$Node, $nc(this->iterator)->next()));
@@ -139,6 +141,7 @@ $String* SystemModuleFinders$ModuleContentSpliterator::next() {
 }
 
 bool SystemModuleFinders$ModuleContentSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, next, nullptr);
 	try {
 		$assign(next, this->next());

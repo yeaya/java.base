@@ -80,6 +80,7 @@ void VM$BufferPoolsHolder::init$() {
 }
 
 void clinit$VM$BufferPoolsHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ArrayList, bufferPools, $new($ArrayList, 3));
 		bufferPools->add($($nc($($SharedSecrets::getJavaNioAccess()))->getDirectBufferPool()));

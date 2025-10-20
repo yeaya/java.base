@@ -83,6 +83,7 @@ void DateTimeFormatterBuilder$PadPrinterParserDecorator::init$($DateTimeFormatte
 }
 
 bool DateTimeFormatterBuilder$PadPrinterParserDecorator::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	int32_t preLen = $nc(buf)->length();
 	if ($nc(this->printerParser)->format(context, buf) == false) {
 		return false;
@@ -126,6 +127,7 @@ int32_t DateTimeFormatterBuilder$PadPrinterParserDecorator::parse($DateTimeParse
 }
 
 $String* DateTimeFormatterBuilder$PadPrinterParserDecorator::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Pad("_s, this->printerParser, ","_s, $$str(this->padWidth), (this->padChar == u' ' ? ")"_s : $$str({",\'"_s, $$str(this->padChar), "\')"_s}))});
 }
 

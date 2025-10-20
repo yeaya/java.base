@@ -80,6 +80,7 @@ void StringConcatFactory$1::init$() {
 }
 
 $MethodHandle* StringConcatFactory$1::apply($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$init($StringConcatFactory);
 	$init($Long);
 		$load($bytes);

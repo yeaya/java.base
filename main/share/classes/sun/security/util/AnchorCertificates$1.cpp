@@ -99,6 +99,7 @@ void AnchorCertificates$1::init$() {
 }
 
 $Object* AnchorCertificates$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($FilePaths::cacerts())));
 	try {
 		$var($KeyStore, cacerts, nullptr);

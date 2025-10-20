@@ -155,6 +155,7 @@ void Buffer::init$(int64_t addr, int32_t cap, $MemorySegmentProxy* segment) {
 }
 
 void Buffer::init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, $MemorySegmentProxy* segment) {
+	$useLocalCurrentObjectStackCache();
 	this->mark$ = -1;
 	this->position$ = 0;
 	if (cap < 0) {
@@ -179,6 +180,7 @@ $IllegalArgumentException* Buffer::createSameBufferException() {
 
 $IllegalArgumentException* Buffer::createCapacityException(int32_t capacity) {
 	$init(Buffer);
+	$useLocalCurrentObjectStackCache();
 	if (!Buffer::$assertionsDisabled && !(capacity < 0)) {
 		$throwNew($AssertionError, $of("capacity expected to be negative"_s));
 	}
@@ -205,6 +207,7 @@ Buffer* Buffer::position(int32_t newPosition) {
 }
 
 $IllegalArgumentException* Buffer::createPositionException(int32_t newPosition) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, nullptr);
 	if (newPosition > this->limit$) {
 		$assign(msg, $str({"newPosition > limit: ("_s, $$str(newPosition), " > "_s, $$str(this->limit$), ")"_s}));
@@ -236,6 +239,7 @@ Buffer* Buffer::limit(int32_t newLimit) {
 }
 
 $IllegalArgumentException* Buffer::createLimitException(int32_t newLimit) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, nullptr);
 	if (newLimit > this->capacity$) {
 		$assign(msg, $str({"newLimit > capacity: ("_s, $$str(newLimit), " > "_s, $$str(this->capacity$), ")"_s}));

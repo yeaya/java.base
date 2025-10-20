@@ -312,6 +312,7 @@ void AnalyzerAdapter::init$($String* owner, int32_t access, $String* name, $Stri
 }
 
 void AnalyzerAdapter::init$(int32_t api, $String* owner, int32_t access, $String* name, $String* descriptor, $MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$MethodVisitor::init$(api, methodVisitor);
 	$set(this, owner, owner);
 	$set(this, locals, $new($ArrayList));
@@ -410,6 +411,7 @@ void AnalyzerAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* l
 
 void AnalyzerAdapter::visitFrameTypes(int32_t numTypes, $ObjectArray* frameTypes, $List* result) {
 	$init(AnalyzerAdapter);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < numTypes; ++i) {
 		$var($Object0, frameType, $nc(frameTypes)->get(i));
 		$nc(result)->add(frameType);
@@ -442,6 +444,7 @@ void AnalyzerAdapter::visitVarInsn(int32_t opcode, int32_t var) {
 }
 
 void AnalyzerAdapter::visitTypeInsn(int32_t opcode, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	if (opcode == $Opcodes::NEW) {
 		if (this->labels == nullptr) {
 			$var($Label, label, $new($Label));
@@ -471,6 +474,7 @@ void AnalyzerAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* na
 }
 
 void AnalyzerAdapter::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $String* name, $String* descriptor, bool isInterface) {
+	$useLocalCurrentObjectStackCache();
 	if (this->api < $Opcodes::ASM5 && ((int32_t)(opcodeAndSource & (uint32_t)$Opcodes::SOURCE_DEPRECATED)) == 0) {
 		$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
 		return;
@@ -637,6 +641,7 @@ void AnalyzerAdapter::push(Object$* type) {
 }
 
 void AnalyzerAdapter::pushDescriptor($String* fieldOrMethodDescriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, descriptor, $nc(fieldOrMethodDescriptor)->charAt(0) == u'(' ? $nc($($Type::getReturnType(fieldOrMethodDescriptor)))->getDescriptor() : fieldOrMethodDescriptor);
 	switch ($nc(descriptor)->charAt(0)) {
 	case u'V':
@@ -709,6 +714,7 @@ void AnalyzerAdapter::pop(int32_t numSlots) {
 }
 
 void AnalyzerAdapter::pop($String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	char16_t firstDescriptorChar = $nc(descriptor)->charAt(0);
 	if (firstDescriptorChar == u'(') {
 		int32_t numSlots = 0;
@@ -733,6 +739,7 @@ void AnalyzerAdapter::pop($String* descriptor) {
 }
 
 void AnalyzerAdapter::execute(int32_t opcode, int32_t intArg, $String* stringArg) {
+	$useLocalCurrentObjectStackCache();
 	if (opcode == $Opcodes::JSR || opcode == $Opcodes::RET) {
 		$throwNew($IllegalArgumentException, "JSR/RET are not supported"_s);
 	}

@@ -368,6 +368,7 @@ void PriorityBlockingQueue::init$(int32_t initialCapacity, $Comparator* comparat
 }
 
 void PriorityBlockingQueue::init$($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractQueue::init$();
 	$set(this, lock, $new($ReentrantLock));
 	$set(this, notEmpty, $nc(this->lock)->newCondition());
@@ -418,6 +419,7 @@ $ObjectArray* PriorityBlockingQueue::ensureNonEmpty($ObjectArray* es) {
 }
 
 void PriorityBlockingQueue::tryGrow($ObjectArray* array, int32_t oldCap) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->lock)->unlock();
 	$var($ObjectArray, newArray, nullptr);
 	if (this->allocationSpinLock == 0 && $nc(PriorityBlockingQueue::ALLOCATIONSPINLOCK)->compareAndSet($$new($ObjectArray, {$of(this), $$of(0), $$of(1)}))) {
@@ -450,6 +452,7 @@ void PriorityBlockingQueue::tryGrow($ObjectArray* array, int32_t oldCap) {
 }
 
 $Object* PriorityBlockingQueue::dequeue() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, nullptr);
 	$var($Object, result, nullptr);
 	if (($assign(result, ($nc(($assign(es, this->queue)))->get(0)))) != nullptr) {
@@ -470,6 +473,7 @@ $Object* PriorityBlockingQueue::dequeue() {
 
 void PriorityBlockingQueue::siftUpComparable(int32_t k, Object$* x, $ObjectArray* es) {
 	$init(PriorityBlockingQueue);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparable, key, $cast($Comparable, x));
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
@@ -485,6 +489,7 @@ void PriorityBlockingQueue::siftUpComparable(int32_t k, Object$* x, $ObjectArray
 
 void PriorityBlockingQueue::siftUpUsingComparator(int32_t k, Object$* x, $ObjectArray* es, $Comparator* cmp) {
 	$init(PriorityBlockingQueue);
+	$useLocalCurrentObjectStackCache();
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
 		$var($Object0, e, $nc(es)->get(parent));
@@ -499,6 +504,7 @@ void PriorityBlockingQueue::siftUpUsingComparator(int32_t k, Object$* x, $Object
 
 void PriorityBlockingQueue::siftDownComparable(int32_t k, Object$* x, $ObjectArray* es, int32_t n) {
 	$init(PriorityBlockingQueue);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparable, key, $cast($Comparable, x));
 	int32_t half = (int32_t)((uint32_t)n >> 1);
 	while (k < half) {
@@ -519,6 +525,7 @@ void PriorityBlockingQueue::siftDownComparable(int32_t k, Object$* x, $ObjectArr
 
 void PriorityBlockingQueue::siftDownUsingComparator(int32_t k, Object$* x, $ObjectArray* es, int32_t n, $Comparator* cmp) {
 	$init(PriorityBlockingQueue);
+	$useLocalCurrentObjectStackCache();
 	int32_t half = (int32_t)((uint32_t)n >> 1);
 	while (k < half) {
 		int32_t child = (k << 1) + 1;
@@ -537,6 +544,7 @@ void PriorityBlockingQueue::siftDownUsingComparator(int32_t k, Object$* x, $Obje
 }
 
 void PriorityBlockingQueue::heapify() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->queue);
 	int32_t n = this->size$;
 	int32_t i = ((int32_t)((uint32_t)n >> 1)) - 1;
@@ -557,6 +565,7 @@ bool PriorityBlockingQueue::add(Object$* e) {
 }
 
 bool PriorityBlockingQueue::offer(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	if (e == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -600,6 +609,7 @@ bool PriorityBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) 
 }
 
 $Object* PriorityBlockingQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -626,6 +636,7 @@ $Object* PriorityBlockingQueue::poll() {
 }
 
 $Object* PriorityBlockingQueue::take() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
 	$var($Object, result, nullptr);
@@ -648,6 +659,7 @@ $Object* PriorityBlockingQueue::take() {
 }
 
 $Object* PriorityBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -671,6 +683,7 @@ $Object* PriorityBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* PriorityBlockingQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -701,6 +714,7 @@ $Comparator* PriorityBlockingQueue::comparator() {
 }
 
 int32_t PriorityBlockingQueue::size() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -747,6 +761,7 @@ int32_t PriorityBlockingQueue::indexOf(Object$* o) {
 }
 
 void PriorityBlockingQueue::removeAt(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->queue);
 	int32_t n = this->size$ - 1;
 	if (n == i) {
@@ -772,6 +787,7 @@ void PriorityBlockingQueue::removeAt(int32_t i) {
 }
 
 bool PriorityBlockingQueue::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -805,6 +821,7 @@ bool PriorityBlockingQueue::remove(Object$* o) {
 }
 
 void PriorityBlockingQueue::removeEq(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -833,6 +850,7 @@ void PriorityBlockingQueue::removeEq(Object$* o) {
 }
 
 bool PriorityBlockingQueue::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -867,6 +885,7 @@ int32_t PriorityBlockingQueue::drainTo($Collection* c) {
 }
 
 int32_t PriorityBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -905,6 +924,7 @@ int32_t PriorityBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
 }
 
 void PriorityBlockingQueue::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -931,6 +951,7 @@ void PriorityBlockingQueue::clear() {
 }
 
 $ObjectArray* PriorityBlockingQueue::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -957,6 +978,7 @@ $ObjectArray* PriorityBlockingQueue::toArray() {
 }
 
 $ObjectArray* PriorityBlockingQueue::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1017,6 +1039,7 @@ void PriorityBlockingQueue::writeObject($ObjectOutputStream* s) {
 }
 
 void PriorityBlockingQueue::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -1073,6 +1096,7 @@ bool PriorityBlockingQueue::isClear($longs* bits, int32_t i) {
 }
 
 bool PriorityBlockingQueue::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1127,6 +1151,7 @@ bool PriorityBlockingQueue::bulkRemove($Predicate* filter) {
 }
 
 void PriorityBlockingQueue::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -1163,6 +1188,7 @@ bool PriorityBlockingQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$PriorityBlockingQueue($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

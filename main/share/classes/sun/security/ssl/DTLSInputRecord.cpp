@@ -190,6 +190,7 @@ $Plaintext* DTLSInputRecord::acquirePlaintext() {
 }
 
 $PlaintextArray* DTLSInputRecord::decode($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength) {
+	$useLocalCurrentObjectStackCache();
 	if (srcs == nullptr || $nc(srcs)->length == 0 || srcsLength == 0) {
 		$var($Plaintext, pt, acquirePlaintext());
 		return pt == nullptr ? $new($PlaintextArray, 0) : $new($PlaintextArray, {pt});
@@ -202,6 +203,7 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBufferArray* srcs, int32_t srcsOff
 }
 
 $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isClosed$) {
 		return nullptr;
 	}
@@ -333,6 +335,7 @@ int32_t DTLSInputRecord::bytesInCompletePacket($ByteBufferArray* srcs, int32_t s
 }
 
 int32_t DTLSInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(packet)->remaining() < $DTLSRecord::headerSize) {
 		return -1;
 	}
@@ -356,6 +359,7 @@ int32_t DTLSInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
 
 $DTLSInputRecord$HandshakeFragment* DTLSInputRecord::parseHandshakeMessage(int8_t contentType, int8_t majorVersion, int8_t minorVersion, $bytes* recordEnS, int32_t recordEpoch, int64_t recordSeq, $ByteBuffer* plaintextFragment) {
 	$init(DTLSInputRecord);
+	$useLocalCurrentObjectStackCache();
 	int32_t remaining = $nc(plaintextFragment)->remaining();
 	if (remaining < $DTLSRecord::handshakeHeaderSize) {
 		$init($SSLLogger);

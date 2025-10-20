@@ -44,6 +44,7 @@ void ClosedReady::init$() {
 }
 
 void ClosedReady::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringReader, in, $new($StringReader, "aaaaaaaaaaaaaaa"_s));
 	in->read();
 	in->close();

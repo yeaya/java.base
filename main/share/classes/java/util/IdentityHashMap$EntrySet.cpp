@@ -100,6 +100,7 @@ $Iterator* IdentityHashMap$EntrySet::iterator() {
 }
 
 bool IdentityHashMap$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -115,6 +116,7 @@ bool IdentityHashMap$EntrySet::contains(Object$* o) {
 }
 
 bool IdentityHashMap$EntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -138,6 +140,7 @@ void IdentityHashMap$EntrySet::clear() {
 }
 
 bool IdentityHashMap$EntrySet::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	{
@@ -157,6 +160,7 @@ $ObjectArray* IdentityHashMap$EntrySet::toArray() {
 }
 
 $ObjectArray* IdentityHashMap$EntrySet::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	int32_t expectedModCount = this->this$0->modCount;
 	int32_t size = this->size();

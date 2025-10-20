@@ -59,6 +59,7 @@ void PrecisionTests::init$() {
 
 void PrecisionTests::main($StringArray* argv) {
 	$init(PrecisionTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray, testValues, $new($BigDecimalArray, {
 		$($BigDecimal::valueOf((int64_t)1)),
@@ -115,6 +116,7 @@ void PrecisionTests::main($StringArray* argv) {
 
 int32_t PrecisionTests::testPrecision($BigDecimal* bd, int32_t expected) {
 	$init(PrecisionTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t precision = $nc(bd)->precision();
 	if (precision != expected) {
 		$init($System);

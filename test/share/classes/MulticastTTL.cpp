@@ -46,6 +46,7 @@ void MulticastTTL::init$() {
 }
 
 void MulticastTTL::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($MulticastSocket, soc, nullptr);
 	$var($DatagramPacket, pac, nullptr);
 	$var($InetAddress, sin, nullptr);

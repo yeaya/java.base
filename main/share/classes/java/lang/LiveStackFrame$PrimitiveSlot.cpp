@@ -57,11 +57,13 @@ void LiveStackFrame$PrimitiveSlot::init$() {
 }
 
 int32_t LiveStackFrame$PrimitiveSlot::intValue() {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($UnsupportedOperationException, $$str({"this "_s, $$str(size()), "-byte primitive"_s}));
 	$shouldNotReachHere();
 }
 
 int64_t LiveStackFrame$PrimitiveSlot::longValue() {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($UnsupportedOperationException, $$str({"this "_s, $$str(size()), "-byte primitive"_s}));
 	$shouldNotReachHere();
 }

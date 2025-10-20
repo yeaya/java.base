@@ -96,6 +96,7 @@ void MoreDrbgParameters::init$($EntropySource* es, $String* mech, $String* algor
 }
 
 $String* MoreDrbgParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({this->mech, ","_s, this->algorithm, ","_s, $$str(this->usedf), ","_s, $$str(this->strength), ","_s, this->capability, ","_s, this->personalizationString});
 }
 

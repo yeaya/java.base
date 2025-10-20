@@ -71,6 +71,7 @@ void Basic4ThreadLocal::init$() {
 
 void Basic4ThreadLocal::main($StringArray* args) {
 	$init(Basic4ThreadLocal);
+	$useLocalCurrentObjectStackCache();
 	int32_t threadCount = 100;
 	$var($ThreadArray, th, $new($ThreadArray, threadCount));
 	$var($ints, x, $new($ints, threadCount));

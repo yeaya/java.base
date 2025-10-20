@@ -38,6 +38,7 @@ void ArrayAssignment::init$() {
 }
 
 void ArrayAssignment::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($intArray2, from, $new($intArray2, 5, 5));
 	$var($ObjectArray, to, static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$intArray2*>(from))));
 	$assign(to, $new($ObjectArray, 1));

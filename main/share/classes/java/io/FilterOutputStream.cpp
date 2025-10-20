@@ -84,6 +84,7 @@ void FilterOutputStream::flush() {
 }
 
 void FilterOutputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}

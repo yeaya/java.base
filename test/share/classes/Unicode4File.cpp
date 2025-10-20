@@ -66,6 +66,7 @@ void Unicode4File::fail($String* msg) {
 
 bool Unicode4File::creat($File* f) {
 	$init(Unicode4File);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($FileOutputStream, out, $new($FileOutputStream, f));
 		out->write($$new($bytes, {
@@ -84,6 +85,7 @@ bool Unicode4File::creat($File* f) {
 
 bool Unicode4File::find($File* f) {
 	$init(Unicode4File);
+	$useLocalCurrentObjectStackCache();
 	$var($String, fn, $nc(f)->getPath());
 	$var($StringArray, fns, $$new($File, "."_s)->list());
 	for (int32_t i = 0; i < $nc(fns)->length; ++i) {
@@ -124,6 +126,7 @@ void Unicode4File::sanityCheck($File* f) {
 
 void Unicode4File::main($StringArray* args) {
 	$init(Unicode4File);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f1, $new($File, u"\u0411.tst"_s));
 	$var($File, f2, $new($File, u"\u0412.tst"_s));
 	{

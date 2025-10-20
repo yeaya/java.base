@@ -83,6 +83,7 @@ void BootstrapLogger$DetectBackend$1::init$() {
 }
 
 $Object* BootstrapLogger$DetectBackend$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($System$LoggerFinder);
 	$var($Iterator, iterator, $nc($($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader()))))->iterator());

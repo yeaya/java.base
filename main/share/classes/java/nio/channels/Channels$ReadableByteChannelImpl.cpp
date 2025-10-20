@@ -120,6 +120,7 @@ void Channels$ReadableByteChannelImpl::init$($InputStream* in) {
 }
 
 int32_t Channels$ReadableByteChannelImpl::read($ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$throwNew($ClosedChannelException);
 	}

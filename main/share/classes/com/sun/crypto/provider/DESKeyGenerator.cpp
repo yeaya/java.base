@@ -94,6 +94,7 @@ void DESKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* DESKeyGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	$var($DESKey, desKey, nullptr);
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());

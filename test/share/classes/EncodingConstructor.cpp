@@ -48,6 +48,7 @@ void EncodingConstructor::init$() {
 }
 
 void EncodingConstructor::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
 	$var($String, s, "xyzzy"_s);
 	int32_t n = s->length();

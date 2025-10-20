@@ -105,11 +105,13 @@ Nodes$CollectorTask* Nodes$CollectorTask::makeChild($Spliterator* spliterator) {
 }
 
 $Object* Nodes$CollectorTask::doLeaf() {
+	$useLocalCurrentObjectStackCache();
 	$var($Node$Builder, builder, $cast($Node$Builder, $nc(this->builderFactory)->apply($nc(this->helper)->exactOutputSizeIfKnown(this->spliterator))));
 	return $of($nc(($cast($Node$Builder, $($nc(this->helper)->wrapAndCopyInto(builder, this->spliterator)))))->build());
 }
 
 void Nodes$CollectorTask::onCompletion($CountedCompleter* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (!isLeaf()) {
 		$var($Object, var$0, $cast($Node, $nc(($cast(Nodes$CollectorTask, this->leftChild)))->getLocalResult()));
 		setLocalResult($cast($Node, $($nc(this->concFactory)->apply(var$0, $cast($Node, $($nc(($cast(Nodes$CollectorTask, this->rightChild)))->getLocalResult()))))));

@@ -74,12 +74,14 @@ void Shadow::init$() {
 
 void Shadow::dump($ServerSocket* s) {
 	$init(Shadow);
+	$useLocalCurrentObjectStackCache();
 	$nc(Shadow::log)->println($$str({"getInetAddress(): "_s, $($nc(s)->getInetAddress())}));
 	$nc(Shadow::log)->println($$str({"getLocalPort(): "_s, $$str($nc(s)->getLocalPort())}));
 }
 
 void Shadow::dump($Socket* s) {
 	$init(Shadow);
+	$useLocalCurrentObjectStackCache();
 	$nc(Shadow::log)->println($$str({"getInetAddress(): "_s, $($nc(s)->getInetAddress())}));
 	$nc(Shadow::log)->println($$str({"getPort(): "_s, $$str($nc(s)->getPort())}));
 	$nc(Shadow::log)->println($$str({"getLocalAddress(): "_s, $($nc(s)->getLocalAddress())}));
@@ -94,6 +96,7 @@ void Shadow::problem($String* s) {
 
 void Shadow::check($Socket* s) {
 	$init(Shadow);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(s)->getPort() == 0) {
 		problem("Socket has no port"_s);
 	}
@@ -107,6 +110,7 @@ void Shadow::check($Socket* s) {
 
 void Shadow::main($StringArray* args) {
 	$init(Shadow);
+	$useLocalCurrentObjectStackCache();
 	bool useChannels = (($nc(args)->length == 0) || $nc($($Boolean::valueOf($nc(args)->get(0))))->booleanValue());
 	int32_t port = ($nc(args)->length > 1 ? $Integer::parseInt($nc(args)->get(1)) : -1);
 	$var($ServerSocket, serverSocket, nullptr);

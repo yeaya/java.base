@@ -277,6 +277,7 @@ $Cleaner* DirectByteBuffer::cleaner() {
 }
 
 void DirectByteBuffer::init$(int32_t cap) {
+	$useLocalCurrentObjectStackCache();
 	$MappedByteBuffer::init$(-1, 0, cap, cap, nullptr);
 	bool pa = $VM::isDirectMemoryPageAligned();
 	int32_t ps = $Bits::pageSize();
@@ -385,6 +386,7 @@ $ByteBuffer* DirectByteBuffer::asReadOnlyBuffer() {
 }
 
 int64_t DirectByteBuffer::address() {
+	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -405,6 +407,7 @@ int64_t DirectByteBuffer::ix(int32_t i) {
 }
 
 int8_t DirectByteBuffer::get() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		int8_t var$2 = 0;
@@ -431,6 +434,7 @@ int8_t DirectByteBuffer::get() {
 }
 
 int8_t DirectByteBuffer::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		int8_t var$2 = 0;
@@ -457,6 +461,7 @@ int8_t DirectByteBuffer::get(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::put(int8_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -476,6 +481,7 @@ $ByteBuffer* DirectByteBuffer::put(int8_t x) {
 }
 
 $ByteBuffer* DirectByteBuffer::put(int32_t i, int8_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -495,6 +501,7 @@ $ByteBuffer* DirectByteBuffer::put(int32_t i, int8_t x) {
 }
 
 $MappedByteBuffer* DirectByteBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!DirectByteBuffer::$assertionsDisabled && !(pos <= lim)) {
@@ -532,6 +539,7 @@ bool DirectByteBuffer::isReadOnly() {
 }
 
 char16_t DirectByteBuffer::getChar(int64_t a) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		char16_t var$2 = 0;
@@ -606,6 +614,7 @@ char16_t DirectByteBuffer::getChar(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::putChar(int64_t a, char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -650,6 +659,7 @@ $CharBuffer* DirectByteBuffer::asCharBuffer() {
 }
 
 int16_t DirectByteBuffer::getShort(int64_t a) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		int16_t var$2 = 0;
@@ -724,6 +734,7 @@ int16_t DirectByteBuffer::getShort(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::putShort(int64_t a, int16_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -768,6 +779,7 @@ $ShortBuffer* DirectByteBuffer::asShortBuffer() {
 }
 
 int32_t DirectByteBuffer::getInt(int64_t a) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		int32_t var$2 = 0;
@@ -842,6 +854,7 @@ int32_t DirectByteBuffer::getInt(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::putInt(int64_t a, int32_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -886,6 +899,7 @@ $IntBuffer* DirectByteBuffer::asIntBuffer() {
 }
 
 int64_t DirectByteBuffer::getLong(int64_t a) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		int64_t var$2 = 0;
@@ -960,6 +974,7 @@ int64_t DirectByteBuffer::getLong(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::putLong(int64_t a, int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -1004,6 +1019,7 @@ $LongBuffer* DirectByteBuffer::asLongBuffer() {
 }
 
 float DirectByteBuffer::getFloat(int64_t a) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		float var$2 = 0.0;
@@ -1078,6 +1094,7 @@ float DirectByteBuffer::getFloat(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::putFloat(int64_t a, float x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -1122,6 +1139,7 @@ $FloatBuffer* DirectByteBuffer::asFloatBuffer() {
 }
 
 double DirectByteBuffer::getDouble(int64_t a) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		double var$2 = 0.0;
@@ -1196,6 +1214,7 @@ double DirectByteBuffer::getDouble(int32_t i) {
 }
 
 $ByteBuffer* DirectByteBuffer::putDouble(int64_t a, double x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

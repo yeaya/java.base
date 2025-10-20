@@ -86,6 +86,7 @@ void KeyManagerFactoryImpl$X509::init$() {
 }
 
 void KeyManagerFactoryImpl$X509::engineInit($KeyStore* ks, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	if (ks == nullptr) {
 		$set(this, keyManager, $new($X509KeyManagerImpl, $($Collections::emptyList())));
 	} else {

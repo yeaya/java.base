@@ -117,6 +117,7 @@ $ObjectArray* HashMap$Values::toArray($ObjectArray* a) {
 }
 
 void HashMap$Values::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

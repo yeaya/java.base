@@ -174,6 +174,7 @@ void ImmutableCollections$Set12::readObject($ObjectInputStream* in) {
 }
 
 $Object* ImmutableCollections$Set12::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($ImmutableCollections);
 	if ($equals(this->e1, $ImmutableCollections::EMPTY)) {
 		return $of($new($CollSer, $CollSer::IMM_SET, $$new($ObjectArray, {this->e0})));

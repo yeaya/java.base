@@ -107,6 +107,7 @@ void UnixSocketFile::init$() {
 
 void UnixSocketFile::main($StringArray* args) {
 	$init(UnixSocketFile);
+	$useLocalCurrentObjectStackCache();
 	$var($Process, proc, $nc($($Runtime::getRuntime()))->exec("which nc"_s));
 	$var($InputStream, stdout, $nc(proc)->getInputStream());
 	int32_t b = $nc(stdout)->read();

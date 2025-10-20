@@ -99,6 +99,7 @@ $MethodType* InheritedMethodTest::mt($Class* ret, $ClassArray* params) {
 
 void InheritedMethodTest::main($StringArray* args) {
 	$init(InheritedMethodTest);
+	$useLocalCurrentObjectStackCache();
 	$load($InheritedMethodTest$C);
 	$load($String);
 	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$C::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
@@ -119,6 +120,7 @@ void InheritedMethodTest::test($MethodHandle* implMethod, $String* expected) {
 
 void InheritedMethodTest::testMetafactory($MethodHandle* implMethod, $String* expected) {
 	$init(InheritedMethodTest);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup, var$0, InheritedMethodTest::lookup);
 	$var($String, var$1, "get"_s);
 	$load($InheritedMethodTest$StringFactory);
@@ -137,6 +139,7 @@ void InheritedMethodTest::testMetafactory($MethodHandle* implMethod, $String* ex
 
 void InheritedMethodTest::testAltMetafactory($MethodHandle* implMethod, $String* expected) {
 	$init(InheritedMethodTest);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandles$Lookup, var$0, InheritedMethodTest::lookup);
 	$var($String, var$1, "get"_s);
 	$load($InheritedMethodTest$StringFactory);

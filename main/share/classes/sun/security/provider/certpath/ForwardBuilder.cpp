@@ -175,6 +175,7 @@ $Object* allocate$ForwardBuilder($Class* clazz) {
 $Debug* ForwardBuilder::debug = nullptr;
 
 void ForwardBuilder::init$($PKIX$BuilderParams* buildParams, bool searchAllCertStores) {
+	$useLocalCurrentObjectStackCache();
 	$Builder::init$(buildParams);
 	this->searchAllCertStores = true;
 	$set(this, trustAnchors, $nc(buildParams)->trustAnchors());
@@ -199,6 +200,7 @@ void ForwardBuilder::init$($PKIX$BuilderParams* buildParams, bool searchAllCertS
 }
 
 $Collection* ForwardBuilder::getMatchingCerts($State* currentState, $List* certStores) {
+	$useLocalCurrentObjectStackCache();
 	if (ForwardBuilder::debug != nullptr) {
 		$nc(ForwardBuilder::debug)->println("ForwardBuilder.getMatchingCerts()..."_s);
 	}
@@ -213,6 +215,7 @@ $Collection* ForwardBuilder::getMatchingCerts($State* currentState, $List* certS
 }
 
 void ForwardBuilder::getMatchingEECerts($ForwardState* currentState, $List* certStores, $Collection* eeCerts) {
+	$useLocalCurrentObjectStackCache();
 	if (ForwardBuilder::debug != nullptr) {
 		$nc(ForwardBuilder::debug)->println("ForwardBuilder.getMatchingEECerts()..."_s);
 	}
@@ -228,6 +231,7 @@ void ForwardBuilder::getMatchingEECerts($ForwardState* currentState, $List* cert
 }
 
 void ForwardBuilder::getMatchingCACerts($ForwardState* currentState, $List* certStores, $Collection* caCerts) {
+	$useLocalCurrentObjectStackCache();
 	if (ForwardBuilder::debug != nullptr) {
 		$nc(ForwardBuilder::debug)->println("ForwardBuilder.getMatchingCACerts()..."_s);
 	}
@@ -303,6 +307,7 @@ void ForwardBuilder::getMatchingCACerts($ForwardState* currentState, $List* cert
 }
 
 bool ForwardBuilder::getCerts($AuthorityInfoAccessExtension* aiaExt, $Collection* certs) {
+	$useLocalCurrentObjectStackCache();
 	$init($Builder);
 	if ($Builder::USE_AIA == false) {
 		return false;
@@ -341,6 +346,7 @@ bool ForwardBuilder::getCerts($AuthorityInfoAccessExtension* aiaExt, $Collection
 }
 
 void ForwardBuilder::verifyCert($X509Certificate* cert, $State* currentState, $List* certPathList) {
+	$useLocalCurrentObjectStackCache();
 	if (ForwardBuilder::debug != nullptr) {
 		$var($String, var$3, $$str({"ForwardBuilder.verifyCert(SN: "_s, $($Debug::toHexString($($nc(cert)->getSerialNumber()))), "\n  Issuer: "_s}));
 		$var($String, var$2, $$concat(var$3, $($nc(cert)->getIssuerX500Principal())));
@@ -428,6 +434,7 @@ void ForwardBuilder::verifyCert($X509Certificate* cert, $State* currentState, $L
 }
 
 bool ForwardBuilder::isPathCompleted($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, otherAnchors, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->trustAnchors)->iterator());

@@ -146,6 +146,7 @@ void AbstractTrustManagerWrapper::checkServerTrusted($X509CertificateArray* chai
 }
 
 void AbstractTrustManagerWrapper::checkAdditionalTrust($X509CertificateArray* chain, $String* authType, $Socket* socket, bool checkClientTrusted) {
+	$useLocalCurrentObjectStackCache();
 	if (socket != nullptr && socket->isConnected() && $instanceOf($SSLSocket, socket)) {
 		$var($SSLSocket, sslSocket, $cast($SSLSocket, socket));
 		$var($SSLSession, session, sslSocket->getHandshakeSession());
@@ -173,6 +174,7 @@ void AbstractTrustManagerWrapper::checkAdditionalTrust($X509CertificateArray* ch
 }
 
 void AbstractTrustManagerWrapper::checkAdditionalTrust($X509CertificateArray* chain, $String* authType, $SSLEngine* engine, bool checkClientTrusted) {
+	$useLocalCurrentObjectStackCache();
 	if (engine != nullptr) {
 		$var($SSLSession, session, engine->getHandshakeSession());
 		if (session == nullptr) {
@@ -199,6 +201,7 @@ void AbstractTrustManagerWrapper::checkAdditionalTrust($X509CertificateArray* ch
 }
 
 void AbstractTrustManagerWrapper::checkAlgorithmConstraints($X509CertificateArray* chain, $AlgorithmConstraints* constraints, bool checkClientTrusted) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t checkedLength = $nc(chain)->length - 1;
 		$var($Collection, trustedCerts, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>($new($HashSet)))));

@@ -109,6 +109,7 @@ void CheckMethodAdapter$1::init$(int32_t api, int32_t access, $String* name, $St
 }
 
 void CheckMethodAdapter$1::visitEnd() {
+	$useLocalCurrentObjectStackCache();
 	$var($Analyzer, analyzer, $new($Analyzer, $$new($BasicVerifier)));
 	try {
 		analyzer->analyze("dummy"_s, this);
@@ -128,6 +129,7 @@ void CheckMethodAdapter$1::visitEnd() {
 }
 
 void CheckMethodAdapter$1::throwError($Analyzer* analyzer, $Exception* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringWriter, stringWriter, $new($StringWriter));
 	$var($PrintWriter, printWriter, $new($PrintWriter, static_cast<$Writer*>(stringWriter), true));
 	$CheckClassAdapter::printAnalyzerResult(this, analyzer, printWriter);

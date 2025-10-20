@@ -89,6 +89,7 @@ void BufferMismatch::init$() {
 
 int32_t BufferMismatch::mismatch($ByteBuffer* a, int32_t aOff, $ByteBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	if (length > 7) {
 		int8_t var$0 = $nc(a)->get(aOff);
@@ -117,6 +118,7 @@ int32_t BufferMismatch::mismatch($ByteBuffer* a, int32_t aOff, $ByteBuffer* b, i
 
 int32_t BufferMismatch::mismatch($CharBuffer* a, int32_t aOff, $CharBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	bool var$2 = length > 3;
 	if (var$2) {
@@ -151,6 +153,7 @@ int32_t BufferMismatch::mismatch($CharBuffer* a, int32_t aOff, $CharBuffer* b, i
 
 int32_t BufferMismatch::mismatch($ShortBuffer* a, int32_t aOff, $ShortBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	bool var$0 = length > 3;
 	if (var$0) {
@@ -183,6 +186,7 @@ int32_t BufferMismatch::mismatch($ShortBuffer* a, int32_t aOff, $ShortBuffer* b,
 
 int32_t BufferMismatch::mismatch($IntBuffer* a, int32_t aOff, $IntBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	bool var$0 = length > 1;
 	if (var$0) {
@@ -215,6 +219,7 @@ int32_t BufferMismatch::mismatch($IntBuffer* a, int32_t aOff, $IntBuffer* b, int
 
 int32_t BufferMismatch::mismatch($FloatBuffer* a, int32_t aOff, $FloatBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	bool var$0 = length > 1;
 	if (var$0) {
@@ -263,6 +268,7 @@ int32_t BufferMismatch::mismatch($FloatBuffer* a, int32_t aOff, $FloatBuffer* b,
 
 int32_t BufferMismatch::mismatch($LongBuffer* a, int32_t aOff, $LongBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	bool var$0 = length > 0;
 	if (var$0) {
@@ -292,6 +298,7 @@ int32_t BufferMismatch::mismatch($LongBuffer* a, int32_t aOff, $LongBuffer* b, i
 
 int32_t BufferMismatch::mismatch($DoubleBuffer* a, int32_t aOff, $DoubleBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	bool var$0 = length > 0;
 	if (var$0) {

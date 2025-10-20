@@ -44,6 +44,7 @@ void TestClient::init$() {
 
 void TestClient::main($StringArray* args) {
 	$load(TestClient);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$System::getProperty("test.src"_s);
 	$nc($System::out)->printf("ContextClassLoader: %s%n"_s, $$new($ObjectArray, {$($of($nc($of($($($Thread::currentThread())->getContextClassLoader())))->toString()))}));

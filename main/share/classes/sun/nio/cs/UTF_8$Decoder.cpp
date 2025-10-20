@@ -223,6 +223,7 @@ $CoderResult* UTF_8$Decoder::xflow($Buffer* src, int32_t mark, int32_t nb) {
 }
 
 $CoderResult* UTF_8$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();

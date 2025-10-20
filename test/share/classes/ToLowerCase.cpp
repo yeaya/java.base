@@ -54,6 +54,7 @@ void ToLowerCase::init$() {
 }
 
 void ToLowerCase::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, turkish, $new($Locale, "tr"_s, "TR"_s));
 	$var($Locale, lt, $new($Locale, "lt"_s));
 	$var($Locale, az, $new($Locale, "az"_s));
@@ -153,6 +154,7 @@ void ToLowerCase::main($StringArray* args) {
 }
 
 void ToLowerCase::test($String* in, $Locale* locale, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	test0(in, locale, expected);
 	{
 		$var($StringArray2, arr$, $new($StringArray2, {
@@ -218,6 +220,7 @@ void ToLowerCase::test($String* in, $Locale* locale, $String* expected) {
 }
 
 void ToLowerCase::test0($String* in, $Locale* locale, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc(in)->toLowerCase(locale));
 	if (!result->equals(expected)) {
 		$init($System);

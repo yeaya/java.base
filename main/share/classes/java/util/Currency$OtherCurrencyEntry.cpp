@@ -67,6 +67,7 @@ void Currency$OtherCurrencyEntry::init$($String* currencyCode, int32_t fraction,
 }
 
 Currency$OtherCurrencyEntry* Currency$OtherCurrencyEntry::findEntry($String* code) {
+	$useLocalCurrentObjectStackCache();
 	$init($Currency);
 	int32_t size = $nc($Currency::otherCurrenciesList)->size();
 	for (int32_t index = 0; index < size; ++index) {

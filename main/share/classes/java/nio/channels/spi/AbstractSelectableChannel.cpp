@@ -280,6 +280,7 @@ $SelectionKey* AbstractSelectableChannel::keyFor($Selector* sel) {
 }
 
 void AbstractSelectableChannel::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->keyLock) {
 		$var($SelectionKeyArray, keys, this->keys);
 		if (keys != nullptr) {
@@ -317,6 +318,7 @@ $SelectionKey* AbstractSelectableChannel::register$($Selector* sel, int32_t ops,
 }
 
 void AbstractSelectableChannel::implCloseChannel() {
+	$useLocalCurrentObjectStackCache();
 	implCloseSelectableChannel();
 	$var($SelectionKeyArray, copyOfKeys, nullptr);
 	$synchronized(this->keyLock) {

@@ -78,6 +78,7 @@ void ConcurrentLinkedDeque$AbstractItr::init$($ConcurrentLinkedDeque* this$0) {
 }
 
 void ConcurrentLinkedDeque$AbstractItr::advance() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lastRet, this->nextNode$);
 	$var($ConcurrentLinkedDeque$Node, p, (this->nextNode$ == nullptr) ? startNode() : nextNode(this->nextNode$));
 	for (;; $assign(p, nextNode(p))) {

@@ -77,6 +77,7 @@ void Bug4833877::init$() {
 
 void Bug4833877::main($StringArray* args) {
 	$init(Bug4833877);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLoc, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);
 	$assignStatic(Bug4833877::df, $new($DecimalFormat));
@@ -233,6 +234,7 @@ void Bug4833877::main($StringArray* args) {
 
 void Bug4833877::checkFormat($Number* num, $String* expected) {
 	$init(Bug4833877);
+	$useLocalCurrentObjectStackCache();
 	$var($String, got, $nc(Bug4833877::df)->format(num));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
@@ -250,6 +252,7 @@ void Bug4833877::checkFormat($Number* num, $String* expected) {
 
 void Bug4833877::checkParse($String* text, $Double* expected) {
 	$init(Bug4833877);
+	$useLocalCurrentObjectStackCache();
 	$var($Double, got, $cast($Double, $nc(Bug4833877::df)->parse(text, $$new($ParsePosition, 0))));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
@@ -265,6 +268,7 @@ void Bug4833877::checkParse($String* text, $Double* expected) {
 
 void Bug4833877::checkParse($String* text, $Long* expected) {
 	$init(Bug4833877);
+	$useLocalCurrentObjectStackCache();
 	$var($Long, got, $cast($Long, $nc(Bug4833877::df)->parse(text, $$new($ParsePosition, 0))));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;
@@ -280,6 +284,7 @@ void Bug4833877::checkParse($String* text, $Long* expected) {
 
 void Bug4833877::checkParse($String* text, $BigDecimal* expected) {
 	$init(Bug4833877);
+	$useLocalCurrentObjectStackCache();
 	$var($BigDecimal, got, $cast($BigDecimal, $nc(Bug4833877::df)->parse(text, $$new($ParsePosition, 0))));
 	if (!$nc(got)->equals(expected)) {
 		Bug4833877::err = true;

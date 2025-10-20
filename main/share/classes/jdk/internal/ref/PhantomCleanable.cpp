@@ -102,6 +102,7 @@ void PhantomCleanable::finalize() {
 }
 
 void PhantomCleanable::init$(Object$* referent, $Cleaner* cleaner) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $Objects::requireNonNull(referent));
 	$PhantomReference::init$(var$0, $nc($($CleanerImpl::getCleanerImpl(cleaner)))->queue);
 	$set(this, prev, this);

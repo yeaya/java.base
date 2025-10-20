@@ -206,6 +206,7 @@ void UnixAsynchronousServerSocketChannelImpl::init$($Port* port) {
 }
 
 void UnixAsynchronousServerSocketChannelImpl::implClose() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->port)->unregister(this->fdVal);
 	$nc(UnixAsynchronousServerSocketChannelImpl::nd)->close(this->fd);
 	$var($CompletionHandler, handler, nullptr);
@@ -234,6 +235,7 @@ $AsynchronousChannelGroupImpl* UnixAsynchronousServerSocketChannelImpl::group() 
 }
 
 void UnixAsynchronousServerSocketChannelImpl::onEvent(int32_t events, bool mayInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->updateLock) {
 		if (!this->acceptPending) {
 			return;
@@ -308,6 +310,7 @@ void UnixAsynchronousServerSocketChannelImpl::onEvent(int32_t events, bool mayIn
 }
 
 $AsynchronousSocketChannel* UnixAsynchronousServerSocketChannelImpl::finishAccept($FileDescriptor* newfd, $InetSocketAddress* remote, $AccessControlContext* acc) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($AsynchronousSocketChannel, ch, nullptr);
 	try {
@@ -341,6 +344,7 @@ $AsynchronousSocketChannel* UnixAsynchronousServerSocketChannelImpl::finishAccep
 }
 
 $Future* UnixAsynchronousServerSocketChannelImpl::implAccept(Object$* att, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$var($Throwable, e, $new($ClosedChannelException));
 		if (handler == nullptr) {

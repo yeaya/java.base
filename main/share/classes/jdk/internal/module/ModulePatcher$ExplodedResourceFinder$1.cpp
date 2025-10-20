@@ -114,6 +114,7 @@ $String* ModulePatcher$ExplodedResourceFinder$1::getName() {
 }
 
 $URL* ModulePatcher$ExplodedResourceFinder$1::getURL() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc(this->val$file)->toUri()))->toURL();
 	} catch ($IOException&) {
@@ -127,6 +128,7 @@ $URL* ModulePatcher$ExplodedResourceFinder$1::getURL() {
 }
 
 $URL* ModulePatcher$ExplodedResourceFinder$1::getCodeSourceURL() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc(this->val$top)->toUri()))->toURL();
 	} catch ($IOException&) {

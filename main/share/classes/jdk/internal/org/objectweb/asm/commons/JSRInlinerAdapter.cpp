@@ -187,6 +187,7 @@ void JSRInlinerAdapter::init$(int32_t api, $MethodVisitor* methodVisitor, int32_
 }
 
 void JSRInlinerAdapter::visitJumpInsn(int32_t opcode, $Label* label) {
+	$useLocalCurrentObjectStackCache();
 	$MethodNode::visitJumpInsn(opcode, label);
 	$var($LabelNode, labelNode, $nc(($cast($JumpInsnNode, $($nc(this->instructions)->getLast()))))->label);
 	if (opcode == $Opcodes::JSR && !$nc(this->subroutinesInsns)->containsKey(labelNode)) {
@@ -205,6 +206,7 @@ void JSRInlinerAdapter::visitEnd() {
 }
 
 void JSRInlinerAdapter::findSubroutinesInsns() {
+	$useLocalCurrentObjectStackCache();
 	$var($BitSet, visitedInsns, $new($BitSet));
 	findSubroutineInsns(0, this->mainSubroutineInsns, visitedInsns);
 	{
@@ -221,6 +223,7 @@ void JSRInlinerAdapter::findSubroutinesInsns() {
 }
 
 void JSRInlinerAdapter::findSubroutineInsns(int32_t startInsnIndex, $BitSet* subroutineInsns, $BitSet* visitedInsns) {
+	$useLocalCurrentObjectStackCache();
 	findReachableInsns(startInsnIndex, subroutineInsns, visitedInsns);
 	while (true) {
 		bool applicableHandlerFound = false;
@@ -250,6 +253,7 @@ void JSRInlinerAdapter::findSubroutineInsns(int32_t startInsnIndex, $BitSet* sub
 }
 
 void JSRInlinerAdapter::findReachableInsns(int32_t insnIndex, $BitSet* subroutineInsns, $BitSet* visitedInsns) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentInsnIndex = insnIndex;
 	while (currentInsnIndex < $nc(this->instructions)->size()) {
 		if ($nc(subroutineInsns)->get(currentInsnIndex)) {
@@ -325,6 +329,7 @@ void JSRInlinerAdapter::findReachableInsns(int32_t insnIndex, $BitSet* subroutin
 }
 
 void JSRInlinerAdapter::emitCode() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList, worklist, $new($LinkedList));
 	worklist->add($$new($JSRInlinerAdapter$Instantiation, this, nullptr, this->mainSubroutineInsns));
 	$var($InsnList, newInstructions, $new($InsnList));
@@ -340,6 +345,7 @@ void JSRInlinerAdapter::emitCode() {
 }
 
 void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* instantiation, $List* worklist, $InsnList* newInstructions, $List* newTryCatchBlocks, $List* newLocalVariables) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelNode, previousLabelNode, nullptr);
 	for (int32_t i = 0; i < $nc(this->instructions)->size(); ++i) {
 		$var($AbstractInsnNode, insnNode, $nc(this->instructions)->get(i));

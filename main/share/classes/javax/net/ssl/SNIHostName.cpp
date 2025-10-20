@@ -106,6 +106,7 @@ $Object* allocate$SNIHostName($Class* clazz) {
 }
 
 void SNIHostName::init$($String* hostname$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostname, hostname$renamed);
 	$init($StandardCharsets);
 	$SNIServerName::init$($StandardConstants::SNI_HOST_NAME, $($nc(($assign(hostname, $IDN::toASCII($cast($String, $Objects::requireNonNull($of(hostname), "Server name value of host_name cannot be null"_s)), $IDN::USE_STD3_ASCII_RULES))))->getBytes($StandardCharsets::US_ASCII)));
@@ -114,6 +115,7 @@ void SNIHostName::init$($String* hostname$renamed) {
 }
 
 void SNIHostName::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$SNIServerName::init$($StandardConstants::SNI_HOST_NAME, encoded);
 	try {
 		$init($StandardCharsets);

@@ -104,6 +104,7 @@ void CertStatusExtension$CertStatusRequestSpec::init$($CertStatusExtension$CertS
 }
 
 void CertStatusExtension$CertStatusRequestSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() == 0) {
 		$set(this, statusRequest, nullptr);
 		return;

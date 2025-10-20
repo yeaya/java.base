@@ -114,6 +114,7 @@ $SecretKey* PBEKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* PBEKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpecCl) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	bool var$0 = ($instanceOf($SecretKey, key)) && ($nc(PBEKeyFactory::validTypes)->contains($($nc($($nc(key)->getAlgorithm()))->toUpperCase($Locale::ENGLISH))));
 	if (var$0 && ($nc($($nc(key)->getFormat()))->equalsIgnoreCase("RAW"_s))) {
@@ -137,6 +138,7 @@ $KeySpec* PBEKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpecCl) {
 }
 
 $SecretKey* PBEKeyFactory::engineTranslateKey($SecretKey* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($Locale);
 		bool var$0 = (key != nullptr) && ($nc(PBEKeyFactory::validTypes)->contains($($nc($(key->getAlgorithm()))->toUpperCase($Locale::ENGLISH))));
@@ -177,6 +179,7 @@ $SecretKey* PBEKeyFactory::engineTranslateKey($SecretKey* key) {
 }
 
 void clinit$PBEKeyFactory($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(PBEKeyFactory::validTypes, $new($HashSet, 17));
 		$init($Locale);

@@ -65,6 +65,7 @@ void SecureRandom$SeederHolder::init$() {
 }
 
 void clinit$SecureRandom$SeederHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(SecureRandom$SeederHolder::seeder, $new($SecureRandom, $($SeedGenerator::getSystemEntropy())));
 		$var($bytes, b, $new($bytes, 20));

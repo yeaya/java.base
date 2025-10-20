@@ -218,6 +218,7 @@ void Signature::init$($String* algorithm) {
 
 Signature* Signature::getInstance($String* algorithm) {
 	$init(Signature);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	$var($List, list, nullptr);
 	if ($nc(algorithm)->equalsIgnoreCase(Signature::RSA_SIGNATURE)) {
@@ -251,6 +252,7 @@ Signature* Signature::getInstance($String* algorithm) {
 
 Signature* Signature::getInstance($GetInstance$Instance* instance, $String* algorithm) {
 	$init(Signature);
+	$useLocalCurrentObjectStackCache();
 	$var(Signature, sig, nullptr);
 	if ($instanceOf(Signature, $nc(instance)->impl)) {
 		$assign(sig, $cast(Signature, instance->impl));
@@ -265,6 +267,7 @@ Signature* Signature::getInstance($GetInstance$Instance* instance, $String* algo
 
 bool Signature::isSpi($Provider$Service* s) {
 	$init(Signature);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(s)->getType()))->equals("Cipher"_s)) {
 		return true;
 	}
@@ -290,6 +293,7 @@ bool Signature::isSpi($Provider$Service* s) {
 
 Signature* Signature::getInstance($String* algorithm, $String* provider) {
 	$init(Signature);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
 	if ($nc(algorithm)->equalsIgnoreCase(Signature::RSA_SIGNATURE)) {
 		if (provider == nullptr || $nc(provider)->isEmpty()) {
@@ -322,6 +326,7 @@ Signature* Signature::getInstance($String* algorithm, $Provider* provider) {
 
 Signature* Signature::getInstanceRSA($Provider* p) {
 	$init(Signature);
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$Service, s, $nc(p)->getService("Signature"_s, Signature::RSA_SIGNATURE));
 	if (s != nullptr) {
 		$load($SignatureSpi);
@@ -351,6 +356,7 @@ void Signature::chooseFirstProvider() {
 }
 
 void Signature::initVerify($PublicKey* publicKey) {
+	$useLocalCurrentObjectStackCache();
 	engineInitVerify(publicKey);
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -359,6 +365,7 @@ void Signature::initVerify($PublicKey* publicKey) {
 }
 
 void Signature::initVerify($PublicKey* publicKey, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	engineInitVerify(publicKey, params);
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -368,6 +375,7 @@ void Signature::initVerify($PublicKey* publicKey, $AlgorithmParameterSpec* param
 
 $PublicKey* Signature::getPublicKeyFromCert($Certificate* cert) {
 	$init(Signature);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($X509Certificate, xcert, nullptr);
 		bool var$0 = $instanceOf($X509Certificate, cert);
@@ -391,6 +399,7 @@ $PublicKey* Signature::getPublicKeyFromCert($Certificate* cert) {
 }
 
 void Signature::initVerify($Certificate* certificate) {
+	$useLocalCurrentObjectStackCache();
 	engineInitVerify($(getPublicKeyFromCert(certificate)));
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -399,6 +408,7 @@ void Signature::initVerify($Certificate* certificate) {
 }
 
 void Signature::initVerify($Certificate* certificate, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	engineInitVerify($(getPublicKeyFromCert(certificate)), params);
 	this->state = Signature::VERIFY;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -407,6 +417,7 @@ void Signature::initVerify($Certificate* certificate, $AlgorithmParameterSpec* p
 }
 
 void Signature::initSign($PrivateKey* privateKey) {
+	$useLocalCurrentObjectStackCache();
 	engineInitSign(privateKey);
 	this->state = Signature::SIGN;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -415,6 +426,7 @@ void Signature::initSign($PrivateKey* privateKey) {
 }
 
 void Signature::initSign($PrivateKey* privateKey, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	engineInitSign(privateKey, random);
 	this->state = Signature::SIGN;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -423,6 +435,7 @@ void Signature::initSign($PrivateKey* privateKey, $SecureRandom* random) {
 }
 
 void Signature::initSign($PrivateKey* privateKey, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	engineInitSign(privateKey, params, random);
 	this->state = Signature::SIGN;
 	if (!Signature::skipDebug && Signature::pdebug != nullptr) {
@@ -520,6 +533,7 @@ $String* Signature::getAlgorithm() {
 }
 
 $String* Signature::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, initState, ""_s);
 	switch (this->state) {
 	case Signature::UNINITIALIZED:
@@ -566,6 +580,7 @@ $Object* Signature::clone() {
 }
 
 void clinit$Signature($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Signature::RSA_SIGNATURE, "NONEwithRSA"_s);
 	$assignStatic(Signature::RSA_CIPHER, "RSA/ECB/PKCS1Padding"_s);
 	{

@@ -155,6 +155,7 @@ $MethodHandle* MethodHandleImpl$AsVarargsCollector::withVarargs(bool makeVarargs
 }
 
 $MethodHandle* MethodHandleImpl$AsVarargsCollector::asTypeUncached($MethodType* newType) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, this->type());
 	int32_t collectArg = $nc(type)->parameterCount() - 1;
 	int32_t newArity = $nc(newType)->parameterCount();
@@ -181,6 +182,7 @@ $MethodHandle* MethodHandleImpl$AsVarargsCollector::asTypeUncached($MethodType* 
 }
 
 bool MethodHandleImpl$AsVarargsCollector::viewAsTypeChecks($MethodType* newType, bool strict) {
+	$useLocalCurrentObjectStackCache();
 	$DelegatingMethodHandle::viewAsTypeChecks(newType, true);
 	if (strict) {
 		return true;
@@ -195,6 +197,7 @@ bool MethodHandleImpl$AsVarargsCollector::viewAsTypeChecks($MethodType* newType,
 }
 
 $Object* MethodHandleImpl$AsVarargsCollector::invokeWithArguments($ObjectArray* arguments) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, this->type());
 	int32_t argc = 0;
 	int32_t MAX_SAFE = 127;

@@ -58,6 +58,7 @@ void LockReadWriteStressTest::init$() {
 }
 
 void LockReadWriteStressTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, path, $Path::of("blah"_s, $$new($StringArray, 0)));
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(16));
 	for (int32_t i = 0; i < 1000; ++i) {

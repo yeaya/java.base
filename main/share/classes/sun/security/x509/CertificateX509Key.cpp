@@ -110,6 +110,7 @@ $String* CertificateX509Key::toString() {
 }
 
 void CertificateX509Key::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	tmp->write($($nc(this->key)->getEncoded()));
 	$nc(out)->write($(tmp->toByteArray()));

@@ -200,6 +200,7 @@ bool Util::isBufferTooLarge($ByteBuffer* buf) {
 
 $ByteBuffer* Util::getTemporaryDirectBuffer(int32_t size) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	if (isBufferTooLarge(size)) {
 		return $ByteBuffer::allocateDirect(size);
 	}
@@ -218,6 +219,7 @@ $ByteBuffer* Util::getTemporaryDirectBuffer(int32_t size) {
 
 $ByteBuffer* Util::getTemporaryAlignedDirectBuffer(int32_t size, int32_t alignment) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	if (isBufferTooLarge(size)) {
 		return $nc($($ByteBuffer::allocateDirect(size + alignment - 1)))->alignedSlice(alignment);
 	}
@@ -329,6 +331,7 @@ void Util::initDBBConstructor() {
 
 $MappedByteBuffer* Util::newMappedByteBuffer(int32_t size, int64_t addr, $FileDescriptor* fd, $Runnable* unmapper, bool isSync) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MappedByteBuffer, dbb, nullptr);
 	if (Util::directByteBufferConstructor == nullptr) {
@@ -364,6 +367,7 @@ void Util::initDBBRConstructor() {
 
 $MappedByteBuffer* Util::newMappedByteBufferR(int32_t size, int64_t addr, $FileDescriptor* fd, $Runnable* unmapper, bool isSync) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MappedByteBuffer, dbb, nullptr);
 	if (Util::directByteBufferRConstructor == nullptr) {
@@ -393,6 +397,7 @@ $MappedByteBuffer* Util::newMappedByteBufferR(int32_t size, int64_t addr, $FileD
 
 void Util::checkBufferPositionAligned($ByteBuffer* bb, int32_t pos, int32_t alignment) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bb)->alignmentOffset(pos, alignment) != 0) {
 		$throwNew($IOException, $$str({"Current location of the bytebuffer ("_s, $$str(pos), ") is not a multiple of the block size ("_s, $$str(alignment), ")"_s}));
 	}
@@ -400,6 +405,7 @@ void Util::checkBufferPositionAligned($ByteBuffer* bb, int32_t pos, int32_t alig
 
 void Util::checkRemainingBufferSizeAligned(int32_t rem, int32_t alignment) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	if ($mod(rem, alignment) != 0) {
 		$throwNew($IOException, $$str({"Number of remaining bytes ("_s, $$str(rem), ") is not a multiple of the block size ("_s, $$str(alignment), ")"_s}));
 	}
@@ -407,6 +413,7 @@ void Util::checkRemainingBufferSizeAligned(int32_t rem, int32_t alignment) {
 
 void Util::checkChannelPositionAligned(int64_t position, int32_t alignment) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	if ($mod(position, alignment) != 0) {
 		$throwNew($IOException, $$str({"Channel position ("_s, $$str(position), ") is not a multiple of the block size ("_s, $$str(alignment), ")"_s}));
 	}

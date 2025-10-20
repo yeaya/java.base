@@ -57,6 +57,7 @@ int32_t IllegalFormatCodePointException::getCodePoint() {
 }
 
 $String* IllegalFormatCodePointException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("Code point = %#x"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->c)))}));
 }
 

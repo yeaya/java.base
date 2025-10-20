@@ -67,6 +67,7 @@ void ReadLineSync$BufferedReaderConsumer::init$($BufferedReader* reader) {
 }
 
 void ReadLineSync$BufferedReaderConsumer::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, record, $nc(this->reader)->readLine());
 		if (record == nullptr) {

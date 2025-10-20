@@ -83,6 +83,7 @@ bool Nodes$InternalNodeSpliterator$OfRef::tryAdvance($Consumer* consumer) {
 }
 
 void Nodes$InternalNodeSpliterator$OfRef::forEachRemaining($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	if (this->curNode == nullptr) {
 		return;
 	}

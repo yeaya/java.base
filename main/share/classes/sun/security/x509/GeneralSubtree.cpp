@@ -80,6 +80,7 @@ void GeneralSubtree::init$($GeneralName* name, int32_t min, int32_t max) {
 }
 
 void GeneralSubtree::init$($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	this->minimum = GeneralSubtree::MIN_DEFAULT;
 	this->maximum = -1;
 	this->myhash = -1;
@@ -171,6 +172,7 @@ int32_t GeneralSubtree::hashCode() {
 }
 
 void GeneralSubtree::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, seq, $new($DerOutputStream));
 	$nc(this->name)->encode(seq);
 	if (this->minimum != GeneralSubtree::MIN_DEFAULT) {

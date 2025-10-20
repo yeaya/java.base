@@ -68,6 +68,7 @@ void StaticInterfaceMethodInWayOfDefault::init$() {
 
 void StaticInterfaceMethodInWayOfDefault::main($StringArray* args) {
 	$load(StaticInterfaceMethodInWayOfDefault);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
 	$var($Callable, v1Task, $new($StaticInterfaceMethodInWayOfDefault$TestTask));

@@ -80,6 +80,7 @@ $Object* allocate$AbstractBasicFileAttributeView$AttributesBuilder($Class* clazz
 }
 
 void AbstractBasicFileAttributeView$AttributesBuilder::init$($Set* allowed, $StringArray* requested) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, names, $new($HashSet));
 	$set(this, map, $new($HashMap));
 	{

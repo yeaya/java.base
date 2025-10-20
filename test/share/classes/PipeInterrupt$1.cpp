@@ -85,6 +85,7 @@ void PipeInterrupt$1::init$($PipeInterrupt* this$0, $String* arg0) {
 }
 
 void PipeInterrupt$1::run() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		bool interrupted = this->isInterrupted();
 		try {
@@ -104,6 +105,7 @@ void PipeInterrupt$1::run() {
 }
 
 void PipeInterrupt$1::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->testPipe != nullptr) {
 		$nc($($nc(this->testPipe)->sink()))->close();
 		$nc($($nc(this->testPipe)->source()))->close();

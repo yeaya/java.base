@@ -156,6 +156,7 @@ $NumberFormat* NumberFormatProviderImpl::getPercentInstance($Locale* locale) {
 }
 
 $NumberFormat* NumberFormatProviderImpl::getInstance($Locale* locale, int32_t choice) {
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -181,6 +182,7 @@ $NumberFormat* NumberFormatProviderImpl::getInstance($Locale* locale, int32_t ch
 
 void NumberFormatProviderImpl::adjustForCurrencyDefaultFractionDigits($DecimalFormat* format, $DecimalFormatSymbols* symbols) {
 	$init(NumberFormatProviderImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Currency, currency, $nc(symbols)->getCurrency());
 	if (currency == nullptr) {
 		try {
@@ -205,6 +207,7 @@ void NumberFormatProviderImpl::adjustForCurrencyDefaultFractionDigits($DecimalFo
 }
 
 $NumberFormat* NumberFormatProviderImpl::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* formatStyle) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(locale);
 	$Objects::requireNonNull(formatStyle);
 	$var($Locale, override$, locale->getUnicodeLocaleType("nu"_s) == nullptr ? $CalendarDataUtility::findRegionOverride(locale) : locale);

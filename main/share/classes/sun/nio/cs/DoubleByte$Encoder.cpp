@@ -161,6 +161,7 @@ $Surrogate$Parser* DoubleByte$Encoder::sgp() {
 }
 
 $CoderResult* DoubleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -235,6 +236,7 @@ $CoderResult* DoubleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 }
 
 $CoderResult* DoubleByte$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -399,6 +401,7 @@ int32_t DoubleByte$Encoder::encodeChar(char16_t ch) {
 
 void DoubleByte$Encoder::initC2B($StringArray* b2c, $String* b2cSB, $String* b2cNR, $String* c2bNR, int32_t b2Min, int32_t b2Max, $chars* c2b, $chars* c2bIndex) {
 	$init(DoubleByte$Encoder);
+	$useLocalCurrentObjectStackCache();
 	$Arrays::fill(c2b, (char16_t)0x0000FFFD);
 	int32_t off = 256;
 	$var($charArray2, b2c_ca, $new($charArray2, $nc(b2c)->length));

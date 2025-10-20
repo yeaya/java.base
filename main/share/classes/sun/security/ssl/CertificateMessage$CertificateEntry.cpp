@@ -97,6 +97,7 @@ int32_t CertificateMessage$CertificateEntry::getEncodedSize() {
 }
 
 $String* CertificateMessage$CertificateEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\n\'{\'\n{0}\n  \"extensions\": \'{\'\n{1}\n  \'}\'\n\'}\',"_s, $Locale::ENGLISH));
 	$var($Object, x509Certs, nullptr);

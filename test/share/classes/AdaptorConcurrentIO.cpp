@@ -125,6 +125,7 @@ void AdaptorConcurrentIO::main($StringArray* args) {
 }
 
 void AdaptorConcurrentIO::testConcurrentSendReceive(int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($DatagramChannel, dc, $DatagramChannel::open());
 		{
@@ -185,6 +186,7 @@ void AdaptorConcurrentIO::testConcurrentSendReceive(int32_t timeout) {
 }
 
 $String* AdaptorConcurrentIO::lambda$testConcurrentSendReceive$0($DatagramSocket* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, $new($bytes, 100));
 	$var($DatagramPacket, p, $new($DatagramPacket, data, 0, data->length));
 	$nc(s)->receive(p);

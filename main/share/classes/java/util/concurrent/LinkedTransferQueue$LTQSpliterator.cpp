@@ -93,6 +93,7 @@ void LinkedTransferQueue$LTQSpliterator::init$($LinkedTransferQueue* this$0) {
 }
 
 $Spliterator* LinkedTransferQueue$LTQSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, p, nullptr);
 	$var($LinkedTransferQueue$Node, q, nullptr);
 	if (($assign(p, current())) == nullptr || ($assign(q, $nc(p)->next)) == nullptr) {
@@ -134,6 +135,7 @@ void LinkedTransferQueue$LTQSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool LinkedTransferQueue$LTQSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($LinkedTransferQueue$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {

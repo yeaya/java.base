@@ -65,6 +65,7 @@ $Object* allocate$EllipticCurve($Class* clazz) {
 }
 
 void EllipticCurve::checkValidity($ECField* field, $BigInteger* c, $String* cName) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ECFieldFp, field)) {
 		$var($BigInteger, p, $nc(($cast($ECFieldFp, field)))->getP());
 		if ($nc(p)->compareTo(c) != 1) {

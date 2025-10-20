@@ -54,6 +54,7 @@ void FilePermissionCollection::init$() {
 }
 
 void FilePermissionCollection::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t testFail = 0;
 	$var($FilePermission, perm, $new($FilePermission, "/tmp/foo"_s, "read"_s));
 	$var($PermissionCollection, perms, perm->newPermissionCollection());

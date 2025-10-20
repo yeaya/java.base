@@ -92,6 +92,7 @@ void WeekDateTest::main($StringArray* args) {
 
 void WeekDateTest::formatTest($StringArray2* data) {
 	$init(WeekDateTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray2, arr$, data);
 		int32_t len$ = $nc(arr$)->length;
@@ -114,6 +115,7 @@ void WeekDateTest::formatTest($StringArray2* data) {
 
 void WeekDateTest::parseTest($StringArray2* data) {
 	$init(WeekDateTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray2, arr$, data);
 		int32_t len$ = $nc(arr$)->length;
@@ -140,6 +142,7 @@ void WeekDateTest::parseTest($StringArray2* data) {
 
 void WeekDateTest::nonLenientTest($StringArray* data) {
 	$init(WeekDateTest);
+	$useLocalCurrentObjectStackCache();
 	$nc(WeekDateTest::ywdFormat)->setLenient(false);
 	{
 		$var($StringArray, arr$, data);
@@ -162,6 +165,7 @@ void WeekDateTest::nonLenientTest($StringArray* data) {
 
 void WeekDateTest::noWeekDateSupport() {
 	$init(WeekDateTest);
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, var$0, $TimeZone::getTimeZone("GMT"_s));
 	$var($Calendar, jcal, $Calendar::getInstance(var$0, $$new($Locale, "ja"_s, "JP"_s, "JP"_s)));
 	$var($String, format, "2-W01-2"_s);
@@ -192,6 +196,7 @@ void WeekDateTest::noWeekDateSupport() {
 
 $GregorianCalendar* WeekDateTest::newCalendar() {
 	$init(WeekDateTest);
+	$useLocalCurrentObjectStackCache();
 	$var($GregorianCalendar, cal, $new($GregorianCalendar, $($TimeZone::getTimeZone("GMT"_s))));
 	cal->setFirstDayOfWeek(2);
 	cal->setMinimalDaysInFirstWeek(4);
@@ -199,6 +204,7 @@ $GregorianCalendar* WeekDateTest::newCalendar() {
 }
 
 void clinit$WeekDateTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$assignStatic(WeekDateTest::ymdFormat, $new($SimpleDateFormat, "yyyy-MM-dd"_s, $Locale::US));
 	$assignStatic(WeekDateTest::ywdFormat, $new($SimpleDateFormat, "YYYY-\'W\'ww-u"_s, $Locale::US));

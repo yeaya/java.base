@@ -83,6 +83,7 @@ $Map* PolicyParser$KeyStoreEntry::getProperties() {
 }
 
 $String* PolicyParser$KeyStoreEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, s, $$new($StringBuilder, "\n    keystore "_s)->append(this->name));
 	if (this->properties != nullptr) {
 		{

@@ -300,6 +300,7 @@ void Constants::init$() {
 
 void Constants::checkAsmExperimental(Object$* caller) {
 	$init(Constants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* callerClass = $nc($of(caller))->getClass();
 	$var($String, internalName, $nc($($nc(callerClass)->getName()))->replace(u'.', u'/'));
@@ -310,6 +311,7 @@ void Constants::checkAsmExperimental(Object$* caller) {
 
 bool Constants::isWhitelisted($String* internalName) {
 	$init(Constants);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(internalName)->startsWith("jdk/internal/org/objectweb/asm/"_s)) {
 		return false;
 	}
@@ -321,6 +323,7 @@ bool Constants::isWhitelisted($String* internalName) {
 
 void Constants::checkIsPreview($InputStream* classInputStream) {
 	$init(Constants);
+	$useLocalCurrentObjectStackCache();
 	if (classInputStream == nullptr) {
 		$throwNew($IllegalStateException, "Bytecode not available, can\'t check class version"_s);
 	}

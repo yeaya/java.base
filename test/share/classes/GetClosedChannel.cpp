@@ -77,6 +77,7 @@ void GetClosedChannel::init$() {
 
 void GetClosedChannel::main($StringArray* args) {
 	$init(GetClosedChannel);
+	$useLocalCurrentObjectStackCache();
 	int32_t exceptions = 0;
 	int32_t openChannels = 0;
 	for (int32_t i = 0; i < GetClosedChannel::NUM_CHANNELS; ++i) {

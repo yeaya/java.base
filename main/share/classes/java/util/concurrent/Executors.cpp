@@ -199,11 +199,13 @@ $ExecutorService* Executors::newFixedThreadPool(int32_t nThreads, $ThreadFactory
 }
 
 $ExecutorService* Executors::newSingleThreadExecutor() {
+	$useLocalCurrentObjectStackCache();
 	$init($TimeUnit);
 	return $new($Executors$FinalizableDelegatedExecutorService, $$new($ThreadPoolExecutor, 1, 1, 0, $TimeUnit::MILLISECONDS, $$new($LinkedBlockingQueue)));
 }
 
 $ExecutorService* Executors::newSingleThreadExecutor($ThreadFactory* threadFactory) {
+	$useLocalCurrentObjectStackCache();
 	$init($TimeUnit);
 	return $new($Executors$FinalizableDelegatedExecutorService, $$new($ThreadPoolExecutor, 1, 1, (int64_t)0, $TimeUnit::MILLISECONDS, static_cast<$BlockingQueue*>($$new($LinkedBlockingQueue)), threadFactory));
 }

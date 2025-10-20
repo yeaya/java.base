@@ -137,6 +137,7 @@ DateTimeFormatterBuilder$NumberPrinterParser* DateTimeFormatterBuilder$NumberPri
 }
 
 bool DateTimeFormatterBuilder$NumberPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($Long, valueLong, $nc(context)->getValue(this->field));
 	if (valueLong == nullptr) {
 		return false;
@@ -199,6 +200,7 @@ bool DateTimeFormatterBuilder$NumberPrinterParser::isFixedWidth($DateTimeParseCo
 }
 
 int32_t DateTimeFormatterBuilder$NumberPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(text)->length();
 	if (position == length) {
 		return ~position;
@@ -311,6 +313,7 @@ int32_t DateTimeFormatterBuilder$NumberPrinterParser::setValue($DateTimeParseCon
 }
 
 $String* DateTimeFormatterBuilder$NumberPrinterParser::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($SignStyle);
 	if (this->minWidth == 1 && this->maxWidth == 19 && this->signStyle == $SignStyle::NORMAL) {
 		return $str({"Value("_s, this->field, ")"_s});

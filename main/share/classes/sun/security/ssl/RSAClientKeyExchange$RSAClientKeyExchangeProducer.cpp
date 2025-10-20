@@ -121,6 +121,7 @@ void RSAClientKeyExchange$RSAClientKeyExchangeProducer::init$() {
 }
 
 $bytes* RSAClientKeyExchange$RSAClientKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($RSAKeyExchange$EphemeralRSACredentials, rsaCredentials, nullptr);
 	$var($X509Authentication$X509Credentials, x509Credentials, nullptr);

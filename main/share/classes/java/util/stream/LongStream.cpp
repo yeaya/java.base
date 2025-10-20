@@ -284,12 +284,14 @@ LongStream* LongStream::mapMulti($LongStream$LongMapMultiConsumer* mapper) {
 }
 
 LongStream* LongStream::takeWhile($LongPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator$OfLong, var$0, $as($Spliterator$OfLong, $new($WhileOps$UnorderedWhileSpliterator$OfLong$Taking, $($cast($Spliterator$OfLong, spliterator())), true, predicate)));
 	return $cast(LongStream, $nc($($StreamSupport::longStream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(LongStream$$Lambda$close$1, this))));
 }
 
 LongStream* LongStream::dropWhile($LongPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator$OfLong, var$0, $as($Spliterator$OfLong, $new($WhileOps$UnorderedWhileSpliterator$OfLong$Dropping, $($cast($Spliterator$OfLong, spliterator())), true, predicate)));
 	return $cast(LongStream, $nc($($StreamSupport::longStream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(LongStream$$Lambda$close$1, this))));
@@ -338,6 +340,7 @@ LongStream* LongStream::generate($LongSupplier* s) {
 
 LongStream* LongStream::range(int64_t startInclusive, int64_t endExclusive) {
 	$init(LongStream);
+	$useLocalCurrentObjectStackCache();
 	if (startInclusive >= endExclusive) {
 		return empty();
 	} else if (endExclusive - startInclusive < 0) {
@@ -351,6 +354,7 @@ LongStream* LongStream::range(int64_t startInclusive, int64_t endExclusive) {
 
 LongStream* LongStream::rangeClosed(int64_t startInclusive, int64_t endInclusive) {
 	$init(LongStream);
+	$useLocalCurrentObjectStackCache();
 	if (startInclusive > endInclusive) {
 		return empty();
 	} else if (endInclusive - startInclusive + 1 <= 0) {
@@ -364,6 +368,7 @@ LongStream* LongStream::rangeClosed(int64_t startInclusive, int64_t endInclusive
 
 LongStream* LongStream::concat(LongStream* a, LongStream* b) {
 	$init(LongStream);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(a);
 	$Objects::requireNonNull(b);
 	$var($Spliterator$OfLong, var$0, $cast($Spliterator$OfLong, a->spliterator()));
@@ -375,6 +380,7 @@ LongStream* LongStream::concat(LongStream* a, LongStream* b) {
 
 LongStream* LongStream::lambda$mapMulti$0($LongStream$LongMapMultiConsumer* mapper, int64_t e) {
 	$init(LongStream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfLong, buffer, $new($SpinedBuffer$OfLong));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::longStream($($cast($Spliterator$OfLong, buffer->spliterator())), false);

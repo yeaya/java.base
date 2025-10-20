@@ -230,6 +230,7 @@ bool Label::resolve($bytes* code, int32_t bytecodeOffset) {
 }
 
 void Label::markSubroutine(int16_t subroutineId) {
+	$useLocalCurrentObjectStackCache();
 	$var(Label, listOfBlocksToProcess, this);
 	$set(listOfBlocksToProcess, nextListElement, Label::EMPTY_LIST);
 	while (listOfBlocksToProcess != Label::EMPTY_LIST) {
@@ -244,6 +245,7 @@ void Label::markSubroutine(int16_t subroutineId) {
 }
 
 void Label::addSubroutineRetSuccessors(Label* subroutineCaller) {
+	$useLocalCurrentObjectStackCache();
 	$var(Label, listOfProcessedBlocks, Label::EMPTY_LIST);
 	$var(Label, listOfBlocksToProcess, this);
 	$set(listOfBlocksToProcess, nextListElement, Label::EMPTY_LIST);
@@ -265,6 +267,7 @@ void Label::addSubroutineRetSuccessors(Label* subroutineCaller) {
 }
 
 Label* Label::pushSuccessors(Label* listOfLabelsToProcess) {
+	$useLocalCurrentObjectStackCache();
 	$var(Label, newListOfLabelsToProcess, listOfLabelsToProcess);
 	$var($Edge, outgoingEdge, this->outgoingEdges);
 	while (outgoingEdge != nullptr) {

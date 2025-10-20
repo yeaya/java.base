@@ -115,6 +115,7 @@ void ServerHello$ServerHelloConsumer::init$() {
 }
 
 void ServerHello$ServerHelloConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::SERVER_HELLO->id)));
@@ -138,6 +139,7 @@ void ServerHello$ServerHelloConsumer::consume($ConnectionContext* context, $Byte
 }
 
 void ServerHello$ServerHelloConsumer::onHelloRetryRequest($ClientHandshakeContext* chc, $ServerHello$ServerHelloMessage* helloRetryRequest) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLExtension);
 	$var($SSLExtensionArray, extTypes, $new($SSLExtensionArray, {$SSLExtension::HRR_SUPPORTED_VERSIONS}));
 	$nc($nc(helloRetryRequest)->extensions)->consumeOnLoad(chc, extTypes);
@@ -172,6 +174,7 @@ void ServerHello$ServerHelloConsumer::onHelloRetryRequest($ClientHandshakeContex
 }
 
 void ServerHello$ServerHelloConsumer::onServerHello($ClientHandshakeContext* chc, $ServerHello$ServerHelloMessage* serverHello) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLExtension);
 	$var($SSLExtensionArray, extTypes, $new($SSLExtensionArray, {$SSLExtension::SH_SUPPORTED_VERSIONS}));
 	$nc($nc(serverHello)->extensions)->consumeOnLoad(chc, extTypes);

@@ -115,6 +115,7 @@ void ModuleBootstrap$Counters::add($String* name) {
 
 void ModuleBootstrap$Counters::publish($String* totalTimeName) {
 	$init(ModuleBootstrap$Counters);
+	$useLocalCurrentObjectStackCache();
 	if (ModuleBootstrap$Counters::PUBLISH_COUNTERS) {
 		int64_t currentTime = $System::nanoTime();
 		{

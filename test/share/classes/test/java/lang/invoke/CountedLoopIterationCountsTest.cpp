@@ -96,6 +96,7 @@ void CountedLoopIterationCountsTest::main($StringArray* args) {
 
 void CountedLoopIterationCountsTest::run(int32_t start, int32_t end, int32_t expectedIterations) {
 	$init(CountedLoopIterationCountsTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"run from "_s, $$str(start), " to "_s, $$str(end)}));
 	$init($Integer);
@@ -114,6 +115,7 @@ int32_t CountedLoopIterationCountsTest::step(int32_t stepCount, int32_t counter)
 }
 
 void clinit$CountedLoopIterationCountsTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	CountedLoopIterationCountsTest::failed = false;
 	{

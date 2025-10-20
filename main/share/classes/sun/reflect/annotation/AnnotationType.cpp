@@ -125,6 +125,7 @@ bool AnnotationType::$assertionsDisabled = false;
 
 AnnotationType* AnnotationType::getInstance($Class* annotationClass) {
 	$init(AnnotationType);
+	$useLocalCurrentObjectStackCache();
 	$var($JavaLangAccess, jla, $SharedSecrets::getJavaLangAccess());
 	$var(AnnotationType, result, $nc(jla)->getAnnotationType(annotationClass));
 	if (result == nullptr) {
@@ -140,6 +141,7 @@ AnnotationType* AnnotationType::getInstance($Class* annotationClass) {
 }
 
 void AnnotationType::init$($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!$nc(annotationClass)->isAnnotation()) {
 		$throwNew($IllegalArgumentException, "Not an annotation type"_s);

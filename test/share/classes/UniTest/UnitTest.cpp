@@ -6824,6 +6824,7 @@ int32_t UnitTest::failCount = 0;
 
 void UnitTest::main($StringArray* args) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	checkScalarTypes($(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(UnitTest::class$->getMethod("scalarTypesMethod"_s, UnitTest::X))))));
 	checkScalarTypesOverrideDefault($(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(UnitTest::class$->getMethod("scalarTypesOverrideDefaultMethod"_s, UnitTest::X))))));
@@ -8086,6 +8087,7 @@ void UnitTest::fail($String* test) {
 
 void UnitTest::checkScalarTypes($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ScalarTypes);
 		checkScalarTypes($cast($ScalarTypes, $($nc(e)->getAnnotation($ScalarTypes::class$))), e);
@@ -8098,6 +8100,7 @@ void UnitTest::checkScalarTypes($AnnotatedElement* e) {
 
 void UnitTest::checkScalarTypes($ScalarTypes* st, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$11 = $nc(st)->b() == 1;
 	bool var$10 = var$11 && st->s() == 2;
@@ -8120,6 +8123,7 @@ void UnitTest::checkScalarTypes($ScalarTypes* st, $AnnotatedElement* e) {
 
 void UnitTest::checkScalarTypesOverrideDefault($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ScalarTypesWithDefault);
 		checkScalarTypesOverrideDefault($cast($ScalarTypesWithDefault, $($nc(e)->getAnnotation($ScalarTypesWithDefault::class$))), e);
@@ -8131,6 +8135,7 @@ void UnitTest::checkScalarTypesOverrideDefault($AnnotatedElement* e) {
 
 void UnitTest::checkScalarTypesOverrideDefault($ScalarTypesWithDefault* st, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$9 = $nc(st)->b() == 1;
 	bool var$8 = var$9 && st->s() == 2;
@@ -8151,6 +8156,7 @@ void UnitTest::checkScalarTypesOverrideDefault($ScalarTypesWithDefault* st, $Ann
 
 void UnitTest::checkScalarTypesAcceptDefault($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ScalarTypesWithDefault);
 		checkScalarTypesAcceptDefault($cast($ScalarTypesWithDefault, $($nc(e)->getAnnotation($ScalarTypesWithDefault::class$))), e);
@@ -8162,6 +8168,7 @@ void UnitTest::checkScalarTypesAcceptDefault($AnnotatedElement* e) {
 
 void UnitTest::checkScalarTypesAcceptDefault($ScalarTypesWithDefault* st, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$11 = $nc(st)->b() == 11;
 	bool var$10 = var$11 && st->s() == 12;
@@ -8184,6 +8191,7 @@ void UnitTest::checkScalarTypesAcceptDefault($ScalarTypesWithDefault* st, $Annot
 
 void UnitTest::checkArrayTypes0($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ArrayTypes);
 		checkArrayTypes0($cast($ArrayTypes, $($nc(e)->getAnnotation($ArrayTypes::class$))), e);
@@ -8195,6 +8203,7 @@ void UnitTest::checkArrayTypes0($AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypes0($ArrayTypes* at, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$10 = $nc($($nc(at)->b()))->length == 0;
 	bool var$9 = var$10 && $nc($(at->s()))->length == 0;
@@ -8214,6 +8223,7 @@ void UnitTest::checkArrayTypes0($ArrayTypes* at, $AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypes1($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ArrayTypes);
 		checkArrayTypes1($cast($ArrayTypes, $($nc(e)->getAnnotation($ArrayTypes::class$))), e);
@@ -8225,6 +8235,7 @@ void UnitTest::checkArrayTypes1($AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypes1($ArrayTypes* at, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$22 = $nc($($nc(at)->b()))->get(0) == 1;
 	bool var$21 = var$22 && $nc($(at->s()))->get(0) == 2;
@@ -8258,6 +8269,7 @@ void UnitTest::checkArrayTypes1($ArrayTypes* at, $AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypes2($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ArrayTypes);
 		checkArrayTypes2($cast($ArrayTypes, $($nc(e)->getAnnotation($ArrayTypes::class$))), e);
@@ -8269,6 +8281,7 @@ void UnitTest::checkArrayTypes2($AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypes2($ArrayTypes* at, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$35 = $nc($($nc(at)->b()))->get(0) == 1;
 	bool var$34 = var$35 && $nc($(at->b()))->get(1) == 2;
@@ -8316,6 +8329,7 @@ void UnitTest::checkArrayTypes2($ArrayTypes* at, $AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypesOverrideDefault($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ArrayTypesWithDefault);
 		checkArrayTypesOverrideDefault($cast($ArrayTypesWithDefault, $($nc(e)->getAnnotation($ArrayTypesWithDefault::class$))), e);
@@ -8327,6 +8341,7 @@ void UnitTest::checkArrayTypesOverrideDefault($AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypesOverrideDefault($ArrayTypesWithDefault* at, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$21 = $nc($($nc(at)->b()))->get(0) == 1;
 	bool var$20 = var$21 && $nc($(at->s()))->get(0) == 2;
@@ -8359,6 +8374,7 @@ void UnitTest::checkArrayTypesOverrideDefault($ArrayTypesWithDefault* at, $Annot
 
 void UnitTest::checkArrayTypesAcceptDefault($AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ArrayTypesWithDefault);
 		checkArrayTypesAcceptDefault($cast($ArrayTypesWithDefault, $($nc(e)->getAnnotation($ArrayTypesWithDefault::class$))), e);
@@ -8370,6 +8386,7 @@ void UnitTest::checkArrayTypesAcceptDefault($AnnotatedElement* e) {
 
 void UnitTest::checkArrayTypesAcceptDefault($ArrayTypesWithDefault* at, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	bool var$21 = $nc($($nc(at)->b()))->get(0) == 11;
 	bool var$20 = var$21 && $nc($(at->s()))->get(0) == 12;
@@ -8402,6 +8419,7 @@ void UnitTest::checkArrayTypesAcceptDefault($ArrayTypesWithDefault* at, $Annotat
 
 void UnitTest::checkScalarTypesParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkScalarTypes($cast($ScalarTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8412,6 +8430,7 @@ void UnitTest::checkScalarTypesParam($Method* m) {
 
 void UnitTest::checkScalarTypesOverrideDefaultParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkScalarTypesOverrideDefault($cast($ScalarTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8422,6 +8441,7 @@ void UnitTest::checkScalarTypesOverrideDefaultParam($Method* m) {
 
 void UnitTest::checkScalarTypesAcceptDefaultParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkScalarTypesAcceptDefault($cast($ScalarTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8432,6 +8452,7 @@ void UnitTest::checkScalarTypesAcceptDefaultParam($Method* m) {
 
 void UnitTest::checkArrayTypes0Param($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypes0($cast($ArrayTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8442,6 +8463,7 @@ void UnitTest::checkArrayTypes0Param($Method* m) {
 
 void UnitTest::checkArrayTypes1Param($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypes1($cast($ArrayTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8452,6 +8474,7 @@ void UnitTest::checkArrayTypes1Param($Method* m) {
 
 void UnitTest::checkArrayTypes2Param($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypes2($cast($ArrayTypes, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8462,6 +8485,7 @@ void UnitTest::checkArrayTypes2Param($Method* m) {
 
 void UnitTest::checkArrayTypesOverrideDefaultParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypesOverrideDefault($cast($ArrayTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8472,6 +8496,7 @@ void UnitTest::checkArrayTypesOverrideDefaultParam($Method* m) {
 
 void UnitTest::checkArrayTypesAcceptDefaultParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkArrayTypesAcceptDefault($cast($ArrayTypesWithDefault, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8482,6 +8507,7 @@ void UnitTest::checkArrayTypesAcceptDefaultParam($Method* m) {
 
 void UnitTest::checkMarkerParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkMarker($cast($Marker, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8492,6 +8518,7 @@ void UnitTest::checkMarkerParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByte($cast($SingleMemberByte, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8502,6 +8529,7 @@ void UnitTest::checkSingleMemberByteParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShort($cast($SingleMemberShort, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8512,6 +8540,7 @@ void UnitTest::checkSingleMemberShortParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberInt($cast($SingleMemberInt, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8522,6 +8551,7 @@ void UnitTest::checkSingleMemberIntParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLong($cast($SingleMemberLong, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8532,6 +8562,7 @@ void UnitTest::checkSingleMemberLongParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberChar($cast($SingleMemberChar, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8542,6 +8573,7 @@ void UnitTest::checkSingleMemberCharParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloat($cast($SingleMemberFloat, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8552,6 +8584,7 @@ void UnitTest::checkSingleMemberFloatParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDouble($cast($SingleMemberDouble, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8562,6 +8595,7 @@ void UnitTest::checkSingleMemberDoubleParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBoolean($cast($SingleMemberBoolean, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8572,6 +8606,7 @@ void UnitTest::checkSingleMemberBooleanParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberString($cast($SingleMemberString, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8582,6 +8617,7 @@ void UnitTest::checkSingleMemberStringParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClass($cast($SingleMemberClass, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8592,6 +8628,7 @@ void UnitTest::checkSingleMemberClassParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnum($cast($SingleMemberEnum, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8602,6 +8639,7 @@ void UnitTest::checkSingleMemberEnumParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteOvrdDef($cast($SingleMemberByteWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8612,6 +8650,7 @@ void UnitTest::checkSingleMemberByteOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortOvrdDef($cast($SingleMemberShortWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8622,6 +8661,7 @@ void UnitTest::checkSingleMemberShortOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntOvrdDef($cast($SingleMemberIntWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8632,6 +8672,7 @@ void UnitTest::checkSingleMemberIntOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongOvrdDef($cast($SingleMemberLongWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8642,6 +8683,7 @@ void UnitTest::checkSingleMemberLongOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharOvrdDef($cast($SingleMemberCharWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8652,6 +8694,7 @@ void UnitTest::checkSingleMemberCharOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatOvrdDef($cast($SingleMemberFloatWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8662,6 +8705,7 @@ void UnitTest::checkSingleMemberFloatOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleOvrdDef($cast($SingleMemberDoubleWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8672,6 +8716,7 @@ void UnitTest::checkSingleMemberDoubleOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanOvrdDef($cast($SingleMemberBooleanWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8682,6 +8727,7 @@ void UnitTest::checkSingleMemberBooleanOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringOvrdDef($cast($SingleMemberStringWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8692,6 +8738,7 @@ void UnitTest::checkSingleMemberStringOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassOvrdDef($cast($SingleMemberClassWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8702,6 +8749,7 @@ void UnitTest::checkSingleMemberClassOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumOvrdDef($cast($SingleMemberEnumWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8712,6 +8760,7 @@ void UnitTest::checkSingleMemberEnumOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteAcceptDef($cast($SingleMemberByteWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8722,6 +8771,7 @@ void UnitTest::checkSingleMemberByteAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortAcceptDef($cast($SingleMemberShortWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8732,6 +8782,7 @@ void UnitTest::checkSingleMemberShortAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntAcceptDef($cast($SingleMemberIntWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8742,6 +8793,7 @@ void UnitTest::checkSingleMemberIntAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongAcceptDef($cast($SingleMemberLongWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8752,6 +8804,7 @@ void UnitTest::checkSingleMemberLongAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharAcceptDef($cast($SingleMemberCharWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8762,6 +8815,7 @@ void UnitTest::checkSingleMemberCharAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatAcceptDef($cast($SingleMemberFloatWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8772,6 +8826,7 @@ void UnitTest::checkSingleMemberFloatAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleAcceptDef($cast($SingleMemberDoubleWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8782,6 +8837,7 @@ void UnitTest::checkSingleMemberDoubleAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanAcceptDef($cast($SingleMemberBooleanWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8792,6 +8848,7 @@ void UnitTest::checkSingleMemberBooleanAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringAcceptDef($cast($SingleMemberStringWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8802,6 +8859,7 @@ void UnitTest::checkSingleMemberStringAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassAcceptDef($cast($SingleMemberClassWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8812,6 +8870,7 @@ void UnitTest::checkSingleMemberClassAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumAcceptDef($cast($SingleMemberEnumWithDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8822,6 +8881,7 @@ void UnitTest::checkSingleMemberEnumAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrEmpty($cast($SingleMemberByteArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8832,6 +8892,7 @@ void UnitTest::checkSingleMemberByteArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrEmpty($cast($SingleMemberShortArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8842,6 +8903,7 @@ void UnitTest::checkSingleMemberShortArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrEmpty($cast($SingleMemberIntArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8852,6 +8914,7 @@ void UnitTest::checkSingleMemberIntArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrEmpty($cast($SingleMemberLongArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8862,6 +8925,7 @@ void UnitTest::checkSingleMemberLongArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrEmpty($cast($SingleMemberCharArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8872,6 +8936,7 @@ void UnitTest::checkSingleMemberCharArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrEmpty($cast($SingleMemberFloatArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8882,6 +8947,7 @@ void UnitTest::checkSingleMemberFloatArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrEmpty($cast($SingleMemberDoubleArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8892,6 +8958,7 @@ void UnitTest::checkSingleMemberDoubleArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrEmpty($cast($SingleMemberBooleanArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8902,6 +8969,7 @@ void UnitTest::checkSingleMemberBooleanArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrEmpty($cast($SingleMemberStringArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8912,6 +8980,7 @@ void UnitTest::checkSingleMemberStringArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrEmpty($cast($SingleMemberClassArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8922,6 +8991,7 @@ void UnitTest::checkSingleMemberClassArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumArrEmptyParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrEmpty($cast($SingleMemberEnumArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8932,6 +9002,7 @@ void UnitTest::checkSingleMemberEnumArrEmptyParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrOne($cast($SingleMemberByteArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8942,6 +9013,7 @@ void UnitTest::checkSingleMemberByteArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrOne($cast($SingleMemberShortArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8952,6 +9024,7 @@ void UnitTest::checkSingleMemberShortArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrOne($cast($SingleMemberIntArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8962,6 +9035,7 @@ void UnitTest::checkSingleMemberIntArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrOne($cast($SingleMemberLongArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8972,6 +9046,7 @@ void UnitTest::checkSingleMemberLongArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrOne($cast($SingleMemberCharArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8982,6 +9057,7 @@ void UnitTest::checkSingleMemberCharArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrOne($cast($SingleMemberFloatArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -8992,6 +9068,7 @@ void UnitTest::checkSingleMemberFloatArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrOne($cast($SingleMemberDoubleArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9002,6 +9079,7 @@ void UnitTest::checkSingleMemberDoubleArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrOne($cast($SingleMemberBooleanArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9012,6 +9090,7 @@ void UnitTest::checkSingleMemberBooleanArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrOne($cast($SingleMemberStringArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9022,6 +9101,7 @@ void UnitTest::checkSingleMemberStringArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrOne($cast($SingleMemberClassArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9032,6 +9112,7 @@ void UnitTest::checkSingleMemberClassArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumArrOneParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrOne($cast($SingleMemberEnumArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9042,6 +9123,7 @@ void UnitTest::checkSingleMemberEnumArrOneParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrTwo($cast($SingleMemberByteArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9052,6 +9134,7 @@ void UnitTest::checkSingleMemberByteArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrTwo($cast($SingleMemberShortArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9062,6 +9145,7 @@ void UnitTest::checkSingleMemberShortArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrTwo($cast($SingleMemberIntArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9072,6 +9156,7 @@ void UnitTest::checkSingleMemberIntArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrTwo($cast($SingleMemberLongArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9082,6 +9167,7 @@ void UnitTest::checkSingleMemberLongArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrTwo($cast($SingleMemberCharArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9092,6 +9178,7 @@ void UnitTest::checkSingleMemberCharArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrTwo($cast($SingleMemberFloatArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9102,6 +9189,7 @@ void UnitTest::checkSingleMemberFloatArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrTwo($cast($SingleMemberDoubleArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9112,6 +9200,7 @@ void UnitTest::checkSingleMemberDoubleArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrTwo($cast($SingleMemberBooleanArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9122,6 +9211,7 @@ void UnitTest::checkSingleMemberBooleanArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrTwo($cast($SingleMemberStringArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9132,6 +9222,7 @@ void UnitTest::checkSingleMemberStringArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrTwo($cast($SingleMemberClassArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9142,6 +9233,7 @@ void UnitTest::checkSingleMemberClassArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumArrTwoParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrTwo($cast($SingleMemberEnumArray, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9152,6 +9244,7 @@ void UnitTest::checkSingleMemberEnumArrTwoParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrOvrdDef($cast($SingleMemberByteArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9162,6 +9255,7 @@ void UnitTest::checkSingleMemberByteArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrOvrdDef($cast($SingleMemberShortArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9172,6 +9266,7 @@ void UnitTest::checkSingleMemberShortArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrOvrdDef($cast($SingleMemberIntArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9182,6 +9277,7 @@ void UnitTest::checkSingleMemberIntArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrOvrdDef($cast($SingleMemberLongArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9192,6 +9288,7 @@ void UnitTest::checkSingleMemberLongArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrOvrdDef($cast($SingleMemberCharArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9202,6 +9299,7 @@ void UnitTest::checkSingleMemberCharArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrOvrdDef($cast($SingleMemberFloatArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9212,6 +9310,7 @@ void UnitTest::checkSingleMemberFloatArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrOvrdDef($cast($SingleMemberDoubleArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9222,6 +9321,7 @@ void UnitTest::checkSingleMemberDoubleArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrOvrdDef($cast($SingleMemberBooleanArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9232,6 +9332,7 @@ void UnitTest::checkSingleMemberBooleanArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrOvrdDef($cast($SingleMemberStringArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9242,6 +9343,7 @@ void UnitTest::checkSingleMemberStringArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrOvrdDef($cast($SingleMemberClassArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9252,6 +9354,7 @@ void UnitTest::checkSingleMemberClassArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumArrOvrdDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrOvrdDef($cast($SingleMemberEnumArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9262,6 +9365,7 @@ void UnitTest::checkSingleMemberEnumArrOvrdDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberByteArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberByteArrAcceptDef($cast($SingleMemberByteArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9272,6 +9376,7 @@ void UnitTest::checkSingleMemberByteArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberShortArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberShortArrAcceptDef($cast($SingleMemberShortArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9282,6 +9387,7 @@ void UnitTest::checkSingleMemberShortArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberIntArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberIntArrAcceptDef($cast($SingleMemberIntArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9292,6 +9398,7 @@ void UnitTest::checkSingleMemberIntArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberLongArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberLongArrAcceptDef($cast($SingleMemberLongArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9302,6 +9409,7 @@ void UnitTest::checkSingleMemberLongArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberCharArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberCharArrAcceptDef($cast($SingleMemberCharArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9312,6 +9420,7 @@ void UnitTest::checkSingleMemberCharArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberFloatArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberFloatArrAcceptDef($cast($SingleMemberFloatArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9322,6 +9431,7 @@ void UnitTest::checkSingleMemberFloatArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberDoubleArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberDoubleArrAcceptDef($cast($SingleMemberDoubleArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9332,6 +9442,7 @@ void UnitTest::checkSingleMemberDoubleArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberBooleanArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberBooleanArrAcceptDef($cast($SingleMemberBooleanArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9342,6 +9453,7 @@ void UnitTest::checkSingleMemberBooleanArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberStringArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberStringArrAcceptDef($cast($SingleMemberStringArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9352,6 +9464,7 @@ void UnitTest::checkSingleMemberStringArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberClassArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberClassArrAcceptDef($cast($SingleMemberClassArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9362,6 +9475,7 @@ void UnitTest::checkSingleMemberClassArrAcceptDefParam($Method* m) {
 
 void UnitTest::checkSingleMemberEnumArrAcceptDefParam($Method* m) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		checkSingleMemberEnumArrAcceptDef($cast($SingleMemberEnumArrayDef, $nc($nc($($nc(m)->getParameterAnnotations()))->get(0))->get(0)), static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(m))));
 	} catch ($Throwable&) {
@@ -9378,6 +9492,7 @@ void UnitTest::checkMarker($AnnotatedElement* e) {
 
 void UnitTest::checkMarker($Marker* m, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if (m == nullptr) {
@@ -9397,6 +9512,7 @@ void UnitTest::checkSingleMemberByte($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByte($SingleMemberByte* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 1) {
@@ -9417,6 +9533,7 @@ void UnitTest::checkSingleMemberShort($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShort($SingleMemberShort* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 2) {
@@ -9437,6 +9554,7 @@ void UnitTest::checkSingleMemberInt($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberInt($SingleMemberInt* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 3) {
@@ -9457,6 +9575,7 @@ void UnitTest::checkSingleMemberLong($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLong($SingleMemberLong* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != (int64_t)4) {
@@ -9477,6 +9596,7 @@ void UnitTest::checkSingleMemberChar($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberChar($SingleMemberChar* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != u'5') {
@@ -9497,6 +9617,7 @@ void UnitTest::checkSingleMemberFloat($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloat($SingleMemberFloat* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 6.0f) {
@@ -9517,6 +9638,7 @@ void UnitTest::checkSingleMemberDouble($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDouble($SingleMemberDouble* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 7.0) {
@@ -9537,6 +9659,7 @@ void UnitTest::checkSingleMemberBoolean($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBoolean($SingleMemberBoolean* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if (!$nc(a)->value()) {
@@ -9557,6 +9680,7 @@ void UnitTest::checkSingleMemberString($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberString($SingleMemberString* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if (!($nc($($nc(a)->value()))->equals("custom"_s))) {
@@ -9577,6 +9701,7 @@ void UnitTest::checkSingleMemberClass($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClass($SingleMemberClass* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$load($Map);
@@ -9598,6 +9723,7 @@ void UnitTest::checkSingleMemberEnum($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnum($SingleMemberEnum* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$init($Stooge);
@@ -9619,6 +9745,7 @@ void UnitTest::checkSingleMemberByteOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteOvrdDef($SingleMemberByteWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 1) {
@@ -9639,6 +9766,7 @@ void UnitTest::checkSingleMemberShortOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortOvrdDef($SingleMemberShortWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 2) {
@@ -9659,6 +9787,7 @@ void UnitTest::checkSingleMemberIntOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntOvrdDef($SingleMemberIntWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 3) {
@@ -9679,6 +9808,7 @@ void UnitTest::checkSingleMemberLongOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongOvrdDef($SingleMemberLongWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != (int64_t)4) {
@@ -9699,6 +9829,7 @@ void UnitTest::checkSingleMemberCharOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharOvrdDef($SingleMemberCharWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != u'5') {
@@ -9719,6 +9850,7 @@ void UnitTest::checkSingleMemberFloatOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatOvrdDef($SingleMemberFloatWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 6.0f) {
@@ -9739,6 +9871,7 @@ void UnitTest::checkSingleMemberDoubleOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleOvrdDef($SingleMemberDoubleWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 7.0) {
@@ -9759,6 +9892,7 @@ void UnitTest::checkSingleMemberBooleanOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanOvrdDef($SingleMemberBooleanWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if (!$nc(a)->value()) {
@@ -9779,6 +9913,7 @@ void UnitTest::checkSingleMemberStringOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringOvrdDef($SingleMemberStringWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if (!($nc($($nc(a)->value()))->equals("custom"_s))) {
@@ -9799,6 +9934,7 @@ void UnitTest::checkSingleMemberClassOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassOvrdDef($SingleMemberClassWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$load($Map);
@@ -9820,6 +9956,7 @@ void UnitTest::checkSingleMemberEnumOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumOvrdDef($SingleMemberEnumWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$init($Stooge);
@@ -9841,6 +9978,7 @@ void UnitTest::checkSingleMemberByteAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteAcceptDef($SingleMemberByteWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 11) {
@@ -9861,6 +9999,7 @@ void UnitTest::checkSingleMemberShortAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortAcceptDef($SingleMemberShortWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 12) {
@@ -9881,6 +10020,7 @@ void UnitTest::checkSingleMemberIntAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntAcceptDef($SingleMemberIntWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 13) {
@@ -9901,6 +10041,7 @@ void UnitTest::checkSingleMemberLongAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongAcceptDef($SingleMemberLongWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != (int64_t)14) {
@@ -9921,6 +10062,7 @@ void UnitTest::checkSingleMemberCharAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharAcceptDef($SingleMemberCharWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != u'V') {
@@ -9941,6 +10083,7 @@ void UnitTest::checkSingleMemberFloatAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatAcceptDef($SingleMemberFloatWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 16.0f) {
@@ -9961,6 +10104,7 @@ void UnitTest::checkSingleMemberDoubleAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleAcceptDef($SingleMemberDoubleWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value() != 17.0) {
@@ -9981,6 +10125,7 @@ void UnitTest::checkSingleMemberBooleanAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanAcceptDef($SingleMemberBooleanWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc(a)->value()) {
@@ -10001,6 +10146,7 @@ void UnitTest::checkSingleMemberStringAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringAcceptDef($SingleMemberStringWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if (!($nc($($nc(a)->value()))->equals("default"_s))) {
@@ -10021,6 +10167,7 @@ void UnitTest::checkSingleMemberClassAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassAcceptDef($SingleMemberClassWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$load($Class);
@@ -10042,6 +10189,7 @@ void UnitTest::checkSingleMemberEnumAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumAcceptDef($SingleMemberEnumWithDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$init($Stooge);
@@ -10063,6 +10211,7 @@ void UnitTest::checkSingleMemberByteArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteArrEmpty($SingleMemberByteArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10083,6 +10232,7 @@ void UnitTest::checkSingleMemberShortArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortArrEmpty($SingleMemberShortArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10103,6 +10253,7 @@ void UnitTest::checkSingleMemberIntArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntArrEmpty($SingleMemberIntArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10123,6 +10274,7 @@ void UnitTest::checkSingleMemberLongArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongArrEmpty($SingleMemberLongArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10143,6 +10295,7 @@ void UnitTest::checkSingleMemberCharArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharArrEmpty($SingleMemberCharArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10163,6 +10316,7 @@ void UnitTest::checkSingleMemberFloatArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatArrEmpty($SingleMemberFloatArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10183,6 +10337,7 @@ void UnitTest::checkSingleMemberDoubleArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleArrEmpty($SingleMemberDoubleArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10203,6 +10358,7 @@ void UnitTest::checkSingleMemberBooleanArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanArrEmpty($SingleMemberBooleanArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10223,6 +10379,7 @@ void UnitTest::checkSingleMemberStringArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringArrEmpty($SingleMemberStringArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10243,6 +10400,7 @@ void UnitTest::checkSingleMemberClassArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassArrEmpty($SingleMemberClassArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10263,6 +10421,7 @@ void UnitTest::checkSingleMemberEnumArrEmpty($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumArrEmpty($SingleMemberEnumArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		if ($nc($($nc(a)->value()))->length != 0) {
@@ -10283,6 +10442,7 @@ void UnitTest::checkSingleMemberByteArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteArrOne($SingleMemberByteArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10304,6 +10464,7 @@ void UnitTest::checkSingleMemberShortArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortArrOne($SingleMemberShortArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10325,6 +10486,7 @@ void UnitTest::checkSingleMemberIntArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntArrOne($SingleMemberIntArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10346,6 +10508,7 @@ void UnitTest::checkSingleMemberLongArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongArrOne($SingleMemberLongArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10367,6 +10530,7 @@ void UnitTest::checkSingleMemberCharArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharArrOne($SingleMemberCharArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10388,6 +10552,7 @@ void UnitTest::checkSingleMemberFloatArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatArrOne($SingleMemberFloatArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10409,6 +10574,7 @@ void UnitTest::checkSingleMemberDoubleArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleArrOne($SingleMemberDoubleArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10430,6 +10596,7 @@ void UnitTest::checkSingleMemberBooleanArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanArrOne($SingleMemberBooleanArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10451,6 +10618,7 @@ void UnitTest::checkSingleMemberStringArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringArrOne($SingleMemberStringArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10472,6 +10640,7 @@ void UnitTest::checkSingleMemberClassArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassArrOne($SingleMemberClassArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10494,6 +10663,7 @@ void UnitTest::checkSingleMemberEnumArrOne($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumArrOne($SingleMemberEnumArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10516,6 +10686,7 @@ void UnitTest::checkSingleMemberByteArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteArrTwo($SingleMemberByteArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10538,6 +10709,7 @@ void UnitTest::checkSingleMemberShortArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortArrTwo($SingleMemberShortArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10560,6 +10732,7 @@ void UnitTest::checkSingleMemberIntArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntArrTwo($SingleMemberIntArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10582,6 +10755,7 @@ void UnitTest::checkSingleMemberLongArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongArrTwo($SingleMemberLongArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10604,6 +10778,7 @@ void UnitTest::checkSingleMemberCharArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharArrTwo($SingleMemberCharArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10626,6 +10801,7 @@ void UnitTest::checkSingleMemberFloatArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatArrTwo($SingleMemberFloatArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10648,6 +10824,7 @@ void UnitTest::checkSingleMemberDoubleArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleArrTwo($SingleMemberDoubleArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10670,6 +10847,7 @@ void UnitTest::checkSingleMemberBooleanArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanArrTwo($SingleMemberBooleanArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10692,6 +10870,7 @@ void UnitTest::checkSingleMemberStringArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringArrTwo($SingleMemberStringArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10714,6 +10893,7 @@ void UnitTest::checkSingleMemberClassArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassArrTwo($SingleMemberClassArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10738,6 +10918,7 @@ void UnitTest::checkSingleMemberEnumArrTwo($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumArrTwo($SingleMemberEnumArray* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$1 = $nc($($nc(a)->value()))->length != 2;
@@ -10761,6 +10942,7 @@ void UnitTest::checkSingleMemberByteArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteArrOvrdDef($SingleMemberByteArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10782,6 +10964,7 @@ void UnitTest::checkSingleMemberShortArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortArrOvrdDef($SingleMemberShortArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10803,6 +10986,7 @@ void UnitTest::checkSingleMemberIntArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntArrOvrdDef($SingleMemberIntArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10824,6 +11008,7 @@ void UnitTest::checkSingleMemberLongArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongArrOvrdDef($SingleMemberLongArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10845,6 +11030,7 @@ void UnitTest::checkSingleMemberCharArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharArrOvrdDef($SingleMemberCharArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10866,6 +11052,7 @@ void UnitTest::checkSingleMemberFloatArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatArrOvrdDef($SingleMemberFloatArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10887,6 +11074,7 @@ void UnitTest::checkSingleMemberDoubleArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleArrOvrdDef($SingleMemberDoubleArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10908,6 +11096,7 @@ void UnitTest::checkSingleMemberBooleanArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanArrOvrdDef($SingleMemberBooleanArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10929,6 +11118,7 @@ void UnitTest::checkSingleMemberStringArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringArrOvrdDef($SingleMemberStringArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10950,6 +11140,7 @@ void UnitTest::checkSingleMemberClassArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassArrOvrdDef($SingleMemberClassArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10972,6 +11163,7 @@ void UnitTest::checkSingleMemberEnumArrOvrdDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumArrOvrdDef($SingleMemberEnumArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -10994,6 +11186,7 @@ void UnitTest::checkSingleMemberByteArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberByteArrAcceptDef($SingleMemberByteArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11015,6 +11208,7 @@ void UnitTest::checkSingleMemberShortArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberShortArrAcceptDef($SingleMemberShortArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11036,6 +11230,7 @@ void UnitTest::checkSingleMemberIntArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberIntArrAcceptDef($SingleMemberIntArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11057,6 +11252,7 @@ void UnitTest::checkSingleMemberLongArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberLongArrAcceptDef($SingleMemberLongArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11078,6 +11274,7 @@ void UnitTest::checkSingleMemberCharArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberCharArrAcceptDef($SingleMemberCharArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11099,6 +11296,7 @@ void UnitTest::checkSingleMemberFloatArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberFloatArrAcceptDef($SingleMemberFloatArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11120,6 +11318,7 @@ void UnitTest::checkSingleMemberDoubleArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberDoubleArrAcceptDef($SingleMemberDoubleArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11141,6 +11340,7 @@ void UnitTest::checkSingleMemberBooleanArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberBooleanArrAcceptDef($SingleMemberBooleanArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11162,6 +11362,7 @@ void UnitTest::checkSingleMemberStringArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberStringArrAcceptDef($SingleMemberStringArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11183,6 +11384,7 @@ void UnitTest::checkSingleMemberClassArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberClassArrAcceptDef($SingleMemberClassArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11205,6 +11407,7 @@ void UnitTest::checkSingleMemberEnumArrAcceptDef($AnnotatedElement* e) {
 
 void UnitTest::checkSingleMemberEnumArrAcceptDef($SingleMemberEnumArrayDef* a, $AnnotatedElement* e) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool var$0 = $nc($($nc(a)->value()))->length != 1;
@@ -11221,6 +11424,7 @@ void UnitTest::checkSingleMemberEnumArrAcceptDef($SingleMemberEnumArrayDef* a, $
 
 void UnitTest::checkEquals($AnnotatedElement* e1, $AnnotatedElement* e2, $Class* annoType) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	$var($Annotation, a1, $nc(e1)->getAnnotation(annoType));
 	$var($Annotation, a2, $nc(e2)->getAnnotation(annoType));
@@ -11249,6 +11453,7 @@ void UnitTest::checkEquals($AnnotatedElement* e1, $AnnotatedElement* e2, $Class*
 
 void UnitTest::checkUnequals($AnnotatedElement* e1, $AnnotatedElement* e2, $Class* annoType) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	$var($Annotation, a1, $nc(e1)->getAnnotation(annoType));
 	$var($Annotation, a2, $nc(e2)->getAnnotation(annoType));
@@ -11277,6 +11482,7 @@ void UnitTest::checkUnequals($AnnotatedElement* e1, $AnnotatedElement* e2, $Clas
 
 void UnitTest::checkSerialization($AnnotatedElement* e, $Class* annoType) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	$var($Annotation, a1, $nc(e)->getAnnotation(annoType));
 	$var($Object, a2, deepCopy(a1));
@@ -11305,6 +11511,7 @@ void UnitTest::checkSerialization($AnnotatedElement* e, $Class* annoType) {
 
 $Object* UnitTest::deepCopy(Object$* original) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 		$var($ObjectOutputStream, oos, $new($ObjectOutputStream, bos));
@@ -11322,6 +11529,7 @@ $Object* UnitTest::deepCopy(Object$* original) {
 
 void UnitTest::checkInheritence($AnnotatedElement* e, bool shouldHaveFoo, bool shouldHaveBar) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		$load($Foo);
@@ -11359,6 +11567,7 @@ void UnitTest::checkInheritence($AnnotatedElement* e, bool shouldHaveFoo, bool s
 
 void UnitTest::checkDeclaredAnnotations($AnnotatedElement* e, bool shouldHaveFoo, bool shouldHaveBar) {
 	$init(UnitTest);
+	$useLocalCurrentObjectStackCache();
 	++UnitTest::numTests;
 	try {
 		bool hasFoo = false;

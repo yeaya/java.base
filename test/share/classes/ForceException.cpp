@@ -64,6 +64,7 @@ void ForceException::init$() {
 }
 
 void ForceException::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t blockSize = 2048 * 1024;
 	int32_t numberOfBlocks = 200;
 	int32_t fileLength = numberOfBlocks * blockSize;

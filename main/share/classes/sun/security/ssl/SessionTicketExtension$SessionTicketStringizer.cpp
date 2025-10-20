@@ -64,6 +64,7 @@ void SessionTicketExtension$SessionTicketStringizer::init$() {
 }
 
 $String* SessionTicketExtension$SessionTicketStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new($SessionTicketExtension$SessionTicketSpec, hc, buffer)->toString();
 	} catch ($IOException&) {

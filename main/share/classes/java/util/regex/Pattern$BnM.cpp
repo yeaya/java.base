@@ -82,6 +82,7 @@ $Object* allocate$Pattern$BnM($Class* clazz) {
 
 $Pattern$Node* Pattern$BnM::optimize($Pattern$Node* node) {
 	$init(Pattern$BnM);
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($Pattern$Slice, node))) {
 		return node;
 	}

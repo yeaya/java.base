@@ -144,6 +144,7 @@ $SelectionKey* KeySets::reg($Selector* sel) {
 }
 
 void KeySets::testMutability() {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$var($Set, var$0, $nc(sel)->keys());
 	testNoRemoval(var$0, $$new($KeySets$10, sel));

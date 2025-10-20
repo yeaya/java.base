@@ -169,6 +169,7 @@ $Object* allocate$ToolProvider($Class* clazz) {
 }
 
 int32_t ToolProvider::run($PrintStream* out, $PrintStream* err, $StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(out);
 	$Objects::requireNonNull(err);
 	$Objects::requireNonNull(args);
@@ -229,6 +230,7 @@ int32_t ToolProvider::run($PrintStream* out, $PrintStream* err, $StringArray* ar
 
 $Optional* ToolProvider::findFirst($String* name) {
 	$load(ToolProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(name);
 	$var($ClassLoader, systemClassLoader, $ClassLoader::getSystemClassLoader());
@@ -237,6 +239,7 @@ $Optional* ToolProvider::findFirst($String* name) {
 
 $Optional* ToolProvider::lambda$findFirst$1($ClassLoader* systemClassLoader, $String* name) {
 	$load(ToolProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ServiceLoader, sl, $ServiceLoader::load(ToolProvider::class$, systemClassLoader));
 	return $nc($($nc($($StreamSupport::stream($($nc(sl)->spliterator()), false)))->filter(static_cast<$Predicate*>($$new(ToolProvider$$Lambda$lambda$findFirst$0$1, name)))))->findFirst();

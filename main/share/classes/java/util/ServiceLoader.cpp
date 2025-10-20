@@ -320,6 +320,7 @@ void ServiceLoader::init$($Class* caller, $ModuleLayer* layer, $Class* svc) {
 }
 
 void ServiceLoader::init$($Class* caller, $Class* svc, $ClassLoader* cl$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, cl$renamed);
 	$beforeCallerSensitive();
 	$set(this, instantiatedProviders, $new($ArrayList));
@@ -362,6 +363,7 @@ void ServiceLoader::init$($Module* callerModule, $Class* svc, $ClassLoader* cl) 
 
 void ServiceLoader::checkCaller($Class* caller, $Class* svc) {
 	$init(ServiceLoader);
+	$useLocalCurrentObjectStackCache();
 	if (caller == nullptr) {
 		fail(svc, "no caller to check if it declares `uses`"_s);
 	}
@@ -377,26 +379,31 @@ void ServiceLoader::checkCaller($Class* caller, $Class* svc) {
 
 void ServiceLoader::fail($Class* service, $String* msg, $Throwable* cause) {
 	$init(ServiceLoader);
+	$useLocalCurrentObjectStackCache();
 	$throwNew($ServiceConfigurationError, $$str({$($nc(service)->getName()), ": "_s, msg}), cause);
 }
 
 void ServiceLoader::fail($Class* service, $String* msg) {
 	$init(ServiceLoader);
+	$useLocalCurrentObjectStackCache();
 	$throwNew($ServiceConfigurationError, $$str({$($nc(service)->getName()), ": "_s, msg}));
 }
 
 void ServiceLoader::fail($Class* service, $URL* u, int32_t line, $String* msg) {
 	$init(ServiceLoader);
+	$useLocalCurrentObjectStackCache();
 	fail(service, $$str({u, ":"_s, $$str(line), ": "_s, msg}));
 }
 
 bool ServiceLoader::inExplicitModule($Class* clazz) {
+	$useLocalCurrentObjectStackCache();
 	$var($Module, module, $nc(clazz)->getModule());
 	bool var$0 = $nc(module)->isNamed();
 	return var$0 && !$nc($(module->getDescriptor()))->isAutomatic();
 }
 
 $Method* ServiceLoader::findStaticProviderMethod($Class* clazz) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, methods, nullptr);
 	try {
@@ -436,6 +443,7 @@ $Method* ServiceLoader::findStaticProviderMethod($Class* clazz) {
 }
 
 $Constructor* ServiceLoader::getConstructor($Class* clazz) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, $new($ServiceLoader$1, this, clazz));
 	$var($Constructor, ctor, nullptr);
@@ -453,6 +461,7 @@ $Constructor* ServiceLoader::getConstructor($Class* clazz) {
 }
 
 $ServiceLoader$Provider* ServiceLoader::loadProvider($ServicesCatalog$ServiceProvider* provider) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Module, module, $nc(provider)->module());
 	if (!$nc(module)->canRead($($nc(this->service)->getModule()))) {
@@ -507,6 +516,7 @@ $ServiceLoader$Provider* ServiceLoader::loadProvider($ServicesCatalog$ServicePro
 }
 
 $Iterator* ServiceLoader::newLookupIterator() {
+	$useLocalCurrentObjectStackCache();
 	if (!ServiceLoader::$assertionsDisabled && !(this->layer == nullptr || this->loader == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -549,6 +559,7 @@ ServiceLoader* ServiceLoader::load($Class* service, $ClassLoader* loader) {
 
 ServiceLoader* ServiceLoader::load($Class* service) {
 	$init(ServiceLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, $($Thread::currentThread())->getContextClassLoader());
 	return $new(ServiceLoader, $Reflection::getCallerClass(), service, cl);
 }
@@ -565,6 +576,7 @@ ServiceLoader* ServiceLoader::load($ModuleLayer* layer, $Class* service) {
 }
 
 $Optional* ServiceLoader::findFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, iterator, this->iterator());
 	if ($nc(iterator)->hasNext()) {
 		return $Optional::of($(iterator->next()));

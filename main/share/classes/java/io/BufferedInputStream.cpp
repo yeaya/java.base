@@ -117,6 +117,7 @@ void BufferedInputStream::init$($InputStream* in, int32_t size) {
 }
 
 void BufferedInputStream::fill() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buffer, getBufIfOpen());
 	if (this->markpos < 0) {
 		this->pos = 0;
@@ -162,6 +163,7 @@ int32_t BufferedInputStream::read() {
 }
 
 int32_t BufferedInputStream::read1($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	int32_t avail = this->count - this->pos;
 	if (avail <= 0) {
 		if (len >= $nc($(getBufIfOpen()))->length && this->markpos < 0) {
@@ -181,6 +183,7 @@ int32_t BufferedInputStream::read1($bytes* b, int32_t off, int32_t len) {
 
 int32_t BufferedInputStream::read($bytes* b, int32_t off, int32_t len) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		getBufIfOpen();
 		if ((((off | len) | (off + len)) | ($nc(b)->length - (off + len))) < 0) {
 			$throwNew($IndexOutOfBoundsException);
@@ -258,6 +261,7 @@ bool BufferedInputStream::markSupported() {
 }
 
 void BufferedInputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buffer, nullptr);
 	while (($assign(buffer, this->buf)) != nullptr) {
 		if ($nc(BufferedInputStream::U)->compareAndSetReference(this, BufferedInputStream::BUF_OFFSET, buffer, nullptr)) {

@@ -80,6 +80,7 @@ $Object* allocate$SendUrgentData$ServerSocketChannelThread($Class* clazz) {
 }
 
 void SendUrgentData$ServerSocketChannelThread::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Thread::init$(name);
 	try {
 		$set(this, ssc, $ServerSocketChannel::open());
@@ -91,6 +92,7 @@ void SendUrgentData$ServerSocketChannelThread::init$($String* name) {
 }
 
 void SendUrgentData$ServerSocketChannelThread::run() {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(this->ssc)->isOpen()) {
 		try {
 			$Thread::sleep(100);

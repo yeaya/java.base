@@ -227,6 +227,7 @@ $bytes* TSResponse::getEncodedToken() {
 }
 
 void TSResponse::parse($bytes* tsReply) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, derValue, $new($DerValue, tsReply));
 	if (derValue->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Bad encoding for timestamp response"_s);

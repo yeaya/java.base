@@ -142,6 +142,7 @@ $String* KeyUsageExtension::ENCIPHER_ONLY = nullptr;
 $String* KeyUsageExtension::DECIPHER_ONLY = nullptr;
 
 void KeyUsageExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, os, $new($DerOutputStream));
 	os->putTruncatedUnalignedBitString($$new($BitArray, this->bitString));
 	$set(this, extensionValue, os->toByteArray());
@@ -188,6 +189,7 @@ void KeyUsageExtension::init$($BitArray* bitString) {
 }
 
 void KeyUsageExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::KeyUsage_Id);
@@ -289,6 +291,7 @@ void KeyUsageExtension::delete$($String* name) {
 }
 
 $String* KeyUsageExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()));
 	sb->append("KeyUsage [\n"_s);
@@ -324,6 +327,7 @@ $String* KeyUsageExtension::toString() {
 }
 
 void KeyUsageExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

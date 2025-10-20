@@ -56,6 +56,7 @@ void DecodeNonEncoded::init$() {
 
 void DecodeNonEncoded::main($StringArray* args) {
 	$init(DecodeNonEncoded);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(DecodeNonEncoded::errorStrings)->length; ++i) {
 		try {
 			$URLDecoder::decode($nc(DecodeNonEncoded::errorStrings)->get(i));

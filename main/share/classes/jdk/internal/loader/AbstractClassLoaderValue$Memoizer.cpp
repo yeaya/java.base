@@ -88,6 +88,7 @@ void AbstractClassLoaderValue$Memoizer::init$($ClassLoader* cl, $AbstractClassLo
 }
 
 $Object* AbstractClassLoaderValue$Memoizer::get() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, v, this->v);
 	if (v != nullptr) {
 		return $of(v);

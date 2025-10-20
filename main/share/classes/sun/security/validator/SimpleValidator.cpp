@@ -171,6 +171,7 @@ $String* SimpleValidator::NSCT_SSL_CA = nullptr;
 $String* SimpleValidator::NSCT_CODE_SIGNING_CA = nullptr;
 
 void SimpleValidator::init$($String* variant, $Collection* trustedCerts) {
+	$useLocalCurrentObjectStackCache();
 	$init($Validator);
 	$Validator::init$($Validator::TYPE_SIMPLE, variant);
 	$set(this, trustedCerts, trustedCerts);
@@ -197,6 +198,7 @@ $Collection* SimpleValidator::getTrustedCertificates() {
 }
 
 $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* chain$renamed, $Collection* otherCerts, $List* responseList, $AlgorithmConstraints* constraints, Object$* parameter) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertificateArray, chain, chain$renamed);
 	if ((chain == nullptr) || ($nc(chain)->length == 0)) {
 		$throwNew($CertificateException, "null or zero-length certificate chain"_s);
@@ -266,6 +268,7 @@ $X509CertificateArray* SimpleValidator::engineValidate($X509CertificateArray* ch
 }
 
 int32_t SimpleValidator::checkExtensions($X509Certificate* cert, int32_t maxPathLen) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, critSet, $nc(cert)->getCriticalExtensionOIDs());
 	if (critSet == nullptr) {
 		$assign(critSet, $Collections::emptySet());
@@ -308,6 +311,7 @@ void SimpleValidator::checkNetscapeCertType($X509Certificate* cert, $Set* critSe
 
 bool SimpleValidator::getNetscapeCertTypeBit($X509Certificate* cert, $String* type) {
 	$init(SimpleValidator);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($NetscapeCertTypeExtension, ext, nullptr);
 		if ($instanceOf($X509CertImpl, cert)) {
@@ -369,6 +373,7 @@ void SimpleValidator::checkKeyUsage($X509Certificate* cert, $Set* critSet) {
 }
 
 $X509CertificateArray* SimpleValidator::buildTrustedChain($X509CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, c, $new($ArrayList, $nc(chain)->length));
 	for (int32_t i = 0; i < $nc(chain)->length; ++i) {
 		$var($X509Certificate, cert, chain->get(i));
@@ -412,6 +417,7 @@ $X509CertificateArray* SimpleValidator::buildTrustedChain($X509CertificateArray*
 }
 
 $X509Certificate* SimpleValidator::getTrustedCertificate($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($Principal, certSubjectName, $nc(cert)->getSubjectX500Principal());
 	$var($List, list, $cast($List, $nc(this->trustedX500Principals)->get(certSubjectName)));
 	if (list == nullptr) {

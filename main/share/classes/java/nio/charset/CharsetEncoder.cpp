@@ -186,6 +186,7 @@ void CharsetEncoder::implReplaceWith($bytes* newReplacement) {
 }
 
 bool CharsetEncoder::isLegalReplacement($bytes* repl) {
+	$useLocalCurrentObjectStackCache();
 	$var($WeakReference, wr, this->cachedDecoder);
 	$var($CharsetDecoder, dec, nullptr);
 	if ((wr == nullptr) || (($assign(dec, $cast($CharsetDecoder, $nc(wr)->get()))) == nullptr)) {
@@ -245,6 +246,7 @@ float CharsetEncoder::maxBytesPerChar() {
 }
 
 $CoderResult* CharsetEncoder::encode($CharBuffer* in, $ByteBuffer* out, bool endOfInput) {
+	$useLocalCurrentObjectStackCache();
 	int32_t newState = endOfInput ? CharsetEncoder::ST_END : CharsetEncoder::ST_CODING;
 	if ((this->state != CharsetEncoder::ST_RESET) && (this->state != CharsetEncoder::ST_CODING) && !(endOfInput && (this->state == CharsetEncoder::ST_END))) {
 		throwIllegalStateException(this->state, newState);
@@ -327,6 +329,7 @@ void CharsetEncoder::implReset() {
 }
 
 $ByteBuffer* CharsetEncoder::encode($CharBuffer* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(in)->remaining();
 	int32_t n = $cast(int32_t, (var$0 * averageBytesPerChar()));
 	$var($ByteBuffer, out, $ByteBuffer::allocate(n));
@@ -358,6 +361,7 @@ $ByteBuffer* CharsetEncoder::encode($CharBuffer* in) {
 }
 
 bool CharsetEncoder::canEncode($CharBuffer* cb) {
+	$useLocalCurrentObjectStackCache();
 	if (this->state == CharsetEncoder::ST_FLUSHED) {
 		reset();
 	} else if (this->state != CharsetEncoder::ST_RESET) {
@@ -406,6 +410,7 @@ bool CharsetEncoder::canEncode(char16_t c) {
 }
 
 bool CharsetEncoder::canEncode($CharSequence* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, cb, nullptr);
 	if ($instanceOf($CharBuffer, cs)) {
 		$assign(cb, $nc(($cast($CharBuffer, cs)))->duplicate());

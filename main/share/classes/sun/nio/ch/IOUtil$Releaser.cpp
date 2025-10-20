@@ -171,14 +171,17 @@ $ScopedMemoryAccess$Scope$Handle* IOUtil$Releaser::handle() {
 }
 
 $String* IOUtil$Releaser::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($String, $cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "toString"_s, $($MethodType::methodType(nullptr)), IOUtil$Releaser::class$, "handle"_s, $$new($MethodHandleArray, {nullptr}))))->invoke($$new($ObjectArray, {$of(this)})));
 }
 
 int32_t IOUtil$Releaser::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	return $intValue($cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "hashCode"_s, $($MethodType::methodType(nullptr)), IOUtil$Releaser::class$, "handle"_s, $$new($MethodHandleArray, {nullptr}))))->invoke($$new($ObjectArray, {$of(this)})));
 }
 
 bool IOUtil$Releaser::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	return $booleanValue($cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "equals"_s, $($MethodType::methodType(nullptr)), IOUtil$Releaser::class$, "handle"_s, $$new($MethodHandleArray, {nullptr}))))->invoke($$new($ObjectArray, {$of(this), o})));
 }
 

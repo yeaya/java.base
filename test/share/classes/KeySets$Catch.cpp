@@ -50,6 +50,7 @@ $Object* allocate$KeySets$Catch($Class* clazz) {
 }
 
 void KeySets$Catch::init$($Class* xc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		go();
 	} catch ($Exception&) {

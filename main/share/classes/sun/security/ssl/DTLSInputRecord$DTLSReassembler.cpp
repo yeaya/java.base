@@ -170,6 +170,7 @@ void DTLSInputRecord$DTLSReassembler::expectingFinishFlight() {
 }
 
 void DTLSInputRecord$DTLSReassembler::queueUpHandshake($DTLSInputRecord$HandshakeFragment* hsf) {
+	$useLocalCurrentObjectStackCache();
 	if (!isDesirable(hsf)) {
 		return;
 	}
@@ -290,6 +291,7 @@ void DTLSInputRecord$DTLSReassembler::bufferFragment($DTLSInputRecord$RecordFrag
 }
 
 void DTLSInputRecord$DTLSReassembler::cleanUpRetransmit($DTLSInputRecord$RecordFragment* rf) {
+	$useLocalCurrentObjectStackCache();
 	bool isNewFlight = false;
 	if (this->precedingFlight != nullptr) {
 		if ($nc(this->precedingFlight)->flightEpoch < $nc(rf)->recordEpoch) {
@@ -338,6 +340,7 @@ void DTLSInputRecord$DTLSReassembler::cleanUpRetransmit($DTLSInputRecord$RecordF
 }
 
 bool DTLSInputRecord$DTLSReassembler::isDesirable($DTLSInputRecord$RecordFragment* rf) {
+	$useLocalCurrentObjectStackCache();
 	int32_t previousEpoch = this->nextRecordEpoch - 1;
 	if ($nc(rf)->recordEpoch < previousEpoch) {
 		$init($SSLLogger);
@@ -388,6 +391,7 @@ bool DTLSInputRecord$DTLSReassembler::isEmpty() {
 }
 
 $Plaintext* DTLSInputRecord$DTLSReassembler::acquirePlaintext() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->bufferedFragments)->isEmpty()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("verbose"_s)) {
@@ -454,6 +458,7 @@ void DTLSInputRecord$DTLSReassembler::resetHandshakeFlight($DTLSInputRecord$Hand
 }
 
 $Plaintext* DTLSInputRecord$DTLSReassembler::acquireCachedMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($DTLSInputRecord$RecordFragment, rFrag, $cast($DTLSInputRecord$RecordFragment, $nc(this->bufferedFragments)->first()));
 	if (this->this$0->readEpoch != $nc(rFrag)->recordEpoch) {
 		if (this->this$0->readEpoch > rFrag->recordEpoch) {
@@ -512,6 +517,7 @@ $Plaintext* DTLSInputRecord$DTLSReassembler::acquireCachedMessage() {
 }
 
 $Plaintext* DTLSInputRecord$DTLSReassembler::acquireHandshakeMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($DTLSInputRecord$RecordFragment, rFrag, $cast($DTLSInputRecord$RecordFragment, $nc(this->bufferedFragments)->first()));
 	$init($ContentType);
 	if ($nc(rFrag)->contentType == $ContentType::CHANGE_CIPHER_SPEC->id) {
@@ -581,6 +587,7 @@ $Plaintext* DTLSInputRecord$DTLSReassembler::acquireHandshakeMessage() {
 }
 
 bool DTLSInputRecord$DTLSReassembler::flightIsReady() {
+	$useLocalCurrentObjectStackCache();
 	int8_t flightType = $nc(this->handshakeFlight)->handshakeType;
 	$init($DTLSInputRecord$HandshakeFlight);
 	if (flightType == $DTLSInputRecord$HandshakeFlight::HF_UNKNOWN) {
@@ -677,6 +684,7 @@ bool DTLSInputRecord$DTLSReassembler::flightIsReady() {
 }
 
 bool DTLSInputRecord$DTLSReassembler::hasFinishedMessage($Set* fragments) {
+	$useLocalCurrentObjectStackCache();
 	bool hasCCS = false;
 	bool hasFin = false;
 	{
@@ -707,6 +715,7 @@ bool DTLSInputRecord$DTLSReassembler::hasFinishedMessage($Set* fragments) {
 }
 
 bool DTLSInputRecord$DTLSReassembler::needClientVerify($Set* fragments) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(fragments)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -729,6 +738,7 @@ bool DTLSInputRecord$DTLSReassembler::needClientVerify($Set* fragments) {
 }
 
 bool DTLSInputRecord$DTLSReassembler::hasCompleted(int8_t handshakeType) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, holes, $cast($List, $nc($nc(this->handshakeFlight)->holesMap)->get($($Byte::valueOf(handshakeType)))));
 	if (holes == nullptr) {
 		return false;
@@ -737,6 +747,7 @@ bool DTLSInputRecord$DTLSReassembler::hasCompleted(int8_t handshakeType) {
 }
 
 bool DTLSInputRecord$DTLSReassembler::hasCompleted($Set* fragments, int32_t presentMsgSeq, int32_t endMsgSeq) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(fragments)->iterator());
 		for (; $nc(i$)->hasNext();) {

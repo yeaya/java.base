@@ -96,6 +96,7 @@ void ProxySelector$StaticProxySelector::connectFailed($URI* uri, $SocketAddress*
 
 $List* ProxySelector$StaticProxySelector::select($URI* uri) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($String, scheme, $nc($($nc(uri)->getScheme()))->toLowerCase());
 		bool var$0 = scheme->equals("http"_s);
 		if (var$0 || scheme->equals("https"_s)) {

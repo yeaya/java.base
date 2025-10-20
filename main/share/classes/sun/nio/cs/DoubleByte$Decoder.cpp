@@ -161,6 +161,7 @@ void DoubleByte$Decoder::init$($Charset* cs, $charArray2* b2c, $chars* b2cSB, in
 }
 
 $CoderResult* DoubleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -221,6 +222,7 @@ $CoderResult* DoubleByte$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 }
 
 $CoderResult* DoubleByte$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -283,6 +285,7 @@ $CoderResult* DoubleByte$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst)
 }
 
 int32_t DoubleByte$Decoder::decode($bytes* src, int32_t sp, int32_t len, $chars* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t dp = 0;
 	int32_t sl = sp + len;
 	char16_t repl = $nc($(replacement()))->charAt(0);

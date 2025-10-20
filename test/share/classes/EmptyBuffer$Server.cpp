@@ -88,6 +88,7 @@ $Object* allocate$EmptyBuffer$Server($Class* clazz) {
 }
 
 void EmptyBuffer$Server::init$($SocketAddress* clientAddress) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, e, nullptr);
 	$set(this, dc, $cast($DatagramChannel, $nc($($DatagramChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	$set(this, clientAddress, clientAddress);
@@ -115,6 +116,7 @@ void EmptyBuffer$Server::showBuffer($String* s, $ByteBuffer* bb) {
 }
 
 void EmptyBuffer$Server::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

@@ -99,6 +99,7 @@ $SocketAddress* Proxy::address() {
 }
 
 $String* Proxy::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Proxy$Type);
 	if (type() == $Proxy$Type::DIRECT) {
 		return "DIRECT"_s;
@@ -108,6 +109,7 @@ $String* Proxy::toString() {
 }
 
 bool Proxy::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(Proxy, p, nullptr);
 	bool var$0 = $instanceOf(Proxy, obj);
 	if (var$0) {
@@ -128,6 +130,7 @@ bool Proxy::equals(Object$* obj) {
 }
 
 int32_t Proxy::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	if (address() == nullptr) {
 		return $nc($(type()))->hashCode();
 	}

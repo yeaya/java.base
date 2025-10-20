@@ -210,6 +210,7 @@ void ResourcesStreamTest::main($StringArray* args) {
 }
 
 void ResourcesStreamTest::testSuccess() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ClassLoader, cl, $new($ResourcesStreamTest$FailingClassLoader));
 		$var($Stream, stream, cl->resources("the name"_s));
@@ -226,6 +227,7 @@ void ResourcesStreamTest::testSuccess() {
 }
 
 void ResourcesStreamTest::testFailure() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, $new($ResourcesStreamTest$SuccessClassLoader));
 	int64_t count = $nc($(cl->resources("the name"_s)))->count();
 	if (count != 1) {

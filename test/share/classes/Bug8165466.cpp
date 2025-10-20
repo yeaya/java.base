@@ -47,6 +47,7 @@ void Bug8165466::init$() {
 }
 
 void Bug8165466::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($DecimalFormat, nf, $cast($DecimalFormat, $DecimalFormat::getPercentInstance($Locale::US)));
 	$nc(nf)->setMaximumFractionDigits(3);

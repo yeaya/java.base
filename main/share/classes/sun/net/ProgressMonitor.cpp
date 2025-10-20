@@ -111,6 +111,7 @@ void ProgressMonitor::setMeteringPolicy($ProgressMeteringPolicy* policy) {
 }
 
 $ArrayList* ProgressMonitor::getProgressSources() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, snapshot, $new($ArrayList));
 	try {
 		$synchronized(this->progressSourceList) {
@@ -140,6 +141,7 @@ bool ProgressMonitor::shouldMeterInput($URL* url, $String* method) {
 }
 
 void ProgressMonitor::registerSource($ProgressSource* pi) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->progressSourceList) {
 		if ($nc(this->progressSourceList)->contains(pi)) {
 			return;
@@ -174,6 +176,7 @@ void ProgressMonitor::registerSource($ProgressSource* pi) {
 }
 
 void ProgressMonitor::unregisterSource($ProgressSource* pi) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->progressSourceList) {
 		if ($nc(this->progressSourceList)->contains(pi) == false) {
 			return;
@@ -209,6 +212,7 @@ void ProgressMonitor::unregisterSource($ProgressSource* pi) {
 }
 
 void ProgressMonitor::updateProgress($ProgressSource* pi) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->progressSourceList) {
 		if ($nc(this->progressSourceList)->contains(pi) == false) {
 			return;

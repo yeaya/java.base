@@ -64,6 +64,7 @@ void IntegralDivisionTests::init$() {
 }
 
 int32_t IntegralDivisionTests::dividetoIntegralValueTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, moreTestCases, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -145,6 +146,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueTests() {
 }
 
 int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, dividend, $new($BigDecimal, "11003"_s));
 	$var($BigDecimal, divisor, $new($BigDecimal, "10"_s));
@@ -200,6 +202,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueRoundedTests() {
 }
 
 int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $BigDecimal* divisor, $BigDecimalArray* quotients) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	for (int32_t i = 0; i < $nc(quotients)->length; ++i) {
 		$var($BigDecimal, result, nullptr);
@@ -256,6 +259,7 @@ int32_t IntegralDivisionTests::divideContextTestPrecs($BigDecimal* dividend, $Bi
 }
 
 int32_t IntegralDivisionTests::divideContextTests($BigDecimal* dividend, $BigDecimal* divisor, $BigDecimal* expected, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += divideContextTest(dividend, divisor, expected, mc);
 	$var($BigDecimal, var$0, $nc(dividend)->negate());
@@ -272,6 +276,7 @@ int32_t IntegralDivisionTests::divideContextTests($BigDecimal* dividend, $BigDec
 }
 
 int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDecimal* divisor, $BigDecimal* expected, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, result, nullptr);
 	try {
@@ -325,6 +330,7 @@ int32_t IntegralDivisionTests::divideContextTest($BigDecimal* dividend, $BigDeci
 }
 
 int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, dividend, $new($BigDecimal, "123456789000"_s));
 	$init($BigDecimal);
@@ -454,6 +460,7 @@ int32_t IntegralDivisionTests::dividetoIntegralValueScalingTests() {
 }
 
 void IntegralDivisionTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += dividetoIntegralValueTests();
 	failures += dividetoIntegralValueRoundedTests();

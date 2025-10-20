@@ -102,11 +102,13 @@ $Object* allocate$CertId($Class* clazz) {
 $AlgorithmId* CertId::SHA1_ALGID = nullptr;
 
 void CertId::init$($X509Certificate* issuerCert, $SerialNumber* serialNumber) {
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, var$0, $nc(issuerCert)->getSubjectX500Principal());
 	CertId::init$(var$0, $(issuerCert->getPublicKey()), serialNumber);
 }
 
 void CertId::init$($X500Principal* issuerName, $PublicKey* issuerKey, $SerialNumber* serialNumber) {
+	$useLocalCurrentObjectStackCache();
 	this->myhash = -1;
 	$var($MessageDigest, md, nullptr);
 	try {
@@ -177,6 +179,7 @@ int32_t CertId::hashCode() {
 }
 
 bool CertId::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -195,6 +198,7 @@ bool CertId::equals(Object$* other) {
 }
 
 $String* CertId::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("CertId \n"_s);
 	sb->append($$str({"Algorithm: "_s, $($nc(this->hashAlgId)->toString()), "\n"_s}));

@@ -138,6 +138,7 @@ int32_t Base64$Decoder::decode($bytes* src, $bytes* dst) {
 }
 
 $ByteBuffer* Base64$Decoder::decode($ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos0 = $nc(buffer)->position();
 	try {
 		$var($bytes, src, nullptr);
@@ -230,6 +231,7 @@ int32_t Base64$Decoder::decodeBlock($bytes* src, int32_t sp, int32_t sl, $bytes*
 }
 
 int32_t Base64$Decoder::decode0($bytes* src, int32_t sp, int32_t sl, $bytes* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, base64, this->isURL ? Base64$Decoder::fromBase64URL : Base64$Decoder::fromBase64);
 	int32_t dp = 0;
 	int32_t bits = 0;

@@ -191,6 +191,7 @@ $Iterator* Collections$UnmodifiableMap$UnmodifiableEntrySet::iterator() {
 }
 
 $ObjectArray* Collections$UnmodifiableMap$UnmodifiableEntrySet::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, $nc(this->c)->toArray());
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
 		a->set(i, $$new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, $cast($Map$Entry, a->get(i))));
@@ -199,6 +200,7 @@ $ObjectArray* Collections$UnmodifiableMap$UnmodifiableEntrySet::toArray() {
 }
 
 $ObjectArray* Collections$UnmodifiableMap$UnmodifiableEntrySet::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, arr, $nc(this->c)->toArray($nc(a)->length == 0 ? a : $($Arrays::copyOf(a, 0))));
 	for (int32_t i = 0; i < $nc(arr)->length; ++i) {
 		arr->set(i, $$new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, $cast($Map$Entry, arr->get(i))));
@@ -221,6 +223,7 @@ bool Collections$UnmodifiableMap$UnmodifiableEntrySet::contains(Object$* o) {
 }
 
 bool Collections$UnmodifiableMap$UnmodifiableEntrySet::containsAll($Collection* coll) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(coll)->iterator());
 		for (; $nc(i$)->hasNext();) {

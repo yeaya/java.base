@@ -186,6 +186,7 @@ bool AnnotatedElement::isAnnotationPresent($Class* annotationClass) {
 }
 
 $AnnotationArray* AnnotatedElement::getAnnotationsByType($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationArray, result, getDeclaredAnnotationsByType(annotationClass));
 	if ($nc(result)->length == 0 && $instanceOf($Class, this) && $nc($($AnnotationType::getInstance(annotationClass)))->isInherited()) {
 		$Class* superClass = $nc(($cast($Class, this)))->getSuperclass();
@@ -197,6 +198,7 @@ $AnnotationArray* AnnotatedElement::getAnnotationsByType($Class* annotationClass
 }
 
 $Annotation* AnnotatedElement::getDeclaredAnnotation($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	{
 		$var($AnnotationArray, arr$, getDeclaredAnnotations());
@@ -215,6 +217,7 @@ $Annotation* AnnotatedElement::getDeclaredAnnotation($Class* annotationClass) {
 }
 
 $AnnotationArray* AnnotatedElement::getDeclaredAnnotationsByType($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	$var($Function, var$0, static_cast<$Function*>($new(AnnotatedElement$$Lambda$annotationType)));
 	$var($Function, var$1, $Function::identity());

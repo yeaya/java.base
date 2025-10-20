@@ -77,6 +77,7 @@ void Class$2::init$($Class* this$0) {
 }
 
 $Object* Class$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, list, $new($ArrayList));
 	$Class* currentClass = this->this$0;

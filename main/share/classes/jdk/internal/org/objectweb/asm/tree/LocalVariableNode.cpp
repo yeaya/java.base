@@ -65,6 +65,7 @@ void LocalVariableNode::init$($String* name, $String* descriptor, $String* signa
 }
 
 void LocalVariableNode::accept($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, this->name);
 	$var($String, var$1, this->desc);
 	$var($String, var$2, this->signature);

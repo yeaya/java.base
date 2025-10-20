@@ -90,6 +90,7 @@ void DoubleAccumulator::init$($DoubleBinaryOperator* accumulatorFunction, double
 }
 
 void DoubleAccumulator::accumulate(double x) {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -117,6 +118,7 @@ void DoubleAccumulator::accumulate(double x) {
 }
 
 double DoubleAccumulator::get() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	double result = $Double::longBitsToDouble(this->base);
 	if (cs != nullptr) {
@@ -136,6 +138,7 @@ double DoubleAccumulator::get() {
 }
 
 void DoubleAccumulator::reset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = this->identity;
 	if (cs != nullptr) {
@@ -154,6 +157,7 @@ void DoubleAccumulator::reset() {
 }
 
 double DoubleAccumulator::getThenReset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	double result = $Double::longBitsToDouble(getAndSetBase(this->identity));
 	if (cs != nullptr) {

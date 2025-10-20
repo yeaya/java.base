@@ -101,6 +101,7 @@ void GCTR::finalize() {
 }
 
 void GCTR::init$($SymmetricCipher* cipher, $bytes* initialCounterBlk) {
+	$useLocalCurrentObjectStackCache();
 	$CounterMode::init$(cipher);
 	if ($nc(initialCounterBlk)->length != this->blockSize) {
 		$throwNew($RuntimeException, $$str({"length of initial counter block ("_s, $$str(initialCounterBlk->length), ") not equal to blockSize ("_s, $$str(this->blockSize), ")"_s}));
@@ -163,6 +164,7 @@ int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int3
 }
 
 int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(dst)->isDirect()) {
 		$var($bytes, var$0, in);
 		int32_t var$1 = inOfs;
@@ -210,6 +212,7 @@ int32_t GCTR::update($bytes* in, int32_t inOfs, int32_t inLen, $ByteBuffer* dst)
 }
 
 int32_t GCTR::update($ByteBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = 0;
 	bool var$0 = $nc(src)->hasArray();
 	if (var$0 && $nc(dst)->hasArray()) {
@@ -272,6 +275,7 @@ int32_t GCTR::doFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int
 }
 
 int32_t GCTR::doFinal($ByteBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(src)->hasArray();
 	if (var$0 && $nc(dst)->hasArray()) {
 		$var($bytes, var$1, $cast($bytes, src->array()));

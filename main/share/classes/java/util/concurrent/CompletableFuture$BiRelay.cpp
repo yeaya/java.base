@@ -65,6 +65,7 @@ void CompletableFuture$BiRelay::init$($CompletableFuture* dep, $CompletableFutur
 }
 
 $CompletableFuture* CompletableFuture$BiRelay::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);

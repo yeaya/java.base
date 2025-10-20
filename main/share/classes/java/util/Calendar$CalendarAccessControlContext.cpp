@@ -79,6 +79,7 @@ void Calendar$CalendarAccessControlContext::init$() {
 }
 
 void clinit$Calendar$CalendarAccessControlContext($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($RuntimePermission, perm, $new($RuntimePermission, "accessClassInPackage.sun.util.calendar"_s));
 		$var($PermissionCollection, perms, perm->newPermissionCollection());

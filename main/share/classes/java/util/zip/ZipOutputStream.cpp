@@ -301,6 +301,7 @@ void ZipOutputStream::putNextEntry($ZipEntry* e) {
 }
 
 void ZipOutputStream::closeEntry() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (this->current != nullptr) {
 		$var($ZipEntry, e, $nc(this->current)->entry);
@@ -398,6 +399,7 @@ void ZipOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void ZipOutputStream::finish() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (this->finished) {
 		return;
@@ -425,6 +427,7 @@ void ZipOutputStream::close() {
 }
 
 void ZipOutputStream::writeLOC($ZipOutputStream$XEntry* xentry) {
+	$useLocalCurrentObjectStackCache();
 	$var($ZipEntry, e, $nc(xentry)->entry);
 	int32_t flag = $nc(e)->flag;
 	bool hasZip64 = false;
@@ -541,6 +544,7 @@ int32_t ZipOutputStream::versionMadeBy($ZipEntry* e, int32_t version) {
 }
 
 void ZipOutputStream::writeCEN($ZipOutputStream$XEntry* xentry) {
+	$useLocalCurrentObjectStackCache();
 	$var($ZipEntry, e, $nc(xentry)->entry);
 	int32_t flag = $nc(e)->flag;
 	int32_t version = ZipOutputStream::version(e);

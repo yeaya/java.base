@@ -75,6 +75,7 @@ void IndexTest::init$() {
 
 void IndexTest::main($StringArray* args) {
 	$init(IndexTest);
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, netifs, $NetworkInterface::getNetworkInterfaces());
 	$var($NetworkInterface, nif, nullptr);
 	while ($nc(netifs)->hasMoreElements()) {
@@ -115,6 +116,7 @@ void IndexTest::main($StringArray* args) {
 
 void IndexTest::displayInterfaceInformation($NetworkInterface* netint) {
 	$init(IndexTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->printf("Display name: %s%n"_s, $$new($ObjectArray, {$($of($nc(netint)->getDisplayName()))}));
 	$nc($System::out)->printf("Name: %s%n"_s, $$new($ObjectArray, {$($of($nc(netint)->getName()))}));

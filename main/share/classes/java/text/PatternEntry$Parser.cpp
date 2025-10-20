@@ -80,6 +80,7 @@ void PatternEntry$Parser::init$($String* pattern) {
 }
 
 $PatternEntry* PatternEntry$Parser::next() {
+	$useLocalCurrentObjectStackCache();
 	int32_t newStrength = -1;
 	$nc(this->newChars)->setLength(0);
 	$nc(this->newExtension)->setLength(0);

@@ -92,6 +92,7 @@ ModuleResolution* ModuleResolution::withDoNotResolveByDefault() {
 }
 
 ModuleResolution* ModuleResolution::withDeprecated() {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(this->value$ & (uint32_t)(4 | 8))) != 0) {
 		$throwNew($InternalError, $$str({"cannot add deprecated to "_s, $$str(this->value$)}));
 	}
@@ -99,6 +100,7 @@ ModuleResolution* ModuleResolution::withDeprecated() {
 }
 
 ModuleResolution* ModuleResolution::withDeprecatedForRemoval() {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(this->value$ & (uint32_t)(2 | 8))) != 0) {
 		$throwNew($InternalError, $$str({"cannot add deprecated for removal to "_s, $$str(this->value$)}));
 	}
@@ -106,6 +108,7 @@ ModuleResolution* ModuleResolution::withDeprecatedForRemoval() {
 }
 
 ModuleResolution* ModuleResolution::withIncubating() {
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(this->value$ & (uint32_t)(2 | 4))) != 0) {
 		$throwNew($InternalError, $$str({"cannot add incubating to "_s, $$str(this->value$)}));
 	}
@@ -133,6 +136,7 @@ bool ModuleResolution::hasIncubatingWarning($ModuleReference* mref) {
 }
 
 $String* ModuleResolution::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$($Object::toString()), "[value="_s, $$str(this->value$), "]"_s});
 }
 

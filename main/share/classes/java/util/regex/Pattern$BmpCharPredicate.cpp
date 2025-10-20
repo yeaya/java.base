@@ -219,6 +219,7 @@ $Pattern$CharPredicate* Pattern$BmpCharPredicate::union$($Pattern$CharPredicate*
 
 $Pattern$CharPredicate* Pattern$BmpCharPredicate::union$($Pattern$CharPredicateArray* predicates) {
 	$init(Pattern$BmpCharPredicate);
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern$CharPredicate, cp, static_cast<$Pattern$CharPredicate*>($new(Pattern$BmpCharPredicate$$Lambda$lambda$union$4$2, predicates)));
 	{
 		$var($Pattern$CharPredicateArray, arr$, predicates);
@@ -238,6 +239,7 @@ $Pattern$CharPredicate* Pattern$BmpCharPredicate::union$($Pattern$CharPredicateA
 
 bool Pattern$BmpCharPredicate::lambda$union$4($Pattern$CharPredicateArray* predicates, int32_t ch) {
 	$init(Pattern$BmpCharPredicate);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Pattern$CharPredicateArray, arr$, predicates);
 		int32_t len$ = $nc(arr$)->length;

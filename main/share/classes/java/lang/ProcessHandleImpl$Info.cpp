@@ -131,6 +131,7 @@ $Optional* ProcessHandleImpl$Info::command() {
 }
 
 $Optional* ProcessHandleImpl$Info::commandLine() {
+	$useLocalCurrentObjectStackCache();
 	if (this->command$ != nullptr && this->arguments$ != nullptr) {
 		return $Optional::of($$str({this->command$, " "_s, $($String::join(static_cast<$CharSequence*>(" "_s), $fcast($CharSequenceArray, this->arguments$)))}));
 	} else {
@@ -155,6 +156,7 @@ $Optional* ProcessHandleImpl$Info::user() {
 }
 
 $String* ProcessHandleImpl$Info::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 60));
 	sb->append(u'[');
 	if (this->user$ != nullptr) {

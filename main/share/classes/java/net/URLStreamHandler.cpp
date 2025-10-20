@@ -85,6 +85,7 @@ $URLConnection* URLStreamHandler::openConnection($URL* u, $Proxy* p) {
 }
 
 void URLStreamHandler::parseURL($URL* u, $String* spec$renamed, int32_t start, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, spec, spec$renamed);
 	$var($String, protocol, $nc(u)->getProtocol());
 	$var($String, authority, u->getAuthority());
@@ -248,12 +249,14 @@ int32_t URLStreamHandler::getDefaultPort() {
 }
 
 bool URLStreamHandler::equals($URL* u1, $URL* u2) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$1, $of($nc(u1)->getRef()));
 	bool var$0 = $Objects::equals(var$1, $($nc(u2)->getRef()));
 	return var$0 && sameFile(u1, u2);
 }
 
 int32_t URLStreamHandler::hashCode($URL* u) {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($String, protocol, $nc(u)->getProtocol());
 	if (protocol != nullptr) {
@@ -285,6 +288,7 @@ int32_t URLStreamHandler::hashCode($URL* u) {
 }
 
 bool URLStreamHandler::sameFile($URL* u1, $URL* u2) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = ($nc(u1)->getProtocol() == $nc(u2)->getProtocol());
 	if (!var$0) {
 		bool var$1 = $nc(u1)->getProtocol() != nullptr;
@@ -319,6 +323,7 @@ $InetAddress* URLStreamHandler::getHostAddress($URL* u) {
 }
 
 bool URLStreamHandler::hostsEqual($URL* u1, $URL* u2) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, a1, getHostAddress(u1));
 	$var($InetAddress, a2, getHostAddress(u2));
 	if (a1 != nullptr && a2 != nullptr) {
@@ -335,6 +340,7 @@ bool URLStreamHandler::hostsEqual($URL* u1, $URL* u2) {
 }
 
 $String* URLStreamHandler::toExternalForm($URL* u) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	$var($String, var$3, $$str({$($nc(u)->getProtocol()), $$str(u':')}));
 	bool var$4 = ($assign(s, u->getAuthority())) != nullptr;
@@ -345,6 +351,7 @@ $String* URLStreamHandler::toExternalForm($URL* u) {
 }
 
 void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host, int32_t port, $String* authority, $String* userInfo, $String* path, $String* query, $String* ref) {
+	$useLocalCurrentObjectStackCache();
 	if (this != $nc(u)->handler) {
 		$throwNew($SecurityException, "handler for url different from this handler"_s);
 	} else if (host != nullptr && u->isBuiltinStreamHandler(this)) {
@@ -357,6 +364,7 @@ void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host, int32_t
 }
 
 void URLStreamHandler::setURL($URL* u, $String* protocol, $String* host$renamed, int32_t port, $String* file, $String* ref) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	$var($String, authority, nullptr);
 	$var($String, userInfo, nullptr);

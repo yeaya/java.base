@@ -81,6 +81,7 @@ bool HostLocaleProviderAdapterImpl$5::isSupportedLocale($Locale* locale) {
 }
 
 int32_t HostLocaleProviderAdapterImpl$5::getFirstDayOfWeek($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	int32_t first = $HostLocaleProviderAdapterImpl::getCalendarDataValue($($nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag()), 0);
 	if (first != -1) {
 		return (first + 1) % 7 + 1;
@@ -90,6 +91,7 @@ int32_t HostLocaleProviderAdapterImpl$5::getFirstDayOfWeek($Locale* locale) {
 }
 
 int32_t HostLocaleProviderAdapterImpl$5::getMinimalDaysInFirstWeek($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	int32_t firstWeek = $HostLocaleProviderAdapterImpl::getCalendarDataValue($($nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag()), 1);
 
 	int32_t var$0 = 0;

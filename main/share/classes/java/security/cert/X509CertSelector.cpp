@@ -493,6 +493,7 @@ void X509CertSelector::setKeyUsage($booleans* keyUsage) {
 }
 
 void X509CertSelector::setExtendedKeyUsage($Set* keyPurposeSet) {
+	$useLocalCurrentObjectStackCache();
 	if ((keyPurposeSet == nullptr) || $nc(keyPurposeSet)->isEmpty()) {
 		$set(this, keyPurposeSet, nullptr);
 		$set(this, keyPurposeOIDSet, nullptr);
@@ -540,6 +541,7 @@ void X509CertSelector::addSubjectAlternativeName(int32_t type, $bytes* name) {
 }
 
 void X509CertSelector::addSubjectAlternativeNameInternal(int32_t type, Object$* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($GeneralNameInterface, tempName, makeGeneralNameInterface(type, name));
 	if (this->subjectAlternativeNames == nullptr) {
 		$set(this, subjectAlternativeNames, $new($HashSet));
@@ -556,6 +558,7 @@ void X509CertSelector::addSubjectAlternativeNameInternal(int32_t type, Object$* 
 
 $Set* X509CertSelector::parseNames($Collection* names) {
 	$init(X509CertSelector);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, genNames, $new($HashSet));
 	{
 		$var($Iterator, i$, $nc(names)->iterator());
@@ -593,6 +596,7 @@ bool X509CertSelector::equalNames($Collection* object1, $Collection* object2) {
 
 $GeneralNameInterface* X509CertSelector::makeGeneralNameInterface(int32_t type, Object$* name) {
 	$init(X509CertSelector);
+	$useLocalCurrentObjectStackCache();
 	$var($GeneralNameInterface, result, nullptr);
 	if (X509CertSelector::debug != nullptr) {
 		$nc(X509CertSelector::debug)->println($$str({"X509CertSelector.makeGeneralNameInterface("_s, $$str(type), ")..."_s}));
@@ -734,6 +738,7 @@ void X509CertSelector::setBasicConstraints(int32_t minMaxPathLen) {
 }
 
 void X509CertSelector::setPolicy($Set* certPolicySet) {
+	$useLocalCurrentObjectStackCache();
 	if (certPolicySet == nullptr) {
 		$set(this, policySet, nullptr);
 		$set(this, policy, nullptr);
@@ -778,6 +783,7 @@ void X509CertSelector::addPathToName(int32_t type, $bytes* name) {
 }
 
 void X509CertSelector::addPathToNameInternal(int32_t type, Object$* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($GeneralNameInterface, tempName, makeGeneralNameInterface(type, name));
 	if (this->pathToGeneralNames == nullptr) {
 		$set(this, pathToNames, $new($HashSet));
@@ -885,6 +891,7 @@ $Collection* X509CertSelector::getSubjectAlternativeNames() {
 
 $Set* X509CertSelector::cloneNames($Collection* names) {
 	$init(X509CertSelector);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return cloneAndCheckNames(names);
 	} catch ($IOException&) {
@@ -896,6 +903,7 @@ $Set* X509CertSelector::cloneNames($Collection* names) {
 
 $Set* X509CertSelector::cloneAndCheckNames($Collection* names) {
 	$init(X509CertSelector);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, namesCopy, $new($HashSet));
 	{
 		$var($Iterator, i$, $nc(names)->iterator());
@@ -969,6 +977,7 @@ $Collection* X509CertSelector::getPathToNames() {
 }
 
 $String* X509CertSelector::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("X509CertSelector: [\n"_s);
 	if (this->x509Cert != nullptr) {
@@ -1074,6 +1083,7 @@ $String* X509CertSelector::keyUsageToString($booleans* k) {
 
 $Extension* X509CertSelector::getExtensionObject($X509Certificate* cert, $KnownOIDs* extId) {
 	$init(X509CertSelector);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($X509CertImpl, impl, nullptr);
 		bool var$0 = $instanceOf($X509CertImpl, cert);
@@ -1152,6 +1162,7 @@ $Extension* X509CertSelector::getExtensionObject($X509Certificate* cert, $KnownO
 }
 
 bool X509CertSelector::match($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, xcert, nullptr);
 	bool var$0 = $instanceOf($X509Certificate, cert);
 	if (var$0) {
@@ -1238,6 +1249,7 @@ bool X509CertSelector::match($Certificate* cert) {
 }
 
 bool X509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->subjectKeyID == nullptr) {
 		return true;
 	}
@@ -1269,6 +1281,7 @@ bool X509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchAuthorityKeyID($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->authorityKeyID == nullptr) {
 		return true;
 	}
@@ -1299,6 +1312,7 @@ bool X509CertSelector::matchAuthorityKeyID($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchPrivateKeyValid($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->privateKeyValid == nullptr) {
 		return true;
 	}
@@ -1351,6 +1365,7 @@ bool X509CertSelector::matchPrivateKeyValid($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchSubjectPublicKeyAlgID($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->subjectPublicKeyAlgID == nullptr) {
 		return true;
 	}
@@ -1400,6 +1415,7 @@ bool X509CertSelector::matchKeyUsage($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchExtendedKeyUsage($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if ((this->keyPurposeSet == nullptr) || $nc(this->keyPurposeSet)->isEmpty()) {
 		return true;
 	}
@@ -1428,6 +1444,7 @@ bool X509CertSelector::matchExtendedKeyUsage($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchSubjectAlternativeNames($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if ((this->subjectAlternativeNames == nullptr) || $nc(this->subjectAlternativeNames)->isEmpty()) {
 		return true;
 	}
@@ -1494,6 +1511,7 @@ bool X509CertSelector::matchNameConstraints($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchPolicy($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->policy == nullptr) {
 		return true;
 	}
@@ -1559,6 +1577,7 @@ bool X509CertSelector::matchPolicy($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchPathToNames($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->pathToGeneralNames == nullptr) {
 		return true;
 	}
@@ -1599,6 +1618,7 @@ bool X509CertSelector::matchPathToNames($X509Certificate* xcert) {
 }
 
 bool X509CertSelector::matchExcluded($GeneralSubtrees* excluded) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, t, $nc(excluded)->iterator());
 		for (; $nc(t)->hasNext();) {
@@ -1631,6 +1651,7 @@ bool X509CertSelector::matchExcluded($GeneralSubtrees* excluded) {
 }
 
 bool X509CertSelector::matchPermitted($GeneralSubtrees* permitted) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc(this->pathToGeneralNames)->iterator());
 	while ($nc(i)->hasNext()) {
 		$var($GeneralNameInterface, pathToName, $cast($GeneralNameInterface, i->next()));
@@ -1669,6 +1690,7 @@ bool X509CertSelector::matchPermitted($GeneralSubtrees* permitted) {
 }
 
 bool X509CertSelector::matchBasicConstraints($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->basicConstraints == -1) {
 		return true;
 	}
@@ -1700,6 +1722,7 @@ $Set* X509CertSelector::cloneSet($Set* set) {
 }
 
 $Object* X509CertSelector::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(X509CertSelector, copy, $cast(X509CertSelector, $CertSelector::clone()));
 		if (this->subjectAlternativeNames != nullptr) {

@@ -103,6 +103,7 @@ void TestConstructorParameterTypeAnnotations::init$() {
 
 void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
 	$load(TestConstructorParameterTypeAnnotations);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
 		$load($TestConstructorParameterTypeAnnotations$NestedClass0);
@@ -154,6 +155,7 @@ void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
 }
 
 int32_t TestConstructorParameterTypeAnnotations::checkGetParameterAnnotations($Class* clazz, $Constructor* ctor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, annotationString, $Arrays::deepToString($($nc(ctor)->getParameterAnnotations())));
 	$load($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations);
 	$var($String, expectedString, $nc(($cast($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations, $($nc(clazz)->getAnnotation($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations::class$)))))->value());
@@ -166,6 +168,7 @@ int32_t TestConstructorParameterTypeAnnotations::checkGetParameterAnnotations($C
 }
 
 int32_t TestConstructorParameterTypeAnnotations::checkGetAnnotatedParametersGetAnnotation($Class* clazz, $Constructor* ctor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	int32_t i = 0;
 	$load($TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations);

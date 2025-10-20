@@ -118,6 +118,7 @@ void SupportedGroupsExtension$SupportedGroupsSpec::init$($List* namedGroups) {
 }
 
 void SupportedGroupsExtension$SupportedGroupsSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid supported_groups extension: insufficient data"_s)))));
@@ -144,6 +145,7 @@ void SupportedGroupsExtension$SupportedGroupsSpec::init$($HandshakeContext* hc, 
 }
 
 $String* SupportedGroupsExtension$SupportedGroupsSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"versions\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
 	if (this->namedGroupsIds == nullptr || $nc(this->namedGroupsIds)->length == 0) {

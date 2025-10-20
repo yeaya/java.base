@@ -101,12 +101,14 @@ void CalendarDataProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set* la
 }
 
 int32_t CalendarDataProviderImpl::getFirstDayOfWeek($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($CalendarDataUtility);
 	$var($String, fw, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getCalendarData($CalendarDataUtility::FIRST_DAY_OF_WEEK));
 	return convertToCalendarData(fw);
 }
 
 int32_t CalendarDataProviderImpl::getMinimalDaysInFirstWeek($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($CalendarDataUtility);
 	$var($String, md, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getCalendarData($CalendarDataUtility::MINIMAL_DAYS_IN_FIRST_WEEK));
 	return convertToCalendarData(md);

@@ -149,6 +149,7 @@ void SSLServerCertStore::init$($URI* uri) {
 }
 
 $Collection* SSLServerCertStore::engineGetCertificates($CertSelector* selector) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URLConnection, urlConn, $nc($($nc(this->uri)->toURL()))->openConnection());
 		if ($instanceOf($HttpsURLConnection, urlConn)) {
@@ -201,6 +202,7 @@ $Collection* SSLServerCertStore::engineGetCertificates($CertSelector* selector) 
 
 $List* SSLServerCertStore::getMatchingCerts($List* certs, $CertSelector* selector) {
 	$init(SSLServerCertStore);
+	$useLocalCurrentObjectStackCache();
 	if (selector == nullptr) {
 		return certs;
 	}
@@ -230,6 +232,7 @@ $CertStore* SSLServerCertStore::getInstance($URI* uri) {
 }
 
 void clinit$SSLServerCertStore($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(SSLServerCertStore::trustManager, $new($SSLServerCertStore$GetChainTrustManager));
 		$assignStatic(SSLServerCertStore::hostnameVerifier, $new($SSLServerCertStore$1));

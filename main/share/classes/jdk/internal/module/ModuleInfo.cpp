@@ -181,6 +181,7 @@ void ModuleInfo::init$($Supplier* pf) {
 
 $ModuleInfo$Attributes* ModuleInfo::read($InputStream* in, $Supplier* pf) {
 	$init(ModuleInfo);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new(ModuleInfo, pf)->doRead($$new($DataInputStream, in));
 	} catch ($IllegalArgumentException&) {
@@ -198,6 +199,7 @@ $ModuleInfo$Attributes* ModuleInfo::read($InputStream* in, $Supplier* pf) {
 
 $ModuleInfo$Attributes* ModuleInfo::read($ByteBuffer* bb, $Supplier* pf) {
 	$init(ModuleInfo);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new(ModuleInfo, pf)->doRead($$new($ModuleInfo$DataInputWrapper, bb));
 	} catch ($IllegalArgumentException&) {
@@ -218,6 +220,7 @@ $ModuleInfo$Attributes* ModuleInfo::read($ByteBuffer* bb, $Supplier* pf) {
 
 $ModuleInfo$Attributes* ModuleInfo::readIgnoringHashes($ByteBuffer* bb, $Supplier* pf) {
 	$init(ModuleInfo);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $$new(ModuleInfo, pf, false)->doRead($$new($ModuleInfo$DataInputWrapper, bb));
 	} catch ($IllegalArgumentException&) {
@@ -237,6 +240,7 @@ $ModuleInfo$Attributes* ModuleInfo::readIgnoringHashes($ByteBuffer* bb, $Supplie
 }
 
 $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleInfo$CountingDataInput, in, $new($ModuleInfo$CountingDataInput, input));
 	int32_t magic = in->readInt();
 	if (magic != (int32_t)0xCAFEBABE) {
@@ -427,6 +431,7 @@ $ModuleInfo$Attributes* ModuleInfo::doRead($DataInput* input) {
 }
 
 $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $ModuleInfo$ConstantPool* cpool, int32_t major) {
+	$useLocalCurrentObjectStackCache();
 	int32_t module_name_index = $nc(in)->readUnsignedShort();
 	$var($String, mn, $nc(cpool)->getModuleName(module_name_index));
 	int32_t module_flags = in->readUnsignedShort();
@@ -616,6 +621,7 @@ $ModuleDescriptor$Builder* ModuleInfo::readModuleAttribute($DataInput* in, $Modu
 }
 
 $Set* ModuleInfo::readModulePackagesAttribute($DataInput* in, $ModuleInfo$ConstantPool* cpool) {
+	$useLocalCurrentObjectStackCache();
 	int32_t package_count = $nc(in)->readUnsignedShort();
 	$var($Set, packages, $new($HashSet, package_count));
 	for (int32_t i = 0; i < package_count; ++i) {
@@ -644,6 +650,7 @@ $ModuleTarget* ModuleInfo::readModuleTargetAttribute($DataInput* in, $ModuleInfo
 }
 
 $ModuleHashes* ModuleInfo::readModuleHashesAttribute($DataInput* in, $ModuleInfo$ConstantPool* cpool) {
+	$useLocalCurrentObjectStackCache();
 	int32_t algorithm_index = $nc(in)->readUnsignedShort();
 	$var($String, algorithm, $nc(cpool)->getUtf8(algorithm_index));
 	int32_t hash_count = in->readUnsignedShort();
@@ -663,6 +670,7 @@ $ModuleHashes* ModuleInfo::readModuleHashesAttribute($DataInput* in, $ModuleInfo
 }
 
 $ModuleResolution* ModuleInfo::readModuleResolution($DataInput* in, $ModuleInfo$ConstantPool* cpool) {
+	$useLocalCurrentObjectStackCache();
 	int32_t flags = $nc(in)->readUnsignedShort();
 	int32_t reason = 0;
 	if (((int32_t)(flags & (uint32_t)2)) != 0) {
@@ -699,6 +707,7 @@ bool ModuleInfo::isAttributeAtMostOnce($String* name) {
 
 bool ModuleInfo::isAttributeDisallowed($String* name) {
 	$init(ModuleInfo);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, notAllowed, ModuleInfo::predefinedNotAllowed);
 	if (notAllowed == nullptr) {
 		$assign(notAllowed, $Set::of($$new($StringArray, {

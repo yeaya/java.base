@@ -166,6 +166,7 @@ void FileTreeWalker::init$($Collection* options, int32_t maxDepth) {
 }
 
 $BasicFileAttributes* FileTreeWalker::getAttributes($Path* file, bool canUseCached) {
+	$useLocalCurrentObjectStackCache();
 	if (canUseCached && ($instanceOf($BasicFileAttributesHolder, file)) && ($System::getSecurityManager() == nullptr)) {
 		$var($BasicFileAttributes, cached, $nc(($cast($BasicFileAttributesHolder, file)))->get());
 		if (cached != nullptr && (!this->followLinks || !$nc(cached)->isSymbolicLink())) {
@@ -189,6 +190,7 @@ $BasicFileAttributes* FileTreeWalker::getAttributes($Path* file, bool canUseCach
 }
 
 bool FileTreeWalker::wouldLoop($Path* dir, Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->stack)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -217,6 +219,7 @@ bool FileTreeWalker::wouldLoop($Path* dir, Object$* key) {
 }
 
 $FileTreeWalker$Event* FileTreeWalker::visit($Path* entry, bool ignoreSecurityException, bool canUseCached) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicFileAttributes, attrs, nullptr);
 	try {
 		$assign(attrs, getAttributes(entry, canUseCached));
@@ -271,6 +274,7 @@ $FileTreeWalker$Event* FileTreeWalker::walk($Path* file) {
 }
 
 $FileTreeWalker$Event* FileTreeWalker::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileTreeWalker$DirectoryNode, top, $cast($FileTreeWalker$DirectoryNode, $nc(this->stack)->peek()));
 	if (top == nullptr) {
 		return nullptr;
@@ -311,6 +315,7 @@ $FileTreeWalker$Event* FileTreeWalker::next() {
 }
 
 void FileTreeWalker::pop() {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->stack)->isEmpty()) {
 		$var($FileTreeWalker$DirectoryNode, node, $cast($FileTreeWalker$DirectoryNode, $nc(this->stack)->pop()));
 		try {

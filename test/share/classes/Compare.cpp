@@ -89,6 +89,7 @@ bool Compare::toBoolean(int64_t x) {
 }
 
 void Compare::compareAll(int64_t x, int64_t y) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $Double::compare((double)x, (double)y);
 	check(var$0 == $nc($($Double::valueOf((double)x)))->compareTo($($Double::valueOf((double)y))));
 	int32_t var$1 = $Float::compare((float)x, (float)y);
@@ -155,6 +156,7 @@ void Compare::compareAll(int64_t x, int64_t y) {
 }
 
 void Compare::test($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, longs, $new($longs, {
 		$Long::MIN_VALUE,
 		(int64_t)$Integer::MIN_VALUE,
@@ -236,6 +238,7 @@ void Compare::main($StringArray* args) {
 }
 
 void Compare::instanceMain($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		test(args);
 	} catch ($Throwable&) {

@@ -59,6 +59,7 @@ void DefineClassByteBuffer::init$() {
 
 void DefineClassByteBuffer::test($ClassLoader* cl) {
 	$load(DefineClassByteBuffer);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("TestClass"_s, true, cl);
 	if (!"TestClass"_s->equals($($nc(c)->getName()))) {
@@ -70,6 +71,7 @@ void DefineClassByteBuffer::test($ClassLoader* cl) {
 }
 
 void DefineClassByteBuffer::main($StringArray* arg) {
+	$useLocalCurrentObjectStackCache();
 	$var($DefineClassByteBuffer$DummyClassLoaderArray, cls, $new($DefineClassByteBuffer$DummyClassLoaderArray, $DefineClassByteBuffer$DummyClassLoader::MAX_TYPE));
 	for (int32_t i = 0; i < cls->length; ++i) {
 		cls->set(i, $$new($DefineClassByteBuffer$DummyClassLoader, i));

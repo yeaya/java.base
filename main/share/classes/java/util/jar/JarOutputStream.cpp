@@ -74,6 +74,7 @@ $Object* allocate$JarOutputStream($Class* clazz) {
 }
 
 void JarOutputStream::init$($OutputStream* out, $Manifest* man) {
+	$useLocalCurrentObjectStackCache();
 	$ZipOutputStream::init$(out);
 	this->firstEntry = true;
 	if (man == nullptr) {
@@ -92,6 +93,7 @@ void JarOutputStream::init$($OutputStream* out) {
 }
 
 void JarOutputStream::putNextEntry($ZipEntry* ze) {
+	$useLocalCurrentObjectStackCache();
 	if (this->firstEntry) {
 		$var($bytes, edata, $nc(ze)->getExtra());
 		if (edata == nullptr || !hasMagic(edata)) {

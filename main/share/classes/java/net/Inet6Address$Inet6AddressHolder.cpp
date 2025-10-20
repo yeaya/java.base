@@ -120,6 +120,7 @@ void Inet6Address$Inet6AddressHolder::init($bytes* addr, $NetworkInterface* nif)
 }
 
 $String* Inet6Address$Inet6AddressHolder::getHostAddress() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $Inet6Address::numericToTextFormat(this->ipaddress));
 	if (this->scope_ifname != nullptr) {
 		$assign(s, $str({s, "%"_s, $($nc(this->scope_ifname)->getName())}));

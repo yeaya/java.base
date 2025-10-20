@@ -108,6 +108,7 @@ void RepetitiveLambdaSerialization::init$() {
 }
 
 void RepetitiveLambdaSerialization::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($LSI, ls, static_cast<$LSI*>($new(RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1)));
 	for (int32_t i = 0; i < RepetitiveLambdaSerialization::REPS; ++i) {
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
@@ -121,6 +122,7 @@ void RepetitiveLambdaSerialization::main($StringArray* args) {
 }
 
 $Object* RepetitiveLambdaSerialization::$deserializeLambda$($SerializedLambda* lambda) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s1343$, $nc(lambda)->getImplMethodName());
 		int32_t tmp1343$ = -1;

@@ -352,6 +352,7 @@ void DatagramSocketAdaptor::connectInternal($SocketAddress* remote) {
 }
 
 void DatagramSocketAdaptor::bind($SocketAddress* local$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, local, local$renamed);
 	if (local != nullptr) {
 		$assign(local, $Net::asInetSocketAddress(local));
@@ -367,6 +368,7 @@ void DatagramSocketAdaptor::bind($SocketAddress* local$renamed) {
 }
 
 void DatagramSocketAdaptor::connect($InetAddress* address, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	if (address == nullptr) {
 		$throwNew($IllegalArgumentException, "Address can\'t be null"_s);
 	}
@@ -417,6 +419,7 @@ $SocketAddress* DatagramSocketAdaptor::getRemoteSocketAddress() {
 }
 
 $SocketAddress* DatagramSocketAdaptor::getLocalSocketAddress() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, local, $nc(this->dc)->localAddress());
 	if (local == nullptr || isClosed()) {
 		return nullptr;
@@ -438,6 +441,7 @@ $SocketAddress* DatagramSocketAdaptor::getLocalSocketAddress() {
 }
 
 void DatagramSocketAdaptor::send($DatagramPacket* p) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -486,6 +490,7 @@ void DatagramSocketAdaptor::send($DatagramPacket* p) {
 }
 
 void DatagramSocketAdaptor::receive($DatagramPacket* p) {
+	$useLocalCurrentObjectStackCache();
 	int32_t bufLength = $DatagramSocketAdaptor$DatagramPackets::getBufLength(p);
 	$var($ByteBuffer, bb, $Util::getTemporaryDirectBuffer(bufLength));
 	{
@@ -522,6 +527,7 @@ void DatagramSocketAdaptor::receive($DatagramPacket* p) {
 }
 
 $InetAddress* DatagramSocketAdaptor::getLocalAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		return nullptr;
 	}
@@ -571,6 +577,7 @@ int32_t DatagramSocketAdaptor::getSoTimeout() {
 }
 
 void DatagramSocketAdaptor::setBooleanOption($SocketOption* name, bool value) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->dc)->setOption(name, $($Boolean::valueOf(value)));
 	} catch ($IOException&) {
@@ -580,6 +587,7 @@ void DatagramSocketAdaptor::setBooleanOption($SocketOption* name, bool value) {
 }
 
 void DatagramSocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->dc)->setOption(name, $($Integer::valueOf(value)));
 	} catch ($IOException&) {
@@ -589,6 +597,7 @@ void DatagramSocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
 }
 
 bool DatagramSocketAdaptor::getBooleanOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Boolean, $($nc(this->dc)->getOption(name)))))->booleanValue();
 	} catch ($IOException&) {
@@ -600,6 +609,7 @@ bool DatagramSocketAdaptor::getBooleanOption($SocketOption* name) {
 }
 
 int32_t DatagramSocketAdaptor::getIntOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Integer, $($nc(this->dc)->getOption(name)))))->intValue();
 	} catch ($IOException&) {
@@ -749,6 +759,7 @@ int32_t DatagramSocketAdaptor::getTimeToLive() {
 }
 
 void DatagramSocketAdaptor::joinGroup($InetAddress* group) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(group);
 	try {
 		joinGroup($$new($InetSocketAddress, group, 0), nullptr);
@@ -759,6 +770,7 @@ void DatagramSocketAdaptor::joinGroup($InetAddress* group) {
 }
 
 void DatagramSocketAdaptor::leaveGroup($InetAddress* group) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(group);
 	try {
 		leaveGroup($$new($InetSocketAddress, group, 0), nullptr);
@@ -770,6 +782,7 @@ void DatagramSocketAdaptor::leaveGroup($InetAddress* group) {
 
 $InetAddress* DatagramSocketAdaptor::checkGroup($SocketAddress* mcastaddr) {
 	$init(DatagramSocketAdaptor);
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, addr, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, mcastaddr);
 	if (var$0) {
@@ -790,6 +803,7 @@ $InetAddress* DatagramSocketAdaptor::checkGroup($SocketAddress* mcastaddr) {
 }
 
 void DatagramSocketAdaptor::joinGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, group, checkGroup(mcastaddr));
 	$var($NetworkInterface, ni, (netIf != nullptr) ? netIf : defaultNetworkInterface());
 	if (isClosed()) {
@@ -809,6 +823,7 @@ void DatagramSocketAdaptor::joinGroup($SocketAddress* mcastaddr, $NetworkInterfa
 }
 
 void DatagramSocketAdaptor::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, group, checkGroup(mcastaddr));
 	$var($NetworkInterface, ni, (netIf != nullptr) ? netIf : defaultNetworkInterface());
 	if (isClosed()) {
@@ -828,6 +843,7 @@ void DatagramSocketAdaptor::leaveGroup($SocketAddress* mcastaddr, $NetworkInterf
 }
 
 void DatagramSocketAdaptor::setInterface($InetAddress* inf) {
+	$useLocalCurrentObjectStackCache();
 	if (inf == nullptr) {
 		$throwNew($SocketException, "Invalid value \'null\'"_s);
 	}
@@ -844,6 +860,7 @@ void DatagramSocketAdaptor::setInterface($InetAddress* inf) {
 }
 
 $InetAddress* DatagramSocketAdaptor::getInterface() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$synchronized(this->outgoingInterfaceLock) {
 		$var($NetworkInterface, ni, outgoingNetworkInterface());
@@ -897,6 +914,7 @@ bool DatagramSocketAdaptor::getLoopbackMode() {
 }
 
 void DatagramSocketAdaptor::send($DatagramPacket* p, int8_t ttl) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->sendLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -951,6 +969,7 @@ $NetworkInterface* DatagramSocketAdaptor::defaultNetworkInterface() {
 }
 
 $NetworkInterface* DatagramSocketAdaptor::anyNetworkInterface() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddressArray, addrs, $new($InetAddressArray, 1));
 	addrs->set(0, $(anyInetAddress()));
 	return $DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface($($nc(addrs->get(0))->getHostName()), 0, addrs);
@@ -962,6 +981,7 @@ $InetAddress* DatagramSocketAdaptor::anyInetAddress() {
 
 $InetAddress* DatagramSocketAdaptor::lambda$getInterface$0($NetworkInterface* ni) {
 	$init(DatagramSocketAdaptor);
+	$useLocalCurrentObjectStackCache();
 	return $cast($InetAddress, $nc($($nc($($nc(ni)->inetAddresses()))->findFirst()))->orElse(nullptr));
 }
 

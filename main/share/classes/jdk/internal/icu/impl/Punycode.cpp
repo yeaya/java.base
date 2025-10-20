@@ -146,6 +146,7 @@ char16_t Punycode::digitToBasic(int32_t digit, bool uppercase) {
 
 $StringBuffer* Punycode::encode($StringBuffer* src, $booleans* caseFlags) {
 	$init(Punycode);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, cpBuffer, $new($ints, Punycode::MAX_CP_COUNT));
 	int32_t n = 0;
 	int32_t delta = 0;
@@ -266,6 +267,7 @@ bool Punycode::isSurrogate(int32_t ch) {
 
 $StringBuffer* Punycode::decode($StringBuffer* src, $booleans* caseFlags) {
 	$init(Punycode);
+	$useLocalCurrentObjectStackCache();
 	int32_t srcLength = $nc(src)->length();
 	$var($StringBuffer, result, $new($StringBuffer));
 	int32_t n = 0;

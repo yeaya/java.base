@@ -88,6 +88,7 @@ void ProxyGenerator$1::init$($String* val$name, $bytes* val$classFile) {
 }
 
 $Object* ProxyGenerator$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t i = $nc(this->val$name)->lastIndexOf((int32_t)u'.');
 		$var($Path, path, nullptr);

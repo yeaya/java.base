@@ -136,6 +136,7 @@ void Test7087570::main($StringArray* args) {
 
 void Test7087570::doTest($MethodHandle* mh, $Test7087570$TestMethodData* testMethod) {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleInfo, mhi, $nc(Test7087570::LOOKUP)->revealDirect(mh));
 	$init($System);
 	$nc($System::out)->printf("%s.%s: %s, nominal refKind: %s, actual refKind: %s\n"_s, $$new($ObjectArray, {
@@ -155,6 +156,7 @@ void Test7087570::doTest($MethodHandle* mh, $Test7087570$TestMethodData* testMet
 
 void Test7087570::testWithLookup() {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Test7087570$TestMethodDataArray, arr$, Test7087570::TESTS);
 		int32_t len$ = $nc(arr$)->length;
@@ -171,6 +173,7 @@ void Test7087570::testWithLookup() {
 
 void Test7087570::testWithUnreflect() {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Test7087570$TestMethodDataArray, arr$, Test7087570::TESTS);
 		int32_t len$ = $nc(arr$)->length;
@@ -203,6 +206,7 @@ $Test7087570$TestMethodData* Test7087570::data($Class* clazz, $String* name, $Me
 
 $MethodHandle* Test7087570::lookupFrom($Test7087570$TestMethodData* testMethod) {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Class, thisClass, nullptr)
 		$var($MethodHandle, smh, nullptr)
@@ -254,6 +258,7 @@ $MethodHandle* Test7087570::lookupFrom($Test7087570$TestMethodData* testMethod) 
 
 $MethodHandle* Test7087570::unreflectFrom($Test7087570$TestMethodData* testMethod) {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	switch ($nc(testMethod)->referenceKind) {
 	case 1:
@@ -324,6 +329,7 @@ bool Test7087570::isInvokeSpecial($MethodHandle* mh) {
 
 void Test7087570::assertRefKindEquals(int32_t expect, int32_t observed) {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	if (expect == observed) {
 		return;
 	}
@@ -336,6 +342,7 @@ void Test7087570::assertRefKindEquals(int32_t expect, int32_t observed) {
 
 void Test7087570::assertEquals(Object$* expect, Object$* observed) {
 	$init(Test7087570);
+	$useLocalCurrentObjectStackCache();
 	if ($Objects::equals(expect, observed)) {
 		return;
 	}
@@ -346,6 +353,7 @@ void Test7087570::assertEquals(Object$* expect, Object$* observed) {
 }
 
 void clinit$Test7087570($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Test7087570::$assertionsDisabled = !Test7087570::class$->desiredAssertionStatus();
 		$load($DummyFieldHolder);

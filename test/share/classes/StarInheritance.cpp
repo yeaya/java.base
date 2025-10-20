@@ -77,6 +77,7 @@ void StarInheritance::init$() {
 
 void StarInheritance::test($MethodArray* ma, $ArrayList* expect) {
 	$init(StarInheritance);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$0, "Test "_s);
 	$nc($System::out)->println($$concat(var$0, $$str(StarInheritance::n++)));
@@ -100,6 +101,7 @@ void StarInheritance::test($MethodArray* ma, $ArrayList* expect) {
 
 void StarInheritance::main($StringArray* args) {
 	$init(StarInheritance);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($D1);
 	$var($ClassArray, l1, $new($ClassArray, {$D1::class$}));

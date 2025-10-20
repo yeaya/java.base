@@ -73,6 +73,7 @@ void ConcurrentSkipListMap$EntryIterator::init$($ConcurrentSkipListMap* this$0) 
 }
 
 $Object* ConcurrentSkipListMap$EntryIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentSkipListMap$Node, n, nullptr);
 	if (($assign(n, this->$ConcurrentSkipListMap$Iter::next$)) == nullptr) {
 		$throwNew($NoSuchElementException);

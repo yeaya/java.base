@@ -45,6 +45,7 @@ void NativeOrder::init$() {
 }
 
 void NativeOrder::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteOrder, bo, $ByteOrder::nativeOrder());
 	$init($System);
 	$nc($System::err)->println($$str({"ByteOrder.nativeOrder:"_s, bo}));

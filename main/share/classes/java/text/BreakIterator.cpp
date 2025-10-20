@@ -198,6 +198,7 @@ BreakIterator* BreakIterator::getSentenceInstance($Locale* locale) {
 
 BreakIterator* BreakIterator::getBreakInstance($Locale* locale, int32_t type) {
 	$init(BreakIterator);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(BreakIterator::iterCache)->get(type) != nullptr) {
 		$var($BreakIterator$BreakIteratorCache, cache, $cast($BreakIterator$BreakIteratorCache, $nc($nc(BreakIterator::iterCache)->get(type))->get()));
 		if (cache != nullptr) {
@@ -214,6 +215,7 @@ BreakIterator* BreakIterator::getBreakInstance($Locale* locale, int32_t type) {
 
 BreakIterator* BreakIterator::createBreakInstance($Locale* locale, int32_t type) {
 	$init(BreakIterator);
+	$useLocalCurrentObjectStackCache();
 	$load($BreakIteratorProvider);
 	$var($LocaleProviderAdapter, adapter, $LocaleProviderAdapter::getAdapter($BreakIteratorProvider::class$, locale));
 	$var(BreakIterator, iterator, createBreakInstance(adapter, locale, type));
@@ -225,6 +227,7 @@ BreakIterator* BreakIterator::createBreakInstance($Locale* locale, int32_t type)
 
 BreakIterator* BreakIterator::createBreakInstance($LocaleProviderAdapter* adapter, $Locale* locale, int32_t type) {
 	$init(BreakIterator);
+	$useLocalCurrentObjectStackCache();
 	$var($BreakIteratorProvider, breakIteratorProvider, $nc(adapter)->getBreakIteratorProvider());
 
 	$var(BreakIterator, var$0, nullptr)

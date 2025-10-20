@@ -190,6 +190,7 @@ $bytes* RSACore::convert($bytes* b, int32_t ofs, int32_t len) {
 
 $bytes* RSACore::rsa($bytes* msg, $RSAPublicKey* key) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, msg);
 	$var($BigInteger, var$1, $nc(key)->getModulus());
 	return crypt(var$0, var$1, $(key->getPublicExponent()));
@@ -202,6 +203,7 @@ $bytes* RSACore::rsa($bytes* msg, $RSAPrivateKey* key) {
 
 $bytes* RSACore::rsa($bytes* msg, $RSAPrivateKey* key, bool verify) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($RSAPrivateCrtKey, key)) {
 		return crtCrypt(msg, $cast($RSAPrivateCrtKey, key), verify);
 	} else {
@@ -213,6 +215,7 @@ $bytes* RSACore::rsa($bytes* msg, $RSAPrivateKey* key, bool verify) {
 
 $bytes* RSACore::crypt($bytes* msg, $BigInteger* n, $BigInteger* exp) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, m, parseMsg(msg, n));
 	$var($BigInteger, c, $nc(m)->modPow(exp, n));
 	return toByteArray(c, getByteLength(n));
@@ -220,6 +223,7 @@ $bytes* RSACore::crypt($bytes* msg, $BigInteger* n, $BigInteger* exp) {
 
 $bytes* RSACore::priCrypt($bytes* msg, $BigInteger* n, $BigInteger* exp) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, c, parseMsg(msg, n));
 	$var($RSACore$BlindingRandomPair, brp, nullptr);
 	$var($BigInteger, m, nullptr);
@@ -234,6 +238,7 @@ $bytes* RSACore::priCrypt($bytes* msg, $BigInteger* n, $BigInteger* exp) {
 
 $bytes* RSACore::crtCrypt($bytes* msg, $RSAPrivateCrtKey* key, bool verify) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, n, $nc(key)->getModulus());
 	$var($BigInteger, c0, parseMsg(msg, n));
 	$var($BigInteger, c, c0);
@@ -277,6 +282,7 @@ $BigInteger* RSACore::parseMsg($bytes* msg, $BigInteger* n) {
 
 $bytes* RSACore::toByteArray($BigInteger* bi, int32_t len) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $nc(bi)->toByteArray());
 	int32_t n = $nc(b)->length;
 	if (n == len) {
@@ -299,6 +305,7 @@ $bytes* RSACore::toByteArray($BigInteger* bi, int32_t len) {
 
 $RSACore$BlindingRandomPair* RSACore::getBlindingRandomPair($BigInteger* e, $BigInteger* d, $BigInteger* n) {
 	$init(RSACore);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue, queue, nullptr);
 	$nc(RSACore::lock)->lock();
 	{

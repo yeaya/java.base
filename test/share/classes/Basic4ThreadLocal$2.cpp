@@ -73,6 +73,7 @@ void Basic4ThreadLocal$2::init$($ints* val$x) {
 }
 
 void Basic4ThreadLocal$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($Basic4ThreadLocal);
 	int32_t threadId = $nc((($cast($Integer, $($nc($Basic4ThreadLocal::n)->get())))))->intValue();
 	for (int32_t j = 0; j < threadId; ++j) {

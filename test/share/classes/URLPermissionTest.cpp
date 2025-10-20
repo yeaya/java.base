@@ -177,6 +177,7 @@ $URLPermissionTest$URLEqualityTest* URLPermissionTest::eqtest($String* arg1, $St
 
 void URLPermissionTest::main($StringArray* args) {
 	$init(URLPermissionTest);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(URLPermissionTest::pathImplies)->length; ++i) {
 		$var($URLPermissionTest$URLImpliesTest, test, $cast($URLPermissionTest$URLImpliesTest, $nc(URLPermissionTest::pathImplies)->get(i)));
 		$var($Exception, caught, nullptr);
@@ -338,6 +339,7 @@ void URLPermissionTest::main($StringArray* args) {
 
 void URLPermissionTest::serializationTest($String* name, $String* actions) {
 	$init(URLPermissionTest);
+	$useLocalCurrentObjectStackCache();
 	$var($URLPermission, out, $new($URLPermission, name, actions));
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, o, $new($ObjectOutputStream, baos));
@@ -355,6 +357,7 @@ void URLPermissionTest::serializationTest($String* name, $String* actions) {
 }
 
 void clinit$URLPermissionTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(URLPermissionTest::FOO_URL, "http://www.foo.com/"_s);
 	$assignStatic(URLPermissionTest::BAR_URL, "http://www.bar.com/"_s);
 	$assignStatic(URLPermissionTest::pathImplies, $new($URLPermissionTest$TestArray, {

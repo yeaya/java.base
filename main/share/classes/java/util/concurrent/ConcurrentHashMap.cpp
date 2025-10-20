@@ -495,6 +495,7 @@ int32_t ConcurrentHashMap::tableSizeFor(int32_t c) {
 
 $Class* ConcurrentHashMap::comparableClassFor(Object$* x) {
 	$init(ConcurrentHashMap);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Comparable, x)) {
 		$Class* c = nullptr;
 		$var($TypeArray, ts, nullptr);
@@ -586,6 +587,7 @@ bool ConcurrentHashMap::isEmpty() {
 }
 
 $Object* ConcurrentHashMap::get(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, tab, nullptr);
 	$var($ConcurrentHashMap$Node, e, nullptr);
 	$var($ConcurrentHashMap$Node, p, nullptr);
@@ -623,6 +625,7 @@ bool ConcurrentHashMap::containsKey(Object$* key) {
 }
 
 bool ConcurrentHashMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -648,6 +651,7 @@ $Object* ConcurrentHashMap::put(Object$* key, Object$* value) {
 }
 
 $Object* ConcurrentHashMap::putVal(Object$* key, Object$* value, bool onlyIfAbsent) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || value == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -739,6 +743,7 @@ $Object* ConcurrentHashMap::putVal(Object$* key, Object$* value, bool onlyIfAbse
 }
 
 void ConcurrentHashMap::putAll($Map* m) {
+	$useLocalCurrentObjectStackCache();
 	tryPresize($nc(m)->size());
 	{
 		$var($Iterator, i$, $nc($($nc(m)->entrySet()))->iterator());
@@ -755,6 +760,7 @@ $Object* ConcurrentHashMap::remove(Object$* key) {
 }
 
 $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* cv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t hash = spread($nc($of(key))->hashCode());
 	{
 		$var($ConcurrentHashMap$NodeArray, tab, this->table);
@@ -843,6 +849,7 @@ $Object* ConcurrentHashMap::replaceNode(Object$* key, Object$* value, Object$* c
 }
 
 void ConcurrentHashMap::clear() {
+	$useLocalCurrentObjectStackCache();
 	int64_t delta = 0;
 	int32_t i = 0;
 	$var($ConcurrentHashMap$NodeArray, tab, this->table);
@@ -897,6 +904,7 @@ $Set* ConcurrentHashMap::entrySet() {
 }
 
 int32_t ConcurrentHashMap::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	if (($assign(t, this->table)) != nullptr) {
@@ -913,6 +921,7 @@ int32_t ConcurrentHashMap::hashCode() {
 }
 
 $String* ConcurrentHashMap::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, t, nullptr);
 	int32_t f = ($assign(t, this->table)) == nullptr ? 0 : $nc(t)->length;
 	$var($ConcurrentHashMap$Traverser, it, $new($ConcurrentHashMap$Traverser, t, f, 0, f));
@@ -936,6 +945,7 @@ $String* ConcurrentHashMap::toString() {
 }
 
 bool ConcurrentHashMap::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (!$equals(o, this)) {
 		if (!($instanceOf($Map, o))) {
 			return false;
@@ -976,6 +986,7 @@ bool ConcurrentHashMap::equals(Object$* o) {
 }
 
 void ConcurrentHashMap::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	int32_t sshift = 0;
 	int32_t ssize = 1;
 	while (ssize < ConcurrentHashMap::DEFAULT_CONCURRENCY_LEVEL) {
@@ -1009,6 +1020,7 @@ void ConcurrentHashMap::writeObject($ObjectOutputStream* s) {
 }
 
 void ConcurrentHashMap::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	this->sizeCtl = -1;
 	$nc(s)->defaultReadObject();
 	int64_t size = 0;
@@ -1127,6 +1139,7 @@ $Object* ConcurrentHashMap::getOrDefault(Object$* key, Object$* defaultValue) {
 }
 
 void ConcurrentHashMap::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1143,6 +1156,7 @@ void ConcurrentHashMap::forEach($BiConsumer* action) {
 }
 
 void ConcurrentHashMap::replaceAll($BiFunction* function) {
+	$useLocalCurrentObjectStackCache();
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1172,6 +1186,7 @@ void ConcurrentHashMap::replaceAll($BiFunction* function) {
 }
 
 bool ConcurrentHashMap::removeEntryIf($Predicate* function) {
+	$useLocalCurrentObjectStackCache();
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1196,6 +1211,7 @@ bool ConcurrentHashMap::removeEntryIf($Predicate* function) {
 }
 
 bool ConcurrentHashMap::removeValueIf($Predicate* function) {
+	$useLocalCurrentObjectStackCache();
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1219,6 +1235,7 @@ bool ConcurrentHashMap::removeValueIf($Predicate* function) {
 }
 
 $Object* ConcurrentHashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || mappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1341,6 +1358,7 @@ $Object* ConcurrentHashMap::computeIfAbsent(Object$* key, $Function* mappingFunc
 }
 
 $Object* ConcurrentHashMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1432,6 +1450,7 @@ $Object* ConcurrentHashMap::computeIfPresent(Object$* key, $BiFunction* remappin
 }
 
 $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1567,6 +1586,7 @@ $Object* ConcurrentHashMap::compute(Object$* key, $BiFunction* remappingFunction
 }
 
 $Object* ConcurrentHashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || value == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1715,6 +1735,7 @@ int32_t ConcurrentHashMap::resizeStamp(int32_t n) {
 }
 
 $ConcurrentHashMap$NodeArray* ConcurrentHashMap::initTable() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, tab, nullptr);
 	int32_t sc = 0;
 	while (true) {
@@ -1753,6 +1774,7 @@ $ConcurrentHashMap$NodeArray* ConcurrentHashMap::initTable() {
 }
 
 void ConcurrentHashMap::addCount(int64_t x, int32_t check) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$CounterCellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t s = 0;
@@ -1832,6 +1854,7 @@ $ConcurrentHashMap$NodeArray* ConcurrentHashMap::helpTransfer($ConcurrentHashMap
 }
 
 void ConcurrentHashMap::tryPresize(int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	int32_t c = (size >= ((int32_t)((uint32_t)ConcurrentHashMap::MAXIMUM_CAPACITY >> 1))) ? ConcurrentHashMap::MAXIMUM_CAPACITY : tableSizeFor(size + ((int32_t)((uint32_t)size >> 1)) + 1);
 	int32_t sc = 0;
 	while ((sc = this->sizeCtl) >= 0) {
@@ -1870,6 +1893,7 @@ void ConcurrentHashMap::tryPresize(int32_t size) {
 }
 
 void ConcurrentHashMap::transfer($ConcurrentHashMap$NodeArray* tab, $ConcurrentHashMap$NodeArray* nextTab$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$NodeArray, nextTab, nextTab$renamed);
 	int32_t n = $nc(tab)->length;
 	int32_t stride = 0;
@@ -2024,6 +2048,7 @@ void ConcurrentHashMap::transfer($ConcurrentHashMap$NodeArray* tab, $ConcurrentH
 }
 
 int64_t ConcurrentHashMap::sumCount() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$CounterCellArray, cs, this->counterCells);
 	int64_t sum = this->baseCount;
 	if (cs != nullptr) {
@@ -2043,6 +2068,7 @@ int64_t ConcurrentHashMap::sumCount() {
 }
 
 void ConcurrentHashMap::fullAddCount(int64_t x, bool wasUncontended) {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	if ((h = $ThreadLocalRandom::getProbe()) == 0) {
 		$ThreadLocalRandom::localInit();
@@ -2157,6 +2183,7 @@ void ConcurrentHashMap::fullAddCount(int64_t x, bool wasUncontended) {
 }
 
 void ConcurrentHashMap::treeifyBin($ConcurrentHashMap$NodeArray* tab, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$Node, b, nullptr);
 	int32_t n = 0;
 	if (tab != nullptr) {
@@ -2188,6 +2215,7 @@ void ConcurrentHashMap::treeifyBin($ConcurrentHashMap$NodeArray* tab, int32_t in
 
 $ConcurrentHashMap$Node* ConcurrentHashMap::untreeify($ConcurrentHashMap$Node* b) {
 	$init(ConcurrentHashMap);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$Node, hd, nullptr);
 	$var($ConcurrentHashMap$Node, tl, nullptr);
 	{
@@ -2229,6 +2257,7 @@ void ConcurrentHashMap::forEach(int64_t parallelismThreshold, $BiFunction* trans
 }
 
 $Object* ConcurrentHashMap::search(int64_t parallelismThreshold, $BiFunction* searchFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (searchFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2246,6 +2275,7 @@ $Object* ConcurrentHashMap::reduce(int64_t parallelismThreshold, $BiFunction* tr
 }
 
 double ConcurrentHashMap::reduceToDouble(int64_t parallelismThreshold, $ToDoubleBiFunction* transformer, double basis, $DoubleBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2253,6 +2283,7 @@ double ConcurrentHashMap::reduceToDouble(int64_t parallelismThreshold, $ToDouble
 }
 
 int64_t ConcurrentHashMap::reduceToLong(int64_t parallelismThreshold, $ToLongBiFunction* transformer, int64_t basis, $LongBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2260,6 +2291,7 @@ int64_t ConcurrentHashMap::reduceToLong(int64_t parallelismThreshold, $ToLongBiF
 }
 
 int32_t ConcurrentHashMap::reduceToInt(int64_t parallelismThreshold, $ToIntBiFunction* transformer, int32_t basis, $IntBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2281,6 +2313,7 @@ void ConcurrentHashMap::forEachKey(int64_t parallelismThreshold, $Function* tran
 }
 
 $Object* ConcurrentHashMap::searchKeys(int64_t parallelismThreshold, $Function* searchFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (searchFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2305,6 +2338,7 @@ $Object* ConcurrentHashMap::reduceKeys(int64_t parallelismThreshold, $Function* 
 }
 
 double ConcurrentHashMap::reduceKeysToDouble(int64_t parallelismThreshold, $ToDoubleFunction* transformer, double basis, $DoubleBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2312,6 +2346,7 @@ double ConcurrentHashMap::reduceKeysToDouble(int64_t parallelismThreshold, $ToDo
 }
 
 int64_t ConcurrentHashMap::reduceKeysToLong(int64_t parallelismThreshold, $ToLongFunction* transformer, int64_t basis, $LongBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2319,6 +2354,7 @@ int64_t ConcurrentHashMap::reduceKeysToLong(int64_t parallelismThreshold, $ToLon
 }
 
 int32_t ConcurrentHashMap::reduceKeysToInt(int64_t parallelismThreshold, $ToIntFunction* transformer, int32_t basis, $IntBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2340,6 +2376,7 @@ void ConcurrentHashMap::forEachValue(int64_t parallelismThreshold, $Function* tr
 }
 
 $Object* ConcurrentHashMap::searchValues(int64_t parallelismThreshold, $Function* searchFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (searchFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2364,6 +2401,7 @@ $Object* ConcurrentHashMap::reduceValues(int64_t parallelismThreshold, $Function
 }
 
 double ConcurrentHashMap::reduceValuesToDouble(int64_t parallelismThreshold, $ToDoubleFunction* transformer, double basis, $DoubleBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2371,6 +2409,7 @@ double ConcurrentHashMap::reduceValuesToDouble(int64_t parallelismThreshold, $To
 }
 
 int64_t ConcurrentHashMap::reduceValuesToLong(int64_t parallelismThreshold, $ToLongFunction* transformer, int64_t basis, $LongBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2378,6 +2417,7 @@ int64_t ConcurrentHashMap::reduceValuesToLong(int64_t parallelismThreshold, $ToL
 }
 
 int32_t ConcurrentHashMap::reduceValuesToInt(int64_t parallelismThreshold, $ToIntFunction* transformer, int32_t basis, $IntBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2399,6 +2439,7 @@ void ConcurrentHashMap::forEachEntry(int64_t parallelismThreshold, $Function* tr
 }
 
 $Object* ConcurrentHashMap::searchEntries(int64_t parallelismThreshold, $Function* searchFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (searchFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2423,6 +2464,7 @@ $Object* ConcurrentHashMap::reduceEntries(int64_t parallelismThreshold, $Functio
 }
 
 double ConcurrentHashMap::reduceEntriesToDouble(int64_t parallelismThreshold, $ToDoubleFunction* transformer, double basis, $DoubleBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2430,6 +2472,7 @@ double ConcurrentHashMap::reduceEntriesToDouble(int64_t parallelismThreshold, $T
 }
 
 int64_t ConcurrentHashMap::reduceEntriesToLong(int64_t parallelismThreshold, $ToLongFunction* transformer, int64_t basis, $LongBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2437,6 +2480,7 @@ int64_t ConcurrentHashMap::reduceEntriesToLong(int64_t parallelismThreshold, $To
 }
 
 int32_t ConcurrentHashMap::reduceEntriesToInt(int64_t parallelismThreshold, $ToIntFunction* transformer, int32_t basis, $IntBinaryOperator* reducer) {
+	$useLocalCurrentObjectStackCache();
 	if (transformer == nullptr || reducer == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -2444,6 +2488,7 @@ int32_t ConcurrentHashMap::reduceEntriesToInt(int64_t parallelismThreshold, $ToI
 }
 
 void clinit$ConcurrentHashMap($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	ConcurrentHashMap::LOAD_FACTOR = 0.75f;
 	ConcurrentHashMap::NCPU = $nc($($Runtime::getRuntime()))->availableProcessors();
 		$load($ConcurrentHashMap$SegmentArray);

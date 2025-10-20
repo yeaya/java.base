@@ -79,6 +79,7 @@ void AccessDescription::init$($ObjectIdentifier* accessMethod, $GeneralName* acc
 }
 
 void AccessDescription::init$($DerValue* derValue) {
+	$useLocalCurrentObjectStackCache();
 	this->myhash = -1;
 	$var($DerInputStream, derIn, $nc(derValue)->getData());
 	$set(this, accessMethod, $nc(derIn)->getOID());
@@ -109,6 +110,7 @@ int32_t AccessDescription::hashCode() {
 }
 
 bool AccessDescription::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr || (!($instanceOf(AccessDescription, obj)))) {
 		return false;
 	}
@@ -121,6 +123,7 @@ bool AccessDescription::equals(Object$* obj) {
 }
 
 $String* AccessDescription::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, method, nullptr);
 	if ($nc(this->accessMethod)->equals(AccessDescription::Ad_CAISSUERS_Id)) {
 		$assign(method, "caIssuers"_s);

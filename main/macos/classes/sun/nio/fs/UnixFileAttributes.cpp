@@ -192,6 +192,7 @@ UnixFileAttributes* UnixFileAttributes::get(int32_t fd) {
 
 UnixFileAttributes* UnixFileAttributes::get(int32_t dfd, $UnixPath* path, bool followLinks) {
 	$init(UnixFileAttributes);
+	$useLocalCurrentObjectStackCache();
 	$var(UnixFileAttributes, attrs, $new(UnixFileAttributes));
 	$init($UnixConstants);
 	int32_t flag = (followLinks) ? 0 : $UnixConstants::AT_SYMLINK_NOFOLLOW;

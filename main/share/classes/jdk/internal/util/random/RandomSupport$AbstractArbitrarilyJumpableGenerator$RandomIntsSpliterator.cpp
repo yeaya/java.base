@@ -132,6 +132,7 @@ void RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::i
 }
 
 $Spliterator$OfInt* RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	int64_t i = this->index;
 	int64_t delta = $Long::highestOneBit((this->fence - i) - 1);
 	int64_t m = i + delta;

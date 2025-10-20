@@ -72,6 +72,7 @@ void VersionProps::init$() {
 
 void VersionProps::main($StringArray* args) {
 	$init(VersionProps);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* versionProps = $Class::forName("java.lang.VersionProps"_s);
 	$load($String);
@@ -113,6 +114,7 @@ void VersionProps::main($StringArray* args) {
 }
 
 void clinit$VersionProps($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(VersionProps::validVersions, $new($StringArray, {
 		"1"_s,
 		"1.2"_s,

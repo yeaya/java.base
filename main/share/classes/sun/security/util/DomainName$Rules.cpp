@@ -171,6 +171,7 @@ $Object* allocate$DomainName$Rules($Class* clazz) {
 }
 
 void DomainName$Rules::init$($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, ruleSets, $new($LinkedList));
 	$init($StandardCharsets);
 	$var($InputStreamReader, isr, $new($InputStreamReader, is, $StandardCharsets::UTF_8));
@@ -191,6 +192,7 @@ void DomainName$Rules::init$($InputStream* is) {
 }
 
 DomainName$Rules* DomainName$Rules::getRules($String* domain) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, tld, getTopLevelDomain(domain));
 	if ($nc(tld)->isEmpty()) {
 		return nullptr;
@@ -208,6 +210,7 @@ $String* DomainName$Rules::getTopLevelDomain($String* domain) {
 }
 
 DomainName$Rules* DomainName$Rules::createRules($String* tld) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InputStream, pubSuffixStream, getPubSuffixStream());
 		{
@@ -263,6 +266,7 @@ DomainName$Rules* DomainName$Rules::createRules($String* tld) {
 
 $InputStream* DomainName$Rules::getPubSuffixStream() {
 	$load(DomainName$Rules);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($InputStream, is, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DomainName$Rules$1)))));
 	if (is == nullptr) {
@@ -276,6 +280,7 @@ $InputStream* DomainName$Rules::getPubSuffixStream() {
 }
 
 DomainName$Rules* DomainName$Rules::getRules($String* tld, $ZipInputStream* zis) {
+	$useLocalCurrentObjectStackCache();
 	bool found = false;
 	$var($ZipEntry, ze, $nc(zis)->getNextEntry());
 	while (ze != nullptr && !found) {
@@ -308,6 +313,7 @@ $DomainName$Rules$RuleSet* DomainName$Rules::getRuleSet(int32_t index) {
 }
 
 $DomainName$Match* DomainName$Rules::match($String* domain) {
+	$useLocalCurrentObjectStackCache();
 	$var($DomainName$Match, possibleMatch, nullptr);
 	$var($Iterator, it, $nc(this->ruleSets)->descendingIterator());
 	while ($nc(it)->hasNext()) {

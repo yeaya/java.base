@@ -71,6 +71,7 @@ void SocketInheritance$IOHandler::init$($InputStream* in) {
 
 void SocketInheritance$IOHandler::handle($InputStream* in) {
 	$init(SocketInheritance$IOHandler);
+	$useLocalCurrentObjectStackCache();
 	$var(SocketInheritance$IOHandler, handler, $new(SocketInheritance$IOHandler, in));
 	$var($Thread, thr, $new($Thread, static_cast<$Runnable*>(handler)));
 	thr->setDaemon(true);

@@ -77,6 +77,7 @@ void Finalize::init$() {
 
 void Finalize::main($StringArray* args) {
 	$init(Finalize);
+	$useLocalCurrentObjectStackCache();
 	$Thread::sleep(5000);
 	$assignStatic(Finalize::inFile, $new($File, $($System::getProperty("test.dir"_s, "."_s)), Finalize::inFileName));
 	$nc(Finalize::inFile)->createNewFile();
@@ -93,6 +94,7 @@ void Finalize::main($StringArray* args) {
 
 void Finalize::doFileInputStream() {
 	$init(Finalize);
+	$useLocalCurrentObjectStackCache();
 	$var($FileInputStream, fis1, $new($FileInputStream, Finalize::inFile));
 	$var($FileDescriptor, fd, fis1->getFD());
 	$var($FileInputStream, fis2, $new($FileInputStream, fd));
@@ -115,6 +117,7 @@ void Finalize::writeToInFile() {
 
 void Finalize::doFileOutputStream() {
 	$init(Finalize);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("--------FileOutputStream Test Started----------"_s);
 	$var($FileOutputStream, fos1, $new($FileOutputStream, Finalize::outFile));
@@ -132,6 +135,7 @@ void Finalize::doFileOutputStream() {
 
 void Finalize::doRandomAccessFile() {
 	$init(Finalize);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("--------RandomAccessFile Read Test Started----------"_s);
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, Finalize::inFile, "r"_s));
@@ -163,6 +167,7 @@ void Finalize::doRandomAccessFile() {
 
 void Finalize::doFileChannel() {
 	$init(Finalize);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("--------FileChannel Read Test Started----------"_s);
 	$nc($System::out)->println();

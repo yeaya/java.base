@@ -82,6 +82,7 @@ void ThreadLocalCoders$1::init$(int32_t size) {
 }
 
 bool ThreadLocalCoders$1::hasName(Object$* ob, Object$* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Charset, name)) {
 		return $nc($($nc(($cast($CharsetDecoder, ob)))->charset()))->equals(name);
 	}

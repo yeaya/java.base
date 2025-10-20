@@ -204,6 +204,7 @@ void SSLKeyExchange::init$($List* authentication, $SSLKeyAgreement* keyAgreement
 }
 
 $SSLPossessionArray* SSLKeyExchange::createPossessions($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLPossession, authPossession, nullptr);
 	if (this->authentication != nullptr) {
 		{
@@ -263,6 +264,7 @@ $SSLKeyDerivation* SSLKeyExchange::createKeyDerivation($HandshakeContext* handsh
 }
 
 $SSLHandshakeArray* SSLKeyExchange::getRelatedHandshakers($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLHandshakeArray, auHandshakes, nullptr);
 	if (this->authentication != nullptr) {
 		{
@@ -291,6 +293,7 @@ $SSLHandshakeArray* SSLKeyExchange::getRelatedHandshakers($HandshakeContext* han
 }
 
 $Map$EntryArray* SSLKeyExchange::getHandshakeProducers($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$EntryArray, auProducers, nullptr);
 	if (this->authentication != nullptr) {
 		{
@@ -319,6 +322,7 @@ $Map$EntryArray* SSLKeyExchange::getHandshakeProducers($HandshakeContext* handsh
 }
 
 $Map$EntryArray* SSLKeyExchange::getHandshakeConsumers($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$EntryArray, auConsumers, nullptr);
 	if (this->authentication != nullptr) {
 		{

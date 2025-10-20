@@ -129,6 +129,7 @@ void CertificateRequest$T12CertificateRequestConsumer::init$() {
 }
 
 void CertificateRequest$T12CertificateRequestConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_REQUEST->id)));
@@ -162,6 +163,7 @@ void CertificateRequest$T12CertificateRequestConsumer::consume($ConnectionContex
 
 $SSLPossession* CertificateRequest$T12CertificateRequestConsumer::choosePossession($HandshakeContext* hc) {
 	$init(CertificateRequest$T12CertificateRequestConsumer);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(hc)->peerRequestedCertSignSchemes == nullptr || $nc($nc(hc)->peerRequestedCertSignSchemes)->isEmpty()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {

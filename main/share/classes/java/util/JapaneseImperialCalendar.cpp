@@ -269,6 +269,7 @@ int32_t JapaneseImperialCalendar::hashCode() {
 }
 
 void JapaneseImperialCalendar::add(int32_t field, int32_t amount) {
+	$useLocalCurrentObjectStackCache();
 	if (amount == 0) {
 		return;
 	}
@@ -389,6 +390,7 @@ void JapaneseImperialCalendar::roll(int32_t field, bool up) {
 }
 
 void JapaneseImperialCalendar::roll(int32_t field, int32_t amount) {
+	$useLocalCurrentObjectStackCache();
 	if (amount == 0) {
 		return;
 	}
@@ -805,6 +807,7 @@ void JapaneseImperialCalendar::roll(int32_t field, int32_t amount) {
 }
 
 $String* JapaneseImperialCalendar::getDisplayName(int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (!checkDisplayNameParams(field, style, $Calendar::SHORT, $Calendar::NARROW_FORMAT, locale, ((($Calendar::ERA_MASK | $Calendar::YEAR_MASK) | $Calendar::MONTH_MASK) | $Calendar::DAY_OF_WEEK_MASK) | $Calendar::AM_PM_MASK)) {
 		return nullptr;
 	}
@@ -826,6 +829,7 @@ $String* JapaneseImperialCalendar::getDisplayName(int32_t field, int32_t style, 
 }
 
 $Map* JapaneseImperialCalendar::getDisplayNames(int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (!checkDisplayNameParams(field, style, $Calendar::ALL_STYLES, $Calendar::NARROW_FORMAT, locale, ((($Calendar::ERA_MASK | $Calendar::YEAR_MASK) | $Calendar::MONTH_MASK) | $Calendar::DAY_OF_WEEK_MASK) | $Calendar::AM_PM_MASK)) {
 		return nullptr;
 	}
@@ -873,6 +877,7 @@ int32_t JapaneseImperialCalendar::getMinimum(int32_t field) {
 }
 
 int32_t JapaneseImperialCalendar::getMaximum(int32_t field) {
+	$useLocalCurrentObjectStackCache();
 
 	int32_t var$0 = 0;
 	switch (field) {
@@ -916,6 +921,7 @@ int32_t JapaneseImperialCalendar::getLeastMaximum(int32_t field) {
 }
 
 int32_t JapaneseImperialCalendar::getActualMinimum(int32_t field) {
+	$useLocalCurrentObjectStackCache();
 	if (!isFieldSet(($Calendar::YEAR_MASK | $Calendar::MONTH_MASK) | $Calendar::WEEK_OF_YEAR_MASK, field)) {
 		return getMinimum(field);
 	}
@@ -1012,6 +1018,7 @@ int32_t JapaneseImperialCalendar::getActualMinimum(int32_t field) {
 }
 
 int32_t JapaneseImperialCalendar::getActualMaximum(int32_t field) {
+	$useLocalCurrentObjectStackCache();
 	int32_t fieldsForFixedMax = (((((((($Calendar::ERA_MASK | $Calendar::DAY_OF_WEEK_MASK) | $Calendar::HOUR_MASK) | $Calendar::AM_PM_MASK) | $Calendar::HOUR_OF_DAY_MASK) | $Calendar::MINUTE_MASK) | $Calendar::SECOND_MASK) | $Calendar::MILLISECOND_MASK) | $Calendar::ZONE_OFFSET_MASK) | $Calendar::DST_OFFSET_MASK;
 	if (((int32_t)(fieldsForFixedMax & (uint32_t)($sl(1, field)))) != 0) {
 		return getMaximum(field);
@@ -1324,6 +1331,7 @@ void JapaneseImperialCalendar::computeFields() {
 }
 
 int32_t JapaneseImperialCalendar::computeFields(int32_t fieldMask, int32_t tzMask) {
+	$useLocalCurrentObjectStackCache();
 	int32_t zoneOffset = 0;
 	$var($TimeZone, tz, getZone());
 	if (this->zoneOffsets == nullptr) {
@@ -1516,6 +1524,7 @@ int32_t JapaneseImperialCalendar::getWeekNumber(int64_t fixedDay1, int64_t fixed
 }
 
 void JapaneseImperialCalendar::computeTime() {
+	$useLocalCurrentObjectStackCache();
 	if (!isLenient()) {
 		if (this->originalFields == nullptr) {
 			$set(this, originalFields, $new($ints, $Calendar::FIELD_COUNT));
@@ -1606,6 +1615,7 @@ void JapaneseImperialCalendar::computeTime() {
 }
 
 int64_t JapaneseImperialCalendar::getFixedDate(int32_t era, int32_t year, int32_t fieldMask) {
+	$useLocalCurrentObjectStackCache();
 	int32_t month = $Calendar::JANUARY;
 	int32_t firstDayOfMonth = 1;
 	if (isFieldSet(fieldMask, $Calendar::MONTH)) {
@@ -1697,6 +1707,7 @@ int64_t JapaneseImperialCalendar::getFixedDate(int32_t era, int32_t year, int32_
 }
 
 int64_t JapaneseImperialCalendar::getFixedDateJan1($LocalGregorianCalendar$Date* date, int64_t fixedDate) {
+	$useLocalCurrentObjectStackCache();
 	$var($Era, era, $nc(date)->getEra());
 	bool var$0 = date->getEra() != nullptr;
 	if (var$0 && date->getYear() == 1) {
@@ -1791,6 +1802,7 @@ int32_t JapaneseImperialCalendar::getTransitionEraIndex($LocalGregorianCalendar$
 }
 
 bool JapaneseImperialCalendar::isTransitionYear(int32_t normalizedYear) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = $nc(JapaneseImperialCalendar::eras)->length - 1; i > 0; --i) {
 		int32_t transitionYear = $nc($($nc($nc(JapaneseImperialCalendar::eras)->get(i))->getSinceDate()))->getYear();
 		if (normalizedYear == transitionYear) {
@@ -1827,6 +1839,7 @@ JapaneseImperialCalendar* JapaneseImperialCalendar::getNormalizedCalendar() {
 }
 
 void JapaneseImperialCalendar::pinDayOfMonth($LocalGregorianCalendar$Date* date) {
+	$useLocalCurrentObjectStackCache();
 	int32_t year = $nc(date)->getYear();
 	int32_t dom = date->getDayOfMonth();
 	if (year != getMinimum($Calendar::YEAR)) {
@@ -1898,6 +1911,7 @@ void JapaneseImperialCalendar::readObject($ObjectInputStream* stream) {
 }
 
 void clinit$JapaneseImperialCalendar($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	JapaneseImperialCalendar::$assertionsDisabled = !JapaneseImperialCalendar::class$->desiredAssertionStatus();
 	$assignStatic(JapaneseImperialCalendar::jcal, $cast($LocalGregorianCalendar, $CalendarSystem::forName("japanese"_s)));
 	$assignStatic(JapaneseImperialCalendar::gcal, $CalendarSystem::getGregorianCalendar());

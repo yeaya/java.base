@@ -112,6 +112,7 @@ void BootstrapMethodInvoker$VM_BSCI::init$($MethodHandle* bsm, $String* name, Ob
 }
 
 $Object* BootstrapMethodInvoker$VM_BSCI::fillCache(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, buf, $new($ObjectArray, {($Object*)nullptr}));
 	copyConstants(i, i + 1, buf, 0);
 	$var($Object, res, wrapNull(buf->get(0)));
@@ -124,6 +125,7 @@ $Object* BootstrapMethodInvoker$VM_BSCI::fillCache(int32_t i) {
 }
 
 int32_t BootstrapMethodInvoker$VM_BSCI::copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = start;
 	int32_t bufi = pos;
 	while (i < end) {
@@ -208,6 +210,7 @@ void BootstrapMethodInvoker$VM_BSCI::maybePrefetchIntoCache(int32_t i, bool bulk
 }
 
 void BootstrapMethodInvoker$VM_BSCI::prefetchIntoCache(int32_t i, int32_t pfLimit) {
+	$useLocalCurrentObjectStackCache();
 	if (pfLimit <= i) {
 		return;
 	}

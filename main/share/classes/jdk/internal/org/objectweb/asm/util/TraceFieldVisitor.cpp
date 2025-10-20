@@ -74,11 +74,13 @@ void TraceFieldVisitor::init$($FieldVisitor* fieldVisitor, $Printer* printer) {
 }
 
 $AnnotationVisitor* TraceFieldVisitor::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitFieldAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($FieldVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceFieldVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitFieldTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($FieldVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }

@@ -56,6 +56,7 @@ void CaseInsensitiveComparator::init$() {
 }
 
 void CaseInsensitiveComparator::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, nullptr);
 	{
 		$var($ByteArrayOutputStream, outBuffer, $new($ByteArrayOutputStream));

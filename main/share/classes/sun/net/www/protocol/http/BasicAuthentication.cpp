@@ -122,6 +122,7 @@ void BasicAuthentication::init$(bool isProxy, $URL* url, $String* realm, $Passwo
 
 $String* BasicAuthentication::authValueFrom($PasswordAuthentication* pw, bool isUTF8) {
 	$init(BasicAuthentication);
+	$useLocalCurrentObjectStackCache();
 	$var($String, plain, $str({$($nc(pw)->getUserName()), ":"_s}));
 	$var($chars, password, pw->getPassword());
 	$var($CharBuffer, cbuf, $CharBuffer::allocate($nc(plain)->length() + $nc(password)->length));
@@ -152,6 +153,7 @@ bool BasicAuthentication::supportsPreemptiveAuthorization() {
 }
 
 bool BasicAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
+	$useLocalCurrentObjectStackCache();
 	if (!BasicAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -170,6 +172,7 @@ bool BasicAuthentication::isAuthorizationStale($String* header) {
 
 $String* BasicAuthentication::getRootPath($String* npath$renamed, $String* opath$renamed) {
 	$init(BasicAuthentication);
+	$useLocalCurrentObjectStackCache();
 	$var($String, npath, npath$renamed);
 	$var($String, opath, opath$renamed);
 	int32_t index = 0;

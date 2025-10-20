@@ -195,6 +195,7 @@ bool URLClassPath::DEBUG_CP_URL_CHECK = false;
 $JavaNetURLAccess* URLClassPath::JNUA = nullptr;
 
 void URLClassPath::init$($URLArray* urls, $URLStreamHandlerFactory* factory, $AccessControlContext* acc) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, loaders, $new($ArrayList));
 	$set(this, lmap, $new($HashMap));
 	this->closed = false;
@@ -231,6 +232,7 @@ void URLClassPath::init$($URLArray* urls, $AccessControlContext* acc) {
 }
 
 void URLClassPath::init$($String* cp, bool skipEmptyElements) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, loaders, $new($ArrayList));
 	$set(this, lmap, $new($HashMap));
 	this->closed = false;
@@ -264,6 +266,7 @@ void URLClassPath::init$($String* cp, bool skipEmptyElements) {
 
 $List* URLClassPath::closeLoaders() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->closed) {
 			return $Collections::emptyList();
 		}
@@ -310,6 +313,7 @@ void URLClassPath::addFile($String* s) {
 
 $URL* URLClassPath::toFileURL($String* s) {
 	$init(URLClassPath);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $$new($File, s)->getCanonicalFile());
 		return $ParseUtil::fileToEncodedURL(f);
@@ -327,6 +331,7 @@ $URLArray* URLClassPath::getURLs() {
 }
 
 $URL* URLClassPath::findResource($String* name, bool check) {
+	$useLocalCurrentObjectStackCache();
 	$var($URLClassPath$Loader, loader, nullptr);
 	for (int32_t i = 0; ($assign(loader, getLoader(i))) != nullptr; ++i) {
 		$var($URL, url, $nc(loader)->findResource(name, check));
@@ -338,6 +343,7 @@ $URL* URLClassPath::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath::getResource($String* name, bool check) {
+	$useLocalCurrentObjectStackCache();
 	if (URLClassPath::DEBUG) {
 		$init($System);
 		$nc($System::err)->println($$str({"URLClassPath.getResource(\""_s, name, "\")"_s}));
@@ -370,6 +376,7 @@ $Enumeration* URLClassPath::getResources($String* name) {
 
 $URLClassPath$Loader* URLClassPath::getLoader(int32_t index) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->closed) {
 			return nullptr;
 		}
@@ -411,6 +418,7 @@ $URLClassPath$Loader* URLClassPath::getLoader(int32_t index) {
 }
 
 $URLClassPath$Loader* URLClassPath::getLoader($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($URLClassPath$Loader, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLClassPath$3, this, url)), this->acc));
@@ -450,6 +458,7 @@ $URL* URLClassPath::checkURL($URL* url) {
 
 void URLClassPath::check($URL* url) {
 	$init(URLClassPath);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$var($URLConnection, urlConnection, $nc(url)->openConnection());
@@ -477,6 +486,7 @@ void URLClassPath::check($URL* url) {
 }
 
 void clinit$URLClassPath($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(URLClassPath::USER_AGENT_JAVA_VERSION, "UA-Java-Version"_s);
 	{
 		$var($Properties, props, $GetPropertyAction::privilegedGetProperties());

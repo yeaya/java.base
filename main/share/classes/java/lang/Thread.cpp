@@ -437,6 +437,7 @@ void Thread::onSpinWait() {
 }
 
 void Thread::init$($ThreadGroup* g$renamed, $Runnable* target, $String* name, int64_t stackSize, $AccessControlContext* acc, bool inheritThreadLocals) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, g, g$renamed);
 	$beforeCallerSensitive();
 	this->daemon = false;
@@ -490,18 +491,22 @@ $Object* Thread::clone() {
 }
 
 void Thread::init$() {
+	$useLocalCurrentObjectStackCache();
 	Thread::init$(nullptr, nullptr, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0);
 }
 
 void Thread::init$($Runnable* target) {
+	$useLocalCurrentObjectStackCache();
 	Thread::init$(nullptr, target, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0);
 }
 
 void Thread::init$($Runnable* target, $AccessControlContext* acc) {
+	$useLocalCurrentObjectStackCache();
 	Thread::init$(nullptr, target, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0, acc, false);
 }
 
 void Thread::init$($ThreadGroup* group, $Runnable* target) {
+	$useLocalCurrentObjectStackCache();
 	Thread::init$(group, target, $$str({"Thread-"_s, $$str(nextThreadNum())}), 0);
 }
 
@@ -587,6 +592,7 @@ void Thread::exit() {
 }
 
 void Thread::stop() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		checkAccess();
@@ -688,11 +694,13 @@ $ThreadGroup* Thread::getThreadGroup() {
 
 int32_t Thread::activeCount() {
 	$init(Thread);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(currentThread()))->getThreadGroup()))->activeCount();
 }
 
 int32_t Thread::enumerate($ThreadArray* tarray) {
 	$init(Thread);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($(currentThread()))->getThreadGroup()))->enumerate(tarray);
 }
 
@@ -768,6 +776,7 @@ void Thread::checkAccess() {
 }
 
 $String* Thread::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, group, getThreadGroup());
 	if (group != nullptr) {
 		$var($String, var$3, $$str({"Thread["_s, $(getName()), ","_s}));
@@ -794,6 +803,7 @@ $ClassLoader* Thread::getContextClassLoader() {
 }
 
 void Thread::setContextClassLoader($ClassLoader* cl) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setContextClassLoader"_s));
@@ -806,6 +816,7 @@ bool Thread::holdsLock(Object$* obj) {
 }
 
 $StackTraceElementArray* Thread::getStackTrace() {
+	$useLocalCurrentObjectStackCache();
 	if (this != Thread::currentThread()) {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
@@ -828,6 +839,7 @@ $StackTraceElementArray* Thread::getStackTrace() {
 
 $Map* Thread::getAllStackTraces() {
 	$init(Thread);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		$init($SecurityConstants);
@@ -848,6 +860,7 @@ $Map* Thread::getAllStackTraces() {
 
 bool Thread::isCCLOverridden($Class* cl) {
 	$init(Thread);
+	$useLocalCurrentObjectStackCache();
 	if (cl == Thread::class$) {
 		return false;
 	}
@@ -864,6 +877,7 @@ bool Thread::isCCLOverridden($Class* cl) {
 
 bool Thread::auditSubclass($Class* subcl) {
 	$init(Thread);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Boolean, result, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Thread$1, subcl)))));
 	return $nc(result)->booleanValue();
@@ -887,6 +901,7 @@ $Thread$State* Thread::getState() {
 
 void Thread::setDefaultUncaughtExceptionHandler($Thread$UncaughtExceptionHandler* eh) {
 	$init(Thread);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setDefaultUncaughtExceptionHandler"_s));

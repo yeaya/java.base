@@ -78,6 +78,7 @@ void StringRepeat::main($StringArray* args) {
 
 void StringRepeat::test1() {
 	$init(StringRepeat);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ints, arr$, StringRepeat::REPEATS);
 		int32_t len$ = $nc(arr$)->length;
@@ -131,6 +132,7 @@ $String* StringRepeat::truncate($String* string) {
 
 void StringRepeat::verify($String* result, $String* string, int32_t repeat) {
 	$init(StringRepeat);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(string)->isEmpty() || repeat == 0) {
 		if (!$nc(result)->isEmpty()) {
 			$init($System);

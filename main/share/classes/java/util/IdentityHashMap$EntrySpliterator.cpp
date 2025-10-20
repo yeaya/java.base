@@ -112,6 +112,7 @@ $Spliterator* IdentityHashMap$EntrySpliterator::trySplit() {
 }
 
 void IdentityHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -139,6 +140,7 @@ void IdentityHashMap$EntrySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool IdentityHashMap$EntrySpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

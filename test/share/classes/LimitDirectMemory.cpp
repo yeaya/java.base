@@ -67,6 +67,7 @@ void LimitDirectMemory::init$() {
 }
 
 void LimitDirectMemory::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length < 2) {
 		$throwNew($IllegalArgumentException, "Usage: java LimitDirectMemory <OOME_expected(true|false)> <fill_direct_memory> <size_per_buffer>"_s);
 	}
@@ -109,6 +110,7 @@ bool LimitDirectMemory::parseThrow($String* s) {
 }
 
 int32_t LimitDirectMemory::parseSize($String* size) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(size)->equals("DEFAULT"_s)) {
 		return (int32_t)$nc($($Runtime::getRuntime()))->maxMemory();
 	}

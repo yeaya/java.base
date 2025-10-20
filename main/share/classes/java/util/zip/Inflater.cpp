@@ -191,6 +191,7 @@ void Inflater::setDictionary($bytes* dictionary) {
 }
 
 void Inflater::setDictionary($ByteBuffer* dictionary) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->zsRef) {
 		int32_t position = $nc(dictionary)->position();
 		int32_t remaining = $Math::max(dictionary->limit() - position, 0);
@@ -247,6 +248,7 @@ bool Inflater::finished() {
 }
 
 int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (off < 0 || len < 0 || off > $nc(output)->length - len) {
 		$throwNew($ArrayIndexOutOfBoundsException);
 	}
@@ -328,6 +330,7 @@ int32_t Inflater::inflate($bytes* output) {
 }
 
 int32_t Inflater::inflate($ByteBuffer* output) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(output)->isReadOnly()) {
 		$throwNew($ReadOnlyBufferException);
 	}

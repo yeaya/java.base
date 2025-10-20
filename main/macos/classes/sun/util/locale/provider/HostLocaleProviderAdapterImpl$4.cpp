@@ -104,27 +104,32 @@ bool HostLocaleProviderAdapterImpl$4::isSupportedLocale($Locale* locale) {
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$4::getCurrencyInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getNumberPattern(1, locale));
 	return $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale)));
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$4::getIntegerInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getNumberPattern(3, locale));
 	$var($DecimalFormat, format, $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale))));
 	return $HostLocaleProviderAdapter::makeIntegerFormatter(format);
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$4::getNumberInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getNumberPattern(0, locale));
 	return $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale)));
 }
 
 $NumberFormat* HostLocaleProviderAdapterImpl$4::getPercentInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, getNumberPattern(2, locale));
 	return $new($DecimalFormat, var$0, $($DecimalFormatSymbols::getInstance(locale)));
 }
 
 $String* HostLocaleProviderAdapterImpl$4::getNumberPattern(int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, numberFormatPatterns, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::numberFormatPatternsMap)->get(locale)));

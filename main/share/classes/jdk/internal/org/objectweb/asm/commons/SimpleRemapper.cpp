@@ -65,16 +65,19 @@ void SimpleRemapper::init$($String* oldName, $String* newName) {
 }
 
 $String* SimpleRemapper::mapMethodName($String* owner, $String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, remappedName, map($$str({owner, $$str(u'.'), name, descriptor})));
 	return remappedName == nullptr ? name : remappedName;
 }
 
 $String* SimpleRemapper::mapInvokeDynamicMethodName($String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, remappedName, map($$str({$$str(u'.'), name, descriptor})));
 	return remappedName == nullptr ? name : remappedName;
 }
 
 $String* SimpleRemapper::mapFieldName($String* owner, $String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, remappedName, map($$str({owner, $$str(u'.'), name})));
 	return remappedName == nullptr ? name : remappedName;
 }

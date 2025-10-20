@@ -83,6 +83,7 @@ void Identity$3::init$($AsynchronousServerSocketChannel* val$listener) {
 }
 
 void Identity$3::completed($AsynchronousSocketChannel* ch, $Void* att) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->val$listener)->accept(($Void*)nullptr, this);
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(100));
 	$nc(ch)->read(buf, ch, $$new($Identity$3$1, this, buf));

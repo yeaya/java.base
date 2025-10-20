@@ -84,6 +84,7 @@ void HmacSHA1KeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* HmacSHA1KeyGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}

@@ -58,6 +58,7 @@ void ReadByte::init$() {
 }
 
 void ReadByte::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReadableByteChannel, channel, $new($ReadByte$1));
 	$var($InputStream, in, $Channels::newInputStream(channel));
 	int32_t data = $nc(in)->read();

@@ -90,6 +90,7 @@ void LongAccumulator::init$($LongBinaryOperator* accumulatorFunction, int64_t id
 }
 
 void LongAccumulator::accumulate(int64_t x) {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -117,6 +118,7 @@ void LongAccumulator::accumulate(int64_t x) {
 }
 
 int64_t LongAccumulator::get() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	int64_t result = this->base;
 	if (cs != nullptr) {
@@ -136,6 +138,7 @@ int64_t LongAccumulator::get() {
 }
 
 void LongAccumulator::reset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = this->identity;
 	if (cs != nullptr) {
@@ -154,6 +157,7 @@ void LongAccumulator::reset() {
 }
 
 int64_t LongAccumulator::getThenReset() {
+	$useLocalCurrentObjectStackCache();
 	$var($Striped64$CellArray, cs, this->cells);
 	int64_t result = getAndSetBase(this->identity);
 	if (cs != nullptr) {

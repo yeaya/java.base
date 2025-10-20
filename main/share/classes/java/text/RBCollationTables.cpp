@@ -110,6 +110,7 @@ $Object* allocate$RBCollationTables($Class* clazz) {
 }
 
 void RBCollationTables::init$($String* rules, int32_t decmp) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, rules, nullptr);
 	this->frenchSec = false;
 	this->seAsianSwapping = false;
@@ -154,6 +155,7 @@ bool RBCollationTables::usedInContractSeq(int32_t c) {
 }
 
 int32_t RBCollationTables::getMaxExpansion(int32_t order) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = 1;
 	if (this->expandTable != nullptr) {
 		for (int32_t i = 0; i < $nc(this->expandTable)->size(); ++i) {
@@ -197,6 +199,7 @@ void RBCollationTables::reverse($StringBuffer* result, int32_t from, int32_t to)
 }
 
 int32_t RBCollationTables::getEntry($Vector* list, $String* name, bool fwd) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(list)->size(); ++i) {
 		$var($EntryPair, pair, $cast($EntryPair, list->elementAt(i)));
 		if ($nc(pair)->fwd == fwd && $nc(pair->entryName)->equals(name)) {

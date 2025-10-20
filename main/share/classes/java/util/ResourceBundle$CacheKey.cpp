@@ -122,6 +122,7 @@ void ResourceBundle$CacheKey::init$($String* baseName, $Locale* locale, $Module*
 }
 
 void ResourceBundle$CacheKey::init$(ResourceBundle$CacheKey* src) {
+	$useLocalCurrentObjectStackCache();
 	$init($ResourceBundle);
 	$set(this, moduleRef, $new($ResourceBundle$KeyElementReference, $cast($Module, $Objects::requireNonNull($($nc(src)->getModule()))), $ResourceBundle::referenceQueue, this));
 	$set(this, callerRef, $new($ResourceBundle$KeyElementReference, $cast($Module, $Objects::requireNonNull($($nc(src)->getCallerModule()))), $ResourceBundle::referenceQueue, this));
@@ -172,6 +173,7 @@ bool ResourceBundle$CacheKey::callerHasProvider() {
 }
 
 bool ResourceBundle$CacheKey::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -224,6 +226,7 @@ $Throwable* ResourceBundle$CacheKey::getCause() {
 }
 
 $String* ResourceBundle$CacheKey::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, l, $nc(this->locale)->toString());
 	if ($nc(l)->isEmpty()) {
 		if (!$nc($($nc(this->locale)->getVariant()))->isEmpty()) {

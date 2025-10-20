@@ -114,6 +114,7 @@ void LookupTest::init$() {
 
 void LookupTest::test($String* url, bool throwsSecException, bool throwsIOException) {
 	$init(LookupTest);
+	$useLocalCurrentObjectStackCache();
 	$ProxySelector::setDefault(nullptr);
 	$var($URL, u, nullptr);
 	$var($InputStream, is, nullptr);
@@ -174,6 +175,7 @@ void LookupTest::test($String* url, bool throwsSecException, bool throwsIOExcept
 
 void LookupTest::main($StringArray* args) {
 	$init(LookupTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	addMappingToHostsFile("allowedAndFound.com"_s, $($nc($($InetAddress::getLoopbackAddress()))->getHostAddress()), LookupTest::HOSTS_FILE_NAME, false);
 	addMappingToHostsFile("notAllowedButFound.com"_s, "99.99.99.99"_s, LookupTest::HOSTS_FILE_NAME, true);
@@ -201,6 +203,7 @@ void LookupTest::main($StringArray* args) {
 
 void LookupTest::addMappingToHostsFile($String* host, $String* addr, $String* hostsFileName, bool append) {
 	$init(LookupTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mapping, $str({addr, " "_s, host}));
 	{
 		$var($FileWriter, fr, $new($FileWriter, hostsFileName, append));

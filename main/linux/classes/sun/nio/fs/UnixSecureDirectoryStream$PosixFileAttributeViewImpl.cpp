@@ -152,6 +152,7 @@ void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::init$($UnixSecureDire
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::checkWriteAndUserAccess() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::checkWriteAccess();
@@ -164,6 +165,7 @@ $String* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::name() {
 }
 
 $BasicFileAttributes* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::readAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		if (this->file == nullptr) {
@@ -206,6 +208,7 @@ $BasicFileAttributes* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::read
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setPermissions($Set* perms) {
+	$useLocalCurrentObjectStackCache();
 	checkWriteAndUserAccess();
 	$nc($($nc(this->this$0->ds)->readLock()))->lock();
 	{
@@ -247,6 +250,7 @@ void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setPermissions($Set* 
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setOwners(int32_t uid, int32_t gid) {
+	$useLocalCurrentObjectStackCache();
 	checkWriteAndUserAccess();
 	$nc($($nc(this->this$0->ds)->readLock()))->lock();
 	{

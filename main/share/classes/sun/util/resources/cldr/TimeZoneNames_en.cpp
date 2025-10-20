@@ -47,6 +47,7 @@ void TimeZoneNames_en::init$() {
 }
 
 $ObjectArray2* TimeZoneNames_en::getContents() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, GMT, $new($StringArray, {
 		"Greenwich Mean Time"_s,
 		"GMT"_s,

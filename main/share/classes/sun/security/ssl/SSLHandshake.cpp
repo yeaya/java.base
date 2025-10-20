@@ -266,6 +266,7 @@ SSLHandshake* SSLHandshake::valueOf($String* name) {
 }
 
 void SSLHandshake::init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	SSLHandshake::init$($enum$name, $enum$ordinal, id, name, ($$new($Map$EntryArray, 0)), ($$new($Map$EntryArray, 0)), ($$new($Map$EntryArray, 0)));
 }
 
@@ -283,6 +284,7 @@ void SSLHandshake::init$($String* $enum$name, int32_t $enum$ordinal, int8_t id, 
 }
 
 void SSLHandshake::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLConsumer, hc, getHandshakeConsumer(context));
 	if (hc != nullptr) {
 		hc->consume(context, message);
@@ -292,6 +294,7 @@ void SSLHandshake::consume($ConnectionContext* context, $ByteBuffer* message) {
 }
 
 $SSLConsumer* SSLHandshake::getHandshakeConsumer($ConnectionContext* context) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->handshakeConsumers)->length == 0) {
 		return nullptr;
 	}
@@ -334,6 +337,7 @@ $SSLConsumer* SSLHandshake::getHandshakeConsumer($ConnectionContext* context) {
 }
 
 $bytes* SSLHandshake::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeProducer, hp, getHandshakeProducer(context));
 	if (hp != nullptr) {
 		return hp->produce(context, message);
@@ -343,6 +347,7 @@ $bytes* SSLHandshake::produce($ConnectionContext* context, $SSLHandshake$Handsha
 }
 
 $HandshakeProducer* SSLHandshake::getHandshakeProducer($ConnectionContext* context) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->handshakeConsumers)->length == 0) {
 		return nullptr;
 	}
@@ -390,6 +395,7 @@ $String* SSLHandshake::toString() {
 
 $String* SSLHandshake::nameOf(int8_t id) {
 	$init(SSLHandshake);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SSLHandshakeArray, arr$, SSLHandshake::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -444,6 +450,7 @@ void SSLHandshake::kickstart($HandshakeContext* context) {
 }
 
 void clinit$SSLHandshake($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, "HELLO_REQUEST"_s);
 	int8_t var$1 = (int8_t)0;
 	$var($String, var$2, "hello_request"_s);

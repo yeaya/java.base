@@ -98,6 +98,7 @@ bool HostLocaleProviderAdapterImpl$10::isSupportedLocale($Locale* locale) {
 }
 
 $String* HostLocaleProviderAdapterImpl$10::getJavaTimeDateTimePattern(int32_t timeStyle, int32_t dateStyle, $String* calType, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, getDateTimePatterns(locale));
 	$var($String, datePattern, dateStyle != -1 ? $cast($String, $nc(patterns)->get(dateStyle / 2)) : ""_s);
 	$var($String, timePattern, timeStyle != -1 ? $cast($String, patterns->get(timeStyle / 2 + 2)) : ""_s);
@@ -106,6 +107,7 @@ $String* HostLocaleProviderAdapterImpl$10::getJavaTimeDateTimePattern(int32_t ti
 }
 
 $AtomicReferenceArray* HostLocaleProviderAdapterImpl$10::getDateTimePatterns($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, patterns, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatCache)->get(locale)));

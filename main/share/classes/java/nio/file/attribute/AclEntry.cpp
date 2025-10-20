@@ -102,6 +102,7 @@ void AclEntry::init$($AclEntryType* type, $UserPrincipal* who, $Set* perms, $Set
 }
 
 $AclEntry$Builder* AclEntry::newBuilder() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, perms, $Collections::emptySet());
 	$var($Set, flags, $Collections::emptySet());
 	return $new($AclEntry$Builder, nullptr, nullptr, perms, flags);
@@ -172,6 +173,7 @@ int32_t AclEntry::hashCode() {
 }
 
 $String* AclEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($nc(this->who)->getName()));
 	sb->append(u':');

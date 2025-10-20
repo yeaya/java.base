@@ -48,6 +48,7 @@ void Decode::init$() {
 }
 
 void Decode::check($String* ashort, int16_t expected) {
+	$useLocalCurrentObjectStackCache();
 	int16_t sh = $nc(($($Short::decode(ashort))))->shortValue();
 	if (sh != expected) {
 		$throwNew($RuntimeException, $$str({"Short.decode failed. String:"_s, ashort, " Result:"_s, $$str(sh)}));
@@ -64,6 +65,7 @@ void Decode::checkFailure($String* val, $String* message) {
 }
 
 void Decode::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	check($$new($String, $$str({""_s, $$str($Short::MIN_VALUE)})), $Short::MIN_VALUE);
 	check($$new($String, $$str({""_s, $$str($Short::MAX_VALUE)})), $Short::MAX_VALUE);
 	check("10"_s, (int16_t)10);

@@ -103,6 +103,7 @@ void ThreadLocal$ThreadLocalMap::init$($ThreadLocal* firstKey, Object$* firstVal
 }
 
 void ThreadLocal$ThreadLocalMap::init$(ThreadLocal$ThreadLocalMap* parentMap) {
+	$useLocalCurrentObjectStackCache();
 	this->size = 0;
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, parentTable, $nc(parentMap)->table);
 	int32_t len = $nc(parentTable)->length;
@@ -144,6 +145,7 @@ $ThreadLocal$ThreadLocalMap$Entry* ThreadLocal$ThreadLocalMap::getEntry($ThreadL
 }
 
 $ThreadLocal$ThreadLocalMap$Entry* ThreadLocal$ThreadLocalMap::getEntryAfterMiss($ThreadLocal* key, int32_t i, $ThreadLocal$ThreadLocalMap$Entry* e$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$Entry, e, e$renamed);
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -162,6 +164,7 @@ $ThreadLocal$ThreadLocalMap$Entry* ThreadLocal$ThreadLocalMap::getEntryAfterMiss
 }
 
 void ThreadLocal$ThreadLocalMap::set($ThreadLocal* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
 	int32_t i = (int32_t)($nc(key)->threadLocalHashCode & (uint32_t)(len - 1));
@@ -186,6 +189,7 @@ void ThreadLocal$ThreadLocalMap::set($ThreadLocal* key, Object$* value) {
 }
 
 void ThreadLocal$ThreadLocalMap::remove($ThreadLocal* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
 	int32_t i = (int32_t)($nc(key)->threadLocalHashCode & (uint32_t)(len - 1));
@@ -202,6 +206,7 @@ void ThreadLocal$ThreadLocalMap::remove($ThreadLocal* key) {
 }
 
 void ThreadLocal$ThreadLocalMap::replaceStaleEntry($ThreadLocal* key, Object$* value, int32_t staleSlot) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
 	$var($ThreadLocal$ThreadLocalMap$Entry, e, nullptr);
@@ -234,6 +239,7 @@ void ThreadLocal$ThreadLocalMap::replaceStaleEntry($ThreadLocal* key, Object$* v
 }
 
 int32_t ThreadLocal$ThreadLocalMap::expungeStaleEntry(int32_t staleSlot) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
 	$set($nc(tab->get(staleSlot)), value, nullptr);
@@ -262,6 +268,7 @@ int32_t ThreadLocal$ThreadLocalMap::expungeStaleEntry(int32_t staleSlot) {
 }
 
 bool ThreadLocal$ThreadLocalMap::cleanSomeSlots(int32_t i, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	bool removed = false;
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
@@ -285,6 +292,7 @@ void ThreadLocal$ThreadLocalMap::rehash() {
 }
 
 void ThreadLocal$ThreadLocalMap::resize() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, oldTab, this->table);
 	int32_t oldLen = $nc(oldTab)->length;
 	int32_t newLen = oldLen * 2;
@@ -319,6 +327,7 @@ void ThreadLocal$ThreadLocalMap::resize() {
 }
 
 void ThreadLocal$ThreadLocalMap::expungeStaleEntries() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadLocal$ThreadLocalMap$EntryArray, tab, this->table);
 	int32_t len = $nc(tab)->length;
 	for (int32_t j = 0; j < len; ++j) {

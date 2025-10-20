@@ -97,6 +97,7 @@ void OCSPRequest::init$($List* certIds, $List* extensions) {
 }
 
 $bytes* OCSPRequest::encodeBytes() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$var($DerOutputStream, requestsOut, $new($DerOutputStream));
 	{

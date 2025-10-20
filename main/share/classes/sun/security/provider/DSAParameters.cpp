@@ -88,6 +88,7 @@ void DSAParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void DSAParameters::engineInit($bytes* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, encodedParams, $new($DerValue, params));
 	if (encodedParams->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "DSA params parsing error"_s);
@@ -106,6 +107,7 @@ void DSAParameters::engineInit($bytes* params, $String* decodingMethod) {
 }
 
 $AlgorithmParameterSpec* DSAParameters::engineGetParameterSpec($Class* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* dsaParamSpec = $Class::forName("java.security.spec.DSAParameterSpec"_s);
@@ -122,6 +124,7 @@ $AlgorithmParameterSpec* DSAParameters::engineGetParameterSpec($Class* paramSpec
 }
 
 $bytes* DSAParameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	bytes->putInteger(this->p);
@@ -136,6 +139,7 @@ $bytes* DSAParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* DSAParameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({"\n\tp: "_s, $($Debug::toHexString(this->p)), "\n\tq: "_s}));
 	$var($String, var$2, $$concat(var$3, $($Debug::toHexString(this->q))));
 	$var($String, var$1, $$concat(var$2, "\n\tg: "));

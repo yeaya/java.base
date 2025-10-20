@@ -60,6 +60,7 @@ void HandlerLoop::init$() {
 }
 
 void HandlerLoop::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$URL::setURLStreamHandlerFactory($$new($HandlerLoop$HandlerFactory, "sun.net.www.protocol"_s));
 	$var($URL, url, $new($URL, "file:///bogus/index.html"_s));
 	$init($System);

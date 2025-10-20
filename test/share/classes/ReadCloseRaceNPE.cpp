@@ -295,6 +295,7 @@ void ReadCloseRaceNPE::init$() {
 
 void ReadCloseRaceNPE::testReader($Supplier* readerSupplier) {
 	$init(ReadCloseRaceNPE);
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReference, readerRef, $new($AtomicReference, $cast($Reader, $($nc(readerSupplier)->get()))));
 	$var($AtomicBoolean, isFinished, $new($AtomicBoolean));
 	$var($Runnable, readTask, static_cast<$Runnable*>($new(ReadCloseRaceNPE$$Lambda$lambda$testReader$0, readerRef, readerSupplier, isFinished)));
@@ -309,6 +310,7 @@ void ReadCloseRaceNPE::testReader($Supplier* readerSupplier) {
 
 void ReadCloseRaceNPE::main($StringArray* args) {
 	$init(ReadCloseRaceNPE);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "Two riders were approaching.\\n"_s);
 	$var($Supplier, charPushbackReaderSupplier, static_cast<$Supplier*>($new(ReadCloseRaceNPE$$Lambda$lambda$main$2$2)));
 	testReader(charPushbackReaderSupplier);
@@ -327,6 +329,7 @@ void ReadCloseRaceNPE::lambda$main$4($Exception* x) {
 
 $Reader* ReadCloseRaceNPE::lambda$main$3() {
 	$init(ReadCloseRaceNPE);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "Two riders were approaching.\\n"_s);
 	$var($StringReader, in, $new($StringReader, s));
 	return $new($PushbackReader, in, ReadCloseRaceNPE::BUF_SIZE);
@@ -334,6 +337,7 @@ $Reader* ReadCloseRaceNPE::lambda$main$3() {
 
 $Reader* ReadCloseRaceNPE::lambda$main$2() {
 	$init(ReadCloseRaceNPE);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "Two riders were approaching.\\n"_s);
 	$var($chars, buf, $new($chars, s->length()));
 	s->getChars(0, s->length(), buf, 0);
@@ -343,6 +347,7 @@ $Reader* ReadCloseRaceNPE::lambda$main$2() {
 
 void ReadCloseRaceNPE::lambda$testReader$1($AtomicBoolean* isFinished, $AtomicReference* readerRef) {
 	$init(ReadCloseRaceNPE);
+	$useLocalCurrentObjectStackCache();
 	while (!$nc(isFinished)->get()) {
 		try {
 			$nc(($cast($Reader, $($nc(readerRef)->get()))))->close();
@@ -357,6 +362,7 @@ void ReadCloseRaceNPE::lambda$testReader$1($AtomicBoolean* isFinished, $AtomicRe
 
 void ReadCloseRaceNPE::lambda$testReader$0($AtomicReference* readerRef, $Supplier* readerSupplier, $AtomicBoolean* isFinished) {
 	$init(ReadCloseRaceNPE);
+	$useLocalCurrentObjectStackCache();
 	int64_t startTime = $System::currentTimeMillis();
 	while ($System::currentTimeMillis() - startTime < ReadCloseRaceNPE::TIMEOUT_MS) {
 		try {

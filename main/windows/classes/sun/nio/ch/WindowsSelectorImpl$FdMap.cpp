@@ -79,11 +79,13 @@ $WindowsSelectorImpl$MapEntry* WindowsSelectorImpl$FdMap::get(int32_t desc) {
 }
 
 $WindowsSelectorImpl$MapEntry* WindowsSelectorImpl$FdMap::put($SelectionKeyImpl* ski) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($Integer::valueOf($nc(ski)->getFDVal())));
 	return $cast($WindowsSelectorImpl$MapEntry, put(var$0, $$new($WindowsSelectorImpl$MapEntry, ski)));
 }
 
 $WindowsSelectorImpl$MapEntry* WindowsSelectorImpl$FdMap::remove($SelectionKeyImpl* ski) {
+	$useLocalCurrentObjectStackCache();
 	$var($Integer, fd, $Integer::valueOf($nc(ski)->getFDVal()));
 	$var($WindowsSelectorImpl$MapEntry, x, $cast($WindowsSelectorImpl$MapEntry, get(fd)));
 	bool var$0 = (x != nullptr);

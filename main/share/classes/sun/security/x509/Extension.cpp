@@ -83,6 +83,7 @@ void Extension::init$() {
 }
 
 void Extension::init$($DerValue* derVal) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, extensionId, nullptr);
 	this->critical = false;
 	$set(this, extensionValue, nullptr);
@@ -128,6 +129,7 @@ Extension* Extension::newExtension($ObjectIdentifier* extensionId, bool critical
 }
 
 void Extension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (out == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -179,6 +181,7 @@ $String* Extension::getId() {
 }
 
 $String* Extension::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"ObjectId: "_s, this->extensionId, " Criticality="_s, $$str(this->critical), $$str(u'\n')});
 }
 

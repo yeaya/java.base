@@ -159,6 +159,7 @@ int32_t DNSName::hashCode() {
 }
 
 int32_t DNSName::constrains($GeneralNameInterface* inputName) {
+	$useLocalCurrentObjectStackCache();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;

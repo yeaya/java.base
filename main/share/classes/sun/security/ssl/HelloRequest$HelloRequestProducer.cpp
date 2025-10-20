@@ -80,6 +80,7 @@ void HelloRequest$HelloRequestProducer::init$() {
 }
 
 $bytes* HelloRequest$HelloRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($HelloRequest$HelloRequestMessage, hrm, $new($HelloRequest$HelloRequestMessage, shc));
 	$init($SSLLogger);

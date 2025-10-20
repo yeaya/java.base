@@ -64,6 +64,7 @@ void NullURLTest::main($StringArray* args) {
 }
 
 void NullURLTest::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, local, $new($File, $($System::getProperty("test.src"_s, "."_s)), "jars"_s));
 	$var($String, path, $str({"jar:file:"_s, $(local->getPath()), "/class_path_test.jar!/Foo.class"_s}));
 	$var($URL, validURL, $new($URL, path));

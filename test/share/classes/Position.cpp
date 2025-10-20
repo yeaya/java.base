@@ -89,6 +89,7 @@ void Position::init$() {
 
 void Position::main($StringArray* args) {
 	$init(Position);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, blah, $Files::createTempFile("blah"_s, nullptr, $$new($FileAttributeArray, 0)));
 	$nc($($nc(blah)->toFile()))->deleteOnExit();
 	initTestFile(blah);
@@ -178,6 +179,7 @@ void Position::main($StringArray* args) {
 
 void Position::initTestFile($Path* blah) {
 	$init(Position);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($BufferedWriter, awriter, $Files::newBufferedWriter(blah, Position::ISO8859_1, $$new($OpenOptionArray, 0)));
 		{

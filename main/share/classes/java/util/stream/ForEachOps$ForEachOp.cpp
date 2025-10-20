@@ -125,6 +125,7 @@ $Object* ForEachOps$ForEachOp::evaluateSequential($PipelineHelper* helper, $Spli
 }
 
 $Object* ForEachOps$ForEachOp::evaluateParallel($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	if (this->ordered) {
 		$$new($ForEachOps$ForEachOrderedTask, helper, spliterator, static_cast<$Sink*>(this))->invoke();
 	} else {

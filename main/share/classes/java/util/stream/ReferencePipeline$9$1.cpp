@@ -156,6 +156,7 @@ void ReferencePipeline$9$1::begin(int64_t size) {
 }
 
 void ReferencePipeline$9$1::accept(Object$* u) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($DoubleStream, result, $cast($DoubleStream, $nc(this->this$1->val$mapper)->apply(u)));
 		{

@@ -70,6 +70,7 @@ void Exceptions4ReflectPermission::pass() {
 
 void Exceptions4ReflectPermission::fail($String* fs, $Throwable* ex) {
 	$init(Exceptions4ReflectPermission);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $str({"\'"_s, fs, "\': "_s, $($nc($of(ex))->getClass()->getName()), " thrown"_s}));
 	if (Exceptions4ReflectPermission::first == nullptr) {
 		$assignStatic(Exceptions4ReflectPermission::first, ex);
@@ -81,6 +82,7 @@ void Exceptions4ReflectPermission::fail($String* fs, $Throwable* ex) {
 
 void Exceptions4ReflectPermission::main($StringArray* args) {
 	$init(Exceptions4ReflectPermission);
+	$useLocalCurrentObjectStackCache();
 	$var($RuntimeException, re, $new($RuntimeException, "no exception thrown"_s));
 	try {
 		$new($ReflectPermission, nullptr);

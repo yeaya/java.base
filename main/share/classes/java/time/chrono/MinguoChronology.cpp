@@ -250,6 +250,7 @@ $List* MinguoChronology::eras() {
 }
 
 $ValueRange* MinguoChronology::range($ChronoField* field) {
+	$useLocalCurrentObjectStackCache();
 	$init($MinguoChronology$1);
 	switch ($nc($MinguoChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((field))->ordinal())) {
 	case 1:

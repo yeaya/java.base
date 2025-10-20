@@ -136,6 +136,7 @@ X509Certificate* X509Certificate::getInstance($bytes* certData) {
 
 X509Certificate* X509Certificate::getInst(Object$* value) {
 	$init(X509Certificate);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, className, X509Certificate::X509Provider);
 	if (className == nullptr || $nc(className)->isEmpty()) {

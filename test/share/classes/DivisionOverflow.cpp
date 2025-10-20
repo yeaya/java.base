@@ -48,6 +48,7 @@ void DivisionOverflow::init$() {
 }
 
 void DivisionOverflow::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($BigInteger);
 		$var($BigInteger, a, $nc($BigInteger::ONE)->shiftLeft(0x7FFFFFFE));

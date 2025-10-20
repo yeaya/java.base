@@ -350,12 +350,14 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::nextTerminator() {
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::newNode(Object$* item) {
 	$init(ConcurrentLinkedDeque);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, node, $new($ConcurrentLinkedDeque$Node));
 	$nc(ConcurrentLinkedDeque::ITEM)->set($$new($ObjectArray, {$of(node), item}));
 	return node;
 }
 
 void ConcurrentLinkedDeque::linkFirst(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode($Objects::requireNonNull(e)));
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -390,6 +392,7 @@ void ConcurrentLinkedDeque::linkFirst(Object$* e) {
 }
 
 void ConcurrentLinkedDeque::linkLast(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode($Objects::requireNonNull(e)));
 	bool restartFromTail$continue = false;
 	for (;;) {
@@ -424,6 +427,7 @@ void ConcurrentLinkedDeque::linkLast(Object$* e) {
 }
 
 void ConcurrentLinkedDeque::unlink($ConcurrentLinkedDeque$Node* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, prev, $nc(x)->prev);
 	$var($ConcurrentLinkedDeque$Node, next, x->next);
 	if (prev == nullptr) {
@@ -497,6 +501,7 @@ void ConcurrentLinkedDeque::unlink($ConcurrentLinkedDeque$Node* x) {
 }
 
 void ConcurrentLinkedDeque::unlinkFirst($ConcurrentLinkedDeque$Node* first, $ConcurrentLinkedDeque$Node* next) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ConcurrentLinkedDeque$Node, o, nullptr);
 		$var($ConcurrentLinkedDeque$Node, p, next);
@@ -524,6 +529,7 @@ void ConcurrentLinkedDeque::unlinkFirst($ConcurrentLinkedDeque$Node* first, $Con
 }
 
 void ConcurrentLinkedDeque::unlinkLast($ConcurrentLinkedDeque$Node* last, $ConcurrentLinkedDeque$Node* prev) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ConcurrentLinkedDeque$Node, o, nullptr);
 		$var($ConcurrentLinkedDeque$Node, p, prev);
@@ -551,6 +557,7 @@ void ConcurrentLinkedDeque::unlinkLast($ConcurrentLinkedDeque$Node* last, $Concu
 }
 
 void ConcurrentLinkedDeque::updateHead() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, h, nullptr);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	$var($ConcurrentLinkedDeque$Node, q, nullptr);
@@ -586,6 +593,7 @@ void ConcurrentLinkedDeque::updateHead() {
 }
 
 void ConcurrentLinkedDeque::updateTail() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, t, nullptr);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	$var($ConcurrentLinkedDeque$Node, q, nullptr);
@@ -621,6 +629,7 @@ void ConcurrentLinkedDeque::updateTail() {
 }
 
 void ConcurrentLinkedDeque::skipDeletedPredecessors($ConcurrentLinkedDeque$Node* x) {
+	$useLocalCurrentObjectStackCache();
 	bool whileActive$continue = false;
 	do {
 		$var($ConcurrentLinkedDeque$Node, prev, $nc(x)->prev);
@@ -657,6 +666,7 @@ void ConcurrentLinkedDeque::skipDeletedPredecessors($ConcurrentLinkedDeque$Node*
 }
 
 void ConcurrentLinkedDeque::skipDeletedSuccessors($ConcurrentLinkedDeque$Node* x) {
+	$useLocalCurrentObjectStackCache();
 	bool whileActive$continue = false;
 	do {
 		$var($ConcurrentLinkedDeque$Node, next, $nc(x)->next);
@@ -693,6 +703,7 @@ void ConcurrentLinkedDeque::skipDeletedSuccessors($ConcurrentLinkedDeque$Node* x
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::succ($ConcurrentLinkedDeque$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, p, p$renamed);
 	$var($ConcurrentLinkedDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->next))) {
@@ -702,6 +713,7 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::succ($ConcurrentLinkedDeque$
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::pred($ConcurrentLinkedDeque$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, p, p$renamed);
 	$var($ConcurrentLinkedDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->prev))) {
@@ -711,6 +723,7 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::pred($ConcurrentLinkedDeque$
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::first() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		{
@@ -738,6 +751,7 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::first() {
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::last() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromTail$continue = false;
 	for (;;) {
 		{
@@ -777,6 +791,7 @@ void ConcurrentLinkedDeque::init$() {
 }
 
 void ConcurrentLinkedDeque::init$($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractCollection::init$();
 	$var($ConcurrentLinkedDeque$Node, h, nullptr);
 	$var($ConcurrentLinkedDeque$Node, t, nullptr);
@@ -800,6 +815,7 @@ void ConcurrentLinkedDeque::init$($Collection* c) {
 }
 
 void ConcurrentLinkedDeque::initHeadTail($ConcurrentLinkedDeque$Node* h$renamed, $ConcurrentLinkedDeque$Node* t$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, t, t$renamed);
 	$var($ConcurrentLinkedDeque$Node, h, h$renamed);
 	if (h == t) {
@@ -835,6 +851,7 @@ bool ConcurrentLinkedDeque::offerLast(Object$* e) {
 }
 
 $Object* ConcurrentLinkedDeque::peekFirst() {
+	$useLocalCurrentObjectStackCache();
 	bool restart$continue = false;
 	for (;;) {
 		$var($Object, item, nullptr);
@@ -862,6 +879,7 @@ $Object* ConcurrentLinkedDeque::peekFirst() {
 }
 
 $Object* ConcurrentLinkedDeque::peekLast() {
+	$useLocalCurrentObjectStackCache();
 	bool restart$continue = false;
 	for (;;) {
 		$var($Object, item, nullptr);
@@ -897,6 +915,7 @@ $Object* ConcurrentLinkedDeque::getLast() {
 }
 
 $Object* ConcurrentLinkedDeque::pollFirst() {
+	$useLocalCurrentObjectStackCache();
 	bool restart$continue = false;
 	for (;;) {
 		{
@@ -936,6 +955,7 @@ $Object* ConcurrentLinkedDeque::pollFirst() {
 }
 
 $Object* ConcurrentLinkedDeque::pollLast() {
+	$useLocalCurrentObjectStackCache();
 	bool restart$continue = false;
 	for (;;) {
 		{
@@ -1015,6 +1035,7 @@ void ConcurrentLinkedDeque::push(Object$* e) {
 }
 
 bool ConcurrentLinkedDeque::removeFirstOccurrence(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(o);
 	{
 		$var($ConcurrentLinkedDeque$Node, p, first());
@@ -1032,6 +1053,7 @@ bool ConcurrentLinkedDeque::removeFirstOccurrence(Object$* o) {
 }
 
 bool ConcurrentLinkedDeque::removeLastOccurrence(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(o);
 	{
 		$var($ConcurrentLinkedDeque$Node, p, last());
@@ -1049,6 +1071,7 @@ bool ConcurrentLinkedDeque::removeLastOccurrence(Object$* o) {
 }
 
 bool ConcurrentLinkedDeque::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o != nullptr) {
 		{
 			$var($ConcurrentLinkedDeque$Node, p, first());
@@ -1069,6 +1092,7 @@ bool ConcurrentLinkedDeque::isEmpty() {
 }
 
 int32_t ConcurrentLinkedDeque::size() {
+	$useLocalCurrentObjectStackCache();
 	bool restart$continue = false;
 	for (;;) {
 		int32_t count = 0;
@@ -1100,6 +1124,7 @@ bool ConcurrentLinkedDeque::remove(Object$* o) {
 }
 
 bool ConcurrentLinkedDeque::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -1165,6 +1190,7 @@ void ConcurrentLinkedDeque::clear() {
 }
 
 $String* ConcurrentLinkedDeque::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, a, nullptr);
 	bool restart$continue = false;
 	for (;;) {
@@ -1203,6 +1229,7 @@ $String* ConcurrentLinkedDeque::toString() {
 }
 
 $ObjectArray* ConcurrentLinkedDeque::toArrayInternal($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, x, a);
 	bool restart$continue = false;
 	for (;;) {
@@ -1269,6 +1296,7 @@ $Spliterator* ConcurrentLinkedDeque::spliterator() {
 }
 
 void ConcurrentLinkedDeque::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	{
 		$var($ConcurrentLinkedDeque$Node, p, first());
@@ -1283,6 +1311,7 @@ void ConcurrentLinkedDeque::writeObject($ObjectOutputStream* s) {
 }
 
 void ConcurrentLinkedDeque::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$var($ConcurrentLinkedDeque$Node, h, nullptr);
 	$var($ConcurrentLinkedDeque$Node, t, nullptr);
@@ -1318,6 +1347,7 @@ bool ConcurrentLinkedDeque::retainAll($Collection* c) {
 }
 
 bool ConcurrentLinkedDeque::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	bool removed = false;
 	{
 		$var($ConcurrentLinkedDeque$Node, p, first());
@@ -1337,6 +1367,7 @@ bool ConcurrentLinkedDeque::bulkRemove($Predicate* filter) {
 }
 
 void ConcurrentLinkedDeque::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($Object, item, nullptr);
 	{
@@ -1360,6 +1391,7 @@ bool ConcurrentLinkedDeque::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$ConcurrentLinkedDeque($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$assignStatic(ConcurrentLinkedDeque::PREV_TERMINATOR, $new($ConcurrentLinkedDeque$Node));

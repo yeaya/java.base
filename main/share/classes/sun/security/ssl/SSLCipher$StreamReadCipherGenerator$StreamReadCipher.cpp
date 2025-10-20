@@ -110,6 +110,7 @@ void SSLCipher$StreamReadCipherGenerator$StreamReadCipher::init$($Authenticator*
 }
 
 $Plaintext* SSLCipher$StreamReadCipherGenerator$StreamReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(bb)->remaining();
 	int32_t pos = bb->position();
 	$var($ByteBuffer, dup, bb->duplicate());

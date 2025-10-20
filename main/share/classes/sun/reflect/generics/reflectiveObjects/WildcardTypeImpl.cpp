@@ -113,6 +113,7 @@ $TypeArray* WildcardTypeImpl::getLowerBounds() {
 }
 
 $String* WildcardTypeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, lowerBounds, getLowerBounds());
 	$var($TypeArray, bounds, lowerBounds);
 	$var($StringBuilder, sb, $new($StringBuilder));
@@ -148,6 +149,7 @@ $String* WildcardTypeImpl::toString() {
 }
 
 bool WildcardTypeImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($WildcardType, o)) {
 		$var($WildcardType, that, $cast($WildcardType, o));
 		$var($ObjectArray, var$1, this->getLowerBounds());
@@ -163,6 +165,7 @@ bool WildcardTypeImpl::equals(Object$* o) {
 }
 
 int32_t WildcardTypeImpl::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, lowerBounds, getLowerBounds());
 	$var($TypeArray, upperBounds, getUpperBounds());
 	int32_t var$0 = $Arrays::hashCode(lowerBounds);

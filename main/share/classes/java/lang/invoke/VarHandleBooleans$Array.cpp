@@ -286,6 +286,7 @@ VarHandleBooleans$Array* VarHandleBooleans$Array::withInvokeBehavior() {
 }
 
 $Optional* VarHandleBooleans$Array::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$load($booleans);
 	$var($Optional, arrayTypeRef, $getClass($booleans)->describeConstable());
 	if (!$nc(arrayTypeRef)->isPresent()) {
@@ -303,6 +304,7 @@ $MethodType* VarHandleBooleans$Array::accessModeTypeUncached($VarHandle$AccessTy
 
 bool VarHandleBooleans$Array::get($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	return $nc(array)->get(index);
@@ -310,6 +312,7 @@ bool VarHandleBooleans$Array::get($VarHandle* ob, Object$* oarray, int32_t index
 
 void VarHandleBooleans$Array::set($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$nc(array)->set(index, value);
@@ -317,6 +320,7 @@ void VarHandleBooleans$Array::set($VarHandle* ob, Object$* oarray, int32_t index
 
 bool VarHandleBooleans$Array::getVolatile($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -326,6 +330,7 @@ bool VarHandleBooleans$Array::getVolatile($VarHandle* ob, Object$* oarray, int32
 
 void VarHandleBooleans$Array::setVolatile($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -335,6 +340,7 @@ void VarHandleBooleans$Array::setVolatile($VarHandle* ob, Object$* oarray, int32
 
 bool VarHandleBooleans$Array::getOpaque($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -344,6 +350,7 @@ bool VarHandleBooleans$Array::getOpaque($VarHandle* ob, Object$* oarray, int32_t
 
 void VarHandleBooleans$Array::setOpaque($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -353,6 +360,7 @@ void VarHandleBooleans$Array::setOpaque($VarHandle* ob, Object$* oarray, int32_t
 
 bool VarHandleBooleans$Array::getAcquire($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -362,6 +370,7 @@ bool VarHandleBooleans$Array::getAcquire($VarHandle* ob, Object$* oarray, int32_
 
 void VarHandleBooleans$Array::setRelease($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -371,6 +380,7 @@ void VarHandleBooleans$Array::setRelease($VarHandle* ob, Object$* oarray, int32_
 
 bool VarHandleBooleans$Array::compareAndSet($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -380,6 +390,7 @@ bool VarHandleBooleans$Array::compareAndSet($VarHandle* ob, Object$* oarray, int
 
 bool VarHandleBooleans$Array::compareAndExchange($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -389,6 +400,7 @@ bool VarHandleBooleans$Array::compareAndExchange($VarHandle* ob, Object$* oarray
 
 bool VarHandleBooleans$Array::compareAndExchangeAcquire($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -398,6 +410,7 @@ bool VarHandleBooleans$Array::compareAndExchangeAcquire($VarHandle* ob, Object$*
 
 bool VarHandleBooleans$Array::compareAndExchangeRelease($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -407,6 +420,7 @@ bool VarHandleBooleans$Array::compareAndExchangeRelease($VarHandle* ob, Object$*
 
 bool VarHandleBooleans$Array::weakCompareAndSetPlain($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -416,6 +430,7 @@ bool VarHandleBooleans$Array::weakCompareAndSetPlain($VarHandle* ob, Object$* oa
 
 bool VarHandleBooleans$Array::weakCompareAndSet($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -425,6 +440,7 @@ bool VarHandleBooleans$Array::weakCompareAndSet($VarHandle* ob, Object$* oarray,
 
 bool VarHandleBooleans$Array::weakCompareAndSetAcquire($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -434,6 +450,7 @@ bool VarHandleBooleans$Array::weakCompareAndSetAcquire($VarHandle* ob, Object$* 
 
 bool VarHandleBooleans$Array::weakCompareAndSetRelease($VarHandle* ob, Object$* oarray, int32_t index, bool expected, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -443,6 +460,7 @@ bool VarHandleBooleans$Array::weakCompareAndSetRelease($VarHandle* ob, Object$* 
 
 bool VarHandleBooleans$Array::getAndSet($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -452,6 +470,7 @@ bool VarHandleBooleans$Array::getAndSet($VarHandle* ob, Object$* oarray, int32_t
 
 bool VarHandleBooleans$Array::getAndSetAcquire($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -461,6 +480,7 @@ bool VarHandleBooleans$Array::getAndSetAcquire($VarHandle* ob, Object$* oarray, 
 
 bool VarHandleBooleans$Array::getAndSetRelease($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -470,6 +490,7 @@ bool VarHandleBooleans$Array::getAndSetRelease($VarHandle* ob, Object$* oarray, 
 
 bool VarHandleBooleans$Array::getAndBitwiseOr($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -479,6 +500,7 @@ bool VarHandleBooleans$Array::getAndBitwiseOr($VarHandle* ob, Object$* oarray, i
 
 bool VarHandleBooleans$Array::getAndBitwiseOrRelease($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -488,6 +510,7 @@ bool VarHandleBooleans$Array::getAndBitwiseOrRelease($VarHandle* ob, Object$* oa
 
 bool VarHandleBooleans$Array::getAndBitwiseOrAcquire($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -497,6 +520,7 @@ bool VarHandleBooleans$Array::getAndBitwiseOrAcquire($VarHandle* ob, Object$* oa
 
 bool VarHandleBooleans$Array::getAndBitwiseAnd($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -506,6 +530,7 @@ bool VarHandleBooleans$Array::getAndBitwiseAnd($VarHandle* ob, Object$* oarray, 
 
 bool VarHandleBooleans$Array::getAndBitwiseAndRelease($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -515,6 +540,7 @@ bool VarHandleBooleans$Array::getAndBitwiseAndRelease($VarHandle* ob, Object$* o
 
 bool VarHandleBooleans$Array::getAndBitwiseAndAcquire($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -524,6 +550,7 @@ bool VarHandleBooleans$Array::getAndBitwiseAndAcquire($VarHandle* ob, Object$* o
 
 bool VarHandleBooleans$Array::getAndBitwiseXor($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -533,6 +560,7 @@ bool VarHandleBooleans$Array::getAndBitwiseXor($VarHandle* ob, Object$* oarray, 
 
 bool VarHandleBooleans$Array::getAndBitwiseXorRelease($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);
@@ -542,6 +570,7 @@ bool VarHandleBooleans$Array::getAndBitwiseXorRelease($VarHandle* ob, Object$* o
 
 bool VarHandleBooleans$Array::getAndBitwiseXorAcquire($VarHandle* ob, Object$* oarray, int32_t index, bool value) {
 	$init(VarHandleBooleans$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleBooleans$Array, handle, $cast(VarHandleBooleans$Array, ob));
 	$var($booleans, array, $cast($booleans, oarray));
 	$init($MethodHandleStatics);

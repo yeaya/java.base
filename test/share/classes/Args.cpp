@@ -92,6 +92,7 @@ void Args::fail($String* s) {
 }
 
 void Args::tryCatch($Class* ex, $Args$Thunk* thunk) {
+	$useLocalCurrentObjectStackCache();
 	bool caught = false;
 	try {
 		$nc(thunk)->run();
@@ -109,6 +110,7 @@ void Args::tryCatch($Class* ex, $Args$Thunk* thunk) {
 }
 
 void Args::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $File::createTempFile("foo"_s, nullptr));
 	$nc(f)->deleteOnExit();
 	$var($FileChannel, fc, $$new($RandomAccessFile, f, "rw"_s)->getChannel());

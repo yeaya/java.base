@@ -59,6 +59,7 @@ void SignatureParser::init$() {
 }
 
 $String* SignatureParser::reconstruct($String* formatted, $List* arguments) {
+	$useLocalCurrentObjectStackCache();
 	int32_t arg_index = 0;
 	$var($chars, chars, $nc(formatted)->toCharArray());
 	$var($StringBuilder, out, $new($StringBuilder));
@@ -91,6 +92,7 @@ $String* SignatureParser::reconstruct($String* formatted, $List* arguments) {
 }
 
 $SignatureParser$ParseResult* SignatureParser::parseSignatureDescriptor($String* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($SignatureParser$ParseResult, res, $new($SignatureParser$ParseResult));
 	$var($chars, chars, $nc(str)->toCharArray());
 	$var($StringBuilder, type, nullptr);

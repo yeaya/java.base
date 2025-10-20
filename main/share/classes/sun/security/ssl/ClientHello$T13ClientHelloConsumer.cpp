@@ -127,6 +127,7 @@ void ClientHello$T13ClientHelloConsumer::init$() {
 }
 
 void ClientHello$T13ClientHelloConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	if ($nc($nc(shc)->conContext)->isNegotiated) {
@@ -163,6 +164,7 @@ void ClientHello$T13ClientHelloConsumer::consume($ConnectionContext* context, $S
 }
 
 void ClientHello$T13ClientHelloConsumer::goHelloRetryRequest($ServerHandshakeContext* shc, $ClientHello$ClientHelloMessage* clientHello) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLHandshake);
 	$var($HandshakeProducer, handshakeProducer, $cast($HandshakeProducer, $nc($nc(shc)->handshakeProducers)->remove($($Byte::valueOf($SSLHandshake::HELLO_RETRY_REQUEST->id)))));
 	if (handshakeProducer != nullptr) {
@@ -178,6 +180,7 @@ void ClientHello$T13ClientHelloConsumer::goHelloRetryRequest($ServerHandshakeCon
 }
 
 void ClientHello$T13ClientHelloConsumer::goServerHello($ServerHandshakeContext* shc, $ClientHello$ClientHelloMessage* clientHello) {
+	$useLocalCurrentObjectStackCache();
 	$set($nc(shc), clientHelloRandom, $nc(clientHello)->clientRandom);
 	if (!$nc(shc->conContext)->isNegotiated) {
 		$set($nc(shc->conContext), protocolVersion, shc->negotiatedProtocol);

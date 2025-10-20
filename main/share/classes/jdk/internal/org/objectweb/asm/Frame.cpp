@@ -393,6 +393,7 @@ void Frame::copyFrom(Frame* frame) {
 }
 
 int32_t Frame::getAbstractTypeFromApiFormat($SymbolTable* symbolTable, Object$* type) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Integer, type)) {
 		return Frame::CONSTANT_KIND | $nc(($cast($Integer, type)))->intValue();
 	} else if ($instanceOf($String, type)) {
@@ -515,6 +516,7 @@ int32_t Frame::getAbstractTypeFromDescriptor($SymbolTable* symbolTable, $String*
 }
 
 void Frame::setInputFrameFromDescriptor($SymbolTable* symbolTable, int32_t access, $String* descriptor, int32_t maxLocals) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, inputLocals, $new($ints, maxLocals));
 	$set(this, inputStack, $new($ints, 0));
 	int32_t inputLocalIndex = 0;
@@ -676,6 +678,7 @@ void Frame::addInitializedType(int32_t abstractType) {
 }
 
 int32_t Frame::getInitializedType($SymbolTable* symbolTable, int32_t abstractType) {
+	$useLocalCurrentObjectStackCache();
 	if (abstractType == Frame::UNINITIALIZED_THIS || ((int32_t)(abstractType & (uint32_t)(Frame::DIM_MASK | Frame::KIND_MASK))) == Frame::UNINITIALIZED_KIND) {
 		for (int32_t i = 0; i < this->initializationCount; ++i) {
 			int32_t initializedType = $nc(this->initializations)->get(i);
@@ -700,6 +703,7 @@ int32_t Frame::getInitializedType($SymbolTable* symbolTable, int32_t abstractTyp
 }
 
 void Frame::execute(int32_t opcode, int32_t arg, $Symbol* argSymbol, $SymbolTable* symbolTable) {
+	$useLocalCurrentObjectStackCache();
 	int32_t abstractType1 = 0;
 	int32_t abstractType2 = 0;
 	int32_t abstractType3 = 0;
@@ -1502,6 +1506,7 @@ bool Frame::merge($SymbolTable* symbolTable, int32_t sourceType, $ints* dstTypes
 }
 
 void Frame::accept($MethodWriter* methodWriter) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, localTypes, this->inputLocals);
 	int32_t numLocal = 0;
 	int32_t numTrailingTop = 0;
@@ -1541,6 +1546,7 @@ void Frame::accept($MethodWriter* methodWriter) {
 }
 
 void Frame::putAbstractType($SymbolTable* symbolTable, int32_t abstractType, $ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	int32_t arrayDimensions = $sr((int32_t)(abstractType & (uint32_t)Frame::DIM_MASK), Frame::DIM_SHIFT);
 	if (arrayDimensions == 0) {
 		int32_t typeValue = (int32_t)(abstractType & (uint32_t)Frame::VALUE_MASK);

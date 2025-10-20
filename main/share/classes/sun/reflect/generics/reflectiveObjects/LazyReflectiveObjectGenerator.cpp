@@ -72,6 +72,7 @@ $Reifier* LazyReflectiveObjectGenerator::getReifier() {
 }
 
 $TypeArray* LazyReflectiveObjectGenerator::reifyBounds($FieldTypeSignatureArray* boundASTs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(boundASTs)->length;
 	$var($TypeArray, bounds, $new($TypeArray, length));
 	for (int32_t i = 0; i < length; ++i) {

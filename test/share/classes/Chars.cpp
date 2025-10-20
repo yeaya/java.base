@@ -47,6 +47,7 @@ void Chars::init$() {
 }
 
 void Chars::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Random, r, $new($Random));
 	for (int32_t i = 0; i < 10; ++i) {
 		int32_t n = 100 + r->nextInt(100);
@@ -83,6 +84,7 @@ void Chars::main($StringArray* args) {
 }
 
 void Chars::testChars($chars* cc, $ints* expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, $new($String, cc));
 	if (!$Arrays::equals(expected, $($(str->chars())->toArray()))) {
 		$throwNew($RuntimeException, "chars/codePoints() failed!"_s);
@@ -90,6 +92,7 @@ void Chars::testChars($chars* cc, $ints* expected) {
 }
 
 void Chars::testCPs($chars* cc, $ints* expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, $new($String, cc));
 	if (!$Arrays::equals(expected, $($(str->codePoints())->toArray()))) {
 		$throwNew($RuntimeException, "chars/codePoints() failed!"_s);

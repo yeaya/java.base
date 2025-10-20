@@ -78,6 +78,7 @@ void ExtendedMasterSecretExtension$SHExtendedMasterSecretAbsence::init$() {
 }
 
 void ExtendedMasterSecretExtension$SHExtendedMasterSecretAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLConfiguration);
 	if ($SSLConfiguration::useExtendedMasterSecret && !$SSLConfiguration::allowLegacyMasterSecret) {

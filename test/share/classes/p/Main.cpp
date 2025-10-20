@@ -57,6 +57,7 @@ void Main::init$() {
 }
 
 void Main::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystem, fs, $FileSystems::getDefault());
 	$load($Object);
 	if ($nc($of(fs))->getClass()->getModule() == $Object::class$->getModule()) {

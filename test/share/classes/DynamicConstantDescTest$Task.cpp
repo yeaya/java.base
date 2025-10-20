@@ -72,6 +72,7 @@ void DynamicConstantDescTest$Task::init$($String* className, $CountDownLatch* la
 }
 
 $Object* DynamicConstantDescTest$Task::call() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println($$str({$($($Thread::currentThread())->getName()), " loading "_s, this->className}));

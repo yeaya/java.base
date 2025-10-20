@@ -82,6 +82,7 @@ void ReadParams::init$() {
 
 void ReadParams::test($Reader* rdr) {
 	$init(ReadParams);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t j = 0;
 	int32_t k = 0;
@@ -118,6 +119,7 @@ void ReadParams::test($Reader* rdr) {
 
 void ReadParams::main($StringArray* args) {
 	$init(ReadParams);
+	$useLocalCurrentObjectStackCache();
 	$var($StringReader, sr, $new($StringReader, $$new($String, $$new($bytes, 512))));
 	test(sr);
 	test($$new($BufferedReader, sr));

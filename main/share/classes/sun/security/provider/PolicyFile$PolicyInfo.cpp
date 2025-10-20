@@ -88,6 +88,7 @@ $Object* allocate$PolicyFile$PolicyInfo($Class* clazz) {
 }
 
 void PolicyFile$PolicyInfo::init$(int32_t numCaches) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, policyEntries, $new($ArrayList));
 	$set(this, aliasMapping, $Collections::synchronizedMap($$new($HashMap, 11)));
 	$set(this, pdMapping, $new($JavaSecurityAccess$ProtectionDomainCacheArray, numCaches));

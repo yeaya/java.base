@@ -217,6 +217,7 @@ $StringArray* ZoneInfoFile::getZoneIds() {
 
 $StringArray* ZoneInfoFile::getZoneIds(int32_t rawOffset) {
 	$init(ZoneInfoFile);
+	$useLocalCurrentObjectStackCache();
 	$var($List, ids, $new($ArrayList));
 	{
 		$var($StringArray, arr$, getZoneIds());
@@ -252,6 +253,7 @@ $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId) {
 
 $ZoneInfo* ZoneInfoFile::getZoneInfo0($String* zoneId) {
 	$init(ZoneInfoFile);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ZoneInfo, zi, $cast($ZoneInfo, $nc(ZoneInfoFile::zones)->get(zoneId)));
 		if (zi != nullptr) {
@@ -332,6 +334,7 @@ void ZoneInfoFile::init$() {
 
 void ZoneInfoFile::addOldMapping() {
 	$init(ZoneInfoFile);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray2, arr$, ZoneInfoFile::oldMappings);
 		int32_t len$ = $nc(arr$)->length;
@@ -361,6 +364,7 @@ bool ZoneInfoFile::useOldMapping() {
 
 void ZoneInfoFile::load($DataInputStream* dis) {
 	$init(ZoneInfoFile);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(dis)->readByte() != 1) {
 		$throwNew($StreamCorruptedException, "File format not recognised"_s);
 	}
@@ -408,6 +412,7 @@ void ZoneInfoFile::load($DataInputStream* dis) {
 
 $ZoneInfo* ZoneInfoFile::getZoneInfo($DataInput* in, $String* zoneId) {
 	$init(ZoneInfoFile);
+	$useLocalCurrentObjectStackCache();
 	int8_t type = $nc(in)->readByte();
 	int32_t stdSize = in->readInt();
 	$var($longs, stdTrans, $new($longs, stdSize));
@@ -456,6 +461,7 @@ int64_t ZoneInfoFile::readEpochSec($DataInput* in) {
 
 $ZoneInfo* ZoneInfoFile::getZoneInfo($String* zoneId, $longs* standardTransitions, $ints* standardOffsets, $longs* savingsInstantTransitions, $ints* wallOffsets, $ZoneInfoFile$ZoneOffsetTransitionRuleArray* lastRules) {
 	$init(ZoneInfoFile);
+	$useLocalCurrentObjectStackCache();
 	int32_t rawOffset = 0;
 	int32_t dstSavings = 0;
 	int32_t checksum = 0;
@@ -781,6 +787,7 @@ int32_t ZoneInfoFile::addTrans($longs* transitions, int32_t nTrans, $ints* offse
 }
 
 void clinit$ZoneInfoFile($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(ZoneInfoFile::zones, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
 	$assignStatic(ZoneInfoFile::aliases, $new($HashMap));

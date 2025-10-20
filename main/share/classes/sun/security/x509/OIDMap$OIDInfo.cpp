@@ -86,6 +86,7 @@ void OIDMap$OIDInfo::init$($String* name, $ObjectIdentifier* oid, $Class* clazz)
 }
 
 $Class* OIDMap$OIDInfo::getClazz() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = this->clazz;

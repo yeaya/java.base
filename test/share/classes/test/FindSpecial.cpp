@@ -94,6 +94,7 @@ void FindSpecial::main($StringArray* args) {
 
 void FindSpecial::findSpecialTest() {
 	$init(FindSpecial);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Comparator);
 	$var($Method, m, $Comparator::class$->getMethod("reversed"_s, $$new($ClassArray, 0)));
@@ -110,6 +111,7 @@ void FindSpecial::findSpecialTest() {
 
 void FindSpecial::unreflectSpecialTest() {
 	$init(FindSpecial);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Comparator);
 	$var($Method, m, $Comparator::class$->getMethod("reversed"_s, $$new($ClassArray, 0)));
@@ -123,6 +125,7 @@ void FindSpecial::unreflectSpecialTest() {
 
 void FindSpecial::reflectMethodInvoke() {
 	$init(FindSpecial);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Comparator);
 	$var($Method, m, $Comparator::class$->getMethod("reversed"_s, $$new($ClassArray, 0)));

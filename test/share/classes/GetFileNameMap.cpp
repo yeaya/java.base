@@ -39,6 +39,7 @@ void GetFileNameMap::init$() {
 }
 
 void GetFileNameMap::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileNameMap, map, $URLConnection::getFileNameMap());
 	$var($String, s, $nc(map)->getContentTypeFor("test.pdf"_s));
 }

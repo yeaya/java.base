@@ -93,6 +93,7 @@ void IntHashSet::clear() {
 }
 
 void IntHashSet::expand() {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, old, this->entries);
 	$var($ints, es, $new($ints, $nc(old)->length << 1));
 	int32_t hlen = (old->length / 2) | 1;

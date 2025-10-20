@@ -156,6 +156,7 @@ void DoublePipeline$5$1::begin(int64_t size) {
 }
 
 void DoublePipeline$5$1::accept(double t) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($DoubleStream, result, $cast($DoubleStream, $nc(this->this$1->val$mapper)->apply(t)));
 		{

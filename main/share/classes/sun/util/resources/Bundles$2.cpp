@@ -95,6 +95,7 @@ void Bundles$2::init$($ServiceLoader* val$providers, $String* val$baseName, $Loc
 }
 
 $Object* Bundles$2::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, itr, $nc(this->val$providers)->iterator());
 		for (; $nc(itr)->hasNext();) {

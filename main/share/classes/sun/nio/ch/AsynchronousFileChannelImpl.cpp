@@ -166,6 +166,7 @@ void AsynchronousFileChannelImpl::ensureFileLockTableInitialized() {
 }
 
 void AsynchronousFileChannelImpl::invalidateAllLocks() {
+	$useLocalCurrentObjectStackCache();
 	if (this->fileLockTable != nullptr) {
 		{
 			$var($Iterator, i$, $nc($($nc(this->fileLockTable)->removeAll()))->iterator());
@@ -186,6 +187,7 @@ void AsynchronousFileChannelImpl::invalidateAllLocks() {
 }
 
 $FileLockImpl* AsynchronousFileChannelImpl::addToFileLockTable(int64_t position, int64_t size, bool shared) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileLockImpl, fli, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);

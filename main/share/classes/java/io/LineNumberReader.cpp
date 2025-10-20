@@ -183,6 +183,7 @@ int32_t LineNumberReader::read($chars* cbuf, int32_t off, int32_t len) {
 }
 
 $String* LineNumberReader::readLine() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($booleans, term, $new($booleans, 1));
 		$var($String, l, $BufferedReader::readLine(this->skipLF, term));

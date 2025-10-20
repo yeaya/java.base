@@ -207,6 +207,7 @@ void PolicyParser::init$(bool expandProp) {
 }
 
 void PolicyParser::read($Reader* policy$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Reader, policy, policy$renamed);
 	if (!($instanceOf($BufferedReader, policy))) {
 		$assign(policy, $new($BufferedReader, policy));
@@ -278,6 +279,7 @@ bool PolicyParser::remove($PolicyParser$GrantEntry* ge) {
 }
 
 $String* PolicyParser::getKeyStoreUrl() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->keyStoreUrlString != nullptr && $nc(this->keyStoreUrlString)->length() != 0) {
 			$init($File);
@@ -314,6 +316,7 @@ void PolicyParser::setKeyStoreProvider($String* provider) {
 }
 
 $String* PolicyParser::getStorePassURL() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->storePassURL != nullptr && $nc(this->storePassURL)->length() != 0) {
 			$init($File);
@@ -342,6 +345,7 @@ $Collection* PolicyParser::getDomainEntries() {
 }
 
 void PolicyParser::write($Writer* policy) {
+	$useLocalCurrentObjectStackCache();
 	$var($PrintWriter, out, $new($PrintWriter, static_cast<$Writer*>($$new($BufferedWriter, policy))));
 	$var($Enumeration, enum_, grantElements());
 	out->println($$str({"/* AUTOMATICALLY GENERATED ON "_s, ($$new($Date)), "*/"_s}));
@@ -362,6 +366,7 @@ void PolicyParser::write($Writer* policy) {
 }
 
 void PolicyParser::parseKeyStoreEntry() {
+	$useLocalCurrentObjectStackCache();
 	match("keystore"_s);
 	$set(this, keyStoreUrlString, match("quoted string"_s));
 	if (!peek(","_s)) {
@@ -392,6 +397,7 @@ void PolicyParser::parseStorePassURL() {
 }
 
 void PolicyParser::writeKeyStoreEntry($PrintWriter* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->print("keystore \""_s);
 	out->print(this->keyStoreUrlString);
 	out->print(u'\"');
@@ -414,6 +420,7 @@ void PolicyParser::writeStorePassURL($PrintWriter* out) {
 }
 
 $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyParser$GrantEntry, e, $new($PolicyParser$GrantEntry));
 	$var($LinkedList, principals, nullptr);
 	bool ignoreEntry = false;
@@ -547,6 +554,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 }
 
 $PolicyParser$PermissionEntry* PolicyParser::parsePermissionEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyParser$PermissionEntry, e, $new($PolicyParser$PermissionEntry));
 	match("Permission"_s);
 	$set(e, permission, match("permission type"_s));
@@ -571,6 +579,7 @@ $PolicyParser$PermissionEntry* PolicyParser::parsePermissionEntry() {
 }
 
 $PolicyParser$DomainEntry* PolicyParser::parseDomainEntry() {
+	$useLocalCurrentObjectStackCache();
 	bool ignoreEntry = false;
 	$var($PolicyParser$DomainEntry, domainEntry, nullptr);
 	$var($String, name, nullptr);
@@ -596,6 +605,7 @@ $PolicyParser$DomainEntry* PolicyParser::parseDomainEntry() {
 }
 
 $Map* PolicyParser::parseProperties($String* terminator) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, properties, $new($HashMap));
 	$var($String, key, nullptr);
 	$var($String, value, nullptr);
@@ -682,6 +692,7 @@ bool PolicyParser::peek($String* expect) {
 }
 
 $String* PolicyParser::match($String* expect) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, nullptr);
 	{
 		$var($LocalizedMessage, localizedMsg, nullptr)
@@ -806,6 +817,7 @@ $String* PolicyParser::match($String* expect) {
 }
 
 void PolicyParser::skipEntry() {
+	$useLocalCurrentObjectStackCache();
 	while (this->lookahead != u';') {
 		switch (this->lookahead) {
 		case $StreamTokenizer::TT_NUMBER:
@@ -829,6 +841,7 @@ void PolicyParser::skipEntry() {
 
 void PolicyParser::main($StringArray* arg) {
 	$init(PolicyParser);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileReader, fr, $new($FileReader, $nc(arg)->get(0)));
 		{

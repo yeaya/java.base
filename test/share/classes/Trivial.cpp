@@ -50,6 +50,7 @@ void Trivial::init$() {
 }
 
 void Trivial::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc, $SocketChannel::open());
 	$var($Selector, sel, $Selector::open());
 	{

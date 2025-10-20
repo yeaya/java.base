@@ -57,6 +57,7 @@ void BigMark::init$() {
 }
 
 void BigMark::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, line, nullptr);
 	int32_t i = 0;
 	$var($String, dir, $System::getProperty("test.src"_s, "."_s));

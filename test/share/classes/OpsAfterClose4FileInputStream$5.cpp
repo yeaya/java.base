@@ -69,6 +69,7 @@ void OpsAfterClose4FileInputStream$5::init$($String* $enum$name, int32_t $enum$o
 }
 
 bool OpsAfterClose4FileInputStream$5::check($FileInputStream* r) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(r)->getFD();
 		return true;

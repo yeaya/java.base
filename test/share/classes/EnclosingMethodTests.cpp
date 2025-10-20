@@ -111,6 +111,7 @@ $Class* EnclosingMethodTests::getLocalClass(Object$* o) {
 
 int32_t EnclosingMethodTests::examine($Class* enclosedClass, $String* methodSig) {
 	$init(EnclosingMethodTests);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, m, $nc(enclosedClass)->getEnclosingMethod());
 	if (m == nullptr && methodSig == nullptr) {

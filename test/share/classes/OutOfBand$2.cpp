@@ -78,6 +78,7 @@ void OutOfBand$2::init$($SocketChannel* val$server, int32_t val$STOP) {
 }
 
 void OutOfBand$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(100));
 	try {
 		int32_t n = $nc(this->val$server)->read(bb);

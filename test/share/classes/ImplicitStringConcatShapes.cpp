@@ -220,6 +220,7 @@ void ImplicitStringConcatShapes::init$() {
 
 void ImplicitStringConcatShapes::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcatShapes);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);
@@ -257,6 +258,7 @@ void ImplicitStringConcatShapes::run() {
 }
 
 void ImplicitStringConcatShapes::run0() {
+	$useLocalCurrentObjectStackCache();
 	test("-96.0"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("prefix-96.0"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("-96.0suffix"_s, $$str({$$str(ImplicitStringConcatShapes::s_dM), "suffix"_s}));
@@ -1260,6 +1262,7 @@ void ImplicitStringConcatShapes::run0() {
 }
 
 void ImplicitStringConcatShapes::run1() {
+	$useLocalCurrentObjectStackCache();
 	test("\u000292nullsuffix"_s, $$str({""_s, ImplicitStringConcatShapes::sf_strU2, ImplicitStringConcatShapes::s_oAN, "suffix"_s}));
 	test("prefix\u000292suffix1nullsuffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::sf_strU2, "suffix1"_s, ImplicitStringConcatShapes::s_oAN, "suffix2"_s}));
 	test("\u00029219"_s, $$str({""_s, ImplicitStringConcatShapes::sf_strU2, this->f_str}));
@@ -2263,6 +2266,7 @@ void ImplicitStringConcatShapes::run1() {
 }
 
 void ImplicitStringConcatShapes::run2() {
+	$useLocalCurrentObjectStackCache();
 	test(u"prefix-87.0suffix1\u045180suffix2"_s, $$str({"prefix"_s, $$str(this->f_fM), "suffix1"_s, ImplicitStringConcatShapes::s_strU, "suffix2"_s}));
 	test("-87.0C"_s, $$str({""_s, $$str(this->f_fM), $$str(ImplicitStringConcatShapes::sf_c)}));
 	test("-87.0Csuffix"_s, $$str({""_s, $$str(this->f_fM), $$str(ImplicitStringConcatShapes::sf_c), "suffix"_s}));
@@ -3266,6 +3270,7 @@ void ImplicitStringConcatShapes::run2() {
 }
 
 void ImplicitStringConcatShapes::run3() {
+	$useLocalCurrentObjectStackCache();
 	test("T-96.0"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_c), $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("T-96.0suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_c), $$str(ImplicitStringConcatShapes::s_dM), "suffix"_s}));
 	test("prefixTsuffix1-96.0suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_c), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_dM), "suffix2"_s}));
@@ -4269,6 +4274,7 @@ void ImplicitStringConcatShapes::run3() {
 }
 
 void ImplicitStringConcatShapes::run4() {
+	$useLocalCurrentObjectStackCache();
 	test("-1410065408-194313216suffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_lM), $$str(ImplicitStringConcatShapes::sf_l), "suffix"_s}));
 	test("prefix-1410065408suffix1-194313216suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_lM), "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_l), "suffix2"_s}));
 	test("-1410065408\u000112"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_lM), ImplicitStringConcatShapes::s_strU1}));
@@ -5272,6 +5278,7 @@ void ImplicitStringConcatShapes::run4() {
 }
 
 void ImplicitStringConcatShapes::run5() {
+	$useLocalCurrentObjectStackCache();
 	test("prefix-9900suffix1-1000000suffix2"_s, $$str({"prefix"_s, $$str(this->f_sM), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_iM), "suffix2"_s}));
 	test("-99001000000"_s, $$str({""_s, $$str(this->f_sM), ImplicitStringConcatShapes::sf_I}));
 	test("-99001000000suffix"_s, $$str({""_s, $$str(this->f_sM), ImplicitStringConcatShapes::sf_I, "suffix"_s}));
@@ -6275,6 +6282,7 @@ void ImplicitStringConcatShapes::run5() {
 }
 
 void ImplicitStringConcatShapes::run6() {
+	$useLocalCurrentObjectStackCache();
 	test("truetrue"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_bl), $$str(ImplicitStringConcatShapes::s_bl)}));
 	test("truetruesuffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_bl), $$str(ImplicitStringConcatShapes::s_bl), "suffix"_s}));
 	test("prefixtruesuffix1truesuffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_bl), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_bl), "suffix2"_s}));
@@ -7278,6 +7286,7 @@ void ImplicitStringConcatShapes::run6() {
 }
 
 void ImplicitStringConcatShapes::run7() {
+	$useLocalCurrentObjectStackCache();
 	test("null-84.0suffix"_s, $$str({""_s, this->f_IN, $$str(ImplicitStringConcatShapes::sf_dM), "suffix"_s}));
 	test("prefixnullsuffix1-84.0suffix2"_s, $$str({"prefix"_s, this->f_IN, "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_dM), "suffix2"_s}));
 	test("null58000000"_s, $$str({""_s, this->f_IN, $$str(this->f_i)}));
@@ -8281,6 +8290,7 @@ void ImplicitStringConcatShapes::run7() {
 }
 
 void ImplicitStringConcatShapes::run8() {
+	$useLocalCurrentObjectStackCache();
 	test("prefix\u000112suffix1-1410065408suffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_strU1, "suffix1"_s, $$str(ImplicitStringConcatShapes::s_lM), "suffix2"_s}));
 	test("\u0001128.0"_s, $$str({""_s, ImplicitStringConcatShapes::s_strU1, $$str(ImplicitStringConcatShapes::s_d)}));
 	test("\u0001128.0suffix"_s, $$str({""_s, ImplicitStringConcatShapes::s_strU1, $$str(ImplicitStringConcatShapes::s_d), "suffix"_s}));
@@ -9284,6 +9294,7 @@ void ImplicitStringConcatShapes::run8() {
 }
 
 void ImplicitStringConcatShapes::run9() {
+	$useLocalCurrentObjectStackCache();
 	test("\u000218-1705032704"_s, $$str({""_s, this->f_strU2, $$str(ImplicitStringConcatShapes::sf_lM)}));
 	test("\u000218-1705032704suffix"_s, $$str({""_s, this->f_strU2, $$str(ImplicitStringConcatShapes::sf_lM), "suffix"_s}));
 	test("prefix\u000218suffix1-1705032704suffix2"_s, $$str({"prefix"_s, this->f_strU2, "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_lM), "suffix2"_s}));
@@ -10287,6 +10298,7 @@ void ImplicitStringConcatShapes::run9() {
 }
 
 void ImplicitStringConcatShapes::run10() {
+	$useLocalCurrentObjectStackCache();
 	test("75nullsuffix"_s, $$str({""_s, ImplicitStringConcatShapes::sf_str, ImplicitStringConcatShapes::s_oAN, "suffix"_s}));
 	test("prefix75suffix1nullsuffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::sf_str, "suffix1"_s, ImplicitStringConcatShapes::s_oAN, "suffix2"_s}));
 	test("7519"_s, $$str({""_s, ImplicitStringConcatShapes::sf_str, this->f_str}));
@@ -11290,6 +11302,7 @@ void ImplicitStringConcatShapes::run10() {
 }
 
 void ImplicitStringConcatShapes::run11() {
+	$useLocalCurrentObjectStackCache();
 	test(u"prefix-52.0suffix1\u045180suffix2"_s, $$str({"prefix"_s, $$str(ImplicitStringConcatShapes::s_fM), "suffix1"_s, ImplicitStringConcatShapes::s_strU, "suffix2"_s}));
 	test("-52.0C"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_fM), $$str(ImplicitStringConcatShapes::sf_c)}));
 	test("-52.0Csuffix"_s, $$str({""_s, $$str(ImplicitStringConcatShapes::s_fM), $$str(ImplicitStringConcatShapes::sf_c), "suffix"_s}));
@@ -12293,6 +12306,7 @@ void ImplicitStringConcatShapes::run11() {
 }
 
 void ImplicitStringConcatShapes::run12() {
+	$useLocalCurrentObjectStackCache();
 	test("83.0-96.0"_s, $$str({""_s, $$str(this->f_d), $$str(ImplicitStringConcatShapes::s_dM)}));
 	test("83.0-96.0suffix"_s, $$str({""_s, $$str(this->f_d), $$str(ImplicitStringConcatShapes::s_dM), "suffix"_s}));
 	test("prefix83.0suffix1-96.0suffix2"_s, $$str({"prefix"_s, $$str(this->f_d), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_dM), "suffix2"_s}));
@@ -13296,6 +13310,7 @@ void ImplicitStringConcatShapes::run12() {
 }
 
 void ImplicitStringConcatShapes::run13() {
+	$useLocalCurrentObjectStackCache();
 	test("-99.0-194313216suffix"_s, $$str({""_s, $$str(this->f_dM), $$str(ImplicitStringConcatShapes::sf_l), "suffix"_s}));
 	test("prefix-99.0suffix1-194313216suffix2"_s, $$str({"prefix"_s, $$str(this->f_dM), "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_l), "suffix2"_s}));
 	test("-99.0\u000112"_s, $$str({""_s, $$str(this->f_dM), ImplicitStringConcatShapes::s_strU1}));
@@ -14299,6 +14314,7 @@ void ImplicitStringConcatShapes::run13() {
 }
 
 void ImplicitStringConcatShapes::run14() {
+	$useLocalCurrentObjectStackCache();
 	test("prefix-55000000suffix1-1000000suffix2"_s, $$str({"prefix"_s, $$str(this->f_iM), "suffix1"_s, $$str(ImplicitStringConcatShapes::s_iM), "suffix2"_s}));
 	test("-550000001000000"_s, $$str({""_s, $$str(this->f_iM), ImplicitStringConcatShapes::sf_I}));
 	test("-550000001000000suffix"_s, $$str({""_s, $$str(this->f_iM), ImplicitStringConcatShapes::sf_I, "suffix"_s}));
@@ -15302,6 +15318,7 @@ void ImplicitStringConcatShapes::run14() {
 }
 
 void ImplicitStringConcatShapes::run15() {
+	$useLocalCurrentObjectStackCache();
 	test("18true"_s, $$str({""_s, ImplicitStringConcatShapes::s_str, $$str(ImplicitStringConcatShapes::s_bl)}));
 	test("18truesuffix"_s, $$str({""_s, ImplicitStringConcatShapes::s_str, $$str(ImplicitStringConcatShapes::s_bl), "suffix"_s}));
 	test("prefix18suffix1truesuffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_str, "suffix1"_s, $$str(ImplicitStringConcatShapes::s_bl), "suffix2"_s}));
@@ -16305,6 +16322,7 @@ void ImplicitStringConcatShapes::run15() {
 }
 
 void ImplicitStringConcatShapes::run16() {
+	$useLocalCurrentObjectStackCache();
 	test("false-84.0suffix"_s, $$str({""_s, $$str(this->f_bl), $$str(ImplicitStringConcatShapes::sf_dM), "suffix"_s}));
 	test("prefixfalsesuffix1-84.0suffix2"_s, $$str({"prefix"_s, $$str(this->f_bl), "suffix1"_s, $$str(ImplicitStringConcatShapes::sf_dM), "suffix2"_s}));
 	test("false58000000"_s, $$str({""_s, $$str(this->f_bl), $$str(this->f_i)}));
@@ -17308,6 +17326,7 @@ void ImplicitStringConcatShapes::run16() {
 }
 
 void ImplicitStringConcatShapes::run17() {
+	$useLocalCurrentObjectStackCache();
 	test("prefix25000000suffix1-1410065408suffix2"_s, $$str({"prefix"_s, ImplicitStringConcatShapes::s_I, "suffix1"_s, $$str(ImplicitStringConcatShapes::s_lM), "suffix2"_s}));
 	test("250000008.0"_s, $$str({""_s, ImplicitStringConcatShapes::s_I, $$str(ImplicitStringConcatShapes::s_d)}));
 	test("250000008.0suffix"_s, $$str({""_s, ImplicitStringConcatShapes::s_I, $$str(ImplicitStringConcatShapes::s_d), "suffix"_s}));

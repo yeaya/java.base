@@ -277,6 +277,7 @@ DateFormatSymbols* DateFormatSymbols::getInstanceRef($Locale* locale) {
 
 DateFormatSymbols* DateFormatSymbols::getProviderInstance($Locale* locale) {
 	$init(DateFormatSymbols);
+	$useLocalCurrentObjectStackCache();
 	$load($DateFormatSymbolsProvider);
 	$var($LocaleProviderAdapter, adapter, $LocaleProviderAdapter::getAdapter($DateFormatSymbolsProvider::class$, locale));
 	$var($DateFormatSymbolsProvider, provider, $nc(adapter)->getDateFormatSymbolsProvider());
@@ -347,6 +348,7 @@ $StringArray2* DateFormatSymbols::getZoneStrings() {
 }
 
 void DateFormatSymbols::setZoneStrings($StringArray2* newZoneStrings) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray2, aCopy, $new($StringArray2, $nc(newZoneStrings)->length));
 	for (int32_t i = 0; i < newZoneStrings->length; ++i) {
 		int32_t len = $nc(newZoneStrings->get(i))->length;
@@ -370,6 +372,7 @@ void DateFormatSymbols::setLocalPatternChars($String* newLocalPatternChars) {
 }
 
 $Object* DateFormatSymbols::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(DateFormatSymbols, other, $cast(DateFormatSymbols, $Serializable::clone()));
 		copyMembers(this, other);
@@ -401,6 +404,7 @@ int32_t DateFormatSymbols::hashCode() {
 }
 
 bool DateFormatSymbols::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -427,6 +431,7 @@ bool DateFormatSymbols::equals(Object$* obj) {
 }
 
 void DateFormatSymbols::initializeData($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($SoftReference, ref, $cast($SoftReference, $nc(DateFormatSymbols::cachedInstances)->get(locale)));
 	$var(DateFormatSymbols, dfs, nullptr);
 	if (ref == nullptr || ($assign(dfs, $cast(DateFormatSymbols, $nc(ref)->get()))) == nullptr) {
@@ -507,6 +512,7 @@ $StringArray2* DateFormatSymbols::getZoneStringsWrapper() {
 }
 
 $StringArray2* DateFormatSymbols::getZoneStringsImpl(bool needsCopy) {
+	$useLocalCurrentObjectStackCache();
 	if (this->zoneStrings == nullptr) {
 		$set(this, zoneStrings, $TimeZoneNameUtility::getZoneStrings(this->locale));
 	}

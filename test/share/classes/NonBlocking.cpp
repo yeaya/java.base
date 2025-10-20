@@ -53,6 +53,7 @@ void NonBlocking::main($StringArray* args) {
 }
 
 void NonBlocking::test1() {
+	$useLocalCurrentObjectStackCache();
 	$var($Pipe, p, $Pipe::open());
 	{
 		$var($Throwable, var$0, nullptr);

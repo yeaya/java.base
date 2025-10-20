@@ -69,6 +69,7 @@ void SJIS$EncodeHolder::init$() {
 }
 
 void clinit$SJIS$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SJIS$EncodeHolder::c2b, $new($chars, 24064));
 	$assignStatic(SJIS$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

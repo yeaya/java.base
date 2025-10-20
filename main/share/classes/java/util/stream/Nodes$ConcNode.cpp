@@ -113,6 +113,7 @@ void Nodes$ConcNode::forEach($Consumer* consumer) {
 }
 
 $Node* Nodes$ConcNode::truncate(int64_t from, int64_t to, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (from == 0 && to == count()) {
 		return this;
 	}
@@ -129,6 +130,7 @@ $Node* Nodes$ConcNode::truncate(int64_t from, int64_t to, $IntFunction* generato
 }
 
 $String* Nodes$ConcNode::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (count() < 32) {
 		return $String::format("ConcNode[%s.%s]"_s, $$new($ObjectArray, {
 			$of(this->left),

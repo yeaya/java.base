@@ -107,6 +107,7 @@ void TlsKeyMaterialGenerator::engineInit($SecureRandom* random) {
 }
 
 void TlsKeyMaterialGenerator::engineInit($AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($TlsKeyMaterialParameterSpec, params) == false) {
 		$throwNew($InvalidAlgorithmParameterException, TlsKeyMaterialGenerator::MSG);
 	}
@@ -126,6 +127,7 @@ void TlsKeyMaterialGenerator::engineInit(int32_t keysize, $SecureRandom* random)
 }
 
 $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsKeyMaterialGenerator must be initialized"_s);
 	}
@@ -159,6 +161,7 @@ $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey() {
 }
 
 $SecretKey* TlsKeyMaterialGenerator::engineGenerateKey0($bytes* masterSecret) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, clientRandom, $nc(this->spec)->getClientRandom());
 	$var($bytes, serverRandom, $nc(this->spec)->getServerRandom());
 	$var($SecretKey, clientMacKey, nullptr);

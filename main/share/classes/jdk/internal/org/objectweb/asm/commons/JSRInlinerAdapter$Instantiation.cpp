@@ -94,6 +94,7 @@ $Object* allocate$JSRInlinerAdapter$Instantiation($Class* clazz) {
 }
 
 void JSRInlinerAdapter$Instantiation::init$($JSRInlinerAdapter* this$0, JSRInlinerAdapter$Instantiation* parent, $BitSet* subroutineInsns) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$AbstractMap::init$();
 	{
@@ -124,6 +125,7 @@ void JSRInlinerAdapter$Instantiation::init$($JSRInlinerAdapter* this$0, JSRInlin
 }
 
 JSRInlinerAdapter$Instantiation* JSRInlinerAdapter$Instantiation::findOwner(int32_t insnIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->subroutineInsns)->get(insnIndex)) {
 		return nullptr;
 	}

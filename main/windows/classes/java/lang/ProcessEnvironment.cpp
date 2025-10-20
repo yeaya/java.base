@@ -168,6 +168,7 @@ $String* ProcessEnvironment::nonNullString(Object$* o) {
 }
 
 $String* ProcessEnvironment::put($String* key, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of(validateName(key)));
 	return $cast($String, $HashMap::put(var$0, $(validateValue(value))));
 }
@@ -238,6 +239,7 @@ $String* ProcessEnvironment::environmentBlock() {
 }
 
 $String* ProcessEnvironment::toEnvironmentBlock() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $(static_cast<$Collection*>(entrySet()))));
 	$Collections::sort(list, ProcessEnvironment::entryComparator);
 	$var($StringBuilder, sb, $new($StringBuilder, size() * 30));
@@ -290,6 +292,7 @@ $Object* ProcessEnvironment::put(Object$* key, Object$* value) {
 }
 
 void clinit$ProcessEnvironment($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(ProcessEnvironment::nameComparator, $new($ProcessEnvironment$NameComparator));
 		$assignStatic(ProcessEnvironment::entryComparator, $new($ProcessEnvironment$EntryComparator));

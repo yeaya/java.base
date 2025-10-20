@@ -54,6 +54,7 @@ void Bug6609750::init$() {
 }
 
 void Bug6609750::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool error = false;
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);

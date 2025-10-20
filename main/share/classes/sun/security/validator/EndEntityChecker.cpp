@@ -163,6 +163,7 @@ EndEntityChecker* EndEntityChecker::getInstance($String* type, $String* variant)
 }
 
 void EndEntityChecker::check($X509CertificateArray* chain, Object$* parameter, bool checkUnresolvedCritExts) {
+	$useLocalCurrentObjectStackCache();
 	$init($Validator);
 	if ($nc(this->variant)->equals($Validator::VAR_GENERIC)) {
 		return;
@@ -336,6 +337,7 @@ void EndEntityChecker::checkTSAServer($X509Certificate* cert, $Set* exts) {
 }
 
 void clinit$EndEntityChecker($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($NetscapeCertTypeExtension);
 	$assignStatic(EndEntityChecker::NSCT_SSL_CLIENT, $NetscapeCertTypeExtension::SSL_CLIENT);
 	$assignStatic(EndEntityChecker::NSCT_SSL_SERVER, $NetscapeCertTypeExtension::SSL_SERVER);

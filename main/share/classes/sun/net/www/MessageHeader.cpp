@@ -221,6 +221,7 @@ $String* MessageHeader::findNextValue($String* k, $String* v) {
 }
 
 bool MessageHeader::filterNTLMResponses($String* k) {
+	$useLocalCurrentObjectStackCache();
 	bool found = false;
 	for (int32_t i = 0; i < this->nkeys; ++i) {
 		bool var$1 = $nc(k)->equalsIgnoreCase($nc(this->keys)->get(i)) && $nc(this->values)->get(i) != nullptr;
@@ -273,6 +274,7 @@ $Map* MessageHeader::getHeaders($StringArray* excludeList) {
 
 $Map* MessageHeader::filterAndAddHeaders($StringArray* excludeList, $Map* include) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		bool skipIt = false;
 		$var($Map, m, $new($HashMap));
 		for (int32_t i = this->nkeys; --i >= 0;) {
@@ -325,6 +327,7 @@ $Map* MessageHeader::filterAndAddHeaders($StringArray* excludeList, $Map* includ
 }
 
 bool MessageHeader::isRequestline($String* line) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, k, $nc(line)->trim());
 	int32_t i = k->lastIndexOf((int32_t)u' ');
 	if (i <= 0) {
@@ -350,6 +353,7 @@ bool MessageHeader::isRequestline($String* line) {
 }
 
 void MessageHeader::print($PrintStream* p) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, k, nullptr);
 	$var($StringArray, v, nullptr);
 	int32_t n = 0;
@@ -362,6 +366,7 @@ void MessageHeader::print($PrintStream* p) {
 }
 
 void MessageHeader::print(int32_t nkeys, $StringArray* keys, $StringArray* values, $PrintStream* p) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < nkeys; ++i) {
 		if ($nc(keys)->get(i) != nullptr) {
 			$var($StringBuilder, sb, $new($StringBuilder, keys->get(i)));
@@ -414,6 +419,7 @@ void MessageHeader::set(int32_t i, $String* k, $String* v) {
 }
 
 void MessageHeader::grow() {
+	$useLocalCurrentObjectStackCache();
 	if (this->keys == nullptr || this->nkeys >= $nc(this->keys)->length) {
 		$var($StringArray, nk, $new($StringArray, this->nkeys + 4));
 		$var($StringArray, nv, $new($StringArray, this->nkeys + 4));
@@ -501,6 +507,7 @@ void MessageHeader::parseHeader($InputStream* is) {
 }
 
 void MessageHeader::mergeHeader($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	if (is == nullptr) {
 		return;
 	}
@@ -598,6 +605,7 @@ void MessageHeader::mergeHeader($InputStream* is) {
 
 $String* MessageHeader::toString() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($String, result, $str({$($Object::toString()), $$str(this->nkeys), " pairs: "_s}));
 		for (int32_t i = 0; i < $nc(this->keys)->length && i < this->nkeys; ++i) {
 			$plusAssign(result, $$str({"{"_s, $nc(this->keys)->get(i), ": "_s, $nc(this->values)->get(i), "}"_s}));

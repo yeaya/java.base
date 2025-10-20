@@ -125,6 +125,7 @@ bool PolicyParser$PermissionEntry::equals(Object$* obj) {
 }
 
 void PolicyParser$PermissionEntry::write($PrintWriter* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->print("permission "_s);
 	out->print(this->permission);
 	if (this->name != nullptr) {

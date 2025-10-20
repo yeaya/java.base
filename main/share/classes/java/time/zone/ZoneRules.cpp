@@ -174,6 +174,7 @@ ZoneRules* ZoneRules::of($ZoneOffset* offset) {
 }
 
 void ZoneRules::init$($ZoneOffset* baseStandardOffset, $ZoneOffset* baseWallOffset, $List* standardOffsetTransitionList, $List* transitionList, $List* lastRules) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lastRulesCache, $new($ConcurrentHashMap));
 	$set(this, standardTransitions, $new($longs, $nc(standardOffsetTransitionList)->size()));
 	$set(this, standardOffsets, $new($ZoneOffsetArray, standardOffsetTransitionList->size() + 1));
@@ -217,6 +218,7 @@ void ZoneRules::init$($ZoneOffset* baseStandardOffset, $ZoneOffset* baseWallOffs
 }
 
 void ZoneRules::init$($longs* standardTransitions, $ZoneOffsetArray* standardOffsets, $longs* savingsInstantTransitions, $ZoneOffsetArray* wallOffsets, $ZoneOffsetTransitionRuleArray* lastRules) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lastRulesCache, $new($ConcurrentHashMap));
 	$set(this, standardTransitions, standardTransitions);
 	$set(this, standardOffsets, standardOffsets);
@@ -263,6 +265,7 @@ $Object* ZoneRules::writeReplace() {
 }
 
 void ZoneRules::writeExternal($DataOutput* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->writeInt($nc(this->standardTransitions)->length);
 	{
 		$var($longs, arr$, this->standardTransitions);
@@ -325,6 +328,7 @@ void ZoneRules::writeExternal($DataOutput* out) {
 
 ZoneRules* ZoneRules::readExternal($DataInput* in) {
 	$init(ZoneRules);
+	$useLocalCurrentObjectStackCache();
 	int32_t stdSize = $nc(in)->readInt();
 	if (stdSize > 1024) {
 		$throwNew($InvalidObjectException, "Too many transitions"_s);
@@ -365,6 +369,7 @@ bool ZoneRules::isFixedOffset() {
 }
 
 $ZoneOffset* ZoneRules::getOffset($Instant* instant) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->savingsInstantTransitions)->length == 0) {
 		return $nc(this->wallOffsets)->get(0);
 	}
@@ -410,6 +415,7 @@ $ZoneOffsetTransition* ZoneRules::getTransition($LocalDateTime* localDateTime) {
 }
 
 $Object* ZoneRules::getOffsetInfo($LocalDateTime* dt) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->savingsLocalTransitions)->length == 0) {
 		return $of($nc(this->wallOffsets)->get(0));
 	}
@@ -458,6 +464,7 @@ $Object* ZoneRules::getOffsetInfo($LocalDateTime* dt) {
 }
 
 $Object* ZoneRules::findOffsetInfo($LocalDateTime* dt, $ZoneOffsetTransition* trans) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDateTime, localTransition, $nc(trans)->getDateTimeBefore());
 	if (trans->isGap()) {
 		if ($nc(dt)->isBefore(localTransition)) {
@@ -481,6 +488,7 @@ $Object* ZoneRules::findOffsetInfo($LocalDateTime* dt, $ZoneOffsetTransition* tr
 }
 
 $ZoneOffsetTransitionArray* ZoneRules::findTransitionArray(int32_t year) {
+	$useLocalCurrentObjectStackCache();
 	$var($Integer, yearObj, $Integer::valueOf(year));
 	$var($ZoneOffsetTransitionArray, transArray, $cast($ZoneOffsetTransitionArray, $nc(this->lastRulesCache)->get(yearObj)));
 	if (transArray != nullptr) {
@@ -510,6 +518,7 @@ $ZoneOffset* ZoneRules::getStandardOffset($Instant* instant) {
 }
 
 $Duration* ZoneRules::getDaylightSavings($Instant* instant) {
+	$useLocalCurrentObjectStackCache();
 	if (isFixedOffset()) {
 		$init($Duration);
 		return $Duration::ZERO;
@@ -521,6 +530,7 @@ $Duration* ZoneRules::getDaylightSavings($Instant* instant) {
 }
 
 bool ZoneRules::isDaylightSavings($Instant* instant) {
+	$useLocalCurrentObjectStackCache();
 	return ($nc($(getStandardOffset(instant)))->equals($(getOffset(instant))) == false);
 }
 
@@ -529,6 +539,7 @@ bool ZoneRules::isValidOffset($LocalDateTime* localDateTime, $ZoneOffset* offset
 }
 
 $ZoneOffsetTransition* ZoneRules::nextTransition($Instant* instant) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->savingsInstantTransitions)->length == 0) {
 		return nullptr;
 	}
@@ -568,6 +579,7 @@ $ZoneOffsetTransition* ZoneRules::nextTransition($Instant* instant) {
 }
 
 $ZoneOffsetTransition* ZoneRules::previousTransition($Instant* instant) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->savingsInstantTransitions)->length == 0) {
 		return nullptr;
 	}
@@ -625,6 +637,7 @@ int32_t ZoneRules::findYear(int64_t epochSecond, $ZoneOffset* offset) {
 }
 
 $List* ZoneRules::getTransitions() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(this->savingsInstantTransitions)->length; ++i) {
 		list->add($$new($ZoneOffsetTransition, $nc(this->savingsInstantTransitions)->get(i), $nc(this->wallOffsets)->get(i), $nc(this->wallOffsets)->get(i + 1)));

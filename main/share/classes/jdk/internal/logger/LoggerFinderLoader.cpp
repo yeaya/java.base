@@ -243,6 +243,7 @@ $System$LoggerFinder* LoggerFinderLoader::service() {
 
 $LoggerFinderLoader$ErrorPolicy* LoggerFinderLoader::configurationErrorPolicy() {
 	$init(LoggerFinderLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($String, errorPolicy, $GetPropertyAction::privilegedGetProperty("jdk.logger.finder.error"_s));
 	if (errorPolicy == nullptr || $nc(errorPolicy)->isEmpty()) {
 		$init($LoggerFinderLoader$ErrorPolicy);
@@ -266,6 +267,7 @@ bool LoggerFinderLoader::ensureSingletonProvider() {
 
 $Iterator* LoggerFinderLoader::findLoggerFinderProviders() {
 	$init(LoggerFinderLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Iterator, iterator, nullptr);
 	if ($System::getSecurityManager() == nullptr) {
@@ -284,6 +286,7 @@ $Iterator* LoggerFinderLoader::findLoggerFinderProviders() {
 
 $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 	$init(LoggerFinderLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($System$LoggerFinder, result, nullptr);
 	try {
 		$var($Iterator, iterator, findLoggerFinderProviders());
@@ -344,6 +347,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 
 $System$LoggerFinder* LoggerFinderLoader::loadDefaultImplementation() {
 	$init(LoggerFinderLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	$var($Iterator, iterator, nullptr);
@@ -391,6 +395,7 @@ $Iterator* LoggerFinderLoader::lambda$loadDefaultImplementation$1() {
 
 $Iterator* LoggerFinderLoader::lambda$findLoggerFinderProviders$0() {
 	$init(LoggerFinderLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($System$LoggerFinder);
 	return $nc($($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader()))))->iterator();

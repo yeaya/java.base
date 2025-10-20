@@ -97,6 +97,7 @@ $StringBuilder* DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::appendH
 }
 
 bool DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, offsetSecs, $nc(context)->getValue(static_cast<$TemporalField*>($ChronoField::OFFSET_SECONDS)));
 	if (offsetSecs == nullptr) {
@@ -150,6 +151,7 @@ int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::getDigit($CharS
 }
 
 int32_t DateTimeFormatterBuilder$LocalizedOffsetIdPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position;
 	int32_t end = $nc(text)->length();
 	$var($String, key, "timezone.gmtZeroFormat"_s);

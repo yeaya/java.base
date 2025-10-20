@@ -189,6 +189,7 @@ $String* MetafactoryDescriptorTest$C::n_Object(Object$* arg) {
 }
 
 $MethodHandle* MetafactoryDescriptorTest$C::getM($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($MetafactoryDescriptorTest);
 		$load(MetafactoryDescriptorTest$C);
@@ -207,6 +208,7 @@ $MethodHandle* MetafactoryDescriptorTest$C::getM($Class* c) {
 }
 
 $MethodHandle* MetafactoryDescriptorTest$C::getN($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$init($Void);
 	if (c == $Void::TYPE) {
 		return nullptr;

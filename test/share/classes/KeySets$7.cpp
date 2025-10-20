@@ -79,6 +79,7 @@ void KeySets$7::init$($Class* xc, $KeySets$Adder* val$adder, $Set* val$s) {
 }
 
 void KeySets$7::go() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->val$adder)->add();
 	$nc(this->val$s)->remove($($nc($($nc(this->val$s)->iterator()))->next()));
 }

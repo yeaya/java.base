@@ -59,6 +59,7 @@ void FinalizeOverride$PublicFinalize::init$(int32_t v) {
 }
 
 void FinalizeOverride$PublicFinalize::finalize() {
+	$useLocalCurrentObjectStackCache();
 	$init($FinalizeOverride);
 	$nc($FinalizeOverride::finalizedSum)->addAndGet(this->value * 100);
 	$init($System);

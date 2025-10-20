@@ -176,6 +176,7 @@ $String* KeyStoreDelegator::KEYSTORE_TYPE_COMPAT = nullptr;
 $Debug* KeyStoreDelegator::debug = nullptr;
 
 void KeyStoreDelegator::init$($String* primaryType, $Class* primaryKeyStore, $String* secondaryType, $Class* secondaryKeyStore) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$KeyStoreSpi::init$();
 	this->compatModeEnabled = true;
@@ -273,6 +274,7 @@ void KeyStoreDelegator::engineStore($OutputStream* stream, $chars* password) {
 }
 
 void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (stream == nullptr) {
 		try {
@@ -368,6 +370,7 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 }
 
 bool KeyStoreDelegator::engineProbe($InputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool result = false;
 	{

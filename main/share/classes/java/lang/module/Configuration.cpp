@@ -343,6 +343,7 @@ void Configuration::init$() {
 }
 
 void Configuration::init$($List* parents, $Resolver* resolver) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, g, $nc(resolver)->finish(this));
 	$var($Map$EntryArray, nameEntries, $new($Map$EntryArray, $nc(g)->size()));
 	$var($ResolvedModuleArray, moduleArray, $new($ResolvedModuleArray, g->size()));
@@ -366,6 +367,7 @@ void Configuration::init$($List* parents, $Resolver* resolver) {
 }
 
 void Configuration::init$($ModuleFinder* finder, $Map* map) {
+	$useLocalCurrentObjectStackCache();
 	int32_t moduleCount = $nc(map)->size();
 	$var($Map$EntryArray, nameEntries, $new($Map$EntryArray, moduleCount));
 	$var($ResolvedModuleArray, moduleArray, $new($ResolvedModuleArray, moduleCount));
@@ -436,6 +438,7 @@ Configuration* Configuration::resolveAndBind($ModuleFinder* before, $ModuleFinde
 
 Configuration* Configuration::resolveAndBind($ModuleFinder* finder, $Collection* roots, $PrintStream* traceOutput) {
 	$init(Configuration);
+	$useLocalCurrentObjectStackCache();
 	$var($List, parents, $List::of($($of(empty()))));
 	$var($Resolver, resolver, $new($Resolver, finder, parents, $($ModuleFinder::of($$new($PathArray, 0))), traceOutput));
 	$nc($(resolver->resolve(roots)))->bind(false);
@@ -444,6 +447,7 @@ Configuration* Configuration::resolveAndBind($ModuleFinder* finder, $Collection*
 
 Configuration* Configuration::resolve($ModuleFinder* before, $List* parents, $ModuleFinder* after, $Collection* roots) {
 	$init(Configuration);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(before);
 	$Objects::requireNonNull(after);
 	$Objects::requireNonNull(roots);
@@ -458,6 +462,7 @@ Configuration* Configuration::resolve($ModuleFinder* before, $List* parents, $Mo
 
 Configuration* Configuration::resolveAndBind($ModuleFinder* before, $List* parents, $ModuleFinder* after, $Collection* roots) {
 	$init(Configuration);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(before);
 	$Objects::requireNonNull(after);
 	$Objects::requireNonNull(roots);
@@ -484,6 +489,7 @@ $Set* Configuration::modules() {
 }
 
 $Optional* Configuration::findModule($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($ResolvedModule, m, $cast($ResolvedModule, $nc(this->nameToModule)->get(name)));
 	if (m != nullptr) {
@@ -496,6 +502,7 @@ $Optional* Configuration::findModule($String* name) {
 }
 
 $Set* Configuration::descriptors() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->modules$)->isEmpty()) {
 		return $Set::of();
 	} else {
@@ -508,6 +515,7 @@ $Set* Configuration::reads($ResolvedModule* m) {
 }
 
 $Stream* Configuration::configurations() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, allConfigurations, this->allConfigurations);
 	if (allConfigurations == nullptr) {
 		$assign(allConfigurations, $new($ArrayList));
@@ -531,6 +539,7 @@ $Stream* Configuration::configurations() {
 }
 
 $String* Configuration::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($String, $nc($($nc($($nc($(modules()))->stream()))->map(static_cast<$Function*>($$new(Configuration$$Lambda$name$4)))))->collect($($Collectors::joining(", "_s))));
 }
 

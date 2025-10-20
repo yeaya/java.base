@@ -198,6 +198,7 @@ $Object* allocate$ModuleReferences$ExplodedModuleReader($Class* clazz) {
 }
 
 void ModuleReferences$ExplodedModuleReader::init$($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, dir, dir);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -212,6 +213,7 @@ void ModuleReferences$ExplodedModuleReader::ensureOpen() {
 }
 
 $Optional* ModuleReferences$ExplodedModuleReader::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	$var($Path, path, $Resources::toFilePath(this->dir, name));
 	if (path != nullptr) {
@@ -227,6 +229,7 @@ $Optional* ModuleReferences$ExplodedModuleReader::find($String* name) {
 }
 
 $Optional* ModuleReferences$ExplodedModuleReader::open($String* name) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	$var($Path, path, $Resources::toFilePath(this->dir, name));
 	if (path != nullptr) {
@@ -237,6 +240,7 @@ $Optional* ModuleReferences$ExplodedModuleReader::open($String* name) {
 }
 
 $Optional* ModuleReferences$ExplodedModuleReader::read($String* name) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	$var($Path, path, $Resources::toFilePath(this->dir, name));
 	if (path != nullptr) {
@@ -247,6 +251,7 @@ $Optional* ModuleReferences$ExplodedModuleReader::read($String* name) {
 }
 
 $Stream* ModuleReferences$ExplodedModuleReader::list() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	return $nc($($nc($($Files::walk(this->dir, $Integer::MAX_VALUE, $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$0, this)))))->filter(static_cast<$Predicate*>($$new(ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1)));
 }

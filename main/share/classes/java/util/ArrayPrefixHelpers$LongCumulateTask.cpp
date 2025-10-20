@@ -101,6 +101,7 @@ void ArrayPrefixHelpers$LongCumulateTask::init$(ArrayPrefixHelpers$LongCumulateT
 }
 
 void ArrayPrefixHelpers$LongCumulateTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($LongBinaryOperator, fn, nullptr);
 	$var($longs, a, nullptr);
 	if (($assign(fn, this->function)) == nullptr || ($assign(a, this->array)) == nullptr) {

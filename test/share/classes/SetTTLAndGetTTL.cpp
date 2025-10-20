@@ -39,6 +39,7 @@ void SetTTLAndGetTTL::init$() {
 }
 
 void SetTTLAndGetTTL::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($MulticastSocket, soc, nullptr);
 	try {
 		$assign(soc, $new($MulticastSocket));

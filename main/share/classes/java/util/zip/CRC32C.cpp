@@ -148,6 +148,7 @@ void CRC32C::update($bytes* b, int32_t off, int32_t len) {
 }
 
 void CRC32C::update($ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(buffer)->position();
 	int32_t limit = buffer->limit();
 	if (!CRC32C::$assertionsDisabled && !(pos <= limit)) {
@@ -272,6 +273,7 @@ int32_t CRC32C::updateDirectByteBuffer(int32_t crc, int64_t address, int32_t off
 }
 
 void clinit$CRC32C($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	CRC32C::$assertionsDisabled = !CRC32C::class$->desiredAssertionStatus();
 	CRC32C::REVERSED_CRC32C_POLY = $Integer::reverse(CRC32C::CRC32C_POLY);
 	$assignStatic(CRC32C::UNSAFE, $Unsafe::getUnsafe());

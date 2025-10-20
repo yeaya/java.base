@@ -163,6 +163,7 @@ void FileChannel::init$() {
 
 FileChannel* FileChannel::open($Path* path, $Set* options, $FileAttributeArray* attrs) {
 	$init(FileChannel);
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystemProvider, provider, $nc($($nc(path)->getFileSystem()))->provider());
 	return $nc(provider)->newFileChannel(path, options, attrs);
 }

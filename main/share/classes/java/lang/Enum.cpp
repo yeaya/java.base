@@ -177,6 +177,7 @@ $Object* Enum::clone() {
 }
 
 int32_t Enum::compareTo(Enum* o) {
+	$useLocalCurrentObjectStackCache();
 	$var(Enum, other, o);
 	$var(Enum, self, this);
 	bool var$0 = $of(self)->getClass() != $nc($of(other))->getClass();
@@ -196,11 +197,13 @@ $Class* Enum::getDeclaringClass() {
 }
 
 $Optional* Enum::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(getDeclaringClass())->describeConstable()))->map(static_cast<$Function*>($$new(Enum$$Lambda$lambda$describeConstable$0, this)));
 }
 
 Enum* Enum::valueOf($Class* enumClass, $String* name) {
 	$init(Enum);
+	$useLocalCurrentObjectStackCache();
 	$var(Enum, result, $cast(Enum, $nc($($nc(enumClass)->enumConstantDirectory()))->get(name)));
 	if (result != nullptr) {
 		return result;

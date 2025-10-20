@@ -70,6 +70,7 @@ $bytes* IntegerModuloP::asByteArray(int32_t len) {
 }
 
 $ImmutableIntegerModuloP* IntegerModuloP::multiplicativeInverse() {
+	$useLocalCurrentObjectStackCache();
 	return pow($($nc($($nc($(getField()))->getSize()))->subtract($($BigInteger::valueOf((int64_t)2)))));
 }
 
@@ -82,6 +83,7 @@ $ImmutableIntegerModuloP* IntegerModuloP::square() {
 }
 
 $ImmutableIntegerModuloP* IntegerModuloP::pow($BigInteger* b) {
+	$useLocalCurrentObjectStackCache();
 	$var($MutableIntegerModuloP, y, $nc($($nc($(getField()))->get1()))->mutable$());
 	$var($MutableIntegerModuloP, x, mutable$());
 	int32_t bitLength = $nc(b)->bitLength();

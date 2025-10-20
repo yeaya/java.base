@@ -83,6 +83,7 @@ void TemporarySelector::init$() {
 
 void TemporarySelector::main($StringArray* args) {
 	$init(TemporarySelector);
+	$useLocalCurrentObjectStackCache();
 	$var($Runnable, r, $new($TemporarySelector$1));
 	{
 		$var($Throwable, var$0, nullptr);

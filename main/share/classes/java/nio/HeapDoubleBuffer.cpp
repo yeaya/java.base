@@ -218,6 +218,7 @@ $DoubleBuffer* HeapDoubleBuffer::put(int32_t index, $doubles* src, int32_t offse
 }
 
 $DoubleBuffer* HeapDoubleBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapDoubleBuffer::$assertionsDisabled && !(pos <= lim)) {

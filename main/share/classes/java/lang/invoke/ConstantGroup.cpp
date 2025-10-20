@@ -94,6 +94,7 @@ ConstantGroup* ConstantGroup::subGroup(int32_t start, int32_t end) {
 }
 
 int32_t ConstantGroup::copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t bufBase = pos - start;
 	for (int32_t i = start; i < end; ++i) {
 		$nc(buf)->set(bufBase + i, $(get(i)));
@@ -102,6 +103,7 @@ int32_t ConstantGroup::copyConstants(int32_t start, int32_t end, $ObjectArray* b
 }
 
 int32_t ConstantGroup::copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos, Object$* ifNotPresent) {
+	$useLocalCurrentObjectStackCache();
 	int32_t bufBase = pos - start;
 	for (int32_t i = start; i < end; ++i) {
 		$nc(buf)->set(bufBase + i, $(get(i, ifNotPresent)));

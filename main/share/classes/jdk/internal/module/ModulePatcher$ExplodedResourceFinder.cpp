@@ -197,6 +197,7 @@ $Resource* ModulePatcher$ExplodedResourceFinder::newResource($String* name, $Pat
 }
 
 $Stream* ModulePatcher$ExplodedResourceFinder::list() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($Files::walk(this->dir, $Integer::MAX_VALUE, $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$0, this)))))->filter(static_cast<$Predicate*>($$new(ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1)));
 }
 

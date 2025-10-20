@@ -80,6 +80,7 @@ void ECDHKeyExchange$ECDHEPossessionGenerator::init$() {
 }
 
 $SSLPossession* ECDHKeyExchange$ECDHEPossessionGenerator::createPossession($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$NamedGroup* preferableNamedGroup = nullptr;
 	if (($nc(context)->clientRequestedNamedGroups != nullptr) && (!$nc(context->clientRequestedNamedGroups)->isEmpty())) {
 			$init($NamedGroup$NamedGroupSpec);

@@ -108,6 +108,7 @@ void NewSessionTicket::init$() {
 
 $SecretKey* NewSessionTicket::derivePreSharedKey($CipherSuite$HashAlg* hashAlg, $SecretKey* resumptionMasterSecret, $bytes* nonce) {
 	$init(NewSessionTicket);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($HKDF, hkdf, $new($HKDF, $nc(hashAlg)->name$));
 		$var($bytes, hkdfInfo, $SSLSecretDerivation::createHkdfInfo($("tls13 resumption"_s->getBytes()), nonce, $nc(hashAlg)->hashLength));

@@ -129,6 +129,7 @@ void GetAnnotatedReceiverType::method4() {
 
 void GetAnnotatedReceiverType::main($StringArray* args) {
 	$init(GetAnnotatedReceiverType);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	checkEmptyAT($(GetAnnotatedReceiverType::class$->getMethod("method"_s, $$new($ClassArray, 0))), "getAnnotatedReceiverType for \"method\" should return an empty AnnotatedType"_s);
 	$load($GetAnnotatedReceiverType$Inner0);
@@ -177,6 +178,7 @@ void GetAnnotatedReceiverType::main($StringArray* args) {
 
 void GetAnnotatedReceiverType::checkNull($Executable* e, $String* msg) {
 	$init(GetAnnotatedReceiverType);
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedType, a, $nc(e)->getAnnotatedReceiverType());
 	if (a != nullptr) {
 		++GetAnnotatedReceiverType::failures;
@@ -188,6 +190,7 @@ void GetAnnotatedReceiverType::checkNull($Executable* e, $String* msg) {
 
 void GetAnnotatedReceiverType::checkEmptyAT($Executable* e, $String* msg) {
 	$init(GetAnnotatedReceiverType);
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedType, a, $nc(e)->getAnnotatedReceiverType());
 	if ($nc($($nc(a)->getAnnotations()))->length != 0) {
 		++GetAnnotatedReceiverType::failures;
@@ -199,6 +202,7 @@ void GetAnnotatedReceiverType::checkEmptyAT($Executable* e, $String* msg) {
 
 void GetAnnotatedReceiverType::checkAnnotatedReceiverType($Executable* e, bool shouldBeParameterized, $String* msg) {
 	$init(GetAnnotatedReceiverType);
+	$useLocalCurrentObjectStackCache();
 	$var($Type, t, $nc($($nc(e)->getAnnotatedReceiverType()))->getType());
 	if (shouldBeParameterized != ($instanceOf($ParameterizedType, t))) {
 		++GetAnnotatedReceiverType::failures;
@@ -228,6 +232,7 @@ void GetAnnotatedReceiverType::checkAnnotatedReceiverType($Executable* e, bool s
 
 void GetAnnotatedReceiverType::recursiveCheckAnnotatedOwnerTypes($AnnotatedType* t) {
 	$init(GetAnnotatedReceiverType);
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotatedType, check, $nc(t)->getAnnotatedOwnerType());
 	do {
 		if (!($instanceOf($Class, $($nc(check)->getType())))) {

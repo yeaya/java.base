@@ -75,6 +75,7 @@ void Mode::main($StringArray* args) {
 }
 
 void Mode::testReadable() {
+	$useLocalCurrentObjectStackCache();
 	$init(Mode);
 	$var($FileInputStream, is, $new($FileInputStream, Mode::testFile));
 	$var($FileChannel, channel, is->getChannel());
@@ -89,6 +90,7 @@ void Mode::testReadable() {
 }
 
 void Mode::testWritable() {
+	$useLocalCurrentObjectStackCache();
 	$init(Mode);
 	$var($FileOutputStream, is, $new($FileOutputStream, Mode::testFile));
 	$var($FileChannel, channel, is->getChannel());

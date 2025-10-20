@@ -74,6 +74,7 @@ void Bug7196316::init$() {
 
 void Bug7196316::main($StringArray* args) {
 	$init(Bug7196316);
+	$useLocalCurrentObjectStackCache();
 	$var($DecimalFormat, df, nullptr);
 	$init($RoundingMode);
 	$RoundingMode* mode = $RoundingMode::DOWN;

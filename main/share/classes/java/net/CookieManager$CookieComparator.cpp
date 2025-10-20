@@ -57,6 +57,7 @@ void CookieManager$CookieComparator::init$() {
 }
 
 int32_t CookieManager$CookieComparator::compare($HttpCookie* c1, $HttpCookie* c2) {
+	$useLocalCurrentObjectStackCache();
 	if (c1 == c2) {
 		return 0;
 	}

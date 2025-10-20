@@ -71,6 +71,7 @@ $Object* allocate$ThreadStop$Server($Class* clazz) {
 }
 
 void ThreadStop$Server::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, ss, $new($ServerSocket));
 	$nc(this->ss)->bind($$new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), 0));
 }
@@ -80,6 +81,7 @@ int32_t ThreadStop$Server::localPort() {
 }
 
 void ThreadStop$Server::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

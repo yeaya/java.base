@@ -95,6 +95,7 @@ void MethodAccessorGenerator$1::init$($MethodAccessorGenerator* this$0, $String*
 }
 
 $Object* MethodAccessorGenerator$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($cast($MagicAccessorImpl, $nc($ClassDefiner::defineClass(this->val$generatedName, this->val$bytes, 0, $nc(this->val$bytes)->length, $($nc(this->val$declaringClass)->getClassLoader())))->newInstance()));

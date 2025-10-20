@@ -211,6 +211,7 @@ $String* Double::toString(double d) {
 
 $String* Double::toHexString(double d) {
 	$init(Double);
+	$useLocalCurrentObjectStackCache();
 	if (!isFinite(d)) {
 		return Double::toString(d);
 	} else {

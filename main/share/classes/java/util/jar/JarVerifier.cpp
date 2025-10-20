@@ -223,6 +223,7 @@ void JarVerifier::init$($String* name, $bytes* rawBytes) {
 }
 
 void JarVerifier::beginEntry($JarEntry* je, $ManifestEntryVerifier* mev) {
+	$useLocalCurrentObjectStackCache();
 	if (je == nullptr) {
 		return;
 	}
@@ -303,6 +304,7 @@ void JarVerifier::update(int32_t n, $bytes* b, int32_t off, int32_t len, $Manife
 }
 
 void JarVerifier::processEntry($ManifestEntryVerifier* mev) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->parsingBlockOrSF) {
 		$var($JarEntry, je, $nc(mev)->getEntry());
 		if ((je != nullptr) && (je->signers == nullptr)) {
@@ -401,6 +403,7 @@ $CodeSignerArray* JarVerifier::getCodeSigners($String* name) {
 }
 
 $CodeSignerArray* JarVerifier::getCodeSigners($JarFile* jar, $JarEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(entry)->getName());
 	if (this->eagerValidation && $nc(this->sigFileSigners)->get(name) != nullptr) {
 		try {
@@ -420,6 +423,7 @@ $CodeSignerArray* JarVerifier::getCodeSigners($JarFile* jar, $JarEntry* entry) {
 
 $CertificateArray* JarVerifier::mapSignersToCertArray($CodeSignerArray* signers) {
 	$init(JarVerifier);
+	$useLocalCurrentObjectStackCache();
 	if (signers != nullptr) {
 		$var($ArrayList, certChains, $new($ArrayList));
 		{
@@ -458,6 +462,7 @@ void JarVerifier::doneWithMeta() {
 
 $CodeSource* JarVerifier::mapSignersToCodeSource($URL* url, $CodeSignerArray* signers) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Map, map, nullptr);
 		if (url == this->lastURL) {
 			$assign(map, this->lastURLMap);
@@ -480,6 +485,7 @@ $CodeSource* JarVerifier::mapSignersToCodeSource($URL* url, $CodeSignerArray* si
 }
 
 $CodeSourceArray* JarVerifier::mapSignersToCodeSources($URL* url, $List* signers, bool unsigned$) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, sources, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(signers)->iterator());
@@ -497,6 +503,7 @@ $CodeSourceArray* JarVerifier::mapSignersToCodeSources($URL* url, $List* signers
 }
 
 $CodeSignerArray* JarVerifier::findMatchingSigners($CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($JarVerifier$VerifierCodeSource, vcs, nullptr);
 		bool var$0 = $instanceOf($JarVerifier$VerifierCodeSource, cs);
@@ -550,6 +557,7 @@ $Map* JarVerifier::signerMap() {
 
 $Enumeration* JarVerifier::entryNames($JarFile* jar, $CodeSourceArray* cs) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($Map, map, signerMap());
 		$var($Iterator, itor, $nc($($nc(map)->entrySet()))->iterator());
 		bool matchUnsigned = false;
@@ -581,6 +589,7 @@ $Enumeration* JarVerifier::entryNames($JarFile* jar, $CodeSourceArray* cs) {
 }
 
 $Enumeration* JarVerifier::entries2($JarFile* jar, $Enumeration* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, $new($HashMap));
 	map->putAll($(signerMap()));
 	$var($Enumeration, enum_, e);
@@ -593,6 +602,7 @@ bool JarVerifier::isSigningRelated($String* name) {
 }
 
 $Enumeration* JarVerifier::unsignedEntryNames($JarFile* jar) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, signerMap());
 	$var($Enumeration, entries, $nc(jar)->entries());
 	return $new($JarVerifier$3, this, entries, map);
@@ -600,6 +610,7 @@ $Enumeration* JarVerifier::unsignedEntryNames($JarFile* jar) {
 
 $List* JarVerifier::getJarCodeSigners() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($CodeSignerArray, signers, nullptr);
 		if (this->jarCodeSigners == nullptr) {
 			$var($HashSet, set, $new($HashSet));
@@ -613,18 +624,21 @@ $List* JarVerifier::getJarCodeSigners() {
 
 $CodeSourceArray* JarVerifier::getCodeSources($JarFile* jar, $URL* url) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		bool hasUnsigned = $nc($(unsignedEntryNames(jar)))->hasMoreElements();
 		return mapSignersToCodeSources(url, $(getJarCodeSigners()), hasUnsigned);
 	}
 }
 
 $CodeSource* JarVerifier::getCodeSource($URL* url, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSignerArray, signers, nullptr);
 	$assign(signers, $cast($CodeSignerArray, $nc($(signerMap()))->get(name)));
 	return mapSignersToCodeSource(url, signers);
 }
 
 $CodeSource* JarVerifier::getCodeSource($URL* url, $JarFile* jar, $JarEntry* je) {
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSignerArray, signers, nullptr);
 	return mapSignersToCodeSource(url, $(getCodeSigners(jar, je)));
 }
@@ -645,6 +659,7 @@ $CodeSource* JarVerifier::getUnsignedCS($URL* url) {
 }
 
 bool JarVerifier::isTrustedManifestEntry($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSignerArray, forMan, $cast($CodeSignerArray, $nc(this->verifiedSigners)->get(this->manifestName)));
 	if (forMan == nullptr) {
 		return true;

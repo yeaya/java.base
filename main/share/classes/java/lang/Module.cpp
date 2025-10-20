@@ -572,6 +572,7 @@ Module* Module::EVERYONE_MODULE = nullptr;
 $Set* Module::EVERYONE_SET = nullptr;
 
 void Module::init$($ModuleLayer* layer, $ClassLoader* loader, $ModuleDescriptor* descriptor, $URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, layer, layer);
 	$set(this, name, $nc(descriptor)->name());
 	$set(this, loader, loader);
@@ -676,6 +677,7 @@ bool Module::canRead(Module* other) {
 }
 
 Module* Module::addReads(Module* other) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(other);
 	if (this->isNamed()) {
 		$var(Module, caller, getCallerModule($Reflection::getCallerClass()));
@@ -738,6 +740,7 @@ bool Module::isOpen($String* pn) {
 }
 
 bool Module::implIsExportedOrOpen($String* pn, Module* other, bool open) {
+	$useLocalCurrentObjectStackCache();
 	if (!isNamed()) {
 		return true;
 	}
@@ -758,6 +761,7 @@ bool Module::implIsExportedOrOpen($String* pn, Module* other, bool open) {
 }
 
 bool Module::isStaticallyExportedOrOpen($String* pn, Module* other, bool open) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, openPackages, this->openPackages);
 	if (openPackages != nullptr && allows($cast($Set, $(openPackages->get(pn))), other)) {
 		return true;
@@ -790,6 +794,7 @@ bool Module::allows($Set* targets, Module* module) {
 }
 
 bool Module::isReflectivelyExportedOrOpen($String* pn, Module* other, bool open) {
+	$useLocalCurrentObjectStackCache();
 	$init($Module$ReflectionData);
 	$var($Map, exports, $cast($Map, $nc($Module$ReflectionData::exports)->get(this, Module::EVERYONE_MODULE)));
 	if (exports != nullptr) {
@@ -837,6 +842,7 @@ bool Module::isReflectivelyOpened($String* pn, Module* other) {
 }
 
 Module* Module::addExports($String* pn, Module* other) {
+	$useLocalCurrentObjectStackCache();
 	if (pn == nullptr) {
 		$throwNew($IllegalArgumentException, "package is null"_s);
 	}
@@ -852,6 +858,7 @@ Module* Module::addExports($String* pn, Module* other) {
 }
 
 Module* Module::addOpens($String* pn, Module* other) {
+	$useLocalCurrentObjectStackCache();
 	if (pn == nullptr) {
 		$throwNew($IllegalArgumentException, "package is null"_s);
 	}
@@ -899,6 +906,7 @@ void Module::implAddOpensToAllUnnamed($String* pn) {
 }
 
 void Module::implAddExportsOrOpens($String* pn, Module* other, bool open, bool syncVM) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(other);
 	$Objects::requireNonNull(pn);
 	bool var$1 = !isNamed();
@@ -951,6 +959,7 @@ void Module::implAddOpensToAllUnnamed($Set* concealedPkgs, $Set* exportedPkgs) {
 }
 
 void Module::implAddOpensToAllUnnamed($Set* pkgs, $Map* openPackages) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(pkgs)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -967,6 +976,7 @@ void Module::implAddOpensToAllUnnamed($Set* pkgs, $Map* openPackages) {
 }
 
 Module* Module::addUses($Class* service) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(service);
 	bool var$0 = isNamed();
 	if (var$0 && !$nc(this->descriptor)->isAutomatic()) {
@@ -988,6 +998,7 @@ void Module::implAddUses($Class* service) {
 }
 
 bool Module::canUse($Class* service) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(service);
 	if (!isNamed()) {
 		return true;
@@ -1003,6 +1014,7 @@ bool Module::canUse($Class* service) {
 }
 
 $Set* Module::getPackages() {
+	$useLocalCurrentObjectStackCache();
 	if (isNamed()) {
 		return $nc(this->descriptor)->packages();
 	} else {
@@ -1018,6 +1030,7 @@ $Set* Module::getPackages() {
 
 $Map* Module::defineModules($Configuration* cf, $Function* clf, $ModuleLayer* layer) {
 	$init(Module);
+	$useLocalCurrentObjectStackCache();
 	bool isBootLayer = ($ModuleLayer::boot() == nullptr);
 	int32_t numModules = $nc($($nc(cf)->modules()))->size();
 	int32_t cap = $cast(int32_t, (numModules / 0.75f + 1.0f));
@@ -1148,6 +1161,7 @@ $Map* Module::defineModules($Configuration* cf, $Function* clf, $ModuleLayer* la
 
 Module* Module::findModule($ModuleLayer* parent, $ResolvedModule* resolvedModule) {
 	$init(Module);
+	$useLocalCurrentObjectStackCache();
 	$var($Configuration, cf, $nc(resolvedModule)->configuration());
 	$var($String, dn, resolvedModule->name());
 	return $cast(Module, $nc($($nc($($nc($($nc($($nc(parent)->layers()))->filter(static_cast<$Predicate*>($$new(Module$$Lambda$lambda$findModule$2$3, cf)))))->findAny()))->map(static_cast<$Function*>($$new(Module$$Lambda$lambda$findModule$3$4, dn)))))->orElse(nullptr));
@@ -1155,6 +1169,7 @@ Module* Module::findModule($ModuleLayer* parent, $ResolvedModule* resolvedModule
 
 void Module::initExports(Module* m, $Map* nameToModule) {
 	$init(Module);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, exportedPackages, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($($nc($($nc(m)->getDescriptor()))->exports()))->iterator());
@@ -1194,6 +1209,7 @@ void Module::initExports(Module* m, $Map* nameToModule) {
 
 void Module::initExportsAndOpens(Module* m, $Map* nameToSource, $Map* nameToModule, $List* parents) {
 	$init(Module);
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(m)->getDescriptor());
 	$var($Map, openPackages, $new($HashMap));
 	$var($Map, exportedPackages, $new($HashMap));
@@ -1275,6 +1291,7 @@ void Module::initExportsAndOpens(Module* m, $Map* nameToSource, $Map* nameToModu
 
 Module* Module::findModule($String* target, $Map* nameToSource, $Map* nameToModule, $List* parents) {
 	$init(Module);
+	$useLocalCurrentObjectStackCache();
 	$var(Module, m, $cast(Module, $nc(nameToSource)->get(target)));
 	if (m == nullptr) {
 		$assign(m, $cast(Module, $nc(nameToModule)->get(target)));
@@ -1334,6 +1351,7 @@ $Class* Module::moduleInfoClass() {
 }
 
 $Class* Module::loadModuleInfoClass() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = nullptr;
 	try {
@@ -1375,6 +1393,7 @@ $Class* Module::loadModuleInfoClass() {
 }
 
 $Class* Module::loadModuleInfoClass($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, MODULE_INFO, "module-info"_s);
 	$var($ClassWriter, cw, $new($ClassWriter, $ClassWriter::COMPUTE_MAXS + $ClassWriter::COMPUTE_FRAMES));
 	$var($ClassVisitor, cv, $new($Module$1, this, $Opcodes::ASM7, cw, cw));
@@ -1392,6 +1411,7 @@ $Class* Module::loadModuleInfoClass($InputStream* in) {
 }
 
 $InputStream* Module::getResourceAsStream($String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	if ($nc(name)->startsWith("/"_s)) {
 		$assign(name, name->substring(1));
@@ -1459,6 +1479,7 @@ void Module::addExportsToAllUnnamed0(Module* from, $String* pn) {
 
 Module* Module::lambda$findModule$3($String* dn, $ModuleLayer* layer) {
 	$init(Module);
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, om, $nc(layer)->findModule(dn));
 	if (!Module::$assertionsDisabled && !$nc(om)->isPresent()) {
 		$throwNew($AssertionError, $of($$str({dn, " not found in layer"_s})));

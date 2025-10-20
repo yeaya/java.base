@@ -121,6 +121,7 @@ void CertStatusExtension$CertStatusRequestV2Spec::init$($CertStatusExtension$Cer
 }
 
 void CertStatusExtension$CertStatusRequestV2Spec::init$($HandshakeContext* hc, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(message)->remaining() == 0) {
 		$set(this, certStatusRequests, $new($CertStatusExtension$CertStatusRequestArray, 0));
 		return;
@@ -168,6 +169,7 @@ void CertStatusExtension$CertStatusRequestV2Spec::init$($HandshakeContext* hc, $
 }
 
 $String* CertStatusExtension$CertStatusRequestV2Spec::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->certStatusRequests == nullptr || $nc(this->certStatusRequests)->length == 0) {
 		return "<empty>"_s;
 	} else {

@@ -57,6 +57,7 @@ void GetAbsolutePath::init$() {
 
 void GetAbsolutePath::ck($String* path, $String* ans) {
 	$init(GetAbsolutePath);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, path));
 	$var($String, p, f->getAbsolutePath());
 	bool var$0 = (GetAbsolutePath::ignoreCase && $nc(p)->equalsIgnoreCase(ans));
@@ -70,6 +71,7 @@ void GetAbsolutePath::ck($String* path, $String* ans) {
 
 void GetAbsolutePath::testWin32() {
 	$init(GetAbsolutePath);
+	$useLocalCurrentObjectStackCache();
 	$var($String, wd, $System::getProperty("user.dir"_s));
 	char16_t d = 0;
 	bool var$1 = ($nc(wd)->length() > 2);
@@ -103,6 +105,7 @@ void GetAbsolutePath::testWin32() {
 
 void GetAbsolutePath::testUnix() {
 	$init(GetAbsolutePath);
+	$useLocalCurrentObjectStackCache();
 	$var($String, wd, $System::getProperty("user.dir"_s));
 	ck("foo"_s, $$str({wd, "/foo"_s}));
 	ck("foo/bar"_s, $$str({wd, "/foo/bar"_s}));

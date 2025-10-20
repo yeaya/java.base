@@ -354,6 +354,7 @@ $StringArray* ImageReader::getEntryNames() {
 }
 
 $StringArray* ImageReader::getModuleNames() {
+	$useLocalCurrentObjectStackCache();
 	requireOpen();
 	int32_t off = "/modules/"_s->length();
 	return $fcast($StringArray, $nc($($nc($($nc($($nc($($nc($($nc(this->reader)->findNode("/modules"_s)))->getChildren()))->stream()))->map(static_cast<$Function*>($$new(ImageReader$$Lambda$getNameString)))))->map(static_cast<$Function*>($$new(ImageReader$$Lambda$lambda$getModuleNames$0$1, off)))))->toArray(static_cast<$IntFunction*>($$new(ImageReader$$Lambda$lambda$getModuleNames$1$2))));

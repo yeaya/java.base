@@ -84,6 +84,7 @@ bool MethodHandleDesc::equals(Object$* o) {
 
 $DirectMethodHandleDesc* MethodHandleDesc::of($DirectMethodHandleDesc$Kind* kind, $ClassDesc* owner, $String* name, $String* lookupDescriptor) {
 	$init(MethodHandleDesc);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleDesc$1);
 	switch ($nc($MethodHandleDesc$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->get($nc((kind))->ordinal())) {
 	case 1:
@@ -105,6 +106,7 @@ $DirectMethodHandleDesc* MethodHandleDesc::of($DirectMethodHandleDesc$Kind* kind
 
 $DirectMethodHandleDesc* MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind* kind, $ClassDesc* owner, $String* name, $MethodTypeDesc* lookupMethodType) {
 	$init(MethodHandleDesc);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleDesc$1);
 	switch ($nc($MethodHandleDesc$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->get($nc((kind))->ordinal())) {
 	case 1:
@@ -142,6 +144,7 @@ $DirectMethodHandleDesc* MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind
 
 $DirectMethodHandleDesc* MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind* kind, $ClassDesc* owner, $String* fieldName, $ClassDesc* fieldType) {
 	$init(MethodHandleDesc);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleDesc$1);
 
 	$var($MethodTypeDesc, var$0, nullptr)

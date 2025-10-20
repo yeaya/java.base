@@ -85,6 +85,7 @@ $Object* allocate$Loader$LoadedModule($Class* clazz) {
 }
 
 void Loader$LoadedModule::init$($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	if ($nc($($nc(mref)->location()))->isPresent()) {
 		try {

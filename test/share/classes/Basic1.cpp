@@ -85,6 +85,7 @@ void Basic1::init$() {
 
 void Basic1::main($StringArray* args) {
 	$load(Basic1);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println("\nBasic functional test of dynamic proxy API, part 1\n"_s);

@@ -139,6 +139,7 @@ VarHandleShorts$FieldStaticReadOnly* VarHandleShorts$FieldStaticReadOnly::withIn
 }
 
 $Optional* VarHandleShorts$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Short);
 	$var($Optional, fieldTypeRef, $nc($Short::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

@@ -96,6 +96,7 @@ void UTF_32Coder$Encoder::put(int32_t cp, $ByteBuffer* dst) {
 }
 
 void UTF_32Coder$Encoder::init$($Charset* cs, int32_t byteOrder, bool doBOM) {
+	$useLocalCurrentObjectStackCache();
 	$CharsetEncoder::init$(cs, 4.0f, doBOM ? 8.0f : 4.0f, (byteOrder == 1) ? $$new($bytes, {
 		(int8_t)0,
 		(int8_t)0,
@@ -115,6 +116,7 @@ void UTF_32Coder$Encoder::init$($Charset* cs, int32_t byteOrder, bool doBOM) {
 }
 
 $CoderResult* UTF_32Coder$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	if (!this->doneBOM && src->hasRemaining()) {
 		if ($nc(dst)->remaining() < 4) {

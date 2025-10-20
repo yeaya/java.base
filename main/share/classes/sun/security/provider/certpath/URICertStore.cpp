@@ -185,6 +185,7 @@ $Cache* URICertStore::certStoreCache = nullptr;
 
 int32_t URICertStore::initializeTimeout($String* prop, int32_t def) {
 	$init(URICertStore);
+	$useLocalCurrentObjectStackCache();
 	$var($Integer, tmp, $GetIntegerAction::privilegedGetProperty(prop));
 	if (tmp == nullptr || $nc(tmp)->intValue() < 0) {
 		return def;
@@ -196,6 +197,7 @@ int32_t URICertStore::initializeTimeout($String* prop, int32_t def) {
 }
 
 void URICertStore::init$($CertStoreParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$CertStoreSpi::init$(params);
 	$set(this, certs, $Collections::emptySet());
 	this->ldap = false;
@@ -220,6 +222,7 @@ $CertStore* URICertStore::getInstance($URICertStoreParameters* params) {
 	$load(URICertStore);
 	$synchronized(class$) {
 		$init(URICertStore);
+		$useLocalCurrentObjectStackCache();
 		if (URICertStore::debug != nullptr) {
 			$nc(URICertStore::debug)->println($$str({"CertStore URI:"_s, $($nc(params)->getURI())}));
 		}
@@ -238,6 +241,7 @@ $CertStore* URICertStore::getInstance($URICertStoreParameters* params) {
 
 $CertStore* URICertStore::getInstance($AccessDescription* ad) {
 	$init(URICertStore);
+	$useLocalCurrentObjectStackCache();
 	$init($AccessDescription);
 	if (!$nc($($nc(ad)->getAccessMethod()))->equals($AccessDescription::Ad_CAISSUERS_Id)) {
 		return nullptr;
@@ -262,6 +266,7 @@ $CertStore* URICertStore::getInstance($AccessDescription* ad) {
 
 $Collection* URICertStore::engineGetCertificates($CertSelector* selector) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->ldap) {
 			return $nc(this->ldapCertStore)->getCertificates(selector);
 		}
@@ -361,6 +366,7 @@ $Collection* URICertStore::engineGetCertificates($CertSelector* selector) {
 
 $Collection* URICertStore::getMatchingCerts($Collection* certs, $CertSelector* selector) {
 	$init(URICertStore);
+	$useLocalCurrentObjectStackCache();
 	if (selector == nullptr) {
 		return certs;
 	}
@@ -381,6 +387,7 @@ $Collection* URICertStore::getMatchingCerts($Collection* certs, $CertSelector* s
 
 $Collection* URICertStore::engineGetCRLs($CRLSelector* selector) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->ldap) {
 			try {
 				return $nc(this->ldapCertStore)->getCRLs(selector);

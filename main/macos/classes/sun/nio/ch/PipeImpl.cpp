@@ -60,6 +60,7 @@ $Object* allocate$PipeImpl($Class* clazz) {
 }
 
 void PipeImpl::init$($SelectorProvider* sp) {
+	$useLocalCurrentObjectStackCache();
 	$Pipe::init$();
 	int64_t pipeFds = $IOUtil::makePipe(true);
 	int32_t readFd = (int32_t)((int64_t)((uint64_t)pipeFds >> 32));

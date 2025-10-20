@@ -86,6 +86,7 @@ void Spliterators$AbstractSpliterator::init$(int64_t est, int32_t additionalChar
 }
 
 $Spliterator* Spliterators$AbstractSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterators$AbstractSpliterator$HoldingConsumer, holder, $new($Spliterators$AbstractSpliterator$HoldingConsumer));
 	int64_t s = this->est;
 	if (s > 1 && tryAdvance(holder)) {

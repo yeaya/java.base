@@ -213,6 +213,7 @@ $SignatureVisitor* CheckSignatureAdapter::visitParameterType() {
 }
 
 $SignatureVisitor* CheckSignatureAdapter::visitReturnType() {
+	$useLocalCurrentObjectStackCache();
 	if (this->type != CheckSignatureAdapter::METHOD_SIGNATURE || !$nc(CheckSignatureAdapter::VISIT_RETURN_TYPE_STATES)->contains(this->state)) {
 		$throwNew($IllegalStateException);
 	}
@@ -325,6 +326,7 @@ void CheckSignatureAdapter::visitEnd() {
 }
 
 void CheckSignatureAdapter::checkClassName($String* name, $String* message) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr || $nc(name)->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({CheckSignatureAdapter::INVALID, message, " (must not be null or empty)"_s}));
 	}
@@ -336,6 +338,7 @@ void CheckSignatureAdapter::checkClassName($String* name, $String* message) {
 }
 
 void CheckSignatureAdapter::checkIdentifier($String* name, $String* message) {
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr || $nc(name)->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({CheckSignatureAdapter::INVALID, message, " (must not be null or empty)"_s}));
 	}

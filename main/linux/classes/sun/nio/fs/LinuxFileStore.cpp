@@ -101,6 +101,7 @@ void LinuxFileStore::init$($UnixFileSystem* fs, $UnixMountEntry* entry) {
 }
 
 $UnixMountEntry* LinuxFileStore::findMountEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinuxFileSystem, fs, $cast($LinuxFileSystem, $cast($UnixFileSystem, $nc($(file()))->getFileSystem())));
 	$var($UnixPath, path, nullptr);
 	try {
@@ -155,6 +156,7 @@ $UnixMountEntry* LinuxFileStore::findMountEntry() {
 
 $ints* LinuxFileStore::getKernelVersion() {
 	$init(LinuxFileStore);
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern, pattern, $Pattern::compile("\\D+"_s));
 	$var($StringArray, matches, $nc(pattern)->split($($System::getProperty("os.version"_s))));
 	$var($ints, majorMinorMicro, $new($ints, 3));
@@ -166,6 +168,7 @@ $ints* LinuxFileStore::getKernelVersion() {
 }
 
 bool LinuxFileStore::supportsFileAttributeView($Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$load($DosFileAttributeView);
 	$load($UserDefinedFileAttributeView);
 	if (type == $DosFileAttributeView::class$ || type == $UserDefinedFileAttributeView::class$) {

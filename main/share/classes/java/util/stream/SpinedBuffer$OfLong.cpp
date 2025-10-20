@@ -182,6 +182,7 @@ $Spliterator* SpinedBuffer$OfLong::spliterator() {
 }
 
 $String* SpinedBuffer$OfLong::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, array, $cast($longs, asPrimitiveArray()));
 	if ($nc(array)->length < 200) {
 		return $String::format("%s[length=%d, chunks=%d]%s"_s, $$new($ObjectArray, {

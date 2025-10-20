@@ -86,6 +86,7 @@ void Nodes$InternalNodeSpliterator::init$($Node* curNode) {
 }
 
 $Deque* Nodes$InternalNodeSpliterator::initStack() {
+	$useLocalCurrentObjectStackCache();
 	$var($Deque, stack, $new($ArrayDeque, 8));
 	for (int32_t i = $nc(this->curNode)->getChildCount() - 1; i >= this->curChildIndex; --i) {
 		stack->addFirst($($nc(this->curNode)->getChild(i)));
@@ -94,6 +95,7 @@ $Deque* Nodes$InternalNodeSpliterator::initStack() {
 }
 
 $Node* Nodes$InternalNodeSpliterator::findNextLeafNode($Deque* stack) {
+	$useLocalCurrentObjectStackCache();
 	$var($Node, n, nullptr);
 	while (($assign(n, $cast($Node, $nc(stack)->pollFirst()))) != nullptr) {
 		if ($nc(n)->getChildCount() == 0) {
@@ -131,6 +133,7 @@ bool Nodes$InternalNodeSpliterator::initTryAdvance() {
 }
 
 $Spliterator* Nodes$InternalNodeSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curNode == nullptr || this->tryAdvanceSpliterator != nullptr) {
 		return nullptr;
 	} else if (this->lastNodeSpliterator != nullptr) {
@@ -150,6 +153,7 @@ $Spliterator* Nodes$InternalNodeSpliterator::trySplit() {
 }
 
 int64_t Nodes$InternalNodeSpliterator::estimateSize() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curNode == nullptr) {
 		return 0;
 	}

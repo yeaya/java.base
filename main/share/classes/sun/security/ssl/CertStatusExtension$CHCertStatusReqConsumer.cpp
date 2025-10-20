@@ -88,6 +88,7 @@ void CertStatusExtension$CHCertStatusReqConsumer::init$() {
 }
 
 void CertStatusExtension$CHCertStatusReqConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_STATUS_REQUEST)) {

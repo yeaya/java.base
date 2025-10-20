@@ -127,6 +127,7 @@ void DatagramChannelImpl$AbstractSelectableChannels::init$() {
 
 void DatagramChannelImpl$AbstractSelectableChannels::forEach($AbstractSelectableChannel* ch, $Consumer* action) {
 	$init(DatagramChannelImpl$AbstractSelectableChannels);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$nc(DatagramChannelImpl$AbstractSelectableChannels::FOREACH)->invoke(ch, $$new($ObjectArray, {$of(action)}));
@@ -138,6 +139,7 @@ void DatagramChannelImpl$AbstractSelectableChannels::forEach($AbstractSelectable
 
 $Method* DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0() {
 	$init(DatagramChannelImpl$AbstractSelectableChannels);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($AbstractSelectableChannel);
 	$load($Consumer);
@@ -147,6 +149,7 @@ $Method* DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0() {
 }
 
 void clinit$DatagramChannelImpl$AbstractSelectableChannels($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

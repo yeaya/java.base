@@ -127,6 +127,7 @@ void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* conte
 }
 
 void NewSessionTicket$T13NewSessionTicketMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$NewSessionTicket$NewSessionTicketMessage::init$(context);
 	if ($nc(m)->remaining() < 14) {
 		$init($Alert);
@@ -189,6 +190,7 @@ void NewSessionTicket$T13NewSessionTicketMessage::send($HandshakeOutStream* hos)
 }
 
 $String* NewSessionTicket$T13NewSessionTicketMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"NewSessionTicket\": \'{\'\n  \"ticket_lifetime\"      : \"{0}\",\n  \"ticket_age_add\"       : \"{1}\",\n  \"ticket_nonce\"         : \"{2}\",\n  \"ticket\"               : \'{\'\n{3}\n  \'}\'  \"extensions\"           : [\n{4}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

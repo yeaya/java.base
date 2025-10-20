@@ -193,6 +193,7 @@ void NativeSocketAddress::init$() {
 
 $NativeSocketAddressArray* NativeSocketAddress::allocate(int32_t count) {
 	$init(NativeSocketAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeSocketAddressArray, array, $new($NativeSocketAddressArray, count));
 	for (int32_t i = 0; i < count; ++i) {
 		try {
@@ -208,6 +209,7 @@ $NativeSocketAddressArray* NativeSocketAddress::allocate(int32_t count) {
 
 void NativeSocketAddress::freeAll($NativeSocketAddressArray* array) {
 	$init(NativeSocketAddress);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(array)->length; ++i) {
 		$var(NativeSocketAddress, sa, array->get(i));
 		if (sa != nullptr) {
@@ -217,6 +219,7 @@ void NativeSocketAddress::freeAll($NativeSocketAddressArray* array) {
 }
 
 int32_t NativeSocketAddress::encode($ProtocolFamily* protocolFamily, $InetSocketAddress* isa) {
+	$useLocalCurrentObjectStackCache();
 	$init($StandardProtocolFamily);
 	if ($equals(protocolFamily, $StandardProtocolFamily::INET)) {
 		$var($InetAddress, ia, $nc(isa)->getAddress());
@@ -278,6 +281,7 @@ int32_t NativeSocketAddress::hashCode() {
 }
 
 $String* NativeSocketAddress::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t family = this->family();
 	if (family == NativeSocketAddress::AF_INET || family == NativeSocketAddress::AF_INET6) {
 		$var($String, var$0, $$str({((family == NativeSocketAddress::AF_INET) ? "AF_INET"_s : "AF_INET6"_s), ", address="_s, $(address(family)), ", port="_s}));
@@ -334,6 +338,7 @@ void NativeSocketAddress::putPort(int32_t family, int32_t port) {
 }
 
 $InetAddress* NativeSocketAddress::address(int32_t family) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = 0;
 	int32_t offset = 0;
 	int32_t scope_id = 0;

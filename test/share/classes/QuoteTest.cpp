@@ -58,6 +58,7 @@ void QuoteTest::init$() {
 
 void QuoteTest::main($StringArray* args) {
 	$init(QuoteTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({"Parsing String: "_s, QuoteTest::testStr}));
 	$var($StreamTokenizer, st, $new($StreamTokenizer, static_cast<$Reader*>($$new($StringReader, QuoteTest::testStr))));

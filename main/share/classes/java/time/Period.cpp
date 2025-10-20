@@ -230,6 +230,7 @@ Period* Period::of(int32_t years, int32_t months, int32_t days) {
 
 Period* Period::from($TemporalAmount* amount) {
 	$init(Period);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(Period, amount)) {
 		return $cast(Period, amount);
 	}
@@ -271,6 +272,7 @@ Period* Period::from($TemporalAmount* amount) {
 
 Period* Period::parse($CharSequence* text) {
 	$init(Period);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$var($Matcher, matcher, $nc(Period::PATTERN)->matcher(text));
 	if ($nc(matcher)->matches()) {
@@ -528,6 +530,7 @@ $Temporal* Period::subtractFrom($Temporal* temporal$renamed) {
 }
 
 void Period::validateChrono($TemporalAccessor* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(temporal), "temporal"_s);
 	$var($Chronology, temporalChrono, $cast($Chronology, $nc(temporal)->query($($TemporalQueries::chronology()))));
 	$init($IsoChronology);

@@ -196,10 +196,12 @@ $String* Phaser::badArrive(int64_t s) {
 }
 
 $String* Phaser::badRegister(int64_t s) {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Attempt to register more than "_s, $$str(Phaser::MAX_PARTIES), " parties for "_s, $(stateToString(s))});
 }
 
 int32_t Phaser::doArrive(int32_t adjust) {
+	$useLocalCurrentObjectStackCache();
 	$var(Phaser, root, this->root);
 	for (;;) {
 		int64_t s = (root == this) ? $cast(int64_t, this->state) : reconcileState();
@@ -242,6 +244,7 @@ int32_t Phaser::doArrive(int32_t adjust) {
 }
 
 int32_t Phaser::doRegister(int32_t registrations) {
+	$useLocalCurrentObjectStackCache();
 	int64_t adjust = ($sl((int64_t)registrations, Phaser::PARTIES_SHIFT)) | registrations;
 	$var(Phaser, parent, this->parent);
 	int32_t phase = 0;
@@ -290,6 +293,7 @@ int32_t Phaser::doRegister(int32_t registrations) {
 }
 
 int64_t Phaser::reconcileState() {
+	$useLocalCurrentObjectStackCache();
 	$var(Phaser, root, this->root);
 	int64_t s = this->state;
 	if (root != this) {
@@ -369,6 +373,7 @@ int32_t Phaser::arriveAndDeregister() {
 }
 
 int32_t Phaser::arriveAndAwaitAdvance() {
+	$useLocalCurrentObjectStackCache();
 	$var(Phaser, root, this->root);
 	for (;;) {
 		int64_t s = (root == this) ? $cast(int64_t, this->state) : reconcileState();
@@ -423,6 +428,7 @@ int32_t Phaser::awaitAdvance(int32_t phase) {
 }
 
 int32_t Phaser::awaitAdvanceInterruptibly(int32_t phase) {
+	$useLocalCurrentObjectStackCache();
 	$var(Phaser, root, this->root);
 	int64_t s = (root == this) ? $cast(int64_t, this->state) : reconcileState();
 	int32_t p = (int32_t)($usr(s, Phaser::PHASE_SHIFT));
@@ -440,6 +446,7 @@ int32_t Phaser::awaitAdvanceInterruptibly(int32_t phase) {
 }
 
 int32_t Phaser::awaitAdvanceInterruptibly(int32_t phase, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var(Phaser, root, this->root);
 	int64_t s = (root == this) ? $cast(int64_t, this->state) : reconcileState();
@@ -460,6 +467,7 @@ int32_t Phaser::awaitAdvanceInterruptibly(int32_t phase, int64_t timeout, $TimeU
 }
 
 void Phaser::forceTermination() {
+	$useLocalCurrentObjectStackCache();
 	$var(Phaser, root, this->root);
 	int64_t s = 0;
 	while ((s = $nc(root)->state) >= 0) {
@@ -508,6 +516,7 @@ $String* Phaser::toString() {
 }
 
 $String* Phaser::stateToString(int64_t s) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$5, $$str({$($Object::toString()), "[phase = "_s}));
 	$var($String, var$4, $$concat(var$5, $$str(phaseOf(s))));
 	$var($String, var$3, $$concat(var$4, " parties = "));
@@ -518,6 +527,7 @@ $String* Phaser::stateToString(int64_t s) {
 }
 
 void Phaser::releaseWaiters(int32_t phase) {
+	$useLocalCurrentObjectStackCache();
 	$var($Phaser$QNode, q, nullptr);
 	$var($Thread, t, nullptr);
 	$var($AtomicReference, head, ((int32_t)(phase & (uint32_t)1)) == 0 ? this->evenQ : this->oddQ);
@@ -536,6 +546,7 @@ void Phaser::releaseWaiters(int32_t phase) {
 }
 
 int32_t Phaser::abortWait(int32_t phase) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReference, head, ((int32_t)(phase & (uint32_t)1)) == 0 ? this->evenQ : this->oddQ);
 	for (;;) {
 		$var($Thread, t, nullptr);
@@ -552,6 +563,7 @@ int32_t Phaser::abortWait(int32_t phase) {
 }
 
 int32_t Phaser::internalAwaitAdvance(int32_t phase, $Phaser$QNode* node$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Phaser$QNode, node, node$renamed);
 	releaseWaiters(phase - 1);
 	bool queued = false;
@@ -607,6 +619,7 @@ int32_t Phaser::internalAwaitAdvance(int32_t phase, $Phaser$QNode* node$renamed)
 }
 
 void clinit$Phaser($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Phaser::NCPU = $nc($($Runtime::getRuntime()))->availableProcessors();
 	Phaser::SPINS_PER_ARRIVAL = (Phaser::NCPU < 2) ? 1 : 1 << 8;

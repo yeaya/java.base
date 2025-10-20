@@ -90,6 +90,7 @@ void GetResource$1::init$($GetResource* this$0) {
 }
 
 void GetResource$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, prop, $System::getProperties());
 	$synchronized(prop) {
 		$nc($System::out)->println("Thread 1 ready"_s);

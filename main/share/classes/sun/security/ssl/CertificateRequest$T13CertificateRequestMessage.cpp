@@ -110,6 +110,7 @@ void CertificateRequest$T13CertificateRequestMessage::init$($HandshakeContext* h
 }
 
 void CertificateRequest$T13CertificateRequestMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	if ($nc(m)->remaining() < 5) {
 		$init($Alert);
@@ -140,6 +141,7 @@ void CertificateRequest$T13CertificateRequestMessage::send($HandshakeOutStream* 
 }
 
 $String* CertificateRequest$T13CertificateRequestMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateRequest\": \'{\'\n  \"certificate_request_context\": \"{0}\",\n  \"extensions\": [\n{1}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {

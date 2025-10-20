@@ -136,14 +136,17 @@ $Runnable* IOUtil$LinkedRunnable::next() {
 }
 
 $String* IOUtil$LinkedRunnable::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($String, $cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "toString"_s, $($MethodType::methodType(nullptr)), IOUtil$LinkedRunnable::class$, "node;next"_s, $$new($MethodHandleArray, {nullptr, nullptr}))))->invoke($$new($ObjectArray, {$of(this)})));
 }
 
 int32_t IOUtil$LinkedRunnable::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	return $intValue($cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "hashCode"_s, $($MethodType::methodType(nullptr)), IOUtil$LinkedRunnable::class$, "node;next"_s, $$new($MethodHandleArray, {nullptr, nullptr}))))->invoke($$new($ObjectArray, {$of(this)})));
 }
 
 bool IOUtil$LinkedRunnable::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	return $booleanValue($cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "equals"_s, $($MethodType::methodType(nullptr)), IOUtil$LinkedRunnable::class$, "node;next"_s, $$new($MethodHandleArray, {nullptr, nullptr}))))->invoke($$new($ObjectArray, {$of(this), o})));
 }
 

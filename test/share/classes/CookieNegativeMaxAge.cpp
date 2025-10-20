@@ -45,6 +45,7 @@ void CookieNegativeMaxAge::init$() {
 }
 
 void CookieNegativeMaxAge::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($HttpCookie, cookie, $new($HttpCookie, "testCookie"_s, "value"_s));
 	cookie->setMaxAge($Integer::MIN_VALUE);
 	if (cookie->hasExpired()) {

@@ -289,6 +289,7 @@ $String* DataInputStream::readUTF() {
 
 $String* DataInputStream::readUTF($DataInput* in) {
 	$init(DataInputStream);
+	$useLocalCurrentObjectStackCache();
 	int32_t utflen = $nc(in)->readUnsignedShort();
 	$var($bytes, bytearr, nullptr);
 	$var($chars, chararr, nullptr);

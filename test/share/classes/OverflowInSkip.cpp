@@ -46,6 +46,7 @@ void OverflowInSkip::init$() {
 }
 
 void OverflowInSkip::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, a, "_123456789_123456789_123456789_123456789"_s->toCharArray());
 	{
 		$var($CharArrayReader, car, $new($CharArrayReader, a));

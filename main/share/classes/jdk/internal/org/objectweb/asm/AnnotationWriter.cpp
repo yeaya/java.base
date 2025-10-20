@@ -109,6 +109,7 @@ void AnnotationWriter::init$($SymbolTable* symbolTable, bool useNamedValues, $By
 
 AnnotationWriter* AnnotationWriter::create($SymbolTable* symbolTable, $String* descriptor, AnnotationWriter* previousAnnotation) {
 	$init(AnnotationWriter);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteVector, annotation, $new($ByteVector));
 	$nc($(annotation->putShort($nc(symbolTable)->addConstantUtf8(descriptor))))->putShort(0);
 	return $new(AnnotationWriter, symbolTable, true, annotation, previousAnnotation);
@@ -116,6 +117,7 @@ AnnotationWriter* AnnotationWriter::create($SymbolTable* symbolTable, $String* d
 
 AnnotationWriter* AnnotationWriter::create($SymbolTable* symbolTable, int32_t typeRef, $TypePath* typePath, $String* descriptor, AnnotationWriter* previousAnnotation) {
 	$init(AnnotationWriter);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteVector, typeAnnotation, $new($ByteVector));
 	$TypeReference::putTarget(typeRef, typeAnnotation);
 	$TypePath::put(typePath, typeAnnotation);
@@ -124,6 +126,7 @@ AnnotationWriter* AnnotationWriter::create($SymbolTable* symbolTable, int32_t ty
 }
 
 void AnnotationWriter::visit($String* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	++this->numElementValuePairs;
 	if (this->useNamedValues) {
 		$nc(this->annotation)->putShort($nc(this->symbolTable)->addConstantUtf8(name));
@@ -329,6 +332,7 @@ int32_t AnnotationWriter::computeAnnotationsSize(AnnotationWriter* lastRuntimeVi
 }
 
 void AnnotationWriter::putAnnotations(int32_t attributeNameIndex, $ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	int32_t attributeLength = 2;
 	int32_t numAnnotations = 0;
 	$var(AnnotationWriter, annotationWriter, this);
@@ -372,6 +376,7 @@ void AnnotationWriter::putAnnotations($SymbolTable* symbolTable, AnnotationWrite
 
 int32_t AnnotationWriter::computeParameterAnnotationsSize($String* attributeName, $AnnotationWriterArray* annotationWriters, int32_t annotableParameterCount) {
 	$init(AnnotationWriter);
+	$useLocalCurrentObjectStackCache();
 	int32_t attributeSize = 7 + 2 * annotableParameterCount;
 	for (int32_t i = 0; i < annotableParameterCount; ++i) {
 		$var(AnnotationWriter, annotationWriter, $nc(annotationWriters)->get(i));
@@ -382,6 +387,7 @@ int32_t AnnotationWriter::computeParameterAnnotationsSize($String* attributeName
 
 void AnnotationWriter::putParameterAnnotations(int32_t attributeNameIndex, $AnnotationWriterArray* annotationWriters, int32_t annotableParameterCount, $ByteVector* output) {
 	$init(AnnotationWriter);
+	$useLocalCurrentObjectStackCache();
 	int32_t attributeLength = 1 + 2 * annotableParameterCount;
 	for (int32_t i = 0; i < annotableParameterCount; ++i) {
 		$var(AnnotationWriter, annotationWriter, $nc(annotationWriters)->get(i));

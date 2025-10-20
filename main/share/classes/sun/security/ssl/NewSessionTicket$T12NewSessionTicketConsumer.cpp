@@ -86,6 +86,7 @@ void NewSessionTicket$T12NewSessionTicketConsumer::init$() {
 }
 
 void NewSessionTicket$T12NewSessionTicketConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::NEW_SESSION_TICKET->id)));

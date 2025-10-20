@@ -70,6 +70,7 @@ void ProxyClashTest::init$() {
 
 void ProxyClashTest::main($StringArray* args) {
 	$load(ProxyClashTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println("\nDynamic proxy API static method clash test\n"_s);

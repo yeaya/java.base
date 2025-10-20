@@ -277,6 +277,7 @@ bool ForkJoinPool$WorkQueue::lockedPush($ForkJoinTask* task) {
 }
 
 void ForkJoinPool$WorkQueue::growArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinTaskArray, oldArray, this->array);
 	$var($ForkJoinTaskArray, newArray, nullptr);
 	int32_t s = this->top - 1;
@@ -309,6 +310,7 @@ void ForkJoinPool$WorkQueue::growArray() {
 }
 
 $ForkJoinTask* ForkJoinPool$WorkQueue::pop() {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinTask, t, nullptr);
 	int32_t s = this->top;
 	int32_t cap = 0;
@@ -335,6 +337,7 @@ bool ForkJoinPool$WorkQueue::tryUnpush($ForkJoinTask* task) {
 }
 
 bool ForkJoinPool$WorkQueue::externalTryUnpush($ForkJoinTask* task) {
+	$useLocalCurrentObjectStackCache();
 	bool taken = false;
 	for (;;) {
 		int32_t s = this->top;
@@ -362,6 +365,7 @@ bool ForkJoinPool$WorkQueue::externalTryUnpush($ForkJoinTask* task) {
 }
 
 bool ForkJoinPool$WorkQueue::tryRemove($ForkJoinTask* task, bool owned) {
+	$useLocalCurrentObjectStackCache();
 	bool taken = false;
 	int32_t p = this->top;
 	int32_t cap = 0;
@@ -397,6 +401,7 @@ bool ForkJoinPool$WorkQueue::tryRemove($ForkJoinTask* task, bool owned) {
 }
 
 $ForkJoinTask* ForkJoinPool$WorkQueue::tryPoll() {
+	$useLocalCurrentObjectStackCache();
 	int32_t cap = 0;
 	int32_t b = 0;
 	int32_t k = 0;
@@ -413,6 +418,7 @@ $ForkJoinTask* ForkJoinPool$WorkQueue::tryPoll() {
 }
 
 $ForkJoinTask* ForkJoinPool$WorkQueue::nextLocalTask(int32_t cfg) {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinTask, t, nullptr);
 	int32_t s = this->top;
 	int32_t cap = 0;
@@ -455,6 +461,7 @@ $ForkJoinTask* ForkJoinPool$WorkQueue::peek() {
 }
 
 void ForkJoinPool$WorkQueue::topLevelExec($ForkJoinTask* task$renamed, ForkJoinPool$WorkQueue* q) {
+	$useLocalCurrentObjectStackCache();
 	$var($ForkJoinTask, task, task$renamed);
 	int32_t cfg = this->config;
 	int32_t nstolen = 1;
@@ -473,6 +480,7 @@ void ForkJoinPool$WorkQueue::topLevelExec($ForkJoinTask* task$renamed, ForkJoinP
 }
 
 int32_t ForkJoinPool$WorkQueue::helpComplete($ForkJoinTask* task, bool owned, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	int32_t status = 0;
 	int32_t cap = 0;
 	int32_t k = 0;
@@ -521,6 +529,7 @@ int32_t ForkJoinPool$WorkQueue::helpComplete($ForkJoinTask* task, bool owned, in
 }
 
 void ForkJoinPool$WorkQueue::helpAsyncBlocker($ForkJoinPool$ManagedBlocker* blocker) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cap = 0;
 	int32_t b = 0;
 	int32_t d = 0;
@@ -544,6 +553,7 @@ void ForkJoinPool$WorkQueue::helpAsyncBlocker($ForkJoinPool$ManagedBlocker* bloc
 }
 
 void ForkJoinPool$WorkQueue::initializeInnocuousWorker() {
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, acc, nullptr);
 	if (($assign(acc, ForkJoinPool$WorkQueue::INNOCUOUS_ACC)) == nullptr) {
 		$assignStatic(ForkJoinPool$WorkQueue::INNOCUOUS_ACC, ($assign(acc, $new($AccessControlContext, $$new($ProtectionDomainArray, {$$new($ProtectionDomain, nullptr, nullptr)})))));
@@ -564,6 +574,7 @@ bool ForkJoinPool$WorkQueue::isApparentlyUnblocked() {
 }
 
 void clinit$ForkJoinPool$WorkQueue($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

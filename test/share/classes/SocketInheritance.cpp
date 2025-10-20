@@ -84,12 +84,14 @@ void SocketInheritance::init$() {
 }
 
 $SocketChannel* SocketInheritance::connect(int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, lh, $InetAddress::getLoopbackAddress());
 	$var($InetSocketAddress, isa, $new($InetSocketAddress, lh, port));
 	return $SocketChannel::open(static_cast<$SocketAddress*>(isa));
 }
 
 void SocketInheritance::child(int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(connect(port)))->close();
 	} catch ($IOException&) {
@@ -107,6 +109,7 @@ void SocketInheritance::child(int32_t port) {
 }
 
 void SocketInheritance::start() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	$nc($($nc(ssc)->socket()))->bind($$new($InetSocketAddress, 0));
 	int32_t port = $nc($(ssc->socket()))->getLocalPort();

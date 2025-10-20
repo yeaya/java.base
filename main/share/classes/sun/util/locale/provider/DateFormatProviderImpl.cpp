@@ -225,6 +225,7 @@ $DateFormat* DateFormatProviderImpl::getDateTimeInstance(int32_t dateStyle, int3
 }
 
 $DateFormat* DateFormatProviderImpl::getInstance(int32_t dateStyle, int32_t timeStyle, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}

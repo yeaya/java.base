@@ -139,6 +139,7 @@ VarHandleLongs$FieldStaticReadOnly* VarHandleLongs$FieldStaticReadOnly::withInvo
 }
 
 $Optional* VarHandleLongs$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Long);
 	$var($Optional, fieldTypeRef, $nc($Long::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

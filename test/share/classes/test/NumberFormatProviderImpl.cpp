@@ -94,6 +94,7 @@ $NumberFormat* NumberFormatProviderImpl::getPercentInstance($Locale* locale) {
 }
 
 $NumberFormat* NumberFormatProviderImpl::getCompactNumberInstance($Locale* locale, $NumberFormat$Style* style) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(locale)->equals(NumberFormatProviderImpl::QAB)) {
 		return $new($CompactNumberFormat, "#"_s, $($DecimalFormatSymbols::getInstance(locale)), NumberFormatProviderImpl::newPattern, "one:v = 0 and i % 100 = 1;two:v = 0 and i % 100 = 2;few:v = 0 and i % 100 = 3..4 or v != 0;other:"_s);
 	} else if (locale->equals(NumberFormatProviderImpl::QAA)) {

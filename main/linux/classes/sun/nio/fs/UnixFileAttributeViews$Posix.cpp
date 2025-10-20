@@ -171,6 +171,7 @@ void UnixFileAttributeViews$Posix::init$($UnixPath* file, bool followLinks) {
 }
 
 void UnixFileAttributeViews$Posix::checkReadExtended() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$nc(this->file)->checkRead();
@@ -179,6 +180,7 @@ void UnixFileAttributeViews$Posix::checkReadExtended() {
 }
 
 void UnixFileAttributeViews$Posix::checkWriteExtended() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$nc(this->file)->checkWrite();
@@ -207,6 +209,7 @@ void UnixFileAttributeViews$Posix::setAttribute($String* attribute, Object$* val
 }
 
 void UnixFileAttributeViews$Posix::addRequestedPosixAttributes($PosixFileAttributes* attrs, $AbstractBasicFileAttributeView$AttributesBuilder* builder) {
+	$useLocalCurrentObjectStackCache();
 	addRequestedBasicAttributes(attrs, builder);
 	if ($nc(builder)->match(UnixFileAttributeViews$Posix::PERMISSIONS_NAME)) {
 		builder->add(UnixFileAttributeViews$Posix::PERMISSIONS_NAME, $($nc(attrs)->permissions()));
@@ -220,6 +223,7 @@ void UnixFileAttributeViews$Posix::addRequestedPosixAttributes($PosixFileAttribu
 }
 
 $Map* UnixFileAttributeViews$Posix::readAttributes($StringArray* requested) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(UnixFileAttributeViews$Posix::posixAttributeNames, requested));
 	$var($PosixFileAttributes, attrs, $cast($PosixFileAttributes, readAttributes()));
 	addRequestedPosixAttributes(attrs, builder);
@@ -239,6 +243,7 @@ $BasicFileAttributes* UnixFileAttributeViews$Posix::readAttributes() {
 }
 
 void UnixFileAttributeViews$Posix::setMode(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	checkWriteExtended();
 	try {
 		if (this->followLinks) {

@@ -56,6 +56,7 @@ $ObjectArray2* AuthResources_ja::getContents() {
 }
 
 void clinit$AuthResources_ja($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(AuthResources_ja::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.value"_s),

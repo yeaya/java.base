@@ -94,6 +94,7 @@ void TimeZoneNameUtility$TimeZoneNameGetter::init$() {
 }
 
 $String* TimeZoneNameUtility$TimeZoneNameGetter::getObject($TimeZoneNameProvider* timeZoneNameProvider, $Locale* locale, $String* requestID, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (!TimeZoneNameUtility$TimeZoneNameGetter::$assertionsDisabled && !($nc(params)->length == 2)) {
 		$throwNew($AssertionError);
 	}
@@ -117,6 +118,7 @@ $String* TimeZoneNameUtility$TimeZoneNameGetter::getObject($TimeZoneNameProvider
 
 $String* TimeZoneNameUtility$TimeZoneNameGetter::examineAliases($TimeZoneNameProvider* tznp, $Locale* locale, $String* requestID, $String* tzid, int32_t style, $Map* aliases) {
 	$init(TimeZoneNameUtility$TimeZoneNameGetter);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(aliases)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -141,6 +143,7 @@ $String* TimeZoneNameUtility$TimeZoneNameGetter::examineAliases($TimeZoneNamePro
 
 $String* TimeZoneNameUtility$TimeZoneNameGetter::getName($TimeZoneNameProvider* timeZoneNameProvider, $Locale* locale, $String* requestID, int32_t style, $String* tzid) {
 	$init(TimeZoneNameUtility$TimeZoneNameGetter);
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, nullptr);
 	{
 		$var($String, s10415$, requestID);

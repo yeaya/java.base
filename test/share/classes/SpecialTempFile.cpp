@@ -57,6 +57,7 @@ void SpecialTempFile::init$() {
 }
 
 void SpecialTempFile::test($String* name, $StringArray* prefix, $StringArray* suffix, bool exceptionExpected) {
+	$useLocalCurrentObjectStackCache();
 	if (prefix == nullptr || suffix == nullptr || $nc(prefix)->length != $nc(suffix)->length) {
 		return;
 	}
@@ -102,6 +103,7 @@ void SpecialTempFile::test($String* name, $StringArray* prefix, $StringArray* su
 }
 
 void SpecialTempFile::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, "SpecialTempFile"_s);
 	$var($StringArray, nulPre, $new($StringArray, {$$str({name, $cstr({'\0'})})}));
 	$var($StringArray, nulSuf, $new($StringArray, {".test"_s}));

@@ -134,6 +134,7 @@ $Object* allocate$CertificateStatus$CertificateStatusMessage($Class* clazz) {
 }
 
 void CertificateStatus$CertificateStatusMessage::init$($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$set(this, encodedResponses, $new($ArrayList));
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
@@ -182,6 +183,7 @@ void CertificateStatus$CertificateStatusMessage::init$($HandshakeContext* handsh
 }
 
 void CertificateStatus$CertificateStatusMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$set(this, encodedResponses, $new($ArrayList));
 	$set(this, statusType, $CertStatusExtension$CertStatusRequestType::valueOf((int8_t)$Record::getInt8(m)));
@@ -238,6 +240,7 @@ int32_t CertificateStatus$CertificateStatusMessage::messageLength() {
 }
 
 void CertificateStatus$CertificateStatusMessage::send($HandshakeOutStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->putInt8(this->statusType->id);
 	$init($CertStatusExtension$CertStatusRequestType);
 	if (this->statusType == $CertStatusExtension$CertStatusRequestType::OCSP) {
@@ -261,6 +264,7 @@ void CertificateStatus$CertificateStatusMessage::send($HandshakeOutStream* s) {
 }
 
 $String* CertificateStatus$CertificateStatusMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	{
 		$var($Iterator, i$, $nc(this->encodedResponses)->iterator());

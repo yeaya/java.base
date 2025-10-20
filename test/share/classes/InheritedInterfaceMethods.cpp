@@ -42,6 +42,7 @@ void InheritedInterfaceMethods::init$() {
 
 void InheritedInterfaceMethods::main($StringArray* args) {
 	$load(InheritedInterfaceMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($InheritedInterfaceMethodsC);
 	$var($MethodArray, methods, $InheritedInterfaceMethodsC::class$->getMethods());

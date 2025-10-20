@@ -92,6 +92,7 @@ void SortedOps$DoubleSortingSink::begin(int64_t size) {
 }
 
 void SortedOps$DoubleSortingSink::end() {
+	$useLocalCurrentObjectStackCache();
 	$var($doubles, doubles, $cast($doubles, $nc(this->b)->asPrimitiveArray()));
 	$Arrays::sort(doubles);
 	$nc(this->downstream)->begin($nc(doubles)->length);

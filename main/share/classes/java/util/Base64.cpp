@@ -85,6 +85,7 @@ $Base64$Encoder* Base64::getMimeEncoder() {
 }
 
 $Base64$Encoder* Base64::getMimeEncoder(int32_t lineLength, $bytes* lineSeparator) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lineSeparator);
 	$init($Base64$Decoder);
 	$var($ints, base64, $Base64$Decoder::fromBase64);

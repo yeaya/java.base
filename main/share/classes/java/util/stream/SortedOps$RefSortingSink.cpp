@@ -149,6 +149,7 @@ void SortedOps$RefSortingSink::begin(int64_t size) {
 }
 
 void SortedOps$RefSortingSink::end() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->list)->sort(this->comparator);
 	$nc(this->downstream)->begin($nc(this->list)->size());
 	if (!this->cancellationRequestedCalled) {

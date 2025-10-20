@@ -159,6 +159,7 @@ bool KeepAliveStreamCleaner::offer($KeepAliveCleanerEntry* e) {
 }
 
 void KeepAliveStreamCleaner::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($KeepAliveCleanerEntry, kace, nullptr);
 	do {
 		try {
@@ -260,6 +261,7 @@ bool KeepAliveStreamCleaner::offer(Object$* e) {
 }
 
 void clinit$KeepAliveStreamCleaner($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	KeepAliveStreamCleaner::MAX_DATA_REMAINING = 512;
 	KeepAliveStreamCleaner::MAX_CAPACITY = 10;

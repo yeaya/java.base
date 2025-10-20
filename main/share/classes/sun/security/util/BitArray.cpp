@@ -196,6 +196,7 @@ $Object* BitArray::clone() {
 }
 
 $String* BitArray::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->length$ == 0) {
 		return ""_s;
 	}
@@ -216,6 +217,7 @@ $String* BitArray::toString() {
 }
 
 BitArray* BitArray::truncate() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = this->length$ - 1; i >= 0; --i) {
 		if (get(i)) {
 			return $new(BitArray, i + 1, $($Arrays::copyOf(this->repn, $div((i + BitArray::BITS_PER_UNIT), BitArray::BITS_PER_UNIT))));
@@ -225,6 +227,7 @@ BitArray* BitArray::truncate() {
 }
 
 void clinit$BitArray($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(BitArray::NYBBLE, $new($byteArray2, {
 		$$new($bytes, {
 			(int8_t)u'0',

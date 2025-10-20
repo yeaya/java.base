@@ -250,6 +250,7 @@ $Debug* SocketPermission::getDebug() {
 }
 
 void SocketPermission::init$($String* host, $String* action) {
+	$useLocalCurrentObjectStackCache();
 	$Permission::init$($(getHost(host)));
 	this->defaultDeny = false;
 	$var($String, var$0, getName());
@@ -257,6 +258,7 @@ void SocketPermission::init$($String* host, $String* action) {
 }
 
 void SocketPermission::init$($String* host, int32_t mask) {
+	$useLocalCurrentObjectStackCache();
 	$Permission::init$($(getHost(host)));
 	this->defaultDeny = false;
 	init($(getName()), mask);
@@ -268,6 +270,7 @@ void SocketPermission::setDeny() {
 
 $String* SocketPermission::getHost($String* host$renamed) {
 	$init(SocketPermission);
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	if ($nc(host)->isEmpty()) {
 		return "localhost"_s;
@@ -294,6 +297,7 @@ $String* SocketPermission::getHost($String* host$renamed) {
 }
 
 $ints* SocketPermission::parsePort($String* port) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = port == nullptr || $nc(port)->isEmpty();
 	if (var$0 || $nc(port)->equals("*"_s)) {
 		return $new($ints, {
@@ -338,6 +342,7 @@ bool SocketPermission::includesEphemerals() {
 }
 
 void SocketPermission::init($String* host$renamed, int32_t mask) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	if (((int32_t)(mask & (uint32_t)SocketPermission::ALL)) != mask) {
 		$throwNew($IllegalArgumentException, "invalid actions mask"_s);
@@ -414,6 +419,7 @@ void SocketPermission::init($String* host$renamed, int32_t mask) {
 
 int32_t SocketPermission::getMask($String* action) {
 	$init(SocketPermission);
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException, "action can\'t be null"_s);
 	}
@@ -512,6 +518,7 @@ int32_t SocketPermission::getMask($String* action) {
 }
 
 bool SocketPermission::isUntrusted() {
+	$useLocalCurrentObjectStackCache();
 	if (this->trusted) {
 		return false;
 	}
@@ -544,6 +551,7 @@ bool SocketPermission::isUntrusted() {
 }
 
 void SocketPermission::getCanonName() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cname != nullptr || this->invalid || this->untrusted) {
 		return;
 	}
@@ -574,6 +582,7 @@ $String* SocketPermission::checkForIDN($String* name) {
 }
 
 bool SocketPermission::match($String* cname, $String* hname) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, a, checkForIDN($($nc(cname)->toLowerCase())));
 	$var($String, b, checkForIDN($($nc(hname)->toLowerCase())));
 	bool var$0 = $nc(a)->startsWith(b);
@@ -607,6 +616,7 @@ bool SocketPermission::authorized($String* cname, $bytes* addr) {
 }
 
 bool SocketPermission::authorizedIPv4($String* cname, $bytes* addr) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, authHost, ""_s);
 	$var($InetAddress, auth, nullptr);
 	try {
@@ -632,6 +642,7 @@ bool SocketPermission::authorizedIPv4($String* cname, $bytes* addr) {
 }
 
 bool SocketPermission::authorizedIPv6($String* cname, $bytes* addr) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, authHost, ""_s);
 	$var($InetAddress, auth, nullptr);
 	try {
@@ -664,6 +675,7 @@ bool SocketPermission::authorizedIPv6($String* cname, $bytes* addr) {
 }
 
 void SocketPermission::getIP() {
+	$useLocalCurrentObjectStackCache();
 	if (this->addresses != nullptr || this->wildcard || this->invalid) {
 		return;
 	}
@@ -791,6 +803,7 @@ bool SocketPermission::impliesIgnoreMask(SocketPermission* that) {
 }
 
 bool SocketPermission::compareHostnames(SocketPermission* that) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, thisHost, this->hostname);
 	$var($String, thatHost, $nc(that)->hostname);
 	if (thisHost == nullptr) {
@@ -804,6 +817,7 @@ bool SocketPermission::compareHostnames(SocketPermission* that) {
 }
 
 bool SocketPermission::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -844,6 +858,7 @@ bool SocketPermission::equals(Object$* obj) {
 }
 
 int32_t SocketPermission::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	if (this->init_with_ip || this->wildcard) {
 		return $nc($(this->getName()))->hashCode();
 	}
@@ -911,6 +926,7 @@ void SocketPermission::readObject($ObjectInputStream* s) {
 
 int32_t SocketPermission::initEphemeralPorts($String* suffix, int32_t defval) {
 	$init(SocketPermission);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SocketPermission$1, suffix)))))))->intValue();
 }
@@ -942,6 +958,7 @@ bool SocketPermission::inRange(int32_t policyLow, int32_t policyHigh, int32_t ta
 }
 
 void clinit$SocketPermission($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(SocketPermission::debug, nullptr);
 	SocketPermission::debugInit = false;

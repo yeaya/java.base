@@ -647,6 +647,7 @@ $ChronoLocalDate* HijrahChronology::dateYearDay($Era* era, int32_t yearOfEra, in
 }
 
 $ChronoLocalDate* HijrahChronology::dateYearDay(int32_t prolepticYear, int32_t dayOfYear) {
+	$useLocalCurrentObjectStackCache();
 	$var($HijrahDate, date, $HijrahDate::of(this, prolepticYear, 1, 1));
 	if (dayOfYear > $nc(date)->lengthOfYear()) {
 		$throwNew($DateTimeException, $$str({"Invalid dayOfYear: "_s, $$str(dayOfYear)}));
@@ -769,6 +770,7 @@ $ChronoLocalDate* HijrahChronology::resolveDate($Map* fieldValues, $ResolverStyl
 }
 
 int32_t HijrahChronology::checkValidYear(int64_t prolepticYear) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = prolepticYear < getMinimumYear();
 	if (var$0 || prolepticYear > getMaximumYear()) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah year: "_s, $$str(prolepticYear)}));
@@ -777,12 +779,14 @@ int32_t HijrahChronology::checkValidYear(int64_t prolepticYear) {
 }
 
 void HijrahChronology::checkValidDayOfYear(int32_t dayOfYear) {
+	$useLocalCurrentObjectStackCache();
 	if (dayOfYear < 1 || dayOfYear > getMaximumDayOfYear()) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah day of year: "_s, $$str(dayOfYear)}));
 	}
 }
 
 void HijrahChronology::checkValidMonth(int32_t month) {
+	$useLocalCurrentObjectStackCache();
 	if (month < 1 || month > 12) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah month: "_s, $$str(month)}));
 	}
@@ -806,6 +810,7 @@ $ints* HijrahChronology::getHijrahDateInfo(int32_t epochDay) {
 }
 
 int64_t HijrahChronology::getEpochDay(int32_t prolepticYear, int32_t monthOfYear, int32_t dayOfMonth) {
+	$useLocalCurrentObjectStackCache();
 	checkCalendarInit();
 	checkValidMonth(monthOfYear);
 	int32_t epochMonth = yearToEpochMonth(prolepticYear) + (monthOfYear - 1);
@@ -823,6 +828,7 @@ int32_t HijrahChronology::getDayOfYear(int32_t prolepticYear, int32_t month) {
 }
 
 int32_t HijrahChronology::getMonthLength(int32_t prolepticYear, int32_t monthOfYear) {
+	$useLocalCurrentObjectStackCache();
 	int32_t epochMonth = yearToEpochMonth(prolepticYear) + (monthOfYear - 1);
 	if (epochMonth < 0 || epochMonth >= $nc(this->hijrahEpochMonthStartDays)->length) {
 		$throwNew($DateTimeException, $$str({"Invalid Hijrah date, year: "_s, $$str(prolepticYear), ", month: "_s, $$str(monthOfYear)}));
@@ -894,6 +900,7 @@ int32_t HijrahChronology::epochMonthLength(int32_t epochMonth) {
 
 $Properties* HijrahChronology::readConfigProperties($String* chronologyId, $String* calendarType) {
 	$init(HijrahChronology);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, resourceName, $str({HijrahChronology::RESOURCE_PREFIX, chronologyId, "_"_s, calendarType, HijrahChronology::RESOURCE_SUFFIX}));
 	$var($PrivilegedAction, getResourceAction, $nc(calendarType)->equals("islamic-umalqura"_s) ? static_cast<$PrivilegedAction*>($new(HijrahChronology$$Lambda$lambda$readConfigProperties$1, resourceName)) : static_cast<$PrivilegedAction*>($new(HijrahChronology$$Lambda$lambda$readConfigProperties$2$1, resourceName)));
@@ -949,6 +956,7 @@ $Properties* HijrahChronology::readConfigProperties($String* chronologyId, $Stri
 }
 
 void HijrahChronology::loadCalendarData() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Properties, props, readConfigProperties(this->typeId, this->calendarType));
 		$var($Map, years, $new($HashMap));
@@ -1069,6 +1077,7 @@ void HijrahChronology::loadCalendarData() {
 }
 
 $ints* HijrahChronology::createEpochMonths(int32_t epochDay, int32_t minYear, int32_t maxYear, $Map* years) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numMonths = (maxYear - minYear + 1) * 12 + 1;
 	int32_t epochMonth = 0;
 	$var($ints, epochMonths, $new($ints, numMonths));
@@ -1095,6 +1104,7 @@ $ints* HijrahChronology::createEpochMonths(int32_t epochDay, int32_t minYear, in
 }
 
 $ints* HijrahChronology::parseMonths($String* line) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, months, $new($ints, 12));
 	$var($StringArray, numbers, $nc(line)->split("\\s"_s));
 	if (numbers->length != 12) {
@@ -1112,6 +1122,7 @@ $ints* HijrahChronology::parseMonths($String* line) {
 }
 
 $ints* HijrahChronology::parseYMD($String* string$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, string, string$renamed);
 	$assign(string, $nc(string)->trim());
 	try {
@@ -1133,6 +1144,7 @@ $ints* HijrahChronology::parseYMD($String* string$renamed) {
 
 void HijrahChronology::registerCustomChrono() {
 	$init(HijrahChronology);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new(HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2)));
 	$AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($FilePermission, "<<ALL FILES>>"_s, "read"_s))}));
@@ -1148,6 +1160,7 @@ void HijrahChronology::readObject($ObjectInputStream* s) {
 
 $Void* HijrahChronology::lambda$registerCustomChrono$7() {
 	$init(HijrahChronology);
+	$useLocalCurrentObjectStackCache();
 	if ($Files::isDirectory(HijrahChronology::CONF_PATH, $$new($LinkOptionArray, 0))) {
 		try {
 			$nc($($nc($($nc($($nc($($Files::list(HijrahChronology::CONF_PATH)))->map(static_cast<$Function*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3)))))->filter(static_cast<$Predicate*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4)))))->map(static_cast<$Function*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5)))))->forEach(static_cast<$Consumer*>($$new(HijrahChronology$$Lambda$lambda$registerCustomChrono$6$6)));
@@ -1161,6 +1174,7 @@ $Void* HijrahChronology::lambda$registerCustomChrono$7() {
 
 void HijrahChronology::lambda$registerCustomChrono$6($String* idtype) {
 	$init(HijrahChronology);
+	$useLocalCurrentObjectStackCache();
 	int32_t delimiterPos = $nc(idtype)->indexOf((int32_t)u'_');
 	if (delimiterPos > 1 && delimiterPos < idtype->length() - 1) {
 		$var($String, var$0, idtype->substring(0, delimiterPos));
@@ -1187,6 +1201,7 @@ $String* HijrahChronology::lambda$registerCustomChrono$3($Path* p) {
 
 $InputStream* HijrahChronology::lambda$readConfigProperties$2($String* resourceName) {
 	$init(HijrahChronology);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardOpenOption);
 		return $Files::newInputStream($($nc(HijrahChronology::CONF_PATH)->resolve(resourceName)), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)}));
@@ -1209,6 +1224,7 @@ $String* HijrahChronology::lambda$static$0() {
 }
 
 void clinit$HijrahChronology($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(HijrahChronology::RESOURCE_PREFIX, "hijrah-config-"_s);
 	$assignStatic(HijrahChronology::RESOURCE_SUFFIX, ".properties"_s);
 	$assignStatic(HijrahChronology::KEY_ID, "id"_s);

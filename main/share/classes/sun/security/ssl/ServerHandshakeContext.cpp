@@ -95,6 +95,7 @@ bool ServerHandshakeContext::rejectClientInitiatedRenego = false;
 $AlgorithmConstraints* ServerHandshakeContext::legacyAlgorithmConstraints = nullptr;
 
 void ServerHandshakeContext::init$($SSLContextImpl* sslContext, $TransportContext* conContext) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$HandshakeContext::init$(sslContext, conContext);
 	int64_t respTimeOut = $nc(($cast($Long, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetLongAction, "jdk.tls.stapling.responseTimeout"_s, ServerHandshakeContext::DEFAULT_STATUS_RESP_DELAY)))))))->longValue();

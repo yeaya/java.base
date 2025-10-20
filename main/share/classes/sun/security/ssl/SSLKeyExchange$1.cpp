@@ -94,6 +94,7 @@ $ints* SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreem
 $ints* SSLKeyExchange$1::$SwitchMap$sun$security$ssl$CipherSuite$KeyExchange = nullptr;
 
 void clinit$SSLKeyExchange$1($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement, $new($ints, $($SSLKeyExchange$T12KeyAgreement::values())->length));
 	{
 		try {

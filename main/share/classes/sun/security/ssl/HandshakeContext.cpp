@@ -346,6 +346,7 @@ void HandshakeContext::initialize() {
 
 $List* HandshakeContext::getActiveProtocols($List* enabledProtocols, $List* enabledCipherSuites, $AlgorithmConstraints* algorithmConstraints) {
 	$init(HandshakeContext);
+	$useLocalCurrentObjectStackCache();
 	bool enabledSSL20Hello = false;
 	$var($ArrayList, protocols, $new($ArrayList, 4));
 	{
@@ -405,6 +406,7 @@ $List* HandshakeContext::getActiveProtocols($List* enabledProtocols, $List* enab
 
 $List* HandshakeContext::getActiveCipherSuites($List* enabledProtocols, $List* enabledCipherSuites, $AlgorithmConstraints* algorithmConstraints) {
 	$init(HandshakeContext);
+	$useLocalCurrentObjectStackCache();
 	$var($List, suites, $new($LinkedList));
 	if (enabledProtocols != nullptr && !enabledProtocols->isEmpty()) {
 		$load($NamedGroup$NamedGroupSpec);
@@ -447,6 +449,7 @@ $List* HandshakeContext::getActiveCipherSuites($List* enabledProtocols, $List* e
 
 int8_t HandshakeContext::getHandshakeType($TransportContext* conContext, $Plaintext* plaintext) {
 	$init(HandshakeContext);
+	$useLocalCurrentObjectStackCache();
 	$init($ContentType);
 	if ($nc(plaintext)->contentType != $ContentType::HANDSHAKE->id) {
 		$init($Alert);
@@ -466,6 +469,7 @@ int8_t HandshakeContext::getHandshakeType($TransportContext* conContext, $Plaint
 }
 
 void HandshakeContext::dispatch(int8_t handshakeType, $Plaintext* plaintext) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(this->conContext)->transport)->useDelegatedTask()) {
 		bool hasDelegated = !$nc(this->delegatedActions)->isEmpty();
 		$init($SSLHandshake);
@@ -490,6 +494,7 @@ void HandshakeContext::dispatch(int8_t handshakeType, $Plaintext* plaintext) {
 }
 
 void HandshakeContext::dispatch(int8_t handshakeType, $ByteBuffer* fragment) {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLConsumer, consumer, nullptr);
 	$init($SSLHandshake);
 	if (handshakeType == $SSLHandshake::HELLO_REQUEST->id) {
@@ -546,6 +551,7 @@ void HandshakeContext::setVersion($ProtocolVersion* protocolVersion) {
 
 bool HandshakeContext::isActivatable($CipherSuite* suite, $AlgorithmConstraints* algorithmConstraints, $Map* cachedStatus) {
 	$init(HandshakeContext);
+	$useLocalCurrentObjectStackCache();
 	$init($CryptoPrimitive);
 	if ($nc(algorithmConstraints)->permits($($EnumSet::of($CryptoPrimitive::KEY_AGREEMENT)), $nc(suite)->name$, nullptr)) {
 		if ($nc(suite)->keyExchange == nullptr) {

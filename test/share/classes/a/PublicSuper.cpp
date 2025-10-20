@@ -119,6 +119,7 @@ void PublicSuper::init$() {
 
 void PublicSuper::checkAccess($AccessibleObject* accessibleObject, Object$* obj) {
 	$load(PublicSuper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($instanceOf($Field, accessibleObject)) {
 		$var($Field, field, $cast($Field, accessibleObject));

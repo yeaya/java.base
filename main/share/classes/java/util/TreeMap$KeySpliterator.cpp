@@ -108,6 +108,7 @@ void TreeMap$KeySpliterator::init$($TreeMap* tree, $TreeMap$Entry* origin, $Tree
 }
 
 $Spliterator* TreeMap$KeySpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->est < 0) {
 		getEstimate();
 	}
@@ -123,6 +124,7 @@ $Spliterator* TreeMap$KeySpliterator::trySplit() {
 }
 
 void TreeMap$KeySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

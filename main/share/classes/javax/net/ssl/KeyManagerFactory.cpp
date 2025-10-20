@@ -89,6 +89,7 @@ $Object* allocate$KeyManagerFactory($Class* clazz) {
 
 $String* KeyManagerFactory::getDefaultAlgorithm() {
 	$load(KeyManagerFactory);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, type, nullptr);
 	$assign(type, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($KeyManagerFactory$1)))));

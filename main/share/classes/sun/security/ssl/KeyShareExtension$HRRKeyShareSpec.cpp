@@ -98,6 +98,7 @@ void KeyShareExtension$HRRKeyShareSpec::init$($NamedGroup* serverGroup) {
 }
 
 void KeyShareExtension$HRRKeyShareSpec::init$($HandshakeContext* handshakeContext, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() != 2) {
 		$init($Alert);
 		$throw($($nc($nc(handshakeContext)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, $$str({"Invalid key_share extension: improper data (length="_s, $$str(buffer->remaining()), ")"_s}))))));
@@ -106,6 +107,7 @@ void KeyShareExtension$HRRKeyShareSpec::init$($HandshakeContext* handshakeContex
 }
 
 $String* KeyShareExtension$HRRKeyShareSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"selected group\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($NamedGroup::nameOf(this->selectedGroup)))}));

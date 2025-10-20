@@ -84,6 +84,7 @@ void SendUrgentData::init$() {
 }
 
 void SendUrgentData::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SendUrgentData$ServerSocketChannelThread, serverThread, $new($SendUrgentData$ServerSocketChannelThread, "SendUrgentDataServer"_s));
 	serverThread->start();
 	bool b = serverThread->isAlive();

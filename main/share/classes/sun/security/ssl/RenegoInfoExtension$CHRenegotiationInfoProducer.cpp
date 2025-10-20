@@ -95,6 +95,7 @@ void RenegoInfoExtension$CHRenegotiationInfoProducer::init$() {
 }
 
 $bytes* RenegoInfoExtension$CHRenegotiationInfoProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_RENEGOTIATION_INFO)) {

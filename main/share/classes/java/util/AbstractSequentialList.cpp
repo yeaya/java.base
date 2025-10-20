@@ -61,6 +61,7 @@ void AbstractSequentialList::init$() {
 }
 
 $Object* AbstractSequentialList::get(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($nc($(listIterator(index)))->next());
 	} catch ($NoSuchElementException&) {
@@ -71,6 +72,7 @@ $Object* AbstractSequentialList::get(int32_t index) {
 }
 
 $Object* AbstractSequentialList::set(int32_t index, Object$* element) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ListIterator, e, listIterator(index));
 		$var($Object, oldVal, $nc(e)->next());
@@ -84,6 +86,7 @@ $Object* AbstractSequentialList::set(int32_t index, Object$* element) {
 }
 
 void AbstractSequentialList::add(int32_t index, Object$* element) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(listIterator(index)))->add(element);
 	} catch ($NoSuchElementException&) {
@@ -93,6 +96,7 @@ void AbstractSequentialList::add(int32_t index, Object$* element) {
 }
 
 $Object* AbstractSequentialList::remove(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ListIterator, e, listIterator(index));
 		$var($Object, outCast, $nc(e)->next());
@@ -106,6 +110,7 @@ $Object* AbstractSequentialList::remove(int32_t index) {
 }
 
 bool AbstractSequentialList::addAll(int32_t index, $Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool modified = false;
 		$var($ListIterator, e1, listIterator(index));

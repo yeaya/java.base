@@ -140,6 +140,7 @@ $BigInteger* RSAPublicKeyImpl::THREE = nullptr;
 
 $RSAPublicKey* RSAPublicKeyImpl::newKey($RSAUtil$KeyType* type, $String* format, $bytes* encoded) {
 	$init(RSAPublicKeyImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($RSAPublicKey, key, nullptr);
 	{
 		$var($String, s2624$, format);
@@ -193,6 +194,7 @@ $RSAPublicKey* RSAPublicKeyImpl::newKey($RSAUtil$KeyType* type, $AlgorithmParame
 }
 
 void RSAPublicKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* keyParams, $BigInteger* n, $BigInteger* e) {
+	$useLocalCurrentObjectStackCache();
 	$X509Key::init$();
 	$RSAKeyFactory::checkRSAProviderKeyLengths($nc(n)->bitLength(), e);
 	checkExponentRange(n, e);
@@ -219,6 +221,7 @@ void RSAPublicKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* ke
 }
 
 void RSAPublicKeyImpl::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$X509Key::init$();
 	if (encoded == nullptr || $nc(encoded)->length == 0) {
 		$throwNew($InvalidKeyException, "Missing key encoding"_s);
@@ -264,6 +267,7 @@ $AlgorithmParameterSpec* RSAPublicKeyImpl::getParams() {
 
 $BigIntegerArray* RSAPublicKeyImpl::parseASN1($bytes* raw) {
 	$init(RSAPublicKeyImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, derValue, $new($DerValue, raw));
 	if (derValue->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Not a SEQUENCE"_s);
@@ -278,6 +282,7 @@ $BigIntegerArray* RSAPublicKeyImpl::parseASN1($bytes* raw) {
 }
 
 void RSAPublicKeyImpl::parseKeyBits() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigIntegerArray, comps, parseASN1($($nc($(getKey()))->toByteArray())));
 		$set(this, n, $nc(comps)->get(0));
@@ -293,6 +298,7 @@ $String* RSAPublicKeyImpl::toString() {
 }
 
 $Object* RSAPublicKeyImpl::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PUBLIC);
 	$var($String, var$1, getAlgorithm());

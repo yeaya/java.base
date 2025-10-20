@@ -84,6 +84,7 @@ void NotBound$1::init$($DatagramChannel* val$dc) {
 }
 
 void NotBound$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InetSocketAddress, local, nullptr);
 		do {

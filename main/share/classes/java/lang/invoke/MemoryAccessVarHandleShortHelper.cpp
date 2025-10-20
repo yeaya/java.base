@@ -204,6 +204,7 @@ int64_t MemoryAccessVarHandleShortHelper::offset(bool skipAlignmentMaskCheck, $M
 
 int64_t MemoryAccessVarHandleShortHelper::offsetNoVMAlignCheck(bool skipAlignmentMaskCheck, $MemorySegmentProxy* bb, int64_t offset, int64_t alignmentMask) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t base = $nc(bb)->unsafeGetOffset();
 	int64_t address = base + offset;
 	if (skipAlignmentMaskCheck) {
@@ -218,6 +219,7 @@ int64_t MemoryAccessVarHandleShortHelper::offsetNoVMAlignCheck(bool skipAlignmen
 
 int16_t MemoryAccessVarHandleShortHelper::get($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -227,6 +229,7 @@ int16_t MemoryAccessVarHandleShortHelper::get($VarHandle* ob, Object$* obb, int6
 
 void MemoryAccessVarHandleShortHelper::set($VarHandle* ob, Object$* obb, int64_t base, int16_t value) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -236,6 +239,7 @@ void MemoryAccessVarHandleShortHelper::set($VarHandle* ob, Object$* obb, int64_t
 
 int16_t MemoryAccessVarHandleShortHelper::getVolatile($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -245,6 +249,7 @@ int16_t MemoryAccessVarHandleShortHelper::getVolatile($VarHandle* ob, Object$* o
 
 void MemoryAccessVarHandleShortHelper::setVolatile($VarHandle* ob, Object$* obb, int64_t base, int16_t value) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -255,6 +260,7 @@ void MemoryAccessVarHandleShortHelper::setVolatile($VarHandle* ob, Object$* obb,
 
 int16_t MemoryAccessVarHandleShortHelper::getAcquire($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -264,6 +270,7 @@ int16_t MemoryAccessVarHandleShortHelper::getAcquire($VarHandle* ob, Object$* ob
 
 void MemoryAccessVarHandleShortHelper::setRelease($VarHandle* ob, Object$* obb, int64_t base, int16_t value) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -274,6 +281,7 @@ void MemoryAccessVarHandleShortHelper::setRelease($VarHandle* ob, Object$* obb, 
 
 int16_t MemoryAccessVarHandleShortHelper::getOpaque($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -283,6 +291,7 @@ int16_t MemoryAccessVarHandleShortHelper::getOpaque($VarHandle* ob, Object$* obb
 
 void MemoryAccessVarHandleShortHelper::setOpaque($VarHandle* ob, Object$* obb, int64_t base, int16_t value) {
 	$init(MemoryAccessVarHandleShortHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());

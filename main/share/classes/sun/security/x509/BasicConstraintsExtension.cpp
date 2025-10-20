@@ -118,6 +118,7 @@ $String* BasicConstraintsExtension::IS_CA = nullptr;
 $String* BasicConstraintsExtension::PATH_LEN = nullptr;
 
 void BasicConstraintsExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->ca) {
@@ -147,6 +148,7 @@ void BasicConstraintsExtension::init$($Boolean* critical, bool ca, int32_t len) 
 }
 
 void BasicConstraintsExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	this->ca = false;
 	this->pathLen = -1;
@@ -178,6 +180,7 @@ void BasicConstraintsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* BasicConstraintsExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pathLenAsString, nullptr);
 	if (this->pathLen < 0) {
 		$assign(pathLenAsString, " undefined"_s);
@@ -190,6 +193,7 @@ $String* BasicConstraintsExtension::toString() {
 }
 
 void BasicConstraintsExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

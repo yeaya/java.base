@@ -62,6 +62,7 @@ void LinuxNativeDispatcher::init$() {
 
 int64_t LinuxNativeDispatcher::setmntent($bytes* filename, $bytes* type) {
 	$init(LinuxNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, pathBuffer, $NativeBuffers::asNativeBuffer(filename));
 	$var($NativeBuffer, typeBuffer, $NativeBuffers::asNativeBuffer(type));
 	{
@@ -100,6 +101,7 @@ int64_t LinuxNativeDispatcher::setmntent0(int64_t pathAddress, int64_t typeAddre
 
 int32_t LinuxNativeDispatcher::getmntent(int64_t fp, $UnixMountEntry* entry, int32_t buflen) {
 	$init(LinuxNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(buflen));
 	{
 		$var($Throwable, var$0, nullptr);

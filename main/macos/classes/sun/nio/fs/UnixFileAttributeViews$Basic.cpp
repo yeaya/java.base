@@ -91,6 +91,7 @@ void UnixFileAttributeViews$Basic::init$($UnixPath* file, bool followLinks) {
 }
 
 $BasicFileAttributes* UnixFileAttributeViews$Basic::readAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->file)->checkRead();
 	try {
 		$var($UnixFileAttributes, attrs, $UnixFileAttributes::get(this->file, this->followLinks));
@@ -104,6 +105,7 @@ $BasicFileAttributes* UnixFileAttributeViews$Basic::readAttributes() {
 }
 
 void UnixFileAttributeViews$Basic::setTimes($FileTime* lastModifiedTime$renamed, $FileTime* lastAccessTime$renamed, $FileTime* createTime) {
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, lastModifiedTime, lastModifiedTime$renamed);
 	$var($FileTime, lastAccessTime, lastAccessTime$renamed);
 	if (lastModifiedTime == nullptr && lastAccessTime == nullptr) {

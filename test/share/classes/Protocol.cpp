@@ -37,6 +37,7 @@ void Protocol::init$() {
 }
 
 void Protocol::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $new($URL, "file://bogus/index.html"_s));
 	$var($URL, url2, $new($URL, url, "here.pl?notaspec:atall"_s));
 }

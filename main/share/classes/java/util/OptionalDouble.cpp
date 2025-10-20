@@ -191,6 +191,7 @@ int32_t OptionalDouble::hashCode() {
 }
 
 $String* OptionalDouble::toString() {
+	$useLocalCurrentObjectStackCache();
 	return this->isPresent$ ? $String::format("OptionalDouble[%s]"_s, $$new($ObjectArray, {$($of($Double::valueOf(this->value)))})) : "OptionalDouble.empty"_s;
 }
 

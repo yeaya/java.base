@@ -226,6 +226,7 @@ JapaneseDate* JapaneseDate::now($Clock* clock) {
 
 JapaneseDate* JapaneseDate::of($JapaneseEra* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) {
 	$init(JapaneseDate);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(era), "era"_s);
 	$init($JapaneseChronology);
 	$var($LocalGregorianCalendar$Date, jdate, $cast($LocalGregorianCalendar$Date, $nc($JapaneseChronology::JCAL)->newCalendarDate(nullptr)));
@@ -244,6 +245,7 @@ JapaneseDate* JapaneseDate::of(int32_t prolepticYear, int32_t month, int32_t day
 
 JapaneseDate* JapaneseDate::ofYearDay($JapaneseEra* era, int32_t yearOfEra, int32_t dayOfYear) {
 	$init(JapaneseDate);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(era), "era"_s);
 	$var($CalendarDate, firstDay, $nc($($nc(era)->getPrivateEra()))->getSinceDate());
 	$init($JapaneseChronology);
@@ -274,6 +276,7 @@ JapaneseDate* JapaneseDate::from($TemporalAccessor* temporal) {
 }
 
 void JapaneseDate::init$($LocalDate* isoDate) {
+	$useLocalCurrentObjectStackCache();
 	$ChronoLocalDateImpl::init$();
 	if ($nc(isoDate)->isBefore(JapaneseDate::MEIJI_6_ISODATE)) {
 		$throwNew($DateTimeException, "JapaneseDate before Meiji 6 is not supported"_s);
@@ -326,6 +329,7 @@ bool JapaneseDate::isSupported($TemporalField* field) {
 }
 
 $ValueRange* JapaneseDate::range($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		if (isSupported(field)) {
 			$ChronoField* f = $cast($ChronoField, field);
@@ -360,6 +364,7 @@ $ValueRange* JapaneseDate::range($TemporalField* field) {
 }
 
 int64_t JapaneseDate::getLong($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 			$init($JapaneseDate$1);
 		{
@@ -402,6 +407,7 @@ int64_t JapaneseDate::getLong($TemporalField* field) {
 
 $LocalGregorianCalendar$Date* JapaneseDate::toPrivateJapaneseDate($LocalDate* isoDate) {
 	$init(JapaneseDate);
+	$useLocalCurrentObjectStackCache();
 	$init($JapaneseChronology);
 	$var($LocalGregorianCalendar$Date, jdate, $cast($LocalGregorianCalendar$Date, $nc($JapaneseChronology::JCAL)->newCalendarDate(nullptr)));
 	$var($Era, sunEra, $JapaneseEra::privateEraFrom(isoDate));
@@ -415,6 +421,7 @@ $LocalGregorianCalendar$Date* JapaneseDate::toPrivateJapaneseDate($LocalDate* is
 }
 
 JapaneseDate* JapaneseDate::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -532,6 +539,7 @@ $ChronoLocalDateTime* JapaneseDate::atTime($LocalTime* localTime) {
 }
 
 $ChronoPeriod* JapaneseDate::until($ChronoLocalDate* endDate) {
+	$useLocalCurrentObjectStackCache();
 	$var($Period, period, $cast($Period, $nc(this->isoDate)->until(endDate)));
 	int32_t var$0 = $nc(period)->getYears();
 	int32_t var$1 = period->getMonths();
@@ -557,6 +565,7 @@ bool JapaneseDate::equals(Object$* obj) {
 }
 
 int32_t JapaneseDate::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($($nc($($cast($JapaneseChronology, getChronology())))->getId()))->hashCode();
 	return var$0 ^ $nc(this->isoDate)->hashCode();
 }

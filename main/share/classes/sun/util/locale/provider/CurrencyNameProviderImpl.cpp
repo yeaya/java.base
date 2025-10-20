@@ -116,6 +116,7 @@ $String* CurrencyNameProviderImpl::getDisplayName($String* currencyCode, $Locale
 }
 
 $String* CurrencyNameProviderImpl::getString($String* key, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}

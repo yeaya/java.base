@@ -128,6 +128,7 @@ $Object* SelectionKey::attachment() {
 }
 
 void clinit$SelectionKey($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

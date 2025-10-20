@@ -58,6 +58,7 @@ void WaitTooLong::main($StringArray* args) {
 }
 
 void WaitTooLong::test(int32_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load(WaitTooLong);
 		$of(WaitTooLong::class$)->wait($Long::MAX_VALUE, nanos);

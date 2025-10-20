@@ -152,6 +152,7 @@ $Object* allocate$DRBG($Class* clazz) {
 $String* DRBG::PROP_NAME = nullptr;
 
 void DRBG::init$($SecureRandomParameters* params$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandomParameters, params, params$renamed);
 	$beforeCallerSensitive();
 	$SecureRandomSpi::init$();
@@ -357,6 +358,7 @@ void DRBG::init$($SecureRandomParameters* params$renamed) {
 }
 
 void DRBG::createImpl() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Locale);
 		$var($String, s7993$, $nc($nc(this->mdp)->mech)->toLowerCase($Locale::ROOT));

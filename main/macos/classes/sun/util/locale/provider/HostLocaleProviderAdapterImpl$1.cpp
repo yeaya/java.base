@@ -97,6 +97,7 @@ $String* HostLocaleProviderAdapterImpl$1::getJavaTimeDateTimePattern(int32_t tim
 }
 
 $String* HostLocaleProviderAdapterImpl$1::getDateTimePattern(int32_t dateStyle, int32_t timeStyle, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReferenceArray, dateFormatPatterns, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatPatternsMap)->get(locale)));

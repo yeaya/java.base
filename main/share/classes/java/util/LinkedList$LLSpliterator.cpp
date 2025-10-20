@@ -114,6 +114,7 @@ int64_t LinkedList$LLSpliterator::estimateSize() {
 }
 
 $Spliterator* LinkedList$LLSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList$Node, p, nullptr);
 	int32_t s = getEst();
 	if (s > 1 && ($assign(p, this->current)) != nullptr) {
@@ -138,6 +139,7 @@ $Spliterator* LinkedList$LLSpliterator::trySplit() {
 }
 
 void LinkedList$LLSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList$Node, p, nullptr);
 	int32_t n = 0;
 	if (action == nullptr) {
@@ -158,6 +160,7 @@ void LinkedList$LLSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool LinkedList$LLSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList$Node, p, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);

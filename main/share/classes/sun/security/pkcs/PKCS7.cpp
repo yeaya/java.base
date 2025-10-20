@@ -268,6 +268,7 @@ $Object* allocate$PKCS7($Class* clazz) {
 }
 
 void PKCS7::init$($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, version, nullptr);
 	$set(this, digestAlgorithmIds, nullptr);
 	$set(this, contentInfo, nullptr);
@@ -293,6 +294,7 @@ void PKCS7::init$($DerInputStream* derin) {
 }
 
 void PKCS7::init$($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, version, nullptr);
 	$set(this, digestAlgorithmIds, nullptr);
 	$set(this, contentInfo, nullptr);
@@ -312,6 +314,7 @@ void PKCS7::init$($bytes* bytes) {
 }
 
 void PKCS7::parse($DerInputStream* derin) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(derin)->mark(derin->available());
 		parse(derin, false);
@@ -332,6 +335,7 @@ void PKCS7::parse($DerInputStream* derin) {
 }
 
 void PKCS7::parse($DerInputStream* derin, bool oldStyle) {
+	$useLocalCurrentObjectStackCache();
 	$var($ContentInfo, block, $new($ContentInfo, derin, oldStyle));
 	$set(this, contentType, block->contentType);
 	$var($DerValue, content, block->getContent());
@@ -373,6 +377,7 @@ void PKCS7::init$($AlgorithmIdArray* digestAlgorithmIds, $ContentInfo* contentIn
 }
 
 void PKCS7::parseNetscapeCertChain($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, dis, $new($DerInputStream, $($nc(val)->toByteArray())));
 	$var($DerValueArray, contents, dis->getSequence(2));
 	$set(this, certificates, $new($X509CertificateArray, $nc(contents)->length));
@@ -423,6 +428,7 @@ void PKCS7::parseNetscapeCertChain($DerValue* val) {
 }
 
 void PKCS7::parseSignedData($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, dis, $nc(val)->toDerInputStream());
 	$set(this, version, $nc(dis)->getBigInteger());
 	$var($DerValueArray, digestAlgorithmIdVals, dis->getSet(1));
@@ -545,6 +551,7 @@ void PKCS7::parseSignedData($DerValue* val) {
 }
 
 void PKCS7::parseOldSignedData($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, dis, $nc(val)->toDerInputStream());
 	$set(this, version, $nc(dis)->getBigInteger());
 	$var($DerValueArray, digestAlgorithmIdVals, dis->getSet(1));
@@ -618,12 +625,14 @@ void PKCS7::parseOldSignedData($DerValue* val) {
 }
 
 void PKCS7::encodeSignedData($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, derout, $new($DerOutputStream));
 	encodeSignedData(derout);
 	$nc(out)->write($(derout->toByteArray()));
 }
 
 void PKCS7::encodeSignedData($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, signedData, $new($DerOutputStream));
 	signedData->putInteger(this->version);
 	signedData->putOrderedSetOf($DerValue::tag_Set, $fcast($DerEncoderArray, this->digestAlgorithmIds));
@@ -681,6 +690,7 @@ $SignerInfo* PKCS7::verify($SignerInfo* info, $bytes* bytes) {
 }
 
 $SignerInfoArray* PKCS7::verify($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, intResult, $new($Vector));
 	for (int32_t i = 0; i < $nc(this->signerInfos)->length; ++i) {
 		$var($SignerInfo, signerInfo, verify($nc(this->signerInfos)->get(i), bytes));
@@ -733,6 +743,7 @@ $SignerInfoArray* PKCS7::getSignerInfos() {
 }
 
 $X509Certificate* PKCS7::getCertificate($BigInteger* serial, $X500Name* issuerName) {
+	$useLocalCurrentObjectStackCache();
 	if (this->certificates != nullptr) {
 		if (this->certIssuerNames == nullptr) {
 			populateCertIssuerNames();
@@ -750,6 +761,7 @@ $X509Certificate* PKCS7::getCertificate($BigInteger* serial, $X500Name* issuerNa
 }
 
 void PKCS7::populateCertIssuerNames() {
+	$useLocalCurrentObjectStackCache();
 	if (this->certificates == nullptr) {
 		return;
 	}
@@ -771,6 +783,7 @@ void PKCS7::populateCertIssuerNames() {
 }
 
 $String* PKCS7::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, out, ""_s);
 	$plusAssign(out, $$str({this->contentInfo, "\n"_s}));
 	if (this->version != nullptr) {
@@ -808,6 +821,7 @@ bool PKCS7::isOldStyle() {
 }
 
 $bytes* PKCS7::generateNewSignedData($String* sigalg, $Provider* sigProvider, $PrivateKey* privateKey, $X509CertificateArray* signerChain, $bytes* content, bool internalsf, bool directsign, $Function* ts) {
+	$useLocalCurrentObjectStackCache();
 	$var($Signature, signer, $SignatureUtil::fromKey(sigalg, static_cast<$Key*>(privateKey), sigProvider));
 	$var($AlgorithmId, digAlgID, $SignatureUtil::getDigestAlgInPkcs7SignerInfo(signer, sigalg, privateKey, directsign));
 	$var($AlgorithmId, sigAlgID, $SignatureUtil::fromSignature(signer, privateKey));
@@ -847,6 +861,7 @@ $bytes* PKCS7::generateNewSignedData($String* sigalg, $Provider* sigProvider, $P
 }
 
 $bytes* PKCS7::constructToken($bytes* signature, $X509CertificateArray* signerChain, $bytes* content, $PKCS9Attributes* authAttrs, $PKCS9Attributes* unauthAttrs, $AlgorithmId* digAlgID, $AlgorithmId* encAlgID) {
+	$useLocalCurrentObjectStackCache();
 	$var($X500Name, issuerName, $X500Name::asX500Name($($nc($nc(signerChain)->get(0))->getIssuerX500Principal())));
 	$var($BigInteger, serialNumber, $nc($nc(signerChain)->get(0))->getSerialNumber());
 	$var($SignerInfo, signerInfo, $new($SignerInfo, issuerName, serialNumber, digAlgID, authAttrs, encAlgID, signature, unauthAttrs));
@@ -861,6 +876,7 @@ $bytes* PKCS7::constructToken($bytes* signature, $X509CertificateArray* signerCh
 }
 
 $bytes* PKCS7::generateSignedData($bytes* signature, $X509CertificateArray* signerChain, $bytes* content, $String* signatureAlgorithm, $URI* tsaURI, $String* tSAPolicyID, $String* tSADigestAlg) {
+	$useLocalCurrentObjectStackCache();
 	$var($PKCS9Attributes, unauthAttrs, nullptr);
 	if (tsaURI != nullptr) {
 		$var($HttpTimestamper, tsa, $new($HttpTimestamper, tsaURI));
@@ -877,6 +893,7 @@ $bytes* PKCS7::generateSignedData($bytes* signature, $X509CertificateArray* sign
 }
 
 $URI* PKCS7::getTimestampingURI($X509Certificate* tsaCertificate) {
+	$useLocalCurrentObjectStackCache();
 	if (tsaCertificate == nullptr) {
 		return nullptr;
 	}
@@ -912,6 +929,7 @@ $URI* PKCS7::getTimestampingURI($X509Certificate* tsaCertificate) {
 }
 
 $bytes* PKCS7::generateTimestampToken($Timestamper* tsa, $String* tSAPolicyID, $String* tSADigestAlg, $bytes* toBeTimestamped) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, messageDigest, nullptr);
 	$var($TSRequest, tsQuery, nullptr);
 	try {

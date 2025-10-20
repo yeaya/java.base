@@ -89,6 +89,7 @@ void LambdaMetafactory::init$() {
 
 $CallSite* LambdaMetafactory::metafactory($MethodHandles$Lookup* caller, $String* interfaceMethodName, $MethodType* factoryType, $MethodType* interfaceMethodType, $MethodHandle* implementation, $MethodType* dynamicMethodType) {
 	$init(LambdaMetafactory);
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractValidatingLambdaMetafactory, mf, nullptr);
 	$var($MethodHandles$Lookup, var$0, $cast($MethodHandles$Lookup, $Objects::requireNonNull(caller)));
 	$var($MethodType, var$1, $cast($MethodType, $Objects::requireNonNull(factoryType)));
@@ -102,6 +103,7 @@ $CallSite* LambdaMetafactory::metafactory($MethodHandles$Lookup* caller, $String
 
 $CallSite* LambdaMetafactory::altMetafactory($MethodHandles$Lookup* caller, $String* interfaceMethodName, $MethodType* factoryType, $ObjectArray* args) {
 	$init(LambdaMetafactory);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(caller);
 	$Objects::requireNonNull(interfaceMethodName);
 	$Objects::requireNonNull(factoryType);
@@ -177,6 +179,7 @@ $Object* LambdaMetafactory::extractArg($ObjectArray* args, int32_t index, $Class
 
 $ObjectArray* LambdaMetafactory::extractArgs($ObjectArray* args, int32_t index, $Class* type, int32_t count) {
 	$init(LambdaMetafactory);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, result, $cast($ObjectArray, $1Array::newInstance(type, count)));
 	for (int32_t i = 0; i < count; ++i) {
 		result->set(i, $(extractArg(args, index + i, type)));

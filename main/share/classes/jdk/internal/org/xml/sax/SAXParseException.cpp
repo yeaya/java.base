@@ -63,6 +63,7 @@ $Object* allocate$SAXParseException($Class* clazz) {
 }
 
 void SAXParseException::init$($String* message, $Locator* locator) {
+	$useLocalCurrentObjectStackCache();
 	$SAXException::init$(message);
 	if (locator != nullptr) {
 		$var($String, var$0, locator->getPublicId());
@@ -75,6 +76,7 @@ void SAXParseException::init$($String* message, $Locator* locator) {
 }
 
 void SAXParseException::init$($String* message, $Locator* locator, $Exception* e) {
+	$useLocalCurrentObjectStackCache();
 	$SAXException::init$(message, e);
 	if (locator != nullptr) {
 		$var($String, var$0, locator->getPublicId());
@@ -120,6 +122,7 @@ int32_t SAXParseException::getColumnNumber() {
 }
 
 $String* SAXParseException::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder, $($of(this)->getClass()->getName())));
 	$var($String, message, getLocalizedMessage());
 	if (this->publicId != nullptr) {

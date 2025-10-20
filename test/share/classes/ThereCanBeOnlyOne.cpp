@@ -60,6 +60,7 @@ void ThereCanBeOnlyOne::init$() {
 }
 
 void ThereCanBeOnlyOne::doTest($InetAddress* ia, bool testSend) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc1, $DatagramChannel::open());
 	$nc($($nc(dc1)->socket()))->bind(($SocketAddress*)nullptr);
 	int32_t port = $nc($(dc1->socket()))->getLocalPort();

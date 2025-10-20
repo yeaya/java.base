@@ -132,6 +132,7 @@ RandomGenerator$JumpableGenerator* RandomGenerator$JumpableGenerator::of($String
 }
 
 $Stream* RandomGenerator$JumpableGenerator::jumps() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($Stream, $nc($($Stream::generate(static_cast<$Supplier*>($$new(RandomGenerator$JumpableGenerator$$Lambda$copyAndJump, this)))))->sequential());
 }
 

@@ -111,6 +111,7 @@ void ParallelListResourceBundle::setParallelContents($OpenListResourceBundle* rb
 }
 
 bool ParallelListResourceBundle::areParallelContentsComplete() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->parallelContents)->isMarked()) {
 		return true;
 	}
@@ -141,6 +142,7 @@ $Set* ParallelListResourceBundle::handleKeySet() {
 }
 
 $Set* ParallelListResourceBundle::keySet() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, ks, nullptr);
 	while (($assign(ks, this->keyset)) == nullptr) {
 		$assign(ks, $new($ParallelListResourceBundle$KeySet, $(handleKeySet()), this->parent));
@@ -160,6 +162,7 @@ void ParallelListResourceBundle::resetKeySet() {
 }
 
 void ParallelListResourceBundle::loadLookupTablesIfNecessary() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentMap, map, this->lookup);
 	if (map == nullptr) {
 		$assign(map, $new($ConcurrentHashMap));

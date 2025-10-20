@@ -75,6 +75,7 @@ $Object* allocate$EphemeralKeyManager($Class* clazz) {
 }
 
 void EphemeralKeyManager::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, keys, $new($EphemeralKeyManager$EphemeralKeyPairArray, {
 		$$new($EphemeralKeyManager$EphemeralKeyPair, nullptr),
 		$$new($EphemeralKeyManager$EphemeralKeyPair, nullptr)
@@ -83,6 +84,7 @@ void EphemeralKeyManager::init$() {
 }
 
 $KeyPair* EphemeralKeyManager::getRSAKeyPair(bool export$, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = 0;
 	int32_t index = 0;
 	if (export$) {

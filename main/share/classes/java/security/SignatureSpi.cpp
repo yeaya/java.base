@@ -140,6 +140,7 @@ void SignatureSpi::engineInitSign($PrivateKey* privateKey, $AlgorithmParameterSp
 }
 
 void SignatureSpi::engineUpdate($ByteBuffer* input) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(input)->hasRemaining() == false) {
 		return;
 	}

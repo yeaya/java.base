@@ -157,6 +157,7 @@ int64_t ByteBufferAsCharBufferB::byteOffset(int64_t i) {
 }
 
 char16_t ByteBufferAsCharBufferB::get() {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -165,6 +166,7 @@ char16_t ByteBufferAsCharBufferB::get() {
 }
 
 char16_t ByteBufferAsCharBufferB::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
 	$var($Object, var$1, $of($nc(this->bb)->hb));
@@ -179,6 +181,7 @@ char16_t ByteBufferAsCharBufferB::getUnchecked(int32_t i) {
 }
 
 $CharBuffer* ByteBufferAsCharBufferB::put(char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	char16_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -188,6 +191,7 @@ $CharBuffer* ByteBufferAsCharBufferB::put(char16_t x) {
 }
 
 $CharBuffer* ByteBufferAsCharBufferB::put(int32_t i, char16_t x) {
+	$useLocalCurrentObjectStackCache();
 	char16_t y = (x);
 	$init($Buffer);
 	$var($ScopedMemoryAccess$Scope, var$0, scope());
@@ -197,6 +201,7 @@ $CharBuffer* ByteBufferAsCharBufferB::put(int32_t i, char16_t x) {
 }
 
 $CharBuffer* ByteBufferAsCharBufferB::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!ByteBufferAsCharBufferB::$assertionsDisabled && !(pos <= lim)) {
@@ -224,6 +229,7 @@ bool ByteBufferAsCharBufferB::isReadOnly() {
 }
 
 $String* ByteBufferAsCharBufferB::toString(int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromToIndex(start, end, limit());
 	try {
 		int32_t len = end - start;

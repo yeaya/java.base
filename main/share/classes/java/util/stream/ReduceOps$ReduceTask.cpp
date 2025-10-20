@@ -96,6 +96,7 @@ $Object* ReduceOps$ReduceTask::doLeaf() {
 }
 
 void ReduceOps$ReduceTask::onCompletion($CountedCompleter* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (!isLeaf()) {
 		$var($ReduceOps$AccumulatingSink, leftResult, $cast($ReduceOps$AccumulatingSink, $nc(($cast(ReduceOps$ReduceTask, this->leftChild)))->getLocalResult()));
 		$nc(leftResult)->combine($cast($ReduceOps$AccumulatingSink, $($nc(($cast(ReduceOps$ReduceTask, this->rightChild)))->getLocalResult())));

@@ -454,6 +454,7 @@ $Pattern* Scanner::boolPattern() {
 }
 
 $String* Scanner::buildIntegerPatternString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, radixDigits, $nc(this->digits)->substring(0, this->radix$));
 	$var($String, digit, $str({"((?i)["_s, radixDigits, "\\p{javaDigit}])"_s}));
 	$var($String, groupedNumeral, $str({"("_s, this->non0Digit, digit, "?"_s, digit, "?("_s, this->groupSeparator, digit, digit, digit, ")+)"_s}));
@@ -490,6 +491,7 @@ $Pattern* Scanner::linePattern() {
 }
 
 void Scanner::buildFloatAndDecimalPattern() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, digit, "(([0-9\\p{javaDigit}]))"_s);
 	$var($String, exponent, $str({"([eE][+-]?"_s, digit, "+)?"_s}));
 	$var($String, groupedNumeral, $str({"("_s, this->non0Digit, digit, "?"_s, digit, "?("_s, this->groupSeparator, digit, digit, digit, ")+)"_s}));
@@ -579,6 +581,7 @@ void Scanner::init$($InputStream* source, $Charset* charset) {
 
 $Charset* Scanner::toCharset($String* csn) {
 	$init(Scanner);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csn), "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
@@ -594,6 +597,7 @@ $Charset* Scanner::toCharset($String* csn) {
 
 $Readable* Scanner::makeReadable($Path* source, $Charset* charset) {
 	$init(Scanner);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charset), "charset"_s);
 	return makeReadable($($Files::newInputStream(source, $$new($OpenOptionArray, 0))), charset);
 }
@@ -605,25 +609,30 @@ $Readable* Scanner::makeReadable($InputStream* source, $Charset* charset) {
 }
 
 void Scanner::init$($File* source) {
+	$useLocalCurrentObjectStackCache();
 	Scanner::init$(static_cast<$ReadableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>(($($$new($FileInputStream, source)->getChannel()))))));
 }
 
 void Scanner::init$($File* source, $String* charsetName) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, var$0, $cast($File, $Objects::requireNonNull(source)));
 	Scanner::init$(var$0, $(toDecoder(charsetName)));
 }
 
 void Scanner::init$($File* source, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, var$0, $cast($File, $Objects::requireNonNull(source)));
 	Scanner::init$(var$0, $($nc(charset)->newDecoder()));
 }
 
 void Scanner::init$($File* source, $CharsetDecoder* dec) {
+	$useLocalCurrentObjectStackCache();
 	Scanner::init$($(makeReadable(static_cast<$ReadableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>(($($$new($FileInputStream, source)->getChannel()))))), dec)));
 }
 
 $CharsetDecoder* Scanner::toDecoder($String* charsetName) {
 	$init(Scanner);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charsetName), "charsetName"_s);
 	try {
 		return $nc($($Charset::forName(charsetName)))->newDecoder();
@@ -649,10 +658,12 @@ $Readable* Scanner::makeReadable($ReadableByteChannel* source, $Charset* charset
 }
 
 void Scanner::init$($Path* source) {
+	$useLocalCurrentObjectStackCache();
 	Scanner::init$($($Files::newInputStream(source, $$new($OpenOptionArray, 0))));
 }
 
 void Scanner::init$($Path* source, $String* charsetName) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, var$0, $cast($Path, $Objects::requireNonNull(source)));
 	Scanner::init$(var$0, $(toCharset(charsetName)));
 }
@@ -671,10 +682,12 @@ void Scanner::init$($ReadableByteChannel* source) {
 
 $Readable* Scanner::makeReadable($ReadableByteChannel* source) {
 	$init(Scanner);
+	$useLocalCurrentObjectStackCache();
 	return makeReadable(source, $($nc($($Charset::defaultCharset()))->newDecoder()));
 }
 
 void Scanner::init$($ReadableByteChannel* source, $String* charsetName) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReadableByteChannel, var$0, $cast($ReadableByteChannel, $Objects::requireNonNull($of(source), "source"_s)));
 	Scanner::init$($(makeReadable(var$0, $(toDecoder(charsetName)))), Scanner::WHITESPACE_PATTERN);
 }
@@ -815,6 +828,7 @@ bool Scanner::hasTokenInBuffer() {
 }
 
 $String* Scanner::getCompleteTokenInBuffer($Pattern* pattern$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern, pattern, pattern$renamed);
 	this->matchValid = false;
 	$nc(this->matcher)->usePattern(this->delimPattern);
@@ -980,6 +994,7 @@ $Locale* Scanner::locale() {
 }
 
 Scanner* Scanner::useLocale($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(locale)->equals(this->locale$)) {
 		return this;
 	}
@@ -1029,6 +1044,7 @@ int32_t Scanner::radix() {
 }
 
 Scanner* Scanner::useRadix(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if ((radix < $Character::MIN_RADIX) || (radix > $Character::MAX_RADIX)) {
 		$throwNew($IllegalArgumentException, $$str({"radix:"_s, $$str(radix)}));
 	}
@@ -1042,6 +1058,7 @@ Scanner* Scanner::useRadix(int32_t radix) {
 }
 
 void Scanner::setRadix(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if ((radix < $Character::MIN_RADIX) || (radix > $Character::MAX_RADIX)) {
 		$throwNew($IllegalArgumentException, $$str({"radix:"_s, $$str(radix)}));
 	}
@@ -1059,6 +1076,7 @@ $MatchResult* Scanner::match() {
 }
 
 $String* Scanner::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("java.util.Scanner"_s);
 	sb->append($$str({"[delimiters="_s, this->delimPattern, "]"_s}));
@@ -1093,6 +1111,7 @@ bool Scanner::hasNext() {
 }
 
 $Object* Scanner::next() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	clearCaches();
 	++this->modCount;
@@ -1146,6 +1165,7 @@ bool Scanner::hasNext($Pattern* pattern) {
 }
 
 $String* Scanner::next($Pattern* pattern) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (pattern == nullptr) {
 		$throwNew($NullPointerException);
@@ -1171,6 +1191,7 @@ $String* Scanner::next($Pattern* pattern) {
 }
 
 bool Scanner::hasNextLine() {
+	$useLocalCurrentObjectStackCache();
 	saveState();
 	++this->modCount;
 	$var($String, result, findWithinHorizon($(linePattern()), 0));
@@ -1190,6 +1211,7 @@ bool Scanner::hasNextLine() {
 }
 
 $String* Scanner::nextLine() {
+	$useLocalCurrentObjectStackCache();
 	++this->modCount;
 	if (this->hasNextPattern == linePattern()) {
 		return getCachedResult();
@@ -1217,6 +1239,7 @@ $String* Scanner::findInLine($String* pattern) {
 }
 
 $String* Scanner::findInLine($Pattern* pattern) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (pattern == nullptr) {
 		$throwNew($NullPointerException);
@@ -1303,6 +1326,7 @@ bool Scanner::hasNextBoolean() {
 }
 
 bool Scanner::nextBoolean() {
+	$useLocalCurrentObjectStackCache();
 	clearCaches();
 	return $Boolean::parseBoolean($(next($(boolPattern()))));
 }
@@ -1312,6 +1336,7 @@ bool Scanner::hasNextByte() {
 }
 
 bool Scanner::hasNextByte(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1331,6 +1356,7 @@ int8_t Scanner::nextByte() {
 }
 
 int8_t Scanner::nextByte(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if ((this->typeCache != nullptr) && ($instanceOf($Byte, this->typeCache)) && this->radix$ == radix) {
 		int8_t val = $nc(($cast($Byte, this->typeCache)))->byteValue();
 		useTypeCache();
@@ -1357,6 +1383,7 @@ bool Scanner::hasNextShort() {
 }
 
 bool Scanner::hasNextShort(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1376,6 +1403,7 @@ int16_t Scanner::nextShort() {
 }
 
 int16_t Scanner::nextShort(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if ((this->typeCache != nullptr) && ($instanceOf($Short, this->typeCache)) && this->radix$ == radix) {
 		int16_t val = $nc(($cast($Short, this->typeCache)))->shortValue();
 		useTypeCache();
@@ -1402,6 +1430,7 @@ bool Scanner::hasNextInt() {
 }
 
 bool Scanner::hasNextInt(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1417,6 +1446,7 @@ bool Scanner::hasNextInt(int32_t radix) {
 }
 
 $String* Scanner::processIntegerToken($String* token) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc(token)->replaceAll($$str({""_s, this->groupSeparator}), ""_s));
 	bool isNegative = false;
 	int32_t preLen = $nc(this->negativePrefix)->length();
@@ -1441,6 +1471,7 @@ int32_t Scanner::nextInt() {
 }
 
 int32_t Scanner::nextInt(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if ((this->typeCache != nullptr) && ($instanceOf($Integer, this->typeCache)) && this->radix$ == radix) {
 		int32_t val = $nc(($cast($Integer, this->typeCache)))->intValue();
 		useTypeCache();
@@ -1467,6 +1498,7 @@ bool Scanner::hasNextLong() {
 }
 
 bool Scanner::hasNextLong(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1486,6 +1518,7 @@ int64_t Scanner::nextLong() {
 }
 
 int64_t Scanner::nextLong(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	if ((this->typeCache != nullptr) && ($instanceOf($Long, this->typeCache)) && this->radix$ == radix) {
 		int64_t val = $nc(($cast($Long, this->typeCache)))->longValue();
 		useTypeCache();
@@ -1508,6 +1541,7 @@ int64_t Scanner::nextLong(int32_t radix) {
 }
 
 $String* Scanner::processFloatToken($String* token) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc(token)->replaceAll(this->groupSeparator, ""_s));
 	if (!$nc(this->decimalSeparator)->equals("\\."_s)) {
 		$assign(result, result->replaceAll(this->decimalSeparator, "."_s));
@@ -1555,6 +1589,7 @@ $String* Scanner::processFloatToken($String* token) {
 }
 
 bool Scanner::hasNextFloat() {
+	$useLocalCurrentObjectStackCache();
 	setRadix(10);
 	bool result = hasNext($(floatPattern()));
 	if (result) {
@@ -1570,6 +1605,7 @@ bool Scanner::hasNextFloat() {
 }
 
 float Scanner::nextFloat() {
+	$useLocalCurrentObjectStackCache();
 	if ((this->typeCache != nullptr) && ($instanceOf($Float, this->typeCache))) {
 		float val = $nc(($cast($Float, this->typeCache)))->floatValue();
 		useTypeCache();
@@ -1588,6 +1624,7 @@ float Scanner::nextFloat() {
 }
 
 bool Scanner::hasNextDouble() {
+	$useLocalCurrentObjectStackCache();
 	setRadix(10);
 	bool result = hasNext($(floatPattern()));
 	if (result) {
@@ -1603,6 +1640,7 @@ bool Scanner::hasNextDouble() {
 }
 
 double Scanner::nextDouble() {
+	$useLocalCurrentObjectStackCache();
 	if ((this->typeCache != nullptr) && ($instanceOf($Double, this->typeCache))) {
 		double val = $nc(($cast($Double, this->typeCache)))->doubleValue();
 		useTypeCache();
@@ -1625,6 +1663,7 @@ bool Scanner::hasNextBigInteger() {
 }
 
 bool Scanner::hasNextBigInteger(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	setRadix(radix);
 	bool result = hasNext($(integerPattern()));
 	if (result) {
@@ -1644,6 +1683,7 @@ $BigInteger* Scanner::nextBigInteger() {
 }
 
 $BigInteger* Scanner::nextBigInteger(int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($BigInteger, val, nullptr);
 		bool var$0 = (this->typeCache != nullptr);
@@ -1678,6 +1718,7 @@ $BigInteger* Scanner::nextBigInteger(int32_t radix) {
 }
 
 bool Scanner::hasNextBigDecimal() {
+	$useLocalCurrentObjectStackCache();
 	setRadix(10);
 	bool result = hasNext($(decimalPattern()));
 	if (result) {
@@ -1693,6 +1734,7 @@ bool Scanner::hasNextBigDecimal() {
 }
 
 $BigDecimal* Scanner::nextBigDecimal() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($BigDecimal, val, nullptr);
 		bool var$0 = (this->typeCache != nullptr);
@@ -1734,12 +1776,14 @@ Scanner* Scanner::reset() {
 }
 
 $Stream* Scanner::tokens() {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	$var($Stream, stream, $StreamSupport::stream($$new($Scanner$TokenSpliterator, this), false));
 	return $cast($Stream, $nc(stream)->onClose(static_cast<$Runnable*>($$new(Scanner$$Lambda$close, this))));
 }
 
 $Stream* Scanner::findAll($Pattern* pattern) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(pattern);
 	ensureOpen();
 	$var($Stream, stream, $StreamSupport::stream($$new($Scanner$FindSpliterator, this, pattern), false));

@@ -76,6 +76,7 @@ void SiblingIOEHandle$ProcessC::init$($CyclicBarrier* barrier) {
 }
 
 void SiblingIOEHandle$ProcessC::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($SiblingIOEHandle::waitBarrier(this->barrier)) {
 			$SiblingIOEHandle::waitAbit();

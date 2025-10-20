@@ -293,6 +293,7 @@ void DynamicConstantDesc$CanonicalMapHolder::init$() {
 }
 
 void clinit$DynamicConstantDesc$CanonicalMapHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$init($ConstantDescs);
 	$assignStatic(DynamicConstantDesc$CanonicalMapHolder::CANONICAL_MAP, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry($ConstantDescs::BSM_PRIMITIVE_CLASS, static_cast<$Function*>($$new(DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass)))),

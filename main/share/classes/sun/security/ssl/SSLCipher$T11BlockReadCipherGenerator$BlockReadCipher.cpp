@@ -111,6 +111,7 @@ $Object* allocate$SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher($Class* 
 }
 
 void SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SSLCipher* sslCipher, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params$renamed, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, params, params$renamed);
 	$SSLCipher$SSLReadCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
@@ -121,6 +122,7 @@ void SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::init$($Authenticator
 }
 
 $Plaintext* SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	$var($BadPaddingException, reservedBPE, nullptr);
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	int32_t cipheredLength = $nc(bb)->remaining();

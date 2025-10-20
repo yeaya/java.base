@@ -81,6 +81,7 @@ $Throwable* ExceptionInInitializerError::getException() {
 }
 
 void ExceptionInInitializerError::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($Throwable, exception, $cast($Throwable, $nc(fields)->get("exception"_s, ($Object*)nullptr)));
 	if (exception != nullptr) {
@@ -89,6 +90,7 @@ void ExceptionInInitializerError::readObject($ObjectInputStream* s) {
 }
 
 void ExceptionInInitializerError::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
 	$nc(fields)->put("exception"_s, $($of($LinkageError::getCause())));
 	out->writeFields();

@@ -74,6 +74,7 @@ void AnnotationSupport$1::init$($Method* val$m) {
 }
 
 $Object* AnnotationSupport$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, res, $nc($($ReflectionFactory::getReflectionFactory()))->leafCopyMethod(this->val$m));
 	$nc(res)->setAccessible(true);

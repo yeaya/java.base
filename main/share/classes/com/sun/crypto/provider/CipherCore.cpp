@@ -194,6 +194,7 @@ void CipherCore::init$($SymmetricCipher* impl, int32_t blkSize) {
 }
 
 void CipherCore::setMode($String* mode) {
+	$useLocalCurrentObjectStackCache();
 	if (mode == nullptr) {
 		$throwNew($NoSuchAlgorithmException, "null mode"_s);
 	}
@@ -233,6 +234,7 @@ void CipherCore::setMode($String* mode) {
 }
 
 int32_t CipherCore::getNumOfUnit($String* mode, int32_t offset, int32_t blockSize) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = blockSize;
 	if ($nc(mode)->length() > offset) {
 		int32_t numInt = 0;
@@ -252,6 +254,7 @@ int32_t CipherCore::getNumOfUnit($String* mode, int32_t offset, int32_t blockSiz
 }
 
 void CipherCore::setPadding($String* paddingScheme) {
+	$useLocalCurrentObjectStackCache();
 	if (paddingScheme == nullptr) {
 		$throwNew($NoSuchPaddingException, "null padding"_s);
 	}
@@ -315,6 +318,7 @@ $bytes* CipherCore::getIV() {
 }
 
 $AlgorithmParameters* CipherCore::getParameters($String* algName) {
+	$useLocalCurrentObjectStackCache();
 	if (this->cipherMode == CipherCore::ECB_MODE) {
 		return nullptr;
 	}
@@ -345,6 +349,7 @@ $AlgorithmParameters* CipherCore::getParameters($String* algName) {
 }
 
 void CipherCore::init(int32_t opmode, $Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		init(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
 	} catch ($InvalidAlgorithmParameterException&) {
@@ -354,6 +359,7 @@ void CipherCore::init(int32_t opmode, $Key* key, $SecureRandom* random) {
 }
 
 void CipherCore::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandom, random, random$renamed);
 	this->decrypting = (opmode == $Cipher::DECRYPT_MODE) || (opmode == $Cipher::UNWRAP_MODE);
 	$var($bytes, keyBytes, getKeyBytes(key));
@@ -406,6 +412,7 @@ void CipherCore::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params
 }
 
 void CipherCore::init(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, spec, nullptr);
 	$var($String, paramType, nullptr);
 	if (params != nullptr) {
@@ -422,6 +429,7 @@ void CipherCore::init(int32_t opmode, $Key* key, $AlgorithmParameters* params, $
 }
 
 $bytes* CipherCore::getKeyBytes($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($InvalidKeyException, "No key given"_s);
 	}
@@ -436,6 +444,7 @@ $bytes* CipherCore::getKeyBytes($Key* key) {
 }
 
 $bytes* CipherCore::update($bytes* input, int32_t inputOffset, int32_t inputLen) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, output, nullptr);
 	try {
 		$assign(output, $new($bytes, getOutputSizeByOperation(inputLen, false)));
@@ -457,6 +466,7 @@ $bytes* CipherCore::update($bytes* input, int32_t inputOffset, int32_t inputLen)
 }
 
 int32_t CipherCore::update($bytes* input$renamed, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, input, input$renamed);
 	int32_t len = $Math::addExact(this->buffered, inputLen);
 	len -= this->minBytes;
@@ -534,6 +544,7 @@ int32_t CipherCore::update($bytes* input$renamed, int32_t inputOffset, int32_t i
 }
 
 $bytes* CipherCore::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, output, $new($bytes, getOutputSizeByOperation(inputLen, true)));
 		$var($bytes, finalBuf, prepareInputBuffer(input, inputOffset, inputLen, output, 0));
@@ -558,6 +569,7 @@ $bytes* CipherCore::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen
 }
 
 int32_t CipherCore::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
+	$useLocalCurrentObjectStackCache();
 	int32_t estOutSize = getOutputSizeByOperation(inputLen, true);
 	int32_t outputCapacity = checkOutputCapacity(output, outputOffset, estOutSize);
 	int32_t offset = outputOffset;
@@ -605,6 +617,7 @@ int32_t CipherCore::unpad(int32_t outLen, int32_t off, $bytes* outWithPadding) {
 }
 
 $bytes* CipherCore::prepareInputBuffer($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $Math::addExact(this->buffered, inputLen);
 	int32_t totalLen = len;
 	int32_t paddingLen = 0;
@@ -675,6 +688,7 @@ int32_t CipherCore::fillOutputBuffer($bytes* finalBuf, int32_t finalOffset, $byt
 }
 
 int32_t CipherCore::checkOutputCapacity($bytes* output, int32_t outputOffset, int32_t estOutSize) {
+	$useLocalCurrentObjectStackCache();
 	int32_t outputCapacity = $nc(output)->length - outputOffset;
 	int32_t minOutSize = this->decrypting ? (estOutSize - this->blockSize) : estOutSize;
 	if ((output == nullptr) || (outputCapacity < minOutSize)) {
@@ -684,6 +698,7 @@ int32_t CipherCore::checkOutputCapacity($bytes* output, int32_t outputOffset, in
 }
 
 int32_t CipherCore::finalNoPadding($bytes* in, int32_t inOfs, $bytes* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (in == nullptr || len == 0) {
 		return 0;
 	}
@@ -704,6 +719,7 @@ int32_t CipherCore::finalNoPadding($bytes* in, int32_t inOfs, $bytes* out, int32
 }
 
 $bytes* CipherCore::wrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, nullptr);
 	try {
 		$var($bytes, encodedKey, $nc(key)->getEncoded());
@@ -730,6 +746,7 @@ $bytes* CipherCore::wrap($Key* key) {
 }
 
 $Key* CipherCore::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encodedKey, nullptr);
 	try {
 		$assign(encodedKey, doFinal(wrappedKey, 0, $nc(wrappedKey)->length));

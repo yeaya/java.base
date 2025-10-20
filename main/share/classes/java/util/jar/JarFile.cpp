@@ -465,6 +465,7 @@ $Manifest* JarFile::getManifest() {
 }
 
 $Manifest* JarFile::getManifestFromReference() {
+	$useLocalCurrentObjectStackCache();
 	$var($Manifest, man, this->manRef != nullptr ? $cast($Manifest, $nc(this->manRef)->get()) : ($Manifest*)nullptr);
 	if (man == nullptr) {
 		$var($JarEntry, manEntry, getManEntry());
@@ -548,6 +549,7 @@ $Stream* JarFile::stream() {
 }
 
 $Stream* JarFile::versionedStream() {
+	$useLocalCurrentObjectStackCache();
 	if (isMultiRelease()) {
 		return $nc($($nc($($nc($($nc($($nc($($nc(JarFile::JUZFA)->entryNameStream(this)))->map(static_cast<$Function*>($$new(JarFile$$Lambda$getBasename, this)))))->filter(static_cast<$Predicate*>($$new(JarFile$$Lambda$nonNull$1)))))->distinct()))->map(static_cast<$Function*>($$new(JarFile$$Lambda$getJarEntry$2, this)))))->filter(static_cast<$Predicate*>($$new(JarFile$$Lambda$nonNull$1)));
 	}
@@ -577,6 +579,7 @@ $String* JarFile::getBasename($String* name) {
 }
 
 $JarEntry* JarFile::getVersionedEntry($String* name, $JarEntry* defaultEntry) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(name)->startsWith(JarFile::META_INF)) {
 		$var($ints, versions, $nc(JarFile::JUZFA)->getMetaInfVersions(this));
 		if (JarFile::BASE_VERSION_FEATURE < this->versionFeature && $nc(versions)->length > 0) {
@@ -617,6 +620,7 @@ void JarFile::maybeInstantiateVerifier() {
 }
 
 void JarFile::initializeVerifier() {
+	$useLocalCurrentObjectStackCache();
 	$var($ManifestEntryVerifier, mev, nullptr);
 	try {
 		$var($List, names, $nc(JarFile::JUZFA)->getManifestAndSignatureRelatedFiles(this));
@@ -681,6 +685,7 @@ void JarFile::initializeVerifier() {
 }
 
 $bytes* JarFile::getBytes($ZipEntry* ze) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($InputStream, is, $ZipFile::getInputStream(ze));
 		{
@@ -741,6 +746,7 @@ $bytes* JarFile::getBytes($ZipEntry* ze) {
 
 $InputStream* JarFile::getInputStream($ZipEntry* ze) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		maybeInstantiateVerifier();
 		if (this->jv == nullptr) {
 			return $ZipFile::getInputStream(ze);
@@ -759,6 +765,7 @@ $InputStream* JarFile::getInputStream($ZipEntry* ze) {
 }
 
 $JarEntry* JarFile::verifiableEntry($ZipEntry* ze$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ZipEntry, ze, ze$renamed);
 	if ($instanceOf($JarFile$JarFileEntry, ze)) {
 		return $nc(($cast($JarFile$JarFileEntry, ze)))->realEntry();
@@ -819,6 +826,7 @@ int32_t JarFile::match($bytes* src, $bytes* b, $bytes* lastOcc, $bytes* optoSft)
 }
 
 void JarFile::checkForSpecialAttributes() {
+	$useLocalCurrentObjectStackCache();
 	if (this->hasCheckedSpecialAttributes) {
 		return;
 	}
@@ -847,6 +855,7 @@ void JarFile::checkForSpecialAttributes() {
 
 void JarFile::ensureInitialization() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		try {
 			maybeInstantiateVerifier();
 		} catch ($IOException&) {
@@ -898,6 +907,7 @@ $JarEntry* JarFile::newEntry($String* name) {
 }
 
 $Enumeration* JarFile::entryNames($CodeSourceArray* cs) {
+	$useLocalCurrentObjectStackCache();
 	ensureInitialization();
 	if (this->jv != nullptr) {
 		return $nc(this->jv)->entryNames(this, cs);
@@ -925,6 +935,7 @@ $Enumeration* JarFile::entryNames($CodeSourceArray* cs) {
 }
 
 $Enumeration* JarFile::entries2() {
+	$useLocalCurrentObjectStackCache();
 	ensureInitialization();
 	if (this->jv != nullptr) {
 		return $nc(this->jv)->entries2(this, $($nc(JarFile::JUZFA)->entries(this)));
@@ -934,6 +945,7 @@ $Enumeration* JarFile::entries2() {
 }
 
 $CodeSourceArray* JarFile::getCodeSources($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	ensureInitialization();
 	if (this->jv != nullptr) {
 		return $nc(this->jv)->getCodeSources(this, url);
@@ -952,6 +964,7 @@ $Enumeration* JarFile::unsignedEntryNames() {
 }
 
 $CodeSource* JarFile::getCodeSource($URL* url, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	ensureInitialization();
 	if (this->jv != nullptr) {
 		if ($nc(this->jv)->eagerValidation) {
@@ -991,6 +1004,7 @@ $List* JarFile::getManifestDigests() {
 }
 
 void clinit$JarFile($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JarFile::META_INF, "META-INF/"_s);
 	$assignStatic(JarFile::META_INF_VERSIONS, $str({JarFile::META_INF, "versions/"_s}));
 	$assignStatic(JarFile::MANIFEST_NAME, $str({JarFile::META_INF, "MANIFEST.MF"_s}));

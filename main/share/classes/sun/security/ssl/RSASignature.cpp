@@ -140,6 +140,7 @@ void RSASignature::engineUpdate($bytes* b, int32_t off, int32_t len) {
 }
 
 $bytes* RSASignature::getDigest() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, data, $new($bytes, 36));
 		$nc(this->mdMD5)->digest(data, 0, 16);

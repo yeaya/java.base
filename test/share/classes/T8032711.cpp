@@ -91,6 +91,7 @@ $MethodType* T8032711::mt($Class* k) {
 }
 
 bool T8032711::mf($Class* k) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init(T8032711);
 		$var($MethodHandles$Lookup, var$0, T8032711::l);

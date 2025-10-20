@@ -43,6 +43,7 @@ void WriteAfterReaderClose::init$() {
 }
 
 void WriteAfterReaderClose::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedReader, pr, $new($PipedReader));
 	$var($PipedWriter, pw, $new($PipedWriter, pr));
 	pr->close();

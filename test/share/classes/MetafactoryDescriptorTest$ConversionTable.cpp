@@ -120,6 +120,7 @@ void MetafactoryDescriptorTest$ConversionTable::init$() {
 }
 
 void MetafactoryDescriptorTest$ConversionTable::put($Class* from, $Class* to) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, set, $cast($Set, $nc(this->pairs)->computeIfAbsent(from, static_cast<$Function*>($$new(MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0)))));
 	$nc(set)->add(to);
 }

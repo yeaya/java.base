@@ -216,6 +216,7 @@ void Security::init$() {
 
 void Security::call($Security$Command* r, $Class* expectedException) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	bool threw = false;
 	try {
 		$nc(r)->run();
@@ -237,6 +238,7 @@ void Security::call($Security$Command* r, $Class* expectedException) {
 
 void Security::main($StringArray* args) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardProtocolFamily);
 		$SocketChannel::open(static_cast<$ProtocolFamily*>($StandardProtocolFamily::UNIX));
@@ -295,6 +297,7 @@ void Security::main($StringArray* args) {
 
 void Security::setSecurityManager($String* policy) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, testSrc, $System::getProperty("test.src"_s));
 	$init($File);
@@ -306,6 +309,7 @@ void Security::setSecurityManager($String* policy) {
 
 void Security::close($NetworkChannelArray* channels) {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($NetworkChannelArray, arr$, channels);
 		int32_t len$ = $nc(arr$)->length;
@@ -325,6 +329,7 @@ void Security::close($NetworkChannelArray* channels) {
 
 void Security::testPolicy1() {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, servername, $Path::of("sock"_s, $$new($StringArray, 0)));
 	$Files::deleteIfExists(servername);
 	$var($UnixDomainSocketAddress, saddr, $UnixDomainSocketAddress::of(servername));
@@ -405,6 +410,7 @@ void Security::testPolicy1() {
 
 void Security::testPolicy2() {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, servername, $Path::of("sock"_s, $$new($StringArray, 0)));
 	$Files::deleteIfExists(servername);
 	$var($UnixDomainSocketAddress, saddr, $UnixDomainSocketAddress::of(servername));
@@ -493,6 +499,7 @@ void Security::testPolicy2() {
 
 void Security::testPolicy3() {
 	$init(Security);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Path, sock1, $Path::of("sock3"_s, $$new($StringArray, 0)));
 	$var($Path, sock2, nullptr);

@@ -44,6 +44,7 @@ void NullTest::init$() {
 }
 
 void NullTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Channel, c1, nullptr);
 	$var($Channel, c2, nullptr);
 	try {

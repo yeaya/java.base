@@ -62,6 +62,7 @@ void Fill4BufferedInputStream::init$() {
 }
 
 void Fill4BufferedInputStream::go(int32_t shortFall) {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, r, $new($BufferedInputStream, $$new($Fill4BufferedInputStream$Source, shortFall), 10));
 	$var($bytes, buf, $new($bytes, 8));
 	int32_t n1 = r->read(buf);

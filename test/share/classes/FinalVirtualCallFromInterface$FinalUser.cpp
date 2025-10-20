@@ -62,6 +62,7 @@ $Object* allocate$FinalVirtualCallFromInterface$FinalUser($Class* clazz) {
 
 void FinalVirtualCallFromInterface$FinalUser::test() {
 	$load(FinalVirtualCallFromInterface$FinalUser);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Void);
 	$var($MethodType, mt, $MethodType::methodType($Void::TYPE));

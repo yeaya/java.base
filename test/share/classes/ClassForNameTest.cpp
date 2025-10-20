@@ -64,6 +64,7 @@ void ClassForNameTest::init$() {
 
 void ClassForNameTest::main($StringArray* args) {
 	$init(ClassForNameTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$load($Class);

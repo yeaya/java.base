@@ -57,6 +57,7 @@ void TestIPv6Addresses::init$() {
 
 void TestIPv6Addresses::main($StringArray* args) {
 	$load(TestIPv6Addresses);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($InetAddress, ia1, $InetAddress::getByName("fe80::a00:20ff:feae:45c9"_s));

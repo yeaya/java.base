@@ -126,6 +126,7 @@ $Object* allocate$UnixFileSystem($Class* clazz) {
 }
 
 void UnixFileSystem::init$() {
+	$useLocalCurrentObjectStackCache();
 	$FileSystem::init$();
 	$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 	this->slash = $nc($($nc(props)->getProperty("file.separator"_s)))->charAt(0);
@@ -221,6 +222,7 @@ bool UnixFileSystem::isAbsolute($File* f) {
 }
 
 $String* UnixFileSystem::resolve($File* f) {
+	$useLocalCurrentObjectStackCache();
 	if (isAbsolute(f)) {
 		return $nc(f)->getPath();
 	}
@@ -232,6 +234,7 @@ $String* UnixFileSystem::resolve($File* f) {
 }
 
 $String* UnixFileSystem::canonicalize($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$init($FileSystem);
 	if (!$FileSystem::useCanonCaches) {
 		return canonicalize0(path);
@@ -449,6 +452,7 @@ bool UnixFileSystem::setReadOnly($File* f) {
 }
 
 $FileArray* UnixFileSystem::listRoots() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
@@ -487,6 +491,7 @@ int32_t UnixFileSystem::getNameMax($String* path) {
 }
 
 int32_t UnixFileSystem::compare($File* f1, $File* f2) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(f1)->getPath()))->compareTo($($nc(f2)->getPath()));
 }
 

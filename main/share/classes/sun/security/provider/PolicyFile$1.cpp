@@ -74,6 +74,7 @@ void PolicyFile$1::init$($PolicyFile* this$0) {
 }
 
 $Object* PolicyFile$1::run() {
+	$useLocalCurrentObjectStackCache();
 	this->this$0->expandProperties = "true"_s->equalsIgnoreCase($($Security::getProperty("policy.expandProperties"_s)));
 	this->this$0->allowSystemProperties = "true"_s->equalsIgnoreCase($($Security::getProperty("policy.allowSystemProperty"_s)));
 	this->this$0->notUtf8 = "false"_s->equalsIgnoreCase($($System::getProperty("sun.security.policy.utf8"_s)));

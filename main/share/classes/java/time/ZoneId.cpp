@@ -166,6 +166,7 @@ $Set* ZoneId::getAvailableZoneIds() {
 
 ZoneId* ZoneId::of($String* zoneId, $Map* aliasMap) {
 	$init(ZoneId);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(zoneId), "zoneId"_s);
 	$Objects::requireNonNull($of(aliasMap), "aliasMap"_s);
 	$var($String, id, $cast($String, $Objects::requireNonNullElse($cast($String, $($nc(aliasMap)->get(zoneId))), zoneId)));
@@ -179,6 +180,7 @@ ZoneId* ZoneId::of($String* zoneId) {
 
 ZoneId* ZoneId::ofOffset($String* prefix$renamed, $ZoneOffset* offset) {
 	$init(ZoneId);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, prefix$renamed);
 	$Objects::requireNonNull($of(prefix), "prefix"_s);
 	$Objects::requireNonNull($of(offset), "offset"_s);
@@ -216,6 +218,7 @@ ZoneId* ZoneId::of($String* zoneId, bool checkAvailable) {
 
 ZoneId* ZoneId::ofWithPrefix($String* zoneId, int32_t prefixLength, bool checkAvailable) {
 	$init(ZoneId);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, $nc(zoneId)->substring(0, prefixLength));
 	if (zoneId->length() == prefixLength) {
 		$init($ZoneOffset);
@@ -240,6 +243,7 @@ ZoneId* ZoneId::ofWithPrefix($String* zoneId, int32_t prefixLength, bool checkAv
 
 ZoneId* ZoneId::from($TemporalAccessor* temporal) {
 	$init(ZoneId);
+	$useLocalCurrentObjectStackCache();
 	$var(ZoneId, obj, $cast(ZoneId, $nc(temporal)->query($($TemporalQueries::zone()))));
 	if (obj == nullptr) {
 		$var($String, var$0, $$str({"Unable to obtain ZoneId from TemporalAccessor: "_s, temporal, " of type "_s}));
@@ -258,6 +262,7 @@ void ZoneId::init$() {
 }
 
 $String* ZoneId::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendZoneText(style)))->toFormatter(locale)))->format($(toTemporal()));
 }
 
@@ -279,6 +284,7 @@ ZoneId* ZoneId::normalized() {
 }
 
 bool ZoneId::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -309,6 +315,7 @@ $Object* ZoneId::writeReplace() {
 }
 
 void clinit$ZoneId($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ZoneId::SHORT_IDS, $Map::ofEntries($$new($Map$EntryArray, {
 		$($Map::entry("ACT"_s, "Australia/Darwin"_s)),
 		$($Map::entry("AET"_s, "Australia/Sydney"_s)),

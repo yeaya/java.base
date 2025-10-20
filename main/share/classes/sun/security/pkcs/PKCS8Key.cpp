@@ -122,6 +122,7 @@ void PKCS8Key::init$($bytes* input) {
 }
 
 void PKCS8Key::decode($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -183,6 +184,7 @@ void PKCS8Key::decode($InputStream* is) {
 
 $PrivateKey* PKCS8Key::parseKey($bytes* encoded) {
 	$init(PKCS8Key);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(PKCS8Key, rawKey, $new(PKCS8Key, encoded));
 		$var($bytes, internal, rawKey->getEncodedInternal());
@@ -239,6 +241,7 @@ $String* PKCS8Key::getFormat() {
 
 $bytes* PKCS8Key::getEncodedInternal() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->encodedKey == nullptr) {
 			try {
 				$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -257,6 +260,7 @@ $bytes* PKCS8Key::getEncodedInternal() {
 }
 
 $Object* PKCS8Key::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PRIVATE);
 	$var($String, var$1, getAlgorithm());
@@ -265,6 +269,7 @@ $Object* PKCS8Key::writeReplace() {
 }
 
 void PKCS8Key::readObject($ObjectInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		decode(stream);
 	} catch ($InvalidKeyException&) {
@@ -274,6 +279,7 @@ void PKCS8Key::readObject($ObjectInputStream* stream) {
 }
 
 bool PKCS8Key::equals(Object$* object) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, object)) {
 		return true;
 	}

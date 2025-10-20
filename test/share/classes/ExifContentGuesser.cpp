@@ -52,6 +52,7 @@ void ExifContentGuesser::init$() {
 }
 
 void ExifContentGuesser::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, filename, $str({$($System::getProperty("test.src"_s, "."_s)), "/olympus.jpg"_s}));
 	$nc($System::out)->println($$str({"filename: "_s, filename}));
 	$var($InputStream, in, nullptr);

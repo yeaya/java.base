@@ -63,6 +63,7 @@ void TinyBuffers::init$() {
 
 void TinyBuffers::test(int32_t sz) {
 	$init(TinyBuffers);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayInputStream, bis, $new($ByteArrayInputStream, $$new($bytes, 100)));
 	$var($ReadableByteChannel, ch, $Channels::newChannel(static_cast<$InputStream*>(bis)));
 	$var($Reader, r, $Channels::newReader(ch, $($nc(TinyBuffers::cs)->newDecoder()), sz));

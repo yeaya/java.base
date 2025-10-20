@@ -304,6 +304,7 @@ Duration* Duration::of(int64_t amount, $TemporalUnit* unit) {
 
 Duration* Duration::from($TemporalAmount* amount) {
 	$init(Duration);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(amount), "amount"_s);
 	$var(Duration, duration, Duration::ZERO);
 	{
@@ -320,6 +321,7 @@ Duration* Duration::from($TemporalAmount* amount) {
 
 Duration* Duration::parse($CharSequence* text) {
 	$init(Duration);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$init($Duration$Lazy);
 	$var($Matcher, matcher, $nc($Duration$Lazy::PATTERN)->matcher(text));
@@ -367,6 +369,7 @@ bool Duration::charMatch($CharSequence* text, int32_t start, int32_t end, char16
 
 int64_t Duration::parseNumber($CharSequence* text, int32_t start, int32_t end, int32_t multiplier, $String* errorText) {
 	$init(Duration);
+	$useLocalCurrentObjectStackCache();
 	if (start < 0 || end < 0) {
 		return 0;
 	}
@@ -385,6 +388,7 @@ int64_t Duration::parseNumber($CharSequence* text, int32_t start, int32_t end, i
 
 int32_t Duration::parseFraction($CharSequence* text, int32_t start, int32_t end, int32_t negate) {
 	$init(Duration);
+	$useLocalCurrentObjectStackCache();
 	if (start < 0 || end < 0 || end - start == 0) {
 		return 0;
 	}
@@ -415,6 +419,7 @@ Duration* Duration::create(bool negate, int64_t daysAsSecs, int64_t hoursAsSecs,
 
 Duration* Duration::between($Temporal* startInclusive, $Temporal* endExclusive) {
 	$init(Duration);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($ChronoUnit);
 		return ofNanos($nc(startInclusive)->until(endExclusive, $ChronoUnit::NANOS));
@@ -523,6 +528,7 @@ Duration* Duration::plus(Duration* duration) {
 }
 
 Duration* Duration::plus(int64_t amountToAdd, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(unit), "unit"_s);
 	$init($ChronoUnit);
 	if ($equals(unit, $ChronoUnit::DAYS)) {
@@ -641,6 +647,7 @@ Duration* Duration::minusNanos(int64_t nanosToSubtract) {
 }
 
 Duration* Duration::multipliedBy(int64_t multiplicand) {
+	$useLocalCurrentObjectStackCache();
 	if (multiplicand == 0) {
 		return Duration::ZERO;
 	}
@@ -651,6 +658,7 @@ Duration* Duration::multipliedBy(int64_t multiplicand) {
 }
 
 Duration* Duration::dividedBy(int64_t divisor) {
+	$useLocalCurrentObjectStackCache();
 	if (divisor == 0) {
 		$throwNew($ArithmeticException, "Cannot divide by zero"_s);
 	}
@@ -662,6 +670,7 @@ Duration* Duration::dividedBy(int64_t divisor) {
 }
 
 int64_t Duration::dividedBy(Duration* divisor) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(divisor), "divisor"_s);
 	$var($BigDecimal, dividendBigD, toBigDecimalSeconds());
 	$var($BigDecimal, divisorBigD, $nc(divisor)->toBigDecimalSeconds());
@@ -669,11 +678,13 @@ int64_t Duration::dividedBy(Duration* divisor) {
 }
 
 $BigDecimal* Duration::toBigDecimalSeconds() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($BigDecimal::valueOf(this->seconds)))->add($($BigDecimal::valueOf(this->nanos, 9)));
 }
 
 Duration* Duration::create($BigDecimal* seconds) {
 	$init(Duration);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, nanos, $nc($($nc(seconds)->movePointRight(9)))->toBigIntegerExact());
 	$var($BigIntegerArray, divRem, $nc(nanos)->divideAndRemainder(Duration::BI_NANOS_PER_SECOND));
 	if ($nc($nc(divRem)->get(0))->bitLength() > 63) {

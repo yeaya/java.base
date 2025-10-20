@@ -74,6 +74,7 @@ void ServiceLoader$1::init$($ServiceLoader* this$0, $Class* val$clazz) {
 }
 
 $Object* ServiceLoader$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Constructor, ctor, $nc(this->val$clazz)->getConstructor($$new($ClassArray, 0)));
 	if (this->this$0->inExplicitModule(this->val$clazz)) {

@@ -81,6 +81,7 @@ void IdentityHashMap$IdentityHashMapIterator::init$($IdentityHashMap* this$0) {
 }
 
 bool IdentityHashMap$IdentityHashMapIterator::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, tab, this->traversalTable);
 	for (int32_t i = this->index; i < $nc(tab)->length; i += 2) {
 		$var($Object0, key, tab->get(i));
@@ -107,6 +108,7 @@ int32_t IdentityHashMap$IdentityHashMapIterator::nextIndex() {
 }
 
 void IdentityHashMap$IdentityHashMapIterator::remove() {
+	$useLocalCurrentObjectStackCache();
 	if (this->lastReturnedIndex == -1) {
 		$throwNew($IllegalStateException);
 	}

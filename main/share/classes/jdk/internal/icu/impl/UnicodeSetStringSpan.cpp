@@ -121,6 +121,7 @@ $Object* allocate$UnicodeSetStringSpan($Class* clazz) {
 }
 
 void UnicodeSetStringSpan::init$($UnicodeSet* set, $ArrayList* setStrings, int32_t which) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, spanSet, $new($UnicodeSet, 0, 0x0010FFFF));
 	$set(this, strings, setStrings);
 	this->all = (which == UnicodeSetStringSpan::ALL);
@@ -239,6 +240,7 @@ int32_t UnicodeSetStringSpan::span($CharSequence* s, int32_t start, $UnicodeSet$
 
 int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, int32_t spanLimit, $UnicodeSet$SpanCondition* spanCondition) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		int32_t initSize = 0;
 		$init($UnicodeSet$SpanCondition);
 		if (spanCondition == $UnicodeSet$SpanCondition::CONTAINED) {
@@ -358,6 +360,7 @@ int32_t UnicodeSetStringSpan::spanWithStrings($CharSequence* s, int32_t start, i
 }
 
 int32_t UnicodeSetStringSpan::spanAndCount($CharSequence* s, int32_t start, $UnicodeSet$SpanCondition* spanCondition, $OutputInt* outCount) {
+	$useLocalCurrentObjectStackCache();
 	$init($UnicodeSet$SpanCondition);
 	if (spanCondition == $UnicodeSet$SpanCondition::NOT_CONTAINED) {
 		return spanNot(s, start, outCount);
@@ -394,6 +397,7 @@ int32_t UnicodeSetStringSpan::spanAndCount($CharSequence* s, int32_t start, $Uni
 
 int32_t UnicodeSetStringSpan::spanContainedAndCount($CharSequence* s, int32_t start, $OutputInt* outCount) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$nc(this->offsets)->setMaxLength(this->maxLength16);
 		int32_t stringsLength = $nc(this->strings)->size();
 		int32_t length = $nc(s)->length();
@@ -429,6 +433,7 @@ int32_t UnicodeSetStringSpan::spanContainedAndCount($CharSequence* s, int32_t st
 
 int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $UnicodeSet$SpanCondition* spanCondition) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$init($UnicodeSet$SpanCondition);
 		if (spanCondition == $UnicodeSet$SpanCondition::NOT_CONTAINED) {
 			return spanNotBack(s, length);
@@ -553,6 +558,7 @@ int32_t UnicodeSetStringSpan::spanBack($CharSequence* s, int32_t length, $Unicod
 }
 
 int32_t UnicodeSetStringSpan::spanNot($CharSequence* s, int32_t start, $OutputInt* outCount) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(s)->length();
 	int32_t pos = start;
 	int32_t rest = length - start;
@@ -598,6 +604,7 @@ int32_t UnicodeSetStringSpan::spanNot($CharSequence* s, int32_t start, $OutputIn
 }
 
 int32_t UnicodeSetStringSpan::spanNotBack($CharSequence* s, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = length;
 	int32_t i = 0;
 	int32_t stringsLength = $nc(this->strings)->size();

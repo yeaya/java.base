@@ -94,6 +94,7 @@ void DisabledAlgorithmConstraints$UsageConstraint::init$($String* algorithm, $St
 }
 
 void DisabledAlgorithmConstraints$UsageConstraint::permits($ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, variant, $nc(cp)->getVariant());
 	{
 		$var($StringArray, arr$, this->usages);

@@ -117,6 +117,7 @@ bool UnixDirectoryStream::isOpen() {
 }
 
 bool UnixDirectoryStream::closeImpl() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->isClosed) {
 		this->isClosed = true;
 		try {
@@ -132,6 +133,7 @@ bool UnixDirectoryStream::closeImpl() {
 }
 
 void UnixDirectoryStream::close() {
+	$useLocalCurrentObjectStackCache();
 	$nc($(writeLock()))->lock();
 	{
 		$var($Throwable, var$0, nullptr);

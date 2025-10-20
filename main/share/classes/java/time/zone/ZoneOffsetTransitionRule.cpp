@@ -205,6 +205,7 @@ void ZoneOffsetTransitionRule::writeExternal($DataOutput* out) {
 
 ZoneOffsetTransitionRule* ZoneOffsetTransitionRule::readExternal($DataInput* in) {
 	$init(ZoneOffsetTransitionRule);
+	$useLocalCurrentObjectStackCache();
 	int32_t data = $nc(in)->readInt();
 	$Month* month = $Month::of((int32_t)((uint32_t)data >> 28));
 	int32_t dom = ((int32_t)((uint32_t)((int32_t)(data & (uint32_t)(63 << 22))) >> 22)) - 32;
@@ -259,6 +260,7 @@ $ZoneOffset* ZoneOffsetTransitionRule::getOffsetAfter() {
 }
 
 $ZoneOffsetTransition* ZoneOffsetTransitionRule::createTransition(int32_t year) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, date, nullptr);
 	if (this->dom < 0) {
 		$init($IsoChronology);
@@ -313,6 +315,7 @@ int32_t ZoneOffsetTransitionRule::hashCode() {
 }
 
 $String* ZoneOffsetTransitionRule::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("TransitionRule["_s)->append($nc(this->offsetBefore)->compareTo(this->offsetAfter) > 0 ? "Gap "_s : "Overlap "_s)->append($of(this->offsetBefore))->append(" to "_s)->append($of(this->offsetAfter))->append(", "_s);
 	if (this->dow != nullptr) {

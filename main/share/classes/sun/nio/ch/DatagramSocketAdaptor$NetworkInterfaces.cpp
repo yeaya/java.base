@@ -140,6 +140,7 @@ void DatagramSocketAdaptor$NetworkInterfaces::init$() {
 
 $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 	$init(DatagramSocketAdaptor$NetworkInterfaces);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::GET_DEFAULT)->invokeExact($$new($ObjectArray, 0)));
 	} catch ($Throwable&) {
@@ -151,6 +152,7 @@ $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::getDefault() {
 
 $NetworkInterface* DatagramSocketAdaptor$NetworkInterfaces::newNetworkInterface($String* name, int32_t index, $InetAddressArray* addrs) {
 	$init(DatagramSocketAdaptor$NetworkInterfaces);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($NetworkInterface, $nc(DatagramSocketAdaptor$NetworkInterfaces::CONSTRUCTOR)->invoke($$new($ObjectArray, {$of(name), $$of(index), $of(addrs)})));
 	} catch ($Throwable&) {
@@ -168,6 +170,7 @@ $MethodHandles$Lookup* DatagramSocketAdaptor$NetworkInterfaces::lambda$static$0(
 }
 
 void clinit$DatagramSocketAdaptor$NetworkInterfaces($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

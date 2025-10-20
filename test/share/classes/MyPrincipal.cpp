@@ -59,6 +59,7 @@ $String* MyPrincipal::toString() {
 }
 
 bool MyPrincipal::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}

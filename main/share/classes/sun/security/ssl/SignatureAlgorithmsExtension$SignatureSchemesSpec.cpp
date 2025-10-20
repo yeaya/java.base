@@ -117,6 +117,7 @@ void SignatureAlgorithmsExtension$SignatureSchemesSpec::init$($List* schemes) {
 }
 
 void SignatureAlgorithmsExtension$SignatureSchemesSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid signature_algorithms: insufficient data"_s)))));
@@ -144,6 +145,7 @@ void SignatureAlgorithmsExtension$SignatureSchemesSpec::init$($HandshakeContext*
 }
 
 $String* SignatureAlgorithmsExtension$SignatureSchemesSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"signature schemes\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
 	if (this->signatureSchemes == nullptr || $nc(this->signatureSchemes)->length == 0) {

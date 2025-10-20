@@ -42,6 +42,7 @@ void StaticInitializerTest::init$() {
 
 void StaticInitializerTest::main($StringArray* args) {
 	$load(StaticInitializerTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* cl = $Class::forName("Bar"_s, false, $(StaticInitializerTest::class$->getClassLoader()));
 	if ($nc($($nc(cl)->getDeclaredField("obj"_s)))->get(nullptr) == nullptr) {

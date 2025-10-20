@@ -59,6 +59,7 @@ void ReceiveISA::init$() {
 }
 
 void ReceiveISA::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, regex, "Dia duit![0-2]"_s);
 	{
 		$var($DatagramChannel, dc1, $DatagramChannel::open());

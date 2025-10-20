@@ -211,6 +211,7 @@ void UnixUserDefinedFileAttributeView::init$($UnixPath* file, bool followLinks) 
 }
 
 $bytes* UnixUserDefinedFileAttributeView::nameAsBytes($UnixPath* file, $String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	if (name == nullptr) {
 		$throwNew($NullPointerException, "\'name\' is null"_s);
@@ -225,6 +226,7 @@ $bytes* UnixUserDefinedFileAttributeView::nameAsBytes($UnixPath* file, $String* 
 
 $List* UnixUserDefinedFileAttributeView::asList(int64_t address, int32_t size) {
 	$init(UnixUserDefinedFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList));
 	int32_t start = 0;
 	int32_t pos = 0;
@@ -245,6 +247,7 @@ $List* UnixUserDefinedFileAttributeView::asList(int64_t address, int32_t size) {
 
 $List* UnixUserDefinedFileAttributeView::list(int32_t fd, int32_t bufSize) {
 	$init(UnixUserDefinedFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	try {
 		{
 			$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(bufSize));
@@ -298,6 +301,7 @@ $List* UnixUserDefinedFileAttributeView::list(int32_t fd, int32_t bufSize) {
 }
 
 $List* UnixUserDefinedFileAttributeView::list() {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -339,6 +343,7 @@ $List* UnixUserDefinedFileAttributeView::list() {
 }
 
 int32_t UnixUserDefinedFileAttributeView::size($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -379,6 +384,7 @@ int32_t UnixUserDefinedFileAttributeView::size($String* name) {
 }
 
 int32_t UnixUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), true, false);
 	}
@@ -473,6 +479,7 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, $ByteBuffer* dst) 
 }
 
 int32_t UnixUserDefinedFileAttributeView::read($String* name, int64_t address, int32_t rem) {
+	$useLocalCurrentObjectStackCache();
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
@@ -521,6 +528,7 @@ int32_t UnixUserDefinedFileAttributeView::read($String* name, int64_t address, i
 }
 
 int32_t UnixUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), false, true);
 	}
@@ -620,6 +628,7 @@ int32_t UnixUserDefinedFileAttributeView::write($String* name, $ByteBuffer* src)
 }
 
 void UnixUserDefinedFileAttributeView::write($String* name, int64_t address, int32_t rem) {
+	$useLocalCurrentObjectStackCache();
 	int32_t fd = -1;
 	try {
 		fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
@@ -649,6 +658,7 @@ void UnixUserDefinedFileAttributeView::write($String* name, int64_t address, int
 }
 
 void UnixUserDefinedFileAttributeView::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		checkAccess($($nc(this->file)->getPathForPermissionCheck()), false, true);
 	}
@@ -682,6 +692,7 @@ void UnixUserDefinedFileAttributeView::delete$($String* name) {
 
 void UnixUserDefinedFileAttributeView::copyExtendedAttributes(int32_t ofd, int32_t nfd) {
 	$init(UnixUserDefinedFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($List, attrNames, list(ofd, UnixUserDefinedFileAttributeView::MIN_LISTXATTR_BUF_SIZE));
 		{
@@ -705,6 +716,7 @@ void UnixUserDefinedFileAttributeView::copyExtendedAttributes(int32_t ofd, int32
 
 void UnixUserDefinedFileAttributeView::copyExtendedAttribute(int32_t ofd, $bytes* name, int32_t nfd) {
 	$init(UnixUserDefinedFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $UnixNativeDispatcher::fgetxattr(ofd, name, 0, 0);
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(size));
 	{

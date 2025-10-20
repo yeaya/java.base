@@ -65,6 +65,7 @@ void TestReceiverTypeOwner::init$() {
 
 void TestReceiverTypeOwner::main($StringArray* args) {
 	$load(TestReceiverTypeOwner);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestReceiverTypeOwner$Inner);
 	$var($Method, method, $TestReceiverTypeOwner$Inner::class$->getDeclaredMethod("m"_s, $$new($ClassArray, 0)));

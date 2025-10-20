@@ -90,6 +90,7 @@ void Spliterators$AbstractLongSpliterator::init$(int64_t est, int32_t additional
 }
 
 $Spliterator$OfLong* Spliterators$AbstractLongSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterators$AbstractLongSpliterator$HoldingLongConsumer, holder, $new($Spliterators$AbstractLongSpliterator$HoldingLongConsumer));
 	int64_t s = this->est;
 	if (s > 1 && tryAdvance(static_cast<$LongConsumer*>(holder))) {

@@ -88,6 +88,7 @@ $Object* allocate$WindowsDirectoryStream($Class* clazz) {
 }
 
 void WindowsDirectoryStream::init$($WindowsPath* dir, $DirectoryStream$Filter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, closeLock, $new($Object));
 	this->isOpen = true;
 	$set(this, dir, dir);

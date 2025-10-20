@@ -84,6 +84,7 @@ void ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::init$() {
 }
 
 void ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$init($SSLConfiguration);

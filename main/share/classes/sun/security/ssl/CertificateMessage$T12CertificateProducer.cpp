@@ -113,6 +113,7 @@ $bytes* CertificateMessage$T12CertificateProducer::produce($ConnectionContext* c
 }
 
 $bytes* CertificateMessage$T12CertificateProducer::onProduceCertificate($ServerHandshakeContext* shc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);
 	{
 		$var($Iterator, i$, $nc($nc(shc)->handshakePossessions)->iterator());
@@ -143,6 +144,7 @@ $bytes* CertificateMessage$T12CertificateProducer::onProduceCertificate($ServerH
 }
 
 $bytes* CertificateMessage$T12CertificateProducer::onProduceCertificate($ClientHandshakeContext* chc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);
 	{
 		$var($Iterator, i$, $nc($nc(chc)->handshakePossessions)->iterator());

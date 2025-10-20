@@ -116,6 +116,7 @@ ProxySelector* ProxySelector::of($InetSocketAddress* proxyAddress) {
 }
 
 void clinit$ProxySelector($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

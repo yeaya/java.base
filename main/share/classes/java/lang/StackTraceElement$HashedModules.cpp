@@ -94,6 +94,7 @@ void StackTraceElement$HashedModules::init$() {
 
 $Set* StackTraceElement$HashedModules::hashedModules() {
 	$init(StackTraceElement$HashedModules);
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, resolvedModule, $nc($($nc($($ModuleLayer::boot()))->configuration()))->findModule("java.base"_s));
 	if (!StackTraceElement$HashedModules::$assertionsDisabled && !$nc(resolvedModule)->isPresent()) {
 		$throwNew($AssertionError);

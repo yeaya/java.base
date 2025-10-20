@@ -99,6 +99,7 @@ void ImageReaderFactory::init$() {
 
 $ImageReader* ImageReaderFactory::get($Path* jimage) {
 	$init(ImageReaderFactory);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(jimage);
 	try {
 		return $cast($ImageReader, $nc(ImageReaderFactory::readers)->computeIfAbsent(jimage, ImageReaderFactory::OPENER));

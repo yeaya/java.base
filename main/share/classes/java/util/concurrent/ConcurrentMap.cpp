@@ -128,6 +128,7 @@ $Object* ConcurrentMap::getOrDefault(Object$* key, Object$* defaultValue) {
 }
 
 void ConcurrentMap::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	{
 		$var($Iterator, i$, $nc($(entrySet()))->iterator());
@@ -155,6 +156,7 @@ void ConcurrentMap::replaceAll($BiFunction* function) {
 }
 
 $Object* ConcurrentMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(mappingFunction);
 	$var($Object, oldValue, nullptr);
 	$var($Object, newValue, nullptr);
@@ -164,6 +166,7 @@ $Object* ConcurrentMap::computeIfAbsent(Object$* key, $Function* mappingFunction
 }
 
 $Object* ConcurrentMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	{
 		$var($Object, oldValue, nullptr);
@@ -178,6 +181,7 @@ $Object* ConcurrentMap::computeIfPresent(Object$* key, $BiFunction* remappingFun
 }
 
 $Object* ConcurrentMap::compute(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	bool retry$continue = false;
 	for (;;) {
 		$var($Object, oldValue, get(key));
@@ -208,6 +212,7 @@ $Object* ConcurrentMap::compute(Object$* key, $BiFunction* remappingFunction) {
 }
 
 $Object* ConcurrentMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(remappingFunction);
 	$Objects::requireNonNull(value);
 	bool retry$continue = false;
@@ -241,6 +246,7 @@ $Object* ConcurrentMap::merge(Object$* key, Object$* value, $BiFunction* remappi
 }
 
 void ConcurrentMap::lambda$replaceAll$0($BiFunction* function, Object$* k, Object$* v$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, v, v$renamed);
 	while (!replace(k, v, $($nc(function)->apply(k, v)))) {
 		if (($assign(v, get(k))) == nullptr) {

@@ -78,6 +78,7 @@ void LinuxFileSystem$SupportedFileFileAttributeViewsHolder::init$() {
 
 $Set* LinuxFileSystem$SupportedFileFileAttributeViewsHolder::supportedFileAttributeViews() {
 	$init(LinuxFileSystem$SupportedFileFileAttributeViewsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, result, $new($HashSet));
 	result->addAll($($UnixFileSystem::standardFileAttributeViews()));
 	result->add("dos"_s);

@@ -184,6 +184,7 @@ bool Policy::isSet() {
 
 void Policy::checkPermission($String* type) {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($SecurityPermission, $$str({"createPolicy."_s, type})));
@@ -216,6 +217,7 @@ Policy* Policy::getPolicyNoCheck() {
 
 Policy* Policy::loadPolicyProvider() {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, policyProvider, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Policy$1)))));
 	bool var$0 = policyProvider == nullptr || $nc(policyProvider)->isEmpty();
@@ -239,6 +241,7 @@ Policy* Policy::loadPolicyProvider() {
 
 void Policy::setPolicy(Policy* p) {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($SecurityPermission, "setPolicy"_s));
@@ -253,6 +256,7 @@ void Policy::setPolicy(Policy* p) {
 
 void Policy::initPolicy(Policy* p) {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ProtectionDomain, policyDomain, $cast($ProtectionDomain, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Policy$3, p)))));
 	$var($PermissionCollection, policyPerms, nullptr);
@@ -280,6 +284,7 @@ void Policy::initPolicy(Policy* p) {
 
 Policy* Policy::getInstance($String* type, $Policy$Parameters* params) {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	checkPermission(type);
 	try {
@@ -295,6 +300,7 @@ Policy* Policy::getInstance($String* type, $Policy$Parameters* params) {
 
 Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $String* provider) {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -313,6 +319,7 @@ Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $String* 
 
 Policy* Policy::getInstance($String* type, $Policy$Parameters* params, $Provider* provider) {
 	$init(Policy);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -356,6 +363,7 @@ $PermissionCollection* Policy::getPermissions($CodeSource* codesource) {
 }
 
 $PermissionCollection* Policy::getPermissions($ProtectionDomain* domain) {
+	$useLocalCurrentObjectStackCache();
 	$var($PermissionCollection, pc, nullptr);
 	if (domain == nullptr) {
 		return $new($Permissions);
@@ -387,6 +395,7 @@ $PermissionCollection* Policy::getPermissions($ProtectionDomain* domain) {
 }
 
 void Policy::addStaticPerms($PermissionCollection* perms, $PermissionCollection* statics) {
+	$useLocalCurrentObjectStackCache();
 	if (statics != nullptr) {
 		$synchronized(statics) {
 			$var($Enumeration, e, statics->elements());

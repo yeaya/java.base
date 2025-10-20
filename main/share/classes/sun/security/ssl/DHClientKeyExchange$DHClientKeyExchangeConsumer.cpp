@@ -148,6 +148,7 @@ void DHClientKeyExchange$DHClientKeyExchangeConsumer::init$() {
 }
 
 void DHClientKeyExchange$DHClientKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
 	{

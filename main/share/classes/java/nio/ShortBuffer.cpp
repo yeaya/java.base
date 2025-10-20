@@ -229,6 +229,7 @@ ShortBuffer* ShortBuffer::get(int32_t index, $shorts* dst) {
 }
 
 ShortBuffer* ShortBuffer::getArray(int32_t index, $shorts* dst, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (((int64_t)length << 1) > $Bits::JNI_COPY_TO_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 1);
 		int64_t dstOffset = ShortBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 1);
@@ -300,6 +301,7 @@ ShortBuffer* ShortBuffer::put(int32_t index, ShortBuffer* src, int32_t offset, i
 }
 
 void ShortBuffer::putBuffer(int32_t pos, ShortBuffer* src, int32_t srcPos, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, srcBase, $nc(src)->base());
 	if (!ShortBuffer::$assertionsDisabled && !(srcBase != nullptr || src->isDirect())) {
 		$throwNew($AssertionError);
@@ -368,6 +370,7 @@ ShortBuffer* ShortBuffer::put(int32_t index, $shorts* src) {
 }
 
 ShortBuffer* ShortBuffer::putArray(int32_t index, $shorts* src, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (((int64_t)length << 1) > $Bits::JNI_COPY_FROM_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 1);
 		int64_t srcOffset = ShortBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 1);
@@ -470,6 +473,7 @@ ShortBuffer* ShortBuffer::rewind() {
 }
 
 $String* ShortBuffer::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append("[pos="_s);

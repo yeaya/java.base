@@ -43,6 +43,7 @@ void AllowSecurityManager::init$() {
 
 void AllowSecurityManager::main($StringArray* args) {
 	$load(AllowSecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, prop, $System::getProperty("java.security.manager"_s));
 	bool disallow = "disallow"_s->equals(prop);

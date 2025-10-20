@@ -111,6 +111,7 @@ void Supplementary4StringBuffer::main($StringArray* args) {
 
 void Supplementary4StringBuffer::test1() {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4StringBuffer::input)->length; ++i) {
 		$var($StringBuffer, sb, $new($StringBuffer, $nc(Supplementary4StringBuffer::input)->get(i)));
 		testCodePoint(Supplementary4StringBuffer::At, sb, 0, $nc($nc(Supplementary4StringBuffer::golden1)->get(0))->get(i));
@@ -123,6 +124,7 @@ void Supplementary4StringBuffer::test1() {
 
 void Supplementary4StringBuffer::test2() {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4StringBuffer::input)->length; ++i) {
 		$var($StringBuffer, sb, $new($StringBuffer, $nc(Supplementary4StringBuffer::input)->get(i)));
 		testCodePoint(Supplementary4StringBuffer::Before, sb, 1, $nc($nc(Supplementary4StringBuffer::golden2)->get(0))->get(i));
@@ -135,6 +137,7 @@ void Supplementary4StringBuffer::test2() {
 
 void Supplementary4StringBuffer::test3() {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4StringBuffer::input)->length; ++i) {
 		$var($StringBuffer, sb, $$new($StringBuffer, $nc(Supplementary4StringBuffer::input)->get(i))->reverse());
 		bool var$0 = !$nc($nc(Supplementary4StringBuffer::golden3)->get(i))->equals($$new($String, sb));
@@ -149,6 +152,7 @@ void Supplementary4StringBuffer::test3() {
 
 void Supplementary4StringBuffer::test4() {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4StringBuffer::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4StringBuffer::input)->get(i));
 		$var($StringBuffer, sb, $new($StringBuffer));
@@ -169,6 +173,7 @@ void Supplementary4StringBuffer::test4() {
 
 void Supplementary4StringBuffer::test5() {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4StringBuffer::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4StringBuffer::input)->get(i));
 		$var($StringBuffer, sb, $new($StringBuffer, s));
@@ -194,6 +199,7 @@ void Supplementary4StringBuffer::test5() {
 
 void Supplementary4StringBuffer::test6() {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(Supplementary4StringBuffer::input)->length; ++i) {
 		$var($String, s, $nc(Supplementary4StringBuffer::input)->get(i));
 		$var($StringBuffer, sb, $new($StringBuffer, s));
@@ -239,12 +245,14 @@ void Supplementary4StringBuffer::test6() {
 
 void Supplementary4StringBuffer::testCodePoint(bool isAt, $StringBuffer* sb, int32_t index, int32_t expected) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	int32_t c = isAt ? $nc(sb)->codePointAt(index) : sb->codePointBefore(index);
 	check(c != expected, $$str({"codePoint"_s, (isAt ? "At"_s : "Before"_s), "("_s, $$str(index), ") for <"_s, sb, ">"_s}), c, expected);
 }
 
 void Supplementary4StringBuffer::testCodePoint(bool isAt, $StringBuffer* sb, int32_t index) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	bool exceptionOccurred = false;
 	try {
 		int32_t c = isAt ? $nc(sb)->codePointAt(index) : sb->codePointBefore(index);
@@ -257,6 +265,7 @@ void Supplementary4StringBuffer::testCodePoint(bool isAt, $StringBuffer* sb, int
 
 void Supplementary4StringBuffer::testAppendCodePoint(int32_t codePoint, $Class* expectedException) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$$new($StringBuffer)->appendCodePoint(codePoint);
 	} catch ($Exception&) {
@@ -272,6 +281,7 @@ void Supplementary4StringBuffer::testAppendCodePoint(int32_t codePoint, $Class* 
 
 void Supplementary4StringBuffer::testCodePointCount($StringBuffer* sb, int32_t beginIndex, int32_t endIndex, $Class* expectedException) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(sb)->codePointCount(beginIndex, endIndex);
 	} catch ($Exception&) {
@@ -286,6 +296,7 @@ void Supplementary4StringBuffer::testCodePointCount($StringBuffer* sb, int32_t b
 
 void Supplementary4StringBuffer::testOffsetByCodePoints($StringBuffer* sb, int32_t index, int32_t offset, $Class* expectedException) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t n = $nc(sb)->offsetByCodePoints(index, offset);
 	} catch ($Exception&) {
@@ -307,6 +318,7 @@ void Supplementary4StringBuffer::check(bool err, $String* msg) {
 
 void Supplementary4StringBuffer::check(bool err, $String* s, int32_t got, int32_t expected) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	if (err) {
 		$var($String, var$0, $$str({"Error: "_s, s, " returned an unexpected value. got "_s, $(toHexString(got)), ", expected "_s}));
 		$throwNew($RuntimeException, $$concat(var$0, $(toHexString(expected))));
@@ -315,6 +327,7 @@ void Supplementary4StringBuffer::check(bool err, $String* s, int32_t got, int32_
 
 void Supplementary4StringBuffer::check(bool err, $String* s, $StringBuffer* got, $String* expected) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	if (err) {
 		$var($String, var$1, $$str({"Error: "_s, s, " returned an unexpected value. got <"_s, $(toHexString($$new($String, got))), ">, expected <"_s}));
 		$var($String, var$0, $$concat(var$1, $(toHexString(expected))));
@@ -329,6 +342,7 @@ $String* Supplementary4StringBuffer::toHexString(int32_t c) {
 
 $String* Supplementary4StringBuffer::toHexString($String* s) {
 	$init(Supplementary4StringBuffer);
+	$useLocalCurrentObjectStackCache();
 	$var($HexFormat, format, $HexFormat::of());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
@@ -341,6 +355,7 @@ $String* Supplementary4StringBuffer::toHexString($String* s) {
 }
 
 void clinit$Supplementary4StringBuffer($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Supplementary4StringBuffer::input, $new($StringArray, {
 		$cstr({'a', 'b', 'c', 0x10000, 'd', 'e', 'f', 0xD800, 0xD800, 'a', 'b', 0x10000, 'c', 'd', 'e', 'f', 'a', 0xDC00, 'b', 'c', 'd', 'e', 'f'}),
 		$cstr({0xD800, 'd', 'e', 'f', 'g', 0xD800, 'h', 'i', 'j', 0x10000, 'k', 'l', 'm', 0xDC00, 'n', 'o', 'p', 0xDC00, 0xD800, 'r', 't', 0xDC00}),

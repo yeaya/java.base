@@ -135,6 +135,7 @@ $String* PrivateKeyUsageExtension::NOT_BEFORE = nullptr;
 $String* PrivateKeyUsageExtension::NOT_AFTER = nullptr;
 
 void PrivateKeyUsageExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->notBefore == nullptr && this->notAfter == nullptr) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -168,6 +169,7 @@ void PrivateKeyUsageExtension::init$($Date* notBefore, $Date* notAfter) {
 }
 
 void PrivateKeyUsageExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, notBefore, nullptr);
 	$set(this, notAfter, nullptr);
@@ -204,6 +206,7 @@ void PrivateKeyUsageExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* PrivateKeyUsageExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("PrivateKeyUsage: [\n"_s);
 	if (this->notBefore != nullptr) {
@@ -225,6 +228,7 @@ void PrivateKeyUsageExtension::valid() {
 }
 
 void PrivateKeyUsageExtension::valid($Date* now) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(now);
 	if (this->notBefore != nullptr && $nc(this->notBefore)->after(now)) {
 		$throwNew($CertificateNotYetValidException, $$str({"NotBefore: "_s, $($nc(this->notBefore)->toString())}));
@@ -235,6 +239,7 @@ void PrivateKeyUsageExtension::valid($Date* now) {
 }
 
 void PrivateKeyUsageExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

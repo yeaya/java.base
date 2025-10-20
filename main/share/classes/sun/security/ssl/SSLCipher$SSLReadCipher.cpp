@@ -99,6 +99,7 @@ void SSLCipher$SSLReadCipher::init$($Authenticator* authenticator, $ProtocolVers
 }
 
 SSLCipher$SSLReadCipher* SSLCipher$SSLReadCipher::nullTlsReadCipher() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($SSLCipher);
 		$init($ProtocolVersion);
@@ -111,6 +112,7 @@ SSLCipher$SSLReadCipher* SSLCipher$SSLReadCipher::nullTlsReadCipher() {
 }
 
 SSLCipher$SSLReadCipher* SSLCipher$SSLReadCipher::nullDTlsReadCipher() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($SSLCipher);
 		$init($ProtocolVersion);

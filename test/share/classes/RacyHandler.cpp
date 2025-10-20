@@ -231,6 +231,7 @@ void RacyHandler::main($StringArray* args) {
 }
 
 void RacyHandler::runTest() {
+	$useLocalCurrentObjectStackCache();
 	$$new($Thread, static_cast<$Runnable*>($$new(RacyHandler$$Lambda$lambda$runTest$1, this)))->start();
 	$nc(RacyHandler::cdl)->countDown();
 	for (int32_t i = 0; i < RacyHandler::NUM_THREADS; ++i) {
@@ -253,6 +254,7 @@ void RacyHandler::runTest() {
 }
 
 $URLStreamHandler* RacyHandler::getURLStreamHandler() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($URL);

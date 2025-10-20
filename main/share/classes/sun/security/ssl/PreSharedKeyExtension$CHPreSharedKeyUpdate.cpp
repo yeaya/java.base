@@ -94,6 +94,7 @@ void PreSharedKeyExtension$CHPreSharedKeyUpdate::init$() {
 }
 
 void PreSharedKeyExtension$CHPreSharedKeyUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if (!$nc(shc)->isResumption || $nc(shc)->resumingSession == nullptr) {
 		return;

@@ -135,6 +135,7 @@ $VarHandle* Exchanger::MATCH = nullptr;
 $VarHandle* Exchanger::AA = nullptr;
 
 $Object* Exchanger::arenaExchange(Object$* item, bool timed, int64_t ns) {
+	$useLocalCurrentObjectStackCache();
 	$var($Exchanger$NodeArray, a, this->arena);
 	int32_t alen = $nc(a)->length;
 	$var($Exchanger$Node, p, $cast($Exchanger$Node, $nc(this->participant)->get()));
@@ -234,6 +235,7 @@ $Object* Exchanger::arenaExchange(Object$* item, bool timed, int64_t ns) {
 }
 
 $Object* Exchanger::slotExchange(Object$* item, bool timed, int64_t ns) {
+	$useLocalCurrentObjectStackCache();
 	$var($Exchanger$Node, p, $cast($Exchanger$Node, $nc(this->participant)->get()));
 	$var($Thread, t, $Thread::currentThread());
 	if (t->isInterrupted()) {
@@ -311,6 +313,7 @@ void Exchanger::init$() {
 }
 
 $Object* Exchanger::exchange(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, v, nullptr);
 	$var($Exchanger$NodeArray, a, nullptr);
 	$var($Object, item, (x == nullptr) ? Exchanger::NULL_ITEM : $of(x));
@@ -326,6 +329,7 @@ $Object* Exchanger::exchange(Object$* x) {
 }
 
 $Object* Exchanger::exchange(Object$* x, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, v, nullptr);
 	$var($Object, item, (x == nullptr) ? Exchanger::NULL_ITEM : $of(x));
 	int64_t ns = $nc(unit)->toNanos(timeout);
@@ -344,6 +348,7 @@ $Object* Exchanger::exchange(Object$* x, int64_t timeout, $TimeUnit* unit) {
 }
 
 void clinit$Exchanger($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Exchanger::NCPU = $nc($($Runtime::getRuntime()))->availableProcessors();
 	Exchanger::FULL = (Exchanger::NCPU >= (Exchanger::MMASK << 1)) ? Exchanger::MMASK : (int32_t)((uint32_t)Exchanger::NCPU >> 1);

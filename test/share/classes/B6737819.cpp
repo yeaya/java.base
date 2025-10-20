@@ -61,6 +61,7 @@ void B6737819::init$() {
 
 void B6737819::main($StringArray* args) {
 	$init(B6737819);
+	$useLocalCurrentObjectStackCache();
 	$System::setProperty("http.proxyHost"_s, "myproxy"_s);
 	$System::setProperty("http.proxyPort"_s, "8080"_s);
 	$var($ProxySelector, sel, $ProxySelector::getDefault());

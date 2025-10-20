@@ -122,6 +122,7 @@ $Object* allocate$CertificateRequest$T10CertificateRequestMessage($Class* clazz)
 }
 
 void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* handshakeContext, $X509CertificateArray* trustedCerts, $CipherSuite$KeyExchange* keyExchange) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$set(this, authorities, $new($ArrayList, $nc(trustedCerts)->length));
 	{
@@ -141,6 +142,7 @@ void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* h
 }
 
 void CertificateRequest$T10CertificateRequestMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	if ($nc(m)->remaining() < 4) {
 		$init($Alert);
@@ -169,6 +171,7 @@ $StringArray* CertificateRequest$T10CertificateRequestMessage::getKeyTypes() {
 }
 
 $X500PrincipalArray* CertificateRequest$T10CertificateRequestMessage::getAuthorities() {
+	$useLocalCurrentObjectStackCache();
 	$var($X500PrincipalArray, principals, $new($X500PrincipalArray, $nc(this->authorities)->size()));
 	int32_t i = 0;
 	{
@@ -189,6 +192,7 @@ $SSLHandshake* CertificateRequest$T10CertificateRequestMessage::handshakeType() 
 }
 
 int32_t CertificateRequest$T10CertificateRequestMessage::messageLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = 1 + $nc(this->types)->length + 2;
 	{
 		$var($Iterator, i$, $nc(this->authorities)->iterator());
@@ -203,6 +207,7 @@ int32_t CertificateRequest$T10CertificateRequestMessage::messageLength() {
 }
 
 void CertificateRequest$T10CertificateRequestMessage::send($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(hos)->putBytes8(this->types);
 	int32_t listLen = 0;
 	{
@@ -227,6 +232,7 @@ void CertificateRequest$T10CertificateRequestMessage::send($HandshakeOutStream* 
 }
 
 $String* CertificateRequest$T10CertificateRequestMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateRequest\": \'{\'\n  \"certificate types\": {0}\n  \"certificate authorities\": {1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($List, typeNames, $new($ArrayList, $nc(this->types)->length));

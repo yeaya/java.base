@@ -205,6 +205,7 @@ void DTLSOutputRecord::changeWriteCiphers($SSLCipher$SSLWriteCipher* writeCipher
 }
 
 void DTLSOutputRecord::encodeAlert(int8_t level, int8_t description) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -233,6 +234,7 @@ void DTLSOutputRecord::encodeChangeCipherSpec() {
 }
 
 void DTLSOutputRecord::encodeHandshake($bytes* source, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -250,6 +252,7 @@ void DTLSOutputRecord::encodeHandshake($bytes* source, int32_t offset, int32_t l
 }
 
 $Ciphertext* DTLSOutputRecord::encode($ByteBufferArray* srcs$renamed, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBufferArray, srcs, srcs$renamed);
 	if (this->$OutputRecord::isClosed$) {
 		$init($SSLLogger);
@@ -268,6 +271,7 @@ $Ciphertext* DTLSOutputRecord::encode($ByteBufferArray* srcs$renamed, int32_t sr
 }
 
 $Ciphertext* DTLSOutputRecord::encode($ByteBufferArray* sources, int32_t offset, int32_t length, $ByteBuffer* destination) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(this->writeCipher)->authenticator)->seqNumOverflow()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {

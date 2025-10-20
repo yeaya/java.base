@@ -137,6 +137,7 @@ $Object* allocate$CertificateMessage$T12CertificateMessage($Class* clazz) {
 }
 
 void CertificateMessage$T12CertificateMessage::init$($HandshakeContext* handshakeContext, $X509CertificateArray* certChain) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($List, encodedCerts, $new($ArrayList, $nc(certChain)->length));
 	{
@@ -160,6 +161,7 @@ void CertificateMessage$T12CertificateMessage::init$($HandshakeContext* handshak
 }
 
 void CertificateMessage$T12CertificateMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	int32_t listLen = $Record::getInt24(m);
 	if (listLen > $nc(m)->remaining()) {
@@ -189,6 +191,7 @@ $SSLHandshake* CertificateMessage$T12CertificateMessage::handshakeType() {
 }
 
 int32_t CertificateMessage$T12CertificateMessage::messageLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t msgLen = 3;
 	{
 		$var($Iterator, i$, $nc(this->encodedCertChain)->iterator());
@@ -203,6 +206,7 @@ int32_t CertificateMessage$T12CertificateMessage::messageLength() {
 }
 
 void CertificateMessage$T12CertificateMessage::send($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t listLen = 0;
 	{
 		$var($Iterator, i$, $nc(this->encodedCertChain)->iterator());
@@ -226,6 +230,7 @@ void CertificateMessage$T12CertificateMessage::send($HandshakeOutStream* hos) {
 }
 
 $String* CertificateMessage$T12CertificateMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->encodedCertChain)->isEmpty()) {
 		return "\"Certificates\": <empty list>"_s;
 	}

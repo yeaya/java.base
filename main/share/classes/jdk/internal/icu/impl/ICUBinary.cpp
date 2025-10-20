@@ -134,6 +134,7 @@ void ICUBinary::init$() {
 
 $ByteBuffer* ICUBinary::getRequiredData($String* itemPath) {
 	$init(ICUBinary);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* root = ICUBinary::class$;
 	try {
@@ -217,6 +218,7 @@ $VersionInfo* ICUBinary::readHeaderAndDataVersion($ByteBuffer* bytes, int32_t da
 
 $bytes* ICUBinary::readHeader($InputStream* inputStream, $bytes* dataFormatIDExpected, $ICUBinary$Authenticate* authenticate) {
 	$init(ICUBinary);
+	$useLocalCurrentObjectStackCache();
 	$var($DataInputStream, input, $new($DataInputStream, inputStream));
 	char16_t headersize = input->readChar();
 	int32_t readcount = 2;
@@ -261,6 +263,7 @@ $bytes* ICUBinary::readHeader($InputStream* inputStream, $bytes* dataFormatIDExp
 
 int32_t ICUBinary::readHeader($ByteBuffer* bytes, int32_t dataFormat, $ICUBinary$Authenticate* authenticate) {
 	$init(ICUBinary);
+	$useLocalCurrentObjectStackCache();
 	if (!ICUBinary::$assertionsDisabled && !($nc(bytes)->position() == 0)) {
 		$throwNew($AssertionError);
 	}
@@ -330,6 +333,7 @@ $bytes* ICUBinary::getBytes($ByteBuffer* bytes, int32_t length, int32_t addition
 
 $String* ICUBinary::getString($ByteBuffer* bytes, int32_t length, int32_t additionalSkipLength) {
 	$init(ICUBinary);
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, cs, $nc(bytes)->asCharBuffer());
 	$var($String, s, $nc($($nc(cs)->subSequence(0, length)))->toString());
 	skipBytes(bytes, length * 2 + additionalSkipLength);
@@ -338,6 +342,7 @@ $String* ICUBinary::getString($ByteBuffer* bytes, int32_t length, int32_t additi
 
 $chars* ICUBinary::getChars($ByteBuffer* bytes, int32_t length, int32_t additionalSkipLength) {
 	$init(ICUBinary);
+	$useLocalCurrentObjectStackCache();
 	$var($chars, dest, $new($chars, length));
 	$nc($($nc(bytes)->asCharBuffer()))->get(dest);
 	skipBytes(bytes, length * 2 + additionalSkipLength);
@@ -346,6 +351,7 @@ $chars* ICUBinary::getChars($ByteBuffer* bytes, int32_t length, int32_t addition
 
 $ints* ICUBinary::getInts($ByteBuffer* bytes, int32_t length, int32_t additionalSkipLength) {
 	$init(ICUBinary);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, dest, $new($ints, length));
 	$nc($($nc(bytes)->asIntBuffer()))->get(dest);
 	skipBytes(bytes, length * 4 + additionalSkipLength);

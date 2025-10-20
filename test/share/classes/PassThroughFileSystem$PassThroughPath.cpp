@@ -174,6 +174,7 @@ $Path* PassThroughFileSystem$PassThroughPath::normalize() {
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::resolve($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	return wrap($($nc(this->delegate)->resolve($($PassThroughFileSystem::unwrap(other)))));
 }
 
@@ -182,6 +183,7 @@ $Path* PassThroughFileSystem$PassThroughPath::resolve($String* other) {
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::resolveSibling($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	return wrap($($nc(this->delegate)->resolveSibling($($PassThroughFileSystem::unwrap(other)))));
 }
 
@@ -190,6 +192,7 @@ $Path* PassThroughFileSystem$PassThroughPath::resolveSibling($String* other) {
 }
 
 $Path* PassThroughFileSystem$PassThroughPath::relativize($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	return wrap($($nc(this->delegate)->relativize($($PassThroughFileSystem::unwrap(other)))));
 }
 
@@ -209,6 +212,7 @@ $String* PassThroughFileSystem$PassThroughPath::toString() {
 }
 
 $URI* PassThroughFileSystem$PassThroughPath::toUri() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ssp, $nc($($nc(this->delegate)->toUri()))->getSchemeSpecificPart());
 	return $URI::create($$str({$($nc($($nc(this->fs)->provider()))->getScheme()), ":"_s, ssp}));
 }

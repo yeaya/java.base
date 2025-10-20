@@ -56,6 +56,7 @@ void AddURLTest::init$() {
 }
 
 void AddURLTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URLArray, urls, $new($URLArray, {$$new($URL, "http://foobar.jar"_s)}));
 	$var($AddURLTest$MyURLClassLoader, ucl, $new($AddURLTest$MyURLClassLoader, urls));
 	ucl->addURL(nullptr);

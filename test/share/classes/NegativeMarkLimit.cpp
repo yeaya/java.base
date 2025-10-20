@@ -41,6 +41,7 @@ void NegativeMarkLimit::init$() {
 }
 
 void NegativeMarkLimit::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringReader, in, $new($StringReader, "aaaaaaaaaaaaaaa"_s));
 	try {
 		in->mark(-1);

@@ -299,6 +299,7 @@ void PriorityQueue::init$(int32_t initialCapacity, $Comparator* comparator) {
 }
 
 void PriorityQueue::init$($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractQueue::init$();
 	if ($instanceOf($SortedSet, c)) {
 		$var($SortedSet, ss, $cast($SortedSet, c));
@@ -341,6 +342,7 @@ void PriorityQueue::initFromPriorityQueue(PriorityQueue* c) {
 }
 
 void PriorityQueue::initElementsFromCollection($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, $nc(c)->toArray());
 	int32_t len = $nc(es)->length;
 	$load($ArrayList);
@@ -480,6 +482,7 @@ void PriorityQueue::clear() {
 }
 
 $Object* PriorityQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, nullptr);
 	$var($Object, result, nullptr);
 	if (($assign(result, ($nc(($assign(es, this->queue)))->get(0)))) != nullptr) {
@@ -500,6 +503,7 @@ $Object* PriorityQueue::poll() {
 }
 
 $Object* PriorityQueue::removeAt(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->queue);
 	++this->modCount;
 	int32_t s = --this->size$;
@@ -529,6 +533,7 @@ void PriorityQueue::siftUp(int32_t k, Object$* x) {
 
 void PriorityQueue::siftUpComparable(int32_t k, Object$* x, $ObjectArray* es) {
 	$init(PriorityQueue);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparable, key, $cast($Comparable, x));
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
@@ -544,6 +549,7 @@ void PriorityQueue::siftUpComparable(int32_t k, Object$* x, $ObjectArray* es) {
 
 void PriorityQueue::siftUpUsingComparator(int32_t k, Object$* x, $ObjectArray* es, $Comparator* cmp) {
 	$init(PriorityQueue);
+	$useLocalCurrentObjectStackCache();
 	while (k > 0) {
 		int32_t parent = (int32_t)((uint32_t)(k - 1) >> 1);
 		$var($Object0, e, $nc(es)->get(parent));
@@ -566,6 +572,7 @@ void PriorityQueue::siftDown(int32_t k, Object$* x) {
 
 void PriorityQueue::siftDownComparable(int32_t k, Object$* x, $ObjectArray* es, int32_t n) {
 	$init(PriorityQueue);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparable, key, $cast($Comparable, x));
 	int32_t half = (int32_t)((uint32_t)n >> 1);
 	while (k < half) {
@@ -586,6 +593,7 @@ void PriorityQueue::siftDownComparable(int32_t k, Object$* x, $ObjectArray* es, 
 
 void PriorityQueue::siftDownUsingComparator(int32_t k, Object$* x, $ObjectArray* es, int32_t n, $Comparator* cmp) {
 	$init(PriorityQueue);
+	$useLocalCurrentObjectStackCache();
 	int32_t half = (int32_t)((uint32_t)n >> 1);
 	while (k < half) {
 		int32_t child = (k << 1) + 1;
@@ -604,6 +612,7 @@ void PriorityQueue::siftDownUsingComparator(int32_t k, Object$* x, $ObjectArray*
 }
 
 void PriorityQueue::heapify() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->queue);
 	int32_t n = this->size$;
 	int32_t i = ((int32_t)((uint32_t)n >> 1)) - 1;
@@ -637,6 +646,7 @@ void PriorityQueue::writeObject($ObjectOutputStream* s) {
 }
 
 void PriorityQueue::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	s->readInt();
 	$load($ObjectArray);
@@ -687,6 +697,7 @@ bool PriorityQueue::isClear($longs* bits, int32_t i) {
 }
 
 bool PriorityQueue::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	int32_t expectedModCount = ++this->modCount;
 	$var($ObjectArray, es, this->queue);
 	int32_t end = this->size$;

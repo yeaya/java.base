@@ -65,6 +65,7 @@ void AnotherSelectFdsLimit$WorkerThread::init$() {
 }
 
 void AnotherSelectFdsLimit$WorkerThread::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ServerSocket, ss, $new($ServerSocket, 0));
 		{

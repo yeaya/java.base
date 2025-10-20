@@ -98,6 +98,7 @@ $Throwable* Cancellable::exception() {
 }
 
 void Cancellable::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -125,6 +126,7 @@ void Cancellable::run() {
 
 void Cancellable::runInterruptibly(Cancellable* task) {
 	$init(Cancellable);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, nullptr, task, "NIO-Task"_s, 0, false));
 	t->start();
 	bool cancelledByInterrupt = false;

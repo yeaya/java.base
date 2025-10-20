@@ -176,6 +176,7 @@ $Path* TestProvider$TestPath::normalize() {
 }
 
 $Path* TestProvider$TestPath::resolve($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(this->fs)->wrap($($nc(this->delegate)->resolve($($nc(this->fs)->unwrap(other)))));
 }
 
@@ -184,6 +185,7 @@ $Path* TestProvider$TestPath::resolve($String* other) {
 }
 
 $Path* TestProvider$TestPath::resolveSibling($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(this->fs)->wrap($($nc(this->delegate)->resolveSibling($($nc(this->fs)->unwrap(other)))));
 }
 
@@ -192,6 +194,7 @@ $Path* TestProvider$TestPath::resolveSibling($String* other) {
 }
 
 $Path* TestProvider$TestPath::relativize($Path* other) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(this->fs)->wrap($($nc(this->delegate)->relativize($($nc(this->fs)->unwrap(other)))));
 }
 
@@ -211,6 +214,7 @@ $String* TestProvider$TestPath::toString() {
 }
 
 $URI* TestProvider$TestPath::toUri() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ssp, $nc($($nc(this->delegate)->toUri()))->getSchemeSpecificPart());
 	return $URI::create($$str({$($nc($($nc(this->fs)->provider()))->getScheme()), ":"_s, ssp}));
 }

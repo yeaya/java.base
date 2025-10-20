@@ -89,6 +89,7 @@ void AbstractAlgorithmConstraints::init$($AlgorithmDecomposer* decomposer) {
 
 $List* AbstractAlgorithmConstraints::getAlgorithms($String* propertyName) {
 	$init(AbstractAlgorithmConstraints);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, property, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AbstractAlgorithmConstraints$1, propertyName)))));
 	$var($StringArray, algorithmsInProperty, nullptr);
@@ -111,6 +112,7 @@ $List* AbstractAlgorithmConstraints::getAlgorithms($String* propertyName) {
 
 bool AbstractAlgorithmConstraints::checkAlgorithm($List* algorithms, $String* algorithm, $AlgorithmDecomposer* decomposer) {
 	$init(AbstractAlgorithmConstraints);
+	$useLocalCurrentObjectStackCache();
 	if (algorithm == nullptr || $nc(algorithm)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "No algorithm name specified"_s);
 	}

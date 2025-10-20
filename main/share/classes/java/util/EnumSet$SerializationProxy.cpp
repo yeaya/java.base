@@ -76,6 +76,7 @@ void EnumSet$SerializationProxy::init$($EnumSet* set) {
 }
 
 $Object* EnumSet$SerializationProxy::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	$var($EnumSet, result, $EnumSet::noneOf(this->elementType));
 	{
 		$var($EnumArray, arr$, this->elements);

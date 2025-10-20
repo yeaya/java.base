@@ -91,6 +91,7 @@ void ServerKeyExchange$ServerKeyExchangeProducer::init$() {
 }
 
 $bytes* ServerKeyExchange$ServerKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($SSLKeyExchange, ke, $SSLKeyExchange::valueOf($nc($nc(shc)->negotiatedCipherSuite)->keyExchange, shc->negotiatedProtocol));
 	if (ke != nullptr) {

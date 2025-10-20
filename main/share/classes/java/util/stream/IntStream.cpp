@@ -287,12 +287,14 @@ IntStream* IntStream::mapMulti($IntStream$IntMapMultiConsumer* mapper) {
 }
 
 IntStream* IntStream::takeWhile($IntPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator$OfInt, var$0, $as($Spliterator$OfInt, $new($WhileOps$UnorderedWhileSpliterator$OfInt$Taking, $($cast($Spliterator$OfInt, spliterator())), true, predicate)));
 	return $cast(IntStream, $nc($($StreamSupport::intStream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(IntStream$$Lambda$close$1, this))));
 }
 
 IntStream* IntStream::dropWhile($IntPredicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator$OfInt, var$0, $as($Spliterator$OfInt, $new($WhileOps$UnorderedWhileSpliterator$OfInt$Dropping, $($cast($Spliterator$OfInt, spliterator())), true, predicate)));
 	return $cast(IntStream, $nc($($StreamSupport::intStream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(IntStream$$Lambda$close$1, this))));
@@ -359,6 +361,7 @@ IntStream* IntStream::rangeClosed(int32_t startInclusive, int32_t endInclusive) 
 
 IntStream* IntStream::concat(IntStream* a, IntStream* b) {
 	$init(IntStream);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(a);
 	$Objects::requireNonNull(b);
 	$var($Spliterator$OfInt, var$0, $cast($Spliterator$OfInt, a->spliterator()));
@@ -370,6 +373,7 @@ IntStream* IntStream::concat(IntStream* a, IntStream* b) {
 
 IntStream* IntStream::lambda$mapMulti$0($IntStream$IntMapMultiConsumer* mapper, int32_t e) {
 	$init(IntStream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfInt, buffer, $new($SpinedBuffer$OfInt));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::intStream($($cast($Spliterator$OfInt, buffer->spliterator())), false);

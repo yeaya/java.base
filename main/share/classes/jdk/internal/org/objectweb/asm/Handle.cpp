@@ -120,6 +120,7 @@ int32_t Handle::hashCode() {
 }
 
 $String* Handle::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({this->owner, $$str(u'.'), this->name, this->descriptor, " ("_s, $$str(this->tag), (this->isInterface$ ? " itf"_s : ""_s), $$str(u')')});
 }
 

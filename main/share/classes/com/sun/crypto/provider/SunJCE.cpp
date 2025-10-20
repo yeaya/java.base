@@ -117,6 +117,7 @@ void SunJCE::ps($String* type, $String* algo, $String* cn, $List* als, $HashMap*
 }
 
 void SunJCE::psA($String* type, $String* algo, $String* cn, $HashMap* attrs) {
+	$useLocalCurrentObjectStackCache();
 	putService($$new($Provider$Service, this, type, algo, cn, $($SecurityProviderConstants::getAliases(algo)), attrs));
 }
 
@@ -135,6 +136,7 @@ void SunJCE::init$() {
 }
 
 void SunJCE::putEntries() {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap, attrs, $new($HashMap, 3));
 	attrs->put("SupportedModes"_s, "ECB"_s);
 	attrs->put("SupportedPaddings"_s, "NOPADDING|PKCS1PADDING|OAEPPADDING|OAEPWITHMD5ANDMGF1PADDING|OAEPWITHSHA1ANDMGF1PADDING|OAEPWITHSHA-1ANDMGF1PADDING|OAEPWITHSHA-224ANDMGF1PADDING|OAEPWITHSHA-256ANDMGF1PADDING|OAEPWITHSHA-384ANDMGF1PADDING|OAEPWITHSHA-512ANDMGF1PADDING|OAEPWITHSHA-512/224ANDMGF1PADDING|OAEPWITHSHA-512/256ANDMGF1PADDING"_s);

@@ -288,6 +288,7 @@ void ASMifier::init$(int32_t api, $String* visitorVariableName, int32_t annotati
 
 void ASMifier::main($StringArray* args) {
 	$init(ASMifier);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, var$0, args);
 	$init($System);
 	$var($PrintWriter, var$1, $new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
@@ -300,6 +301,7 @@ void ASMifier::main($StringArray* args, $PrintWriter* output, $PrintWriter* logg
 }
 
 void ASMifier::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, simpleName, nullptr);
 	if (name == nullptr) {
 		$assign(simpleName, "module-info"_s);
@@ -374,6 +376,7 @@ void ASMifier::visitSource($String* file, $String* debug) {
 }
 
 $Printer* ASMifier::visitModule($String* name, int32_t flags, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("ModuleVisitor moduleVisitor = classWriter.visitModule("_s);
 	appendConstant(name);
@@ -452,6 +455,7 @@ void ASMifier::visitInnerClass($String* name, $String* outerName, $String* inner
 }
 
 ASMifier* ASMifier::visitRecordComponent($String* name, $String* descriptor, $String* signature) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s);
 	$nc(this->stringBuilder)->append("recordComponentVisitor = classWriter.visitRecordComponent("_s);
@@ -469,6 +473,7 @@ ASMifier* ASMifier::visitRecordComponent($String* name, $String* descriptor, $St
 }
 
 ASMifier* ASMifier::visitField(int32_t access, $String* name, $String* descriptor, $String* signature, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s);
 	$nc(this->stringBuilder)->append("fieldVisitor = classWriter.visitField("_s);
@@ -490,6 +495,7 @@ ASMifier* ASMifier::visitField(int32_t access, $String* name, $String* descripto
 }
 
 ASMifier* ASMifier::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s);
 	$nc(this->stringBuilder)->append("methodVisitor = classWriter.visitMethod("_s);
@@ -628,6 +634,7 @@ void ASMifier::visitEnum($String* name, $String* descriptor, $String* value) {
 }
 
 ASMifier* ASMifier::visitAnnotation($String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s)->append("AnnotationVisitor annotationVisitor"_s)->append(this->id + 1)->append(" = annotationVisitor"_s);
 	$nc(this->stringBuilder)->append(this->id)->append(".visitAnnotation("_s);
@@ -643,6 +650,7 @@ ASMifier* ASMifier::visitAnnotation($String* name, $String* descriptor) {
 }
 
 ASMifier* ASMifier::visitArray($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s);
 	$nc(this->stringBuilder)->append("AnnotationVisitor annotationVisitor"_s)->append(this->id + 1)->append(" = annotationVisitor"_s);
@@ -708,6 +716,7 @@ void ASMifier::visitParameter($String* parameterName, int32_t access) {
 }
 
 ASMifier* ASMifier::visitAnnotationDefault() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s)->append(ASMifier::ANNOTATION_VISITOR0)->append(this->name)->append(".visitAnnotationDefault();\n"_s);
 	$nc(this->text)->add($($nc(this->stringBuilder)->toString()));
@@ -733,6 +742,7 @@ ASMifier* ASMifier::visitAnnotableParameterCount(int32_t parameterCount, bool vi
 }
 
 ASMifier* ASMifier::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s)->append(ASMifier::ANNOTATION_VISITOR0)->append(this->name)->append(".visitParameterAnnotation("_s)->append(parameter)->append(", "_s);
 	appendConstant(descriptor);
@@ -816,6 +826,7 @@ void ASMifier::visitInsn(int32_t opcode) {
 }
 
 void ASMifier::visitIntInsn(int32_t opcode, int32_t operand) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$init($Printer);
 	$nc(this->stringBuilder)->append(this->name)->append(".visitIntInsn("_s)->append($nc($Printer::OPCODES)->get(opcode))->append(", "_s)->append(opcode == $Opcodes::NEWARRAY ? $nc($Printer::TYPES)->get(operand) : $($Integer::toString(operand)))->append(");\n"_s);
@@ -919,6 +930,7 @@ void ASMifier::visitIincInsn(int32_t var, int32_t increment) {
 }
 
 void ASMifier::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	{
 		$var($LabelArray, arr$, labels);
@@ -944,6 +956,7 @@ void ASMifier::visitTableSwitchInsn(int32_t min, int32_t max, $Label* dflt, $Lab
 }
 
 void ASMifier::visitLookupSwitchInsn($Label* dflt, $ints* keys, $LabelArray* labels) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	{
 		$var($LabelArray, arr$, labels);
@@ -1022,6 +1035,7 @@ void ASMifier::visitLocalVariable($String* name, $String* descriptor, $String* s
 }
 
 $Printer* ASMifier::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s)->append(ASMifier::ANNOTATION_VISITOR0)->append(this->name)->append(".visitLocalVariableAnnotation("_s)->append(typeRef);
 	if (typePath == nullptr) {
@@ -1074,6 +1088,7 @@ void ASMifier::visitMethodEnd() {
 }
 
 ASMifier* ASMifier::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s)->append(ASMifier::ANNOTATION_VISITOR0)->append(this->name)->append(".visitAnnotation("_s);
 	appendConstant(descriptor);
@@ -1090,6 +1105,7 @@ ASMifier* ASMifier::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $S
 }
 
 ASMifier* ASMifier::visitTypeAnnotation($String* method, int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append("{\n"_s)->append(ASMifier::ANNOTATION_VISITOR0)->append(this->name)->append("."_s)->append(method)->append("("_s)->append(typeRef);
 	if (typePath == nullptr) {
@@ -1281,6 +1297,7 @@ void ASMifier::appendAccessFlags(int32_t accessFlags) {
 }
 
 void ASMifier::appendConstant(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		$nc(this->stringBuilder)->append("null"_s);
 	} else if ($instanceOf($String, value)) {
@@ -1397,6 +1414,7 @@ void ASMifier::declareFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
 }
 
 void ASMifier::appendFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < numTypes; ++i) {
 		if (i > 0) {
 			$nc(this->stringBuilder)->append(", "_s);
@@ -1412,6 +1430,7 @@ void ASMifier::appendFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
 }
 
 void ASMifier::declareLabel($Label* label) {
+	$useLocalCurrentObjectStackCache();
 	if (this->labelNames == nullptr) {
 		$set(this, labelNames, $new($HashMap));
 	}
@@ -1428,6 +1447,7 @@ void ASMifier::appendLabel($Label* label) {
 }
 
 void clinit$ASMifier($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ASMifier::USAGE, "Prints the ASM code to generate the given class.\nUsage: ASMifier [-debug] <fully qualified class name or class file name>"_s);
 	$assignStatic(ASMifier::ANNOTATION_VISITOR, "annotationVisitor"_s);
 	$assignStatic(ASMifier::ANNOTATION_VISITOR0, "annotationVisitor0 = "_s);

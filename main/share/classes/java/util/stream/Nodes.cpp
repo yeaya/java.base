@@ -428,6 +428,7 @@ $Node$Builder$OfDouble* Nodes::doubleBuilder() {
 
 $Node* Nodes::collect($PipelineHelper* helper, $Spliterator* spliterator, bool flattenTree, $IntFunction* generator) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size >= 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -444,6 +445,7 @@ $Node* Nodes::collect($PipelineHelper* helper, $Spliterator* spliterator, bool f
 
 $Node$OfInt* Nodes::collectInt($PipelineHelper* helper, $Spliterator* spliterator, bool flattenTree) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size >= 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -460,6 +462,7 @@ $Node$OfInt* Nodes::collectInt($PipelineHelper* helper, $Spliterator* spliterato
 
 $Node$OfLong* Nodes::collectLong($PipelineHelper* helper, $Spliterator* spliterator, bool flattenTree) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size >= 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -476,6 +479,7 @@ $Node$OfLong* Nodes::collectLong($PipelineHelper* helper, $Spliterator* splitera
 
 $Node$OfDouble* Nodes::collectDouble($PipelineHelper* helper, $Spliterator* spliterator, bool flattenTree) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(helper)->exactOutputSizeIfKnown(spliterator);
 	if (size >= 0 && $nc(spliterator)->hasCharacteristics($Spliterator::SUBSIZED)) {
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -492,6 +496,7 @@ $Node$OfDouble* Nodes::collectDouble($PipelineHelper* helper, $Spliterator* spli
 
 $Node* Nodes::flatten($Node* node, $IntFunction* generator) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(node)->getChildCount() > 0) {
 		int64_t size = node->count();
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -507,6 +512,7 @@ $Node* Nodes::flatten($Node* node, $IntFunction* generator) {
 
 $Node$OfInt* Nodes::flattenInt($Node$OfInt* node) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(node)->getChildCount() > 0) {
 		int64_t size = node->count();
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -522,6 +528,7 @@ $Node$OfInt* Nodes::flattenInt($Node$OfInt* node) {
 
 $Node$OfLong* Nodes::flattenLong($Node$OfLong* node) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(node)->getChildCount() > 0) {
 		int64_t size = node->count();
 		if (size >= Nodes::MAX_ARRAY_SIZE) {
@@ -537,6 +544,7 @@ $Node$OfLong* Nodes::flattenLong($Node$OfLong* node) {
 
 $Node$OfDouble* Nodes::flattenDouble($Node$OfDouble* node) {
 	$init(Nodes);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(node)->getChildCount() > 0) {
 		int64_t size = node->count();
 		if (size >= Nodes::MAX_ARRAY_SIZE) {

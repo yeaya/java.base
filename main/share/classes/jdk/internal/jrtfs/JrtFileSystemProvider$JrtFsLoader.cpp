@@ -63,6 +63,7 @@ void JrtFileSystemProvider$JrtFsLoader::init$($URLArray* urls) {
 }
 
 $Class* JrtFileSystemProvider$JrtFsLoader::loadClass($String* cn, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$Class* c = findLoadedClass(cn);
 	if (c == nullptr) {
 		$var($URL, u, findResource($$str({$($nc(cn)->replace(u'.', u'/')), ".class"_s})));

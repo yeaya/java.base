@@ -40,6 +40,7 @@ void Child::init$() {
 }
 
 void Child::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length != 1) {
 		$init($System);
 		$nc($System::err)->println("Usage: java Child <protocol>"_s);

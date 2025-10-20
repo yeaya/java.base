@@ -78,6 +78,7 @@ void Streams$2::init$($BaseStream* val$a, $BaseStream* val$b) {
 }
 
 void Streams$2::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->val$a)->close();
 	} catch ($Throwable&) {

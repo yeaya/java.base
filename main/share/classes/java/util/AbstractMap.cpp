@@ -110,6 +110,7 @@ bool AbstractMap::isEmpty() {
 }
 
 bool AbstractMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc($(entrySet()))->iterator());
 	if (value == nullptr) {
 		while ($nc(i)->hasNext()) {
@@ -130,6 +131,7 @@ bool AbstractMap::containsValue(Object$* value) {
 }
 
 bool AbstractMap::containsKey(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc($(entrySet()))->iterator());
 	if (key == nullptr) {
 		while ($nc(i)->hasNext()) {
@@ -150,6 +152,7 @@ bool AbstractMap::containsKey(Object$* key) {
 }
 
 $Object* AbstractMap::get(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc($(entrySet()))->iterator());
 	if (key == nullptr) {
 		while ($nc(i)->hasNext()) {
@@ -175,6 +178,7 @@ $Object* AbstractMap::put(Object$* key, Object$* value) {
 }
 
 $Object* AbstractMap::remove(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc($(entrySet()))->iterator());
 	$var($Map$Entry, correctEntry, nullptr);
 	if (key == nullptr) {
@@ -201,6 +205,7 @@ $Object* AbstractMap::remove(Object$* key) {
 }
 
 void AbstractMap::putAll($Map* m) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(m)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -234,6 +239,7 @@ $Collection* AbstractMap::values() {
 }
 
 bool AbstractMap::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -280,6 +286,7 @@ bool AbstractMap::equals(Object$* o) {
 }
 
 int32_t AbstractMap::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	{
 		$var($Iterator, i$, $nc($(entrySet()))->iterator());
@@ -292,6 +299,7 @@ int32_t AbstractMap::hashCode() {
 }
 
 $String* AbstractMap::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, i, $nc($(entrySet()))->iterator());
 	if (!$nc(i)->hasNext()) {
 		return "{}"_s;

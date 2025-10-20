@@ -110,6 +110,7 @@ void StatusResponseManager$OCSPFetchCall::init$($StatusResponseManager* this$0, 
 }
 
 $Object* StatusResponseManager$OCSPFetchCall::call() {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 		$SSLLogger::fine($$str({"Starting fetch for SN "_s, $($nc($nc(this->statInfo)->cid)->getSerialNumber())}), $$new($ObjectArray, 0));
@@ -154,6 +155,7 @@ $Object* StatusResponseManager$OCSPFetchCall::call() {
 }
 
 void StatusResponseManager$OCSPFetchCall::addToCache($CertId* certId, $StatusResponseManager$ResponseCacheEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(entry)->nextUpdate == nullptr && this->this$0->cacheLifetime == 0) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {

@@ -86,6 +86,7 @@ void InetAddress$NameServiceAddresses::init$($String* host, $InetAddress* reqAdd
 }
 
 $InetAddressArray* InetAddress$NameServiceAddresses::get() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress$Addresses, addresses, nullptr);
 	$synchronized(this) {
 		$init($InetAddress);

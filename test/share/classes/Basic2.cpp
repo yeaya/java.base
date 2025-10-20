@@ -94,6 +94,7 @@ void Basic2::init$() {
 
 void Basic2::main($StringArray* args) {
 	$init(Basic2);
+	$useLocalCurrentObjectStackCache();
 	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $nc($($AsynchronousServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	int32_t port = $nc((($cast($InetSocketAddress, $($nc(listener)->getLocalAddress())))))->getPort();
 	$var($InetSocketAddress, isa, $new($InetSocketAddress, $($InetAddress::getLocalHost()), port));

@@ -141,6 +141,7 @@ bool RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomArbitraryJumpsSpli
 }
 
 void RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomArbitraryJumpsSpliterator::forEachRemaining($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(consumer);
 	int64_t i = this->index;
 	int64_t f = this->fence;

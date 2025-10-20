@@ -268,6 +268,7 @@ $JavaTimeDateTimePatternProvider* AuxLocaleProviderAdapter::getJavaTimeDateTimeP
 }
 
 $LocaleArray* AuxLocaleProviderAdapter::getAvailableLocales() {
+	$useLocalCurrentObjectStackCache();
 	if (AuxLocaleProviderAdapter::availableLocales == nullptr) {
 		$var($List, avail, $new($ArrayList));
 		{

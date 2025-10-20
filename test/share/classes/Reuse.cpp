@@ -42,6 +42,7 @@ void Reuse::init$() {
 }
 
 void Reuse::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($MulticastSocket, s1, nullptr);
 	$var($MulticastSocket, s2, nullptr);
 	try {

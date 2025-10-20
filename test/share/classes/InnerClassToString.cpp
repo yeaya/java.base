@@ -81,6 +81,7 @@ void InnerClassToString::init$() {
 }
 
 void InnerClassToString::test($Constructor* constructor, $ClassArray* paramClasses) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParameterArray, params, $nc(constructor)->getParameters());
 	for (int32_t i = 0; i < $nc(params)->length; ++i) {
 		$var($Parameter, parameter, params->get(i));
@@ -97,6 +98,7 @@ void InnerClassToString::test($Constructor* constructor, $ClassArray* paramClass
 }
 
 void InnerClassToString::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($InnerClassToString$MyEntity);
 		$load($Set);

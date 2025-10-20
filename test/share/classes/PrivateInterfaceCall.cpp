@@ -1096,6 +1096,7 @@ void PrivateInterfaceCall::invokeInterfaceMH($PrivateInterfaceCall$I2* i) {
 
 void PrivateInterfaceCall::runPositiveTests() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	shouldNotThrow(static_cast<$PrivateInterfaceCall$Test*>($$new(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$0)));
 	shouldNotThrow(static_cast<$PrivateInterfaceCall$Test*>($$new(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$1$1)));
 	shouldNotThrow(static_cast<$PrivateInterfaceCall$Test*>($$new(PrivateInterfaceCall$$Lambda$lambda$runPositiveTests$2$2)));
@@ -1116,6 +1117,7 @@ void PrivateInterfaceCall::runPositiveTests() {
 
 void PrivateInterfaceCall::runNegativeTests() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("ICCE PrivateInterfaceCall.invokeDirect D1"_s);
 	shouldThrowICCE(static_cast<$PrivateInterfaceCall$Test*>($$new(PrivateInterfaceCall$$Lambda$lambda$runNegativeTests$16$16)));
@@ -1173,6 +1175,7 @@ void PrivateInterfaceCall::shouldThrowICCE($PrivateInterfaceCall$Test* t) {
 
 void PrivateInterfaceCall::shouldThrow($Class* expectedError, $String* reason, $PrivateInterfaceCall$Test* t) {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(t)->run();
 	} catch ($Throwable&) {
@@ -1209,6 +1212,7 @@ void PrivateInterfaceCall::shouldNotThrow($PrivateInterfaceCall$Test* t) {
 
 $PrivateInterfaceCall$I2* PrivateInterfaceCall::unsafeCastI2(Object$* obj) {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
@@ -1224,6 +1228,7 @@ $PrivateInterfaceCall$I2* PrivateInterfaceCall::unsafeCastI2(Object$* obj) {
 
 $PrivateInterfaceCall$I3* PrivateInterfaceCall::unsafeCastI3(Object$* obj) {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
@@ -1239,6 +1244,7 @@ $PrivateInterfaceCall$I3* PrivateInterfaceCall::unsafeCastI3(Object$* obj) {
 
 $PrivateInterfaceCall$I4* PrivateInterfaceCall::unsafeCastI4(Object$* obj) {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($Object);
 		$var($MethodHandle, mh, $MethodHandles::identity($Object::class$));
@@ -1254,61 +1260,73 @@ $PrivateInterfaceCall$I4* PrivateInterfaceCall::unsafeCastI4(Object$* obj) {
 
 void PrivateInterfaceCall::lambda$runNegativeTests$27() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I4::invokeDirect($(unsafeCastI4($$new($PrivateInterfaceCall$E))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$26() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I4::invokeDirect($(unsafeCastI4($$new($PrivateInterfaceCall$D1))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$25() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I3::invokeInterfaceMH($(unsafeCastI3($$new($PrivateInterfaceCall$E))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$24() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I3::invokeInterfaceMH($(unsafeCastI3($$new($PrivateInterfaceCall$D1))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$23() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I2::invokeInterfaceObjectFinalMH($(unsafeCastI2($$new($PrivateInterfaceCall$E))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$22() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I2::invokeInterfaceObjectFinalMH($(unsafeCastI2($$new($PrivateInterfaceCall$D1))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$21() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I2::invokeInterfaceMH($(unsafeCastI2($$new($PrivateInterfaceCall$E))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$20() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I2::invokeInterfaceMH($(unsafeCastI2($$new($PrivateInterfaceCall$D1))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$19() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	PrivateInterfaceCall::invokeInterfaceMH($(unsafeCastI2($$new($PrivateInterfaceCall$E))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$18() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	PrivateInterfaceCall::invokeInterfaceMH($(unsafeCastI2($$new($PrivateInterfaceCall$D1))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$17() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	PrivateInterfaceCall::invokeDirect($(unsafeCastI2($$new($PrivateInterfaceCall$E))));
 }
 
 void PrivateInterfaceCall::lambda$runNegativeTests$16() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	PrivateInterfaceCall::invokeDirect($(unsafeCastI2($$new($PrivateInterfaceCall$D1))));
 }
 
@@ -1329,6 +1347,7 @@ void PrivateInterfaceCall::lambda$runPositiveTests$13() {
 
 void PrivateInterfaceCall::lambda$runPositiveTests$12() {
 	$init(PrivateInterfaceCall);
+	$useLocalCurrentObjectStackCache();
 	$PrivateInterfaceCall$I3::invokeInterfaceMH($(unsafeCastI3($$new($PrivateInterfaceCall$C2))));
 }
 
@@ -1393,6 +1412,7 @@ void PrivateInterfaceCall::lambda$runPositiveTests$0() {
 }
 
 void clinit$PrivateInterfaceCall($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

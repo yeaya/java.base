@@ -95,6 +95,7 @@ void SSLEngineImpl$DelegatedTask::init$($SSLEngineImpl* engineInstance) {
 }
 
 void SSLEngineImpl$DelegatedTask::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc($nc(this->engine)->engineLock)->lock();
 	{

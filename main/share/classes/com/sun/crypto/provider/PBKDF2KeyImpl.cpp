@@ -194,6 +194,7 @@ $Object* allocate$PBKDF2KeyImpl($Class* clazz) {
 
 $bytes* PBKDF2KeyImpl::getPasswordBytes($chars* passwd) {
 	$init(PBKDF2KeyImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, cb, $CharBuffer::wrap(passwd));
 	$init($StandardCharsets);
 	$var($ByteBuffer, bb, $nc($StandardCharsets::UTF_8)->encode(cb));
@@ -205,6 +206,7 @@ $bytes* PBKDF2KeyImpl::getPasswordBytes($chars* passwd) {
 }
 
 void PBKDF2KeyImpl::init$($PBEKeySpec* keySpec, $String* prfAlgo) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwd, $nc(keySpec)->getPassword());
 	if (passwd == nullptr) {
 		$set(this, passwd, $new($chars, 0));
@@ -259,6 +261,7 @@ void PBKDF2KeyImpl::init$($PBEKeySpec* keySpec, $String* prfAlgo) {
 
 $bytes* PBKDF2KeyImpl::deriveKey($Mac* prf, $bytes* password, $bytes* salt, int32_t iterCount, int32_t keyLengthInBit) {
 	$init(PBKDF2KeyImpl);
+	$useLocalCurrentObjectStackCache();
 	int32_t keyLength = keyLengthInBit / 8;
 	$var($bytes, key, $new($bytes, keyLength));
 	try {
@@ -332,6 +335,7 @@ $String* PBKDF2KeyImpl::getFormat() {
 }
 
 int32_t PBKDF2KeyImpl::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	for (int32_t i = 1; i < $nc(this->key)->length; ++i) {
 		retval += $nc(this->key)->get(i) * i;
@@ -341,6 +345,7 @@ int32_t PBKDF2KeyImpl::hashCode() {
 }
 
 bool PBKDF2KeyImpl::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -361,6 +366,7 @@ bool PBKDF2KeyImpl::equals(Object$* obj) {
 }
 
 $Object* PBKDF2KeyImpl::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::SECRET);
 	$var($String, var$1, getAlgorithm());

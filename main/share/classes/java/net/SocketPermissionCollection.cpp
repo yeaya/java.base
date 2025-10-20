@@ -110,6 +110,7 @@ void SocketPermissionCollection::init$() {
 }
 
 void SocketPermissionCollection::add($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketPermission, sp, nullptr);
 	bool var$0 = $instanceOf($SocketPermission, permission);
 	if (var$0) {
@@ -128,6 +129,7 @@ void SocketPermissionCollection::add($Permission* permission) {
 }
 
 bool SocketPermissionCollection::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketPermission, np, nullptr);
 	bool var$0 = $instanceOf($SocketPermission, permission);
 	if (var$0) {
@@ -175,6 +177,7 @@ $Enumeration* SocketPermissionCollection::elements() {
 }
 
 void SocketPermissionCollection::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Vector, permissions, $new($Vector, $($nc(this->perms)->values())));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
 	$nc(pfields)->put("permissions"_s, $of(permissions));
@@ -182,6 +185,7 @@ void SocketPermissionCollection::writeObject($ObjectOutputStream* out) {
 }
 
 void SocketPermissionCollection::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	$var($Vector, permissions, $cast($Vector, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
 	$set(this, perms, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap, $nc(permissions)->size()))));

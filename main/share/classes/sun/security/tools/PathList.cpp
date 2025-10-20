@@ -66,6 +66,7 @@ $String* PathList::appendPath($String* pathTo, $String* pathFrom) {
 }
 
 $URLArray* PathList::pathToURLs($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($StringTokenizer, st, $new($StringTokenizer, path, $File::pathSeparator));
 	$var($URLArray, urls, $new($URLArray, st->countTokens()));
@@ -85,6 +86,7 @@ $URLArray* PathList::pathToURLs($String* path) {
 }
 
 $URL* PathList::fileToURL($File* file) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	try {
 		$assign(name, $nc(file)->getCanonicalPath());

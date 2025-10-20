@@ -178,6 +178,7 @@ $bytes* DESedeWrapCipher::engineGetIV() {
 }
 
 void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		engineInit(opmode, key, ($AlgorithmParameterSpec*)nullptr, random);
 	} catch ($InvalidAlgorithmParameterException&) {
@@ -189,6 +190,7 @@ void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* rand
 }
 
 void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandom, random, random$renamed);
 	$var($bytes, currIv, nullptr);
 	if (opmode == $Cipher::WRAP_MODE) {
@@ -235,6 +237,7 @@ void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameter
 }
 
 void DESedeWrapCipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($IvParameterSpec, ivSpec, nullptr);
 	if (params != nullptr) {
 		try {
@@ -273,6 +276,7 @@ int32_t DESedeWrapCipher::engineDoFinal($bytes* input, int32_t inputOffset, int3
 }
 
 $AlgorithmParameters* DESedeWrapCipher::engineGetParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->iv != nullptr) {
 		$var($String, algo, $nc(this->cipherKey)->getAlgorithm());
@@ -291,6 +295,7 @@ $AlgorithmParameters* DESedeWrapCipher::engineGetParameters() {
 }
 
 int32_t DESedeWrapCipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if ($nc(encoded)->length != 24) {
@@ -300,6 +305,7 @@ int32_t DESedeWrapCipher::engineGetKeySize($Key* key) {
 }
 
 $bytes* DESedeWrapCipher::engineWrap($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, keyVal, $nc(key)->getEncoded());
 	if ((keyVal == nullptr) || ($nc(keyVal)->length == 0)) {
 		$throwNew($InvalidKeyException, "Cannot get an encoding of the key to be wrapped"_s);
@@ -366,6 +372,7 @@ $bytes* DESedeWrapCipher::engineWrap($Key* key) {
 }
 
 $Key* DESedeWrapCipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(wrappedKey)->length == 0) {
 		$throwNew($InvalidKeyException, "The wrapped key is empty"_s);
 	}
@@ -440,6 +447,7 @@ $bytes* DESedeWrapCipher::getChecksum($bytes* in) {
 
 $bytes* DESedeWrapCipher::getChecksum($bytes* in, int32_t offset, int32_t len) {
 	$init(DESedeWrapCipher);
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance("SHA1"_s));

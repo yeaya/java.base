@@ -972,6 +972,7 @@ void LauncherHelper::init$() {
 
 void LauncherHelper::showSettings(bool printToStderr, $String* optionFlag, int64_t initialHeapSize, int64_t maxHeapSize, int64_t stackSize) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	initOutput(printToStderr);
 	$var($StringArray, opts, $nc(optionFlag)->split(":"_s));
 	$var($String, optStr, (opts->length > 1 && opts->get(1) != nullptr) ? $nc(opts->get(1))->trim() : "all"_s);
@@ -1047,6 +1048,7 @@ void LauncherHelper::showSettings(bool printToStderr, $String* optionFlag, int64
 
 void LauncherHelper::printVmSettings(int64_t initialHeapSize, int64_t maxHeapSize, int64_t stackSize) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$nc(LauncherHelper::ostream)->println(LauncherHelper::VM_SETTINGS);
 	if (stackSize != (int64_t)0) {
 		$nc(LauncherHelper::ostream)->println($$str({LauncherHelper::INDENT, "Stack Size: "_s, $($LauncherHelper$SizePrefix::scaleValue(stackSize))}));
@@ -1065,6 +1067,7 @@ void LauncherHelper::printVmSettings(int64_t initialHeapSize, int64_t maxHeapSiz
 
 void LauncherHelper::printProperties() {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, p, $System::getProperties());
 	$nc(LauncherHelper::ostream)->println(LauncherHelper::PROP_SETTINGS);
 	$var($List, sortedPropertyKeys, $new($ArrayList));
@@ -1090,6 +1093,7 @@ bool LauncherHelper::isPath($String* key) {
 
 void LauncherHelper::printPropertyValue($String* key, $String* value) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$nc(LauncherHelper::ostream)->print($$str({LauncherHelper::INDENT, key, " = "_s}));
 	if ($nc(key)->equals("line.separator"_s)) {
 		{
@@ -1148,6 +1152,7 @@ void LauncherHelper::printPropertyValue($String* key, $String* value) {
 
 void LauncherHelper::printLocale() {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, $Locale::getDefault());
 	$nc(LauncherHelper::ostream)->println(LauncherHelper::LOCALE_SETTINGS);
 	$nc(LauncherHelper::ostream)->println($$str({LauncherHelper::INDENT, "default locale = "_s, $($nc(locale)->getDisplayName())}));
@@ -1160,6 +1165,7 @@ void LauncherHelper::printLocale() {
 
 void LauncherHelper::printLocales() {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleArray, tlocales, $Locale::getAvailableLocales());
 	int32_t len = tlocales == nullptr ? 0 : $nc(tlocales)->length;
 	if (len < 1) {
@@ -1195,6 +1201,7 @@ void LauncherHelper::printLocales() {
 
 void LauncherHelper::printSystemMetrics() {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($Metrics, c, $Container::metrics());
 	$nc(LauncherHelper::ostream)->println("Operating System Metrics:"_s);
 	if (c == nullptr) {
@@ -1281,6 +1288,7 @@ $String* LauncherHelper::formatLimitString(int64_t limit, $String* prefix, int64
 
 $String* LauncherHelper::formatCpuVal(int64_t cpuVal, $String* prefix, int64_t unavailable) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	if (cpuVal >= 0) {
 		return $str({prefix, $$str(cpuVal), "us"_s});
 	} else if (cpuVal == unavailable) {
@@ -1299,11 +1307,13 @@ $String* LauncherHelper::getLocalizedMessage($String* key, $ObjectArray* args) {
 
 void LauncherHelper::initHelpMessage($String* progname) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LauncherHelper::outBuf, $nc(LauncherHelper::outBuf)->append($(getLocalizedMessage("java.launcher.opt.header"_s, $$new($ObjectArray, {(progname == nullptr) ? $of("java"_s) : $of(progname)})))));
 }
 
 void LauncherHelper::appendVmSelectMessage($String* vm1, $String* vm2) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LauncherHelper::outBuf, $nc(LauncherHelper::outBuf)->append($(getLocalizedMessage("java.launcher.opt.vmselect"_s, $$new($ObjectArray, {
 		$of(vm1),
 		$of(vm2)
@@ -1312,6 +1322,7 @@ void LauncherHelper::appendVmSelectMessage($String* vm1, $String* vm2) {
 
 void LauncherHelper::appendVmSynonymMessage($String* vm1, $String* vm2) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LauncherHelper::outBuf, $nc(LauncherHelper::outBuf)->append($(getLocalizedMessage("java.launcher.opt.hotspot"_s, $$new($ObjectArray, {
 		$of(vm1),
 		$of(vm2)
@@ -1320,6 +1331,7 @@ void LauncherHelper::appendVmSynonymMessage($String* vm1, $String* vm2) {
 
 void LauncherHelper::printHelpMessage(bool printToStderr) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	initOutput(printToStderr);
 	$init($File);
 	$assignStatic(LauncherHelper::outBuf, $nc(LauncherHelper::outBuf)->append($(getLocalizedMessage("java.launcher.opt.footer"_s, $$new($ObjectArray, {$of($File::pathSeparator)})))));
@@ -1328,6 +1340,7 @@ void LauncherHelper::printHelpMessage(bool printToStderr) {
 
 void LauncherHelper::printXUsageMessage(bool printToStderr) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	initOutput(printToStderr);
 	$init($File);
 	$nc(LauncherHelper::ostream)->println($(getLocalizedMessage("java.launcher.X.usage"_s, $$new($ObjectArray, {$of($File::pathSeparator)}))));
@@ -1349,6 +1362,7 @@ void LauncherHelper::initOutput($PrintStream* ps) {
 
 $String* LauncherHelper::getMainClassFromJar($String* jarname) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mainValue, nullptr);
 	try {
 		$var($JarFile, jarFile, $new($JarFile, jarname));
@@ -1422,6 +1436,7 @@ $String* LauncherHelper::getMainClassFromJar($String* jarname) {
 
 void LauncherHelper::addExportsOrOpens($String* value, bool open) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, $nc(value)->split(" "_s));
 		int32_t len$ = arr$->length;
@@ -1485,6 +1500,7 @@ $Class* LauncherHelper::checkAndLoadMain(bool printToStderr, int32_t mode, $Stri
 
 $Class* LauncherHelper::loadModuleMainClass($String* what) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t i = $nc(what)->indexOf((int32_t)u'/');
 	$var($String, mainModule, nullptr);
@@ -1539,6 +1555,7 @@ $Class* LauncherHelper::loadModuleMainClass($String* what) {
 
 $Class* LauncherHelper::loadMainClass(int32_t mode, $String* what) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cn, nullptr);
 	switch (mode) {
@@ -1642,6 +1659,7 @@ $Class* LauncherHelper::getApplicationClass() {
 
 bool LauncherHelper::doesExtendFXApplication($Class* mainClass) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	{
 		$Class* sc = $nc(mainClass)->getSuperclass();
 		for (; sc != nullptr; sc = $nc(sc)->getSuperclass()) {
@@ -1655,6 +1673,7 @@ bool LauncherHelper::doesExtendFXApplication($Class* mainClass) {
 
 void LauncherHelper::validateMainClass($Class* mainClass) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, mainMethod, nullptr);
 	try {
@@ -1698,6 +1717,7 @@ void LauncherHelper::validateMainClass($Class* mainClass) {
 
 $String* LauncherHelper::makePlatformString(bool printToStderr, $bytes* inArray) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	initOutput(printToStderr);
 	if (LauncherHelper::encoding == nullptr) {
 		$assignStatic(LauncherHelper::encoding, $System::getProperty(LauncherHelper::encprop));
@@ -1715,6 +1735,7 @@ $String* LauncherHelper::makePlatformString(bool printToStderr, $bytes* inArray)
 
 $StringArray* LauncherHelper::expandArgs($StringArray* argArray) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($List, aList, $new($ArrayList));
 	{
 		$var($StringArray, arr$, argArray);
@@ -1732,6 +1753,7 @@ $StringArray* LauncherHelper::expandArgs($StringArray* argArray) {
 
 $StringArray* LauncherHelper::expandArgs($List* argList) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, out, $new($ArrayList));
 	if (LauncherHelper::trace) {
 		$init($System);
@@ -1833,6 +1855,7 @@ $StringArray* LauncherHelper::expandArgs($List* argList) {
 
 void LauncherHelper::listModules() {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	initOutput($System::out);
 	$nc($($nc($($nc($($nc($($ModuleBootstrap::limitedFinder()))->findAll()))->stream()))->sorted($$new($LauncherHelper$JrtFirstComparator))))->forEach(static_cast<$Consumer*>($$new(LauncherHelper$$Lambda$showModule$3)));
@@ -1840,6 +1863,7 @@ void LauncherHelper::listModules() {
 
 void LauncherHelper::showResolvedModules() {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	initOutput($System::out);
 	$var($ModuleLayer, bootLayer, $ModuleLayer::boot());
@@ -1849,6 +1873,7 @@ void LauncherHelper::showResolvedModules() {
 
 void LauncherHelper::describeModule($String* moduleName) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	initOutput($System::out);
 	$var($ModuleFinder, finder, $ModuleBootstrap::limitedFinder());
@@ -1936,6 +1961,7 @@ void LauncherHelper::describeModule($String* moduleName) {
 
 void LauncherHelper::showModule($ModuleReference* mref) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, md, $nc(mref)->descriptor());
 	$nc(LauncherHelper::ostream)->print($($nc(md)->toNameAndVersion()));
 	$nc($($nc($(mref->location()))->filter(static_cast<$Predicate*>($$new(LauncherHelper$$Lambda$lambda$showModule$8$15)))))->ifPresent(static_cast<$Consumer*>($$new(LauncherHelper$$Lambda$lambda$showModule$9$16)));
@@ -1950,11 +1976,13 @@ void LauncherHelper::showModule($ModuleReference* mref) {
 
 $Stream* LauncherHelper::toStringStream($Set* s) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(s)->stream()))->map(static_cast<$Function*>($$new(LauncherHelper$$Lambda$lambda$toStringStream$10$17)));
 }
 
 bool LauncherHelper::isJrt($ModuleReference* mref) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	return isJrt($cast($URI, $($nc($($nc(mref)->location()))->orElse(nullptr))));
 }
 
@@ -1995,6 +2023,7 @@ void LauncherHelper::lambda$describeModule$5($String* sourceAndMods) {
 
 $String* LauncherHelper::lambda$describeModule$4($ModuleDescriptor$Exports* e) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($Stream, var$0, $Stream::of($($of($nc(e)->source()))));
 	return $cast($String, $nc($($Stream::concat(var$0, $(toStringStream($($nc(e)->modifiers()))))))->collect($($Collectors::joining(" "_s))));
 }
@@ -2015,11 +2044,13 @@ void LauncherHelper::lambda$addExportsOrOpens$2(bool open, $String* pn, $Module*
 
 bool LauncherHelper::lambda$addExportsOrOpens$1($String* pn, $Module* m) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc(m)->getDescriptor()))->packages()))->contains(pn);
 }
 
 void LauncherHelper::lambda$getMainClassFromJar$0($String* jarname, $Module* m) {
 	$init(LauncherHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($String, cn, "sun.instrument.InstrumentationImpl"_s);

@@ -294,6 +294,7 @@ void ThreadPoolExecutor::advanceRunState(int32_t targetState) {
 }
 
 void ThreadPoolExecutor::tryTerminate() {
+	$useLocalCurrentObjectStackCache();
 	for (;;) {
 		int32_t c = $nc(this->ctl)->get();
 		bool var$1 = isRunning(c);
@@ -349,6 +350,7 @@ void ThreadPoolExecutor::tryTerminate() {
 }
 
 void ThreadPoolExecutor::checkShutdownAccess() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPermission(ThreadPoolExecutor::shutdownPerm);
@@ -363,6 +365,7 @@ void ThreadPoolExecutor::checkShutdownAccess() {
 }
 
 void ThreadPoolExecutor::interruptWorkers() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->workers)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -373,6 +376,7 @@ void ThreadPoolExecutor::interruptWorkers() {
 }
 
 void ThreadPoolExecutor::interruptIdleWorkers(bool onlyOne) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -433,6 +437,7 @@ void ThreadPoolExecutor::onShutdown() {
 }
 
 $List* ThreadPoolExecutor::drainQueue() {
+	$useLocalCurrentObjectStackCache();
 	$var($BlockingQueue, q, this->workQueue);
 	$var($ArrayList, taskList, $new($ArrayList));
 	$nc(q)->drainTo(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(taskList))));
@@ -455,6 +460,7 @@ $List* ThreadPoolExecutor::drainQueue() {
 }
 
 bool ThreadPoolExecutor::addWorker($Runnable* firstTask, bool core) {
+	$useLocalCurrentObjectStackCache();
 	bool retry$continue = false;
 	bool retry$break = false;
 	for (int32_t c = $nc(this->ctl)->get();;) {
@@ -545,6 +551,7 @@ bool ThreadPoolExecutor::addWorker($Runnable* firstTask, bool core) {
 }
 
 void ThreadPoolExecutor::addWorkerFailed($ThreadPoolExecutor$Worker* w) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -567,6 +574,7 @@ void ThreadPoolExecutor::addWorkerFailed($ThreadPoolExecutor$Worker* w) {
 }
 
 void ThreadPoolExecutor::processWorkerExit($ThreadPoolExecutor$Worker* w, bool completedAbruptly) {
+	$useLocalCurrentObjectStackCache();
 	if (completedAbruptly) {
 		decrementWorkerCount();
 	}
@@ -603,6 +611,7 @@ void ThreadPoolExecutor::processWorkerExit($ThreadPoolExecutor$Worker* w, bool c
 }
 
 $Runnable* ThreadPoolExecutor::getTask() {
+	$useLocalCurrentObjectStackCache();
 	bool timedOut = false;
 	for (;;) {
 		int32_t c = $nc(this->ctl)->get();
@@ -639,6 +648,7 @@ $Runnable* ThreadPoolExecutor::getTask() {
 }
 
 void ThreadPoolExecutor::runWorker($ThreadPoolExecutor$Worker* w) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, wt, $Thread::currentThread());
 	$var($Runnable, task, $nc(w)->firstTask);
 	$set(w, firstTask, nullptr);
@@ -752,6 +762,7 @@ void ThreadPoolExecutor::execute($Runnable* command) {
 }
 
 void ThreadPoolExecutor::shutdown() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -774,6 +785,7 @@ void ThreadPoolExecutor::shutdown() {
 }
 
 $List* ThreadPoolExecutor::shutdownNow() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, tasks, nullptr);
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
@@ -816,6 +828,7 @@ bool ThreadPoolExecutor::isTerminated() {
 }
 
 bool ThreadPoolExecutor::awaitTermination(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
@@ -980,6 +993,7 @@ bool ThreadPoolExecutor::remove($Runnable* task) {
 }
 
 void ThreadPoolExecutor::purge() {
+	$useLocalCurrentObjectStackCache();
 	$var($BlockingQueue, q, this->workQueue);
 	try {
 		$var($Iterator, it, $nc(q)->iterator());
@@ -1007,6 +1021,7 @@ void ThreadPoolExecutor::purge() {
 }
 
 int32_t ThreadPoolExecutor::getPoolSize() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -1033,6 +1048,7 @@ int32_t ThreadPoolExecutor::getPoolSize() {
 }
 
 int32_t ThreadPoolExecutor::getActiveCount() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -1069,6 +1085,7 @@ int32_t ThreadPoolExecutor::getActiveCount() {
 }
 
 int32_t ThreadPoolExecutor::getLargestPoolSize() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -1095,6 +1112,7 @@ int32_t ThreadPoolExecutor::getLargestPoolSize() {
 }
 
 int64_t ThreadPoolExecutor::getTaskCount() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -1134,6 +1152,7 @@ int64_t ThreadPoolExecutor::getTaskCount() {
 }
 
 int64_t ThreadPoolExecutor::getCompletedTaskCount() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, mainLock, this->mainLock);
 	$nc(mainLock)->lock();
 	{
@@ -1168,6 +1187,7 @@ int64_t ThreadPoolExecutor::getCompletedTaskCount() {
 }
 
 $String* ThreadPoolExecutor::toString() {
+	$useLocalCurrentObjectStackCache();
 	int64_t ncompleted = 0;
 	int32_t nworkers = 0;
 	int32_t nactive = 0;

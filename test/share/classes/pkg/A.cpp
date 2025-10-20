@@ -50,6 +50,7 @@ $String* A::m2() {
 }
 
 $String* A::m3($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	{
 		$var($StringArray, arr$, args);

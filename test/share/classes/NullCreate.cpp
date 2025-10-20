@@ -43,6 +43,7 @@ void NullCreate::init$() {
 }
 
 void NullCreate::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($OutputStreamWriter, osw, $new($OutputStreamWriter, nullptr));
 	} catch ($NullPointerException&) {

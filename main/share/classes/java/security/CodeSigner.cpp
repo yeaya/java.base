@@ -90,6 +90,7 @@ int32_t CodeSigner::hashCode() {
 }
 
 bool CodeSigner::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(CodeSigner, that, nullptr);
 	bool var$0 = obj == nullptr;
 	if (!var$0) {
@@ -118,6 +119,7 @@ bool CodeSigner::equals(Object$* obj) {
 }
 
 $String* CodeSigner::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("("_s);
 	sb->append($$str({"Signer: "_s, $($nc($($nc(this->signerCertPath)->getCertificates()))->get(0))}));

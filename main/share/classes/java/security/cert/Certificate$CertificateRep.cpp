@@ -78,6 +78,7 @@ void Certificate$CertificateRep::init$($String* type, $bytes* data) {
 }
 
 $Object* Certificate$CertificateRep::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance(this->type));
 		return $of($nc(cf)->generateCertificate($$new($ByteArrayInputStream, this->data)));

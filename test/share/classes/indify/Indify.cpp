@@ -310,6 +310,7 @@ void Indify::main($StringArray* av) {
 }
 
 void Indify::run($StringArray* av) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, avl, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList(av)))));
 	parseOptions(avl);
 	if (avl->isEmpty()) {
@@ -359,6 +360,7 @@ void Indify::run($StringArray* av) {
 }
 
 void Indify::runApplication($StringArray* av$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, av, av$renamed);
 	$beforeCallerSensitive();
 	$var($List, avl, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList(av)))));
@@ -376,6 +378,7 @@ void Indify::runApplication($StringArray* av$renamed) {
 }
 
 void Indify::parseOptions($List* av) {
+	$useLocalCurrentObjectStackCache();
 	for (; !$nc(av)->isEmpty(); $nc(av)->remove(0)) {
 		$var($String, a, $cast($String, av->get(0)));
 		if ($nc(a)->startsWith("-"_s)) {
@@ -659,6 +662,7 @@ void Indify::parseOptions($List* av) {
 }
 
 bool Indify::booleanOption($String* s) {
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		return true;
 	}
@@ -750,6 +754,7 @@ bool Indify::booleanOption($String* s) {
 }
 
 $String* Indify::maybeExpandProperties($String* s$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, s$renamed);
 	if (!this->expandProperties) {
 		return s;
@@ -779,6 +784,7 @@ $String* Indify::maybeExpandProperties($String* s$renamed) {
 }
 
 void Indify::indify($String* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, a));
 	$var($String, fn, f->getName());
 	bool var$0 = $nc(fn)->endsWith(".class"_s);
@@ -804,6 +810,7 @@ void Indify::ensureDirectory($File* dir) {
 }
 
 void Indify::indifyFile($File* f, $File* dest) {
+	$useLocalCurrentObjectStackCache();
 	if (this->verbose) {
 		$init($System);
 		$nc($System::err)->println($$str({"reading "_s, f}));
@@ -829,6 +836,7 @@ void Indify::indifyFile($File* f, $File* dest) {
 }
 
 $File* Indify::classPathFile($File* pathDir, $String* className) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, qualname, $str({$($nc(className)->replace(u'.', u'/')), ".class"_s}));
 	$init($File);
 	$assign(qualname, $nc(qualname)->replace(u'/', $File::separatorChar));
@@ -840,6 +848,7 @@ void Indify::indifyJar($File* f, Object$* dest) {
 }
 
 void Indify::indifyTree($File* f, $File* dest) {
+	$useLocalCurrentObjectStackCache();
 	if (this->verbose) {
 		$init($System);
 		$nc($System::err)->println($$str({"reading directory: "_s, f}));
@@ -866,10 +875,12 @@ $ClassLoader* Indify::makeClassLoader() {
 }
 
 $DataInputStream* Indify::openInput($File* f) {
+	$useLocalCurrentObjectStackCache();
 	return $new($DataInputStream, $$new($BufferedInputStream, $$new($FileInputStream, f)));
 }
 
 $DataOutputStream* Indify::openOutput($File* f) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->overwrite && $nc(f)->exists()) {
 		$throwNew($IOException, $$str({"file already exists: "_s, f}));
 	}
@@ -879,6 +890,7 @@ $DataOutputStream* Indify::openOutput($File* f) {
 
 $bytes* Indify::readRawBytes($DataInputStream* in, int32_t size) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, bytes, $new($bytes, size));
 	int32_t nr = $nc(in)->read(bytes);
 	if (nr != size) {
@@ -889,6 +901,7 @@ $bytes* Indify::readRawBytes($DataInputStream* in, int32_t size) {
 
 $Object* Indify::readInput($DataInputStream* in, $Class* dataClass) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, data, nullptr);
 	$load($Integer);
@@ -930,6 +943,7 @@ $Object* Indify::readInput($DataInputStream* in, $Class* dataClass) {
 
 $Object* Indify::readInput($bytes* bytes, $Class* dataClass) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of(readInput($$new($DataInputStream, $$new($ByteArrayInputStream, bytes)), dataClass));
 	} catch ($IOException&) {
@@ -941,6 +955,7 @@ $Object* Indify::readInput($bytes* bytes, $Class* dataClass) {
 
 void Indify::readInputs($DataInputStream* in, $ObjectArray* data) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ObjectArray, arr$, data);
 		int32_t len$ = $nc(arr$)->length;
@@ -954,6 +969,7 @@ void Indify::readInputs($DataInputStream* in, $ObjectArray* data) {
 
 void Indify::writeOutput($DataOutputStream* out, Object$* data) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	if (data == nullptr) {
 		return;
 	}
@@ -998,6 +1014,7 @@ void Indify::writeOutput($DataOutputStream* out, Object$* data) {
 
 void Indify::writeOutputs($DataOutputStream* out, $ObjectArray* data) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ObjectArray, arr$, data);
 		int32_t len$ = $nc(arr$)->length;
@@ -1011,6 +1028,7 @@ void Indify::writeOutputs($DataOutputStream* out, $ObjectArray* data) {
 
 $Indify$Member* Indify::findMember($List* mems, int32_t name, int32_t type) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	if (name == 0 || type == 0) {
 		return nullptr;
 	}
@@ -1030,6 +1048,7 @@ $Indify$Member* Indify::findMember($List* mems, int32_t name, int32_t type) {
 
 $String* Indify::simplifyType($String* type) {
 	$init(Indify);
+	$useLocalCurrentObjectStackCache();
 	$var($String, simpleType, $nc($($nc(Indify::OBJ_SIGNATURE)->matcher(type)))->replaceAll("L"_s));
 	if (!Indify::$assertionsDisabled && !($nc(simpleType)->matches("^\\([A-Z]*\\)[A-Z]$"_s))) {
 		$throwNew($AssertionError);
@@ -1044,6 +1063,7 @@ int32_t Indify::argsize($String* type) {
 }
 
 void clinit$Indify($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Indify::INSTRUCTION_FORMATS, "nop$ aconst_null$L iconst_m1$I iconst_0$I iconst_1$I iconst_2$I iconst_3$I iconst_4$I iconst_5$I lconst_0$J_ lconst_1$J_ fconst_0$F fconst_1$F fconst_2$F dconst_0$D_ dconst_1$D_ bipush=bx$I sipush=bxx$I ldc=bk$X ldc_w=bkk$X ldc2_w=bkk$X_ iload=bl/wbll$I lload=bl/wbll$J_ fload=bl/wbll$F dload=bl/wbll$D_ aload=bl/wbll$L iload_0$I iload_1$I iload_2$I iload_3$I lload_0$J_ lload_1$J_ lload_2$J_ lload_3$J_ fload_0$F fload_1$F fload_2$F fload_3$F dload_0$D_ dload_1$D_ dload_2$D_ dload_3$D_ aload_0$L aload_1$L aload_2$L aload_3$L iaload$LI$I laload$LI$J_ faload$LI$F daload$LI$D_ aaload$LI$L baload$LI$I caload$LI$I saload$LI$I istore=bl/wbll$I$ lstore=bl/wbll$J_$ fstore=bl/wbll$F$ dstore=bl/wbll$D_$ astore=bl/wbll$L$ istore_0$I$ istore_1$I$ istore_2$I$ istore_3$I$ lstore_0$J_$ lstore_1$J_$ lstore_2$J_$ lstore_3$J_$ fstore_0$F$ fstore_1$F$ fstore_2$F$ fstore_3$F$ dstore_0$D_$ dstore_1$D_$ dstore_2$D_$ dstore_3$D_$ astore_0$L$ astore_1$L$ astore_2$L$ astore_3$L$ iastore$LII$ lastore$LIJ_$ fastore$LIF$ dastore$LID_$ aast"
 		"ore$LIL$ bastore$LII$ castore$LII$ sastore$LII$ pop$X$ pop2$XX$ dup$X$XX dup_x1$XX$XXX dup_x2$XXX$XXXX dup2$XX$XXXX dup2_x1$XXX$XXXXX dup2_x2$XXXX$XXXXXX swap$XX$XX iadd$II$I ladd$J_J_$J_ fadd$FF$F dadd$D_D_$D_ isub$II$I lsub$J_J_$J_ fsub$FF$F dsub$D_D_$D_ imul$II$I lmul$J_J_$J_ fmul$FF$F dmul$D_D_$D_ idiv$II$I ldiv$J_J_$J_ fdiv$FF$F ddiv$D_D_$D_ irem$II$I lrem$J_J_$J_ frem$FF$F drem$D_D_$D_ ineg$I$I lneg$J_$J_ fneg$F$F dneg$D_$D_ ishl$II$I lshl$J_I$J_ ishr$II$I lshr$J_I$J_ iushr$II$I lushr$J_I$J_ iand$II$I land$J_J_$J_ ior$II$I lor$J_J_$J_ ixor$II$I lxor$J_J_$J_ iinc=blx/wbllxx$ i2l$I$J_ i2f$I$F i2d$I$D_ l2i$J_$I l2f$J_$F l2d$J_$D_ f2i$F$I f2l$F$J_ f2d$F$D_ d2i$D_$I d2l$D_$J_ d2f$D_$F i2b$I$I i2c$I$I i2s$I$I lcmp fcmpl fcmpg dcmpl dcmpg ifeq=boo ifne=boo iflt=boo ifge=boo ifgt=boo ifle=boo if_icmpeq=boo if_icmpne=boo if_icmplt=boo if_icmpge=boo if_icmpgt=boo if_icmple=boo if_acmpeq=boo if_acmpne=boo goto=boo jsr=boo ret=bl/wbll tableswitch=* lookupswitch=* ireturn lreturn freturn dreturn areturn return getst"
 		"atic=bkf$Q putstatic=bkf$Q$ getfield=bkf$L$Q putfield=bkf$LQ$ invokevirtual=bkm$LQ$Q invokespecial=bkm$LQ$Q invokestatic=bkm$Q$Q invokeinterface=bkixx$LQ$Q invokedynamic=bkd__$Q$Q new=bkc$L newarray=bx$I$L anewarray=bkc$I$L arraylength$L$I athrow checkcast=bkc$L$L instanceof=bkc$L$I monitorenter$L monitorexit$L wide=* multianewarray=bkcx ifnull=boo ifnonnull=boo goto_w=boooo jsr_w=boooo "_s);

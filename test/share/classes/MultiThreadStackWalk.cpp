@@ -149,6 +149,7 @@ $MultiThreadStackWalk$Env* MultiThreadStackWalk::runTest($MultiThreadStackWalk$T
 
 void MultiThreadStackWalk::checkTest($MultiThreadStackWalk$Env* env, $MultiThreadStackWalk$Test* test) {
 	$init(MultiThreadStackWalk);
+	$useLocalCurrentObjectStackCache();
 	$var($String, threadName, $($Thread::currentThread())->getName());
 	$init($System);
 	$nc($System::out)->println($$str({threadName, ": Marker called: "_s, $$str($nc($nc(env)->markerCalled)->get())}));
@@ -176,6 +177,7 @@ void MultiThreadStackWalk::checkTest($MultiThreadStackWalk$Env* env, $MultiThrea
 
 void MultiThreadStackWalk::main($StringArray* args) {
 	$init(MultiThreadStackWalk);
+	$useLocalCurrentObjectStackCache();
 	$var($MultiThreadStackWalk$WalkThreadArray, threads, $new($MultiThreadStackWalk$WalkThreadArray, $($MultiThreadStackWalk$Call$WalkType::values())->length * 3));
 	$var($Throwable, failed, nullptr);
 	for (int32_t i = 0; i < threads->length; ++i) {
@@ -199,6 +201,7 @@ void MultiThreadStackWalk::main($StringArray* args) {
 }
 
 void clinit$MultiThreadStackWalk($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MultiThreadStackWalk::infrastructureClasses, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, $(static_cast<$Collection*>($Arrays::asList($$new($StringArray, {
 		"jdk.internal.reflect.NativeMethodAccessorImpl"_s,
 		"jdk.internal.reflect.DelegatingMethodAccessorImpl"_s,

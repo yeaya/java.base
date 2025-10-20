@@ -215,6 +215,7 @@ Inet6Address* Inet6Address::getByAddress($String* host$renamed, $bytes* addr, in
 }
 
 void Inet6Address::initstr($String* hostName, $bytes* addr, $String* ifname) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($NetworkInterface, nif, $NetworkInterface::getByName(ifname));
 		if (nif == nullptr) {
@@ -251,6 +252,7 @@ bool Inet6Address::isDifferentLocalAddressType($bytes* thisAddr, $bytes* otherAd
 
 int32_t Inet6Address::deriveNumericScope($bytes* thisAddr, $NetworkInterface* ifc) {
 	$init(Inet6Address);
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, addresses, $nc(ifc)->getInetAddresses());
 	while ($nc(addresses)->hasMoreElements()) {
 		$var($InetAddress, addr, $cast($InetAddress, addresses->nextElement()));
@@ -272,6 +274,7 @@ int32_t Inet6Address::deriveNumericScope($bytes* thisAddr, $NetworkInterface* if
 }
 
 int32_t Inet6Address::deriveNumericScope($String* ifname) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, en, nullptr);
 	try {
 		$assign(en, $NetworkInterface::getNetworkInterfaces());
@@ -289,6 +292,7 @@ int32_t Inet6Address::deriveNumericScope($String* ifname) {
 }
 
 void Inet6Address::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($NetworkInterface, scope_ifname, nullptr);
 	if ($of(this)->getClass()->getClassLoader() != nullptr) {
@@ -332,6 +336,7 @@ void Inet6Address::readObject($ObjectInputStream* s) {
 
 void Inet6Address::writeObject($ObjectOutputStream* s) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($String, ifname, nullptr);
 		if ($nc(this->holder6)->scope_ifname != nullptr) {
 			$assign(ifname, $nc($nc(this->holder6)->scope_ifname)->getName());
@@ -442,6 +447,7 @@ bool Inet6Address::isIPv4CompatibleAddress() {
 
 $String* Inet6Address::numericToTextFormat($bytes* src) {
 	$init(Inet6Address);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 39));
 	for (int32_t i = 0; i < ($div(Inet6Address::INADDRSZ, Inet6Address::INT16SZ)); ++i) {
 		sb->append($($Integer::toHexString(((int32_t)(($nc(src)->get(i << 1) << 8) & (uint32_t)0x0000FF00)) | ((int32_t)(src->get((i << 1) + 1) & (uint32_t)255)))));
@@ -460,6 +466,7 @@ void Inet6Address::init() {
 }
 
 void clinit$Inet6Address($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		Inet6Address::init();
 	}

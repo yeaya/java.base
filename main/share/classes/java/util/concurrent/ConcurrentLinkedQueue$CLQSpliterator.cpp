@@ -93,6 +93,7 @@ void ConcurrentLinkedQueue$CLQSpliterator::init$($ConcurrentLinkedQueue* this$0)
 }
 
 $Spliterator* ConcurrentLinkedQueue$CLQSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedQueue$Node, p, nullptr);
 	$var($ConcurrentLinkedQueue$Node, q, nullptr);
 	if (($assign(p, current())) == nullptr || ($assign(q, $nc(p)->next)) == nullptr) {
@@ -129,6 +130,7 @@ void ConcurrentLinkedQueue$CLQSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool ConcurrentLinkedQueue$CLQSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ConcurrentLinkedQueue$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {

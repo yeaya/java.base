@@ -38,6 +38,7 @@ void WakeupOverflow::init$() {
 }
 
 void WakeupOverflow::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, selector, $Selector::open());
 	{
 		$var($Throwable, var$0, nullptr);

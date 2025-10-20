@@ -57,6 +57,7 @@ void ToURI::init$() {
 
 void ToURI::go($String* fn) {
 	$init(ToURI);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, fn));
 	$nc(ToURI::log)->println();
 	$nc(ToURI::log)->println($of(f));
@@ -72,6 +73,7 @@ void ToURI::go($String* fn) {
 
 void ToURI::main($StringArray* args) {
 	$init(ToURI);
+	$useLocalCurrentObjectStackCache();
 	go("foo"_s);
 	go("foo/bar/baz"_s);
 	go("/cdrom/#2"_s);

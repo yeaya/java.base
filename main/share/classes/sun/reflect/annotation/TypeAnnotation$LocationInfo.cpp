@@ -99,6 +99,7 @@ void TypeAnnotation$LocationInfo::init$(int32_t depth, $TypeAnnotation$LocationI
 
 TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::parseLocationInfo($ByteBuffer* buf) {
 	$init(TypeAnnotation$LocationInfo);
+	$useLocalCurrentObjectStackCache();
 	int32_t depth = (int32_t)($nc(buf)->get() & (uint32_t)255);
 	if (depth == 0) {
 		return TypeAnnotation$LocationInfo::BASE_LOCATION;
@@ -135,6 +136,7 @@ TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::pushTypeArg(int16_t in
 }
 
 TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::pushLocation(int8_t tag, int16_t index) {
+	$useLocalCurrentObjectStackCache();
 	int32_t newDepth = this->depth + 1;
 	$var($TypeAnnotation$LocationInfo$LocationArray, res, $new($TypeAnnotation$LocationInfo$LocationArray, newDepth));
 	$System::arraycopy(this->locations, 0, res, 0, this->depth);
@@ -152,6 +154,7 @@ TypeAnnotation$LocationInfo* TypeAnnotation$LocationInfo::popLocation(int8_t tag
 }
 
 $TypeAnnotationArray* TypeAnnotation$LocationInfo::filter($TypeAnnotationArray* ta) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, l, $new($ArrayList, $nc(ta)->length));
 	{
 		$var($TypeAnnotationArray, arr$, ta);

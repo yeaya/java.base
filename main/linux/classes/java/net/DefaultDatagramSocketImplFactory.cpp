@@ -62,6 +62,7 @@ void DefaultDatagramSocketImplFactory::init$() {
 
 $DatagramSocketImpl* DefaultDatagramSocketImplFactory::createDatagramSocketImpl(bool isMulticast) {
 	$init(DefaultDatagramSocketImplFactory);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (DefaultDatagramSocketImplFactory::prefixImplClass != nullptr) {
 		try {
@@ -77,6 +78,7 @@ $DatagramSocketImpl* DefaultDatagramSocketImplFactory::createDatagramSocketImpl(
 }
 
 void clinit$DefaultDatagramSocketImplFactory($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(DefaultDatagramSocketImplFactory::prefixImplClass, nullptr);
 	{

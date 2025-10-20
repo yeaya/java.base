@@ -145,6 +145,7 @@ void ServerHello$ServerHelloMessage::init$($HandshakeContext* context, $Protocol
 }
 
 void ServerHello$ServerHelloMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$set(this, handshakeRecord, $nc(m)->duplicate());
 	int8_t major = m->get();
@@ -212,6 +213,7 @@ void ServerHello$ServerHelloMessage::send($HandshakeOutStream* hos) {
 }
 
 $String* ServerHello$ServerHelloMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"{0}\": \'{\'\n  \"server version\"      : \"{1}\",\n  \"random\"              : \"{2}\",\n  \"session id\"          : \"{3}\",\n  \"cipher suite\"        : \"{4}\",\n  \"compression methods\" : \"{5}\",\n  \"extensions\"          : [\n{6}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {

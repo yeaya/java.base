@@ -73,6 +73,7 @@ void StandardCharsets$Cache::init$() {
 }
 
 void StandardCharsets$Cache::init($ObjectArray* ht) {
+	$useLocalCurrentObjectStackCache();
 	$nc(ht)->set(0, $$new($ObjectArray, {
 		$of("ibm862"_s),
 		($Object*)nullptr

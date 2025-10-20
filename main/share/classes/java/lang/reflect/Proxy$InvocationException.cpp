@@ -99,6 +99,7 @@ $Object* Proxy$InvocationException::wrap($Throwable* cause) {
 
 $MethodHandle* Proxy$InvocationException::wrapMH() {
 	$init(Proxy$InvocationException);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandle, mh, Proxy$InvocationException::wrapMethodHandle);
 	if (mh == nullptr) {

@@ -43,6 +43,7 @@ void NullConstruct::init$() {
 }
 
 void NullConstruct::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Reader, in, nullptr);
 		$var($StreamTokenizer, st, $new($StreamTokenizer, in));

@@ -280,6 +280,7 @@ int64_t WindowsNativeDispatcher::CreateEvent(bool bManualReset, bool bInitialSta
 
 int64_t WindowsNativeDispatcher::CreateFile($String* path, int32_t dwDesiredAccess, int32_t dwShareMode, int64_t lpSecurityAttributes, int32_t dwCreationDisposition, int32_t dwFlagsAndAttributes) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -327,6 +328,7 @@ void WindowsNativeDispatcher::CloseHandle(int64_t handle) {
 
 void WindowsNativeDispatcher::DeleteFile($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -352,6 +354,7 @@ void WindowsNativeDispatcher::DeleteFile0(int64_t lpFileName) {
 
 void WindowsNativeDispatcher::CreateDirectory($String* path, int64_t lpSecurityAttributes) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -377,6 +380,7 @@ void WindowsNativeDispatcher::CreateDirectory0(int64_t lpFileName, int64_t lpSec
 
 void WindowsNativeDispatcher::RemoveDirectory($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -425,6 +429,7 @@ int64_t WindowsNativeDispatcher::GetFileSizeEx(int64_t handle) {
 
 $WindowsNativeDispatcher$FirstFile* WindowsNativeDispatcher::FindFirstFile($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -460,6 +465,7 @@ void WindowsNativeDispatcher::FindFirstFile0(int64_t lpFileName, $WindowsNativeD
 
 int64_t WindowsNativeDispatcher::FindFirstFile($String* path, int64_t address) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -504,6 +510,7 @@ $String* WindowsNativeDispatcher::FindNextFile(int64_t handle, int64_t address) 
 
 $WindowsNativeDispatcher$FirstStream* WindowsNativeDispatcher::FindFirstStream($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -567,6 +574,7 @@ void WindowsNativeDispatcher::GetFileInformationByHandle(int64_t handle, int64_t
 
 void WindowsNativeDispatcher::CopyFileEx($String* source, $String* target, int32_t flags, int64_t addressToPollForCancel) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, sourceBuffer, asNativeBuffer(source));
 	$var($NativeBuffer, targetBuffer, asNativeBuffer(target));
 	{
@@ -595,6 +603,7 @@ void WindowsNativeDispatcher::CopyFileEx0(int64_t existingAddress, int64_t newAd
 
 void WindowsNativeDispatcher::MoveFileEx($String* source, $String* target, int32_t flags) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, sourceBuffer, asNativeBuffer(source));
 	$var($NativeBuffer, targetBuffer, asNativeBuffer(target));
 	{
@@ -623,6 +632,7 @@ void WindowsNativeDispatcher::MoveFileEx0(int64_t existingAddress, int64_t newAd
 
 int32_t WindowsNativeDispatcher::GetFileAttributes($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -658,6 +668,7 @@ int32_t WindowsNativeDispatcher::GetFileAttributes0(int64_t lpFileName) {
 
 void WindowsNativeDispatcher::SetFileAttributes($String* path, int32_t dwFileAttributes) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -683,6 +694,7 @@ void WindowsNativeDispatcher::SetFileAttributes0(int64_t lpFileName, int32_t dwF
 
 void WindowsNativeDispatcher::GetFileAttributesEx($String* path, int64_t address) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -731,6 +743,7 @@ int32_t WindowsNativeDispatcher::GetLogicalDrives() {
 
 $WindowsNativeDispatcher$VolumeInformation* WindowsNativeDispatcher::GetVolumeInformation($String* root) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(root));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -766,6 +779,7 @@ void WindowsNativeDispatcher::GetVolumeInformation0(int64_t lpRoot, $WindowsNati
 
 int32_t WindowsNativeDispatcher::GetDriveType($String* root) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(root));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -801,6 +815,7 @@ int32_t WindowsNativeDispatcher::GetDriveType0(int64_t lpRoot) {
 
 $WindowsNativeDispatcher$DiskFreeSpace* WindowsNativeDispatcher::GetDiskFreeSpaceEx($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -829,6 +844,7 @@ $WindowsNativeDispatcher$DiskFreeSpace* WindowsNativeDispatcher::GetDiskFreeSpac
 
 $WindowsNativeDispatcher$DiskFreeSpace* WindowsNativeDispatcher::GetDiskFreeSpace($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -871,6 +887,7 @@ void WindowsNativeDispatcher::GetDiskFreeSpace0(int64_t lpRootPathName, $Windows
 
 $String* WindowsNativeDispatcher::GetVolumePathName($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -920,6 +937,7 @@ void WindowsNativeDispatcher::InitializeAcl(int64_t aclAddress, int32_t size) {
 
 int32_t WindowsNativeDispatcher::GetFileSecurity($String* path, int32_t requestedInformation, int64_t pSecurityDescriptor, int32_t nLength) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -955,6 +973,7 @@ int32_t WindowsNativeDispatcher::GetFileSecurity0(int64_t lpFileName, int32_t re
 
 void WindowsNativeDispatcher::SetFileSecurity($String* path, int32_t securityInformation, int64_t pSecurityDescriptor) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1063,6 +1082,7 @@ void WindowsNativeDispatcher::LookupAccountSid0(int64_t sidAddress, $WindowsNati
 
 int32_t WindowsNativeDispatcher::LookupAccountName($String* accountName, int64_t pSid, int32_t cbSid) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(accountName));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1116,6 +1136,7 @@ $String* WindowsNativeDispatcher::ConvertSidToStringSid(int64_t sidAddress) {
 
 int64_t WindowsNativeDispatcher::ConvertStringSidToSid($String* sidString) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(sidString));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1228,6 +1249,7 @@ bool WindowsNativeDispatcher::AccessCheck(int64_t token, int64_t securityInfo, i
 
 int64_t WindowsNativeDispatcher::LookupPrivilegeValue($String* name) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(name));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1263,6 +1285,7 @@ int64_t WindowsNativeDispatcher::LookupPrivilegeValue0(int64_t lpName) {
 
 void WindowsNativeDispatcher::CreateSymbolicLink($String* link, $String* target, int32_t flags) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, linkBuffer, asNativeBuffer(link));
 	$var($NativeBuffer, targetBuffer, asNativeBuffer(target));
 	{
@@ -1310,6 +1333,7 @@ void WindowsNativeDispatcher::CreateSymbolicLink0(int64_t linkAddress, int64_t t
 
 void WindowsNativeDispatcher::CreateHardLink($String* newFile, $String* existingFile) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, newFileBuffer, asNativeBuffer(newFile));
 	$var($NativeBuffer, existingFileBuffer, asNativeBuffer(existingFile));
 	{
@@ -1338,6 +1362,7 @@ void WindowsNativeDispatcher::CreateHardLink0(int64_t newFileBuffer, int64_t exi
 
 $String* WindowsNativeDispatcher::GetFullPathName($String* path) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, buffer, asNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1451,6 +1476,7 @@ int32_t WindowsNativeDispatcher::GetOverlappedResult(int64_t hFile, int64_t lpOv
 
 $NativeBuffer* WindowsNativeDispatcher::asNativeBuffer($String* s) {
 	$init(WindowsNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(s)->length() > ($Integer::MAX_VALUE - 2) / 2) {
 		$throwNew($WindowsException, "String too long to convert to native buffer"_s);
 	}

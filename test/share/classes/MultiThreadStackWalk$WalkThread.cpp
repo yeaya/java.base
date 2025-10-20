@@ -68,6 +68,7 @@ $Object* allocate$MultiThreadStackWalk$WalkThread($Class* clazz) {
 $AtomicLong* MultiThreadStackWalk$WalkThread::walkersCount = nullptr;
 
 void MultiThreadStackWalk$WalkThread::init$($MultiThreadStackWalk$Test* test) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"WalkThread["_s, $$str($nc(MultiThreadStackWalk$WalkThread::walkersCount)->incrementAndGet()), ", type="_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(test)->getWalkType())));
 	$Thread::init$($$concat(var$0, "]"));
@@ -76,6 +77,7 @@ void MultiThreadStackWalk$WalkThread::init$($MultiThreadStackWalk$Test* test) {
 }
 
 void MultiThreadStackWalk$WalkThread::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MultiThreadStackWalk$Env, env, $MultiThreadStackWalk::runTest(this->test, 1000, 10));
 		$MultiThreadStackWalk::checkTest(env, this->test);

@@ -89,6 +89,7 @@ void AnnotationNode::init$($List* values) {
 }
 
 void AnnotationNode::visit($String* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (this->values == nullptr) {
 		$set(this, values, $new($ArrayList, this->desc != nullptr ? 2 : 1));
 	}
@@ -160,6 +161,7 @@ void AnnotationNode::check(int32_t api) {
 }
 
 void AnnotationNode::accept($AnnotationVisitor* annotationVisitor) {
+	$useLocalCurrentObjectStackCache();
 	if (annotationVisitor != nullptr) {
 		if (this->values != nullptr) {
 			{
@@ -178,6 +180,7 @@ void AnnotationNode::accept($AnnotationVisitor* annotationVisitor) {
 
 void AnnotationNode::accept($AnnotationVisitor* annotationVisitor, $String* name, Object$* value) {
 	$init(AnnotationNode);
+	$useLocalCurrentObjectStackCache();
 	if (annotationVisitor != nullptr) {
 		if ($instanceOf($StringArray, value)) {
 			$var($StringArray, typeValue, $cast($StringArray, value));

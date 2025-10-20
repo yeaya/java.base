@@ -90,6 +90,7 @@ int32_t ParsePosition::hashCode() {
 }
 
 $String* ParsePosition::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$($of(this)->getClass()->getName()), "[index="_s, $$str(this->index), ",errorIndex="_s, $$str(this->errorIndex), $$str(u']')});
 }
 

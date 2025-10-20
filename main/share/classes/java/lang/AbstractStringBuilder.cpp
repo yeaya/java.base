@@ -320,6 +320,7 @@ void AbstractStringBuilder::init$($String* str) {
 }
 
 void AbstractStringBuilder::init$($CharSequence* seq) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(seq)->length();
 	if (length < 0) {
 		$throwNew($NegativeArraySizeException, $$str({"Negative length: "_s, $$str(length)}));
@@ -344,6 +345,7 @@ void AbstractStringBuilder::init$($CharSequence* seq) {
 }
 
 int32_t AbstractStringBuilder::compareTo(AbstractStringBuilder* another) {
+	$useLocalCurrentObjectStackCache();
 	if (this == another) {
 		return 0;
 	}
@@ -985,6 +987,7 @@ void AbstractStringBuilder::appendChars($chars* s, int32_t off, int32_t end) {
 }
 
 void AbstractStringBuilder::appendChars($String* s, int32_t off, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	if (isLatin1()) {
 		if ($nc(s)->isLatin1()) {
 			$System::arraycopy($(s->value()), off, this->value, this->count, end - off);
@@ -1042,6 +1045,7 @@ void AbstractStringBuilder::appendChars($CharSequence* s, int32_t off, int32_t e
 
 void AbstractStringBuilder::checkRange(int32_t start, int32_t end, int32_t len) {
 	$init(AbstractStringBuilder);
+	$useLocalCurrentObjectStackCache();
 	if (start < 0 || start > end || end > len) {
 		$throwNew($IndexOutOfBoundsException, $$str({"start "_s, $$str(start), ", end "_s, $$str(end), ", length "_s, $$str(len)}));
 	}
@@ -1049,6 +1053,7 @@ void AbstractStringBuilder::checkRange(int32_t start, int32_t end, int32_t len) 
 
 void AbstractStringBuilder::checkRangeSIOOBE(int32_t start, int32_t end, int32_t len) {
 	$init(AbstractStringBuilder);
+	$useLocalCurrentObjectStackCache();
 	if (start < 0 || start > end || end > len) {
 		$throwNew($StringIndexOutOfBoundsException, $$str({"start "_s, $$str(start), ", end "_s, $$str(end), ", length "_s, $$str(len)}));
 	}

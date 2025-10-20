@@ -291,6 +291,7 @@ void ConcurrentSkipListSet::init$($ConcurrentNavigableMap* m) {
 }
 
 $Object* ConcurrentSkipListSet::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ConcurrentSkipListSet, clone, $cast(ConcurrentSkipListSet, $AbstractSet::clone()));
 		$nc(clone)->setMap($$new($ConcurrentSkipListMap, static_cast<$SortedMap*>(this->m)));
@@ -337,6 +338,7 @@ $Iterator* ConcurrentSkipListSet::descendingIterator() {
 }
 
 bool ConcurrentSkipListSet::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -358,6 +360,7 @@ bool ConcurrentSkipListSet::equals(Object$* o) {
 }
 
 bool ConcurrentSkipListSet::removeAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	bool modified = false;
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
@@ -442,6 +445,7 @@ $Spliterator* ConcurrentSkipListSet::spliterator() {
 }
 
 void ConcurrentSkipListSet::setMap($ConcurrentNavigableMap* map) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Field, mapField, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(ConcurrentSkipListSet$$Lambda$lambda$setMap$0)))));
 	try {
@@ -454,6 +458,7 @@ void ConcurrentSkipListSet::setMap($ConcurrentNavigableMap* map) {
 
 $Field* ConcurrentSkipListSet::lambda$setMap$0() {
 	$init(ConcurrentSkipListSet);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, ConcurrentSkipListSet::class$->getDeclaredField("m"_s));

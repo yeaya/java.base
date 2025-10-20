@@ -100,6 +100,7 @@ $IOException* SocketExceptions::of($IOException* e, $SocketAddress* addr) {
 
 $IOException* SocketExceptions::ofInet($IOException* e, $InetSocketAddress* addr) {
 	$init(SocketExceptions);
+	$useLocalCurrentObjectStackCache();
 	int32_t port = $nc(addr)->getPort();
 	$var($String, host, addr->getHostString());
 	$var($StringBuilder, sb, $new($StringBuilder));
@@ -114,6 +115,7 @@ $IOException* SocketExceptions::ofInet($IOException* e, $InetSocketAddress* addr
 
 $IOException* SocketExceptions::ofUnixDomain($IOException* e, $UnixDomainSocketAddress* addr) {
 	$init(SocketExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $nc($($nc(addr)->getPath()))->toString());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($nc(e)->getMessage()));

@@ -87,6 +87,7 @@ void GCMParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void GCMParameters::engineInit($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, $new($DerValue, encoded));
 	if (val->tag == $DerValue::tag_Sequence) {
 		$var($bytes, iv, $nc(val->data$)->getOctetString());
@@ -123,6 +124,7 @@ $AlgorithmParameterSpec* GCMParameters::engineGetParameterSpec($Class* paramSpec
 }
 
 $bytes* GCMParameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	bytes->putOctetString(this->iv);
@@ -136,6 +138,7 @@ $bytes* GCMParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* GCMParameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({LINE_SEP, "    iv:"_s, LINE_SEP, "["_s, $(encoder->encodeBuffer(this->iv)), "]"_s})));

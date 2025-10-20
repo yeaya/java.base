@@ -92,6 +92,7 @@ void TerminatingThreadLocal::threadTerminated(Object$* value) {
 
 void TerminatingThreadLocal::threadTerminated() {
 	$init(TerminatingThreadLocal);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(($cast($Collection, $($nc(TerminatingThreadLocal::REGISTRY)->get()))))->iterator());
 		for (; $nc(i$)->hasNext();) {

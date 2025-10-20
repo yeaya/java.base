@@ -105,6 +105,7 @@ $NamedGroup* ECDHKeyExchange$ECDHECredentials::getNamedGroup() {
 
 ECDHKeyExchange$ECDHECredentials* ECDHKeyExchange$ECDHECredentials::valueOf($NamedGroup* namedGroup, $bytes* encodedPoint) {
 	$init(ECDHKeyExchange$ECDHECredentials);
+	$useLocalCurrentObjectStackCache();
 	$init($NamedGroup$NamedGroupSpec);
 	if ($nc(namedGroup)->spec != $NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE) {
 		$throwNew($RuntimeException, "Credentials decoding:  Not ECDHE named group"_s);

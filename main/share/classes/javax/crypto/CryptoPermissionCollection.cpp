@@ -71,6 +71,7 @@ void CryptoPermissionCollection::add($Permission* permission) {
 }
 
 bool CryptoPermissionCollection::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($CryptoPermission, permission))) {
 		return false;
 	}

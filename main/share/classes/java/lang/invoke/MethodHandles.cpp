@@ -1034,6 +1034,7 @@ $MethodHandles$Lookup* MethodHandles::lookup() {
 
 $MethodHandles$Lookup* MethodHandles::reflected$lookup() {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Class* caller = $Reflection::getCallerClass();
 	if ($nc(caller)->getClassLoader() == nullptr) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"illegal lookupClass: "_s, caller}))));
@@ -1049,6 +1050,7 @@ $MethodHandles$Lookup* MethodHandles::publicLookup() {
 
 $MethodHandles$Lookup* MethodHandles::privateLookupIn($Class* targetClass, $MethodHandles$Lookup* caller) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(caller)->allowedModes == $MethodHandles$Lookup::TRUSTED) {
 		return $new($MethodHandles$Lookup, targetClass);
 	}
@@ -1095,6 +1097,7 @@ $MethodHandles$Lookup* MethodHandles::privateLookupIn($Class* targetClass, $Meth
 
 $Object* MethodHandles::classData($MethodHandles$Lookup* caller, $String* name, $Class* type) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(caller);
 	$Objects::requireNonNull(type);
 	$init($ConstantDescs);
@@ -1125,6 +1128,7 @@ $Object* MethodHandles::classData($MethodHandles$Lookup* caller, $String* name, 
 
 $Object* MethodHandles::classDataAt($MethodHandles$Lookup* caller, $String* name, $Class* type, int32_t index) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$load($List);
 	$var($List, classdata, $cast($List, classData(caller, name, $List::class$)));
 	if (classdata == nullptr) {
@@ -1148,6 +1152,7 @@ $Object* MethodHandles::classDataAt($MethodHandles$Lookup* caller, $String* name
 
 $Member* MethodHandles::reflectAs($Class* expected, $MethodHandle* target) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, smgr, $System::getSecurityManager());
 	if (smgr != nullptr) {
 		smgr->checkPermission(MethodHandles::ACCESS_PERMISSION);
@@ -1159,6 +1164,7 @@ $Member* MethodHandles::reflectAs($Class* expected, $MethodHandle* target) {
 
 $MethodHandle* MethodHandles::arrayConstructor($Class* arrayClass) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(arrayClass)->isArray()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"not an array class: "_s, $(arrayClass->getName())}))));
 	}
@@ -1205,6 +1211,7 @@ $VarHandle* MethodHandles::byteBufferViewVarHandle($Class* viewArrayClass, $Byte
 
 $MethodHandle* MethodHandles::spreadInvoker($MethodType* type$renamed, int32_t leadingArgCount) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, type$renamed);
 	if (leadingArgCount < 0 || leadingArgCount > $nc(type)->parameterCount()) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("bad argument count"_s, $($Integer::valueOf(leadingArgCount)))));
@@ -1241,6 +1248,7 @@ $MethodHandle* MethodHandles::basicInvoker($MethodType* type) {
 
 $MethodHandle* MethodHandles::explicitCastArguments($MethodHandle* target, $MethodType* newType) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	explicitCastArgumentsChecks(target, newType);
 	$var($MethodType, oldType, $nc(target)->type());
 	if (oldType == newType) {
@@ -1254,6 +1262,7 @@ $MethodHandle* MethodHandles::explicitCastArguments($MethodHandle* target, $Meth
 
 void MethodHandles::explicitCastArgumentsChecks($MethodHandle* target, $MethodType* newType) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($($nc(target)->type()))->parameterCount();
 	if (var$0 != $nc(newType)->parameterCount()) {
 		$throwNew($WrongMethodTypeException, $$str({"cannot explicitly cast "_s, target, " to "_s, newType}));
@@ -1262,6 +1271,7 @@ void MethodHandles::explicitCastArgumentsChecks($MethodHandle* target, $MethodTy
 
 $MethodHandle* MethodHandles::permuteArguments($MethodHandle* target, $MethodType* newType, $ints* reorder$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, reorder, reorder$renamed);
 	$assign(reorder, $cast($ints, $nc(reorder)->clone()));
 	$var($MethodType, oldType, $nc(target)->type());
@@ -1378,6 +1388,7 @@ int32_t MethodHandles::findFirstDupOrDrop($ints* reorder, int32_t newArity) {
 
 bool MethodHandles::permuteArgumentChecks($ints* reorder, $MethodType* newType, $MethodType* oldType) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($cast($Class, $nc(newType)->returnType()) != $cast($Class, $nc(oldType)->returnType())) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("return types do not match"_s, oldType, newType)));
 	}
@@ -1401,6 +1412,7 @@ bool MethodHandles::permuteArgumentChecks($ints* reorder, $MethodType* newType, 
 
 $MethodHandle* MethodHandles::constant($Class* type, Object$* value$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, value, value$renamed);
 	if ($nc(type)->isPrimitive()) {
 		$init($Void);
@@ -1424,6 +1436,7 @@ $MethodHandle* MethodHandles::constant($Class* type, Object$* value$renamed) {
 
 $MethodHandle* MethodHandles::identity($Class* type) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$init($Wrapper);
 	$Wrapper* btw = ($nc(type)->isPrimitive() ? $Wrapper::forPrimitiveType(type) : $Wrapper::OBJECT);
 	int32_t pos = $nc(btw)->ordinal();
@@ -1455,6 +1468,7 @@ $MethodHandle* MethodHandles::identityOrVoid($Class* type) {
 
 $MethodHandle* MethodHandles::empty($MethodType* type) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(type);
 	$var($MethodHandle, var$0, zero($($cast($Class, type->returnType()))));
 	return dropArguments(var$0, 0, $(type->parameterList()));
@@ -1462,6 +1476,7 @@ $MethodHandle* MethodHandles::empty($MethodType* type) {
 
 $MethodHandle* MethodHandles::makeIdentity($Class* ptype) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, $MethodType::methodType(ptype, ptype));
 	$var($LambdaForm, lform, $LambdaForm::identityForm($($LambdaForm$BasicType::basicType(ptype))));
 	$init($MethodHandleImpl$Intrinsic);
@@ -1470,6 +1485,7 @@ $MethodHandle* MethodHandles::makeIdentity($Class* ptype) {
 
 $MethodHandle* MethodHandles::zero($Wrapper* btw, $Class* rtype) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(btw)->ordinal();
 	$var($MethodHandle, zero, $nc(MethodHandles::ZERO_MHS)->get(pos));
 	if (zero == nullptr) {
@@ -1486,6 +1502,7 @@ $MethodHandle* MethodHandles::zero($Wrapper* btw, $Class* rtype) {
 
 $MethodHandle* MethodHandles::makeZero($Class* rtype) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mtype, $MethodType::methodType(rtype));
 	$var($LambdaForm, lform, $LambdaForm::zeroForm($($LambdaForm$BasicType::basicType(rtype))));
 	$init($MethodHandleImpl$Intrinsic);
@@ -1506,6 +1523,7 @@ $MethodHandle* MethodHandles::setCachedMethodHandle($MethodHandleArray* cache, i
 
 $MethodHandle* MethodHandles::insertArguments($MethodHandle* target, int32_t pos, $ObjectArray* values) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t insCount = $nc(values)->length;
 	$var($ClassArray, ptypes, insertArgumentsChecks(target, insCount, pos));
 	if (insCount == 0) {
@@ -1527,6 +1545,7 @@ $MethodHandle* MethodHandles::insertArguments($MethodHandle* target, int32_t pos
 
 $BoundMethodHandle* MethodHandles::insertArgumentPrimitive($BoundMethodHandle* result, int32_t pos, $Class* ptype, Object$* value$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, value, value$renamed);
 	$Wrapper* w = $Wrapper::forPrimitiveType(ptype);
 	$assign(value, $nc(w)->convert(value, ptype));
@@ -1565,6 +1584,7 @@ $BoundMethodHandle* MethodHandles::insertArgumentPrimitive($BoundMethodHandle* r
 
 $ClassArray* MethodHandles::insertArgumentsChecks($MethodHandle* target, int32_t insCount, int32_t pos) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, oldType, $nc(target)->type());
 	int32_t outargs = $nc(oldType)->parameterCount();
 	int32_t inargs = outargs - insCount;
@@ -1579,6 +1599,7 @@ $ClassArray* MethodHandles::insertArgumentsChecks($MethodHandle* target, int32_t
 
 $MethodHandle* MethodHandles::dropArguments($MethodHandle* target, int32_t pos, $List* valueTypes) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	return dropArguments0(target, pos, $(copyTypes($($nc(valueTypes)->toArray()))));
 }
 
@@ -1590,6 +1611,7 @@ $List* MethodHandles::copyTypes($ObjectArray* array) {
 
 $MethodHandle* MethodHandles::dropArguments0($MethodHandle* target, int32_t pos, $List* valueTypes) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, oldType, $nc(target)->type());
 	int32_t dropped = dropArgumentChecks(oldType, pos, valueTypes);
 	$var($MethodType, newType, $nc(oldType)->insertParameterTypes(pos, valueTypes));
@@ -1614,6 +1636,7 @@ $MethodHandle* MethodHandles::dropArguments0($MethodHandle* target, int32_t pos,
 
 int32_t MethodHandles::dropArgumentChecks($MethodType* oldType, int32_t pos, $List* valueTypes) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t dropped = $nc(valueTypes)->size();
 	$MethodType::checkSlotCount(dropped);
 	int32_t outargs = $nc(oldType)->parameterCount();
@@ -1637,6 +1660,7 @@ $MethodHandle* MethodHandles::dropArguments($MethodHandle* target, int32_t pos, 
 
 $MethodHandle* MethodHandles::dropArgumentsToMatch($MethodHandle* target, int32_t skip, $List* newTypes$renamed, int32_t pos, bool nullOnFailure) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($List, newTypes, newTypes$renamed);
 	$assign(newTypes, copyTypes($($nc(newTypes)->toArray())));
 	$var($List, oldTypes, $nc($($nc(target)->type()))->parameterList());
@@ -1690,6 +1714,7 @@ $MethodHandle* MethodHandles::dropArgumentsToMatch($MethodHandle* target, int32_
 
 $MethodHandle* MethodHandles::dropReturn($MethodHandle* target) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$var($MethodType, oldType, target->type());
 	$Class* oldReturnType = $cast($Class, $nc(oldType)->returnType());
@@ -1707,6 +1732,7 @@ $MethodHandle* MethodHandles::dropReturn($MethodHandle* target) {
 
 $MethodHandle* MethodHandles::filterArguments($MethodHandle* target, int32_t pos, $MethodHandleArray* filters) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t MH_RECEIVER_OFFSET = 1;
 	filterArgumentsCheckArity(target, pos, filters);
 	$var($MethodHandle, adapter, target);
@@ -1742,6 +1768,7 @@ $MethodHandle* MethodHandles::filterArguments($MethodHandle* target, int32_t pos
 
 $MethodHandle* MethodHandles::filterRepeatedArgument($MethodHandle* adapter, $MethodHandle* filter, $ints* positions) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(adapter)->type());
 	$var($MethodType, filterType, $nc(filter)->type());
 	$var($BoundMethodHandle, result, adapter->rebind());
@@ -1765,6 +1792,7 @@ $MethodHandle* MethodHandles::filterRepeatedArgument($MethodHandle* adapter, $Me
 
 $MethodHandle* MethodHandles::filterArgument($MethodHandle* target, int32_t pos, $MethodHandle* filter) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	filterArgumentChecks(target, pos, filter);
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, filterType, $nc(filter)->type());
@@ -1778,6 +1806,7 @@ $MethodHandle* MethodHandles::filterArgument($MethodHandle* target, int32_t pos,
 
 void MethodHandles::filterArgumentsCheckArity($MethodHandle* target, int32_t pos, $MethodHandleArray* filters) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	int32_t maxPos = $nc(targetType)->parameterCount();
 	if (pos + $nc(filters)->length > maxPos) {
@@ -1787,6 +1816,7 @@ void MethodHandles::filterArgumentsCheckArity($MethodHandle* target, int32_t pos
 
 void MethodHandles::filterArgumentChecks($MethodHandle* target, int32_t pos, $MethodHandle* filter) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, filterType, $nc(filter)->type());
 	bool var$0 = $nc(filterType)->parameterCount() != 1;
@@ -1800,6 +1830,7 @@ void MethodHandles::filterArgumentChecks($MethodHandle* target, int32_t pos, $Me
 
 $MethodHandle* MethodHandles::collectArguments($MethodHandle* target, int32_t pos, $MethodHandle* filter) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, newType, collectArgumentsChecks(target, pos, filter));
 	$var($MethodType, collectorType, $nc(filter)->type());
 	$var($BoundMethodHandle, result, $nc(target)->rebind());
@@ -1809,6 +1840,7 @@ $MethodHandle* MethodHandles::collectArguments($MethodHandle* target, int32_t po
 
 $MethodType* MethodHandles::collectArgumentsChecks($MethodHandle* target, int32_t pos, $MethodHandle* filter) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, filterType, $nc(filter)->type());
 	$Class* rtype = $cast($Class, $nc(filterType)->returnType());
@@ -1829,6 +1861,7 @@ $MethodType* MethodHandles::collectArgumentsChecks($MethodHandle* target, int32_
 
 $MethodHandle* MethodHandles::filterReturnValue($MethodHandle* target, $MethodHandle* filter) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, filterType, $nc(filter)->type());
 	filterReturnValueChecks(targetType, filterType);
@@ -1852,6 +1885,7 @@ void MethodHandles::filterReturnValueChecks($MethodType* targetType, $MethodType
 
 $MethodHandle* MethodHandles::collectReturnValue($MethodHandle* target, $MethodHandle* filter) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, filterType, $nc(filter)->type());
 	$var($BoundMethodHandle, result, target->rebind());
@@ -1873,6 +1907,7 @@ $MethodHandle* MethodHandles::foldArguments($MethodHandle* target, $MethodHandle
 
 $MethodHandle* MethodHandles::foldArguments($MethodHandle* target, int32_t pos, $MethodHandle* combiner) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, combinerType, $nc(combiner)->type());
 	$Class* rtype = foldArgumentChecks(pos, targetType, combinerType);
@@ -1929,6 +1964,7 @@ $MethodHandle* MethodHandles::foldArgumentsWithCombiner($MethodHandle* target, i
 
 $MethodHandle* MethodHandles::argumentsWithCombiner(bool filter, $MethodHandle* target, int32_t position, $MethodHandle* combiner, $ints* argPositions) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, targetType, $nc(target)->type());
 	$var($MethodType, combinerType, $nc(combiner)->type());
 	$Class* rtype = argumentsWithCombinerChecks(position, filter, targetType, combinerType, argPositions);
@@ -1951,6 +1987,7 @@ $MethodHandle* MethodHandles::argumentsWithCombiner(bool filter, $MethodHandle* 
 
 $Class* MethodHandles::argumentsWithCombinerChecks(int32_t position, bool filter, $MethodType* targetType, $MethodType* combinerType, $ints* argPos) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t combinerArgs = $nc(combinerType)->parameterCount();
 	if ($nc(argPos)->length != combinerArgs) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("combiner and argument map must be equal size"_s, combinerType, $($Integer::valueOf(argPos->length)))));
@@ -1978,6 +2015,7 @@ $Class* MethodHandles::argumentsWithCombinerChecks(int32_t position, bool filter
 
 $MethodHandle* MethodHandles::guardWithTest($MethodHandle* test$renamed, $MethodHandle* target, $MethodHandle* fallback) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, test, test$renamed);
 	$var($MethodType, gtype, $nc(test)->type());
 	$var($MethodType, ttype, $nc(target)->type());
@@ -2004,6 +2042,7 @@ $RuntimeException* MethodHandles::misMatchedTypes($String* what, Object$* t1, Ob
 
 $MethodHandle* MethodHandles::catchException($MethodHandle* target, $Class* exType, $MethodHandle* handler$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handler, handler$renamed);
 	$var($MethodType, ttype, $nc(target)->type());
 	$var($MethodType, htype, $nc(handler)->type());
@@ -2027,6 +2066,7 @@ $MethodHandle* MethodHandles::catchException($MethodHandle* target, $Class* exTy
 
 $MethodHandle* MethodHandles::throwException($Class* returnType, $Class* exType) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$load($Throwable);
 	if (!$Throwable::class$->isAssignableFrom(exType)) {
 		$throwNew($ClassCastException, $($nc(exType)->getName()));
@@ -2036,6 +2076,7 @@ $MethodHandle* MethodHandles::throwException($Class* returnType, $Class* exType)
 
 $MethodHandle* MethodHandles::loop($MethodHandleArray2* clauses) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	loopChecks0(clauses);
 	$var($List, init, $new($ArrayList));
 	$var($List, step, $new($ArrayList));
@@ -2110,6 +2151,7 @@ $MethodHandle* MethodHandles::loop($MethodHandleArray2* clauses) {
 
 void MethodHandles::loopChecks0($MethodHandleArray2* clauses) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if (clauses == nullptr || $nc(clauses)->length == 0) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("null or no clauses passed"_s)));
 	}
@@ -2123,6 +2165,7 @@ void MethodHandles::loopChecks0($MethodHandleArray2* clauses) {
 
 void MethodHandles::loopChecks1a(int32_t i, $MethodHandle* in, $MethodHandle* st) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($cast($Class, $nc($($nc(in)->type()))->returnType()) != $cast($Class, $nc($($nc(st)->type()))->returnType())) {
 		$var($String, var$0, $str({"clause "_s, $$str(i), ": init and step return types"_s}));
 		$var($Object, var$1, $of($nc($(in->type()))->returnType()));
@@ -2132,6 +2175,7 @@ void MethodHandles::loopChecks1a(int32_t i, $MethodHandle* in, $MethodHandle* st
 
 $List* MethodHandles::longestParameterList($Stream* mhs, int32_t skipSize) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($List, empty, $List::of());
 	$var($List, longest, $cast($List, $nc($($nc($($nc($($nc($($nc($($nc(mhs)->filter(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$nonNull$4)))))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$type$5)))))->filter(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$lambda$longestParameterList$6$12, skipSize)))))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$parameterList$7)))))->reduce(static_cast<$BinaryOperator*>($$new(MethodHandles$$Lambda$lambda$longestParameterList$7$13)))))->orElse(empty)));
 	return $nc(longest)->size() == 0 ? empty : $nc(longest)->subList(skipSize, longest->size());
@@ -2139,12 +2183,14 @@ $List* MethodHandles::longestParameterList($Stream* mhs, int32_t skipSize) {
 
 $List* MethodHandles::longestParameterList($List* lists) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($List, empty, $List::of());
 	return $cast($List, $nc($($nc($($nc(lists)->stream()))->reduce(static_cast<$BinaryOperator*>($$new(MethodHandles$$Lambda$lambda$longestParameterList$7$13)))))->orElse(empty));
 }
 
 $List* MethodHandles::buildCommonSuffix($List* init, $List* step, $List* pred, $List* fini, int32_t cpSize) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($List, longest1, longestParameterList($($nc($($Stream::of($$new($ListArray, {
 		step,
 		pred,
@@ -2159,6 +2205,7 @@ $List* MethodHandles::buildCommonSuffix($List* init, $List* step, $List* pred, $
 
 void MethodHandles::loopChecks1b($List* init, $List* commonSuffix) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc($($nc($($nc(init)->stream()))->filter(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$nonNull$4)))))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$type$5)))))->anyMatch(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$lambda$loopChecks1b$9$14, commonSuffix)))) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"found non-effectively identical init parameter type lists: "_s, init, " (common suffix: "_s, commonSuffix, ")"_s}))));
 	}
@@ -2166,6 +2213,7 @@ void MethodHandles::loopChecks1b($List* init, $List* commonSuffix) {
 
 void MethodHandles::loopChecks1cd($List* pred, $List* fini, $Class* loopReturnType) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc($($nc($($nc($($nc(fini)->stream()))->filter(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$nonNull$4)))))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$type$5)))))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$returnType$6)))))->anyMatch(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$lambda$loopChecks1cd$10$15, loopReturnType)))) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException($$str({"found non-identical finalizer return types: "_s, fini, " (return type: "_s, loopReturnType, ")"_s}))));
 	}
@@ -2179,6 +2227,7 @@ void MethodHandles::loopChecks1cd($List* pred, $List* fini, $Class* loopReturnTy
 
 void MethodHandles::loopChecks2($List* step, $List* pred, $List* fini, $List* commonParameterSequence) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc($($nc($($nc($($Stream::of($$new($ListArray, {
 		step,
 		pred,
@@ -2190,16 +2239,19 @@ void MethodHandles::loopChecks2($List* step, $List* pred, $List* fini, $List* co
 
 $List* MethodHandles::fillParameterTypes($List* hs, $List* targetParams) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc(hs)->stream()))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$lambda$fillParameterTypes$13$17, targetParams)))))->toList();
 }
 
 $List* MethodHandles::fixArities($List* hs) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc(hs)->stream()))->map(static_cast<$Function*>($$new(MethodHandles$$Lambda$asFixedArity$18)))))->toList();
 }
 
 $MethodHandle* MethodHandles::whileLoop($MethodHandle* init, $MethodHandle* pred, $MethodHandle* body) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	whileLoopChecks(init, pred, body);
 	$var($MethodHandle, fini, identityOrVoid($($cast($Class, $nc($($nc(body)->type()))->returnType()))));
 	$var($MethodHandleArray, checkExit, $new($MethodHandleArray, {
@@ -2220,6 +2272,7 @@ $MethodHandle* MethodHandles::whileLoop($MethodHandle* init, $MethodHandle* pred
 
 $MethodHandle* MethodHandles::doWhileLoop($MethodHandle* init, $MethodHandle* body, $MethodHandle* pred) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	whileLoopChecks(init, pred, body);
 	$var($MethodHandle, fini, identityOrVoid($($cast($Class, $nc($($nc(body)->type()))->returnType()))));
 	$var($MethodHandleArray, clause, $new($MethodHandleArray, {
@@ -2233,6 +2286,7 @@ $MethodHandle* MethodHandles::doWhileLoop($MethodHandle* init, $MethodHandle* bo
 
 void MethodHandles::whileLoopChecks($MethodHandle* init, $MethodHandle* pred, $MethodHandle* body) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(pred);
 	$Objects::requireNonNull(body);
 	$var($MethodType, bodyType, body->type());
@@ -2267,11 +2321,13 @@ void MethodHandles::whileLoopChecks($MethodHandle* init, $MethodHandle* pred, $M
 
 $MethodHandle* MethodHandles::countedLoop($MethodHandle* iterations, $MethodHandle* init, $MethodHandle* body) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	return countedLoop($(empty($($nc(iterations)->type()))), iterations, init, body);
 }
 
 $MethodHandle* MethodHandles::countedLoop($MethodHandle* start, $MethodHandle* end, $MethodHandle* init, $MethodHandle* body$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, body, body$renamed);
 	countedLoopChecks(start, end, init, body);
 	$Class* counterType = $cast($Class, $nc($($nc(start)->type()))->returnType());
@@ -2310,6 +2366,7 @@ $MethodHandle* MethodHandles::countedLoop($MethodHandle* start, $MethodHandle* e
 
 void MethodHandles::countedLoopChecks($MethodHandle* start, $MethodHandle* end, $MethodHandle* init, $MethodHandle* body) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(start);
 	$Objects::requireNonNull(end);
 	$Objects::requireNonNull(body);
@@ -2366,6 +2423,7 @@ void MethodHandles::countedLoopChecks($MethodHandle* start, $MethodHandle* end, 
 
 $MethodHandle* MethodHandles::iteratedLoop($MethodHandle* iterator, $MethodHandle* init, $MethodHandle* body) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Class* iterableType = iteratedLoopChecks(iterator, init, body);
 	$Class* returnType = $cast($Class, $nc($($nc(body)->type()))->returnType());
 	$var($MethodHandle, hasNext, $MethodHandleImpl::getConstantHandle($MethodHandleImpl::MH_iteratePred));
@@ -2419,6 +2477,7 @@ $MethodHandle* MethodHandles::iteratedLoop($MethodHandle* iterator, $MethodHandl
 
 $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle* init, $MethodHandle* body) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(body);
 	$var($MethodType, bodyType, body->type());
 	$Class* returnType = $cast($Class, $nc(bodyType)->returnType());
@@ -2476,6 +2535,7 @@ $Class* MethodHandles::iteratedLoopChecks($MethodHandle* iterator, $MethodHandle
 
 $MethodHandle* MethodHandles::swapArguments($MethodHandle* mh, int32_t i, int32_t j) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t arity = $nc($($nc(mh)->type()))->parameterCount();
 	$var($ints, order, $new($ints, arity));
 	for (int32_t k = 0; k < arity; ++k) {
@@ -2493,6 +2553,7 @@ $MethodHandle* MethodHandles::swapArguments($MethodHandle* mh, int32_t i, int32_
 
 $MethodHandle* MethodHandles::tryFinally($MethodHandle* target, $MethodHandle* cleanup$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, cleanup, cleanup$renamed);
 	$var($List, targetParamTypes, $nc($($nc(target)->type()))->parameterList());
 	$Class* rtype = $cast($Class, $nc($(target->type()))->returnType());
@@ -2507,6 +2568,7 @@ $MethodHandle* MethodHandles::tryFinally($MethodHandle* target, $MethodHandle* c
 
 void MethodHandles::tryFinallyChecks($MethodHandle* target, $MethodHandle* cleanup) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$Class* rtype = $cast($Class, $nc($($nc(target)->type()))->returnType());
 	if (rtype != $cast($Class, $nc($($nc(cleanup)->type()))->returnType())) {
 		$throw($(misMatchedTypes("target and return types"_s, $($nc($(cleanup->type()))->returnType()), rtype)));
@@ -2530,6 +2592,7 @@ void MethodHandles::tryFinallyChecks($MethodHandle* target, $MethodHandle* clean
 
 $MethodHandle* MethodHandles::tableSwitch($MethodHandle* fallback, $MethodHandleArray* targets$renamed) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleArray, targets, targets$renamed);
 	$Objects::requireNonNull(fallback);
 	$Objects::requireNonNull(targets);
@@ -2540,6 +2603,7 @@ $MethodHandle* MethodHandles::tableSwitch($MethodHandle* fallback, $MethodHandle
 
 $MethodType* MethodHandles::tableSwitchChecks($MethodHandle* defaultCase, $MethodHandleArray* caseActions) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(caseActions)->length == 0) {
 		$throwNew($IllegalArgumentException, $$str({"Not enough cases: "_s, $($Arrays::toString(caseActions))}));
 	}
@@ -2568,6 +2632,7 @@ $MethodType* MethodHandles::tableSwitchChecks($MethodHandle* defaultCase, $Metho
 
 $MethodHandle* MethodHandles::lambda$fillParameterTypes$13($List* targetParams, $MethodHandle* h) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t pc = $nc($($nc(h)->type()))->parameterCount();
 	int32_t tpsize = $nc(targetParams)->size();
 	return pc < tpsize ? dropArguments0(h, pc, $(targetParams->subList(pc, tpsize))) : h;
@@ -2626,6 +2691,7 @@ void MethodHandles::lambda$loop$1($List* init, $List* step, $List* pred, $List* 
 
 bool MethodHandles::lambda$loop$0($MethodHandleArray* c) {
 	$init(MethodHandles);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($Stream::of(c)))->anyMatch(static_cast<$Predicate*>($$new(MethodHandles$$Lambda$nonNull$4)));
 }
 

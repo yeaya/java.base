@@ -155,6 +155,7 @@ $MethodHandles$Lookup* DatagramSocketAdaptor$DatagramPackets::lambda$static$0() 
 }
 
 void clinit$DatagramSocketAdaptor$DatagramPackets($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

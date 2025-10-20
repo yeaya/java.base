@@ -203,6 +203,7 @@ void DigestBase::engineReset() {
 }
 
 $bytes* DigestBase::engineDigest() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $new($bytes, this->digestLength));
 	try {
 		engineDigest(b, 0, b->length);
@@ -214,6 +215,7 @@ $bytes* DigestBase::engineDigest() {
 }
 
 int32_t DigestBase::engineDigest($bytes* out, int32_t ofs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len < this->digestLength) {
 		$throwNew($DigestException, $$str({"Length must be at least "_s, $$str(this->digestLength), " for "_s, this->algorithm, "digests"_s}));
 	}

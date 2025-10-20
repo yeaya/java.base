@@ -128,6 +128,7 @@ $Object* allocate$DHKeyExchange$DHEPossession($Class* clazz) {
 }
 
 void DHKeyExchange$DHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("DiffieHellman"_s));
 		$nc(kpg)->initialize($nc(namedGroup)->keAlgParamSpec, random);
@@ -145,6 +146,7 @@ void DHKeyExchange$DHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* 
 }
 
 void DHKeyExchange$DHEPossession::init$(int32_t keyLength, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$init($PredefinedDHParameterSpecs);
 	$var($DHParameterSpec, params, $cast($DHParameterSpec, $nc($PredefinedDHParameterSpecs::definedParams)->get($($Integer::valueOf(keyLength)))));
 	try {
@@ -168,6 +170,7 @@ void DHKeyExchange$DHEPossession::init$(int32_t keyLength, $SecureRandom* random
 }
 
 void DHKeyExchange$DHEPossession::init$($DHKeyExchange$DHECredentials* credentials, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("DiffieHellman"_s));
 		$nc(kpg)->initialize($(static_cast<$AlgorithmParameterSpec*>($nc($nc(credentials)->popPublicKey)->getParams())), random);
@@ -185,6 +188,7 @@ void DHKeyExchange$DHEPossession::init$($DHKeyExchange$DHECredentials* credentia
 }
 
 $KeyPair* DHKeyExchange$DHEPossession::generateDHKeyPair($KeyPairGenerator* kpg) {
+	$useLocalCurrentObjectStackCache();
 	bool doExtraValidation = (!$KeyUtil::isOracleJCEProvider($($nc($($nc(kpg)->getProvider()))->getName())));
 	bool isRecovering = false;
 	for (int32_t i = 0; i <= 2; ++i) {
@@ -209,6 +213,7 @@ $KeyPair* DHKeyExchange$DHEPossession::generateDHKeyPair($KeyPairGenerator* kpg)
 
 $DHPublicKeySpec* DHKeyExchange$DHEPossession::getDHPublicKeySpec($PublicKey* key) {
 	$init(DHKeyExchange$DHEPossession);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DHPublicKey, key)) {
 		$var($DHPublicKey, dhKey, $cast($DHPublicKey, key));
 		$var($DHParameterSpec, params, $nc(dhKey)->getParams());
@@ -231,6 +236,7 @@ $DHPublicKeySpec* DHKeyExchange$DHEPossession::getDHPublicKeySpec($PublicKey* ke
 }
 
 $bytes* DHKeyExchange$DHEPossession::encode() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $Utilities::toByteArray($($nc(this->publicKey)->getY())));
 	int32_t pSize = (int32_t)((uint32_t)($KeyUtil::getKeySize(static_cast<$Key*>(this->publicKey)) + 7) >> 3);
 	if (pSize > 0 && $nc(encoded)->length < pSize) {

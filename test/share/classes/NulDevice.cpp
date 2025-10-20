@@ -70,6 +70,7 @@ void NulDevice::init$() {
 }
 
 void NulDevice::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, path, $Path::of("nul"_s, $$new($StringArray, 0)));
 	{
 		$var($OutputStream, os, $Files::newOutputStream(path, $$new($OpenOptionArray, 0)));

@@ -111,6 +111,7 @@ int64_t Striped64$Cell::getAndSet(int64_t val) {
 }
 
 void clinit$Striped64$Cell($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

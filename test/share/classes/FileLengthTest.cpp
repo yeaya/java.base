@@ -187,6 +187,7 @@ void FileLengthTest::startReaderThread() {
 
 void FileLengthTest::main($StringArray* args) {
 	$init(FileLengthTest);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, arr, $new($bytes, FileLengthTest::BUF_SIZE));
 	$var($String, testFile, "testfile.txt"_s);
 	{
@@ -231,6 +232,7 @@ void FileLengthTest::main($StringArray* args) {
 
 void FileLengthTest::createDummyFile($String* fileName) {
 	$init(FileLengthTest);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileOutputStream, outputStream, $new($FileOutputStream, $$new($File, fileName)));
 		{
@@ -268,6 +270,7 @@ void FileLengthTest::createDummyFile($String* fileName) {
 
 void FileLengthTest::lambda$startReaderThread$1() {
 	$init(FileLengthTest);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, FileLengthTest::BUF_SIZE));
 	int32_t i = 0;
 	$var($bytes, arr, $new($bytes, 8));
@@ -285,6 +288,7 @@ void FileLengthTest::lambda$startReaderThread$1() {
 
 void FileLengthTest::lambda$startLengthThread$0() {
 	$init(FileLengthTest);
+	$useLocalCurrentObjectStackCache();
 	while (true) {
 		try {
 			int64_t length = $nc(FileLengthTest::randomAccessFile)->length();

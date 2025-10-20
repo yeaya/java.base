@@ -704,6 +704,7 @@ $Temporal* TemporalAdjusters::lambda$next$9(int32_t dowValue, $Temporal* tempora
 }
 
 $Temporal* TemporalAdjusters::lambda$dayOfWeekInMonth$8(int32_t dowValue, int32_t ordinal, $Temporal* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Temporal, temp, $nc(temporal)->with($ChronoField::DAY_OF_MONTH, $nc($(temporal->range($ChronoField::DAY_OF_MONTH)))->getMaximum()));
 	int32_t curDow = $nc(temp)->get($ChronoField::DAY_OF_WEEK);
@@ -757,6 +758,7 @@ $Temporal* TemporalAdjusters::lambda$firstDayOfMonth$1($Temporal* temporal) {
 }
 
 $Temporal* TemporalAdjusters::lambda$ofDateAdjuster$0($UnaryOperator* dateBasedAdjuster, $Temporal* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDate, input, $LocalDate::from(temporal));
 	$var($LocalDate, output, $cast($LocalDate, $nc(dateBasedAdjuster)->apply(input)));
 	return $nc(temporal)->with(output);

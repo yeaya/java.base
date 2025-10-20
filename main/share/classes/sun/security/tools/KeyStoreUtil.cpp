@@ -134,6 +134,7 @@ bool KeyStoreUtil::isSelfSigned($X509Certificate* cert) {
 }
 
 bool KeyStoreUtil::signedBy($X509Certificate* end, $X509Certificate* ca) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(ca)->getSubjectX500Principal()))->equals($($nc(end)->getIssuerX500Principal()))) {
 		return false;
 	}
@@ -172,6 +173,7 @@ $String* KeyStoreUtil::getCacerts() {
 }
 
 $KeyStore* KeyStoreUtil::getCacertsKeyStore() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, $(getCacerts())));
 	if (!file->exists()) {
 		return nullptr;
@@ -180,6 +182,7 @@ $KeyStore* KeyStoreUtil::getCacertsKeyStore() {
 }
 
 $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $ResourceBundle* rb, $Collator* collator) {
+	$useLocalCurrentObjectStackCache();
 	if (modifier == nullptr) {
 		return $nc(arg)->toCharArray();
 	} else if ($nc(collator)->compare(modifier, "env"_s) == 0) {
@@ -260,6 +263,7 @@ $chars* KeyStoreUtil::getPassWithModifier($String* modifier, $String* arg, $Reso
 }
 
 void KeyStoreUtil::parseArgsLine($List* list, $String* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($StreamTokenizer, st, $new($StreamTokenizer, static_cast<$Reader*>($$new($StringReader, s))));
 	st->resetSyntax();
 	st->whitespaceChars(0, 32);
@@ -275,6 +279,7 @@ void KeyStoreUtil::parseArgsLine($List* list, $String* s) {
 }
 
 $StringArray* KeyStoreUtil::expandArgs($String* tool, $String* file, $String* c1, $String* c2, $StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, result, $new($ArrayList));
 	$var($Properties, p, $new($Properties));
 	p->load(static_cast<$InputStream*>($$new($FileInputStream, file)));
@@ -306,6 +311,7 @@ $StringArray* KeyStoreUtil::expandArgs($String* tool, $String* file, $String* c1
 
 void KeyStoreUtil::loadProviderByName($String* provName, $String* arg) {
 	$load(KeyStoreUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Provider, loaded, $Security::getProvider(provName));
 	if (loaded != nullptr) {
@@ -336,6 +342,7 @@ void KeyStoreUtil::loadProviderByName($String* provName, $String* arg) {
 
 void KeyStoreUtil::loadProviderByClass($String* provClass, $String* arg, $ClassLoader* cl) {
 	$load(KeyStoreUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(provClass)->equals("sun.security.pkcs11.SunPKCS11"_s)) {
 		loadProviderByName("SunPKCS11"_s, arg);

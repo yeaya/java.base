@@ -72,6 +72,7 @@ void SoTimeout::init$() {
 
 void SoTimeout::main($StringArray* args) {
 	$init(SoTimeout);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SoTimeout::addr, $InetAddress::getLocalHost());
 	$assignStatic(SoTimeout::serverSocket, $new($ServerSocket));
 	$nc(SoTimeout::serverSocket)->bind($$new($InetSocketAddress, SoTimeout::addr, 0));
@@ -91,6 +92,7 @@ void SoTimeout::main($StringArray* args) {
 }
 
 void SoTimeout::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, b, $new($bytes, 12));
 		$var($Socket, s, $new($Socket, SoTimeout::addr, SoTimeout::port));

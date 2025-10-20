@@ -547,6 +547,7 @@ Test4URI* Test4URI::x() {
 }
 
 Test4URI* Test4URI::rslv($URI* base) {
+	$useLocalCurrentObjectStackCache();
 	if (!parsed()) {
 		return this;
 	}
@@ -606,6 +607,7 @@ void Test4URI::checkEmpty($String* s, int32_t prop) {
 }
 
 void Test4URI::checkURI7() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->uri$)->isOpaque()) {
 		return;
 	}
@@ -636,6 +638,7 @@ void Test4URI::checkURI7() {
 }
 
 void Test4URI::checkURI5() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->uri$)->isOpaque()) {
 		return;
 	}
@@ -655,6 +658,7 @@ void Test4URI::checkURI5() {
 }
 
 void Test4URI::checkURI3() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, var$0, $nc(this->uri$)->getScheme());
 		$var($String, var$1, $nc(this->uri$)->getSchemeSpecificPart());
@@ -669,6 +673,7 @@ void Test4URI::checkURI3() {
 }
 
 void Test4URI::checkIdentities() {
+	$useLocalCurrentObjectStackCache();
 	if (this->input != nullptr) {
 		if (!$nc($($nc(this->uri$)->toString()))->equals(this->input)) {
 			this->failed |= Test4URI::IDENT_STR;
@@ -707,6 +712,7 @@ void Test4URI::checkIdentities() {
 }
 
 Test4URI* Test4URI::z() {
+	$useLocalCurrentObjectStackCache();
 	if (!parsed()) {
 		report();
 		return this;
@@ -736,6 +742,7 @@ void Test4URI::header($String* s) {
 
 void Test4URI::show($String* prefix, $URISyntaxException* x) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$nc(Test4URI::out)->println($(uquote($($nc(x)->getInput()))));
 	if ($nc(x)->getIndex() >= 0) {
 		for (int32_t i = 0; i < x->getIndex(); ++i) {
@@ -751,6 +758,7 @@ void Test4URI::show($String* prefix, $URISyntaxException* x) {
 }
 
 void Test4URI::summarize() {
+	$useLocalCurrentObjectStackCache();
 	$nc(Test4URI::out)->println();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	if ($nc(this->input)->length() == 0) {
@@ -784,6 +792,7 @@ void Test4URI::summarize() {
 
 $String* Test4URI::uquote($String* str) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	if (str == nullptr) {
 		return str;
 	}
@@ -807,12 +816,14 @@ $String* Test4URI::uquote($String* str) {
 
 void Test4URI::show($String* n, $String* v) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"  "_s, n, $("          = "_s->substring($nc(n)->length()))}));
 	$nc(Test4URI::out)->println($$concat(var$0, $(uquote(v))));
 }
 
 void Test4URI::show($String* n, $String* v, $String* vd) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	if ((v == nullptr) || $nc(v)->equals(vd)) {
 		show(n, v);
 	} else {
@@ -825,6 +836,7 @@ void Test4URI::show($String* n, $String* v, $String* vd) {
 
 void Test4URI::show($URI* u) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	show("opaque"_s, $$str({""_s, $$str($nc(u)->isOpaque())}));
 	show("scheme"_s, $($nc(u)->getScheme()));
 	$var($String, var$0, "ssp"_s);
@@ -853,6 +865,7 @@ void Test4URI::show($URI* u) {
 }
 
 void Test4URI::report() {
+	$useLocalCurrentObjectStackCache();
 	summarize();
 	if (this->failed == 0) {
 		return;
@@ -934,6 +947,7 @@ void Test4URI::report() {
 
 void Test4URI::rfc2396() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("RFC2396: Basic examples"_s);
 	$nc($($nc($($nc($($nc($(test("ftp://ftp.is.co.za/rfc/rfc1808.txt"_s)))->s("ftp"_s)))->h("ftp.is.co.za"_s)))->p("/rfc/rfc1808.txt"_s)))->z();
 	$nc($($nc($($nc($($nc($(test("http://www.math.uio.no/faq/compression-faq/part1.html"_s)))->s("http"_s)))->h("www.math.uio.no"_s)))->p("/faq/compression-faq/part1.html"_s)))->z();
@@ -992,6 +1006,7 @@ void Test4URI::rfc2396() {
 
 void Test4URI::ip() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("IP addresses"_s);
 	$nc($($nc($($nc($($nc($($nc($(test("http://1.2.3.4:5"_s)))->s("http"_s)))->h("1.2.3.4"_s)))->n(5)))->p(""_s)))->z();
 	$nc($($nc($($nc($($nc($($nc($(test("http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/index.html"_s)))->s("http"_s)))->h("[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]"_s)))->n(80)))->p("/index.html"_s)))->z();
@@ -1060,6 +1075,7 @@ void Test4URI::ip() {
 
 void Test4URI::misc() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, base, $new($URI, "s://h/a/b"_s));
 	$var($URI, rbase, $new($URI, "a/b/c/d"_s));
 	header("Corner cases"_s);
@@ -1124,6 +1140,7 @@ void Test4URI::misc() {
 
 void Test4URI::npes() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("NullPointerException"_s);
 	$var($URI, base, $URI::create("mailto:root@foobar.com"_s));
 	$nc(Test4URI::out)->println();
@@ -1158,6 +1175,7 @@ void Test4URI::npes() {
 
 void Test4URI::chars() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("Escapes and non-US-ASCII characters"_s);
 	$var($URI, uri, nullptr);
 	$nc($($nc($(test("%0a%0A%0f%0F%01%09zz"_s)))->p("%0a%0A%0f%0F%01%09zz"_s)))->z();
@@ -1195,6 +1213,7 @@ void Test4URI::chars() {
 
 void Test4URI::eq0($URI* u, $URI* v) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	++Test4URI::testCount;
 	if (!$nc(u)->equals(v)) {
 		$throwNew($RuntimeException, $$str({"Not equal: "_s, u, " "_s, v}));
@@ -1217,6 +1236,7 @@ void Test4URI::eq0($URI* u, $URI* v) {
 
 void Test4URI::cmp0($URI* u, $URI* v, bool same) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	int32_t c = $nc(u)->compareTo(v);
 	if ((c == 0) != same) {
 		$throwNew($RuntimeException, $$str({"Comparison inconsistent: "_s, u, " "_s, v, " "_s, $$str(c)}));
@@ -1231,6 +1251,7 @@ void Test4URI::eq($URI* u, $URI* v) {
 
 void Test4URI::eq($String* expected, $String* actual) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	if (expected == nullptr && actual == nullptr) {
 		return;
 	}
@@ -1253,6 +1274,7 @@ void Test4URI::eqeq($URI* u, $URI* v) {
 
 void Test4URI::ne0($URI* u, $URI* v) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	++Test4URI::testCount;
 	if ($nc(u)->equals(v)) {
 		$throwNew($RuntimeException, $$str({"Equal: "_s, u, " "_s, v}));
@@ -1273,6 +1295,7 @@ void Test4URI::ne($URI* u, $URI* v) {
 
 void Test4URI::lt($URI* u, $URI* v) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	ne0(u, v);
 	int32_t c = $nc(u)->compareTo(v);
 	if (c >= 0) {
@@ -1285,12 +1308,14 @@ void Test4URI::lt($URI* u, $URI* v) {
 
 void Test4URI::lt($String* s, $String* t) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, var$0, $new($URI, s));
 	lt(var$0, $$new($URI, t));
 }
 
 void Test4URI::gt0($URI* u, $URI* v) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	ne0(u, v);
 	int32_t c = $nc(u)->compareTo(v);
 	if (c <= 0) {
@@ -1308,6 +1333,7 @@ void Test4URI::gt($URI* u, $URI* v) {
 
 void Test4URI::eqHashComp() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("Equality, hashing, and comparison"_s);
 	$var($URI, o, $new($URI, "mailto:foo@bar.com"_s));
 	$var($URI, r, $new($URI, "reg://some%20registry/b/c/d?q#f"_s));
@@ -1357,6 +1383,7 @@ void Test4URI::eqHashComp() {
 
 void Test4URI::serial($URI* u) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oo, $new($ObjectOutputStream, bo));
 	oo->writeObject(u);
@@ -1376,6 +1403,7 @@ void Test4URI::serial($URI* u) {
 
 void Test4URI::serial() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("Serialization"_s);
 	serial($($URI::create("http://java.sun.com/jdk/1.4?release#beta"_s)));
 	serial($($nc($($URI::create("s://h/p"_s)))->resolve("/long%20path/"_s)));
@@ -1383,6 +1411,7 @@ void Test4URI::serial() {
 
 void Test4URI::urls() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	header("URLs"_s);
 	$var($URI, uri, nullptr);
 	$var($URL, url, nullptr);
@@ -1461,6 +1490,7 @@ void Test4URI::usage() {
 
 void Test4URI::clargs($String* base, $String* uri) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, b, nullptr);
 	$var($URI, u, nullptr);
 	try {
@@ -1493,6 +1523,7 @@ void Test4URI::bugs() {
 
 void Test4URI::b6339649() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URI, uri, $URI::create("http://nowhere.net/should not be permitted"_s));
 	} catch ($IllegalArgumentException&) {
@@ -1506,6 +1537,7 @@ void Test4URI::b6339649() {
 
 void Test4URI::b6933879() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($String, HOST, "fe80::c00:16fe:cebe:3214%eth1.12_55"_s);
 	$var($URI, uri, nullptr);
 	try {
@@ -1519,6 +1551,7 @@ void Test4URI::b6933879() {
 
 void Test4URI::b8037396() {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, u, nullptr);
 	try {
 		$assign(u, $new($URI, "http"_s, "example.org"_s, "/[a b]"_s, "[a b]"_s, "[a b]"_s));
@@ -1545,6 +1578,7 @@ void Test4URI::b8037396() {
 
 void Test4URI::main($StringArray* args) {
 	$init(Test4URI);
+	$useLocalCurrentObjectStackCache();
 	switch ($nc(args)->length) {
 	case 0:
 		{

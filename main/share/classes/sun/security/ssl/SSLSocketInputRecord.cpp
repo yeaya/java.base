@@ -149,6 +149,7 @@ void SSLSocketInputRecord::init$($HandshakeHash* handshakeHash) {
 }
 
 int32_t SSLSocketInputRecord::bytesInCompletePacket() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		readHeader();
 	} catch ($EOFException&) {
@@ -179,6 +180,7 @@ int32_t SSLSocketInputRecord::bytesInCompletePacket() {
 }
 
 $PlaintextArray* SSLSocketInputRecord::decode($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isClosed$) {
 		return nullptr;
 	}
@@ -228,6 +230,7 @@ void SSLSocketInputRecord::setDeliverStream($OutputStream* outputStream) {
 }
 
 $PlaintextArray* SSLSocketInputRecord::decodeInputRecord() {
+	$useLocalCurrentObjectStackCache();
 	int8_t contentType = $nc(this->header)->get(0);
 	int8_t majorVersion = $nc(this->header)->get(1);
 	int8_t minorVersion = $nc(this->header)->get(2);
@@ -336,6 +339,7 @@ $PlaintextArray* SSLSocketInputRecord::decodeInputRecord() {
 }
 
 $PlaintextArray* SSLSocketInputRecord::handleUnknownRecord() {
+	$useLocalCurrentObjectStackCache();
 	int8_t firstByte = $nc(this->header)->get(0);
 	int8_t thirdByte = $nc(this->header)->get(2);
 	if ((((int32_t)(firstByte & (uint32_t)128)) != 0) && (thirdByte == 1)) {
@@ -391,6 +395,7 @@ $PlaintextArray* SSLSocketInputRecord::handleUnknownRecord() {
 }
 
 int32_t SSLSocketInputRecord::readFully(int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	int32_t end = len + $nc(this->recordBody)->position();
 	int32_t off = $nc(this->recordBody)->position();
 	{
@@ -420,6 +425,7 @@ int32_t SSLSocketInputRecord::readHeader() {
 
 int32_t SSLSocketInputRecord::read($InputStream* is, $bytes* buf, int32_t off, int32_t len) {
 	$init(SSLSocketInputRecord);
+	$useLocalCurrentObjectStackCache();
 	int32_t readLen = $nc(is)->read(buf, off, len);
 	if (readLen < 0) {
 		$init($SSLLogger);

@@ -86,6 +86,7 @@ void ForkJoinPool$InvokeAnyRoot::init$(int32_t n, $ForkJoinPool* p) {
 }
 
 void ForkJoinPool$InvokeAnyRoot::tryComplete($Callable* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, ex, nullptr);
 	bool failed = false;
 	if (c == nullptr || $Thread::interrupted() || (this->pool != nullptr && $nc(this->pool)->mode < 0)) {

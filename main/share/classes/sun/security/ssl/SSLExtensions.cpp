@@ -134,6 +134,7 @@ void SSLExtensions::init$($SSLHandshake$HandshakeMessage* handshakeMessage) {
 }
 
 void SSLExtensions::init$($SSLHandshake$HandshakeMessage* hm, $ByteBuffer* m, $SSLExtensionArray* extensions) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, extMap, $new($LinkedHashMap));
 	$init($SSLLogger);
 	$set(this, logMap, $SSLLogger::isOn$ ? static_cast<$Map*>($new($LinkedHashMap)) : ($Map*)nullptr);
@@ -224,6 +225,7 @@ $bytes* SSLExtensions::get($SSLExtension* ext) {
 }
 
 void SSLExtensions::consumeOnLoad($HandshakeContext* context, $SSLExtensionArray* extensions) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SSLExtensionArray, arr$, extensions);
 		int32_t len$ = $nc(arr$)->length;
@@ -268,6 +270,7 @@ void SSLExtensions::consumeOnLoad($HandshakeContext* context, $SSLExtensionArray
 }
 
 void SSLExtensions::consumeOnTrade($HandshakeContext* context, $SSLExtensionArray* extensions) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SSLExtensionArray, arr$, extensions);
 		int32_t len$ = $nc(arr$)->length;
@@ -304,6 +307,7 @@ void SSLExtensions::consumeOnTrade($HandshakeContext* context, $SSLExtensionArra
 }
 
 void SSLExtensions::produce($HandshakeContext* context, $SSLExtensionArray* extensions) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SSLExtensionArray, arr$, extensions);
 		int32_t len$ = $nc(arr$)->length;
@@ -341,6 +345,7 @@ void SSLExtensions::produce($HandshakeContext* context, $SSLExtensionArray* exte
 }
 
 void SSLExtensions::reproduce($HandshakeContext* context, $SSLExtensionArray* extensions) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SSLExtensionArray, arr$, extensions);
 		int32_t len$ = $nc(arr$)->length;
@@ -387,6 +392,7 @@ int32_t SSLExtensions::length() {
 }
 
 void SSLExtensions::send($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t extsLen = length();
 	if (extsLen == 0) {
 		return;
@@ -410,6 +416,7 @@ void SSLExtensions::send($HandshakeOutStream* hos) {
 }
 
 $String* SSLExtensions::toString() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(this->extMap)->isEmpty();
 	if (var$0 && (this->logMap == nullptr || $nc(this->logMap)->isEmpty())) {
 		return "<no extension>"_s;
@@ -455,6 +462,7 @@ $String* SSLExtensions::toString() {
 }
 
 $String* SSLExtensions::toString(int32_t extId, $bytes* extData) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, extName, $SSLExtension::nameOf(extId));
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"{0} ({1})\": \'{\'\n{2}\n\'}\'"_s, $Locale::ENGLISH));

@@ -47,6 +47,7 @@ void WriteUTF::init$() {
 }
 
 void WriteUTF::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($RandomAccessFile, f, nullptr);
 	$var($File, fn, $new($File, "x.WriteUTF"_s));
 	$var($String, s, u"\uffff"_s);

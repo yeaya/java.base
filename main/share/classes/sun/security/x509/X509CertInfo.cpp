@@ -244,6 +244,7 @@ void X509CertInfo::init$() {
 }
 
 void X509CertInfo::init$($bytes* cert) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, version, $new($CertificateVersion));
 	$set(this, serialNum, nullptr);
 	$set(this, algId, nullptr);
@@ -285,6 +286,7 @@ void X509CertInfo::init$($DerValue* derVal) {
 }
 
 void X509CertInfo::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->rawCertInfo == nullptr) {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
 		emit(tmp);
@@ -313,6 +315,7 @@ $String* X509CertInfo::getName() {
 }
 
 $bytes* X509CertInfo::getEncodedInfo() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->rawCertInfo == nullptr) {
 			$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -363,6 +366,7 @@ int32_t X509CertInfo::hashCode() {
 }
 
 $String* X509CertInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->subject == nullptr || this->pubKey == nullptr || this->interval == nullptr || this->issuer == nullptr || this->algId == nullptr || this->serialNum == nullptr) {
 		$throwNew($NullPointerException, "X.509 cert is incomplete"_s);
 	}
@@ -420,6 +424,7 @@ $String* X509CertInfo::toString() {
 }
 
 void X509CertInfo::set($String* name, Object$* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509AttributeName, attrName, $new($X509AttributeName, name));
 	int32_t attr = attributeMap($(attrName->getPrefix()));
 	if (attr == 0) {
@@ -509,6 +514,7 @@ void X509CertInfo::set($String* name, Object$* val) {
 }
 
 void X509CertInfo::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509AttributeName, attrName, $new($X509AttributeName, name));
 	int32_t attr = attributeMap($(attrName->getPrefix()));
 	if (attr == 0) {
@@ -636,6 +642,7 @@ case$9:
 }
 
 $Object* X509CertInfo::get($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509AttributeName, attrName, $new($X509AttributeName, name));
 	int32_t attr = attributeMap($(attrName->getPrefix()));
 	if (attr == 0) {
@@ -773,6 +780,7 @@ $Object* X509CertInfo::getX500Name($String* name, bool getIssuer) {
 }
 
 void X509CertInfo::parse($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, in, nullptr);
 	$var($DerValue, tmp, nullptr);
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
@@ -831,6 +839,7 @@ void X509CertInfo::parse($DerValue* val) {
 }
 
 void X509CertInfo::verifyCert($X500Name* subject, $CertificateExtensions* extensions) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(subject)->isEmpty()) {
 		if (extensions == nullptr) {
 			$throwNew($CertificateParsingException, "X.509 Certificate is incomplete: subject field is empty, and certificate has no extensions"_s);
@@ -971,6 +980,7 @@ void X509CertInfo::setExtensions(Object$* val) {
 }
 
 void clinit$X509CertInfo($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(X509CertInfo::IDENT, "x509.info"_s);
 	$assignStatic(X509CertInfo::NAME, "info"_s);
 	$assignStatic(X509CertInfo::DN_NAME, "dname"_s);

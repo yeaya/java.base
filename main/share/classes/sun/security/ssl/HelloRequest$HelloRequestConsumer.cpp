@@ -87,6 +87,7 @@ void HelloRequest$HelloRequestConsumer::init$() {
 }
 
 void HelloRequest$HelloRequestConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($HelloRequest$HelloRequestMessage, hrm, $new($HelloRequest$HelloRequestMessage, chc, message));
 	$init($SSLLogger);

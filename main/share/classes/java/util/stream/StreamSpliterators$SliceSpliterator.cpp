@@ -92,6 +92,7 @@ void StreamSpliterators$SliceSpliterator::init$($Spliterator* s, int64_t sliceOr
 }
 
 $Spliterator* StreamSpliterators$SliceSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->sliceOrigin >= this->fence) {
 		return nullptr;
 	}

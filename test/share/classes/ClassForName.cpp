@@ -44,6 +44,7 @@ void ClassForName::init$() {
 }
 
 void ClassForName::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($List);

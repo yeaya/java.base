@@ -94,6 +94,7 @@ void BigDecimalCompatibilityTest::main($StringArray* args) {
 
 void BigDecimalCompatibilityTest::testBigDecimal() {
 	$init(BigDecimalCompatibilityTest);
+	$useLocalCurrentObjectStackCache();
 	$var($DecimalFormat, df, $new($DecimalFormat));
 	df->setParseBigDecimal(true);
 	df->setMaximumFractionDigits($Integer::MAX_VALUE);
@@ -116,6 +117,7 @@ void BigDecimalCompatibilityTest::testBigDecimal() {
 
 void BigDecimalCompatibilityTest::testBigInteger() {
 	$init(BigDecimalCompatibilityTest);
+	$useLocalCurrentObjectStackCache();
 	$var($DecimalFormat, df, $new($DecimalFormat));
 	df->setParseBigDecimal(true);
 	df->setMaximumFractionDigits($Integer::MAX_VALUE);
@@ -132,6 +134,7 @@ void BigDecimalCompatibilityTest::testBigInteger() {
 
 void BigDecimalCompatibilityTest::test($DecimalFormat* df, $String* s, int32_t multiplier) {
 	$init(BigDecimalCompatibilityTest);
+	$useLocalCurrentObjectStackCache();
 	$nc(df)->setMultiplier(multiplier);
 	$var($Number, num, nullptr);
 	try {
@@ -156,6 +159,7 @@ void BigDecimalCompatibilityTest::test($DecimalFormat* df, $String* s, int32_t m
 
 void BigDecimalCompatibilityTest::check($Number* got, $BigDecimal* expected, int32_t multiplier) {
 	$init(BigDecimalCompatibilityTest);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($of(got))->equals(expected)) {
 		BigDecimalCompatibilityTest::err = true;
 		$init($System);

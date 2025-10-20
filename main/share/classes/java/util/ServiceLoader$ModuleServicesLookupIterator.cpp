@@ -182,6 +182,7 @@ $List* ServiceLoader$ModuleServicesLookupIterator::providers($ModuleLayer* layer
 }
 
 $ClassLoader* ServiceLoader$ModuleServicesLookupIterator::loaderFor($Module* module) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr) {
@@ -193,6 +194,7 @@ $ClassLoader* ServiceLoader$ModuleServicesLookupIterator::loaderFor($Module* mod
 }
 
 $Iterator* ServiceLoader$ModuleServicesLookupIterator::iteratorFor($ClassLoader* loader) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServicesCatalog, catalog, nullptr);
 	if (loader == nullptr) {
 		$assign(catalog, $BootLoader::getServicesCatalog());
@@ -232,6 +234,7 @@ $Iterator* ServiceLoader$ModuleServicesLookupIterator::iteratorFor($ClassLoader*
 }
 
 bool ServiceLoader$ModuleServicesLookupIterator::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	while (this->nextProvider == nullptr && this->nextError == nullptr) {
 		while (!$nc(this->iterator)->hasNext()) {
@@ -255,6 +258,7 @@ bool ServiceLoader$ModuleServicesLookupIterator::hasNext() {
 }
 
 $Object* ServiceLoader$ModuleServicesLookupIterator::next() {
+	$useLocalCurrentObjectStackCache();
 	if (!hasNext()) {
 		$throwNew($NoSuchElementException);
 	}

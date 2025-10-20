@@ -44,6 +44,7 @@ void Ready::init$() {
 }
 
 void Ready::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedWriter, pw, $new($PipedWriter));
 	$var($PipedReader, pr, $new($PipedReader, pw));
 	pw->write("input characters"_s);

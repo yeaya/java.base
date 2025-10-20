@@ -76,6 +76,7 @@ void SSLHandshake$HandshakeMessage::init$($HandshakeContext* handshakeContext) {
 }
 
 void SSLHandshake$HandshakeMessage::write($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = messageLength();
 	if (len >= $Record::OVERFLOW_OF_INT24) {
 		$throwNew($SSLException, $$str({"Handshake message is overflow, type = "_s, $(handshakeType()), ", len = "_s, $$str(len)}));

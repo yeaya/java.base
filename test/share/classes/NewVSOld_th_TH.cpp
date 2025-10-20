@@ -59,6 +59,7 @@ void NewVSOld_th_TH::init$() {
 }
 
 void NewVSOld_th_TH::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ENCODING, "UTF-8"_s);
 	$var($Locale, THAI_LOCALE, $new($Locale, "th"_s, "TH"_s));
 	$var($String, rawFileName, "test_th_TH.txt"_s);

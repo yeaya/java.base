@@ -43,6 +43,7 @@ void FlushAfterClose::init$() {
 }
 
 void FlushAfterClose::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedReader, pr, $new($PipedReader));
 	$var($PipedWriter, pw, $new($PipedWriter, pr));
 	pw->close();

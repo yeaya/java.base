@@ -47,6 +47,7 @@ void GetCanonicalPath::main($StringArray* args) {
 }
 
 void GetCanonicalPath::testDriveLetter() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $$new($File, "c:/"_s)->getCanonicalPath());
 	if ($nc(path)->length() > 3) {
 		$throwNew($RuntimeException, "Drive letter incorrectly represented"_s);

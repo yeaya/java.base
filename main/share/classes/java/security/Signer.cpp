@@ -122,6 +122,7 @@ $PrivateKey* Signer::getPrivateKey() {
 }
 
 void Signer::setKeyPair($KeyPair* pair) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	check("setSignerKeyPair"_s);
 	$var($PublicKey, pub, $nc(pair)->getPublic());
@@ -139,6 +140,7 @@ void Signer::setKeyPair($KeyPair* pair) {
 }
 
 $String* Signer::printKeys() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, keys, ""_s);
 	$var($PublicKey, publicKey, getPublicKey());
 	if (publicKey != nullptr && this->privateKey != nullptr) {

@@ -112,6 +112,7 @@ $String* NonPublicProxyClass::NEW_PROXY_IN_PKG = nullptr;
 
 void NonPublicProxyClass::main($StringArray* args) {
 	$init(NonPublicProxyClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $ClassLoader::getSystemClassLoader());
 	$Class* zipConstantsClass = $Class::forName("java.util.zip.ZipConstants"_s, false, nullptr);
@@ -180,6 +181,7 @@ void NonPublicProxyClass::init$($ClassLoader* loader, $ClassArray* intfs) {
 }
 
 void NonPublicProxyClass::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool hasAccess = this->loader != nullptr || this->hasAccess();
 	try {
@@ -207,6 +209,7 @@ void NonPublicProxyClass::run() {
 }
 
 bool NonPublicProxyClass::hasAccess() {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() == nullptr) {
 		return true;
 	}
@@ -216,6 +219,7 @@ bool NonPublicProxyClass::hasAccess() {
 }
 
 void NonPublicProxyClass::newProxyInstance() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t i = $nc($($nc(this->proxyClass)->getName()))->lastIndexOf((int32_t)u'.');
 	$var($String, pkg, (i != -1) ? $nc($($nc(this->proxyClass)->getName()))->substring(0, i) : ""_s);
@@ -240,6 +244,7 @@ void NonPublicProxyClass::newProxyInstance() {
 }
 
 void NonPublicProxyClass::newInstanceFromConstructor($Class* proxyClass) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool isSamePackage = $nc($($nc(proxyClass)->getName()))->lastIndexOf((int32_t)u'.') == -1;
 	try {

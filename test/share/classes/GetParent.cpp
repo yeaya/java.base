@@ -45,6 +45,7 @@ void GetParent::init$() {
 }
 
 void GetParent::check($String* path, $StringArray* parents) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, path));
 	$var($String, p, nullptr);
 	$init($System);
@@ -67,6 +68,7 @@ void GetParent::check($String* path, $StringArray* parents) {
 }
 
 void GetParent::testUnix() {
+	$useLocalCurrentObjectStackCache();
 	check("foo"_s, $$new($StringArray, 0));
 	check("./foo"_s, $$new($StringArray, {"."_s}));
 	check("foo/bar/baz"_s, $$new($StringArray, {
@@ -86,6 +88,7 @@ void GetParent::testUnix() {
 }
 
 void GetParent::testWin32() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Win32"_s);
 	check("foo"_s, $$new($StringArray, 0));

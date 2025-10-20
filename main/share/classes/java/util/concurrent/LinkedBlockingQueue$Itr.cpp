@@ -102,6 +102,7 @@ bool LinkedBlockingQueue$Itr::hasNext() {
 }
 
 $Object* LinkedBlockingQueue$Itr::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -131,6 +132,7 @@ $Object* LinkedBlockingQueue$Itr::next() {
 }
 
 void LinkedBlockingQueue$Itr::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($LinkedBlockingQueue$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
@@ -187,6 +189,7 @@ void LinkedBlockingQueue$Itr::forEachRemaining($Consumer* action) {
 }
 
 void LinkedBlockingQueue$Itr::remove() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingQueue$Node, p, this->lastRet);
 	if (p == nullptr) {
 		$throwNew($IllegalStateException);

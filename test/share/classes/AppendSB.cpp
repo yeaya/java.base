@@ -53,6 +53,7 @@ void AppendSB::init$() {
 
 void AppendSB::main($StringArray* args) {
 	$init(AppendSB);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(10, 100));
 		$var($StringBuffer, sb2, generateTestBuffer(10, 100));

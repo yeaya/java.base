@@ -396,6 +396,7 @@ $Iterable* JrtFileSystem::getRootDirectories() {
 }
 
 $Path* JrtFileSystem::getPath($String* first, $StringArray* more) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(more)->length == 0) {
 		return $new($JrtPath, this, first);
 	}
@@ -435,6 +436,7 @@ $WatchService* JrtFileSystem::newWatchService() {
 }
 
 $Iterable* JrtFileSystem::getFileStores() {
+	$useLocalCurrentObjectStackCache();
 	return $Collections::singleton($(getFileStore($(getRootPath()))));
 }
 
@@ -451,6 +453,7 @@ $String* JrtFileSystem::getSeparator() {
 }
 
 $PathMatcher* JrtFileSystem::getPathMatcher($String* syntaxAndInput) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(syntaxAndInput)->indexOf((int32_t)u':');
 	if (pos <= 0 || pos == syntaxAndInput->length()) {
 		$throwNew($IllegalArgumentException, $$str({"pos is "_s, $$str(pos)}));
@@ -470,6 +473,7 @@ $PathMatcher* JrtFileSystem::getPathMatcher($String* syntaxAndInput) {
 }
 
 $JrtPath* JrtFileSystem::resolveLink($JrtPath* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, node, checkNode(path));
 	if ($nc(node)->isLink()) {
 		$assign(node, node->resolveLink());
@@ -479,6 +483,7 @@ $JrtPath* JrtFileSystem::resolveLink($JrtPath* path) {
 }
 
 $JrtFileAttributes* JrtFileSystem::getFileAttributes($JrtPath* path, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, node, checkNode(path));
 	bool var$0 = $nc(node)->isLink();
 	if (var$0 && followLinks(options)) {
@@ -488,6 +493,7 @@ $JrtFileAttributes* JrtFileSystem::getFileAttributes($JrtPath* path, $LinkOption
 }
 
 $Iterator* JrtFileSystem::iteratorOf($JrtPath* path, $DirectoryStream$Filter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, node, $nc($(checkNode(path)))->resolveLink(true));
 	if (!$nc(node)->isDirectory()) {
 		$throwNew($NotDirectoryException, $($nc(path)->getName()));
@@ -499,6 +505,7 @@ $Iterator* JrtFileSystem::iteratorOf($JrtPath* path, $DirectoryStream$Filter* fi
 }
 
 $bytes* JrtFileSystem::getFileContent($JrtPath* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, node, checkNode(path));
 	if ($nc(node)->isDirectory()) {
 		$throwNew($FileSystemException, $$str({path, " is a directory"_s}));
@@ -537,6 +544,7 @@ bool JrtFileSystem::followLinks($LinkOptionArray* options) {
 
 void JrtFileSystem::checkOptions($Set* options) {
 	$init(JrtFileSystem);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(options)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -597,6 +605,7 @@ $InputStream* JrtFileSystem::newInputStream($JrtPath* path) {
 }
 
 $SeekableByteChannel* JrtFileSystem::newByteChannel($JrtPath* path, $Set* options, $FileAttributeArray* attrs) {
+	$useLocalCurrentObjectStackCache();
 	checkOptions(options);
 	$var($bytes, buf, getFileContent(path));
 	$var($ReadableByteChannel, rbc, $Channels::newChannel(static_cast<$InputStream*>($$new($ByteArrayInputStream, buf))));
@@ -637,11 +646,13 @@ bool JrtFileSystem::exists($JrtPath* path) {
 }
 
 bool JrtFileSystem::isDirectory($JrtPath* path, bool resolveLinks) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, node, checkNode(path));
 	return resolveLinks && $nc(node)->isLink() ? $nc($($nc(node)->resolveLink(true)))->isDirectory() : node->isDirectory();
 }
 
 $JrtPath* JrtFileSystem::toRealPath($JrtPath* path, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, node, checkNode(path));
 	bool var$0 = followLinks(options);
 	if (var$0 && $nc(node)->isLink()) {
@@ -651,6 +662,7 @@ $JrtPath* JrtFileSystem::toRealPath($JrtPath* path, $LinkOptionArray* options) {
 }
 
 $ImageReader$Node* JrtFileSystem::lookup($String* path) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->image)->findNode(path);
 	} catch ($RuntimeException&) {
@@ -664,6 +676,7 @@ $ImageReader$Node* JrtFileSystem::lookup($String* path) {
 }
 
 $ImageReader$Node* JrtFileSystem::lookupSymbolic($String* path) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 1;
 	while (i < $nc(path)->length()) {
 		i = path->indexOf((int32_t)u'/', i);
@@ -688,6 +701,7 @@ $ImageReader$Node* JrtFileSystem::lookupSymbolic($String* path) {
 }
 
 $ImageReader$Node* JrtFileSystem::checkNode($JrtPath* path) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	$var($String, p, $nc(path)->getResolvedPath());
 	$var($ImageReader$Node, node, lookup(p));
@@ -711,15 +725,18 @@ bool JrtFileSystem::lambda$iteratorOf$3($DirectoryStream$Filter* filter, $Path* 
 }
 
 $Path* JrtFileSystem::lambda$iteratorOf$1($JrtPath* path, $ImageReader$Node* child) {
+	$useLocalCurrentObjectStackCache();
 	return static_cast<$Path*>(($nc(path)->resolve($(static_cast<$Path*>($$new($JrtPath, this, $($nc(child)->getNameString()))->getFileName())))));
 }
 
 bool JrtFileSystem::lambda$getPathMatcher$0($Pattern* pattern, $Path* path) {
 	$init(JrtFileSystem);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(pattern)->matcher($($nc(path)->toString()))))->matches();
 }
 
 void clinit$JrtFileSystem($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(JrtFileSystem::supportedFileAttributeViews$, $Collections::unmodifiableSet($$new($HashSet, $(static_cast<$Collection*>($Arrays::asList($$new($StringArray, {
 		"basic"_s,
 		"jrt"_s

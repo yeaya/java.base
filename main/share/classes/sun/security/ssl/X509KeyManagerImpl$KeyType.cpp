@@ -85,6 +85,7 @@ void X509KeyManagerImpl$KeyType::init$($String* algorithm) {
 }
 
 bool X509KeyManagerImpl$KeyType::matches($CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc($($nc($nc(chain)->get(0))->getPublicKey()))->getAlgorithm()))->equals(this->keyAlgorithm)) {
 		return false;
 	}

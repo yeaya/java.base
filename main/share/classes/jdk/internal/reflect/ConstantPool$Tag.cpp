@@ -153,6 +153,7 @@ void ConstantPool$Tag::init$($String* $enum$name, int32_t $enum$ordinal, int32_t
 
 ConstantPool$Tag* ConstantPool$Tag::valueOf(int8_t v) {
 	$init(ConstantPool$Tag);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ConstantPool$TagArray, arr$, ConstantPool$Tag::values());
 		int32_t len$ = $nc(arr$)->length;

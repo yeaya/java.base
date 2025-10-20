@@ -78,6 +78,7 @@ void Size::main($StringArray* args) {
 }
 
 void Size::testSmallFile() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, smallFile, $new($File, "smallFileTest"_s));
 	$var($Random, generator, $new($Random));
 	for (int32_t i = 0; i < 100; ++i) {
@@ -121,6 +122,7 @@ void Size::testSmallFile() {
 }
 
 void Size::testLargeFile() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, largeFile, $new($File, "largeFileTest"_s));
 	int64_t testSize = ((int64_t)$Integer::MAX_VALUE) * 2;
 	initTestFile(largeFile, 10);
@@ -164,6 +166,7 @@ void Size::testLargeFile() {
 }
 
 void Size::initTestFile($File* f, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>($$new($FileOutputStream, f)), "8859_1"_s)));
 		{

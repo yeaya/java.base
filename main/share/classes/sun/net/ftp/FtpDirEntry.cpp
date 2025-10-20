@@ -217,6 +217,7 @@ FtpDirEntry* FtpDirEntry::setCreated($Date* created) {
 }
 
 $String* FtpDirEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->lastModified == nullptr) {
 		return $str({this->name, " ["_s, this->type, "] ("_s, this->user, " / "_s, this->group, ") "_s, $$str(this->size)});
 	}

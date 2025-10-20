@@ -110,6 +110,7 @@ int32_t WeakPairMap$Pair$Weak::hashCode() {
 }
 
 bool WeakPairMap$Pair$Weak::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $equals(this, obj);
 	if (!var$0) {
 		bool var$1 = $instanceOf($WeakPairMap$Pair, obj);

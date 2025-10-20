@@ -98,6 +98,7 @@ $Object* allocate$XDHKeyExchange$XDHEPossession($Class* clazz) {
 }
 
 void XDHKeyExchange$XDHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance($nc(namedGroup)->algorithm));
 		$nc(kpg)->initialize($nc(namedGroup)->keAlgParamSpec, random);
@@ -112,6 +113,7 @@ void XDHKeyExchange$XDHEPossession::init$($NamedGroup* namedGroup, $SecureRandom
 }
 
 $bytes* XDHKeyExchange$XDHEPossession::encode() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, uBytes, $ECUtil::trimZeroes($($nc($($nc(this->publicKey)->getU()))->toByteArray())));
 	int32_t expLength = 0;
 	$init($XDHKeyExchange$1);

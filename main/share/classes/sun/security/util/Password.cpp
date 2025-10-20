@@ -83,6 +83,7 @@ $chars* Password::readPassword($InputStream* in) {
 }
 
 $chars* Password::readPassword($InputStream* in$renamed, bool isEchoOn) {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, in, in$renamed);
 	$var($chars, consoleEntered, nullptr);
 	$var($bytes, consoleBytes, nullptr);
@@ -182,6 +183,7 @@ $chars* Password::readPassword($InputStream* in$renamed, bool isEchoOn) {
 }
 
 $bytes* Password::convertToBytes($chars* pass) {
+	$useLocalCurrentObjectStackCache();
 	$init(Password);
 	if (Password::enc == nullptr) {
 		$synchronized(Password::class$) {

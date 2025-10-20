@@ -118,6 +118,7 @@ bool Subject$SecureSet$1::hasNext() {
 }
 
 $Object* Subject$SecureSet$1::next() {
+	$useLocalCurrentObjectStackCache();
 	if (this->this$0->which != $Subject::PRIV_CREDENTIAL_SET) {
 		return $of($nc(this->i)->next());
 	}
@@ -136,6 +137,7 @@ $Object* Subject$SecureSet$1::next() {
 }
 
 void Subject$SecureSet$1::remove() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->this$0->subject)->isReadOnly()) {
 		$throwNew($IllegalStateException, $($ResourcesMgr::getString("Subject.is.read.only"_s)));
 	}

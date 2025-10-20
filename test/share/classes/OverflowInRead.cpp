@@ -47,6 +47,7 @@ void OverflowInRead::init$() {
 }
 
 void OverflowInRead::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "_123456789_123456789_123456789_123456789"_s);
 	{
 		$var($StringBufferInputStream, sbis, $new($StringBufferInputStream, s));

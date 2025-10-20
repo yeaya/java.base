@@ -202,6 +202,7 @@ DynamicConstantDesc* DynamicConstantDesc::ofNamed($DirectMethodHandleDesc* boots
 
 DynamicConstantDesc* DynamicConstantDesc::of($DirectMethodHandleDesc* bootstrapMethod, $ConstantDescArray* bootstrapArgs) {
 	$init(DynamicConstantDesc);
+	$useLocalCurrentObjectStackCache();
 	return ofNamed(bootstrapMethod, "_"_s, $($cast($ClassDesc, $nc($($nc(bootstrapMethod)->invocationType()))->returnType())), bootstrapArgs);
 }
 
@@ -232,6 +233,7 @@ $List* DynamicConstantDesc::bootstrapArgsList() {
 }
 
 $Object* DynamicConstantDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MethodHandle, bsm, $cast($MethodHandle, $nc(this->bootstrapMethod$)->resolveConstantDesc(lookup)));
 		bool var$0 = $nc($($nc(bsm)->type()))->parameterCount() < 2;
@@ -258,6 +260,7 @@ $Object* DynamicConstantDesc::resolveConstantDesc($MethodHandles$Lookup* lookup)
 }
 
 $ConstantDesc* DynamicConstantDesc::tryCanonicalize() {
+	$useLocalCurrentObjectStackCache();
 	$init($DynamicConstantDesc$CanonicalMapHolder);
 	$var($Function, f, $cast($Function, $nc($DynamicConstantDesc$CanonicalMapHolder::CANONICAL_MAP)->get(this->bootstrapMethod$)));
 	if (f != nullptr) {
@@ -352,6 +355,7 @@ int32_t DynamicConstantDesc::hashCode() {
 }
 
 $String* DynamicConstantDesc::toString() {
+	$useLocalCurrentObjectStackCache();
 		$init($ConstantDescs);
 	return $String::format("DynamicConstantDesc[%s::%s(%s%s)%s]"_s, $$new($ObjectArray, {
 		$($of($nc($($nc(this->bootstrapMethod$)->owner()))->displayName())),

@@ -89,6 +89,7 @@ void NetworkInterfaceEmptyGetInetAddressesTest::incrementExceptionCount() {
 
 void NetworkInterfaceEmptyGetInetAddressesTest::main($StringArray* args) {
 	$init(NetworkInterfaceEmptyGetInetAddressesTest);
+	$useLocalCurrentObjectStackCache();
 	$var($MulticastSocket, mcastSock, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);

@@ -86,6 +86,7 @@ void ClassLoaders$AppClassLoader::init$($BuiltinClassLoader* parent, $URLClassPa
 }
 
 $Class* ClassLoaders$AppClassLoader::loadClass($String* cn, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		int32_t i = $nc(cn)->lastIndexOf((int32_t)u'.');
@@ -97,6 +98,7 @@ $Class* ClassLoaders$AppClassLoader::loadClass($String* cn, bool resolve) {
 }
 
 $PermissionCollection* ClassLoaders$AppClassLoader::getPermissions($CodeSource* cs) {
+	$useLocalCurrentObjectStackCache();
 	$var($PermissionCollection, perms, $BuiltinClassLoader::getPermissions(cs));
 	$nc(perms)->add($$new($RuntimePermission, "exitVM"_s));
 	return perms;

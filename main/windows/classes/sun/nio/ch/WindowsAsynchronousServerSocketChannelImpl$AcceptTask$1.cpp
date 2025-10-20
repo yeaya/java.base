@@ -81,6 +81,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1::init$($WindowsAsyn
 }
 
 $Object* WindowsAsynchronousServerSocketChannelImpl$AcceptTask$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	$var($String, var$0, $nc($($nc(this->val$remote)->getAddress()))->getHostAddress());
 	$nc(sm)->checkAccept(var$0, $nc(this->val$remote)->getPort());

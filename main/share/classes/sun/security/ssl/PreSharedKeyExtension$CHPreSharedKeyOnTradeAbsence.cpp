@@ -80,6 +80,7 @@ void PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence::init$() {
 }
 
 void PreSharedKeyExtension$CHPreSharedKeyOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	bool var$0 = $nc($nc(shc)->negotiatedProtocol)->useTLS13PlusSpec();
 	if (var$0) {

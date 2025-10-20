@@ -144,6 +144,7 @@ void GB18030::init$() {
 }
 
 bool GB18030::contains($Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	bool var$49 = ($nc($($nc(cs)->name()))->equals("US-ASCII"_s));
 	bool var$48 = var$49 || ($nc($($nc(cs)->name()))->equals("GBK"_s));
 	bool var$47 = var$48 || ($nc($($nc(cs)->name()))->equals("ISO-8859-1"_s));

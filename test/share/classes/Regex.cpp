@@ -66,6 +66,7 @@ void Regex::ck($StringArray* x, $StringArray* ans) {
 }
 
 void Regex::testLiteralReplacement() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, data, "abcdefghi"_s);
 	$var($String, result, data->replace(static_cast<$CharSequence*>("def"_s), static_cast<$CharSequence*>("abc"_s)));
 	if (!result->equals("abcabcghi"_s)) {
@@ -84,6 +85,7 @@ void Regex::testLiteralReplacement() {
 }
 
 void Regex::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, foo, "boo:and:foo"_s);
 	ck(foo->matches("b+"_s), false);
 	ck(foo->matches("o+"_s), false);

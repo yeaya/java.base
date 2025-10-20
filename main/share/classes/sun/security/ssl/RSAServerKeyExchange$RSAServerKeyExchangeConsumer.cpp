@@ -114,6 +114,7 @@ void RSAServerKeyExchange$RSAServerKeyExchangeConsumer::init$() {
 }
 
 void RSAServerKeyExchange$RSAServerKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($RSAServerKeyExchange$RSAServerKeyExchangeMessage, skem, $new($RSAServerKeyExchange$RSAServerKeyExchangeMessage, chc, message));
 	$init($SSLLogger);

@@ -117,6 +117,7 @@ void RSAClientKeyExchange$RSAClientKeyExchangeConsumer::init$() {
 }
 
 void RSAClientKeyExchange$RSAClientKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($RSAKeyExchange$EphemeralRSAPossession, rsaPossession, nullptr);
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);

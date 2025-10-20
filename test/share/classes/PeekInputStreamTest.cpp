@@ -45,6 +45,7 @@ void PeekInputStreamTest::init$() {
 }
 
 void PeekInputStreamTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, pin, createPeekInputStream($$new($ByteArrayInputStream, $$new($bytes, {
 		(int8_t)1,
 		(int8_t)2,
@@ -110,6 +111,7 @@ void PeekInputStreamTest::main($StringArray* args) {
 
 $InputStream* PeekInputStreamTest::createPeekInputStream($InputStream* underlying) {
 	$load(PeekInputStreamTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($InputStream);
 	$Class* clazz = $Class::forName("java.io.ObjectInputStream$PeekInputStream"_s)->asSubclass($InputStream::class$);
@@ -120,6 +122,7 @@ $InputStream* PeekInputStreamTest::createPeekInputStream($InputStream* underlyin
 
 void PeekInputStreamTest::peek($InputStream* pin) {
 	$load(PeekInputStreamTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, p, $nc($of(pin))->getClass()->getDeclaredMethod("peek"_s, $$new($ClassArray, 0)));
 	$nc(p)->setAccessible(true);

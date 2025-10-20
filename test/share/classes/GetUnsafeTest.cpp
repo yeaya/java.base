@@ -75,6 +75,7 @@ void GetUnsafeTest::init$() {
 
 void GetUnsafeTest::fail() {
 	$init(GetUnsafeTest);
+	$useLocalCurrentObjectStackCache();
 	GetUnsafeTest::isTestFailed = true;
 	try {
 		$throwNew($Exception);
@@ -91,6 +92,7 @@ void GetUnsafeTest::fail() {
 
 void GetUnsafeTest::main($StringArray* args) {
 	$init(GetUnsafeTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$load($Class);

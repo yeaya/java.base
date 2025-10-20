@@ -71,6 +71,7 @@ int32_t SecureClassLoader$CodeSourceKey::hashCode() {
 }
 
 bool SecureClassLoader$CodeSourceKey::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}

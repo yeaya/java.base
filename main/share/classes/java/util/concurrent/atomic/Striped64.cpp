@@ -141,11 +141,13 @@ bool Striped64::casCellsBusy() {
 
 int32_t Striped64::getProbe() {
 	$init(Striped64);
+	$useLocalCurrentObjectStackCache();
 	return $intValue($nc(Striped64::THREAD_PROBE)->get($$new($ObjectArray, {$($of($Thread::currentThread()))})));
 }
 
 int32_t Striped64::advanceProbe(int32_t probe) {
 	$init(Striped64);
+	$useLocalCurrentObjectStackCache();
 	probe ^= probe << 13;
 	probe ^= (int32_t)((uint32_t)probe >> 17);
 	probe ^= probe << 5;
@@ -154,6 +156,7 @@ int32_t Striped64::advanceProbe(int32_t probe) {
 }
 
 void Striped64::longAccumulate(int64_t x, $LongBinaryOperator* fn, bool wasUncontended, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (index == 0) {
 		$ThreadLocalRandom::current();
 		index = getProbe();
@@ -274,6 +277,7 @@ int64_t Striped64::apply($DoubleBinaryOperator* fn, int64_t v, double x) {
 }
 
 void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUncontended, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (index == 0) {
 		$ThreadLocalRandom::current();
 		index = getProbe();
@@ -387,6 +391,7 @@ void Striped64::doubleAccumulate(double x, $DoubleBinaryOperator* fn, bool wasUn
 }
 
 void clinit$Striped64($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Striped64::NCPU = $nc($($Runtime::getRuntime()))->availableProcessors();
 	{

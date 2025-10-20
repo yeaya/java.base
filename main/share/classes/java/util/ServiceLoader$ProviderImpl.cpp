@@ -119,6 +119,7 @@ $Object* ServiceLoader$ProviderImpl::get() {
 }
 
 $Object* ServiceLoader$ProviderImpl::invokeFactoryMethod() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, result, nullptr);
 	$var($Throwable, exc, nullptr);
@@ -155,6 +156,7 @@ $Object* ServiceLoader$ProviderImpl::invokeFactoryMethod() {
 }
 
 $Object* ServiceLoader$ProviderImpl::newInstance() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, p, nullptr);
 	$var($Throwable, exc, nullptr);

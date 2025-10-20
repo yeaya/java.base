@@ -349,6 +349,7 @@ void SourceChannelImpl::endRead(bool blocking, bool completed) {
 }
 
 int32_t SourceChannelImpl::read($ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(dst);
 	$nc(this->readLock)->lock();
 	{
@@ -407,6 +408,7 @@ int32_t SourceChannelImpl::read($ByteBuffer* dst) {
 }
 
 int64_t SourceChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(offset, length, $nc(dsts)->length);
 	$nc(this->readLock)->lock();
 	{

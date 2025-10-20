@@ -77,6 +77,7 @@ void ReuseBuf::init$() {
 
 void ReuseBuf::main($StringArray* args) {
 	$init(ReuseBuf);
+	$useLocalCurrentObjectStackCache();
 	$var($ReuseBuf$ServerThread, st, $new($ReuseBuf$ServerThread));
 	st->start();
 	$var($InetAddress, local, $InetAddress::getLocalHost());

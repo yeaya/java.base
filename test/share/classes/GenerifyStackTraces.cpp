@@ -100,6 +100,7 @@ void GenerifyStackTraces::init$() {
 
 void GenerifyStackTraces::main($StringArray* args) {
 	$init(GenerifyStackTraces);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length > 0 && $nc(args->get(0))->equals("trace"_s)) {
 		GenerifyStackTraces::trace = true;
 	}
@@ -127,6 +128,7 @@ void GenerifyStackTraces::main($StringArray* args) {
 
 void GenerifyStackTraces::waitForDump() {
 	$init(GenerifyStackTraces);
+	$useLocalCurrentObjectStackCache();
 	$synchronized(GenerifyStackTraces::go) {
 		try {
 			$nc($of(GenerifyStackTraces::go))->wait();
@@ -139,6 +141,7 @@ void GenerifyStackTraces::waitForDump() {
 
 void GenerifyStackTraces::finishDump() {
 	$init(GenerifyStackTraces);
+	$useLocalCurrentObjectStackCache();
 	$synchronized(GenerifyStackTraces::go) {
 		try {
 			$nc($of(GenerifyStackTraces::go))->notifyAll();
@@ -151,6 +154,7 @@ void GenerifyStackTraces::finishDump() {
 
 void GenerifyStackTraces::dumpStacks(int32_t depth) {
 	$init(GenerifyStackTraces);
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElementArray, stack, $nc(GenerifyStackTraces::one)->getStackTrace());
 	checkStack(GenerifyStackTraces::one, stack, depth);
 	{
@@ -173,6 +177,7 @@ void GenerifyStackTraces::dumpStacks(int32_t depth) {
 
 void GenerifyStackTraces::checkStack($Thread* t, $StackTraceElementArray* stack, int32_t depth) {
 	$init(GenerifyStackTraces);
+	$useLocalCurrentObjectStackCache();
 	if (GenerifyStackTraces::trace) {
 		printStack(t, stack);
 	}
@@ -187,6 +192,7 @@ void GenerifyStackTraces::checkStack($Thread* t, $StackTraceElementArray* stack,
 
 void GenerifyStackTraces::printStack($Thread* t, $StackTraceElementArray* stack) {
 	$init(GenerifyStackTraces);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({t, " stack: (length = "_s, $$str($nc(stack)->length), ")"_s}));
 	if (t != nullptr) {

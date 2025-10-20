@@ -135,6 +135,7 @@ void BootstrapMethodInvoker::init$() {
 
 $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* bootstrapMethod$renamed, $String* name, Object$* type, Object$* info$renamed, $Class* callerClass) {
 	$init(BootstrapMethodInvoker);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, bootstrapMethod, bootstrapMethod$renamed);
 	$var($Object, info, info$renamed);
 	$init($MethodHandles$Lookup);
@@ -326,6 +327,7 @@ $Object* BootstrapMethodInvoker::invoke($Class* resultType, $MethodHandle* boots
 
 $Object* BootstrapMethodInvoker::widenAndCast(Object$* result$renamed, $Class* resultType) {
 	$init(BootstrapMethodInvoker);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, result$renamed);
 	if (!$nc(resultType)->isPrimitive()) {
 		return $of(resultType->cast(result));
@@ -342,6 +344,7 @@ $Object* BootstrapMethodInvoker::widenAndCast(Object$* result$renamed, $Class* r
 
 $Object* BootstrapMethodInvoker::invokeWithManyArguments($MethodHandle* bootstrapMethod, $MethodHandles$Lookup* caller, $String* name, Object$* type, $ObjectArray* argv) {
 	$init(BootstrapMethodInvoker);
+	$useLocalCurrentObjectStackCache();
 	int32_t NON_SPREAD_ARG_COUNT = 3;
 	int32_t MAX_SAFE_SIZE = $MethodType::MAX_MH_ARITY / 2 - NON_SPREAD_ARG_COUNT;
 	if ($nc(argv)->length >= MAX_SAFE_SIZE) {
@@ -393,6 +396,7 @@ $Object* BootstrapMethodInvoker::maybeReBox(Object$* x$renamed) {
 
 void BootstrapMethodInvoker::maybeReBoxElements($ObjectArray* xa) {
 	$init(BootstrapMethodInvoker);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(xa)->length; ++i) {
 		xa->set(i, $(maybeReBox(xa->get(i))));
 	}
@@ -400,6 +404,7 @@ void BootstrapMethodInvoker::maybeReBoxElements($ObjectArray* xa) {
 
 $MethodHandle* BootstrapMethodInvoker::pushMePullYou($MethodHandle* bsm, bool goToPushMode) {
 	$init(BootstrapMethodInvoker);
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleStatics);
 	if ($MethodHandleStatics::TRACE_METHOD_LINKAGE) {
 		$init($System);
@@ -418,6 +423,7 @@ $MethodHandle* BootstrapMethodInvoker::pushMePullYou($MethodHandle* bsm, bool go
 }
 
 void clinit$BootstrapMethodInvoker($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	BootstrapMethodInvoker::$assertionsDisabled = !BootstrapMethodInvoker::class$->desiredAssertionStatus();
 	$load($CallSite);
 	$load($MethodHandles$Lookup);

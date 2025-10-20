@@ -127,6 +127,7 @@ void BufferForwarding::executeTestMethods() {
 }
 
 void BufferForwarding::appendCharSequence() {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, aString, BufferForwarding::A_STRING_VAL);
 	$var($CharSequence, aStringBuilder, $new($StringBuilder, BufferForwarding::A_STRING_BUILDER_VAL));
 	$var($CharSequence, aStringBuffer, $new($StringBuffer, BufferForwarding::A_STRING_BUFFER_VAL));
@@ -153,6 +154,7 @@ void BufferForwarding::indexOfStringint() {
 }
 
 void BufferForwarding::indexOfStringIntNull() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	try {
 		sb->indexOf(nullptr, 1);
@@ -166,6 +168,7 @@ void BufferForwarding::indexOfStringIntNull() {
 }
 
 void BufferForwarding::indexOfStringNull() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	try {
 		sb->indexOf(nullptr);
@@ -179,18 +182,21 @@ void BufferForwarding::indexOfStringNull() {
 }
 
 void BufferForwarding::insertintboolean() {
+	$useLocalCurrentObjectStackCache();
 	bool b = true;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	assertEquals($($nc(sb->insert(2, b))->toString()), "01true2345"_s);
 }
 
 void BufferForwarding::insertintchar() {
+	$useLocalCurrentObjectStackCache();
 	char16_t c = u'C';
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	assertEquals($($nc(sb->insert(2, c))->toString()), "01C2345"_s);
 }
 
 void BufferForwarding::insertintCharSequence() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, initString, "012345"_s);
 	$var($CharSequence, aString, BufferForwarding::A_STRING_VAL);
 	$var($CharSequence, aStringBuilder, $new($StringBuilder, BufferForwarding::A_STRING_BUILDER_VAL));
@@ -210,30 +216,35 @@ void BufferForwarding::insertintCharSequence() {
 }
 
 void BufferForwarding::insertintdouble() {
+	$useLocalCurrentObjectStackCache();
 	double d = 99.0;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	assertEquals($($nc(sb->insert(2, d))->toString()), "0199.02345"_s);
 }
 
 void BufferForwarding::insertintfloat() {
+	$useLocalCurrentObjectStackCache();
 	float f = 99.0f;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	assertEquals($($nc(sb->insert(2, f))->toString()), "0199.02345"_s);
 }
 
 void BufferForwarding::insertintint() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 99;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	assertEquals($($nc(sb->insert(2, i))->toString()), "01992345"_s);
 }
 
 void BufferForwarding::insertintlong() {
+	$useLocalCurrentObjectStackCache();
 	int64_t l = 99;
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	assertEquals($($nc(sb->insert(2, l))->toString()), "01992345"_s);
 }
 
 void BufferForwarding::insertintObject() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer, "012345"_s));
 	$var($List, ls, $new($ArrayList));
 	ls->add("A"_s);
@@ -252,6 +263,7 @@ void BufferForwarding::insertintObject() {
 }
 
 void BufferForwarding::lastIndexOfString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, xyz, "xyz"_s);
 	$var($String, xyz3, "xyzxyzxyz"_s);
 	$var($StringBuffer, sb, $new($StringBuffer, xyz3));
@@ -274,6 +286,7 @@ void BufferForwarding::assertEquals($String* actual, $String* expected) {
 }
 
 void BufferForwarding::assertEquals(int32_t actual, int32_t expected) {
+	$useLocalCurrentObjectStackCache();
 	if (actual != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed: actual = \'"_s, $$str(actual), "\', expected = \'"_s, $$str(expected), "\'"_s}));
 	}

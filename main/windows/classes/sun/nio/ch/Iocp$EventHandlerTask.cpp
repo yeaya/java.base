@@ -88,6 +88,7 @@ void Iocp$EventHandlerTask::init$($Iocp* this$0) {
 }
 
 void Iocp$EventHandlerTask::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Invoker$GroupAndInvokeCount, myGroupAndInvokeCount, $Invoker::getGroupAndInvokeCount());
 	bool canInvokeDirect = (myGroupAndInvokeCount != nullptr);
 	$var($Iocp$CompletionStatus, ioResult, $new($Iocp$CompletionStatus));

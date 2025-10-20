@@ -661,6 +661,7 @@ void ImplicitStringConcatMany::init$() {
 
 void ImplicitStringConcatMany::main($StringArray* args) {
 	$init(ImplicitStringConcatMany);
+	$useLocalCurrentObjectStackCache();
 	$var($String, res, $str({ImplicitStringConcatMany::s000, ImplicitStringConcatMany::s001, ImplicitStringConcatMany::s002, ImplicitStringConcatMany::s003, ImplicitStringConcatMany::s004, ImplicitStringConcatMany::s005, ImplicitStringConcatMany::s006, ImplicitStringConcatMany::s007, ImplicitStringConcatMany::s008, ImplicitStringConcatMany::s009, ImplicitStringConcatMany::s010, ImplicitStringConcatMany::s011, ImplicitStringConcatMany::s012, ImplicitStringConcatMany::s013, ImplicitStringConcatMany::s014, ImplicitStringConcatMany::s015, 
 	ImplicitStringConcatMany::s016, ImplicitStringConcatMany::s017, ImplicitStringConcatMany::s018, ImplicitStringConcatMany::s019, ImplicitStringConcatMany::s020, ImplicitStringConcatMany::s021, ImplicitStringConcatMany::s022, ImplicitStringConcatMany::s023, ImplicitStringConcatMany::s024, ImplicitStringConcatMany::s025, ImplicitStringConcatMany::s026, ImplicitStringConcatMany::s027, ImplicitStringConcatMany::s028, ImplicitStringConcatMany::s029, ImplicitStringConcatMany::s030, ImplicitStringConcatMany::s031, 
 	ImplicitStringConcatMany::s032, ImplicitStringConcatMany::s033, ImplicitStringConcatMany::s034, ImplicitStringConcatMany::s035, ImplicitStringConcatMany::s036, ImplicitStringConcatMany::s037, ImplicitStringConcatMany::s038, ImplicitStringConcatMany::s039, ImplicitStringConcatMany::s040, ImplicitStringConcatMany::s041, ImplicitStringConcatMany::s042, ImplicitStringConcatMany::s043, ImplicitStringConcatMany::s044, ImplicitStringConcatMany::s045, ImplicitStringConcatMany::s046, ImplicitStringConcatMany::s047, 
@@ -695,6 +696,7 @@ void ImplicitStringConcatMany::test($String* expected, $String* actual) {
 }
 
 void clinit$ImplicitStringConcatMany($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		{

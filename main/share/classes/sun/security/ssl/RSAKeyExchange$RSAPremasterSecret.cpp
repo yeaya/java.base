@@ -163,6 +163,7 @@ $bytes* RSAKeyExchange$RSAPremasterSecret::getEncoded($PublicKey* publicKey, $Se
 
 RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::createPremasterSecret($ClientHandshakeContext* chc) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
+	$useLocalCurrentObjectStackCache();
 	$var($String, algorithm, $nc($nc(chc)->negotiatedProtocol)->useTLS12PlusSpec() ? "SunTls12RsaPremasterSecret"_s : "SunTlsRsaPremasterSecret"_s);
 	$var($KeyGenerator, kg, $KeyGenerator::getInstance(algorithm));
 	$var($TlsRsaPremasterSecretParameterSpec, spec, $new($TlsRsaPremasterSecretParameterSpec, $nc(chc)->clientHelloVersion, $nc(chc->negotiatedProtocol)->id));
@@ -172,6 +173,7 @@ RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::createPrem
 
 RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::decode($ServerHandshakeContext* shc, $PrivateKey* privateKey, $bytes* encrypted) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, nullptr);
 	bool needFailover = false;
 	$init($JsseJce);
@@ -219,6 +221,7 @@ RSAKeyExchange$RSAPremasterSecret* RSAKeyExchange$RSAPremasterSecret::decode($Se
 
 $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc(cipher)->getProvider()))->toString();
 	} catch ($Exception&) {
@@ -242,6 +245,7 @@ $String* RSAKeyExchange$RSAPremasterSecret::safeProviderName($Cipher* cipher) {
 
 $SecretKey* RSAKeyExchange$RSAPremasterSecret::generatePremasterSecret(int32_t clientVersion, int32_t serverVersion, $bytes* encodedSecret, $SecureRandom* generator) {
 	$init(RSAKeyExchange$RSAPremasterSecret);
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 		$SSLLogger::fine("Generating a premaster secret"_s, $$new($ObjectArray, 0));

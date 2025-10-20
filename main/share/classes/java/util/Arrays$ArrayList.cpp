@@ -181,6 +181,7 @@ $Spliterator* Arrays$ArrayList::spliterator() {
 }
 
 void Arrays$ArrayList::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	{
 		$var($ObjectArray, arr$, this->a);
@@ -196,6 +197,7 @@ void Arrays$ArrayList::forEach($Consumer* action) {
 }
 
 void Arrays$ArrayList::replaceAll($UnaryOperator* operator$) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(operator$);
 	$var($ObjectArray, a, this->a);
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {

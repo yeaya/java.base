@@ -539,6 +539,7 @@ $Map* DateTimeFormatterBuilder$DayPeriod::getDayPeriodMap($Locale* locale) {
 
 DateTimeFormatterBuilder$DayPeriod* DateTimeFormatterBuilder$DayPeriod::ofLocale($Locale* locale, int64_t index) {
 	$init(DateTimeFormatterBuilder$DayPeriod);
+	$useLocalCurrentObjectStackCache();
 	return $cast(DateTimeFormatterBuilder$DayPeriod, $nc($($nc($($nc($($nc($($nc($(getDayPeriodMap(locale)))->keySet()))->stream()))->filter(static_cast<$Predicate*>($$new(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$3$2, index)))))->findAny()))->orElseThrow(static_cast<$Supplier*>($$new(DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$ofLocale$4$3, locale, index))));
 }
 
@@ -558,6 +559,7 @@ bool DateTimeFormatterBuilder$DayPeriod::equals(Object$* o) {
 }
 
 int32_t DateTimeFormatterBuilder$DayPeriod::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	return $Objects::hash($$new($ObjectArray, {
 		$($of($Long::valueOf(this->from))),
 		$($of($Long::valueOf(this->to))),
@@ -566,6 +568,7 @@ int32_t DateTimeFormatterBuilder$DayPeriod::hashCode() {
 }
 
 $String* DateTimeFormatterBuilder$DayPeriod::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $("DayPeriod(%02d:%02d"_s->formatted($$new($ObjectArray, {
 		$($of($Long::valueOf(this->from / 60))),
 		$($of($Long::valueOf(this->from % 60)))
@@ -578,6 +581,7 @@ $String* DateTimeFormatterBuilder$DayPeriod::toString() {
 
 $DateTimeException* DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$4($Locale* locale, int64_t index) {
 	$init(DateTimeFormatterBuilder$DayPeriod);
+	$useLocalCurrentObjectStackCache();
 	return $new($DateTimeException, $$str({"DayPeriod could not be determined for the locale "_s, locale, " at type index "_s, $$str(index)}));
 }
 
@@ -588,6 +592,7 @@ bool DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$3(int64_t index, DateTi
 
 $Map* DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$2($Locale* l) {
 	$init(DateTimeFormatterBuilder$DayPeriod);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources($($CalendarDataUtility::findRegionOverride(l))));
 	$var($String, dayPeriodRules, $nc($($nc(lr)->getRules()))->get(1));
 	$var($Map, periodMap, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
@@ -601,6 +606,7 @@ $Map* DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$2($Locale* l) {
 
 void DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$1($Map* periodMap, $String* rule) {
 	$init(DateTimeFormatterBuilder$DayPeriod);
+	$useLocalCurrentObjectStackCache();
 	$var($Matcher, m, $nc(DateTimeFormatterBuilder$DayPeriod::RULE)->matcher(rule));
 	if ($nc(m)->find()) {
 		$var($String, from, m->group("from"_s));

@@ -119,6 +119,7 @@ void ClassSpecializer$Factory$1Var::init$($ClassSpecializer$Factory* this$1, int
 }
 
 void ClassSpecializer$Factory$1Var::init$($ClassSpecializer$Factory* this$1, $String* name$renamed, $Class* type, ClassSpecializer$Factory$1Var* prev, $String* val$className) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$set(this, this$1, this$1);
 	$set(this, val$className, val$className);
@@ -150,6 +151,7 @@ ClassSpecializer$Factory$1Var* ClassSpecializer$Factory$1Var::lastOf($List* vars
 }
 
 $List* ClassSpecializer$Factory$1Var::fromTypes($List* types) {
+	$useLocalCurrentObjectStackCache();
 	$var(ClassSpecializer$Factory$1Var, prev, this);
 	$var($ArrayList, result, $new($ArrayList, $nc(types)->size()));
 	int32_t i = 0;
@@ -195,6 +197,7 @@ bool ClassSpecializer$Factory$1Var::isInHeap() {
 }
 
 void ClassSpecializer$Factory$1Var::emitVarInstruction(int32_t asmop, $MethodVisitor* mv) {
+	$useLocalCurrentObjectStackCache();
 	if (asmop == 25) {
 		asmop = this->this$1->typeLoadOp(this->basicType->basicTypeChar());
 	} else {

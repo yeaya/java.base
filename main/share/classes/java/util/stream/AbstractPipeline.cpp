@@ -341,6 +341,7 @@ void AbstractPipeline::init$(AbstractPipeline* previousStage, int32_t opFlags) {
 }
 
 $Object* AbstractPipeline::evaluate($TerminalOp* terminalOp) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !AbstractPipeline::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !(getOutputShape() == $nc(terminalOp)->inputShape());
@@ -356,6 +357,7 @@ $Object* AbstractPipeline::evaluate($TerminalOp* terminalOp) {
 }
 
 $Node* AbstractPipeline::evaluateToArrayNode($IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (this->linkedOrConsumed) {
 		$throwNew($IllegalStateException, AbstractPipeline::MSG_STREAM_LINKED);
 	}
@@ -370,6 +372,7 @@ $Node* AbstractPipeline::evaluateToArrayNode($IntFunction* generator) {
 }
 
 $Spliterator* AbstractPipeline::sourceStageSpliterator() {
+	$useLocalCurrentObjectStackCache();
 	if (this != this->sourceStage) {
 		$throwNew($IllegalStateException);
 	}
@@ -422,6 +425,7 @@ $BaseStream* AbstractPipeline::onClose($Runnable* closeHandler) {
 }
 
 $Spliterator* AbstractPipeline::spliterator() {
+	$useLocalCurrentObjectStackCache();
 	if (this->linkedOrConsumed) {
 		$throwNew($IllegalStateException, AbstractPipeline::MSG_STREAM_LINKED);
 	}
@@ -453,6 +457,7 @@ int32_t AbstractPipeline::getStreamFlags() {
 }
 
 $Spliterator* AbstractPipeline::sourceSpliterator(int32_t terminalFlags) {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterator, spliterator, nullptr);
 	if ($nc(this->sourceStage)->sourceSpliterator$ != nullptr) {
 		$assign(spliterator, $nc(this->sourceStage)->sourceSpliterator$);
@@ -557,6 +562,7 @@ bool AbstractPipeline::isOrdered() {
 }
 
 $Sink* AbstractPipeline::wrapSink($Sink* sink$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Sink, sink, sink$renamed);
 	$Objects::requireNonNull(sink);
 	{
@@ -578,6 +584,7 @@ $Spliterator* AbstractPipeline::wrapSpliterator($Spliterator* sourceSpliterator)
 }
 
 $Node* AbstractPipeline::evaluate($Spliterator* spliterator, bool flatten, $IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	if (isParallel()) {
 		return evaluateToNode(this, spliterator, flatten, generator);
 	} else {
@@ -592,6 +599,7 @@ $Node* AbstractPipeline::opEvaluateParallel($PipelineHelper* helper, $Spliterato
 }
 
 $Spliterator* AbstractPipeline::opEvaluateParallelLazy($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(opEvaluateParallel(helper, spliterator, static_cast<$IntFunction*>($$new(AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2)))))->spliterator();
 }
 

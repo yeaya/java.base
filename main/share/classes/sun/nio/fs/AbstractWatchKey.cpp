@@ -140,6 +140,7 @@ void AbstractWatchKey::signal() {
 }
 
 void AbstractWatchKey::signalEvent($WatchEvent$Kind* kind$renamed, Object$* context$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($WatchEvent$Kind, kind, kind$renamed);
 	$var($Object, context, context$renamed);
 	$init($StandardWatchEventKinds);

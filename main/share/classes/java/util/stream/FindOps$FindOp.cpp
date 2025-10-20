@@ -107,6 +107,7 @@ $StreamShape* FindOps$FindOp::inputShape() {
 }
 
 $Object* FindOps$FindOp::evaluateSequential($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, result, $nc(($cast($TerminalSink, $($nc(helper)->wrapAndCopyInto($cast($TerminalSink, $($nc(this->sinkSupplier)->get())), spliterator)))))->get());
 	return $of(result != nullptr ? result : this->emptyValue);
 }

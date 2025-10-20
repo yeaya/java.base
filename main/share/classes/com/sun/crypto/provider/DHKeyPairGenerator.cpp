@@ -103,12 +103,14 @@ void DHKeyPairGenerator::init$() {
 
 void DHKeyPairGenerator::checkKeySize(int32_t keysize) {
 	$init(DHKeyPairGenerator);
+	$useLocalCurrentObjectStackCache();
 	if ((keysize < 512) || (keysize > 8192) || (((int32_t)(keysize & (uint32_t)63)) != 0)) {
 		$throwNew($InvalidParameterException, $$str({"DH key size must be multiple of 64, and can only range from 512 to 8192 (inclusive). The specific key size "_s, $$str(keysize), " is not supported"_s}));
 	}
 }
 
 void DHKeyPairGenerator::initialize(int32_t keysize, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	checkKeySize(keysize);
 	$set(this, params, $ParameterCache::getCachedDHParameterSpec(keysize));
 	if ((this->params == nullptr) && (keysize > 1024)) {
@@ -120,6 +122,7 @@ void DHKeyPairGenerator::initialize(int32_t keysize, $SecureRandom* random) {
 }
 
 void DHKeyPairGenerator::initialize($AlgorithmParameterSpec* algParams, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($DHParameterSpec, algParams))) {
 		$throwNew($InvalidAlgorithmParameterException, "Inappropriate parameter type"_s);
 	}
@@ -139,6 +142,7 @@ void DHKeyPairGenerator::initialize($AlgorithmParameterSpec* algParams, $SecureR
 }
 
 $KeyPair* DHKeyPairGenerator::generateKeyPair() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}

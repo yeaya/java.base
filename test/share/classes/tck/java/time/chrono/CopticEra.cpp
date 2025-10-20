@@ -114,6 +114,7 @@ void CopticEra::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 CopticEra* CopticEra::of(int32_t era) {
 	$init(CopticEra);
+	$useLocalCurrentObjectStackCache();
 	switch (era) {
 	case 0:
 		{

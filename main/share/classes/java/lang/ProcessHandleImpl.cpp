@@ -417,6 +417,7 @@ void ProcessHandleImpl::initNative() {
 
 $CompletableFuture* ProcessHandleImpl::completion(int64_t pid, bool shouldReap) {
 	$init(ProcessHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ProcessHandleImpl$ExitCompletion, completion, $cast($ProcessHandleImpl$ExitCompletion, $nc(ProcessHandleImpl::completions)->get($($Long::valueOf(pid)))));
 	while (completion == nullptr || (shouldReap && !$nc(completion)->isReaping)) {
 		$var($ProcessHandleImpl$ExitCompletion, newCompletion, $new($ProcessHandleImpl$ExitCompletion, shouldReap));
@@ -434,6 +435,7 @@ $CompletableFuture* ProcessHandleImpl::completion(int64_t pid, bool shouldReap) 
 }
 
 $CompletableFuture* ProcessHandleImpl::onExit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->equals(ProcessHandleImpl::current$)) {
 		$throwNew($IllegalStateException, "onExit for current process not allowed"_s);
 	}
@@ -456,6 +458,7 @@ void ProcessHandleImpl::init$(int64_t pid, int64_t startTime) {
 
 $Optional* ProcessHandleImpl::get(int64_t pid) {
 	$init(ProcessHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -475,6 +478,7 @@ int64_t ProcessHandleImpl::pid() {
 
 ProcessHandleImpl* ProcessHandleImpl::current() {
 	$init(ProcessHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -492,6 +496,7 @@ int64_t ProcessHandleImpl::getCurrentPid0() {
 }
 
 $Optional* ProcessHandleImpl::parent() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -564,11 +569,13 @@ int64_t ProcessHandleImpl::isAlive0(int64_t pid) {
 }
 
 $Stream* ProcessHandleImpl::children() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(children(this->pid$)))->filter(static_cast<$Predicate*>($$new(ProcessHandleImpl$$Lambda$lambda$children$3$2, this)));
 }
 
 $Stream* ProcessHandleImpl::children(int64_t pid) {
 	$init(ProcessHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -587,6 +594,7 @@ $Stream* ProcessHandleImpl::children(int64_t pid) {
 }
 
 $Stream* ProcessHandleImpl::descendants() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -685,6 +693,7 @@ $ProcessHandle* ProcessHandleImpl::lambda$onExit$2($Integer* exitStatus, $Throwa
 
 $Executor* ProcessHandleImpl::lambda$static$1() {
 	$init(ProcessHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$ThreadLocalRandom::current();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	while ($nc(tg)->getParent() != nullptr) {

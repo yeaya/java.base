@@ -105,6 +105,7 @@ void ECDHKeyExchange$ECDHEXDHKAGenerator::init$() {
 }
 
 $SSLKeyDerivation* ECDHKeyExchange$ECDHEXDHKAGenerator::createKeyDerivation($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($NamedGroupPossession, namedGroupPossession, nullptr);
 	$var($NamedGroupCredentials, namedGroupCredentials, nullptr);
 	$NamedGroup* namedGroup = nullptr;

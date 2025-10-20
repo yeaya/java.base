@@ -110,6 +110,7 @@ void KeyShareExtension$CHKeyShareProducer::init$() {
 }
 
 $bytes* KeyShareExtension$CHKeyShareProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_KEY_SHARE)) {
@@ -181,6 +182,7 @@ $bytes* KeyShareExtension$CHKeyShareProducer::produce($ConnectionContext* contex
 
 $bytes* KeyShareExtension$CHKeyShareProducer::getShare($ClientHandshakeContext* chc, $NamedGroup* ng) {
 	$init(KeyShareExtension$CHKeyShareProducer);
+	$useLocalCurrentObjectStackCache();
 	$var($SSLKeyExchange, ke, $SSLKeyExchange::valueOf(ng));
 	if (ke == nullptr) {
 		$init($SSLLogger);

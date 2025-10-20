@@ -83,6 +83,7 @@ void JarInputStream::init$($InputStream* in) {
 }
 
 void JarInputStream::init$($InputStream* in, bool verify) {
+	$useLocalCurrentObjectStackCache();
 	$ZipInputStream::init$(in);
 	this->doVerify = verify;
 	$var($JarEntry, e, $cast($JarEntry, $ZipInputStream::getNextEntry()));
@@ -93,6 +94,7 @@ void JarInputStream::init$($InputStream* in, bool verify) {
 }
 
 $JarEntry* JarInputStream::checkManifest($JarEntry* e) {
+	$useLocalCurrentObjectStackCache();
 	$init($JarFile);
 	if (e != nullptr && $nc($JarFile::MANIFEST_NAME)->equalsIgnoreCase($(e->getName()))) {
 		$set(this, man, $new($Manifest));
@@ -113,6 +115,7 @@ $Manifest* JarInputStream::getManifest() {
 }
 
 $ZipEntry* JarInputStream::getNextEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($JarEntry, e, nullptr);
 	if (this->first == nullptr) {
 		$assign(e, $cast($JarEntry, $ZipInputStream::getNextEntry()));

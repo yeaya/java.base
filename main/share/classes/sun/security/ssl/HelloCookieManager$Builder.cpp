@@ -80,6 +80,7 @@ void HelloCookieManager$Builder::init$($SecureRandom* secureRandom) {
 }
 
 $HelloCookieManager* HelloCookieManager$Builder::valueOf($ProtocolVersion* protocolVersion) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(protocolVersion)->isDTLS) {
 		if (protocolVersion->useTLS13PlusSpec()) {
 			if (this->d13HelloCookieManager != nullptr) {

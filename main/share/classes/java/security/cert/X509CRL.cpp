@@ -139,6 +139,7 @@ void X509CRL::init$() {
 }
 
 bool X509CRL::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -157,6 +158,7 @@ bool X509CRL::equals(Object$* other) {
 }
 
 int32_t X509CRL::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t retval = 0;
 	try {
 		$var($bytes, crlData, $X509CRLImpl::getEncodedInternal(this));
@@ -172,6 +174,7 @@ int32_t X509CRL::hashCode() {
 }
 
 void X509CRL::verify($PublicKey* key, $Provider* sigProvider) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sigAlgName, getSigAlgName());
 	$var($Signature, sig, (sigProvider == nullptr) ? $Signature::getInstance(sigAlgName) : $Signature::getInstance(sigAlgName, sigProvider));
 	try {
@@ -200,6 +203,7 @@ $X500Principal* X509CRL::getIssuerX500Principal() {
 }
 
 $X509CRLEntry* X509CRL::getRevokedCertificate($X509Certificate* certificate) {
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, certIssuer, $nc(certificate)->getIssuerX500Principal());
 	$var($X500Principal, crlIssuer, getIssuerX500Principal());
 	if ($nc(certIssuer)->equals(crlIssuer) == false) {

@@ -94,6 +94,7 @@ $String* TrustStoreManager$TrustStoreDescriptor::defaultStore = nullptr;
 $String* TrustStoreManager$TrustStoreDescriptor::jsseDefaultStore = nullptr;
 
 void TrustStoreManager$TrustStoreDescriptor::init$($String* storeName, $String* storeType, $String* storeProvider, $String* storePassword, $File* storeFile, int64_t lastModified) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, storeName, storeName);
 	$set(this, storeType, storeType);
 	$set(this, storeProvider, storeProvider);

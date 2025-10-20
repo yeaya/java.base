@@ -107,6 +107,7 @@ void Indify$CountedList::init$($Class* itemClass) {
 }
 
 void Indify$CountedList::readFrom($DataInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = $nc(in)->readUnsignedShort();
 	while (size() < count) {
 		if (this->rowlen < 0) {
@@ -123,6 +124,7 @@ void Indify$CountedList::readFrom($DataInputStream* in) {
 }
 
 void Indify$CountedList::writeTo($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->writeShort((int16_t)size());
 	{
 		$var($Iterator, i$, this->iterator());

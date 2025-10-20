@@ -140,6 +140,7 @@ void TestFieldReflectValueOf::testUnsafeQualifiedFieldAccessors() {
 }
 
 void TestFieldReflectValueOf::testFieldAccessors(bool checkStatic, bool checkVolatile) {
+	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	testField($Boolean::TYPE, $Boolean::FALSE, checkStatic, checkVolatile);
 	testField($Boolean::TYPE, $Boolean::TRUE, checkStatic, checkVolatile);
@@ -167,6 +168,7 @@ void TestFieldReflectValueOf::testFieldAccessors(bool checkStatic, bool checkVol
 
 void TestFieldReflectValueOf::testField($Class* primType, Object$* wrappedValue, bool checkStatic, bool checkVolatile) {
 	$load(TestFieldReflectValueOf);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, fieldName, $nc(primType)->getName());
 	if (checkStatic) {

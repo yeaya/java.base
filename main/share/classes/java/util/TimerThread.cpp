@@ -80,6 +80,7 @@ void TimerThread::run() {
 }
 
 void TimerThread::mainLoop() {
+	$useLocalCurrentObjectStackCache();
 	while (true) {
 		try {
 			$var($TimerTask, task, nullptr);

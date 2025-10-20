@@ -64,6 +64,7 @@ void AlpnExtension$AlpnStringizer::init$() {
 }
 
 $String* AlpnExtension$AlpnStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($AlpnExtension$AlpnSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

@@ -110,6 +110,7 @@ void SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::init$($Authenticat
 }
 
 int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(bb)->position();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {

@@ -91,6 +91,7 @@ void HexDumpReader$ByteArrayBuilder::put(int8_t b) {
 }
 
 $bytes* HexDumpReader$ByteArrayBuilder::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buf, $new($bytes, this->size));
 	int32_t ptr = 0;
 	{

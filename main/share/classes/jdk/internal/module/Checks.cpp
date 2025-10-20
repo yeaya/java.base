@@ -68,6 +68,7 @@ void Checks::init$() {
 
 $String* Checks::requireModuleName($String* name) {
 	$init(Checks);
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, "Null module name"_s);
 	}
@@ -123,6 +124,7 @@ bool Checks::isClassName($String* name) {
 
 bool Checks::isTypeName($String* name) {
 	$init(Checks);
+	$useLocalCurrentObjectStackCache();
 	int32_t next = 0;
 	int32_t off = 0;
 	while ((next = $nc(name)->indexOf((int32_t)u'.', off)) != -1) {
@@ -138,6 +140,7 @@ bool Checks::isTypeName($String* name) {
 
 $String* Checks::requireTypeName($String* what, $String* name) {
 	$init(Checks);
+	$useLocalCurrentObjectStackCache();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Null "_s, what}));
 	}

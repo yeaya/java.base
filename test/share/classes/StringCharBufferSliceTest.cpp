@@ -270,6 +270,7 @@ void StringCharBufferSliceTest::init$() {
 }
 
 void StringCharBufferSliceTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println(">>> StringCharBufferSliceTest-main: testing the slice method..."_s);
 	$var($String, in, "for testing"_s);
@@ -350,6 +351,7 @@ void StringCharBufferSliceTest::test($CharBuffer* buff, $CharBuffer* slice) {
 }
 
 void StringCharBufferSliceTest::lambda$main$5($CharBuffer* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, dupe, $nc(s)->duplicate());
 	bool var$2 = $nc(dupe)->charAt(0) != u't';
 	bool var$1 = var$2 || $nc(dupe)->charAt(1) != u'e';
@@ -360,6 +362,7 @@ void StringCharBufferSliceTest::lambda$main$5($CharBuffer* s) {
 }
 
 void StringCharBufferSliceTest::lambda$main$4($CharBuffer* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, subSeq, $nc(s)->subSequence(1, 3));
 	bool var$0 = $nc(subSeq)->charAt(0) != u'e';
 	if (var$0 || $nc(subSeq)->charAt(1) != u's') {
@@ -368,12 +371,14 @@ void StringCharBufferSliceTest::lambda$main$4($CharBuffer* s) {
 }
 
 void StringCharBufferSliceTest::lambda$main$3($CharBuffer* s) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($nc(s)->toString()))->equals("tes"_s)) {
 		$throwNew($RuntimeException, $$str({"bad toString() after slice(): "_s, $(s->toString())}));
 	}
 }
 
 void StringCharBufferSliceTest::lambda$main$2($CharBuffer* s$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharBuffer, s, s$renamed);
 	for (int32_t i = 0; i < 4; ++i) {
 		$nc(s)->position(i);

@@ -355,6 +355,7 @@ void RevocationChecker::init$($TrustAnchor* anchor, $PKIX$ValidatorParams* param
 }
 
 void RevocationChecker::init($TrustAnchor* anchor, $PKIX$ValidatorParams* params) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, rp, getRevocationProperties());
 	$var($URI, uri, getOcspResponder());
 	$set(this, responderURI, (uri == nullptr) ? toURI($nc(this->rp)->ocspUrl) : uri);
@@ -476,6 +477,7 @@ $X509Certificate* RevocationChecker::getResponderCert($RevocationChecker$Revocat
 
 $X509Certificate* RevocationChecker::getResponderCert($String* subject, $Set* anchors, $List* stores) {
 	$init(RevocationChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertSelector, sel, $new($X509CertSelector));
 	try {
 		sel->setSubject($$new($X500Principal, subject));
@@ -488,6 +490,7 @@ $X509Certificate* RevocationChecker::getResponderCert($String* subject, $Set* an
 
 $X509Certificate* RevocationChecker::getResponderCert($String* issuer, $String* serial, $Set* anchors, $List* stores) {
 	$init(RevocationChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertSelector, sel, $new($X509CertSelector));
 	try {
 		sel->setIssuer($$new($X500Principal, issuer));
@@ -506,6 +509,7 @@ $X509Certificate* RevocationChecker::getResponderCert($String* issuer, $String* 
 
 $X509Certificate* RevocationChecker::getResponderCert($X509CertSelector* sel, $Set* anchors, $List* stores) {
 	$init(RevocationChecker);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(anchors)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -546,6 +550,7 @@ $X509Certificate* RevocationChecker::getResponderCert($X509CertSelector* sel, $S
 }
 
 void RevocationChecker::init(bool forward) {
+	$useLocalCurrentObjectStackCache();
 	if (forward) {
 		$throwNew($CertPathValidatorException, "forward checking not supported"_s);
 	}
@@ -579,6 +584,7 @@ void RevocationChecker::check($Certificate* cert, $Collection* unresolvedCritExt
 }
 
 void RevocationChecker::check($X509Certificate* xcert, $Collection* unresolvedCritExts, $PublicKey* pubKey, bool crlSignFlag) {
+	$useLocalCurrentObjectStackCache();
 	if (RevocationChecker::debug != nullptr) {
 		$var($String, var$2, $$str({"RevocationChecker.check: checking cert\n  SN: "_s, $($Debug::toHexString($($nc(xcert)->getSerialNumber()))), "\n  Subject: "_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(xcert)->getSubjectX500Principal())));
@@ -684,6 +690,7 @@ void RevocationChecker::check($X509Certificate* xcert, $Collection* unresolvedCr
 }
 
 bool RevocationChecker::isSoftFailException($CertPathValidatorException* e) {
+	$useLocalCurrentObjectStackCache();
 	$init($CertPathValidatorException$BasicReason);
 	if (this->softFail && $equals($nc(e)->getReason(), $CertPathValidatorException$BasicReason::UNDETERMINED_REVOCATION_STATUS)) {
 		$var($String, var$0, e->getMessage());
@@ -716,6 +723,7 @@ void RevocationChecker::checkCRLs($X509Certificate* cert, $Collection* unresolve
 
 bool RevocationChecker::isCausedByNetworkIssue($String* type, $CertStoreException* cse) {
 	$init(RevocationChecker);
+	$useLocalCurrentObjectStackCache();
 	bool result = false;
 	$var($Throwable, t, $nc(cse)->getCause());
 	{
@@ -776,6 +784,7 @@ bool RevocationChecker::isCausedByNetworkIssue($String* type, $CertStoreExceptio
 }
 
 void RevocationChecker::checkCRLs($X509Certificate* cert, $PublicKey* prevKey, $X509Certificate* prevCert, bool signFlag, bool allowSeparateKey, $Set* stackedCerts, $Set* anchors) {
+	$useLocalCurrentObjectStackCache();
 	if (RevocationChecker::debug != nullptr) {
 		$nc(RevocationChecker::debug)->println("RevocationChecker.checkCRLs() ---checking revocation status ..."_s);
 	}
@@ -882,6 +891,7 @@ void RevocationChecker::checkCRLs($X509Certificate* cert, $PublicKey* prevKey, $
 }
 
 void RevocationChecker::checkApprovedCRLs($X509Certificate* cert, $Set* approvedCRLs) {
+	$useLocalCurrentObjectStackCache();
 	if (RevocationChecker::debug != nullptr) {
 		$var($BigInteger, sn, $nc(cert)->getSerialNumber());
 		$nc(RevocationChecker::debug)->println("RevocationChecker.checkApprovedCRLs() starting the final sweep..."_s);
@@ -935,6 +945,7 @@ void RevocationChecker::checkApprovedCRLs($X509Certificate* cert, $Set* approved
 }
 
 void RevocationChecker::checkOCSP($X509Certificate* cert, $Collection* unresolvedCritExts) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509CertImpl, currCert, nullptr);
 	try {
 		$assign(currCert, $X509CertImpl::toImpl(cert));
@@ -1039,6 +1050,7 @@ void RevocationChecker::checkOCSP($X509Certificate* cert, $Collection* unresolve
 
 $String* RevocationChecker::stripOutSeparators($String* value) {
 	$init(RevocationChecker);
+	$useLocalCurrentObjectStackCache();
 	$var($chars, chars, $nc(value)->toCharArray());
 	$var($StringBuilder, hexNumber, $new($StringBuilder));
 	for (int32_t i = 0; i < chars->length; ++i) {
@@ -1059,6 +1071,7 @@ bool RevocationChecker::certCanSignCrl($X509Certificate* cert) {
 }
 
 $Collection* RevocationChecker::verifyPossibleCRLs($Set* crls, $X509Certificate* cert, $PublicKey* prevKey, bool signFlag, $booleans* reasonsMask, $Set* anchors) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($X509CertImpl, certImpl, $X509CertImpl::toImpl(cert));
 		if (RevocationChecker::debug != nullptr) {
@@ -1134,6 +1147,7 @@ $Collection* RevocationChecker::verifyPossibleCRLs($Set* crls, $X509Certificate*
 }
 
 void RevocationChecker::verifyWithSeparateSigningKey($X509Certificate* cert, $PublicKey* prevKey, bool signFlag, $Set* stackedCerts) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, "revocation status"_s);
 	if (RevocationChecker::debug != nullptr) {
 		$nc(RevocationChecker::debug)->println($$str({"RevocationChecker.verifyWithSeparateSigningKey() ---checking "_s, msg, "..."_s}));
@@ -1153,6 +1167,7 @@ void RevocationChecker::verifyWithSeparateSigningKey($X509Certificate* cert, $Pu
 }
 
 void RevocationChecker::buildToNewKey($X509Certificate* currCert, $PublicKey* prevKey, $Set* stackedCerts$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, stackedCerts, stackedCerts$renamed);
 	if (RevocationChecker::debug != nullptr) {
 		$nc(RevocationChecker::debug)->println("RevocationChecker.buildToNewKey() starting work"_s);

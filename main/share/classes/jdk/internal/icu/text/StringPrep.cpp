@@ -182,6 +182,7 @@ $VersionInfo* StringPrep::getVersionInfo($bytes* version) {
 }
 
 void StringPrep::init$($InputStream* inputStream) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedInputStream, b, $new($BufferedInputStream, inputStream, StringPrep::DATA_BUFFER_SIZE));
 	$var($StringPrepDataReader, reader, $new($StringPrepDataReader, b));
 	$set(this, indexes, reader->readIndexes(StringPrep::INDEX_TOP));
@@ -228,6 +229,7 @@ void StringPrep::getValues(char16_t trieWord, $StringPrep$Values* values) {
 }
 
 $StringBuffer* StringPrep::map($UCharacterIterator* iter, int32_t options) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringPrep$Values, val, $new($StringPrep$Values));
 	char16_t result = (char16_t)0;
 	int32_t ch = $UCharacterIterator::DONE;
@@ -267,11 +269,13 @@ $StringBuffer* StringPrep::map($UCharacterIterator* iter, int32_t options) {
 }
 
 $StringBuffer* StringPrep::normalize($StringBuffer* src) {
+	$useLocalCurrentObjectStackCache();
 	$init($Normalizer$Form);
 	return $new($StringBuffer, $($Normalizer::normalize($($nc(src)->toString()), $Normalizer$Form::NFKC, $Normalizer::UNICODE_3_2)));
 }
 
 $StringBuffer* StringPrep::prepare($UCharacterIterator* src, int32_t options) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, mapOut, map(src, options));
 	$var($StringBuffer, normOut, mapOut);
 	if (this->doNFKC) {

@@ -82,6 +82,7 @@ void ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer::init$() {
 }
 
 $bytes* ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$init($SSLConfiguration);

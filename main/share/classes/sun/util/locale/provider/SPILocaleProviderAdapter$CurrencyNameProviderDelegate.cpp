@@ -123,6 +123,7 @@ bool SPILocaleProviderAdapter$CurrencyNameProviderDelegate::isSupportedLocale($L
 }
 
 $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getSymbol($String* currencyCode, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CurrencyNameProvider, cnp, $cast($CurrencyNameProvider, getImpl(locale)));
@@ -130,6 +131,7 @@ $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getSymbol($Strin
 }
 
 $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::getDisplayName($String* currencyCode, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CurrencyNameProvider, cnp, $cast($CurrencyNameProvider, getImpl(locale)));

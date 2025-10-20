@@ -129,6 +129,7 @@ void LocalVariablesSorter::init$(int32_t access, $String* descriptor, $MethodVis
 }
 
 void LocalVariablesSorter::init$(int32_t api, int32_t access, $String* descriptor, $MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$MethodVisitor::init$(api, methodVisitor);
 	$set(this, remappedVariableIndices, $new($ints, 40));
 	$set(this, remappedLocalTypes, $new($ObjectArray, 20));
@@ -148,6 +149,7 @@ void LocalVariablesSorter::init$(int32_t api, int32_t access, $String* descripto
 }
 
 void LocalVariablesSorter::visitVarInsn(int32_t opcode, int32_t var) {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, varType, nullptr);
 	switch (opcode) {
 	case $Opcodes::LLOAD:
@@ -214,6 +216,7 @@ void LocalVariablesSorter::visitLocalVariable($String* name, $String* descriptor
 }
 
 $AnnotationVisitor* LocalVariablesSorter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, type, $Type::getType(descriptor));
 	$var($ints, remappedIndex, $new($ints, $nc(index)->length));
 	for (int32_t i = 0; i < remappedIndex->length; ++i) {
@@ -223,6 +226,7 @@ $AnnotationVisitor* LocalVariablesSorter::visitLocalVariableAnnotation(int32_t t
 }
 
 void LocalVariablesSorter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
+	$useLocalCurrentObjectStackCache();
 	if (type != $Opcodes::F_NEW) {
 		$throwNew($IllegalArgumentException, "LocalVariablesSorter only accepts expanded frames (see ClassReader.EXPAND_FRAMES)"_s);
 	}

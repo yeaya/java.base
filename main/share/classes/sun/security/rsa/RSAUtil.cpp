@@ -88,6 +88,7 @@ void RSAUtil::requireNonNull(Object$* obj, $String* msg) {
 }
 
 $AlgorithmParameterSpec* RSAUtil::checkParamsAgainstType($RSAUtil$KeyType* type, $AlgorithmParameterSpec* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	if (paramSpec == nullptr) {
 		return nullptr;
 	}
@@ -101,6 +102,7 @@ $AlgorithmParameterSpec* RSAUtil::checkParamsAgainstType($RSAUtil$KeyType* type,
 }
 
 $AlgorithmParameters* RSAUtil::getParams($RSAUtil$KeyType* type, $AlgorithmParameterSpec* spec) {
+	$useLocalCurrentObjectStackCache();
 	if (spec == nullptr) {
 		return nullptr;
 	}
@@ -119,6 +121,7 @@ $AlgorithmParameters* RSAUtil::getParams($RSAUtil$KeyType* type, $AlgorithmParam
 }
 
 $AlgorithmId* RSAUtil::createAlgorithmId($RSAUtil$KeyType* type, $AlgorithmParameterSpec* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	checkParamsAgainstType(type, paramSpec);
 	$var($ObjectIdentifier, oid, $nc(type)->oid);
 	$var($AlgorithmParameters, params, getParams(type, paramSpec));
@@ -126,6 +129,7 @@ $AlgorithmId* RSAUtil::createAlgorithmId($RSAUtil$KeyType* type, $AlgorithmParam
 }
 
 $AlgorithmParameterSpec* RSAUtil::getParamSpec($AlgorithmParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	if (params == nullptr) {
 		return nullptr;
 	}
@@ -145,6 +149,7 @@ $AlgorithmParameterSpec* RSAUtil::getParamSpec($AlgorithmParameters* params) {
 }
 
 $ObjectArray* RSAUtil::getTypeAndParamSpec($AlgorithmId* algid) {
+	$useLocalCurrentObjectStackCache();
 	requireNonNull(algid, "AlgorithmId should not be null"_s);
 	$var($ObjectArray, result, $new($ObjectArray, 2));
 	$var($String, algName, $nc(algid)->getName());

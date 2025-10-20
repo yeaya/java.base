@@ -322,6 +322,7 @@ void Cipher::init$($CipherSpi* firstSpi, $Provider$Service* firstService, $Itera
 
 $StringArray* Cipher::tokenizeTransformation($String* transformation) {
 	$init(Cipher);
+	$useLocalCurrentObjectStackCache();
 	if (transformation == nullptr) {
 		$throwNew($NoSuchAlgorithmException, "No transformation given"_s);
 	}
@@ -350,6 +351,7 @@ $StringArray* Cipher::tokenizeTransformation($String* transformation) {
 
 $List* Cipher::getTransforms($String* transformation) {
 	$init(Cipher);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, parts, tokenizeTransformation(transformation));
 	$var($String, alg, $nc(parts)->get(0));
 	$var($String, mode, parts->get(1));
@@ -375,6 +377,7 @@ $List* Cipher::getTransforms($String* transformation) {
 
 $Cipher$Transform* Cipher::getTransform($Provider$Service* s, $List* transforms) {
 	$init(Cipher);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($String, alg, $nc($($nc(s)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
 	{
@@ -393,6 +396,7 @@ $Cipher$Transform* Cipher::getTransform($Provider$Service* s, $List* transforms)
 
 Cipher* Cipher::getInstance($String* transformation) {
 	$init(Cipher);
+	$useLocalCurrentObjectStackCache();
 	if ((transformation == nullptr) || $nc(transformation)->isEmpty()) {
 		$throwNew($NoSuchAlgorithmException, "Null or empty transformation"_s);
 	}
@@ -438,6 +442,7 @@ Cipher* Cipher::getInstance($String* transformation) {
 
 Cipher* Cipher::getInstance($String* transformation, $String* provider) {
 	$init(Cipher);
+	$useLocalCurrentObjectStackCache();
 	if ((transformation == nullptr) || $nc(transformation)->isEmpty()) {
 		$throwNew($NoSuchAlgorithmException, "Null or empty transformation"_s);
 	}
@@ -457,6 +462,7 @@ $String* Cipher::getProviderName() {
 
 Cipher* Cipher::getInstance($String* transformation, $Provider* provider) {
 	$init(Cipher);
+	$useLocalCurrentObjectStackCache();
 	if ((transformation == nullptr) || $nc(transformation)->isEmpty()) {
 		$throwNew($NoSuchAlgorithmException, "Null or empty transformation"_s);
 	}
@@ -530,6 +536,7 @@ void Cipher::initCryptoPermission() {
 }
 
 void Cipher::chooseFirstProvider() {
+	$useLocalCurrentObjectStackCache();
 	if (this->spi != nullptr) {
 		return;
 	}
@@ -600,6 +607,7 @@ void Cipher::chooseFirstProvider() {
 }
 
 void Cipher::implInit($CipherSpi* thisSpi, int32_t type, int32_t opmode, $Key* key, $AlgorithmParameterSpec* paramSpec, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	switch (type) {
 	case Cipher::I_KEY:
 		{
@@ -633,6 +641,7 @@ void Cipher::implInit($CipherSpi* thisSpi, int32_t type, int32_t opmode, $Key* k
 }
 
 void Cipher::chooseProvider(int32_t initType, int32_t opmode, $Key* key, $AlgorithmParameterSpec* paramSpec, $AlgorithmParameters* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if (this->spi != nullptr) {
 			implInit(this->spi, initType, opmode, key, paramSpec, params, random);
@@ -739,6 +748,7 @@ $ExemptionMechanism* Cipher::getExemptionMechanism() {
 }
 
 void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$init($CryptoAllPermission);
 	if ($equals(this->cryptoPerm, $CryptoAllPermission::INSTANCE)) {
 		return;
@@ -769,6 +779,7 @@ void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParamete
 }
 
 void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$init($CryptoAllPermission);
 	if ($equals(this->cryptoPerm, $CryptoAllPermission::INSTANCE)) {
 		return;
@@ -784,6 +795,7 @@ void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParamete
 }
 
 bool Cipher::passCryptoPermCheck($CipherSpi* checkSpi, $Key* key, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, em, $nc(this->cryptoPerm)->getExemptionMechanism());
 	int32_t keySize = $nc(checkSpi)->engineGetKeySize(key);
 	$var($String, algComponent, nullptr);
@@ -835,6 +847,7 @@ void Cipher::init(int32_t opmode, $Key* key) {
 }
 
 void Cipher::init(int32_t opmode, $Key* key, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	this->initialized = false;
 	checkOpmode(opmode);
 	if (this->spi != nullptr) {
@@ -900,6 +913,7 @@ void Cipher::init(int32_t opmode, $Certificate* certificate) {
 }
 
 void Cipher::init(int32_t opmode, $Certificate* certificate, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	this->initialized = false;
 	checkOpmode(opmode);
 	if ($instanceOf($X509Certificate, certificate)) {
@@ -1103,6 +1117,7 @@ $Key* Cipher::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t w
 }
 
 $AlgorithmParameterSpec* Cipher::getAlgorithmParameterSpec($AlgorithmParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	if (params == nullptr) {
 		return nullptr;
 	}
@@ -1181,6 +1196,7 @@ void Cipher::updateAAD($ByteBuffer* src) {
 }
 
 $String* Cipher::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("Cipher."_s)->append(this->transformation)->append(", mode: "_s);
 	switch (this->opmode) {

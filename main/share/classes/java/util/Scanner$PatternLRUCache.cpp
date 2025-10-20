@@ -81,6 +81,7 @@ void Scanner$PatternLRUCache::moveToFront($ObjectArray* oa, int32_t i) {
 }
 
 $Pattern* Scanner$PatternLRUCache::forName($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (this->oa == nullptr) {
 		$var($PatternArray, temp, $new($PatternArray, this->size));
 		$set(this, oa, temp);

@@ -117,6 +117,7 @@ void ServerHello$T13HelloRetryRequestConsumer::init$() {
 }
 
 void ServerHello$T13HelloRetryRequestConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($ServerHello$ServerHelloMessage, helloRetryRequest, $cast($ServerHello$ServerHelloMessage, message));
 	$init($ProtocolVersion);

@@ -41,6 +41,7 @@ void BadDottedIPAddress::init$() {
 }
 
 void BadDottedIPAddress::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, "999.999.999.999"_s);
 	bool exc_thrown = false;
 	try {

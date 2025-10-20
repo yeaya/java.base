@@ -265,6 +265,7 @@ $NavigableSet* Collections$CheckedNavigableSet::descendingSet() {
 }
 
 $Iterator* Collections$CheckedNavigableSet::descendingIterator() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($Collections::checkedNavigableSet($($nc(this->ns)->descendingSet()), this->type)))->iterator();
 }
 

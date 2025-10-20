@@ -77,6 +77,7 @@ void ReadAfterReset::init$() {
 
 void ReadAfterReset::main($StringArray* args) {
 	$init(ReadAfterReset);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ServerSocket, ss, $new($ServerSocket));
 		{
@@ -176,6 +177,7 @@ void ReadAfterReset::main($StringArray* args) {
 
 int32_t ReadAfterReset::acceptAndResetConnection($ServerSocket* ss) {
 	$init(ReadAfterReset);
+	$useLocalCurrentObjectStackCache();
 	int32_t count = ReadAfterReset::NUM_BYTES_TO_WRITE;
 	{
 		$var($Socket, peer, $nc(ss)->accept());
@@ -215,6 +217,7 @@ int32_t ReadAfterReset::acceptAndResetConnection($ServerSocket* ss) {
 
 void ReadAfterReset::writeUntilIOException($Socket* s) {
 	$init(ReadAfterReset);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, bytes, $new($bytes, 100));
 		while (true) {
@@ -229,6 +232,7 @@ void ReadAfterReset::writeUntilIOException($Socket* s) {
 
 int32_t ReadAfterReset::readUntilIOException($Socket* s) {
 	$init(ReadAfterReset);
+	$useLocalCurrentObjectStackCache();
 	int32_t nread = 0;
 	try {
 		$var($bytes, bytes, $new($bytes, 100));

@@ -45,6 +45,7 @@ void WriteFromString::init$() {
 }
 
 void WriteFromString::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocalStringWriter, lsw, $new($LocalStringWriter));
 	bool result = true;
 	$var($String, testString, "Testing of what gets written"_s);

@@ -67,6 +67,7 @@ void Finished$S30VerifyDataGenerator::init$() {
 }
 
 $bytes* Finished$S30VerifyDataGenerator::createVerifyData($HandshakeContext* context, bool isValidation) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeHash, handshakeHash, $nc(context)->handshakeHash);
 	$var($SecretKey, masterSecretKey, $nc(context->handshakeSession)->getMasterSecret());
 	bool useClientLabel = ($nc(context->sslConfig)->isClientMode && !isValidation) || (!$nc(context->sslConfig)->isClientMode && isValidation);

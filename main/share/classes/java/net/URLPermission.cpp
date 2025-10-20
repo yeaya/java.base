@@ -117,6 +117,7 @@ $String* URLPermission::normalize($String* url$renamed) {
 }
 
 void URLPermission::init($String* actions) {
+	$useLocalCurrentObjectStackCache();
 	parseURI($(getName()));
 	int32_t colon = $nc(actions)->indexOf((int32_t)u':');
 	if (actions->lastIndexOf((int32_t)u':') != colon) {
@@ -149,6 +150,7 @@ $String* URLPermission::getActions() {
 }
 
 bool URLPermission::implies($Permission* p) {
+	$useLocalCurrentObjectStackCache();
 	$var(URLPermission, that, nullptr);
 	bool var$0 = $instanceOf(URLPermission, p);
 	if (var$0) {
@@ -213,6 +215,7 @@ bool URLPermission::implies($Permission* p) {
 }
 
 bool URLPermission::equals(Object$* p) {
+	$useLocalCurrentObjectStackCache();
 	$var(URLPermission, that, nullptr);
 	bool var$0 = $instanceOf(URLPermission, p);
 	if (var$0) {
@@ -246,6 +249,7 @@ int32_t URLPermission::hashCode() {
 }
 
 $List* URLPermission::normalizeMethods($String* methods) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, l, $new($ArrayList));
 	$var($StringBuilder, b, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(methods)->length(); ++i) {
@@ -273,6 +277,7 @@ $List* URLPermission::normalizeMethods($String* methods) {
 }
 
 $List* URLPermission::normalizeHeaders($String* headers) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, l, $new($ArrayList));
 	$var($StringBuilder, b, $new($StringBuilder));
 	bool capitalizeNext = true;
@@ -309,6 +314,7 @@ $List* URLPermission::normalizeHeaders($String* headers) {
 }
 
 void URLPermission::parseURI($String* url) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(url)->length();
 	int32_t delim = url->indexOf((int32_t)u':');
 	if (delim == -1 || delim + 1 == len) {
@@ -337,11 +343,13 @@ void URLPermission::parseURI($String* url) {
 }
 
 $String* URLPermission::actions() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($String::join(static_cast<$CharSequence*>(","_s), static_cast<$Iterable*>(this->methods))), ":"_s}));
 	return $concat(var$0, $($String::join(static_cast<$CharSequence*>(","_s), static_cast<$Iterable*>(this->requestHeaders))));
 }
 
 void URLPermission::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($String, actions, $cast($String, $nc(fields)->get("actions"_s, ($Object*)nullptr)));
 	init(actions);

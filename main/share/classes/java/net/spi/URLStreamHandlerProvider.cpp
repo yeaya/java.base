@@ -49,6 +49,7 @@ $Object* allocate$URLStreamHandlerProvider($Class* clazz) {
 
 $Void* URLStreamHandlerProvider::checkPermission() {
 	$init(URLStreamHandlerProvider);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "setFactory"_s));

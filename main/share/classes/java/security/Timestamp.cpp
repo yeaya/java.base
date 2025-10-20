@@ -86,6 +86,7 @@ int32_t Timestamp::hashCode() {
 }
 
 bool Timestamp::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -104,6 +105,7 @@ bool Timestamp::equals(Object$* obj) {
 }
 
 $String* Timestamp::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("("_s);
 	sb->append($$str({"timestamp: "_s, this->timestamp}));

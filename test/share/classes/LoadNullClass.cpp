@@ -43,6 +43,7 @@ void LoadNullClass::init$() {
 }
 
 void LoadNullClass::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s))));
 	$var($FileClassLoader, cl, $new($FileClassLoader, $$new($URLArray, {$$new($URL, $$str({"file:"_s, $(f->getAbsolutePath())}))})));
 	cl->testFindLoadedClass(nullptr);

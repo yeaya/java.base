@@ -184,6 +184,7 @@ void DayOfWeek::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 DayOfWeek* DayOfWeek::of(int32_t dayOfWeek) {
 	$init(DayOfWeek);
+	$useLocalCurrentObjectStackCache();
 	if (dayOfWeek < 1 || dayOfWeek > 7) {
 		$throwNew($DateTimeException, $$str({"Invalid value for DayOfWeek: "_s, $$str(dayOfWeek)}));
 	}
@@ -192,6 +193,7 @@ DayOfWeek* DayOfWeek::of(int32_t dayOfWeek) {
 
 DayOfWeek* DayOfWeek::from($TemporalAccessor* temporal) {
 	$init(DayOfWeek);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(DayOfWeek, temporal)) {
 		return $cast(DayOfWeek, temporal);
 	}
@@ -211,6 +213,7 @@ int32_t DayOfWeek::getValue() {
 }
 
 $String* DayOfWeek::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::DAY_OF_WEEK), style)))->toFormatter(locale)))->format(this);
 }

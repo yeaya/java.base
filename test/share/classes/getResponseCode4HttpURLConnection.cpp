@@ -47,6 +47,7 @@ void getResponseCode4HttpURLConnection::init$() {
 }
 
 void getResponseCode4HttpURLConnection::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MyHttpURLConnectionImpl, myCon, $new($MyHttpURLConnectionImpl, nullptr));
 		int32_t responseCode = myCon->getResponseCode();

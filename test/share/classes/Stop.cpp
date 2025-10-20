@@ -145,6 +145,7 @@ void Stop::init$() {
 }
 
 void Stop::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($CountDownLatch, ready, $new($CountDownLatch, 1));
 	$var($ThreadGroup, group, $new($ThreadGroup, ""_s));
 	$var($Thread, second, $new($Thread, group, static_cast<$Runnable*>($$new(Stop$$Lambda$lambda$main$0, ready))));

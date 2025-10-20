@@ -39,6 +39,7 @@ void RelativeURLTest::init$() {
 }
 
 void RelativeURLTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, base, $new($URL, "file:./"_s));
 	$var($URL, url, $new($URL, base, "../images/dummy/../././foo.gif"_s));
 	if (!$nc($(url->toString()))->equals("file:../images/foo.gif"_s)) {

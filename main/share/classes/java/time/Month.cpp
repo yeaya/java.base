@@ -238,6 +238,7 @@ void Month::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 Month* Month::of(int32_t month) {
 	$init(Month);
+	$useLocalCurrentObjectStackCache();
 	if (month < 1 || month > 12) {
 		$throwNew($DateTimeException, $$str({"Invalid value for MonthOfYear: "_s, $$str(month)}));
 	}
@@ -246,6 +247,7 @@ Month* Month::of(int32_t month) {
 
 Month* Month::from($TemporalAccessor* temporal$renamed) {
 	$init(Month);
+	$useLocalCurrentObjectStackCache();
 	$var($TemporalAccessor, temporal, temporal$renamed);
 	if ($instanceOf(Month, temporal)) {
 		return $cast(Month, temporal);
@@ -270,6 +272,7 @@ int32_t Month::getValue() {
 }
 
 $String* Month::getDisplayName($TextStyle* style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	return $nc($($nc($($$new($DateTimeFormatterBuilder)->appendText(static_cast<$TemporalField*>($ChronoField::MONTH_OF_YEAR), style)))->toFormatter(locale)))->format(this);
 }

@@ -91,6 +91,7 @@ StreamOpFlag$MaskBuilder* StreamOpFlag$MaskBuilder::setAndClear($StreamOpFlag$Ty
 }
 
 $Map* StreamOpFlag$MaskBuilder::build() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StreamOpFlag$TypeArray, arr$, $StreamOpFlag$Type::values());
 		int32_t len$ = $nc(arr$)->length;

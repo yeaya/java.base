@@ -89,6 +89,7 @@ void PKIXMasterCertPathValidator::init$() {
 
 void PKIXMasterCertPathValidator::validate($CertPath* cpOriginal, $List* reversedCertList, $List* certPathCheckers) {
 	$init(PKIXMasterCertPathValidator);
+	$useLocalCurrentObjectStackCache();
 	int32_t cpSize = $nc(reversedCertList)->size();
 	if (PKIXMasterCertPathValidator::debug != nullptr) {
 		$nc(PKIXMasterCertPathValidator::debug)->println("--------------------------------------------------------------"_s);

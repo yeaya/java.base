@@ -249,6 +249,7 @@ void SSLContextImpl::init$() {
 }
 
 void SSLContextImpl::engineInit($KeyManagerArray* km, $TrustManagerArray* tm$renamed, $SecureRandom* sr) {
+	$useLocalCurrentObjectStackCache();
 	$var($TrustManagerArray, tm, tm$renamed);
 	this->isInitialized = false;
 	$set(this, keyManager, chooseKeyManager(km));
@@ -293,6 +294,7 @@ $X509TrustManager* SSLContextImpl::chooseTrustManager($TrustManagerArray* tm) {
 }
 
 $X509ExtendedKeyManager* SSLContextImpl::chooseKeyManager($KeyManagerArray* kms) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; kms != nullptr && i < kms->length; ++i) {
 		$var($KeyManager, km, kms->get(i));
 		if (!($instanceOf($X509KeyManager, km))) {
@@ -392,6 +394,7 @@ $HelloCookieManager* SSLContextImpl::getHelloCookieManager($ProtocolVersion* pro
 }
 
 $StatusResponseManager* SSLContextImpl::getStatusResponseManager() {
+	$useLocalCurrentObjectStackCache();
 	if (this->serverEnableStapling && this->statusResponseManager == nullptr) {
 		$nc(this->contextLock)->lock();
 		{
@@ -460,6 +463,7 @@ $List* SSLContextImpl::getApplicableEnabledCipherSuites($List* protocols, bool i
 
 $List* SSLContextImpl::getApplicableCipherSuites($Collection* allowedCipherSuites, $List* protocols) {
 	$init(SSLContextImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashSet, suites, $new($LinkedHashSet));
 	if (protocols != nullptr && (!protocols->isEmpty())) {
 		{
@@ -508,6 +512,7 @@ $List* SSLContextImpl::getApplicableCipherSuites($Collection* allowedCipherSuite
 
 $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 	$init(SSLContextImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propertyName));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
@@ -553,6 +558,7 @@ $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 
 $List* SSLContextImpl::getAvailableProtocols($ProtocolVersionArray* protocolCandidates) {
 	$init(SSLContextImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($List, availableProtocols, $Collections::emptyList());
 	if (protocolCandidates != nullptr && protocolCandidates->length != 0) {
 		$assign(availableProtocols, $new($ArrayList, protocolCandidates->length));

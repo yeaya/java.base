@@ -118,6 +118,7 @@ void DisabledAlgorithmConstraints$Constraint$Operator::init$($String* $enum$name
 
 DisabledAlgorithmConstraints$Constraint$Operator* DisabledAlgorithmConstraints$Constraint$Operator::of($String* s) {
 	$init(DisabledAlgorithmConstraints$Constraint$Operator);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s21359$, s);
 		int32_t tmp21359$ = -1;

@@ -83,6 +83,7 @@ int32_t URISyntaxException::getIndex() {
 }
 
 $String* URISyntaxException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(getReason()));
 	if (this->index > -1) {

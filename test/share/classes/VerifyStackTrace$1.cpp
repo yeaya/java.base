@@ -90,6 +90,7 @@ void VerifyStackTrace$1::init$($VerifyStackTrace$Handle* val$handle) {
 }
 
 $Object* VerifyStackTrace$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($VerifyStackTrace);

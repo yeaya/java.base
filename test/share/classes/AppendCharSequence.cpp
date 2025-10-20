@@ -94,6 +94,7 @@ void AppendCharSequence::main($StringArray* args) {
 
 void AppendCharSequence::bash() {
 	$init(AppendCharSequence);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(0, 100));
 		$var($StringBuffer, sb2, generateTestBuffer(0, 100));
@@ -169,6 +170,7 @@ $StringBuffer* AppendCharSequence::generateTestBuffer(int32_t min, int32_t max) 
 
 void AppendCharSequence::checkNulls() {
 	$init(AppendCharSequence);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb1, $new($StringBuffer));
 	$var($CharSequence, cs, nullptr);
 	sb1->append("test"_s);
@@ -196,6 +198,7 @@ void AppendCharSequence::checkNulls() {
 
 void AppendCharSequence::checkOffsets() {
 	$init(AppendCharSequence);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 100; ++i) {
 		$var($StringBuffer, sb, generateTestBuffer(0, 80));
 		$var($CharSequence, cs, static_cast<$CharSequence*>(generateTestBuffer(0, 80)));
@@ -268,6 +271,7 @@ void AppendCharSequence::checkOffsets() {
 
 void AppendCharSequence::checkConstructor() {
 	$init(AppendCharSequence);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 100; ++i) {
 		$var($StringBuffer, sb, generateTestBuffer(0, 100));
 		$var($CharSequence, cs, static_cast<$CharSequence*>(sb));
@@ -284,6 +288,7 @@ void AppendCharSequence::checkConstructor() {
 
 void AppendCharSequence::checkNegativeLenCharSeq(int32_t len) {
 	$init(AppendCharSequence);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($CharSequence, seq, $new($AppendCharSequence$MyNegativeLenCharSeq, len));
 		$var($StringBuffer, sb, $new($StringBuffer, seq));

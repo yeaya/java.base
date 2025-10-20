@@ -134,6 +134,7 @@ $Object* allocate$LoaderPool($Class* clazz) {
 bool LoaderPool::$assertionsDisabled = false;
 
 void LoaderPool::init$($Configuration* cf, $List* parentLayers, $ClassLoader* parentLoader) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, loaders, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());

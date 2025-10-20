@@ -73,6 +73,7 @@ void TryCatchBlockNode::init$($LabelNode* start, $LabelNode* end, $LabelNode* ha
 }
 
 void TryCatchBlockNode::updateIndex(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	int32_t newTypeRef = 0x42000000 | (index << 8);
 	if (this->visibleTypeAnnotations != nullptr) {
 		{
@@ -95,6 +96,7 @@ void TryCatchBlockNode::updateIndex(int32_t index) {
 }
 
 void TryCatchBlockNode::accept($MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($Label, var$0, $nc(this->start)->getLabel());
 	$var($Label, var$1, $nc(this->end)->getLabel());
 	$nc(methodVisitor)->visitTryCatchBlock(var$0, var$1, this->handler == nullptr ? ($Label*)nullptr : $($nc(this->handler)->getLabel()), this->type);

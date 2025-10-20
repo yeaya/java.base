@@ -75,6 +75,7 @@ void FileCleanable::cleanupClose0(int32_t fd, int64_t handle) {
 
 void FileCleanable::register$($FileDescriptor* fdo) {
 	$init(FileCleanable);
+	$useLocalCurrentObjectStackCache();
 	if (fdo != nullptr && fdo->valid()) {
 		int32_t fd = $nc(FileCleanable::fdAccess)->get(fdo);
 		int64_t handle = $nc(FileCleanable::fdAccess)->getHandle(fdo);

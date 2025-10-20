@@ -627,6 +627,7 @@ $SeekableByteChannel* Files::newByteChannel($Path* path, $Set* options, $FileAtt
 
 $SeekableByteChannel* Files::newByteChannel($Path* path, $OpenOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, set, nullptr);
 	if ($nc(options)->length == 0) {
 		$assign(set, $Collections::emptySet());
@@ -645,6 +646,7 @@ $DirectoryStream* Files::newDirectoryStream($Path* dir) {
 
 $DirectoryStream* Files::newDirectoryStream($Path* dir, $String* glob) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(glob)->equals("*"_s)) {
 		return newDirectoryStream(dir);
 	}
@@ -673,6 +675,7 @@ $Path* Files::createDirectory($Path* dir, $FileAttributeArray* attrs) {
 
 $Path* Files::createDirectories($Path* dir$renamed, $FileAttributeArray* attrs) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($Path, dir, dir$renamed);
 	try {
 		createAndCheckIsDirectory(dir, attrs);
@@ -723,6 +726,7 @@ $Path* Files::createDirectories($Path* dir$renamed, $FileAttributeArray* attrs) 
 
 void Files::createAndCheckIsDirectory($Path* dir, $FileAttributeArray* attrs) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	try {
 		createDirectory(dir, attrs);
 	} catch ($FileAlreadyExistsException&) {
@@ -815,6 +819,7 @@ bool Files::isSameFile($Path* path, $Path* path2) {
 
 int64_t Files::mismatch($Path* path, $Path* path2) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	if (isSameFile(path, path2)) {
 		return -1;
 	}
@@ -917,6 +922,7 @@ bool Files::isHidden($Path* path) {
 
 $String* Files::probeContentType($Path* path) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Files$FileTypeDetectors);
 		$var($Iterator, i$, $nc($Files$FileTypeDetectors::installedDetectors)->iterator());
@@ -952,6 +958,7 @@ $Path* Files::setAttribute($Path* path, $String* attribute, Object$* value, $Lin
 
 $Object* Files::getAttribute($Path* path, $String* attribute, $LinkOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(attribute)->indexOf((int32_t)u'*') >= 0;
 	if (var$0 || $nc(attribute)->indexOf((int32_t)u',') >= 0) {
 		$throwNew($IllegalArgumentException, attribute);
@@ -983,6 +990,7 @@ $Set* Files::getPosixFilePermissions($Path* path, $LinkOptionArray* options) {
 
 $Path* Files::setPosixFilePermissions($Path* path, $Set* perms) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$load($PosixFileAttributeView);
 	$var($PosixFileAttributeView, view, $cast($PosixFileAttributeView, getFileAttributeView(path, $PosixFileAttributeView::class$, $$new($LinkOptionArray, 0))));
 	if (view == nullptr) {
@@ -1004,6 +1012,7 @@ $UserPrincipal* Files::getOwner($Path* path, $LinkOptionArray* options) {
 
 $Path* Files::setOwner($Path* path, $UserPrincipal* owner) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$load($FileOwnerAttributeView);
 	$var($FileOwnerAttributeView, view, $cast($FileOwnerAttributeView, getFileAttributeView(path, $FileOwnerAttributeView::class$, $$new($LinkOptionArray, 0))));
 	if (view == nullptr) {
@@ -1015,6 +1024,7 @@ $Path* Files::setOwner($Path* path, $UserPrincipal* owner) {
 
 bool Files::isSymbolicLink($Path* path) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($BasicFileAttributes);
 		$init($LinkOption);
@@ -1028,6 +1038,7 @@ bool Files::isSymbolicLink($Path* path) {
 
 bool Files::isDirectory($Path* path, $LinkOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(options)->length == 0) {
 		$var($FileSystemProvider, provider, Files::provider(path));
 		if ($instanceOf($AbstractFileSystemProvider, provider)) {
@@ -1046,6 +1057,7 @@ bool Files::isDirectory($Path* path, $LinkOptionArray* options) {
 
 bool Files::isRegularFile($Path* path, $LinkOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(options)->length == 0) {
 		$var($FileSystemProvider, provider, Files::provider(path));
 		if ($instanceOf($AbstractFileSystemProvider, provider)) {
@@ -1070,6 +1082,7 @@ $FileTime* Files::getLastModifiedTime($Path* path, $LinkOptionArray* options) {
 
 $Path* Files::setLastModifiedTime($Path* path, $FileTime* time) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$load($BasicFileAttributeView);
 	$nc(($cast($BasicFileAttributeView, $(getFileAttributeView(path, $BasicFileAttributeView::class$, $$new($LinkOptionArray, 0))))))->setTimes($cast($FileTime, $Objects::requireNonNull(time)), nullptr, nullptr);
 	return path;
@@ -1077,6 +1090,7 @@ $Path* Files::setLastModifiedTime($Path* path, $FileTime* time) {
 
 int64_t Files::size($Path* path) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$load($BasicFileAttributes);
 	return $nc($(readAttributes(path, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0))))->size();
 }
@@ -1108,6 +1122,7 @@ bool Files::followLinks($LinkOptionArray* options) {
 
 bool Files::exists($Path* path, $LinkOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(options)->length == 0) {
 		$var($FileSystemProvider, provider, Files::provider(path));
 		if ($instanceOf($AbstractFileSystemProvider, provider)) {
@@ -1132,6 +1147,7 @@ bool Files::exists($Path* path, $LinkOptionArray* options) {
 
 bool Files::notExists($Path* path, $LinkOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (followLinks(options)) {
 			$nc($(provider(path)))->checkAccess(path, $$new($AccessModeArray, 0));
@@ -1153,6 +1169,7 @@ bool Files::notExists($Path* path, $LinkOptionArray* options) {
 
 bool Files::isAccessible($Path* path, $AccessModeArray* modes) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($(provider(path)))->checkAccess(path, modes);
 		return true;
@@ -1183,6 +1200,7 @@ bool Files::isExecutable($Path* path) {
 
 $Path* Files::walkFileTree($Path* start, $Set* options, int32_t maxDepth, $FileVisitor* visitor) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileTreeWalker, walker, $new($FileTreeWalker, options, maxDepth));
 		{
@@ -1287,6 +1305,7 @@ $Path* Files::walkFileTree($Path* start, $FileVisitor* visitor) {
 
 $BufferedReader* Files::newBufferedReader($Path* path, $Charset* cs) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($CharsetDecoder, decoder, $nc(cs)->newDecoder());
 	$var($Reader, reader, $new($InputStreamReader, $(newInputStream(path, $$new($OpenOptionArray, 0))), decoder));
 	return $new($BufferedReader, reader);
@@ -1300,6 +1319,7 @@ $BufferedReader* Files::newBufferedReader($Path* path) {
 
 $BufferedWriter* Files::newBufferedWriter($Path* path, $Charset* cs, $OpenOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($CharsetEncoder, encoder, $nc(cs)->newEncoder());
 	$var($Writer, writer, $new($OutputStreamWriter, $(newOutputStream(path, options)), encoder));
 	return $new($BufferedWriter, writer);
@@ -1313,6 +1333,7 @@ $BufferedWriter* Files::newBufferedWriter($Path* path, $OpenOptionArray* options
 
 int64_t Files::copy($InputStream* in, $Path* target, $CopyOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(in);
 	bool replaceExisting = false;
 	{
@@ -1399,6 +1420,7 @@ int64_t Files::copy($InputStream* in, $Path* target, $CopyOptionArray* options) 
 
 int64_t Files::copy($Path* source, $OutputStream* out) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(out);
 	{
 		$var($InputStream, in, newInputStream(source, $$new($OpenOptionArray, 0)));
@@ -1463,6 +1485,7 @@ $bytes* Files::read($InputStream* source, int32_t initialSize) {
 
 $bytes* Files::readAllBytes($Path* path) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SeekableByteChannel, sbc, Files::newByteChannel(path, $$new($OpenOptionArray, 0)));
 		{
@@ -1566,6 +1589,7 @@ $String* Files::readString($Path* path, $Charset* cs) {
 
 $List* Files::readAllLines($Path* path, $Charset* cs) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($BufferedReader, reader, newBufferedReader(path, cs));
 		{
@@ -1623,6 +1647,7 @@ $List* Files::readAllLines($Path* path) {
 
 $Path* Files::write($Path* path, $bytes* bytes, $OpenOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(bytes);
 	{
 		$var($OutputStream, out, Files::newOutputStream(path, options));
@@ -1666,6 +1691,7 @@ $Path* Files::write($Path* path, $bytes* bytes, $OpenOptionArray* options) {
 
 $Path* Files::write($Path* path, $Iterable* lines, $Charset* cs, $OpenOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lines);
 	$var($CharsetEncoder, encoder, $nc(cs)->newEncoder());
 	{
@@ -1749,6 +1775,7 @@ $Path* Files::writeString($Path* path, $CharSequence* csq, $OpenOptionArray* opt
 
 $Path* Files::writeString($Path* path, $CharSequence* csq, $Charset* cs, $OpenOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(path);
 	$Objects::requireNonNull(csq);
 	$Objects::requireNonNull(cs);
@@ -1763,6 +1790,7 @@ $Path* Files::writeString($Path* path, $CharSequence* csq, $Charset* cs, $OpenOp
 
 $Stream* Files::list($Path* dir) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($DirectoryStream, ds, Files::newDirectoryStream(dir));
 	try {
 		$var($Iterator, delegate, $nc(ds)->iterator());
@@ -1801,6 +1829,7 @@ $Stream* Files::list($Path* dir) {
 
 $Stream* Files::walk($Path* start, int32_t maxDepth, $FileVisitOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTreeIterator, iterator, $new($FileTreeIterator, start, maxDepth, options));
 	try {
 		$var($Spliterator, spliterator, $Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>(iterator), $Spliterator::DISTINCT));
@@ -1824,6 +1853,7 @@ $Stream* Files::walk($Path* start, $FileVisitOptionArray* options) {
 
 $Stream* Files::find($Path* start, int32_t maxDepth, $BiPredicate* matcher, $FileVisitOptionArray* options) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTreeIterator, iterator, $new($FileTreeIterator, start, maxDepth, options));
 	try {
 		$var($Spliterator, spliterator, $Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>(iterator), $Spliterator::DISTINCT));
@@ -1842,6 +1872,7 @@ $Stream* Files::find($Path* start, int32_t maxDepth, $BiPredicate* matcher, $Fil
 
 $Stream* Files::lines($Path* path, $Charset* cs) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(path)->getFileSystem() == $FileSystems::getDefault();
 	$init($FileChannelLinesSpliterator);
 	if (var$0 && $nc($FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES)->contains($($nc(cs)->name()))) {
@@ -1858,6 +1889,7 @@ $Stream* Files::lines($Path* path, $Charset* cs) {
 
 $Stream* Files::createFileChannelLinesStream($FileChannel* fc, $Charset* cs) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	try {
 		int64_t length = $nc(fc)->size();
 		if (length > 0 && length <= $Integer::MAX_VALUE) {
@@ -1909,6 +1941,7 @@ $Stream* Files::createFileChannelLinesStream($FileChannel* fc, $Charset* cs) {
 
 $Stream* Files::createBufferedReaderLinesStream($BufferedReader* br) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $cast($Stream, $nc($($nc(br)->lines()))->onClose($(asUncheckedRunnable(br))));
 	} catch ($Error&) {
@@ -1954,6 +1987,7 @@ void Files::lambda$createFileChannelLinesStream$4($FileChannelLinesSpliterator* 
 
 bool Files::lambda$find$2($BiPredicate* matcher, $FileTreeWalker$Event* entry) {
 	$init(Files);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($nc(entry)->file()));
 	return $nc(matcher)->test(var$0, $(entry->attributes()));
 }

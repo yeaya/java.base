@@ -102,6 +102,7 @@ void GroupOfOne$3::init$($AsynchronousSocketChannel* val$ch, $CountDownLatch* va
 }
 
 void GroupOfOne$3::completed($Void* result, $Void* att) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("Connected"_s);
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(100));

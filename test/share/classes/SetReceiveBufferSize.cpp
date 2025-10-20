@@ -53,6 +53,7 @@ void SetReceiveBufferSize::main($StringArray* args) {
 }
 
 void SetReceiveBufferSize::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocket, ss, $new($ServerSocket));
 	$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 	ss->bind($$new($InetSocketAddress, loopback, 0));

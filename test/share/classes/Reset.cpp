@@ -43,6 +43,7 @@ void Reset::init$() {
 }
 
 void Reset::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBufferInputStream, in, $new($StringBufferInputStream, "[ #"_s));
 	$var($StreamTokenizer, scan, $new($StreamTokenizer, static_cast<$InputStream*>(in)));
 	scan->nextToken();

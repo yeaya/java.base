@@ -78,6 +78,7 @@ void Versions::init$() {
 }
 
 $String* Versions::getProperty($String* prop) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, $System::getProperty(prop));
 	if (value == nullptr) {
 		$throwNew($Exception, $$str({"No such system property: "_s, prop}));
@@ -91,6 +92,7 @@ $String* Versions::getProperty($String* prop) {
 
 void Versions::checkClassVersion(int32_t major, int32_t minor, bool expectSupported) {
 	$load(Versions);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, className, "ClassVersionTest"_s);
 	$var($String, classFile, $str({className, ".class"_s}));
@@ -114,6 +116,7 @@ void Versions::checkClassVersion(int32_t major, int32_t minor, bool expectSuppor
 }
 
 void Versions::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, classVersion, getProperty("java.class.version"_s));
 	$var($String, javaVersion, getProperty("java.version"_s));
 	$var($String, runtimeVersion, getProperty("java.runtime.version"_s));

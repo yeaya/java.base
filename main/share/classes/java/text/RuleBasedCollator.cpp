@@ -143,6 +143,7 @@ $CollationElementIterator* RuleBasedCollator::getCollationElementIterator($Chara
 
 int32_t RuleBasedCollator::compare($String* source, $String* target) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (source == nullptr || target == nullptr) {
 			$throwNew($NullPointerException);
 		}
@@ -276,6 +277,7 @@ int32_t RuleBasedCollator::compare($String* source, $String* target) {
 
 $CollationKey* RuleBasedCollator::getCollationKey($String* source) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (source == nullptr) {
 			return nullptr;
 		}
@@ -366,6 +368,7 @@ $Object* RuleBasedCollator::clone() {
 }
 
 bool RuleBasedCollator::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		return false;
 	}

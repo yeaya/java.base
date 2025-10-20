@@ -219,6 +219,7 @@ void PlainSocketImpl::socketListen(int32_t backlog) {
 }
 
 void PlainSocketImpl::socketAccept($SocketImpl* s) {
+	$useLocalCurrentObjectStackCache();
 	int32_t nativefd = checkAndReturnNativeFD();
 	if (s == nullptr) {
 		$throwNew($NullPointerException, "socket is null"_s);
@@ -515,6 +516,7 @@ void PlainSocketImpl::configureBlocking(int32_t fd, bool blocking) {
 }
 
 void clinit$PlainSocketImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(PlainSocketImpl::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 	PlainSocketImpl::preferIPv4Stack = $Boolean::parseBoolean($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.net.preferIPv4Stack"_s, "false"_s))))));

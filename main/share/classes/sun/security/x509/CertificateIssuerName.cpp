@@ -112,6 +112,7 @@ $String* CertificateIssuerName::toString() {
 }
 
 void CertificateIssuerName::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->dnName)->encode(tmp);
 	$nc(out)->write($(tmp->toByteArray()));

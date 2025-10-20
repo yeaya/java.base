@@ -108,6 +108,7 @@ $chars* FormattedFloatingDecimal::getBuffer() {
 }
 
 void FormattedFloatingDecimal::init$(int32_t precision, $FormattedFloatingDecimal$Form* form, $FloatingDecimal$BinaryToASCIIConverter* fdConverter) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(fdConverter)->isExceptional()) {
 		$set(this, mantissa, $nc($(fdConverter->toJavaFormatString()))->toCharArray());
 		$set(this, exponent, nullptr);

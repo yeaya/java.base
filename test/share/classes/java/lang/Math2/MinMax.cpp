@@ -52,6 +52,7 @@ void MinMax::init$() {
 }
 
 void MinMax::go($String* what, float result, float correctResult) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, v, $str({what, ": got "_s, $$str(result), ", expected "_s, $$str(correctResult)}));
 	if (!($nc($($Float::toString(result)))->equals($($Float::toString(correctResult))))) {
 		$throwNew($RuntimeException, v);
@@ -61,6 +62,7 @@ void MinMax::go($String* what, float result, float correctResult) {
 }
 
 void MinMax::go($String* what, double result, double correctResult) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, v, $str({what, ": got "_s, $$str(result), ", expected "_s, $$str(correctResult)}));
 	if (!($nc($($Double::toString(result)))->equals($($Double::toString(correctResult))))) {
 		$throwNew($RuntimeException, v);

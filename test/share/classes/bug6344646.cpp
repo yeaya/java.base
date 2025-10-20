@@ -42,6 +42,7 @@ void bug6344646::init$() {
 }
 
 void bug6344646::main($StringArray* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, reservedLocale, $Locale::getDefault());
 	{
 		$var($Throwable, var$0, nullptr);

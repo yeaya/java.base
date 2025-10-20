@@ -37,6 +37,7 @@ void CaseConvertSameInstance::init$() {
 }
 
 void CaseConvertSameInstance::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if ("foobar"_s->toLowerCase() != "foobar"_s) {
 		$throwNew($Exception, "toLowerCase returned different object"_s);
 	}

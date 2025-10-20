@@ -76,6 +76,7 @@ void IntegerPolynomialP521::init$() {
 
 $BigInteger* IntegerPolynomialP521::evaluateModulus() {
 	$init(IntegerPolynomialP521);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(521));
 	$assign(result, $nc(result)->subtract($($BigInteger::valueOf((int64_t)1))));
 	return result;

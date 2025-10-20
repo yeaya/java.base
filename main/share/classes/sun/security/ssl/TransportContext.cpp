@@ -268,6 +268,7 @@ void TransportContext::init$($SSLContextImpl* sslContext, $SSLTransport* transpo
 }
 
 void TransportContext::dispatch($Plaintext* plaintext) {
+	$useLocalCurrentObjectStackCache();
 	if (plaintext == nullptr) {
 		return;
 	}
@@ -354,6 +355,7 @@ bool TransportContext::isPostHandshakeContext() {
 }
 
 void TransportContext::warning($Alert* alert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isNegotiated || this->handshakeContext != nullptr) {
 		try {
 			$init($Alert$Level);
@@ -369,6 +371,7 @@ void TransportContext::warning($Alert* alert) {
 }
 
 void TransportContext::closeNotify(bool isUserCanceled) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($SSLSocketImpl, this->transport)) {
 		$nc(($cast($SSLSocketImpl, this->transport)))->closeNotify(isUserCanceled);
 	} else {
@@ -419,6 +422,7 @@ $SSLException* TransportContext::fatal($Alert* alert, $String* diagnostic, $Thro
 }
 
 $SSLException* TransportContext::fatal($Alert* alert, $String* diagnostic$renamed, bool recvFatalAlert, $Throwable* cause$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, cause, cause$renamed);
 	$var($String, diagnostic, diagnostic$renamed);
 	if (this->closeReason != nullptr) {
@@ -556,6 +560,7 @@ bool TransportContext::isInboundClosed() {
 }
 
 void TransportContext::closeInbound() {
+	$useLocalCurrentObjectStackCache();
 	if (isInboundClosed()) {
 		return;
 	}
@@ -606,6 +611,7 @@ void TransportContext::initiateInboundClose() {
 }
 
 void TransportContext::closeOutbound() {
+	$useLocalCurrentObjectStackCache();
 	if (isOutboundClosed()) {
 		return;
 	}
@@ -664,6 +670,7 @@ $SSLEngineResult$HandshakeStatus* TransportContext::getHandshakeStatus() {
 }
 
 $SSLEngineResult$HandshakeStatus* TransportContext::finishHandshake() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->protocolVersion)->useTLS13PlusSpec()) {
 		$set($nc(this->outputRecord), tc, this);
 		$set($nc(this->inputRecord), tc, this);

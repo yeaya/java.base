@@ -65,6 +65,7 @@ void Basic4InheritableThreadLocal$MyThread::init$() {
 }
 
 void Basic4InheritableThreadLocal$MyThread::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, child, nullptr);
 	$init($Basic4InheritableThreadLocal);
 	if ($nc((($cast($Integer, $($nc($Basic4InheritableThreadLocal::n)->get())))))->intValue() < $Basic4InheritableThreadLocal::threadCount - 1) {

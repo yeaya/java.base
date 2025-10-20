@@ -39,6 +39,7 @@ void Enormous::init$() {
 }
 
 void Enormous::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$$new($String, $$new($chars, 0x01000001))->getBytes("ASCII"_s);
 	$var($bytes, bytes, $new($bytes, 0x01000001));
 	$new($String, bytes, "ASCII"_s);

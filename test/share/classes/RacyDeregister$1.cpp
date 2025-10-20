@@ -90,6 +90,7 @@ void RacyDeregister$1::init$($Selector* val$sel, $SelectionKeyArray* val$key) {
 }
 
 void RacyDeregister$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		for (int32_t k = 0; k < 15; ++k) {
 			$init($System);

@@ -86,6 +86,7 @@ void LocalVariableAnnotationNode::init$(int32_t api, int32_t typeRef, $TypePath*
 }
 
 void LocalVariableAnnotationNode::accept($MethodVisitor* methodVisitor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($LabelArray, startLabels, $new($LabelArray, $nc(this->start)->size()));
 	$var($LabelArray, endLabels, $new($LabelArray, $nc(this->end)->size()));
 	$var($ints, indices, $new($ints, $nc(this->index)->size()));

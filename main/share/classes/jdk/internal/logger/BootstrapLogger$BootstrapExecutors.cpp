@@ -179,6 +179,7 @@ void BootstrapLogger$BootstrapExecutors::init$() {
 
 $ExecutorService* BootstrapLogger$BootstrapExecutors::getExecutor() {
 	$init(BootstrapLogger$BootstrapExecutors);
+	$useLocalCurrentObjectStackCache();
 	$var($WeakReference, ref, BootstrapLogger$BootstrapExecutors::executorRef);
 	$var($ExecutorService, executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, $nc(ref)->get()));
 	if (executor != nullptr) {
@@ -200,6 +201,7 @@ $ExecutorService* BootstrapLogger$BootstrapExecutors::getExecutor() {
 }
 
 $Thread* BootstrapLogger$BootstrapExecutors::newThread($Runnable* r) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ExecutorService, owner, getExecutor());
 	$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new($BootstrapLogger$BootstrapExecutors$1, this, owner, r)));
@@ -215,6 +217,7 @@ void BootstrapLogger$BootstrapExecutors::submit($Runnable* r) {
 
 void BootstrapLogger$BootstrapExecutors::join($Runnable* r) {
 	$init(BootstrapLogger$BootstrapExecutors);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc($($nc($(getExecutor()))->submit(r)))->get();
 	} catch ($InterruptedException&) {
@@ -228,6 +231,7 @@ void BootstrapLogger$BootstrapExecutors::join($Runnable* r) {
 
 void BootstrapLogger$BootstrapExecutors::awaitPendingTasks() {
 	$init(BootstrapLogger$BootstrapExecutors);
+	$useLocalCurrentObjectStackCache();
 	$var($WeakReference, ref, BootstrapLogger$BootstrapExecutors::executorRef);
 	$var($ExecutorService, executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, $nc(ref)->get()));
 	if (ref == nullptr) {
@@ -274,6 +278,7 @@ void BootstrapLogger$BootstrapExecutors::enqueue($BootstrapLogger$LogEvent* even
 
 void BootstrapLogger$BootstrapExecutors::flush() {
 	$init(BootstrapLogger$BootstrapExecutors);
+	$useLocalCurrentObjectStackCache();
 	$var($BootstrapLogger$LogEvent, event, nullptr);
 	$synchronized(BootstrapLogger$BootstrapExecutors::class$) {
 		$assign(event, BootstrapLogger$BootstrapExecutors::head);

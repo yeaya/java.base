@@ -80,6 +80,7 @@ void ConcurrentHashMap$ForEachTransformedKeyTask::init$($ConcurrentHashMap$BulkT
 }
 
 void ConcurrentHashMap$ForEachTransformedKeyTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Function, transformer, nullptr);
 	$var($Consumer, action, nullptr);
 	if (($assign(transformer, this->transformer)) != nullptr && ($assign(action, this->action)) != nullptr) {

@@ -72,6 +72,7 @@ void AbstractHashDrbg::init$() {
 
 int32_t AbstractHashDrbg::alg2strength($String* algorithm) {
 	$init(AbstractHashDrbg);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($Locale);
 		$var($String, s1546$, $nc(algorithm)->toUpperCase($Locale::ROOT));
@@ -146,6 +147,7 @@ int32_t AbstractHashDrbg::alg2strength($String* algorithm) {
 }
 
 void AbstractHashDrbg::chooseAlgorithmAndStrength() {
+	$useLocalCurrentObjectStackCache();
 	if (this->requestedAlgorithm != nullptr) {
 		$init($Locale);
 		$set(this, algorithm, $nc(this->requestedAlgorithm)->toUpperCase($Locale::ROOT));
@@ -266,6 +268,7 @@ void AbstractHashDrbg::instantiateAlgorithm($bytes* entropy) {
 }
 
 void AbstractHashDrbg::reseedAlgorithm($bytes* ei, $bytes* additionalInput) {
+	$useLocalCurrentObjectStackCache();
 	$init($AbstractDrbg);
 	if ($AbstractDrbg::debug != nullptr) {
 		$var($String, var$0, $$str({"reseedAlgorithm\n"_s, $($$new($HexDumpEncoder)->encodeBuffer(ei)), "\n"_s}));

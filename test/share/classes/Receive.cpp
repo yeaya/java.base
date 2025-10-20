@@ -47,6 +47,7 @@ void Receive::init$() {
 }
 
 void Receive::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(10));
 	$var($DatagramChannel, dc1, $DatagramChannel::open());
 	$nc(dc1)->close();

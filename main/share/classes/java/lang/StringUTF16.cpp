@@ -276,6 +276,7 @@ void StringUTF16::init$() {
 
 $bytes* StringUTF16::newBytesFor(int32_t len) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	if (len < 0) {
 		$throwNew($NegativeArraySizeException);
 	}
@@ -454,6 +455,7 @@ int32_t StringUTF16::compress($bytes* src, int32_t srcOff, $bytes* dst, int32_t 
 
 $bytes* StringUTF16::toBytes($ints* val, int32_t index, int32_t len) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	int32_t end = index + len;
 	int32_t n = len;
 	for (int32_t i = index; i < end; ++i) {
@@ -571,6 +573,7 @@ int32_t StringUTF16::compareToLatin1($bytes* value, $bytes* other, int32_t len1,
 
 int32_t StringUTF16::compareToCI($bytes* value, $bytes* other) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, value);
 	int32_t var$1 = length(value);
 	$var($bytes, var$2, other);
@@ -685,6 +688,7 @@ int32_t StringUTF16::indexOf($bytes* value, int32_t ch, int32_t fromIndex) {
 
 int32_t StringUTF16::indexOf($bytes* value, $bytes* str) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(str)->length == 0) {
 		return 0;
 	}
@@ -924,6 +928,7 @@ int32_t StringUTF16::lastIndexOfSupplementary($bytes* value, int32_t ch, int32_t
 
 $String* StringUTF16::replace($bytes* value, char16_t oldChar, char16_t newChar) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(value)->length >> 1;
 	int32_t i = -1;
 	while (++i < len) {
@@ -956,6 +961,7 @@ $String* StringUTF16::replace($bytes* value, char16_t oldChar, char16_t newChar)
 
 $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $bytes* targ, int32_t targLen, bool targLat1, $bytes* repl, int32_t replLen, bool replLat1) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	if (!StringUTF16::$assertionsDisabled && !(targLen > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -1050,6 +1056,7 @@ bool StringUTF16::regionMatchesCI_Latin1($bytes* value, int32_t toffset, $bytes*
 
 $String* StringUTF16::toLowerCase($String* str, $bytes* value, $Locale* locale) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1103,6 +1110,7 @@ $String* StringUTF16::toLowerCase($String* str, $bytes* value, $Locale* locale) 
 
 $String* StringUTF16::toLowerCaseEx($String* str, $bytes* value, $bytes* result$renamed, int32_t first, $Locale* locale, bool localeDependent) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, result$renamed);
 	if (!StringUTF16::$assertionsDisabled && !($nc(result)->length == $nc(value)->length)) {
 		$throwNew($AssertionError);
@@ -1157,6 +1165,7 @@ $String* StringUTF16::toLowerCaseEx($String* str, $bytes* value, $bytes* result$
 
 $String* StringUTF16::toUpperCase($String* str, $bytes* value, $Locale* locale) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1207,6 +1216,7 @@ $String* StringUTF16::toUpperCase($String* str, $bytes* value, $Locale* locale) 
 
 $String* StringUTF16::toUpperCaseEx($String* str, $bytes* value, $bytes* result$renamed, int32_t first, $Locale* locale, bool localeDependent) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, result$renamed);
 	if (!StringUTF16::$assertionsDisabled && !($nc(result)->length == $nc(value)->length)) {
 		$throwNew($AssertionError);
@@ -1345,6 +1355,7 @@ void StringUTF16::putChars($bytes* val, int32_t index, $chars* str, int32_t off,
 
 $String* StringUTF16::newString($bytes* val, int32_t index, int32_t len) {
 	$init(StringUTF16);
+	$useLocalCurrentObjectStackCache();
 	if (len == 0) {
 		return ""_s;
 	}

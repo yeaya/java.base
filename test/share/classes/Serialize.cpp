@@ -83,6 +83,7 @@ void Serialize::init$() {
 
 void Serialize::main($StringArray* args) {
 	$init(Serialize);
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, nifs, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(nifs)->hasMoreElements()) {
 		$var($NetworkInterface, nif, $cast($NetworkInterface, nifs->nextElement()));
@@ -189,6 +190,7 @@ void Serialize::main($StringArray* args) {
 
 bool Serialize::test($Inet6Address* obj) {
 	$init(Serialize);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, $$new($FileOutputStream, "i6a1.ser"_s)));
 	oos->writeObject(obj);
 	oos->close();
@@ -204,6 +206,7 @@ bool Serialize::test($Inet6Address* obj) {
 
 bool Serialize::test1($Inet6Address* obj, $bytes* buf) {
 	$init(Serialize);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream, ois, $new($ObjectInputStream, $$new($ByteArrayInputStream, buf)));
 	$var($Inet6Address, nobj, $cast($Inet6Address, ois->readObject()));
 	ois->close();

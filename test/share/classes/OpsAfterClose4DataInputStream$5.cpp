@@ -68,6 +68,7 @@ void OpsAfterClose4DataInputStream$5::init$($String* $enum$name, int32_t $enum$o
 }
 
 bool OpsAfterClose4DataInputStream$5::check($DataInputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int64_t skipped = $nc(is)->skip(1);
 		$init($System);

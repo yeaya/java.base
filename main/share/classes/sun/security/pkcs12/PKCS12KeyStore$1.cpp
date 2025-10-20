@@ -66,6 +66,7 @@ void PKCS12KeyStore$1::init$() {
 }
 
 $Object* PKCS12KeyStore$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, nullptr);
 	$var($String, name1, "keystore.pkcs12.keyProtectionAlgorithm"_s);
 	$var($String, name2, "keystore.PKCS12.keyProtectionAlgorithm"_s);

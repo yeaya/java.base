@@ -233,6 +233,7 @@ $AlgorithmParameterSpec* CryptoPermission::getAlgorithmParameterSpec() {
 }
 
 $String* CryptoPermission::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder, 100));
 	buf->append($$str({"(CryptoPermission "_s, this->alg, " "_s, $$str(this->maxKeySize)}));
 	if (this->algParamSpec != nullptr) {

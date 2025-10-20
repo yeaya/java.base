@@ -74,6 +74,7 @@ $Object* allocate$Era($Class* clazz) {
 }
 
 void Era::init$($String* name, $String* abbr, int64_t since, bool localTime) {
+	$useLocalCurrentObjectStackCache();
 	this->hash = 0;
 	$set(this, name, name);
 	$set(this, abbr, abbr);
@@ -135,6 +136,7 @@ int32_t Era::hashCode() {
 }
 
 $String* Era::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(u'[');
 	sb->append($(getName()))->append(" ("_s);

@@ -106,6 +106,7 @@ void MailToURLConnection::init$($URL* u) {
 }
 
 $String* MailToURLConnection::getFromAddress() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, str, $System::getProperty("user.fromaddr"_s));
 	if (str == nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
@@ -137,6 +138,7 @@ void MailToURLConnection::connect() {
 
 $OutputStream* MailToURLConnection::getOutputStream() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->os != nullptr) {
 			return this->os;
 		} else if (this->is != nullptr) {
@@ -152,6 +154,7 @@ $OutputStream* MailToURLConnection::getOutputStream() {
 }
 
 $Permission* MailToURLConnection::getPermission() {
+	$useLocalCurrentObjectStackCache();
 	if (this->permission == nullptr) {
 		connect();
 		$var($String, host, $str({$($nc(this->client)->getMailHost()), ":"_s, $$str(25)}));

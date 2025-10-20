@@ -102,6 +102,7 @@ $SecretKey* KAKeyDerivation::deriveKey($String* algorithm, $AlgorithmParameterSp
 }
 
 $SecretKey* KAKeyDerivation::t12DeriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyAgreement, ka, $KeyAgreement::getInstance(this->algorithmName));
 		$nc(ka)->init(this->localPrivateKey);
@@ -121,6 +122,7 @@ $SecretKey* KAKeyDerivation::t12DeriveKey($String* algorithm, $AlgorithmParamete
 }
 
 $SecretKey* KAKeyDerivation::t13DeriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyAgreement, ka, $KeyAgreement::getInstance(this->algorithmName));
 		$nc(ka)->init(this->localPrivateKey);

@@ -166,6 +166,7 @@ void ZoneOffsetTransition::writeExternal($DataOutput* out) {
 
 ZoneOffsetTransition* ZoneOffsetTransition::readExternal($DataInput* in) {
 	$init(ZoneOffsetTransition);
+	$useLocalCurrentObjectStackCache();
 	int64_t epochSecond = $Ser::readEpochSec(in);
 	$var($ZoneOffset, before, $Ser::readOffset(in));
 	$var($ZoneOffset, after, $Ser::readOffset(in));
@@ -204,21 +205,25 @@ $Duration* ZoneOffsetTransition::getDuration() {
 }
 
 int32_t ZoneOffsetTransition::getDurationSeconds() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($(getOffsetAfter()))->getTotalSeconds();
 	return var$0 - $nc($(getOffsetBefore()))->getTotalSeconds();
 }
 
 bool ZoneOffsetTransition::isGap() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($(getOffsetAfter()))->getTotalSeconds();
 	return var$0 > $nc($(getOffsetBefore()))->getTotalSeconds();
 }
 
 bool ZoneOffsetTransition::isOverlap() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($(getOffsetAfter()))->getTotalSeconds();
 	return var$0 < $nc($(getOffsetBefore()))->getTotalSeconds();
 }
 
 bool ZoneOffsetTransition::isValidOffset($ZoneOffset* offset) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = false;
 	if (isGap()) {
 		var$0 = false;
@@ -230,6 +235,7 @@ bool ZoneOffsetTransition::isValidOffset($ZoneOffset* offset) {
 }
 
 $List* ZoneOffsetTransition::getValidOffsets() {
+	$useLocalCurrentObjectStackCache();
 	if (isGap()) {
 		return $List::of();
 	}

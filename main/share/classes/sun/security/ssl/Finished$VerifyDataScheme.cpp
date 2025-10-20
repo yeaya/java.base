@@ -167,6 +167,7 @@ $bytes* Finished$VerifyDataScheme::createVerifyData($HandshakeContext* context, 
 }
 
 void clinit$Finished$VerifyDataScheme($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Finished$VerifyDataScheme::SSL30, $new(Finished$VerifyDataScheme, "SSL30"_s, 0, "kdf_ssl30"_s, $$new($Finished$S30VerifyDataGenerator)));
 	$assignStatic(Finished$VerifyDataScheme::TLS10, $new(Finished$VerifyDataScheme, "TLS10"_s, 1, "kdf_tls10"_s, $$new($Finished$T10VerifyDataGenerator)));
 	$assignStatic(Finished$VerifyDataScheme::TLS12, $new(Finished$VerifyDataScheme, "TLS12"_s, 2, "kdf_tls12"_s, $$new($Finished$T12VerifyDataGenerator)));

@@ -70,6 +70,7 @@ void TypeParamAnnotation::check(bool b) {
 }
 
 void TypeParamAnnotation::testOnClass() {
+	$useLocalCurrentObjectStackCache();
 	$load($TypeParam);
 	$var($TypeVariableArray, ts, $TypeParam::class$->getTypeParameters());
 	check($nc(ts)->length == 3);
@@ -88,6 +89,7 @@ void TypeParamAnnotation::testOnClass() {
 
 void TypeParamAnnotation::testOnMethod() {
 	$load(TypeParamAnnotation);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TypeParam);
 	$var($TypeVariableArray, ts, $nc($($TypeParam::class$->getDeclaredMethod("foo"_s, $$new($ClassArray, 0))))->getTypeParameters());
@@ -106,6 +108,7 @@ void TypeParamAnnotation::testOnMethod() {
 }
 
 void TypeParamAnnotation::testGetAnno() {
+	$useLocalCurrentObjectStackCache();
 	$load($TypeParam);
 	$var($TypeVariableArray, ts, $TypeParam::class$->getTypeParameters());
 	$var($ParamAnno, a, nullptr);
@@ -116,6 +119,7 @@ void TypeParamAnnotation::testGetAnno() {
 
 void TypeParamAnnotation::testGetAnnos() {
 	$load(TypeParamAnnotation);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TypeParam);
 	$var($TypeVariableArray, ts, $nc($($TypeParam::class$->getDeclaredMethod("foo"_s, $$new($ClassArray, 0))))->getTypeParameters());

@@ -121,6 +121,7 @@ $String* JrtFileAttributes::extension() {
 }
 
 $String* JrtFileAttributes::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 1024));
 	{
 		$var($Formatter, fm, $new($Formatter, static_cast<$Appendable*>(sb)));

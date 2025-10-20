@@ -186,6 +186,7 @@ void SecureRandom::init$() {
 }
 
 bool SecureRandom::getThreadSafe() {
+	$useLocalCurrentObjectStackCache();
 	if (this->provider == nullptr || this->algorithm == nullptr) {
 		return false;
 	} else {
@@ -203,6 +204,7 @@ void SecureRandom::init$($bytes* seed) {
 }
 
 void SecureRandom::getDefaultPRNG(bool setSeed, $bytes* seed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$Service, prngService, nullptr);
 	$var($String, prngAlgorithm, nullptr);
 	{
@@ -251,6 +253,7 @@ void SecureRandom::init$($SecureRandomSpi* secureRandomSpi, $Provider* provider)
 }
 
 void SecureRandom::init$($SecureRandomSpi* secureRandomSpi, $Provider* provider, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$Random::init$(0);
 	$set(this, provider, nullptr);
 	$set(this, secureRandomSpi, nullptr);
@@ -426,6 +429,7 @@ $bytes* SecureRandom::longToByteArray(int64_t l) {
 
 SecureRandom* SecureRandom::getInstanceStrong() {
 	$init(SecureRandom);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, property, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SecureRandom$1)))));
 	if (property == nullptr || $nc(property)->isEmpty()) {

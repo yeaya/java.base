@@ -125,6 +125,7 @@ bool StringLatin1$LinesSpliterator::tryAdvance($Consumer* action) {
 }
 
 void StringLatin1$LinesSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException, "forEachRemaining action missing"_s);
 	}

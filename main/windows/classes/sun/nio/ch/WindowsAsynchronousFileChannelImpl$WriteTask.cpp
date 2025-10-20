@@ -154,6 +154,7 @@ void WindowsAsynchronousFileChannelImpl$WriteTask::updatePosition(int32_t bytesT
 }
 
 void WindowsAsynchronousFileChannelImpl$WriteTask::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = -1;
 	int64_t overlapped = 0;
 	int64_t address = 0;

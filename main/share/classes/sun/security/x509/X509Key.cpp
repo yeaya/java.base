@@ -172,6 +172,7 @@ $BitArray* X509Key::getKey() {
 
 $PublicKey* X509Key::parse($DerValue* in) {
 	$init(X509Key);
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmId, algorithm, nullptr);
 	$var($PublicKey, subjectKey, nullptr);
 	if ($nc(in)->tag != $DerValue::tag_Sequence) {
@@ -196,6 +197,7 @@ void X509Key::parseKeyBits() {
 
 $PublicKey* X509Key::buildX509Key($AlgorithmId* algid, $BitArray* key) {
 	$init(X509Key);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($DerOutputStream, x509EncodedKeyStream, $new($DerOutputStream));
 	encode(x509EncodedKeyStream, algid, key);
@@ -275,6 +277,7 @@ $bytes* X509Key::getEncoded() {
 }
 
 $bytes* X509Key::getEncodedInternal() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, this->encodedKey);
 	if (encoded == nullptr) {
 		try {
@@ -299,12 +302,14 @@ $bytes* X509Key::encode() {
 }
 
 $String* X509Key::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($String, var$0, $$str({"algorithm = "_s, $($nc(this->algid)->toString()), ", unparsed keybits = \n"_s}));
 	return $concat(var$0, $(encoder->encodeBuffer(this->key)));
 }
 
 void X509Key::decode($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, nullptr);
 	try {
 		$assign(val, $new($DerValue, in));
@@ -332,6 +337,7 @@ void X509Key::writeObject($ObjectOutputStream* stream) {
 }
 
 void X509Key::readObject($ObjectInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		decode(static_cast<$InputStream*>(stream));
 	} catch ($InvalidKeyException&) {
@@ -342,6 +348,7 @@ void X509Key::readObject($ObjectInputStream* stream) {
 }
 
 bool X509Key::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -365,6 +372,7 @@ bool X509Key::equals(Object$* obj) {
 }
 
 int32_t X509Key::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, b1, getEncodedInternal());
 		int32_t r = $nc(b1)->length;

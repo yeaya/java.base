@@ -67,6 +67,7 @@ void PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence::init$() {
 }
 
 void PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 		$SSLLogger::fine("Handling pre_shared_key absence."_s, $$new($ObjectArray, 0));

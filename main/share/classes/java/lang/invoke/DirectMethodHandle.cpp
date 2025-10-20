@@ -377,6 +377,7 @@ $MethodType* DirectMethodHandle::OBJ_OBJ_TYPE = nullptr;
 $MethodType* DirectMethodHandle::LONG_OBJ_TYPE = nullptr;
 
 void DirectMethodHandle::init$($MethodType* mtype, $LambdaForm* form, $MemberName* member$renamed, bool crackable) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, member, member$renamed);
 	$MethodHandle::init$(mtype, form);
 	if (!$nc(member)->isResolved()) {
@@ -410,6 +411,7 @@ void DirectMethodHandle::init$($MethodType* mtype, $LambdaForm* form, $MemberNam
 
 DirectMethodHandle* DirectMethodHandle::make(int8_t refKind, $Class* refc, $MemberName* member$renamed, $Class* callerClass) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, member, member$renamed);
 	$var($MethodType, mtype, $nc(member)->getMethodOrFieldType());
 	if (!member->isStatic()) {
@@ -488,6 +490,7 @@ DirectMethodHandle* DirectMethodHandle::make($MemberName* member) {
 
 DirectMethodHandle* DirectMethodHandle::makeAllocator($MemberName* ctor$renamed) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, ctor, ctor$renamed);
 	bool var$0 = !DirectMethodHandle::$assertionsDisabled;
 	if (var$0) {
@@ -552,6 +555,7 @@ $MemberName* DirectMethodHandle::internalMemberName() {
 
 $LambdaForm* DirectMethodHandle::preparedLambdaForm($MemberName* m, bool adaptToSpecialIfc) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	if (!DirectMethodHandle::$assertionsDisabled && !($nc(m)->isInvocable())) {
 		$throwNew($AssertionError, $of(m));
 	}
@@ -620,6 +624,7 @@ $LambdaForm* DirectMethodHandle::preparedLambdaForm($MemberName* m) {
 
 $LambdaForm* DirectMethodHandle::preparedLambdaForm($MethodType* mtype, int32_t which) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm, lform, $nc($($nc(mtype)->form()))->cachedLambdaForm(which));
 	if (lform != nullptr) {
 		return lform;
@@ -630,6 +635,7 @@ $LambdaForm* DirectMethodHandle::preparedLambdaForm($MethodType* mtype, int32_t 
 
 $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int32_t which) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	bool needsInit = (which == 5);
 	bool doesAlloc = (which == 3);
 	bool needsReceiverCheck = (which == 4 || which == 20);
@@ -758,6 +764,7 @@ $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int3
 
 $Object* DirectMethodHandle::findDirectMethodHandle($LambdaForm$Name* name) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = $nc($nc(name)->function)->equals($(getFunction(DirectMethodHandle::NF_internalMemberName)));
 	bool var$0 = var$1 || $nc($nc(name)->function)->equals($(getFunction(DirectMethodHandle::NF_internalMemberNameEnsureInit)));
 	if (var$0 || $nc($nc(name)->function)->equals($(getFunction(DirectMethodHandle::NF_constructorMethod)))) {
@@ -835,6 +842,7 @@ void DirectMethodHandle::ensureInitialized() {
 
 bool DirectMethodHandle::checkInitialized($MemberName* member) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$Class* defc = $nc(member)->getDeclaringClass();
 	$init($DirectMethodHandle$EnsureInitialized);
 	$var($WeakReference, ref, $cast($WeakReference, $nc($DirectMethodHandle$EnsureInitialized::INSTANCE)->get(defc)));
@@ -936,6 +944,7 @@ int32_t DirectMethodHandle::ftypeKind($Class* ftype) {
 
 $LambdaForm* DirectMethodHandle::preparedFieldLambdaForm($MemberName* m) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$Class* ftype = $nc(m)->getFieldType();
 	bool isVolatile = m->isVolatile();
 
@@ -1203,6 +1212,7 @@ $LambdaForm$Kind* DirectMethodHandle::getFieldKind(bool isGetter, bool isVolatil
 
 $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool isVolatile, int32_t ftypeKind) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	bool isGetter = ((int32_t)(formOp & (uint32_t)1)) == ((int32_t)(DirectMethodHandle::AF_GETFIELD & (uint32_t)1));
 	bool isStatic = (formOp >= DirectMethodHandle::AF_GETSTATIC);
 	bool needsInit = (formOp >= DirectMethodHandle::AF_GETSTATIC_INIT);
@@ -1345,6 +1355,7 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 
 $LambdaForm$NamedFunction* DirectMethodHandle::getFunction(int8_t func) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NamedFunction, nf, $nc(DirectMethodHandle::NFS)->get(func));
 	if (nf != nullptr) {
 		return nf;
@@ -1358,6 +1369,7 @@ $LambdaForm$NamedFunction* DirectMethodHandle::getFunction(int8_t func) {
 
 $LambdaForm$NamedFunction* DirectMethodHandle::createFunction(int8_t func) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	try {
 		{
 			$var($MemberName, member, nullptr)
@@ -1434,6 +1446,7 @@ $LambdaForm$NamedFunction* DirectMethodHandle::createFunction(int8_t func) {
 
 $LambdaForm$NamedFunction* DirectMethodHandle::getNamedFunction($String* name, $MethodType* type) {
 	$init(DirectMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, member, $new($MemberName, DirectMethodHandle::class$, name, type, (int8_t)6));
 	$load($NoSuchMethodException);
 	return $new($LambdaForm$NamedFunction, $($nc($($MemberName::getFactory()))->resolveOrFail((int8_t)6, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));

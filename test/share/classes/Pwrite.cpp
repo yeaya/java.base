@@ -90,6 +90,7 @@ void Pwrite::main($StringArray* args) {
 
 void Pwrite::testUnwritableChannel() {
 	$init(Pwrite);
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah2"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
@@ -120,6 +121,7 @@ void Pwrite::testUnwritableChannel() {
 
 void Pwrite::genericTest() {
 	$init(Pwrite);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->setLength(4);
 	$assignStatic(Pwrite::blah, $File::createTempFile("blah"_s, nullptr));
@@ -174,6 +176,7 @@ void Pwrite::genericTest() {
 
 void Pwrite::initTestFile($File* blah) {
 	$init(Pwrite);
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fos, $new($FileOutputStream, blah));
 	$var($BufferedWriter, awriter, $new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>(fos), "8859_1"_s)));
 	for (int32_t i = 0; i < 4000; ++i) {

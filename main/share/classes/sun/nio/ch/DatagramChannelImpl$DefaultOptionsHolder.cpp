@@ -94,6 +94,7 @@ void DatagramChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* DatagramChannelImpl$DefaultOptionsHolder::defaultOptions() {
 	$init(DatagramChannelImpl$DefaultOptionsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_SNDBUF);

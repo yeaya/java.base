@@ -69,6 +69,7 @@ void Johab$EncodeHolder::init$() {
 }
 
 void clinit$Johab$EncodeHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Johab$EncodeHolder::c2b, $new($chars, 0x00009200));
 	$assignStatic(Johab$EncodeHolder::c2bIndex, $new($chars, 256));
 	{

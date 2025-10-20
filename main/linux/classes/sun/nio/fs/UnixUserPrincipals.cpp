@@ -112,6 +112,7 @@ $UnixUserPrincipals$User* UnixUserPrincipals::createSpecial($String* name) {
 
 $UnixUserPrincipals$User* UnixUserPrincipals::fromUid(int32_t uid) {
 	$init(UnixUserPrincipals);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	try {
 		$assign(name, $Util::toString($($UnixNativeDispatcher::getpwuid(uid))));
@@ -124,6 +125,7 @@ $UnixUserPrincipals$User* UnixUserPrincipals::fromUid(int32_t uid) {
 
 $UnixUserPrincipals$Group* UnixUserPrincipals::fromGid(int32_t gid) {
 	$init(UnixUserPrincipals);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	try {
 		$assign(name, $Util::toString($($UnixNativeDispatcher::getgrgid(gid))));
@@ -136,6 +138,7 @@ $UnixUserPrincipals$Group* UnixUserPrincipals::fromGid(int32_t gid) {
 
 int32_t UnixUserPrincipals::lookupName($String* name, bool isGroup) {
 	$init(UnixUserPrincipals);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "lookupUserInformation"_s));
@@ -160,6 +163,7 @@ int32_t UnixUserPrincipals::lookupName($String* name, bool isGroup) {
 
 $UserPrincipal* UnixUserPrincipals::lookupUser($String* name) {
 	$init(UnixUserPrincipals);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equals($($nc(UnixUserPrincipals::SPECIAL_OWNER)->getName()))) {
 		return UnixUserPrincipals::SPECIAL_OWNER;
 	}

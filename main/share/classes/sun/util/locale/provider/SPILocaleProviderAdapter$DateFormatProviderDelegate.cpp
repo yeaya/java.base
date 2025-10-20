@@ -126,6 +126,7 @@ bool SPILocaleProviderAdapter$DateFormatProviderDelegate::isSupportedLocale($Loc
 }
 
 $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getTimeInstance(int32_t style, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatProvider, dfp, $cast($DateFormatProvider, getImpl(locale)));
@@ -133,6 +134,7 @@ $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getTimeInstanc
 }
 
 $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDateInstance(int32_t style, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatProvider, dfp, $cast($DateFormatProvider, getImpl(locale)));
@@ -140,6 +142,7 @@ $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDateInstanc
 }
 
 $DateFormat* SPILocaleProviderAdapter$DateFormatProviderDelegate::getDateTimeInstance(int32_t dateStyle, int32_t timeStyle, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($DateFormatProvider, dfp, $cast($DateFormatProvider, getImpl(locale)));

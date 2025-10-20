@@ -123,11 +123,13 @@ void UnsafeFieldAccessorImpl::ensureObj(Object$* o) {
 }
 
 $String* UnsafeFieldAccessorImpl::getQualifiedFieldName() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc($nc(this->field)->getDeclaringClass())->getName()), "."_s}));
 	return $concat(var$0, $($nc(this->field)->getName()));
 }
 
 $IllegalArgumentException* UnsafeFieldAccessorImpl::newGetIllegalArgumentException($String* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({"Attempt to get "_s, $($nc($nc(this->field)->getType())->getName()), " field \""_s}));
 	$var($String, var$1, $$concat(var$2, $(getQualifiedFieldName())));
 	$var($String, var$0, $$concat(var$1, "\" with illegal data type conversion to "));
@@ -207,6 +209,7 @@ $IllegalArgumentException* UnsafeFieldAccessorImpl::newGetDoubleIllegalArgumentE
 }
 
 $String* UnsafeFieldAccessorImpl::getSetMessage($String* attemptedType, $String* attemptedValue) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, err, "Can not set"_s);
 	if ($Modifier::isStatic($nc(this->field)->getModifiers())) {
 		$plusAssign(err, " static"_s);

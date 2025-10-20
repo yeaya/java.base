@@ -42,6 +42,7 @@ void UserDirChangedTest::init$() {
 }
 
 void UserDirChangedTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, keyUserDir, "user.dir"_s);
 	$var($String, userDirNew, "/home/a/b/c/"_s);
 	$var($String, fileName, "./a"_s);

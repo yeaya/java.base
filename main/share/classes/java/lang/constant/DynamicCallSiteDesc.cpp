@@ -144,6 +144,7 @@ $Object* allocate$DynamicCallSiteDesc($Class* clazz) {
 bool DynamicCallSiteDesc::$assertionsDisabled = false;
 
 void DynamicCallSiteDesc::init$($DirectMethodHandleDesc* bootstrapMethod, $String* invocationName, $MethodTypeDesc* invocationType, $ConstantDescArray* bootstrapArgs) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, invocationName$, $ConstantUtils::validateMemberName($cast($String, $Objects::requireNonNull(invocationName)), true));
 	$set(this, invocationType$, $cast($MethodTypeDesc, $Objects::requireNonNull(invocationType)));
 	$set(this, bootstrapMethod$, $cast($DirectMethodHandleDesc, $Objects::requireNonNull(bootstrapMethod)));
@@ -198,6 +199,7 @@ $ConstantDescArray* DynamicCallSiteDesc::bootstrapArgs() {
 }
 
 $CallSite* DynamicCallSiteDesc::resolveCallSiteDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$init($ConstantDescs);
 	if (!DynamicCallSiteDesc::$assertionsDisabled && !$nc($($cast($ClassDesc, $nc($($nc(this->bootstrapMethod$)->invocationType()))->parameterType(1))))->equals($ConstantDescs::CD_String)) {
 		$throwNew($AssertionError);
@@ -240,6 +242,7 @@ int32_t DynamicCallSiteDesc::hashCode() {
 }
 
 $String* DynamicCallSiteDesc::toString() {
+	$useLocalCurrentObjectStackCache();
 		$init($ConstantDescs);
 	return $String::format("DynamicCallSiteDesc[%s::%s(%s%s):%s]"_s, $$new($ObjectArray, {
 		$($of($nc($($nc(this->bootstrapMethod$)->owner()))->displayName())),

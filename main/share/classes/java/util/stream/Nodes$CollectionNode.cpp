@@ -89,6 +89,7 @@ $Spliterator* Nodes$CollectionNode::spliterator() {
 }
 
 void Nodes$CollectionNode::copyInto($ObjectArray* array, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->c)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -111,6 +112,7 @@ void Nodes$CollectionNode::forEach($Consumer* consumer) {
 }
 
 $String* Nodes$CollectionNode::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("CollectionNode[%d][%s]"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf($nc(this->c)->size()))),
 		$of(this->c)

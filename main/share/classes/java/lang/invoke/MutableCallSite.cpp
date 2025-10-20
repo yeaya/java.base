@@ -83,6 +83,7 @@ $MethodHandle* MutableCallSite::dynamicInvoker() {
 
 void MutableCallSite::syncAll($MutableCallSiteArray* sites) {
 	$init(MutableCallSite);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(sites)->length == 0) {
 		return;
 	}

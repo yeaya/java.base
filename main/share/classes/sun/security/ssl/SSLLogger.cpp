@@ -137,6 +137,7 @@ void SSLLogger::help() {
 
 bool SSLLogger::isOn($String* checkPoints) {
 	$init(SSLLogger);
+	$useLocalCurrentObjectStackCache();
 	if (SSLLogger::property == nullptr) {
 		return false;
 	} else {
@@ -220,6 +221,7 @@ void SSLLogger::finest($String* msg, $ObjectArray* params) {
 
 void SSLLogger::log($System$Logger$Level* level, $String* msg, $ObjectArray* params) {
 	$init(SSLLogger);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(SSLLogger::logger)->isLoggable(level)) {
 		if (params == nullptr || $nc(params)->length == 0) {
 			$nc(SSLLogger::logger)->log(level, msg);
@@ -236,6 +238,7 @@ void SSLLogger::log($System$Logger$Level* level, $String* msg, $ObjectArray* par
 
 $String* SSLLogger::toString($ObjectArray* params) {
 	$init(SSLLogger);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $SSLLogger$SSLSimpleFormatter::formatParameters(params);
 	} catch ($Exception&) {

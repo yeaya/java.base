@@ -355,6 +355,7 @@ $Comparator* OffsetDateTime::timeLineOrder() {
 
 int32_t OffsetDateTime::compareInstant(OffsetDateTime* datetime1, OffsetDateTime* datetime2) {
 	$init(OffsetDateTime);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(datetime1)->getOffset()))->equals($($nc(datetime2)->getOffset()))) {
 		return $nc($(datetime1->toLocalDateTime()))->compareTo($(static_cast<$ChronoLocalDateTime*>($nc(datetime2)->toLocalDateTime())));
 	}
@@ -379,6 +380,7 @@ OffsetDateTime* OffsetDateTime::now($ZoneId* zone) {
 
 OffsetDateTime* OffsetDateTime::now($Clock* clock) {
 	$init(OffsetDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(clock), "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	return ofInstant(now, $($nc($($nc($(clock->getZone()))->getRules()))->getOffset(now)));
@@ -403,6 +405,7 @@ OffsetDateTime* OffsetDateTime::of(int32_t year, int32_t month, int32_t dayOfMon
 
 OffsetDateTime* OffsetDateTime::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(OffsetDateTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(instant), "instant"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
 	$var($ZoneRules, rules, $nc(zone)->getRules());
@@ -414,6 +417,7 @@ OffsetDateTime* OffsetDateTime::ofInstant($Instant* instant, $ZoneId* zone) {
 
 OffsetDateTime* OffsetDateTime::from($TemporalAccessor* temporal) {
 	$init(OffsetDateTime);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(OffsetDateTime, temporal)) {
 		return $cast(OffsetDateTime, temporal);
 	}
@@ -618,6 +622,7 @@ OffsetDateTime* OffsetDateTime::with($TemporalAdjuster* adjuster) {
 }
 
 OffsetDateTime* OffsetDateTime::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -785,11 +790,13 @@ $Object* OffsetDateTime::query($TemporalQuery* query) {
 }
 
 $Temporal* OffsetDateTime::adjustInto($Temporal* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	return $nc($($nc($($nc(temporal)->with($ChronoField::EPOCH_DAY, $nc($(toLocalDate()))->toEpochDay())))->with($ChronoField::NANO_OF_DAY, $nc($(toLocalTime()))->toNanoOfDay())))->with($ChronoField::OFFSET_SECONDS, $nc($(getOffset()))->getTotalSeconds());
 }
 
 int64_t OffsetDateTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(OffsetDateTime, end, OffsetDateTime::from(endExclusive));
 	if ($instanceOf($ChronoUnit, unit)) {
 		$var(OffsetDateTime, start, this);
@@ -834,6 +841,7 @@ int64_t OffsetDateTime::toEpochSecond() {
 }
 
 int32_t OffsetDateTime::compareTo(OffsetDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cmp = compareInstant(this, other);
 	if (cmp == 0) {
 		cmp = $nc($(toLocalDateTime()))->compareTo($(static_cast<$ChronoLocalDateTime*>($nc(other)->toLocalDateTime())));
@@ -842,6 +850,7 @@ int32_t OffsetDateTime::compareTo(OffsetDateTime* other) {
 }
 
 bool OffsetDateTime::isAfter(OffsetDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t thisEpochSec = toEpochSecond();
 	int64_t otherEpochSec = $nc(other)->toEpochSecond();
 	bool var$0 = thisEpochSec > otherEpochSec;
@@ -857,6 +866,7 @@ bool OffsetDateTime::isAfter(OffsetDateTime* other) {
 }
 
 bool OffsetDateTime::isBefore(OffsetDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t thisEpochSec = toEpochSecond();
 	int64_t otherEpochSec = $nc(other)->toEpochSecond();
 	bool var$0 = thisEpochSec < otherEpochSec;
@@ -872,6 +882,7 @@ bool OffsetDateTime::isBefore(OffsetDateTime* other) {
 }
 
 bool OffsetDateTime::isEqual(OffsetDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t var$1 = toEpochSecond();
 	bool var$0 = var$1 == $nc(other)->toEpochSecond();
 	if (var$0) {
@@ -902,6 +913,7 @@ int32_t OffsetDateTime::hashCode() {
 }
 
 $String* OffsetDateTime::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $($nc(this->dateTime)->toString()));
 	return $concat(var$0, $($nc(this->offset)->toString()));
 }
@@ -921,6 +933,7 @@ void OffsetDateTime::writeExternal($ObjectOutput* out) {
 
 OffsetDateTime* OffsetDateTime::readExternal($ObjectInput* in) {
 	$init(OffsetDateTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalDateTime, dateTime, $LocalDateTime::readExternal(in));
 	$var($ZoneOffset, offset, $ZoneOffset::readExternal(in));
 	return OffsetDateTime::of(dateTime, offset);

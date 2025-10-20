@@ -110,6 +110,7 @@ $Object* allocate$AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl($C
 $Unsafe* AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::U = nullptr;
 
 void AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::init$($Class* tclass, $Class* vclass, $String* fieldName, $Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$AtomicReferenceFieldUpdater::init$();
 	$var($Field, field, nullptr);
@@ -179,6 +180,7 @@ void AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::accessCheck(Ob
 }
 
 void AtomicReferenceFieldUpdater$AtomicReferenceFieldUpdaterImpl::throwAccessCheckException(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (this->cclass == this->tclass) {
 		$throwNew($ClassCastException);
 	} else {

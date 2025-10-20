@@ -99,6 +99,7 @@ void SocketChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* SocketChannelImpl$DefaultOptionsHolder::defaultInetOptions() {
 	$init(SocketChannelImpl$DefaultOptionsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_SNDBUF);
@@ -119,6 +120,7 @@ $Set* SocketChannelImpl$DefaultOptionsHolder::defaultInetOptions() {
 
 $Set* SocketChannelImpl$DefaultOptionsHolder::defaultUnixOptions() {
 	$init(SocketChannelImpl$DefaultOptionsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_SNDBUF);

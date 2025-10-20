@@ -126,6 +126,7 @@ void JceSecurityManager::init$() {
 }
 
 $CryptoPermission* JceSecurityManager::getCryptoPermission($String* alg$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alg, alg$renamed);
 	$init($Locale);
 	$assign(alg, $nc(alg)->toUpperCase($Locale::ENGLISH));
@@ -227,11 +228,13 @@ $CryptoPermissions* JceSecurityManager::getAppPermissions($URL* callerCodeBase) 
 }
 
 $CryptoPermission* JceSecurityManager::getDefaultPermission($String* alg) {
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, enum_, $nc($($nc(JceSecurityManager::defaultPolicy)->getPermissionCollection(alg)))->elements());
 	return $cast($CryptoPermission, $nc(enum_)->nextElement());
 }
 
 bool JceSecurityManager::isCallerTrusted($Provider* provider$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Provider, provider, provider$renamed);
 	$var($ClassArray, context, getClassContext());
 	if ($nc(context)->length >= 3) {

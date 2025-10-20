@@ -42,6 +42,7 @@ void SimpleFileTypeDetector::init$() {
 }
 
 $String* SimpleFileTypeDetector::probeContentType($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"probe "_s, file, "..."_s}));
 	$var($String, name, $nc(file)->toString());

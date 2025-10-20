@@ -125,6 +125,7 @@ bool ForwardState::keyParamsNeeded() {
 }
 
 $String* ForwardState::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("State ["_s);
 	sb->append("\n  issuerDN of last cert: "_s)->append($of(this->issuerDN));
@@ -137,6 +138,7 @@ $String* ForwardState::toString() {
 }
 
 void ForwardState::initState($List* certPathCheckers) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, subjectNamesTraversed, $new($HashSet));
 	this->traversedCACerts = 0;
 	$set(this, forwardCheckers, $new($ArrayList));
@@ -156,6 +158,7 @@ void ForwardState::initState($List* certPathCheckers) {
 }
 
 void ForwardState::updateState($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	if (cert == nullptr) {
 		return;
 	}
@@ -201,6 +204,7 @@ void ForwardState::updateState($X509Certificate* cert) {
 }
 
 $Object* ForwardState::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ForwardState, clonedState, $cast(ForwardState, $State::clone()));
 		$set($nc(clonedState), forwardCheckers, $cast($ArrayList, $nc(this->forwardCheckers)->clone()));

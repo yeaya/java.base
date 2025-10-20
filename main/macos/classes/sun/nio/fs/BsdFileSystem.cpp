@@ -108,6 +108,7 @@ void BsdFileSystem::copyNonPosixAttributes(int32_t ofd, int32_t nfd) {
 }
 
 $Iterable* BsdFileSystem::getMountEntries() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, entries, $new($ArrayList));
 	try {
 		int64_t iter = $BsdNativeDispatcher::getfsstat();

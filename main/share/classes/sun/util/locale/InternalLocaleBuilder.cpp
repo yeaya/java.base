@@ -180,6 +180,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setRegion($String* region) {
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setVariant($String* variant) {
+	$useLocalCurrentObjectStackCache();
 	if ($LocaleUtils::isEmpty(variant)) {
 		$set(this, variant, ""_s);
 	} else {
@@ -196,6 +197,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setVariant($String* variant) {
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::addUnicodeLocaleAttribute($String* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (!$UnicodeLocaleExtension::isAttribute(attribute)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed Unicode locale attribute: "_s, attribute}));
 	}
@@ -207,6 +209,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::addUnicodeLocaleAttribute($String*
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::removeUnicodeLocaleAttribute($String* attribute) {
+	$useLocalCurrentObjectStackCache();
 	if (attribute == nullptr || !$UnicodeLocaleExtension::isAttribute(attribute)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed Unicode locale attribute: "_s, attribute}));
 	}
@@ -217,6 +220,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::removeUnicodeLocaleAttribute($Stri
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setUnicodeLocaleKeyword($String* key, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	if (!$UnicodeLocaleExtension::isKey(key)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed Unicode locale keyword key: "_s, key}));
 	}
@@ -248,6 +252,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setUnicodeLocaleKeyword($String* k
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setExtension(char16_t singleton, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	bool isBcpPrivateuse = $LanguageTag::isPrivateusePrefixChar(singleton);
 	if (!isBcpPrivateuse && !$LanguageTag::isExtensionSingletonChar(singleton)) {
 		$throwNew($LocaleSyntaxException, $$str({"Ill-formed extension key: "_s, $$str(singleton)}));
@@ -295,6 +300,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtension(char16_t singleton, $
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($String* subtags$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, subtags, subtags$renamed);
 	if ($LocaleUtils::isEmpty(subtags)) {
 		clearExtensions();
@@ -366,6 +372,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($String* subtags$ren
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($List* bcpExtensions, $String* privateuse) {
+	$useLocalCurrentObjectStackCache();
 	clearExtensions();
 	if (!$LocaleUtils::isEmpty(bcpExtensions)) {
 		$var($Set, done, $new($HashSet, $nc(bcpExtensions)->size()));
@@ -401,6 +408,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setExtensions($List* bcpExtensions
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setLanguageTag($LanguageTag* langtag) {
+	$useLocalCurrentObjectStackCache();
 	clear();
 	if (!$nc($($nc(langtag)->getExtlangs()))->isEmpty()) {
 		$set(this, language, $cast($String, $nc($(langtag->getExtlangs()))->get(0)));
@@ -428,6 +436,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::setLanguageTag($LanguageTag* langt
 }
 
 InternalLocaleBuilder* InternalLocaleBuilder::setLocale($BaseLocale* base, $LocaleExtensions* localeExtensions) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, language, $nc(base)->getLanguage());
 	$var($String, script, base->getScript());
 	$var($String, region, base->getRegion());
@@ -551,6 +560,7 @@ InternalLocaleBuilder* InternalLocaleBuilder::clearExtensions() {
 }
 
 $BaseLocale* InternalLocaleBuilder::getBaseLocale() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, language, this->language);
 	$var($String, script, this->script);
 	$var($String, region, this->region);
@@ -599,6 +609,7 @@ $LocaleExtensions* InternalLocaleBuilder::getLocaleExtensions() {
 
 $String* InternalLocaleBuilder::removePrivateuseVariant($String* privuseVal) {
 	$init(InternalLocaleBuilder);
+	$useLocalCurrentObjectStackCache();
 	$init($LanguageTag);
 	$var($StringTokenIterator, itr, $new($StringTokenIterator, privuseVal, $LanguageTag::SEP));
 	int32_t prefixStart = -1;
@@ -623,6 +634,7 @@ $String* InternalLocaleBuilder::removePrivateuseVariant($String* privuseVal) {
 }
 
 int32_t InternalLocaleBuilder::checkVariants($String* variants, $String* sep) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringTokenIterator, itr, $new($StringTokenIterator, variants, sep));
 	while (!itr->isDone()) {
 		$var($String, s, itr->current());
@@ -635,6 +647,7 @@ int32_t InternalLocaleBuilder::checkVariants($String* variants, $String* sep) {
 }
 
 void InternalLocaleBuilder::setUnicodeLocaleExtension($String* subtags) {
+	$useLocalCurrentObjectStackCache();
 	if (this->uattributes != nullptr) {
 		$nc(this->uattributes)->clear();
 	}

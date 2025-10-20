@@ -94,6 +94,7 @@ $AnnotationVisitor* CheckFieldAdapter::visitAnnotation($String* descriptor, bool
 }
 
 $AnnotationVisitor* CheckFieldAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	checkVisitEndNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::FIELD) {

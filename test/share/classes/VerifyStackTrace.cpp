@@ -210,6 +210,7 @@ void VerifyStackTrace::init$() {
 }
 
 $String* VerifyStackTrace::prepare($String* produced, bool eraseSensitiveInfo) {
+	$useLocalCurrentObjectStackCache();
 	if (eraseSensitiveInfo) {
 		return $($($($($($($($nc(produced)->replaceAll(":[1-9][0-9]*\\)"_s, ":00)"_s))->replaceAll("/0x[0-9a-f]+\\.run"_s, "/xxxxxxxx.run"_s))->replaceAll("/0x[0-9a-f]+\\.invoke"_s, "/xxxxxxxx.invoke"_s))->replaceAll("DirectMethodHandle\\$Holder"_s, "LambdaForm\\$DMH"_s))->replaceAll("Invokers\\$Holder"_s, "LambdaForm\\$MH"_s))->replaceAll("MH\\.invoke"_s, "MH/xxxxxxxx.invoke"_s))->replaceAll("xx\\.invoke([A-Za-z]*)_[A-Z_]+"_s, "xx.invoke$1"_s))->replaceAll("\\$[0-9]+"_s, "\\$??"_s);
 	} else {
@@ -218,6 +219,7 @@ $String* VerifyStackTrace::prepare($String* produced, bool eraseSensitiveInfo) {
 }
 
 void VerifyStackTrace::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	test($$new($VerifyStackTrace$TestCase1));
 	test($$new($VerifyStackTrace$TestCase2));
 	test($$new($VerifyStackTrace$TestCase3));
@@ -230,6 +232,7 @@ void VerifyStackTrace::invoke($Runnable* run) {
 
 void VerifyStackTrace::test($VerifyStackTrace$TestCase* test) {
 	$load(VerifyStackTrace);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println($$str({"\nTesting: "_s, $($nc(test)->description())}));
@@ -256,6 +259,7 @@ void VerifyStackTrace::test($VerifyStackTrace$TestCase* test) {
 
 void VerifyStackTrace::lambda$test$1($VerifyStackTrace$TestCase* test, $VerifyStackTrace$Recorder* recorder, $AtomicLong* counter, $StringBuilder* builder) {
 	$load(VerifyStackTrace);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc($($nc(test)->walker()))->forEach(static_cast<$Consumer*>($$new(VerifyStackTrace$$Lambda$lambda$test$0$1, recorder, counter, builder)));
 }

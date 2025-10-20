@@ -98,6 +98,7 @@ MethodHandles$Lookup$ClassFile* MethodHandles$Lookup$ClassFile::newInstanceNoChe
 }
 
 MethodHandles$Lookup$ClassFile* MethodHandles$Lookup$ClassFile::newInstance($bytes* bytes, $String* pkgName) {
+	$useLocalCurrentObjectStackCache();
 	int32_t magic = readInt(bytes, 0);
 	if (magic != (int32_t)0xCAFEBABE) {
 		$throwNew($ClassFormatError, $$str({"Incompatible magic value: "_s, $$str(magic)}));

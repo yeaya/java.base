@@ -134,6 +134,7 @@ $CertPathBuilderResult* CertPathBuilder::build($CertPathParameters* params) {
 
 $String* CertPathBuilder::getDefaultType() {
 	$init(CertPathBuilder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cpbtype, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CertPathBuilder$1)))));
 	return (cpbtype == nullptr) ? "PKIX"_s : cpbtype;

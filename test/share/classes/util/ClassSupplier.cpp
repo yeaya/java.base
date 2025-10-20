@@ -128,6 +128,7 @@ void ClassSupplier::init$($String* $enum$name, int32_t $enum$ordinal, $String* c
 }
 
 $Object* ClassSupplier::get() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($Class::forName(this->className));

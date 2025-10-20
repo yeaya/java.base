@@ -70,6 +70,7 @@ void Destroy$Task::init$($Semaphore* sem, $CountDownLatch* count) {
 }
 
 void Destroy$Task::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

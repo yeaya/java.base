@@ -60,6 +60,7 @@ void Patterns::init$() {
 
 void Patterns::ckn($String* prefix, $String* suffix) {
 	$init(Patterns);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $File::createTempFile(prefix, suffix, Patterns::dir));
 		$nc(f)->deleteOnExit();
@@ -77,6 +78,7 @@ void Patterns::ckn($String* prefix, $String* suffix) {
 
 void Patterns::cky($String* prefix, $String* suffix) {
 	$init(Patterns);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $File::createTempFile(prefix, suffix, Patterns::dir));
 	$nc(f)->deleteOnExit();
 	$init($System);
@@ -85,6 +87,7 @@ void Patterns::cky($String* prefix, $String* suffix) {
 
 void Patterns::main($StringArray* args) {
 	$init(Patterns);
+	$useLocalCurrentObjectStackCache();
 	ckn(nullptr, nullptr);
 	ckn(""_s, nullptr);
 	ckn("x"_s, nullptr);

@@ -44,6 +44,7 @@ void B6427403::init$() {
 }
 
 void B6427403::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($MulticastSocket, ms, $new($MulticastSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, lh, 0))));
 	ms->joinGroup($($InetAddress::getByName("224.80.80.80"_s)));

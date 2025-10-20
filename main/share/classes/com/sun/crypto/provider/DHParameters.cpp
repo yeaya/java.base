@@ -97,6 +97,7 @@ void DHParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void DHParameters::engineInit($bytes* params) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerValue, encodedParams, $new($DerValue, params));
 		if (encodedParams->tag != $DerValue::tag_Sequence) {
@@ -131,6 +132,7 @@ $AlgorithmParameterSpec* DHParameters::engineGetParameterSpec($Class* paramSpec)
 }
 
 $bytes* DHParameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	bytes->putInteger(this->p);
@@ -147,6 +149,7 @@ $bytes* DHParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* DHParameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($String, var$0, $$str({"SunJCE Diffie-Hellman Parameters:"_s, LINE_SEP, "p:"_s, LINE_SEP, $($Debug::toHexString(this->p)), LINE_SEP, "g:"_s, LINE_SEP}));
 	$var($StringBuilder, sb, $new($StringBuilder, $$concat(var$0, $($Debug::toHexString(this->g)))));

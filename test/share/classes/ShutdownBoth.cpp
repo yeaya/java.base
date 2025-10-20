@@ -42,6 +42,7 @@ void ShutdownBoth::init$() {
 }
 
 void ShutdownBoth::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 	$var($ServerSocket, ss, $new($ServerSocket, 0, 50, loopback));
 	$var($InetAddress, var$0, ss->getInetAddress());

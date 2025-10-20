@@ -84,6 +84,7 @@ void Invokers$Lazy::init$() {
 }
 
 void clinit$Invokers$Lazy($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		try {
 			$init($MethodHandles$Lookup);

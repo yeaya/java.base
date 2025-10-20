@@ -87,6 +87,7 @@ $Object* allocate$ECParameters($Class* clazz) {
 
 $AlgorithmParameters* ECParameters::getAlgorithmParameters($ECParameterSpec* spec) {
 	$init(ECParameters);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($AlgorithmParameters, params, $AlgorithmParameters::getInstance("EC"_s, "SunEC"_s));
 		$nc(params)->init(static_cast<$AlgorithmParameterSpec*>(spec));
@@ -103,6 +104,7 @@ void ECParameters::init$() {
 }
 
 void ECParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	if (paramSpec == nullptr) {
 		$throwNew($InvalidParameterSpecException, "paramSpec must not be null"_s);
 	}
@@ -127,6 +129,7 @@ void ECParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void ECParameters::engineInit($bytes* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, encodedParams, $new($DerValue, params));
 	if (encodedParams->tag == $DerValue::tag_ObjectId) {
 		$var($ObjectIdentifier, oid, encodedParams->getOID());
@@ -145,6 +148,7 @@ void ECParameters::engineInit($bytes* params, $String* decodingMethod) {
 }
 
 $AlgorithmParameterSpec* ECParameters::engineGetParameterSpec($Class* spec) {
+	$useLocalCurrentObjectStackCache();
 	$load($ECParameterSpec);
 	if ($nc(spec)->isAssignableFrom($ECParameterSpec::class$)) {
 		return $cast($AlgorithmParameterSpec, spec->cast(this->namedCurve));

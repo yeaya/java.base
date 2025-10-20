@@ -79,6 +79,7 @@ void Curve448OrderField::init$() {
 
 $BigInteger* Curve448OrderField::evaluateModulus() {
 	$init(Curve448OrderField);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(446));
 	$assign(result, $nc(result)->subtract($($BigInteger::valueOf((int64_t)0x04A7BB0D))));
 	$assign(result, result->add($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(28)))->multiply($($BigInteger::valueOf((int64_t)0x078C292B))))));

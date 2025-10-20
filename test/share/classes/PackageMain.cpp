@@ -49,6 +49,7 @@ void PackageMain::init$() {
 
 void PackageMain::main($StringArray* args) {
 	$load(PackageMain);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("foo.bar.Baz"_s);
 	$init($System);

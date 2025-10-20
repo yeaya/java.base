@@ -115,6 +115,7 @@ bool DESKeySpec::isWeak($bytes* key, int32_t offset) {
 }
 
 void clinit$DESKeySpec($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DESKeySpec::WEAK_KEYS, $new($byteArray2, {
 		$$new($bytes, {
 			(int8_t)1,

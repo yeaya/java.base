@@ -108,6 +108,7 @@ void StateTestService::init$() {
 
 void StateTestService::check(bool okay) {
 	$init(StateTestService);
+	$useLocalCurrentObjectStackCache();
 	println($$str({"check "_s, $$str(okay)}));
 	if (!okay) {
 		StateTestService::failed = true;
@@ -116,6 +117,7 @@ void StateTestService::check(bool okay) {
 
 void StateTestService::initLogFile() {
 	$init(StateTestService);
+	$useLocalCurrentObjectStackCache();
 	if (StateTestService::initialized) {
 		return;
 	}
@@ -140,6 +142,7 @@ void StateTestService::println($String* msg) {
 
 void StateTestService::reply($String* msg) {
 	$init(StateTestService);
+	$useLocalCurrentObjectStackCache();
 	println($$str({"REPLYING: "_s, msg}));
 	$var($InetSocketAddress, isa, $new($InetSocketAddress, $($InetAddress::getLocalHost()), StateTestService::reply_port));
 	$var($SocketChannel, sc, $SocketChannel::open(static_cast<$SocketAddress*>(isa)));
@@ -151,6 +154,7 @@ void StateTestService::reply($String* msg) {
 
 void StateTestService::main($StringArray* args) {
 	$init(StateTestService);
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(args)->length == 0) {
 			$init($System);

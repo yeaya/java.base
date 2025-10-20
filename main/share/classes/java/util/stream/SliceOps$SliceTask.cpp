@@ -125,6 +125,7 @@ $Object* SliceOps$SliceTask::getEmptyResult() {
 }
 
 $Object* SliceOps$SliceTask::doLeaf() {
+	$useLocalCurrentObjectStackCache();
 	if (isRoot()) {
 		$init($StreamOpFlag);
 		int64_t sizeIfKnown = $StreamOpFlag::SIZED->isPreserved($nc(this->op)->sourceOrOpFlags) ? $nc(this->op)->exactOutputSizeIfKnown(this->spliterator) : (int64_t)-1;
@@ -149,6 +150,7 @@ $Object* SliceOps$SliceTask::doLeaf() {
 }
 
 void SliceOps$SliceTask::onCompletion($CountedCompleter* caller) {
+	$useLocalCurrentObjectStackCache();
 	if (!isLeaf()) {
 		$var($Node, result, nullptr);
 		this->thisNodeSize = $nc(($cast(SliceOps$SliceTask, this->leftChild)))->thisNodeSize + $nc(($cast(SliceOps$SliceTask, this->rightChild)))->thisNodeSize;
@@ -187,6 +189,7 @@ $Node* SliceOps$SliceTask::doTruncate($Node* input) {
 }
 
 bool SliceOps$SliceTask::isLeftCompleted(int64_t target) {
+	$useLocalCurrentObjectStackCache();
 	int64_t size = this->completed ? this->thisNodeSize : completedSize(target);
 	if (size >= target) {
 		return true;
@@ -210,6 +213,7 @@ bool SliceOps$SliceTask::isLeftCompleted(int64_t target) {
 }
 
 int64_t SliceOps$SliceTask::completedSize(int64_t target) {
+	$useLocalCurrentObjectStackCache();
 	if (this->completed) {
 		return this->thisNodeSize;
 	} else {

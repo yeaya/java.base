@@ -153,6 +153,7 @@ void LanguageTag::init$() {
 
 LanguageTag* LanguageTag::parse($String* languageTag, $ParseStatus* sts$renamed) {
 	$init(LanguageTag);
+	$useLocalCurrentObjectStackCache();
 	$var($ParseStatus, sts, sts$renamed);
 	if (sts == nullptr) {
 		$assign(sts, $new($ParseStatus));
@@ -205,6 +206,7 @@ bool LanguageTag::parseLanguage($StringTokenIterator* itr, $ParseStatus* sts) {
 }
 
 bool LanguageTag::parseExtlangs($StringTokenIterator* itr, $ParseStatus* sts) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
@@ -262,6 +264,7 @@ bool LanguageTag::parseRegion($StringTokenIterator* itr, $ParseStatus* sts) {
 }
 
 bool LanguageTag::parseVariants($StringTokenIterator* itr, $ParseStatus* sts) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
@@ -284,6 +287,7 @@ bool LanguageTag::parseVariants($StringTokenIterator* itr, $ParseStatus* sts) {
 }
 
 bool LanguageTag::parseExtensions($StringTokenIterator* itr, $ParseStatus* sts) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
@@ -324,6 +328,7 @@ bool LanguageTag::parseExtensions($StringTokenIterator* itr, $ParseStatus* sts) 
 }
 
 bool LanguageTag::parsePrivateuse($StringTokenIterator* itr, $ParseStatus* sts) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(itr)->isDone();
 	if (var$0 || $nc(sts)->isError()) {
 		return false;
@@ -356,6 +361,7 @@ bool LanguageTag::parsePrivateuse($StringTokenIterator* itr, $ParseStatus* sts) 
 
 LanguageTag* LanguageTag::parseLocale($BaseLocale* baseLocale, $LocaleExtensions* localeExtensions) {
 	$init(LanguageTag);
+	$useLocalCurrentObjectStackCache();
 	$var(LanguageTag, tag, $new(LanguageTag));
 	$var($String, language, $nc(baseLocale)->getLanguage());
 	$var($String, script, baseLocale->getScript());
@@ -630,6 +636,7 @@ $String* LanguageTag::canonicalizePrivateuseSubtag($String* s) {
 }
 
 $String* LanguageTag::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (!$nc(this->language)->isEmpty()) {
 		sb->append(this->language);
@@ -677,6 +684,7 @@ $String* LanguageTag::toString() {
 }
 
 void clinit$LanguageTag($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LanguageTag::SEP, "-"_s);
 	$assignStatic(LanguageTag::PRIVATEUSE, "x"_s);
 	$assignStatic(LanguageTag::UNDETERMINED, "und"_s);

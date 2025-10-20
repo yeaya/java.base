@@ -214,6 +214,7 @@ bool WindowsSecurity::checkAccessMask(int64_t securityInfo, int32_t accessMask, 
 
 void WindowsSecurity::lambda$enablePrivilege$0(int64_t token, bool stopImpersontating, bool needToRevert, int64_t pLuid) {
 	$init(WindowsSecurity);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

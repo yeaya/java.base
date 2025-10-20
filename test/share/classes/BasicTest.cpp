@@ -81,6 +81,7 @@ void BasicTest::init$() {
 
 void BasicTest::main($StringArray* args) {
 	$init(BasicTest);
+	$useLocalCurrentObjectStackCache();
 	int32_t expectionTestCases = 0;
 	$var($ClassArray, types, $new($ClassArray, 200));
 	$init($Integer);
@@ -109,6 +110,7 @@ void BasicTest::main($StringArray* args) {
 
 void BasicTest::test($MethodType* concatType) {
 	$init(BasicTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, recipe, ""_s);
 	int32_t slots = 0;

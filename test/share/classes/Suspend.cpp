@@ -101,6 +101,7 @@ void Suspend::main($StringArray* args) {
 }
 
 void clinit$Suspend($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Suspend::count = 0;
 	$assignStatic(Suspend::group, $new($ThreadGroup, ""_s));
 	$assignStatic(Suspend::first, $new($Thread, Suspend::group, static_cast<$Runnable*>($$new(Suspend))));

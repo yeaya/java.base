@@ -95,6 +95,7 @@ $Object* allocate$CookieExtension$CookieSpec($Class* clazz) {
 }
 
 void CookieExtension$CookieSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->remaining() < 3) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid cookie extension: insufficient data"_s)))));
@@ -103,6 +104,7 @@ void CookieExtension$CookieSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
 }
 
 $String* CookieExtension$CookieSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"cookie\": \'{\'\n{0}\n\'}\',"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

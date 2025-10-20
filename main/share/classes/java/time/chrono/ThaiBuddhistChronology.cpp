@@ -272,6 +272,7 @@ $List* ThaiBuddhistChronology::eras() {
 }
 
 $ValueRange* ThaiBuddhistChronology::range($ChronoField* field) {
+	$useLocalCurrentObjectStackCache();
 	$init($ThaiBuddhistChronology$1);
 	switch ($nc($ThaiBuddhistChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((field))->ordinal())) {
 	case 1:
@@ -318,6 +319,7 @@ void ThaiBuddhistChronology::readObject($ObjectInputStream* s) {
 }
 
 void clinit$ThaiBuddhistChronology($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ThaiBuddhistChronology::FALLBACK_LANGUAGE, "en"_s);
 	$assignStatic(ThaiBuddhistChronology::TARGET_LANGUAGE, "th"_s);
 	$assignStatic(ThaiBuddhistChronology::INSTANCE, $new(ThaiBuddhistChronology));

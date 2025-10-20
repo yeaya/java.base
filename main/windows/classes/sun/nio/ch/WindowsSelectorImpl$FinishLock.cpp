@@ -95,6 +95,7 @@ void WindowsSelectorImpl$FinishLock::threadFinished() {
 
 void WindowsSelectorImpl$FinishLock::waitForHelperThreads() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->threadsToFinish == $nc(this->this$0->threads)->size()) {
 			this->this$0->wakeup();
 		}
@@ -116,6 +117,7 @@ void WindowsSelectorImpl$FinishLock::setException($IOException* e) {
 }
 
 void WindowsSelectorImpl$FinishLock::checkForException() {
+	$useLocalCurrentObjectStackCache();
 	if (this->exception == nullptr) {
 		return;
 	}

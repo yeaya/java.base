@@ -64,6 +64,7 @@ void ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer::init$() {
 }
 
 $String* ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

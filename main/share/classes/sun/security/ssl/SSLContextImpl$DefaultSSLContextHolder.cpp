@@ -83,6 +83,7 @@ void SSLContextImpl$DefaultSSLContextHolder::init$() {
 }
 
 void clinit$SSLContextImpl$DefaultSSLContextHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Exception, reserved, nullptr);
 		$var($SSLContextImpl, mediator, nullptr);

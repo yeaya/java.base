@@ -96,6 +96,7 @@ $String* InetSocketAddress$InetSocketAddressHolder::getHostName() {
 }
 
 $String* InetSocketAddress$InetSocketAddressHolder::getHostString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->hostname != nullptr) {
 		return this->hostname;
 	}
@@ -114,6 +115,7 @@ bool InetSocketAddress$InetSocketAddressHolder::isUnresolved() {
 }
 
 $String* InetSocketAddress$InetSocketAddressHolder::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, formatted, nullptr);
 	if (isUnresolved()) {
 		$assign(formatted, $str({this->hostname, "/<unresolved>"_s}));

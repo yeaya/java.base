@@ -318,6 +318,7 @@ void ChronoField::init$($String* $enum$name, int32_t $enum$ordinal, $String* nam
 }
 
 $String* ChronoField::getDisplayName($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(locale), "locale"_s);
 	if (this->displayNameKey == nullptr) {
 		return this->name$;
@@ -384,6 +385,7 @@ $String* ChronoField::toString() {
 }
 
 void clinit$ChronoField($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoUnit);
 	$assignStatic(ChronoField::NANO_OF_SECOND, $new(ChronoField, "NANO_OF_SECOND"_s, 0, "NanoOfSecond"_s, $ChronoUnit::NANOS, $ChronoUnit::SECONDS, $($ValueRange::of(0, 0x3B9AC9FF))));
 	$assignStatic(ChronoField::NANO_OF_DAY, $new(ChronoField, "NANO_OF_DAY"_s, 1, "NanoOfDay"_s, $ChronoUnit::NANOS, $ChronoUnit::DAYS, $($ValueRange::of(0, (int64_t)86400 * (int64_t)1000000000 - 1))));

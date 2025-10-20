@@ -206,6 +206,7 @@ $Set* FileSystemProvider::DEFAULT_OPEN_OPTIONS = nullptr;
 
 $Void* FileSystemProvider::checkPermission() {
 	$init(FileSystemProvider);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "fileSystemProvider"_s));
@@ -222,6 +223,7 @@ void FileSystemProvider::init$() {
 
 $List* FileSystemProvider::loadInstalledProviders() {
 	$init(FileSystemProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, list, $new($ArrayList));
 	$var($ServiceLoader, sl, $ServiceLoader::load(FileSystemProvider::class$, $($ClassLoader::getSystemClassLoader())));
@@ -257,6 +259,7 @@ $List* FileSystemProvider::loadInstalledProviders() {
 
 $List* FileSystemProvider::installedProviders() {
 	$init(FileSystemProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (FileSystemProvider::installedProviders$ == nullptr) {
 		$var(FileSystemProvider, defaultProvider, $nc($($FileSystems::getDefault()))->provider());
@@ -281,6 +284,7 @@ $FileSystem* FileSystemProvider::newFileSystem($Path* path, $Map* env) {
 }
 
 $InputStream* FileSystemProvider::newInputStream($Path* path, $OpenOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(options)->length > 0) {
 		{
 			$var($OpenOptionArray, arr$, options);
@@ -305,6 +309,7 @@ $InputStream* FileSystemProvider::newInputStream($Path* path, $OpenOptionArray* 
 }
 
 $OutputStream* FileSystemProvider::newOutputStream($Path* path, $OpenOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(options)->length;
 	$var($Set, opts, nullptr);
 	if (len == 0) {

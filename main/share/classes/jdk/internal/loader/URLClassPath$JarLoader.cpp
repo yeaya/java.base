@@ -197,6 +197,7 @@ $Object* allocate$URLClassPath$JarLoader($Class* clazz) {
 $JavaUtilZipFileAccess* URLClassPath$JarLoader::zipAccess = nullptr;
 
 void URLClassPath$JarLoader::init$($URL* url, $URLStreamHandler* jarHandler, $HashMap* loaderMap, $AccessControlContext* acc) {
+	$useLocalCurrentObjectStackCache();
 	$URLClassPath$Loader::init$($$new($URL, "jar"_s, ""_s, -1, $$str({url, "!/"_s}), jarHandler));
 	this->closed = false;
 	$set(this, csu, url);
@@ -223,6 +224,7 @@ bool URLClassPath$JarLoader::isOptimizable($URL* url) {
 }
 
 void URLClassPath$JarLoader::ensureOpen() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->jar == nullptr) {
 		try {
@@ -236,6 +238,7 @@ void URLClassPath$JarLoader::ensureOpen() {
 
 $JarFile* URLClassPath$JarLoader::checkJar($JarFile* jar) {
 	$init(URLClassPath$JarLoader);
+	$useLocalCurrentObjectStackCache();
 	$init($URLClassPath);
 	bool var$0 = $System::getSecurityManager() != nullptr && !$URLClassPath::DISABLE_JAR_CHECKING;
 	if (var$0 && !$nc(URLClassPath$JarLoader::zipAccess)->startsWithLocHeader(jar)) {
@@ -252,6 +255,7 @@ $JarFile* URLClassPath$JarLoader::checkJar($JarFile* jar) {
 }
 
 $JarFile* URLClassPath$JarLoader::getJarFile($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	if (isOptimizable(url)) {
 		$var($FileURLMapper, p, $new($FileURLMapper, url));
 		if (!p->exists()) {
@@ -278,6 +282,7 @@ $JarIndex* URLClassPath$JarLoader::getIndex() {
 }
 
 $Resource* URLClassPath$JarLoader::checkResource($String* name, bool check, $JarEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	try {
 		$var($String, nm, nullptr);
@@ -305,6 +310,7 @@ $Resource* URLClassPath$JarLoader::checkResource($String* name, bool check, $Jar
 }
 
 bool URLClassPath$JarLoader::validIndex($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, packageName, name);
 	int32_t pos = 0;
 	if ((pos = $nc(name)->lastIndexOf((int32_t)u'/')) != -1) {
@@ -335,6 +341,7 @@ $URL* URLClassPath$JarLoader::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath$JarLoader::getResource($String* name, bool check) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		ensureOpen();
 	} catch ($IOException&) {
@@ -353,6 +360,7 @@ $Resource* URLClassPath$JarLoader::getResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath$JarLoader::getResource($String* name, bool check, $Set* visited) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Resource, res, nullptr);
 	$var($StringArray, jarFiles, nullptr);
@@ -416,6 +424,7 @@ $Resource* URLClassPath$JarLoader::getResource($String* name, bool check, $Set* 
 }
 
 $URLArray* URLClassPath$JarLoader::getClassPath() {
+	$useLocalCurrentObjectStackCache();
 	if (this->index != nullptr) {
 		return nullptr;
 	}
@@ -438,6 +447,7 @@ $URLArray* URLClassPath$JarLoader::getClassPath() {
 
 $URLArray* URLClassPath$JarLoader::parseClassPath($URL* base, $String* value) {
 	$init(URLClassPath$JarLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($StringTokenizer, st, $new($StringTokenizer, value));
 	$var($URLArray, urls, $new($URLArray, st->countTokens()));
 	int32_t i = 0;
@@ -474,6 +484,7 @@ $URL* URLClassPath$JarLoader::tryResolve($URL* base, $String* input) {
 
 $URL* URLClassPath$JarLoader::tryResolveFile($URL* base, $String* input) {
 	$init(URLClassPath$JarLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($URL, retVal, $new($URL, base, input));
 	bool var$0 = $nc(input)->indexOf((int32_t)u':') >= 0;
 	if (var$0 && !"file"_s->equalsIgnoreCase($(retVal->getProtocol()))) {
@@ -484,6 +495,7 @@ $URL* URLClassPath$JarLoader::tryResolveFile($URL* base, $String* input) {
 
 $URL* URLClassPath$JarLoader::tryResolveNonFile($URL* base, $String* input) {
 	$init(URLClassPath$JarLoader);
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($String, child, $nc(input)->replace($File::separatorChar, u'/'));
 	if (isRelative(child)) {
@@ -504,6 +516,7 @@ $URL* URLClassPath$JarLoader::tryResolveNonFile($URL* base, $String* input) {
 
 bool URLClassPath$JarLoader::isRelative($String* child) {
 	$init(URLClassPath$JarLoader);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return !$nc($($URI::create(child)))->isAbsolute();
 	} catch ($IllegalArgumentException&) {

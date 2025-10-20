@@ -68,6 +68,7 @@ void ImmutableLocal::init$() {
 
 void ImmutableLocal::main($StringArray* args) {
 	$init(ImmutableLocal);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"cache.get() = "_s, $($nc(ImmutableLocal::cache)->get())}));
 }

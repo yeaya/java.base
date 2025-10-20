@@ -114,6 +114,7 @@ $Object* allocate$SocksServer$ClientHandler($Class* clazz) {
 }
 
 void SocksServer$ClientHandler::init$($SocksServer* this$0, $Socket* s) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$Thread::init$();
 	$set(this, client, s);
@@ -135,6 +136,7 @@ void SocksServer$ClientHandler::readBuf($InputStream* is, $bytes* buf) {
 }
 
 bool SocksServer$ClientHandler::userPassAuth() {
+	$useLocalCurrentObjectStackCache();
 	int32_t ver = $nc(this->in)->read();
 	int32_t ulen = $nc(this->in)->read();
 	if (ulen <= 0) {
@@ -173,6 +175,7 @@ bool SocksServer$ClientHandler::userPassAuth() {
 }
 
 void SocksServer$ClientHandler::purge() {
+	$useLocalCurrentObjectStackCache();
 	bool done = false;
 	int32_t i = 0;
 	$nc(this->client)->setSoTimeout(1000);
@@ -187,6 +190,7 @@ void SocksServer$ClientHandler::purge() {
 }
 
 void SocksServer$ClientHandler::getRequestV4() {
+	$useLocalCurrentObjectStackCache();
 	int32_t ver = $nc(this->in)->read();
 	int32_t cmd = $nc(this->in)->read();
 	if (ver == -1 || cmd == -1) {
@@ -306,6 +310,7 @@ void SocksServer$ClientHandler::sendError(int32_t code) {
 }
 
 void SocksServer$ClientHandler::doConnect($InetSocketAddress* addr) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, dest, $new($Socket));
 	try {
 		$nc(this->dest)->connect(addr, 10000);
@@ -360,6 +365,7 @@ void SocksServer$ClientHandler::doConnect($InetSocketAddress* addr) {
 }
 
 void SocksServer$ClientHandler::doBind($InetSocketAddress* addr) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocket, svr, $new($ServerSocket));
 	svr->bind(nullptr);
 	$var($InetSocketAddress, bad, $cast($InetSocketAddress, svr->getLocalSocketAddress()));
@@ -403,6 +409,7 @@ void SocksServer$ClientHandler::doBind($InetSocketAddress* addr) {
 }
 
 void SocksServer$ClientHandler::getRequest() {
+	$useLocalCurrentObjectStackCache();
 	int32_t ver = $nc(this->in)->read();
 	int32_t cmd = $nc(this->in)->read();
 	if (ver == -1 || cmd == -1) {
@@ -466,6 +473,7 @@ void SocksServer$ClientHandler::getRequest() {
 }
 
 void SocksServer$ClientHandler::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, line, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);

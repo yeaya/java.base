@@ -103,6 +103,7 @@ void BuiltinClassLoader$2::init$($BuiltinClassLoader* this$0, $String* val$name)
 }
 
 $Object* BuiltinClassLoader$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, result, nullptr);
 	{
 		$var($Iterator, i$, $nc($($nc(this->this$0->nameToModule)->values()))->iterator());

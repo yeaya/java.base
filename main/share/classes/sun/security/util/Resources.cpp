@@ -56,6 +56,7 @@ $ObjectArray2* Resources::getContents() {
 }
 
 void clinit$Resources($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Resources::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.s."_s),

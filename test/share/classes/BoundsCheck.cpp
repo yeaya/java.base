@@ -45,6 +45,7 @@ void BoundsCheck::init$() {
 }
 
 void BoundsCheck::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	$var($OutputStreamWriter, osw, $new($OutputStreamWriter, bos));
 	$var($String, data, "Data to be written"_s);

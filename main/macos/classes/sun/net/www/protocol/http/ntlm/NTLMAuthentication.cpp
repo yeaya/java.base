@@ -158,6 +158,7 @@ void NTLMAuthentication::init$(bool isProxy, $URL* url, $PasswordAuthentication*
 }
 
 void NTLMAuthentication::init($PasswordAuthentication* pw) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, username, nullptr);
 	$var($String, ntdomain, nullptr);
 	$var($chars, password, nullptr);
@@ -211,6 +212,7 @@ bool NTLMAuthentication::isAuthorizationStale($String* header) {
 }
 
 bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
+	$useLocalCurrentObjectStackCache();
 	if (!NTLMAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -235,12 +237,14 @@ bool NTLMAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, 
 }
 
 $String* NTLMAuthentication::buildType1Msg() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, msg, $nc(this->client)->type1());
 	$var($String, result, $str({"NTLM "_s, $($nc($($Base64::getEncoder()))->encodeToString(msg))}));
 	return result;
 }
 
 $String* NTLMAuthentication::buildType3Msg($String* challenge) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, type2, $nc($($Base64::getDecoder()))->decode(challenge));
 	$var($bytes, nonce, $new($bytes, 8));
 	$$new($Random)->nextBytes(nonce);
@@ -250,6 +254,7 @@ $String* NTLMAuthentication::buildType3Msg($String* challenge) {
 }
 
 void clinit$NTLMAuthentication($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	NTLMAuthentication::$assertionsDisabled = !NTLMAuthentication::class$->desiredAssertionStatus();
 	$assignStatic(NTLMAuthentication::NTLMAuthCallback, $NTLMAuthenticationCallback::getNTLMAuthenticationCallback());
 	{

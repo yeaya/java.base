@@ -106,6 +106,7 @@ bool DerIndefLenConverter::isIndefinite(int32_t lengthByte) {
 }
 
 void DerIndefLenConverter::parseTag() {
+	$useLocalCurrentObjectStackCache();
 	if (isEOC($nc(this->data)->get(this->dataPos)) && ($nc(this->data)->get(this->dataPos + 1) == 0)) {
 		int32_t numOfEncapsulatedLenBytes = 0;
 		$var($Object, elem, nullptr);
@@ -322,6 +323,7 @@ $bytes* DerIndefLenConverter::convertBytes($bytes* indefData) {
 }
 
 $bytes* DerIndefLenConverter::convertStream($InputStream* in, int8_t tag) {
+	$useLocalCurrentObjectStackCache();
 	int32_t offset = 2;
 	int32_t readLen = $nc(in)->available();
 	$var($bytes, indefData, $new($bytes, readLen + offset));

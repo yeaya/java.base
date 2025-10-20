@@ -137,6 +137,7 @@ void ManifestEntryVerifier::init$($Manifest* man) {
 }
 
 void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->digests)->clear();
 	$nc(this->manifestHashes)->clear();
 	$set(this, name, name);
@@ -188,6 +189,7 @@ void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
 }
 
 void ManifestEntryVerifier::update(int8_t buffer) {
+	$useLocalCurrentObjectStackCache();
 	if (this->skip) {
 		return;
 	}
@@ -197,6 +199,7 @@ void ManifestEntryVerifier::update(int8_t buffer) {
 }
 
 void ManifestEntryVerifier::update($bytes* buffer, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (this->skip) {
 		return;
 	}
@@ -210,6 +213,7 @@ $JarEntry* ManifestEntryVerifier::getEntry() {
 }
 
 $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Hashtable* sigFileSigners) {
+	$useLocalCurrentObjectStackCache();
 	if (this->skip) {
 		return nullptr;
 	}
@@ -255,6 +259,7 @@ $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Ha
 }
 
 $JarConstraintsParameters* ManifestEntryVerifier::getParams($Map* verifiedSigners, $Map* sigFileSigners) {
+	$useLocalCurrentObjectStackCache();
 	$init($JarFile);
 	if ($nc(verifiedSigners)->containsKey($JarFile::MANIFEST_NAME)) {
 		if (verifiedSigners->size() > 1) {

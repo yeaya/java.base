@@ -90,6 +90,7 @@ void Spliterators$AbstractDoubleSpliterator::init$(int64_t est, int32_t addition
 }
 
 $Spliterator$OfDouble* Spliterators$AbstractDoubleSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, holder, $new($Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer));
 	int64_t s = this->est;
 	if (s > 1 && tryAdvance(static_cast<$DoubleConsumer*>(holder))) {

@@ -64,6 +64,7 @@ void ECPointFormatsExtension$ECPointFormatsStringizer::init$() {
 }
 
 $String* ECPointFormatsExtension$ECPointFormatsStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($ECPointFormatsExtension$ECPointFormatsSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

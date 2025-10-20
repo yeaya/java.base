@@ -176,6 +176,7 @@ System$LoggerFinder* System$LoggerFinder::getLoggerFinder() {
 
 System$LoggerFinder* System$LoggerFinder::accessProvider() {
 	$init(System$LoggerFinder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (System$LoggerFinder::service == nullptr) {
 		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(System$LoggerFinder$$Lambda$lambda$accessProvider$0)));

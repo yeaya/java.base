@@ -54,6 +54,7 @@ void Send12k::init$() {
 }
 
 void Send12k::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t SEND_SIZE = 0;
 	if ($nc($($System::getProperty("os.name"_s)))->contains("Mac"_s)) {
 		SEND_SIZE = 16 * 576;

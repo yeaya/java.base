@@ -804,6 +804,7 @@ void CompactNumberFormat::init$($String* decimalPattern, $DecimalFormatSymbols* 
 }
 
 $StringBuffer* CompactNumberFormat::format(Object$* number, $StringBuffer* toAppendTo, $FieldPosition* fieldPosition) {
+	$useLocalCurrentObjectStackCache();
 	if (number == nullptr) {
 		$throwNew($IllegalArgumentException, "Cannot format null as a number"_s);
 	}
@@ -827,6 +828,7 @@ $StringBuffer* CompactNumberFormat::format(double number, $StringBuffer* result,
 }
 
 $StringBuffer* CompactNumberFormat::format(double number, $StringBuffer* result, $Format$FieldDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	bool nanOrInfinity = $nc(this->decimalFormat)->handleNaN(number, result, delegate);
 	if (nanOrInfinity) {
 		return result;
@@ -880,6 +882,7 @@ $StringBuffer* CompactNumberFormat::format(int64_t number, $StringBuffer* result
 }
 
 $StringBuffer* CompactNumberFormat::format(int64_t number, $StringBuffer* result, $Format$FieldDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	bool isNegative = (number < 0);
 	if (isNegative) {
 		number = -number;
@@ -942,6 +945,7 @@ $StringBuffer* CompactNumberFormat::format($BigDecimal* number, $StringBuffer* r
 }
 
 $StringBuffer* CompactNumberFormat::format($BigDecimal* number$renamed, $StringBuffer* result, $Format$FieldDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigDecimal, number, number$renamed);
 	bool isNegative = $nc(number)->signum() == -1;
 	if (isNegative) {
@@ -997,6 +1001,7 @@ $StringBuffer* CompactNumberFormat::format($BigInteger* number, $StringBuffer* r
 }
 
 $StringBuffer* CompactNumberFormat::format($BigInteger* number$renamed, $StringBuffer* result, $Format$FieldDelegate* delegate, bool formatLong) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, number, number$renamed);
 	bool isNegative = $nc(number)->signum() == -1;
 	if (isNegative) {
@@ -1053,6 +1058,7 @@ $String* CompactNumberFormat::getAffix(bool isExpanded, bool isPrefix, bool isNe
 }
 
 void CompactNumberFormat::appendPrefix($StringBuffer* result, $String* prefix, $Format$FieldDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, var$0, result);
 	$var($String, var$1, expandAffix(prefix));
 	$var($Format$FieldDelegate, var$2, delegate);
@@ -1061,6 +1067,7 @@ void CompactNumberFormat::appendPrefix($StringBuffer* result, $String* prefix, $
 }
 
 void CompactNumberFormat::appendSuffix($StringBuffer* result, $String* suffix, $Format$FieldDelegate* delegate) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, var$0, result);
 	$var($String, var$1, expandAffix(suffix));
 	$var($Format$FieldDelegate, var$2, delegate);
@@ -1069,6 +1076,7 @@ void CompactNumberFormat::appendSuffix($StringBuffer* result, $String* suffix, $
 }
 
 void CompactNumberFormat::append($StringBuffer* result, $String* string, $Format$FieldDelegate* delegate, $List* positions) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(string)->isEmpty()) {
 		int32_t start = $nc(result)->length();
 		result->append(string);
@@ -1089,6 +1097,7 @@ void CompactNumberFormat::append($StringBuffer* result, $String* string, $Format
 }
 
 $String* CompactNumberFormat::expandAffix($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(pattern)->indexOf((int32_t)CompactNumberFormat::QUOTE) < 0) {
 		return pattern;
 	}
@@ -1108,6 +1117,7 @@ $String* CompactNumberFormat::expandAffix($String* pattern) {
 }
 
 $List* CompactNumberFormat::getFieldPositions($String* pattern, $NumberFormat$Field* field) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, positions, $new($ArrayList));
 	$var($StringBuilder, affix, $new($StringBuilder));
 	int32_t stringIndex = 0;
@@ -1149,6 +1159,7 @@ int32_t CompactNumberFormat::selectCompactPattern(int64_t number) {
 }
 
 int32_t CompactNumberFormat::selectCompactPattern($BigInteger* number) {
+	$useLocalCurrentObjectStackCache();
 	int32_t matchedIndex = -1;
 	if ($nc(this->compactPatterns)->length == 0) {
 		return matchedIndex;
@@ -1172,6 +1183,7 @@ int32_t CompactNumberFormat::selectCompactPattern($BigInteger* number) {
 }
 
 $AttributedCharacterIterator* CompactNumberFormat::formatToCharacterIterator(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharacterIteratorFieldDelegate, delegate, $new($CharacterIteratorFieldDelegate));
 	$var($StringBuffer, sb, $new($StringBuffer));
 	if ($instanceOf($Double, obj) || $instanceOf($Float, obj)) {
@@ -1191,6 +1203,7 @@ $AttributedCharacterIterator* CompactNumberFormat::formatToCharacterIterator(Obj
 }
 
 $Number* CompactNumberFormat::computeDivisor($String* minIntDigits, int32_t patternIndex) {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = $nc(minIntDigits)->length();
 	$var($Number, matchedValue, nullptr);
 	if (patternIndex < 19) {
@@ -1225,6 +1238,7 @@ $Number* CompactNumberFormat::computeDivisor($String* minIntDigits, int32_t patt
 }
 
 void CompactNumberFormat::processCompactPatterns() {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(this->compactPatterns)->length;
 	$set(this, positivePrefixPatterns, $new($ArrayList, size));
 	$set(this, negativePrefixPatterns, $new($ArrayList, size));
@@ -1252,6 +1266,7 @@ void CompactNumberFormat::processCompactPatterns() {
 }
 
 $Map* CompactNumberFormat::buildPluralRulesMap() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->pluralRules)->length() > 2048) {
 		$throwNew($IllegalArgumentException, "plural rules is too long (> 2,048)"_s);
 	}
@@ -1266,6 +1281,7 @@ $Map* CompactNumberFormat::buildPluralRulesMap() {
 }
 
 $String* CompactNumberFormat::validateRule($String* rule$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, rule, rule$renamed);
 	$assign(rule, $nc(rule)->trim());
 	bool var$0 = !rule->isEmpty();
@@ -1279,6 +1295,7 @@ $String* CompactNumberFormat::validateRule($String* rule$renamed) {
 }
 
 void CompactNumberFormat::applyPattern($String* count, $String* pattern, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	if (pattern == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"A null compact pattern encountered at index: "_s, $$str(index)}));
 	}
@@ -1442,6 +1459,7 @@ void CompactNumberFormat::applyPattern($String* count, $String* pattern, int32_t
 }
 
 void CompactNumberFormat::expandAffixPatterns() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, positivePrefixes, $new($ArrayList, $nc(this->compactPatterns)->length));
 	$set(this, negativePrefixes, $new($ArrayList, $nc(this->compactPatterns)->length));
 	$set(this, positiveSuffixes, $new($ArrayList, $nc(this->compactPatterns)->length));
@@ -1455,6 +1473,7 @@ void CompactNumberFormat::expandAffixPatterns() {
 }
 
 $Number* CompactNumberFormat::parse($String* text, $ParsePosition* pos) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(text);
 	$Objects::requireNonNull(pos);
 	if (this->positivePrefixes == nullptr) {
@@ -1591,6 +1610,7 @@ $Number* CompactNumberFormat::parse($String* text, $ParsePosition* pos) {
 }
 
 double CompactNumberFormat::parseNumberPart($String* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(text)->startsWith($($nc(this->symbols)->getInfinity()), position)) {
 		$init($Double);
 		return $Double::POSITIVE_INFINITY;
@@ -1611,6 +1631,7 @@ double CompactNumberFormat::parseNumberPart($String* text, int32_t position) {
 }
 
 $Number* CompactNumberFormat::generateParseResult($Number* number, bool gotDouble, bool gotLongMin, $booleans* status, $Number* cnfMultiplier) {
+	$useLocalCurrentObjectStackCache();
 	if (gotDouble) {
 		if ($nc(cnfMultiplier)->longValue() != (int64_t)1) {
 			double var$0 = $nc(number)->doubleValue();
@@ -1672,6 +1693,7 @@ bool CompactNumberFormat::matchPrefixAndSuffix($String* text, int32_t position, 
 }
 
 $Number* CompactNumberFormat::computeParseMultiplier($String* text, $ParsePosition* parsePosition, $String* matchedPrefix, $booleans* status, bool gotPositive, bool gotNegative, double num) {
+	$useLocalCurrentObjectStackCache();
 	int32_t position = $nc(parsePosition)->index;
 	bool gotPos = false;
 	bool gotNeg = false;
@@ -1754,6 +1776,7 @@ $Number* CompactNumberFormat::computeParseMultiplier($String* text, $ParsePositi
 }
 
 void CompactNumberFormat::readObject($ObjectInputStream* inStream) {
+	$useLocalCurrentObjectStackCache();
 	$nc(inStream)->defaultReadObject();
 	if (this->decimalPattern == nullptr || this->compactPatterns == nullptr || this->symbols == nullptr || this->roundingMode == nullptr) {
 		$throwNew($InvalidObjectException, "One of the \'decimalPattern\', \'compactPatterns\', \'symbols\' or \'roundingMode\' is null"_s);
@@ -1911,10 +1934,12 @@ $Object* CompactNumberFormat::clone() {
 }
 
 int32_t CompactNumberFormat::getIntegerPart(double number, double divisor) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($BigDecimal::valueOf(number)))->divide($($BigDecimal::valueOf(divisor)), this->roundingMode)))->intValue();
 }
 
 $String* CompactNumberFormat::getPluralCategory(double input) {
+	$useLocalCurrentObjectStackCache();
 	if (this->rulesMap != nullptr) {
 		return $cast($String, $nc($($nc($($nc($($nc($($nc($($nc(this->rulesMap)->entrySet()))->stream()))->filter(static_cast<$Predicate*>($$new(CompactNumberFormat$$Lambda$lambda$getPluralCategory$3$6, input)))))->map(static_cast<$Function*>($$new(CompactNumberFormat$$Lambda$getKey$7)))))->findFirst()))->orElse("other"_s));
 	}
@@ -1923,11 +1948,13 @@ $String* CompactNumberFormat::getPluralCategory(double input) {
 
 bool CompactNumberFormat::matchPluralRule($String* condition, double input) {
 	$init(CompactNumberFormat);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($Arrays::stream($($nc(condition)->split("or"_s)))))->anyMatch(static_cast<$Predicate*>($$new(CompactNumberFormat$$Lambda$lambda$matchPluralRule$5$8, input)));
 }
 
 bool CompactNumberFormat::valOrRangeMatches($String* valueOrRange, double input) {
 	$init(CompactNumberFormat);
+	$useLocalCurrentObjectStackCache();
 	$var($Matcher, m, $nc(CompactNumberFormat::VALUE_RANGE_PATTERN)->matcher(valueOrRange));
 	if ($nc(m)->find()) {
 		$var($String, value, m->group("value"_s));
@@ -1943,6 +1970,7 @@ bool CompactNumberFormat::valOrRangeMatches($String* valueOrRange, double input)
 
 bool CompactNumberFormat::relationCheck($String* relation, double input) {
 	$init(CompactNumberFormat);
+	$useLocalCurrentObjectStackCache();
 	$var($Matcher, expr, $nc(CompactNumberFormat::EXPR_PATTERN)->matcher(relation));
 	if ($nc(expr)->find()) {
 		double lop = evalLOperand(expr, input);
@@ -1961,6 +1989,7 @@ bool CompactNumberFormat::relationCheck($String* relation, double input) {
 
 double CompactNumberFormat::evalLOperand($Matcher* expr, double input) {
 	$init(CompactNumberFormat);
+	$useLocalCurrentObjectStackCache();
 	double ret = (double)0;
 	$init($Double);
 	if (input == $Double::POSITIVE_INFINITY) {
@@ -2018,6 +2047,7 @@ bool CompactNumberFormat::lambda$relationCheck$6(double lop, $String* c) {
 
 bool CompactNumberFormat::lambda$matchPluralRule$5(double input, $String* and_condition) {
 	$init(CompactNumberFormat);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($Arrays::stream($($nc(and_condition)->split("and"_s)))))->allMatch(static_cast<$Predicate*>($$new(CompactNumberFormat$$Lambda$lambda$matchPluralRule$4$10, input)));
 }
 
@@ -2042,6 +2072,7 @@ $String* CompactNumberFormat::lambda$buildPluralRulesMap$1($String* r) {
 }
 
 void CompactNumberFormat::lambda$processCompactPatterns$0(int32_t idx, $MatchResult* mr) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(mr)->group(1));
 	applyPattern(var$0, $(mr->group(2)), idx);
 }

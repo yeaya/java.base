@@ -625,6 +625,7 @@ void ReferencePipeline::forEachOrdered($Consumer* action) {
 }
 
 $ObjectArray* ReferencePipeline::toArray($IntFunction* generator) {
+	$useLocalCurrentObjectStackCache();
 	$var($IntFunction, rawGenerator, generator);
 	return $nc($($Nodes::flatten($(evaluateToArrayNode(rawGenerator)), rawGenerator)))->asArray(rawGenerator);
 }
@@ -634,20 +635,24 @@ $ObjectArray* ReferencePipeline::toArray() {
 }
 
 $List* ReferencePipeline::toList() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($SharedSecrets::getJavaUtilCollectionAccess()))->listFromTrustedArrayNullsAllowed($(this->toArray()));
 }
 
 bool ReferencePipeline::anyMatch($Predicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::ANY)))))))->booleanValue();
 }
 
 bool ReferencePipeline::allMatch($Predicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::ALL)))))))->booleanValue();
 }
 
 bool ReferencePipeline::noneMatch($Predicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$init($MatchOps$MatchKind);
 	return $nc(($cast($Boolean, $(evaluate($($MatchOps::makeRef(predicate, $MatchOps$MatchKind::NONE)))))))->booleanValue();
 }
@@ -673,6 +678,7 @@ $Object* ReferencePipeline::reduce(Object$* identity, $BiFunction* accumulator, 
 }
 
 $Object* ReferencePipeline::collect($Collector* collector) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, container, nullptr);
 	bool var$1 = isParallel();
 	$init($Collector$Characteristics);
@@ -704,6 +710,7 @@ $Optional* ReferencePipeline::min($Comparator* comparator) {
 }
 
 int64_t ReferencePipeline::count() {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($Long, $(evaluate($($ReduceOps::makeRefCounting()))))))->longValue();
 }
 

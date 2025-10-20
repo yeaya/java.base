@@ -251,6 +251,7 @@ int64_t VarHandleByteArrayAsChars$ArrayHandle::address($bytes* ba, int32_t index
 
 char16_t VarHandleByteArrayAsChars$ArrayHandle::get($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -260,6 +261,7 @@ char16_t VarHandleByteArrayAsChars$ArrayHandle::get($VarHandle* ob, Object$* oba
 
 void VarHandleByteArrayAsChars$ArrayHandle::set($VarHandle* ob, Object$* oba, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -269,6 +271,7 @@ void VarHandleByteArrayAsChars$ArrayHandle::set($VarHandle* ob, Object$* oba, in
 
 char16_t VarHandleByteArrayAsChars$ArrayHandle::getVolatile($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -277,6 +280,7 @@ char16_t VarHandleByteArrayAsChars$ArrayHandle::getVolatile($VarHandle* ob, Obje
 
 void VarHandleByteArrayAsChars$ArrayHandle::setVolatile($VarHandle* ob, Object$* oba, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -287,6 +291,7 @@ void VarHandleByteArrayAsChars$ArrayHandle::setVolatile($VarHandle* ob, Object$*
 
 char16_t VarHandleByteArrayAsChars$ArrayHandle::getAcquire($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -295,6 +300,7 @@ char16_t VarHandleByteArrayAsChars$ArrayHandle::getAcquire($VarHandle* ob, Objec
 
 void VarHandleByteArrayAsChars$ArrayHandle::setRelease($VarHandle* ob, Object$* oba, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -305,6 +311,7 @@ void VarHandleByteArrayAsChars$ArrayHandle::setRelease($VarHandle* ob, Object$* 
 
 char16_t VarHandleByteArrayAsChars$ArrayHandle::getOpaque($VarHandle* ob, Object$* oba, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -313,6 +320,7 @@ char16_t VarHandleByteArrayAsChars$ArrayHandle::getOpaque($VarHandle* ob, Object
 
 void VarHandleByteArrayAsChars$ArrayHandle::setOpaque($VarHandle* ob, Object$* oba, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ArrayHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ArrayHandle, handle, $cast(VarHandleByteArrayAsChars$ArrayHandle, ob));
 	$var($bytes, ba, $cast($bytes, oba));
 	$init($MethodHandleStatics);
@@ -322,6 +330,7 @@ void VarHandleByteArrayAsChars$ArrayHandle::setOpaque($VarHandle* ob, Object$* o
 }
 
 void clinit$VarHandleByteArrayAsChars$ArrayHandle($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(VarHandleByteArrayAsChars$ArrayHandle::OOBEF, $Preconditions::outOfBoundsExceptionFormatter(static_cast<$Function*>($$new(VarHandleByteArrayAsChars$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException))));
 	$load($bytes);
 	$init($Character);

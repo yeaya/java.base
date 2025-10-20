@@ -41,6 +41,7 @@ void ReadToArray::init$() {
 }
 
 void ReadToArray::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedWriter, pw, $new($PipedWriter));
 	$var($PipedReader, pr, $new($PipedReader, pw));
 	$var($chars, cbuf, $new($chars, {

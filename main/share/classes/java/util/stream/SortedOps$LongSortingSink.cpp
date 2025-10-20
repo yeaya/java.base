@@ -92,6 +92,7 @@ void SortedOps$LongSortingSink::begin(int64_t size) {
 }
 
 void SortedOps$LongSortingSink::end() {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, longs, $cast($longs, $nc(this->b)->asPrimitiveArray()));
 	$Arrays::sort(longs);
 	$nc(this->downstream)->begin($nc(longs)->length);

@@ -123,6 +123,7 @@ void Connect$Initiator::init$($SocketAddress* peerSocketAddress) {
 }
 
 void Connect$Initiator::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

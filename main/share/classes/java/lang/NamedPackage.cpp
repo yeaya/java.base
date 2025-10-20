@@ -80,6 +80,7 @@ $Module* NamedPackage::module() {
 }
 
 $URI* NamedPackage::location() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(this->module$)->isNamed();
 	if (var$0 && $nc(this->module$)->getLayer() != nullptr) {
 		$var($Configuration, cf, $nc($($nc(this->module$)->getLayer()))->configuration());

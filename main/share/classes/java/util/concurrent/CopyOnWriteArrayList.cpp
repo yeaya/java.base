@@ -427,6 +427,7 @@ int32_t CopyOnWriteArrayList::lastIndexOf(Object$* e, int32_t index) {
 }
 
 $Object* CopyOnWriteArrayList::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(CopyOnWriteArrayList, clone, $cast(CopyOnWriteArrayList, $List::clone()));
 		$nc(clone)->resetLock();
@@ -464,6 +465,7 @@ $Object* CopyOnWriteArrayList::elementAt($ObjectArray* a, int32_t index) {
 
 $String* CopyOnWriteArrayList::outOfBounds(int32_t index, int32_t size) {
 	$init(CopyOnWriteArrayList);
+	$useLocalCurrentObjectStackCache();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(size)});
 }
 
@@ -472,6 +474,7 @@ $Object* CopyOnWriteArrayList::get(int32_t index) {
 }
 
 $Object* CopyOnWriteArrayList::set(int32_t index, Object$* element) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($ObjectArray, es, getArray());
 		$var($Object, oldValue, elementAt(es, index));
@@ -496,6 +499,7 @@ bool CopyOnWriteArrayList::add(Object$* e) {
 }
 
 void CopyOnWriteArrayList::add(int32_t index, Object$* element) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($ObjectArray, es, getArray());
 		int32_t len = $nc(es)->length;
@@ -517,6 +521,7 @@ void CopyOnWriteArrayList::add(int32_t index, Object$* element) {
 }
 
 $Object* CopyOnWriteArrayList::remove(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($ObjectArray, es, getArray());
 		int32_t len = $nc(es)->length;
@@ -542,6 +547,7 @@ bool CopyOnWriteArrayList::remove(Object$* o) {
 }
 
 bool CopyOnWriteArrayList::remove(Object$* o, $ObjectArray* snapshot, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($ObjectArray, current, getArray());
 		int32_t len = $nc(current)->length;
@@ -584,6 +590,7 @@ bool CopyOnWriteArrayList::remove(Object$* o, $ObjectArray* snapshot, int32_t in
 }
 
 void CopyOnWriteArrayList::removeRange(int32_t fromIndex, int32_t toIndex) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($ObjectArray, es, getArray());
 		int32_t len = $nc(es)->length;
@@ -610,6 +617,7 @@ bool CopyOnWriteArrayList::addIfAbsent(Object$* e) {
 }
 
 bool CopyOnWriteArrayList::addIfAbsent(Object$* e, $ObjectArray* snapshot) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		$var($ObjectArray, current, getArray());
 		int32_t len = $nc(current)->length;
@@ -632,6 +640,7 @@ bool CopyOnWriteArrayList::addIfAbsent(Object$* e, $ObjectArray* snapshot) {
 }
 
 bool CopyOnWriteArrayList::containsAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, getArray());
 	int32_t len = $nc(es)->length;
 	{
@@ -659,6 +668,7 @@ bool CopyOnWriteArrayList::retainAll($Collection* c) {
 }
 
 int32_t CopyOnWriteArrayList::addAllAbsent($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, cs, $nc(c)->toArray());
 	$load($ArrayList);
 	if ($of(c)->getClass() != $ArrayList::class$) {
@@ -694,6 +704,7 @@ void CopyOnWriteArrayList::clear() {
 }
 
 bool CopyOnWriteArrayList::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, cs, ($nc($of(c))->getClass() == CopyOnWriteArrayList::class$) ? $nc(($cast(CopyOnWriteArrayList, c)))->getArray() : $nc(c)->toArray());
 	if ($nc(cs)->length == 0) {
 		return false;
@@ -720,6 +731,7 @@ bool CopyOnWriteArrayList::addAll($Collection* c) {
 }
 
 bool CopyOnWriteArrayList::addAll(int32_t index, $Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, cs, $nc(c)->toArray());
 	$synchronized(this->lock) {
 		$var($ObjectArray, es, getArray());
@@ -746,6 +758,7 @@ bool CopyOnWriteArrayList::addAll(int32_t index, $Collection* c) {
 }
 
 void CopyOnWriteArrayList::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	{
 		$var($ObjectArray, arr$, getArray());
@@ -788,6 +801,7 @@ bool CopyOnWriteArrayList::bulkRemove($Predicate* filter) {
 }
 
 bool CopyOnWriteArrayList::bulkRemove($Predicate* filter, int32_t i, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, getArray());
 	for (; i < end && !$nc(filter)->test($(elementAt(es, i))); ++i) {
 	}
@@ -830,6 +844,7 @@ void CopyOnWriteArrayList::replaceAll($UnaryOperator* operator$) {
 }
 
 void CopyOnWriteArrayList::replaceAllRange($UnaryOperator* operator$, int32_t i, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(operator$);
 	$var($ObjectArray, es, $cast($ObjectArray, $nc($(getArray()))->clone()));
 	for (; i < end; ++i) {
@@ -845,12 +860,14 @@ void CopyOnWriteArrayList::sort($Comparator* c) {
 }
 
 void CopyOnWriteArrayList::sortRange($Comparator* c, int32_t i, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, $cast($ObjectArray, $nc($(getArray()))->clone()));
 	$Arrays::sort(es, i, end, c);
 	setArray(es);
 }
 
 void CopyOnWriteArrayList::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	$var($ObjectArray, es, getArray());
 	s->writeInt($nc(es)->length);
@@ -866,6 +883,7 @@ void CopyOnWriteArrayList::writeObject($ObjectOutputStream* s) {
 }
 
 void CopyOnWriteArrayList::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	resetLock();
 	int32_t len = s->readInt();
@@ -883,6 +901,7 @@ $String* CopyOnWriteArrayList::toString() {
 }
 
 bool CopyOnWriteArrayList::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -908,6 +927,7 @@ bool CopyOnWriteArrayList::equals(Object$* o) {
 
 int32_t CopyOnWriteArrayList::hashCodeOfRange($ObjectArray* es, int32_t from, int32_t to) {
 	$init(CopyOnWriteArrayList);
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = 1;
 	for (int32_t i = from; i < to; ++i) {
 		$var($Object0, x, $nc(es)->get(i));
@@ -930,6 +950,7 @@ $ListIterator* CopyOnWriteArrayList::listIterator() {
 }
 
 $ListIterator* CopyOnWriteArrayList::listIterator(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, getArray());
 	int32_t len = $nc(es)->length;
 	if (index < 0 || index > len) {
@@ -955,6 +976,7 @@ $List* CopyOnWriteArrayList::subList(int32_t fromIndex, int32_t toIndex) {
 }
 
 void CopyOnWriteArrayList::resetLock() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Field, lockField, $cast($Field, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(CopyOnWriteArrayList$$Lambda$lambda$resetLock$2$2)))));
 	try {
@@ -967,6 +989,7 @@ void CopyOnWriteArrayList::resetLock() {
 
 $Field* CopyOnWriteArrayList::lambda$resetLock$2() {
 	$init(CopyOnWriteArrayList);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, CopyOnWriteArrayList::class$->getDeclaredField("lock"_s));

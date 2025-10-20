@@ -342,6 +342,7 @@ bool CDS::isValidMethodType($String* type) {
 
 void CDS::validateInputLines($StringArray* lines) {
 	$init(CDS);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, lines);
 		int32_t len$ = $nc(arr$)->length;
@@ -375,6 +376,7 @@ void CDS::validateInputLines($StringArray* lines) {
 
 $ObjectArray* CDS::generateLambdaFormHolderClasses($StringArray* lines) {
 	$init(CDS);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(lines);
 	validateInputLines(lines);
 	$var($Stream, lineStream, $Arrays::stream(lines));
@@ -411,6 +413,7 @@ void CDS::dumpDynamicArchive($String* archiveFileName) {
 
 $String* CDS::drainOutput($InputStream* stream, int64_t pid, $String* tail, $List* cmds) {
 	$init(CDS);
+	$useLocalCurrentObjectStackCache();
 	$var($String, fileName, $str({"java_pid"_s, $$str(pid), "_"_s, tail}));
 	$$new($Thread, static_cast<$Runnable*>($$new(CDS$$Lambda$lambda$drainOutput$0, stream, fileName, cmds)))->start();
 	return fileName;
@@ -418,6 +421,7 @@ $String* CDS::drainOutput($InputStream* stream, int64_t pid, $String* tail, $Lis
 
 bool CDS::containsExcludedFlags($String* testStr) {
 	$init(CDS);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, CDS::excludeFlags);
 		int32_t len$ = $nc(arr$)->length;
@@ -436,6 +440,7 @@ bool CDS::containsExcludedFlags($String* testStr) {
 
 void CDS::dumpSharedArchive(bool isStatic, $String* fileName) {
 	$init(CDS);
+	$useLocalCurrentObjectStackCache();
 	$var($String, currentPid, $String::valueOf($nc($($ProcessHandle::current()))->pid()));
 	$var($String, archiveFileName, fileName != nullptr ? fileName : $str({"java_pid"_s, currentPid, (isStatic ? "_static.jsa"_s : "_dynamic.jsa"_s)}));
 	$var($String, tempArchiveFileName, $str({archiveFileName, ".temp"_s}));
@@ -506,6 +511,7 @@ void CDS::dumpSharedArchive(bool isStatic, $String* fileName) {
 
 void CDS::lambda$drainOutput$0($InputStream* stream, $String* fileName, $List* cmds) {
 	$init(CDS);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InputStreamReader, isr, $new($InputStreamReader, stream));
 		{

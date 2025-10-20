@@ -112,6 +112,7 @@ void SessionTicketExtension$T12CHSessionTicketProducer::init$() {
 }
 
 $bytes* SessionTicketExtension$T12CHSessionTicketProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	if (!$nc(($cast($SSLSessionContextImpl, $($nc($nc(chc)->sslContext)->engineGetClientSessionContext()))))->statelessEnabled()) {
 		$init($SSLLogger);

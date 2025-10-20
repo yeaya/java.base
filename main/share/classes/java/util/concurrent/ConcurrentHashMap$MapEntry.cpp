@@ -95,6 +95,7 @@ $String* ConcurrentHashMap$MapEntry::toString() {
 }
 
 bool ConcurrentHashMap$MapEntry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, nullptr);
 	$var($Object, v, nullptr);
 	$var($Map$Entry, e, nullptr);

@@ -73,6 +73,7 @@ void Perf$CleanerAction::init$($Perf* perf, $ByteBuffer* bb) {
 }
 
 void Perf$CleanerAction::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->perf)->detach(this->bb);
 	} catch ($Throwable&) {

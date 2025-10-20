@@ -80,6 +80,7 @@ void SecurityRace::init$() {
 
 void SecurityRace::main($StringArray* argv) {
 	$init(SecurityRace);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	if ($nc(argv)->length > 0) {
 		if ($nc(argv->get(0))->equals("time"_s)) {
@@ -144,6 +145,7 @@ void SecurityRace::run() {
 
 void SecurityRace::timeit(int32_t timing_trials, int32_t get_timing_loops, int32_t set_timing_loops) {
 	$init(SecurityRace);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		int64_t start = 0;

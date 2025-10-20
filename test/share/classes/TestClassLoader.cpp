@@ -53,6 +53,7 @@ $Package* TestClassLoader::defineEmptyPackage($String* name) {
 }
 
 bool TestClassLoader::testPackageView($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($PackageArray, pkgs, getPackages());
 	$var($Package, pkg, getPackage(name));
 	for (int32_t i = 0; i < $nc(pkgs)->length; ++i) {

@@ -66,6 +66,7 @@ void ProcessTest::init$() {
 }
 
 void ProcessTest::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, line, nullptr);
 		$var($BufferedReader, is, $new($BufferedReader, $$new($InputStreamReader, $($nc(this->p)->getInputStream()))));

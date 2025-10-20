@@ -246,6 +246,7 @@ Throwable* Throwable::getCause() {
 
 Throwable* Throwable::initCause(Throwable* cause) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->cause != this) {
 			$throwNew($IllegalStateException, $$str({"Can\'t overwrite cause with "_s, $($Objects::toString(cause, "a null"_s))}), this);
 		}
@@ -262,6 +263,7 @@ void Throwable::setCause(Throwable* t) {
 }
 
 $String* Throwable::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $of(this)->getClass()->getName());
 	$var($String, message, getLocalizedMessage());
 	return (message != nullptr) ? ($str({s, ": "_s, message})) : s;
@@ -277,6 +279,7 @@ void Throwable::printStackTrace($PrintStream* s) {
 }
 
 void Throwable::printStackTrace($Throwable$PrintStreamOrWriter* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, dejaVu, $Collections::newSetFromMap($$new($IdentityHashMap)));
 	$nc(dejaVu)->add(this);
 	$synchronized($nc(s)->lock()) {
@@ -308,6 +311,7 @@ void Throwable::printStackTrace($Throwable$PrintStreamOrWriter* s) {
 }
 
 void Throwable::printEnclosedStackTrace($Throwable$PrintStreamOrWriter* s, $StackTraceElementArray* enclosingTrace, $String* caption, $String* prefix, $Set* dejaVu) {
+	$useLocalCurrentObjectStackCache();
 	if (!Throwable::$assertionsDisabled && !$Thread::holdsLock($($nc(s)->lock()))) {
 		$throwNew($AssertionError);
 	}
@@ -381,6 +385,7 @@ $StackTraceElementArray* Throwable::getOurStackTrace() {
 }
 
 void Throwable::setStackTrace($StackTraceElementArray* stackTrace) {
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElementArray, defensiveCopy, $cast($StackTraceElementArray, $nc(stackTrace)->clone()));
 	for (int32_t i = 0; i < defensiveCopy->length; ++i) {
 		if (defensiveCopy->get(i) == nullptr) {
@@ -396,6 +401,7 @@ void Throwable::setStackTrace($StackTraceElementArray* stackTrace) {
 }
 
 void Throwable::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	$var($List, candidateSuppressedExceptions, this->suppressedExceptions);
 	$set(this, suppressedExceptions, Throwable::SUPPRESSED_SENTINEL);
@@ -448,6 +454,7 @@ void Throwable::readObject($ObjectInputStream* s) {
 }
 
 int32_t Throwable::validateSuppressedExceptionsList($List* deserSuppressedExceptions) {
+	$useLocalCurrentObjectStackCache();
 	$load($Object);
 	if (!$nc($of($($Object::class$->getModule())))->equals($($nc($of(deserSuppressedExceptions))->getClass()->getModule()))) {
 		$throwNew($StreamCorruptedException, "List implementation not in base module."_s);
@@ -462,6 +469,7 @@ int32_t Throwable::validateSuppressedExceptionsList($List* deserSuppressedExcept
 
 void Throwable::writeObject($ObjectOutputStream* s) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		getOurStackTrace();
 		$var($StackTraceElementArray, oldStackTrace, this->stackTrace);
 		{

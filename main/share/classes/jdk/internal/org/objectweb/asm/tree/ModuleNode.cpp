@@ -130,6 +130,7 @@ void ModuleNode::visitRequire($String* module, int32_t access, $String* version)
 }
 
 void ModuleNode::visitExport($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	if (this->exports == nullptr) {
 		$set(this, exports, $new($ArrayList, 5));
 	}
@@ -137,6 +138,7 @@ void ModuleNode::visitExport($String* packaze, int32_t access, $StringArray* mod
 }
 
 void ModuleNode::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
+	$useLocalCurrentObjectStackCache();
 	if (this->opens == nullptr) {
 		$set(this, opens, $new($ArrayList, 5));
 	}
@@ -151,6 +153,7 @@ void ModuleNode::visitUse($String* service) {
 }
 
 void ModuleNode::visitProvide($String* service, $StringArray* providers) {
+	$useLocalCurrentObjectStackCache();
 	if (this->provides == nullptr) {
 		$set(this, provides, $new($ArrayList, 5));
 	}
@@ -161,6 +164,7 @@ void ModuleNode::visitEnd() {
 }
 
 void ModuleNode::accept($ClassVisitor* classVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleVisitor, moduleVisitor, $nc(classVisitor)->visitModule(this->name, this->access, this->version));
 	if (moduleVisitor == nullptr) {
 		return;

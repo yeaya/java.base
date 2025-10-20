@@ -72,6 +72,7 @@ void CompletableFuture$BiRun::init$($Executor* executor, $CompletableFuture* dep
 }
 
 $CompletableFuture* CompletableFuture$BiRun::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);

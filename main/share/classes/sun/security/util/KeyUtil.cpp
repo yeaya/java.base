@@ -106,6 +106,7 @@ void KeyUtil::init$() {
 }
 
 int32_t KeyUtil::getKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = -1;
 	if ($instanceOf($Length, key)) {
 		try {
@@ -174,6 +175,7 @@ int32_t KeyUtil::getKeySize($Key* key) {
 }
 
 int32_t KeyUtil::getKeySize($AlgorithmParameters* parameters) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, algorithm, $nc(parameters)->getAlgorithm());
 	{
 		$var($String, s5767$, algorithm);
@@ -264,6 +266,7 @@ bool KeyUtil::isOracleJCEProvider($String* providerName) {
 }
 
 $bytes* KeyUtil::checkTlsPreMasterSecretKey(int32_t clientVersion, int32_t serverVersion, $SecureRandom* random$renamed, $bytes* encoded$renamed, bool isFailOver) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandom, random, random$renamed);
 	$var($bytes, encoded, encoded$renamed);
 	if (random == nullptr) {
@@ -287,6 +290,7 @@ $bytes* KeyUtil::checkTlsPreMasterSecretKey(int32_t clientVersion, int32_t serve
 }
 
 void KeyUtil::validateDHPublicKey($DHPublicKey* publicKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($DHParameterSpec, paramSpec, $nc(publicKey)->getParams());
 	$var($BigInteger, p, $nc(paramSpec)->getP());
 	$var($BigInteger, g, paramSpec->getG());
@@ -295,12 +299,14 @@ void KeyUtil::validateDHPublicKey($DHPublicKey* publicKey) {
 }
 
 void KeyUtil::validateDHPublicKey($DHPublicKeySpec* publicKeySpec) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, var$0, $nc(publicKeySpec)->getP());
 	$var($BigInteger, var$1, publicKeySpec->getG());
 	validateDHPublicKey(var$0, var$1, $(publicKeySpec->getY()));
 }
 
 void KeyUtil::validateDHPublicKey($BigInteger* p, $BigInteger* g, $BigInteger* y) {
+	$useLocalCurrentObjectStackCache();
 	$init($BigInteger);
 	$var($BigInteger, leftOpen, $BigInteger::ONE);
 	$var($BigInteger, rightOpen, $nc(p)->subtract($BigInteger::ONE));

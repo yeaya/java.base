@@ -56,6 +56,7 @@ void Pem::init$() {
 }
 
 $bytes* Pem::decode($String* input) {
+	$useLocalCurrentObjectStackCache();
 	$init($StandardCharsets);
 	$var($bytes, src, $($nc(input)->replaceAll("\\s+"_s, ""_s))->getBytes($StandardCharsets::ISO_8859_1));
 	try {

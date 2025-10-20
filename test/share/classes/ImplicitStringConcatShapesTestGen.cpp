@@ -86,6 +86,7 @@ void ImplicitStringConcatShapesTestGen::init$() {
 }
 
 $String* ImplicitStringConcatShapesTestGen::escapeToUnicode($String* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, b, $new($StringBuilder));
 	{
 		$var($chars, arr$, $nc(str)->toCharArray());
@@ -106,6 +107,7 @@ $String* ImplicitStringConcatShapesTestGen::escapeToUnicode($String* str) {
 }
 
 void ImplicitStringConcatShapesTestGen::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($PrintWriter, pw, $new($PrintWriter, static_cast<$OutputStream*>($System::out)));
 	$var($StringArray, types, $new($StringArray, {
@@ -805,6 +807,7 @@ $String* ImplicitStringConcatShapesTestGen::typeValue($String* type, int32_t i) 
 }
 
 $String* ImplicitStringConcatShapesTestGen::initValue($String* type, int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s8386$, type);
 		int32_t tmp8386$ = -1;
@@ -1087,6 +1090,7 @@ $String* ImplicitStringConcatShapesTestGen::initValue($String* type, int32_t i) 
 }
 
 $String* ImplicitStringConcatShapesTestGen::stringValue($String* type, int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s10333$, type);
 		int32_t tmp10333$ = -1;

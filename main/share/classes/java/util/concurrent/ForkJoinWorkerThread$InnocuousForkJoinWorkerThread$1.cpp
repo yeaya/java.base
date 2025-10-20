@@ -65,6 +65,7 @@ void ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::init$() {
 }
 
 $Object* ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, group, $($Thread::currentThread())->getThreadGroup());
 	{
 		$var($ThreadGroup, p, nullptr);

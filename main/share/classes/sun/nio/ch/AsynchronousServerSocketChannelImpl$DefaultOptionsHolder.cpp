@@ -88,6 +88,7 @@ void AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions() {
 	$init(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet, 2));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_RCVBUF);

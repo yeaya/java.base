@@ -245,6 +245,7 @@ int32_t HashMap::hash(Object$* key) {
 
 $Class* HashMap::comparableClassFor(Object$* x) {
 	$init(HashMap);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Comparable, x)) {
 		$Class* c = nullptr;
 		$var($TypeArray, ts, nullptr);
@@ -287,6 +288,7 @@ int32_t HashMap::tableSizeFor(int32_t cap) {
 }
 
 void HashMap::init$(int32_t initialCapacity, float loadFactor) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractMap::init$();
 	if (initialCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal initial capacity: "_s, $$str(initialCapacity)}));
@@ -317,6 +319,7 @@ void HashMap::init$($Map* m) {
 }
 
 void HashMap::putMapEntries($Map* m, bool evict) {
+	$useLocalCurrentObjectStackCache();
 	int32_t s = $nc(m)->size();
 	if (s > 0) {
 		if (this->table == nullptr) {
@@ -358,6 +361,7 @@ $Object* HashMap::get(Object$* key) {
 }
 
 $HashMap$Node* HashMap::getNode(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($HashMap$Node, first, nullptr);
 	$var($HashMap$Node, e, nullptr);
@@ -403,6 +407,7 @@ $Object* HashMap::put(Object$* key, Object$* value) {
 }
 
 $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIfAbsent, bool evict) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($HashMap$Node, p, nullptr);
 	int32_t n = 0;
@@ -463,6 +468,7 @@ $Object* HashMap::putVal(int32_t hash, Object$* key, Object$* value, bool onlyIf
 }
 
 $HashMap$NodeArray* HashMap::resize() {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, oldTab, this->table);
 	int32_t oldCap = (oldTab == nullptr) ? 0 : $nc(oldTab)->length;
 	int32_t oldThr = this->threshold;
@@ -537,6 +543,7 @@ $HashMap$NodeArray* HashMap::resize() {
 }
 
 void HashMap::treeifyBin($HashMap$NodeArray* tab, int32_t hash) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	int32_t index = 0;
 	$var($HashMap$Node, e, nullptr);
@@ -571,6 +578,7 @@ $Object* HashMap::remove(Object$* key) {
 }
 
 $HashMap$Node* HashMap::removeNode(int32_t hash, Object$* key, Object$* value, bool matchValue, bool movable) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($HashMap$Node, p, nullptr);
 	int32_t n = 0;
@@ -641,6 +649,7 @@ void HashMap::clear() {
 }
 
 bool HashMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	$var($Object, v, nullptr);
 	if (($assign(tab, this->table)) != nullptr && this->size$ > 0) {
@@ -685,6 +694,7 @@ $ObjectArray* HashMap::prepareArray($ObjectArray* a) {
 }
 
 $ObjectArray* HashMap::keysToArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, r, a);
 	$var($HashMap$NodeArray, tab, nullptr);
 	int32_t idx = 0;
@@ -707,6 +717,7 @@ $ObjectArray* HashMap::keysToArray($ObjectArray* a) {
 }
 
 $ObjectArray* HashMap::valuesToArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, r, a);
 	$var($HashMap$NodeArray, tab, nullptr);
 	int32_t idx = 0;
@@ -756,6 +767,7 @@ bool HashMap::remove(Object$* key, Object$* value) {
 }
 
 bool HashMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$Node, e, nullptr);
 	$var($Object, v, nullptr);
 	bool var$0 = ($assign(e, getNode(key))) != nullptr;
@@ -772,6 +784,7 @@ bool HashMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
 }
 
 $Object* HashMap::replace(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$Node, e, nullptr);
 	if (($assign(e, getNode(key))) != nullptr) {
 		$var($Object, oldValue, $nc(e)->value);
@@ -783,6 +796,7 @@ $Object* HashMap::replace(Object$* key, Object$* value) {
 }
 
 $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (mappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -849,6 +863,7 @@ $Object* HashMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
 }
 
 $Object* HashMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -873,6 +888,7 @@ $Object* HashMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction)
 }
 
 $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -938,6 +954,7 @@ $Object* HashMap::compute(Object$* key, $BiFunction* remappingFunction) {
 }
 
 $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr || remappingFunction == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1008,6 +1025,7 @@ $Object* HashMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunc
 }
 
 void HashMap::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -1034,6 +1052,7 @@ void HashMap::forEach($BiConsumer* action) {
 }
 
 void HashMap::replaceAll($BiFunction* function) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (function == nullptr) {
 		$throwNew($NullPointerException);
@@ -1060,6 +1079,7 @@ void HashMap::replaceAll($BiFunction* function) {
 }
 
 $Object* HashMap::clone() {
+	$useLocalCurrentObjectStackCache();
 	$var(HashMap, result, nullptr);
 	try {
 		$assign(result, $cast(HashMap, $AbstractMap::clone()));
@@ -1089,6 +1109,7 @@ void HashMap::writeObject($ObjectOutputStream* s) {
 }
 
 void HashMap::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	reinitialize();
 	if (this->loadFactor$ <= 0 || $Float::isNaN(this->loadFactor$)) {
@@ -1152,6 +1173,7 @@ void HashMap::afterNodeRemoval($HashMap$Node* p) {
 }
 
 void HashMap::internalWriteEntries($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, tab, nullptr);
 	if (this->size$ > 0 && ($assign(tab, this->table)) != nullptr) {
 		{

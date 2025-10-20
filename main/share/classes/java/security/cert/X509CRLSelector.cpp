@@ -152,6 +152,7 @@ void X509CRLSelector::init$() {
 }
 
 void X509CRLSelector::setIssuers($Collection* issuers) {
+	$useLocalCurrentObjectStackCache();
 	if ((issuers == nullptr) || $nc(issuers)->isEmpty()) {
 		$set(this, issuerNames, nullptr);
 		$set(this, issuerX500Principals, nullptr);
@@ -186,10 +187,12 @@ void X509CRLSelector::addIssuer($X500Principal* issuer) {
 }
 
 void X509CRLSelector::addIssuerName($String* name) {
+	$useLocalCurrentObjectStackCache();
 	addIssuerNameInternal(name, $($$new($X500Name, name)->asX500Principal()));
 }
 
 void X509CRLSelector::addIssuerName($bytes* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $nc(name)->clone());
 	addIssuerNameInternal(var$0, $($$new($X500Name, name)->asX500Principal()));
 }
@@ -207,6 +210,7 @@ void X509CRLSelector::addIssuerNameInternal(Object$* name, $X500Principal* princ
 
 $HashSet* X509CRLSelector::cloneAndCheckIssuerNames($Collection* names) {
 	$init(X509CRLSelector);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, namesCopy, $new($HashSet));
 	$var($Iterator, i, $nc(names)->iterator());
 	while ($nc(i)->hasNext()) {
@@ -236,6 +240,7 @@ $HashSet* X509CRLSelector::cloneIssuerNames($Collection* names) {
 
 $HashSet* X509CRLSelector::parseIssuerNames($Collection* names) {
 	$init(X509CRLSelector);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, x500Principals, $new($HashSet));
 	{
 		$var($Iterator, t, $nc(names)->iterator());
@@ -316,6 +321,7 @@ $X509Certificate* X509CRLSelector::getCertificateChecking() {
 }
 
 $String* X509CRLSelector::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("X509CRLSelector: [\n"_s);
 	if (this->issuerNames != nullptr) {
@@ -342,6 +348,7 @@ $String* X509CRLSelector::toString() {
 }
 
 bool X509CRLSelector::match($CRL* crl) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509CRL, xcrl, nullptr);
 	bool var$0 = $instanceOf($X509CRL, crl);
 	if (var$0) {
@@ -434,6 +441,7 @@ bool X509CRLSelector::match($CRL* crl) {
 }
 
 $Object* X509CRLSelector::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(X509CRLSelector, copy, $cast(X509CRLSelector, $CRLSelector::clone()));
 		if (this->issuerNames != nullptr) {

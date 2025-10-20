@@ -49,6 +49,7 @@ void isSiteLocalAddress::init$() {
 }
 
 void isSiteLocalAddress::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray2, addrs, $new($StringArray2, {
 		$$new($StringArray, {
 			"9.255.255.255"_s,

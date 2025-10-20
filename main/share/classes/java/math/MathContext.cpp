@@ -110,6 +110,7 @@ void MathContext::init$(int32_t setPrecision, $RoundingMode* setRoundingMode) {
 }
 
 void MathContext::init$($String* val) {
+	$useLocalCurrentObjectStackCache();
 	bool bad = false;
 	int32_t setPrecision = 0;
 	if (val == nullptr) {
@@ -164,10 +165,12 @@ int32_t MathContext::hashCode() {
 }
 
 $String* MathContext::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"precision="_s, $$str(this->precision), " roundingMode="_s, $(this->roundingMode->toString())});
 }
 
 void MathContext::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	if (this->precision < MathContext::MIN_DIGITS) {
 		$var($String, message, "MathContext: invalid digits in stream"_s);

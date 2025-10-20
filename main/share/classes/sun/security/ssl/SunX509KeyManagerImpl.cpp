@@ -131,6 +131,7 @@ $Object* allocate$SunX509KeyManagerImpl($Class* clazz) {
 $StringArray* SunX509KeyManagerImpl::STRING0 = nullptr;
 
 void SunX509KeyManagerImpl::init$($KeyStore* ks, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$X509ExtendedKeyManager::init$();
 	$set(this, credentialsMap, $new($HashMap));
 	$set(this, serverAliasCache, $Collections::synchronizedMap($$new($HashMap)));
@@ -192,6 +193,7 @@ $PrivateKey* SunX509KeyManagerImpl::getPrivateKey($String* alias) {
 }
 
 $String* SunX509KeyManagerImpl::chooseClientAlias($StringArray* keyTypes, $PrincipalArray* issuers, $Socket* socket) {
+	$useLocalCurrentObjectStackCache();
 	if (keyTypes == nullptr) {
 		return nullptr;
 	}
@@ -244,6 +246,7 @@ $StringArray* SunX509KeyManagerImpl::getServerAliases($String* keyType, $Princip
 }
 
 $StringArray* SunX509KeyManagerImpl::getAliases($String* keyType$renamed, $PrincipalArray* issuers$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, keyType, keyType$renamed);
 	$var($PrincipalArray, issuers, issuers$renamed);
 	if (keyType == nullptr) {
@@ -318,6 +321,7 @@ $StringArray* SunX509KeyManagerImpl::getAliases($String* keyType$renamed, $Princ
 
 $X500PrincipalArray* SunX509KeyManagerImpl::convertPrincipals($PrincipalArray* principals) {
 	$init(SunX509KeyManagerImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, $nc(principals)->length));
 	for (int32_t i = 0; i < $nc(principals)->length; ++i) {
 		$var($Principal, p, principals->get(i));

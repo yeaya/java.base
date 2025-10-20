@@ -121,6 +121,7 @@ void MethodHandleConstants::init$() {
 
 void MethodHandleConstants::main($StringArray* av) {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(av)->length > 0 && $nc(av->get(0))->equals("--check-output"_s)) {
 		openBuf();
 	}
@@ -163,6 +164,7 @@ void MethodHandleConstants::main($StringArray* av) {
 
 void MethodHandleConstants::testCase($MethodHandle* mh, $Class* defc, $String* name, $Class* rtype, $ClassArray* ptypes) {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($of(mh));
 	$var($MethodType, mt, $MethodType::methodType(rtype, ptypes));
@@ -179,6 +181,7 @@ void MethodHandleConstants::assertEquals(Object$* exp, Object$* act) {
 
 void MethodHandleConstants::setSM() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Policy::setPolicy($$new($MethodHandleConstants$TestPolicy));
 	$System::setSecurityManager($$new($SecurityManager));
@@ -194,6 +197,7 @@ void MethodHandleConstants::openBuf() {
 
 void MethodHandleConstants::closeBuf() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	if (MethodHandleConstants::buf == nullptr) {
 		return;
 	}
@@ -243,6 +247,7 @@ $MethodType* MethodHandleConstants::MT_String_replace_C2() {
 
 $MethodHandle* MethodHandleConstants::MH_String_replace_C2() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$load($String);
@@ -262,6 +267,7 @@ $MethodType* MethodHandleConstants::MT_MethodHandle_invokeExact_SC2() {
 
 $MethodHandle* MethodHandleConstants::MH_MethodHandle_invokeExact_SC2() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$load($MethodHandle);
@@ -281,6 +287,7 @@ $MethodType* MethodHandleConstants::MT_MethodHandle_invoke_SC2() {
 
 $MethodHandle* MethodHandleConstants::MH_MethodHandle_invoke_SC2() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$load($MethodHandle);
@@ -297,6 +304,7 @@ $MethodType* MethodHandleConstants::MT_Class_forName_S() {
 
 $MethodHandle* MethodHandleConstants::MH_Class_forName_S() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$load($Class);
@@ -318,6 +326,7 @@ $MethodType* MethodHandleConstants::MT_Class_forName_SbCL() {
 
 $MethodHandle* MethodHandleConstants::MH_Class_forName_SbCL() {
 	$init(MethodHandleConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$load($Class);

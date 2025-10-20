@@ -183,6 +183,7 @@ DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::valueOf(int32_t refKin
 
 DirectMethodHandleDesc$Kind* DirectMethodHandleDesc$Kind::valueOf(int32_t refKind, bool isInterface) {
 	$init(DirectMethodHandleDesc$Kind);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = tableIndex(refKind, isInterface);
 	if (i >= 2 && i < $nc(DirectMethodHandleDesc$Kind::TABLE)->length) {
 		return $nc(DirectMethodHandleDesc$Kind::TABLE)->get(i);
@@ -222,6 +223,7 @@ bool DirectMethodHandleDesc$Kind::isVirtualMethod() {
 }
 
 void clinit$DirectMethodHandleDesc$Kind($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DirectMethodHandleDesc$Kind::STATIC, $new(DirectMethodHandleDesc$Kind, "STATIC"_s, 0, 6));
 	$assignStatic(DirectMethodHandleDesc$Kind::INTERFACE_STATIC, $new(DirectMethodHandleDesc$Kind, "INTERFACE_STATIC"_s, 1, 6, true));
 	$assignStatic(DirectMethodHandleDesc$Kind::VIRTUAL, $new(DirectMethodHandleDesc$Kind, "VIRTUAL"_s, 2, 5));

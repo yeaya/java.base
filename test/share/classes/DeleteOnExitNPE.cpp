@@ -77,6 +77,7 @@ void DeleteOnExitNPE::main($StringArray* args) {
 
 void DeleteOnExitNPE::runTest() {
 	$init(DeleteOnExitNPE);
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($String, var$0, $$str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java -classpath "_s}));
 	$var($String, cmd, $concat(var$0, $($System::getProperty("test.classes"_s))));
@@ -101,6 +102,7 @@ void DeleteOnExitNPE::runTest() {
 
 void DeleteOnExitNPE::doTest() {
 	$init(DeleteOnExitNPE);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, file, $File::createTempFile("DeleteOnExitNPE"_s, nullptr));
 		$nc(file)->deleteOnExit();

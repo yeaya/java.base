@@ -101,6 +101,7 @@ $Object* Hashtable$Entry::setValue(Object$* value) {
 }
 
 bool Hashtable$Entry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -119,6 +120,7 @@ int32_t Hashtable$Entry::hashCode() {
 }
 
 $String* Hashtable$Entry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc($of(this->key))->toString()), "="_s}));
 	return $concat(var$0, $($nc($of(this->value))->toString()));
 }

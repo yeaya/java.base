@@ -107,6 +107,7 @@ void ReadBytesBounds::main($StringArray* argv) {
 
 void ReadBytesBounds::testRead(int32_t off, int32_t len, bool expected) {
 	$init(ReadBytesBounds);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->printf("off=%d len=%d expected=%b%n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(off))),
@@ -132,6 +133,7 @@ void ReadBytesBounds::testRead(int32_t off, int32_t len, bool expected) {
 }
 
 void clinit$ReadBytesBounds($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ReadBytesBounds::b, $new($bytes, 32));
 	{
 		try {

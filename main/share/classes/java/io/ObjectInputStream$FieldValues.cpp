@@ -113,6 +113,7 @@ $Object* allocate$ObjectInputStream$FieldValues($Class* clazz) {
 }
 
 void ObjectInputStream$FieldValues::init$($ObjectInputStream* this$0, $ObjectStreamClass* desc, bool recordDependencies) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$ObjectInputStream$GetField::init$();
 	$set(this, desc, desc);
@@ -225,6 +226,7 @@ void ObjectInputStream$FieldValues::defaultSetFieldValues(Object$* obj) {
 }
 
 int32_t ObjectInputStream$FieldValues::getFieldOffset($String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamField, field, $nc(this->desc)->getField(name, type));
 	if (field != nullptr) {
 		return field->getOffset();

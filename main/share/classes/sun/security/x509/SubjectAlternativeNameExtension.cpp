@@ -170,6 +170,7 @@ void SubjectAlternativeNameExtension::init$($Boolean* critical, Object$* value) 
 }
 
 $String* SubjectAlternativeNameExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $str({$($Extension::toString()), "SubjectAlternativeName [\n"_s}));
 	if (this->names == nullptr) {
 		$plusAssign(result, "  null\n"_s);
@@ -189,6 +190,7 @@ $String* SubjectAlternativeNameExtension::toString() {
 }
 
 void SubjectAlternativeNameExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

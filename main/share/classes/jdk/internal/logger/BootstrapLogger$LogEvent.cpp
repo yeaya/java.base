@@ -439,6 +439,7 @@ BootstrapLogger$LogEvent* BootstrapLogger$LogEvent::valueOf($BootstrapLogger* bo
 
 BootstrapLogger$LogEvent* BootstrapLogger$LogEvent::valueOf($BootstrapLogger* bootstrap, $System$Logger$Level* level, $Supplier* msgSupplier, $Throwable* thrown) {
 	$init(BootstrapLogger$LogEvent);
+	$useLocalCurrentObjectStackCache();
 	$var($BootstrapLogger, var$0, $cast($BootstrapLogger, $Objects::requireNonNull(bootstrap)));
 	$var($System$Logger$Level, var$1, $cast($System$Logger$Level, $Objects::requireNonNull(level)));
 	return $new(BootstrapLogger$LogEvent, var$0, var$1, $cast($Supplier, $Objects::requireNonNull(msgSupplier)), thrown, nullptr);
@@ -446,6 +447,7 @@ BootstrapLogger$LogEvent* BootstrapLogger$LogEvent::valueOf($BootstrapLogger* bo
 
 BootstrapLogger$LogEvent* BootstrapLogger$LogEvent::valueOf($BootstrapLogger* bootstrap, $System$Logger$Level* level, $Supplier* msgSupplier) {
 	$init(BootstrapLogger$LogEvent);
+	$useLocalCurrentObjectStackCache();
 	$var($BootstrapLogger, var$0, $cast($BootstrapLogger, $Objects::requireNonNull(bootstrap)));
 	$var($System$Logger$Level, var$1, $cast($System$Logger$Level, $Objects::requireNonNull(level)));
 	return $new(BootstrapLogger$LogEvent, var$0, var$1, $cast($Supplier, $Objects::requireNonNull(msgSupplier)), nullptr, nullptr);
@@ -453,6 +455,7 @@ BootstrapLogger$LogEvent* BootstrapLogger$LogEvent::valueOf($BootstrapLogger* bo
 
 void BootstrapLogger$LogEvent::log(BootstrapLogger$LogEvent* log, $System$Logger* logger) {
 	$init(BootstrapLogger$LogEvent);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr || $nc(log)->acc == nullptr) {
 		$BootstrapLogger$BootstrapExecutors::submit(static_cast<$Runnable*>($$new(BootstrapLogger$LogEvent$$Lambda$lambda$log$0, log, logger)));
@@ -511,6 +514,7 @@ BootstrapLogger$LogEvent* BootstrapLogger$LogEvent::valueOf($BootstrapLogger* bo
 
 void BootstrapLogger$LogEvent::log(BootstrapLogger$LogEvent* log, $PlatformLogger$Bridge* logger) {
 	$init(BootstrapLogger$LogEvent);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm == nullptr || $nc(log)->acc == nullptr) {

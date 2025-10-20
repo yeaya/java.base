@@ -133,6 +133,7 @@ void Bundles$CacheKey::setProviders($ServiceLoader* providers) {
 }
 
 bool Bundles$CacheKey::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -161,6 +162,7 @@ void Bundles$CacheKey::calculateHashCode() {
 }
 
 $Object* Bundles$CacheKey::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Bundles$CacheKey, clone, $cast(Bundles$CacheKey, $Cloneable::clone()));
 		$set($nc(clone), cause, nullptr);
@@ -186,6 +188,7 @@ $Throwable* Bundles$CacheKey::getCause() {
 }
 
 $String* Bundles$CacheKey::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, l, $nc(this->locale)->toString());
 	if ($nc(l)->isEmpty()) {
 		if (!$nc($($nc(this->locale)->getVariant()))->isEmpty()) {

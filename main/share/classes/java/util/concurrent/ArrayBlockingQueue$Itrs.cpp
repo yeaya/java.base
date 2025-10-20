@@ -83,6 +83,7 @@ void ArrayBlockingQueue$Itrs::init$($ArrayBlockingQueue* this$0, $ArrayBlockingQ
 }
 
 void ArrayBlockingQueue$Itrs::doSomeSweeping(bool tryHarder) {
+	$useLocalCurrentObjectStackCache();
 	int32_t probes = tryHarder ? ArrayBlockingQueue$Itrs::LONG_SWEEP_PROBES : ArrayBlockingQueue$Itrs::SHORT_SWEEP_PROBES;
 	$var($ArrayBlockingQueue$Itrs$Node, o, nullptr);
 	$var($ArrayBlockingQueue$Itrs$Node, p, nullptr);
@@ -134,6 +135,7 @@ void ArrayBlockingQueue$Itrs::register$($ArrayBlockingQueue$Itr* itr) {
 }
 
 void ArrayBlockingQueue$Itrs::takeIndexWrapped() {
+	$useLocalCurrentObjectStackCache();
 	++this->cycles;
 	{
 		$var($ArrayBlockingQueue$Itrs$Node, o, nullptr);
@@ -161,6 +163,7 @@ void ArrayBlockingQueue$Itrs::takeIndexWrapped() {
 }
 
 void ArrayBlockingQueue$Itrs::removedAt(int32_t removedIndex) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ArrayBlockingQueue$Itrs$Node, o, nullptr);
 		$var($ArrayBlockingQueue$Itrs$Node, p, this->head);
@@ -187,6 +190,7 @@ void ArrayBlockingQueue$Itrs::removedAt(int32_t removedIndex) {
 }
 
 void ArrayBlockingQueue$Itrs::queueIsEmpty() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ArrayBlockingQueue$Itrs$Node, p, this->head);
 		for (; p != nullptr; $assign(p, $nc(p)->next)) {

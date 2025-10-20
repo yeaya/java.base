@@ -70,6 +70,7 @@ $Object* allocate$Inet4Address($Class* clazz) {
 }
 
 void Inet4Address::init$() {
+	$useLocalCurrentObjectStackCache();
 	$InetAddress::init$();
 	$set($nc($(holder())), hostName, nullptr);
 	$nc($(holder()))->address = 0;
@@ -77,6 +78,7 @@ void Inet4Address::init$() {
 }
 
 void Inet4Address::init$($String* hostName, $bytes* addr) {
+	$useLocalCurrentObjectStackCache();
 	$InetAddress::init$();
 	$set($nc($(holder())), hostName, hostName);
 	$nc($(holder()))->family = $InetAddress::IPv4;
@@ -93,6 +95,7 @@ void Inet4Address::init$($String* hostName, $bytes* addr) {
 }
 
 void Inet4Address::init$($String* hostName, int32_t address) {
+	$useLocalCurrentObjectStackCache();
 	$InetAddress::init$();
 	$set($nc($(holder())), hostName, hostName);
 	$nc($(holder()))->family = $InetAddress::IPv4;
@@ -101,6 +104,7 @@ void Inet4Address::init$($String* hostName, int32_t address) {
 }
 
 $Object* Inet4Address::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, inet, $new($InetAddress));
 	$set($nc($(inet->holder())), hostName, $nc($(holder()))->getHostName());
 	$nc($(inet->holder()))->address = $nc($(holder()))->getAddress();
@@ -156,6 +160,7 @@ bool Inet4Address::isMCOrgLocal() {
 }
 
 $bytes* Inet4Address::getAddress() {
+	$useLocalCurrentObjectStackCache();
 	int32_t address = $nc($(holder()))->getAddress();
 	$var($bytes, addr, $new($bytes, Inet4Address::INADDRSZ));
 	addr->set(0, (int8_t)((int32_t)(((int32_t)((uint32_t)address >> 24)) & (uint32_t)255)));
@@ -178,6 +183,7 @@ int32_t Inet4Address::hashCode() {
 }
 
 bool Inet4Address::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(Inet4Address, inet4Address, nullptr);
 	bool var$1 = $instanceOf(Inet4Address, obj);
 	if (var$1) {
@@ -194,6 +200,7 @@ bool Inet4Address::equals(Object$* obj) {
 
 $String* Inet4Address::numericToTextFormat($bytes* src) {
 	$init(Inet4Address);
+	$useLocalCurrentObjectStackCache();
 	return $str({$$str(((int32_t)($nc(src)->get(0) & (uint32_t)255))), "."_s, $$str(((int32_t)(src->get(1) & (uint32_t)255))), "."_s, $$str(((int32_t)(src->get(2) & (uint32_t)255))), "."_s, $$str(((int32_t)(src->get(3) & (uint32_t)255)))});
 }
 

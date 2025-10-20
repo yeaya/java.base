@@ -156,6 +156,7 @@ void IntPipeline$7$1::begin(int64_t size) {
 }
 
 void IntPipeline$7$1::accept(int32_t t) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($IntStream, result, $cast($IntStream, $nc(this->this$1->val$mapper)->apply(t)));
 		{

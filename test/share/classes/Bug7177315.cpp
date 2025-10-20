@@ -65,6 +65,7 @@ void Bug7177315::init$() {
 
 void Bug7177315::main($StringArray* args) {
 	$init(Bug7177315);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($SimpleDateFormat, parseFormat, $new($SimpleDateFormat, "MM/dd/yy"_s, $Locale::US));
 	$var($Calendar, cal, $new($GregorianCalendar, 2012 - 80, $Calendar::JANUARY, 1));

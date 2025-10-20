@@ -154,6 +154,7 @@ double LongSummaryStatistics::getAverage() {
 }
 
 $String* LongSummaryStatistics::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("%s{count=%d, sum=%d, min=%d, average=%f, max=%d}"_s, $$new($ObjectArray, {
 		$($of($of(this)->getClass()->getSimpleName())),
 		$($of($Long::valueOf(getCount()))),

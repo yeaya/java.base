@@ -123,6 +123,7 @@ $String* CertificatePoliciesExtension::NAME = nullptr;
 $String* CertificatePoliciesExtension::POLICIES = nullptr;
 
 void CertificatePoliciesExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->certPolicies == nullptr || $nc(this->certPolicies)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 	} else {
@@ -157,6 +158,7 @@ void CertificatePoliciesExtension::init$($Boolean* critical, $List* certPolicies
 }
 
 void CertificatePoliciesExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::CertificatePolicies_Id);
@@ -175,6 +177,7 @@ void CertificatePoliciesExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* CertificatePoliciesExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->certPolicies == nullptr) {
 		return ""_s;
 	}
@@ -194,6 +197,7 @@ $String* CertificatePoliciesExtension::toString() {
 }
 
 void CertificatePoliciesExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

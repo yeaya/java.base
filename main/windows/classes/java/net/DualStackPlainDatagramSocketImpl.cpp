@@ -191,6 +191,7 @@ void DualStackPlainDatagramSocketImpl::bind0(int32_t lport, $InetAddress* laddr)
 
 int32_t DualStackPlainDatagramSocketImpl::peek($InetAddress* address$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($InetAddress, address, address$renamed);
 		int32_t nativefd = checkAndReturnNativeFD();
 		if (address == nullptr) {
@@ -230,6 +231,7 @@ void DualStackPlainDatagramSocketImpl::receive0($DatagramPacket* p) {
 }
 
 void DualStackPlainDatagramSocketImpl::send0($DatagramPacket* p) {
+	$useLocalCurrentObjectStackCache();
 	int32_t nativefd = checkAndReturnNativeFD();
 	if (p == nullptr) {
 		$throwNew($NullPointerException, "null packet"_s);
@@ -346,6 +348,7 @@ $Object* DualStackPlainDatagramSocketImpl::socketGetOption(int32_t opt) {
 }
 
 $Set* DualStackPlainDatagramSocketImpl::supportedOptions() {
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, options, $new($HashSet));
 	$init($StandardSocketOptions);
 	options->add($StandardSocketOptions::SO_SNDBUF);

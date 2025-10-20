@@ -222,6 +222,7 @@ $CertPathValidatorResult* PKIXCertPathValidator::engineValidate($CertPath* cp, $
 
 $PKIXCertPathValidatorResult* PKIXCertPathValidator::validate($PKIX$ValidatorParams* params) {
 	$init(PKIXCertPathValidator);
+	$useLocalCurrentObjectStackCache();
 	if (PKIXCertPathValidator::debug != nullptr) {
 		$nc(PKIXCertPathValidator::debug)->println("PKIXCertPathValidator.engineValidate()..."_s);
 	}
@@ -282,6 +283,7 @@ $PKIXCertPathValidatorResult* PKIXCertPathValidator::validate($PKIX$ValidatorPar
 
 $PKIXCertPathValidatorResult* PKIXCertPathValidator::validate($TrustAnchor* anchor, $PKIX$ValidatorParams* params) {
 	$init(PKIXCertPathValidator);
+	$useLocalCurrentObjectStackCache();
 	$var($UntrustedChecker, untrustedChecker, $new($UntrustedChecker));
 	$var($X509Certificate, anchorCert, $nc(anchor)->getTrustedCert());
 	if (anchorCert != nullptr) {

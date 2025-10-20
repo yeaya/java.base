@@ -529,6 +529,7 @@ void BigDecimal::init$($chars* in, int32_t offset, int32_t len) {
 }
 
 void BigDecimal::init$($chars* in, int32_t offset, int32_t len, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	try {
 		$Objects::checkFromIndexSize(offset, len, $nc(in)->length);
@@ -799,6 +800,7 @@ void BigDecimal::init$(double val) {
 }
 
 void BigDecimal::init$(double val, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	$Number::init$();
 	bool var$0 = $Double::isInfinite(val);
 	if (var$0 || $Double::isNaN(val)) {
@@ -1080,6 +1082,7 @@ BigDecimal* BigDecimal::add(BigDecimal* augend) {
 }
 
 BigDecimal* BigDecimal::add(BigDecimal* augend$renamed, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	$var(BigDecimal, augend, augend$renamed);
 	if ($nc(mc)->precision == 0) {
 		return add(augend);
@@ -1122,6 +1125,7 @@ BigDecimal* BigDecimal::add(BigDecimal* augend$renamed, $MathContext* mc) {
 }
 
 $BigDecimalArray* BigDecimal::preAlign(BigDecimal* lhs, BigDecimal* augend, int64_t padding, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	if (!BigDecimal::$assertionsDisabled && !(padding != 0)) {
 		$throwNew($AssertionError);
 	}
@@ -1148,6 +1152,7 @@ $BigDecimalArray* BigDecimal::preAlign(BigDecimal* lhs, BigDecimal* augend, int6
 }
 
 BigDecimal* BigDecimal::subtract(BigDecimal* subtrahend) {
+	$useLocalCurrentObjectStackCache();
 	if (this->intCompact != BigDecimal::INFLATED) {
 		if ($nc(subtrahend)->intCompact != BigDecimal::INFLATED) {
 			return add(this->intCompact, this->scale$, -subtrahend->intCompact, subtrahend->scale$);
@@ -1231,6 +1236,7 @@ BigDecimal* BigDecimal::divide(BigDecimal* divisor, $RoundingMode* roundingMode)
 }
 
 BigDecimal* BigDecimal::divide(BigDecimal* divisor) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(divisor)->signum() == 0) {
 		if (this->signum() == 0) {
 			$throwNew($ArithmeticException, "Division undefined"_s);
@@ -1291,6 +1297,7 @@ BigDecimal* BigDecimal::divide(BigDecimal* divisor, $MathContext* mc) {
 }
 
 BigDecimal* BigDecimal::divideToIntegralValue(BigDecimal* divisor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t preferredScale = saturateLong((int64_t)this->scale$ - $nc(divisor)->scale$);
 	if (this->compareMagnitude(divisor) < 0) {
 		return zeroValueOf(preferredScale);
@@ -1317,6 +1324,7 @@ BigDecimal* BigDecimal::divideToIntegralValue(BigDecimal* divisor) {
 }
 
 BigDecimal* BigDecimal::divideToIntegralValue(BigDecimal* divisor, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(mc)->precision == 0 || (this->compareMagnitude(divisor) < 0)) {
 		return divideToIntegralValue(divisor);
 	}
@@ -1352,6 +1360,7 @@ BigDecimal* BigDecimal::remainder(BigDecimal* divisor, $MathContext* mc) {
 }
 
 $BigDecimalArray* BigDecimal::divideAndRemainder(BigDecimal* divisor) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigDecimalArray, result, $new($BigDecimalArray, 2));
 	result->set(0, $(this->divideToIntegralValue(divisor)));
 	result->set(1, $(this->subtract($($nc(result->get(0))->multiply(divisor)))));
@@ -1359,6 +1368,7 @@ $BigDecimalArray* BigDecimal::divideAndRemainder(BigDecimal* divisor) {
 }
 
 $BigDecimalArray* BigDecimal::divideAndRemainder(BigDecimal* divisor, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(mc)->precision == 0) {
 		return divideAndRemainder(divisor);
 	}
@@ -1370,6 +1380,7 @@ $BigDecimalArray* BigDecimal::divideAndRemainder(BigDecimal* divisor, $MathConte
 }
 
 BigDecimal* BigDecimal::sqrt($MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t signum = this->signum();
 	if (signum == 1) {
 		int32_t preferredScale = this->scale() / 2;
@@ -1519,6 +1530,7 @@ bool BigDecimal::isPowerOfTen() {
 }
 
 bool BigDecimal::squareRootResultAssertions(BigDecimal* result, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(result)->signum() == 0) {
 		return squareRootZeroResultAssertions(result, mc);
 	} else {
@@ -1614,6 +1626,7 @@ bool BigDecimal::squareRootZeroResultAssertions(BigDecimal* result, $MathContext
 }
 
 BigDecimal* BigDecimal::pow(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	if (n < 0 || n > 0x3B9AC9FF) {
 		$throwNew($ArithmeticException, "Invalid operation"_s);
 	}
@@ -1622,6 +1635,7 @@ BigDecimal* BigDecimal::pow(int32_t n) {
 }
 
 BigDecimal* BigDecimal::pow(int32_t n, $MathContext* mc) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(mc)->precision == 0) {
 		return pow(n);
 	}
@@ -1728,6 +1742,7 @@ BigDecimal* BigDecimal::setScale(int32_t newScale, $RoundingMode* roundingMode) 
 }
 
 BigDecimal* BigDecimal::setScale(int32_t newScale, int32_t roundingMode) {
+	$useLocalCurrentObjectStackCache();
 	if (roundingMode < BigDecimal::ROUND_UP || roundingMode > BigDecimal::ROUND_UNNECESSARY) {
 		$throwNew($IllegalArgumentException, "Invalid rounding mode"_s);
 	}
@@ -1827,6 +1842,7 @@ int32_t BigDecimal::compareTo(BigDecimal* val) {
 }
 
 int32_t BigDecimal::compareMagnitude(BigDecimal* val) {
+	$useLocalCurrentObjectStackCache();
 	int64_t ys = $nc(val)->intCompact;
 	int64_t xs = this->intCompact;
 	if (xs == 0) {
@@ -1877,6 +1893,7 @@ int32_t BigDecimal::compareMagnitude(BigDecimal* val) {
 }
 
 bool BigDecimal::equals(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	$var(BigDecimal, xDec, nullptr);
 	bool var$0 = $instanceOf(BigDecimal, x);
 	if (var$0) {
@@ -1936,6 +1953,7 @@ $String* BigDecimal::toEngineeringString() {
 }
 
 $String* BigDecimal::toPlainString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->scale$ == 0) {
 		if (this->intCompact != BigDecimal::INFLATED) {
 			return $Long::toString(this->intCompact);
@@ -2022,6 +2040,7 @@ bool BigDecimal::fractionOnly() {
 }
 
 int64_t BigDecimal::longValueExact() {
+	$useLocalCurrentObjectStackCache();
 	if (this->intCompact != BigDecimal::INFLATED && this->scale$ == 0) {
 		return this->intCompact;
 	}
@@ -2107,6 +2126,7 @@ BigDecimal* BigDecimal::ulp() {
 }
 
 $String* BigDecimal::layoutChars(bool sci) {
+	$useLocalCurrentObjectStackCache();
 	if (this->scale$ == 0) {
 		return (this->intCompact != BigDecimal::INFLATED) ? $Long::toString(this->intCompact) : $nc(this->intVal)->toString();
 	}
@@ -2226,6 +2246,7 @@ $BigInteger* BigDecimal::bigTenToThe(int32_t n) {
 
 $BigInteger* BigDecimal::expandBigIntegerTenPowers(int32_t n) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$synchronized(BigDecimal::class$) {
 		$var($BigIntegerArray, pows, BigDecimal::BIG_TEN_POWERS_TABLE);
 		int32_t curLen = $nc(pows)->length;
@@ -2247,6 +2268,7 @@ $BigInteger* BigDecimal::expandBigIntegerTenPowers(int32_t n) {
 
 int64_t BigDecimal::longMultiplyPowerTen(int64_t val, int32_t n) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (val == 0 || n <= 0) {
 		return val;
 	}
@@ -2265,6 +2287,7 @@ int64_t BigDecimal::longMultiplyPowerTen(int64_t val, int32_t n) {
 }
 
 $BigInteger* BigDecimal::bigMultiplyPowerTen(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	if (n <= 0) {
 		return this->inflated();
 	}
@@ -2284,6 +2307,7 @@ $BigInteger* BigDecimal::inflated() {
 
 void BigDecimal::matchScale($BigDecimalArray* val) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if ($nc($nc(val)->get(0))->scale$ < $nc(val->get(1))->scale$) {
 		val->set(0, $($nc(val->get(0))->setScale($nc(val->get(1))->scale$, BigDecimal::ROUND_UNNECESSARY)));
 	} else if ($nc(val->get(1))->scale$ < $nc(val->get(0))->scale$) {
@@ -2383,6 +2407,7 @@ int32_t BigDecimal::saturateLong(int64_t s) {
 
 void BigDecimal::print($String* name, BigDecimal* bd) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->format("%s:\tintCompact %d\tintVal %d\tscale %d\tprecision %d%n"_s, $$new($ObjectArray, {
 		$of(name),
@@ -2394,6 +2419,7 @@ void BigDecimal::print($String* name, BigDecimal* bd) {
 }
 
 BigDecimal* BigDecimal::audit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->intCompact == BigDecimal::INFLATED) {
 		if (this->intVal == nullptr) {
 			print("audit"_s, this);
@@ -2551,6 +2577,7 @@ BigDecimal* BigDecimal::doRound($BigInteger* intVal$renamed, int32_t scale, $Mat
 
 $BigInteger* BigDecimal::divideAndRoundByTenPow($BigInteger* intVal$renamed, int32_t tenPow, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, intVal, intVal$renamed);
 	if (tenPow < $nc(BigDecimal::LONG_TEN_POWERS_TABLE)->length) {
 		$assign(intVal, divideAndRound(intVal, $nc(BigDecimal::LONG_TEN_POWERS_TABLE)->get(tenPow), roundingMode));
@@ -2598,6 +2625,7 @@ int64_t BigDecimal::divideAndRound(int64_t ldividend, int64_t ldivisor, int32_t 
 
 bool BigDecimal::commonNeedIncrement(int32_t roundingMode, int32_t qsign, int32_t cmpFracHalf, bool oddQuot) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	switch (roundingMode) {
 	case BigDecimal::ROUND_UNNECESSARY:
 		{
@@ -2677,6 +2705,7 @@ bool BigDecimal::needIncrement(int64_t ldivisor, int32_t roundingMode, int32_t q
 
 $BigInteger* BigDecimal::divideAndRound($BigInteger* bdividend, int64_t ldivisor, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($MutableBigInteger, mdividend, $new($MutableBigInteger, $nc(bdividend)->mag));
 	$var($MutableBigInteger, mq, $new($MutableBigInteger));
 	int64_t r = mdividend->divide(ldivisor, mq);
@@ -2692,6 +2721,7 @@ $BigInteger* BigDecimal::divideAndRound($BigInteger* bdividend, int64_t ldivisor
 
 BigDecimal* BigDecimal::divideAndRound($BigInteger* bdividend, int64_t ldivisor, int32_t scale, int32_t roundingMode, int32_t preferredScale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($MutableBigInteger, mdividend, $new($MutableBigInteger, $nc(bdividend)->mag));
 	$var($MutableBigInteger, mq, $new($MutableBigInteger));
 	int64_t r = mdividend->divide(ldivisor, mq);
@@ -2730,6 +2760,7 @@ bool BigDecimal::needIncrement(int64_t ldivisor, int32_t roundingMode, int32_t q
 
 $BigInteger* BigDecimal::divideAndRound($BigInteger* bdividend, $BigInteger* bdivisor, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	bool isRemainderZero = false;
 	int32_t qsign = 0;
 	$var($MutableBigInteger, mdividend, $new($MutableBigInteger, $nc(bdividend)->mag));
@@ -2748,6 +2779,7 @@ $BigInteger* BigDecimal::divideAndRound($BigInteger* bdividend, $BigInteger* bdi
 
 BigDecimal* BigDecimal::divideAndRound($BigInteger* bdividend, $BigInteger* bdivisor, int32_t scale, int32_t roundingMode, int32_t preferredScale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	bool isRemainderZero = false;
 	int32_t qsign = 0;
 	$var($MutableBigInteger, mdividend, $new($MutableBigInteger, $nc(bdividend)->mag));
@@ -2784,6 +2816,7 @@ bool BigDecimal::needIncrement($MutableBigInteger* mdivisor, int32_t roundingMod
 
 BigDecimal* BigDecimal::createAndStripZerosToMatchScale($BigInteger* intVal$renamed, int32_t scale, int64_t preferredScale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, intVal, intVal$renamed);
 	$var($BigIntegerArray, qr, nullptr);
 	$init($BigInteger);
@@ -2837,6 +2870,7 @@ int64_t BigDecimal::add(int64_t xs, int64_t ys) {
 
 BigDecimal* BigDecimal::add(int64_t xs, int64_t ys, int32_t scale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int64_t sum = add(xs, ys);
 	if (sum != BigDecimal::INFLATED) {
 		return BigDecimal::valueOf(sum, scale);
@@ -2846,6 +2880,7 @@ BigDecimal* BigDecimal::add(int64_t xs, int64_t ys, int32_t scale) {
 
 BigDecimal* BigDecimal::add(int64_t xs, int32_t scale1, int64_t ys, int32_t scale2) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int64_t sdiff = (int64_t)scale1 - scale2;
 	if (sdiff == 0) {
 		return add(xs, ys, scale1);
@@ -2872,6 +2907,7 @@ BigDecimal* BigDecimal::add(int64_t xs, int32_t scale1, int64_t ys, int32_t scal
 
 BigDecimal* BigDecimal::add(int64_t xs, int32_t scale1, $BigInteger* snd$renamed, int32_t scale2) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, snd, snd$renamed);
 	int32_t rscale = scale1;
 	int64_t sdiff = (int64_t)rscale - scale2;
@@ -2896,6 +2932,7 @@ BigDecimal* BigDecimal::add(int64_t xs, int32_t scale1, $BigInteger* snd$renamed
 
 BigDecimal* BigDecimal::add($BigInteger* fst$renamed, int32_t scale1, $BigInteger* snd$renamed, int32_t scale2) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, fst, fst$renamed);
 	$var($BigInteger, snd, snd$renamed);
 	int32_t rscale = scale1;
@@ -2935,6 +2972,7 @@ $BigInteger* BigDecimal::bigMultiplyPowerTen($BigInteger* value, int32_t n) {
 
 BigDecimal* BigDecimal::divideSmallFastPath(int64_t xs, int32_t xscale, int64_t ys, int32_t yscale, int64_t preferredScale, $MathContext* mc) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int32_t mcp = $nc(mc)->precision;
 	int32_t roundingMode = mc->roundingMode->oldMode;
 	if (!BigDecimal::$assertionsDisabled && !((xscale <= yscale) && (yscale < 18) && (mcp < 18))) {
@@ -3006,6 +3044,7 @@ BigDecimal* BigDecimal::divideSmallFastPath(int64_t xs, int32_t xscale, int64_t 
 
 BigDecimal* BigDecimal::divide(int64_t xs, int32_t xscale, int64_t ys, int32_t yscale, int64_t preferredScale, $MathContext* mc) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int32_t mcp = $nc(mc)->precision;
 	if (xscale <= yscale && yscale < 18 && mcp < 18) {
 		return divideSmallFastPath(xs, xscale, ys, yscale, preferredScale, mc);
@@ -3049,6 +3088,7 @@ BigDecimal* BigDecimal::divide(int64_t xs, int32_t xscale, int64_t ys, int32_t y
 
 BigDecimal* BigDecimal::divide($BigInteger* xs, int32_t xscale, int64_t ys, int32_t yscale, int64_t preferredScale, $MathContext* mc) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if ((-compareMagnitudeNormalized(ys, yscale, xs, xscale)) > 0) {
 		yscale -= 1;
 	}
@@ -3080,6 +3120,7 @@ BigDecimal* BigDecimal::divide($BigInteger* xs, int32_t xscale, int64_t ys, int3
 
 BigDecimal* BigDecimal::divide(int64_t xs, int32_t xscale, $BigInteger* ys, int32_t yscale, int64_t preferredScale, $MathContext* mc) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (compareMagnitudeNormalized(xs, xscale, ys, yscale) > 0) {
 		yscale -= 1;
 	}
@@ -3106,6 +3147,7 @@ BigDecimal* BigDecimal::divide(int64_t xs, int32_t xscale, $BigInteger* ys, int3
 
 BigDecimal* BigDecimal::divide($BigInteger* xs, int32_t xscale, $BigInteger* ys, int32_t yscale, int64_t preferredScale, $MathContext* mc) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (compareMagnitudeNormalized(xs, xscale, ys, yscale) > 0) {
 		yscale -= 1;
 	}
@@ -3159,6 +3201,7 @@ BigDecimal* BigDecimal::multiplyDivideAndRound(int64_t dividend0, int64_t divide
 
 BigDecimal* BigDecimal::divideAndRound128(int64_t dividendHi, int64_t dividendLo, int64_t divisor, int32_t sign, int32_t scale, int32_t roundingMode, int32_t preferredScale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (dividendHi >= divisor) {
 		return nullptr;
 	}
@@ -3279,6 +3322,7 @@ BigDecimal* BigDecimal::scaledTenPow(int32_t n, int32_t sign, int32_t scale) {
 
 $longs* BigDecimal::divRemNegativeLong(int64_t n, int64_t d) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (!BigDecimal::$assertionsDisabled && !(n < 0)) {
 		$throwNew($AssertionError, $of($$str({"Non-negative numerator "_s, $$str(n)})));
 	}
@@ -3355,6 +3399,7 @@ int32_t BigDecimal::compareMagnitudeNormalized(int64_t xs, int32_t xscale, $BigI
 
 int32_t BigDecimal::compareMagnitudeNormalized($BigInteger* xs, int32_t xscale, $BigInteger* ys, int32_t yscale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int32_t sdiff = xscale - yscale;
 	if (sdiff < 0) {
 		return $nc($(bigMultiplyPowerTen(xs, -sdiff)))->compareMagnitude(ys);
@@ -3376,6 +3421,7 @@ int64_t BigDecimal::multiply(int64_t x, int64_t y) {
 
 BigDecimal* BigDecimal::multiply(int64_t x, int64_t y, int32_t scale) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int64_t product = multiply(x, y);
 	if (product != BigDecimal::INFLATED) {
 		return valueOf(product, scale);
@@ -3398,6 +3444,7 @@ BigDecimal* BigDecimal::multiply($BigInteger* x, $BigInteger* y, int32_t scale) 
 
 BigDecimal* BigDecimal::multiplyAndRound(int64_t x, int64_t y, int32_t scale, $MathContext* mc) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	int64_t product = multiply(x, y);
 	if (product != BigDecimal::INFLATED) {
 		return doRound(product, scale, mc);
@@ -3491,6 +3538,7 @@ bool BigDecimal::longLongCompareMagnitude(int64_t hi0, int64_t lo0, int64_t hi1,
 
 BigDecimal* BigDecimal::divide(int64_t dividend, int32_t dividendScale, int64_t divisor, int32_t divisorScale, int32_t scale, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (checkScale(dividend, (int64_t)scale + divisorScale) > dividendScale) {
 		int32_t newScale = scale + divisorScale;
 		int32_t raise = newScale - dividendScale;
@@ -3522,6 +3570,7 @@ BigDecimal* BigDecimal::divide(int64_t dividend, int32_t dividendScale, int64_t 
 
 BigDecimal* BigDecimal::divide($BigInteger* dividend, int32_t dividendScale, int64_t divisor, int32_t divisorScale, int32_t scale, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (checkScale(dividend, (int64_t)scale + divisorScale) > dividendScale) {
 		int32_t newScale = scale + divisorScale;
 		int32_t raise = newScale - dividendScale;
@@ -3543,6 +3592,7 @@ BigDecimal* BigDecimal::divide($BigInteger* dividend, int32_t dividendScale, int
 
 BigDecimal* BigDecimal::divide(int64_t dividend, int32_t dividendScale, $BigInteger* divisor, int32_t divisorScale, int32_t scale, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (checkScale(dividend, (int64_t)scale + divisorScale) > dividendScale) {
 		int32_t newScale = scale + divisorScale;
 		int32_t raise = newScale - dividendScale;
@@ -3558,6 +3608,7 @@ BigDecimal* BigDecimal::divide(int64_t dividend, int32_t dividendScale, $BigInte
 
 BigDecimal* BigDecimal::divide($BigInteger* dividend, int32_t dividendScale, $BigInteger* divisor, int32_t divisorScale, int32_t scale, int32_t roundingMode) {
 	$init(BigDecimal);
+	$useLocalCurrentObjectStackCache();
 	if (checkScale(dividend, (int64_t)scale + divisorScale) > dividendScale) {
 		int32_t newScale = scale + divisorScale;
 		int32_t raise = newScale - dividendScale;
@@ -3576,6 +3627,7 @@ int32_t BigDecimal::compareTo(Object$* val) {
 }
 
 void clinit$BigDecimal($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	BigDecimal::$assertionsDisabled = !BigDecimal::class$->desiredAssertionStatus();
 	$assignStatic(BigDecimal::INFLATED_BIGINT, $BigInteger::valueOf(BigDecimal::INFLATED));
 	$assignStatic(BigDecimal::ZERO_THROUGH_TEN, $new($BigDecimalArray, {

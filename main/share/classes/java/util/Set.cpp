@@ -245,6 +245,7 @@ Set* Set::of($ObjectArray* elements) {
 
 Set* Set::copyOf($Collection* coll) {
 	$init(Set);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ImmutableCollections$AbstractImmutableSet, coll)) {
 		return $cast(Set, coll);
 	} else {

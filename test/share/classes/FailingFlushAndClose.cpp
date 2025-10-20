@@ -125,6 +125,7 @@ void FailingFlushAndClose::failWithIOE($String* msg) {
 }
 
 $InputStream* FailingFlushAndClose::testFailingClose($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($of($nc($of(in))->getClass()));
 	$nc(in)->read($$new($bytes, 100));
@@ -205,6 +206,7 @@ void FailingFlushAndClose::closeAgain($OutputStream* out) {
 }
 
 $Reader* FailingFlushAndClose::testFailingClose($Reader* r) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($of($nc($of(r))->getClass()));
 	$nc(r)->read($$new($chars, 100));
@@ -285,6 +287,7 @@ $Writer* FailingFlushAndClose::closeAgain($Writer* w) {
 }
 
 void FailingFlushAndClose::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	closeAgain($(testFailingClose(static_cast<$InputStream*>($$new($BufferedInputStream, $$new($FailingFlushAndClose$FailingCloseInputStream))))));
 	closeAgain($(testFailingClose(static_cast<$OutputStream*>($$new($BufferedOutputStream, $$new($FailingFlushAndClose$FailingCloseOutputStream))))));
 	closeAgain($(testFailingClose(static_cast<$Reader*>($$new($BufferedReader, $$new($FailingFlushAndClose$FailingCloseReader))))));

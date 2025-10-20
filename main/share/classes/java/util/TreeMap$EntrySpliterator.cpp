@@ -168,6 +168,7 @@ void TreeMap$EntrySpliterator::init$($TreeMap* tree, $TreeMap$Entry* origin, $Tr
 }
 
 $Spliterator* TreeMap$EntrySpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->est < 0) {
 		getEstimate();
 	}
@@ -183,6 +184,7 @@ $Spliterator* TreeMap$EntrySpliterator::trySplit() {
 }
 
 void TreeMap$EntrySpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -256,6 +258,7 @@ $Comparator* TreeMap$EntrySpliterator::getComparator() {
 
 $Object* TreeMap$EntrySpliterator::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(TreeMap$EntrySpliterator);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s117542$, $nc(lambda)->getImplMethodName());
 		int32_t tmp117542$ = -1;
@@ -288,6 +291,7 @@ $Object* TreeMap$EntrySpliterator::$deserializeLambda$($SerializedLambda* lambda
 
 int32_t TreeMap$EntrySpliterator::lambda$getComparator$d5a01062$1($Map$Entry* e1, $Map$Entry* e2) {
 	$init(TreeMap$EntrySpliterator);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparable, k1, $cast($Comparable, $nc(e1)->getKey()));
 	return $nc(k1)->compareTo($($nc(e2)->getKey()));
 }

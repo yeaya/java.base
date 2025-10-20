@@ -111,6 +111,7 @@ void ParsingTest::main($StringArray* argv) {
 }
 
 void ParsingTest::check(int64_t expected, $String* val) {
+	$useLocalCurrentObjectStackCache();
 	int64_t n = $Long::parseLong(val);
 	if (n != expected) {
 		$throwNew($RuntimeException, $$str({"Long.parseLong failed. String:"_s, val, " Result:"_s, $$str(n)}));
@@ -118,6 +119,7 @@ void ParsingTest::check(int64_t expected, $String* val) {
 }
 
 void ParsingTest::checkFailure($String* val) {
+	$useLocalCurrentObjectStackCache();
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(val);
@@ -130,6 +132,7 @@ void ParsingTest::checkFailure($String* val) {
 }
 
 void ParsingTest::checkNumberFormatException($String* val, int32_t start, int32_t end, int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(val, start, end, radix);
@@ -142,6 +145,7 @@ void ParsingTest::checkNumberFormatException($String* val, int32_t start, int32_
 }
 
 void ParsingTest::checkIndexOutOfBoundsException($String* val, int32_t start, int32_t end, int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(val, start, end, radix);
@@ -154,6 +158,7 @@ void ParsingTest::checkIndexOutOfBoundsException($String* val, int32_t start, in
 }
 
 void ParsingTest::checkNull(int32_t start, int32_t end, int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	int64_t n = 0;
 	try {
 		n = $Long::parseLong(nullptr, start, end, radix);
@@ -166,6 +171,7 @@ void ParsingTest::checkNull(int32_t start, int32_t end, int32_t radix) {
 }
 
 void ParsingTest::check(int64_t expected, $String* val, int32_t start, int32_t end, int32_t radix) {
+	$useLocalCurrentObjectStackCache();
 	int64_t n = $Long::parseLong(val, start, end, radix);
 	if (n != expected) {
 		$throwNew($RuntimeException, $$str({"Long.parseLong failed. Expexted: "_s, $$str(expected), " String: \""_s, val, "\", start: "_s, $$str(start), ", end: "_s, $$str(end), " radix: "_s, $$str(radix), " Result: "_s, $$str(n)}));

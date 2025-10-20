@@ -166,6 +166,7 @@ void EventHelper::init$() {
 
 void EventHelper::logTLSHandshakeEvent($Instant* start, $String* peerHost, int32_t peerPort, $String* cipherSuite, $String* protocolVersion, int64_t peerCertId) {
 	$init(EventHelper);
+	$useLocalCurrentObjectStackCache();
 	if (!EventHelper::$assertionsDisabled && !(EventHelper::securityLogger != nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -192,6 +193,7 @@ void EventHelper::logSecurityPropertyEvent($String* key, $String* value) {
 
 void EventHelper::logX509ValidationEvent(int32_t anchorCertId, $ints* certIds) {
 	$init(EventHelper);
+	$useLocalCurrentObjectStackCache();
 	if (!EventHelper::$assertionsDisabled && !(EventHelper::securityLogger != nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -204,6 +206,7 @@ void EventHelper::logX509ValidationEvent(int32_t anchorCertId, $ints* certIds) {
 
 void EventHelper::logX509CertificateEvent($String* algId, $String* serialNum, $String* subject, $String* issuer, $String* keyType, int32_t length, int64_t certId, int64_t beginDate, int64_t endDate) {
 	$init(EventHelper);
+	$useLocalCurrentObjectStackCache();
 	if (!EventHelper::$assertionsDisabled && !(EventHelper::securityLogger != nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -222,6 +225,7 @@ void EventHelper::logX509CertificateEvent($String* algId, $String* serialNum, $S
 
 $String* EventHelper::getDurationString($Instant* start) {
 	$init(EventHelper);
+	$useLocalCurrentObjectStackCache();
 	if (start != nullptr) {
 		$init($Instant);
 		if (start->equals($Instant::MIN)) {
@@ -241,6 +245,7 @@ $String* EventHelper::getDurationString($Instant* start) {
 
 bool EventHelper::isLoggingSecurity() {
 	$init(EventHelper);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (EventHelper::securityLogger == nullptr && !$nc(EventHelper::JUJA)->isInitializing()) {
 		$nc(EventHelper::LOGGER_HANDLE)->compareAndSet($$new($ObjectArray, {($Object*)nullptr, $($of($System::getLogger(EventHelper::SECURITY_LOGGER_NAME)))}));
@@ -250,6 +255,7 @@ bool EventHelper::isLoggingSecurity() {
 }
 
 void clinit$EventHelper($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(EventHelper::SECURITY_LOGGER_NAME, "jdk.event.security"_s);
 	$beforeCallerSensitive();
 	EventHelper::$assertionsDisabled = !EventHelper::class$->desiredAssertionStatus();

@@ -86,6 +86,7 @@ void Sender$Client::throwException() {
 }
 
 void Sender$Client::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DatagramChannel, dc, $DatagramChannel::open());
 		$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(12));

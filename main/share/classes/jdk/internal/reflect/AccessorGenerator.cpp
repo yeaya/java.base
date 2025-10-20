@@ -356,6 +356,7 @@ bool AccessorGenerator::isPrivate() {
 
 $String* AccessorGenerator::getClassName($Class* c, bool addPrefixAndSuffixForNonPrimitiveTypes) {
 	$init(AccessorGenerator);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(c)->isPrimitive()) {
 		$init($Boolean);
 		if (c == $Boolean::TYPE) {
@@ -679,6 +680,7 @@ void AccessorGenerator::emitWideningBytecodeForPrimitiveConversion($ClassFileAss
 }
 
 int16_t AccessorGenerator::unboxingMethodForPrimitiveType($Class* primType) {
+	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	if (primType == $Boolean::TYPE) {
 		return this->booleanUnboxIdx;

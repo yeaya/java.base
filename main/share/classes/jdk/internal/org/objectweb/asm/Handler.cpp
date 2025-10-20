@@ -115,6 +115,7 @@ int32_t Handler::getExceptionTableSize(Handler* firstHandler) {
 }
 
 void Handler::putExceptionTable(Handler* firstHandler, $ByteVector* output) {
+	$useLocalCurrentObjectStackCache();
 	$nc(output)->putShort(getExceptionTableLength(firstHandler));
 	$var(Handler, handler, firstHandler);
 	while (handler != nullptr) {

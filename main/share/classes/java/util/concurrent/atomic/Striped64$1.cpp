@@ -77,6 +77,7 @@ void Striped64$1::init$() {
 }
 
 $Object* Striped64$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($Thread);

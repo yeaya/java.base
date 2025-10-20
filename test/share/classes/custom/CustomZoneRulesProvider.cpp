@@ -59,6 +59,7 @@ $ZoneRules* CustomZoneRulesProvider::provideRules($String* zoneId, bool forCachi
 }
 
 $NavigableMap* CustomZoneRulesProvider::provideVersions($String* zoneId) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap, map, $new($TreeMap));
 	map->put("bogusVersion"_s, $(getRules(zoneId, false)));
 	return map;

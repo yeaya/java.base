@@ -89,6 +89,7 @@ void BlowfishKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* BlowfishKeyGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}

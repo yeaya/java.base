@@ -176,6 +176,7 @@ int32_t OCSP::CONNECT_TIMEOUT = 0;
 
 int32_t OCSP::initializeTimeout() {
 	$init(OCSP);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Integer, tmp, $cast($Integer, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "com.sun.security.ocsp.timeout"_s)))));
 	if (tmp == nullptr || $nc(tmp)->intValue() < 0) {
@@ -200,6 +201,7 @@ $OCSP$RevocationStatus* OCSP::check($X509Certificate* cert, $X509Certificate* is
 
 $OCSP$RevocationStatus* OCSP::check($X509Certificate* cert, $URI* responderURI, $TrustAnchor* anchor, $X509Certificate* issuerCert, $X509Certificate* responderCert, $Date* date, $List* extensions, $String* variant) {
 	$init(OCSP);
+	$useLocalCurrentObjectStackCache();
 	$var($CertId, certId, nullptr);
 	try {
 		$var($X509CertImpl, certImpl, $X509CertImpl::toImpl(cert));
@@ -219,6 +221,7 @@ $OCSP$RevocationStatus* OCSP::check($X509Certificate* cert, $URI* responderURI, 
 
 $OCSPResponse* OCSP::check($List* certIds, $URI* responderURI, $OCSPResponse$IssuerInfo* issuerInfo, $X509Certificate* responderCert, $Date* date, $List* extensions, $String* variant) {
 	$init(OCSP);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, nonce, nullptr);
 	{
 		$var($Iterator, i$, $nc(extensions)->iterator());
@@ -247,6 +250,7 @@ $OCSPResponse* OCSP::check($List* certIds, $URI* responderURI, $OCSPResponse$Iss
 
 $bytes* OCSP::getOCSPBytes($List* certIds, $URI* responderURI, $List* extensions) {
 	$init(OCSP);
+	$useLocalCurrentObjectStackCache();
 	$var($OCSPRequest, request, $new($OCSPRequest, certIds, extensions));
 	$var($bytes, bytes, request->encodeBytes());
 	if (OCSP::debug != nullptr) {
@@ -313,6 +317,7 @@ $bytes* OCSP::getOCSPBytes($List* certIds, $URI* responderURI, $List* extensions
 
 $URI* OCSP::getResponderURI($X509Certificate* cert) {
 	$init(OCSP);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return getResponderURI($($X509CertImpl::toImpl(cert)));
 	} catch ($CertificateException&) {
@@ -324,6 +329,7 @@ $URI* OCSP::getResponderURI($X509Certificate* cert) {
 
 $URI* OCSP::getResponderURI($X509CertImpl* certImpl) {
 	$init(OCSP);
+	$useLocalCurrentObjectStackCache();
 	$var($AuthorityInfoAccessExtension, aia, $nc(certImpl)->getAuthorityInfoAccessExtension());
 	if (aia == nullptr) {
 		return nullptr;

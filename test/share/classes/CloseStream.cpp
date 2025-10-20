@@ -48,6 +48,7 @@ void CloseStream::init$() {
 }
 
 void CloseStream::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedInputStream, in, $new($BufferedInputStream, $$new($MyInputStream4CloseStream)));
 	in->read();
 	in->close();

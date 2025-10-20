@@ -105,6 +105,7 @@ $BigDecimal* SquareRootTests$BigSquareRoot::square($BigDecimal* bd) {
 
 $BigDecimal* SquareRootTests$BigSquareRoot::sqrt($BigDecimal* bd, $MathContext* mc) {
 	$init(SquareRootTests$BigSquareRoot);
+	$useLocalCurrentObjectStackCache();
 	int32_t signum = $nc(bd)->signum();
 	if (signum == 1) {
 		int32_t preferredScale = bd->scale() / 2;
@@ -194,6 +195,7 @@ $BigDecimal* SquareRootTests$BigSquareRoot::sqrt($BigDecimal* bd, $MathContext* 
 
 bool SquareRootTests$BigSquareRoot::squareRootResultAssertions($BigDecimal* input, $BigDecimal* result, $MathContext* mc) {
 	$init(SquareRootTests$BigSquareRoot);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(result)->signum() == 0) {
 		return squareRootZeroResultAssertions(input, result, mc);
 	} else {

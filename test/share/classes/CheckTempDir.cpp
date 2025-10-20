@@ -40,6 +40,7 @@ void CheckTempDir::init$() {
 }
 
 void CheckTempDir::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, tmpdir, nullptr);
 	if (($assign(tmpdir, $System::getProperty("java.io.tmpdir"_s))) == nullptr) {
 		$throwNew($RuntimeException, "java.io.tmpdir is not initialized"_s);

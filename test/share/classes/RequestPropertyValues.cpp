@@ -82,6 +82,7 @@ void RequestPropertyValues::main($StringArray* args) {
 }
 
 void RequestPropertyValues::part1() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, urls, $new($ArrayList));
 	urls->add($$new($URL, "http://localhost:8088"_s));
 	urls->add($$new($URL, "file:/etc/passwd"_s));
@@ -121,6 +122,7 @@ void RequestPropertyValues::part1() {
 }
 
 void RequestPropertyValues::part2() {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	$var($StringArray, goodKeys, $new($StringArray, {
 		""_s,

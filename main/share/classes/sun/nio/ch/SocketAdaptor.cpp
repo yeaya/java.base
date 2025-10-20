@@ -239,6 +239,7 @@ void SocketAdaptor::init$($SocketChannelImpl* sc) {
 
 $Socket* SocketAdaptor::create($SocketChannelImpl* sc) {
 	$init(SocketAdaptor);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(SocketAdaptor$$Lambda$lambda$create$0, sc)));
 	try {
@@ -302,6 +303,7 @@ $InetAddress* SocketAdaptor::getInetAddress() {
 }
 
 $InetAddress* SocketAdaptor::getLocalAddress() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->sc)->isOpen()) {
 		$var($InetSocketAddress, local, localAddress());
 		if (local != nullptr) {
@@ -368,6 +370,7 @@ $OutputStream* SocketAdaptor::getOutputStream() {
 }
 
 void SocketAdaptor::setBooleanOption($SocketOption* name, bool value) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->sc)->setOption(name, $($Boolean::valueOf(value)));
 	} catch ($IOException&) {
@@ -377,6 +380,7 @@ void SocketAdaptor::setBooleanOption($SocketOption* name, bool value) {
 }
 
 void SocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(this->sc)->setOption(name, $($Integer::valueOf(value)));
 	} catch ($IOException&) {
@@ -386,6 +390,7 @@ void SocketAdaptor::setIntOption($SocketOption* name, int32_t value) {
 }
 
 bool SocketAdaptor::getBooleanOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Boolean, $($nc(this->sc)->getOption(name)))))->booleanValue();
 	} catch ($IOException&) {
@@ -397,6 +402,7 @@ bool SocketAdaptor::getBooleanOption($SocketOption* name) {
 }
 
 int32_t SocketAdaptor::getIntOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(($cast($Integer, $($nc(this->sc)->getOption(name)))))->intValue();
 	} catch ($IOException&) {
@@ -543,6 +549,7 @@ void SocketAdaptor::shutdownOutput() {
 }
 
 $String* SocketAdaptor::toString() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->sc)->isConnected()) {
 		$var($String, var$3, $$str({"Socket[addr="_s, $(getInetAddress()), ",port="_s}));
 		$var($String, var$2, $$concat(var$3, $$str(getPort())));

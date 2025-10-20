@@ -47,6 +47,7 @@ void WaitFor::init$() {
 }
 
 void WaitFor::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failCnt = 0;
 	for (int32_t i = 0; i < 30; ++i) {
 		$var($Process, proc, $new($MyProcess, $($$new($ProcessBuilder, $$new($StringArray, {"true"_s}))->start())));

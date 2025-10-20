@@ -340,6 +340,7 @@ void Textifier::init$(int32_t api) {
 
 void Textifier::main($StringArray* args) {
 	$init(Textifier);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, var$0, args);
 	$init($System);
 	$var($PrintWriter, var$1, $new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
@@ -411,6 +412,7 @@ void Textifier::visitSource($String* file, $String* debug) {
 }
 
 $Printer* Textifier::visitModule($String* name, int32_t access, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	if (((int32_t)(access & (uint32_t)$Opcodes::ACC_OPEN)) != 0) {
 		$nc(this->stringBuilder)->append("open "_s);
@@ -537,6 +539,7 @@ Textifier* Textifier::visitField(int32_t access, $String* name, $String* descrip
 }
 
 Textifier* Textifier::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(u'\n');
 	if (((int32_t)(access & (uint32_t)$Opcodes::ACC_DEPRECATED)) != 0) {
@@ -671,6 +674,7 @@ void Textifier::visitModuleEnd() {
 }
 
 void Textifier::visit($String* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	visitAnnotationValue(name);
 	if ($instanceOf($String, value)) {
 		visitString($cast($String, value));
@@ -883,6 +887,7 @@ Textifier* Textifier::visitAnnotableParameterCount(int32_t parameterCount, bool 
 }
 
 Textifier* Textifier::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab2)->append(u'@');
 	appendDescriptor(Textifier::FIELD_DESCRIPTOR, descriptor);
@@ -956,6 +961,7 @@ void Textifier::visitInsn(int32_t opcode) {
 }
 
 void Textifier::visitIntInsn(int32_t opcode, int32_t operand) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$init($Printer);
 	$nc(this->stringBuilder)->append(this->tab2)->append($nc($Printer::OPCODES)->get(opcode))->append(u' ')->append(opcode == $Opcodes::NEWARRAY ? $nc($Printer::TYPES)->get(operand) : $($Integer::toString(operand)))->append(u'\n');
@@ -1004,6 +1010,7 @@ void Textifier::visitMethodInsn(int32_t opcode, $String* owner, $String* name, $
 }
 
 void Textifier::visitInvokeDynamicInsn($String* name, $String* descriptor, $Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab2)->append("INVOKEDYNAMIC"_s)->append(u' ');
 	$nc(this->stringBuilder)->append(name);
@@ -1069,6 +1076,7 @@ void Textifier::visitLabel($Label* label) {
 }
 
 void Textifier::visitLdcInsn(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab2)->append("LDC "_s);
 	if ($instanceOf($String, value)) {
@@ -1143,6 +1151,7 @@ void Textifier::visitTryCatchBlock($Label* start, $Label* end, $Label* handler, 
 }
 
 $Printer* Textifier::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab2)->append("TRYCATCHBLOCK @"_s);
 	appendDescriptor(Textifier::FIELD_DESCRIPTOR, descriptor);
@@ -1175,6 +1184,7 @@ void Textifier::visitLocalVariable($String* name, $String* descriptor, $String* 
 }
 
 $Printer* Textifier::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab2)->append("LOCALVARIABLE @"_s);
 	appendDescriptor(Textifier::FIELD_DESCRIPTOR, descriptor);
@@ -1204,6 +1214,7 @@ void Textifier::visitLineNumber(int32_t line, $Label* start) {
 }
 
 void Textifier::visitMaxs(int32_t maxStack, int32_t maxLocals) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab2)->append("MAXSTACK = "_s)->append(maxStack)->append(u'\n');
 	$nc(this->text)->add($($nc(this->stringBuilder)->toString()));
@@ -1225,6 +1236,7 @@ Textifier* Textifier::visitAnnotation($String* descriptor, bool visible) {
 }
 
 Textifier* Textifier::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->setLength(0);
 	$nc(this->stringBuilder)->append(this->tab)->append(u'@');
 	appendDescriptor(Textifier::FIELD_DESCRIPTOR, descriptor);
@@ -1296,6 +1308,7 @@ void Textifier::appendAccess(int32_t accessFlags) {
 }
 
 void Textifier::appendRawAccess(int32_t accessFlags) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->stringBuilder)->append("// access flags 0x"_s)->append($($nc($($Integer::toHexString(accessFlags)))->toUpperCase()))->append(u'\n');
 }
 
@@ -1310,6 +1323,7 @@ void Textifier::appendDescriptor(int32_t type, $String* value) {
 }
 
 void Textifier::appendJavaDeclaration($String* name, $String* signature) {
+	$useLocalCurrentObjectStackCache();
 	$var($TraceSignatureVisitor, traceSignatureVisitor, $new($TraceSignatureVisitor, this->access));
 	$$new($SignatureReader, signature)->accept(traceSignatureVisitor);
 	$nc(this->stringBuilder)->append("// declaration: "_s);
@@ -1326,6 +1340,7 @@ void Textifier::appendJavaDeclaration($String* name, $String* signature) {
 }
 
 void Textifier::appendLabel($Label* label) {
+	$useLocalCurrentObjectStackCache();
 	if (this->labelNames == nullptr) {
 		$set(this, labelNames, $new($HashMap));
 	}
@@ -1338,6 +1353,7 @@ void Textifier::appendLabel($Label* label) {
 }
 
 void Textifier::appendHandle($Handle* handle) {
+	$useLocalCurrentObjectStackCache();
 	int32_t tag = $nc(handle)->getTag();
 	$nc(this->stringBuilder)->append("// handle kind 0x"_s)->append($($Integer::toHexString(tag)))->append(" : "_s);
 	bool isMethodHandle = false;
@@ -1541,6 +1557,7 @@ void Textifier::appendTypeReference(int32_t typeRef) {
 }
 
 void Textifier::appendFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < numTypes; ++i) {
 		if (i > 0) {
 			$nc(this->stringBuilder)->append(u' ');
@@ -1561,6 +1578,7 @@ void Textifier::appendFrameTypes(int32_t numTypes, $ObjectArray* frameTypes) {
 }
 
 Textifier* Textifier::addNewTextifier($String* endText) {
+	$useLocalCurrentObjectStackCache();
 	$var(Textifier, textifier, createTextifier());
 	$nc(this->text)->add($($nc(textifier)->getText()));
 	if (endText != nullptr) {
@@ -1574,6 +1592,7 @@ Textifier* Textifier::createTextifier() {
 }
 
 void clinit$Textifier($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Textifier::USAGE, "Prints a disassembled view of the given class.\nUsage: Textifier [-debug] <fully qualified class name or class file name>"_s);
 	$assignStatic(Textifier::CLASS_SUFFIX, ".class"_s);
 	$assignStatic(Textifier::DEPRECATED, "// DEPRECATED\n"_s);

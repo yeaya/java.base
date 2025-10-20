@@ -147,6 +147,7 @@ $bytes* InputStream::readAllBytes() {
 }
 
 $bytes* InputStream::readNBytes(int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len < 0) {
 		$throwNew($IllegalArgumentException, "len < 0"_s);
 	}

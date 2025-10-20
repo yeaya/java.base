@@ -217,6 +217,7 @@ void DataOutputStream::writeUTF($String* str) {
 
 int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 	$init(DataOutputStream);
+	$useLocalCurrentObjectStackCache();
 	int32_t strlen = $nc(str)->length();
 	int32_t utflen = strlen;
 	for (int32_t i = 0; i < strlen; ++i) {
@@ -275,6 +276,7 @@ int32_t DataOutputStream::writeUTF($String* str, $DataOutput* out) {
 
 $String* DataOutputStream::tooLongMsg($String* s, int32_t bits32) {
 	$init(DataOutputStream);
+	$useLocalCurrentObjectStackCache();
 	int32_t slen = $nc(s)->length();
 	$var($String, head, s->substring(0, 8));
 	$var($String, tail, s->substring(slen - 8, slen));

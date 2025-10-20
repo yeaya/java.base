@@ -99,6 +99,7 @@ void SeedGenerator$1::init$($MessageDigest* val$md) {
 }
 
 $Object* SeedGenerator$1::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Properties, p, $System::getProperties());
 		{

@@ -80,6 +80,7 @@ $ints* DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle = nullp
 $ints* DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$TextStyle = nullptr;
 
 void clinit$DateTimeFormatterBuilder$2($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DateTimeFormatterBuilder$2::$SwitchMap$java$time$format$SignStyle, $new($ints, $($SignStyle::values())->length));
 	{
 		try {

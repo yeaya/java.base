@@ -1388,6 +1388,7 @@ CipherSuite* CipherSuite::valueOf(int32_t id) {
 
 $String* CipherSuite::nameOf(int32_t id) {
 	$init(CipherSuite);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($CipherSuiteArray, arr$, CipherSuite::values());
 		int32_t len$ = $nc(arr$)->length;
@@ -1406,6 +1407,7 @@ $String* CipherSuite::nameOf(int32_t id) {
 
 $Collection* CipherSuite::allowedCipherSuites() {
 	$init(CipherSuite);
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, cipherSuites, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($new($LinkedList))))));
 	{
 		$var($CipherSuiteArray, arr$, CipherSuite::values());
@@ -1427,6 +1429,7 @@ $Collection* CipherSuite::allowedCipherSuites() {
 
 $Collection* CipherSuite::defaultCipherSuites() {
 	$init(CipherSuite);
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, cipherSuites, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($new($LinkedList))))));
 	{
 		$var($CipherSuiteArray, arr$, CipherSuite::values());
@@ -1448,6 +1451,7 @@ $Collection* CipherSuite::defaultCipherSuites() {
 
 $List* CipherSuite::validValuesOf($StringArray* names) {
 	$init(CipherSuite);
+	$useLocalCurrentObjectStackCache();
 	if (names == nullptr) {
 		$throwNew($IllegalArgumentException, "CipherSuites cannot be null"_s);
 	}
@@ -1494,6 +1498,7 @@ $List* CipherSuite::validValuesOf($StringArray* names) {
 
 $StringArray* CipherSuite::namesOf($List* cipherSuites) {
 	$init(CipherSuite);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, $new($StringArray, $nc(cipherSuites)->size()));
 	int32_t i = 0;
 	{

@@ -142,6 +142,7 @@ void Transfers::writeBytes($bytes* ba, $FileChannel* fc, int32_t off, int32_t le
 
 void Transfers::writeRandomBytes(int64_t seed, $FileChannel* fc, int32_t off, int32_t len) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	$var($Random, r, $new($Random, seed));
 	$var($bytes, ba, $new($bytes, len));
 	r->nextBytes(ba);
@@ -156,6 +157,7 @@ void Transfers::writeZeroBytes($FileChannel* fc, int32_t off, int32_t len) {
 
 void Transfers::checkBytes($FileChannel* fc, int32_t off, int32_t len, $bytes* bytes) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(len));
 	$nc(fc)->position(off);
 	if (fc->read(bb) != len) {
@@ -170,6 +172,7 @@ void Transfers::checkBytes($FileChannel* fc, int32_t off, int32_t len, $bytes* b
 
 void Transfers::checkRandomBytes($FileChannel* fc, int32_t off, int32_t len, int64_t seed) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, ba, $new($bytes, len));
 	$var($Random, r, $new($Random, seed));
 	r->nextBytes(ba);
@@ -184,6 +187,7 @@ void Transfers::checkZeroBytes($FileChannel* fc, int32_t off, int32_t len) {
 
 void Transfers::dump($FileChannel* fc) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	int32_t sz = (int32_t)$nc(fc)->size();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(sz));
 	fc->position(0);
@@ -237,6 +241,7 @@ void Transfers::dump($FileChannel* fc) {
 
 void Transfers::show($String* dir, $String* channelName, int32_t off, int32_t len) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	if (!Transfers::verbose) {
 		return;
 	}
@@ -245,6 +250,7 @@ void Transfers::show($String* dir, $String* channelName, int32_t off, int32_t le
 
 void Transfers::testTo(int64_t seed, $FileChannel* fc, int32_t off, int32_t len, $Transfers$Target* tgt) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	show("To"_s, $($nc(tgt)->name()), off, len);
 	writeZeroBytes(fc, 0, Transfers::MAX_FILE_SIZE);
 	writeRandomBytes(seed, fc, off, len);
@@ -268,6 +274,7 @@ void Transfers::testTo(int64_t seed, $FileChannel* fc, int32_t off, int32_t len,
 
 void Transfers::testFrom(int64_t seed, $Transfers$Source* src, $FileChannel* fc, int32_t off, int32_t len) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	show("From"_s, $($nc(src)->name()), off, len);
 	writeZeroBytes(fc, 0, Transfers::MAX_FILE_SIZE);
 	int32_t pos = (int32_t)((int32_t)seed & (uint32_t)4095);
@@ -290,6 +297,7 @@ void Transfers::testFrom(int64_t seed, $Transfers$Source* src, $FileChannel* fc,
 
 void Transfers::main($StringArray* args) {
 	$init(Transfers);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length > 0) {
 		if ($nc(args->get(0))->indexOf((int32_t)u'v') >= 0) {
 			Transfers::verbose = true;

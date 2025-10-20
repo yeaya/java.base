@@ -72,6 +72,7 @@ $Field* StaticFieldTest::getAccessibleField($String* name) {
 
 void StaticFieldTest::main($StringArray* args) {
 	$load(StaticFieldTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Field, byteField, getAccessibleField("byteField"_s));
 	$var($Field, shortField, getAccessibleField("shortField"_s));

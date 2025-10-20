@@ -48,6 +48,7 @@ void DefaultFileTypeDetector::init$() {
 }
 
 $FileTypeDetector* DefaultFileTypeDetector::create() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileSystemProvider, provider, $nc($($FileSystems::getDefault()))->provider());
 	return $nc(($cast($UnixFileSystemProvider, provider)))->getFileTypeDetector();
 }

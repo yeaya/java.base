@@ -128,6 +128,7 @@ $String* SunEntries::URL_DEV_URANDOM = nullptr;
 $String* SunEntries::seedSource = nullptr;
 
 void SunEntries::init$($Provider* p) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, services, $new($LinkedHashSet, 50, 0.9f));
 	$var($HashMap, attrs, $new($HashMap, 3));
 	attrs->put("ThreadSafe"_s, "true"_s);
@@ -223,6 +224,7 @@ void SunEntries::add($Provider* p, $String* type, $String* algo, $String* cn, $H
 }
 
 void SunEntries::addWithAlias($Provider* p, $String* type, $String* algo, $String* cn, $HashMap* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->services)->add($$new($Provider$Service, p, type, algo, cn, $($SecurityProviderConstants::getAliases(algo)), attrs));
 }
 
@@ -233,6 +235,7 @@ $String* SunEntries::getSeedSource() {
 
 $File* SunEntries::getDeviceFile($URL* device) {
 	$init(SunEntries);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URI, deviceURI, $nc(device)->toURI());
 		if ($nc(deviceURI)->isOpaque()) {
@@ -251,6 +254,7 @@ $File* SunEntries::getDeviceFile($URL* device) {
 }
 
 void clinit$SunEntries($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SunEntries::PROP_EGD, "java.security.egd"_s);
 	$assignStatic(SunEntries::PROP_RNDSOURCE, "securerandom.source"_s);
 	$assignStatic(SunEntries::URL_DEV_RANDOM, "file:/dev/random"_s);

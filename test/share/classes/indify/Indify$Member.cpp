@@ -129,6 +129,7 @@ void Indify$Member::readFrom($DataInputStream* in) {
 }
 
 void Indify$Member::writeTo($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$Indify::writeOutputs(out, $$new($ObjectArray, {
 		$($of($Short::valueOf(this->access))),
 		$($of($Short::valueOf(this->name))),
@@ -158,6 +159,7 @@ $String* Indify$Member::typeString() {
 }
 
 $String* Indify$Member::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->$Indify$InnerOuter::outer$ == nullptr) {
 		return $Indify$InnerOuter::toString();
 	}

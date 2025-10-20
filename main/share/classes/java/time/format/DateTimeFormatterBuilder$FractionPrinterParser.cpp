@@ -101,6 +101,7 @@ $Object* allocate$DateTimeFormatterBuilder$FractionPrinterParser($Class* clazz) 
 }
 
 void DateTimeFormatterBuilder$FractionPrinterParser::init$($TemporalField* field, int32_t minWidth, int32_t maxWidth, bool decimalPoint) {
+	$useLocalCurrentObjectStackCache();
 	DateTimeFormatterBuilder$FractionPrinterParser::init$(field, minWidth, maxWidth, decimalPoint, 0);
 	$Objects::requireNonNull($of(field), "field"_s);
 	if ($nc($($nc(field)->range()))->isFixed() == false) {
@@ -142,6 +143,7 @@ bool DateTimeFormatterBuilder$FractionPrinterParser::isFixedWidth($DateTimeParse
 }
 
 bool DateTimeFormatterBuilder$FractionPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($Long, value, $nc(context)->getValue(this->field));
 	if (value == nullptr) {
 		return false;
@@ -172,6 +174,7 @@ bool DateTimeFormatterBuilder$FractionPrinterParser::format($DateTimePrintContex
 }
 
 int32_t DateTimeFormatterBuilder$FractionPrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(context)->isStrict();
 	int32_t effectiveMin = (var$0 || isFixedWidth(context) ? this->minWidth : 0);
 	bool var$1 = $nc(context)->isStrict();
@@ -212,6 +215,7 @@ int32_t DateTimeFormatterBuilder$FractionPrinterParser::parse($DateTimeParseCont
 }
 
 $BigDecimal* DateTimeFormatterBuilder$FractionPrinterParser::convertToFraction(int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($ValueRange, range, $nc(this->field)->range());
 	$nc(range)->checkValidValue(value, this->field);
 	$var($BigDecimal, minBD, $BigDecimal::valueOf(range->getMinimum()));
@@ -223,6 +227,7 @@ $BigDecimal* DateTimeFormatterBuilder$FractionPrinterParser::convertToFraction(i
 }
 
 int64_t DateTimeFormatterBuilder$FractionPrinterParser::convertFromFraction($BigDecimal* fraction) {
+	$useLocalCurrentObjectStackCache();
 	$var($ValueRange, range, $nc(this->field)->range());
 	$var($BigDecimal, minBD, $BigDecimal::valueOf($nc(range)->getMinimum()));
 	$var($BigDecimal, rangeBD, $nc($($nc($($BigDecimal::valueOf($nc(range)->getMaximum())))->subtract(minBD)))->add($BigDecimal::ONE));
@@ -232,6 +237,7 @@ int64_t DateTimeFormatterBuilder$FractionPrinterParser::convertFromFraction($Big
 }
 
 $String* DateTimeFormatterBuilder$FractionPrinterParser::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, decimal, this->decimalPoint ? ",DecimalPoint"_s : ""_s);
 	return $str({"Fraction("_s, this->field, ","_s, $$str(this->minWidth), ","_s, $$str(this->maxWidth), decimal, ")"_s});
 }

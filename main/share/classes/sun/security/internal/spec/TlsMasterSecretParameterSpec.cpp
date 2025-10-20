@@ -85,6 +85,7 @@ void TlsMasterSecretParameterSpec::init$($SecretKey* premasterSecret, int32_t ma
 }
 
 void TlsMasterSecretParameterSpec::init$($SecretKey* premasterSecret, int32_t majorVersion, int32_t minorVersion, $bytes* extendedMasterSecretSessionHash, $String* prfHashAlg, int32_t prfHashLength, int32_t prfBlockSize) {
+	$useLocalCurrentObjectStackCache();
 	TlsMasterSecretParameterSpec::init$(premasterSecret, majorVersion, minorVersion, $$new($bytes, 0), $$new($bytes, 0), extendedMasterSecretSessionHash, prfHashAlg, prfHashLength, prfBlockSize);
 }
 

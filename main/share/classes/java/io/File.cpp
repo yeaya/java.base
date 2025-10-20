@@ -293,6 +293,7 @@ void File::init$($String* pathname) {
 }
 
 void File::init$($String* parent, $String* child) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, status, nullptr);
 	if (child == nullptr) {
 		$throwNew($NullPointerException);
@@ -312,6 +313,7 @@ void File::init$($String* parent, $String* child) {
 }
 
 void File::init$(File* parent, $String* child) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, status, nullptr);
 	if (child == nullptr) {
 		$throwNew($NullPointerException);
@@ -330,6 +332,7 @@ void File::init$(File* parent, $String* child) {
 }
 
 void File::init$($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, status, nullptr);
 	if (!$nc(uri)->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "URI is not absolute"_s);
@@ -443,6 +446,7 @@ $String* File::slashify($String* path, bool isDirectory) {
 }
 
 $URL* File::toURL() {
+	$useLocalCurrentObjectStackCache();
 	if (isInvalid()) {
 		$throwNew($MalformedURLException, "Invalid file path"_s);
 	}
@@ -451,6 +455,7 @@ $URL* File::toURL() {
 }
 
 $URI* File::toURI() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(File, f, getAbsoluteFile());
 		$var($String, var$0, $nc(f)->getPath());
@@ -592,6 +597,7 @@ $StringArray* File::list() {
 }
 
 $StringArray* File::normalizedList() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkRead(this->path);
@@ -611,6 +617,7 @@ $StringArray* File::normalizedList() {
 }
 
 $StringArray* File::list($FilenameFilter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, normalizedList());
 	if ((names == nullptr) || (filter == nullptr)) {
 		return names;
@@ -625,6 +632,7 @@ $StringArray* File::list($FilenameFilter* filter) {
 }
 
 $FileArray* File::listFiles() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, ss, normalizedList());
 	if (ss == nullptr) {
 		return nullptr;
@@ -638,6 +646,7 @@ $FileArray* File::listFiles() {
 }
 
 $FileArray* File::listFiles($FilenameFilter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, ss, normalizedList());
 	if (ss == nullptr) {
 		return nullptr;
@@ -658,6 +667,7 @@ $FileArray* File::listFiles($FilenameFilter* filter) {
 }
 
 $FileArray* File::listFiles($FileFilter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, ss, normalizedList());
 	if (ss == nullptr) {
 		return nullptr;
@@ -692,6 +702,7 @@ bool File::mkdir() {
 }
 
 bool File::mkdirs() {
+	$useLocalCurrentObjectStackCache();
 	if (exists()) {
 		return false;
 	}
@@ -818,6 +829,7 @@ $FileArray* File::listRoots() {
 }
 
 int64_t File::getTotalSpace() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getFileSystemAttributes"_s));
@@ -831,6 +843,7 @@ int64_t File::getTotalSpace() {
 }
 
 int64_t File::getFreeSpace() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getFileSystemAttributes"_s));
@@ -844,6 +857,7 @@ int64_t File::getFreeSpace() {
 }
 
 int64_t File::getUsableSpace() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "getFileSystemAttributes"_s));
@@ -858,6 +872,7 @@ int64_t File::getUsableSpace() {
 
 File* File::createTempFile($String* prefix, $String* suffix$renamed, File* directory) {
 	$init(File);
+	$useLocalCurrentObjectStackCache();
 	$var($String, suffix, suffix$renamed);
 	if ($nc(prefix)->length() < 3) {
 		$throwNew($IllegalArgumentException, $$str({"Prefix string \""_s, prefix, "\" too short: length must be at least 3"_s}));
@@ -929,6 +944,7 @@ void File::writeObject($ObjectOutputStream* s) {
 
 void File::readObject($ObjectInputStream* s) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 		$var($String, pathField, $cast($String, $nc(fields)->get("path"_s, ($Object*)nullptr)));
 		char16_t sep = s->readChar();
@@ -942,6 +958,7 @@ void File::readObject($ObjectInputStream* s) {
 }
 
 $Path* File::toPath() {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, result, this->filePath);
 	if (result == nullptr) {
 		$synchronized(this) {
@@ -960,6 +977,7 @@ int32_t File::compareTo(Object$* pathname) {
 }
 
 void clinit$File($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	File::$assertionsDisabled = !File::class$->desiredAssertionStatus();
 	$assignStatic(File::fs, $DefaultFileSystem::getFileSystem());
 	File::separatorChar = $nc(File::fs)->getSeparator();

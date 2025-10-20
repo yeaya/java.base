@@ -96,6 +96,7 @@ $NativeBuffer* NativeBuffers::allocNativeBuffer(int32_t size) {
 
 $NativeBuffer* NativeBuffers::getNativeBufferFromCache(int32_t size) {
 	$init(NativeBuffers);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBufferArray, buffers, $cast($NativeBufferArray, $nc(NativeBuffers::threadLocal)->get()));
 	if (buffers != nullptr) {
 		for (int32_t i = 0; i < NativeBuffers::TEMP_BUF_POOL_SIZE; ++i) {
@@ -122,6 +123,7 @@ $NativeBuffer* NativeBuffers::getNativeBuffer(int32_t size) {
 
 void NativeBuffers::releaseNativeBuffer($NativeBuffer* buffer) {
 	$init(NativeBuffers);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBufferArray, buffers, $cast($NativeBufferArray, $nc(NativeBuffers::threadLocal)->get()));
 	if (buffers == nullptr) {
 		$assign(buffers, $new($NativeBufferArray, NativeBuffers::TEMP_BUF_POOL_SIZE));

@@ -210,6 +210,7 @@ $PrivateKey* X509KeyManagerImpl::getPrivateKey($String* alias) {
 }
 
 $String* X509KeyManagerImpl::chooseClientAlias($StringArray* keyTypes, $PrincipalArray* issuers, $Socket* socket) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, var$0, getKeyTypes(keyTypes));
 	$var($PrincipalArray, var$1, issuers);
 	$init($X509KeyManagerImpl$CheckType);
@@ -218,6 +219,7 @@ $String* X509KeyManagerImpl::chooseClientAlias($StringArray* keyTypes, $Principa
 }
 
 $String* X509KeyManagerImpl::chooseEngineClientAlias($StringArray* keyTypes, $PrincipalArray* issuers, $SSLEngine* engine) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, var$0, getKeyTypes(keyTypes));
 	$var($PrincipalArray, var$1, issuers);
 	$init($X509KeyManagerImpl$CheckType);
@@ -226,6 +228,7 @@ $String* X509KeyManagerImpl::chooseEngineClientAlias($StringArray* keyTypes, $Pr
 }
 
 $String* X509KeyManagerImpl::chooseServerAlias($String* keyType, $PrincipalArray* issuers, $Socket* socket) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, var$0, getKeyTypes($$new($StringArray, {keyType})));
 	$var($PrincipalArray, var$1, issuers);
 	$init($X509KeyManagerImpl$CheckType);
@@ -235,6 +238,7 @@ $String* X509KeyManagerImpl::chooseServerAlias($String* keyType, $PrincipalArray
 }
 
 $String* X509KeyManagerImpl::chooseEngineServerAlias($String* keyType, $PrincipalArray* issuers, $SSLEngine* engine) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, var$0, getKeyTypes($$new($StringArray, {keyType})));
 	$var($PrincipalArray, var$1, issuers);
 	$init($X509KeyManagerImpl$CheckType);
@@ -254,6 +258,7 @@ $StringArray* X509KeyManagerImpl::getServerAliases($String* keyType, $PrincipalA
 }
 
 $AlgorithmConstraints* X509KeyManagerImpl::getAlgorithmConstraints($Socket* socket) {
+	$useLocalCurrentObjectStackCache();
 	if (socket != nullptr && socket->isConnected() && $instanceOf($SSLSocket, socket)) {
 		$var($SSLSocket, sslSocket, $cast($SSLSocket, socket));
 		$var($SSLSession, session, sslSocket->getHandshakeSession());
@@ -273,6 +278,7 @@ $AlgorithmConstraints* X509KeyManagerImpl::getAlgorithmConstraints($Socket* sock
 }
 
 $AlgorithmConstraints* X509KeyManagerImpl::getAlgorithmConstraints($SSLEngine* engine) {
+	$useLocalCurrentObjectStackCache();
 	if (engine != nullptr) {
 		$var($SSLSession, session, engine->getHandshakeSession());
 		if (session != nullptr) {
@@ -290,10 +296,12 @@ $AlgorithmConstraints* X509KeyManagerImpl::getAlgorithmConstraints($SSLEngine* e
 }
 
 $String* X509KeyManagerImpl::makeAlias($X509KeyManagerImpl$EntryStatus* entry) {
+	$useLocalCurrentObjectStackCache();
 	return $str({$$str($nc(this->uidCounter)->incrementAndGet()), "."_s, $$str($nc(entry)->builderIndex), "."_s, entry->alias});
 }
 
 $KeyStore$PrivateKeyEntry* X509KeyManagerImpl::getEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	if (alias == nullptr) {
 		return nullptr;
 	}
@@ -328,6 +336,7 @@ $KeyStore$PrivateKeyEntry* X509KeyManagerImpl::getEntry($String* alias) {
 
 $List* X509KeyManagerImpl::getKeyTypes($StringArray* keyTypes) {
 	$init(X509KeyManagerImpl);
+	$useLocalCurrentObjectStackCache();
 	if ((keyTypes == nullptr) || ($nc(keyTypes)->length == 0) || ($nc(keyTypes)->get(0) == nullptr)) {
 		return nullptr;
 	}
@@ -351,6 +360,7 @@ $String* X509KeyManagerImpl::chooseAlias($List* keyTypeList, $PrincipalArray* is
 }
 
 $String* X509KeyManagerImpl::chooseAlias($List* keyTypeList, $PrincipalArray* issuers, $X509KeyManagerImpl$CheckType* checkType, $AlgorithmConstraints* constraints, $List* requestedServerNames, $String* idAlgorithm) {
+	$useLocalCurrentObjectStackCache();
 	if (keyTypeList == nullptr || $nc(keyTypeList)->isEmpty()) {
 		return nullptr;
 	}
@@ -398,6 +408,7 @@ $String* X509KeyManagerImpl::chooseAlias($List* keyTypeList, $PrincipalArray* is
 }
 
 $StringArray* X509KeyManagerImpl::getAliases($String* keyType, $PrincipalArray* issuers, $X509KeyManagerImpl$CheckType* checkType, $AlgorithmConstraints* constraints) {
+	$useLocalCurrentObjectStackCache();
 	if (keyType == nullptr) {
 		return nullptr;
 	}
@@ -437,6 +448,7 @@ $StringArray* X509KeyManagerImpl::getAliases($String* keyType, $PrincipalArray* 
 }
 
 $StringArray* X509KeyManagerImpl::toAliases($List* results) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, s, $new($StringArray, $nc(results)->size()));
 	int32_t i = 0;
 	{
@@ -460,6 +472,7 @@ $Set* X509KeyManagerImpl::getIssuerSet($PrincipalArray* issuers) {
 }
 
 $List* X509KeyManagerImpl::getAliases(int32_t builderIndex, $List* keyTypes, $Set* issuerSet, bool findAll, $X509KeyManagerImpl$CheckType* checkType, $AlgorithmConstraints* constraints, $List* requestedServerNames, $String* idAlgorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyStore$Builder, builder, $cast($KeyStore$Builder, $nc(this->builders)->get(builderIndex)));
 	$var($KeyStore, ks, $nc(builder)->getKeyStore());
 	$var($List, results, nullptr);
@@ -572,6 +585,7 @@ $List* X509KeyManagerImpl::getAliases(int32_t builderIndex, $List* keyTypes, $Se
 
 bool X509KeyManagerImpl::conformsToAlgorithmConstraints($AlgorithmConstraints* constraints, $CertificateArray* chain, $String* variant) {
 	$init(X509KeyManagerImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmChecker, checker, $new($AlgorithmChecker, constraints, variant));
 	try {
 		checker->init(false);

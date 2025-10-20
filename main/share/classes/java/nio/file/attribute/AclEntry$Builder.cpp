@@ -138,6 +138,7 @@ AclEntry$Builder* AclEntry$Builder::setPrincipal($UserPrincipal* who) {
 
 void AclEntry$Builder::checkSet($Set* set, $Class* type) {
 	$init(AclEntry$Builder);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(set)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -166,6 +167,7 @@ AclEntry$Builder* AclEntry$Builder::setPermissions($Set* perms$renamed) {
 }
 
 AclEntry$Builder* AclEntry$Builder::setPermissions($AclEntryPermissionArray* perms) {
+	$useLocalCurrentObjectStackCache();
 	$load($AclEntryPermission);
 	$var($Set, set, $EnumSet::noneOf($AclEntryPermission::class$));
 	{
@@ -200,6 +202,7 @@ AclEntry$Builder* AclEntry$Builder::setFlags($Set* flags$renamed) {
 }
 
 AclEntry$Builder* AclEntry$Builder::setFlags($AclEntryFlagArray* flags) {
+	$useLocalCurrentObjectStackCache();
 	$load($AclEntryFlag);
 	$var($Set, set, $EnumSet::noneOf($AclEntryFlag::class$));
 	{

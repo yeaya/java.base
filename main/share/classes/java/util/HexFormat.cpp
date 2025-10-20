@@ -207,6 +207,7 @@ $String* HexFormat::formatHex($bytes* bytes) {
 }
 
 $String* HexFormat::formatHex($bytes* bytes, int32_t fromIndex, int32_t toIndex) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(bytes), "bytes"_s);
 	$Objects::checkFromToIndex(fromIndex, toIndex, $nc(bytes)->length);
 	if (toIndex - fromIndex == 0) {
@@ -230,6 +231,7 @@ $Appendable* HexFormat::formatHex($Appendable* out, $bytes* bytes) {
 }
 
 $Appendable* HexFormat::formatHex($Appendable* out, $bytes* bytes, int32_t fromIndex, int32_t toIndex) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(out), "out"_s);
 	$Objects::requireNonNull($of(bytes), "bytes"_s);
 	$Objects::checkFromToIndex(fromIndex, toIndex, $nc(bytes)->length);
@@ -259,6 +261,7 @@ $Appendable* HexFormat::formatHex($Appendable* out, $bytes* bytes, int32_t fromI
 }
 
 $String* HexFormat::formatOptDelimiter($bytes* bytes, int32_t fromIndex, int32_t toIndex) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, nullptr);
 	bool var$0 = !$nc(this->prefix$)->isEmpty();
 	if (var$0 || !$nc(this->suffix$)->isEmpty()) {
@@ -299,6 +302,7 @@ $String* HexFormat::formatOptDelimiter($bytes* bytes, int32_t fromIndex, int32_t
 
 int32_t HexFormat::checkMaxArraySize(int64_t length) {
 	$init(HexFormat);
+	$useLocalCurrentObjectStackCache();
 	if (length > $Integer::MAX_VALUE) {
 		$throwNew($OutOfMemoryError, $$str({"String size "_s, $$str(length), " exceeds maximum "_s, $$str($Integer::MAX_VALUE)}));
 	}
@@ -310,6 +314,7 @@ $bytes* HexFormat::parseHex($CharSequence* string) {
 }
 
 $bytes* HexFormat::parseHex($CharSequence* string$renamed, int32_t fromIndex, int32_t toIndex) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, string, string$renamed);
 	$Objects::requireNonNull($of(string), "string"_s);
 	$Objects::checkFromToIndex(fromIndex, toIndex, $nc(string)->length());
@@ -355,6 +360,7 @@ $bytes* HexFormat::parseHex($chars* chars, int32_t fromIndex, int32_t toIndex) {
 
 void HexFormat::checkLiteral($CharSequence* string, int32_t index, $String* literal) {
 	$init(HexFormat);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !HexFormat::$assertionsDisabled;
 	if (var$0) {
 		int32_t var$1 = index;
@@ -400,6 +406,7 @@ char16_t HexFormat::toHighHexDigit(int32_t value) {
 }
 
 $Appendable* HexFormat::toHexDigits($Appendable* out, int8_t value) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(out), "out"_s);
 	try {
 		$nc(out)->append(toHighHexDigit(value));
@@ -413,6 +420,7 @@ $Appendable* HexFormat::toHexDigits($Appendable* out, int8_t value) {
 }
 
 $String* HexFormat::toHexDigits(int8_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 2));
 	rep->set(0, (int8_t)toHighHexDigit(value));
 	rep->set(1, (int8_t)toLowHexDigit(value));
@@ -431,6 +439,7 @@ $String* HexFormat::toHexDigits(char16_t value) {
 }
 
 $String* HexFormat::toHexDigits(int16_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 4));
 	rep->set(0, (int8_t)toHighHexDigit((int8_t)(value >> 8)));
 	rep->set(1, (int8_t)toLowHexDigit((int8_t)(value >> 8)));
@@ -447,6 +456,7 @@ $String* HexFormat::toHexDigits(int16_t value) {
 }
 
 $String* HexFormat::toHexDigits(int32_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 8));
 	rep->set(0, (int8_t)toHighHexDigit((int8_t)(value >> 24)));
 	rep->set(1, (int8_t)toLowHexDigit((int8_t)(value >> 24)));
@@ -467,6 +477,7 @@ $String* HexFormat::toHexDigits(int32_t value) {
 }
 
 $String* HexFormat::toHexDigits(int64_t value) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, rep, $new($bytes, 16));
 	rep->set(0, (int8_t)toHighHexDigit((int8_t)((int64_t)((uint64_t)value >> 56))));
 	rep->set(1, (int8_t)toLowHexDigit((int8_t)((int64_t)((uint64_t)value >> 56))));
@@ -495,6 +506,7 @@ $String* HexFormat::toHexDigits(int64_t value) {
 }
 
 $String* HexFormat::toHexDigits(int64_t value, int32_t digits) {
+	$useLocalCurrentObjectStackCache();
 	if (digits < 0 || digits > 16) {
 		$throwNew($IllegalArgumentException, $$str({"number of digits: "_s, $$str(digits)}));
 	}
@@ -518,6 +530,7 @@ $String* HexFormat::toHexDigits(int64_t value, int32_t digits) {
 
 $bytes* HexFormat::parseNoDelimiter($CharSequence* string) {
 	$init(HexFormat);
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)($nc(string)->length() & (uint32_t)1)) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"string length not even: "_s, $$str(string->length())}));
 	}
@@ -530,6 +543,7 @@ $bytes* HexFormat::parseNoDelimiter($CharSequence* string) {
 
 int32_t HexFormat::checkDigitCount(int32_t fromIndex, int32_t toIndex, int32_t limit) {
 	$init(HexFormat);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = toIndex - fromIndex;
 	if (length > limit) {
 		$throwNew($IllegalArgumentException, $$str({"string length greater than "_s, $$str(limit), ": "_s, $$str(length)}));
@@ -544,6 +558,7 @@ bool HexFormat::isHexDigit(int32_t ch) {
 
 int32_t HexFormat::fromHexDigit(int32_t ch) {
 	$init(HexFormat);
+	$useLocalCurrentObjectStackCache();
 	int32_t value = 0;
 	if (((int32_t)((uint32_t)ch >> 8)) == 0 && (value = $nc(HexFormat::DIGITS)->get(ch)) >= 0) {
 		return value;
@@ -621,6 +636,7 @@ int32_t HexFormat::hashCode() {
 }
 
 $String* HexFormat::toString() {
+	$useLocalCurrentObjectStackCache();
 	return escapeNL($$str({"uppercase: "_s, $$str($Arrays::equals(this->digits, HexFormat::UPPERCASE_DIGITS)), ", delimiter: \""_s, this->delimiter$, "\", prefix: \""_s, this->prefix$, "\", suffix: \""_s, this->suffix$, "\""_s}));
 }
 

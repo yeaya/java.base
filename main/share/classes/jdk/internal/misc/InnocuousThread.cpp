@@ -152,6 +152,7 @@ $Thread* InnocuousThread::newThread($String* name, $Runnable* target) {
 
 $Thread* InnocuousThread::newThread($String* name, $Runnable* target, int32_t priority) {
 	$init(InnocuousThread);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($System::getSecurityManager() == nullptr) {
 		return createThread(name, target, $($ClassLoader::getSystemClassLoader()), priority);
@@ -217,6 +218,7 @@ void InnocuousThread::run() {
 }
 
 void clinit$InnocuousThread($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(InnocuousThread::threadNumber, $new($AtomicInteger, 1));
 	{

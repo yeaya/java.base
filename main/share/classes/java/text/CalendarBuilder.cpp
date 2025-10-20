@@ -151,6 +151,7 @@ $Calendar* CalendarBuilder::establish($Calendar* cal) {
 }
 
 $String* CalendarBuilder::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s, "CalendarBuilder:["_s, "]"_s));
 	for (int32_t i = 0; i < CalendarBuilder::MAX_FIELD; ++i) {
 		if (isSet(i)) {

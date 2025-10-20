@@ -387,6 +387,7 @@ $DoubleStream* Random::doubles(double randomNumberOrigin, double randomNumberBou
 }
 
 void clinit$Random($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Random::DOUBLE_UNIT = 1.1102230246251565E-16;
 	$beforeCallerSensitive();
 	$assignStatic(Random::seedUniquifier$, $new($AtomicLong, 0x001ED8B55FAC9DEC));

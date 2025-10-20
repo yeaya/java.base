@@ -103,6 +103,7 @@ void CertificateAlgorithmId::init$($InputStream* in) {
 }
 
 $String* CertificateAlgorithmId::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->algId == nullptr) {
 		return ""_s;
 	}
@@ -112,6 +113,7 @@ $String* CertificateAlgorithmId::toString() {
 }
 
 void CertificateAlgorithmId::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->algId)->encode(tmp);
 	$nc(out)->write($(tmp->toByteArray()));

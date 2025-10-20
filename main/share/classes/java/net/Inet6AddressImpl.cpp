@@ -107,6 +107,7 @@ bool Inet6AddressImpl::isReachable0($bytes* addr, int32_t scope, int32_t timeout
 }
 
 bool Inet6AddressImpl::isReachable($InetAddress* addr, int32_t timeout, $NetworkInterface* netif, int32_t ttl) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, ifaddr, nullptr);
 	int32_t scope = -1;
 	int32_t netif_scope = -1;
@@ -135,6 +136,7 @@ bool Inet6AddressImpl::isReachable($InetAddress* addr, int32_t timeout, $Network
 
 $InetAddress* Inet6AddressImpl::anyLocalAddress() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->anyLocalAddress$ == nullptr) {
 			$init($InetAddress);
 			if ($InetAddress::preferIPv6Address == 1 || $InetAddress::preferIPv6Address == 2) {
@@ -150,6 +152,7 @@ $InetAddress* Inet6AddressImpl::anyLocalAddress() {
 
 $InetAddress* Inet6AddressImpl::loopbackAddress() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->loopbackAddress$ == nullptr) {
 			$init($InetAddress);
 			bool preferIPv6Address = $InetAddress::preferIPv6Address == 1 || $InetAddress::preferIPv6Address == 2;

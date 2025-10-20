@@ -72,6 +72,7 @@ $Object* allocate$MacData($Class* clazz) {
 }
 
 void MacData::init$($DerInputStream* derin) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, encoded, nullptr);
 	$var($DerValueArray, macData, $nc(derin)->getSequence(2));
 	if ($nc(macData)->length < 2 || $nc(macData)->length > 3) {
@@ -151,6 +152,7 @@ $bytes* MacData::getDigest() {
 }
 
 $bytes* MacData::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	if (this->encoded != nullptr) {
 		return $cast($bytes, $nc(this->encoded)->clone());
 	}

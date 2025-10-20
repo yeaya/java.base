@@ -81,6 +81,7 @@ $Collection* CollectionCertStoreParameters::getCollection() {
 }
 
 $Object* CollectionCertStoreParameters::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($CertStoreParameters::clone());
 	} catch ($CloneNotSupportedException&) {
@@ -91,6 +92,7 @@ $Object* CollectionCertStoreParameters::clone() {
 }
 
 $String* CollectionCertStoreParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("CollectionCertStoreParameters: [\n"_s);
 	sb->append($$str({"  collection: "_s, this->coll, "\n"_s}));

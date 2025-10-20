@@ -130,6 +130,7 @@ RandomGenerator$LeapableGenerator* RandomGenerator$LeapableGenerator::of($String
 }
 
 $Stream* RandomGenerator$LeapableGenerator::leaps() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($Stream, $nc($($Stream::generate(static_cast<$Supplier*>($$new(RandomGenerator$LeapableGenerator$$Lambda$copyAndLeap, this)))))->sequential());
 }
 

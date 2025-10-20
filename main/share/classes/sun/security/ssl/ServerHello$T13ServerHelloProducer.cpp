@@ -177,6 +177,7 @@ void ServerHello$T13ServerHelloProducer::init$() {
 }
 
 $bytes* ServerHello$T13ServerHelloProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$var($SSLSessionContextImpl, sessionCache, $cast($SSLSessionContextImpl, $nc($nc(shc)->sslContext)->engineGetServerSessionContext()));
@@ -295,6 +296,7 @@ $bytes* ServerHello$T13ServerHelloProducer::produce($ConnectionContext* context,
 
 $CipherSuite* ServerHello$T13ServerHelloProducer::chooseCipherSuite($ServerHandshakeContext* shc, $ClientHello$ClientHelloMessage* clientHello) {
 	$init(ServerHello$T13ServerHelloProducer);
+	$useLocalCurrentObjectStackCache();
 	$var($List, preferred, nullptr);
 	$var($List, proposed, nullptr);
 	if ($nc($nc(shc)->sslConfig)->preferLocalCipherSuites) {

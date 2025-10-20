@@ -79,6 +79,7 @@ void SendSize$ClientThread::init$(int32_t serverPort) {
 }
 
 void SendSize$ClientThread::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		bool return$1 = false;

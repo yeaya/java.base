@@ -141,6 +141,7 @@ $PublicKey* TrustAnchor::getCAPublicKey() {
 }
 
 void TrustAnchor::setNameConstraints($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	if (bytes == nullptr) {
 		$set(this, ncBytes, nullptr);
 		$set(this, nc, nullptr);
@@ -163,6 +164,7 @@ $bytes* TrustAnchor::getNameConstraints() {
 }
 
 $String* TrustAnchor::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n"_s);
 	if (this->pubKey != nullptr) {

@@ -73,6 +73,7 @@ $Charset* Process$CharsetHolder::nativeCharset() {
 }
 
 void clinit$Process$CharsetHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Charset, cs, nullptr);
 		try {

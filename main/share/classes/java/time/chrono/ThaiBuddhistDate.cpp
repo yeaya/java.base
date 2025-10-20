@@ -218,6 +218,7 @@ int32_t ThaiBuddhistDate::lengthOfMonth() {
 }
 
 $ValueRange* ThaiBuddhistDate::range($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		if (isSupported(field)) {
 			$ChronoField* f = $cast($ChronoField, field);
@@ -287,6 +288,7 @@ int32_t ThaiBuddhistDate::getProlepticYear() {
 }
 
 ThaiBuddhistDate* ThaiBuddhistDate::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -397,6 +399,7 @@ $ChronoLocalDateTime* ThaiBuddhistDate::atTime($LocalTime* localTime) {
 }
 
 $ChronoPeriod* ThaiBuddhistDate::until($ChronoLocalDate* endDate) {
+	$useLocalCurrentObjectStackCache();
 	$var($Period, period, $cast($Period, $nc(this->isoDate)->until(endDate)));
 	int32_t var$0 = $nc(period)->getYears();
 	int32_t var$1 = period->getMonths();
@@ -422,6 +425,7 @@ bool ThaiBuddhistDate::equals(Object$* obj) {
 }
 
 int32_t ThaiBuddhistDate::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($($nc($($cast($ThaiBuddhistChronology, getChronology())))->getId()))->hashCode();
 	return var$0 ^ $nc(this->isoDate)->hashCode();
 }

@@ -112,6 +112,7 @@ $Object* allocate$GaloisCounterMode$GCMEngine($Class* clazz) {
 }
 
 void GaloisCounterMode$GCMEngine::init$($GaloisCounterMode* this$0, $SymmetricCipher* blockCipher) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	this->processed = 0;
 	$set(this, aadBuffer, nullptr);
@@ -146,6 +147,7 @@ int32_t GaloisCounterMode$GCMEngine::mergeBlock($bytes* buffer, int32_t bufOfs, 
 }
 
 int32_t GaloisCounterMode$GCMEngine::mergeBlock($bytes* buffer, int32_t bufOfs, int32_t bufLen, $bytes* in, int32_t inOfs, int32_t inLen, $bytes* block) {
+	$useLocalCurrentObjectStackCache();
 	if (bufLen > this->blockSize) {
 		$throwNew($RuntimeException, $$str({"mergeBlock called on an ibuffer too big:  "_s, $$str(bufLen), " bytes"_s}));
 	}
@@ -170,6 +172,7 @@ void GaloisCounterMode$GCMEngine::updateAAD($bytes* src, int32_t offset, int32_t
 }
 
 void GaloisCounterMode$GCMEngine::processAAD() {
+	$useLocalCurrentObjectStackCache();
 	if (this->aadBuffer != nullptr) {
 		if ($nc(this->aadBuffer)->size() > 0) {
 			$var($bytes, aad, $nc(this->aadBuffer)->toByteArray());
@@ -254,6 +257,7 @@ int32_t GaloisCounterMode$GCMEngine::throttleData($GCM* op, $ByteBuffer* src, $B
 }
 
 $ByteBuffer* GaloisCounterMode$GCMEngine::overlapDetection($ByteBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(src)->isDirect();
 	if (var$0 && $nc(dst)->isDirect()) {
 		$var($DirectBuffer, dsrc, $cast($DirectBuffer, src));

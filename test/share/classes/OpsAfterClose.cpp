@@ -168,6 +168,7 @@ void OpsAfterClose::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 void OpsAfterClose::main($StringArray* args) {
 	$init(OpsAfterClose);
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($BufferedReader, br, $new($BufferedReader, $$new($StringReader, "abc def ghi"_s)));
 	if (testReader(br)) {
@@ -215,6 +216,7 @@ void OpsAfterClose::main($StringArray* args) {
 
 bool OpsAfterClose::testReader($Reader* r) {
 	$init(OpsAfterClose);
+	$useLocalCurrentObjectStackCache();
 	$nc(r)->close();
 	bool failed = false;
 	bool result = false;
@@ -243,6 +245,7 @@ bool OpsAfterClose::testReader($Reader* r) {
 
 bool OpsAfterClose::testPushbackReader($PushbackReader* pr) {
 	$init(OpsAfterClose);
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	try {
 		$nc(pr)->unread(1);

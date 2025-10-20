@@ -91,6 +91,7 @@ void ISO_8859_1$Decoder::init$($Charset* cs) {
 }
 
 $CoderResult* ISO_8859_1$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -114,6 +115,7 @@ $CoderResult* ISO_8859_1$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 }
 
 $CoderResult* ISO_8859_1$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

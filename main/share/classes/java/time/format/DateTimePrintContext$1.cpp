@@ -130,6 +130,7 @@ $Object* DateTimePrintContext$1::query($TemporalQuery* query) {
 }
 
 $String* DateTimePrintContext$1::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({this->val$temporal, (this->val$effectiveChrono != nullptr ? $$str({" with chronology "_s, this->val$effectiveChrono}) : ""_s)}));
 	return $concat(var$0, (this->val$effectiveZone != nullptr ? $$str({" with zone "_s, this->val$effectiveZone}) : ""_s));
 }

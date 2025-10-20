@@ -246,6 +246,7 @@ $List* ImmutableCollections$AbstractImmutableList::subList(int32_t fromIndex, in
 
 void ImmutableCollections$AbstractImmutableList::subListRangeCheck(int32_t fromIndex, int32_t toIndex, int32_t size) {
 	$init(ImmutableCollections$AbstractImmutableList);
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex = "_s, $$str(fromIndex)}));
 	}
@@ -274,6 +275,7 @@ $ListIterator* ImmutableCollections$AbstractImmutableList::listIterator(int32_t 
 }
 
 bool ImmutableCollections$AbstractImmutableList::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -299,6 +301,7 @@ bool ImmutableCollections$AbstractImmutableList::equals(Object$* o) {
 }
 
 int32_t ImmutableCollections$AbstractImmutableList::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t hash = 1;
 	{
 		int32_t i = 0;
@@ -315,6 +318,7 @@ bool ImmutableCollections$AbstractImmutableList::contains(Object$* o) {
 }
 
 $IndexOutOfBoundsException* ImmutableCollections$AbstractImmutableList::outOfBounds(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	return $new($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), " Size: "_s, $$str(size())}));
 }
 

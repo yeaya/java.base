@@ -61,6 +61,7 @@ void FinalizeOverride$SubSubclass::init$(int32_t v) {
 }
 
 void FinalizeOverride$SubSubclass::finalize() {
+	$useLocalCurrentObjectStackCache();
 	$init($FinalizeOverride);
 	$nc($FinalizeOverride::finalizedSum)->addAndGet(this->value);
 	$init($System);

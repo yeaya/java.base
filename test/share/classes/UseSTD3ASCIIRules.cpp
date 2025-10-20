@@ -46,6 +46,7 @@ void UseSTD3ASCIIRules::init$() {
 }
 
 void UseSTD3ASCIIRules::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, illegalNames, $new($StringArray, {
 		"www.example.com-"_s,
 		"-www.example.com"_s,

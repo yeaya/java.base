@@ -161,6 +161,7 @@ int32_t Selector::selectNow($Consumer* action) {
 }
 
 int32_t Selector::doSelect($Consumer* action, int64_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		$var($Set, selectedKeys, this->selectedKeys());
 		$synchronized(selectedKeys) {

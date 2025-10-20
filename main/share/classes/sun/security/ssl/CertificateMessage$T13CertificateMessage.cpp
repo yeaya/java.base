@@ -117,6 +117,7 @@ $Object* allocate$CertificateMessage$T13CertificateMessage($Class* clazz) {
 }
 
 void CertificateMessage$T13CertificateMessage::init$($HandshakeContext* context, $bytes* requestContext, $X509CertificateArray* certificates) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$set(this, requestContext, $cast($bytes, $nc(requestContext)->clone()));
 	$set(this, certEntries, $new($LinkedList));
@@ -142,6 +143,7 @@ void CertificateMessage$T13CertificateMessage::init$($HandshakeContext* handshak
 }
 
 void CertificateMessage$T13CertificateMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	if ($nc(m)->remaining() < 4) {
 		$throwNew($SSLProtocolException, $$str({"Invalid Certificate message: insufficient data (length="_s, $$str(m->remaining()), ")"_s}));
@@ -177,6 +179,7 @@ $SSLHandshake* CertificateMessage$T13CertificateMessage::handshakeType() {
 }
 
 int32_t CertificateMessage$T13CertificateMessage::messageLength() {
+	$useLocalCurrentObjectStackCache();
 	int32_t msgLen = 4 + $nc(this->requestContext)->length;
 	{
 		$var($Iterator, i$, $nc(this->certEntries)->iterator());
@@ -191,6 +194,7 @@ int32_t CertificateMessage$T13CertificateMessage::messageLength() {
 }
 
 void CertificateMessage$T13CertificateMessage::send($HandshakeOutStream* hos) {
+	$useLocalCurrentObjectStackCache();
 	int32_t entryListLen = 0;
 	{
 		$var($Iterator, i$, $nc(this->certEntries)->iterator());
@@ -220,6 +224,7 @@ void CertificateMessage$T13CertificateMessage::send($HandshakeOutStream* hos) {
 }
 
 $String* CertificateMessage$T13CertificateMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"Certificate\": \'{\'\n  \"certificate_request_context\": \"{0}\",\n  \"certificate_list\": [{1}\n]\n\'}\'"_s, $Locale::ENGLISH));
 	$var($StringBuilder, builder, $new($StringBuilder, 512));

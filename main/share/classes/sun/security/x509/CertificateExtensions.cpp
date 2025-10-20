@@ -148,6 +148,7 @@ void CertificateExtensions::init$($DerInputStream* in) {
 }
 
 void CertificateExtensions::init($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValueArray, exts, $nc(in)->getSequence(5));
 	for (int32_t i = 0; i < $nc(exts)->length; ++i) {
 		$var($Extension, ext, $new($Extension, exts->get(i)));
@@ -156,6 +157,7 @@ void CertificateExtensions::init($DerInputStream* in) {
 }
 
 void CertificateExtensions::parseExtension($Extension* ext) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* extClass = $OIDMap::getClass($($nc(ext)->getExtensionId()));
@@ -215,6 +217,7 @@ void CertificateExtensions::encode($OutputStream* out) {
 }
 
 void CertificateExtensions::encode($OutputStream* out, bool isCertReq) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, extOut, $new($DerOutputStream));
 	$var($Collection, allExts, $nc(this->map)->values());
 	$var($ObjectArray, objs, $nc(allExts)->toArray());
@@ -248,6 +251,7 @@ void CertificateExtensions::set($String* name, Object$* obj) {
 }
 
 $Object* CertificateExtensions::get($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Extension, obj, $cast($Extension, $nc(this->map)->get(name)));
 	if (obj == nullptr) {
 		$throwNew($IOException, $$str({"No extension found with name "_s, name}));
@@ -260,6 +264,7 @@ $Extension* CertificateExtensions::getExtension($String* name) {
 }
 
 void CertificateExtensions::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, obj, $nc(this->map)->get(name));
 	if (obj == nullptr) {
 		$throwNew($IOException, $$str({"No extension found with name "_s, name}));
@@ -268,6 +273,7 @@ void CertificateExtensions::delete$($String* name) {
 }
 
 $String* CertificateExtensions::getNameByOid($ObjectIdentifier* oid) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(this->map)->keySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -307,6 +313,7 @@ bool CertificateExtensions::hasUnsupportedCriticalExtension() {
 }
 
 bool CertificateExtensions::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}

@@ -89,6 +89,7 @@ $List* Util::asArrayList(int32_t length) {
 }
 
 $List* Util::asArrayList($ObjectArray* array) {
+	$useLocalCurrentObjectStackCache();
 	if (array == nullptr) {
 		return $new($ArrayList);
 	}
@@ -108,6 +109,7 @@ $List* Util::asArrayList($ObjectArray* array) {
 }
 
 $List* Util::asArrayList($bytes* byteArray) {
+	$useLocalCurrentObjectStackCache();
 	if (byteArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -127,6 +129,7 @@ $List* Util::asArrayList($bytes* byteArray) {
 }
 
 $List* Util::asArrayList($booleans* booleanArray) {
+	$useLocalCurrentObjectStackCache();
 	if (booleanArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -146,6 +149,7 @@ $List* Util::asArrayList($booleans* booleanArray) {
 }
 
 $List* Util::asArrayList($shorts* shortArray) {
+	$useLocalCurrentObjectStackCache();
 	if (shortArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -165,6 +169,7 @@ $List* Util::asArrayList($shorts* shortArray) {
 }
 
 $List* Util::asArrayList($chars* charArray) {
+	$useLocalCurrentObjectStackCache();
 	if (charArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -184,6 +189,7 @@ $List* Util::asArrayList($chars* charArray) {
 }
 
 $List* Util::asArrayList($ints* intArray) {
+	$useLocalCurrentObjectStackCache();
 	if (intArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -203,6 +209,7 @@ $List* Util::asArrayList($ints* intArray) {
 }
 
 $List* Util::asArrayList($floats* floatArray) {
+	$useLocalCurrentObjectStackCache();
 	if (floatArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -222,6 +229,7 @@ $List* Util::asArrayList($floats* floatArray) {
 }
 
 $List* Util::asArrayList($longs* longArray) {
+	$useLocalCurrentObjectStackCache();
 	if (longArray == nullptr) {
 		return $new($ArrayList);
 	}
@@ -241,6 +249,7 @@ $List* Util::asArrayList($longs* longArray) {
 }
 
 $List* Util::asArrayList($doubles* doubleArray) {
+	$useLocalCurrentObjectStackCache();
 	if (doubleArray == nullptr) {
 		return $new($ArrayList);
 	}

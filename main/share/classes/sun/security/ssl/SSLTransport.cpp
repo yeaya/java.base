@@ -103,6 +103,7 @@ void SSLTransport::shutdown() {
 }
 
 $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($PlaintextArray, plaintexts, nullptr);
 	try {
 		$assign(plaintexts, $nc($nc(context)->inputRecord)->decode(srcs, srcsOffset, srcsLength));

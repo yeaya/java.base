@@ -73,6 +73,7 @@ $Object* allocate$ArchivedClassLoaders($Class* clazz) {
 ArchivedClassLoaders* ArchivedClassLoaders::archivedClassLoaders = nullptr;
 
 void ArchivedClassLoaders::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, bootLoader$, $ClassLoaders::bootLoader());
 	$set(this, platformLoader$, $ClassLoaders::platformClassLoader());
 	$set(this, appLoader$, $ClassLoaders::appClassLoader());

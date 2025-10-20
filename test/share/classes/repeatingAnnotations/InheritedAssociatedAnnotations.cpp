@@ -73,6 +73,7 @@ void InheritedAssociatedAnnotations::main($StringArray* args) {
 }
 
 void InheritedAssociatedAnnotations::checkAssociated($AnnotatedElement* ae) {
+	$useLocalCurrentObjectStackCache();
 	$load($Ann);
 	$var($AnnArray, actual, $fcast($AnnArray, $nc(ae)->getAnnotationsByType($Ann::class$)));
 	$load($ExpectedAssociated);

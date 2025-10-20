@@ -102,6 +102,7 @@ int32_t UTF_32Coder$Decoder::getCP($ByteBuffer* src) {
 }
 
 $CoderResult* UTF_32Coder$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(src)->remaining() < 4) {
 		$init($CoderResult);
 		return $CoderResult::UNDERFLOW;

@@ -79,6 +79,7 @@ void ConfigFile$Spi$2::init$($ConfigFile$Spi* this$0) {
 }
 
 $Object* ConfigFile$Spi$2::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		this->this$0->init();
 	} catch ($IOException&) {

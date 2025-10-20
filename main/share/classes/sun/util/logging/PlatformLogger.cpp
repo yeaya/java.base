@@ -144,6 +144,7 @@ PlatformLogger* PlatformLogger::getLogger($String* name) {
 	$load(PlatformLogger);
 	$synchronized(class$) {
 		$init(PlatformLogger);
+		$useLocalCurrentObjectStackCache();
 		$var(PlatformLogger, log, nullptr);
 		$var($WeakReference, ref, $cast($WeakReference, $nc(PlatformLogger::loggers)->get(name)));
 		if (ref != nullptr) {

@@ -53,6 +53,7 @@ void UTF8::init$() {
 }
 
 $bytes* UTF8::encode($String* str) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(str)->length();
 	$var($bytes, res, $new($bytes, utf8Length(str)));
 	int32_t utf8Idx = 0;

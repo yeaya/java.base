@@ -914,6 +914,7 @@ void Main::main($StringArray* args) {
 }
 
 void Main::run($StringArray* args$renamed, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, args, args$renamed);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -963,6 +964,7 @@ void Main::run($StringArray* args$renamed, $PrintStream* out) {
 }
 
 $StringArray* Main::parseArgs($StringArray* args$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, args, args$renamed);
 	int32_t i = 0;
 	bool help = $nc(args)->length == 0;
@@ -1295,6 +1297,7 @@ bool Main::isKeyStoreRelated($Main$Command* cmd) {
 }
 
 void Main::doCommands($PrintStream* out$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($PrintStream, out, out$renamed);
 	$beforeCallerSensitive();
 	if (this->cacerts) {
@@ -2075,6 +2078,7 @@ void Main::doCommands($PrintStream* out$renamed) {
 }
 
 void Main::doGenCert($String* alias, $String* sigAlgName$renamed, $InputStream* in, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sigAlgName, sigAlgName$renamed);
 	if ($nc(this->keyStore)->containsAlias(alias) == false) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Alias.alias.does.not.exist"_s))));
@@ -2180,6 +2184,7 @@ void Main::doGenCert($String* alias, $String* sigAlgName$renamed, $InputStream* 
 }
 
 void Main::doGenCRL($PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->ids == nullptr) {
 		$throwNew($Exception, "Must provide -id when -gencrl"_s);
 	}
@@ -2223,6 +2228,7 @@ void Main::doGenCRL($PrintStream* out) {
 }
 
 void Main::doCertReq($String* alias$renamed, $String* sigAlgName$renamed, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	$var($String, sigAlgName, sigAlgName$renamed);
 	if (alias == nullptr) {
@@ -2254,6 +2260,7 @@ void Main::doCertReq($String* alias$renamed, $String* sigAlgName$renamed, $Print
 }
 
 void Main::doDeleteEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->keyStore)->containsAlias(alias) == false) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Alias.alias.does.not.exist"_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
@@ -2263,6 +2270,7 @@ void Main::doDeleteEntry($String* alias) {
 }
 
 void Main::doExportCert($String* alias$renamed, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	if (this->storePass == nullptr && !$KeyStoreUtil::isWindowsKeyStore(this->storetype) && !this->isPasswordlessKeyStore) {
 		printNoIntegrityWarning();
@@ -2286,6 +2294,7 @@ void Main::doExportCert($String* alias$renamed, $PrintStream* out) {
 }
 
 $chars* Main::promptForKeyPass($String* alias, $String* orig, $chars* origPass) {
+	$useLocalCurrentObjectStackCache();
 	if (origPass != nullptr && $nc(Main::P12KEYSTORE)->equalsIgnoreCase(this->storetype)) {
 		return origPass;
 	} else if (!this->token && !this->protectedPath) {
@@ -2336,6 +2345,7 @@ $chars* Main::promptForKeyPass($String* alias, $String* orig, $chars* origPass) 
 }
 
 $chars* Main::promptForCredential() {
+	$useLocalCurrentObjectStackCache();
 	if ($System::console() == nullptr) {
 		$init($System);
 		$var($chars, importPass, $Password::readPassword($System::in));
@@ -2364,6 +2374,7 @@ $chars* Main::promptForCredential() {
 }
 
 void Main::doGenSecretKey($String* alias$renamed, $String* keyAlgName, int32_t keysize) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	if (alias == nullptr) {
 		$assign(alias, Main::keyAlias);
@@ -2423,6 +2434,7 @@ void Main::doGenSecretKey($String* alias$renamed, $String* keyAlgName, int32_t k
 
 $String* Main::getCompatibleSigAlgName($PrivateKey* key) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $SignatureUtil::getDefaultSigAlgForKey(key));
 	if (result != nullptr) {
 		return result;
@@ -2432,6 +2444,7 @@ $String* Main::getCompatibleSigAlgName($PrivateKey* key) {
 }
 
 void Main::doGenKeyPair($String* alias$renamed, $String* dname, $String* keyAlgName, int32_t keysize, $String* groupName, $String* sigAlgName, $String* signerAlias) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	if (groupName != nullptr) {
 		if (keysize != -1) {
@@ -2556,12 +2569,14 @@ void Main::doGenKeyPair($String* alias$renamed, $String* dname, $String* keyAlgN
 }
 
 $String* Main::ecGroupNameForSize(int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, ap, $AlgorithmParameters::getInstance("EC"_s));
 	$nc(ap)->init(static_cast<$AlgorithmParameterSpec*>($$new($ECKeySizeParameterSpec, size)));
 	return $($nc($(ap->toString()))->split(" "_s))->get(0);
 }
 
 void Main::doCloneEntry($String* orig$renamed, $String* dest, bool changePassword) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, orig, orig$renamed);
 	if (orig == nullptr) {
 		$assign(orig, Main::keyAlias);
@@ -2587,6 +2602,7 @@ void Main::doCloneEntry($String* orig$renamed, $String* dest, bool changePasswor
 }
 
 void Main::doChangeKeyPasswd($String* alias$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	if (alias == nullptr) {
 		$assign(alias, Main::keyAlias);
@@ -2610,6 +2626,7 @@ void Main::doImportIdentityDatabase($InputStream* in) {
 }
 
 void Main::doPrintEntry($String* label, $String* alias, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->keyStore)->containsAlias(alias) == false) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Alias.alias.does.not.exist"_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
@@ -2706,6 +2723,7 @@ void Main::doPrintEntry($String* label, $String* alias, $PrintStream* out) {
 }
 
 bool Main::inplaceImportCheck() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(Main::P11KEYSTORE)->equalsIgnoreCase(this->srcstoretype);
 	if (var$0 || $KeyStoreUtil::isWindowsKeyStore(this->srcstoretype)) {
 		return false;
@@ -2732,6 +2750,7 @@ bool Main::inplaceImportCheck() {
 }
 
 $KeyStore* Main::loadSourceKeyStore() {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, is, nullptr);
 	$var($File, srcksfile, nullptr);
 	bool srcIsPasswordless = false;
@@ -2807,6 +2826,7 @@ $KeyStore* Main::loadSourceKeyStore() {
 }
 
 void Main::doImportKeyStore($KeyStore* srcKS) {
+	$useLocalCurrentObjectStackCache();
 	if (this->alias != nullptr) {
 		doImportKeyStoreSingle(srcKS, this->alias);
 	} else {
@@ -2829,6 +2849,7 @@ void Main::doImportKeyStore($KeyStore* srcKS) {
 }
 
 int32_t Main::doImportKeyStoreSingle($KeyStore* srckeystore, $String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, newAlias, (this->dest == nullptr) ? alias : this->dest);
 	if ($nc(this->keyStore)->containsAlias(newAlias)) {
 		$var($ObjectArray, source, $new($ObjectArray, {$of(alias)}));
@@ -2893,6 +2914,7 @@ int32_t Main::doImportKeyStoreSingle($KeyStore* srckeystore, $String* alias) {
 }
 
 void Main::doImportKeyStoreAll($KeyStore* srckeystore) {
+	$useLocalCurrentObjectStackCache();
 	int32_t ok = 0;
 	int32_t count = $nc(srckeystore)->size();
 	{
@@ -2926,6 +2948,7 @@ void Main::doImportKeyStoreAll($KeyStore* srckeystore) {
 }
 
 void Main::doPrintEntries($PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $($nc(Main::rb)->getString("Keystore.type."_s)));
 	$nc(out)->println($$concat(var$0, $($nc(this->keyStore)->getType())));
 	$var($String, var$1, $($nc(Main::rb)->getString("Keystore.provider."_s)));
@@ -2956,6 +2979,7 @@ void Main::doPrintEntries($PrintStream* out) {
 
 $Collection* Main::loadCRLs($String* src) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, in, nullptr);
 	$var($URI, uri, nullptr);
 	if (src == nullptr) {
@@ -3016,6 +3040,7 @@ $Collection* Main::loadCRLs($String* src) {
 
 $List* Main::readCRLsFromCert($X509Certificate* cert) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($List, crls, $new($ArrayList));
 	$var($CRLDistributionPointsExtension, ext, $nc($($X509CertImpl::toImpl(cert)))->getCRLDistributionPointsExtension());
 	if (ext == nullptr) {
@@ -3062,6 +3087,7 @@ $List* Main::readCRLsFromCert($X509Certificate* cert) {
 
 $String* Main::verifyCRL($KeyStore* ks, $CRL* crl) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($X509CRL, xcrl, $cast($X509CRL, crl));
 	$var($X500Principal, issuer, $nc(xcrl)->getIssuerX500Principal());
 	{
@@ -3088,6 +3114,7 @@ $String* Main::verifyCRL($KeyStore* ks, $CRL* crl) {
 }
 
 void Main::doPrintCRL($String* src, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(loadCRLs(src)))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -3140,6 +3167,7 @@ void Main::doPrintCRL($String* src, $PrintStream* out) {
 }
 
 void Main::printCRL($CRL* crl, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509CRL, xcrl, $cast($X509CRL, crl));
 	if (this->rfc) {
 		$nc(out)->println("-----BEGIN X509 CRL-----"_s);
@@ -3158,6 +3186,7 @@ void Main::printCRL($CRL* crl, $PrintStream* out) {
 }
 
 void Main::doPrintCertReq($InputStream* in, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedReader, reader, $new($BufferedReader, $$new($InputStreamReader, in)));
 	$var($StringBuilder, sb, $new($StringBuilder));
 	bool started = false;
@@ -3216,6 +3245,7 @@ void Main::doPrintCertReq($InputStream* in, $PrintStream* out) {
 }
 
 void Main::printCertFromStream($InputStream* in, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, c, nullptr);
 	try {
 		$assign(c, generateCertificates(in));
@@ -3262,6 +3292,7 @@ void Main::doShowInfo() {
 }
 
 $Collection* Main::generateCertificates($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, $nc(in)->readAllBytes());
 	try {
 		return $nc($($CertificateFactory::getInstance("X.509"_s)))->generateCertificates($$new($ByteArrayInputStream, data));
@@ -3281,6 +3312,7 @@ $Collection* Main::generateCertificates($InputStream* in) {
 }
 
 $Certificate* Main::generateCertificate($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, $nc(in)->readAllBytes());
 	try {
 		return $nc($($CertificateFactory::getInstance("X.509"_s)))->generateCertificate($$new($ByteArrayInputStream, data));
@@ -3301,6 +3333,7 @@ $Certificate* Main::generateCertificate($InputStream* in) {
 
 $String* Main::oneInMany($String* label, int32_t i, int32_t num) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	if (num == 1) {
 		return label;
 	} else {
@@ -3314,6 +3347,7 @@ $String* Main::oneInMany($String* label, int32_t i, int32_t num) {
 }
 
 void Main::doPrintCert($PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->jarfile != nullptr) {
 		$init($DisabledAlgorithmConstraints);
 		$Security::setProperty($DisabledAlgorithmConstraints::PROPERTY_JAR_DISABLED_ALGS, ""_s);
@@ -3513,6 +3547,7 @@ void Main::doPrintCert($PrintStream* out) {
 }
 
 void Main::doChangeStorePasswd() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, storePassNew, this->newPass);
 	if (this->storePassNew == nullptr) {
 		$set(this, storePassNew, getNewPasswd("keystore password"_s, this->storePass));
@@ -3534,6 +3569,7 @@ void Main::doChangeStorePasswd() {
 }
 
 void Main::doSelfCert($String* alias$renamed, $String* dname, $String* sigAlgName$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	$var($String, sigAlgName, sigAlgName$renamed);
 	if (alias == nullptr) {
@@ -3594,6 +3630,7 @@ void Main::doSelfCert($String* alias$renamed, $String* dname, $String* sigAlgNam
 }
 
 bool Main::installReply($String* alias$renamed, $InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, alias, alias$renamed);
 	if (alias == nullptr) {
 		$assign(alias, Main::keyAlias);
@@ -3629,6 +3666,7 @@ bool Main::installReply($String* alias$renamed, $InputStream* in) {
 }
 
 bool Main::addTrustedCert($String* alias, $InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	if (alias == nullptr) {
 		$throwNew($Exception, $($nc(Main::rb)->getString("Must.specify.alias"_s)));
 	}
@@ -3717,6 +3755,7 @@ bool Main::addTrustedCert($String* alias, $InputStream* in) {
 }
 
 $chars* Main::getNewPasswd($String* prompt, $chars* oldPasswd) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, entered, nullptr);
 	$var($chars, reentered, nullptr);
 	for (int32_t count = 0; count < 3; ++count) {
@@ -3756,6 +3795,7 @@ $chars* Main::getNewPasswd($String* prompt, $chars* oldPasswd) {
 }
 
 $String* Main::getAlias($String* prompt) {
+	$useLocalCurrentObjectStackCache();
 	if (prompt != nullptr) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Enter.prompt.alias.name."_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$of(prompt)}));
@@ -3770,12 +3810,14 @@ $String* Main::getAlias($String* prompt) {
 }
 
 $String* Main::inputStringFromStdin($String* prompt) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->print(prompt);
 	return ($$new($BufferedReader, $$new($InputStreamReader, $System::in)))->readLine();
 }
 
 $chars* Main::getKeyPasswd($String* alias, $String* otherAlias, $chars* otherKeyPass) {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	$var($chars, keyPass, nullptr);
 	do {
@@ -3809,6 +3851,7 @@ $chars* Main::getKeyPasswd($String* alias, $String* otherAlias, $chars* otherKey
 }
 
 $String* Main::withWeak($String* alg) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(Main::DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, alg, ($AlgorithmParameters*)nullptr)) {
 		if ($nc(Main::LEGACY_CHECK)->permits(Main::SIG_PRIMITIVE_SET, alg, ($AlgorithmParameters*)nullptr)) {
 			return alg;
@@ -3821,6 +3864,7 @@ $String* Main::withWeak($String* alg) {
 }
 
 $String* Main::fullDisplayAlgName($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc(key)->getAlgorithm());
 	if ($instanceOf($ECKey, key)) {
 		$var($ECParameterSpec, paramSpec, $nc(($cast($ECKey, key)))->getParams());
@@ -3835,6 +3879,7 @@ $String* Main::fullDisplayAlgName($Key* key) {
 }
 
 $String* Main::withWeak($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	int32_t kLen = $KeyUtil::getKeySize(key);
 	$var($String, displayAlg, fullDisplayAlgName(key));
 	if ($nc(Main::DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, key)) {
@@ -3865,6 +3910,7 @@ $String* Main::withWeak($Key* key) {
 }
 
 void Main::printX509Cert($X509Certificate* cert, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString(".PATTERN.printX509Cert.with.weak"_s))));
 	$var($PublicKey, pkey, $nc(cert)->getPublicKey());
 	$var($String, sigName, cert->getSigAlgName());
@@ -3898,6 +3944,7 @@ void Main::printX509Cert($X509Certificate* cert, $PrintStream* out) {
 
 void Main::printExtensions($String* title, $CertificateExtensions* exts, $PrintStream* out) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	int32_t extnum = 0;
 	$var($Iterator, i1, $nc($($nc(exts)->getAllExtensions()))->iterator());
 	$var($Iterator, i2, $nc($($nc($(exts->getUnparseableExtensions()))->values()))->iterator());
@@ -3931,6 +3978,7 @@ void Main::printExtensions($String* title, $CertificateExtensions* exts, $PrintS
 
 $Pair* Main::getSigner($Certificate* cert, $KeyStore* ks) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(ks)->getCertificateAlias(cert) != nullptr) {
 		return $new($Pair, ""_s, cert);
 	}
@@ -3953,6 +4001,7 @@ $Pair* Main::getSigner($Certificate* cert, $KeyStore* ks) {
 }
 
 $X500Name* Main::getX500Name() {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedReader, in, nullptr);
 	$init($System);
 	$assign(in, $new($BufferedReader, $$new($InputStreamReader, $System::in)));
@@ -3989,6 +4038,7 @@ $X500Name* Main::getX500Name() {
 }
 
 $String* Main::inputString($BufferedReader* in, $String* prompt, $String* defaultValue) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println(prompt);
 	$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString(".defaultValue."_s))));
@@ -4003,6 +4053,7 @@ $String* Main::inputString($BufferedReader* in, $String* prompt, $String* defaul
 }
 
 void Main::dumpCert($Certificate* cert, $PrintStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->rfc) {
 		$init($X509Factory);
 		$nc(out)->println($X509Factory::BEGIN_CERT);
@@ -4014,6 +4065,7 @@ void Main::dumpCert($Certificate* cert, $PrintStream* out) {
 }
 
 $Pair* Main::recoverKey($String* alias, $chars* storePass, $chars* keyPass$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, keyPass, keyPass$renamed);
 	$var($Key, key, nullptr);
 	if ($KeyStoreUtil::isWindowsKeyStore(this->storetype)) {
@@ -4056,6 +4108,7 @@ $Pair* Main::recoverKey($String* alias, $chars* storePass, $chars* keyPass$renam
 }
 
 $Pair* Main::recoverEntry($KeyStore* ks, $String* alias, $chars* pstore, $chars* pkey$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, pkey, pkey$renamed);
 	if (!$nc(ks)->containsAlias(alias)) {
 		$var($MessageFormat, form, $new($MessageFormat, $($nc(Main::rb)->getString("Alias.alias.does.not.exist"_s))));
@@ -4096,6 +4149,7 @@ $Pair* Main::recoverEntry($KeyStore* ks, $String* alias, $chars* pstore, $chars*
 }
 
 $String* Main::getCertFingerPrint($String* mdAlg, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encCertInfo, $nc(cert)->getEncoded());
 	$var($MessageDigest, md, $MessageDigest::getInstance(mdAlg));
 	$var($bytes, digest, $nc(md)->digest(encCertInfo));
@@ -4103,6 +4157,7 @@ $String* Main::getCertFingerPrint($String* mdAlg, $Certificate* cert) {
 }
 
 void Main::printNoIntegrityWarning() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println();
 	$nc($System::err)->println($($nc(Main::rb)->getString(".WARNING.WARNING.WARNING."_s)));
@@ -4112,6 +4167,7 @@ void Main::printNoIntegrityWarning() {
 }
 
 $CertificateArray* Main::validateReply($String* alias, $Certificate* userCert, $CertificateArray* replyCerts$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateArray, replyCerts, replyCerts$renamed);
 	checkWeak($($nc(Main::rb)->getString("reply"_s)), replyCerts);
 	int32_t i = 0;
@@ -4180,6 +4236,7 @@ $CertificateArray* Main::validateReply($String* alias, $Certificate* userCert, $
 }
 
 $CertificateArray* Main::establishCertChain($Certificate* userCert, $Certificate* certToVerify) {
+	$useLocalCurrentObjectStackCache();
 	if (userCert != nullptr) {
 		$var($PublicKey, origPubKey, userCert->getPublicKey());
 		$var($PublicKey, replyPubKey, $nc(certToVerify)->getPublicKey());
@@ -4227,6 +4284,7 @@ $CertificateArray* Main::establishCertChain($Certificate* userCert, $Certificate
 }
 
 bool Main::buildChain($Pair* certToVerify, $Vector* chain, $Hashtable* certs) {
+	$useLocalCurrentObjectStackCache();
 	if ($KeyStoreUtil::isSelfSigned($cast($X509Certificate, $nc(certToVerify)->snd))) {
 		$nc(chain)->addElement(certToVerify);
 		return true;
@@ -4257,6 +4315,7 @@ bool Main::buildChain($Pair* certToVerify, $Vector* chain, $Hashtable* certs) {
 }
 
 $String* Main::getYesNoReply($String* prompt) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, reply, nullptr);
 	int32_t maxRetry = 20;
 	do {
@@ -4285,6 +4344,7 @@ $String* Main::getYesNoReply($String* prompt) {
 }
 
 void Main::keystorecerts2Hashtable($KeyStore* ks, $Hashtable* hash) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Enumeration, aliases, $nc(ks)->aliases());
 		for (; $nc(aliases)->hasMoreElements();) {
@@ -4308,6 +4368,7 @@ void Main::keystorecerts2Hashtable($KeyStore* ks, $Hashtable* hash) {
 
 $Date* Main::getStartDate($String* s) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($Calendar, c, $new($GregorianCalendar));
 	if (s != nullptr) {
 		$var($IOException, ioe, $new($IOException, $($nc(Main::rb)->getString("Illegal.startdate.value"_s))));
@@ -4432,6 +4493,7 @@ $Date* Main::getStartDate($String* s) {
 
 int32_t Main::oneOf($String* s, $KnownOIDsArray* list) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, convertedList, $new($StringArray, $nc(list)->length));
 	for (int32_t i = 0; i < list->length; ++i) {
 		convertedList->set(i, $($nc(list->get(i))->stdName()));
@@ -4441,6 +4503,7 @@ int32_t Main::oneOf($String* s, $KnownOIDsArray* list) {
 
 int32_t Main::oneOf($String* s, $StringArray* list) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	int32_t res = oneOfMatch(static_cast<$BiFunction*>($$new(Main$$Lambda$lambda$oneOf$1$2)), s, list);
 	if (res >= 0) {
 		return res;
@@ -4454,6 +4517,7 @@ int32_t Main::oneOf($String* s, $StringArray* list) {
 
 int32_t Main::oneOfMatch($BiFunction* matcher, $String* s, $StringArray* list) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, match, $new($ints, $nc(list)->length));
 	int32_t nmatch = 0;
 	int32_t experiment = $Integer::MAX_VALUE;
@@ -4489,6 +4553,7 @@ int32_t Main::oneOfMatch($BiFunction* matcher, $String* s, $StringArray* list) {
 }
 
 $GeneralName* Main::createGeneralName($String* t, $String* v, int32_t exttype) {
+	$useLocalCurrentObjectStackCache();
 	$var($GeneralNameInterface, gn, nullptr);
 	int32_t p = oneOf(t, $$new($StringArray, {
 		"EMAIL"_s,
@@ -4589,6 +4654,7 @@ void Main::setExt($CertificateExtensions* result, $Extension* ex) {
 }
 
 $CertificateExtensions* Main::createV3Extensions($CertificateExtensions* requestedEx, $CertificateExtensions* existingEx, $List* extstrs, $PublicKey* pkey, $KeyIdentifier* aSubjectKeyId) {
+	$useLocalCurrentObjectStackCache();
 	if (existingEx != nullptr && requestedEx != nullptr) {
 		$throwNew($Exception, "One of request and original should be null."_s);
 	}
@@ -5027,6 +5093,7 @@ bool Main::isTrustedCert($Certificate* cert) {
 }
 
 void Main::checkWeak($String* label, $String* sigAlg, $Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if (sigAlg != nullptr) {
 		if (!$nc(Main::DISABLED_CHECK)->permits(Main::SIG_PRIMITIVE_SET, sigAlg, ($AlgorithmParameters*)nullptr)) {
 			$nc(this->weakWarnings)->add($($String::format($($nc(Main::rb)->getString("whose.sigalg.disabled"_s)), $$new($ObjectArray, {
@@ -5066,6 +5133,7 @@ void Main::checkWeak($String* label, $String* sigAlg, $Key* key) {
 }
 
 void Main::checkWeak($String* label, $CertificateArray* certs) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(certs)->length; ++i) {
 		$var($Certificate, cert, certs->get(i));
 		if ($instanceOf($X509Certificate, cert)) {
@@ -5080,6 +5148,7 @@ void Main::checkWeak($String* label, $CertificateArray* certs) {
 }
 
 void Main::checkWeak($String* label, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($X509Certificate, cert)) {
 		$var($X509Certificate, xc, $cast($X509Certificate, cert));
 		$var($String, sigAlg, isTrustedCert(cert) ? ($String*)nullptr : $nc(xc)->getSigAlgName());
@@ -5088,12 +5157,14 @@ void Main::checkWeak($String* label, $Certificate* cert) {
 }
 
 void Main::checkWeak($String* label, $PKCS10* p10) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, label);
 	$var($String, var$1, $nc(p10)->getSigAlg());
 	checkWeak(var$0, var$1, $(static_cast<$Key*>(p10->getSubjectPublicKeyInfo())));
 }
 
 void Main::checkWeak($String* label, $CRL* crl, $Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($X509CRLImpl, crl)) {
 		$var($X509CRLImpl, impl, $cast($X509CRLImpl, crl));
 		checkWeak(label, $($nc(impl)->getSigAlgName()), key);
@@ -5101,6 +5172,7 @@ void Main::checkWeak($String* label, $CRL* crl, $Key* key) {
 }
 
 void Main::printWeakWarnings(bool newLine) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->weakWarnings)->isEmpty() && !this->nowarn) {
 		$init($System);
 		$nc($System::err)->println("\nWarning:"_s);
@@ -5121,6 +5193,7 @@ void Main::printWeakWarnings(bool newLine) {
 }
 
 void Main::usage() {
+	$useLocalCurrentObjectStackCache();
 	if (this->command != nullptr) {
 		$init($System);
 		$var($String, var$0, $$str({"keytool "_s, this->command}));
@@ -5215,6 +5288,7 @@ void Main::tinyHelp() {
 }
 
 void Main::errorNeedArgument($String* flag) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, source, $new($ObjectArray, {$of(flag)}));
 	$init($System);
 	$nc($System::err)->println($($$new($MessageFormat, $($nc(Main::rb)->getString("Command.option.flag.needs.an.argument."_s)))->format(source)));
@@ -5232,6 +5306,7 @@ $chars* Main::getPass($String* modifier, $String* arg) {
 
 $Boolean* Main::lambda$oneOf$3($String* a, $String* b) {
 	$init(Main);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(a)->equalsIgnoreCase($($nc(b)->replaceAll("(?<!^)[a-z]"_s, ""_s)));
 	$init($Locale);
 	return $Boolean::valueOf(var$0 || $($nc(b)->toUpperCase($Locale::ROOT))->startsWith($($nc(a)->toUpperCase($Locale::ROOT))));

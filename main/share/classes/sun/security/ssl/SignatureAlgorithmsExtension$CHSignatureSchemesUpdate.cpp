@@ -107,6 +107,7 @@ void SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::init$() {
 }
 
 void SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($SignatureAlgorithmsExtension$SignatureSchemesSpec, spec, $cast($SignatureAlgorithmsExtension$SignatureSchemesSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_SIGNATURE_ALGORITHMS)));

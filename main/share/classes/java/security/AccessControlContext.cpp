@@ -216,6 +216,7 @@ void AccessControlContext::init$(AccessControlContext* acc, $DomainCombiner* com
 }
 
 void AccessControlContext::init$($ProtectionDomain* caller, $DomainCombiner* combiner, AccessControlContext* parent$renamed, AccessControlContext* context, $PermissionArray* perms) {
+	$useLocalCurrentObjectStackCache();
 	$var(AccessControlContext, parent, parent$renamed);
 	this->isAuthorized$ = false;
 	$set(this, combiner, nullptr);
@@ -315,6 +316,7 @@ bool AccessControlContext::isAuthorized() {
 }
 
 void AccessControlContext::checkPermission($Permission* perm) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool dumpDebug = false;
 	if (perm == nullptr) {
@@ -375,6 +377,7 @@ void AccessControlContext::checkPermission($Permission* perm) {
 }
 
 void AccessControlContext::checkPermission2($Permission* perm) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->isLimited) {
 		return;
 	}
@@ -404,6 +407,7 @@ void AccessControlContext::checkPermission2($Permission* perm) {
 }
 
 AccessControlContext* AccessControlContext::optimize() {
+	$useLocalCurrentObjectStackCache();
 	$var(AccessControlContext, acc, nullptr);
 	$var($DomainCombiner, combiner, nullptr);
 	$var(AccessControlContext, parent, nullptr);
@@ -467,6 +471,7 @@ AccessControlContext* AccessControlContext::optimize() {
 
 $ProtectionDomainArray* AccessControlContext::combine($ProtectionDomainArray* current, $ProtectionDomainArray* assigned) {
 	$init(AccessControlContext);
+	$useLocalCurrentObjectStackCache();
 	bool skipStack = (current == nullptr);
 	bool skipAssigned = (assigned == nullptr);
 	int32_t slen = (skipStack) ? 0 : $nc(current)->length;
@@ -509,6 +514,7 @@ $ProtectionDomainArray* AccessControlContext::combine($ProtectionDomainArray* cu
 }
 
 void AccessControlContext::calculateFields(AccessControlContext* assigned, AccessControlContext* parent, $PermissionArray* permissions) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomainArray, parentLimit, nullptr);
 	$var($ProtectionDomainArray, assignedLimit, nullptr);
 	$var($ProtectionDomainArray, newLimit, nullptr);
@@ -568,6 +574,7 @@ bool AccessControlContext::equalPDs($ProtectionDomainArray* a, $ProtectionDomain
 }
 
 bool AccessControlContext::equalLimitedContext(AccessControlContext* that) {
+	$useLocalCurrentObjectStackCache();
 	if (that == nullptr) {
 		return false;
 	}
@@ -621,6 +628,7 @@ AccessControlContext* AccessControlContext::getNextPC(AccessControlContext* acc$
 
 bool AccessControlContext::containsAllPDs($ProtectionDomainArray* thisContext, $ProtectionDomainArray* thatContext) {
 	$init(AccessControlContext);
+	$useLocalCurrentObjectStackCache();
 	bool match = false;
 	$var($ProtectionDomain, thisPd, nullptr);
 	for (int32_t i = 0; i < $nc(thisContext)->length; ++i) {
@@ -646,6 +654,7 @@ bool AccessControlContext::containsAllPDs($ProtectionDomainArray* thisContext, $
 }
 
 bool AccessControlContext::containsAllLimits(AccessControlContext* that) {
+	$useLocalCurrentObjectStackCache();
 	bool match = false;
 	$var($Permission, thisPerm, nullptr);
 	if (this->permissions == nullptr && $nc(that)->permissions == nullptr) {

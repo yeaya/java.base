@@ -67,6 +67,7 @@ void SerializationTests::init$() {
 }
 
 void SerializationTests::checkSerialForm($BigDecimal* bd) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, bos));
 	oos->writeObject(bd);
@@ -90,6 +91,7 @@ void SerializationTests::checkSerialForm($BigDecimal* bd) {
 }
 
 void SerializationTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 		$init($BigDecimal);
 	$var($BigDecimalArray, values, $new($BigDecimalArray, {
 		$BigDecimal::ZERO,

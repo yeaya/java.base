@@ -72,6 +72,7 @@ $Object* allocate$NullHost$Server($Class* clazz) {
 }
 
 void NullHost$Server::init$($NullHost* this$0) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$Thread::init$();
 	$set(this, svr, $new($ServerSocket));
@@ -92,6 +93,7 @@ void NullHost$Server::shutdown() {
 }
 
 void NullHost$Server::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Socket, s, nullptr);
 	try {
 		while (!this->done) {

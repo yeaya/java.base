@@ -147,6 +147,7 @@ int32_t WindowsSelectorImpl$SubSelector::processSelectedKeys(int64_t updateCount
 }
 
 int32_t WindowsSelectorImpl$SubSelector::processFDSet(int64_t updateCount, $Consumer* action, $ints* fds, int32_t rOps, bool isExceptFds) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numKeysUpdated = 0;
 	for (int32_t i = 1; i <= $nc(fds)->get(0); ++i) {
 		int32_t desc = fds->get(i);

@@ -178,11 +178,13 @@ void CRLReasonCodeExtension::delete$($String* name) {
 }
 
 $String* CRLReasonCodeExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($Extension::toString()), "    Reason Code: "_s}));
 	return $concat(var$0, $(getReasonCode()));
 }
 
 void CRLReasonCodeExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

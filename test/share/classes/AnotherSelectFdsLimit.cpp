@@ -75,6 +75,7 @@ void AnotherSelectFdsLimit::init$() {
 }
 
 void AnotherSelectFdsLimit::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($($System::getProperty("os.name"_s)))->contains("OS X"_s)) {
 		$init($System);
 		$nc($System::out)->println("Test only run on MAC. Exiting."_s);

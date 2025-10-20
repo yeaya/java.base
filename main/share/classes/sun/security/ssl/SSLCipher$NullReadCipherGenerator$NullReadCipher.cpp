@@ -78,6 +78,7 @@ void SSLCipher$NullReadCipherGenerator$NullReadCipher::init$($Authenticator* aut
 }
 
 $Plaintext* SSLCipher$NullReadCipherGenerator$NullReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {
 		$SSLCipher::checkStreamMac(signer, bb, contentType, sequence);

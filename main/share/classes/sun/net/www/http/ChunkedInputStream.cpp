@@ -203,6 +203,7 @@ int32_t ChunkedInputStream::fastRead($bytes* b, int32_t off, int32_t len) {
 }
 
 void ChunkedInputStream::processRaw() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = 0;
 	int32_t i = 0;
 	while (this->state != ChunkedInputStream::STATE_DONE) {
@@ -363,6 +364,7 @@ int32_t ChunkedInputStream::readAheadNonBlocking() {
 }
 
 int32_t ChunkedInputStream::readAheadBlocking() {
+	$useLocalCurrentObjectStackCache();
 	do {
 		if (this->state == ChunkedInputStream::STATE_DONE) {
 			return -1;
@@ -564,6 +566,7 @@ void ChunkedInputStream::close() {
 }
 
 bool ChunkedInputStream::hurry() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);

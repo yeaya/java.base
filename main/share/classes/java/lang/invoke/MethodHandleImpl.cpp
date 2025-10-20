@@ -574,6 +574,7 @@ void MethodHandleImpl::init$() {
 
 $MethodHandle* MethodHandleImpl::makeArrayElementAccessor($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$load($ObjectArray);
 	if (arrayClass == $getClass($ObjectArray)) {
 		return $MethodHandleImpl$ArrayAccess::objectAccessor(access);
@@ -642,6 +643,7 @@ $MethodHandle* MethodHandleImpl::makePairwiseConvert($MethodHandle* target, $Met
 
 int32_t MethodHandleImpl::countNonNull($ObjectArray* array) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	if (array != nullptr) {
 		{
@@ -663,6 +665,7 @@ int32_t MethodHandleImpl::countNonNull($ObjectArray* array) {
 
 $MethodHandle* MethodHandleImpl::makePairwiseConvertByEditor($MethodHandle* target, $MethodType* srcType, bool strict, bool monobox) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	int32_t MH_RECEIVER_OFFSET = 1;
 	$var($ObjectArray, convSpecs, computeValueConversions(srcType, $($nc(target)->type()), strict, monobox));
 	int32_t convCount = countNonNull(convSpecs);
@@ -768,6 +771,7 @@ $MethodHandle* MethodHandleImpl::makePairwiseConvertByEditor($MethodHandle* targ
 
 $ObjectArray* MethodHandleImpl::computeValueConversions($MethodType* srcType, $MethodType* dstType, bool strict, bool monobox) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	int32_t INARG_COUNT = $nc(srcType)->parameterCount();
 	$var($ObjectArray, convSpecs, nullptr);
 	for (int32_t i = 0; i <= INARG_COUNT; ++i) {
@@ -791,6 +795,7 @@ $MethodHandle* MethodHandleImpl::makePairwiseConvert($MethodHandle* target, $Met
 
 $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict, bool monobox) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!MethodHandleImpl::$assertionsDisabled && !(!$VerifyType::isNullConversion(src, dst, strict))) {
 		$throwNew($AssertionError);
 	}
@@ -852,6 +857,7 @@ $Object* MethodHandleImpl::valueConversion($Class* src, $Class* dst, bool strict
 
 $MethodHandle* MethodHandleImpl::makeVarargsCollector($MethodHandle* target$renamed, $Class* arrayType) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, target, target$renamed);
 	$var($MethodType, type, $nc(target)->type());
 	int32_t last = $nc(type)->parameterCount() - 1;
@@ -864,6 +870,7 @@ $MethodHandle* MethodHandleImpl::makeVarargsCollector($MethodHandle* target$rena
 
 void MethodHandleImpl::checkSpreadArgument(Object$* av, int32_t n) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	if (av == nullptr && n == 0) {
 		return;
 	} else if (av == nullptr) {
@@ -910,6 +917,7 @@ bool MethodHandleImpl::isCompileConstant(Object$* obj) {
 
 $MethodHandle* MethodHandleImpl::makeGuardWithTest($MethodHandle* test, $MethodHandle* target, $MethodHandle* fallback) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $nc(target)->type());
 	bool var$0 = !MethodHandleImpl::$assertionsDisabled;
 	if (var$0) {
@@ -976,6 +984,7 @@ $MethodHandle* MethodHandleImpl::makeBlockInliningWrapper($MethodHandle* target)
 
 $LambdaForm* MethodHandleImpl::makeGuardWithTestForm($MethodType* basicType) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm, lform, $nc($($nc(basicType)->form()))->cachedLambdaForm($MethodTypeForm::LF_GWT));
 	if (lform != nullptr) {
 		return lform;
@@ -1034,6 +1043,7 @@ $LambdaForm* MethodHandleImpl::makeGuardWithTestForm($MethodType* basicType) {
 
 $LambdaForm* MethodHandleImpl::makeGuardWithCatchForm($MethodType* basicType) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, lambdaType, $nc(basicType)->invokerType());
 	$var($LambdaForm, lform, $nc($(basicType->form()))->cachedLambdaForm($MethodTypeForm::LF_GWC));
 	if (lform != nullptr) {
@@ -1087,6 +1097,7 @@ $LambdaForm* MethodHandleImpl::makeGuardWithCatchForm($MethodType* basicType) {
 
 $MethodHandle* MethodHandleImpl::makeGuardWithCatch($MethodHandle* target, $Class* exType, $MethodHandle* catcher) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $nc(target)->type());
 	$var($LambdaForm, form, makeGuardWithCatchForm($($nc(type)->basicType())));
 	$load($ObjectArray);
@@ -1109,6 +1120,7 @@ $MethodHandle* MethodHandleImpl::makeGuardWithCatch($MethodHandle* target, $Clas
 
 $Object* MethodHandleImpl::guardWithCatch($MethodHandle* target, $Class* exType, $MethodHandle* catcher, $ObjectArray* av) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($nc($($nc(target)->asFixedArity()))->invokeWithArguments(av));
 	} catch ($Throwable&) {
@@ -1133,6 +1145,7 @@ $ObjectArray* MethodHandleImpl::prepend($ObjectArray* array, $ObjectArray* elems
 
 $MethodHandle* MethodHandleImpl::throwException($MethodType* type) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$load($Throwable);
 	if (!MethodHandleImpl::$assertionsDisabled && !($Throwable::class$->isAssignableFrom($($cast($Class, $nc(type)->parameterType(0)))))) {
 		$throwNew($AssertionError);
@@ -1154,6 +1167,7 @@ $Empty* MethodHandleImpl::throwException($Throwable* t) {
 
 $MethodHandle* MethodHandleImpl::fakeMethodHandleInvoke($MemberName* method) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc(method)->isMethodHandleInvoke())) {
 		$throwNew($AssertionError);
 	}
@@ -1222,6 +1236,7 @@ $MethodHandle* MethodHandleImpl::fakeMethodHandleInvoke($MemberName* method) {
 
 $MethodHandle* MethodHandleImpl::fakeVarHandleInvoke($MemberName* method) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$load($UnsupportedOperationException);
 		$load($VarHandle);
 		$load($ObjectArray);
@@ -1249,6 +1264,7 @@ $MethodHandle* MethodHandleImpl::bindCaller($MethodHandle* mh, $Class* hostClass
 
 $MethodHandle* MethodHandleImpl::makeWrappedMember($MethodHandle* target, $MemberName* member, bool isInvokeSpecial) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(member)->equals($($nc(target)->internalMemberName()));
 	if (var$0 && isInvokeSpecial == $nc(target)->isInvokeSpecial()) {
 		return target;
@@ -1290,6 +1306,7 @@ $MethodHandle* MethodHandleImpl::varargsArray(int32_t nargs) {
 
 $MethodHandle* MethodHandleImpl::varargsArray($Class* arrayType, int32_t nargs) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$Class* elemType = $nc(arrayType)->getComponentType();
 	if (elemType == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"not an array: "_s, arrayType}));
@@ -1326,6 +1343,7 @@ $MethodHandle* MethodHandleImpl::varargsArray($Class* arrayType, int32_t nargs) 
 
 bool MethodHandleImpl::assertCorrectArity($MethodHandle* mh, int32_t arity) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!MethodHandleImpl::$assertionsDisabled && !($nc($($nc(mh)->type()))->parameterCount() == arity)) {
 		$throwNew($AssertionError, $of($$str({"arity != "_s, $$str(arity), ": "_s, mh})));
 	}
@@ -1334,6 +1352,7 @@ bool MethodHandleImpl::assertCorrectArity($MethodHandle* mh, int32_t arity) {
 
 void MethodHandleImpl::assertSame(Object$* mh1, Object$* mh2) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!$equals(mh1, mh2)) {
 		$var($String, msg, $String::format("mh1 != mh2: mh1 = %s (form: %s); mh2 = %s (form: %s)"_s, $$new($ObjectArray, {
 			mh1,
@@ -1347,6 +1366,7 @@ void MethodHandleImpl::assertSame(Object$* mh1, Object$* mh2) {
 
 $LambdaForm$NamedFunction* MethodHandleImpl::getFunction(int8_t func) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NamedFunction, nf, $nc(MethodHandleImpl::NFS)->get(func));
 	if (nf != nullptr) {
 		return nf;
@@ -1356,6 +1376,7 @@ $LambdaForm$NamedFunction* MethodHandleImpl::getFunction(int8_t func) {
 
 $LambdaForm$NamedFunction* MethodHandleImpl::createFunction(int8_t func) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 
@@ -1468,6 +1489,7 @@ $MethodHandle* MethodHandleImpl::unboxResultHandle($Class* returnType) {
 
 $MethodHandle* MethodHandleImpl::makeLoop($Class* tloop, $List* targs, $List* init, $List* step, $List* pred, $List* fini) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $MethodType::methodType(tloop, targs));
 	$var($LambdaForm$BasicTypeArray, initClauseTypes, $fcast($LambdaForm$BasicTypeArray, $nc($($nc($($nc($($nc(init)->stream()))->map(static_cast<$Function*>($$new(MethodHandleImpl$$Lambda$lambda$makeLoop$0)))))->map(static_cast<$Function*>($$new(MethodHandleImpl$$Lambda$basicType$1)))))->toArray(static_cast<$IntFunction*>($$new(MethodHandleImpl$$Lambda$lambda$makeLoop$1$2)))));
 	$var($LambdaForm, form, makeLoopForm($($nc(type)->basicType()), initClauseTypes));
@@ -1502,6 +1524,7 @@ $MethodHandleArray* MethodHandleImpl::toArray($List* l) {
 
 $LambdaForm* MethodHandleImpl::makeLoopForm($MethodType* basicType, $LambdaForm$BasicTypeArray* localVarTypes) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, lambdaType, $nc(basicType)->invokerType());
 	int32_t THIS_MH = 0;
 	int32_t ARG_BASE = 1;
@@ -1549,6 +1572,7 @@ $LambdaForm* MethodHandleImpl::makeLoopForm($MethodType* basicType, $LambdaForm$
 
 $Object* MethodHandleImpl::loop($LambdaForm$BasicTypeArray* localTypes, $MethodHandleImpl$LoopClauses* clauseData, $ObjectArray* av) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleArray, init, $nc($nc(clauseData)->clauses)->get(0));
 	$var($MethodHandleArray, step, $nc(clauseData->clauses)->get(1));
 	$var($MethodHandleArray, pred, $nc(clauseData->clauses)->get(2));
@@ -1620,6 +1644,7 @@ $Object* MethodHandleImpl::iterateNext($Iterator* it) {
 
 $MethodHandle* MethodHandleImpl::makeTryFinally($MethodHandle* target, $MethodHandle* cleanup, $Class* rtype, $List* argTypes) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $MethodType::methodType(rtype, argTypes));
 	$var($LambdaForm, form, makeTryFinallyForm($($nc(type)->basicType())));
 	$load($ObjectArray);
@@ -1642,6 +1667,7 @@ $MethodHandle* MethodHandleImpl::makeTryFinally($MethodHandle* target, $MethodHa
 
 $LambdaForm* MethodHandleImpl::makeTryFinallyForm($MethodType* basicType) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, lambdaType, $nc(basicType)->invokerType());
 	$var($LambdaForm, lform, $nc($(basicType->form()))->cachedLambdaForm($MethodTypeForm::LF_TF));
 	if (lform != nullptr) {
@@ -1692,6 +1718,7 @@ $LambdaForm* MethodHandleImpl::makeTryFinallyForm($MethodType* basicType) {
 
 $Object* MethodHandleImpl::tryFinally($MethodHandle* target, $MethodHandle* cleanup, $ObjectArray* av) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, nullptr);
 	$var($Object, r, nullptr);
 	{
@@ -1723,6 +1750,7 @@ $Object* MethodHandleImpl::tryFinally($MethodHandle* target, $MethodHandle* clea
 
 $MethodHandle* MethodHandleImpl::makeCollector($Class* arrayType, int32_t parameterCount) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $MethodType::methodType(arrayType, $($Collections::nCopies(parameterCount, $($nc(arrayType)->componentType())))));
 	$var($MethodHandle, newArray, $MethodHandles::arrayConstructor(arrayType));
 	$var($LambdaForm, form, makeCollectorForm($($nc(type)->basicType()), arrayType));
@@ -1742,6 +1770,7 @@ $MethodHandle* MethodHandleImpl::makeCollector($Class* arrayType, int32_t parame
 
 $LambdaForm* MethodHandleImpl::makeCollectorForm($MethodType* basicType, $Class* arrayType) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, lambdaType, $nc(basicType)->invokerType());
 	int32_t parameterCount = basicType->parameterCount();
 	bool isReferenceType = !$nc($($cast($Class, $nc(arrayType)->componentType())))->isPrimitive();
@@ -1800,6 +1829,7 @@ $LambdaForm* MethodHandleImpl::makeCollectorForm($MethodType* basicType, $Class*
 
 $MethodHandle* MethodHandleImpl::makeTableSwitch($MethodType* type, $MethodHandle* defaultCase, $MethodHandleArray* caseActions) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$load($ObjectArray);
 	$var($MethodType, varargsType, $nc(type)->changeReturnType($getClass($ObjectArray)));
 	$var($MethodHandle, collectArgs, $nc($(varargsArray(type->parameterCount())))->asType(varargsType));
@@ -1822,6 +1852,7 @@ $MethodHandle* MethodHandleImpl::makeTableSwitch($MethodType* type, $MethodHandl
 
 $LambdaForm* MethodHandleImpl::makeTableSwitchForm($MethodType* basicType, $BoundMethodHandle$SpeciesData* data, int32_t numCases) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, lambdaType, $nc(basicType)->invokerType());
 	$var($MethodHandleImpl$TableSwitchCacheKey, key, $new($MethodHandleImpl$TableSwitchCacheKey, basicType, numCases));
 	$init($MethodHandleImpl$TableSwitchCacheKey);
@@ -1891,6 +1922,7 @@ $LambdaForm* MethodHandleImpl::makeTableSwitchForm($MethodType* basicType, $Boun
 
 $Object* MethodHandleImpl::tableSwitch(int32_t input, $MethodHandle* defaultCase, $MethodHandleImpl$CasesHolder* holder, $ObjectArray* args) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleArray, caseActions, $nc(holder)->cases);
 	$var($MethodHandle, selectedCase, nullptr);
 	if (input < 0 || input >= $nc(caseActions)->length) {
@@ -1903,6 +1935,7 @@ $Object* MethodHandleImpl::tableSwitch(int32_t input, $MethodHandle* defaultCase
 
 $MethodHandle* MethodHandleImpl::getConstantHandle(int32_t idx) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, handle, $nc(MethodHandleImpl::HANDLES)->get(idx));
 	if (handle != nullptr) {
 		return handle;
@@ -1925,6 +1958,7 @@ $MethodHandle* MethodHandleImpl::setCachedHandle(int32_t idx, $MethodHandle* met
 
 $MethodHandle* MethodHandleImpl::makeConstantHandle(int32_t idx) {
 	$init(MethodHandleImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		switch (idx) {
 		case MethodHandleImpl::MH_cast:

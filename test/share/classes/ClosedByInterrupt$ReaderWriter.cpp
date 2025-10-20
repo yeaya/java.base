@@ -85,6 +85,7 @@ void ClosedByInterrupt$ReaderWriter::init$($FileChannel* fc, bool interruptible)
 }
 
 void ClosedByInterrupt$ReaderWriter::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(1024));
 	if (this->writer) {
 		$init($ClosedByInterrupt);

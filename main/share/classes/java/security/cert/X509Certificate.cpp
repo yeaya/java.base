@@ -185,6 +185,7 @@ $Collection* X509Certificate::getIssuerAlternativeNames() {
 }
 
 void X509Certificate::verify($PublicKey* key, $Provider* sigProvider) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sigName, getSigAlgName());
 	$var($Signature, sig, (sigProvider == nullptr) ? $Signature::getInstance(sigName) : $Signature::getInstance(sigName, sigProvider));
 	try {

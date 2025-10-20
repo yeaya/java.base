@@ -41,6 +41,7 @@ void ReadZeroBytes::init$() {
 }
 
 void ReadZeroBytes::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedInputStream, in, $new($BufferedInputStream, $$new($ThrowingInputStream)));
 	in->read($$new($bytes, 0), 0, 0);
 }

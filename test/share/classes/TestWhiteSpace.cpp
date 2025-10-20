@@ -44,6 +44,7 @@ void TestWhiteSpace::init$() {
 }
 
 void TestWhiteSpace::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, whiteSpace, $new($chars, {
 		(char16_t)0xA0,
 		(char16_t)0x2007,

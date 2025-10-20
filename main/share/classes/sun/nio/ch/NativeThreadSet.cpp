@@ -104,6 +104,7 @@ void NativeThreadSet::remove(int32_t i) {
 
 void NativeThreadSet::signalAndWait() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		bool interrupted = false;
 		while (this->used > 0) {
 			int32_t u = this->used;

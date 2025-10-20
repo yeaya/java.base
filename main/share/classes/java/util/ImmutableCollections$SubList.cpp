@@ -170,6 +170,7 @@ bool ImmutableCollections$SubList::allowNulls() {
 }
 
 int32_t ImmutableCollections$SubList::indexOf(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (!allowNulls() && o == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -186,6 +187,7 @@ int32_t ImmutableCollections$SubList::indexOf(Object$* o) {
 }
 
 int32_t ImmutableCollections$SubList::lastIndexOf(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (!allowNulls() && o == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -198,6 +200,7 @@ int32_t ImmutableCollections$SubList::lastIndexOf(Object$* o) {
 }
 
 $ObjectArray* ImmutableCollections$SubList::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $new($ObjectArray, this->size$));
 	for (int32_t i = 0; i < this->size$; ++i) {
 		array->set(i, $(get(i)));
@@ -206,6 +209,7 @@ $ObjectArray* ImmutableCollections$SubList::toArray() {
 }
 
 $ObjectArray* ImmutableCollections$SubList::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $nc(a)->length >= this->size$ ? a : $cast($ObjectArray, $1Array::newInstance($nc($of(a))->getClass()->getComponentType(), this->size$)));
 	for (int32_t i = 0; i < this->size$; ++i) {
 		$nc(array)->set(i, $(get(i)));

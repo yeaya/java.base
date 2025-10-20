@@ -89,6 +89,7 @@ bool Hashtable$EntrySet::add($Map$Entry* o) {
 }
 
 bool Hashtable$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -114,6 +115,7 @@ bool Hashtable$EntrySet::contains(Object$* o) {
 }
 
 bool Hashtable$EntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {

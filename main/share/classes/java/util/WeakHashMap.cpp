@@ -167,6 +167,7 @@ $WeakHashMap$EntryArray* WeakHashMap::newTable(int32_t n) {
 }
 
 void WeakHashMap::init$(int32_t initialCapacity, float loadFactor) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractMap::init$();
 	$set(this, queue, $new($ReferenceQueue));
 	if (initialCapacity < 0) {
@@ -230,6 +231,7 @@ int32_t WeakHashMap::indexFor(int32_t h, int32_t length) {
 }
 
 void WeakHashMap::expungeStaleEntries() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Object, x, nullptr);
 		for (; ($assign(x, $nc(this->queue)->poll())) != nullptr;) {
@@ -276,6 +278,7 @@ bool WeakHashMap::isEmpty() {
 }
 
 $Object* WeakHashMap::get(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
@@ -295,6 +298,7 @@ bool WeakHashMap::containsKey(Object$* key) {
 }
 
 $WeakHashMap$Entry* WeakHashMap::getEntry(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
@@ -307,6 +311,7 @@ $WeakHashMap$Entry* WeakHashMap::getEntry(Object$* key) {
 }
 
 $Object* WeakHashMap::put(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
@@ -333,6 +338,7 @@ $Object* WeakHashMap::put(Object$* key, Object$* value) {
 }
 
 void WeakHashMap::resize(int32_t newCapacity) {
+	$useLocalCurrentObjectStackCache();
 	$var($WeakHashMap$EntryArray, oldTable, getTable());
 	int32_t oldCapacity = $nc(oldTable)->length;
 	if (oldCapacity == WeakHashMap::MAXIMUM_CAPACITY) {
@@ -352,6 +358,7 @@ void WeakHashMap::resize(int32_t newCapacity) {
 }
 
 void WeakHashMap::transfer($WeakHashMap$EntryArray* src, $WeakHashMap$EntryArray* dest) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t j = 0; j < $nc(src)->length; ++j) {
 		$var($WeakHashMap$Entry, e, src->get(j));
 		src->set(j, nullptr);
@@ -372,6 +379,7 @@ void WeakHashMap::transfer($WeakHashMap$EntryArray* src, $WeakHashMap$EntryArray
 }
 
 void WeakHashMap::putAll($Map* m) {
+	$useLocalCurrentObjectStackCache();
 	int32_t numKeysToBeAdded = $nc(m)->size();
 	if (numKeysToBeAdded == 0) {
 		return;
@@ -400,6 +408,7 @@ void WeakHashMap::putAll($Map* m) {
 }
 
 $Object* WeakHashMap::remove(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
@@ -425,6 +434,7 @@ $Object* WeakHashMap::remove(Object$* key) {
 }
 
 bool WeakHashMap::removeMapping(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -469,6 +479,7 @@ void WeakHashMap::clear() {
 }
 
 bool WeakHashMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		return containsNullValue();
 	}
@@ -487,6 +498,7 @@ bool WeakHashMap::containsValue(Object$* value) {
 }
 
 bool WeakHashMap::containsNullValue() {
+	$useLocalCurrentObjectStackCache();
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	for (int32_t i = $nc(tab)->length; i-- > 0;) {
 		{
@@ -525,6 +537,7 @@ $Set* WeakHashMap::entrySet() {
 }
 
 void WeakHashMap::forEach($BiConsumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t expectedModCount = this->modCount;
 	$var($WeakHashMap$EntryArray, tab, getTable());
@@ -551,6 +564,7 @@ void WeakHashMap::forEach($BiConsumer* action) {
 }
 
 void WeakHashMap::replaceAll($BiFunction* function) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(function);
 	int32_t expectedModCount = this->modCount;
 	$var($WeakHashMap$EntryArray, tab, getTable());

@@ -56,6 +56,7 @@ void NullArguments::init$() {
 }
 
 void NullArguments::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProxySelector, ps, $ProxySelector::getDefault());
 	$var($List, p, nullptr);
 	bool ok = false;

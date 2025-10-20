@@ -76,6 +76,7 @@ void SSLCipher$NullWriteCipherGenerator$NullWriteCipher::init$($Authenticator* a
 }
 
 int32_t SSLCipher$NullWriteCipherGenerator$NullWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
+	$useLocalCurrentObjectStackCache();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {
 		$SSLCipher::addMac(signer, bb, contentType);

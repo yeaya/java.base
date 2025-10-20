@@ -48,6 +48,7 @@ void ClosedStream::init$() {
 }
 
 void ClosedStream::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, $new($bytes, {
 		(int8_t)30,
 		(int8_t)40

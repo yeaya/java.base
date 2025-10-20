@@ -180,11 +180,13 @@ $StringBuffer* DateFormat::format(Object$* obj, $StringBuffer* toAppendTo, $Fiel
 }
 
 $String* DateFormat::format($Date* date) {
+	$useLocalCurrentObjectStackCache();
 	$init($DontCareFieldPosition);
 	return $nc($(format(date, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE)))->toString();
 }
 
 $Date* DateFormat::parse($String* source) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$var($Date, result, parse(source, pos));
 	if (pos->index == 0) {
@@ -297,6 +299,7 @@ int32_t DateFormat::hashCode() {
 }
 
 bool DateFormat::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -333,6 +336,7 @@ $Object* DateFormat::clone() {
 
 DateFormat* DateFormat::get(int32_t timeStyle, int32_t dateStyle, int32_t flags, $Locale* loc) {
 	$init(DateFormat);
+	$useLocalCurrentObjectStackCache();
 	if (((int32_t)(flags & (uint32_t)1)) != 0) {
 		if (timeStyle < 0 || timeStyle > 3) {
 			$throwNew($IllegalArgumentException, $$str({"Illegal time style "_s, $$str(timeStyle)}));
@@ -358,6 +362,7 @@ DateFormat* DateFormat::get(int32_t timeStyle, int32_t dateStyle, int32_t flags,
 
 DateFormat* DateFormat::get($LocaleProviderAdapter* adapter, int32_t timeStyle, int32_t dateStyle, $Locale* loc) {
 	$init(DateFormat);
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatProvider, provider, $nc(adapter)->getDateFormatProvider());
 	$var(DateFormat, dateFormat, nullptr);
 	if (timeStyle == -1) {

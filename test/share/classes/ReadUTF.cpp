@@ -75,6 +75,7 @@ void ReadUTF::init$() {
 
 void ReadUTF::main($StringArray* args) {
 	$init(ReadUTF);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < ReadUTF::TEST_ITERATIONS; ++i) {
 		try {
 			writeAndReadAString();
@@ -91,6 +92,7 @@ void ReadUTF::main($StringArray* args) {
 
 void ReadUTF::writeAndReadAString() {
 	$init(ReadUTF);
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(ReadUTF::generator)->nextInt(ReadUTF::A_NUMBER_NEAR_65535) + 1;
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	$var($StringBuffer, testBuffer, $new($StringBuffer));

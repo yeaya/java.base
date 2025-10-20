@@ -116,11 +116,13 @@ void TraceMethodVisitor::visitParameter($String* name, int32_t access) {
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitMethodAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitMethodTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -131,6 +133,7 @@ void TraceMethodVisitor::visitAttribute($Attribute* attribute) {
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitAnnotationDefault() {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitAnnotationDefault());
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitAnnotationDefault()), annotationPrinter);
 }
@@ -141,6 +144,7 @@ void TraceMethodVisitor::visitAnnotableParameterCount(int32_t parameterCount, bo
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitParameterAnnotation(parameter, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitParameterAnnotation(parameter, descriptor, visible)), annotationPrinter);
 }
@@ -235,6 +239,7 @@ void TraceMethodVisitor::visitMultiANewArrayInsn($String* descriptor, int32_t nu
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitInsnAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitInsnAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -245,6 +250,7 @@ void TraceMethodVisitor::visitTryCatchBlock($Label* start, $Label* end, $Label* 
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitTryCatchAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitTryCatchAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -255,6 +261,7 @@ void TraceMethodVisitor::visitLocalVariable($String* name, $String* descriptor, 
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitLocalVariableAnnotation(typeRef, typePath, start, end, index, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitLocalVariableAnnotation(typeRef, typePath, start, end, index, descriptor, visible)), annotationPrinter);
 }

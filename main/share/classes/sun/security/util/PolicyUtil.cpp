@@ -84,6 +84,7 @@ void PolicyUtil::init$() {
 
 $InputStream* PolicyUtil::getInputStream($URL* url) {
 	$init(PolicyUtil);
+	$useLocalCurrentObjectStackCache();
 	if ("file"_s->equals($($nc(url)->getProtocol()))) {
 		$init($File);
 		$var($String, path, $nc($($nc(url)->getFile()))->replace(u'/', $File::separatorChar));
@@ -96,6 +97,7 @@ $InputStream* PolicyUtil::getInputStream($URL* url) {
 
 $KeyStore* PolicyUtil::getKeyStore($URL* policyUrl, $String* keyStoreName, $String* keyStoreType$renamed, $String* keyStoreProvider, $String* storePassURL, $Debug* debug) {
 	$init(PolicyUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($String, keyStoreType, keyStoreType$renamed);
 	if (keyStoreName == nullptr) {
 		$throwNew($IllegalArgumentException, "null KeyStore name"_s);

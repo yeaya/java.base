@@ -101,6 +101,7 @@ $bytes* NamedGroup$XDHScheme::encodePossessionPublicKey($NamedGroupPossession* p
 }
 
 $SSLCredentials* NamedGroup$XDHScheme::decodeCredentials($NamedGroup* ng, $bytes* encoded, $AlgorithmConstraints* constraints, $NamedGroup$ExceptionSupplier* onConstraintFail) {
+	$useLocalCurrentObjectStackCache();
 	$var($XDHKeyExchange$XDHECredentials, result, $XDHKeyExchange$XDHECredentials::valueOf(ng, encoded));
 	checkConstraints($($nc(result)->getPublicKey()), constraints, onConstraintFail);
 	return result;

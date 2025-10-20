@@ -75,6 +75,7 @@ void Charset$2::init$($String* val$charsetName) {
 }
 
 $Object* Charset$2::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i, $Charset::providers());
 		for (; $nc(i)->hasNext();) {

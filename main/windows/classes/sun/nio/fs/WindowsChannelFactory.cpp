@@ -111,6 +111,7 @@ void WindowsChannelFactory::init$() {
 
 $FileChannel* WindowsChannelFactory::newFileChannel($String* pathForWindows, $String* pathToCheck, $Set* options, int64_t pSecurityDescriptor) {
 	$init(WindowsChannelFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsChannelFactory$Flags, flags, $WindowsChannelFactory$Flags::toFlags(options));
 	if (!$nc(flags)->read && !flags->write) {
 		if (flags->append) {
@@ -131,6 +132,7 @@ $FileChannel* WindowsChannelFactory::newFileChannel($String* pathForWindows, $St
 
 $AsynchronousFileChannel* WindowsChannelFactory::newAsynchronousFileChannel($String* pathForWindows, $String* pathToCheck, $Set* options, int64_t pSecurityDescriptor, $ThreadPool* pool) {
 	$init(WindowsChannelFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsChannelFactory$Flags, flags, $WindowsChannelFactory$Flags::toFlags(options));
 	$nc(flags)->overlapped = true;
 	if (!flags->read && !flags->write) {
@@ -159,6 +161,7 @@ $AsynchronousFileChannel* WindowsChannelFactory::newAsynchronousFileChannel($Str
 
 $FileDescriptor* WindowsChannelFactory::open($String* pathForWindows, $String* pathToCheck, $WindowsChannelFactory$Flags* flags, int64_t pSecurityDescriptor) {
 	$init(WindowsChannelFactory);
+	$useLocalCurrentObjectStackCache();
 	bool truncateAfterOpen = false;
 	int32_t dwDesiredAccess = 0;
 	if ($nc(flags)->read) {

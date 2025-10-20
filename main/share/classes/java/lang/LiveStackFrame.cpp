@@ -82,6 +82,7 @@ $StackWalker* LiveStackFrame::getStackWalker() {
 
 $StackWalker* LiveStackFrame::getStackWalker($Set* options) {
 	$init(LiveStackFrame);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "liveStackFrames"_s));

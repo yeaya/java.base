@@ -214,6 +214,7 @@ int32_t SourceChannelImpl::read($ByteBuffer* dst) {
 }
 
 int64_t SourceChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if ((offset < 0) || (length < 0) || (offset > $nc(dsts)->length - length)) {
 		$throwNew($IndexOutOfBoundsException);
 	}

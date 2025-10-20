@@ -125,6 +125,7 @@ void CopyOnWriteArrayList$COWIterator::add(Object$* e) {
 }
 
 void CopyOnWriteArrayList$COWIterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t size = $nc(this->snapshot)->length;
 	int32_t i = this->cursor;

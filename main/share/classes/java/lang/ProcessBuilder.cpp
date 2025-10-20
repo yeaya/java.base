@@ -246,6 +246,7 @@ void ProcessBuilder::init$($List* command) {
 }
 
 void ProcessBuilder::init$($StringArray* command) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, command$, $new($ArrayList, $nc(command)->length));
 	{
 		$var($StringArray, arr$, command);
@@ -267,6 +268,7 @@ ProcessBuilder* ProcessBuilder::command($List* command) {
 }
 
 ProcessBuilder* ProcessBuilder::command($StringArray* command) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, command$, $new($ArrayList, $nc(command)->length));
 	{
 		$var($StringArray, arr$, command);
@@ -285,6 +287,7 @@ $List* ProcessBuilder::command() {
 }
 
 $Map* ProcessBuilder::environment() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPermission($$new($RuntimePermission, "getenv.*"_s));
@@ -299,6 +302,7 @@ $Map* ProcessBuilder::environment() {
 }
 
 ProcessBuilder* ProcessBuilder::environment($StringArray* envp) {
+	$useLocalCurrentObjectStackCache();
 	if (!ProcessBuilder::$assertionsDisabled && !(this->environment$ == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -351,6 +355,7 @@ $ProcessBuilder$RedirectArray* ProcessBuilder::redirects() {
 }
 
 ProcessBuilder* ProcessBuilder::redirectInput($ProcessBuilder$Redirect* source) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProcessBuilder$Redirect$Type);
 	bool var$0 = $nc(source)->type() == $ProcessBuilder$Redirect$Type::WRITE;
 	if (var$0 || $nc(source)->type() == $ProcessBuilder$Redirect$Type::APPEND) {
@@ -361,6 +366,7 @@ ProcessBuilder* ProcessBuilder::redirectInput($ProcessBuilder$Redirect* source) 
 }
 
 ProcessBuilder* ProcessBuilder::redirectOutput($ProcessBuilder$Redirect* destination) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProcessBuilder$Redirect$Type);
 	if ($nc(destination)->type() == $ProcessBuilder$Redirect$Type::READ) {
 		$throwNew($IllegalArgumentException, $$str({"Redirect invalid for writing: "_s, destination}));
@@ -370,6 +376,7 @@ ProcessBuilder* ProcessBuilder::redirectOutput($ProcessBuilder$Redirect* destina
 }
 
 ProcessBuilder* ProcessBuilder::redirectError($ProcessBuilder$Redirect* destination) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProcessBuilder$Redirect$Type);
 	if ($nc(destination)->type() == $ProcessBuilder$Redirect$Type::READ) {
 		$throwNew($IllegalArgumentException, $$str({"Redirect invalid for writing: "_s, destination}));
@@ -425,6 +432,7 @@ $Process* ProcessBuilder::start() {
 }
 
 $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, cmdarray, $fcast($StringArray, $nc(this->command$)->toArray($$new($StringArray, $nc(this->command$)->size()))));
 	$assign(cmdarray, $cast($StringArray, $nc(cmdarray)->clone()));
 	{
@@ -505,6 +513,7 @@ $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
 
 $List* ProcessBuilder::startPipeline($List* builders) {
 	$init(ProcessBuilder);
+	$useLocalCurrentObjectStackCache();
 	int32_t numBuilders = $nc(builders)->size();
 	$var($List, processes, $new($ArrayList, numBuilders));
 	try {
@@ -540,6 +549,7 @@ $List* ProcessBuilder::startPipeline($List* builders) {
 
 void ProcessBuilder::lambda$startPipeline$0($Process* p) {
 	$init(ProcessBuilder);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(p)->waitFor();
 	} catch ($InterruptedException&) {

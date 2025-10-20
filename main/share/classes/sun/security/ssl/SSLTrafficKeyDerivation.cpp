@@ -192,6 +192,7 @@ $SSLKeyDerivation* SSLTrafficKeyDerivation::createKeyDerivation($HandshakeContex
 }
 
 void clinit$SSLTrafficKeyDerivation($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLTrafficKeyDerivation::SSL30, $new(SSLTrafficKeyDerivation, "SSL30"_s, 0, "kdf_ssl30"_s, $$new($SSLTrafficKeyDerivation$S30TrafficKeyDerivationGenerator)));
 	$assignStatic(SSLTrafficKeyDerivation::TLS10, $new(SSLTrafficKeyDerivation, "TLS10"_s, 1, "kdf_tls10"_s, $$new($SSLTrafficKeyDerivation$T10TrafficKeyDerivationGenerator)));
 	$assignStatic(SSLTrafficKeyDerivation::TLS12, $new(SSLTrafficKeyDerivation, "TLS12"_s, 2, "kdf_tls12"_s, $$new($SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator)));

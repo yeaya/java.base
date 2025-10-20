@@ -136,6 +136,7 @@ $Object* allocate$PrintWriter($Class* clazz) {
 
 $Charset* PrintWriter::toCharset($String* csn) {
 	$init(PrintWriter);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(csn), "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
@@ -170,6 +171,7 @@ void PrintWriter::init$($OutputStream* out, bool autoFlush) {
 }
 
 void PrintWriter::init$($OutputStream* out, bool autoFlush, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	PrintWriter::init$(static_cast<$Writer*>($$new($BufferedWriter, $$new($OutputStreamWriter, out, charset))), autoFlush);
 	if ($instanceOf($PrintStream, out)) {
 		$set(this, psOut, $cast($PrintStream, out));
@@ -177,24 +179,29 @@ void PrintWriter::init$($OutputStream* out, bool autoFlush, $Charset* charset) {
 }
 
 void PrintWriter::init$($String* fileName) {
+	$useLocalCurrentObjectStackCache();
 	PrintWriter::init$(static_cast<$Writer*>($$new($BufferedWriter, $$new($OutputStreamWriter, $$new($FileOutputStream, fileName)))), false);
 }
 
 void PrintWriter::init$($Charset* charset, $File* file) {
+	$useLocalCurrentObjectStackCache();
 	PrintWriter::init$(static_cast<$Writer*>($$new($BufferedWriter, $$new($OutputStreamWriter, static_cast<$OutputStream*>($$new($FileOutputStream, file)), charset))), false);
 }
 
 void PrintWriter::init$($String* fileName, $String* csn) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, toCharset(csn));
 	PrintWriter::init$(var$0, $$new($File, fileName));
 }
 
 void PrintWriter::init$($String* fileName, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, $cast($Charset, $Objects::requireNonNull($of(charset), "charset"_s)));
 	PrintWriter::init$(var$0, $$new($File, fileName));
 }
 
 void PrintWriter::init$($File* file) {
+	$useLocalCurrentObjectStackCache();
 	PrintWriter::init$(static_cast<$Writer*>($$new($BufferedWriter, $$new($OutputStreamWriter, $$new($FileOutputStream, file)))), false);
 }
 
@@ -240,6 +247,7 @@ void PrintWriter::close() {
 }
 
 bool PrintWriter::checkError() {
+	$useLocalCurrentObjectStackCache();
 	if (this->out != nullptr) {
 		flush();
 	}
@@ -269,6 +277,7 @@ void PrintWriter::clearError() {
 }
 
 void PrintWriter::write(int32_t c) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -284,6 +293,7 @@ void PrintWriter::write(int32_t c) {
 }
 
 void PrintWriter::write($chars* buf, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -303,6 +313,7 @@ void PrintWriter::write($chars* buf) {
 }
 
 void PrintWriter::write($String* s, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -322,6 +333,7 @@ void PrintWriter::write($String* s) {
 }
 
 void PrintWriter::newLine() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -452,6 +464,7 @@ PrintWriter* PrintWriter::printf($Locale* l, $String* format, $ObjectArray* args
 }
 
 PrintWriter* PrintWriter::format($String* format, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -478,6 +491,7 @@ PrintWriter* PrintWriter::format($String* format, $ObjectArray* args) {
 }
 
 PrintWriter* PrintWriter::format($Locale* l, $String* format, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this->lock) {
 			ensureOpen();
@@ -505,6 +519,7 @@ PrintWriter* PrintWriter::append($CharSequence* csq) {
 }
 
 PrintWriter* PrintWriter::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);

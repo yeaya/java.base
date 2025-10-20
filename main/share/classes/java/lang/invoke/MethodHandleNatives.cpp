@@ -409,6 +409,7 @@ int32_t MethodHandleNatives::getNamedCon(int32_t which, $ObjectArray* name) {
 
 bool MethodHandleNatives::verifyConstants() {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ObjectArray, box, $new($ObjectArray, {($Object*)nullptr}));
 	for (int32_t i = 0;; ++i) {
@@ -447,6 +448,7 @@ bool MethodHandleNatives::verifyConstants() {
 
 $MemberName* MethodHandleNatives::linkCallSite(Object$* callerObj, int32_t indexInCP, Object$* bootstrapMethodObj, Object$* nameObj, Object$* typeObj, Object$* staticArguments, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, bootstrapMethod, $cast($MethodHandle, bootstrapMethodObj));
 	$Class* caller = $cast($Class, callerObj);
 	$var($String, name, $nc($($nc($of(nameObj))->toString()))->intern());
@@ -460,6 +462,7 @@ $MemberName* MethodHandleNatives::linkCallSite(Object$* callerObj, int32_t index
 
 $MemberName* MethodHandleNatives::linkCallSiteImpl($Class* caller, $MethodHandle* bootstrapMethod, $String* name, $MethodType* type, Object$* staticArguments, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($CallSite, callSite, $CallSite::makeSite(bootstrapMethod, name, type, staticArguments, caller));
 	if ($instanceOf($ConstantCallSite, callSite)) {
 		$nc(appendixResult)->set(0, $($nc(callSite)->dynamicInvoker()));
@@ -472,6 +475,7 @@ $MemberName* MethodHandleNatives::linkCallSiteImpl($Class* caller, $MethodHandle
 
 $MemberName* MethodHandleNatives::linkCallSiteTracing($Class* caller, $MethodHandle* bootstrapMethod, $String* name, $MethodType* type, Object$* staticArguments, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, bsmReference, $nc(bootstrapMethod)->internalMemberName());
 	if (bsmReference == nullptr) {
 		$assign(bsmReference, bootstrapMethod);
@@ -494,6 +498,7 @@ $MemberName* MethodHandleNatives::linkCallSiteTracing($Class* caller, $MethodHan
 
 $Object* MethodHandleNatives::linkDynamicConstant(Object$* callerObj, int32_t indexInCP, Object$* bootstrapMethodObj, Object$* nameObj, Object$* typeObj, Object$* staticArguments) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, bootstrapMethod, $cast($MethodHandle, bootstrapMethodObj));
 	$Class* caller = $cast($Class, callerObj);
 	$var($String, name, $nc($($nc($of(nameObj))->toString()))->intern());
@@ -512,6 +517,7 @@ $Object* MethodHandleNatives::linkDynamicConstantImpl($Class* caller, $MethodHan
 
 $String* MethodHandleNatives::staticArglistForTrace(Object$* staticArguments) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ObjectArray, staticArguments)) {
 		return $str({"BSA="_s, $($Arrays::asList($cast($ObjectArray, staticArguments)))});
 	}
@@ -526,6 +532,7 @@ $String* MethodHandleNatives::staticArglistForTrace(Object$* staticArguments) {
 
 $Object* MethodHandleNatives::linkDynamicConstantTracing($Class* caller, $MethodHandle* bootstrapMethod, $String* name, $Class* type, Object$* staticArguments) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, bsmReference, $nc(bootstrapMethod)->internalMemberName());
 	if (bsmReference == nullptr) {
 		$assign(bsmReference, bootstrapMethod);
@@ -572,6 +579,7 @@ $MemberName* MethodHandleNatives::linkMethod($Class* callerClass, int32_t refKin
 
 $MemberName* MethodHandleNatives::linkMethodImpl($Class* callerClass, int32_t refKind, $Class* defc, $String* name, Object$* type, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (refKind == (int8_t)5) {
 			$load($MethodHandle);
@@ -607,6 +615,7 @@ $MethodType* MethodHandleNatives::fixMethodType($Class* callerClass, Object$* ty
 
 $MemberName* MethodHandleNatives::linkMethodTracing($Class* callerClass, int32_t refKind, $Class* defc, $String* name, Object$* type, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$0, $$str({"linkMethod "_s, $($nc(defc)->getName()), "."_s, name, type, "/"_s}));
 	$nc($System::out)->println($$concat(var$0, $($Integer::toHexString(refKind))));
@@ -624,6 +633,7 @@ $MemberName* MethodHandleNatives::linkMethodTracing($Class* callerClass, int32_t
 
 $MemberName* MethodHandleNatives::varHandleOperationLinkerMethod($String* name, $MethodType* mtype, $ObjectArray* appendixResult) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, sigType, $nc(mtype)->basicType());
 	$VarHandle$AccessMode* ak = nullptr;
 	try {
@@ -666,6 +676,7 @@ $MemberName* MethodHandleNatives::varHandleOperationLinkerMethod($String* name, 
 
 $String* MethodHandleNatives::getVarHandleGuardMethodName($MethodType* guardType) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, "guard_"_s);
 	int32_t var$0 = prefix->length();
 	$var($StringBuilder, sb, $new($StringBuilder, var$0 + $nc(guardType)->parameterCount()));
@@ -690,6 +701,7 @@ $NoSuchMethodError* MethodHandleNatives::newNoSuchMethodErrorOnVarHandle($String
 
 $MethodHandle* MethodHandleNatives::linkMethodHandleConstant($Class* callerClass, int32_t refKind, $Class* defc, $String* name, Object$* type) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($MethodHandles$Lookup);
 		$var($MethodHandles$Lookup, lookup, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->in(callerClass));
@@ -706,6 +718,7 @@ $MethodHandle* MethodHandleNatives::linkMethodHandleConstant($Class* callerClass
 
 $LinkageError* MethodHandleNatives::mapLookupExceptionToError($ReflectiveOperationException* ex) {
 	$init(MethodHandleNatives);
+	$useLocalCurrentObjectStackCache();
 	$var($LinkageError, err, nullptr);
 	if ($instanceOf($IllegalAccessException, ex)) {
 		$var($Throwable, cause, $nc(ex)->getCause());

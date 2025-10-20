@@ -256,6 +256,7 @@ void ImageReader$SharedImageReader::init$($Path* imagePath, $ByteOrder* byteOrde
 
 $ImageReader* ImageReader$SharedImageReader::open($Path* imagePath, $ByteOrder* byteOrder) {
 	$init(ImageReader$SharedImageReader);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(imagePath);
 	$Objects::requireNonNull(byteOrder);
 	$synchronized(ImageReader$SharedImageReader::OPEN_FILES) {
@@ -307,6 +308,7 @@ $ImageReader$Directory* ImageReader$SharedImageReader::getRootDirectory() {
 
 $ImageReader$Node* ImageReader$SharedImageReader::buildNode($String* name) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ImageReader$Node, n, nullptr);
 		bool isPackages = $nc(name)->startsWith("/packages"_s);
 		bool isModules = !isPackages && name->startsWith("/modules"_s);
@@ -347,6 +349,7 @@ $ImageReader$Directory* ImageReader$SharedImageReader::buildRootDirectory() {
 }
 
 void ImageReader$SharedImageReader::visitLocation($ImageLocation* loc, $ImageReader$SharedImageReader$LocationVisitor* visitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, offsets, getResource(loc));
 	$var($ByteBuffer, buffer, $ByteBuffer::wrap(offsets));
 	$nc(buffer)->order($(getByteOrder()));
@@ -359,6 +362,7 @@ void ImageReader$SharedImageReader::visitLocation($ImageLocation* loc, $ImageRea
 }
 
 void ImageReader$SharedImageReader::visitPackageLocation($ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pkgName, getBaseExt(loc));
 	$var($bytes, stringsOffsets, getResource(loc));
 	$var($ByteBuffer, buffer, $ByteBuffer::wrap(stringsOffsets));
@@ -379,6 +383,7 @@ void ImageReader$SharedImageReader::visitPackageLocation($ImageLocation* loc) {
 }
 
 $ImageReader$Node* ImageReader$SharedImageReader::handlePackages($String* name, $ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	int64_t size = $nc(loc)->getUncompressedSize();
 	$var($ImageReader$Node, n, nullptr);
 	if ($nc(name)->equals("/packages"_s)) {
@@ -406,6 +411,7 @@ $ImageReader$Node* ImageReader$SharedImageReader::handlePackages($String* name, 
 }
 
 $ImageReader$Node* ImageReader$SharedImageReader::handleModuleLink($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, ret, nullptr);
 	$var($String, radical, "/packages/"_s);
 	$var($String, path, name);
@@ -434,6 +440,7 @@ $ImageReader$Node* ImageReader$SharedImageReader::handleModuleLink($String* name
 }
 
 $ImageReader$Node* ImageReader$SharedImageReader::handleModulesSubTree($String* name, $ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, n, nullptr);
 	if (!ImageReader$SharedImageReader::$assertionsDisabled && !($nc(name)->equals($($nc(loc)->getFullName())))) {
 		$throwNew($AssertionError);
@@ -446,6 +453,7 @@ $ImageReader$Node* ImageReader$SharedImageReader::handleModulesSubTree($String* 
 }
 
 $ImageReader$Node* ImageReader$SharedImageReader::handleResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Node, n, nullptr);
 	if (!$nc(name)->startsWith("/modules/"_s)) {
 		return nullptr;
@@ -469,6 +477,7 @@ $ImageReader$Node* ImageReader$SharedImageReader::handleResource($String* name) 
 }
 
 $String* ImageReader$SharedImageReader::getBaseExt($ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, base, $nc(loc)->getBase());
 	$var($String, ext, loc->getExtension());
 	if (ext != nullptr && !ext->isEmpty()) {
@@ -489,6 +498,7 @@ $ImageReader$Node* ImageReader$SharedImageReader::findNode($String* name) {
 }
 
 $BasicFileAttributes* ImageReader$SharedImageReader::imageFileAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicFileAttributes, attrs, this->imageFileAttributes$);
 	if (attrs == nullptr) {
 		try {
@@ -505,24 +515,28 @@ $BasicFileAttributes* ImageReader$SharedImageReader::imageFileAttributes() {
 }
 
 $ImageReader$Directory* ImageReader$SharedImageReader::newDirectory($ImageReader$Directory* parent, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Directory, dir, $ImageReader$Directory::create(parent, name, $(imageFileAttributes())));
 	$nc(this->nodes)->put($($nc(dir)->getName()), dir);
 	return dir;
 }
 
 $ImageReader$Resource* ImageReader$SharedImageReader::newResource($ImageReader$Directory* parent, $ImageLocation* loc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Resource, res, $ImageReader$Resource::create(parent, loc, $(imageFileAttributes())));
 	$nc(this->nodes)->put($($nc(res)->getName()), res);
 	return res;
 }
 
 $ImageReader$LinkNode* ImageReader$SharedImageReader::newLinkNode($ImageReader$Directory* dir, $String* name, $ImageReader$Node* link) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$LinkNode, linkNode, $ImageReader$LinkNode::create(dir, name, link));
 	$nc(this->nodes)->put($($nc(linkNode)->getName()), linkNode);
 	return linkNode;
 }
 
 $ImageReader$Directory* ImageReader$SharedImageReader::makeDirectories($String* parent) {
+	$useLocalCurrentObjectStackCache();
 	$var($ImageReader$Directory, last, this->rootDir);
 	for (int32_t offset = $nc(parent)->indexOf((int32_t)u'/', 1); offset != -1; offset = parent->indexOf((int32_t)u'/', offset + 1)) {
 		$var($String, dir, parent->substring(0, offset));
@@ -540,6 +554,7 @@ $ImageReader$Directory* ImageReader$SharedImageReader::makeDirectory($String* di
 }
 
 $bytes* ImageReader$SharedImageReader::getResource($ImageReader$Node* node) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(node)->isResource()) {
 		return $BasicImageReader::getResource($(node->getLocation()));
 	}
@@ -551,6 +566,7 @@ $bytes* ImageReader$SharedImageReader::getResource($ImageReader$Resource* rs) {
 }
 
 void ImageReader$SharedImageReader::lambda$handleModulesSubTree$1($ImageReader$Directory* dir, $ImageLocation* childloc) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $nc(childloc)->getFullName());
 	if ($nc(path)->startsWith("/modules"_s)) {
 		makeDirectories(path);

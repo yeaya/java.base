@@ -54,6 +54,7 @@ void ObjectMethodInInterfaceTest::init$() {
 
 void ObjectMethodInInterfaceTest::main($StringArray* args) {
 	$load(ObjectMethodInInterfaceTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($CharSequence);
 	$load($String);

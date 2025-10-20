@@ -137,6 +137,7 @@ $ThreadFactory* Identity::createThreadFactory(int32_t groupId) {
 
 void Identity::main($StringArray* args) {
 	$init(Identity);
+	$useLocalCurrentObjectStackCache();
 	int32_t groupCount = 3 + $nc(Identity::rand)->nextInt(8);
 	$var($AsynchronousChannelGroupArray, groups, $new($AsynchronousChannelGroupArray, groupCount));
 	$var($AsynchronousSocketChannelArray, channels, $new($AsynchronousSocketChannelArray, groupCount));

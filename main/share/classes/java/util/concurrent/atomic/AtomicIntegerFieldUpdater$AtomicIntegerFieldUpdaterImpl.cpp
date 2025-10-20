@@ -116,6 +116,7 @@ $Object* allocate$AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl($Class
 $Unsafe* AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::U = nullptr;
 
 void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::init$($Class* tclass, $String* fieldName, $Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$AtomicIntegerFieldUpdater::init$();
 	$var($Field, field, nullptr);
@@ -180,6 +181,7 @@ void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::accessCheck(Object
 }
 
 void AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl::throwAccessCheckException(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (this->cclass == this->tclass) {
 		$throwNew($ClassCastException);
 	} else {

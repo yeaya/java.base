@@ -101,6 +101,7 @@ void ArrayPrefixHelpers$IntCumulateTask::init$(ArrayPrefixHelpers$IntCumulateTas
 }
 
 void ArrayPrefixHelpers$IntCumulateTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($IntBinaryOperator, fn, nullptr);
 	$var($ints, a, nullptr);
 	if (($assign(fn, this->function)) == nullptr || ($assign(a, this->array)) == nullptr) {

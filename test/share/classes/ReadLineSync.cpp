@@ -93,6 +93,7 @@ void ReadLineSync::init$() {
 
 void ReadLineSync::main($StringArray* args) {
 	$init(ReadLineSync);
+	$useLocalCurrentObjectStackCache();
 	$var($String, dir, $System::getProperty("."_s, "."_s));
 	$var($File, f, $new($File, dir, "test.txt"_s));
 	createFile(f);
@@ -123,6 +124,7 @@ void ReadLineSync::main($StringArray* args) {
 
 void ReadLineSync::createFile($File* f) {
 	$init(ReadLineSync);
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedWriter, w, $new($BufferedWriter, $$new($FileWriter, f)));
 	int32_t count = 10000;
 	while (count > 0) {

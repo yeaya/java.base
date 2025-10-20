@@ -41,6 +41,7 @@ void SelectNowWhenEmpty::init$() {
 }
 
 void SelectNowWhenEmpty::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, s, $nc($($SelectorProvider::provider()))->openSelector());
 	$nc(s)->selectNow();
 }

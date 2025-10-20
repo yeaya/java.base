@@ -61,6 +61,7 @@ void Unicode::init$() {
 }
 
 void Unicode::fail($String* enc, $String* msg, int32_t e0, int32_t e1, int32_t b0, int32_t b1) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$4, $$str({enc, ": "_s, msg, ": Expected "_s, $($Integer::toHexString(e0)), " "_s}));
 	$var($String, var$3, $$concat(var$4, $($Integer::toHexString(e1))));
 	$var($String, var$2, $$concat(var$3, ", got "));
@@ -70,6 +71,7 @@ void Unicode::fail($String* enc, $String* msg, int32_t e0, int32_t e1, int32_t b
 }
 
 void Unicode::encode($String* enc, int32_t byteOrder, bool markExpected) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "abc"_s);
 	$var($bytes, b, s->getBytes(enc));
 	int32_t i = 0;
@@ -109,6 +111,7 @@ void Unicode::encode($String* enc, int32_t byteOrder, bool markExpected) {
 }
 
 void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, "abc"_s);
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
 	if (markit) {
@@ -138,6 +141,7 @@ void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
 }
 
 void Unicode::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, enc, $nc(args)->get(0));
 	$var($String, bos, args->get(1));
 	bool markExpected = $nc($($Boolean::valueOf(args->get(2))))->booleanValue();

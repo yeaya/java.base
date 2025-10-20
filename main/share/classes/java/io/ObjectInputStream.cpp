@@ -473,6 +473,7 @@ $Map* ObjectInputStream::primClasses = nullptr;
 $Unsafe* ObjectInputStream::UNSAFE = nullptr;
 
 void ObjectInputStream::init$($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$InputStream::init$();
 	this->passHandle = ObjectInputStream::NULL_HANDLE;
 	this->defaultDataEnd = false;
@@ -488,6 +489,7 @@ void ObjectInputStream::init$($InputStream* in) {
 }
 
 void ObjectInputStream::init$() {
+	$useLocalCurrentObjectStackCache();
 	$InputStream::init$();
 	this->passHandle = ObjectInputStream::NULL_HANDLE;
 	this->defaultDataEnd = false;
@@ -521,6 +523,7 @@ $String* ObjectInputStream::readString() {
 }
 
 $Object* ObjectInputStream::readObject($Class* type) {
+	$useLocalCurrentObjectStackCache();
 	if (this->enableOverride) {
 		return $of(readObjectOverride());
 	}
@@ -571,6 +574,7 @@ $Object* ObjectInputStream::readObjectOverride() {
 }
 
 $Object* ObjectInputStream::readUnshared() {
+	$useLocalCurrentObjectStackCache();
 	int32_t outerHandle = this->passHandle;
 	{
 		$var($Throwable, var$0, nullptr);
@@ -610,6 +614,7 @@ $Object* ObjectInputStream::readUnshared() {
 }
 
 void ObjectInputStream::defaultReadObject() {
+	$useLocalCurrentObjectStackCache();
 	$var($SerialCallbackContext, ctx, this->curContext);
 	if (ctx == nullptr) {
 		$throwNew($NotActiveException, "not in call to readObject"_s);
@@ -633,6 +638,7 @@ void ObjectInputStream::defaultReadObject() {
 }
 
 $ObjectInputStream$GetField* ObjectInputStream::readFields() {
+	$useLocalCurrentObjectStackCache();
 	$var($SerialCallbackContext, ctx, this->curContext);
 	if (ctx == nullptr) {
 		$throwNew($NotActiveException, "not in call to readObject"_s);
@@ -656,6 +662,7 @@ void ObjectInputStream::registerValidation($ObjectInputValidation* obj, int32_t 
 }
 
 $Class* ObjectInputStream::resolveClass($ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, name, $nc(desc)->getName());
 	try {
@@ -673,6 +680,7 @@ $Class* ObjectInputStream::resolveClass($ObjectStreamClass* desc) {
 }
 
 $Class* ObjectInputStream::resolveProxyClass($StringArray* interfaces) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, latestLoader, latestUserDefinedLoader());
 	$var($ClassLoader, nonPublicLoader, nullptr);
@@ -722,6 +730,7 @@ bool ObjectInputStream::enableResolveObject(bool enable) {
 }
 
 void ObjectInputStream::readStreamHeader() {
+	$useLocalCurrentObjectStackCache();
 	int16_t s0 = $nc(this->bin)->readShort();
 	int16_t s1 = $nc(this->bin)->readShort();
 	if (s0 != $ObjectStreamConstants::STREAM_MAGIC || s1 != $ObjectStreamConstants::STREAM_VERSION) {
@@ -834,6 +843,7 @@ $ObjectInputFilter* ObjectInputStream::getObjectInputFilter() {
 }
 
 void ObjectInputStream::setObjectInputFilter($ObjectInputFilter* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$init($ObjectStreamConstants);
@@ -855,6 +865,7 @@ void ObjectInputStream::setObjectInputFilter($ObjectInputFilter* filter) {
 }
 
 void ObjectInputStream::filterCheck($Class* clazz, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	int64_t bytesRead = (this->bin == nullptr) ? (int64_t)0 : $nc(this->bin)->getBytesRead();
 	$var($RuntimeException, ex, nullptr);
 	$ObjectInputFilter$Status* status = nullptr;
@@ -914,6 +925,7 @@ void ObjectInputStream::checkArray($Class* arrayType, int32_t arrayLength) {
 }
 
 void ObjectInputStream::verifySubclass() {
+	$useLocalCurrentObjectStackCache();
 	$Class* cl = $of(this)->getClass();
 	if (cl == ObjectInputStream::class$) {
 		return;
@@ -948,6 +960,7 @@ void ObjectInputStream::clear() {
 }
 
 $Object* ObjectInputStream::readObject0($Class* type, bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	bool oldMode = $nc(this->bin)->getBlockDataMode();
 	if (oldMode) {
 		int32_t remain = $nc(this->bin)->currentBlockRemaining();
@@ -1116,6 +1129,7 @@ $Object* ObjectInputStream::checkResolve(Object$* obj) {
 }
 
 $String* ObjectInputStream::readTypeString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t oldHandle = this->passHandle;
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1175,6 +1189,7 @@ $Object* ObjectInputStream::readNull() {
 }
 
 $Object* ObjectInputStream::readHandle(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_REFERENCE) {
 		$throwNew($InternalError);
 	}
@@ -1194,6 +1209,7 @@ $Object* ObjectInputStream::readHandle(bool unshared) {
 }
 
 $Class* ObjectInputStream::readClass(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_CLASS) {
 		$throwNew($InternalError);
@@ -1210,6 +1226,7 @@ $Class* ObjectInputStream::readClass(bool unshared) {
 }
 
 $ObjectStreamClass* ObjectInputStream::readClassDesc(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	int8_t tc = $nc(this->bin)->peekByte();
 
 	$var($ObjectStreamClass, var$0, nullptr)
@@ -1252,6 +1269,7 @@ bool ObjectInputStream::isCustomSubclass() {
 }
 
 $ObjectStreamClass* ObjectInputStream::readProxyDesc(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_PROXYCLASSDESC) {
 		$throwNew($InternalError);
@@ -1334,6 +1352,7 @@ $ObjectStreamClass* ObjectInputStream::readProxyDesc(bool unshared) {
 }
 
 $ObjectStreamClass* ObjectInputStream::readNonProxyDesc(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_CLASSDESC) {
 		$throwNew($InternalError);
 	}
@@ -1384,6 +1403,7 @@ $ObjectStreamClass* ObjectInputStream::readNonProxyDesc(bool unshared) {
 }
 
 $String* ObjectInputStream::readString(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	int8_t tc = $nc(this->bin)->readByte();
 
 	$var($String, var$0, nullptr)
@@ -1410,6 +1430,7 @@ $String* ObjectInputStream::readString(bool unshared) {
 }
 
 $Object* ObjectInputStream::readArray(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_ARRAY) {
 		$throwNew($InternalError);
@@ -1490,6 +1511,7 @@ $Object* ObjectInputStream::readArray(bool unshared) {
 }
 
 $Enum* ObjectInputStream::readEnum(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_ENUM) {
 		$throwNew($InternalError);
@@ -1524,6 +1546,7 @@ $Enum* ObjectInputStream::readEnum(bool unshared) {
 }
 
 $Object* ObjectInputStream::readOrdinaryObject(bool unshared) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($nc(this->bin)->readByte() != $ObjectStreamConstants::TC_OBJECT) {
 		$throwNew($InternalError);
@@ -1585,6 +1608,7 @@ $Object* ObjectInputStream::readOrdinaryObject(bool unshared) {
 }
 
 void ObjectInputStream::readExternalData($Externalizable* obj, $ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	$var($SerialCallbackContext, oldContext, this->curContext);
 	if (oldContext != nullptr) {
 		oldContext->check();
@@ -1623,6 +1647,7 @@ void ObjectInputStream::readExternalData($Externalizable* obj, $ObjectStreamClas
 }
 
 $Object* ObjectInputStream::readRecord($ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamClass$ClassDataSlotArray, slots, $nc(desc)->getClassDataLayout());
 	if ($nc(slots)->length != 1) {
 		for (int32_t i = 0; i < slots->length - 1; ++i) {
@@ -1653,6 +1678,7 @@ $Object* ObjectInputStream::readRecord($ObjectStreamClass* desc) {
 }
 
 void ObjectInputStream::readSerialData(Object$* obj, $ObjectStreamClass* desc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamClass$ClassDataSlotArray, slots, $nc(desc)->getClassDataLayout());
 	$var($ObjectInputStream$FieldValuesArray, slotValues, nullptr);
 	bool hasSpecialReadMethod = false;
@@ -1791,6 +1817,7 @@ $IOException* ObjectInputStream::readFatalException() {
 }
 
 void ObjectInputStream::handleReset() {
+	$useLocalCurrentObjectStackCache();
 	if (this->depth > 0) {
 		$throwNew($StreamCorruptedException, $$str({"unexpected reset; recursion depth: "_s, $$str(this->depth)}));
 	}
@@ -1832,6 +1859,7 @@ $Object* ObjectInputStream::cloneArray(Object$* array) {
 }
 
 void clinit$ObjectInputStream($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	ObjectInputStream::$assertionsDisabled = !ObjectInputStream::class$->desiredAssertionStatus();
 	$assignStatic(ObjectInputStream::unsharedMarker, $new($Object));
 	$init($Boolean);

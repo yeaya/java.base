@@ -65,6 +65,7 @@ void Bash::init$() {
 }
 
 void Bash::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < Bash::NUM_BLOCKS; ++i) {
 		$var($Bash$TestReference, ref, $new($Bash$TestReference, $$new($bytes, Bash::BLOCK_SIZE)));
 	}

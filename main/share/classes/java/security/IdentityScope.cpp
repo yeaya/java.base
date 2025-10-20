@@ -108,6 +108,7 @@ IdentityScope* IdentityScope::scope = nullptr;
 
 void IdentityScope::initializeSystemScope() {
 	$init(IdentityScope);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, classname, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($IdentityScope$1)))));
 	if (classname == nullptr) {
@@ -155,6 +156,7 @@ $Identity* IdentityScope::getIdentity($Principal* principal) {
 }
 
 $String* IdentityScope::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($Identity::toString()), "["_s}));
 	$var($String, var$0, $$concat(var$1, $$str(size())));
 	return $concat(var$0, "]");

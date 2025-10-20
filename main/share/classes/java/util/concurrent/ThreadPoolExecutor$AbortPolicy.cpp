@@ -59,6 +59,7 @@ void ThreadPoolExecutor$AbortPolicy::init$() {
 }
 
 void ThreadPoolExecutor$AbortPolicy::rejectedExecution($Runnable* r, $ThreadPoolExecutor* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"Task "_s, $($nc($of(r))->toString()), " rejected from "_s}));
 	$throwNew($RejectedExecutionException, $$concat(var$0, $($nc(e)->toString())));
 }

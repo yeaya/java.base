@@ -5698,6 +5698,7 @@ void DivideMcTests::initResults2() {
 
 int32_t DivideMcTests::mcDivideTests() {
 	$init(DivideMcTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	for (int32_t i = 0; i < $nc(DivideMcTests::value)->length; ++i) {
 		for (int32_t j = 0; j < $nc(DivideMcTests::value)->length; ++j) {
@@ -5733,6 +5734,7 @@ int32_t DivideMcTests::mcDivideTests() {
 
 void DivideMcTests::main($StringArray* argv) {
 	$init(DivideMcTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += mcDivideTests();
 	if (failures > 0) {

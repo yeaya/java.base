@@ -136,6 +136,7 @@ void UnixFileAttributeViews$Unix::setAttribute($String* attribute, Object$* valu
 }
 
 $Map* UnixFileAttributeViews$Unix::readAttributes($StringArray* requested) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(UnixFileAttributeViews$Unix::unixAttributeNames, requested));
 	$var($UnixFileAttributes, attrs, $cast($UnixFileAttributes, readAttributes()));
 	addRequestedPosixAttributes(attrs, builder);

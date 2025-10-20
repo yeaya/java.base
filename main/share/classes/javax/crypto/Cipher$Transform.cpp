@@ -136,6 +136,7 @@ int32_t Cipher$Transform::supports($Provider$Service* s, $String* attrName, $Str
 
 bool Cipher$Transform::matches($String* regexp, $String* str) {
 	$init(Cipher$Transform);
+	$useLocalCurrentObjectStackCache();
 	$var($Pattern, pattern, $cast($Pattern, $nc(Cipher$Transform::patternCache)->get(regexp)));
 	if (pattern == nullptr) {
 		$assign(pattern, $Pattern::compile(regexp));

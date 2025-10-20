@@ -82,6 +82,7 @@ $ThreadFactory* CleanerImpl$InnocuousThreadFactory::factory() {
 }
 
 $Thread* CleanerImpl$InnocuousThreadFactory::newThread($Runnable* r) {
+	$useLocalCurrentObjectStackCache();
 	return $InnocuousThread::newThread($$str({"Cleaner-"_s, $$str($nc(this->cleanerThreadNumber)->getAndIncrement())}), r, $Thread::MIN_PRIORITY - 2);
 }
 

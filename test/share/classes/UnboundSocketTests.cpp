@@ -104,6 +104,7 @@ void UnboundSocketTests::checkIsAnyLocalAddress($String* msg, $InetAddress* actu
 
 void UnboundSocketTests::main($StringArray* args) {
 	$init(UnboundSocketTests);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println("\n-- SocketChannel --"_s);
 	$var($SocketChannel, sc, $SocketChannel::open());

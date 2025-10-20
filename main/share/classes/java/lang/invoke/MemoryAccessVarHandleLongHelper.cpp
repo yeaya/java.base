@@ -363,6 +363,7 @@ int64_t MemoryAccessVarHandleLongHelper::offset(bool skipAlignmentMaskCheck, $Me
 
 int64_t MemoryAccessVarHandleLongHelper::offsetNoVMAlignCheck(bool skipAlignmentMaskCheck, $MemorySegmentProxy* bb, int64_t offset, int64_t alignmentMask) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t base = $nc(bb)->unsafeGetOffset();
 	int64_t address = base + offset;
 	if (skipAlignmentMaskCheck) {
@@ -377,6 +378,7 @@ int64_t MemoryAccessVarHandleLongHelper::offsetNoVMAlignCheck(bool skipAlignment
 
 int64_t MemoryAccessVarHandleLongHelper::get($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -386,6 +388,7 @@ int64_t MemoryAccessVarHandleLongHelper::get($VarHandle* ob, Object$* obb, int64
 
 void MemoryAccessVarHandleLongHelper::set($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -395,6 +398,7 @@ void MemoryAccessVarHandleLongHelper::set($VarHandle* ob, Object$* obb, int64_t 
 
 int64_t MemoryAccessVarHandleLongHelper::getVolatile($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -404,6 +408,7 @@ int64_t MemoryAccessVarHandleLongHelper::getVolatile($VarHandle* ob, Object$* ob
 
 void MemoryAccessVarHandleLongHelper::setVolatile($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -414,6 +419,7 @@ void MemoryAccessVarHandleLongHelper::setVolatile($VarHandle* ob, Object$* obb, 
 
 int64_t MemoryAccessVarHandleLongHelper::getAcquire($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -423,6 +429,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAcquire($VarHandle* ob, Object$* obb
 
 void MemoryAccessVarHandleLongHelper::setRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -433,6 +440,7 @@ void MemoryAccessVarHandleLongHelper::setRelease($VarHandle* ob, Object$* obb, i
 
 int64_t MemoryAccessVarHandleLongHelper::getOpaque($VarHandle* ob, Object$* obb, int64_t base) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, true));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -442,6 +450,7 @@ int64_t MemoryAccessVarHandleLongHelper::getOpaque($VarHandle* ob, Object$* obb,
 
 void MemoryAccessVarHandleLongHelper::setOpaque($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -452,6 +461,7 @@ void MemoryAccessVarHandleLongHelper::setOpaque($VarHandle* ob, Object$* obb, in
 
 bool MemoryAccessVarHandleLongHelper::compareAndSet($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -463,6 +473,7 @@ bool MemoryAccessVarHandleLongHelper::compareAndSet($VarHandle* ob, Object$* obb
 
 int64_t MemoryAccessVarHandleLongHelper::compareAndExchange($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -474,6 +485,7 @@ int64_t MemoryAccessVarHandleLongHelper::compareAndExchange($VarHandle* ob, Obje
 
 int64_t MemoryAccessVarHandleLongHelper::compareAndExchangeAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -485,6 +497,7 @@ int64_t MemoryAccessVarHandleLongHelper::compareAndExchangeAcquire($VarHandle* o
 
 int64_t MemoryAccessVarHandleLongHelper::compareAndExchangeRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -496,6 +509,7 @@ int64_t MemoryAccessVarHandleLongHelper::compareAndExchangeRelease($VarHandle* o
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSetPlain($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -507,6 +521,7 @@ bool MemoryAccessVarHandleLongHelper::weakCompareAndSetPlain($VarHandle* ob, Obj
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSet($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -518,6 +533,7 @@ bool MemoryAccessVarHandleLongHelper::weakCompareAndSet($VarHandle* ob, Object$*
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSetAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -529,6 +545,7 @@ bool MemoryAccessVarHandleLongHelper::weakCompareAndSetAcquire($VarHandle* ob, O
 
 bool MemoryAccessVarHandleLongHelper::weakCompareAndSetRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t expected, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -540,6 +557,7 @@ bool MemoryAccessVarHandleLongHelper::weakCompareAndSetRelease($VarHandle* ob, O
 
 int64_t MemoryAccessVarHandleLongHelper::getAndSet($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -550,6 +568,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndSet($VarHandle* ob, Object$* obb,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndSetAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -560,6 +579,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndSetAcquire($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndSetRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	$var($ScopedMemoryAccess$Scope, var$0, $nc(bb)->scope());
@@ -570,6 +590,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndSetRelease($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAdd($VarHandle* ob, Object$* obb, int64_t base, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -583,6 +604,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAdd($VarHandle* ob, Object$* obb,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAddAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -596,6 +618,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAddAcquire($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAddRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -609,6 +632,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAddRelease($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndAddConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t delta) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
@@ -629,6 +653,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndAddConvEndianWithCAS($MemorySegme
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOr($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -642,6 +667,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOr($VarHandle* ob, Object$
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -655,6 +681,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrRelease($VarHandle* ob, 
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -668,6 +695,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrAcquire($VarHandle* ob, 
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
@@ -688,6 +716,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseOrConvEndianWithCAS($Memor
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAnd($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -701,6 +730,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAnd($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -714,6 +744,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndRelease($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -727,6 +758,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndAcquire($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());
@@ -747,6 +779,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseAndConvEndianWithCAS($Memo
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXor($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -760,6 +793,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXor($VarHandle* ob, Object
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorRelease($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -773,6 +807,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorRelease($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorAcquire($VarHandle* ob, Object$* obb, int64_t base, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MemoryAccessVarHandleBase, handle, $cast($MemoryAccessVarHandleBase, ob));
 	$var($MemorySegmentProxy, bb, checkAddress(obb, base, $nc(handle)->length, false));
 	if ($nc(handle)->be == MemoryAccessVarHandleLongHelper::BE) {
@@ -786,6 +821,7 @@ int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorAcquire($VarHandle* ob,
 
 int64_t MemoryAccessVarHandleLongHelper::getAndBitwiseXorConvEndianWithCAS($MemorySegmentProxy* bb, int64_t offset, int64_t value) {
 	$init(MemoryAccessVarHandleLongHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t nativeExpectedValue = 0;
 	int64_t expectedValue = 0;
 	$var($Object, base, $nc(bb)->unsafeGetBase());

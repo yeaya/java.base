@@ -42,6 +42,7 @@ void WinMaxPath::init$() {
 }
 
 void WinMaxPath::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;

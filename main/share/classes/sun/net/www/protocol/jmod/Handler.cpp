@@ -51,6 +51,7 @@ void Handler::init$() {
 }
 
 $URLConnection* Handler::openConnection($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $nc(url)->toString());
 	int32_t index = $nc(s)->indexOf("!/"_s);
 	if (index == -1) {

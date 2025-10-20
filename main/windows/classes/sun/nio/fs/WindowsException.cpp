@@ -108,6 +108,7 @@ $Throwable* WindowsException::fillInStackTrace() {
 }
 
 $IOException* WindowsException::translateToIOException($String* file, $String* other) {
+	$useLocalCurrentObjectStackCache();
 	if (lastError() == 0) {
 		return $new($IOException, $(errorString()));
 	}
@@ -131,6 +132,7 @@ void WindowsException::rethrowAsIOException($String* file) {
 }
 
 void WindowsException::rethrowAsIOException($WindowsPath* file, $WindowsPath* other) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, a, (file == nullptr) ? ($String*)nullptr : $nc(file)->getPathForExceptionMessage());
 	$var($String, b, (other == nullptr) ? ($String*)nullptr : $nc(other)->getPathForExceptionMessage());
 	$var($IOException, x, translateToIOException(a, b));

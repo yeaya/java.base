@@ -42,6 +42,7 @@ void HashCodeEquals::init$() {
 }
 
 void HashCodeEquals::test($String* fn1, $String* fn2) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f1, $new($File, fn1));
 	$var($File, f2, $new($File, fn2));
 	if (!f1->equals(f2)) {

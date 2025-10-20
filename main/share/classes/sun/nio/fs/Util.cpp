@@ -103,6 +103,7 @@ $String* Util::toString($bytes* bytes) {
 
 $StringArray* Util::split($String* s, char16_t c) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		if (s->charAt(i) == c) {
@@ -124,6 +125,7 @@ $StringArray* Util::split($String* s, char16_t c) {
 
 $Set* Util::newSet($ObjectArray* elements) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	{
 		$var($ObjectArray, arr$, elements);
@@ -141,6 +143,7 @@ $Set* Util::newSet($ObjectArray* elements) {
 
 $Set* Util::newSet($Set* other, $ObjectArray* elements) {
 	$init(Util);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet, static_cast<$Collection*>(other)));
 	{
 		$var($ObjectArray, arr$, elements);

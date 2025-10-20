@@ -104,6 +104,7 @@ void NTLMAuthenticationProxy::init$($Constructor* fourArgCtr, $Constructor* sixA
 }
 
 $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $URL* url, $PasswordAuthentication* pw, $String* authenticatorKey) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($AuthenticationInfo, $nc(this->fourArgCtr)->newInstance($$new($ObjectArray, {
@@ -120,6 +121,7 @@ $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $URL* url, $P
 }
 
 $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $String* host, int32_t port, $PasswordAuthentication* pw, $String* authenticatorKey) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($AuthenticationInfo, $nc(this->sixArgCtr)->newInstance($$new($ObjectArray, {
@@ -138,6 +140,7 @@ $AuthenticationInfo* NTLMAuthenticationProxy::create(bool isProxy, $String* host
 
 bool NTLMAuthenticationProxy::supportsTransparentAuth() {
 	$init(NTLMAuthenticationProxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc(($cast($Boolean, $($nc(NTLMAuthenticationProxy::supportsTA)->invoke(nullptr, $$new($ObjectArray, 0))))))->booleanValue();
@@ -150,6 +153,7 @@ bool NTLMAuthenticationProxy::supportsTransparentAuth() {
 
 bool NTLMAuthenticationProxy::isTrustedSite($URL* url) {
 	$init(NTLMAuthenticationProxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc(($cast($Boolean, $($nc(NTLMAuthenticationProxy::isTrustedSite$)->invoke(nullptr, $$new($ObjectArray, {$of(url)}))))))->booleanValue();
@@ -162,6 +166,7 @@ bool NTLMAuthenticationProxy::isTrustedSite($URL* url) {
 
 NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 	$init(NTLMAuthenticationProxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* cl = nullptr;
 	$var($Constructor, fourArg, nullptr);
@@ -203,6 +208,7 @@ NTLMAuthenticationProxy* NTLMAuthenticationProxy::tryLoadNTLMAuthentication() {
 
 void NTLMAuthenticationProxy::finest($Exception* e) {
 	$init(NTLMAuthenticationProxy);
+	$useLocalCurrentObjectStackCache();
 	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
 	if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {

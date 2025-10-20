@@ -323,6 +323,7 @@ $String* Integer::toBinaryString(int32_t i) {
 
 $String* Integer::toUnsignedString0(int32_t val, int32_t shift) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	int32_t mag = Integer::SIZE - Integer::numberOfLeadingZeros(val);
 	int32_t chars = $Math::max(($div((mag + (shift - 1)), shift)), 1);
 	$init($String);
@@ -361,6 +362,7 @@ void Integer::formatUnsignedIntUTF16(int32_t val, int32_t shift, $bytes* buf, in
 
 $String* Integer::toString(int32_t i) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	int32_t size = stringSize(i);
 	$init($String);
 	if ($String::COMPACT_STRINGS) {
@@ -426,6 +428,7 @@ int32_t Integer::stringSize(int32_t x) {
 
 int32_t Integer::parseInt($String* s, int32_t radix) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
 	}
@@ -474,6 +477,7 @@ int32_t Integer::parseInt($String* s, int32_t radix) {
 
 int32_t Integer::parseInt($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
 		$throwNew($IndexOutOfBoundsException);
@@ -528,6 +532,7 @@ int32_t Integer::parseInt($String* s) {
 
 int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
 	}
@@ -553,6 +558,7 @@ int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
 
 int32_t Integer::parseUnsignedInt($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
 		$throwNew($IndexOutOfBoundsException);
@@ -669,6 +675,7 @@ Integer* Integer::getInteger($String* nm, int32_t val) {
 
 Integer* Integer::getInteger($String* nm, Integer* val) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	$var($String, v, nullptr);
 	try {
 		$assign(v, $System::getProperty(nm));
@@ -689,6 +696,7 @@ Integer* Integer::getInteger($String* nm, Integer* val) {
 
 Integer* Integer::decode($String* nm) {
 	$init(Integer);
+	$useLocalCurrentObjectStackCache();
 	int32_t radix = 10;
 	int32_t index = 0;
 	bool negative = false;

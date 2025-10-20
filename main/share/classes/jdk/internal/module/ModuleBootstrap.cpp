@@ -753,6 +753,7 @@ bool ModuleBootstrap::canUseArchivedBootLayer() {
 
 $ModuleLayer* ModuleBootstrap::boot() {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$ModuleBootstrap$Counters::start();
 	$var($ModuleLayer, bootLayer, nullptr);
 	$var($ArchivedBootLayer, archivedBootLayer, $ArchivedBootLayer::get());
@@ -774,6 +775,7 @@ $ModuleLayer* ModuleBootstrap::boot() {
 
 $ModuleLayer* ModuleBootstrap::boot2() {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleFinder, upgradeModulePath, finderFor("jdk.module.upgrade.path"_s));
 	$var($ModuleFinder, appModulePath, finderFor("jdk.module.path"_s));
 	bool isPatched = $nc(ModuleBootstrap::patcher$)->hasPatches();
@@ -1013,6 +1015,7 @@ $ModuleLayer* ModuleBootstrap::boot2() {
 
 void ModuleBootstrap::loadModules($Configuration* cf, $Function* clf) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1035,6 +1038,7 @@ void ModuleBootstrap::loadModules($Configuration* cf, $Function* clf) {
 
 void ModuleBootstrap::checkSplitPackages($Configuration* cf, $Function* clf) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, packageToModule, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
@@ -1066,6 +1070,7 @@ void ModuleBootstrap::checkSplitPackages($Configuration* cf, $Function* clf) {
 
 $ModuleFinder* ModuleBootstrap::limitFinder($ModuleFinder* finder, $Set* roots, $Set* otherMods) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($Configuration, cf, $nc($($Configuration::empty()))->resolve(finder, $($ModuleFinder::of($$new($PathArray, 0))), roots));
 	$var($Map, map, $new($HashMap));
 	$nc($($nc($($nc($($nc(cf)->modules()))->stream()))->map(static_cast<$Function*>($$new(ModuleBootstrap$$Lambda$reference$6)))))->forEach(static_cast<$Consumer*>($$new(ModuleBootstrap$$Lambda$lambda$limitFinder$6$7, map)));
@@ -1076,6 +1081,7 @@ $ModuleFinder* ModuleBootstrap::limitFinder($ModuleFinder* finder, $Set* roots, 
 
 $ModuleFinder* ModuleBootstrap::finderFor($String* prop) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $System::getProperty(prop));
 	if (s == nullptr) {
 		return nullptr;
@@ -1108,6 +1114,7 @@ $ModulePatcher* ModuleBootstrap::initModulePatcher() {
 
 $Set* ModuleBootstrap::addModules() {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, "jdk.module.addmods."_s);
 	int32_t index = 0;
 	$var($String, value, getAndRemoveProperty($$str({prefix, $$str(index)})));
@@ -1138,6 +1145,7 @@ $Set* ModuleBootstrap::addModules() {
 
 $Set* ModuleBootstrap::limitModules() {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, getAndRemoveProperty("jdk.module.limitmods"_s));
 	if (value == nullptr) {
 		return $Set::of();
@@ -1162,6 +1170,7 @@ $Set* ModuleBootstrap::limitModules() {
 
 void ModuleBootstrap::addExtraReads($ModuleLayer* bootLayer) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, decode("jdk.module.addreads."_s));
 	if ($nc(map)->isEmpty()) {
 		return;
@@ -1203,6 +1212,7 @@ void ModuleBootstrap::addExtraReads($ModuleLayer* bootLayer) {
 
 bool ModuleBootstrap::addExtraExportsAndOpens($ModuleLayer* bootLayer) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	bool extraExportsOrOpens = false;
 	$var($String, prefix, "jdk.module.addexports."_s);
 	$var($Map, extraExports, decode(prefix));
@@ -1221,6 +1231,7 @@ bool ModuleBootstrap::addExtraExportsAndOpens($ModuleLayer* bootLayer) {
 
 void ModuleBootstrap::addExtraExportsOrOpens($ModuleLayer* bootLayer, $Map* map, bool opens) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, option, opens ? ModuleBootstrap::ADD_OPENS : ModuleBootstrap::ADD_EXPORTS);
 	{
 		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
@@ -1288,6 +1299,7 @@ void ModuleBootstrap::addExtraExportsOrOpens($ModuleLayer* bootLayer, $Map* map,
 
 void ModuleBootstrap::addEnableNativeAccess($ModuleLayer* layer) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($(decodeEnableNativeAccess()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1310,6 +1322,7 @@ void ModuleBootstrap::addEnableNativeAccess($ModuleLayer* layer) {
 
 $Set* ModuleBootstrap::decodeEnableNativeAccess() {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, "jdk.module.enable.native.access."_s);
 	int32_t index = 0;
 	$var($String, value, getAndRemoveProperty($$str({prefix, $$str(index)})));
@@ -1339,6 +1352,7 @@ $Set* ModuleBootstrap::decodeEnableNativeAccess() {
 
 $Map* ModuleBootstrap::decode($String* prefix, $String* regex, bool allowDuplicates) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	int32_t index = 0;
 	$var($String, value, getAndRemoveProperty($$str({prefix, $$str(index)})));
 	if (value == nullptr) {
@@ -1403,6 +1417,7 @@ $String* ModuleBootstrap::getAndRemoveProperty($String* key) {
 
 void ModuleBootstrap::checkIncubatingStatus($Configuration* cf) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$var($String, incubating, nullptr);
 	{
 		$var($Iterator, i$, $nc($($nc(cf)->modules()))->iterator());
@@ -1525,11 +1540,13 @@ $List* ModuleBootstrap::lambda$decode$8($String* k) {
 
 void ModuleBootstrap::lambda$limitFinder$7($Map* map, $ModuleReference* mref) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$nc(map)->putIfAbsent($($nc($($nc(mref)->descriptor()))->name()), mref);
 }
 
 void ModuleBootstrap::lambda$limitFinder$6($Map* map, $ModuleReference* mref) {
 	$init(ModuleBootstrap);
+	$useLocalCurrentObjectStackCache();
 	$nc(map)->put($($nc($($nc(mref)->descriptor()))->name()), mref);
 }
 

@@ -49,6 +49,7 @@ void URItoURLTest::init$() {
 }
 
 void URItoURLTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, classUrl, $new($URL, "jrt:/java.base/java/lang/Object.class"_s));
 	$var($StringArray, uris, $new($StringArray, {
 		"mailto:xyz@abc.de"_s,
@@ -202,6 +203,7 @@ void URItoURLTest::main($StringArray* args) {
 }
 
 bool URItoURLTest::equalsComponents($String* method, $String* comp1, $String* comp2) {
+	$useLocalCurrentObjectStackCache();
 	if ((comp1 != nullptr) && (!comp1->equals(comp2))) {
 		$init($System);
 		$nc($System::out)->println($$str({method, " DIDN\'T MATCH  ===>"_s}));

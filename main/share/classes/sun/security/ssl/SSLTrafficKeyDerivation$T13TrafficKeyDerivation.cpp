@@ -98,6 +98,7 @@ void SSLTrafficKeyDerivation$T13TrafficKeyDerivation::init$($HandshakeContext* c
 }
 
 $SecretKey* SSLTrafficKeyDerivation$T13TrafficKeyDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$SSLTrafficKeyDerivation$KeySchedule* ks = $SSLTrafficKeyDerivation$KeySchedule::valueOf(algorithm);
 	try {
 		$var($HKDF, hkdf, $new($HKDF, this->cs->hashAlg->name$));
@@ -115,6 +116,7 @@ $SecretKey* SSLTrafficKeyDerivation$T13TrafficKeyDerivation::deriveKey($String* 
 
 $bytes* SSLTrafficKeyDerivation$T13TrafficKeyDerivation::createHkdfInfo($bytes* label, int32_t length) {
 	$init(SSLTrafficKeyDerivation$T13TrafficKeyDerivation);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, info, $new($bytes, 4 + $nc(label)->length));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(info));
 	try {

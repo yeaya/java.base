@@ -161,6 +161,7 @@ void IsBlank::testIsBlank() {
 }
 
 void IsBlank::testWhitespace() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 64));
 	$nc($($nc($($IntStream::range(1, 0x0000FFFF)))->filter(static_cast<$IntPredicate*>($$new(IsBlank$$Lambda$lambda$testWhitespace$0)))))->forEach(static_cast<$IntConsumer*>($$new(IsBlank$$Lambda$lambda$testWhitespace$1$1, sb)));
 	$var($String, whiteSpace, sb->toString());
@@ -169,6 +170,7 @@ void IsBlank::testWhitespace() {
 }
 
 void IsBlank::test($String* input, bool expected) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(input)->isBlank() != expected) {
 		$init($System);
 		$nc($System::err)->format("Failed test, Input: %s, Expected: %b%n"_s, $$new($ObjectArray, {

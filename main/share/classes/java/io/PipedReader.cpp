@@ -125,6 +125,7 @@ void PipedReader::connect($PipedWriter* src) {
 
 void PipedReader::receive(int32_t c) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			$throwNew($IOException, "Pipe not connected"_s);
 		} else if (this->closedByWriter || this->closedByReader) {
@@ -173,6 +174,7 @@ void PipedReader::receivedLast() {
 
 int32_t PipedReader::read() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			$throwNew($IOException, "Pipe not connected"_s);
 		} else if (this->closedByReader) {

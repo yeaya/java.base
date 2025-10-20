@@ -94,6 +94,7 @@ $Object* FtpClientProvider::lock = nullptr;
 FtpClientProvider* FtpClientProvider::provider$ = nullptr;
 
 void FtpClientProvider::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "ftpClientProvider"_s));
@@ -102,6 +103,7 @@ void FtpClientProvider::init$() {
 
 bool FtpClientProvider::loadProviderFromProperty() {
 	$init(FtpClientProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, cm, $System::getProperty("sun.net.ftpClientProvider"_s));
 	if (cm == nullptr) {

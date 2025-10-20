@@ -45,6 +45,7 @@ void IOUtils::init$() {
 }
 
 $bytes* IOUtils::readExactlyNBytes($InputStream* is, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (length < 0) {
 		$throwNew($IOException, $$str({"length cannot be negative: "_s, $$str(length)}));
 	}

@@ -240,6 +240,7 @@ void FloatingDecimal$BinaryToASCIIBuffer::developLongDigits(int32_t decExponent,
 }
 
 void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits, int32_t nSignificantBits, bool isCompatibleFormat) {
+	$useLocalCurrentObjectStackCache();
 	if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(fractBits > 0)) {
 		$throwNew($AssertionError);
 	}

@@ -81,6 +81,7 @@ void PrivateInterfaceCall$I2::invokeInterfaceMH(PrivateInterfaceCall$I2* i) {
 
 void PrivateInterfaceCall$I2::invokeInterfaceObjectMH(PrivateInterfaceCall$I2* i) {
 	$init(PrivateInterfaceCall$I2);
+	$useLocalCurrentObjectStackCache();
 	$init($PrivateInterfaceCall);
 	$var($String, s, $cast($String, $nc($PrivateInterfaceCall::mh_I2_toString_from_I2)->invokeExact($$new($ObjectArray, {$of(i)}))));
 }
@@ -93,6 +94,7 @@ void PrivateInterfaceCall$I2::invokeInterfaceObjectFinalMH(PrivateInterfaceCall$
 
 void PrivateInterfaceCall$I2::init() {
 	$init(PrivateInterfaceCall$I2);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Void);
 	$var($MethodType, mt, $MethodType::methodType($Void::TYPE));

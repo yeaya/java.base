@@ -78,6 +78,7 @@ void SystemProxies::main($StringArray* args) {
 
 void SystemProxies::printProxies($String* proto) {
 	$init(SystemProxies);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Protocol:"_s, proto}));
 	{

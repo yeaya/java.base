@@ -95,6 +95,7 @@ void WindowsUserPrincipals::init$() {
 
 $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 	$init(WindowsUserPrincipals);
+	$useLocalCurrentObjectStackCache();
 	$var($String, sidString, nullptr);
 	try {
 		$assign(sidString, $WindowsNativeDispatcher::ConvertSidToStringSid(sidAddress));
@@ -125,6 +126,7 @@ $UserPrincipal* WindowsUserPrincipals::fromSid(int64_t sidAddress) {
 
 $UserPrincipal* WindowsUserPrincipals::lookup($String* name) {
 	$init(WindowsUserPrincipals);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "lookupUserInformation"_s));

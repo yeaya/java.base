@@ -59,6 +59,7 @@ void TestAfterClose::init$() {
 }
 
 void TestAfterClose::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ServerSocket, ss, $new($ServerSocket, 0, 0, nullptr));
 		test(ss);
@@ -73,6 +74,7 @@ void TestAfterClose::main($StringArray* args) {
 }
 
 void TestAfterClose::test($ServerSocket* ss) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, ssInetAddress, $nc(ss)->getInetAddress());
 	int32_t ssLocalPort = ss->getLocalPort();
 	$var($SocketAddress, ssLocalSocketAddress, ss->getLocalSocketAddress());

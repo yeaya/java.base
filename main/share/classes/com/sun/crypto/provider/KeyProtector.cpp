@@ -161,6 +161,7 @@ void KeyProtector::init$($chars* password) {
 }
 
 $bytes* KeyProtector::protect($PrivateKey* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, salt, $new($bytes, 8));
 	$nc($($SunJCE::getRandom()))->nextBytes(salt);
 	$var($PBEParameterSpec, pbeSpec, $new($PBEParameterSpec, salt, KeyProtector::ITERATION_COUNT));
@@ -196,6 +197,7 @@ $bytes* KeyProtector::protect($PrivateKey* key) {
 }
 
 $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, plain, nullptr);
 	$var($SecretKey, sKey, nullptr);
 	{
@@ -292,6 +294,7 @@ $Key* KeyProtector::recover($EncryptedPrivateKeyInfo* encrInfo) {
 }
 
 $bytes* KeyProtector::recover($bytes* protectedKey) {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t j = 0;
 	$var($bytes, digest, nullptr);
@@ -344,6 +347,7 @@ $bytes* KeyProtector::recover($bytes* protectedKey) {
 }
 
 $SealedObject* KeyProtector::seal($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, salt, $new($bytes, 8));
 	$nc($($SunJCE::getRandom()))->nextBytes(salt);
 	$var($PBEParameterSpec, pbeSpec, $new($PBEParameterSpec, salt, KeyProtector::ITERATION_COUNT));
@@ -374,6 +378,7 @@ $SealedObject* KeyProtector::seal($Key* key) {
 }
 
 $Key* KeyProtector::unseal($SealedObject* so, int32_t maxLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, sKey, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);

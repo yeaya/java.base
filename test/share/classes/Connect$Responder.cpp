@@ -114,6 +114,7 @@ void Connect$Responder::finalize() {
 }
 
 void Connect$Responder::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, address, $new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), 0));
 	$set(this, dc, $cast($DatagramChannel, $nc($($DatagramChannel::open()))->bind(address)));
 }
@@ -123,6 +124,7 @@ $SocketAddress* Connect$Responder::getSocketAddress() {
 }
 
 void Connect$Responder::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

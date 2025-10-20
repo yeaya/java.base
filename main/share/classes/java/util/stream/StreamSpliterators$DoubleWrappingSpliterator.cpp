@@ -379,6 +379,7 @@ $StreamSpliterators$AbstractWrappingSpliterator* StreamSpliterators$DoubleWrappi
 }
 
 void StreamSpliterators$DoubleWrappingSpliterator::initPartialTraversalState() {
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfDouble, b, $new($SpinedBuffer$OfDouble));
 	$set(this, buffer, b);
 	$set(this, bufferSink, $nc(this->ph)->wrapSink(static_cast<$Sink$OfDouble*>($$new(StreamSpliterators$DoubleWrappingSpliterator$$Lambda$accept, static_cast<$SpinedBuffer$OfDouble*>(b)))));

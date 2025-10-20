@@ -70,6 +70,7 @@ void TestObjectStreamClass::init$() {
 
 void TestObjectStreamClass::main($StringArray* args) {
 	$load(TestObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ByteArrayOutputStream, byteOutput, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, output, $new($ObjectOutputStream, byteOutput));

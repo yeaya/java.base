@@ -119,6 +119,7 @@ void ArrayList$Itr::remove() {
 }
 
 void ArrayList$Itr::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t size = this->this$0->size$;
 	int32_t i = this->cursor;

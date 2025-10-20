@@ -234,6 +234,7 @@ int64_t ZipUtils::fileTimeToUnixTime($FileTime* ftime) {
 
 int64_t ZipUtils::dosToJavaTime(int64_t dtime) {
 	$init(ZipUtils);
+	$useLocalCurrentObjectStackCache();
 	int32_t year = (int32_t)(((int64_t)((dtime >> 25) & (uint64_t)(int64_t)127)) + 1980);
 	int32_t month = (int32_t)((int64_t)((dtime >> 21) & (uint64_t)(int64_t)15));
 	int32_t day = (int32_t)((int64_t)((dtime >> 16) & (uint64_t)(int64_t)31));
@@ -284,6 +285,7 @@ int64_t ZipUtils::javaToExtendedDosTime(int64_t time) {
 
 $LocalDateTime* ZipUtils::javaEpochToLocalDateTime(int64_t time) {
 	$init(ZipUtils);
+	$useLocalCurrentObjectStackCache();
 	$var($Instant, instant, $Instant::ofEpochMilli(time));
 	return $LocalDateTime::ofInstant(instant, $($ZoneId::systemDefault()));
 }

@@ -76,6 +76,7 @@ void ByteArrayAccess::init$() {
 }
 
 void ByteArrayAccess::i2bLittle($ints* in, int32_t inOfs, $bytes* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += outOfs;
 	while (outOfs < len) {
 		$init($ByteArrayAccess$LE);
@@ -90,6 +91,7 @@ void ByteArrayAccess::i2bLittle4(int32_t val, $bytes* out, int32_t outOfs) {
 }
 
 void ByteArrayAccess::b2iBig($bytes* in, int32_t inOfs, $ints* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += inOfs;
 	while (inOfs < len) {
 		$init($ByteArrayAccess$BE);
@@ -99,6 +101,7 @@ void ByteArrayAccess::b2iBig($bytes* in, int32_t inOfs, $ints* out, int32_t outO
 }
 
 void ByteArrayAccess::b2iBig64($bytes* in, int32_t inOfs, $ints* out) {
+	$useLocalCurrentObjectStackCache();
 	$init($ByteArrayAccess$BE);
 	$nc(out)->set(0, $intValue($nc($ByteArrayAccess$BE::INT_ARRAY)->get($$new($ObjectArray, {$of(in), $$of(inOfs)}))));
 	out->set(1, $intValue($nc($ByteArrayAccess$BE::INT_ARRAY)->get($$new($ObjectArray, {$of(in), $$of((inOfs + 4))}))));
@@ -119,6 +122,7 @@ void ByteArrayAccess::b2iBig64($bytes* in, int32_t inOfs, $ints* out) {
 }
 
 void ByteArrayAccess::i2bBig($ints* in, int32_t inOfs, $bytes* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += outOfs;
 	while (outOfs < len) {
 		$init($ByteArrayAccess$BE);
@@ -133,6 +137,7 @@ void ByteArrayAccess::i2bBig4(int32_t val, $bytes* out, int32_t outOfs) {
 }
 
 void ByteArrayAccess::b2lBig($bytes* in, int32_t inOfs, $longs* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += inOfs;
 	while (inOfs < len) {
 		$init($ByteArrayAccess$BE);
@@ -142,6 +147,7 @@ void ByteArrayAccess::b2lBig($bytes* in, int32_t inOfs, $longs* out, int32_t out
 }
 
 void ByteArrayAccess::b2lBig128($bytes* in, int32_t inOfs, $longs* out) {
+	$useLocalCurrentObjectStackCache();
 	$init($ByteArrayAccess$BE);
 	$nc(out)->set(0, $longValue($nc($ByteArrayAccess$BE::LONG_ARRAY)->get($$new($ObjectArray, {$of(in), $$of(inOfs)}))));
 	out->set(1, $longValue($nc($ByteArrayAccess$BE::LONG_ARRAY)->get($$new($ObjectArray, {$of(in), $$of((inOfs + 8))}))));
@@ -162,6 +168,7 @@ void ByteArrayAccess::b2lBig128($bytes* in, int32_t inOfs, $longs* out) {
 }
 
 void ByteArrayAccess::l2bBig($longs* in, int32_t inOfs, $bytes* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += outOfs;
 	while (outOfs < len) {
 		$init($ByteArrayAccess$BE);
@@ -171,6 +178,7 @@ void ByteArrayAccess::l2bBig($longs* in, int32_t inOfs, $bytes* out, int32_t out
 }
 
 void ByteArrayAccess::b2lLittle($bytes* in, int32_t inOfs, $longs* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += inOfs;
 	while (inOfs < len) {
 		$init($ByteArrayAccess$LE);
@@ -180,6 +188,7 @@ void ByteArrayAccess::b2lLittle($bytes* in, int32_t inOfs, $longs* out, int32_t 
 }
 
 void ByteArrayAccess::l2bLittle($longs* in, int32_t inOfs, $bytes* out, int32_t outOfs, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	len += outOfs;
 	while (outOfs < len) {
 		$init($ByteArrayAccess$LE);

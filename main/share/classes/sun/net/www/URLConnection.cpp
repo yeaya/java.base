@@ -163,6 +163,7 @@ $Map* URLConnection::getHeaderFields() {
 }
 
 $String* URLConnection::getHeaderFieldKey(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
 	} catch ($Exception&) {
@@ -174,6 +175,7 @@ $String* URLConnection::getHeaderFieldKey(int32_t n) {
 }
 
 $String* URLConnection::getHeaderField(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
 	} catch ($Exception&) {
@@ -185,6 +187,7 @@ $String* URLConnection::getHeaderField(int32_t n) {
 }
 
 $String* URLConnection::getContentType() {
+	$useLocalCurrentObjectStackCache();
 	if (this->contentType == nullptr) {
 		$set(this, contentType, getHeaderField("content-type"_s));
 	}
@@ -230,6 +233,7 @@ void URLConnection::setContentType($String* type) {
 }
 
 int32_t URLConnection::getContentLength() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
 	} catch ($Exception&) {

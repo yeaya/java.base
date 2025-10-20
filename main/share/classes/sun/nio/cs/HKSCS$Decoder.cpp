@@ -123,6 +123,7 @@ char16_t HKSCS$Decoder::decodeDoubleEx(int32_t b1, int32_t b2) {
 }
 
 $CoderResult* HKSCS$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -208,6 +209,7 @@ $CoderResult* HKSCS$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst)
 }
 
 $CoderResult* HKSCS$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -327,6 +329,7 @@ $CoderResult* HKSCS$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst) {
 
 void HKSCS$Decoder::initb2c($charArray2* b2c, $StringArray* b2cStr) {
 	$init(HKSCS$Decoder);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(b2cStr)->length; ++i) {
 		if (b2cStr->get(i) == nullptr) {
 			$init($DoubleByte);

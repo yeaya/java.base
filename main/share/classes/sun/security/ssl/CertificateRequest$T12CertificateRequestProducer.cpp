@@ -109,6 +109,7 @@ void CertificateRequest$T12CertificateRequestProducer::init$() {
 }
 
 $bytes* CertificateRequest$T12CertificateRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc(shc)->localSupportedSignAlgs == nullptr) {
 		$set(shc, localSupportedSignAlgs, $SignatureScheme::getSupportedAlgorithms(shc->sslConfig, shc->algorithmConstraints, shc->activeProtocols));

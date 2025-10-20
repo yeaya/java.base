@@ -68,6 +68,7 @@ bool UnixFileKey::equals(Object$* obj) {
 }
 
 $String* UnixFileKey::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("(dev="_s)->append($($Long::toHexString(this->st_dev)))->append(",ino="_s)->append(this->st_ino)->append(u')');
 	return sb->toString();

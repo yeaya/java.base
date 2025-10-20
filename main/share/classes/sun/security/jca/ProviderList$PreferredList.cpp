@@ -80,6 +80,7 @@ void ProviderList$PreferredList::init$() {
 }
 
 $ArrayList* ProviderList$PreferredList::getAll($ProviderList$ServiceList* s) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(s)->ids == nullptr) {
 		return getAll(s->type, s->algorithm);
 	}
@@ -125,6 +126,7 @@ bool ProviderList$PreferredList::add($ProviderList$PreferredEntry* e) {
 }
 
 $String* ProviderList$PreferredList::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, ""_s);
 	{
 		$var($Iterator, i$, $nc(this->list)->iterator());

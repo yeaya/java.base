@@ -77,6 +77,7 @@ void TypeCheckMicroBenchmark$4::init$($String* name, int32_t val$iterations, $Li
 }
 
 void TypeCheckMicroBenchmark$4::work() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < this->val$iterations; ++i) {
 		{
 			$var($ObjectArray, arr$, $nc(this->val$list)->toArray());

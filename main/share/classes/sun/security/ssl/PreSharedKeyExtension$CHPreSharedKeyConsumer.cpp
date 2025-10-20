@@ -119,6 +119,7 @@ void PreSharedKeyExtension$CHPreSharedKeyConsumer::init$() {
 }
 
 void PreSharedKeyExtension$CHPreSharedKeyConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);

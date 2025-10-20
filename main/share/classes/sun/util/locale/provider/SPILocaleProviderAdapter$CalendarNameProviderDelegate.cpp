@@ -123,6 +123,7 @@ bool SPILocaleProviderAdapter$CalendarNameProviderDelegate::isSupportedLocale($L
 }
 
 $String* SPILocaleProviderAdapter$CalendarNameProviderDelegate::getDisplayName($String* calendarType, int32_t field, int32_t value, int32_t style, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CalendarNameProvider, cdp, $cast($CalendarNameProvider, getImpl(locale)));
@@ -130,6 +131,7 @@ $String* SPILocaleProviderAdapter$CalendarNameProviderDelegate::getDisplayName($
 }
 
 $Map* SPILocaleProviderAdapter$CalendarNameProviderDelegate::getDisplayNames($String* calendarType, int32_t field, int32_t style, $Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CalendarNameProvider, cdp, $cast($CalendarNameProvider, getImpl(locale)));

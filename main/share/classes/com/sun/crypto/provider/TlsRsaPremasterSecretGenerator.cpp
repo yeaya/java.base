@@ -94,6 +94,7 @@ void TlsRsaPremasterSecretGenerator::engineInit(int32_t keysize, $SecureRandom* 
 }
 
 $SecretKey* TlsRsaPremasterSecretGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsRsaPremasterSecretGenerator must be initialized"_s);
 	}

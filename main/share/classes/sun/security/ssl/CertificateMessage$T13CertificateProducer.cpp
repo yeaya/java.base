@@ -155,6 +155,7 @@ $bytes* CertificateMessage$T13CertificateProducer::produce($ConnectionContext* c
 }
 
 $bytes* CertificateMessage$T13CertificateProducer::onProduceCertificate($ServerHandshakeContext* shc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$var($SSLPossession, pos, choosePossession(shc, clientHello));
 	if (pos == nullptr) {
@@ -212,6 +213,7 @@ $bytes* CertificateMessage$T13CertificateProducer::onProduceCertificate($ServerH
 
 $SSLPossession* CertificateMessage$T13CertificateProducer::choosePossession($HandshakeContext* hc, $ClientHello$ClientHelloMessage* clientHello) {
 	$init(CertificateMessage$T13CertificateProducer);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(hc)->peerRequestedCertSignSchemes == nullptr || $nc($nc(hc)->peerRequestedCertSignSchemes)->isEmpty()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -269,6 +271,7 @@ $SSLPossession* CertificateMessage$T13CertificateProducer::choosePossession($Han
 }
 
 $bytes* CertificateMessage$T13CertificateProducer::onProduceCertificate($ClientHandshakeContext* chc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHello$ClientHelloMessage, clientHello, $cast($ClientHello$ClientHelloMessage, message));
 	$var($SSLPossession, pos, choosePossession(chc, clientHello));
 	$var($X509CertificateArray, localCerts, nullptr);

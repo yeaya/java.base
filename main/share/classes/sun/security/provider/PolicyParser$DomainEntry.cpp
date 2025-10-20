@@ -104,6 +104,7 @@ $Collection* PolicyParser$DomainEntry::getEntries() {
 }
 
 void PolicyParser$DomainEntry::add($PolicyParser$KeyStoreEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, keystoreName, $nc(entry)->getName());
 	if (!$nc(this->entries)->containsKey(keystoreName)) {
 		$nc(this->entries)->put(keystoreName, entry);
@@ -116,6 +117,7 @@ void PolicyParser$DomainEntry::add($PolicyParser$KeyStoreEntry* entry) {
 }
 
 $String* PolicyParser$DomainEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, s, $$new($StringBuilder, "\ndomain "_s)->append(this->name));
 	if (this->properties != nullptr) {
 		{

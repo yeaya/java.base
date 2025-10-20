@@ -65,6 +65,7 @@ void MethodUtil$1::init$() {
 }
 
 $Object* MethodUtil$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* t = $MethodUtil::getTrampolineClass();
 		$load($Method);

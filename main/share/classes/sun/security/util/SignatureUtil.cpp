@@ -165,6 +165,7 @@ $String* SignatureUtil::checkName($String* algName$renamed) {
 }
 
 $AlgorithmParameters* SignatureUtil::createAlgorithmParameters($String* algName$renamed, $bytes* paramBytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, algName, algName$renamed);
 	try {
 		$assign(algName, checkName(algName));
@@ -182,6 +183,7 @@ $AlgorithmParameters* SignatureUtil::createAlgorithmParameters($String* algName$
 }
 
 $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $AlgorithmParameters* params$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sigName, sigName$renamed);
 	$var($AlgorithmParameters, params, params$renamed);
 	$var($AlgorithmParameterSpec, paramSpec, nullptr);
@@ -214,6 +216,7 @@ $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $
 }
 
 $AlgorithmParameterSpec* SignatureUtil::getParamSpec($String* sigName$renamed, $bytes* paramBytes) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sigName, sigName$renamed);
 	$var($AlgorithmParameterSpec, paramSpec, nullptr);
 	if (paramBytes != nullptr) {
@@ -253,6 +256,7 @@ void SignatureUtil::initSignWithParam($Signature* s, $PrivateKey* key, $Algorith
 }
 
 $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $String* sigalg, $PrivateKey* privateKey, bool directsign) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmId, digAlgID, nullptr);
 	$var($String, kAlg, $nc(privateKey)->getAlgorithm());
 	bool var$0 = $instanceOf($EdECPrivateKey, privateKey) || $nc(kAlg)->equalsIgnoreCase("Ed25519"_s);
@@ -319,6 +323,7 @@ $AlgorithmId* SignatureUtil::getDigestAlgInPkcs7SignerInfo($Signature* signer, $
 }
 
 $String* SignatureUtil::extractDigestAlgFromDwithE($String* signatureAlgorithm$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, signatureAlgorithm, signatureAlgorithm$renamed);
 	$init($Locale);
 	$assign(signatureAlgorithm, $nc(signatureAlgorithm)->toUpperCase($Locale::ENGLISH));
@@ -331,6 +336,7 @@ $String* SignatureUtil::extractDigestAlgFromDwithE($String* signatureAlgorithm$r
 }
 
 $String* SignatureUtil::extractKeyAlgFromDwithE($String* signatureAlgorithm$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, signatureAlgorithm, signatureAlgorithm$renamed);
 	$init($Locale);
 	$assign(signatureAlgorithm, $nc(signatureAlgorithm)->toUpperCase($Locale::ENGLISH));
@@ -351,6 +357,7 @@ $String* SignatureUtil::extractKeyAlgFromDwithE($String* signatureAlgorithm$rena
 }
 
 $AlgorithmParameterSpec* SignatureUtil::getDefaultParamSpec($String* sigAlg$renamed, $Key* k) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sigAlg, sigAlg$renamed);
 	$assign(sigAlg, checkName(sigAlg));
 	if ($nc(sigAlg)->equalsIgnoreCase("RSASSA-PSS"_s)) {
@@ -424,6 +431,7 @@ $Signature* SignatureUtil::fromKey($String* sigAlg, $Key* key, $Provider* provid
 }
 
 $Signature* SignatureUtil::autoInitInternal($String* alg, $Key* key, $Signature* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameterSpec, params, SignatureUtil::getDefaultParamSpec(alg, key));
 	try {
 		if ($instanceOf($PrivateKey, key)) {
@@ -439,6 +447,7 @@ $Signature* SignatureUtil::autoInitInternal($String* alg, $Key* key, $Signature*
 }
 
 $AlgorithmId* SignatureUtil::fromSignature($Signature* sigEngine, $PrivateKey* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($EdECKey, key)) {
 			return $AlgorithmId::get($($nc($($nc(($cast($EdECKey, key)))->getParams()))->getName()));
@@ -466,6 +475,7 @@ $AlgorithmId* SignatureUtil::fromSignature($Signature* sigEngine, $PrivateKey* k
 }
 
 void SignatureUtil::checkKeyAndSigAlgMatch($PrivateKey* key, $String* sAlg$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, sAlg, sAlg$renamed);
 	$init($Locale);
 	$var($String, kAlg, $nc($($nc(key)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
@@ -571,6 +581,7 @@ void SignatureUtil::checkKeyAndSigAlgMatch($PrivateKey* key, $String* sAlg$renam
 }
 
 $String* SignatureUtil::getDefaultSigAlgForKey($PrivateKey* k) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, kAlg, $nc(k)->getAlgorithm());
 	$init($Locale);
 	$var($String, s20391$, $nc(kAlg)->toUpperCase($Locale::ENGLISH));

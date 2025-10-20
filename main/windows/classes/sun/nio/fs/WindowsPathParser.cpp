@@ -94,6 +94,7 @@ $WindowsPathParser$Result* WindowsPathParser::parseNormalizedPath($String* input
 
 $WindowsPathParser$Result* WindowsPathParser::parse($String* input, bool requireToNormalize) {
 	$init(WindowsPathParser);
+	$useLocalCurrentObjectStackCache();
 	$var($String, root, ""_s);
 	$WindowsPathType* type = nullptr;
 	int32_t len = $nc(input)->length();
@@ -160,6 +161,7 @@ $WindowsPathParser$Result* WindowsPathParser::parse($String* input, bool require
 
 $String* WindowsPathParser::normalize($StringBuilder* sb, $String* path, int32_t off) {
 	$init(WindowsPathParser);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(path)->length();
 	off = nextNonSlash(path, off, len);
 	int32_t start = off;
@@ -208,6 +210,7 @@ int32_t WindowsPathParser::nextNonSlash($String* path, int32_t off, int32_t end)
 
 int32_t WindowsPathParser::nextSlash($String* path, int32_t off, int32_t end) {
 	$init(WindowsPathParser);
+	$useLocalCurrentObjectStackCache();
 	char16_t c = 0;
 	while (off < end && !isSlash(c = $nc(path)->charAt(off))) {
 		if (isInvalidPathChar(c)) {

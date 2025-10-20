@@ -171,6 +171,7 @@ int64_t CgroupV1SubsystemController::getLongValueMatchingLine($CgroupSubsystemCo
 
 int64_t CgroupV1SubsystemController::convertHierachicalLimitLine($String* line) {
 	$init(CgroupV1SubsystemController);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, tokens, $nc(line)->split("\\s"_s));
 	if (tokens->length == 2) {
 		$var($String, strVal, tokens->get(1));

@@ -126,6 +126,7 @@ ZipCoder* ZipCoder::get($Charset* charset) {
 }
 
 $String* ZipCoder::toString($bytes* ba, int32_t off, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($($nc($(decoder()))->decode($($ByteBuffer::wrap(ba, off, length)))))->toString();
 	} catch ($CharacterCodingException&) {
@@ -144,6 +145,7 @@ $String* ZipCoder::toString($bytes* ba) {
 }
 
 $bytes* ZipCoder::getBytes($String* s) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ByteBuffer, bb, $nc($(encoder()))->encode($($CharBuffer::wrap(static_cast<$CharSequence*>(s)))));
 		int32_t pos = $nc(bb)->position();
@@ -173,6 +175,7 @@ bool ZipCoder::isUTF8() {
 }
 
 int32_t ZipCoder::checkedHash($bytes* a, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len == 0) {
 		return 0;
 	}
@@ -209,6 +212,7 @@ void ZipCoder::init$($Charset* cs) {
 }
 
 $CharsetDecoder* ZipCoder::decoder() {
+	$useLocalCurrentObjectStackCache();
 	if (this->dec == nullptr) {
 		$init($CodingErrorAction);
 		$set(this, dec, $nc($($nc($($nc(this->cs)->newDecoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
@@ -217,6 +221,7 @@ $CharsetDecoder* ZipCoder::decoder() {
 }
 
 $CharsetEncoder* ZipCoder::encoder() {
+	$useLocalCurrentObjectStackCache();
 	if (this->enc == nullptr) {
 		$init($CodingErrorAction);
 		$set(this, enc, $nc($($nc($($nc(this->cs)->newEncoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
@@ -225,6 +230,7 @@ $CharsetEncoder* ZipCoder::encoder() {
 }
 
 $bytes* ZipCoder::slashBytes() {
+	$useLocalCurrentObjectStackCache();
 	if (this->slashBytes$ == nullptr) {
 		$var($bytes, slash, "/"_s->getBytes(this->cs));
 		$var($bytes, doubleSlash, "//"_s->getBytes(this->cs));

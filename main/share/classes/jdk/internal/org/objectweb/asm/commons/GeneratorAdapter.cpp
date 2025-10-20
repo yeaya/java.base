@@ -364,6 +364,7 @@ void GeneratorAdapter::init$(int32_t api, $MethodVisitor* methodVisitor, int32_t
 }
 
 void GeneratorAdapter::init$(int32_t access, $Method* method, $MethodVisitor* methodVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodVisitor, var$0, methodVisitor);
 	int32_t var$1 = access;
 	$var($String, var$2, $nc(method)->getName());
@@ -371,6 +372,7 @@ void GeneratorAdapter::init$(int32_t access, $Method* method, $MethodVisitor* me
 }
 
 void GeneratorAdapter::init$(int32_t access, $Method* method, $String* signature, $TypeArray* exceptions, $ClassVisitor* classVisitor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = access;
 	$var($String, var$1, $nc(method)->getName());
 	$var($String, var$2, method->getDescriptor());
@@ -380,6 +382,7 @@ void GeneratorAdapter::init$(int32_t access, $Method* method, $String* signature
 
 $StringArray* GeneratorAdapter::getInternalNames($TypeArray* types) {
 	$init(GeneratorAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, names, $new($StringArray, $nc(types)->length));
 	for (int32_t i = 0; i < names->length; ++i) {
 		names->set(i, $($nc(types->get(i))->getInternalName()));
@@ -551,6 +554,7 @@ void GeneratorAdapter::loadArg(int32_t arg) {
 }
 
 void GeneratorAdapter::loadArgs(int32_t arg, int32_t count) {
+	$useLocalCurrentObjectStackCache();
 	int32_t index = getArgIndex(arg);
 	for (int32_t i = 0; i < count; ++i) {
 		$var($Type, argumentType, $nc(this->argumentTypes)->get(arg + i));
@@ -738,6 +742,7 @@ $Type* GeneratorAdapter::getBoxedType($Type* type) {
 }
 
 void GeneratorAdapter::box($Type* type) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(type)->getSort() == $Type::OBJECT;
 	if (var$0 || $nc(type)->getSort() == $Type::ARRAY) {
 		return;
@@ -760,6 +765,7 @@ void GeneratorAdapter::box($Type* type) {
 }
 
 void GeneratorAdapter::valueOf($Type* type) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(type)->getSort() == $Type::OBJECT;
 	if (var$0 || $nc(type)->getSort() == $Type::ARRAY) {
 		return;
@@ -773,6 +779,7 @@ void GeneratorAdapter::valueOf($Type* type) {
 }
 
 void GeneratorAdapter::unbox($Type* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, boxedType, GeneratorAdapter::NUMBER_TYPE);
 	$var($Method, unboxMethod, nullptr);
 	switch ($nc(type)->getSort()) {
@@ -845,6 +852,7 @@ $Label* GeneratorAdapter::mark() {
 }
 
 void GeneratorAdapter::ifCmp($Type* type, int32_t mode, $Label* label) {
+	$useLocalCurrentObjectStackCache();
 	{
 		int32_t intOp = 0;
 		switch ($nc(type)->getSort()) {
@@ -960,6 +968,7 @@ void GeneratorAdapter::tableSwitch($ints* keys, $TableSwitchGenerator* generator
 }
 
 void GeneratorAdapter::tableSwitch($ints* keys, $TableSwitchGenerator* generator, bool useTable) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 1; i < $nc(keys)->length; ++i) {
 		if (keys->get(i) < keys->get(i - 1)) {
 			$throwNew($IllegalArgumentException, "keys must be sorted in ascending order"_s);
@@ -1008,6 +1017,7 @@ void GeneratorAdapter::returnValue() {
 }
 
 void GeneratorAdapter::fieldInsn(int32_t opcode, $Type* ownerType, $String* name, $Type* fieldType) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = opcode;
 	$var($String, var$1, $nc(ownerType)->getInternalName());
 	$var($String, var$2, name);
@@ -1031,6 +1041,7 @@ void GeneratorAdapter::putField($Type* owner, $String* name, $Type* type) {
 }
 
 void GeneratorAdapter::invokeInsn(int32_t opcode, $Type* type, $Method* method, bool isInterface) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, owner, $nc(type)->getSort() == $Type::ARRAY ? $nc(type)->getDescriptor() : type->getInternalName());
 	int32_t var$0 = opcode;
 	$var($String, var$1, owner);
@@ -1112,6 +1123,7 @@ void GeneratorAdapter::endMethod() {
 }
 
 void GeneratorAdapter::catchException($Label* start, $Label* end, $Type* exception) {
+	$useLocalCurrentObjectStackCache();
 	$var($Label, catchLabel, $new($Label));
 	if (exception == nullptr) {
 		$nc(this->mv)->visitTryCatchBlock(start, end, catchLabel, nullptr);

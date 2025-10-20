@@ -120,6 +120,7 @@ CertStatusExtension$CertStatusRequestType* CertStatusExtension$CertStatusRequest
 
 $String* CertStatusExtension$CertStatusRequestType::nameOf(int8_t id) {
 	$init(CertStatusExtension$CertStatusRequestType);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($CertStatusExtension$CertStatusRequestTypeArray, arr$, CertStatusExtension$CertStatusRequestType::values());
 		int32_t len$ = $nc(arr$)->length;

@@ -93,6 +93,7 @@ void AbstractConstantGroup$WithCache::init$(int32_t size) {
 }
 
 void AbstractConstantGroup$WithCache::initializeCache($List* cacheContents, Object$* ifNotPresent) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(this->cache)->length; ++i) {
 		$var($Object, x, $nc(cacheContents)->get(i));
 		if ($equals(x, ifNotPresent)) {
@@ -126,6 +127,7 @@ bool AbstractConstantGroup$WithCache::isPresent(int32_t i) {
 }
 
 $Object* AbstractConstantGroup$WithCache::fillCache(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($NoSuchElementException, $$str({"constant group does not contain element #"_s, $$str(i)}));
 	$shouldNotReachHere();
 }

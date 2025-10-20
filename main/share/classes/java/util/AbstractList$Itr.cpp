@@ -89,6 +89,7 @@ bool AbstractList$Itr::hasNext() {
 }
 
 $Object* AbstractList$Itr::next() {
+	$useLocalCurrentObjectStackCache();
 	checkForComodification();
 	try {
 		int32_t i = this->cursor;

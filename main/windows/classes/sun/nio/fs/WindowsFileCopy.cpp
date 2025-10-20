@@ -191,6 +191,7 @@ void WindowsFileCopy::init$() {
 
 void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOptionArray* options) {
 	$init(WindowsFileCopy);
+	$useLocalCurrentObjectStackCache();
 	bool replaceExisting = false;
 	bool copyAttributes = false;
 	bool followLinks = true;
@@ -389,6 +390,7 @@ void WindowsFileCopy::copy($WindowsPath* source, $WindowsPath* target, $CopyOpti
 
 void WindowsFileCopy::ensureEmptyDir($WindowsPath* dir) {
 	$init(WindowsFileCopy);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($WindowsDirectoryStream, dirStream, $new($WindowsDirectoryStream, dir, static_cast<$DirectoryStream$Filter*>($$new(WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0))));
 		{
@@ -422,6 +424,7 @@ void WindowsFileCopy::ensureEmptyDir($WindowsPath* dir) {
 
 void WindowsFileCopy::move($WindowsPath* source, $WindowsPath* target, $CopyOptionArray* options) {
 	$init(WindowsFileCopy);
+	$useLocalCurrentObjectStackCache();
 	bool atomicMove = false;
 	bool replaceExisting = false;
 	{
@@ -644,6 +647,7 @@ $String* WindowsFileCopy::asWin32Path($WindowsPath* path) {
 
 void WindowsFileCopy::copySecurityAttributes($WindowsPath* source, $WindowsPath* target, bool followLinks) {
 	$init(WindowsFileCopy);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $WindowsLinkSupport::getFinalPath(source, followLinks));
 	$var($WindowsSecurity$Privilege, priv, $WindowsSecurity::enablePrivilege("SeRestorePrivilege"_s));
 	{

@@ -162,6 +162,7 @@ bool SocketImpl::USE_PLAINSOCKETIMPL = false;
 
 bool SocketImpl::usePlainSocketImpl() {
 	$init(SocketImpl);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0)));
 	$var($String, s, $cast($String, $AccessController::doPrivileged(pa)));
@@ -217,6 +218,7 @@ int32_t SocketImpl::getLocalPort() {
 }
 
 $String* SocketImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({"Socket[addr="_s, $(getInetAddress()), ",port="_s}));
 	$var($String, var$2, $$concat(var$3, $$str(getPort())));
 	$var($String, var$1, $$concat(var$2, ",localport="));

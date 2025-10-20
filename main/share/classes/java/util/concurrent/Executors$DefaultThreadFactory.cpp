@@ -76,6 +76,7 @@ $Object* allocate$Executors$DefaultThreadFactory($Class* clazz) {
 $AtomicInteger* Executors$DefaultThreadFactory::poolNumber = nullptr;
 
 void Executors$DefaultThreadFactory::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, threadNumber, $new($AtomicInteger, 1));
 	$var($SecurityManager, s, $System::getSecurityManager());
 	$set(this, group, (s != nullptr) ? $nc(s)->getThreadGroup() : $($Thread::currentThread())->getThreadGroup());
@@ -83,6 +84,7 @@ void Executors$DefaultThreadFactory::init$() {
 }
 
 $Thread* Executors$DefaultThreadFactory::newThread($Runnable* r) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, this->group, r, $$str({this->namePrefix, $$str($nc(this->threadNumber)->getAndIncrement())}), 0));
 	if (t->isDaemon()) {
 		t->setDaemon(false);

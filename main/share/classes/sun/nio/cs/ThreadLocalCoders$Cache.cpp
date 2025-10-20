@@ -78,6 +78,7 @@ void ThreadLocalCoders$Cache::moveToFront($ObjectArray* oa, int32_t i) {
 }
 
 $Object* ThreadLocalCoders$Cache::forName(Object$* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, oa, $cast($ObjectArray, $nc(this->cache)->get()));
 	if (oa == nullptr) {
 		$assign(oa, $new($ObjectArray, this->size));

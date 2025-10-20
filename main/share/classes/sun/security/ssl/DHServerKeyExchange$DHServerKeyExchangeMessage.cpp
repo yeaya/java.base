@@ -176,6 +176,7 @@ $Object* allocate$DHServerKeyExchange$DHServerKeyExchangeMessage($Class* clazz) 
 }
 
 void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
@@ -252,6 +253,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* ha
 }
 
 void DHServerKeyExchange$DHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	$set(this, p, $Record::getBytes16(m));
@@ -377,6 +379,7 @@ void DHServerKeyExchange$DHServerKeyExchangeMessage::send($HandshakeOutStream* h
 }
 
 $String* DHServerKeyExchange$DHServerKeyExchangeMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->paramsSignature == nullptr) {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"DH ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"dh_p\": \'{\'\n{0}\n    \'}\',\n    \"dh_g\": \'{\'\n{1}\n    \'}\',\n    \"dh_Ys\": \'{\'\n{2}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
@@ -416,6 +419,7 @@ $String* DHServerKeyExchange$DHServerKeyExchangeMessage::toString() {
 
 $Signature* DHServerKeyExchange$DHServerKeyExchangeMessage::getSignature($String* keyAlgorithm, $Key* key) {
 	$init(DHServerKeyExchange$DHServerKeyExchangeMessage);
+	$useLocalCurrentObjectStackCache();
 	$var($Signature, signer, nullptr);
 	{
 		$var($String, s17344$, keyAlgorithm);

@@ -62,6 +62,7 @@ void WakeupNow::main($StringArray* args) {
 }
 
 void WakeupNow::test1() {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$var($Pipe, p, $Pipe::open());
 	$nc($($nc(p)->source()))->configureBlocking(false);
@@ -81,6 +82,7 @@ void WakeupNow::test1() {
 }
 
 void WakeupNow::test2() {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$var($Pipe, p, $Pipe::open());
 	$nc($($nc(p)->source()))->configureBlocking(false);

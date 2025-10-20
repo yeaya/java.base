@@ -135,6 +135,7 @@ void PBES2Parameters::init$() {
 }
 
 void PBES2Parameters::init$($String* pbes2AlgorithmName) {
+	$useLocalCurrentObjectStackCache();
 	$AlgorithmParametersSpi::init$();
 	$set(this, pbes2AlgorithmName, nullptr);
 	$set(this, salt, nullptr);
@@ -258,6 +259,7 @@ void PBES2Parameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void PBES2Parameters::engineInit($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, kdfAlgo, nullptr);
 	$var($String, cipherAlgo, nullptr);
 	$var($DerValue, pBES2_params, $new($DerValue, encoded));
@@ -278,6 +280,7 @@ void PBES2Parameters::engineInit($bytes* encoded) {
 }
 
 $String* PBES2Parameters::parseKDF($DerValue* keyDerivationFunc) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(PBES2Parameters::pkcs5PBKDF2_OID)->equals($($nc($nc(keyDerivationFunc)->data$)->getOID()))) {
 		$throwNew($IOException, "PBE parameter parsing error: expecting the object identifier for PBKDF2"_s);
 	}
@@ -336,6 +339,7 @@ $String* PBES2Parameters::parseKDF($DerValue* keyDerivationFunc) {
 }
 
 $String* PBES2Parameters::parseES($DerValue* encryptionScheme) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, cipherAlgo, nullptr);
 	$set(this, cipherAlgo_OID, $nc($nc(encryptionScheme)->data$)->getOID());
 	if ($nc(PBES2Parameters::aes128CBC_OID)->equals(this->cipherAlgo_OID)) {
@@ -366,6 +370,7 @@ $AlgorithmParameterSpec* PBES2Parameters::engineGetParameterSpec($Class* paramSp
 }
 
 $bytes* PBES2Parameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, pBES2_params, $new($DerOutputStream));
 	$var($DerOutputStream, keyDerivationFunc, $new($DerOutputStream));

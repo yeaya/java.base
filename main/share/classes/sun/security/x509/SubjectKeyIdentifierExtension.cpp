@@ -145,6 +145,7 @@ $String* SubjectKeyIdentifierExtension::toString() {
 }
 
 void SubjectKeyIdentifierExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);

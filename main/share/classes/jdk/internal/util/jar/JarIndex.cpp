@@ -134,6 +134,7 @@ void JarIndex::init$($StringArray* files) {
 
 JarIndex* JarIndex::getJarIndex($JarFile* jar) {
 	$init(JarIndex);
+	$useLocalCurrentObjectStackCache();
 	$var(JarIndex, index, nullptr);
 	$var($JarEntry, e, $nc(jar)->getJarEntry(JarIndex::INDEX_NAME));
 	if (e != nullptr) {
@@ -158,6 +159,7 @@ void JarIndex::addToList($String* key, $String* value, $HashMap* t) {
 }
 
 $LinkedList* JarIndex::get($String* fileName) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList, jarFiles, nullptr);
 	if (($assign(jarFiles, $cast($LinkedList, $nc(this->indexMap)->get(fileName)))) == nullptr) {
 		int32_t pos = 0;
@@ -185,6 +187,7 @@ void JarIndex::addMapping($String* jarItem, $String* jarName) {
 }
 
 void JarIndex::parseJars($StringArray* files) {
+	$useLocalCurrentObjectStackCache();
 	if (files == nullptr) {
 		return;
 	}
@@ -215,6 +218,7 @@ void JarIndex::parseJars($StringArray* files) {
 }
 
 void JarIndex::write($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$init($UTF_8);
 	$var($BufferedWriter, bw, $new($BufferedWriter, $$new($OutputStreamWriter, out, static_cast<$Charset*>($UTF_8::INSTANCE))));
 	bw->write("JarIndex-Version: 1.0\n\n"_s);
@@ -236,6 +240,7 @@ void JarIndex::write($OutputStream* out) {
 }
 
 void JarIndex::read($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	$init($UTF_8);
 	$var($BufferedReader, br, $new($BufferedReader, $$new($InputStreamReader, is, static_cast<$Charset*>($UTF_8::INSTANCE))));
 	$var($String, line, nullptr);
@@ -265,6 +270,7 @@ void JarIndex::read($InputStream* is) {
 }
 
 void JarIndex::merge(JarIndex* toIndex, $String* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, itr, $nc($($nc(this->indexMap)->entrySet()))->iterator());
 	while ($nc(itr)->hasNext()) {
 		$var($Map$Entry, e, $cast($Map$Entry, itr->next()));

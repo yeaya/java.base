@@ -103,6 +103,7 @@ void TreeMap$ValueSpliterator::init$($TreeMap* tree, $TreeMap$Entry* origin, $Tr
 }
 
 $Spliterator* TreeMap$ValueSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->est < 0) {
 		getEstimate();
 	}
@@ -118,6 +119,7 @@ $Spliterator* TreeMap$ValueSpliterator::trySplit() {
 }
 
 void TreeMap$ValueSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}

@@ -129,6 +129,7 @@ void FileOutputStream::init$($File* file) {
 }
 
 void FileOutputStream::init$($File* file, bool append) {
+	$useLocalCurrentObjectStackCache();
 	$OutputStream::init$();
 	$set(this, closeLock, $new($Object));
 	$var($String, name, file != nullptr ? $nc(file)->getPath() : ($String*)nullptr);
@@ -199,6 +200,7 @@ void FileOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void FileOutputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}
@@ -223,6 +225,7 @@ $FileDescriptor* FileOutputStream::getFD() {
 }
 
 $FileChannel* FileOutputStream::getChannel() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileChannel, fc, this->channel);
 	if (fc == nullptr) {
 		$synchronized(this) {

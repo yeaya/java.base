@@ -86,6 +86,7 @@ void BootLoader$PackageHelper$1::init$($String* val$location) {
 }
 
 $Object* BootLoader$PackageHelper$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, path, $Path::of(this->val$location, $$new($StringArray, 0)));
 	if ($Files::isRegularFile(path, $$new($LinkOptionArray, 0))) {
 		try {

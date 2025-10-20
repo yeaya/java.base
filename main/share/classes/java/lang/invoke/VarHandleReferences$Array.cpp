@@ -250,6 +250,7 @@ VarHandleReferences$Array* VarHandleReferences$Array::withInvokeBehavior() {
 }
 
 $Optional* VarHandleReferences$Array::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, arrayTypeRef, $nc(this->arrayType)->describeConstable());
 	if (!$nc(arrayTypeRef)->isPresent()) {
 		return $Optional::empty();
@@ -284,6 +285,7 @@ $Object* VarHandleReferences$Array::reflectiveTypeCheck($ObjectArray* oarray, Ob
 
 $Object* VarHandleReferences$Array::get($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	return $of($nc(array)->get(index));
@@ -291,6 +293,7 @@ $Object* VarHandleReferences$Array::get($VarHandle* ob, Object$* oarray, int32_t
 
 void VarHandleReferences$Array::set($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$nc(array)->set(index, $($nc(handle->componentType)->cast(value)));
@@ -298,6 +301,7 @@ void VarHandleReferences$Array::set($VarHandle* ob, Object$* oarray, int32_t ind
 
 $Object* VarHandleReferences$Array::getVolatile($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -307,6 +311,7 @@ $Object* VarHandleReferences$Array::getVolatile($VarHandle* ob, Object$* oarray,
 
 void VarHandleReferences$Array::setVolatile($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -318,6 +323,7 @@ void VarHandleReferences$Array::setVolatile($VarHandle* ob, Object$* oarray, int
 
 $Object* VarHandleReferences$Array::getOpaque($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -327,6 +333,7 @@ $Object* VarHandleReferences$Array::getOpaque($VarHandle* ob, Object$* oarray, i
 
 void VarHandleReferences$Array::setOpaque($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -338,6 +345,7 @@ void VarHandleReferences$Array::setOpaque($VarHandle* ob, Object$* oarray, int32
 
 $Object* VarHandleReferences$Array::getAcquire($VarHandle* ob, Object$* oarray, int32_t index) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -347,6 +355,7 @@ $Object* VarHandleReferences$Array::getAcquire($VarHandle* ob, Object$* oarray, 
 
 void VarHandleReferences$Array::setRelease($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -358,6 +367,7 @@ void VarHandleReferences$Array::setRelease($VarHandle* ob, Object$* oarray, int3
 
 bool VarHandleReferences$Array::compareAndSet($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -370,6 +380,7 @@ bool VarHandleReferences$Array::compareAndSet($VarHandle* ob, Object$* oarray, i
 
 $Object* VarHandleReferences$Array::compareAndExchange($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -382,6 +393,7 @@ $Object* VarHandleReferences$Array::compareAndExchange($VarHandle* ob, Object$* 
 
 $Object* VarHandleReferences$Array::compareAndExchangeAcquire($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -394,6 +406,7 @@ $Object* VarHandleReferences$Array::compareAndExchangeAcquire($VarHandle* ob, Ob
 
 $Object* VarHandleReferences$Array::compareAndExchangeRelease($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -406,6 +419,7 @@ $Object* VarHandleReferences$Array::compareAndExchangeRelease($VarHandle* ob, Ob
 
 bool VarHandleReferences$Array::weakCompareAndSetPlain($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -418,6 +432,7 @@ bool VarHandleReferences$Array::weakCompareAndSetPlain($VarHandle* ob, Object$* 
 
 bool VarHandleReferences$Array::weakCompareAndSet($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -430,6 +445,7 @@ bool VarHandleReferences$Array::weakCompareAndSet($VarHandle* ob, Object$* oarra
 
 bool VarHandleReferences$Array::weakCompareAndSetAcquire($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -442,6 +458,7 @@ bool VarHandleReferences$Array::weakCompareAndSetAcquire($VarHandle* ob, Object$
 
 bool VarHandleReferences$Array::weakCompareAndSetRelease($VarHandle* ob, Object$* oarray, int32_t index, Object$* expected, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -454,6 +471,7 @@ bool VarHandleReferences$Array::weakCompareAndSetRelease($VarHandle* ob, Object$
 
 $Object* VarHandleReferences$Array::getAndSet($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -465,6 +483,7 @@ $Object* VarHandleReferences$Array::getAndSet($VarHandle* ob, Object$* oarray, i
 
 $Object* VarHandleReferences$Array::getAndSetAcquire($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);
@@ -476,6 +495,7 @@ $Object* VarHandleReferences$Array::getAndSetAcquire($VarHandle* ob, Object$* oa
 
 $Object* VarHandleReferences$Array::getAndSetRelease($VarHandle* ob, Object$* oarray, int32_t index, Object$* value) {
 	$init(VarHandleReferences$Array);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleReferences$Array, handle, $cast(VarHandleReferences$Array, ob));
 	$var($ObjectArray, array, $cast($ObjectArray, $nc($nc(handle)->arrayType)->cast(oarray)));
 	$init($MethodHandleStatics);

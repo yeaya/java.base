@@ -92,6 +92,7 @@ void TransportContext$NotifyHandshake::init$($Map* listeners, $HandshakeComplete
 }
 
 void TransportContext$NotifyHandshake::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($Iterator, i$, $nc(this->targets)->iterator());

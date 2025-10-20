@@ -49,6 +49,7 @@ void B5087907::init$() {
 }
 
 void B5087907::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, lh, nullptr);
 	$var($InetAddressArray, addrs, nullptr);
 	try {

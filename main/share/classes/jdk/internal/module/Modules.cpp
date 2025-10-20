@@ -567,6 +567,7 @@ void Modules::addUses($Module* m, $Class* service) {
 
 void Modules::addProvides($Module* m, $Class* service, $Class* impl) {
 	$init(Modules);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ModuleLayer, layer, $nc(m)->getLayer());
 	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(Modules$$Lambda$getClassLoader, static_cast<$Module*>(m))));
@@ -593,6 +594,7 @@ $Configuration* Modules::newBootLayerConfiguration($ModuleFinder* finder, $Colle
 
 void Modules::transformedByAgent($Module* m) {
 	$init(Modules);
+	$useLocalCurrentObjectStackCache();
 	addReads(m, $($BootLoader::getUnnamedModule()));
 	addReads(m, $($nc($($ClassLoaders::appClassLoader()))->getUnnamedModule()));
 }
@@ -601,6 +603,7 @@ $Module* Modules::loadModule($String* name) {
 	$load(Modules);
 	$synchronized(class$) {
 		$init(Modules);
+		$useLocalCurrentObjectStackCache();
 		$var($ModuleLayer, top, Modules::topLayer);
 		if (top == nullptr) {
 			$assign(top, $ModuleLayer::boot());
@@ -673,11 +676,13 @@ $InternalError* Modules::lambda$loadModule$4() {
 
 void Modules::lambda$loadModule$3($Map* map, $Module* m, $ModuleDescriptor$Opens* o) {
 	$init(Modules);
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(o)->targets()))->forEach(static_cast<$Consumer*>($$new(Modules$$Lambda$lambda$loadModule$2$7, map, m, o)));
 }
 
 void Modules::lambda$loadModule$2($Map* map, $Module* m, $ModuleDescriptor$Opens* o, $String* target) {
 	$init(Modules);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, other, $cast($Module, $nc(map)->get(target)));
 	if (other != nullptr) {
 		addOpens(m, $($nc(o)->source()), other);
@@ -686,11 +691,13 @@ void Modules::lambda$loadModule$2($Map* map, $Module* m, $ModuleDescriptor$Opens
 
 void Modules::lambda$loadModule$1($Map* map, $Module* m, $ModuleDescriptor$Exports* e) {
 	$init(Modules);
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(e)->targets()))->forEach(static_cast<$Consumer*>($$new(Modules$$Lambda$lambda$loadModule$0$8, map, m, e)));
 }
 
 void Modules::lambda$loadModule$0($Map* map, $Module* m, $ModuleDescriptor$Exports* e, $String* target) {
 	$init(Modules);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, other, $cast($Module, $nc(map)->get(target)));
 	if (other != nullptr) {
 		addExports(m, $($nc(e)->source()), other);

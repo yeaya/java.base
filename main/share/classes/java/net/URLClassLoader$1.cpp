@@ -83,6 +83,7 @@ void URLClassLoader$1::init$($URLClassLoader* this$0, $String* val$name) {
 }
 
 $Object* URLClassLoader$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $($nc(this->val$name)->replace(u'.', u'/'))->concat(".class"_s));
 	$var($Resource, res, $nc(this->this$0->ucp)->getResource(path, false));
 	if (res != nullptr) {

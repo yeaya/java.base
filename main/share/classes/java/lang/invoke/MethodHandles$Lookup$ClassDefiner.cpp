@@ -108,6 +108,7 @@ $MethodHandles$Lookup* MethodHandles$Lookup$ClassDefiner::defineClassAsLookup(bo
 }
 
 $Class* MethodHandles$Lookup$ClassDefiner::defineClass(bool initialize, Object$* classData) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* lookupClass = $nc(this->lookup)->lookupClass();
 	$var($ClassLoader, loader, $nc(lookupClass)->getClassLoader());

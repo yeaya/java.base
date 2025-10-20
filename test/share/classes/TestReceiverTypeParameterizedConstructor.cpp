@@ -75,6 +75,7 @@ void TestReceiverTypeParameterizedConstructor::main($StringArray* args) {
 
 void TestReceiverTypeParameterizedConstructor::doAssert($Class* c) {
 	$load(TestReceiverTypeParameterizedConstructor);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Constructor, constructor, $nc(c)->getDeclaredConstructor($$new($ClassArray, {c->getDeclaringClass()})));
 	$var($AnnotatedType, receiverType, $nc(constructor)->getAnnotatedReceiverType());

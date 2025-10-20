@@ -135,6 +135,7 @@ $Object* allocate$SPILocaleProviderAdapter$Delegate($Class* clazz) {
 }
 
 void SPILocaleProviderAdapter$Delegate::addImpl($LocaleServiceProvider* impl) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($LocaleArray, arr$, $nc(impl)->getAvailableLocales());
 		int32_t len$ = $nc(arr$)->length;
@@ -149,6 +150,7 @@ void SPILocaleProviderAdapter$Delegate::addImpl($LocaleServiceProvider* impl) {
 }
 
 $LocaleServiceProvider* SPILocaleProviderAdapter$Delegate::getImpl($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($LocaleServiceProviderPool::getLookupLocales($($nc(locale)->stripExtensions()))))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -165,10 +167,12 @@ $LocaleServiceProvider* SPILocaleProviderAdapter$Delegate::getImpl($Locale* loca
 }
 
 $LocaleArray* SPILocaleProviderAdapter$Delegate::getAvailableLocalesDelegate() {
+	$useLocalCurrentObjectStackCache();
 	return $fcast($LocaleArray, $nc($($nc($(getDelegateMap()))->keySet()))->toArray($$new($LocaleArray, 0)));
 }
 
 bool SPILocaleProviderAdapter$Delegate::isSupportedLocaleDelegate($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, map, getDelegateMap());
 	$var($Locale, override$, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleServiceProvider, impl, $cast($LocaleServiceProvider, $nc(map)->get(override$)));

@@ -287,6 +287,7 @@ $Object* allocate$WinNTFileSystem($Class* clazz) {
 $StringArray* WinNTFileSystem::driveDirCache = nullptr;
 
 void WinNTFileSystem::init$() {
+	$useLocalCurrentObjectStackCache();
 	$FileSystem::init$();
 	$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 	this->slash = $nc($($nc(props)->getProperty("file.separator"_s)))->charAt(0);
@@ -440,6 +441,7 @@ int32_t WinNTFileSystem::prefixLength($String* path) {
 }
 
 $String* WinNTFileSystem::resolve($String* parent, $String* child) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pn = $nc(parent)->length();
 	if (pn == 0) {
 		return child;
@@ -512,6 +514,7 @@ bool WinNTFileSystem::isAbsolute($File* f) {
 }
 
 $String* WinNTFileSystem::resolve($File* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $nc(f)->getPath());
 	int32_t pl = f->getPrefixLength();
 	if ((pl == 2) && ($nc(path)->charAt(0) == this->slash)) {
@@ -605,6 +608,7 @@ $String* WinNTFileSystem::getDriveDirectory(char16_t drive) {
 }
 
 $String* WinNTFileSystem::canonicalize($String* path) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(path)->length();
 	bool var$0 = (len == 2) && (isLetter(path->charAt(0)));
 	if (var$0 && (path->charAt(1) == u':')) {
@@ -672,6 +676,7 @@ $String* WinNTFileSystem::canonicalize0($String* path) {
 }
 
 $String* WinNTFileSystem::canonicalizeWithPrefix($String* canonicalPrefix, $String* filename) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	return canonicalizeWithPrefix0(canonicalPrefix, $$str({canonicalPrefix, $$str($File::separatorChar), filename}));
 }
@@ -846,6 +851,7 @@ bool WinNTFileSystem::rename0($File* f1, $File* f2) {
 }
 
 $FileArray* WinNTFileSystem::listRoots() {
+	$useLocalCurrentObjectStackCache();
 	return $fcast($FileArray, $nc($($nc($($nc($($nc($($BitSet::valueOf($$new($longs, {(int64_t)listRoots0()}))))->stream()))->mapToObj(static_cast<$IntFunction*>($$new(WinNTFileSystem$$Lambda$lambda$listRoots$0, this)))))->filter(static_cast<$Predicate*>($$new(WinNTFileSystem$$Lambda$lambda$listRoots$1$1, this)))))->toArray(static_cast<$IntFunction*>($$new(WinNTFileSystem$$Lambda$lambda$listRoots$2$2))));
 }
 
@@ -859,6 +865,7 @@ int32_t WinNTFileSystem::listRoots0() {
 }
 
 bool WinNTFileSystem::access($String* path) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
@@ -896,6 +903,7 @@ int32_t WinNTFileSystem::getNameMax0($String* path) {
 }
 
 int32_t WinNTFileSystem::getNameMax($String* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, nullptr);
 	if (path != nullptr) {
 		$var($File, f, $new($File, path));
@@ -913,10 +921,12 @@ int32_t WinNTFileSystem::getNameMax($String* path) {
 }
 
 int32_t WinNTFileSystem::compare($File* f1, $File* f2) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(f1)->getPath()))->compareToIgnoreCase($($nc(f2)->getPath()));
 }
 
 int32_t WinNTFileSystem::hashCode($File* f) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	return $($nc($($nc(f)->getPath()))->toLowerCase($Locale::ENGLISH))->hashCode() ^ 0x0012D591;
 }
@@ -939,6 +949,7 @@ bool WinNTFileSystem::lambda$listRoots$1($File* f) {
 }
 
 $File* WinNTFileSystem::lambda$listRoots$0(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	return $new($File, $$str({$$str((char16_t)(u'A' + i)), ":"_s, $$str(this->slash)}));
 }
 

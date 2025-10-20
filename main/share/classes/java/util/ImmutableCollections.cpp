@@ -159,6 +159,7 @@ $List* ImmutableCollections::listFromArray($ObjectArray* input) {
 
 $List* ImmutableCollections::listFromTrustedArray($ObjectArray* input) {
 	$init(ImmutableCollections);
+	$useLocalCurrentObjectStackCache();
 	$load($ObjectArray);
 	if (!ImmutableCollections::$assertionsDisabled && !($nc($of(input))->getClass() == $getClass($ObjectArray))) {
 		$throwNew($AssertionError);
@@ -215,6 +216,7 @@ $List* ImmutableCollections::listFromTrustedArrayNullsAllowed($ObjectArray* inpu
 }
 
 void clinit$ImmutableCollections($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	ImmutableCollections::$assertionsDisabled = !ImmutableCollections::class$->desiredAssertionStatus();
 	{
 		int64_t color = 0x243F6A8885A308D3;

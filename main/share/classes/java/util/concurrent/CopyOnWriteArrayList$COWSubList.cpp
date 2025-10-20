@@ -333,6 +333,7 @@ bool CopyOnWriteArrayList$COWSubList::contains(Object$* o) {
 }
 
 bool CopyOnWriteArrayList$COWSubList::containsAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, nullptr);
 	int32_t offset = 0;
 	int32_t size = 0;
@@ -374,6 +375,7 @@ int32_t CopyOnWriteArrayList$COWSubList::hashCode() {
 }
 
 bool CopyOnWriteArrayList$COWSubList::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}
@@ -525,6 +527,7 @@ $List* CopyOnWriteArrayList$COWSubList::subList(int32_t fromIndex, int32_t toInd
 }
 
 void CopyOnWriteArrayList$COWSubList::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t i = 0;
 	int32_t end = 0;

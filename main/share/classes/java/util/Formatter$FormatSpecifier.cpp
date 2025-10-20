@@ -419,6 +419,7 @@ void Formatter$FormatSpecifier::init$($Formatter* this$0, char16_t conv) {
 }
 
 void Formatter$FormatSpecifier::init$($Formatter* this$0, $String* s, $Matcher* m) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	this->index$ = 0;
 	$init($Formatter$Flags);
@@ -587,6 +588,7 @@ void Formatter$FormatSpecifier::printDateTime(Object$* arg, $Locale* l) {
 }
 
 void Formatter$FormatSpecifier::printCharacter(Object$* arg, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	if (arg == nullptr) {
 		print("null"_s, l);
 		return;
@@ -622,6 +624,7 @@ void Formatter$FormatSpecifier::printCharacter(Object$* arg, $Locale* l) {
 }
 
 void Formatter$FormatSpecifier::printString(Object$* arg, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Formattable, arg)) {
 		$var($Formatter, fmt, this->this$0);
 		if ($nc(fmt)->locale() != l) {
@@ -669,6 +672,7 @@ void Formatter$FormatSpecifier::print($String* s$renamed, $Locale* l) {
 }
 
 $String* Formatter$FormatSpecifier::toUpperCaseWithLocale($String* s, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	return $nc(s)->toUpperCase($cast($Locale, $($Objects::requireNonNullElse(l, $($Locale::getDefault($Locale$Category::FORMAT))))));
 }
@@ -693,6 +697,7 @@ void Formatter$FormatSpecifier::appendJustified($Appendable* a, $CharSequence* c
 }
 
 $String* Formatter$FormatSpecifier::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, "%"_s));
 	$init($Formatter$Flags);
 	$var($Formatter$Flags, dupf, $nc($($nc(this->f)->dup()))->remove($Formatter$Flags::UPPERCASE));
@@ -714,6 +719,7 @@ $String* Formatter$FormatSpecifier::toString() {
 }
 
 void Formatter$FormatSpecifier::checkGeneral() {
+	$useLocalCurrentObjectStackCache();
 	$init($Formatter$Flags);
 	if ((this->c == $Formatter$Conversion::BOOLEAN || this->c == $Formatter$Conversion::HASHCODE) && $nc(this->f)->contains($Formatter$Flags::ALTERNATE)) {
 		failMismatch($Formatter$Flags::ALTERNATE, this->c);
@@ -731,6 +737,7 @@ void Formatter$FormatSpecifier::checkGeneral() {
 }
 
 void Formatter$FormatSpecifier::checkDateTime() {
+	$useLocalCurrentObjectStackCache();
 	if (this->precision$ != -1) {
 		$throwNew($IllegalFormatPrecisionException, this->precision$);
 	}
@@ -752,6 +759,7 @@ void Formatter$FormatSpecifier::checkDateTime() {
 }
 
 void Formatter$FormatSpecifier::checkCharacter() {
+	$useLocalCurrentObjectStackCache();
 	if (this->precision$ != -1) {
 		$throwNew($IllegalFormatPrecisionException, this->precision$);
 	}
@@ -770,6 +778,7 @@ void Formatter$FormatSpecifier::checkCharacter() {
 }
 
 void Formatter$FormatSpecifier::checkInteger() {
+	$useLocalCurrentObjectStackCache();
 	checkNumeric();
 	if (this->precision$ != -1) {
 		$throwNew($IllegalFormatPrecisionException, this->precision$);
@@ -787,6 +796,7 @@ void Formatter$FormatSpecifier::checkInteger() {
 }
 
 void Formatter$FormatSpecifier::checkBadFlags($Formatter$FlagsArray* badFlags) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Formatter$FlagsArray, arr$, badFlags);
 		int32_t len$ = $nc(arr$)->length;
@@ -801,6 +811,7 @@ void Formatter$FormatSpecifier::checkBadFlags($Formatter$FlagsArray* badFlags) {
 }
 
 void Formatter$FormatSpecifier::checkFloat() {
+	$useLocalCurrentObjectStackCache();
 	checkNumeric();
 	if (this->c == $Formatter$Conversion::DECIMAL_FLOAT) {
 	} else if (this->c == $Formatter$Conversion::HEXADECIMAL_FLOAT) {
@@ -819,6 +830,7 @@ void Formatter$FormatSpecifier::checkFloat() {
 }
 
 void Formatter$FormatSpecifier::checkNumeric() {
+	$useLocalCurrentObjectStackCache();
 	if (this->width$ != -1 && this->width$ < 0) {
 		$throwNew($IllegalFormatWidthException, this->width$);
 	}
@@ -847,6 +859,7 @@ void Formatter$FormatSpecifier::checkNumeric() {
 }
 
 void Formatter$FormatSpecifier::checkText() {
+	$useLocalCurrentObjectStackCache();
 	if (this->precision$ != -1) {
 		$throwNew($IllegalFormatPrecisionException, this->precision$);
 	}
@@ -919,6 +932,7 @@ void Formatter$FormatSpecifier::print(int32_t value, $Locale* l) {
 }
 
 void Formatter$FormatSpecifier::print(int64_t value, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (this->c == $Formatter$Conversion::DECIMAL_INTEGER) {
 		bool neg = value < 0;
@@ -995,6 +1009,7 @@ $StringBuilder* Formatter$FormatSpecifier::trailingSign($StringBuilder* sb, bool
 }
 
 void Formatter$FormatSpecifier::print($BigInteger* value, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	bool neg = $nc(value)->signum() == -1;
 	$var($BigInteger, v, value->abs());
@@ -1069,6 +1084,7 @@ void Formatter$FormatSpecifier::print(double value, $Locale* l) {
 }
 
 void Formatter$FormatSpecifier::print($StringBuilder* sb, double value, $Locale* l, $Formatter$Flags* f, char16_t c, int32_t precision, bool neg) {
+	$useLocalCurrentObjectStackCache();
 	if (c == $Formatter$Conversion::SCIENTIFIC) {
 		int32_t prec = (precision == -1 ? 6 : precision);
 		$init($FormattedFloatingDecimal$Form);
@@ -1224,6 +1240,7 @@ void Formatter$FormatSpecifier::addZeros($StringBuilder* sb, int32_t prec) {
 }
 
 $String* Formatter$FormatSpecifier::hexDouble(double d, int32_t prec) {
+	$useLocalCurrentObjectStackCache();
 	if (!$Double::isFinite(d) || d == 0.0 || prec == 0 || prec >= 13) {
 		return $nc($($Double::toHexString(d)))->substring(2);
 	} else {
@@ -1282,6 +1299,7 @@ $String* Formatter$FormatSpecifier::hexDouble(double d, int32_t prec) {
 }
 
 void Formatter$FormatSpecifier::print($BigDecimal* value, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	if (this->c == $Formatter$Conversion::HEXADECIMAL_FLOAT) {
 		failConversion(this->c, value);
 	}
@@ -1295,6 +1313,7 @@ void Formatter$FormatSpecifier::print($BigDecimal* value, $Locale* l) {
 }
 
 void Formatter$FormatSpecifier::print($StringBuilder* sb, $BigDecimal* value$renamed, $Locale* l, $Formatter$Flags* f, char16_t c, int32_t precision, bool neg) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigDecimal, value, value$renamed);
 	if (c == $Formatter$Conversion::SCIENTIFIC) {
 		int32_t prec = (precision == -1 ? 6 : precision);
@@ -1405,6 +1424,7 @@ void Formatter$FormatSpecifier::trailingZeros($StringBuilder* sb, int32_t nzeros
 }
 
 void Formatter$FormatSpecifier::print($Calendar* t, char16_t c, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	print(sb, t, c, l);
 	$init($Formatter$Flags);
@@ -1416,6 +1436,7 @@ void Formatter$FormatSpecifier::print($Calendar* t, char16_t c, $Locale* l) {
 }
 
 $Appendable* Formatter$FormatSpecifier::print($StringBuilder* sb$renamed, $Calendar* t, char16_t c, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, sb$renamed);
 	if (sb == nullptr) {
 		$assign(sb, $new($StringBuilder));
@@ -1718,6 +1739,7 @@ $Appendable* Formatter$FormatSpecifier::print($StringBuilder* sb$renamed, $Calen
 }
 
 void Formatter$FormatSpecifier::print($TemporalAccessor* t, char16_t c, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	print(sb, t, c, l);
 	$init($Formatter$Flags);
@@ -1729,6 +1751,7 @@ void Formatter$FormatSpecifier::print($TemporalAccessor* t, char16_t c, $Locale*
 }
 
 $Appendable* Formatter$FormatSpecifier::print($StringBuilder* sb$renamed, $TemporalAccessor* t, char16_t c, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, sb$renamed);
 	if (sb == nullptr) {
 		$assign(sb, $new($StringBuilder));
@@ -2096,6 +2119,7 @@ void Formatter$FormatSpecifier::failConversion(char16_t c, Object$* arg) {
 }
 
 char16_t Formatter$FormatSpecifier::getZero($Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	if ((l != nullptr) && !l->equals($(this->this$0->locale()))) {
 		$var($DecimalFormatSymbols, dfs, $DecimalFormatSymbols::getInstance(l));
 		return $nc(dfs)->getZeroDigit();
@@ -2108,6 +2132,7 @@ $StringBuilder* Formatter$FormatSpecifier::localizedMagnitude($StringBuilder* sb
 }
 
 $StringBuilder* Formatter$FormatSpecifier::localizedMagnitude($StringBuilder* sb$renamed, $CharSequence* value, int32_t offset, $Formatter$Flags* f, int32_t width, $Locale* l) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, sb$renamed);
 	if (sb == nullptr) {
 		$assign(sb, $new($StringBuilder));

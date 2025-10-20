@@ -92,6 +92,7 @@ void CertificateRequest$T10CertificateRequestProducer::init$() {
 }
 
 $bytes* CertificateRequest$T10CertificateRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($X509CertificateArray, caCerts, $nc($($nc($nc(shc)->sslContext)->getX509TrustManager()))->getAcceptedIssuers());
 	$var($CertificateRequest$T10CertificateRequestMessage, crm, $new($CertificateRequest$T10CertificateRequestMessage, shc, caCerts, $nc(shc->negotiatedCipherSuite)->keyExchange));

@@ -49,6 +49,7 @@ void extObjectInputStream::init$($InputStream* in) {
 }
 
 $Class* extObjectInputStream::resolveClass($ObjectStreamClass* v) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $ObjectInputStream::resolveClass(v);

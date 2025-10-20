@@ -118,6 +118,7 @@ void HelloCookieManager$T13HelloCookieManager::init$($SecureRandom* secureRandom
 }
 
 $bytes* HelloCookieManager$T13HelloCookieManager::createCookie($ServerHandshakeContext* context, $ClientHello$ClientHelloMessage* clientHello) {
+	$useLocalCurrentObjectStackCache();
 	int32_t version = 0;
 	$var($bytes, secret, nullptr);
 	$nc(this->t13ManagerLock)->lock();
@@ -164,6 +165,7 @@ $bytes* HelloCookieManager$T13HelloCookieManager::createCookie($ServerHandshakeC
 }
 
 bool HelloCookieManager$T13HelloCookieManager::isCookieValid($ServerHandshakeContext* context, $ClientHello$ClientHelloMessage* clientHello, $bytes* cookie) {
+	$useLocalCurrentObjectStackCache();
 	if ((cookie == nullptr) || ($nc(cookie)->length <= 32)) {
 		return false;
 	}

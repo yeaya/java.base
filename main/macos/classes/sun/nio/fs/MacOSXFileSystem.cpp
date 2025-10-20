@@ -56,6 +56,7 @@ $Pattern* MacOSXFileSystem::compilePathMatchPattern($String* expr) {
 }
 
 $String* MacOSXFileSystem::normalizeNativePath($String* path) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(path)->length(); ++i) {
 		char16_t c = path->charAt(i);
 		if (c > 128) {
@@ -66,6 +67,7 @@ $String* MacOSXFileSystem::normalizeNativePath($String* path) {
 }
 
 $String* MacOSXFileSystem::normalizeJavaPath($String* path) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(path)->length(); ++i) {
 		if (path->charAt(i) > 128) {
 			return $new($String, $($MacOSXNativeDispatcher::normalizepath($(path->toCharArray()), 2)));

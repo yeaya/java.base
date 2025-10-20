@@ -71,6 +71,7 @@ void SimpleProxy::init$() {
 
 void SimpleProxy::main($StringArray* args) {
 	$load(SimpleProxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, SimpleProxy::class$->getClassLoader());
 	$Class* fooClass = $Class::forName("p.Foo"_s);
@@ -92,6 +93,7 @@ void SimpleProxy::main($StringArray* args) {
 
 void SimpleProxy::makeProxy($ClassLoader* loader, $Class* cls) {
 	$load(SimpleProxy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassArray, intfs, $new($ClassArray, {cls}));
 	$Proxy::newProxyInstance(loader, intfs, static_cast<$InvocationHandler*>($$new($SimpleProxy$1)));

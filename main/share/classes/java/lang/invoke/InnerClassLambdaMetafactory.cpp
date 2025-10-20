@@ -269,6 +269,7 @@ bool InnerClassLambdaMetafactory::disableEagerInitialization = false;
 $ConstantDynamic* InnerClassLambdaMetafactory::implMethodCondy = nullptr;
 
 void InnerClassLambdaMetafactory::init$($MethodHandles$Lookup* caller, $MethodType* factoryType, $String* interfaceMethodName, $MethodType* interfaceMethodType, $MethodHandle* implementation, $MethodType* dynamicMethodType, bool isSerializable, $ClassArray* altInterfaces, $MethodTypeArray* altMethods) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractValidatingLambdaMetafactory::init$(caller, factoryType, interfaceMethodName, interfaceMethodType, implementation, dynamicMethodType, isSerializable, altInterfaces, altMethods);
 	$set(this, implMethodClassName, $nc($($nc(this->implClass)->getName()))->replace(u'.', u'/'));
 	$set(this, implMethodName, $nc(this->implInfo)->getName());
@@ -294,6 +295,7 @@ void InnerClassLambdaMetafactory::init$($MethodHandles$Lookup* caller, $MethodTy
 
 $String* InnerClassLambdaMetafactory::lambdaClassName($Class* targetClass) {
 	$init(InnerClassLambdaMetafactory);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(targetClass)->getName());
 	if (targetClass->isHidden()) {
 		$assign(name, $nc(name)->replace(u'/', u'_'));
@@ -303,6 +305,7 @@ $String* InnerClassLambdaMetafactory::lambdaClassName($Class* targetClass) {
 }
 
 $CallSite* InnerClassLambdaMetafactory::buildCallSite() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* innerClass = spinInnerClass();
 	if ($nc(this->factoryType)->parameterCount() == 0) {
@@ -354,6 +357,7 @@ $Class* InnerClassLambdaMetafactory::spinInnerClass() {
 }
 
 $Class* InnerClassLambdaMetafactory::generateInnerClass() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($StringArray, interfaceNames, nullptr);
 	$var($String, interfaceName, $nc($($nc(this->interfaceClass)->getName()))->replace(u'.', u'/'));
@@ -444,6 +448,7 @@ $Class* InnerClassLambdaMetafactory::generateInnerClass() {
 }
 
 void InnerClassLambdaMetafactory::generateClassInitializer() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, lambdaTypeDescriptor, $nc($($cast($Class, $nc(this->factoryType)->returnType())))->descriptorString());
 	$var($FieldVisitor, fv, $nc(this->cw)->visitField((2 | 8) | 16, InnerClassLambdaMetafactory::LAMBDA_INSTANCE_FIELD, lambdaTypeDescriptor, nullptr, nullptr));
 	$nc(fv)->visitEnd();
@@ -462,6 +467,7 @@ void InnerClassLambdaMetafactory::generateClassInitializer() {
 }
 
 void InnerClassLambdaMetafactory::generateConstructor() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodVisitor, ctor, $nc(this->cw)->visitMethod(2, InnerClassLambdaMetafactory::NAME_CTOR, $($nc(this->constructorType)->toMethodDescriptorString()), nullptr, nullptr));
 	$nc(ctor)->visitCode();
 	ctor->visitVarInsn(25, 0);
@@ -484,6 +490,7 @@ void InnerClassLambdaMetafactory::generateConstructor() {
 }
 
 void InnerClassLambdaMetafactory::generateSerializationFriendlyMethods() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeConvertingMethodAdapter, mv, $new($TypeConvertingMethodAdapter, $($nc(this->cw)->visitMethod(2 + 16, InnerClassLambdaMetafactory::NAME_METHOD_WRITE_REPLACE, InnerClassLambdaMetafactory::DESCR_METHOD_WRITE_REPLACE, nullptr, nullptr))));
 	mv->visitCode();
 	mv->visitTypeInsn(187, InnerClassLambdaMetafactory::NAME_SERIALIZED_LAMBDA);
@@ -591,6 +598,7 @@ int32_t InnerClassLambdaMetafactory::getOpcodeOffset($Class* c) {
 }
 
 void clinit$InnerClassLambdaMetafactory($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(InnerClassLambdaMetafactory::JAVA_LANG_OBJECT, "java/lang/Object"_s);
 	$assignStatic(InnerClassLambdaMetafactory::NAME_CTOR, "<init>"_s);
 	$assignStatic(InnerClassLambdaMetafactory::LAMBDA_INSTANCE_FIELD, "LAMBDA_INSTANCE$"_s);

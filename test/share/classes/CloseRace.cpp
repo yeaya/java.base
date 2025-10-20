@@ -157,6 +157,7 @@ void CloseRace::init$() {
 
 bool CloseRace::fdInUse(int32_t i) {
 	$init(CloseRace);
+	$useLocalCurrentObjectStackCache();
 	return $$new($File, $$str({"/proc/self/fd/"_s, $$str(i)}))->exists();
 }
 
@@ -180,6 +181,7 @@ int32_t CloseRace::count($booleans* bits) {
 
 void CloseRace::dumpAllStacks() {
 	$init(CloseRace);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Start of dump"_s);
 	$var($Map, allStackTraces, $Thread::getAllStackTraces());
@@ -206,6 +208,7 @@ void CloseRace::dumpAllStacks() {
 
 void CloseRace::main($StringArray* args) {
 	$init(CloseRace);
+	$useLocalCurrentObjectStackCache();
 	if (!($$new($File, "/proc/self/fd"_s)->isDirectory())) {
 		return;
 	}

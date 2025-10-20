@@ -150,6 +150,7 @@ void CRLDistributionPointsExtension::init$($Boolean* critical, Object$* value) {
 }
 
 void CRLDistributionPointsExtension::init$($ObjectIdentifier* extensionId, $Boolean* critical, Object$* value, $String* extensionName) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$set(this, extensionId, extensionId);
 	this->critical = $nc(critical)->booleanValue();
@@ -180,6 +181,7 @@ void CRLDistributionPointsExtension::encode($OutputStream* out) {
 }
 
 void CRLDistributionPointsExtension::encode($OutputStream* out, $ObjectIdentifier* extensionId, bool isCritical) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$set(this, extensionId, extensionId);
@@ -191,6 +193,7 @@ void CRLDistributionPointsExtension::encode($OutputStream* out, $ObjectIdentifie
 }
 
 void CRLDistributionPointsExtension::set($String* name, Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(CRLDistributionPointsExtension::POINTS)) {
 		if (!($instanceOf($List, obj))) {
 			$throwNew($IOException, "Attribute value should be of type List."_s);
@@ -203,6 +206,7 @@ void CRLDistributionPointsExtension::set($String* name, Object$* obj) {
 }
 
 $Object* CRLDistributionPointsExtension::get($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(CRLDistributionPointsExtension::POINTS)) {
 		return $of(this->distributionPoints);
 	} else {
@@ -211,6 +215,7 @@ $Object* CRLDistributionPointsExtension::get($String* name) {
 }
 
 void CRLDistributionPointsExtension::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equalsIgnoreCase(CRLDistributionPointsExtension::POINTS)) {
 		$set(this, distributionPoints, $Collections::emptyList());
 	} else {
@@ -226,6 +231,7 @@ $Enumeration* CRLDistributionPointsExtension::getElements() {
 }
 
 void CRLDistributionPointsExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->distributionPoints)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 	} else {

@@ -216,6 +216,7 @@ void CgroupUtil::init$() {
 
 $Stream* CgroupUtil::readFilePrivileged($Path* path) {
 	$load(CgroupUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readFilePrivileged$0, path)));
@@ -246,6 +247,7 @@ void CgroupUtil::unwrapIOExceptionAndRethrow($PrivilegedActionException* pae) {
 
 $String* CgroupUtil::readStringValue($CgroupSubsystemController* controller, $String* param) {
 	$load(CgroupUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readStringValue$1$1, controller, param)));
 	try {
@@ -299,6 +301,7 @@ $String* CgroupUtil::readStringValue($CgroupSubsystemController* controller, $St
 
 $List* CgroupUtil::readAllLinesPrivileged($Path* path) {
 	$load(CgroupUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($PrivilegedExceptionAction, pea, static_cast<$PrivilegedExceptionAction*>($new(CgroupUtil$$Lambda$lambda$readAllLinesPrivileged$2$2, path)));
@@ -319,6 +322,7 @@ $List* CgroupUtil::lambda$readAllLinesPrivileged$2($Path* path) {
 }
 
 $BufferedReader* CgroupUtil::lambda$readStringValue$1($CgroupSubsystemController* controller, $String* param) {
+	$useLocalCurrentObjectStackCache();
 	return $Files::newBufferedReader($($Paths::get($($nc(controller)->path()), $$new($StringArray, {param}))));
 }
 

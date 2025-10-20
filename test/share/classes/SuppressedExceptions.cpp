@@ -103,6 +103,7 @@ void SuppressedExceptions::main($StringArray* args) {
 
 void SuppressedExceptions::noSelfSuppression() {
 	$init(SuppressedExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, throwable, $new($Throwable));
 	try {
 		throwable->addSuppressed(throwable);
@@ -117,6 +118,7 @@ void SuppressedExceptions::noSelfSuppression() {
 
 void SuppressedExceptions::basicSupressionTest() {
 	$init(SuppressedExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, throwable, $new($Throwable));
 	$var($RuntimeException, suppressed, $new($RuntimeException, "A suppressed exception."_s));
 	$var($AssertionError, repressed, $new($AssertionError, $of("A repressed error."_s)));
@@ -141,6 +143,7 @@ void SuppressedExceptions::basicSupressionTest() {
 
 void SuppressedExceptions::serializationTest() {
 	$init(SuppressedExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, bytes, $new($bytes, {
 		(int8_t)172,
 		(int8_t)237,
@@ -627,6 +630,7 @@ void SuppressedExceptions::serializationTest() {
 
 void SuppressedExceptions::selfReference() {
 	$init(SuppressedExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, throwable1, $new($RuntimeException));
 	$var($Throwable, throwable2, $new($AssertionError));
 	throwable1->initCause(throwable2);
@@ -639,6 +643,7 @@ void SuppressedExceptions::selfReference() {
 
 void SuppressedExceptions::noModification() {
 	$init(SuppressedExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t, $new($SuppressedExceptions$NoSuppression, false));
 	$var($ThrowableArray, t0, t->getSuppressed());
 	if ($nc(t0)->length != 0) {
@@ -666,6 +671,7 @@ void SuppressedExceptions::noModification() {
 
 void SuppressedExceptions::initCausePlumbing() {
 	$init(SuppressedExceptions);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, t1, $new($Throwable));
 	$var($Throwable, t2, $new($Throwable, "message"_s, t1));
 	$var($Throwable, t3, $new($Throwable));

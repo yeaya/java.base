@@ -129,6 +129,7 @@ void Subject$ClassSet::init$($Subject* this$0, int32_t which, $Class* c) {
 }
 
 void Subject$ClassSet::populateSet() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Iterator, iterator, nullptr);
 	switch (this->which) {
@@ -179,6 +180,7 @@ $Iterator* Subject$ClassSet::iterator() {
 }
 
 bool Subject$ClassSet::add(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->c)->isAssignableFrom($nc($of(o))->getClass())) {
 		$var($MessageFormat, form, $new($MessageFormat, $($ResourcesMgr::getString("attempting.to.add.an.object.which.is.not.an.instance.of.class"_s))));
 		$var($ObjectArray, source, $new($ObjectArray, {$($of($nc(this->c)->toString()))}));

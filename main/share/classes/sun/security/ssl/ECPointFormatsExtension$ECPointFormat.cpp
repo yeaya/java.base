@@ -104,6 +104,7 @@ void ECPointFormatsExtension$ECPointFormat::init$($String* $enum$name, int32_t $
 
 $String* ECPointFormatsExtension$ECPointFormat::nameOf(int32_t id) {
 	$init(ECPointFormatsExtension$ECPointFormat);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ECPointFormatsExtension$ECPointFormatArray, arr$, ECPointFormatsExtension$ECPointFormat::values());
 		int32_t len$ = $nc(arr$)->length;

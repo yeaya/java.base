@@ -142,6 +142,7 @@ $Iterator* Collections$CheckedMap$CheckedEntrySet::iterator() {
 }
 
 $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, source, $nc(this->s)->toArray());
 	$load($ObjectArray);
 	$var($ObjectArray, dest, ($nc($of(source))->getClass() == $getClass($ObjectArray)) ? source : $new($ObjectArray, $nc(source)->length));
@@ -152,6 +153,7 @@ $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray() {
 }
 
 $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, arr, $nc(this->s)->toArray($nc(a)->length == 0 ? a : $($Arrays::copyOf(a, 0))));
 	for (int32_t i = 0; i < $nc(arr)->length; ++i) {
 		arr->set(i, $of($(checkedEntry($cast($Map$Entry, arr->get(i)), this->valueType))));
@@ -167,6 +169,7 @@ $ObjectArray* Collections$CheckedMap$CheckedEntrySet::toArray($ObjectArray* a) {
 }
 
 bool Collections$CheckedMap$CheckedEntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$1 = $instanceOf($Map$Entry, o);
 	if (var$1) {
@@ -178,6 +181,7 @@ bool Collections$CheckedMap$CheckedEntrySet::contains(Object$* o) {
 }
 
 bool Collections$CheckedMap$CheckedEntrySet::containsAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -206,6 +210,7 @@ bool Collections$CheckedMap$CheckedEntrySet::retainAll($Collection* c) {
 }
 
 bool Collections$CheckedMap$CheckedEntrySet::batchRemove($Collection* c, bool complement) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	$var($Iterator, it, iterator());

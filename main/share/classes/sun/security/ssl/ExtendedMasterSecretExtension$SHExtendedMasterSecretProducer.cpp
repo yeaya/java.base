@@ -74,6 +74,7 @@ void ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer::init$() {
 }
 
 $bytes* ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc($nc(shc)->handshakeSession)->useExtendedMasterSecret) {
 		$var($bytes, extData, $new($bytes, 0));

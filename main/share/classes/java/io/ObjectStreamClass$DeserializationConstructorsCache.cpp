@@ -88,6 +88,7 @@ $MethodHandle* ObjectStreamClass$DeserializationConstructorsCache::get($ObjectSt
 
 $MethodHandle* ObjectStreamClass$DeserializationConstructorsCache::putIfAbsentAndGet($ObjectStreamFieldArray* fields, $MethodHandle* mh) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, key, $new($ObjectStreamClass$DeserializationConstructorsCache$Key$Impl, fields));
 		$var($MethodHandle, oldMh, $cast($MethodHandle, putIfAbsent(key, mh)));
 		if (oldMh != nullptr) {

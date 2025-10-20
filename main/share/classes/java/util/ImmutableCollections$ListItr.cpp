@@ -115,6 +115,7 @@ bool ImmutableCollections$ListItr::hasNext() {
 }
 
 $Object* ImmutableCollections$ListItr::next() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t i = this->cursor;
 		$var($Object, next, $nc(this->list)->get(i));
@@ -139,6 +140,7 @@ bool ImmutableCollections$ListItr::hasPrevious() {
 }
 
 $Object* ImmutableCollections$ListItr::previous() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->isListIterator) {
 		$throw($($ImmutableCollections::uoe()));
 	}

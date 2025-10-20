@@ -65,6 +65,7 @@ void bug6412896::main($StringArray* args) {
 }
 
 void clinit$bug6412896($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(bug6412896::zoneOK, $new($StringArray2, {$$new($StringArray, {
 		"America/Los_Angeles"_s,
 		"Pacific Standard Time"_s,

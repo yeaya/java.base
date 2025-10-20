@@ -227,6 +227,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, bool 
 
 $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, bool signFlag, $PublicKey* prevKey, $String* provider, $List* certStores, $booleans* reasonsMask, $Set* trustAnchors, $Date* validity) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(trustAnchors)->isEmpty()) {
 		$throwNew($CertStoreException, "at least one TrustAnchor must be specified"_s);
 	}
@@ -237,6 +238,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, bool 
 
 $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, bool signFlag, $PublicKey* prevKey, $X509Certificate* prevCert, $String* provider, $List* certStores, $booleans* reasonsMask, $Set* trustAnchors, $Date* validity, $String* variant, $TrustAnchor* anchor) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, cert, $nc(selector)->getCertificateChecking());
 	if (cert == nullptr) {
 		return $Collections::emptySet();
@@ -286,6 +288,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, bool 
 
 $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509CertImpl* certImpl, $DistributionPoint* point, $booleans* reasonsMask, bool signFlag, $PublicKey* prevKey, $X509Certificate* prevCert, $String* provider, $List* certStores, $Set* trustAnchors, $Date* validity, $String* variant, $TrustAnchor* anchor) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	$var($GeneralNames, fullName, $nc(point)->getFullName());
 	if (fullName == nullptr) {
 		$var($RDN, relativeName, point->getRelativeName());
@@ -365,6 +368,7 @@ $Collection* DistributionPointFetcher::getCRLs($X509CRLSelector* selector, $X509
 
 $X509CRL* DistributionPointFetcher::getCRL($URIName* name) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	$var($URI, uri, $nc(name)->getURI());
 	if (DistributionPointFetcher::debug != nullptr) {
 		$nc(DistributionPointFetcher::debug)->println($$str({"Trying to fetch CRL from DP "_s, uri}));
@@ -397,6 +401,7 @@ $X509CRL* DistributionPointFetcher::getCRL($URIName* name) {
 
 $Collection* DistributionPointFetcher::getCRLs($X500Name* name, $X500Principal* certIssuer, $List* certStores) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	if (DistributionPointFetcher::debug != nullptr) {
 		$nc(DistributionPointFetcher::debug)->println($$str({"Trying to fetch CRL from DP "_s, name}));
 	}
@@ -440,6 +445,7 @@ $Collection* DistributionPointFetcher::getCRLs($X500Name* name, $X500Principal* 
 
 bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionPoint* point, $X509CRL* crl, $booleans* reasonsMask, bool signFlag, $PublicKey* prevKey$renamed, $X509Certificate* prevCert, $String* provider, $Set* trustAnchors, $List* certStores, $Date* validity, $String* variant, $TrustAnchor* anchor) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	$var($PublicKey, prevKey, prevKey$renamed);
 	if (DistributionPointFetcher::debug != nullptr) {
 		$var($String, var$2, $$str({"DistributionPointFetcher.verifyCRL: checking revocation status for\n  SN: "_s, $($Debug::toHexString($($nc(certImpl)->getSerialNumber()))), "\n  Subject: "_s}));
@@ -749,6 +755,7 @@ bool DistributionPointFetcher::verifyCRL($X509CertImpl* certImpl, $DistributionP
 
 $GeneralNames* DistributionPointFetcher::getFullNames($X500Name* issuer, $RDN* rdn) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	$var($List, rdns, $new($ArrayList, $(static_cast<$Collection*>($nc(issuer)->rdns()))));
 	rdns->add(rdn);
 	$var($X500Name, fullName, $new($X500Name, $fcast($RDNArray, $(rdns->toArray($$new($RDNArray, 0))))));
@@ -759,6 +766,7 @@ $GeneralNames* DistributionPointFetcher::getFullNames($X500Name* issuer, $RDN* r
 
 bool DistributionPointFetcher::issues($X509CertImpl* cert, $X509CRLImpl* crl, $String* provider) {
 	$init(DistributionPointFetcher);
+	$useLocalCurrentObjectStackCache();
 	bool matched = false;
 	$var($AdaptableX509CertSelector, issuerSelector, $new($AdaptableX509CertSelector));
 	$var($booleans, usages, $nc(cert)->getKeyUsage());

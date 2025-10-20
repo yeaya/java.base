@@ -108,6 +108,7 @@ $Object* allocate$TzdbZoneRulesProvider($Class* clazz) {
 }
 
 void TzdbZoneRulesProvider::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$ZoneRulesProvider::init$();
 	$set(this, regionToRules, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
@@ -183,6 +184,7 @@ $Set* TzdbZoneRulesProvider::provideZoneIds() {
 }
 
 $ZoneRules* TzdbZoneRulesProvider::provideRules($String* zoneId, bool forCaching) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, obj, $nc(this->regionToRules)->get(zoneId));
 	if (obj == nullptr) {
 		$throwNew($ZoneRulesException, $$str({"Unknown time-zone ID: "_s, zoneId}));
@@ -210,6 +212,7 @@ $ZoneRules* TzdbZoneRulesProvider::provideRules($String* zoneId, bool forCaching
 }
 
 $NavigableMap* TzdbZoneRulesProvider::provideVersions($String* zoneId) {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap, map, $new($TreeMap));
 	$var($ZoneRules, rules, getRules(zoneId, false));
 	if (rules != nullptr) {
@@ -219,6 +222,7 @@ $NavigableMap* TzdbZoneRulesProvider::provideVersions($String* zoneId) {
 }
 
 void TzdbZoneRulesProvider::load($DataInputStream* dis) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(dis)->readByte() != 1) {
 		$throwNew($StreamCorruptedException, "File format not recognised"_s);
 	}

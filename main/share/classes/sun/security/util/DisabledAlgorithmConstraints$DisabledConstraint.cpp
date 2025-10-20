@@ -75,6 +75,7 @@ void DisabledAlgorithmConstraints$DisabledConstraint::init$($String* algo) {
 }
 
 void DisabledAlgorithmConstraints$DisabledConstraint::permits($ConstraintsParameters* cp) {
+	$useLocalCurrentObjectStackCache();
 	$init($CertPathValidatorException$BasicReason);
 	$throwNew($CertPathValidatorException, $$str({"Algorithm constraints check failed on disabled algorithm: "_s, this->algorithm, $($nc(cp)->extendedExceptionMsg())}), nullptr, nullptr, -1, $CertPathValidatorException$BasicReason::ALGORITHM_CONSTRAINED);
 }

@@ -122,6 +122,7 @@ int32_t List::hashCode() {
 }
 
 void List::replaceAll($UnaryOperator* operator$) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(operator$);
 	$var($ListIterator, li, this->listIterator());
 	while ($nc(li)->hasNext()) {
@@ -130,6 +131,7 @@ void List::replaceAll($UnaryOperator* operator$) {
 }
 
 void List::sort($Comparator* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, this->toArray());
 	$Arrays::sort(a, c);
 	$var($ListIterator, i, this->listIterator());

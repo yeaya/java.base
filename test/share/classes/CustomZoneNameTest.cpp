@@ -321,22 +321,26 @@ void CustomZoneNameTest::main($StringArray* args) {
 
 void CustomZoneNameTest::testFormatting() {
 	$init(CustomZoneNameTest);
+	$useLocalCurrentObjectStackCache();
 	$var($ZonedDateTime, customZDT, $ZonedDateTime::ofInstant(CustomZoneNameTest::instant, CustomZoneNameTest::customZone));
 	$nc($($nc($($nc($($nc($($nc(CustomZoneNameTest::formats)->entrySet()))->stream()))->filter(static_cast<$Predicate*>($$new(CustomZoneNameTest$$Lambda$lambda$testFormatting$0, customZDT)))))->findAny()))->ifPresent(static_cast<$Consumer*>($$new(CustomZoneNameTest$$Lambda$lambda$testFormatting$1$1)));
 }
 
 void CustomZoneNameTest::testParsing() {
 	$init(CustomZoneNameTest);
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc($($nc($($nc($($nc(CustomZoneNameTest::formats)->entrySet()))->stream()))->filter(static_cast<$Predicate*>($$new(CustomZoneNameTest$$Lambda$lambda$testParsing$2$2)))))->findAny()))->ifPresent(static_cast<$Consumer*>($$new(CustomZoneNameTest$$Lambda$lambda$testParsing$3$3)));
 }
 
 void CustomZoneNameTest::lambda$testParsing$3($Map$Entry* e) {
 	$init(CustomZoneNameTest);
+	$useLocalCurrentObjectStackCache();
 	$throwNew($RuntimeException, $$str({"Parsing failed for the format "_s, $cast($String, $($nc(e)->getKey()))}));
 }
 
 bool CustomZoneNameTest::lambda$testParsing$2($Map$Entry* e) {
 	$init(CustomZoneNameTest);
+	$useLocalCurrentObjectStackCache();
 	$var($DateTimeFormatter, fmt, $DateTimeFormatter::ofPattern($cast($String, $($nc(e)->getKey()))));
 	$var($String, input, $cast($String, $nc(e)->getValue()));
 	int64_t parsedInstant = $nc(($cast($Instant, $($nc(fmt)->parse(static_cast<$CharSequence*>(input), static_cast<$TemporalQuery*>($$new(CustomZoneNameTest$$Lambda$from$4)))))))->toEpochMilli();
@@ -348,11 +352,13 @@ bool CustomZoneNameTest::lambda$testParsing$2($Map$Entry* e) {
 
 void CustomZoneNameTest::lambda$testFormatting$1($Map$Entry* e) {
 	$init(CustomZoneNameTest);
+	$useLocalCurrentObjectStackCache();
 	$throwNew($RuntimeException, $$str({"Provider\'s custom name was not retrieved for the format "_s, $cast($String, $($nc(e)->getKey()))}));
 }
 
 bool CustomZoneNameTest::lambda$testFormatting$0($ZonedDateTime* customZDT, $Map$Entry* e) {
 	$init(CustomZoneNameTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, formatted, $nc($($DateTimeFormatter::ofPattern($cast($String, $($nc(e)->getKey())))))->format(customZDT));
 	$var($String, expected, $cast($String, $nc(e)->getValue()));
 	$init($System);

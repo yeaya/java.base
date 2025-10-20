@@ -46,6 +46,7 @@ $Object* allocate$FindResourceDoesNotThrowException($Class* clazz) {
 }
 
 void FindResourceDoesNotThrowException::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $new($URL, "https://127.0.0.1/"_s));
 	$var($String, resource, "c:/windows"_s);
 	{

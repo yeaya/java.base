@@ -258,6 +258,7 @@ $Object* allocate$ModuleDescriptor($Class* clazz) {
 bool ModuleDescriptor::$assertionsDisabled = false;
 
 void ModuleDescriptor::init$($String* name, $ModuleDescriptor$Version* version, $String* rawVersionString, $Set* modifiers, $Set* requires, $Set* exports, $Set* opens, $Set* uses, $Set* provides, $Set* packages, $String* mainClass) {
+	$useLocalCurrentObjectStackCache();
 	if (!ModuleDescriptor::$assertionsDisabled && !(version == nullptr || rawVersionString == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -368,6 +369,7 @@ $Set* ModuleDescriptor::packages() {
 }
 
 int32_t ModuleDescriptor::compareTo(ModuleDescriptor* that) {
+	$useLocalCurrentObjectStackCache();
 	if (this == that) {
 		return 0;
 	}
@@ -470,6 +472,7 @@ int32_t ModuleDescriptor::hashCode() {
 }
 
 $String* ModuleDescriptor::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (isOpen()) {
 		sb->append("open "_s);
@@ -550,6 +553,7 @@ $String* ModuleDescriptor::packageName($String* cn) {
 
 $String* ModuleDescriptor::toString($Set* mods, $String* what) {
 	$init(ModuleDescriptor);
+	$useLocalCurrentObjectStackCache();
 	$var($Stream, var$0, $nc($($nc(mods)->stream()))->map(static_cast<$Function*>($$new(ModuleDescriptor$$Lambda$lambda$toString$0$1))));
 	return $cast($String, $nc(($($Stream::concat(var$0, $($Stream::of($of(what)))))))->collect($($Collectors::joining(" "_s))));
 }
@@ -565,6 +569,7 @@ int32_t ModuleDescriptor::compare(Object$* obj1, Object$* obj2) {
 
 int32_t ModuleDescriptor::compare($Set* s1, $Set* s2) {
 	$init(ModuleDescriptor);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a1, $nc(s1)->toArray());
 	$var($ObjectArray, a2, $nc(s2)->toArray());
 	$Arrays::sort(a1);
@@ -574,6 +579,7 @@ int32_t ModuleDescriptor::compare($Set* s1, $Set* s2) {
 
 int64_t ModuleDescriptor::modsValue($Set* set) {
 	$init(ModuleDescriptor);
+	$useLocalCurrentObjectStackCache();
 	int64_t value = 0;
 	{
 		$var($Iterator, i$, $nc(set)->iterator());

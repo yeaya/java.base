@@ -46,6 +46,7 @@ void TimeZoneNames::init$() {
 }
 
 $ObjectArray2* TimeZoneNames::getContents() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, ETC_UTC, $new($StringArray, {
 		""_s,
 		"UTC"_s,

@@ -65,6 +65,7 @@ void ReadAfterClose::testRead($InputStream* in) {
 }
 
 void ReadAfterClose::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($BufferedInputStream, bis, $new($BufferedInputStream, $$new($ByteArrayInputStream, $$new($bytes, 32))));
 	testRead(bis);
 }

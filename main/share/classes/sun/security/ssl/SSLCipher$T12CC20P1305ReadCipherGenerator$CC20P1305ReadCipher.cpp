@@ -124,6 +124,7 @@ void SSLCipher$T12CC20P1305ReadCipherGenerator$CC20P1305ReadCipher::init$($Authe
 }
 
 $Plaintext* SSLCipher$T12CC20P1305ReadCipherGenerator$CC20P1305ReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bb)->remaining() <= this->tagSize) {
 		$throwNew($BadPaddingException, $$str({"Insufficient buffer remaining for AEAD cipher fragment ("_s, $$str(bb->remaining()), "). Needs to be more than tag size ("_s, $$str(this->tagSize), ")"_s}));
 	}

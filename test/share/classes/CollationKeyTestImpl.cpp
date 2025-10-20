@@ -66,6 +66,7 @@ $StringArray* CollationKeyTestImpl::sourceData_ja = nullptr;
 $StringArray* CollationKeyTestImpl::targetData_ja = nullptr;
 
 void CollationKeyTestImpl::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($Collator, myCollator, $Collator::getInstance($Locale::JAPAN));
 	$var($CollationKeyArray, keys, $new($CollationKeyArray, $nc(CollationKeyTestImpl::sourceData_ja)->length));
@@ -141,6 +142,7 @@ $String* CollationKeyTestImpl::getSourceString() {
 }
 
 void CollationKeyTestImpl::testSubclassMethods() {
+	$useLocalCurrentObjectStackCache();
 	$var(CollationKeyTestImpl, clt1, $new(CollationKeyTestImpl, "testSubclassMethods-1"_s));
 	$var(CollationKeyTestImpl, clt2, $new(CollationKeyTestImpl, "testSubclassMethods-2"_s));
 	if (!clt1->equals(clt2)) {
@@ -159,6 +161,7 @@ void CollationKeyTestImpl::testSubclassMethods() {
 }
 
 void CollationKeyTestImpl::testConstructor() {
+	$useLocalCurrentObjectStackCache();
 	bool npe = false;
 	try {
 		$var(CollationKeyTestImpl, cltNull, $new(CollationKeyTestImpl, nullptr));

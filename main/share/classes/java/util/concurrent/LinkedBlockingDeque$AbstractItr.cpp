@@ -82,6 +82,7 @@ $Object* allocate$LinkedBlockingDeque$AbstractItr($Class* clazz) {
 }
 
 $LinkedBlockingDeque$Node* LinkedBlockingDeque$AbstractItr::succ($LinkedBlockingDeque$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, p, p$renamed);
 	$var($LinkedBlockingDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, nextNode(p)))) {
@@ -91,6 +92,7 @@ $LinkedBlockingDeque$Node* LinkedBlockingDeque$AbstractItr::succ($LinkedBlocking
 }
 
 void LinkedBlockingDeque$AbstractItr::init$($LinkedBlockingDeque* this$0) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$var($ReentrantLock, lock, this$0->lock);
 	$nc(lock)->lock();
@@ -116,6 +118,7 @@ bool LinkedBlockingDeque$AbstractItr::hasNext() {
 }
 
 $Object* LinkedBlockingDeque$AbstractItr::next() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -146,6 +149,7 @@ $Object* LinkedBlockingDeque$AbstractItr::next() {
 }
 
 void LinkedBlockingDeque$AbstractItr::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($LinkedBlockingDeque$Node, p, nullptr);
 	if (($assign(p, this->next$)) == nullptr) {
@@ -203,6 +207,7 @@ void LinkedBlockingDeque$AbstractItr::forEachRemaining($Consumer* action) {
 }
 
 void LinkedBlockingDeque$AbstractItr::remove() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedBlockingDeque$Node, n, this->lastRet);
 	if (n == nullptr) {
 		$throwNew($IllegalStateException);

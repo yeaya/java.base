@@ -101,6 +101,7 @@ int64_t ConcurrentHashMap$TreeBin::LOCKSTATE = 0;
 
 int32_t ConcurrentHashMap$TreeBin::tieBreakOrder(Object$* a, Object$* b) {
 	$init(ConcurrentHashMap$TreeBin);
+	$useLocalCurrentObjectStackCache();
 	int32_t d = 0;
 	if (a == nullptr || b == nullptr || (d = $nc($($nc($of(a))->getClass()->getName()))->compareTo($($nc($of(b))->getClass()->getName()))) == 0) {
 		int32_t var$0 = $System::identityHashCode(a);
@@ -110,6 +111,7 @@ int32_t ConcurrentHashMap$TreeBin::tieBreakOrder(Object$* a, Object$* b) {
 }
 
 void ConcurrentHashMap$TreeBin::init$($ConcurrentHashMap$TreeNode* b) {
+	$useLocalCurrentObjectStackCache();
 	$ConcurrentHashMap$Node::init$(-2, nullptr, nullptr);
 	$set(this, first, b);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
@@ -200,6 +202,7 @@ void ConcurrentHashMap$TreeBin::contendedLock() {
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$TreeBin::find(int32_t h, Object$* k) {
+	$useLocalCurrentObjectStackCache();
 	if (k != nullptr) {
 		{
 			$var($ConcurrentHashMap$Node, e, this->first);
@@ -247,6 +250,7 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$TreeBin::find(int32_t h, Object$* k) 
 }
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Object$* k, Object$* v) {
+	$useLocalCurrentObjectStackCache();
 	$Class* kc = nullptr;
 	bool searched = false;
 	{
@@ -329,6 +333,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::putTreeVal(int32_t h, Ob
 }
 
 bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TreeNode, next, $cast($ConcurrentHashMap$TreeNode, $nc(p)->next));
 	$var($ConcurrentHashMap$TreeNode, pred, p->prev);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
@@ -451,6 +456,7 @@ bool ConcurrentHashMap$TreeBin::removeTreeNode($ConcurrentHashMap$TreeNode* p) {
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateLeft($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* p) {
 	$init(ConcurrentHashMap$TreeBin);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, r, nullptr);
 	$var($ConcurrentHashMap$TreeNode, pp, nullptr);
@@ -474,6 +480,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateLeft($ConcurrentHa
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateRight($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* p) {
 	$init(ConcurrentHashMap$TreeBin);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, l, nullptr);
 	$var($ConcurrentHashMap$TreeNode, pp, nullptr);
@@ -497,6 +504,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::rotateRight($ConcurrentH
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* x$renamed) {
 	$init(ConcurrentHashMap$TreeBin);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, x, x$renamed);
 	$nc(x)->red = true;
@@ -556,6 +564,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceInsertion($Concur
 
 $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceDeletion($ConcurrentHashMap$TreeNode* root$renamed, $ConcurrentHashMap$TreeNode* x$renamed) {
 	$init(ConcurrentHashMap$TreeBin);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TreeNode, root, root$renamed);
 	$var($ConcurrentHashMap$TreeNode, x, x$renamed);
 	{
@@ -653,6 +662,7 @@ $ConcurrentHashMap$TreeNode* ConcurrentHashMap$TreeBin::balanceDeletion($Concurr
 
 bool ConcurrentHashMap$TreeBin::checkInvariants($ConcurrentHashMap$TreeNode* t) {
 	$init(ConcurrentHashMap$TreeBin);
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentHashMap$TreeNode, tp, $nc(t)->parent);
 	$var($ConcurrentHashMap$TreeNode, tl, t->left);
 	$var($ConcurrentHashMap$TreeNode, tr, t->right);

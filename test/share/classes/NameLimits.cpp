@@ -69,6 +69,7 @@ void NameLimits::init$() {
 }
 
 $Path* NameLimits::generatePath(int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len < NameLimits::MIN_PATH) {
 		$throwNew($RuntimeException, "Attempting to generate path less than MIN_PATH"_s);
 	}
@@ -81,6 +82,7 @@ $Path* NameLimits::generatePath(int32_t len) {
 }
 
 bool NameLimits::tryCreateFile(int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, name, generatePath(len));
 	try {
 		$Files::createFile(name, $$new($FileAttributeArray, 0));
@@ -99,6 +101,7 @@ bool NameLimits::tryCreateFile(int32_t len) {
 }
 
 bool NameLimits::tryCreateDirectory(int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, name, generatePath(len));
 	try {
 		$Files::createDirectory(name, $$new($FileAttributeArray, 0));
@@ -117,6 +120,7 @@ bool NameLimits::tryCreateDirectory(int32_t len) {
 }
 
 void NameLimits::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = 0;
 	len = NameLimits::MAX_PATH;
 	while (!tryCreateFile(len)) {

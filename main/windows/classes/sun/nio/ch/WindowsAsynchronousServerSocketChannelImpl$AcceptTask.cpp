@@ -166,6 +166,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::closeChildChannel() 
 }
 
 void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::finishAccept() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$WindowsAsynchronousServerSocketChannelImpl::updateAcceptContext(this->this$0->handle, $nc(this->channel)->handle());
 	$var($InetSocketAddress, local, $Net::localAddress($nc(this->channel)->fd));
@@ -177,6 +178,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::finishAccept() {
 }
 
 void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::run() {
+	$useLocalCurrentObjectStackCache();
 	int64_t overlapped = 0;
 	{
 		$var($Throwable, var$0, nullptr);
@@ -247,6 +249,7 @@ void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::run() {
 }
 
 void WindowsAsynchronousServerSocketChannelImpl$AcceptTask::completed(int32_t bytesTransferred, bool canInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(this->this$0->iocp)->isShutdown()) {
 			$throwNew($IOException, static_cast<$Throwable*>($$new($ShutdownChannelGroupException)));

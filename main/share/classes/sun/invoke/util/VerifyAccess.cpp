@@ -113,6 +113,7 @@ void VerifyAccess::init$() {
 
 bool VerifyAccess::isMemberAccessible($Class* refc, $Class* defc, int32_t mods, $Class* lookupClass, $Class* prevLookupClass, int32_t allowedModes) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	if (allowedModes == 0) {
 		return false;
 	}
@@ -200,6 +201,7 @@ int32_t VerifyAccess::getClassModifiers($Class* c) {
 
 bool VerifyAccess::isClassAccessible($Class* refc, $Class* lookupClass, $Class* prevLookupClass, int32_t allowedModes) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	if (allowedModes == 0) {
 		return false;
 	}
@@ -248,6 +250,7 @@ bool VerifyAccess::isClassAccessible($Class* refc, $Class* lookupClass, $Class* 
 
 bool VerifyAccess::isModuleAccessible($Class* refc, $Module* m1, $Module* m2) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, refModule, $nc(refc)->getModule());
 	if (!VerifyAccess::$assertionsDisabled && !(refModule != m1 || refModule != m2)) {
 		$throwNew($AssertionError);
@@ -268,6 +271,7 @@ bool VerifyAccess::isModuleAccessible($Class* refc, $Module* m1, $Module* m2) {
 
 bool VerifyAccess::isTypeVisible($Class* type, $Class* refc) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (type == refc) {
 		return true;
@@ -297,6 +301,7 @@ bool VerifyAccess::isTypeVisible($Class* type, $Class* refc) {
 
 bool VerifyAccess::isTypeVisible($MethodType* type, $Class* refc) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	if (!isTypeVisible($($cast($Class, $nc(type)->returnType())), refc)) {
 		return false;
 	}
@@ -358,6 +363,7 @@ $Class* VerifyAccess::getOutermostEnclosingClass($Class* c) {
 
 bool VerifyAccess::loadersAreRelated($ClassLoader* loader1, $ClassLoader* loader2, bool loader1MustBeParent) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (loader1 == loader2 || loader1 == nullptr || (loader2 == nullptr && !loader1MustBeParent)) {
 		return true;
@@ -386,6 +392,7 @@ bool VerifyAccess::loadersAreRelated($ClassLoader* loader1, $ClassLoader* loader
 
 bool VerifyAccess::classLoaderIsAncestor($Class* parentClass, $Class* childClass) {
 	$init(VerifyAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, var$0, $nc(parentClass)->getClassLoader());
 	return loadersAreRelated(var$0, $($nc(childClass)->getClassLoader()), true);

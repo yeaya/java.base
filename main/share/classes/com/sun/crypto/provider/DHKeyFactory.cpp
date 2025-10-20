@@ -88,6 +88,7 @@ void DHKeyFactory::init$() {
 }
 
 $PublicKey* DHKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($DHPublicKeySpec, keySpec)) {
 			$var($DHPublicKeySpec, dhPubKeySpec, $cast($DHPublicKeySpec, keySpec));
@@ -107,6 +108,7 @@ $PublicKey* DHKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
 }
 
 $PrivateKey* DHKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($DHPrivateKeySpec, keySpec)) {
 			$var($DHPrivateKeySpec, dhPrivKeySpec, $cast($DHPrivateKeySpec, keySpec));
@@ -146,6 +148,7 @@ $PrivateKey* DHKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 }
 
 $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	$var($DHParameterSpec, params, nullptr);
 	if ($instanceOf($1DHPublicKey, key)) {
 		$load($DHPublicKeySpec);
@@ -206,6 +209,7 @@ $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 }
 
 $Key* DHKeyFactory::engineTranslateKey($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($instanceOf($1DHPublicKey, key)) {
 			if ($instanceOf($DHPublicKey, key)) {

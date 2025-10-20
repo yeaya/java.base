@@ -113,6 +113,7 @@ $Object* allocate$TestProvider($Class* clazz) {
 }
 
 void TestProvider::init$($FileSystemProvider* defaultProvider) {
+	$useLocalCurrentObjectStackCache();
 	$FileSystemProvider::init$();
 	$set(this, defaultProvider$, defaultProvider);
 	$var($FileSystem, fs, $nc(defaultProvider)->getFileSystem($($URI::create("file:/"_s))));
@@ -173,6 +174,7 @@ void TestProvider::createLink($Path* link, $Path* existing) {
 }
 
 $Path* TestProvider::readSymbolicLink($Path* link) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, delegate, $nc(this->theFileSystem)->unwrap(link));
 	$var($Path, target, $nc(this->defaultProvider$)->readSymbolicLink(delegate));
 	return $nc(this->theFileSystem)->wrap(target);

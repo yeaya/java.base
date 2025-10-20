@@ -89,6 +89,7 @@ $Object* allocate$HandshakeHash$T10HandshakeHash($Class* clazz) {
 }
 
 void HandshakeHash$T10HandshakeHash::init$($CipherSuite* cipherSuite) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, mdMD5, nullptr);
 	$var($MessageDigest, mdSHA, nullptr);
 	try {
@@ -127,6 +128,7 @@ void HandshakeHash$T10HandshakeHash::update($bytes* input, int32_t offset, int32
 }
 
 $bytes* HandshakeHash$T10HandshakeHash::digest() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, digest, $new($bytes, 36));
 	$System::arraycopy($($nc(this->md5)->digest()), 0, digest, 0, 16);
 	$System::arraycopy($($nc(this->sha)->digest()), 0, digest, 16, 20);

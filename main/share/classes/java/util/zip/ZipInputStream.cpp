@@ -164,6 +164,7 @@ void ZipInputStream::init$($InputStream* in) {
 }
 
 void ZipInputStream::init$($InputStream* in, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, var$0, static_cast<$InputStream*>($new($PushbackInputStream, in, 512)));
 	$InflaterInputStream::init$(var$0, $$new($Inflater, true), 512);
 	$set(this, crc, $new($CRC32));
@@ -215,6 +216,7 @@ int32_t ZipInputStream::available() {
 }
 
 int32_t ZipInputStream::read($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	ensureOpen();
 	if (off < 0 || len < 0 || off > $nc(b)->length - len) {
 		$throwNew($IndexOutOfBoundsException);
@@ -297,6 +299,7 @@ void ZipInputStream::close() {
 }
 
 $ZipEntry* ZipInputStream::readLOC() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		readFully(this->tmpbuf, 0, $ZipConstants::LOCHDR);
 	} catch ($EOFException&) {
@@ -345,6 +348,7 @@ $ZipEntry* ZipInputStream::createZipEntry($String* name) {
 }
 
 void ZipInputStream::readEnd($ZipEntry* e) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(this->inf)->getRemaining();
 	if (n > 0) {
 		$nc(($cast($PushbackInputStream, this->in)))->unread(this->buf, this->len - n, n);

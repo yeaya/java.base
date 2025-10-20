@@ -174,6 +174,7 @@ RSAKeyFactory* RSAKeyFactory::getInstance($RSAUtil$KeyType* type) {
 
 void RSAKeyFactory::checkKeyAlgo($Key* key, $String* expectedAlg) {
 	$init(RSAKeyFactory);
+	$useLocalCurrentObjectStackCache();
 	$var($String, keyAlg, $nc(key)->getAlgorithm());
 	if (keyAlg == nullptr || !($nc(keyAlg)->equalsIgnoreCase(expectedAlg))) {
 		$throwNew($InvalidKeyException, $$str({"Expected a "_s, expectedAlg, " key, but got "_s, keyAlg}));
@@ -182,6 +183,7 @@ void RSAKeyFactory::checkKeyAlgo($Key* key, $String* expectedAlg) {
 
 $RSAKey* RSAKeyFactory::toRSAKey($Key* key) {
 	$init(RSAKeyFactory);
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr) {
 		$throwNew($InvalidKeyException, "Key must not be null"_s);
 	}
@@ -207,6 +209,7 @@ void RSAKeyFactory::checkRSAProviderKeyLengths(int32_t modulusLen, $BigInteger* 
 
 void RSAKeyFactory::checkKeyLengths(int32_t modulusLen, $BigInteger* exponent, int32_t minModulusLen, int32_t maxModulusLen) {
 	$init(RSAKeyFactory);
+	$useLocalCurrentObjectStackCache();
 	if ((minModulusLen > 0) && (modulusLen < (minModulusLen))) {
 		$throwNew($InvalidKeyException, $$str({"RSA keys must be at least "_s, $$str(minModulusLen), " bits long"_s}));
 	}
@@ -248,6 +251,7 @@ $Key* RSAKeyFactory::engineTranslateKey($Key* key) {
 }
 
 $PublicKey* RSAKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return generatePublic(keySpec);
 	} catch ($InvalidKeySpecException&) {
@@ -261,6 +265,7 @@ $PublicKey* RSAKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
 }
 
 $PrivateKey* RSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return generatePrivate(keySpec);
 	} catch ($InvalidKeySpecException&) {
@@ -274,6 +279,7 @@ $PrivateKey* RSAKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 }
 
 $PublicKey* RSAKeyFactory::translatePublicKey($PublicKey* key) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($RSAPublicKey, key)) {
 		$var($RSAPublicKey, rsaKey, $cast($RSAPublicKey, key));
 		try {
@@ -293,6 +299,7 @@ $PublicKey* RSAKeyFactory::translatePublicKey($PublicKey* key) {
 }
 
 $PrivateKey* RSAKeyFactory::translatePrivateKey($PrivateKey* key) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($RSAPrivateCrtKey, key)) {
 		$var($RSAPrivateCrtKey, rsaKey, $cast($RSAPrivateCrtKey, key));
 		try {
@@ -350,6 +357,7 @@ $PrivateKey* RSAKeyFactory::translatePrivateKey($PrivateKey* key) {
 }
 
 $PublicKey* RSAKeyFactory::generatePublic($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($X509EncodedKeySpec, keySpec)) {
 		return $RSAPublicKeyImpl::newKey(this->type, "X.509"_s, $($nc(($cast($X509EncodedKeySpec, keySpec)))->getEncoded()));
 	} else if ($instanceOf($RSAPublicKeySpec, keySpec)) {
@@ -370,6 +378,7 @@ $PublicKey* RSAKeyFactory::generatePublic($KeySpec* keySpec) {
 }
 
 $PrivateKey* RSAKeyFactory::generatePrivate($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($PKCS8EncodedKeySpec, keySpec)) {
 		$var($bytes, encoded, $nc(($cast($PKCS8EncodedKeySpec, keySpec)))->getEncoded());
 		{
@@ -427,6 +436,7 @@ $PrivateKey* RSAKeyFactory::generatePrivate($KeySpec* keySpec) {
 }
 
 $KeySpec* RSAKeyFactory::engineGetKeySpec($Key* key$renamed, $Class* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	$var($Key, key, key$renamed);
 	try {
 		$assign(key, engineTranslateKey(key));

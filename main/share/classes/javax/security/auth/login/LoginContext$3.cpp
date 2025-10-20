@@ -80,6 +80,7 @@ void LoginContext$3::init$($LoginContext* this$0, $ClassLoader* val$finalLoader)
 }
 
 $Object* LoginContext$3::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, defaultHandler, $Security::getProperty("auth.login.defaultCallbackHandler"_s));
 	if (defaultHandler == nullptr || $nc(defaultHandler)->isEmpty()) {

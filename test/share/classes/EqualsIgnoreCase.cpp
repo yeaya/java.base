@@ -78,6 +78,7 @@ void EqualsIgnoreCase::main($StringArray* args) {
 
 void EqualsIgnoreCase::compareFuncs($String* s1, $String* s2, bool expectEquals, bool expectTuTl) {
 	$init(EqualsIgnoreCase);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({s1, ", "_s, s2}));
 	bool equalsResult = $nc(s1)->equalsIgnoreCase(s2);

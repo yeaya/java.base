@@ -64,6 +64,7 @@ void Bug8141243::init$() {
 }
 
 void Bug8141243::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, UTC, $TimeZone::getTimeZone("UTC"_s));
 	$var($TimeZone, initTz, $TimeZone::getDefault());
 	$var($List, errors, $new($ArrayList));

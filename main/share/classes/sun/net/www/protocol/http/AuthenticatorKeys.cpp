@@ -82,6 +82,7 @@ void AuthenticatorKeys::init$() {
 
 $String* AuthenticatorKeys::computeKey($Authenticator* a) {
 	$init(AuthenticatorKeys);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$$str($System::identityHashCode(a)), "-"_s}));
 	$var($String, var$1, $$concat(var$2, $$str($nc(AuthenticatorKeys::IDS)->incrementAndGet())));
 	$var($String, var$0, $$concat(var$1, "@"));

@@ -205,6 +205,7 @@ int32_t IsoFields$Field::getWeekRange(int32_t wby) {
 
 int32_t IsoFields$Field::getWeek($LocalDate* date) {
 	$init(IsoFields$Field);
+	$useLocalCurrentObjectStackCache();
 	int32_t dow0 = $nc($($nc(date)->getDayOfWeek()))->ordinal();
 	int32_t doy0 = date->getDayOfYear() - 1;
 	int32_t doyThu0 = doy0 + (3 - dow0);
@@ -228,6 +229,7 @@ int32_t IsoFields$Field::getWeek($LocalDate* date) {
 
 int32_t IsoFields$Field::getWeekBasedYear($LocalDate* date) {
 	$init(IsoFields$Field);
+	$useLocalCurrentObjectStackCache();
 	int32_t year = $nc(date)->getYear();
 	int32_t doy = date->getDayOfYear();
 	if (doy <= 3) {

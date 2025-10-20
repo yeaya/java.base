@@ -118,6 +118,7 @@ void TestObjectMethods::init$() {
 
 void TestObjectMethods::main($StringArray* args) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 		$load($TestObjectMethods$TypeHost);
 		$load($TestObjectMethods$AnnotatedTypeHost);
 	$var($ClassArray, testClasses, $new($ClassArray, {
@@ -150,6 +151,7 @@ void TestObjectMethods::main($StringArray* args) {
 
 void TestObjectMethods::testToString($Class* clazz) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println($$str({"Testing toString on methods of class "_s, $($nc(clazz)->getName())}));
@@ -249,6 +251,7 @@ void TestObjectMethods::testToString($Class* clazz) {
 
 void TestObjectMethods::testGetAnnotations($Class* clazz, bool annotationsExpectedOnMethods) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println($$str({"Testing getAnnotations on methods of class "_s, $($nc(clazz)->getName())}));
@@ -280,6 +283,7 @@ void TestObjectMethods::testGetAnnotations($Class* clazz, bool annotationsExpect
 
 void TestObjectMethods::testEqualsReflexivity($Class* clazz) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println($$str({"Testing reflexivity of equals on methods of class "_s, $($nc(clazz)->getName())}));
@@ -300,6 +304,7 @@ void TestObjectMethods::testEqualsReflexivity($Class* clazz) {
 
 void TestObjectMethods::checkTypesForEquality($AnnotatedType* annotType1, $AnnotatedType* annotType2, bool expected) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	bool comparison = $nc($of(annotType1))->equals(annotType2);
 	if (comparison) {
 		int32_t hash1 = $of(annotType1)->hashCode();
@@ -325,6 +330,7 @@ void TestObjectMethods::checkTypesForEquality($AnnotatedType* annotType1, $Annot
 
 void TestObjectMethods::testEquals($Class* clazz) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodArray, methods, $nc(clazz)->getDeclaredMethods());
 	for (int32_t i = 0; i < $nc(methods)->length; ++i) {
@@ -341,6 +347,7 @@ void TestObjectMethods::testEquals($Class* clazz) {
 
 void TestObjectMethods::testAnnotationsMatterForEquals($Class* clazz1, $Class* clazz2) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println("Testing that presence/absence of annotations matters for equals comparison."_s);
@@ -371,6 +378,7 @@ void TestObjectMethods::testAnnotationsMatterForEquals($Class* clazz1, $Class* c
 
 void TestObjectMethods::testWildcards() {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println("Testing wildcards"_s);
 	$var($AnnotatedWildcardType, awt1, extractWildcard("fooNumberSet"_s));
@@ -389,6 +397,7 @@ void TestObjectMethods::testWildcards() {
 
 $AnnotatedWildcardType* TestObjectMethods::extractWildcard($String* methodName) {
 	$init(TestObjectMethods);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$load($TestObjectMethods$AnnotatedTypeHost);

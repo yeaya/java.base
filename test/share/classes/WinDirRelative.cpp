@@ -74,6 +74,7 @@ bool WinDirRelative::isLetter(char16_t c) {
 
 void WinDirRelative::main($StringArray* args) {
 	$init(WinDirRelative);
+	$useLocalCurrentObjectStackCache();
 	$var($String, userDir, $System::getProperty("user.dir"_s));
 	bool var$0 = isLetter($nc(userDir)->charAt(0));
 	if (var$0 && $nc(userDir)->charAt(1) == WinDirRelative::COLON) {

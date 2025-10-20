@@ -55,6 +55,7 @@ void RegistryFileTypeDetector::init$() {
 }
 
 $String* RegistryFileTypeDetector::implProbeContentType($Path* file) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($Path, file))) {
 		return nullptr;
 	}

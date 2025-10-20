@@ -44,6 +44,7 @@ void RenameDelete::init$() {
 }
 
 void RenameDelete::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool success = false;
 	$init($File);
 	if ($File::separatorChar != u'\\') {

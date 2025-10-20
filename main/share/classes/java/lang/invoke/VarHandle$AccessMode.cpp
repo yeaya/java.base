@@ -265,6 +265,7 @@ $String* VarHandle$AccessMode::methodName() {
 
 VarHandle$AccessMode* VarHandle$AccessMode::valueFromMethodName($String* methodName) {
 	$init(VarHandle$AccessMode);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s89857$, methodName);
 	int32_t tmp89857$ = -1;
 	switch ($nc(s89857$)->hashCode()) {

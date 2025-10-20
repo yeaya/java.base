@@ -64,6 +64,7 @@ void CertStatusExtension$CertStatusRequestsStringizer::init$() {
 }
 
 $String* CertStatusExtension$CertStatusRequestsStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($CertStatusExtension$CertStatusRequestV2Spec, hc, buffer))->toString();
 	} catch ($IOException&) {

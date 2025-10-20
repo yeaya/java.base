@@ -114,6 +114,7 @@ void ECDHClientKeyExchange$ECDHEClientKeyExchangeProducer::init$() {
 }
 
 $bytes* ECDHClientKeyExchange$ECDHEClientKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($SSLCredentials, sslCredentials, nullptr);
 	$NamedGroup* ng = nullptr;

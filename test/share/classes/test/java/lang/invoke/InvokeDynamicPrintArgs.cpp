@@ -138,6 +138,7 @@ void InvokeDynamicPrintArgs::init$() {
 
 void InvokeDynamicPrintArgs::main($StringArray* av) {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(av)->length > 0 && $nc(av->get(0))->equals("--check-output"_s)) {
 		openBuf();
 	}
@@ -158,6 +159,7 @@ void InvokeDynamicPrintArgs::main($StringArray* av) {
 
 void InvokeDynamicPrintArgs::checkConstantRefs() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of(MT_bsm()));
 	assertEquals(var$0, $($nc($(MH_bsm()))->type()));
 	$var($Object, var$1, $of(MT_bsm2()));
@@ -176,6 +178,7 @@ void InvokeDynamicPrintArgs::assertEquals(Object$* exp, Object$* act) {
 
 void InvokeDynamicPrintArgs::setSM() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Policy::setPolicy($$new($InvokeDynamicPrintArgs$TestPolicy));
 	$System::setSecurityManager($$new($SecurityManager));
@@ -191,6 +194,7 @@ void InvokeDynamicPrintArgs::openBuf() {
 
 void InvokeDynamicPrintArgs::closeBuf() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	if (InvokeDynamicPrintArgs::buf == nullptr) {
 		return;
 	}
@@ -232,6 +236,7 @@ void InvokeDynamicPrintArgs::closeBuf() {
 
 void InvokeDynamicPrintArgs::printArgs(Object$* bsmInfo, $ObjectArray* args) {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$var($String, message, $str({bsmInfo, $($Arrays::deepToString(args))}));
 	if (InvokeDynamicPrintArgs::doPrint) {
 		$init($System);
@@ -241,6 +246,7 @@ void InvokeDynamicPrintArgs::printArgs(Object$* bsmInfo, $ObjectArray* args) {
 
 $MethodHandle* InvokeDynamicPrintArgs::MH_printArgs() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
@@ -253,6 +259,7 @@ $MethodHandle* InvokeDynamicPrintArgs::MH_printArgs() {
 
 $CallSite* InvokeDynamicPrintArgs::bsm($MethodHandles$Lookup* caller, $String* name, $MethodType* type) {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, bsmInfo, $Arrays::asList($$new($ObjectArray, {
 		$of(caller),
 		$of(name),
@@ -277,6 +284,7 @@ $MethodType* InvokeDynamicPrintArgs::MT_bsm() {
 
 $MethodHandle* InvokeDynamicPrintArgs::MH_bsm() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
@@ -286,6 +294,7 @@ $MethodHandle* InvokeDynamicPrintArgs::MH_bsm() {
 
 $MethodHandle* InvokeDynamicPrintArgs::non_MH_bsm() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
 	$var($String, var$1, "bsm"_s);
@@ -314,6 +323,7 @@ $MethodType* InvokeDynamicPrintArgs::MT_bsm2() {
 
 $MethodHandle* InvokeDynamicPrintArgs::MH_bsm2() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$Class* var$0 = $nc($($MethodHandles::lookup()))->lookupClass();
@@ -323,6 +333,7 @@ $MethodHandle* InvokeDynamicPrintArgs::MH_bsm2() {
 
 $MethodHandle* InvokeDynamicPrintArgs::INDY_nothing() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -333,6 +344,7 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_nothing() {
 
 $MethodHandle* InvokeDynamicPrintArgs::INDY_foo() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -344,6 +356,7 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_foo() {
 
 $MethodHandle* InvokeDynamicPrintArgs::INDY_bar() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -356,6 +369,7 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_bar() {
 
 $MethodHandle* InvokeDynamicPrintArgs::INDY_bar2() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));
@@ -368,6 +382,7 @@ $MethodHandle* InvokeDynamicPrintArgs::INDY_bar2() {
 
 $MethodHandle* InvokeDynamicPrintArgs::INDY_baz() {
 	$init(InvokeDynamicPrintArgs);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	shouldNotCallThis();
 	$var($Object, var$0, $of($MethodHandles::lookup()));

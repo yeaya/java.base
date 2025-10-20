@@ -224,6 +224,7 @@ void SSLConfiguration::init$($SSLContextImpl* sslContext, bool isClientMode) {
 }
 
 $SSLParameters* SSLConfiguration::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setAlgorithmConstraints(this->userSpecifiedAlgorithmConstraints);
 	params->setProtocols($($ProtocolVersion::toStringArray(this->enabledProtocols)));
@@ -264,6 +265,7 @@ $SSLParameters* SSLConfiguration::getSSLParameters() {
 }
 
 void SSLConfiguration::setSSLParameters($SSLParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmConstraints, ac, $nc(params)->getAlgorithmConstraints());
 	if (ac != nullptr) {
 		$set(this, userSpecifiedAlgorithmConstraints, ac);
@@ -367,6 +369,7 @@ bool SSLConfiguration::isAvailable($SSLExtension* extension, $ProtocolVersion* p
 }
 
 $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handshakeType) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, extensions, $new($ArrayList));
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
@@ -387,6 +390,7 @@ $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handsh
 }
 
 $SSLExtensionArray* SSLConfiguration::getExclusiveExtensions($SSLHandshake* handshakeType, $List* excluded) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, extensions, $new($ArrayList));
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
@@ -412,6 +416,7 @@ $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handsh
 }
 
 $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handshakeType, $List* activeProtocols) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, extensions, $new($ArrayList));
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
@@ -465,6 +470,7 @@ $Object* SSLConfiguration::clone() {
 
 $List* SSLConfiguration::getCustomizedSignatureScheme($String* propertyName) {
 	$init(SSLConfiguration);
+	$useLocalCurrentObjectStackCache();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propertyName));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
@@ -500,6 +506,7 @@ $List* SSLConfiguration::getCustomizedSignatureScheme($String* propertyName) {
 }
 
 void clinit$SSLConfiguration($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	SSLConfiguration::allowLegacyResumption = $Utilities::getBooleanProperty("jdk.tls.allowLegacyResumption"_s, true);
 	SSLConfiguration::allowLegacyMasterSecret = $Utilities::getBooleanProperty("jdk.tls.allowLegacyMasterSecret"_s, true);
 	SSLConfiguration::useCompatibilityMode = $Utilities::getBooleanProperty("jdk.tls.client.useCompatibilityMode"_s, true);

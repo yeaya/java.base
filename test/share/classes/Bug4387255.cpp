@@ -57,6 +57,7 @@ void Bug4387255::init$() {
 
 void Bug4387255::main($StringArray* args) {
 	$init(Bug4387255);
+	$useLocalCurrentObjectStackCache();
 	$var($ChoiceFormat, choiceFormat1, $new($ChoiceFormat, Bug4387255::doubles, Bug4387255::strings));
 	$var($ChoiceFormat, choiceFormat2, $new($ChoiceFormat, Bug4387255::pattern));
 	if (!choiceFormat1->equals(choiceFormat2)) {

@@ -47,6 +47,7 @@ void FeelingLucky::init$() {
 }
 
 void FeelingLucky::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Runtime, rt, $Runtime::getRuntime());
 	$var($StringArray, pidPrinter, $new($StringArray, {
 		"/bin/sh"_s,

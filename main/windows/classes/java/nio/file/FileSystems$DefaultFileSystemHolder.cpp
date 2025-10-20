@@ -94,6 +94,7 @@ void FileSystems$DefaultFileSystemHolder::init$() {
 
 $FileSystem* FileSystems$DefaultFileSystemHolder::defaultFileSystem() {
 	$init(FileSystems$DefaultFileSystemHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($FileSystemProvider, provider, $cast($FileSystemProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FileSystems$DefaultFileSystemHolder$1)))));
 	return $nc(provider)->getFileSystem($($URI::create("file:///"_s)));
@@ -101,6 +102,7 @@ $FileSystem* FileSystems$DefaultFileSystemHolder::defaultFileSystem() {
 
 $FileSystemProvider* FileSystems$DefaultFileSystemHolder::getDefaultProvider() {
 	$init(FileSystems$DefaultFileSystemHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($FileSystemProvider, provider, $DefaultFileSystemProvider::instance());
 	$var($String, prop, "java.nio.file.spi.DefaultFileSystemProvider"_s);

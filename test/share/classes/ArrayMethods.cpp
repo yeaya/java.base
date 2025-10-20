@@ -82,6 +82,7 @@ void ArrayMethods::main($StringArray* args) {
 }
 
 void ArrayMethods::testGetMethod() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, m, $of($$new($StringArray, 0))->getClass()->getMethod("clone"_s, ($ClassArray*)nullptr));
@@ -94,6 +95,7 @@ void ArrayMethods::testGetMethod() {
 }
 
 void ArrayMethods::testGetMethods() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodArray, m, $of($$new($IntegerArray3, 0, 0, 0))->getClass()->getMethods());
 	{
@@ -112,6 +114,7 @@ void ArrayMethods::testGetMethods() {
 }
 
 void ArrayMethods::testGetDeclaredMethod() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, m, $of($$new($ObjectArray2, 0, 0))->getClass()->getDeclaredMethod("clone"_s, ($ClassArray*)nullptr));
@@ -124,6 +127,7 @@ void ArrayMethods::testGetDeclaredMethod() {
 }
 
 void ArrayMethods::testGetDeclaredMethods() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodArray, m, $of($$new($ThrowableArray4, 0, 0, 0, 0))->getClass()->getDeclaredMethods());
 	if ($nc(m)->length != 0) {
@@ -134,6 +138,7 @@ void ArrayMethods::testGetDeclaredMethods() {
 }
 
 void ArrayMethods::testGetInterfaces() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, is, $of($$new($IntegerArray, 0))->getClass()->getInterfaces());
 	bool thisFailed = false;
 	if (is->length != 2) {

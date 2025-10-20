@@ -89,6 +89,7 @@ $Object* allocate$TrustManagerFactory($Class* clazz) {
 
 $String* TrustManagerFactory::getDefaultAlgorithm() {
 	$load(TrustManagerFactory);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, type, nullptr);
 	$assign(type, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($TrustManagerFactory$1)))));

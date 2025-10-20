@@ -135,6 +135,7 @@ void RBTableBuilder::init$($RBCollationTables$BuildAPI* tables) {
 }
 
 void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pattern, pattern$renamed);
 	$var($String, expChars, nullptr);
 	$var($String, groupChars, nullptr);
@@ -190,6 +191,7 @@ void RBTableBuilder::build($String* pattern$renamed, int32_t decmp) {
 }
 
 void RBTableBuilder::addComposedChars() {
+	$useLocalCurrentObjectStackCache();
 	$var($ComposedCharIter, iter, $new($ComposedCharIter));
 	int32_t c = 0;
 	while ((c = iter->next()) != $ComposedCharIter::DONE) {
@@ -231,6 +233,7 @@ void RBTableBuilder::addComposedChars() {
 }
 
 void RBTableBuilder::commit() {
+	$useLocalCurrentObjectStackCache();
 	if (this->expandTable != nullptr) {
 		for (int32_t i = 0; i < $nc(this->expandTable)->size(); ++i) {
 			$var($ints, valueList, $cast($ints, $nc(this->expandTable)->elementAt(i)));
@@ -300,6 +303,7 @@ void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder) {
 }
 
 void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder, bool fwd) {
+	$useLocalCurrentObjectStackCache();
 	if (this->contractTable == nullptr) {
 		$set(this, contractTable, $new($Vector, RBTableBuilder::INITIALTABLESIZE));
 	}
@@ -334,6 +338,7 @@ void RBTableBuilder::addContractOrder($String* groupChars, int32_t anOrder, bool
 }
 
 int32_t RBTableBuilder::getContractOrder($String* groupChars) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $RBCollationTables::UNMAPPED;
 	if (this->contractTable != nullptr) {
 		int32_t ch = $nc(groupChars)->codePointAt(0);
@@ -350,6 +355,7 @@ int32_t RBTableBuilder::getContractOrder($String* groupChars) {
 }
 
 int32_t RBTableBuilder::getCharOrder(int32_t ch) {
+	$useLocalCurrentObjectStackCache();
 	int32_t order = $nc(this->mapping)->elementAt(ch);
 	if (order >= $RBCollationTables::CONTRACTCHARINDEX) {
 		$var($Vector, groupList, getContractValuesImpl(order - $RBCollationTables::CONTRACTCHARINDEX));
@@ -396,6 +402,7 @@ void RBTableBuilder::addExpandOrder(int32_t ch, $String* expandChars, int32_t an
 }
 
 int32_t RBTableBuilder::addExpansion(int32_t anOrder, $String* expandChars) {
+	$useLocalCurrentObjectStackCache();
 	if (this->expandTable == nullptr) {
 		$set(this, expandTable, $new($Vector, RBTableBuilder::INITIALTABLESIZE));
 	}

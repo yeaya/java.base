@@ -95,6 +95,7 @@ void BasicPermissionCollection::init$($Class* clazz) {
 }
 
 void BasicPermissionCollection::add($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicPermission, basicPermission, nullptr);
 	bool var$0 = $instanceOf($BasicPermission, permission);
 	if (var$0) {
@@ -122,6 +123,7 @@ void BasicPermissionCollection::add($Permission* permission) {
 }
 
 bool BasicPermissionCollection::implies($Permission* permission) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicPermission, basicPermission, nullptr);
 	bool var$0 = $instanceOf($BasicPermission, permission);
 	if (var$0) {
@@ -161,6 +163,7 @@ $Enumeration* BasicPermissionCollection::elements() {
 }
 
 void BasicPermissionCollection::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($Hashtable, permissions, $new($Hashtable, $nc(this->perms)->size() * 2));
 	permissions->putAll(static_cast<$Map*>(static_cast<$AbstractMap*>(this->perms)));
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
@@ -171,6 +174,7 @@ void BasicPermissionCollection::writeObject($ObjectOutputStream* out) {
 }
 
 void BasicPermissionCollection::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gfields, $nc(in)->readFields());
 	$var($Hashtable, permissions, $cast($Hashtable, $nc(gfields)->get("permissions"_s, ($Object*)nullptr)));
 	$set(this, perms, $new($ConcurrentHashMap, $nc(permissions)->size() * 2));
@@ -187,6 +191,7 @@ void BasicPermissionCollection::readObject($ObjectInputStream* in) {
 }
 
 void clinit$BasicPermissionCollection($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$load($Hashtable);
 		$init($Boolean);
 		$load($Class);

@@ -156,6 +156,7 @@ void LongPipeline$6$1::begin(int64_t size) {
 }
 
 void LongPipeline$6$1::accept(int64_t t) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($LongStream, result, $cast($LongStream, $nc(this->this$1->val$mapper)->apply(t)));
 		{

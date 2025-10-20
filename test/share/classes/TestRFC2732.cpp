@@ -44,6 +44,7 @@ void TestRFC2732::init$() {
 }
 
 void TestRFC2732::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, u, nullptr);
 	try {
 		$assign(u, $new($URL, "http"_s, "10:100::1234"_s, 99, "/index"_s));

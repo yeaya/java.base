@@ -87,6 +87,7 @@ void Decompressor::init$() {
 }
 
 $bytes* Decompressor::decompressResource($ByteOrder* order, $ResourceDecompressor$StringsProvider* provider, $bytes* content$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, content, content$renamed);
 	$Objects::requireNonNull(order);
 	$Objects::requireNonNull(provider);

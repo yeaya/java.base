@@ -137,6 +137,7 @@ $ValueRange* IsoFields$Field$4::rangeRefinedBy($TemporalAccessor* temporal) {
 }
 
 $Temporal* IsoFields$Field$4::adjustInto($Temporal* temporal, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	if (isSupportedBy(temporal) == false) {
 		$throwNew($UnsupportedTemporalTypeException, "Unsupported field: WeekBasedYear"_s);
 	}

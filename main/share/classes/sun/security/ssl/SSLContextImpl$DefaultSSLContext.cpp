@@ -74,6 +74,7 @@ $Object* allocate$SSLContextImpl$DefaultSSLContext($Class* clazz) {
 }
 
 void SSLContextImpl$DefaultSSLContext::init$() {
+	$useLocalCurrentObjectStackCache();
 	$SSLContextImpl$CustomizedTLSContext::init$();
 	$init($SSLContextImpl$DefaultManagersHolder);
 	if ($SSLContextImpl$DefaultManagersHolder::reservedException != nullptr) {

@@ -57,6 +57,7 @@ void Trampoline::init$() {
 
 void Trampoline::ensureInvocableMethod($Method* m) {
 	$init(Trampoline);
+	$useLocalCurrentObjectStackCache();
 	$Class* clazz = $nc(m)->getDeclaringClass();
 	$load($AccessController);
 	bool var$1 = $nc($of(clazz))->equals($AccessController::class$);

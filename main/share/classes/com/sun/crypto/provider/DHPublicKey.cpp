@@ -116,6 +116,7 @@ void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g) {
 }
 
 void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g, int32_t l) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, y, y);
 	$set(this, p, p);
 	$set(this, g, g);
@@ -130,6 +131,7 @@ void DHPublicKey::init$($BigInteger* y, $BigInteger* p, $BigInteger* g, int32_t 
 }
 
 void DHPublicKey::init$($bytes* encodedKey) {
+	$useLocalCurrentObjectStackCache();
 	$var($InputStream, inStream, $new($ByteArrayInputStream, encodedKey));
 	try {
 		$var($DerValue, derKeyVal, $new($DerValue, inStream));
@@ -189,6 +191,7 @@ $String* DHPublicKey::getAlgorithm() {
 
 $bytes* DHPublicKey::getEncoded() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->encodedKey == nullptr) {
 			try {
 				$var($DerOutputStream, algid, $new($DerOutputStream));
@@ -229,6 +232,7 @@ $DHParameterSpec* DHPublicKey::getParams() {
 }
 
 $String* DHPublicKey::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($String, var$4, $$str({"SunJCE Diffie-Hellman Public Key:"_s, LINE_SEP, "y:"_s, LINE_SEP, $($Debug::toHexString(this->y)), LINE_SEP, "p:"_s, LINE_SEP}));
 	$var($String, var$3, $$concat(var$4, $($Debug::toHexString(this->p))));
@@ -243,6 +247,7 @@ $String* DHPublicKey::toString() {
 }
 
 void DHPublicKey::parseKeyBits() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
 		$set(this, y, in->getBigInteger());
@@ -261,6 +266,7 @@ int32_t DHPublicKey::hashCode() {
 }
 
 bool DHPublicKey::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -275,6 +281,7 @@ bool DHPublicKey::equals(Object$* obj) {
 }
 
 $Object* DHPublicKey::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PUBLIC);
 	$var($String, var$1, getAlgorithm());

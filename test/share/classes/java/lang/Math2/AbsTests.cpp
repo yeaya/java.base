@@ -221,6 +221,7 @@ void AbsTests::init$() {
 
 void AbsTests::main($StringArray* args) {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	AbsTests::errors += testInRangeIntAbs();
 	AbsTests::errors += testIntMinValue();
 	AbsTests::errors += testInRangeLongAbs();
@@ -232,6 +233,7 @@ void AbsTests::main($StringArray* args) {
 
 int32_t AbsTests::testInRangeIntAbs() {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	$var($intArray2, testCases, $new($intArray2, {
 		$$new($ints, {
@@ -280,6 +282,7 @@ int32_t AbsTests::testInRangeIntAbs() {
 
 int32_t AbsTests::testIntMinValue() {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	errors += testIntAbs(static_cast<$IntUnaryOperator*>($$new(AbsTests$$Lambda$abs)), $Integer::MIN_VALUE, $Integer::MIN_VALUE);
 	try {
@@ -295,6 +298,7 @@ int32_t AbsTests::testIntMinValue() {
 
 int32_t AbsTests::testIntAbs($IntUnaryOperator* absFunc, int32_t argument, int32_t expected) {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $nc(absFunc)->applyAsInt(argument);
 	if (result != expected) {
 		$init($System);
@@ -310,6 +314,7 @@ int32_t AbsTests::testIntAbs($IntUnaryOperator* absFunc, int32_t argument, int32
 
 int64_t AbsTests::testInRangeLongAbs() {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	$var($longArray2, testCases, $new($longArray2, {
 		$$new($longs, {
@@ -366,6 +371,7 @@ int64_t AbsTests::testInRangeLongAbs() {
 
 int32_t AbsTests::testLongMinValue() {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t errors = 0;
 	errors += testLongAbs(static_cast<$LongUnaryOperator*>($$new(AbsTests$$Lambda$abs$2)), $Long::MIN_VALUE, $Long::MIN_VALUE);
 	try {
@@ -381,6 +387,7 @@ int32_t AbsTests::testLongMinValue() {
 
 int32_t AbsTests::testLongAbs($LongUnaryOperator* absFunc, int64_t argument, int64_t expected) {
 	$init(AbsTests);
+	$useLocalCurrentObjectStackCache();
 	int64_t result = $nc(absFunc)->applyAsLong(argument);
 	if (result != expected) {
 		$init($System);

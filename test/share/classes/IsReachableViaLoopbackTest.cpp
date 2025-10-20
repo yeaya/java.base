@@ -46,6 +46,7 @@ void IsReachableViaLoopbackTest::init$() {
 }
 
 void IsReachableViaLoopbackTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($InetAddress, addr, $InetAddress::getByName("localhost"_s));
 		$var($InetAddress, remoteAddr, $InetAddress::getByName("bugs.openjdk.java.net"_s));

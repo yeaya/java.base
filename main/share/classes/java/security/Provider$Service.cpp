@@ -179,6 +179,7 @@ void Provider$Service::addAttribute($String* type, $String* value) {
 }
 
 void Provider$Service::init$($Provider* provider, $String* type, $String* algorithm, $String* className, $List* aliases, $Map* attributes) {
+	$useLocalCurrentObjectStackCache();
 	if ((provider == nullptr) || (type == nullptr) || (algorithm == nullptr) || (className == nullptr)) {
 		$throwNew($NullPointerException);
 	}
@@ -237,6 +238,7 @@ $String* Provider$Service::getAttribute($String* name) {
 }
 
 $Object* Provider$Service::newInstance(Object$* constructorParameter) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->registered == false) {
 		if ($nc(this->provider)->getService(this->type, this->algorithm) != this) {
@@ -285,6 +287,7 @@ $Object* Provider$Service::newInstanceOf() {
 }
 
 $Object* Provider$Service::newInstanceUtil($Class* ctrParamClz, Object$* ctorParamObj) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (ctrParamClz == nullptr) {
 		return $of(newInstanceOf());
@@ -311,6 +314,7 @@ $Object* Provider$Service::newInstanceUtil($Class* ctrParamClz, Object$* ctorPar
 }
 
 $Class* Provider$Service::getImplClass() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Object, cache, this->classCache);
@@ -358,6 +362,7 @@ $Class* Provider$Service::getImplClass() {
 }
 
 $Constructor* Provider$Service::getDefaultConstructor() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, cache, this->constructorCache);
 	{
@@ -392,6 +397,7 @@ $Constructor* Provider$Service::getDefaultConstructor() {
 }
 
 bool Provider$Service::supportsParameter(Object$* parameter) {
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$EngineDescription, cap, this->engineDescription);
 	if (cap == nullptr) {
 		return true;
@@ -419,6 +425,7 @@ bool Provider$Service::supportsParameter(Object$* parameter) {
 }
 
 bool Provider$Service::hasKeyAttributes() {
+	$useLocalCurrentObjectStackCache();
 	$var($Boolean, b, this->hasKeyAttributes$);
 	if (b == nullptr) {
 		$synchronized(this) {
@@ -477,6 +484,7 @@ $Class* Provider$Service::getKeyClass($String* name) {
 }
 
 bool Provider$Service::supportsKeyFormat($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	if (this->supportedFormats == nullptr) {
 		return false;
 	}
@@ -522,6 +530,7 @@ bool Provider$Service::supportsKeyClass($Key* key) {
 }
 
 $String* Provider$Service::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, aString, $nc(this->aliases)->isEmpty() ? ""_s : $str({"\r\n  aliases: "_s, $($nc($of(this->aliases))->toString())}));
 	$var($String, attrs, $nc(this->attributes)->isEmpty() ? ""_s : $str({"\r\n  attributes: "_s, $($nc($of(this->attributes))->toString())}));
 	return $str({$($nc(this->provider)->getName()), ": "_s, this->type, "."_s, this->algorithm, " -> "_s, this->className, aString, attrs, "\r\n"_s});

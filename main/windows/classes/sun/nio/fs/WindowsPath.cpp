@@ -215,6 +215,7 @@ void WindowsPath::init$($WindowsFileSystem* fs, $WindowsPathType* type, $String*
 
 WindowsPath* WindowsPath::parse($WindowsFileSystem* fs, $String* path) {
 	$init(WindowsPath);
+	$useLocalCurrentObjectStackCache();
 	$var($WindowsPathParser$Result, result, $WindowsPathParser::parse(path));
 	$var($WindowsFileSystem, var$0, fs);
 	$var($WindowsPathType, var$1, $nc(result)->type());
@@ -224,6 +225,7 @@ WindowsPath* WindowsPath::parse($WindowsFileSystem* fs, $String* path) {
 
 WindowsPath* WindowsPath::createFromNormalizedPath($WindowsFileSystem* fs, $String* path, $BasicFileAttributes* attrs) {
 	$init(WindowsPath);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($WindowsPathParser$Result, result, $WindowsPathParser::parseNormalizedPath(path));
 		if (attrs == nullptr) {
@@ -258,6 +260,7 @@ $String* WindowsPath::getPathForPermissionCheck() {
 }
 
 $String* WindowsPath::getPathForWin32Calls() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = isAbsolute();
 	if (var$0 && $nc(this->path)->length() <= WindowsPath::MAX_PATH) {
 		return this->path;
@@ -284,6 +287,7 @@ $String* WindowsPath::getPathForWin32Calls() {
 }
 
 $String* WindowsPath::getAbsolutePath() {
+	$useLocalCurrentObjectStackCache();
 	if (isAbsolute()) {
 		return this->path;
 	}
@@ -348,6 +352,7 @@ bool WindowsPath::isSameDrive($String* root1, $String* root2) {
 
 $String* WindowsPath::addPrefixIfNeeded($String* path$renamed) {
 	$init(WindowsPath);
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, path$renamed);
 	if ($nc(path)->length() > WindowsPath::MAX_PATH) {
 		if (path->startsWith("\\\\"_s)) {
@@ -373,6 +378,7 @@ WindowsPath* WindowsPath::emptyPath() {
 }
 
 $Path* WindowsPath::getFileName() {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(this->path)->length();
 	if (len == 0) {
 		return this;
@@ -394,6 +400,7 @@ $Path* WindowsPath::getFileName() {
 }
 
 WindowsPath* WindowsPath::getParent() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(this->root)->length();
 	if (var$0 == $nc(this->path)->length()) {
 		return nullptr;
@@ -450,6 +457,7 @@ WindowsPath* WindowsPath::toWindowsPath($Path* path) {
 }
 
 bool WindowsPath::hasDotOrDotDot() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = getNameCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($String, name, elementAsString(i));
@@ -467,6 +475,7 @@ bool WindowsPath::hasDotOrDotDot() {
 }
 
 WindowsPath* WindowsPath::relativize($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(WindowsPath, child, toWindowsPath(obj));
 	if (this->equals(child)) {
 		return emptyPath();
@@ -535,6 +544,7 @@ WindowsPath* WindowsPath::relativize($Path* obj) {
 }
 
 WindowsPath* WindowsPath::normalize() {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = getNameCount();
 	if (count == 0 || isEmpty()) {
 		return this;
@@ -613,6 +623,7 @@ WindowsPath* WindowsPath::normalize() {
 }
 
 WindowsPath* WindowsPath::resolve($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var(WindowsPath, other, toWindowsPath(obj));
 	if ($nc(other)->isEmpty()) {
 		return this;
@@ -679,6 +690,7 @@ WindowsPath* WindowsPath::resolve($Path* obj) {
 }
 
 void WindowsPath::initOffsets() {
+	$useLocalCurrentObjectStackCache();
 	if (this->offsets == nullptr) {
 		$var($ArrayList, list, $new($ArrayList));
 		if (isEmpty()) {
@@ -721,6 +733,7 @@ $String* WindowsPath::elementAsString(int32_t i) {
 }
 
 WindowsPath* WindowsPath::getName(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	if (index < 0 || index >= $nc(this->offsets)->length) {
 		$throwNew($IllegalArgumentException);
@@ -733,6 +746,7 @@ WindowsPath* WindowsPath::getName(int32_t index) {
 }
 
 WindowsPath* WindowsPath::subpath(int32_t beginIndex, int32_t endIndex) {
+	$useLocalCurrentObjectStackCache();
 	initOffsets();
 	if (beginIndex < 0) {
 		$throwNew($IllegalArgumentException);
@@ -761,6 +775,7 @@ WindowsPath* WindowsPath::subpath(int32_t beginIndex, int32_t endIndex) {
 }
 
 bool WindowsPath::startsWith($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(WindowsPath, $Objects::requireNonNull(obj)))) {
 		return false;
 	}
@@ -787,6 +802,7 @@ bool WindowsPath::startsWith($Path* obj) {
 }
 
 bool WindowsPath::endsWith($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(WindowsPath, $Objects::requireNonNull(obj)))) {
 		return false;
 	}
@@ -823,6 +839,7 @@ bool WindowsPath::endsWith($Path* obj) {
 }
 
 int32_t WindowsPath::compareTo($Path* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -901,6 +918,7 @@ int64_t WindowsPath::openFileForReadAttributeAccess(int32_t flags) {
 }
 
 int64_t WindowsPath::openSocketForReadAttributeAccess() {
+	$useLocalCurrentObjectStackCache();
 	int32_t flags = 0x02000000 | 0x00200000;
 	int64_t handle = openFileForReadAttributeAccess(flags);
 	try {
@@ -918,6 +936,7 @@ int64_t WindowsPath::openSocketForReadAttributeAccess() {
 }
 
 void WindowsPath::checkRead() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkRead($(getPathForPermissionCheck()));
@@ -925,6 +944,7 @@ void WindowsPath::checkRead() {
 }
 
 void WindowsPath::checkWrite() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkWrite($(getPathForPermissionCheck()));
@@ -932,6 +952,7 @@ void WindowsPath::checkWrite() {
 }
 
 void WindowsPath::checkDelete() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkDelete($(getPathForPermissionCheck()));
@@ -943,6 +964,7 @@ $URI* WindowsPath::toUri() {
 }
 
 WindowsPath* WindowsPath::toAbsolutePath() {
+	$useLocalCurrentObjectStackCache();
 	if (isAbsolute()) {
 		return this;
 	}
@@ -961,12 +983,14 @@ WindowsPath* WindowsPath::toAbsolutePath() {
 }
 
 WindowsPath* WindowsPath::toRealPath($LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	checkRead();
 	$var($String, rp, $WindowsLinkSupport::getRealPath(this, $Util::followLinks(options)));
 	return createFromNormalizedPath($($cast($WindowsFileSystem, getFileSystem())), rp);
 }
 
 $WatchKey* WindowsPath::register$($WatchService* watcher, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($WatchEvent$ModifierArray, modifiers, modifiers$renamed);
 	if (watcher == nullptr) {
 		$throwNew($NullPointerException);

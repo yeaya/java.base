@@ -111,6 +111,7 @@ int32_t LambdaFormEditor$Transform::hashCode() {
 }
 
 $String* LambdaFormEditor$Transform::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append($($$new($LambdaFormEditor$TransformKey, this->packedBytes, this->fullBytes)->toString()));
 	$var($LambdaForm, result, $cast($LambdaForm, get()));

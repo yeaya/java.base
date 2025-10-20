@@ -59,6 +59,7 @@ void GetChannel::init$() {
 }
 
 void GetChannel::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, sin, nullptr);
 	$var($Socket, soc, nullptr);
 	$var($Socket, soc1, nullptr);

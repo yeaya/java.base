@@ -52,6 +52,7 @@ void ArrayIndexOutOfBoundsException::init$($String* s) {
 }
 
 void ArrayIndexOutOfBoundsException::init$(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$IndexOutOfBoundsException::init$($$str({"Array index out of range: "_s, $$str(index)}));
 }
 

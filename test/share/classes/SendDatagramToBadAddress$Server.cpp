@@ -71,6 +71,7 @@ void SendDatagramToBadAddress$Server::init$($SendDatagramToBadAddress* this$0, $
 }
 
 void SendDatagramToBadAddress$Server::receive(int32_t loop, bool expectError) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < loop; ++i) {
 		try {
 			$nc(this->server)->receive(this->pack);

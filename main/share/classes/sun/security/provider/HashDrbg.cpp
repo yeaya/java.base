@@ -107,6 +107,7 @@ void HashDrbg::init$($SecureRandomParameters* params) {
 }
 
 void HashDrbg::initEngine() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, digest, $MessageDigest::getInstance(this->algorithm, "SUN"_s));
 	} catch ($NoSuchProviderException&) {
@@ -134,6 +135,7 @@ $bytes* HashDrbg::hashDf(int32_t requested, $List* inputs) {
 
 $bytes* HashDrbg::hashDf($MessageDigest* digest, int32_t outLen, int32_t requested, $List* inputs) {
 	$init(HashDrbg);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $div((requested + outLen - 1), outLen);
 	$var($bytes, temp, $new($bytes, len * outLen));
 	int32_t counter = 1;
@@ -165,6 +167,7 @@ $bytes* HashDrbg::hashDf($MessageDigest* digest, int32_t outLen, int32_t request
 
 void HashDrbg::hashReseedInternal($List* inputs$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($List, inputs, inputs$renamed);
 		$var($bytes, seed, nullptr);
 		if (this->v != nullptr) {
@@ -184,6 +187,7 @@ void HashDrbg::hashReseedInternal($List* inputs$renamed) {
 }
 
 void HashDrbg::status() {
+	$useLocalCurrentObjectStackCache();
 	$init($AbstractDrbg);
 	if ($AbstractDrbg::debug != nullptr) {
 		$nc($AbstractDrbg::debug)->println($of(this), $$str({"V = "_s, $($nc($($HexFormat::of()))->formatHex(this->v))}));
@@ -194,6 +198,7 @@ void HashDrbg::status() {
 
 void HashDrbg::addBytes($bytes* out, int32_t len, $byteArray2* data) {
 	$init(HashDrbg);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($byteArray2, arr$, data);
 		int32_t len$ = $nc(arr$)->length;
@@ -221,6 +226,7 @@ void HashDrbg::addBytes($bytes* out, int32_t len, $byteArray2* data) {
 
 void HashDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$init($AbstractDrbg);
 		if ($AbstractDrbg::debug != nullptr) {
 			$nc($AbstractDrbg::debug)->println($of(this), "generateAlgorithm"_s);
@@ -251,6 +257,7 @@ void HashDrbg::generateAlgorithm($bytes* result, $bytes* additionalInput) {
 }
 
 void HashDrbg::hashGen($bytes* output, $bytes* v) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, v);
 	int32_t pos = 0;
 	int32_t len = $nc(output)->length;

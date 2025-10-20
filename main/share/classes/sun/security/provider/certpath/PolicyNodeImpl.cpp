@@ -163,6 +163,7 @@ bool PolicyNodeImpl::isCritical() {
 }
 
 $String* PolicyNodeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buffer, $new($StringBuilder, $(this->asString())));
 	{
 		$var($Iterator, i$, $nc(this->mChildren)->iterator());
@@ -181,6 +182,7 @@ bool PolicyNodeImpl::isImmutable() {
 }
 
 void PolicyNodeImpl::setImmutable() {
+	$useLocalCurrentObjectStackCache();
 	if (this->isImmutable$) {
 		return;
 	}
@@ -215,6 +217,7 @@ void PolicyNodeImpl::addExpectedPolicy($String* expectedPolicy) {
 }
 
 void PolicyNodeImpl::prune(int32_t depth) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isImmutable$) {
 		$throwNew($IllegalStateException, "PolicyNode is immutable"_s);
 	}
@@ -243,6 +246,7 @@ PolicyNodeImpl* PolicyNodeImpl::copyTree() {
 }
 
 PolicyNodeImpl* PolicyNodeImpl::copyTree(PolicyNodeImpl* parent) {
+	$useLocalCurrentObjectStackCache();
 	$var(PolicyNodeImpl, newNode, $new(PolicyNodeImpl, parent, this));
 	{
 		$var($Iterator, i$, $nc(this->mChildren)->iterator());
@@ -263,6 +267,7 @@ $Set* PolicyNodeImpl::getPolicyNodes(int32_t depth) {
 }
 
 void PolicyNodeImpl::getPolicyNodes(int32_t depth, $Set* set) {
+	$useLocalCurrentObjectStackCache();
 	if (this->mDepth == depth) {
 		$nc(set)->add(this);
 	} else {
@@ -287,6 +292,7 @@ $Set* PolicyNodeImpl::getPolicyNodesExpected(int32_t depth, $String* expectedOID
 }
 
 $Set* PolicyNodeImpl::getPolicyNodesExpectedHelper(int32_t depth, $String* expectedOID, bool matchAny) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	if (this->mDepth < depth) {
 		{
@@ -309,6 +315,7 @@ $Set* PolicyNodeImpl::getPolicyNodesExpectedHelper(int32_t depth, $String* expec
 }
 
 $Set* PolicyNodeImpl::getPolicyNodesValid(int32_t depth, $String* validOID) {
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	if (this->mDepth < depth) {
 		{
@@ -336,6 +343,7 @@ $String* PolicyNodeImpl::policyToString($String* oid) {
 }
 
 $String* PolicyNodeImpl::asString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->mParent == nullptr) {
 		return "anyPolicy  ROOT\n"_s;
 	} else {

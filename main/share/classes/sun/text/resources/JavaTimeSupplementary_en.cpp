@@ -43,6 +43,7 @@ void JavaTimeSupplementary_en::init$() {
 }
 
 $ObjectArray2* JavaTimeSupplementary_en::getContents() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, sharedQuarterNames, $new($StringArray, {
 		"1st quarter"_s,
 		"2nd quarter"_s,

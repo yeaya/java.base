@@ -87,6 +87,7 @@ void MemberFactory$Kind$3::init$($String* $enum$name, int32_t $enum$ordinal) {
 }
 
 $AccessibleObject* MemberFactory$Kind$3::apply($Class* declaringClass, $MemberFactory* factory) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!MemberFactory$Kind$3::$assertionsDisabled && !$equals($nc(factory)->kind, this)) {
 		$throwNew($AssertionError);

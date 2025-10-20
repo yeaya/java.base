@@ -81,6 +81,7 @@ void Basic4Appendable$5::init($Appendable* pw, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$5::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($Basic4Appendable);
 	$Basic4Appendable::ck($$str({"PrintWriter.append("_s, this->csn, ")"_s}), this->exp, $($nc($Basic4Appendable::gw)->toString()));
 }

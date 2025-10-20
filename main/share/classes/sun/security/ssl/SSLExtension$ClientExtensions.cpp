@@ -85,6 +85,7 @@ void SSLExtension$ClientExtensions::init$() {
 }
 
 void clinit$SSLExtension$ClientExtensions($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Collection, clientDisabledExtensions, $SSLExtension::getDisabledExtensions("jdk.tls.client.disableExtensions"_s));
 		$var($Collection, extensions, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($new($LinkedList))))));

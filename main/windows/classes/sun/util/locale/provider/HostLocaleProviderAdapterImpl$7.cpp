@@ -87,6 +87,7 @@ bool HostLocaleProviderAdapterImpl$7::isSupportedLocale($Locale* locale) {
 }
 
 $Calendar* HostLocaleProviderAdapterImpl$7::getInstance($TimeZone* zone, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc($($$new($Calendar$Builder)->setLocale($($HostLocaleProviderAdapterImpl::getCalendarLocale(locale)))))->setTimeZone(zone)))->setInstant($System::currentTimeMillis())))->build();
 }
 

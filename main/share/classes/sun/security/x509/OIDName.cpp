@@ -77,6 +77,7 @@ void OIDName::init$($ObjectIdentifier* oid) {
 }
 
 void OIDName::init$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, oid, $ObjectIdentifier::of(name));
 	} catch ($Exception&) {

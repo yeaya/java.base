@@ -227,6 +227,7 @@ void FileDescriptor::attach($Closeable* c) {
 
 void FileDescriptor::closeAll($Closeable* releaser) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->closed) {
 			this->closed = true;
 			$var($IOException, ioe, nullptr);

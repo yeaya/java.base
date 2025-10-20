@@ -195,6 +195,7 @@ $Comparator* ChronoLocalDateTime::timeLineOrder() {
 
 ChronoLocalDateTime* ChronoLocalDateTime::from($TemporalAccessor* temporal) {
 	$init(ChronoLocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(ChronoLocalDateTime, temporal)) {
 		return $cast(ChronoLocalDateTime, temporal);
 	}
@@ -219,21 +220,25 @@ bool ChronoLocalDateTime::isSupported($TemporalUnit* unit) {
 }
 
 ChronoLocalDateTime* ChronoLocalDateTime::with($TemporalAdjuster* adjuster) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateTimeImpl::ensureValid(var$0, $($Temporal::with(adjuster)));
 }
 
 ChronoLocalDateTime* ChronoLocalDateTime::plus($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateTimeImpl::ensureValid(var$0, $($Temporal::plus(amount)));
 }
 
 ChronoLocalDateTime* ChronoLocalDateTime::minus($TemporalAmount* amount) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateTimeImpl::ensureValid(var$0, $($Temporal::minus(amount)));
 }
 
 ChronoLocalDateTime* ChronoLocalDateTime::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var($Chronology, var$0, getChronology());
 	return $ChronoLocalDateTimeImpl::ensureValid(var$0, $($Temporal::minus(amountToSubtract, unit)));
 }
@@ -255,6 +260,7 @@ $Object* ChronoLocalDateTime::query($TemporalQuery* query) {
 }
 
 $Temporal* ChronoLocalDateTime::adjustInto($Temporal* temporal) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	return $nc($($nc(temporal)->with($ChronoField::EPOCH_DAY, $nc($(toLocalDate()))->toEpochDay())))->with($ChronoField::NANO_OF_DAY, $nc($(toLocalTime()))->toNanoOfDay());
 }
@@ -270,6 +276,7 @@ $Instant* ChronoLocalDateTime::toInstant($ZoneOffset* offset) {
 }
 
 int64_t ChronoLocalDateTime::toEpochSecond($ZoneOffset* offset) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(offset), "offset"_s);
 	int64_t epochDay = $nc($(toLocalDate()))->toEpochDay();
 	int64_t secs = epochDay * 0x00015180 + $nc($(toLocalTime()))->toSecondOfDay();
@@ -278,6 +285,7 @@ int64_t ChronoLocalDateTime::toEpochSecond($ZoneOffset* offset) {
 }
 
 int32_t ChronoLocalDateTime::compareTo(ChronoLocalDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int32_t cmp = $nc($(toLocalDate()))->compareTo($($nc(other)->toLocalDate()));
 	if (cmp == 0) {
 		cmp = $nc($(toLocalTime()))->compareTo($($nc(other)->toLocalTime()));
@@ -289,6 +297,7 @@ int32_t ChronoLocalDateTime::compareTo(ChronoLocalDateTime* other) {
 }
 
 bool ChronoLocalDateTime::isAfter(ChronoLocalDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t thisEpDay = $nc($(this->toLocalDate()))->toEpochDay();
 	int64_t otherEpDay = $nc($($nc(other)->toLocalDate()))->toEpochDay();
 	bool var$0 = thisEpDay > otherEpDay;
@@ -304,6 +313,7 @@ bool ChronoLocalDateTime::isAfter(ChronoLocalDateTime* other) {
 }
 
 bool ChronoLocalDateTime::isBefore(ChronoLocalDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t thisEpDay = $nc($(this->toLocalDate()))->toEpochDay();
 	int64_t otherEpDay = $nc($($nc(other)->toLocalDate()))->toEpochDay();
 	bool var$0 = thisEpDay < otherEpDay;
@@ -319,6 +329,7 @@ bool ChronoLocalDateTime::isBefore(ChronoLocalDateTime* other) {
 }
 
 bool ChronoLocalDateTime::isEqual(ChronoLocalDateTime* other) {
+	$useLocalCurrentObjectStackCache();
 	int64_t var$1 = $nc($(this->toLocalTime()))->toNanoOfDay();
 	bool var$0 = var$1 == $nc($($nc(other)->toLocalTime()))->toNanoOfDay();
 	if (var$0) {
@@ -334,6 +345,7 @@ int32_t ChronoLocalDateTime::compareTo(Object$* other) {
 
 $Object* ChronoLocalDateTime::$deserializeLambda$($SerializedLambda* lambda) {
 	$init(ChronoLocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s5496$, $nc(lambda)->getImplMethodName());
 		int32_t tmp5496$ = -1;
@@ -366,6 +378,7 @@ $Object* ChronoLocalDateTime::$deserializeLambda$($SerializedLambda* lambda) {
 
 int32_t ChronoLocalDateTime::lambda$timeLineOrder$b9959cb5$1(ChronoLocalDateTime* dateTime1, ChronoLocalDateTime* dateTime2) {
 	$init(ChronoLocalDateTime);
+	$useLocalCurrentObjectStackCache();
 	int64_t var$0 = $nc($($nc(dateTime1)->toLocalDate()))->toEpochDay();
 	int32_t cmp = $Long::compare(var$0, $nc($($nc(dateTime2)->toLocalDate()))->toEpochDay());
 	if (cmp == 0) {

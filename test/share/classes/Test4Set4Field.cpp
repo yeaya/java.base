@@ -72,6 +72,7 @@ void Test4Set4Field::init$() {
 }
 
 bool Test4Set4Field::testPrimitive() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("ni"_s));
@@ -89,6 +90,7 @@ bool Test4Set4Field::testPrimitive() {
 }
 
 bool Test4Set4Field::testStaticPrimitive() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("si"_s));
@@ -106,6 +108,7 @@ bool Test4Set4Field::testStaticPrimitive() {
 }
 
 bool Test4Set4Field::testObject() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, saved, this->no);
 	try {
@@ -124,6 +127,7 @@ bool Test4Set4Field::testObject() {
 }
 
 bool Test4Set4Field::testStaticObject() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, saved, Test4Set4Field::so);
 	try {
@@ -142,6 +146,7 @@ bool Test4Set4Field::testStaticObject() {
 }
 
 bool Test4Set4Field::testAccessiblePrimitive() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("i"_s));
@@ -160,6 +165,7 @@ bool Test4Set4Field::testAccessiblePrimitive() {
 }
 
 bool Test4Set4Field::testAccessibleStaticPrimitive() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("si"_s));
@@ -178,6 +184,7 @@ bool Test4Set4Field::testAccessibleStaticPrimitive() {
 }
 
 bool Test4Set4Field::testAccessibleObject() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, saved, this->o);
 	try {
@@ -197,6 +204,7 @@ bool Test4Set4Field::testAccessibleObject() {
 }
 
 bool Test4Set4Field::testAccessibleStaticObject() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, saved, Test4Set4Field::so);
 	try {
@@ -216,6 +224,7 @@ bool Test4Set4Field::testAccessibleStaticObject() {
 }
 
 bool Test4Set4Field::testVolatilePrimitive() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Field, f, $of(this)->getClass()->getDeclaredField("vi"_s));
@@ -234,6 +243,7 @@ bool Test4Set4Field::testVolatilePrimitive() {
 }
 
 bool Test4Set4Field::testVolatileObject() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Object, saved, this->vo);
 	try {

@@ -74,6 +74,7 @@ $Object* allocate$PolicySpiFile($Class* clazz) {
 }
 
 void PolicySpiFile::init$($Policy$Parameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$PolicySpi::init$();
 	if (params == nullptr) {
 		$set(this, pf, $new($PolicyFile));

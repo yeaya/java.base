@@ -52,6 +52,7 @@ void BigBacklog::init$() {
 }
 
 void BigBacklog::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocket, soc, nullptr);
 	$var($Socket, csoc, nullptr);
 	int32_t port = 0;

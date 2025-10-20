@@ -89,6 +89,7 @@ void LoginContext$SecureCallbackHandler::init$($AccessControlContext* acc, $Call
 }
 
 void LoginContext$SecureCallbackHandler::handle($CallbackArray* callbacks) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($LoginContext$SecureCallbackHandler$1, this, callbacks)), this->acc);

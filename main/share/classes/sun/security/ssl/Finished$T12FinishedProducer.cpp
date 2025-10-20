@@ -126,6 +126,7 @@ $bytes* Finished$T12FinishedProducer::produce($ConnectionContext* context, $SSLH
 }
 
 $bytes* Finished$T12FinishedProducer::onProduceFinished($ClientHandshakeContext* chc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$nc($nc(chc)->handshakeHash)->update();
 	$var($Finished$FinishedMessage, fm, $new($Finished$FinishedMessage, chc));
 	$init($ChangeCipherSpec);
@@ -164,6 +165,7 @@ $bytes* Finished$T12FinishedProducer::onProduceFinished($ClientHandshakeContext*
 }
 
 $bytes* Finished$T12FinishedProducer::onProduceFinished($ServerHandshakeContext* shc, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(shc)->statelessResumption) {
 		$init($NewSessionTicket);
 		$nc($NewSessionTicket::handshake12Producer)->produce(shc, message);

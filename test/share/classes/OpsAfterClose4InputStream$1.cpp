@@ -67,6 +67,7 @@ void OpsAfterClose4InputStream$1::init$($String* $enum$name, int32_t $enum$ordin
 }
 
 bool OpsAfterClose4InputStream$1::check($InputStream* is) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t read = $nc(is)->read();
 		$init($System);

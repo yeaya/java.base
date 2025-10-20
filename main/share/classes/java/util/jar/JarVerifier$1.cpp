@@ -88,6 +88,7 @@ void JarVerifier$1::init$($JarVerifier* this$0, $Iterator* val$itor, $List* val$
 }
 
 bool JarVerifier$1::hasMoreElements() {
+	$useLocalCurrentObjectStackCache();
 	if (this->name != nullptr) {
 		return true;
 	}

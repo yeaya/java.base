@@ -90,6 +90,7 @@ void Unbounded::init$() {
 }
 
 void Unbounded::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($AsynchronousServerSocketChannel, listener, $cast($AsynchronousServerSocketChannel, $nc($($AsynchronousServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	$var($AsynchronousSocketChannelArray, clients, $new($AsynchronousSocketChannelArray, Unbounded::CONCURRENCY_COUNT));
 	$var($AsynchronousSocketChannelArray, peers, $new($AsynchronousSocketChannelArray, Unbounded::CONCURRENCY_COUNT));

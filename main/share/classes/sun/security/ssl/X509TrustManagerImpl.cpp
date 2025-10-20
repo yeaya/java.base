@@ -130,6 +130,7 @@ $Object* allocate$X509TrustManagerImpl($Class* clazz) {
 }
 
 void X509TrustManagerImpl::init$($String* validatorType, $Collection* trustedCerts$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Collection, trustedCerts, trustedCerts$renamed);
 	$X509ExtendedTrustManager::init$();
 	$set(this, validatorLock, $new($ReentrantLock));
@@ -146,6 +147,7 @@ void X509TrustManagerImpl::init$($String* validatorType, $Collection* trustedCer
 }
 
 void X509TrustManagerImpl::init$($String* validatorType, $PKIXBuilderParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$X509ExtendedTrustManager::init$();
 	$set(this, validatorLock, $new($ReentrantLock));
 	$set(this, validatorType, validatorType);
@@ -191,6 +193,7 @@ void X509TrustManagerImpl::checkServerTrusted($X509CertificateArray* chain, $Str
 }
 
 $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain, $String* authType, bool checkClientTrusted) {
+	$useLocalCurrentObjectStackCache();
 	if (chain == nullptr || $nc(chain)->length == 0) {
 		$throwNew($IllegalArgumentException, "null or zero-length certificate chain"_s);
 	}
@@ -249,6 +252,7 @@ $Validator* X509TrustManagerImpl::checkTrustedInit($X509CertificateArray* chain,
 }
 
 void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* authType, $Socket* socket, bool checkClientTrusted) {
+	$useLocalCurrentObjectStackCache();
 	$var($Validator, v, checkTrustedInit(chain, authType, checkClientTrusted));
 	$var($X509CertificateArray, trustedChain, nullptr);
 	if ((socket != nullptr) && socket->isConnected() && ($instanceOf($SSLSocket, socket))) {
@@ -285,6 +289,7 @@ void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* a
 }
 
 void X509TrustManagerImpl::checkTrusted($X509CertificateArray* chain, $String* authType, $SSLEngine* engine, bool checkClientTrusted) {
+	$useLocalCurrentObjectStackCache();
 	$var($Validator, v, checkTrustedInit(chain, authType, checkClientTrusted));
 	$var($X509CertificateArray, trustedChain, nullptr);
 	if (engine != nullptr) {
@@ -331,6 +336,7 @@ $Validator* X509TrustManagerImpl::getValidator($String* variant) {
 
 $String* X509TrustManagerImpl::getHostNameInSNI($List* sniNames) {
 	$init(X509TrustManagerImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($SNIHostName, hostname, nullptr);
 	{
 		$var($Iterator, i$, $nc(sniNames)->iterator());
@@ -389,6 +395,7 @@ $List* X509TrustManagerImpl::getRequestedServerNames($SSLSession* session) {
 
 void X509TrustManagerImpl::checkIdentity($SSLSession* session, $X509CertificateArray* trustedChain, $String* algorithm, bool checkClientTrusted) {
 	$init(X509TrustManagerImpl);
+	$useLocalCurrentObjectStackCache();
 	bool chainsToPublicCA = $AnchorCertificates::contains($nc(trustedChain)->get(trustedChain->length - 1));
 	bool identifiable = false;
 	$var($String, peerHost, $nc(session)->getPeerHost());
@@ -419,6 +426,7 @@ void X509TrustManagerImpl::checkIdentity($String* hostname, $X509Certificate* ce
 
 void X509TrustManagerImpl::checkIdentity($String* hostname$renamed, $X509Certificate* cert, $String* algorithm, bool chainsToPublicCA) {
 	$init(X509TrustManagerImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostname, hostname$renamed);
 	if (algorithm != nullptr && !algorithm->isEmpty()) {
 		bool var$0 = (hostname != nullptr) && hostname->startsWith("["_s);

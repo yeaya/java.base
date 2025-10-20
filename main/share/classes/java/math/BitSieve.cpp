@@ -73,6 +73,7 @@ void BitSieve::init$() {
 }
 
 void BitSieve::init$($BigInteger* base, int32_t searchLen) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, bits, $new($longs, (unitIndex(searchLen - 1) + 1)));
 	this->length = searchLen;
 	int32_t start = 0;
@@ -134,6 +135,7 @@ void BitSieve::sieveSingle(int32_t limit, int32_t start, int32_t step) {
 }
 
 $BigInteger* BitSieve::retrieve($BigInteger* initValue, int32_t certainty, $Random* random) {
+	$useLocalCurrentObjectStackCache();
 	int32_t offset = 1;
 	for (int32_t i = 0; i < $nc(this->bits)->length; ++i) {
 		int64_t nextLong = ~$nc(this->bits)->get(i);

@@ -191,6 +191,7 @@ $ClassSpecializer$Factory* ClassSpecializer::factory() {
 }
 
 void ClassSpecializer::init$($Class* topClass, $Class* keyType, $Class* metaType, $MethodType* baseConstructorType, $MemberName* sdAccessor, $String* sdFieldName, $List* transformMethods) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, cache, $new($ConcurrentHashMap));
 	$set(this, topClass$, topClass);
 	$set(this, keyType$, keyType);
@@ -211,6 +212,7 @@ void ClassSpecializer::init$($Class* topClass, $Class* keyType, $Class* metaType
 
 $Constructor* ClassSpecializer::reflectConstructor($Class* defc, $ClassArray* ptypes) {
 	$init(ClassSpecializer);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc(defc)->getDeclaredConstructor(ptypes);
@@ -226,6 +228,7 @@ $Constructor* ClassSpecializer::reflectConstructor($Class* defc, $ClassArray* pt
 
 $Field* ClassSpecializer::reflectField($Class* defc, $String* name) {
 	$init(ClassSpecializer);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc(defc)->getDeclaredField(name);
@@ -242,6 +245,7 @@ $RuntimeException* ClassSpecializer::newIAE($String* message, $Throwable* cause)
 }
 
 $ClassSpecializer$SpeciesData* ClassSpecializer::findSpecies(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, speciesDataOrReservation, $nc(this->cache)->computeIfAbsent(key, ClassSpecializer::CREATE_RESERVATION));
 	$var($ClassSpecializer$SpeciesData, speciesData, nullptr);
 	$load($Object);
@@ -282,6 +286,7 @@ $String* ClassSpecializer::methodSig($MethodType* mt) {
 
 $String* ClassSpecializer::classSig($Class* cls) {
 	$init(ClassSpecializer);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(cls)->isPrimitive();
 	if (var$0 || $nc(cls)->isArray()) {
 		return $nc($($nc($($MethodType::methodType(cls)))->toMethodDescriptorString()))->substring(2);
@@ -330,6 +335,7 @@ $String* ClassSpecializer::className($Class* cls) {
 }
 
 void clinit$ClassSpecializer($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ClassSpecializer::MH, "java/lang/invoke/MethodHandle"_s);
 	$assignStatic(ClassSpecializer::MH_SIG, $str({"L"_s, ClassSpecializer::MH, ";"_s}));
 	$assignStatic(ClassSpecializer::STABLE, "jdk/internal/vm/annotation/Stable"_s);

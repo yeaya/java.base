@@ -121,6 +121,7 @@ void CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$($List* au
 }
 
 void CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->remaining() < 3) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid certificate_authorities extension: insufficient data"_s)))));
@@ -144,6 +145,7 @@ void CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::init$($Handshak
 
 $List* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getEncodedAuthorities($X509CertificateArray* trustedCerts) {
 	$init(CertificateAuthoritiesExtension$CertificateAuthoritiesSpec);
+	$useLocalCurrentObjectStackCache();
 	$var($List, authorities, $new($ArrayList, $nc(trustedCerts)->length));
 	int32_t sizeAccount = 0;
 	{
@@ -169,6 +171,7 @@ $List* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getEncodedAut
 }
 
 $X500PrincipalArray* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::getAuthorities() {
+	$useLocalCurrentObjectStackCache();
 	$var($X500PrincipalArray, principals, $new($X500PrincipalArray, $nc(this->authorities)->size()));
 	int32_t i = 0;
 	{
@@ -184,6 +187,7 @@ $X500PrincipalArray* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec:
 }
 
 $String* CertificateAuthoritiesExtension$CertificateAuthoritiesSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate authorities\": \'[\'\n{0}\']\'"_s, $Locale::ENGLISH));
 	$var($StringBuilder, builder, $new($StringBuilder, 512));

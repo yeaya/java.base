@@ -93,10 +93,12 @@ void Remapper::init$() {
 }
 
 $String* Remapper::mapDesc($String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(mapType($($Type::getType(descriptor)))))->getDescriptor();
 }
 
 $Type* Remapper::mapType($Type* type) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringBuilder, remappedDescriptor, nullptr)
 		$var($String, remappedInternalName, nullptr)
@@ -128,6 +130,7 @@ $Type* Remapper::mapType($Type* type) {
 }
 
 $String* Remapper::mapType($String* internalName) {
+	$useLocalCurrentObjectStackCache();
 	if (internalName == nullptr) {
 		return nullptr;
 	}
@@ -135,6 +138,7 @@ $String* Remapper::mapType($String* internalName) {
 }
 
 $StringArray* Remapper::mapTypes($StringArray* internalNames) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, remappedInternalNames, nullptr);
 	for (int32_t i = 0; i < $nc(internalNames)->length; ++i) {
 		$var($String, internalName, internalNames->get(i));
@@ -150,6 +154,7 @@ $StringArray* Remapper::mapTypes($StringArray* internalNames) {
 }
 
 $String* Remapper::mapMethodDesc($String* methodDescriptor) {
+	$useLocalCurrentObjectStackCache();
 	if ("()V"_s->equals(methodDescriptor)) {
 		return methodDescriptor;
 	}
@@ -175,6 +180,7 @@ $String* Remapper::mapMethodDesc($String* methodDescriptor) {
 }
 
 $Object* Remapper::mapValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($Type, value)) {
 		return $of(mapType($cast($Type, value)));
 	}
@@ -204,6 +210,7 @@ $Object* Remapper::mapValue(Object$* value) {
 }
 
 $String* Remapper::mapSignature($String* signature, bool typeSignature) {
+	$useLocalCurrentObjectStackCache();
 	if (signature == nullptr) {
 		return nullptr;
 	}

@@ -128,6 +128,7 @@ $Object* allocate$Configuration($Class* clazz) {
 Configuration* Configuration::configuration = nullptr;
 
 void Configuration::checkPermission($String* type) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($AuthPermission, $$str({"createLoginConfiguration."_s, type})));
@@ -140,6 +141,7 @@ void Configuration::init$() {
 
 Configuration* Configuration::getConfiguration() {
 	$load(Configuration);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -173,6 +175,7 @@ Configuration* Configuration::getConfiguration() {
 }
 
 void Configuration::setConfiguration(Configuration* configuration) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($AuthPermission, "setLoginConfiguration"_s));
@@ -182,6 +185,7 @@ void Configuration::setConfiguration(Configuration* configuration) {
 }
 
 Configuration* Configuration::getInstance($String* type, $Configuration$Parameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	checkPermission(type);
 	try {
@@ -196,6 +200,7 @@ Configuration* Configuration::getInstance($String* type, $Configuration$Paramete
 }
 
 Configuration* Configuration::getInstance($String* type, $Configuration$Parameters* params, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -213,6 +218,7 @@ Configuration* Configuration::getInstance($String* type, $Configuration$Paramete
 }
 
 Configuration* Configuration::getInstance($String* type, $Configuration$Parameters* params, $Provider* provider) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);

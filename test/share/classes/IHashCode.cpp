@@ -38,6 +38,7 @@ void IHashCode::init$() {
 }
 
 void IHashCode::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t test = $System::identityHashCode(nullptr);
 	if (test != 0) {
 		$throwNew($RuntimeException, $$str({"identityHashCode(null) is "_s, $$str(test)}));

@@ -130,6 +130,7 @@ void AuthorityInfoAccessExtension::init$($List* accessDescriptions) {
 }
 
 void AuthorityInfoAccessExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::AuthInfoAccess_Id);
@@ -159,6 +160,7 @@ $String* AuthorityInfoAccessExtension::getName() {
 }
 
 void AuthorityInfoAccessExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -206,6 +208,7 @@ $Enumeration* AuthorityInfoAccessExtension::getElements() {
 }
 
 void AuthorityInfoAccessExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->accessDescriptions)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 	} else {

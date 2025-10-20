@@ -140,6 +140,7 @@ $Subject* SubjectCodeSource::getSubject() {
 }
 
 bool SubjectCodeSource::implies($CodeSource* codesource) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($LinkedList, subjectList, nullptr);
 	if (codesource == nullptr || !($instanceOf(SubjectCodeSource, codesource)) || !($CodeSource::implies(codesource))) {
@@ -217,6 +218,7 @@ bool SubjectCodeSource::implies($CodeSource* codesource) {
 }
 
 bool SubjectCodeSource::subjectListImpliesPrincipalEntry($LinkedList* subjectList, $PolicyParser$PrincipalEntry* pppe) {
+	$useLocalCurrentObjectStackCache();
 	$var($ListIterator, li, $nc(subjectList)->listIterator(0));
 	while ($nc(li)->hasNext()) {
 		$var($PolicyParser$PrincipalEntry, listPppe, $cast($PolicyParser$PrincipalEntry, li->next()));
@@ -233,6 +235,7 @@ bool SubjectCodeSource::subjectListImpliesPrincipalEntry($LinkedList* subjectLis
 }
 
 bool SubjectCodeSource::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -268,6 +271,7 @@ int32_t SubjectCodeSource::hashCode() {
 }
 
 $String* SubjectCodeSource::toString() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, returnMe, $CodeSource::toString());
 	if (getSubject() != nullptr) {

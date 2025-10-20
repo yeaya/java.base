@@ -84,6 +84,7 @@ void DualPivotQuicksort$RunMerger::init$(Object$* a, Object$* b, int32_t offset,
 }
 
 $Object* DualPivotQuicksort$RunMerger::compute() {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ints, this->a)) {
 		return $of($DualPivotQuicksort::mergeRuns($cast($ints, this->a), $cast($ints, this->b), this->offset, this->aim, true, this->run, this->lo, this->hi));
 	}

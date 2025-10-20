@@ -83,6 +83,7 @@ $ints* VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind = n
 $ints* VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$AccessType = nullptr;
 
 void clinit$VarHandle$2($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(VarHandle$2::$SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind, $new($ints, $($VarHandle$VarHandleDesc$Kind::values())->length));
 	{
 		try {

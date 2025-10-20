@@ -72,6 +72,7 @@ $Object* allocate$NamedCurve($Class* clazz) {
 }
 
 void NamedCurve::init$($KnownOIDs* ko, $EllipticCurve* curve, $ECPoint* g, $BigInteger* n, int32_t h) {
+	$useLocalCurrentObjectStackCache();
 	$ECParameterSpec::init$(curve, g, n, h);
 	$var($StringArray, aliases, $nc(ko)->aliases());
 	$set(this, nameAndAliases, $new($StringArray, $nc(aliases)->length + 1));
@@ -101,6 +102,7 @@ $String* NamedCurve::getObjectId() {
 }
 
 $String* NamedCurve::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, $nc(this->nameAndAliases)->get(0)));
 	if ($nc(this->nameAndAliases)->length > 1) {
 		sb->append(" ["_s);

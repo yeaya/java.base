@@ -78,6 +78,7 @@ void StaticInitMerger::visit(int32_t version, int32_t access, $String* name, $St
 }
 
 $MethodVisitor* StaticInitMerger::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodVisitor, methodVisitor, nullptr);
 	if ("<clinit>"_s->equals(name)) {
 		int32_t newAccess = $Opcodes::ACC_PRIVATE + $Opcodes::ACC_STATIC;

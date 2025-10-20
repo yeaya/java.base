@@ -72,6 +72,7 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeConsumer::init$() {
 }
 
 void ECDHServerKeyExchange$ECDHServerKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, skem, $new($ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, chc, message));
 	$init($SSLLogger);

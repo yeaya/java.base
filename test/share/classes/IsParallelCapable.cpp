@@ -134,6 +134,7 @@ void IsParallelCapable::init$() {
 
 void IsParallelCapable::main($StringArray* args) {
 	$load(IsParallelCapable);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!$nc($($ClassLoader::getSystemClassLoader()))->isRegisteredAsParallelCapable()) {
 		$throwNew($RuntimeException, "System classloader not parallel capable!?"_s);
@@ -154,6 +155,7 @@ void IsParallelCapable::main($StringArray* args) {
 
 void IsParallelCapable::testClassLoaderClass($Class* klazz) {
 	$load(IsParallelCapable);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($IsParallelCapable$TestCL, cl, $cast($IsParallelCapable$TestCL, $nc(klazz)->newInstance()));

@@ -242,6 +242,7 @@ void NormalizerImpl$ReorderingBuffer::flush() {
 }
 
 NormalizerImpl$ReorderingBuffer* NormalizerImpl$ReorderingBuffer::flushAndAppendZeroCC($CharSequence* s, int32_t start, int32_t limit) {
+	$useLocalCurrentObjectStackCache();
 	if (this->appIsStringBuilder) {
 		$nc(this->str)->append(s, start, limit);
 		this->reorderStart = $nc(this->str)->length();

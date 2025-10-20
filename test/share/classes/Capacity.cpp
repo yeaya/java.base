@@ -68,6 +68,7 @@ void Capacity::init$() {
 }
 
 void Capacity::test($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Random, rnd, $new($Random));
 	$var($ints, sizes, $new($ints, {
 		0,
@@ -171,6 +172,7 @@ void Capacity::main($StringArray* args) {
 }
 
 void Capacity::instanceMain($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		test(args);
 	} catch ($Throwable&) {

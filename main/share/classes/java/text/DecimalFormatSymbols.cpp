@@ -251,6 +251,7 @@ DecimalFormatSymbols* DecimalFormatSymbols::getInstance() {
 
 DecimalFormatSymbols* DecimalFormatSymbols::getInstance($Locale* locale) {
 	$init(DecimalFormatSymbols);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter, adapter, nullptr);
 	$load($DecimalFormatSymbolsProvider);
 	$assign(adapter, $LocaleProviderAdapter::getAdapter($DecimalFormatSymbolsProvider::class$, locale));
@@ -494,6 +495,7 @@ $Object* DecimalFormatSymbols::clone() {
 }
 
 bool DecimalFormatSymbols::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -516,6 +518,7 @@ bool DecimalFormatSymbols::equals(Object$* obj) {
 }
 
 int32_t DecimalFormatSymbols::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	if (this->hashCode$ == 0) {
 		this->hashCode$ = $Objects::hash($$new($ObjectArray, {
 			$($of($Character::valueOf(this->zeroDigit))),
@@ -544,6 +547,7 @@ int32_t DecimalFormatSymbols::hashCode() {
 }
 
 void DecimalFormatSymbols::initialize($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, locale, locale);
 	$var($Locale, override$, $nc(locale)->getUnicodeLocaleType("nu"_s) == nullptr ? $CalendarDataUtility::findRegionOverride(locale) : locale);
 	$load($DecimalFormatSymbolsProvider);
@@ -575,10 +579,12 @@ void DecimalFormatSymbols::initialize($Locale* locale) {
 }
 
 char16_t DecimalFormatSymbols::findNonFormatChar($String* src, char16_t defChar) {
+	$useLocalCurrentObjectStackCache();
 	return (char16_t)$nc($($nc($($($nc(src)->chars())->filter(static_cast<$IntPredicate*>($$new(DecimalFormatSymbols$$Lambda$lambda$findNonFormatChar$0)))))->findFirst()))->orElse(defChar);
 }
 
 void DecimalFormatSymbols::initializeCurrency($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (this->currencyInitialized) {
 		return;
 	}

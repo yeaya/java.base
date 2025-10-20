@@ -77,6 +77,7 @@ void ShortWrite4Channels::init$() {
 
 void ShortWrite4Channels::main($StringArray* args) {
 	$init(ShortWrite4Channels);
+	$useLocalCurrentObjectStackCache();
 	$var($WritableByteChannel, wbc, $new($ShortWrite4Channels$1));
 	$var($OutputStream, out, $Channels::newOutputStream(wbc));
 	int32_t expected = 0;

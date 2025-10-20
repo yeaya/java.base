@@ -69,6 +69,7 @@ void ReadWritePrimitives::main($StringArray* args) {
 }
 
 void ReadWritePrimitives::testShort() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -93,6 +94,7 @@ void ReadWritePrimitives::testShort() {
 }
 
 void ReadWritePrimitives::testChar() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -111,6 +113,7 @@ void ReadWritePrimitives::testChar() {
 }
 
 void ReadWritePrimitives::testInt() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -135,6 +138,7 @@ void ReadWritePrimitives::testInt() {
 }
 
 void ReadWritePrimitives::testLong() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {

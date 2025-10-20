@@ -128,6 +128,7 @@ void InterruptibleDatagramSocket::init$() {
 }
 
 void InterruptibleDatagramSocket::test0($DatagramSocket* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($CountDownLatch, latch, $new($CountDownLatch, 1));
 	$var($Thread, testThread, $Thread::currentThread());
 	$var($Thread, coordinator, $new($Thread, static_cast<$Runnable*>($$new(InterruptibleDatagramSocket$$Lambda$lambda$test0$0, latch, testThread))));
@@ -163,6 +164,7 @@ void InterruptibleDatagramSocket::test0($DatagramSocket* s) {
 }
 
 void InterruptibleDatagramSocket::test($DatagramSocket* s, bool interruptible) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		test0(s);
 		$throwNew($RuntimeException, "Receive shouldn\'t have succeeded"_s);
@@ -197,6 +199,7 @@ void InterruptibleDatagramSocket::test($DatagramSocket* s, bool interruptible) {
 }
 
 void InterruptibleDatagramSocket::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($DatagramSocket, s, $new($DatagramSocket));
 		{

@@ -104,6 +104,7 @@ void RC2Parameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void RC2Parameters::engineInit($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, val, $new($DerValue, encoded));
 	if (val->tag == $DerValue::tag_Sequence) {
 		$nc(val->data$)->reset();
@@ -141,6 +142,7 @@ void RC2Parameters::engineInit($bytes* encoded, $String* decodingMethod) {
 }
 
 $AlgorithmParameterSpec* RC2Parameters::engineGetParameterSpec($Class* paramSpec) {
+	$useLocalCurrentObjectStackCache();
 	$load($RC2ParameterSpec);
 	if ($RC2ParameterSpec::class$->isAssignableFrom(paramSpec)) {
 		return $cast($AlgorithmParameterSpec, $nc(paramSpec)->cast((this->iv == nullptr ? $of($$new($RC2ParameterSpec, this->effectiveKeySize)) : $of($$new($RC2ParameterSpec, this->effectiveKeySize, this->iv)))));
@@ -150,6 +152,7 @@ $AlgorithmParameterSpec* RC2Parameters::engineGetParameterSpec($Class* paramSpec
 }
 
 $bytes* RC2Parameters::engineGetEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	if (this->effectiveKeySize != 0) {
@@ -167,6 +170,7 @@ $bytes* RC2Parameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* RC2Parameters::engineToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({LINE_SEP, "    iv:"_s, LINE_SEP, "["_s, $(encoder->encodeBuffer(this->iv)), "]"_s})));

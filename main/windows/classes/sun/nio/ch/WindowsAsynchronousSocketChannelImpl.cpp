@@ -233,6 +233,7 @@ int32_t WindowsAsynchronousSocketChannelImpl::dependsArch(int32_t value32, int32
 }
 
 void WindowsAsynchronousSocketChannelImpl::init$($Iocp* iocp, bool failIfGroupShutdown) {
+	$useLocalCurrentObjectStackCache();
 	$AsynchronousSocketChannelImpl::init$(iocp);
 	int64_t h = $IOUtil::fdVal(this->fd);
 	int32_t key = 0;
@@ -292,6 +293,7 @@ void WindowsAsynchronousSocketChannelImpl::implClose() {
 }
 
 void WindowsAsynchronousSocketChannelImpl::onCancel($PendingFuture* task) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($WindowsAsynchronousSocketChannelImpl$ConnectTask, $($nc(task)->getContext()))) {
 		killConnect();
 	}
@@ -304,6 +306,7 @@ void WindowsAsynchronousSocketChannelImpl::onCancel($PendingFuture* task) {
 }
 
 void WindowsAsynchronousSocketChannelImpl::doPrivilegedBind($SocketAddress* sa) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($WindowsAsynchronousSocketChannelImpl$1, this, sa)));
@@ -314,6 +317,7 @@ void WindowsAsynchronousSocketChannelImpl::doPrivilegedBind($SocketAddress* sa) 
 }
 
 $Future* WindowsAsynchronousSocketChannelImpl::implConnect($SocketAddress* remote, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	if (!isOpen()) {
 		$var($Throwable, exc, $new($ClosedChannelException));
 		if (handler == nullptr) {
@@ -373,6 +377,7 @@ $Future* WindowsAsynchronousSocketChannelImpl::implConnect($SocketAddress* remot
 }
 
 $Future* WindowsAsynchronousSocketChannelImpl::implRead(bool isScatteringRead, $ByteBuffer* dst, $ByteBufferArray* dsts, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$var($PendingFuture, result, $new($PendingFuture, this, handler, attachment));
 	$var($ByteBufferArray, bufs, nullptr);
 	if (isScatteringRead) {
@@ -392,6 +397,7 @@ $Future* WindowsAsynchronousSocketChannelImpl::implRead(bool isScatteringRead, $
 }
 
 $Future* WindowsAsynchronousSocketChannelImpl::implWrite(bool gatheringWrite, $ByteBuffer* src, $ByteBufferArray* srcs, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$var($PendingFuture, result, $new($PendingFuture, this, handler, attachment));
 	$var($ByteBufferArray, bufs, nullptr);
 	if (gatheringWrite) {

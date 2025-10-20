@@ -60,6 +60,7 @@ void TimeToLive::init$() {
 
 void TimeToLive::main($StringArray* args) {
 	$init(TimeToLive);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($MulticastSocket, socket, $new($MulticastSocket));
 		{

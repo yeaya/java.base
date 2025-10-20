@@ -81,6 +81,7 @@ void WindowsFileSystem$2::init$($WindowsFileSystem* this$0, $Pattern* val$patter
 }
 
 bool WindowsFileSystem$2::matches($Path* path) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(this->val$pattern)->matcher($($nc(path)->toString()))))->matches();
 }
 

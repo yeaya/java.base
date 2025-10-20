@@ -87,6 +87,7 @@ void SSLSocketFactory$DefaultFactoryHolder::log($String* msg) {
 }
 
 void clinit$SSLSocketFactory$DefaultFactoryHolder($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($SSLSocketFactory, mediator, nullptr);

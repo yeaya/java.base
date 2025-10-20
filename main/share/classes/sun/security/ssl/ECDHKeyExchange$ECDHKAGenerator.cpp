@@ -115,6 +115,7 @@ $SSLKeyDerivation* ECDHKeyExchange$ECDHKAGenerator::createKeyDerivation($Handsha
 }
 
 $SSLKeyDerivation* ECDHKeyExchange$ECDHKAGenerator::createServerKeyDerivation($ServerHandshakeContext* shc) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Authentication$X509Possession, x509Possession, nullptr);
 	$var($ECDHKeyExchange$ECDHECredentials, ecdheCredentials, nullptr);
 	{
@@ -164,6 +165,7 @@ $SSLKeyDerivation* ECDHKeyExchange$ECDHKAGenerator::createServerKeyDerivation($S
 }
 
 $SSLKeyDerivation* ECDHKeyExchange$ECDHKAGenerator::createClientKeyDerivation($ClientHandshakeContext* chc) {
+	$useLocalCurrentObjectStackCache();
 	$var($ECDHKeyExchange$ECDHEPossession, ecdhePossession, nullptr);
 	$var($X509Authentication$X509Credentials, x509Credentials, nullptr);
 	{

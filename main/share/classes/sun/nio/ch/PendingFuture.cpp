@@ -257,6 +257,7 @@ bool PendingFuture::isDone() {
 }
 
 bool PendingFuture::cancel(bool mayInterruptIfRunning) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this) {
 		if (this->haveResult) {
 			return false;

@@ -66,10 +66,12 @@ void ExtendedSocketOptions$NoExtendedSocketOptions::init$() {
 }
 
 void ExtendedSocketOptions$NoExtendedSocketOptions::setOption($FileDescriptor* fd, $SocketOption* option, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($UnsupportedOperationException, $$str({"no extended options: "_s, $($nc(option)->name())}));
 }
 
 $Object* ExtendedSocketOptions$NoExtendedSocketOptions::getOption($FileDescriptor* fd, $SocketOption* option) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($UnsupportedOperationException, $$str({"no extended options: "_s, $($nc(option)->name())}));
 	$shouldNotReachHere();
 }

@@ -143,6 +143,7 @@ void GeneralSubtrees::init$(GeneralSubtrees* source) {
 }
 
 void GeneralSubtrees::init$($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	GeneralSubtrees::init$();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding of GeneralSubtrees."_s);
@@ -197,6 +198,7 @@ $String* GeneralSubtrees::toString() {
 }
 
 void GeneralSubtrees::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, seq, $new($DerOutputStream));
 	{
 		int32_t i = 0;
@@ -229,12 +231,14 @@ $GeneralNameInterface* GeneralSubtrees::getGeneralNameInterface(int32_t ndx) {
 
 $GeneralNameInterface* GeneralSubtrees::getGeneralNameInterface($GeneralSubtree* gs) {
 	$init(GeneralSubtrees);
+	$useLocalCurrentObjectStackCache();
 	$var($GeneralName, gn, $nc(gs)->getName());
 	$var($GeneralNameInterface, gni, $nc(gn)->getName());
 	return gni;
 }
 
 void GeneralSubtrees::minimize() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < (size() - 1); ++i) {
 		$var($GeneralNameInterface, current, getGeneralNameInterface(i));
 		bool remove1 = false;
@@ -276,6 +280,7 @@ void GeneralSubtrees::minimize() {
 }
 
 $GeneralSubtree* GeneralSubtrees::createWidestSubtree($GeneralNameInterface* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($GeneralName, newName, nullptr);
 		{
@@ -342,6 +347,7 @@ $GeneralSubtree* GeneralSubtrees::createWidestSubtree($GeneralNameInterface* nam
 }
 
 GeneralSubtrees* GeneralSubtrees::intersect(GeneralSubtrees* other) {
+	$useLocalCurrentObjectStackCache();
 	if (other == nullptr) {
 		$throwNew($NullPointerException, "other GeneralSubtrees must not be null"_s);
 	}
@@ -460,6 +466,7 @@ GeneralSubtrees* GeneralSubtrees::intersect(GeneralSubtrees* other) {
 }
 
 void GeneralSubtrees::union$(GeneralSubtrees* other) {
+	$useLocalCurrentObjectStackCache();
 	if (other != nullptr) {
 		{
 			int32_t i = 0;
@@ -473,6 +480,7 @@ void GeneralSubtrees::union$(GeneralSubtrees* other) {
 }
 
 void GeneralSubtrees::reduce(GeneralSubtrees* excluded) {
+	$useLocalCurrentObjectStackCache();
 	if (excluded == nullptr) {
 		return;
 	}

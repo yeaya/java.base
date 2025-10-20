@@ -117,6 +117,7 @@ void ClientHello$ClientHelloProducer::init$() {
 }
 
 $bytes* ClientHello$ClientHelloProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$SSLHandshake* ht = $nc(message)->handshakeType();
 	if (ht == nullptr) {

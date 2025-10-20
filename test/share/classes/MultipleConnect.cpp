@@ -43,6 +43,7 @@ void MultipleConnect::init$() {
 }
 
 void MultipleConnect::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedOutputStream, os, $new($PipedOutputStream));
 	$var($PipedOutputStream, os2, $new($PipedOutputStream));
 	$var($PipedInputStream, is, $new($PipedInputStream));

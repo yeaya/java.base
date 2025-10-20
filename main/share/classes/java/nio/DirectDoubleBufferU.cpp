@@ -182,6 +182,7 @@ $DoubleBuffer* DirectDoubleBufferU::asReadOnlyBuffer() {
 }
 
 int64_t DirectDoubleBufferU::address() {
+	$useLocalCurrentObjectStackCache();
 	$var($ScopedMemoryAccess$Scope, scope, this->scope());
 	if (scope != nullptr) {
 		if (scope->ownerThread() == nullptr) {
@@ -202,6 +203,7 @@ int64_t DirectDoubleBufferU::ix(int32_t i) {
 }
 
 double DirectDoubleBufferU::get() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		double var$2 = 0.0;
@@ -228,6 +230,7 @@ double DirectDoubleBufferU::get() {
 }
 
 double DirectDoubleBufferU::get(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		double var$2 = 0.0;
@@ -254,6 +257,7 @@ double DirectDoubleBufferU::get(int32_t i) {
 }
 
 $DoubleBuffer* DirectDoubleBufferU::put(double x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -273,6 +277,7 @@ $DoubleBuffer* DirectDoubleBufferU::put(double x) {
 }
 
 $DoubleBuffer* DirectDoubleBufferU::put(int32_t i, double x) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -292,6 +297,7 @@ $DoubleBuffer* DirectDoubleBufferU::put(int32_t i, double x) {
 }
 
 $DoubleBuffer* DirectDoubleBufferU::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!DirectDoubleBufferU::$assertionsDisabled && !(pos <= lim)) {

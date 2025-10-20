@@ -223,6 +223,7 @@ $Object* NumberFormat::parseObject($String* source, $ParsePosition* pos) {
 }
 
 $String* NumberFormat::format(double number) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, fastFormat(number));
 	if (result != nullptr) {
 		return result;
@@ -236,11 +237,13 @@ $String* NumberFormat::fastFormat(double number) {
 }
 
 $String* NumberFormat::format(int64_t number) {
+	$useLocalCurrentObjectStackCache();
 	$init($DontCareFieldPosition);
 	return $nc($(format(number, $$new($StringBuffer), $DontCareFieldPosition::INSTANCE)))->toString();
 }
 
 $Number* NumberFormat::parse($String* source) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParsePosition, parsePosition, $new($ParsePosition, 0));
 	$var($Number, result, parse(source, parsePosition));
 	if (parsePosition->index == 0) {
@@ -439,6 +442,7 @@ void NumberFormat::setRoundingMode($RoundingMode* roundingMode) {
 
 NumberFormat* NumberFormat::getInstance($Locale* desiredLocale, $NumberFormat$Style* formatStyle, int32_t choice) {
 	$init(NumberFormat);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter, adapter, nullptr);
 	$load($NumberFormatProvider);
 	$assign(adapter, $LocaleProviderAdapter::getAdapter($NumberFormatProvider::class$, desiredLocale));
@@ -451,6 +455,7 @@ NumberFormat* NumberFormat::getInstance($Locale* desiredLocale, $NumberFormat$St
 
 NumberFormat* NumberFormat::getInstance($LocaleProviderAdapter* adapter, $Locale* locale, $NumberFormat$Style* formatStyle, int32_t choice) {
 	$init(NumberFormat);
+	$useLocalCurrentObjectStackCache();
 	$var($NumberFormatProvider, provider, $nc(adapter)->getNumberFormatProvider());
 
 	$var(NumberFormat, var$0, nullptr)

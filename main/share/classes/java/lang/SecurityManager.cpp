@@ -597,6 +597,7 @@ $Object* SecurityManager::packageDefinitionLock = nullptr;
 $Map* SecurityManager::nonExportedPkgs$ = nullptr;
 
 void SecurityManager::init$() {
+	$useLocalCurrentObjectStackCache();
 	this->initialized = false;
 	$synchronized(SecurityManager::class$) {
 		$var(SecurityManager, sm, $System::getSecurityManager());
@@ -638,6 +639,7 @@ void SecurityManager::checkCreateClassLoader() {
 
 $ThreadGroup* SecurityManager::getRootGroup() {
 	$init(SecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, root, $($Thread::currentThread())->getThreadGroup());
 	while ($nc(root)->getParent() != nullptr) {
 		$assign(root, root->getParent());
@@ -668,10 +670,12 @@ void SecurityManager::checkAccess($ThreadGroup* g) {
 }
 
 void SecurityManager::checkExit(int32_t status) {
+	$useLocalCurrentObjectStackCache();
 	checkPermission($$new($RuntimePermission, $$str({"exitVM."_s, $$str(status)})));
 }
 
 void SecurityManager::checkExec($String* cmd) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, cmd));
 	if (f->isAbsolute()) {
 		$init($SecurityConstants);
@@ -683,6 +687,7 @@ void SecurityManager::checkExec($String* cmd) {
 }
 
 void SecurityManager::checkLink($String* lib) {
+	$useLocalCurrentObjectStackCache();
 	if (lib == nullptr) {
 		$throwNew($NullPointerException, "library can\'t be null"_s);
 	}
@@ -724,6 +729,7 @@ void SecurityManager::checkDelete($String* file) {
 }
 
 void SecurityManager::checkConnect($String* host$renamed, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	if (host == nullptr) {
 		$throwNew($NullPointerException, "host can\'t be null"_s);
@@ -742,6 +748,7 @@ void SecurityManager::checkConnect($String* host$renamed, int32_t port) {
 }
 
 void SecurityManager::checkConnect($String* host$renamed, int32_t port, Object$* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	if (host == nullptr) {
 		$throwNew($NullPointerException, "host can\'t be null"_s);
@@ -760,11 +767,13 @@ void SecurityManager::checkConnect($String* host$renamed, int32_t port, Object$*
 }
 
 void SecurityManager::checkListen(int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$init($SecurityConstants);
 	checkPermission($$new($SocketPermission, $$str({"localhost:"_s, $$str(port)}), $SecurityConstants::SOCKET_LISTEN_ACTION));
 }
 
 void SecurityManager::checkAccept($String* host$renamed, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, host$renamed);
 	if (host == nullptr) {
 		$throwNew($NullPointerException, "host can\'t be null"_s);
@@ -778,6 +787,7 @@ void SecurityManager::checkAccept($String* host$renamed, int32_t port) {
 }
 
 void SecurityManager::checkMulticast($InetAddress* maddr) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, $nc(maddr)->getHostAddress());
 	bool var$0 = !$nc(host)->startsWith("["_s);
 	if (var$0 && host->indexOf((int32_t)u':') != -1) {
@@ -788,6 +798,7 @@ void SecurityManager::checkMulticast($InetAddress* maddr) {
 }
 
 void SecurityManager::checkMulticast($InetAddress* maddr, int8_t ttl) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, $nc(maddr)->getHostAddress());
 	bool var$0 = !$nc(host)->startsWith("["_s);
 	if (var$0 && host->indexOf((int32_t)u':') != -1) {
@@ -813,6 +824,7 @@ void SecurityManager::checkPrintJobAccess() {
 
 $StringArray* SecurityManager::getPackages($String* p) {
 	$init(SecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, packages, nullptr);
 	if (p != nullptr && !p->isEmpty()) {
 		$var($StringTokenizer, tok, $new($StringTokenizer, p, ","_s));
@@ -834,6 +846,7 @@ $StringArray* SecurityManager::getPackages($String* p) {
 
 void SecurityManager::addNonExportedPackages($ModuleLayer* layer) {
 	$init(SecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, bootModules, $ModuleLoaderMap::bootModules());
 	$var($Set, platformModules, $ModuleLoaderMap::platformModules());
 	$nc($($nc($($nc($($nc($($nc($($nc($($nc(layer)->modules()))->stream()))->map(static_cast<$Function*>($$new(SecurityManager$$Lambda$getDescriptor)))))->filter(static_cast<$Predicate*>($$new(SecurityManager$$Lambda$lambda$addNonExportedPackages$0$1, bootModules, platformModules)))))->map(static_cast<$Function*>($$new(SecurityManager$$Lambda$nonExportedPkgs$2)))))->flatMap(static_cast<$Function*>($$new(SecurityManager$$Lambda$stream$3)))))->forEach(static_cast<$Consumer*>($$new(SecurityManager$$Lambda$lambda$addNonExportedPackages$1$4)));
@@ -851,6 +864,7 @@ void SecurityManager::invalidatePackageAccessCache() {
 
 $Set* SecurityManager::nonExportedPkgs($ModuleDescriptor* md) {
 	$init(SecurityManager);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, pkgs, $new($HashSet, $(static_cast<$Collection*>($nc(md)->packages()))));
 	$nc($($nc($($nc($($nc($($nc(md)->exports()))->stream()))->filter(static_cast<$Predicate*>($$new(SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5)))))->map(static_cast<$Function*>($$new(SecurityManager$$Lambda$source$6)))))->forEach(static_cast<$Consumer*>($$new(SecurityManager$$Lambda$remove$7, static_cast<$Set*>(pkgs))));
 	$nc($($nc($($nc($($nc($(md->opens()))->stream()))->filter(static_cast<$Predicate*>($$new(SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8)))))->map(static_cast<$Function*>($$new(SecurityManager$$Lambda$source$9)))))->forEach(static_cast<$Consumer*>($$new(SecurityManager$$Lambda$remove$7, static_cast<$Set*>(pkgs))));
@@ -858,6 +872,7 @@ $Set* SecurityManager::nonExportedPkgs($ModuleDescriptor* md) {
 }
 
 void SecurityManager::checkPackageAccess($String* pkg) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull($of(pkg), "package name can\'t be null"_s);
 	if ($nc(SecurityManager::nonExportedPkgs$)->containsKey(pkg)) {
@@ -897,6 +912,7 @@ void SecurityManager::checkPackageAccess($String* pkg) {
 }
 
 void SecurityManager::checkPackageDefinition($String* pkg) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull($of(pkg), "package name can\'t be null"_s);
 	if ($nc(SecurityManager::nonExportedPkgs$)->containsKey(pkg)) {
@@ -959,6 +975,7 @@ void SecurityManager::lambda$addNonExportedPackages$1($String* pn) {
 
 bool SecurityManager::lambda$addNonExportedPackages$0($Set* bootModules, $Set* platformModules, $ModuleDescriptor* md) {
 	$init(SecurityManager);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(bootModules)->contains($($nc(md)->name()));
 	return var$0 || $nc(platformModules)->contains($($nc(md)->name()));
 }

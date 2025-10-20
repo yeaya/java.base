@@ -81,6 +81,7 @@ void UnixFileSystem$3::init$($UnixFileSystem* this$0, $Pattern* val$pattern) {
 }
 
 bool UnixFileSystem$3::matches($Path* path) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(this->val$pattern)->matcher($($nc(path)->toString()))))->matches();
 }
 

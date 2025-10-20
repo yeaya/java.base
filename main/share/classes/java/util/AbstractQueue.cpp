@@ -197,6 +197,7 @@ void AbstractQueue::clear() {
 }
 
 bool AbstractQueue::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	if (c == nullptr) {
 		$throwNew($NullPointerException);
 	}

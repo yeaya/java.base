@@ -79,6 +79,7 @@ void P384OrderField::init$() {
 
 $BigInteger* P384OrderField::evaluateModulus() {
 	$init(P384OrderField);
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(384));
 	$assign(result, $nc(result)->subtract($($BigInteger::valueOf((int64_t)0x033AD68D))));
 	$assign(result, result->subtract($($nc($($nc($($BigInteger::valueOf((int64_t)2)))->pow(28)))->multiply($($BigInteger::valueOf((int64_t)0x013E6953))))));

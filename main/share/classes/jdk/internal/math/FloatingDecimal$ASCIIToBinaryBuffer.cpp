@@ -121,6 +121,7 @@ void FloatingDecimal$ASCIIToBinaryBuffer::init$(bool negSign, int32_t decExponen
 }
 
 double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
+	$useLocalCurrentObjectStackCache();
 	int32_t kDigits = $Math::min(this->nDigits, 15 + 1);
 	int32_t iValue = (int32_t)$nc(this->digits)->get(0) - (int32_t)u'0';
 	int32_t iDigits = $Math::min(kDigits, 9);
@@ -312,6 +313,7 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 }
 
 float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
+	$useLocalCurrentObjectStackCache();
 	int32_t kDigits = $Math::min(this->nDigits, 7 + 1);
 	int32_t iValue = (int32_t)$nc(this->digits)->get(0) - (int32_t)u'0';
 	for (int32_t i = 1; i < kDigits; ++i) {

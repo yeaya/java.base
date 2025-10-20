@@ -94,6 +94,7 @@ $String* CertPath::getType() {
 }
 
 bool CertPath::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -115,6 +116,7 @@ int32_t CertPath::hashCode() {
 }
 
 $String* CertPath::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($Iterator, stringIterator, $nc($(getCertificates()))->iterator());
 	sb->append($$str({"\n"_s, this->type, " Cert Path: length = "_s, $$str($nc($(getCertificates()))->size()), ".\n"_s}));
@@ -132,6 +134,7 @@ $String* CertPath::toString() {
 }
 
 $Object* CertPath::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($new($CertPath$CertPathRep, this->type, $(getEncoded())));
 	} catch ($CertificateException&) {

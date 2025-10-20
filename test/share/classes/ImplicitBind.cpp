@@ -47,6 +47,7 @@ void ImplicitBind::init$() {
 }
 
 void ImplicitBind::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, s, $new($DatagramSocket, ($SocketAddress*)nullptr));
 	$var($bytes, b, "hello"_s->getBytes());
 	$var($InetAddress, ia, $InetAddress::getByName("localhost"_s));

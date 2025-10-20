@@ -79,6 +79,7 @@ void ObjectOutputStream$1::init$($Class* val$subcl) {
 }
 
 $Object* ObjectOutputStream$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 		$load($ObjectOutputStream);
 	{

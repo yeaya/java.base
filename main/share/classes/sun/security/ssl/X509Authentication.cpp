@@ -201,6 +201,7 @@ $SSLHandshakeArray* X509Authentication::getRelatedHandshakers($HandshakeContext*
 }
 
 $Map$EntryArray* X509Authentication::getHandshakeProducers($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($nc(handshakeContext)->negotiatedProtocol)->useTLS13PlusSpec()) {
 		$init($SSLHandshake);
 		return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CERTIFICATE->id)), $SSLHandshake::CERTIFICATE))}));
@@ -209,6 +210,7 @@ $Map$EntryArray* X509Authentication::getHandshakeProducers($HandshakeContext* ha
 }
 
 void clinit$X509Authentication($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(X509Authentication::RSA, $new(X509Authentication, "RSA"_s, 0, "RSA"_s, $$new($X509Authentication$X509PossessionGenerator, $$new($StringArray, {"RSA"_s}))));
 	$assignStatic(X509Authentication::RSASSA_PSS, $new(X509Authentication, "RSASSA_PSS"_s, 1, "RSASSA-PSS"_s, $$new($X509Authentication$X509PossessionGenerator, $$new($StringArray, {"RSASSA-PSS"_s}))));
 	$assignStatic(X509Authentication::RSA_OR_PSS, $new(X509Authentication, "RSA_OR_PSS"_s, 2, "RSA_OR_PSS"_s, $$new($X509Authentication$X509PossessionGenerator, $$new($StringArray, {

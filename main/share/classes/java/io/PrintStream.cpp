@@ -177,6 +177,7 @@ $Object* PrintStream::requireNonNull(Object$* obj, $String* message) {
 
 $Charset* PrintStream::toCharset($String* csn) {
 	$init(PrintStream);
+	$useLocalCurrentObjectStackCache();
 	requireNonNull(csn, "charsetName"_s);
 	try {
 		return $Charset::forName(csn);
@@ -212,6 +213,7 @@ void PrintStream::init$($OutputStream* out, bool autoFlush) {
 }
 
 void PrintStream::init$($OutputStream* out, bool autoFlush, $String* encoding) {
+	$useLocalCurrentObjectStackCache();
 	$var($OutputStream, var$0, $cast($OutputStream, requireNonNull(out, "Null output stream"_s)));
 	bool var$1 = autoFlush;
 	PrintStream::init$(var$0, var$1, $(toCharset(encoding)));
@@ -231,11 +233,13 @@ void PrintStream::init$($String* fileName) {
 }
 
 void PrintStream::init$($String* fileName, $String* csn) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, toCharset(csn));
 	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, fileName)));
 }
 
 void PrintStream::init$($String* fileName, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, $cast($Charset, requireNonNull(charset, "charset"_s)));
 	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, fileName)));
 }
@@ -245,11 +249,13 @@ void PrintStream::init$($File* file) {
 }
 
 void PrintStream::init$($File* file, $String* csn) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, toCharset(csn));
 	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, file)));
 }
 
 void PrintStream::init$($File* file, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	$var($Charset, var$0, $cast($Charset, requireNonNull(charset, "charset"_s)));
 	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, file)));
 }
@@ -291,6 +297,7 @@ void PrintStream::close() {
 }
 
 bool PrintStream::checkError() {
+	$useLocalCurrentObjectStackCache();
 	if (this->out != nullptr) {
 		flush();
 	}
@@ -318,6 +325,7 @@ void PrintStream::clearError() {
 }
 
 void PrintStream::write(int32_t b) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -336,6 +344,7 @@ void PrintStream::write(int32_t b) {
 }
 
 void PrintStream::write($bytes* buf, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -362,6 +371,7 @@ void PrintStream::writeBytes($bytes* buf) {
 }
 
 void PrintStream::write($chars* buf) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -387,6 +397,7 @@ void PrintStream::write($chars* buf) {
 }
 
 void PrintStream::writeln($chars* buf) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -408,6 +419,7 @@ void PrintStream::writeln($chars* buf) {
 }
 
 void PrintStream::write($String* s) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -428,6 +440,7 @@ void PrintStream::write($String* s) {
 }
 
 void PrintStream::writeln($String* s) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -449,6 +462,7 @@ void PrintStream::writeln($String* s) {
 }
 
 void PrintStream::newLine() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -597,6 +611,7 @@ void PrintStream::println($String* x) {
 }
 
 void PrintStream::println(Object$* x) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $String::valueOf(x));
 	if ($of(this)->getClass() == PrintStream::class$) {
 		writeln($($String::valueOf($of(s))));
@@ -617,6 +632,7 @@ PrintStream* PrintStream::printf($Locale* l, $String* format, $ObjectArray* args
 }
 
 PrintStream* PrintStream::format($String* format, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -642,6 +658,7 @@ PrintStream* PrintStream::format($String* format, $ObjectArray* args) {
 }
 
 PrintStream* PrintStream::format($Locale* l, $String* format, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$synchronized(this) {
 			ensureOpen();
@@ -666,6 +683,7 @@ $Appendable* PrintStream::append($CharSequence* csq) {
 }
 
 $Appendable* PrintStream::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);

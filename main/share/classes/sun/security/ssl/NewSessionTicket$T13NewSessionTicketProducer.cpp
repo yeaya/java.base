@@ -108,6 +108,7 @@ void NewSessionTicket$T13NewSessionTicketProducer::init$() {
 }
 
 $bytes* NewSessionTicket$T13NewSessionTicketProducer::produce($ConnectionContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	if ($nc($nc(hc)->conContext)->hasDelegatedFinished) {
 		$nc(hc->conContext)->hasDelegatedFinished = false;

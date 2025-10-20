@@ -48,6 +48,7 @@ void B6563259::init$() {
 }
 
 void B6563259::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$System::setProperty("http.proxyHost"_s, "myproxy"_s);
 	$System::setProperty("http.proxyPort"_s, "8080"_s);
 	$System::setProperty("http.nonProxyHosts"_s, "host1.*"_s);

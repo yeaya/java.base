@@ -156,6 +156,7 @@ void ReferencePipeline$10$1::begin(int64_t size) {
 }
 
 void ReferencePipeline$10$1::accept(Object$* u) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($LongStream, result, $cast($LongStream, $nc(this->this$1->val$mapper)->apply(u)));
 		{

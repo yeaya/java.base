@@ -143,6 +143,7 @@ void Indify$ClassFile::finalize() {
 }
 
 void Indify$ClassFile::init$($Indify* this$0, $File* f) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$Indify$Outer::init$();
 	$set(this, pool, $new($Indify$Pool));
@@ -196,6 +197,7 @@ void Indify$ClassFile::readFrom($DataInputStream* in) {
 }
 
 void Indify$ClassFile::writeTo($File* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($DataOutputStream, out, this->this$0->openOutput(f));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -213,6 +215,7 @@ void Indify$ClassFile::writeTo($File* f) {
 }
 
 void Indify$ClassFile::writeTo($DataOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$Indify::writeOutputs(out, $$new($ObjectArray, {
 		$($of($Integer::valueOf(this->magic))),
 		$($of($Integer::valueOf(this->version))),
@@ -228,6 +231,7 @@ void Indify$ClassFile::writeTo($DataOutputStream* out) {
 }
 
 $bytes* Indify$ClassFile::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ByteArrayOutputStream, buf, $new($ByteArrayOutputStream));
 		writeTo($$new($DataOutputStream, buf));

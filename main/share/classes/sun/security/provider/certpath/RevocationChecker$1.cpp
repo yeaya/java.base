@@ -71,6 +71,7 @@ void RevocationChecker$1::init$() {
 }
 
 $Object* RevocationChecker$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($RevocationChecker$RevocationProperties, rp, $new($RevocationChecker$RevocationProperties));
 	$var($String, onlyEE, $Security::getProperty("com.sun.security.onlyCheckRevocationOfEECert"_s));
 	rp->onlyEE = onlyEE != nullptr && onlyEE->equalsIgnoreCase("true"_s);

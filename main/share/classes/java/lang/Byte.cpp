@@ -175,6 +175,7 @@ $String* Byte::toString(int8_t b) {
 }
 
 $Optional* Byte::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($ConstantDescs);
 	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_byte, $$new($ConstantDescArray, {$(static_cast<$ConstantDesc*>($Integer::valueOf(intValue())))}))));
 }
@@ -188,6 +189,7 @@ Byte* Byte::valueOf(int8_t b) {
 
 int8_t Byte::parseByte($String* s, int32_t radix) {
 	$init(Byte);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $Integer::parseInt(s, radix);
 	if (i < Byte::MIN_VALUE || i > Byte::MAX_VALUE) {
 		$throwNew($NumberFormatException, $$str({"Value out of range. Value:\""_s, s, "\" Radix:"_s, $$str(radix)}));
@@ -212,6 +214,7 @@ Byte* Byte::valueOf($String* s) {
 
 Byte* Byte::decode($String* nm) {
 	$init(Byte);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $nc($($Integer::decode(nm)))->intValue();
 	if (i < Byte::MIN_VALUE || i > Byte::MAX_VALUE) {
 		$throwNew($NumberFormatException, $$str({"Value "_s, $$str(i), " out of range from input "_s, nm}));

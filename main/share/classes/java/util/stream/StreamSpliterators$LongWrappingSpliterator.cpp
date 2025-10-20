@@ -379,6 +379,7 @@ $StreamSpliterators$AbstractWrappingSpliterator* StreamSpliterators$LongWrapping
 }
 
 void StreamSpliterators$LongWrappingSpliterator::initPartialTraversalState() {
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfLong, b, $new($SpinedBuffer$OfLong));
 	$set(this, buffer, b);
 	$set(this, bufferSink, $nc(this->ph)->wrapSink(static_cast<$Sink$OfLong*>($$new(StreamSpliterators$LongWrappingSpliterator$$Lambda$accept, static_cast<$SpinedBuffer$OfLong*>(b)))));

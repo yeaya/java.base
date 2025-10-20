@@ -139,6 +139,7 @@ VarHandleFloats$FieldStaticReadOnly* VarHandleFloats$FieldStaticReadOnly::withIn
 }
 
 $Optional* VarHandleFloats$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($Float);
 	$var($Optional, fieldTypeRef, $nc($Float::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {

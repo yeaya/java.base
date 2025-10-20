@@ -73,6 +73,7 @@ void LotsOfChannels::init$() {
 }
 
 void LotsOfChannels::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipeArray, pipes, $new($PipeArray, LotsOfChannels::PIPES_COUNT));
 	$var($Pipe, pipe, $Pipe::open());
 	$var($Pipe$SinkChannel, sink, $nc(pipe)->sink());

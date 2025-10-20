@@ -64,6 +64,7 @@ void OpsAfterClose$2::init$($String* $enum$name, int32_t $enum$ordinal) {
 }
 
 bool OpsAfterClose$2::check($Reader* r) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($chars, buf, $new($chars, 2));
 		int32_t len = 1;

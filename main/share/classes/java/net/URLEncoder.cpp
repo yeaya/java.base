@@ -94,6 +94,7 @@ $String* URLEncoder::encode($String* s) {
 
 $String* URLEncoder::encode($String* s, $String* enc) {
 	$init(URLEncoder);
+	$useLocalCurrentObjectStackCache();
 	if (enc == nullptr) {
 		$throwNew($NullPointerException, "charsetName"_s);
 	}
@@ -112,6 +113,7 @@ $String* URLEncoder::encode($String* s, $String* enc) {
 
 $String* URLEncoder::encode($String* s, $Charset* charset) {
 	$init(URLEncoder);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(charset), "charset"_s);
 	bool needToChange = false;
 	$var($StringBuilder, out, $new($StringBuilder, $nc(s)->length()));

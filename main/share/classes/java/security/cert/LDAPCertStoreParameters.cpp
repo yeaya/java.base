@@ -87,6 +87,7 @@ int32_t LDAPCertStoreParameters::getPort() {
 }
 
 $Object* LDAPCertStoreParameters::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($CertStoreParameters::clone());
 	} catch ($CloneNotSupportedException&) {
@@ -97,6 +98,7 @@ $Object* LDAPCertStoreParameters::clone() {
 }
 
 $String* LDAPCertStoreParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("LDAPCertStoreParameters: [\n"_s);
 	sb->append($$str({"  serverName: "_s, this->serverName, "\n"_s}));

@@ -58,6 +58,7 @@ void ModuleExportNode::init$($String* packaze, int32_t access, $List* modules) {
 }
 
 void ModuleExportNode::accept($ModuleVisitor* moduleVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$nc(moduleVisitor)->visitExport(this->packaze, this->access, this->modules == nullptr ? ($StringArray*)nullptr : $fcast($StringArray, $($nc(this->modules)->toArray($$new($StringArray, 0)))));
 }
 

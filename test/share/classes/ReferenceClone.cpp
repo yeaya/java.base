@@ -87,6 +87,7 @@ void ReferenceClone::main($StringArray* args) {
 }
 
 void ReferenceClone::test() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, o, $new($Object));
 	assertCloneNotSupported($$new($ReferenceClone$SoftRef, this, o));
 	assertCloneNotSupported($$new($ReferenceClone$WeakRef, this, o));

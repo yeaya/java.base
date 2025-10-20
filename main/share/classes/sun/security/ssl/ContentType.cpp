@@ -125,6 +125,7 @@ ContentType* ContentType::valueOf(int8_t id) {
 
 $String* ContentType::nameOf(int8_t id) {
 	$init(ContentType);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ContentTypeArray, arr$, ContentType::values());
 		int32_t len$ = $nc(arr$)->length;

@@ -86,6 +86,7 @@ void UnixFileSystem$1::init$($UnixFileSystem* this$0, $List* val$allowedList) {
 }
 
 $Iterator* UnixFileSystem$1::iterator() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {

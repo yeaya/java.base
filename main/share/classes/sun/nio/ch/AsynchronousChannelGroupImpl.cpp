@@ -232,6 +232,7 @@ void AsynchronousChannelGroupImpl::startInternalThread($Runnable* task) {
 }
 
 void AsynchronousChannelGroupImpl::startThreads($Runnable* task$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Runnable, task, task$renamed);
 	if (!isFixedThreadPool()) {
 		for (int32_t i = 0; i < AsynchronousChannelGroupImpl::internalThreadCount; ++i) {
@@ -257,6 +258,7 @@ int32_t AsynchronousChannelGroupImpl::threadCount() {
 }
 
 int32_t AsynchronousChannelGroupImpl::threadExit($Runnable* task, bool replaceMe) {
+	$useLocalCurrentObjectStackCache();
 	if (replaceMe) {
 		try {
 			if ($Invoker::isBoundToAnyGroup()) {
@@ -273,6 +275,7 @@ int32_t AsynchronousChannelGroupImpl::threadExit($Runnable* task, bool replaceMe
 }
 
 void AsynchronousChannelGroupImpl::executeOnPooledThread($Runnable* task) {
+	$useLocalCurrentObjectStackCache();
 	if (isFixedThreadPool()) {
 		executeOnHandlerTask(task);
 	} else {
@@ -310,6 +313,7 @@ bool AsynchronousChannelGroupImpl::isTerminated() {
 }
 
 void AsynchronousChannelGroupImpl::shutdownExecutors() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new($AsynchronousChannelGroupImpl$3, this)));
 	$AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($RuntimePermission, "modifyThread"_s))}));
@@ -358,6 +362,7 @@ bool AsynchronousChannelGroupImpl::awaitTermination(int64_t timeout, $TimeUnit* 
 }
 
 void AsynchronousChannelGroupImpl::execute($Runnable* task$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Runnable, task, task$renamed);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -369,6 +374,7 @@ void AsynchronousChannelGroupImpl::execute($Runnable* task$renamed) {
 }
 
 void clinit$AsynchronousChannelGroupImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	AsynchronousChannelGroupImpl::internalThreadCount = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "sun.nio.ch.internalThreadPoolSize"_s, 1)))))))->intValue();
 }

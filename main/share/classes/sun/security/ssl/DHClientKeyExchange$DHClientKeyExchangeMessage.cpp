@@ -117,6 +117,7 @@ $Object* allocate$DHClientKeyExchange$DHClientKeyExchangeMessage($Class* clazz) 
 }
 
 void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	$var($DHKeyExchange$DHEPossession, dhePossession, nullptr);
@@ -142,6 +143,7 @@ void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* ha
 }
 
 void DHClientKeyExchange$DHClientKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	if ($nc(m)->remaining() < 3) {
@@ -169,6 +171,7 @@ void DHClientKeyExchange$DHClientKeyExchangeMessage::send($HandshakeOutStream* h
 }
 
 $String* DHClientKeyExchange$DHClientKeyExchangeMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"DH ClientKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"dh_Yc\": \'{\'\n{0}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

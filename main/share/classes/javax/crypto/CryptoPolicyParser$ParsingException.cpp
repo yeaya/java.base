@@ -64,10 +64,12 @@ void CryptoPolicyParser$ParsingException::init$($String* msg) {
 }
 
 void CryptoPolicyParser$ParsingException::init$(int32_t line, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": "_s, msg}));
 }
 
 void CryptoPolicyParser$ParsingException::init$(int32_t line, $String* expect, $String* actual) {
+	$useLocalCurrentObjectStackCache();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": expected \'"_s, expect, "\', found \'"_s, actual, "\'"_s}));
 }
 

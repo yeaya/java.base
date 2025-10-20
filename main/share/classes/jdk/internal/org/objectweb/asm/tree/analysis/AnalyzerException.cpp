@@ -65,6 +65,7 @@ void AnalyzerException::init$($AbstractInsnNode* insn, $String* message, $Throwa
 }
 
 void AnalyzerException::init$($AbstractInsnNode* insn, $String* message, Object$* expected, $1Value* actual) {
+	$useLocalCurrentObjectStackCache();
 	$Exception::init$($$str({(message == nullptr ? "Expected "_s : $$str({message, ": expected "_s})), expected, ", but found "_s, actual}));
 	$set(this, node, insn);
 }

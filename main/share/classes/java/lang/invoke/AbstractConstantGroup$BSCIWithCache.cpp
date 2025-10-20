@@ -146,6 +146,7 @@ void AbstractConstantGroup$BSCIWithCache::finalize() {
 bool AbstractConstantGroup$BSCIWithCache::$assertionsDisabled = false;
 
 $String* AbstractConstantGroup$BSCIWithCache::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({this->bsm, "/"_s, this->name, ":"_s, this->type}));
 	return $concat(var$0, $($AbstractConstantGroup$WithCache::toString()));
 }

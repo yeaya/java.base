@@ -83,10 +83,12 @@ $Object* ProcessEnvironment$StringEntry::getValue() {
 }
 
 $String* ProcessEnvironment$StringEntry::setValue($String* newValue) {
+	$useLocalCurrentObjectStackCache();
 	return $nc(($cast($ProcessEnvironment$Value, $($nc(this->e)->setValue($($ProcessEnvironment$Value::valueOf(newValue)))))))->toString();
 }
 
 $String* ProcessEnvironment$StringEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($cast($String, getKey())), "="_s}));
 	return $concat(var$0, $($cast($String, getValue())));
 }

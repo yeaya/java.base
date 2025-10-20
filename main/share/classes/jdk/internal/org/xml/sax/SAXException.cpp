@@ -91,6 +91,7 @@ void SAXException::init$($String* message, $Exception* e) {
 }
 
 $String* SAXException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, message, $Exception::getMessage());
 	$var($Throwable, cause, $Exception::getCause());
 	if (message == nullptr && cause != nullptr) {
@@ -109,6 +110,7 @@ $Throwable* SAXException::getCause() {
 }
 
 $String* SAXException::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, exception, $Exception::getCause());
 	if (exception != nullptr) {
 		$var($String, var$0, $$str({$($Exception::toString()), "\n"_s}));
@@ -119,12 +121,14 @@ $String* SAXException::toString() {
 }
 
 void SAXException::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
 	$nc(fields)->put("exception"_s, $($of(getExceptionInternal())));
 	out->writeFields();
 }
 
 void SAXException::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
 	$var($Exception, exception, $cast($Exception, $nc(fields)->get("exception"_s, ($Object*)nullptr)));
 	$var($Throwable, superCause, $Exception::getCause());

@@ -54,6 +54,7 @@ void TestUndefinedTitleCase::init$() {
 
 void TestUndefinedTitleCase::main($StringArray* args) {
 	$init(TestUndefinedTitleCase);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t ch = 0; ch <= TestUndefinedTitleCase::endCharValue; ++ch) {
 		bool var$0 = !$Character::isDefined((char16_t)ch);
 		if (var$0 && $Character::toTitleCase((char16_t)ch) != (char16_t)ch) {

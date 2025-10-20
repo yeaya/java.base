@@ -89,6 +89,7 @@ void MaxFragExtension$MaxFragLenSpec::init$(int8_t id) {
 }
 
 void MaxFragExtension$MaxFragLenSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() != 1) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid max_fragment_length extension data"_s)))));

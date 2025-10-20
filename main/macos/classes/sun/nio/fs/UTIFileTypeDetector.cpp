@@ -56,6 +56,7 @@ $String* UTIFileTypeDetector::probe0($String* fileExtension) {
 }
 
 $String* UTIFileTypeDetector::implProbeContentType($Path* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, fn, $nc(path)->getFileName());
 	if (fn == nullptr) {
 		return nullptr;

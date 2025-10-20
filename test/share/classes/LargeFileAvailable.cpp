@@ -79,6 +79,7 @@ void LargeFileAvailable::init$() {
 }
 
 void LargeFileAvailable::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $File::createTempFile("largefile"_s, nullptr, $$new($File, "."_s)));
 	int64_t spaceavailable = $nc(file)->getUsableSpace();
 	int64_t filesize = $Math::min(spaceavailable, (int64_t)0x00000001B9681FF6);
@@ -140,6 +141,7 @@ void LargeFileAvailable::main($StringArray* args) {
 }
 
 int64_t LargeFileAvailable::skipBytes($InputStream* is, int64_t toSkip, int64_t avail) {
+	$useLocalCurrentObjectStackCache();
 	int64_t skip = $nc(is)->skip(toSkip);
 	if (skip != toSkip) {
 		$throwNew($RuntimeException, $$str({"skip() returns "_s, $$str(skip), " but expected "_s, $$str(toSkip)}));
@@ -155,6 +157,7 @@ int64_t LargeFileAvailable::skipBytes($InputStream* is, int64_t toSkip, int64_t 
 }
 
 void LargeFileAvailable::createLargeFile(int64_t filesize, $File* file) {
+	$useLocalCurrentObjectStackCache();
 	$Files::delete$($($nc(file)->toPath()));
 	{
 			$init($StandardOpenOption);

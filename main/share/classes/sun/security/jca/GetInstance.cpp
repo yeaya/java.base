@@ -94,6 +94,7 @@ void GetInstance::init$() {
 }
 
 $Provider$Service* GetInstance::getService($String* type, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProviderList, list, $Providers::getProviderList());
 	$var($Provider$Service, s, $nc(list)->getService(type, algorithm));
 	if (s == nullptr) {
@@ -103,6 +104,7 @@ $Provider$Service* GetInstance::getService($String* type, $String* algorithm) {
 }
 
 $Provider$Service* GetInstance::getService($String* type, $String* algorithm, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
@@ -118,6 +120,7 @@ $Provider$Service* GetInstance::getService($String* type, $String* algorithm, $S
 }
 
 $Provider$Service* GetInstance::getService($String* type, $String* algorithm, $Provider* provider) {
+	$useLocalCurrentObjectStackCache();
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
@@ -144,6 +147,7 @@ $List* GetInstance::getServices($List* ids) {
 }
 
 $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProviderList, list, $Providers::getProviderList());
 	$var($Provider$Service, firstService, $nc(list)->getService(type, algorithm));
 	if (firstService == nullptr) {
@@ -178,6 +182,7 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 }
 
 $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $String* algorithm, Object$* param) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, services, getServices(type, algorithm));
 	$var($NoSuchAlgorithmException, failure, nullptr);
 	{
@@ -219,18 +224,21 @@ $GetInstance$Instance* GetInstance::getInstance($String* type, $Class* clazz, $S
 }
 
 $GetInstance$Instance* GetInstance::getInstance($Provider$Service* s, $Class* clazz) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, instance, $nc(s)->newInstance(nullptr));
 	checkSuperClass(s, $nc($of(instance))->getClass(), clazz);
 	return $new($GetInstance$Instance, $(s->getProvider()), instance);
 }
 
 $GetInstance$Instance* GetInstance::getInstance($Provider$Service* s, $Class* clazz, Object$* param) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, instance, $nc(s)->newInstance(param));
 	checkSuperClass(s, $nc($of(instance))->getClass(), clazz);
 	return $new($GetInstance$Instance, $(s->getProvider()), instance);
 }
 
 void GetInstance::checkSuperClass($Provider$Service* s, $Class* subClass, $Class* superClass) {
+	$useLocalCurrentObjectStackCache();
 	if (superClass == nullptr) {
 		return;
 	}

@@ -211,6 +211,7 @@ void SubmissionPublisher::init$() {
 }
 
 void SubmissionPublisher::subscribe($Flow$Subscriber* subscriber) {
+	$useLocalCurrentObjectStackCache();
 	if (subscriber == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -273,6 +274,7 @@ void SubmissionPublisher::subscribe($Flow$Subscriber* subscriber) {
 }
 
 int32_t SubmissionPublisher::doOffer(Object$* item, int64_t nanos, $BiPredicate* onDrop) {
+	$useLocalCurrentObjectStackCache();
 	if (item == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -337,6 +339,7 @@ int32_t SubmissionPublisher::doOffer(Object$* item, int64_t nanos, $BiPredicate*
 }
 
 int32_t SubmissionPublisher::retryOffer(Object$* item, int64_t nanos, $BiPredicate* onDrop, $SubmissionPublisher$BufferedSubscription* retries, int32_t lag, bool cleanMe) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($SubmissionPublisher$BufferedSubscription, r, retries);
 		for (; r != nullptr;) {
@@ -366,6 +369,7 @@ int32_t SubmissionPublisher::retryOffer(Object$* item, int64_t nanos, $BiPredica
 }
 
 int32_t SubmissionPublisher::cleanAndCount() {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	$var($SubmissionPublisher$BufferedSubscription, pred, nullptr);
 	$var($SubmissionPublisher$BufferedSubscription, next, nullptr);
@@ -406,6 +410,7 @@ int32_t SubmissionPublisher::offer(Object$* item, int64_t timeout, $TimeUnit* un
 }
 
 void SubmissionPublisher::close() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	if (!this->closed) {
 		$var($SubmissionPublisher$BufferedSubscription, b, nullptr);
@@ -436,6 +441,7 @@ void SubmissionPublisher::close() {
 }
 
 void SubmissionPublisher::closeExceptionally($Throwable* error) {
+	$useLocalCurrentObjectStackCache();
 	if (error == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -480,6 +486,7 @@ $Throwable* SubmissionPublisher::getClosedException() {
 }
 
 bool SubmissionPublisher::hasSubscribers() {
+	$useLocalCurrentObjectStackCache();
 	bool nonEmpty = false;
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -512,6 +519,7 @@ bool SubmissionPublisher::hasSubscribers() {
 }
 
 int32_t SubmissionPublisher::getNumberOfSubscribers() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -540,6 +548,7 @@ int32_t SubmissionPublisher::getMaxBufferCapacity() {
 }
 
 $List* SubmissionPublisher::getSubscribers() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, subs, $new($ArrayList));
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -578,6 +587,7 @@ $List* SubmissionPublisher::getSubscribers() {
 }
 
 bool SubmissionPublisher::isSubscribed($Flow$Subscriber* subscriber) {
+	$useLocalCurrentObjectStackCache();
 	if (subscriber == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -622,6 +632,7 @@ bool SubmissionPublisher::isSubscribed($Flow$Subscriber* subscriber) {
 }
 
 int64_t SubmissionPublisher::estimateMinimumDemand() {
+	$useLocalCurrentObjectStackCache();
 	int64_t min = $Long::MAX_VALUE;
 	bool nonEmpty = false;
 	$var($ReentrantLock, lock, this->lock);
@@ -666,6 +677,7 @@ int64_t SubmissionPublisher::estimateMinimumDemand() {
 }
 
 int32_t SubmissionPublisher::estimateMaximumLag() {
+	$useLocalCurrentObjectStackCache();
 	int32_t max = 0;
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -707,6 +719,7 @@ int32_t SubmissionPublisher::estimateMaximumLag() {
 }
 
 $CompletableFuture* SubmissionPublisher::consume($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	if (consumer == nullptr) {
 		$throwNew($NullPointerException);
 	}

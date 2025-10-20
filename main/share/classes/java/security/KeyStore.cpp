@@ -183,6 +183,7 @@ bool KeyStore::skipDebug = false;
 $String* KeyStore::KEYSTORE_TYPE = nullptr;
 
 void KeyStore::init$($KeyStoreSpi* keyStoreSpi, $Provider* provider, $String* type) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, keyStoreSpi, keyStoreSpi);
 	$set(this, provider, provider);
 	$set(this, type, type);
@@ -198,6 +199,7 @@ $String* KeyStore::getProviderName() {
 
 KeyStore* KeyStore::getInstance($String* type) {
 	$init(KeyStore);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	try {
 		$var($ObjectArray, objs, $Security::getImpl(type, "KeyStore"_s, ($String*)nullptr));
@@ -214,6 +216,7 @@ KeyStore* KeyStore::getInstance($String* type) {
 
 KeyStore* KeyStore::getInstance($String* type, $String* provider) {
 	$init(KeyStore);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr || $nc(provider)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -230,6 +233,7 @@ KeyStore* KeyStore::getInstance($String* type, $String* provider) {
 
 KeyStore* KeyStore::getInstance($String* type, $Provider* provider) {
 	$init(KeyStore);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(type), "null type name"_s);
 	if (provider == nullptr) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
@@ -246,6 +250,7 @@ KeyStore* KeyStore::getInstance($String* type, $Provider* provider) {
 
 $String* KeyStore::getDefaultType() {
 	$init(KeyStore);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, kstype, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($KeyStore$1)))));
 	if (kstype == nullptr) {
@@ -429,6 +434,7 @@ KeyStore* KeyStore::getInstance($File* file, $KeyStore$LoadStoreParameter* param
 
 KeyStore* KeyStore::getInstance($File* file, $chars* password, $KeyStore$LoadStoreParameter* param, bool hasPassword) {
 	$init(KeyStore);
+	$useLocalCurrentObjectStackCache();
 	if (file == nullptr) {
 		$throwNew($NullPointerException);
 	}

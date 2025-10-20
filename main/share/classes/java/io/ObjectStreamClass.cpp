@@ -600,6 +600,7 @@ int64_t ObjectStreamClass::getSerialVersionUID() {
 }
 
 $Class* ObjectStreamClass::forClass() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cl == nullptr) {
 		return nullptr;
 	}
@@ -628,6 +629,7 @@ $String* ObjectStreamClass::toString() {
 
 ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$load($Serializable);
 	if (!(all || $Serializable::class$->isAssignableFrom(cl))) {
 		return nullptr;
@@ -693,6 +695,7 @@ ObjectStreamClass* ObjectStreamClass::lookup($Class* cl, bool all) {
 }
 
 void ObjectStreamClass::init$($Class* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	this->hasBlockExternalData$ = true;
 	$set(this, cl, cl);
@@ -750,6 +753,7 @@ $ProtectionDomain* ObjectStreamClass::noPermissionsDomain() {
 }
 
 $ProtectionDomainArray* ObjectStreamClass::getProtectionDomains($Constructor* cons, $Class* cl) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ProtectionDomainArray, domains, nullptr);
 	bool var$0 = cons != nullptr && $nc(cl)->getClassLoader() != nullptr;
@@ -813,6 +817,7 @@ void ObjectStreamClass::initProxy($Class* cl, $ClassNotFoundException* resolveEx
 }
 
 void ObjectStreamClass::initNonProxy(ObjectStreamClass* model, $Class* cl, $ClassNotFoundException* resolveEx, ObjectStreamClass* superDesc) {
+	$useLocalCurrentObjectStackCache();
 	int64_t suid = $nc(model)->getSerialVersionUID();
 	$var(ObjectStreamClass, osc, nullptr);
 	if (cl != nullptr) {
@@ -879,6 +884,7 @@ void ObjectStreamClass::initNonProxy(ObjectStreamClass* model, $Class* cl, $Clas
 }
 
 void ObjectStreamClass::readNonProxy($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, name, $nc(in)->readUTF());
 	$set(this, suid, $Long::valueOf(in->readLong()));
 	this->isProxy$ = false;
@@ -915,6 +921,7 @@ void ObjectStreamClass::readNonProxy($ObjectInputStream* in) {
 }
 
 void ObjectStreamClass::writeNonProxy($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->writeUTF(this->name);
 	out->writeLong(getSerialVersionUID());
 	int8_t flags = (int8_t)0;
@@ -997,6 +1004,7 @@ $ObjectStreamFieldArray* ObjectStreamClass::getFields(bool copy) {
 }
 
 $ObjectStreamField* ObjectStreamClass::getField($String* name, $Class* type) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	for (int32_t i = 0; i < $nc(this->fields)->length; ++i) {
 		$var($ObjectStreamField, f, $nc(this->fields)->get(i));
@@ -1080,6 +1088,7 @@ bool ObjectStreamClass::hasReadResolveMethod() {
 }
 
 $Object* ObjectStreamClass::newInstance() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->cons != nullptr) {
@@ -1124,6 +1133,7 @@ $Object* ObjectStreamClass::newInstance() {
 }
 
 void ObjectStreamClass::invokeWriteObject(Object$* obj, $ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->writeObjectMethod != nullptr) {
@@ -1147,6 +1157,7 @@ void ObjectStreamClass::invokeWriteObject(Object$* obj, $ObjectOutputStream* out
 }
 
 void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->readObjectMethod != nullptr) {
@@ -1172,6 +1183,7 @@ void ObjectStreamClass::invokeReadObject(Object$* obj, $ObjectInputStream* in) {
 }
 
 void ObjectStreamClass::invokeReadObjectNoData(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->readObjectNoDataMethod != nullptr) {
@@ -1195,6 +1207,7 @@ void ObjectStreamClass::invokeReadObjectNoData(Object$* obj) {
 }
 
 $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->writeReplaceMethod != nullptr) {
@@ -1220,6 +1233,7 @@ $Object* ObjectStreamClass::invokeWriteReplace(Object$* obj) {
 }
 
 $Object* ObjectStreamClass::invokeReadResolve(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	requireInitialized();
 	if (this->readResolveMethod != nullptr) {
@@ -1252,6 +1266,7 @@ $ObjectStreamClass$ClassDataSlotArray* ObjectStreamClass::getClassDataLayout() {
 }
 
 $ObjectStreamClass$ClassDataSlotArray* ObjectStreamClass::getClassDataLayout0() {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, slots, $new($ArrayList));
 	$Class* start = this->cl;
 	$Class* end = this->cl;
@@ -1330,6 +1345,7 @@ void ObjectStreamClass::setObjFieldValues(Object$* obj, $ObjectArray* vals) {
 }
 
 void ObjectStreamClass::computeFieldOffsets() {
+	$useLocalCurrentObjectStackCache();
 	this->primDataSize = 0;
 	this->numObjFields = 0;
 	int32_t firstObjIndex = -1;
@@ -1411,6 +1427,7 @@ ObjectStreamClass* ObjectStreamClass::getVariantFor($Class* cl) {
 
 $Constructor* ObjectStreamClass::getExternalizableConstructor($Class* cl) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Constructor, cons, $nc(cl)->getDeclaredConstructor(($ClassArray*)nullptr));
@@ -1430,6 +1447,7 @@ $Constructor* ObjectStreamClass::getSerializableConstructor($Class* cl) {
 
 $MethodHandle* ObjectStreamClass::canonicalRecordCtr($Class* cls) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!ObjectStreamClass::$assertionsDisabled && !$nc(cls)->isRecord()) {
 		$throwNew($AssertionError, $of($$str({"Expected record, got: "_s, cls})));
@@ -1444,6 +1462,7 @@ $MethodHandle* ObjectStreamClass::getRecordConstructor() {
 
 $Method* ObjectStreamClass::getInheritableMethod($Class* cl, $String* name, $ClassArray* argTypes, $Class* returnType) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, meth, nullptr);
 	$Class* defCl = cl;
@@ -1474,6 +1493,7 @@ $Method* ObjectStreamClass::getInheritableMethod($Class* cl, $String* name, $Cla
 
 $Method* ObjectStreamClass::getPrivateMethod($Class* cl, $String* name, $ClassArray* argTypes, $Class* returnType) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, meth, $nc(cl)->getDeclaredMethod(name, argTypes));
@@ -1559,6 +1579,7 @@ $ObjectStreamFieldArray* ObjectStreamClass::getSerialFields($Class* cl) {
 
 $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ObjectStreamFieldArray, serialPersistentFields, nullptr);
 	try {
@@ -1605,6 +1626,7 @@ $ObjectStreamFieldArray* ObjectStreamClass::getDeclaredSerialFields($Class* cl) 
 
 $ObjectStreamFieldArray* ObjectStreamClass::getDefaultSerialFields($Class* cl) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($FieldArray, clFields, $nc(cl)->getDeclaredFields());
 	$var($ArrayList, list, $new($ArrayList));
@@ -1636,6 +1658,7 @@ $Long* ObjectStreamClass::getDeclaredSUID($Class* cl) {
 
 int64_t ObjectStreamClass::computeDefaultSUID($Class* cl) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Serializable);
 	bool var$0 = !$Serializable::class$->isAssignableFrom(cl);
@@ -1741,6 +1764,7 @@ bool ObjectStreamClass::hasStaticInitializer($Class* cl) {
 
 $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStreamFieldArray* fields, ObjectStreamClass* localDesc) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$Class* cl = (localDesc != nullptr && $nc(fields)->length > 0) ? $nc(localDesc)->cl : ($Class*)nullptr;
 	$init($ObjectStreamClass$Caches);
 	processQueue($ObjectStreamClass$Caches::reflectorsQueue, $ObjectStreamClass$Caches::reflectors);
@@ -1796,6 +1820,7 @@ $ObjectStreamClass$FieldReflector* ObjectStreamClass::getReflector($ObjectStream
 
 $ObjectStreamFieldArray* ObjectStreamClass::matchFields($ObjectStreamFieldArray* fields, ObjectStreamClass* localDesc) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectStreamFieldArray, localFields, (localDesc != nullptr) ? $nc(localDesc)->fields : ObjectStreamClass::NO_FIELDS);
 	$var($ObjectStreamFieldArray, matches, $new($ObjectStreamFieldArray, $nc(fields)->length));
 	for (int32_t i = 0; i < fields->length; ++i) {
@@ -1843,6 +1868,7 @@ void ObjectStreamClass::processQueue($ReferenceQueue* queue, $ConcurrentMap* map
 
 $MethodHandle* ObjectStreamClass::lambda$canonicalRecordCtr$2($Class* cls) {
 	$init(ObjectStreamClass);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassArray, paramTypes, $fcast($ClassArray, $nc($($nc($($Arrays::stream($($nc(cls)->getRecordComponents()))))->map(static_cast<$Function*>($$new(ObjectStreamClass$$Lambda$getType$2)))))->toArray(static_cast<$IntFunction*>($$new(ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3)))));
 	try {
@@ -1865,6 +1891,7 @@ $ClassArray* ObjectStreamClass::lambda$canonicalRecordCtr$1(int32_t x$0) {
 }
 
 $Object* ObjectStreamClass::lambda$newInstance$0() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $of($nc(this->cons)->newInstance($$new($ObjectArray, 0)));

@@ -350,6 +350,7 @@ MethodHandle* MethodHandle::asSpreader($Class* arrayType, int32_t arrayLength) {
 }
 
 MethodHandle* MethodHandle::asSpreader(int32_t spreadArgPos, $Class* arrayType, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, postSpreadType, asSpreaderChecks(arrayType, spreadArgPos, arrayLength));
 	$var(MethodHandle, afterSpread, this->asType(postSpreadType));
 	$var($BoundMethodHandle, mh, $nc(afterSpread)->rebind());
@@ -359,6 +360,7 @@ MethodHandle* MethodHandle::asSpreader(int32_t spreadArgPos, $Class* arrayType, 
 }
 
 $MethodType* MethodHandle::asSpreaderChecks($Class* arrayType, int32_t pos, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	spreadArrayChecks(arrayType, arrayLength);
 	int32_t nargs = $nc($(type()))->parameterCount();
 	if (nargs < arrayLength || arrayLength < 0) {
@@ -393,6 +395,7 @@ $MethodType* MethodHandle::asSpreaderChecks($Class* arrayType, int32_t pos, int3
 }
 
 void MethodHandle::spreadArrayChecks($Class* arrayType, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	$Class* arrayElement = $nc(arrayType)->getComponentType();
 	if (arrayElement == nullptr) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not an array type"_s, arrayType)));
@@ -428,6 +431,7 @@ MethodHandle* MethodHandle::asCollector($Class* arrayType, int32_t arrayLength) 
 }
 
 MethodHandle* MethodHandle::asCollector(int32_t collectArgPos, $Class* arrayType, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	asCollectorChecks(arrayType, collectArgPos, arrayLength);
 	$var($BoundMethodHandle, mh, rebind());
 	$var($MethodType, resultType, $nc($(type()))->asCollectorType(arrayType, collectArgPos, arrayLength));
@@ -437,6 +441,7 @@ MethodHandle* MethodHandle::asCollector(int32_t collectArgPos, $Class* arrayType
 }
 
 bool MethodHandle::asCollectorChecks($Class* arrayType, int32_t pos, int32_t arrayLength) {
+	$useLocalCurrentObjectStackCache();
 	spreadArrayChecks(arrayType, arrayLength);
 	int32_t nargs = $nc($(type()))->parameterCount();
 	if (pos < 0 || pos >= nargs) {
@@ -481,6 +486,7 @@ MethodHandle* MethodHandle::bindTo(Object$* x$renamed) {
 }
 
 $Optional* MethodHandle::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleInfo, info, nullptr);
 	$var($ClassDesc, owner, nullptr);
 	$var($String, name, nullptr);
@@ -576,6 +582,7 @@ $String* MethodHandle::standardString() {
 }
 
 $String* MethodHandle::debugString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({this->type$, " : "_s}));
 	$var($String, var$0, $$concat(var$1, $(internalForm())));
 	return $concat(var$0, $(internalProperties()));
@@ -586,6 +593,7 @@ $BoundMethodHandle* MethodHandle::bindArgumentL(int32_t pos, Object$* value) {
 }
 
 MethodHandle* MethodHandle::setVarargs($MemberName* member) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(member)->isVarargs()) {
 		return this;
 	}
@@ -606,6 +614,7 @@ MethodHandle* MethodHandle::viewAsType($MethodType* newType, bool strict) {
 }
 
 bool MethodHandle::viewAsTypeChecks($MethodType* newType, bool strict) {
+	$useLocalCurrentObjectStackCache();
 	if (strict) {
 		if (!MethodHandle::$assertionsDisabled && !($nc($(type()))->isViewableAs(newType, true))) {
 			$throwNew($AssertionError, $($of($Arrays::asList($$new($ConstableArray, {
@@ -690,6 +699,7 @@ void MethodHandle::customize() {
 }
 
 void MethodHandle::updateForm($Function* updater) {
+	$useLocalCurrentObjectStackCache();
 	$init($MethodHandleStatics);
 	if ($nc($MethodHandleStatics::UNSAFE)->compareAndSetBoolean(this, MethodHandle::UPDATE_OFFSET, false, true)) {
 		{

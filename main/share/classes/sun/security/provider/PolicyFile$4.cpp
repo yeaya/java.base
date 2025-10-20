@@ -99,6 +99,7 @@ void PolicyFile$4::init$($PolicyFile* this$0, $String* val$propname, $PolicyFile
 }
 
 $Object* PolicyFile$4::run() {
+	$useLocalCurrentObjectStackCache();
 	bool loaded_policy = false;
 	if (this->this$0->allowSystemProperties) {
 		$var($String, extra_policy, $System::getProperty(this->val$propname));

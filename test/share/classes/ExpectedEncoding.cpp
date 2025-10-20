@@ -40,6 +40,7 @@ void ExpectedEncoding::init$() {
 }
 
 void ExpectedEncoding::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	if ($nc(args)->length != 2) {
 		$init($System);

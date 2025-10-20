@@ -179,6 +179,7 @@ $ObjectArray* LiveStackFrameInfo::getStack() {
 }
 
 $String* LiveStackFrameInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, retVal, $new($StringBuilder, $($StackFrameInfo::toString())));
 	if (this->mode != 0) {
 		retVal->append("("_s);

@@ -168,6 +168,7 @@ int64_t JulianCalendar::getFixedDate(int32_t jyear, int32_t month, int32_t dayOf
 }
 
 void JulianCalendar::getCalendarDateFromFixedDate($CalendarDate* date, int64_t fixedDate) {
+	$useLocalCurrentObjectStackCache();
 	$var($JulianCalendar$Date, jdate, $cast($JulianCalendar$Date, date));
 	int64_t fd = 4 * (fixedDate - JulianCalendar::JULIAN_EPOCH) + 1464;
 	int32_t year = 0;
@@ -215,6 +216,7 @@ bool JulianCalendar::isLeapYear(int32_t jyear) {
 }
 
 void clinit$JulianCalendar($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	JulianCalendar::$assertionsDisabled = !JulianCalendar::class$->desiredAssertionStatus();
 	$assignStatic(JulianCalendar::eras, $new($EraArray, {
 		$$new($Era, "BeforeCommonEra"_s, "B.C.E."_s, $Long::MIN_VALUE, false),

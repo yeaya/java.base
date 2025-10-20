@@ -74,6 +74,7 @@ void DeleteOnExit::init$() {
 
 void DeleteOnExit::main($StringArray* args) {
 	$init(DeleteOnExit);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length == 0) {
 		$var($String, cmd, $str({DeleteOnExit::java, " -classpath "_s, $($System::getProperty("test.classes"_s)), " DeleteOnExit -test"_s}));
 		$nc($($nc($($Runtime::getRuntime()))->exec(cmd)))->waitFor();
@@ -130,6 +131,7 @@ void DeleteOnExit::main($StringArray* args) {
 }
 
 void clinit$DeleteOnExit($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DeleteOnExit::tmpdir, $System::getProperty("java.io.tmpdir"_s));
 	$init($File);
 	$assignStatic(DeleteOnExit::java, $str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java"_s}));

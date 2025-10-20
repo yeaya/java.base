@@ -83,6 +83,7 @@ $Object* allocate$Sender$Server($Class* clazz) {
 }
 
 void Sender$Server::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, e, nullptr);
 	$set(this, dc, $cast($DatagramChannel, $nc($($DatagramChannel::open()))->bind($$new($InetSocketAddress, 0))));
 }
@@ -109,6 +110,7 @@ void Sender$Server::showBuffer($String* s, $ByteBuffer* bb) {
 }
 
 void Sender$Server::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, sa, nullptr);
 	try {
 		$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(12));

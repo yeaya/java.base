@@ -96,6 +96,7 @@ void Basic::init$() {
 
 void Basic::main($StringArray* args) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	int64_t now = $System::currentTimeMillis();
 	$init($TimeUnit);
 	int64_t tomorrowInDays = $TimeUnit::DAYS->convert(now, $TimeUnit::MILLISECONDS) + 1;
@@ -308,6 +309,7 @@ void Basic::overflow(int64_t minmax, int64_t v) {
 
 void Basic::cmp(int64_t v1, $TimeUnit* u1, int64_t v2, $TimeUnit* u2, int32_t expected) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $nc($($FileTime::from(v1, u1)))->compareTo($($FileTime::from(v2, u2)));
 	if (result != expected) {
 		$throwNew($RuntimeException, "unexpected order"_s);
@@ -316,6 +318,7 @@ void Basic::cmp(int64_t v1, $TimeUnit* u1, int64_t v2, $TimeUnit* u2, int32_t ex
 
 void Basic::cmp($Instant* ins, int64_t v2, $TimeUnit* u2, int32_t expected) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $nc($($FileTime::from(ins)))->compareTo($($FileTime::from(v2, u2)));
 	if (result != expected) {
 		$throwNew($RuntimeException, "unexpected order"_s);
@@ -324,6 +327,7 @@ void Basic::cmp($Instant* ins, int64_t v2, $TimeUnit* u2, int32_t expected) {
 
 void Basic::eq(int64_t v1, $TimeUnit* u1, int64_t v2, $TimeUnit* u2) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, t1, $FileTime::from(v1, u1));
 	$var($FileTime, t2, $FileTime::from(v2, u2));
 	if (!$nc(t1)->equals(t2)) {
@@ -337,6 +341,7 @@ void Basic::eq(int64_t v1, $TimeUnit* u1, int64_t v2, $TimeUnit* u2) {
 
 void Basic::eq($Instant* ins, int64_t v2, $TimeUnit* u2) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, t1, $FileTime::from(ins));
 	$var($FileTime, t2, $FileTime::from(v2, u2));
 	if (!$nc(t1)->equals(t2)) {
@@ -367,6 +372,7 @@ void Basic::eqTime(int64_t value, $TimeUnit* unit, $Instant* instant) {
 
 void Basic::neq(int64_t v1, $TimeUnit* u1, int64_t v2, $TimeUnit* u2) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, t1, $FileTime::from(v1, u1));
 	$var($FileTime, t2, $FileTime::from(v2, u2));
 	if ($nc(t1)->equals(t2)) {
@@ -376,6 +382,7 @@ void Basic::neq(int64_t v1, $TimeUnit* u1, int64_t v2, $TimeUnit* u2) {
 
 void Basic::neq($Instant* ins, int64_t v2, $TimeUnit* u2) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, t1, $FileTime::from(ins));
 	$var($FileTime, t2, $FileTime::from(v2, u2));
 	if ($nc(t1)->equals(t2)) {
@@ -385,6 +392,7 @@ void Basic::neq($Instant* ins, int64_t v2, $TimeUnit* u2) {
 
 void Basic::to(int64_t v, $TimeUnit* unit) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($FileTime, t, $FileTime::from(v, unit));
 	{
 		$var($TimeUnitArray, arr$, $TimeUnit::values());
@@ -405,6 +413,7 @@ void Basic::to(int64_t v, $TimeUnit* unit) {
 
 void Basic::ts(int64_t v, $TimeUnit* unit, $String* expected) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc($($FileTime::from(v, unit)))->toString());
 	if (!$nc(result)->equals(expected)) {
 		$init($System);
@@ -420,6 +429,7 @@ void Basic::ts(int64_t v, $TimeUnit* unit, $String* expected) {
 
 void Basic::ts($Instant* instant, $String* expected) {
 	$init(Basic);
+	$useLocalCurrentObjectStackCache();
 	$var($String, result, $nc($($FileTime::from(instant)))->toString());
 	if (!$nc(result)->equals(expected)) {
 		$init($System);

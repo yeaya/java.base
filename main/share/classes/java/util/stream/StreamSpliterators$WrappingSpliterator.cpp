@@ -228,6 +228,7 @@ StreamSpliterators$WrappingSpliterator* StreamSpliterators$WrappingSpliterator::
 }
 
 void StreamSpliterators$WrappingSpliterator::initPartialTraversalState() {
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer, b, $new($SpinedBuffer));
 	$set(this, buffer, b);
 	$set(this, bufferSink, $nc(this->ph)->wrapSink(static_cast<$Sink*>($$new(StreamSpliterators$WrappingSpliterator$$Lambda$accept, static_cast<$SpinedBuffer*>(b)))));

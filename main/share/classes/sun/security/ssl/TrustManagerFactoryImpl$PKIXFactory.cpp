@@ -83,6 +83,7 @@ $X509TrustManager* TrustManagerFactoryImpl$PKIXFactory::getInstance($Collection*
 }
 
 $X509TrustManager* TrustManagerFactoryImpl$PKIXFactory::getInstance($ManagerFactoryParameters* spec) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($CertPathTrustManagerParameters, spec))) {
 		$throwNew($InvalidAlgorithmParameterException, "Parameters must be CertPathTrustManagerParameters"_s);
 	}

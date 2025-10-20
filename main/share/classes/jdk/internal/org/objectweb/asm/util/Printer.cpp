@@ -322,6 +322,7 @@ void Printer::print($PrintWriter* printWriter) {
 
 void Printer::printList($PrintWriter* printWriter, $List* list) {
 	$init(Printer);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(list)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -339,6 +340,7 @@ void Printer::printList($PrintWriter* printWriter, $List* list) {
 
 void Printer::appendString($StringBuilder* stringBuilder, $String* string) {
 	$init(Printer);
+	$useLocalCurrentObjectStackCache();
 	$nc(stringBuilder)->append(u'\"');
 	for (int32_t i = 0; i < $nc(string)->length(); ++i) {
 		char16_t c = string->charAt(i);
@@ -369,6 +371,7 @@ void Printer::appendString($StringBuilder* stringBuilder, $String* string) {
 
 void Printer::main($StringArray* args, $String* usage, Printer* printer, $PrintWriter* output, $PrintWriter* logger) {
 	$init(Printer);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length < 1 || $nc(args)->length > 2 || ($nc($nc(args)->get(0))->equals("-debug"_s) && args->length != 2)) {
 		$nc(logger)->println(usage);
 		return;

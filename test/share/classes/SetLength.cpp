@@ -42,6 +42,7 @@ void SetLength::init$() {
 }
 
 void SetLength::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, active, $new($StringBuffer));
 	active->append("first one"_s);
 	$var($String, a, active->toString());

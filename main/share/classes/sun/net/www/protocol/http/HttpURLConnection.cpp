@@ -643,6 +643,7 @@ $String* HttpURLConnection::getNetProperty($String* name) {
 
 $Set* HttpURLConnection::schemesListToSet($String* list) {
 	$init(HttpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	if (list == nullptr || $nc(list)->isEmpty()) {
 		return $Collections::emptySet();
 	}
@@ -748,6 +749,7 @@ $String* HttpURLConnection::getAuthenticatorKey() {
 }
 
 void HttpURLConnection::checkMessageHeader($String* key, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	char16_t LF = u'\n';
 	int32_t index = $nc(key)->indexOf((int32_t)LF);
 	int32_t index1 = key->indexOf((int32_t)u':');
@@ -793,6 +795,7 @@ void HttpURLConnection::setRequestMethod($String* method) {
 }
 
 void HttpURLConnection::writeRequests() {
+	$useLocalCurrentObjectStackCache();
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -908,6 +911,7 @@ void HttpURLConnection::writeRequests() {
 }
 
 bool HttpURLConnection::checkSetHost() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, s, $System::getSecurityManager());
 	if (s != nullptr) {
 		$var($String, name, $of(s)->getClass()->getName());
@@ -928,6 +932,7 @@ bool HttpURLConnection::checkSetHost() {
 }
 
 void HttpURLConnection::checkURLFile() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, s, $System::getSecurityManager());
 	if (s != nullptr) {
 		$var($String, name, $of(s)->getClass()->getName());
@@ -983,6 +988,7 @@ $String* HttpURLConnection::checkHost($String* h) {
 }
 
 void HttpURLConnection::init$($URL* u, $String* host, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$init($Proxy$Type);
 	HttpURLConnection::init$(u, $$new($Proxy, $Proxy$Type::HTTP, $($InetSocketAddress::createUnresolved($(checkHost(host)), port))));
 }
@@ -993,6 +999,7 @@ void HttpURLConnection::init$($URL* u, $Proxy* p) {
 
 $URL* HttpURLConnection::checkURL($URL* u) {
 	$init(HttpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	if (u != nullptr) {
 		if ($nc($(u->toExternalForm()))->indexOf((int32_t)u'\n') > -1) {
 			$throwNew($MalformedURLException, "Illegal character in URL"_s);
@@ -1006,6 +1013,7 @@ $URL* HttpURLConnection::checkURL($URL* u) {
 }
 
 void HttpURLConnection::init$($URL* u, $Proxy* p, $Handler* handler) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$HttpURLConnection::init$($(checkURL(u)));
 	$set(this, ps, nullptr);
@@ -1059,6 +1067,7 @@ void HttpURLConnection::setDefaultAuthenticator($HttpAuthenticator* a) {
 
 $InputStream* HttpURLConnection::openConnectionCheckRedirects($URLConnection* c$renamed) {
 	$init(HttpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	$var($URLConnection, c, c$renamed);
 	bool redir = false;
 	int32_t redirects = 0;
@@ -1107,6 +1116,7 @@ $InputStream* HttpURLConnection::openConnectionCheckRedirects($URLConnection* c$
 
 bool HttpURLConnection::hostsEqual($URL* u1, $URL* u2) {
 	$init(HttpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, h1, $nc(u1)->getHost());
 	$var($String, h2, $nc(u2)->getHost());
@@ -1156,6 +1166,7 @@ bool HttpURLConnection::checkReuseConnection() {
 }
 
 $String* HttpURLConnection::getHostAndPort($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, host, $nc(url)->getHost());
 	$var($String, hostarg, host);
@@ -1177,6 +1188,7 @@ $String* HttpURLConnection::getHostAndPort($URL* url) {
 }
 
 void HttpURLConnection::plainConnect() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	lock();
 	{
@@ -1213,6 +1225,7 @@ void HttpURLConnection::plainConnect() {
 }
 
 $SocketPermission* HttpURLConnection::URLtoSocketPermission($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	if (this->socketPermission != nullptr) {
 		return this->socketPermission;
 	}
@@ -1238,6 +1251,7 @@ $SocketPermission* HttpURLConnection::URLtoSocketPermission($URL* url) {
 }
 
 void HttpURLConnection::plainConnect0() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->cacheHandler != nullptr && getUseCaches()) {
 		try {
@@ -1355,6 +1369,7 @@ $HttpClient* HttpURLConnection::getNewHttpClient($URL* url, $Proxy* p, int32_t c
 }
 
 void HttpURLConnection::expect100Continue() {
+	$useLocalCurrentObjectStackCache();
 	int32_t oldTimeout = $nc(this->http)->getReadTimeout();
 	bool enforceTimeOut = false;
 	bool timedOut = false;
@@ -1395,6 +1410,7 @@ void HttpURLConnection::expect100Continue() {
 }
 
 $OutputStream* HttpURLConnection::getOutputStream() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	lock();
 	{
@@ -1432,6 +1448,7 @@ $OutputStream* HttpURLConnection::getOutputStream() {
 }
 
 $OutputStream* HttpURLConnection::getOutputStream0() {
+	$useLocalCurrentObjectStackCache();
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -1510,6 +1527,7 @@ bool HttpURLConnection::streaming() {
 }
 
 void HttpURLConnection::setCookieHeader() {
+	$useLocalCurrentObjectStackCache();
 	if (this->cookieHandler != nullptr) {
 		if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 			$throwNew($AssertionError);
@@ -1587,6 +1605,7 @@ void HttpURLConnection::setCookieHeader() {
 }
 
 $InputStream* HttpURLConnection::getInputStream() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	lock();
 	{
@@ -1624,6 +1643,7 @@ $InputStream* HttpURLConnection::getInputStream() {
 }
 
 $InputStream* HttpURLConnection::getInputStream0() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
@@ -1965,6 +1985,7 @@ $InputStream* HttpURLConnection::getInputStream0() {
 }
 
 $IOException* HttpURLConnection::getChainedException($IOException* rememberedException) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$var($ObjectArray, args, $new($ObjectArray, {$($of($nc(rememberedException)->getMessage()))}));
@@ -1990,6 +2011,7 @@ $InputStream* HttpURLConnection::getErrorStream() {
 }
 
 $AuthenticationInfo* HttpURLConnection::resetProxyAuthentication($AuthenticationInfo* proxyAuthentication$renamed, $AuthenticationHeader* auth) {
+	$useLocalCurrentObjectStackCache();
 	$var($AuthenticationInfo, proxyAuthentication, proxyAuthentication$renamed);
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
@@ -2048,6 +2070,7 @@ void HttpURLConnection::doTunneling() {
 }
 
 void HttpURLConnection::doTunneling0() {
+	$useLocalCurrentObjectStackCache();
 	int32_t retryTunnel = 0;
 	$var($String, statusLine, ""_s);
 	int32_t respCode = 0;
@@ -2161,6 +2184,7 @@ void HttpURLConnection::doTunneling0() {
 
 $String* HttpURLConnection::connectRequestURI($URL* url) {
 	$init(HttpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	$var($String, host, $nc(url)->getHost());
 	int32_t port = url->getPort();
 	port = port != -1 ? port : url->getDefaultPort();
@@ -2168,6 +2192,7 @@ $String* HttpURLConnection::connectRequestURI($URL* url) {
 }
 
 void HttpURLConnection::sendCONNECTRequest() {
+	$useLocalCurrentObjectStackCache();
 	int32_t port = $nc(this->url)->getPort();
 	$nc(this->requests)->set(0, $$str({HttpURLConnection::HTTP_CONNECT, " "_s, $(connectRequestURI(this->url)), " "_s, HttpURLConnection::httpVersion}), nullptr);
 	$nc(this->requests)->setIfNotSet("User-Agent"_s, HttpURLConnection::userAgent);
@@ -2189,6 +2214,7 @@ void HttpURLConnection::sendCONNECTRequest() {
 }
 
 void HttpURLConnection::setPreemptiveProxyAuthentication($MessageHeader* requests) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(this->http)->getProxyHostUsed());
 	int32_t var$1 = $nc(this->http)->getProxyPortUsed();
 	$var($AuthenticationInfo, pauth, $AuthenticationInfo::getProxyAuth(var$0, var$1, $(getAuthenticatorKey())));
@@ -2211,6 +2237,7 @@ void HttpURLConnection::setPreemptiveProxyAuthentication($MessageHeader* request
 }
 
 $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($AuthenticationHeader* authhdr) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
@@ -2352,6 +2379,7 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 }
 
 $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationHeader* authhdr) {
+	$useLocalCurrentObjectStackCache();
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -2509,6 +2537,7 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 }
 
 void HttpURLConnection::checkResponseCredentials(bool inClose) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (!this->needToCheck) {
 			return;
@@ -2548,6 +2577,7 @@ $String* HttpURLConnection::getRequestURI() {
 }
 
 bool HttpURLConnection::followRedirect() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!getInstanceFollowRedirects()) {
 		return false;
@@ -2586,6 +2616,7 @@ bool HttpURLConnection::followRedirect() {
 }
 
 bool HttpURLConnection::followRedirect0($String* loc, int32_t stat, $URL* locUrl) {
+	$useLocalCurrentObjectStackCache();
 	if (!HttpURLConnection::$assertionsDisabled && !isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -2659,6 +2690,7 @@ bool HttpURLConnection::followRedirect0($String* loc, int32_t stat, $URL* locUrl
 
 bool HttpURLConnection::sameDestination($URL* firstURL, $URL* secondURL) {
 	$init(HttpURLConnection);
+	$useLocalCurrentObjectStackCache();
 	if (!HttpURLConnection::$assertionsDisabled && !$nc($($nc(firstURL)->getProtocol()))->equalsIgnoreCase($($nc(secondURL)->getProtocol()))) {
 		$throwNew($AssertionError, $of($$str({"protocols not equal: "_s, firstURL, " - "_s, secondURL})));
 	}
@@ -2680,6 +2712,7 @@ bool HttpURLConnection::sameDestination($URL* firstURL, $URL* secondURL) {
 }
 
 void HttpURLConnection::reset() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->http)->reuse = true;
 	$set(this, reuseClient, this->http);
 	$var($InputStream, is, $nc(this->http)->getInputStream());
@@ -2802,6 +2835,7 @@ bool HttpURLConnection::usingProxy() {
 }
 
 $String* HttpURLConnection::filterHeaderField($String* name, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		return nullptr;
 	}
@@ -2830,6 +2864,7 @@ $String* HttpURLConnection::filterHeaderField($String* name, $String* value) {
 }
 
 $Map* HttpURLConnection::getFilteredHeaderFields() {
+	$useLocalCurrentObjectStackCache();
 	if (this->filteredHeaders != nullptr) {
 		return this->filteredHeaders;
 	}
@@ -2870,6 +2905,7 @@ $Map* HttpURLConnection::getFilteredHeaderFields() {
 }
 
 $String* HttpURLConnection::getHeaderField($String* name) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
 	} catch ($IOException&) {
@@ -2891,6 +2927,7 @@ $Map* HttpURLConnection::getHeaderFields() {
 }
 
 $String* HttpURLConnection::getHeaderField(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		getInputStream();
 	} catch ($IOException&) {
@@ -2985,6 +3022,7 @@ void HttpURLConnection::setAuthenticationProperty($String* key, $String* value) 
 }
 
 $String* HttpURLConnection::getRequestProperty($String* key) {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -3034,6 +3072,7 @@ $String* HttpURLConnection::getRequestProperty($String* key) {
 }
 
 $Map* HttpURLConnection::getRequestProperties() {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -3107,6 +3146,7 @@ $String* HttpURLConnection::getMethod() {
 }
 
 $MessageHeader* HttpURLConnection::mapToMessageHeader($Map* map) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageHeader, headers, $new($MessageHeader));
 	if (map == nullptr || $nc(map)->isEmpty()) {
 		return headers;
@@ -3155,6 +3195,7 @@ $String* HttpURLConnection::lambda$getNetProperty$0($String* name) {
 }
 
 void clinit$HttpURLConnection($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(HttpURLConnection::HTTP_CONNECT, "CONNECT"_s);
 	$assignStatic(HttpURLConnection::RETRY_MSG1, "cannot retry due to proxy authentication, in streaming mode"_s);
 	$assignStatic(HttpURLConnection::RETRY_MSG2, "cannot retry due to server authentication, in streaming mode"_s);

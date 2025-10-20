@@ -122,6 +122,7 @@ bool Parameter::isNamePresent() {
 }
 
 $String* Parameter::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($Type, type, getParameterizedType());
 	$var($String, typename$, $nc(type)->getTypeName());
@@ -160,6 +161,7 @@ $String* Parameter::getRealName() {
 }
 
 $Type* Parameter::getParameterizedType() {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, tmp, this->parameterTypeCache);
 	if (nullptr == tmp) {
 		$assign(tmp, $nc($($nc(this->executable)->getAllGenericParameterTypes()))->get(this->index));
@@ -195,6 +197,7 @@ bool Parameter::isVarArgs() {
 }
 
 $Annotation* Parameter::getAnnotation($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	return $cast($Annotation, annotationClass->cast($($nc($(declaredAnnotations()))->get(annotationClass))));
 }
@@ -222,6 +225,7 @@ $AnnotationArray* Parameter::getAnnotations() {
 
 $Map* Parameter::declaredAnnotations() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (nullptr == this->declaredAnnotations$) {
 			$set(this, declaredAnnotations$, $new($HashMap));
 			{

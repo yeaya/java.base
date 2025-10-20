@@ -92,6 +92,7 @@ $ProtectionDomainArray* ProtectionDomain$JavaSecurityAccessImpl::getProtectDomai
 
 $AccessControlContext* ProtectionDomain$JavaSecurityAccessImpl::getCombinedACC($AccessControlContext* context, $AccessControlContext* stack) {
 	$init(ProtectionDomain$JavaSecurityAccessImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($AccessControlContext, acc, $new($AccessControlContext, context, $($nc(stack)->getCombiner()), true));
 	return $$new($AccessControlContext, $($nc(stack)->getContext()), acc)->optimize();
 }

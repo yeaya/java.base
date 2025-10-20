@@ -53,6 +53,7 @@ void Space::init$() {
 }
 
 void Space::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar == u'\\') {
 		try {

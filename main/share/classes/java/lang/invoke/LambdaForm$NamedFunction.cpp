@@ -226,6 +226,7 @@ int32_t LambdaForm$NamedFunction::hashCode() {
 
 $MethodHandle* LambdaForm$NamedFunction::computeInvoker($MethodTypeForm* typeForm$renamed) {
 	$init(LambdaForm$NamedFunction);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodTypeForm, typeForm, typeForm$renamed);
 	$assign(typeForm, $nc($($nc(typeForm)->basicType()))->form());
 	$var($MethodHandle, mh, typeForm->cachedMethodHandle($MethodTypeForm::MH_NF_INV));
@@ -245,6 +246,7 @@ $MethodHandle* LambdaForm$NamedFunction::computeInvoker($MethodTypeForm* typeFor
 }
 
 $Object* LambdaForm$NamedFunction::invokeWithArguments($ObjectArray* arguments) {
+	$useLocalCurrentObjectStackCache();
 	$init($LambdaForm);
 	if ($LambdaForm::TRACE_INTERPRETER) {
 		return $of(invokeWithArgumentsTracing(arguments));
@@ -253,6 +255,7 @@ $Object* LambdaForm$NamedFunction::invokeWithArguments($ObjectArray* arguments) 
 }
 
 $Object* LambdaForm$NamedFunction::invokeWithArgumentsTracing($ObjectArray* arguments) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, rval, nullptr);
 	try {
 		$LambdaForm::traceInterpreter("[ call"_s, this, arguments);
@@ -275,6 +278,7 @@ $Object* LambdaForm$NamedFunction::invokeWithArgumentsTracing($ObjectArray* argu
 }
 
 $MethodHandle* LambdaForm$NamedFunction::invoker() {
+	$useLocalCurrentObjectStackCache();
 	if (this->invoker$ != nullptr) {
 		return this->invoker$;
 	}
@@ -311,10 +315,12 @@ $Class* LambdaForm$NamedFunction::memberDeclaringClassOrNull() {
 }
 
 $LambdaForm$BasicType* LambdaForm$NamedFunction::returnType() {
+	$useLocalCurrentObjectStackCache();
 	return $LambdaForm$BasicType::basicType($($cast($Class, $nc($(methodType()))->returnType())));
 }
 
 $LambdaForm$BasicType* LambdaForm$NamedFunction::parameterType(int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	return $LambdaForm$BasicType::basicType($($cast($Class, $nc($(methodType()))->parameterType(n))));
 }
 
@@ -323,6 +329,7 @@ int32_t LambdaForm$NamedFunction::arity() {
 }
 
 $String* LambdaForm$NamedFunction::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->member$ == nullptr) {
 		return $String::valueOf($of(this->resolvedHandle$));
 	}
@@ -331,10 +338,12 @@ $String* LambdaForm$NamedFunction::toString() {
 }
 
 bool LambdaForm$NamedFunction::isIdentity() {
+	$useLocalCurrentObjectStackCache();
 	return this->equals($($LambdaForm::identity($(returnType()))));
 }
 
 bool LambdaForm$NamedFunction::isConstantZero() {
+	$useLocalCurrentObjectStackCache();
 	return this->equals($($LambdaForm::constantZero($(returnType()))));
 }
 

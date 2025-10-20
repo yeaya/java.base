@@ -56,6 +56,7 @@ void ModPowPowersof2$ModTester::init$() {
 }
 
 void ModPowPowersof2$ModTester::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, two, $BigInteger::valueOf((int64_t)2));
 	$var($BigInteger, four, $BigInteger::valueOf((int64_t)4));
 	$nc(two)->modPow(two, $($BigInteger::valueOf((int64_t)4)));

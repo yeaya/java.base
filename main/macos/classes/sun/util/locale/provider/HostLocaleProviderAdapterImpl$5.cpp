@@ -92,6 +92,7 @@ bool HostLocaleProviderAdapterImpl$5::isSupportedLocale($Locale* locale) {
 }
 
 $DecimalFormatSymbols* HostLocaleProviderAdapterImpl$5::getInstance($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($DecimalFormatSymbols, decimalFormatSymbols, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::decimalFormatSymbolsMap)->get(locale)));

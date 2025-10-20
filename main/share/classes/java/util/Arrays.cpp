@@ -794,6 +794,7 @@ void Arrays::parallelSort($doubles* a, int32_t fromIndex, int32_t toIndex) {
 
 void Arrays::rangeCheck(int32_t arrayLength, int32_t fromIndex, int32_t toIndex) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex > toIndex) {
 		$throwNew($IllegalArgumentException, $$str({"fromIndex("_s, $$str(fromIndex), ") > toIndex("_s, $$str(toIndex), ")"_s}));
 	}
@@ -807,6 +808,7 @@ void Arrays::rangeCheck(int32_t arrayLength, int32_t fromIndex, int32_t toIndex)
 
 void Arrays::parallelSort($ComparableArray* a) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(a)->length;
 	int32_t p = 0;
 	int32_t g = 0;
@@ -821,6 +823,7 @@ void Arrays::parallelSort($ComparableArray* a) {
 
 void Arrays::parallelSort($ComparableArray* a, int32_t fromIndex, int32_t toIndex) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	rangeCheck($nc(a)->length, fromIndex, toIndex);
 	int32_t n = toIndex - fromIndex;
 	int32_t p = 0;
@@ -836,6 +839,7 @@ void Arrays::parallelSort($ComparableArray* a, int32_t fromIndex, int32_t toInde
 
 void Arrays::parallelSort($ObjectArray* a, $Comparator* cmp$renamed) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, cmp$renamed);
 	if (cmp == nullptr) {
 		$init($Arrays$NaturalOrder);
@@ -853,6 +857,7 @@ void Arrays::parallelSort($ObjectArray* a, $Comparator* cmp$renamed) {
 
 void Arrays::parallelSort($ObjectArray* a, int32_t fromIndex, int32_t toIndex, $Comparator* cmp$renamed) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, cmp$renamed);
 	rangeCheck($nc(a)->length, fromIndex, toIndex);
 	if (cmp == nullptr) {
@@ -1330,6 +1335,7 @@ int32_t Arrays::binarySearch($ObjectArray* a, int32_t fromIndex, int32_t toIndex
 
 int32_t Arrays::binarySearch0($ObjectArray* a, int32_t fromIndex, int32_t toIndex, Object$* key) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	int32_t low = fromIndex;
 	int32_t high = toIndex - 1;
 	while (low <= high) {
@@ -1360,6 +1366,7 @@ int32_t Arrays::binarySearch($ObjectArray* a, int32_t fromIndex, int32_t toIndex
 
 int32_t Arrays::binarySearch0($ObjectArray* a, int32_t fromIndex, int32_t toIndex, Object$* key, $Comparator* c) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (c == nullptr) {
 		return binarySearch0(a, fromIndex, toIndex, key);
 	}
@@ -2079,6 +2086,7 @@ int32_t Arrays::hashCode($doubles* a) {
 
 int32_t Arrays::hashCode($ObjectArray* a) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a == nullptr) {
 		return 0;
 	}
@@ -2097,6 +2105,7 @@ int32_t Arrays::hashCode($ObjectArray* a) {
 
 int32_t Arrays::deepHashCode($ObjectArray* a) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a == nullptr) {
 		return 0;
 	}
@@ -2140,6 +2149,7 @@ int32_t Arrays::primitiveArrayHashCode(Object$* a, $Class* cl) {
 
 bool Arrays::deepEquals($ObjectArray* a1, $ObjectArray* a2) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a1 == a2) {
 		return true;
 	}
@@ -2359,6 +2369,7 @@ $String* Arrays::toString($doubles* a) {
 
 $String* Arrays::toString($ObjectArray* a) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a == nullptr) {
 		return "null"_s;
 	}
@@ -2379,6 +2390,7 @@ $String* Arrays::toString($ObjectArray* a) {
 
 $String* Arrays::deepToString($ObjectArray* a) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a == nullptr) {
 		return "null"_s;
 	}
@@ -2393,6 +2405,7 @@ $String* Arrays::deepToString($ObjectArray* a) {
 
 void Arrays::deepToString($ObjectArray* a, $StringBuilder* buf, $Set* dejaVu) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a == nullptr) {
 		$nc(buf)->append("null"_s);
 		return;
@@ -2469,6 +2482,7 @@ void Arrays::deepToString($ObjectArray* a, $StringBuilder* buf, $Set* dejaVu) {
 
 void Arrays::setAll($ObjectArray* array, $IntFunction* generator) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(generator);
 	for (int32_t i = 0; i < $nc(array)->length; ++i) {
 		array->set(i, $(generator->apply(i)));
@@ -2477,6 +2491,7 @@ void Arrays::setAll($ObjectArray* array, $IntFunction* generator) {
 
 void Arrays::parallelSetAll($ObjectArray* array, $IntFunction* generator) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(generator);
 	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$0, array, generator)));
 }
@@ -2491,6 +2506,7 @@ void Arrays::setAll($ints* array, $IntUnaryOperator* generator) {
 
 void Arrays::parallelSetAll($ints* array, $IntUnaryOperator* generator) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(generator);
 	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$1$1, array, generator)));
 }
@@ -2505,6 +2521,7 @@ void Arrays::setAll($longs* array, $IntToLongFunction* generator) {
 
 void Arrays::parallelSetAll($longs* array, $IntToLongFunction* generator) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(generator);
 	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$2$2, array, generator)));
 }
@@ -2519,6 +2536,7 @@ void Arrays::setAll($doubles* array, $IntToDoubleFunction* generator) {
 
 void Arrays::parallelSetAll($doubles* array, $IntToDoubleFunction* generator) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(generator);
 	$nc($($nc($($IntStream::range(0, $nc(array)->length)))->parallel()))->forEach(static_cast<$IntConsumer*>($$new(Arrays$$Lambda$lambda$parallelSetAll$3$3, array, generator)));
 }
@@ -2941,6 +2959,7 @@ int32_t Arrays::compare($doubles* a, int32_t aFromIndex, int32_t aToIndex, $doub
 
 int32_t Arrays::compare($ComparableArray* a, $ComparableArray* b) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	if (a == b) {
 		return 0;
 	}
@@ -2966,6 +2985,7 @@ int32_t Arrays::compare($ComparableArray* a, $ComparableArray* b) {
 
 int32_t Arrays::compare($ComparableArray* a, int32_t aFromIndex, int32_t aToIndex, $ComparableArray* b, int32_t bFromIndex, int32_t bToIndex) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	rangeCheck($nc(a)->length, aFromIndex, aToIndex);
 	rangeCheck($nc(b)->length, bFromIndex, bToIndex);
 	int32_t aLength = aToIndex - aFromIndex;
@@ -2989,6 +3009,7 @@ int32_t Arrays::compare($ComparableArray* a, int32_t aFromIndex, int32_t aToInde
 
 int32_t Arrays::compare($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(cmp);
 	if (a == b) {
 		return 0;
@@ -3012,6 +3033,7 @@ int32_t Arrays::compare($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 
 int32_t Arrays::compare($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $ObjectArray* b, int32_t bFromIndex, int32_t bToIndex, $Comparator* cmp) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(cmp);
 	rangeCheck($nc(a)->length, aFromIndex, aToIndex);
 	rangeCheck($nc(b)->length, bFromIndex, bToIndex);
@@ -3230,6 +3252,7 @@ int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, 
 
 int32_t Arrays::mismatch($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(cmp);
 	int32_t length = $Math::min($nc(a)->length, $nc(b)->length);
 	if (a == b) {
@@ -3250,6 +3273,7 @@ int32_t Arrays::mismatch($ObjectArray* a, $ObjectArray* b, $Comparator* cmp) {
 
 int32_t Arrays::mismatch($ObjectArray* a, int32_t aFromIndex, int32_t aToIndex, $ObjectArray* b, int32_t bFromIndex, int32_t bToIndex, $Comparator* cmp) {
 	$init(Arrays);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(cmp);
 	rangeCheck($nc(a)->length, aFromIndex, aToIndex);
 	rangeCheck($nc(b)->length, bFromIndex, bToIndex);

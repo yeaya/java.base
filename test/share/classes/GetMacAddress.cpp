@@ -144,6 +144,7 @@ void GetMacAddress::init$($NetworkInterface* ni, $String* name, $Phaser* phaser)
 }
 
 $Object* GetMacAddress::call() {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	$nc(this->startingGate)->arriveAndAwaitAdvance();
 	try {
@@ -178,6 +179,7 @@ $Stream* GetMacAddress::getNetworkInterfacesAsStream() {
 
 void GetMacAddress::main($StringArray* args) {
 	$init(GetMacAddress);
+	$useLocalCurrentObjectStackCache();
 	$var($List, toTest, $cast($List, $nc($($nc($(getNetworkInterfacesAsStream()))->filter(GetMacAddress::hasHardwareAddress)))->collect($($Collectors::toList()))));
 	$var($ExecutorService, executor, $Executors::newFixedThreadPool(GetMacAddress::NUM_THREADS));
 	{
@@ -221,6 +223,7 @@ void GetMacAddress::main($StringArray* args) {
 
 bool GetMacAddress::lambda$static$0($NetworkInterface* ni) {
 	$init(GetMacAddress);
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(ni)->getHardwareAddress() == nullptr) {
 			$init($System);

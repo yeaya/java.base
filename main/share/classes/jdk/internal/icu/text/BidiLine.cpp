@@ -80,6 +80,7 @@ void BidiLine::init$() {
 }
 
 void BidiLine::setTrailingWSStart($BidiBase* bidiBase) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, dirProps, $nc(bidiBase)->dirProps);
 	$var($bytes, levels, bidiBase->levels);
 	int32_t start = bidiBase->length;
@@ -223,6 +224,7 @@ void BidiLine::getSingleRun($BidiBase* bidiBase, int8_t level) {
 }
 
 void BidiLine::reorderLine($BidiBase* bidiBase, int8_t minLevel, int8_t maxLevel) {
+	$useLocalCurrentObjectStackCache();
 	if (maxLevel <= (minLevel | 1)) {
 		return;
 	}
@@ -309,6 +311,7 @@ int32_t BidiLine::getRunFromLogicalIndex($BidiBase* bidiBase, int32_t logicalInd
 }
 
 void BidiLine::getRuns($BidiBase* bidiBase) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bidiBase)->runCount >= 0) {
 		return;
 	}
@@ -441,6 +444,7 @@ $ints* BidiLine::prepareReorder($bytes* levels, $bytes* pMinLevel, $bytes* pMaxL
 }
 
 $ints* BidiLine::reorderVisual($bytes* levels) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, aMinLevel, $new($bytes, 1));
 	$var($bytes, aMaxLevel, $new($bytes, 1));
 	int32_t start = 0;
@@ -498,6 +502,7 @@ $ints* BidiLine::reorderVisual($bytes* levels) {
 }
 
 $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
+	$useLocalCurrentObjectStackCache();
 	$var($BidiRunArray, runs, $nc(bidiBase)->runs);
 	int32_t logicalStart = 0;
 	int32_t visualStart = 0;

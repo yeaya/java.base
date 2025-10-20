@@ -92,6 +92,7 @@ bool StackStreamTest::isTestClass($StackWalker$StackFrame* f) {
 }
 
 void StackStreamTest::equalsOrThrow($String* label, $List* list, $List* expected) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"List:    "_s, list}));
 	$nc($System::out)->println($$str({"Expectd: "_s, list}));
@@ -122,6 +123,7 @@ void StackStreamTest::equalsOrThrow($String* label, $List* list, $List* expected
 
 void StackStreamTest::caller() {
 	$load(StackStreamTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($StackWalker$Option);
 	$Class* c = $nc($($StackWalker::getInstance($StackWalker$Option::RETAIN_CLASS_REFERENCE)))->getCallerClass();

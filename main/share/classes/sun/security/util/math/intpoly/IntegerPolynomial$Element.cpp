@@ -136,6 +136,7 @@ bool IntegerPolynomial$Element::isSummand() {
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$Element::add($IntegerModuloP* genB) {
+	$useLocalCurrentObjectStackCache();
 	$var(IntegerPolynomial$Element, b, $cast(IntegerPolynomial$Element, genB));
 	bool var$0 = isSummand();
 	if (!(var$0 && $nc(b)->isSummand())) {
@@ -150,6 +151,7 @@ $ImmutableIntegerModuloP* IntegerPolynomial$Element::add($IntegerModuloP* genB) 
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$Element::additiveInverse() {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, newLimbs, $new($longs, $nc(this->limbs)->length));
 	for (int32_t i = 0; i < $nc(this->limbs)->length; ++i) {
 		newLimbs->set(i, -$nc(this->limbs)->get(i));
@@ -169,6 +171,7 @@ void IntegerPolynomial$Element::copyLow($longs* limbs, $longs* out) {
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$Element::multiply($IntegerModuloP* genB) {
+	$useLocalCurrentObjectStackCache();
 	$var(IntegerPolynomial$Element, b, $cast(IntegerPolynomial$Element, genB));
 	$var($longs, newLimbs, $new($longs, $nc(this->limbs)->length));
 	this->this$0->mult(this->limbs, $nc(b)->limbs, newLimbs);

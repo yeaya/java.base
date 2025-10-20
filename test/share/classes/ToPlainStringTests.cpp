@@ -43,6 +43,7 @@ void ToPlainStringTests::init$() {
 }
 
 void ToPlainStringTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray2, testCases, $new($StringArray2, {
 		$$new($StringArray, {
 			"0"_s,

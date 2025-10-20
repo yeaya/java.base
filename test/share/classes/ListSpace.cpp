@@ -39,6 +39,7 @@ void ListSpace::init$() {
 }
 
 void ListSpace::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, d, $new($File, "."_s));
 	$assign(d, $new($File, $$str({$(d->getCanonicalPath()), " "_s})));
 	if (!d->isDirectory()) {

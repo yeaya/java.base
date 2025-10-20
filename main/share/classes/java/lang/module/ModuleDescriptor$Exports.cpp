@@ -107,6 +107,7 @@ $Set* ModuleDescriptor$Exports::targets() {
 }
 
 int32_t ModuleDescriptor$Exports::compareTo(ModuleDescriptor$Exports* that) {
+	$useLocalCurrentObjectStackCache();
 	if (this == that) {
 		return 0;
 	}

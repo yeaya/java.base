@@ -119,6 +119,7 @@ void ContentInfo::init$($DerInputStream* derin) {
 }
 
 void ContentInfo::init$($DerInputStream* derin, bool oldStyle) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, disType, nullptr);
 	$var($DerInputStream, disTaggedContent, nullptr);
 	$var($DerValue, type, nullptr);
@@ -167,6 +168,7 @@ $bytes* ContentInfo::getData() {
 }
 
 void ContentInfo::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, contentDerCode, nullptr);
 	$var($DerOutputStream, seq, nullptr);
 	$assign(seq, $new($DerOutputStream));
@@ -182,6 +184,7 @@ void ContentInfo::encode($DerOutputStream* out) {
 }
 
 $bytes* ContentInfo::getContentBytes() {
+	$useLocalCurrentObjectStackCache();
 	if (this->content == nullptr) {
 		return nullptr;
 	}
@@ -190,6 +193,7 @@ $bytes* ContentInfo::getContentBytes() {
 }
 
 $String* ContentInfo::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, out, ""_s);
 	$plusAssign(out, $$str({"Content Info Sequence\n\tContent type: "_s, this->contentType, "\n"_s}));
 	$plusAssign(out, $$str({"\tContent: "_s, this->content}));

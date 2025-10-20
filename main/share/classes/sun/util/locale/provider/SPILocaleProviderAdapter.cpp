@@ -92,6 +92,7 @@ $LocaleProviderAdapter$Type* SPILocaleProviderAdapter::getAdapterType() {
 }
 
 $LocaleServiceProvider* SPILocaleProviderAdapter::findInstalledProvider($Class* c) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $cast($LocaleServiceProvider, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($SPILocaleProviderAdapter$1, this, c))));

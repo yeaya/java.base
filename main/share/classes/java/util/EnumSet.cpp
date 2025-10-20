@@ -146,6 +146,7 @@ void EnumSet::init$($Class* elementType, $EnumArray* universe) {
 
 EnumSet* EnumSet::noneOf($Class* elementType) {
 	$init(EnumSet);
+	$useLocalCurrentObjectStackCache();
 	$var($EnumArray, universe, getUniverse(elementType));
 	if (universe == nullptr) {
 		$throwNew($ClassCastException, $$str({elementType, " not an enum"_s}));
@@ -171,6 +172,7 @@ EnumSet* EnumSet::copyOf(EnumSet* s) {
 
 EnumSet* EnumSet::copyOf($Collection* c) {
 	$init(EnumSet);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(EnumSet, c)) {
 		return $cast(EnumSet, $nc(($cast(EnumSet, c)))->clone());
 	} else {
@@ -241,6 +243,7 @@ EnumSet* EnumSet::of($Enum* e1, $Enum* e2, $Enum* e3, $Enum* e4, $Enum* e5) {
 
 EnumSet* EnumSet::of($Enum* first, $EnumArray* rest) {
 	$init(EnumSet);
+	$useLocalCurrentObjectStackCache();
 	$var(EnumSet, result, noneOf($nc(first)->getDeclaringClass()));
 	$nc(result)->add(first);
 	{
@@ -257,6 +260,7 @@ EnumSet* EnumSet::of($Enum* first, $EnumArray* rest) {
 
 EnumSet* EnumSet::range($Enum* from, $Enum* to) {
 	$init(EnumSet);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(from)->compareTo(to) > 0) {
 		$throwNew($IllegalArgumentException, $$str({from, " > "_s, to}));
 	}

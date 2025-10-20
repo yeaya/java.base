@@ -83,6 +83,7 @@ void InternalNameServiceTest::main($StringArray* args) {
 
 void InternalNameServiceTest::testHostToIPAddressMappings($String* hostsFileName) {
 	$init(InternalNameServiceTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println(" TEST HOST TO  IP ADDRESS MAPPINGS "_s);
 	$var($InetAddress, testAddress, nullptr);
@@ -172,6 +173,7 @@ void InternalNameServiceTest::testHostToIPAddressMappings($String* hostsFileName
 
 void InternalNameServiceTest::testIpAddressToHostNameMappings($String* hostsFileName) {
 	$init(InternalNameServiceTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println(" TEST IP ADDRESS TO HOST MAPPINGS "_s);
 	$var($InetAddress, testAddress, nullptr);
@@ -239,6 +241,7 @@ void InternalNameServiceTest::testIpAddressToHostNameMappings($String* hostsFile
 
 $String* InternalNameServiceTest::addrToString($bytes* addr) {
 	$init(InternalNameServiceTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$4, $$str({$($Byte::toString($nc(addr)->get(0))), "."_s}));
 	$var($String, var$3, $$concat(var$4, $($Byte::toString($nc(addr)->get(1)))));
 	$var($String, var$2, $$concat(var$3, "."));
@@ -249,6 +252,7 @@ $String* InternalNameServiceTest::addrToString($bytes* addr) {
 
 void InternalNameServiceTest::addMappingToHostsFile($String* host, $String* addr, $String* hostsFileName, bool append) {
 	$init(InternalNameServiceTest);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mapping, $str({addr, " "_s, host}));
 	{
 		$var($PrintWriter, hfPWriter, $new($PrintWriter, static_cast<$Writer*>($$new($BufferedWriter, $$new($FileWriter, hostsFileName, append)))));

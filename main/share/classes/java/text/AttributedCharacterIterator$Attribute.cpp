@@ -111,6 +111,7 @@ $String* AttributedCharacterIterator$Attribute::getName() {
 }
 
 $Object* AttributedCharacterIterator$Attribute::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	if ($of(this)->getClass() != AttributedCharacterIterator$Attribute::class$) {
 		$throwNew($InvalidObjectException, "subclass didn\'t correctly implement readResolve"_s);
 	}

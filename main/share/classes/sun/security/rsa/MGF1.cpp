@@ -58,6 +58,7 @@ void MGF1::init$($String* mdAlgo) {
 }
 
 void MGF1::generateAndXor($bytes* seed, int32_t seedOfs, int32_t seedLen, int32_t maskLen, $bytes* out, int32_t outOfs) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, C, $new($bytes, 4));
 	$var($bytes, digest, $new($bytes, $nc(this->md)->getDigestLength()));
 	while (maskLen > 0) {

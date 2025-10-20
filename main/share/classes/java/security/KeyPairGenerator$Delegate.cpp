@@ -109,6 +109,7 @@ void KeyPairGenerator$Delegate::init$($KeyPairGeneratorSpi* spi, $String* algori
 }
 
 void KeyPairGenerator$Delegate::init$($GetInstance$Instance* instance, $Iterator* serviceIterator, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$KeyPairGenerator::init$(algorithm);
 	$set(this, lock, $new($Object));
 	$set(this, spi, $cast($KeyPairGeneratorSpi, $nc(instance)->impl));
@@ -122,6 +123,7 @@ void KeyPairGenerator$Delegate::init$($GetInstance$Instance* instance, $Iterator
 }
 
 $KeyPairGeneratorSpi* KeyPairGenerator$Delegate::nextSpi($KeyPairGeneratorSpi* oldSpi, bool reinit) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if ((oldSpi != nullptr) && (oldSpi != this->spi)) {
 			return this->spi;
@@ -174,6 +176,7 @@ void KeyPairGenerator$Delegate::disableFailover() {
 }
 
 void KeyPairGenerator$Delegate::initialize(int32_t keysize, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->initialize(keysize, random);
 		return;
@@ -200,6 +203,7 @@ void KeyPairGenerator$Delegate::initialize(int32_t keysize, $SecureRandom* rando
 }
 
 void KeyPairGenerator$Delegate::initialize($AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->initialize(params, random);
 		return;
@@ -229,6 +233,7 @@ void KeyPairGenerator$Delegate::initialize($AlgorithmParameterSpec* params, $Sec
 }
 
 $KeyPair* KeyPairGenerator$Delegate::generateKeyPair() {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->generateKeyPair();
 	}

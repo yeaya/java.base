@@ -159,6 +159,7 @@ bool X509KeyManagerImpl$CheckType::getBit($booleans* keyUsage, int32_t bit) {
 }
 
 $X509KeyManagerImpl$CheckResult* X509KeyManagerImpl$CheckType::check($X509Certificate* cert, $Date* date, $List* serverNames, $String* idAlgorithm) {
+	$useLocalCurrentObjectStackCache();
 	if (this == X509KeyManagerImpl$CheckType::NONE) {
 		$init($X509KeyManagerImpl$CheckResult);
 		return $X509KeyManagerImpl$CheckResult::OK;
@@ -330,6 +331,7 @@ $String* X509KeyManagerImpl$CheckType::getValidator() {
 }
 
 void clinit$X509KeyManagerImpl$CheckType($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(X509KeyManagerImpl$CheckType::NONE, $new(X509KeyManagerImpl$CheckType, "NONE"_s, 0, $($Collections::emptySet())));
 	$init($KnownOIDs);
 	$var($Object, var$0, $of($KnownOIDs::anyExtendedKeyUsage->value()));

@@ -157,6 +157,7 @@ void WindowsAsynchronousSocketChannelImpl$ConnectTask::afterConnect() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$ConnectTask::run() {
+	$useLocalCurrentObjectStackCache();
 	int64_t overlapped = 0;
 	$var($Throwable, exc, nullptr);
 	{
@@ -206,6 +207,7 @@ void WindowsAsynchronousSocketChannelImpl$ConnectTask::run() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$ConnectTask::completed(int32_t bytesTransferred, bool canInvokeDirect) {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, exc, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -241,6 +243,7 @@ void WindowsAsynchronousSocketChannelImpl$ConnectTask::completed(int32_t bytesTr
 }
 
 void WindowsAsynchronousSocketChannelImpl$ConnectTask::failed(int32_t error, $IOException* x$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($IOException, x, x$renamed);
 	$assign(x, $SocketExceptions::of(x, this->remote));
 	if (this->this$0->isOpen()) {

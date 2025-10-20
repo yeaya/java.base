@@ -116,6 +116,7 @@ void Finished$T12FinishedConsumer::init$() {
 }
 
 void Finished$T12FinishedConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::FINISHED->id)));
@@ -132,6 +133,7 @@ void Finished$T12FinishedConsumer::consume($ConnectionContext* context, $ByteBuf
 }
 
 void Finished$T12FinishedConsumer::onConsumeFinished($ClientHandshakeContext* chc, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($Finished$FinishedMessage, fm, $new($Finished$FinishedMessage, chc, message));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -174,6 +176,7 @@ void Finished$T12FinishedConsumer::onConsumeFinished($ClientHandshakeContext* ch
 }
 
 void Finished$T12FinishedConsumer::onConsumeFinished($ServerHandshakeContext* shc, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(shc)->isResumption) {
 		$init($SSLHandshake);
 		if ($nc(shc->handshakeConsumers)->containsKey($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)))) {

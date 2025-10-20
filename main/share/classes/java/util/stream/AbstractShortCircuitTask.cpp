@@ -75,6 +75,7 @@ void AbstractShortCircuitTask::init$(AbstractShortCircuitTask* parent, $Splitera
 }
 
 void AbstractShortCircuitTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterator, rs, this->spliterator);
 	$var($Spliterator, ls, nullptr);
 	int64_t sizeEstimate = $nc(rs)->estimateSize();
@@ -162,6 +163,7 @@ bool AbstractShortCircuitTask::taskCanceled() {
 }
 
 void AbstractShortCircuitTask::cancelLaterNodes() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var(AbstractShortCircuitTask, parent, $cast(AbstractShortCircuitTask, getParent()));
 		$var(AbstractShortCircuitTask, node, this);

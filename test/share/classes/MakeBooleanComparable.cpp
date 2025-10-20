@@ -49,6 +49,7 @@ void MakeBooleanComparable::init$() {
 }
 
 void MakeBooleanComparable::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Random, rnd, $new($Random));
 	$var($List, list, $new($ArrayList));
 	int32_t numFalse = 0;

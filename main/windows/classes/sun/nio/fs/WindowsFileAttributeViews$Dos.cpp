@@ -178,6 +178,7 @@ void WindowsFileAttributeViews$Dos::setAttribute($String* attribute, Object$* va
 }
 
 $Map* WindowsFileAttributeViews$Dos::readAttributes($StringArray* attributes) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(WindowsFileAttributeViews$Dos::dosAttributeNames, attributes));
 	$var($WindowsFileAttributes, attrs, $cast($WindowsFileAttributes, readAttributes()));
 	addRequestedBasicAttributes(attrs, builder);
@@ -200,6 +201,7 @@ $Map* WindowsFileAttributeViews$Dos::readAttributes($StringArray* attributes) {
 }
 
 void WindowsFileAttributeViews$Dos::updateAttributes(int32_t flag, bool enable) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->file)->checkWrite();
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	try {
@@ -236,6 +238,7 @@ void WindowsFileAttributeViews$Dos::setSystem(bool value) {
 }
 
 void WindowsFileAttributeViews$Dos::setAttributes($WindowsFileAttributes* attrs) {
+	$useLocalCurrentObjectStackCache();
 	int32_t flags = 0;
 	if ($nc(attrs)->isReadOnly()) {
 		flags |= 1;

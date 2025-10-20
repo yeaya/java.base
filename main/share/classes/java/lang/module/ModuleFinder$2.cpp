@@ -315,6 +315,7 @@ void ModuleFinder$2::init$($List* val$finderList) {
 }
 
 $Optional* ModuleFinder$2::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleReference, mref, $cast($ModuleReference, $nc(this->nameToModule)->get(name)));
 	if (mref != nullptr) {
 		return $Optional::of(mref);
@@ -325,6 +326,7 @@ $Optional* ModuleFinder$2::find($String* name) {
 }
 
 $Set* ModuleFinder$2::findAll() {
+	$useLocalCurrentObjectStackCache();
 	if (this->allModules != nullptr) {
 		return this->allModules;
 	}
@@ -335,6 +337,7 @@ $Set* ModuleFinder$2::findAll() {
 }
 
 void ModuleFinder$2::lambda$findAll$3($Set* result, $ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc($($nc(mref)->descriptor()))->name());
 	if ($nc(this->nameToModule)->putIfAbsent(name, mref) == nullptr) {
 		$nc(result)->add(mref);

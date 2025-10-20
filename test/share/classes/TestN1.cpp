@@ -119,6 +119,7 @@ void TestN1::testInner1() {
 
 void TestN1::testInner2() {
 	$init(TestN1);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::out)->println("testing generic inner class 1"_s);

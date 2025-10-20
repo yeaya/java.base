@@ -158,6 +158,7 @@ int32_t TypeConvertingMethodAdapter::hashWrapperName($String* xn) {
 }
 
 $Wrapper* TypeConvertingMethodAdapter::wrapperOrNullFromDescriptor($String* desc) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(desc)->startsWith(TypeConvertingMethodAdapter::WRAPPER_PREFIX)) {
 		return nullptr;
 	}
@@ -183,6 +184,7 @@ $String* TypeConvertingMethodAdapter::unboxMethod($Wrapper* w) {
 
 $String* TypeConvertingMethodAdapter::boxingDescriptor($Wrapper* w) {
 	$init(TypeConvertingMethodAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"("_s, $$str($nc(w)->basicTypeChar()), ")L"_s}));
 	$var($String, var$0, $$concat(var$1, $(wrapperName(w))));
 	return $concat(var$0, ";");
@@ -210,12 +212,14 @@ void TypeConvertingMethodAdapter::widen($Wrapper* ws, $Wrapper* wt) {
 }
 
 void TypeConvertingMethodAdapter::box($Wrapper* w) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, wrapperName(w));
 	$var($String, var$1, TypeConvertingMethodAdapter::NAME_BOX_METHOD);
 	visitMethodInsn($Opcodes::INVOKESTATIC, var$0, var$1, $(boxingDescriptor(w)), false);
 }
 
 void TypeConvertingMethodAdapter::unbox($String* sname, $Wrapper* wt) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, sname);
 	$var($String, var$1, unboxMethod(wt));
 	visitMethodInsn($Opcodes::INVOKEVIRTUAL, var$0, var$1, $(unboxingDescriptor(wt)), false);
@@ -232,6 +236,7 @@ $String* TypeConvertingMethodAdapter::descriptorToName($String* desc) {
 }
 
 void TypeConvertingMethodAdapter::cast($String* ds, $String* dt) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, ns, descriptorToName(ds));
 	$var($String, nt, descriptorToName(dt));
 	bool var$0 = !$nc(nt)->equals(ns);
@@ -249,6 +254,7 @@ $Wrapper* TypeConvertingMethodAdapter::toWrapper($String* desc) {
 }
 
 void TypeConvertingMethodAdapter::convertType($Class* arg, $Class* target, $Class* functional) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc($of(arg))->equals(target);
 	if (var$0 && $of(arg)->equals(functional)) {
 		return;
@@ -323,6 +329,7 @@ void TypeConvertingMethodAdapter::iconst(int32_t cst) {
 }
 
 void clinit$TypeConvertingMethodAdapter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(TypeConvertingMethodAdapter::NAME_OBJECT, "java/lang/Object"_s);
 	$assignStatic(TypeConvertingMethodAdapter::WRAPPER_PREFIX, "Ljava/lang/"_s);
 	$assignStatic(TypeConvertingMethodAdapter::NAME_BOX_METHOD, "valueOf"_s);

@@ -114,12 +114,14 @@ $TypeArray* ClassRepository::getSuperInterfaces() {
 }
 
 $Type* ClassRepository::computeSuperclass() {
+	$useLocalCurrentObjectStackCache();
 	$var($Reifier, r, getReifier());
 	$nc($($nc(($cast($ClassSignature, $(getTree()))))->getSuperclass()))->accept(r);
 	return $cast($Type, $nc(r)->getResult());
 }
 
 $TypeArray* ClassRepository::computeSuperInterfaces() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeTreeArray, ts, $fcast($TypeTreeArray, $nc(($cast($ClassSignature, $(getTree()))))->getSuperInterfaces()));
 	int32_t length = $nc(ts)->length;
 	$var($TypeArray, superInterfaces, $new($TypeArray, length));

@@ -79,6 +79,7 @@ void CompletableFuture$UniComposeExceptionally::init$($Executor* executor, $Comp
 }
 
 $CompletableFuture* CompletableFuture$UniComposeExceptionally::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($Function, f, nullptr);

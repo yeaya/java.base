@@ -57,6 +57,7 @@ void CompareToTests::init$() {
 }
 
 int32_t CompareToTests::compareToTests() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($BigInteger);
 	$var($BigInteger, MINUS_ONE, $nc($BigInteger::ONE)->negate());
@@ -241,6 +242,7 @@ int32_t CompareToTests::compareToTests() {
 }
 
 int32_t CompareToTests::compareToTest($BigInteger* a, $BigInteger* b, int32_t expected) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $nc(a)->compareTo(b);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {
@@ -251,6 +253,7 @@ int32_t CompareToTests::compareToTest($BigInteger* a, $BigInteger* b, int32_t ex
 }
 
 void CompareToTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += compareToTests();
 	if (failures > 0) {

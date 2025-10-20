@@ -51,6 +51,7 @@ void RestoreURL::init$() {
 }
 
 void RestoreURL::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, origUrl, $new($URL, "http://localhost/my_path?my_query"_s));
 	$var($ByteArrayOutputStream, out, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oos, $new($ObjectOutputStream, out));

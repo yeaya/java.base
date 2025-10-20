@@ -82,6 +82,7 @@ void Files$2::init$($Iterator* val$delegate) {
 }
 
 bool Files$2::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->val$delegate)->hasNext();
 	} catch ($DirectoryIteratorException&) {
@@ -92,6 +93,7 @@ bool Files$2::hasNext() {
 }
 
 $Object* Files$2::next() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $of($cast($Path, $nc(this->val$delegate)->next()));
 	} catch ($DirectoryIteratorException&) {

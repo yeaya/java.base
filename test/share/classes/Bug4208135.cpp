@@ -71,6 +71,7 @@ void Bug4208135::init$() {
 
 void Bug4208135::main($StringArray* args) {
 	$init(Bug4208135);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLoc, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);
 	$assignStatic(Bug4208135::df, $new($DecimalFormat));
@@ -136,6 +137,7 @@ void Bug4208135::main($StringArray* args) {
 
 void Bug4208135::checkFormat($Number* num, $String* expected) {
 	$init(Bug4208135);
+	$useLocalCurrentObjectStackCache();
 	$var($String, got, $nc(Bug4208135::df)->format(num));
 	if (!$nc(got)->equals(expected)) {
 		Bug4208135::err = true;

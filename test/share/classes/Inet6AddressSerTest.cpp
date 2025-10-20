@@ -64,6 +64,7 @@ void Inet6AddressSerTest::init$() {
 
 void Inet6AddressSerTest::main($StringArray* args) {
 	$init(Inet6AddressSerTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($Inet6Address);
 		$$new($Inet6AddressSerTest$PayloadTest)->test($($Inet6Address::class$->getName()));

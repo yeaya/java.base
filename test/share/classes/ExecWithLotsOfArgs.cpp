@@ -70,6 +70,7 @@ void ExecWithLotsOfArgs::init$() {
 }
 
 void ExecWithLotsOfArgs::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, command, $new($StringArray, 300));
 	int32_t n = 0;
 	$init($File);

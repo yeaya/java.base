@@ -162,6 +162,7 @@ bool CopyOnWriteArraySet::containsAll($Collection* c) {
 
 int32_t CopyOnWriteArraySet::compareSets($ObjectArray* snapshot, $Set* set) {
 	$init(CopyOnWriteArraySet);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(snapshot)->length;
 	$var($booleans, matched, $new($booleans, len));
 	int32_t j = 0;

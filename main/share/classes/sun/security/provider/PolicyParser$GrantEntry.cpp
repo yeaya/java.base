@@ -127,6 +127,7 @@ $Enumeration* PolicyParser$GrantEntry::permissionElements() {
 }
 
 void PolicyParser$GrantEntry::write($PrintWriter* out) {
+	$useLocalCurrentObjectStackCache();
 	$nc(out)->print("grant"_s);
 	if (this->signedBy != nullptr) {
 		out->print(" signedBy \""_s);

@@ -78,6 +78,7 @@ void FinalizerHistogramTest::init$() {
 
 void FinalizerHistogramTest::main($StringArray* argvs) {
 	$init(FinalizerHistogramTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($Throwable, var$0, nullptr);

@@ -207,6 +207,7 @@ $ObjectArray* ArrayList::EMPTY_ELEMENTDATA = nullptr;
 $ObjectArray* ArrayList::DEFAULTCAPACITY_EMPTY_ELEMENTDATA = nullptr;
 
 void ArrayList::init$(int32_t initialCapacity) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractList::init$();
 	if (initialCapacity > 0) {
 		$set(this, elementData$, $new($ObjectArray, initialCapacity));
@@ -322,6 +323,7 @@ int32_t ArrayList::lastIndexOfRange(Object$* o, int32_t start, int32_t end) {
 }
 
 $Object* ArrayList::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ArrayList, v, $cast(ArrayList, $AbstractList::clone()));
 		$set($nc(v), elementData$, $Arrays::copyOf(this->elementData$, this->size$));
@@ -399,6 +401,7 @@ void ArrayList::add(int32_t index, Object$* element) {
 }
 
 $Object* ArrayList::remove(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkIndex(index, this->size$);
 	$var($ObjectArray, es, this->elementData$);
 	$var($Object, oldValue, $nc(es)->get(index));
@@ -420,6 +423,7 @@ bool ArrayList::equals(Object$* o) {
 }
 
 bool ArrayList::equalsRange($List* other, int32_t from, int32_t to) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->elementData$);
 	if (to > $nc(es)->length) {
 		$throwNew($ConcurrentModificationException);
@@ -435,6 +439,7 @@ bool ArrayList::equalsRange($List* other, int32_t from, int32_t to) {
 }
 
 bool ArrayList::equalsArrayList(ArrayList* other) {
+	$useLocalCurrentObjectStackCache();
 	int32_t otherModCount = $nc(other)->modCount;
 	int32_t s = this->size$;
 	bool equal = false;
@@ -469,6 +474,7 @@ int32_t ArrayList::hashCode() {
 }
 
 int32_t ArrayList::hashCodeRange(int32_t from, int32_t to) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->elementData$);
 	if (to > $nc(es)->length) {
 		$throwNew($ConcurrentModificationException);
@@ -539,6 +545,7 @@ void ArrayList::clear() {
 }
 
 bool ArrayList::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, $nc(c)->toArray());
 	++this->modCount;
 	int32_t numNew = $nc(a)->length;
@@ -556,6 +563,7 @@ bool ArrayList::addAll($Collection* c) {
 }
 
 bool ArrayList::addAll(int32_t index, $Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	rangeCheckForAdd(index);
 	$var($ObjectArray, a, $nc(c)->toArray());
 	++this->modCount;
@@ -603,11 +611,13 @@ void ArrayList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* ArrayList::outOfBoundsMsg(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 
 $String* ArrayList::outOfBoundsMsg(int32_t fromIndex, int32_t toIndex) {
 	$init(ArrayList);
+	$useLocalCurrentObjectStackCache();
 	return $str({"From Index: "_s, $$str(fromIndex), " > To Index: "_s, $$str(toIndex)});
 }
 
@@ -620,6 +630,7 @@ bool ArrayList::retainAll($Collection* c) {
 }
 
 bool ArrayList::batchRemove($Collection* c, bool complement, int32_t from, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	$var($ObjectArray, es, this->elementData$);
 	int32_t r = 0;
@@ -676,6 +687,7 @@ void ArrayList::writeObject($ObjectOutputStream* s) {
 }
 
 void ArrayList::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	s->readInt();
 	if (this->size$ > 0) {
@@ -712,6 +724,7 @@ $List* ArrayList::subList(int32_t fromIndex, int32_t toIndex) {
 }
 
 void ArrayList::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, es, this->elementData$);
@@ -748,6 +761,7 @@ bool ArrayList::removeIf($Predicate* filter) {
 }
 
 bool ArrayList::removeIf($Predicate* filter, int32_t i, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(filter);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, es, this->elementData$);
@@ -788,6 +802,7 @@ void ArrayList::replaceAll($UnaryOperator* operator$) {
 }
 
 void ArrayList::replaceAllRange($UnaryOperator* operator$, int32_t i, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(operator$);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, es, this->elementData$);

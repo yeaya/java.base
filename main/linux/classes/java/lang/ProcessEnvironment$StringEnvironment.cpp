@@ -129,15 +129,18 @@ bool ProcessEnvironment$StringEnvironment::containsValue(Object$* value) {
 }
 
 $Object* ProcessEnvironment$StringEnvironment::get(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	return $of(toString($cast($ProcessEnvironment$Value, $($nc(this->m)->get($($ProcessEnvironment$Variable::valueOfQueryOnly(key)))))));
 }
 
 $String* ProcessEnvironment$StringEnvironment::put($String* key, $String* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of($ProcessEnvironment$Variable::valueOf(key)));
 	return toString($cast($ProcessEnvironment$Value, $($nc(this->m)->put(var$0, $($ProcessEnvironment$Value::valueOf(value))))));
 }
 
 $Object* ProcessEnvironment$StringEnvironment::remove(Object$* key) {
+	$useLocalCurrentObjectStackCache();
 	return $of(toString($cast($ProcessEnvironment$Value, $($nc(this->m)->remove($($ProcessEnvironment$Variable::valueOfQueryOnly(key)))))));
 }
 
@@ -154,6 +157,7 @@ $Collection* ProcessEnvironment$StringEnvironment::values() {
 }
 
 $bytes* ProcessEnvironment$StringEnvironment::toEnvironmentBlock($ints* envc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = $nc(this->m)->size() * 2;
 	{
 		$var($Iterator, i$, $nc($($nc(this->m)->entrySet()))->iterator());

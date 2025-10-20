@@ -183,6 +183,7 @@ void LambdaForm$Name::init$($MemberName* function, $ObjectArray* arguments) {
 }
 
 void LambdaForm$Name::init$($LambdaForm$NamedFunction* function, $ObjectArray* arguments$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, arguments, arguments$renamed);
 	$var($LambdaForm$BasicType, var$0, $nc(function)->returnType());
 	$var($LambdaForm$NamedFunction, var$1, function);
@@ -231,6 +232,7 @@ LambdaForm$Name* LambdaForm$Name::newIndex(int32_t i) {
 }
 
 LambdaForm$Name* LambdaForm$Name::cloneWithIndex(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, newArguments, (this->arguments == nullptr) ? ($ObjectArray*)nullptr : $cast($ObjectArray, $nc(this->arguments)->clone()));
 	return $$new(LambdaForm$Name, i, this->type$, this->function, newArguments)->withConstraint(this->constraint);
 }
@@ -267,6 +269,7 @@ LambdaForm$Name* LambdaForm$Name::replaceName(LambdaForm$Name* oldName, LambdaFo
 }
 
 LambdaForm$Name* LambdaForm$Name::replaceNames($LambdaForm$NameArray* oldNames, $LambdaForm$NameArray* newNames, int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	if (start >= end) {
 		return this;
 	}
@@ -316,6 +319,7 @@ LambdaForm$Name* LambdaForm$Name::replaceNames($LambdaForm$NameArray* oldNames, 
 }
 
 void LambdaForm$Name::internArguments() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, arguments, this->arguments);
 	for (int32_t j = 0; j < $nc(arguments)->length; ++j) {
 		{
@@ -364,6 +368,7 @@ bool LambdaForm$Name::isInvokeBasic() {
 }
 
 bool LambdaForm$Name::isLinkerMethodInvoke() {
+	$useLocalCurrentObjectStackCache();
 	if (this->function == nullptr) {
 		return false;
 	}
@@ -379,6 +384,7 @@ bool LambdaForm$Name::isLinkerMethodInvoke() {
 }
 
 $String* LambdaForm$Name::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, (isParam() ? "a"_s : "t"_s));
 	$var($String, var$1, $$concat(var$2, $$str((this->index$ >= 0 ? (int32_t)this->index$ : $System::identityHashCode(this)))));
 	$var($String, var$0, $$concat(var$1, ":"));
@@ -386,11 +392,13 @@ $String* LambdaForm$Name::toString() {
 }
 
 $String* LambdaForm$Name::debugString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, paramString());
 	return (this->function == nullptr) ? s : $str({s, "="_s, $(exprString())});
 }
 
 $String* LambdaForm$Name::paramString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, toString());
 	$var($Object, c, this->constraint);
 	if (c == nullptr) {
@@ -403,6 +411,7 @@ $String* LambdaForm$Name::paramString() {
 }
 
 $String* LambdaForm$Name::exprString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->function == nullptr) {
 		return toString();
 	}
@@ -431,6 +440,7 @@ $String* LambdaForm$Name::exprString() {
 }
 
 bool LambdaForm$Name::typesMatch($LambdaForm$NamedFunction* function, $ObjectArray* arguments) {
+	$useLocalCurrentObjectStackCache();
 	if (!LambdaForm$Name::$assertionsDisabled && !($nc(arguments)->length == $nc(function)->arity())) {
 		$var($String, var$0, $$str({"arity mismatch: arguments.length="_s, $$str(arguments->length), " == function.arity()="_s, $$str(function->arity()), " in "_s}));
 		$throwNew($AssertionError, $of(($$concat(var$0, $(debugString())))));
@@ -487,6 +497,7 @@ int32_t LambdaForm$Name::lastUseIndex(LambdaForm$Name* n) {
 }
 
 int32_t LambdaForm$Name::useCount(LambdaForm$Name* n) {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = 0;
 	if (this->arguments != nullptr) {
 		{

@@ -118,38 +118,47 @@ void LocaleData::init$($LocaleProviderAdapter$Type* type) {
 }
 
 $ResourceBundle* LocaleData::getCalendarData($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return getBundle($$str({$(this->type->getUtilResourcesPackage()), ".CalendarData"_s}), locale);
 }
 
 $OpenListResourceBundle* LocaleData::getCurrencyNames($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($OpenListResourceBundle, getBundle($$str({$(this->type->getUtilResourcesPackage()), ".CurrencyNames"_s}), locale));
 }
 
 $OpenListResourceBundle* LocaleData::getLocaleNames($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($OpenListResourceBundle, getBundle($$str({$(this->type->getUtilResourcesPackage()), ".LocaleNames"_s}), locale));
 }
 
 $TimeZoneNamesBundle* LocaleData::getTimeZoneNames($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($TimeZoneNamesBundle, getBundle($$str({$(this->type->getUtilResourcesPackage()), ".TimeZoneNames"_s}), locale));
 }
 
 $ResourceBundle* LocaleData::getBreakIteratorInfo($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return getBundle($$str({$(this->type->getTextResourcesPackage()), ".BreakIteratorInfo"_s}), locale);
 }
 
 $ResourceBundle* LocaleData::getBreakIteratorResources($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return getBundle($$str({$(this->type->getTextResourcesPackage()), ".BreakIteratorResources"_s}), locale);
 }
 
 $ResourceBundle* LocaleData::getCollationData($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return getBundle($$str({$(this->type->getTextResourcesPackage()), ".CollationData"_s}), locale);
 }
 
 $ResourceBundle* LocaleData::getDateFormatData($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return getBundle($$str({$(this->type->getTextResourcesPackage()), ".FormatData"_s}), locale);
 }
 
 void LocaleData::setSupplementary($ParallelListResourceBundle* formatData) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(formatData)->areParallelContentsComplete()) {
 		$var($String, suppName, $str({$(this->type->getTextResourcesPackage()), ".JavaTimeSupplementary"_s}));
 		setSupplementary(suppName, formatData);
@@ -157,6 +166,7 @@ void LocaleData::setSupplementary($ParallelListResourceBundle* formatData) {
 }
 
 bool LocaleData::setSupplementary($String* suppName, $ParallelListResourceBundle* formatData) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParallelListResourceBundle, parent, $cast($ParallelListResourceBundle, $nc(formatData)->getParent()));
 	bool resetKeySet = false;
 	if (parent != nullptr) {
@@ -172,6 +182,7 @@ bool LocaleData::setSupplementary($String* suppName, $ParallelListResourceBundle
 }
 
 $ResourceBundle* LocaleData::getNumberFormatData($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return getBundle($$str({$(this->type->getTextResourcesPackage()), ".FormatData"_s}), locale);
 }
 

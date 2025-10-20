@@ -150,6 +150,7 @@ void Currency$1::init$() {
 }
 
 $Object* Currency$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		{

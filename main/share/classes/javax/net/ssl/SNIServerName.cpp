@@ -100,6 +100,7 @@ int32_t SNIServerName::hashCode() {
 }
 
 $String* SNIServerName::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->type == $StandardConstants::SNI_HOST_NAME) {
 		return $str({"type=host_name (0), value="_s, $(toHexString(this->encoded))});
 	} else {
@@ -108,6 +109,7 @@ $String* SNIServerName::toString() {
 }
 
 $String* SNIServerName::toHexString($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bytes)->length == 0) {
 		return "(empty)"_s;
 	}

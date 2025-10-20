@@ -227,6 +227,7 @@ void DomainKeyStore::init$() {
 }
 
 $Key* DomainKeyStore::engineGetKey($String* alias, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($Key, key, nullptr);
 	try {
@@ -251,6 +252,7 @@ $Key* DomainKeyStore::engineGetKey($String* alias, $chars* password) {
 }
 
 $CertificateArray* DomainKeyStore::engineGetCertificateChain($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($CertificateArray, chain, nullptr);
 	try {
@@ -275,6 +277,7 @@ $CertificateArray* DomainKeyStore::engineGetCertificateChain($String* alias) {
 }
 
 $Certificate* DomainKeyStore::engineGetCertificate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($Certificate, cert, nullptr);
 	try {
@@ -299,6 +302,7 @@ $Certificate* DomainKeyStore::engineGetCertificate($String* alias) {
 }
 
 $Date* DomainKeyStore::engineGetCreationDate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($Date, date, nullptr);
 	try {
@@ -323,6 +327,7 @@ $Date* DomainKeyStore::engineGetCreationDate($String* alias) {
 }
 
 void DomainKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error setting key entry for \'"_s, alias, "\'"_s}));
@@ -333,6 +338,7 @@ void DomainKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* passwo
 }
 
 void DomainKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error setting protected key entry for \'"_s, alias, "\'"_s}));
@@ -343,6 +349,7 @@ void DomainKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $Certificate
 }
 
 void DomainKeyStore::engineSetCertificateEntry($String* alias, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error setting certificate entry for \'"_s, alias, "\'"_s}));
@@ -353,6 +360,7 @@ void DomainKeyStore::engineSetCertificateEntry($String* alias, $Certificate* cer
 }
 
 void DomainKeyStore::engineDeleteEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error deleting entry for \'"_s, alias, "\'"_s}));
@@ -363,11 +371,13 @@ void DomainKeyStore::engineDeleteEntry($String* alias) {
 }
 
 $Enumeration* DomainKeyStore::engineAliases() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, iterator, $nc($($nc(this->keystores)->entrySet()))->iterator());
 	return $new($DomainKeyStore$1, this, iterator);
 }
 
 bool DomainKeyStore::engineContainsAlias($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
@@ -390,6 +400,7 @@ bool DomainKeyStore::engineContainsAlias($String* alias) {
 }
 
 int32_t DomainKeyStore::engineSize() {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = 0;
 	try {
 		{
@@ -409,6 +420,7 @@ int32_t DomainKeyStore::engineSize() {
 }
 
 bool DomainKeyStore::engineIsKeyEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
@@ -431,6 +443,7 @@ bool DomainKeyStore::engineIsKeyEntry($String* alias) {
 }
 
 bool DomainKeyStore::engineIsCertificateEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
@@ -453,6 +466,7 @@ bool DomainKeyStore::engineIsCertificateEntry($String* alias) {
 }
 
 $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoresForReading($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, splits, $nc(alias)->split(this->entryNameSeparatorRegEx, 2));
 	if (splits->length == 2) {
 		$var($KeyStore, keystore, $cast($KeyStore, $nc(this->keystores)->get(splits->get(0))));
@@ -466,6 +480,7 @@ $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoresForReading($String* alias)
 }
 
 $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoreForWriting($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, splits, $nc(alias)->split(this->entryNameSeparator, 2));
 	if (splits->length == 2) {
 		$var($KeyStore, keystore, $cast($KeyStore, $nc(this->keystores)->get(splits->get(0))));
@@ -477,6 +492,7 @@ $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoreForWriting($String* alias) 
 }
 
 $String* DomainKeyStore::engineGetCertificateAlias($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, alias, nullptr);
 		{
@@ -499,6 +515,7 @@ $String* DomainKeyStore::engineGetCertificateAlias($Certificate* cert) {
 }
 
 void DomainKeyStore::engineStore($OutputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc(this->keystores)->size() == 1) {
 			$nc(($cast($KeyStore, $($nc($($nc($($nc(this->keystores)->values()))->iterator()))->next()))))->store(stream, password);
@@ -512,6 +529,7 @@ void DomainKeyStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 void DomainKeyStore::engineStore($KeyStore$LoadStoreParameter* param) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DomainLoadStoreParameter, param)) {
 		$var($DomainLoadStoreParameter, domainParameter, $cast($DomainLoadStoreParameter, param));
 		$var($URI, var$0, $nc(domainParameter)->getConfiguration());
@@ -568,6 +586,7 @@ void DomainKeyStore::engineStore($KeyStore$LoadStoreParameter* param) {
 }
 
 void DomainKeyStore::engineLoad($InputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyStore, keystore, nullptr);
 		try {
@@ -592,6 +611,7 @@ void DomainKeyStore::engineLoad($InputStream* stream, $chars* password) {
 }
 
 void DomainKeyStore::engineLoad($KeyStore$LoadStoreParameter* param) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DomainLoadStoreParameter, param)) {
 		$var($DomainLoadStoreParameter, domainParameter, $cast($DomainLoadStoreParameter, param));
 		$var($URI, var$0, $nc(domainParameter)->getConfiguration());
@@ -620,6 +640,7 @@ void DomainKeyStore::engineLoad($KeyStore$LoadStoreParameter* param) {
 }
 
 $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
+	$useLocalCurrentObjectStackCache();
 	$var($PolicyParser, parser, $new($PolicyParser, true));
 	$var($Collection, domains, nullptr);
 	$var($List, builders, $new($ArrayList));

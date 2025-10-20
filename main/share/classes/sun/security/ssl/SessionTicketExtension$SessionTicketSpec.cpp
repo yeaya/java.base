@@ -139,6 +139,7 @@ void SessionTicketExtension$SessionTicketSpec::init$($HandshakeContext* hc, $byt
 }
 
 void SessionTicketExtension$SessionTicketSpec::init$($HandshakeContext* hc, $ByteBuffer* buf) {
+	$useLocalCurrentObjectStackCache();
 	if (buf == nullptr) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "SessionTicket buffer too small"_s)))));
@@ -151,6 +152,7 @@ void SessionTicketExtension$SessionTicketSpec::init$($HandshakeContext* hc, $Byt
 }
 
 $bytes* SessionTicketExtension$SessionTicketSpec::encrypt($HandshakeContext* hc, $SSLSessionImpl* session) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encrypted, nullptr);
 	if (!$nc(hc)->statelessResumption || !$nc($nc(hc)->handshakeSession)->isStatelessable()) {
 		return $new($bytes, 0);
@@ -193,6 +195,7 @@ $bytes* SessionTicketExtension$SessionTicketSpec::encrypt($HandshakeContext* hc,
 }
 
 $ByteBuffer* SessionTicketExtension$SessionTicketSpec::decrypt($HandshakeContext* hc) {
+	$useLocalCurrentObjectStackCache();
 	int32_t keyID = 0;
 	$var($bytes, iv, nullptr);
 	try {
@@ -227,12 +230,14 @@ $ByteBuffer* SessionTicketExtension$SessionTicketSpec::decrypt($HandshakeContext
 }
 
 $bytes* SessionTicketExtension$SessionTicketSpec::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, $new($bytes, $nc(this->data)->capacity()));
 	$nc($($nc(this->data)->duplicate()))->get(out);
 	return out;
 }
 
 $String* SessionTicketExtension$SessionTicketSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->data == nullptr) {
 		return "<null>"_s;
 	}

@@ -44,6 +44,7 @@ void B8035653::init$() {
 }
 
 void B8035653::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DatagramSocket, ds, $new($DatagramSocket));
 		{

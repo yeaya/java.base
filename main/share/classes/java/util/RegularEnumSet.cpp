@@ -173,6 +173,7 @@ bool RegularEnumSet::containsAll($Collection* c) {
 }
 
 bool RegularEnumSet::addAll($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$var(RegularEnumSet, es, nullptr);
 	bool var$0 = $instanceOf(RegularEnumSet, c);
 	if (var$0) {

@@ -147,6 +147,7 @@ bool VerifyType::isNullType($Class* type) {
 
 bool VerifyType::isNullConversion($MethodType* call, $MethodType* recv, bool keepInterfaces) {
 	$init(VerifyType);
+	$useLocalCurrentObjectStackCache();
 	if (call == recv) {
 		return true;
 	}

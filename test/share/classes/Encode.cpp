@@ -88,6 +88,7 @@ void Encode::main($StringArray* args) {
 }
 
 void Encode::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, ss, $new($ServerSocket, 0));
 	($$new($Thread, static_cast<$Runnable*>(this)))->start();
 	$var($String, toEncode, $cstr({0x10000, ' ', 0x10401, ' '}));
@@ -119,6 +120,7 @@ void Encode::init$() {
 }
 
 void Encode::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ServerSocket, serv, this->ss);
 		{

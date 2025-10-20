@@ -73,6 +73,7 @@ void SendSize$ServerThread::init$($DatagramSocket* server) {
 }
 
 void SendSize$ServerThread::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		bool return$1 = false;

@@ -91,6 +91,7 @@ void DefinesWriteObject::readExternal($ObjectInput* in) {
 
 void DefinesWriteObject::main($StringArray* args) {
 	$init(DefinesWriteObject);
+	$useLocalCurrentObjectStackCache();
 	$var(DefinesWriteObject, obj1, $new(DefinesWriteObject, 5, "GoodBye"_s));
 	$var(DefinesWriteObject, obj2, $new(DefinesWriteObject, 6, "AuRevoir"_s));
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));

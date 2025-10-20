@@ -91,6 +91,7 @@ void SocketOutputStream::socketWrite0($FileDescriptor* fd, $bytes* b, int32_t of
 }
 
 void SocketOutputStream::socketWrite($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (len <= 0 || off < 0 || len > $nc(b)->length - off) {
 		if (len == 0) {
 			return;

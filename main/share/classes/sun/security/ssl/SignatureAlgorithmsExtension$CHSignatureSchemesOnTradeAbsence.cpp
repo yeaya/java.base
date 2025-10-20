@@ -78,6 +78,7 @@ void SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence::init$() {
 }
 
 void SignatureAlgorithmsExtension$CHSignatureSchemesOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if ($nc($nc(shc)->negotiatedProtocol)->useTLS12PlusSpec()) {
 			$init($SignatureScheme);

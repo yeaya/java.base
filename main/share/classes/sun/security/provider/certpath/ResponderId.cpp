@@ -112,6 +112,7 @@ void ResponderId::init$($PublicKey* pubKey) {
 }
 
 void ResponderId::init$($bytes* encodedData) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, outer, $new($DerValue, encodedData));
 	$init($ResponderId$Type);
 	bool var$0 = outer->isContextSpecific((int8_t)$ResponderId$Type::BY_NAME->value());
@@ -152,6 +153,7 @@ $KeyIdentifier* ResponderId::getKeyIdentifier() {
 }
 
 bool ResponderId::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -170,6 +172,7 @@ int32_t ResponderId::hashCode() {
 }
 
 $String* ResponderId::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$init($ResponderId$1);
 	switch ($nc($ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type)->get($nc((this->type))->ordinal())) {
@@ -203,6 +206,7 @@ $String* ResponderId::toString() {
 }
 
 $bytes* ResponderId::principalToBytes() {
+	$useLocalCurrentObjectStackCache();
 	$init($ResponderId$Type);
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)$ResponderId$Type::BY_NAME->value());
 	$var($DerValue, dv, $new($DerValue, var$0, $($nc(this->responderName)->getEncoded())));
@@ -210,6 +214,7 @@ $bytes* ResponderId::principalToBytes() {
 }
 
 $bytes* ResponderId::keyIdToBytes() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, inner, $new($DerValue, $DerValue::tag_OctetString, $($nc(this->responderKeyId)->getIdentifier())));
 	$init($ResponderId$Type);
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)$ResponderId$Type::BY_KEY->value());

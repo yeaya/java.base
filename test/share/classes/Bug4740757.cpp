@@ -60,6 +60,7 @@ void Bug4740757::init$() {
 
 void Bug4740757::main($StringArray* args) {
 	$init(Bug4740757);
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	if ($nc($($nc(defaultLocale)->getLanguage()))->equals("th"_s)) {
 		$Locale::setDefault($Locale::KOREA);
@@ -75,6 +76,7 @@ void Bug4740757::main($StringArray* args) {
 
 void Bug4740757::test4740757() {
 	$init(Bug4740757);
+	$useLocalCurrentObjectStackCache();
 	$var($String, source, u"\uc548\ub155\ud558\uc138\uc694? \uc88b\uc740 \uc544\uce68, \uc5ec\ubcf4\uc138\uc694! \uc548\ub155. End."_s);
 	$var($String, expected, u"\uc548/\ub155/\ud558/\uc138/\uc694? /\uc88b/\uc740 /\uc544/\uce68, /\uc5ec/\ubcf4/\uc138/\uc694! /\uc548/\ub155. /End./"_s);
 	$init($Locale);

@@ -94,6 +94,7 @@ int32_t Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry::hash
 }
 
 bool Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, o)) {
 		return true;
 	}

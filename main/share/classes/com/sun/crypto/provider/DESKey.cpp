@@ -145,6 +145,7 @@ void DESKey::init$($bytes* key) {
 }
 
 void DESKey::init$($bytes* key, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || $nc(key)->length - offset < $DESKeySpec::DES_KEY_LEN) {
 		$throwNew($InvalidKeyException, "Wrong key size"_s);
 	}
@@ -178,6 +179,7 @@ int32_t DESKey::hashCode() {
 }
 
 bool DESKey::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -200,6 +202,7 @@ void DESKey::readObject($ObjectInputStream* s) {
 }
 
 $Object* DESKey::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::SECRET);
 	$var($String, var$1, getAlgorithm());

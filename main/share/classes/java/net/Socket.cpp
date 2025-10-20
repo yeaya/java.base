@@ -272,6 +272,7 @@ void Socket::init$() {
 }
 
 void Socket::init$($Proxy* proxy) {
+	$useLocalCurrentObjectStackCache();
 	this->created = false;
 	this->bound = false;
 	this->connected = false;
@@ -347,6 +348,7 @@ $Void* Socket::checkPermission($SocketImpl* impl) {
 }
 
 void Socket::init$($String* host, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	Socket::init$(host != nullptr ? static_cast<$SocketAddress*>($$new($InetSocketAddress, host, port)) : static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getByName(nullptr)), port)), ($SocketAddress*)nullptr, true);
 }
 
@@ -355,25 +357,30 @@ void Socket::init$($InetAddress* address, int32_t port) {
 }
 
 void Socket::init$($String* host, int32_t port, $InetAddress* localAddr, int32_t localPort) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, var$0, host != nullptr ? static_cast<$SocketAddress*>($new($InetSocketAddress, host, port)) : static_cast<$SocketAddress*>($new($InetSocketAddress, $($InetAddress::getByName(nullptr)), port)));
 	Socket::init$(var$0, static_cast<$SocketAddress*>($$new($InetSocketAddress, localAddr, localPort)), true);
 }
 
 void Socket::init$($InetAddress* address, int32_t port, $InetAddress* localAddr, int32_t localPort) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, var$0, address != nullptr ? static_cast<$SocketAddress*>($new($InetSocketAddress, address, port)) : ($SocketAddress*)nullptr);
 	Socket::init$(var$0, static_cast<$SocketAddress*>($$new($InetSocketAddress, localAddr, localPort)), true);
 }
 
 void Socket::init$($String* host, int32_t port, bool stream) {
+	$useLocalCurrentObjectStackCache();
 	Socket::init$(host != nullptr ? static_cast<$SocketAddress*>($$new($InetSocketAddress, host, port)) : static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getByName(nullptr)), port)), ($SocketAddress*)nullptr, stream);
 }
 
 void Socket::init$($InetAddress* host, int32_t port, bool stream) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, var$0, host != nullptr ? static_cast<$SocketAddress*>($new($InetSocketAddress, host, port)) : ($SocketAddress*)nullptr);
 	Socket::init$(var$0, static_cast<$SocketAddress*>($$new($InetSocketAddress, 0)), stream);
 }
 
 void Socket::init$($SocketAddress* address, $SocketAddress* localAddr, bool stream) {
+	$useLocalCurrentObjectStackCache();
 	this->created = false;
 	this->bound = false;
 	this->connected = false;
@@ -422,6 +429,7 @@ void Socket::init$($SocketAddress* address, $SocketAddress* localAddr, bool stre
 }
 
 void Socket::createImpl(bool stream) {
+	$useLocalCurrentObjectStackCache();
 	if (this->impl == nullptr) {
 		setImpl();
 	}
@@ -439,6 +447,7 @@ void Socket::setImpl($SocketImpl* si) {
 }
 
 void Socket::setImpl() {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketImplFactory, factory, Socket::factory);
 	if (factory != nullptr) {
 		$set(this, impl, factory->createSocketImpl());
@@ -460,6 +469,7 @@ void Socket::connect($SocketAddress* endpoint) {
 }
 
 void Socket::connect($SocketAddress* endpoint, int32_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	if (endpoint == nullptr) {
 		$throwNew($IllegalArgumentException, "connect: The address can\'t be null"_s);
 	}
@@ -501,6 +511,7 @@ void Socket::connect($SocketAddress* endpoint, int32_t timeout) {
 }
 
 void Socket::bind($SocketAddress* bindpoint) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -556,6 +567,7 @@ $InetAddress* Socket::getInetAddress() {
 }
 
 $InetAddress* Socket::getLocalAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (!isBound()) {
 		return $InetAddress::anyLocalAddress();
 	}
@@ -624,6 +636,7 @@ $SocketChannel* Socket::getChannel() {
 }
 
 $InputStream* Socket::getInputStream() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -644,6 +657,7 @@ $InputStream* Socket::getInputStream() {
 }
 
 $OutputStream* Socket::getOutputStream() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -664,6 +678,7 @@ $OutputStream* Socket::getOutputStream() {
 }
 
 void Socket::setTcpNoDelay(bool on) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -671,6 +686,7 @@ void Socket::setTcpNoDelay(bool on) {
 }
 
 bool Socket::getTcpNoDelay() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -678,6 +694,7 @@ bool Socket::getTcpNoDelay() {
 }
 
 void Socket::setSoLinger(bool on, int32_t linger) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -695,6 +712,7 @@ void Socket::setSoLinger(bool on, int32_t linger) {
 }
 
 int32_t Socket::getSoLinger() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -707,6 +725,7 @@ int32_t Socket::getSoLinger() {
 }
 
 void Socket::sendUrgentData(int32_t data) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($(getImpl()))->supportsUrgentData()) {
 		$throwNew($SocketException, "Urgent data not supported"_s);
 	}
@@ -714,6 +733,7 @@ void Socket::sendUrgentData(int32_t data) {
 }
 
 void Socket::setOOBInline(bool on) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -721,6 +741,7 @@ void Socket::setOOBInline(bool on) {
 }
 
 bool Socket::getOOBInline() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -729,6 +750,7 @@ bool Socket::getOOBInline() {
 
 void Socket::setSoTimeout(int32_t timeout) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -741,6 +763,7 @@ void Socket::setSoTimeout(int32_t timeout) {
 
 int32_t Socket::getSoTimeout() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -755,6 +778,7 @@ int32_t Socket::getSoTimeout() {
 
 void Socket::setSendBufferSize(int32_t size) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!(size > 0)) {
 			$throwNew($IllegalArgumentException, "negative send size"_s);
 		}
@@ -767,6 +791,7 @@ void Socket::setSendBufferSize(int32_t size) {
 
 int32_t Socket::getSendBufferSize() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -781,6 +806,7 @@ int32_t Socket::getSendBufferSize() {
 
 void Socket::setReceiveBufferSize(int32_t size) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (size <= 0) {
 			$throwNew($IllegalArgumentException, "invalid receive size"_s);
 		}
@@ -793,6 +819,7 @@ void Socket::setReceiveBufferSize(int32_t size) {
 
 int32_t Socket::getReceiveBufferSize() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -806,6 +833,7 @@ int32_t Socket::getReceiveBufferSize() {
 }
 
 void Socket::setKeepAlive(bool on) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -813,6 +841,7 @@ void Socket::setKeepAlive(bool on) {
 }
 
 bool Socket::getKeepAlive() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -820,6 +849,7 @@ bool Socket::getKeepAlive() {
 }
 
 void Socket::setTrafficClass(int32_t tc) {
+	$useLocalCurrentObjectStackCache();
 	if (tc < 0 || tc > 255) {
 		$throwNew($IllegalArgumentException, "tc is not in range 0 -- 255"_s);
 	}
@@ -837,10 +867,12 @@ void Socket::setTrafficClass(int32_t tc) {
 }
 
 int32_t Socket::getTrafficClass() {
+	$useLocalCurrentObjectStackCache();
 	return $nc((($cast($Integer, $($nc($(getImpl()))->getOption($SocketOptions::IP_TOS))))))->intValue();
 }
 
 void Socket::setReuseAddress(bool on) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -848,6 +880,7 @@ void Socket::setReuseAddress(bool on) {
 }
 
 bool Socket::getReuseAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -897,6 +930,7 @@ void Socket::shutdownOutput() {
 }
 
 $String* Socket::toString() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (isConnected()) {
 			$var($String, var$3, $$str({"Socket[addr="_s, $($nc($(getImpl()))->getInetAddress()), ",port="_s}));
@@ -974,6 +1008,7 @@ $Object* Socket::getOption($SocketOption* name) {
 }
 
 $Set* Socket::supportedOptions() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, so, this->options);
 	if (so != nullptr) {
 		return so;
@@ -989,6 +1024,7 @@ $Set* Socket::supportedOptions() {
 }
 
 void clinit$Socket($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

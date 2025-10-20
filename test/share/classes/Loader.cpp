@@ -75,6 +75,7 @@ void Loader::init$() {
 }
 
 $Class* Loader::loadClass($String* name, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$Class* c = nullptr;
 	try {
 		c = findSystemClass(name);
@@ -95,6 +96,7 @@ $Class* Loader::loadClass($String* name, bool resolve) {
 }
 
 $bytes* Loader::locateBytes() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s)), "Loadee.classfile"_s));
 		int64_t l = f->length();
@@ -112,6 +114,7 @@ $bytes* Loader::locateBytes() {
 
 void Loader::main($StringArray* args) {
 	$init(Loader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t tests = (Loader::FIND | Loader::RESOURCE) | Loader::RESOURCES;
 	if ($nc(args)->length == 1 && $nc(args->get(0))->equals("-1.1"_s)) {

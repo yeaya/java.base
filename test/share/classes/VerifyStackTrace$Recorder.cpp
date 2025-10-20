@@ -68,6 +68,7 @@ void VerifyStackTrace$Recorder::init$() {
 }
 
 void VerifyStackTrace$Recorder::recordSTE(int64_t counter, $StringBuilder* s, $StackWalker$StackFrame* f) {
+	$useLocalCurrentObjectStackCache();
 	if (this->found) {
 		return;
 	}

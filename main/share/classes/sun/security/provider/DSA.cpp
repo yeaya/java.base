@@ -194,6 +194,7 @@ void DSA::init$($MessageDigest* md, bool p1363Format) {
 
 void DSA::checkKey($DSAParams* params, int32_t digestLen, $String* mdAlgo) {
 	$init(DSA);
+	$useLocalCurrentObjectStackCache();
 	int32_t valueN = $nc($($nc(params)->getQ()))->bitLength();
 	if (valueN > digestLen) {
 		$throwNew($InvalidKeyException, $$str({"The security strength of "_s, mdAlgo, " digest algorithm is not sufficient for this key size"_s}));
@@ -201,6 +202,7 @@ void DSA::checkKey($DSAParams* params, int32_t digestLen, $String* mdAlgo) {
 }
 
 void DSA::engineInitSign($PrivateKey* privateKey) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($DSAPrivateKey, privateKey))) {
 		$throwNew($InvalidKeyException, $$str({"not a DSA private key: "_s, privateKey}));
 	}
@@ -224,6 +226,7 @@ void DSA::engineInitSign($PrivateKey* privateKey) {
 }
 
 void DSA::engineInitVerify($PublicKey* publicKey) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($DSAPublicKey, publicKey))) {
 		$throwNew($InvalidKeyException, $$str({"not a DSA public key: "_s, publicKey}));
 	}
@@ -254,6 +257,7 @@ void DSA::engineUpdate($ByteBuffer* b) {
 }
 
 $bytes* DSA::engineSign() {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, k, generateK(this->presetQ));
 	$var($BigInteger, r, generateR(this->presetP, this->presetQ, this->presetG, k));
 	$var($BigInteger, s, generateS(this->presetX, this->presetQ, r, k));
@@ -293,6 +297,7 @@ bool DSA::engineVerify($bytes* signature) {
 }
 
 bool DSA::engineVerify($bytes* signature, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, r, nullptr);
 	$var($BigInteger, s, nullptr);
 	if (this->p1363Format) {
@@ -351,6 +356,7 @@ $AlgorithmParameters* DSA::engineGetParameters() {
 }
 
 $BigInteger* DSA::generateR($BigInteger* p, $BigInteger* q, $BigInteger* g, $BigInteger* k$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, k, k$renamed);
 	$var($SecureRandom, random, getSigningRandom());
 	$var($BigInteger, blindingValue, $new($BigInteger, DSA::BLINDING_BITS, static_cast<$Random*>(random)));
@@ -361,6 +367,7 @@ $BigInteger* DSA::generateR($BigInteger* p, $BigInteger* q, $BigInteger* g, $Big
 }
 
 $BigInteger* DSA::generateS($BigInteger* x, $BigInteger* q, $BigInteger* r, $BigInteger* k) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, s2, nullptr);
 	try {
 		$assign(s2, $nc(this->md)->digest());
@@ -382,6 +389,7 @@ $BigInteger* DSA::generateW($BigInteger* p, $BigInteger* q, $BigInteger* g, $Big
 }
 
 $BigInteger* DSA::generateV($BigInteger* y, $BigInteger* p, $BigInteger* q, $BigInteger* g, $BigInteger* w, $BigInteger* r) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, s2, nullptr);
 	try {
 		$assign(s2, $nc(this->md)->digest());
@@ -404,6 +412,7 @@ $BigInteger* DSA::generateV($BigInteger* y, $BigInteger* p, $BigInteger* q, $Big
 }
 
 $BigInteger* DSA::generateK($BigInteger* q) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecureRandom, random, getSigningRandom());
 	$var($bytes, kValue, $new($bytes, ($nc(q)->bitLength() + 7) / 8 + 8));
 	$nc(random)->nextBytes(kValue);
@@ -422,6 +431,7 @@ $SecureRandom* DSA::getSigningRandom() {
 }
 
 $String* DSA::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, printable, "DSA Signature"_s);
 	if (this->presetP != nullptr && this->presetQ != nullptr && this->presetG != nullptr) {
 		$plusAssign(printable, $$str({"\n\tp: "_s, $($Debug::toHexString(this->presetP))}));

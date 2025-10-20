@@ -43,6 +43,7 @@ void WriteAfterClose::init$() {
 }
 
 void WriteAfterClose::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($PipedInputStream, in, $new($PipedInputStream));
 	$var($PipedOutputStream, out, $new($PipedOutputStream, in));
 	in->close();

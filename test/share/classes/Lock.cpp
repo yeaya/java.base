@@ -154,6 +154,7 @@ void Lock::init$() {
 
 void Lock::main($StringArray* args) {
 	$init(Lock);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length > 0 && $nc(args->get(0))->equals("-lockworker"_s)) {
 		int32_t port = $Integer::parseInt(args->get(1));
 		runLockWorker(port);
@@ -181,6 +182,7 @@ void Lock::main($StringArray* args) {
 
 void Lock::testLockProtocol($File* file, $Lock$LockWorkerMirror* worker) {
 	$init(Lock);
+	$useLocalCurrentObjectStackCache();
 	$var($FileLock, fl, nullptr);
 	$nc($($nc(worker)->open($($nc(file)->getPath()))))->lock();
 		$init($StandardOpenOption);
@@ -208,6 +210,7 @@ void Lock::testLockProtocol($File* file, $Lock$LockWorkerMirror* worker) {
 
 void Lock::testAsyncClose($File* file, $Lock$LockWorkerMirror* worker) {
 	$init(Lock);
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc(worker)->open($($nc(file)->getPath()))))->lock();
 	for (int32_t i = 0; i < 100; ++i) {
 			$init($StandardOpenOption);
@@ -240,6 +243,7 @@ void Lock::testAsyncClose($File* file, $Lock$LockWorkerMirror* worker) {
 
 $Lock$LockWorkerMirror* Lock::startLockWorker() {
 	$init(Lock);
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, ssc, $cast($ServerSocketChannel, $nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	int32_t port = $nc((($cast($InetSocketAddress, $($nc(ssc)->getLocalAddress())))))->getPort();
 	$var($String, sep, $nc($($FileSystems::getDefault()))->getSeparator());
@@ -258,6 +262,7 @@ $Lock$LockWorkerMirror* Lock::startLockWorker() {
 
 void Lock::runLockWorker(int32_t port) {
 	$init(Lock);
+	$useLocalCurrentObjectStackCache();
 	$var($SocketChannel, sc, $SocketChannel::open(static_cast<$SocketAddress*>($$new($InetSocketAddress, port))));
 	$var($ByteBuffer, buf, $ByteBuffer::allocateDirect(1024));
 	$var($FileChannel, fc, nullptr);

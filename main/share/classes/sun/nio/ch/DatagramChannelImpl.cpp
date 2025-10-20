@@ -521,6 +521,7 @@ void DatagramChannelImpl::init$($SelectorProvider* sp, bool interruptible) {
 }
 
 void DatagramChannelImpl::init$($SelectorProvider* sp, $ProtocolFamily* family, bool interruptible) {
+	$useLocalCurrentObjectStackCache();
 	$DatagramChannel::init$(sp);
 	$set(this, readLock, $new($ReentrantLock));
 	$set(this, writeLock, $new($ReentrantLock));
@@ -584,6 +585,7 @@ void DatagramChannelImpl::init$($SelectorProvider* sp, $ProtocolFamily* family, 
 }
 
 void DatagramChannelImpl::init$($SelectorProvider* sp, $FileDescriptor* fd) {
+	$useLocalCurrentObjectStackCache();
 	$DatagramChannel::init$(sp);
 	$set(this, readLock, $new($ReentrantLock));
 	$set(this, writeLock, $new($ReentrantLock));
@@ -646,6 +648,7 @@ void DatagramChannelImpl::ensureOpen() {
 }
 
 $DatagramSocket* DatagramChannelImpl::socket() {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, socket, this->socket$);
 	if (socket == nullptr) {
 		$assign(socket, $DatagramSocketAdaptor::create(this));
@@ -697,6 +700,7 @@ $ProtocolFamily* DatagramChannelImpl::familyFor($SocketOption* name) {
 }
 
 $NetworkChannel* DatagramChannelImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -759,6 +763,7 @@ $NetworkChannel* DatagramChannelImpl::setOption($SocketOption* name, Object$* va
 }
 
 $Object* DatagramChannelImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -842,6 +847,7 @@ void DatagramChannelImpl::endRead(bool blocking, bool completed) {
 }
 
 $SocketAddress* DatagramChannelImpl::receive($ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(dst)->isReadOnly()) {
 		$throwNew($IllegalArgumentException, "Read-only buffer"_s);
 	}
@@ -915,6 +921,7 @@ $SocketAddress* DatagramChannelImpl::receive($ByteBuffer* dst) {
 }
 
 $SocketAddress* DatagramChannelImpl::untrustedReceive($ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (!DatagramChannelImpl::$assertionsDisabled && !($nc(this->readLock)->isHeldByCurrentThread() && sm != nullptr && this->remoteAddress$ == nullptr)) {
 		$throwNew($AssertionError);
@@ -975,6 +982,7 @@ $SocketAddress* DatagramChannelImpl::untrustedReceive($ByteBuffer* dst) {
 }
 
 $SocketAddress* DatagramChannelImpl::blockingReceive($ByteBuffer* dst, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1024,6 +1032,7 @@ $SocketAddress* DatagramChannelImpl::blockingReceive($ByteBuffer* dst, int64_t n
 }
 
 $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !DatagramChannelImpl::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(this->readLock)->isHeldByCurrentThread();
@@ -1074,6 +1083,7 @@ $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst) {
 }
 
 $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !DatagramChannelImpl::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(this->readLock)->isHeldByCurrentThread();
@@ -1143,6 +1153,7 @@ $SocketAddress* DatagramChannelImpl::trustedBlockingReceive($ByteBuffer* dst, in
 }
 
 int32_t DatagramChannelImpl::receive($ByteBuffer* dst, bool connected) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(dst)->position();
 	int32_t lim = dst->limit();
 	if (!DatagramChannelImpl::$assertionsDisabled && !(pos <= lim)) {
@@ -1194,6 +1205,7 @@ int32_t DatagramChannelImpl::receiveIntoNativeBuffer($ByteBuffer* bb, int32_t re
 }
 
 $InetSocketAddress* DatagramChannelImpl::sourceSocketAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !$nc(this->readLock)->isHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -1209,6 +1221,7 @@ $InetSocketAddress* DatagramChannelImpl::sourceSocketAddress() {
 }
 
 int32_t DatagramChannelImpl::send($ByteBuffer* src, $SocketAddress* target) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(src);
 	$var($InetSocketAddress, isa, $Net::checkAddress(target, this->family));
 	$nc(this->writeLock)->lock();
@@ -1326,6 +1339,7 @@ void DatagramChannelImpl::blockingSend($ByteBuffer* src, $SocketAddress* target)
 }
 
 int32_t DatagramChannelImpl::send($FileDescriptor* fd, $ByteBuffer* src, $InetSocketAddress* target) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($DirectBuffer, src)) {
 		return sendFromNativeBuffer(fd, src, target);
 	}
@@ -1367,6 +1381,7 @@ int32_t DatagramChannelImpl::send($FileDescriptor* fd, $ByteBuffer* src, $InetSo
 }
 
 int32_t DatagramChannelImpl::sendFromNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, $InetSocketAddress* target) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = $nc(bb)->position();
 	int32_t lim = bb->limit();
 	if (!DatagramChannelImpl::$assertionsDisabled && !(pos <= lim)) {
@@ -1408,6 +1423,7 @@ int32_t DatagramChannelImpl::targetSocketAddress($InetSocketAddress* isa) {
 }
 
 int32_t DatagramChannelImpl::read($ByteBuffer* buf) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(buf);
 	$nc(this->readLock)->lock();
 	{
@@ -1466,6 +1482,7 @@ int32_t DatagramChannelImpl::read($ByteBuffer* buf) {
 }
 
 int64_t DatagramChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(offset, length, $nc(dsts)->length);
 	$nc(this->readLock)->lock();
 	{
@@ -1561,6 +1578,7 @@ void DatagramChannelImpl::endWrite(bool blocking, bool completed) {
 }
 
 int32_t DatagramChannelImpl::write($ByteBuffer* buf) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(buf);
 	$nc(this->writeLock)->lock();
 	{
@@ -1619,6 +1637,7 @@ int32_t DatagramChannelImpl::write($ByteBuffer* buf) {
 }
 
 int64_t DatagramChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::checkFromIndexSize(offset, length, $nc(srcs)->length);
 	$nc(this->writeLock)->lock();
 	{
@@ -1677,6 +1696,7 @@ int64_t DatagramChannelImpl::write($ByteBufferArray* srcs, int32_t offset, int32
 }
 
 void DatagramChannelImpl::implConfigureBlocking(bool block) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1753,6 +1773,7 @@ $InetSocketAddress* DatagramChannelImpl::remoteAddress() {
 }
 
 $NetworkChannel* DatagramChannelImpl::bind($SocketAddress* local) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1790,6 +1811,7 @@ $NetworkChannel* DatagramChannelImpl::bind($SocketAddress* local) {
 }
 
 void DatagramChannelImpl::bindInternal($SocketAddress* local) {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !($Thread::holdsLock(this->stateLock) && (this->localAddress$ == nullptr))) {
 		$throwNew($AssertionError);
 	}
@@ -1826,6 +1848,7 @@ $DatagramChannel* DatagramChannelImpl::connect($SocketAddress* sa) {
 }
 
 $DatagramChannel* DatagramChannelImpl::connect($SocketAddress* sa, bool check) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, $Net::checkAddress(sa, this->family));
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -1914,6 +1937,7 @@ $DatagramChannel* DatagramChannelImpl::connect($SocketAddress* sa, bool check) {
 }
 
 $DatagramChannel* DatagramChannelImpl::disconnect() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->readLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1992,6 +2016,7 @@ $DatagramChannel* DatagramChannelImpl::disconnect() {
 }
 
 void DatagramChannelImpl::repairSocket($InetSocketAddress* target) {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !$Thread::holdsLock(this->stateLock)) {
 		$throwNew($AssertionError);
 	}
@@ -2087,6 +2112,7 @@ void DatagramChannelImpl::repairSocket($InetSocketAddress* target) {
 }
 
 $MembershipKey* DatagramChannelImpl::innerJoin($InetAddress* group, $NetworkInterface* interf, $InetAddress* source) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(group)->isMulticastAddress()) {
 		$throwNew($IllegalArgumentException, "Group not a multicast address"_s);
 	}
@@ -2171,6 +2197,7 @@ $MembershipKey* DatagramChannelImpl::join($InetAddress* group, $NetworkInterface
 }
 
 void DatagramChannelImpl::drop($MembershipKeyImpl* key) {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !$equals($nc(key)->channel(), this)) {
 		$throwNew($AssertionError);
 	}
@@ -2212,6 +2239,7 @@ $MembershipKey* DatagramChannelImpl::findMembership($InetAddress* group, $Networ
 }
 
 void DatagramChannelImpl::block($MembershipKeyImpl* key, $InetAddress* source) {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !$equals($nc(key)->channel(), this)) {
 		$throwNew($AssertionError);
 	}
@@ -2252,6 +2280,7 @@ void DatagramChannelImpl::block($MembershipKeyImpl* key, $InetAddress* source) {
 }
 
 void DatagramChannelImpl::unblock($MembershipKeyImpl* key, $InetAddress* source) {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !$equals($nc(key)->channel(), this)) {
 		$throwNew($AssertionError);
 	}
@@ -2284,6 +2313,7 @@ void DatagramChannelImpl::unblock($MembershipKeyImpl* key, $InetAddress* source)
 }
 
 bool DatagramChannelImpl::tryClose() {
+	$useLocalCurrentObjectStackCache();
 	if (!DatagramChannelImpl::$assertionsDisabled && !($Thread::holdsLock(this->stateLock) && this->state == DatagramChannelImpl::ST_CLOSING)) {
 		$throwNew($AssertionError);
 	}
@@ -2462,6 +2492,7 @@ int32_t DatagramChannelImpl::send0($FileDescriptor* fd, int64_t address, int32_t
 
 void DatagramChannelImpl::lambda$releaserFor$1($FileDescriptor* fd, $NativeSocketAddressArray* sockAddrs) {
 	$init(DatagramChannelImpl);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -2484,6 +2515,7 @@ void DatagramChannelImpl::lambda$releaserFor$1($FileDescriptor* fd, $NativeSocke
 }
 
 void DatagramChannelImpl::lambda$repairSocket$0($MembershipKeyImpl* k) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($MembershipKeyImpl$Type6, k)) {
 		$var($MembershipKeyImpl$Type6, key6, $cast($MembershipKeyImpl$Type6, k));
 		$var($FileDescriptor, var$0, this->fd);
@@ -2500,6 +2532,7 @@ void DatagramChannelImpl::lambda$repairSocket$0($MembershipKeyImpl* k) {
 }
 
 void clinit$DatagramChannelImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	DatagramChannelImpl::$assertionsDisabled = !DatagramChannelImpl::class$->desiredAssertionStatus();
 	$assignStatic(DatagramChannelImpl::nd, $new($DatagramDispatcher));

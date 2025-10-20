@@ -197,6 +197,7 @@ bool PKIXValidator::allowNonCaAnchor() {
 }
 
 void PKIXValidator::init$($String* variant, $Collection* trustedCerts) {
+	$useLocalCurrentObjectStackCache();
 	$init($Validator);
 	$Validator::init$($Validator::TYPE_PKIX, variant);
 	this->certPathLength = -1;
@@ -227,6 +228,7 @@ void PKIXValidator::init$($String* variant, $Collection* trustedCerts) {
 }
 
 void PKIXValidator::init$($String* variant, $PKIXBuilderParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$init($Validator);
 	$Validator::init$($Validator::TYPE_PKIX, variant);
 	this->certPathLength = -1;
@@ -255,6 +257,7 @@ void PKIXValidator::init$($String* variant, $PKIXBuilderParameters* params) {
 }
 
 $Map* PKIXValidator::setTrustedSubjects() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, subjectMap, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc(this->trustedCerts)->iterator());
@@ -298,6 +301,7 @@ $PKIXBuilderParameters* PKIXValidator::getParameters() {
 }
 
 $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chain, $Collection* otherCerts, $List* responseList, $AlgorithmConstraints* constraints, Object$* parameter) {
+	$useLocalCurrentObjectStackCache();
 	if ((chain == nullptr) || ($nc(chain)->length == 0)) {
 		$throwNew($CertificateException, "null or zero-length certificate chain"_s);
 	}
@@ -364,6 +368,7 @@ $X509CertificateArray* PKIXValidator::engineValidate($X509CertificateArray* chai
 }
 
 bool PKIXValidator::isSignatureValid($List* keys, $X509Certificate* sub) {
+	$useLocalCurrentObjectStackCache();
 	if (this->plugin) {
 		{
 			$var($Iterator, i$, $nc(keys)->iterator());
@@ -387,6 +392,7 @@ bool PKIXValidator::isSignatureValid($List* keys, $X509Certificate* sub) {
 
 $X509CertificateArray* PKIXValidator::toArray($CertPath* path, $TrustAnchor* anchor) {
 	$init(PKIXValidator);
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, trustedCert, $nc(anchor)->getTrustedCert());
 	if (trustedCert == nullptr) {
 		$throwNew($ValidatorException, "TrustAnchor must be specified as certificate"_s);
@@ -407,6 +413,7 @@ void PKIXValidator::setDate($PKIXBuilderParameters* params) {
 }
 
 $X509CertificateArray* PKIXValidator::doValidate($X509CertificateArray* chain, $PKIXBuilderParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		setDate(params);
 		$var($CertPathValidator, validator, $CertPathValidator::getInstance("PKIX"_s));
@@ -423,6 +430,7 @@ $X509CertificateArray* PKIXValidator::doValidate($X509CertificateArray* chain, $
 
 void PKIXValidator::verifyTrustAnchor($X509Certificate* trustedCert) {
 	$init(PKIXValidator);
+	$useLocalCurrentObjectStackCache();
 	if (PKIXValidator::ALLOW_NON_CA_ANCHOR) {
 		return;
 	}
@@ -439,6 +447,7 @@ void PKIXValidator::verifyTrustAnchor($X509Certificate* trustedCert) {
 }
 
 $X509CertificateArray* PKIXValidator::doBuild($X509CertificateArray* chain, $Collection* otherCerts, $PKIXBuilderParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		setDate(params);
 		$var($X509CertSelector, selector, $new($X509CertSelector));
@@ -464,6 +473,7 @@ $X509CertificateArray* PKIXValidator::doBuild($X509CertificateArray* chain, $Col
 
 void PKIXValidator::addResponses($PKIXBuilderParameters* pkixParams, $X509CertificateArray* chain, $List* responseList) {
 	$init(PKIXValidator);
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool createdRevChk = false;
 		$var($PKIXRevocationChecker, revChecker, nullptr);

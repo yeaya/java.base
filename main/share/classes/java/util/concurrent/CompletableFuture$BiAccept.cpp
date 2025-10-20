@@ -72,6 +72,7 @@ void CompletableFuture$BiAccept::init$($Executor* executor, $CompletableFuture* 
 }
 
 $CompletableFuture* CompletableFuture$BiAccept::tryFire(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);

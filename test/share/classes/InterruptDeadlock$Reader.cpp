@@ -74,6 +74,7 @@ void InterruptDeadlock$Reader::init$($FileChannel* fc) {
 }
 
 void InterruptDeadlock$Reader::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(1024));
 	try {
 		int64_t pos = 0;

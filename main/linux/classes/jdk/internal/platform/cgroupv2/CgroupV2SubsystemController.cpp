@@ -56,6 +56,7 @@ $Object* allocate$CgroupV2SubsystemController($Class* clazz) {
 }
 
 void CgroupV2SubsystemController::init$($String* mountPath, $String* cgroupPath) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, path$, $nc($($Paths::get(mountPath, $$new($StringArray, {cgroupPath}))))->toString());
 }
 

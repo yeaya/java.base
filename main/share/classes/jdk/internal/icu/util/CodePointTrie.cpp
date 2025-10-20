@@ -263,6 +263,7 @@ void CodePointTrie::init$($chars* index, $CodePointTrie$Data* data, int32_t high
 
 CodePointTrie* CodePointTrie::fromBinary($CodePointTrie$Type* type$renamed, $CodePointTrie$ValueWidth* valueWidth$renamed, $ByteBuffer* bytes) {
 	$init(CodePointTrie);
+	$useLocalCurrentObjectStackCache();
 	$var($CodePointTrie$ValueWidth, valueWidth, valueWidth$renamed);
 	$var($CodePointTrie$Type, type, type$renamed);
 	$var($ByteOrder, outerByteOrder, $nc(bytes)->order());
@@ -603,6 +604,7 @@ bool CodePointTrie::getRange(int32_t start, $CodePointMap$ValueFilter* filter, $
 }
 
 int32_t CodePointTrie::toBinary($OutputStream* os) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DataOutputStream, dos, $new($DataOutputStream, os));
 		dos->writeInt(0x54726933);

@@ -111,6 +111,7 @@ void PKIX$BuilderParams::init$($PKIXBuilderParameters* params) {
 }
 
 void PKIX$BuilderParams::checkParams($PKIXBuilderParameters* params) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertSelector, sel, targetCertConstraints());
 	if (!($instanceOf($X509CertSelector, sel))) {
 		$throwNew($InvalidAlgorithmParameterException, "the targetCertConstraints parameter must be an X509CertSelector"_s);
@@ -121,6 +122,7 @@ void PKIX$BuilderParams::checkParams($PKIXBuilderParameters* params) {
 }
 
 $List* PKIX$BuilderParams::certStores() {
+	$useLocalCurrentObjectStackCache();
 	if (this->stores == nullptr) {
 		$set(this, stores, $new($ArrayList, $(static_cast<$Collection*>($nc(this->params$)->getCertStores()))));
 		$Collections::sort(this->stores, $$new($PKIX$CertStoreComparator));
@@ -142,6 +144,7 @@ $X500Principal* PKIX$BuilderParams::targetSubject() {
 
 $X500Principal* PKIX$BuilderParams::getTargetSubject($List* stores, $X509CertSelector* sel) {
 	$init(PKIX$BuilderParams);
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, subject, $nc(sel)->getSubject());
 	if (subject != nullptr) {
 		return subject;

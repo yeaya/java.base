@@ -76,6 +76,7 @@ bool AsyncCloseChannel$SensorClient::wake = false;
 AsyncCloseChannel$SensorClient* AsyncCloseChannel$SensorClient::theClient = nullptr;
 
 void AsyncCloseChannel$SensorClient::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($AsyncCloseChannel);
 	while ($AsyncCloseChannel::keepGoing) {
 		$var($Socket, s, nullptr);

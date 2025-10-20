@@ -97,6 +97,7 @@ void CopyMoveHelper::init$() {
 }
 
 $CopyOptionArray* CopyMoveHelper::convertMoveToCopyOptions($CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(options)->length;
 	$var($CopyOptionArray, newOptions, $new($CopyOptionArray, len + 2));
 	for (int32_t i = 0; i < len; ++i) {
@@ -115,6 +116,7 @@ $CopyOptionArray* CopyMoveHelper::convertMoveToCopyOptions($CopyOptionArray* opt
 }
 
 void CopyMoveHelper::copyToForeignTarget($Path* source, $Path* target, $CopyOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$var($CopyMoveHelper$CopyOptions, opts, $CopyMoveHelper$CopyOptions::parse(options));
 	$init($LinkOption);
 	$var($LinkOptionArray, linkOptions, ($nc(opts)->followLinks) ? $new($LinkOptionArray, 0) : $new($LinkOptionArray, {$LinkOption::NOFOLLOW_LINKS}));

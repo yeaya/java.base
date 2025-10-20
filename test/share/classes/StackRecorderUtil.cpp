@@ -108,6 +108,7 @@ int32_t StackRecorderUtil::frameCount() {
 }
 
 void StackRecorderUtil::compareFrame(int32_t index, $StackWalker$StackFrame* sf) {
+	$useLocalCurrentObjectStackCache();
 	$var($StackRecorderUtil$TestFrame, tf, $cast($StackRecorderUtil$TestFrame, $nc(this->testFrames)->get(index)));
 	if (this->compareClasses) {
 		if (!$nc($of($nc(tf)->declaringClass))->equals($nc(sf)->getDeclaringClass())) {

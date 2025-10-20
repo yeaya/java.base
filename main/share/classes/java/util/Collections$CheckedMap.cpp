@@ -275,6 +275,7 @@ void Collections$CheckedMap::finalize() {
 }
 
 void Collections$CheckedMap::typeCheck(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (key != nullptr && !$nc(this->keyType)->isInstance(key)) {
 		$throwNew($ClassCastException, $(badKeyMsg(key)));
 	}
@@ -356,6 +357,7 @@ $Object* Collections$CheckedMap::put(Object$* key, Object$* value) {
 }
 
 void Collections$CheckedMap::putAll($Map* t) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, entries, $nc($($nc(t)->entrySet()))->toArray());
 	$var($List, checked, $new($ArrayList, $nc(entries)->length));
 	{

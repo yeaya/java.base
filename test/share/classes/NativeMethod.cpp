@@ -157,12 +157,14 @@ void NativeMethod::init$() {
 }
 
 void NativeMethod::test() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, m, NativeMethod::class$->getDeclaredMethod("walk"_s, $$new($ClassArray, 0)));
 	$nc(m)->invoke(this, $$new($ObjectArray, 0));
 }
 
 void NativeMethod::walk() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($List, nativeFrames, $cast($List, $nc(this->walker)->walk(static_cast<$Function*>($$new(NativeMethod$$Lambda$lambda$walk$0)))));
 	assertTrue($nc(nativeFrames)->size() > 0, "native frame not found"_s);
@@ -186,6 +188,7 @@ void NativeMethod::assertTrue(bool value, $String* msg) {
 }
 
 $List* NativeMethod::lambda$walk$0($Stream* s) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($List, $nc($($nc(s)->filter(static_cast<$Predicate*>($$new(NativeMethod$$Lambda$isNativeMethod$1)))))->collect($($Collectors::toList())));
 }
 

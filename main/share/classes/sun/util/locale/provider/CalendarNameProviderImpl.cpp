@@ -154,6 +154,7 @@ $String* CalendarNameProviderImpl::getJavaTimeDisplayName($String* calendarType,
 }
 
 $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int32_t field, int32_t value, int32_t style, $Locale* locale, bool javatime) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, nullptr);
 	$var($String, key, getResourceKey(calendarType, field, style, javatime));
 	if (key != nullptr) {
@@ -204,6 +205,7 @@ $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int
 }
 
 $Map* CalendarNameProviderImpl::getDisplayNames($String* calendarType, int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, names, nullptr);
 	if (style == 0) {
 		$assign(names, getDisplayNamesImpl(calendarType, field, 1, locale, false));
@@ -231,6 +233,7 @@ $Map* CalendarNameProviderImpl::getJavaTimeDisplayNames($String* calendarType, i
 }
 
 $Map* CalendarNameProviderImpl::getDisplayNamesImpl($String* calendarType, int32_t field, int32_t style, $Locale* locale, bool javatime) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, getResourceKey(calendarType, field, style, javatime));
 	$init($CalendarNameProviderImpl$LengthBasedComparator);
 	$var($Map, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, static_cast<$Comparator*>($CalendarNameProviderImpl$LengthBasedComparator::INSTANCE)))));
@@ -277,6 +280,7 @@ $LocaleArray* CalendarNameProviderImpl::getAvailableLocales() {
 }
 
 bool CalendarNameProviderImpl::isSupportedLocale($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$init($Locale);
 	if ($nc($Locale::ROOT)->equals(locale)) {
@@ -360,6 +364,7 @@ $Set* CalendarNameProviderImpl::getAvailableLanguageTags() {
 }
 
 bool CalendarNameProviderImpl::hasDuplicates($StringArray* strings) {
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(strings)->length;
 	for (int32_t i = 0; i < len - 1; ++i) {
 		$var($String, a, strings->get(i));
@@ -380,6 +385,7 @@ $String* CalendarNameProviderImpl::getResourceKey($String* type, int32_t field, 
 
 $String* CalendarNameProviderImpl::getResourceKeyFor($LocaleProviderAdapter$Type* adapterType, $String* type$renamed, int32_t field, int32_t style, bool javatime) {
 	$init(CalendarNameProviderImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, type$renamed);
 	int32_t baseStyle = getBaseStyle(style);
 	bool isStandalone = (style != baseStyle);

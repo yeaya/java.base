@@ -160,6 +160,7 @@ $MethodType* MetafactoryMethodNameTest::mt($Class* ret, $ClassArray* params) {
 
 $MethodHandle* MetafactoryMethodNameTest::smh($Class* c, $String* name, $MethodType* desc) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		return $nc($($MethodHandles::lookup()))->findStatic(c, name, desc);
@@ -177,6 +178,7 @@ $ObjectArray* MetafactoryMethodNameTest::arr($ObjectArray* args) {
 
 void MetafactoryMethodNameTest::goodName($String* name) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	succeedMFLinkage(MetafactoryMethodNameTest::lookup, name, MetafactoryMethodNameTest::toI, MetafactoryMethodNameTest::toVoid, MetafactoryMethodNameTest::mh, MetafactoryMethodNameTest::toVoid);
 	succeedAltMFLinkage(MetafactoryMethodNameTest::lookup, name, MetafactoryMethodNameTest::toI, $(arr($$new($ObjectArray, {
 		$of(MetafactoryMethodNameTest::toVoid),
@@ -188,6 +190,7 @@ void MetafactoryMethodNameTest::goodName($String* name) {
 
 void MetafactoryMethodNameTest::badName($String* name) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	failMFLinkage(MetafactoryMethodNameTest::lookup, name, MetafactoryMethodNameTest::toI, MetafactoryMethodNameTest::toVoid, MetafactoryMethodNameTest::mh, MetafactoryMethodNameTest::toVoid, MetafactoryMethodNameTest::lce);
 	failAltMFLinkage(MetafactoryMethodNameTest::lookup, name, MetafactoryMethodNameTest::toI, $(arr($$new($ObjectArray, {
 		$of(MetafactoryMethodNameTest::toVoid),
@@ -199,6 +202,7 @@ void MetafactoryMethodNameTest::badName($String* name) {
 
 $CallSite* MetafactoryMethodNameTest::succeedMFLinkage($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $MethodType* desc, $MethodHandle* impl, $MethodType* checked) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
 	} catch ($Throwable&) {
@@ -218,6 +222,7 @@ $CallSite* MetafactoryMethodNameTest::succeedMFLinkage($MethodHandles$Lookup* lo
 
 void MetafactoryMethodNameTest::failMFLinkage($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $MethodType* desc, $MethodHandle* impl, $MethodType* checked, $Class* expectedExceptionType) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::metafactory(lookup, name, capType, desc, impl, checked);
 	} catch ($Throwable&) {
@@ -251,6 +256,7 @@ void MetafactoryMethodNameTest::failMFLinkage($MethodHandles$Lookup* lookup, $St
 
 $CallSite* MetafactoryMethodNameTest::succeedAltMFLinkage($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $ObjectArray* args) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $LambdaMetafactory::altMetafactory(lookup, name, capType, args);
 	} catch ($Throwable&) {
@@ -268,6 +274,7 @@ $CallSite* MetafactoryMethodNameTest::succeedAltMFLinkage($MethodHandles$Lookup*
 
 void MetafactoryMethodNameTest::failAltMFLinkage($MethodHandles$Lookup* lookup, $String* name, $MethodType* capType, $ObjectArray* args, $Class* expectedExceptionType) {
 	$init(MetafactoryMethodNameTest);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$LambdaMetafactory::altMetafactory(lookup, name, capType, args);
 	} catch ($Throwable&) {
@@ -296,6 +303,7 @@ void MetafactoryMethodNameTest::failAltMFLinkage($MethodHandles$Lookup* lookup, 
 }
 
 void clinit$MetafactoryMethodNameTest($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(MetafactoryMethodNameTest::lookup, $MethodHandles::lookup());
 	$load($MetafactoryMethodNameTest$I);

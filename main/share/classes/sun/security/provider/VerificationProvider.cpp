@@ -84,6 +84,7 @@ $Object* allocate$VerificationProvider($Class* clazz) {
 bool VerificationProvider::ACTIVE = false;
 
 void VerificationProvider::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("SunJarVerification"_s, $SecurityConstants::PROVIDER_VER, "Jar Verification Provider"_s);
@@ -102,6 +103,7 @@ void VerificationProvider::init$() {
 }
 
 void VerificationProvider::putEntries($Iterator* i) {
+	$useLocalCurrentObjectStackCache();
 	while ($nc(i)->hasNext()) {
 		putService($cast($Provider$Service, $(i->next())));
 	}

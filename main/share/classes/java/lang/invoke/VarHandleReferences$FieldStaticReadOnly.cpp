@@ -138,6 +138,7 @@ VarHandleReferences$FieldStaticReadOnly* VarHandleReferences$FieldStaticReadOnly
 }
 
 $Optional* VarHandleReferences$FieldStaticReadOnly::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, fieldTypeRef, $nc(this->fieldType)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {
 		return $Optional::empty();

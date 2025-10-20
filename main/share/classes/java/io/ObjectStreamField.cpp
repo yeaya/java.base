@@ -252,6 +252,7 @@ $String* ObjectStreamField::getPrimitiveSignature($Class* cl) {
 
 $String* ObjectStreamField::getClassSignature($Class* cl) {
 	$init(ObjectStreamField);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(cl)->isPrimitive()) {
 		return getPrimitiveSignature(cl);
 	} else {
@@ -261,6 +262,7 @@ $String* ObjectStreamField::getClassSignature($Class* cl) {
 
 $StringBuilder* ObjectStreamField::appendClassSignature($StringBuilder* sbuf, $Class* cl) {
 	$init(ObjectStreamField);
+	$useLocalCurrentObjectStackCache();
 	while ($nc(cl)->isArray()) {
 		$nc(sbuf)->append(u'[');
 		cl = cl->getComponentType();
@@ -288,6 +290,7 @@ $String* ObjectStreamField::getName() {
 }
 
 $Class* ObjectStreamField::getType() {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr) {
 		$Class* caller = $Reflection::getCallerClass();
 		$var($ClassLoader, var$0, $nc(caller)->getClassLoader());
@@ -333,6 +336,7 @@ int32_t ObjectStreamField::compareTo(Object$* obj) {
 }
 
 $String* ObjectStreamField::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$(getSignature()), $$str(u' '), this->name});
 }
 
@@ -341,6 +345,7 @@ $Field* ObjectStreamField::getField() {
 }
 
 $String* ObjectStreamField::getSignature() {
+	$useLocalCurrentObjectStackCache();
 	if (this->signature != nullptr) {
 		return this->signature;
 	}

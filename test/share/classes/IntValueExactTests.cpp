@@ -68,6 +68,7 @@ void IntValueExactTests::init$() {
 }
 
 void IntValueExactTests::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += intValueExactSuccessful();
 	failures += intValueExactExceptional();
@@ -81,6 +82,7 @@ int32_t IntValueExactTests::simpleIntValueExact($BigDecimal* bd) {
 }
 
 int32_t IntValueExactTests::intValueExactSuccessful() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 		$var($Object, var$0, $of($new($BigDecimal, "2147483647"_s)));
 		$var($Object, var$1, $of($new($BigDecimal, "2147483647.0"_s)));
@@ -137,6 +139,7 @@ int32_t IntValueExactTests::intValueExactSuccessful() {
 }
 
 int32_t IntValueExactTests::intValueExactExceptional() {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($Object, var$0, $of($new($BigDecimal, "2147483648"_s)));
 	$var($Object, var$1, $of($new($BigDecimal, "2147483648.0"_s)));

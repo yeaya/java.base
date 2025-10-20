@@ -187,6 +187,7 @@ int32_t StackStreamFactory$StackFrameTraverser::characteristics() {
 }
 
 void StackStreamFactory$StackFrameTraverser::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$init($StackStreamFactory$WalkerState);
 	checkState($StackStreamFactory$WalkerState::OPEN);
 	for (int32_t n = 0; n < this->maxDepth; ++n) {
@@ -199,6 +200,7 @@ void StackStreamFactory$StackFrameTraverser::forEachRemaining($Consumer* action)
 }
 
 bool StackStreamFactory$StackFrameTraverser::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$init($StackStreamFactory$WalkerState);
 	checkState($StackStreamFactory$WalkerState::OPEN);
 	int32_t index = $nc(this->frameBuffer)->getIndex();

@@ -104,6 +104,7 @@ void Basic4Appendable$3::init($Appendable* fw, $String* csn, $String* exp) {
 }
 
 void Basic4Appendable$3::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	try {
 		$init($Basic4Appendable);
@@ -123,6 +124,7 @@ void Basic4Appendable$3::run() {
 }
 
 $Appendable* Basic4Appendable$3::reset($Appendable* fw$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Appendable, fw, fw$renamed);
 	try {
 		$init($Basic4Appendable);

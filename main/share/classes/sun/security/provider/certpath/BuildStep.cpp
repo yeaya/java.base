@@ -152,6 +152,7 @@ $String* BuildStep::resultToString(int32_t res) {
 }
 
 $String* BuildStep::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, out, "Internal Error\n"_s);
 	switch (this->result) {
 	case BuildStep::BACK:
@@ -180,6 +181,7 @@ $String* BuildStep::toString() {
 }
 
 $String* BuildStep::verboseToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, out, resultToString(getResult()));
 	switch (this->result) {
 	case BuildStep::BACK:
@@ -210,6 +212,7 @@ $String* BuildStep::verboseToString() {
 }
 
 $String* BuildStep::fullToString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $(resultToString(getResult())));
 	return $concat(var$0, $($nc(this->vertex)->toString()));
 }

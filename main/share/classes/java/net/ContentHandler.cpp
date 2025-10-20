@@ -41,6 +41,7 @@ void ContentHandler::init$() {
 }
 
 $Object* ContentHandler::getContent($URLConnection* urlc, $ClassArray* classes) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, obj, getContent(urlc));
 	{
 		$var($ClassArray, arr$, classes);

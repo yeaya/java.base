@@ -143,6 +143,7 @@ void FileInputStream::init$($String* name) {
 }
 
 void FileInputStream::init$($File* file) {
+	$useLocalCurrentObjectStackCache();
 	$InputStream::init$();
 	$set(this, closeLock, $new($Object));
 	$var($String, name, file != nullptr ? $nc(file)->getPath() : ($String*)nullptr);
@@ -217,6 +218,7 @@ int32_t FileInputStream::read($bytes* b, int32_t off, int32_t len) {
 }
 
 $bytes* FileInputStream::readAllBytes() {
+	$useLocalCurrentObjectStackCache();
 	int64_t length = this->length();
 	int64_t position = this->position();
 	int64_t size = length - position;
@@ -334,6 +336,7 @@ int32_t FileInputStream::available0() {
 }
 
 void FileInputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	if (this->closed) {
 		return;
 	}
@@ -358,6 +361,7 @@ $FileDescriptor* FileInputStream::getFD() {
 }
 
 $FileChannel* FileInputStream::getChannel() {
+	$useLocalCurrentObjectStackCache();
 	$var($FileChannel, fc, this->channel);
 	if (fc == nullptr) {
 		$synchronized(this) {

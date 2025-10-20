@@ -162,6 +162,7 @@ void ObjectIdentifier::writeObject($ObjectOutputStream* os) {
 }
 
 void ObjectIdentifier::init$($String* oid) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, encoding, nullptr);
 	$set(this, components, nullptr);
 	this->componentLen = -1;
@@ -243,6 +244,7 @@ void ObjectIdentifier::init$($bytes* encoding) {
 }
 
 void ObjectIdentifier::init$($DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, encoding, nullptr);
 	$set(this, components, nullptr);
 	this->componentLen = -1;
@@ -251,6 +253,7 @@ void ObjectIdentifier::init$($DerInputStream* in) {
 }
 
 void ObjectIdentifier::init($ints* components, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = 0;
 	$var($bytes, tmp, $new($bytes, length * 5 + 1));
 	if ($nc(components)->get(1) < $Integer::MAX_VALUE - components->get(0) * 40) {
@@ -280,6 +283,7 @@ ObjectIdentifier* ObjectIdentifier::of($String* oidStr) {
 
 ObjectIdentifier* ObjectIdentifier::of($KnownOIDs* o) {
 	$init(ObjectIdentifier);
+	$useLocalCurrentObjectStackCache();
 	$var($String, oidStr, $nc(o)->value());
 	$var(ObjectIdentifier, oid, $cast(ObjectIdentifier, $nc(ObjectIdentifier::oidTable)->get(oidStr)));
 	if (oid == nullptr) {
@@ -314,6 +318,7 @@ int32_t ObjectIdentifier::hashCode() {
 }
 
 $ints* ObjectIdentifier::toIntArray() {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(this->encoding)->length;
 	$var($ints, result, $new($ints, 20));
 	int32_t which = 0;
@@ -364,6 +369,7 @@ $ints* ObjectIdentifier::toIntArray() {
 }
 
 $String* ObjectIdentifier::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, this->stringForm);
 	if (s == nullptr) {
 		int32_t length = $nc(this->encoding)->length;
@@ -533,6 +539,7 @@ void ObjectIdentifier::checkSecondComponent(int32_t first, $BigInteger* second) 
 
 void ObjectIdentifier::checkOtherComponent(int32_t i, int32_t num) {
 	$init(ObjectIdentifier);
+	$useLocalCurrentObjectStackCache();
 	if (num < 0) {
 		$throwNew($IOException, $$str({"ObjectIdentifier() -- oid component #"_s, $$str((i + 1)), " must be non-negative "_s}));
 	}
@@ -540,6 +547,7 @@ void ObjectIdentifier::checkOtherComponent(int32_t i, int32_t num) {
 
 void ObjectIdentifier::checkOtherComponent(int32_t i, $BigInteger* num) {
 	$init(ObjectIdentifier);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(num)->signum() == -1) {
 		$throwNew($IOException, $$str({"ObjectIdentifier() -- oid component #"_s, $$str((i + 1)), " must be non-negative "_s}));
 	}
@@ -547,6 +555,7 @@ void ObjectIdentifier::checkOtherComponent(int32_t i, $BigInteger* num) {
 
 void ObjectIdentifier::checkOidSize(int32_t oidLength) {
 	$init(ObjectIdentifier);
+	$useLocalCurrentObjectStackCache();
 	if (oidLength > ObjectIdentifier::MAXIMUM_OID_SIZE) {
 		$throwNew($IOException, $$str({"ObjectIdentifier encoded length exceeds the restriction in JDK (OId length(>=): "_s, $$str(oidLength), ", Restriction: "_s, $$str(ObjectIdentifier::MAXIMUM_OID_SIZE), ")"_s}));
 	}

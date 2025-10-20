@@ -101,6 +101,7 @@ $Object* allocate$PathOps($Class* clazz) {
 $PrintStream* PathOps::out = nullptr;
 
 void PathOps::init$($String* first, $StringArray* more) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->println();
 	try {
 		$set(this, path$, $nc($($FileSystems::getDefault()))->getPath(first, more));
@@ -134,6 +135,7 @@ void PathOps::checkPath() {
 }
 
 void PathOps::check(Object$* result, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("\tExpected: %s\n"_s, $$new($ObjectArray, {$of(expected)}));
 	$nc(PathOps::out)->format("\tActual: %s\n"_s, $$new($ObjectArray, {result}));
 	if (result == nullptr) {
@@ -181,6 +183,7 @@ PathOps* PathOps::name($String* expected) {
 }
 
 PathOps* PathOps::element(int32_t index, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("check element %d\n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(index)))}));
 	checkPath();
 	check($($of($nc(this->path$)->getName(index))), expected);
@@ -188,6 +191,7 @@ PathOps* PathOps::element(int32_t index, $String* expected) {
 }
 
 PathOps* PathOps::subpath(int32_t startIndex, int32_t endIndex, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test subpath(%d,%d)\n"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf(startIndex))),
 		$($of($Integer::valueOf(endIndex)))
@@ -198,6 +202,7 @@ PathOps* PathOps::subpath(int32_t startIndex, int32_t endIndex, $String* expecte
 }
 
 PathOps* PathOps::starts($String* prefix) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test startsWith with %s\n"_s, $$new($ObjectArray, {$of(prefix)}));
 	checkPath();
 	$var($Path, s, $nc($($FileSystems::getDefault()))->getPath(prefix, $$new($StringArray, 0)));
@@ -206,6 +211,7 @@ PathOps* PathOps::starts($String* prefix) {
 }
 
 PathOps* PathOps::notStarts($String* prefix) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test not startsWith with %s\n"_s, $$new($ObjectArray, {$of(prefix)}));
 	checkPath();
 	$var($Path, s, $nc($($FileSystems::getDefault()))->getPath(prefix, $$new($StringArray, 0)));
@@ -214,6 +220,7 @@ PathOps* PathOps::notStarts($String* prefix) {
 }
 
 PathOps* PathOps::ends($String* suffix) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test endsWith %s\n"_s, $$new($ObjectArray, {$of(suffix)}));
 	checkPath();
 	$var($Path, s, $nc($($FileSystems::getDefault()))->getPath(suffix, $$new($StringArray, 0)));
@@ -222,6 +229,7 @@ PathOps* PathOps::ends($String* suffix) {
 }
 
 PathOps* PathOps::notEnds($String* suffix) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test not endsWith %s\n"_s, $$new($ObjectArray, {$of(suffix)}));
 	checkPath();
 	$var($Path, s, $nc($($FileSystems::getDefault()))->getPath(suffix, $$new($StringArray, 0)));
@@ -249,6 +257,7 @@ PathOps* PathOps::notAbsolute() {
 }
 
 PathOps* PathOps::resolve($String* other, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test resolve %s\n"_s, $$new($ObjectArray, {$of(other)}));
 	checkPath();
 	check($($of($nc(this->path$)->resolve(other))), expected);
@@ -256,6 +265,7 @@ PathOps* PathOps::resolve($String* other, $String* expected) {
 }
 
 PathOps* PathOps::resolveSibling($String* other, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test resolveSibling %s\n"_s, $$new($ObjectArray, {$of(other)}));
 	checkPath();
 	check($($of($nc(this->path$)->resolveSibling(other))), expected);
@@ -263,6 +273,7 @@ PathOps* PathOps::resolveSibling($String* other, $String* expected) {
 }
 
 PathOps* PathOps::relativize($String* other, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test relativize %s\n"_s, $$new($ObjectArray, {$of(other)}));
 	checkPath();
 	$var($Path, that, $nc($($FileSystems::getDefault()))->getPath(other, $$new($StringArray, 0)));
@@ -271,6 +282,7 @@ PathOps* PathOps::relativize($String* other, $String* expected) {
 }
 
 PathOps* PathOps::relativizeFail($String* other) {
+	$useLocalCurrentObjectStackCache();
 	$nc(PathOps::out)->format("test relativize %s\n"_s, $$new($ObjectArray, {$of(other)}));
 	checkPath();
 	$var($Path, that, $nc($($FileSystems::getDefault()))->getPath(other, $$new($StringArray, 0)));
@@ -314,6 +326,7 @@ PathOps* PathOps::test($String* first, $StringArray* more) {
 
 PathOps* PathOps::test($Path* path) {
 	$init(PathOps);
+	$useLocalCurrentObjectStackCache();
 	return $new(PathOps, $($nc(path)->toString()), $$new($StringArray, 0));
 }
 
@@ -326,6 +339,7 @@ void PathOps::header($String* s) {
 
 void PathOps::doWindowsTests() {
 	$init(PathOps);
+	$useLocalCurrentObjectStackCache();
 	header("Windows specific tests"_s);
 	$var($Path, cwd, $nc($($Paths::get(""_s, $$new($StringArray, 0))))->toAbsolutePath());
 	$nc($(test("C:\\"_s, $$new($StringArray, 0))))->string("C:\\"_s);
@@ -526,6 +540,7 @@ void PathOps::doWindowsTests() {
 
 void PathOps::doUnixTests() {
 	$init(PathOps);
+	$useLocalCurrentObjectStackCache();
 	header("Unix specific tests"_s);
 	$var($Path, cwd, $nc($($Paths::get(""_s, $$new($StringArray, 0))))->toAbsolutePath());
 	$nc($(test("/"_s, $$new($StringArray, 0))))->string("/"_s);
@@ -639,6 +654,7 @@ void PathOps::doUnixTests() {
 
 void PathOps::npes() {
 	$init(PathOps);
+	$useLocalCurrentObjectStackCache();
 	header("NullPointerException"_s);
 	try {
 		$Path::of(nullptr, $$new($StringArray, {"foo"_s}));

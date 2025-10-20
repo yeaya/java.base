@@ -74,6 +74,7 @@ void FilePermission$2::init$($FilePermission* this$0) {
 }
 
 $Object* FilePermission$2::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($String, path, this->this$0->cpath);
 		if ($nc(this->this$0->cpath)->endsWith("*"_s)) {

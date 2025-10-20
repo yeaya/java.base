@@ -77,6 +77,7 @@ void TreeMap$DescendingSubMap$DescendingEntrySetView::init$($TreeMap$DescendingS
 }
 
 $Iterator* TreeMap$DescendingSubMap$DescendingEntrySetView::iterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($TreeMap$NavigableSubMap, var$0, static_cast<$TreeMap$NavigableSubMap*>(this->this$0));
 	$var($TreeMap$Entry, var$1, this->this$0->absHighest());
 	return $new($TreeMap$NavigableSubMap$DescendingSubMapEntryIterator, var$0, var$1, $(this->this$0->absLowFence()));

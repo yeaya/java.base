@@ -393,6 +393,7 @@ $bytes* ProcessImpl::helperpath = nullptr;
 
 $bytes* ProcessImpl::toCString($String* s) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		return nullptr;
 	}
@@ -405,6 +406,7 @@ $bytes* ProcessImpl::toCString($String* s) {
 
 $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String* dir, $ProcessBuilder$RedirectArray* redirects, bool redirectErrorStream) {
 	$init(ProcessImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!ProcessImpl::$assertionsDisabled && !(cmdarray != nullptr && cmdarray->length > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -559,6 +561,7 @@ int32_t ProcessImpl::forkAndExec(int32_t mode, $bytes* helperpath, $bytes* prog,
 }
 
 void ProcessImpl::init$($bytes* prog, $bytes* argBlock, int32_t argc, $bytes* envBlock, int32_t envc, $bytes* dir, $ints* fds, bool forceNullOutputStream, bool redirectErrorStream) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Process::init$();
 	this->pid$ = forkAndExec(ProcessImpl::launchMechanism->ordinal() + 1, ProcessImpl::helperpath, prog, argBlock, argc, envBlock, envc, dir, fds, redirectErrorStream);
@@ -579,6 +582,7 @@ $FileDescriptor* ProcessImpl::newFileDescriptor(int32_t fd) {
 }
 
 void ProcessImpl::initStreams($ints* fds, bool forceNullOutputStream) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProcessImpl$1);
 	switch ($nc($ProcessImpl$1::$SwitchMap$java$lang$ProcessImpl$Platform)->get((ProcessImpl::platform)->ordinal())) {
 	case 1:
@@ -702,10 +706,12 @@ void ProcessImpl::destroy(bool force) {
 }
 
 $CompletableFuture* ProcessImpl::onExit() {
+	$useLocalCurrentObjectStackCache();
 	return $cast($CompletableFuture, $nc($($ProcessHandleImpl::completion(this->pid$, false)))->handleAsync(static_cast<$BiFunction*>($$new(ProcessImpl$$Lambda$lambda$onExit$3$3, this))));
 }
 
 $ProcessHandle* ProcessImpl::toHandle() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -737,6 +743,7 @@ bool ProcessImpl::isAlive() {
 }
 
 $String* ProcessImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $$new($StringBuilder, "Process[pid="_s)->append(this->pid$)->append(", exitValue="_s)->append(this->hasExited ? $($of($Integer::valueOf(this->exitcode))) : $of("\"not exited\""_s))->append("]"_s)->toString();
 }
 
@@ -745,6 +752,7 @@ void ProcessImpl::init() {
 }
 
 $Process* ProcessImpl::lambda$onExit$3($Integer* unusedExitStatus, $Throwable* unusedThrowable) {
+	$useLocalCurrentObjectStackCache();
 	bool interrupted = false;
 	while (true) {
 		try {
@@ -803,6 +811,7 @@ $Void* ProcessImpl::lambda$new$0($ints* fds, bool forceNullOutputStream) {
 }
 
 void clinit$ProcessImpl($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	ProcessImpl::$assertionsDisabled = !ProcessImpl::class$->desiredAssertionStatus();
 	$assignStatic(ProcessImpl::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 	$assignStatic(ProcessImpl::platform, $ProcessImpl$Platform::get());

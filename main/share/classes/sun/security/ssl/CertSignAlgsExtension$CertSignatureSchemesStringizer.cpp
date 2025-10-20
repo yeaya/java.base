@@ -64,6 +64,7 @@ void CertSignAlgsExtension$CertSignatureSchemesStringizer::init$() {
 }
 
 $String* CertSignAlgsExtension$CertSignatureSchemesStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($SignatureAlgorithmsExtension$SignatureSchemesSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

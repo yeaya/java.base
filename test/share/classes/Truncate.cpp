@@ -100,6 +100,7 @@ void Truncate::init$() {
 
 void Truncate::main($StringArray* args) {
 	$init(Truncate);
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	{
@@ -121,6 +122,7 @@ void Truncate::main($StringArray* args) {
 
 void Truncate::basicTest($File* blah) {
 	$init(Truncate);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 100; ++i) {
 		int64_t testSize = $nc(Truncate::generator)->nextInt(1000) + 10;
 		initTestFile(blah, testSize);
@@ -184,6 +186,7 @@ void Truncate::basicTest($File* blah) {
 
 void Truncate::appendTest($File* blah) {
 	$init(Truncate);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 10; ++i) {
 		int64_t testSize = $nc(Truncate::generator)->nextInt(1000) + 10;
 		initTestFile(blah, testSize);
@@ -235,6 +238,7 @@ void Truncate::appendTest($File* blah) {
 
 void Truncate::exceptionTests($File* blah) {
 	$init(Truncate);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($StandardOpenOption);
 		$var($FileChannel, fc, $FileChannel::open($($nc(blah)->toPath()), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::READ)})));
@@ -329,6 +333,7 @@ void Truncate::exceptionTests($File* blah) {
 
 void Truncate::checkException($FileChannel* fc, int64_t size, $ClassArray* expected) {
 	$init(Truncate);
+	$useLocalCurrentObjectStackCache();
 	$var($Exception, exc, nullptr);
 	try {
 		$nc(fc)->truncate(size);
@@ -373,6 +378,7 @@ void Truncate::checkException($FileChannel* fc, int64_t size, $ClassArray* expec
 
 void Truncate::initTestFile($File* blah, int64_t size) {
 	$init(Truncate);
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($StandardCharsets);
 		$var($BufferedWriter, writer, $Files::newBufferedWriter($($nc(blah)->toPath()), $StandardCharsets::ISO_8859_1, $$new($OpenOptionArray, 0)));

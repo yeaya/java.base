@@ -71,6 +71,7 @@ void IsHidden::init$() {
 
 void IsHidden::ck($String* path, bool ans) {
 	$init(IsHidden);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, path));
 	bool x = f->isHidden();
 	if (x != ans) {
@@ -82,6 +83,7 @@ void IsHidden::ck($String* path, bool ans) {
 
 void IsHidden::setHidden($File* f, bool value) {
 	$init(IsHidden);
+	$useLocalCurrentObjectStackCache();
 	$load($DosFileAttributeView);
 	$nc(($cast($DosFileAttributeView, $($Files::getFileAttributeView($($nc(f)->toPath()), $DosFileAttributeView::class$, $$new($LinkOptionArray, 0))))))->setHidden(value);
 }
@@ -95,6 +97,7 @@ void IsHidden::checkHidden($File* f) {
 
 void IsHidden::testWin32() {
 	$init(IsHidden);
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, IsHidden::dir, "test"_s));
 	f->deleteOnExit();
 	f->createNewFile();
@@ -126,6 +129,7 @@ void IsHidden::testWin32() {
 
 void IsHidden::testUnix() {
 	$init(IsHidden);
+	$useLocalCurrentObjectStackCache();
 	ck($$str({IsHidden::dir, "/IsHidden.java"_s}), false);
 	ck($$str({IsHidden::dir, "/."_s}), true);
 	ck("."_s, true);

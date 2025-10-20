@@ -647,6 +647,7 @@ $volatile($StringArray*) Locale::isoCountries = nullptr;
 
 Locale* Locale::createConstant(int8_t baseType) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	$init($BaseLocale);
 	$var($BaseLocale, base, $nc($BaseLocale::constantBaseLocales)->get(baseType));
 	$var(Locale, locale, $new(Locale, base, ($LocaleExtensions*)nullptr));
@@ -682,6 +683,7 @@ Locale* Locale::getInstance($String* language, $String* country, $String* varian
 
 Locale* Locale::getInstance($String* language, $String* script, $String* country, $String* variant, $LocaleExtensions* extensions$renamed) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleExtensions, extensions, extensions$renamed);
 	if (language == nullptr || script == nullptr || country == nullptr || variant == nullptr) {
 		$throwNew($NullPointerException);
@@ -695,6 +697,7 @@ Locale* Locale::getInstance($String* language, $String* script, $String* country
 
 Locale* Locale::getInstance($BaseLocale* baseloc, $LocaleExtensions* extensions) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	if (extensions == nullptr) {
 		$var(Locale, locale, $cast(Locale, $nc(Locale::CONSTANT_LOCALES)->get(baseloc)));
 		if (locale != nullptr) {
@@ -716,6 +719,7 @@ Locale* Locale::getDefault() {
 
 Locale* Locale::getDefault($Locale$Category* category) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(category);
 	$init($Locale$Category);
 	if (category == $Locale$Category::DISPLAY) {
@@ -764,6 +768,7 @@ Locale* Locale::getFormatLocale() {
 
 Locale* Locale::initDefault() {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	$var($String, language, nullptr);
 	$var($String, region, nullptr);
 	$var($String, script, nullptr);
@@ -792,6 +797,7 @@ Locale* Locale::initDefault() {
 
 Locale* Locale::initDefault($Locale$Category* category) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 	$var($String, var$0, $nc(props)->getProperty($nc(category)->languageKey, $($nc(Locale::defaultLocale)->getLanguage())));
 	$var($String, var$1, props->getProperty($nc(category)->scriptKey, $($nc(Locale::defaultLocale)->getScript())));
@@ -802,6 +808,7 @@ Locale* Locale::initDefault($Locale$Category* category) {
 
 $Optional* Locale::getDefaultExtensions($String* extensionsProp) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	if ($LocaleUtils::isEmpty(extensionsProp)) {
 		return $Optional::empty();
 	}
@@ -829,6 +836,7 @@ void Locale::setDefault($Locale$Category* category, Locale* newLocale) {
 	$load(Locale);
 	$synchronized(class$) {
 		$init(Locale);
+		$useLocalCurrentObjectStackCache();
 		if (category == nullptr) {
 			$throwNew($NullPointerException, "Category cannot be NULL"_s);
 		}
@@ -896,6 +904,7 @@ $StringArray* Locale::getISOLanguages() {
 
 $StringArray* Locale::getISO2Table($String* table) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	int32_t len = $nc(table)->length() / 5;
 	$var($StringArray, isoTable, $new($StringArray, len));
 	{
@@ -933,6 +942,7 @@ Locale* Locale::stripExtensions() {
 }
 
 $String* Locale::getExtension(char16_t key) {
+	$useLocalCurrentObjectStackCache();
 	if (!$LocaleExtensions::isValidKey(key)) {
 		$throwNew($IllegalArgumentException, $$str({"Ill-formed extension key: "_s, $$str(key)}));
 	}
@@ -976,6 +986,7 @@ $LocaleExtensions* Locale::getLocaleExtensions() {
 }
 
 $String* Locale::toString() {
+	$useLocalCurrentObjectStackCache();
 	bool l = !$nc($($nc(this->baseLocale)->getLanguage()))->isEmpty();
 	bool s = !$nc($($nc(this->baseLocale)->getScript()))->isEmpty();
 	bool r = !$nc($($nc(this->baseLocale)->getRegion()))->isEmpty();
@@ -1002,6 +1013,7 @@ $String* Locale::toString() {
 }
 
 $String* Locale::toLanguageTag() {
+	$useLocalCurrentObjectStackCache();
 	if (this->languageTag != nullptr) {
 		return this->languageTag;
 	}
@@ -1062,6 +1074,7 @@ $String* Locale::toLanguageTag() {
 
 Locale* Locale::forLanguageTag($String* languageTag) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	$var($LanguageTag, tag, $LanguageTag::parse(languageTag, nullptr));
 	$var($InternalLocaleBuilder, bldr, $new($InternalLocaleBuilder));
 	bldr->setLanguageTag(tag);
@@ -1077,6 +1090,7 @@ Locale* Locale::forLanguageTag($String* languageTag) {
 }
 
 $String* Locale::getISO3Language() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, lang, $nc(this->baseLocale)->getLanguage());
 	if ($nc(lang)->length() == 3) {
 		return lang;
@@ -1090,6 +1104,7 @@ $String* Locale::getISO3Language() {
 }
 
 $String* Locale::getISO3Country() {
+	$useLocalCurrentObjectStackCache();
 	$init($LocaleISOData);
 	$var($String, country3, getISO3Code($($nc(this->baseLocale)->getRegion()), $LocaleISOData::isoCountryTable));
 	if (country3 == nullptr) {
@@ -1148,6 +1163,7 @@ $String* Locale::getDisplayCountry(Locale* inLocale) {
 }
 
 $String* Locale::getDisplayString($String* code, $String* cat, Locale* inLocale, int32_t type) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(inLocale);
 	$Objects::requireNonNull(code);
 	if (code->isEmpty()) {
@@ -1171,6 +1187,7 @@ $String* Locale::getDisplayVariant() {
 }
 
 $String* Locale::getDisplayVariant(Locale* inLocale) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(this->baseLocale)->getVariant()))->isEmpty()) {
 		return ""_s;
 	}
@@ -1185,6 +1202,7 @@ $String* Locale::getDisplayName() {
 }
 
 $String* Locale::getDisplayName(Locale* inLocale) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources(inLocale));
 	$var($String, languageName, getDisplayLanguage(inLocale));
 	$var($String, scriptName, getDisplayScript(inLocale));
@@ -1243,6 +1261,7 @@ $String* Locale::getDisplayName(Locale* inLocale) {
 }
 
 $Object* Locale::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Locale, that, $cast(Locale, $Cloneable::clone()));
 		return $of(that);
@@ -1283,6 +1302,7 @@ bool Locale::equals(Object$* obj) {
 }
 
 $StringArray* Locale::getDisplayVariantArray(Locale* inLocale) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, $($nc(this->baseLocale)->getVariant()), "_"_s));
 	$var($StringArray, names, $new($StringArray, tokenizer->countTokens()));
 	for (int32_t i = 0; i < names->length; ++i) {
@@ -1292,6 +1312,7 @@ $StringArray* Locale::getDisplayVariantArray(Locale* inLocale) {
 }
 
 $String* Locale::getDisplayKeyTypeExtensionString($String* key, $LocaleResources* lr, Locale* inLocale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, type, $nc(this->localeExtensions)->getUnicodeLocaleType(key));
 	$var($String, ret, getDisplayString(type, key, inLocale, Locale::DISPLAY_UEXT_TYPE));
 	if (ret == nullptr || $nc(ret)->equals(type)) {
@@ -1353,6 +1374,7 @@ $String* Locale::getDisplayKeyTypeExtensionString($String* key, $LocaleResources
 
 $String* Locale::formatList($StringArray* stringList, $String* pattern) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	if (pattern == nullptr) {
 		return $cast($String, $nc($($Arrays::stream(stringList)))->collect($($Collectors::joining(","_s))));
 	}
@@ -1385,6 +1407,7 @@ bool Locale::isUnicodeExtensionKey($String* s) {
 }
 
 void Locale::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
 	$nc(fields)->put("language"_s, $($of($nc(this->baseLocale)->getLanguage())));
 	fields->put("script"_s, $($of($nc(this->baseLocale)->getScript())));
@@ -1396,6 +1419,7 @@ void Locale::writeObject($ObjectOutputStream* out) {
 }
 
 void Locale::readObject($ObjectInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
 	$var($String, language, $cast($String, $nc(fields)->get("language"_s, $of(""_s))));
 	$var($String, script, $cast($String, fields->get("script"_s, $of(""_s))));
@@ -1418,6 +1442,7 @@ void Locale::readObject($ObjectInputStream* in) {
 }
 
 $Object* Locale::readResolve() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(this->baseLocale)->getLanguage());
 	$var($String, var$1, $nc(this->baseLocale)->getScript());
 	$var($String, var$2, $nc(this->baseLocale)->getRegion());
@@ -1426,6 +1451,7 @@ $Object* Locale::readResolve() {
 
 $String* Locale::convertOldISOCodes($String* language) {
 	$init(Locale);
+	$useLocalCurrentObjectStackCache();
 	return $BaseLocale::convertOldISOCodes($($nc($($LocaleUtils::toLowerString(language)))->intern()));
 }
 
@@ -1510,6 +1536,7 @@ $String* Locale::lambda$getDisplayName$0(Locale* inLocale, $String* key) {
 }
 
 void clinit$Locale($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Locale::$assertionsDisabled = !Locale::class$->desiredAssertionStatus();
 	$assignStatic(Locale::CONSTANT_LOCALES, $new($HashMap));
 	{

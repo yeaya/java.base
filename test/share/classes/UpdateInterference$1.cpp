@@ -85,6 +85,7 @@ void UpdateInterference$1::init$($Path* val$foo) {
 }
 
 void UpdateInterference$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($UpdateInterference);
 	while (!$UpdateInterference::stop) {
 		try {

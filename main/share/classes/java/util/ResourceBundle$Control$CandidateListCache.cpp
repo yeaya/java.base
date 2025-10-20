@@ -77,6 +77,7 @@ void ResourceBundle$Control$CandidateListCache::init$() {
 }
 
 $List* ResourceBundle$Control$CandidateListCache::createObject($BaseLocale* base) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, language, $nc(base)->getLanguage());
 	$var($String, script, base->getScript());
 	$var($String, region, base->getRegion());
@@ -190,6 +191,7 @@ $List* ResourceBundle$Control$CandidateListCache::createObject($BaseLocale* base
 
 $List* ResourceBundle$Control$CandidateListCache::getDefaultList($String* language, $String* script, $String* region$renamed, $String* variant) {
 	$init(ResourceBundle$Control$CandidateListCache);
+	$useLocalCurrentObjectStackCache();
 	$var($String, region, region$renamed);
 	$var($List, variants, nullptr);
 	if (!$nc(variant)->isEmpty()) {

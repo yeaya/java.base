@@ -49,6 +49,7 @@ void ArgWithSpaceAndFinalBackslash::init$() {
 }
 
 $String* ArgWithSpaceAndFinalBackslash::getJavaCommand() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, javaHome, $System::getProperty("java.home"_s));
 	if (javaHome != nullptr && javaHome->length() > 0) {
 		$init($File);
@@ -59,6 +60,7 @@ $String* ArgWithSpaceAndFinalBackslash::getJavaCommand() {
 }
 
 void ArgWithSpaceAndFinalBackslash::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(args)->length > 0) {
 		$init($System);
 		$nc($System::err)->println(args->get(0));

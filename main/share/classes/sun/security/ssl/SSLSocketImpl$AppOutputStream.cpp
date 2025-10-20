@@ -105,6 +105,7 @@ void SSLSocketImpl$AppOutputStream::write(int32_t i) {
 }
 
 void SSLSocketImpl$AppOutputStream::write($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	if (b == nullptr) {
 		$throwNew($NullPointerException, "the source buffer is null"_s);
 	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
@@ -141,6 +142,7 @@ void SSLSocketImpl$AppOutputStream::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void SSLSocketImpl$AppOutputStream::close() {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 		$SSLLogger::finest("Closing output stream"_s, $$new($ObjectArray, 0));

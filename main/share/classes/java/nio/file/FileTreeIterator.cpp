@@ -120,6 +120,7 @@ void FileTreeIterator::finalize() {
 bool FileTreeIterator::$assertionsDisabled = false;
 
 void FileTreeIterator::init$($Path* start, int32_t maxDepth, $FileVisitOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, walker, $new($FileTreeWalker, $($Arrays::asList(options)), maxDepth));
 	$set(this, next$, $nc(this->walker)->walk(start));
 	bool var$0 = !FileTreeIterator::$assertionsDisabled;
@@ -138,6 +139,7 @@ void FileTreeIterator::init$($Path* start, int32_t maxDepth, $FileVisitOptionArr
 }
 
 void FileTreeIterator::fetchNextIfNeeded() {
+	$useLocalCurrentObjectStackCache();
 	if (this->next$ == nullptr) {
 		$var($FileTreeWalker$Event, ev, $nc(this->walker)->next());
 		while (ev != nullptr) {

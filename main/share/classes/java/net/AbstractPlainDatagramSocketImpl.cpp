@@ -227,6 +227,7 @@ void AbstractPlainDatagramSocketImpl::bind(int32_t lport, $InetAddress* laddr$re
 }
 
 void AbstractPlainDatagramSocketImpl::send($DatagramPacket* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramPacket, p, p$renamed);
 	$var($InetAddress, orig, $nc(p)->getAddress());
 	if ($nc(orig)->isLinkLocalAddress()) {
@@ -275,6 +276,7 @@ void AbstractPlainDatagramSocketImpl::leave($InetAddress* inetaddr) {
 }
 
 void AbstractPlainDatagramSocketImpl::joinGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, addr, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, mcastaddr);
 	if (var$0) {
@@ -288,6 +290,7 @@ void AbstractPlainDatagramSocketImpl::joinGroup($SocketAddress* mcastaddr, $Netw
 }
 
 void AbstractPlainDatagramSocketImpl::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, addr, nullptr);
 	bool var$0 = $instanceOf($InetSocketAddress, mcastaddr);
 	if (var$0) {
@@ -314,6 +317,7 @@ bool AbstractPlainDatagramSocketImpl::isClosed() {
 }
 
 void AbstractPlainDatagramSocketImpl::setOption(int32_t optID, Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket Closed"_s);
 	}
@@ -409,6 +413,7 @@ void AbstractPlainDatagramSocketImpl::setOption(int32_t optID, Object$* o) {
 }
 
 $Object* AbstractPlainDatagramSocketImpl::getOption(int32_t optID) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket Closed"_s);
 	}
@@ -465,6 +470,7 @@ $Object* AbstractPlainDatagramSocketImpl::getOption(int32_t optID) {
 
 $Set* AbstractPlainDatagramSocketImpl::datagramSocketOptions() {
 	$init(AbstractPlainDatagramSocketImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, options, $new($HashSet));
 	$init($StandardSocketOptions);
 	options->add($StandardSocketOptions::SO_SNDBUF);
@@ -487,6 +493,7 @@ $Set* AbstractPlainDatagramSocketImpl::supportedOptions() {
 }
 
 void AbstractPlainDatagramSocketImpl::setOption($SocketOption* name, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
@@ -555,6 +562,7 @@ void AbstractPlainDatagramSocketImpl::setOption($SocketOption* name, Object$* va
 }
 
 $Object* AbstractPlainDatagramSocketImpl::getOption($SocketOption* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (!$nc($(supportedOptions()))->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));

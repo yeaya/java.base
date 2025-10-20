@@ -143,6 +143,7 @@ void SslMacCore::update($ByteBuffer* input) {
 }
 
 $bytes* SslMacCore::doFinal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->first == true) {
 		$nc(this->md)->update(this->secret);
 		$nc(this->md)->update(this->pad1);

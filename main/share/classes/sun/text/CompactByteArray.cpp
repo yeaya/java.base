@@ -207,6 +207,7 @@ $bytes* CompactByteArray::getStringArray() {
 }
 
 $Object* CompactByteArray::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(CompactByteArray, other, $cast(CompactByteArray, $Cloneable::clone()));
 		$set($nc(other), values, $cast($bytes, $nc(this->values)->clone()));

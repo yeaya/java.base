@@ -208,6 +208,7 @@ $GenericsFactory* Method::getFactory() {
 }
 
 $ConstructorRepository* Method::getGenericInfo() {
+	$useLocalCurrentObjectStackCache();
 	if (this->genericInfo == nullptr) {
 		$var($String, var$0, getGenericSignature());
 		$set(this, genericInfo, $MethodRepository::make(var$0, $(getFactory())));
@@ -363,6 +364,7 @@ bool Method::equals(Object$* obj) {
 }
 
 int32_t Method::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc($($nc(getDeclaringClass())->getName()))->hashCode();
 	return var$0 ^ $nc($(getName()))->hashCode();
 }
@@ -373,17 +375,20 @@ $String* Method::toString() {
 }
 
 void Method::specificToStringHeader($StringBuilder* sb) {
+	$useLocalCurrentObjectStackCache();
 	$nc(sb)->append($($nc(getReturnType())->getTypeName()))->append(u' ');
 	sb->append($($nc(getDeclaringClass())->getTypeName()))->append(u'.');
 	sb->append($(getName()));
 }
 
 $String* Method::toShortString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"method "_s, $($nc(getDeclaringClass())->getTypeName()), $$str(u'.')}));
 	return $concat(var$0, $(toShortSignature()));
 }
 
 $String* Method::toShortSignature() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s, $$str({$(getName()), "("_s}), ")"_s));
 	{
 		$var($ClassArray, arr$, getParameterTypes());
@@ -405,6 +410,7 @@ $String* Method::toGenericString() {
 }
 
 void Method::specificToGenericStringHeader($StringBuilder* sb) {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, genRetType, getGenericReturnType());
 	$nc(sb)->append($($nc(genRetType)->getTypeName()))->append(u' ');
 	sb->append($($nc(getDeclaringClass())->getTypeName()))->append(u'.');
@@ -467,6 +473,7 @@ void Method::setMethodAccessor($MethodAccessor* accessor) {
 }
 
 $Object* Method::getDefaultValue() {
+	$useLocalCurrentObjectStackCache();
 	if (this->annotationDefault == nullptr) {
 		return $of(nullptr);
 	}

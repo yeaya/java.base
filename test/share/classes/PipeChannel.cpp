@@ -65,6 +65,7 @@ void PipeChannel::init$() {
 
 void PipeChannel::main($StringArray* args) {
 	$init(PipeChannel);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t x = 0; x < 100; ++x) {
 		$var($SelectorProvider, sp, $SelectorProvider::provider());
 		$var($Pipe, p, $nc(sp)->openPipe());

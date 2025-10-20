@@ -42,6 +42,7 @@ void LeadingSlash::init$() {
 }
 
 void LeadingSlash::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	if ($File::separatorChar == u'\\') {
 		$var($File, file, nullptr);

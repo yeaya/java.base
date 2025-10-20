@@ -121,6 +121,7 @@ void SeedGenerator$ThreadedSeedGenerator::finalize() {
 $bytes* SeedGenerator$ThreadedSeedGenerator::rndTab = nullptr;
 
 void SeedGenerator$ThreadedSeedGenerator::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$SeedGenerator::init$();
 	$set(this, pool, $new($bytes, 20));
@@ -139,6 +140,7 @@ void SeedGenerator$ThreadedSeedGenerator::init$() {
 }
 
 void SeedGenerator$ThreadedSeedGenerator::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		while (true) {
 			$synchronized(this) {

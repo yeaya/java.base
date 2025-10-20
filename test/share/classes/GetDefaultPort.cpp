@@ -39,6 +39,7 @@ void GetDefaultPort::init$() {
 }
 
 void GetDefaultPort::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t p = 0;
 	$var($URL, url, $new($URL, "http://www.sun.com"_s));
 	if ((p = url->getDefaultPort()) != 80) {

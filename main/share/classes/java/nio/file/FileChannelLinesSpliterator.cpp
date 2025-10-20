@@ -168,6 +168,7 @@ void FileChannelLinesSpliterator::forEachRemaining($Consumer* action) {
 }
 
 $BufferedReader* FileChannelLinesSpliterator::getBufferedReader() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReadableByteChannel, rrbc, $new($FileChannelLinesSpliterator$1, this));
 	return $new($BufferedReader, $($Channels::newReader(rrbc, $($nc(this->cs)->newDecoder()), -1)));
 }
@@ -253,6 +254,7 @@ int32_t FileChannelLinesSpliterator::characteristics() {
 }
 
 void FileChannelLinesSpliterator::unmap() {
+	$useLocalCurrentObjectStackCache();
 	if (this->buffer != nullptr) {
 		$var($ByteBuffer, b, this->buffer);
 		$set(this, buffer, nullptr);
@@ -272,6 +274,7 @@ void FileChannelLinesSpliterator::close() {
 }
 
 void clinit$FileChannelLinesSpliterator($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$assignStatic(FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES, $new($HashSet));
 		$init($UTF_8);

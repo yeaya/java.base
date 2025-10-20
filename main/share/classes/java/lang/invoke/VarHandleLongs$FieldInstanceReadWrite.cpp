@@ -263,6 +263,7 @@ VarHandleLongs$FieldInstanceReadWrite* VarHandleLongs$FieldInstanceReadWrite::wi
 
 void VarHandleLongs$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -270,6 +271,7 @@ void VarHandleLongs$FieldInstanceReadWrite::set($VarHandle* ob, Object$* holder,
 
 void VarHandleLongs$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putLongVolatile($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -277,6 +279,7 @@ void VarHandleLongs$FieldInstanceReadWrite::setVolatile($VarHandle* ob, Object$*
 
 void VarHandleLongs$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putLongOpaque($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -284,6 +287,7 @@ void VarHandleLongs$FieldInstanceReadWrite::setOpaque($VarHandle* ob, Object$* h
 
 void VarHandleLongs$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	$nc($MethodHandleStatics::UNSAFE)->putLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -291,6 +295,7 @@ void VarHandleLongs$FieldInstanceReadWrite::setRelease($VarHandle* ob, Object$* 
 
 bool VarHandleLongs$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -298,6 +303,7 @@ bool VarHandleLongs$FieldInstanceReadWrite::compareAndSet($VarHandle* ob, Object
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -305,6 +311,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::compareAndExchange($VarHandle* ob
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -312,6 +319,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::compareAndExchangeAcquire($VarHan
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::compareAndExchangeRelease($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -319,6 +327,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::compareAndExchangeRelease($VarHan
 
 bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongPlain($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -326,6 +335,7 @@ bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSetPlain($VarHandle* o
 
 bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -333,6 +343,7 @@ bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSet($VarHandle* ob, Ob
 
 bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -340,6 +351,7 @@ bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSetAcquire($VarHandle*
 
 bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle* ob, Object$* holder, int64_t expected, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, expected, value);
@@ -347,6 +359,7 @@ bool VarHandleLongs$FieldInstanceReadWrite::weakCompareAndSetRelease($VarHandle*
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -354,6 +367,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndSet($VarHandle* ob, Object$
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -361,6 +375,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndSetAcquire($VarHandle* ob, 
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndSetLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -368,6 +383,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndSetRelease($VarHandle* ob, 
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndAdd($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -375,6 +391,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndAdd($VarHandle* ob, Object$
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndAddAcquire($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -382,6 +399,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndAddAcquire($VarHandle* ob, 
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndAddRelease($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndAddLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -389,6 +407,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndAddRelease($VarHandle* ob, 
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseOr($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -396,6 +415,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseOr($VarHandle* ob, O
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseOrRelease($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -403,6 +423,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseOrRelease($VarHandle
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseOrAcquire($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -410,6 +431,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseOrAcquire($VarHandle
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseAnd($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -417,6 +439,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseAnd($VarHandle* ob, 
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseAndRelease($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -424,6 +447,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseAndRelease($VarHandl
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseAndAcquire($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -431,6 +455,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseAndAcquire($VarHandl
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseXor($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorLong($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -438,6 +463,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseXor($VarHandle* ob, 
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseXorRelease($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorLongRelease($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);
@@ -445,6 +471,7 @@ int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseXorRelease($VarHandl
 
 int64_t VarHandleLongs$FieldInstanceReadWrite::getAndBitwiseXorAcquire($VarHandle* ob, Object$* holder, int64_t value) {
 	$init(VarHandleLongs$FieldInstanceReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleLongs$FieldInstanceReadWrite, handle, $cast(VarHandleLongs$FieldInstanceReadWrite, ob));
 	$init($MethodHandleStatics);
 	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorLongAcquire($Objects::requireNonNull($($nc($nc(handle)->receiverType)->cast(holder))), $nc(handle)->fieldOffset, value);

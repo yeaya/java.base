@@ -400,16 +400,19 @@ $TemporalQuery* DateTimeFormatter::PARSED_LEAP_SECOND = nullptr;
 
 DateTimeFormatter* DateTimeFormatter::ofPattern($String* pattern) {
 	$init(DateTimeFormatter);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($$new($DateTimeFormatterBuilder)->appendPattern(pattern)))->toFormatter();
 }
 
 DateTimeFormatter* DateTimeFormatter::ofPattern($String* pattern, $Locale* locale) {
 	$init(DateTimeFormatter);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($$new($DateTimeFormatterBuilder)->appendPattern(pattern)))->toFormatter(locale);
 }
 
 DateTimeFormatter* DateTimeFormatter::ofLocalizedDate($FormatStyle* dateStyle) {
 	$init(DateTimeFormatter);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(dateStyle), "dateStyle"_s);
 	$init($ResolverStyle);
 	$init($IsoChronology);
@@ -418,6 +421,7 @@ DateTimeFormatter* DateTimeFormatter::ofLocalizedDate($FormatStyle* dateStyle) {
 
 DateTimeFormatter* DateTimeFormatter::ofLocalizedTime($FormatStyle* timeStyle) {
 	$init(DateTimeFormatter);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(timeStyle), "timeStyle"_s);
 	$init($ResolverStyle);
 	$init($IsoChronology);
@@ -426,6 +430,7 @@ DateTimeFormatter* DateTimeFormatter::ofLocalizedTime($FormatStyle* timeStyle) {
 
 DateTimeFormatter* DateTimeFormatter::ofLocalizedDateTime($FormatStyle* dateTimeStyle) {
 	$init(DateTimeFormatter);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(dateTimeStyle), "dateTimeStyle"_s);
 	$init($ResolverStyle);
 	$init($IsoChronology);
@@ -434,6 +439,7 @@ DateTimeFormatter* DateTimeFormatter::ofLocalizedDateTime($FormatStyle* dateTime
 
 DateTimeFormatter* DateTimeFormatter::ofLocalizedDateTime($FormatStyle* dateStyle, $FormatStyle* timeStyle) {
 	$init(DateTimeFormatter);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(dateStyle), "dateStyle"_s);
 	$Objects::requireNonNull($of(timeStyle), "timeStyle"_s);
 	$init($ResolverStyle);
@@ -473,6 +479,7 @@ DateTimeFormatter* DateTimeFormatter::withLocale($Locale* locale) {
 }
 
 DateTimeFormatter* DateTimeFormatter::localizedBy($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, tzType, $nc(locale)->getUnicodeLocaleType("tz"_s));
 	$var($ZoneId, z, tzType != nullptr ? $cast($ZoneId, $nc($($nc($($TimeZoneNameUtility::convertLDMLShortID(tzType)))->map(static_cast<$Function*>($$new(DateTimeFormatter$$Lambda$of$2)))))->orElse(this->zone)) : this->zone);
 	$var($Chronology, c, $Chronology::ofLocale(locale));
@@ -537,6 +544,7 @@ $Set* DateTimeFormatter::getResolverFields() {
 }
 
 DateTimeFormatter* DateTimeFormatter::withResolverFields($TemporalFieldArray* resolverFields) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, fields, nullptr);
 	if (resolverFields != nullptr) {
 		$assign(fields, $Collections::unmodifiableSet($$new($HashSet, $(static_cast<$Collection*>($Arrays::asList(resolverFields))))));
@@ -548,6 +556,7 @@ DateTimeFormatter* DateTimeFormatter::withResolverFields($TemporalFieldArray* re
 }
 
 DateTimeFormatter* DateTimeFormatter::withResolverFields($Set* resolverFields$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, resolverFields, resolverFields$renamed);
 	if ($Objects::equals(this->resolverFields, resolverFields)) {
 		return this;
@@ -565,6 +574,7 @@ $String* DateTimeFormatter::format($TemporalAccessor* temporal) {
 }
 
 void DateTimeFormatter::formatTo($TemporalAccessor* temporal, $Appendable* appendable) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(temporal), "temporal"_s);
 	$Objects::requireNonNull($of(appendable), "appendable"_s);
 	try {
@@ -583,6 +593,7 @@ void DateTimeFormatter::formatTo($TemporalAccessor* temporal, $Appendable* appen
 }
 
 $TemporalAccessor* DateTimeFormatter::parse($CharSequence* text) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	try {
 		return parseResolved0(text, nullptr);
@@ -597,6 +608,7 @@ $TemporalAccessor* DateTimeFormatter::parse($CharSequence* text) {
 }
 
 $TemporalAccessor* DateTimeFormatter::parse($CharSequence* text, $ParsePosition* position) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$Objects::requireNonNull($of(position), "position"_s);
 	try {
@@ -615,6 +627,7 @@ $TemporalAccessor* DateTimeFormatter::parse($CharSequence* text, $ParsePosition*
 }
 
 $Object* DateTimeFormatter::parse($CharSequence* text, $TemporalQuery* query) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$Objects::requireNonNull($of(query), "query"_s);
 	try {
@@ -630,6 +643,7 @@ $Object* DateTimeFormatter::parse($CharSequence* text, $TemporalQuery* query) {
 }
 
 $TemporalAccessor* DateTimeFormatter::parseBest($CharSequence* text, $TemporalQueryArray* queries) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(text), "text"_s);
 	$Objects::requireNonNull($of(queries), "queries"_s);
 	if ($nc(queries)->length < 2) {
@@ -664,6 +678,7 @@ $TemporalAccessor* DateTimeFormatter::parseBest($CharSequence* text, $TemporalQu
 }
 
 $DateTimeParseException* DateTimeFormatter::createError($CharSequence* text, $RuntimeException* ex) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, abbr, nullptr);
 	if ($nc(text)->length() > 64) {
 		$assign(abbr, $str({$($nc($(text->subSequence(0, 64)))->toString()), "..."_s}));
@@ -674,6 +689,7 @@ $DateTimeParseException* DateTimeFormatter::createError($CharSequence* text, $Ru
 }
 
 $TemporalAccessor* DateTimeFormatter::parseResolved0($CharSequence* text, $ParsePosition* position) {
+	$useLocalCurrentObjectStackCache();
 	$var($ParsePosition, pos, position != nullptr ? position : $new($ParsePosition, 0));
 	$var($DateTimeParseContext, context, parseUnresolved0(text, pos));
 	bool var$0 = context == nullptr || $nc(pos)->getErrorIndex() >= 0;
@@ -767,6 +783,7 @@ $Period* DateTimeFormatter::lambda$static$0($TemporalAccessor* t) {
 }
 
 void clinit$DateTimeFormatter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$init($ChronoField);
 		$init($SignStyle);

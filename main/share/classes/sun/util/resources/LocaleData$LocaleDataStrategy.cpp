@@ -107,6 +107,7 @@ void LocaleData$LocaleDataStrategy::init$() {
 }
 
 $List* LocaleData$LocaleDataStrategy::getCandidateLocales($String* baseName, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $str({baseName, $$str(u'-'), $($nc(locale)->toLanguageTag())}));
 	$init($LocaleData);
 	$var($List, candidates, $cast($List, $nc($LocaleData::CANDIDATES_MAP)->get(key)));
@@ -138,6 +139,7 @@ bool LocaleData$LocaleDataStrategy::inJavaBaseModule($String* baseName, $Locale*
 }
 
 $String* LocaleData$LocaleDataStrategy::toBundleName($String* baseName, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, newBaseName, baseName);
 	if (!inJavaBaseModule(baseName, locale)) {
 		$init($LocaleProviderAdapter$Type);

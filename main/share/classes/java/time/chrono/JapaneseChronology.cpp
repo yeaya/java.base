@@ -302,6 +302,7 @@ bool JapaneseChronology::isLeapYear(int64_t prolepticYear) {
 }
 
 int32_t JapaneseChronology::prolepticYear($1Era* era, int32_t yearOfEra) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($JapaneseEra, era) == false) {
 		$throwNew($ClassCastException, "Era must be JapaneseEra"_s);
 	}
@@ -334,6 +335,7 @@ $JapaneseEra* JapaneseChronology::getCurrentEra() {
 }
 
 $ValueRange* JapaneseChronology::range($ChronoField* field) {
+	$useLocalCurrentObjectStackCache();
 	$init($JapaneseChronology$1);
 	switch ($nc($JapaneseChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((field))->ordinal())) {
 	case 1:
@@ -389,6 +391,7 @@ $ChronoLocalDate* JapaneseChronology::resolveDate($Map* fieldValues, $ResolverSt
 }
 
 $ChronoLocalDate* JapaneseChronology::resolveYearOfEra($Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, eraLong, $cast($Long, $nc(fieldValues)->get($ChronoField::ERA)));
 	$var($JapaneseEra, era, nullptr);
@@ -418,10 +421,12 @@ $ChronoLocalDate* JapaneseChronology::resolveYearOfEra($Map* fieldValues, $Resol
 }
 
 int32_t JapaneseChronology::prolepticYearLenient($JapaneseEra* era, int32_t yearOfEra) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc(era)->getPrivateEra()))->getSinceDate()))->getYear() + yearOfEra - 1;
 }
 
 $ChronoLocalDate* JapaneseChronology::resolveYMD($JapaneseEra* era, int32_t yoe, $Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$nc(fieldValues)->remove($ChronoField::ERA);
 	fieldValues->remove($ChronoField::YEAR_OF_ERA);
@@ -457,6 +462,7 @@ $ChronoLocalDate* JapaneseChronology::resolveYMD($JapaneseEra* era, int32_t yoe,
 }
 
 $ChronoLocalDate* JapaneseChronology::resolveYD($JapaneseEra* era, int32_t yoe, $Map* fieldValues, $ResolverStyle* resolverStyle) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$nc(fieldValues)->remove($ChronoField::ERA);
 	fieldValues->remove($ChronoField::YEAR_OF_ERA);

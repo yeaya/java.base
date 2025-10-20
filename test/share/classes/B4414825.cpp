@@ -41,6 +41,7 @@ void B4414825::init$() {
 }
 
 void B4414825::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketPermission, p, $new($SocketPermission, "invlidhost"_s, "connect"_s));
 	if (!p->implies(p)) {
 		$throwNew($RuntimeException, "Test failed: SocketPermission instance should imply itself."_s);

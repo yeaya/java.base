@@ -84,6 +84,7 @@ void HmacMD5KeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* HmacMD5KeyGenerator::engineGenerateKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}

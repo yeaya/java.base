@@ -121,6 +121,7 @@ $Spliterator* TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::trySplit() {
 }
 
 void TreeMap$NavigableSubMap$DescendingSubMapKeyIterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	while (hasNext()) {
 		$nc(action)->accept($(next()));
 	}

@@ -136,6 +136,7 @@ void ChronoLocalDateImpl::finalize() {
 
 $ChronoLocalDate* ChronoLocalDateImpl::ensureValid($Chronology* chrono, $Temporal* temporal) {
 	$init(ChronoLocalDateImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($ChronoLocalDate, other, $cast($ChronoLocalDate, temporal));
 	if ($nc(chrono)->equals($($nc(other)->getChronology())) == false) {
 		$var($String, var$0, $$str({"Chronology mismatch, expected: "_s, $(chrono->getId()), ", actual: "_s}));
@@ -239,6 +240,7 @@ $ChronoLocalDate* ChronoLocalDateImpl::minusDays(int64_t daysToSubtract) {
 }
 
 int64_t ChronoLocalDateImpl::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(endExclusive), "endExclusive"_s);
 	$var($ChronoLocalDate, end, $nc($(getChronology()))->date(endExclusive));
 	{
@@ -299,6 +301,7 @@ int64_t ChronoLocalDateImpl::daysUntil($ChronoLocalDate* end) {
 }
 
 int64_t ChronoLocalDateImpl::monthsUntil($ChronoLocalDate* end) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($ValueRange, range, $nc($(getChronology()))->range($ChronoField::MONTH_OF_YEAR));
 	if ($nc(range)->getMaximum() != 12) {
@@ -327,6 +330,7 @@ int32_t ChronoLocalDateImpl::hashCode() {
 }
 
 $String* ChronoLocalDateImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int64_t yoe = getLong($ChronoField::YEAR_OF_ERA);
 	int64_t moy = getLong($ChronoField::MONTH_OF_YEAR);

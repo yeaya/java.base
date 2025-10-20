@@ -78,6 +78,7 @@ Normalizer2* Normalizer2::getNFKDInstance() {
 }
 
 $String* Normalizer2::normalize($CharSequence* src) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($String, src)) {
 		int32_t spanLength = spanQuickCheckYes(src);
 		if (spanLength == $nc(src)->length()) {

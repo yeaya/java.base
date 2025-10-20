@@ -88,6 +88,7 @@ void ProcessHandleImpl$1::init$(int64_t val$pid, bool val$shouldReap, $ProcessHa
 }
 
 void ProcessHandleImpl$1::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t exitValue = $ProcessHandleImpl::waitForProcessExit0(this->val$pid, this->val$shouldReap);
 	if (exitValue == -2) {
 		int64_t sleep = 300;

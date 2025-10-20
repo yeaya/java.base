@@ -101,6 +101,7 @@ void AdaptServerSocket::startClient(int32_t port, int32_t dally) {
 
 void AdaptServerSocket::test(int32_t clientDally, int32_t timeout, bool shouldTimeout) {
 	$init(AdaptServerSocket);
+	$useLocalCurrentObjectStackCache();
 	bool needClient = !shouldTimeout;
 	$assignStatic(AdaptServerSocket::client, nullptr);
 	$assignStatic(AdaptServerSocket::clientException, nullptr);

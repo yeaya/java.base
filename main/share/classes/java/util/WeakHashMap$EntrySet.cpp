@@ -100,6 +100,7 @@ $Iterator* WeakHashMap$EntrySet::iterator() {
 }
 
 bool WeakHashMap$EntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {
@@ -124,6 +125,7 @@ void WeakHashMap$EntrySet::clear() {
 }
 
 $List* WeakHashMap$EntrySet::deepCopy() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, size()));
 	{
 		$var($Iterator, i$, this->iterator());

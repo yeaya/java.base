@@ -82,6 +82,7 @@ $Object* allocate$MirroredBreakIterator($Class* clazz) {
 }
 
 void MirroredBreakIterator::init$($BreakIterator* bi) {
+	$useLocalCurrentObjectStackCache();
 	$BreakIterator::init$();
 	$var($List, b, $new($ArrayList));
 	int32_t i = $nc(bi)->first();
@@ -141,6 +142,7 @@ int32_t MirroredBreakIterator::previous() {
 }
 
 int32_t MirroredBreakIterator::following(int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	validateOffset(offset);
 	for (int32_t b = 0; b <= lastBoundary(); ++b) {
 		int32_t i = $nc(($cast($Integer, $($nc(this->boundaries)->get(b)))))->intValue();
@@ -152,6 +154,7 @@ int32_t MirroredBreakIterator::following(int32_t offset) {
 }
 
 int32_t MirroredBreakIterator::preceding(int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	validateOffset(offset);
 	for (int32_t b = lastBoundary(); b >= 0; --b) {
 		int32_t i = $nc(($cast($Integer, $($nc(this->boundaries)->get(b)))))->intValue();
@@ -189,6 +192,7 @@ int32_t MirroredBreakIterator::changeIndices(int32_t newCharIndex, int32_t newBo
 }
 
 int32_t MirroredBreakIterator::changeIndices(int32_t newBoundary) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return changeIndices($nc(($cast($Integer, $($nc(this->boundaries)->get(newBoundary)))))->intValue(), newBoundary);
 	} catch ($IndexOutOfBoundsException&) {
@@ -199,6 +203,7 @@ int32_t MirroredBreakIterator::changeIndices(int32_t newBoundary) {
 }
 
 void MirroredBreakIterator::validateOffset(int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = offset < $nc(($cast($Integer, $($nc(this->boundaries)->get(0)))))->intValue();
 	if (var$0 || offset > $nc(($cast($Integer, $($nc(this->boundaries)->get(lastBoundary())))))->intValue()) {
 		$throwNew($IllegalArgumentException);

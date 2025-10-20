@@ -48,6 +48,7 @@ $Class* ExceptionHidingLoader::findClass($String* name) {
 
 void ExceptionHidingLoader::main($StringArray* args) {
 	$init(ExceptionHidingLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool exception = false;
 	try {

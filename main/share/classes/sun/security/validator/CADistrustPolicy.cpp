@@ -112,6 +112,7 @@ void CADistrustPolicy::init$($String* $enum$name, int32_t $enum$ordinal) {
 
 $EnumSet* CADistrustPolicy::parseProperty() {
 	$init(CADistrustPolicy);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, property, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CADistrustPolicy$2)))));
 	$var($EnumSet, set, $EnumSet::noneOf(CADistrustPolicy::class$));

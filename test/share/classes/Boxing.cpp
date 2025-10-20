@@ -89,6 +89,7 @@ void Boxing::main($StringArray* args) {
 }
 
 void Boxing::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Random, random, $new($Random, 42));
 	$load($Boxing$Test);
@@ -109,6 +110,7 @@ void Boxing::run() {
 }
 
 $String* Boxing::identityToString(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc($of(obj))->toString()), "@"_s}));
 	return $concat(var$0, $$str($System::identityHashCode(obj)));
 }

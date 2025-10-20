@@ -77,6 +77,7 @@ void URL$DefaultFactory::init$() {
 }
 
 $URLStreamHandler* URL$DefaultFactory::createURLStreamHandler($String* protocol) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($String, s49437$, protocol);

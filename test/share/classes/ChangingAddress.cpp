@@ -52,6 +52,7 @@ void ChangingAddress::init$() {
 }
 
 void ChangingAddress::check($DatagramSocket* ds, $DatagramChannel* dc) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, expected, $nc(ds)->getLocalAddress());
 	$var($InetAddress, actual, $nc($($nc(dc)->socket()))->getLocalAddress());
 	bool var$1 = $nc(expected)->isAnyLocalAddress();
@@ -62,6 +63,7 @@ void ChangingAddress::check($DatagramSocket* ds, $DatagramChannel* dc) {
 }
 
 void ChangingAddress::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
 	$var($SocketAddress, remote, $new($InetSocketAddress, lh, 1234));
 	$var($DatagramSocket, ds, nullptr);

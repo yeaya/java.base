@@ -295,6 +295,7 @@ $Object* SSLSocketImpl::clone() {
 bool SSLSocketImpl::trustNameService = false;
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$();
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -308,6 +309,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext) {
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $SSLConfiguration* sslConfig) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$();
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -322,6 +324,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext, $SSLConfiguration* sslCon
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $String* peerHost, int32_t peerPort) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$();
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -338,6 +341,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext, $String* peerHost, int32_
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $InetAddress* address, int32_t peerPort) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$();
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -353,6 +357,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext, $InetAddress* address, in
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $String* peerHost, int32_t peerPort, $InetAddress* localAddr, int32_t localPort) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$();
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -370,6 +375,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext, $String* peerHost, int32_
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $InetAddress* peerAddr, int32_t peerPort, $InetAddress* localAddr, int32_t localPort) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$();
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -386,6 +392,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext, $InetAddress* peerAddr, i
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $Socket* sock, $InputStream* consumed, bool autoClose) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$(sock, consumed);
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -404,6 +411,7 @@ void SSLSocketImpl::init$($SSLContextImpl* sslContext, $Socket* sock, $InputStre
 }
 
 void SSLSocketImpl::init$($SSLContextImpl* sslContext, $Socket* sock, $String* peerHost, int32_t port, bool autoClose) {
+	$useLocalCurrentObjectStackCache();
 	$BaseSSLSocketImpl::init$(sock);
 	$set(this, appInput, $new($SSLSocketImpl$AppInputStream, this));
 	$set(this, appOutput, $new($SSLSocketImpl$AppOutputStream, this));
@@ -438,6 +446,7 @@ $StringArray* SSLSocketImpl::getSupportedCipherSuites() {
 }
 
 $StringArray* SSLSocketImpl::getEnabledCipherSuites() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -484,6 +493,7 @@ $StringArray* SSLSocketImpl::getSupportedProtocols() {
 }
 
 $StringArray* SSLSocketImpl::getEnabledProtocols() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -529,6 +539,7 @@ void SSLSocketImpl::setEnabledProtocols($StringArray* protocols) {
 }
 
 $SSLSession* SSLSocketImpl::getSession() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		ensureNegotiated(false);
 	} catch ($IOException&) {
@@ -543,6 +554,7 @@ $SSLSession* SSLSocketImpl::getSession() {
 }
 
 $SSLSession* SSLSocketImpl::getHandshakeSession() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -612,6 +624,7 @@ void SSLSocketImpl::startHandshake() {
 }
 
 void SSLSocketImpl::startHandshake(bool resumable) {
+	$useLocalCurrentObjectStackCache();
 	if (!this->isConnected$) {
 		$throwNew($SocketException, "Socket is not connected"_s);
 	}
@@ -839,6 +852,7 @@ bool SSLSocketImpl::isClosed() {
 }
 
 void SSLSocketImpl::close() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		return;
 	}
@@ -919,6 +933,7 @@ void SSLSocketImpl::duplexCloseOutput() {
 }
 
 void SSLSocketImpl::closeNotify(bool useUserCanceled) {
+	$useLocalCurrentObjectStackCache();
 	int32_t linger = getSoLinger();
 	if (linger >= 0) {
 		bool interrupted = $Thread::interrupted();
@@ -1018,6 +1033,7 @@ void SSLSocketImpl::duplexCloseInput() {
 }
 
 void SSLSocketImpl::bruteForceCloseInput(bool hasCloseReceipt) {
+	$useLocalCurrentObjectStackCache();
 	if (hasCloseReceipt) {
 		{
 			$var($Throwable, var$0, nullptr);
@@ -1080,6 +1096,7 @@ void SSLSocketImpl::shutdownInput() {
 }
 
 void SSLSocketImpl::shutdownInput(bool checkCloseNotify) {
+	$useLocalCurrentObjectStackCache();
 	if (isInputShutdown()) {
 		return;
 	}
@@ -1142,6 +1159,7 @@ bool SSLSocketImpl::isOutputShutdown() {
 }
 
 $InputStream* SSLSocketImpl::getInputStream() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1207,6 +1225,7 @@ void SSLSocketImpl::ensureNegotiated(bool resumable) {
 }
 
 $OutputStream* SSLSocketImpl::getOutputStream() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1242,6 +1261,7 @@ $OutputStream* SSLSocketImpl::getOutputStream() {
 }
 
 $SSLParameters* SSLSocketImpl::getSSLParameters() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1287,6 +1307,7 @@ void SSLSocketImpl::setSSLParameters($SSLParameters* params) {
 }
 
 $String* SSLSocketImpl::getApplicationProtocol() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1312,6 +1333,7 @@ $String* SSLSocketImpl::getApplicationProtocol() {
 }
 
 $String* SSLSocketImpl::getHandshakeApplicationProtocol() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1356,6 +1378,7 @@ void SSLSocketImpl::setHandshakeApplicationProtocolSelector($BiFunction* selecto
 }
 
 $BiFunction* SSLSocketImpl::getHandshakeApplicationProtocolSelector() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1381,6 +1404,7 @@ $BiFunction* SSLSocketImpl::getHandshakeApplicationProtocolSelector() {
 }
 
 int32_t SSLSocketImpl::readHandshakeRecord() {
+	$useLocalCurrentObjectStackCache();
 	while (!$nc(this->conContext)->isInboundClosed()) {
 		try {
 			$var($Plaintext, plainText, decode(nullptr));
@@ -1406,6 +1430,7 @@ int32_t SSLSocketImpl::readHandshakeRecord() {
 }
 
 $ByteBuffer* SSLSocketImpl::readApplicationRecord($ByteBuffer* buffer$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, buffer, buffer$renamed);
 	while (!$nc(this->conContext)->isInboundClosed()) {
 		$nc(buffer)->clear();
@@ -1444,6 +1469,7 @@ $ByteBuffer* SSLSocketImpl::readApplicationRecord($ByteBuffer* buffer$renamed) {
 }
 
 $Plaintext* SSLSocketImpl::decode($ByteBuffer* destination) {
+	$useLocalCurrentObjectStackCache();
 	$var($Plaintext, plainText, nullptr);
 	try {
 		if (destination == nullptr) {
@@ -1479,6 +1505,7 @@ void SSLSocketImpl::tryKeyUpdate() {
 }
 
 void SSLSocketImpl::tryNewSessionTicket() {
+	$useLocalCurrentObjectStackCache();
 	bool var$1 = !$nc($nc(this->conContext)->sslConfig)->isClientMode && $nc($nc(this->conContext)->protocolVersion)->useTLS13PlusSpec() && $nc(this->conContext)->handshakeContext == nullptr;
 	bool var$0 = var$1 && !$nc(this->conContext)->isOutboundClosed();
 	if (var$0 && !$nc(this->conContext)->isInboundClosed() && !$nc(this->conContext)->isBroken) {
@@ -1492,6 +1519,7 @@ void SSLSocketImpl::tryNewSessionTicket() {
 }
 
 void SSLSocketImpl::doneConnect() {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->socketLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1520,6 +1548,7 @@ void SSLSocketImpl::doneConnect() {
 }
 
 void SSLSocketImpl::useImplicitHost(bool useNameService) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, inetAddress, getInetAddress());
 	if (inetAddress == nullptr) {
 		return;
@@ -1559,6 +1588,7 @@ void SSLSocketImpl::setHost($String* host) {
 }
 
 void SSLSocketImpl::handleException($Exception* cause) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 		$SSLLogger::warning("handling exception"_s, $$new($ObjectArray, {$of(cause)}));
@@ -1628,6 +1658,7 @@ bool SSLSocketImpl::useDelegatedTask() {
 }
 
 void SSLSocketImpl::shutdown() {
+	$useLocalCurrentObjectStackCache();
 	if (!isClosed()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -1650,6 +1681,7 @@ void SSLSocketImpl::shutdown() {
 }
 
 $String* SSLSocketImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({"SSLSocket[hostname="_s, $(getPeerHost()), ", port="_s}));
 	$var($String, var$2, $$concat(var$3, $$str(getPeerPort())));
 	$var($String, var$1, $$concat(var$2, ", "));
@@ -1658,6 +1690,7 @@ $String* SSLSocketImpl::toString() {
 }
 
 void SSLSocketImpl::closeSocket(bool selfInitiated) {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 		$SSLLogger::fine($$str({"close the SSL connection "_s, (selfInitiated ? "(initiative)"_s : "(passive)"_s)}), $$new($ObjectArray, 0));
@@ -1699,6 +1732,7 @@ void SSLSocketImpl::closeSocket(bool selfInitiated) {
 }
 
 void SSLSocketImpl::waitForClose() {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
 		$SSLLogger::fine("wait for close_notify or alert"_s, $$new($ObjectArray, 0));

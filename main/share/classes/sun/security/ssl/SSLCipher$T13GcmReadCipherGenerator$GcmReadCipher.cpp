@@ -123,6 +123,7 @@ $Object* allocate$SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher($Class* claz
 }
 
 void SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $SSLCipher* sslCipher, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$SSLCipher$SSLReadCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
 	this->tagSize = $nc(sslCipher)->tagSize;
@@ -142,6 +143,7 @@ void SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher::init$($Authenticator* au
 }
 
 $Plaintext* SSLCipher$T13GcmReadCipherGenerator$GcmReadCipher::decrypt(int8_t contentType, $ByteBuffer* bb, $bytes* sequence) {
+	$useLocalCurrentObjectStackCache();
 	$init($ContentType);
 	if (contentType == $ContentType::CHANGE_CIPHER_SPEC->id) {
 		$init($ProtocolVersion);

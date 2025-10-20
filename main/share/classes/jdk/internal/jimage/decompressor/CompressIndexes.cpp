@@ -77,6 +77,7 @@ void CompressIndexes::init$() {
 }
 
 $List* CompressIndexes::decompressFlow($bytes* values) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, lst, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(values)->length; i += getHeaderLength($nc(values)->get(i))) {
 		int32_t decompressed = decompress(values, i);

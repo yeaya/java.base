@@ -151,6 +151,7 @@ $Object* allocate$RSAServerKeyExchange$RSAServerKeyExchangeMessage($Class* clazz
 }
 
 void RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $X509Authentication$X509Possession* x509Possession, $RSAKeyExchange$EphemeralRSAPossession* rsaPossession) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	$var($RSAPublicKey, publicKey, $nc(rsaPossession)->popPublicKey);
@@ -180,6 +181,7 @@ void RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$($HandshakeContext* 
 }
 
 void RSAServerKeyExchange$RSAServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	$set(this, modulus, $Record::getBytes16(m));
@@ -241,6 +243,7 @@ void RSAServerKeyExchange$RSAServerKeyExchangeMessage::send($HandshakeOutStream*
 }
 
 $String* RSAServerKeyExchange$RSAServerKeyExchangeMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"RSA ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"rsa_modulus\": \'{\'\n{0}\n    \'}\',\n    \"rsa_exponent\": \'{\'\n{1}\n    \'}\'\n  \'}\',\n  \"digital signature\":  \'{\'\n    \"signature\": \'{\'\n{2}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

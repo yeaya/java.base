@@ -72,6 +72,7 @@ void EnumConstructorAnnotation::init$() {
 
 void EnumConstructorAnnotation::main($StringArray* args) {
 	$load(EnumConstructorAnnotation);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($EnumConstructorAnnotation$SampleEnum);
 	$var($Constructor, c, $nc($($EnumConstructorAnnotation$SampleEnum::class$->getDeclaredConstructors()))->get(0));

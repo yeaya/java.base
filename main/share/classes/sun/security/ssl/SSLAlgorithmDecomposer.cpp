@@ -219,6 +219,7 @@ $Set* SSLAlgorithmDecomposer::decomposes($CipherSuite$KeyExchange* keyExchange) 
 }
 
 $Set* SSLAlgorithmDecomposer::decomposes($SSLCipher* bulkCipher) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, components, $new($HashSet));
 	if ($nc(bulkCipher)->transformation != nullptr) {
 		components->addAll($($AlgorithmDecomposer::decompose(bulkCipher->transformation)));
@@ -336,6 +337,7 @@ $Set* SSLAlgorithmDecomposer::decomposes($CipherSuite$HashAlg* hashAlg) {
 }
 
 $Set* SSLAlgorithmDecomposer::decompose($CipherSuite$KeyExchange* keyExchange, $SSLCipher* cipher, $CipherSuite$MacAlg* macAlg, $CipherSuite$HashAlg* hashAlg) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, components, $new($HashSet));
 	if (keyExchange != nullptr) {
 		components->addAll($(decomposes(keyExchange)));

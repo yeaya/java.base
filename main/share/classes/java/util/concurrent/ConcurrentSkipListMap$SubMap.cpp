@@ -326,6 +326,7 @@ $ConcurrentSkipListMap$Node* ConcurrentSkipListMap$SubMap::hiNode($Comparator* c
 }
 
 $Object* ConcurrentSkipListMap$SubMap::lowestKey() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	$var($ConcurrentSkipListMap$Node, n, loNode(cmp));
 	if (isBeforeEnd(n, cmp)) {
@@ -336,6 +337,7 @@ $Object* ConcurrentSkipListMap$SubMap::lowestKey() {
 }
 
 $Object* ConcurrentSkipListMap$SubMap::highestKey() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	$var($ConcurrentSkipListMap$Node, n, hiNode(cmp));
 	if (n != nullptr) {
@@ -348,6 +350,7 @@ $Object* ConcurrentSkipListMap$SubMap::highestKey() {
 }
 
 $Map$Entry* ConcurrentSkipListMap$SubMap::lowestEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	for (;;) {
 		$var($ConcurrentSkipListMap$Node, n, nullptr);
@@ -362,6 +365,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::lowestEntry() {
 }
 
 $Map$Entry* ConcurrentSkipListMap$SubMap::highestEntry() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	for (;;) {
 		$var($ConcurrentSkipListMap$Node, n, nullptr);
@@ -376,6 +380,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::highestEntry() {
 }
 
 $Map$Entry* ConcurrentSkipListMap$SubMap::removeLowest() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	for (;;) {
 		$var($ConcurrentSkipListMap$Node, n, nullptr);
@@ -392,6 +397,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::removeLowest() {
 }
 
 $Map$Entry* ConcurrentSkipListMap$SubMap::removeHighest() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	for (;;) {
 		$var($ConcurrentSkipListMap$Node, n, nullptr);
@@ -408,6 +414,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::removeHighest() {
 }
 
 $Map$Entry* ConcurrentSkipListMap$SubMap::getNearEntry(Object$* key, int32_t rel) {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	if (this->isDescending) {
 		if (((int32_t)(rel & (uint32_t)2)) == 0) {
@@ -431,6 +438,7 @@ $Map$Entry* ConcurrentSkipListMap$SubMap::getNearEntry(Object$* key, int32_t rel
 }
 
 $Object* ConcurrentSkipListMap$SubMap::getNearKey(Object$* key, int32_t rel) {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	if (this->isDescending) {
 		if (((int32_t)(rel & (uint32_t)2)) == 0) {
@@ -496,6 +504,7 @@ $Object* ConcurrentSkipListMap$SubMap::remove(Object$* key) {
 }
 
 int32_t ConcurrentSkipListMap$SubMap::size() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	int64_t count = 0;
 	{
@@ -510,11 +519,13 @@ int32_t ConcurrentSkipListMap$SubMap::size() {
 }
 
 bool ConcurrentSkipListMap$SubMap::isEmpty() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	return !isBeforeEnd($(loNode(cmp)), cmp);
 }
 
 bool ConcurrentSkipListMap$SubMap::containsValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (value == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -532,6 +543,7 @@ bool ConcurrentSkipListMap$SubMap::containsValue(Object$* value) {
 }
 
 void ConcurrentSkipListMap$SubMap::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->m)->comparator$);
 	{
 		$var($ConcurrentSkipListMap$Node, n, loNode(cmp));
@@ -573,6 +585,7 @@ $Comparator* ConcurrentSkipListMap$SubMap::comparator() {
 }
 
 ConcurrentSkipListMap$SubMap* ConcurrentSkipListMap$SubMap::newSubMap(Object$* fromKey$renamed, bool fromInclusive, Object$* toKey$renamed, bool toInclusive) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, toKey, toKey$renamed);
 	$var($Object, fromKey, fromKey$renamed);
 	$var($Comparator, cmp, $nc(this->m)->comparator$);

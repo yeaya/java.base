@@ -102,6 +102,7 @@ void Shutdown::main($StringArray* args) {
 }
 
 bool Shutdown::supported() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($StandardProtocolFamily);
 		$nc($($SocketChannel::open(static_cast<$ProtocolFamily*>($StandardProtocolFamily::UNIX))))->close();
@@ -122,6 +123,7 @@ void Shutdown::assertTrue(bool condition, $String* error) {
 }
 
 void Shutdown::runTest() {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, server, nullptr);
 	$var($SocketChannel, client, nullptr);
 	$var($SocketChannel, acceptee, nullptr);

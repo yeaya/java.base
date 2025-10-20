@@ -90,6 +90,7 @@ void NoAccess::init$() {
 
 void NoAccess::main($StringArray* args) {
 	$init(NoAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -137,6 +138,7 @@ $Class* NoAccess::findClass($Module* module, $String* cn) {
 
 $Class* NoAccess::findClass($Module* module, $String* cn, $Permission* perm) {
 	$init(NoAccess);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* c = $Class::forName(module, cn);
@@ -158,6 +160,7 @@ $Class* NoAccess::findClass($Module* module, $String* cn, $Permission* perm) {
 }
 
 void clinit$NoAccess($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(NoAccess::M3, NoAccess::class$->getModule());
 	$assignStatic(NoAccess::MODS_DIR1, $Paths::get("mods1"_s, $$new($StringArray, 0)));
 	$assignStatic(NoAccess::MODS_DIR2, $Paths::get("mods2"_s, $$new($StringArray, 0)));

@@ -82,6 +82,7 @@ $WritableByteChannel* Transfers$UserTarget::channel() {
 }
 
 void Transfers$UserTarget::verify() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->dst)->remaining() != 1) {
 		$throwNew($Transfers$Failure, $$str({"Destination has "_s, $$str($nc(this->dst)->remaining()), " bytes remaining (expected 1)"_s}));
 	}

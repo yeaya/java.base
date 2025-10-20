@@ -93,6 +93,7 @@ void ConcurrentLinkedDeque$CLDSpliterator::init$($ConcurrentLinkedDeque* this$0)
 }
 
 $Spliterator* ConcurrentLinkedDeque$CLDSpliterator::trySplit() {
+	$useLocalCurrentObjectStackCache();
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	$var($ConcurrentLinkedDeque$Node, q, nullptr);
 	if (($assign(p, current())) == nullptr || ($assign(q, $nc(p)->next)) == nullptr) {
@@ -119,6 +120,7 @@ $Spliterator* ConcurrentLinkedDeque$CLDSpliterator::trySplit() {
 }
 
 void ConcurrentLinkedDeque$CLDSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {
@@ -138,6 +140,7 @@ void ConcurrentLinkedDeque$CLDSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool ConcurrentLinkedDeque$CLDSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	if (($assign(p, current())) != nullptr) {

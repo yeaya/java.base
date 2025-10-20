@@ -135,6 +135,7 @@ void ProviderList$ServiceList::addService($Provider$Service* s) {
 }
 
 $Provider$Service* ProviderList$ServiceList::tryGet(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($Provider, p, nullptr);
 	$init($ProviderList);
 	if ($ProviderList::preferredPropList != nullptr && this->preferredList == nullptr) {

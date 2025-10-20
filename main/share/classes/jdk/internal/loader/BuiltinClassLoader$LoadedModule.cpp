@@ -88,6 +88,7 @@ $Object* allocate$BuiltinClassLoader$LoadedModule($Class* clazz) {
 }
 
 void BuiltinClassLoader$LoadedModule::init$($BuiltinClassLoader* loader, $ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	$set(this, uri, $cast($URI, $nc($($nc(mref)->location()))->orElse(nullptr)));
 	if (this->uri != nullptr && !"jrt"_s->equals($($nc(this->uri)->getScheme()))) {
@@ -119,6 +120,7 @@ $URL* BuiltinClassLoader$LoadedModule::codeSourceURL() {
 }
 
 $URL* BuiltinClassLoader$LoadedModule::createURL($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $nc(uri)->toURL());

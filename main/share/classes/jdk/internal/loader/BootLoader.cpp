@@ -241,6 +241,7 @@ $Class* BootLoader::loadClass($Module* module, $String* name) {
 
 void BootLoader::loadLibrary($String* name) {
 	$init(BootLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if ($System::getSecurityManager() == nullptr) {
 		$nc($(BootLoader::getNativeLibraries()))->loadLibrary(name);
@@ -276,6 +277,7 @@ $Package* BootLoader::definePackage($Class* c) {
 
 $Package* BootLoader::getDefinedPackage($String* pn) {
 	$init(BootLoader);
+	$useLocalCurrentObjectStackCache();
 	$var($Package, pkg, $nc($($ClassLoaders::bootLoader()))->getDefinedPackage(pn));
 	if (pkg == nullptr) {
 		$var($String, location, getSystemPackageLocation($($nc(pn)->replace(u'.', u'/'))));
@@ -288,6 +290,7 @@ $Package* BootLoader::getDefinedPackage($String* pn) {
 
 $Stream* BootLoader::packages() {
 	$init(BootLoader);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($Arrays::stream($(getSystemPackageNames()))))->map(static_cast<$Function*>($$new(BootLoader$$Lambda$lambda$packages$0)));
 }
 

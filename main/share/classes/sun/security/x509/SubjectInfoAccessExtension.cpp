@@ -132,6 +132,7 @@ void SubjectInfoAccessExtension::init$($List* accessDescriptions) {
 }
 
 void SubjectInfoAccessExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::SubjectInfoAccess_Id);
@@ -161,6 +162,7 @@ $String* SubjectInfoAccessExtension::getName() {
 }
 
 void SubjectInfoAccessExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -208,6 +210,7 @@ $Enumeration* SubjectInfoAccessExtension::getElements() {
 }
 
 void SubjectInfoAccessExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->accessDescriptions)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 	} else {

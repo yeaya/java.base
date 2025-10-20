@@ -139,6 +139,7 @@ void ReflectUtil::privateCheckPackageAccess($SecurityManager* s, $Class* clazz) 
 
 void ReflectUtil::checkPackageAccess($String* name) {
 	$init(ReflectUtil);
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, s, $System::getSecurityManager());
 	if (s != nullptr) {
 		$var($String, cname, $nc(name)->replace(u'/', u'.'));
@@ -217,6 +218,7 @@ void ReflectUtil::privateCheckProxyPackageAccess($SecurityManager* s, $Class* cl
 
 void ReflectUtil::checkProxyPackageAccess($ClassLoader* ccl, $ClassArray* interfaces) {
 	$init(ReflectUtil);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -247,6 +249,7 @@ bool ReflectUtil::isNonPublicProxyClass($Class* cls) {
 
 void ReflectUtil::checkProxyMethod(Object$* proxy, $Method* method) {
 	$init(ReflectUtil);
+	$useLocalCurrentObjectStackCache();
 	if (proxy == nullptr || !$Proxy::isProxyClass($nc($of(proxy))->getClass())) {
 		$throwNew($IllegalArgumentException, "Not a Proxy instance"_s);
 	}

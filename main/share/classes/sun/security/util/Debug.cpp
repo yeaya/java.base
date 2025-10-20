@@ -186,6 +186,7 @@ void Debug::println($String* message) {
 }
 
 void Debug::println(Object$* obj, $String* message) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$2, $$str({this->prefix, " ["_s, $($nc($of(obj))->getClass()->getSimpleName()), "@"_s}));
 	$var($String, var$1, $$concat(var$2, $$str($System::identityHashCode(obj))));
@@ -211,6 +212,7 @@ $PrintStream* Debug::getPrintStream() {
 
 $String* Debug::toHexString($BigInteger* b) {
 	$init(Debug);
+	$useLocalCurrentObjectStackCache();
 	$var($String, hexValue, $nc(b)->toString(16));
 	$var($StringBuilder, sb, $new($StringBuilder, $nc(hexValue)->length() * 2));
 	if ($nc(hexValue)->startsWith("-"_s)) {
@@ -239,6 +241,7 @@ $String* Debug::toHexString($BigInteger* b) {
 
 $String* Debug::marshal($String* args) {
 	$init(Debug);
+	$useLocalCurrentObjectStackCache();
 	if (args != nullptr) {
 		$var($StringBuilder, target, $new($StringBuilder));
 		$var($StringBuffer, source, $new($StringBuffer, args));

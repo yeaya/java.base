@@ -54,6 +54,7 @@ void Bug4990596::init$() {
 }
 
 void Bug4990596::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$$new($DecimalFormat)->format($$new($Bug4990596$MutableInteger, 0));
 }
 

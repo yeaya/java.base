@@ -71,6 +71,7 @@ void ScatteringRead::main($StringArray* args) {
 
 void ScatteringRead::scScatter() {
 	$init(ScatteringRead);
+	$useLocalCurrentObjectStackCache();
 	$var($Pipe, p, $Pipe::open());
 	$var($Pipe$SinkChannel, sink, $nc(p)->sink());
 	$var($Pipe$SourceChannel, source, p->source());

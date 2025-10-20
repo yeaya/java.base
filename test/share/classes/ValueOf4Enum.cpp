@@ -149,6 +149,7 @@ void ValueOf4Enum::main($StringArray* args) {
 
 void ValueOf4Enum::test($Class* enumClass) {
 	$init(ValueOf4Enum);
+	$useLocalCurrentObjectStackCache();
 	$var($Set, s, $EnumSet::allOf(enumClass));
 	test(enumClass, s);
 	{
@@ -165,6 +166,7 @@ void ValueOf4Enum::test($Class* enumClass) {
 
 void ValueOf4Enum::test($Class* enumClass, $Set* s) {
 	$init(ValueOf4Enum);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($String);
 	$var($Method, valueOf, $nc(enumClass)->getDeclaredMethod("valueOf"_s, $$new($ClassArray, {$String::class$})));
@@ -183,6 +185,7 @@ void ValueOf4Enum::test($Class* enumClass, $Set* s) {
 
 void ValueOf4Enum::testMissingException() {
 	$init(ValueOf4Enum);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$load($ValueOf4Enum$Specialized);
 		$Enum::valueOf($ValueOf4Enum$Specialized::class$, "BAZ"_s);

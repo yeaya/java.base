@@ -113,6 +113,7 @@ Collectors$1PairBox* Collectors$1PairBox::combine(Collectors$1PairBox* other) {
 }
 
 $Object* Collectors$1PairBox::get() {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, r1, $nc(this->val$c1Finisher)->apply(this->left));
 	$var($Object, r2, $nc(this->val$c2Finisher)->apply(this->right));
 	return $of($nc(this->val$merger)->apply(r1, r2));

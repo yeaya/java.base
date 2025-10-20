@@ -63,6 +63,7 @@ void DESKeyFactory::init$() {
 }
 
 $SecretKey* DESKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, encoded, nullptr);
 		if ($instanceOf($DESKeySpec, keySpec)) {
@@ -100,6 +101,7 @@ $SecretKey* DESKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* DESKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool var$0 = ($instanceOf($SecretKey, key)) && ($nc($($nc(key)->getAlgorithm()))->equalsIgnoreCase("DES"_s));
 		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {
@@ -142,6 +144,7 @@ $KeySpec* DESKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpec) {
 }
 
 $SecretKey* DESKeyFactory::engineTranslateKey($SecretKey* key) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool var$0 = (key != nullptr) && ($nc($(key->getAlgorithm()))->equalsIgnoreCase("DES"_s));
 		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {

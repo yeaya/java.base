@@ -68,6 +68,7 @@ $UnixFileSystem* MacOSXFileSystemProvider::newFileSystem($String* dir) {
 }
 
 $FileTypeDetector* MacOSXFileSystemProvider::getFileTypeDetector() {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, userMimeTypes, $Path::of($($StaticProperty::userHome()), $$new($StringArray, {".mime.types"_s})));
 	return chain($$new($AbstractFileTypeDetectorArray, {
 		static_cast<$AbstractFileTypeDetector*>($$new($MimeTypesFileTypeDetector, userMimeTypes)),

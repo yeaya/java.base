@@ -75,6 +75,7 @@ void One$Test::init$($bytes* in, $String* expect) {
 }
 
 void One$Test::go() {
+	$useLocalCurrentObjectStackCache();
 	read();
 	if (!$nc(this->expect)->equals($($nc(this->sb)->toString()))) {
 		$throwNew($Exception, $$str({"Expected "_s, this->expect, ", got "_s, $($nc(this->sb)->toString())}));

@@ -46,6 +46,7 @@ void SkipEOL::init$() {
 }
 
 void SkipEOL::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, data, $new($bytes, {
 		(int8_t)12,
 		(int8_t)13,

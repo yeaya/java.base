@@ -83,6 +83,7 @@ void ITLConstructor$AnotherRunnable::init$(int32_t threadId, $ints* x, bool inhe
 }
 
 void ITLConstructor$AnotherRunnable::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($ITLConstructor);
 	int32_t itlValue = $nc(($cast($Integer, $($nc($ITLConstructor::n)->get()))))->intValue();
 	if (this->threadId < 10 - 1) {

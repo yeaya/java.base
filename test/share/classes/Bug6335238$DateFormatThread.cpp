@@ -67,6 +67,7 @@ void Bug6335238$DateFormatThread::init$($Bug6335238* this$0) {
 }
 
 void Bug6335238$DateFormatThread::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	$init($Bug6335238);
 	while (!$Bug6335238::stopped) {

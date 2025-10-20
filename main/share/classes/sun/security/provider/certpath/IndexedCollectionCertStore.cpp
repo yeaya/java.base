@@ -116,6 +116,7 @@ void IndexedCollectionCertStore::init$($CertStoreParameters* params) {
 }
 
 void IndexedCollectionCertStore::buildIndex($Collection* coll) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, certSubjects, $new($HashMap));
 	$set(this, crlIssuers, $new($HashMap));
 	$set(this, otherCertificates, nullptr);
@@ -153,6 +154,7 @@ void IndexedCollectionCertStore::buildIndex($Collection* coll) {
 }
 
 void IndexedCollectionCertStore::indexCertificate($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, subject, $nc(cert)->getSubjectX500Principal());
 	$var($Object, oldEntry, $nc(this->certSubjects)->put(subject, cert));
 	if (oldEntry != nullptr) {
@@ -175,6 +177,7 @@ void IndexedCollectionCertStore::indexCertificate($X509Certificate* cert) {
 }
 
 void IndexedCollectionCertStore::indexCRL($X509CRL* crl) {
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, issuer, $nc(crl)->getIssuerX500Principal());
 	$var($Object, oldEntry, $nc(this->crlIssuers)->put(issuer, crl));
 	if (oldEntry != nullptr) {
@@ -197,6 +200,7 @@ void IndexedCollectionCertStore::indexCRL($X509CRL* crl) {
 }
 
 $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* selector) {
+	$useLocalCurrentObjectStackCache();
 	if (selector == nullptr) {
 		$var($Set, matches, $new($HashSet));
 		matchX509Certs($$new($X509CertSelector), matches);
@@ -265,6 +269,7 @@ $Collection* IndexedCollectionCertStore::engineGetCertificates($CertSelector* se
 }
 
 void IndexedCollectionCertStore::matchX509Certs($CertSelector* selector, $Collection* matches) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(this->certSubjects)->values()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -295,6 +300,7 @@ void IndexedCollectionCertStore::matchX509Certs($CertSelector* selector, $Collec
 }
 
 $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
+	$useLocalCurrentObjectStackCache();
 	if (selector == nullptr) {
 		$var($Set, matches, $new($HashSet));
 		matchX509CRLs($$new($X509CRLSelector), matches);
@@ -361,6 +367,7 @@ $Collection* IndexedCollectionCertStore::engineGetCRLs($CRLSelector* selector) {
 }
 
 void IndexedCollectionCertStore::matchX509CRLs($CRLSelector* selector, $Collection* matches) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(this->crlIssuers)->values()))->iterator());
 		for (; $nc(i$)->hasNext();) {

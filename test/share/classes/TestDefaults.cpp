@@ -44,6 +44,7 @@ void TestDefaults::init$() {
 }
 
 void TestDefaults::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($MulticastSocket, mc, $new($MulticastSocket));
 	int32_t ttl = mc->getTimeToLive();
 	$var($InetAddress, ia, mc->getInterface());

@@ -263,6 +263,7 @@ void Runtime$Version::init$($List* unmodifiableListOfVersions, $Optional* pre, $
 
 Runtime$Version* Runtime$Version::parse($String* s) {
 	$init(Runtime$Version);
+	$useLocalCurrentObjectStackCache();
 	if (s == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -392,6 +393,7 @@ int32_t Runtime$Version::compare(Runtime$Version* obj, bool ignoreOpt) {
 }
 
 int32_t Runtime$Version::compareVersion(Runtime$Version* obj) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = $nc(this->version$)->size();
 	int32_t oSize = $nc($($nc(obj)->version()))->size();
 	int32_t min = $Math::min(size, oSize);
@@ -406,6 +408,7 @@ int32_t Runtime$Version::compareVersion(Runtime$Version* obj) {
 }
 
 int32_t Runtime$Version::comparePre(Runtime$Version* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, oPre, $nc(obj)->pre());
 	if (!$nc(this->pre$)->isPresent()) {
 		if ($nc(oPre)->isPresent()) {
@@ -427,6 +430,7 @@ int32_t Runtime$Version::comparePre(Runtime$Version* obj) {
 }
 
 int32_t Runtime$Version::compareBuild(Runtime$Version* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, oBuild, $nc(obj)->build());
 	if ($nc(oBuild)->isPresent()) {
 		return ($nc(this->build$)->isPresent() ? $nc(($cast($Integer, $($nc(this->build$)->get()))))->compareTo($cast($Integer, $(oBuild->get()))) : -1);
@@ -437,6 +441,7 @@ int32_t Runtime$Version::compareBuild(Runtime$Version* obj) {
 }
 
 int32_t Runtime$Version::compareOptional(Runtime$Version* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, oOpt, $nc(obj)->optional());
 	if (!$nc(this->optional$)->isPresent()) {
 		if ($nc(oOpt)->isPresent()) {
@@ -452,6 +457,7 @@ int32_t Runtime$Version::compareOptional(Runtime$Version* obj) {
 }
 
 $String* Runtime$Version::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, $cast($String, $($nc($($nc($($nc(this->version$)->stream()))->map(static_cast<$Function*>($$new(Runtime$Version$$Lambda$toString)))))->collect($($Collectors::joining("."_s)))))));
 	$nc(this->pre$)->ifPresent(static_cast<$Consumer*>($$new(Runtime$Version$$Lambda$lambda$toString$0$1, sb)));
 	if ($nc(this->build$)->isPresent()) {
@@ -467,6 +473,7 @@ $String* Runtime$Version::toString() {
 }
 
 bool Runtime$Version::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	bool ret = equalsIgnoreOptional(obj);
 	if (!ret) {
 		return false;
@@ -476,6 +483,7 @@ bool Runtime$Version::equals(Object$* obj) {
 }
 
 bool Runtime$Version::equalsIgnoreOptional(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}

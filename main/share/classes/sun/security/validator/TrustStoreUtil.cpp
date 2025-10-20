@@ -58,6 +58,7 @@ void TrustStoreUtil::init$() {
 }
 
 $Set* TrustStoreUtil::getTrustedCerts($KeyStore* ks) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, set, $new($HashSet));
 	try {
 		{

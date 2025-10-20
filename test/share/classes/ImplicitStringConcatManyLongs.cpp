@@ -661,6 +661,7 @@ void ImplicitStringConcatManyLongs::init$() {
 
 void ImplicitStringConcatManyLongs::main($StringArray* args) {
 	$init(ImplicitStringConcatManyLongs);
+	$useLocalCurrentObjectStackCache();
 	$var($String, res, $str({""_s, $$str(ImplicitStringConcatManyLongs::s000), $$str(ImplicitStringConcatManyLongs::s001), $$str(ImplicitStringConcatManyLongs::s002), $$str(ImplicitStringConcatManyLongs::s003), $$str(ImplicitStringConcatManyLongs::s004), $$str(ImplicitStringConcatManyLongs::s005), $$str(ImplicitStringConcatManyLongs::s006), $$str(ImplicitStringConcatManyLongs::s007), $$str(ImplicitStringConcatManyLongs::s008), $$str(ImplicitStringConcatManyLongs::s009), $$str(ImplicitStringConcatManyLongs::s010), $$str(ImplicitStringConcatManyLongs::s011), $$str(ImplicitStringConcatManyLongs::s012), $$str(ImplicitStringConcatManyLongs::s013), $$str(ImplicitStringConcatManyLongs::s014), 
 	$$str(ImplicitStringConcatManyLongs::s015), $$str(ImplicitStringConcatManyLongs::s016), $$str(ImplicitStringConcatManyLongs::s017), $$str(ImplicitStringConcatManyLongs::s018), $$str(ImplicitStringConcatManyLongs::s019), $$str(ImplicitStringConcatManyLongs::s020), $$str(ImplicitStringConcatManyLongs::s021), $$str(ImplicitStringConcatManyLongs::s022), $$str(ImplicitStringConcatManyLongs::s023), $$str(ImplicitStringConcatManyLongs::s024), $$str(ImplicitStringConcatManyLongs::s025), $$str(ImplicitStringConcatManyLongs::s026), $$str(ImplicitStringConcatManyLongs::s027), $$str(ImplicitStringConcatManyLongs::s028), $$str(ImplicitStringConcatManyLongs::s029), $$str(ImplicitStringConcatManyLongs::s030), 
 	$$str(ImplicitStringConcatManyLongs::s031), $$str(ImplicitStringConcatManyLongs::s032), $$str(ImplicitStringConcatManyLongs::s033), $$str(ImplicitStringConcatManyLongs::s034), $$str(ImplicitStringConcatManyLongs::s035), $$str(ImplicitStringConcatManyLongs::s036), $$str(ImplicitStringConcatManyLongs::s037), $$str(ImplicitStringConcatManyLongs::s038), $$str(ImplicitStringConcatManyLongs::s039), $$str(ImplicitStringConcatManyLongs::s040), $$str(ImplicitStringConcatManyLongs::s041), $$str(ImplicitStringConcatManyLongs::s042), $$str(ImplicitStringConcatManyLongs::s043), $$str(ImplicitStringConcatManyLongs::s044), $$str(ImplicitStringConcatManyLongs::s045), $$str(ImplicitStringConcatManyLongs::s046), 
@@ -695,6 +696,7 @@ void ImplicitStringConcatManyLongs::test($String* expected, $String* actual) {
 }
 
 void clinit$ImplicitStringConcatManyLongs($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		{

@@ -605,6 +605,7 @@ void PKCS12KeyStore::init$() {
 }
 
 $Key* PKCS12KeyStore::engineGetKey($String* alias, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($PKCS12KeyStore$Entry, entry, $cast($PKCS12KeyStore$Entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH)))));
 	$var($Key, key, nullptr);
@@ -664,6 +665,7 @@ $Key* PKCS12KeyStore::engineGetKey($String* alias, $chars* password) {
 }
 
 $CertificateArray* PKCS12KeyStore::engineGetCertificateChain($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($PKCS12KeyStore$Entry, entry, $cast($PKCS12KeyStore$Entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH)))));
 	if (entry != nullptr && $instanceOf($PKCS12KeyStore$PrivateKeyEntry, entry)) {
@@ -681,6 +683,7 @@ $CertificateArray* PKCS12KeyStore::engineGetCertificateChain($String* alias) {
 }
 
 $Certificate* PKCS12KeyStore::engineGetCertificate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($PKCS12KeyStore$Entry, entry, $cast($PKCS12KeyStore$Entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH)))));
 	if (entry == nullptr) {
@@ -710,6 +713,7 @@ $Certificate* PKCS12KeyStore::engineGetCertificate($String* alias) {
 }
 
 $Date* PKCS12KeyStore::engineGetCreationDate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($PKCS12KeyStore$Entry, entry, $cast($PKCS12KeyStore$Entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH)))));
 	if (entry != nullptr) {
@@ -721,6 +725,7 @@ $Date* PKCS12KeyStore::engineGetCreationDate($String* alias) {
 
 void PKCS12KeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($KeyStore$PasswordProtection, passwordProtection, $new($KeyStore$PasswordProtection, password));
 		{
 			$var($Throwable, var$0, nullptr);
@@ -743,6 +748,7 @@ void PKCS12KeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* passwo
 }
 
 void PKCS12KeyStore::setKeyEntry($String* alias, $Key* key, $KeyStore$PasswordProtection* passwordProtection, $CertificateArray* chain, $Set* attributes) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($PKCS12KeyStore$Entry, entry, nullptr);
 		if ($instanceOf($PrivateKey, key)) {
@@ -839,6 +845,7 @@ void PKCS12KeyStore::setKeyEntry($String* alias, $Key* key, $KeyStore$PasswordPr
 
 void PKCS12KeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		checkX509Certs(chain);
 		try {
 			$new($EncryptedPrivateKeyInfo, key);
@@ -881,6 +888,7 @@ $bytes* PKCS12KeyStore::getSalt() {
 }
 
 $AlgorithmParameters* PKCS12KeyStore::getPBEAlgorithmParameters($String* algorithm, int32_t iterationCount) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, algParams, nullptr);
 	$var($bytes, salt, getSalt());
 	$init($KnownOIDs);
@@ -899,6 +907,7 @@ $AlgorithmParameters* PKCS12KeyStore::getPBEAlgorithmParameters($String* algorit
 }
 
 $AlgorithmParameters* PKCS12KeyStore::parseAlgParameters($ObjectIdentifier* algorithm, $DerInputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($AlgorithmParameters, algParams, nullptr);
 	try {
 		$var($DerValue, params, nullptr);
@@ -926,6 +935,7 @@ $AlgorithmParameters* PKCS12KeyStore::parseAlgParameters($ObjectIdentifier* algo
 }
 
 $SecretKey* PKCS12KeyStore::getPBEKey($chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, skey, nullptr);
 	try {
 		$var($PBEKeySpec, keySpec, $new($PBEKeySpec, password));
@@ -948,6 +958,7 @@ void PKCS12KeyStore::destroyPBEKey($SecretKey* key) {
 }
 
 $bytes* PKCS12KeyStore::encryptPrivateKey($bytes* data, $KeyStore$PasswordProtection* passwordProtection) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, key, nullptr);
 	try {
 		$var($String, algorithm, nullptr);
@@ -1003,6 +1014,7 @@ $bytes* PKCS12KeyStore::encryptPrivateKey($bytes* data, $KeyStore$PasswordProtec
 
 $ObjectIdentifier* PKCS12KeyStore::mapPBEAlgorithmToOID($String* algorithm) {
 	$init(PKCS12KeyStore);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	if ($($nc(algorithm)->toLowerCase($Locale::ENGLISH))->startsWith("pbewithhmacsha"_s)) {
 		return PKCS12KeyStore::pbes2_OID;
@@ -1025,6 +1037,7 @@ void PKCS12KeyStore::engineSetCertificateEntry($String* alias, $Certificate* cer
 }
 
 void PKCS12KeyStore::setCertEntry($String* alias, $Certificate* cert, $Set* attributes) {
+	$useLocalCurrentObjectStackCache();
 	if (cert != nullptr && (!($instanceOf($X509Certificate, cert)))) {
 		$throwNew($KeyStoreException, $$str({"Only X.509 certificates are supported - rejecting class: "_s, $($of(cert)->getClass()->getName())}));
 	}
@@ -1043,6 +1056,7 @@ void PKCS12KeyStore::setCertEntry($String* alias, $Certificate* cert, $Set* attr
 
 void PKCS12KeyStore::engineDeleteEntry($String* alias) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (PKCS12KeyStore::debug != nullptr) {
 			$nc(PKCS12KeyStore::debug)->println($$str({"Removing entry at alias \'"_s, alias, "\'"_s}));
 		}
@@ -1077,6 +1091,7 @@ int32_t PKCS12KeyStore::engineSize() {
 }
 
 bool PKCS12KeyStore::engineIsKeyEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($PKCS12KeyStore$Entry, entry, $cast($PKCS12KeyStore$Entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH)))));
 	if (entry != nullptr && $instanceOf($PKCS12KeyStore$KeyEntry, entry)) {
@@ -1087,6 +1102,7 @@ bool PKCS12KeyStore::engineIsKeyEntry($String* alias) {
 }
 
 bool PKCS12KeyStore::engineIsCertificateEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($PKCS12KeyStore$Entry, entry, $cast($PKCS12KeyStore$Entry, $nc(this->entries)->get($($nc(alias)->toLowerCase($Locale::ENGLISH)))));
 	if (entry != nullptr && $instanceOf($PKCS12KeyStore$CertEntry, entry) && $nc(($cast($PKCS12KeyStore$CertEntry, entry)))->trustedKeyUsage != nullptr) {
@@ -1097,6 +1113,7 @@ bool PKCS12KeyStore::engineIsCertificateEntry($String* alias) {
 }
 
 bool PKCS12KeyStore::engineEntryInstanceOf($String* alias, $Class* entryClass) {
+	$useLocalCurrentObjectStackCache();
 	$load($KeyStore$TrustedCertificateEntry);
 	if (entryClass == $KeyStore$TrustedCertificateEntry::class$) {
 		return engineIsCertificateEntry(alias);
@@ -1115,6 +1132,7 @@ bool PKCS12KeyStore::engineEntryInstanceOf($String* alias, $Class* entryClass) {
 }
 
 $String* PKCS12KeyStore::engineGetCertificateAlias($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($Certificate, certElem, nullptr);
 	{
 		$var($Enumeration, e, engineAliases());
@@ -1140,6 +1158,7 @@ $String* PKCS12KeyStore::engineGetCertificateAlias($Certificate* cert) {
 
 void PKCS12KeyStore::engineStore($OutputStream* stream, $chars* password) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($DerOutputStream, pfx, $new($DerOutputStream));
 		$var($DerOutputStream, version, $new($DerOutputStream));
 		version->putInteger(PKCS12KeyStore::VERSION_3);
@@ -1201,6 +1220,7 @@ void PKCS12KeyStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 $KeyStore$Entry* PKCS12KeyStore::engineGetEntry($String* alias, $KeyStore$ProtectionParameter* protParam) {
+	$useLocalCurrentObjectStackCache();
 	if (!engineContainsAlias(alias)) {
 		return nullptr;
 	}
@@ -1240,6 +1260,7 @@ $KeyStore$Entry* PKCS12KeyStore::engineGetEntry($String* alias, $KeyStore$Protec
 
 void PKCS12KeyStore::engineSetEntry($String* alias, $KeyStore$Entry* entry, $KeyStore$ProtectionParameter* protParam) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (protParam != nullptr && !($instanceOf($KeyStore$PasswordProtection, protParam))) {
 			$throwNew($KeyStoreException, "unsupported protection parameter"_s);
 		}
@@ -1287,6 +1308,7 @@ void PKCS12KeyStore::engineSetEntry($String* alias, $KeyStore$Entry* entry, $Key
 }
 
 $Set* PKCS12KeyStore::getAttributes($PKCS12KeyStore$Entry* entry) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(entry)->attributes == nullptr) {
 		$set(entry, attributes, $new($HashSet));
 	}
@@ -1312,6 +1334,7 @@ $Set* PKCS12KeyStore::getAttributes($PKCS12KeyStore$Entry* entry) {
 }
 
 $bytes* PKCS12KeyStore::calculateMac($chars* passwd, $bytes* data) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, mData, nullptr);
 	$var($String, algName, $nc(this->macAlgorithm)->substring(7));
 	try {
@@ -1346,6 +1369,7 @@ $bytes* PKCS12KeyStore::calculateMac($chars* passwd, $bytes* data) {
 }
 
 bool PKCS12KeyStore::validateChain($CertificateArray* certChain) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(certChain)->length - 1; ++i) {
 		$var($X500Principal, issuerDN, $nc(($cast($X509Certificate, certChain->get(i))))->getIssuerX500Principal());
 		$var($X500Principal, subjectDN, $nc(($cast($X509Certificate, certChain->get(i + 1))))->getSubjectX500Principal());
@@ -1359,6 +1383,7 @@ bool PKCS12KeyStore::validateChain($CertificateArray* certChain) {
 
 void PKCS12KeyStore::checkX509Certs($CertificateArray* certs) {
 	$init(PKCS12KeyStore);
+	$useLocalCurrentObjectStackCache();
 	if (certs != nullptr) {
 		{
 			$var($CertificateArray, arr$, certs);
@@ -1381,6 +1406,7 @@ $bytes* PKCS12KeyStore::getBagAttributes($String* alias, $bytes* keyId, $Set* at
 }
 
 $bytes* PKCS12KeyStore::getBagAttributes($String* alias, $bytes* keyId, $ObjectIdentifierArray* trustedUsage, $Set* attributes) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, localKeyID, nullptr);
 	$var($bytes, friendlyName, nullptr);
 	$var($bytes, trustedKeyUsage, nullptr);
@@ -1460,6 +1486,7 @@ $bytes* PKCS12KeyStore::getBagAttributes($String* alias, $bytes* keyId, $ObjectI
 }
 
 $bytes* PKCS12KeyStore::createEncryptedData($chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	{
 		$var($Enumeration, e, engineAliases());
@@ -1530,6 +1557,7 @@ $bytes* PKCS12KeyStore::createEncryptedData($chars* password) {
 }
 
 $bytes* PKCS12KeyStore::createSafeContent() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	{
 		$var($Enumeration, e, engineAliases());
@@ -1581,6 +1609,7 @@ $bytes* PKCS12KeyStore::createSafeContent() {
 }
 
 $bytes* PKCS12KeyStore::encryptContent($bytes* data, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encryptedData, nullptr);
 	try {
 		$var($AlgorithmParameters, algParams, getPBEAlgorithmParameters(this->certProtectionAlgorithm, this->certPbeIterationCount));
@@ -1630,6 +1659,7 @@ $bytes* PKCS12KeyStore::encryptContent($bytes* data, $chars* password) {
 
 void PKCS12KeyStore::engineLoad($InputStream* stream, $chars* password) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$set(this, certProtectionAlgorithm, nullptr);
 		this->certPbeIterationCount = -1;
 		$set(this, macAlgorithm, nullptr);
@@ -1810,6 +1840,7 @@ void PKCS12KeyStore::engineLoad($InputStream* stream, $chars* password) {
 }
 
 $X509Certificate* PKCS12KeyStore::findIssuer($X509Certificate* input) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, fallback, nullptr);
 	$var($X500Principal, issuerPrinc, $nc(input)->getIssuerX500Principal());
 	$init($KnownOIDs);
@@ -1860,6 +1891,7 @@ $X509Certificate* PKCS12KeyStore::findIssuer($X509Certificate* input) {
 
 bool PKCS12KeyStore::isPasswordless($File* f) {
 	$init(PKCS12KeyStore);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FileInputStream, stream, $new($FileInputStream, f));
 		{
@@ -1922,6 +1954,7 @@ bool PKCS12KeyStore::isPasswordless($File* f) {
 }
 
 $X509Certificate* PKCS12KeyStore::findMatchedCertificate($PKCS12KeyStore$PrivateKeyEntry* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($PKCS12KeyStore$CertEntry, keyIdMatch, nullptr);
 	$var($PKCS12KeyStore$CertEntry, aliasMatch, nullptr);
 	{
@@ -1950,6 +1983,7 @@ $X509Certificate* PKCS12KeyStore::findMatchedCertificate($PKCS12KeyStore$Private
 }
 
 void PKCS12KeyStore::loadSafeContents($DerInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValueArray, safeBags, $nc(stream)->getSequence(2));
 	int32_t count = $nc(safeBags)->length;
 	for (int32_t i = 0; i < count; ++i) {
@@ -2163,6 +2197,7 @@ int32_t PKCS12KeyStore::defaultCertPbeIterationCount() {
 
 $String* PKCS12KeyStore::defaultKeyProtectionAlgorithm() {
 	$init(PKCS12KeyStore);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (useLegacy()) {
 		return PKCS12KeyStore::LEGACY_KEY_PBE_ALGORITHM;
@@ -2200,6 +2235,7 @@ int32_t PKCS12KeyStore::defaultMacIterationCount() {
 
 int32_t PKCS12KeyStore::string2IC($String* type, $String* value) {
 	$init(PKCS12KeyStore);
+	$useLocalCurrentObjectStackCache();
 	int32_t number = 0;
 	try {
 		number = $Integer::parseInt(value);
@@ -2214,6 +2250,7 @@ int32_t PKCS12KeyStore::string2IC($String* type, $String* value) {
 }
 
 $Void* PKCS12KeyStore::lambda$engineLoad$2($Mac* m, $PBEParameterSpec* params, $bytes* authSafeData, int32_t ic, $MacData* macData, $chars* pass) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecretKey, key, getPBEKey(pass));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -2240,6 +2277,7 @@ $Void* PKCS12KeyStore::lambda$engineLoad$2($Mac* m, $PBEParameterSpec* params, $
 }
 
 $Object* PKCS12KeyStore::lambda$engineLoad$1($ObjectIdentifier* algOid, $AlgorithmParameters* algParams, $bytes* rawData, $chars* pass) {
+	$useLocalCurrentObjectStackCache();
 	$var($Cipher, cipher, $Cipher::getInstance($(mapPBEParamsToAlgorithm(algOid, algParams))));
 	$var($SecretKey, skey, getPBEKey(pass));
 	{
@@ -2260,6 +2298,7 @@ $Object* PKCS12KeyStore::lambda$engineLoad$1($ObjectIdentifier* algOid, $Algorit
 }
 
 $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $AlgorithmParameters* algParams, $bytes* encryptedKey, $PKCS12KeyStore$Entry* entry, $String* alias, int32_t ic, $chars* pass) {
+	$useLocalCurrentObjectStackCache();
 	$var($Cipher, cipher, $Cipher::getInstance($(mapPBEParamsToAlgorithm(algOid, algParams))));
 	$var($SecretKey, skey, getPBEKey(pass));
 	{
@@ -2387,6 +2426,7 @@ $Key* PKCS12KeyStore::lambda$engineGetKey$0($ObjectIdentifier* algOid, $Algorith
 }
 
 void clinit$PKCS12KeyStore($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(PKCS12KeyStore::DEFAULT_CERT_PBE_ALGORITHM, "PBEWithHmacSHA256AndAES_256"_s);
 	$assignStatic(PKCS12KeyStore::DEFAULT_KEY_PBE_ALGORITHM, "PBEWithHmacSHA256AndAES_256"_s);
 	$assignStatic(PKCS12KeyStore::DEFAULT_MAC_ALGORITHM, "HmacPBESHA256"_s);

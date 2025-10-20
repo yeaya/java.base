@@ -86,6 +86,7 @@ void Collectors$Partition$1::init$($Collectors$Partition* this$0) {
 }
 
 $Iterator* Collectors$Partition$1::iterator() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, falseEntry, $new($AbstractMap$SimpleImmutableEntry, $($Boolean::valueOf(false)), this->this$0->forFalse));
 	$var($Map$Entry, trueEntry, $new($AbstractMap$SimpleImmutableEntry, $($Boolean::valueOf(true)), this->this$0->forTrue));
 	return $nc($($List::of(falseEntry, trueEntry)))->iterator();

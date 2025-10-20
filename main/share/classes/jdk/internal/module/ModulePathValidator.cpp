@@ -363,6 +363,7 @@ void ModulePathValidator::init$($PrintStream* out) {
 
 int32_t ModulePathValidator::scanAllModules($PrintStream* out) {
 	$init(ModulePathValidator);
+	$useLocalCurrentObjectStackCache();
 	$var(ModulePathValidator, validator, $new(ModulePathValidator, out));
 	$var($String, value, $System::getProperty("jdk.module.upgrade.path"_s));
 	if (value != nullptr) {
@@ -379,6 +380,7 @@ int32_t ModulePathValidator::scanAllModules($PrintStream* out) {
 }
 
 void ModulePathValidator::printModule($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$nc($($nc($($nc(mref)->location()))->filter(static_cast<$Predicate*>($$new(ModulePathValidator$$Lambda$lambda$printModule$2$4)))))->ifPresent(static_cast<$Consumer*>($$new(ModulePathValidator$$Lambda$lambda$printModule$3$5, this)));
 	$var($ModuleDescriptor, descriptor, mref->descriptor());
 	$nc(this->out)->print($($nc(descriptor)->name()));
@@ -389,6 +391,7 @@ void ModulePathValidator::printModule($ModuleReference* mref) {
 }
 
 void ModulePathValidator::process($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc($($nc(mref)->descriptor()))->name());
 	$var($ModuleReference, previous, $cast($ModuleReference, $nc(this->nameToModule)->putIfAbsent(name, mref)));
 	if (previous != nullptr) {
@@ -419,6 +422,7 @@ void ModulePathValidator::process($ModuleReference* mref) {
 }
 
 void ModulePathValidator::scan($Path* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($BasicFileAttributes, attrs, nullptr);
 	try {
 		$load($BasicFileAttributes);
@@ -447,6 +451,7 @@ void ModulePathValidator::scan($Path* entry) {
 }
 
 void ModulePathValidator::scanDirectory($Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DirectoryStream, stream, $Files::newDirectoryStream(dir));
 		{
@@ -525,6 +530,7 @@ void ModulePathValidator::scanDirectory($Path* dir) {
 }
 
 $Optional* ModulePathValidator::scanModule($Path* entry) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleFinder, finder, $ModuleFinder::of($$new($PathArray, {entry})));
 	try {
 		return $nc($($nc($($nc(finder)->findAll()))->stream()))->findFirst();

@@ -55,6 +55,7 @@ void StringConcatFactoryRepeatedConstants::init$() {
 
 void StringConcatFactoryRepeatedConstants::main($StringArray* args) {
 	$load(StringConcatFactoryRepeatedConstants);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, var$0, $MethodHandles::lookup());
 	$var($String, var$1, "foo"_s);

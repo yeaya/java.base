@@ -53,10 +53,12 @@ void IndexOutOfBoundsException::init$($String* s) {
 }
 
 void IndexOutOfBoundsException::init$(int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$RuntimeException::init$($$str({"Index out of range: "_s, $$str(index)}));
 }
 
 void IndexOutOfBoundsException::init$(int64_t index) {
+	$useLocalCurrentObjectStackCache();
 	$RuntimeException::init$($$str({"Index out of range: "_s, $$str(index)}));
 }
 

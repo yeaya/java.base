@@ -68,6 +68,7 @@ void CloseAndAvailableRC$Sink::init$($CloseAndAvailableRC* this$0) {
 }
 
 void CloseAndAvailableRC$Sink::run() {
+	$useLocalCurrentObjectStackCache();
 	while (!this->this$0->stop) {
 		try {
 			int32_t num = $nc(this->this$0->inPipe)->available();

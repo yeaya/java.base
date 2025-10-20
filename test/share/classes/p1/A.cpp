@@ -59,6 +59,7 @@ void A::init$() {
 }
 
 void clinit$A($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

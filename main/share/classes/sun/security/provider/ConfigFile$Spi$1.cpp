@@ -85,6 +85,7 @@ void ConfigFile$Spi$1::init$($ConfigFile$Spi* this$0, $Configuration$Parameters*
 }
 
 $Object* ConfigFile$Spi$1::run() {
+	$useLocalCurrentObjectStackCache();
 	if (this->val$params == nullptr) {
 		this->this$0->init();
 	} else {

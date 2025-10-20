@@ -70,6 +70,7 @@ void KeyUpdate$KeyUpdateKickstartProducer::init$() {
 }
 
 $bytes* KeyUpdate$KeyUpdateKickstartProducer::produce($ConnectionContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$var($PostHandshakeContext, hc, $cast($PostHandshakeContext, context));
 	$init($KeyUpdate);
 	$init($KeyUpdate$KeyUpdateRequest);

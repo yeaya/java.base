@@ -198,6 +198,7 @@ $ints* ZipFile$Source::EMPTY_META_VERSIONS = nullptr;
 $HashMap* ZipFile$Source::files = nullptr;
 
 int32_t ZipFile$Source::checkAndAddEntry(int32_t pos, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, cen, this->cen);
 	if ($ZipUtils::CENSIG(cen, pos) != (int64_t)33639248) {
 		zerror("invalid CEN header (bad signature)"_s);
@@ -245,6 +246,7 @@ int32_t ZipFile$Source::getEntryPos(int32_t index) {
 
 ZipFile$Source* ZipFile$Source::get($File* file, bool toDelete, $ZipCoder* zc) {
 	$init(ZipFile$Source);
+	$useLocalCurrentObjectStackCache();
 	$var($ZipFile$Source$Key, key, nullptr);
 	try {
 		$load($BasicFileAttributes);
@@ -286,6 +288,7 @@ void ZipFile$Source::release(ZipFile$Source* src) {
 }
 
 void ZipFile$Source::init$($ZipFile$Source$Key* key, bool toDelete, $ZipCoder* zc) {
+	$useLocalCurrentObjectStackCache();
 	this->refs = 1;
 	this->manifestPos = -1;
 	this->manifestNum = 0;
@@ -352,6 +355,7 @@ int32_t ZipFile$Source::readAt($bytes* buf, int32_t off, int32_t len, int64_t po
 }
 
 $ZipFile$Source$End* ZipFile$Source::findEND() {
+	$useLocalCurrentObjectStackCache();
 	int64_t ziplen = $nc(this->zfile)->length();
 	if (ziplen <= 0) {
 		zerror("zip file is empty"_s);
@@ -428,6 +432,7 @@ $ZipFile$Source$End* ZipFile$Source::findEND() {
 }
 
 void ZipFile$Source::initCEN(int32_t knownTotal) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, cen, nullptr);
 	if (knownTotal == -1) {
 		$var($ZipFile$Source$End, end, findEND());
@@ -538,6 +543,7 @@ void ZipFile$Source::zerror($String* msg) {
 }
 
 int32_t ZipFile$Source::getEntryPos($String* name, bool addSlash) {
+	$useLocalCurrentObjectStackCache();
 	if (this->total == 0) {
 		return -1;
 	}
@@ -608,6 +614,7 @@ bool ZipFile$Source::isManifestName(int32_t off, int32_t len) {
 }
 
 bool ZipFile$Source::isSignatureRelated(int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	bool signatureRelated = false;
 	$var($bytes, name, this->cen);
 	if ($nc(name)->get(off + len - 3) == u'.') {

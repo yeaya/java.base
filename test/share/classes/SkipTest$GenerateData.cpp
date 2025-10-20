@@ -67,6 +67,7 @@ void SkipTest$GenerateData::init$() {
 }
 
 void SkipTest$GenerateData::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($System);
 		$var($OutputStream, out, $new($BufferedOutputStream, $System::out));

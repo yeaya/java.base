@@ -84,6 +84,7 @@ void LocaleObjectCache::init$(int32_t initialCapacity, float loadFactor, int32_t
 }
 
 $Object* LocaleObjectCache::get(Object$* key$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, key, key$renamed);
 	$var($Object, value, nullptr);
 	cleanStaleEntries();
@@ -113,12 +114,14 @@ $Object* LocaleObjectCache::get(Object$* key$renamed) {
 }
 
 $Object* LocaleObjectCache::put(Object$* key, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleObjectCache$CacheEntry, entry, $new($LocaleObjectCache$CacheEntry, key, value, this->queue));
 	$var($LocaleObjectCache$CacheEntry, oldEntry, $cast($LocaleObjectCache$CacheEntry, $nc(this->map)->put(key, entry)));
 	return $of((oldEntry == nullptr) ? ($Object*)nullptr : $nc(oldEntry)->get());
 }
 
 void LocaleObjectCache::cleanStaleEntries() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleObjectCache$CacheEntry, entry, nullptr);
 	while (($assign(entry, $cast($LocaleObjectCache$CacheEntry, $nc(this->queue)->poll()))) != nullptr) {
 		$nc(this->map)->remove($($nc(entry)->getKey()), entry);

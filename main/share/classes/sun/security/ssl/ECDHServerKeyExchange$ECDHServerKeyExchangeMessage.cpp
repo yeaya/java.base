@@ -230,6 +230,7 @@ $Object* allocate$ECDHServerKeyExchange$ECDHServerKeyExchangeMessage($Class* cla
 }
 
 void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	$var($NamedGroupPossession, namedGroupPossession, nullptr);
@@ -311,6 +312,7 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext
 }
 
 void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, handshakeContext));
 	int8_t curveType = (int8_t)$Record::getInt8(m);
@@ -451,6 +453,7 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::send($HandshakeOutStrea
 }
 
 $String* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->useExplicitSigAlgorithm) {
 		$init($Locale);
 		$var($MessageFormat, messageFormat, $new($MessageFormat, "\"ECDH ServerKeyExchange\": \'{\'\n  \"parameters\": \'{\'\n    \"named group\": \"{0}\"\n    \"ecdh public\": \'{\'\n{1}\n    \'}\',\n  \'}\',\n  \"digital signature\":  \'{\'\n    \"signature algorithm\": \"{2}\"\n    \"signature\": \'{\'\n{3}\n    \'}\',\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
@@ -486,6 +489,7 @@ $String* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::toString() {
 
 $Signature* ECDHServerKeyExchange$ECDHServerKeyExchangeMessage::getSignature($String* keyAlgorithm, $Key* key) {
 	$init(ECDHServerKeyExchange$ECDHServerKeyExchangeMessage);
+	$useLocalCurrentObjectStackCache();
 	$var($Signature, signer, nullptr);
 	{
 		$var($String, s17713$, keyAlgorithm);

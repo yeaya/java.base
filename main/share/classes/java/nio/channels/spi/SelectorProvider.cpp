@@ -93,6 +93,7 @@ $Object* allocate$SelectorProvider($Class* clazz) {
 }
 
 $Void* SelectorProvider::checkPermission() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "selectorProvider"_s));

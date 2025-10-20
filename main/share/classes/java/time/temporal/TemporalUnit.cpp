@@ -61,6 +61,7 @@ $String* TemporalUnit::toString() {
 }
 
 bool TemporalUnit::isSupportedBy($Temporal* temporal) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($LocalTime, temporal)) {
 		return isTimeBased();
 	}

@@ -62,6 +62,7 @@ void CloseRegisteredChannel::init$() {
 }
 
 void CloseRegisteredChannel::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerSocketChannel, server, $ServerSocketChannel::open());
 	$var($ServerSocket, s, $nc(server)->socket());
 	$nc(s)->bind($$new($InetSocketAddress, 0));

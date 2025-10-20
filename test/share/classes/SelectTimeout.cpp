@@ -133,6 +133,7 @@ void SelectTimeout::init$() {
 }
 
 void SelectTimeout::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($longs, timeouts, $new($longs, {
 		(int64_t)1,
@@ -163,6 +164,7 @@ void SelectTimeout::main($StringArray* args) {
 }
 
 bool SelectTimeout::test(int64_t timeout) {
+	$useLocalCurrentObjectStackCache();
 	$var($AtomicReference, theException, $new($AtomicReference));
 	$var($AtomicBoolean, isTimedOut, $new($AtomicBoolean));
 	$var($Selector, selector, $Selector::open());

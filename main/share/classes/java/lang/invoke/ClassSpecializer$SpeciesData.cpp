@@ -196,6 +196,7 @@ bool ClassSpecializer$SpeciesData::isResolved() {
 }
 
 $String* ClassSpecializer$SpeciesData::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$3, $$str({$($nc(this->this$0->metaType$)->getSimpleName()), "["_s}));
 	$var($String, var$2, $$concat(var$3, $($nc($of(this->key$))->toString())));
 	$var($String, var$1, $$concat(var$2, " => "));
@@ -225,6 +226,7 @@ $MethodHandle* ClassSpecializer$SpeciesData::getter(int32_t i) {
 }
 
 $LambdaForm$NamedFunction* ClassSpecializer$SpeciesData::getterFunction(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NamedFunction, nf, $cast($LambdaForm$NamedFunction, $nc(this->nominalGetters)->get(i)));
 	bool var$0 = !ClassSpecializer$SpeciesData::$assertionsDisabled;
 	if (var$0) {
@@ -256,6 +258,7 @@ $MethodHandle* ClassSpecializer$SpeciesData::factory() {
 }
 
 $MethodHandle* ClassSpecializer$SpeciesData::transformHelper(int32_t whichtm) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, mh, $nc(this->transformHelpers)->get(whichtm));
 	if (mh != nullptr) {
 		return mh;
@@ -267,6 +270,7 @@ $MethodHandle* ClassSpecializer$SpeciesData::transformHelper(int32_t whichtm) {
 }
 
 $MethodType* ClassSpecializer$SpeciesData::transformHelperType(int32_t whichtm) {
+	$useLocalCurrentObjectStackCache();
 	$var($MemberName, tm, $cast($MemberName, $nc($(this->this$0->transformMethods()))->get(whichtm)));
 	$var($ArrayList, args, $new($ArrayList));
 	$var($ArrayList, fields, $new($ArrayList));
@@ -277,11 +281,13 @@ $MethodType* ClassSpecializer$SpeciesData::transformHelperType(int32_t whichtm) 
 }
 
 $String* ClassSpecializer$SpeciesData::deriveClassName() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc($nc($(outer()))->topClass())->getName()), "$Species_"_s}));
 	return $concat(var$0, $(deriveTypeString()));
 }
 
 $String* ClassSpecializer$SpeciesData::deriveTypeString() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, types, fieldTypes());
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($StringBuilder, end, $new($StringBuilder));
@@ -310,6 +316,7 @@ $String* ClassSpecializer$SpeciesData::deriveTypeString() {
 }
 
 $Class* ClassSpecializer$SpeciesData::deriveSuperClass() {
+	$useLocalCurrentObjectStackCache();
 	$Class* topc = this->this$0->topClass();
 	if (!this->this$0->topClassIsSuper) {
 		try {

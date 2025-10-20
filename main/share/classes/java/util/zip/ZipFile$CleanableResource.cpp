@@ -105,6 +105,7 @@ $Object* allocate$ZipFile$CleanableResource($Class* clazz) {
 }
 
 void ZipFile$CleanableResource::init$($ZipFile* zf, $ZipCoder* zc, $File* file, int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, cleanable, $nc($($CleanerFactory::cleaner()))->register$(zf, this));
 	$set(this, istreams, $Collections::newSetFromMap($$new($WeakHashMap)));
 	$set(this, inflaterCache, $new($ArrayDeque));
@@ -140,6 +141,7 @@ void ZipFile$CleanableResource::releaseInflater($Inflater* inf) {
 }
 
 void ZipFile$CleanableResource::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($IOException, ioe, nullptr);
 	$var($Deque, inflaters, this->inflaterCache);
 	if (inflaters != nullptr) {

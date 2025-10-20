@@ -94,6 +94,7 @@ void SecretKeyFactory::init$($SecretKeyFactorySpi* keyFacSpi, $Provider* provide
 }
 
 void SecretKeyFactory::init$($String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, lock, $new($Object));
 	$set(this, algorithm, algorithm);
 	$var($List, list, $GetInstance::getServices("SecretKeyFactory"_s, algorithm));
@@ -134,6 +135,7 @@ $String* SecretKeyFactory::getAlgorithm() {
 }
 
 $SecretKeyFactorySpi* SecretKeyFactory::nextSpi($SecretKeyFactorySpi* oldSpi) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->lock) {
 		if ((oldSpi != nullptr) && (oldSpi != this->spi)) {
 			return this->spi;
@@ -165,6 +167,7 @@ $SecretKeyFactorySpi* SecretKeyFactory::nextSpi($SecretKeyFactorySpi* oldSpi) {
 }
 
 $SecretKey* SecretKeyFactory::generateSecret($KeySpec* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGenerateSecret(keySpec);
 	}
@@ -189,6 +192,7 @@ $SecretKey* SecretKeyFactory::generateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* SecretKeyFactory::getKeySpec($SecretKey* key, $Class* keySpec) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGetKeySpec(key, keySpec);
 	}
@@ -213,6 +217,7 @@ $KeySpec* SecretKeyFactory::getKeySpec($SecretKey* key, $Class* keySpec) {
 }
 
 $SecretKey* SecretKeyFactory::translateKey($SecretKey* key) {
+	$useLocalCurrentObjectStackCache();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineTranslateKey(key);
 	}

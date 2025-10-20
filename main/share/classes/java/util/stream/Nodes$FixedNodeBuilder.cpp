@@ -111,6 +111,7 @@ void Nodes$FixedNodeBuilder::init$(int64_t size, $IntFunction* generator) {
 }
 
 $Node* Nodes$FixedNodeBuilder::build() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Current size %d is less than fixed size %d"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(this->curSize))),
@@ -121,6 +122,7 @@ $Node* Nodes$FixedNodeBuilder::build() {
 }
 
 void Nodes$FixedNodeBuilder::begin(int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	if (size != $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("Begin size %d is not equal to fixed size %d"_s, $$new($ObjectArray, {
 			$($of($Long::valueOf(size))),
@@ -131,6 +133,7 @@ void Nodes$FixedNodeBuilder::begin(int64_t size) {
 }
 
 void Nodes$FixedNodeBuilder::accept(Object$* t) {
+	$useLocalCurrentObjectStackCache();
 	if (this->curSize < $nc(this->array)->length) {
 		$nc(this->array)->set(this->curSize++, t);
 	} else {
@@ -139,6 +142,7 @@ void Nodes$FixedNodeBuilder::accept(Object$* t) {
 }
 
 void Nodes$FixedNodeBuilder::end() {
+	$useLocalCurrentObjectStackCache();
 	if (this->curSize < $nc(this->array)->length) {
 		$throwNew($IllegalStateException, $($String::format("End size %d is less than fixed size %d"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(this->curSize))),
@@ -148,6 +152,7 @@ void Nodes$FixedNodeBuilder::end() {
 }
 
 $String* Nodes$FixedNodeBuilder::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("FixedNodeBuilder[%d][%s]"_s, $$new($ObjectArray, {
 		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
 		$($of($Arrays::toString(this->array)))

@@ -67,6 +67,7 @@ void ModuleLoaderMap$Modules::init$() {
 }
 
 void clinit$ModuleLoaderMap$Modules($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ModuleLoaderMap$Modules::bootModules, $Set::of($$new($StringArray, {
 		"java.base"_s,
 		"java.datatransfer"_s,

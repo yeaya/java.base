@@ -130,6 +130,7 @@ bool SPILocaleProviderAdapter$NumberFormatProviderDelegate::isSupportedLocale($L
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getCurrencyInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -137,6 +138,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getCurrenc
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getIntegerInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -144,6 +146,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getInteger
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getNumberInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -151,6 +154,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getNumberI
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getPercentInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));
@@ -158,6 +162,7 @@ $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getPercent
 }
 
 $NumberFormat* SPILocaleProviderAdapter$NumberFormatProviderDelegate::getCompactNumberInstance($Locale* locale$renamed, $NumberFormat$Style* style) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($NumberFormatProvider, nfp, $cast($NumberFormatProvider, getImpl(locale)));

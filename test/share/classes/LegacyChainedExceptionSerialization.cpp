@@ -141,6 +141,7 @@ void LegacyChainedExceptionSerialization::init$() {
 
 void LegacyChainedExceptionSerialization::main($StringArray* args) {
 	$init(LegacyChainedExceptionSerialization);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(LegacyChainedExceptionSerialization::broken)->length; ++i) {
 		test($nc(LegacyChainedExceptionSerialization::broken)->get(i));
 	}
@@ -159,6 +160,7 @@ void LegacyChainedExceptionSerialization::main($StringArray* args) {
 
 $Throwable* LegacyChainedExceptionSerialization::test($Throwable* e) {
 	$init(LegacyChainedExceptionSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, out, $new($ObjectOutputStream, bout));
 	out->writeObject(e);
@@ -171,6 +173,7 @@ $Throwable* LegacyChainedExceptionSerialization::test($Throwable* e) {
 
 void LegacyChainedExceptionSerialization::testOverriddenGetCause() {
 	$init(LegacyChainedExceptionSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($LegacyChainedExceptionSerialization$SubClass, sc, $new($LegacyChainedExceptionSerialization$SubClass, $$new($NullPointerException)));
 	$var($LegacyChainedExceptionSerialization$SubClass, clone, $cast($LegacyChainedExceptionSerialization$SubClass, test(sc)));
 	$var($Throwable, cause, $nc(clone)->getException());
@@ -181,6 +184,7 @@ void LegacyChainedExceptionSerialization::testOverriddenGetCause() {
 
 $Throwable* LegacyChainedExceptionSerialization::deserialize($String* ser) {
 	$init(LegacyChainedExceptionSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($Base64$Decoder, decoder, $Base64::getDecoder());
 	{
 		$var($ByteArrayInputStream, bin, $new($ByteArrayInputStream, $($nc(decoder)->decode(ser))));
@@ -252,6 +256,7 @@ $Throwable* LegacyChainedExceptionSerialization::deserialize($String* ser) {
 
 void LegacyChainedExceptionSerialization::verify($Throwable* t, $Throwable* expected) {
 	$init(LegacyChainedExceptionSerialization);
+	$useLocalCurrentObjectStackCache();
 	$var($String, msg, $nc(expected)->getMessage());
 	$var($Throwable, cause, expected->getCause());
 	bool var$0 = $nc(t)->getMessage() != msg && msg != nullptr;
@@ -289,6 +294,7 @@ void LegacyChainedExceptionSerialization::verify($Throwable* t, $Throwable* expe
 }
 
 void clinit$LegacyChainedExceptionSerialization($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(LegacyChainedExceptionSerialization::EIIE_OLD_VERSION, "rO0ABXNyACVqYXZhLmxhbmcuRXhjZXB0aW9uSW5Jbml0aWFsaXplckVycm9yFR400Amhk4ACAAFMAAlleGNlcHRpb250ABVMamF2YS9sYW5nL1Rocm93YWJsZTt4cgAWamF2YS5sYW5nLkxpbmthZ2VFcnJvcjGtS1U0qEq6AgAAeHIAD2phdmEubGFuZy5FcnJvckUdNlaLgg5WAgAAeHIAE2phdmEubGFuZy5UaHJvd2FibGXVxjUnOXe4ywMABEwABWNhdXNlcQB+AAFMAA1kZXRhaWxNZXNzYWdldAASTGphdmEvbGFuZy9TdHJpbmc7WwAKc3RhY2tUcmFjZXQAHltMamF2YS9sYW5nL1N0YWNrVHJhY2VFbGVtZW50O0wAFHN1cHByZXNzZWRFeGNlcHRpb25zdAAQTGphdmEvdXRpbC9MaXN0O3hwcHB1cgAeW0xqYXZhLmxhbmcuU3RhY2tUcmFjZUVsZW1lbnQ7AkYqPDz9IjkCAAB4cAAAAAFzcgAbamF2YS5sYW5nLlN0YWNrVHJhY2VFbGVtZW50YQnFmiY23YUCAAhCAAZmb3JtYXRJAApsaW5lTnVtYmVyTAAPY2xhc3NMb2FkZXJOYW1lcQB+AAVMAA5kZWNsYXJpbmdDbGFzc3EAfgAFTAAIZmlsZU5hbWVxAH4ABUwACm1ldGhvZE5hbWVxAH4ABUwACm1vZHVsZU5hbWVxAH4ABUwADW1vZHVsZVZlcnNpb25xAH4ABXhwAQAAAAd0AANhcHB0AARUZXN0dAAJVGVzdC5qYXZhdAAEbWFpbnBwc3IAH2phdmEudXRpbC5Db2xsZWN0aW9ucyRFbXB0eUxpc3R6uBe0PKee3gIAAHhweHNyAB5qYXZhLmxhbmcuTnVsbFBvaW50ZXJFeGNlcHRpb25HpaGO/zHhuAIAAHhyABpqYXZhLmxhbmcuUnVudGltZUV4Y2VwdGlvbp5fBkcKNIPlAgAAeHIAE2phdmEubGFuZy5FeGNlcHRpb27Q"
 		"/R8+GjscxAIAAHhxAH4ABHEAfgAWdAADZm9vdXEAfgAJAAAAAXNxAH4ACwEAAAAHcQB+AA1xAH4ADnEAfgAPcQB+ABBwcHEAfgASeA=="_s);
 	$assignStatic(LegacyChainedExceptionSerialization::CNFE_OLD_VERSION, "rO0ABXNyACBqYXZhLmxhbmcuQ2xhc3NOb3RGb3VuZEV4Y2VwdGlvbn9azWY+1CCOAgABTAACZXh0ABVMamF2YS9sYW5nL1Rocm93YWJsZTt4cgAmamF2YS5sYW5nLlJlZmxlY3RpdmVPcGVyYXRpb25FeGNlcHRpb24AAAAAB1vNFQIAAHhyABNqYXZhLmxhbmcuRXhjZXB0aW9u0P0fPho7HMQCAAB4cgATamF2YS5sYW5nLlRocm93YWJsZdXGNSc5d7jLAwAETAAFY2F1c2VxAH4AAUwADWRldGFpbE1lc3NhZ2V0ABJMamF2YS9sYW5nL1N0cmluZztbAApzdGFja1RyYWNldAAeW0xqYXZhL2xhbmcvU3RhY2tUcmFjZUVsZW1lbnQ7TAAUc3VwcHJlc3NlZEV4Y2VwdGlvbnN0ABBMamF2YS91dGlsL0xpc3Q7eHBwdAADYmFydXIAHltMamF2YS5sYW5nLlN0YWNrVHJhY2VFbGVtZW50OwJGKjw8/SI5AgAAeHAAAAABc3IAG2phdmEubGFuZy5TdGFja1RyYWNlRWxlbWVudGEJxZomNt2FAgAIQgAGZm9ybWF0SQAKbGluZU51bWJlckwAD2NsYXNzTG9hZGVyTmFtZXEAfgAFTAAOZGVjbGFyaW5nQ2xhc3NxAH4ABUwACGZpbGVOYW1lcQB+AAVMAAptZXRob2ROYW1lcQB+AAVMAAptb2R1bGVOYW1lcQB+AAVMAA1tb2R1bGVWZXJzaW9ucQB+AAV4cAEAAAAMdAADYXBwdAAEVGVzdHQACVRlc3QuamF2YXQABG1haW5wcHNyAB9qYXZhLnV0aWwuQ29sbGVjdGlvbnMkRW1wdHlMaXN0ergXtDynnt4CAAB4cHhzcgATamF2YS5pby5JT0V4Y2VwdGlvbmyAc2RlJfCrAgAAeHEAfgADcQB+ABV0ABJyZWFkaW5nIGNsYXNzIGZpbGV1cQB+AAoAAAABc3EAfgAMAQAAAAxxAH4ADnEAfgAP"

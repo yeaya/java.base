@@ -90,6 +90,7 @@ void AttributedString$AttributeMap::init$($AttributedString* this$0, int32_t run
 }
 
 $Set* AttributedString$AttributeMap::entrySet() {
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, set, $new($HashSet));
 	$synchronized(this->this$0) {
 		int32_t size = $nc($nc(this->this$0->runAttributes)->get(this->runIndex))->size();

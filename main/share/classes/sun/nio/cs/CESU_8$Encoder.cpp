@@ -161,6 +161,7 @@ void CESU_8$Encoder::to3Bytes($ByteBuffer* dst, char16_t c) {
 }
 
 $CoderResult* CESU_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -272,6 +273,7 @@ $CoderResult* CESU_8$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 }
 
 int32_t CESU_8$Encoder::encode($chars* sa, int32_t sp, int32_t len, $bytes* da) {
+	$useLocalCurrentObjectStackCache();
 	int32_t sl = sp + len;
 	int32_t dp = 0;
 	int32_t dlASCII = dp + $Math::min(len, $nc(da)->length);

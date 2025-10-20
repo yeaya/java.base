@@ -115,6 +115,7 @@ void MD2::implCompress($bytes* b, int32_t ofs) {
 }
 
 void clinit$MD2($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(MD2::S, $new($ints, {
 		41,
 		46,

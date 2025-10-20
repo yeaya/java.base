@@ -88,6 +88,7 @@ $Object* allocate$HandshakeHash$T12HandshakeHash($Class* clazz) {
 }
 
 void HandshakeHash$T12HandshakeHash::init$($CipherSuite* cipherSuite) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md, nullptr);
 	try {
 		$assign(md, $MessageDigest::getInstance($nc(cipherSuite)->hashAlg->name$));

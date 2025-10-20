@@ -78,6 +78,7 @@ void Finalizer$1::init$($Runnable* val$proc) {
 }
 
 $Object* Finalizer$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	{
 		$var($ThreadGroup, tgn, tg);

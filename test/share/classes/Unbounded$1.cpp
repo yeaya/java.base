@@ -96,6 +96,7 @@ void Unbounded$1::completed($Integer* bytesRead, $AsynchronousSocketChannel* ch)
 }
 
 void Unbounded$1::failed($Throwable* exc, $AsynchronousSocketChannel* ch) {
+	$useLocalCurrentObjectStackCache();
 	$init($Unbounded);
 	$Unbounded::failed = true;
 	$init($System);

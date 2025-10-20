@@ -177,6 +177,7 @@ void HandlersPkgPrefix::main($StringArray* args) {
 
 void HandlersPkgPrefix::withPrefix($String* protocol, $String* pkgPrefix, $Consumer* resultChecker) {
 	$init(HandlersPkgPrefix);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({"Testing, "_s, protocol, ", "_s, pkgPrefix}));
 	$System::setProperty("java.protocol.handler.pkgs"_s, pkgPrefix);
@@ -193,6 +194,7 @@ void HandlersPkgPrefix::withPrefix($String* protocol, $String* pkgPrefix, $Consu
 
 void HandlersPkgPrefix::lambda$static$1($HandlersPkgPrefix$Result* r) {
 	$init(HandlersPkgPrefix);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(r)->url != nullptr) {
 		$throwNew($RuntimeException, $$str({"Unexpected url:"_s, r->url}));
 	}
@@ -203,6 +205,7 @@ void HandlersPkgPrefix::lambda$static$1($HandlersPkgPrefix$Result* r) {
 
 void HandlersPkgPrefix::lambda$static$0($HandlersPkgPrefix$Result* r) {
 	$init(HandlersPkgPrefix);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(r)->exception != nullptr) {
 		$throwNew($RuntimeException, $$str({"Unexpected exception "_s, r->exception}));
 	}

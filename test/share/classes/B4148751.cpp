@@ -64,6 +64,7 @@ void B4148751::init$() {
 
 void B4148751::main($StringArray* args) {
 	$init(B4148751);
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	$var($URL, url1, nullptr);
 	try {

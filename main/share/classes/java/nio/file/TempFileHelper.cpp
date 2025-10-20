@@ -104,6 +104,7 @@ void TempFileHelper::init$() {
 
 $Path* TempFileHelper::generatePath($String* prefix, $String* suffix, $Path* dir) {
 	$init(TempFileHelper);
+	$useLocalCurrentObjectStackCache();
 	int64_t n = $nc(TempFileHelper::random)->nextLong();
 	$var($String, s, $str({prefix, $($Long::toUnsignedString(n)), suffix}));
 	$var($Path, name, $nc($($nc(dir)->getFileSystem()))->getPath(s, $$new($StringArray, 0)));
@@ -115,6 +116,7 @@ $Path* TempFileHelper::generatePath($String* prefix, $String* suffix, $Path* dir
 
 $Path* TempFileHelper::create($Path* dir$renamed, $String* prefix$renamed, $String* suffix$renamed, bool createDirectory, $FileAttributeArray* attrs$renamed) {
 	$init(TempFileHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($String, prefix, prefix$renamed);
 	$var($Path, dir, dir$renamed);
 	$var($String, suffix, suffix$renamed);
@@ -196,6 +198,7 @@ $Path* TempFileHelper::createTempDirectory($Path* dir, $String* prefix, $FileAtt
 }
 
 void clinit$TempFileHelper($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(TempFileHelper::tmpdir, $Path::of($($StaticProperty::javaIoTmpDir()), $$new($StringArray, 0)));
 	TempFileHelper::isPosix = $nc($($nc($($FileSystems::getDefault()))->supportedFileAttributeViews()))->contains("posix"_s);
 	$assignStatic(TempFileHelper::random, $new($SecureRandom));

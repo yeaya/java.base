@@ -118,6 +118,7 @@ void FilePermissionTest::init$() {
 }
 
 void FilePermissionTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, realFile, $new($File, "exist.file"_s));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -143,6 +144,7 @@ void FilePermissionTest::main($StringArray* args) {
 }
 
 void FilePermissionTest::check($List* files, $String* expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, actual, $new($StringBuilder));
 	$nc(files)->forEach(static_cast<$Consumer*>($$new(FilePermissionTest$$Lambda$lambda$check$0, actual)));
 	if (!$nc(expected)->equals($(actual->toString()))) {
@@ -151,6 +153,7 @@ void FilePermissionTest::check($List* files, $String* expected) {
 }
 
 void FilePermissionTest::lambda$check$0($StringBuilder* actual, $String* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, result, $new($StringBuilder));
 	$var($FilePermission, fp1, $new($FilePermission, f, "read"_s));
 	$var($FilePermission, fp2, $new($FilePermission, $($$new($File, f)->getAbsolutePath()), "read"_s));

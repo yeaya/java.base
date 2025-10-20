@@ -95,6 +95,7 @@ $String* HttpTimestamper::TS_REPLY_MIME_TYPE = nullptr;
 $Debug* HttpTimestamper::debug = nullptr;
 
 void HttpTimestamper::init$($URI* tsaURI) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, tsaURI, nullptr);
 	bool var$0 = !$nc($($nc(tsaURI)->getScheme()))->equalsIgnoreCase("http"_s);
 	if (var$0 && !$nc($(tsaURI->getScheme()))->equalsIgnoreCase("https"_s)) {
@@ -104,6 +105,7 @@ void HttpTimestamper::init$($URI* tsaURI) {
 }
 
 $TSResponse* HttpTimestamper::generateTimestamp($TSRequest* tsQuery) {
+	$useLocalCurrentObjectStackCache();
 	$var($HttpURLConnection, connection, $cast($HttpURLConnection, $nc($($nc(this->tsaURI)->toURL()))->openConnection()));
 	$nc(connection)->setDoOutput(true);
 	connection->setUseCaches(false);

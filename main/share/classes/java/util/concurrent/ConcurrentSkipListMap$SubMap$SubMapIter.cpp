@@ -117,6 +117,7 @@ void ConcurrentSkipListMap$SubMap$SubMapIter::finalize() {
 }
 
 void ConcurrentSkipListMap$SubMap$SubMapIter::init$($ConcurrentSkipListMap$SubMap* this$0) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$VarHandle::acquireFence();
 	$var($Comparator, cmp, $nc(this$0->m)->comparator$);
@@ -154,6 +155,7 @@ void ConcurrentSkipListMap$SubMap$SubMapIter::advance() {
 }
 
 void ConcurrentSkipListMap$SubMap$SubMapIter::ascend() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->this$0->m)->comparator$);
 	for (;;) {
 		$set(this, next$, $nc(this->next$)->next);
@@ -173,6 +175,7 @@ void ConcurrentSkipListMap$SubMap$SubMapIter::ascend() {
 }
 
 void ConcurrentSkipListMap$SubMap$SubMapIter::descend() {
+	$useLocalCurrentObjectStackCache();
 	$var($Comparator, cmp, $nc(this->this$0->m)->comparator$);
 	for (;;) {
 		$set(this, next$, $nc(this->this$0->m)->findNear($nc(this->lastReturned)->key, 2, cmp));
@@ -213,6 +216,7 @@ bool ConcurrentSkipListMap$SubMap$SubMapIter::tryAdvance($Consumer* action) {
 }
 
 void ConcurrentSkipListMap$SubMap$SubMapIter::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	while (hasNext()) {
 		$nc(action)->accept($(next()));
 	}

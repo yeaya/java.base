@@ -105,6 +105,7 @@ void ImageReader$Directory::addChild($ImageReader$Node* node) {
 }
 
 void ImageReader$Directory::walk($Consumer* consumer) {
+	$useLocalCurrentObjectStackCache();
 	$nc(consumer)->accept(this);
 	{
 		$var($Iterator, i$, $nc(this->children)->iterator());

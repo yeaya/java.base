@@ -273,6 +273,7 @@ void Transform::main($StringArray* args) {
 }
 
 void Transform::test1() {
+	$useLocalCurrentObjectStackCache();
 	simpleTransform("toUpperCase"_s, "abc"_s, static_cast<$Function*>($$new(Transform$$Lambda$lambda$test1$0)));
 	simpleTransform("toLowerCase"_s, "ABC"_s, static_cast<$Function*>($$new(Transform$$Lambda$lambda$test1$1$1)));
 	simpleTransform("substring"_s, "John Smith"_s, static_cast<$Function*>($$new(Transform$$Lambda$lambda$test1$2$2)));
@@ -282,6 +283,7 @@ void Transform::test1() {
 }
 
 void Transform::simpleTransform($String* test, $String* s, $Function* f) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, test);
 	$var($Object, var$1, $nc(s)->transform(f));
 	check(var$0, var$1, $($nc(f)->apply(s)));
@@ -300,6 +302,7 @@ void Transform::check($String* test, Object$* output, Object$* expected) {
 }
 
 $String* Transform::lambda$test1$5($String* string) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($String, $nc($($($nc(string)->lines())->map(static_cast<$Function*>($$new(Transform$$Lambda$lambda$test1$4$4)))))->collect($($Collectors::joining("\n"_s, ""_s, "\n"_s))));
 }
 

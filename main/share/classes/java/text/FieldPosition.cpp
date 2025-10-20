@@ -151,6 +151,7 @@ int32_t FieldPosition::hashCode() {
 }
 
 $String* FieldPosition::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$($of(this)->getClass()->getName()), "[field="_s, $$str(this->field), ",attribute="_s, this->attribute, ",beginIndex="_s, $$str(this->beginIndex), ",endIndex="_s, $$str(this->endIndex), $$str(u']')});
 }
 

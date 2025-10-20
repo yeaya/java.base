@@ -91,6 +91,7 @@ void CertificateRequest$T13CertificateRequestProducer::init$() {
 }
 
 $bytes* CertificateRequest$T13CertificateRequestProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($CertificateRequest$T13CertificateRequestMessage, crm, $new($CertificateRequest$T13CertificateRequestMessage, shc));
 	$init($SSLHandshake);

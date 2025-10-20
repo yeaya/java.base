@@ -113,6 +113,7 @@ $Iterator* LinkedHashMap$LinkedEntrySet::iterator() {
 }
 
 bool LinkedHashMap$LinkedEntrySet::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -128,6 +129,7 @@ bool LinkedHashMap$LinkedEntrySet::contains(Object$* o) {
 }
 
 bool LinkedHashMap$LinkedEntrySet::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Map$Entry, e, nullptr);
 		bool var$0 = $instanceOf($Map$Entry, o);

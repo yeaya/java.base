@@ -135,6 +135,7 @@ $Object* allocate$ECDHKeyExchange$ECDHEPossession($Class* clazz) {
 }
 
 void ECDHKeyExchange$ECDHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("EC"_s));
 		$nc(kpg)->initialize($nc(namedGroup)->keAlgParamSpec, random);
@@ -149,6 +150,7 @@ void ECDHKeyExchange$ECDHEPossession::init$($NamedGroup* namedGroup, $SecureRand
 }
 
 void ECDHKeyExchange$ECDHEPossession::init$($ECDHKeyExchange$ECDHECredentials* credentials, $SecureRandom* random) {
+	$useLocalCurrentObjectStackCache();
 	$var($ECParameterSpec, params, $nc($nc(credentials)->popPublicKey)->getParams());
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("EC"_s));
@@ -164,11 +166,13 @@ void ECDHKeyExchange$ECDHEPossession::init$($ECDHKeyExchange$ECDHECredentials* c
 }
 
 $bytes* ECDHKeyExchange$ECDHEPossession::encode() {
+	$useLocalCurrentObjectStackCache();
 	$var($ECPoint, var$0, $nc(this->publicKey)->getW());
 	return $ECUtil::encodePoint(var$0, $($nc($($nc(this->publicKey)->getParams()))->getCurve()));
 }
 
 $SecretKey* ECDHKeyExchange$ECDHEPossession::getAgreedSecret($PublicKey* peerPublicKey) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($KeyAgreement, ka, $KeyAgreement::getInstance("ECDH"_s));
 		$nc(ka)->init(this->privateKey);
@@ -182,6 +186,7 @@ $SecretKey* ECDHKeyExchange$ECDHEPossession::getAgreedSecret($PublicKey* peerPub
 }
 
 $SecretKey* ECDHKeyExchange$ECDHEPossession::getAgreedSecret($bytes* encodedPoint) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ECParameterSpec, params, $nc(this->publicKey)->getParams());
 		$var($ECPoint, point, $ECUtil::decodePoint(encodedPoint, $($nc(params)->getCurve())));
@@ -200,6 +205,7 @@ $SecretKey* ECDHKeyExchange$ECDHEPossession::getAgreedSecret($bytes* encodedPoin
 }
 
 void ECDHKeyExchange$ECDHEPossession::checkConstraints($AlgorithmConstraints* constraints, $bytes* encodedPoint) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ECParameterSpec, params, $nc(this->publicKey)->getParams());
 		$var($ECPoint, point, $ECUtil::decodePoint(encodedPoint, $($nc(params)->getCurve())));

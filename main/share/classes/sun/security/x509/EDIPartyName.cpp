@@ -92,6 +92,7 @@ void EDIPartyName::init$($String* partyName) {
 }
 
 void EDIPartyName::init$($DerValue* derValue) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, assigner, nullptr);
 	$set(this, party, nullptr);
 	this->myhash = -1;
@@ -127,6 +128,7 @@ int32_t EDIPartyName::getType() {
 }
 
 void EDIPartyName::encode($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->assigner != nullptr) {
@@ -151,6 +153,7 @@ $String* EDIPartyName::getPartyName() {
 }
 
 bool EDIPartyName::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf(EDIPartyName, other))) {
 		return false;
 	}

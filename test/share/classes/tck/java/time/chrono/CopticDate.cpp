@@ -204,6 +204,7 @@ int32_t CopticDate::lengthOfMonth() {
 }
 
 $ValueRange* CopticDate::range($TemporalField* field) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		if (isSupported(field)) {
 			$ChronoField* f = $cast($ChronoField, field);
@@ -418,6 +419,7 @@ CopticDate* CopticDate::plusDays(int64_t days) {
 }
 
 int64_t CopticDate::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(CopticDate, end, $cast(CopticDate, $nc($($cast($CopticChronology, getChronology())))->date(endExclusive)));
 	if ($instanceOf($ChronoUnit, unit)) {
 		return $nc($($LocalDate::from(this)))->until(end, unit);
@@ -426,6 +428,7 @@ int64_t CopticDate::until($Temporal* endExclusive, $TemporalUnit* unit) {
 }
 
 $ChronoPeriod* CopticDate::until($ChronoLocalDate* endDate) {
+	$useLocalCurrentObjectStackCache();
 	$var(CopticDate, end, $cast(CopticDate, $nc($($cast($CopticChronology, getChronology())))->date(endDate)));
 	int64_t totalMonths = ($nc(end)->prolepticYear - this->prolepticYear) * 13 + (end->month - this->month);
 	int32_t days = end->day - this->day;
@@ -452,6 +455,7 @@ int64_t CopticDate::toEpochDay() {
 }
 
 $String* CopticDate::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	int64_t yoe = getLong($ChronoField::YEAR_OF_ERA);
 	int64_t moy = getLong($ChronoField::MONTH_OF_YEAR);

@@ -95,6 +95,7 @@ void MimeTypesFileTypeDetector::init$($Path* filePath) {
 }
 
 $String* MimeTypesFileTypeDetector::implProbeContentType($Path* path) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, fn, $nc(path)->getFileName());
 	if (fn == nullptr) {
 		return nullptr;
@@ -118,6 +119,7 @@ $String* MimeTypesFileTypeDetector::implProbeContentType($Path* path) {
 }
 
 void MimeTypesFileTypeDetector::loadMimeTypes() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!this->loaded) {
 		$synchronized(this) {
@@ -150,6 +152,7 @@ void MimeTypesFileTypeDetector::loadMimeTypes() {
 }
 
 void MimeTypesFileTypeDetector::parseMimeEntry($String* entry$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, entry, entry$renamed);
 	$assign(entry, $nc(entry)->trim());
 	bool var$0 = entry->isEmpty();

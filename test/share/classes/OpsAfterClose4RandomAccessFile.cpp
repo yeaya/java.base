@@ -176,6 +176,7 @@ void OpsAfterClose4RandomAccessFile::init$($String* $enum$name, int32_t $enum$or
 
 void OpsAfterClose4RandomAccessFile::main($StringArray* args) {
 	$init(OpsAfterClose4RandomAccessFile);
+	$useLocalCurrentObjectStackCache();
 	bool failed = false;
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "raf.txt"_s));
 	f->createNewFile();
@@ -188,6 +189,7 @@ void OpsAfterClose4RandomAccessFile::main($StringArray* args) {
 
 bool OpsAfterClose4RandomAccessFile::testRandomAccessFile($RandomAccessFile* r) {
 	$init(OpsAfterClose4RandomAccessFile);
+	$useLocalCurrentObjectStackCache();
 	$nc(r)->close();
 	bool failed = false;
 	bool result = false;

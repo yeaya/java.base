@@ -54,6 +54,7 @@ void FileURLMapper::init$($URL* url) {
 }
 
 $String* FileURLMapper::getPath() {
+	$useLocalCurrentObjectStackCache();
 	if (this->file != nullptr) {
 		return this->file;
 	}
@@ -71,6 +72,7 @@ $String* FileURLMapper::getPath() {
 }
 
 bool FileURLMapper::exists() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, getPath());
 	$var($File, f, $new($File, path));
 	return f->exists();

@@ -64,6 +64,7 @@ void Trim::main($StringArray* args) {
 
 void Trim::bash() {
 	$init(Trim);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(0, 100));
 		$var($StringBuffer, sb2, $new($StringBuffer, static_cast<$CharSequence*>(sb1)));
@@ -99,6 +100,7 @@ void Trim::bash() {
 
 void Trim::capacityCheck() {
 	$init(Trim);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 100; ++i) {
 		int32_t sizeNeeded = $nc(Trim::generator)->nextInt(1000) + 1;
 		int32_t sizeExtra = $nc(Trim::generator)->nextInt(100) + 1;

@@ -94,6 +94,7 @@ void InterruptMapDeadlock::init$() {
 }
 
 void InterruptMapDeadlock::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, file, $Paths::get("data.txt"_s, $$new($StringArray, 0)));
 		$init($StandardOpenOption);
 	$nc($($FileChannel::open(file, $$new($OpenOptionArray, {

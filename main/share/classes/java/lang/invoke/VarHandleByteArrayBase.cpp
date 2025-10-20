@@ -73,6 +73,7 @@ void VarHandleByteArrayBase::init$() {
 
 $IllegalStateException* VarHandleByteArrayBase::newIllegalStateExceptionForMisalignedAccess(int32_t index) {
 	$init(VarHandleByteArrayBase);
+	$useLocalCurrentObjectStackCache();
 	return $new($IllegalStateException, $$str({"Misaligned access at index: "_s, $$str(index)}));
 }
 

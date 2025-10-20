@@ -93,6 +93,7 @@ void DomainKeyStore$1::init$($DomainKeyStore* this$0, $Iterator* val$iterator) {
 }
 
 bool DomainKeyStore$1::hasMoreElements() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->aliases == nullptr) {
 			if ($nc(this->val$iterator)->hasNext()) {

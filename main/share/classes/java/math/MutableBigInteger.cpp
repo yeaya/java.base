@@ -234,6 +234,7 @@ $BigInteger* MutableBigInteger::toBigInteger() {
 }
 
 $BigDecimal* MutableBigInteger::toBigDecimal(int32_t sign, int32_t scale) {
+	$useLocalCurrentObjectStackCache();
 	if (this->intLen == 0 || sign == 0) {
 		return $BigDecimal::zeroValueOf(scale);
 	}
@@ -330,6 +331,7 @@ int32_t MutableBigInteger::compareShifted(MutableBigInteger* b, int32_t ints) {
 }
 
 int32_t MutableBigInteger::compareHalf(MutableBigInteger* b) {
+	$useLocalCurrentObjectStackCache();
 	int32_t blen = $nc(b)->intLen;
 	int32_t len = this->intLen;
 	if (len <= 0) {
@@ -655,6 +657,7 @@ void MutableBigInteger::keepLower(int32_t n) {
 }
 
 void MutableBigInteger::add(MutableBigInteger* addend) {
+	$useLocalCurrentObjectStackCache();
 	int32_t x = this->intLen;
 	int32_t y = $nc(addend)->intLen;
 	int32_t resultLen = (this->intLen > addend->intLen ? this->intLen : addend->intLen);
@@ -701,6 +704,7 @@ void MutableBigInteger::add(MutableBigInteger* addend) {
 }
 
 void MutableBigInteger::addShifted(MutableBigInteger* addend, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(addend)->isZero()) {
 		return;
 	}
@@ -790,6 +794,7 @@ void MutableBigInteger::addLower(MutableBigInteger* addend, int32_t n) {
 }
 
 int32_t MutableBigInteger::subtract(MutableBigInteger* b$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, b, b$renamed);
 	$var(MutableBigInteger, a, this);
 	$var($ints, result, this->value);
@@ -830,6 +835,7 @@ int32_t MutableBigInteger::subtract(MutableBigInteger* b$renamed) {
 }
 
 int32_t MutableBigInteger::difference(MutableBigInteger* b$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, b, b$renamed);
 	$var(MutableBigInteger, a, this);
 	int32_t sign = a->compare(b);
@@ -989,6 +995,7 @@ MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b, MutableB
 }
 
 MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b$renamed, MutableBigInteger* quotient, bool needRemainder) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, b, b$renamed);
 	if ($nc(b)->intLen == 0) {
 		$throwNew($ArithmeticException, "BigInteger divide by zero"_s);
@@ -1036,6 +1043,7 @@ MutableBigInteger* MutableBigInteger::divideKnuth(MutableBigInteger* b$renamed, 
 }
 
 MutableBigInteger* MutableBigInteger::divideAndRemainderBurnikelZiegler(MutableBigInteger* b, MutableBigInteger* quotient) {
+	$useLocalCurrentObjectStackCache();
 	int32_t r = this->intLen;
 	int32_t s = $nc(b)->intLen;
 	$nc(quotient)->offset = (quotient->intLen = 0);
@@ -1074,6 +1082,7 @@ MutableBigInteger* MutableBigInteger::divideAndRemainderBurnikelZiegler(MutableB
 }
 
 MutableBigInteger* MutableBigInteger::divide2n1n(MutableBigInteger* b, MutableBigInteger* quotient) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(b)->intLen;
 	if (n % 2 != 0 || n < $BigInteger::BURNIKEL_ZIEGLER_THRESHOLD) {
 		return divideKnuth(b, quotient);
@@ -1090,6 +1099,7 @@ MutableBigInteger* MutableBigInteger::divide2n1n(MutableBigInteger* b, MutableBi
 }
 
 MutableBigInteger* MutableBigInteger::divide3n2n(MutableBigInteger* b, MutableBigInteger* quotient) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = $nc(b)->intLen / 2;
 	$var(MutableBigInteger, a12, $new(MutableBigInteger, this));
 	a12->safeRightShift(32 * n);
@@ -1179,6 +1189,7 @@ void MutableBigInteger::copyAndShift($ints* src, int32_t srcFrom, int32_t srcLen
 }
 
 MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, MutableBigInteger* quotient, bool needRemainder) {
+	$useLocalCurrentObjectStackCache();
 	int32_t shift = $Integer::numberOfLeadingZeros($nc($nc(div)->value)->get(div->offset));
 	int32_t dlen = $nc(div)->intLen;
 	$var($ints, divisor, nullptr);
@@ -1343,6 +1354,7 @@ MutableBigInteger* MutableBigInteger::divideMagnitude(MutableBigInteger* div, Mu
 }
 
 MutableBigInteger* MutableBigInteger::divideLongMagnitude(int64_t ldivisor, MutableBigInteger* quotient) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, rem, $new(MutableBigInteger, $$new($ints, this->intLen + 1)));
 	$System::arraycopy(this->value, this->offset, rem->value, 1, this->intLen);
 	rem->intLen = this->intLen;
@@ -1477,6 +1489,7 @@ int64_t MutableBigInteger::divWord(int64_t n, int32_t d) {
 }
 
 MutableBigInteger* MutableBigInteger::sqrt() {
+	$useLocalCurrentObjectStackCache();
 	if (this->isZero()) {
 		return $new(MutableBigInteger, 0);
 	} else if ($nc(this->value)->length == 1 && ((int64_t)($nc(this->value)->get(0) & (uint64_t)(int64_t)0x00000000FFFFFFFF)) < 4) {
@@ -1526,6 +1539,7 @@ MutableBigInteger* MutableBigInteger::sqrt() {
 }
 
 MutableBigInteger* MutableBigInteger::hybridGCD(MutableBigInteger* b$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, b, b$renamed);
 	$var(MutableBigInteger, a, this);
 	$var(MutableBigInteger, q, $new(MutableBigInteger));
@@ -1541,6 +1555,7 @@ MutableBigInteger* MutableBigInteger::hybridGCD(MutableBigInteger* b$renamed) {
 }
 
 MutableBigInteger* MutableBigInteger::binaryGCD(MutableBigInteger* v$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, v, v$renamed);
 	$var(MutableBigInteger, u, this);
 	$var(MutableBigInteger, r, $new(MutableBigInteger));
@@ -1611,6 +1626,7 @@ int32_t MutableBigInteger::binaryGcd(int32_t a, int32_t b) {
 }
 
 MutableBigInteger* MutableBigInteger::mutableModInverse(MutableBigInteger* p) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(p)->isOdd()) {
 		return modInverse(p);
 	}
@@ -1639,6 +1655,7 @@ MutableBigInteger* MutableBigInteger::mutableModInverse(MutableBigInteger* p) {
 }
 
 MutableBigInteger* MutableBigInteger::modInverseMP2(int32_t k) {
+	$useLocalCurrentObjectStackCache();
 	if (isEven()) {
 		$throwNew($ArithmeticException, "Non-invertible. (GCD != 1)"_s);
 	}
@@ -1691,11 +1708,13 @@ int64_t MutableBigInteger::inverseMod64(int64_t val) {
 
 MutableBigInteger* MutableBigInteger::modInverseBP2(MutableBigInteger* mod, int32_t k) {
 	$init(MutableBigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, var$0, $new(MutableBigInteger, 1));
 	return fixup(var$0, $$new(MutableBigInteger, mod), k);
 }
 
 MutableBigInteger* MutableBigInteger::modInverse(MutableBigInteger* mod) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, p, $new(MutableBigInteger, mod));
 	$var(MutableBigInteger, f, $new(MutableBigInteger, this));
 	$var(MutableBigInteger, g, $new(MutableBigInteger, p));
@@ -1746,6 +1765,7 @@ MutableBigInteger* MutableBigInteger::modInverse(MutableBigInteger* mod) {
 
 MutableBigInteger* MutableBigInteger::fixup(MutableBigInteger* c$renamed, MutableBigInteger* p, int32_t k) {
 	$init(MutableBigInteger);
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, c, c$renamed);
 	$var(MutableBigInteger, temp, $new(MutableBigInteger));
 	int32_t r = -inverseMod32($nc($nc(p)->value)->get(p->offset + p->intLen - 1));
@@ -1774,6 +1794,7 @@ MutableBigInteger* MutableBigInteger::fixup(MutableBigInteger* c$renamed, Mutabl
 }
 
 MutableBigInteger* MutableBigInteger::euclidModInverse(int32_t k) {
+	$useLocalCurrentObjectStackCache();
 	$var(MutableBigInteger, b, $new(MutableBigInteger, 1));
 	b->leftShift(k);
 	$var(MutableBigInteger, mod, $new(MutableBigInteger, b));

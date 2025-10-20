@@ -145,6 +145,7 @@ $ResourceBundle* Bundles::of($String* baseName, $Locale* locale, $Bundles$Strate
 
 $ResourceBundle* Bundles::loadBundleOf($String* baseName, $Locale* targetLocale, $Bundles$Strategy* strategy) {
 	$init(Bundles);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(baseName);
 	$Objects::requireNonNull(targetLocale);
@@ -173,6 +174,7 @@ $ResourceBundle* Bundles::loadBundleOf($String* baseName, $Locale* targetLocale,
 
 $ResourceBundle* Bundles::findBundleOf($Bundles$CacheKey* cacheKey, $Bundles$Strategy* strategy, $String* baseName, $List* candidateLocales, int32_t index) {
 	$init(Bundles);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ResourceBundle, parent, nullptr);
 	$var($Locale, targetLocale, $cast($Locale, $nc(candidateLocales)->get(index)));
@@ -256,6 +258,7 @@ $ResourceBundle* Bundles::findBundleOf($Bundles$CacheKey* cacheKey, $Bundles$Str
 
 void Bundles::cleanupCache() {
 	$init(Bundles);
+	$useLocalCurrentObjectStackCache();
 	$var($Object, ref, nullptr);
 	while (($assign(ref, $nc(Bundles::referenceQueue)->poll())) != nullptr) {
 		$nc(Bundles::cacheList)->remove($($nc(($cast($Bundles$CacheKeyReference, ref)))->getCacheKey()));
@@ -275,6 +278,7 @@ bool Bundles::isValidBundle($ResourceBundle* bundle) {
 
 void Bundles::throwMissingResourceException($String* baseName, $Locale* locale, $Throwable* cause$renamed) {
 	$init(Bundles);
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, cause, cause$renamed);
 	if ($instanceOf($MissingResourceException, cause)) {
 		$assign(cause, nullptr);
@@ -297,6 +301,7 @@ $ResourceBundle* Bundles::findBundleInCache($Bundles$CacheKey* cacheKey) {
 
 $ResourceBundle* Bundles::putBundleInCache($Bundles$CacheKey* cacheKey, $ResourceBundle* bundle$renamed) {
 	$init(Bundles);
+	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle, bundle, bundle$renamed);
 	$var($Bundles$CacheKey, key, $cast($Bundles$CacheKey, $nc(cacheKey)->clone()));
 	$var($Bundles$BundleReference, bundleRef, $new($Bundles$BundleReference, bundle, Bundles::referenceQueue, key));
@@ -315,6 +320,7 @@ $ResourceBundle* Bundles::putBundleInCache($Bundles$CacheKey* cacheKey, $Resourc
 
 $String* Bundles::toOtherBundleName($String* baseName, $String* bundleName, $Locale* locale) {
 	$init(Bundles);
+	$useLocalCurrentObjectStackCache();
 	$var($String, simpleName, $nc(baseName)->substring(baseName->lastIndexOf((int32_t)u'.') + 1));
 	int32_t var$0 = bundleName->lastIndexOf(simpleName);
 	$var($String, suffix, $nc(bundleName)->substring(var$0 + simpleName->length()));

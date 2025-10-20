@@ -177,6 +177,7 @@ void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::init$() {
 }
 
 void ECDHClientKeyExchange$ECDHEClientKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($SSLPossession, sslPossession, nullptr);
 	$NamedGroup* namedGroup = nullptr;

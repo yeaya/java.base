@@ -114,6 +114,7 @@ void CleanerImpl::init$() {
 }
 
 void CleanerImpl::start($Cleaner* cleaner, $ThreadFactory* threadFactory$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadFactory, threadFactory, threadFactory$renamed);
 	if (getCleanerImpl(cleaner) != this) {
 		$throwNew($AssertionError, $of("wrong cleaner"_s));
@@ -128,6 +129,7 @@ void CleanerImpl::start($Cleaner* cleaner, $ThreadFactory* threadFactory$renamed
 }
 
 void CleanerImpl::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $Thread::currentThread());
 	$var($InnocuousThread, mlThread, ($instanceOf($InnocuousThread, t)) ? $cast($InnocuousThread, t) : ($InnocuousThread*)nullptr);
 	while (!$nc(this->phantomCleanableList)->isListEmpty()) {

@@ -205,6 +205,7 @@ void ServerSocket::init$(int32_t port, int32_t backlog) {
 }
 
 void ServerSocket::init$(int32_t port, int32_t backlog, $InetAddress* bindAddr) {
+	$useLocalCurrentObjectStackCache();
 	this->created = false;
 	this->bound = false;
 	this->closed = false;
@@ -246,6 +247,7 @@ void ServerSocket::setImpl() {
 }
 
 void ServerSocket::createImpl() {
+	$useLocalCurrentObjectStackCache();
 	if (this->impl == nullptr) {
 		setImpl();
 	}
@@ -263,6 +265,7 @@ void ServerSocket::bind($SocketAddress* endpoint) {
 }
 
 void ServerSocket::bind($SocketAddress* endpoint$renamed, int32_t backlog) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketAddress, endpoint, endpoint$renamed);
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
@@ -309,6 +312,7 @@ void ServerSocket::bind($SocketAddress* endpoint$renamed, int32_t backlog) {
 }
 
 $InetAddress* ServerSocket::getInetAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (!isBound()) {
 		return nullptr;
 	}
@@ -361,6 +365,7 @@ $Socket* ServerSocket::accept() {
 }
 
 void ServerSocket::implAccept($Socket* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($SocketImpl, si, $nc(s)->impl);
 	if (si == nullptr) {
 		$assign(si, implAccept());
@@ -400,6 +405,7 @@ void ServerSocket::implAccept($Socket* s) {
 }
 
 $SocketImpl* ServerSocket::implAccept() {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($PlatformSocketImpl, this->impl)) {
 		return platformImplAccept();
 	} else {
@@ -439,6 +445,7 @@ void ServerSocket::customImplAccept($SocketImpl* si) {
 }
 
 void ServerSocket::implAccept($SocketImpl* si) {
+	$useLocalCurrentObjectStackCache();
 	if (!ServerSocket::$assertionsDisabled && ! !($instanceOf($DelegatingSocketImpl, si))) {
 		$throwNew($AssertionError);
 	}
@@ -457,6 +464,7 @@ void ServerSocket::implAccept($SocketImpl* si) {
 }
 
 void ServerSocket::ensureCompatible($SocketImpl* si) {
+	$useLocalCurrentObjectStackCache();
 	if (($instanceOf($PlatformSocketImpl, this->impl)) != ($instanceOf($PlatformSocketImpl, si))) {
 		$var($String, var$0, $$str({"An instance of "_s, $nc($of(this->impl))->getClass(), " cannot accept a connection with an instance of "_s}));
 		$throwNew($IOException, $$concat(var$0, $($nc($of(si))->getClass())));
@@ -491,6 +499,7 @@ bool ServerSocket::isClosed() {
 
 void ServerSocket::setSoTimeout(int32_t timeout) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -503,6 +512,7 @@ void ServerSocket::setSoTimeout(int32_t timeout) {
 
 int32_t ServerSocket::getSoTimeout() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -516,6 +526,7 @@ int32_t ServerSocket::getSoTimeout() {
 }
 
 void ServerSocket::setReuseAddress(bool on) {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -523,6 +534,7 @@ void ServerSocket::setReuseAddress(bool on) {
 }
 
 bool ServerSocket::getReuseAddress() {
+	$useLocalCurrentObjectStackCache();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -530,6 +542,7 @@ bool ServerSocket::getReuseAddress() {
 }
 
 $String* ServerSocket::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (!isBound()) {
 		return "ServerSocket[unbound]"_s;
 	}
@@ -561,6 +574,7 @@ void ServerSocket::setSocketFactory($SocketImplFactory* fac) {
 
 void ServerSocket::setReceiveBufferSize(int32_t size) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!(size > 0)) {
 			$throwNew($IllegalArgumentException, "negative receive size"_s);
 		}
@@ -573,6 +587,7 @@ void ServerSocket::setReceiveBufferSize(int32_t size) {
 
 int32_t ServerSocket::getReceiveBufferSize() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
@@ -606,6 +621,7 @@ $Object* ServerSocket::getOption($SocketOption* name) {
 }
 
 $Set* ServerSocket::supportedOptions() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, so, this->options);
 	if (so != nullptr) {
 		return so;

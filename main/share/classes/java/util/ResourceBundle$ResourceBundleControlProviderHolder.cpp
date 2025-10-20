@@ -212,6 +212,7 @@ void ResourceBundle$ResourceBundleControlProviderHolder::init$() {
 
 $ResourceBundle$Control* ResourceBundle$ResourceBundleControlProviderHolder::getControl($String* baseName) {
 	$init(ResourceBundle$ResourceBundleControlProviderHolder);
+	$useLocalCurrentObjectStackCache();
 	$init($ResourceBundle$Control);
 	return $nc(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS)->isEmpty() ? $ResourceBundle$Control::INSTANCE : $cast($ResourceBundle$Control, $nc($($nc($($nc($($nc(ResourceBundle$ResourceBundleControlProviderHolder::CONTROL_PROVIDERS)->stream()))->flatMap(static_cast<$Function*>($$new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$getControl$1$1, baseName)))))->findFirst()))->orElse($ResourceBundle$Control::INSTANCE));
 }
@@ -223,6 +224,7 @@ $Stream* ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1
 
 $List* ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0() {
 	$init(ResourceBundle$ResourceBundleControlProviderHolder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($ResourceBundleControlProvider);
 	return $nc($($nc($($nc($($ServiceLoader::load($ResourceBundleControlProvider::class$, $($ClassLoader::getSystemClassLoader()))))->stream()))->map(static_cast<$Function*>($$new(ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2)))))->toList();

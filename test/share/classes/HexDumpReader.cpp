@@ -77,10 +77,12 @@ void HexDumpReader::init$() {
 }
 
 $InputStream* HexDumpReader::getStreamFromHexDump($String* fileName) {
+	$useLocalCurrentObjectStackCache();
 	return getStreamFromHexDump($$new($File, $($System::getProperty("test.src"_s, "."_s)), fileName));
 }
 
 $InputStream* HexDumpReader::getStreamFromHexDump($File* hexFile) {
+	$useLocalCurrentObjectStackCache();
 	$var($HexDumpReader$ByteArrayBuilder, bab, $new($HexDumpReader$ByteArrayBuilder));
 	int32_t lineNo = 0;
 	try {

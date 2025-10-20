@@ -75,6 +75,7 @@ void Reflect::setAccessible($AccessibleObject* ao) {
 
 $Field* Reflect::lookupField($String* className, $String* fieldName) {
 	$load(Reflect);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName(className);

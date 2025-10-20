@@ -140,6 +140,7 @@ void FileLock::close() {
 }
 
 $String* FileLock::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s, $$str(this->position$), ":"_s, $$str(this->size$), " "_s, (this->shared ? "shared"_s : "exclusive"_s), " "_s}));
 	$var($String, var$0, $$concat(var$1, (isValid() ? "valid"_s : "invalid"_s)));
 	return ($concat(var$0, "]"));

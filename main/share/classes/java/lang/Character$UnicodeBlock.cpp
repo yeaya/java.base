@@ -1350,6 +1350,7 @@ void Character$UnicodeBlock::init$($String* idName, $String* alias) {
 }
 
 void Character$UnicodeBlock::init$($String* idName, $StringArray* aliases) {
+	$useLocalCurrentObjectStackCache();
 	Character$UnicodeBlock::init$(idName);
 	{
 		$var($StringArray, arr$, aliases);
@@ -1369,6 +1370,7 @@ Character$UnicodeBlock* Character$UnicodeBlock::of(char16_t c) {
 
 Character$UnicodeBlock* Character$UnicodeBlock::of(int32_t codePoint) {
 	$init(Character$UnicodeBlock);
+	$useLocalCurrentObjectStackCache();
 	if (!$Character::isValidCodePoint(codePoint)) {
 		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(codePoint)))}))));
 	}
@@ -1391,6 +1393,7 @@ Character$UnicodeBlock* Character$UnicodeBlock::of(int32_t codePoint) {
 
 Character$UnicodeBlock* Character$UnicodeBlock::forName($String* blockName) {
 	$init(Character$UnicodeBlock);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var(Character$UnicodeBlock, block, $cast(Character$UnicodeBlock, $nc(Character$UnicodeBlock::map)->get($($nc(blockName)->toUpperCase($Locale::US)))));
 	if (block == nullptr) {
@@ -1400,6 +1403,7 @@ Character$UnicodeBlock* Character$UnicodeBlock::forName($String* blockName) {
 }
 
 void clinit$Character$UnicodeBlock($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Character$UnicodeBlock::map, $new($HashMap, $cast(int32_t, (Character$UnicodeBlock::NUM_ENTITIES / 0.75f + 1.0f))));
 	$assignStatic(Character$UnicodeBlock::BASIC_LATIN, $new(Character$UnicodeBlock, "BASIC_LATIN"_s, $$new($StringArray, {
 		"BASIC LATIN"_s,

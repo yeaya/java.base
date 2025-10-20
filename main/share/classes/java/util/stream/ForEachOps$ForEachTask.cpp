@@ -94,6 +94,7 @@ void ForEachOps$ForEachTask::init$(ForEachOps$ForEachTask* parent, $Spliterator*
 }
 
 void ForEachOps$ForEachTask::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($Spliterator, rightSplit, this->spliterator);
 	$var($Spliterator, leftSplit, nullptr);
 	int64_t sizeEstimate = $nc(rightSplit)->estimateSize();

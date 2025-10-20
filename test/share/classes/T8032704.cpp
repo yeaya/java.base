@@ -79,6 +79,7 @@ $MethodType* T8032704::mt($Class* k) {
 }
 
 bool T8032704::mf($MethodHandles$Lookup* l) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($MethodHandles$Lookup, var$0, l);
 		$var($String, var$1, "close"_s);
@@ -98,6 +99,7 @@ bool T8032704::mf($MethodHandles$Lookup* l) {
 
 void T8032704::main($StringArray* args) {
 	$load(T8032704);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodHandles$Lookup, ll, $MethodHandles::lookup());
 	$init(T8032704);

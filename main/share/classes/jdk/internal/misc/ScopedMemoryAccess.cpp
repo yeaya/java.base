@@ -2668,6 +2668,7 @@ bool ScopedMemoryAccess::isLoaded($ScopedMemoryAccess$Scope* scope, int64_t addr
 }
 
 bool ScopedMemoryAccess::isLoadedInternal($ScopedMemoryAccess$Scope* scope, int64_t address, bool isSync, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		bool var$2 = false;
@@ -2704,6 +2705,7 @@ void ScopedMemoryAccess::load($ScopedMemoryAccess$Scope* scope, int64_t address,
 }
 
 void ScopedMemoryAccess::loadInternal($ScopedMemoryAccess$Scope* scope, int64_t address, bool isSync, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -2732,6 +2734,7 @@ void ScopedMemoryAccess::unload($ScopedMemoryAccess$Scope* scope, int64_t addres
 }
 
 void ScopedMemoryAccess::unloadInternal($ScopedMemoryAccess$Scope* scope, int64_t address, bool isSync, int64_t size) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -2760,6 +2763,7 @@ void ScopedMemoryAccess::force($ScopedMemoryAccess$Scope* scope, $FileDescriptor
 }
 
 void ScopedMemoryAccess::forceInternal($ScopedMemoryAccess$Scope* scope, $FileDescriptor* fd, int64_t address, bool isSync, int64_t index, int64_t length) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {
@@ -2780,6 +2784,7 @@ void ScopedMemoryAccess::forceInternal($ScopedMemoryAccess$Scope* scope, $FileDe
 
 $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBuffer($Class* vmClass, $Class* e, int32_t length, $ByteBuffer* bb, int32_t offset, $VectorSupport$VectorSpecies* s, $VectorSupport$LoadOperation* defaultImpl) {
 	$init(ScopedMemoryAccess);
+	$useLocalCurrentObjectStackCache();
 	try {
 		return loadFromByteBufferScoped($($ScopedMemoryAccess$BufferAccess::scope(bb)), vmClass, e, length, bb, offset, s, defaultImpl);
 	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
@@ -2791,6 +2796,7 @@ $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBuffer($Class* vmClass, $
 
 $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBufferScoped($ScopedMemoryAccess$Scope* scope, $Class* vmClass, $Class* e, int32_t length, $ByteBuffer* bb, int32_t offset, $VectorSupport$VectorSpecies* s, $VectorSupport$LoadOperation* defaultImpl) {
 	$init(ScopedMemoryAccess);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		$var($VectorSupport$Vector, var$2, nullptr);
@@ -2823,6 +2829,7 @@ $VectorSupport$Vector* ScopedMemoryAccess::loadFromByteBufferScoped($ScopedMemor
 
 void ScopedMemoryAccess::storeIntoByteBuffer($Class* vmClass, $Class* e, int32_t length, $VectorSupport$Vector* v, $ByteBuffer* bb, int32_t offset, $VectorSupport$StoreVectorOperation* defaultImpl) {
 	$init(ScopedMemoryAccess);
+	$useLocalCurrentObjectStackCache();
 	try {
 		storeIntoByteBufferScoped($($ScopedMemoryAccess$BufferAccess::scope(bb)), vmClass, e, length, v, bb, offset, defaultImpl);
 	} catch ($ScopedMemoryAccess$Scope$ScopedAccessError&) {
@@ -2833,6 +2840,7 @@ void ScopedMemoryAccess::storeIntoByteBuffer($Class* vmClass, $Class* e, int32_t
 
 void ScopedMemoryAccess::storeIntoByteBufferScoped($ScopedMemoryAccess$Scope* scope, $Class* vmClass, $Class* e, int32_t length, $VectorSupport$Vector* v, $ByteBuffer* bb, int32_t offset, $VectorSupport$StoreVectorOperation* defaultImpl) {
 	$init(ScopedMemoryAccess);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

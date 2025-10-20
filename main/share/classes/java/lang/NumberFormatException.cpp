@@ -56,11 +56,13 @@ void NumberFormatException::init$($String* s) {
 
 NumberFormatException* NumberFormatException::forInputString($String* s, int32_t radix) {
 	$init(NumberFormatException);
+	$useLocalCurrentObjectStackCache();
 	return $new(NumberFormatException, $$str({"For input string: \""_s, s, "\""_s, (radix == 10 ? ""_s : $$str({" under radix "_s, $$str(radix)}))}));
 }
 
 NumberFormatException* NumberFormatException::forCharSequence($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t errorIndex) {
 	$init(NumberFormatException);
+	$useLocalCurrentObjectStackCache();
 	return $new(NumberFormatException, $$str({"Error at index "_s, $$str((errorIndex - beginIndex)), " in: \""_s, $($nc(s)->subSequence(beginIndex, endIndex)), "\""_s}));
 }
 

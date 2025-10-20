@@ -56,6 +56,7 @@ void ReferenceEnqueue::init$() {
 }
 
 void ReferenceEnqueue::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 5; ++i) {
 		$$new($ReferenceEnqueue$WeakRef)->run();
 		$$new($ReferenceEnqueue$ExplicitEnqueue)->run();

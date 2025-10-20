@@ -49,6 +49,7 @@ void bug6317072::init$() {
 }
 
 void bug6317072::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$new($SimpleDateFormat, "yy"_s, ($Locale*)nullptr);
 		$throwNew($RuntimeException, "should thrown a NullPointerException"_s);

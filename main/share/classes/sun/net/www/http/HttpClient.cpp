@@ -421,6 +421,7 @@ HttpClient* HttpClient::New($URL* url, bool useCache) {
 
 HttpClient* HttpClient::New($URL* url, $Proxy* p$renamed, int32_t to, bool useCache, $1HttpURLConnection* httpuc) {
 	$init(HttpClient);
+	$useLocalCurrentObjectStackCache();
 	$var($Proxy, p, p$renamed);
 	if (p == nullptr) {
 		$init($Proxy);
@@ -547,6 +548,7 @@ void HttpClient::finished() {
 }
 
 bool HttpClient::available() {
+	$useLocalCurrentObjectStackCache();
 	bool available = true;
 	int32_t old = -1;
 	lock();
@@ -660,6 +662,7 @@ void HttpClient::closeIdleConnection() {
 }
 
 void HttpClient::openServer($String* server, int32_t port) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, serverSocket, doConnect(server, port));
 	try {
 		$var($OutputStream, out, $nc(this->serverSocket)->getOutputStream());
@@ -709,6 +712,7 @@ void HttpClient::afterConnect() {
 }
 
 void HttpClient::privilegedOpenServer($InetSocketAddress* server) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (!HttpClient::$assertionsDisabled && !$nc(this->clientLock)->isHeldByCurrentThread()) {
 		$throwNew($AssertionError);
@@ -726,6 +730,7 @@ void HttpClient::superOpenServer($String* proxyHost, int32_t proxyPort) {
 }
 
 void HttpClient::openServer() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	lock();
 	{
@@ -784,6 +789,7 @@ void HttpClient::openServer() {
 }
 
 $String* HttpClient::getURLFile() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, fileName, nullptr);
 	if (this->usingProxy && !this->proxyDisabled) {
 		$var($StringBuilder, result, $new($StringBuilder, 128));
@@ -839,6 +845,7 @@ void HttpClient::writeRequests($MessageHeader* head, $PosterOutputStream* pos, b
 }
 
 bool HttpClient::parseHTTP($MessageHeader* responses, $ProgressSource* pi, $1HttpURLConnection* httpuc) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$set(this, serverInput, $nc(this->serverSocket)->getInputStream());
 		if (this->capture != nullptr) {
@@ -874,6 +881,7 @@ bool HttpClient::parseHTTP($MessageHeader* responses, $ProgressSource* pi, $1Htt
 }
 
 void HttpClient::checkTunneling($1HttpURLConnection* httpuc) {
+	$useLocalCurrentObjectStackCache();
 	if (needsTunneling()) {
 		$var($MessageHeader, origRequests, this->requests);
 		$var($PosterOutputStream, origPoster, this->poster);
@@ -884,6 +892,7 @@ void HttpClient::checkTunneling($1HttpURLConnection* httpuc) {
 }
 
 bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi, $1HttpURLConnection* httpuc) {
+	$useLocalCurrentObjectStackCache();
 	this->keepAliveConnections = -1;
 	this->keepAliveTimeout = 0;
 	bool ret = false;
@@ -1045,6 +1054,7 @@ bool HttpClient::parseHTTPHeader($MessageHeader* responses, $ProgressSource* pi,
 }
 
 $InputStream* HttpClient::getInputStream() {
+	$useLocalCurrentObjectStackCache();
 	lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1090,6 +1100,7 @@ $CacheRequest* HttpClient::getCacheRequest() {
 }
 
 $String* HttpClient::getRequestMethod() {
+	$useLocalCurrentObjectStackCache();
 	if (this->requests != nullptr) {
 		$var($String, requestLine, $nc(this->requests)->getKey(0));
 		if (requestLine != nullptr) {
@@ -1140,6 +1151,7 @@ void HttpClient::unlock() {
 }
 
 void clinit$HttpClient($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	HttpClient::$assertionsDisabled = !HttpClient::class$->desiredAssertionStatus();
 	$assignStatic(HttpClient::kac, $new($KeepAliveCache));
 	HttpClient::keepAliveProp = true;

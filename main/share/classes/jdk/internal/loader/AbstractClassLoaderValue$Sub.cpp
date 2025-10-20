@@ -84,6 +84,7 @@ bool AbstractClassLoaderValue$Sub::isEqualOrDescendantOf($AbstractClassLoaderVal
 }
 
 bool AbstractClassLoaderValue$Sub::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, o)) {
 		return true;
 	}

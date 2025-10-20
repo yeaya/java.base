@@ -118,6 +118,7 @@ void AdaptableX509CertSelector::setSkiAndSerialNumber($AuthorityKeyIdentifierExt
 }
 
 bool AdaptableX509CertSelector::match($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, xcert, $cast($X509Certificate, cert));
 	if (!matchSubjectKeyID(xcert)) {
 		return false;
@@ -153,6 +154,7 @@ bool AdaptableX509CertSelector::match($Certificate* cert) {
 }
 
 bool AdaptableX509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
+	$useLocalCurrentObjectStackCache();
 	if (this->ski == nullptr) {
 		return true;
 	}

@@ -87,6 +87,7 @@ void TemporaryFiles::init$() {
 }
 
 void TemporaryFiles::checkInDirectory($Path* file, $Path* dir$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, dir, dir$renamed);
 	if (dir == nullptr) {
 		$assign(dir, $Paths::get($($System::getProperty("java.io.tmpdir"_s)), $$new($StringArray, 0)));
@@ -97,6 +98,7 @@ void TemporaryFiles::checkInDirectory($Path* file, $Path* dir$renamed) {
 }
 
 void TemporaryFiles::testTempFile($String* prefix, $String* suffix, $Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, file, (dir == nullptr) ? $Files::createTempFile(prefix, suffix, $$new($FileAttributeArray, 0)) : $Files::createTempFile(dir, prefix, suffix, $$new($FileAttributeArray, 0)));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -144,6 +146,7 @@ void TemporaryFiles::testTempFile($String* prefix, $String* suffix) {
 }
 
 void TemporaryFiles::testTempDirectory($String* prefix, $Path* dir) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, subdir, (dir == nullptr) ? $Files::createTempDirectory(prefix, $$new($FileAttributeArray, 0)) : $Files::createTempDirectory(dir, prefix, $$new($FileAttributeArray, 0)));
 	{
 		$var($Throwable, var$0, nullptr);
@@ -213,6 +216,7 @@ void TemporaryFiles::testTempDirectory($String* prefix) {
 }
 
 void TemporaryFiles::testInvalidFileTemp($String* prefix, $String* suffix) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($Path, file, $Files::createTempFile(prefix, suffix, $$new($FileAttributeArray, 0)));
 		$Files::delete$(file);
@@ -223,6 +227,7 @@ void TemporaryFiles::testInvalidFileTemp($String* prefix, $String* suffix) {
 }
 
 void TemporaryFiles::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	testTempFile("blah"_s, ".dat"_s);
 	testTempFile("blah"_s, nullptr);
 	testTempFile(nullptr, ".dat"_s);

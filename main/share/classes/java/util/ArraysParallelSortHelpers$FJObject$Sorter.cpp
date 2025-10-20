@@ -91,6 +91,7 @@ void ArraysParallelSortHelpers$FJObject$Sorter::init$($CountedCompleter* par, $O
 }
 
 void ArraysParallelSortHelpers$FJObject$Sorter::compute() {
+	$useLocalCurrentObjectStackCache();
 	$var($CountedCompleter, s, this);
 	$var($Comparator, c, this->comparator);
 	$var($ObjectArray, a, this->a);

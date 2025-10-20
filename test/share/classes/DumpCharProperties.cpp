@@ -61,6 +61,7 @@ void DumpCharProperties::init$() {
 
 $String* DumpCharProperties::charProps(int32_t i) {
 	$init(DumpCharProperties);
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $new($String, $$new($ints, {i}), 0, 1));
 		$init($Locale);
 	return $String::format("%b %b %b %b %b %b %b %b %b %b %b %b %d %d %d %d %d %b %b %d %d %b %d %d"_s, $$new($ObjectArray, {
@@ -93,6 +94,7 @@ $String* DumpCharProperties::charProps(int32_t i) {
 
 void DumpCharProperties::main($StringArray* args) {
 	$init(DumpCharProperties);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 17 * 0x00010000; ++i) {
 		$init($System);
 		$nc($System::out)->println($(charProps(i)));

@@ -68,6 +68,7 @@ void NetworkPrefixLength::init$() {
 
 void NetworkPrefixLength::main($StringArray* args) {
 	$init(NetworkPrefixLength);
+	$useLocalCurrentObjectStackCache();
 	$var($Enumeration, nics, $NetworkInterface::getNetworkInterfaces());
 	while ($nc(nics)->hasMoreElements()) {
 		$var($NetworkInterface, nic, $cast($NetworkInterface, nics->nextElement()));

@@ -91,6 +91,7 @@ bool HashMap$HashIterator::hasNext() {
 }
 
 $HashMap$Node* HashMap$HashIterator::nextNode() {
+	$useLocalCurrentObjectStackCache();
 	$var($HashMap$NodeArray, t, nullptr);
 	$var($HashMap$Node, e, this->next);
 	if (this->this$0->modCount != this->expectedModCount) {

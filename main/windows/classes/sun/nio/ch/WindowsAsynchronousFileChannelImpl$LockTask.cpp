@@ -122,6 +122,7 @@ void WindowsAsynchronousFileChannelImpl$LockTask::init$($WindowsAsynchronousFile
 }
 
 void WindowsAsynchronousFileChannelImpl$LockTask::run() {
+	$useLocalCurrentObjectStackCache();
 	int64_t overlapped = 0;
 	{
 		$var($Throwable, var$0, nullptr);

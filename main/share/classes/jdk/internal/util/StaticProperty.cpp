@@ -93,6 +93,7 @@ void StaticProperty::init$() {
 
 $String* StaticProperty::getProperty($Properties* props, $String* key) {
 	$init(StaticProperty);
+	$useLocalCurrentObjectStackCache();
 	$var($String, v, $nc(props)->getProperty(key));
 	if (v == nullptr) {
 		$throwNew($InternalError, $$str({"null property: "_s, key}));

@@ -79,6 +79,7 @@ void NullThreadName::init$() {
 
 void NullThreadName::main($StringArray* args) {
 	$init(NullThreadName);
+	$useLocalCurrentObjectStackCache();
 	$var($ThreadGroup, tg, $new($ThreadGroup, "chegar-threads"_s));
 	$var($Thread, goodThread, $new($Thread, tg, $$new($NullThreadName$GoodThread), "goodThread"_s));
 	try {

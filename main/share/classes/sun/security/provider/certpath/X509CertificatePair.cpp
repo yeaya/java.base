@@ -116,6 +116,7 @@ void X509CertificatePair::init$($X509Certificate* forward, $X509Certificate* rev
 }
 
 void X509CertificatePair::init$($bytes* encoded) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		parse($$new($DerValue, encoded));
 		$set(this, encoded, encoded);
@@ -138,6 +139,7 @@ X509CertificatePair* X509CertificatePair::generateCertificatePair($bytes* encode
 	$load(X509CertificatePair);
 	$synchronized(class$) {
 		$init(X509CertificatePair);
+		$useLocalCurrentObjectStackCache();
 		$var($Object, key, $new($Cache$EqualByteArray, encoded));
 		$var(X509CertificatePair, pair, $cast(X509CertificatePair, $nc(X509CertificatePair::cache)->get(key)));
 		if (pair != nullptr) {
@@ -169,6 +171,7 @@ $X509Certificate* X509CertificatePair::getReverse() {
 }
 
 $bytes* X509CertificatePair::getEncoded() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->encoded == nullptr) {
 			$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -196,6 +199,7 @@ $String* X509CertificatePair::toString() {
 }
 
 void X509CertificatePair::parse($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Sequence tag missing for X509CertificatePair"_s);
 	}
@@ -239,6 +243,7 @@ void X509CertificatePair::parse($DerValue* val) {
 }
 
 void X509CertificatePair::emit($DerOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	if (this->forward != nullptr) {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -254,6 +259,7 @@ void X509CertificatePair::emit($DerOutputStream* out) {
 }
 
 void X509CertificatePair::checkPair() {
+	$useLocalCurrentObjectStackCache();
 	if (this->forward == nullptr || this->reverse == nullptr) {
 		return;
 	}

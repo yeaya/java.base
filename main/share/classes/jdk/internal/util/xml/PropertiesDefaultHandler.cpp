@@ -154,6 +154,7 @@ void PropertiesDefaultHandler::init$() {
 }
 
 void PropertiesDefaultHandler::load($Properties* props, $InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, properties, props);
 	try {
 		$var($SAXParser, parser, $new($SAXParserImpl));
@@ -165,6 +166,7 @@ void PropertiesDefaultHandler::load($Properties* props, $InputStream* in) {
 }
 
 void PropertiesDefaultHandler::store($Properties* props, $OutputStream* os, $String* comment, $Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($XMLStreamWriter, writer, $new($XMLStreamWriterImpl, os, charset));
 		writer->writeStartDocument();
@@ -208,6 +210,7 @@ void PropertiesDefaultHandler::store($Properties* props, $OutputStream* os, $Str
 }
 
 void PropertiesDefaultHandler::startElement($String* uri, $String* localName, $String* qName, $Attributes* attributes) {
+	$useLocalCurrentObjectStackCache();
 	if (this->sawRoot) {
 		if (!$nc(PropertiesDefaultHandler::ALLOWED_ELEMENTS)->contains(qName)) {
 			fatalError($$new($SAXParseException, $$str({"Element type \""_s, qName, "\" must be declared."_s}), nullptr));
@@ -242,6 +245,7 @@ void PropertiesDefaultHandler::characters($chars* ch, int32_t start, int32_t len
 }
 
 void PropertiesDefaultHandler::endElement($String* uri, $String* localName, $String* qName) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !$nc(PropertiesDefaultHandler::ALLOWED_ELEMENTS)->contains(qName);
 	if (var$0 && !$nc(PropertiesDefaultHandler::ELEMENT_ROOT)->equals(qName)) {
 		fatalError($$new($SAXParseException, $$str({"Element: "_s, qName, " is invalid, must match  \"(comment?,entry*)\"."_s}), nullptr));
@@ -283,6 +287,7 @@ void PropertiesDefaultHandler::startDTD($String* name, $String* publicId, $Strin
 }
 
 void PropertiesDefaultHandler::startInternalSub() {
+	$useLocalCurrentObjectStackCache();
 	fatalError($$new($SAXParseException, $$str({"Internal DTD subset is not allowed. The Properties XML document must have the following DOCTYPE declaration: \n"_s, PropertiesDefaultHandler::PROPS_DTD_DECL}), nullptr));
 }
 

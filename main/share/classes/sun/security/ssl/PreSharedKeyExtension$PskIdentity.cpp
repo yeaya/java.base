@@ -82,6 +82,7 @@ void PreSharedKeyExtension$PskIdentity::writeEncoded($ByteBuffer* m) {
 }
 
 $String* PreSharedKeyExtension$PskIdentity::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"{"_s, $($Utilities::toHexString(this->identity)), ", "_s, $$str(this->obfuscatedAge), "}"_s});
 }
 

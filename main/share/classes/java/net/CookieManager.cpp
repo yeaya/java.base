@@ -136,6 +136,7 @@ $CookieStore* CookieManager::getCookieStore() {
 }
 
 $Map* CookieManager::get($URI* uri, $Map* requestHeaders) {
+	$useLocalCurrentObjectStackCache();
 	if (uri == nullptr || requestHeaders == nullptr) {
 		$throwNew($IllegalArgumentException, "Argument is null"_s);
 	}
@@ -183,6 +184,7 @@ $Map* CookieManager::get($URI* uri, $Map* requestHeaders) {
 }
 
 void CookieManager::put($URI* uri, $Map* responseHeaders) {
+	$useLocalCurrentObjectStackCache();
 	if (uri == nullptr || responseHeaders == nullptr) {
 		$throwNew($IllegalArgumentException, "Argument is null"_s);
 	}
@@ -333,6 +335,7 @@ bool CookieManager::pathMatches($String* path, $String* pathToMatchWith) {
 
 $List* CookieManager::sortByPathAndAge($List* cookies) {
 	$init(CookieManager);
+	$useLocalCurrentObjectStackCache();
 	$Collections::sort(cookies, $$new($CookieManager$CookieComparator));
 	$var($List, cookieHeader, $new($ArrayList));
 	{

@@ -80,6 +80,7 @@ void SupportedVersionsExtension$SHSupportedVersionsProducer::init$() {
 }
 
 $bytes* SupportedVersionsExtension$SHSupportedVersionsProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($SupportedVersionsExtension$CHSupportedVersionsSpec, svs, $cast($SupportedVersionsExtension$CHSupportedVersionsSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_SUPPORTED_VERSIONS)));

@@ -82,6 +82,7 @@ $Throwable* UndeclaredThrowableException::getUndeclaredThrowable() {
 }
 
 void UndeclaredThrowableException::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$var($Throwable, exception, $cast($Throwable, $nc(fields)->get("undeclaredThrowable"_s, ($Object*)nullptr)));
 	if (exception != nullptr) {
@@ -90,6 +91,7 @@ void UndeclaredThrowableException::readObject($ObjectInputStream* s) {
 }
 
 void UndeclaredThrowableException::writeObject($ObjectOutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
 	$nc(fields)->put("undeclaredThrowable"_s, $($of($RuntimeException::getCause())));
 	out->writeFields();

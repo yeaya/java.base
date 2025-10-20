@@ -143,6 +143,7 @@ void RandomGenerator$ArbitrarilyJumpableGenerator::jump() {
 }
 
 $Stream* RandomGenerator$ArbitrarilyJumpableGenerator::jumps(double distance) {
+	$useLocalCurrentObjectStackCache();
 	return $cast($Stream, $nc($($Stream::generate(static_cast<$Supplier*>($$new(RandomGenerator$ArbitrarilyJumpableGenerator$$Lambda$lambda$jumps$0, this, distance)))))->sequential());
 }
 

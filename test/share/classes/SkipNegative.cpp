@@ -48,6 +48,7 @@ void SkipNegative::init$() {
 }
 
 void SkipNegative::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($System::getProperty("test.src"_s, "."_s)), "SkipInput.txt"_s));
 	$var($FileReader, fr, $new($FileReader, f));
 	int64_t nchars = -1;

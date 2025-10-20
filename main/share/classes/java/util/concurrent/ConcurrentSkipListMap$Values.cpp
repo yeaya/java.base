@@ -139,6 +139,7 @@ $Spliterator* ConcurrentSkipListMap$Values::spliterator() {
 }
 
 bool ConcurrentSkipListMap$Values::removeIf($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	if (filter == nullptr) {
 		$throwNew($NullPointerException);
 	}

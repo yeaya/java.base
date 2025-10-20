@@ -60,6 +60,7 @@ void NonLinking::init$() {
 
 void NonLinking::main($StringArray* args) {
 	$load(NonLinking);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Path, jarPath, $Paths::get("classes.jar"_s, $$new($StringArray, 0)));
 	$var($URL, url, $nc($($nc(jarPath)->toUri()))->toURL());

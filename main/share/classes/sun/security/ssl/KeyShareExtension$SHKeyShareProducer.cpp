@@ -106,6 +106,7 @@ void KeyShareExtension$SHKeyShareProducer::init$() {
 }
 
 $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($KeyShareExtension$CHKeyShareSpec, kss, $cast($KeyShareExtension$CHKeyShareSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_KEY_SHARE)));

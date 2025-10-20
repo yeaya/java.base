@@ -56,6 +56,7 @@ void CurrencyNameProvider::init$() {
 }
 
 $String* CurrencyNameProvider::getDisplayName($String* currencyCode, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (currencyCode == nullptr || locale == nullptr) {
 		$throwNew($NullPointerException);
 	}

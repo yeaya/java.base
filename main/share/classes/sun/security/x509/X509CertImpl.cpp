@@ -495,6 +495,7 @@ void X509CertImpl::init$() {
 }
 
 void X509CertImpl::init$($bytes* certData) {
+	$useLocalCurrentObjectStackCache();
 	$X509Certificate::init$();
 	this->readOnly = false;
 	$set(this, signedCert, nullptr);
@@ -512,6 +513,7 @@ void X509CertImpl::init$($bytes* certData) {
 }
 
 void X509CertImpl::init$($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$X509Certificate::init$();
 	this->readOnly = false;
 	$set(this, signedCert, nullptr);
@@ -544,6 +546,7 @@ void X509CertImpl::init$($InputStream* in) {
 }
 
 $DerValue* X509CertImpl::readRFC1421Cert($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, der, nullptr);
 	$var($String, line, nullptr);
 	$init($StandardCharsets);
@@ -588,6 +591,7 @@ void X509CertImpl::init$($X509CertInfo* certInfo) {
 }
 
 void X509CertImpl::init$($DerValue* derVal) {
+	$useLocalCurrentObjectStackCache();
 	$X509Certificate::init$();
 	this->readOnly = false;
 	$set(this, signedCert, nullptr);
@@ -605,6 +609,7 @@ void X509CertImpl::init$($DerValue* derVal) {
 }
 
 void X509CertImpl::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	if (this->signedCert == nullptr) {
 		$throwNew($CertificateEncodingException, "Null certificate to encode"_s);
 	}
@@ -640,6 +645,7 @@ void X509CertImpl::verify($PublicKey* key) {
 
 void X509CertImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($String, sigProvider, sigProvider$renamed);
 		if (sigProvider == nullptr) {
 			$assign(sigProvider, ""_s);
@@ -686,6 +692,7 @@ void X509CertImpl::verify($PublicKey* key, $String* sigProvider$renamed) {
 
 void X509CertImpl::verify($PublicKey* key, $Provider* sigProvider) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->signedCert == nullptr) {
 			$throwNew($CertificateEncodingException, "Uninitialized certificate"_s);
 		}
@@ -721,6 +728,7 @@ void X509CertImpl::sign($PrivateKey* key, $String* algorithm) {
 }
 
 void X509CertImpl::sign($PrivateKey* key, $String* algorithm, $String* provider) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (this->readOnly) {
 			$throwNew($CertificateEncodingException, "cannot over-write existing certificate"_s);
@@ -752,6 +760,7 @@ void X509CertImpl::checkValidity() {
 }
 
 void X509CertImpl::checkValidity($Date* date) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateValidity, interval, nullptr);
 	try {
 		$init($CertificateValidity);
@@ -767,6 +776,7 @@ void X509CertImpl::checkValidity($Date* date) {
 }
 
 $Object* X509CertImpl::get($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509AttributeName, attr, $new($X509AttributeName, name));
 	$var($String, id, attr->getPrefix());
 	if (!($nc(id)->equalsIgnoreCase(X509CertImpl::NAME))) {
@@ -811,6 +821,7 @@ $Object* X509CertImpl::get($String* name) {
 }
 
 void X509CertImpl::set($String* name, Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if (this->readOnly) {
 		$throwNew($CertificateException, "cannot over-write existing certificate"_s);
 	}
@@ -838,6 +849,7 @@ void X509CertImpl::set($String* name, Object$* obj) {
 }
 
 void X509CertImpl::delete$($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if (this->readOnly) {
 		$throwNew($CertificateException, "cannot over-write existing certificate"_s);
 	}
@@ -866,6 +878,7 @@ void X509CertImpl::delete$($String* name) {
 }
 
 $Enumeration* X509CertImpl::getElements() {
+	$useLocalCurrentObjectStackCache();
 	$var($AttributeNameEnumeration, elements, $new($AttributeNameEnumeration));
 	elements->addElement($$str({X509CertImpl::NAME, $$str(X509CertImpl::DOT), X509CertImpl::INFO}));
 	elements->addElement($$str({X509CertImpl::NAME, $$str(X509CertImpl::DOT), X509CertImpl::ALG_ID}));
@@ -879,6 +892,7 @@ $String* X509CertImpl::getName() {
 }
 
 $String* X509CertImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr || this->algId == nullptr || this->signature == nullptr) {
 		return ""_s;
 	}
@@ -889,6 +903,7 @@ $String* X509CertImpl::toString() {
 }
 
 $PublicKey* X509CertImpl::getPublicKey() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -904,6 +919,7 @@ $PublicKey* X509CertImpl::getPublicKey() {
 }
 
 int32_t X509CertImpl::getVersion() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return -1;
 	}
@@ -924,6 +940,7 @@ $BigInteger* X509CertImpl::getSerialNumber() {
 }
 
 $SerialNumber* X509CertImpl::getSerialNumberObject() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -939,6 +956,7 @@ $SerialNumber* X509CertImpl::getSerialNumberObject() {
 }
 
 $Principal* X509CertImpl::getSubjectDN() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -954,6 +972,7 @@ $Principal* X509CertImpl::getSubjectDN() {
 }
 
 $X500Principal* X509CertImpl::getSubjectX500Principal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -969,6 +988,7 @@ $X500Principal* X509CertImpl::getSubjectX500Principal() {
 }
 
 $Principal* X509CertImpl::getIssuerDN() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -984,6 +1004,7 @@ $Principal* X509CertImpl::getIssuerDN() {
 }
 
 $X500Principal* X509CertImpl::getIssuerX500Principal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -999,6 +1020,7 @@ $X500Principal* X509CertImpl::getIssuerX500Principal() {
 }
 
 $Date* X509CertImpl::getNotBefore() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1014,6 +1036,7 @@ $Date* X509CertImpl::getNotBefore() {
 }
 
 $Date* X509CertImpl::getNotAfter() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1072,6 +1095,7 @@ $bytes* X509CertImpl::getSigAlgParams() {
 }
 
 $booleans* X509CertImpl::getIssuerUniqueID() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1091,6 +1115,7 @@ $booleans* X509CertImpl::getIssuerUniqueID() {
 }
 
 $booleans* X509CertImpl::getSubjectUniqueID() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1196,6 +1221,7 @@ $CRLDistributionPointsExtension* X509CertImpl::getCRLDistributionPointsExtension
 }
 
 bool X509CertImpl::hasUnsupportedCriticalExtension() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return false;
 	}
@@ -1214,6 +1240,7 @@ bool X509CertImpl::hasUnsupportedCriticalExtension() {
 }
 
 $Set* X509CertImpl::getCriticalExtensionOIDs() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1244,6 +1271,7 @@ $Set* X509CertImpl::getCriticalExtensionOIDs() {
 }
 
 $Set* X509CertImpl::getNonCriticalExtensionOIDs() {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1275,6 +1303,7 @@ $Set* X509CertImpl::getNonCriticalExtensionOIDs() {
 }
 
 $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1315,6 +1344,7 @@ $Extension* X509CertImpl::getExtension($ObjectIdentifier* oid) {
 }
 
 $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
+	$useLocalCurrentObjectStackCache();
 	if (this->info == nullptr) {
 		return nullptr;
 	}
@@ -1340,6 +1370,7 @@ $Extension* X509CertImpl::getUnparseableExtension($ObjectIdentifier* oid) {
 }
 
 $bytes* X509CertImpl::getExtensionValue($String* oid) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($ObjectIdentifier, findOID, $ObjectIdentifier::of(oid));
 		$var($String, extAlias, $OIDMap::getName(findOID));
@@ -1393,6 +1424,7 @@ $bytes* X509CertImpl::getExtensionValue($String* oid) {
 }
 
 $booleans* X509CertImpl::getKeyUsage() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($PKIXExtensions);
 		$var($String, extAlias, $OIDMap::getName($PKIXExtensions::KeyUsage_Id));
@@ -1419,6 +1451,7 @@ $booleans* X509CertImpl::getKeyUsage() {
 
 $List* X509CertImpl::getExtendedKeyUsage() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->readOnly && this->extKeyUsage != nullptr) {
 			return this->extKeyUsage;
 		} else {
@@ -1434,6 +1467,7 @@ $List* X509CertImpl::getExtendedKeyUsage() {
 
 $List* X509CertImpl::getExtendedKeyUsage($X509Certificate* cert) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(cert)->getExtensionValue($($KnownOIDs::extendedKeyUsage->value())));
@@ -1453,6 +1487,7 @@ $List* X509CertImpl::getExtendedKeyUsage($X509Certificate* cert) {
 }
 
 int32_t X509CertImpl::getBasicConstraints() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($PKIXExtensions);
 		$var($String, extAlias, $OIDMap::getName($PKIXExtensions::BasicConstraints_Id));
@@ -1478,6 +1513,7 @@ int32_t X509CertImpl::getBasicConstraints() {
 
 $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(names)->isEmpty()) {
 		return $Collections::emptySet();
 	}
@@ -1551,6 +1587,7 @@ $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 
 $Collection* X509CertImpl::cloneAltNames($Collection* altNames) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	bool mustClone = false;
 	{
 		$var($Iterator, i$, $nc(altNames)->iterator());
@@ -1589,6 +1626,7 @@ $Collection* X509CertImpl::cloneAltNames($Collection* altNames) {
 
 $Collection* X509CertImpl::getSubjectAlternativeNames() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->readOnly && this->subjectAlternativeNames != nullptr) {
 			return cloneAltNames(this->subjectAlternativeNames);
 		}
@@ -1611,6 +1649,7 @@ $Collection* X509CertImpl::getSubjectAlternativeNames() {
 
 $Collection* X509CertImpl::getSubjectAlternativeNames($X509Certificate* cert) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(cert)->getExtensionValue($($KnownOIDs::SubjectAlternativeName->value())));
@@ -1639,6 +1678,7 @@ $Collection* X509CertImpl::getSubjectAlternativeNames($X509Certificate* cert) {
 
 $Collection* X509CertImpl::getIssuerAlternativeNames() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (this->readOnly && this->issuerAlternativeNames != nullptr) {
 			return cloneAltNames(this->issuerAlternativeNames);
 		}
@@ -1661,6 +1701,7 @@ $Collection* X509CertImpl::getIssuerAlternativeNames() {
 
 $Collection* X509CertImpl::getIssuerAlternativeNames($X509Certificate* cert) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($KnownOIDs);
 		$var($bytes, ext, $nc(cert)->getExtensionValue($($KnownOIDs::IssuerAlternativeName->value())));
@@ -1693,6 +1734,7 @@ $AuthorityInfoAccessExtension* X509CertImpl::getAuthorityInfoAccessExtension() {
 }
 
 void X509CertImpl::parse($DerValue* val) {
+	$useLocalCurrentObjectStackCache();
 	if (this->readOnly) {
 		$throwNew($CertificateParsingException, "cannot over-write existing certificate"_s);
 	}
@@ -1729,6 +1771,7 @@ void X509CertImpl::parse($DerValue* val) {
 
 $X500Principal* X509CertImpl::getX500Principal($X509Certificate* cert, bool getIssuer) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(cert)->getEncoded());
 	$var($DerInputStream, derIn, $new($DerInputStream, encoded));
 	$var($DerValue, tbsCert, $nc($(derIn->getSequence(3)))->get(0));
@@ -1790,6 +1833,7 @@ X509CertImpl* X509CertImpl::toImpl($X509Certificate* cert) {
 
 bool X509CertImpl::isSelfIssued($X509Certificate* cert) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($X500Principal, subject, $nc(cert)->getSubjectX500Principal());
 	$var($X500Principal, issuer, cert->getIssuerX500Principal());
 	return $nc(subject)->equals(issuer);
@@ -1797,6 +1841,7 @@ bool X509CertImpl::isSelfIssued($X509Certificate* cert) {
 
 bool X509CertImpl::isSelfSigned($X509Certificate* cert, $String* sigProvider) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	if (isSelfIssued(cert)) {
 		try {
 			if (sigProvider == nullptr) {
@@ -1818,6 +1863,7 @@ $String* X509CertImpl::getFingerprint($String* algorithm) {
 
 $String* X509CertImpl::getFingerprint($String* algorithm, $X509Certificate* cert) {
 	$init(X509CertImpl);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($bytes, encCertInfo, $nc(cert)->getEncoded());
 		$var($MessageDigest, md, $MessageDigest::getInstance(algorithm));

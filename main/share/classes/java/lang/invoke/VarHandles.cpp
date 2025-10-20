@@ -653,6 +653,7 @@ void VarHandles::init$() {
 
 $VarHandle* VarHandles::makeFieldHandle($MemberName* f, $Class* refc, $Class* type, bool isWriteAllowedOnFinalFields) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(f)->isStatic()) {
 		int64_t foffset = $MethodHandleNatives::objectFieldOffset(f);
 		if (!$nc(type)->isPrimitive()) {
@@ -757,6 +758,7 @@ $VarHandle* VarHandles::makeFieldHandle($MemberName* f, $Class* refc, $Class* ty
 
 $Field* VarHandles::getFieldFromReceiverAndOffset($Class* receiverType, int64_t offset, $Class* fieldType) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($FieldArray, arr$, $nc(receiverType)->getDeclaredFields());
@@ -783,6 +785,7 @@ $Field* VarHandles::getFieldFromReceiverAndOffset($Class* receiverType, int64_t 
 
 $Field* VarHandles::getStaticFieldFromBaseAndOffset(Object$* base, int64_t offset, $Class* fieldType) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* receiverType = $cast($Class, base);
 	{
@@ -810,6 +813,7 @@ $Field* VarHandles::getStaticFieldFromBaseAndOffset(Object$* base, int64_t offse
 
 $VarHandle* VarHandles::makeArrayElementHandle($Class* arrayClass) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(arrayClass)->isArray()) {
 		$throwNew($IllegalArgumentException, $$str({"not an array: "_s, arrayClass}));
 	}
@@ -866,6 +870,7 @@ $VarHandle* VarHandles::makeArrayElementHandle($Class* arrayClass) {
 
 $VarHandle* VarHandles::byteArrayViewHandle($Class* viewArrayClass, bool be) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(viewArrayClass)->isArray()) {
 		$throwNew($IllegalArgumentException, $$str({"not an array: "_s, viewArrayClass}));
 	}
@@ -904,6 +909,7 @@ $VarHandle* VarHandles::byteArrayViewHandle($Class* viewArrayClass, bool be) {
 
 $VarHandle* VarHandles::makeByteBufferViewHandle($Class* viewArrayClass, bool be) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(viewArrayClass)->isArray()) {
 		$throwNew($IllegalArgumentException, $$str({"not an array: "_s, viewArrayClass}));
 	}
@@ -942,6 +948,7 @@ $VarHandle* VarHandles::makeByteBufferViewHandle($Class* viewArrayClass, bool be
 
 $VarHandle* VarHandles::makeMemoryAddressViewHandle($Class* carrier, bool skipAlignmentMaskCheck, int64_t alignmentMask, $ByteOrder* byteOrder) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$init($Void);
 	$init($Boolean);
 	if (!$nc(carrier)->isPrimitive() || carrier == $Void::TYPE || carrier == $Boolean::TYPE) {
@@ -991,6 +998,7 @@ $VarHandle* VarHandles::makeMemoryAddressViewHandle($Class* carrier, bool skipAl
 
 $VarHandle* VarHandles::maybeAdapt($VarHandle* target$renamed) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($VarHandle, target, target$renamed);
 	$init($MethodHandleStatics);
 	if (!$MethodHandleStatics::VAR_HANDLE_IDENTITY_ADAPT) {
@@ -1009,6 +1017,7 @@ $VarHandle* VarHandles::maybeAdapt($VarHandle* target$renamed) {
 
 $VarHandle* VarHandles::filterValue($VarHandle* target, $MethodHandle* filterToTarget, $MethodHandle* filterFromTarget) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$Objects::requireNonNull(filterToTarget);
 	$Objects::requireNonNull(filterFromTarget);
@@ -1064,6 +1073,7 @@ $VarHandle* VarHandles::filterValue($VarHandle* target, $MethodHandle* filterToT
 
 $MethodHandle* VarHandles::joinDuplicateArgs($MethodHandle* handle, int32_t originalStart, int32_t dropStart, int32_t length) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($ints, perms, $new($ints, $nc($($nc(handle)->type()))->parameterCount()));
 	for (int32_t i = 0; i < dropStart; ++i) {
 		perms->set(i, i);
@@ -1079,6 +1089,7 @@ $MethodHandle* VarHandles::joinDuplicateArgs($MethodHandle* handle, int32_t orig
 
 $VarHandle* VarHandles::filterCoordinates($VarHandle* target, int32_t pos, $MethodHandleArray* filters) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$Objects::requireNonNull(filters);
 	$var($List, targetCoordinates, target->coordinateTypes());
@@ -1110,6 +1121,7 @@ $VarHandle* VarHandles::filterCoordinates($VarHandle* target, int32_t pos, $Meth
 
 $VarHandle* VarHandles::insertCoordinates($VarHandle* target, int32_t pos, $ObjectArray* values) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$Objects::requireNonNull(values);
 	$var($List, targetCoordinates, target->coordinateTypes());
@@ -1140,6 +1152,7 @@ $VarHandle* VarHandles::insertCoordinates($VarHandle* target, int32_t pos, $Obje
 
 $VarHandle* VarHandles::permuteCoordinates($VarHandle* target, $List* newCoordinates, $ints* reorder) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$Objects::requireNonNull(newCoordinates);
 	$Objects::requireNonNull(reorder);
@@ -1203,6 +1216,7 @@ $ints* VarHandles::reorderArrayFor($VarHandle$AccessType* at, $List* newCoordina
 
 $MethodType* VarHandles::methodTypeFor($VarHandle$AccessType* at, $MethodType* oldType, $List* oldCoordinates, $List* newCoordinates) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t numTrailingArgs = VarHandles::numTrailingArgs(at);
 	$Class* var$0 = $cast($Class, $nc(oldType)->returnType());
 	$var($MethodType, adjustedType, $MethodType::methodType(var$0, $($cast($Class, oldType->parameterType(0)))));
@@ -1215,6 +1229,7 @@ $MethodType* VarHandles::methodTypeFor($VarHandle$AccessType* at, $MethodType* o
 
 $VarHandle* VarHandles::collectCoordinates($VarHandle* target, int32_t pos, $MethodHandle* filter) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$Objects::requireNonNull(filter);
 	noCheckedExceptions(filter);
@@ -1241,6 +1256,7 @@ $VarHandle* VarHandles::collectCoordinates($VarHandle* target, int32_t pos, $Met
 
 $VarHandle* VarHandles::dropCoordinates($VarHandle* target, int32_t pos, $ClassArray* valueTypes) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(target);
 	$Objects::requireNonNull(valueTypes);
 	$var($List, targetCoordinates, target->coordinateTypes());
@@ -1260,6 +1276,7 @@ $VarHandle* VarHandles::dropCoordinates($VarHandle* target, int32_t pos, $ClassA
 
 void VarHandles::noCheckedExceptions($MethodHandle* handle) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($DirectMethodHandle, directHandle, nullptr);
 		bool var$0 = $instanceOf($DirectMethodHandle, handle);
@@ -1324,6 +1341,7 @@ $MethodHandle* VarHandles::lambda$collectCoordinates$4(int32_t pos, $MethodHandl
 
 $MethodHandle* VarHandles::lambda$permuteCoordinates$3($List* targetCoordinates, $List* newCoordinates, $ints* reorder, $VarHandle$AccessMode* mode, $MethodHandle* modeHandle) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, var$0, modeHandle);
 	$var($MethodType, var$1, methodTypeFor($nc(mode)->at, $($nc(modeHandle)->type()), targetCoordinates, newCoordinates));
 	return $MethodHandles::permuteArguments(var$0, var$1, $(reorderArrayFor($nc(mode)->at, newCoordinates, reorder)));
@@ -1341,6 +1359,7 @@ $MethodHandle* VarHandles::lambda$filterCoordinates$1(int32_t pos, $MethodHandle
 
 $MethodHandle* VarHandles::lambda$filterValue$0($MethodHandle* filterFromTarget, $MethodHandle* filterToTarget, $List* additionalCoordinates, $VarHandle$AccessMode* mode, $MethodHandle* modeHandle) {
 	$init(VarHandles);
+	$useLocalCurrentObjectStackCache();
 	int32_t lastParameterPos = $nc($($nc(modeHandle)->type()))->parameterCount() - 1;
 	$init($VarHandles$2);
 

@@ -80,6 +80,7 @@ void Thread$1::init$($Class* val$subcl) {
 }
 
 $Object* Thread$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 		$load($Thread);
 	{

@@ -60,6 +60,7 @@ void ProcessEnvironment$EntryComparator::init$() {
 }
 
 int32_t ProcessEnvironment$EntryComparator::compare($Map$Entry* e1, $Map$Entry* e2) {
+	$useLocalCurrentObjectStackCache();
 	$init($ProcessEnvironment);
 	$var($String, var$0, $cast($String, $nc(e1)->getKey()));
 	return $nc($ProcessEnvironment::nameComparator)->compare(var$0, $cast($String, $($nc(e2)->getKey())));

@@ -95,6 +95,7 @@ $String* MergeCollation::getPattern() {
 }
 
 $String* MergeCollation::getPattern(bool withWhiteSpace) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, result, $new($StringBuffer));
 	$var($PatternEntry, tmp, nullptr);
 	$var($ArrayList, extList, nullptr);
@@ -130,6 +131,7 @@ $String* MergeCollation::getPattern(bool withWhiteSpace) {
 }
 
 $PatternEntry* MergeCollation::findLastWithNoExtension(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	for (--i; i >= 0; --i) {
 		$var($PatternEntry, entry, $cast($PatternEntry, $nc(this->patterns)->get(i)));
 		if ($nc($nc(entry)->extension)->isEmpty()) {
@@ -144,6 +146,7 @@ $String* MergeCollation::emitPattern() {
 }
 
 $String* MergeCollation::emitPattern(bool withWhiteSpace) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, result, $new($StringBuffer));
 	for (int32_t i = 0; i < $nc(this->patterns)->size(); ++i) {
 		$var($PatternEntry, entry, $cast($PatternEntry, $nc(this->patterns)->get(i)));
@@ -160,6 +163,7 @@ void MergeCollation::setPattern($String* pattern) {
 }
 
 void MergeCollation::addPattern($String* pattern) {
+	$useLocalCurrentObjectStackCache();
 	if (pattern == nullptr) {
 		return;
 	}
@@ -229,6 +233,7 @@ void MergeCollation::fixEntry($PatternEntry* newEntry) {
 }
 
 int32_t MergeCollation::findLastEntry($PatternEntry* entry, $StringBuffer* excessChars) {
+	$useLocalCurrentObjectStackCache();
 	if (entry == nullptr) {
 		return 0;
 	}

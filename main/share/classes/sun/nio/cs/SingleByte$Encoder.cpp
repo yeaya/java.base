@@ -141,6 +141,7 @@ bool SingleByte$Encoder::isLegalReplacement($bytes* repl) {
 }
 
 $CoderResult* SingleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -175,6 +176,7 @@ $CoderResult* SingleByte$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer*
 }
 
 $CoderResult* SingleByte$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
+	$useLocalCurrentObjectStackCache();
 	int32_t mark = $nc(src)->position();
 	{
 		$var($Throwable, var$0, nullptr);

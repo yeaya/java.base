@@ -422,6 +422,7 @@ bool Character::$assertionsDisabled = false;
 $Class* Character::TYPE = nullptr;
 
 $Optional* Character::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($ConstantDescs);
 	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_char, $$new($ConstantDescArray, {$(static_cast<$ConstantDesc*>($Integer::valueOf((int32_t)this->value)))}))));
 }
@@ -607,6 +608,7 @@ char16_t Character::lowSurrogate(int32_t codePoint) {
 
 int32_t Character::toChars(int32_t codePoint, $chars* dst, int32_t dstIndex) {
 	$init(Character);
+	$useLocalCurrentObjectStackCache();
 	if (isBmpCodePoint(codePoint)) {
 		$nc(dst)->set(dstIndex, (char16_t)codePoint);
 		return 1;
@@ -620,6 +622,7 @@ int32_t Character::toChars(int32_t codePoint, $chars* dst, int32_t dstIndex) {
 
 $chars* Character::toChars(int32_t codePoint) {
 	$init(Character);
+	$useLocalCurrentObjectStackCache();
 	if (isBmpCodePoint(codePoint)) {
 		return $new($chars, {(char16_t)codePoint});
 	} else if (isValidCodePoint(codePoint)) {
@@ -1049,6 +1052,7 @@ char16_t Character::reverseBytes(char16_t ch) {
 
 $String* Character::getName(int32_t codePoint) {
 	$init(Character);
+	$useLocalCurrentObjectStackCache();
 	if (!isValidCodePoint(codePoint)) {
 		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(codePoint)))}))));
 	}
@@ -1071,6 +1075,7 @@ $String* Character::getName(int32_t codePoint) {
 
 int32_t Character::codePointOf($String* name$renamed) {
 	$init(Character);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$init($Locale);
 	$assign(name, $($nc(name)->trim())->toUpperCase($Locale::ROOT));

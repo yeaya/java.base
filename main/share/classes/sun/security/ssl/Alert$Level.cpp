@@ -120,6 +120,7 @@ Alert$Level* Alert$Level::valueOf(int8_t level) {
 
 $String* Alert$Level::nameOf(int8_t level) {
 	$init(Alert$Level);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Alert$LevelArray, arr$, Alert$Level::values());
 		int32_t len$ = $nc(arr$)->length;

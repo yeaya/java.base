@@ -74,6 +74,7 @@ void DynamicConstantDescTest::init$() {
 }
 
 void DynamicConstantDescTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($CountDownLatch, taskTriggerLatch, $new($CountDownLatch, 4));
 	$var($List, tasks, $new($ArrayList));
 	tasks->add($$new($DynamicConstantDescTest$Task, "java.lang.constant.DynamicConstantDesc"_s, taskTriggerLatch));

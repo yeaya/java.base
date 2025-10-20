@@ -106,6 +106,7 @@ ProcessEnvironment$Value* ProcessEnvironment$Value::valueOf($bytes* bytes) {
 }
 
 int32_t ProcessEnvironment$Value::compareTo(ProcessEnvironment$Value* value) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getBytes());
 	return $ProcessEnvironment::arrayCompare(var$0, $($nc(value)->getBytes()));
 }

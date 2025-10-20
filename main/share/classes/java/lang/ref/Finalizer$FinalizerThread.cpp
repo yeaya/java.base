@@ -79,6 +79,7 @@ void Finalizer$FinalizerThread::init$($ThreadGroup* g) {
 }
 
 void Finalizer$FinalizerThread::run() {
+	$useLocalCurrentObjectStackCache();
 	if (this->running) {
 		return;
 	}

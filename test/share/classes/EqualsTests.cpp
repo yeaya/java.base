@@ -62,6 +62,7 @@ void EqualsTests::init$() {
 }
 
 void EqualsTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 			$init($BigDecimal);
 	$var($BigDecimalArray2, testValues, $new($BigDecimalArray2, {
@@ -142,6 +143,7 @@ void EqualsTests::main($StringArray* argv) {
 }
 
 int32_t EqualsTests::equalsTest($BigDecimal* l, $BigDecimal* r, bool expected) {
+	$useLocalCurrentObjectStackCache();
 	bool result = $nc(l)->equals(r);
 	int32_t failed = (result == expected) ? 0 : 1;
 	if (failed == 1) {

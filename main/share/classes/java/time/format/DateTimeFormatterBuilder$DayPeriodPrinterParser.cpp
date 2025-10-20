@@ -319,6 +319,7 @@ void DateTimeFormatterBuilder$DayPeriodPrinterParser::init$($TextStyle* textStyl
 }
 
 bool DateTimeFormatterBuilder$DayPeriodPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$var($Long, hod, $nc(context)->getValue(static_cast<$TemporalField*>($ChronoField::HOUR_OF_DAY)));
 	if (hod == nullptr) {
@@ -338,6 +339,7 @@ bool DateTimeFormatterBuilder$DayPeriodPrinterParser::format($DateTimePrintConte
 }
 
 int32_t DateTimeFormatterBuilder$DayPeriodPrinterParser::parse($DateTimeParseContext* context, $CharSequence* parseText, int32_t position) {
+	$useLocalCurrentObjectStackCache();
 	int32_t length = $nc(parseText)->length();
 	if (position < 0 || position > length) {
 		$throwNew($IndexOutOfBoundsException);
@@ -371,6 +373,7 @@ $DateTimeTextProvider$LocaleStore* DateTimeFormatterBuilder$DayPeriodPrinterPars
 
 $DateTimeTextProvider$LocaleStore* DateTimeFormatterBuilder$DayPeriodPrinterParser::lambda$findDayPeriodStore$2($Locale* loc) {
 	$init(DateTimeFormatterBuilder$DayPeriodPrinterParser);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, styleMap, $new($HashMap));
 	{
 		$var($TextStyleArray, arr$, $TextStyle::values());

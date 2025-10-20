@@ -86,6 +86,7 @@ void BsdNativeDispatcher::endfsstat(int64_t iter) {
 
 $bytes* BsdNativeDispatcher::getmntonname($UnixPath* path) {
 	$init(BsdNativeDispatcher);
+	$useLocalCurrentObjectStackCache();
 	$var($NativeBuffer, pathBuffer, copyToNativeBuffer(path));
 	{
 		$var($Throwable, var$0, nullptr);

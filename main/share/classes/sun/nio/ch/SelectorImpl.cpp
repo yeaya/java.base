@@ -231,6 +231,7 @@ int32_t SelectorImpl::selectNow($Consumer* action) {
 }
 
 void SelectorImpl::implCloseSelector() {
+	$useLocalCurrentObjectStackCache();
 	wakeup();
 	$synchronized(this) {
 		implClose();
@@ -260,6 +261,7 @@ void SelectorImpl::implCloseSelector() {
 }
 
 $SelectionKey* SelectorImpl::register$($AbstractSelectableChannel* ch, int32_t ops, Object$* attachment) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($SelChImpl, ch))) {
 		$throwNew($IllegalSelectorException);
 	}
@@ -294,6 +296,7 @@ void SelectorImpl::cancel($SelectionKeyImpl* ski) {
 }
 
 void SelectorImpl::processDeregisterQueue() {
+	$useLocalCurrentObjectStackCache();
 	if (!SelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}

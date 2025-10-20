@@ -65,6 +65,7 @@ $Object* allocate$TransferProtocolClient($Class* clazz) {
 }
 
 int32_t TransferProtocolClient::readServerResponse() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, replyBuf, $new($StringBuilder, 32));
 	int32_t c = 0;
 	int32_t continuingCode = -1;

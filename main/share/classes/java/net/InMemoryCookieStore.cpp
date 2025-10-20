@@ -104,6 +104,7 @@ void InMemoryCookieStore::init$() {
 }
 
 void InMemoryCookieStore::add($URI* uri, $HttpCookie* cookie) {
+	$useLocalCurrentObjectStackCache();
 	if (cookie == nullptr) {
 		$throwNew($NullPointerException, "cookie is null"_s);
 	}
@@ -133,6 +134,7 @@ void InMemoryCookieStore::add($URI* uri, $HttpCookie* cookie) {
 }
 
 $List* InMemoryCookieStore::get($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	if (uri == nullptr) {
 		$throwNew($NullPointerException, "uri is null"_s);
 	}
@@ -157,6 +159,7 @@ $List* InMemoryCookieStore::get($URI* uri) {
 }
 
 $List* InMemoryCookieStore::getCookies() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, rt, nullptr);
 	$nc(this->lock)->lock();
 	{
@@ -182,6 +185,7 @@ $List* InMemoryCookieStore::getCookies() {
 }
 
 $List* InMemoryCookieStore::getURIs() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, uris, $new($ArrayList));
 	$nc(this->lock)->lock();
 	{
@@ -261,6 +265,7 @@ bool InMemoryCookieStore::removeAll() {
 }
 
 bool InMemoryCookieStore::netscapeDomainMatches($String* domain, $String* host) {
+	$useLocalCurrentObjectStackCache();
 	if (domain == nullptr || host == nullptr) {
 		return false;
 	}
@@ -292,6 +297,7 @@ bool InMemoryCookieStore::netscapeDomainMatches($String* domain, $String* host) 
 }
 
 void InMemoryCookieStore::getInternal1($List* cookies, $Map* cookieIndex, $String* host, bool secureLink) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, toRemove, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc($($nc(cookieIndex)->entrySet()))->iterator());
@@ -345,6 +351,7 @@ void InMemoryCookieStore::getInternal1($List* cookies, $Map* cookieIndex, $Strin
 }
 
 void InMemoryCookieStore::getInternal2($List* cookies, $Map* cookieIndex, $Comparable* comparator, bool secureLink) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(cookieIndex)->keySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -392,6 +399,7 @@ void InMemoryCookieStore::addIndex($Map* indexStore, Object$* index, $HttpCookie
 }
 
 $URI* InMemoryCookieStore::getEffectiveURI($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$var($URI, effectiveURI, nullptr);
 	try {
 		$assign(effectiveURI, $new($URI, "http"_s, $($nc(uri)->getHost()), nullptr, nullptr, nullptr));

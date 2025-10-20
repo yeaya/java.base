@@ -113,6 +113,7 @@ bool WindowsDirectoryStream$WindowsDirectoryIterator::isSelfOrParent($String* na
 }
 
 $Path* WindowsDirectoryStream$WindowsDirectoryIterator::acceptEntry($String* s, $BasicFileAttributes* attrs) {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, entry, $WindowsPath::createFromNormalizedPath($($cast($WindowsFileSystem, $nc(this->this$0->dir)->getFileSystem())), $$str({this->prefix, s}), attrs));
 	try {
 		if ($nc(this->this$0->filter)->accept(entry)) {
@@ -126,6 +127,7 @@ $Path* WindowsDirectoryStream$WindowsDirectoryIterator::acceptEntry($String* s, 
 }
 
 $Path* WindowsDirectoryStream$WindowsDirectoryIterator::readNextEntry() {
+	$useLocalCurrentObjectStackCache();
 	if (this->first != nullptr) {
 		$set(this, nextEntry, isSelfOrParent(this->first) ? ($Path*)nullptr : acceptEntry(this->first, nullptr));
 		$set(this, first, nullptr);

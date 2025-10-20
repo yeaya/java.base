@@ -88,6 +88,7 @@ void Unicode::init$($String* name, $StringArray* aliases) {
 }
 
 bool Unicode::contains($Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	bool var$41 = ($instanceOf($US_ASCII, cs)) || ($instanceOf($ISO_8859_1, cs)) || ($instanceOf($ISO_8859_15, cs)) || ($instanceOf($ISO_8859_16, cs)) || ($instanceOf($MS1252, cs)) || ($instanceOf($UTF_8, cs)) || ($instanceOf($UTF_16, cs)) || ($instanceOf($UTF_16BE, cs)) || ($instanceOf($UTF_16LE, cs)) || ($instanceOf($UTF_16LE_BOM, cs)) || ($nc($($nc(cs)->name()))->equals("GBK"_s));
 	bool var$40 = var$41 || ($nc($($nc(cs)->name()))->equals("GB18030"_s));
 	bool var$39 = var$40 || ($nc($($nc(cs)->name()))->equals("ISO-8859-2"_s));

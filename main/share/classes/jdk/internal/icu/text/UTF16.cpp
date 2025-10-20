@@ -246,6 +246,7 @@ $String* UTF16::valueOf(int32_t char32) {
 }
 
 $StringBuffer* UTF16::append($StringBuffer* target, int32_t char32) {
+	$useLocalCurrentObjectStackCache();
 	if (char32 < UTF16::CODEPOINT_MIN_VALUE || char32 > UTF16::CODEPOINT_MAX_VALUE) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal codepoint: "_s, $($Integer::toHexString(char32))}));
 	}

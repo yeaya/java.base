@@ -61,6 +61,7 @@ void Win32ErrorMode::init$() {
 }
 
 void Win32ErrorMode::initialize() {
+	$useLocalCurrentObjectStackCache();
 	if (!$VM::isBooted()) {
 		$var($String, s, $System::getProperty("sun.io.allowCriticalErrorMessageBox"_s));
 		$init($Boolean);

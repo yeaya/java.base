@@ -83,6 +83,7 @@ void BuiltinClassLoader$3::init$($BuiltinClassLoader* this$0, $ModuleReference* 
 }
 
 $Object* BuiltinClassLoader$3::run() {
+	$useLocalCurrentObjectStackCache();
 	return $of($cast($URI, $nc($($nc($(this->this$0->moduleReaderFor(this->val$mref)))->find(this->val$name)))->orElse(nullptr)));
 }
 

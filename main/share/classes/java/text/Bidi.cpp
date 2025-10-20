@@ -91,6 +91,7 @@ void Bidi::init$($AttributedCharacterIterator* paragraph) {
 }
 
 void Bidi::init$($chars* text, int32_t textStart, $bytes* embeddings, int32_t embStart, int32_t paragraphLength, int32_t flags) {
+	$useLocalCurrentObjectStackCache();
 	if (text == nullptr) {
 		$throwNew($IllegalArgumentException, "text is null"_s);
 	}
@@ -107,6 +108,7 @@ void Bidi::init$($chars* text, int32_t textStart, $bytes* embeddings, int32_t em
 }
 
 Bidi* Bidi::createLineBidi(int32_t lineStart, int32_t lineLimit) {
+	$useLocalCurrentObjectStackCache();
 	$var($AttributedString, astr, $new($AttributedString, ""_s));
 	$var(Bidi, newBidi, $new(Bidi, $(astr->getIterator())));
 	return $nc(this->bidiBase)->setLine(this, this->bidiBase, newBidi, newBidi->bidiBase, lineStart, lineLimit);

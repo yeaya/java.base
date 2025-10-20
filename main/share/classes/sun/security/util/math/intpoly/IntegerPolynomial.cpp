@@ -174,6 +174,7 @@ $ImmutableIntegerModuloP* IntegerPolynomial::getElement($BigInteger* v) {
 }
 
 $SmallValue* IntegerPolynomial::getSmallValue(int32_t value) {
+	$useLocalCurrentObjectStackCache();
 	int32_t maxMag = $sl(1, this->bitsPerLimb - 1);
 	if ($Math::abs(value) >= maxMag) {
 		$throwNew($IllegalArgumentException, $$str({"max magnitude is "_s, $$str(maxMag)}));
@@ -266,6 +267,7 @@ $ImmutableIntegerModuloP* IntegerPolynomial::getElement($bytes* v, int32_t offse
 }
 
 $BigInteger* IntegerPolynomial::evaluate($longs* limbs) {
+	$useLocalCurrentObjectStackCache();
 	$init($BigInteger);
 	$var($BigInteger, result, $BigInteger::ZERO);
 	for (int32_t i = $nc(limbs)->length - 1; i >= 0; --i) {
@@ -301,6 +303,7 @@ void IntegerPolynomial::setLimbsValue($BigInteger* v, $longs* limbs) {
 }
 
 void IntegerPolynomial::setLimbsValuePositive($BigInteger* v$renamed, $longs* limbs) {
+	$useLocalCurrentObjectStackCache();
 	$var($BigInteger, v, v$renamed);
 	$var($BigInteger, mod, $BigInteger::valueOf((int64_t)$sl(1, this->bitsPerLimb)));
 	for (int32_t i = 0; i < $nc(limbs)->length; ++i) {
@@ -386,6 +389,7 @@ void IntegerPolynomial::limbsToByteArray($longs* limbs, $bytes* result) {
 }
 
 void IntegerPolynomial::addLimbsModPowerTwo($longs* limbs, $longs* other, $bytes* result) {
+	$useLocalCurrentObjectStackCache();
 	$var($longs, reducedOther, $cast($longs, $nc(other)->clone()));
 	$var($longs, reducedLimbs, $cast($longs, $nc(limbs)->clone()));
 	finalReduce(reducedOther);

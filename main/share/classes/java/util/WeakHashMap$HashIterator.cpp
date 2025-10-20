@@ -84,6 +84,7 @@ void WeakHashMap$HashIterator::init$($WeakHashMap* this$0) {
 }
 
 bool WeakHashMap$HashIterator::hasNext() {
+	$useLocalCurrentObjectStackCache();
 	$var($WeakHashMap$EntryArray, t, this->this$0->table);
 	while (this->nextKey == nullptr) {
 		$var($WeakHashMap$Entry, e, this->entry);

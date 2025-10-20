@@ -97,6 +97,7 @@ void FtpClient$DefaultParser::init$($FtpClient* this$0) {
 }
 
 $FtpDirEntry* FtpClient$DefaultParser::parseLine($String* line) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, fdate, nullptr);
 	$var($String, fsize, nullptr);
 	$var($String, time, nullptr);

@@ -105,6 +105,7 @@ void RegAfterPreClose::init$() {
 }
 
 void RegAfterPreClose::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetSocketAddress, isa, $new($InetSocketAddress, 0));
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
 	$nc($($nc(ssc)->socket()))->bind(isa);

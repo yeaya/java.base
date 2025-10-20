@@ -76,6 +76,7 @@ void Label::add($ClassFileAssembler* asm$, int16_t instrBCI, int16_t patchBCI, i
 }
 
 void Label::bind() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->patches)->iterator());
 		for (; $nc(i$)->hasNext();) {

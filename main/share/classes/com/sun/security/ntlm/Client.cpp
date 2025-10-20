@@ -78,6 +78,7 @@ $Object* allocate$Client($Class* clazz) {
 }
 
 void Client::init$($String* version, $String* hostname, $String* username, $String* domain, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$NTLM::init$(version);
 	if (username == nullptr || password == nullptr) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "username/password cannot be null"_s);
@@ -97,6 +98,7 @@ void Client::init$($String* version, $String* hostname, $String* username, $Stri
 }
 
 $bytes* Client::type1() {
+	$useLocalCurrentObjectStackCache();
 	$var($NTLM$Writer, p, $new($NTLM$Writer, 1, 32));
 	int32_t flags = 0x00008207;
 	$init($Version);
@@ -110,6 +112,7 @@ $bytes* Client::type1() {
 }
 
 $bytes* Client::type3($bytes* type2, $bytes* nonce) {
+	$useLocalCurrentObjectStackCache();
 	$init($Version);
 	if (type2 == nullptr || (this->v != $Version::NTLM && nonce == nullptr)) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "type2 and nonce cannot be null"_s);

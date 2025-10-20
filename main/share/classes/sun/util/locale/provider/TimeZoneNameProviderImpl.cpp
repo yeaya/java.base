@@ -116,12 +116,14 @@ $String* TimeZoneNameProviderImpl::getGenericDisplayName($String* id, int32_t st
 }
 
 $StringArray* TimeZoneNameProviderImpl::getDisplayNameArray($String* id, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(id);
 	$Objects::requireNonNull(locale);
 	return $cast($StringArray, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getTimeZoneNames(id));
 }
 
 $StringArray2* TimeZoneNameProviderImpl::getZoneStrings($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getZoneStrings();
 }
 

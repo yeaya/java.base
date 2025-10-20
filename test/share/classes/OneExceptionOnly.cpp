@@ -54,6 +54,7 @@ void OneExceptionOnly::init$() {
 }
 
 void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println(""_s);
 	$nc($System::out)->println("***"_s);
@@ -123,6 +124,7 @@ void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 }
 
 void OneExceptionOnly::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, ia, nullptr);
 	int32_t port = 0;
 	if ($nc(args)->length >= 2) {

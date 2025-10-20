@@ -112,6 +112,7 @@ void NumberFormatRounding::main($StringArray* args) {
 
 void NumberFormatRounding::basicTest() {
 	$init(NumberFormatRounding);
+	$useLocalCurrentObjectStackCache();
 	$var($NumberFormat, nf, $NumberFormat::getIntegerInstance());
 	$init($RoundingMode);
 	if ($nc(nf)->getRoundingMode() != $RoundingMode::HALF_EVEN) {
@@ -140,6 +141,7 @@ void NumberFormatRounding::basicTest() {
 
 void NumberFormatRounding::roundTest($RoundingMode* rm, $StringArray* expected) {
 	$init(NumberFormatRounding);
+	$useLocalCurrentObjectStackCache();
 	$var($NumberFormat, nf, $NumberFormat::getIntegerInstance());
 	$nc(nf)->setRoundingMode(rm);
 	if (nf->getRoundingMode() != rm) {

@@ -85,6 +85,7 @@ void Pattern$NFCCharProperty::init$($Pattern$CharPredicate* predicate) {
 }
 
 bool Pattern$NFCCharProperty::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
+	$useLocalCurrentObjectStackCache();
 	if (i < $nc(matcher)->to) {
 		int32_t ch0 = $Character::codePointAt(seq, i);
 		int32_t n = $Character::charCount(ch0);

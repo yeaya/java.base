@@ -121,6 +121,7 @@ void ConstantUtils::init$() {
 
 $String* ConstantUtils::validateBinaryClassName($String* name) {
 	$init(ConstantUtils);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(name)->length(); ++i) {
 		char16_t ch = name->charAt(i);
 		if (ch == u';' || ch == u'[' || ch == u'/') {
@@ -132,6 +133,7 @@ $String* ConstantUtils::validateBinaryClassName($String* name) {
 
 $String* ConstantUtils::validateMemberName($String* name, bool method) {
 	$init(ConstantUtils);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	if (name->length() == 0) {
 		$throwNew($IllegalArgumentException, "zero-length member name"_s);
@@ -188,6 +190,7 @@ $String* ConstantUtils::dropFirstAndLastChar($String* s) {
 
 $List* ConstantUtils::parseMethodDescriptor($String* descriptor) {
 	$init(ConstantUtils);
+	$useLocalCurrentObjectStackCache();
 	int32_t cur = 0;
 	int32_t end = $nc(descriptor)->length();
 	$var($ArrayList, ptypes, $new($ArrayList));
@@ -217,6 +220,7 @@ $List* ConstantUtils::parseMethodDescriptor($String* descriptor) {
 
 int32_t ConstantUtils::skipOverFieldSignature($String* descriptor, int32_t start, int32_t end, bool voidOK) {
 	$init(ConstantUtils);
+	$useLocalCurrentObjectStackCache();
 	int32_t arrayDim = 0;
 	int32_t index = start;
 	while (index < end) {

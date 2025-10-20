@@ -46,6 +46,7 @@ void InternalNameServiceWithHostsFileTest::init$() {
 }
 
 void InternalNameServiceWithHostsFileTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, expectedIpv6Address, $new($bytes, {
 		(int8_t)254,
 		(int8_t)128,
@@ -123,6 +124,7 @@ void InternalNameServiceWithHostsFileTest::main($StringArray* args) {
 }
 
 void InternalNameServiceWithHostsFileTest::testHostsMapping($bytes* expectedIpAddress, $String* hostName) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, testAddress, nullptr);
 	$var($bytes, rawIpAddress, nullptr);
 	$assign(testAddress, $InetAddress::getByName(hostName));
@@ -139,6 +141,7 @@ void InternalNameServiceWithHostsFileTest::testHostsMapping($bytes* expectedIpAd
 }
 
 void InternalNameServiceWithHostsFileTest::testReverseLookup($String* numericHost, $String* expectedName) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, lookupResult, $nc($($InetAddress::getByName(numericHost)))->getHostName());
 	if (!$nc(expectedName)->equals(lookupResult)) {
 		$throwNew($RuntimeException, $($String::format("reverse lookup of \"%s\" is \"%s\", should be \"%s\"\n"_s, $$new($ObjectArray, {

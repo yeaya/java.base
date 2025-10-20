@@ -124,6 +124,7 @@ $String* ExtendedKeyUsageExtension::NAME = nullptr;
 $String* ExtendedKeyUsageExtension::USAGES = nullptr;
 
 void ExtendedKeyUsageExtension::encodeThis() {
+	$useLocalCurrentObjectStackCache();
 	if (this->keyUsages == nullptr || $nc(this->keyUsages)->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -152,6 +153,7 @@ void ExtendedKeyUsageExtension::init$($Boolean* critical, $Vector* keyUsages) {
 }
 
 void ExtendedKeyUsageExtension::init$($Boolean* critical, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$Extension::init$();
 	$init($PKIXExtensions);
 	$set(this, extensionId, $PKIXExtensions::ExtendedKeyUsage_Id);
@@ -170,6 +172,7 @@ void ExtendedKeyUsageExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* ExtendedKeyUsageExtension::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->keyUsages == nullptr) {
 		return ""_s;
 	}
@@ -198,6 +201,7 @@ $String* ExtendedKeyUsageExtension::toString() {
 }
 
 void ExtendedKeyUsageExtension::encode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -249,6 +253,7 @@ $String* ExtendedKeyUsageExtension::getName() {
 }
 
 $List* ExtendedKeyUsageExtension::getExtendedKeyUsage() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, al, $new($ArrayList, $nc(this->keyUsages)->size()));
 	{
 		$var($Iterator, i$, $nc(this->keyUsages)->iterator());

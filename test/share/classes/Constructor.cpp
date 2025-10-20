@@ -91,6 +91,7 @@ void Constructor::init$() {
 
 void Constructor::main($StringArray* args) {
 	$init(Constructor);
+	$useLocalCurrentObjectStackCache();
 	$var($List, entries, $new($ArrayList));
 	entries->addAll($($Arrays::asList(Constructor::fileURLs)));
 	entries->addAll($($Arrays::asList(Constructor::jarURLs)));
@@ -133,6 +134,7 @@ bool Constructor::hasFtp() {
 }
 
 void clinit$Constructor($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Constructor::fileURLs, $new($Constructor$EntryArray, {
 		$$new($Constructor$Entry, nullptr, "file://JavaSoft/Test"_s, "file://JavaSoft/Test"_s),
 		$$new($Constructor$Entry, nullptr, "file:///JavaSoft/Test"_s, "file:/JavaSoft/Test"_s),

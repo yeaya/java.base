@@ -195,6 +195,7 @@ $Comparator* StreamSpliterators$AbstractWrappingSpliterator::getComparator() {
 }
 
 $String* StreamSpliterators$AbstractWrappingSpliterator::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("%s[%s]"_s, $$new($ObjectArray, {
 		$($of($of(this)->getClass()->getName())),
 		$of(this->spliterator)

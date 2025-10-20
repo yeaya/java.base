@@ -199,6 +199,7 @@ int32_t Clock::hashCode() {
 
 $Instant* Clock::currentInstant() {
 	$init(Clock);
+	$useLocalCurrentObjectStackCache();
 	int64_t localOffset = Clock::offset$;
 	int64_t adjustment = $VM::getNanoTimeAdjustment(localOffset);
 	if (adjustment == -1) {

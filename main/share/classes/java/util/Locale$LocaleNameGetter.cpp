@@ -78,6 +78,7 @@ void Locale$LocaleNameGetter::init$() {
 }
 
 $String* Locale$LocaleNameGetter::getObject($LocaleNameProvider* localeNameProvider, $Locale* locale, $String* key, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (!Locale$LocaleNameGetter::$assertionsDisabled && !($nc(params)->length == 3)) {
 		$throwNew($AssertionError);
 	}

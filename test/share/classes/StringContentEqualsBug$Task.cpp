@@ -66,6 +66,7 @@ void StringContentEqualsBug$Task::init$($StringBuffer* sb) {
 }
 
 void StringContentEqualsBug$Task::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($StringBuffer, sb, nullptr);
 		while (($assign(sb, this->sb)) != nullptr) {

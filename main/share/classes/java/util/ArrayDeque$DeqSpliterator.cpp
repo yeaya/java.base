@@ -108,6 +108,7 @@ ArrayDeque$DeqSpliterator* ArrayDeque$DeqSpliterator::trySplit() {
 }
 
 void ArrayDeque$DeqSpliterator::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -135,6 +136,7 @@ void ArrayDeque$DeqSpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool ArrayDeque$DeqSpliterator::tryAdvance($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ObjectArray, es, this->this$0->elements);
 	if (this->fence < 0) {

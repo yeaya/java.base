@@ -286,6 +286,7 @@ Year* Year::of(int32_t isoYear) {
 
 Year* Year::from($TemporalAccessor* temporal$renamed) {
 	$init(Year);
+	$useLocalCurrentObjectStackCache();
 	$var($TemporalAccessor, temporal, temporal$renamed);
 	if ($instanceOf(Year, temporal)) {
 		return $cast(Year, temporal);
@@ -519,6 +520,7 @@ $Temporal* Year::adjustInto($Temporal* temporal) {
 }
 
 int64_t Year::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(Year, end, Year::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -633,6 +635,7 @@ int32_t Year::compareTo(Object$* other) {
 }
 
 void clinit$Year($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($ChronoField);
 	$init($SignStyle);
 	$assignStatic(Year::PARSER, $nc($($nc($($$new($DateTimeFormatterBuilder)->parseLenient()))->appendValue($ChronoField::YEAR, 1, 10, $SignStyle::NORMAL)))->toFormatter());

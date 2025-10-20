@@ -201,12 +201,14 @@ $Object* allocate$Subject($Class* clazz) {
 $ProtectionDomainArray* Subject::NULL_PD_ARRAY = nullptr;
 
 void Subject::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, principals, $Collections::synchronizedSet($$new($Subject$SecureSet, this, Subject::PRINCIPAL_SET)));
 	$set(this, pubCredentials, $Collections::synchronizedSet($$new($Subject$SecureSet, this, Subject::PUB_CREDENTIAL_SET)));
 	$set(this, privCredentials, $Collections::synchronizedSet($$new($Subject$SecureSet, this, Subject::PRIV_CREDENTIAL_SET)));
 }
 
 void Subject::init$(bool readOnly, $Set* principals, $Set* pubCredentials, $Set* privCredentials) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedList, principalList, collectionNullClean(principals));
 	$var($LinkedList, pubCredsList, collectionNullClean(pubCredentials));
 	$var($LinkedList, privCredsList, collectionNullClean(privCredentials));
@@ -231,6 +233,7 @@ bool Subject::isReadOnly() {
 
 Subject* Subject::getSubject($AccessControlContext* acc) {
 	$init(Subject);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -243,6 +246,7 @@ Subject* Subject::getSubject($AccessControlContext* acc) {
 
 $Object* Subject::doAs(Subject* subject, $PrivilegedAction* action) {
 	$init(Subject);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -256,6 +260,7 @@ $Object* Subject::doAs(Subject* subject, $PrivilegedAction* action) {
 
 $Object* Subject::doAs(Subject* subject, $PrivilegedExceptionAction* action) {
 	$init(Subject);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -269,6 +274,7 @@ $Object* Subject::doAs(Subject* subject, $PrivilegedExceptionAction* action) {
 
 $Object* Subject::doAsPrivileged(Subject* subject, $PrivilegedAction* action, $AccessControlContext* acc) {
 	$init(Subject);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -282,6 +288,7 @@ $Object* Subject::doAsPrivileged(Subject* subject, $PrivilegedAction* action, $A
 
 $Object* Subject::doAsPrivileged(Subject* subject, $PrivilegedExceptionAction* action, $AccessControlContext* acc) {
 	$init(Subject);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -327,6 +334,7 @@ $Set* Subject::getPrivateCredentials($Class* c) {
 }
 
 bool Subject::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -366,6 +374,7 @@ $String* Subject::toString() {
 }
 
 $String* Subject::toString(bool includePrivateCredentials) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $ResourcesMgr::getString("Subject."_s));
 	$var($String, suffix, ""_s);
 	$synchronized(this->principals) {
@@ -407,6 +416,7 @@ $String* Subject::toString(bool includePrivateCredentials) {
 }
 
 int32_t Subject::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t hashCode = 0;
 	$synchronized(this->principals) {
 		$var($Iterator, pIterator, $nc(this->principals)->iterator());
@@ -425,6 +435,7 @@ int32_t Subject::hashCode() {
 }
 
 int32_t Subject::getCredHashCode(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc($of(o))->hashCode();
 	} catch ($IllegalStateException&) {
@@ -441,6 +452,7 @@ void Subject::writeObject($ObjectOutputStream* oos) {
 }
 
 void Subject::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, gf, $nc(s)->readFields());
 	this->readOnly = $nc(gf)->get("readOnly"_s, false);
 	$var($Set, inputPrincs, $cast($Set, gf->get("principals"_s, ($Object*)nullptr)));
@@ -458,6 +470,7 @@ void Subject::readObject($ObjectInputStream* s) {
 
 $LinkedList* Subject::collectionNullClean($Collection* coll) {
 	$init(Subject);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(coll), $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	$var($LinkedList, output, $new($LinkedList));
 	{

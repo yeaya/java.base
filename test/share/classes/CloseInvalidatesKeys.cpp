@@ -50,6 +50,7 @@ void CloseInvalidatesKeys::init$() {
 }
 
 void CloseInvalidatesKeys::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, ch, $DatagramChannel::open());
 	{
 		$var($Throwable, var$0, nullptr);

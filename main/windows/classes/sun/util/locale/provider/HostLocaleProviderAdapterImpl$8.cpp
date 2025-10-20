@@ -84,12 +84,14 @@ $LocaleArray* HostLocaleProviderAdapterImpl$8::getAvailableLocales() {
 }
 
 bool HostLocaleProviderAdapterImpl$8::isSupportedLocale($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($HostLocaleProviderAdapterImpl);
 	bool var$0 = $nc($HostLocaleProviderAdapterImpl::supportedLocaleSet)->contains($($nc(locale)->stripExtensions()));
 	return var$0 && $nc($($nc(locale)->getLanguage()))->equals($HostLocaleProviderAdapterImpl::nativeDisplayLanguage);
 }
 
 $String* HostLocaleProviderAdapterImpl$8::getSymbol($String* currencyCode, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc($($nc($($Currency::getInstance(locale)))->getCurrencyCode()))->equals(currencyCode)) {
 			return $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 1, currencyCode);
@@ -101,6 +103,7 @@ $String* HostLocaleProviderAdapterImpl$8::getSymbol($String* currencyCode, $Loca
 }
 
 $String* HostLocaleProviderAdapterImpl$8::getDisplayName($String* currencyCode, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if ($nc($($nc($($Currency::getInstance(locale)))->getCurrencyCode()))->equals(currencyCode)) {
 			return $HostLocaleProviderAdapterImpl::getDisplayString($($nc(locale)->toLanguageTag()), 0, currencyCode);

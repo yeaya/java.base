@@ -64,6 +64,7 @@ void KeyShareExtension$HRRKeyShareStringizer::init$() {
 }
 
 $String* KeyShareExtension$HRRKeyShareStringizer::toString($HandshakeContext* handshakeContext, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($KeyShareExtension$HRRKeyShareSpec, handshakeContext, buffer))->toString();
 	} catch ($IOException&) {

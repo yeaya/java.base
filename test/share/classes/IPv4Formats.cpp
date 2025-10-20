@@ -42,6 +42,7 @@ void IPv4Formats::init$() {
 }
 
 void IPv4Formats::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($InetAddress, ad1, nullptr);
 	$var($InetAddress, ad2, nullptr);
 	$var($StringArray2, adds, $new($StringArray2, {

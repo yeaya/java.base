@@ -112,6 +112,7 @@ void Vector$Itr::remove() {
 }
 
 void Vector$Itr::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$synchronized(this->this$0) {
 		int32_t size = this->this$0->elementCount;

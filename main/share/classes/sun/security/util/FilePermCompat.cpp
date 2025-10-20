@@ -79,6 +79,7 @@ $Permission* FilePermCompat::newPermUsingAltPath($Permission* input) {
 }
 
 void clinit$FilePermCompat($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, flag, $SecurityProperties::privilegedGetOverridable("jdk.io.permissionsUseCanonicalPath"_s));
 		if (flag == nullptr) {

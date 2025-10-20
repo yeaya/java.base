@@ -79,6 +79,7 @@ void Sender::main($StringArray* args) {
 
 void Sender::test() {
 	$init(Sender);
+	$useLocalCurrentObjectStackCache();
 	$var($Sender$Server, server, $new($Sender$Server));
 	$var($Sender$Client, client, $new($Sender$Client, server->port()));
 	$var($Thread, serverThread, $new($Thread, static_cast<$Runnable*>(server)));

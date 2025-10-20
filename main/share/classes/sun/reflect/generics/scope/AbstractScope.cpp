@@ -73,6 +73,7 @@ $Scope* AbstractScope::getEnclosingScope() {
 }
 
 $TypeVariable* AbstractScope::lookup($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeVariableArray, tas, $nc($(getRecvr()))->getTypeParameters());
 	{
 		$var($TypeVariableArray, arr$, tas);

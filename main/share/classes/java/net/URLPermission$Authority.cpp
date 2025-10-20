@@ -78,6 +78,7 @@ bool URLPermission$Authority::implies(URLPermission$Authority* other) {
 }
 
 bool URLPermission$Authority::impliesHostrange(URLPermission$Authority* that) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, thishost, $nc(this->p)->hostname());
 	$var($String, thathost, $nc($nc(that)->p)->hostname());
 	bool var$0 = $nc(this->p)->wildcard();
@@ -98,6 +99,7 @@ bool URLPermission$Authority::impliesHostrange(URLPermission$Authority* that) {
 }
 
 bool URLPermission$Authority::impliesPortrange(URLPermission$Authority* that) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, thisrange, $nc(this->p)->portrange());
 	$var($ints, thatrange, $nc($nc(that)->p)->portrange());
 	if ($nc(thisrange)->get(0) == -1) {

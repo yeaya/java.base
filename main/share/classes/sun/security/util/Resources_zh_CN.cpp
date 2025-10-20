@@ -56,6 +56,7 @@ $ObjectArray2* Resources_zh_CN::getContents() {
 }
 
 void clinit$Resources_zh_CN($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Resources_zh_CN::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("invalid.null.input.s."_s),

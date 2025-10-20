@@ -77,6 +77,7 @@ void StatusResponseManager$1::init$($StatusResponseManager* this$0) {
 }
 
 $Thread* StatusResponseManager$1::newThread($Runnable* r) {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $nc($($Executors::defaultThreadFactory()))->newThread(r));
 	$nc(t)->setDaemon(true);
 	return t;

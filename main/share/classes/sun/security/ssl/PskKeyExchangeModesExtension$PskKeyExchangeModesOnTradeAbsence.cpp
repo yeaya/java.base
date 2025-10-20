@@ -79,6 +79,7 @@ void PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence::init$() {
 }
 
 void PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($SSLExtension$SSLExtensionSpec, spec, $cast($SSLExtension$SSLExtensionSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_PRE_SHARED_KEY)));

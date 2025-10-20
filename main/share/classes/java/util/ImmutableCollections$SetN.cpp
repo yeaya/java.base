@@ -135,6 +135,7 @@ void ImmutableCollections$SetN::finalize() {
 }
 
 void ImmutableCollections$SetN::init$($ObjectArray* input) {
+	$useLocalCurrentObjectStackCache();
 	$ImmutableCollections$AbstractImmutableSet::init$();
 	this->size$ = $nc(input)->length;
 	$set(this, elements, $new($ObjectArray, 2 * input->length));
@@ -167,6 +168,7 @@ $Iterator* ImmutableCollections$SetN::iterator() {
 }
 
 int32_t ImmutableCollections$SetN::hashCode() {
+	$useLocalCurrentObjectStackCache();
 	int32_t h = 0;
 	{
 		$var($ObjectArray, arr$, this->elements);
@@ -185,6 +187,7 @@ int32_t ImmutableCollections$SetN::hashCode() {
 }
 
 int32_t ImmutableCollections$SetN::probe(Object$* pe) {
+	$useLocalCurrentObjectStackCache();
 	int32_t idx = $Math::floorMod($nc($of(pe))->hashCode(), $nc(this->elements)->length);
 	while (true) {
 		$var($Object0, ee, $nc(this->elements)->get(idx));
@@ -203,6 +206,7 @@ void ImmutableCollections$SetN::readObject($ObjectInputStream* in) {
 }
 
 $Object* ImmutableCollections$SetN::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $new($ObjectArray, this->size$));
 	int32_t dest = 0;
 	{
@@ -222,6 +226,7 @@ $Object* ImmutableCollections$SetN::writeReplace() {
 }
 
 $ObjectArray* ImmutableCollections$SetN::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $new($ObjectArray, this->size$));
 	$var($Iterator, it, iterator());
 	for (int32_t i = 0; i < this->size$; ++i) {
@@ -231,6 +236,7 @@ $ObjectArray* ImmutableCollections$SetN::toArray() {
 }
 
 $ObjectArray* ImmutableCollections$SetN::toArray($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, array, $nc(a)->length >= this->size$ ? a : $cast($ObjectArray, $1Array::newInstance($nc($of(a))->getClass()->getComponentType(), this->size$)));
 	$var($Iterator, it, iterator());
 	for (int32_t i = 0; i < this->size$; ++i) {

@@ -92,6 +92,7 @@ void Util$3::init$() {
 }
 
 $Object* Util$3::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* cl = $Class::forName("java.nio.DirectByteBuffer"_s);

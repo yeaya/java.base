@@ -59,6 +59,7 @@ void OrderUnitTest::main($StringArray* args) {
 }
 
 void OrderUnitTest::testOrder($AnnotatedElement* e) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationArray, decl, $nc(e)->getDeclaredAnnotations());
 	$load($Foo4OrderUnitTest);
 	$var($Foo4OrderUnitTestArray, declByType, $fcast($Foo4OrderUnitTestArray, e->getDeclaredAnnotationsByType($Foo4OrderUnitTest::class$)));

@@ -86,6 +86,7 @@ void CertificateStatus$CertificateStatusConsumer::init$() {
 }
 
 void CertificateStatus$CertificateStatusConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($CertificateStatus$CertificateStatusMessage, cst, $new($CertificateStatus$CertificateStatusMessage, chc, message));
 	$init($SSLLogger);

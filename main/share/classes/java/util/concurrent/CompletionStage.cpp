@@ -415,30 +415,37 @@ $Object* allocate$CompletionStage($Class* clazz) {
 }
 
 CompletionStage* CompletionStage::exceptionallyAsync($Function* fn) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(handle(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyAsync$1, this, fn)))))->thenCompose($($Function::identity()));
 }
 
 CompletionStage* CompletionStage::exceptionallyAsync($Function* fn, $Executor* executor) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(handle(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyAsync$3$1, this, fn, executor)))))->thenCompose($($Function::identity()));
 }
 
 CompletionStage* CompletionStage::exceptionallyCompose($Function* fn) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(handle(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyCompose$4$2, this, fn)))))->thenCompose($($Function::identity()));
 }
 
 CompletionStage* CompletionStage::exceptionallyComposeAsync($Function* fn) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(handle(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyComposeAsync$6$3, this, fn)))))->thenCompose($($Function::identity()));
 }
 
 CompletionStage* CompletionStage::exceptionallyComposeAsync($Function* fn, $Executor* executor) {
+	$useLocalCurrentObjectStackCache();
 	return $nc($(handle(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyComposeAsync$8$4, this, fn, executor)))))->thenCompose($($Function::identity()));
 }
 
 CompletionStage* CompletionStage::lambda$exceptionallyComposeAsync$8($Function* fn, $Executor* executor, Object$* r, $Throwable* ex) {
+	$useLocalCurrentObjectStackCache();
 	return (ex == nullptr) ? this : $nc($(this->handleAsync(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyComposeAsync$5$5, fn)), executor)))->thenCompose($($Function::identity()));
 }
 
 CompletionStage* CompletionStage::lambda$exceptionallyComposeAsync$6($Function* fn, Object$* r, $Throwable* ex) {
+	$useLocalCurrentObjectStackCache();
 	return (ex == nullptr) ? this : $nc($(this->handleAsync(static_cast<$BiFunction*>($$new(CompletionStage$$Lambda$lambda$exceptionallyComposeAsync$5$5, fn)))))->thenCompose($($Function::identity()));
 }
 

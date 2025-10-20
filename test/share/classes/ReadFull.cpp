@@ -47,6 +47,7 @@ void ReadFull::init$() {
 }
 
 void ReadFull::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($ByteBufferArray, dstBuffers, $new($ByteBufferArray, 10));

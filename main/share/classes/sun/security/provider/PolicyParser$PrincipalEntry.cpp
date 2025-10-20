@@ -90,6 +90,7 @@ $String* PolicyParser$PrincipalEntry::WILDCARD_NAME = nullptr;
 $String* PolicyParser$PrincipalEntry::REPLACE_NAME = nullptr;
 
 void PolicyParser$PrincipalEntry::init$($String* principalClass, $String* principalName) {
+	$useLocalCurrentObjectStackCache();
 	if (principalClass == nullptr || principalName == nullptr) {
 		$throwNew($NullPointerException, $($LocalizedMessage::getNonlocalized("null.principalClass.or.principalName"_s, $$new($ObjectArray, 0))));
 	}
@@ -146,6 +147,7 @@ $String* PolicyParser$PrincipalEntry::getName() {
 }
 
 $String* PolicyParser$PrincipalEntry::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (!isReplaceName()) {
 		$var($String, var$0, $$str({$(getDisplayClass()), "/"_s}));
 		return $concat(var$0, $(getDisplayName()));
@@ -171,6 +173,7 @@ int32_t PolicyParser$PrincipalEntry::hashCode() {
 }
 
 void PolicyParser$PrincipalEntry::write($PrintWriter* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"principal "_s, $(getDisplayClass()), " "_s}));
 	$nc(out)->print($$concat(var$0, $(getDisplayName(true))));
 }

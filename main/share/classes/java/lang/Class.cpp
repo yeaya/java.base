@@ -1074,11 +1074,13 @@ void Class::init$($ClassLoader* loader, Class* arrayComponentType) {
 }
 
 $String* Class::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, (isInterface() ? "interface "_s : (isPrimitive() ? ""_s : "class "_s)));
 	return $concat(var$0, $(getName()));
 }
 
 $String* Class::toGenericString() {
+	$useLocalCurrentObjectStackCache();
 	if (isPrimitive()) {
 		return toString();
 	} else {
@@ -1126,6 +1128,7 @@ $String* Class::toGenericString() {
 
 $String* Class::typeVarBounds($TypeVariable* typeVar) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, bounds, $nc(typeVar)->getBounds());
 	$load($Object);
 	if ($nc(bounds)->length == 1 && $nc($of(bounds->get(0)))->equals($Object::class$)) {
@@ -1147,6 +1150,7 @@ Class* Class::forName($String* className) {
 
 Class* Class::forName($String* name, bool initialize, $ClassLoader* loader) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	Class* caller = nullptr;
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -1168,6 +1172,7 @@ Class* Class::forName0($String* name, bool initialize, $ClassLoader* loader, Cla
 
 Class* Class::forName($Module* module, $String* name) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(module);
 	$Objects::requireNonNull(name);
 	$var($ClassLoader, cl, nullptr);
@@ -1191,6 +1196,7 @@ Class* Class::forName($Module* module, $String* name) {
 }
 
 $Object* Class::newInstance() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::PUBLIC, $Reflection::getCallerClass(), false);
@@ -1308,6 +1314,7 @@ $String* Class::initClassName() {
 }
 
 $ClassLoader* Class::getClassLoader() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, getClassLoader0());
 	if (cl == nullptr) {
 		return nullptr;
@@ -1378,6 +1385,7 @@ $Package* Class::getPackage() {
 }
 
 $String* Class::getPackageName() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pn, this->packageName);
 	if (pn == nullptr) {
 		Class* c = isArray() ? elementType() : this;
@@ -1398,6 +1406,7 @@ $ClassArray* Class::getInterfaces() {
 }
 
 $ClassArray* Class::getInterfaces(bool cloneArray) {
+	$useLocalCurrentObjectStackCache();
 	$var($Class$ReflectionData, rd, reflectionData());
 	if (rd == nullptr) {
 		return getInterfaces0();
@@ -1482,6 +1491,7 @@ void Class::setSigners($ObjectArray* signers) {
 }
 
 $Method* Class::getEnclosingMethod() {
+	$useLocalCurrentObjectStackCache();
 	$var($Class$EnclosingMethodInfo, enclosingInfo, getEnclosingMethodInfo());
 	if (enclosingInfo == nullptr) {
 		return nullptr;
@@ -1562,6 +1572,7 @@ $Class$EnclosingMethodInfo* Class::getEnclosingMethodInfo() {
 
 Class* Class::toClass($Type* o) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($GenericArrayType, o)) {
 		return $of($($1Array::newInstance(toClass($($nc(($cast($GenericArrayType, o)))->getGenericComponentType())), 0)))->getClass();
 	}
@@ -1569,6 +1580,7 @@ Class* Class::toClass($Type* o) {
 }
 
 $Constructor* Class::getEnclosingConstructor() {
+	$useLocalCurrentObjectStackCache();
 	$var($Class$EnclosingMethodInfo, enclosingInfo, getEnclosingMethodInfo());
 	if (enclosingInfo == nullptr) {
 		return nullptr;
@@ -1608,6 +1620,7 @@ $Constructor* Class::getEnclosingConstructor() {
 }
 
 Class* Class::getDeclaringClass() {
+	$useLocalCurrentObjectStackCache();
 	Class* candidate = getDeclaringClass0();
 	if (candidate != nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
@@ -1641,6 +1654,7 @@ Class* Class::getDeclaringClass0() {
 }
 
 Class* Class::getEnclosingClass() {
+	$useLocalCurrentObjectStackCache();
 	$var($Class$EnclosingMethodInfo, enclosingInfo, getEnclosingMethodInfo());
 	Class* enclosingCandidate = nullptr;
 	if (enclosingInfo == nullptr) {
@@ -1663,6 +1677,7 @@ Class* Class::getEnclosingClass() {
 }
 
 $String* Class::getSimpleName() {
+	$useLocalCurrentObjectStackCache();
 	$var($Class$ReflectionData, rd, reflectionData());
 	$var($String, simpleName, rd->simpleName);
 	if (simpleName == nullptr) {
@@ -1672,6 +1687,7 @@ $String* Class::getSimpleName() {
 }
 
 $String* Class::getSimpleName0() {
+	$useLocalCurrentObjectStackCache();
 	if (isArray()) {
 		return $str({$($nc(getComponentType())->getSimpleName()), "[]"_s});
 	}
@@ -1684,6 +1700,7 @@ $String* Class::getSimpleName0() {
 }
 
 $String* Class::getTypeName() {
+	$useLocalCurrentObjectStackCache();
 	if (isArray()) {
 		try {
 			Class* cl = this;
@@ -1702,6 +1719,7 @@ $String* Class::getTypeName() {
 }
 
 $String* Class::getCanonicalName() {
+	$useLocalCurrentObjectStackCache();
 	$var($Class$ReflectionData, rd, reflectionData());
 	$var($String, canonicalName, rd->canonicalName);
 	if (canonicalName == nullptr) {
@@ -1712,6 +1730,7 @@ $String* Class::getCanonicalName() {
 }
 
 $String* Class::getCanonicalName0() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (isArray()) {
 		$var($String, canonicalName, $nc(getComponentType())->getCanonicalName());
@@ -1814,6 +1833,7 @@ bool Class::hasEnclosingMethodInfo() {
 }
 
 $ClassArray* Class::getClasses() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::PUBLIC, $Reflection::getCallerClass(), false);
@@ -1822,6 +1842,7 @@ $ClassArray* Class::getClasses() {
 }
 
 $FieldArray* Class::getFields() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::PUBLIC, $Reflection::getCallerClass(), true);
@@ -1830,6 +1851,7 @@ $FieldArray* Class::getFields() {
 }
 
 $MethodArray* Class::getMethods() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::PUBLIC, $Reflection::getCallerClass(), true);
@@ -1838,6 +1860,7 @@ $MethodArray* Class::getMethods() {
 }
 
 $ConstructorArray* Class::getConstructors() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::PUBLIC, $Reflection::getCallerClass(), true);
@@ -1846,6 +1869,7 @@ $ConstructorArray* Class::getConstructors() {
 }
 
 $Field* Class::getField($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -1859,6 +1883,7 @@ $Field* Class::getField($String* name) {
 }
 
 $Method* Class::getMethod($String* name, $ClassArray* parameterTypes) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -1872,6 +1897,7 @@ $Method* Class::getMethod($String* name, $ClassArray* parameterTypes) {
 }
 
 $Constructor* Class::getConstructor($ClassArray* parameterTypes) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::PUBLIC, $Reflection::getCallerClass(), true);
@@ -1888,6 +1914,7 @@ $ClassArray* Class::getDeclaredClasses() {
 }
 
 $FieldArray* Class::getDeclaredFields() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::DECLARED, $Reflection::getCallerClass(), true);
@@ -1907,6 +1934,7 @@ $RecordComponentArray* Class::getRecordComponents() {
 }
 
 $MethodArray* Class::getDeclaredMethods() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::DECLARED, $Reflection::getCallerClass(), true);
@@ -1915,6 +1943,7 @@ $MethodArray* Class::getDeclaredMethods() {
 }
 
 $ConstructorArray* Class::getDeclaredConstructors() {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::DECLARED, $Reflection::getCallerClass(), true);
@@ -1923,6 +1952,7 @@ $ConstructorArray* Class::getDeclaredConstructors() {
 }
 
 $Field* Class::getDeclaredField($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -1936,6 +1966,7 @@ $Field* Class::getDeclaredField($String* name) {
 }
 
 $Method* Class::getDeclaredMethod($String* name, $ClassArray* parameterTypes) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(name);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -1949,6 +1980,7 @@ $Method* Class::getDeclaredMethod($String* name, $ClassArray* parameterTypes) {
 }
 
 $List* Class::getDeclaredPublicMethods($String* name, $ClassArray* parameterTypes) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, methods, privateGetDeclaredMethods(true));
 	$var($ReflectionFactory, factory, getReflectionFactory());
 	$var($List, result, $new($ArrayList));
@@ -1970,6 +2002,7 @@ $List* Class::getDeclaredPublicMethods($String* name, $ClassArray* parameterType
 }
 
 $Constructor* Class::getDeclaredConstructor($ClassArray* parameterTypes) {
+	$useLocalCurrentObjectStackCache();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		checkMemberAccess(sm, $Member::DECLARED, $Reflection::getCallerClass(), true);
@@ -1978,6 +2011,7 @@ $Constructor* Class::getDeclaredConstructor($ClassArray* parameterTypes) {
 }
 
 $InputStream* Class::getResourceAsStream($String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$assign(name, resolveName(name));
 	$var($Module, thisModule, getModule());
@@ -2014,6 +2048,7 @@ $InputStream* Class::getResourceAsStream($String* name$renamed) {
 }
 
 $URL* Class::getResource($String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$assign(name, resolveName(name));
 	$var($Module, thisModule, getModule());
@@ -2044,6 +2079,7 @@ $URL* Class::getResource($String* name$renamed) {
 }
 
 bool Class::isOpenToCaller($String* name, Class* caller) {
+	$useLocalCurrentObjectStackCache();
 	$var($Module, thisModule, getModule());
 	$var($Module, callerModule, (caller != nullptr) ? $nc(caller)->getModule() : ($Module*)nullptr);
 	if (callerModule != thisModule) {
@@ -2070,6 +2106,7 @@ $ProtectionDomain* Class::getProtectionDomain() {
 }
 
 $ProtectionDomain* Class::protectionDomain() {
+	$useLocalCurrentObjectStackCache();
 	$var($ProtectionDomain, pd, getProtectionDomain0());
 	if (pd == nullptr) {
 		if (Class::allPermDomain == nullptr) {
@@ -2093,6 +2130,7 @@ Class* Class::getPrimitiveClass($String* name) {
 }
 
 void Class::checkMemberAccess($SecurityManager* sm, int32_t which, Class* caller, bool checkProxyInterfaces) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, ccl, $ClassLoader::getClassLoader(caller));
 	if (which != $Member::PUBLIC) {
 		$var($ClassLoader, cl, getClassLoader0());
@@ -2105,6 +2143,7 @@ void Class::checkMemberAccess($SecurityManager* sm, int32_t which, Class* caller
 }
 
 void Class::checkPackageAccess($SecurityManager* sm, $ClassLoader* ccl, bool checkProxyInterfaces) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, getClassLoader0());
 	if ($ReflectUtil::needsPackageAccessCheck(ccl, cl)) {
 		$var($String, pkg, this->getPackageName());
@@ -2122,6 +2161,7 @@ void Class::checkPackageAccess($SecurityManager* sm, $ClassLoader* ccl, bool che
 
 void Class::checkPackageAccessForPermittedSubclasses($SecurityManager* sm, $ClassLoader* ccl, $ClassArray* subClasses) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, cl, $nc($nc(subClasses)->get(0))->getClassLoader0());
 	if ($ReflectUtil::needsPackageAccessCheck(ccl, cl)) {
 		$var($Set, packages, $new($HashSet));
@@ -2155,6 +2195,7 @@ void Class::checkPackageAccessForPermittedSubclasses($SecurityManager* sm, $Clas
 }
 
 $String* Class::resolveName($String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	if (!$nc(name)->startsWith("/"_s)) {
 		$var($String, baseName, getPackageName());
@@ -2171,6 +2212,7 @@ $String* Class::resolveName($String* name$renamed) {
 }
 
 $Class$ReflectionData* Class::reflectionData() {
+	$useLocalCurrentObjectStackCache();
 	$var($SoftReference, reflectionData, this->reflectionData$);
 	int32_t classRedefinedCount = this->classRedefinedCount;
 	$var($Class$ReflectionData, rd, nullptr);
@@ -2181,6 +2223,7 @@ $Class$ReflectionData* Class::reflectionData() {
 }
 
 $Class$ReflectionData* Class::newReflectionData($SoftReference* oldReflectionData$renamed, int32_t classRedefinedCount) {
+	$useLocalCurrentObjectStackCache();
 	$var($SoftReference, oldReflectionData, oldReflectionData$renamed);
 	while (true) {
 		$var($Class$ReflectionData, rd, $new($Class$ReflectionData, classRedefinedCount));
@@ -2220,6 +2263,7 @@ $GenericsFactory* Class::getFactory() {
 }
 
 $ClassRepository* Class::getGenericInfo() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassRepository, genericInfo, this->genericInfo);
 	if (genericInfo == nullptr) {
 		$var($String, signature, getGenericSignature0());
@@ -2279,6 +2323,7 @@ $ConstantPool* Class::getConstantPool() {
 }
 
 $FieldArray* Class::privateGetDeclaredFields(bool publicOnly) {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldArray, res, nullptr);
 	$var($Class$ReflectionData, rd, reflectionData());
 	if (rd != nullptr) {
@@ -2299,6 +2344,7 @@ $FieldArray* Class::privateGetDeclaredFields(bool publicOnly) {
 }
 
 $FieldArray* Class::privateGetPublicFields() {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldArray, res, nullptr);
 	$var($Class$ReflectionData, rd, reflectionData());
 	if (rd != nullptr) {
@@ -2333,6 +2379,7 @@ $FieldArray* Class::privateGetPublicFields() {
 
 void Class::addAll($Collection* c, $FieldArray* o) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FieldArray, arr$, o);
 		int32_t len$ = $nc(arr$)->length;
@@ -2347,6 +2394,7 @@ void Class::addAll($Collection* c, $FieldArray* o) {
 }
 
 $ConstructorArray* Class::privateGetDeclaredConstructors(bool publicOnly) {
+	$useLocalCurrentObjectStackCache();
 	$var($ConstructorArray, res, nullptr);
 	$var($Class$ReflectionData, rd, reflectionData());
 	if (rd != nullptr) {
@@ -2372,6 +2420,7 @@ $ConstructorArray* Class::privateGetDeclaredConstructors(bool publicOnly) {
 }
 
 $MethodArray* Class::privateGetDeclaredMethods(bool publicOnly) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, res, nullptr);
 	$var($Class$ReflectionData, rd, reflectionData());
 	if (rd != nullptr) {
@@ -2392,6 +2441,7 @@ $MethodArray* Class::privateGetDeclaredMethods(bool publicOnly) {
 }
 
 $MethodArray* Class::privateGetPublicMethods() {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, res, nullptr);
 	$var($Class$ReflectionData, rd, reflectionData());
 	if (rd != nullptr) {
@@ -2458,6 +2508,7 @@ $MethodArray* Class::privateGetPublicMethods() {
 
 $Field* Class::searchFields($FieldArray* fields, $String* name) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($FieldArray, arr$, fields);
 		int32_t len$ = $nc(arr$)->length;
@@ -2475,6 +2526,7 @@ $Field* Class::searchFields($FieldArray* fields, $String* name) {
 }
 
 $Field* Class::getField0($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($Field, res, nullptr);
 	if (($assign(res, searchFields($(privateGetDeclaredFields(true)), name))) != nullptr) {
 		return res;
@@ -2506,6 +2558,7 @@ $Field* Class::getField0($String* name) {
 
 $Method* Class::searchMethods($MethodArray* methods, $String* name, $ClassArray* parameterTypes) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$var($ReflectionFactory, fact, getReflectionFactory());
 	$var($Method, res, nullptr);
 	{
@@ -2540,6 +2593,7 @@ $Method* Class::getMethod0($String* name, $ClassArray* parameterTypes) {
 }
 
 $PublicMethods$MethodList* Class::getMethodsRecursive($String* name, $ClassArray* parameterTypes, bool includeStatic) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, methods, privateGetDeclaredMethods(true));
 	$var($PublicMethods$MethodList, res, $PublicMethods$MethodList::filter(methods, name, parameterTypes, includeStatic));
 	if (res != nullptr) {
@@ -2564,6 +2618,7 @@ $PublicMethods$MethodList* Class::getMethodsRecursive($String* name, $ClassArray
 }
 
 $Constructor* Class::getConstructor0($ClassArray* parameterTypes, int32_t which) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReflectionFactory, fact, getReflectionFactory());
 	$var($ConstructorArray, constructors, privateGetDeclaredConstructors((which == $Member::PUBLIC)));
 	{
@@ -2603,6 +2658,7 @@ bool Class::arrayContentsEq($ObjectArray* a1, $ObjectArray* a2) {
 
 $FieldArray* Class::copyFields($FieldArray* arg) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$var($FieldArray, out, $new($FieldArray, $nc(arg)->length));
 	$var($ReflectionFactory, fact, getReflectionFactory());
 	for (int32_t i = 0; i < arg->length; ++i) {
@@ -2613,6 +2669,7 @@ $FieldArray* Class::copyFields($FieldArray* arg) {
 
 $MethodArray* Class::copyMethods($MethodArray* arg) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodArray, out, $new($MethodArray, $nc(arg)->length));
 	$var($ReflectionFactory, fact, getReflectionFactory());
 	for (int32_t i = 0; i < arg->length; ++i) {
@@ -2623,6 +2680,7 @@ $MethodArray* Class::copyMethods($MethodArray* arg) {
 
 $ConstructorArray* Class::copyConstructors($ConstructorArray* arg) {
 	$init(Class);
+	$useLocalCurrentObjectStackCache();
 	$var($ConstructorArray, out, $cast($ConstructorArray, $nc(arg)->clone()));
 	$var($ReflectionFactory, fact, getReflectionFactory());
 	for (int32_t i = 0; i < out->length; ++i) {
@@ -2835,11 +2893,13 @@ bool Class::isRecord0() {
 }
 
 $String* Class::methodToString($String* name, $ClassArray* argTypes) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$(getName()), $$str(u'.'), name}));
 	return $concat(var$0, ((argTypes == nullptr || $nc(argTypes)->length == 0) ? "()"_s : $cast($String, $($nc($($nc($($Arrays::stream(argTypes)))->map(static_cast<$Function*>($$new(Class$$Lambda$lambda$methodToString$0$3)))))->collect($($Collectors::joining(","_s, "("_s, ")"_s)))))));
 }
 
 bool Class::desiredAssertionStatus() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassLoader, loader, getClassLoader0());
 	if (loader == nullptr) {
 		return desiredAssertionStatus0(this);
@@ -2884,6 +2944,7 @@ $ObjectArray* Class::getEnumConstants() {
 }
 
 $ObjectArray* Class::getEnumConstantsShared() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ObjectArray, constants, this->enumConstants);
 	if (constants == nullptr) {
@@ -2910,6 +2971,7 @@ $ObjectArray* Class::getEnumConstantsShared() {
 }
 
 $Map* Class::enumConstantDirectory() {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, directory, this->enumConstantDirectory$);
 	if (directory == nullptr) {
 		$var($ObjectArray, universe, getEnumConstantsShared());
@@ -2938,6 +3000,7 @@ $Object* Class::cast(Object$* obj) {
 }
 
 $String* Class::cannotCastMsg(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({"Cannot cast "_s, $($nc($of(obj))->getClass()->getName()), " to "_s}));
 	return $concat(var$0, $(getName()));
 }
@@ -2984,6 +3047,7 @@ $AnnotationArray* Class::getDeclaredAnnotations() {
 }
 
 $Class$AnnotationData* Class::annotationData() {
+	$useLocalCurrentObjectStackCache();
 	while (true) {
 		$var($Class$AnnotationData, annotationData, this->annotationData$);
 		int32_t classRedefinedCount = this->classRedefinedCount;
@@ -2998,6 +3062,7 @@ $Class$AnnotationData* Class::annotationData() {
 }
 
 $Class$AnnotationData* Class::createAnnotationData(int32_t classRedefinedCount) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getRawAnnotations());
 	$var($Map, declaredAnnotations, $AnnotationParser::parseAnnotations(var$0, $(getConstantPool()), this));
 	Class* superClass = getSuperclass();
@@ -3043,6 +3108,7 @@ $Map* Class::getDeclaredAnnotationMap() {
 }
 
 $AnnotatedType* Class::getAnnotatedSuperclass() {
+	$useLocalCurrentObjectStackCache();
 	$load($Object);
 	bool var$1 = this == $Object::class$ || isInterface();
 	bool var$0 = var$1 || isArray();
@@ -3055,6 +3121,7 @@ $AnnotatedType* Class::getAnnotatedSuperclass() {
 }
 
 $AnnotatedTypeArray* Class::getAnnotatedInterfaces() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, var$0, getRawTypeAnnotations());
 	return $TypeAnnotationParser::buildAnnotatedInterfaces(var$0, $(getConstantPool()), this);
 }
@@ -3080,6 +3147,7 @@ Class* Class::getNestHost0() {
 }
 
 Class* Class::getNestHost() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = isPrimitive();
 	if (var$0 || isArray()) {
 		return this;
@@ -3136,6 +3204,7 @@ $ClassArray* Class::getNestMembers0() {
 }
 
 $ClassArray* Class::getNestMembers() {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = isPrimitive();
 	if (var$0 || isArray()) {
 		return $new($ClassArray, {this});
@@ -3151,6 +3220,7 @@ $ClassArray* Class::getNestMembers() {
 }
 
 $String* Class::descriptorString() {
+	$useLocalCurrentObjectStackCache();
 	if (isPrimitive()) {
 		return $nc($($Wrapper::forPrimitiveType(this)))->basicTypeString();
 	}
@@ -3175,6 +3245,7 @@ $TypeDescriptor$OfField* Class::arrayType() {
 }
 
 $Optional* Class::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	Class* c = isArray() ? elementType() : this;
 	return $nc(c)->isHidden() ? $Optional::empty() : $Optional::of($($ClassDesc::ofDescriptor($(descriptorString()))));
 }
@@ -3184,6 +3255,7 @@ bool Class::isHidden() {
 }
 
 $ClassArray* Class::getPermittedSubclasses() {
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, subClasses, nullptr);
 	bool var$1 = isArray();
 	bool var$0 = var$1 || isPrimitive();

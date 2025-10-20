@@ -48,6 +48,7 @@ void GoldenFormattedValues::init$() {
 }
 
 void clinit$GoldenFormattedValues($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(GoldenFormattedValues::DecimalDigitsLocalizedFormattedValues, $new($intArray2, {
 		$$new($ints, {
 			49,

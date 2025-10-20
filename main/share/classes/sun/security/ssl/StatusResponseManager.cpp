@@ -208,6 +208,7 @@ $Object* allocate$StatusResponseManager($Class* clazz) {
 }
 
 void StatusResponseManager::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t cap = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "jdk.tls.stapling.cacheSize"_s, StatusResponseManager::DEFAULT_CACHE_SIZE)))))))->intValue();
 	this->cacheCapacity = cap > 0 ? cap : 0;
@@ -268,6 +269,7 @@ int32_t StatusResponseManager::size() {
 }
 
 $URI* StatusResponseManager::getURI($X509Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(cert);
 	$init($PKIXExtensions);
 	if (cert->getExtensionValue($($nc($PKIXExtensions::OCSPNoCheck_Id)->toString())) != nullptr) {
@@ -289,6 +291,7 @@ $URI* StatusResponseManager::getURI($X509Certificate* cert) {
 }
 
 void StatusResponseManager::shutdown() {
+	$useLocalCurrentObjectStackCache();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 		$SSLLogger::fine($$str({"Shutting down "_s, $$str($nc(this->threadMgr)->getActiveCount()), " active threads"_s}), $$new($ObjectArray, 0));
@@ -297,6 +300,7 @@ void StatusResponseManager::shutdown() {
 }
 
 $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* type, $CertStatusExtension$CertStatusRequest* request, $X509CertificateArray* chain, int64_t delay, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, responseMap, $new($HashMap));
 	$var($List, requestList, $new($ArrayList));
 	$init($SSLLogger);
@@ -395,6 +399,7 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 }
 
 $StatusResponseManager$ResponseCacheEntry* StatusResponseManager::getFromCache($CertId* cid, $CertStatusExtension$OCSPStatusRequest* ocspRequest) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($nc(ocspRequest)->extensions)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -451,6 +456,7 @@ $String* StatusResponseManager::toString() {
 }
 
 $StatusResponseManager$StaplingParameters* StatusResponseManager::processStapling($ServerHandshakeContext* shc) {
+	$useLocalCurrentObjectStackCache();
 	$var($StatusResponseManager$StaplingParameters, params, nullptr);
 	$SSLExtension* ext = nullptr;
 	$CertStatusExtension$CertStatusRequestType* type = nullptr;

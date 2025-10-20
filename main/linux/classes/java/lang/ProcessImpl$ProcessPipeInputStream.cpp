@@ -82,6 +82,7 @@ $Object* allocate$ProcessImpl$ProcessPipeInputStream($Class* clazz) {
 }
 
 void ProcessImpl$ProcessPipeInputStream::init$(int32_t fd) {
+	$useLocalCurrentObjectStackCache();
 	$BufferedInputStream::init$($$new($Process$PipeInputStream, $($ProcessImpl::newFileDescriptor(fd))));
 	$set(this, closeLock, $new($Object));
 }
@@ -100,6 +101,7 @@ $bytes* ProcessImpl$ProcessPipeInputStream::drainInputStream($InputStream* in) {
 
 void ProcessImpl$ProcessPipeInputStream::processExited() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$synchronized(this->closeLock) {
 			try {
 				$var($InputStream, in, this->in);

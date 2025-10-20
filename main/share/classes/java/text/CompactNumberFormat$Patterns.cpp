@@ -136,11 +136,13 @@ void CompactNumberFormat$Patterns::put($String* count, $String* pattern) {
 }
 
 $String* CompactNumberFormat$Patterns::get(double num) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, var$0, $of(this->this$0->getPluralCategory(num)));
 	return $cast($String, $nc(this->patternsMap)->getOrDefault(var$0, $cast($String, $($nc(this->patternsMap)->getOrDefault("other"_s, ""_s)))));
 }
 
 CompactNumberFormat$Patterns* CompactNumberFormat$Patterns::expandAffix() {
+	$useLocalCurrentObjectStackCache();
 	$var(CompactNumberFormat$Patterns, ret, $new(CompactNumberFormat$Patterns, this->this$0));
 	$nc(this->patternsMap)->forEach(static_cast<$BiConsumer*>($$new(CompactNumberFormat$Patterns$$Lambda$lambda$expandAffix$0, this, ret)));
 	return ret;

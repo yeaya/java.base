@@ -116,6 +116,7 @@ int32_t ModuleDescriptor$Version::takeString($String* s, int32_t i, $List* acc) 
 }
 
 void ModuleDescriptor$Version::init$($String* v) {
+	$useLocalCurrentObjectStackCache();
 	if (v == nullptr) {
 		$throwNew($IllegalArgumentException, "Null version string"_s);
 	}
@@ -206,6 +207,7 @@ int32_t ModuleDescriptor$Version::cmp(Object$* o1, Object$* o2) {
 }
 
 int32_t ModuleDescriptor$Version::compareTokens($List* ts1, $List* ts2) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(ts1)->size();
 	int32_t n = $Math::min(var$0, $nc(ts2)->size());
 	for (int32_t i = 0; i < n; ++i) {

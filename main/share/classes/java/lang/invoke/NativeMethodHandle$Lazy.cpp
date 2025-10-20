@@ -89,6 +89,7 @@ void NativeMethodHandle$Lazy::init$() {
 }
 
 void clinit$NativeMethodHandle$Lazy($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($NativeMethodHandle);
 	NativeMethodHandle$Lazy::$assertionsDisabled = !$NativeMethodHandle::class$->desiredAssertionStatus();

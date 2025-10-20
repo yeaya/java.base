@@ -76,6 +76,7 @@ $Object* allocate$SignedObject($Class* clazz) {
 }
 
 void SignedObject::init$($Serializable* object, $PrivateKey* signingKey, $Signature* signingEngine) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayOutputStream, b, $new($ByteArrayOutputStream));
 	$var($ObjectOutput, a, $new($ObjectOutputStream, b));
 	a->writeObject(object);
@@ -87,6 +88,7 @@ void SignedObject::init$($Serializable* object, $PrivateKey* signingKey, $Signat
 }
 
 $Object* SignedObject::getObject() {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArrayInputStream, b, $new($ByteArrayInputStream, this->content));
 	$var($ObjectInput, a, $new($ObjectInputStream, b));
 	$var($Object, obj, a->readObject());
@@ -104,12 +106,14 @@ $String* SignedObject::getAlgorithm() {
 }
 
 bool SignedObject::verify($PublicKey* verificationKey, $Signature* verificationEngine) {
+	$useLocalCurrentObjectStackCache();
 	$nc(verificationEngine)->initVerify(verificationKey);
 	verificationEngine->update($cast($bytes, $($nc(this->content)->clone())));
 	return verificationEngine->verify($cast($bytes, $($nc(this->signature)->clone())));
 }
 
 void SignedObject::sign($PrivateKey* signingKey, $Signature* signingEngine) {
+	$useLocalCurrentObjectStackCache();
 	$nc(signingEngine)->initSign(signingKey);
 	signingEngine->update($cast($bytes, $($nc(this->content)->clone())));
 	$set(this, signature, $cast($bytes, $nc($(signingEngine->sign()))->clone()));
@@ -117,6 +121,7 @@ void SignedObject::sign($PrivateKey* signingKey, $Signature* signingEngine) {
 }
 
 void SignedObject::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
 	$set(this, content, $cast($bytes, $nc(($cast($bytes, $($nc(fields)->get("content"_s, ($Object*)nullptr)))))->clone()));
 	$set(this, signature, $cast($bytes, $nc(($cast($bytes, $(fields->get("signature"_s, ($Object*)nullptr)))))->clone()));

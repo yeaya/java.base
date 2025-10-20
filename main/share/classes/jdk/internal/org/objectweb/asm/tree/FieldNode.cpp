@@ -141,6 +141,7 @@ void FieldNode::check(int32_t api) {
 }
 
 void FieldNode::accept($ClassVisitor* classVisitor) {
+	$useLocalCurrentObjectStackCache();
 	$var($FieldVisitor, fieldVisitor, $nc(classVisitor)->visitField(this->access, this->name, this->desc, this->signature, this->value));
 	if (fieldVisitor == nullptr) {
 		return;

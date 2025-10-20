@@ -205,12 +205,14 @@ void StackStreamState::testInstance() {
 }
 
 void StackStreamState::testLocal() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Stream, stream, $cast($Stream, $nc(this->walker)->walk(static_cast<$Function*>($$new(StackStreamState$$Lambda$lambda$testLocal$2$2)))));
 	checkStreamState(stream);
 }
 
 void StackStreamState::checkStreamState($Stream* stream) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(stream)->count();
 		$throwNew($RuntimeException, "IllegalStateException not thrown"_s);

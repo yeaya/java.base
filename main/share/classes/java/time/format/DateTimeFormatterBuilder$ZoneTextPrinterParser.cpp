@@ -269,6 +269,7 @@ $Object* allocate$DateTimeFormatterBuilder$ZoneTextPrinterParser($Class* clazz) 
 $Map* DateTimeFormatterBuilder$ZoneTextPrinterParser::cache = nullptr;
 
 void DateTimeFormatterBuilder$ZoneTextPrinterParser::init$($TextStyle* textStyle, $Set* preferredZones, bool isGeneric) {
+	$useLocalCurrentObjectStackCache();
 	$var($TemporalQuery, var$0, $TemporalQueries::zone());
 	$DateTimeFormatterBuilder$ZoneIdPrinterParser::init$(var$0, $$str({"ZoneText("_s, textStyle, ")"_s}));
 	$set(this, cachedTree, $new($HashMap));
@@ -290,6 +291,7 @@ void DateTimeFormatterBuilder$ZoneTextPrinterParser::init$($TextStyle* textStyle
 }
 
 $String* DateTimeFormatterBuilder$ZoneTextPrinterParser::getDisplayName($String* id, int32_t type, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($TextStyle);
 	if (this->textStyle == $TextStyle::NARROW) {
 		return nullptr;
@@ -332,6 +334,7 @@ $String* DateTimeFormatterBuilder$ZoneTextPrinterParser::getDisplayName($String*
 }
 
 bool DateTimeFormatterBuilder$ZoneTextPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
+	$useLocalCurrentObjectStackCache();
 	$var($ZoneId, zone, $cast($ZoneId, $nc(context)->getValue($($TemporalQueries::zoneId()))));
 	if (zone == nullptr) {
 		return false;
@@ -366,6 +369,7 @@ bool DateTimeFormatterBuilder$ZoneTextPrinterParser::format($DateTimePrintContex
 }
 
 $DateTimeFormatterBuilder$PrefixTree* DateTimeFormatterBuilder$ZoneTextPrinterParser::getTree($DateTimeParseContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$init($TextStyle);
 	if (this->textStyle == $TextStyle::NARROW) {
 		return $DateTimeFormatterBuilder$ZoneIdPrinterParser::getTree(context);

@@ -97,6 +97,7 @@ void RemappingSignatureAdapter::visitClassType($String* name) {
 }
 
 void RemappingSignatureAdapter::visitInnerClassType($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, remappedOuter, $str({$($nc(this->remapper)->mapType(this->className)), $$str(u'$')}));
 	$set(this, className, $str({this->className, $$str(u'$'), name}));
 	$var($String, remappedName, $nc(this->remapper)->mapType(this->className));

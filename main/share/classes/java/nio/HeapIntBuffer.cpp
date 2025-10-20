@@ -218,6 +218,7 @@ $IntBuffer* HeapIntBuffer::put(int32_t index, $ints* src, int32_t offset, int32_
 }
 
 $IntBuffer* HeapIntBuffer::compact() {
+	$useLocalCurrentObjectStackCache();
 	int32_t pos = position();
 	int32_t lim = limit();
 	if (!HeapIntBuffer::$assertionsDisabled && !(pos <= lim)) {

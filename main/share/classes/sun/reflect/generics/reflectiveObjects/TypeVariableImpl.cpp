@@ -134,6 +134,7 @@ void TypeVariableImpl::init$($GenericDeclaration* decl, $String* n, $FieldTypeSi
 
 TypeVariableImpl* TypeVariableImpl::make($GenericDeclaration* decl, $String* name, $FieldTypeSignatureArray* bs, $GenericsFactory* f) {
 	$init(TypeVariableImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!(($instanceOf($Class, decl)) || ($instanceOf($Method, decl)) || ($instanceOf($Constructor, decl)))) {
 		$throwNew($AssertionError, $of($$str({"Unexpected kind of GenericDeclaration"_s, $($nc($of(decl))->getClass()->toString())})));
 	}
@@ -169,6 +170,7 @@ $String* TypeVariableImpl::toString() {
 }
 
 bool TypeVariableImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($TypeVariable, o) && $nc($of(o))->getClass() == TypeVariableImpl::class$) {
 		$var($TypeVariable, that, $cast($TypeVariable, o));
 		$var($GenericDeclaration, thatDecl, that->getGenericDeclaration());
@@ -186,6 +188,7 @@ int32_t TypeVariableImpl::hashCode() {
 }
 
 $Annotation* TypeVariableImpl::getAnnotation($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	return $cast($Annotation, $nc($(mapAnnotations($(getAnnotations()))))->get(annotationClass));
 }
@@ -196,6 +199,7 @@ $Annotation* TypeVariableImpl::getDeclaredAnnotation($Class* annotationClass) {
 }
 
 $AnnotationArray* TypeVariableImpl::getAnnotationsByType($Class* annotationClass) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(annotationClass);
 	return $AnnotationSupport::getDirectlyAndIndirectlyPresent($(mapAnnotations($(getAnnotations()))), annotationClass);
 }
@@ -218,12 +222,14 @@ $AnnotationArray* TypeVariableImpl::getDeclaredAnnotations() {
 }
 
 $AnnotatedTypeArray* TypeVariableImpl::getAnnotatedBounds() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeArray, var$0, getBounds());
 	$var($GenericDeclaration, var$1, getGenericDeclaration());
 	return $TypeAnnotationParser::parseAnnotatedBounds(var$0, var$1, typeVarIndex());
 }
 
 int32_t TypeVariableImpl::typeVarIndex() {
+	$useLocalCurrentObjectStackCache();
 	$var($TypeVariableArray, tVars, $nc($(getGenericDeclaration()))->getTypeParameters());
 	int32_t i = -1;
 	{
@@ -245,6 +251,7 @@ int32_t TypeVariableImpl::typeVarIndex() {
 
 $Map* TypeVariableImpl::mapAnnotations($AnnotationArray* annos) {
 	$init(TypeVariableImpl);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, result, $new($LinkedHashMap));
 	{
 		$var($AnnotationArray, arr$, annos);

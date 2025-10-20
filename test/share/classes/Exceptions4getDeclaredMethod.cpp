@@ -76,6 +76,7 @@ void Exceptions4getDeclaredMethod::m4() {
 }
 
 void Exceptions4getDeclaredMethod::test($String* s, $Class* ex) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Throwable, t, nullptr);
 	try {

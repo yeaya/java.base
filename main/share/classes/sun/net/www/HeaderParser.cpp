@@ -107,6 +107,7 @@ HeaderParser* HeaderParser::subsequence(int32_t start, int32_t end) {
 }
 
 void HeaderParser::parse() {
+	$useLocalCurrentObjectStackCache();
 	if (this->raw != nullptr) {
 		$set(this, raw, $nc(this->raw)->trim());
 		$var($chars, ca, $nc(this->raw)->toCharArray());
@@ -229,6 +230,7 @@ $Iterator* HeaderParser::values() {
 }
 
 $String* HeaderParser::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($Iterator, k, keys());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("{size="_s)->append(this->asize)->append(" nkeys="_s)->append(this->nkeys)->append(u' ');
@@ -248,6 +250,7 @@ $String* HeaderParser::toString() {
 }
 
 int32_t HeaderParser::findInt($String* k, int32_t Default) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $Integer::parseInt($(findValue(k, $($String::valueOf(Default)))));
 	} catch ($Throwable&) {

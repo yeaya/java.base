@@ -100,6 +100,7 @@ void DefaultProxySelector$3::init$($DefaultProxySelector* this$0, $String* val$p
 }
 
 $Object* DefaultProxySelector$3::run() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = 0;
 	int32_t j = 0;
 	$var($String, phost, nullptr);

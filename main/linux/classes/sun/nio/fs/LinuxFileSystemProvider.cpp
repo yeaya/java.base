@@ -108,6 +108,7 @@ $FileStore* LinuxFileSystemProvider::getFileStore($UnixPath* path) {
 }
 
 $FileAttributeView* LinuxFileSystemProvider::getFileAttributeView($Path* obj, $Class* type, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	$load($DosFileAttributeView);
 	if (type == $DosFileAttributeView::class$) {
 		$var($UnixPath, var$0, $UnixPath::toUnixPath(obj));
@@ -122,6 +123,7 @@ $FileAttributeView* LinuxFileSystemProvider::getFileAttributeView($Path* obj, $C
 }
 
 $DynamicFileAttributeView* LinuxFileSystemProvider::getFileAttributeView($Path* obj, $String* name, $LinkOptionArray* options) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(name)->equals("dos"_s)) {
 		$var($UnixPath, var$0, $UnixPath::toUnixPath(obj));
 		return $new($LinuxDosFileAttributeView, var$0, $Util::followLinks(options));
@@ -145,6 +147,7 @@ $BasicFileAttributes* LinuxFileSystemProvider::readAttributes($Path* file, $Clas
 }
 
 $FileTypeDetector* LinuxFileSystemProvider::getFileTypeDetector() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, userHome, $StaticProperty::userHome());
 	$var($Path, userMimeTypes, $Path::of(userHome, $$new($StringArray, {".mime.types"_s})));
 	$var($Path, etcMimeTypes, $Path::of("/etc/mime.types"_s, $$new($StringArray, 0)));

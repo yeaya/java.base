@@ -82,6 +82,7 @@ $Object* allocate$NativeBuffer($Class* clazz) {
 $Unsafe* NativeBuffer::unsafe = nullptr;
 
 void NativeBuffer::init$(int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	this->address$ = $nc(NativeBuffer::unsafe)->allocateMemory(size);
 	this->size$ = size;
 	$set(this, cleanable, $nc($($CleanerFactory::cleaner()))->register$(this, $$new($NativeBuffer$Deallocator, this->address$)));

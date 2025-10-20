@@ -175,6 +175,7 @@ void PKCS9Attribute::init$($ObjectIdentifier* oid, Object$* value) {
 }
 
 void PKCS9Attribute::init($ObjectIdentifier* oid, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, oid, oid);
 	this->index = indexOf(oid, PKCS9Attribute::PKCS9_OIDS, 1);
 	$Class* clazz = this->index == -1 ? PKCS9Attribute::BYTE_ARRAY_CLASS : $nc(PKCS9Attribute::VALUE_CLASSES)->get(this->index);
@@ -188,6 +189,7 @@ void PKCS9Attribute::init($ObjectIdentifier* oid, Object$* value) {
 }
 
 void PKCS9Attribute::init$($DerValue* derVal) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerInputStream, derIn, $new($DerInputStream, $($nc(derVal)->toByteArray())));
 	$var($DerValueArray, val, derIn->getSequence(2));
 	if (derIn->available() != 0) {
@@ -326,6 +328,7 @@ void PKCS9Attribute::init$($DerValue* derVal) {
 }
 
 void PKCS9Attribute::derEncode($OutputStream* out) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	temp->putOID(this->oid);
 	switch (this->index) {
@@ -496,10 +499,12 @@ $ObjectIdentifier* PKCS9Attribute::getOID($String* name) {
 
 $String* PKCS9Attribute::getName($ObjectIdentifier* oid) {
 	$init(PKCS9Attribute);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($KnownOIDs::findMatch($($nc(oid)->toString()))))->stdName();
 }
 
 $String* PKCS9Attribute::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 100));
 	sb->append("["_s);
 	if (this->index == -1) {
@@ -551,12 +556,14 @@ int32_t PKCS9Attribute::indexOf(Object$* obj, $ObjectArray* a, int32_t start) {
 }
 
 void PKCS9Attribute::throwSingleValuedException() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"Single-value attribute "_s, this->oid, " ("_s}));
 	$var($String, var$0, $$concat(var$1, $(getName())));
 	$throwNew($IOException, $$concat(var$0, ") has multiple values."));
 }
 
 void PKCS9Attribute::throwTagException($Byte* tag) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteArray, expectedTags, $nc(PKCS9Attribute::PKCS9_VALUE_TAGS)->get(this->index));
 	$var($StringBuilder, msg, $new($StringBuilder, 100));
 	msg->append("Value of attribute "_s);
@@ -576,6 +583,7 @@ void PKCS9Attribute::throwTagException($Byte* tag) {
 }
 
 void clinit$PKCS9Attribute($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(PKCS9Attribute::debug, $Debug::getInstance("jar"_s));
 	$assignStatic(PKCS9Attribute::PKCS9_OIDS, $new($ObjectIdentifierArray, 19));

@@ -83,6 +83,7 @@ $Class* LambdaClassLoaderSerialization$MyClassLoader::loadClass($String* name, b
 }
 
 $Class* LambdaClassLoaderSerialization$MyClassLoader::findClass($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, path, $($nc(name)->replace(u'.', u'/'))->concat(".class"_s));
 	try {
 		$var($InputStream, is, getResourceAsStream(path));

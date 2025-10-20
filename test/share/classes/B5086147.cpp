@@ -43,6 +43,7 @@ void B5086147::init$() {
 }
 
 void B5086147::main($StringArray* aaParamters) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, "\\\\somehost\\someshare\\somefile.ext"_s));
 	$var($URI, uri, file->toURI());
 	if (!($nc($($nc($($nc(uri)->toURL()))->toURI()))->equals(uri))) {

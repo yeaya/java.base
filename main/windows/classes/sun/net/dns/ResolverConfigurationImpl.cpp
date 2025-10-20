@@ -110,6 +110,7 @@ $ArrayList* ResolverConfigurationImpl::searchlist$ = nullptr;
 $ArrayList* ResolverConfigurationImpl::nameservers$ = nullptr;
 
 $ArrayList* ResolverConfigurationImpl::stringToList($String* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, tokens, $nc(str)->split(","_s));
 	$var($ArrayList, l, $new($ArrayList, tokens->length));
 	{
@@ -131,6 +132,7 @@ $ArrayList* ResolverConfigurationImpl::stringToList($String* str) {
 }
 
 $ArrayList* ResolverConfigurationImpl::addressesToList($String* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, tokens, $nc(str)->split(","_s));
 	$var($ArrayList, l, $new($ArrayList, tokens->length));
 	{

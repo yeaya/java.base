@@ -149,6 +149,7 @@ void JrtFileAttributeView::setTimes($FileTime* lastModifiedTime, $FileTime* last
 
 void JrtFileAttributeView::setAttribute($JrtPath* path, $String* attribute$renamed, Object$* value) {
 	$init(JrtFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	$var($String, attribute, attribute$renamed);
 	int32_t colonPos = $nc(attribute)->indexOf((int32_t)u':');
 	if (colonPos != -1) {
@@ -181,6 +182,7 @@ void JrtFileAttributeView::setAttribute($JrtPath* path, $String* attribute$renam
 
 $Map* JrtFileAttributeView::readAttributes($JrtPath* path, $String* attributes$renamed, $LinkOptionArray* options) {
 	$init(JrtFileAttributeView);
+	$useLocalCurrentObjectStackCache();
 	$var($String, attributes, attributes$renamed);
 	int32_t colonPos = $nc(attributes)->indexOf((int32_t)u':');
 	bool isJrtView = false;

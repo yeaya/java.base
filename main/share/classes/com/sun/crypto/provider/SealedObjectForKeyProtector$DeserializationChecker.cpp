@@ -167,6 +167,7 @@ $String* SealedObjectForKeyProtector$DeserializationChecker::lambda$static$0() {
 }
 
 void clinit$SealedObjectForKeyProtector$DeserializationChecker($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0)))));

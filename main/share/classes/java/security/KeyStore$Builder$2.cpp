@@ -112,6 +112,7 @@ void KeyStore$Builder$2::init$($Provider* val$provider, $String* val$type, $KeyS
 
 $KeyStore* KeyStore$Builder$2::getKeyStore() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		if (this->oldException != nullptr) {
 			$throwNew($KeyStoreException, "Previous KeyStore instantiation failed"_s, this->oldException);

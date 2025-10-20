@@ -150,6 +150,7 @@ void ProxyTest::test($ProxyTest$Data* d) {
 }
 
 void ProxyTest::testDynamicModule($ProxyTest$Data* d) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* proxyClass = $Proxy::getProxyClass($nc(d)->loader, d->interfaces);
 	assertDynamicModule($($nc(proxyClass)->getModule()), $nc(d)->loader, proxyClass);
@@ -161,6 +162,7 @@ void ProxyTest::testDynamicModule($ProxyTest$Data* d) {
 
 void ProxyTest::testProxyClass($Module* module, $ClassLoader* ld, $ClassArray* interfaces) {
 	$init(ProxyTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* proxyClass = $Proxy::getProxyClass(ld, interfaces);
 	assertEquals($($nc(proxyClass)->getModule()), module);
@@ -170,6 +172,7 @@ void ProxyTest::testProxyClass($Module* module, $ClassLoader* ld, $ClassArray* i
 
 void ProxyTest::assertDynamicModule($Module* m, $ClassLoader* ld, $Class* proxyClass) {
 	$init(ProxyTest);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool var$0 = !$nc(m)->isNamed();
 	if (var$0 || !$nc($($nc(m)->getName()))->startsWith("jdk.proxy"_s)) {

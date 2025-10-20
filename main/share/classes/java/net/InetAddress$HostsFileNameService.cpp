@@ -117,6 +117,7 @@ void InetAddress$HostsFileNameService::init$($String* hostsFileName) {
 }
 
 $String* InetAddress$HostsFileNameService::getHostByAddr($bytes* addr) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostEntry, nullptr);
 	$var($String, host, nullptr);
 	try {
@@ -168,6 +169,7 @@ $String* InetAddress$HostsFileNameService::getHostByAddr($bytes* addr) {
 }
 
 $InetAddressArray* InetAddress$HostsFileNameService::lookupAllHostAddr($String* host) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostEntry, nullptr);
 	$var($String, addrStr, nullptr);
 	$var($bytes, addr, nullptr);
@@ -284,6 +286,7 @@ $bytes* InetAddress$HostsFileNameService::createAddressByteArray($String* addrSt
 }
 
 $String* InetAddress$HostsFileNameService::extractHostAddr($String* hostEntry, $String* host) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, mapping, $nc(hostEntry)->split("\\s+"_s));
 	$var($String, hostAddr, nullptr);
 	if (mapping->length >= 2) {

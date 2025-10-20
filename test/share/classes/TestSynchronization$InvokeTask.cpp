@@ -74,6 +74,7 @@ void TestSynchronization$InvokeTask::init$($Method* m, Object$* target, $ObjectA
 }
 
 void TestSynchronization$InvokeTask::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$nc(this->m)->invoke(this->target, this->args);

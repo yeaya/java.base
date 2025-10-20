@@ -89,6 +89,7 @@ void SignatureRemapper::visitClassType($String* name) {
 }
 
 void SignatureRemapper::visitInnerClassType($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, outerClassName, $cast($String, $nc(this->classNames)->remove($nc(this->classNames)->size() - 1)));
 	$var($String, className, $str({outerClassName, $$str(u'$'), name}));
 	$nc(this->classNames)->add(className);

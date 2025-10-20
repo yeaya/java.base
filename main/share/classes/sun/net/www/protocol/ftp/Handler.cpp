@@ -62,6 +62,7 @@ int32_t Handler::getDefaultPort() {
 }
 
 bool Handler::equals($URL* u1, $URL* u2) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, userInfo1, $nc(u1)->getUserInfo());
 	$var($String, userInfo2, $nc(u2)->getUserInfo());
 	bool var$0 = $URLStreamHandler::equals(u1, u2);

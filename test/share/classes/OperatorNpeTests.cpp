@@ -46,6 +46,7 @@ void OperatorNpeTests::init$() {
 }
 
 void OperatorNpeTests::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 		$init($BigInteger);
 	$var($BigIntegerArray, specialValues, $new($BigIntegerArray, {
 		$BigInteger::ZERO,

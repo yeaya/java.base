@@ -86,6 +86,7 @@ void AnnotationParser$1::init$($Class* val$type, $Map* val$memberValues) {
 }
 
 $Object* AnnotationParser$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, var$0, $nc(this->val$type)->getClassLoader());
 	$var($ClassArray, var$1, $new($ClassArray, {this->val$type}));

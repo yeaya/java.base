@@ -92,6 +92,7 @@ void ServerHelloDone$ServerHelloDoneConsumer::init$() {
 }
 
 void ServerHelloDone$ServerHelloDoneConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$var($SSLConsumer, certStatCons, $cast($SSLConsumer, $nc($nc(chc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_STATUS->id)))));

@@ -80,6 +80,7 @@ $bytes* DrbgParameters$Instantiation::getPersonalizationString() {
 }
 
 void DrbgParameters$Instantiation::init$(int32_t strength, $DrbgParameters$Capability* capability, $bytes* personalizationString) {
+	$useLocalCurrentObjectStackCache();
 	if (strength < -1) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal security strength: "_s, $$str(strength)}));
 	}

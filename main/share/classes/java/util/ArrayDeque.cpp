@@ -518,6 +518,7 @@ $Object* ArrayDeque::removeLast() {
 }
 
 $Object* ArrayDeque::pollFirst() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, nullptr);
 	int32_t h = 0;
 	$var($Object, e, elementAt($assign(es, this->elements), h = this->head));
@@ -529,6 +530,7 @@ $Object* ArrayDeque::pollFirst() {
 }
 
 $Object* ArrayDeque::pollLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, nullptr);
 	int32_t t = 0;
 	$var($ObjectArray, var$0, $assign(es, this->elements));
@@ -548,6 +550,7 @@ $Object* ArrayDeque::getFirst() {
 }
 
 $Object* ArrayDeque::getLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->elements);
 	$var($Object, e, elementAt(es, dec(this->tail, $nc(es)->length)));
 	if (e == nullptr) {
@@ -561,6 +564,7 @@ $Object* ArrayDeque::peekFirst() {
 }
 
 $Object* ArrayDeque::peekLast() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, nullptr);
 	$var($ObjectArray, var$0, $assign(es, this->elements));
 	return $of(elementAt(var$0, dec(this->tail, $nc(es)->length)));
@@ -698,6 +702,7 @@ $Spliterator* ArrayDeque::spliterator() {
 }
 
 void ArrayDeque::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ObjectArray, es, this->elements);
 	{
@@ -734,6 +739,7 @@ bool ArrayDeque::retainAll($Collection* c) {
 }
 
 bool ArrayDeque::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->elements);
 	{
 		int32_t i = this->head;
@@ -772,6 +778,7 @@ bool ArrayDeque::isClear($longs* bits, int32_t i) {
 }
 
 bool ArrayDeque::bulkRemoveModified($Predicate* filter, int32_t beg) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->elements);
 	int32_t capacity = $nc(es)->length;
 	int32_t end = this->tail;
@@ -875,6 +882,7 @@ $ObjectArray* ArrayDeque::toArray() {
 }
 
 $ObjectArray* ArrayDeque::toArray($Class* klazz) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->elements);
 	$var($ObjectArray, a, nullptr);
 	int32_t head = this->head;
@@ -916,6 +924,7 @@ $ObjectArray* ArrayDeque::toArray($ObjectArray* a) {
 }
 
 $Object* ArrayDeque::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ArrayDeque, result, $cast(ArrayDeque, $AbstractCollection::clone()));
 		$set($nc(result), elements, $Arrays::copyOf(this->elements, $nc(this->elements)->length));
@@ -947,6 +956,7 @@ void ArrayDeque::writeObject($ObjectOutputStream* s) {
 }
 
 void ArrayDeque::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultReadObject();
 	int32_t size = s->readInt();
 	$load($ObjectArray);
@@ -959,6 +969,7 @@ void ArrayDeque::readObject($ObjectInputStream* s) {
 }
 
 void ArrayDeque::checkInvariants() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		int32_t capacity = $nc(this->elements)->length;
 	} catch ($Throwable&) {

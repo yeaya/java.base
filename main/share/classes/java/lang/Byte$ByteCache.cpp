@@ -67,6 +67,7 @@ void Byte$ByteCache::init$() {
 }
 
 void clinit$Byte$ByteCache($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	int32_t size = -(-128) + 127 + 1;
 	{
 		int32_t size = -(-128) + 127 + 1;

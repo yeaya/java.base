@@ -52,6 +52,7 @@ void MapOverEnd::init$() {
 }
 
 void MapOverEnd::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, blah, "rw"_s));

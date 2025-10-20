@@ -115,6 +115,7 @@ $ModuleDescriptor$Version* Builder::cachedVersion = nullptr;
 
 $ModuleDescriptor$Requires* Builder::newRequires($Set* mods, $String* mn, $String* compiledVersion) {
 	$init(Builder);
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor$Version, version, nullptr);
 	if (compiledVersion != nullptr) {
 		$var($ModuleDescriptor$Version, ver, Builder::cachedVersion);
@@ -212,6 +213,7 @@ Builder* Builder::provides($ModuleDescriptor$ProvidesArray* provides) {
 }
 
 Builder* Builder::version($String* v) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor$Version, ver, Builder::cachedVersion);
 	if (ver != nullptr && $nc(v)->equals($(ver->toString()))) {
 		$set(this, version$, ver);

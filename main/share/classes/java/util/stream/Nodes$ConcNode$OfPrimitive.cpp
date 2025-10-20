@@ -146,6 +146,7 @@ $Object* Nodes$ConcNode$OfPrimitive::asPrimitiveArray() {
 }
 
 $String* Nodes$ConcNode$OfPrimitive::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (count() < 32) {
 		return $String::format("%s[%s.%s]"_s, $$new($ObjectArray, {
 			$($of($of(this)->getClass()->getName())),

@@ -146,6 +146,7 @@ Path* Path::of($String* first, $StringArray* more) {
 
 Path* Path::of($URI* uri) {
 	$init(Path);
+	$useLocalCurrentObjectStackCache();
 	$var($String, scheme, $nc(uri)->getScheme());
 	if (scheme == nullptr) {
 		$throwNew($IllegalArgumentException, "Missing scheme"_s);
@@ -168,14 +169,17 @@ Path* Path::of($URI* uri) {
 }
 
 bool Path::startsWith($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return startsWith($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
 }
 
 bool Path::endsWith($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return endsWith($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
 }
 
 Path* Path::resolve($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return resolve($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
 }
 
@@ -188,6 +192,7 @@ Path* Path::resolveSibling(Path* other) {
 }
 
 Path* Path::resolveSibling($String* other) {
+	$useLocalCurrentObjectStackCache();
 	return resolveSibling($($nc($(getFileSystem()))->getPath(other, $$new($StringArray, 0))));
 }
 

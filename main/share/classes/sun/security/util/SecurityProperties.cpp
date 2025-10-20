@@ -135,6 +135,7 @@ $String* SecurityProperties::getOverridableProperty($String* propName) {
 
 bool SecurityProperties::includedInExceptions($String* refName) {
 	$init(SecurityProperties);
+	$useLocalCurrentObjectStackCache();
 	$var($String, val, privilegedGetOverridable("jdk.includeInExceptions"_s));
 	if (val == nullptr) {
 		return false;

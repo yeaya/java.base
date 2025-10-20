@@ -80,6 +80,7 @@ void CookieExtension$CHCookieProducer::init$() {
 }
 
 $bytes* CookieExtension$CHCookieProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_COOKIE)) {

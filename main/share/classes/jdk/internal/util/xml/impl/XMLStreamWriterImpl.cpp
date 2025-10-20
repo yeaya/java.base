@@ -170,6 +170,7 @@ void XMLStreamWriterImpl::init$($OutputStream* os) {
 }
 
 void XMLStreamWriterImpl::init$($OutputStream* os, $Charset* cs) {
+	$useLocalCurrentObjectStackCache();
 	this->_state = 0;
 	this->_escapeCharacters = true;
 	this->_doIndent = true;
@@ -202,6 +203,7 @@ void XMLStreamWriterImpl::writeStartDocument($String* encoding, $String* version
 }
 
 void XMLStreamWriterImpl::writeStartDocument($String* encoding, $String* version$renamed, $String* standalone) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, version, version$renamed);
 	if (this->_state > 0) {
 		$throwNew($XMLStreamException, "XML declaration must be as the first line in the XML document."_s);
@@ -281,6 +283,7 @@ void XMLStreamWriterImpl::writeAttribute($String* localName, $String* value) {
 }
 
 void XMLStreamWriterImpl::writeEndDocument() {
+	$useLocalCurrentObjectStackCache();
 	if (this->_currentEle != nullptr && $nc(this->_currentEle)->getState() == XMLStreamWriterImpl::ELEMENT_STARTTAG_OPEN) {
 		closeStartTag();
 	}
@@ -357,6 +360,7 @@ void XMLStreamWriterImpl::setDoIndent(bool doIndent) {
 }
 
 void XMLStreamWriterImpl::writeXMLContent($chars* content, int32_t start, int32_t length, bool escapeChars) {
+	$useLocalCurrentObjectStackCache();
 	if (!escapeChars) {
 		$nc(this->_writer)->write(content, start, length);
 		return;
@@ -407,6 +411,7 @@ void XMLStreamWriterImpl::writeXMLContent($String* content) {
 }
 
 void XMLStreamWriterImpl::writeXMLContent($String* content, bool escapeChars, bool escapeDoubleQuotes) {
+	$useLocalCurrentObjectStackCache();
 	if (!escapeChars) {
 		$nc(this->_writer)->write(content);
 		return;
@@ -485,6 +490,7 @@ void XMLStreamWriterImpl::writeLineSeparator() {
 }
 
 $Charset* XMLStreamWriterImpl::getCharset($String* encoding) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(encoding)->equalsIgnoreCase("UTF-32"_s)) {
 		$throwNew($UnsupportedEncodingException, $$str({"The basic XMLWriter does not support "_s, encoding}));
 	}
@@ -502,6 +508,7 @@ $Charset* XMLStreamWriterImpl::getCharset($String* encoding) {
 }
 
 $Charset* XMLStreamWriterImpl::checkCharset($Charset* charset) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($($nc(charset)->name()))->equalsIgnoreCase("UTF-32"_s)) {
 		$throwNew($UnsupportedEncodingException, $$str({"The basic XMLWriter does not support "_s, $(charset->name())}));
 	}

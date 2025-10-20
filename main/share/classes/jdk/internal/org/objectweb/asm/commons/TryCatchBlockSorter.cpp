@@ -85,6 +85,7 @@ void TryCatchBlockSorter::init$(int32_t api, $MethodVisitor* methodVisitor, int3
 }
 
 void TryCatchBlockSorter::visitEnd() {
+	$useLocalCurrentObjectStackCache();
 	$Collections::sort(this->tryCatchBlocks, $$new($TryCatchBlockSorter$1, this));
 	for (int32_t i = 0; i < $nc(this->tryCatchBlocks)->size(); ++i) {
 		$nc(($cast($TryCatchBlockNode, $($nc(this->tryCatchBlocks)->get(i)))))->updateIndex(i);

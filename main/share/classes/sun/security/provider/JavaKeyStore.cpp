@@ -174,6 +174,7 @@ void JavaKeyStore::init$() {
 }
 
 $Key* JavaKeyStore::engineGetKey($String* alias, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 	if (entry == nullptr || !($instanceOf($JavaKeyStore$KeyEntry, entry))) {
 		return nullptr;
@@ -215,6 +216,7 @@ $Key* JavaKeyStore::engineGetKey($String* alias, $chars* password) {
 }
 
 $CertificateArray* JavaKeyStore::engineGetCertificateChain($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 	if (entry != nullptr && $instanceOf($JavaKeyStore$KeyEntry, entry)) {
 		if ($nc(($cast($JavaKeyStore$KeyEntry, entry)))->chain == nullptr) {
@@ -228,6 +230,7 @@ $CertificateArray* JavaKeyStore::engineGetCertificateChain($String* alias) {
 }
 
 $Certificate* JavaKeyStore::engineGetCertificate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 	if (entry != nullptr) {
 		if ($instanceOf($JavaKeyStore$TrustedCertEntry, entry)) {
@@ -243,6 +246,7 @@ $Certificate* JavaKeyStore::engineGetCertificate($String* alias) {
 }
 
 $Date* JavaKeyStore::engineGetCreationDate($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 	if (entry != nullptr) {
 		if ($instanceOf($JavaKeyStore$TrustedCertEntry, entry)) {
@@ -256,6 +260,7 @@ $Date* JavaKeyStore::engineGetCreationDate($String* alias) {
 }
 
 void JavaKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyProtector, keyProtector, nullptr);
 	$var($bytes, passwordBytes, nullptr);
 	if (!($instanceOf($PrivateKey, key))) {
@@ -299,6 +304,7 @@ void JavaKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password
 }
 
 void JavaKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		try {
 			$new($EncryptedPrivateKeyInfo, key);
@@ -319,6 +325,7 @@ void JavaKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateAr
 }
 
 void JavaKeyStore::engineSetCertificateEntry($String* alias, $Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 		if ((entry != nullptr) && ($instanceOf($JavaKeyStore$KeyEntry, entry))) {
@@ -350,6 +357,7 @@ int32_t JavaKeyStore::engineSize() {
 }
 
 bool JavaKeyStore::engineIsKeyEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 	if ((entry != nullptr) && ($instanceOf($JavaKeyStore$KeyEntry, entry))) {
 		return true;
@@ -359,6 +367,7 @@ bool JavaKeyStore::engineIsKeyEntry($String* alias) {
 }
 
 bool JavaKeyStore::engineIsCertificateEntry($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, entry, $nc(this->entries)->get($(convertAlias(alias))));
 	if ((entry != nullptr) && ($instanceOf($JavaKeyStore$TrustedCertEntry, entry))) {
 		return true;
@@ -368,6 +377,7 @@ bool JavaKeyStore::engineIsCertificateEntry($String* alias) {
 }
 
 $String* JavaKeyStore::engineGetCertificateAlias($Certificate* cert) {
+	$useLocalCurrentObjectStackCache();
 	$var($Certificate, certElem, nullptr);
 	{
 		$var($Enumeration, e, $nc(this->entries)->keys());
@@ -390,6 +400,7 @@ $String* JavaKeyStore::engineGetCertificateAlias($Certificate* cert) {
 }
 
 void JavaKeyStore::engineStore($OutputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		if (password == nullptr) {
 			$throwNew($IllegalArgumentException, "password can\'t be null"_s);
@@ -442,6 +453,7 @@ void JavaKeyStore::engineStore($OutputStream* stream, $chars* password) {
 }
 
 void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->entries) {
 		$var($DataInputStream, dis, nullptr);
 		$var($MessageDigest, md, nullptr);
@@ -541,6 +553,7 @@ void JavaKeyStore::engineLoad($InputStream* stream, $chars* password) {
 }
 
 $MessageDigest* JavaKeyStore::getPreKeyedHash($chars* password) {
+	$useLocalCurrentObjectStackCache();
 	$var($MessageDigest, md, $MessageDigest::getInstance("SHA"_s));
 	$var($bytes, passwdBytes, convertToBytes(password));
 	$nc(md)->update(passwdBytes);

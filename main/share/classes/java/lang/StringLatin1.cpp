@@ -479,6 +479,7 @@ int32_t StringLatin1::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) 
 
 $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar) {
 	$init(StringLatin1);
+	$useLocalCurrentObjectStackCache();
 	if (canEncode(oldChar)) {
 		int32_t len = $nc(value)->length;
 		int32_t i = -1;
@@ -516,6 +517,7 @@ $String* StringLatin1::replace($bytes* value, char16_t oldChar, char16_t newChar
 
 $String* StringLatin1::replace($bytes* value, int32_t valLen, $bytes* targ, int32_t targLen, $bytes* repl, int32_t replLen) {
 	$init(StringLatin1);
+	$useLocalCurrentObjectStackCache();
 	if (!StringLatin1::$assertionsDisabled && !(targLen > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -614,6 +616,7 @@ bool StringLatin1::regionMatchesCI_UTF16($bytes* value, int32_t toffset, $bytes*
 
 $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale) {
 	$init(StringLatin1);
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -649,6 +652,7 @@ $String* StringLatin1::toLowerCase($String* str, $bytes* value, $Locale* locale)
 
 $String* StringLatin1::toLowerCaseEx($String* str, $bytes* value, int32_t first, $Locale* locale, bool localeDependent) {
 	$init(StringLatin1);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, $StringUTF16::newBytesFor($nc(value)->length));
 	int32_t resultOffset = 0;
 	for (int32_t i = 0; i < first; ++i) {
@@ -688,6 +692,7 @@ $String* StringLatin1::toLowerCaseEx($String* str, $bytes* value, int32_t first,
 
 $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale) {
 	$init(StringLatin1);
+	$useLocalCurrentObjectStackCache();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -723,6 +728,7 @@ $String* StringLatin1::toUpperCase($String* str, $bytes* value, $Locale* locale)
 
 $String* StringLatin1::toUpperCaseEx($String* str, $bytes* value, int32_t first, $Locale* locale, bool localeDependent) {
 	$init(StringLatin1);
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, $StringUTF16::newBytesFor($nc(value)->length));
 	int32_t resultOffset = 0;
 	for (int32_t i = 0; i < first; ++i) {

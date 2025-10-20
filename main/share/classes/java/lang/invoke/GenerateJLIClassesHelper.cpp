@@ -276,6 +276,7 @@ void GenerateJLIClassesHelper::init$() {
 
 $Map* GenerateJLIClassesHelper::generateHolderClasses($Stream* traces) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(traces);
 	$var($GenerateJLIClassesHelper$HolderClassBuilder, builder, $new($GenerateJLIClassesHelper$HolderClassBuilder));
 	$nc($(traces->map(static_cast<$Function*>($$new(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0)))))->forEach(static_cast<$Consumer*>($$new(GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$1$1, builder)));
@@ -284,6 +285,7 @@ $Map* GenerateJLIClassesHelper::generateHolderClasses($Stream* traces) {
 
 $bytes* GenerateJLIClassesHelper::generateBasicFormsClassBytes($String* className) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
 	$var($HashSet, dedupSet, $new($HashSet));
@@ -316,6 +318,7 @@ $bytes* GenerateJLIClassesHelper::generateBasicFormsClassBytes($String* classNam
 
 $bytes* GenerateJLIClassesHelper::generateDirectMethodHandleHolderClassBytes($String* className, $MethodTypeArray* methodTypes, $ints* types) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
 	for (int32_t i = 0; i < $nc(methodTypes)->length; ++i) {
@@ -364,6 +367,7 @@ $bytes* GenerateJLIClassesHelper::generateDirectMethodHandleHolderClassBytes($St
 
 $bytes* GenerateJLIClassesHelper::generateDelegatingMethodHandleHolderClassBytes($String* className, $MethodTypeArray* methodTypes) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, dedupSet, $new($HashSet));
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
@@ -388,6 +392,7 @@ $bytes* GenerateJLIClassesHelper::generateDelegatingMethodHandleHolderClassBytes
 
 $bytes* GenerateJLIClassesHelper::generateInvokersHolderClassBytes($String* className, $MethodTypeArray* invokerMethodTypes, $MethodTypeArray* callSiteMethodTypes) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($HashSet, dedupSet, $new($HashSet));
 	$var($ArrayList, forms, $new($ArrayList));
 	$var($ArrayList, names, $new($ArrayList));
@@ -432,6 +437,7 @@ $bytes* GenerateJLIClassesHelper::generateInvokersHolderClassBytes($String* clas
 
 $bytes* GenerateJLIClassesHelper::generateCodeBytesForLFs($String* className, $StringArray* names, $LambdaFormArray* forms) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassWriter, cw, $new($ClassWriter, $ClassWriter::COMPUTE_MAXS + $ClassWriter::COMPUTE_FRAMES));
 	$init($InvokerBytecodeGenerator);
 	cw->visit($Opcodes::V1_8, $Opcodes::ACC_PRIVATE + $Opcodes::ACC_FINAL + $Opcodes::ACC_SUPER, className, nullptr, $InvokerBytecodeGenerator::INVOKER_SUPER_NAME, nullptr);
@@ -446,6 +452,7 @@ $bytes* GenerateJLIClassesHelper::generateCodeBytesForLFs($String* className, $S
 
 $LambdaForm* GenerateJLIClassesHelper::makeReinvokerFor($MethodType* type) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandle, emptyHandle, $MethodHandles::empty(type));
 	$var($MethodHandle, var$0, emptyHandle);
 	$var($Object, var$1, $of($BoundMethodHandle::speciesData_L()));
@@ -462,6 +469,7 @@ $LambdaForm* GenerateJLIClassesHelper::makeDelegateFor($MethodType* type) {
 
 $Map$Entry* GenerateJLIClassesHelper::generateConcreteBMHClassBytes($String* types) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($chars, arr$, $nc(types)->toCharArray());
 		int32_t len$ = arr$->length;
@@ -485,6 +493,7 @@ $Map$Entry* GenerateJLIClassesHelper::generateConcreteBMHClassBytes($String* typ
 
 void GenerateJLIClassesHelper::lambda$generateHolderClasses$1($GenerateJLIClassesHelper$HolderClassBuilder* builder, $StringArray* parts) {
 	$init(GenerateJLIClassesHelper);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, s12863$, $nc(parts)->get(0));
 		int32_t tmp12863$ = -1;
@@ -556,6 +565,7 @@ $StringArray* GenerateJLIClassesHelper::lambda$generateHolderClasses$0($String* 
 }
 
 void clinit$GenerateJLIClassesHelper($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(GenerateJLIClassesHelper::DIRECT_HOLDER, "java/lang/invoke/DirectMethodHandle$Holder"_s);
 	$assignStatic(GenerateJLIClassesHelper::DELEGATING_HOLDER, "java/lang/invoke/DelegatingMethodHandle$Holder"_s);
 	$assignStatic(GenerateJLIClassesHelper::BASIC_FORMS_HOLDER, "java/lang/invoke/LambdaForm$Holder"_s);

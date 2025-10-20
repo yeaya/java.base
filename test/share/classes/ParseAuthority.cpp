@@ -42,6 +42,7 @@ void ParseAuthority::init$() {
 }
 
 void ParseAuthority::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($URL, u1, $new($URL, "http://[fe80::]9999/path1/path2/"_s));
 		$throwNew($RuntimeException, "URL parser didn\'t catch invalid authority field"_s);

@@ -194,6 +194,7 @@ void PipedInputStream::checkStateForReceive() {
 }
 
 void PipedInputStream::awaitSpace() {
+	$useLocalCurrentObjectStackCache();
 	while (this->in == this->out) {
 		checkStateForReceive();
 		$of(this)->notifyAll();
@@ -215,6 +216,7 @@ void PipedInputStream::receivedLast() {
 
 int32_t PipedInputStream::read() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->connected) {
 			$throwNew($IOException, "Pipe not connected"_s);
 		} else if (this->closedByReader) {

@@ -82,6 +82,7 @@ int32_t InvalidPathException::getIndex() {
 }
 
 $String* InvalidPathException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(getReason()));
 	if (this->index > -1) {

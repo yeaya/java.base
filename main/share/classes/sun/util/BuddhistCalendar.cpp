@@ -204,6 +204,7 @@ int32_t BuddhistCalendar::getActualMaximum(int32_t field) {
 }
 
 $String* BuddhistCalendar::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, $GregorianCalendar::toString());
 	if (!isSet($Calendar::YEAR)) {
 		return s;

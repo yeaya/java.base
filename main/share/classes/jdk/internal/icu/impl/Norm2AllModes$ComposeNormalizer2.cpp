@@ -90,6 +90,7 @@ void Norm2AllModes$ComposeNormalizer2::normalizeAndAppend($CharSequence* src, bo
 }
 
 bool Norm2AllModes$ComposeNormalizer2::isNormalized($CharSequence* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, var$0, s);
 	int32_t var$1 = $nc(s)->length();
 	bool var$2 = this->onlyContiguous;

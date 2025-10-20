@@ -59,6 +59,7 @@ void Pin::init$() {
 }
 
 void Pin::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($SoftReferenceArray, blocks, $new($SoftReferenceArray, Pin::NUM_BLOCKS));
 	$var($bytes, block, nullptr);
 	$init($System);

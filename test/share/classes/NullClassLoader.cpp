@@ -50,6 +50,7 @@ void NullClassLoader::init$() {
 
 void NullClassLoader::main($StringArray* args) {
 	$load(NullClassLoader);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($System);
 	$nc($System::err)->println("\nTest creating proxy class with the null class loader.\n"_s);

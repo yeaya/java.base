@@ -115,6 +115,7 @@ bool CompletableFuture$AsyncRun::exec() {
 }
 
 void CompletableFuture$AsyncRun::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($CompletableFuture, d, nullptr);
 	$var($Runnable, f, nullptr);
 	if (($assign(d, this->dep)) != nullptr && ($assign(f, this->fn)) != nullptr) {

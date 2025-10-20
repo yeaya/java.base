@@ -80,6 +80,7 @@ void BadProxySelector$NullHTTPProxySelector::connectFailed($URI* uri, $SocketAdd
 }
 
 $List* BadProxySelector$NullHTTPProxySelector::select($URI* uri) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->println($$str({$($of(this)->getClass()->getSimpleName()), " called for "_s, uri}));
 	$var($List, proxies, $new($ArrayList));

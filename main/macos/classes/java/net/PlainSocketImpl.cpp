@@ -86,6 +86,7 @@ void PlainSocketImpl::init$(bool isServer) {
 }
 
 void PlainSocketImpl::socketSetOption(int32_t opt, bool b, Object$* val) {
+	$useLocalCurrentObjectStackCache();
 	$init($StandardSocketOptions);
 	if (opt == $SocketOptions::SO_REUSEPORT && !$nc($(supportedOptions()))->contains($StandardSocketOptions::SO_REUSEPORT)) {
 		$throwNew($UnsupportedOperationException, "unsupported option"_s);

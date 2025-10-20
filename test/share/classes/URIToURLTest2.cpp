@@ -55,6 +55,7 @@ void URIToURLTest2::init$() {
 }
 
 void URIToURLTest2::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, uris, $new($ArrayList));
 	uris->add("http://jag:cafebabe@java.sun.com:94/b/c/d?q#g"_s);
 	uris->add("http://[1080:0:0:0:8:800:200C:417A]/index.html"_s);

@@ -202,6 +202,7 @@ void IntHashtable::initialize(int32_t primeIndex) {
 }
 
 void IntHashtable::rehash() {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, oldValues, this->values);
 	$var($ints, oldkeyList, this->keyList);
 	int32_t newPrimeIndex = this->primeIndex;

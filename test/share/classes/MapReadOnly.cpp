@@ -54,6 +54,7 @@ void MapReadOnly::init$() {
 }
 
 void MapReadOnly::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, testFile, $File::createTempFile("test2"_s, nullptr));
 	$nc(testFile)->deleteOnExit();
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, testFile, "rw"_s));

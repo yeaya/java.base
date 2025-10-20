@@ -146,6 +146,7 @@ void PKIXParameters::init$($Set* trustAnchors) {
 }
 
 void PKIXParameters::init$($KeyStore* keystore) {
+	$useLocalCurrentObjectStackCache();
 	this->revocationEnabled = true;
 	this->explicitPolicyRequired = false;
 	this->policyMappingInhibited = false;
@@ -176,6 +177,7 @@ $Set* PKIXParameters::getTrustAnchors() {
 }
 
 void PKIXParameters::setTrustAnchors($Set* trustAnchors) {
+	$useLocalCurrentObjectStackCache();
 	if (trustAnchors == nullptr) {
 		$throwNew($NullPointerException, "the trustAnchors parameters must be non-null"_s);
 	}
@@ -198,6 +200,7 @@ $Set* PKIXParameters::getInitialPolicies() {
 }
 
 void PKIXParameters::setInitialPolicies($Set* initialPolicies) {
+	$useLocalCurrentObjectStackCache();
 	if (initialPolicies != nullptr) {
 		{
 			$var($Iterator, i, initialPolicies->iterator());
@@ -214,6 +217,7 @@ void PKIXParameters::setInitialPolicies($Set* initialPolicies) {
 }
 
 void PKIXParameters::setCertStores($List* stores) {
+	$useLocalCurrentObjectStackCache();
 	if (stores == nullptr) {
 		$set(this, certStores, $new($ArrayList));
 	} else {
@@ -297,6 +301,7 @@ void PKIXParameters::setDate($Date* date$renamed) {
 }
 
 void PKIXParameters::setCertPathCheckers($List* checkers) {
+	$useLocalCurrentObjectStackCache();
 	if (checkers != nullptr) {
 		$var($List, tmpList, $new($ArrayList));
 		{
@@ -315,6 +320,7 @@ void PKIXParameters::setCertPathCheckers($List* checkers) {
 }
 
 $List* PKIXParameters::getCertPathCheckers() {
+	$useLocalCurrentObjectStackCache();
 	$var($List, tmpList, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->certPathCheckers)->iterator());
@@ -359,6 +365,7 @@ void PKIXParameters::setTargetCertConstraints($CertSelector* selector) {
 }
 
 $Object* PKIXParameters::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(PKIXParameters, copy, $cast(PKIXParameters, $CertPathParameters::clone()));
 		if (this->certStores != nullptr) {
@@ -385,6 +392,7 @@ $Object* PKIXParameters::clone() {
 }
 
 $String* PKIXParameters::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n"_s);
 	if (this->unmodTrustAnchors != nullptr) {

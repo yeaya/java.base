@@ -109,6 +109,7 @@ void InheritIOEHandle::init$() {
 
 $StringArray* InheritIOEHandle::getCommandArray($String* processName) {
 	$init(InheritIOEHandle);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, cmdArray, $new($StringArray, {
 		InheritIOEHandle::JAVA_EXE,
 		"-cp"_s,
@@ -148,6 +149,7 @@ void InheritIOEHandle::main($StringArray* args) {
 
 void InheritIOEHandle::performA() {
 	$init(InheritIOEHandle);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$nc(InheritIOEHandle::stopC)->delete$();
 		$init($InheritIOEHandle$APP);
@@ -214,6 +216,7 @@ void InheritIOEHandle::performA() {
 
 void InheritIOEHandle::performB() {
 	$init(InheritIOEHandle);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($InheritIOEHandle$APP);
 		$var($ProcessBuilder, builder, $new($ProcessBuilder, $(getCommandArray($($InheritIOEHandle$APP::C->name())))));

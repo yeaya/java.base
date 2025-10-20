@@ -67,6 +67,7 @@ void Cleanup::init$() {
 }
 
 void Cleanup::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($System);
 		$nc($System::out)->println("Reader reading..."_s);
@@ -84,6 +85,7 @@ void Cleanup::run() {
 
 void Cleanup::main($StringArray* args) {
 	$init(Cleanup);
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Cleanup::r, $new($PipedReader));
 	$assignStatic(Cleanup::w, $new($PipedWriter, Cleanup::r));
 	$var(Cleanup, reader, $new(Cleanup));

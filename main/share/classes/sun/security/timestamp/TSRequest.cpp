@@ -107,6 +107,7 @@ void TSRequest::setExtensions($X509ExtensionArray* extensions) {
 }
 
 $bytes* TSRequest::encode() {
+	$useLocalCurrentObjectStackCache();
 	$var($DerOutputStream, request, $new($DerOutputStream));
 	request->putInteger(this->version);
 	$var($DerOutputStream, messageImprint, $new($DerOutputStream));

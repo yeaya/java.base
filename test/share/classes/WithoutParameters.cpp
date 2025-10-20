@@ -96,6 +96,7 @@ void WithoutParameters::init$() {
 
 void WithoutParameters::main($StringArray* argv) {
 	$load(WithoutParameters);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var(WithoutParameters, wp, $new(WithoutParameters));
 	$load($WithoutParameters$Foo);
@@ -106,6 +107,7 @@ void WithoutParameters::main($StringArray* argv) {
 }
 
 void WithoutParameters::runTests($MethodArray* methods) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($MethodArray, arr$, methods);
 		int32_t len$ = $nc(arr$)->length;
@@ -120,6 +122,7 @@ void WithoutParameters::runTests($MethodArray* methods) {
 }
 
 void WithoutParameters::runTests($ConstructorArray* constructors) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ConstructorArray, arr$, constructors);
 		int32_t len$ = $nc(arr$)->length;
@@ -134,6 +137,7 @@ void WithoutParameters::runTests($ConstructorArray* constructors) {
 }
 
 void WithoutParameters::runTest($Executable* e) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({"Inspecting executable "_s, e}));
 	$var($ParameterArray, parameters, $nc(e)->getParameters());
@@ -191,6 +195,7 @@ void WithoutParameters::runTest($Executable* e) {
 }
 
 void WithoutParameters::checkForErrors() {
+	$useLocalCurrentObjectStackCache();
 	if (this->errors > 0) {
 		$throwNew($RuntimeException, $$str({"Failed "_s, $$str(this->errors), " tests"_s}));
 	}

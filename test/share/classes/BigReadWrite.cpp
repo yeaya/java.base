@@ -52,6 +52,7 @@ void BigReadWrite::init$() {
 
 void BigReadWrite::main($StringArray* args) {
 	$init(BigReadWrite);
+	$useLocalCurrentObjectStackCache();
 	$var($FileOutputStream, fos, $new($FileOutputStream, "/dev/zero"_s));
 	$var($FileChannel, fc, fos->getChannel());
 	$var($ByteBuffer, buf, $ByteBuffer::allocate(900));

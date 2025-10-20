@@ -300,6 +300,7 @@ void SSLLogger$SSLSimpleFormatter::init$() {
 
 $String* SSLLogger$SSLSimpleFormatter::format($SSLLogger$SSLConsoleLogger* logger, $System$Logger$Level* level, $String* message, $ObjectArray* parameters) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	if (parameters == nullptr || $nc(parameters)->length == 0) {
 		$var($ObjectArray, messageFields, $new($ObjectArray, {
 			$of($nc(logger)->loggerName),
@@ -335,12 +336,14 @@ $String* SSLLogger$SSLSimpleFormatter::format($SSLLogger$SSLConsoleLogger* logge
 
 $String* SSLLogger$SSLSimpleFormatter::formatCaller() {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	return $cast($String, $nc($($StackWalker::getInstance()))->walk(static_cast<$Function*>($$new(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2))));
 }
 
 $String* SSLLogger$SSLSimpleFormatter::formatParameters($ObjectArray* parameters) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder, 512));
 	bool isFirst = true;
 	{
@@ -379,6 +382,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatParameters($ObjectArray* parameters
 
 $String* SSLLogger$SSLSimpleFormatter::formatThrowable($Throwable* throwable) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder, 512));
 	$var($ByteArrayOutputStream, bytesOut, $new($ByteArrayOutputStream));
 	{
@@ -418,6 +422,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatThrowable($Throwable* throwable) {
 
 $String* SSLLogger$SSLSimpleFormatter::formatCertificate($Certificate* certificate) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($X509Certificate, certificate))) {
 		return $Utilities::indent($($nc(certificate)->toString()));
 	}
@@ -481,6 +486,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatCertificate($Certificate* certifica
 
 $String* SSLLogger$SSLSimpleFormatter::formatByteArrayInputStream($ByteArrayInputStream* bytes) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder, 512));
 	try {
 		$var($ByteArrayOutputStream, bytesOut, $new($ByteArrayOutputStream));
@@ -518,6 +524,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatByteArrayInputStream($ByteArrayInpu
 
 $String* SSLLogger$SSLSimpleFormatter::formatByteBuffer($ByteBuffer* byteBuffer) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, builder, $new($StringBuilder, 512));
 	try {
 		$var($ByteArrayOutputStream, bytesOut, $new($ByteArrayOutputStream));
@@ -555,6 +562,7 @@ $String* SSLLogger$SSLSimpleFormatter::formatByteBuffer($ByteBuffer* byteBuffer)
 
 $String* SSLLogger$SSLSimpleFormatter::formatMapEntry($Map$Entry* entry) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$var($String, key, $cast($String, $nc(entry)->getKey()));
 	$var($Object, value, entry->getValue());
 	$var($String, formatted, nullptr);
@@ -598,22 +606,26 @@ $String* SSLLogger$SSLSimpleFormatter::formatObject(Object$* obj) {
 
 $String* SSLLogger$SSLSimpleFormatter::lambda$formatCaller$2($Stream* s) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	return $cast($String, $nc($($nc($($nc($($nc(s)->dropWhile(static_cast<$Predicate*>($$new(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1)))))->map(static_cast<$Function*>($$new(SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2)))))->findFirst()))->orElse("unknown caller"_s));
 }
 
 $String* SSLLogger$SSLSimpleFormatter::lambda$formatCaller$1($StackWalker$StackFrame* f) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$($nc(f)->getFileName()), ":"_s}));
 	return $concat(var$0, $$str(f->getLineNumber()));
 }
 
 bool SSLLogger$SSLSimpleFormatter::lambda$formatCaller$0($StackWalker$StackFrame* f) {
 	$init(SSLLogger$SSLSimpleFormatter);
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc($($nc(f)->getClassName()))->startsWith("sun.security.ssl.SSLLogger"_s);
 	return var$0 || $nc($($nc(f)->getClassName()))->startsWith("java.lang.System"_s);
 }
 
 void clinit$SSLLogger$SSLSimpleFormatter($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(SSLLogger$SSLSimpleFormatter::PATTERN, "yyyy-MM-dd kk:mm:ss.SSS z"_s);
 	$init($Locale);
 	$assignStatic(SSLLogger$SSLSimpleFormatter::dateTimeFormat, $nc($($DateTimeFormatter::ofPattern(SSLLogger$SSLSimpleFormatter::PATTERN, $Locale::ENGLISH)))->withZone($($ZoneId::systemDefault())));

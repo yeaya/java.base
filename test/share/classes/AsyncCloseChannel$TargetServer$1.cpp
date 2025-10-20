@@ -80,6 +80,7 @@ void AsyncCloseChannel$TargetServer$1::init$($AsyncCloseChannel$TargetServer* th
 }
 
 void AsyncCloseChannel$TargetServer$1::run() {
+	$useLocalCurrentObjectStackCache();
 	bool empty = true;
 	{
 		$var($Throwable, var$0, nullptr);

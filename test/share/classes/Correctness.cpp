@@ -160,6 +160,7 @@ void Correctness::main($StringArray* args) {
 
 void Correctness::contains($String* s1, $String* s2, int32_t expected) {
 	$init(Correctness);
+	$useLocalCurrentObjectStackCache();
 	contains0(s1, s2, expected);
 	if (Correctness::isWindows) {
 		contains0($$str({"C:"_s, s1}), s2, -1);
@@ -171,6 +172,7 @@ void Correctness::contains($String* s1, $String* s2, int32_t expected) {
 
 void Correctness::contains0($String* s1, $String* s2, int32_t expected) {
 	$init(Correctness);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Path, p1, $Paths::get(s1, $$new($StringArray, 0)));
 	$var($Path, p2, $Paths::get(s2, $$new($StringArray, 0)));
@@ -201,6 +203,7 @@ void Correctness::contains0($String* s1, $String* s2, int32_t expected) {
 
 void Correctness::check0($String* s1, $String* s2, bool expected) {
 	$init(Correctness);
+	$useLocalCurrentObjectStackCache();
 	$var($FilePermission, fp1, $new($FilePermission, s1, "read"_s));
 	$var($FilePermission, fp2, $new($FilePermission, s2, "read"_s));
 	bool b = fp1->implies(fp2);
@@ -220,6 +223,7 @@ void Correctness::check0($String* s1, $String* s2, bool expected) {
 
 void Correctness::check($String* s1, $String* s2, bool expected) {
 	$init(Correctness);
+	$useLocalCurrentObjectStackCache();
 	check0(s1, s2, expected);
 	if (Correctness::isWindows) {
 		check0($$str({"C:"_s, s1}), s2, false);

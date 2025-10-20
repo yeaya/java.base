@@ -263,6 +263,7 @@ void Wrapper::init$($String* $enum$name, int32_t $enum$ordinal, $Class* wtype, $
 }
 
 $String* Wrapper::detailString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({this->wrapperSimpleName$, $($Arrays::asList($$new($ObjectArray, {
 		$of(this->wrapperType$),
 		$of(this->primitiveType$),
@@ -355,6 +356,7 @@ bool Wrapper::isConvertibleFrom(Wrapper* source) {
 
 bool Wrapper::checkConvertibleFrom() {
 	$init(Wrapper);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($WrapperArray, arr$, values());
 		int32_t len$ = $nc(arr$)->length;
@@ -515,6 +517,7 @@ $Object* Wrapper::zero($Class* type) {
 
 Wrapper* Wrapper::forPrimitiveType($Class* type) {
 	$init(Wrapper);
+	$useLocalCurrentObjectStackCache();
 	Wrapper* w = findPrimitiveType(type);
 	if (w != nullptr) {
 		return w;
@@ -527,6 +530,7 @@ Wrapper* Wrapper::forPrimitiveType($Class* type) {
 
 Wrapper* Wrapper::forPrimitiveType(char16_t basicTypeChar) {
 	$init(Wrapper);
+	$useLocalCurrentObjectStackCache();
 	switch (basicTypeChar) {
 	case u'I':
 		{
@@ -582,6 +586,7 @@ Wrapper* Wrapper::findPrimitiveType($Class* type) {
 
 Wrapper* Wrapper::forWrapperType($Class* type) {
 	$init(Wrapper);
+	$useLocalCurrentObjectStackCache();
 	Wrapper* w = findWrapperType(type);
 	if (w != nullptr) {
 		return w;
@@ -611,6 +616,7 @@ Wrapper* Wrapper::findWrapperType($Class* type) {
 
 Wrapper* Wrapper::forBasicType(char16_t type) {
 	$init(Wrapper);
+	$useLocalCurrentObjectStackCache();
 	Wrapper* w = $nc(Wrapper::FROM_CHAR)->get(hashChar(type));
 	if (w != nullptr && w->basicTypeChar$ == type) {
 		return w;
@@ -752,6 +758,7 @@ $Object* Wrapper::convert(Object$* x, $Class* type) {
 }
 
 $Object* Wrapper::convert(Object$* x, $Class* type, bool isCast) {
+	$useLocalCurrentObjectStackCache();
 	if (this == Wrapper::OBJECT) {
 		if (!Wrapper::$assertionsDisabled && !(!$nc(type)->isPrimitive())) {
 			$throwNew($AssertionError);
@@ -949,6 +956,7 @@ $Class* Wrapper::arrayType() {
 }
 
 void Wrapper::copyArrayUnboxing($ObjectArray* values, int32_t vpos, Object$* a, int32_t apos, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($of(a))->getClass() != arrayType()) {
 		$nc(arrayType())->cast(a);
 	}
@@ -960,6 +968,7 @@ void Wrapper::copyArrayUnboxing($ObjectArray* values, int32_t vpos, Object$* a, 
 }
 
 void Wrapper::copyArrayBoxing(Object$* a, int32_t apos, $ObjectArray* values, int32_t vpos, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc($of(a))->getClass() != arrayType()) {
 		$nc(arrayType())->cast(a);
 	}
@@ -973,6 +982,7 @@ void Wrapper::copyArrayBoxing(Object$* a, int32_t apos, $ObjectArray* values, in
 }
 
 void clinit$Wrapper($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Wrapper::$assertionsDisabled = !Wrapper::class$->desiredAssertionStatus();
 	$load($Boolean);
 	$init($Boolean);

@@ -152,6 +152,7 @@ $bytes* JmodFile::JMOD_MAGIC_NUMBER = nullptr;
 
 void JmodFile::checkMagic($Path* file) {
 	$init(JmodFile);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($InputStream, in, $Files::newInputStream(file, $$new($OpenOptionArray, 0)));
 		{
@@ -206,12 +207,14 @@ void JmodFile::writeMagicNumber($OutputStream* os) {
 }
 
 $JmodFile$Entry* JmodFile::getEntry($JmodFile$Section* section, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, entry, $str({$($nc(section)->jmodDir()), "/"_s, name}));
 	$var($ZipEntry, ze, $nc(this->zipfile)->getEntry(entry));
 	return (ze != nullptr) ? $new($JmodFile$Entry, ze) : ($JmodFile$Entry*)nullptr;
 }
 
 $InputStream* JmodFile::getInputStream($JmodFile$Section* section, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, entry, $str({$($nc(section)->jmodDir()), "/"_s, name}));
 	$var($ZipEntry, e, $nc(this->zipfile)->getEntry(entry));
 	if (e == nullptr) {
@@ -225,6 +228,7 @@ $InputStream* JmodFile::getInputStream($JmodFile$Entry* entry) {
 }
 
 $Stream* JmodFile::stream() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc(this->zipfile)->stream()))->map(static_cast<$Function*>($$new(JmodFile$$Lambda$Entry)));
 }
 

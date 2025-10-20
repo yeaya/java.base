@@ -420,6 +420,7 @@ bool BuiltinClassLoader::hasClassPath() {
 }
 
 void BuiltinClassLoader::loadModule($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(mref)->descriptor());
 	$var($String, mn, $nc(descriptor)->name());
 	if ($nc(this->nameToModule)->putIfAbsent(mn, mref) != nullptr) {
@@ -448,6 +449,7 @@ $ModuleReference* BuiltinClassLoader::findModule($String* name) {
 }
 
 $URL* BuiltinClassLoader::findResource($String* mn, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, nullptr);
 	if (mn != nullptr) {
 		$var($ModuleReference, mref, $cast($ModuleReference, $nc(this->nameToModule)->get(mn)));
@@ -461,6 +463,7 @@ $URL* BuiltinClassLoader::findResource($String* mn, $String* name) {
 }
 
 $InputStream* BuiltinClassLoader::findResourceAsStream($String* mn, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($System::getSecurityManager() != nullptr || mn == nullptr) {
 		$var($URL, url, findResource(mn, name));
 		return (url != nullptr) ? $nc(url)->openStream() : ($InputStream*)nullptr;
@@ -474,6 +477,7 @@ $InputStream* BuiltinClassLoader::findResourceAsStream($String* mn, $String* nam
 }
 
 $URL* BuiltinClassLoader::findResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, pn, $Resources::toPackageName(name));
 	$var($BuiltinClassLoader$LoadedModule, module, $cast($BuiltinClassLoader$LoadedModule, $nc(BuiltinClassLoader::packageToModule$)->get(pn)));
 	if (module != nullptr) {
@@ -514,6 +518,7 @@ $URL* BuiltinClassLoader::findResource($String* name) {
 }
 
 $Enumeration* BuiltinClassLoader::findResources($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, checked, $new($ArrayList));
 	$var($String, pn, $Resources::toPackageName(name));
 	$var($BuiltinClassLoader$LoadedModule, module, $cast($BuiltinClassLoader$LoadedModule, $nc(BuiltinClassLoader::packageToModule$)->get(pn)));
@@ -549,6 +554,7 @@ $Enumeration* BuiltinClassLoader::findResources($String* name) {
 }
 
 $List* BuiltinClassLoader::findMiscResource($String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SoftReference, ref, this->resourceCache);
 	$var($Map, map, (ref != nullptr) ? $cast($Map, $nc(ref)->get()) : ($Map*)nullptr);
@@ -577,6 +583,7 @@ $List* BuiltinClassLoader::findMiscResource($String* name) {
 }
 
 $URL* BuiltinClassLoader::findResource($ModuleReference* mref, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($URI, u, nullptr);
 	if ($System::getSecurityManager() == nullptr) {
@@ -693,6 +700,7 @@ $Class* BuiltinClassLoader::loadClass($String* cn, bool resolve) {
 }
 
 $Class* BuiltinClassLoader::loadClassOrNull($String* cn, bool resolve) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(getClassLoadingLock(cn)) {
 		$Class* c = findLoadedClass(cn);
 		if (c == nullptr) {
@@ -737,6 +745,7 @@ $BuiltinClassLoader$LoadedModule* BuiltinClassLoader::findLoadedModule($String* 
 }
 
 $BuiltinClassLoader$LoadedModule* BuiltinClassLoader::findLoadedModule($String* mn, $String* cn) {
+	$useLocalCurrentObjectStackCache();
 	$var($BuiltinClassLoader$LoadedModule, loadedModule, findLoadedModule(cn));
 	if (loadedModule != nullptr && $nc(mn)->equals($(loadedModule->name()))) {
 		return loadedModule;
@@ -756,6 +765,7 @@ $Class* BuiltinClassLoader::findClassInModuleOrNull($BuiltinClassLoader$LoadedMo
 }
 
 $Class* BuiltinClassLoader::findClassOnClassPathOrNull($String* cn) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* clazz = Machine::findClass(this, cn);
 	if (clazz != nullptr) {
@@ -779,6 +789,7 @@ $Class* BuiltinClassLoader::findClassOnClassPathOrNull($String* cn) {
 }
 
 $Class* BuiltinClassLoader::defineClass($String* cn, $BuiltinClassLoader$LoadedModule* loadedModule) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleReference, mref, $nc(loadedModule)->mref());
 	$var($ModuleReader, reader, moduleReaderFor(mref));
 	try {
@@ -827,6 +838,7 @@ $Class* BuiltinClassLoader::defineClass($String* cn, $BuiltinClassLoader$LoadedM
 }
 
 $Class* BuiltinClassLoader::defineClass($String* cn, $Resource* res) {
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $nc(res)->getCodeSourceURL());
 	int32_t pos = $nc(cn)->lastIndexOf((int32_t)u'.');
 	if (pos != -1) {
@@ -848,6 +860,7 @@ $Class* BuiltinClassLoader::defineClass($String* cn, $Resource* res) {
 }
 
 $Package* BuiltinClassLoader::defineOrCheckPackage($String* pn, $Manifest* man, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($Package, pkg, getAndVerifyPackage(pn, man, url));
 	if (pkg == nullptr) {
 		try {
@@ -868,6 +881,7 @@ $Package* BuiltinClassLoader::defineOrCheckPackage($String* pn, $Manifest* man, 
 }
 
 $Package* BuiltinClassLoader::getAndVerifyPackage($String* pn, $Manifest* man, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($Package, pkg, getDefinedPackage(pn));
 	if (pkg != nullptr) {
 		if (pkg->isSealed()) {
@@ -882,6 +896,7 @@ $Package* BuiltinClassLoader::getAndVerifyPackage($String* pn, $Manifest* man, $
 }
 
 $Package* BuiltinClassLoader::definePackage($String* pn, $Manifest* man, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, specTitle, nullptr);
 	$var($String, specVersion, nullptr);
 	$var($String, specVendor, nullptr);
@@ -941,6 +956,7 @@ $Package* BuiltinClassLoader::definePackage($String* pn, $Manifest* man, $URL* u
 }
 
 bool BuiltinClassLoader::isSealed($String* pn, $Manifest* man) {
+	$useLocalCurrentObjectStackCache();
 	$var($Attributes, attr, $nc($($SharedSecrets::javaUtilJarAccess()))->getTrustedAttributes(man, $($($nc(pn)->replace(u'.', u'/'))->concat("/"_s))));
 	$var($String, sealed, nullptr);
 	if (attr != nullptr) {
@@ -959,6 +975,7 @@ $PermissionCollection* BuiltinClassLoader::getPermissions($CodeSource* cs) {
 }
 
 $ModuleReader* BuiltinClassLoader::moduleReaderFor($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleReader, reader, $cast($ModuleReader, $nc(this->moduleToReader)->get(mref)));
 	if (reader == nullptr) {
 		$var($Function, create, $new($BuiltinClassLoader$5, this, mref));
@@ -968,6 +985,7 @@ $ModuleReader* BuiltinClassLoader::moduleReaderFor($ModuleReference* mref) {
 }
 
 bool BuiltinClassLoader::isOpen($ModuleReference* mref, $String* pn) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(mref)->descriptor());
 	bool var$0 = $nc(descriptor)->isOpen();
 	if (var$0 || $nc(descriptor)->isAutomatic()) {
@@ -1011,6 +1029,7 @@ $URL* BuiltinClassLoader::lambda$findResourceOnClassPath$0($String* name) {
 }
 
 void clinit$BuiltinClassLoader($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	BuiltinClassLoader::$assertionsDisabled = !BuiltinClassLoader::class$->desiredAssertionStatus();
 	{

@@ -85,6 +85,7 @@ void DualPivotQuicksort$Merger::init$($CountedCompleter* parent, Object$* dst, i
 }
 
 void DualPivotQuicksort$Merger::compute() {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ints, this->dst)) {
 		$DualPivotQuicksort::mergeParts(this, $cast($ints, this->dst), this->k, $cast($ints, this->a1), this->lo1, this->hi1, $cast($ints, this->a2), this->lo2, this->hi2);
 	} else if ($instanceOf($longs, this->dst)) {

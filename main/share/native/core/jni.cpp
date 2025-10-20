@@ -1551,7 +1551,7 @@ jint JNICALL jni_DetachCurrentThread(JavaVM* vm) {
 	}
 	current->setThreadState(_thread_in_vm);
 	current->exit(true);
-	current->destroy();
+	//current->destroy();
 	return JNI_OK;
 }
 

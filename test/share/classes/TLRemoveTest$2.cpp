@@ -83,6 +83,7 @@ void TLRemoveTest$2::init$(int32_t val$threadId, $ints* val$removeNode, $ints* v
 }
 
 void TLRemoveTest$2::run() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($TLRemoveTest);
 		$nc($TLRemoveTest::n)->set($($Integer::valueOf(this->val$threadId)));

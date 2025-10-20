@@ -80,6 +80,7 @@ void ByteArrayOutputStream::init$() {
 }
 
 void ByteArrayOutputStream::init$(int32_t size) {
+	$useLocalCurrentObjectStackCache();
 	$OutputStream::init$();
 	if (size < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Negative initial size: "_s, $$str(size)}));

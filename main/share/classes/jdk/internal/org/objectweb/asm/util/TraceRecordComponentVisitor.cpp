@@ -74,11 +74,13 @@ void TraceRecordComponentVisitor::init$($RecordComponentVisitor* recordComponent
 }
 
 $AnnotationVisitor* TraceRecordComponentVisitor::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->printer)->visitRecordComponentAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($RecordComponentVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceRecordComponentVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($Printer, annotationPrinter, $nc(this->printer)->visitRecordComponentTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($RecordComponentVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }

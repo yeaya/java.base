@@ -96,6 +96,7 @@ void ClientKeyExchange$ClientKeyExchangeConsumer::init$() {
 }
 
 void ClientKeyExchange$ClientKeyExchangeConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(shc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)));

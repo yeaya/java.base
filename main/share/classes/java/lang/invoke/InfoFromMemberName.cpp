@@ -145,6 +145,7 @@ int32_t InfoFromMemberName::getReferenceKind() {
 }
 
 $String* InfoFromMemberName::toString() {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = getReferenceKind();
 	$Class* var$1 = getDeclaringClass();
 	$var($String, var$2, getName());
@@ -152,6 +153,7 @@ $String* InfoFromMemberName::toString() {
 }
 
 $Member* InfoFromMemberName::reflectAs($Class* expected, $MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	bool var$1 = $nc(this->member)->isMethodHandleInvoke();
 	bool var$0 = (var$1 || $nc(this->member)->isVarHandleMethodInvoke());
@@ -171,6 +173,7 @@ $Member* InfoFromMemberName::reflectAs($Class* expected, $MethodHandles$Lookup* 
 }
 
 $Member* InfoFromMemberName::reflectUnchecked() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int8_t refKind = (int8_t)getReferenceKind();
 	$Class* defc = getDeclaringClass();

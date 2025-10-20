@@ -68,6 +68,7 @@ void SelectWhenRefused::init$() {
 }
 
 void SelectWhenRefused::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramChannel, dc1, $cast($DatagramChannel, $nc($($DatagramChannel::open()))->bind($$new($InetSocketAddress, 0))));
 	int32_t port = $nc($($nc(dc1)->socket()))->getLocalPort();
 	$var($SocketAddress, refuser, $new($InetSocketAddress, $($InetAddress::getLocalHost()), port));
@@ -132,6 +133,7 @@ void SelectWhenRefused::main($StringArray* args) {
 }
 
 void SelectWhenRefused::sendDatagram($DatagramChannel* dc, $SocketAddress* remote) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, $ByteBuffer::wrap($("Greetings!"_s->getBytes())));
 	$nc(dc)->send(bb, remote);
 }

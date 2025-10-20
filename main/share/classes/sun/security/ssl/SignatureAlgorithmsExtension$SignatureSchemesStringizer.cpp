@@ -64,6 +64,7 @@ void SignatureAlgorithmsExtension$SignatureSchemesStringizer::init$() {
 }
 
 $String* SignatureAlgorithmsExtension$SignatureSchemesStringizer::toString($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return ($$new($SignatureAlgorithmsExtension$SignatureSchemesSpec, hc, buffer))->toString();
 	} catch ($IOException&) {

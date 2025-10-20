@@ -78,6 +78,7 @@ void Bug7130335::init$() {
 
 void Bug7130335::main($StringArray* args) {
 	$init(Bug7130335);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, "yyyy-MM-dd HH:mm:ss.SSS z"_s, $Locale::US));
 	sdf->setTimeZone(Bug7130335::MOSCOW);
@@ -101,6 +102,7 @@ void Bug7130335::main($StringArray* args) {
 
 void Bug7130335::test($SimpleDateFormat* sdf, $Calendar* cal) {
 	$init(Bug7130335);
+	$useLocalCurrentObjectStackCache();
 	$var($Date, d, $nc(cal)->getTime());
 	$var($String, f, $nc(sdf)->format(d));
 	$init($System);
@@ -115,6 +117,7 @@ void Bug7130335::test($SimpleDateFormat* sdf, $Calendar* cal) {
 
 void Bug7130335::test8000529($String* fmt) {
 	$init(Bug7130335);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($TimeZoneArray, arr$, Bug7130335::ZONES);
 		int32_t len$ = $nc(arr$)->length;

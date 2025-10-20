@@ -88,6 +88,7 @@ void AddTests::init$() {
 
 int32_t AddTests::simpleTests() {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimalArray, bd1, $new($BigDecimalArray, {
 		$$new($BigDecimal, $$new($BigInteger, "7812404666936930160"_s), 11),
@@ -110,6 +111,7 @@ int32_t AddTests::simpleTests() {
 
 int32_t AddTests::extremaTests() {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, var$0, $BigDecimal::valueOf(1, -$Integer::MAX_VALUE));
 	failures += addWithoutException(var$0, $($BigDecimal::valueOf(2, $Integer::MAX_VALUE)), nullptr);
@@ -120,6 +122,7 @@ int32_t AddTests::extremaTests() {
 
 int32_t AddTests::addWithoutException($BigDecimal* b1, $BigDecimal* b2, $MathContext* mc$renamed) {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	$var($MathContext, mc, mc$renamed);
 	if (mc == nullptr) {
 		$init($RoundingMode);
@@ -139,6 +142,7 @@ int32_t AddTests::addWithoutException($BigDecimal* b1, $BigDecimal* b2, $MathCon
 
 int32_t AddTests::roundingGradationTests() {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, var$0, $new($BigDecimal, "1234e100"_s));
 	failures += roundAway(var$0, $$new($BigDecimal, "1234e97"_s));
@@ -207,6 +211,7 @@ void AddTests::printAddition($BigDecimal* b1, $BigDecimal* b2, $String* s) {
 
 int32_t AddTests::roundAway($BigDecimal* b1, $BigDecimal* b2) {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$nc(b1)->precision();
 	$nc(b2)->precision();
@@ -231,6 +236,7 @@ int32_t AddTests::roundAway1($BigDecimal* b1, $BigDecimal* b2) {
 
 int32_t AddTests::roundAway0($BigDecimal* b1, $BigDecimal* b2) {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, exactSum, $nc(b1)->add(b2));
 	for (int32_t precision = 1; precision < $nc(exactSum)->precision() + 2; ++precision) {
@@ -263,6 +269,7 @@ int32_t AddTests::roundAway0($BigDecimal* b1, $BigDecimal* b2) {
 
 int32_t AddTests::precisionConsistencyTest() {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$init($RoundingMode);
 	$var($MathContext, mc, $new($MathContext, 1, $RoundingMode::DOWN));
@@ -284,6 +291,7 @@ int32_t AddTests::precisionConsistencyTest() {
 
 int32_t AddTests::arithmeticExceptionTest() {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	$var($BigDecimal, x, nullptr);
 	try {
@@ -297,6 +305,7 @@ int32_t AddTests::arithmeticExceptionTest() {
 
 void AddTests::main($StringArray* argv) {
 	$init(AddTests);
+	$useLocalCurrentObjectStackCache();
 	int32_t failures = 0;
 	failures += extremaTests();
 	failures += roundingGradationTests();

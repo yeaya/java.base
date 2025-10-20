@@ -100,6 +100,7 @@ $BigInteger* TimestampToken::getSerialNumber() {
 }
 
 void TimestampToken::parse($bytes* timestampTokenInfo) {
+	$useLocalCurrentObjectStackCache();
 	$var($DerValue, tstInfo, $new($DerValue, timestampTokenInfo));
 	if (tstInfo->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Bad encoding for timestamp token info"_s);

@@ -171,6 +171,7 @@ void BoundMethodHandle::init$($MethodType* type, $LambdaForm* form) {
 
 BoundMethodHandle* BoundMethodHandle::bindSingle($MethodType* type, $LambdaForm* form, $LambdaForm$BasicType* xtype, Object$* x) {
 	$init(BoundMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($BoundMethodHandle$1);
 
@@ -261,6 +262,7 @@ bool BoundMethodHandle::tooComplex() {
 
 BoundMethodHandle* BoundMethodHandle::makeReinvoker($MethodHandle* target) {
 	$init(BoundMethodHandle);
+	$useLocalCurrentObjectStackCache();
 	$init($BoundMethodHandle$Species_L);
 	$var($LambdaForm, form, $DelegatingMethodHandle::makeReinvokerForm(target, $MethodTypeForm::LF_REBIND, $BoundMethodHandle$Species_L::BMH_SPECIES, $($nc($BoundMethodHandle$Species_L::BMH_SPECIES)->getterFunction(0))));
 	return $BoundMethodHandle$Species_L::make($($nc(target)->type()), form, target);
@@ -284,6 +286,7 @@ $Object* BoundMethodHandle::internalProperties() {
 }
 
 $Object* BoundMethodHandle::internalValues() {
+	$useLocalCurrentObjectStackCache();
 	int32_t count = fieldCount();
 	if (count == 1) {
 		return $of($str({"["_s, $(arg(0)), "]"_s}));
@@ -296,6 +299,7 @@ $Object* BoundMethodHandle::internalValues() {
 }
 
 $Object* BoundMethodHandle::arg(int32_t i) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$Class* fieldType = $cast($Class, $nc($($nc($(speciesData()))->fieldTypes()))->get(i));
 		$init($BoundMethodHandle$1);

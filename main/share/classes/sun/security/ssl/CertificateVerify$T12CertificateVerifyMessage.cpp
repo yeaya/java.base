@@ -145,6 +145,7 @@ $Object* allocate$CertificateVerify$T12CertificateVerifyMessage($Class* clazz) {
 }
 
 void CertificateVerify$T12CertificateVerifyMessage::init$($HandshakeContext* context, $X509Authentication$X509Possession* x509Possession) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($Map$Entry, schemeAndSigner, $SignatureScheme::getSignerOfPreferableAlgorithm($nc(chc)->algorithmConstraints, chc->peerRequestedSignatureSchemes, x509Possession, chc->negotiatedProtocol));
@@ -167,6 +168,7 @@ void CertificateVerify$T12CertificateVerifyMessage::init$($HandshakeContext* con
 }
 
 void CertificateVerify$T12CertificateVerifyMessage::init$($HandshakeContext* handshakeContext, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	$SSLHandshake$HandshakeMessage::init$(handshakeContext);
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, handshakeContext));
 	if ($nc(m)->remaining() < 4) {
@@ -242,6 +244,7 @@ void CertificateVerify$T12CertificateVerifyMessage::send($HandshakeOutStream* ho
 }
 
 $String* CertificateVerify$T12CertificateVerifyMessage::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"CertificateVerify\": \'{\'\n  \"signature algorithm\": {0}\n  \"signature\": \'{\'\n{1}\n  \'}\'\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

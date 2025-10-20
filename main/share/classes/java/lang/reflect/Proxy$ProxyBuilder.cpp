@@ -285,6 +285,7 @@ $AtomicInteger* Proxy$ProxyBuilder::counter = nullptr;
 
 $Class* Proxy$ProxyBuilder::defineProxyClass($Module* m, $List* interfaces) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($String, proxyPkg, nullptr);
 	int32_t accessFlags = $Modifier::PUBLIC | $Modifier::FINAL;
 	bool nonExported = false;
@@ -343,6 +344,7 @@ $Class* Proxy$ProxyBuilder::defineProxyClass($Module* m, $List* interfaces) {
 
 bool Proxy$ProxyBuilder::isProxyClass($Class* c) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$init($Boolean);
 	return $Objects::equals($($nc($($nc(Proxy$ProxyBuilder::reverseProxyCache)->sub(c)))->get($($nc(c)->getClassLoader()))), $Boolean::TRUE);
@@ -350,6 +352,7 @@ bool Proxy$ProxyBuilder::isProxyClass($Class* c) {
 
 bool Proxy$ProxyBuilder::isExportedType($Class* c) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($String, pn, $nc(c)->getPackageName());
 	bool var$0 = $Modifier::isPublic(c->getModifiers());
 	return var$0 && $nc($(c->getModule()))->isExported(pn);
@@ -362,6 +365,7 @@ bool Proxy$ProxyBuilder::isPackagePrivateType($Class* c) {
 
 $String* Proxy$ProxyBuilder::toDetails($Class* c) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, access, "unknown"_s);
 	if (isExportedType(c)) {
@@ -382,6 +386,7 @@ $String* Proxy$ProxyBuilder::toDetails($Class* c) {
 
 void Proxy$ProxyBuilder::trace($String* cn, $Module* module, $ClassLoader* loader, $List* interfaces) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	if (isDebug()) {
 		$init($System);
 		$nc($System::err)->format("PROXY: %s/%s defined by %s%n"_s, $$new($ObjectArray, {
@@ -406,6 +411,7 @@ bool Proxy$ProxyBuilder::isDebug($String* flag) {
 }
 
 void Proxy$ProxyBuilder::init$($ClassLoader* loader, $List* interfaces) {
+	$useLocalCurrentObjectStackCache();
 	if (!$VM::isModuleSystemInited()) {
 		$throwNew($InternalError, "Proxy is not supported until module system is fully initialized"_s);
 	}
@@ -426,6 +432,7 @@ void Proxy$ProxyBuilder::init$($ClassLoader* loader, $Class* intf) {
 }
 
 $Constructor* Proxy$ProxyBuilder::build() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* proxyClass = defineProxyClass(this->module, this->interfaces);
 	bool var$0 = !Proxy$ProxyBuilder::$assertionsDisabled;
@@ -455,6 +462,7 @@ $Constructor* Proxy$ProxyBuilder::build() {
 
 void Proxy$ProxyBuilder::validateProxyInterfaces($ClassLoader* loader, $List* interfaces, $Set* refTypes) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, interfaceSet, $new($IdentityHashMap, $nc(interfaces)->size()));
 	{
 		$var($Iterator, i$, $nc(interfaces)->iterator());
@@ -491,6 +499,7 @@ void Proxy$ProxyBuilder::validateProxyInterfaces($ClassLoader* loader, $List* in
 
 $Set* Proxy$ProxyBuilder::referencedTypes($ClassLoader* loader, $List* interfaces) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($HashSet, types, $new($HashSet));
 	{
@@ -544,6 +553,7 @@ void Proxy$ProxyBuilder::addElementType($HashSet* types, $Class* cls) {
 
 $Module* Proxy$ProxyBuilder::mapToModule($ClassLoader* loader, $List* interfaces, $Set* refTypes) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($Map, packagePrivateTypes, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc(interfaces)->iterator());
@@ -618,6 +628,7 @@ $Module* Proxy$ProxyBuilder::mapToModule($ClassLoader* loader, $List* interfaces
 
 void Proxy$ProxyBuilder::ensureAccess($Module* target, $Class* c) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($Module, m, $nc(c)->getModule());
 	if (!$nc(target)->canRead(m)) {
 		$Modules::addReads(target, m);
@@ -630,6 +641,7 @@ void Proxy$ProxyBuilder::ensureAccess($Module* target, $Class* c) {
 
 void Proxy$ProxyBuilder::ensureVisible($ClassLoader* ld, $Class* c) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* type = nullptr;
 	try {
@@ -658,6 +670,7 @@ $Module* Proxy$ProxyBuilder::getDynamicModule($ClassLoader* loader) {
 
 $Module* Proxy$ProxyBuilder::lambda$getDynamicModule$1($ClassLoader* ld, $ClassLoaderValue* clv) {
 	$init(Proxy$ProxyBuilder);
+	$useLocalCurrentObjectStackCache();
 	$var($String, mn, $str({"jdk.proxy"_s, $$str($nc(Proxy$ProxyBuilder::counter)->incrementAndGet())}));
 	$var($String, pn, $str({"com.sun.proxy"_s, "."_s, mn}));
 	$init($ModuleDescriptor$Modifier);

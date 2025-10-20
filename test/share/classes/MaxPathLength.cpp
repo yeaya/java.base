@@ -82,6 +82,7 @@ void MaxPathLength::init$() {
 
 void MaxPathLength::main($StringArray* args) {
 	$init(MaxPathLength);
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if ($nc(osName)->startsWith("Windows"_s)) {
 		MaxPathLength::isWindows = true;
@@ -111,6 +112,7 @@ $String* MaxPathLength::getNextName($String* fName) {
 
 void MaxPathLength::testLongPath(int32_t max, $String* fn, bool tryAbsolute) {
 	$init(MaxPathLength);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, created, $new($StringArray, max));
 	$var($String, pathString, "."_s);
 	for (int32_t i = 0; i < max - 1; ++i) {

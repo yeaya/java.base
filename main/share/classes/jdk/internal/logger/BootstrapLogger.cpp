@@ -188,6 +188,7 @@ void BootstrapLogger::push($BootstrapLogger$LogEvent* log) {
 }
 
 void BootstrapLogger::flush($BootstrapLogger$LogEvent* event) {
+	$useLocalCurrentObjectStackCache();
 	if (!BootstrapLogger::$assertionsDisabled && !($nc(event)->bootstrap == this)) {
 		$throwNew($AssertionError);
 	}
@@ -223,6 +224,7 @@ bool BootstrapLogger::isLoggable($System$Logger$Level* level) {
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, $String* key, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, bundle, key, thrown)));
 	} else {
@@ -232,6 +234,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, 
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, $String* format, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, bundle, format, params)));
 	} else {
@@ -241,6 +244,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $ResourceBundle* bundle, 
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($ResourceBundle*)nullptr, msg, thrown)));
 	} else {
@@ -250,6 +254,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $String* msg, $Throwable*
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $String* format, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($ResourceBundle*)nullptr, format, params)));
 	} else {
@@ -259,6 +264,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $String* format, $ObjectA
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msgSupplier)));
 	} else {
@@ -277,6 +283,7 @@ void BootstrapLogger::log($System$Logger$Level* level, Object$* obj) {
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($ResourceBundle*)nullptr, msg, ($ObjectArray*)nullptr)));
 	} else {
@@ -286,6 +293,7 @@ void BootstrapLogger::log($System$Logger$Level* level, $String* msg) {
 }
 
 void BootstrapLogger::log($System$Logger$Level* level, $Supplier* msgSupplier, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msgSupplier, thrown)));
 	} else {
@@ -314,6 +322,7 @@ bool BootstrapLogger::isEnabled() {
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msg)));
 	} else {
@@ -323,6 +332,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg) {
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msg, thrown)));
 	} else {
@@ -332,6 +342,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $Throwable
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msg, params)));
 	} else {
@@ -341,6 +352,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $String* msg, $ObjectArr
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, msgSupplier)));
 	} else {
@@ -350,6 +362,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $Supplier* msgSupplier) 
 }
 
 void BootstrapLogger::log($PlatformLogger$Level* level, $Throwable* thrown, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::vaueOf(this, level, msgSupplier, thrown)));
 	} else {
@@ -359,6 +372,7 @@ void BootstrapLogger::log($PlatformLogger$Level* level, $Throwable* thrown, $Sup
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, ($ResourceBundle*)nullptr, msg, ($ObjectArray*)nullptr)));
 	} else {
@@ -368,6 +382,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, msgSupplier, nullptr)));
 	} else {
@@ -377,6 +392,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, ($ResourceBundle*)nullptr, msg, params)));
 	} else {
@@ -386,6 +402,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, ($ResourceBundle*)nullptr, msg, thrown)));
 	} else {
@@ -395,6 +412,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $Throwable* thrown, $Supplier* msgSupplier) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, msgSupplier, thrown)));
 	} else {
@@ -404,6 +422,7 @@ void BootstrapLogger::logp($PlatformLogger$Level* level, $String* sourceClass, $
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $ResourceBundle* bundle, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, bundle, msg, params)));
 	} else {
@@ -413,6 +432,7 @@ void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, 
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, $String* sourceMethod, $ResourceBundle* bundle, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, sourceClass, sourceMethod, bundle, msg, thrown)));
 	} else {
@@ -422,6 +442,7 @@ void BootstrapLogger::logrb($PlatformLogger$Level* level, $String* sourceClass, 
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* msg, $ObjectArray* params) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($String*)nullptr, ($String*)nullptr, bundle, msg, params)));
 	} else {
@@ -431,6 +452,7 @@ void BootstrapLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundl
 }
 
 void BootstrapLogger::logrb($PlatformLogger$Level* level, $ResourceBundle* bundle, $String* msg, $Throwable* thrown) {
+	$useLocalCurrentObjectStackCache();
 	if (checkBootstrapping()) {
 		push($($BootstrapLogger$LogEvent::valueOf(this, level, ($String*)nullptr, ($String*)nullptr, bundle, msg, thrown)));
 	} else {

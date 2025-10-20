@@ -37,6 +37,7 @@ void IndexOfEmptyInEmpty::init$() {
 }
 
 void IndexOfEmptyInEmpty::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t result = $$new($String, ""_s)->indexOf(""_s);
 	if (result != 0) {
 		$throwNew($Exception, $$str({"new String(\"\").indexOf(\"\") must be 0, but got "_s, $$str(result)}));

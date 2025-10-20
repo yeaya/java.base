@@ -109,6 +109,7 @@ void Tripwire::init$() {
 
 void Tripwire::trip($Class* trippingClass, $String* msg) {
 	$init(Tripwire);
+	$useLocalCurrentObjectStackCache();
 	$nc($($PlatformLogger::getLogger($($nc(trippingClass)->getName()))))->warning(msg, $$new($ObjectArray, {$($of($nc(trippingClass)->getName()))}));
 }
 
@@ -118,6 +119,7 @@ $Boolean* Tripwire::lambda$static$0() {
 }
 
 void clinit$Tripwire($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Tripwire::TRIPWIRE_PROPERTY, "org.openjdk.java.util.stream.tripwire"_s);
 	$beforeCallerSensitive();
 	Tripwire::ENABLED = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Tripwire$$Lambda$lambda$static$0)))))))->booleanValue();

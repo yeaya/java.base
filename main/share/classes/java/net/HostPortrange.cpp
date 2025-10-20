@@ -105,6 +105,7 @@ int32_t HostPortrange::hashCode() {
 }
 
 void HostPortrange::init$($String* scheme, $String* str) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hoststr, nullptr);
 	$var($String, portstr, nullptr);
 	$set(this, scheme, scheme);
@@ -272,6 +273,7 @@ $ints* HostPortrange::defaultPort() {
 }
 
 $ints* HostPortrange::parsePort($String* port) {
+	$useLocalCurrentObjectStackCache();
 	if (port == nullptr || $nc(port)->isEmpty()) {
 		return defaultPort();
 	}

@@ -45,6 +45,7 @@ void Seek::init$() {
 }
 
 void Seek::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, dir, $System::getProperty("test.src"_s, "."_s));
 	$var($RandomAccessFile, raf, $new($RandomAccessFile, $$new($File, dir, "Seek.java"_s), "r"_s));
 	{

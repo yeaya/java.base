@@ -282,6 +282,7 @@ OffsetTime* OffsetTime::now($ZoneId* zone) {
 
 OffsetTime* OffsetTime::now($Clock* clock) {
 	$init(OffsetTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(clock), "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	return ofInstant(now, $($nc($($nc($(clock->getZone()))->getRules()))->getOffset(now)));
@@ -299,6 +300,7 @@ OffsetTime* OffsetTime::of(int32_t hour, int32_t minute, int32_t second, int32_t
 
 OffsetTime* OffsetTime::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(OffsetTime);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(instant), "instant"_s);
 	$Objects::requireNonNull($of(zone), "zone"_s);
 	$var($ZoneRules, rules, $nc(zone)->getRules());
@@ -312,6 +314,7 @@ OffsetTime* OffsetTime::ofInstant($Instant* instant, $ZoneId* zone) {
 
 OffsetTime* OffsetTime::from($TemporalAccessor* temporal) {
 	$init(OffsetTime);
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf(OffsetTime, temporal)) {
 		return $cast(OffsetTime, temporal);
 	}
@@ -442,6 +445,7 @@ OffsetTime* OffsetTime::with($TemporalAdjuster* adjuster) {
 }
 
 OffsetTime* OffsetTime::with($TemporalField* field, int64_t newValue) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($ChronoField, field)) {
 		$init($ChronoField);
 		if ($equals(field, $ChronoField::OFFSET_SECONDS)) {
@@ -549,6 +553,7 @@ $Temporal* OffsetTime::adjustInto($Temporal* temporal) {
 }
 
 int64_t OffsetTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$var(OffsetTime, end, OffsetTime::from(endExclusive));
 	{
 		$ChronoUnit* chronoUnit = nullptr;
@@ -668,6 +673,7 @@ int32_t OffsetTime::hashCode() {
 }
 
 $String* OffsetTime::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $($nc(this->time)->toString()));
 	return $concat(var$0, $($nc(this->offset)->toString()));
 }
@@ -687,6 +693,7 @@ void OffsetTime::writeExternal($ObjectOutput* out) {
 
 OffsetTime* OffsetTime::readExternal($ObjectInput* in) {
 	$init(OffsetTime);
+	$useLocalCurrentObjectStackCache();
 	$var($LocalTime, time, $LocalTime::readExternal(in));
 	$var($ZoneOffset, offset, $ZoneOffset::readExternal(in));
 	return OffsetTime::of(time, offset);

@@ -130,6 +130,7 @@ void Basic4ref::createNoise() {
 
 void Basic4ref::main($StringArray* args) {
 	$init(Basic4ref);
+	$useLocalCurrentObjectStackCache();
 	fork($$new($Basic4ref$3));
 	showReferences();
 	int32_t ndq = 0;

@@ -123,6 +123,7 @@ bool SPILocaleProviderAdapter$CalendarDataProviderDelegate::isSupportedLocale($L
 }
 
 int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::getFirstDayOfWeek($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CalendarDataProvider, cdp, $cast($CalendarDataProvider, getImpl(locale)));
@@ -130,6 +131,7 @@ int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::getFirstDayOfWeek
 }
 
 int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::getMinimalDaysInFirstWeek($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CalendarDataProvider, cdp, $cast($CalendarDataProvider, getImpl(locale)));

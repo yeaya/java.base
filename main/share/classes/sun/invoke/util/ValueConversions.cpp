@@ -254,6 +254,7 @@ void ValueConversions::init$() {
 
 $ValueConversions$WrapperCacheArray* ValueConversions::newWrapperCaches(int32_t n) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($ValueConversions$WrapperCacheArray, caches, $new($ValueConversions$WrapperCacheArray, n));
 	for (int32_t i = 0; i < n; ++i) {
 		caches->set(i, $$new($ValueConversions$WrapperCache));
@@ -386,6 +387,7 @@ $MethodType* ValueConversions::unboxType($Wrapper* wrap, int32_t kind) {
 
 $MethodHandle* ValueConversions::unbox($Wrapper* wrap, int32_t kind) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($ValueConversions$WrapperCache, cache, $nc(ValueConversions::UNBOX_CONVERSIONS)->get(kind));
 	$var($MethodHandle, mh, $nc(cache)->get(wrap));
 	if (mh != nullptr) {
@@ -531,6 +533,7 @@ $MethodType* ValueConversions::boxType($Wrapper* wrap) {
 
 $MethodHandle* ValueConversions::boxExact($Wrapper* wrap) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($ValueConversions$WrapperCache, cache, $nc(ValueConversions::BOX_CONVERSIONS)->get(0));
 	$var($MethodHandle, mh, $nc(cache)->get(wrap));
 	if (mh != nullptr) {
@@ -585,6 +588,7 @@ double ValueConversions::zeroDouble() {
 
 $MethodHandle* ValueConversions::zeroConstantFunction($Wrapper* wrap) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($ValueConversions$WrapperCache, cache, $nc(ValueConversions::CONSTANT_FUNCTIONS)->get(0));
 	$var($MethodHandle, mh, $nc(cache)->get(wrap));
 	if (mh != nullptr) {
@@ -932,6 +936,7 @@ int8_t ValueConversions::fromBoolean(bool x) {
 
 $MethodHandle* ValueConversions::convertPrimitive($Wrapper* wsrc, $Wrapper* wdst) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($ValueConversions$WrapperCache, cache, $nc(ValueConversions::CONVERT_PRIMITIVE_FUNCTIONS)->get($nc(wsrc)->ordinal()));
 	$var($MethodHandle, mh, $nc(cache)->get(wdst));
 	if (mh != nullptr) {
@@ -971,12 +976,14 @@ $MethodHandle* ValueConversions::convertPrimitive($Wrapper* wsrc, $Wrapper* wdst
 
 $MethodHandle* ValueConversions::convertPrimitive($Class* src, $Class* dst) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($Wrapper, var$0, $Wrapper::forPrimitiveType(src));
 	return convertPrimitive(var$0, $($Wrapper::forPrimitiveType(dst)));
 }
 
 $String* ValueConversions::capitalize($String* x) {
 	$init(ValueConversions);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $str($Character::toUpperCase($nc(x)->charAt(0))));
 	return $concat(var$0, $($nc(x)->substring(1)));
 }

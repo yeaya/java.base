@@ -83,6 +83,7 @@ void Server::init$($String* version, $String* domain) {
 }
 
 $bytes* Server::type2($bytes* type1, $bytes* nonce) {
+	$useLocalCurrentObjectStackCache();
 	if (nonce == nullptr) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "nonce cannot be null"_s);
 	}
@@ -101,6 +102,7 @@ $bytes* Server::type2($bytes* type1, $bytes* nonce) {
 }
 
 $StringArray* Server::verify($bytes* type3, $bytes* nonce) {
+	$useLocalCurrentObjectStackCache();
 	if (type3 == nullptr || nonce == nullptr) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "type1 or nonce cannot be null"_s);
 	}

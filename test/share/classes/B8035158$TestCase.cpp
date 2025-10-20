@@ -157,6 +157,7 @@ void B8035158$TestCase::init$($Map* localProperties, $String* urlhost, bool expe
 }
 
 void B8035158$TestCase::run() {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->printf("urlhost=%s properties=%s: proxied? %s%n"_s, $$new($ObjectArray, {
 		$of(this->urlhost),
@@ -168,6 +169,7 @@ void B8035158$TestCase::run() {
 }
 
 void B8035158$TestCase::verify($List* proxies) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = $nc(proxies)->size() == 1;
 	$init($Proxy$Type);
 	bool actualProxying = !(var$0 && $nc(($cast($Proxy, $(proxies->get(0)))))->type() == $Proxy$Type::DIRECT);
@@ -182,6 +184,7 @@ void B8035158$TestCase::verify($List* proxies) {
 }
 
 $List* B8035158$TestCase::lambda$run$0() {
+	$useLocalCurrentObjectStackCache();
 	return $nc($($ProxySelector::getDefault()))->select($($URI::create(this->urlhost)));
 }
 

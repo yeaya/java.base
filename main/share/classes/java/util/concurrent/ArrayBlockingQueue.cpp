@@ -358,6 +358,7 @@ void ArrayBlockingQueue::enqueue(Object$* e) {
 }
 
 $Object* ArrayBlockingQueue::dequeue() {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, items, this->items);
 	$var($Object, e, $nc(items)->get(this->takeIndex));
 	items->set(this->takeIndex, nullptr);
@@ -424,6 +425,7 @@ void ArrayBlockingQueue::init$(int32_t capacity, bool fair) {
 }
 
 void ArrayBlockingQueue::init$(int32_t capacity, bool fair, $Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	ArrayBlockingQueue::init$(capacity, fair);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -462,6 +464,7 @@ bool ArrayBlockingQueue::add(Object$* e) {
 }
 
 bool ArrayBlockingQueue::offer(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(e);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -496,6 +499,7 @@ bool ArrayBlockingQueue::offer(Object$* e) {
 }
 
 void ArrayBlockingQueue::put(Object$* e) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(e);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -518,6 +522,7 @@ void ArrayBlockingQueue::put(Object$* e) {
 }
 
 bool ArrayBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(e);
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
@@ -555,6 +560,7 @@ bool ArrayBlockingQueue::offer(Object$* e, int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* ArrayBlockingQueue::poll() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -581,6 +587,7 @@ $Object* ArrayBlockingQueue::poll() {
 }
 
 $Object* ArrayBlockingQueue::take() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
 	{
@@ -610,6 +617,7 @@ $Object* ArrayBlockingQueue::take() {
 }
 
 $Object* ArrayBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
+	$useLocalCurrentObjectStackCache();
 	int64_t nanos = $nc(unit)->toNanos(timeout);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lockInterruptibly();
@@ -645,6 +653,7 @@ $Object* ArrayBlockingQueue::poll(int64_t timeout, $TimeUnit* unit) {
 }
 
 $Object* ArrayBlockingQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -671,6 +680,7 @@ $Object* ArrayBlockingQueue::peek() {
 }
 
 int32_t ArrayBlockingQueue::size() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -697,6 +707,7 @@ int32_t ArrayBlockingQueue::size() {
 }
 
 int32_t ArrayBlockingQueue::remainingCapacity() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -723,6 +734,7 @@ int32_t ArrayBlockingQueue::remainingCapacity() {
 }
 
 bool ArrayBlockingQueue::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -773,6 +785,7 @@ bool ArrayBlockingQueue::remove(Object$* o) {
 }
 
 bool ArrayBlockingQueue::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -822,6 +835,7 @@ bool ArrayBlockingQueue::contains(Object$* o) {
 }
 
 $ObjectArray* ArrayBlockingQueue::toArray() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -854,6 +868,7 @@ $ObjectArray* ArrayBlockingQueue::toArray() {
 }
 
 $ObjectArray* ArrayBlockingQueue::toArray($ObjectArray* a$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, a, a$renamed);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -899,6 +914,7 @@ $String* ArrayBlockingQueue::toString() {
 }
 
 void ArrayBlockingQueue::clear() {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -944,6 +960,7 @@ int32_t ArrayBlockingQueue::drainTo($Collection* c) {
 }
 
 int32_t ArrayBlockingQueue::drainTo($Collection* c, int32_t maxElements) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(c);
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
@@ -1030,6 +1047,7 @@ $Spliterator* ArrayBlockingQueue::spliterator() {
 }
 
 void ArrayBlockingQueue::forEach($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
@@ -1079,6 +1097,7 @@ bool ArrayBlockingQueue::retainAll($Collection* c) {
 }
 
 bool ArrayBlockingQueue::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	$var($ReentrantLock, lock, this->lock);
 	$nc(lock)->lock();
 	{
@@ -1149,6 +1168,7 @@ int32_t ArrayBlockingQueue::distanceNonEmpty(int32_t i, int32_t j) {
 }
 
 bool ArrayBlockingQueue::bulkRemoveModified($Predicate* filter, int32_t beg) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, es, this->items);
 	int32_t capacity = $nc(this->items)->length;
 	int32_t end = this->putIndex;
@@ -1202,6 +1222,7 @@ bool ArrayBlockingQueue::bulkRemoveModified($Predicate* filter, int32_t beg) {
 }
 
 void ArrayBlockingQueue::checkInvariants() {
+	$useLocalCurrentObjectStackCache();
 	if (!invariantsSatisfied()) {
 		$var($String, detail, $String::format("takeIndex=%d putIndex=%d count=%d capacity=%d items=%s"_s, $$new($ObjectArray, {
 			$($of($Integer::valueOf(this->takeIndex))),

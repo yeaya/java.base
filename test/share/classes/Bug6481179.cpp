@@ -46,6 +46,7 @@ void Bug6481179::init$() {
 }
 
 void Bug6481179::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	bool err = false;
 	try {
 		$MessageFormat::format("Testdata {1,invalid_format_type}"_s, $$new($ObjectArray, {

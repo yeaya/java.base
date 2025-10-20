@@ -174,6 +174,7 @@ void SocksServer::init$(int32_t port) {
 }
 
 void SocksServer::init$($InetAddress* addr, int32_t port, bool useV4) {
+	$useLocalCurrentObjectStackCache();
 	$Thread::init$();
 	this->useV4 = false;
 	$set(this, users, $new($HashMap));
@@ -222,6 +223,7 @@ void SocksServer::close() {
 }
 
 void SocksServer::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($SocksServer$ClientHandler, cl, nullptr);
 	while (!this->done) {
 		try {

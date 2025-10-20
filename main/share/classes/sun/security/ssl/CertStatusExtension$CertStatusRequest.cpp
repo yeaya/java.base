@@ -78,6 +78,7 @@ void CertStatusExtension$CertStatusRequest::init$(int8_t statusType, $bytes* enc
 }
 
 $String* CertStatusExtension$CertStatusRequest::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate status type\": {0}\n\"encoded certificate status\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));

@@ -97,6 +97,7 @@ void JarVerifier$2::init$($JarVerifier* this$0, $Enumeration* val$enum_, $JarFil
 }
 
 bool JarVerifier$2::hasMoreElements() {
+	$useLocalCurrentObjectStackCache();
 	if (this->entry != nullptr) {
 		return true;
 	}
@@ -120,6 +121,7 @@ bool JarVerifier$2::hasMoreElements() {
 }
 
 $Object* JarVerifier$2::nextElement() {
+	$useLocalCurrentObjectStackCache();
 	if (hasMoreElements()) {
 		$var($JarEntry, je, this->entry);
 		$nc(this->val$map)->remove($($nc(je)->getName()));

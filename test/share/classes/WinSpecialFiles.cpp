@@ -41,6 +41,7 @@ void WinSpecialFiles::init$() {
 }
 
 void WinSpecialFiles::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if (!$nc(osName)->startsWith("Windows"_s)) {
 		return;

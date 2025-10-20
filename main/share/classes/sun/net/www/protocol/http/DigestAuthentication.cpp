@@ -165,6 +165,7 @@ $String* DigestAuthentication::getHeaderValue($String* requestURI, $String* meth
 }
 
 bool DigestAuthentication::isAuthorizationStale($String* header) {
+	$useLocalCurrentObjectStackCache();
 	$var($HeaderParser, p, $new($HeaderParser, header));
 	$var($String, s, p->findValue("stale"_s));
 	if (s == nullptr || !$nc(s)->equals("true"_s)) {
@@ -179,6 +180,7 @@ bool DigestAuthentication::isAuthorizationStale($String* header) {
 }
 
 bool DigestAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p, $String* raw) {
+	$useLocalCurrentObjectStackCache();
 	if (!DigestAuthentication::$assertionsDisabled && !$nc(conn)->isLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -224,6 +226,7 @@ bool DigestAuthentication::setHeaders($HttpURLConnection* conn, $HeaderParser* p
 }
 
 $String* DigestAuthentication::getHeaderValueImpl($String* uri, $String* method) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, response, nullptr);
 	$var($chars, passwd, $nc(this->pw)->getPassword());
 	bool qop = $nc(this->params)->authQop();
@@ -278,6 +281,7 @@ void DigestAuthentication::checkResponse($String* header, $String* method, $URL*
 }
 
 void DigestAuthentication::checkResponse($String* header, $String* method, $String* uri) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwd, $nc(this->pw)->getPassword());
 	$var($String, username, $nc(this->pw)->getUserName());
 	bool qop = $nc(this->params)->authQop();
@@ -318,6 +322,7 @@ void DigestAuthentication::checkResponse($String* header, $String* method, $Stri
 }
 
 $String* DigestAuthentication::computeDigest(bool isRequest, $String* userName, $chars* password, $String* realm, $String* connMethod, $String* requestURI, $String* nonceString, $String* cnonce, $String* ncValue) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, A1, nullptr);
 	$var($String, HashA1, nullptr);
 	$var($String, algorithm, $nc(this->params)->getAlgorithm());
@@ -354,6 +359,7 @@ $String* DigestAuthentication::computeDigest(bool isRequest, $String* userName, 
 }
 
 $String* DigestAuthentication::encode($String* src, $chars* passwd, $MessageDigest* md) {
+	$useLocalCurrentObjectStackCache();
 	$init($ISO_8859_1);
 	$nc(md)->update($($nc(src)->getBytes(static_cast<$Charset*>($ISO_8859_1::INSTANCE))));
 	if (passwd != nullptr) {
@@ -376,6 +382,7 @@ $String* DigestAuthentication::encode($String* src, $chars* passwd, $MessageDige
 }
 
 void clinit$DigestAuthentication($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DigestAuthentication::compatPropName, "http.auth.digest.quoteParameters"_s);
 	$beforeCallerSensitive();
 	DigestAuthentication::$assertionsDisabled = !DigestAuthentication::class$->desiredAssertionStatus();

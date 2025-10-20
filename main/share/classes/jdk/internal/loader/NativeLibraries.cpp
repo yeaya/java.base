@@ -187,6 +187,7 @@ void NativeLibraries::init$($Class* caller, bool searchJavaLibraryPath) {
 }
 
 int64_t NativeLibraries::find($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(this->libraries)->isEmpty()) {
 		return 0;
 	}
@@ -206,6 +207,7 @@ int64_t NativeLibraries::find($String* name) {
 }
 
 $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $File* file) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, name, findBuiltinLib($($nc(file)->getName())));
 	bool isBuiltin = (name != nullptr);
@@ -219,6 +221,7 @@ $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $File* file) {
 }
 
 $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $String* name, bool isBuiltin) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, (fromClass == nullptr) ? ($ClassLoader*)nullptr : $nc(fromClass)->getClassLoader());
 	if (this->loader != loader) {
@@ -307,6 +310,7 @@ $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $String* name) {
 }
 
 void NativeLibraries::unload($NativeLibrary* lib) {
+	$useLocalCurrentObjectStackCache();
 	if (this->isJNI) {
 		$throwNew($UnsupportedOperationException, "explicit unloading cannot be used with auto unloading"_s);
 	}
@@ -321,6 +325,7 @@ void NativeLibraries::unload($NativeLibrary* lib) {
 }
 
 $NativeLibrary* NativeLibraries::findFromPaths($StringArray* paths, $Class* fromClass, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, paths);
 		int32_t len$ = $nc(arr$)->length;

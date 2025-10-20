@@ -101,6 +101,7 @@ $Object* allocate$Test8076596($Class* clazz) {
 }
 
 void Test8076596::init$() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$SecurityManager::init$();
 	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Test8076596$$Lambda$lambda$new$0)));

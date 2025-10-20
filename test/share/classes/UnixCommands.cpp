@@ -70,6 +70,7 @@ void UnixCommands::init$() {
 
 void UnixCommands::ensureCommandsAvailable($StringArray* commands) {
 	$init(UnixCommands);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, commands);
 		int32_t len$ = $nc(arr$)->length;
@@ -127,6 +128,7 @@ $String* UnixCommands::findCommand($String* name) {
 
 $String* UnixCommands::findCommand0($String* name) {
 	$init(UnixCommands);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($StringArray, arr$, UnixCommands::paths);
 		int32_t len$ = $nc(arr$)->length;
@@ -145,6 +147,7 @@ $String* UnixCommands::findCommand0($String* name) {
 }
 
 void clinit$UnixCommands($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	UnixCommands::isUnix = !$nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s);
 	UnixCommands::isLinux = $nc($($System::getProperty("os.name"_s)))->startsWith("Linux"_s);
 	$assignStatic(UnixCommands::paths, $new($StringArray, {

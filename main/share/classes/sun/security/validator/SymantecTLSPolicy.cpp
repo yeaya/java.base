@@ -88,6 +88,7 @@ $LocalDate* SymantecTLSPolicy::APRIL_16_2019 = nullptr;
 
 void SymantecTLSPolicy::checkDistrust($X509CertificateArray* chain) {
 	$init(SymantecTLSPolicy);
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, anchor, $nc(chain)->get(chain->length - 1));
 	if ($nc(SymantecTLSPolicy::FINGERPRINTS)->contains($(fingerprint(anchor)))) {
 		$var($Date, notBefore, $nc(chain->get(0))->getNotBefore());
@@ -112,6 +113,7 @@ $String* SymantecTLSPolicy::fingerprint($X509Certificate* cert) {
 
 void SymantecTLSPolicy::checkNotBefore($LocalDate* notBeforeDate, $LocalDate* distrustDate, $X509Certificate* anchor) {
 	$init(SymantecTLSPolicy);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(notBeforeDate)->isAfter(distrustDate)) {
 		$var($String, var$0, $$str({"TLS Server certificate issued after "_s, distrustDate, " and anchored by a distrusted legacy Symantec root CA: "_s}));
 		$init($ValidatorException);

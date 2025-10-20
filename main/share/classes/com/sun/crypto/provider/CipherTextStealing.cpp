@@ -56,6 +56,7 @@ $String* CipherTextStealing::getFeedback() {
 }
 
 int32_t CipherTextStealing::encryptFinal($bytes* plain, int32_t plainOffset, int32_t plainLen, $bytes* cipher, int32_t cipherOffset) {
+	$useLocalCurrentObjectStackCache();
 	if (plainLen < this->blockSize) {
 		$throwNew($IllegalBlockSizeException, "input is too short!"_s);
 	} else if (plainLen == this->blockSize) {
@@ -94,6 +95,7 @@ int32_t CipherTextStealing::encryptFinal($bytes* plain, int32_t plainOffset, int
 }
 
 int32_t CipherTextStealing::decryptFinal($bytes* cipher, int32_t cipherOffset, int32_t cipherLen, $bytes* plain, int32_t plainOffset) {
+	$useLocalCurrentObjectStackCache();
 	if (cipherLen < this->blockSize) {
 		$throwNew($IllegalBlockSizeException, "input is too short!"_s);
 	} else if (cipherLen == this->blockSize) {

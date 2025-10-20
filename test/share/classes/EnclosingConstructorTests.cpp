@@ -122,6 +122,7 @@ void EnclosingConstructorTests::init$(int32_t i) {
 
 int32_t EnclosingConstructorTests::examine($Class* enclosedClass, $String* constructorSig) {
 	$init(EnclosingConstructorTests);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Constructor, c, $nc(enclosedClass)->getEnclosingConstructor());
 	if (c == nullptr && constructorSig == nullptr) {

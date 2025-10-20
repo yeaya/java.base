@@ -471,6 +471,7 @@ $ConcurrentMap* Calendar::cachedLocaleData = nullptr;
 $StringArray* Calendar::FIELD_NAME = nullptr;
 
 void Calendar::init$() {
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, var$0, $TimeZone::getDefaultRef());
 	$init($Locale$Category);
 	Calendar::init$(var$0, $($Locale::getDefault($Locale$Category::FORMAT)));
@@ -491,6 +492,7 @@ void Calendar::init$($TimeZone* zone, $Locale* aLocale) {
 
 Calendar* Calendar::getInstance() {
 	$init(Calendar);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale$Category);
 	$var($Locale, aLocale, $Locale::getDefault($Locale$Category::FORMAT));
 	return createCalendar($(defaultTimeZone(aLocale)), aLocale);
@@ -514,6 +516,7 @@ Calendar* Calendar::getInstance($TimeZone* zone, $Locale* aLocale) {
 
 $TimeZone* Calendar::defaultTimeZone($Locale* l) {
 	$init(Calendar);
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, defaultTZ, $TimeZone::getDefault());
 	$var($String, shortTZID, $nc(l)->getUnicodeLocaleType("tz"_s));
 	return shortTZID != nullptr ? $cast($TimeZone, $nc($($nc($($TimeZoneNameUtility::convertLDMLShortID(shortTZID)))->map(static_cast<$Function*>($$new(Calendar$$Lambda$getTimeZone)))))->orElse(defaultTZ)) : defaultTZ;
@@ -521,6 +524,7 @@ $TimeZone* Calendar::defaultTimeZone($Locale* l) {
 
 Calendar* Calendar::createCalendar($TimeZone* zone, $Locale* aLocale) {
 	$init(Calendar);
+	$useLocalCurrentObjectStackCache();
 	$load($CalendarProvider);
 	$var($CalendarProvider, provider, $nc($($LocaleProviderAdapter::getAdapter($CalendarProvider::class$, aLocale)))->getCalendarProvider());
 	if (provider != nullptr) {
@@ -711,6 +715,7 @@ bool Calendar::isSet(int32_t field) {
 }
 
 $String* Calendar::getDisplayName(int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (!checkDisplayNameParams(field, style, Calendar::SHORT, Calendar::NARROW_FORMAT, locale, ((Calendar::ERA_MASK | Calendar::MONTH_MASK) | Calendar::DAY_OF_WEEK_MASK) | Calendar::AM_PM_MASK)) {
 		return nullptr;
 	}
@@ -739,6 +744,7 @@ $String* Calendar::getDisplayName(int32_t field, int32_t style, $Locale* locale)
 }
 
 $Map* Calendar::getDisplayNames(int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (!checkDisplayNameParams(field, style, Calendar::ALL_STYLES, Calendar::NARROW_FORMAT, locale, ((Calendar::ERA_MASK | Calendar::MONTH_MASK) | Calendar::DAY_OF_WEEK_MASK) | Calendar::AM_PM_MASK)) {
 		return nullptr;
 	}
@@ -760,6 +766,7 @@ $Map* Calendar::getDisplayNames(int32_t field, int32_t style, $Locale* locale) {
 }
 
 $Map* Calendar::getDisplayNamesImpl(int32_t field, int32_t style, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, symbols, $DateFormatSymbols::getInstance(locale));
 	$var($StringArray, strings, getFieldStrings(field, style, symbols));
 	if (strings != nullptr) {
@@ -1050,6 +1057,7 @@ $String* Calendar::getCalendarType() {
 }
 
 bool Calendar::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -1210,6 +1218,7 @@ int32_t Calendar::getActualMaximum(int32_t field) {
 }
 
 $Object* Calendar::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(Calendar, other, $cast(Calendar, $Serializable::clone()));
 		$set($nc(other), fields, $new($ints, Calendar::FIELD_COUNT));
@@ -1237,6 +1246,7 @@ $String* Calendar::getFieldName(int32_t field) {
 }
 
 $String* Calendar::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, buffer, $new($StringBuilder, 800));
 	buffer->append($($of(this)->getClass()->getName()))->append(u'[');
 	appendValue(buffer, "time"_s, this->isTimeSet, this->time);
@@ -1297,6 +1307,7 @@ int64_t Calendar::getMillisOf(Calendar* calendar) {
 }
 
 void Calendar::adjustStamp() {
+	$useLocalCurrentObjectStackCache();
 	int32_t max = Calendar::MINIMUM_USER_STAMP;
 	int32_t newStamp = Calendar::MINIMUM_USER_STAMP;
 	for (;;) {
@@ -1357,6 +1368,7 @@ void Calendar::invalidateWeekFields() {
 
 void Calendar::writeObject($ObjectOutputStream* stream) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		if (!this->isTimeSet) {
 			try {
 				updateTime();
@@ -1383,6 +1395,7 @@ void Calendar::writeObject($ObjectOutputStream* stream) {
 }
 
 void Calendar::readObject($ObjectInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ObjectInputStream, input, stream);
 	$nc(input)->defaultReadObject();

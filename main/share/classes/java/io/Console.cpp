@@ -173,6 +173,7 @@ Console* Console::printf($String* format, $ObjectArray* args) {
 }
 
 $String* Console::readLine($String* fmt, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, line, nullptr);
 	$synchronized(this->writeLock) {
 		$synchronized(this->readLock) {
@@ -198,6 +199,7 @@ $String* Console::readLine() {
 }
 
 $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($chars, passwd, nullptr);
 	$synchronized(this->writeLock) {
 		$synchronized(this->readLock) {
@@ -251,6 +253,7 @@ $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
 }
 
 void Console::installShutdownHook() {
+	$useLocalCurrentObjectStackCache();
 	if (this->shutdownHookInstalled) {
 		return;
 	}
@@ -338,6 +341,7 @@ bool Console::istty() {
 }
 
 void Console::init$() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, readLock, $new($Object));
 	$set(this, writeLock, $new($Object));
 	$init($FileDescriptor);
@@ -349,6 +353,7 @@ void Console::init$() {
 }
 
 void clinit$Console($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Console::$assertionsDisabled = !Console::class$->desiredAssertionStatus();
 	{
 		$var($String, csname, Console::encoding());

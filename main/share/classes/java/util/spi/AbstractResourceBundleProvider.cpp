@@ -214,6 +214,7 @@ void AbstractResourceBundleProvider::init$() {
 }
 
 void AbstractResourceBundleProvider::init$($StringArray* formats) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, formats, $cast($StringArray, $nc(formats)->clone()));
 	if ($nc(this->formats)->length == 0) {
 		$throwNew($IllegalArgumentException, "empty formats"_s);
@@ -240,6 +241,7 @@ $String* AbstractResourceBundleProvider::toBundleName($String* baseName, $Locale
 }
 
 $ResourceBundle* AbstractResourceBundleProvider::getBundle($String* baseName, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($Module, module, $of(this)->getClass()->getModule());
 	$var($String, bundleName, toBundleName(baseName, locale));
 	$var($ResourceBundle, bundle, getBundle0(module, bundleName));
@@ -253,6 +255,7 @@ $ResourceBundle* AbstractResourceBundleProvider::getBundle($String* baseName, $L
 }
 
 $ResourceBundle* AbstractResourceBundleProvider::getBundle0($Module* module, $String* bundleName) {
+	$useLocalCurrentObjectStackCache();
 	$var($ResourceBundle, bundle, nullptr);
 	{
 		$var($StringArray, arr$, this->formats);
@@ -282,6 +285,7 @@ $ResourceBundle* AbstractResourceBundleProvider::getBundle0($Module* module, $St
 
 $ResourceBundle* AbstractResourceBundleProvider::loadResourceBundle($Module* module, $String* bundleName) {
 	$init(AbstractResourceBundleProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, module, bundleName)));
 	$init($SecurityConstants);
@@ -296,6 +300,7 @@ $ResourceBundle* AbstractResourceBundleProvider::loadResourceBundle($Module* mod
 
 $ResourceBundle* AbstractResourceBundleProvider::loadPropertyResourceBundle($Module* module, $String* bundleName) {
 	$init(AbstractResourceBundleProvider);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, resourceName, toResourceName(bundleName, "properties"_s));
 	if (resourceName == nullptr) {
@@ -354,6 +359,7 @@ $ResourceBundle* AbstractResourceBundleProvider::loadPropertyResourceBundle($Mod
 
 $String* AbstractResourceBundleProvider::toResourceName($String* bundleName, $String* suffix) {
 	$init(AbstractResourceBundleProvider);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(bundleName)->contains("://"_s)) {
 		return nullptr;
 	}

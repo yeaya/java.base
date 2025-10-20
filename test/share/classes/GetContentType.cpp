@@ -62,6 +62,7 @@ void GetContentType::init$() {
 
 void GetContentType::main($StringArray* args) {
 	$init(GetContentType);
+	$useLocalCurrentObjectStackCache();
 	$var($URL, url, $new($URL, $(getSpec())));
 	$var($URLConnection, connection, url->openConnection());
 	$var($String, contentType, $nc(connection)->getContentType());
@@ -81,6 +82,7 @@ void GetContentType::main($StringArray* args) {
 
 $String* GetContentType::getSpec() {
 	$init(GetContentType);
+	$useLocalCurrentObjectStackCache();
 	$var($File, file, $new($File, "."_s));
 	$init($File);
 	return $str({"jar:file:"_s, $(file->getCanonicalPath()), $File::separator, "jars"_s, $File::separator, "test.jar!/"_s});

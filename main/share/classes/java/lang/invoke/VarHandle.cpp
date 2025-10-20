@@ -621,6 +621,7 @@ $Object* VarHandle::getAndBitwiseXorRelease($ObjectArray* args){
 }
 
 $String* VarHandle::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("VarHandle[varType=%s, coord=%s]"_s, $$new($ObjectArray, {
 		$($of($nc(varType())->getName())),
 		$($of(coordinateTypes()))
@@ -650,10 +651,12 @@ void VarHandle::checkExactAccessMode($VarHandle$AccessDescriptor* ad) {
 }
 
 void VarHandle::throwWrongMethodTypeException($VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$throwNew($WrongMethodTypeException, $$str({"expected "_s, $(accessModeType($nc(ad)->type)), " but found "_s, $nc(ad)->symbolicMethodTypeExact}));
 }
 
 $MethodType* VarHandle::accessModeType(int32_t accessTypeOrdinal) {
+	$useLocalCurrentObjectStackCache();
 	$var($VarHandle$TypesAndInvokers, tis, getTypesAndInvokers());
 	$var($MethodType, mt, $nc($nc(tis)->methodType_table)->get(accessTypeOrdinal));
 	if (mt == nullptr) {
@@ -671,6 +674,7 @@ bool VarHandle::isAccessModeSupported($VarHandle$AccessMode* accessMode) {
 }
 
 $MethodHandle* VarHandle::toMethodHandle($VarHandle$AccessMode* accessMode) {
+	$useLocalCurrentObjectStackCache();
 	if (isAccessModeSupported(accessMode)) {
 		$var($MethodHandle, mh, getMethodHandle($nc(accessMode)->ordinal()));
 		return $nc(mh)->bindTo(this);
@@ -692,6 +696,7 @@ $VarHandle$TypesAndInvokers* VarHandle::getTypesAndInvokers() {
 }
 
 $MethodHandle* VarHandle::getMethodHandle(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($VarHandle$TypesAndInvokers, tis, getTypesAndInvokers());
 	$var($MethodHandle, mh, $nc($nc(tis)->methodHandle_table)->get(mode));
 	if (mh == nullptr) {
@@ -701,6 +706,7 @@ $MethodHandle* VarHandle::getMethodHandle(int32_t mode) {
 }
 
 $MethodHandle* VarHandle::getMethodHandleUncached(int32_t mode) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, mt, $nc($(accessModeType($($VarHandle$AccessMode::values())->get(mode))))->insertParameterTypes(0, $$new($ClassArray, {VarHandle::class$})));
 	$var($MemberName, mn, $nc(this->vform)->getMemberName(mode));
 	$var($DirectMethodHandle, dmh, $DirectMethodHandle::make(mn));

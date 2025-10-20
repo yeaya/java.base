@@ -267,17 +267,20 @@ void ConstantDescs::init$() {
 
 $DirectMethodHandleDesc* ConstantDescs::ofCallsiteBootstrap($ClassDesc* owner, $String* name, $ClassDesc* returnType, $ClassDescArray* paramTypes) {
 	$init(ConstantDescs);
+	$useLocalCurrentObjectStackCache();
 	$init($DirectMethodHandleDesc$Kind);
 	return $MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::STATIC, owner, name, $($nc($($MethodTypeDesc::of(returnType, paramTypes)))->insertParameterTypes(0, ConstantDescs::INDY_BOOTSTRAP_ARGS)));
 }
 
 $DirectMethodHandleDesc* ConstantDescs::ofConstantBootstrap($ClassDesc* owner, $String* name, $ClassDesc* returnType, $ClassDescArray* paramTypes) {
 	$init(ConstantDescs);
+	$useLocalCurrentObjectStackCache();
 	$init($DirectMethodHandleDesc$Kind);
 	return $MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::STATIC, owner, name, $($nc($($MethodTypeDesc::of(returnType, paramTypes)))->insertParameterTypes(0, ConstantDescs::CONDY_BOOTSTRAP_ARGS)));
 }
 
 void clinit$ConstantDescs($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(ConstantDescs::DEFAULT_NAME, "_"_s);
 	$assignStatic(ConstantDescs::CD_Object, $ClassDesc::of("java.lang.Object"_s));
 	$assignStatic(ConstantDescs::CD_String, $ClassDesc::of("java.lang.String"_s));

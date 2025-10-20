@@ -92,6 +92,7 @@ void BootLoader$PackageHelper$2::init$($String* val$location) {
 }
 
 $Object* BootLoader$PackageHelper$2::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Path, jar, $Path::of(this->val$location, $$new($StringArray, 0)));
 	try {
 		$var($InputStream, in, $Files::newInputStream(jar, $$new($OpenOptionArray, 0)));

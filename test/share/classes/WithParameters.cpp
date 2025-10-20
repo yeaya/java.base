@@ -97,6 +97,7 @@ void WithParameters::init$() {
 
 void WithParameters::main($StringArray* argv) {
 	$init(WithParameters);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t error = 0;
 	$load($WithParameters$Foo);

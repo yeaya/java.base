@@ -123,6 +123,7 @@ void CRLExtensions::init$($DerInputStream* in) {
 }
 
 void CRLExtensions::init($DerInputStream* derStrm) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerInputStream, str, derStrm);
 		int8_t nextByte = (int8_t)$nc(derStrm)->peekByte();
@@ -142,6 +143,7 @@ void CRLExtensions::init($DerInputStream* derStrm) {
 }
 
 void CRLExtensions::parseExtension($Extension* ext) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$Class* extClass = $OIDMap::getClass($($nc(ext)->getExtensionId()));
@@ -173,6 +175,7 @@ void CRLExtensions::parseExtension($Extension* ext) {
 }
 
 void CRLExtensions::encode($OutputStream* out, bool isExplicit) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($DerOutputStream, extOut, $new($DerOutputStream));
 		$var($Collection, allExts, $nc(this->map)->values());
@@ -205,6 +208,7 @@ void CRLExtensions::encode($OutputStream* out, bool isExplicit) {
 }
 
 $Extension* CRLExtensions::get($String* alias) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509AttributeName, attr, $new($X509AttributeName, alias));
 	$var($String, name, nullptr);
 	$var($String, id, attr->getPrefix());
@@ -239,6 +243,7 @@ bool CRLExtensions::hasUnsupportedCriticalExtension() {
 }
 
 bool CRLExtensions::equals(Object$* other) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, other)) {
 		return true;
 	}

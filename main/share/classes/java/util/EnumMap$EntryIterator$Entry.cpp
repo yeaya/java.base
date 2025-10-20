@@ -91,6 +91,7 @@ $Object* EnumMap$EntryIterator$Entry::getValue() {
 }
 
 $Object* EnumMap$EntryIterator$Entry::setValue(Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	checkIndexForEntryUse();
 	$var($Object, oldValue, $nc(this->this$1->this$0)->unmaskNull($nc($nc(this->this$1->this$0)->vals)->get(this->index)));
 	$nc($nc(this->this$1->this$0)->vals)->set(this->index, $($nc(this->this$1->this$0)->maskNull(value)));
@@ -98,6 +99,7 @@ $Object* EnumMap$EntryIterator$Entry::setValue(Object$* value) {
 }
 
 bool EnumMap$EntryIterator$Entry::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (this->index < 0) {
 		return $equals(o, this);
 	}
@@ -124,6 +126,7 @@ int32_t EnumMap$EntryIterator$Entry::hashCode() {
 }
 
 $String* EnumMap$EntryIterator$Entry::toString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->index < 0) {
 		return $Map$Entry::toString();
 	}

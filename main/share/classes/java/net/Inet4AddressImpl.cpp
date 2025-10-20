@@ -126,6 +126,7 @@ $InetAddress* Inet4AddressImpl::loopbackAddress() {
 }
 
 bool Inet4AddressImpl::isReachable($InetAddress* addr, int32_t timeout, $NetworkInterface* netif, int32_t ttl) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, ifaddr, nullptr);
 	if (netif != nullptr) {
 		$var($Enumeration, it, netif->getInetAddresses());

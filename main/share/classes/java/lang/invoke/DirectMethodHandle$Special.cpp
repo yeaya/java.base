@@ -98,6 +98,7 @@ $MethodHandle* DirectMethodHandle$Special::viewAsType($MethodType* newType, bool
 }
 
 $Object* DirectMethodHandle$Special::checkReceiver(Object$* recv) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->caller)->isInstance(recv)) {
 		$var($String, msg, $String::format("Receiver class %s is not a subclass of caller class %s"_s, $$new($ObjectArray, {
 			$($of($nc($of(recv))->getClass()->getName())),

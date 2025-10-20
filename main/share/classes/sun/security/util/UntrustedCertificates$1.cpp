@@ -80,6 +80,7 @@ void UntrustedCertificates$1::init$() {
 }
 
 $Object* UntrustedCertificates$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, $new($File, $($StaticProperty::javaHome()), "lib/security/blocked.certs"_s));
 	try {
 		$var($FileInputStream, fin, $new($FileInputStream, f));

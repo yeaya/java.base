@@ -131,6 +131,7 @@ $Principal* HttpsURLConnection::getLocalPrincipal() {
 
 void HttpsURLConnection::setDefaultHostnameVerifier($HostnameVerifier* v) {
 	$init(HttpsURLConnection);
+	$useLocalCurrentObjectStackCache();
 	if (v == nullptr) {
 		$throwNew($IllegalArgumentException, "no default HostnameVerifier specified"_s);
 	}

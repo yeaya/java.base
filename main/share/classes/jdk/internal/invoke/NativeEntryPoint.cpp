@@ -76,6 +76,7 @@ void NativeEntryPoint::init$(int32_t shadowSpace, $longs* argMoves, $longs* retu
 
 NativeEntryPoint* NativeEntryPoint::make($String* name, $ABIDescriptorProxy* abi, $VMStorageProxyArray* argMoves, $VMStorageProxyArray* returnMoves, bool needTransition, $MethodType* methodType) {
 	$init(NativeEntryPoint);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(returnMoves)->length > 1) {
 		$throwNew($IllegalArgumentException, "Multiple register return not supported"_s);
 	}

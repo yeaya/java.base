@@ -119,6 +119,7 @@ void TaskQueue::clear() {
 }
 
 void TaskQueue::fixUp(int32_t k) {
+	$useLocalCurrentObjectStackCache();
 	while (k > 1) {
 		int32_t j = k >> 1;
 		if ($nc($nc(this->queue)->get(j))->nextExecutionTime <= $nc($nc(this->queue)->get(k))->nextExecutionTime) {
@@ -132,6 +133,7 @@ void TaskQueue::fixUp(int32_t k) {
 }
 
 void TaskQueue::fixDown(int32_t k) {
+	$useLocalCurrentObjectStackCache();
 	int32_t j = 0;
 	while (true) {
 		bool var$0 = (j = k << 1) <= this->size$;

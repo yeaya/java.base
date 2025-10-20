@@ -903,6 +903,7 @@ $String* Resolver::targetPlatform() {
 }
 
 void Resolver::init$($ModuleFinder* beforeFinder, $List* parents, $ModuleFinder* afterFinder, $PrintStream* traceOutput) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, nameToReference, $new($HashMap));
 	$set(this, beforeFinder, beforeFinder);
 	$set(this, parents, parents);
@@ -928,6 +929,7 @@ void Resolver::init$($ModuleFinder* beforeFinder, $List* parents, $ModuleFinder*
 }
 
 Resolver* Resolver::resolve($Collection* roots) {
+	$useLocalCurrentObjectStackCache();
 	$var($Deque, q, $new($ArrayDeque));
 	{
 		$var($Iterator, i$, $nc(roots)->iterator());
@@ -957,6 +959,7 @@ Resolver* Resolver::resolve($Collection* roots) {
 }
 
 $Set* Resolver::resolve($Deque* q) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, resolved, $new($HashSet));
 	while (!$nc(q)->isEmpty()) {
 		$var($ModuleDescriptor, descriptor, $cast($ModuleDescriptor, q->poll()));
@@ -1014,6 +1017,7 @@ Resolver* Resolver::bind() {
 }
 
 Resolver* Resolver::bind(bool bindIncubatorModules) {
+	$useLocalCurrentObjectStackCache();
 	$var($Map, availableProviders, $new($HashMap));
 	{
 		$var($Iterator, i$, $nc($(findAll()))->iterator());
@@ -1120,12 +1124,14 @@ Resolver* Resolver::bind(bool bindIncubatorModules) {
 }
 
 $Set* Resolver::addFoundAutomaticModules() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, result, $new($HashSet));
 	$nc($(findAll()))->forEach(static_cast<$Consumer*>($$new(Resolver$$Lambda$lambda$addFoundAutomaticModules$2$3, this, result)));
 	return result;
 }
 
 void Resolver::addFoundModule($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, mn, $nc($($nc(mref)->descriptor()))->name());
 	if ($instanceOf($ModuleReferenceImpl, mref)) {
 		$var($ModuleTarget, target, $nc(($cast($ModuleReferenceImpl, mref)))->moduleTarget());
@@ -1137,6 +1143,7 @@ void Resolver::addFoundModule($ModuleReference* mref) {
 }
 
 void Resolver::checkTargetPlatform($String* mn, $ModuleTarget* target) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, value, $nc(target)->targetPlatform());
 	if (value != nullptr) {
 		if (this->targetPlatform$ == nullptr) {
@@ -1160,6 +1167,7 @@ $Map* Resolver::finish($Configuration* cf) {
 }
 
 void Resolver::detectCycles() {
+	$useLocalCurrentObjectStackCache();
 	$set(this, visited, $new($HashSet));
 	$set(this, visitPath, $new($LinkedHashSet));
 	{
@@ -1175,6 +1183,7 @@ void Resolver::detectCycles() {
 }
 
 void Resolver::visit($ModuleDescriptor* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(this->visited)->contains(descriptor)) {
 		bool added = $nc(this->visitPath)->add(descriptor);
 		if (!added) {
@@ -1202,6 +1211,7 @@ void Resolver::visit($ModuleDescriptor* descriptor) {
 }
 
 $String* Resolver::cycleAsString($ModuleDescriptor* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, list, $new($ArrayList, static_cast<$Collection*>(this->visitPath)));
 	list->add(descriptor);
 	int32_t index = list->indexOf(descriptor);
@@ -1209,6 +1219,7 @@ $String* Resolver::cycleAsString($ModuleDescriptor* descriptor) {
 }
 
 void Resolver::checkHashes() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(this->nameToReference)->values()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1267,6 +1278,7 @@ void Resolver::checkHashes() {
 }
 
 $Map* Resolver::makeGraph($Configuration* cf) {
+	$useLocalCurrentObjectStackCache();
 	int32_t capacity = 1 + (4 * $nc(this->nameToReference)->size()) / 3;
 	$var($Map, g1, $new($HashMap, capacity));
 	$var($Map, g2, nullptr);
@@ -1406,6 +1418,7 @@ $ResolvedModule* Resolver::computeIfAbsent($Map* map, $String* name, $Configurat
 }
 
 void Resolver::checkExportSuppliers($Map* graph) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc($($nc(graph)->entrySet()))->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1523,6 +1536,7 @@ void Resolver::checkExportSuppliers($Map* graph) {
 }
 
 void Resolver::failTwoSuppliers($ModuleDescriptor* descriptor, $String* source, $ModuleDescriptor* supplier1$renamed, $ModuleDescriptor* supplier2$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, supplier2, supplier2$renamed);
 	$var($ModuleDescriptor, supplier1, supplier1$renamed);
 	if (supplier2 == descriptor) {
@@ -1549,6 +1563,7 @@ void Resolver::failTwoSuppliers($ModuleDescriptor* descriptor, $String* source, 
 }
 
 $ResolvedModule* Resolver::findInParent($String* mn) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->parents)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1573,6 +1588,7 @@ $ModuleReference* Resolver::findWithAfterFinder($String* mn) {
 }
 
 $Set* Resolver::findAll() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, beforeModules, $nc(this->beforeFinder)->findAll());
 	$var($Set, afterModules, $nc(this->afterFinder)->findAll());
 	if ($nc(afterModules)->isEmpty()) {
@@ -1633,6 +1649,7 @@ void Resolver::trace($String* fmt, $ObjectArray* args) {
 }
 
 $String* Resolver::nameAndInfo($ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, descriptor, $nc(mref)->descriptor());
 	$var($StringBuilder, sb, $new($StringBuilder, $($nc(descriptor)->name())));
 	$nc($(mref->location()))->ifPresent(static_cast<$Consumer*>($$new(Resolver$$Lambda$lambda$nameAndInfo$10$14, sb)));
@@ -1649,6 +1666,7 @@ void Resolver::lambda$nameAndInfo$10($StringBuilder* sb, $URI* uri) {
 
 void Resolver::lambda$makeGraph$9($Set* reads, $Set* requiresTransitive, $ResolvedModule* m) {
 	$init(Resolver);
+	$useLocalCurrentObjectStackCache();
 	$nc(reads)->add(m);
 	if ($nc($($nc($($nc(m)->reference()))->descriptor()))->isAutomatic()) {
 		$nc(requiresTransitive)->add(m);
@@ -1662,11 +1680,13 @@ bool Resolver::lambda$makeGraph$8($ResolvedModule* d) {
 
 $Stream* Resolver::lambda$makeGraph$7($Configuration* c) {
 	$init(Resolver);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc(c)->modules()))->stream()))->flatMap(static_cast<$Function*>($$new(Resolver$$Lambda$lambda$makeGraph$6$15, c)));
 }
 
 $Stream* Resolver::lambda$makeGraph$6($Configuration* c, $ResolvedModule* m1) {
 	$init(Resolver);
+	$useLocalCurrentObjectStackCache();
 	return $nc($($nc($($nc($($nc($($nc($($nc(m1)->descriptor()))->requires()))->stream()))->filter(static_cast<$Predicate*>($$new(Resolver$$Lambda$lambda$makeGraph$3$16)))))->flatMap(static_cast<$Function*>($$new(Resolver$$Lambda$lambda$makeGraph$4$17, c)))))->map(static_cast<$Function*>($$new(Resolver$$Lambda$lambda$makeGraph$5$18, m1)));
 }
 
@@ -1677,6 +1697,7 @@ $Map$Entry* Resolver::lambda$makeGraph$5($ResolvedModule* m1, $ResolvedModule* m
 
 $Stream* Resolver::lambda$makeGraph$4($Configuration* c, $ModuleDescriptor$Requires* r) {
 	$init(Resolver);
+	$useLocalCurrentObjectStackCache();
 	$var($Optional, m2, $nc(c)->findModule($($nc(r)->name())));
 	bool var$0 = !Resolver::$assertionsDisabled;
 	if (var$0) {
@@ -1697,6 +1718,7 @@ bool Resolver::lambda$makeGraph$3($ModuleDescriptor$Requires* r) {
 }
 
 void Resolver::lambda$addFoundAutomaticModules$2($Set* result, $ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, mn, $nc($($nc(mref)->descriptor()))->name());
 	bool var$0 = $nc($(mref->descriptor()))->isAutomatic();
 	if (var$0 && !$nc(this->nameToReference)->containsKey(mn)) {
@@ -1711,6 +1733,7 @@ $Stream* Resolver::lambda$bind$1($Configuration* c) {
 }
 
 void Resolver::lambda$resolve$0($Deque* q, $ModuleDescriptor* descriptor, $ModuleReference* mref) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor, other, $nc(mref)->descriptor());
 	$nc(q)->offer(other);
 	if (isTracing()) {

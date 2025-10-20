@@ -45,6 +45,7 @@ void EOF::init$() {
 }
 
 void EOF::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, buf, $new($bytes, 100));
 	int32_t n = 0;
 	$var($String, dir, $System::getProperty("test.src"_s, "."_s));

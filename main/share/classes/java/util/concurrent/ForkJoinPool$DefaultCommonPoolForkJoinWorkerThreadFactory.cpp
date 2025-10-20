@@ -91,6 +91,7 @@ $ForkJoinWorkerThread* ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory
 }
 
 void clinit$ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 		$init($ForkJoinPool);
 	$assignStatic(ForkJoinPool$DefaultCommonPoolForkJoinWorkerThreadFactory::ACC, $ForkJoinPool::contextWithPermissions($$new($PermissionArray, {
 		static_cast<$Permission*>($ForkJoinPool::modifyThreadPermission),

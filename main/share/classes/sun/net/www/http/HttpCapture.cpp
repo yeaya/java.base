@@ -121,6 +121,7 @@ void HttpCapture::init() {
 	$load(HttpCapture);
 	$synchronized(class$) {
 		$load(HttpCapture);
+		$useLocalCurrentObjectStackCache();
 		$beforeCallerSensitive();
 		$init(HttpCapture);
 		HttpCapture::initialized = true;
@@ -182,6 +183,7 @@ bool HttpCapture::isInitialized() {
 }
 
 void HttpCapture::init$($File* f, $URL* url) {
+	$useLocalCurrentObjectStackCache();
 	this->incoming = true;
 	$set(this, file, f);
 	try {
@@ -222,6 +224,7 @@ void HttpCapture::flush() {
 }
 
 HttpCapture* HttpCapture::getCapture($URL* url) {
+	$useLocalCurrentObjectStackCache();
 	if (!isInitialized()) {
 		init();
 	}

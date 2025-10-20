@@ -73,6 +73,7 @@ void FileMethods::ck($String* op, $File* got, $File* ans) {
 }
 
 void FileMethods::ck($String* op, $File* f, $StringArray* ls, $FileArray* lf) {
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({"--- "_s, op}));
 	int32_t n = $nc(lf)->length;
@@ -90,6 +91,7 @@ void FileMethods::ck($String* op, $File* f, $StringArray* ls, $FileArray* lf) {
 }
 
 void FileMethods::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($File, f, nullptr);
 	$assign(f, $new($File, "foo/bar"_s));
 	$var($String, var$0, "getParentFile"_s);

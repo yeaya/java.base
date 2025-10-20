@@ -67,6 +67,7 @@ void DefaultSSLServerSocketFactory::init$($Exception* reason) {
 }
 
 $ServerSocket* DefaultSSLServerSocketFactory::throwException() {
+	$useLocalCurrentObjectStackCache();
 	$throw($cast($SocketException, $($$new($SocketException, $($nc(this->reason)->toString()))->initCause(this->reason))));
 	$shouldNotReachHere();
 }

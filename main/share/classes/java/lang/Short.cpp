@@ -183,6 +183,7 @@ $String* Short::toString(int16_t s) {
 
 int16_t Short::parseShort($String* s, int32_t radix) {
 	$init(Short);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $Integer::parseInt(s, radix);
 	if (i < Short::MIN_VALUE || i > Short::MAX_VALUE) {
 		$throwNew($NumberFormatException, $$str({"Value out of range. Value:\""_s, s, "\" Radix:"_s, $$str(radix)}));
@@ -206,6 +207,7 @@ Short* Short::valueOf($String* s) {
 }
 
 $Optional* Short::describeConstable() {
+	$useLocalCurrentObjectStackCache();
 	$init($ConstantDescs);
 	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_short, $$new($ConstantDescArray, {$(static_cast<$ConstantDesc*>($Integer::valueOf(intValue())))}))));
 }
@@ -223,6 +225,7 @@ Short* Short::valueOf(int16_t s) {
 
 Short* Short::decode($String* nm) {
 	$init(Short);
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $nc($($Integer::decode(nm)))->intValue();
 	if (i < Short::MIN_VALUE || i > Short::MAX_VALUE) {
 		$throwNew($NumberFormatException, $$str({"Value "_s, $$str(i), " out of range from input "_s, nm}));

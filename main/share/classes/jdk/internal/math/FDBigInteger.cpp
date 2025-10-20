@@ -158,6 +158,7 @@ void FDBigInteger::init$(int64_t lValue, $chars* digits, int32_t kDigits, int32_
 
 FDBigInteger* FDBigInteger::valueOfPow52(int32_t p5, int32_t p2) {
 	$init(FDBigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (p5 != 0) {
 		if (p2 == 0) {
 			return big5pow(p5);
@@ -185,6 +186,7 @@ FDBigInteger* FDBigInteger::valueOfPow52(int32_t p5, int32_t p2) {
 
 FDBigInteger* FDBigInteger::valueOfMulPow52(int64_t value, int32_t p5, int32_t p2) {
 	$init(FDBigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (!FDBigInteger::$assertionsDisabled && !(p5 >= 0)) {
 		$throwNew($AssertionError, p5);
 	}
@@ -292,6 +294,7 @@ void FDBigInteger::leftShift($ints* src, int32_t idx, $ints* result, int32_t bit
 }
 
 FDBigInteger* FDBigInteger::leftShift(int32_t shift) {
+	$useLocalCurrentObjectStackCache();
 	if (shift == 0 || this->nWords == 0) {
 		return this;
 	}
@@ -358,6 +361,7 @@ int32_t FDBigInteger::size() {
 }
 
 int32_t FDBigInteger::quoRemIteration(FDBigInteger* S) {
+	$useLocalCurrentObjectStackCache();
 	if (!FDBigInteger::$assertionsDisabled && ! !this->isImmutable) {
 		$throwNew($AssertionError, $of("cannot modify immutable value"_s));
 	}
@@ -433,6 +437,7 @@ FDBigInteger* FDBigInteger::multBy10() {
 }
 
 FDBigInteger* FDBigInteger::multByPow52(int32_t p5, int32_t p2) {
+	$useLocalCurrentObjectStackCache();
 	if (this->nWords == 0) {
 		return this;
 	}
@@ -469,6 +474,7 @@ void FDBigInteger::mult($ints* s1, int32_t s1Len, $ints* s2, int32_t s2Len, $int
 }
 
 FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
+	$useLocalCurrentObjectStackCache();
 	bool var$0 = !FDBigInteger::$assertionsDisabled;
 	if (var$0) {
 		int32_t var$1 = this->size();
@@ -522,6 +528,7 @@ FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
 }
 
 FDBigInteger* FDBigInteger::rightInplaceSub(FDBigInteger* subtrahend$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var(FDBigInteger, subtrahend, subtrahend$renamed);
 	bool var$0 = !FDBigInteger::$assertionsDisabled;
 	if (var$0) {
@@ -616,6 +623,7 @@ int32_t FDBigInteger::cmp(FDBigInteger* other) {
 }
 
 int32_t FDBigInteger::cmpPow52(int32_t p5, int32_t p2) {
+	$useLocalCurrentObjectStackCache();
 	if (p5 == 0) {
 		int32_t wordcount = p2 >> 5;
 		int32_t bitcount = (int32_t)(p2 & (uint32_t)31);
@@ -636,6 +644,7 @@ int32_t FDBigInteger::cmpPow52(int32_t p5, int32_t p2) {
 }
 
 int32_t FDBigInteger::addAndCmp(FDBigInteger* x, FDBigInteger* y) {
+	$useLocalCurrentObjectStackCache();
 	$var(FDBigInteger, big, nullptr);
 	$var(FDBigInteger, small, nullptr);
 	int32_t xSize = $nc(x)->size();
@@ -731,6 +740,7 @@ FDBigInteger* FDBigInteger::mult(FDBigInteger* other) {
 }
 
 FDBigInteger* FDBigInteger::add(FDBigInteger* other) {
+	$useLocalCurrentObjectStackCache();
 	$var(FDBigInteger, big, nullptr);
 	$var(FDBigInteger, small, nullptr);
 	int32_t bigLen = 0;
@@ -781,6 +791,7 @@ void FDBigInteger::multAddMe(int32_t iv, int32_t addend) {
 }
 
 int64_t FDBigInteger::multDiffMe(int64_t q, FDBigInteger* S) {
+	$useLocalCurrentObjectStackCache();
 	int64_t diff = 0;
 	if (q != 0) {
 		int32_t deltaSize = $nc(S)->offset - this->offset;
@@ -878,6 +889,7 @@ FDBigInteger* FDBigInteger::big5pow(int32_t p) {
 
 FDBigInteger* FDBigInteger::big5powRec(int32_t p) {
 	$init(FDBigInteger);
+	$useLocalCurrentObjectStackCache();
 	if (p < FDBigInteger::MAX_FIVE_POW) {
 		return $nc(FDBigInteger::POW_5_CACHE)->get(p);
 	}
@@ -894,6 +906,7 @@ FDBigInteger* FDBigInteger::big5powRec(int32_t p) {
 }
 
 $String* FDBigInteger::toHexString() {
+	$useLocalCurrentObjectStackCache();
 	if (this->nWords == 0) {
 		return "0"_s;
 	}
@@ -912,6 +925,7 @@ $String* FDBigInteger::toHexString() {
 }
 
 $BigInteger* FDBigInteger::toBigInteger() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, magnitude, $new($bytes, this->nWords * 4 + 1));
 	for (int32_t i = 0; i < this->nWords; ++i) {
 		int32_t w = $nc(this->data)->get(i);
@@ -928,6 +942,7 @@ $String* FDBigInteger::toString() {
 }
 
 void clinit$FDBigInteger($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	FDBigInteger::$assertionsDisabled = !FDBigInteger::class$->desiredAssertionStatus();
 	{
 		$CDS::initializeFromArchive(FDBigInteger::class$);

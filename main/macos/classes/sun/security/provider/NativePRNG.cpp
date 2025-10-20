@@ -103,6 +103,7 @@ $NativePRNG$RandomIO* NativePRNG::INSTANCE = nullptr;
 
 $URL* NativePRNG::getEgdUrl() {
 	$init(NativePRNG);
+	$useLocalCurrentObjectStackCache();
 	$var($String, egdSource, $SunEntries::getSeedSource());
 	$var($URL, egdUrl, nullptr);
 	if ($nc(egdSource)->length() != 0) {

@@ -119,21 +119,25 @@ $AnnotationVisitor* RemappingMethodAdapter::visitAnnotationDefault() {
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitAnnotation($String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitParameterAnnotation(parameter, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 void RemappingMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectArray* local, int32_t numStack, $ObjectArray* stack) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = type;
 	int32_t var$1 = numLocal;
 	$var($ObjectArray, var$2, remapEntries(numLocal, local));
@@ -142,6 +146,7 @@ void RemappingMethodAdapter::visitFrame(int32_t type, int32_t numLocal, $ObjectA
 }
 
 $ObjectArray* RemappingMethodAdapter::remapEntries(int32_t numTypes, $ObjectArray* entries) {
+	$useLocalCurrentObjectStackCache();
 	if (entries == nullptr) {
 		return entries;
 	}
@@ -159,6 +164,7 @@ $ObjectArray* RemappingMethodAdapter::remapEntries(int32_t numTypes, $ObjectArra
 }
 
 void RemappingMethodAdapter::visitFieldInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = opcode;
 	$var($String, var$1, $nc(this->remapper)->mapType(owner));
 	$var($String, var$2, $nc(this->remapper)->mapFieldName(owner, name, descriptor));
@@ -182,6 +188,7 @@ void RemappingMethodAdapter::visitMethodInsn(int32_t opcode, $String* owner, $St
 }
 
 void RemappingMethodAdapter::doVisitMethodInsn(int32_t opcode, $String* owner, $String* name, $String* descriptor, bool isInterface) {
+	$useLocalCurrentObjectStackCache();
 	if (this->mv != nullptr) {
 		int32_t var$0 = opcode;
 		$var($String, var$1, $nc(this->remapper)->mapType(owner));
@@ -191,6 +198,7 @@ void RemappingMethodAdapter::doVisitMethodInsn(int32_t opcode, $String* owner, $
 }
 
 void RemappingMethodAdapter::visitInvokeDynamicInsn($String* name, $String* descriptor, $Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(bootstrapMethodArguments)->length; ++i) {
 		bootstrapMethodArguments->set(i, $($nc(this->remapper)->mapValue(bootstrapMethodArguments->get(i))));
 	}
@@ -212,6 +220,7 @@ void RemappingMethodAdapter::visitMultiANewArrayInsn($String* descriptor, int32_
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitInsnAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
@@ -221,17 +230,20 @@ void RemappingMethodAdapter::visitTryCatchBlock($Label* start, $Label* end, $Lab
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitTryCatchAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 void RemappingMethodAdapter::visitLocalVariable($String* name, $String* descriptor, $String* signature, $Label* start, $Label* end, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, name);
 	$var($String, var$1, $nc(this->remapper)->mapDesc(descriptor));
 	$LocalVariablesSorter::visitLocalVariable(var$0, var$1, $($nc(this->remapper)->mapSignature(signature, true)), start, end, index);
 }
 
 $AnnotationVisitor* RemappingMethodAdapter::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
+	$useLocalCurrentObjectStackCache();
 	$var($AnnotationVisitor, annotationVisitor, $LocalVariablesSorter::visitLocalVariableAnnotation(typeRef, typePath, start, end, index, $($nc(this->remapper)->mapDesc(descriptor)), visible));
 	return annotationVisitor == nullptr ? annotationVisitor : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }

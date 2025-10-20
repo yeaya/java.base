@@ -96,6 +96,7 @@ void SupportedVersionsExtension$SHSupportedVersionsSpec::init$($ProtocolVersion*
 }
 
 void SupportedVersionsExtension$SHSupportedVersionsSpec::init$($HandshakeContext* hc, $ByteBuffer* m) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(m)->remaining() != 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid supported_versions: insufficient data"_s)))));
@@ -106,6 +107,7 @@ void SupportedVersionsExtension$SHSupportedVersionsSpec::init$($HandshakeContext
 }
 
 $String* SupportedVersionsExtension$SHSupportedVersionsSpec::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"selected version\": \'[\'{0}\']\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($ProtocolVersion::nameOf(this->selectedVersion)))}));

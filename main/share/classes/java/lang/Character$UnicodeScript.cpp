@@ -893,6 +893,7 @@ void Character$UnicodeScript::init$($String* $enum$name, int32_t $enum$ordinal) 
 
 Character$UnicodeScript* Character$UnicodeScript::of(int32_t codePoint) {
 	$init(Character$UnicodeScript);
+	$useLocalCurrentObjectStackCache();
 	if (!$Character::isValidCodePoint(codePoint)) {
 		$throwNew($IllegalArgumentException, $($String::format("Not a valid Unicode code point: 0x%X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(codePoint)))}))));
 	}

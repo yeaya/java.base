@@ -452,18 +452,21 @@ $DoubleStream* Stream::mapMultiToDouble($BiConsumer* mapper) {
 }
 
 Stream* Stream::takeWhile($Predicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator, var$0, static_cast<$Spliterator*>($new($WhileOps$UnorderedWhileSpliterator$OfRef$Taking, $(spliterator()), true, predicate)));
 	return $cast(Stream, $nc($($StreamSupport::stream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(Stream$$Lambda$close$4, this))));
 }
 
 Stream* Stream::dropWhile($Predicate* predicate) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(predicate);
 	$var($Spliterator, var$0, static_cast<$Spliterator*>($new($WhileOps$UnorderedWhileSpliterator$OfRef$Dropping, $(spliterator()), true, predicate)));
 	return $cast(Stream, $nc($($StreamSupport::stream(var$0, isParallel())))->onClose(static_cast<$Runnable*>($$new(Stream$$Lambda$close$4, this))));
 }
 
 $List* Stream::toList() {
+	$useLocalCurrentObjectStackCache();
 	return $Collections::unmodifiableList($$new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($(this->toArray()))))));
 }
 
@@ -515,6 +518,7 @@ Stream* Stream::generate($Supplier* s) {
 
 Stream* Stream::concat(Stream* a, Stream* b) {
 	$init(Stream);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(a);
 	$Objects::requireNonNull(b);
 	$var($Spliterator, var$0, a->spliterator());
@@ -526,6 +530,7 @@ Stream* Stream::concat(Stream* a, Stream* b) {
 
 $DoubleStream* Stream::lambda$mapMultiToDouble$3($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfDouble, buffer, $new($SpinedBuffer$OfDouble));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::doubleStream($($cast($Spliterator$OfDouble, buffer->spliterator())), false);
@@ -533,6 +538,7 @@ $DoubleStream* Stream::lambda$mapMultiToDouble$3($BiConsumer* mapper, Object$* e
 
 $LongStream* Stream::lambda$mapMultiToLong$2($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfLong, buffer, $new($SpinedBuffer$OfLong));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::longStream($($cast($Spliterator$OfLong, buffer->spliterator())), false);
@@ -540,6 +546,7 @@ $LongStream* Stream::lambda$mapMultiToLong$2($BiConsumer* mapper, Object$* e) {
 
 $IntStream* Stream::lambda$mapMultiToInt$1($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer$OfInt, buffer, $new($SpinedBuffer$OfInt));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::intStream($($cast($Spliterator$OfInt, buffer->spliterator())), false);
@@ -547,6 +554,7 @@ $IntStream* Stream::lambda$mapMultiToInt$1($BiConsumer* mapper, Object$* e) {
 
 Stream* Stream::lambda$mapMulti$0($BiConsumer* mapper, Object$* e) {
 	$init(Stream);
+	$useLocalCurrentObjectStackCache();
 	$var($SpinedBuffer, buffer, $new($SpinedBuffer));
 	$nc(mapper)->accept(e, buffer);
 	return $StreamSupport::stream($(buffer->spliterator()), false);

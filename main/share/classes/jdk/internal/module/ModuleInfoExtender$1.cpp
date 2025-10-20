@@ -160,6 +160,7 @@ void ModuleInfoExtender$1::init$($ModuleInfoExtender* this$0, int32_t api, $Clas
 }
 
 $ModuleVisitor* ModuleInfoExtender$1::visitModule($String* name, int32_t flags, $String* version) {
+	$useLocalCurrentObjectStackCache();
 	$var($ModuleDescriptor$Version, v, this->this$0->version$);
 	$var($String, vs, (v != nullptr) ? $nc(v)->toString() : version);
 	$var($ModuleVisitor, mv, $ClassVisitor::visitModule(name, flags, vs));

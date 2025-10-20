@@ -186,6 +186,7 @@ int32_t Builder::distance($GeneralNameInterface* base, $GeneralNameInterface* te
 
 int32_t Builder::hops($GeneralNameInterface* base, $GeneralNameInterface* test, int32_t incomparable) {
 	$init(Builder);
+	$useLocalCurrentObjectStackCache();
 	int32_t baseRtest = $nc(base)->constrains(test);
 	switch (baseRtest) {
 	case $GeneralNameInterface::NAME_DIFF_TYPE:
@@ -242,6 +243,7 @@ int32_t Builder::hops($GeneralNameInterface* base, $GeneralNameInterface* test, 
 
 int32_t Builder::targetDistance($NameConstraintsExtension* constraints$renamed, $X509Certificate* cert, $GeneralNameInterface* target) {
 	$init(Builder);
+	$useLocalCurrentObjectStackCache();
 	$var($NameConstraintsExtension, constraints, constraints$renamed);
 	if (constraints != nullptr && !constraints->verify(cert)) {
 		$throwNew($IOException, "certificate does not satisfy existing name constraints"_s);
@@ -331,6 +333,7 @@ $Set* Builder::getMatchingPolicies() {
 }
 
 bool Builder::addMatchingCerts($X509CertSelector* selector, $Collection* certStores, $Collection* resultCerts, bool checkAll) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, targetCert, $nc(selector)->getCertificate());
 	if (targetCert != nullptr) {
 		bool var$0 = selector->match(targetCert);

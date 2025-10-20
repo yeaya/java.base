@@ -263,6 +263,7 @@ void OutputRecord::setDeliverStream($OutputStream* outputStream) {
 }
 
 void OutputRecord::changeWriteCiphers($SSLCipher$SSLWriteCipher* writeCipher, bool useChangeCipherSpec) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -297,6 +298,7 @@ void OutputRecord::changeWriteCiphers($SSLCipher$SSLWriteCipher* writeCipher, bo
 }
 
 void OutputRecord::changeWriteCiphers($SSLCipher$SSLWriteCipher* writeCipher, int8_t keyUpdateRequest) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->recordLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -541,6 +543,7 @@ int64_t OutputRecord::encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t conte
 }
 
 int64_t OutputRecord::t13Encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t contentType, int32_t headerSize) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(encCipher)->isNullCipher()) {
 		write((int32_t)contentType);
 		$init($OutputRecord$T13PaddingHolder);
@@ -576,6 +579,7 @@ int64_t OutputRecord::t13Encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t co
 }
 
 int64_t OutputRecord::t10Encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t contentType, int32_t headerSize) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, sequenceNumber, $nc($nc(encCipher)->authenticator)->sequenceNumber());
 	int32_t position = headerSize + $nc(this->writeCipher)->getExplicitNonceSize();
 	int32_t contentLen = this->count - position;
@@ -598,6 +602,7 @@ int64_t OutputRecord::t10Encrypt($SSLCipher$SSLWriteCipher* encCipher, int8_t co
 
 $ByteBuffer* OutputRecord::encodeV2ClientHello($bytes* fragment, int32_t offset, int32_t length) {
 	$init(OutputRecord);
+	$useLocalCurrentObjectStackCache();
 	int32_t v3SessIdLenOffset = offset + 34;
 	int32_t v3SessIdLen = $nc(fragment)->get(v3SessIdLenOffset);
 	int32_t v3CSLenOffset = v3SessIdLenOffset + 1 + v3SessIdLen;

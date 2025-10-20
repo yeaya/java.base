@@ -293,6 +293,7 @@ ByteBuffer* ByteBuffer::get(int32_t index, $bytes* dst) {
 }
 
 ByteBuffer* ByteBuffer::getArray(int32_t index, $bytes* dst, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (((int64_t)length << 0) > $Bits::JNI_COPY_TO_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 0);
 		int64_t dstOffset = ByteBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 0);
@@ -358,6 +359,7 @@ ByteBuffer* ByteBuffer::put(int32_t index, ByteBuffer* src, int32_t offset, int3
 }
 
 void ByteBuffer::putBuffer(int32_t pos, ByteBuffer* src, int32_t srcPos, int32_t n) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, srcBase, $nc(src)->base());
 	if (!ByteBuffer::$assertionsDisabled && !(srcBase != nullptr || src->isDirect())) {
 		$throwNew($AssertionError);
@@ -420,6 +422,7 @@ ByteBuffer* ByteBuffer::put(int32_t index, $bytes* src) {
 }
 
 ByteBuffer* ByteBuffer::putArray(int32_t index, $bytes* src, int32_t offset, int32_t length) {
+	$useLocalCurrentObjectStackCache();
 	if (((int64_t)length << 0) > $Bits::JNI_COPY_FROM_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 0);
 		int64_t srcOffset = ByteBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 0);
@@ -514,6 +517,7 @@ ByteBuffer* ByteBuffer::rewind() {
 }
 
 $String* ByteBuffer::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append("[pos="_s);
@@ -601,6 +605,7 @@ ByteBuffer* ByteBuffer::order($ByteOrder* bo) {
 }
 
 int32_t ByteBuffer::alignmentOffset(int32_t index, int32_t unitSize) {
+	$useLocalCurrentObjectStackCache();
 	if (index < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Index less than zero: "_s, $$str(index)}));
 	}

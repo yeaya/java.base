@@ -93,6 +93,7 @@ void Authenticator$MacImpl::init$($Authenticator* this$0) {
 }
 
 void Authenticator$MacImpl::init$($Authenticator* this$0, $ProtocolVersion* protocolVersion, $CipherSuite$MacAlg* macAlg, $SecretKey* key) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	if (macAlg == nullptr) {
 		$throwNew($RuntimeException, "Null MacAlg"_s);

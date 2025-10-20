@@ -993,6 +993,7 @@ $LocaleServiceProvider* JRELocaleProviderAdapter::getLocaleServiceProvider($Clas
 }
 
 $BreakIteratorProvider* JRELocaleProviderAdapter::getBreakIteratorProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->breakIteratorProvider == nullptr) {
 		$var($BreakIteratorProvider, provider, $cast($BreakIteratorProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getBreakIteratorProvider$0, this)))));
@@ -1006,6 +1007,7 @@ $BreakIteratorProvider* JRELocaleProviderAdapter::getBreakIteratorProvider() {
 }
 
 $CollatorProvider* JRELocaleProviderAdapter::getCollatorProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->collatorProvider == nullptr) {
 		$var($CollatorProvider, provider, $cast($CollatorProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getCollatorProvider$1$1, this)))));
@@ -1019,6 +1021,7 @@ $CollatorProvider* JRELocaleProviderAdapter::getCollatorProvider() {
 }
 
 $DateFormatProvider* JRELocaleProviderAdapter::getDateFormatProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->dateFormatProvider == nullptr) {
 		$var($DateFormatProvider, provider, $cast($DateFormatProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatProvider$2$2, this)))));
@@ -1032,6 +1035,7 @@ $DateFormatProvider* JRELocaleProviderAdapter::getDateFormatProvider() {
 }
 
 $DateFormatSymbolsProvider* JRELocaleProviderAdapter::getDateFormatSymbolsProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->dateFormatSymbolsProvider == nullptr) {
 		$var($DateFormatSymbolsProvider, provider, $cast($DateFormatSymbolsProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getDateFormatSymbolsProvider$3$3, this)))));
@@ -1045,6 +1049,7 @@ $DateFormatSymbolsProvider* JRELocaleProviderAdapter::getDateFormatSymbolsProvid
 }
 
 $DecimalFormatSymbolsProvider* JRELocaleProviderAdapter::getDecimalFormatSymbolsProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->decimalFormatSymbolsProvider == nullptr) {
 		$var($DecimalFormatSymbolsProvider, provider, $cast($DecimalFormatSymbolsProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getDecimalFormatSymbolsProvider$4$4, this)))));
@@ -1058,6 +1063,7 @@ $DecimalFormatSymbolsProvider* JRELocaleProviderAdapter::getDecimalFormatSymbols
 }
 
 $NumberFormatProvider* JRELocaleProviderAdapter::getNumberFormatProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->numberFormatProvider == nullptr) {
 		$var($NumberFormatProvider, provider, $cast($NumberFormatProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getNumberFormatProvider$5$5, this)))));
@@ -1071,6 +1077,7 @@ $NumberFormatProvider* JRELocaleProviderAdapter::getNumberFormatProvider() {
 }
 
 $CurrencyNameProvider* JRELocaleProviderAdapter::getCurrencyNameProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->currencyNameProvider == nullptr) {
 		$var($CurrencyNameProvider, provider, $cast($CurrencyNameProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getCurrencyNameProvider$6$6, this)))));
@@ -1084,6 +1091,7 @@ $CurrencyNameProvider* JRELocaleProviderAdapter::getCurrencyNameProvider() {
 }
 
 $LocaleNameProvider* JRELocaleProviderAdapter::getLocaleNameProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->localeNameProvider == nullptr) {
 		$var($LocaleNameProvider, provider, $cast($LocaleNameProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getLocaleNameProvider$7$7, this)))));
@@ -1097,6 +1105,7 @@ $LocaleNameProvider* JRELocaleProviderAdapter::getLocaleNameProvider() {
 }
 
 $TimeZoneNameProvider* JRELocaleProviderAdapter::getTimeZoneNameProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->timeZoneNameProvider == nullptr) {
 		$var($TimeZoneNameProvider, provider, $cast($TimeZoneNameProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getTimeZoneNameProvider$8$8, this)))));
@@ -1110,6 +1119,7 @@ $TimeZoneNameProvider* JRELocaleProviderAdapter::getTimeZoneNameProvider() {
 }
 
 $CalendarDataProvider* JRELocaleProviderAdapter::getCalendarDataProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->calendarDataProvider == nullptr) {
 		$var($CalendarDataProvider, provider, $cast($CalendarDataProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarDataProvider$9$9, this)))));
@@ -1123,6 +1133,7 @@ $CalendarDataProvider* JRELocaleProviderAdapter::getCalendarDataProvider() {
 }
 
 $CalendarNameProvider* JRELocaleProviderAdapter::getCalendarNameProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->calendarNameProvider == nullptr) {
 		$var($CalendarNameProvider, provider, $cast($CalendarNameProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarNameProvider$10$10, this)))));
@@ -1136,6 +1147,7 @@ $CalendarNameProvider* JRELocaleProviderAdapter::getCalendarNameProvider() {
 }
 
 $CalendarProvider* JRELocaleProviderAdapter::getCalendarProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->calendarProvider == nullptr) {
 		$var($CalendarProvider, provider, $cast($CalendarProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getCalendarProvider$11$11, this)))));
@@ -1149,6 +1161,7 @@ $CalendarProvider* JRELocaleProviderAdapter::getCalendarProvider() {
 }
 
 $JavaTimeDateTimePatternProvider* JRELocaleProviderAdapter::getJavaTimeDateTimePatternProvider() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->javaTimeDateTimePatternProvider == nullptr) {
 		$var($JavaTimeDateTimePatternProvider, provider, $cast($JavaTimeDateTimePatternProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(JRELocaleProviderAdapter$$Lambda$lambda$getJavaTimeDateTimePatternProvider$12$12, this)))));
@@ -1162,6 +1175,7 @@ $JavaTimeDateTimePatternProvider* JRELocaleProviderAdapter::getJavaTimeDateTimeP
 }
 
 $LocaleResources* JRELocaleProviderAdapter::getLocaleResources($Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleResources, lr, $cast($LocaleResources, $nc(this->localeResourcesMap)->get(locale)));
 	if (lr == nullptr) {
 		$assign(lr, $new($LocaleResources, this, locale));
@@ -1195,6 +1209,7 @@ $LocaleArray* JRELocaleProviderAdapter::getAvailableLocales() {
 }
 
 $Set* JRELocaleProviderAdapter::getLanguageTagSet($String* category) {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, tagset, $cast($Set, $nc(this->langtagSets)->get(category)));
 	if (tagset == nullptr) {
 		$assign(tagset, createLanguageTagSet(category));
@@ -1207,6 +1222,7 @@ $Set* JRELocaleProviderAdapter::getLanguageTagSet($String* category) {
 }
 
 $Set* JRELocaleProviderAdapter::createLanguageTagSet($String* category) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, supportedLocaleString, createSupportedLocaleString(category));
 	if (supportedLocaleString == nullptr) {
 		return $Collections::emptySet();
@@ -1221,6 +1237,7 @@ $Set* JRELocaleProviderAdapter::createLanguageTagSet($String* category) {
 
 $String* JRELocaleProviderAdapter::createSupportedLocaleString($String* category) {
 	$init(JRELocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, supportedLocaleString, $BaseLocaleDataMetaInfo::getSupportedLocaleString(category));
 	try {
@@ -1237,6 +1254,7 @@ $String* JRELocaleProviderAdapter::createSupportedLocaleString($String* category
 
 $LocaleArray* JRELocaleProviderAdapter::createAvailableLocales() {
 	$init(JRELocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$var($String, supportedLocaleString, createSupportedLocaleString("AvailableLocales"_s));
 	if ($nc(supportedLocaleString)->isEmpty()) {
 		$throwNew($InternalError, "No available locales for JRE"_s);
@@ -1304,6 +1322,7 @@ $LocaleArray* JRELocaleProviderAdapter::createAvailableLocales() {
 }
 
 bool JRELocaleProviderAdapter::isSupportedProviderLocale($Locale* locale$renamed, $Set* langtags) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$init($Locale);
 	if ($nc($Locale::ROOT)->equals(locale)) {
@@ -1322,6 +1341,7 @@ bool JRELocaleProviderAdapter::isSupportedProviderLocale($Locale* locale$renamed
 
 $String* JRELocaleProviderAdapter::lambda$createSupportedLocaleString$13($String* category) {
 	$init(JRELocaleProviderAdapter);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($StringBuilder, tags, $new($StringBuilder));
 	{
@@ -1347,66 +1367,79 @@ $String* JRELocaleProviderAdapter::lambda$createSupportedLocaleString$13($String
 }
 
 $JavaTimeDateTimePatternProvider* JRELocaleProviderAdapter::lambda$getJavaTimeDateTimePatternProvider$12() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($JavaTimeDateTimePatternImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $CalendarProvider* JRELocaleProviderAdapter::lambda$getCalendarProvider$11() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CalendarProviderImpl, var$0, $(getLanguageTagSet("CalendarData"_s)));
 }
 
 $CalendarNameProvider* JRELocaleProviderAdapter::lambda$getCalendarNameProvider$10() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CalendarNameProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $CalendarDataProvider* JRELocaleProviderAdapter::lambda$getCalendarDataProvider$9() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CalendarDataProviderImpl, var$0, $(getLanguageTagSet("CalendarData"_s)));
 }
 
 $TimeZoneNameProvider* JRELocaleProviderAdapter::lambda$getTimeZoneNameProvider$8() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($TimeZoneNameProviderImpl, var$0, $(getLanguageTagSet("TimeZoneNames"_s)));
 }
 
 $LocaleNameProvider* JRELocaleProviderAdapter::lambda$getLocaleNameProvider$7() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($LocaleNameProviderImpl, var$0, $(getLanguageTagSet("LocaleNames"_s)));
 }
 
 $CurrencyNameProvider* JRELocaleProviderAdapter::lambda$getCurrencyNameProvider$6() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CurrencyNameProviderImpl, var$0, $(getLanguageTagSet("CurrencyNames"_s)));
 }
 
 $NumberFormatProvider* JRELocaleProviderAdapter::lambda$getNumberFormatProvider$5() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($NumberFormatProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $DecimalFormatSymbolsProvider* JRELocaleProviderAdapter::lambda$getDecimalFormatSymbolsProvider$4() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($DecimalFormatSymbolsProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $DateFormatSymbolsProvider* JRELocaleProviderAdapter::lambda$getDateFormatSymbolsProvider$3() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($DateFormatSymbolsProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $DateFormatProvider* JRELocaleProviderAdapter::lambda$getDateFormatProvider$2() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($DateFormatProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }
 
 $CollatorProvider* JRELocaleProviderAdapter::lambda$getCollatorProvider$1() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($CollatorProviderImpl, var$0, $(getLanguageTagSet("CollationData"_s)));
 }
 
 $BreakIteratorProvider* JRELocaleProviderAdapter::lambda$getBreakIteratorProvider$0() {
+	$useLocalCurrentObjectStackCache();
 	$var($LocaleProviderAdapter$Type, var$0, getAdapterType());
 	return $new($BreakIteratorProviderImpl, var$0, $(getLanguageTagSet("FormatData"_s)));
 }

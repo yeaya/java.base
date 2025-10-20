@@ -108,6 +108,7 @@ void Poly1305::init$() {
 }
 
 void Poly1305::engineInit($Key* newKey, $AlgorithmParameterSpec* params) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull($of(newKey), "Null key provided during init"_s);
 	$set(this, keyBytes, $nc(newKey)->getEncoded());
 	if (this->keyBytes == nullptr) {

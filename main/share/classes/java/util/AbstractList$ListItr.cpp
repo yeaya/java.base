@@ -136,6 +136,7 @@ bool AbstractList$ListItr::hasPrevious() {
 }
 
 $Object* AbstractList$ListItr::previous() {
+	$useLocalCurrentObjectStackCache();
 	checkForComodification();
 	try {
 		int32_t i = this->cursor - 1;

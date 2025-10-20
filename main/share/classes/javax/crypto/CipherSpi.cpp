@@ -84,6 +84,7 @@ void CipherSpi::init$() {
 }
 
 int32_t CipherSpi::engineUpdate($ByteBuffer* input, $ByteBuffer* output) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return bufferCrypt(input, output, true);
 	} catch ($IllegalBlockSizeException&) {
@@ -105,6 +106,7 @@ int32_t CipherSpi::getTempArraySize(int32_t totalSize) {
 }
 
 int32_t CipherSpi::bufferCrypt($ByteBuffer* input, $ByteBuffer* output, bool isUpdate) {
+	$useLocalCurrentObjectStackCache();
 	if ((input == nullptr) || (output == nullptr)) {
 		$throwNew($NullPointerException, "Input and output buffers must not be null"_s);
 	}

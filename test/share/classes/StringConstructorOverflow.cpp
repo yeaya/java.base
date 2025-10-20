@@ -60,6 +60,7 @@ $String* StringConstructorOverflow::makeLongHexString() {
 }
 
 void StringConstructorOverflow::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($BigInteger, bi, $new($BigInteger, $(makeLongHexString()), 16));
 		$init($BigInteger);

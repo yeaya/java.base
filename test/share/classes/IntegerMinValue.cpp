@@ -45,6 +45,7 @@ void IntegerMinValue::init$() {
 }
 
 void IntegerMinValue::test() {
+	$useLocalCurrentObjectStackCache();
 	int32_t i = $Integer::MIN_VALUE;
 	$var($String, s, $str({""_s, $$str(i)}));
 	if (!"-2147483648"_s->equals(s)) {

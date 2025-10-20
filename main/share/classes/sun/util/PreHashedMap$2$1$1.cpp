@@ -102,6 +102,7 @@ int32_t PreHashedMap$2$1$1::hashCode() {
 }
 
 bool PreHashedMap$2$1$1::equals(Object$* ob) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(ob, this)) {
 		return true;
 	}

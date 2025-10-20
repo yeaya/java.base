@@ -150,10 +150,12 @@ $String* CertException::getVerfDescription() {
 }
 
 $String* CertException::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $str({"[Certificate Exception: "_s, $(getMessage()), $$str(u']')});
 }
 
 $String* CertException::getMessage() {
+	$useLocalCurrentObjectStackCache();
 	return $str({$(getVerfDescription()), ((this->moreData != nullptr) ? ($$str({"\n  ("_s, this->moreData, $$str(u')')})) : ""_s)});
 }
 

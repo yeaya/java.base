@@ -65,6 +65,7 @@ void Exceptions4getDeclaredField::init$() {
 }
 
 void Exceptions4getDeclaredField::test($String* s, $Class* ex) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Throwable, t, nullptr);
 	try {

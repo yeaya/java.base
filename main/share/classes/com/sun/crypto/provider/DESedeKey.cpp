@@ -145,6 +145,7 @@ void DESedeKey::init$($bytes* key) {
 }
 
 void DESedeKey::init$($bytes* key, int32_t offset) {
+	$useLocalCurrentObjectStackCache();
 	if (key == nullptr || (($nc(key)->length - offset) < $DESedeKeySpec::DES_EDE_KEY_LEN)) {
 		$throwNew($InvalidKeyException, "Wrong key size"_s);
 	}
@@ -180,6 +181,7 @@ int32_t DESedeKey::hashCode() {
 }
 
 bool DESedeKey::equals(Object$* obj) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -203,6 +205,7 @@ void DESedeKey::readObject($ObjectInputStream* s) {
 }
 
 $Object* DESedeKey::writeReplace() {
+	$useLocalCurrentObjectStackCache();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::SECRET);
 	$var($String, var$1, getAlgorithm());

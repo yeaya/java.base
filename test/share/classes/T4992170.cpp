@@ -46,6 +46,7 @@ void T4992170::init$() {
 
 void T4992170::main($StringArray* args) {
 	$load(T4992170);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Type, t, $nc($($nc($of($$new($A_0)->o))->getClass()->getField("t"_s)))->getGenericType());
 	if (!($instanceOf($TypeVariable, t))) {

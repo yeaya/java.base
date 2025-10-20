@@ -134,6 +134,7 @@ void AnnotatedTypeFactory$AnnotatedArrayTypeImpl::init$($Type* type, $TypeAnnota
 }
 
 $AnnotatedType* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getAnnotatedGenericComponentType() {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, t, getComponentType());
 	$var($Type, var$0, t);
 	$var($TypeAnnotation$LocationInfo, var$1, $AnnotatedTypeFactory::nestingForType(t, $($nc($(getLocation()))->pushArray())));
@@ -156,6 +157,7 @@ $Type* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getComponentType() {
 }
 
 $String* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($AnnotatedType, componentType, static_cast<$AnnotatedType*>(static_cast<$AnnotatedTypeFactory$AnnotatedTypeBaseImpl*>(this)));
 	while ($instanceOf($AnnotatedArrayType, componentType)) {
@@ -168,6 +170,7 @@ $String* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::toString() {
 }
 
 bool AnnotatedTypeFactory$AnnotatedArrayTypeImpl::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($instanceOf($AnnotatedArrayType, o)) {
 		$var($AnnotatedArrayType, that, $cast($AnnotatedArrayType, o));
 		bool var$0 = equalsTypeAndAnnotations(that);

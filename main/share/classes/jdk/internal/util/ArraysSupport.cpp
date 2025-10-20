@@ -523,6 +523,7 @@ int32_t ArraysSupport::newLength(int32_t oldLength, int32_t minGrowth, int32_t p
 
 int32_t ArraysSupport::hugeLength(int32_t oldLength, int32_t minGrowth) {
 	$init(ArraysSupport);
+	$useLocalCurrentObjectStackCache();
 	int32_t minLength = oldLength + minGrowth;
 	if (minLength < 0) {
 		$throwNew($OutOfMemoryError, $$str({"Required array length "_s, $$str(oldLength), " + "_s, $$str(minGrowth), " is too large"_s}));

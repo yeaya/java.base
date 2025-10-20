@@ -114,12 +114,14 @@ void ClassDesc::finalize() {
 
 ClassDesc* ClassDesc::of($String* name) {
 	$init(ClassDesc);
+	$useLocalCurrentObjectStackCache();
 	$ConstantUtils::validateBinaryClassName($cast($String, $Objects::requireNonNull(name)));
 	return ClassDesc::ofDescriptor($$str({"L"_s, $($ConstantUtils::binaryToInternal(name)), ";"_s}));
 }
 
 ClassDesc* ClassDesc::of($String* packageName, $String* className) {
 	$init(ClassDesc);
+	$useLocalCurrentObjectStackCache();
 	$ConstantUtils::validateBinaryClassName($cast($String, $Objects::requireNonNull(packageName)));
 	if ($nc(packageName)->isEmpty()) {
 		return of(className);
@@ -133,6 +135,7 @@ ClassDesc* ClassDesc::of($String* packageName, $String* className) {
 
 ClassDesc* ClassDesc::ofDescriptor($String* descriptor) {
 	$init(ClassDesc);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(descriptor);
 	if (descriptor->isEmpty()) {
 		$throwNew($IllegalArgumentException, $$str({"not a valid reference type descriptor: "_s, descriptor}));
@@ -145,6 +148,7 @@ ClassDesc* ClassDesc::ofDescriptor($String* descriptor) {
 }
 
 $TypeDescriptor$OfField* ClassDesc::arrayType() {
+	$useLocalCurrentObjectStackCache();
 	int32_t depth = $ConstantUtils::arrayDepth($(descriptorString()));
 	if (depth >= $ConstantUtils::MAX_ARRAY_TYPE_DESC_DIMENSIONS) {
 		$throwNew($IllegalStateException, $$str({"Cannot create an array type descriptor with more than "_s, $$str($ConstantUtils::MAX_ARRAY_TYPE_DESC_DIMENSIONS), " dimensions"_s}));
@@ -153,6 +157,7 @@ $TypeDescriptor$OfField* ClassDesc::arrayType() {
 }
 
 ClassDesc* ClassDesc::arrayType(int32_t rank) {
+	$useLocalCurrentObjectStackCache();
 	int32_t currentDepth = $ConstantUtils::arrayDepth($(descriptorString()));
 	if (rank <= 0 || currentDepth + rank > $ConstantUtils::MAX_ARRAY_TYPE_DESC_DIMENSIONS) {
 		$throwNew($IllegalArgumentException, $$str({"rank: "_s, $$str(currentDepth), $$str(rank)}));
@@ -162,6 +167,7 @@ ClassDesc* ClassDesc::arrayType(int32_t rank) {
 }
 
 ClassDesc* ClassDesc::nested($String* nestedName) {
+	$useLocalCurrentObjectStackCache();
 	$ConstantUtils::validateMemberName(nestedName, false);
 	if (!isClassOrInterface()) {
 		$throwNew($IllegalStateException, "Outer class is not a class or interface type"_s);
@@ -170,6 +176,7 @@ ClassDesc* ClassDesc::nested($String* nestedName) {
 }
 
 ClassDesc* ClassDesc::nested($String* firstNestedName, $StringArray* moreNestedNames) {
+	$useLocalCurrentObjectStackCache();
 	if (!isClassOrInterface()) {
 		$throwNew($IllegalStateException, "Outer class is not a class or interface type"_s);
 	}
@@ -202,10 +209,12 @@ bool ClassDesc::isClassOrInterface() {
 }
 
 $TypeDescriptor$OfField* ClassDesc::componentType() {
+	$useLocalCurrentObjectStackCache();
 	return (isArray() ? ClassDesc::ofDescriptor($($nc($(descriptorString()))->substring(1))) : (ClassDesc*)nullptr);
 }
 
 $String* ClassDesc::packageName() {
+	$useLocalCurrentObjectStackCache();
 	if (!isClassOrInterface()) {
 		return ""_s;
 	}
@@ -215,6 +224,7 @@ $String* ClassDesc::packageName() {
 }
 
 $String* ClassDesc::displayName() {
+	$useLocalCurrentObjectStackCache();
 	if (isPrimitive()) {
 		return $nc($($Wrapper::forBasicType($nc($(descriptorString()))->charAt(0))))->primitiveSimpleName();
 	} else if (isClassOrInterface()) {

@@ -85,6 +85,7 @@ void BootstrapLogger$BootstrapExecutors$1::init$($BootstrapLogger$BootstrapExecu
 }
 
 $Object* BootstrapLogger$BootstrapExecutors$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $InnocuousThread::newThread($$new($BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask, this->val$owner, this->val$r)));
 	$nc(t)->setName($$str({"BootstrapMessageLoggerTask-"_s, $(t->getName())}));
 	return $of(t);

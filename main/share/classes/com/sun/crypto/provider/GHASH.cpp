@@ -161,6 +161,7 @@ void GHASH::blockMult($longs* st, $longs* subH) {
 }
 
 void GHASH::init$($bytes* subkeyH) {
+	$useLocalCurrentObjectStackCache();
 	if ((subkeyH == nullptr) || $nc(subkeyH)->length != GHASH::AES_BLOCK_SIZE) {
 		$throwNew($ProviderException, "Internal error"_s);
 	}
@@ -181,6 +182,7 @@ $Object* GHASH::clone() {
 
 void GHASH::processBlock($bytes* data, int32_t ofs, $longs* st, $longs* subH) {
 	$init(GHASH);
+	$useLocalCurrentObjectStackCache();
 	(*$nc(st))[0] ^= $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {$of(data), $$of(ofs)})));
 	(*st)[1] ^= $longValue($nc(GHASH::asLongView)->get($$new($ObjectArray, {$of(data), $$of((ofs + 8))})));
 	blockMult(st, subH);
@@ -201,6 +203,7 @@ int32_t GHASH::update($bytes* in, int32_t inOfs, int32_t inLen) {
 }
 
 int32_t GHASH::update($ByteBuffer* ct, int32_t inLen) {
+	$useLocalCurrentObjectStackCache();
 	inLen -= ($mod(inLen, GHASH::AES_BLOCK_SIZE));
 	if (inLen == 0) {
 		return 0;
@@ -255,6 +258,7 @@ int32_t GHASH::doFinal($bytes* in, int32_t inOfs, int32_t inLen) {
 
 void GHASH::ghashRangeCheck($bytes* in, int32_t inOfs, int32_t inLen, $longs* st, $longs* subH) {
 	$init(GHASH);
+	$useLocalCurrentObjectStackCache();
 	if (inLen < 0) {
 		$throwNew($RuntimeException, $$str({"invalid input length: "_s, $$str(inLen)}));
 	}
@@ -300,6 +304,7 @@ void GHASH::processBlocksDirect($ByteBuffer* ct, int32_t inLen) {
 }
 
 $bytes* GHASH::digest() {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, result, $new($bytes, GHASH::AES_BLOCK_SIZE));
 	$nc(GHASH::asLongView)->set($$new($ObjectArray, {$of(result), $$of(0), $$of($nc(this->state)->get(0))}));
 	$nc(GHASH::asLongView)->set($$new($ObjectArray, {$of(result), $$of(8), $$of($nc(this->state)->get(1))}));

@@ -214,6 +214,7 @@ void BitSet::init$() {
 }
 
 void BitSet::init$(int32_t nbits) {
+	$useLocalCurrentObjectStackCache();
 	this->wordsInUse = 0;
 	this->sizeIsSticky = false;
 	if (nbits < 0) {
@@ -245,6 +246,7 @@ BitSet* BitSet::valueOf($longs* longs) {
 
 BitSet* BitSet::valueOf($LongBuffer* lb$renamed) {
 	$init(BitSet);
+	$useLocalCurrentObjectStackCache();
 	$var($LongBuffer, lb, lb$renamed);
 	$assign(lb, $nc(lb)->slice());
 	int32_t n = 0;
@@ -262,6 +264,7 @@ BitSet* BitSet::valueOf($bytes* bytes) {
 
 BitSet* BitSet::valueOf($ByteBuffer* bb$renamed) {
 	$init(BitSet);
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, bb, bb$renamed);
 	$init($ByteOrder);
 	$assign(bb, $nc($($nc(bb)->slice()))->order($ByteOrder::LITTLE_ENDIAN));
@@ -285,6 +288,7 @@ BitSet* BitSet::valueOf($ByteBuffer* bb$renamed) {
 }
 
 $bytes* BitSet::toByteArray() {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = this->wordsInUse;
 	if (n == 0) {
 		return $new($bytes, 0);
@@ -327,6 +331,7 @@ void BitSet::expandTo(int32_t wordIndex) {
 
 void BitSet::checkRange(int32_t fromIndex, int32_t toIndex) {
 	$init(BitSet);
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex < 0: "_s, $$str(fromIndex)}));
 	}
@@ -339,6 +344,7 @@ void BitSet::checkRange(int32_t fromIndex, int32_t toIndex) {
 }
 
 void BitSet::flip(int32_t bitIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (bitIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"bitIndex < 0: "_s, $$str(bitIndex)}));
 	}
@@ -373,6 +379,7 @@ void BitSet::flip(int32_t fromIndex, int32_t toIndex) {
 }
 
 void BitSet::set(int32_t bitIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (bitIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"bitIndex < 0: "_s, $$str(bitIndex)}));
 	}
@@ -421,6 +428,7 @@ void BitSet::set(int32_t fromIndex, int32_t toIndex, bool value) {
 }
 
 void BitSet::clear(int32_t bitIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (bitIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"bitIndex < 0: "_s, $$str(bitIndex)}));
 	}
@@ -469,6 +477,7 @@ void BitSet::clear() {
 }
 
 bool BitSet::get(int32_t bitIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (bitIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"bitIndex < 0: "_s, $$str(bitIndex)}));
 	}
@@ -503,6 +512,7 @@ BitSet* BitSet::get(int32_t fromIndex, int32_t toIndex) {
 }
 
 int32_t BitSet::nextSetBit(int32_t fromIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex < 0: "_s, $$str(fromIndex)}));
 	}
@@ -524,6 +534,7 @@ int32_t BitSet::nextSetBit(int32_t fromIndex) {
 }
 
 int32_t BitSet::nextClearBit(int32_t fromIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex < 0: "_s, $$str(fromIndex)}));
 	}
@@ -545,6 +556,7 @@ int32_t BitSet::nextClearBit(int32_t fromIndex) {
 }
 
 int32_t BitSet::previousSetBit(int32_t fromIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		if (fromIndex == -1) {
 			return -1;
@@ -569,6 +581,7 @@ int32_t BitSet::previousSetBit(int32_t fromIndex) {
 }
 
 int32_t BitSet::previousClearBit(int32_t fromIndex) {
+	$useLocalCurrentObjectStackCache();
 	if (fromIndex < 0) {
 		if (fromIndex == -1) {
 			return -1;
@@ -715,6 +728,7 @@ bool BitSet::equals(Object$* obj) {
 }
 
 $Object* BitSet::clone() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->sizeIsSticky) {
 		trimToSize();
 	}

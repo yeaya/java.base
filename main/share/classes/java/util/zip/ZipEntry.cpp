@@ -202,6 +202,7 @@ int64_t ZipEntry::getTime() {
 }
 
 void ZipEntry::setTimeLocal($LocalDateTime* time) {
+	$useLocalCurrentObjectStackCache();
 	int32_t year = $nc(time)->getYear() - 1980;
 	if (year < 0) {
 		this->xdostime = ZipEntry::DOSTIME_BEFORE_1980;
@@ -223,6 +224,7 @@ void ZipEntry::setTimeLocal($LocalDateTime* time) {
 }
 
 $LocalDateTime* ZipEntry::getTimeLocal() {
+	$useLocalCurrentObjectStackCache();
 	if (this->mtime != nullptr) {
 		$var($Instant, var$0, $nc(this->mtime)->toInstant());
 		return $LocalDateTime::ofInstant(var$0, $($ZoneId::systemDefault()));
@@ -435,6 +437,7 @@ int32_t ZipEntry::hashCode() {
 }
 
 $Object* ZipEntry::clone() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var(ZipEntry, e, $cast(ZipEntry, $ZipConstants::clone()));
 		$set($nc(e), extra, (this->extra == nullptr) ? ($bytes*)nullptr : $cast($bytes, $nc(this->extra)->clone()));

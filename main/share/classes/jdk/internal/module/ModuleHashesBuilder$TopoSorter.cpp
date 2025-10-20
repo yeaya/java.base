@@ -161,6 +161,7 @@ void ModuleHashesBuilder$TopoSorter::reverse($Consumer* action) {
 }
 
 void ModuleHashesBuilder$TopoSorter::sort() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, visited, $new($HashSet));
 	$var($Deque, stack, $new($ArrayDeque));
 	$nc($nc(this->graph)->nodes$)->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0, this, visited, stack)));
@@ -171,6 +172,7 @@ $Set* ModuleHashesBuilder$TopoSorter::children(Object$* node) {
 }
 
 void ModuleHashesBuilder$TopoSorter::visit(Object$* node, $Set* visited, $Deque* stack) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(visited)->add(node)) {
 		$nc(stack)->push(node);
 		$nc($(children(node)))->forEach(static_cast<$Consumer*>($$new(ModuleHashesBuilder$TopoSorter$$Lambda$lambda$sort$0, this, visited, stack)));

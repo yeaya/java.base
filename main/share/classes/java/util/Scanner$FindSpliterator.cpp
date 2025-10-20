@@ -95,6 +95,7 @@ void Scanner$FindSpliterator::init$($Scanner* this$0, $Pattern* pattern) {
 }
 
 bool Scanner$FindSpliterator::tryAdvance($Consumer* cons) {
+	$useLocalCurrentObjectStackCache();
 	this->this$0->ensureOpen();
 	if (this->expectedCount >= 0) {
 		if (this->expectedCount != this->this$0->modCount) {

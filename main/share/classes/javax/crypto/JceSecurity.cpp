@@ -188,6 +188,7 @@ void JceSecurity::init$() {
 
 $GetInstance$Instance* JceSecurity::getInstance($String* type, $Class* clazz, $String* algorithm, $String* provider) {
 	$init(JceSecurity);
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$Service, s, $GetInstance::getService(type, algorithm, provider));
 	$var($Exception, ve, getVerificationResult($($nc(s)->getProvider())));
 	if (ve != nullptr) {
@@ -199,6 +200,7 @@ $GetInstance$Instance* JceSecurity::getInstance($String* type, $Class* clazz, $S
 
 $GetInstance$Instance* JceSecurity::getInstance($String* type, $Class* clazz, $String* algorithm, $Provider* provider) {
 	$init(JceSecurity);
+	$useLocalCurrentObjectStackCache();
 	$var($Provider$Service, s, $GetInstance::getService(type, algorithm, provider));
 	$var($Exception, ve, JceSecurity::getVerificationResult(provider));
 	if (ve != nullptr) {
@@ -210,6 +212,7 @@ $GetInstance$Instance* JceSecurity::getInstance($String* type, $Class* clazz, $S
 
 $GetInstance$Instance* JceSecurity::getInstance($String* type, $Class* clazz, $String* algorithm) {
 	$init(JceSecurity);
+	$useLocalCurrentObjectStackCache();
 	$var($List, services, $GetInstance::getServices(type, algorithm));
 	$var($NoSuchAlgorithmException, failure, nullptr);
 	{
@@ -249,6 +252,7 @@ void JceSecurity::verifyProvider($URL* codeBase, $Provider* p) {
 
 $Exception* JceSecurity::getVerificationResult($Provider* p) {
 	$init(JceSecurity);
+	$useLocalCurrentObjectStackCache();
 	$var($JceSecurity$IdentityWrapper, pKey, $new($JceSecurity$IdentityWrapper, p));
 	$var($Object, o, $nc(JceSecurity::verificationResults)->get(pKey));
 	if (o == nullptr) {
@@ -297,6 +301,7 @@ bool JceSecurity::canUseProvider($Provider* p) {
 
 $URL* JceSecurity::getCodeBase($Class* clazz) {
 	$init(JceSecurity);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$synchronized(JceSecurity::codeBaseCacheRef) {
 		$var($URL, url, $cast($URL, $nc(JceSecurity::codeBaseCacheRef)->get(clazz)));
@@ -310,6 +315,7 @@ $URL* JceSecurity::getCodeBase($Class* clazz) {
 
 void JceSecurity::setupJurisdictionPolicies() {
 	$init(JceSecurity);
+	$useLocalCurrentObjectStackCache();
 	$var($String, cryptoPolicyProperty, $Security::getProperty("crypto.policy"_s));
 	if (cryptoPolicyProperty == nullptr) {
 		$assign(cryptoPolicyProperty, "unlimited"_s);
@@ -445,6 +451,7 @@ bool JceSecurity::isRestricted() {
 }
 
 void clinit$JceSecurity($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$assignStatic(JceSecurity::debug, $Debug::getInstance("jca"_s));
 	$assignStatic(JceSecurity::defaultPolicy, nullptr);

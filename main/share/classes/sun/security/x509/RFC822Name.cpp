@@ -125,6 +125,7 @@ int32_t RFC822Name::hashCode() {
 }
 
 int32_t RFC822Name::constrains($GeneralNameInterface* inputName) {
+	$useLocalCurrentObjectStackCache();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;

@@ -67,6 +67,7 @@ $ObjectStreamClass* SerialCallbackContext::getDesc() {
 }
 
 void SerialCallbackContext::check() {
+	$useLocalCurrentObjectStackCache();
 	if (this->thread != nullptr && this->thread != $Thread::currentThread()) {
 		$var($String, var$0, $$str({"expected thread: "_s, this->thread, ", but got: "_s}));
 		$throwNew($NotActiveException, $$concat(var$0, $($Thread::currentThread())));

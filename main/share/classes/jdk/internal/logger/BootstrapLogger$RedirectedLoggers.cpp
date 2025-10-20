@@ -129,6 +129,7 @@ $Map* BootstrapLogger$RedirectedLoggers::drainLoggersMap() {
 
 void BootstrapLogger$RedirectedLoggers::replaceSurrogateLoggers($Map* accessors) {
 	$init(BootstrapLogger$RedirectedLoggers);
+	$useLocalCurrentObjectStackCache();
 	$init($BootstrapLogger$DetectBackend);
 	$BootstrapLogger$LoggingBackend* detectedBackend = $BootstrapLogger$DetectBackend::detectedBackend;
 	$init($BootstrapLogger$LoggingBackend);

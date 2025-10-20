@@ -57,6 +57,7 @@ void CloseThenRegister::init$() {
 }
 
 void CloseThenRegister::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($Selector, sel, $Selector::open());
 	$nc(sel)->close();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());

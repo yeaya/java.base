@@ -65,6 +65,7 @@ void StringContentEqualsBug::init$() {
 }
 
 void StringContentEqualsBug::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	$var($StringContentEqualsBug$TaskArray, tasks, $new($StringContentEqualsBug$TaskArray, 3));
 	$nc((tasks->set(0, $$new($StringContentEqualsBug$Tester, sb))))->start();

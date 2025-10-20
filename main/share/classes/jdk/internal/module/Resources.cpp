@@ -81,6 +81,7 @@ $String* Resources::toPackageName($String* name) {
 }
 
 $String* Resources::toResourceName($Path* dir, $Path* file) {
+	$useLocalCurrentObjectStackCache();
 	$init($File);
 	$var($String, s, $nc($($nc($($nc(dir)->relativize(file)))->toString()))->replace($File::separatorChar, u'/'));
 	bool var$0 = !s->isEmpty();
@@ -91,6 +92,7 @@ $String* Resources::toResourceName($Path* dir, $Path* file) {
 }
 
 $Path* Resources::toFilePath($Path* dir, $String* name$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	bool expectDirectory = $nc(name)->endsWith("/"_s);
 	if (expectDirectory) {
@@ -115,6 +117,7 @@ $Path* Resources::toFilePath($Path* dir, $String* name$renamed) {
 }
 
 $Path* Resources::toSafeFilePath($FileSystem* fs, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	int32_t next = 0;
 	int32_t off = 0;
 	while ((next = $nc(name)->indexOf((int32_t)u'/', off)) != -1) {

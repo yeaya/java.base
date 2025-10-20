@@ -190,6 +190,7 @@ $Object* allocate$MethodTypeDescImpl($Class* clazz) {
 }
 
 void MethodTypeDescImpl::init$($ClassDesc* returnType, $ClassDescArray* argTypes) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, returnType$, $cast($ClassDesc, $Objects::requireNonNull(returnType)));
 	$set(this, argTypes, $cast($ClassDescArray, $Objects::requireNonNull(argTypes)));
 	{
@@ -208,6 +209,7 @@ void MethodTypeDescImpl::init$($ClassDesc* returnType, $ClassDescArray* argTypes
 
 MethodTypeDescImpl* MethodTypeDescImpl::ofDescriptor($String* descriptor) {
 	$init(MethodTypeDescImpl);
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(descriptor);
 	$var($List, types, $ConstantUtils::parseMethodDescriptor(descriptor));
 	$var($ClassDescArray, paramTypes, $fcast($ClassDescArray, $nc($($nc($($nc($($nc(types)->stream()))->skip(1)))->map(static_cast<$Function*>($$new(MethodTypeDescImpl$$Lambda$ofDescriptor)))))->toArray(static_cast<$IntFunction*>($$new(MethodTypeDescImpl$$Lambda$lambda$ofDescriptor$0$1)))));
@@ -266,6 +268,7 @@ $MethodTypeDesc* MethodTypeDescImpl::insertParameterTypes(int32_t pos, $ClassDes
 }
 
 $Object* MethodTypeDescImpl::resolveConstantDesc($MethodHandles$Lookup* lookup) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($MethodType, mtype, $cast($MethodType, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($MethodTypeDescImpl$1, this, lookup)))));
 	$nc(lookup)->accessClass($($cast($Class, $nc(mtype)->returnType())));
@@ -306,6 +309,7 @@ int32_t MethodTypeDescImpl::hashCode() {
 }
 
 $String* MethodTypeDescImpl::toString() {
+	$useLocalCurrentObjectStackCache();
 	return $String::format("MethodTypeDesc[%s]"_s, $$new($ObjectArray, {$($of(displayDescriptor()))}));
 }
 

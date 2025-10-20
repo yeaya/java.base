@@ -117,6 +117,7 @@ $String* SystemProps$Raw::propDefault(int32_t index) {
 }
 
 $HashMap* SystemProps$Raw::cmdProperties() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, vmProps, vmProperties());
 	$var($HashMap, cmdProps, $new($HashMap, ($nc(vmProps)->length / 2) + SystemProps$Raw::FIXED_LENGTH));
 	for (int32_t i = 0; i < $nc(vmProps)->length;) {

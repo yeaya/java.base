@@ -201,6 +201,7 @@ $Object* allocate$ClassSpecializer$Factory($Class* clazz) {
 bool ClassSpecializer$Factory::$assertionsDisabled = false;
 
 void ClassSpecializer$Factory::init$($ClassSpecializer* this$0) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, this$0, this$0);
 	$set(this, SPECIES_DATA, $ClassSpecializer::classBCName(this->this$0->metaType$));
 	$set(this, SPECIES_DATA_SIG, $ClassSpecializer::classSig(this->SPECIES_DATA));
@@ -224,6 +225,7 @@ void ClassSpecializer$Factory::init$($ClassSpecializer* this$0) {
 }
 
 $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::loadSpecies($ClassSpecializer$SpeciesData* speciesData) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, className, $nc(speciesData)->deriveClassName());
 	if (!ClassSpecializer$Factory::$assertionsDisabled && !($nc(className)->indexOf((int32_t)u'/') < 0)) {
 		$throwNew($AssertionError, $of(className));
@@ -271,6 +273,7 @@ $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::loadSpecies($ClassSpeci
 }
 
 $Class* ClassSpecializer$Factory::generateConcreteSpeciesCode($String* className, $ClassSpecializer$SpeciesData* speciesData) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($bytes, classFile, generateConcreteSpeciesCodeFile(className, speciesData));
 	$InvokerBytecodeGenerator::maybeDump($($ClassSpecializer::classBCName(className)), classFile);
@@ -284,6 +287,7 @@ $Class* ClassSpecializer$Factory::generateConcreteSpeciesCode($String* className
 }
 
 $bytes* ClassSpecializer$Factory::generateConcreteSpeciesCodeFile($String* className0, $ClassSpecializer$SpeciesData* speciesData) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, className, $ClassSpecializer::classBCName(className0));
 	$var($String, superClassName, $ClassSpecializer::classBCName($nc(speciesData)->deriveSuperClass()));
 	$var($ClassWriter, cw, $new($ClassWriter, $ClassWriter::COMPUTE_MAXS + $ClassWriter::COMPUTE_FRAMES));
@@ -437,6 +441,7 @@ $bytes* ClassSpecializer$Factory::generateConcreteSpeciesCodeFile($String* class
 }
 
 int32_t ClassSpecializer$Factory::typeLoadOp(char16_t t) {
+	$useLocalCurrentObjectStackCache();
 
 	int32_t var$0 = 0;
 	switch (t) {
@@ -486,6 +491,7 @@ void ClassSpecializer$Factory::emitIntConstant(int32_t con, $MethodVisitor* mv) 
 }
 
 $MethodHandle* ClassSpecializer$Factory::findGetter($Class* speciesCode, $List* types, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$Class* fieldType = $cast($Class, $nc(types)->get(index));
 	$var($String, fieldName, chooseFieldName(fieldType, index));
 	try {
@@ -502,6 +508,7 @@ $MethodHandle* ClassSpecializer$Factory::findGetter($Class* speciesCode, $List* 
 }
 
 $List* ClassSpecializer$Factory::findGetters($Class* speciesCode, $List* types) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleArray, mhs, $new($MethodHandleArray, $nc(types)->size()));
 	for (int32_t i = 0; i < mhs->length; ++i) {
 		mhs->set(i, $(findGetter(speciesCode, types, i)));
@@ -513,12 +520,14 @@ $List* ClassSpecializer$Factory::findGetters($Class* speciesCode, $List* types) 
 }
 
 $List* ClassSpecializer$Factory::findFactories($Class* speciesCode, $List* types) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodHandleArray, mhs, $new($MethodHandleArray, 1));
 	mhs->set(0, $(findFactory(speciesCode, types)));
 	return $List::of(mhs);
 }
 
 $List* ClassSpecializer$Factory::makeNominalGetters($List* types, $List* getters) {
+	$useLocalCurrentObjectStackCache();
 	$var($LambdaForm$NamedFunctionArray, nfs, $new($LambdaForm$NamedFunctionArray, $nc(types)->size()));
 	for (int32_t i = 0; i < nfs->length; ++i) {
 		nfs->set(i, $$new($LambdaForm$NamedFunction, $cast($MethodHandle, $($nc(getters)->get(i)))));
@@ -546,6 +555,7 @@ $Field* ClassSpecializer$Factory::reflectSDField($Class* speciesCode) {
 }
 
 $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::readSpeciesDataFromCode($Class* speciesCode) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$init($MethodHandles$Lookup);
 		$var($MemberName, sdField, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)2, speciesCode, this->this$0->sdFieldName, this->this$0->metaType$));
@@ -568,6 +578,7 @@ $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::readSpeciesDataFromCode
 }
 
 $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::loadSpeciesDataFromCode($Class* speciesCode) {
+	$useLocalCurrentObjectStackCache();
 	if (speciesCode == this->this$0->topClass()) {
 		return this->this$0->topSpecies$;
 	}
@@ -579,6 +590,7 @@ $ClassSpecializer$SpeciesData* ClassSpecializer$Factory::loadSpeciesDataFromCode
 }
 
 void ClassSpecializer$Factory::linkCodeToSpeciesData($Class* speciesCode, $ClassSpecializer$SpeciesData* speciesData, bool salvage) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		bool var$0 = !ClassSpecializer$Factory::$assertionsDisabled;
 		if (var$0) {
@@ -609,11 +621,13 @@ void ClassSpecializer$Factory::linkCodeToSpeciesData($Class* speciesCode, $Class
 }
 
 $String* ClassSpecializer$Factory::chooseFieldName($Class* type, int32_t index) {
+	$useLocalCurrentObjectStackCache();
 	$LambdaForm$BasicType* bt = $LambdaForm$BasicType::basicType(type);
 	return $str({""_s, $$str($nc(bt)->basicTypeChar()), $$str(index)});
 }
 
 $MethodHandle* ClassSpecializer$Factory::findFactory($Class* speciesCode, $List* types) {
+	$useLocalCurrentObjectStackCache();
 	$var($MethodType, type, $nc($($nc($(this->this$0->baseConstructorType()))->changeReturnType(this->this$0->topClass())))->appendParameterTypes(types));
 	try {
 		$init($MethodHandles$Lookup);

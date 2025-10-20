@@ -70,6 +70,7 @@ void ECDHServerKeyExchange$ECDHServerKeyExchangeProducer::init$() {
 }
 
 $bytes* ECDHServerKeyExchange$ECDHServerKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
+	$useLocalCurrentObjectStackCache();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, skem, $new($ECDHServerKeyExchange$ECDHServerKeyExchangeMessage, shc));
 	$init($SSLLogger);

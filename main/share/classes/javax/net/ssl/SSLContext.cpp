@@ -132,6 +132,7 @@ void SSLContext::init$($SSLContextSpi* contextSpi, $Provider* provider, $String*
 
 SSLContext* SSLContext::getDefault() {
 	$init(SSLContext);
+	$useLocalCurrentObjectStackCache();
 	$var(SSLContext, temporaryContext, SSLContext::defaultContext);
 	if (temporaryContext == nullptr) {
 		$assign(temporaryContext, SSLContext::getInstance("Default"_s));
@@ -144,6 +145,7 @@ SSLContext* SSLContext::getDefault() {
 
 void SSLContext::setDefault(SSLContext* context) {
 	$init(SSLContext);
+	$useLocalCurrentObjectStackCache();
 	if (context == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -199,6 +201,7 @@ $SSLServerSocketFactory* SSLContext::getServerSocketFactory() {
 }
 
 $SSLEngine* SSLContext::createSSLEngine() {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->contextSpi)->engineCreateSSLEngine();
 	} catch ($AbstractMethodError&) {
@@ -211,6 +214,7 @@ $SSLEngine* SSLContext::createSSLEngine() {
 }
 
 $SSLEngine* SSLContext::createSSLEngine($String* peerHost, int32_t peerPort) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		return $nc(this->contextSpi)->engineCreateSSLEngine(peerHost, peerPort);
 	} catch ($AbstractMethodError&) {
@@ -239,6 +243,7 @@ $SSLParameters* SSLContext::getSupportedSSLParameters() {
 }
 
 void clinit$SSLContext($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

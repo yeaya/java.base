@@ -112,6 +112,7 @@ void SimpleAsynchronousFileChannelImpl$1::init$($SimpleAsynchronousFileChannelIm
 }
 
 void SimpleAsynchronousFileChannelImpl$1::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($Throwable, exc, nullptr);
 	int32_t ti = $nc(this->this$0->threads)->add();
 	{

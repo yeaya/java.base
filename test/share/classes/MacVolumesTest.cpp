@@ -109,6 +109,7 @@ void MacVolumesTest::init$() {
 
 void MacVolumesTest::checkSystemVolume() {
 	$init(MacVolumesTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->format("--- Checking system volume %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::SYSTEM_VOLUME)}));
 	$var($Path, root, $Path::of(MacVolumesTest::SYSTEM_VOLUME, $$new($StringArray, 0)));
@@ -228,6 +229,7 @@ void MacVolumesTest::checkSystemVolume() {
 
 void MacVolumesTest::checkDataVolume() {
 	$init(MacVolumesTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->format("--- Checking data volume %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::DATA_VOLUME)}));
 	$var($Path, data, $Path::of(MacVolumesTest::DATA_VOLUME, $$new($StringArray, {
@@ -327,6 +329,7 @@ void MacVolumesTest::checkDataVolume() {
 
 void MacVolumesTest::checkFirmlinks() {
 	$init(MacVolumesTest);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::out)->format("--- Checking firmlinks %s ---%n"_s, $$new($ObjectArray, {$of(MacVolumesTest::FIRMLINKS)}));
 	$var($Path, firmlinks, $Path::of(MacVolumesTest::FIRMLINKS, $$new($StringArray, 0)));
@@ -385,6 +388,7 @@ void MacVolumesTest::checkFirmlinks() {
 
 void MacVolumesTest::main($StringArray* args) {
 	$init(MacVolumesTest);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, osv, $nc($($System::getProperty("os.version"_s)))->split("\\."_s));
 	int32_t major = $nc($($Integer::valueOf(osv->get(0))))->intValue();
 	int32_t minor = $nc($($Integer::valueOf(osv->get(1))))->intValue();

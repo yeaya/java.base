@@ -116,6 +116,7 @@ void DHKeyExchange$DHEPossessionGenerator::init$(bool exportable) {
 }
 
 $SSLPossession* DHKeyExchange$DHEPossessionGenerator::createPossession($HandshakeContext* context) {
+	$useLocalCurrentObjectStackCache();
 	$NamedGroup* preferableNamedGroup = nullptr;
 	if (!DHKeyExchange$DHEPossessionGenerator::useLegacyEphemeralDHKeys && ($nc(context)->clientRequestedNamedGroups != nullptr) && (!$nc(context->clientRequestedNamedGroups)->isEmpty())) {
 		$init($NamedGroup$NamedGroupSpec);
@@ -146,6 +147,7 @@ $SSLPossession* DHKeyExchange$DHEPossessionGenerator::createPossession($Handshak
 }
 
 void clinit$DHKeyExchange$DHEPossessionGenerator($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($String, property, $GetPropertyAction::privilegedGetProperty("jdk.tls.ephemeralDHKeySize"_s));
 		if (property == nullptr || $nc(property)->isEmpty()) {

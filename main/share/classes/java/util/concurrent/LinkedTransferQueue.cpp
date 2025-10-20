@@ -417,6 +417,7 @@ $LinkedTransferQueue$Node* LinkedTransferQueue::skipDeadNodes($LinkedTransferQue
 }
 
 void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $LinkedTransferQueue$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, p, p$renamed);
 	for (;;) {
 		$var($LinkedTransferQueue$Node, q, nullptr);
@@ -438,6 +439,7 @@ void LinkedTransferQueue::skipDeadNodesNearHead($LinkedTransferQueue$Node* h, $L
 }
 
 $Object* LinkedTransferQueue::xfer(Object$* e, bool haveData, int32_t how, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	if (haveData && (e == nullptr)) {
 		$throwNew($NullPointerException);
 	}
@@ -499,6 +501,7 @@ $Object* LinkedTransferQueue::xfer(Object$* e, bool haveData, int32_t how, int64
 }
 
 $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTransferQueue$Node* pred, Object$* e, bool timed, int64_t nanos) {
+	$useLocalCurrentObjectStackCache();
 	bool isData = $nc(s)->isData;
 	int64_t deadline = timed ? $System::nanoTime() + nanos : (int64_t)0;
 	$var($Thread, w, $Thread::currentThread());
@@ -549,6 +552,7 @@ $Object* LinkedTransferQueue::awaitMatch($LinkedTransferQueue$Node* s, $LinkedTr
 }
 
 $LinkedTransferQueue$Node* LinkedTransferQueue::firstDataNode() {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, first, nullptr);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -585,6 +589,7 @@ $LinkedTransferQueue$Node* LinkedTransferQueue::firstDataNode() {
 }
 
 int32_t LinkedTransferQueue::countOfMode(bool data) {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		int32_t count = 0;
@@ -615,6 +620,7 @@ int32_t LinkedTransferQueue::countOfMode(bool data) {
 }
 
 $String* LinkedTransferQueue::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, a, nullptr);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -657,6 +663,7 @@ $String* LinkedTransferQueue::toString() {
 }
 
 $ObjectArray* LinkedTransferQueue::toArrayInternal($ObjectArray* a) {
+	$useLocalCurrentObjectStackCache();
 	$var($ObjectArray, x, a);
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -717,6 +724,7 @@ $Spliterator* LinkedTransferQueue::spliterator() {
 }
 
 void LinkedTransferQueue::unsplice($LinkedTransferQueue$Node* pred, $LinkedTransferQueue$Node* s) {
+	$useLocalCurrentObjectStackCache();
 	$set($nc(s), waiter, nullptr);
 	if (pred != nullptr && pred->next == s) {
 		$var($LinkedTransferQueue$Node, n, s->next);
@@ -750,6 +758,7 @@ void LinkedTransferQueue::unsplice($LinkedTransferQueue$Node* pred, $LinkedTrans
 }
 
 void LinkedTransferQueue::sweep() {
+	$useLocalCurrentObjectStackCache();
 	this->needSweep = false;
 	{
 		$var($LinkedTransferQueue$Node, p, this->head);
@@ -775,6 +784,7 @@ void LinkedTransferQueue::init$() {
 }
 
 void LinkedTransferQueue::init$($Collection* c) {
+	$useLocalCurrentObjectStackCache();
 	$AbstractQueue::init$();
 	$var($LinkedTransferQueue$Node, h, nullptr);
 	$var($LinkedTransferQueue$Node, t, nullptr);
@@ -895,6 +905,7 @@ $Iterator* LinkedTransferQueue::iterator() {
 }
 
 $Object* LinkedTransferQueue::peek() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		{
@@ -929,6 +940,7 @@ bool LinkedTransferQueue::isEmpty() {
 }
 
 bool LinkedTransferQueue::hasWaitingConsumer() {
+	$useLocalCurrentObjectStackCache();
 	bool restartFromHead$continue = false;
 	for (;;) {
 		{
@@ -966,6 +978,7 @@ int32_t LinkedTransferQueue::getWaitingConsumerCount() {
 }
 
 bool LinkedTransferQueue::remove(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -1020,6 +1033,7 @@ bool LinkedTransferQueue::remove(Object$* o) {
 }
 
 bool LinkedTransferQueue::contains(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if (o == nullptr) {
 		return false;
 	}
@@ -1076,6 +1090,7 @@ int32_t LinkedTransferQueue::remainingCapacity() {
 }
 
 void LinkedTransferQueue::writeObject($ObjectOutputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$nc(s)->defaultWriteObject();
 	{
 		$var($Iterator, i$, this->iterator());
@@ -1088,6 +1103,7 @@ void LinkedTransferQueue::writeObject($ObjectOutputStream* s) {
 }
 
 void LinkedTransferQueue::readObject($ObjectInputStream* s) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, h, nullptr);
 	$var($LinkedTransferQueue$Node, t, nullptr);
 	{
@@ -1128,6 +1144,7 @@ void LinkedTransferQueue::clear() {
 }
 
 bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
+	$useLocalCurrentObjectStackCache();
 	bool removed = false;
 	bool restartFromHead$continue = false;
 	for (;;) {
@@ -1178,6 +1195,7 @@ bool LinkedTransferQueue::bulkRemove($Predicate* filter) {
 }
 
 void LinkedTransferQueue::forEachFrom($Consumer* action, $LinkedTransferQueue$Node* p$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedTransferQueue$Node, p, p$renamed);
 	{
 		$var($LinkedTransferQueue$Node, pred, nullptr);
@@ -1235,6 +1253,7 @@ bool LinkedTransferQueue::lambda$removeAll$0($Collection* c, Object$* e) {
 }
 
 void clinit$LinkedTransferQueue($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	{
 		try {

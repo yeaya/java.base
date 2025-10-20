@@ -70,6 +70,7 @@ void Bug4396385::init$() {
 
 void Bug4396385::main($StringArray* args) {
 	$init(Bug4396385);
+	$useLocalCurrentObjectStackCache();
 	$var($TimeZone, tz, $TimeZone::getDefault());
 	$TimeZone::setDefault($($TimeZone::getTimeZone("GMT"_s)));
 	{
@@ -102,6 +103,7 @@ void Bug4396385::main($StringArray* args) {
 
 void Bug4396385::test($String* pattern, $String* src) {
 	$init(Bug4396385);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, pattern, $Locale::US));
 	sdf->setLenient(false);
@@ -125,6 +127,7 @@ void Bug4396385::test($String* pattern, $String* src) {
 }
 
 void clinit$Bug4396385($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	Bug4396385::errorCount = 0;
 	$assignStatic(Bug4396385::data, $new($StringArray2, {
 		$$new($StringArray, {

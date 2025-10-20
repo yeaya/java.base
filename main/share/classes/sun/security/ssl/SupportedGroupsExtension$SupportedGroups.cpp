@@ -187,6 +187,7 @@ $NamedGroup* SupportedGroupsExtension$SupportedGroups::getPreferredGroup($Protoc
 }
 
 void clinit$SupportedGroupsExtension$SupportedGroups($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	SupportedGroupsExtension$SupportedGroups::enableFFDHE = $Utilities::getBooleanProperty("jsse.enableFFDHE"_s, true);
 	{
 		$var($String, property, $GetPropertyAction::privilegedGetProperty("jdk.tls.namedGroups"_s));

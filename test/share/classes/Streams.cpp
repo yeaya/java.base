@@ -91,6 +91,7 @@ void Streams::init$() {
 
 void Streams::main($StringArray* args) {
 	$init(Streams);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ServerSocket, ss, $new($ServerSocket));
 		{
@@ -130,6 +131,7 @@ void Streams::main($StringArray* args) {
 
 void Streams::runTest($Class* klass, $ServerSocket* ss) {
 	$init(Streams);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t port = $nc(ss)->getLocalPort();
 	$var($InetAddress, address, ss->getInetAddress());

@@ -41,6 +41,7 @@ void ForceLoad::init$() {
 }
 
 void ForceLoad::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$Files::probeContentType($($Paths::get("."_s, $$new($StringArray, 0))));
 }
 

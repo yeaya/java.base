@@ -82,6 +82,7 @@ void CollectionCertStore::init$($CertStoreParameters* params) {
 }
 
 $Collection* CollectionCertStore::engineGetCertificates($CertSelector* selector) {
+	$useLocalCurrentObjectStackCache();
 	if (this->coll == nullptr) {
 		$throwNew($CertStoreException, "Collection is null"_s);
 	}
@@ -123,6 +124,7 @@ $Collection* CollectionCertStore::engineGetCertificates($CertSelector* selector)
 }
 
 $Collection* CollectionCertStore::engineGetCRLs($CRLSelector* selector) {
+	$useLocalCurrentObjectStackCache();
 	if (this->coll == nullptr) {
 		$throwNew($CertStoreException, "Collection is null"_s);
 	}

@@ -104,6 +104,7 @@ StringWriter* StringWriter::append($CharSequence* csq) {
 }
 
 StringWriter* StringWriter::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
+	$useLocalCurrentObjectStackCache();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);

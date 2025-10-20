@@ -117,6 +117,7 @@ $Object* allocate$AESCipher($Class* clazz) {
 
 void AESCipher::checkKeySize($Key* key, int32_t fixedKeySize) {
 	$init(AESCipher);
+	$useLocalCurrentObjectStackCache();
 	if (fixedKeySize != -1) {
 		if (key == nullptr) {
 			$throwNew($InvalidKeyException, "The key must not be null"_s);
@@ -198,6 +199,7 @@ int32_t AESCipher::engineDoFinal($bytes* input, int32_t inputOffset, int32_t inp
 }
 
 int32_t AESCipher::engineGetKeySize($Key* key) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if (!$AESCrypt::isKeySizeValid($nc(encoded)->length)) {

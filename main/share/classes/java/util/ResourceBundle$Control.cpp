@@ -282,6 +282,7 @@ $List* ResourceBundle$Control::getFormats($String* baseName) {
 }
 
 $List* ResourceBundle$Control::getCandidateLocales($String* baseName, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	if (baseName == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -297,6 +298,7 @@ $Locale* ResourceBundle$Control::getFallbackLocale($String* baseName, $Locale* l
 }
 
 $ResourceBundle* ResourceBundle$Control::newBundle($String* baseName, $Locale* locale, $String* format, $ClassLoader* loader, bool reload) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, bundleName, toBundleName(baseName, locale));
 	$var($ResourceBundle, bundle, newBundle0(bundleName, format, loader, reload));
 	if (bundle == nullptr) {
@@ -309,6 +311,7 @@ $ResourceBundle* ResourceBundle$Control::newBundle($String* baseName, $Locale* l
 }
 
 $ResourceBundle* ResourceBundle$Control::newBundle0($String* bundleName, $String* format, $ClassLoader* loader, bool reload) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ResourceBundle, bundle, nullptr);
 	if ($nc(format)->equals("java.class"_s)) {
@@ -389,6 +392,7 @@ int64_t ResourceBundle$Control::getTimeToLive($String* baseName, $Locale* locale
 }
 
 bool ResourceBundle$Control::needsReload($String* baseName, $Locale* locale, $String* format$renamed, $ClassLoader* loader, $ResourceBundle* bundle, int64_t loadTime) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, format, format$renamed);
 	if (bundle == nullptr) {
 		$throwNew($NullPointerException);
@@ -433,6 +437,7 @@ bool ResourceBundle$Control::needsReload($String* baseName, $Locale* locale, $St
 }
 
 $String* ResourceBundle$Control::toBundleName($String* baseName, $Locale* locale) {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	if (locale == $Locale::ROOT) {
 		return baseName;
@@ -465,6 +470,7 @@ $String* ResourceBundle$Control::toBundleName($String* baseName, $Locale* locale
 }
 
 $String* ResourceBundle$Control::toResourceName($String* bundleName, $String* suffix) {
+	$useLocalCurrentObjectStackCache();
 	int32_t var$0 = $nc(bundleName)->length() + 1;
 	$var($StringBuilder, sb, $new($StringBuilder, var$0 + $nc(suffix)->length()));
 	sb->append($($nc(bundleName)->replace(u'.', u'/')))->append(u'.')->append(suffix);

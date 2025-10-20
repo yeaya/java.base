@@ -119,6 +119,7 @@ void DefineClassByteBuffer$DummyClassLoader::init$(int32_t loaderType) {
 
 $ByteBuffer* DefineClassByteBuffer$DummyClassLoader::readClassFile($String* name) {
 	$init(DefineClassByteBuffer$DummyClassLoader);
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($File, f, $new($File, $($System::getProperty("test.classes"_s, "."_s)), name));
 		$var($FileInputStream, fin, $new($FileInputStream, f));
@@ -156,6 +157,7 @@ $Class* DefineClassByteBuffer$DummyClassLoader::findClass($String* name) {
 }
 
 void clinit$DefineClassByteBuffer$DummyClassLoader($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DefineClassByteBuffer$DummyClassLoader::CLASS_NAME, "TestClass"_s);
 	$assignStatic(DefineClassByteBuffer$DummyClassLoader::buffers, $new($ByteBufferArray, DefineClassByteBuffer$DummyClassLoader::MAX_TYPE + 1));
 	{

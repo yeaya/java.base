@@ -499,6 +499,7 @@ void NioSocketImpl::endRead(bool completed) {
 }
 
 int32_t NioSocketImpl::tryRead($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, dst, $Util::getTemporaryDirectBuffer(len));
 	if (!NioSocketImpl::$assertionsDisabled && !($nc(dst)->position() == 0)) {
 		$throwNew($AssertionError);
@@ -546,6 +547,7 @@ int32_t NioSocketImpl::timedRead($FileDescriptor* fd, $bytes* b, int32_t off, in
 }
 
 int32_t NioSocketImpl::implRead($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	$var($FileDescriptor, fd, beginRead());
 	{
@@ -672,6 +674,7 @@ void NioSocketImpl::endWrite(bool completed) {
 }
 
 int32_t NioSocketImpl::tryWrite($FileDescriptor* fd, $bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	$var($ByteBuffer, src, $Util::getTemporaryDirectBuffer(len));
 	if (!NioSocketImpl::$assertionsDisabled && !($nc(src)->position() == 0)) {
 		$throwNew($AssertionError);
@@ -701,6 +704,7 @@ int32_t NioSocketImpl::tryWrite($FileDescriptor* fd, $bytes* b, int32_t off, int
 }
 
 int32_t NioSocketImpl::implWrite($bytes* b, int32_t off, int32_t len) {
+	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	$var($FileDescriptor, fd, beginWrite());
 	{
@@ -770,6 +774,7 @@ void NioSocketImpl::write($bytes* b, int32_t off, int32_t len) {
 }
 
 void NioSocketImpl::create(bool stream) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->stateLock) {
 		if (this->state != NioSocketImpl::ST_NEW) {
 			$throwNew($IOException, "Already created"_s);
@@ -864,6 +869,7 @@ bool NioSocketImpl::timedFinishConnect($FileDescriptor* fd, int64_t nanos) {
 }
 
 void NioSocketImpl::connect($SocketAddress* remote, int32_t millis) {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($InetSocketAddress, remote))) {
 		$throwNew($IOException, "Unsupported address type"_s);
 	}
@@ -1011,6 +1017,7 @@ int32_t NioSocketImpl::timedAccept($FileDescriptor* fd, $FileDescriptor* newfd, 
 }
 
 void NioSocketImpl::accept($SocketImpl* si) {
+	$useLocalCurrentObjectStackCache();
 	$var(NioSocketImpl, nsi, $cast(NioSocketImpl, si));
 	if ($nc(nsi)->state != NioSocketImpl::ST_NEW) {
 		$throwNew($SocketException, "Not a newly created SocketImpl"_s);
@@ -1118,6 +1125,7 @@ int32_t NioSocketImpl::available() {
 }
 
 bool NioSocketImpl::tryClose() {
+	$useLocalCurrentObjectStackCache();
 	if (!NioSocketImpl::$assertionsDisabled && !($Thread::holdsLock(this->stateLock) && this->state == NioSocketImpl::ST_CLOSING)) {
 		$throwNew($AssertionError);
 	}
@@ -1155,6 +1163,7 @@ void NioSocketImpl::tryFinishClose() {
 }
 
 void NioSocketImpl::close() {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->stateLock) {
 		int32_t state = this->state;
 		if (state >= NioSocketImpl::ST_CLOSING) {
@@ -1189,6 +1198,7 @@ void NioSocketImpl::close() {
 }
 
 $Set* NioSocketImpl::supportedOptions() {
+	$useLocalCurrentObjectStackCache();
 	$var($Set, options, (this->server) ? $cast($Set, NioSocketImpl::serverSocketOptions) : $cast($Set, NioSocketImpl::clientSocketOptions));
 	if (options == nullptr) {
 		$assign(options, $new($HashSet));
@@ -1220,6 +1230,7 @@ $Set* NioSocketImpl::supportedOptions() {
 }
 
 void NioSocketImpl::setOption($SocketOption* opt, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($(supportedOptions()))->contains(opt)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, opt, "\' not supported"_s}));
 	}
@@ -1247,6 +1258,7 @@ void NioSocketImpl::setOption($SocketOption* opt, Object$* value) {
 }
 
 $Object* NioSocketImpl::getOption($SocketOption* opt) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc($(supportedOptions()))->contains(opt)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, opt, "\' not supported"_s}));
 	}
@@ -1284,6 +1296,7 @@ int32_t NioSocketImpl::intValue(Object$* value, $String* desc) {
 }
 
 void NioSocketImpl::setOption(int32_t opt, Object$* value) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->stateLock) {
 		ensureOpen();
 		try {
@@ -1420,6 +1433,7 @@ void NioSocketImpl::setOption(int32_t opt, Object$* value) {
 }
 
 $Object* NioSocketImpl::getOption(int32_t opt) {
+	$useLocalCurrentObjectStackCache();
 	$synchronized(this->stateLock) {
 		ensureOpen();
 		try {
@@ -1536,6 +1550,7 @@ bool NioSocketImpl::supportsUrgentData() {
 }
 
 void NioSocketImpl::sendUrgentData(int32_t data) {
+	$useLocalCurrentObjectStackCache();
 	$nc(this->writeLock)->lock();
 	{
 		$var($Throwable, var$0, nullptr);
@@ -1582,6 +1597,7 @@ $Runnable* NioSocketImpl::closerFor($FileDescriptor* fd, bool stream) {
 
 int64_t NioSocketImpl::tryLock($ReentrantLock* lock, int64_t timeout, $TimeUnit* unit) {
 	$init(NioSocketImpl);
+	$useLocalCurrentObjectStackCache();
 	if (!NioSocketImpl::$assertionsDisabled && !(timeout > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -1622,6 +1638,7 @@ $ProtocolFamily* NioSocketImpl::family() {
 
 void NioSocketImpl::lambda$closerFor$1($FileDescriptor* fd) {
 	$init(NioSocketImpl);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

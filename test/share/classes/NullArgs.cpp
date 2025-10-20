@@ -44,6 +44,7 @@ void NullArgs::init$() {
 }
 
 void NullArgs::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0;; ++i) {
 		try {
 			switch (i) {

@@ -58,6 +58,7 @@ void AppendStringBuilder::init$() {
 
 void AppendStringBuilder::main($StringArray* args) {
 	$init(AppendStringBuilder);
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuilder, sb1, generateTestBuilder(10, 100));
 		$var($StringBuilder, sb2, generateTestBuilder(10, 100));

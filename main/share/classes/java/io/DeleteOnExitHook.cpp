@@ -104,6 +104,7 @@ void DeleteOnExitHook::add($String* file) {
 
 void DeleteOnExitHook::runHooks() {
 	$init(DeleteOnExitHook);
+	$useLocalCurrentObjectStackCache();
 	$var($LinkedHashSet, theFiles, nullptr);
 	$synchronized(DeleteOnExitHook::class$) {
 		$assign(theFiles, DeleteOnExitHook::files);
@@ -123,6 +124,7 @@ void DeleteOnExitHook::runHooks() {
 }
 
 void clinit$DeleteOnExitHook($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(DeleteOnExitHook::files, $new($LinkedHashSet));
 	{
 		$nc($($SharedSecrets::getJavaLangAccess()))->registerShutdownHook(2, true, $$new($DeleteOnExitHook$1));

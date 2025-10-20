@@ -124,6 +124,7 @@ bool SPILocaleProviderAdapter$CollatorProviderDelegate::isSupportedLocale($Local
 }
 
 $Collator* SPILocaleProviderAdapter$CollatorProviderDelegate::getInstance($Locale* locale$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($CollatorProvider, cp, $cast($CollatorProvider, getImpl(locale)));

@@ -80,6 +80,7 @@ $MethodHandle* SwitchPoint::guardWithTest($MethodHandle* target, $MethodHandle* 
 
 void SwitchPoint::invalidateAll($SwitchPointArray* switchPoints) {
 	$init(SwitchPoint);
+	$useLocalCurrentObjectStackCache();
 	if ($nc(switchPoints)->length == 0) {
 		return;
 	}
@@ -96,6 +97,7 @@ void SwitchPoint::invalidateAll($SwitchPointArray* switchPoints) {
 }
 
 void clinit$SwitchPoint($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$init($Boolean);
 	$assignStatic(SwitchPoint::K_true, $MethodHandles::constant($Boolean::TYPE, $($Boolean::valueOf(true))));
 	$assignStatic(SwitchPoint::K_false, $MethodHandles::constant($Boolean::TYPE, $($Boolean::valueOf(false))));

@@ -99,6 +99,7 @@ void CertStatusExtension$CertStatusResponseSpec::init$($CertStatusExtension$Cert
 }
 
 void CertStatusExtension$CertStatusResponseSpec::init$($HandshakeContext* hc, $ByteBuffer* buffer) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(buffer)->remaining() < 2) {
 		$init($Alert);
 		$throw($($nc($nc(hc)->conContext)->fatal($Alert::DECODE_ERROR, static_cast<$Throwable*>($$new($SSLProtocolException, "Invalid status_request extension: insufficient data"_s)))));

@@ -100,6 +100,7 @@ $Object* HashMap$Node::setValue(Object$* newValue) {
 }
 
 bool HashMap$Node::equals(Object$* o) {
+	$useLocalCurrentObjectStackCache();
 	if ($equals(o, this)) {
 		return true;
 	}

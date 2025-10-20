@@ -47,6 +47,7 @@ void ReportSocketClosed::init$() {
 }
 
 void ReportSocketClosed::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DatagramSocket, soc, nullptr);
 	$var($InetAddress, sin, nullptr);
 	$var($bytes, array, $new($bytes, {

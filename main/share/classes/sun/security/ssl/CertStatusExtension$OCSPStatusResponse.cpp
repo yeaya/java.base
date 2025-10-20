@@ -85,6 +85,7 @@ void CertStatusExtension$OCSPStatusResponse::init$(int8_t statusType, $bytes* en
 }
 
 $String* CertStatusExtension$OCSPStatusResponse::toString() {
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate status response type\": {0}\n\"OCSP status response\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {

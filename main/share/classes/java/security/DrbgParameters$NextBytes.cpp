@@ -77,6 +77,7 @@ $bytes* DrbgParameters$NextBytes::getAdditionalInput() {
 }
 
 void DrbgParameters$NextBytes::init$(int32_t strength, bool predictionResistance, $bytes* additionalInput) {
+	$useLocalCurrentObjectStackCache();
 	if (strength < -1) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal security strength: "_s, $$str(strength)}));
 	}

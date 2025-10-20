@@ -150,6 +150,7 @@ bool NTLM::$assertionsDisabled = false;
 bool NTLM::DEBUG = false;
 
 void NTLM::init$($String* version$renamed) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, version, version$renamed);
 	if (version == nullptr) {
 		$assign(version, "LMv2/NTLMv2"_s);
@@ -302,6 +303,7 @@ void NTLM::debug($bytes* bytes) {
 }
 
 $bytes* NTLM::makeDesKey($bytes* input, int32_t off) {
+	$useLocalCurrentObjectStackCache();
 	$var($ints, in, $new($ints, $nc(input)->length));
 	for (int32_t i = 0; i < in->length; ++i) {
 		in->set(i, input->get(i) < 0 ? input->get(i) + 256 : (int32_t)input->get(i));
@@ -319,6 +321,7 @@ $bytes* NTLM::makeDesKey($bytes* input, int32_t off) {
 }
 
 $bytes* NTLM::calcLMHash($bytes* pwb) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, magic, $new($bytes, {
 		(int8_t)75,
 		(int8_t)71,
@@ -373,6 +376,7 @@ $bytes* NTLM::calcLMHash($bytes* pwb) {
 }
 
 $bytes* NTLM::calcNTHash($bytes* pw) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, out, $nc(this->md4)->digest(pw));
 	$var($bytes, result, $new($bytes, 21));
 	$System::arraycopy(out, 0, result, 0, 16);
@@ -380,6 +384,7 @@ $bytes* NTLM::calcNTHash($bytes* pw) {
 }
 
 $bytes* NTLM::calcResponse($bytes* key, $bytes* text) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		if (!NTLM::$assertionsDisabled && !($nc(key)->length == 21)) {
 			$throwNew($AssertionError);
@@ -426,6 +431,7 @@ $bytes* NTLM::calcResponse($bytes* key, $bytes* text) {
 }
 
 $bytes* NTLM::hmacMD5($bytes* key, $bytes* text) {
+	$useLocalCurrentObjectStackCache();
 	try {
 		$var($SecretKeySpec, skey, $new($SecretKeySpec, $($Arrays::copyOf(key, 16)), "HmacMD5"_s));
 		$nc(this->hmac)->init(skey);
@@ -445,6 +451,7 @@ $bytes* NTLM::hmacMD5($bytes* key, $bytes* text) {
 }
 
 $bytes* NTLM::calcV2($bytes* nthash, $String* text, $bytes* blob, $bytes* challenge) {
+	$useLocalCurrentObjectStackCache();
 	$init($StandardCharsets);
 	$var($bytes, ntlmv2hash, hmacMD5(nthash, $($nc(text)->getBytes($StandardCharsets::UTF_16LE))));
 	$var($bytes, cn, $new($bytes, $nc(blob)->length + 8));
@@ -462,6 +469,7 @@ $bytes* NTLM::ntlm2LM($bytes* nonce) {
 }
 
 $bytes* NTLM::ntlm2NTLM($bytes* ntlmHash, $bytes* nonce, $bytes* challenge) {
+	$useLocalCurrentObjectStackCache();
 	$var($bytes, b, $Arrays::copyOf(challenge, 16));
 	$System::arraycopy(nonce, 0, b, 8, 8);
 	$var($bytes, sesshash, $Arrays::copyOf($($nc(this->md5)->digest(b)), 8));
@@ -470,6 +478,7 @@ $bytes* NTLM::ntlm2NTLM($bytes* ntlmHash, $bytes* nonce, $bytes* challenge) {
 
 $bytes* NTLM::getP1($chars* password) {
 	$init(NTLM);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$init($StandardCharsets);
 	return $($$new($String, password)->toUpperCase($Locale::ENGLISH))->getBytes($StandardCharsets::ISO_8859_1);

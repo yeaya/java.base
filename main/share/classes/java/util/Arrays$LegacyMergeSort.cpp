@@ -69,6 +69,7 @@ void Arrays$LegacyMergeSort::init$() {
 }
 
 void clinit$Arrays$LegacyMergeSort($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	Arrays$LegacyMergeSort::userRequested = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "java.util.Arrays.useLegacyMergeSort"_s)))))))->booleanValue();
 }

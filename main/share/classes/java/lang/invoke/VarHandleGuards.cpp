@@ -695,6 +695,7 @@ void VarHandleGuards::init$() {
 }
 
 $Object* VarHandleGuards::guard_L_L($VarHandle* handle, Object$* arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -706,6 +707,7 @@ $Object* VarHandleGuards::guard_L_L($VarHandle* handle, Object$* arg0, $VarHandl
 }
 
 void VarHandleGuards::guard_LL_V($VarHandle* handle, Object$* arg0, Object$* arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, arg1, $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -721,6 +723,7 @@ void VarHandleGuards::guard_LL_V($VarHandle* handle, Object$* arg0, Object$* arg
 }
 
 bool VarHandleGuards::guard_LLL_Z($VarHandle* handle, Object$* arg0, Object$* arg1, Object$* arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, arg1, arg2, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -731,6 +734,7 @@ bool VarHandleGuards::guard_LLL_Z($VarHandle* handle, Object$* arg0, Object$* ar
 }
 
 $Object* VarHandleGuards::guard_LLL_L($VarHandle* handle, Object$* arg0, Object$* arg1, Object$* arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, arg1, arg2, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -742,6 +746,7 @@ $Object* VarHandleGuards::guard_LLL_L($VarHandle* handle, Object$* arg0, Object$
 }
 
 $Object* VarHandleGuards::guard_LL_L($VarHandle* handle, Object$* arg0, Object$* arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, arg1, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -753,6 +758,7 @@ $Object* VarHandleGuards::guard_LL_L($VarHandle* handle, Object$* arg0, Object$*
 }
 
 int32_t VarHandleGuards::guard_L_I($VarHandle* handle, Object$* arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -763,6 +769,7 @@ int32_t VarHandleGuards::guard_L_I($VarHandle* handle, Object$* arg0, $VarHandle
 }
 
 void VarHandleGuards::guard_LI_V($VarHandle* handle, Object$* arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -778,6 +785,7 @@ void VarHandleGuards::guard_LI_V($VarHandle* handle, Object$* arg0, int32_t arg1
 }
 
 bool VarHandleGuards::guard_LII_Z($VarHandle* handle, Object$* arg0, int32_t arg1, int32_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -788,6 +796,7 @@ bool VarHandleGuards::guard_LII_Z($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 int32_t VarHandleGuards::guard_LII_I($VarHandle* handle, Object$* arg0, int32_t arg1, int32_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -798,6 +807,7 @@ int32_t VarHandleGuards::guard_LII_I($VarHandle* handle, Object$* arg0, int32_t 
 }
 
 int32_t VarHandleGuards::guard_LI_I($VarHandle* handle, Object$* arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -808,6 +818,7 @@ int32_t VarHandleGuards::guard_LI_I($VarHandle* handle, Object$* arg0, int32_t a
 }
 
 int64_t VarHandleGuards::guard_L_J($VarHandle* handle, Object$* arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -818,6 +829,7 @@ int64_t VarHandleGuards::guard_L_J($VarHandle* handle, Object$* arg0, $VarHandle
 }
 
 void VarHandleGuards::guard_LJ_V($VarHandle* handle, Object$* arg0, int64_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -833,6 +845,7 @@ void VarHandleGuards::guard_LJ_V($VarHandle* handle, Object$* arg0, int64_t arg1
 }
 
 bool VarHandleGuards::guard_LJJ_Z($VarHandle* handle, Object$* arg0, int64_t arg1, int64_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -843,6 +856,7 @@ bool VarHandleGuards::guard_LJJ_Z($VarHandle* handle, Object$* arg0, int64_t arg
 }
 
 int64_t VarHandleGuards::guard_LJJ_J($VarHandle* handle, Object$* arg0, int64_t arg1, int64_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -853,6 +867,7 @@ int64_t VarHandleGuards::guard_LJJ_J($VarHandle* handle, Object$* arg0, int64_t 
 }
 
 int64_t VarHandleGuards::guard_LJ_J($VarHandle* handle, Object$* arg0, int64_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -863,6 +878,7 @@ int64_t VarHandleGuards::guard_LJ_J($VarHandle* handle, Object$* arg0, int64_t a
 }
 
 float VarHandleGuards::guard_L_F($VarHandle* handle, Object$* arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -873,6 +889,7 @@ float VarHandleGuards::guard_L_F($VarHandle* handle, Object$* arg0, $VarHandle$A
 }
 
 void VarHandleGuards::guard_LF_V($VarHandle* handle, Object$* arg0, float arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -888,6 +905,7 @@ void VarHandleGuards::guard_LF_V($VarHandle* handle, Object$* arg0, float arg1, 
 }
 
 bool VarHandleGuards::guard_LFF_Z($VarHandle* handle, Object$* arg0, float arg1, float arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -898,6 +916,7 @@ bool VarHandleGuards::guard_LFF_Z($VarHandle* handle, Object$* arg0, float arg1,
 }
 
 float VarHandleGuards::guard_LFF_F($VarHandle* handle, Object$* arg0, float arg1, float arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -908,6 +927,7 @@ float VarHandleGuards::guard_LFF_F($VarHandle* handle, Object$* arg0, float arg1
 }
 
 float VarHandleGuards::guard_LF_F($VarHandle* handle, Object$* arg0, float arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -918,6 +938,7 @@ float VarHandleGuards::guard_LF_F($VarHandle* handle, Object$* arg0, float arg1,
 }
 
 double VarHandleGuards::guard_L_D($VarHandle* handle, Object$* arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -928,6 +949,7 @@ double VarHandleGuards::guard_L_D($VarHandle* handle, Object$* arg0, $VarHandle$
 }
 
 void VarHandleGuards::guard_LD_V($VarHandle* handle, Object$* arg0, double arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -943,6 +965,7 @@ void VarHandleGuards::guard_LD_V($VarHandle* handle, Object$* arg0, double arg1,
 }
 
 bool VarHandleGuards::guard_LDD_Z($VarHandle* handle, Object$* arg0, double arg1, double arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -953,6 +976,7 @@ bool VarHandleGuards::guard_LDD_Z($VarHandle* handle, Object$* arg0, double arg1
 }
 
 double VarHandleGuards::guard_LDD_D($VarHandle* handle, Object$* arg0, double arg1, double arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -963,6 +987,7 @@ double VarHandleGuards::guard_LDD_D($VarHandle* handle, Object$* arg0, double ar
 }
 
 double VarHandleGuards::guard_LD_D($VarHandle* handle, Object$* arg0, double arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -973,6 +998,7 @@ double VarHandleGuards::guard_LD_D($VarHandle* handle, Object$* arg0, double arg
 }
 
 $Object* VarHandleGuards::guard__L($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -984,6 +1010,7 @@ $Object* VarHandleGuards::guard__L($VarHandle* handle, $VarHandle$AccessDescript
 }
 
 void VarHandleGuards::guard_L_V($VarHandle* handle, Object$* arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -999,6 +1026,7 @@ void VarHandleGuards::guard_L_V($VarHandle* handle, Object$* arg0, $VarHandle$Ac
 }
 
 bool VarHandleGuards::guard_LL_Z($VarHandle* handle, Object$* arg0, Object$* arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, arg1, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1009,6 +1037,7 @@ bool VarHandleGuards::guard_LL_Z($VarHandle* handle, Object$* arg0, Object$* arg
 }
 
 int32_t VarHandleGuards::guard__I($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1019,6 +1048,7 @@ int32_t VarHandleGuards::guard__I($VarHandle* handle, $VarHandle$AccessDescripto
 }
 
 void VarHandleGuards::guard_I_V($VarHandle* handle, int32_t arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1034,6 +1064,7 @@ void VarHandleGuards::guard_I_V($VarHandle* handle, int32_t arg0, $VarHandle$Acc
 }
 
 bool VarHandleGuards::guard_II_Z($VarHandle* handle, int32_t arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1044,6 +1075,7 @@ bool VarHandleGuards::guard_II_Z($VarHandle* handle, int32_t arg0, int32_t arg1,
 }
 
 int32_t VarHandleGuards::guard_II_I($VarHandle* handle, int32_t arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1054,6 +1086,7 @@ int32_t VarHandleGuards::guard_II_I($VarHandle* handle, int32_t arg0, int32_t ar
 }
 
 int32_t VarHandleGuards::guard_I_I($VarHandle* handle, int32_t arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1064,6 +1097,7 @@ int32_t VarHandleGuards::guard_I_I($VarHandle* handle, int32_t arg0, $VarHandle$
 }
 
 int64_t VarHandleGuards::guard__J($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1074,6 +1108,7 @@ int64_t VarHandleGuards::guard__J($VarHandle* handle, $VarHandle$AccessDescripto
 }
 
 void VarHandleGuards::guard_J_V($VarHandle* handle, int64_t arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1089,6 +1124,7 @@ void VarHandleGuards::guard_J_V($VarHandle* handle, int64_t arg0, $VarHandle$Acc
 }
 
 bool VarHandleGuards::guard_JJ_Z($VarHandle* handle, int64_t arg0, int64_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1099,6 +1135,7 @@ bool VarHandleGuards::guard_JJ_Z($VarHandle* handle, int64_t arg0, int64_t arg1,
 }
 
 int64_t VarHandleGuards::guard_JJ_J($VarHandle* handle, int64_t arg0, int64_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1109,6 +1146,7 @@ int64_t VarHandleGuards::guard_JJ_J($VarHandle* handle, int64_t arg0, int64_t ar
 }
 
 int64_t VarHandleGuards::guard_J_J($VarHandle* handle, int64_t arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1119,6 +1157,7 @@ int64_t VarHandleGuards::guard_J_J($VarHandle* handle, int64_t arg0, $VarHandle$
 }
 
 float VarHandleGuards::guard__F($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1129,6 +1168,7 @@ float VarHandleGuards::guard__F($VarHandle* handle, $VarHandle$AccessDescriptor*
 }
 
 void VarHandleGuards::guard_F_V($VarHandle* handle, float arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1144,6 +1184,7 @@ void VarHandleGuards::guard_F_V($VarHandle* handle, float arg0, $VarHandle$Acces
 }
 
 bool VarHandleGuards::guard_FF_Z($VarHandle* handle, float arg0, float arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1154,6 +1195,7 @@ bool VarHandleGuards::guard_FF_Z($VarHandle* handle, float arg0, float arg1, $Va
 }
 
 float VarHandleGuards::guard_FF_F($VarHandle* handle, float arg0, float arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1164,6 +1206,7 @@ float VarHandleGuards::guard_FF_F($VarHandle* handle, float arg0, float arg1, $V
 }
 
 float VarHandleGuards::guard_F_F($VarHandle* handle, float arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1174,6 +1217,7 @@ float VarHandleGuards::guard_F_F($VarHandle* handle, float arg0, $VarHandle$Acce
 }
 
 double VarHandleGuards::guard__D($VarHandle* handle, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1184,6 +1228,7 @@ double VarHandleGuards::guard__D($VarHandle* handle, $VarHandle$AccessDescriptor
 }
 
 void VarHandleGuards::guard_D_V($VarHandle* handle, double arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1199,6 +1244,7 @@ void VarHandleGuards::guard_D_V($VarHandle* handle, double arg0, $VarHandle$Acce
 }
 
 bool VarHandleGuards::guard_DD_Z($VarHandle* handle, double arg0, double arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1209,6 +1255,7 @@ bool VarHandleGuards::guard_DD_Z($VarHandle* handle, double arg0, double arg1, $
 }
 
 double VarHandleGuards::guard_DD_D($VarHandle* handle, double arg0, double arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1219,6 +1266,7 @@ double VarHandleGuards::guard_DD_D($VarHandle* handle, double arg0, double arg1,
 }
 
 double VarHandleGuards::guard_D_D($VarHandle* handle, double arg0, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), $$of(arg0), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1229,6 +1277,7 @@ double VarHandleGuards::guard_D_D($VarHandle* handle, double arg0, $VarHandle$Ac
 }
 
 $Object* VarHandleGuards::guard_LI_L($VarHandle* handle, Object$* arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1240,6 +1289,7 @@ $Object* VarHandleGuards::guard_LI_L($VarHandle* handle, Object$* arg0, int32_t 
 }
 
 void VarHandleGuards::guard_LIL_V($VarHandle* handle, Object$* arg0, int32_t arg1, Object$* arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), arg2, $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1255,6 +1305,7 @@ void VarHandleGuards::guard_LIL_V($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 bool VarHandleGuards::guard_LILL_Z($VarHandle* handle, Object$* arg0, int32_t arg1, Object$* arg2, Object$* arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), arg2, arg3, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1265,6 +1316,7 @@ bool VarHandleGuards::guard_LILL_Z($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 $Object* VarHandleGuards::guard_LILL_L($VarHandle* handle, Object$* arg0, int32_t arg1, Object$* arg2, Object$* arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), arg2, arg3, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1276,6 +1328,7 @@ $Object* VarHandleGuards::guard_LILL_L($VarHandle* handle, Object$* arg0, int32_
 }
 
 $Object* VarHandleGuards::guard_LIL_L($VarHandle* handle, Object$* arg0, int32_t arg1, Object$* arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$var($Object, r, $MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), arg2, $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1287,6 +1340,7 @@ $Object* VarHandleGuards::guard_LIL_L($VarHandle* handle, Object$* arg0, int32_t
 }
 
 void VarHandleGuards::guard_LII_V($VarHandle* handle, Object$* arg0, int32_t arg1, int32_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1302,6 +1356,7 @@ void VarHandleGuards::guard_LII_V($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 bool VarHandleGuards::guard_LIII_Z($VarHandle* handle, Object$* arg0, int32_t arg1, int32_t arg2, int32_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1312,6 +1367,7 @@ bool VarHandleGuards::guard_LIII_Z($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 int32_t VarHandleGuards::guard_LIII_I($VarHandle* handle, Object$* arg0, int32_t arg1, int32_t arg2, int32_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1322,6 +1378,7 @@ int32_t VarHandleGuards::guard_LIII_I($VarHandle* handle, Object$* arg0, int32_t
 }
 
 int64_t VarHandleGuards::guard_LI_J($VarHandle* handle, Object$* arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1332,6 +1389,7 @@ int64_t VarHandleGuards::guard_LI_J($VarHandle* handle, Object$* arg0, int32_t a
 }
 
 void VarHandleGuards::guard_LIJ_V($VarHandle* handle, Object$* arg0, int32_t arg1, int64_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1347,6 +1405,7 @@ void VarHandleGuards::guard_LIJ_V($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 bool VarHandleGuards::guard_LIJJ_Z($VarHandle* handle, Object$* arg0, int32_t arg1, int64_t arg2, int64_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1357,6 +1416,7 @@ bool VarHandleGuards::guard_LIJJ_Z($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 int64_t VarHandleGuards::guard_LIJJ_J($VarHandle* handle, Object$* arg0, int32_t arg1, int64_t arg2, int64_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1367,6 +1427,7 @@ int64_t VarHandleGuards::guard_LIJJ_J($VarHandle* handle, Object$* arg0, int32_t
 }
 
 int64_t VarHandleGuards::guard_LIJ_J($VarHandle* handle, Object$* arg0, int32_t arg1, int64_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1377,6 +1438,7 @@ int64_t VarHandleGuards::guard_LIJ_J($VarHandle* handle, Object$* arg0, int32_t 
 }
 
 float VarHandleGuards::guard_LI_F($VarHandle* handle, Object$* arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1387,6 +1449,7 @@ float VarHandleGuards::guard_LI_F($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 void VarHandleGuards::guard_LIF_V($VarHandle* handle, Object$* arg0, int32_t arg1, float arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1402,6 +1465,7 @@ void VarHandleGuards::guard_LIF_V($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 bool VarHandleGuards::guard_LIFF_Z($VarHandle* handle, Object$* arg0, int32_t arg1, float arg2, float arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1412,6 +1476,7 @@ bool VarHandleGuards::guard_LIFF_Z($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 float VarHandleGuards::guard_LIFF_F($VarHandle* handle, Object$* arg0, int32_t arg1, float arg2, float arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1422,6 +1487,7 @@ float VarHandleGuards::guard_LIFF_F($VarHandle* handle, Object$* arg0, int32_t a
 }
 
 float VarHandleGuards::guard_LIF_F($VarHandle* handle, Object$* arg0, int32_t arg1, float arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $floatValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1432,6 +1498,7 @@ float VarHandleGuards::guard_LIF_F($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 double VarHandleGuards::guard_LI_D($VarHandle* handle, Object$* arg0, int32_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1442,6 +1509,7 @@ double VarHandleGuards::guard_LI_D($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 void VarHandleGuards::guard_LID_V($VarHandle* handle, Object$* arg0, int32_t arg1, double arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1457,6 +1525,7 @@ void VarHandleGuards::guard_LID_V($VarHandle* handle, Object$* arg0, int32_t arg
 }
 
 bool VarHandleGuards::guard_LIDD_Z($VarHandle* handle, Object$* arg0, int32_t arg1, double arg2, double arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1467,6 +1536,7 @@ bool VarHandleGuards::guard_LIDD_Z($VarHandle* handle, Object$* arg0, int32_t ar
 }
 
 double VarHandleGuards::guard_LIDD_D($VarHandle* handle, Object$* arg0, int32_t arg1, double arg2, double arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1477,6 +1547,7 @@ double VarHandleGuards::guard_LIDD_D($VarHandle* handle, Object$* arg0, int32_t 
 }
 
 double VarHandleGuards::guard_LID_D($VarHandle* handle, Object$* arg0, int32_t arg1, double arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $doubleValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1487,6 +1558,7 @@ double VarHandleGuards::guard_LID_D($VarHandle* handle, Object$* arg0, int32_t a
 }
 
 int32_t VarHandleGuards::guard_LJ_I($VarHandle* handle, Object$* arg0, int64_t arg1, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1497,6 +1569,7 @@ int32_t VarHandleGuards::guard_LJ_I($VarHandle* handle, Object$* arg0, int64_t a
 }
 
 void VarHandleGuards::guard_LJI_V($VarHandle* handle, Object$* arg0, int64_t arg1, int32_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1512,6 +1585,7 @@ void VarHandleGuards::guard_LJI_V($VarHandle* handle, Object$* arg0, int64_t arg
 }
 
 bool VarHandleGuards::guard_LJII_Z($VarHandle* handle, Object$* arg0, int64_t arg1, int32_t arg2, int32_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1522,6 +1596,7 @@ bool VarHandleGuards::guard_LJII_Z($VarHandle* handle, Object$* arg0, int64_t ar
 }
 
 int32_t VarHandleGuards::guard_LJII_I($VarHandle* handle, Object$* arg0, int64_t arg1, int32_t arg2, int32_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1532,6 +1607,7 @@ int32_t VarHandleGuards::guard_LJII_I($VarHandle* handle, Object$* arg0, int64_t
 }
 
 int32_t VarHandleGuards::guard_LJI_I($VarHandle* handle, Object$* arg0, int64_t arg1, int32_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $intValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1542,6 +1618,7 @@ int32_t VarHandleGuards::guard_LJI_I($VarHandle* handle, Object$* arg0, int64_t 
 }
 
 void VarHandleGuards::guard_LJJ_V($VarHandle* handle, Object$* arg0, int64_t arg1, int64_t arg2, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		$MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $($of($nc(handle->vform)->getMemberName(ad->mode)))}));
@@ -1557,6 +1634,7 @@ void VarHandleGuards::guard_LJJ_V($VarHandle* handle, Object$* arg0, int64_t arg
 }
 
 bool VarHandleGuards::guard_LJJJ_Z($VarHandle* handle, Object$* arg0, int64_t arg1, int64_t arg2, int64_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $booleanValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));
@@ -1567,6 +1645,7 @@ bool VarHandleGuards::guard_LJJJ_Z($VarHandle* handle, Object$* arg0, int64_t ar
 }
 
 int64_t VarHandleGuards::guard_LJJJ_J($VarHandle* handle, Object$* arg0, int64_t arg1, int64_t arg2, int64_t arg3, $VarHandle$AccessDescriptor* ad) {
+	$useLocalCurrentObjectStackCache();
 	$nc(handle)->checkExactAccessMode(ad);
 	if (handle->isDirect() && $nc($nc(handle->vform)->methodType_table)->get($nc(ad)->type) == ad->symbolicMethodTypeErased) {
 		return $longValue($MethodHandle::linkToStatic($$new($ObjectArray, {$of(handle), arg0, $$of(arg1), $$of(arg2), $$of(arg3), $($of($nc(handle->vform)->getMemberName(ad->mode)))})));

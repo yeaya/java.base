@@ -47,6 +47,7 @@ void textToNumericFormat::init$() {
 }
 
 void textToNumericFormat::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($List, goodList, $new($ArrayList));
 	$var($List, badList, $new($ArrayList));
 	$var($StringArray, goodAddrs, $new($StringArray, {

@@ -115,6 +115,7 @@ void WhileOps$1::init$($AbstractPipeline* upstream, $StreamShape* inputShape, in
 }
 
 $Spliterator* WhileOps$1::opEvaluateParallelLazy($PipelineHelper* helper, $Spliterator* spliterator) {
+	$useLocalCurrentObjectStackCache();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::ORDERED->isKnown($nc(helper)->getStreamAndOpFlags())) {
 		return $nc($(opEvaluateParallel(helper, spliterator, $($Nodes::castingArray()))))->spliterator();

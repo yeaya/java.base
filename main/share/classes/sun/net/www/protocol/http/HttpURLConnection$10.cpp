@@ -81,6 +81,7 @@ void HttpURLConnection$10::init$($HttpURLConnection* this$0, $IOException* val$r
 }
 
 $Object* HttpURLConnection$10::run() {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($String);
 	return $of($cast($IOException, $nc($($nc($of(this->val$rememberedException))->getClass()->getConstructor($$new($ClassArray, {$String::class$}))))->newInstance(this->val$args)));

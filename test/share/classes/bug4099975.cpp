@@ -42,6 +42,7 @@ void bug4099975::init$() {
 }
 
 void bug4099975::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($DateFormatSymbols, symbols, $new($DateFormatSymbols));
 	$var($SimpleDateFormat, df, $new($SimpleDateFormat, "E hh:mm"_s, symbols));
 	$init($System);

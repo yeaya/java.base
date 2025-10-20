@@ -254,6 +254,7 @@ int64_t VarHandleByteArrayAsChars$ByteBufferHandle::address($ByteBuffer* bb, int
 
 char16_t VarHandleByteArrayAsChars$ByteBufferHandle::get($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -267,6 +268,7 @@ char16_t VarHandleByteArrayAsChars$ByteBufferHandle::get($VarHandle* ob, Object$
 
 void VarHandleByteArrayAsChars$ByteBufferHandle::set($VarHandle* ob, Object$* obb, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -280,6 +282,7 @@ void VarHandleByteArrayAsChars$ByteBufferHandle::set($VarHandle* ob, Object$* ob
 
 char16_t VarHandleByteArrayAsChars$ByteBufferHandle::getVolatile($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -292,6 +295,7 @@ char16_t VarHandleByteArrayAsChars$ByteBufferHandle::getVolatile($VarHandle* ob,
 
 void VarHandleByteArrayAsChars$ByteBufferHandle::setVolatile($VarHandle* ob, Object$* obb, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -305,6 +309,7 @@ void VarHandleByteArrayAsChars$ByteBufferHandle::setVolatile($VarHandle* ob, Obj
 
 char16_t VarHandleByteArrayAsChars$ByteBufferHandle::getAcquire($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -317,6 +322,7 @@ char16_t VarHandleByteArrayAsChars$ByteBufferHandle::getAcquire($VarHandle* ob, 
 
 void VarHandleByteArrayAsChars$ByteBufferHandle::setRelease($VarHandle* ob, Object$* obb, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -330,6 +336,7 @@ void VarHandleByteArrayAsChars$ByteBufferHandle::setRelease($VarHandle* ob, Obje
 
 char16_t VarHandleByteArrayAsChars$ByteBufferHandle::getOpaque($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);
@@ -342,6 +349,7 @@ char16_t VarHandleByteArrayAsChars$ByteBufferHandle::getOpaque($VarHandle* ob, O
 
 void VarHandleByteArrayAsChars$ByteBufferHandle::setOpaque($VarHandle* ob, Object$* obb, int32_t index, char16_t value) {
 	$init(VarHandleByteArrayAsChars$ByteBufferHandle);
+	$useLocalCurrentObjectStackCache();
 	$var(VarHandleByteArrayAsChars$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsChars$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsChars);

@@ -50,6 +50,7 @@ void DestroyTest::init$() {
 }
 
 $ProcessTest* DestroyTest::getTest() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if ($nc(osName)->startsWith("Windows"_s)) {
 		return $new($WindowsTest);
@@ -66,6 +67,7 @@ $ProcessTest* DestroyTest::getTest() {
 }
 
 void DestroyTest::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	$var($ProcessTest, test, getTest());
 	if (test == nullptr) {
 		$throwNew($RuntimeException, "Unrecognised OS"_s);

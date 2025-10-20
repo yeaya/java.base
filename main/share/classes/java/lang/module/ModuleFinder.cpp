@@ -129,6 +129,7 @@ $Object* allocate$ModuleFinder($Class* clazz) {
 
 ModuleFinder* ModuleFinder::ofSystem() {
 	$load(ModuleFinder);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {

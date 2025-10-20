@@ -94,6 +94,7 @@ bool RevocationChecker$RejectKeySelector::match($Certificate* cert) {
 }
 
 $String* RevocationChecker$RejectKeySelector::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("RejectKeySelector: [\n"_s);
 	sb->append($($X509CertSelector::toString()));

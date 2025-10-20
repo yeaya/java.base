@@ -121,6 +121,7 @@ $ClassArray* UnresolvedPermission::PARAMS1 = nullptr;
 $ClassArray* UnresolvedPermission::PARAMS2 = nullptr;
 
 void UnresolvedPermission::init$($String* type, $String* name, $String* actions, $CertificateArray* certs) {
+	$useLocalCurrentObjectStackCache();
 	$Permission::init$(type);
 	if (type == nullptr) {
 		$throwNew($NullPointerException, "type can\'t be null"_s);
@@ -166,6 +167,7 @@ void UnresolvedPermission::init$($String* type, $String* name, $String* actions,
 }
 
 $Permission* UnresolvedPermission::resolve($Permission* p, $CertificateArray* certs) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	if (this->certs != nullptr) {
 		if (certs == nullptr) {
@@ -349,6 +351,7 @@ $PermissionCollection* UnresolvedPermission::newPermissionCollection() {
 }
 
 void UnresolvedPermission::writeObject($ObjectOutputStream* oos) {
+	$useLocalCurrentObjectStackCache();
 	$nc(oos)->defaultWriteObject();
 	if (this->certs == nullptr || $nc(this->certs)->length == 0) {
 		oos->writeInt(0);
@@ -370,6 +373,7 @@ void UnresolvedPermission::writeObject($ObjectOutputStream* oos) {
 }
 
 void UnresolvedPermission::readObject($ObjectInputStream* ois) {
+	$useLocalCurrentObjectStackCache();
 	$var($CertificateFactory, cf, nullptr);
 	$var($Hashtable, cfs, nullptr);
 	$var($List, certList, nullptr);

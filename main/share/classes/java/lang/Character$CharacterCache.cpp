@@ -67,6 +67,7 @@ void Character$CharacterCache::init$() {
 }
 
 void clinit$Character$CharacterCache($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	{
 		int32_t size = 127 + 1;
 		$CDS::initializeFromArchive(Character$CharacterCache::class$);

@@ -69,6 +69,7 @@ void Attack::Attack$() {
 }
 
 void Attack::run() {
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($Throwable, var$0, nullptr);
 		try {

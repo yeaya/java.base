@@ -140,6 +140,7 @@ void SimpleVerifier::setClassLoader($ClassLoader* loader) {
 }
 
 $1Value* SimpleVerifier::newValue($Type* type) {
+	$useLocalCurrentObjectStackCache();
 	if (type == nullptr) {
 		$init($BasicValue);
 		return $BasicValue::UNINITIALIZED_VALUE;
@@ -193,6 +194,7 @@ bool SimpleVerifier::isArrayValue($BasicValue* value) {
 }
 
 $BasicValue* SimpleVerifier::getElementValue($BasicValue* objectArrayValue) {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, arrayType, $nc(objectArrayValue)->getType());
 	if (arrayType != nullptr) {
 		if (arrayType->getSort() == $Type::ARRAY) {
@@ -208,6 +210,7 @@ $BasicValue* SimpleVerifier::getElementValue($BasicValue* objectArrayValue) {
 }
 
 bool SimpleVerifier::isSubTypeOf($BasicValue* value, $BasicValue* expected) {
+	$useLocalCurrentObjectStackCache();
 	$var($Type, expectedType, $nc(expected)->getType());
 	$var($Type, type, $nc(value)->getType());
 	switch ($nc(expectedType)->getSort()) {
@@ -252,6 +255,7 @@ bool SimpleVerifier::isSubTypeOf($BasicValue* value, $BasicValue* expected) {
 }
 
 $BasicValue* SimpleVerifier::merge($BasicValue* value1, $BasicValue* value2) {
+	$useLocalCurrentObjectStackCache();
 	if (!$nc(value1)->equals(value2)) {
 		$var($Type, type1, value1->getType());
 		$var($Type, type2, $nc(value2)->getType());
@@ -309,6 +313,7 @@ $BasicValue* SimpleVerifier::merge($BasicValue* value1, $BasicValue* value2) {
 }
 
 $BasicValue* SimpleVerifier::newArrayValue($Type* type, int32_t dimensions) {
+	$useLocalCurrentObjectStackCache();
 	if (dimensions == 0) {
 		return $cast($BasicValue, newValue(type));
 	} else {
@@ -337,6 +342,7 @@ $Type* SimpleVerifier::getSuperClass($Type* type) {
 }
 
 bool SimpleVerifier::isAssignableFrom($Type* type1, $Type* type2) {
+	$useLocalCurrentObjectStackCache();
 	if ($nc(type1)->equals(type2)) {
 		return true;
 	}
@@ -374,6 +380,7 @@ bool SimpleVerifier::isAssignableFrom($Type* type1, $Type* type2) {
 }
 
 $Class* SimpleVerifier::getClass($Type* type) {
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		if ($nc(type)->getSort() == $Type::ARRAY) {

@@ -172,6 +172,7 @@ $MethodHandle* MethodTypeForm::cachedMethodHandle(int32_t which) {
 
 $MethodHandle* MethodTypeForm::setCachedMethodHandle(int32_t which, $MethodHandle* mh) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($SoftReference, entry, $nc(this->methodHandles)->get(which));
 		if (entry != nullptr) {
 			$var($MethodHandle, prev, $cast($MethodHandle, entry->get()));
@@ -191,6 +192,7 @@ $LambdaForm* MethodTypeForm::cachedLambdaForm(int32_t which) {
 
 $LambdaForm* MethodTypeForm::setCachedLambdaForm(int32_t which, $LambdaForm* form) {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		$var($SoftReference, entry, $nc(this->lambdaForms)->get(which));
 		if (entry != nullptr) {
 			$var($LambdaForm, prev, $cast($LambdaForm, entry->get()));
@@ -204,6 +206,7 @@ $LambdaForm* MethodTypeForm::setCachedLambdaForm(int32_t which, $LambdaForm* for
 }
 
 void MethodTypeForm::init$($MethodType* erasedType) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, erasedType$, erasedType);
 	$var($ClassArray, ptypes, $nc(erasedType)->ptypes());
 	int32_t pslotCount = $nc(ptypes)->length;
@@ -287,6 +290,7 @@ MethodTypeForm* MethodTypeForm::findForm($MethodType* mt) {
 
 $MethodType* MethodTypeForm::canonicalize($MethodType* mt, int32_t how) {
 	$init(MethodTypeForm);
+	$useLocalCurrentObjectStackCache();
 	$var($ClassArray, ptypes, $nc(mt)->ptypes());
 	$var($ClassArray, ptypesCanonical, canonicalizeAll(ptypes, how));
 	$Class* rtype = $cast($Class, mt->returnType());

@@ -44,6 +44,7 @@ void CachedUnknownHostName::init$() {
 }
 
 void CachedUnknownHostName::main($StringArray* argv) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, hostname, $new($String, "bogusHostName"_s));
 	try {
 		$InetAddress::getByName(hostname);

@@ -80,6 +80,7 @@ void ParallelProbes$1::init$($ParallelProbes* this$0, $Path* val$p) {
 }
 
 void ParallelProbes$1::run() {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < 1000; ++i) {
 		try {
 			$init($System);

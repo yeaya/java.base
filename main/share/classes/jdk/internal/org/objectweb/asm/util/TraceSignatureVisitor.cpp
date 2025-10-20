@@ -196,6 +196,7 @@ $SignatureVisitor* TraceSignatureVisitor::visitExceptionType() {
 }
 
 void TraceSignatureVisitor::visitBaseType(char16_t descriptor) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, baseType, $cast($String, $nc(TraceSignatureVisitor::BASE_TYPES)->get($($Character::valueOf(descriptor)))));
 	if (baseType == nullptr) {
 		$throwNew($IllegalArgumentException);
@@ -217,6 +218,7 @@ $SignatureVisitor* TraceSignatureVisitor::visitArrayType() {
 }
 
 void TraceSignatureVisitor::visitClassType($String* name) {
+	$useLocalCurrentObjectStackCache();
 	if ("java/lang/Object"_s->equals(name)) {
 		bool needObjectClass = this->argumentStack % 2 != 0 || this->parameterTypeVisited;
 		if (needObjectClass) {
@@ -309,6 +311,7 @@ void TraceSignatureVisitor::endType() {
 }
 
 void clinit$TraceSignatureVisitor($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(TraceSignatureVisitor::COMMA_SEPARATOR, ", "_s);
 	$assignStatic(TraceSignatureVisitor::EXTENDS_SEPARATOR, " extends "_s);
 	$assignStatic(TraceSignatureVisitor::IMPLEMENTS_SEPARATOR, " implements "_s);

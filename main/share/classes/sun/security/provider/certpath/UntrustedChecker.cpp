@@ -81,6 +81,7 @@ $Set* UntrustedChecker::getSupportedExtensions() {
 }
 
 void UntrustedChecker::check($Certificate* cert, $Collection* unresolvedCritExts) {
+	$useLocalCurrentObjectStackCache();
 	$var($X509Certificate, currCert, $cast($X509Certificate, cert));
 	if ($UntrustedCertificates::isUntrusted(currCert)) {
 		if (UntrustedChecker::debug != nullptr) {

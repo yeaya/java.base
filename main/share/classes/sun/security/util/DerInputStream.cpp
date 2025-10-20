@@ -221,6 +221,7 @@ int32_t DerInputStream::peekByte() {
 }
 
 int32_t DerInputStream::getLength($InputStream* in) {
+	$useLocalCurrentObjectStackCache();
 	int32_t lenByte = $nc(in)->read();
 	if (lenByte == -1) {
 		$throwNew($IOException, "Short read of DER length"_s);

@@ -141,6 +141,7 @@ $Object* ArrayList$SubList$1::previous() {
 }
 
 void ArrayList$SubList$1::forEachRemaining($Consumer* action) {
+	$useLocalCurrentObjectStackCache();
 	$Objects::requireNonNull(action);
 	int32_t size = this->this$0->size$;
 	int32_t i = this->cursor;

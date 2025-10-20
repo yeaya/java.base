@@ -169,6 +169,7 @@ $Debug* SignatureFileVerifier::debug = nullptr;
 $String* SignatureFileVerifier::ATTR_DIGEST = nullptr;
 
 void SignatureFileVerifier::init$($ArrayList* signerCache, $ManifestDigester* md, $String* name, $bytes* rawBytes) {
+	$useLocalCurrentObjectStackCache();
 	this->workaround = false;
 	$set(this, certificateFactory, nullptr);
 	$set(this, permittedAlgs, $new($HashMap));
@@ -217,6 +218,7 @@ bool SignatureFileVerifier::isBlockOrSF($String* s) {
 
 $String* SignatureFileVerifier::getBlockExtension($PrivateKey* key) {
 	$init(SignatureFileVerifier);
+	$useLocalCurrentObjectStackCache();
 	$init($Locale);
 	$var($String, keyAlgorithm, $nc($($nc(key)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
 	if (keyAlgorithm->equals("RSASSA-PSS"_s)) {
@@ -234,6 +236,7 @@ $String* SignatureFileVerifier::getBlockExtension($PrivateKey* key) {
 
 bool SignatureFileVerifier::isSigningRelated($String* name$renamed) {
 	$init(SignatureFileVerifier);
+	$useLocalCurrentObjectStackCache();
 	$var($String, name, name$renamed);
 	$init($Locale);
 	$assign(name, $nc(name)->toUpperCase($Locale::ENGLISH));
@@ -284,6 +287,7 @@ $MessageDigest* SignatureFileVerifier::getDigest($String* algorithm) {
 }
 
 void SignatureFileVerifier::process($Hashtable* signers, $List* manifestDigests, $String* manifestName) {
+	$useLocalCurrentObjectStackCache();
 	$var($Object, obj, nullptr);
 	{
 		$var($Throwable, var$0, nullptr);
@@ -302,6 +306,7 @@ void SignatureFileVerifier::process($Hashtable* signers, $List* manifestDigests,
 }
 
 void SignatureFileVerifier::processImpl($Hashtable* signers, $List* manifestDigests, $String* manifestName) {
+	$useLocalCurrentObjectStackCache();
 	$var($Manifest, sf, $new($Manifest));
 	sf->read($$new($ByteArrayInputStream, this->sfBytes));
 	$init($Attributes$Name);
@@ -356,6 +361,7 @@ void SignatureFileVerifier::processImpl($Hashtable* signers, $List* manifestDige
 }
 
 bool SignatureFileVerifier::permittedCheck($String* key, $String* algorithm) {
+	$useLocalCurrentObjectStackCache();
 	$var($Boolean, permitted, $cast($Boolean, $nc(this->permittedAlgs)->get(algorithm)));
 	if (permitted == nullptr) {
 		try {
@@ -384,6 +390,7 @@ bool SignatureFileVerifier::permittedCheck($String* key, $String* algorithm) {
 }
 
 $String* SignatureFileVerifier::getWeakAlgorithms($String* header) {
+	$useLocalCurrentObjectStackCache();
 	$var($String, w, ""_s);
 	try {
 		{
@@ -410,6 +417,7 @@ $String* SignatureFileVerifier::getWeakAlgorithms($String* header) {
 }
 
 bool SignatureFileVerifier::verifyManifestHash($Manifest* sf, $ManifestDigester* md, $List* manifestDigests) {
+	$useLocalCurrentObjectStackCache();
 	$var($Attributes, mattr, $nc(sf)->getMainAttributes());
 	bool manifestSigned = false;
 	bool weakAlgs = true;
@@ -468,6 +476,7 @@ bool SignatureFileVerifier::verifyManifestHash($Manifest* sf, $ManifestDigester*
 }
 
 bool SignatureFileVerifier::verifyManifestMainAttrs($Manifest* sf, $ManifestDigester* md) {
+	$useLocalCurrentObjectStackCache();
 	$var($Attributes, mattr, $nc(sf)->getMainAttributes());
 	bool attrsVerified = true;
 	bool weakAlgs = true;
@@ -531,6 +540,7 @@ bool SignatureFileVerifier::verifyManifestMainAttrs($Manifest* sf, $ManifestDige
 }
 
 bool SignatureFileVerifier::verifySection($Attributes* sfAttr, $String* name, $ManifestDigester* md) {
+	$useLocalCurrentObjectStackCache();
 	bool oneDigestVerified = false;
 	$var($ManifestDigester$Entry, mde, $nc(md)->get(name, $nc(this->block)->isOldStyle()));
 	bool weakAlgs = true;
@@ -612,6 +622,7 @@ bool SignatureFileVerifier::verifySection($Attributes* sfAttr, $String* name, $M
 }
 
 $CodeSignerArray* SignatureFileVerifier::getSigners($SignerInfoArray* infos, $PKCS7* block) {
+	$useLocalCurrentObjectStackCache();
 	$var($ArrayList, signers, nullptr);
 	for (int32_t i = 0; i < $nc(infos)->length; ++i) {
 		$var($SignerInfo, info, infos->get(i));
@@ -679,6 +690,7 @@ bool SignatureFileVerifier::matches($CodeSignerArray* signers, $CodeSignerArray*
 }
 
 void SignatureFileVerifier::updateSigners($CodeSignerArray* newSigners, $Hashtable* signers, $String* name) {
+	$useLocalCurrentObjectStackCache();
 	$var($CodeSignerArray, oldSigners, $cast($CodeSignerArray, $nc(signers)->get(name)));
 	$var($CodeSignerArray, cachedSigners, nullptr);
 	for (int32_t i = $nc(this->signerCache)->size() - 1; i != -1; --i) {

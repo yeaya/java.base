@@ -57,6 +57,7 @@ $ObjectArray2* Resources_ja::getContents() {
 }
 
 void clinit$Resources_ja($Class* class$) {
+	$useLocalCurrentObjectStackCache();
 	$assignStatic(Resources_ja::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("NEWLINE"_s),

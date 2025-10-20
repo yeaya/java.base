@@ -114,6 +114,7 @@ void LauncherHelper$SizePrefix::init$($String* $enum$name, int32_t $enum$ordinal
 
 $String* LauncherHelper$SizePrefix::scale(int64_t v, LauncherHelper$SizePrefix* prefix) {
 	$init(LauncherHelper$SizePrefix);
+	$useLocalCurrentObjectStackCache();
 	$init($RoundingMode);
 	return $str({$($nc($($nc($($BigDecimal::valueOf(v)))->divide($($BigDecimal::valueOf($nc(prefix)->size)), 2, $RoundingMode::HALF_EVEN)))->toPlainString()), $nc(prefix)->abbrev});
 }

@@ -167,6 +167,7 @@ bool StackTraceElement::isNativeMethod() {
 }
 
 $String* StackTraceElement::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, s, ""_s);
 	bool var$0 = !dropClassLoaderName() && this->classLoaderName != nullptr;
 	if (var$0 && !$nc(this->classLoaderName)->isEmpty()) {
@@ -216,6 +217,7 @@ int32_t StackTraceElement::hashCode() {
 
 void StackTraceElement::computeFormat() {
 	$synchronized(this) {
+		$useLocalCurrentObjectStackCache();
 		{
 			$var($Throwable, var$0, nullptr);
 			try {
@@ -261,6 +263,7 @@ bool StackTraceElement::isHashedInJavaBase($Module* m) {
 
 $StackTraceElementArray* StackTraceElement::of($Throwable* x, int32_t depth) {
 	$init(StackTraceElement);
+	$useLocalCurrentObjectStackCache();
 	$var($StackTraceElementArray, stackTrace, $new($StackTraceElementArray, depth));
 	for (int32_t i = 0; i < depth; ++i) {
 		stackTrace->set(i, $$new(StackTraceElement));

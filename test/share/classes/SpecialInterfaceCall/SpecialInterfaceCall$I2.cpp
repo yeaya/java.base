@@ -76,6 +76,7 @@ void SpecialInterfaceCall$I2::invokeSpecialMH(SpecialInterfaceCall$I2* i) {
 
 void SpecialInterfaceCall$I2::invokeSpecialObjectMH(SpecialInterfaceCall$I2* i) {
 	$init(SpecialInterfaceCall$I2);
+	$useLocalCurrentObjectStackCache();
 	$init($SpecialInterfaceCall);
 	$var($String, s, $cast($String, $nc($SpecialInterfaceCall::mh_I1_toString_from_I2)->invokeExact($$new($ObjectArray, {$of(i)}))));
 }

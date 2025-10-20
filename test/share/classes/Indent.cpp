@@ -180,6 +180,7 @@ void Indent::main($StringArray* args) {
 
 void Indent::test1() {
 	$init(Indent);
+	$useLocalCurrentObjectStackCache();
 	{
 		$var($ints, arr$, $new($ints, {
 			-8,
@@ -258,6 +259,7 @@ int32_t Indent::indexOfNonWhitespace($String* s) {
 
 $StringArray* Indent::getBody($StringArray* inLines) {
 	$init(Indent);
+	$useLocalCurrentObjectStackCache();
 	int32_t from = -1;
 	int32_t to = -1;
 	for (int32_t i = 0; i < $nc(inLines)->length; ++i) {
@@ -274,6 +276,7 @@ $StringArray* Indent::getBody($StringArray* inLines) {
 
 void Indent::report($String* test, $String* message, $String* input, $String* output) {
 	$init(Indent);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({"Testing "_s, test, ": "_s, message}));
 	$nc($System::err)->println();

@@ -75,6 +75,7 @@ void CloseTimeoutChannel::init$() {
 }
 
 void CloseTimeoutChannel::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
 	int32_t port = -1;
 	try {
 		$var($ServerSocketChannel, listener, $ServerSocketChannel::open());

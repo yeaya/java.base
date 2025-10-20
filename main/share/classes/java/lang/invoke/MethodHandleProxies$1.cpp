@@ -108,6 +108,7 @@ $Object* MethodHandleProxies$1::getArg($String* name) {
 }
 
 $Object* MethodHandleProxies$1::invoke(Object$* proxy, $Method* method, $ObjectArray* args) {
+	$useLocalCurrentObjectStackCache();
 	for (int32_t i = 0; i < $nc(this->val$methods)->length; ++i) {
 		if ($nc(method)->equals($nc(this->val$methods)->get(i))) {
 			return $of($nc($nc(this->val$vaTargets)->get(i))->invokeExact(args));

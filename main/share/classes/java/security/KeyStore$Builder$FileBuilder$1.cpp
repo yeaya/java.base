@@ -106,6 +106,7 @@ void KeyStore$Builder$FileBuilder$1::init$($KeyStore$Builder$FileBuilder* this$0
 }
 
 $Object* KeyStore$Builder$FileBuilder$1::run() {
+	$useLocalCurrentObjectStackCache();
 	if (!($instanceOf($KeyStore$CallbackHandlerProtection, this->this$0->protection))) {
 		return $of(run0());
 	}
@@ -126,6 +127,7 @@ $Object* KeyStore$Builder$FileBuilder$1::run() {
 }
 
 $KeyStore* KeyStore$Builder$FileBuilder$1::run0() {
+	$useLocalCurrentObjectStackCache();
 	$var($KeyStore, ks, nullptr);
 	$var($chars, password, nullptr);
 	if ($instanceOf($KeyStore$PasswordProtection, this->this$0->protection)) {

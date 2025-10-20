@@ -80,6 +80,7 @@ void LazyCodeSourcePermissionCollection::init$($PermissionCollection* perms, $Co
 }
 
 void LazyCodeSourcePermissionCollection::ensureAdded() {
+	$useLocalCurrentObjectStackCache();
 	if (!this->permissionAdded) {
 		$synchronized(this->perms) {
 			if (this->permissionAdded) {

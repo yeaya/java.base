@@ -101,6 +101,7 @@ $String* Cons::cvt($String* s) {
 
 $StringArray* Cons::slashPerms($String* s) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	if (!Cons::win32) {
 		return $new($StringArray, {s});
 	}
@@ -134,12 +135,14 @@ $String* Cons::nos($String* s) {
 
 void Cons::ok($String* ans, $String* exp) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$nc($System::err)->println($$str({$(nos(ans)), " <== "_s, exp}));
 }
 
 void Cons::err($String* ans, $String* exp, $String* got) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$init($System);
 	$var($String, var$0, $$str({$(nos(ans)), " <-- "_s, exp, " ==> "_s}));
 	$nc($System::err)->println($$concat(var$0, $(nos(got))));
@@ -165,6 +168,7 @@ $String* Cons::cons($String* arg) {
 
 $String* Cons::cons($String* arg1, $String* arg2) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"new File("_s, $(nos(arg1)), ", "_s}));
 	$var($String, var$0, $$concat(var$1, $(nos(arg2))));
 	return $concat(var$0, ")");
@@ -182,6 +186,7 @@ $String* Cons::op($String* exp, $String* opname) {
 
 void Cons::ckpnp($Cons$F* f, $String* parent, $String* name, $String* path) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, cvt(path));
 	$var($String, var$1, op($nc(f)->exp, "getPath"_s));
 	ck(var$0, var$1, $($nc(f)->getPath()));
@@ -195,6 +200,7 @@ void Cons::ckpnp($Cons$F* f, $String* parent, $String* name, $String* path) {
 
 void Cons::ck1($String* arg, $String* parent, $String* name, $String* path) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, parg, slashPerms(arg));
 	for (int32_t i = 0; i < $nc(parg)->length; ++i) {
 		ckpnp($$new($Cons$F, parg->get(i)), parent, name, path);
@@ -203,6 +209,7 @@ void Cons::ck1($String* arg, $String* parent, $String* name, $String* path) {
 
 void Cons::ck2($String* arg1, $String* arg2, $String* parent, $String* name, $String* path) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, parg1, slashPerms(arg1));
 	$var($StringArray, parg2, slashPerms(arg2));
 	for (int32_t i = 0; i < $nc(parg1)->length; ++i) {
@@ -214,6 +221,7 @@ void Cons::ck2($String* arg1, $String* arg2, $String* parent, $String* name, $St
 
 void Cons::ck2f($String* arg1, $String* arg2, $String* parent, $String* name, $String* path) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	$var($StringArray, parg1, slashPerms(arg1));
 	$var($StringArray, parg2, slashPerms(arg2));
 	for (int32_t i = 0; i < $nc(parg1)->length; ++i) {
@@ -284,6 +292,7 @@ void Cons::testBoth() {
 
 void Cons::testUnix() {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	if (!Cons::old) {
 		ck1("//"_s, nullptr, ""_s, "/"_s);
 	}
@@ -338,6 +347,7 @@ void Cons::testWin32() {
 
 void Cons::main($StringArray* args) {
 	$init(Cons);
+	$useLocalCurrentObjectStackCache();
 	Cons::old = $nc($($$new($File, "foo/"_s)->getPath()))->equals("foo/"_s);
 	if (Cons::old) {
 		$init($System);

@@ -71,6 +71,7 @@ void InitialValue::init$() {
 }
 
 void InitialValue::run() {
+	$useLocalCurrentObjectStackCache();
 	$var($InitialValue$MyLocal, l, $new($InitialValue$MyLocal, this));
 	$var($String, s1, $cast($String, l->get()));
 	$var($String, s2, $cast($String, $nc(InitialValue::other)->get()));
@@ -81,6 +82,7 @@ void InitialValue::run() {
 
 void InitialValue::main($StringArray* args) {
 	$init(InitialValue);
+	$useLocalCurrentObjectStackCache();
 	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new(InitialValue))));
 	t->start();
 	try {

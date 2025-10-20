@@ -103,6 +103,7 @@ bool ResolvedModule::equals(Object$* ob) {
 }
 
 $String* ResolvedModule::toString() {
+	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $$str({$$str($System::identityHashCode(this->cf)), "/"_s}));
 	return $concat(var$0, $(name()));
 }

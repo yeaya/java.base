@@ -187,6 +187,7 @@ bool ManifestDigester::findSection(int32_t offset, $ManifestDigester$Position* p
 }
 
 void ManifestDigester::init$($bytes* bytes) {
+	$useLocalCurrentObjectStackCache();
 	$set(this, entries, $new($HashMap));
 	$set(this, rawBytes, bytes);
 	$var($ManifestDigester$Position, pos, $new($ManifestDigester$Position));

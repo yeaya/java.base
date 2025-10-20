@@ -117,6 +117,7 @@ void Probe::init$() {
 
 void Probe::main($StringArray* args) {
 	$load(Probe);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Classes);
 	$var($Classes, classesAnnotation, $cast($Classes, Probe::class$->getAnnotation($Classes::class$)));
@@ -142,6 +143,7 @@ void Probe::main($StringArray* args) {
 
 int32_t Probe::probe($Class* c) {
 	$load(Probe);
+	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errs = 0;
 	try {
