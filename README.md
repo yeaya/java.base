@@ -87,7 +87,7 @@ To build the example/helloworld project, follow these steps:
 
 4. Build the java.base and install it to the repository:
    ```sh
-   cmake --build java.base.build --config Release --target install
+   cmake --build java.base.build --config Release --target install -j 8
    ```
 
 ## Basic Example

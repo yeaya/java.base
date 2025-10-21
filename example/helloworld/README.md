@@ -35,7 +35,7 @@ To build the example/helloworld project, follow these steps:
 
 4. Build the java.base and install it to the repository:
    ```sh
-   cmake --build java.base.build --config Release --target install
+   cmake --build java.base.build --config Release --target install -j 8
    ```
 
 5. Create a build directory for the helloworld example:
@@ -44,7 +44,8 @@ To build the example/helloworld project, follow these steps:
    ```
 6. Build the helloworld example:
    ```sh
-   cmake -S example/helloworld -B helloworld.build -DCMAKE_BUILD_TYPE=Release
+   cmake -S java.base/example/helloworld -B helloworld.build -DCMAKE_BUILD_TYPE=Release
+   ```
 
 7. Build the helloworld example:
    ```sh
