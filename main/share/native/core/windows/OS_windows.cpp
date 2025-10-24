@@ -120,6 +120,7 @@ void OS::initSystemProperties() {
 	{
 		char homeDir[MAX_PATH + 1];
 		OS::getJavaBasePath(homeDir, sizeof(homeDir));
+		Arguments::setJavaBasePath(homeDir);
 		char* pslash = strrchr(homeDir, '\\');
 		if (pslash != nullptr) {
 			*pslash = '\0';

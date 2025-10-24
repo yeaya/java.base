@@ -28,6 +28,7 @@ SystemProperty* Arguments::bootLibraryPath = nullptr;
 SystemProperty* Arguments::javaLibraryPath = nullptr;
 SystemProperty* Arguments::javaHome = nullptr;
 SystemProperty* Arguments::javaClassPath = nullptr;
+SystemProperty* Arguments::javaBasePath = nullptr;
 
 bool SystemProperty::setValue(const char* value) {
 	if (this->value != nullptr) {
@@ -68,7 +69,7 @@ SystemProperty::SystemProperty(const char* key, const char* value, bool writeabl
 }
 
 void Arguments::initSystemProperties() {
-	addToList(systemProperties, new SystemProperty("java.vm.specification.name", "Java Virtual Machine Specification", false));
+	systemProperties = new SystemProperty("java.vm.specification.name", "Java Virtual Machine Specification", false);
 
 	bootLibraryPath = new SystemProperty("sun.boot.library.path", nullptr, true);
 	javaLibraryPath = new SystemProperty("java.library.path", nullptr, true);
@@ -79,10 +80,12 @@ void Arguments::initSystemProperties() {
 	addToList(systemProperties, javaLibraryPath);
 	addToList(systemProperties, javaHome);
 	addToList(systemProperties, javaClassPath);
+
+	javaBasePath = new SystemProperty("java.base.path", "", true);
 }
 
 void Arguments::initVersionSpecificProperties() {
-	const char* spec_vendor = "Jcpp";
+	const char* spec_vendor = "libjdk";
 	const char* spec_version = "17";
 	addToList(systemProperties, new SystemProperty("java.vm.specification.vendor", spec_vendor, false));
 	addToList(systemProperties, new SystemProperty("java.vm.specification.version", spec_version, false));
@@ -98,14 +101,10 @@ int Arguments::countList(SystemProperty* list) {
 	return count;
 }
 
-void Arguments::addToList(SystemProperty*& list, SystemProperty* element) {
-	if (list == nullptr) {
-		list = element;
-	} else {
-		SystemProperty* p = list;
-		while (p->getNext() != nullptr) {
-			p = p->getNext();
-		}
-		p->setNext(element);
+void Arguments::addToList(SystemProperty* list, SystemProperty* element) {
+	SystemProperty* p = list;
+	while (p->getNext() != nullptr) {
+		p = p->getNext();
 	}
+	p->setNext(element);
 }

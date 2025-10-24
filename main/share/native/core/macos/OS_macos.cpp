@@ -90,6 +90,7 @@ void OS::initSystemProperties() {
 	char buf[MAXPATHLEN];
 	{
 		OS::getJavaBasePath(buf, sizeof(buf));
+		Arguments::setJavaBasePath(buf);
 		*(strrchr(buf, '/')) = '\0';
 		char* pslash = strrchr(buf, '/');
 		if (pslash != NULL) {

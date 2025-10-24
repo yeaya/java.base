@@ -97,6 +97,7 @@
 #include <java/lang/Logger.h>
 #include <java.base.h>
 #include "Platform.h"
+#include "core/Arguments.h"
 #include <string.h>
 
 using namespace ::java::lang;
@@ -434,8 +435,8 @@ void Machine::init1() {
 		java$base::init();
 		baseLib = findLibByName(JAVA_BASE_LIB_NAME);
 		if (baseLib == nullptr) {
-			printf("can not find %s lib" JAVA_BASE_LIB_NAME);
-			log_error("can not find %s lib" JAVA_BASE_LIB_NAME);
+			printf("can not find %s lib", JAVA_BASE_LIB_NAME);
+			log_error("can not find %s lib", JAVA_BASE_LIB_NAME);
 			exit(1);
 		}
 	}
@@ -626,6 +627,16 @@ void Machine::init2() {
 	$var(File, f, $new<File>("jcpp.conf"_s));
 	if (!f->exists()) {
 		$assign(f, $new<File>("../conf/jcpp.conf"_s));
+		if (!f->exists()) {
+			const char* javaHome = Arguments::getJavaHome();
+			$assign(f, $new<File>($$str({ $$str(javaHome), "/conf/jcpp.conf"_s })));
+			if (!f->exists()) {
+				const char* javaBasePath = Arguments::getJavaBasePath();
+				$var(File, f0, $new(File, $str(javaBasePath)));
+				$var(String, dir, f0->getParent());
+				$assign(f, $new<File>($$str({ dir, "/jcpp.conf"_s })));
+			}
+		}
 	}
 	if (f->exists() && f->isFile() && f->canRead()) {
 		$var(FileInputStream, fis, $new<FileInputStream>(f));

@@ -49,19 +49,22 @@ public:
 	}
 	static void initSystemProperties();
 	static void initVersionSpecificProperties();
-	static void addToList(SystemProperty*& list, SystemProperty* element);
+	static void addToList(SystemProperty* list, SystemProperty* element);
 	static int countList(SystemProperty* list);
 	static void setBootLibraryPath(const char* value) { bootLibraryPath->setValue(value); }
 	static void setJavaHome(const char* value) { javaHome->setValue(value); }
 	static void setJavaLibraryPath(const char* value) { javaLibraryPath->setValue(value); }
 	static char* getJavaHome() { return javaHome->getValue(); }
 	static char* getBootLibraryPath() { return bootLibraryPath->getValue(); }
+	static void setJavaBasePath(const char* value) { javaBasePath->setValue(value); }
+	static char* getJavaBasePath() { return javaBasePath->getValue(); }
 private:
 	static SystemProperty* systemProperties;
 	static SystemProperty* bootLibraryPath;
 	static SystemProperty* javaLibraryPath;
 	static SystemProperty* javaHome;
 	static SystemProperty* javaClassPath;
+	static SystemProperty* javaBasePath;
 };
 
 #endif // _core_Arguments_h_
